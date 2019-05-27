@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/24/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 88123cc24359daaf1c6fc7e3ceeed8f77f717c9a
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: f4f2b93316c87a5e8ba572ca2b584dbd13f6536c
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65228022"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956952"
 ---
 # <a name="manage-user-access-in-azure-active-directory-b2c"></a>Gérer l’accès utilisateur dans Azure Active Directory B2C
 
@@ -38,7 +38,7 @@ Si un utilisateur est identifié comme mineur, vous pouvez définir le flux util
 
 - **Envoyer un jeton JSON non signé à l’application** : Azure AD B2C indique à l’application que l’utilisateur est mineur, et fournit l’état de consentement parental de l’utilisateur. L’application continue à s’exécuter conformément aux règles d’entreprise. Un jeton JSON ne permet pas d’effectuer une authentification réussie avec l’application. L’application doit traiter l’utilisateur non authentifié conformément aux revendications incluses dans le jeton JSON, qui peut inclure **name**, **email**, **ageGroup** et **consentProvidedForMinor**.
 
-- **Bloquer l’utilisateur** : Si un utilisateur est mineur et que le consentement parental n’a pas été donné, Azure AD B2C peut avertir l’utilisateur qu’il ou elle est bloqué(e). Aucun jeton n’est émis, l’accès est bloqué et le compte d’utilisateur n’est pas créé au moment de l’inscription. Pour implémenter cette notification, vous fournissez une page de contenu HTML/CSS appropriée afin d’informer l’utilisateur et de présenter les options appropriées. Aucune action supplémentaire émanant de l’application n’est requise pour les nouvelles inscriptions.
+- **Bloquer l’utilisateur** : Si un utilisateur est mineur et consentement parental n’a pas été fourni, Azure AD B2C peut avertir l’utilisateur qu’ils sont bloqués. Aucun jeton n’est émis, l’accès est bloqué et le compte d’utilisateur n’est pas créé au moment de l’inscription. Pour implémenter cette notification, vous fournissez une page de contenu HTML/CSS appropriée afin d’informer l’utilisateur et de présenter les options appropriées. Aucune action supplémentaire émanant de l’application n’est requise pour les nouvelles inscriptions.
 
 ## <a name="get-parental-consent"></a>Obtenir le consentement parental
 
@@ -48,7 +48,7 @@ Voici un exemple de flux utilisateur pour le recueil du consentement parental :
 
 1. Une opération d’[API Graph Azure Active Directory](/previous-versions/azure/ad/graph/api/api-catalog) identifie l’utilisateur en tant que mineur et retourne les données utilisateur à l’application sous la forme d’un jeton JSON non signé.
 
-2. L’application traite le jeton JSON et affiche un écran à l’intention du mineur pour l’informer de la nécessité du consentement parental et demander le consentement parental en ligne. 
+2. L’application traite le jeton JSON et affiche un écran à mineure, pour les informer que le consentement parental est nécessaire et en demandant le consentement d’un parent en ligne. 
 
 3. Azure AD B2C affiche un parcours d’authentification que l’utilisateur peut suivre pour se connecter normalement, et émet un jeton à l’application qui doit inclure **legalAgeGroupClassification = “minorWithParentalConsent”**. L’application collecte l’adresse e-mail du parent et vérifie que ce dernier est un adulte. Pour ce faire, elle fait appel à une source de confiance, par exemple un bureau des cartes d’identité, la vérification du permis de conduire ou une preuve de possession d’une carte de crédit. Si la vérification réussit, l’application demande au mineur de se connecter à l’aide du flux utilisateur Azure AD B2C. Si le consentement est refusé (par exemple, si **legalAgeGroupClassification = "minorWithoutParentalConsent"**), Azure AD B2C retourne un jeton JSON (et non un compte de connexion) à destination de l’application afin de recommencer le processus de consentement. Il est possible de personnaliser le flux utilisateur de façon à ce qu’un mineur ou un adulte puisse récupérer l’accès au compte d’un mineur en envoyant un code d’inscription à l’adresse e-mail du mineur ou à l’adresse e-mail de l’adulte enregistré.
 

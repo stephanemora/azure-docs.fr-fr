@@ -4,15 +4,15 @@ ms.author: diberry
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/07/2019
-ms.openlocfilehash: 19726330561abfad08aec3c4908c855616c6ee29
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
-ms.translationtype: MT
+ms.openlocfilehash: 327654ca06a3997855d904414fa4258491ee6c88
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65520874"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66124315"
 ---
-### <a name="running-multiple-containers-on-the-same-host"></a>Plusieurs conteneurs en cours d’exécution sur le même hôte
+### <a name="run-multiple-containers-on-the-same-host"></a>Exécuter plusieurs conteneurs sur le même hôte
 
-Si vous envisagez d’exécuter plusieurs conteneurs avec les ports exposés, veillez à exécuter chaque conteneur avec un autre port exposé. Par exemple, exécutez le premier conteneur sur le port 5000 et le second conteneur sur le port 5001.
+Si vous envisagez d’exécuter plusieurs conteneurs avec les ports exposés, veillez à exécuter chaque conteneur avec un port exposé différent. Par exemple, exécutez le premier conteneur sur le port 5000 et le second conteneur sur le port 5001.
 
-Vous pouvez avoir ce conteneur et un autre conteneur de Service COGNITIF qui exécutent ensemble sur l’ordinateur hôte, ou vous pouvez avoir plusieurs conteneurs du même conteneur Cognitive Service en cours d’exécution.
+Vous pouvez avoir ce conteneur, et un autre conteneur Azure Cognitive Services qui s’exécutent ensemble sur l’hôte. Vous pouvez également disposer de plusieurs conteneurs du même conteneur Cognitive Services en cours d’exécution.

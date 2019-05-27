@@ -15,11 +15,11 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: include file
 ms.openlocfilehash: 0196d39f5b131bc54e00412beb7fdf10b7352336
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65075144"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66121855"
 ---
 ### <a name="authenticationresult-properties-in-msalnet"></a>Propriétés de AuthenticationResult dans MSAL.NET
 
@@ -27,7 +27,7 @@ Les méthodes pour acquérir des jetons retournent un `AuthenticationResult` (ou
 
 Dans MSAL.NET, `AuthenticationResult` expose :
 
-- `AccessToken` pour l’API Web pour accéder aux ressources. Ce paramètre est une chaîne, généralement un JWT en Base64, mais le client ne doit jamais se présenter à l’intérieur du jeton d’accès. Le format n’est pas garanti de demeurer stable et peuvent être chiffrées pour la ressource. Écriture de code de personnes en fonction du contenu des jetons access sur le client est un des plus grands sources d’erreurs et les sauts de logique de client. Voir aussi [jetons d’accès](../articles/active-directory/develop/access-tokens.md)
+- `AccessToken` pour l’API Web pour accéder aux ressources. Ce paramètre est une chaîne, généralement un JWT en Base64, mais le client ne doit jamais se présenter à l’intérieur du jeton d’accès. La stabilité du format n’est pas garantie et ce dernier peut être chiffré pour la ressource. L’écriture humaine de code qui dépend du contenu des jetons d’accès sur le client constitue l’une des sources d’erreurs et des ruptures de logique client les plus importantes. Voir aussi [jetons d’accès](../articles/active-directory/develop/access-tokens.md)
 - `IdToken` pour l’utilisateur (ce paramètre est un JWT encodée). Consultez [les jetons d’ID](../articles/active-directory/develop/id-tokens.md)
 - `ExpiresOn` Indique la date/heure expiration du jeton
 - `TenantId` contient le locataire dans lequel l’utilisateur a été trouvé. Pour les utilisateurs invités (scénarios d’Azure AD B2B), l’ID client est le locataire invité, pas le locataire unique.
@@ -37,14 +37,14 @@ Lorsque le jeton est remis pour un utilisateur, `AuthenticationResult` contient 
 
 ### <a name="iaccount"></a>IAccount
 
-MSAL.NET définit la notion de compte (via le `IAccount` interface). Cette modification avec rupture fournit la sémantique de droite : le fait que le même utilisateur peut avoir plusieurs comptes, dans Azure différents annuaires AD. Également MSAL.NET fournit de meilleures informations dans le cas de scénarios d’invité, comme les informations de compte de base sont fournies.
+MSAL.NET définit la notion de compte (via le `IAccount` interface). Ce changement cassant fournit la bonne sémantique : le fait que le même utilisateur puisse avoir plusieurs comptes, dans des annuaires Azure AD différents. Également MSAL.NET fournit de meilleures informations dans le cas de scénarios d’invité, comme les informations de compte de base sont fournies.
 Le diagramme suivant illustre la structure de la `IAccount` interface :
 
 ![image](https://user-images.githubusercontent.com/13203188/44657759-4f2df780-a9fe-11e8-97d1-1abbffade340.png)
 
 Le `AccountId` classe identifie un compte sur un client spécifique. Il possède les propriétés suivantes :
 
-| Propriété | Description |
+| Propriété | Description  |
 |----------|-------------|
 | `TenantId` | Une représentation de chaîne GUID, qui est l’ID du client où se trouve le compte. |
 | `ObjectId` | Représentation sous forme de chaîne pour un GUID, qui est l’ID de l’utilisateur propriétaire du compte dans le locataire. |
@@ -52,7 +52,7 @@ Le `AccountId` classe identifie un compte sur un client spécifique. Il possède
 
 Le `IAccount` interface représente des informations sur un seul compte. Le même utilisateur peut être présent dans les différents clients, autrement dit, un utilisateur peut avoir plusieurs comptes. Ses membres sont :
 
-| Propriété | Description |
+| Propriété | Description  |
 |----------|-------------|
 | `Username` | Une chaîne contenant la valeur peut être affichée au format de l’attribut UserPrincipalName (UPN), par exemple, john.doe@contoso.com. Cette chaîne peut être null, tandis que les HomeAccountId HomeAccountId.Identifier ne sont pas null. Cette propriété remplace la `DisplayableId` propriété du `IUser` dans les versions précédentes de MSAL.NET. |
 | `Environment` | Chaîne contenant le fournisseur d’identité pour ce compte, par exemple, `login.microsoftonline.com`. Cette propriété remplace la `IdentityProvider` propriété du `IUser`, sauf que `IdentityProvider` devait également des informations sur le client (en plus de l’environnement de cloud), tandis que la valeur est uniquement l’hôte. |

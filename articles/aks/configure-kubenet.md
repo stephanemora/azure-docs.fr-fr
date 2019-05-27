@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/31/2019
 ms.author: iainfou
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: 4d2ab19fafc265d70028d5ee192efc60a5a8eaff
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: a4ed3ec823982bf3977edf9939d98419e1c4b01f
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65073996"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956392"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Utiliser la mise en réseau kubenet avec vos propres plages d’adresses IP dans Azure Kubernetes Service (AKS)
 
@@ -21,7 +21,10 @@ Par défaut, les clusters AKS utilisent [kubenet][kubenet]. Par ailleurs, un ré
 
 Avec l’interface [Azure Container Networking Interface (CNI)][cni-networking], chaque pod reçoit une adresse IP du sous-réseau et est accessible directement. Ces adresses IP doivent être uniques dans votre espace réseau, et être planifiées à l’avance. Chaque nœud possède un paramètre de configuration pour le nombre maximal de pods qu’il prend en charge. Le nombre équivalent d’adresses IP par nœud est alors réservé à l’avance pour ce nœud. Cette approche nécessite davantage de planification. De plus, elle conduit souvent à l’épuisement des adresses IP ou à la nécessité de regénérer les clusters dans un sous-réseau plus vaste à mesure que vos demandes d’applications augmentent.
 
-Cet article vous montre comment utiliser la mise en réseau *kubenet* pour créer et utiliser un sous-réseau de réseau virtuel pour un cluster AKS. Pour plus d’informations sur les options et considérations relatives au réseau, consultez [Concepts de réseau pour Kubernetes et AKS][aks-network-concepts].
+Cet article vous montre comment utiliser la mise en réseau *kubenet* pour créer et utiliser un sous-réseau de réseau virtuel pour un cluster AKS. Pour plus d’informations sur les options et considérations relatives aux réseaux, consultez [Concepts de réseau pour Kubernetes et AKS][aks-network-concepts].
+
+> [!WARNING]
+> Pour utiliser des pools de nœuds Windows Server (actuellement en version préliminaire dans ACS), vous devez utiliser Azure CNI. L’utilisation de kubenet comme le modèle de réseau n’est pas disponible pour les conteneurs Windows Server.
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
@@ -149,6 +152,8 @@ Les plages d’adresses IP suivantes sont également définies dans le cadre du
     * Cette plage d’adresses doit être suffisamment grande pour contenir le nombre de nœuds que vous prévoyez d’obtenir par le biais d’un scale-up. Vous ne pouvez pas changer cette plage d’adresses une fois le cluster déployé si vous avez besoin de davantage d’adresses pour des nœuds supplémentaires.
     * La plage d’adresses IP de pod est utilisée pour attribuer un espace d’adressage  */24* pour chaque nœud du cluster. Dans l’exemple suivant, l’adresse *--pod-cidr* *192.168.0.0/16* attribue le premier nœud *192.168.0.0/24*, le deuxième nœud *192.168.1.0/24* et le troisième nœud *192.168.2.0/24*.
     * À mesure que le cluster est mis à l’échelle ou à niveau, la plateforme Azure continue d’attribuer une plage d’adresses IP de pod à chaque nouveau nœud.
+    
+* Le *--adresse du pont docker* permet aux nœuds AKS de communiquer avec la plateforme de gestion sous-jacente. Cette adresse IP ne doit pas être dans la plage d’adresses IP du réseau virtuel de votre cluster, ni chevaucher d’autres plages d’adresses actuellement utilisées sur votre réseau.
 
 ```azurecli-interactive
 az aks create \

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: automation
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: bf81b862f978d4baab0907dc9002564062ec5228
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 38b5b233d21c0c5d79d7bcb6a145e6232b238b0e
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60738892"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66133118"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions-from-an-azure-virtual-machine"></a>Intégrer les solutions Update Management, Change Tracking et Inventory à partir d’une machine virtuelle Azure
 
@@ -104,6 +104,8 @@ Si vous avez utilisé la solution Démarrer/arrêter des machines virtuelles pen
 * Start and stop VM runbook schedules (Démarrer et arrêter les planifications de Runbook de machine virtuelle)
 * Start and stop VM runbooks (Démarrer et arrêter les Runbooks de machine virtuelle)
 * variables
+
+Vous pouvez également vous pouvez également dissocier votre espace de travail à partir de votre compte Automation à partir de votre espace de travail Analytique de journal. Dans votre espace de travail, sélectionnez **compte Automation** sous **les ressources associées**. Dans la page compte Automation, sélectionnez **dissocier le compte**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

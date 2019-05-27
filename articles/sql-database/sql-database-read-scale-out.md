@@ -13,11 +13,11 @@ ms.reviewer: sstein, carlrab
 manager: craigg
 ms.date: 04/19/2019
 ms.openlocfilehash: cbcdcfd151951334246a4e85d9f521a15bb6269d
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60006146"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66146104"
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads"></a>Utilisez des réplicas en lecture seule aux charges de travail de l’équilibrage de charge des requêtes en lecture seule
 

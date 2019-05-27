@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 10/31/2016
 ms.author: mbullwin
 ms.openlocfilehash: 5dfbc6fa18b5d1b5b3058db14eb1232be27a0c40
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58481789"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66130985"
 ---
 # <a name="use-powershell-to-set-alerts-in-application-insights"></a>Utilisation de PowerShell pour la configuration d’alertes dans Application Insights
 
@@ -98,7 +98,7 @@ J’ai une application dans laquelle j’utilise [TrackMetric()](../../azure-mon
 La même règle peut être utilisée pour la métrique signalée à l’aide du [paramètre de mesure](../../azure-monitor/app/api-custom-events-metrics.md#properties) d’un autre appel de suivi tel que TrackEvent ou trackPageView.
 
 ## <a name="metric-names"></a>Noms de métrique
-| Nom de métrique | Nom d’écran | Description |
+| Nom de la métrique | Nom d’écran | Description  |
 | --- | --- | --- |
 | `basicExceptionBrowser.count` |Exceptions du navigateur |Nombre d’exceptions non interceptées levées dans le navigateur. |
 | `basicExceptionServer.count` |Exceptions de serveur |Nombre d’exceptions non gérées levées par l’application |
@@ -116,7 +116,7 @@ La même règle peut être utilisée pour la métrique signalée à l’aide du 
 | `performanceCounter.request_execution_time.value` |Durée d’exécution de la demande ASP.NET |Durée d’exécution de la demande la plus récente. |
 | `performanceCounter.requests_in_application_queue.value` |Demandes ASP.NET en file d’attente d’exécution |Longueur de la file d'attente des demandes d'application. |
 | `performanceCounter.requests_per_sec.value` |Taux de demandes ASP.NET |Taux par seconde de l'ensemble des demandes à l'application provenant d'ASP.NET. |
-| `remoteDependencyFailed.durationMetric.count` |Défaillances de dépendance |Nombre d'appels de l'application serveur aux ressources externes ayant échoué. |
+| `remoteDependencyFailed.durationMetric.count` |Échecs de dépendance |Nombre d'appels de l'application serveur aux ressources externes ayant échoué. |
 | `request.duration` |Temps de réponse du serveur |Temps écoulé entre la réception d'une requête HTTP et la fin de l'envoi de la réponse. |
 | `request.rate` |Taux de demandes |Taux par seconde de l'ensemble des demandes à l'application. |
 | `requestFailed.count` |Demandes ayant échoué |Nombre de requêtes HTTP qui ont abouti au code de réponse > = 400 |
@@ -127,7 +127,7 @@ Les mesures sont envoyées par différents modules de télémétrie :
 
 | Groupe de mesures | Module du collecteur |
 | --- | --- |
-| basicExceptionBrowser,<br/>clientPerformance,<br/>view |[JavaScript du navigateur](../../azure-monitor/app/javascript.md) |
+| basicExceptionBrowser,<br/>clientPerformance,<br/>afficher |[JavaScript du navigateur](../../azure-monitor/app/javascript.md) |
 | performanceCounter |[Performances](../../azure-monitor/app/configuration-with-applicationinsights-config.md) |
 | remoteDependencyFailed |[Dépendance](../../azure-monitor/app/configuration-with-applicationinsights-config.md) |
 | request,<br/>requestFailed |[Demande serveur](../../azure-monitor/app/configuration-with-applicationinsights-config.md) |
@@ -138,5 +138,5 @@ Vous pouvez [automatiser votre réponse à une alerte](../../azure-monitor/platf
 ## <a name="see-also"></a>Voir aussi
 * [Script de configuration d’Application Insights](powershell-script-create-resource.md)
 * [Créer des ressources Application Insights et de test Web à partir de modèles (en anglais)](powershell.md)
-* [Automatiser l’association de Microsoft Azure Diagnostics avec Application Insights](powershell-azure-diagnostics.md)
+* [Automatiser l’association de Diagnostics Microsoft Azure avec Application Insights](powershell-azure-diagnostics.md)
 * [Automatiser votre réponse à une alerte](../../azure-monitor/platform/alerts-webhooks.md)

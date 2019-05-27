@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: cephalin
 ms.openlocfilehash: 4ab12a4ccb3aa4acecabd076c774558f904297a1
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
-ms.translationtype: HT
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51572068"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66136231"
 ---
 Cet article concerne Azure App Service (Web Apps, API Apps, Mobile Apps, Logic Apps) ; pour Cloud Services, consultez [Configuration d’un nom de domaine personnalisé pour un service cloud Azure](../articles/cloud-services/cloud-services-custom-domain-name.md).
 

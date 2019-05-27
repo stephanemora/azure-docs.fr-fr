@@ -1,6 +1,6 @@
 - name: Documentation de l’API Recherche de vidéos Bing
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   expanded: true
   items:
     - name: "Qu’est-ce que l’API Recherche de vidéos Bing\_?"
@@ -102,3 +102,5 @@
       href: 'https://dev.cognitive.microsoft.com/docs/services/56b43f3ccf5ff8098cef3809/operations/58113fe5e31dac0a1ce6b0a8'
     - name: Analytique pour l’API Recherche de vidéos Bing
       href: bing-video-stats.md
+    - name: Conformité
+      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'

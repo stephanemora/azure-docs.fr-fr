@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 04/29/2019
+ms.date: 05/22/2019
 ms.author: jingwang
-ms.openlocfilehash: 6af5c8cdad00802052f08be844f77d36420da3c9
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 9f6edc45316eaeceb75da643ed64b39382712852
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65142368"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66165939"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Formats de fichier et codecs de compression pris en charge dans Azure Data Factory
 
@@ -29,7 +29,7 @@ Si vous souhaitez **copier des fichiers en l’état** entre des magasins de fic
 * [Format Avro](#avro-format)
 
 > [!TIP]
-> Découvrez comment l'activité mappe vos données source au récepteur à l'aide de la [Mappage de schéma dans l’activité de copie](copy-activity-schema-and-type-mapping.md), et comment les métadonnées sont déterminées en fonction de vos paramètres de format de fichier et des conseils sur la spécification de la section du [jeu de données`structure`](concepts-datasets-linked-services.md#dataset-structure-or-schema).
+> Découvrez comment l’activité de copie mappe vos données sources au récepteur de [mappage de schéma dans l’activité de copie](copy-activity-schema-and-type-mapping.md).
 
 ## <a name="text-format"></a>Format Texte
 

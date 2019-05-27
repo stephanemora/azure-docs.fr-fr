@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: apimpm
-ms.openlocfilehash: 7b5df31c3e1d07cc9ac93f73362e853fab728fa9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 0c1efa0e5cfa4bf31e58be64b3fe78075b79b515
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58793796"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66141687"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Comment implémenter une récupération d'urgence à l'aide d'une sauvegarde de service et la récupérer dans Gestion des API Azure
 
@@ -72,7 +72,7 @@ Toutes les tâches que vous effectuez sur les ressources à l’aide d’Azure R
 5. Choisissez **API de gestion des services Microsoft** **Azure**.
 6. Appuyez sur **Sélectionner**.
 
-    ![Ajout d’autorisations](./media/api-management-howto-disaster-recovery-backup-restore/add-app.png)
+    ![Ajouter des autorisations](./media/api-management-howto-disaster-recovery-backup-restore/add-app.png)
 
 7. Cliquez sur **Autorisations déléguées** à côté de l’application ajoutée, puis cochez la case **Accès à la gestion des services Azure (aperçu)**.
 8. Appuyez sur **Sélectionner**.
@@ -117,7 +117,7 @@ Remplacez `{tenant id}`, `{application id}` et `{redirect uri}` en suivant les i
 
     Une fois que les valeurs sont spécifiées, l’exemple de code doit renvoyer un jeton similaire à l’exemple suivant :
 
-    ![par jeton][api-management-arm-token]
+    ![Jeton][api-management-arm-token]
 
     > [!NOTE]
     > Le jeton peut expirer après un certain temps. Réexécutez l’exemple de code pour générer un nouveau jeton.
@@ -223,7 +223,7 @@ Consultez les ressources suivantes pour accéder à différentes procédures pas
 [Backup an API Management service]: #step1
 [Restore an API Management service]: #step2
 
-[Azure API Management REST API]: https://msdn.microsoft.com/library/azure/dn781421.aspx
+[Azure API Management REST API]: https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/api-management-rest
 
 [api-management-add-aad-application]: ./media/api-management-howto-disaster-recovery-backup-restore/api-management-add-aad-application.png
 

@@ -16,11 +16,11 @@ ms.date: 04/10/2019
 ms.author: lahugh
 ms.custom: include file
 ms.openlocfilehash: 711b662c35b5f8fec96f1edee765696bc1028bf8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60550215"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66127513"
 ---
 ### <a name="general-requirements"></a>Conditions générales
 
@@ -64,14 +64,14 @@ Vous n’avez pas besoin spécifier de groupes de sécurité réseau au niveau d
 
 **Règles de sécurité entrantes**
 
-| Adresses IP sources | Balise du service source | Ports source | Destination | Ports de destination | Protocol | Action |
+| Adresses IP sources | Étiquette du service source | Ports source | Destination | Ports de destination | Protocol | Action |
 | --- | --- | --- | --- | --- | --- | --- |
 | N/A | `BatchNodeManagement` [Balise de service](../articles/virtual-network/security-overview.md#service-tags) | * | Quelconque | 29876-29877 | TCP | AUTORISER |
 | Utilisateur adresses IP sources pour accéder à distance à des nœuds de calcul et/ou de sous-réseau de nœud de calcul pour les tâches multi-instances de Linux, si nécessaire. | N/A | * | Quelconque | 3389 (Windows), 22 (Linux) | TCP | AUTORISER |
 
 **Règles de sécurité de trafic entrant**
 
-| Source | Ports source | Destination | Identification de destination | Protocol | Action |
+| Source | Ports source | Destination | Étiquette du service de destination | Protocol | Action |
 | --- | --- | --- | --- | --- | --- |
 | Quelconque | 443 | [Balise du service](../articles/virtual-network/security-overview.md#service-tags) | `Storage` (dans la même région que votre compte Batch et le réseau virtuel)  | Quelconque | AUTORISER |
 

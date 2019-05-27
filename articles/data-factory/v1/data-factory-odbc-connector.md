@@ -14,11 +14,11 @@ ms.date: 11/19/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 83de0046a56788e40b9224823af0411a18dea5eb
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57449935"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66122505"
 ---
 # <a name="move-data-from-odbc-data-stores-using-azure-data-factory"></a>Transfert de données à partir de magasins de données ODBC à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -67,9 +67,9 @@ Le tableau suivant fournit la description des éléments JSON spécifiques au se
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
-| Type |La propriété type doit être définie sur : **OnPremisesOdbc** |Oui |
+| type |La propriété type doit être définie sur : **OnPremisesOdbc** |Oui |
 | connectionString |Partie de la chaîne de connexion ne contenant pas les informations d’accès, avec des informations d’identification chiffrées facultatives. Consultez les exemples dans les sections suivantes. <br/><br/>Vous pouvez spécifier la chaîne de connexion avec un modèle comme `"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"`, ou utiliser le système DSN (Data Source Name) que vous avez configuré sur l’ordinateur passerelle avec `"DSN=<name of the DSN>;"` (vous devez toujours spécifier la partie informations d’identification dans le service lié comme il convient). |Oui |
-| credential |Partie de la chaîne de connexion contenant les informations d’accès, spécifiée dans un format de valeurs de propriété spécifique au pilote. Exemple : `"Uid=<user ID>;Pwd=<password>;RefreshToken=<secret refresh token>;"`. |Non  |
+| credential |Partie de la chaîne de connexion contenant les informations d’accès, spécifiée dans un format de valeurs de propriété spécifique au pilote. Exemple : `"Uid=<user ID>;Pwd=<password>;RefreshToken=<secret refresh token>;"`. |Non |
 | authenticationType |Type d’authentification utilisé pour se connecter au magasin de données ODBC. Les valeurs possibles sont les suivantes : Anonymous et Basic. |Oui |
 | username |Spécifiez le nom d’utilisateur si vous utilisez l’authentification de base. |Non  |
 | password |Spécifiez le mot de passe du compte d’utilisateur que vous avez spécifié pour le nom d’utilisateur. |Non  |

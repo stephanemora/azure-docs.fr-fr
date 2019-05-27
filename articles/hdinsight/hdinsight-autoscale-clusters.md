@@ -8,21 +8,21 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: hrasheed
-ms.openlocfilehash: f8803a498e62958a5488f2ac8830137c37533e54
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: 6ec981164de0ff61b0e83d54255d046a1418ed96
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65413689"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66000103"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters-preview"></a>Automatiquement à l’échelle des clusters Azure HDInsight (version préliminaire)
+
+> [!Important]
+> La fonctionnalité de mise à l’échelle fonctionne uniquement pour les clusters Spark, Hive et MapReduce créés après 2019 le 8 mai. 
 
 Fonctionnalité de mise à l’échelle d’Azure HDInsight cluster s’ajuste automatiquement le nombre de nœuds de travail dans un cluster de haut et bas. Autres types de nœuds dans le cluster ne peut pas être mis à l’échelle actuellement.  Lors de la création d’un cluster HDInsight, il est possible de définir un nombre minimum et un nombre maximum de nœuds Worker. Mise à l’échelle surveille les besoins en ressources de la charge d’analytique, puis met à l’échelle le nombre de nœuds de travail vers le haut ou vers le bas. Aucun frais supplémentaire n’est pour cette fonctionnalité.
 
 ## <a name="cluster-compatibility"></a>Compatibilité de cluster
-
-> [!Important]
-> La fonctionnalité de mise à l’échelle fonctionne uniquement pour les clusters créés après la disponibilité publique de la fonctionnalité de mai 2019. Il ne fonctionnera pas pour les clusters préexistants.
 
 Le tableau suivant décrit les types de cluster et les versions qui sont compatibles avec la fonctionnalité de mise à l’échelle.
 
@@ -189,6 +189,25 @@ Vous pouvez créer un cluster HDInsight avec basée sur la planification de mise
 Pour activer la mise à l’échelle sur un cluster en cours d’exécution, sélectionnez **taille du Cluster** sous **paramètres**. Puis cliquez sur **activer la mise à l’échelle**. Sélectionnez le type de mise à l’échelle que vous voulez et entrez les options de mise à l’échelle basée sur la planification ou charge. Puis, cliquez sur **Enregistrer**.
 
 ![Activer l’option de mise à l’échelle basée sur la planification de nœud de travail](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-enable-running-cluster.png)
+
+## <a name="best-practices"></a>Bonnes pratiques
+
+### <a name="choosing-load-based-or-schedule-based-scaling"></a>Choix de la mise à l’échelle basée sur la planification ou de charge
+
+Avant de prendre une décision sur le mode à choisir, tenez compte des facteurs suivants :
+
+* Variance de la charge : la charge du cluster suit un modèle cohérent à des moments spécifiques, des jours spécifiques. Si ce n’est pas le cas, selon la charge de planification est une meilleure option.
+* Exigences du contrat SLA : Mise à l’échelle d’une mise à l’échelle est réactive au lieu de prédictive. Y aura-t-il un délai suffisant entre lorsque la charge commence à augmenter et lorsque le cluster doit être à sa taille cible ? S’il existe des exigences strictes de contrat SLA et la charge est un modèle connu fixe, « en fonction de la planification » est une meilleure option.
+
+### <a name="consider-the-latency-of-scale-up-or-scale-down-operations"></a>Prendre en compte la latence de mise à l’échelle des ou réduire les opérations
+
+Il peut prendre 10 à 20 minutes environ pour une opération de mise à l’échelle. Lorsque vous configurez une planification personnalisée, planifiez ce délai. Par exemple, si vous avez besoin de la taille du cluster à 9 h 00 à 20, définir le déclencheur de planification à une heure antérieure telles que de 8 h 30 afin que l’opération de mise à l’échelle est terminée à 9 h 00.
+
+### <a name="preparation-for-scaling-down"></a>Préparation pour la mise à l’échelle vers le bas
+
+Au cours de la mise à l’échelle du processus de cluster, à l’échelle automatique sera désactiver les nœuds pour répondre à la taille cible. Si les tâches exécutent sur ces nœuds, à l’échelle automatique attend jusqu'à ce que les tâches sont effectuées. Dans la mesure où chaque nœud worker joue également un rôle dans HDFS, les données temporaires seront décalées vers les nœuds restants. Par conséquent, il se peut que vous devez vous assurer que l’espace est suffisant sur les nœuds restants pour héberger toutes les données temporaires. 
+
+Les travaux en cours d’exécution continue à exécuter et de fin. Les travaux en attente seront attendre d’être planifiée comme d’habitude avec moins de nœuds de travail disponibles.
 
 ## <a name="monitoring"></a>Surveillance
 

@@ -16,11 +16,11 @@ ms.date: 05/03/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 540acd1735eb539ecaac468e74511ba5f751278f
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57780012"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66165675"
 ---
 # <a name="automated-backup-v2-for-azure-virtual-machines-resource-manager"></a>Sauvegarde automatisée version 2 pour les machines virtuelles Azure (Resource Manager)
 
@@ -62,7 +62,7 @@ Le tableau suivant décrit les options qui peuvent être configurées pour une s
 
 ### <a name="basic-settings"></a>Paramètres de base
 
-| Paramètre | Plage (par défaut) | Description |
+| Paramètre | Plage (par défaut) | Description  |
 | --- | --- | --- |
 | **Sauvegarde automatisée** | Activer/Désactiver (désactivé) | Active ou désactive la sauvegarde automatisée d’une machine virtuelle Azure exécutant SQL Server 2016/2017 Développeur, Standard ou Entreprise. |
 | **Période de rétention** | 1 à 30 jours (30 jours) | Nombre de jours durant lesquels les sauvegardes sont conservées. |
@@ -72,7 +72,7 @@ Le tableau suivant décrit les options qui peuvent être configurées pour une s
 
 ### <a name="advanced-settings"></a>Paramètres avancés
 
-| Paramètre | Plage (par défaut) | Description |
+| Paramètre | Plage (par défaut) | Description  |
 | --- | --- | --- |
 | **Sauvegardes de bases de données système** | Activer/Désactiver (désactivé) | Lorsqu'elle et activée, cette fonctionnalité sauvegarde également les bases de données système : Master, MSDB et Modèle. Pour les bases de données MSDB et Modèle, vérifiez qu’elles sont en mode de récupération complète si vous souhaitez effectuer des sauvegardes de journaux. Les sauvegardes de journaux ne sont jamais effectuées pour Master. Et aucune sauvegarde n’est effectuée pour TempDB. |
 | **Planification de sauvegarde** | Manuelle/automatisée (automatisée) | Par défaut, la planification de la sauvegarde varie automatiquement selon la croissance du journal. Une planification de sauvegarde manuelle permet à l’utilisateur de spécifier la fenêtre de temps des sauvegardes. Dans ce cas, les sauvegardes sont effectuées uniquement à une fréquence spécifiée et pendant la fenêtre de temps définie sur un jour donné. |
@@ -108,7 +108,7 @@ Vous disposez d’une machine virtuelle SQL Server qui contient plusieurs bases 
 Lundi, vous activez la sauvegarde automatisée version 2 avec les paramètres suivants :
 
 - Planification de la sauvegarde : Manuel
-- Fréquence de sauvegarde complète : Quotidien
+- Fréquence de sauvegarde complète : Quotidienne
 - Heure de début de la sauvegarde complète : 22:00
 - Fenêtre de temps de la sauvegarde complète : 6 heures
 

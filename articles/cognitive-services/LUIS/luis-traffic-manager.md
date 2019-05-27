@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 02/08/2019
 ms.author: diberry
 ms.openlocfilehash: 31d8f54cb05bdbba7fe05249527db3dd50385087
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59523407"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66123543"
 ---
 # <a name="use-microsoft-azure-traffic-manager-to-manage-endpoint-quota-across-keys"></a>Utiliser Microsoft Azure Traffic Manager pour gérer le quota de points de terminaison entre les clés
 Language Understanding (LUIS) offre la possibilité d’augmenter le quota de demandes des points de terminaison au-delà du quota d’une seule clé. Il suffit de créer plusieurs clés pour LUIS et de les ajouter à l’application LUIS dans la section **Ressources et clés** de la page **Publier**. 

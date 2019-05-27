@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: c11d6519986cf7a0e70d1fe004ef527c3df247d5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: c98229a28f31ff715f252dc3915ca690e99245ff
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59277718"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979510"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Comprendre la configuration d’invité d’Azure Policy
 
@@ -63,13 +63,13 @@ Le tableau suivant affiche une liste des outils locaux utilisés sur chaque syst
 
 ### <a name="validation-frequency"></a>Fréquence de validation
 
-Le client de configuration d'invité vérifie le nouveau contenu toutes les 5 minutes. Une fois l'affectation d'invité reçue, les paramètres sont vérifiés à intervalle de 15 minutes. Les résultats sont envoyés au fournisseur de ressources de configuration d’invité dès la fin de l’audit. Lorsqu'un [déclencheur d’évaluation](../how-to/get-compliance-data.md#evaluation-triggers) de stratégie intervient, l'état de la machine est consigné dans le fournisseur de ressources de configuration d'invité. Azure Policy évalue alors les propriétés Azure Resource Manager. Une évaluation de la stratégie à la demande récupère la valeur la plus récente du fournisseur de ressources de configuration d'invité. Cela étant, elle ne déclenche pas de nouvel audit de la configuration de la machine virtuelle.
+Le client de configuration d'invité vérifie le nouveau contenu toutes les 5 minutes. Une fois l'affectation d'invité reçue, les paramètres sont vérifiés à intervalle de 15 minutes. Les résultats sont envoyés au fournisseur de ressources de configuration d’invité dès la fin de l’audit. Lorsqu'un [déclencheur d’évaluation](../how-to/get-compliance-data.md#evaluation-triggers) de stratégie intervient, l'état de la machine est consigné dans le fournisseur de ressources de configuration d'invité. Azure Policy évalue alors les propriétés Azure Resource Manager. Une évaluation de la stratégie de Azure à la demande récupère la valeur la plus récente du fournisseur de ressources de Configuration de l’invité. Cela étant, elle ne déclenche pas de nouvel audit de la configuration de la machine virtuelle.
 
 ### <a name="supported-client-types"></a>Types de clients pris en charge
 
 Le tableau suivant affiche une liste des systèmes d’exploitation pris en charge sur des images Azure :
 
-|Publisher|Nom|Versions|
+|Publisher|Name|Versions|
 |-|-|-|
 |Canonical|Serveur Ubuntu|14.04, 16.04, 18.04|
 |Credativ|Debian|8, 9|
@@ -80,7 +80,7 @@ Le tableau suivant affiche une liste des systèmes d’exploitation pris en char
 |SUSE|SLES|12 SP3|
 
 > [!IMPORTANT]
-> Configuration de l’invité peut auditer les nœuds qui exécutent un système d’exploitation pris en charge.  Si vous souhaitez auditer des machines virtuelles qui utilisent une image personnalisée, vous devez dupliquer le **DeployIfNotExists** définition et de modifier le **si** section pour inclure les propriétés de votre image.
+> Configuration de l’invité peut auditer les nœuds qui exécutent un système d’exploitation pris en charge. Si vous souhaitez auditer des machines virtuelles qui utilisent une image personnalisée, vous devez dupliquer le **DeployIfNotExists** définition et de modifier le **si** section pour inclure les propriétés de votre image.
 
 ### <a name="unsupported-client-types"></a>Types de clients non pris en charge
 
@@ -93,9 +93,7 @@ Pour communiquer avec le fournisseur de ressources de Configuration de l’invit
 Pour les listes d’adresses IP, vous pouvez télécharger [Microsoft Azure Datacenter IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653). Ce fichier, qui est mis à jour chaque semaine, possède les plages actuellement déployées et tous les changements à venir des plages d’adresses IP. Vous devez uniquement autoriser l’accès sortant vers les adresses IP dans les régions où vos machines virtuelles sont déployées.
 
 > [!NOTE]
-> Le fichier XML Azure Datacenter IP address répertorie les plages d’adresses IP qui sont utilisées dans les centres de données Microsoft Azure. Le fichier comprend les plages Compute, SQL et Stockage.
-> Un fichier mis à jour est publié chaque semaine. Le fichier reflète les plages déployées et toutes les modifications à venir dans les plages IP. Les nouvelles plages figurant dans le fichier ne sont pas utilisées dans les centres de données avant une semaine minimum.
-> Pensez à télécharger le nouveau fichier XML chaque semaine. Ensuite, mettez à jour votre site afin qu’il identifie correctement les services en cours d’exécution dans Azure. Les utilisateurs d’Azure ExpressRoute doivent noter que ce fichier est utilisé pour mettre à jour la publication BGP (Border Gateway Protocol) de l’espace Azure la première semaine de chaque mois.
+> Le fichier XML Azure Datacenter IP address répertorie les plages d’adresses IP qui sont utilisées dans les centres de données Microsoft Azure. Le fichier comprend les plages Compute, SQL et Stockage. Un fichier mis à jour est publié chaque semaine. Le fichier reflète les plages déployées et toutes les modifications à venir dans les plages IP. Les nouvelles plages figurant dans le fichier ne sont pas utilisées dans les centres de données avant une semaine minimum. Pensez à télécharger le nouveau fichier XML chaque semaine. Ensuite, mettez à jour votre site afin qu’il identifie correctement les services en cours d’exécution dans Azure. Les utilisateurs d’Azure ExpressRoute doivent noter que ce fichier est utilisé pour mettre à jour la publication BGP (Border Gateway Protocol) de l’espace Azure la première semaine de chaque mois.
 
 ## <a name="guest-configuration-definition-requirements"></a>Exigences de définition de la configuration d’invité
 
@@ -140,7 +138,7 @@ Exemples de configuration de stratégie invité sont disponibles dans les emplac
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Passez en revue les exemples à l’adresse [exemples Azure Policy](../samples/index.md).
-- Consultez la page [Structure de définition Azure Policy](definition-structure.md).
+- Consultez la [Structure de définition Azure Policy](definition-structure.md).
 - Consultez la page [Compréhension des effets de Policy](effects.md).
 - Comprendre comment [créer par programmation des stratégies](../how-to/programmatically-create.md).
 - Découvrez comment [obtenir des données de conformité](../how-to/getting-compliance-data.md).

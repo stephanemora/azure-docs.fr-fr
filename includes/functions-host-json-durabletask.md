@@ -10,11 +10,11 @@ ms.date: 03/14/2019
 ms.author: glenga
 ms.custom: include file
 ms.openlocfilehash: d79d1bd5ec244ad4399a02c349e2504516d06ccd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60710524"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66131677"
 ---
 Paramètres de configuration de [Fonctions durables](../articles/azure-functions/durable-functions-overview.md).
 
@@ -45,7 +45,7 @@ Paramètres de configuration de [Fonctions durables](../articles/azure-functions
 
 Les noms de hubs de tâches doivent commencer par une lettre et contenir uniquement des lettres et des chiffres. S’il n’est pas spécifié, le nom du hub de tâches par défaut d’une application de fonction est **DurableFunctionsHub**. Pour en savoir plus, consultez la section relative aux [hubs de tâches](../articles/azure-functions/durable-functions-task-hubs.md).
 
-|Propriété  |Default | Description |
+|Propriété  |Default | Description  |
 |---------|---------|---------|
 |hubName|DurableFunctionsHub|D'autres noms de [hub de tâches](../articles/azure-functions/durable-functions-task-hubs.md) peuvent être utilisés pour isoler plusieurs applications Durable Functions les unes des autres, même si elles s'appuient sur le même principal de stockage.|
 |controlQueueBatchSize|32|Nombre de messages à extraire de la file d’attente de contrôle en une seule fois.|

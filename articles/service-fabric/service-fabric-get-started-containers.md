@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 01/25/2019
 ms.author: aljo
 ms.openlocfilehash: 2cf5bf26dbe18d7b4c6e3b1a93aa38d7748dc5a3
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59049489"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66119101"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Créer votre première application de conteneur Service Fabric sur Windows
 
@@ -471,7 +471,7 @@ docker rmi myregistry.azurecr.io/samples/helloworldapp
 
 ## <a name="windows-server-container-os-and-host-os-compatibility"></a>Système d’exploitation de conteneur Windows Server et compatibilité avec le système d’exploitation hôte
 
-Les conteneurs Windows Server ne sont pas compatibles avec toutes les versions d’un système d’exploitation hôte. Par exemple : 
+Les conteneurs Windows Server ne sont pas compatibles avec toutes les versions d’un système d’exploitation hôte. Exemple :
  
 - Les conteneurs Windows Server créés à l’aide de Windows Server version 1709 ne fonctionnent pas sur un hôte exécutant Windows Server version 2016. 
 - Les conteneurs Windows Server créés à l’aide de Windows Server 2016 fonctionnent en mode d’isolation Hyper-V uniquement sur un hôte exécutant Windows Server version 1709. 
@@ -479,7 +479,7 @@ Les conteneurs Windows Server ne sont pas compatibles avec toutes les versions d
  
 Pour plus d’informations, consultez [Compatibilité des versions avec les conteneurs Windows](https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/version-compatibility).
 
-Examinez la compatibilité du système d’exploitation hôte et le système d’exploitation de votre conteneur pour créer et déployer des conteneurs sur votre cluster Service Fabric. Par exemple : 
+Examinez la compatibilité du système d’exploitation hôte et le système d’exploitation de votre conteneur pour créer et déployer des conteneurs sur votre cluster Service Fabric. Exemple :
 
 - Vérifiez que vous déployez des conteneurs avec un système d’exploitation compatible avec le système d’exploitation exécuté sur vos nœuds de cluster.
 - Vérifiez que le mode d’isolation spécifié pour votre application de conteneur est cohérent avec la prise en charge du système d’exploitation de conteneur sur le nœud sur lequel il est en cours de déploiement.

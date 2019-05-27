@@ -14,11 +14,11 @@ ms.workload: na
 ms.date: 06/02/2018
 ms.author: tomfitz
 ms.openlocfilehash: 3641833f0b55f20066302de350bfab17adfade0e
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56107002"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66128527"
 ---
 # <a name="deploy-azure-resources-to-more-than-one-subscription-or-resource-group"></a>Déployer des ressources Azure sur plusieurs groupes de ressources et des abonnements
 
@@ -169,7 +169,7 @@ Si vous liez à un modèle distinct, la résolution des fonctions dans le modèl
 
 Les modèles suivants illustrent plusieurs déploiements de groupes de ressources. Les scripts permettant de déployer les modèles sont indiqués après le tableau.
 
-|Modèle  |Description  |
+|Modèle  |Description   |
 |---------|---------|
 |[Modèle à abonnements multiples](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/crosssubscription.json) |Déploie un compte de stockage vers un groupe de ressources et un autre compte de stockage vers un deuxième groupe de ressources. Incluez une valeur pour l’ID d’abonnement lorsque le deuxième groupe de ressources se trouve dans un autre abonnement. |
 |[Modèle à propriétés de groupe de ressources multiples](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/crossresourcegroupproperties.json) |Montre la résolution de la fonction `resourceGroup()`. Il ne déploie aucune ressource. |

@@ -1,6 +1,6 @@
 - name: Documentation Recherche d’entités Bing
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: Qu’est-ce que la Recherche d’entités Bing ?
       href: overview.md
@@ -93,3 +93,5 @@
       href: entity-search-endpoint.md
     - name: Analytique pour l’API Recherche d’entités Bing
       href: bing-entity-stats.md
+    - name: Conformité
+      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'

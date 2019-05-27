@@ -7,12 +7,12 @@ ms.date: 03/06/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 38cf6decb8e61768faa9680058f6366e1550ba40
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 479f77791a0b035f2d1de6085dfb12f5196288ee
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60498761"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979327"
 ---
 # <a name="author-policies-for-array-properties-on-azure-resources"></a>Créer des stratégies pour les propriétés du groupe de ressources Azure
 
@@ -207,9 +207,9 @@ Pour plus d’informations, consultez le [append, exemples](../concepts/effects.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Consulter des exemples à la page [Exemples Azure Policy](../samples/index.md)
-- Consulter la page [Structure de définition Azure Policy](../concepts/definition-structure.md)
-- Consulter la page [Compréhension des effets d’Azure Policy](../concepts/effects.md)
-- Savoir comment [créer des stratégies par programmation](programmatically-create.md)
-- Découvrir comment [remédier à la non-conformité des ressources](remediate-resources.md)
-- Pour en savoir plus sur les groupes d’administration, consultez [Organiser vos ressources avec des groupes d’administration Azure](../../management-groups/overview.md).
+- Passez en revue les exemples à l’adresse [exemples Azure Policy](../samples/index.md).
+- Consultez la [Structure de définition Azure Policy](../concepts/definition-structure.md).
+- Consultez la page [Compréhension des effets de Policy](../concepts/effects.md).
+- Comprendre comment [créer par programmation des stratégies](programmatically-create.md).
+- Découvrez comment [corriger les ressources non conformes](remediate-resources.md).
+- Examinez un groupe d’administration avec [organiser vos ressources avec des groupes d’administration Azure](../../management-groups/overview.md).

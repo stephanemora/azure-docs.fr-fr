@@ -9,11 +9,11 @@ ms.date: 08/09/2018
 ms.author: vashan, cynthn, rajsqr
 ms.custom: include file
 ms.openlocfilehash: 57f557a812ec5e4eea75b76ca1394ca360a85d30
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60419972"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66164644"
 ---
 Les machines virtuelles Microsoft Azure passent par différents états qui peuvent être classés en états *d’approvisionnement* et *d’alimentation*. Cet article vise à décrire ces états et en particulier à mettre en exergue la date de facturation des clients pour l’utilisation des instances. 
 
@@ -32,7 +32,7 @@ Le tableau suivant contient une description de l’état de chaque instance et i
 État
 </th>
 <th>
-Description
+Description 
 </th>
 <th>
 Facturation de l’utilisation de l’instance
@@ -153,7 +153,7 @@ Facturation de l’utilisation de l’instance
 
 &#42;Certaines ressources Azure, par exemple les disques et le réseau, impliquent des frais. Les licences de logiciels sur l’instance n’engendrent aucun frais.
 
-## <a name="provisioning-states"></a>États d’approvisionnement
+## <a name="provisioning-states"></a>États d'approvisionnement
 
 Un état d’approvisionnement est l’état d’une opération de type plan de contrôle initiée par l’utilisateur sur la machine virtuelle. Ces états sont distincts de l’état d’alimentation d’une machine virtuelle.
 
@@ -178,7 +178,7 @@ Voici les états transitoires des opérations une fois que la plateforme a accep
 <p><b>États</b></p>
 </td>
 <td width="366">
-<p>Description</p>
+<p>Description </p>
 </td>
 </tr>
 <tr>

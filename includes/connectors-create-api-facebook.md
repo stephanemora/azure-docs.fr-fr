@@ -5,13 +5,13 @@ ms.topic: include
 ms.date: 11/03/2016
 ms.author: estfan
 ms.openlocfilehash: 8fe22f95c1dfc5171c41d6b3f0e00760fd9c9d69
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
-ms.translationtype: HT
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50133099"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66149199"
 ---
-### <a name="prerequisites"></a>Prérequis
+### <a name="prerequisites"></a>Conditions préalables
 * Un compte [Facebook](https://www.facebook.com/) 
 
 Pour pouvoir utiliser votre compte Facebook dans une application logique, vous devez autoriser l’application à se connecter à votre compte. Heureusement, cette opération est très simple à effectuer dans votre application logique sur le portail Azure. 

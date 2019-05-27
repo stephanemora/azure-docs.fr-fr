@@ -1,6 +1,6 @@
 - name: Documentation Form Recognizer
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: "Qu’est-ce que Form Recognizer\_?"
       href: overview.md
@@ -41,3 +41,5 @@
       href: 'https://azure.microsoft.com/updates/?product=cognitive-services'
     - name: Disponibilité régionale
       href: 'https://go.microsoft.com/fwlink/?linkid=2087185'
+    - name: Conformité
+      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'

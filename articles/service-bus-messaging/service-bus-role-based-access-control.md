@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/19/2018
 ms.author: aschhab
-ms.openlocfilehash: 7ef152b130e77e833e19c51ff97d0cea577216c5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e4571a8918b7877b728b54129e47ffcf4af9b46a
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61472248"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979639"
 ---
 # <a name="active-directory-role-based-access-control-preview"></a>Contrôle d’accès en fonction du rôle Azure Active Directory (version préliminaire)
 
@@ -31,11 +31,18 @@ Une application qui utilise le contrôle d’accès en fonction du rôle Azure A
 
 ## <a name="service-bus-roles-and-permissions"></a>Rôles et autorisations Service Bus
 
-Pour la version préliminaire publique initiale, vous pouvez uniquement ajouter des comptes et des principaux de service Azure AD aux rôles « Propriétaire » ou « Contributeur » d’un espace de noms de messagerie Service Bus. Cette opération accorde le contrôle total d’identité sur toutes les entités de l’espace de noms. Les opérations de gestion qui modifient la topologie de l’espace de noms sont initialement seulement prises en charge par la gestion des ressources Azure et non par l’interface de gestion REST Service Bus native. Cette prise en charge signifie également que l’objet [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) du client .NET Framework ne peut pas être utilisé avec un compte Azure AD.
+Azure fournit la ci-dessous les rôles RBAC intégrés pour autoriser l’accès à un espace de noms Service Bus :
+
+* [Propriétaire de données Service Bus (version préliminaire)](../role-based-access-control/built-in-roles.md#service-bus-data-owner): Permet l’accès à l’espace de noms Service Bus et ses entités (files d’attente, rubriques, abonnements et les filtres)
+
+>[!IMPORTANT]
+> Nous avons pris en charge précédemment l’Ajout d’une identité gérée pour le **« Propriétaire »** ou **« Collaborateur »** rôle.
+>
+> Toutefois, des privilèges d’accès aux données **« Propriétaire »** et **« Collaborateur »** rôle n’est plus sera honorée. Si vous utilisiez le **« Propriétaire »** ou **« Collaborateur »** rôle, puis ceux devra être adaptés pour utiliser le **« Service Bus de données propriétaire »** rôle.
 
 ## <a name="use-service-bus-with-an-azure-ad-domain-user-account"></a>Utiliser Service Bus avec un compte d’utilisateur de domaine Azure AD
 
-La section suivante décrit les étapes requises pour créer et exécuter un exemple d’application qui invite un utilisateur Azure AD interactif à se connecter, comment accorder à ce compte d’utilisateur l’accès à Service Bus et comment utiliser cette identité pour accéder aux Event Hubs.
+La section suivante décrit les étapes requises pour créer et exécuter un exemple d’application qui invite à entrer un Azure interactif utilisateur AD pour vous connecter, comment accorder l’accès de Service Bus à ce compte d’utilisateur et comment utiliser cette identité pour accéder aux Event Hubs.
 
 Cette présentation décrit une application console simple, [dont le code se trouve sur GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/RoleBasedAccessControl).
 
@@ -47,7 +54,7 @@ Si vous souhaitez toujours créer un compte spécifique pour ce scénario, [proc
 
 ### <a name="create-a-service-bus-namespace"></a>Création d’un espace de noms Service Bus
 
-Ensuite, [créez un espace de noms de messagerie Service Bus](service-bus-create-namespace-portal.md) dans l’une des régions Azure prenant en charge la préversion du contrôle d’accès en fonction du rôle : **USA Est**, **USA Est 2** ou **Europe Ouest**.
+Ensuite, [créer un espace de noms Service Bus Messaging](service-bus-create-namespace-portal.md).
 
 Une fois l’espace de noms créé, accédez à la page **Contrôle d’accès (IAM)** correspondante sur le portail, puis cliquez sur **Ajouter une attribution de rôle** pour ajouter le compte d’utilisateur Azure AD au rôle de propriétaire. Si vous utilisez votre propre compte d’utilisateur et que vous avez créé l’espace de noms, vous êtes déjà dans le rôle de propriétaire. Pour ajouter un autre compte au rôle, recherchez le nom de l’application web dans le champ **Sélectionner** du panneau **Ajouter des autorisations**, puis cliquez sur l’entrée. Cliquez ensuite sur **Enregistrer**.
 
@@ -67,7 +74,7 @@ Avant de pouvoir exécuter l’exemple, modifiez le fichier App.config et, selon
 
 - `tenantId`: défini avec la valeur **TenantId**.
 - `clientId`: défini avec la valeur **ApplicationId**.
-- `clientSecret`: si vous souhaitez vous connecter à l’aide de la clé secrète du client, créez-la dans Azure AD. En outre, utilisez une application web ou une API au lieu d’une application native. Ajoutez également l’application sous **Contrôle d’accès (IAM)** dans l’espace de noms que vous avez créé précédemment.
+- `clientSecret`: si vous souhaitez vous connecter à l’aide du secret client, créez-le dans Azure AD. En outre, utilisez une application web ou une API au lieu d’une application native. Ajoutez également l’application sous **Contrôle d’accès (IAM)** dans l’espace de noms que vous avez créé précédemment.
 - `serviceBusNamespaceFQDN`: défini sur le nom DNS complet de l’espace de noms Service Bus que vous venez de créer, par exemple, `example.servicebus.windows.net`.
 - `queueName`: défini sur le nom de la file d’attente que vous avez créé.
 - URI de redirection que vous avez spécifié dans votre application lors des étapes précédentes.
