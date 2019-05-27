@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 78ed2fab81bfb1562125135c5901a2de395c3843
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: c7f5fda405ca0e5ba9cf1dd0ed44c47cd3ee74b1
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65023946"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65949857"
 ---
 #   <a name="text-split-cognitive-skill"></a>Compétence cognitive Fractionnement de texte
 
@@ -32,7 +32,7 @@ Microsoft.Skills.Text.SplitSkill
 
 Les paramètres respectent la casse.
 
-| Nom du paramètre     | Description |
+| Nom du paramètre     | Description  |
 |--------------------|-------------|
 | textSplitMode      | « pages » ou « sentences » (phrases) | 
 | maximumPageLength | Si textSplitMode est défini sur « pages », il s’agit de la longueur maximale de la page selon `String.Length`. La valeur minimale est 100.  Si textSplitMode est réglé sur « pages », l’algorithme essaie de fractionner le texte en blocs d’une taille maximale de « maximumPageLength ». Dans ce cas, l’algorithme fera de son mieux pour arrêter la phrase sur une limite de phrase, de sorte que la taille du bloc peut être légèrement inférieure à « maximumPageLength ». | 
@@ -41,14 +41,14 @@ Les paramètres respectent la casse.
 
 ## <a name="skill-inputs"></a>Entrées de la compétence
 
-| Nom du paramètre       | Description      |
+| Nom du paramètre       | Description       |
 |----------------------|------------------|
 | text  | Texte à fractionner en sous-chaînes. |
 | languageCode  | (Facultatif) Code de langue du document.  |
 
 ## <a name="skill-outputs"></a>Sorties de la compétence 
 
-| Nom du paramètre     | Description |
+| Nom du paramètre     | Description  |
 |--------------------|-------------|
 | textItems | Tableau des sous-chaînes extraites. |
 
@@ -80,7 +80,7 @@ Les paramètres respectent la casse.
 }
 ```
 
-##  <a name="sample-input"></a>Exemple d’entrée
+##  <a name="sample-input"></a>Exemple d'entrée
 
 ```json
 {
@@ -88,7 +88,7 @@ Les paramètres respectent la casse.
         {
             "recordId": "1",
             "data": {
-                "text": "This is a the loan application for Joe Romero, he is a Microsoft employee who was born in Chile and then moved to Australia…",
+                "text": "This is a the loan application for Joe Romero, a Microsoft employee who was born in Chile and who then moved to Australia…",
                 "languageCode": "en"
             }
         },

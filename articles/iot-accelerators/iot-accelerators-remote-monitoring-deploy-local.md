@@ -3,17 +3,17 @@ title: Déployer localement la solution de supervision à distance (via l’IDE 
 description: Ce guide pratique montre comment déployer l’accélérateur de solution de supervision à distance sur votre ordinateur local en utilisant Visual Studio à des fins de test et de développement.
 author: avneet723
 manager: hegate
-ms.author: avneet723
+ms.author: avneets
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: a5754fc2f7e0fc36a6708bfd4d2d1d3d6f016b27
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 1adf59feca7db4c5903b04c59e1bd23290c1855e
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65150965"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65967509"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---visual-studio"></a>Déployer localement l’accélérateur de solution de supervision à distance - Visual Studio
 
@@ -60,9 +60,9 @@ Exécutez la commande suivante pour lancer le conteneur Docker pour le service D
 
 ### <a name="deploy-all-other-microservices-on-local-machine"></a>Déployer toutes les autres microservices sur l’ordinateur local
 
-Les étapes suivantes vous montrent comment exécuter les microservices de surveillance à distance dans Visual Studio 2017 :
+Les étapes suivantes vous montrent comment exécuter les microservices de surveillance à distance dans Visual Studio :
 
-1. Lancer Visual Studio 2017
+1. Lancez Visual Studio.
 1. Ouvrez le la solution **remote-monitoring.sln** dans le dossier **services** dans votre copie locale du référentiel.
 1. Dans l’**Explorateur de solutions**, cliquez avec le bouton droit sur la solution, puis cliquez sur **Propriétés**.
 1. Sélectionnez **Propriétés communes > Projet de démarrage**.

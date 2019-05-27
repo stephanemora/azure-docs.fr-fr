@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: alkohli
-ms.openlocfilehash: bf1d810733df4eaae17d092caba42888a63cc59f
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 31909e1f13d211aa87f13547218a6967d8e195ac
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64919214"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65950508"
 ---
 # <a name="use-the-azure-portal-to-administer-your-azure-data-box"></a>Utiliser le portail Azure pour administrer votre Azure Data Box
 
@@ -53,7 +53,7 @@ Effectuez les opérations suivantes pour cloner une commande.
 Le clone est créé en quelques minutes et le portail est actualisé pour afficher la nouvelle commande.
 
 
-## <a name="delete-order"></a>Supprimer une commande
+## <a name="delete-order"></a>Supprimer la commande
 
 Il peut arriver que vous souhaitiez supprimer une commande lorsque celle-ci est terminée. La commande contient vos données personnelles telles que votre nom, votre adresse et vos informations de contact. Ces informations personnelles sont supprimées en même temps que la commande.
 
@@ -67,7 +67,7 @@ Vous pouvez uniquement supprimer des commandes qui sont terminées ou annulées.
 
 3. Entrez le nom de la commande lorsque vous êtes invité à confirmer la suppression de la commande. Cliquez sur **Supprimer**.
 
-## <a name="download-shipping-label"></a>Télécharger une étiquette d’expédition
+## <a name="download-shipping-label"></a>Télécharger une étiquette d'expédition
 
 Vous devrez peut-être télécharger l’étiquette d’expédition si l’écran E-ink de votre Data Box ne fonctionne pas et n’affiche pas l’étiquette de retour. 
 
@@ -75,7 +75,7 @@ Procédez comme suit pour télécharger une étiquette d’expédition.
 
 1.  Accédez à **Vue d’ensemble > Télécharger une étiquette d’expédition**. Cette option est disponible uniquement une fois que l’appareil a été expédié. 
 
-    ![Télécharger une étiquette d’expédition](media/data-box-portal-admin/download-shipping-label.png)
+    ![Télécharger une étiquette d'expédition](media/data-box-portal-admin/download-shipping-label.png)
 
 2.  L’étiquette de retour suivante est alors téléchargée. Enregistrez puis imprimez l’étiquette. Pliez et insérez l’étiquette dans la pochette transparente accolée à l’appareil. Vérifiez que l’étiquette est visible. Retirez les éventuels autocollants qui ont été accolés à l’appareil lors de la précédente expédition.
 
@@ -97,7 +97,7 @@ Pour modifier la commande, procédez comme suit.
 
 ## <a name="edit-notification-details"></a>Modifier les détails de notification
 
-Vous devrez peut-être modifier les utilisateurs qui recevront les e-mails indiquant l’état de la commande. Par exemple, un utilisateur doit être informé dès que l’appareil est livré ou récupéré. Un autre utilisateur doit quant à lui être informé lorsque la copie des données est terminée afin qu’il puisse vérifier que les données se trouvent bien dans le compte de stockage Azure avant de les supprimer de la source. Dans ce cas, vous pouvez modifier les détails de notification.
+Vous devrez peut-être modifier les utilisateurs qui recevront les e-mails indiquant l’état de la commande. Par exemple, un utilisateur doit être informé dès que l’appareil est livré ou récupéré. Un autre utilisateur peut-être être informé lorsque la copie des données est terminée afin qu’ils peuvent vérifier que les données sont dans le compte de stockage Azure avant de le supprimer de la source. Dans ce cas, vous pouvez modifier les détails de notification.
 
 Pour modifier les détails de modification, procédez comme suit.
 
@@ -110,7 +110,7 @@ Pour modifier les détails de modification, procédez comme suit.
     ![Modification des détails de notification 2](media/data-box-portal-admin/edit-notification-details2.png)
 
 
-## <a name="download-order-history"></a>Télécharger l’historique des commandes
+## <a name="download-order-history"></a>Télécharger l'historique des commandes
 
 Une fois que la commande Data Box est terminée, les données sur les disques de l’appareil sont effacées. Lorsque le nettoyage de l’appareil est terminé, vous pouvez télécharger l’historique des commandes dans le portail Azure.
 
@@ -197,17 +197,17 @@ Vous pouvez également afficher les journaux d’activité de chaîne de respons
 
 Vous êtes informé par courrier électronique dès que l’état de l’appareil change dans le portail.
 
-|État de la commande |Description |
+|État de la commande |Description  |
 |---------|---------|
-|Ordered (Validée)     | La commande a été validée. <br>Si l’appareil est disponible, Microsoft identifie l’appareil à expédier et le prépare. <br> Si l’appareil n’est pas disponible immédiatement, la commande sera traitée lorsque l’appareil devient disponible. Le traitement de la commande peut prendre quelques jours à deux mois. Si elle ne peut pas être traitée sous 90 jours, la commande est annulée et vous en êtes informé.         |
-|Processed (Traitée)     | La commande a été traitée. Conformément à votre commande, l’appareil est prêt pour expédition dans le centre de données.         |
-|Dispatched (Distribuée)     | La commande a été expédiée. Utilisez l’ID de suivi affiché sur votre commande dans le portail pour effectuer le suivi de l’expédition.        |
-|Delivered (Livrée)     | Le colis a été livré à l’adresse spécifiée dans la commande.        |
-|Picked up (Récupérée)     |Le colis de retour a été récupéré et scanné par le transporteur.         |
-|Reçu     | Votre appareil a été reçu et scanné au centre de données Azure. <br> Une fois le colis inspecté, le téléchargement de l’appareil commencera.      |
-|Copie de données     | La copie des données est en cours. Suivez la progression de la copie de votre commande sur le portail Azure. <br> Attendez que la copie des données se termine. |
+|Commandé     | La commande a été validée. <br>Si l’appareil est disponible, Microsoft identifie l’appareil à expédier et le prépare. <br> Si l’appareil n’est pas disponible immédiatement, la commande sera traitée lorsque l’appareil devient disponible. Le traitement de la commande peut prendre quelques jours à deux mois. Si elle ne peut pas être traitée sous 90 jours, la commande est annulée et vous en êtes informé.         |
+|Traité     | La commande a été traitée. Conformément à votre commande, l’appareil est prêt pour expédition dans le centre de données.         |
+|Distribué     | La commande a été expédiée. Utilisez l’ID de suivi affiché sur votre commande dans le portail pour effectuer le suivi de l’expédition.        |
+|Remis     | Le colis a été livré à l’adresse spécifiée dans la commande.        |
+|Collecté     |Le colis de retour a été récupéré et scanné par le transporteur.         |
+|Reçu      | Votre appareil a été reçu et scanné au centre de données Azure. <br> Une fois le colis inspecté, le téléchargement de l’appareil commencera.      |
+|Copie des données     | La copie des données est en cours. Suivez la progression de la copie de votre commande sur le portail Azure. <br> Attendez que la copie des données se termine. |
 |Completed       |La commande a été terminée avec succès.<br> Vérifiez que vos données se trouvent bien dans Azure avant de supprimer les données locales des serveurs.         |
-|Completed with errors (Terminée avec des erreurs)| La copie des données a été effectuée mais des erreurs se sont produites pendant l’opération. <br> Consultez les journaux d’activité de copie en utilisant le chemin d’accès spécifié dans le portail Azure.   |
+|Terminé avec des erreurs| La copie des données a été effectuée mais des erreurs se sont produites pendant l’opération. <br> Consultez les journaux d’activité de copie en utilisant le chemin d’accès spécifié dans le portail Azure.   |
 |Canceled            |La commande a été annulée. <br> Soit vous avez annulé la commande, soit une erreur s’est produite et le service a annulé la commande. Si elle ne peut pas être traitée sous 90 jours, la commande est également annulée et vous en êtes informé.     |
 |Nettoyer | Les données sur les disques de l’appareil sont effacées. Le nettoyage de l’appareil est considéré comme terminé lorsque l’historique de la commande est disponible au téléchargement dans le portail Azure.|
 

@@ -5,18 +5,17 @@ author: billmath
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-origin.date: 10/19/2018
-ms.date: 04/09/2019
+ms.date: 10/19/2018
 ms.subservice: hybrid
-ms.author: v-junlch
+ms.author: billmath
 ms.topic: reference
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 40b4be9aca5243b80151afac0ae221f0d44509c5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1084a3e546a234739fbede46612dce96537c7d4a
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60454640"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65950640"
 ---
 # <a name="azure-ad-connect--adconnectivitytools-powershell-reference"></a>Azure AD Connect :  Informations de référence sur le module PowerShell ADConnectivityTools
 
@@ -37,7 +36,7 @@ Confirm-DnsConnectivity [-Forest] <String> [-DCs] <Array> [-ReturnResultAsPSObje
 ### <a name="description"></a>Description
 
 Exécute des tests de connectivité DNS locaux.
-Pour configurer le connecteur Active Directory, l’utilisateur doit avoir la résolution de noms à la fois pour la forêt à laquelle il tente de se connecter et dans les contrôleurs de domaine associés à cette forêt.
+Pour configurer le connecteur Active Directory, utilisateur doit avoir les deux résolution de noms pour la forêt ils tentent de se connecter à ainsi que dans les contrôleurs de domaine associés à cette forêt.
 
 ### <a name="examples"></a>EXEMPLES
 
@@ -310,7 +309,7 @@ Accept wildcard characters: False
 
 #### <a name="-skipdnsport"></a>-SkipDnsPort
 
-Si l’utilisateur n’utilise pas les services DNS fournis par le contrôleur de domaine d’ouverture de session/site AD, il souhaitera peut-être ignorer la vérification du port 53.
+Si utilisateur n’utilise pas les services DNS fournis par le AD Site / contrôleur de domaine d’ouverture de session, puis ils peuvent souhaiter vérification port 53.
 L’utilisateur doit toujours être en mesure de résoudre _.ldap._tcp.\<forestfqdn\> pour que la configuration du connecteur Active Directory réussisse.
 
 ```yml
@@ -964,5 +963,3 @@ Accept wildcard characters: False
 
 Cette applet de commande prend en charge les paramètres courants : -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction et -WarningVariable.
 Pour plus d’informations, consultez about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
-
-<!-- Update_Description: wording update -->

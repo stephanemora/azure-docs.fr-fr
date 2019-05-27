@@ -17,15 +17,15 @@ ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b47430b4bd2f7fa6811785247ae6cd4f6df6f8f5
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: f809fa856d39096a85dcc205d8211ba3551eeb48
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65546125"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65962854"
 ---
 # <a name="signing-key-rollover-in-azure-active-directory"></a>Substitution de la clé de signature dans Azure Active Directory
-Cet article explique ce que vous devez savoir sur les clés publiques utilisées dans Azure Active Directory (Azure AD) pour la signature des jetons de sécurité. Il est important de noter que ces clés sont substituées régulièrement, voire immédiatement en cas d’urgence. Toutes les applications qui utilisent Azure AD doivent être en mesure de gérer le processus de substitution de clé ou d’établir un processus périodique de substitution manuelle de clé par le biais d’un programme. En lisant cet article, vous allez comprendre le fonctionnement des clés, savoir comment évaluer l’impact de la substitution de votre application et comment mettre à jour votre application ou établir un processus périodique de substitution manuelle de clé pour gérer la substitution de clé si nécessaire.
+Cet article explique ce que vous devez savoir sur les clés publiques utilisées dans Azure Active Directory (Azure AD) pour la signature des jetons de sécurité. Il est important de noter que ces clés substituer de manière périodique et, en cas d’urgence, être voire immédiatement. Toutes les applications qui utilisent Azure AD doivent être en mesure de gérer le processus de substitution de clé ou d’établir un processus périodique de substitution manuelle de clé par le biais d’un programme. En lisant cet article, vous allez comprendre le fonctionnement des clés, savoir comment évaluer l’impact de la substitution de votre application et comment mettre à jour votre application ou établir un processus périodique de substitution manuelle de clé pour gérer la substitution de clé si nécessaire.
 
 ## <a name="overview-of-signing-keys-in-azure-ad"></a>Vue d’ensemble des clés de signature dans Azure AD
 Azure AD utilise une technique de chiffrement de clés publiques conforme aux normes du secteur pour établir une relation de confiance avec les applications qui l’utilisent. En pratique, cela fonctionne de la façon suivante : Azure AD utilise une clé de signature se composant d’une paire clé publique-clé privée. Lorsqu’un utilisateur se connecte à une application qui utilise Azure AD pour s’authentifier, Azure AD crée un jeton de sécurité qui contient des informations sur l’utilisateur. Ce jeton est signé par Azure AD à l’aide de sa clé privée avant d’être renvoyé à l’application. Pour vérifier que le jeton est valide et provient bien d’Azure AD, l’application doit valider la signature du jeton à l’aide de la clé publique exposée par Azure AD contenue dans le [document de découverte OpenID Connect](https://openid.net/specs/openid-connect-discovery-1_0.html) ou dans le [document de métadonnées de fédération](azure-ad-federation-metadata.md) SAML/WS-Fed.
@@ -43,7 +43,7 @@ La manière dont votre application gère la substitution de la clé dépend de v
 * [Applications web/API protégeant les ressources à l’aide du middleware .NET OWIN OpenID Connect, WS-Fed ou WindowsAzureActiveDirectoryBearerAuthentication](#owin)
 * [Applications web/API protégeant les ressources à l’aide du middleware .NET Core OpenID Connect ou JwtBearerAuthentication](#owincore)
 * [Applications web/API protégeant les ressources à l’aide du module passport-azure-ad Node.js](#passport)
-* [Applications web/API protégeant les ressources et créées avec Visual Studio 2015 ou Visual Studio 2017](#vs2015)
+* [Applications Web / API protégeant les ressources et créées avec Visual Studio 2015 ou version ultérieure](#vs2015)
 * [Applications web protégeant les ressources et créées avec Visual Studio 2013](#vs2013)
 * API web protégeant les ressources et créées avec Visual Studio 2013
 * [Applications web protégeant les ressources et créées avec Visual Studio 2012](#vs2012)
@@ -56,12 +56,12 @@ Ce guide n’est **pas** applicable aux :
 * Applications locales publiées via le proxy d’application, qui ne sont pas concernées par les clés de signature.
 
 ### <a name="nativeclient"></a>Applications clientes natives ayant accès aux ressources
-En général, les applications qui ont uniquement accès aux ressources (par exemple, Microsoft Graph, KeyVault, l’API Outlook et d’autres API Microsoft) obtiennent uniquement un jeton et le transmettent au propriétaire de la ressource. Étant donné qu’elles ne protègent pas les ressources, elles n’inspectent pas le jeton et n’ont donc pas besoin de s’assurer qu’il est correctement signé.
+En général, les applications qui ont uniquement accès aux ressources (par exemple, Microsoft Graph, KeyVault, API Outlook et autres APIs Microsoft) en général uniquement obtiennent un jeton et transmettent au propriétaire de la ressource. Étant donné qu’elles ne protègent pas les ressources, elles n’inspectent pas le jeton et n’ont donc pas besoin de s’assurer qu’il est correctement signé.
 
 Les applications clientes natives, de bureau ou mobiles, appartiennent à cette catégorie et ne sont donc pas affectées par la substitution.
 
 ### <a name="webclient"></a>Applications web/API ayant accès aux ressources
-En général, les applications qui ont uniquement accès aux ressources (par exemple, Microsoft Graph, KeyVault, l’API Outlook et d’autres API Microsoft) obtiennent uniquement un jeton et le transmettent au propriétaire de la ressource. Étant donné qu’elles ne protègent pas les ressources, elles n’inspectent pas le jeton et n’ont donc pas besoin de s’assurer qu’il est correctement signé.
+En général, les applications qui ont uniquement accès aux ressources (par exemple, Microsoft Graph, KeyVault, API Outlook et autres APIs Microsoft) en général uniquement obtiennent un jeton et transmettent au propriétaire de la ressource. Étant donné qu’elles ne protègent pas les ressources, elles n’inspectent pas le jeton et n’ont donc pas besoin de s’assurer qu’il est correctement signé.
 
 Les applications Web et les API web qui utilisent le flux d’application uniquement (informations d’identification du client/certificat client) appartiennent à cette catégorie et ne sont donc pas affectées par la substitution.
 
@@ -128,8 +128,8 @@ passport.use(new OIDCStrategy({
 ));
 ```
 
-### <a name="vs2015"></a>Applications web/API protégeant les ressources et créées avec Visual Studio 2015 ou Visual Studio 2017
-Si votre application a été générée à l’aide d’un modèle d’application web dans Visual Studio 2015 ou Visual Studio 2017, et que vous avez sélectionné **Comptes professionnels et scolaires** dans le menu **Modifier l’authentification**, elle a déjà la logique nécessaire pour gérer automatiquement la substitution de clé. Cette logique, incorporée dans le middleware OWIN OpenID Connect, récupère et met en cache les clés à partir du document de découverte OpenID Connect, et les actualise régulièrement.
+### <a name="vs2015"></a>Applications Web / API protégeant les ressources et créées avec Visual Studio 2015 ou version ultérieure
+Si votre application a été générée à l’aide d’un modèle d’application web dans Visual Studio 2015 ou version ultérieure et que vous avez sélectionné **School des comptes professionnels ou** à partir de la **modifier l’authentification** menu, il a déjà nécessaires logique pour gérer automatiquement la substitution de clé. Cette logique, incorporée dans le middleware OWIN OpenID Connect, récupère et met en cache les clés à partir du document de découverte OpenID Connect, et les actualise régulièrement.
 
 Si vous avez ajouté manuellement l’authentification à votre solution, votre application ne possède peut-être pas la logique de substitution de clé nécessaire. Vous devrez l’écrire vous-même ou suivre les étapes décrites dans [Applications web/API protégeant les ressources avec d’autres bibliothèques ou implémentant manuellement l’un des protocoles pris en charge](#other).
 

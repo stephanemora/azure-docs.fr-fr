@@ -5,23 +5,23 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 05/09/2019
+ms.date: 05/20/2019
 ms.topic: article
 ms.service: azure-blockchain
-ms.reviewer: zeyadr
+ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: 8dc8304e97ff66356a8874a146231f0042e5f509
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 989c5c1cd9474999400177293d896b96c79c32b7
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510138"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65955228"
 ---
 # <a name="azure-blockchain-workbench-architecture"></a>Architecture Azure Blockchain Workbench
 
 Azure Blockchain Workbench simplifie le développement d’applications blockchain en proposant une solution qui utilise plusieurs composants Azure. Blockchain Workbench peut être déployé à l’aide d’un modèle de solution dans la Place de marché Microsoft Azure. Ce modèle permet aux utilisateurs de choisir les modules et les composants à déployer, comme la pile blockchain, le type d’application cliente et la prise en charge de l’intégration IoT. Une fois déployé, Blockchain Workbench fournit un accès à une application web, une application iOS et une application Android.
 
-![Architecture Blockchain Workbench](./media/architecture/architecture.png)
+![Architecture de Blockchain Workbench](./media/architecture/architecture.png)
 
 ## <a name="identity-and-authentication"></a>Identité et authentification
 

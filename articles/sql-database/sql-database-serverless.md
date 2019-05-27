@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 manager: craigg
-ms.date: 05/11/2019
-ms.openlocfilehash: 72552f6335f3ad6742679708a639634362c49c0b
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.date: 05/20/2019
+ms.openlocfilehash: 57f2c38ce0479f43d7f24de8d1feb554517bcc69
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65823316"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65951484"
 ---
 # <a name="sql-database-serverless-preview"></a>SQL Database serverless (préversion)
 
@@ -81,7 +81,22 @@ En règle générale, les bases de données sont exécutées sur un ordinateur a
 
 ### <a name="memory-management"></a>Gestion de la mémoire
 
-La mémoire pour les bases de données serverless est sollicitée plus fréquemment que pour les bases de données provisionnées. Ce comportement est important pour maîtriser les coûts dans le niveau serverless. Contrairement au calcul provisionné, la mémoire du cache SQL est sollicitée par une base de données serverless quand l’utilisation du processeur ou du cache est faible.
+Mémoire pour les bases de données sans serveur est récupérée plus fréquemment que pour les bases de données de calcul provisionné. Ce comportement est important de contrôler les coûts dans sans serveur et peut affecter les performances.
+
+#### <a name="cache-reclaiming"></a>Mettre en cache la récupération
+
+Contrairement aux bases de données de calcul provisionné, mémoire du cache SQL est récupérée à partir d’une base de données sans serveur lors de l’utilisation du processeur ou de cache est faible.
+
+- Utilisation du cache est considérée comme faible lorsque la taille totale du dernier récemment utilisé cache entrées tombe sous un seuil pour une période donnée.
+- Lors de la récupération du cache est déclenchée, la taille de cache cible est réduite de façon incrémentielle à une fraction de sa taille d’origine et la récupération continue uniquement si l’utilisation reste faible.
+- En cas de récupération du cache, la stratégie de sélection des entrées du cache à supprimer est la stratégie de sélection de même que pour les bases de données de calcul provisionné lors de la sollicitation de la mémoire est élevée.
+- La taille du cache est inférieure jamais la mémoire minimale tel que défini par VCORE minimale, qui peut être configurés.
+
+Dans sans serveur et mis en service de calcul bases de données, cache entrées peuvent être supprimées si toute la mémoire disponible est utilisée.
+
+#### <a name="cache-hydration"></a>Mettre en cache d’hydratation
+
+Le cache SQL augmente à mesure que les données sont extraites à partir du disque de la même manière et avec la même vitesse que pour les bases de données configurés. Lorsque la base de données est occupé, le cache est autorisé à croître sans contrainte jusqu'à la limite de mémoire maximale.
 
 ## <a name="autopause-and-autoresume"></a>Mise en pause automatique et reprise automatique
 
@@ -115,7 +130,7 @@ La reprise automatique est déclenchée si l’une des conditions suivantes est 
 
 ### <a name="connectivity"></a>Connectivité
 
-Si une base de données serverless est mise en pause, la première connexion reprend la base de données et retourne une erreur indiquant que la base de données n’est pas disponible avec le code d’erreur 40613. Une fois que la base de données est reprise, la connexion doit être retentée pour établir la connectivité. Les clients de base de données avec une logique de nouvelle tentative de connexion n’ont normalement pas besoin d’être modifiés.
+Si une base de données sans serveur est suspendue, la première connexion reprendre la base de données et retourner une erreur indiquant que la base de données n’est pas disponible avec le code d’erreur 40613. Une fois que la base de données est reprise, la connexion doit être retentée pour établir la connectivité. Les clients de base de données avec une logique de nouvelle tentative de connexion n’ont normalement pas besoin d’être modifiés.
 
 ### <a name="latency"></a>Latence
 
@@ -267,7 +282,7 @@ Le volume de calcul facturé correspond à la quantité maximale de processeur e
 - **Montant facturé ($)**  : prix unitaire d’un vCore * max (vCores min, vCores utilisés, mémoire min Go * 1/3, mémoire Go utilisée * 1/3) 
 - **Fréquence de facturation** : À la seconde
 
-Prix unitaire d’un vCore dans le coût par vCore par seconde. Reportez-vous à la [page des prix Azure SQL Database](https://azure.microsoft.com/pricing/details/sql-database/single/) pour connaître les prix à l’unité d’une région donnée.
+Le prix unitaire de vCore dans le coût par vCore par seconde. Reportez-vous à la [page des prix Azure SQL Database](https://azure.microsoft.com/pricing/details/sql-database/single/) pour connaître les prix à l’unité d’une région donnée.
 
 Le volume de calcul facturé est exposé par les métriques suivantes :
 
@@ -277,9 +292,9 @@ Le volume de calcul facturé est exposé par les métriques suivantes :
 
 Cette quantité est calculée chaque seconde et agrégée sur 1 minute.
 
-Considérons une base de données sans serveur configuré avec 1 min vcore et le nombre maximal de 4 VCORE.  Cela correspond à environ 3 Go de mémoire min et max 12 Go de mémoire.  Supposons que le délai de pause automatique est défini sur 6 heures et la charge de travail de base de données est active pendant les 2 premières heures d’une période de 24 heures et inactives dans le cas contraire.    
+Considérons une base de données sans serveur configuré avec 1 min vCore et le nombre maximal de 4 VCORE.  Cela correspond à environ 3 Go de mémoire min et max 12 Go de mémoire.  Supposons que le délai de pause automatique est défini sur 6 heures et la charge de travail de base de données est active pendant les 2 premières heures d’une période de 24 heures et inactives dans le cas contraire.    
 
-Dans ce cas, la base de données est facturé pour le calcul et de stockage pendant 8 heures des première.  Même si la base de données est inactive commençant après l’heure de 2e, il est toujours facturé pour le calcul dans les 6 heures suivantes, selon le calcul minimal approvisionné lorsque la base de données est en ligne.  Uniquement le stockage est facturé pendant le reste de la période de 24 heures pendant que la base de données est suspendu.
+Dans ce cas, la base de données est facturé pour le calcul et de stockage pendant 8 heures des première.  Même si la base de données est inactive ne démarre après la deuxième heure, il est toujours facturé pour le calcul dans les 6 heures suivantes, selon le calcul minimal approvisionné lorsque la base de données est en ligne.  Seul le stockage est facturé pendant le reste de la période de 24 heures pendant que la base de données est suspendu.
 
 Plus précisément, la facture de calcul dans cet exemple est calculée comme suit :
 
@@ -287,11 +302,11 @@ Plus précisément, la facture de calcul dans cet exemple est calculée comme su
 |---|---|---|---|---|
 |0:00-1:00|4|9|nombre de VCORE utilisés|4 vCores * 3600 seconds = 14400 vCore seconds|
 |1:00-2:00|1|12|Mémoire utilisée|12 Go * 1/3 * 3 600 secondes = 14400 vCore secondes|
-|2:00-8:00|0|0|Provisionnement en mémoire min|3Gb * 1/3 * 21600 seconds = 21600 vCore seconds|
+|2:00-8:00|0|0|Provisionnement en mémoire min|3 Go * 1/3 * 21600 secondes = 21600 vCore secondes|
 |8:00-24:00|0|0|Aucun calcul facturé pendant la suspension|vCore 0 secondes|
 |Secondes de vCore total facturés plus de 24 heures||||vCore 50400 secondes|
 
-Supposons que le prix unitaire du calcul est $0.000073/vCore/seconde.  Le calcul facturé pour cette période de 24 heures est le produit des calcul unit price et vcore secondes facturé : $0.000073/vCore/second * 50400 vCore secondes = $3.68
+Supposons que le prix unitaire du calcul est $0.000073/vCore/seconde.  Le calcul facturé pour cette période de 24 heures est le produit des calcul unit price et vCore secondes facturé : $0.000073/vCore/second * 50400 vCore secondes = $3.68
 
 ## <a name="available-regions"></a>Régions disponibles
 

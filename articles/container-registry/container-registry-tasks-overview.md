@@ -5,14 +5,14 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 03/28/2019
+ms.date: 05/20/2019
 ms.author: danlep
-ms.openlocfilehash: b97db09c477a940ca36129316613f5ceb4eb13b1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cc182743c3879ab2748f92022437bc23c26c371c
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60582412"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65977196"
 ---
 # <a name="automate-os-and-framework-patching-with-acr-tasks"></a>Automatiser les mises à jour correctives du système d’exploitation et du framework avec ACR Tasks
 
@@ -41,7 +41,7 @@ Pour une introduction, consultez le Guide de démarrage rapide pour [générer e
 
 Le tableau suivant présente quelques exemples d’emplacements de contexte pris en charge pour ACR Tasks :
 
-| Emplacement du contexte | Description | Exemples |
+| Emplacement du contexte | Description  | Exemples |
 | ---------------- | ----------- | ------- |
 | Système de fichiers local | Fichiers dans un répertoire sur le système de fichiers local. | `/home/user/projects/myapp` |
 | Branche principale GitHub | Fichiers dans la branche maître (ou autre branche par défaut) d’un référentiel GitHub.  | `https://github.com/gituser/myapp-repo.git` |
@@ -94,6 +94,16 @@ Par exemple, vous pouvez créer une tâche à plusieurs étapes qui automatise l
 Les tâches à plusieurs étapes vous permettent de fractionner la génération, l’exécution et le test d’une image en étapes plus composables, avec prise en charge des dépendances entre chacune d’elles. Grâce aux tâches à plusieurs étapes d’ACR Tasks, vous contrôlez plus finement la génération d’images, le test la mise à jour corrective du système d’exploitation et du framework.
 
 Pour en savoir plus sur les tâches à plusieurs étapes, consultez [Run multi-step build, test, and patch tasks in ACR Tasks (Exécuter des tâches à plusieurs étapes de génération, de test et de correction dans ACR Tasks)](container-registry-tasks-multi-step.md).
+
+## <a name="view-task-logs"></a>Afficher les journaux de tâche
+
+Chaque exécution de la tâche génère une sortie de journal que vous pouvez inspecter pour déterminer si les étapes de la tâche a été exécuté avec succès. Si vous utilisez le [build d’acr az](/cli/azure/acr#az-acr-build), [acr az exécuter](/cli/azure/acr#az-acr-run), ou [exécution de la tâche az acr](/cli/azure/acr/task#az-acr-task-run) pour déclencher la tâche de commande, la sortie de journal pour l’exécution de la tâche est diffusée vers la console et également stocké pour une utilisation ultérieure récupération. Afficher les journaux pour une tâche exécutent dans le portail Azure, ou utilisent le [journaux des tâches az acr](/cli/azure/acr/task#az-acr-task-logs) commande.
+
+À compter de juillet 2019, données et journaux pour la tâche s’exécute dans un Registre seront conservées par défaut pendant 30 jours et vider automatiquement. Si vous souhaitez archiver les données pour exécuter une tâche, activer l’archivage à l’aide de la [az acr update-exécution de la tâche](/cli/azure/acr/task#az-acr-task-update-run) commande. L’exemple suivant active l’archivage pour l’exécution de la tâche *cf11* dans le Registre *myregistry*.
+
+```azurecli
+az acr task update-run --registry myregistry --run-id cf11 --no-archive false
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 

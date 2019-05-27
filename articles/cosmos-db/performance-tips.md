@@ -4,14 +4,14 @@ description: Découvrez les options de configuration clientes pour améliorer le
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 01/24/2018
+ms.date: 05/20/2019
 ms.author: sngun
-ms.openlocfilehash: e03fa427227bed745b53d43aaebc4dc58ad5bb9d
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: feab3ee1a21a52e8b18d59e67e8410fcbeb4ff5e
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62097893"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65953787"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Conseils sur les performances pour Azure Cosmos DB et .NET
 
@@ -48,8 +48,8 @@ Si vous vous demandez comment améliorer les performances de votre base de donn�
      |Mode de connexion  |Protocole pris en charge  |Kits SDK pris en charge  |API/Port de service  |
      |---------|---------|---------|---------|
      |Passerelle  |   HTTPS    |  Tous les kits SDK    |   SQL(443), Mongo(10250, 10255, 10256), Table(443), Cassandra(10350), Graph(443)    |
-     |Directement    |    HTTPS     |  Kit de développement logiciel .NET et Java    |   Ports dans la plage de 10 000 à 20 000    |
-     |Directement    |     TCP    |  Kit de développement logiciel (SDK) .NET    | Ports dans la plage de 10 000 à 20 000 |
+     |Direct    |    HTTPS     |  Kit de développement logiciel .NET et Java    |   Ports dans la plage de 10 000 à 20 000    |
+     |Direct    |     TCP    |  Kit de développement logiciel (SDK) .NET    | Ports dans la plage de 10 000 à 20 000 |
 
      Azure Cosmos DB fournit un modèle de programmation RESTful simple et ouvert sur HTTPS. De plus, il fournit un protocole TCP très performant qui utilise aussi un modèle de communication RESTful, disponible via le Kit de développement logiciel (SDK) .NET. Direct TCP et HTTPS SSL utilisent tous deux SSL pour l’authentification initiale et le chiffrement du trafic. Pour de meilleures performances, utilisez le protocole TCP lorsque cela est possible.
 
@@ -141,7 +141,7 @@ Si vous vous demandez comment améliorer les performances de votre base de donn�
 
     Afin de réduire le nombre de boucles réseau nécessaires pour récupérer tous les résultats applicables, vous pouvez augmenter la taille de la page à 1000 résultats à l’aide de l’en-tête de requête [x-ms-max-item-count](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-request-headers). Si vous avez besoin d’afficher uniquement quelques résultats, (par exemple, si votre interface utilisateur ou API d’application retourne seulement 10 résultats à la fois), vous pouvez également réduire la taille de la page à 10 résultats, afin de baisser le débit consommé pour les lectures et requêtes.
 
-    Vous pouvez également définir la taille de la page à l’aide des SDK Azure Cosmos DB disponibles.  Par exemple : 
+    Vous pouvez également définir la taille de la page à l’aide des SDK Azure Cosmos DB disponibles.  Exemple :
 
         IQueryable<dynamic> authorResults = client.CreateDocumentQuery(documentCollection.SelfLink, "SELECT p.Author FROM Pages p WHERE p.Title = 'About Seattle'", new FeedOptions { MaxItemCount = 1000 });
 10. **Augmentation du nombre de threads/tâches**
@@ -160,11 +160,11 @@ Si vous vous demandez comment améliorer les performances de votre base de donn�
 
     - Pour les applications web ASP.NET déployées sur Azure, cette opération peut être effectuée en choisissant la **plate-forme 64 bits** dans les **paramètres de l’application** sur le portail Azure.
 
-## <a name="indexing-policy"></a>Stratégie d’indexation
+## <a name="indexing-policy"></a>Stratégie d'indexation
  
 1. **Exclusion des chemins d’accès inutilisés de l’indexation pour des écritures plus rapides**
 
-    La stratégie d’indexation de Cosmos DB vous permet également de spécifier les chemins d’accès de document à inclure ou exclure de l’indexation en tirant parti des chemins d’accès d’indexation (IndexingPolicy.IncludedPaths et IndexingPolicy.ExcludedPaths). L’utilisation des chemins d’accès d’indexation peut offrir des performances d’écriture améliorées et réduire le stockage d’index pour les scénarios dans lesquels les modèles de requête sont connus d’avance, puisque les coûts d’indexation sont directement liés au nombre de chemins d’accès uniques indexés.  Par exemple, le code suivant montre comment exclure toute une section de documents (également appelée sous-arborescence) de l’indexation à l’aide du caractère générique « * ».
+    La stratégie d’indexation de Cosmos DB vous permet également de spécifier les chemins d’accès de document à inclure ou exclure de l’indexation en tirant parti des chemins d’accès d’indexation (IndexingPolicy.IncludedPaths et IndexingPolicy.ExcludedPaths). L’utilisation des chemins d’accès d’indexation peut offrir des performances d’écriture améliorées et réduire le stockage d’index pour les scénarios dans lesquels les modèles de requête sont connus d’avance, puisque les coûts d’indexation sont directement liés au nombre de chemins d’accès uniques indexés.  Par exemple, le code suivant montre comment exclure toute une section de documents (appelée sous-arborescence) à partir de l’indexation à l’aide de la « * » générique.
 
     ```csharp
     var collection = new DocumentCollection { Id = "excludedPathCollection" };

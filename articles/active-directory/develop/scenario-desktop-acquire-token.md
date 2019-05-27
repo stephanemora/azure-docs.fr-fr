@@ -15,12 +15,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e1fe9594471c6e8f723afff2def940bb675e04fb
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 9d18c92cccac6bfb0bd359767ecdb51951268735
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65407007"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65962536"
 ---
 # <a name="desktop-app-that-calls-web-apis---acquire-a-token"></a>Application de bureau qui appelle des API - web acquérir un jeton
 
@@ -163,7 +163,7 @@ L’équipe MSAL.NET ont réécrire nos tests d’interface utilisateur pour tir
 
 #### <a name="other-optional-parameters"></a>Autres paramètres facultatifs
 
-En savoir plus sur tous les autres paramètres facultatifs pour `AcquireTokenInteractive` à partir de la documentation de référence [AcquireTokenInteractiveParameterBuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.apiconfig.acquiretokeninteractiveparameterbuilder?view=azure-dotnet-preview#methods)
+En savoir plus sur tous les autres paramètres facultatifs pour `AcquireTokenInteractive` à partir de la documentation de référence [AcquireTokenInteractiveParameterBuilder](/dotnet/api/microsoft.identity.client.acquiretokeninteractiveparameterbuilder?view=azure-dotnet-preview#methods)
 
 ## <a name="integrated-windows-authentication"></a>Authentification Windows intégrée
 
@@ -283,7 +283,7 @@ static async Task GetATokenForGraph()
 }
 ```
 
-Pour la liste des modificateurs possible sur AcquireTokenByIntegratedWindowsAuthentication, consultez [AcquireTokenByIntegratedWindowsAuthParameterBuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.apiconfig.acquiretokenbyintegratedwindowsauthparameterbuilder?view=azure-dotnet-preview#methods)
+Pour la liste des modificateurs possible sur AcquireTokenByIntegratedWindowsAuthentication, consultez [AcquireTokenByIntegratedWindowsAuthParameterBuilder](/dotnet/api/microsoft.identity.client.acquiretokenbyintegratedwindowsauthparameterbuilder?view=azure-dotnet-preview#methods)
 
 ## <a name="username--password"></a>Nom d’utilisateur / mot de passe
 
@@ -519,7 +519,7 @@ static async Task GetATokenForGraph()
 }
 ```
 
-Pour plus d’informations sur tous les modificateurs peuvent être appliqués à `AcquireTokenByUsernamePassword`, consultez [AcquireTokenByUsernamePasswordParameterBuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.apiconfig.acquiretokenbyusernamepasswordparameterbuilder?view=azure-dotnet-preview#methods)
+Pour plus d’informations sur tous les modificateurs peuvent être appliqués à `AcquireTokenByUsernamePassword`, consultez [AcquireTokenByUsernamePasswordParameterBuilder](/dotnet/api/microsoft.identity.client.acquiretokenbyusernamepasswordparameterbuilder?view=azure-dotnet-preview#methods)
 
 ## <a name="command-line-tool-without-web-browser"></a>Outil de ligne de commande (sans le navigateur web)
 
@@ -634,7 +634,7 @@ static async Task<AuthenticationResult> GetATokenForGraph()
 
 ## <a name="file-based-token-cache"></a>Cache de jeton basée sur les fichiers
 
-Dans MSAL.NET, un cache de jeton en mémoire est fourni par défaut.
+Dans MSAL.NET, un cache de jetons en mémoire est fourni par défaut.
 
 ### <a name="serialization-is-customizable-in-windows-desktop-apps-and-web-appsweb-apis"></a>La sérialisation est personnalisable dans les applications de bureau Windows et web apps/web API
 
@@ -643,16 +643,16 @@ Dans le cas de .NET Framework et .NET core, si vous ne le faites pas toute infor
 Classes et interfaces impliquées dans la sérialisation du cache de jeton sont les suivants :
 
 - ``ITokenCache``, qui définit les événements pour vous abonner à des demandes de sérialisation de cache de jeton, ainsi que des méthodes pour sérialiser ou désérialiser le cache au niveau de différents formats (v3.0 ADAL, MSAL 2.x et la bibliothèque MSAL 3.x = ADAL v5.0)
-- ``TokenCacheCallback`` un rappel transmis aux événements afin que vous pouvez gérer la sérialisation. elles amèneront être appelées avec des arguments de type ``TokenCacheNotificationArgs``.
+- ``TokenCacheCallback`` est un rappel transmis aux événements pour que vous puissiez gérer la sérialisation. elles amèneront être appelées avec des arguments de type ``TokenCacheNotificationArgs``.
 - ``TokenCacheNotificationArgs`` fournit uniquement la ``ClientId`` de l’application et une référence à l’utilisateur pour lequel le jeton est disponible
 
   ![image](https://user-images.githubusercontent.com/13203188/56027172-d58d1480-5d15-11e9-8ada-c0292f1800b3.png)
 
 > [!IMPORTANT]
-> MSAL.NET crée les caches de jeton pour vous et vous fournit le `IToken` mettre en cache lorsque vous appelez d’une application `GetUserTokenCache` et `GetAppTokenCache` méthodes. Vous ne sont pas censées pour implémenter l’interface vous-même. Votre responsabilité, lorsque vous implémentez une sérialisation cache de jeton personnalisé, est de :
+> MSAL.NET crée les caches de jetons automatiquement et vous fournit le cache `IToken` quand vous appelez les méthodes `GetUserTokenCache` et `GetAppTokenCache` d’une application. Vous ne sont pas censées pour implémenter l’interface vous-même. Votre responsabilité, lorsque vous implémentez une sérialisation du cache de jetons personnalisée, consiste à :
 >
-> - Réagir aux `BeforeAccess` et `AfterAccess` « événements ». Le`BeforeAccess` délégué est responsable de désérialiser le cache, tandis que le `AfterAccess` un est responsable de la sérialisation du cache.
-> - Partie de ces événements stocker ou de charger des objets BLOB, qui est transmises via l’argument d’événement pour tout stockage que vous souhaitez.
+> - Réagir aux « événements » `BeforeAccess` et `AfterAccess`. Le`BeforeAccess` délégué est responsable de désérialiser le cache, tandis que le `AfterAccess` un est responsable de la sérialisation du cache.
+> - Une partie de ces événements stockent ou chargent des objets blob, lesquels sont transmis par le biais de l’argument de l’événement au stockage voulu.
 
 Les stratégies sont différents en fonction de si vous écrivez une sérialisation du cache de jetons pour une application de client public (bureau), ou une application cliente confidentielle (web application/API web, application démon).
 
@@ -660,9 +660,9 @@ Depuis la version 2.x de MSAL vous disposez de plusieurs options, selon si vous 
 
 La personnalisation de la sérialisation de cache de jeton pour partager l’état de l’authentification unique entre ADAL.NET 3.x, ADAL.NET 5.x et MSAL.NET est expliqué dans la partie de l’exemple suivant : [active-directory-dotnet-v1-to-v2](https://github.com/Azure-Samples/active-directory-dotnet-v1-to-v2)
 
-### <a name="simple-token-cache-serialization-msal-only"></a>Sérialisation du cache de jetons simple (MSAL uniquement)
+### <a name="simple-token-cache-serialization-msal-only"></a>Sérialisation simple du cache de jetons (MSAL.NET uniquement)
 
-Voici un exemple d’une implémentation naïve de sérialisation personnalisée d’un cache de jeton pour les applications de bureau. Voici le cache de jetons d’utilisateur dans un fichier dans le même dossier que l’application.
+Voici un exemple d’implémentation naïve de la sérialisation personnalisée d’un cache de jetons pour des applications de bureau. Voici le cache de jetons d’utilisateur dans un fichier dans le même dossier que l’application.
 
 Une fois que vous générez l’application, vous activez la sérialisation en appelant ``TokenCacheHelper.EnableSerialization()`` en passant de l’application `UserTokenCache`
 

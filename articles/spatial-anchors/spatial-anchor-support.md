@@ -4,16 +4,16 @@ description: Azure ancres Spatial plus d’informations sur la façon d’ouvrir
 author: ramonarguelles
 manager: vicenterivera
 services: azure-spatial-anchors
-ms.author: ramonarguelles
+ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: troubleshooting
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: c372b86861452c48b2114073419d4ed709ff115c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1930d5fc9dafe7d480302ded9b4e5a86f55a7669
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60303351"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65964534"
 ---
 # <a name="azure-spatial-anchors-support-options"></a>Options de support Azure ancres Spatial
 
@@ -31,8 +31,8 @@ Pour ouvrir un ticket de support technique au sein du portail Azure pour les anc
 
 1. Lorsque vous terminez les champs de ticket de support : 
 
-- Type de problème : Techniques
-- Service : Spatial Anchors
+- Type de problème : Technique
+- Service : Spatial Anchors
 
 ![Champs de ticket de support concernant le portail Azure](./media/spatial-anchor-support3.png)
 

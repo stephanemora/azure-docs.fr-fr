@@ -4,14 +4,14 @@ description: Découvrez comment définir un débit provisionné pour vos contene
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/31/2019
+ms.date: 05/20/2019
 ms.author: rimman
-ms.openlocfilehash: ed3a171e60c078975de7003cdf599f0bac62c402
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 598a1562127a67c78f67cdd02b00d83d4a606739
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61330292"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65953543"
 ---
 # <a name="provision-throughput-on-containers-and-databases"></a>Approvisionner le débit sur les conteneurs et les bases de données
 

@@ -9,11 +9,11 @@ ms.date: 01/11/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 9c59b98fb615266c193f997c01c83922c18d4408
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60679783"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66147906"
 ---
 *Préchauffage du cache*  
 Le disque dont la mise en cache de l’hôte est définie en lecture seule peut générer un taux d’E/S par seconde supérieur à sa propre limite. Pour obtenir ces performances de lecture maximales à partir du cache de l’hôte, vous devez tout d’abord préchauffer le cache du disque. Ainsi, les E/S en lecture que l’outil de benchmark génèrera sur le volume CacheReads atteindront le cache plutôt que le disque directement. Le fait d’intervenir au niveau du cache permet de générer des E/S supplémentaires à partir du seul disque ayant une mise en cache.
@@ -62,13 +62,13 @@ Vous trouverez ci-dessous un exemple de spécifications d’accès pour un scén
 
 1. Créez deux spécifications d’accès avec les valeurs indiquées ci-dessous
 
-   | Nom | Taille de la demande | % aléatoire | % écriture |
+   | Name | Taille de la demande | % aléatoire | % écriture |
    | --- | --- | --- | --- |
    | RandomWrites\_1MB |1 Mo |100 |0 |
    | RandomReads\_1MB |1 Mo |100 |100 |
 1. Exécutez le test Iometer pour initialiser le disque de cache avec les paramètres suivants. Utilisez trois threads de travail pour le volume cible et une profondeur de file d’attente de 128. Définissez la durée « Temps d’exécution » du test sur 2 heures sous l’onglet « Tester la configuration ».
 
-   | Scénario | Volume cible | Nom | Duration |
+   | Scénario | Volume cible | Name | Duration |
    | --- | --- | --- | --- |
    | Initialisation du disque de cache |CacheReads |RandomWrites\_1MB |2 heures |
 1. Exécutez le test Iometer pour préchauffer le disque de cache avec les paramètres suivants. Utilisez trois threads de travail pour le volume cible et une profondeur de file d’attente de 128. Définissez la durée « Temps d’exécution » du test sur 2 heures sous l’onglet « Tester la configuration ».

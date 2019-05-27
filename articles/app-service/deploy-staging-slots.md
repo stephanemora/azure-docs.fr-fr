@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: cephalin
-ms.openlocfilehash: d62632d6c28ac137095307e95dbbdab7e8573bbc
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 1e09eec89c683d36df49110227488a6413ed371c
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65137876"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65955936"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configurer des environnements intermédiaires dans Azure App Service
 <a name="Overview"></a>
@@ -46,7 +46,7 @@ Pour que vous puissiez activer plusieurs emplacements de déploiement, l’appli
 
 2. Dans le volet de navigation gauche, choisissez l’option **Emplacements de déploiement (préversion)**, puis cliquez sur **Ajouter un emplacement**.
    
-    ![Add a new deployment slot](./media/web-sites-staged-publishing/QGAddNewDeploymentSlot.png)
+    ![Ajouter un nouvel emplacement de déploiement](./media/web-sites-staged-publishing/QGAddNewDeploymentSlot.png)
    
    > [!NOTE]
    > Si l’application ne s’exécute pas au niveau **Standard**, **Premium** ou **Isolé**, vous recevez un message précisant les niveaux pris en charge pour l’activation de la publication intermédiaire. À ce stade, vous pouvez sélectionner **Mettre à niveau** et accéder à l’onglet **Mettre à l’échelle** de votre application avant de continuer.
@@ -93,13 +93,13 @@ Fonctionnalités marquées avec un * vont être apportées rattachés à l’emp
 
 **Paramètres non échangés** :
 
-* Points de terminaison de publication
+* Publication des points de terminaison
 * Noms de domaine personnalisés
 * Certificats privés et liaisons SSL
 * Paramètres de mise à l'échelle
 * Planificateurs WebJobs
 * Restrictions d’adresse IP
-* Always On
+* Toujours activé
 * Paramètres de protocole (HTTP**S**, version TLS, les certificats clients)
 * Paramètres du journal de diagnostic
 * CORS
@@ -217,7 +217,7 @@ Quand vous utilisez [Échange automatique](#Auto-Swap), certaines applications p
 
 Pour plus d’informations sur la personnalisation de la `applicationInitialization` élément, consultez [échecs échange d’emplacement de déploiement les plus courants et comment les résoudre](https://ruslany.net/2017/11/most-common-deployment-slot-swap-failures-and-how-to-fix-them/).
 
-Vous pouvez également personnaliser le comportement d'initialisation en utilisant un ou plusieurs [paramètres d'application](web-sites-configure.md) suivants :
+Vous pouvez également personnaliser le comportement d'initialisation en utilisant un ou plusieurs [paramètres d'application](configure-common.md) suivants :
 
 - `WEBSITE_SWAP_WARMUP_PING_PATH`: chemin d’accès pour effectuer un test ping afin d'initialiser votre site. Ajoutez ce paramètre d’application en spécifiant un chemin d’accès personnalisé qui commence par une barre oblique comme valeur. Par exemple : `/statuscheck`. La valeur par défaut est `/`. 
 - `WEBSITE_SWAP_WARMUP_PING_STATUSES`: Codes de réponse HTTP valides pour l’opération d'initialisation. Ajoutez ce paramètre d’application avec une liste séparée par des virgules de codes HTTP. Par exemple : `200,202`. Si le code d’état renvoyé ne figure pas dans la liste, les opérations d'initialisation et de basculement sont arrêtées. Par défaut, tous les codes de réponse sont valides.

@@ -10,12 +10,12 @@ ms.date: 01/17/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: c4d213a7c08162ef0b107572cfb79b6e96e271d6
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 5f8d8d96e15fe3b59cb288a9a1cf6c547312fe67
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205497"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65951299"
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>Conception d'applications hautement disponibles à l'aide du stockage géographiquement redondant avec accès en lecture (RA-GRS)
 
@@ -54,7 +54,7 @@ L’objectif de cet article est de vous montrer comment concevoir une applicatio
 
 La solution proposée part du principe qu’il est acceptable de retourner à l’application appelante des données potentiellement périmées. Comme les données de la région secondaire finissent par être cohérentes, il est possible que la région principale devenir inaccessible avant qu’une mise à jour dans la région secondaire ait terminé la réplication.
 
-Par exemple, votre client soumet une mise à jour avec succès, mais la région principale échoue avant la propagation de cette mise à jour à la région secondaire. Lorsque le client demande à relire les données, il reçoit les données périmées de la région secondaire au lieu des données mises à jour. Lorsque vous concevez votre application, vous devez décider si cela est acceptable et, si tel est le cas, la façon dont vous enverrez un message au client. 
+Par exemple, votre client soumet une mise à jour avec succès, mais la région principale échoue avant la propagation de cette mise à jour à la région secondaire. Lorsque le client demande à relire les données, ils reçoivent les données périmées de la région secondaire au lieu des données mises à jour. Lorsque vous concevez votre application, vous devez décider si cela est acceptable et, si tel est le cas, la façon dont vous enverrez un message au client. 
 
 Plus loin dans cet article, nous vous montrerons comment vérifier la dernière heure de synchronisation des données secondaires pour savoir si la région secondaire est à jour.
 
@@ -197,17 +197,17 @@ Dans le cadre du troisième scénario, lorsque les tests ping effectués sur le 
 
 Le stockage RA-GRS réplique des transactions de la région primaire vers la région secondaire. Ce processus de réplication garantit que les données de la région secondaire sont *cohérentes*. Cela signifie que toutes les transactions de la région primaire apparaîtront dans la région secondaire. Cependant, cela peut prendre un certain temps, et rien ne garantit que les transactions arrivent dans la région secondaire dans l’ordre dans lequel elles ont été initialement appliquées dans la région primaire. Si vos transactions arrivent dans la région secondaire dans le désordre, vous *pouvez* considérer que vos données dans cette région resteront dans un état incohérent jusqu’à ce que le service rattrape son retard.
 
-Le tableau suivant illustre ce qui peut se produire lorsque vous mettez à jour les informations d’une employée pour lui affecter le rôle *administrateur*. Cet exemple implique que vous mettiez à jour l’entité **d’employé** et une entité de **rôle administrateur** avec le nombre total d’administrateurs. Notez la façon dont les mises à jour sont appliquées dans le désordre dans la région secondaire.
+Le tableau suivant montre un exemple de ce qui peut se produire lorsque vous mettez à jour les détails d’un employé pour les rendre membre du *administrateurs* rôle. Cet exemple implique que vous mettiez à jour l’entité **d’employé** et une entité de **rôle administrateur** avec le nombre total d’administrateurs. Notez la façon dont les mises à jour sont appliquées dans le désordre dans la région secondaire.
 
 | **Time** | **Transaction**                                            | **Réplication**                       | **Dernière heure de synchronisation** | **Résultat** |
 |----------|------------------------------------------------------------|---------------------------------------|--------------------|------------| 
 | T0       | Transaction A : <br> Insérer l’entité d’employé <br> dans la région primaire |                                   |                    | Transaction A insérée dans la région primaire,<br> pas encore répliquée. |
 | T1       |                                                            | Transaction A <br> répliquée sur<br> la région secondaire | T1 | Transaction A répliquée sur la région secondaire. <br>Dernière heure de synchronisation mise à jour.    |
 | T2       | Transaction B :<br>Mettre à jour<br> l’entité d’employé<br> dans la région primaire  |                                | T1                 | Transaction B écrite dans la région primaire,<br> pas encore répliquée.  |
-| T3       | Transaction C :<br> Mettre à jour <br>administrator<br>entité de rôle dans<br>primary |                    | T1                 | Transaction C écrite dans la région primaire,<br> pas encore répliquée.  |
+| T3       | Transaction C :<br> Mettre à jour <br>administrateur<br>entité de rôle dans<br>primary |                    | T1                 | Transaction C écrite dans la région primaire,<br> pas encore répliquée.  |
 | *T4*     |                                                       | Transaction C <br>répliquée sur<br> la région secondaire | T1         | Transaction C répliquée sur la région secondaire.<br>LastSyncTime pas encore mis à jour car <br>la transaction B n’a pas encore été répliquée.|
 | *T5*     | Lire les entités <br>de la région secondaire                           |                                  | T1                 | Vous obtenez la valeur périmée pour l’entité d’employé <br> car la transaction B n’a <br> pas encore été répliquée. Vous obtenez la nouvelle valeur pour<br> l’entité de rôle d’administrateur car C a<br> été répliquée. La dernière heure de synchronisation n’a pas encore<br> été mise à jour car la transaction B<br> n’a pas été répliquée. Vous savez que<br>l’entité de rôle d’administrateur est cohérente <br>car l’heure/la date de l’entité sont postérieures à <br>la dernière heure de synchronisation. |
-| *T6*     |                                                      | Transaction B<br> répliquée sur<br> la région secondaire | T6                 | *T6* – Toutes les transactions jusqu’à C ont <br>été répliquées. La dernière heure de synchronisation<br> est mise à jour. |
+| *T6*     |                                                      | Transaction B<br> répliquée sur<br> secondaire | T6                 | *T6* – Toutes les transactions jusqu’à C ont <br>été répliquées. La dernière heure de synchronisation<br> est mise à jour. |
 
 Dans cet exemple, supposons que le client bascule vers la lecture à partir de la région secondaire à l’instant T5. À ce stade, il peut lire correctement l’entité de **rôle administrateur**. Cependant, l’entité contient une valeur pour le nombre d’administrateurs qui n’est pas cohérente avec le nombre d’entités **d’employé** marquées comme administrateurs dans la région secondaire. Votre client pourrait simplement afficher cette valeur au risque que les informations soient incohérentes. Il pourrait également tenter de déterminer que le **rôle administrateur** est dans un état potentiellement incohérent dans la mesure où les mises à jour ont été effectuées dans le désordre et en informer l’utilisateur.
 

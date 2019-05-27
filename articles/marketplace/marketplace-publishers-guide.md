@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: a3d75f09ac21fcdb4862cf8eefff0b5c05fd3369
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 58591302280c67dbd0f69ebe0bc47cf95c8bfc18
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64937608"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956743"
 ---
 # <a name="azure-marketplace-and-appsource-publishing-guide"></a>Guide de publication de la Place de marché Azure et AppSource
 
@@ -62,7 +62,7 @@ Les nouvelles annonces sur la Place de marché peuvent offrir aux partenaires un
 
 *   Co-vente : commencez ou accélérez votre migration commerciale avec Microsoft sur la Place de marché. Accédez aux programmes et au support pour dynamiser la vente en commun avec les équipes de Microsoft.
 
-Dès que vous aurez [soumis votre solution](https://azuremarketplace.microsoft.com/sell/signup) sur la Place de marché, notre équipe d’intégration vous contactera pour accompagner votre expérience de publication.
+Dès que vous aurez [soumis votre solution](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) sur la Place de marché, notre équipe d’intégration vous contactera pour accompagner votre expérience de publication.  Consultez [comment créer un compte espace partenaires](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) pour plus d’informations.
 
 Pour plus d’informations sur les avantages Microsoft Go-To-Market pour la commercialisation et sur les moyens de développer votre activité sur la Place de marché, consultez [Services Microsoft Go-To-Market](https://partner.microsoft.com/reach-customers/gtm).
 

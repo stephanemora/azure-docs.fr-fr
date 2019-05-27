@@ -1,83 +1,89 @@
 ---
 title: Forum aux questions sur Azure Kubernetes Service (AKS)
-description: Apporte des réponses à certaines des questions les plus fréquemment posées sur Azure Kubernetes Service (AKS).
+description: Trouvez des réponses à certaines questions courantes sur Azure Kubernetes Service (AKS).
 services: container-service
 author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 04/25/2019
+ms.date: 05/06/2019
 ms.author: iainfou
-ms.openlocfilehash: 17bc1d2b7a08314f19f1bf8f87d0c774afc37500
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 6bfcd11dd6bfd31583fb2d0cd3f4229d3dd70065
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65508177"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65887364"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Forum aux questions sur Azure Kubernetes Service (AKS)
 
 Cet article aborde les questions fréquemment posées sur Azure Kubernetes Service (AKS).
 
-## <a name="which-azure-regions-provide-the-azure-kubernetes-service-aks-today"></a>Quelles régions Azure bénéficient d’Azure Kubernetes Service (AKS) aujourd’hui ?
+## <a name="which-azure-regions-currently-provide-aks"></a>Quelles régions Azure bénéficient actuellement AKS ?
 
-Pour obtenir la liste complète des régions disponibles, consultez [AKS Regions and availability][aks-regions] (Régions AKS et disponibilité).
+Pour obtenir une liste complète des régions disponibles, consultez [AKS régions et disponibilité][aks-regions].
 
 ## <a name="does-aks-support-node-autoscaling"></a>AKS prend-il en charge la mise à l’échelle automatique des nœuds ?
 
-Oui, la mise à l'échelle automatique est disponible via [l’outil de mise à l'échelle automatique de Kubernetes][auto-scaler] dans Kubernetes 1.10 et versions ultérieures. Pour plus d’informations sur la façon de configurer et d’utiliser l’autoscaler de cluster, consultez [Cluster autoscale on AKS][aks-cluster-autoscale] (Mise à l’échelle automatique de cluster sur AKS).
+Oui, à l’échelle automatique est disponible via le [Kubernetes autoscaler] [ auto-scaler] depuis 1.10 de Kubernetes. Pour plus d’informations sur comment configurer et utiliser le cluster autoscaler manuellement, consultez [mise à l’échelle de Cluster sur AKS][aks-cluster-autoscale].
 
-## <a name="does-aks-support-kubernetes-role-based-access-control-rbac"></a>AKS prend-il en charge le contrôle d’accès par rôle Kubernetes (RBAC) ?
+Vous pouvez également utiliser le cluster intégrés autoscaler (actuellement en version préliminaire dans ACS) pour gérer la mise à l’échelle de nœuds. Pour plus d’informations, consultez [automatiquement à l’échelle un cluster pour répondre aux demandes d’application dans AKS][aks-cluster-autoscaler].
 
-Oui, le contrôle d’accès en fonction du rôle (RBAC) Kubernetes est activé par défaut lors de la création de clusters avec Azure CLI. Le contrôle d’accès en fonction du rôle (RBAC) peut être activé pour les clusters créés à l’aide de modèles ou du Portail Azure.
+## <a name="does-aks-support-kubernetes-rbac"></a>AKS prend-il en charge Kubernetes RBAC ?
+
+Oui, le contrôle d’accès en fonction du rôle Kubernetes (RBAC) est activé par défaut lors de la création de clusters avec Azure CLI. Vous pouvez activer le RBAC pour les clusters qui ont été créés à l’aide du portail Azure ou les modèles.
 
 ## <a name="can-i-deploy-aks-into-my-existing-virtual-network"></a>Puis-je déployer AKS dans mon réseau virtuel existant ?
 
 Oui, vous pouvez déployer un cluster AKS dans un réseau virtuel existant à l’aide de la [fonctionnalité de mise en réseau avancée][aks-advanced-networking].
 
-## <a name="can-i-restrict-the-kubernetes-api-server-to-only-be-accessible-within-my-virtual-network"></a>Puis-je restreindre le serveur d’API Kubernetes pour le rendre accessible seulement dans mon réseau virtuel ?
+## <a name="can-i-make-the-kubernetes-api-server-accessible-only-within-my-virtual-network"></a>Faire le serveur d’API Kubernetes accessible uniquement au sein de mon réseau virtuel ?
 
-Pas pour l'instant. Le serveur d’API Kubernetes est exposé en tant que nom de domaine complet (FQDN) public. Vous pouvez contrôler l’accès à votre cluster avec le [contrôle d’accès en fonction du rôle (RBAC) Kubernetes et Azure Active Directory (AAD)][aks-rbac-aad].
+Pas pour l'instant. Le serveur d’API Kubernetes est exposé en tant que nom de domaine complet (FQDN) public. Vous pouvez contrôler l’accès à votre cluster à l’aide de [Kubernetes RBAC et Azure Active Directory (Azure AD)][aks-rbac-aad].
 
 ## <a name="are-security-updates-applied-to-aks-agent-nodes"></a>Des mises à jour sécurisées sont-elles appliquées aux nœuds de l’agent AKS ?
 
-Oui. Azure applique automatiquement les correctifs de sécurité pour les nœuds de votre cluster selon une planification nocturne. Toutefois, vous êtes chargé de vous assurer que les nœuds sont redémarrés selon les besoins. Vous avez plusieurs options pour effectuer des redémarrages de nœud :
+Azure applique automatiquement les correctifs de sécurité pour les nœuds Linux dans votre cluster selon une planification nocturne. Toutefois, vous êtes chargé de s’assurer que ces nœuds sont redémarrés en tant que de Linux requis. Vous avez plusieurs options pour le redémarrage des nœuds :
 
 - Manuellement, via le portail Azure ou l’interface de ligne de commande Azure.
-- En mettant à niveau votre cluster AKS. Le cluster met automatiquement à niveau des [nœuds drain et cordon][cordon-drain], puis les sauvegarde à nouveau avec la dernière image Ubuntu et une nouvelle version de correctif ou une version mineure de Kubernetes. Pour plus d’informations, consultez [Mettre à niveau un cluster AKS][aks-upgrade].
-- Utilisation de [Kured](https://github.com/weaveworks/kured), un démon de redémarrage Open Source pour Kubernetes. Kured s’exécute comme un [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) et analyse chaque nœud à la recherche d’un fichier indiquant qu’un redémarrage est nécessaire. Les redémarrages du système d’exploitation sont gérés au sein du cluster à l’aide du même [processus drain et cordon][cordon-drain] que celui appliqué pour la mise à niveau de cluster.
+- En mettant à niveau votre cluster AKS. Les mises à niveau de cluster [nœuds DRAIN et] [ cordon-drain] automatiquement, puis remettre en ligne un nouveau nœud avec la dernière image Ubuntu et une nouvelle version de correctif ou une version mineure de Kubernetes. Pour plus d’informations, consultez [Mettre à niveau un cluster AKS][aks-upgrade].
+- À l’aide de [Kured](https://github.com/weaveworks/kured), un démon de redémarrage open source pour Kubernetes. Kured s’exécute comme un [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) et analyse chaque nœud à la présence d’un fichier qui indique qu’un redémarrage est nécessaire. Au sein du cluster, les redémarrages du système d’exploitation sont gérés par le même [DRAIN et processus] [ cordon-drain] comme une mise à niveau de cluster.
 
 Pour plus d’informations sur l’utilisation de kured, consultez [Appliquer les mises à jour de sécurité et de noyau aux nœuds dans AKS][node-updates-kured].
+
+### <a name="windows-server-nodes"></a>Nœuds Windows Server
+
+Pour les nœuds de Windows Server (actuellement en version préliminaire dans ACS), mise à jour de Windows n’exécute pas automatiquement et appliquer les dernières mises à jour. Selon une planification régulière autour de cycle de mise à jour de Windows et votre propre processus de validation, vous devez effectuer une mise à niveau sur l’ou les pools nœud Windows Server dans votre cluster AKS. Ce processus de mise à niveau crée des nœuds qui exécutent la dernière image Windows Server et les correctifs, puis supprime les nœuds plus anciens. Pour plus d’informations sur ce processus, consultez [mise à niveau d’un pool de nœuds dans ACS][nodepool-upgrade].
 
 ## <a name="why-are-two-resource-groups-created-with-aks"></a>Pourquoi deux groupes de ressources sont-ils créés avec AKS ?
 
 Chaque déploiement AKS s’étend sur deux groupes de ressources :
 
-- Le premier, créé par vous, contient uniquement la ressource du service Kubernetes. Le fournisseur de ressources AKS crée automatiquement le second au cours du déploiement avec un nom tel que *MC_myResourceGroup_myAKSCluster_eastus*. Pour plus d’informations sur la façon dont vous pouvez spécifier le nom de ce deuxième groupe de ressources, consultez la section suivante.
-- Le second groupe de ressources (*MC_myResourceGroup_myAKSCluster_eastus*, par exemple) contient toutes les ressources d’infrastructure associées au cluster. Ces ressources incluent les machines virtuelles de nœud Kubernetes, la mise en réseau et le stockage. Ce groupe de ressources distinct est créé pour simplifier le nettoyage des ressources.
+1. Vous créez le premier groupe de ressources. Ce groupe contient uniquement la ressource du service Kubernetes. Le fournisseur de ressources AKS crée automatiquement le deuxième groupe de ressources pendant le déploiement. Un exemple du deuxième groupe de ressources est *MC_myResourceGroup_myAKSCluster_eastus*. Pour plus d’informations sur la façon de spécifier le nom de ce deuxième groupe de ressources, consultez la section suivante.
+1. Le deuxième groupe de ressources, telles que *MC_myResourceGroup_myAKSCluster_eastus*, contient toutes les ressources d’infrastructure associés au cluster. Ces ressources incluent les machines virtuelles de nœud Kubernetes, la mise en réseau et le stockage. L’objectif de ce groupe de ressources consiste à simplifier le nettoyage des ressources.
 
-Si vous créez des ressources qui seront utilisées avec votre cluster AKS, tels que les comptes de stockage ou les adresses IP publiques réservées, vous devez les placer dans le groupe de ressources généré automatiquement.
+Si vous créez des ressources à utiliser avec votre cluster AKS, tels que les comptes de stockage ou des adresses IP publiques réservées, placez-les dans le groupe de ressources généré automatiquement.
 
 ## <a name="can-i-provide-my-own-name-for-the-aks-infrastructure-resource-group"></a>Puis-je fournir ma propre nom pour le groupe de ressources d’infrastructure AKS ?
 
-Oui. Par défaut, le fournisseur de ressources AKS crée automatiquement un groupe de ressources secondaire pendant le déploiement, telles que *MC_myResourceGroup_myAKSCluster_eastus*. Pour respecter la stratégie d’entreprise, vous pouvez fournir votre propre nom pour ce cluster géré (*MC_*) groupe de ressources.
+Oui. Par défaut, le fournisseur de ressources AKS crée automatiquement un groupe de ressources secondaire (tel que *MC_myResourceGroup_myAKSCluster_eastus*) au cours du déploiement. Pour respecter la stratégie d’entreprise, vous pouvez fournir votre propre nom pour ce cluster géré (*MC_*) groupe de ressources.
 
-Pour spécifier votre propre nom de groupe de ressources, vous devez installer le [aks-preview] [ aks-preview-cli] version de l’extension Azure CLI *0.3.2* ou version ultérieure. Lorsque vous créez un cluster AKS à l’aide la [créer az aks] [ az-aks-create] commande, utilisez le *--groupe de ressources de nœud* paramètre et spécifiez un nom pour le groupe de ressources. Si vous [utiliser un modèle Azure Resource Manager] [ aks-rm-template] pour déployer un cluster AKS, vous pouvez définir le nom du groupe de ressources en utilisant le *nodeResourceGroup* propriété.
+Pour spécifier votre propre nom de groupe de ressources, vous devez installer le [aks-preview] [ aks-preview-cli] version de l’extension Azure CLI *0.3.2* ou version ultérieure. Lorsque vous créez un cluster AKS à l’aide de la [créer az aks] [ az-aks-create] commande, utilisez le *--groupe de ressources de nœud* paramètre et spécifiez un nom pour le groupe de ressources. Si vous [utiliser un modèle Azure Resource Manager] [ aks-rm-template] pour déployer un cluster AKS, vous pouvez définir le nom de groupe de ressources à l’aide de la *nodeResourceGroup* propriété.
 
-* Ce groupe de ressources est créé automatiquement par le fournisseur de ressources Azure dans votre propre abonnement.
-* Vous pouvez uniquement spécifier un nom de groupe de ressources personnalisé lorsque le cluster est créé.
+* Le groupe de ressources secondaire est automatiquement créé par le fournisseur de ressources Azure dans votre propre abonnement.
+* Vous pouvez spécifier un nom de groupe de ressources personnalisées uniquement lorsque vous créez le cluster.
 
-Les scénarios suivants ne sont pas prises en charge :
+Lorsque vous travaillez avec le *MC_* groupe de ressources, n’oubliez pas que vous ne pouvez pas :
 
-* Vous ne pouvez pas spécifier un groupe de ressources existant pour *MC_* groupe.
-* Vous ne pouvez pas spécifier un autre abonnement pour le *MC_* groupe de ressources.
-* Vous ne pouvez pas modifier le *MC_* nom du groupe de ressources une fois que le cluster a été créé.
-* Vous ne pouvez pas spécifier des noms pour les ressources managées dans le *MC_* groupe de ressources.
-* Impossible de modifier ou de supprimer des balises de ressources gérées dans le *MC_* groupe de ressources (voir des informations supplémentaires dans la section suivante).
+* Spécifiez un groupe de ressources existant pour le *MC_* groupe.
+* Spécifiez un autre abonnement pour le *MC_* groupe de ressources.
+* Modifier le *MC_* nom du groupe de ressources une fois que le cluster a été créé.
+* Spécifier des noms pour les ressources managées dans le *MC_* groupe de ressources.
+* Modifier ou supprimer des balises de ressources gérées dans le *MC_* groupe de ressources. (Consultez des informations supplémentaires dans la section suivante.)
 
-## <a name="can-i-modify-tags-and-other-properties-of-the-aks-resources-in-the-mc-resource-group"></a>Puis-je modifier les balises et d’autres propriétés des ressources AKS dans le groupe de ressources MC_* ?
+## <a name="can-i-modify-tags-and-other-properties-of-the-aks-resources-in-the-mc-resource-group"></a>Puis-je modifier les balises et autres propriétés des ressources dans le groupe de ressources MC_ AKS ?
 
-La modification et la suppression de balises créées par Azure et d’autres propriétés de ressources dans le groupe de ressources *MC_** peuvent entraîner des résultats inattendus, notamment des erreurs de mise à l’échelle et de mise à niveau. La création et la modification de balises personnalisées supplémentaires, par exemple, pour affecter une unité commerciale ou un centre de coûts, sont prises en charge. La modification des ressources du groupe *MC_** dans le cluster AKS empêche d'atteindre l'objectif de niveau de service (SLO). Pour plus d'informations, consultez [AKS propose-t-il un contrat de niveau de service ?](#does-aks-offer-a-service-level-agreement).
+Si vous modifiez ou supprimer des balises créé par Azure et autres propriétés de ressource dans le *MC_* groupe de ressources, vous pouvez obtenir des résultats inattendus, tels que la mise à l’échelle et la mise à niveau des erreurs. AKS permet de créer et modifier des balises personnalisées. Vous souhaiterez peut-être créer ou modifier des balises personnalisées, par exemple, pour affecter un business unit ou centre de coûts. En modifiant les ressources sous le *MC_* dans le cluster AKS, vous rompez l’objectif de niveau de service (SLO). Pour plus d’informations, consultez [AKS est offrent un contrat de niveau de service ?](#does-aks-offer-a-service-level-agreement)
 
 ## <a name="what-kubernetes-admission-controllers-does-aks-support-can-admission-controllers-be-added-or-removed"></a>Quels sont les contrôleurs d’admission Kubernetes qui sont pris en charge par AKS ? Les contrôleurs d’admission peuvent-ils être ajoutés ou supprimés ?
 
@@ -94,30 +100,32 @@ AKS prend en charge les [contrôleurs d’admission][admission-controllers] suiv
 - *DenyEscalatingExec*
 - *AlwaysPullImages*
 
-Il n’est pas encore possible de modifier la liste des contrôleurs d’admission dans AKS.
+Actuellement, vous ne pouvez pas modifier la liste des contrôleurs d’admission dans ACS.
 
 ## <a name="is-azure-key-vault-integrated-with-aks"></a>Azure Key Vault est-il intégré à AKS ?
 
-Pour l’instant, AKS n’est pas intégré nativement à Azure Key Vault. Toutefois, le [projet FlexVolume d’Azure Key Vault pour Kubernetes][keyvault-flexvolume] permet une intégration directe des pods Kubernetes aux secrets KeyVault.
+ACS n’est pas actuellement en mode natif intégrée à Azure Key Vault. Toutefois, le [FlexVolume de coffre de clé Azure pour le projet de Kubernetes] [ keyvault-flexvolume] permet de diriger l’intégration de pods Kubernetes aux secrets du coffre de clés.
 
 ## <a name="can-i-run-windows-server-containers-on-aks"></a>Puis-je exécuter des conteneurs Windows Server sur AKS ?
 
-Pour exécuter des conteneurs Windows Server, vous devez exécuter des nœuds Windows Server. Pour l’instant, les nœuds Windows Server ne sont pas disponibles dans AKS. Toutefois, vous pouvez utiliser Virtual Kubelet pour planifier les conteneurs Windows dans Azure Container Instances, et les gérer dans le cadre de votre cluster AKS. Pour plus d’informations, consultez [Utiliser Virtual Kubelet avec AKS][virtual-kubelet].
+Oui, les conteneurs Windows Server sont disponibles en version préliminaire. Pour exécuter des conteneurs Windows Server dans ACS, vous créez un pool de nœud qui exécute Windows Server en tant que le système d’exploitation invité. Conteneurs Windows Server peuvent utiliser uniquement les 2019 Windows Server. Pour commencer, consultez [créer un cluster AKS avec un pool de nœud Windows Server][aks-windows-cli].
 
-## <a name="does-aks-offer-a-service-level-agreement"></a>AKS offre-t-il un contrat de niveau de service ?
+Prise en charge du serveur de fenêtre de nœuds du pool inclut certaines limitations qui font partie de Windows Server en amont dans le projet de Kubernetes. Pour plus d’informations sur ces limitations, consultez [conteneurs Windows Server dans les limites de AKS][aks-windows-limitations].
 
-Dans un contrat de niveau de service (SLA), le fournisseur accepte de rembourser le client si le niveau du service publié n’est pas rempli. AKS étant gratuit, il n’y a aucuns frais à rembourser et par conséquent aucun contrat SLA formel. Toutefois, AKS cherche à maintenir une disponibilité d’au moins 99,5 % pour le serveur d’API Kubernetes.
+## <a name="does-aks-offer-a-service-level-agreement"></a>ACS offre un contrat de niveau de service ?
 
-## <a name="why-can-i-not-set-maxpods-below-30"></a>Pourquoi ne puis-je pas définir `maxPods` ci-dessous 30 ?
+Dans un contrat de niveau de service (SLA), le fournisseur s’engage à rembourser le client pour le coût du service si le niveau de service publié n’est pas remplie. Étant donné que AKS est gratuit, sans coût est disponible à rembourser, ACS n’a aucun contrat SLA formel. Toutefois, AKS cherche à maintenir la disponibilité d’au moins 99,5 % pour le serveur d’API Kubernetes.
 
-AKS prend en charge le paramètre le `maxPods` valeur au moment de la création de cluster via les modèles Azure CLI et Azure Resource Manager. Toutefois, il existe un *valeur minimale* (validée au moment de la création) de Kubenet et Azure CNI, illustré ci-dessous :
+## <a name="why-cant-i-set-maxpods-below-30"></a>Pourquoi ne puis-je pas définir maxPods ci-dessous 30 ?
+
+Dans ACS, vous pouvez définir le `maxPods` valeur lorsque vous créez le cluster en utilisant les modèles Azure CLI et Azure Resource Manager. Toutefois, Kubenet et Azure CNI requièrent un *valeur minimale* (validée au moment de la création) :
 
 | Mise en réseau | Minimale | Maximale |
 | -- | :--: | :--: |
 | Azure CNI | 30 | 250 |
 | Kubenet | 30 | 110 |
 
-Comme ACS est un service géré, nous fournissons des modules complémentaires et des pods nous déployer et gérer en tant que partie du cluster. Dans le passé, les utilisateurs peuvent définir un `maxPods` valeur inférieure à la valeur requise pour les pods managés exécuter (exemple : 30), AKS calcule maintenant le nombre minimal de pods via : ((maxPods ou (maxPods * vm_count)) > minimum de pods complémentaire.
+Car ACS est un service géré, nous déployer et gérer les modules complémentaires et les blocs en tant que partie du cluster. Dans le passé, les utilisateurs peuvent définir un `maxPods` valeur inférieure à la valeur les pods managés nécessaire à l’exécution (par exemple, 30). AKS calcule maintenant le nombre minimal de pods à l’aide de cette formule : ((maxPods ou (maxPods * vm_count)) > minimum de pods complémentaire.
 
 Les utilisateurs ne peuvent pas remplacer la valeur minimale `maxPods` validation.
 
@@ -133,6 +141,10 @@ Les utilisateurs ne peuvent pas remplacer la valeur minimale `maxPods` validatio
 [aks-preview-cli]: /cli/azure/ext/aks-preview/aks
 [az-aks-create]: /cli/azure/aks#az-aks-create
 [aks-rm-template]: /rest/api/aks/managedclusters/createorupdate#managedcluster
+[aks-cluster-autoscaler]: cluster-autoscaler.md
+[nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
+[aks-windows-cli]: windows-container-cli.md
+[aks-windows-limitations]: windows-node-limitations.md
 
 <!-- LINKS - external -->
 

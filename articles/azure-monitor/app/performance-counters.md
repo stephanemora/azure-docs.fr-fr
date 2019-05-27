@@ -12,16 +12,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: mbullwin
-ms.openlocfilehash: d38a575af54f044d64efc67b5483a67ffcd2fcd6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cff4aaaab97fdcecab9cdf1d0dff2786f86b604b
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60256979"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65966716"
 ---
 # <a name="system-performance-counters-in-application-insights"></a>Compteurs de performances système dans Application Insights
 
-Windows offre un large éventail de [compteurs de performance](https://docs.microsoft.com/windows/desktop/PerfCtrs/about-performance-counters) tels que le niveau d’occupation du processeur, la mémoire, le disque et l’utilisation du réseau. Vous pouvez également définir vos propres compteurs de performances. Tant que votre application est exécutée sous IIS sur un hôte ou une machine virtuelle local sur lequel vous disposez d’un accès administratif.
+Windows offre un large éventail de [compteurs de performance](https://docs.microsoft.com/windows/desktop/PerfCtrs/about-performance-counters) tels que le niveau d’occupation du processeur, la mémoire, le disque et l’utilisation du réseau. Vous pouvez également définir vos propres compteurs de performances. Collecte des compteurs de performances est pris en charge tant que votre application s’exécute sous IIS sur un hôte local ou un ordinateur virtuel auquel vous avez un accès administratif. Bien que les applications en cours d’exécution que Azure Web Apps n’ont pas un accès direct aux compteurs de performances, un sous-ensemble des compteurs disponibles sont collectées par Application Insights.
 
 ## <a name="view-counters"></a>Afficher des compteurs
 
@@ -29,7 +29,7 @@ Le volet Métriques affiche un ensemble de compteurs de performances par défaut
 
 ![Compteurs de performances signalés dans Application Insights](./media/performance-counters/performance-counters.png)
 
-Les compteurs par défaut actuels qui sont collectés pour les applications web .NET sont les suivants :
+Les compteurs par défaut en cours qui sont configurés pour être collectés pour les applications web ASP.NET/ASP.NET Core sont :
 
          - % Process\\Processor Time
          - % Process\\Processor Time Normalized
@@ -49,18 +49,17 @@ Pour afficher tous vos graphiques utiles au même emplacement, créez un [tablea
 Si le compteur de performances que vous souhaitez n’est pas inclus dans la liste des métriques, vous pouvez l’y ajouter.
 
 1. Découvrez les compteurs disponibles sur votre serveur à l’aide de la commande PowerShell suivante sur le serveur local :
-   
+
     `Get-Counter -ListSet *`
-   
+
     (Voir [`Get-Counter`](https://technet.microsoft.com/library/hh849685.aspx).)
 2. Ouvrez ApplicationInsights.config.
-   
+
    * Si vous avez ajouté Application Insights à votre application pendant le développement, modifiez ApplicationInsights.config dans votre projet, puis redéployez-le sur vos serveurs.
-   * Si vous avez utilisé Status Monitor pour instrumenter une application web en cours d’exécution, recherchez ApplicationInsights.config dans le répertoire racine de l’application dans IIS. Mettez-le à jour dans chaque instance de serveur.
 3. Modifiez la directive du collecteur de performances :
-   
+
 ```XML
-   
+
     <Add Type="Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.PerformanceCollectorModule, Microsoft.AI.PerfCounterCollector">
       <Counters>
         <Add PerformanceCounter="\Objects\Processes"/>
@@ -70,7 +69,10 @@ Si le compteur de performances que vous souhaitez n’est pas inclus dans la lis
 
 ```
 
-Vous pouvez capturer les compteurs standard et ceux que vous avez implémentés vous-même. `\Objects\Processes` est un exemple de compteur standard disponible sur tous les systèmes Windows. `\Sales(photo)\# Items Sold` est un exemple de compteur personnalisé qui peut être implémenté dans un service web. 
+> [!NOTE]
+> Les applications ASP.NET Core n’ont pas `ApplicationInsights.config`, et par conséquent, la méthode ci-dessus n’est pas valide pour les Applications ASP.NET Core.
+
+Vous pouvez capturer les compteurs standard et ceux que vous avez implémentés vous-même. `\Objects\Processes` est un exemple de compteur standard disponible sur tous les systèmes Windows. `\Sales(photo)\# Items Sold` est un exemple de compteur personnalisé qui peut être implémenté dans un service web.
 
 Le format est le suivant : `\Category(instance)\Counter"` ou, pour les catégories qui ne présentent aucune instance : `\Category\Counter`, tout simplement.
 
@@ -78,7 +80,7 @@ Le format est le suivant : `\Category(instance)\Counter"` ou, pour les catégor
 
 Si vous spécifiez une instance, elle est collectée en tant que dimension « CounterInstanceName » de la mesure signalée.
 
-### <a name="collecting-performance-counters-in-code"></a>Collecte des compteurs de performances dans le code
+### <a name="collecting-performance-counters-in-code-for-aspnet-web-applications-or-netnet-core-console-applications"></a>Collecte des compteurs de performances dans le code pour les Applications Web ASP.NET ou des Applications de Console.NET/.NET Core
 Pour collecter les compteurs de performances système et les envoyer à Application Insights, vous pouvez adapter l’extrait de code ci-dessous :
 
 
@@ -86,9 +88,10 @@ Pour collecter les compteurs de performances système et les envoyer à Applicat
 
     var perfCollectorModule = new PerformanceCollectorModule();
     perfCollectorModule.Counters.Add(new PerformanceCounterCollectionRequest(
-      @"\.NET CLR Memory([replace-with-application-process-name])\# GC Handles", "GC Handles")));
+      @"\Process([replace-with-application-process-name])\Page Faults/sec", "PageFaultsPerfSec")));
     perfCollectorModule.Initialize(TelemetryConfiguration.Active);
 ```
+
 Ou vous pouvez effectuer la même opération avec les mesures personnalisées que vous avez créées :
 
 ``` C#
@@ -96,6 +99,27 @@ Ou vous pouvez effectuer la même opération avec les mesures personnalisées qu
     perfCollectorModule.Counters.Add(new PerformanceCounterCollectionRequest(
       @"\Sales(photo)\# Items Sold", "Photo sales"));
     perfCollectorModule.Initialize(TelemetryConfiguration.Active);
+```
+
+### <a name="collecting-performance-counters-in-code-for-aspnet-core-web-applications"></a>Collecte des compteurs de performances dans le code pour les Applications Web ASP.NET Core
+
+Modifier `ConfigureServices` méthode dans votre `Startup.cs` classe comme indiqué ci-dessous.
+
+```csharp
+using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector;
+
+    public void ConfigureServices(IServiceCollection services)
+    {
+        services.AddApplicationInsightsTelemetry();
+
+        // The following configures PerformanceCollectorModule.
+  services.ConfigureTelemetryModule<PerformanceCollectorModule>((module, o) =>
+            {
+                // the application process name could be "dotnet" for ASP.NET Core self-hosted applications.
+                module.Counters.Add(new PerformanceCounterCollectionRequest(
+    @"\Process([replace-with-application-process-name])\Page Faults/sec", "DotnetPageFaultsPerfSec"));
+            });
+    }
 ```
 
 ## <a name="performance-counters-in-analytics"></a>Compteurs de performances dans Analytics
@@ -116,19 +140,30 @@ Comme les autres données de télémétrie, **performanceCounters** possède ég
 ![Performances segmentées par instances de rôle d’Application Insights Analytics](./media/performance-counters/analytics-metrics-role-instance.png)
 
 ## <a name="aspnet-and-application-insights-counts"></a>Nombres ASP.NET et Application Insights
+
 *Quelle est la différence entre le taux d’exceptions et les mesures d’exceptions ?*
 
 * *taux d’exceptions* est un compteur de performances système. Le CLR compte l’ensemble des exceptions gérées et non gérées qui sont levées et divise le total d’un intervalle d'échantillonnage par la longueur de cet intervalle. Le Kit de développement logiciel (SDK) Application Insights collecte ce résultat et l’envoie au portail.
 
 * *Exceptions* représente le nombre de rapports TrackException reçus par le portail au cours de l’intervalle d’échantillonnage du graphique. Il comprend uniquement les exceptions gérées pour lesquelles vous avez écrit des appels TrackException dans votre code et n’inclut pas toutes les [exceptions non gérées](../../azure-monitor/app/asp-net-exceptions.md). 
 
+## <a name="performance-counters-for-applications-running-in-azure-web-apps"></a>Compteurs de performances pour les applications exécutées dans Azure Web Apps
+
+Les applications ASP.NET et ASP.NET Core déployées sur Azure Web Apps s’exécutent dans un environnement de bac à sable spécial. Cet environnement n’autorise pas l’accès direct aux compteurs de performances système. Toutefois, un sous-ensemble limité des compteurs sont exposées en tant que variables d’environnement comme décrit [ici](https://github.com/projectkudu/kudu/wiki/Perf-Counters-exposed-as-environment-variables). SDK application Insights pour ASP.NET et ASP.NET Core collecte des compteurs de performances à partir d’Azure Web Apps à partir de ces variables d’environnement spéciales. Seul un sous-ensemble des compteurs sont disponibles dans cet environnement et la liste complète peut être trouvée [ici.](https://github.com/microsoft/ApplicationInsights-dotnet-server/blob/develop/Src/PerformanceCollector/Perf.Shared/Implementation/WebAppPerformanceCollector/CounterFactory.cs)
+
 ## <a name="performance-counters-in-aspnet-core-applications"></a>Compteurs de performances dans les applications ASP.NET Core
-Les compteurs de performances ne sont pris en charge que si l’application cible le .NET Framework complet. Il n’existe aucune possibilité de collecter les compteurs de performances pour les applications .NET Core.
+
+* [ASP.NET Core SDK](https://nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) version 2.4.1 et au-dessus de collecte des compteurs de performances si l’application s’exécute dans Azure Web App (Windows)
+
+* Kit de développement logiciel version 2.7.0-beta3 et au-dessus de collecte des compteurs de performances si l’application est en cours d’exécution dans Windows et de ciblage `NETSTANDARD2.0` ou une version ultérieure.
+* Pour les applications ciblant le .NET Framework, les compteurs de performance sont prises en charge dans toutes les versions du Kit de développement logiciel.
+* Cet article sera mis à jour lors de l’ajout de la prise en charge du compteur de performances dans non Windows.
 
 ## <a name="alerts"></a>Alertes
 Comme d’autres mesures, vous pouvez [définir une alerte](../../azure-monitor/app/alerts.md) pour vous avertir si un compteur de performances dépasse une limite que vous spécifiez. Ouvrez le volet Alertes et cliquez sur Ajouter une alerte.
 
 ## <a name="next"></a>Étapes suivantes
+
 * [Suivi des dépendances](../../azure-monitor/app/asp-net-dependencies.md)
 * [Suivi des exceptions](../../azure-monitor/app/asp-net-exceptions.md)
 

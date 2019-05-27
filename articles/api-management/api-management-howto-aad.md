@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: apimpm
-ms.openlocfilehash: 422c2a8a61b1df36b452c153aa6cd78ba7e2dcef
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: d267ff3a43438d9fe6e4e21f0ac023cfa6675f19
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64723645"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956304"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Autoriser des comptes de développeurs à l’aide d’Azure Active Directory dans Gestion des API Azure
 
@@ -61,21 +61,22 @@ Cet article explique comment activer l’accès au portail des développeurs pou
 14.  Une fois que l’application est inscrite, copiez la **ID d’Application (client)** à partir de la **vue d’ensemble** page. 
 15. Revenez à votre instance gestion des API. Dans le **ajouter le fournisseur d’identité** fenêtre, collez la **ID d’Application (client)** valeur dans le **ID Client** boîte.
 16. Revenez à la configuration d’Azure AD, sélectionnez **certificats et clés secrètes** sous **gérer**. Sélectionnez le **nouvelle clé secrète client** bouton. Entrez une valeur dans **Description**, sélectionnez une option pour **expiration** et choisissez **ajouter**. Copiez la valeur du secret client avant de quitter la page. Vous en aurez besoin à l’étape suivante. 
-17. Revenez à votre instance gestion des API, collez la clé secrète dans le **clé secrète Client** boîte.
+17. Sous **gérer**, sélectionnez **authentification** , puis sélectionnez **les jetons d’ID** sous **octroi implicite**
+18. Revenez à votre instance gestion des API, collez la clé secrète dans le **clé secrète Client** boîte.
 
     > [!IMPORTANT]
     > Veillez à mettre à jour le **secret client** avant l’expiration de la clé. 
     >  
     >
 
-18. La fenêtre **Ajouter le fournisseur d’identité** contient également la zone de texte **Locataires autorisés**. Spécifiez les domaines des instances Azure AD auxquelles vous souhaitez accorder l’accès aux API de l’instance de service Gestion des API. Vous pouvez séparer plusieurs domaines par des sauts de ligne, des espaces ou des virgules.
+19. La fenêtre **Ajouter le fournisseur d’identité** contient également la zone de texte **Locataires autorisés**. Spécifiez les domaines des instances Azure AD auxquelles vous souhaitez accorder l’accès aux API de l’instance de service Gestion des API. Vous pouvez séparer plusieurs domaines par des sauts de ligne, des espaces ou des virgules.
 
 > [!NOTE]
 > Vous pouvez spécifier plusieurs domaines dans la section **Locataires autorisés**. Pour qu’un utilisateur puisse se connecter à partir d’un autre domaine que le domaine d’origine dans lequel l’application a été enregistrée, l’administrateur général de l’autre domaine doit d’abord accorder à l’application l’autorisation d’accéder aux données de l’annuaire. Pour accorder l’autorisation, l’administrateur général doit : un. Accédez à `https://<URL of your developer portal>/aadadminconsent` (par exemple, https://contoso.portal.azure-api.net/aadadminconsent).
 > b. Taper le nom de domaine du locataire Azure AD auquel il souhaite autoriser l’accès.
 > c. Sélectionnez **Envoyer**. 
 
-19.  Après avoir spécifié la configuration désirée, sélectionnez **Ajouter**.
+20.  Après avoir spécifié la configuration désirée, sélectionnez **Ajouter**.
 
 Une fois les changements enregistrés, les utilisateurs de l’instance Azure AD spécifiée peuvent se connecter au portail des développeurs en suivant les étapes de la section [Se connecter au portail des développeurs avec un compte Azure AD](#log_in_to_dev_portal).
 

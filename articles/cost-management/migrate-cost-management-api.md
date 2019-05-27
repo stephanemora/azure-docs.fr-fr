@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/20/2019
+ms.date: 05/20/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: e4c5607089efb247620766fb311b97cae3772770
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c3fb1f430076b26f7b5dd83e167371ac6d957ac4
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60311942"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65967243"
 ---
 # <a name="migrate-from-enterprise-agreement-to-microsoft-customer-agreement-apis"></a>Migrer à partir de l’accord entreprise aux API de contrat de client de Microsoft
 
@@ -172,14 +172,14 @@ Le nom de propriété contenant le tableau d’enregistrements d’utilisation a
 
 | Ancienne propriété | Nouvelle propriété | Notes |
 | --- | --- | --- |
-| ID du compte | S.O. | Le créateur de l’abonnement n’est pas suivi. Utilisez invoiceSectionId (identique à departmentId). |
-| AccountNameAccountOwnerId et AccountOwnerEmail | S.O. | Le créateur de l’abonnement n’est pas suivi. Utilisez invoiceSectionName (identique à departmentName). |
+| ID du compte | N/A | Le créateur de l’abonnement n’est pas suivi. Utilisez invoiceSectionId (identique à departmentId). |
+| AccountNameAccountOwnerId et AccountOwnerEmail | N/A | Le créateur de l’abonnement n’est pas suivi. Utilisez invoiceSectionName (identique à departmentName). |
 | Informations supplémentaires | additionalInfo | &nbsp;  |
 | ChargesBilledSeparately | isAzureCreditEligible | Notez que ces propriétés sont contraires. Si isAzureCreditEnabled a la valeur true, ChargesBilledSeparately est false. |
-| ConsumedQuantity | quantité | &nbsp; |
+| Quantité consommée | quantité | &nbsp; |
 | Service consommé | consumedService | Les valeurs de chaîne exacte peuvent différer. |
 | ID du service consommé | Aucun | &nbsp; |
-| CostCenter | costCenter | &nbsp; |
+| Centre de coûts | costCenter | &nbsp; |
 | Date et usageStartDate | date | &nbsp;  |
 | jour | Aucun | Analyse le jour à partir de la date. |
 | ID du service | invoiceSectionId | Les valeurs exactes diffèrent. |
@@ -194,29 +194,29 @@ Le nom de propriété contenant le tableau d’enregistrements d’utilisation a
 | Région du compteur | meterRegion | Les valeurs de chaîne exacte peuvent différer. |
 | Sous-catégorie du compteur | meterSubCategory | Les valeurs de chaîne exacte peuvent différer. |
 | Mois | Aucun | Analyse le mois de date. |
-| Nom de l’offre | Aucun | Utilisez publisherName et productOrderName. |
+| Nom de l'offre | Aucun | Utilisez publisherName et productOrderName. |
 | OfferId | Aucun | &nbsp;  |
 | Numéro de commande | Aucun | &nbsp;  |
 | PartNumber | Aucun | Utilisez meterId et productOrderName pour identifier de manière unique les prix. |
 | Nom du plan | productOrderName | &nbsp;  |
 | Produit | Produit |   |
-| ProductId | productId | Les valeurs de chaîne exacte diffèrent. |
-| Nom de l’éditeur | publisherName | &nbsp;  |
-| ResourceGroup | nom_groupe_ressources | &nbsp;  |
+| ID du produit | productId | Les valeurs de chaîne exacte diffèrent. |
+| Nom de l'éditeur | publisherName | &nbsp;  |
+| ResourceGroup | resourceGroupName | &nbsp;  |
 | ResourceGuid | meterId | Les valeurs de chaîne exacte diffèrent. |
 | Emplacement des ressources | resourceLocation | &nbsp;  |
 | ID d'emplacement des ressources | Aucun | &nbsp;  |
 | Taux de ressources | effectivePrice | &nbsp;  |
-| ID de l'administrateur de service | S.O. | &nbsp;  |
+| ID de l'administrateur de service | N/A | &nbsp;  |
 | Informations de service 1 | serviceInfo1 | &nbsp;  |
 | Informations de service 2 | serviceInfo2 | &nbsp;  |
 | ServiceName | meterCategory | Les valeurs de chaîne exacte peuvent différer. |
 | ServiceTier | meterSubCategory | Les valeurs de chaîne exacte peuvent différer. |
-| Identificateur du service Store | S.O. | &nbsp;  |
+| Identificateur du service Store | N/A | &nbsp;  |
 | Guid d'abonnement | subscriptionId | &nbsp;  |
 | SubscriptionId | subscriptionId | &nbsp;  |
-| SubscriptionName | subscriptionName | &nbsp;  |
-| Balises | tags | La propriété tags s’applique à l’objet racine, pas à la propriété de propriétés imbriquées. |
+| Nom de l'abonnement | subscriptionName | &nbsp;  |
+| Balises | balises | La propriété tags s’applique à l’objet racine, pas à la propriété de propriétés imbriquées. |
 | Unité de mesure | unitOfMeasure | Les valeurs de chaîne exacte diffèrent. |
 | usageEndDate | date | &nbsp;  |
 | Year | Aucun | Analyse l’année de date. |
@@ -428,7 +428,7 @@ Portée de l’EA d’inscription, la réponse de l’API et les propriétés so
 
 Les propriétés du dossier pour [API de feuille de prix Azure Resource Manager](/rest/api/consumption/pricesheet) et les mêmes propriétés de nouveau se trouvent dans le tableau suivant.
 
-| Ancienne Azure Resource Manager prix feuille API propriété  | Nouvelle propriété de l’API de grille tarifaire Microsoft client contrat   | Description |
+| Ancienne Azure Resource Manager prix feuille API propriété  | Nouvelle propriété de l’API de grille tarifaire Microsoft client contrat   | Description  |
 | --- | --- | --- |
 | ID du compteur | _meterId_ | Identificateur unique pour le compteur. Identique au meterId. |
 | Nom du compteur | meterName | Nom du compteur. Compteur représente la ressource de service Azure pouvant être déployées. |
@@ -457,7 +457,7 @@ La table de tarification inclut les prix pour les services dont le prix est bas�
 
 Les champs suivants ne sont pas disponibles dans l’API de feuille de prix Microsoft client contrat ou avoir les mêmes champs.
 
-|Champ mis hors service| Description|
+|Champ mis hors service| Description |
 |---|---|
 | billingPeriodId | Non applicable. Correspond aux n° facture pour MCA. |
 | offerId | Non applicable. Correspond à productOrderName dans MCA. |

@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/28/2019
 ms.author: kumud
-ms.openlocfilehash: ee0dc1b9879c8a26c7f3e48cc8daf6ae3511b27a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 266630cb7c9601af69073a6c9beb7d7ada9b8034
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60734511"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65957473"
 ---
 # <a name="azure-standard-load-balancer-overview"></a>Présentation d'Azure Standard Load Balancer
 
-Azure Load Balancer vous permet de mettre à l’échelle vos applications et de créer une haute disponibilité pour vos services. Load Balancer peut être utilisé dans des scénarios entrants et sortants et offre une latence faible, un débit élevé et une montée en puissance jusqu’à plusieurs millions de flux pour toutes les applications TCP et UDP. 
+Azure Load Balancer vous permet de mettre à l'échelle vos applications et de créer une haute disponibilité pour vos services. Load Balancer peut être utilisé dans des scénarios entrants et sortants et offre une latence faible, un débit élevé et une montée en puissance jusqu’à plusieurs millions de flux pour toutes les applications TCP et UDP. 
 
 Cet article se concentre sur Load Balancer Standard.  Pour obtenir une présentation plus générale d’Azure Load Balancer, consultez [Présentation de Load Balancer](load-balancer-overview.md) également.
 
@@ -91,7 +91,7 @@ Consultez la [discussion détaillée sur les fonctionnalités relatives aux Zone
 
 Load Balancer Standard fournit des métriques multidimensionnelles via Azure Monitor.  Ces métriques peuvent être filtrées, regroupées et réparties pour une dimension donnée.  Elles fournissent des analyses en cours et historiques sur les performances et l’intégrité de votre service.  Resource Health est également pris en charge.  Voici une brève vue d’ensemble des diagnostics pris en charge :
 
-| Métrique | Description |
+| Métrique | Description  |
 | --- | --- |
 | Disponibilité VIP | Standard Load Balancer teste en continu le chemin de données d'une région vers le serveur frontal Load Balancer, jusqu'à la pile SDN qui prend en charge votre machine virtuelle. Tant que les instances saines restent, la mesure suit le même chemin que le trafic à charge équilibrée de vos applications. Le chemin de données utilisé par vos clients est également validé. La mesure est invisible pour votre application et n’interfère pas avec les autres opérations.|
 | Disponibilité DIP | Le niveau Standard de Load Balancer utilise un service de détection d’intégrité distribué qui surveille l’intégrité du point de terminaison de votre application en fonction de vos paramètres de configuration. Cette métrique fournit un agrégat ou une vue filtrée par point de terminaison de chaque point de terminaison d’instance dans le pool Load Balancer.  Vous pouvez observer comment Load Balancer voit l’intégrité de votre application comme indiqué par votre configuration de sonde d’intégrité.
@@ -204,11 +204,11 @@ Les références SKU ne sont pas mutables. Suivez les étapes décrites dans cet
 >
 >Les références SKU qui correspondent doivent être utilisées pour les ressources de Load Balancer et d’adresse IP publique. Vous ne pouvez pas avoir à la fois des ressources de référence SKU De base et de référence SKU Standard. Vous ne pouvez pas joindre des machines virtuelles autonomes, des machines virtuelles dans une ressource de groupe à haute disponibilité ou des ressources de groupe de machines virtuelles identiques aux deux références SKU simultanément.
 
-## <a name="region-availability"></a>Disponibilité des régions
+## <a name="region-availability"></a>Disponibilité dans la région
 
 Standard Load Balancer est actuellement disponible dans toutes les régions cloud publiques.
 
-## <a name="sla"></a>Contrat SLA
+## <a name="sla"></a>SLA
 
 Les Load Balancer Standard sont disponibles avec un Contrat de niveau de service de 99,99 %.  Examinez le [Contrat de niveau de service Load Balancer Standard](https://aka.ms/lbsla) pour plus d’informations.
 
@@ -226,7 +226,6 @@ Pour plus d’informations sur la tarification de Load Balancer Standard, consul
 - Les références SKU ne sont pas mutables. Vous ne pouvez pas modifier la référence SKU d’une ressource existante.
 - Une ressource de machine virtuelle autonome, une ressource de groupe à haute disponibilité ou une ressource de groupe de machines virtuelles identiques peut faire référence à une seule référence SKU, jamais aux deux.
 - Une règle Load Balancer ne peut pas s’étendre sur deux réseaux virtuels.  Les frontaux et les instances principales associées doivent se trouver dans le même réseau virtuel.  
-- Les frontaux Load Balancer ne sont pas accessibles sur un appairage global de réseaux virtuels.
 - Les [opérations de déplacement d’abonnement](../azure-resource-manager/resource-group-move-resources.md) ne sont pas prises en charge pour les ressources LB et PIP de SKU standard.
 - Les rôles de travail web sans réseau virtuel et d’autres services de plateforme Microsoft peuvent être accessibles alors que seul un équilibreur de charge Standard interne est utilisé, en raison d’un effet secondaire du fonctionnement des services pré-réseau virtuel et des autres services de plateforme. Ne comptez pas sur cet effet secondaire, car le service lui-même ou la plateforme sous-jacente sont susceptibles de changer sans préavis. Partez toujours du principe que vous devrez créer explicitement une [connexion sortante](load-balancer-outbound-connections.md) si vous en souhaitez une alors que vous utilisez seulement un équilibreur de charge Standard interne.
 - Load Balancer est un produit TCP ou UDP pour l’équilibrage de charge et de réacheminement de ports pour ces protocoles IP spécifiques.  Les règles d’équilibrage de charge et les règles NAT entrantes sont prises en charge pour les protocoles TCP et UDP, mais pas pour les autres protocoles IP, y compris ICMP. Load Balancer ne peut pas mettre fin à la charge utile d’un flux TCP ou UDP, ni y répondre ou interagir d’une quelconque autre façon avec cette charge utile. Il ne s’agit pas d’un proxy. La réussite de la validation de la connectivité à un serveur frontal doit avoir lieu dans la bande avec le même protocole que celui utilisé dans une règle d’équilibrage de charge ou de règle NAT entrante (TCP ou UDP) _et_ au moins une de vos machines virtuelles doit générer une réponse pour qu’un client puisse voir une réponse à partir d’un serveur frontal.  L’absence de réponse de la part du serveur frontal Load Balancer dans la bande indique qu’aucune machine virtuelle n’a été en mesure de répondre.  Il est impossible d’interagir avec un serveur frontal Load Balancer si aucune machine virtuelle ne peut répondre.  Cela vaut également pour les connexions sortantes où la [traduction d’adresses réseau avec masquage de port](load-balancer-outbound-connections.md#snat) est uniquement prise en charge pour les protocoles TCP et UDP ; tous les autres protocoles IP, y compris ICMP, échoueront également.  Assignez une adresse IP publique de niveau d’instance pour résoudre le problème.

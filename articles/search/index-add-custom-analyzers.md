@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 5983c2036ff206825a82072b57ca2b9bb44ca678
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: e9daebf46093e38858feff87ca5c4ba89638aa74
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65021655"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65951908"
 ---
 # <a name="add-custom-analyzers-to-an-azure-search-index"></a>Ajouter des analyseurs personnalisés à un index de Recherche Azure
 
@@ -213,7 +213,7 @@ Pour les analyseurs, les attributs d’index varient selon que vous utilisez des
 
 |||  
 |-|-|  
-|Nom|Il doit contenir uniquement des lettres, des chiffres, des espaces, des tirets ou des traits de soulignement. Il doit commencer et se terminer uniquement par des caractères alphanumériques, et ne doit pas dépasser 128 caractères.|  
+|Name|Il doit contenir uniquement des lettres, des chiffres, des espaces, des tirets ou des traits de soulignement. Il doit commencer et se terminer uniquement par des caractères alphanumériques, et ne doit pas dépasser 128 caractères.|  
 |Type|Type de l’analyseur provenant de la liste des analyseurs pris en charge. Consultez la colonne **type_analyseur** dans le tableau [Analyseurs](#AnalyzerTable) ci-dessous.|  
 |Options|Il doit s’agir des options valides d’un analyseur prédéfini listées dans le tableau [Analyseurs](#AnalyzerTable) ci-dessous.|  
 
@@ -221,9 +221,9 @@ Pour les analyseurs, les attributs d’index varient selon que vous utilisez des
 
 |||  
 |-|-|  
-|Nom|Il doit contenir uniquement des lettres, des chiffres, des espaces, des tirets ou des traits de soulignement. Il doit commencer et se terminer uniquement par des caractères alphanumériques, et ne doit pas dépasser 128 caractères.|  
+|Name|Il doit contenir uniquement des lettres, des chiffres, des espaces, des tirets ou des traits de soulignement. Il doit commencer et se terminer uniquement par des caractères alphanumériques, et ne doit pas dépasser 128 caractères.|  
 |Type|Doit être « #Microsoft.Azure.Search.CustomAnalyzer ».|  
-|CharFilters|Défini sur un des filtres de caractères prédéfinis listés dans le tableau [Filtres de caractères](#CharFilter) ou sur un filtre de caractères personnalisé spécifié dans la définition d’index.|  
+|CharFilters|Défini sur un des filtres de caractères prédéfinis listés dans le tableau [Filtres de caractères](#char-filters-reference) ou sur un filtre de caractères personnalisé spécifié dans la définition d’index.|  
 |Générateur de jetons|Requis. Défini sur un des générateurs de jetons prédéfinis listés dans le tableau [Générateur de jetons](#Tokenizers) ou sur un générateur de jetons personnalisé spécifié dans la définition d’index.|  
 |TokenFilters|Défini sur un des filtres de jetons prédéfinis listés dans le tableau [Filtres de jetons](#TokenFilters) ou sur un filtre de jetons personnalisé spécifié dans la définition d’index.|  
 
@@ -235,9 +235,9 @@ Pour les analyseurs, les attributs d’index varient selon que vous utilisez des
 
 |||  
 |-|-|  
-|Nom|Il doit contenir uniquement des lettres, des chiffres, des espaces, des tirets ou des traits de soulignement. Il doit commencer et se terminer uniquement par des caractères alphanumériques, et ne doit pas dépasser 128 caractères.|  
-|Type|Type de filtre de caractères provenant de la liste des filtres de caractères pris en charge. Consultez la colonne **type_filtre_caractères** dans le tableau [Filtres de caractères](#CharFilter) ci-dessous.|  
-|Options|Il doit s’agir des options valides d’un type de [Filtre de caractères](#CharFilter) donné.|  
+|Name|Il doit contenir uniquement des lettres, des chiffres, des espaces, des tirets ou des traits de soulignement. Il doit commencer et se terminer uniquement par des caractères alphanumériques, et ne doit pas dépasser 128 caractères.|  
+|Type|Type de filtre de caractères provenant de la liste des filtres de caractères pris en charge. Consultez la colonne **type_filtre_caractères** dans le tableau [Filtres de caractères](#char-filters-reference) ci-dessous.|  
+|Options|Il doit s’agir des options valides d’un type de [Filtre de caractères](#char-filters-reference) donné.|  
 
 ### <a name="tokenizers"></a>Générateurs de jetons
 

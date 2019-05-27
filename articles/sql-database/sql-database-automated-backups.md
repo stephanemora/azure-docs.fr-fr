@@ -11,34 +11,46 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 04/12/2019
-ms.openlocfilehash: f0cff30f246bfeec528f440b507da9248ebbea9f
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: HT
+ms.date: 05/20/2019
+ms.openlocfilehash: 1c81f5748d1e3edff4902eb462b9beea78acd8bc
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59678596"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65951667"
 ---
 # <a name="automated-backups"></a>Sauvegardes automatisées
 
-Base de données SQL est automatiquement crée des sauvegardes de base de données qui sont conservées entre 7 et 35 jours et utilise le stockage géo-redondant Azure avec accès en lecture (RA-GRS) pour vous assurer qu’elles sont conservées même si le centre de données n’est pas disponible. Ces sauvegardes sont créées automatiquement et sans frais supplémentaires. Vous n’avez rien à faire pour qu’elles se produisent et vous pouvez [modifier la période de conservation des sauvegardes](#how-to-change-the-pitr-backup-retention-period). Les sauvegardes de base de données sont une partie essentielle de toute stratégie de continuité d’activité ou de récupération d’urgence, dans la mesure où elles protègent vos données des corruptions et des suppressions accidentelles. Si les règles de sécurité nécessitent que vos sauvegardes soient disponibles pendant une période prolongée (jusqu’à 10 ans), vous pouvez configurer une stratégie de [conservation à long terme](sql-database-long-term-retention.md).
+SQL Database crée automatiquement les sauvegardes de base de données qui sont conservées entre 7 et 35 jours et utilise Azure [stockage géoredondant avec accès en lecture (RA-GRS)](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) pour vous assurer qu’elles sont conservées même si le centre de données n’est pas disponible. Ces sauvegardes sont créées automatiquement et sans frais supplémentaires. Vous n’avez pas besoin de faire quoi que ce soit pour qu’elles se produisent. Les sauvegardes de base de données sont une partie essentielle de toute stratégie de continuité d’activité ou de récupération d’urgence, dans la mesure où elles protègent vos données des corruptions et des suppressions accidentelles. Si les règles de sécurité nécessitent que vos sauvegardes soient disponibles pendant une période prolongée (jusqu'à 10 ans), vous pouvez configurer un [rétention à long terme](sql-database-long-term-retention.md) sur les bases de données Singleton et élastique des pools.
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="what-is-a-sql-database-backup"></a>Qu’est-ce qu’une sauvegarde SQL Database ?
 
-SQL Database utilise la technologie SQL Server pour créer des sauvegardes [complètes](https://docs.microsoft.com/sql/relational-databases/backup-restore/full-database-backups-sql-server), [différentielles](https://docs.microsoft.com/sql/relational-databases/backup-restore/differential-backups-sql-server) et du [journal des transactions](https://docs.microsoft.com/sql/relational-databases/backup-restore/transaction-log-backups-sql-server) dans le cadre de la limite de restauration dans le temps. Les sauvegardes du journal des transactions se produisent généralement toutes les 5 à 10 minutes, et les sauvegardes différentielles toutes les 12 heures, la fréquence variant selon la taille de calcul et l’activité de la base de données. Les sauvegardes complètes et différentielles et les sauvegardes du journal des transactions vous permettent de restaurer une base de données à un moment spécifique sur le même serveur qui héberge la base de données. Les sauvegardes sont stockées dans des objets blob de stockage RA-GRS répliqués dans un [centre de données associé](../best-practices-availability-paired-regions.md) pour une protection contre une panne du centre de données. Quand vous restaurez une base de données, le service identifie les sauvegardes nécessitant une restauration (complète, différentielle ou journal des transactions).
+Base de données SQL utilise la technologie SQL Server pour créer [sauvegardes complètes](https://docs.microsoft.com/sql/relational-databases/backup-restore/full-database-backups-sql-server) chaque semaine, [sauvegardes différentielles](https://docs.microsoft.com/sql/relational-databases/backup-restore/differential-backups-sql-server) toutes les 12 heures, et [sauvegardes de fichier journal](https://docs.microsoft.com/sql/relational-databases/backup-restore/transaction-log-backups-sql-server) toutes les 5 à 10 minutes. Les sauvegardes sont stockées dans [objets BLOB de stockage RA-GRS](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) qui sont répliquées sur un [centre de données couplé](../best-practices-availability-paired-regions.md) pour la protection contre une panne du centre de données. Quand vous restaurez une base de données, le service identifie les sauvegardes nécessitant une restauration (complète, différentielle ou journal des transactions).
 
 Vous pouvez utiliser ces sauvegardes aux fins suivantes :
 
-- Restaure une base de données à un point dans le temps dans la période de rétention. Cette opération crée une base de données dans le même serveur que la base de données d’origine.
-- Restaurer une base de données supprimée sur le moment où elle été supprimée ou tout moment pendant la période de rétention. La base de données supprimée ne peut être restaurée que sur le même serveur où la base de données d’origine a été créée.
-- Restaurer une base de données dans une autre région géographique. La géorestauration vous permet de procéder à la récupération après un sinistre géographique lorsque vous ne pouvez pas accéder à votre serveur, ni à la base de données. Cette opération crée une base de données sur n’importe quel serveur existant dans le monde entier.
-- Restaurer une base de données à partir d’une sauvegarde à long terme spécifique si la base de données a été configurée avec une stratégie de rétention à long terme. La conservation à long terme vous permet de restaurer une ancienne version de la base de données pour répondre à une demande de conformité ou exécuter une ancienne version de l’application. Pour plus d’informations, consultez [Rétention à long terme](sql-database-long-term-retention.md).
+- **Restaurer une base de données existante à un point dans le temps dans le passé** durant la période de rétention à l’aide du portail Azure, Azure PowerShell, Azure CLI ou l’API REST. Dans la base de données unique et des pools élastiques, cette opération crée une nouvelle base de données dans le même serveur que la base de données d’origine. Dans Managed Instance, cette opération peut créer une copie de la base de données ou identiques ou différents Managed Instance sous le même abonnement.
+  - **[Modifier la période de rétention de sauvegarde](#how-to-change-the-pitr-backup-retention-period)**  entre 35 jours pour configurer votre stratégie de sauvegarde.
+  - **Modifier la stratégie de rétention à long terme 10 ans** sur la base de données unique et à l’aide de Pools élastiques [le portail Azure](sql-database-long-term-backup-retention-configure.md#configure-long-term-retention-policies) ou [Azure PowerShell](sql-database-long-term-backup-retention-configure.md#use-powershell-to-configure-long-term-retention-policies-and-restore-backups).
+- **Restaurer une base de données supprimée au moment il a été supprimé** ou à tout moment pendant la période de rétention. La base de données supprimée ne peut pas être restaurée dans le même serveur logique ou une option Managed Instance où la base de données d’origine a été créé.
+- **Restaurer une base de données vers une autre région géographique**. La géorestauration vous permet de procéder à la récupération après un sinistre géographique lorsque vous ne pouvez pas accéder à votre serveur, ni à la base de données. Cette opération crée une base de données sur n’importe quel serveur existant dans le monde entier.
+- **Restaurer une base de données à partir d’une sauvegarde à long terme spécifique** sur la base de données unique ou Pool élastique si la base de données a été configuré avec une stratégie de rétention à long terme (LTR). Rétention à long terme vous permet de restaurer une ancienne version de la base de données à l’aide [le portail Azure](sql-database-long-term-backup-retention-configure.md#view-backups-and-restore-from-a-backup-using-azure-portal) ou [Azure PowerShell](sql-database-long-term-backup-retention-configure.md#use-powershell-to-configure-long-term-retention-policies-and-restore-backups) satisfaire une demande de conformité ou pour exécuter une ancienne version de l’application. Pour plus d’informations, consultez [Rétention à long terme](sql-database-long-term-retention.md).
 - Pour effectuer une restauration, consultez [Restauration de la base de données à partir de la sauvegarde](sql-database-recovery-using-backups.md).
 
 > [!NOTE]
 > Dans le stockage Azure, le terme *réplication* fait référence à la copie de fichier d’un emplacement à un autre. La *réplication de base de données* de SQL fait référence à la gestion de la synchronisation de plusieurs bases de données secondaires avec une base de données primaire.
+
+Vous pouvez essayer certaines de ces opérations utilisant les exemples suivants :
+
+| | Le portail Azure | Azure PowerShell |
+|---|---|---|
+| Modifier la rétention des sauvegardes | [Base de données unique](sql-database-automated-backups.md#change-pitr-backup-retention-period-using-the-azure-portal) <br/> [Managed Instance](sql-database-automated-backups.md#change-pitr-for-a-managed-instance) | [Base de données unique](sql-database-automated-backups.md#change-pitr-backup-retention-period-using-powershell) <br/>[Managed Instance](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstancedatabasebackupshorttermretentionpolicy) |
+| Modification de rétention des sauvegardes à long terme | [Base de données unique](sql-database-long-term-backup-retention-configure.md#configure-long-term-retention-policies)<br/>Instance managée - n/a  | [Base de données unique](sql-database-long-term-backup-retention-configure.md#use-powershell-to-configure-long-term-retention-policies-and-restore-backups)<br/>Instance managée - n/a  |
+| Restaurer la base de données à partir du point-à-temps | [Base de données unique](sql-database-recovery-using-backups.md#point-in-time-restore) | [Base de données unique](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) <br/> [Managed Instance](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqlinstancedatabase) |
+| Restauration d’une base de données supprimée | [Base de données unique](sql-database-recovery-using-backups.md#deleted-database-restore-using-the-azure-portal) | [Base de données unique](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeleteddatabasebackup) <br/> [Managed Instance](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeletedinstancedatabasebackup)|
+| Restaurer la base de données à partir du stockage d’objets Blob Azure | Base de données unique - n/a <br/>Instance managée - n/a  | Base de données unique - n/a <br/>[Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started-restore) |
 
 ## <a name="how-long-are-backups-kept"></a>Quelle est la durée de conservation des sauvegardes ?
 
@@ -57,13 +69,13 @@ Si vous souhaitez conserver les sauvegardes plus longtemps que la période de co
 
 La période de conservation par défaut pour une base de données créée à l’aide du modèle d’achat DTU varie selon le niveau de service :
 
-- Niveau de service De base : 1 semaine.
-- Niveau de service Standard : 5 semaines.
-- Niveau de service Premium : 5 semaines.
+- Niveau de service Basic est **une** semaine.
+- Niveau de service standard est **cinq** semaines.
+- Niveau de service Premium est **cinq** semaines.
 
 #### <a name="vcore-based-purchasing-model"></a>Modèle d’achat vCore
 
-Si vous utilisez le [modèle d’achat vCore](sql-database-service-tiers-vcore.md), la période de conservation des sauvegardes par défaut est de 7 jours (pour les bases de données uniques, mises en pool et Managed Instance). Pour toutes les bases de données Azure SQL (uniques, mises en pool et d'instance), vous pouvez [modifier la période de conservation des sauvegardes et la prolonger jusqu’à 35 jours](#how-to-change-the-pitr-backup-retention-period).
+Si vous utilisez le [modèle d’achat vCore](sql-database-service-tiers-vcore.md), la période de rétention de sauvegarde par défaut est **sept** jours (pour unique, regroupée et bases de données d’instance). Pour toutes les bases de données Azure SQL (uniques, mises en pool et d'instance), vous pouvez [modifier la période de conservation des sauvegardes et la prolonger jusqu’à 35 jours](#how-to-change-the-pitr-backup-retention-period).
 
 > [!WARNING]
 > Si vous réduisez la période de rétention en cours, toutes les sauvegardes antérieures à la nouvelle période de rétention ne sont plus disponibles. Si vous augmentez la période de rétention actuelle, SQL Database conserve les sauvegardes existantes jusqu’à ce que la période de rétention plus longue soit atteinte.
@@ -87,7 +99,7 @@ Comme les sauvegardes PITR, les sauvegardes LTR sont géo-redondantes et protég
 Pour plus d’informations, consultez [Conservation des sauvegardes à long terme](sql-database-long-term-retention.md).
 
 ## <a name="storage-costs"></a>Coûts de stockage
-7 jours de sauvegardes automatisées de vos bases de données sont copiés par défaut dans le stockage blob Standard RA-GRS. Le stockage est utilisé pour des sauvegardes complètes hebdomadaires, des sauvegardes différentielles quotidiennes et des sauvegardes de fichiers journaux copiés toutes les 5 minutes. La taille du journal des transactions dépend la fréquence de changement de la base de données. Une quantité de stockage minimal égale à 100 % de la taille de la base de données est fourni sans frais supplémentaires. Toute consommation supérieure de stockage de sauvegarde est facturée en Go/mois.
+Sept jours de sauvegardes automatisées de vos bases de données sont copiés par défaut dans le stockage blob Standard RA-GRS. Le stockage est utilisé pour des sauvegardes complètes hebdomadaires, des sauvegardes différentielles quotidiennes et des sauvegardes de fichiers journaux copiés toutes les 5 minutes. La taille du journal des transactions dépend la fréquence de changement de la base de données. Une quantité de stockage minimal égale à 100 % de la taille de la base de données est fourni sans frais supplémentaires. Toute consommation supérieure de stockage de sauvegarde est facturée en Go/mois.
 
 Pour plus d’informations sur les prix du stockage, consultez la page [Tarification](https://azure.microsoft.com/pricing/details/sql-database/single/). 
 
@@ -101,7 +113,7 @@ L’équipe d’ingénieurs Azure SQL Database teste régulièrement et automati
 
 ## <a name="how-do-automated-backups-impact-compliance"></a>Quel est l’impact des sauvegardes automatisées sur la conformité ?
 
-Lorsque vous migrez votre base de données à partir d’un niveau de service basé sur DTU avec la conservation PITR par défaut de 35 jours, vers un niveau de service basé sur vCore, la conservation PITR est préservée pour garantir que la stratégie de récupération de données de votre application n’est pas compromise. Si la conservation par défaut ne répond pas à vos exigences de conformité, vous pouvez modifier la période de conservation PITR à l’aide de PowerShell ou de l’API REST. Consultez [Change Backup Retention Period](#how-to-change-the-pitr-backup-retention-period) (Modification de la période de conservation) pour plus d’informations.
+Lorsque vous migrez votre base de données à partir d’un niveau de service basé sur DTU avec la conservation PITR par défaut de 35 jours, vers un niveau de service basé sur vCore, la conservation PITR est préservée pour garantir que la stratégie de récupération de données de votre application n’est pas compromise. Si la conservation par défaut ne répond pas à vos exigences de conformité, vous pouvez modifier la période de conservation PITR à l’aide de PowerShell ou de l’API REST. Consultez [Modification de la période de conservation](#how-to-change-the-pitr-backup-retention-period) pour plus d’informations.
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 

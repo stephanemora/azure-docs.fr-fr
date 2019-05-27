@@ -5,15 +5,15 @@ author: anirudhcavale
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: reference
-ms.date: 05/13/2019
+ms.date: 05/20/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: dae280f86abce47bfcc029f4d81e4ca3a7b696f4
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: f3907cbc46bd226ef8e90d2061f2d36b2afabf8a
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65595435"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65957155"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métriques prises en charge avec Azure Monitor
 
@@ -848,12 +848,6 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 |---|---|---|---|---|---|
 |GatewayRequests|Demandes de la passerelle|Nombre|Total|Nombre de demandes de la passerelle|ClusterDnsName, HttpStatus|
 |CategorizedGatewayRequests|Demandes de la passerelle par catégorie|Nombre|Total|Nombre de demandes de la passerelle par catégories (1xx/2xx/3xx/4xx/5xx)|ClusterDnsName, HttpStatus|
-|Autoscale|Métriques de mise à l’échelle|Nombre|Maximale|Métriques de mise à l’échelle|ClusterDnsName, MetricName|
-|AllocatedMB|Mo alloués|Nombre|Maximale|Mo alloués|ClusterDnsName, MetricName|
-|AvailableMB|Mo disponibles|Nombre|Maximale|Mo disponibles|ClusterDnsName, MetricName|
-|AppsPending|Applications en attente|Nombre|Maximale|Applications en attente|ClusterDnsName, MetricName|
-|AppsRunning|Applications en cours d’exécution|Nombre|Maximale|Applications en cours d’exécution|ClusterDnsName, MetricName|
-|AppsSubmitted|Applications soumises|Nombre|Maximale|Applications soumises|ClusterDnsName, MetricName|
 |NumActiveWorkers|Nombre de threads de travail actifs|Nombre|Maximale|Nombre de threads de travail actifs|ClusterDnsName, MetricName|
 
 ## <a name="microsoftinsightsautoscalesettings"></a>Microsoft.Insights/AutoscaleSettings

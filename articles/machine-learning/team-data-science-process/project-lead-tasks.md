@@ -10,16 +10,16 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 4415759530985710c8376709db9955ba98066160
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 00b1b58a39724951f2d5e4e688df8eb178654bbb
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61046039"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65952843"
 ---
 # <a name="tasks-for-the-project-lead-in-the-team-data-science-process"></a>Tâches pour le coordinateur de projet dans Team Data Science Process
 
-Ce didacticiel décrit de façon succincte les tâches qu’un coordinateur de projet est censé effectuer pour son équipe de projet. L’objectif est d’établir un environnement d’équipe collaborative standard conforme à [TDSP](overview.md) (Team Data Science Process). TDSP est un cadre élaboré par Microsoft qui propose une succession structurée d’activités visant à exécuter des solutions d’analytique prédictive basées sur le cloud avec efficacité. Pour obtenir une description sommaire des différents rôles au sein de l’équipe de science des données et des tâches qui incombent à ses membres dans le cadre de ce processus, consultez [Rôles et tâches du processus TDSP](roles-tasks.md).
+Ce didacticiel décrit les tâches un coordinateur de projet est prévu pour leur équipe de projet. L’objectif est d’établir un environnement d’équipe collaborative standard conforme à [TDSP](overview.md) (Team Data Science Process). TDSP est un cadre élaboré par Microsoft qui propose une succession structurée d’activités visant à exécuter des solutions d’analytique prédictive basées sur le cloud avec efficacité. Pour obtenir une description sommaire des différents rôles au sein de l’équipe de science des données et des tâches qui incombent à ses membres dans le cadre de ce processus, consultez [Rôles et tâches du processus TDSP](roles-tasks.md).
 
 Un **coordinateur de projet** gère les activités quotidiennes des différents scientifiques des données dans le cadre d’un projet de science des données spécifique. Le flux de travail correspondant aux tâches que doit effectuer le coordinateur pour configurer cet environnement est illustré dans le schéma suivant :
 

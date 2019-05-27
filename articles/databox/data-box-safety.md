@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: alkohli
-ms.openlocfilehash: d0ef3e407fd256b4db351f86b51964cbcb16e819
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d1bad50f2d97434865bb02ad54b1643c54e01790
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60747751"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65953029"
 ---
 # <a name="safely-install-and-operate-your-azure-data-box"></a>Installer et utiliser en toute sécurité votre Azure Data Box
 ![Icône Avertissement](./media/data-box-safety/warning_icon.png)
@@ -24,7 +24,7 @@ Lisez l’ensemble des informations de sécurité contenues dans cet article ava
 ## <a name="safety-icon-conventions"></a>Conventions des icônes de sécurité
 Voici les icônes utilisées dans les précautions de sécurité à observer lors de la configuration et de l’exécution de votre Data Box.
 
-| Icône | Description |
+| Icône | Description  |
 |:--- |:--- |
 | ![Icône Danger](./media/data-box-safety/warning_icon.png)**DANGER !** |Signale une situation dangereuse qui, si elle n’est pas évitée, entraînera la mort ou des blessures graves. Ce terme d’avertissement est réservé aux situations extrêmement dangereuses. |
 | ![Icône Avertissement](./media/data-box-safety/warning_icon.png)**AVERTISSEMENT !** |Signale une situation dangereuse qui, si elle n’est pas évitée, risque d’entraîner la mort ou des blessures graves. |
@@ -116,7 +116,7 @@ Les changements ou modifications apportés à l’appareil qui ne sont pas expre
 
 ![Icône Avis](./media/data-box-safety/notice_icon.png)**AVIS :** 
 
-Cet équipement a été testé et déclaré conforme aux limites applicables aux appareils numériques de classe A, selon la section 15 des règlements de la FCC. Ces limites sont conçues pour offrir une protection raisonnable contre les interférences nuisibles lorsque l’équipement est utilisé dans un environnement commercial. Cet appareil génère, utilise et peut émettre une énergie de fréquence radio. S’il n’est pas installé et utilisé conformément au manuel d’instructions, il peut être source d’interférences nuisibles pour les communications radio. L’utilisation de cet appareil dans une zone résidentielle est susceptible de causer des interférences nuisibles, auquel cas l’utilisateur sera tenu d’y remédier à ses propres frais.
+Cet équipement a été testé et déclaré conforme aux limites applicables aux appareils numériques de classe A, selon la section 15 des règlements de la FCC. Ces limites sont conçues pour offrir une protection raisonnable contre les interférences nuisibles lorsque l’équipement est utilisé dans un environnement commercial. Cet appareil génère, utilise et peut émettre une énergie de fréquence radio. S’il n’est pas installé et utilisé conformément au manuel d’instructions, il peut être source d’interférences nuisibles pour les communications radio. Utilisation de cet appareil dans une zone résidentielle est susceptible de causer des perturbations dans lequel des cas, l’utilisateur sera nécessaire pour corriger à leurs propres frais.
 
 Cet appareil est conforme à la section 15 des règlements de la FCC et aux normes RSS d’Industrie Canada relatives à une utilisation sans licence. Opération est soumis aux deux conditions suivantes : (1) cet appareil ne peut pas provoquer de perturbations, et (2) cet appareil doit accepter toute interférence reçue, y compris les interférences peut engendrer un fonctionnement de l’appareil.
 

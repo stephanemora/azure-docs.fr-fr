@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3593324523340300279232e0e63392c9c127991d
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 1107a6df92bf577cd60b9ad31627219da8e1a388
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65823568"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956545"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Autorisations des rôles d’administrateur dans Azure Active Directory
 
@@ -335,28 +335,28 @@ Permet d’afficher, de définir et de réinitialiser les informations de métho
 | microsoft.office365.serviceHealth/allEntities/allTasks | Lisez et configurez Office 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Créez et gérez des tickets de support Office 365. |
 
-### <a name="b2c-user-flow-administrator"></a>Administrateur de flux d’utilisateurs B2C
+### <a name="b2c-user-flow-administrator"></a>Administrateur de flux d'utilisateurs B2C
 Créer et gérer tous les aspects de flux d’utilisateurs.
 
 | **Actions** | **Description** |
 | --- | --- |
 | microsoft.aad.b2c/userFlows/allTasks | Lire et configurer les flux d’utilisateurs dans Azure Active Directory B2C. |
 
-### <a name="b2c-user-flow-attribute-administrator"></a>B2C utilisateur flux attribut administrateur
+### <a name="b2c-user-flow-attribute-administrator"></a>Administrateur d'attributs de flux d'utilisateurs B2C
 Créer et gérer le schéma d’attribut disponible pour tous les flux d’utilisateur.
 
 | **Actions** | **Description** |
 | --- | --- |
 | microsoft.aad.b2c/userAttributes/allTasks | Lire et configurer les attributs utilisateur dans Azure Active Directory B2C. |
 
-### <a name="b2c-ief-keyset-administrator"></a>Administrateur de jeu de clés IEF B2C
+### <a name="b2c-ief-keyset-administrator"></a>Administrateur de jeux de clés B2C IEF
 Gérer les secrets pour la fédération et de chiffrement dans l’infrastructure d’expérience d’identité.
 
 | **Actions** | **Description** |
 | --- | --- |
 | microsoft.aad.b2c/trustFramework/keySets/allTasks | Lire et configurer des jeux de clés dans Azure Active Directory B2C. |
 
-### <a name="b2c-ief-policy-administrator"></a>Administrateur de la stratégie B2C IEF
+### <a name="b2c-ief-policy-administrator"></a>Administrateur de stratégies B2C IEF
 Créer et gérer des stratégies de framework d’approbation dans l’infrastructure d’expérience d’identité.
 
 | **Actions** | **Description** |

@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 03/02/2019
 ms.author: ellacroi
-ms.openlocfilehash: 3e1bad5902bb35ce0c037835359c267582cc8bc7
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 152be044b5696a0d9017729d731e080ed9163828
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64938651"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65964050"
 ---
 # <a name="marketplace-faqs"></a>Questions fréquentes (FAQ) sur la Place de marché
 
@@ -36,7 +36,7 @@ La Place de marché Microsoft Azure propose des solutions et services techniques
 
 * les systèmes d’exploitation de base
 * bases de données
-* security
+* sécurité
 * identité
 * networking
 * blockchain
@@ -216,7 +216,7 @@ Oui. Les crédits d’abonnement et les fonds d’engagement financier Azure pr�
 
 Une estimation de votre utilisation figure dans le [portail de gestion Microsoft Azure](https://portal.azure.com/). Cette estimation peut ne pas comprendre les activités récentes et peut être basée sur des projections dérivées de l’utilisation passée. Dans le cadre d’une préversion publique, cette possibilité peut ne pas être disponible pour tous les achats, et peut varier en fonction du type de produit.
 
-### <a name="customer-support"></a>Service client
+### <a name="customer-support"></a>Service clientèle
 
 **Qui dois-je contacter pour poser des questions générales de support technique concernant la Place de marché Microsoft Azure ?**
 
@@ -310,7 +310,7 @@ Pour découvrir plus de détails ainsi que les avantages de la Place de marché 
 
 **Comment commencer à publier sur la Place de marché Microsoft Azure ?**
 
-Avant de commencer votre référencement sur la Place de marché Microsoft Azure, voir le [Guide pour les éditeurs de la Place de marché Azure](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide) et l’article [Devenir éditeur](https://docs.microsoft.com/azure/marketplace/become-publisher). Ensuite, soumettez votre demande en remplissant le [Formulaire de nomination de la Place de marché Microsoft Azure](https://azuremarketplace.microsoft.com/sell/signup).
+Avant de commencer votre référencement sur la Place de marché Microsoft Azure, voir le [Guide pour les éditeurs de la Place de marché Azure](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide) et l’article [Devenir éditeur](https://docs.microsoft.com/azure/marketplace/become-publisher). Ensuite, soumettez votre application par [soumettre votre offre](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv). Consultez Comment [créer un compte espace partenaires](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) pour plus d’informations.
 
 **Dois-je être membre du Microsoft Partner Network pour pouvoir référencer mes applications et services sur la Place de marché Microsoft Azure ?**
 
@@ -400,7 +400,7 @@ Applications Office 365
 1.  Connectez-vous à [https://sellerdashboard.microsoft.com](https://sellerdashboard.microsoft.com) avec un compte de développement.
 1.  Retirez le complément.
 
-REMARQUE :  L’application disparaîtra de la liste existante après 90 jours.
+REMARQUE : L’application disparaîtra de la liste existante après 90 jours.
 
 Applications Power BI
 * Contact : [Anjana Sompur (Slalom Consulting LLC)](mailto:v-ansomp@microsoft.com).

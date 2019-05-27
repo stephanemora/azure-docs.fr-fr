@@ -9,12 +9,12 @@ ms.date: 09/18/2018
 ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 22e58f31e2f891eb09c3d42a01763c68cdcd11a8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ae9db483e15197e6cdaaaa5981410630184cc6ca
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60577603"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65957245"
 ---
 # <a name="collect-distributed-traces-from-python-preview"></a>Collecter les traces distribuées à partir de Python (préversion)
 
@@ -42,7 +42,7 @@ Vous devez tout d’abord créer une ressource Application Insights qui génère
 
    Une boîte de configuration s’affiche. Utilisez le tableau suivant pour remplir les champs d’entrée.
 
-    | Paramètres        | Valeur           | Description  |
+    | Paramètres        | Valeur           | Description   |
    | ------------- |:-------------|:-----|
    | **Name**      | Valeur globalement unique | Nom identifiant l’application que vous analysez |
    | **Type d’application** | Généralités | Type de l’application que vous analysez |
@@ -78,10 +78,12 @@ Vous devez tout d’abord créer une ressource Application Insights qui génère
 
 ## <a name="opencensus-python-package"></a>Package OpenCensus Python
 
-1. Installez le package OpenCensus pour Python en saisissant pip ou pipenv dans la ligne de commande :
+1. Installez le package de recensement ouvert pour Python et exportateur avec pip ou pipenv à partir de la ligne de commande :
 
-    ```python
+    ```console
     python -m pip install opencensus
+    python -m pip install opencensus-ext-ocagent
+
     # pip env install opencensus
     ```
 
@@ -92,20 +94,20 @@ Vous devez tout d’abord créer une ressource Application Insights qui génère
 
     ```python
     from opencensus.trace.tracer import Tracer
-    
+
     def main():
         while True:
             valuePrompt()
-    
+
     def valuePrompt():
         tracer = Tracer()
         with tracer.span(name="test") as span:
             line = input("Enter a value: ")
             print(line)
-    
+
     if __name__ == "__main__":
         main()
-    
+
     ```
 
 3. Lors de l’exécution du code, vous êtes systématiquement invité à saisir une valeur. À chaque saisie, la valeur est imprimée dans l’interpréteur de commandes et un élément **SpanData** correspondant est généré par le module OpenCensus Python. Le projet OpenCensus définit une [_trace comme une arborescence d’étendues_](https://opencensus.io/core-concepts/tracing/).
@@ -127,32 +129,33 @@ Vous devez tout d’abord créer une ressource Application Insights qui génère
     ```python
     from opencensus.trace.tracer import Tracer
     from opencensus.trace import config_integration
-    from opencensus.trace.exporters.ocagent import trace_exporter
+    from opencensus.ext.ocagent.trace_exporter import TraceExporter
     from opencensus.trace import tracer as tracer_module
-    
+
     import os
-    
-    def main():        
+
+    def main():
         while True:
             valuePrompt()
-    
+
     def valuePrompt():
-        export_LocalForwarder = trace_exporter.TraceExporter(
+        export_LocalForwarder = TraceExporter(
         service_name=os.getenv('SERVICE_NAME', 'python-service'),
         endpoint=os.getenv('OCAGENT_TRACE_EXPORTER_ENDPOINT'))
-        
+
         tracer = Tracer(exporter=export_LocalForwarder)
         with tracer.span(name="test") as span:
             line = input("Enter a value: ")
             print(line)
-    
+
     if __name__ == "__main__":
         main()
+
     ```
 
 5. Si vous enregistrez et essayez d’exécuter le module ci-dessus, vous recevrez peut-être une erreur `ModuleNotFoundError` pour `grpc`. Dans ce cas, exécutez la commande suivante pour installer le [package grpcio](https://pypi.org/project/grpcio/) avec :
 
-    ```
+    ```console
     python -m pip install grpcio
     ```
 

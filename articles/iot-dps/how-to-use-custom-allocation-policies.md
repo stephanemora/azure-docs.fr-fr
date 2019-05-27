@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: philmea
-ms.openlocfilehash: f0eb2f7358e8fb1564275e1de510f302d2eef90b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 03d39ed01907a2ad61e089946673b96b8a2cc83e
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59500938"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65917009"
 ---
 # <a name="how-to-use-custom-allocation-policies"></a>Comment utiliser des stratégies d’allocation personnalisées
 
@@ -46,7 +46,7 @@ Dans cet article, vous allez effectuer les étapes suivantes :
 ## <a name="prerequisites"></a>Conditions préalables
 
 * Avoir effectué les étapes décrites dans le guide de démarrage rapide [Configurer le service IoT Hub Device Provisioning avec le portail Azure](./quick-setup-auto-provision.md).
-* Visual Studio 2015 ou [Visual Studio 2017](https://www.visualstudio.com/vs/) avec la charge de travail [« Développement Desktop en C++ »](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) activée.
+* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 ou version ultérieure avec le [« développement Desktop en C++'](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) charge de travail est activé.
 * Dernière version de [Git](https://git-scm.com/download/) installée.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
@@ -508,7 +508,7 @@ Le tableau suivant présente les scénarios attendus et les codes d’erreur de 
 
 | Scénario | Résultat de l’inscription retourné par le service Provisioning | Résultat du provisionnement retourné par le SDK |
 | -------- | --------------------------------------------- | ------------------------ |
-| Le webhook retourne 200 OK avec 'iotHubHostName' défini sur un nom d’hôte IoT Hub valide | État du résultat : Attribué  | Le SDK retourne PROV_DEVICE_RESULT_OK et des informations sur le hub |
+| Le webhook retourne 200 OK avec 'iotHubHostName' défini sur un nom d’hôte IoT Hub valide | État du résultat : Affecté  | Le SDK retourne PROV_DEVICE_RESULT_OK et des informations sur le hub |
 | Le webhook retourne 200 OK avec 'iotHubHostName' présent dans la réponse, mais défini sur une chaîne vide ou null | État du résultat : Échec<br><br> Code d’erreur : CustomAllocationIotHubNotSpecified (400208) | Le SDK retourne PROV_DEVICE_RESULT_HUB_NOT_SPECIFIED |
 | Le webhook retourne 401 Unauthorized | État du résultat : Échec<br><br>Code d’erreur : CustomAllocationUnauthorizedAccess (400209) | Le SDK retourne PROV_DEVICE_RESULT_UNAUTHORIZED |
 | Une inscription individuelle a été créée pour désactiver l’appareil | État du résultat : Désactivé | Le SDK retourne PROV_DEVICE_RESULT_DISABLED |

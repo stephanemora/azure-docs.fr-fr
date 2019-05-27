@@ -3,17 +3,17 @@ title: Déployer localement la solution de supervision à distance (Visual Studi
 description: Ce guide pratique montre comment déployer l’accélérateur de solution de supervision à distance sur votre ordinateur local en utilisant Visual Studio Code à des fins de test et de développement.
 author: avneet723
 manager: hegate
-ms.author: avneet723
+ms.author: avneets
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: 946f815cecea4cc172fac35c0b260d795317e6e1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bfe28f3ff994d518cb744233e88a6f04b5771a83
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61446174"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65967518"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---visual-studio-code"></a>Déployer localement la solution de supervision à distance - Visual Studio Code
 
@@ -59,7 +59,7 @@ dotnet build -c Release
 
 ### <a name="deploy-all-other-microservices-on-local-machine"></a>Déployer toutes les autres microservices sur l’ordinateur local
 
-Les étapes suivantes vous montrent comment exécuter les microservices de surveillance à distance dans Visual Studio 2017 :
+Les étapes suivantes vous montrent comment exécuter les microservices de surveillance à distance dans Visual Studio Code :
 
 1. Lancez Visual Studio Code.
 1. Ouvrez le module **azure-iot-pcs-remote-monitoring-dotnet** à partir de votre copie locale dans Visual Studio Code.
