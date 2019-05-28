@@ -5,21 +5,23 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/10/2019
+ms.date: 05/14/2019
 ms.topic: tutorial
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: 6975bb872e67650b8b5729a4ac66f0825fb9a80f
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 521a5f2543b9a4a84d50f8f0e53a6ae5108f760b
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59678137"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65792884"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>Didacticiel : Créer et gérer des données exportées
 
 Si vous avez lu le tutoriel Analyse du coût, vous êtes familiarisé avec le téléchargement manuel de vos données Cost Management. Cependant, vous pouvez créer une tâche récurrente qui exporte automatiquement sur une base quotidienne, hebdomadaire ou mensuelle vos données Cost Management dans un stockage Azure. Les données exportées sont au format CSV, et elles contiennent toutes les informations collectées par Cost Management. Vous pouvez ensuite utiliser les données exportées dans Stockage Azure avec des systèmes externes et les combiner avec vos propres données personnalisées. Vous pouvez aussi utiliser vos données exportées dans un système externe, comme un tableau de bord ou un autre système financier.
+
+Regardez la vidéo [Comment planifier des exportations à des fins de stockage avec Azure Cost Management](https://www.youtube.com/watch?v=rWa_xI1aRzo) pour créer une exportation planifiée de votre données de coût Azure vers Stockage Azure.
 
 Les exemples de ce tutoriel montrent comment exporter vos données de gestion des coûts, puis comment vérifier que les données ont été exportées correctement.
 
@@ -49,8 +51,8 @@ Pour créer, afficher ou planifier une exportation de données, ouvrez l’éten
 
 > [!NOTE]
 > Vous pouvez non seulement créer des exportations sur des abonnements, mais aussi sur des groupes de ressources, des comptes, des services et des inscriptions. Pour plus d’informations sur les étendues, consultez [Comprendre et utiliser les étendues](understand-work-scopes.md).
-> 
-> 
+>
+>
 
 
 Cliquez sur **Ajouter**, tapez un nom pour l’exportation, puis sélectionnez l’option **Exportation quotidienne des coûts en cumul mensuel à ce jour**. Cliquez sur **Suivant**.

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: 74cd73cd7f9d5be9da552fb22ef2a2750ddc8321
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ed82c214e2fbb2a1efc5917eb74ffe9b29abb115
+ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61029854"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65560327"
 ---
 # <a name="tutorial-scale-applications-in-azure-kubernetes-service-aks"></a>Didacticiel : Mettre à l’échelle des applications dans Azure Kubernetes Service (AKS)
 
@@ -83,7 +83,7 @@ git clone https://github.com/kubernetes-incubator/metrics-server.git
 kubectl create -f metrics-server/deploy/1.8+/
 ```
 
-Pour utiliser la mise à l’échelle automatique, vos pods doivent avoir des demandes et limites de processeur définies. Dans le déploiement `azure-vote-front`, le conteneur front-end demande déjà 0,25 processeur, avec une limite de 0,5 processeur. Ces demandes et limites de ressources sont définies comme indiqué dans l’exemple d’extrait suivant :
+Pour utiliser la mise à l’échelle automatique, tous les conteneurs de vos pods et vos pods doivent avoir des demandes et limites de processeur définies. Dans le déploiement `azure-vote-front`, le conteneur front-end demande déjà 0,25 processeur, avec une limite de 0,5 processeur. Ces demandes et limites de ressources sont définies comme indiqué dans l’exemple d’extrait suivant :
 
 ```yaml
 resources:

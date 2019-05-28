@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 04/04/2019
 ms.author: sngun
-ms.openlocfilehash: cb132c8e36797e4ae089420e48d75271cddb5c04
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: a54c7493dd40d26151311a4211a791a99b0a265e
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59270538"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65833550"
 ---
 # <a name="azure-cosmos-db-net-examples-for-the-sql-api"></a>Azure Cosmos DB : exemples .NET pour l’API SQL
 > [!div class="op_single_selector"]
@@ -34,8 +34,8 @@ Pour obtenir des exemples de code du SDK .NET Version 3.0 (préversion), consu
 
 ## <a name="prerequisites"></a>Prérequis
 
-Visual Studio 2017 avec le workflow de développement Azure installé
-- Vous pouvez télécharger et utiliser **gratuitement** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Veillez à activer **le développement Azure** lors de l’installation de Visual Studio. 
+Visual Studio 2019 avec le workflow de développement Azure installé
+- Vous pouvez télécharger et utiliser **gratuitement** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Veillez à activer **le développement Azure** lors de l’installation de Visual Studio. 
 
 Le [package NuGet Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) 
 

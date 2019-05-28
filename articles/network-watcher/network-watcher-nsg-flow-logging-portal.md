@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 3c62ad66a29943e26d1cb2f15ca71631d2feabe3
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: bba263b65344672808487ae6de4c3f475a871842
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65467424"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523940"
 ---
 # <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>Didacticiel : journaliser le trafic réseau à destination et en provenance d’une machine virtuelle à l’aide du portail Azure
 
@@ -95,7 +95,7 @@ L’enregistrement du flux NSG nécessite le fournisseur **Microsoft.Insights**.
     La création du compte de stockage peut prendre environ une minute. Ne passez pas aux étapes restantes tant que la création du compte de stockage n’est pas terminée. Si vous utilisez un compte de stockage existant au lieu d’en créer un, veillez à en sélectionner un pour lequel l’option **Tous les réseaux** (par défaut) est sélectionnée pour **Pare-feux et réseaux virtuels**, sous **PARAMÈTRES** pour le compte de stockage.
     
     > [!NOTE]
-    > Bien que les fournisseurs Microsoft.Insight et Microsoft.Network soient actuellement pris en charge pour Stockage Azure, les journaux de flux NSG ne sont toujours pas entièrement intégrés. Pour activer la journalisation de flux NSG, l’option **Tous les réseaux** doit toujours être sélectionnée jusqu’à ce que cette fonctionnalité soit entièrement intégrée. 
+    > Bien que les fournisseurs Microsoft.Insight et Microsoft.Network soient actuellement pris en charge en tant que services Microsoft approuvés pour Stockage Azure, les journaux de flux NSG ne sont toujours pas entièrement intégrés. Pour activer la journalisation de flux NSG, l’option **Tous les réseaux** doit toujours être sélectionnée jusqu’à ce que cette fonctionnalité soit entièrement intégrée. 
 4. En haut à gauche du portail, sélectionnez **Tous les services**. Dans la zone **Filtre**, entrez *Network Watcher*. Quand la mention **Network Watcher** apparaît dans les résultats de recherche, sélectionnez-la.
 5. Sous **JOURNAUX D’ACTIVITÉ**, sélectionnez **Journaux de flux NSG**, comme illustré dans l’image suivante :
 

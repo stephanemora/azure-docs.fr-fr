@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 05/01/2019
 ms.author: ghogen
 ms.custom: seodec18
-ms.openlocfilehash: 148f94410f6acb421d352b68b6f1ecb305a6b16a
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 24d9a5fa1e9c2f44ef32ac1fc05ad09f8a550f12
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65235949"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65827748"
 ---
 # <a name="use-connected-services-in-visual-studio-to-connect-to-the-computer-vision-api"></a>Utilisation des Services connectés dans Visual Studio pour se connecter à l’API Vision par ordinateur
 
@@ -24,8 +24,8 @@ Cet article et ceux qui l’accompagnent donnent des détails sur l’utilisatio
 
 ## <a name="prerequisites"></a>Prérequis
 
-- **Un abonnement Azure**. Si vous n’en possédez pas, vous pouvez vous inscrire pour créer dès aujourd’hui un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/).
-- **Visual Studio 2017 version 15.7** avec installation de la charge de travail **Développement web**. [Téléchargez-le maintenant](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
+- Un abonnement Azure. Si vous n’en possédez pas, vous pouvez vous inscrire pour créer dès aujourd’hui un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/).
+- Visual Studio 2017 version 15.7 ou ultérieure avec la charge de travail **Développement web** installée. [Téléchargez-le maintenant](https://visualstudio.microsoft.com/downloads/).
 
 [!INCLUDE [vs-install-cognitive-services-vsix](../../../includes/vs-install-cognitive-services-vsix.md)]
 
@@ -256,7 +256,7 @@ Lorsqu’il n’est plus nécessaire, supprimez le groupe de ressources. Cette o
 
 1. Entrez le nom de votre groupe de ressources dans la zone Recherche en haut du portail. Lorsque vous voyez le groupe de ressources utilisé dans ce démarrage rapide dans les résultats de recherche, sélectionnez-le.
 2. Sélectionnez **Supprimer le groupe de ressources**.
-3. Dans le champ **TYPE THE RESOURCE GROUP NAME: (TAPER LE NOM DU GROUPE DE RESSOURCES :)**, tapez le nom du groupe de ressources et sélectionnez **Supprimer**.
+3. Dans le champ **TYPE THE RESOURCE GROUP NAME: (TAPER LE NOM DU GROUPE DE RESSOURCES :)** , tapez le nom du groupe de ressources et sélectionnez **Supprimer**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

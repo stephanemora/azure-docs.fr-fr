@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 13c86a38e0d894feed0d9c24dd802a09ff1d1d2d
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 588fe452473ddc2434d92f90afbf8a0e1bc8c275
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59678837"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65795763"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms"></a>Configurer la récupération d’urgence pour les machines virtuelles Azure
 
@@ -25,7 +25,7 @@ Ce didacticiel vous montre comment configurer la récupération d’urgence pour
 > [!div class="checklist"]
 > * Créer un coffre Recovery Services
 > * Vérifier les paramètres des ressources cibles
-> * Configurer un accès sortant pour les machines virtuelles
+> * Configurer la connectivité réseau sortante pour machines virtuelles
 > * Activer la réplication pour une machine virtuelle
 
 > [!NOTE]
@@ -38,7 +38,7 @@ Pour suivre ce tutoriel :
 - Assurez-vous que vous comprenez [l’architecture et les composants du scénario](concepts-azure-to-azure-architecture.md).
 - Avant de commencer, consultez les [conditions de prise en charge](site-recovery-support-matrix-azure-to-azure.md).
 
-## <a name="create-a-vault"></a>Création d'un coffre
+## <a name="create-a-recovery-services-vault"></a>Créer un coffre Recovery Services
 
 Créez le coffre dans n’importe quelle région, à l’exception de la région source.
 
@@ -52,12 +52,12 @@ Créez le coffre dans n’importe quelle région, à l’exception de la région
 
    Le nouveau coffre est ajouté à la zone **Tableau de bord** dans **Toutes les ressources** et dans la page principale **Coffres Recovery Services**.
 
-## <a name="verify-target-resources"></a>Vérifier les ressources cibles
+## <a name="verify-target-resource-settings"></a>Vérifier les paramètres des ressources cibles
 
 1. Vérifiez que votre abonnement Azure vous permet de créer des machines virtuelles dans la région cible. Contactez le support pour activer le quota requis.
 2. Vérifiez que votre abonnement dispose de suffisamment de ressources pour prendre en charge la taille de vos machines virtuelles sources. Site Recovery choisit la même taille, ou la taille la plus proche possible, pour la machine virtuelle cible.
 
-## <a name="configure-outbound-network-connectivity"></a>Configurer la connectivité réseau sortante
+## <a name="set-up-outbound-network-connectivity-for-vms"></a>Configurer la connectivité réseau sortante pour machines virtuelles
 
 Pour que Site Recovery fonctionne comme prévu, vous devez modifier la connectivité réseau sortante des machines virtuelles à répliquer.
 
@@ -107,7 +107,7 @@ Azure Site Recovery fournit trois rôles intégrés pour contrôler les opérati
 
 Apprenez-en davantage sur les [rôles intégrés RBAC Azure](../role-based-access-control/built-in-roles.md).
 
-## <a name="enable-replication"></a>Activer la réplication
+## <a name="enable-replication-for-a-vm"></a>Activer la réplication pour une machine virtuelle
 
 ### <a name="select-the-source"></a>Sélectionner la source
 
@@ -146,7 +146,7 @@ Site Recovery crée les paramètres par défaut et la stratégie de réplication
     **Réseau virtuel cible** | réseau dans la région cible où se trouvent les machines virtuelles après le basculement.<br/><br/> Par défaut, Site Recovery crée un réseau virtuel (et des sous-réseaux) dans la région cible avec un suffixe « asr ».
     **Comptes Stockage de cache** | Site Recovery utilise un compte de stockage dans la région source. Les modifications apportées aux machines virtuelles sources sont envoyées sur ce compte avant la réplication vers l’emplacement cible.<br/><br/> Si vous utilisez un compte de stockage de cache autorisé par le pare-feu, veillez à activer l’option **Autoriser les services Microsoft approuvés**. [En savoir plus.](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)
     **Comptes de stockage cibles (si la machine virtuelle source utilise des disques non managés)** | par défaut, Site Recovery crée un compte de stockage dans la région cible qui reflète le compte de stockage de la machine virtuelle source.<br/><br/> Activez **Autoriser les services Microsoft approuvés** si vous utilisez un compte de stockage de cache autorisé par le pare-feu.
-    **Disques managés de réplica (si la machine virtuelle source utilise des disques managés)** | par défaut, Site Recovery crée des disques managés de réplica dans la région cible pour mettre en miroir les disques managés de la machine virtuelle source avec le même type de stockage (Standard ou Premium) que celui du disque managé de la machine virtuelle source.
+    **Disques managés de réplica (si la machine virtuelle source utilise des disques managés)** | par défaut, Site Recovery crée des disques managés de réplica dans la région cible pour mettre en miroir les disques managés de la machine virtuelle source avec le même type de stockage (Standard ou Premium) que celui du disque managé de la machine virtuelle source. Seul le type de disque peut être personnalisé. 
     **Groupes à haute disponibilité cibles** | par défaut, Azure Site Recovery crée un groupe à haute disponibilité dans la région cible avec un nom comportant le suffixe « asr », pour les machines virtuelles qui font partie d’un groupe à haute disponibilité dans la région source. Si le groupe à haute disponibilité créé par Azure Site Recovery existe déjà, il est réutilisé.
     **Zones de disponibilité cibles** | par défaut, Site Recovery affecte à la région cible le même nombre de zones que la région source, si la région cible prend en charge les zones de disponibilité.<br/><br/> Si la région cible ne prend pas en charge les zones de disponibilité, les machines virtuelles cibles sont configurées comme des instances uniques par défaut.<br/><br/> Cliquez sur **Personnaliser** pour configurer des machines virtuelles d’un groupe à haute disponibilité dans la région cible.<br/><br/> Vous ne pouvez plus modifier le type de disponibilité (instance unique, groupe à haute disponibilité ou zone de disponibilité) une fois que vous avez activé la réplication. Vous devez désactiver puis réactiver la réplication pour modifier le type de disponibilité.
 

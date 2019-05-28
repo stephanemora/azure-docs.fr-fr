@@ -1,6 +1,6 @@
 ---
 title: Diffuser en streaming des fichiers vidéo avec Azure Media Services et Azure CLI | Microsoft Docs
-description: Suivez les étapes de ce démarrage rapide pour créer un compte Azure Media Services, encoder un fichier et le diffuser en continu sur Azure Media Player.
+description: Suivez les étapes de tutoriel pour créer un compte Azure Media Services, encoder un fichier et le diffuser en continu sur Lecteur multimédia Azure.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -9,24 +9,24 @@ editor: ''
 keywords: azure media services, diffuser en continu
 ms.service: media-services
 ms.workload: media
-ms.topic: quickstart
+ms.topic: tutorial
 ms.custom: ''
 ms.date: 02/19/2019
 ms.author: juliako
-ms.openlocfilehash: bd818135f289c430416909d16c8568208936a9f8
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: cce424b11cc4cd587c6e7c50bc8bdf988004a43a
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205417"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65550201"
 ---
-# <a name="quickstart-stream-video-files---cli"></a>Démarrage rapide : Diffuser des fichiers vidéo en streaming - CLI
+# <a name="tutorial-stream-video-files---cli"></a>Didacticiel : Diffuser des fichiers vidéo en streaming - CLI
 
-Ce démarrage rapide vous montre combien il est facile d’encoder et de diffuser en streaming des vidéos sur une grande variété de navigateurs et d’appareils à l’aide d’Azure Media Services et d’Azure CLI. Vous pouvez spécifier un contenu d’entrée à l’aide d’URL HTTPS ou SAP ou de chemins d’accès aux fichiers situés dans le Stockage Blob Azure.
+Ce tutoriel vous montre combien il est facile d’encoder et de diffuser en continu des vidéos sur divers navigateurs et appareils à l’aide d’Azure Media Services et d’Azure CLI. Vous pouvez spécifier un contenu d’entrée à l’aide d’URL HTTPS ou SAP ou de chemins d’accès aux fichiers situés dans le Stockage Blob Azure.
 
 Dans cet article, l’exemple encode du contenu que vous mettez à disposition via une URL HTTPS. Media Services v3 ne prend pas en charge actuellement l’encodage de transfert mémorisé en bloc sur les URL HTTPS.
 
-À la fin du démarrage rapide, vous serez en mesure de diffuser en streaming une vidéo.  
+À la fin de ce tutoriel, vous serez en mesure de diffuser en continu une vidéo.  
 
 ![Lire la vidéo](./media/stream-files-dotnet-quickstart/final-video.png)
 
@@ -335,14 +335,14 @@ Voici un exemple :
 
 1. Ouvrez un navigateur web et accédez à [https://aka.ms/azuremediaplayer/](https://aka.ms/azuremediaplayer/).
 2. Dans la zone **URL**, collez l’URL que vous avez créée dans la section précédente. Vous pouvez coller l’URL au format HLS, Dash ou Smooth. Le lecteur multimédia Azure utilise automatiquement un protocole de streaming approprié pour la lecture sur votre appareil.
-3. Sélectionnez **Update Player (Mettre à jour le lecteur)**.
+3. Sélectionnez **Update Player (Mettre à jour le lecteur)** .
 
 >[!NOTE]
 >Le lecteur multimédia Azure peut être utilisé pour effectuer des tests, mais ne doit pas être utilisé dans un environnement de production.
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Si vous n’avez plus besoin des ressources de votre groupe de ressources, notamment les comptes Media Services et de stockage que vous avez créés dans ce guide de démarrage rapide, supprimez le groupe de ressources.
+Si vous n’avez plus besoin des ressources de votre groupe de ressources, notamment les comptes Media Services et de stockage que vous avez créés dans ce tutoriel rapide, supprimez le groupe de ressources.
 
 Exécutez cette commande CLI :
 
@@ -350,10 +350,7 @@ Exécutez cette commande CLI :
 az group delete --name amsResourceGroup
 ```
 
-## <a name="see-also"></a>Voir aussi
-
-Consultez [Codes d’erreur des travaux](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
-
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Vue d’ensemble de Media Services](media-services-overview.md)
+[Présentation de Media Services](media-services-overview.md)
+

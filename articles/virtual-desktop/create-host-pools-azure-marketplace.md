@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 04/05/2019
 ms.author: helohr
-ms.openlocfilehash: 21979f1dee50fa846fb7888cfc95908b9d833392
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: e19523834c0ddb517fa9d15853411c1b58024b43
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236787"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65834008"
 ---
 # <a name="tutorial-create-a-host-pool-with-azure-marketplace"></a>Didacticiel : Créer un pool d’hôtes avec la Place de marché Azure
 
@@ -59,6 +59,9 @@ Pour le panneau Configurer des machines virtuelles :
 
 Pour le panneau Paramètres de la machine virtuelle :
 
+>[!NOTE]
+> Si vous joignez vos machines virtuelles à un environnement Azure AD Domain Services, vérifiez que votre utilisateur de jonction de domaine est également membre du [groupe Administrateurs AAD DC](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-admingroup#task-3-configure-administrative-group).
+
 1. Sélectionnez la **Source de l’image**, puis entrez les informations appropriées concernant la façon de la rechercher et de la stocker. Si vous choisissez de ne pas utiliser de disques managés, sélectionnez le compte de stockage contenant le fichier .vhd.
 2. Entrez le nom d’utilisateur principal et le mot de passe pour le compte de domaine qui va joindre les machines virtuelles au domaine Active Directory. Ces mêmes nom d’utilisateur et mot de passe sont créés sur les machines virtuelles sous la forme d’un compte local. Vous pouvez réinitialiser ces comptes locaux ultérieurement.
 3. Sélectionnez le réseau virtuel qui dispose d’une connectivité au serveur Active Directory, puis choisissez un sous-réseau pour héberger les machines virtuelles.
@@ -68,7 +71,7 @@ Pour le panneau Paramètres de la machine virtuelle :
 
 Pour le panneau Informations sur le locataire Windows Virtual Desktop :
 
-1. Entrez le **Nom du groupe de locataires Windows Virtual Desktop** pour le groupe de locataires qui contient votre locataire. Si vous n’avez pas de nom de groupe de locataires spécifique planifié, conservez la valeur par défaut.
+1. Entrez le **Nom du groupe de locataires Windows Virtual Desktop** pour le groupe de locataires qui contient votre locataire. Conservez la valeur par défaut, sauf si un nom de groupe de locataires spécifique vous a été fourni.
 2. Entrez le **Nom du locataire Windows Virtual Desktop** pour le locataire que vous allez créer dans ce pool d’hôtes.
 3. Spécifiez le type d’informations d’identification que vous voulez utiliser pour vous authentifier comme propriétaire des services Bureau à distance (RDS) du locataire Windows Virtual Desktop. Si vous avez suivi le tutoriel [Créer des principaux de service et des attributions de rôles avec PowerShell](./create-service-principal-role-powershell.md), sélectionnez **Principal de service**. Entrez maintenant **l’ID de locataire Azure AD** de l’instance Azure Active Directory contenant le principal de service.
 4. Entrez les informations d’identification du compte administrateur de locataire. Seuls les principaux de service avec des informations d’identification de mot de passe sont pris en charge.
@@ -94,12 +97,6 @@ Exécutez l’applet de commande suivante pour vous connecter à l’environneme
 
 ```powershell
 Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
-```
-
-Définissez le contexte sur le groupe de locataires Windows Virtual Desktop que vous avez spécifié dans l’offre de la Place de marché Azure avec l’applet de commande suivante. Si vous avez laissé la valeur par défaut comme valeur de groupe de locataires Windows Virtual Desktop dans l’offre de la Place de marché Azure, vous pouvez ignorer cette étape.
-
-```powershell
-Set-RdsContext -TenantGroupName <tenantgroupname>
 ```
 
 Une fois ces deux opérations terminées, vous pouvez ajouter des utilisateurs au groupe d’applications de bureau avec cette applet de commande :

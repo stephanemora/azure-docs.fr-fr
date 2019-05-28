@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/03/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 943131bc746b5d2a1fd95a26a6a6c9f3bb6b9e57
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 020e0395c7678f6856a293c8386a44d7a959bc06
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65509955"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65786528"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-jira-by-resolution-gmbh"></a>Didacticiel : Intégration d’Azure Active Directory à SSO SAML pour Jira de resolution GmbH
 
@@ -53,7 +53,7 @@ Pour configurer l’authentification unique dans Azure AD, vous devez ajouter un
 
 **Pour ajouter SSO SAML pour Jira de resolution GmbH à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -76,7 +76,7 @@ Pour que l’authentification unique fonctionne, un lien doit être établi entr
 
 Pour configurer et tester l’authentification unique, effectuez les étapes suivantes :
 
-1. **[Configurer l’application d’entreprise Azure AD pour l’authentification unique](#configure-the-azure-ad-enterprise-application-for-single-sign-on)**.
+1. **[Configurer l’application d’entreprise Azure AD pour l’authentification unique](#configure-the-azure-ad-enterprise-application-for-single-sign-on)** .
 2. **[Configurer le plug-in SSO SAML de votre instance Jira](#configure-the-saml-sso-plugin-of-your-jira-instance)** pour configurer les paramètres de l’authentification unique côté application.
 3. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour créer un utilisateur de test dans Azure AD.
 1. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour lui permettre d’utiliser l’authentification unique côté Azure.
@@ -168,7 +168,7 @@ Pour configurer l’authentification unique avec SSO SAML pour Jira de resolutio
     
     d. Cliquez sur **Suivant**.
     
-11. Dans la page **Identity provider configuration** (Configuration du fournisseur d’identité), cliquez sur **Next** (Suivant).
+11. Sur la page **Configuration du fournisseur d’identité**, cliquez sur **Suivant**.
  
     ![Configurer l'authentification unique](./media/samlssojira-tutorial/addon5b.png)
 

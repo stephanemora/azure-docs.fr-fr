@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 05/06/2019
 ms.author: thweiss
-ms.openlocfilehash: 48d67c765a8a76a6058592f59eb61770e2f23df5
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 0b47ffd77ee23f997bb7de2ea41f83c2854cba72
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65068673"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65550903"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>Gérer les stratégies d’indexation dans Azure Cosmos DB
 
@@ -22,6 +22,9 @@ Dans Azure Cosmos DB, les données sont indexées suivant les [stratégies d’
 - à l’aide de l’un des SDK
 
 Une [mise à jour de la stratégie d’indexation](index-policy.md#modifying-the-indexing-policy) déclenche une transformation d’index. La progression de cette transformation peut également être suivie à partir des SDK.
+
+> [!NOTE]
+> Dans le cadre de la mise à niveau du kit de développement logiciel (SDK) et du portail, nous faisons évoluer la stratégie d’indexation pour l’aligner sur une nouvelle disposition d’index que nous avons déployée sur les nouveaux conteneurs. Avec cette nouvelle disposition, tous les types de données primitifs sont indexés en tant que plage avec précision maximale (-1). Par conséquent, les types d'index et la précision ne sont pas exposés à l’utilisateur. À l’avenir, les utilisateurs devront simplement ajouter des chemins d’accès à la section includedPaths, et ignorer indexKinds et la précision. Cette modification n'affecte en rien le niveau de performance et vous pouvez continuer à mettre à jour la stratégie d’indexation en utilisant la même syntaxe. Vous pouvez continuer à utiliser tous les exemples de notre documentation existante pour mettre à jour la stratégie d'indexation.
 
 ## <a name="use-the-azure-portal"></a>Utilisation du portail Azure
 

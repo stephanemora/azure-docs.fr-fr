@@ -5,21 +5,23 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: tutorial
-ms.date: 09/24/2018
+ms.date: 05/04/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 5aa637938433eb1f906f0a4d81038cec0d6c6dcc
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 7a9a1e3d3c92f43d19a75e7cd0e10b3fd395a9b5
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58893008"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544987"
 ---
 # <a name="tutorial-automate-container-image-builds-in-the-cloud-when-you-commit-source-code"></a>Didacticiel : automatiser la génération des images de conteneur dans le cloud lorsque vous validez le code source
 
-Outre une [tâche rapide](container-registry-tutorial-quick-task.md), ACR Tasks prend en charge la génération automatisée des images de conteneur Docker avec la *tâche de génération*. Dans ce didacticiel, vous allez utiliser Azure CLI pour créer une tâche afin de déclencher automatiquement la génération des images dans le cloud lorsque vous validez le code source dans un référentiel Git.
+En plus d'une [tâche rapide](container-registry-tutorial-quick-task.md), ACR Tasks prend en charge la génération d'images de conteneur Docker dans le cloud lorsque vous validez le code source dans un référentiel Git.
 
-Dans ce didacticiel, la deuxième partie de la série :
+Dans ce tutoriel, votre tâche ACR génère et envoie (push) une seule image conteneur spécifiée dans un Dockerfile lorsque vous validez le code source dans un référentiel Git. Pour créer une [tâche à plusieurs étapes](container-registry-tasks-multi-step.md) utilisant un fichier YAML pour définir les étapes permettant de créer, d’envoyer (push) et éventuellement de tester plusieurs conteneurs lors de la validation du code, consultez [Tutoriel : Exécuter un workflow de conteneur à plusieurs étapes dans le cloud lorsque vous validez le code source](container-registry-tutorial-multistep-task.md). Pour une vue d’ensemble d’ACR Tasks, consultez [Automatiser les mises à jour correctives du système d’exploitation et de l'infrastructure avec ACR Tasks](container-registry-tasks-overview.md).
+
+Dans ce tutoriel, vous allez :
 
 > [!div class="checklist"]
 > * Créer une tâche
@@ -33,47 +35,9 @@ Pour suivre ce didacticiel, vous devez avoir déjà effectué les étapes du [di
 
 Si vous souhaitez utiliser l’interface Azure CLI en local, vous devez avoir installé la version **2.0.46** d’Azure CLI ou une version ultérieure et être connecté avec [az login][az-login]. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau l’interface CLI, consultez l’article [Installer Azure CLI 2.0][azure-cli].
 
-## <a name="prerequisites"></a>Prérequis
+[!INCLUDE [container-registry-task-tutorial-prereq.md](../../includes/container-registry-task-tutorial-prereq.md)]
 
-### <a name="get-sample-code"></a>Obtenir un exemple de code
-
-Pour suivre ce didacticiel, vous devez avoir déjà effectué les étapes du [didacticiel précédent](container-registry-tutorial-quick-task.md) et avoir dupliqué et cloné l’exemple de référentiel. Si ce n’est déjà fait, effectuez les étapes de la section [Conditions préalables](container-registry-tutorial-quick-task.md#prerequisites) du didacticiel précédent avant de continuer.
-
-### <a name="container-registry"></a>Registre de conteneurs
-
-Pour effectuer ce didacticiel, vous devez disposer d’un registre de conteneurs Azure dans votre abonnement Azure. Si vous avez besoin d’un registre, consultez le [didacticiel précédent](container-registry-tutorial-quick-task.md) ou le [Démarrage rapide : Créer un registre de conteneur à l’aide de l’interface de ligne de commande Azure](container-registry-get-started-azure-cli.md).
-
-## <a name="overview-of-acr-tasks"></a>Vue d’ensemble d’ACR Tasks
-
-Une tâche définit les propriétés d’une génération automatisée, notamment l’emplacement du code source de l’image conteneur et l’événement qui a déclenché la génération. Lorsqu’un événement défini dans la tâche se produit, par exemple une validation dans un référentiel Git, ACR Tasks lance une génération d’image conteneur dans le cloud. Par défaut, ACR Build envoie une image générée dans le registre de conteneurs Azure spécifié dans la tâche.
-
-ACR Tasks prend actuellement en charge les déclencheurs suivants :
-
-* Validation dans un référentiel Git
-* Mise à jour d’images de base
-
-Dans ce tutoriel, votre tâche ACR génère et envoie (push) une seule image conteneur spécifiée dans un Dockerfile. ACR Tasks peut également exécuter des [tâches à plusieurs étapes](container-registry-tasks-multi-step.md) à l’aide d’un fichier YAML pour définir les étapes permettant de générer, d’envoyer en mode push et éventuellement de tester plusieurs conteneurs.
-
-## <a name="create-a-build-task"></a>Créer une tâche de génération
-
-Dans cette section, vous allez commencer par créer un jeton d’accès personnel (PAT) GitHub à utiliser avec ACR Tasks. Vous allez ensuite créer une tâche qui déclenche une génération lorsque le code est validé dans votre duplication du référentiel.
-
-### <a name="create-a-github-personal-access-token"></a>Créer un jeton d’accès personnel GitHub
-
-Pour déclencher une génération basée sur une validation dans un référentiel Git, ACR Tasks a besoin d’un jeton d’accès personnel (PAT) pour accéder au référentiel. Suivez ces étapes pour générer un jeton d’accès personnel dans GitHub :
-
-1. Accédez à la page de création du jeton d’accès personnel sur GitHub à l’adresse https://github.com/settings/tokens/new.
-1. Entrez une brève **description** du jeton, par exemple, « Démo ACR Tasks »
-1. Sous **référentiel**, cochez les cases **repo:status** et **public_repo**.
-
-   ![Capture d’écran de la page de génération du jeton d’accès personnel dans GitHub][build-task-01-new-token]
-
-1. Sélectionnez le bouton **Générer un jeton** (vous pouvez être invité à confirmer votre mot de passe).
-1. Copiez et enregistrez le jeton généré dans un **emplacement sécurisé** (vous utiliserez ce jeton lorsque vous définirez une tâche dans la section suivante)
-
-   ![Capture d’écran du jeton d’accès personnel généré dans GitHub][build-task-02-generated-token]
-
-### <a name="create-the-build-task"></a>Créer la tâche de génération
+## <a name="create-the-build-task"></a>Créer la tâche de génération
 
 Maintenant que vous avez terminé les étapes requises pour permettre à ACR Tasks de lire l’état de validation et de créer des webhooks dans un référentiel, vous pouvez créer une tâche qui déclenche une génération d’image conteneur lors de la validation dans le référentiel.
 
@@ -85,7 +49,7 @@ GIT_USER=<github-username>      # Your GitHub user account name
 GIT_PAT=<personal-access-token> # The PAT you generated in the previous section
 ```
 
-Créez maintenant la tâche en exécutant la commande [az acr task create][az-acr-task-create] suivante :
+Créez maintenant la tâche en exécutant la commande [az acr task create][az-acr-task-create] suivante :
 
 ```azurecli-interactive
 az acr task create \
@@ -106,14 +70,6 @@ Cette tâche spécifie que tout code temporel est validé dans la branche *maît
 La sortie d’une commande [az acr task create][az-acr-task-create] réussie se présente ainsi :
 
 ```console
-$ az acr task create \
->     --registry $ACR_NAME \
->     --name taskhelloworld \
->     --image helloworld:{{.Run.ID}} \
->     --context https://github.com/$GIT_USER/acr-build-helloworld-node.git \
->     --branch master \
->     --file Dockerfile \
->     --git-access-token $GIT_PAT
 {
   "agentConfiguration": {
     "cpu": 2
@@ -326,12 +282,11 @@ Dans ce didacticiel, vous avez découvert comment utiliser une tâche pour décl
 
 <!-- LINKS - Internal -->
 [azure-cli]: /cli/azure/install-azure-cli
-[az-acr-task]: /cli/azure/acr
-[az-acr-task-create]: /cli/azure/acr
-[az-acr-task-run]: /cli/azure/acr
-[az-acr-task-list-runs]: /cli/azure/acr
+[az-acr-task]: /cli/azure/acr/task
+[az-acr-task-create]: /cli/azure/acr/task#az-acr-task-create
+[az-acr-task-run]: /cli/azure/acr/task#az-acr-task-run
+[az-acr-task-list-runs]: /cli/azure/acr/task#az-acr-task-list-runs
 [az-login]: /cli/azure/reference-index#az-login
 
-<!-- IMAGES -->
-[build-task-01-new-token]: ./media/container-registry-tutorial-build-tasks/build-task-01-new-token.png
-[build-task-02-generated-token]: ./media/container-registry-tutorial-build-tasks/build-task-02-generated-token.png
+
+

@@ -8,12 +8,12 @@ ms.date: 01/31/2019
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: ac9a748742bda6b1e7a321a427090662542f1032
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: f20cc1107476f8d65323d277a53086b8bd035a1b
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55486909"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65518906"
 ---
 # <a name="back-up-azure-file-shares"></a>Sauvegarder des partages de fichiers Azure
 Cet article explique comment utiliser le portail Azure pour sauvegarder et restaurer des [partages de fichiers Azure](../storage/files/storage-files-introduction.md).
@@ -52,11 +52,11 @@ Ce didacticiel suppose que vous ayez déjà établi un partage de fichiers Azure
 
     ![Choisir le partage de fichiers Azure comme objectif de sauvegarde](./media/backup-file-shares/overview-backup-page.png)
 
-2. Dans le menu de l’**objectif de sauvegarde**, à partir de **Que voulez-vous sauvegarder ?**, choisissez le partage de fichiers Azure.
+2. Dans le menu de l’**objectif de sauvegarde**, à partir de **Que voulez-vous sauvegarder ?** , choisissez le partage de fichiers Azure.
 
     ![Choisir le partage de fichiers Azure comme objectif de sauvegarde](./media/backup-file-shares/choose-azure-fileshare-from-backup-goal.png)
 
-3. Cliquez sur **Sauvegarde** pour configurer le partage de fichiers Azure pour votre coffre Recovery Services. 
+3. Cliquez sur **Sauvegarde** pour configurer le partage de fichiers Azure pour votre coffre Recovery Services.
 
    ![Cliquez sur Sauvegarde pour associer le partage de fichiers Azure au coffre](./media/backup-file-shares/set-backup-goal.png)
 
@@ -85,7 +85,7 @@ Vous souhaiterez parfois générer un instantané de sauvegarde ou un point de r
 
    ![Cliquez sur Sauvegarde pour associer le partage de fichiers Azure au coffre](./media/backup-file-shares/list-of-backup-items.png)
 
-2. Dans la liste, sélectionnez **Stockage Azure (fichiers Azure)**. La liste des partages de fichiers Azure s’affiche.
+2. Dans la liste, sélectionnez **Stockage Azure (fichiers Azure)** . La liste des partages de fichiers Azure s’affiche.
 
    ![Cliquez sur Sauvegarde pour associer le partage de fichiers Azure au coffre](./media/backup-file-shares/list-of-azure-files-backup-items.png)
 
@@ -123,10 +123,12 @@ Vous pouvez surveiller la progression de tous les travaux sur la page **Travaux 
 Pour ouvrir la page **Travaux de sauvegarde** :
 
 - Ouvrez le coffre Recovery Services que vous souhaitez analyser puis, dans le menu du coffre Recovery Services, cliquez sur **Travaux** puis sur **Travaux de sauvegarde**.
+
    ![Sélectionner le travail que vous souhaitez surveiller](./media/backup-file-shares/open-backup-jobs.png)
 
     La liste des travaux de sauvegarde et leur état s’affichent.
-   ![Sélectionner le travail que vous souhaitez surveiller](./media/backup-file-shares/backup-jobs-progress-list.png)
+
+    ![Sélectionner le travail que vous souhaitez surveiller](./media/backup-file-shares/backup-jobs-progress-list.png)
 
 ### <a name="create-a-new-policy"></a>Créer une nouvelle stratégie
 
@@ -164,7 +166,7 @@ Pour arrêter la protection d’un partage de fichiers Azure :
 
    ![Cliquez sur Sauvegarde pour associer le partage de fichiers Azure au coffre](./media/backup-file-shares/list-of-backup-items.png)
 
-2. Dans la liste **Type de gestion de sauvegarde**, sélectionnez **Stockage Azure (fichiers Azure)**. La liste des éléments de sauvegarde pour (Stockage Azure [fichiers Azure]) s’affiche.
+2. Dans la liste **Type de gestion de sauvegarde**, sélectionnez **Stockage Azure (fichiers Azure)** . La liste des éléments de sauvegarde pour (Stockage Azure [fichiers Azure]) s’affiche.
 
    ![Cliquez sur l’élément pour ouvrir un menu supplémentaire](./media/backup-file-shares/azure-file-share-backup-items.png)
 

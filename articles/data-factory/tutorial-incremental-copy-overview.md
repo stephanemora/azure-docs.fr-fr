@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: yexu
-ms.openlocfilehash: cb75e943416c227730589ab5e7feeb7b8ba5e245
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 1d8b31e55a2a230385730c924d3e6bcc6072e7ea
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56957922"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65520438"
 ---
 # <a name="incrementally-load-data-from-a-source-data-store-to-a-destination-data-store"></a>Charger de façon incrémentielle des données d’un magasin de données source vers un magasin de données de destination
 
@@ -44,13 +44,13 @@ Pour des instructions pas à pas, consultez les didacticiels suivants : <br/>
 [Copier de façon incrémentielle des données d’Azure SQL Database dans le stockage Blob Azure à l’aide de la technologie Change Tracking](tutorial-incremental-copy-change-tracking-feature-powershell.md)
 
 ## <a name="loading-new-and-changed-files-only-by-using-lastmodifieddate"></a>Chargement des fichiers nouveaux et modifiés uniquement à l’aide de LastModifiedDate
-Vous pouvez commencer par obtenir les métadonnées (LastModifiedDate) de vos fichiers, puis copier les fichiers nouveaux et modifiés uniquement dans le magasin de destination.
+Pour copier les fichiers nouveaux et modifiés, vous devez utiliser LastModifiedDate dans le magasin de destination. ADF analyse tous les fichiers du magasin source, applique le filtre de fichier par date de dernière modification et copie uniquement le nouveau fichier mis à jour depuis son dernier emplacement dans le magasin de destination.  Notez que si vous laissez ADF analyser d'importants volumes de fichiers, mais ne copiez que quelques fichiers dans la destination, cette opération prendra un certain temps car l'analyse de fichiers est chronophage.   
 
 Pour des instructions pas à pas, consultez les didacticiels suivants : <br/>
 [Copier de façon incrémentielle des fichiers nouveaux et modifiés uniquement en fonction de la valeur LastModifiedDate du Stockage Blob Azure vers le Stockage Blob Azure](tutorial-incremental-copy-lastmodified-copy-data-tool.md)
 
 ## <a name="loading-new-files-only-by-using-time-partitioned-folder-or-file-name"></a>Chargement de nouveaux fichiers uniquement à l’aide d’un nom de dossier ou de fichier partitionné chronologiquement.
-Vous pouvez copier les nouveaux fichiers uniquement, où les fichiers ou dossiers ont déjà été partitionnés chronologiquement avec des informations de tranches de temps comme composants du nom de fichier ou de dossier (par exemple, /aaaa/mm/jj/fichier.csv). 
+Vous pouvez copier les nouveaux fichiers uniquement, où les fichiers ou dossiers ont déjà été partitionnés chronologiquement avec des informations de tranches de temps comme composants du nom de fichier ou de dossier (par exemple, /aaaa/mm/jj/fichier.csv). Il s'agit là de l'approche la plus performante pour le chargement incrémentiel de nouveaux fichiers. 
 
 Pour des instructions pas à pas, consultez les didacticiels suivants : <br/>
 [Copier de façon incrémentielle de nouveaux fichiers uniquement en fonction d’un nom de dossier ou de fichier partitionné chronologiquement du Stockage Blob Azure vers le Stockage Blob Azure](tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md)

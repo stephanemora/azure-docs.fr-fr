@@ -7,13 +7,13 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 05/06/2019
-ms.openlocfilehash: 9f3473d83678ffea888dad736a9620006b2961f7
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.date: 05/14/2019
+ms.openlocfilehash: a5e4b2073a29785ee851b2733c12d6331afe59d8
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65406391"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65791331"
 ---
 # <a name="tutorial-design-a-real-time-analytics-dashboard-by-using-azure-database-for-postgresql--hyperscale-citus-preview"></a>Didacticiel : Concevoir un tableau de bord analytique en temps réel avec Azure Database pour PostgreSQL – Hyperscale (Citus) (préversion)
 
@@ -30,72 +30,7 @@ Dans ce tutoriel, vous utilisez Azure Database pour PostgreSQL - Hyperscale (Cit
 
 ## <a name="prerequisites"></a>Prérequis
 
-Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
-
-## <a name="sign-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
-
-Connectez-vous au [Portail Azure](https://portal.azure.com).
-
-## <a name="create-an-azure-database-for-postgresql"></a>Créer une base de données Azure pour PostgreSQL
-
-Pour créer un serveur de base de données Azure pour PostgreSQL, suivez les étapes ci-après :
-1. Cliquez sur **Créer une ressource** en haut à gauche du portail Azure.
-2. Sélectionnez **Bases de données** dans la page **Nouveau**, puis **Base de données Azure pour PostgreSQL** dans la page **Bases de données**.
-3. Pour l’option de déploiement, cliquez sur le bouton **Créer** sous **Groupe de serveurs Hyperscale (Citus) - PRÉVERSION.**
-4. Remplissez le formulaire de détails du nouveau serveur avec les informations suivantes :
-   - Groupe de ressources : cliquez sur le lien **Créer** sous la zone de texte pour ce champ. Entrez un nom tel que **myresourcegroup**.
-   - Nom du groupe de serveurs : **mydemoserver** (nom d’un serveur, qui correspond au nom DNS et doit être globalement unique).
-   - Nom d’utilisateur administrateur : **myadmin** (utilisé plus tard pour la connexion à la base de données).
-   - Mot de passe : doit contenir au moins huit caractères appartenant à trois des catégories suivantes : - lettres majuscules non accentuées, lettres minuscules non accentuées, chiffres (de 0 à 9) et caractères non alphanumériques (!, $, #, %, etc.).
-   - Emplacement : utilisez l’emplacement le plus proche de vos utilisateurs pour leur donner l’accès le plus rapide possible aux données.
-
-   > [!IMPORTANT]
-   > La connexion d’administrateur serveur et le mot de passe que vous spécifiez ici seront requis plus loin dans ce tutoriel pour la connexion au serveur et à ses bases de données. Retenez ou enregistrez ces informations pour une utilisation ultérieure.
-
-5. Cliquez sur **Configurer le groupe de serveurs**. Laissez inchangés les paramètres de cette section et cliquez sur **Enregistrer**.
-6. Cliquez sur **Vérifier + créer**, puis sur **Créer** pour provisionner le serveur. Le provisionnement prend quelques minutes.
-7. La page redirige vers la supervision du déploiement. Quand l’état passe de **Votre déploiement est en cours** à **Votre déploiement a été effectué**, cliquez sur l’élément de menu **Sorties** à gauche de la page.
-8. La page des sorties contient un nom d’hôte de coordinateur avec un bouton en regard de celui-ci pour copier la valeur dans le Presse-papiers. Prenez note de ces informations pour une utilisation ultérieure.
-
-## <a name="configure-a-server-level-firewall-rule"></a>Configurer une règle de pare-feu au niveau du serveur
-
-Le service Azure Database pour PostgreSQL utilise un pare-feu au niveau du serveur. Par défaut, le pare-feu empêche tous les outils et les applications externes de se connecter au serveur et aux bases de données sur le serveur. Vous devez ajouter une règle afin d’ouvrir le pare-feu pour une plage d’adresses IP spécifique.
-
-1. Dans la section **Sorties** où vous avez précédemment copié le nom d’hôte du nœud coordinateur, recliquez sur l’élément de menu **Vue d’ensemble**.
-
-2. Recherchez le groupe de mise à l’échelle de votre déploiement dans la liste des ressources et cliquez dessus. (Son nom est précédé de « sg- ».)
-
-3. Cliquez sur **Pare-feu** sous **Sécurité** dans le menu de gauche.
-
-4. Cliquez sur le lien **+ Ajouter une règle de pare-feu pour l’adresse IP du client**. Enfin, cliquez sur le bouton **Enregistrer**.
-
-5. Cliquez sur **Enregistrer**.
-
-   > [!NOTE]
-   > Le serveur Azure PostgreSQL communique sur le port 5432. Si vous essayez de vous connecter à partir d’un réseau d’entreprise, le trafic sortant sur le port 5432 peut être bloqué par le pare-feu de votre réseau. Dans ce cas, vous ne pouvez pas vous connecter à votre serveur Azure SQL Database, sauf si votre service informatique ouvre le port 5432.
-   >
-
-## <a name="connect-to-the-database-using-psql-in-cloud-shell"></a>Se connecter à la base de données avec psql dans Cloud Shell
-
-Nous allons maintenant utiliser l’utilitaire de ligne de commande [psql](https://www.postgresql.org/docs/current/app-psql.html) pour nous connecter au serveur Azure Database pour PostgreSQL.
-1. Exécutez Azure Cloud Shell via l’icône de la console dans le volet de navigation supérieur.
-
-   ![Base de données Azure pour PostgreSQL - Icône de la console Azure Cloud Shell](./media/tutorial-design-database-hyperscale-realtime/psql-cloud-shell.png)
-
-2. Azure Cloud Shell s’ouvre dans votre navigateur, ce qui vous permet de saisir des commande bash.
-
-   ![Base de données Azure pour PostgreSQL - Invite bash Azure Shell](./media/tutorial-design-database-hyperscale-realtime/psql-bash.png)
-
-3. À l’invite Cloud Shell, connectez-vous à votre serveur de base de données Azure pour PostgreSQL en utilisant les commandes psql. Le format suivant est utilisé pour se connecter à un serveur de base de données Azure pour PostgreSQL avec l’utilitaire [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html) :
-   ```bash
-   psql --host=<myserver> --username=myadmin --dbname=citus
-   ```
-
-   Par exemple, la commande suivante se connecte à la base de données par défaut appelée **citus** sur votre serveur PostgreSQL **mydemoserver.postgres.database.azure.com** en utilisant les informations d’identification d’accès. À l’invite, entrez votre mot de passe d’administrateur du serveur.
-
-   ```bash
-   psql --host=mydemoserver.postgres.database.azure.com --username=myadmin --dbname=citus
-   ```
+[!INCLUDE [azure-postgresql-hyperscale-create-db](../../includes/azure-postgresql-hyperscale-create-db.md)]
 
 ## <a name="use-psql-utility-to-create-a-schema"></a>Utiliser l’utilitaire psql pour créer un schéma
 
@@ -117,7 +52,7 @@ CREATE TABLE http_request (
 );
 ```
 
-Vous allez également créer une table qui conserve vos agrégats par minute et une table qui conserve la position de votre dernier cumul. Exécutez également la commande suivante dans psql :
+Vous allez également créer une table qui conserve vos agrégats par minute et une table qui conserve la position de votre dernier cumul. Exécutez également les commandes suivantes dans psql :
 
 ```sql
 CREATE TABLE http_request_1min (
@@ -170,7 +105,7 @@ DO $$
       ip_address, status_code, response_time_msec
     ) VALUES (
       trunc(random()*32), clock_timestamp(),
-      concat('https://example.com/', md5(random()::text)),
+      concat('http://example.com/', md5(random()::text)),
       ('{China,India,USA,Indonesia}'::text[])[ceil(random()*4)],
       concat(
         trunc(random()*250 + 2), '.',
@@ -181,12 +116,13 @@ DO $$
       ('{200,404}'::int[])[ceil(random()*2)],
       5+trunc(random()*150)
     );
+    COMMIT;
     PERFORM pg_sleep(random() * 0.25);
   END LOOP;
 END $$;
 ```
 
-La requête ajoute ensuite une ligne environ chaque quart de seconde. Les lignes sont stockées sur différents nœuds Worker, comme indiqué par la colonne de distribution, `site_id`.
+La requête insère environ huit lignes par seconde. Les lignes sont stockées sur différents nœuds Worker, comme indiqué par la colonne de distribution, `site_id`.
 
    > [!NOTE]
    > Continuez à exécuter la requête de génération de données, puis ouvrez une deuxième connexion psql pour les commandes restantes dans ce tutoriel.
@@ -213,13 +149,13 @@ GROUP BY site_id, minute
 ORDER BY minute ASC;
 ```
 
-## <a name="performing-rollups"></a>Exécution de cumuls
+## <a name="rolling-up-data"></a>Cumuler les données
 
-La requête ci-dessus fonctionne bien dans les premières étapes, mais ses performances diminuent à mesure que la quantité de données augmente. Même avec un traitement distribué, il est plus rapide de précalculer ces données que de les recalculer de façon répétée.
+La requête précédente fonctionne bien dans les premières étapes, mais ses performances diminuent à mesure que la quantité de données augmente. Même avec un traitement distribué, il est plus rapide de précalculer les données que de les recalculer de façon répétée.
 
-Vous pouvez vérifier que votre tableau de bord a conservé sa rapidité en cumulant régulièrement les données brutes dans une table d’agrégation. Dans ce cas, vous cumulez dans votre table d’agrégations de 1 minute, mais vous pouvez également avoir des agrégations de 5 minutes, 15 minutes, 1 heure et ainsi de suite.
+Vous pouvez vérifier que votre tableau de bord a conservé sa rapidité en cumulant régulièrement les données brutes dans une table d’agrégation. Vous pouvez tester la durée d’agrégation. Nous avons utilisé une table d’agrégation par minute, mais vous pouvez diviser les données par 5, 15 ou 60 minutes.
 
-Étant donné que vous allez exécuter en continu ce cumul, vous allez créer une fonction pour effectuer cette opération. Exécutez les commandes suivantes dans psql pour créer la fonction `rollup_http_request`.
+Pour exécuter ce cumul plus facilement, nous allons le placer dans une fonction plpgsql. Exécutez les commandes suivantes dans psql pour créer la fonction `rollup_http_request`.
 
 ```sql
 -- initialize to a time long ago
@@ -260,7 +196,7 @@ Une fois votre fonction en place, exécutez-la pour cumuler les données :
 SELECT rollup_http_request();
 ```
 
-Avec vos données au format préagrégé, vous pouvez interroger la table de cumul pour obtenir le même rapport que précédemment. Exécutez la commande suivante :
+Avec vos données au format préagrégé, vous pouvez interroger la table de cumul pour obtenir le même rapport que précédemment. Exécutez la requête suivante :
 
 ```sql
 SELECT site_id, ingest_time as minute, request_count,
@@ -271,7 +207,7 @@ SELECT site_id, ingest_time as minute, request_count,
 
 ## <a name="expiring-old-data"></a>Expiration des données anciennes
 
-Les cumuls accélèrent les requêtes, mais vous devez tout de même faire expirer les données anciennes pour éviter les coûts de stockage démesurés. Décidez simplement la durée pendant laquelle vous souhaitez conserver les données pour chaque granularité et utilisez des requêtes standard pour supprimer les données expirées. Dans l’exemple suivant, vous allez conserver les données brutes pendant un jour et les agrégations par minute pendant un mois :
+Les cumuls accélèrent les requêtes, mais vous devez tout de même faire expirer les données anciennes pour éviter les coûts de stockage démesurés. Déterminez la durée pendant laquelle vous souhaitez conserver les données pour chaque granularité et utilisez des requêtes standard pour supprimer les données expirées. Dans l’exemple suivant, vous allez conserver les données brutes pendant un jour et les agrégations par minute pendant un mois :
 
 ```sql
 DELETE FROM http_request WHERE ingest_time < now() - interval '1 day';

@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Utiliser le détecteur de logo personnalisé pour reconnaître les services Azure - Vision personnalisée'
+title: 'Didacticiel : Utiliser le détecteur de logo personnalisé pour reconnaître les services Azure - Vision personnalisée'
 titlesuffix: Azure Cognitive Services
 description: Dans ce tutoriel, vous allez examiner un exemple d’application qui utilise le service Vision personnalisée d’Azure dans le cadre d’un scénario de détection de logo. Découvrez comment le service Vision personnalisée est utilisé avec d’autres composants pour fournir une application de bout en bout.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.subservice: custom-vision
 ms.topic: tutorial
 ms.date: 03/11/2019
 ms.author: pafarley
-ms.openlocfilehash: 259787a90b61b171f391dc02276214f17a57d0d3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 51b2cd42fabe6406f88388e99459a6f3dd3e69f5
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57838814"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65827651"
 ---
-# <a name="tutorial-recognize-azure-service-logos-in-camera-pictures"></a>Tutoriel : Reconnaître les logos des services Azure dans les images de l’appareil photo
+# <a name="tutorial-recognize-azure-service-logos-in-camera-pictures"></a>Didacticiel : Reconnaître les logos des services Azure dans les images de l’appareil photo
 
 Dans ce tutoriel, vous allez examiner un exemple d’application qui utilise Azure Custom Vision dans le cadre d’un scénario plus vaste. L’application AI Visual Provision, une application Xamarin.Forms pour plateformes mobiles, analyse les images d’appareil photo des logos des services Azure, puis déploie les services eux-mêmes sur le compte Azure de l’utilisateur. Ici, vous verrez comment elle utilise Custom Vision en coordination avec d’autres composants pour fournir une application de bout en bout utile. Exécutez le scénario d’application dans son ensemble pour vous-même, ou effectuez simplement la partie Custom Vision de l’installation et examinez l’usage qu’en fait l’application.
 
@@ -32,7 +32,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 ## <a name="prerequisites"></a>Prérequis
 
-- [Visual Studio 2017](https://www.visualstudio.com/downloads/)
+- [Visual Studio 2017 ou version ultérieure](https://www.visualstudio.com/downloads/)
 - La charge de travail Xamarin pour Visual Studio (voir [Installation de Xamarin](https://docs.microsoft.com/xamarin/cross-platform/get-started/installation/windows))
 - Un émulateur iOS ou Android pour Visual Studio
 - [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli-windows?view=azure-cli-latest) (facultatif)

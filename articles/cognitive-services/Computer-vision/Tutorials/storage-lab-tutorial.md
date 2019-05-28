@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: tutorial
 ms.date: 04/17/2019
 ms.author: pafarley
-ms.openlocfilehash: a755a0bada0dbf6797465ea40ddbb30a84e3f289
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 75e52398386e7ef1b338d13a8cfe8f20c06abcc6
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60005980"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65541523"
 ---
 # <a name="tutorial-use-computer-vision-to-generate-image-metadata-in-azure-storage"></a>Didacticiel : Utiliser le service Vision par ordinateur pour générer des métadonnées des images dans le stockage Azure
 
@@ -40,17 +40,11 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 ## <a name="create-a-computer-vision-resource"></a>Créer une ressource Vision par ordinateur
 
-Vous devez créer une ressource Vision par ordinateur pour votre compte Azure ; cette ressource gère votre accès au service Vision par ordinateur d’Azure.
+Vous devez créer une ressource Vision par ordinateur pour votre compte Azure ; cette ressource gère votre accès au service Vision par ordinateur d’Azure. 
 
-1. Connectez-vous au [portail Azure](https://ms.portal.azure.com) et cliquez sur **Créer une ressource**, sur **IA + Machine Learning** et sur **Vision par ordinateur**.
+1. Pour créer une ressource Vision par ordinateur, suivez les instructions de l'article [Créer une ressource Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#single-service-subscription).
 
-    ![Création d’un abonnement à l’API Vision par ordinateur](../Images/new-vision-api.png)
-
-1. Dans la boîte de dialogue, entrez « vision-api-key » dans le champ **Nom**, puis sélectionnez **F0** comme **niveau tarifaire**. Sélectionnez le même **emplacement** que celui choisi quand vous avez créé votre compte de stockage Azure. Sous **Groupe de ressources**, sélectionnez **Utiliser l’existant** et sélectionnez également le même groupe de ressources. Cochez la case **Je confirme**, puis cliquez sur **Créer**.
-
-    ![Abonnement à l’API Vision par ordinateur](../Images/create-vision-api.png)
-
-1. Revenez au menu de votre groupe de ressources et cliquez sur l’abonnement à l’API Vision par ordinateur que vous venez de créer. Copiez l’URL indiquée sous **Point de terminaison** à un endroit où vous pourrez facilement la récupérer un peu plus tard. Cliquez ensuite sur **Afficher les clés d’accès**.
+1. Accédez ensuite au menu de votre groupe de ressources et cliquez sur l’abonnement à l’API Vision par ordinateur que vous venez de créer. Copiez l’URL indiquée sous **Point de terminaison** à un endroit où vous pourrez facilement la récupérer un peu plus tard. Cliquez ensuite sur **Afficher les clés d’accès**.
 
     ![Page du portail Azure avec l’URL du point de terminaison et le lien des clés d’accès entourés](../Images/copy-vision-endpoint.png)
 

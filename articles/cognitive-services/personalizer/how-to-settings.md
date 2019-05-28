@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 05/07/2019
 ms.author: edjez
-ms.openlocfilehash: bce260d2a6b897d3e45b231df4eecd7ecb31ba31
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 80e5feeccc4acc3e1f3dab6b815c8605332c7c71
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65143258"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65834296"
 ---
 # <a name="personalizer-settings"></a>Paramètres de Personalizer
 
@@ -25,7 +25,7 @@ La configuration du service porte sur la façon dont le service traite les réco
 
 Créez une ressource Personalizer pour chaque boucle de rétroaction. 
 
-1. Connectez-vous au [portail Azure](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer). Le lien précédent vous amène vers la page **Créer** du service Personalizer. 
+1. Connectez-vous au [portail Azure](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer). Le lien précédent vous permet d'accéder à la page **Créer** du service Personalizer. 
 1. Entrez le nom de votre service, puis sélectionnez un abonnement, un emplacement, un niveau tarifaire et un groupe de ressources.
 1. Sélectionnez la confirmation, puis **Créer**.
 
@@ -35,7 +35,7 @@ Créez une ressource Personalizer pour chaque boucle de rétroaction.
 1. Recherchez votre ressource Personalizer. 
 1. Dans la section **Gestion des ressources**, sélectionnez **Paramètres**.
 
-    Avant de quitter le portail Azure, copiez l’une de vos clés de ressource à partir de la page **Clés**. Vous en aurez besoin pour utiliser le [SDK Personalizer](https://aka.ms/personalizer-dotnet-sdk-docs).
+    Avant de quitter le portail Azure, copiez l’une de vos clés de ressource à partir de la page **Clés**. Vous en aurez besoin pour utiliser le [SDK Personalizer](https://go.microsoft.com/fwlink/?linkid=2092353).
 
 ### <a name="configure-reward-settings-for-the-feedback-loop-based-on-use-case"></a>Configurer les paramètres de récompense pour la boucle de rétroaction en fonction du cas d’usage
 
@@ -87,4 +87,7 @@ Dans la section Gestion des ressources pour **Modèle et stratégie**, importez 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Guide pratique pour utiliser le conteneur Personalizer](https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409)
+<!--
+[How to use the Personalizer container](https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409)
+-->
+[Découvrir la disponibilité dans la région](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services)

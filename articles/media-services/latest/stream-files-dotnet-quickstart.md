@@ -1,6 +1,6 @@
 ---
 title: Diffuser en continu des fichiers vidéo avec Azure Media Services - .NET | Microsoft Docs
-description: Suivez les étapes de ce démarrage rapide pour créer un compte Azure Media Services, encoder un fichier et le diffuser en continu sur Azure Media Player.
+description: Suivez les étapes de tutoriel pour créer un compte Azure Media Services, encoder un fichier et le diffuser en continu sur Lecteur multimédia Azure.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -9,23 +9,23 @@ editor: ''
 keywords: azure media services, diffuser en continu
 ms.service: media-services
 ms.workload: media
-ms.topic: quickstart
+ms.topic: tutorial
 ms.custom: mvc
 ms.date: 02/20/2019
 ms.author: juliako
-ms.openlocfilehash: 3a50d78645630e499b11f012da122b12b026ae6b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 3834b4f07f6450f498831accfa6640f55bc5855a
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57857859"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65550190"
 ---
-# <a name="quickstart-stream-video-files---net"></a>Démarrage rapide : Diffuser des fichiers vidéo en streaming - .NET
+# <a name="tutorial-stream-video-files---net"></a>Didacticiel : Diffuser des fichiers vidéo en streaming - .NET
 
-Ce démarrage rapide vous montre combien il est facile de coder et de lancer la diffusion en continu de vidéos sur une grande variété de navigateurs et d’appareils à l’aide d’Azure Media Services. Un contenu d’entrée peut être spécifié à l’aide d’URL HTTPS, d’URL SAP ou de chemins d’accès aux fichiers situés dans le Stockage Blob Azure.
+Ce tutoriel vous montre combien il est facile de coder et de lancer la diffusion en continu de vidéos sur une grande variété de navigateurs et d’appareils à l’aide d’Azure Media Services. Un contenu d’entrée peut être spécifié à l’aide d’URL HTTPS, d’URL SAP ou de chemins d’accès aux fichiers situés dans le Stockage Blob Azure.
 Dans cette rubrique, l’exemple encode du contenu que vous mettez à disposition via une URL HTTPS. Notez qu’AMS v3 ne prend pas en charge l’encodage de transfert mémorisé en bloc sur les URL HTTPS.
 
-À la fin du démarrage rapide, vous serez en mesure de diffuser en continu une vidéo.  
+À la fin du tutoriel, vous serez en mesure de diffuser en continu une vidéo.  
 
 ![Lire la vidéo](./media/stream-files-dotnet-quickstart/final-video.png)
 
@@ -66,7 +66,7 @@ Pour obtenir des explications sur chaque fonction dans l’exemple, examinez le 
 Lorsque vous exécutez l’application, les URL qui peuvent être utilisées pour lire la vidéo à l’aide de différents protocoles s’affichent. 
 
 1. Appuyez sur Ctrl + F5 pour exécuter l’application *EncodeAndStreamFiles*.
-2. Choisissez le protocole **HLS** d’Apple (se termine par *manifest(format=m3u8-aapl)*), puis copiez l’URL de diffusion en continu à partir de la console.
+2. Choisissez le protocole **HLS** d’Apple (se termine par *manifest(format=m3u8-aapl)* ), puis copiez l’URL de diffusion en continu à partir de la console.
 
 ![Sortie](./media/stream-files-tutorial-with-api/output.png)
 
@@ -80,7 +80,7 @@ Pour tester la diffusion en continu, cet article utilise le lecteur multimédia 
 > Si un lecteur est hébergé sur un site https, veillez à mettre à jour l’URL vers « https ».
 
 1. Ouvrez un navigateur web et accédez à [https://aka.ms/azuremediaplayer/](https://aka.ms/azuremediaplayer/).
-2. Dans le champ **URL :**, collez l’une des valeurs d’URL de diffusion en continu que vous avez obtenues lors de l’exécution de l’application. 
+2. Dans le champ **URL :** , collez l’une des valeurs d’URL de diffusion en continu que vous avez obtenues lors de l’exécution de l’application. 
  
      Vous pouvez coller l’URL dans le format HLS, Dash ou Smooth : Lecteur multimédia Azure passe automatiquement à un protocole de streaming approprié pour la lecture sur votre appareil.
 3. Appuyez sur **Mise à jour du Lecteur Windows Media**.
@@ -89,7 +89,7 @@ Le lecteur multimédia Azure peut être utilisé pour effectuer des tests, mais 
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Si vous n’avez plus besoin des ressources de votre groupe de ressources, notamment les comptes Media Services et de stockage que vous avez créés dans ce guide de démarrage rapide, supprimez le groupe de ressources.
+Si vous n’avez plus besoin des ressources de votre groupe de ressources, notamment les comptes Media Services et de stockage que vous avez créés dans ce tutoriel rapide, supprimez le groupe de ressources.
 
 Exécutez la commande CLI suivante :
 

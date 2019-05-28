@@ -4,248 +4,223 @@ description: Découvrez comment configurer l’authentification unique entre Azu
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 1d75560a-55b3-42e9-bda1-92b01c572d8e
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 04/23/2018
+ms.topic: tutorial
+ms.date: 03/25/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4091b20e97ca76629260a7420beecb77412b0d39
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 39b7d251f1d6d75ac22d50f1b62a3581f9d343c7
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60310691"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65890377"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-shmoop-for-schools"></a>Didacticiel : Intégration d’Azure Active Directory à Shmoop For Schools
 
 Dans ce didacticiel, vous allez apprendre à intégrer Shmoop For Schools à Azure Active Directory (Azure AD).
-
 L’intégration de Shmoop For Schools à Azure AD vous offre les avantages suivants :
 
-- Dans Azure AD, vous pouvez contrôler qui a accès à Shmoop For Schools.
-- Vous pouvez autoriser les utilisateurs à se connecter automatiquement à Shmoop For Schools avec leur compte Azure AD.
-- Vous pouvez gérer vos comptes à un emplacement central : le portail Azure
+* Dans Azure AD, vous pouvez contrôler qui a accès à Shmoop For Schools.
+* Vous pouvez autoriser les utilisateurs à se connecter automatiquement à Shmoop For Schools (via l’authentification unique) avec leur compte Azure AD.
+* Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure
 
-Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
+Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour configurer l’intégration d’Azure AD à Shmoop For Schools, vous avez besoin des éléments suivants :
 
-- Un abonnement Azure AD
-- Un abonnement Shmoop For Schools avec authentification unique
-
-> [!NOTE]
-> Nous déconseillons l’utilisation d’un environnement de production pour tester les étapes de ce didacticiel.
-
-Pour tester les étapes de ce didacticiel, voici quelques recommandons :
-
-- À l’aide de votre environnement de production uniquement s’il est nécessaire.
-- Obtenez un [essai d’un mois](https://azure.microsoft.com/pricing/free-trial/) si vous n’avez pas déjà un environnement d’essai Azure AD.
+* Un abonnement Azure AD Si vous n’avez pas d’environnement Azure AD, vous pouvez obtenir un [compte gratuit](https://azure.microsoft.com/free/)
+* Un abonnement Shmoop For Schools avec authentification unique
+* N’utilisez votre environnement de production que si nécessaire.
 
 ## <a name="scenario-description"></a>Description du scénario
-Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
-1. Ajout de Shmoop For Schools à partir de la galerie
-2. Configuration et test de l’authentification unique Azure AD
+Dans ce didacticiel, vous configurez et testez l’authentification unique Azure AD dans un environnement de test.
 
-## <a name="add-shmoop-for-schools-from-the-gallery"></a>Ajouter Shmoop For Schools à partir de la galerie
+* Shmoop For Schools prend en charge l’authentification unique initiée par le **fournisseur de services**
+* Shmoop For Schools prend en charge l’attribution d’utilisateurs **Juste-à-temps**
+
+## <a name="adding-shmoop-for-schools-from-the-gallery"></a>Ajout de Shmoop For Schools à partir de la galerie
+
 Pour configurer l’intégration de Shmoop For Schools à Azure AD, vous devez ajouter Shmoop For Schools dans votre liste d’applications SaaS managées à partir de la galerie.
 
 **Pour ajouter Shmoop For Schools à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet gauche du [portail Azure](https://portal.azure.com), sélectionnez l’icône **Azure Active Directory**. 
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
-    ![Bouton Azure Active Directory][1]
+    ![Bouton Azure Active Directory](common/select-azuread.png)
 
-2. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
+2. Accédez à **Applications d’entreprise**, puis sélectionnez l’option **Toutes les applications**.
 
-    ![Panneau Applications d’entreprise][2]
-    
-3. Pour ajouter une nouvelle application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
+    ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
-    ![Bouton Nouvelle application][3]
+3. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
 
-4. Dans la zone de recherche, tapez **Shmoop For Schools**. Sélectionnez **Shmoop For Schools** dans les résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l'application.
+    ![Bouton Nouvelle application](common/add-new-app.png)
 
-    ![Shmoop For Schools dans la liste des résultats](./media/shmoopforschools-tutorial/tutorial_shmoopforschools_addfromgallery.png)
+4. Dans la zone de recherche, tapez **Shmoop For Schools**, sélectionnez **Shmoop For Schools** dans le volet des résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
+
+    ![Shmoop For Schools dans la liste des résultats](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
 
-Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec Shmoop For Schools avec un utilisateur de test appelé « Britta Simon ».
+Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec Shmoop For Schools avec un utilisateur de test appelé **Britta Simon**.
+Pour que l’authentification unique fonctionne, une relation entre l’utilisateur Azure AD et l’utilisateur Shmoop For Schools associé doit être établie.
 
-Pour que l’authentification unique fonctionne, Azure AD doit savoir qui est l’utilisateur Shmoop For Schools équivalent dans Azure AD. En d’autres termes, vous devez établir un lien entre un utilisateur Azure AD et l’utilisateur Shmoop For Schools.
+Pour configurer et tester l’authentification unique Azure AD avec Shmoop For Schools, vous devez suivre les indications des sections suivantes :
 
-Pour configurer et tester l’authentification unique Azure AD avec Shmoop For Schools, suivez les indications des sections ci-après :
-
-1. [Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on) pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-2. [Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user) pour tester l’authentification unique Azure AD avec Britta Simon.
-3. [Créer un utilisateur de test Shmoop For Schools](#create-a-shmoop-for-schools-test-user) pour avoir un équivalent de Britta Simon dans Shmoop For Schools qui soit associé à la représentation de l’utilisateur Azure AD.
-4. [Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user) pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
-5. [Tester l’authentification unique](#test-single-sign-on) pour vérifier que la configuration fonctionne.
+1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
+2. **[Configurer l’authentification unique Shmoop For Schools](#configure-shmoop-for-schools-single-sign-on)** pour configurer les paramètres de l’authentification unique côté application.
+3. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
+4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+5. **[Créer un utilisateur de test Shmoop For Schools](#create-shmoop-for-schools-test-user)** pour avoir un équivalent de Britta Simon dans Shmoop For Schools qui soit associé à la représentation de l’utilisateur Azure AD.
+6. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
 
-Dans cette section, vous allez activer l’authentification unique Azure AD dans le portail Azure et configurer l’authentification unique dans votre application Shmoop For Schools.
+Dans cette section, vous activez l’authentification unique Azure AD dans le portail Azure.
 
-**Pour configurer l’authentification unique Azure AD avec Shmoop For Schools, procédez comme suit :**
+Pour configurer l’authentification unique Azure AD avec Shmoop For Schools, procédez comme suit :
 
-1. Dans le Portail Azure, dans la page d’intégration de l’application **Shmoop For Schools**, sélectionnez **Authentification unique**.
+1. Dans le [Portail Azure](https://portal.azure.com/), dans la page d’intégration de l’application **Shmoop For Schools**, sélectionnez **Authentification unique**.
 
-    ![Lien Configurer l’authentification unique][4]
+    ![Lien Configurer l’authentification unique](common/select-sso.png)
 
-2. Dans la boîte de dialogue **Authentification unique**, dans le menu déroulant **Mode**, sélectionnez **Authentification basée sur SAML**.
- 
-    ![Boîte de dialogue Authentification unique](./media/shmoopforschools-tutorial/tutorial_shmoopforschools_samlbase.png)
+2. Dans la boîte de dialogue **Sélectionner une méthode d’authentification unique**, sélectionnez le mode **SAML/WS-Fed** afin d’activer l’authentification unique.
 
-3. Dans la section **Domaine et URL Shmoop For Schools**, procédez comme suit :
+    ![Mode de sélection de l’authentification unique](common/select-saml-option.png)
 
-    ![Configurer l’authentification unique](./media/shmoopforschools-tutorial/tutorial_shmoopforschools_url.png)
+3. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône **Modifier** pour ouvrir la boîte de dialogue **Configuration SAML de base**.
 
-    a. Dans la zone **URL de connexion**, tapez une URL au format suivant : `https://schools.shmoop.com/public-api/saml2/start/<uniqueid>`
+    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-    b. Dans la zone de texte **Identificateur**, entrez une URL au format suivant : `https://schools.shmoop.com/<uniqueid>`
+4. Dans la section **Configuration SAML de base**, effectuez les étapes suivantes :
 
-    > [!NOTE] 
-    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez [l’équipe de support du client Shmoop For Schools](mailto:support@shmoop.com). 
- 
-4. L’application Shmoop For Schools attend les assertions SAML dans un format précis. Configurez les revendications suivantes pour cette application. Vous pouvez gérer les valeurs de ces attributs à partir de la section « **Attributs utilisateur** » sur la page d’intégration des applications. La capture d’écran suivante montre comment configurer les assertions :
+    ![Informations d’authentification unique dans Domaine et URL Shmoop For Schools](common/sp-identifier.png)
 
-    ![Configurer l’authentification unique](./media/shmoopforschools-tutorial/tutorial_attribute.png)
+    a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://schools.shmoop.com/public-api/saml2/start/<uniqueid>`
+
+    b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant : `https://schools.shmoop.com/<uniqueid>`
+
+    > [!NOTE]
+    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez [l’équipe de support du client Shmoop For Schools](mailto:support@shmoop.com). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
+
+5. L’application Shmoop For Schools attend les assertions SAML dans un format précis. Configurez les revendications suivantes pour cette application. Vous pouvez gérer les valeurs de ces attributs à partir de la section « **Attributs utilisateur** » sur la page d’intégration des applications. La capture d’écran suivante montre comment configurer les assertions :
+
+    ![image](common/edit-attribute.png)
 
     > [!NOTE]
     > Shmoop For Schools prend en charge deux rôles pour les utilisateurs : **Teacher** et **Student**. Configurez ces rôles dans Azure AD pour pouvoir affecter les rôles appropriés aux utilisateurs. Pour comprendre comment configurer des rôles dans Azure AD, consultez [Gérer les accès à l’aide du contrôle d’accès en fonction du rôle et du portail Azure](../../role-based-access-control/role-assignments-portal.md).
-    
-5. Dans la section **Attributs utilisateur** de la boîte de dialogue **Authentification unique**, configurez l'attribut de jeton SAML comme illustré dans l'image précédente.  Ensuite, effectuez les étapes suivantes :
 
-    | Nom de l’attribut | Valeur de l’attribut |
-    | -------------- | --------------- |
-    | role           | user.assignedroles |
+6. Dans la section **Revendications des utilisateurs** de la boîte de dialogue **Attributs utilisateur**, modifiez les revendications en utilisant l’icône **Modifier** ou ajoutez des revendications en utilisant l’option **Ajouter une nouvelle revendication** pour configurer l’attribut de jeton SAML comme sur l’image ci-dessus et procédez comme suit : 
 
-    a. Pour ouvrir la boîte de dialogue **Ajouter un attribut**, cliquez sur **Ajouter un attribut**.
-    
-    ![Configurer l’authentification unique](./media/shmoopforschools-tutorial/tutorial_attribute_04.png)
-    
-    ![Configurer l’authentification unique](./media/shmoopforschools-tutorial/tutorial_attribute_05.png)
-    
+    | Nom |  Attribut source|
+    | --------- | --------------- |
+    | role      | user.assignedroles |
+
+    a. Cliquez sur le bouton **Ajouter une nouvelle revendication** pour ouvrir la boîte de dialogue **Gérer les revendications des utilisateurs**.
+
+    ![image](common/new-save-attribute.png)
+
+    ![image](common/new-attribute-details.png)
+
     b. Dans la zone de texte **Attribut**, indiquez le nom d’attribut pour cette ligne.
-    
-    c. Dans la liste **Valeur**, sélectionnez la valeur de l’attribut pour cette ligne.
 
-    d. Laissez la zone de texte **Espace de noms** vide.
-    
-    e. Sélectionnez **OK**.
+    c. Laissez le champ **Espace de noms** vide.
 
-6. Sélectionnez le bouton **Enregistrer**.
+    d. Sélectionnez Source comme **Attribut**.
 
-    ![Configurer l’authentification unique](./media/shmoopforschools-tutorial/tutorial_general_400.png)
+    e. Dans la liste **Attribut de la source**, tapez la valeur d’attribut indiquée pour cette ligne.
 
-7. Dans la section  **Certificat de signature SAML** , cliquez sur le bouton Copier pour copier l’**URL des métadonnées de fédération de l’application**, puis collez-la dans le Bloc-notes.
+    f. Cliquez sur **OK**.
 
-    ![Lien Téléchargement de certificat](./media/shmoopforschools-tutorial/tutorial_shmoopforschools_certificate.png)
+    g. Cliquez sur **Enregistrer**.
 
-8. Pour configurer l’authentification unique côté **Shmoop For Schools**, vous devez envoyer **l’URL des métadonnées de fédération de l’application** à [l’équipe de support de Shmoop For Schools](mailto:support@shmoop.com).
+7. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur le bouton Copier pour copier l’**URL des métadonnées de fédération d’application**, puis enregistrez-la sur votre ordinateur.
+
+    ![Lien Téléchargement de certificat](common/copy-metadataurl.png)
+
+### <a name="configure-shmoop-for-schools-single-sign-on"></a>Configurer l’authentification unique Shmoop For Schools
+
+Pour configurer l’authentification unique côté **Shmoop For Schools**, vous devez envoyer **l’URL des métadonnées de fédération de l’application** à [l’équipe du support technique Shmoop For Schools](mailto:support@shmoop.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
 L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.
 
-   ![Créer un utilisateur de test Azure AD][100]
+1. Dans le volet gauche du portail Azure, sélectionnez **Azure Active Directory**, sélectionnez **Utilisateurs**, puis sélectionnez **Tous les utilisateurs**.
 
-**Pour créer un utilisateur de test dans Azure AD, effectuez les étapes suivantes :**
+    ![Liens « Utilisateurs et groupes » et « Tous les utilisateurs »](common/users.png)
 
-1. Dans le volet gauche du portail Azure, cliquez sur le bouton **Azure Active Directory**.
+2. Sélectionnez **Nouvel utilisateur** dans la partie supérieure de l’écran.
 
-    ![Bouton Azure Active Directory](./media/shmoopforschools-tutorial/create_aaduser_01.png)
+    ![Bouton Nouvel utilisateur](common/new-user.png)
 
-2. Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes**. Puis sélectionnez **Tous les utilisateurs**.
+3. Dans les propriétés de l’utilisateur, effectuez les étapes suivantes.
 
-    ![Liens « Utilisateurs et groupes » et « Tous les utilisateurs »](./media/shmoopforschools-tutorial/create_aaduser_02.png)
+    ![Boîte de dialogue Utilisateur](common/user-properties.png)
 
-3. Pour ouvrir la boîte de dialogue **Utilisateur**, sélectionnez **Ajouter** en haut de la boîte de dialogue **Tous les utilisateurs**.
+    a. Dans le champ **Nom**, entrez **BrittaSimon**.
+  
+    b. Dans le champ **Nom d’utilisateur**, tapez `brittasimon@yourcompanydomain.extension`  
+    Par exemple, BrittaSimon@contoso.com
 
-    ![Bouton Ajouter](./media/shmoopforschools-tutorial/create_aaduser_03.png)
+    c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
 
-4. Dans la boîte de dialogue **Utilisateur**, effectuez les étapes suivantes :
-
-    ![Boîte de dialogue Utilisateur](./media/shmoopforschools-tutorial/create_aaduser_04.png)
-
-    a. Dans la zone **Nom**, tapez **BrittaSimon**.
-
-    b. Dans la zone **Nom d’utilisateur** , tapez l’adresse e-mail de l’utilisateur Britta Simon.
-
-    c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
-
-    d. Sélectionnez **Créer**.
- 
-### <a name="create-a-shmoop-for-schools-test-user"></a>Créer un utilisateur de test Shmoop For Schools
-
-L’objectif de cette section est de créer un utilisateur appelé Britta Simon dans Shmoop For Schools. Shmoop For Schools prend en charge l’approvisionnement juste-à-temps, option activée par défaut. Vous n’avez aucune opération à effectuer dans cette section. Si un utilisateur n'existe pas déjà, il est créé lors de la tentative d’accès à Shmoop For Schools.
-
->[!NOTE]
->Si vous devez créer un utilisateur manuellement, contactez [l’équipe de support de Shmoop For Schools](mailto:support@shmoop.com).
+    d. Cliquez sur **Créer**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 
 Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en accordant l’accès à Shmoop For Schools.
 
-![Attribuer le rôle utilisateur][200] 
+1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, **Toutes les applications**, puis **Shmoop For Schools**.
 
-**Pour affecter Britta Simon à Shmoop For Schools, procédez comme suit :**
-
-1. Dans le portail Azure, ouvrez la vue des applications. Accédez ensuite à **Applications d’entreprise** dans la vue d'annuaire.  Ensuite, sélectionnez **Toutes les applications**.
-
-    ![Affecter des utilisateurs][201] 
+    ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
 2. Dans la liste des applications, sélectionnez **Shmoop For Schools**.
 
-    ![Lien Shmoop For Schools dans la liste des applications](./media/shmoopforschools-tutorial/tutorial_shmoopforschools_app.png)  
+    ![Lien Shmoop For Schools dans la liste Applications](common/all-applications.png)
 
 3. Dans le menu de gauche, sélectionnez **Utilisateurs et groupes**.
 
-    ![Lien « Utilisateurs et groupes »][202]
+    ![Lien « Utilisateurs et groupes »](common/users-groups-blade.png)
 
-4. Sélectionnez le bouton **Ajouter**. Ensuite, dans la boîte de dialogue **Ajouter une attribution**, sélectionnez **Utilisateurs et groupes**.
+4. Cliquez sur le bouton **Ajouter un utilisateur**, puis sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
 
-    ![Volet Ajouter une attribution][203]
+    ![Volet Ajouter une attribution](common/add-assign-user.png)
 
-5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste d’utilisateurs.
+5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
 
-6. Dans la boîte de dialogue **Utilisateurs et groupes**, cliquez sur le bouton **Sélectionner**. 
+6. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
 
 7. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
-    
+
+### <a name="create-shmoop-for-schools-test-user"></a>Créer un utilisateur de test Shmoop For Schools
+
+Dans cette section, un utilisateur appelé Britta Simon est créé dans Shmoop For Schools. Shmoop For Schools prend en charge l’approvisionnement d'utilisateurs juste-à-temps, option activée par défaut. Vous n’avez aucune opération à effectuer dans cette section. S’il n’existe pas encore d’utilisateur dans Shmoop For Schools, il en est créé un après l’authentification.
+
+> [!NOTE]
+> Si vous devez créer un utilisateur manuellement, contactez [l’équipe de support de Shmoop For Schools](mailto:support@shmoop.com).
+
 ### <a name="test-single-sign-on"></a>Tester l’authentification unique
 
-Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
+Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Lorsque vous sélectionnez la vignette **Shmoop For Schools** dans le volet d’accès, vous devez être connecté automatiquement à votre application Shmoop For Schools.
-
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md). 
+Lorsque vous cliquez sur la vignette Shmoop For Schools dans le volet d’accès, vous devez être connecté automatiquement à l’application Shmoop For Schools pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-* [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](tutorial-list.md)
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-<!--Image references-->
+- [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-[1]: ./media/shmoopforschools-tutorial/tutorial_general_01.png
-[2]: ./media/shmoopforschools-tutorial/tutorial_general_02.png
-[3]: ./media/shmoopforschools-tutorial/tutorial_general_03.png
-[4]: ./media/shmoopforschools-tutorial/tutorial_general_04.png
-
-[100]: ./media/shmoopforschools-tutorial/tutorial_general_100.png
-
-[200]: ./media/shmoopforschools-tutorial/tutorial_general_200.png
-[201]: ./media/shmoopforschools-tutorial/tutorial_general_201.png
-[202]: ./media/shmoopforschools-tutorial/tutorial_general_202.png
-[203]: ./media/shmoopforschools-tutorial/tutorial_general_203.png
-
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

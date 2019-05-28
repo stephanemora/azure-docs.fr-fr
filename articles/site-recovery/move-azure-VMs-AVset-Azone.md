@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: b6107211f49978bbacd1a827a9adc37ccef60a5b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7562d720b200e127fbfd56c403f0e29e28b3b5d8
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57855407"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65793738"
 ---
 # <a name="move-azure-vms-into-availability-zones"></a>Déplacer des machines virtuelles Azure vers des zones de disponibilité
 Les zones de disponibilité dans Azure contribuent à protéger les applications et les données contre des échecs du centre de données. Chaque zone de disponibilité est composée d’un ou de plusieurs centres de données équipés d’une alimentation, d’un refroidissement et d’un réseau indépendants. Pour garantir la résilience, il existe un minimum de trois zones distinctes dans toutes les régions activées. La séparation physique des zones de disponibilité au sein d’une région contribue à protéger les applications et les données contre des échecs du centre de données. Avec les zones de disponibilité, Azure offre un Contrat de niveau de service (SLA) de 99,99 % en lien avec la durée de fonctionnement des machines virtuelles. Les zones de disponibilité sont prises en charge dans certaines régions, comme indiqué dans [Que sont les zones de disponibilité dans Azure ?](https://docs.microsoft.com/azure/availability-zones/az-overview#regions-that-support-availability-zones).
@@ -50,7 +50,7 @@ Si vous avez déployé vos machines virtuelles en tant qu’*instance unique* da
 4. Pour des machines virtuelles Linux, suivez les instructions fournies par votre distributeur Linux pour obtenir les certificats racines approuvés les plus récents et la dernière liste de révocation de certificats sur la machine virtuelle.
 5. Veillez à ne pas utiliser de proxy d’authentification dans le but de contrôler la connectivité réseau pour les machines virtuelles que vous voulez déplacer.
 
-6. Si la machine virtuelle que vous tentez de déplacer n’a pas d’accès à Internet, ou si elle utilise un proxy pare-feu pour contrôler l’accès sortant, vérifiez la configuration requise dans [Configurer la connectivité réseau sortante](azure-to-azure-tutorial-enable-replication.md#configure-outbound-network-connectivity).
+6. Si la machine virtuelle que vous tentez de déplacer n’a accès à Internet, ou si elle utilise un proxy pare-feu pour contrôler l’accès sortant, vérifiez la configuration requise dans [Configurer la connectivité réseau sortante](azure-to-azure-tutorial-enable-replication.md#set-up-outbound-network-connectivity-for-vms).
 
 7. Identifiez la topologie du réseau source et les ressources que vous utilisez actuellement pour la vérification, à savoir les équilibreurs de charge, les groupes de sécurité réseau et l’adresse IP publique.
 
