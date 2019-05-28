@@ -184,7 +184,7 @@ Le pipeline de cet exemple n’a qu’une seule activité, de type HDInsightMapR
 
 | Propriété | Notes |
 |:--- |:--- |
-| Type |Le type doit être défini sur **HDInsightMapReduce**. |
+| type |Le type doit être défini sur **HDInsightMapReduce**. |
 | className |Le nom de la classe est : **wordcount** |
 | jarFilePath |Chemin d’accès au fichier jar contenant la classe. Si vous copiez/collez le code suivant, n'oubliez pas de modifier le nom du cluster. |
 | jarLinkedService |Service Azure Storage lié qui contient le fichier jar. Ce service lié fait référence au stockage associé au cluster HDInsight. |
