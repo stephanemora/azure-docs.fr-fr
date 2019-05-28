@@ -1,54 +1,58 @@
 ---
 title: Surveiller les conteneurs dans Azure Container Instances
-description: Informations supplémentaires sur la surveillance de la consommation des ressources de calcul comme l’UC et la mémoire par vos conteneurs dans Azure Container Instances.
+description: Comment superviser la consommation des ressources de calcul comme le processeur et la mémoire par vos conteneurs dans Azure Container Instances
 services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: overview
-ms.date: 04/24/2018
+ms.date: 04/24/2019
 ms.author: danlep
-ms.openlocfilehash: 950d8b4b5ec1a55e2054039a01d6807915b5c714
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 7b46ea0518038eeb908591b8438acc2a9095242c
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59784071"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64570902"
 ---
 # <a name="monitor-container-resources-in-azure-container-instances"></a>Surveiller les ressources des conteneurs dans Azure Container Instances
 
-Azure Monitor fournit des indications sur les ressources de calcul utilisées par vos instances de conteneurs. Utilisez Azure Monitor pour suivre l’utilisation de l’UC et de la mémoire des groupes de conteneurs et de leurs conteneurs. Ces données d’utilisation des ressources vous permettent de déterminer les meilleurs paramétrages d’UC et de mémoire pour vos groupes de conteneurs.
+[Azure Monitor][azure-monitoring] fournit des indications sur les ressources de calcul utilisées par vos instances de conteneurs. Ces données d’utilisation des ressources vous permettent de déterminer les meilleurs paramétrages de ressource pour vos groupes de conteneurs. Azure Monitor fournit également des métriques qui effectuent le suivi de l’activité réseau dans vos instances de conteneur.
 
-Ce document décrit en détail la collecte des données d’utilisation de l’UC et de la mémoire pour les instances de conteneurs à l’aide du portail Azure et d’Azure CLI.
+Ce document décrit en détail la collecte des métriques Azure Monitor pour les instances de conteneurs à l’aide du portail Azure et d’Azure CLI.
 
 > [!IMPORTANT]
-> À ce stade, les métriques d’utilisation de ressources sont uniquement disponibles pour les conteneurs Linux.
->
+> Les métriques Azure Monitor dans Azure Container Instances sont en préversion et certaines [limitations s’appliquent](#preview-limitations). Les préversions sont à votre disposition, à la condition d’accepter les [conditions d’utilisation supplémentaires][terms-of-use]. Certains aspects de cette fonctionnalité sont susceptibles d’être modifiés avant la mise à disposition générale.
+
+## <a name="preview-limitations"></a>Limitations de la version préliminaire
+
+À ce stade, les métriques Azure Monitor sont uniquement disponibles pour les conteneurs Linux.
 
 ## <a name="available-metrics"></a>Métriques disponibles
 
-Azure Monitor fournit des métriques sur l’utilisation de l’**UC** et de la **mémoire** pour Azure Container Instances. Ces deux métriques sont disponibles pour un groupe de conteneurs et des conteneurs individuels.
+Azure Monitor fournit les [métriques suivantes pour Azure Container Instances][supported-metrics]. Ces métriques sont disponibles pour un groupe de conteneurs et des conteneurs individuels.
 
-Les métriques d’UC sont exprimées en **millicores**. Un millicore représente 1/1 000e de cœur d’UC. Par conséquent, 500 millicores (ou 500 m) représentent 50 % d’utilisation d’un cœur d’UC.
+* **Utilisation de l’UC** : mesurée en **millicœurs**. Un millicœur représente 1/1 000e de cœur de processeur, donc 500 millicœurs (ou 500 m) représentent 50 % d’utilisation d’un cœur de processeur. Agrégée en tant qu’**utilisation moyenne** pour tous les cœurs.
 
-Les métriques de mémoire sont exprimées en **octets**.
+* **Utilisation de la mémoire** : agrégée en tant que **nombre d’octets moyens**.
+
+* **Octets réseau reçus par seconde** et **Octets réseau transmis par seconde** : agrégées en tant que **nombre d’octets moyen par seconde**. 
 
 ## <a name="get-metrics---azure-portal"></a>Obtenir des métriques : portail Azure
 
-Lorsqu’un groupe de conteneurs est créé, les données Azure Monitor sont disponibles dans le portail Azure. Pour afficher les métriques d’un groupe de conteneurs, sélectionnez le groupe de ressources, puis le groupe de conteneurs. Ici, vous pouvez voir des graphiques créés au préalable pour l’utilisation de l’UC et de la mémoire.
+Lorsqu’un groupe de conteneurs est créé, les données Azure Monitor sont disponibles dans le portail Azure. Pour voir les métriques d’un groupe de conteneurs, accédez à la page **Vue d’ensemble** de ce groupe de conteneurs. Vous pouvez y voir des graphiques précréés pour chacune des métriques disponibles.
 
 ![double graphique][dual-chart]
 
-Si un groupe de conteneurs comporte plusieurs conteneurs, utilisez une [dimension][monitor-dimension] afin de présenter les métriques pour chaque conteneur. Pour créer un graphique avec des métriques de conteneur individuel, procédez comme suit :
+Dans un groupe de conteneurs comportant plusieurs conteneurs, utilisez une [dimension][monitor-dimension] afin de présenter les métriques par conteneur. Pour créer un graphique avec des métriques de conteneur individuel, procédez comme suit :
 
-1. Sélectionnez **Surveiller** dans le menu de navigation de gauche.
-2. Sélectionnez un groupe de conteneurs et une métrique (UC ou mémoire).
-3. Sélectionnez le bouton de dimension vert, puis sélectionnez **Nom du conteneur**.
+1. Dans la page **Vue d’ensemble**, sélectionnez un des graphiques de métriques, par exemple **UC**. 
+1. Sélectionnez le bouton **Appliquer la division**, puis sélectionnez **Nom du conteneur**.
 
 ![dimension][dimension]
 
 ## <a name="get-metrics---azure-cli"></a>Obtenir des métriques : Azure CLI
 
-Les données d’utilisation de l’UC et de la mémoire des instances de conteneurs peuvent également être collectées à l’aide d’Azure CLI. Tout d’abord, obtenez l’ID du groupe de conteneurs à l’aide de la commande suivante. Remplacez `<resource-group>` par le nom de votre groupe de ressources et `<container-group>` par le nom de votre groupe de conteneurs.
+Les métriques des instances de conteneurs peuvent également être collectées à l’aide d’Azure CLI. Tout d’abord, obtenez l’ID du groupe de conteneurs à l’aide de la commande suivante. Remplacez `<resource-group>` par le nom de votre groupe de ressources et `<container-group>` par le nom de votre groupe de conteneurs.
 
 
 ```console
@@ -60,80 +64,81 @@ Utilisez la commande suivante pour obtenir les métriques d’utilisation de l�
 ```console
 $ az monitor metrics list --resource $CONTAINER_GROUP --metric CPUUsage --output table
 
-Timestamp            Name              Average
--------------------  ------------  -----------
-2018-04-22 04:39:00  CPU Usage
-2018-04-22 04:40:00  CPU Usage
-2018-04-22 04:41:00  CPU Usage
-2018-04-22 04:42:00  CPU Usage
-2018-04-22 04:43:00  CPU Usage      0.375
-2018-04-22 04:44:00  CPU Usage      0.875
-2018-04-22 04:45:00  CPU Usage      1
-2018-04-22 04:46:00  CPU Usage      3.625
-2018-04-22 04:47:00  CPU Usage      1.5
-2018-04-22 04:48:00  CPU Usage      2.75
-2018-04-22 04:49:00  CPU Usage      1.625
-2018-04-22 04:50:00  CPU Usage      0.625
-2018-04-22 04:51:00  CPU Usage      0.5
-2018-04-22 04:52:00  CPU Usage      0.5
-2018-04-22 04:53:00  CPU Usage      0.5
+Timestamp            Name       Average
+-------------------  ---------  ---------
+2019-04-23 22:59:00  CPU Usage
+2019-04-23 23:00:00  CPU Usage
+2019-04-23 23:01:00  CPU Usage  0.0
+2019-04-23 23:02:00  CPU Usage  0.0
+2019-04-23 23:03:00  CPU Usage  0.5
+2019-04-23 23:04:00  CPU Usage  0.5
+2019-04-23 23:05:00  CPU Usage  0.5
+2019-04-23 23:06:00  CPU Usage  1.0
+2019-04-23 23:07:00  CPU Usage  0.5
+2019-04-23 23:08:00  CPU Usage  0.5
+2019-04-23 23:09:00  CPU Usage  1.0
+2019-04-23 23:10:00  CPU Usage  0.5
 ```
 
-Et utilisez la commande suivante pour obtenir les métriques d’utilisation de la **mémoire**.
+Changez la valeur du paramètre `--metric` dans la commande pour obtenir d’autres [métriques prises en charge][supported-metrics]. Par exemple, utilisez la commande suivante pour obtenir les métriques d’utilisation de la **mémoire**. 
 
 ```console
 $ az monitor metrics list --resource $CONTAINER_GROUP --metric MemoryUsage --output table
 
-Timestamp            Name              Average
--------------------  ------------  -----------
-2018-04-22 04:38:00  Memory Usage
-2018-04-22 04:39:00  Memory Usage
-2018-04-22 04:40:00  Memory Usage
-2018-04-22 04:41:00  Memory Usage
-2018-04-22 04:42:00  Memory Usage  6.76915e+06
-2018-04-22 04:43:00  Memory Usage  9.22061e+06
-2018-04-22 04:44:00  Memory Usage  9.83552e+06
-2018-04-22 04:45:00  Memory Usage  8.42906e+06
-2018-04-22 04:46:00  Memory Usage  8.39526e+06
-2018-04-22 04:47:00  Memory Usage  8.88013e+06
-2018-04-22 04:48:00  Memory Usage  8.89293e+06
-2018-04-22 04:49:00  Memory Usage  9.2073e+06
-2018-04-22 04:50:00  Memory Usage  9.36243e+06
-2018-04-22 04:51:00  Memory Usage  9.30509e+06
-2018-04-22 04:52:00  Memory Usage  9.2416e+06
-2018-04-22 04:53:00  Memory Usage  9.1008e+06
+Timestamp            Name          Average
+-------------------  ------------  ----------
+2019-04-23 22:59:00  Memory Usage
+2019-04-23 23:00:00  Memory Usage
+2019-04-23 23:01:00  Memory Usage  0.0
+2019-04-23 23:02:00  Memory Usage  8859648.0
+2019-04-23 23:03:00  Memory Usage  9181184.0
+2019-04-23 23:04:00  Memory Usage  9580544.0
+2019-04-23 23:05:00  Memory Usage  10280960.0
+2019-04-23 23:06:00  Memory Usage  7815168.0
+2019-04-23 23:07:00  Memory Usage  7739392.0
+2019-04-23 23:08:00  Memory Usage  8212480.0
+2019-04-23 23:09:00  Memory Usage  8159232.0
+2019-04-23 23:10:00  Memory Usage  8093696.0
 ```
 
-Lorsqu’il s’agit d’un groupe de conteneurs, il est possible d’ajouter la dimension `containerName` afin de renvoyer ces données pour chaque conteneur.
+Quand il s’agit d’un groupe de conteneurs, il est possible d’ajouter la dimension `containerName` afin de retourner les métriques par conteneur.
 
 ```console
-$ az monitor metrics list --resource $CONTAINER_GROUP --metric CPUUsage --dimension containerName --output table
+$ az monitor metrics list --resource $CONTAINER_GROUP --metric MemoryUsage --dimension containerName --output table
 
 Timestamp            Name          Containername             Average
 -------------------  ------------  --------------------  -----------
-2018-04-22 17:03:00  Memory Usage  aci-tutorial-app      1.95338e+07
-2018-04-22 17:04:00  Memory Usage  aci-tutorial-app      1.93096e+07
-2018-04-22 17:05:00  Memory Usage  aci-tutorial-app      1.91488e+07
-2018-04-22 17:06:00  Memory Usage  aci-tutorial-app      1.94335e+07
-2018-04-22 17:07:00  Memory Usage  aci-tutorial-app      1.97714e+07
-2018-04-22 17:08:00  Memory Usage  aci-tutorial-app      1.96178e+07
-2018-04-22 17:09:00  Memory Usage  aci-tutorial-app      1.93434e+07
-2018-04-22 17:10:00  Memory Usage  aci-tutorial-app      1.92614e+07
-2018-04-22 17:11:00  Memory Usage  aci-tutorial-app      1.90659e+07
-2018-04-22 16:12:00  Memory Usage  aci-tutorial-sidecar  1.35373e+06
-2018-04-22 16:13:00  Memory Usage  aci-tutorial-sidecar  1.28614e+06
-2018-04-22 16:14:00  Memory Usage  aci-tutorial-sidecar  1.31379e+06
-2018-04-22 16:15:00  Memory Usage  aci-tutorial-sidecar  1.29536e+06
-2018-04-22 16:16:00  Memory Usage  aci-tutorial-sidecar  1.38138e+06
-2018-04-22 16:17:00  Memory Usage  aci-tutorial-sidecar  1.41312e+06
-2018-04-22 16:18:00  Memory Usage  aci-tutorial-sidecar  1.49914e+06
-2018-04-22 16:19:00  Memory Usage  aci-tutorial-sidecar  1.43565e+06
-2018-04-22 16:20:00  Memory Usage  aci-tutorial-sidecar  1.408e+06
+2019-04-23 22:59:00  Memory Usage  aci-tutorial-app
+2019-04-23 23:00:00  Memory Usage  aci-tutorial-app
+2019-04-23 23:01:00  Memory Usage  aci-tutorial-app      0.0
+2019-04-23 23:02:00  Memory Usage  aci-tutorial-app      16834560.0
+2019-04-23 23:03:00  Memory Usage  aci-tutorial-app      17534976.0
+2019-04-23 23:04:00  Memory Usage  aci-tutorial-app      18329600.0
+2019-04-23 23:05:00  Memory Usage  aci-tutorial-app      19742720.0
+2019-04-23 23:06:00  Memory Usage  aci-tutorial-app      14786560.0
+2019-04-23 23:07:00  Memory Usage  aci-tutorial-app      14651392.0
+2019-04-23 23:08:00  Memory Usage  aci-tutorial-app      15470592.0
+2019-04-23 23:09:00  Memory Usage  aci-tutorial-app      15450112.0
+2019-04-23 23:10:00  Memory Usage  aci-tutorial-app      15339520.0
+2019-04-23 22:59:00  Memory Usage  aci-tutorial-sidecar
+2019-04-23 23:00:00  Memory Usage  aci-tutorial-sidecar
+2019-04-23 23:01:00  Memory Usage  aci-tutorial-sidecar  0.0
+2019-04-23 23:02:00  Memory Usage  aci-tutorial-sidecar  884736.0
+2019-04-23 23:03:00  Memory Usage  aci-tutorial-sidecar  827392.0
+2019-04-23 23:04:00  Memory Usage  aci-tutorial-sidecar  831488.0
+2019-04-23 23:05:00  Memory Usage  aci-tutorial-sidecar  819200.0
+2019-04-23 23:06:00  Memory Usage  aci-tutorial-sidecar  843776.0
+2019-04-23 23:07:00  Memory Usage  aci-tutorial-sidecar  827392.0
+2019-04-23 23:08:00  Memory Usage  aci-tutorial-sidecar  954368.0
+2019-04-23 23:09:00  Memory Usage  aci-tutorial-sidecar  868352.0
+2019-04-23 23:10:00  Memory Usage  aci-tutorial-sidecar  847872.0
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour en savoir plus sur la surveillance Azure, consultez [Vue d’ensemble de surveillance Azure][azure-monitoring].
+
+Découvrez comment créer des [alertes de métrique][metric-alert] pour être averti quand une métrique pour Azure Container Instances franchit un seuil.
 
 <!-- IMAGES -->
 [cpu-chart]: ./media/container-instances-monitor/cpu-multi.png
@@ -141,6 +146,11 @@ Pour en savoir plus sur la surveillance Azure, consultez [Vue d’ensemble de su
 [dual-chart]: ./media/container-instances-monitor/metrics.png
 [memory-chart]: ./media/container-instances-monitor/memory-multi.png
 
+<!-- LINKS - External -->
+[terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
+
 <!-- LINKS - Internal -->
-[azure-monitoring]: ../monitoring-and-diagnostics/monitoring-overview.md
+[azure-monitoring]: ../azure-monitor/overview.md
+[metric-alert]: ..//azure-monitor/platform/alerts-metric.md
 [monitor-dimension]: ../azure-monitor/platform/data-platform-metrics.md#multi-dimensional-metrics
+[supported-metrics]: ../azure-monitor/platform/metrics-supported.md#microsoftcontainerinstancecontainergroups
