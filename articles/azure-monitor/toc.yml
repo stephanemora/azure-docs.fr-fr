@@ -63,28 +63,24 @@
       href: azure-management.md
     - name: Supervision continue
       href: continuous-monitoring.md
+    - name: Sources de données
+      href: platform/data-sources.md
     - name: Plateforme de données
       items:
         - name: Vue d'ensemble
           href: platform/data-platform.md
+        - name: Emplacements des données
+          href: platform/data-locations.md
         - name: Mesures
           href: platform/data-platform-metrics.md
         - name: Journaux d’activité
           href: platform/data-platform-logs.md
-    - name: Sources de données
-      items:
-        - name: Résumé des sources de données
-          href: platform/data-sources.md
-        - name: Sources de données Azure
-          href: platform/data-sources-reference.md
-        - name: Journal d’activité
-          href: platform/activity-logs-overview.md
-        - name: Journaux de diagnostic
-          href: platform/diagnostic-logs-overview.md
         - name: Durée d’ingestion des données de journal
           href: platform/data-ingestion-time.md
-        - name: Envoi de métriques personnalisées au magasin de métriques
-          href: platform/metrics-custom-overview.md
+    - name: Insights
+      href: insights/insights-overview.md
+    - name: Solutions de supervision
+      href: insights/solutions-inventory.md
     - name: Sécurité des données
       items:
         - name: Données de journal
@@ -93,24 +89,6 @@
           href: platform/personal-data-mgmt.md
         - name: 'Collecte, rétention et stockage des données d’application'
           href: app/data-retention-privacy.md
-    - name: Insights
-      items:
-        - name: Application Insights
-          items:
-            - name: Vue d’ensemble
-              href: app/app-insights-overview.md
-            - name: DevOps
-              href: app/detect-triage-diagnose.md
-            - name: Traçage distribué
-              href: app/distributed-tracing.md
-            - name: Métriques basées sur le journal et pré-agrégées
-              href: app/pre-aggregated-metrics-log-metrics.md
-        - name: Containers
-          href: insights/container-insights-overview.md
-        - name: Virtual Machines
-          href: insights/vminsights-overview.md
-        - name: Solutions de supervision
-          href: insights/solutions-inventory.md
     - name: Répondre aux incidents
       items:
         - name: Alertes
@@ -190,6 +168,42 @@
               href: platform/service-providers.md
     - name: Collecter les données
       items:
+        - name: Ressources Azure
+          items:
+            - name: Journal d’activité
+              items:
+                - name: Vue d'ensemble
+                  href: platform/activity-logs-overview.md
+                - name: Voir et récupérer
+                  href: platform/activity-log-view.md
+                - name: Collecter et analyser
+                  href: platform/activity-log-collect.md
+                - name: Collecter auprès des locataires
+                  href: platform/activity-log-collect-tenants.md
+                - name: Exportation
+                  href: platform/activity-log-export.md
+                - name: Schéma
+                  href: platform/activity-log-schema.md
+            - name: Journaux de diagnostic
+              items:
+                - name: Vue d'ensemble
+                  href: platform/diagnostic-logs-overview.md
+                - name: Collecter dans les journaux
+                  href: platform/diagnostic-logs-stream-log-store.md
+                - name: Collecter dans Stockage Azure
+                  href: platform/collect-azure-metrics-logs.md
+                - name: Archiver dans le stockage
+                  href: platform/archive-diagnostic-logs.md
+                - name: Envoyer des données en streaming à Event Hubs
+                  href: platform/diagnostic-logs-stream-event-hubs.md
+                - name: Activer avec des modèles Resource Manager
+                  href: platform/diagnostic-logs-stream-template.md
+                - name: Métriques et journaux d’activité de service
+                  href: platform/azure-storage-iis-table.md
+            - name: Flux de concentrateurs d’événements
+              href: platform/stream-monitoring-data-event-hubs.md
+            - name: Mettre en corrélation les sources de données personnalisées
+              href: app/custom-data-correlation.md
         - name: Installer et configurer des agents
           items:
             - name: Présentation des agents de surveillance
@@ -222,17 +236,15 @@
                   href: platform/diagnostics-extension-stream-event-hubs.md
                 - name: Résolution de problèmes
                   href: platform/diagnostics-extension-troubleshooting.md
-                - name: Activer les paramètres de diagnostic à l’aide de modèles Resource Manager
-                  href: platform/diagnostic-logs-stream-template.md
                 - name: Préparer le format des journaux de diagnostic JSON Lines
                   href: platform/diagnostic-logs-append-blobs.md
-                - name: Invité VM vers magasin de métriques
+                - name: Invité de machine virtuelle envoyé aux métriques
                   href: platform/collect-custom-metrics-guestos-resource-manager-vm.md
-                - name: Invité groupe de machines virtuelles identiques vers magasin de métriques
+                - name: Invité de groupe de machines virtuelles identiques envoyé aux métriques
                   href: platform/collect-custom-metrics-guestos-resource-manager-vmss.md
-                - name: Invité VM classique vers magasin de métriques
+                - name: Invité classique de machine virtuelle envoyé aux métriques
                   href: platform/collect-custom-metrics-guestos-vm-classic.md
-                - name: Invité service cloud vers magasin de métriques
+                - name: Invité de service cloud envoyé aux métriques
                   href: platform/collect-custom-metrics-guestos-vm-cloud-service-classic.md
             - name: Résolution des problèmes
               items:
@@ -342,8 +354,6 @@
                       href: app/status-monitor-v2-api-get-status.md
                     - name: API Set-ApplicationInsightsMonitoringConfig
                       href: app/status-monitor-v2-api-set-config.md
-                - name: Services Windows
-                  href: app/windows-services.md
                 - name: Ordinateurs Windows
                   href: app/windows-desktop.md
                 - name: Console
@@ -433,83 +443,46 @@
                   href: app/proactive-email-notification.md
             - name: Créer une ressource
               href: app/create-new-resource.md
-            - name: Résolution des problèmes
+            - name: Données d’application vers Log Analytics
+              href: platform/app-insights-connector.md
+            - name: Exporter des données d’application
               items:
                 - name: Aucune donnée pour .NET
                   href: app/asp-net-troubleshoot-no-data.md
                 - name: Débogueur de capture instantanée
                   href: ../application-insights/app-insights-troubleshoot-snapshot-debugger.md
-                - name: Analytics
-                  href: app/analytics-troubleshooting.md
                 - name: Java
                   href: app/java-troubleshoot.md
                 - name: Analyse de l'utilisation
                   href: app/usage-troubleshoot.md
-        - name: Ressources Azure
-          items:
-            - name: Journaux d’activité Azure
-              items:
-                - name: Analytics
-                  href: platform/collect-activity-logs.md
-                - name: Collection entre des abonnements
-                  href: platform/collect-activity-logs-subscriptions.md
-            - name: Métriques et journaux d’activité de service
-              href: platform/collect-azure-metrics-logs.md
-            - name: Données de diagnostics et de journaux du Stockage Azure
-              href: platform/azure-storage-iis-table.md
-            - name: Ressources Azure PaaS
-              href: platform/collect-azurepass-posh.md
-            - name: Mettre en corrélation les sources de données personnalisées
-              href: app/custom-data-correlation.md
         - name: Collecter des données personnalisées
           items:
+            - name: Mesures personnalisées
+              href: platform/metrics-custom-overview.md
             - name: "API collecteur de données Log\_Analytics"
               href: platform/data-collector-api.md
             - name: "Exemple de pipeline d’API collecteur de données Log\_Analytics"
               href: platform/create-pipeline-datacollector-api.md
-            - name: API REST de magasin de métriques
+            - name: API REST pour les métriques
               href: platform/metrics-store-custom-rest-api.md
-            - name: Envoi de métriques de l’OS invité au magasin de métriques pour une machine virtuelle Linux (Telegraf)
+            - name: GuestOS pour les métriques d’une machine virtuelle Linux (Telegraf)
               href: platform/collect-custom-metrics-linux-telegraf.md
         - name: System Center
           items:
             - name: Gestionnaire de configuration
               href: platform/collect-sccm.md
-            - name: Supervision des performances des applications à l’aide de SCOM
-              href: app/scom.md
-        - name: Données de routage
-          items:
-            - name: Archiver le journal d’activité
-              href: platform/archive-activity-log.md
-            - name: Archiver les journaux de diagnostic
-              href: platform/archive-diagnostic-logs.md
-            - name: Stocker les journaux de diagnostic
-              href: platform/diagnostic-logs-stream-log-store.md
-            - name: Diffuser en continu le journal d’activité vers Event Hubs
-              href: platform/activity-logs-stream-event-hubs.md
-            - name: Journaux d’activité et métriques vers Event Hub
-              href: platform/stream-monitoring-data-event-hubs.md
-            - name: Journaux de diagnostic vers Event Hub
-              href: platform/diagnostic-logs-stream-event-hubs.md
-            - name: Données d’application vers Log Analytics
-              href: platform/app-insights-connector.md
-            - name: Exporter des données d’application
-              items:
-                - name: Exportation continue
-                  href: app/export-telemetry.md
-                  items:
-                    - name: Exemples de code
-                      items:
-                        - name: "Exporter vers SQL à l’aide de Stream\_Analytics"
-                          href: app/code-sample-export-sql-stream-analytics.md
-                        - name: "Exporter vers Stream\_Analytics"
-                          href: app/export-stream-analytics.md
-                - name: Exporter le modèle de données
-                  href: app/export-data-model.md
     - name: Obtenir des insights
       items:
         - name: Surveillance des applications
           items:
+            - name: Vue d'ensemble d’Application Insights
+              items:
+                - name: Vue d'ensemble
+                  href: app/app-insights-overview.md
+                - name: Traçage distribué
+                  href: app/distributed-tracing.md
+                - name: Métriques basées sur le journal et pré-agrégées
+                  href: app/pre-aggregated-metrics-log-metrics.md
             - name: Portail Application Insights
               items:
                 - name: Recherche
@@ -983,6 +956,8 @@
               href: app/api-filtering-sampling.md
             - name: échantillonnage
               href: app/sampling.md
+            - name: TelemetryChannels
+              href: app/telemetry-channels.md
         - name: Solutions de supervision
           items:
             - name: Conception et création
@@ -1061,8 +1036,6 @@
       items:
         - name: 'Services de journaux de diagnostic, catégories et schémas'
           href: platform/diagnostic-logs-schema.md
-        - name: Schéma d’événement du journal d’activité
-          href: platform/activity-log-schema.md
         - name: Schéma d’extension Diagnostics Azure
           href: platform/diagnostics-extension-schema.md
           items:

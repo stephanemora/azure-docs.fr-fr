@@ -364,13 +364,17 @@
           href: ../../search/search-blob-storage-integration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Transfert de données
           items:
-            - name: AzCopy (v10)
-              href: ../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: AzCopy sur Windows (v8)
-              href: ../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: AzCopy sur Linux (v8)
-              href: ../common/storage-use-azcopy-linux.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Utilisation d’Azure Data Factory
+            - name: AzCopy
+              items:
+                - name: Prise en main
+                  href: ../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Utiliser avec des objets blob
+                  href: ../common/storage-use-azcopy-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Utiliser avec des compartiments Amazon S3
+                  href: ../common/storage-use-azcopy-s3.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: 'Configurer, optimiser et dépanner'
+                  href: ../common/storage-use-azcopy-configure.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: "Azure\_Data\_Factory"
               href: ../../data-factory/connector-azure-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Montage d’un stockage d’objets Blob en tant que système de fichiers sur Linux
               href: storage-how-to-mount-container-linux.md
@@ -571,6 +575,14 @@
       items:
         - name: Réception de données
           items:
+            - name: AzCopy
+              items:
+                - name: Prise en main
+                  href: ../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Utiliser avec Data Lake Storage Gen2
+                  href: ../common/storage-use-azcopy-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: 'Configurer, optimiser et dépanner'
+                  href: ../common/storage-use-azcopy-configure.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Utiliser Distcp
               href: ../blobs/data-lake-storage-use-distcp.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Utilisation d’Azure Data Factory
@@ -609,7 +621,7 @@
               href: '../../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-sql-data-warehouse-polybase'
         - name: Optimiser les performances
           items:
-            - name: Vue d’ensemble
+            - name: Vue d'ensemble
               href: ../blobs/data-lake-storage-performance-tuning-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Optimiser Spark sur HDInsight
               href: ../blobs/data-lake-storage-performance-tuning-spark.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json

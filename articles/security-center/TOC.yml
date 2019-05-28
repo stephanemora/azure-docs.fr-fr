@@ -1,11 +1,13 @@
 - name: Documentation Security Center
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: À propos de Security Center
       href: security-center-intro.md
     - name: "Plateformes et fonctionnalités prises en charge par Security\_Center"
       href: security-center-os-coverage.md
+    - name: Évaluation de la protection de point de terminaison et recommandations
+      href: security-center-endpoint-protection.md
 - name: Démarrages rapides
   expanded: true
   items:

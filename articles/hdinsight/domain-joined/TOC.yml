@@ -1,6 +1,6 @@
 - name: "Documentation Azure\_HDInsight"
   href: /azure/hdinsight
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: "Qu’est-ce que le Pack Sécurité Entreprise dans HDInsight\_?"
       href: apache-domain-joined-introduction.md
@@ -8,6 +8,8 @@
   items:
     - name: Planifier des clusters ESP
       href: apache-domain-joined-architecture.md
+    - name: Créer des clusters ESP et synchroniser avec les utilisateurs locaux
+      href: apache-domain-joined-create-configure-enterprise-security-cluster.md
     - name: Configurer des clusters ESP avec Azure AD DS
       href: apache-domain-joined-configure-using-azure-adds.md
     - name: "Synchroniser les utilisateurs Azure\_AD vers un cluster HDInsight"

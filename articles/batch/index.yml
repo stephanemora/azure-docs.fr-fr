@@ -57,6 +57,17 @@ sections:
         className: spaced noBullet
         items:
           - html: <a href="cli-samples">Interface de ligne de commande Azure</a>
+  - title: Formation vidéo gratuite Pluralsight
+    items:
+      - type: list
+        style: cards
+        className: cardsFTitle
+        items:
+          - title: Bien démarrer avec Microsoft Azure Batch
+            href: 'https://app.pluralsight.com/library/courses/microsoft-azure-batch-getting-started/table-of-contents'
+            image:
+              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
+              href: 'https://app.pluralsight.com/library/courses/microsoft-azure-batch-getting-started/table-of-contents'
   - title: Informations de référence
     items:
       - type: list

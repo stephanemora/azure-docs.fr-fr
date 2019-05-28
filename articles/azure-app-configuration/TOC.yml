@@ -1,6 +1,6 @@
 - name: Documentation Azure App Configuration (préversion)
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: À propos d’Azure App Configuration
       href: overview.md
@@ -59,11 +59,13 @@
   items:
     - name: Configuration
       items:
-        - name: Fournisseur de configuration .NET Core
+        - name: Azure CLI
+          href: 'https://docs.microsoft.com/cli/azure/ext/appconfig/appconfig?view=azure-cli-latest'
+        - name: Fournisseur .NET Core
           href: 'https://go.microsoft.com/fwlink/?linkid=2074664'
-        - name: Générateur de configuration .NET Framework
+        - name: Générateur .NET Framework
           href: 'https://go.microsoft.com/fwlink/?linkid=2074663'
-        - name: Fournisseur de configuration Java Spring
+        - name: Fournisseur Java Spring
           href: 'https://github.com/Microsoft/spring-cloud-azure/tree/azure-config/spring-cloud-azure-starters/spring-cloud-starter-azure-config'
         - name: Kit SDK .NET Azure
           href: 'https://go.microsoft.com/fwlink/?linkid=2092056'
@@ -79,7 +81,11 @@
           href: 'https://go.microsoft.com/fwlink/?linkid=2091601'
 - name: Ressources
   items:
-    - name: Vidéo de démarrage
-      href: 'https://channel9.msdn.com/Shows/Azure-Friday/Getting-started-with-Azure-App-Configuration'
+    - name: Videos
+      items:
+        - name: Prise en main
+          href: 'https://channel9.msdn.com/Shows/Azure-Friday/Getting-started-with-Azure-App-Configuration'
+        - name: Gestion des fonctionnalités
+          href: 'https://channel9.msdn.com/Shows/NET-Community-Standups/ASPNET-Community-Standup-May-21st-2019-Introducing-MicrosoftFeatureManagement'
     - name: Indiquer des commentaires sur le produit
       href: 'https://github.com/Azure/AppConfiguration/issues'

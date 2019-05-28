@@ -1,6 +1,6 @@
 - name: Documentation Event Hubs
   href: ./index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: "Qu’est-ce qu’Event Hubs\_?"
       href: event-hubs-about.md
@@ -51,8 +51,6 @@
           href: event-hubs-capture-python.md
     - name: Diffuser en continu dans Event Hubs pour Kafka
       href: event-hubs-quickstart-kafka-enabled-event-hubs.md
-    - name: Créer un cluster Event Hubs dédié
-      href: event-hubs-dedicated-cluster-create-portal.md
 - name: Tutoriels
   items:
     - name: Visualiser les anomalies de données sur les flux de données Event Hubs
@@ -86,14 +84,18 @@
       href: event-hubs-event-processor-host.md
     - name: Guide de programmation
       href: event-hubs-programming-guide.md
-    - name: Identité managée pour les ressources Azure
-      href: event-hubs-managed-service-identity.md
-    - name: Contrôle d’accès en fonction du rôle (préversion)
-      href: event-hubs-role-based-access-control.md
-    - name: Géo-reprise d'activité après sinistre et géo-réplication
-      href: event-hubs-geo-dr.md
-    - name: Présentation du modèle de sécurité et de l’authentification
-      href: event-hubs-authentication-and-security-model-overview.md
+    - name: Sécurité
+      items:
+        - name: Identité managée pour les ressources Azure
+          href: event-hubs-managed-service-identity.md
+        - name: Contrôle d’accès en fonction du rôle (préversion)
+          href: event-hubs-role-based-access-control.md
+        - name: Géo-reprise d'activité après sinistre et géo-réplication
+          href: event-hubs-geo-dr.md
+        - name: Présentation du modèle de sécurité et de l’authentification
+          href: event-hubs-authentication-and-security-model-overview.md
+        - name: Attributs de sécurité
+          href: event-hubs-security-attributes.md
     - name: Disponibilité et cohérence
       href: event-hubs-availability-and-consistency.md
     - name: "Guide du protocole AMQP\_1.0"
