@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 0879f9026276eb7149ae44906377a7b369e05116
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: a3e457ca29ebe086c6097528af5a9253446b757c
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59267070"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65990555"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-vodeclic"></a>Didacticiel : Intégration d’Azure Active Directory à Vodeclic
 
@@ -53,7 +53,7 @@ Pour configurer l’intégration de Vodeclic à Azure AD, vous devez ajouter Vod
 
 **Pour ajouter Vodeclic à partir de la galerie, effectuez les étapes suivantes :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 

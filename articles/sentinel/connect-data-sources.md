@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: b54c4ef1b188896a70cf8b2f9352d0b76874fd50
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 5d8d97aefa2efadae70c976b8a1876b2c7d8f1c1
+ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65204285"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65921925"
 ---
 # <a name="connect-data-sources"></a>Connecter des sources de données
 
@@ -53,7 +53,7 @@ Les méthodes de connexion de données suivantes sont prises en charge par Azure
 - **Solutions externes via API** : Certaines sources de données sont connectées à l’aide d’API fournies par la source de données connectée. En général, la plupart des technologies de sécurité fournissent un ensemble d’API par le biais duquel les journaux des événements peuvent être récupérés. Les API se connectent à Azure Sentinel, collectent des types de données spécifiques et les envoient à Azure Log Analytics. Les appliances connectées via une API sont les suivantes :
     - [Barracuda](connect-barracuda.md)
     - [Symantec](connect-symantec.md)
-- **Solutions externes via un agent** : Sentinel Azure peut être connecté à toute source de données capable d’effectuer une diffusion en continu de journal en temps réel à l’aide du protocole Syslog, via un agent. <br>La plupart des appliances utilisent le protocole Syslog pour envoyer des messages d’événement incluant le journal proprement dit et des données sur le journal. Le format des journaux varie, mais la plupart des appliances prennent en charge la norme CEF (Common Event Format). <br>L’agent Sentinel Azure, qui est basé sur l’agent OMS, convertit les journaux de format CEF dans un format que Log Analytics peut ingérer. Selon le type d’appliance, l’agent est installé directement sur l’appliance ou sur un serveur Linux dédié. L’agent pour Linux reçoit des événements du démon Syslog en utilisant le protocole UDP mais, dans les cas où une machine Linux est supposée collecter un volume important d’événements Syslog, ceux-ci sont envoyés, en utilisant le protocole TCP, du démon Syslog à l’agent, puis de celui-ci à Log Analytics.
+- **Solutions externes via un agent** : Sentinel Azure peut être connecté à toute source de données capable d’effectuer une diffusion en continu de journal en temps réel à l’aide du protocole Syslog, via un agent. <br>La plupart des appliances utilisent le protocole Syslog pour envoyer des messages d’événement incluant le journal proprement dit et des données sur le journal. Le format des journaux varie, mais la plupart des appliances prennent en charge la norme CEF (Common Event Format). <br>L’agent Sentinel Azure, qui est basé sur Microsoft Monitoring Agent, convertit les journaux de format CEF dans un format que Log Analytics peut ingérer. Selon le type d’appliance, l’agent est installé directement sur l’appliance ou sur un serveur Linux dédié. L’agent pour Linux reçoit des événements du démon Syslog en utilisant le protocole UDP mais, dans les cas où une machine Linux est supposée collecter un volume important d’événements Syslog, ceux-ci sont envoyés, en utilisant le protocole TCP, du démon Syslog à l’agent, puis de celui-ci à Log Analytics.
     - Pare-feu, proxys et points de terminaison :
         - [F5](connect-f5.md)
         - [Check Point](connect-checkpoint.md)

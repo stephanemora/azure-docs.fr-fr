@@ -3,18 +3,18 @@ title: Créer une définition de stratégie personnalisée
 description: Créez une définition de stratégie personnalisée pour Azure Policy afin d’appliquer des règles métier personnalisées.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/12/2019
+ms.date: 04/23/2019
 ms.topic: tutorial
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: bf3582036a28603c3b6ef33a2af28cb61926d91f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: e38eb1315cde3400b70925059d4dd50475a47835
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59267750"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979664"
 ---
-# <a name="create-a-custom-policy-definition"></a>Créer une définition de stratégie personnalisée
+# <a name="tutorial-create-a-custom-policy-definition"></a>Didacticiel : Créer une définition de stratégie personnalisée
 
 Une définition de stratégie personnalisée permet aux clients de définir leurs propres règles d’utilisation d’Azure. Ces règles appliquent souvent :
 
@@ -46,12 +46,11 @@ Avant de créer la définition de stratégie, vous devez bien définir l’inten
 
 Vos exigences doivent identifier clairement les deux états de ressource « être » et « ne pas être ».
 
-Nous avons défini l’état attendu de la ressource, mais nous n’avons pas encore défini ce que nous voulons faire avec les ressources non conformes. Policy prend en charge un certain nombre d’[effets](../concepts/effects.md). Dans ce tutoriel, nous définissons l’exigence métier de sorte à empêcher la création des ressources qui sont non conformes aux règles métier. Pour atteindre cet objectif, nous utilisons l’effet [Refuser](../concepts/effects.md#deny). Nous voulons aussi pouvoir suspendre la stratégie pour des attributions spécifiques. Par conséquent, nous utilisons l’effet [Désactivé](../concepts/effects.md#disabled) en le définissant comme [paramètre](../concepts/definition-structure.md#parameters) dans la définition de stratégie.
+Nous avons défini l’état attendu de la ressource, mais nous n’avons pas encore défini ce que nous voulons faire avec les ressources non conformes. Azure Policy prend en charge un certain nombre d’[effets](../concepts/effects.md). Dans ce tutoriel, nous définissons l’exigence métier de sorte à empêcher la création des ressources qui sont non conformes aux règles métier. Pour atteindre cet objectif, nous utilisons l’effet [Refuser](../concepts/effects.md#deny). Nous voulons aussi pouvoir suspendre la stratégie pour des attributions spécifiques. Par conséquent, nous utilisons l’effet [Désactivé](../concepts/effects.md#disabled) en le définissant comme [paramètre](../concepts/definition-structure.md#parameters) dans la définition de stratégie.
 
 ## <a name="determine-resource-properties"></a>Déterminer les propriétés de ressource
 
-D’après les exigences métier, la ressource Azure à auditer avec Policy est un compte de stockage.
-Toutefois, nous ne savons pas quelles sont les propriétés à utiliser dans la définition de stratégie. Policy évalue la représentation JSON de la ressource, nous devons donc déterminer les propriétés qui sont disponibles sur cette ressource.
+D’après les besoins métier, la ressource Azure à auditer avec Azure Policy est un compte de stockage. Toutefois, nous ne savons pas quelles sont les propriétés à utiliser dans la définition de stratégie. Azure Policy évalue la représentation JSON de la ressource ; nous devons donc déterminer les propriétés qui sont disponibles sur cette ressource.
 
 Il existe de nombreuses façons de déterminer les propriétés d’une ressource Azure. Dans ce tutoriel, nous les examinons toutes :
 
@@ -69,9 +68,9 @@ Il existe plusieurs façons d’examiner un [modèle Resource Manager](../../../
 #### <a name="existing-resource-in-the-portal"></a>Ressource existante dans le portail
 
 Pour rechercher des propriétés, le plus simple est d’examiner une ressource existante du même type. Vous pouvez aussi comparer les ressources déjà configurées avec le paramètre que vous voulez appliquer.
-Consultez la page **Script d’automatisation** (sous **Paramètres**) dans le portail Azure pour cette ressource spécifique.
+Consultez la page **Exporter le modèle** (sous **Paramètres**) dans le portail Azure pour cette ressource spécifique.
 
-![Page de modèle d’exportation sur la ressource existante](../media/create-custom-policy-definition/automation-script.png)
+![Page de modèle d’exportation sur la ressource existante](../media/create-custom-policy-definition/export-template.png)
 
 Si la ressource est un compte de stockage, vous voyez un modèle semblable à cet exemple :
 
@@ -121,8 +120,7 @@ Sous **propriétés**, une valeur nommée **supportsHttpsTrafficOnly** est défi
 
 #### <a name="create-a-resource-in-the-portal"></a>Créer une ressource dans le portail
 
-Dans le portail, vous pouvez aussi utiliser l’expérience de création de ressource. Quand vous créez un compte de stockage dans le portail, sous l’onglet **Avancé**, vous avez l’option **Transfert de sécurité obligatoire**.
-Cette propriété a des options _Désactivé_ et _Activé_. L’icône d’informations confirme que cette option est probablement la propriété qui nous intéresse. Toutefois, le portail n’indique pas le nom de la propriété dans cet écran.
+Dans le portail, vous pouvez aussi utiliser l’expérience de création de ressource. Quand vous créez un compte de stockage dans le portail, sous l’onglet **Avancé**, vous avez l’option **Transfert de sécurité obligatoire**. Cette propriété a des options _Désactivé_ et _Activé_. L’icône d’informations confirme que cette option est probablement la propriété qui nous intéresse. Toutefois, le portail n’indique pas le nom de la propriété dans cet écran.
 
 Sous l’onglet **Examiner + créer**, un lien en bas de la page vous permet de **Télécharger un modèle pour l’automatisation**. Sélectionnez le lien pour ouvrir le modèle qui crée la ressource que nous avons configurée. Dans notre exemple, nous voyons deux informations essentielles :
 
@@ -181,8 +179,7 @@ Dans les résultats, nous voyons un alias pris en charge par les comptes de stoc
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-Dans Azure PowerShell, l’applet de commande `Get-AzPolicyAlias` est utilisé pour rechercher des alias de ressource.
-Nous filtrons sur l’espace de noms **Microsoft.Storage** d’après les détails que nous avons obtenus précédemment sur la ressource Azure.
+Dans Azure PowerShell, l’applet de commande `Get-AzPolicyAlias` est utilisé pour rechercher des alias de ressource. Nous filtrons sur l’espace de noms **Microsoft.Storage** d’après les détails que nous avons obtenus précédemment sur la ressource Azure.
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell
@@ -197,8 +194,9 @@ Comme avec Azure CLI, les résultats montrent un alias pris en charge par les co
 
 [Azure Resource Graph](../../resource-graph/overview.md) est un nouveau service en préversion. Il nous donne une autre méthode de recherche des propriétés de ressources Azure. Voici un exemple de requête permettant d’examiner un seul compte de stockage avec Resource Graph :
 
-```Query
-where type=~'microsoft.storage/storageaccounts' | limit 1
+```kusto
+where type=~'microsoft.storage/storageaccounts'
+| limit 1
 ```
 
 ```azurecli-interactive
@@ -209,7 +207,23 @@ az graph query -q "where type=~'microsoft.storage/storageaccounts' | limit 1"
 Search-AzGraph -Query "where type=~'microsoft.storage/storageaccounts' | limit 1"
 ```
 
-Les résultats sont similaires à ce que nous avons vu dans les modèles Resource Manager et dans Azure Resource Explorer. Toutefois, les résultats d’Azure Resource Graph incluent également les informations d’[alias](../concepts/definition-structure.md#aliases). Voici un exemple de sortie de compte de stockage pour les alias :
+Les résultats sont similaires à ce que nous avons vu dans les modèles Resource Manager et dans Azure Resource Explorer. Cependant, les résultats Azure Resource Graph peuvent également inclure des détails d’[alias](../concepts/definition-structure.md#aliases) en _projetant_ le tableau d’_alias_ :
+
+```kusto
+where type=~'microsoft.storage/storageaccounts'
+| limit 1
+| project aliases
+```
+
+```azurecli-interactive
+az graph query -q "where type=~'microsoft.storage/storageaccounts' | limit 1 | project aliases"
+```
+
+```azurepowershell-interactive
+Search-AzGraph -Query "where type=~'microsoft.storage/storageaccounts' | limit 1 | project aliases"
+```
+
+Voici un exemple de sortie de compte de stockage pour les alias :
 
 ```json
 "aliases": {
@@ -295,7 +309,8 @@ Azure Resource Graph (préversion) peut être utilisé via [Cloud Shell](https:/
 
 ## <a name="determine-the-effect-to-use"></a>Déterminer l’effet à utiliser
 
-Choisir ce que vous allez faire de vos ressources non conformes est presque aussi important que choisir ce que vous devez évaluer en premier lieu. Chaque réponse possible à une ressource non conforme est appelée un [effet](../concepts/effects.md). L’effet contrôle si la ressource non conforme est enregistrée, bloquée, a des données ajoutées ou est associée à un déploiement pour la remettre dans un état conforme.
+Choisir ce que vous allez faire de vos ressources non conformes est presque aussi important que choisir ce que vous devez évaluer en premier lieu. Chaque réponse possible à une ressource non conforme est appelée un [effet](../concepts/effects.md).
+L’effet contrôle si la ressource non conforme est enregistrée, bloquée, a des données ajoutées ou est associée à un déploiement pour la remettre dans un état conforme.
 
 Dans notre exemple, nous voulons l’effet Refuser pour que les ressources non conformes ne soient pas créées dans notre environnement Azure. Avant de définir l’effet Refuser, commencez par l’auditer pour déterminer l’impact de la stratégie. Pour simplifier le changement d’effet par attribution, vous pouvez paramétrer l’effet. Consultez les [paramètres](#parameters) ci-dessous pour plus d’informations sur la procédure à suivre.
 

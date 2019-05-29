@@ -1,5 +1,5 @@
 ---
-title: Tutoriel - Commander Microsoft Azure Data Box Disk | Microsoft Docs
+title: Tutoriel - Commander Azure Data Box Disk | Microsoft Docs
 description: Ce tutoriel vous apprend à vous inscrire et à commander un disque Azure Data Box Disk pour importer des données dans Azure.
 services: databox
 author: alkohli
@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 02/27/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 67f4eb5383452a81ba288f5fe611242259217951
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 1d25ea2ce6e365e0d04fab325f9c13bb37382758
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57404890"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65603170"
 ---
-# <a name="tutorial-order-an-azure-data-box-disk"></a>Tutoriel : Commander une solution Azure Data Box Disk
+# <a name="tutorial-order-an-azure-data-box-disk"></a>Didacticiel : Commander une solution Azure Data Box Disk
 
 Azure Data Box Disk est une solution cloud hybride qui vous permet d’importer vos données locales dans Azure de manière rapide, simple et fiable. Vous transférez vos données vers des disques SSD fournis par Microsoft et renvoyez les disques. Ces données sont ensuite chargées dans Azure.
 
@@ -65,7 +65,7 @@ Procédez comme suit dans le [portail Azure](https://aka.ms/azuredataboxfromdisk
     |---|---|
     |Abonnement|Sélectionnez l’abonnement pour lequel le service Data Box est activé.<br> L’abonnement est lié à votre compte de facturation. |
     |Type de transfert| Importer vers Azure|
-    |Pays source | Sélectionnez le pays où vos données se trouvent actuellement.|
+    |Pays source | Sélectionnez le pays ou la région où vos données se trouvent actuellement.|
     |Région Azure de destination|Sélectionnez la région Azure où vous souhaitez transférer des données.|
 
   

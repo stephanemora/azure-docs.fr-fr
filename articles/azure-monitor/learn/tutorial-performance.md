@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 7eae71411a1a3772dbdbaa289a32cbc69fca0e5a
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: f906ab5db35ce8b239eceac9cdc8244f230f5a77
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54108749"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65596028"
 ---
 # <a name="find-and-diagnose-performance-issues-with-azure-application-insights"></a>Rechercher et diagnostiquer les problèmes de performances à l’aide d’Azure Application Insights
 
@@ -30,9 +30,9 @@ Azure Application Insights collecte des données de télémétrie à partir de v
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour suivre ce didacticiel :
+Pour suivre ce tutoriel :
 
-- Installez [Visual Studio 2017](https://www.visualstudio.com/downloads/) avec les charges de travail suivantes :
+- Installez [Visual Studio 2019](https://www.visualstudio.com/downloads/) avec les charges de travail suivantes :
     - Développement web et ASP.NET
     - Développement Azure
 - Déployez une application .NET pour Azure et [activez le Kit SDK Application Insights](../../azure-monitor/app/asp-net.md).
@@ -97,7 +97,7 @@ En plus d’identifier les processus côté serveur à optimiser, Application In
 
     ![Résumé du navigateur](media/tutorial-performance/browser-summary.png)
 
-2.  Faites défiler jusqu'à la section **Quelles sont les pages les plus lentes ?**.  Cette liste affiche les pages de votre application que les clients ont mis le plus de temps à charger.  Vous pouvez utiliser ces informations pour classer par priorité les pages qui ont l’impact le plus important sur l’utilisateur.
+2.  Faites défiler jusqu'à la section **Quelles sont les pages les plus lentes ?** .  Cette liste affiche les pages de votre application que les clients ont mis le plus de temps à charger.  Vous pouvez utiliser ces informations pour classer par priorité les pages qui ont l’impact le plus important sur l’utilisateur.
 3.  Cliquez sur une des pages pour ouvrir le panneau **Affichage de la page**.  Dans l’exemple, la page **/FabrikamProd** affiche une durée moyenne excessive.  Le panneau **Affichage de la page** fournit des détails sur cette page, y compris une répartition des différentes plages de durée.
 
     ![Affichage de la page](media/tutorial-performance/page-view.png)

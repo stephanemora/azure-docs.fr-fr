@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seodec18
 ms.date: 12/07/2018
-ms.openlocfilehash: 261b55f722fdc3c1e8f4b45debc664f49db3f898
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 056e5a0f56e1a8998288e6a78f448f0f91777e1d
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59523543"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65969305"
 ---
 # <a name="analyze-phone-call-data-with-stream-analytics-and-visualize-results-in-power-bi-dashboard"></a>Analyser les données d’appel téléphonique avec Stream Analytics et visualiser les résultats dans un tableau de bord Power BI
 
@@ -99,7 +99,7 @@ Avant de démarrer l’application TelcoGenerator, vous devez la configurer pour
 3. Mettez à jour l’élément `<appSettings>` dans le fichier de configuration avec les détails suivants :
 
    * Définissez la valeur de la clé *EventHubName* sur la valeur de la paire EntityPath dans la chaîne de connexion.
-   * Définissez la valeur de la clé *Microsoft.ServiceBus.ConnectionString* sur la chaîne de connexion sans la valeur EntityPath.
+   * Définissez la valeur de la clé *Microsoft.ServiceBus.ConnectionString* sur la chaîne de connexion sans la valeur EntityPath (n’oubliez pas de supprimer le point-virgule qui la précède).
 
 4. Enregistrez le fichier .
 5. Ensuite, ouvrez une fenêtre de commandes et accédez au dossier dans lequel l’application TelcoGenerator est décompressée. Puis, entrez la commande suivante :
@@ -118,7 +118,7 @@ Avant de démarrer l’application TelcoGenerator, vous devez la configurer pour
    |**Enregistrement**  |**Définition**  |
    |---------|---------|
    |CallrecTime    |  Horodatage de l’heure de début d’appel.       |
-   |SwitchNum     |  Commutateur téléphonique utilisé pour connecter l’appel. Pour cet exemple, les commutateurs sont des chaînes qui représentent le pays d’origine (États-Unis, Chine, Royaume-Uni, Allemagne ou Australie).       |
+   |SwitchNum     |  Commutateur téléphonique utilisé pour connecter l’appel. Pour cet exemple, les commutateurs sont des chaînes qui représentent le pays/la région d’origine (États-Unis, Chine, Royaume-Uni, Allemagne ou Australie).       |
    |CallingNum     |  Numéro de téléphone de l’appelant.       |
    |CallingIMSI     |  Identité de l’abonné mobile international (IMSI). Il s’agit d’un identificateur unique de l’appelant.       |
    |CalledNum     |   Numéro de téléphone du destinataire de l’appel.      |
@@ -212,7 +212,7 @@ Dans cet exemple, les appels frauduleux sont effectués par le même utilisateur
    GROUP BY TumblingWindow(Duration(second, 1))
    ```
 
-   Pour rechercher des appels frauduleux, vous pouvez effectuer une jointure réflexive des données de diffusion en continu sur la valeur `CallRecTime`. Vous pouvez ensuite rechercher les enregistrements d’appels où la valeur `CallingIMSI` (numéro d’origine) est identique, mais où la valeur `SwitchNum` (pays d’origine) est différente. Si vous utilisez une opération JOIN avec des données de diffusion en continu, la jointure doit indiquer certaines limites relatives à l’intervalle pouvant séparer des lignes correspondantes dans le temps. Les données de diffusion en continu étant infinies, les limites de temps de la relation sont spécifiées dans la clause **ON** de la jointure, à l’aide de la fonction [DATEDIFF](https://msdn.microsoft.com/azure/stream-analytics/reference/datediff-azure-stream-analytics).
+   Pour rechercher des appels frauduleux, vous pouvez effectuer une jointure réflexive des données de diffusion en continu sur la valeur `CallRecTime`. Vous pouvez ensuite rechercher les enregistrements d’appels où la valeur `CallingIMSI` (numéro d’origine) est identique, mais où la valeur `SwitchNum` (pays/région d’origine) est différente. Si vous utilisez une opération JOIN avec des données de diffusion en continu, la jointure doit indiquer certaines limites relatives à l’intervalle pouvant séparer des lignes correspondantes dans le temps. Les données de diffusion en continu étant infinies, les limites de temps de la relation sont spécifiées dans la clause **ON** de la jointure, à l’aide de la fonction [DATEDIFF](https://msdn.microsoft.com/azure/stream-analytics/reference/datediff-azure-stream-analytics).
 
    Cette requête est identique à une jointure SQL normale à l’exception de la fonction **DATEDIFF**. La fonction **DATEDIFF** utilisée dans cette requête est spécifique à Stream Analytics, et doit apparaître dans la clause `ON...BETWEEN`.
 

@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 12/01/2018
 ms.author: dech
-ms.openlocfilehash: 1589c938e635ccff02f94a176b7fc886dbccb779
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 51494acaa393493e567e0fcbb359756bdab21503
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57455766"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65860904"
 ---
 # <a name="quickstart-build-an-aspnet-web-app-using-azure-cosmos-db-sql-api-account"></a>Démarrage rapide : Générer une application web ASP.NET à l’aide du compte d’API SQL Azure Cosmos DB
 
@@ -37,7 +37,7 @@ Ce guide de démarrage rapide utilise la version 3.0+ du SDK .NET Azure Cosmos 
 
 ## <a name="prerequisites"></a>Prérequis
 
-Si vous n’avez pas encore installé Visual Studio 2017, vous pouvez télécharger et utiliser la version **gratuite** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Veillez à activer la charge de travail **Développement Azure** lors de l’installation de Visual Studio.
+Si vous n’avez pas encore installé Visual Studio 2019, vous pouvez télécharger et utiliser la version **gratuite** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Veillez à activer la charge de travail **Développement Azure** lors de l’installation de Visual Studio.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
 [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]  
@@ -120,7 +120,7 @@ Maintenant, retournez dans le portail Azure afin d’obtenir les informations de
 
     ![Affichage et copie d’une clé d’accès rapide dans le portail Azure, panneau Clés](./media/create-sql-api-dotnet/keys.png)
 
-2. Dans Visual Studio 2017, ouvrez le fichier **web.config**. 
+2. Dans Visual Studio, ouvrez le fichier **web.config**. 
 
 3. Copiez votre valeur d’URI à partir du portail (à l’aide du bouton Copier) et définissez-la comme valeur de la clé ``endpoint`` dans le fichier web.config. 
 

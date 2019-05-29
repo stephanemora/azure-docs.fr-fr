@@ -1,5 +1,5 @@
 ---
-title: Créer votre première fonction à l’aide du Portail Azure | Microsoft Docs
+title: Créer votre première fonction à l’aide du portail Azure | Microsoft Docs
 description: Apprenez à créer votre première fonction Azure pour une exécution sans serveur à l’aide du portail Azure.
 services: functions
 documentationcenter: na
@@ -12,23 +12,23 @@ ms.topic: quickstart
 ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: mvc, devcenter, cc996988-fb4f-47
-ms.openlocfilehash: 1b7efd4f36d5587667010d25f30a3e7945faee4f
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 4a49cb3de2dc36dcd933a0b31b6a55b838eb1336
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997793"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65864599"
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>Créer votre première fonction à l’aide du Portail Azure
 
-Azure Functions vous permet d’exécuter votre code dans un environnement [sans serveur](https://azure.microsoft.com/solutions/serverless/) et sans avoir à créer une machine virtuelle ou à publier une application web au préalable. Dans cette rubrique, vous allez découvrir comment utiliser Functions pour créer une fonction « hello world » dans le portail Azure.
+Azure Functions vous permet d’exécuter votre code dans un environnement [sans serveur](https://azure.microsoft.com/solutions/serverless/) et sans avoir à créer une machine virtuelle ou à publier une application web au préalable. Dans cet article, vous allez découvrir comment utiliser Functions pour créer une fonction « hello world » dans le portail Azure.
 
 ![Créer une Function App dans le Portail Azure](./media/functions-create-first-azure-function/function-app-in-portal-editor.png)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 > [!NOTE]
-> Les développeurs C# doivent envisager de [créer votre première fonction dans Visual Studio 2017](functions-create-your-first-function-visual-studio.md) plutôt que sur le portail. 
+> Les développeurs C# doivent envisager de [créer votre première fonction dans Visual Studio 2019](functions-create-your-first-function-visual-studio.md) plutôt que sur le portail. 
 
 ## <a name="log-in-to-azure"></a>Connexion à Azure
 
@@ -46,7 +46,7 @@ Créez ensuite une fonction dans la nouvelle Function App.
 
 1. Développez votre nouvelle application de fonction, puis sélectionnez le bouton **+** en regard de **Fonctions**, choisissez **Dans le portail** et sélectionnez **Continuer**.
 
-    ![Démarrage rapide Fonctions, choix de la plateforme.](./media/functions-create-first-azure-function/function-app-quickstart-choose-portal.png)
+    ![Démarrage rapide de Functions pour le choix d’une plateforme.](./media/functions-create-first-azure-function/function-app-quickstart-choose-portal.png)
 
 1. Choisissez **WebHook + API**, puis sélectionnez **Créer**.
 
@@ -58,7 +58,7 @@ Vous pouvez maintenant exécuter la nouvelle fonction en envoyant une requête H
 
 ## <a name="test-the-function"></a>Tester la fonction
 
-1. Dans votre nouvelle fonction, cliquez sur **</> Obtenir l’URL de la fonction** en haut à droite, sélectionnez **par défaut (touche de fonction)**, puis cliquez sur **Copier**. 
+1. Dans votre nouvelle fonction, cliquez sur **</> Obtenir l’URL de la fonction** en haut à droite, sélectionnez **par défaut (touche de fonction)** , puis cliquez sur **Copier**. 
 
     ![Copier l’URL de fonction à partir du portail Azure](./media/functions-create-first-azure-function/function-app-develop-tab-testing.png)
 
@@ -80,7 +80,7 @@ Vous pouvez maintenant exécuter la nouvelle fonction en envoyant une requête H
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Vous avez créé une Function App avec une simple fonction déclenchée via HTTP.  
+Vous avez créé une application de fonction avec une simple fonction déclenchée via HTTP.  
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 

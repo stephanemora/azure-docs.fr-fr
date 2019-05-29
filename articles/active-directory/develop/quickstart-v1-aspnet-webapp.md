@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 05/21/2019
 ms.author: andret
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f88643000b85965b2f275cc6e7494f427d0fe43e
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 17aaff1a6da2c18e9b1d915f61844635b1ad130b
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65231153"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66001437"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Démarrage rapide : Ajouter la connexion avec Microsoft à une application ASP.NET
 
@@ -32,7 +32,7 @@ Dans ce démarrage rapide, vous allez apprendre comment implémenter la connexio
 À la fin de ce démarrage rapide, votre application acceptera les connexions des comptes professionnels et scolaires d’organisations disposant d’une intégration à Azure Active Directory (Azure AD).
 
 > [!NOTE]
-> Si vous devez activer les connexions pour les comptes personnels en plus des comptes professionnels et scolaires, vous pouvez utiliser le *[point de la plateforme d’identités Microsoft](azure-ad-endpoint-comparison.md)*. Pour plus d’informations, consultez [ce tutoriel ASP.NET](tutorial-v2-asp-webapp.md) ainsi que [cet article](active-directory-v2-limitations.md) qui expliquent ce que sont les *points de terminaison de la plateforme d’identités Microsoft*.
+> Si vous devez activer les connexions pour les comptes personnels en plus des comptes professionnels et scolaires, vous pouvez utiliser le *[point de la plateforme d’identités Microsoft](azure-ad-endpoint-comparison.md)* . Pour plus d’informations, consultez [ce tutoriel ASP.NET](tutorial-v2-asp-webapp.md) ainsi que [cet article](active-directory-v2-limitations.md) qui expliquent ce que sont les *points de terminaison de la plateforme d’identités Microsoft*.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -70,7 +70,7 @@ Pour télécharger le projet Visual Studio de cet exemple à la place, suivez ce
 ## <a name="step-2-create-your-aspnet-project"></a>Étape 2 : Créer votre projet ASP.NET
 
 1. Dans Visual Studio, accédez à **Fichier -> Nouveau > Projet**.
-2. Pour **Type de projet**, sélectionnez **Web**, puis **Application Web ASP.NET (.NET Framework)**.
+2. Pour **Type de projet**, sélectionnez **Web**, puis **Application Web ASP.NET (.NET Framework)** .
 3. Nommez votre application, puis sélectionnez **Créer**.
 4. Sélectionnez **Vide** , puis **MVC** sous **Ajouter des dossiers et des références de base** pour ajouter des références MVC.
 5. Sélectionnez **Créer**.
@@ -199,14 +199,15 @@ Dans Visual Studio, créez une vue pour afficher les revendications de l’utili
 
 ### <a name="register-your-application-in-the-azure-portal-then-add-its-information-to-webconfig"></a>Inscrire votre application dans le portail Azure, puis ajouter ses informations à *web.config*
 
-1. Accédez au [portail Microsoft Azure - Inscriptions des applications](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) pour inscrire une application.
-2. Sélectionnez **Nouvelle inscription d’application**.
-3. Entrez un nom pour votre application.
-4. Collez le projet Visual Studio *URL SSL* dans **URL de connexion**. Cette URL est aussi ajoutée automatiquement à la liste des URL de réponse pour l’application que vous inscrivez.
-5. Sélectionnez **Créer** pour inscrire l’application. Cette action vous ramène à la liste des applications.
-6. À présent, recherchez ou sélectionnez l’application que vous venez de créer pour ouvrir ses propriétés.
-7. Copiez le GUID sous **ID d’application** dans le presse-papiers.
-8. Revenez à Visual Studio et, dans `web.config`, remplacez `Enter_the_Application_Id_here` par l’ID de l’application que vous avez inscrite.
+1. Connectez-vous au [portail Azure](https://portal.azure.com/) avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
+2. Si votre compte vous propose un accès à plusieurs locataires, sélectionnez votre compte en haut à droite et définissez votre session de portail sur le locataire Azure AD souhaité.
+3. Accédez à la page [Inscriptions des applications](https://go.microsoft.com/fwlink/?linkid=2083908) de la plateforme d’identité Microsoft pour les développeurs.
+4. Sélectionnez **Nouvelle inscription**.
+5. Lorsque la page **Inscrire une application** s’affiche, entrez le nom de votre application.
+6. Sous **Types de comptes pris en charge**, sélectionnez **Comptes dans un annuaire organisationnel et comptes personnels Microsoft**.
+7. Sélectionnez la plateforme **Web** dans la section **URI de redirection** et définissez la valeur sur l’ *URL SSL* du projet Visual Studio (l’emplacement vers lequel Azure AD retourne des jetons).
+78. Lorsque vous avez terminé, sélectionnez **Inscrire**. Sur la page **Vue d’ensemble** de l’application, copiez la valeur **ID d’application (client)** .
+9. Revenez à Visual Studio et, dans `web.config`, remplacez `Enter_the_Application_Id_here` par l’ID de l’application que vous avez inscrite.
 
 > [!TIP]
 > Si votre compte est configuré pour l’accès à plusieurs répertoires, vérifiez que vous avez sélectionné le répertoire correspondant à l’organisation pour laquelle vous souhaitez inscrire l’application en cliquant sur le nom de votre compte en haut à droite du portail Azure, puis en vérifiant le répertoire sélectionné comme indiqué :<br/>![Sélection de l’annuaire](./media/quickstart-v1-aspnet-webapp/tenantselector.png)
@@ -279,7 +280,7 @@ Quand vous êtes prêt à tester, utilisez un compte professionnel (Azure AD) po
 
 #### <a name="expected-results"></a>Résultats attendus
 
-Une fois connecté, l’utilisateur est redirigé vers la page d’accueil de votre site web, qui est l’URL HTTPS spécifiée dans les informations d’inscription de votre application sur le portail d’inscription des applications de Microsoft. Cette page affiche désormais *Bonjour {utilisateur}*, ainsi qu’un lien de déconnexion et un lien pour afficher les revendications de l’utilisateur, qui est un lien vers le contrôleur d’autorisation créé précédemment.
+Une fois connecté, l’utilisateur est redirigé vers la page d’accueil de votre site web, qui est l’URL HTTPS spécifiée dans les informations d’inscription de votre application sur le portail d’inscription des applications de Microsoft. Cette page affiche désormais *Bonjour {utilisateur}* , ainsi qu’un lien de déconnexion et un lien pour afficher les revendications de l’utilisateur, qui est un lien vers le contrôleur d’autorisation créé précédemment.
 
 ### <a name="see-users-claims"></a>Afficher les revendications de l’utilisateur
 

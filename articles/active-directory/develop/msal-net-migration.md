@@ -4,7 +4,7 @@ description: Découvrez les différences entre Microsoft Authentication Library 
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
-manager: celested
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -17,12 +17,12 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2576121bfc945b90ce8ec0260ea30ec110e14dd8
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: f9be13ac22e6eda32668d635032ebcccf417b6c7
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65138826"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65785220"
 ---
 # <a name="migrating-applications-to-msalnet"></a>Migration d’applications vers MSAL.NET
 
@@ -192,7 +192,7 @@ En effet, l’API Resource Manager attend une barre oblique dans sa revendicatio
 La logique utilisée par Azure AD est la suivante :
 - Pour le point de terminaison ADAL (v1.0) avec jeton d’accès v1.0 (le seul possible), aud=resource
 - Pour le point de terminaison MSAL (v2.0) qui demande un jeton d’accès pour une ressource qui accepte des jetons v2.0, aud=resource.AppId
-- Pour le point de terminaison MSAL (v2.0) qui demande un jeton d’accès pour une ressource qui accepte un jeton d’accès v1.0 (ce qui correspond au cas ci-dessus), Azure AD analyse l’audience souhaitée d’après l’étendue demandée en prenant tout ce qui précède la dernière barre oblique et en l’utilisant comme identificateur de la ressource. Ainsi, si https://database.windows.net attend une audience « https://database.windows.net/ », vous devez demander une étendue https://database.windows.net//.default. Consultez également le problème n° [747](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747) : La barre oblique de fin est omise dans l’URL de la ressource, ce qui a entraîné un échec d’authentification SQK n° 747
+- Pour le point de terminaison MSAL (v2.0) qui demande un jeton d’accès pour une ressource qui accepte un jeton d’accès v1.0 (ce qui correspond au cas ci-dessus), Azure AD analyse l’audience souhaitée d’après l’étendue demandée en prenant tout ce qui précède la dernière barre oblique et en l’utilisant comme identificateur de la ressource. Par conséquent, si https :\//database.windows.net attend une audience de « https://database.windows.net/», vous devrez demander une étendue de https :\//database.windows.net//.default. Consultez également le problème n° [747](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747) : La barre oblique de fin est omise dans l’URL de la ressource, ce qui a entraîné un échec d’authentification SQK n° 747
 
 
 ### <a name="scopes-to-request-access-to-all-the-permissions-of-a-v10-application"></a>Étendues pour demander l’accès à toutes les autorisations d’une application v1.0

@@ -10,12 +10,12 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 03/12/2019
 ms.author: aahi
-ms.openlocfilehash: d31be245d906ba0405a44d4482272051982c943c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 211f33d5b217714b26dc39ad63f9d1427950589a
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59488335"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595774"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-c"></a>Démarrage rapide : Envoyer une requête de recherche à l’API REST Recherche d’entités Bing en C#
 
@@ -26,14 +26,15 @@ Alors que cette application est écrite en C#, l’API est un service web RESTf
 
 ## <a name="prerequisites"></a>Prérequis
 
-* N’importe quelle édition de [Visual Studio 2017](https://www.visualstudio.com/downloads/).
-* Le framework [Json.NET](https://www.newtonsoft.com/json), disponible sous forme de package NuGet.
-    * Pour installer le package NuGet dans Visual Studio :
-        1. Cliquez avec le bouton droit sur l’Explorateur de solutions
-        2. Cliquez sur **Gérer les packages NuGet...**
-        3. Recherchez **newtonsoft.json** et installez le package
+- N’importe quelle édition de [Visual Studio 2017 ou ultérieure](https://www.visualstudio.com/downloads/).
 
-* Si vous utilisez Linux/MacOS, cette application peut être exécutée à l’aide de [Mono](https://www.mono-project.com/).
+- Le framework [Json.NET](https://www.newtonsoft.com/json), disponible sous forme de package NuGet. Pour installer le package NuGet dans Visual Studio :
+
+   1. Cliquez avec le bouton droit sur votre projet dans l’**Explorateur de solutions**.
+   2. Sélectionnez **Gérer les packages NuGet**.
+   3. Recherchez *Newtonsoft.Json* et installez le package.
+
+- Si vous utilisez Linux/MacOS, cette application peut être exécutée à l’aide de [Mono](https://www.mono-project.com/).
 
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-entity-search-signup-requirements.md)]

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f250a5ac5f6fefa099303b033a9687f1a219efd8
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: a8ff026743ccda0a47ce176db51dbc7913376f46
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59262310"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65987990"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bersin"></a>Didacticiel : Intégration d’Azure Active Directory à Bersin
 
@@ -51,9 +51,9 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 Pour configurer l’intégration de Bersin à Azure AD, vous devez ajouter Bersin, disponible dans la galerie, à votre liste d’applications SaaS gérées.
 
-**Pour ajouter Bersin à partir de la galerie, procédez comme suit :**
+**Pour ajouter Bersin à partir de la galerie**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -100,7 +100,7 @@ Pour configurer l’authentification unique Azure AD auprès de Bersin, effectue
 
     ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-4. Dans la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode lancé par le **fournisseur d’identité**, effectuez les étapes suivantes :
+4. Dans la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode lancé par le **fournisseur d’identité**, effectuez l’étape suivante :
 
     ![Informations d’authentification unique dans Domaine et URL Bersin](common/idp-identifier-relay.png)
 
@@ -132,7 +132,7 @@ Pour configurer l’authentification unique Azure AD auprès de Bersin, effectue
 
 ### <a name="configure-bersin-single-sign-on"></a>Configurer l’authentification unique de Bersin
 
-Pour configurer l’authentification unique côté **Bersin**, vous devez envoyer le **XML des métadonnées de fédération** téléchargé et les URL appropriées, copiées à partir du portail Azure, à l’[équipe du support technique de Bersin](mailto:ramansabde@gmail.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+Pour configurer l’authentification unique côté **Bersin**, envoyez le **XML des métadonnées de fédération** téléchargé et les URL appropriées, copiées à partir du Portail Azure, à l’[équipe du support technique de Bersin](mailto:ramansabde@gmail.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD 
 
@@ -146,13 +146,13 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     ![Bouton Nouvel utilisateur](common/new-user.png)
 
-3. Dans les propriétés de l’utilisateur, effectuez les étapes suivantes.
+3. Dans les Propriétés de l’utilisateur, effectuez les étapes suivantes.
 
     ![Boîte de dialogue Utilisateur](common/user-properties.png)
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotresociété.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
@@ -181,13 +181,13 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
 
-6. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
+6. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste. Cliquez sur le bouton **Sélectionner** en bas de l’écran.
 
 7. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
 ### <a name="create-bersin-test-user"></a>Créer l’utilisateur de test Bersin
 
-Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Bersin. Collaborez avec  [l’équipe du support technique de Bersin](mailto:USBersinServiceClient@deloitte.com) pour ajouter des utilisateurs à la plateforme Bersin, ou le domaine qui doit être mis en liste verte dans la plateforme Bersin. Si le domaine est ajouté par l’équipe, les utilisateurs seront automatiquement approvisionnés sur la plateforme Bersin. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
+Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Bersin. Collaborez avec  [l’équipe du support technique de Bersin](mailto:USBersinServiceClient@deloitte.com) pour ajouter des utilisateurs, ou le domaine qui doit être mis en liste verte dans la plateforme Bersin. Si le domaine est ajouté par l’équipe, les utilisateurs seront automatiquement approvisionnés sur la plateforme Bersin. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
 ### <a name="test-single-sign-on"></a>Tester l’authentification unique
 

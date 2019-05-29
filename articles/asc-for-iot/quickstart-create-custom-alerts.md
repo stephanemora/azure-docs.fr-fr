@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2019
 ms.author: mlottner
-ms.openlocfilehash: 7f585c496328fef3e3d7dbb300fc4f07167fd55d
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 3b4c5e4700b0ef718a6b079ecc6ab3ad80f4eab6
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65192462"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65786182"
 ---
 # <a name="quickstart-create-custom-alerts"></a>Démarrage rapide : Créer des alertes personnalisées
 
@@ -50,13 +50,12 @@ Utilisez des groupes de sécurité pour regrouper vos appareils par catégories 
 ## <a name="customize-an-alert"></a>Personnaliser une alerte
 
 1. Ouvrez votre hub IoT. 
-2. Sélectionnez **Sécurité**, puis **Alertes personnalisées**. 
-3. Choisissez les groupes de sécurité auxquels vous souhaitez appliquer la personnalisation. 
-4. Cliquez sur **Ajouter une alerte personnalisée**
-5. Entrez un nom d’alerte (notez que les noms d’alerte ne sont plus modifiables après leur création). 
-6. Sélectionnez un comportement d’alerte personnalisée dans la liste déroulante. 
-7. Modifiez les propriétés nécessaires, puis cliquez sur **OK**.
-8. N’oubliez pas de cliquer sur **ENREGISTRER**. Si la nouvelle alerte n’est pas enregistrée, elle est supprimée la prochaine fois que vous fermez IoT Hub.
+2. Cliquez sur **Alertes personnalisées** dans la section **Sécurité**. 
+3. Choisissez un groupe de sécurité auquel vous souhaitez appliquer la personnalisation. 
+4. Cliquez sur **Ajouter une alerte personnalisée** 
+5. Sélectionnez un comportement d’alerte personnalisée dans la liste déroulante. 
+6. Modifiez les propriétés nécessaires, puis cliquez sur **OK**.
+7. N’oubliez pas de cliquer sur **ENREGISTRER**. Si la nouvelle alerte n’est pas enregistrée, elle est supprimée la prochaine fois que vous fermez IoT Hub.
 
  
 ## <a name="alerts-available-for-customization"></a>Alertes disponibles pour la personnalisation

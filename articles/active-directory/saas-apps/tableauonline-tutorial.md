@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: jeedes
-ms.openlocfilehash: 563668780c42ca23a1904757f886581f3ad0c5e8
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.openlocfilehash: 352ad9473a1c1a9360ddceb720ff968f4e97e012
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59617301"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65889263"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tableau-online"></a>Didacticiel : Intégration d’Azure Active Directory dans Tableau Online
 
@@ -53,7 +53,7 @@ Pour configurer l’intégration de Tableau Online à Azure AD, vous devez ajout
 
 **Pour ajouter Tableau Online à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -107,7 +107,7 @@ Pour configurer l’authentification unique Azure AD avec Tableau Online, proc�
 
     a. Dans la zone de texte **URL de connexion**, tapez l’URL : `https://sso.online.tableau.com/public/sp/login?alias=<entityid>`
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)**, tapez l’URL suivante : `https://sso.online.tableau.com/public/sp/metadata?alias=<entityid>`
+    b. Dans la zone de texte **Identificateur (ID d’entité)** , tapez l’URL suivante : `https://sso.online.tableau.com/public/sp/metadata?alias=<entityid>`
 
     > [!NOTE]
     > Vous obtiendrez la valeur `<entityid>` à partir de la section **Configurer Tableau Online** de ce didacticiel. La valeur d’ID d’entité sera la valeur **Identificateur Azure AD** figurant dans la section **Configurer Tableau Online**.
@@ -136,7 +136,7 @@ Pour configurer l’authentification unique Azure AD avec Tableau Online, proc�
 
     ![Configurer l'authentification unique](./media/tableauonline-tutorial/tutorial_tableauonline_12.png)
 
-3. Faites défiler la page jusqu’à la section **Import metadata file into Tableau Online** (Importer le fichier de métadonnées dans Tableau Online).  Cliquez sur Browse et importez le fichier de métadonnées que vous avez téléchargé à partir d’Azure AD. Cliquez alors sur **Apply (Appliquer)**.
+3. Faites défiler la page jusqu’à la section **Import metadata file into Tableau Online** (Importer le fichier de métadonnées dans Tableau Online).  Cliquez sur Browse et importez le fichier de métadonnées que vous avez téléchargé à partir d’Azure AD. Cliquez alors sur **Apply (Appliquer)** .
 
    ![Configurer l'authentification unique](./media/tableauonline-tutorial/tutorial_tableauonline_13.png)
 
@@ -188,7 +188,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
     Par exemple, BrittaSimon\@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
@@ -229,7 +229,7 @@ Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans T
   
     ![Création d’un utilisateur de test Azure AD](./media/tableauonline-tutorial/tutorial_tableauonline_15.png)
 
-2. Sélectionnez **Add users for (SAML) authentication**  (Ajouter des utilisateurs pour l’authentification (SAML)). Dans la zone de texte **Entrer les adresses de messagerie**, ajoutez britta.simon@contoso.com
+2. Sélectionnez **Add users for (SAML) authentication**  (Ajouter des utilisateurs pour l’authentification (SAML)). Dans la zone de texte **Enter email addresses**, ajoutez britta.simon\@contoso.com
   
     ![Création d’un utilisateur de test Azure AD](./media/tableauonline-tutorial/tutorial_tableauonline_11.png)
 

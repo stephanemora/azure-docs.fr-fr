@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: e29e36807aff6c32f295c79c90d80c7d2b5b4bcc
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: dc0871c0b16246fa178072e9d9f266d4c02ba1c4
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510742"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002988"
 ---
 # <a name="what-are-the-speech-services"></a>Qu’est-ce que Speech Services ?
 
@@ -42,7 +42,9 @@ Ces fonctionnalités constituent les services Speech Azure. Pour en savoir plus 
 Découvrez les nouveautés introduites dans les services Speech Azure.
 
 * Mai 2019 - La documentation est désormais disponible pour [Transcription de conversation](conversation-transcription-service.md), [Transcription de centre d’appel](call-center-transcription.md) et [Assistants virtuels « voice-first »](voice-first-virtual-assistants.md).
-* Mai 2019  - Publication du SDK Speech 1.5.0. Pour la liste complète des mises à jour, des améliorations et des problèmes connus, consultez [Notes de publication](releasenotes.md).
+* Mai 2019
+    * Publication du SDK Speech 1.5.1. Pour la liste complète des mises à jour, des améliorations et des problèmes connus, consultez [Notes de publication](releasenotes.md).
+    * Publication du SDK Speech 1.5.0. Pour la liste complète des mises à jour, des améliorations et des problèmes connus, consultez [Notes de publication](releasenotes.md).
 * Avril 2019 - Publication du SDK Speech 1.4.0 avec prise en charge de la synthèse vocale (bêta) pour C++, C# et Java sur Windows et Linux. En outre, le SDK prend désormais en charge les formats audio MP3 et Opus/Ogg pour C++ et C# sur Linux. Pour la liste complète des mises à jour, des améliorations et des problèmes connus, consultez [Notes de publication](releasenotes.md).
 * Mars 2019 - Un nouveau point de terminaison de synthèse vocale (TTS), qui retourne la liste complète des voix disponibles dans une région spécifique, est désormais disponible. De plus, de nouvelles régions sont désormais prises en charge pour la synthèse vocale. Pour plus d’informations, consultez [Informations de référence sur l’API de synthèse vocale (REST)](rest-text-to-speech.md).
 

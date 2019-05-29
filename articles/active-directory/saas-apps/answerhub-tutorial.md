@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à AnswerHub | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à AnswerHub | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et AnswerHub.
 services: active-directory
 documentationCenter: na
@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 818b91d7-01df-4b36-9706-f167c710a73c
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95d6ff44a8d760150df491b67ee56d62c4daff31
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 52c49bdd51bda7876d19a681bde79c9dbeeb4ea7
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56882788"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65901283"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-answerhub"></a>Tutoriel : Intégration d’Azure Active Directory à AnswerHub
+# <a name="tutorial-azure-active-directory-integration-with-answerhub"></a>Didacticiel : Intégration d’Azure Active Directory à AnswerHub
 
 Dans ce didacticiel, vous allez apprendre à intégrer AnswerHub à Azure Active Directory (Azure AD).
 L’intégration d’AnswerHub à Azure AD offre ces avantages :
@@ -34,7 +34,7 @@ L’intégration d’AnswerHub à Azure AD offre ces avantages :
 Pour en savoir plus sur l’intégration d’applications SaaS à Azure AD, consultez l’article [S’authentifier avec l’authentification unique auprès des applications dans Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour configurer l’intégration d’Azure AD à AnswerHub, vous avez besoin des éléments suivants :
 
@@ -77,10 +77,10 @@ Pour l’authentification unique, vous devez établir un lien entre un utilisate
 Pour configurer et tester l’authentification unique Azure AD avec AnswerHub, effectuez les étapes suivantes :
 
 1. [Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on) pour permettre à vos utilisateurs d’utiliser la fonctionnalité.
-2. [Configurer l’authentification unique AnswerHub](#configure-answerhub-single-sign-on) pour configurer les paramètres de l’authentification unique côté application.
+2. [Configurer l’authentification unique AnswerHub](#configure-answerhub-single-sign-on) pour définir les paramètres d’authentification unique côté application.
 3. [Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user) appelé Britta Simon.
 4. [Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user) pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
-5. [Créer un utilisateur de test AnswerHub](#create-answerhub-test-user) qui correspond et est lié à l’utilisateur de test Azure AD.
+5. Créer un utilisateur de test AnswerHub qui correspond et est lié à l’utilisateur de test Azure AD.
 6. [Tester l’authentification unique](#test-single-sign-on) pour vérifier que la configuration fonctionne.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
@@ -184,7 +184,7 @@ Dans cette section, créez un utilisateur de test nommé Britta Simon dans le po
 
     a. Dans la zone **Nom**, entrez **BrittaSimon**.
   
-    b. Dans la zone **Nom d’utilisateur**, entrez **brittasimon@<votre_domaine_d’entreprise.extension>**.  
+    b. Dans la zone **Nom d’utilisateur**, entrez **brittasimon\@<votre_domaine_d’entreprise.extension>** .  
     Par exemple : BrittaSimon@contoso.com.
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
@@ -250,7 +250,7 @@ Quand vous sélectionnez la vignette AnswerHub dans le volet d’accès, vous de
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Tutoriels pour intégrer des applications SaaS à Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Didacticiels pour intégrer des applications SaaS à Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

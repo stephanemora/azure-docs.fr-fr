@@ -9,12 +9,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: tutorial
 ms.date: 04/24/2019
-ms.openlocfilehash: 6b833ef56b890eb4ea0db6b48fe8c2622e211498
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 8d108e1683be03a79e87990b983f2eda3eadba90
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65233881"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65797539"
 ---
 # <a name="tutorial-work-with-azure-storage-queues"></a>Didacticiel : Utiliser des files d’attente de stockage Azure
 
@@ -129,18 +129,19 @@ Comme l’application utilise des ressources cloud, le code s’exécute de faç
 
 ## <a name="create-a-queue"></a>Créer une file d’attente
 
-1. Installez le package **WindowsAzure. Storage** pour le projet avec la commande `dotnet add package`. Exécutez la commande dotnet suivante à partir du dossier du projet dans la fenêtre de console.
+1. Installez les packages **Microsoft.Azure.Storage.Common** et **Microsoft.Azure.Storage.Queue** dans le projet à l'aide de la commande `dotnet add package`. Exécutez les commandes dotnet suivantes à partir du dossier du projet dans la fenêtre de console.
 
    ```console
-   dotnet add package WindowsAzure.Storage
+   dotnet add package Microsoft.Azure.Storage.Common
+   dotnet add package Microsoft.Azure.Storage.Queue
    ```
 
 2. En haut du fichier **Program.cs**, ajoutez les espaces de noms suivants juste après l’instruction `using System;`. Cette application utilise des types provenant de ces espaces de noms pour se connecter à Stockage Azure et pour utiliser des files d’attente.
 
    ```csharp
    using System.Threading.Tasks;
-   using Microsoft.WindowsAzure.Storage;
-   using Microsoft.WindowsAzure.Storage.Queue;
+   using Microsoft.Azure.Storage;
+   using Microsoft.Azure.Storage.Queue;
    ```
 
 3. Enregistrez le fichier **Program.cs**.
@@ -206,7 +207,7 @@ Ajoutez la chaîne de connexion à l’application afin qu’elle puisse accéde
 
 ## <a name="insert-messages-into-the-queue"></a>Insérer des messages dans la file d’attente
 
-Créez une méthode pour envoyer un message dans la file d’attente. Ajoutez la méthode suivante à votre classe **Program**. Cette méthode obtient une référence de la file d’attente, puis crée une file d’attente si elle n’existe pas déjà en appelant [CreateIfNotExistsAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.createifnotexistsasync?view=azure-dotnet). Ensuite, elle ajoute le message à la file d’attente en appelant [AddMessageAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessageasync?view=azure-dotnet).
+Créez une méthode pour envoyer un message dans la file d’attente. Ajoutez la méthode suivante à votre classe **Program**. Cette méthode obtient une référence de la file d’attente, puis crée une file d’attente si elle n’existe pas déjà en appelant [CreateIfNotExistsAsync](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.createifnotexistsasync). Ensuite, elle ajoute le message à la file d’attente en appelant [AddMessageAsync](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessageasync).
 
 1. Ajoutez la méthode **SendMessageAsync** suivante à votre classe **Program**.
 
@@ -229,7 +230,7 @@ Créez une méthode pour envoyer un message dans la file d’attente. Ajoutez la
 
 ## <a name="dequeue-messages"></a>Enlever des messages d’une file d’attente
 
-Créer une nouvelle méthode appelée **ReceiveMessageAsync**. Cette méthode reçoit un message de la file d’attente en appelant [GetMessageAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessageasync?view=azure-dotnet). Une fois que le message est effectivement reçu, il est important de le supprimer de la file d’attente pour qu’il ne soit pas traité plusieurs fois. Une fois que le message est reçu, supprimez-le de la file d’attente en appelant [DeleteMessageAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessageasync?view=azure-dotnet).
+Créer une nouvelle méthode appelée **ReceiveMessageAsync**. Cette méthode reçoit un message de la file d’attente en appelant [GetMessageAsync](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessageasync). Une fois que le message est effectivement reçu, il est important de le supprimer de la file d’attente pour qu’il ne soit pas traité plusieurs fois. Une fois que le message est reçu, supprimez-le de la file d’attente en appelant [DeleteMessageAsync](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessageasync).
 
 1. Ajoutez la méthode **ReceiveMessageAsync** suivante à votre classe **Program**.
 
@@ -343,8 +344,8 @@ Voici le code complet pour ce projet.
    ```csharp
    using System;
    using System.Threading.Tasks;
-   using Microsoft.WindowsAzure.Storage;
-   using Microsoft.WindowsAzure.Storage.Queue;
+   using Microsoft.Azure.Storage;
+   using Microsoft.Azure.Storage.Queue;
 
    namespace QueueApp
    {

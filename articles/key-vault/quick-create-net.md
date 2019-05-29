@@ -1,20 +1,20 @@
 ---
-title: 'Démarrage rapide : définir et récupérer un secret depuis Azure Key Vault à l’aide d’une application web Node - Azure Key Vault | Microsoft Docs'
+title: "Démarrage rapide : définir et récupérer un secret depuis Azure Key Vault à l'aide d'une application web .NET - Azure Key Vault | Microsoft Docs"
 description: Dans ce guide de démarrage rapide, vous définissez et récupérez un secret depuis Azure Key Vault à l’aide d’une application web .NET
 services: key-vault
-author: prashanthyv
+author: msmbaldwin
 manager: sumedhb
 ms.service: key-vault
 ms.topic: quickstart
 ms.date: 01/02/2019
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: 346d97e6e3dad6ebacaae6c789137df4f33e2e72
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 132711249ffde4a9c49bc997d8c4ebe4d9c74948
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57316385"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65872540"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-by-using-a-net-web-app"></a>Démarrage rapide : définir et récupérer un secret depuis Azure Key Vault à l’aide d’une application web .NET
 
@@ -39,7 +39,7 @@ Avant d’aller plus loin, veuillez lire les [concepts de base de Key Vault](key
 ## <a name="prerequisites"></a>Prérequis
 
 * Sous Windows :
-  * [Visual Studio 2017 version 15.7.3 ou version ultérieure](https://www.microsoft.com/net/download/windows) avec les charges de travail suivantes :
+  * [Visual Studio 2019](https://www.microsoft.com/net/download/windows) avec les charges de travail suivantes :
     * Développement web et ASP.NET
     * Développement multiplateforme .NET Core
   * [Kit de développement logiciel (SDK) .NET Core 2.1 ou version ultérieure](https://www.microsoft.com/net/download/windows)
@@ -119,14 +119,14 @@ git clone https://github.com/Azure-Samples/key-vault-dotnet-core-quickstart.git
 Modifiez le fichier program.cs pour exécuter l’exemple avec le nom de votre coffre de clés spécifique :
 
 1. Naviguez jusqu’au dossier key-vault-dotnet-core-quickstart.
-2. Ouvrir le fichier de key-vault-dotnet-core-quickstart.sln dans Visual Studio 2017.
+2. Ouvrez le fichier key-vault-dotnet-core-quickstart.sln dans Visual Studio 2019.
 3. Ouvrez le fichier Program.cs et remplacez l’espace réservé *YourKeyVaultName* par le nom du coffre de clés créé précédemment.
 
 Cette solution utilise les bibliothèques NuGet [AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) et [KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault).
 
 ## <a name="run-the-app"></a>Exécution de l'application
 
-Dans le menu principal de Visual Studio 2017, sélectionnez **Déboguer** > **Démarrer** sans débogage. Lorsque le navigateur s’affiche, accédez à la page **À propos**. La valeur d’**AppSecret** s’affiche.
+Dans le menu principal de Visual Studio 2019, sélectionnez **Déboguer** > **Démarrer sans débogage**. Lorsque le navigateur s’affiche, accédez à la page **À propos**. La valeur d’**AppSecret** s’affiche.
 
 ## <a name="publish-the-web-application-to-azure"></a>Publier l’application web dans Azure
 

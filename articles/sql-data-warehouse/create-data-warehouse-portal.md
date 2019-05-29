@@ -2,20 +2,20 @@
 title: 'Démarrage rapide : Créer et interroger Azure SQL Data Warehouse - Portail Azure | Microsoft Docs'
 description: Créez et interrogez un entrepôt de données avec Azure SQL Data Warehouse dans le portail Azure.
 services: sql-data-warehouse
-author: kevinvngo
+author: XiaoyuL-Preview
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: quickstart
-ms.subservice: manage
+ms.subservice: development
 ms.date: 08/02/2018
-ms.author: kevin
+ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 053dccb4ba5798fabd4426d5741d9238af579449
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: ee18a78aea67d0270b105f8703259b65c706d2e7
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57732396"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66169254"
 ---
 # <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-in-the-azure-portal"></a>Démarrage rapide : Découvrez comment créer un entrepôt SQL Azure dans le portail Azure.
 
@@ -194,7 +194,7 @@ Suivez ces étapes pour nettoyer les ressources selon vos besoins.
 
     ![Supprimer des ressources](media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
-2. Pour suspendre le calcul, cliquez sur le bouton **Suspendre**. Quand l’entrepôt de données est suspendu, un bouton **Démarrer** est visible. Pour reprendre le calcul, cliquez sur **Démarrer**.
+2. Pour suspendre le calcul, cliquez sur le bouton **Suspendre**. Quand l’entrepôt de données est suspendu, un bouton **Reprendre** est visible. Pour reprendre le calcul, cliquez sur **Reprendre**.
 
 3. Pour supprimer l’entrepôt de données afin de ne pas être facturé pour le calcul ou le stockage, cliquez sur **Supprimer**.
 

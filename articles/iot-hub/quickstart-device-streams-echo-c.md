@@ -1,5 +1,5 @@
 ---
-title: Démarrage rapide C sur les flux d’appareil Azure IoT Hub (préversion) | Microsoft Docs
+title: Communiquer avec une application d’appareil dans C par le biais de flux d’appareil IoT Hub (préversion) | Microsoft Docs
 description: Dans ce guide de démarrage rapide, vous allez exécuter une application côté service C qui communique avec un appareil IoT par le biais d’un flux d’appareil.
 author: rezasherafat
 manager: briz
@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: rezas
-ms.openlocfilehash: b5d93219009554efe6931a02097dcb9085e8da9d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: f5e6128c1ecceda181f92b2d81e9ac06effbfce2
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59500241"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65834064"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-c-via-iot-hub-device-streams-preview"></a>Démarrage rapide : Communiquer avec une application d’appareil dans C par le biais de flux d’appareil IoT Hub (préversion)
 
@@ -23,7 +23,11 @@ ms.locfileid: "59500241"
 
 Microsoft Azure IoT Hub prend actuellement en charge les flux d’appareil en tant que [fonctionnalité d’évaluation](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Les [flux d’appareil IoT Hub](./iot-hub-device-streams-overview.md) permettent aux applications de service et d’appareil de communiquer de manière sécurisée à travers des pare-feux. Dans la préversion publique, le SDK C prend uniquement en charge les flux d’appareil côté appareil. Par conséquent, le présent guide de démarrage rapide couvre uniquement les instructions permettant d’exécuter l’application côté appareil. Vous devez exécuter une application côté service complémentaire, disponible dans le guide [Démarrage rapide C#](./quickstart-device-streams-echo-csharp.md) ou [Démarrage rapide Node.js](./quickstart-device-streams-echo-nodejs.md).
+Les [flux d’appareil IoT Hub](iot-hub-device-streams-overview.md) permettent aux applications de service et d’appareil de communiquer de manière sécurisée à travers des pare-feux. Dans la préversion publique, le SDK C prend uniquement en charge les flux d’appareil côté appareil. Par conséquent, le présent guide de démarrage rapide couvre uniquement les instructions permettant d’exécuter l’application côté appareil. Vous devez exécuter une application côté service complémentaire, disponible dans les guides de démarrage rapide suivants :
+ 
+   * [Communication avec des applications d’appareils en C# via les flux d'appareils IoT Hub](./quickstart-device-streams-echo-csharp.md)
+
+   * [Communication avec des applications d’appareils en C# via les flux d'appareils IoT Hub](./quickstart-device-streams-echo-nodejs.md).
 
 L’application C côté appareil utilisée dans ce guide de démarrage rapide présente les fonctionnalités suivantes :
 
@@ -42,10 +46,13 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 * Pour le moment, la préversion des flux d’appareil est uniquement prise en charge pour les hubs IoT créés dans les régions suivantes :
 
   * **USA Centre**
+
   * **EUAP USA Centre**
 
 * Installez [Visual Studio 2017](https://www.visualstudio.com/vs/) avec la charge de travail [« Développement Desktop en C++ »](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) activée.
+
 * Installez la dernière version de [Git](https://git-scm.com/download/).
+
 * Exécutez la commande suivante afin d’ajouter l’extension Microsoft Azure IoT pour Azure CLI à votre instance Cloud Shell. L’extension IoT ajoute des commandes IoT Hub, IoT Edge et IoT Device Provisioning Service (DPS) à Azure CLI.
 
    ```azurecli-interactive
@@ -61,14 +68,14 @@ Pour ce guide de démarrage rapide, vous devez utiliser le [kit SDK Azure IoT de
     Il est important que les composants requis Visual Studio (Visual Studio et la charge de travail « Développement Desktop en C++ ») soient installés sur votre machine, **avant** de commencer l’installation de l’élément `CMake`. Une fois les composants requis en place et le téléchargement effectué, installez le système de génération de CMake.
 
 2. Ouvrez une invite de commandes ou l’interpréteur de commandes Git Bash. Exécutez la commande suivante pour cloner le référentiel GitHub du [Kit de développement logiciel (SDK) Azure IoT pour C](https://github.com/Azure/azure-iot-sdk-c) :
-    
+
     ```
     git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive -b public-preview
     ```
 
     Cette opération peut prendre plusieurs minutes.
 
-3. Créez un sous-répertoire `cmake` dans le répertoire racine du référentiel Git et accédez à ce dossier. 
+3. Créez un sous-répertoire `cmake` dans le répertoire racine du référentiel Git et accédez à ce dossier.
 
     ```
     cd azure-iot-sdk-c
@@ -100,7 +107,7 @@ Pour ce guide de démarrage rapide, vous devez utiliser le [kit SDK Azure IoT de
 
 ## <a name="create-an-iot-hub"></a>Créer un hub IoT
 
-[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub-device-streams.md)]
+[!INCLUDE [iot-hub-include-create-hub-device-streams](../../includes/iot-hub-include-create-hub-device-streams.md)]
 
 ## <a name="register-a-device"></a>Inscrire un appareil
 
@@ -116,7 +123,7 @@ Un appareil doit être inscrit dans votre hub IoT pour pouvoir se connecter. Dan
     az iot hub device-identity create --hub-name YourIoTHubName --device-id MyDevice
     ```
 
-2. Exécutez les commandes suivantes dans Azure Cloud Shell pour obtenir la _chaîne de connexion_ à l’appareil que vous venez d’inscrire :
+2. Exécutez les commandes suivantes dans Azure Cloud Shell pour obtenir la *chaîne de connexion* à l’appareil que vous venez d’inscrire :
 
    **YourIoTHubName** : Remplacez l’espace réservé ci-dessous par le nom que vous avez choisi pour votre hub IoT.
 
@@ -132,11 +139,13 @@ Un appareil doit être inscrit dans votre hub IoT pour pouvoir se connecter. Dan
 
 ## <a name="communicate-between-device-and-service-via-device-streams"></a>Communiquer entre appareil et service par le biais de flux d’appareil
 
+Dans cette section, vous exécutez l’application côté appareil et l’application côté service et communiquez entre les deux.
+
 ### <a name="run-the-device-side-application"></a>Exécuter l’application côté appareil
 
 Pour exécuter l’application côté appareil, vous avez besoin d’effectuer les étapes suivantes :
 
-1. Fournissez les informations d’identification de votre appareil en modifiant le fichier source `iothub_client/samples/iothub_client_c2d_streaming_sample/iothub_client_c2d_streaming_sample.c` et en indiquant la chaîne de connexion de votre appareil.
+1. Fournissez les informations d’identification de votre appareil en modifiant le fichier source `iothub_client_c2d_streaming_sample.c` dans le dossier `iothub_client/samples/iothub_client_c2d_streaming_sample` et en indiquant la chaîne de connexion de votre appareil.
 
    ```C
    /* Paste in your iothub connection string  */
@@ -173,11 +182,15 @@ Pour exécuter l’application côté appareil, vous avez besoin d’effectuer l
 
 ### <a name="run-the-service-side-application"></a>Exécuter l’application côté service
 
-Comme mentionné précédemment, le SDK C IoT Hub prend uniquement en charge des flux d’appareil côté appareil. Pour générer et exécuter l’application côté service, suivez les étapes disponibles dans le guide [Démarrage rapide C#](./quickstart-device-streams-echo-csharp.md) ou [Démarrage rapide Node.js](./quickstart-device-streams-echo-nodejs.md).
+Comme mentionné précédemment, le kit de développement logiciel (SDK) C IoT Hub prend uniquement en charge des flux d’appareil côté appareil. Pour générer et exécuter l’application côté service, suivez les étapes disponibles dans l’un des guides de démarrage rapide suivants :
+
+* [Communiquer avec une application d’appareil en C# par le biais de flux d'appareil IoT Hub](./quickstart-device-streams-echo-csharp.md)
+
+* [Communiquer avec une application d’appareil dans Node.js par le biais de flux d'appareil IoT Hub](./quickstart-device-streams-echo-nodejs.md).
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-[!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources-device-streams.md)]
+[!INCLUDE [iot-hub-quickstarts-clean-up-resources-device-streams](../../includes/iot-hub-quickstarts-clean-up-resources-device-streams.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 

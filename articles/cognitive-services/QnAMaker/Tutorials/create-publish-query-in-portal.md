@@ -11,12 +11,12 @@ ms.subservice: qna-maker
 ms.topic: tutorial
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 85f8643a0936209c8f280498df92555a7b40c533
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: a80a815d4a1a892b5258aef1c1fc7ef4ab881fe7
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149930"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65594149"
 ---
 # <a name="tutorial-from-qna-maker-portal-create-a-knowledge-base"></a>Didacticiel : Dans le portail QnA Maker, créer une base de connaissances
 
@@ -68,7 +68,7 @@ Ce tutoriel nécessite un [service QnA Maker](../How-To/set-up-qnamaker-service-
     |--|--|--|
     |URL|`https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs` |Le contenu de la FAQ à cette URL est mis en forme avec une question suivie d’une réponse. QnA Maker peut interpréter ce format pour extraire les questions et les réponses associées.|
     |Fichier |_non utilisé dans ce tutoriel_|Cela télécharge les fichiers des questions et réponses. |
-    |Personnalité d’échanges de conversation|Convivial|Cela donne une personnalité amicale et décontractée aux questions et réponses communes. Vous pouvez modifier ces questions et réponses plus tard. |
+    |Personnalité d’échanges de conversation|Convivial|Cela donne une [personnalité](../Concepts/best-practices.md#chit-chat) amicale et décontractée aux questions et réponses communes. Vous pouvez modifier ces questions et réponses plus tard. |
 
     ![Étape 4 du processus de création de la base de connaissances](../media/qnamaker-tutorial-create-publish-query-in-portal/create-kb-step-4.png)
 

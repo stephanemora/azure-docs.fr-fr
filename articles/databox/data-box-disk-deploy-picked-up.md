@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 05/06/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 023542dbc22234fc57e4ce8b662a9760be4efe04
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 8df9c2a5e45cf222debc733b3e051c3f707715c5
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65150766"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65603088"
 ---
 # <a name="tutorial-return-azure-data-box-disk-and-verify-data-upload-to-azure"></a>Didacticiel : Retourner des disques Azure Data Box et vérifier le chargement des données dans Azure
 
@@ -56,7 +56,7 @@ Effectuez les étapes suivantes si le retour de l’appareil s’effectue aux É
 2. Scellez la boîte d’envoi et assurez-vous que l’étiquette de retour est visible.
 3. Planifiez un enlèvement avec UPS. Pour planifier l’enlèvement :
 
-    - Appelez l’UPS local (numéro d’appel gratuit propre à chaque pays).
+    - Appelez l’UPS local (numéro d’appel gratuit propre à chaque pays/région).
     - Lors de votre appel, indiquez le numéro de suivi de retour mentionné sur votre étiquette imprimée.
     - Si le numéro de suivi n’est pas indiqué, UPS vous facturera des frais supplémentaires à l’enlèvement.
     - Au lieu de planifier l’enlèvement, vous pouvez également déposer le disque Data Box Disk à l’emplacement de dépôt le plus proche.
@@ -78,7 +78,7 @@ Effectuez les étapes suivantes si le retour de l’appareil s’effectue en Eur
 
 2. Scellez la boîte d’envoi et assurez-vous que l’étiquette de retour est visible.
 3. Si vous renvoyez l’appareil en Europe via DHL, faites une demande d’enlèvement auprès de DHL en vous rendant sur leur site web et en spécifiant le numéro de fiche de transport aérien.
-4. Accédez au site web DHL Express local et choisissez **Book a Courier Collection (Réserver un enlèvement) > eReturn Shipment (Expédition eReturn)**.
+4. Accédez au site web DHL Express du pays ou de la région et choisissez **Book a Courier Collection (Réserver un enlèvement) > eReturn Shipment (Expédition eReturn)** .
 
     ![Expédition du retour par DHL](media/data-box-disk-deploy-picked-up/dhl-ship-1.png)
     
@@ -143,17 +143,17 @@ Body:
 
 ## <a name="verify-data-upload-to-azure"></a>Vérifier le chargement des données dans Azure
 
-Une fois que les disques ont été récupérés par le transporteur, l’état de la commande dans le portail affiche **Picked up (Récupérée)**. Un ID de suivi s’affiche également.
+Une fois que les disques ont été récupérés par le transporteur, l’état de la commande dans le portail affiche **Picked up (Récupérée)** . Un ID de suivi s’affiche également.
 
 ![Disques récupérés](media/data-box-disk-deploy-picked-up/data-box-portal-pickedup.png)
 
-Lorsque Microsoft reçoit et analyse le disque, l’état de la commande est défini sur **Received (Reçue)**. 
+Lorsque Microsoft reçoit et analyse le disque, l’état de la commande est défini sur **Received (Reçue)** . 
 
 ![Disques reçus](media/data-box-disk-deploy-picked-up/data-box-portal-received.png)
 
 Les données sont copiées automatiquement une fois que les disques sont connectés à un serveur dans le centre de données Azure. Selon la taille des données, l’opération de copie peut prendre de quelques heures à quelques jours. Vous pouvez suivre la progression du travail de copie dans le portail.
 
-Une fois la copie terminée, la commande passe à l’état **Completed (Terminée)**.
+Une fois la copie terminée, la commande passe à l’état **Completed (Terminée)** .
 
 ![Copie de données terminée](media/data-box-disk-deploy-picked-up/data-box-portal-completed.png)
 

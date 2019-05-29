@@ -9,12 +9,12 @@ ms.topic: quickstart
 author: sdgilley
 ms.author: sgilley
 ms.date: 05/02/2019
-ms.openlocfilehash: d14ef4a59e65ba432b5d04d9f531e4ba639deb8a
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
+ms.openlocfilehash: 0c492424e67853f7cb4a017fb4215d38a555a8a4
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65440937"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65545023"
 ---
 # <a name="quickstart-prepare-and-visualize-data-without-writing-code-in-azure-machine-learning"></a>Démarrage rapide : Préparer et visualiser des données sans écrire de code dans Azure Machine Learning
 
@@ -66,11 +66,11 @@ L’outil d’interface visuelle offre un espace visuel interactif qui vous perm
 
 ## <a name="add-data"></a>Ajout de données
 
-Les données sont la première chose dont vous avez besoin pour le machine learning. Vous pouvez utiliser plusieurs exemples de jeux de données inclus dans cette interface ou importer les données de diverses sources. Pour les besoins de cet exemple, vous allez utiliser le jeu de données **Automobile price data (Raw)**. 
+Les données sont la première chose dont vous avez besoin pour le machine learning. Vous pouvez utiliser plusieurs exemples de jeux de données inclus dans cette interface ou importer les données de diverses sources. Pour les besoins de cet exemple, vous allez utiliser le jeu de données **Automobile price data (Raw)** . 
 
 1. Sur la gauche de la zone de dessin de l’expérience se trouve une palette de jeux de données et de modules. Sélectionnez **Saved Datasets** (Jeux de données enregistrés), puis **Samples** (Exemples) pour voir les exemples de jeux de données disponibles.
 
-1. Sélectionnez le jeu de données **Automobile price data (raw)**, puis faites-le glisser jusqu’au canevas.
+1. Sélectionnez le jeu de données **Automobile price data (raw)** , puis faites-le glisser jusqu’au canevas.
 
    ![Faites glisser les données jusqu’au canevas](./media/ui-quickstart-run-experiment/drag-data.png)
 
@@ -99,13 +99,13 @@ Sélectionner les colonnes de données à utiliser.  Pour commencer, configurez 
    
 1. Sélectionnez le module **Select Columns in Dataset**.
 
-1. Dans le volet **Properties** (Propriétés) à droite du canevas, sélectionnez **Launch column selector** (Lancer le sélecteur de colonne).
+1. Dans le volet **Propriétés** à droite du canevas, sélectionnez **Modifier les colonnes**.
 
     Dans la boîte de dialogue **Select columns** (Sélectionner les colonnes), sélectionnez **ALL COLUMNS** (TOUTES LES COLONNES) et incluez **toutes les fonctionnalités**. La boîte de dialogue doit ressembler à ceci :
 
      ![sélecteur de colonne](./media/ui-quickstart-run-experiment/select-all.png)
 
-1. En bas à droite, cochez la case (OK) pour fermer le sélecteur de colonne.
+1. En bas à droite, sélectionnez le bouton **OK** pour fermer le sélecteur de colonne.
 
 ## <a name="run-the-experiment"></a>Exécuter l’expérience
 
@@ -146,13 +146,13 @@ Tout d’abord, supprimez entièrement la colonne **normalized-losses**.
 
 1. Sélectionnez le module **Select Columns in Dataset**.
 
-1. Dans le volet **Properties** (Propriétés) à droite du canevas, sélectionnez **Launch column selector** (Lancer le sélecteur de colonne).
+1. Dans le volet **Propriétés** à droite du canevas, sélectionnez **Modifier les colonnes**.
 
     * Laissez **with rules** (avec règles) et **ALL COLUMNS** (TOUTES LES COLONNES) sélectionnés.
 
     * Dans les listes déroulantes, sélectionnez **Exclure** et **Noms des colonnes**, puis cliquez dans la zone de texte. Tapez **normalized-losses**.
 
-    * En bas à droite, cochez la case (OK) pour fermer le sélecteur de colonne.
+    * En bas à droite, sélectionnez le bouton **OK** pour fermer le sélecteur de colonne.
 
     ![Exclure une colonne](./media/ui-quickstart-run-experiment/exclude-column.png)
         

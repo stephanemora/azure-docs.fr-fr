@@ -8,24 +8,25 @@ ms.subservice: core
 ms.topic: quickstart
 author: sdgilley
 ms.author: sgilley
-ms.date: 05/02/2019
+ms.date: 05/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1a48f8620fb99f1cf8787dabc738d328a796d093
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 3e360b019a0c275c5ce0f9986fabd5dfc847f130
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510612"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "66015276"
 ---
 # <a name="quickstart-use-a-cloud-based-notebook-server-to-get-started-with-azure-machine-learning"></a>Démarrage rapide : Utiliser un serveur de notebooks cloud pour démarrer avec Azure Machine Learning
 
-Créez un serveur de notebooks basé sur le cloud, puis utilisez-le.  Dans ce guide de démarrage rapide, vous allez exécuter du code Python qui journalise les valeurs dans l’[espace de travail Azure Machine Learning service](concept-azure-machine-learning-architecture.md). Dans le cloud, l’espace de travail est le socle que vous utilisez pour expérimenter, effectuer l’apprentissage et déployer des modèles Machine Learning avec Machine Learning. 
+Aucune installation n'est requise.  Prise en main d’Azure Machine Learning service avec un serveur Notebook managé dans le cloud. Si vous souhaitez installer à la place le kit de développement logiciel (SDK) dans votre propre environnement Python, consultez [Démarrage rapide : Utiliser votre propre serveur de notebooks pour démarrer avec Azure Machine Learning](quickstart-run-local-notebook.md).
 
-Ce guide de démarrage rapide montre comment créer une ressource cloud dans votre espace de travail Azure Machine Learning, configuré avec l’environnement Python nécessaire à l’exécution d’Azure Machine Learning. Pour utiliser à la place votre propre environnement, consultez [Démarrage rapide : Utiliser votre propre serveur de notebooks pour démarrer avec Azure Machine Learning](quickstart-run-local-notebook.md).  
+Ce guide de démarrage rapide montre comment vous pouvez utiliser l’[espace de travail Azure Machine Learning service](concept-azure-machine-learning-architecture.md) pour suivre les expériences d’apprentissage automatique de votre machine.  Vous allez créer une [machine virtuelle Notebook (préversion)](how-to-configure-environment.md#notebookvm), une station de travail Azure cloud sécurisée qui fournit un serveur Notebook Jupyter, JupyterLab et un environnement ML prêt à être utilisé. Vous exécuterez ensuite une instance Notebook Python sur cette machine virtuelle qui enregistre des valeurs dans l’espace de travail.
 
 Ce démarrage rapide décrit les actions suivantes :
 
-* Création d’un serveur de notebook basé sur le cloud dans votre espace de travail
+* Créer un espace de travail
+* Créer une machine virtuelle Notebook dans votre espace de travail.
 * Lancement de l’interface web Jupyter
 * Ouverture d’un notebook qui contient du code pour estimer pi et qui journalise les erreurs à chaque itération
 * Exécution du notebook
@@ -35,11 +36,11 @@ Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de com
 
 ## <a name="create-a-workspace"></a>Créer un espace de travail
 
-Si vous disposez d’un espace de travail Azure Machine Learning service, passez à la [section suivante](#create-a-cloud-based-notebook-server). Dans le cas contraire, créez-en un maintenant.
+Si vous disposez d’un espace de travail Azure Machine Learning service, passez à la [section suivante](#create-notebook). Dans le cas contraire, créez-en un maintenant.
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
-## <a name="create-a-cloud-based-notebook-server"></a>Créer un serveur de notebooks basé sur le cloud
+## <a name="create-notebook"></a>Créer une machine virtuelle Notebook
 
  À partir de votre espace de travail, créez une ressource cloud pour commencer à utiliser des notebooks Jupyter. Cette ressource met à votre disposition une plateforme cloud préconfigurée avec tout ce dont vous avez besoin pour exécuter Azure Machine Learning service.
 
@@ -59,6 +60,7 @@ Si vous disposez d’un espace de travail Azure Machine Learning service, passez
     ![Créer une machine virtuelle](media/quickstart-run-cloud-notebook/create-new-workstation.png)
 
 1. Attendez environ 4 à 5 minutes, le temps que l’état passe à **En cours d’exécution**.
+
 
 ## <a name="launch-jupyter-web-interface"></a>Lancer l’interface web Jupyter
 
@@ -85,7 +87,7 @@ Exécutez un notebook qui estime pi et journalise l’erreur dans votre espace d
 1. Cliquez dans la première cellule de code, puis sélectionnez **Run** (Exécuter).
 
     > [!NOTE]
-    > Les cellules de code sont précédées de crochets. Si les crochets sont vides (__[  ]__), cela signifie que le code n’a pas été exécuté. Pendant l’exécution du code, un astérisque (__[*]__) est visible. Un nombre **[1]** s’affiche à la fin de l’exécution du code.  Ce nombre indique l’ordre d’exécution des cellules.
+    > Les cellules de code sont précédées de crochets. Si les crochets sont vides ( __[  ]__ ), cela signifie que le code n’a pas été exécuté. Pendant l’exécution du code, un astérisque ( __[*]__ ) est visible. Un nombre **[1]** s’affiche à la fin de l’exécution du code.  Ce nombre indique l’ordre d’exécution des cellules.
     >
     > Pour exécuter une cellule, utilisez **Maj-Entrée** comme raccourci.
 
@@ -131,7 +133,7 @@ Quand vous n’utilisez pas la machine virtuelle Notebook, arrêtez-la pour réd
 
 1. Sélectionnez **Arrêter**.
 
-1. Quand vous êtes disposé à réutiliser le serveur, sélectionnez **Démarrer**.
+1. Quand vous êtes prêt à utiliser à nouveau le serveur, sélectionnez **Démarrer**.
 
 ### <a name="delete-everything"></a>Tout supprimer
 
@@ -143,6 +145,7 @@ Vous pouvez également conserver le groupe de ressources mais supprimer un espac
 
 Dans ce guide de démarrage rapide, vous avez effectué les tâches suivantes :
 
+* Créer un espace de travail
 * Création d’une machine virtuelle Notebook
 * Lancement de l’interface web Jupyter
 * Ouverture d’un notebook qui contient du code pour estimer pi et qui journalise les erreurs à chaque itération

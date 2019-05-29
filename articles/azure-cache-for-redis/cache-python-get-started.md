@@ -15,12 +15,12 @@ ms.workload: tbd
 ms.date: 05/11/2018
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 8682a335372a1516be49b35400a2605f08d6b45e
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: f8189b5a90f7e9114ec39a874cc60912ac2bb0ce
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57779441"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65872996"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-python"></a>Démarrage rapide : Utiliser le cache Azure pour Redis avec Python
 
@@ -46,7 +46,7 @@ Ce guide de démarrage rapide montre comment se connecter à un cache Azure pour
 
 [Redis-py](https://github.com/andymccurdy/redis-py) est une interface Python avec le cache Azure pour Redis. Utilisez l’outil de packages de Python, *pip*, pour installer le package redis-py. 
 
-L’exemple suivant utilise *pip3* pour Python 3 pour installer le package redis-py sur Windows 10 avec une invite de commandes Visual Studio 2017 Developer qui s’exécute avec des privilèges élevés d’administrateur.
+L'exemple suivant utilise *pip3* pour Python 3 pour installer le package redis-py sous Windows 10 à l'aide d'une invite de commandes Visual Studio 2019 Developer exécutée avec des privilèges d'administrateur élevés.
 
     pip3 install redis
 
@@ -113,7 +113,7 @@ Sinon, si l’exemple d’application de démarrage rapide était votre dernièr
 
 Connectez-vous au [Portail Azure](https://portal.azure.com) et cliquez sur **Groupes de ressources**.
 
-Dans la zone de texte **Filtrer par nom.**, saisissez le nom de votre groupe de ressources. Les instructions de cet article ont utilisé un groupe de ressources nommé *TestResources*. Sur votre groupe de ressources dans la liste des résultats, cliquez sur **...**, puis sur **Supprimer le groupe de ressources**.
+Dans la zone de texte **Filtrer par nom.** , saisissez le nom de votre groupe de ressources. Les instructions de cet article ont utilisé un groupe de ressources nommé *TestResources*. Sur votre groupe de ressources dans la liste des résultats, cliquez sur **...** , puis sur **Supprimer le groupe de ressources**.
 
 ![Supprimer](./media/cache-web-app-howto/cache-delete-resource-group.png)
 

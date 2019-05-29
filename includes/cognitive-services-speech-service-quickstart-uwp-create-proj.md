@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 2/20/2019
 ms.author: erhopf
-ms.openlocfilehash: b5c61ecb74c0fcdacc6024a74565f05b036e2ac6
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: fe2978e176b986164ebb01fddbd29481f8a117bd
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65081401"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66145427"
 ---
 1. Démarrez Visual Studio 2017.
 
@@ -19,11 +19,11 @@ ms.locfileid: "65081401"
 
     Sinon, activez la case à cocher en regard de **Développement multiplateforme .NET** et sélectionnez **Modifier** en bas à droite dans la boîte de dialogue. L’installation de la nouvelle fonctionnalité prend quelques instants.
 
-1. Avec Visual C#, créez une application Windows universelle vide. Dans le menu, choisissez tout d’abord **Fichier** > **Nouveau** > **projet**. Dans la boîte de dialogue **Nouveau projet** du volet gauche, développez **Installés** > **Visual C#** > **Windows Universel**. Sélectionnez ensuite **Application vide (Windows universelle)**. Pour le nom du projet, entrez *helloworld*.
+1. Avec Visual C#, créez une application Windows universelle vide. Dans le menu, choisissez tout d’abord **Fichier** > **Nouveau** > **projet**. Dans la boîte de dialogue **Nouveau projet** du volet gauche, développez **Installés** > **Visual C#**  > **Windows Universel**. Sélectionnez ensuite **Application vide (Windows universelle)** . Pour le nom du projet, entrez *helloworld*.
 
     ![Capture d’écran de la boîte de dialogue Nouveau projet](../articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-uwp-01-new-blank-app.png)
 
-1. Pour utiliser le kit SDK Speech, votre application doit être générée pour Windows 10 Fall Creators Update, ou version ultérieure. Dans la fenêtre **Nouveau projet de plateforme Windows universelle** qui s’affiche, choisissez **Windows 10 Fall Creators Update (10.0 ; Build 16299)** comme **Version minimale**. Dans la zone **Version cible**, sélectionnez la même chose ou toute autre version ultérieure, puis cliquez sur **OK**.
+1. Le kit de développement logiciel (SDK) Speech exige que votre application soit conçue pour Windows 10 Fall Creators Update ou version ultérieure. Dans la fenêtre **Nouveau projet de plateforme Windows universelle** qui s’affiche, choisissez **Windows 10 Fall Creators Update (10.0 ; Build 16299)** comme **Version minimale**. Dans la zone **Version cible**, sélectionnez la même chose ou toute autre version ultérieure, puis cliquez sur **OK**.
 
     ![Capture d’écran de la fenêtre Nouveau projet de plateforme Windows universelle](../articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-uwp-02-new-uwp-project.png)
 

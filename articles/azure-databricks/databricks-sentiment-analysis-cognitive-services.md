@@ -1,22 +1,22 @@
 ---
 title: "Tutoriel : Analyse d'opinions sur des données de diffusion en continu à l’aide d'Azure Databricks"
-description: Découvrez comment utiliser Azure Databricks avec les API Event Hubs et Cognitive Services pour exécuter des analyses d’opinions sur des données de diffusion en continu en temps quasi-réel.
+description: Découvrez comment utiliser Azure Databricks avec les API Event Hubs et Cognitive Services pour exécuter des analyses d’opinions sur des données de streaming en temps quasi-réel.
 services: azure-databricks
 author: lenadroid
 ms.author: alehall
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 12/07/2018
-ms.openlocfilehash: 54a7f308163cb2463554da32f0fae8b897c0742f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 04/29/2019
+ms.openlocfilehash: b1b3572b9c485fb8d05c57649a304ff0f76fb1f6
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58080537"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65990880"
 ---
-# <a name="tutorial-sentiment-analysis-on-streaming-data-using-azure-databricks"></a>Tutoriel : Analyse d'opinions sur des données de diffusion en continu à l’aide d'Azure Databricks
+# <a name="tutorial-sentiment-analysis-on-streaming-data-using-azure-databricks"></a>Didacticiel : Analyse d'opinions sur des données de diffusion en continu à l’aide d'Azure Databricks
 
 Dans ce tutoriel, vous allez apprendre à exécuter des analyses d'opinions sur un flux de données en temps quasi-réel à l'aide d'Azure Databricks. Vous allez configurer le système d’ingestion des données avec Azure Event Hubs. Vous allez lire des messages à partir d’Event Hubs dans Azure Databricks à l’aide du connecteur Spark Event Hubs. Enfin, vous allez utiliser les API Microsoft Cognitive Services pour exécuter des analyses d’opinions sur les données diffusées.
 
@@ -42,7 +42,7 @@ Ce tutoriel décrit les tâches suivantes :
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
 > [!Note]
-> Ce tutoriel ne peut pas être effectué à l’aide d’un **abonnement d’essai gratuit Azure**.
+> Ce tutoriel ne peut pas être suivi avec un **abonnement d’essai gratuit Azure**.
 > Pour utiliser un compte gratuit pour créer le cluster Azure Databricks, avant de créer le cluster, accédez à votre profil et définissez votre abonnement sur **paiement à l’utilisation**. Pour plus d’informations, consultez la page [Compte Azure gratuit](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Prérequis
@@ -55,9 +55,9 @@ Avant de commencer le didacticiel, veillez à disposer des éléments suivants :
 
 Vous pouvez obtenir tous ces éléments en terminant les étapes de l’article [Créer un espace de noms et un concentrateur d’événements Azure Event Hubs](../event-hubs/event-hubs-create.md).
 
-## <a name="log-in-to-the-azure-portal"></a>Se connecter au portail Azure.
+## <a name="sign-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
 
-Connectez-vous au [portail Azure](https://portal.azure.com/).
+Connectez-vous au [Portail Azure](https://portal.azure.com/).
 
 ## <a name="create-an-azure-databricks-workspace"></a>Créer un espace de travail Azure Databricks
 
@@ -102,7 +102,7 @@ Dans cette section, vous créez un espace de travail Azure Databricks en utilisa
     Acceptez toutes les valeurs par défaut autres que les suivantes :
 
    * Entrez un nom pour le cluster.
-   * Pour cet article, créez un cluster avec le runtime **4.0 (bêta)**.
+   * Pour cet article, créez un cluster avec le runtime **4.0 (bêta)** .
    * Veillez à cocher la case **Arrêter après \_\_ minutes d’inactivité**. Spécifiez une durée (en minutes) pour arrêter le cluster, si le cluster n’est pas utilisé.
 
      Sélectionnez **Créer un cluster**. Une fois que le cluster est en cours d’exécution, vous pouvez y attacher des notebooks et exécuter des travaux Spark.
@@ -154,7 +154,7 @@ Dans ce didacticiel, vous allez utiliser les API Twitter pour envoyer des tweets
 
 ## <a name="get-a-cognitive-services-access-key"></a>Obtenir une clé d’accès Cognitive Services
 
-Dans ce tutoriel, vous allez utiliser les [API Analyse de texte de Microsoft Cognitive Services](../cognitive-services/text-analytics/overview.md) pour exécuter des analyses d'opinions sur un flux de tweets en temps quasi-réel. Avant d'utiliser les API, vous devez créer un compte Microsoft Cognitive Services sur Azure et récupérer une clé d'accès pour utiliser les API Analyse de texte.
+Dans ce tutoriel, vous allez utiliser les [API Analyse de texte d’Azure Cognitive Services](../cognitive-services/text-analytics/overview.md) pour exécuter des analyses d’opinions sur un flux de tweets en temps quasi-réel. Avant d’utiliser les API, vous devez créer un compte Azure Cognitive Services sur Azure et récupérer une clé d’accès pour utiliser les API Analyse de texte.
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
 
@@ -227,7 +227,7 @@ val connStr = new ConnectionStringBuilder()
             .setSasKeyName(sasKeyName)
             .setSasKey(sasKey)
 
-val pool = Executors.newFixedThreadPool(1)
+val pool = Executors.newScheduledThreadPool(1)
 val eventHubClient = EventHubClient.create(connStr.toString(), pool)
 
 def sendEvent(message: String) = {
@@ -308,12 +308,18 @@ Dans le notebook **AnalyzeTweetsFromEventHub**, collez le code suivant, et rempl
 import org.apache.spark.eventhubs._
 
 // Build connection string with the above information
-val connectionString = ConnectionStringBuilder("<EVENT HUBS CONNECTION STRING>")
-  .setEventHubName("<EVENT HUB NAME>")
-  .build
+val namespaceName = "<EVENT HUBS NAMESPACE>"
+val eventHubName = "<EVENT HUB NAME>"
+val sasKeyName = "<POLICY NAME>"
+val sasKey = "<POLICY KEY>"
+val connectionString = ConnectionStringBuilder()
+            .setNamespaceName(namespaceName)
+            .setEventHubName(eventHubName)
+            .setSasKeyName(sasKeyName)
+            .setSasKey(sasKey)
 
 val customEventhubParameters =
-  EventHubsConf(connectionString)
+  EventHubsConf(connectionString.toString())
   .setMaxEventsPerTrigger(5)
 
 val incomingStream = spark.readStream.format("eventhubs").options(customEventhubParameters.toMap).load()

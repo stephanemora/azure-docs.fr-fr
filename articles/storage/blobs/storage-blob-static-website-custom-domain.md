@@ -9,12 +9,12 @@ ms.date: 12/07/2018
 ms.author: normesta
 ms.reviewer: seguler
 ms.custom: seodec18
-ms.openlocfilehash: 4b074c9dee93ba44659b0321ae3eee7fbea1c61f
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 7320f5cd8d012973139adb099785cddae123f775
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65145055"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65949605"
 ---
 # <a name="tutorial-use-azure-cdn-to-enable-a-custom-domain-with-ssl-for-a-static-website"></a>Tutoriel : Utiliser Azure CDN pour activer un domaine personnalisé avec SSL pour un site web statique
 
@@ -44,8 +44,9 @@ Pour commencer, connectez-vous au [portail Azure](https://portal.azure.com/).
 1. Dans la section **Nouveau point de terminaison**, renseignez les champs pour créer un point de terminaison CDN.
 1. Entrez un nom de point de terminaison, tel que *mystaticwebsiteCDN*.
 1. Entrez le domaine de votre site web en tant que nom d’hôte pour votre point de terminaison CDN.
-1. Comme nom d’hôte d’origine, entrez votre point de terminaison de site web statique. Pour trouver votre point de terminaison de site web statique, accédez à la section **Site web statique** correspondant à votre compte de stockage et copiez le point de terminaison. 
+1. Comme nom d’hôte d’origine, entrez votre point de terminaison de site web statique. Pour trouver votre point de terminaison de site web statique, accédez à la section **Site web statique** correspondant à votre compte de stockage et copiez le point de terminaison (supprimez la mention « https:// » qui précède)
 1. Testez votre point de terminaison CDN en accédant à *mywebsitecdn.azureedge.net* dans votre navigateur.
+1. Vérifiez également l’origine en accédant à **Nouveau point de terminaison** sous Paramètres, pour voir si le type d’origine est défini sur *Origine personnalisée*, et si *Nom d’hôte de l’origine* affiche le nom du point de terminaison du site web statique.
 
 ## <a name="enable-custom-domain-and-ssl"></a>Activer un domaine personnalisé et SSL
 

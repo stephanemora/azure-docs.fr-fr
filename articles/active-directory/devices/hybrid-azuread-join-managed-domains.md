@@ -17,12 +17,12 @@ ms.date: 03/20/2019
 ms.author: joflore
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5f080e315430cba986642e4a24af776cc82062c0
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 94fbcc1c29c1860642dda0afab6a1f10e719a05a
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190790"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65962191"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Didacticiel : Configurer la jointure hybride Azure Active Directory pour des domaines managés
 
@@ -101,7 +101,7 @@ Pour configurer une jonction Azure AD hybride avec Azure AD Connect, vous avez b
 
 3. Dans la page **Vue d’ensemble**, cliquez sur **Suivant**. 
 
-    ![Vue d’ensemble](./media/hybrid-azuread-join-managed-domains/13.png)
+    ![Vue d'ensemble](./media/hybrid-azuread-join-managed-domains/13.png)
 
 4. Dans la page **Connexion à Azure AD**, entrez les informations d’identification d’un administrateur général pour votre locataire Azure AD.  
 
@@ -178,17 +178,17 @@ Vous devez également activer **Autoriser les mises à jour de la barre d’éta
 
 ### <a name="configure-seamless-sso"></a>Configurer l’authentification unique fluide
 
-Pour réussir la jonction Azure AD hybride de vos appareils de bas niveau Windows, dans un domaine managé qui utilise l’authentification directe ou la synchronisation du hachage de mot de passe comme méthode d’authentification des services de cloud Azure AD, vous devez également [configurer l’authentification unique fluide](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso-quick-start#step-2-enable-the-feature). 
+Pour réussir la jonction Azure AD hybride de vos appareils de bas niveau Windows, dans un domaine managé qui utilise l’authentification directe ou la synchronisation du hachage de mot de passe comme méthode d’authentification des services de cloud Azure AD, vous devez également [configurer l’authentification unique fluide](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso-quick-start#step-2-enable-the-feature). Si vous rencontrez des problèmes pour configurer l’authentification unique fluide, consultez l’article [Résoudre les problèmes d’authentification unique fluide Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/tshoot-connect-sso).
 
 
 ### <a name="control-windows-down-level-devices"></a>Contrôler des appareils Windows de bas niveau 
 
-Pour inscrire des appareils Windows de bas niveau, vous devez télécharger et installer un package Windows Installer (.msi) à partir du Centre de téléchargement. Pour plus d’informations, cliquez [ici](hybrid-azuread-join-control.md#control-windows-down-level-devices). 
+Pour inscrire des appareils Windows de bas niveau, vous devez télécharger et installer un package Windows Installer (.msi) à partir du Centre de téléchargement. Pour plus d’informations, consultez l’article [Contrôler la jonction Azure AD Hybride de vos appareils](hybrid-azuread-join-control.md#control-windows-down-level-devices). 
 
 
 ## <a name="verify-the-registration"></a>Vérifier l’inscription
 
-Pour vérifier l’état de l’inscription d’un appareil dans votre locataire Azure, vous pouvez utiliser l’applet de commande **[Get-MsolDevice](https://docs.microsoft.com/powershell/msonline/v1/get-msoldevice)** dans le **[module Azure Active Directory PowerShell](/powershell/azure/install-msonlinev1?view=azureadps-2.0)**.
+Pour vérifier l’état de l’inscription d’un appareil dans votre locataire Azure, vous pouvez utiliser l’applet de commande **[Get-MsolDevice](https://docs.microsoft.com/powershell/msonline/v1/get-msoldevice)** dans le **[module Azure Active Directory PowerShell](/powershell/azure/install-msonlinev1?view=azureadps-2.0)** .
 
 Lorsque vous utilisez l’applet de commande **Get-MSolDevice** pour vérifier les détails du service :
 

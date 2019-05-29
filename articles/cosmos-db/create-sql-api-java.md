@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 10/24/2018
+ms.date: 05/21/2019
 ms.author: sngun
-ms.openlocfilehash: 0e80fbc96bf1241308c80d108e9f9580122b801b
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: cb4ad20067783d8d6bd649710950fea51a22a454
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56587716"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979138"
 ---
 # <a name="quickstart-build-a-java-application-using-azure-cosmos-db-sql-api-account"></a>Démarrage rapide : Générer une application Java à l’aide du compte d’API SQL Azure Cosmos DB
 
@@ -35,8 +35,7 @@ Ce démarrage rapide montre comment créer et gérer des ressources d’un compt
 
 Par ailleurs : 
 
-* [Java Development Kit (JDK) 1.8+](https://aka.ms/azure-jdks)
-    * Sur Ubuntu, exécutez `apt-get install default-jdk` pour installer le JDK.
+* [Kit de développement Java (JDK), version 8](https://aka.ms/azure-jdks)
     * Veillez à définir la variable d’environnement JAVA_HOME pour qu’elle pointe vers le dossier dans lequel le JDK est installé.
 * [Téléchargement](https://maven.apache.org/download.cgi) et [installation](https://maven.apache.org/install.html) d’une archive binaire [Maven](https://maven.apache.org/)
     * Sur Ubuntu, vous pouvez exécuter `apt-get install maven` pour installer Maven.

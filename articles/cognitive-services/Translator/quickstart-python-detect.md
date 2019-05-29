@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: 6b407f88196867a8cc969a15811a1157e7fde59a
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 7e262b1866483009927c506d2df28d6d3ef03d59
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64922145"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606326"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-detect-text-language-using-python"></a>Démarrage rapide : Utiliser l’API de traduction de texte Translator Text pour détecter la langue du texte à l’aide de Python
 
@@ -23,7 +23,7 @@ Dans ce démarrage rapide, vous allez apprendre à détecter la langue d’un te
 
 Pour suivre ce démarrage rapide, vous devrez disposer d’un [compte Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) avec une ressource Traduction de texte Translator Text. Si vous n’avez pas de compte, vous pouvez utiliser la [version d’évaluation gratuite](https://azure.microsoft.com/try/cognitive-services/) pour obtenir une clé d’abonnement.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Ce démarrage rapide nécessite :
 
@@ -127,7 +127,7 @@ Si vous souhaitez comparer votre code avec le nôtre, l’exemple de code comple
 
 ## <a name="sample-response"></a>Exemple de réponse
 
-Recherchez l’abréviation du pays dans cette [liste des langues](https://docs.microsoft.com/azure/cognitive-services/translator/language-support).
+Recherchez l’abréviation du pays/de la région dans cette [liste de langues](https://docs.microsoft.com/azure/cognitive-services/translator/language-support).
 
 ```json
 [

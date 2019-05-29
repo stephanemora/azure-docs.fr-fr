@@ -52,7 +52,7 @@ Pour configurer l’intégration de MOVEit Transfer - Azure AD integration avec 
 
 **Pour ajouter MOVEit Transfer - Azure AD integration à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -110,7 +110,7 @@ Pour configurer l’authentification unique Azure AD avec MOVEit Transfer - Azur
 
     ![choisir le fichier de métadonnées](common/browse-upload-metadata.png)
 
-    c. Une fois le fichier de métadonnées chargé, les valeurs **Identificateur** et **	URL de réponse** sont automatiquement renseignées dans la section **Configuration SAML de base** :
+    c. Une fois le fichier de métadonnées chargé, les valeurs **Identificateur** et **URL de réponse** sont automatiquement renseignées dans la section **Configuration SAML de base** :
 
     ![Informations d’authentification unique dans Domaine et URL MOVEit Transfer - Azure AD integration](common/sp-identifier-reply.png)
 

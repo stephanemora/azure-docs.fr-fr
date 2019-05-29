@@ -5,19 +5,21 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: quickstart
-ms.date: 12/18/2018
+ms.date: 05/20/2019
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: 0bbb200bdfeb88b774f561d537edc71e60b3994f
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: b96c1ada1ebb1bc53f7f55311c69a3cdc04f7574
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59680602"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956418"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Démarrage rapide : déployer un cluster AKS (Azure Kubernetes Service) à l’aide d’Azure CLI
 
 AKS (Azure Kubernetes Service) est un service Kubernetes managé qui vous permet de déployer et de gérer rapidement des clusters. Dans ce guide de démarrage rapide, vous déployez un cluster AKS à l’aide d’Azure CLI. Une application multiconteneur composée d’un front-end web et d’une instance Redis est exécutée dans le cluster. Vous pouvez ainsi voir comment superviser l’intégrité du cluster et des pods qui exécutent votre application.
+
+Si vous souhaitez utiliser des conteneurs Windows Server (actuellement en préversion dans AKS), consultez [Créer un cluster AKS prenant en charge les conteneurs Windows Server][windows-container-cli].
 
 ![Image de la navigation vers Azure Vote](media/container-service-kubernetes-walkthrough/azure-vote.png)
 
@@ -27,7 +29,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Si vous choisissez d’installer et d’utiliser l’interface CLI localement, ce guide de démarrage rapide exige au minimum Azure CLI version 2.0.52. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installer Azure CLI 2.0][azure-cli-install].
+Si vous choisissez d'installer et d'utiliser l'interface CLI localement, ce guide de démarrage rapide exige au minimum Azure CLI version 2.0.64. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installer Azure CLI 2.0][azure-cli-install].
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
@@ -93,7 +95,7 @@ L’exemple de sortie suivant montre le nœud unique créé au cours des étapes
 
 ```
 NAME                       STATUS   ROLES   AGE     VERSION
-aks-nodepool1-31718369-0   Ready    agent   6m44s   v1.9.11
+aks-nodepool1-31718369-0   Ready    agent   6m44s   v1.12.8
 ```
 
 ## <a name="run-the-application"></a>Exécution de l'application
@@ -242,14 +244,14 @@ Pour afficher l’état, la durée de fonctionnement et l’utilisation des ress
 1. Sélectionnez votre groupe de ressources, par exemple *myResourceGroup*, puis sélectionnez votre cluster AKS, tel que *myAKSCluster*.
 1. Sous **Supervision** à gauche, choisissez **Insights**.
 1. Dans la partie supérieure, choisissez **+ Ajouter un filtre**.
-1. Sélectionnez *Espace de noms* en guise de propriété, puis choisissez *\<Tout sauf kube-system\>*.
+1. Sélectionnez *Espace de noms* en guise de propriété, puis choisissez *\<Tout sauf kube-system\>* .
 1. Choisissez de visualiser les **Conteneurs**.
 
 Les conteneurs *azure-vote-back* et *azure-vote-front* s’affichent, comme illustré dans l’exemple suivant :
 
 ![Afficher l’intégrité des conteneurs en cours d’exécution dans AKS](media/kubernetes-walkthrough/monitor-containers.png)
 
-Pour visualiser les journaux d’activité relatifs au pod `azure-vote-front`, sélectionnez le lien **Afficher les journaux d’activité de conteneurs** sur le côté droit de la liste de conteneurs. Vous pourrez voir les flux *stdout* et *stderr* du conteneur.
+Pour consulter les journaux du pod `azure-vote-front`, choisissez l'option **Afficher dans Analyses**, puis sélectionnez le lien **Afficher les journaux du conteneur** à droite de la liste des conteneurs. Vous pourrez voir les flux *stdout* et *stderr* du conteneur.
 
 ![Afficher les journaux d’activité de conteneurs dans AKS](media/kubernetes-walkthrough/monitor-container-logs.png)
 
@@ -272,7 +274,7 @@ Dans ce guide de démarrage rapide, des images conteneur créées au préalable 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce Démarrage rapide, vous avez déployé un cluster Kubernetes dans lequel vous avez déployé une application de plusieurs conteneurs.  [Accédez au tableau de bord web Kubernetes][kubernetes-dashboard] pour le cluster que vous venez de créer.
+Dans ce Démarrage rapide, vous avez déployé un cluster Kubernetes dans lequel vous avez déployé une application de plusieurs conteneurs. Vous pouvez également [accéder au tableau de bord web Kubernetes][kubernetes-dashboard] pour votre cluster AKS.
 
 Pour en savoir plus sur ACS et parcourir le code complet de l’exemple de déploiement, passez au tutoriel sur le cluster Kubernetes.
 
@@ -302,3 +304,4 @@ Pour en savoir plus sur ACS et parcourir le code complet de l’exemple de dépl
 [kubernetes-deployment]: concepts-clusters-workloads.md#deployments-and-yaml-manifests
 [kubernetes-service]: concepts-network.md#services
 [kubernetes-dashboard]: kubernetes-dashboard.md
+[windows-container-cli]: windows-container-cli.md

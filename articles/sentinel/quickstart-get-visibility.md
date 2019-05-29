@@ -29,7 +29,7 @@ ms.locfileid: "65207512"
 > Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
-Dans ce démarrage rapide, vous allez apprendre rapidement être capable d’afficher et de surveiller ce qui se passe au sein de votre environnement à l’aide d’Azure Sentinel. Une fois que vous avez connecté vos sources de données à Azure Sentinel, vous obtenez une visualisation et une analyse instantanées de ces données pour savoir ce qui se passe sur toutes vos sources de données connectées. Sentinel Azure vous propose des tableaux de bord qui vous donnent accès à toute la puissance des outils déjà disponibles dans Azure, ainsi que des tableaux et des graphiques intégrés pour vous fournir l’analytique pour vos journaux et requêtes. Vous pouvez utiliser les tableaux de bord intégrés ou en créer de nouveaux facilement, soit de toutes pièces ou soit en les basant sur des tableaux de bord existants. 
+Dans ce démarrage rapide, vous allez rapidement apprendre  être capable d’afficher et de surveiller ce qui se passe au sein de votre environnement à l’aide d’Azure Sentinel. Une fois que vous avez connecté vos sources de données à Azure Sentinel, vous obtenez une visualisation et une analyse instantanées de ces données pour savoir ce qui se passe sur toutes vos sources de données connectées. Sentinel Azure vous propose des tableaux de bord qui vous donnent accès à toute la puissance des outils déjà disponibles dans Azure, ainsi que des tableaux et des graphiques intégrés pour vous fournir l’analytique pour vos journaux et requêtes. Vous pouvez utiliser les tableaux de bord intégrés ou en créer de nouveaux facilement, soit de toutes pièces ou soit en les basant sur des tableaux de bord existants. 
 
 ## <a name="get-visualization"></a>Visualisation
 
@@ -39,7 +39,7 @@ Pour visualiser et bénéficier d’une analyse de ce qui se passe dans votre en
 
   ![Vue d’ensemble d’Azure Sentinel](./media/qs-get-visibility/overview.png)
 
-- La barre d’outils en haut vous indique combien d’événements vous avez reçus pendant la période sélectionnée et compare cette informations au 24 heures précédentes. La barre d’outils vous informe sur ces événements, sur les alertes qui ont été déclenchées (le petit nombre représente le changement au cours des dernières 24 heures) et elle vous indique ensuite pour ces événements combien sont ouverts, en cours et fermés. Vérifiez s’il n’y a pas d’augmentation ou de réduction importante dans le nombre d’événements. En cas de réduction importante, cela peut être dû au fait qu’une connexion a arrêté d’envoyer des informations à Azure Sentinel. En cas d’augmentation, un événement suspect peut s’être produit. Vérifiez si vous voyez de nouvelles alertes.
+- La barre d’outils en haut vous indique combien d’événements vous avez reçus pendant la période sélectionnée et compare cette information au 24 heures précédentes. La barre d’outils vous informe sur ces événements, sur les alertes qui ont été déclenchées (le petit nombre représente le changement au cours des dernières 24 heures) et elle vous indique ensuite pour ces événements combien sont ouverts, en cours et fermés. Vérifiez s’il n’y a pas d’augmentation ou de réduction importante dans le nombre d’événements. En cas de réduction importante, cela peut être dû au fait qu’une connexion a arrêté d’envoyer des informations à Azure Sentinel. En cas d’augmentation, un événement suspect peut s’être produit. Vérifiez si vous voyez de nouvelles alertes.
 
    ![Entonnoir Azure Sentinel](./media/qs-get-visibility/funnel.png)
 
@@ -47,7 +47,7 @@ Le corps de la page de vue d’ensemble donne un aperçu de l’état de la séc
 
 - **Événements et alertes au fil du temps** : présente le nombre d’événements et le nombre d’alertes créés à partir de ces événements. Si vous voyez un pic inhabituel, vous devriez voir des alertes. Si vous voyez quelque chose d’inhabituel avec un pic d’événements mais que vous ne voyez pas d’alertes, cela peut indiquer un problème.
 
-- **Événements potentiellement malveillants** : lorsque du trafic est détecté venant de sources considérées comme malveillantes, Azure Sentinel vous alerte sur la carte. Si vous voyez du orange, il s’agit de trafic entrant : quelqu’un tente d’accéder à votre organisation depuis une adresse IP malveillante connue. Si vous voyez une activité sortante (en rouge), cela signifie que des données de votre réseau sont diffusées hors de votre organisation vers une adresse IP malveillante connue.
+- **Événements potentiellement malveillants** : lorsque du trafic est détecté venant de sources considérées comme malveillantes, Azure Sentinel vous alerte sur la carte. Si vous voyez de l’orange, il s’agit de trafic entrant : quelqu’un tente d’accéder à votre organisation depuis une adresse IP malveillante connue. Si vous voyez une activité sortante (en rouge), cela signifie que des données de votre réseau sont diffusées hors de votre organisation vers une adresse IP malveillante connue.
 
    ![Carte Azure Sentinel](./media/qs-get-visibility/map.png)
 
@@ -96,7 +96,7 @@ Vous pouvez créer un nouveau tableau de bord de toutes pièces ou utiliser un t
 
 ## <a name="new-dashboard-examples"></a>Exemples de nouveaux tableaux de bord
 
-L’exemple de requête suivant vous permet de comparer les tendances dans le trafic entre les semaines. Vous pouvez facilement changer le fournisseur et la source de données où vous exécutez votre requête. Cet exemple utilise SecurityEvent dans Windows. Vous faire qu’il s’exécute sur AzureActivity ou CommonSecurityLog sur n’importe quel autre pare-feu.
+L’exemple de requête suivant vous permet de comparer les tendances dans le trafic entre les semaines. Vous pouvez facilement changer le fournisseur et la source de données où vous exécutez votre requête. Cet exemple utilise SecurityEvent dans Windows. Vous pouvez faire qu’il s’exécute sur AzureActivity ou CommonSecurityLog sur n’importe quel autre pare-feu.
 
      |where DeviceVendor = = "Palo Alto Networks":
       // week over week query

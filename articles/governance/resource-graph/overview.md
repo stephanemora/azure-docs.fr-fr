@@ -7,12 +7,12 @@ ms.date: 05/06/2019
 ms.topic: overview
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: 45d5cf7c4235d10e136cc96364d52aa4319bbf79
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 9d3385b688208065e5854b6358819b5afad8fe65
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65137776"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66162074"
 ---
 # <a name="overview-of-the-azure-resource-graph-service"></a>Vue d’ensemble du service Azure Resource Graph
 
@@ -43,7 +43,7 @@ Azure Resource Graph vous permet :
 ## <a name="how-resource-graph-is-kept-current"></a>Méthode de mise à jour de Resource Graph
 
 Lorsqu’une ressource Azure est mise à jour, Resource Manager avertit Resource Graph de cette modification.
-Resource Graph met alors à jour sa base de données. Resource Graph effectue également une _analyse complète_ régulière. Cette analyse garantit que les données Resource Graph sont à jour en cas de notifications manquantes ou lorsqu’une ressource est mise à jour en dehors de Resource Manager.
+Resource Graph met alors à jour sa base de données. Resource Graph effectue également une _analyse complète_ régulière. Cette analyse garantit que les données Resource Graph sont à jour en cas de notifications manquantes ou lorsqu'une ressource est mise à jour en dehors de Resource Manager.
 
 ## <a name="the-query-language"></a>Langage de requête
 
@@ -63,9 +63,15 @@ Pour utiliser Resource Graph, vous devez disposer des droits appropriés pour le
 
 ## <a name="throttling"></a>Limitation
 
-Le service étant gratuit, les requêtes vers Resource Graph sont limitées afin d’offrir une excellente expérience et un temps de réponse optimal à tous les clients. Si votre organisation souhaite utiliser l’API Resource Graph pour les requêtes fréquentes et à grande échelle, utilisez l’option « Commentaires » du portail à partir de la page Resource Graph. Veillez à fournir votre cas d’entreprise et sélectionnez la case à cocher « Microsoft peut vous contacter par e-mail à propos de vos commentaires » afin que l’équipe puisse vous contacter.
+Le service étant gratuit, les requêtes vers Resource Graph sont limitées afin d’offrir une excellente expérience et un temps de réponse optimal à tous les clients. Si votre organisation souhaite utiliser l'API Resource Graph pour les requêtes fréquentes et à grande échelle, utilisez l'option « Commentaires » du portail à partir de la [page du portail Resource Graph](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyMenuBlade/ResourceGraph).
+Fournissez votre étude de cas et cochez la case « Microsoft peut vous contacter par e-mail à propos de vos commentaires » afin que l'équipe puisse vous contacter.
 
-Resource Graph se limite au niveau du client. Le service remplace et définit l’en-tête de réponse `x-ms-ratelimit-remaining-tenant-reads` pour indiquer les requêtes restantes disponibles par utilisateur au sein du client. Resource Graph réinitialise le quota toutes les 5 secondes et non toutes les heures. Pour plus d’informations, consultez [Limitation des requêtes de Resource Manager](../../azure-resource-manager/resource-manager-request-limits.md).
+Resource Graph limite les requêtes au niveau utilisateur. La réponse du service contient les en-têtes HTTP suivants :
+
+- `x-ms-user-quota-remaining` (int) : quota de ressources restant pour l'utilisateur. Cette valeur correspond au nombre de requêtes.
+- `x-ms-user-quota-resets-after` (hh:mm:ss) : délai à attendre avant la réinitialisation de la consommation du quota d'un utilisateur.
+
+Pour plus d’informations, consultez [Limitation des requêtes de Resource Manager](../../azure-resource-manager/resource-manager-request-limits.md).
 
 ## <a name="running-your-first-query"></a>Exécution de votre première requête
 

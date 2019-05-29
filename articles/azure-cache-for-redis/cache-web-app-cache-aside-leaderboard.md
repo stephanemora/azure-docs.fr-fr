@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/30/2018
 ms.author: yegu
-ms.openlocfilehash: 9cfb320f0623f5a93527a4dc0e8d82096980cc2c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: bf4eb817bb1705c6af6d4e7e9e28e5789f49a906
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58893739"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65873033"
 ---
 # <a name="tutorial-create-a-cache-aside-leaderboard-on-aspnet"></a>Tutoriel : Créer un leaderboard de type Cache-Aside sur ASP.NET
 
@@ -41,7 +41,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 Pour suivre ce didacticiel, vous devez disposer des éléments suivants :
 
 * Ce tutoriel se poursuit là où vous l’avez laissé dans le [guide de démarrage rapide ASP.NET pour Cache Azure pour Redis](cache-web-app-howto.md). Si vous ne l’avez pas encore fait, commencez par suivre ce guide de démarrage rapide.
-* Installez [Visual Studio 2017](https://www.visualstudio.com/downloads/) avec les charges de travail suivantes :
+* Installez [Visual Studio 2019](https://www.visualstudio.com/downloads/) avec les charges de travail suivantes :
     * Développement web et ASP.NET
     * Développement Azure
     * Développement de bureau .NET avec la base de données locale SQL Server Express ou [l’édition SQL Server 2017 Express](https://www.microsoft.com/sql-server/sql-server-editions-express).
@@ -156,7 +156,7 @@ Pour plus d’informations sur ce package, consultez la page NuGet [EntityFramew
 
 1. Ajoutez la section `connectionStrings` suivante dans la section `configuration`. Le nom de la chaîne de connexion doit correspondre au nom de la classe de contexte de base de données Entity Framework, qui est `TeamContext`.
 
-    Cette chaîne de connexion suppose que vous avez rempli les [conditions préalables](#prerequisites) et installé la base de données locale SQL Server Express, qui fait partie de la charge de travail de *développement de bureau .NET* installée avec Visual Studio 2017.
+    Cette chaîne de connexion part du principe que vous avez rempli les [conditions préalables](#prerequisites) et installé la base de données locale SQL Server Express, qui fait partie de la charge de travail de *développement de bureau .NET* installée avec Visual Studio 2019.
 
     ```xml
     <connectionStrings>

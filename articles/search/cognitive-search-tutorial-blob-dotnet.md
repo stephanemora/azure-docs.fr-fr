@@ -9,12 +9,12 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: maheff
-ms.openlocfilehash: 1b3353cae73bb5710dc9343f1d211266d15743a2
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 7794cf256ed8063007b4eee7c5c928be85723982
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153206"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66170196"
 ---
 # <a name="c-tutorial-call-cognitive-services-apis-in-an-azure-search-indexing-pipeline"></a>Tutoriel C# : Appeler des API Cognitive Services dans un pipeline d’indexation Recherche Azure
 
@@ -44,13 +44,13 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 Voici les services, outils et données utilisés dans ce tutoriel. 
 
-[Créez un service Recherche Azure](search-create-service-portal.md) ou [recherchez un service existant](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) dans votre abonnement actuel. Vous pouvez utiliser un service gratuit pour ce tutoriel.
++ [Créez un compte de stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) pour stocker les exemples de données. Vérifiez que le compte de stockage se trouve dans la même région que la Recherche Azure.
 
-[Créez un compte de stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) pour stocker les exemples de données.
++ Les [exemples de données](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) se composent d’un petit ensemble de fichiers de types différents. 
 
-Les [exemples de données](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) se composent d’un petit ensemble de fichiers de types différents. 
++ [Installez Visual Studio](https://visualstudio.microsoft.com/) à utiliser comme IDE.
 
-[Installez Visual Studio](https://visualstudio.microsoft.com/) à utiliser comme IDE.
++ [Créez un service Recherche Azure](search-create-service-portal.md) ou [recherchez un service existant](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) dans votre abonnement actuel. Vous pouvez utiliser un service gratuit pour ce tutoriel.
 
 ## <a name="get-a-key-and-url"></a>Obtenir une clé et une URL
 
@@ -98,11 +98,11 @@ Pour ce projet, vous devez installer la version 9 du package NuGet `Microsoft.A
 
 Installez le package NuGet `Microsoft.Azure.Search` à l'aide de la console du Gestionnaire de package dans Visual Studio. Pour ouvrir la console du Gestionnaire de package, sélectionnez **Outils** > **Gestionnaire de Package NuGet** > **Console du Gestionnaire de package**. Pour exécuter la commande, accédez à la [page du package NuGet Microsoft.Azure.Search](https://www.nuget.org/packages/Microsoft.Azure.Search), sélectionnez la version 9, puis copiez la commande du Gestionnaire de package. Dans la console du Gestionnaire de package, exécutez cette commande.
 
-Pour installer le package NuGet `Microsoft.Extensions.Configuration.Json` dans Visual Studio, sélectionnez **Outils** > **Gestionnaire de package NuGet** > **Gérer les packages NuGet pour la solution...**. Sélectionnez Parcourir et recherchez le package NuGet `Microsoft.Extensions.Configuration.Json`. Une fois le package trouvé, sélectionnez-le, sélectionnez votre projet, vérifiez que la version correspond à la dernière version stable, puis sélectionnez Installer.
+Pour installer le package NuGet `Microsoft.Extensions.Configuration.Json` dans Visual Studio, sélectionnez **Outils** > **Gestionnaire de package NuGet** > **Gérer les packages NuGet pour la solution...** . Sélectionnez Parcourir et recherchez le package NuGet `Microsoft.Extensions.Configuration.Json`. Une fois le package trouvé, sélectionnez-le, sélectionnez votre projet, vérifiez que la version correspond à la dernière version stable, puis sélectionnez Installer.
 
 ## <a name="add-azure-search-service-information"></a>Ajouter des informations relatives au service Recherche Azure
 
-Pour vous connecter à votre service Recherche Azure, vous devez ajouter les informations correspondantes à votre projet. Cliquez avec le bouton droit sur votre projet dans l'Explorateur de solutions et sélectionnez **Ajouter** > **Nouvel élément...**. Nommez le fichier `appsettings.json` et sélectionnez **Ajouter**. 
+Pour vous connecter à votre service Recherche Azure, vous devez ajouter les informations correspondantes à votre projet. Cliquez avec le bouton droit sur votre projet dans l'Explorateur de solutions et sélectionnez **Ajouter** > **Nouvel élément...** . Nommez le fichier `appsettings.json` et sélectionnez **Ajouter**. 
 
 Ce fichier devra être inclus dans votre répertoire de sortie. Pour ce faire, cliquez avec le bouton droit sur `appsettings.json` et sélectionnez **Propriétés**. Remplacez la valeur **Copier dans le répertoire de sortie** par **Copie du plus récent**.
 

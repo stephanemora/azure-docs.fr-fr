@@ -8,12 +8,12 @@ ms.service: service-bus-messaging
 ms.topic: quickstart
 ms.date: 04/15/2019
 ms.author: spelluru
-ms.openlocfilehash: 2af346b2c9fa5c46593aa9421c3a762bda78dc2f
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.openlocfilehash: a392f8b11a7ab1ad72f4da289c54e34b022f1ea6
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59610151"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65990309"
 ---
 # <a name="quickstart-use-the-azure-portal-to-create-a-service-bus-topic-and-subscriptions-to-the-topic"></a>Démarrage rapide : utiliser le portail Azure pour créer une rubrique Service Bus et des abonnements à cette rubrique
 Dans ce guide de démarrage rapide, vous utilisez le portail Azure pour créer une rubrique Service Bus, puis des abonnements à cette rubrique. 
@@ -31,7 +31,8 @@ Les rubriques et les abonnements Service Bus vous permettent de mettre votre inf
 
 [!INCLUDE [service-bus-create-topics-three-subscriptions-portal](../../includes/service-bus-create-topics-three-subscriptions-portal.md)]
 
-
+> [!NOTE]
+> Vous pouvez gérer les ressources Service Bus à l'aide de [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). Service Bus Explorer permet aux utilisateurs de se connecter à un espace de noms Service Bus et de gérer les entités de messagerie en toute simplicité. L'outil fournit des fonctionnalités avancées telles que l'importation/l’exportation ou la possibilité de tester des sujets, des files d'attente, des abonnements, des services de relais, des hubs de notification et des hubs d'événements. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour savoir comment envoyer des messages à une rubrique et recevoir ces messages par le biais d’un abonnement, consultez l’article correspondant au langage de programmation de votre choix dans la table des matières. 

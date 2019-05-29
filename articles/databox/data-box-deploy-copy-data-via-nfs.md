@@ -1,21 +1,21 @@
 ---
-title: Copier des données sur votre Microsoft Azure Data Box par le biais de NFS | Microsoft Docs
+title: Tutoriel pour copier des données sur Azure Data Box par le biais de NFS | Microsoft Docs
 description: Découvrez comment copier des données sur Azure Data Box par le biais de NFS.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/28/2019
+ms.date: 05/15/2019
 ms.author: alkohli
-ms.openlocfilehash: 423db264c8035f9b089524eb4b19a13baccdf2e0
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 2b4825770d8220e24c0d981af19313f265806d84
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57404703"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65800440"
 ---
-# <a name="tutorial-copy-data-to-azure-data-box-via-nfs"></a>Tutoriel : Copier des données sur Azure Data Box Disk par le biais de NFS
+# <a name="tutorial-copy-data-to-azure-data-box-via-nfs"></a>Didacticiel : Copier des données sur Azure Data Box Disk par le biais de NFS
 
 Ce tutoriel explique comment vous connecter à votre ordinateur hôte et copier des données à partir de cet ordinateur à l’aide de l’interface utilisateur web locale.
 
@@ -130,7 +130,9 @@ Si vous utilisez l’option rsync pour une copie multithread, suivez ces instruc
 > [!IMPORTANT]
 > Les types de fichiers Linux suivants ne sont pas pris en charge : liens symboliques, fichiers de caractères, fichiers de blocs, sockets et pipes. Ces types de fichiers entraînent des échecs au cours de l’étape **Préparer l’expédition**.
 
-- Pour garantir l’intégrité des données, la somme de contrôle est calculée par le biais d’une fonction inline lors de la copie des données. Une fois la copie terminée, vérifiez l’espace utilisé et l’espace libre sur votre appareil.
+Ouvrez le dossier cible pour afficher et vérifier les fichiers copiés. Si vous rencontrez des erreurs au cours du processus de copie, téléchargez les fichiers d’erreurs pour résoudre les problèmes. Pour plus d’informations, consultez [Afficher les journaux d’erreurs pendant la copie de données vers Data Box](data-box-logs.md#view-error-log-during-data-copy-to-data-box). Pour obtenir une liste détaillée des erreurs lors de la copie des données, consultez [Résolution des problèmes liés à Data Box](data-box-troubleshoot.md).
+
+Pour garantir l’intégrité des données, la somme de contrôle est calculée par le biais d’une fonction inline lors de la copie des données. Une fois la copie terminée, vérifiez l’espace utilisé et l’espace libre sur votre appareil.
     
    ![Vérifier l’espace libre et l’espace utilisé sur le tableau de bord](media/data-box-deploy-copy-data/verify-used-space-dashboard.png)
 

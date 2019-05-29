@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: quickstart
-ms.date: 03/18/2019
+ms.date: 05/06/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e0573448c753c763e818d641216033dbeacb9e9a
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 01cedadc115496fcf00df986b4ad4b9c5aab5139
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58199305"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606181"
 ---
 # <a name="quickstart-set-office-365-groups-to-expire-in-azure-active-directory"></a>Démarrage rapide : Configurer l’expiration des groupes Office 365 dans Azure Active Directory
 
@@ -35,11 +35,11 @@ Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https:/
 
 ## <a name="prerequisite"></a>Configuration requise
 
-Pour configurer l’expiration des groupes, vous devez être administrateur général ou administrateur d’utilisateurs dans l’organisation.
+ Au sein de l'organisation, le rôle aux privilèges les moins élevés requis pour configurer l'expiration du groupe est Administrateur d'utilisateurs.
 
 ## <a name="turn-on-user-creation-for-groups"></a>Activer la création d’utilisateurs pour les groupes
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com) en utilisant un compte d’administrateur général ou d’administrateur d’utilisateurs pour l’organisation.
+1. Connectez-vous au [portail Azure](https://portal.azure.com) à l'aide d'un compte Administrateur d'utilisateurs.
 
 2. Sélectionnez **Groupes**, puis sélectionnez **Général**.
   
@@ -80,7 +80,7 @@ Et voilà ! Dans le cadre de ce démarrage rapide, vous avez configuré la stra
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur les stratégies d’expiration, et notamment sur les contraintes techniques, sur l’ajout d’une liste de mots bloqués personnalisés et sur les expériences d’utilisateur final pour l’ensemble des applications Office 365, consultez l’article ci-après :
+Pour plus d'informations sur l'expiration, ainsi que sur les instructions PowerShell et les contraintes techniques, consultez l'article suivant :
 
 > [!div class="nextstepaction"]
-> [Présentation exhaustive des stratégies d’expiration](groups-lifecycle.md)
+> [Stratégie d'expiration - PowerShell](groups-lifecycle.md)

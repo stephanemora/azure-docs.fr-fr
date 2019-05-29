@@ -4,14 +4,14 @@ description: En savoir plus sur Azure Cosmos DB. Cette base de données multi-mo
 author: rimman
 ms.service: cosmos-db
 ms.topic: overview
-ms.date: 04/08/2019
+ms.date: 05/20/2019
 ms.author: rimman
-ms.openlocfilehash: a965db4334e88d032f767bd7b855dea6f3ff174f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: a338cec213b82d54b08f2a11a969ddecf72ea7e5
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59280942"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65953901"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Bienvenue dans Azure Cosmos DB
 
@@ -44,7 +44,7 @@ Conçu avec un partitionnement horizontal transparent et une réplication multim
 
 ### <a name="guaranteed-low-latency-at-99th-percentile-worldwide"></a>Faible latence garantie, au 99e centile, partout dans le monde
 
-À l’aide de Cosmos DB, vous pouvez générer des applications hautement réactives à l’échelle de la planète. Avec son protocole novateur de réplication multimaître et sans verrou, et son [moteur de base de données optimisé pour l’écriture](index-policy.md), Cosmos DB garantit des latences inférieures à 10 millisecondes pour les lectures et les écritures (indexées), au 99e centile, dans le monde entier. Cette fonctionnalité permet l’ingestion soutenue de données et des requêtes très rapides pour des applications hautement réactives.
+À l’aide de Cosmos DB, vous pouvez générer des applications hautement réactives à l’échelle de la planète. Avec son protocole novateur de réplication multimaître et sans verrou, ainsi que son [moteur de base de données optimisé pour l'écriture](index-policy.md), Cosmos DB garantit des latences inférieures à 10 millisecondes pour les lectures et les écritures (indexées), au 99e centile, dans le monde entier. Cette fonctionnalité permet l’ingestion soutenue de données et des requêtes très rapides pour des applications hautement réactives.
 
 ### <a name="precisely-defined-multiple-consistency-choices"></a>Plusieurs choix de cohérence bien définis
 

@@ -1,5 +1,5 @@
 ---
-title: Présentation générale de la Base de connaissances - Recherche Azure
+title: Présentation générale de la Base de connaissances (préversion) – Recherche Azure
 description: Envoyez des documents enrichis vers Stockage Azure afin de pouvoir consulter, remodeler et utiliser des documents enrichis dans Recherche Azure et dans d'autres applications.
 manager: cgronlun
 author: HeidiSteen
@@ -9,32 +9,36 @@ ms.devlang: NA
 ms.topic: overview
 ms.date: 05/02/2019
 ms.author: heidist
-ms.openlocfilehash: 3000016de934aaa3faab96821f9747ea4b571ef7
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 4a27e4d8f2fbaafe6d27a3e3cabd31aa715b9d80
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65030087"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540750"
 ---
-# <a name="what-is-knowledge-store-in-azure-search"></a>Qu'est-ce que la Base de connaissances de Recherche Azure ?
+# <a name="what-is-knowledge-store-in-azure-search"></a>Qu'est-ce que la base de connaissances de Recherche Azure ?
 
-La Base de connaissances est une fonctionnalité facultative de Recherche Azure, actuellement en préversion publique, qui enregistre les métadonnées et documents enrichis créés par un pipeline d'indexation basé sur l'IA [(recherche cognitive)](cognitive-search-concept-intro.md). La Base de connaissances repose sur un compte de stockage Azure que vous configurez dans le cadre du pipeline. Lorsqu'il est activé, le service de recherche utilise ce compte de stockage pour mettre en cache une représentation de chaque document enrichi. 
+> [!Note]
+> La base de connaissances est en préversion et n’a pas été conçue pour la production. L’[API REST version 2019-05-06-Preview](search-api-preview.md) fournit cette fonctionnalité. Il n’y a pas de prise en charge de .NET SDK pour l’instant.
+>
+
+La base de connaissances est une fonctionnalité facultative de Recherche Azure qui enregistre les métadonnées et documents enrichis créés par un pipeline d'indexation basé sur l'IA [(recherche cognitive)](cognitive-search-concept-intro.md). La base de connaissances repose sur un compte de stockage Azure que vous configurez dans le cadre du pipeline. Lorsqu'il est activé, le service de recherche utilise ce compte de stockage pour mettre en cache une représentation de chaque document enrichi. 
 
 Si vous avez déjà eu recours à la recherche cognitive par le passé, vous savez que des ensembles de compétences peuvent être utilisés pour déplacer un document dans le cadre d'une séquence d'enrichissements. Le résultat peut être un index Recherche Azure ou (nouveauté de cette préversion) des projections d'une base de connaissances.
 
 Les projections vous permettent de structurer les données à utiliser dans une application située en aval. Vous pouvez utiliser l'[Explorateur Stockage](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) conçu pour Stockage Azure, ou n'importe quelle application capable de se connecter à Stockage Azure, ce qui ouvre de nouvelles possibilités d'utilisation de documents enrichis. Les pipelines de science des données et les analyses personnalisées en sont des exemples.
 
-![Diagramme de Base de connaissances au sein d'un pipeline](./media/knowledge-store-concept-intro/annotationstore_sans_internalcache.png "Diagramme de Base de connaissances au sein d'un pipeline")
+![Diagramme de base de connaissances au sein d'un pipeline](./media/knowledge-store-concept-intro/annotationstore_sans_internalcache.png "Diagramme de base de connaissances au sein d'un pipeline")
 
-Pour utiliser la Base de connaissances, ajoutez un élément `knowledgeStore` à un ensemble de compétences qui définit des opérations par étapes dans un pipeline d'indexation. Lors de l'exécution, Recherche Azure crée un espace sur votre compte de stockage Azure et l'alimente avec les définitions et le contenu créés par le pipeline.
+Pour utiliser la base de connaissances, ajoutez un élément `knowledgeStore` à un ensemble de compétences qui définit des opérations par étapes dans un pipeline d'indexation. Lors de l'exécution, Recherche Azure crée un espace sur votre compte de stockage Azure et l'alimente avec les définitions et le contenu créés par le pipeline.
 
-## <a name="benefits-of-knowledge-store"></a>Avantages de la Base de connaissances
+## <a name="benefits-of-knowledge-store"></a>Avantages de la base de connaissances
 
 Une base de connaissances vous fournit une structure, un contexte et un contenu réel, glanés à partir de fichiers de données non structurés et semi-structurés, tels que des objets blob, des fichiers image ayant fait l'objet d'une analyse, ou même des données structurées transformées en nouveaux formulaires. Une [procédure pas à pas](knowledge-store-howto.md) conçue pour cette préversion montre comment un document JSON dense est partitionné en sous-structures, reconstitué en nouvelles structures et mis à disposition pour des processus situés en aval, comme des charges de travail liées au Machine Learning et à la science des données.
 
-Bien qu'il soit utile de voir ce qu'un pipeline d'indexation basé sur l'IA peut produire, le vrai pouvoir de la Base de connaissances réside dans sa capacité à remodeler les données. Vous pouvez commencer avec un ensemble de compétences de base, puis procéder à une itération sur celui-ci afin d'ajouter des niveaux de structure croissants, que vous pouvez ensuite combiner en nouvelles structures, utilisables dans des applications autres que Recherche Azure.
+Bien qu'il soit utile de voir ce qu'un pipeline d'indexation basé sur l'IA peut produire, le vrai pouvoir de la base de connaissances réside dans sa capacité à remodeler les données. Vous pouvez commencer avec un ensemble de compétences de base, puis procéder à une itération sur celui-ci afin d'ajouter des niveaux de structure croissants, que vous pouvez ensuite combiner en nouvelles structures, utilisables dans des applications autres que Recherche Azure.
 
-La Base de connaissances vous offre notamment les avantages suivants :
+La base de connaissances vous offre notamment les avantages suivants :
 
 + Utilisez des documents enrichis dans des [outils d'analyse et de génération d'états](#tools-and-apps) autres que des outils de recherche. Power BI avec Power Query est un excellent choix, mais n'importe quel outil ou application capable de se connecter à Stockage Azure peut puiser dans une base de connaissances que vous avez créée.
 
@@ -124,7 +128,7 @@ Les données ou documents que vous souhaitez enrichir doivent être disponibles 
 
 * [Azure Cosmos DB](search-howto-index-cosmosdb.md)
 
-* [Stockage Blob Azure](search-howto-indexing-azure-blob-storage.md)
+* [stockage d’objets blob Azure](search-howto-indexing-azure-blob-storage.md)
 
 [Stockage Table Azure](search-howto-indexing-azure-tables.md) peut être utilisé pour les données sortantes d'une base de connaissances, mais pas en tant que ressource pour les données entrantes vers un pipeline d'indexation basé sur l'IA.
 
@@ -235,11 +239,11 @@ Lorsque vous utilisez plusieurs services, créez tous vos services dans la même
 
 **Étape 4 : [Prise en main du portail](cognitive-search-quickstart-blob.md) - ou - [Bien démarrer avec les exemples de données en utilisant REST et Postman](knowledge-store-howto.md)** 
 
-Vous pouvez utiliser `api-version=2019-05-06-Preview` REST pour créer un pipeline basé sur l'IA qui inclut la Base de connaissances. Dans la dernière API de la préversion, l'objet Ensemble de compétences fournit la définition `knowledgeStore`.
+Vous pouvez utiliser REST `api-version=2019-05-06-Preview` pour créer un pipeline basé sur l'IA qui inclut la base de connaissances. Dans la dernière API de la préversion, l'objet Ensemble de compétences fournit la définition `knowledgeStore`.
 
 ## <a name="takeaways"></a>Éléments importants à retenir
 
-La Base de connaissances offre toutes sortes d'avantages, notamment la possibilité d'utiliser les documents enrichis dans des scénarios autres que la recherche, le contrôle des coûts et la gestion de la dérive dans le cadre de votre processus d'enrichissement. Ces fonctionnalités peuvent toutes être utilisées en ajoutant un compte de stockage à votre ensemble de compétences et en utilisant le langage d'expression mis à jour, comme décrit dans [Prise en main de la Base de connaissances](knowledge-store-howto.md). 
+La base de connaissances offre toutes sortes d'avantages, notamment la possibilité d'utiliser les documents enrichis dans des scénarios autres que la recherche, le contrôle des coûts et la gestion de la dérive dans le cadre de votre processus d'enrichissement. Ces fonctionnalités peuvent toutes être utilisées en ajoutant un compte de stockage à votre ensemble de compétences et en utilisant le langage d'expression mis à jour, comme décrit dans [Prise en main de la base de connaissances](knowledge-store-howto.md). 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

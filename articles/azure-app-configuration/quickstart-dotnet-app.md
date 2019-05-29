@@ -14,12 +14,12 @@ ms.tgt_pltfrm: .NET
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: acf1608257bc5416ff52ed9fbd4209008712f2d7
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: f5837e06f347a4f822ac007dfe54c99fc7457dbb
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65408704"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65872975"
 ---
 # <a name="quickstart-create-a-net-framework-app-with-azure-app-configuration"></a>Démarrage rapide : Créer une application .NET Framework avec Azure App Configuration
 
@@ -29,7 +29,7 @@ Azure App Configuration est un service de configuration managée dans Azure. Vou
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour suivre ce guide de démarrage rapide, installez [Visual Studio 2017](https://visualstudio.microsoft.com/vs) et [.NET Framework version 4.7.1](https://dotnet.microsoft.com/download) ou ultérieure, si vous ne l’avez pas déjà fait.
+Pour suivre ce guide de démarrage rapide, installez [Visual Studio 2019](https://visualstudio.microsoft.com/vs) et [.NET Framework version 4.7.1](https://dotnet.microsoft.com/download) ou ultérieure, si ce n'est déjà fait.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -37,7 +37,7 @@ Pour suivre ce guide de démarrage rapide, installez [Visual Studio 2017](https
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Sélectionnez **Explorateur de configurations** > **+ Créer** pour ajouter les paires clé-valeur suivantes :
+6. Sélectionnez **Explorateur de configurations** >  **+ Créer** pour ajouter les paires clé-valeur suivantes :
 
     | Clé | Valeur |
     |---|---|
@@ -49,7 +49,7 @@ Pour suivre ce guide de démarrage rapide, installez [Visual Studio 2017](https
 
 1. Démarrez Visual Studio, puis sélectionnez **Fichier** > **Nouveau** > **Projet**.
 
-2. Dans **Nouveau projet**, sélectionnez **Installé** > **Visual C#** > **Windows Desktop**. Sélectionnez **Application console (.NET Framework)** et entrez un nom pour votre projet. Sélectionnez **.NET Framework 4.7.1** ou ultérieur, puis **OK**.
+2. Dans **Nouveau projet**, sélectionnez **Installé** > **Visual C#**  > **Windows Desktop**. Sélectionnez **Application console (.NET Framework)** et entrez un nom pour votre projet. Sélectionnez **.NET Framework 4.7.1** ou ultérieur, puis **OK**.
 
 ## <a name="connect-to-an-app-configuration-store"></a>Se connecter à un magasin de configuration d’application
 

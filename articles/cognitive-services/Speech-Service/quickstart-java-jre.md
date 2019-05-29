@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 05/02/2019
 ms.author: fmegen
-ms.openlocfilehash: 05475dbfb7dc1ee3f5de1a9b858eaf212b674eac
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 3dad2696332f57d9a0dc86927f91caa7352b1d7b
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65466389"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65884947"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-java"></a>Démarrage rapide : reconnaissance vocale à l’aide du SDK Speech pour Java
 
@@ -55,7 +55,7 @@ Si vous exécutez Linux, vérifiez que ces dépendances sont installées avant d
   ```
 
 Si vous exécutez Windows (64 bits), vérifiez que vous avez installé Microsoft Visual C++ Redistributable pour votre plateforme.
-* [Télécharger Redistributable Visual C++ pour Visual Studio 2017](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)
+* [Télécharger Microsoft Visual C++ Redistributable pour Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)
 
 ## <a name="create-and-configure-project"></a>Créer et configurer un projet
 
@@ -63,7 +63,7 @@ Si vous exécutez Windows (64 bits), vérifiez que vous avez installé Microsof
 
 ## <a name="add-sample-code"></a>Ajouter un exemple de code
 
-1. Pour ajouter une nouvelle classe vide dans votre projet Java, sélectionnez **File (Fichier)** > **New (Nouvelle)** > **Classe (Classe)**.
+1. Pour ajouter une nouvelle classe vide dans votre projet Java, sélectionnez **File (Fichier)**  > **New (Nouvelle)**  > **Classe (Classe)** .
 
 1. Dans la fenêtre **New Java Class** (Nouvelle classe Java), entrez **speechsdk.quickstart** dans le champ **Package**, et **Main** dans le champ **Name** (Nom).
 
@@ -81,7 +81,7 @@ Si vous exécutez Windows (64 bits), vérifiez que vous avez installé Microsof
 
 ## <a name="build-and-run-the-app"></a>Générer et exécuter l’application
 
-Appuyez sur F11 ou sélectionnez **Run (Exécuter)** > **Debug (Déboguer)**.
+Appuyez sur F11 ou sélectionnez **Run (Exécuter)**  > **Debug (Déboguer)** .
 Les 15 secondes suivantes de saisie vocale provenant de votre microphone seront reconnues et enregistrées dans la fenêtre console.
 
 ![Capture d’écran de la sortie de la console après une reconnaissance réussie](media/sdk/qs-java-jre-07-console-output.png)

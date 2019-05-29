@@ -11,12 +11,12 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: python
 manager: jeconnoc
-ms.openlocfilehash: 7e2b3424c3d8edc931054dea062280ea7789dc44
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 88e8d543e8bc3c3ae07133ec333b33c4486c2684
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65143068"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65864514"
 ---
 # <a name="create-an-http-triggered-function-in-azure"></a>Créer une fonction déclenchée via HTTP dans Azure
 
@@ -30,13 +30,13 @@ Cet article est le premier des deux guides de démarrage rapide pour Azure Funct
 
 Avant de commencer, vous devez disposer des éléments suivants :
 
-+ [Python 3.6](https://www.python.org/downloads/).
++ Installer [Python 3.6](https://www.python.org/downloads/).
 
 + [Azure Functions Core Tools](./functions-run-local.md#v2) version 2.6.666 ou ultérieure.
 
-+ [Azure CLI](/cli/azure/install-azure-cli) version 2.x ou ultérieure.
++ Installez [Azure CLI](/cli/azure/install-azure-cli) version 2.x ou ultérieure.
 
-+ Abonnement Azure actif.
++ Un abonnement Azure actif.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -108,7 +108,7 @@ Un sous-dossier nommé _HttpTrigger_ est créé, qui contient les fichiers suiva
 
   Chaque liaison requiert une direction, un type et un nom unique. Le déclencheur HTTP comporte une liaison d’entrée de type [`httpTrigger`](functions-bindings-http-webhook.md#trigger) et une liaison de sortie de type [`http`](functions-bindings-http-webhook.md#output).
 
-* **__init__.py** : fichier de script qui est votre fonction déclenchée via HTTP. Vous pouvez voir que ce script contient `main()` par défaut. Les données HTTP du déclencheur sont transmises à cette fonction à l’aide du paramètre de liaison nommé `req`. `req` est une instance de la [classe azure.functions.HttpRequest](/python/api/azure-functions/azure.functions.httprequest) définie dans function.json. 
+* **\_\_init\_\_.py** : fichier de script qui est votre fonction déclenchée via HTTP. Vous pouvez voir que ce script contient `main()` par défaut. Les données HTTP du déclencheur sont transmises à cette fonction à l’aide du paramètre de liaison nommé `req`. `req` est une instance de la [classe azure.functions.HttpRequest](/python/api/azure-functions/azure.functions.httprequest) définie dans function.json. 
 
     L’objet renvoyé, défini comme `$return` dans function.json, est une instance de la [classe azure.functions.HttpResponse](/python/api/azure-functions/azure.functions.httpresponse). Pour en savoir plus, voir [Déclencheurs et liaisons HTTP Azure Functions](functions-bindings-http-webhook.md).
 

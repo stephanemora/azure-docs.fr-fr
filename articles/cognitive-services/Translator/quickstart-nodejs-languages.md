@@ -10,18 +10,18 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: df637ee16d2116696af42fa1b162e1c77a880c19
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 19b235baa68222ac7e8c7f8d2277d6542f0ac810
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64922183"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606540"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-with-nodejs"></a>Démarrage rapide : Utiliser l’API de traduction de texte Translator Text et Node.js pour obtenir la liste des langues prises en charge
 
 Dans ce démarrage rapide, vous allez apprendre à effectuer une requête GET qui retourne la liste des langues prises en charge à l’aide de Node.js et de l’API REST Traduction de texte Translator Text.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Ce démarrage rapide nécessite :
 
@@ -89,7 +89,7 @@ Si vous souhaitez comparer votre code avec le nôtre, l’exemple de code comple
 
 ## <a name="sample-response"></a>Exemple de réponse
 
-Recherchez l’abréviation du pays dans cette [liste des langues](https://docs.microsoft.com/azure/cognitive-services/translator/language-support).
+Recherchez l’abréviation du pays/de la région dans cette [liste de langues](https://docs.microsoft.com/azure/cognitive-services/translator/language-support).
 
 Cet exemple a été tronqué pour afficher un extrait du résultat :
 

@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: overview
 ms.date: 12/22/2018
 ms.author: azfuncdf, glenga
-ms.openlocfilehash: 4c7b4733d05f18d3c30e45fd08c3cf9c50354ebc
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 2228f3fe05e1021d0f87ce0b0d33a8287f048a8c
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816088"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65872805"
 ---
 # <a name="what-are-durable-functions"></a>Présentation de Durable Functions
 
@@ -49,7 +49,7 @@ Durable Functions prend actuellement en charge les langages suivants :
 
 À l’avenir, Durable Functions est censé prendre en charge tous les [langages pris en charge dans Azure Functions](../supported-languages.md). Consultez la [liste des problèmes avec Durable Functions](https://github.com/Azure/azure-functions-durable-extension/issues) pour connaître l’état actuel de la prise en charge de langages supplémentaires.
 
-Comme dans Azure Functions, des modèles sont disponibles pour vous aider à développer des fonctions durables en utilisant [Visual Studio 2017](durable-functions-create-first-csharp.md), [Visual Studio Code](quickstart-js-vscode.md) et le [portail Azure](durable-functions-create-portal.md).
+Comme dans Azure Functions, des modèles sont disponibles pour vous aider à développer des fonctions durables en utilisant [Visual Studio 2019](durable-functions-create-first-csharp.md), [Visual Studio Code](quickstart-js-vscode.md) et le [portail Azure](durable-functions-create-portal.md).
 
 ## <a name="billing"></a>Facturation
 
@@ -59,7 +59,7 @@ Durable Functions suit le même modèle de facturation qu’Azure Functions. Pou
 
 Vous pouvez démarrer avec Durable Functions en moins de dix minutes en suivant l’un de ces tutoriels de démarrage rapide propres à chaque langage :
 
-* [C# avec Visual Studio 2017](durable-functions-create-first-csharp.md)
+* [C# avec Visual Studio 2019](durable-functions-create-first-csharp.md)
 * [JavaScript avec Visual Studio Code](quickstart-js-vscode.md)
 
 Dans les deux guides de démarrage rapide, vous créez et testez localement une fonction durable « hello world ». Vous allez ensuite publier le code de la fonction dans Azure. La fonction que vous créez orchestre et chaîne des appels à d’autres fonctions.

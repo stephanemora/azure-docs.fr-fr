@@ -8,14 +8,14 @@ ms.topic: quickstart
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 42e8e7bdd52dcb8f236d94e7f931c91cd21605fd
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 291152b46f97c9b6dd10b67c7ce812fcc791ce09
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59278953"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979602"
 ---
-# <a name="create-a-policy-assignment-to-identify-non-compliant-resources"></a>Créer une affectation de stratégie pour identifier les ressources non conformes
+# <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources"></a>Démarrage rapide : Créer une affectation de stratégie pour identifier les ressources non conformes
 
 La première étape pour comprendre la conformité dans Azure consiste à identifier l’état de vos ressources.
 Ce démarrage rapide vous guide pas à pas dans le processus de création d’une attribution de stratégie pour identifier les machines virtuelles qui n’utilisent pas de disques managés.
@@ -40,11 +40,11 @@ Dans ce guide de démarrage rapide, vous créez une attribution de stratégie et
 
    ![Affecter une définition de stratégie à partir de la page Affectations](./media/assign-policy-portal/select-assign-policy.png)
 
-1. Dans la page **Assigner une stratégie**, sélectionnez **l’étendue** en cliquant sur les points de suspension et en sélectionnant un groupe d’administration ou un abonnement. Sélectionnez éventuellement un groupe de ressources. Une étendue détermine les ressources ou le regroupement de ressources sur lequel la stratégie est appliquée.  Cliquez ensuite sur **Sélectionner** dans le bas de la page **Étendue**.
+1. Dans la page **Assigner une stratégie**, sélectionnez **l’étendue** en cliquant sur les points de suspension et en sélectionnant un groupe d’administration ou un abonnement. Sélectionnez éventuellement un groupe de ressources. Une étendue détermine les ressources ou le regroupement de ressources sur lequel la stratégie est appliquée. Cliquez ensuite sur **Sélectionner** dans le bas de la page **Étendue**.
 
    Cet exemple utilise l’abonnement **Contoso**. Votre abonnement sera différent.
 
-1. Vous pouvez exclure des ressources en fonction de **l’étendue**.  Les **exclusions** commencent à un niveau inférieur à celui de **l’étendue**. Les **exclusions** étant facultatives, laissez ce champ vide pour l’instant.
+1. Vous pouvez exclure des ressources en fonction de **l’étendue**. Les **exclusions** commencent à un niveau inférieur à celui de **l’étendue**. Les **exclusions** étant facultatives, laissez ce champ vide pour l’instant.
 
 1. Sélectionnez les points de suspension de **Définition de stratégie** pour ouvrir la liste des définitions disponibles. Azure Policy est fourni avec des définitions de stratégie intégrées que vous pouvez utiliser. De nombreuses définitions de stratégie sont disponibles, par exemple :
 
@@ -52,13 +52,14 @@ Dans ce guide de démarrage rapide, vous créez une attribution de stratégie et
    - Apply tag and its value
    - Nécessitent SQL Server version 12.0
 
-   Pour obtenir une liste partielle des stratégies intégrées disponibles, consultez [Exemples de stratégie](./samples/index.md).
+   Pour obtenir une liste partielle des stratégies intégrées disponibles, consultez [Exemples Azure Policy](./samples/index.md).
 
 1. Recherchez la définition *Auditer les machines virtuelles qui n’utilisent pas de disques managés* dans la liste des définitions de stratégie. Cliquez sur cette stratégie, puis sur **Sélectionner**.
 
    ![Rechercher la définition de stratégie appropriée](./media/assign-policy-portal/select-available-definition.png)
 
-1. Le **Nom de l’attribution** est automatiquement rempli avec le nom de stratégie que vous avez sélectionné, mais vous pouvez le modifier. Pour cet exemple, conservez *Auditer les machines virtuelles qui n’utilisent pas de disques managés*. Vous pouvez également ajouter une **Description** (facultatif). La description fournit des détails sur cette affectation de stratégie. Le champ **Affectée par** est automatiquement renseigné en fonction de l’utilisateur connecté. Ce champ étant facultatif, vous pouvez entrer des valeurs personnalisées.
+1. Le **Nom de l’attribution** est automatiquement rempli avec le nom de stratégie que vous avez sélectionné, mais vous pouvez le modifier. Pour cet exemple, conservez *Auditer les machines virtuelles qui n’utilisent pas de disques managés*. Vous pouvez également ajouter une **Description** (facultatif). La description fournit des détails sur cette affectation de stratégie.
+   Le champ **Affectée par** est automatiquement renseigné en fonction de l’utilisateur connecté. Ce champ étant facultatif, vous pouvez entrer des valeurs personnalisées.
 
 1. Laissez la case **Créer une identité managée** non cochée. Vous _devez_ la cocher si la stratégie ou l’initiative inclut une stratégie avec l’effet [deployIfNotExists](./concepts/effects.md#deployifnotexists). La stratégie utilisée dans ce guide de démarrage rapide n'étant pas concernée, ne cochez pas la case. Pour plus d’informations, consultez [Identités managées](../../active-directory/managed-identities-azure-resources/overview.md) et [Fonctionnement de la sécurité par correction](./how-to/remediate-resources.md#how-remediation-security-works).
 
@@ -83,7 +84,8 @@ Si une condition est évaluée par rapport à vos ressources existantes et gén�
 | Nouveau | Audit, AuditIfNotExist\* | True | Non conforme |
 | Nouveau | Audit, AuditIfNotExist\* | False | Conforme |
 
-\* Les effets Append, DeployIfNotExist et AuditIfNotExist nécessitent que l’instruction IF ait la valeur TRUE. Les effets nécessitent également que la condition d’existence ait la valeur FALSE pour être non conformes. Lorsque la valeur est TRUE, la condition IF déclenche l’évaluation de la condition d’existence pour les ressources associées.
+\* Les effets Append, DeployIfNotExist et AuditIfNotExist nécessitent que l’instruction IF ait la valeur TRUE.
+Les effets nécessitent également que la condition d’existence ait la valeur FALSE pour être non conformes. Lorsque la valeur est TRUE, la condition IF déclenche l’évaluation de la condition d’existence pour les ressources associées.
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
@@ -97,7 +99,8 @@ Pour supprimer l’affectation créée, procédez comme suit :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce guide de démarrage rapide, vous avez affecté une définition de stratégie à une étendue et vous avez évalué son rapport de conformité. La définition de stratégie permet de vérifier que toutes les ressources dans l’étendue sont conformes, ainsi que d’identifier celles qui ne le sont pas.
+Dans ce guide de démarrage rapide, vous avez affecté une définition de stratégie à une étendue et vous avez évalué son rapport de conformité.
+La définition de stratégie permet de vérifier que toutes les ressources dans l’étendue sont conformes, ainsi que d’identifier celles qui ne le sont pas.
 
 Pour en savoir plus sur l’affectation de stratégies visant à vérifier que les nouvelles ressources sont conformes, suivez le tutoriel :
 

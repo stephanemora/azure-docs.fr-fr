@@ -10,23 +10,23 @@ ms.subservice: text-analytics
 ms.topic: tutorial
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: 4e1c03085d6b1d0099ac66dd3d1dadd981a561aa
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 75228b8c939cb5b8dd04471662ba86b46cfc808c
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60004242"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65860471"
 ---
 # <a name="tutorial-connect-to-the-text-analytics-service-with-connected-services-in-visual-studio"></a>Didacticiel : Se connecter au service Analyse de texte avec des services connectés dans Visual Studio
 
 Le service Analyse de texte vous permet d’extraire de riches informations afin de catégoriser et de traiter des données visuelles et d’effectuer une modération des images assistée par ordinateur pour organiser vos services.
 
-Cet article et ceux qui l’accompagnent donnent des détails sur l’utilisation de la fonctionnalité Service connecté Visual Studio du service Analyse de texte. Elle est disponible dans Visual Studio 2017 15.7 et les versions ultérieures, à condition que l’extension Cognitive Services soit installée.
+Cet article et ceux qui l’accompagnent donnent des détails sur l’utilisation de la fonctionnalité Service connecté Visual Studio du service Analyse de texte. Elle est disponible dans Visual Studio 2019 et les versions ultérieures, à condition que l’extension Cognitive Services soit installée.
 
 ## <a name="prerequisites"></a>Prérequis
 
 - Un abonnement Azure. Si vous n’en possédez pas, vous pouvez vous inscrire pour créer dès aujourd’hui un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/).
-- Visual Studio 2017 version 15.7 avec installation de la charge de travail Développement web. [Téléchargez-le maintenant](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
+- Visual Studio 2019 avec installation de la charge de travail Développement web. [Téléchargez-le maintenant](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
 
 [!INCLUDE [vs-install-cognitive-services-vsix](../../../includes/vs-install-cognitive-services-vsix.md)]
 
@@ -263,7 +263,7 @@ Lorsqu’il n’est plus nécessaire, supprimez le groupe de ressources. Cette o
 
 1. Entrez le nom de votre groupe de ressources dans la zone Recherche en haut du portail. Lorsque vous voyez le groupe de ressources utilisé dans ce tutoriel dans les résultats de recherche, sélectionnez-le.
 2. Sélectionnez **Supprimer le groupe de ressources**.
-3. Dans le champ **TYPE THE RESOURCE GROUP NAME: (TAPER LE NOM DU GROUPE DE RESSOURCES :)**, tapez le nom du groupe de ressources et sélectionnez **Supprimer**.
+3. Dans le champ **TYPE THE RESOURCE GROUP NAME: (TAPER LE NOM DU GROUPE DE RESSOURCES :)** , tapez le nom du groupe de ressources et sélectionnez **Supprimer**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

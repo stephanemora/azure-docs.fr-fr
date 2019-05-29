@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.service: azure-blockchain
 ms.reviewer: jackyhsu
 manager: femila
-ms.openlocfilehash: d3ad4cdfe33948c04c278ed3dfef7aa6fda637ab
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 0b5e39e9cf2fc3ffe91db6587bc1ed1bab079e93
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65027495"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65777324"
 ---
 # <a name="tutorial-send-transactions-using-azure-blockchain-service"></a>Didacticiel : Envoyer des transactions à l’aide du service Azure Blockchain
 
@@ -87,7 +87,7 @@ Vous pouvez poursuivre le tutoriel pendant que les nœuds sont en cours de provi
 Utilisez Web3 pour vous connecter au nœud de transaction par défaut et créer un compte. Vous pouvez obtenir la chaîne de connexion Web3 à partir du portail Azure.
 
 1. Dans le portail Azure, accédez au nœud de transaction par défaut et sélectionnez **Nœuds de transaction > Exemple de code > Web3**.
-1. Copiez le code JavaScript de l’![exemple de code Web3](./media/send-transaction/web3-code.png) **HTTPS (clé d’accès 1)**.
+1. Copiez le code JavaScript de l’![exemple de code Web3](./media/send-transaction/web3-code.png) **HTTPS (clé d’accès 1)** .
 
 1. Collez le code JavaScript Web3 du nœud de transaction par défaut dans la console de développement interactive de Truffle. Le code crée un objet Web3 connecté au nœud de transaction du service Azure Blockchain.
 
@@ -128,7 +128,7 @@ Vous pouvez obtenir cette clé publique à partir de la liste des nœuds de tran
 ### <a name="transaction-node-endpoint-addresses"></a>Adresses des points de terminaison de nœud de transaction
 
 1. Dans le portail Azure, accédez à chaque nœud de transaction et sélectionnez **Nœuds de transaction > Chaînes de connexion**.
-1. Copiez et enregistrez l’URL du point de terminaison à partir de **HTTPS (clé d’accès 1) pour chaque nœud de transaction. Vous aurez besoin des adresses des points de terminaison pour le fichier de configuration du contrat intelligent, plus tard dans ce tutoriel.
+1. Copiez et enregistrez l’URL du point de terminaison à partir de **HTTPS (clé d’accès 1)** pour chaque nœud de transaction. Vous aurez besoin des adresses des points de terminaison pour le fichier de configuration du contrat intelligent, plus tard dans ce tutoriel.
 
     ![Adresse de point de terminaison de transaction](./media/send-transaction/endpoint.png)
 
@@ -230,7 +230,7 @@ Remplacez les valeurs entre crochets.
 
 Dans cet exemple, la valeur initiale de **storeData** est 42.
 
-**privateFor** définit les nœuds pour lesquels le contrat est disponible. Dans cet exemple, le compte du nœud de transaction par défaut peut caster des transactions privées vers le nœud **alpha**. Vous devez ajouter des clés publiques pour tous les participants aux transactions privées. Si vous n’incluez pas **privateFor:** et **from:**, les transactions de contrat intelligent sont publiques et tous les membres du consortium peuvent les voir.
+**privateFor** définit les nœuds pour lesquels le contrat est disponible. Dans cet exemple, le compte du nœud de transaction par défaut peut caster des transactions privées vers le nœud **alpha**. Vous devez ajouter des clés publiques pour tous les participants aux transactions privées. Si vous n’incluez pas **privateFor:** et **from:** , les transactions de contrat intelligent sont publiques et tous les membres du consortium peuvent les voir.
 
 Enregistrez tous les fichiers en sélectionnant **Fichier > Enregistrer tout**.
 

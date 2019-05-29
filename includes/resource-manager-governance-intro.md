@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 02/19/2018
 ms.author: tomfitz
 ms.custom: include file
-ms.openlocfilehash: 0b3af1bd7b3ab48074432d9e39552d72c6664b98
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d1e7fa1ed1649508f0d4923db8817d17ad556ca1
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58124729"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66164587"
 ---
 Lorsque vous déployez des ressources vers Azure, il est extrêmement simple de décider quels types de ressources déployer, leur emplacement et leur mode de configuration. Toutefois, cette flexibilité peut offrir plus d’options que vous ne souhaitez autoriser dans votre organisation. Si vous envisagez de déployer des ressources vers Azure, vous vous demandez peut-être :
 
-* Comment respecter les obligations légales en matière de souveraineté des données dans certains pays ?
+* Comment respecter les obligations légales en matière de souveraineté des données dans certains pays/régions ?
 * Comment contrôler les coûts ?
 * Comment vérifier que quelqu'un ne modifie pas par inadvertance un système critique ?
 * Comment effectuer le suivi des coûts des ressources et les facturer précisément ?

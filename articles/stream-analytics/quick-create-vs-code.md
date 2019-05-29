@@ -7,12 +7,12 @@ ms.author: mamccrea
 ms.date: 05/06/2019
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: 511dab7090f6114c7769d504166f3e2c137d43ca
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 894f43a7da0abd129123d5c4ddf2bb95347c42c5
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65071937"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65825352"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-cloud-job-in-visual-studio-code-preview"></a>Démarrage rapide : Créer une tâche cloud Azure Stream Analytics dans Visual Studio Code (préversion)
 
@@ -101,7 +101,7 @@ Avant de définir le travail Stream Analytics, vous devez préparer les données
 
 ## <a name="create-a-stream-analytics-project"></a>Créer un projet Stream Analytics
 
-1. Dans Visual Studio Code, appuyez sur **Ctrl+Maj+P** pour ouvrir la palette de commandes. Ensuite, tapez **ASA**, puis sélectionnez **ASA : Créer un projet**.
+1. Dans Visual Studio Code, appuyez sur **Ctrl+Maj+P** pour ouvrir la palette de commandes. Saisissez ensuite **ASA** et sélectionnez **ASA : Créer un projet**.
 
    ![Création d’un projet](./media/quick-create-vs-code/create-new-project.png)
 
@@ -109,7 +109,7 @@ Avant de définir le travail Stream Analytics, vous devez préparer les données
 
     ![Créer un nom de projet](./media/quick-create-vs-code/create-project-name.png)
 
-3. Le nouveau projet est ajouté à votre espace de travail. Un projet ASA comprend un script de requête **(*.asaql)**, un fichier **JobConfig.json** et un fichier de configuration **asaproj.json**.
+3. Le nouveau projet est ajouté à votre espace de travail. Un projet ASA comprend un script de requête **(*.asaql)** , un fichier **JobConfig.json** et un fichier de configuration **asaproj.json**.
 
    ![Fichiers de projet Stream Analytics dans VS Code](./media/quick-create-vs-code/asa-project-files.png)
 
@@ -147,7 +147,7 @@ Avant de définir le travail Stream Analytics, vous devez préparer les données
 
 ## <a name="define-an-output"></a>Définition d’une sortie
 
-1. Sélectionnez **Ctrl+Maj+P** pour ouvrir la palette de commandes. Ensuite, entrez **ASA : Ajouter une sortie**.
+1. Sélectionnez **Ctrl+Maj+P** pour ouvrir la palette de commandes. Puis saisissez **ASA : Ajouter une sortie**.
 
    ![Ajouter une sortie Stream Analytics dans VS Code](./media/quick-create-vs-code/add-output.png)
 
@@ -229,7 +229,7 @@ Vous pouvez déclencher la compilation du script de deux façons :
 
 2. Cliquez avec le bouton droit sur le nom de la tâche. Ensuite, sélectionnez **Démarrer** dans le menu contextuel.
 
-![Tâche Start Stream Analytics dans VS Code](./media/quick-create-vs-code/start-asa-job-vs-code.png)
+   ![Tâche Start Stream Analytics dans VS Code](./media/quick-create-vs-code/start-asa-job-vs-code.png)
 
 3. Choisissez **Maintenant** dans la fenêtre contextuelle pour démarrer la tâche.
 

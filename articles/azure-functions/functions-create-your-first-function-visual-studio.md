@@ -13,18 +13,18 @@ ms.topic: quickstart
 ms.date: 10/17/2018
 ms.author: glenga
 ms.custom: mvc, devcenter, vs-azure, 23113853-34f2-4f
-ms.openlocfilehash: 51f6fb8c0dc1450a39173fafb0d71efc9a59a536
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 1c07da0121b8e350c55b139901d56cfe2133386d
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49649973"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65864495"
 ---
 # <a name="create-your-first-function-using-visual-studio"></a>Créer votre première fonction à l’aide de Visual Studio
 
 Azure Functions vous permet d’exécuter votre code dans un environnement [sans serveur](https://azure.microsoft.com/solutions/serverless/) et sans avoir à créer une machine virtuelle ou à publier une application web au préalable.
 
-Dans cet article, vous allez découvrir comment utiliser les outils Visual Studio 2017 pour Azure Functions afin de créer et de tester en local une fonction « Hello World ». Vous allez ensuite publier le code de la fonction dans Azure. Ces outils sont disponibles dans le cadre de la charge de travail de développement Azure dans Visual Studio 2017.
+Dans cet article, vous allez découvrir comment utiliser les outils Visual Studio 2019 pour Azure Functions afin de créer et de tester en local une fonction « Hello World ». Vous allez ensuite publier le code de la fonction dans Azure. Ces outils sont disponibles dans le cadre de la charge de travail de développement Azure dans Visual Studio 2019.
 
 ![Réponse de la fonction localhost dans le navigateur](./media/functions-create-your-first-function-visual-studio/functions-create-your-first-function-visual-studio-browser-local-final.png)
 
@@ -34,7 +34,7 @@ Cette rubrique inclut [une vidéo](#watch-the-video) qui présente les mêmes é
 
 Pour suivre ce tutoriel :
 
-* Installer [Visual Studio 2017](https://azure.microsoft.com/downloads/) et vérifiez que la charge de travail **Azure development** est également installée.
+* Installer [Visual Studio 2019](https://azure.microsoft.com/downloads/) et vérifiez que la charge de travail de **développement Azure** est également installée.
 
 * Assurez-vous de disposer des [derniers outils Azure Functions](functions-develop-vs.md#check-your-tools-version).
 

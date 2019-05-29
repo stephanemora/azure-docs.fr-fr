@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/30/2018
 ms.author: masoucou
-ms.openlocfilehash: 1f86690b97fc7d65afed650664a76200ef490f33
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: a17461a90a19d775b8c7cac86d0bc6e9a18856bd
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58517111"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65860883"
 ---
 # <a name="quickstart-build-a-todo-app-with-xamarin-using-azure-cosmos-db-sql-api-account"></a>Démarrage rapide : Générer une application todo avec Xamarin à l’aide du compte d’API SQL Azure Cosmos DB
 
@@ -37,7 +37,7 @@ Ce démarrage rapide explique comment créer, à l’aide du portail Azure, un c
 
 ## <a name="prerequisites"></a>Prérequis
 
-Si vous développez sur Windows et si vous n’avez pas encore installé Visual Studio 2017, vous pouvez télécharger et utiliser la version **gratuite** de [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Veillez à activer **le développement Azure** et le **développement mobile avec les charges de travail .NET** lors de l’installation de Visual Studio.
+Si vous développez sur Windows et que vous n’avez pas encore installé Visual Studio 2019, vous pouvez télécharger et utiliser la version **gratuite** de [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Veillez à activer **le développement Azure** et le **développement mobile avec les charges de travail .NET** lors de l’installation de Visual Studio.
 
 Si vous utilisez un Mac, vous pouvez télécharger la version **gratuite** de [Visual Studio pour Mac](https://www.visualstudio.com/vs/mac/).
 
@@ -92,7 +92,7 @@ Revenez dans le portail Azure pour récupérer vos informations de clé API et l
 
     ![Affichage et copie d’une clé d’accès rapide dans le portail Azure, panneau Clés](./media/create-sql-api-xamarin-dotnet/keys.png)
 
-2. Dans Visual Studio 2017 ou Visual Studio pour Mac, ouvrez le fichier APIKeys.cs dans le dossier azure-documentdb-dotnet/samples/xamarin/ToDoItems/ToDoItems.Core/Helpers.
+2. Dans Visual Studio 2019 ou Visual Studio pour Mac, ouvrez le fichier APIKeys.cs dans le dossier azure-documentdb-dotnet/samples/xamarin/ToDoItems/ToDoItems.Core/Helpers.
 
 3. Copiez la valeur de votre URI dans le portail (à l’aide du bouton de copie) et définissez-la comme valeur de la variable `CosmosEndpointUrl` dans APIKeys.cs.
 

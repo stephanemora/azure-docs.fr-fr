@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : API de traduction de conversation Translator Speech en C#'
+title: 'Didacticiel : API de traduction de conversation Translator Speech en C#'
 titleSuffix: Azure Cognitive Services
 description: Utilisez l’API de traduction de conversation Translator Speech pour traduire du texte en temps réel.
 services: cognitive-services
@@ -11,14 +11,14 @@ ms.topic: tutorial
 ms.date: 3/5/2018
 ms.author: v-jerkin
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 81ee3c7da43aa4d81838c90f4e8f41d114da72b5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 68457367987305b6926f8f885a226cfcedd23873
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57900826"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65860316"
 ---
-# <a name="tutorial-translator-speech-application-in-c"></a>Tutoriel : Application de traduction de conversation Translator Speech en C#
+# <a name="tutorial-translator-speech-application-in-c"></a>Didacticiel : Application de traduction de conversation Translator Speech en C#
 
 [!INCLUDE [Deprecation note](../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
 
@@ -34,7 +34,7 @@ Un fichier solution Visual Studio pour cette application est [disponible sur Git
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour ce didacticiel, vous avez besoin de n’importe quelle édition de Visual Studio 2017, y compris la Community Edition.
+Pour ce didacticiel, n’importe quelle édition de Visual Studio 2019 convient, y compris la Community Edition.
 
 La solution Visual Studio génère également un programme d’installation pour l’application. Vous avez besoin de [l’ensemble d’outils WiX Toolset](http://wixtoolset.org/) et de [l’extension Visual Studio de l’ensemble d’outils WiX](https://marketplace.visualstudio.com/items?itemName=RobMensching.WixToolsetVisualStudio2017Extension) pour prendre en charge cette fonctionnalité.
 

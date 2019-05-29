@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 05/08/2019
+ms.date: 05/22/2019
 ms.author: alkohli
-ms.openlocfilehash: 3fca94a56f80ec520ac6777610a90bdddf1b8988
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: 2b021975983858386cd7c847ba11a26f4feb9562
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65473260"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66150456"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box : Forum Aux Questions (FAQ)
 
@@ -182,6 +182,9 @@ R. Si votre appareil est arrivé endommagé ou présente des signes de falsifica
 
 ### <a name="q-can-i-use-my-own-shipping-carrier-to-ship-data-box"></a>Q. Puis-je utiliser mon propre transporteur pour expédier ma Data Box ?
 R. Pour le service Data Box, Microsoft gère la livraison vers et depuis le centre de données Azure. Si vous souhaitez utiliser votre propre transporteur, vous pouvez utiliser le service Azure Import/Export. Pour plus d’informations, consultez [Qu’est-ce que le service Azure Import/Export ?](../storage/common/storage-import-export-service.md)
+
+### <a name="q-will-my-data-box-devices-cross-country-borders-during-shipping"></a>Q. Mes appareils Data Box traverseront-ils des frontières lors de leur expédition ?
+R. Le transport des appareils Data Box s'effectue au sein du même pays ; ils ne franchissent aucune frontière internationale. La seule exception concerne les commandes au sein de l'Union européenne (UE), où les appareils peuvent être expédiés depuis et vers n'importe quel pays de l'UE.
 
 ### <a name="q-e-ink-display-is-not-showing-the-return-shipment-label-what-should-i-do"></a>Q. L’écran E-ink n’affiche pas l’étiquette de retour. Que dois-je faire ?
 R. Si l’écran E-ink n’affiche pas l’étiquette de retour, procédez comme suit :

@@ -11,12 +11,12 @@ ms.topic: quickstart
 description: Développement Kubernetes rapide avec des conteneurs, des microservices et Java sur Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs, Java, Helm, service Mesh, routage du service Mesh, kubectl, k8s
 manager: jeconnoc
-ms.openlocfilehash: c1c039ba8696baff11abed3930998983647f4356
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 26efa17ee699aed87ecfbbd21e7880e7538de4ea
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59425744"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979123"
 ---
 # <a name="quickstart-develop-with-java-on-kubernetes-using-azure-dev-spaces"></a>Démarrage rapide : Développer avec Java sur Kubernetes en utilisant Azure Dev Spaces
 
@@ -41,7 +41,7 @@ Vous devez créer un cluster AKS dans une [région prise en charge](https://docs
 
 ```cmd
 az group create --name MyResourceGroup --location eastus
-az aks create -g MyResourceGroup -n MyAKS --location eastus --node-count 1 --generate-ssh-keys
+az aks create -g MyResourceGroup -n MyAKS --location eastus --node-vm-size Standard_DS2_v2 --node-count 1 --disable-rbac --generate-ssh-keys
 ```
 
 ## <a name="enable-azure-dev-spaces-on-your-aks-cluster"></a>Activer Azure Dev Spaces sur votre cluster AKS
@@ -113,7 +113,7 @@ Service 'webfrontend' port 80 (http) is available at http://localhost:54256
 ...
 ```
 
-Vous pouvez voir le service en cours d’exécution en ouvrant l’URL publique qui est affichée dans la sortie de la commande `azds up`. Dans cet exemple, l’URL publique est *http://webfrontend.1234567890abcdef1234.eus.azds.io/*.
+Vous pouvez voir le service en cours d’exécution en ouvrant l’URL publique qui est affichée dans la sortie de la commande `azds up`. Dans cet exemple, l’URL publique est *http://webfrontend.1234567890abcdef1234.eus.azds.io/* .
 
 Si vous arrêtez la commande `azds up` avec *Ctrl+C*, le service continue de s’exécuter dans AKS et l’URL publique reste disponible.
 
@@ -122,7 +122,7 @@ Si vous arrêtez la commande `azds up` avec *Ctrl+C*, le service continue de s�
 Pour déployer une version mise à jour de votre service, vous pouvez mettre à jour n’importe quel fichier de votre projet, puis réexécuter la commande `azds up`. Par exemple : 
 
 1. Si `azds up` est toujours en cours d’exécution, appuyez sur *Ctrl+C*.
-1. Changez la [ligne 16 dans `src/main/java/com/ms/sample/webfrontend/Application.java`](https://github.com/Azure/dev-spaces/blob/master/samples/java/getting-started/webfrontend/src/main/java/com/ms/sample/webfrontend/Application.java#L16) en :
+1. Mettez à jour la [ligne 19 in `src/main/java/com/ms/sample/webfrontend/Application.java`](https://github.com/Azure/dev-spaces/blob/master/samples/java/getting-started/webfrontend/src/main/java/com/ms/sample/webfrontend/Application.java#L19) vers :
     
     ```java
     return "Hello from webfrontend in Azure!";
@@ -145,7 +145,7 @@ Pour déployer une version mise à jour de votre service, vous pouvez mettre à 
 
 ## <a name="enable-visual-studio-code-to-debug-in-kubernetes"></a>Activer Visual Studio Code pour déboguer dans Kubernetes
 
-Ouvrez Visual Studio Code, cliquez sur *Fichier* puis sur *Ouvrir...*, accédez au répertoire *dev-spaces/samples/java/getting-started/webfrontend*, puis cliquez sur *Ouvrir*.
+Ouvrez Visual Studio Code, cliquez sur *Fichier* puis sur *Ouvrir...* , accédez au répertoire *dev-spaces/samples/java/getting-started/webfrontend*, puis cliquez sur *Ouvrir*.
 
 Vous avez maintenant le projet *webfrontend* ouvert dans Visual Studio Code, qui est le même service que celui que vous avez exécuté avec la commande `azds up`. Pour déboguer ce service dans AKS avec Visual Studio Code, au lieu d’utiliser `azds up` directement, vous devez préparer ce projet à utiliser Visual Studio Code pour communiquer avec votre espace de développement.
 
@@ -176,19 +176,19 @@ Cliquez sur *Déboguer*, puis sur *Arrêter le débogage* pour arrêter le débo
 
 ## <a name="setting-and-using-breakpoints-for-debugging"></a>Définition et utilisation de points d’arrêt pour le débogage
 
-Démarrez votre service en mode de débogage avec *Lancer le programme Java (AZDS)*.
+Démarrez votre service en mode de débogage avec *Lancer le programme Java (AZDS)* .
 
-Revenez à la vue *Explorer* en cliquant sur *Afficher*, puis sur *Explorer*. Ouvrez `src/main/java/com/ms/sample/webfrontend/Application.java`, puis cliquez quelque part sur la ligne 16 pour y placer votre curseur. Pour définir un point d’arrêt, appuyez sur *F9* ou cliquez sur *Déboguer*, puis sur *Activer/désactiver le point d’arrêt*.
+Revenez à la vue *Explorer* en cliquant sur *Afficher*, puis sur *Explorer*. Ouvrez `src/main/java/com/ms/sample/webfrontend/Application.java`, puis cliquez quelque part sur la ligne 19 pour y placer votre curseur. Pour définir un point d’arrêt, appuyez sur *F9* ou cliquez sur *Déboguer*, puis sur *Activer/désactiver le point d’arrêt*.
 
-Ouvrez votre service dans un navigateur ; notez qu’aucun message n’est affiché. Revenez à Visual Studio Code et notez que la ligne 16 est mise en surbrillance. Le point d’arrêt que vous avez défini a suspendu le service à la ligne 16. Pour reprendre le service, appuyez sur *F5* ou cliquez sur *Déboguer*, puis sur *Continuer*. Revenez à votre navigateur et notez que le message est maintenant affiché.
+Ouvrez votre service dans un navigateur ; notez qu’aucun message n’est affiché. Revenez à Visual Studio Code et notez que la ligne 19 est mise en surbrillance. Le point d’arrêt que vous avez défini a suspendu le service à la ligne 19. Pour reprendre le service, appuyez sur *F5* ou cliquez sur *Déboguer*, puis sur *Continuer*. Revenez à votre navigateur et notez que le message est maintenant affiché.
 
-Quand vous exécutez votre service dans Kubernetes avec un débogueur attaché, vous avez un accès complet aux informations de débogage, comme la pile des appels, les variables locales et les informations sur les exceptions.
+Quand vous exécutez votre service dans Kubernetes avec un débogueur attaché, vous avez un accès total aux informations de débogage, comme la pile des appels, les variables locales et les informations sur les exceptions.
 
-Supprimez le point d’arrêt en plaçant votre curseur sur la ligne 16 dans `src/main/java/com/ms/sample/webfrontend/Application.java` et en appuyant sur *F9*.
+Supprimez le point d’arrêt en plaçant votre curseur sur la ligne 19 dans `src/main/java/com/ms/sample/webfrontend/Application.java` et en appuyant sur *F9*.
 
 ## <a name="update-code-from-visual-studio-code"></a>Mettre à jour le code à partir de Visual Studio Code
 
-Avec le service en cours d’exécution en mode de débogage, mettez à jour la ligne 16 dans `src/main/java/com/ms/sample/webfrontend/Application.java`. Par exemple : 
+Pendant l’exécution du service en mode de débogage, mettez à jour la ligne 19 dans `src/main/java/com/ms/sample/webfrontend/Application.java`. Par exemple : 
 ```java
 return "Hello from webfrontend in Azure while debugging!";
 ```
