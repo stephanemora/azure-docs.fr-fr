@@ -1,12 +1,12 @@
 - name: Solution VMware de CloudSimple
   href: /azure/vmware-cloudsimple
   items:
-    - name: Vue d’ensemble
+    - name: Vue d'ensemble
       items:
         - name: Présentation de la solution VMware de CloudSimple
           href: cloudsimple-vmware-solutions-overview.md
         - name: Concepts clés pour l’administration
-          href: 'https://docs.azure.cloudsimple.com/key-concepts/'
+          href: key-concepts.md
     - name: Démarrage rapide
       expanded: true
       items:
@@ -21,7 +21,7 @@
     - name: Concepts
       items:
         - name: de diffusion en continu
-          href: 'https://docs.azure.cloudsimple.com/cloudsimple-service/'
+          href: cloudsimple-service.md
         - name: Nœuds
           href: cloudsimple-node.md
         - name: Cloud privé
@@ -45,13 +45,13 @@
         - name: VMware sur un cloud privé
           href: vmware-components.md
         - name: Présentation de la sécurité
-          href: 'https://docs.azure.cloudsimple.com/cloudsimple-security/'
+          href: cloudsimple-security.md
         - name: Quota de nœuds
           href: node-quota.md
         - name: Maintenance et mises à jour
           href: cloudsimple-maintenance-updates.md
         - name: Forum Aux Questions
-          href: 'https://docs.azure.cloudsimple.com/cloudsimple-faq/'
+          href: cloudsimple-faq.md
     - name: Tutoriels
       items:
         - name: Activer un fournisseur de ressources

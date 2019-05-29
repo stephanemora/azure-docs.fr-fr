@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: f7fd13b0b6df0b07543216e3c612520e528c1176
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bcaa990cc2186a5f1eecdbbca91804c92370277c
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60368003"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357181"
 ---
 # <a name="recognize-printed-and-handwritten-text"></a>Reconnaître le texte imprimé et manuscrit
 
@@ -24,12 +24,12 @@ Vision par ordinateur fournit un certain nombre de services pour détecter et ex
 
 ## <a name="read-api"></a>API de lecture
 
-L’API de lecture détecte le contenu de texte dans une image à l’aide de nos derniers modèles de reconnaissance et convertit le texte identifié dans un flux de caractères exploitable automatiquement. Il est optimisé pour les images comportant beaucoup de texte (tels que les documents ont été analysés numériquement) et pour les images avec beaucoup de bruit visuel. Il s’exécute de façon asynchrone, car les documents plus volumineux peuvent prendre plusieurs minutes pour retourner un résultat.
+L’API de lecture détecte le contenu de texte dans une image à l’aide de nos derniers modèles de reconnaissance et convertit le texte identifié dans un flux de caractères exploitable automatiquement. Il est optimisé pour les images comportant beaucoup de texte (tels que les documents ont été analysés numériquement) et pour les images avec beaucoup de bruit visuel. Elle permet de déterminer quel modèle de reconnaissance à utiliser pour chaque ligne de texte, en prenant en charge les images avec texte imprimé ou manuscrit. L’API de lecture exécute de façon asynchrone, car les documents plus volumineux peuvent prendre plusieurs minutes pour retourner un résultat.
 
 L’opération de lecture conserve le regroupement d’origine de la ligne des mots reconnus dans sa sortie. Chaque ligne est fourni avec les coordonnées de la zone de délimitation, et chaque mot dans la ligne a également sa propre coordonnées. Si un mot a été reconnu avec confiance faible, cette information est également transmise. Consultez le [documents de référence des API de lecture](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) pour en savoir plus.
 
 > [!NOTE]
-> Cette fonctionnalité est actuellement en version préliminaire et est uniquement disponible pour le texte en anglais.
+> Cette fonctionnalité est uniquement disponible pour le texte en anglais.
 
 ### <a name="image-requirements"></a>Exigences des images
 
@@ -80,7 +80,7 @@ L’API texte reconnaître fonctionne avec des images qui répondent aux exigenc
 - Les dimensions de l’image doivent être comprise entre 50 x 50 et 4200 x 4200 pixels.
 - La taille du fichier de l’image doit être inférieure à 4 mégaoctets (Mo).
 
-## <a name="improve-results"></a>Améliorer les résultats
+## <a name="limitations"></a>Limites
 
 La précision des opérations de reconnaissance de texte dépend de la qualité des images. Les facteurs suivants peuvent provoquer une lecture inexacte :
 
