@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 69e86e486a9cdb058b972bda5176c14e15f4630a
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 55fa42eb1c35025b1008b3b5d26f61c243ff2b97
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59682725"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956668"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-uberflip"></a>Didacticiel : Intégration d’Azure Active Directory à Uberflip
 
@@ -72,15 +72,15 @@ Pour configurer l’intégration d’Uberflip dans Azure AD, vous devez ajouter 
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
 
-Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec Uberflip sur un utilisateur de test nommé **Britta Simon**. Pour que l’authentification unique fonctionne, vous devez établir un lien entre un utilisateur Azure AD et l’utilisateur correspondant dans Uberflip.
+Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec Uberflip sur un utilisateur de test nommé **B Simon**. Pour que l’authentification unique fonctionne, vous devez établir un lien entre un utilisateur Azure AD et l’utilisateur correspondant dans Uberflip.
 
 Pour configurer et tester l’authentification unique Azure AD avec Uberflip, vous devez suivre les indications des sections suivantes :
 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 1. **[Configurer l’authentification unique Uberflip](#configure-uberflip-single-sign-on)** pour configurer les paramètres de l’authentification unique côté application.
-1. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-1. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
-1. **[Créer un utilisateur de test Uberflip](#create-an-uberflip-test-user)** de sorte qu’il existe un utilisateur nommé Britta Simon dans Uberflip qui soit lié à l’utilisateur Azure AD nommé Britta Simon.
+1. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec B. Simon.
+1. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à B. Simon d’utiliser l’authentification unique Azure AD.
+1. **[Créer un utilisateur de test Uberflip](#create-an-uberflip-test-user)** de sorte qu’il existe un utilisateur nommé B. Simon dans Uberflip qui soit lié à l’utilisateur Azure AD nommé B. Simon.
 1. **[Tester l’authentification unique](#test-single-sign-on)** pour vérifier si la configuration fonctionne.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
@@ -103,7 +103,7 @@ Pour configurer l’authentification unique Azure AD avec Uberflip, effectuez le
 
 1. Dans le volet **Configuration SAML de base**, effectuez l’une des étapes suivantes, selon le mode d’authentification unique que vous souhaitez configurer :
 
-   * Pour configurer l’application en mode d’authentification unique initiée par le fournisseur d’identité (IDP), dans la zone **URL de réponse (URL Assertion Consumer Service)**, entrez une URL selon le modèle suivant :
+   * Pour configurer l’application en mode d’authentification unique initiée par le fournisseur d’identité (IDP), dans la zone **URL de réponse (URL Assertion Consumer Service)** , entrez une URL selon le modèle suivant :
 
      `https://app.uberflip.com/sso/saml2/<IDPID>/<ACCOUNTID>`
 
@@ -136,7 +136,7 @@ Pour configurer l’authentification unique côté Uberflip, vous devez envoyer 
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
-Dans cette section, créez un utilisateur de test nommé Britta Simon dans le portail Azure.
+Dans cette section, créez un utilisateur de test nommé B. Simon dans le portail Azure.
 
 1. Dans le portail Azure, dans le volet gauche, sélectionnez **Azure Active Directory** > **Utilisateurs** > **Tous les utilisateurs**.
 
@@ -150,9 +150,9 @@ Dans cette section, créez un utilisateur de test nommé Britta Simon dans le po
 
     ![Volet Utilisateur](common/user-properties.png)
 
-    1. Dans la zone **Nom**, entrez **BrittaSimon**.
+    1. Dans la zone **Nom**, entrez **BSimon**.
   
-    1. Dans la zone **Nom d’utilisateur**, entrez **BrittaSimon\@\<votre_domaine_d’entreprise>.\<extension>**. Par exemple, **BrittaSimon\@contoso.com**.
+    1. Dans la zone **Nom d’utilisateur**, entrez **BSimon\@\<votre_domaine_d’entreprise>.\<extension>** . Par exemple **BSimon\@contoso.com**.
 
     1. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
 
@@ -160,7 +160,7 @@ Dans cette section, créez un utilisateur de test nommé Britta Simon dans le po
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 
-Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à Uberflip.
+Dans cette section, vous allez autoriser B. Simon à utiliser l’authentification unique Azure en lui accordant l’accès à Uberflip.
 
 1. Sur le portail Azure, sélectionnez **Applications d’entreprise** > **Toutes les applications** > **Uberflip**.
 
@@ -178,7 +178,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
     ![Volet Ajouter une attribution](common/add-assign-user.png)
 
-1. Dans le volet **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste **Utilisateurs**, puis choisissez **Sélectionner** au bas du volet.
+1. Dans le volet **Utilisateurs et groupes**, sélectionnez **B Simon** dans la liste **Utilisateurs**, puis choisissez **Sélectionner** au bas du volet.
 
 1. Si vous attendez une valeur de rôle dans l’assertion SAML, dans le volet **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste. Au bas du volet, choisissez **Sélectionner**.
 
@@ -186,7 +186,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 ### <a name="create-an-uberflip-test-user"></a>Créer un utilisateur de test Uberflip
 
-Un utilisateur nommé Britta Simon est maintenant créé dans Uberflip. Aucune action n’est nécessaire pour créer cet utilisateur. Uberflip prend en charge le provisionnement d’utilisateurs juste-à-temps, activé par défaut. S’il n’existe pas déjà d’utilisateur sous le nom de Britta Simon dans Uberflip, un nouveau est créé après l’authentification.
+Un utilisateur nommé B. Simon est maintenant créé dans Uberflip. Aucune action n’est nécessaire pour créer cet utilisateur. Uberflip prend en charge le provisionnement d’utilisateurs juste-à-temps, activé par défaut. S’il n’existe pas déjà d’utilisateur sous le nom de B. Simon dans Uberflip, un nouveau est créé après l’authentification.
 
 > [!NOTE]
 > Si vous devez créer un utilisateur manuellement, contactez [l’équipe de support technique Uberflip](mailto:support@uberflip.com).

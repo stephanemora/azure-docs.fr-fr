@@ -1,27 +1,27 @@
 ---
-title: Tutoriel - Acheminer le trafic web selon l’URL - Azure CLI
-description: Avec ce tutoriel, découvrez comment acheminer le trafic web selon l’URL vers des pools évolutifs spécifiques de serveurs à l’aide d’Azure CLI.
+title: Acheminer le trafic web selon l’URL - Azure CLI
+description: Avec cet article, découvrez comment acheminer le trafic web selon l’URL vers des pools scalables spécifiques de serveurs à l’aide d’Azure CLI.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 10/25/2018
+ms.date: 5/20/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 4f0c93c41a468b62baf1ec50d030f235d36a8dd2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c0954d1010a6cf5ef6f8edab1470588df9fba559
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58006477"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65955532"
 ---
-# <a name="tutorial-route-web-traffic-based-on-the-url-using-the-azure-cli"></a>Tutoriel : Acheminer le trafic web selon l’URL à l’aide d’Azure CLI
+# <a name="route-web-traffic-based-on-the-url-using-the-azure-cli"></a>Acheminer le trafic web selon l’URL à l’aide d’Azure CLI
 
-En tant qu’administrateur gérant le trafic web, vous souhaitez aider vos clients ou utilisateurs à obtenir les informations nécessaires aussi vite que possible. Pour optimiser leur expérience, vous pouvez acheminer différents types de trafic web vers différentes ressources de serveur. Ce tutoriel vous montre comment utiliser Azure CLI pour installer et configurer l’acheminement d’Application Gateway pour différents types de trafic depuis votre application. L’acheminement dirige le trafic vers différents pools de serveurs basé sur l’URL.
+En tant qu’administrateur gérant le trafic web, vous souhaitez aider vos clients ou utilisateurs à obtenir les informations nécessaires aussi vite que possible. Pour optimiser leur expérience, vous pouvez acheminer différents types de trafic web vers différentes ressources de serveur. Cet article vous montre comment utiliser Azure CLI pour installer et configurer l’acheminement Application Gateway pour différents types de trafic depuis votre application. L’acheminement dirige le trafic vers différents pools de serveurs basé sur l’URL.
 
 ![Exemple d’acheminement d’URL](./media/tutorial-url-route-cli/scenario.png)
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans cet article, vous apprendrez comment :
 
 > [!div class="checklist"]
 > * Créer un groupe de ressources pour les ressources réseau dont vous aurez besoin
@@ -31,13 +31,13 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Créer un groupe identique pour chaque pool afin que ce dernier puisse effectuer une mise à l'échelle
 > * Exécuter un test pour vérifier que les différents types de trafic sont dirigés vers le bon pool
 
-Si vous préférez, vous pouvez suivre ce didacticiel en utilisant [Azure PowerShell](tutorial-url-route-powershell.md) ou le [portail Azure](create-url-route-portal.md).
+Si vous préférez, vous pouvez suivre cette procédure en utilisant [Azure PowerShell](tutorial-url-route-powershell.md) ou le [portail Azure](create-url-route-portal.md).
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, ce tutoriel nécessite l’exécution d’Azure CLI version 2.0.4 ou ultérieure. Pour connaître la version de l’interface, exécutez `az --version`. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI](/cli/azure/install-azure-cli).
+Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, cet article nécessite l’exécution d’Azure CLI version 2.0.4 ou ultérieure. Pour connaître la version de l’interface, exécutez `az --version`. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI](/cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
@@ -182,7 +182,7 @@ az network application-gateway rule create \
 
 ## <a name="create-vm-scale-sets"></a>Créer des groupes de machines virtuelles identiques
 
-Ce tutoriel crée trois groupes de machines virtuelles identiques prenant en charge les trois pools principaux qui ont été créés. Ils sont nommés *myvmss1*, *myvmss2* et *myvmss3*. Chacun contient deux instances de machines virtuelles sur lesquelles NGINX sera installé.
+Cet article crée trois groupes de machines virtuelles identiques prenant en charge les trois pools backend que vous avez créés. Ils sont nommés *myvmss1*, *myvmss2* et *myvmss3*. Chacun contient deux instances de machines virtuelles sur lesquelles NGINX sera installé.
 
 ```azurecli-interactive
 for i in `seq 1 3`; do
@@ -264,5 +264,4 @@ az group delete --name myResourceGroupAG --location eastus
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-> [!div class="nextstepaction"]
-> [Créer une passerelle d’application avec réacheminement par chemin d’URL](./tutorial-url-redirect-cli.md)
+* [Créer une passerelle d’application avec réacheminement par chemin d’URL](./tutorial-url-redirect-cli.md)

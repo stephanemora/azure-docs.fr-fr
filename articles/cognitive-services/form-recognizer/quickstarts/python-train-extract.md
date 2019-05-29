@@ -9,34 +9,48 @@ ms.subservice: form-recognizer
 ms.topic: quickstart
 ms.date: 04/24/2019
 ms.author: pafarley
-ms.openlocfilehash: 98d1870105038c4314a6b038ec198342bb2ca1d0
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 139c0c29033dc45d07fd0987c2eee92308512329
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025556"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65906981"
 ---
-# <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-using-rest-api-with-python"></a>Démarrage rapide : Entraîner un modèle Form Recognizer et extraire des données à partir de formulaires au moyen d’une API REST avec Python
+# <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-python"></a>Démarrage rapide : Entraîner un modèle Form Recognizer et extraire des données à partir de formulaires au moyen d’une API REST avec Python
 
-Dans ce guide de démarrage rapide, vous utilisez l’API REST Form Recognizer avec Python pour entraîner et scorer des formulaires afin d’extraire des paires clé-valeur et des tables.
+Dans ce guide de démarrage rapide, vous utilisez l’API REST Azure Form Recognizer avec Python pour entraîner et scorer des formulaires afin d’extraire des paires clé-valeur et des tables.
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
 ## <a name="prerequisites"></a>Prérequis
+Pour suivre cette procédure de démarrage rapide, vous avez besoin des éléments suivants :
+- Accès à la préversion à accès limité de Form Recognizer. Pour accéder à la préversion, remplissez et envoyez le formulaire de [demande d’accès Form Recognizer](https://aka.ms/FormRecognizerRequestAccess).
+- [Python](https://www.python.org/downloads/) doit être installé (si vous souhaitez exécuter l’exemple en local).
+- Au minimum un ensemble de cinq formulaires du même type. Vous pouvez utiliser un [exemple de jeu de données](https://go.microsoft.com/fwlink/?linkid=2090451) pour ce guide de démarrage rapide.
 
--  Vous devez obtenir l’accès à la préversion à accès limité de Form Recognizer. Pour accéder à la préversion, remplissez et envoyez le formulaire de [demande d’accès à Cognitive Services Form Recognizer](https://aka.ms/FormRecognizerRequestAccess). 
-- Si vous souhaitez exécuter l’exemple en local, [Python](https://www.python.org/downloads/) doit être installé.
-- Vous devez disposer d’une clé d’abonnement pour Form Recognizer. Pour obtenir une clé d’abonnement, consultez [Obtention de clés d’abonnement](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).
-- Vous devez disposer au minimum d’un ensemble de cinq formulaires du même type. Vous pouvez utiliser un [exemple de jeu de données](https://go.microsoft.com/fwlink/?linkid=2090451) pour ce guide de démarrage rapide.
+## <a name="create-a-form-recognizer-resource"></a>Créer une ressource Form Recognizer
+
+Lorsque vous recevez un accès qui vous autorise à utiliser Form Recognizer, vous recevez un e-mail d’accueil contenant plusieurs liens et ressources. Utilisez le lien « Portail Azure » dans ce message pour ouvrir le portail Azure et créer une ressource Form Recognizer. Dans le volet **Créer**, indiquez les informations suivantes :
+
+|    |    |
+|--|--|
+| **Nom** | Nom descriptif de votre ressource. Nous recommandons d’utiliser un nom explicite, par exemple *MyNameFormRecognizer*. |
+| **Abonnement** | Sélectionnez l’abonnement Azure auquel l’accès a été accordé. |
+| **Lieu** | Emplacement de votre instance Cognitive Services. Des emplacements différents peuvent entraîner une latence. Toutefois, cela n’aura pas d’impact sur la disponibilité d’exécution de votre ressource. |
+| **Niveau tarifaire** | Le coût de la ressource dépend du niveau tarifaire que vous choisissez et de votre utilisation. Pour plus d'informations, consultez le [détail des tarifs](https://azure.microsoft.com/pricing/details/cognitive-services/) de l’API.
+| **Groupe de ressources** | [Groupe de ressources Azure](https://docs.microsoft.com/azure/architecture/cloud-adoption/governance/resource-consistency/azure-resource-access#what-is-an-azure-resource-group) comprenant votre ressource. Vous pouvez créer un groupe ou l’ajouter à un groupe préexistant. |
+
+> [!IMPORTANT]
+> Normalement, lorsque vous créez une ressource Cognitive Services dans le portail Azure, vous avez la possibilité de créer une clé d’abonnement multiservice (utilisée dans plusieurs services cognitifs) ou une clé d’abonnement à un seul service (utilisée uniquement avec un service cognitif spécifique). Toutefois, étant donné que Form Recognizer est en préversion, il n’est pas inclus dans l’abonnement multiservice et vous ne pouvez pas créer l’abonnement à un service unique, sauf si vous utilisez le lien fourni dans l’e-mail de bienvenue.
+
+Lorsque le déploiement de la ressource Form Recognizer se termine, recherchez-la et sélectionnez-la dans la liste **Toutes les ressources** dans le portail. Sélectionnez ensuite l’onglet **Clés** pour afficher vos clés d’abonnement. Chaque clé donne à votre application l’accès à la ressource. Copiez la valeur de **CLÉ 1**. Vous en aurez besoin dans la prochaine section.
 
 ## <a name="create-and-run-the-sample"></a>Création et exécution de l’exemple
 
 Pour créer et exécuter l’exemple, apportez les modifications suivantes à l’extrait de code ci-dessous :
-
-1. Remplacez la valeur de `<subscription_key>` par votre clé d’abonnement.
-1. Remplacez la valeur de `<Endpoint>` par l’URL du point de terminaison de la ressource Form Recognizer de la région Azure dans laquelle vous avez obtenu vos clés d’abonnement.
-1. Remplacez `<SAS URL>` par une URL de signature d’accès partagé (SAS) du conteneur Stockage Blob Azure où se trouvent les données d’entraînement.  
-
+1. Remplacez `<Endpoint>` par l’URL du point de terminaison de la ressource Form Recognizer de la région Azure dans laquelle vous avez obtenu vos clés d’abonnement.
+1. Remplacez `<SAS URL>` par une URL de signature d’accès partagé (SAP) du conteneur Stockage Blob Azure où se trouvent les données d’entraînement.  
+1. Remplacez `<Subscription key>` par la clé d’abonnement que vous avez copiée à l’étape précédente.
     ```python
     ########### Python Form Recognizer Train #############
     from requests import post as http_post
@@ -58,7 +72,7 @@ Pour créer et exécuter l’exemple, apportez les modifications suivantes à l�
     except Exception as e:
         print(str(e))
     ```
-1. Enregistrez le code dans un fichier avec une extension `.py`. Par exemple : `form-recognize-train.py`.
+1. Enregistrez le code dans un fichier avec une extension .py. Par exemple, *form-recognize-train.py*.
 1. Ouvrir une fenêtre d’invite de commandes.
 1. À l’invite, utilisez la commande `python` pour exécuter l’exemple. Par exemple : `python form-recognize-train.py`.
 
@@ -103,16 +117,16 @@ Vous recevez une réponse `200 (Success)` avec la sortie JSON suivante :
 }
 ```
 
-Notez la valeur `"modelId"`, vous en aurez besoin pour les étapes suivantes.
+Notez la valeur `"modelId"`. Vous en aurez besoin dans les étapes suivantes.
   
 ## <a name="extract-key-value-pairs-and-tables-from-forms"></a>Extraire des paires clé-valeur et des tables à partir de formulaires
 
-À présent, vous allez analyser un document et en extraire des tables et des paires clé-valeur. Appelez l’API **Modèle - Analyser** en exécutant le script Python ci-dessous. Avant d’exécuter la commande, apportez les modifications suivantes :
+À présent, vous allez analyser un document et en extraire des tables et des paires clé-valeur. Appelez l’API **Model - Analyze (Modèle - Analyser)** en exécutant le script Python ci-dessous. Avant d’exécuter la commande, apportez les modifications suivantes :
 
-1. Remplacez `<Endpoint>` par le point de terminaison que vous avez obtenu avec votre clé d’abonnement Form Recognizer. Vous la trouverez sous l’onglet de la vue d’ensemble de la ressource Form Recognizer.
-1. Remplacez `<File Path>` par l’emplacement du chemin ou l’URL du fichier où se trouve le formulaire à partir duquel extraire des données.
-1. Remplacez `<modelID>` par l’ID de modèle que vous avez reçu à l’étape précédente de l’entraînement du modèle.
-1. Remplacez `<file type>` par le type de fichier ; les types pris en charge sont pdf, image/jpeg, image/png.
+1. Remplacez `<Endpoint>` par le point de terminaison que vous avez obtenu avec votre clé d’abonnement Form Recognizer. Vous la trouverez sous l’onglet **Vue d’ensemble** de la ressource Form Recognizer.
+1. Remplacez `<File Path>` par le chemin d’accès au fichier ou l’URL de l’emplacement du formulaire à partir duquel extraire des données.
+1. Remplacez `<modelID>` par l’ID de modèle que vous avez reçu à la section précédente.
+1. Remplacez `<file type>` par le type de fichier. Les types pris en charge sont pdf, image/jpeg, image/png.
 1. Remplacez `<subscription key>` par votre clé d’abonnement.
 
     ```python
@@ -140,13 +154,13 @@ Notez la valeur `"modelId"`, vous en aurez besoin pour les étapes suivantes.
         print(str(e))
     ```
 
-1. Enregistrez le code dans un fichier avec une extension `.py`. Par exemple : `form-recognize-analyze.py`.
+1. Enregistrez le code dans un fichier avec une extension .py. Par exemple, *form-recognize-analyze.py*.
 1. Ouvrir une fenêtre d’invite de commandes.
 1. À l’invite, utilisez la commande `python` pour exécuter l’exemple. Par exemple : `python form-recognize-analyze.py`.
 
 ### <a name="examine-the-response"></a>Examiner la réponse
 
-Une réponse correcte est retournée au format JSON, elle représente les paires clé-valeur et les tables extraites à partir du formulaire.
+Une réponse correcte est retournée au format JSON. Elle représente les paires clé-valeur et les tables extraites à partir du formulaire :
 
 ```bash
 {
@@ -471,7 +485,7 @@ Une réponse correcte est retournée au format JSON, elle représente les paires
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce guide, vous avez utilisé les API REST Form Recognizer avec Python pour entraîner un modèle et l’exécuter dans un exemple de cas. Consultez à présent la documentation de référence pour explorer l’API Form Recognizer plus en détail.
+Dans ce démarrage rapide, vous avez utilisé les API REST Form Recognizer avec Python pour entraîner un modèle et l’exécuter dans un exemple de scénario. Consultez à présent la documentation de référence pour explorer l’API Form Recognizer plus en détail.
 
 > [!div class="nextstepaction"]
 > [Documentation de référence sur l’API REST](https://aka.ms/form-recognizer/api)

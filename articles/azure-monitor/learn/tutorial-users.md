@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: e46dae199f4d45c325e41fa5432e98cba9a2f4ae
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 90357c13003820a25ee52aab5cda83029c9d85ff
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57449595"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65601559"
 ---
 # <a name="use-azure-application-insights-to-understand-how-customers-are-using-your-application"></a>Utiliser Azure Application Insights pour comprendre comment les clients utilisent votre application
 
@@ -33,9 +33,9 @@ Azure Application Insights collecte des informations d’utilisation pour vous a
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour suivre ce didacticiel :
+Pour suivre ce tutoriel :
 
-- Installez [Visual Studio 2017](https://www.visualstudio.com/downloads/) avec les charges de travail suivantes :
+- Installez [Visual Studio 2019](https://www.visualstudio.com/downloads/) avec les charges de travail suivantes :
     - Développement web et ASP.NET
     - Développement Azure
 - Téléchargez et installez le [débogueur d'instantané de Visual Studio](https://aka.ms/snapshotdebugger).
@@ -59,11 +59,11 @@ Le panneau **Utilisateurs** vous permet de comprendre les détails importants su
 
     ![Modifier l’intervalle de temps](media/tutorial-users/TimeRange.png)
 
-4. Cliquez sur la liste déroulante **Fractionner par** pour ajouter une répartition par propriété d’utilisateur au graphique.  Sélectionnez un **pays ou une région**.  Le graphique inclut les mêmes données mais vous permet d’afficher une répartition du nombre d’utilisateurs pour chaque pays.
+4. Cliquez sur la liste déroulante **Fractionner par** pour ajouter une répartition par propriété d’utilisateur au graphique.  Sélectionnez un **pays ou une région**.  Le graphique inclut les mêmes données mais vous permet d’afficher une répartition du nombre d’utilisateurs pour chaque pays/région.
 
     ![Graphique Pays ou Région](media/tutorial-users/CountryorRegion.png)
 
-5. Placez le curseur sur les différentes barres du graphique et notez que le nombre pour chaque pays correspond uniquement à la fenêtre de temps représentée par cette barre.
+5. Placez le curseur sur les différentes barres du graphique et notez que le nombre pour chaque pays/région correspond uniquement à la fenêtre de temps représentée par cette barre.
 6. Examinez la colonne **Insights** à droite, qui analyse les données de vos utilisateurs.  Elle fournit des informations telles que le nombre de sessions uniques sur la période de temps ainsi que les enregistrements avec des propriétés communes qui composent principalement les données utilisateur 
 
     ![Colonne Insights](media/tutorial-users/insights.png)

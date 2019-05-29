@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
-ms.openlocfilehash: 3244140999dc61560549db077d4c402b3986956b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 2a14b251df0bedbcd27ab4e9bf1abe9a27ad50d6
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59282642"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65950916"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clickup-productivity-platform"></a>Didacticiel : Intégration d’Azure Active Directory à ClickUp Productivity Platform
 
@@ -52,7 +52,7 @@ Pour configurer l’intégration de ClickUp Productivity Platform à Azure AD, v
 
 **Pour ajouter ClickUp Productivity Platform à partir de la galerie, effectuez les étapes suivantes :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -106,7 +106,7 @@ Pour configurer l’authentification unique Azure AD auprès de ClickUp Producti
 
     a. Dans la zone de texte **URL de connexion**, tapez une URL : `https://app.clickup.com/login/sso`
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant : `https://api.clickup.com/v1/team/<team_id>/microsoft`
+    b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant : `https://api.clickup.com/v1/team/<team_id>/microsoft`
 
     > [!NOTE]
     > La valeur de l'identificateur n'est pas réelle. Vous devez remplacer cette valeur par l’identificateur réel. La procédure à suivre est expliquée plus loin dans ce tutoriel.

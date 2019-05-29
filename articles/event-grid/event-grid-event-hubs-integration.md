@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: tutorial
 ms.date: 01/13/2019
 ms.author: spelluru
-ms.openlocfilehash: c2c49563bf505ce70c4900c6c0a8e41c0f6ac9c5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1ae7a18660d2a7324bc5897d6b3952da42b6c4b2
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58176614"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65603445"
 ---
 # <a name="tutorial-stream-big-data-into-a-data-warehouse"></a>Didacticiel : Diffuser en continu des Big Data dans un entrepôt de données
 Azure [Event Grid](overview.md) est un service de routage des événements intelligent qui vous permet de réagir aux notifications (événements) à partir d’applications et de services. Par exemple, ce service peut déclencher le traitement par une fonction Azure des données Event Hubs capturées dans un Stockage Blob Azure ou dans un référentiel Azure Data Lake Storage, ainsi que la migration des données vers d’autres référentiels de données. Cet [exemple d’intégration Event Hubs et Event Grid](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) vous indique comment utiliser Event Hubs avec Event Grid pour migrer en toute transparence les données Event Hubs capturées du stockage blob vers un service SQL Data Warehouse.
@@ -45,7 +45,7 @@ Dans cet article, vous procédez comme suit :
 Pour suivre ce didacticiel, vous avez besoin de :
 
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
-* [Visual studio 2017 Version 15.3.2 ou supérieure](https://www.visualstudio.com/vs/) avec des charges de travail pour : le développement de bureau .NET, le développement Azure, le développement ASP.NET et web, le développement Node.js et le développement Python.
+* [Visual studio 2019](https://www.visualstudio.com/vs/) avec des charges de travail pour : le développement de bureau .NET, le développement Azure, le développement ASP.NET et web, le développement Node.js et le développement Python.
 * Télécharger l’[exemple de projet EventHubsCaptureEventGridDemo](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) sur votre ordinateur.
 
 ## <a name="deploy-the-infrastructure"></a>Déployer l’infrastructure
@@ -196,7 +196,7 @@ Créez une table dans votre entrepôt de données en exécutant le script [Creat
 
 ## <a name="publish-the-azure-functions-app"></a>Publie l’application Azure Functions
 
-1. Lancer Visual Studio 2017. 
+1. Lancez Visual Studio.
 2. Ouvrez la solution **EventHubsCaptureEventGridDemo.sln** que vous avez téléchargée depuis [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) dans le cadre des conditions préalables.
 3. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur **FunctionEGDWDumper**, puis sélectionnez **Publier**.
 

@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f8e0b79d5aebd1e92dd71bba72efa7430aa475b
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: acd100ccc3aafc2de1f2c7970ff9437c92156b17
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58224649"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65861528"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>Didacticiel : Réinitialisation du mot de passe Azure AD depuis l’écran de connexion
 
-Dans ce tutoriel, vous allez autoriser les utilisateurs à réinitialiser leurs mots de passe depuis l’écran de connexion Windows 10. Avec la nouvelle mise à jour d’avril 2018 de Windows 10, les utilisateurs qui ont des appareils **joints à Azure AD** ou **joints à Azure AD hybrides** peuvent utiliser un lien de réinitialisation de mot de passe sur leur écran de connexion. Lorsque les utilisateurs cliquent sur ce lien, ils bénéficient de l’expérience SSPR qu’ils connaissent déjà.
+Dans ce tutoriel, vous allez autoriser les utilisateurs à réinitialiser leurs mots de passe depuis l’écran de connexion Windows 10. Avec la nouvelle mise à jour d’avril 2018 de Windows 10, les utilisateurs qui ont des appareils **joints à Azure AD** ou **joints à Azure AD hybrides** peuvent utiliser un lien de réinitialisation de mot de passe sur leur écran de connexion. Lorsque les utilisateurs cliquent sur ce lien, ils bénéficient de l’expérience SSPR qu’ils connaissent déjà. Si un utilisateur est verrouillé, ce processus ne déverrouille pas les comptes dans l’instance Active Directory locale.
 
 > [!div class="checklist"]
 > * Configurer le lien de réinitialisation du mot de passe à l’aide d’Intune

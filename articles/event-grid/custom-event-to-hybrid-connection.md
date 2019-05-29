@@ -9,12 +9,12 @@ ms.date: 02/02/2019
 ms.topic: tutorial
 ms.service: event-grid
 ms.custom: seodec18
-ms.openlocfilehash: 2a050f8bc5d2437c7cdbadcf3296c2ef6d4659dc
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 270059537fc8d06648c86088b22aef5b78ff00ec
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55728637"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606301"
 ---
 # <a name="tutorial-route-custom-events-to-azure-relay-hybrid-connections-with-azure-cli-and-event-grid"></a>Tutoriel : Acheminer des événements personnalisés vers des connexions hybrides Azure Relay avec Azure CLI et Event Grid
 
@@ -80,7 +80,7 @@ Notez qu’une [date d’expiration](concepts.md#event-subscription-expiration) 
 
 Vous avez besoin d’une application qui peut récupérer des événements à partir de la connexion hybride. L’[exemple de consommateur de connexions hybrides Microsoft Azure Event Grid pour C#](https://github.com/Azure-Samples/event-grid-dotnet-hybridconnection-destination) effectue cette opération. Vous avez déjà terminé les étapes requises.
 
-1. Vérifiez que vous disposez de Visual Studio 2017 Update 15.5 ou version ultérieure.
+1. Vérifiez que vous disposez de Visual Studio 2019 ou version ultérieure.
 
 1. Clonez le référentiel sur votre ordinateur local.
 

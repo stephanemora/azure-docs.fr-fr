@@ -686,8 +686,6 @@
               href: platform/powerbi.md
             - name: Exporter des données d’application
               href: app/export-power-bi.md
-        - name: Tableaux de bord
-          href: app/app-insights-dashboards.md
         - name: Envoyer des données vers Grafana
           href: platform/grafana-plugin.md
     - name: Analyser des données
@@ -1073,8 +1071,6 @@
           href: 'https://azure.microsoft.com/updates/?product=log-analytics'
         - name: Notes de publication du Kit de développement logiciel (SDK)
           href: app/release-notes.md
-        - name: Notes de publication de Developer Analytics Tools
-          href: app/release-notes-vsix.md
     - name: Windows Analytics
       href: 'https://www.microsoft.com/en-us/WindowsForBusiness/windows-analytics'
     - name: Disponibilité régionale
