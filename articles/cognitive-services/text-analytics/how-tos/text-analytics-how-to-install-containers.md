@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 04/16/2019
+ms.date: 05/28/2019
 ms.author: diberry
-ms.openlocfilehash: e0e8b9f767376db8028a3ac4a2d8659bab69268b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f9f68b74c09bf0122ba856680a60bdb14ffa868f
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60829954"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306527"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Installer et exécuter les conteneurs Analyse de texte
 
@@ -48,12 +48,12 @@ Le tableau suivant décrit les cœurs de processeur minimum et recommandés, d�
 
 | Conteneur | Minimale | Recommandé | TPS<br>(Au minimum, Maximum)|
 |-----------|---------|-------------|--|
-|Extraction d’expressions clés | 1 cœur, 2 Go de mémoire | 1 cœur, 4 Go de mémoire |15, 30|
-|Détection de la langue | 1 cœur, 2 Go de mémoire | 1 cœur, 4 Go de mémoire |15, 30|
+|Extraction de phrases clés | 1 cœur, 2 Go de mémoire | 1 cœur, 4 Go de mémoire |15, 30|
+|Détection de langue | 1 cœur, 2 Go de mémoire | 1 cœur, 4 Go de mémoire |15, 30|
 |Analyse des sentiments | 1 cœur, 2 Go de mémoire | 1 cœur, 4 Go de mémoire |15, 30|
 
 * Chaque cœur doit être cadencé à au moins 2,6 gigahertz (GHz).
-* Programmes transactionnels - transactions par seconde
+* TPS - transactions par seconde
 
 Le nombre de cœurs et la quantité de mémoire correspondent aux paramètres `--cpus` et `--memory` qui sont utilisés dans le cadre de la commande `docker run`.
 
@@ -61,10 +61,10 @@ Le nombre de cœurs et la quantité de mémoire correspondent aux paramètres `-
 
 Images conteneur pour Analyse de texte disponibles à partir de Microsoft Container Registry. 
 
-| Conteneur | Référentiel |
+| Conteneur | Dépôt |
 |-----------|------------|
-|Extraction d’expressions clés | `mcr.microsoft.com/azure-cognitive-services/keyphrase` |
-|Détection de la langue | `mcr.microsoft.com/azure-cognitive-services/language` |
+|Extraction de phrases clés | `mcr.microsoft.com/azure-cognitive-services/keyphrase` |
+|Détection de langue | `mcr.microsoft.com/azure-cognitive-services/language` |
 |Analyse des sentiments | `mcr.microsoft.com/azure-cognitive-services/sentiment` |
 
 Utilisez le [ `docker pull` ](https://docs.docker.com/engine/reference/commandline/pull/) commande pour télécharger une image de conteneur à partir du Registre de conteneurs de Microsoft.
@@ -166,6 +166,10 @@ L’envoi de conteneurs d’Analytique de texte informations de facturation pour
 [!INCLUDE [Container's Billing Settings](../../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
 Pour plus d’informations sur ces options, consultez [Configurer des conteneurs](../text-analytics-resource-container-config.md).
+
+<!--blogs/samples/video coures -->
+
+[!INCLUDE [Discoverability of more container information](../../../../includes/cognitive-services-containers-discoverability.md)]
 
 ## <a name="summary"></a>Résumé
 

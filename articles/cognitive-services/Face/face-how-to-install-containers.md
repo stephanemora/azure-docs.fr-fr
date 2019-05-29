@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: article
-ms.date: 04/16/2019
+ms.date: 05/28/2019
 ms.author: diberry
-ms.openlocfilehash: 9bc18157a6f60555ea18901796199a3fe9dc4c22
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 26ebeb463f42dce06c29a5bd3f69585430a2ee90
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65891223"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306633"
 ---
 # <a name="install-and-run-face-containers"></a>Installer et exécuter des conteneurs de visage
 
@@ -143,6 +143,10 @@ Les conteneurs de l’API visage envoient les informations de facturation sur Az
 
 Pour plus d’informations sur ces options, consultez [Configurer des conteneurs](./face-resource-container-config.md).
 
+<!--blogs/samples/video coures -->
+
+[!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
+
 ## <a name="summary"></a>Résumé
 
 Dans cet article, vous avez appris des concepts et des flux de travail pour savoir comment télécharger, installer et exécuter des conteneurs de l’API visage. En résumé :
@@ -154,7 +158,7 @@ Dans cet article, vous avez appris des concepts et des flux de travail pour savo
 * Vous devez spécifier les informations de facturation lorsque vous instanciez un conteneur.
 
 > [!IMPORTANT]
-> Les conteneurs de Services cognitifs ne sont pas concédés sous licence pour s’exécuter sans être connecté à Azure pour le contrôle. Les clients doivent activer les conteneurs de communiquer des informations de facturation avec le service de contrôle à tout moment. Les conteneurs de Services cognitifs n’envoient des données client, telles que l’image ou le texte qui est en cours d’analyse, à Microsoft.
+> Les conteneurs de Services cognitifs ne sont pas concédés sous licence pour s’exécuter sans être connecté à Azure pour le contrôle. Les clients doivent activer les conteneurs de communiquer des informations de facturation avec le service de contrôle à tout moment. Les conteneurs Cognitive Services n’envoient pas de données client, telles que l’image ou le texte analysé, à Microsoft.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

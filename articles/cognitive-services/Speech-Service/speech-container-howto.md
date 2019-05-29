@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 05/28/2019
 ms.author: diberry
-ms.openlocfilehash: 2adcbad55236917685ddcdbabe4809f36ab5a730
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: b620cbb8e51fbe41defb6bdbdc66ba4a7e539aa0
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153046"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306551"
 ---
 # <a name="install-and-run-speech-service-containers"></a>Installer et exécuter des conteneurs de Service de reconnaissance vocale
 
@@ -38,9 +38,9 @@ Vous devez remplir les conditions préalables suivantes avant d’utiliser des c
 |--|--|
 |Moteur Docker| Vous avez besoin d’un moteur Docker installé sur un [ordinateur hôte](#the-host-computer). Docker fournit des packages qui configurent l’environnement Docker sur [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) et [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Pour apprendre les principes de base de Docker et des conteneurs, consultez la [vue d’ensemble de Docker](https://docs.docker.com/engine/docker-overview/).<br><br> Vous devez configurer Docker pour permettre aux conteneurs de se connecter à Azure et de lui envoyer des données de facturation. <br><br> **Sur Windows**, vous devez également configurer Docker pour prendre en charge les conteneurs Linux.<br><br>|
 |Bonne connaissance de Docker | Vous devez avoir une compréhension élémentaire des concepts Docker, notamment les registres, référentiels, conteneurs et images conteneurs, ainsi qu’une maîtrise des commandes `docker` de base.| 
-|Ressources de la reconnaissance vocale |Pour pouvoir utiliser ces conteneurs, vous devez disposer de :<br><br>Un _vocale_ des ressources Azure pour obtenir la clé de facturation associée et l’URI de point de terminaison facturation. Les deux valeurs sont disponibles sur le portail Azure **vocale** pages de vue d’ensemble et des clés et sont requises pour démarrer le conteneur.<br><br>**{BILLING_KEY}**  : clé de ressource<br><br>**{BILLING_ENDPOINT_URI}**  : exemple d’UURI de point de terminaison : `https://westus.api.cognitive.microsoft.com/sts/v1.0`|
+|Ressources de la reconnaissance vocale |Pour pouvoir utiliser ces conteneurs, vous devez avoir :<br><br>Un _vocale_ des ressources Azure pour obtenir la clé de facturation associée et l’URI de point de terminaison facturation. Les deux valeurs sont disponibles sur le portail Azure **vocale** pages de vue d’ensemble et des clés et sont requises pour démarrer le conteneur.<br><br>**{BILLING_KEY}**  : clé de ressource<br><br>**{BILLING_ENDPOINT_URI}**  : exemple d’UURI de point de terminaison : `https://westus.api.cognitive.microsoft.com/sts/v1.0`|
 
-## <a name="request-access-to-the-container-registry"></a>Demander l’accès au Registre de conteneurs
+## <a name="request-access-to-the-container-registry"></a>Demander l’accès au registre de conteneurs
 
 Vous devez tout d’abord terminer et envoyer la [formulaire de demande de conteneurs de Cognitive Services Speech](https://aka.ms/speechcontainerspreview/) pour demander l’accès au conteneur. 
 
@@ -80,7 +80,7 @@ Le nombre de cœurs et la quantité de mémoire correspondent aux paramètres `-
 
 Images de conteneur pour la reconnaissance vocale sont disponibles. 
 
-| Conteneur | Référentiel |
+| Conteneur | Dépôt |
 |-----------|------------|
 | cognitive-services-speech-to-text | `containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text:latest` |
 | cognitive-services-text-to-speech | `containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech:latest` |
@@ -111,7 +111,7 @@ Le tableau suivant répertorie les paramètres régionaux pris en charge pour **
 |--|--|
 |Chinois|`zh-cn`|
 |Anglais |`en-us`<br>`en-gb`<br>`en-au`<br>`en-in`|
-|Anglais |`fr-ca`<br>`fr-fr`|
+|Français |`fr-ca`<br>`fr-fr`|
 |Allemand|`de-de`|
 |Italien|`it-it`|
 |Japonais|`ja-jp`|
@@ -143,8 +143,8 @@ Le tableau suivant répertorie les paramètres régionaux pris en charge pour **
 |Anglais |`en-gb`|George-apollo<br>hazelrus<br>Susan-apollo|
 |Anglais |`en-in`|heera-apollo<br>priyarus<br>ravi-apollo<br>|
 |Anglais |`en-us`|jessarus<br>benjaminrus<br>jessa24krus<br>zirarus<br>guy24krus|
-|Anglais|`fr-ca`|Caroline<br>harmonierus|
-|Anglais|`fr-fr`|hortenserus<br>julie-apollo<br>paul-apollo|
+|Français|`fr-ca`|Caroline<br>harmonierus|
+|Français|`fr-fr`|hortenserus<br>julie-apollo<br>paul-apollo|
 |Allemand|`de-de`|hedda<br>heddarus<br>stefan-apollo|
 |Italien|`it-it`|Cosimo-apollo<br>luciarus|
 |Japonais|`ja-jp`|ayumi-apollo<br>harukarus<br>ichiro-apollo|
@@ -171,7 +171,7 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-text-to-spe
 
 Une fois que le conteneur est sur l’[ordinateur hôte](#the-host-computer), appliquez la procédure suivante pour travailler avec le conteneur.
 
-1. [Exécuter le conteneur](#run-the-container-with-docker-run), avec les paramètres de facturation requis, mais non utilisés. D’autres [exemples](speech-container-configuration.md#example-docker-run-commands) de commande `docker run` sont disponibles. 
+1. [Exécutez le conteneur](#run-the-container-with-docker-run) avec les paramètres de facturation exigés mais non utilisés. D’autres [exemples](speech-container-configuration.md#example-docker-run-commands) de commande `docker run` sont disponibles. 
 1. [Interrogez le point de terminaison de prédiction du conteneur](#query-the-containers-prediction-endpoint). 
 
 ## <a name="run-the-container-with-docker-run"></a>Exécuter le conteneur avec `docker run`
@@ -228,17 +228,17 @@ Cette commande :
 
 Le conteneur fournit le point de terminaison de requête fondée sur un websocket API, qui sont accessibles via le [Speech SDK](index.yml).
 
-Par défaut, le Speech SDK utilise les services de reconnaissance vocale en ligne. Pour utiliser le conteneur, vous devez modifier la méthode d’initialisation. Consultez les exemples ci-dessous.
+Par défaut, le Speech SDK utilise les services de reconnaissance vocale en ligne. Pour utiliser le conteneur, vous devez changer la méthode d’initialisation. Consultez les exemples ci-dessous.
 
-#### <a name="for-c"></a>PourC#
+#### <a name="for-c"></a>Pour C#
 
-Passer de l’utilisation de cet appel de l’initialisation de cloud d’Azure :
+Passer de l’utilisation de cet appel d’initialisation du cloud Azure :
 
 ```C#
 var config = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
 ```
 
-pour cet appel à l’aide du point de terminaison de conteneur :
+à cet appel à l’aide du point de terminaison de conteneur :
 
 ```C#
 var config = SpeechConfig.FromEndpoint("ws://localhost:5000/speech/recognition/dictation/cognitiveservices/v1", "YourSubscriptionKey");
@@ -246,13 +246,13 @@ var config = SpeechConfig.FromEndpoint("ws://localhost:5000/speech/recognition/d
 
 #### <a name="for-python"></a>Pour Python
 
-Passer de l’utilisation de cet appel de l’initialisation de Azure-cloud
+Passer de l’utilisation de cet appel d’initialisation du cloud Azure :
 
 ```python
 speech_config = speechsdk.SpeechConfig(subscription=speech_key, region=service_region)
 ```
 
-pour cet appel à l’aide du point de terminaison de conteneur :
+à cet appel à l’aide du point de terminaison de conteneur :
 
 ```python
 speech_config = speechsdk.SpeechConfig(subscription=speech_key, endpoint="ws://localhost:5000/speech/recognition/dictation/cognitiveservices/v1")
@@ -272,7 +272,7 @@ Le conteneur fournit le point de terminaison REST API qui se trouve [ici](https:
 
 ## <a name="troubleshooting"></a>Résolution de problèmes
 
-Lorsque vous exécutez le conteneur, le conteneur utilise **stdout** et **stderr** aux informations de sortie qui est utiles résoudre les problèmes qui se produisent lors du démarrage ou le conteneur en cours d’exécution. 
+Lorsque vous exécutez le conteneur, celui-ci utilise **stdout** et **stderr** pour produire des informations utiles à la résolution des problèmes qui surviennent lors du démarrage ou de l’exécution du conteneur. 
 
 ## <a name="billing"></a>Facturation
 
@@ -282,12 +282,16 @@ L’envoi de conteneurs vocale, informations de facturation pour Azure, en utili
 
 Pour plus d’informations sur ces options, consultez [Configurer des conteneurs](speech-container-configuration.md).
 
+<!--blogs/samples/video coures -->
+
+[!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
+
 ## <a name="summary"></a>Résumé
 
 Dans cet article, vous avez appris des concepts et des flux de travail pour le téléchargement, l’installation et exécution des conteneurs de reconnaissance vocale. En résumé :
 
 * Reconnaissance vocale fournit deux conteneurs Linux pour Docker, qui encapsule la parole-texte et texte par synthèse vocale.
-* Images de conteneur sont téléchargées à partir du Registre de conteneurs privé dans Azure.
+* Les images conteneur sont téléchargées à partir du registre de conteneurs privé dans Azure.
 * Les images conteneurs s’exécutent dans Docker.
 * Vous pouvez utiliser l’API REST ou le Kit de développement logiciel pour appeler des opérations dans des conteneurs de reconnaissance vocale en spécifiant l’URI du conteneur hôte.
 * Vous devez spécifier les informations de facturation lors de l’instanciation d’un conteneur.
