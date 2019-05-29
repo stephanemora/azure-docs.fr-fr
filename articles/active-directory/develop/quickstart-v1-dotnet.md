@@ -3,8 +3,8 @@ title: Connecter des utilisateurs et appeler l’API Microsoft Graph à partir d
 description: Découvrez comment créer une application de bureau Windows .NET qui s’intègre à Azure AD pour la connexion et appelle des API protégées par Azure AD à l’aide d’OAuth 2.0.
 services: active-directory
 documentationcenter: .net
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: ed33574f-6fa3-402c-b030-fae76fba84e1
 ms.service: active-directory
@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 09/24/2018
-ms.author: celested
+ms.date: 05/21/2019
+ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2b55f7e615f2c2edb604d5b9433db6cc48d9f36f
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: a2d9639c21e201db1df5145caf1345d4f0879af6
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58223391"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66121942"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-a-net-desktop-wpf-app"></a>Démarrage rapide : Connecter des utilisateurs et appeler l’API Microsoft Graph à partir d’une application de bureau .NET (WPF)
 
@@ -57,13 +57,15 @@ Pour que votre application puisse obtenir des jetons, vous devez tout d’abord 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 2. Dans la barre supérieure, sélectionnez votre compte et, dans la liste **Répertoire**, choisissez le locataire Active Directory auprès duquel vous voulez inscrire votre application.
 3. Sélectionnez **Tous les services** dans le volet de navigation de gauche, puis choisissez **Azure Active Directory**.
-4. Dans **Inscriptions d’applications**, choisissez **Ajouter**.
-5. Suivez les invites à l’écran et créez une application cliente **native**.
-    * Le **nom** de l’application doit décrire votre application aux utilisateurs finaux.
-    * L’ **URI de redirection** est une combinaison de schémas et de chaînes qu’Azure AD utilise pour renvoyer des réponses concernant les jetons. Saisissez une valeur spécifique à votre application, par exemple `http://DirectorySearcher`.
+4. Dans **Inscriptions d’applications**, choisissez **Nouvelle inscription**.
+5. Suivez les invites à l’écran pour créer une application cliente.
+    * Le **nom** de l’application donne une description de votre application aux utilisateurs finaux.
+    * Sous **Types de comptes pris en charge**, sélectionnez **Comptes dans un annuaire organisationnel et comptes personnels Microsoft**.
+    * **L’URI de redirection** est une combinaison de schémas et de chaînes qu’Azure AD utilise pour renvoyer des réponses concernant les jetons. Entrez une valeur spécifique à votre application (par exemple `http://DirectorySearcher`) et basée sur les informations d’URI de redirection précédentes. Sélectionnez également **Client public (mobile et bureau)** dans la liste déroulante. 
 
 6. Une fois l’inscription terminée, AAD affecte un ID d’application unique à votre application. Copiez cette valeur à partir de la page de l’application, car vous en aurez besoin dans les sections suivantes.
-7. Sur la page **Paramètres**, choisissez **Autorisations requises**, puis **Ajouter**. Sélectionnez **Microsoft Graph** en tant qu’API, puis ajoutez l’autorisation **Lire les données de l’annuaire** sous **Autorisations déléguées**. Grâce à cette autorisation, votre application peut rechercher des utilisateurs de l’API Graph.
+7. À la page **autorisations d’API**, sélectionnez **Ajouter une autorisation**. Dans **Sélectionner une API**, sélectionnez ***Microsoft Graph***.
+8. Sous **Autorisations déléguées**, sélectionnez l'autorisation **User.Read**, puis appuyez sur **Ajouter** pour enregistrer. Cette autorisation configure votre application afin de pouvoir interroger l’API Graph Azure AD concernant les utilisateurs.
 
 ## <a name="step-2-install-and-configure-adal"></a>Étape 2 : Installer et configurer la bibliothèque ADAL
 

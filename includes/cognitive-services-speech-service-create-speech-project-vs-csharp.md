@@ -4,26 +4,26 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/13/2018
 ms.author: wolfma
-ms.openlocfilehash: 7a028f65467c517be59be6f0c6d2c45ef9a7685e
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: afe6f1493c7fa8272c67f23d6708ad6e4eea9381
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51285728"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66145501"
 ---
 1. Démarrez Visual Studio 2017.
 
-1. Dans la barre de menus de Visual Studio, sélectionnez **Outils > Obtenir les outils** et vérifiez que la charge de travail **Développement .NET Desktop** est disponible. Si la charge de travail n’a pas été installée, cochez la case et cliquez sur **Modifier** pour démarrer l’installation. Le téléchargement et l’installation peuvent prendre quelques minutes.
+1. Sur la barre de menus de Visual Studio, sélectionnez **Outils > Obtenir les outils** et vérifiez que la charge de travail **Développement .NET Desktop** est disponible. Si la charge de travail n’a pas été installée, cochez la case et cliquez sur **Modifier** pour démarrer l’installation. Le téléchargement et l’installation peuvent prendre quelques minutes.
 
    Si la case à cocher à côté de **Développement .NET Desktop** est sélectionnée, vous pouvez fermer la boîte de dialogue.
 
    ![Activer un développement de bureau .NET](~/articles/cognitive-services/speech-service/media/sdk/vs-enable-net-desktop-workload.png)
 
-1. Maintenant, créons un projet. Dans la barre de menus, sélectionnez **Fichier > Nouveau > Projet**. Quand la boîte de dialogue apparaît, dans le panneau de gauche, développez ces sections **Installé > Visual C# > Windows Desktop** et sélectionnez **Application console (.NET Framework)**. Nommez ce projet *helloworld*.
+1. Maintenant, créons un projet. Dans la barre de menus, sélectionnez **Fichier > Nouveau > Projet**. Quand la boîte de dialogue apparaît, dans le panneau de gauche, développez ces sections **Installé > Visual C# > Windows Desktop** et sélectionnez **Application console (.NET Framework)** . Nommez ce projet *helloworld*.
 
     ![Créer une application console Visual C# (.NET Framework)](~/articles/cognitive-services/speech-service/media/sdk/qs-csharp-dotnet-windows-01-new-console-app.png "Créer une application console Visual C# (.NET Framework)")
 
-1. Maintenant que le projet est configuré, nous devons installer le [package NuGet du kit SDK Speech](https://aka.ms/csspeech/nuget) et le référencer dans notre code. Recherchez l’Explorateur de solutions et cliquez avec le bouton droit sur helloworld. Dans le menu, sélectionnez **Gérer les packages NuGet...**.
+1. Maintenant que le projet est configuré, nous devons installer le [package NuGet du kit SDK Speech](https://aka.ms/csspeech/nuget) et le référencer dans notre code. Recherchez l’Explorateur de solutions et cliquez avec le bouton droit sur helloworld. Dans le menu, sélectionnez **Gérer les packages NuGet...** .
 
    ![Cliquer avec le bouton droit sur Gérer les packages NuGet pour la solution](~/articles/cognitive-services/speech-service/media/sdk/qs-csharp-dotnet-windows-02-manage-nuget-packages.png "Gérer les packages NuGet pour la solution")
 
@@ -37,7 +37,7 @@ ms.locfileid: "51285728"
 
     Une fois le package installé, un message de confirmation s’affiche dans la console du Gestionnaire de package.
 
-1. L’étape suivante consiste à créer une configuration de plateforme qui correspond à l’architecture de l’ordinateur que vous utilisez pour générer et exécuter l’application console. Dans la barre de menus, sélectionnez **Générer** > **Gestionnaire de configurations...**.
+1. L’étape suivante consiste à créer une configuration de plateforme qui correspond à l’architecture de l’ordinateur que vous utilisez pour générer et exécuter l’application console. Dans la barre de menus, sélectionnez **Générer** > **Gestionnaire de configurations...** .
 
     ![Lancer le Gestionnaire de configurations](~/articles/cognitive-services/speech-service/media/sdk/qs-csharp-dotnet-windows-05-cfg-manager-click.png "Lancer le Gestionnaire de configurations")
 

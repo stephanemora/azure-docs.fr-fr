@@ -10,18 +10,18 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 03/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3afea20fe02eafbf14b5162eef3a198d27140b9e
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 53e495a3c2d82738e1008ead84a4124e44435c9a
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59549133"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65864378"
 ---
 # <a name="quickstart-use-your-own-notebook-server-to-get-started-with-azure-machine-learning"></a>Démarrage rapide : Utiliser votre propre serveur de notebooks pour démarrer avec Azure Machine Learning
 
-Utilisez votre propre serveur de notebooks pour exécuter du code qui enregistre des valeurs dans l’[espace de travail Azure Machine Learning Service](concept-azure-machine-learning-architecture.md). Dans le cloud, l’espace de travail est le socle que vous utilisez pour expérimenter, effectuer l’apprentissage et déployer des modèles Machine Learning avec Machine Learning.
+Utiliser votre propre environnement Python et le serveur Jupyter Notebook pour prendre en main Azure Machine Learning service.  Pour lire un guide de démarrage rapide sans installer de SDK, consultez [Démarrage rapide : Utiliser un serveur Notebook cloud pour prendre en main Azure Machine Learning](quickstart-run-cloud-notebook.md).
 
-Ce guide de démarrage rapide utilise votre propre environnement Python et votre serveur Jupyter Notebook. Pour lire un guide de démarrage rapide sans installer de SDK, consultez [Démarrage rapide : Utiliser un serveur de notebooks cloud pour démarrer avec Azure Machine Learning](quickstart-run-cloud-notebook.md) 
+Ce guide de démarrage rapide montre comment vous pouvez utiliser l’[espace de travail Azure Machine Learning service](concept-azure-machine-learning-architecture.md) pour suivre les expériences d’apprentissage automatique de votre machine. Vous allez exécuter du code Python qui enregistre des valeurs dans l’espace de travail.
 
 Regardez une vidéo de ce guide de démarrage rapide :
 
@@ -33,7 +33,7 @@ Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de com
 
 * Un serveur de notebooks Python 3.6 avec le SDK Azure Machine Learning installé
 * Un espace de travail Azure Machine Learning service
-* Un fichier de configuration d’espace de travail (**.azureml/config.json** ).
+* Un fichier de configuration d’espace de travail ( **.azureml/config.json** ).
 
 Obtenez tous ces prérequis à partir de [Créer un espace de travail Azure Machine Learning service](setup-create-workspace.md#portal).
 

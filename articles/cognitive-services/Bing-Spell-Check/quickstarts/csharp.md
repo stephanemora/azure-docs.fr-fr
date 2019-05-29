@@ -10,12 +10,12 @@ ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 04/11/2019
 ms.author: aahi
-ms.openlocfilehash: 7a17c695482f2e9c8158c437c9c40c0abcb07e67
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.openlocfilehash: 102fd27c25052f4f5b3c3c469447b8488171f644
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59616286"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65798476"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-c"></a>Démarrage rapide : Vérifier l’orthographe avec l’API REST Vérification orthographique Bing et C#
 
@@ -23,9 +23,9 @@ Utilisez ce guide de démarrage rapide pour effectuer votre premier appel à l�
 
 ## <a name="prerequisites"></a>Prérequis
 
-* N’importe quelle édition de [Visual Studio 2017](https://www.visualstudio.com/downloads/).
+* N’importe quelle édition de [Visual Studio 2017 ou ultérieure](https://www.visualstudio.com/downloads/).
 * Pour installer `Newtonsoft.Json` en tant que package NuGet dans Visual Studio :
-    1. Dans votre Explorateur de solutions, cliquez avec le bouton droit sur le fichier Solution.
+    1. Dans l’**Explorateur de solutions**, cliquez avec le bouton droit sur le fichier Solution.
     1. Sélectionnez **Gérer les packages NuGet pour la solution**.
     1. Recherchez `Newtonsoft.Json` et installez le package.
 * Si vous utilisez Linux/MacOS, cette application peut être exécutée à l’aide de [Mono](https://www.mono-project.com/).
@@ -81,8 +81,9 @@ Utilisez ce guide de démarrage rapide pour effectuer votre premier appel à l�
         HttpResponseMessage response = new HttpResponseMessage();
         // add the rest of the code snippets here (except for main())...
     }
+    ```
 
-2. Create the URI for your request by appending your host, path, and parameters.
+2. Créez l’URI pour votre requête en ajoutant votre hôte, votre chemin d’accès et vos paramètres.
     
     ```csharp
     string uri = host + path + params_;

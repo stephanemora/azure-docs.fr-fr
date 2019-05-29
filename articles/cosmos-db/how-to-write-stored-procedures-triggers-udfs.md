@@ -4,14 +4,14 @@ description: Découvrez comment écrire des procédures stockées, des déclench
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 12/11/2018
+ms.date: 05/21/2019
 ms.author: mjbrown
-ms.openlocfilehash: c94509fb39d1c5ebb9aec1acfe1cbacc9cd6fd4a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 66e0a7e13df9eddcd722492c9c894721517af5f9
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59268406"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65968922"
 ---
 # <a name="how-to-write-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Comment écrire des procédures stockées, des déclencheurs et des fonctions définies par l’utilisateur dans Azure Cosmos DB
 
@@ -48,7 +48,7 @@ Une fois écrite, la procédure stockée doit être inscrite auprès d’une col
 
 ### <a id="create-an-item"></a>Créer un élément à l’aide de la procédure stockée
 
-Lorsque vous créez un élément à l’aide d’une procédure stockée, l’élément est inséré dans le conteneur Azure Cosmos DB et un ID pour l’élément nouvellement créé est renvoyé. La création d’un élément est une opération asynchrone, et varie selon les fonctions de rappel JavaScript. La fonction de rappel présente deux paramètres : un pour l’objet d’erreur en cas d’échec de l’opération et un autre pour une valeur renvoyée, ici l’objet créé. À l’intérieur du rappel, vous pouvez gérer l’exception ou générer une erreur. Si aucun rappel n’est fourni et qu’une erreur se produit, le runtime d’Azure Cosmos DB génère une erreur. 
+Quand vous créez un élément à l’aide d’une procédure stockée, il est inséré dans le conteneur Azure Cosmos DB et un ID pour l’élément nouvellement créé est retourné. La création d’un élément est une opération asynchrone, et varie selon les fonctions de rappel JavaScript. La fonction de rappel présente deux paramètres : un pour l’objet d’erreur en cas d’échec de l’opération et un autre pour une valeur renvoyée, ici l’objet créé. À l’intérieur du rappel, vous pouvez gérer l’exception ou générer une erreur. Si aucun rappel n’est fourni et qu’une erreur se produit, le runtime d’Azure Cosmos DB génère une erreur. 
 
 La procédure stockée inclut également un paramètre pour définir la description ; il s’agit d’une valeur booléenne. Lorsque le paramètre est défini sur true et si la description est manquante, la procédure stockée génère une exception. Sinon, le reste de la procédure stockée continue de s’exécuter.
 

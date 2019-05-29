@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
-ms.openlocfilehash: af849fa6790dfdb57d8073b17f6d31a3f59a532d
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 19c2ccab6685f53ba714298f66bc8e8821b4aa02
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59999755"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65988028"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-foresee-cx-suite"></a>Tutoriel : Intégration d’Azure Active Directory à ForeSee CX Suite
 
@@ -55,7 +55,7 @@ Pour configurer l’intégration de ForeSee CX Suite à Azure AD, vous devez ajo
 
 **Pour ajouter ForeSee CX Suite à partir de la galerie, suivez les étapes ci-dessous :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -194,7 +194,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 ### <a name="create-foresee-cx-suite-test-user"></a>Créer un utilisateur de test ForeSee CX Suite
 
-Dans cette section, vous allez créer un utilisateur nommé Britta Simon dans ForeSee CX Suite. Rapprochez-vous de [l’équipe de support de ForeSee CX Suite](mailto:support@foresee.com) pour ajouter les utilisateurs ou le domaine à mettre sur liste verte sur la plateforme ForeSee CX Suite. Si le domaine est ajouté par l’équipe, les utilisateurs sont automatiquement attribués à la plateforme ForeSee CX Suite. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
+Dans cette section, vous allez créer un utilisateur nommé Britta Simon dans ForeSee CX Suite. Collaborez avec l’[équipe de support de LoginRadius](mailto:support@foresee.com) pour ajouter les utilisateurs ou le domaine à mettre sur liste verte sur la plateforme ForeSee CX Suite. Si le domaine est ajouté par l’équipe, les utilisateurs sont automatiquement attribués à la plateforme ForeSee CX Suite. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
 ### <a name="test-single-sign-on"></a>Tester l’authentification unique 
 

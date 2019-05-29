@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 8201b4089759fb55fae12820f7495664c502837e
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 24c6df6a06d08249f236fc36d64b4204b0103b3c
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65023623"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540898"
 ---
 # <a name="what-is-cognitive-search-in-azure-search"></a>Qu’est-ce que la « recherche cognitive » dans Recherche Azure ?
 
@@ -25,7 +25,7 @@ La recherche cognitive est une fonctionnalité IA du service Recherche Azure, ut
 
 + Les compétences de **traitement d'image** incluent la [reconnaissance optique de caractères (OCR)](cognitive-search-skill-ocr.md) et l'identification des [caractéristiques visuelles](cognitive-search-skill-image-analysis.md), comme la détection des visages, l'interprétation des images, la reconnaissance des images (monuments et personnes célèbres) ou des attributs tels que les couleurs ou l'orientation des images. Vous pouvez créer des représentations textuelles pour le contenu des images, dans lesquelles effectuer des recherches à l’aide de toutes les fonctionnalités de requête de la Recherche Azure.
 
-![Schéma du pipeline de la recherche cognitive](./media/cognitive-search-intro/cogsearch-architecture.png "Vue d’ensemble du pipeline de la recherche cognitive")
+![Schéma du pipeline de recherche cognitive](./media/cognitive-search-intro/cogsearch-architecture.png "Vue d’ensemble du pipeline de recherche cognitive")
 
 Les compétences cognitives du service Recherche Azure sont basées sur les modèles Machine Learning des API Cognitive Services suivantes : [Vision par ordinateur](https://docs.microsoft.com/azure/cognitive-services/computer-vision/) et [Analyse de texte](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview). 
 
@@ -45,7 +45,7 @@ Au début du pipeline, vous avez du texte non structuré ou du contenu non textu
 
 ![Phase de décodage du document](./media/cognitive-search-intro/document-cracking-phase-blowup.png "Décodage du document")
 
- Les sources prises en charge comprennent le stockage d’objets blob Azure, le stockage de table Azure, Azure SQL Database et Azure Cosmos DB. Le contenu textuel peut être extrait des types de fichier suivants : PDF, Word, PowerPoint et CSV. Pour obtenir la liste complète, consultez [Formats de document pris en charge](search-howto-indexing-azure-blob-storage.md#supported-document-formats).
+ Les sources prises en charge comprennent le stockage Blob Azure, le stockage Table Azure, Azure SQL Database et Azure Cosmos DB. Le contenu textuel peut être extrait des types de fichier suivants : PDF, Word, PowerPoint et CSV. Pour obtenir la liste complète, consultez [Formats de document pris en charge](search-howto-indexing-azure-blob-storage.md#supported-document-formats).
 
 ### <a name="step-2-cognitive-skills-and-enrichment-phase"></a>Étape 2 : Phase d’enrichissement et compétences cognitives
 
@@ -61,7 +61,7 @@ En interne, le pipeline génère une collection de documents enrichis. Vous pouv
 
 L'[API REST du service de recherche api-version = 2019-05-06](search-api-preview.md) étend les ensembles de compétences avec une définition knowledgeStore qui fournit une connexion de stockage Azure, ainsi que des projections décrivant la manière dont les enrichissements sont stockés. 
 
-L'ajout d'une base de connaissances à un ensemble de compétences vous permet de projeter une représentation de vos enrichissements autres que la recherche en texte intégral. Pour plus d’informations, consultez [Qu’est-ce que la Base de connaissances ?](knowledge-store-concept-intro.md)
+L'ajout d'une base de connaissances à un ensemble de compétences vous permet de projeter une représentation de vos enrichissements autres que la recherche en texte intégral. Pour plus d’informations, consultez [Présentation de la base de connaissances](knowledge-store-concept-intro.md).
 
 ### <a name="step-3-search-index-and-query-based-access"></a>Étape 3 : Accès basé sur des requêtes et index de recherche
 
@@ -145,5 +145,5 @@ Pour plus d’informations sur des problèmes ou des questions spécifiques, con
 + [Documentation resources for cognitive search workloads](cognitive-search-resources-documentation.md) (Ressources de documentation pour les charges de travail de recherche cognitive)
 + [Démarrage rapide : Créer un pipeline de recherche cognitive à l’aide de compétences et d’exemples de données](cognitive-search-quickstart-blob.md)
 + [Tutoriel : Découvrir les API de recherche cognitive](cognitive-search-tutorial-blob.md)
-+ [Base de connaissances : présentation](knowledge-store-concept-intro.md)
++ [Vue d’ensemble de la base de connaissances](knowledge-store-concept-intro.md)
 + [Base de connaissances : procédure pas à pas](knowledge-store-howto.md)

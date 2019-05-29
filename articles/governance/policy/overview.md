@@ -7,12 +7,12 @@ ms.date: 12/06/2018
 ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 0e66327a04d1390061580d82716b44b25139bf67
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 2dd31ab29479fade21d27b8e2c23952f905f530a
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59259454"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979154"
 ---
 # <a name="overview-of-the-azure-policy-service"></a>Vue d’ensemble du service Azure Policy
 
@@ -28,7 +28,7 @@ Azure Policy est un service d’Azure que vous utilisez pour créer, affecter et
 
 ## <a name="how-is-it-different-from-rbac"></a>Quelle est la différence avec RBAC ?
 
-Il existe quelques différences importantes entre la stratégie et le contrôle d’accès en fonction du rôle (RBAC). Le contrôle RBAC porte sur les actions des utilisateurs dans différentes étendues. Vous pouvez être ajouté au rôle de contributeur pour un groupe de ressources, ce qui vous permet d’apporter des modifications à ce groupe de ressources. La stratégie se focalise sur les propriétés des ressources pendant le déploiement et sur les ressources existantes. La stratégie contrôle les propriétés comme les types ou emplacements des ressources. Contrairement à RBAC, la stratégie est, par défaut, un système explicite d’autorisation et de refus.
+Il existe quelques différences importantes entre Azure Policy et le contrôle d’accès en fonction du rôle (RBAC). Le contrôle RBAC porte sur les actions des utilisateurs dans différentes étendues. Vous pouvez être ajouté au rôle de contributeur pour un groupe de ressources, ce qui vous permet d’apporter des modifications à ce groupe de ressources. Azure Policy se focalise sur les propriétés des ressources pendant le déploiement et sur les ressources existantes. Azure Policy contrôle les propriétés telles que les types ou emplacements des ressources. Contrairement à RBAC, Azure Policy est un système explicite d’autorisation et de refus par défaut.
 
 ### <a name="rbac-permissions-in-azure-policy"></a>Autorisations RBAC dans Azure Policy
 
@@ -37,7 +37,7 @@ Azure Policy dispose d’autorisations, aussi appelées opérations, dans deux f
 - [Microsoft.Authorization](../../role-based-access-control/resource-provider-operations.md#microsoftauthorization)
 - [Microsoft.PolicyInsights](../../role-based-access-control/resource-provider-operations.md#microsoftpolicyinsights)
 
-Plusieurs rôles intégrés accordent des autorisations aux ressources Azure Policy. Le rôle **Contributeur de stratégie de ressource (préversion)** inclut la plupart des opérations de stratégie. Quant au rôle **Propriétaire**, il dispose de tous les droits. Les rôles **Contributeur** et **Lecteur** peuvent utiliser toutes les opérations en lecture de stratégie, mais le rôle **Contributeur** peut aussi les corriger.
+Plusieurs rôles intégrés accordent des autorisations aux ressources Azure Policy. Le rôle **Contributeur de stratégie de ressource (préversion)** inclut la plupart des opérations d’Azure Policy. Quant au rôle **Propriétaire**, il dispose de tous les droits. Les rôles **Contributeur** et **Lecteur** peuvent utiliser toutes les opérations en lecture d’Azure Policy, mais le rôle **Contributeur** peut aussi les corriger.
 
 Si aucun des rôles intégrés ne dispose d’autorisations, créez un [rôle personnalisé](../../role-based-access-control/custom-roles.md).
 
@@ -68,7 +68,7 @@ Une affectation de stratégie est une définition de stratégie qui a été affe
 
 Par exemple, dans l’étendue de l’abonnement, vous pouvez affecter une stratégie qui empêche la création de ressources réseau. Vous pouvez exclure un groupe de ressources au sein de cet abonnement qui est destiné à l’infrastructure réseau. Vous accordez ensuite l’accès à ce groupe de ressources réseau aux utilisateurs auxquels vous faites confiance avec la création des ressources réseau.
 
-Dans un autre exemple, vous souhaiterez peut-être affecter une stratégie de liste verte de type de ressource au niveau du groupe d’administration. Affectez ensuite une stratégie plus permissive (autorisant plus de types de ressources) à un groupe d’administration enfant ou même directement aux abonnements. Toutefois, cet exemple ne fonctionnera pas, car la stratégie est un système de refus explicite. Au lieu de cela, vous devez exclure le groupe d’administration enfant ou l’abonnement de l’attribution de stratégie au niveau du groupe d’administration. Affectez ensuite la stratégie plus permissive au niveau du groupe d’administration enfant ou de l’abonnement. Si une stratégie se traduit par le refus d’une ressource, alors la seule façon d’autoriser la ressource est de modifier la stratégie de refus.
+Dans un autre exemple, vous souhaiterez peut-être affecter une stratégie de liste d’autorisation de type de ressource au niveau du groupe d’administration. Affectez ensuite une stratégie plus permissive (autorisant plus de types de ressources) à un groupe d’administration enfant ou même directement aux abonnements. Toutefois, cet exemple ne fonctionnera pas, car la stratégie est un système de refus explicite. Au lieu de cela, vous devez exclure le groupe d’administration enfant ou l’abonnement de l’attribution de stratégie au niveau du groupe d’administration. Affectez ensuite la stratégie plus permissive au niveau du groupe d’administration enfant ou de l’abonnement. Si une stratégie se traduit par le refus d’une ressource, alors la seule façon d’autoriser la ressource est de modifier la stratégie de refus.
 
 Pour plus d’informations sur les définitions de stratégie et les affectations par le biais du portail, consultez [Créer une affectation de stratégie pour identifier les ressources non conformes dans votre environnement Azure](assign-policy-portal.md). Les étapes pour [PowerShell](assign-policy-powershell.md) et [Azure CLI](assign-policy-azurecli.md) sont également disponibles.
 
@@ -115,7 +115,7 @@ Dans ce scénario, quand vous définissez les paramètres d’initiative pour **
 
 Lorsque vous créez des options de valeur dans une définition d’initiative, vous ne pouvez pas entrer de valeur différente lors de l’affectation d’initiative, car elle ne fait pas partie de la liste.
 
-## <a name="maximum-count-of-policy-objects"></a>Nombre maximal d’objets de stratégie Azure Policy
+## <a name="maximum-count-of-azure-policy-objects"></a>Nombre maximal d’objets Azure Policy
 
 [!INCLUDE [policy-limits](../../../includes/azure-policy-limits.md)]
 
@@ -144,8 +144,8 @@ La présentation suivante d’Azure Policy est à partir de la Build 2018. Pour 
 
 Maintenant que vous avez une vue d’ensemble d’Azure Policy et des autres concepts clés, voici les étapes suivantes que nous suggérons :
 
-- [Affecter une définition de stratégie à l’aide du portail](assign-policy-portal.md)
-- [Affecter une définition de stratégie avec Azure CLI](assign-policy-azurecli.md)
-- [Affecter une définition de stratégie avec PowerShell](assign-policy-powershell.md)
+- [Affecter une définition de stratégie à l’aide du portail](assign-policy-portal.md).
+- [Affecter une définition de stratégie avec Azure CLI](assign-policy-azurecli.md).
+- [Affecter une définition de stratégie avec PowerShell](assign-policy-powershell.md).
 - Pour en savoir plus sur les groupes d’administration, consultez [Organiser vos ressources avec des groupes d’administration Azure](..//management-groups/overview.md).
-- Regarder [Govern your Azure environment through Azure Policy (Gouvernance de votre environnement Azure à l’aide d’Azure Policy)](https://channel9.msdn.com/events/Build/2018/THR2030) sur Channel 9
+- Regarder [Gouverner votre environnement Azure à l’aide d’Azure Policy](https://channel9.msdn.com/events/Build/2018/THR2030) sur Channel 9.

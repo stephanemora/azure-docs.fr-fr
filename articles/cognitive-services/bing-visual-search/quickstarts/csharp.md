@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
-ms.date: 3/28/2019
+ms.date: 04/26/2019
 ms.author: scottwhi
-ms.openlocfilehash: d2f5e87bd6c6780e8504abe1753e90eca5db763a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: b1518af9c37ffe0b8175e741b363d79941e3caaf
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58880404"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65905705"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-c"></a>Démarrage rapide : Obtenir des insights sur les images à l’aide de l’API REST Recherche visuelle Bing et de C#
 
@@ -23,7 +23,7 @@ Ce guide de démarrage rapide montre comment charger une image dans l’API Rech
 
 ## <a name="prerequisites"></a>Prérequis
 
-* N’importe quelle édition de [Visual Studio 2017](https://www.visualstudio.com/downloads/).
+* N’importe quelle édition de [Visual Studio 2019](https://www.visualstudio.com/downloads/).
 * Le [framework Json.NET](https://www.newtonsoft.com/json), disponible sous forme de package NuGet.
 * Si vous utilisez Linux/MacOS, vous pouvez exécuter cette application en utilisant [Mono](https://www.mono-project.com/).
 

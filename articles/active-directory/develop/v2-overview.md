@@ -3,8 +3,8 @@ title: Présentation de la plateforme d’identités Microsoft (v2.0) - Azure
 description: Découvrez la plateforme d’identités Microsoft (v2.0) et son point de terminaison.
 services: active-directory
 documentationcenter: dev-center-name
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -13,20 +13,20 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/07/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73d97b45217da4bbf4b8c0e857b817911484f29c
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 3d139efaa8e6de4861dc8e885bd22a426fde6c94
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65231067"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65833045"
 ---
 # <a name="microsoft-identity-platform-v20-overview"></a>Présentation de la plateforme d’identités Microsoft (v2.0)
 
-La plateforme d’identités Microsoft est une évolution de la plateforme de développeur et de service d’identité Azure Active Directory (Azure AD). Elle permet aux développeurs de générer des applications qui connectent toutes les identités Microsoft et obtiennent des jetons pour appeler des API Microsoft, comme Microsoft Graph, ou des API que des développeurs ont créées. Le point de terminaison de la plateforme d’identités Microsoft comprend les éléments suivants :
+La plateforme d’identités Microsoft est une évolution de la plateforme de développement Azure Active Directory (Azure AD). Elle permet aux développeurs de générer des applications qui connectent toutes les identités Microsoft et obtiennent des jetons pour appeler des API Microsoft, comme Microsoft Graph, ou des API que des développeurs ont créées. Le point de terminaison de la plateforme d’identités Microsoft comprend les éléments suivants :
 
 - **Service d’authentification conforme aux standards OAuth 2.0 et OpenID Connect** qui permet aux développeurs d’authentifier n’importe quelle identité Microsoft, notamment :
   - Comptes professionnels ou scolaires (provisionnés par le biais d’Azure AD)

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/10/2019
 ms.author: jeedes
-ms.openlocfilehash: 602e3145a003a0413287b08151abf472ecf4ade0
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: dbdf6847658e6a5a3999007f51b409e47a65e4cd
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65406723"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65988076"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-leapsome"></a>Didacticiel : Intégration d’Azure Active Directory à Leapsome
 
@@ -53,7 +53,7 @@ Pour configurer l’intégration de Leapsome à Azure AD, vous devez ajouter Lea
 
 **Pour ajouter Leapsome à partir de la galerie, effectuez les étapes suivantes :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -126,10 +126,10 @@ Pour configurer l’authentification unique Azure AD avec Leapsome, effectuez le
 
     | Nom | Attribut source | Espace de noms |
     | ---------------| --------------- | --------- |  
-    | firstname | user.givenname | https://schemas.xmlsoap.org/ws/2005/05/identity/claims |
-    | lastname | user.surname | https://schemas.xmlsoap.org/ws/2005/05/identity/claims |
-    | title | user.jobtitle | https://schemas.xmlsoap.org/ws/2005/05/identity/claims |
-    | picture | URL de la photo de l’employé | https://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+    | firstname | user.givenname | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+    | lastname | user.surname | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+    | title | user.jobtitle | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+    | picture | URL de la photo de l’employé | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
     | | |
 
     > [!Note]
@@ -244,7 +244,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 ### <a name="create-leapsome-test-user"></a>Créer un utilisateur de test Leapsome
 
-Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Leapsome. Collaborez avec [l’équipe du support technique Leapsome](mailto:support@leapsome.com) pour ajouter les utilisateurs ou le domaine devant être mis en liste verte dans la plateforme Leapsome. Si le domaine est ajouté par l’équipe, les utilisateurs sont automatiquement provisionnés dans la plateforme Leapsome. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
+Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Leapsome. Rapprochez-vous de l’[équipe du support technique Leapsome](mailto:support@leapsome.com) pour ajouter les utilisateurs ou le domaine à mettre sur liste verte sur la plateforme Leapsome. Si le domaine est ajouté par l’équipe, les utilisateurs sont automatiquement provisionnés dans la plateforme Leapsome. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
 ### <a name="test-single-sign-on"></a>Tester l’authentification unique
 

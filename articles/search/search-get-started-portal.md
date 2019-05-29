@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: b30fa61cd46acd4fa9da9d97c100e3b3a0aaf067
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: e5baa0876dc976553e8e541cef6b481329500bf6
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024761"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606446"
 ---
 # <a name="quickstart-use-built-in-portal-tools-for-azure-search-import-indexing-and-queries"></a>Démarrage rapide : Utiliser les outils du portail intégrés pour l’importation, l’indexation et la création de requêtes dans Recherche Azure
 > [!div class="op_single_selector"]
@@ -36,9 +36,9 @@ Pour vous familiariser rapidement avec les concepts de Recherche Azure, essayez 
 
 Si ces outils sont trop limités, vous pouvez suivre une [introduction à la programmation Recherche Azure basée sur le code dans .NET](search-howto-dotnet-sdk.md) ou utiliser [Postman ou Fiddler pour effectuer des appels d’API REST](search-fiddler.md).
 
-Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer. Vous pouvez également visionner une démonstration de 6 minutes de la procédure décrite dans ce tutoriel à partir de la troisième minute environ de cette [vidéo de présentation du service Recherche Azure](https://channel9.msdn.com/Events/Connect/2016/138).
+Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer. Vous pouvez également visionner une démonstration de 6 minutes de la procédure décrite dans ce didacticiel à partir de la troisième minute environ de cette [vidéo de présentation du service Recherche Azure](https://channel9.msdn.com/Events/Connect/2016/138).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 [Créez un service Recherche Azure](search-create-service-portal.md) ou [recherchez un service existant](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) dans votre abonnement actuel. Vous pouvez utiliser un service gratuit pour ce guide de démarrage rapide. 
 
@@ -200,7 +200,7 @@ Les filtres de facettes sont inclus dans les demandes de recherche. Vous pouvez 
 
 #### <a name="example-faceted-with-scope-reduction-searchfacetcitytop2"></a>Exemple (par facettes avec une étendue réduite) : `search=*&facet=city&$top=2`
 
-* **search=*** est une recherche vide. Les recherches vides portent sur tous les éléments. L’un des motifs possibles de l’exécution d’une requête vide est l’application de filtres ou de facettes au jeu complet de documents. Par exemple, vous souhaitez obtenir une structure de navigation par facettes constituée de toutes les villes dans l’index.
+* **search=** * est une recherche vide. Les recherches vides portent sur tous les éléments. L’un des motifs possibles de l’exécution d’une requête vide est l’application de filtres ou de facettes au jeu complet de documents. Par exemple, vous souhaitez obtenir une structure de navigation par facettes constituée de toutes les villes dans l’index.
 
 * **facet** renvoie une structure de navigation que vous pouvez transmettre à un contrôle d’interface utilisateur. Il renvoie des catégories ainsi qu’un nombre. Dans ce cas précis, les catégories reposent sur le nombre de villes. Le service Recherche Azure ne propose aucune fonction d’agrégation, mais vous pouvez bénéficier d’une fonction quasiment comparable par le biais du paramètre `facet`, qui renvoie un nombre de documents dans chaque catégorie.
 
@@ -252,7 +252,7 @@ La recherche géographique est prise en charge par le biais du [type de données
 
 L’exemple de requête ci-dessus filtre tous les résultats sur la base de données positionnelles et renvoie les résultats situés à moins de 5 kilomètres d’un point donné (spécifié sous la forme de coordonnées de latitude et de longitude). L’ajout du paramètre **$count** vous permet de connaître le nombre de résultats renvoyés lorsque vous modifiez la distance ou les coordonnées.
 
-La recherche géographique est utile si votre application de recherche dispose d’une fonctionnalité « rechercher à proximité » ou qu’elle utilise la navigation dans les cartes. Toutefois, cette fonction de recherche n’est pas disponible en texte intégral. Si vos utilisateurs ont besoin de rechercher des villes ou des pays par leur nom, ajoutez des champs contenant les noms de ville ou de pays, en plus des coordonnées.
+La recherche géographique est utile si votre application de recherche dispose d’une fonctionnalité « rechercher à proximité » ou qu’elle utilise la navigation dans les cartes. Toutefois, cette fonction de recherche n’est pas disponible en texte intégral. Si vos utilisateurs doivent rechercher une ville ou un pays par son nom, ajoutez des champs contenant des noms de ville ou de pays, en plus des coordonnées.
 
 ## <a name="takeaways"></a>Éléments importants à retenir
 

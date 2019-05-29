@@ -9,12 +9,12 @@ ms.date: 09/22/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: a325b976e657fbdc318a41b3b79b50e77a948e14
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 5424a07f8ecd7eab962a4f865fac91741810e4b1
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58079841"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991936"
 ---
 # <a name="tutorial-update-inventory-using-azure-portal-and-topicssubscriptions"></a>Tutoriel : Mettre à jour l’inventaire avec le portail Azure et des rubriques/abonnements
 
@@ -393,6 +393,9 @@ private async Task ReceiveMessages(string subscription)
     await receiver.CloseAsync();
 }
 ```
+
+> [!NOTE]
+> Vous pouvez gérer les ressources Service Bus à l’aide de [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). Service Bus Explorer permet aux utilisateurs de se connecter à un espace de noms Service Bus et de gérer les entités de messagerie en toute simplicité. L’outil fournit des fonctionnalités avancées telles que la fonction d’importation/exportation ou la possibilité de tester une rubrique, des files d’attente, des abonnements, des services de relais, des hubs de notification et des hubs d’événements. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

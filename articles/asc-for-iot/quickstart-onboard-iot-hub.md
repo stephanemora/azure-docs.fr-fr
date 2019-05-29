@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/29/2019
+ms.date: 05/16/2019
 ms.author: mlottner
-ms.openlocfilehash: 3ef3891ac2b0423688f49ae034331935b1b0cd6c
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 7030ae1c3a28cdd74671dc95dce59cf86cacf4c9
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65192487"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65786156"
 ---
 # <a name="quickstart-enable-service-in-iot-hub"></a>Démarrage rapide : Activer le service dans IoT Hub
 
@@ -30,7 +30,7 @@ ms.locfileid: "65192487"
 Cet article explique comment activer le service Azure Security Center pour IoT en préversion sur votre hub IoT.  
 
 > [!NOTE]
-> Actuellement, Azure Security Center pour IoT prend uniquement en charge les hubs IoT de niveau standard ou supérieur.
+> Actuellement, Azure Security Center pour IoT prend uniquement en charge les hubs IoT de niveau standard.
 > Azure Security Center pour IoT est une solution de hub unique. Si plusieurs hubs sont nécessaires, vous avez besoin de plusieurs solutions. 
 
 ## <a name="prerequisites-for-enabling-the-service"></a>Prérequis pour l’activation du service
@@ -38,8 +38,12 @@ Cet article explique comment activer le service Azure Security Center pour IoT e
 - Espace de travail Log Analytics
   - Par défaut, deux types d’informations sont stockés par ASC pour IoT dans votre espace de travail Log Analytics : les **alertes de sécurité** et les **recommandations**. 
   - Vous pouvez choisir d’ajouter le stockage d’un type d’information supplémentaire : les **événements bruts**. Notez que le stockage d’**événements bruts** dans Log Analytics engendre des frais de stockage supplémentaires. 
-- IoT Hub (niveau standard ou supérieur)
-- Répondre à tous les [prérequis de service](service-prerequisites.md) 
+- IoT Hub (niveau standard)
+- Satisfaire à tous les [prérequis du service](service-prerequisites.md) 
+- Régions de service prises en charge
+  - USA Centre
+  - Europe Nord
+  - Asie Sud-Est
 
 ## <a name="enable-asc-for-iot-on-your-iot-hub"></a>Activer ASC pour IoT sur votre hub IoT 
 

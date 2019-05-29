@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: 9a59255097c6cb2a6728a14c3dbe19dbcbb0932a
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 5129af1f34f8a2604e7b70c9638b370c7cad029a
+ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236779"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66015542"
 ---
 # <a name="tutorial-use-azure-key-vault-with-an-azure-web-app-in-net"></a>Didacticiel : Utiliser Azure Key Vault avec une application web Azure dans .NET
 
@@ -43,7 +43,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 * Pour Mac : [Visual Studio pour Mac](https://visualstudio.microsoft.com/vs/mac/)
 * Pour Windows, Mac et Linux :
   * [Git](https://git-scm.com/downloads)
-  * Ce didacticiel nécessite que vous exécutiez l’interface Azure CLI localement. Vous devez avoir installé Azure CLI 2.0.4 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau l’interface CLI, consultez l’article [Installation d’Azure CLI 2.0](https://review.docs.microsoft.com/cli/azure/install-azure-cli).
+  * Ce didacticiel nécessite que vous exécutiez l’interface Azure CLI localement. Vous devez avoir installé Azure CLI 2.0.4 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau l’interface CLI, consultez l’article [Installation d’Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).
   * [.NET Core](https://www.microsoft.com/net/download/dotnet-core/2.1)
 
 ## <a name="about-managed-service-identity"></a>À propos de Managed Service Identity (MSI)
@@ -191,7 +191,7 @@ Vous pouvez également regarder cette vidéo :
 
 ## <a name="run-the-web-app"></a>Exécuter l’application web
 
-1. Dans le menu principal de Visual Studio 2017, sélectionnez **Déboguer** > **Démarrer**, avec ou sans débogage. 
+1. Dans le menu principal de Visual Studio 2019, sélectionnez **Déboguer** > **Démarrer**, avec ou sans débogage. 
 1. Dans le navigateur, accédez à la page **À propos de**.  
     La valeur d’**AppSecret** s’affiche.
 

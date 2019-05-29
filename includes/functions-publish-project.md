@@ -5,29 +5,28 @@ services: functions
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 09/27/2018
+ms.date: 04/24/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 1b553cbd720fcb76899844712ce5053af46f7ccb
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 48bb91b3b2e9a31de63e515edb857bc2a170ea79
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452953"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66132253"
 ---
 ## <a name="deploy-the-function-app-project-to-azure"></a>Déployer le projet d’application de fonction sur Azure
 
-Une fois l’application de fonction créée dans Azure, vous pouvez utiliser la commande [`func azure functionapp publish`](../articles/azure-functions/functions-run-local.md#project-file-deployment) pour déployer votre code de projet sur Azure.
+Une fois l'application de fonction créée dans Azure, vous pouvez utiliser la commande [`func azure functionapp publish`](../articles/azure-functions/functions-run-local.md#project-file-deployment) Core Tools pour déployer votre code de projet sur Azure. Dans la commande suivante, remplacez `<APP_NAME>` par le nom de votre application obtenu à l'étape précédente.
 
 ```bash
-func azure functionapp publish <FunctionAppName>
+func azure functionapp publish <APP_NAME>
 ```
 
-Une sortie similaire à la suivante, tronquée pour une meilleure lisibilité, s’affiche.
+Une sortie semblable à la suivante, tronquée pour une meilleure lisibilité, s'affiche.
 
 ```output
 Getting site publishing info...
-
 ...
 
 Preparing archive...
@@ -35,6 +34,9 @@ Uploading content...
 Upload completed successfully.
 Deployment completed successfully.
 Syncing triggers...
+Functions in myfunctionapp:
+    HttpTrigger - [httpTrigger]
+        Invoke url: https://myfunctionapp.azurewebsites.net/api/httptrigger?code=cCr8sAxfBiow548FBDLS1....
 ```
 
-Vous pouvez désormais tester vos fonctions dans Azure.
+Copiez la valeur de l'URL d'appel de votre déclencheur HttpTrigger, que vous pouvez maintenant utiliser pour tester votre fonction dans Azure. L'URL contient une valeur de chaîne de requête `code` qui constitue votre clé de fonction. Cette clé empêche les autres utilisateurs d'appeler le point de terminaison de votre déclencheur HTTP dans Azure.

@@ -15,18 +15,18 @@ ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 0c267b2fbe639d08396d8773e077483b41b9747e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: bac43ef17116dcb2d6a6bb3dd7c1617d91a010d9
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58886367"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65864815"
 ---
 # <a name="quickstart-create-an-aspnet-web-app"></a>Démarrage rapide : Créez une application web ASP.NET 
 
 ## <a name="introduction"></a>Introduction
 
-Ce démarrage rapide explique comment créer et déployer une application web ASP.NET sur Azure App Service à l’aide de Visual Studio 2017. L’exemple d’application se connecte au cache Azure pour Redis pour stocker des données et les récupérer à partir du cache. À la fin de ce guide de démarrage rapide, vous disposerez d’une application web hébergée dans Azure qui effectue des opérations de lecture et d’écriture dans le cache Azure pour Redis.
+Ce guide de démarrage rapide explique comment créer et déployer une application web ASP.NET sur Azure App Service à l'aide de Visual Studio 2019. L’exemple d’application se connecte au cache Azure pour Redis pour stocker des données et les récupérer à partir du cache. À la fin de ce guide de démarrage rapide, vous disposerez d’une application web hébergée dans Azure qui effectue des opérations de lecture et d’écriture dans le cache Azure pour Redis.
 
 ![Test simple terminé dans Azure](./media/cache-web-app-howto/cache-simple-test-complete-azure.png)
 
@@ -34,7 +34,7 @@ Ce démarrage rapide explique comment créer et déployer une application web AS
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour effectuer ce démarrage rapide, vous devez installer [Visual Studio 2017](https://www.visualstudio.com/downloads/) avec les environnements suivants :
+Pour suivre ce guide de démarrage rapide, vous devez installer [Visual Studio 2019](https://www.visualstudio.com/downloads/) avec les environnements suivants :
 * Développement web et ASP.NET
 * Développement Azure
 
@@ -46,7 +46,7 @@ Pour effectuer ce démarrage rapide, vous devez installer [Visual Studio 2017](h
 
     ![Créer un projet](./media/cache-web-app-howto/cache-create-project.png)
 
-    a. Dans la liste **Modèles**, développez le nœud **Visual C#**.
+    a. Dans la liste **Modèles**, développez le nœud **Visual C#** .
 
     b. Sélectionnez **Cloud**.
 
@@ -203,7 +203,7 @@ Le runtime ASP.NET fusionne le contenu du fichier externe avec le balisage dans 
 
 ### <a name="to-add-a-new-rediscache-view"></a>Pour ajouter un nouvel affichage RedisCache
 
-1. Dans l’**Explorateur de solutions**, développez le dossier **Vues** et cliquez avec le bouton droit sur le dossier **Accueil**. Choisissez **Ajouter** > **Vue...**.
+1. Dans l’**Explorateur de solutions**, développez le dossier **Vues** et cliquez avec le bouton droit sur le dossier **Accueil**. Choisissez **Ajouter** > **Vue...** .
 
 2. Dans la boîte de dialogue **Ajouter un affichage**, entrez **RedisCache** dans le champ Nom de l’affichage. Sélectionnez ensuite **Ajouter**.
 
@@ -324,7 +324,7 @@ Sinon, dans le cas où l’exemple d’application de démarrage rapide était v
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com), puis sélectionnez **Groupes de ressources**.
 
-2. Dans la zone **Filtrer par nom...**, saisissez le nom de votre groupe de ressources. Les instructions de cet article ont utilisé un groupe de ressources nommé *TestResources*. Sur votre groupe de ressources, dans la liste des résultats, sélectionnez **...**, puis **Supprimer le groupe de ressources**.
+2. Dans la zone **Filtrer par nom...** , saisissez le nom de votre groupe de ressources. Les instructions de cet article ont utilisé un groupe de ressources nommé *TestResources*. Sur votre groupe de ressources, dans la liste des résultats, sélectionnez **...** , puis **Supprimer le groupe de ressources**.
 
     ![Supprimer](./media/cache-web-app-howto/cache-delete-resource-group.png)
 

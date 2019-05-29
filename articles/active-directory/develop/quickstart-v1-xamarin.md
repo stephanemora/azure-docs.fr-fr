@@ -3,8 +3,8 @@ title: Bien démarrer avec Azure AD Xamarin | Microsoft Docs
 description: Créez des applications Xamarin qui s’intègrent avec Azure AD pour la connexion et appellent des API protégées par Azure AD en utilisant OAuth.
 services: active-directory
 documentationcenter: xamarin
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 198cd2c3-f7c8-4ec2-b59d-dfdea9fe7d95
 ms.service: active-directory
@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: mobile-xamarin
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 09/24/2018
-ms.author: celested
+ms.date: 05/22/2019
+ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0a20c2e6524b0c466f5c45578e0ba8eaad351ea
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: e3470d9220ed471a05792ed5b3bb259e0dcbe0a6
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58881883"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66121912"
 ---
 # <a name="quickstart-build-a-xamarin-app-that-integrates-microsoft-sign-in"></a>Démarrage rapide : Créer une application Xamarin qui intègre la connexion Microsoft
 
@@ -57,14 +57,14 @@ Pour autoriser l’application à obtenir des jetons, vous devez tout d’abord 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 2. Dans la barre supérieure, cliquez sur votre compte. Puis, dans la liste **Annuaire**, sélectionnez le client Active Directory dans lequel vous voulez inscrire l’application.
 3. Cliquez sur **Tous les services** dans le volet de gauche, puis sélectionnez **Azure Active Directory**.
-4. Cliquez sur **Inscriptions des applications**, puis sélectionnez **Ajouter**.
-5. Pour créer une **application cliente native**, suivez les invites.
+4. Cliquez sur **Inscriptions d’applications**, puis sur **Nouvelle inscription**.
+5. Pour créer une application cliente, suivez les invites.
    * Le champ **Nom** décrit l’application aux utilisateurs.
+   * Sous **Types de comptes pris en charge**, sélectionnez **Comptes dans un annuaire organisationnel et comptes personnels Microsoft**.
    * **L’URI de redirection** est une combinaison de schémas et de chaînes qu’Azure AD utilise pour renvoyer des réponses concernant les jetons. Entrez une valeur (par exemple, `http://DirectorySearcher`).
 6. Une fois l’inscription terminée, Azure AD affecte un ID d’application unique à l’application. Copiez la valeur de l’onglet **Application**, car vous en aurez besoin ultérieurement.
-7. Sur la page **Paramètres**, sélectionnez **Autorisations requises**, puis **Ajouter**.
-8. Sélectionnez l’API **Microsoft Graph**. Sous **Autorisations déléguées**, ajoutez l’autorisation **Lire les données de l’annuaire**. 
-   Cette action permet à l’application d’interroger l’API Graph pour les utilisateurs.
+7. À la page **autorisations d’API**, sélectionnez **Ajouter une autorisation**. Dans **Sélectionner une API**, sélectionnez ***Microsoft Graph***.
+8. Sous **Autorisations déléguées**, sélectionnez l'autorisation **User.Read**, puis appuyez sur **Ajouter** pour enregistrer. Cette autorisation configure votre application afin de pouvoir interroger l’API Graph Azure AD concernant les utilisateurs.
 
 ## <a name="step-3-install-and-configure-adal"></a>Étape 3 : Installer et configurer la bibliothèque ADAL
 

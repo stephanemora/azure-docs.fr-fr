@@ -16,16 +16,14 @@ ms.date: 04/11/2019
 ms.author: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 605206682cb70d430773cdbf9ff746eabf594103
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 9deaf610696f676610f589168426ac24be692c99
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190842"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65823521"
 ---
 # <a name="quickstart-sign-in-users-and-acquire-an-access-token-from-a-javascript-single-page-application-spa"></a>Démarrage rapide : Connecter des utilisateurs et acquérir un jeton d’accès à partir d’une application monopage JavaScript
-
-[!INCLUDE [active-directory-develop-applies-v2-msal](../../../includes/active-directory-develop-applies-v2-msal.md)]
 
 Dans ce guide de démarrage rapide, vous allez apprendre à utiliser un exemple de code qui montre comment une application monopage JavaScript peut connecter des comptes personnels, professionnels et scolaires, et obtenir un jeton d’accès pour appeler l’API Microsoft Graph ou toute autre API web.
 
@@ -64,7 +62,7 @@ Ce guide de démarrage rapide nécessite la configuration suivante :
 > 1. Lorsque la page **Inscrire une application** s’affiche, entrez le nom de votre application.
 > 1. Sous **Types de comptes pris en charge**, sélectionnez **Comptes dans un annuaire organisationnel et comptes personnels Microsoft**.
 > 1. Sélectionnez la plateforme **Web** dans la section **URI de redirection** et définissez la valeur sur `http://localhost:30662/`.
-> 1. Lorsque vous avez terminé, sélectionnez **Inscrire**.  Sur la page **Vue d’ensemble**, notez la valeur **ID d’application (client)**.
+> 1. Lorsque vous avez terminé, sélectionnez **Inscrire**.  Sur la page **Vue d’ensemble**, notez la valeur **ID d’application (client)** .
 > 1. Ce démarrage rapide requiert l’activation du [flux d’octroi implicite](v2-oauth2-implicit-grant-flow.md). Dans le volet de navigation de gauche de l’application inscrite, sélectionnez **Authentification**.
 > 1. Dans **Paramètres avancés**, sous **Octroi implicite**, cochez les cases **Jetons d’ID** et **Jetons d’accès**. Les jetons d’ID et jetons d’accès sont nécessaires dans la mesure où cette application doit connecter des utilisateurs et appeler une API.
 > 1. Sélectionnez **Enregistrer**.
@@ -118,7 +116,7 @@ var msalConfig = {
 >   - Si votre application prend en charge **Comptes dans un annuaire organisationnel et comptes personnels Microsoft**, remplacez cette valeur par `common`. Pour limiter la prise en charge aux *Comptes Microsoft personnels uniquement*, remplacez cette valeur par `consumers`.
 >
 > > [!TIP]
-> > Pour connaître les valeurs de l’**ID d’Application (client)**, de l’**ID de l’annuaire (locataire)**, et des **Types de comptes pris en charge**, consultez la page **Vue d’ensemble** de l’application dans le Portail Azure.
+> > Pour connaître les valeurs de l’**ID d’Application (client)** , de l’**ID de l’annuaire (locataire)** , et des **Types de comptes pris en charge**, consultez la page **Vue d’ensemble** de l’application dans le Portail Azure.
 >
 
 #### <a name="step-4-run-the-project"></a>Étape 4 : Exécuter le projet
@@ -185,7 +183,7 @@ var myMSALObj = new Msal.UserAgentApplication(msalConfig);
 > |`cacheLocation`  | (Facultatif) Cela définit le stockage de navigateur pour l’état d’authentification. La valeur par défaut est sessionStorage.   |
 > |`storeAuthStateInCookie`  | (Facultatif) La bibliothèque stocke l’état de la demande d’authentification nécessaire pour la validation des flux d’authentification dans les cookies de navigateur. Ceci est défini pour les navigateurs Internet Explorer et Edge afin d’éviter certains [problèmes connus](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#issues). |
 
- Pour plus d’informations sur les options disponibles, consultez le [wiki](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/MSAL-basics#configuration-options).
+ Pour plus d'informations sur les options configurables disponibles, consultez [Initialiser les applications clientes](msal-js-initializing-client-applications.md).
 
 ### <a name="sign-in-users"></a>Connexion des utilisateurs
 
@@ -258,6 +256,7 @@ myMSALObj.acquireTokenPopup(requestObj).then(function (tokenResponse) {
     console.log(error);
 });
 ```
+
 > [!NOTE]
 > En raison d’un [problème connu](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#issues) lié à la gestion des fenêtres contextuelles par le navigateur Internet Explorer, ce guide de démarrage rapide utilise les méthodes `loginRedirect` et `acquireTokenRedirect`.
 

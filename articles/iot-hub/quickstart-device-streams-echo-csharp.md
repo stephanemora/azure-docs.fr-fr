@@ -1,5 +1,5 @@
 ---
-title: Démarrage rapide C# sur les flux d’appareil Azure IoT Hub (préversion) | Microsoft Docs
+title: Communiquer avec une application d’appareil en C# par le biais de flux d’appareil IoT Hub (préversion) | Microsoft Docs
 description: Dans ce guide de démarrage rapide, vous allez exécuter deux exemples d’applications C# qui communiquent par le biais d’un flux d’appareil établi par le biais d’IoT Hub.
 author: rezasherafat
 manager: briz
@@ -10,14 +10,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: rezas
-ms.openlocfilehash: 2853bd5539a40e3b38927f619756fe37a4cec984
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 8df57d3d36dcae851c9c0e23ea609e200a429605
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59006862"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65832896"
 ---
-# <a name="quickstart-communicate-to-device-applications-in-c-via-iot-hub-device-streams-preview"></a>Démarrage rapide : Communiquer avec des applications d’appareil en C# par le biais de flux d’appareil IoT Hub (préversion)
+# <a name="quickstart-communicate-to-a-device-application-in-c-via-iot-hub-device-streams-preview"></a>Démarrage rapide : Communiquer avec une application d’appareil en C# par le biais de flux d’appareil IoT Hub (préversion)
 
 [!INCLUDE [iot-hub-quickstarts-3-selector](../../includes/iot-hub-quickstarts-3-selector.md)]
 
@@ -31,14 +31,15 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour le moment, la préversion des flux d’appareil est uniquement prise en charge pour les hubs IoT créés dans les régions suivantes :
+*  Pour le moment, la préversion des flux d’appareil est uniquement prise en charge pour les hubs IoT créés dans les régions suivantes :
 
-  - **USA Centre**
-  - **EUAP USA Centre**
+   *  **USA Centre**
+
+   *  **EUAP USA Centre**
 
 Les deux exemples d’applications que vous exécutez dans ce guide de démarrage rapide sont écrits à l’aide de C#. Votre machine de développement doit disposer du Kit SDK .NET Core 2.1.0 ou version ultérieure.
 
-Vous pouvez télécharger le Kit SDK .NET Core pour plusieurs plateformes sur [.NET](https://www.microsoft.com/net/download/all).
+*  Téléchargez le [Kit SDK .NET Core pour plusieurs plateformes sur .NET](https://www.microsoft.com/net/download/all).
 
 Vous pouvez vérifier la version actuelle de C# sur votre machine de développement à l’aide de la commande suivante :
 
@@ -46,17 +47,17 @@ Vous pouvez vérifier la version actuelle de C# sur votre machine de développem
 dotnet --version
 ```
 
-Exécutez la commande suivante afin d’ajouter l’extension Microsoft Azure IoT pour Azure CLI à votre instance Cloud Shell. L’extension IoT ajoute des commandes IoT Hub, IoT Edge et IoT Device Provisioning Service (DPS) à Azure CLI.
+*  Exécutez la commande suivante afin d’ajouter l’extension Microsoft Azure IoT pour Azure CLI à votre instance Cloud Shell. L’extension IoT ajoute des commandes IoT Hub, IoT Edge et IoT Device Provisioning Service (DPS) à Azure CLI.
 
-```azurecli-interactive
-az extension add --name azure-cli-iot-ext
-```
+    ```azurecli-interactive
+    az extension add --name azure-cli-iot-ext
+    ```
 
-Téléchargez l’exemple de projet C# à partir de https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip et extrayez l’archive ZIP. Vous en aurez besoin côté appareil et service.
+* Téléchargez l’exemple de projet C# à partir de https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip et extrayez l’archive ZIP. Vous en aurez besoin côté appareil et service.
 
 ## <a name="create-an-iot-hub"></a>Créer un hub IoT
 
-[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub-device-streams.md)]
+[!INCLUDE [iot-hub-include-create-hub-device-streams](../../includes/iot-hub-include-create-hub-device-streams.md)]
 
 ## <a name="register-a-device"></a>Inscrire un appareil
 
@@ -86,7 +87,7 @@ Un appareil doit être inscrit dans votre hub IoT pour pouvoir se connecter. Dan
 
     Vous utiliserez cette valeur plus loin dans ce démarrage rapide.
 
-3. Vous avez également besoin de la _chaîne de connexion du service_ de votre hub IoT pour permettre à l’application côté service de se connecter à votre hub IoT et d’établir un flux d’appareil. La commande suivante récupère cette valeur de votre hub IoT :
+3. Vous avez également besoin de la *chaîne de connexion du service* de votre hub IoT pour permettre à l’application côté service de se connecter à votre hub IoT et d’établir un flux d’appareil. La commande suivante récupère cette valeur de votre hub IoT :
 
    **YourIoTHubName** : Remplacez l’espace réservé ci-dessous par le nom que vous avez choisi pour votre hub IoT.
 
@@ -99,6 +100,8 @@ Un appareil doit être inscrit dans votre hub IoT pour pouvoir se connecter. Dan
    `"HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey={YourSharedAccessKey}"`
 
 ## <a name="communicate-between-device-and-service-via-device-streams"></a>Communiquer entre appareil et service par le biais de flux d’appareil
+
+Dans cette section, vous exécutez l’application côté appareil et l’application côté service et communiquez entre les deux.
 
 ### <a name="run-the-service-side-application"></a>Exécuter l’application côté service
 
@@ -154,15 +157,17 @@ dotnet run <DeviceConnectionString>
 
 À la fin de la dernière étape, le programme côté service lance un flux à votre appareil et, une fois établi, envoie un tampon de chaîne au service sur le flux. Dans cet exemple, le programme côté service renvoie simplement les mêmes données à l’appareil, ce qui démontre une communication bidirectionnelle réussie entre les deux applications. Reportez-vous à la figure ci-dessous.
 
-Sortie de console côté appareil : ![Texte de remplacement](./media/quickstart-device-streams-echo-csharp/device-console-output.png "Sortie de console côté appareil")
+Sortie de la console sur le côté de l’appareil :
 
-Sortie de console côté service : ![Texte de remplacement](./media/quickstart-device-streams-echo-csharp/service-console-output.png "Sortie de console côté service")
+![Sortie de la console côté appareil](./media/quickstart-device-streams-echo-csharp/device-console-output.png)
 
-Le trafic envoyé sur le flux est traité par tunnel par le biais d’IoT Hub au lieu d’être directement envoyé. Ce processus offre [ces avantages](./iot-hub-device-streams-overview.md#benefits).
+Sortie de la console sur le côté service : ![Sortie de la console sur le côté service](./media/quickstart-device-streams-echo-csharp/service-console-output.png )
+
+Le trafic envoyé sur le flux est traité par tunnel par le biais d’IoT Hub au lieu d’être directement envoyé. Les avantages sont détaillés dans [Avantages des flux d'appareils](./iot-hub-device-streams-overview.md#benefits).
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-[!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources-device-streams.md)]
+[!INCLUDE [iot-hub-quickstarts-clean-up-resources-device-streams](../../includes/iot-hub-quickstarts-clean-up-resources-device-streams.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 

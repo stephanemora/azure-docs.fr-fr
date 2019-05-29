@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: overview
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 58fb1d73509ab52551bead4526dfb47588cf1ec6
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 820c89ce352db772f629a99a438ed86448af02fe
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60004582"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65965722"
 ---
 # <a name="what-is-windows-virtual-desktop-preview"></a>Qu’est-ce que Windows Virtual Desktop Preview ? 
 
@@ -54,16 +54,13 @@ Vous pouvez également affecter et connecter des utilisateurs à vos bureaux vir
 
 Il existe quelques conditions à remplir avant de configurer Windows Virtual Desktop et de connecter vos utilisateurs à leurs bureaux et applications Windows.
 
-Actuellement, Windows Virtual Desktop prend uniquement en charge les deux systèmes d’exploitation suivants :
-- Windows 10 Entreprise multisession
-- Windows Server 2016
-
 Nous prévoyons d’ajouter la prise en charge des systèmes d’exploitation suivants. Par conséquent, vérifiez que vous disposez des [licences appropriées](https://azure.microsoft.com/pricing/details/virtual-desktop/) pour vos utilisateurs, en fonction du poste de travail et des applications que vous envisagez de déployer :
 
 |SE|Licence obligatoire|
 |---|---|
-
-|Windows 10 Entreprise multisession ou Windows 10 Entreprise|Microsoft E3, E5, A3, A5, Business<br>Windows E3, E5, A3, A5| |Windows 7 Entreprise|Microsoft E3, E5, A3, A5, Business<br>Windows E3, E5, A3, A5| |Windows Server 2012 R2, 2016, 2019|Licence d’Accès Client (CAL) Services Bureau à distance avec Software Assurance|
+|Windows 10 Entreprise multisession ou Windows 10 Entreprise|Microsoft 365 E3, E5, A3, A5, F1, Business<br>Windows E3, E5, A3, A5|
+|Windows 7 Entreprise |Microsoft 365 E3, E5, A3, A5, F1, Business<br>Windows E3, E5, A3, A5|
+|Windows Server 2012 R2, 2016, 2019|Licence d’Accès Client (CAL) Services Bureau à distance avec Software Assurance|
 
 Votre infrastructure doit contenir les éléments suivants pour prendre en charge Windows Virtual Desktop :
 
@@ -76,9 +73,7 @@ Votre infrastructure doit contenir les éléments suivants pour prendre en charg
 Les machines virtuelles Azure que vous créez pour Windows Virtual Desktop doivent :
 
 * être [standard jointes à un domaine](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-comparison) ou [hybrides jointes à AD](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan). Les machines virtuelles ne peuvent pas être jointes à Azure AD.
-* Exécuter l’une des images de système d’exploitation prises en charge suivantes :
-  * Windows 10 Entreprise multisession
-  * Windows Server 2016
+* Exécuter l'une des [images de système d'exploitation prises en charge](#supported-virtual-machine-os-image) suivantes.
 
 >[!NOTE]
 >Si vous avez besoin d’un abonnement Azure, vous pouvez demander un [essai gratuit d’un mois](https://azure.microsoft.com/free/). Si vous utilisez l’essai gratuit d’Azure, vous devez utiliser Azure AD Domain Services pour synchroniser votre annuaire Windows Server Active Directory avec Azure Active Directory.
@@ -88,8 +83,23 @@ Windows Virtual Desktop comprend les bureaux et applications Windows que fournis
 Pour bénéficier de performances optimales, vérifiez que votre réseau remplit les conditions suivantes :
 
 * La latence aller-retour entre le réseau du client et la région Azure où les pools hôtes ont été déployés doit être inférieure à 150 ms
-* Le trafic réseau peut circuler au-delà des frontières du pays quand des machines virtuelles qui hébergent des bureaux et des applications se connectent au service de gestion
+* Le trafic réseau peut circuler au-delà des frontières du pays ou de la région lorsque des machines virtuelles qui hébergent des bureaux et des applications se connectent au service de gestion
 * Pour optimiser les performances du réseau, nous vous recommandons de colocaliser les machines virtuelles de l’hôte de session dans la même région Azure que le service de gestion
+
+## <a name="supported-remote-desktop-clients"></a>Clients Bureau à distance pris en charge
+
+Les clients Bureau à distance suivants prennent en charge Windows Virtual Desktop :
+
+* [Windows](https://docs.microsoft.com/azure/virtual-desktop/connect-windows-7-and-10)
+* [HTML5](https://docs.microsoft.com/azure/virtual-desktop/connect-web)
+
+
+## <a name="supported-virtual-machine-os-image"></a>Image de système d'exploitation de machine virtuelle prise en charge
+
+Windows Virtual Desktop prend en charge les images de système d'exploitation suivantes :
+
+* Windows 10 Entreprise multisession
+* Windows Server 2016
 
 ## <a name="provide-feedback"></a>Fournir des commentaires
 

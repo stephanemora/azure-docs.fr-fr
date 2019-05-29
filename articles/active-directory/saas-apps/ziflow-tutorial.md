@@ -4,193 +4,211 @@ description: Découvrez comment configurer l’authentification unique entre Azu
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 84e60fa4-36fb-49c4-a642-95538c78f926
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 08/07/2018
+ms.topic: tutorial
+ms.date: 03/29/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 175e678365016bafd3d18f590a5434c32ac9fadd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 02c09744130bec55eed4181b0d4ba958aec59e69
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60798214"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65905357"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ziflow"></a>Didacticiel : Intégration d’Azure Active Directory à Rollbar
 
 Dans ce didacticiel, vous allez apprendre à intégrer Ziflow dans Azure Active Directory (Azure AD).
-
 L’intégration de Ziflow dans Azure AD vous offre les avantages suivants :
 
-- Dans Azure AD, vous pouvez contrôler qui a accès à Ziflow.
-- Vous pouvez autoriser les utilisateurs à se connecter automatiquement à Ziflow (via l’authentification unique) avec leur compte Azure AD.
-- Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure
+* Dans Azure AD, vous pouvez contrôler qui a accès à Ziflow.
+* Vous pouvez permettre à vos utilisateurs de se connecter automatiquement à Ziflow (par le biais de l'authentification unique) avec leur compte Azure AD.
+* Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure
 
-Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
+Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour configurer l’intégration d’Azure AD dans Ziflow, vous avez besoin des éléments suivants :
 
-- Un abonnement Azure AD
-- Un abonnement Ziflow pour lequel l’authentification unique est activée
-
-> [!NOTE]
-> Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
-
-Vous devez en outre suivre les recommandations ci-dessous :
-
-- N’utilisez pas votre environnement de production, sauf si cela est nécessaire.
-- Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez [obtenir un essai d’un mois](https://azure.microsoft.com/pricing/free-trial/).
+* Un abonnement Azure AD Si vous n’avez pas d’environnement Azure AD, vous pouvez obtenir un [compte gratuit](https://azure.microsoft.com/free/)
+* Un abonnement Ziflow pour lequel l'authentification unique est activée
 
 ## <a name="scenario-description"></a>Description du scénario
-Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
-1. Ajout de Ziflow depuis la galerie
-2. Configuration et test de l’authentification unique Azure AD
+Dans ce didacticiel, vous configurez et testez l’authentification unique Azure AD dans un environnement de test.
+
+* Ziflow prend en charge l'authentification unique initiée par le **fournisseur de services**
 
 ## <a name="adding-ziflow-from-the-gallery"></a>Ajout de Ziflow depuis la galerie
+
 Pour configurer l’intégration de Ziflow dans Azure AD, vous devez ajouter Ziflow depuis la galerie dans votre liste d’applications SaaS gérées.
 
 **Pour ajouter Ziflow à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**. 
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
-    ![Bouton Azure Active Directory][1]
+    ![Bouton Azure Active Directory](common/select-azuread.png)
 
-2. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
+2. Accédez à **Applications d’entreprise**, puis sélectionnez l’option **Toutes les applications**.
 
-    ![Panneau Applications d’entreprise][2]
-    
+    ![Panneau Applications d’entreprise](common/enterprise-applications.png)
+
 3. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
 
-    ![Bouton Nouvelle application][3]
+    ![Bouton Nouvelle application](common/add-new-app.png)
 
 4. Dans la zone de recherche, tapez **Ziflow**, sélectionnez **Ziflow** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
-    ![Ziflow dans la liste des résultats](./media/ziflow-tutorial/tutorial_ziflow_addfromgallery.png)
+     ![Ziflow dans la liste des résultats](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
 
-Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec Ziflow et un utilisateur de test appelé « Britta Simon ».
-
-Pour que l’authentification unique fonctionne, Azure AD doit connaître l’utilisateur correspondant dans Ziflow à un utilisateur Azure AD. En d’autres termes, une relation entre un utilisateur Azure AD et l’utilisateur associé dans Ziflow doit être établie.
+Dans cette section, vous allez configurer et tester l'authentification unique Azure AD auprès de Ziflow avec un utilisateur de test appelé **Britta Simon**.
+Pour que l'authentification unique fonctionne, un lien doit être établi entre un utilisateur Azure AD et l'utilisateur Ziflow associé.
 
 Pour configurer et tester l’authentification unique Azure AD avec Ziflow, vous devez suivre les étapes ci-dessous :
 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-2. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-3. **[Créer un utilisateur de test Ziflow](#create-a-ziflow-test-user)** pour avoir un équivalent de Britta Simon dans Ziflow lié à la représentation Azure AD associée.
+2. **[Configurer l'authentification unique Ziflow](#configure-ziflow-single-sign-on)** pour configurer les paramètres de l'authentification unique côté application.
+3. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
 4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
-5. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
+5. **[Créer un utilisateur de test Ziflow](#create-ziflow-test-user)** pour avoir dans Ziflow un équivalent de Britta Simon lié à la représentation Azure AD associée.
+6. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
 
-Dans cette section, vous allez activer l’authentification unique Azure AD dans le portail Azure et configurer l’authentification unique dans votre application Ziflow.
+Dans cette section, vous activez l’authentification unique Azure AD dans le portail Azure.
 
-**Pour configurer l’authentification unique Azure AD avec Ziflow, procédez comme suit :**
+Pour configurer l'authentification unique Azure AD auprès de Ziflow, procédez comme suit :
 
-1. Dans le portail Azure, sur la page d’intégration de l’application **Ziflow**, cliquez sur **Authentification unique**.
+1. Sur le [portail Azure](https://portal.azure.com/), accédez à la page d'intégration de l'application **Ziflow** et sélectionnez **Authentification unique**.
 
-    ![Lien Configurer l’authentification unique][4]
+    ![Lien Configurer l’authentification unique](common/select-sso.png)
 
-2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
+2. Dans la boîte de dialogue **Sélectionner une méthode d’authentification unique**, sélectionnez le mode **SAML/WS-Fed** afin d’activer l’authentification unique.
 
-    ![Boîte de dialogue Authentification unique](./media/ziflow-tutorial/tutorial_ziflow_samlbase.png)
+    ![Mode de sélection de l’authentification unique](common/select-saml-option.png)
 
-3. Dans la section **Domaine et URL Ziflow**, procédez comme suit :
+3. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône **Modifier** pour ouvrir la boîte de dialogue **Configuration SAML de base**.
 
-    ![Informations d’authentification unique dans Domaine et URL Ziflow](./media/ziflow-tutorial/tutorial_ziflow_url.png)
+    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-    a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://ziflow-production.auth0.com/login/callback?connection=<UniqueID>`
+4. Dans la section **Configuration SAML de base**, effectuez les étapes suivantes :
 
-    b. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `urn:auth0:ziflow-production:<UniqueID>`
+    ![Informations d’authentification unique dans Domaine et URL Ziflow](common/sp-identifier.png)
+
+    a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://ziflow-production.auth0.com/login/callback?connection=<UniqueID>`
+
+    b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant : `urn:auth0:ziflow-production:<UniqueID>`
 
     > [!NOTE]
-    > Les valeurs ci-dessus ne sont pas réelles. Vous allez remplacer l’ID unique dans Identificateur et URL de connexion par la valeur réelle. La procédure est expliquée plus loin dans le didacticiel.
+    > Les valeurs ci-dessus ne sont pas réelles. Vous allez remplacer l'ID unique dans Identificateur et URL de connexion par la valeur réelle. La procédure est expliquée plus loin dans le didacticiel.
 
-4. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (Base64)** puis enregistrez le fichier du certificat sur votre ordinateur.
+5. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le **Certificat (Base64)** en fonction des options définies par rapport à vos besoins, puis enregistrez-le sur votre ordinateur.
 
-    ![Lien Téléchargement de certificat](./media/ziflow-tutorial/tutorial_ziflow_certificate.png) 
+    ![Lien Téléchargement de certificat](common/certificatebase64.png)
 
-5. Cliquez sur le bouton **Enregistrer** .
+6. Dans la section **Configurer Ziflow**, copiez les URL appropriées, selon vos besoins.
 
-    ![Bouton Enregistrer de la page Configurer l’authentification unique](./media/ziflow-tutorial/tutorial_general_400.png)
+    ![Copier les URL de configuration](common/copy-configuration-urls.png)
 
-6. Dans la section **Configuration de Ziflow**, cliquez sur **Configurer Ziflow** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez **l’URL de déconnexion et l’URL du service d’authentification unique SAML** à partir de la **section Référence rapide**.
+    a. URL de connexion
 
-    ![Configuration de Ziflow](./media/ziflow-tutorial/tutorial_ziflow_configure.png) 
+    b. Identificateur Azure AD
 
-7. Ouvrez une autre fenêtre de navigateur web, puis connectez-vous à Ziflow en tant qu’administrateur de la sécurité.
+    c. URL de déconnexion
 
-8. Dans l’angle supérieur droit, cliquez sur Avatar, puis cliquez sur **Gérer le compte**.
+### <a name="configure-ziflow-single-sign-on"></a>Configurer l'authentification unique Ziflow
+
+1. Ouvrez une nouvelle fenêtre dans le navigateur web, puis connectez-vous à Ziflow en tant qu'administrateur de la sécurité.
+
+2. Dans l’angle supérieur droit, cliquez sur Avatar, puis cliquez sur **Gérer le compte**.
 
     ![Configuration de Ziflow - Gestion](./media/ziflow-tutorial/tutorial_ziflow_manage.png)
 
-9. Dans le coin supérieur gauche, cliquez sur **Authentification unique**.
+3. Dans le coin supérieur gauche, cliquez sur **Authentification unique**.
 
     ![Configuration de Ziflow - Connexion](./media/ziflow-tutorial/tutorial_ziflow_signon.png)
 
-10. Sur la page **Authentification unique**, effectuez les opérations suivantes :
+4. Sur la page **Authentification unique**, effectuez les opérations suivantes :
 
     ![Configuration de Ziflow - Authentification unique](./media/ziflow-tutorial/tutorial_ziflow_page.png)
 
     a. Sélectionnez **Type** dans **SAML2.0**.
 
-    b. Dans la zone de texte **URL de connexion**, collez la valeur d’**URL du service d’authentification unique SAML** que vous avez copiée à partir du portail Azure.
+    b. Dans la zone de texte **URL de connexion**, collez la valeur de l'**URL de connexion** que vous avez copiée à partir du portail Azure.
 
     c. Téléchargez le certificat codé en base 64 que vous avez téléchargé à partir du portail Azure, dans le **Certificat de signature X509**.
 
-    d. Dans la zone de texte **URL de déconnexion**, collez la valeur de **URL de déconnexion** que vous avez copiée à partir du portail Azure.
+    d. Dans la zone de texte **URL de déconnexion**, collez la valeur de l'**URL de déconnexion** que vous avez copiée à partir du portail Azure.
 
-    e. Dans la section **Configuration Settings for your Identifier Provider (Paramètres de configuration de votre fournisseur d’identificateur)**, copiez l’ID unique en surbrillance et ajoutez-le à la fin de l’identificateur et de l’URL de connexion dans la section **Domaine et URL de Ziflow** sur le portail Azure.
+    e. Dans la section **Paramètres de configuration de votre fournisseur d'identificateur**, copiez l'ID unique en surbrillance et ajoutez-le à l'identificateur et à l'URL de connexion dans la section **Configuration SAML de base** du portail Azure.
 
-### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD 
 
 L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.
 
-   ![Créer un utilisateur de test Azure AD][100]
+1. Dans le volet gauche du portail Azure, sélectionnez **Azure Active Directory**, sélectionnez **Utilisateurs**, puis sélectionnez **Tous les utilisateurs**.
 
-**Pour créer un utilisateur de test dans Azure AD, procédez comme suit :**
+    ![Liens « Utilisateurs et groupes » et « Tous les utilisateurs »](common/users.png)
 
-1. Dans le volet gauche du Portail Azure, cliquez sur le bouton **Azure Active Directory**.
+2. Sélectionnez **Nouvel utilisateur** dans la partie supérieure de l’écran.
 
-    ![Bouton Azure Active Directory](./media/ziflow-tutorial/create_aaduser_01.png)
+    ![Bouton Nouvel utilisateur](common/new-user.png)
 
-2. Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes**, puis cliquez sur **Tous les utilisateurs**.
+3. Dans les propriétés de l’utilisateur, effectuez les étapes suivantes.
 
-    ![Liens « Utilisateurs et groupes » et « Tous les utilisateurs »](./media/ziflow-tutorial/create_aaduser_02.png)
+    ![Boîte de dialogue Utilisateur](common/user-properties.png)
 
-3. Pour ouvrir la boîte de dialogue **Utilisateur**, cliquez sur **Ajouter** en haut de la boîte de dialogue **Tous les utilisateurs**.
+    a. Dans le champ **Nom**, entrez **BrittaSimon**.
+  
+    b. Dans le champ **Nom d’utilisateur**, tapez brittasimon@yourcompanydomain.extension. Par exemple, BrittaSimon@contoso.com
 
-    ![Bouton Ajouter](./media/ziflow-tutorial/create_aaduser_03.png)
-
-4. Dans la boîte de dialogue **Utilisateur**, procédez comme suit :
-
-    ![Boîte de dialogue Utilisateur](./media/ziflow-tutorial/create_aaduser_04.png)
-
-    a. Dans la zone **Nom**, tapez **BrittaSimon**.
-
-    b. Dans la zone **Nom d’utilisateur** , tapez l’adresse e-mail de l’utilisateur Britta Simon.
-
-    c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
+    c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
 
     d. Cliquez sur **Créer**.
-  
-### <a name="create-a-ziflow-test-user"></a>Créer un utilisateur de test Ziflow
 
-Pour se connecter à Ziflow, les utilisateurs d’Azure AD doivent être approvisionnés dans Ziflow. Dans Ziflow, l’approvisionnement est une tâche manuelle.
+### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
+
+Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à Ziflow.
+
+1. Sur le portail Azure, sélectionnez **Applications d'entreprise**, **Toutes les applications**, puis **Ziflow**.
+
+    ![Panneau Applications d’entreprise](common/enterprise-applications.png)
+
+2. Dans la liste des applications, sélectionnez **Ziflow**.
+
+    ![Lien Ziflow dans la liste des applications](common/all-applications.png)
+
+3. Dans le menu de gauche, sélectionnez **Utilisateurs et groupes**.
+
+    ![Lien « Utilisateurs et groupes »](common/users-groups-blade.png)
+
+4. Cliquez sur le bouton **Ajouter un utilisateur**, puis sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
+
+    ![Volet Ajouter une attribution](common/add-assign-user.png)
+
+5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
+
+6. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
+
+7. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
+
+### <a name="create-ziflow-test-user"></a>Créer un utilisateur de test Ziflow
+
+Pour se connecter à Ziflow, les utilisateurs d'Azure AD doivent être approvisionnés dans Ziflow. Dans Ziflow, l’approvisionnement est une tâche manuelle.
 
 Pour approvisionner un compte d’utilisateur, procédez comme suit :
 
-1. Connectez-vous à Ziflow en tant qu’administrateur de la sécurité.
+1. Connectez-vous à Ziflow en tant qu'administrateur de la sécurité.
 
 2. Accédez à **Personnes** en haut.
 
@@ -200,7 +218,7 @@ Pour approvisionner un compte d’utilisateur, procédez comme suit :
 
     ![Configuration de Ziflow - Ajout d’utilisateur](./media/ziflow-tutorial/tutorial_ziflow_add.png)
 
-4. Dans la section **Add a User (Ajouter un utilisateur)**, procédez comme suit :
+4. Dans la section **Add a User (Ajouter un utilisateur)** , procédez comme suit :
 
     ![Configuration de Ziflow - Ajout d’utilisateur](./media/ziflow-tutorial/tutorial_ziflow_adduser.png)
 
@@ -212,66 +230,22 @@ Pour approvisionner un compte d’utilisateur, procédez comme suit :
 
     d. Sélectionnez votre rôle Ziflow.
 
-    e. Cliquez sur **Add 1 user (Ajouter un utilisateur)**.
+    e. Cliquez sur **Add 1 user (Ajouter un utilisateur)** .
 
     > [!NOTE]
     > Le titulaire du compte Azure Active Directory reçoit un e-mail contenant un lien à suivre pour confirmer son compte et l’activer.
 
-### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
-
-Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à Ziflow.
-
-![Attribuer le rôle utilisateur][200] 
-
-**Pour affecter Britta Simon à Ziflow, procédez comme suit :**
-
-1. Dans le portail Azure, ouvrez la vue des applications, accédez à la vue des répertoires, accédez à **Applications d’entreprise**, puis cliquez sur **Toutes les applications**.
-
-    ![Affecter des utilisateurs][201] 
-
-2. Dans la liste des applications, sélectionnez **Ziflow**.
-
-    ![Lien Ziflow dans la liste des applications](./media/ziflow-tutorial/tutorial_ziflow_app.png)  
-
-3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
-
-    ![Lien « Utilisateurs et groupes »][202]
-
-4. Cliquez sur le bouton **Ajouter**. Ensuite, sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
-
-    ![Volet Ajouter une attribution][203]
-
-5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste des utilisateurs.
-
-6. Cliquez sur le bouton **Sélectionner** dans la boîte de dialogue **Utilisateurs et groupes**.
-
-7. Cliquez sur le bouton **Affecter** dans la boîte de dialogue **Ajouter une affectation**.
-    
-### <a name="test-single-sign-on"></a>Tester l’authentification unique
+### <a name="test-single-sign-on"></a>Tester l’authentification unique 
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Lorsque vous cliquez sur la vignette Ziflow dans le volet d’accès, vous vous connectez automatiquement à votre application Ziflow.
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md). 
+Le fait de cliquer sur la vignette Ziflow dans le volet d'accès doit vous connecter automatiquement à l'application Ziflow pour laquelle vous avez configuré l'authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-* [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](tutorial-list.md)
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-
-<!--Image references-->
-
-[1]: ./media/ziflow-tutorial/tutorial_general_01.png
-[2]: ./media/ziflow-tutorial/tutorial_general_02.png
-[3]: ./media/ziflow-tutorial/tutorial_general_03.png
-[4]: ./media/ziflow-tutorial/tutorial_general_04.png
-
-[100]: ./media/ziflow-tutorial/tutorial_general_100.png
-
-[200]: ./media/ziflow-tutorial/tutorial_general_200.png
-[201]: ./media/ziflow-tutorial/tutorial_general_201.png
-[202]: ./media/ziflow-tutorial/tutorial_general_202.png
-[203]: ./media/ziflow-tutorial/tutorial_general_203.png
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

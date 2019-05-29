@@ -8,14 +8,14 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 03/04/2019
+ms.date: 05/22/2019
 ms.author: jgao
-ms.openlocfilehash: b1b50858286e3a174de254ae16c64b04abc00936
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 802c0409fe3ac88f73c383958d2337be09ef7992
+ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64716008"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66016476"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-resource-manager-template"></a>Démarrage rapide : Définir et récupérer un secret à partir d’Azure Key Vault à l’aide d’un modèle Resource Manager
 
@@ -61,10 +61,10 @@ Le modèle utilisé dans ce guide de démarrage rapide est tiré des [modèles d
     * **Abonnement** : sélectionnez un abonnement Azure.
     * **Groupe de ressources** : sélectionnez **Créer**, entrez un nom unique pour le groupe de ressources, puis cliquez sur **OK**. 
     * **Emplacement** : sélectionnez un emplacement.  Par exemple, **USA Centre**.
-    * **Nom du coffre de clés** : entrez un nom unique pour le coffre de clés.  
+    * **Nom de coffre de clé** : entrez pour le coffre de clés un nom qui doit être globalement unique dans le. espace de noms vault.azure.net.  
     * **Id de locataire**: la fonction de modèle récupère automatiquement votre id de locataire.  Ne modifiez pas la valeur par défaut.
     * **ID d’utilisateur Azure Active Directory** : entrez votre ID d’objet utilisateur Azure AD que vous avez récupéré dans [Prérequis](#prerequisites).
-    * **Nom du secret** : entrez le nom du secret que vous stocké dans le coffre de clés.  Par exemple, **adminpassword**
+    * **Nom du secret** : entrez le nom du secret que vous stocké dans le coffre de clés.  Par exemple, **adminpassword**.
     * **Valeur du secret** : entrez la valeur du secret.  Si vous stockez un mot de passe, il est recommandé d’utiliser le mot de passe généré que vous avez créé dans Prérequis.
     * **J’accepte les termes et conditions mentionnés ci-dessus** : cochez la case.
 3. Sélectionnez **Achat**.

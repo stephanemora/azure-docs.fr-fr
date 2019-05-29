@@ -8,14 +8,14 @@ ms.topic: quickstart
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: f07a760153c4ec15cec5c5bc1348e23152c59cb8
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 2ff34911dea19b83731b46077bd60c7b085763a4
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59258332"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979585"
 ---
-# <a name="create-a-policy-assignment-to-identify-non-compliant-resources-using-azure-powershell"></a>Créer une affectation de stratégie pour identifier les ressources non conformes à l’aide d’Azure PowerShell
+# <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-azure-powershell"></a>Démarrage rapide : Créer une affectation de stratégie pour identifier les ressources non conformes à l’aide d’Azure PowerShell
 
 La première étape pour comprendre la conformité dans Azure consiste à identifier l’état de vos ressources. Dans ce démarrage rapide, vous créerez une affectation de stratégie pour identifier les machines virtuelles qui n’utilisent pas de disques managés. Lorsque vous aurez terminé, vous identifierez les machines virtuelles qui ne sont *pas conformes*.
 
@@ -28,8 +28,8 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Avant de commencer, assurez-vous que la dernière version d’Azure PowerShell est installée. Consultez [Installer le module Azure PowerShell](/powershell/azure/install-az-ps) pour plus d’informations.
-- Inscrivez le fournisseur de ressources Policy Insights à l’aide d’Azure PowerShell. L’inscription du fournisseur de ressources permet de s’assurer que votre abonnement fonctionne avec lui. Pour inscrire un fournisseur de ressources, vous devez avoir l’autorisation pour une opération de fournisseur de ressources. Cette opération est incluse dans les rôles de contributeur et de propriétaire. Exécutez la commande suivante pour enregistrer le fournisseur de ressources :
+- Avant de commencer, assurez-vous que la dernière version d’Azure PowerShell est installée. Pour plus d'informations, consultez [Installer le module Azure PowerShell](/powershell/azure/install-az-ps).
+- Inscrivez le fournisseur de ressources Azure Policy Insights à l’aide d’Azure PowerShell. L’inscription du fournisseur de ressources permet de s’assurer que votre abonnement fonctionne avec lui. Pour inscrire un fournisseur de ressources, vous devez avoir l’autorisation pour une opération de fournisseur de ressources. Cette opération est incluse dans les rôles de contributeur et de propriétaire. Exécutez la commande suivante pour enregistrer le fournisseur de ressources :
 
   ```azurepowershell-interactive
   # Register the resource provider if it's not already registered

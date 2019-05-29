@@ -10,18 +10,18 @@ ms.subservice: bing-custom-search
 ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: 6f44d4e6e5a0ee940394e09ceff8a425700d34e1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0870983fe9f0ae64090652f02c526a370064b8ab
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58100728"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595893"
 ---
-# <a name="tutorial-build-a-custom-search-web-page"></a>Tutoriel : Créer une page web Recherche personnalisée
+# <a name="tutorial-build-a-custom-search-web-page"></a>Didacticiel : Créer une page web Recherche personnalisée
 
 La Recherche personnalisée Bing vous permet de créer des expériences de recherche adaptées pour des sujets qui vous intéressent. Par exemple, si vous avez un site web d’arts martiaux qui fournit une expérience de recherche, vous pouvez spécifier les domaines, sous-sites et pages web dans lesquels Bing effectue les recherches. Vos utilisateurs consultent des résultats de recherche adaptés au contenu qui les intéresse au lieu de compulser des pages de résultats de recherche générale dont le contenu peut être inapproprié. 
 
-Ce tutoriel montre comment configurer une instance de recherche personnalisée et l’intégrer à une nouvelle page web.
+Ce didacticiel montre comment configurer une instance de recherche personnalisée et l’intégrer à une nouvelle page web.
 
 Les tâches traitées sont les suivantes :
 
@@ -32,10 +32,10 @@ Les tâches traitées sont les suivantes :
 > - Ajout d’entrées épinglées
 > - Intégration de la recherche personnalisée à une page web
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
-- Pour suivre ce tutoriel, vous avez besoin d’une clé d’abonnement pour l’API Recherche personnalisée Bing.  Pour obtenir une clé, consultez [Essayer Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search).
-- Si vous n’avez pas encore installé Visual Studio 2017, vous pouvez télécharger et utiliser la version **gratuite** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/).
+- Pour suivre ce didacticiel, vous avez besoin d’une clé d’abonnement pour l’API Recherche personnalisée Bing.  Pour obtenir une clé, consultez [Essayer Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search).
+- Si vous n’avez pas encore installé Visual Studio 2017 ou version ultérieure, vous pouvez télécharger et utiliser **gratuitement** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/).
 
 ## <a name="create-a-custom-search-instance"></a>Création d’une instance de recherche personnalisée
 
@@ -130,7 +130,7 @@ Il existe deux façons de consommer l’IU hébergée.
 - Option 1 : intégrer l’extrait de code JavaScript fourni dans votre application.
 - Option 2 : utiliser le point de terminaison HTML fourni.
 
-Le reste de ce tutoriel illustre l’**Option 1 : Extrait de code Javascript**.  
+Le reste de ce didacticiel illustre l’**Option 1 : Extrait de code Javascript**.  
 
 ## <a name="set-up-your-visual-studio-solution"></a>Configurer votre solution Visual Studio
 

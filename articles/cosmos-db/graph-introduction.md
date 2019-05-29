@@ -5,18 +5,18 @@ author: LuisBosquez
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: overview
-ms.date: 09/05/2018
+ms.date: 05/20/2019
 ms.author: lbosq
-ms.openlocfilehash: 36465c253996e4cecc665b2fd1d59c03adc78a2f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6f5d90f8b825b7076a1a5122dbef3c8b2990e216
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58110543"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65954263"
 ---
 # <a name="introduction-to-azure-cosmos-db-gremlin-api"></a>Présentation d’Azure Cosmos DB : API Gremlin
 
-[Azure Cosmos DB](introduction.md) est le service de base de données multimodèle globalement distribué de Microsoft pour les applications stratégiques. Il s’agit d’une base de données multimodèle qui prend en charge les modèles de données en colonnes, documents, graphes et clé-valeur. L’API Azure Cosmos DB Gremlin permet de stocker, d’utiliser, de modéliser et de parcourir des données de graphes.
+[Azure Cosmos DB](introduction.md) est le service de base de données multimodèle globalement distribué de Microsoft pour les applications stratégiques. Il s'agit d'une base de données multimodèle qui prend en charge les modèles de données sous forme de documents, de valeurs de clés, de graphiques et de colonnes. L’API Azure Cosmos DB Gremlin permet de stocker, d’utiliser, de modéliser et de parcourir des données de graphes.
 
 Cet article fournit une vue d’ensemble de l’API Gremlin Azure Cosmos DB, et explique comment l’utiliser pour stocker des graphiques volumineux comportant des milliards de sommets et de bords. Vous pouvez interroger les graphiques avec une latence de quelques millisecondes, et faire évoluer facilement leur structure et leur schéma. Pour interroger Azure Cosmos DB, vous pouvez utiliser le langage de parcours de graphe [Apache TinkerPop](https://tinkerpop.apache.org) ou [Gremlin](https://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps).
 
