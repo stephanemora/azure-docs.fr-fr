@@ -87,7 +87,7 @@ Le tableau suivant décrit les propriétés dans la définition JSON du pipeline
 
 | Tag | Description | Obligatoire |
 | --- | --- | --- |
-| Nom |Nom de l’activité. Spécifiez un nom qui représente l’action pour laquelle l’activité est configurée<br/><ul><li>Nombre maximal de caractères : 260</li><li>Doit commencer par une lettre, un chiffre ou un trait de soulignement (\_)</li><li>Les caractères suivants ne sont pas autorisés : « . », « + », « ? », « / », « < », « > », « * », « % », « & », « : », « \\ »</li></ul> |Oui |
+| name |Nom de l’activité. Spécifiez un nom qui représente l’action pour laquelle l’activité est configurée<br/><ul><li>Nombre maximal de caractères : 260</li><li>Doit commencer par une lettre, un chiffre ou un trait de soulignement (\_)</li><li>Les caractères suivants ne sont pas autorisés : « . », « + », « ? », « / », « < », « > », « * », « % », « & », « : », « \\ »</li></ul> |Oui |
 | description |Texte décrivant la raison motivant l’activité. |Non  |
 | type |Spécifie le type de l'activité. Consultez les sections [MAGASINS DE DONNÉS](#data-stores) et [ACTIVITÉS DE TRANSFORMATION DES DONNÉES](#data-transformation-activities) pour en savoir plus sur les différents types d’activités. |Oui |
 | inputs |Les tables d’entrée utilisées par l’activité<br/><br/>`// one input table`<br/>`"inputs":  [ { "name": "inputtable1"  } ],`<br/><br/>`// two input tables` <br/>`"inputs":  [ { "name": "inputtable1"  }, { "name": "inputtable2"  } ],` |Non pour les activités HDInsightStreaming et SqlServerStoredProcedure <br/> <br/> Oui pour toutes les autres |
@@ -247,7 +247,7 @@ Le tableau suivant décrit les propriétés dans la définition JSON du pipeline
 
 | Propriété | Description | Obligatoire |
 | -------- | ----------- | -------- |
-| Nom | Nom du service lié. | Oui |
+| name | Nom du service lié. | Oui |
 | propriétés - type | Type du service lié. Par exemple :  Stockage Azure, Azure SQL Database. |
 | typeProperties | La section typeProperties comporte des éléments qui sont différents pour chaque magasin de données ou environnement de calcul. Consultez la section Magasins de données pour les services liés aux magasins de données et la section [Environnements de calcul](#compute-environments) pour les services liés au calcul. |
 
@@ -286,7 +286,7 @@ La table suivante décrit les propriétés dans le JSON ci-dessus :
 
 | Propriété | Description | Obligatoire | Default |
 | --- | --- | --- | --- |
-| Nom | Nom du jeu de données Pour connaître les règles d’affectation des noms, voir [Azure Data Factory - Règles d’affectation des noms](data-factory-naming-rules.md). |Oui |N/D |
+| name | Nom du jeu de données Pour connaître les règles d’affectation des noms, voir [Azure Data Factory - Règles d’affectation des noms](data-factory-naming-rules.md). |Oui |N/D |
 | type | Type du jeu de données. Spécifiez l’un des types pris en charge par Azure Data Factory (par exemple : AzureBlob, AzureSqlTable). Consultez la section [Magasins de données](#data-stores) pour obtenir des informations sur les types de magasins de données et jeu de données pris en charge par Azure Data Factory. |
 | structure | Schéma du jeu de données. Il contient des colonnes, leurs types, etc. | Non  |N/D |
 | typeProperties | Propriétés correspondant au type sélectionné. Consultez la section [Magasins de données](#data-stores) pour en savoir plus sur les types pris en charge et leurs propriétés. |Oui |N/D |
@@ -298,7 +298,7 @@ Chaque colonne de la section **structure** contient les propriétés suivantes 
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
-| Nom |Nom de la colonne. |Oui |
+| name |Nom de la colonne. |Oui |
 | type |Type de données de la colonne.  |Non  |
 | culture |Culture .NET à utiliser lorsque le type est spécifié et qu’il est de type .NET `Datetime` ou `Datetimeoffset`. La valeur par défaut est `en-us`. |Non  |
 | format |Chaîne de format à utiliser lorsque le type est spécifié et qu’il est de type .NET `Datetime` ou `Datetimeoffset`. |Non  |

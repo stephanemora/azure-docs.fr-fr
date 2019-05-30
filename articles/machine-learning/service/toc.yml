@@ -176,7 +176,7 @@
           href: how-to-train-ml-models.md
         - name: Utiliser PyTorch
           href: how-to-train-pytorch.md
-        - name: Utiliser TensorFlow et Keras
+        - name: Utiliser TensorFlow
           href: how-to-train-tensorflow.md
         - name: Optimiser les hyperparamètres
           displayName: parameter

@@ -39,9 +39,9 @@
 - name: Informations de référence
   items:
     - name: "API Suggestion automatique Bing\_v7"
-      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference'
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference'
     - name: "API Suggestion automatique Bing\_v5"
-      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference'
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v5-reference'
     - name: Kits SDK
       items:
         - name: .NET

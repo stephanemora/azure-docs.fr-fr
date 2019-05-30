@@ -297,6 +297,8 @@
           items:
             - name: Applications et principaux de service
               href: app-objects-and-service-principals.md
+            - name: Comment et pourquoi les applications sont ajoutées à Azure AD
+              href: active-directory-how-applications-are-added.md
             - name: Application monolocataire et application multilocataire
               href: single-and-multi-tenant-apps.md
         - name: Autorisations et consentement

@@ -49,9 +49,9 @@
 - name: Informations de référence
   items:
     - name: "API Vérification orthographique Bing\_v7"
-      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference'
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference'
     - name: "API Vérification orthographique Bing\_v5 (ancienne version)"
-      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v5-reference'
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v5-reference'
     - name: Kits SDK
       items:
         - name: .NET
