@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: apimpm
-ms.openlocfilehash: b3f86147eb91e874d5317204ca05fb45628414d3
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.openlocfilehash: 28720098206c7afdefacbd47de283b2ef8d5a606
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65833412"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243238"
 ---
 # <a name="api-management-transformation-policies"></a>Stratégies de transformation de la Gestion des API
 Cette rubrique est une ressource de référence au sujet des stratégies Gestion des API suivantes. Pour plus d'informations sur l'ajout et la configuration des stratégies, consultez la page [Stratégies dans Gestion des API](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -70,7 +70,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 
 ### <a name="elements"></a>Éléments
 
-|Name|Description|Obligatoire|
+|Nom|Description|Obligatoire|
 |----------|-----------------|--------------|
 |json-to-xml|Élément racine.|Oui|
 
@@ -78,8 +78,8 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 
 |Nom|Description|Obligatoire|Default|
 |----------|-----------------|--------------|-------------|
-|appliquer|L’attribut doit avoir l’une des valeurs suivantes.<br /><br /> -   always : toujours appliquer la conversion.<br />-   content-type-json : ne convertir que si l’en-tête de réponse Content-Type indique la présence de JSON.|Oui|N/A|
-|consider-accept-header|L’attribut doit avoir l’une des valeurs suivantes.<br /><br /> -   true : appliquer la conversion si le format JSON est demandé dans l’en-tête d’acceptation de la demande.<br />-   false : toujours appliquer la conversion.|Non|true|
+|apply|L’attribut doit avoir l’une des valeurs suivantes.<br /><br /> -   always : toujours appliquer la conversion.<br />-   content-type-json : ne convertir que si l’en-tête de réponse Content-Type indique la présence de JSON.|Oui|N/A|
+|consider-accept-header|L’attribut doit avoir l’une des valeurs suivantes.<br /><br /> -   true : appliquer la conversion si le format JSON est demandé dans l’en-tête d’acceptation de la demande.<br />-   false : toujours appliquer la conversion.|Non |true|
 |date de l’analyse|Quand les valeurs de date sont définies sur `false`, elles sont simplement copiées lors de la transformation|Non|true|
 
 ### <a name="usage"></a>Usage
@@ -114,7 +114,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 
 ### <a name="elements"></a>Éléments
 
-|Name|Description|Obligatoire|
+|Nom|Description|Obligatoire|
 |----------|-----------------|--------------|
 |xml-to-json|Élément racine.|Oui|
 
@@ -124,7 +124,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 |----------|-----------------|--------------|-------------|
 |kind|L’attribut doit avoir l’une des valeurs suivantes.<br /><br /> -   javascript-friendly : le JSON converti présente un format familier aux développeurs JavaScript.<br />-   direct : le JSON converti reflète la structure d’origine du document XML.|Oui|N/A|
 |apply|L’attribut doit avoir l’une des valeurs suivantes.<br /><br /> -   always : toujours convertir.<br />-   content-type-xml : ne convertir que si l’en-tête de réponse Content-Type indique la présence de XML.|Oui|N/A|
-|consider-accept-header|L’attribut doit avoir l’une des valeurs suivantes.<br /><br /> -   true : appliquer la conversion si le format XML est demandé dans l’en-tête d’acceptation de la demande.<br />-   false : toujours appliquer la conversion.|Non|true|
+|consider-accept-header|L’attribut doit avoir l’une des valeurs suivantes.<br /><br /> -   true : appliquer la conversion si le format XML est demandé dans l’en-tête d’acceptation de la demande.<br />-   false : toujours appliquer la conversion.|Non |true|
 
 ### <a name="usage"></a>Usage
  Cette stratégie peut être utilisée dans les [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.
@@ -150,13 +150,13 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 
 ### <a name="elements"></a>Éléments
 
-|Nom|Description|Requis|
+|Nom|Description|Obligatoire|
 |----------|-----------------|--------------|
 |find-and-replace|Élément racine.|Oui|
 
 ### <a name="attributes"></a>Attributs
 
-|Name|Description|Obligatoire|Default|
+|Nom|Description|Obligatoire|Default|
 |----------|-----------------|--------------|-------------|
 |from|Chaîne à rechercher.|Oui|N/A|
 |to|Chaîne de remplacement. Spécifiez une chaîne de remplacement nulle pour supprimer la chaîne de recherche.|Oui|N/A|
@@ -188,7 +188,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 
 ### <a name="elements"></a>Éléments
 
-|Nom|Description|Requis|
+|Nom|Description|Obligatoire|
 |----------|-----------------|--------------|
 |redirect-content-urls|Élément racine.|Oui|
 
@@ -215,7 +215,7 @@ or
 ```
 
 > [!NOTE]
-> Entités de serveur principal peuvent être gérées via la gestion [API](https://docs.microsoft.com/rest/api/apimanagement/backend) et [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).
+> Entités de serveur principal peuvent être gérées via la gestion [API](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/backend) et [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).
 
 ### <a name="example"></a>Exemples
 
@@ -261,18 +261,18 @@ Dans cet exemple, la stratégie permet d’acheminer la requête vers un serveur
 
 ### <a name="elements"></a>Éléments
 
-|Nom|Description|Requis|
+|Nom|Description|Obligatoire|
 |----------|-----------------|--------------|
 |set-backend-service|Élément racine.|Oui|
 
 ### <a name="attributes"></a>Attributs
 
-|Name|Description|Obligatoire|Default|
+|Nom|Description|Obligatoire|Default|
 |----------|-----------------|--------------|-------------|
 |base-url|Nouvelle URL de base du service principal.|Un des `base-url` ou `backend-id` doit être présent.|N/A|
-|id de principal|Identificateur du serveur principal pour l’acheminement. (Les entités de serveur principal sont gérées via [API](https://docs.microsoft.com/rest/api/apimanagement/backend) et [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).)|Un des `base-url` ou `backend-id` doit être présent.|N/A|
-|clé de partition SF|Applicable uniquement lorsque le serveur principal est un service Service Fabric et qu’il est spécifié à l’aide de « id principal ». Utilisé pour résoudre une partition spécifique à partir du service de résolution des noms.|Non|N/A|
-|type de réplica SF|Applicable uniquement lorsque le serveur principal est un service Service Fabric et qu’il est spécifié à l’aide de « id principal ». Contrôle si la requête doit atteindre le réplica principal ou secondaire d’une partition. |Non|N/A|
+|id de principal|Identificateur du serveur principal pour l’acheminement. (Les entités de serveur principal sont gérées via [API](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/backend) et [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).)|Un des `base-url` ou `backend-id` doit être présent.|N/A|
+|clé de partition SF|Applicable uniquement lorsque le serveur principal est un service Service Fabric et qu’il est spécifié à l’aide de « id principal ». Utilisé pour résoudre une partition spécifique à partir du service de résolution des noms.|Non |N/A|
+|type de réplica SF|Applicable uniquement lorsque le serveur principal est un service Service Fabric et qu’il est spécifié à l’aide de « id principal ». Contrôle si la requête doit atteindre le réplica principal ou secondaire d’une partition. |Non |N/A|
 |condition de résolution SF|Applicable uniquement lorsque le serveur principal est un service Service Fabric. Condition identifiant si l’appel au serveur principal Service Fabric doit être répété avec une nouvelle résolution.|Non|N/A|
 |nom d’instance de service DF|Applicable uniquement lorsque le serveur principal est un service Service Fabric. Permet de modifier les instances de service lors de l’exécution. |Non|N/A|
 |sf-listener-name|S’applique uniquement lorsque le back end est un service Service Fabric et qu’il est spécifié comme « backend-id ». Service Fabric Reliable Services permet de créer plusieurs écouteurs dans un service. Cet attribut permet de sélectionner un écouteur spécifique lorsqu’un service fiable principal dispose de plusieurs écouteurs. S’il n’est pas spécifié, la Gestion des API tentera d’utiliser un écouteur sans nom. Les écouteurs sans nom sont courants pour les services fiables qui n'ont qu’un seul écouteur. |Non|N/A|
@@ -397,7 +397,7 @@ La stratégie `set-body` peut être configurée pour utiliser le langage de mod�
 
 ### <a name="elements"></a>Éléments
 
-|Name|Description|Obligatoire|
+|Nom|Description|Obligatoire|
 |----------|-----------------|--------------|
 |set-body|Élément racine. Contient le corps du texte ou une expression qui renvoie un corps.|Oui|
 
@@ -405,7 +405,7 @@ La stratégie `set-body` peut être configurée pour utiliser le langage de mod�
 
 |Nom|Description|Obligatoire|Default|
 |----------|-----------------|--------------|-------------|
-|modèle|Permet de modifier le mode de création du modèle dans lequel la stratégie Set body sera exécutée. Actuellement, la seule valeur possible est :<br /><br />- liquid - la stratégie Set body utilisera le moteur de création de modèle Liquid |Non||
+|template|Permet de modifier le mode de création du modèle dans lequel la stratégie Set body sera exécutée. Actuellement, la seule valeur possible est :<br /><br />- liquid - la stratégie Set body utilisera le moteur de création de modèle Liquid |Non ||
 
 Pour accéder aux informations sur la requête et la réponse, le modèle Liquid peut lier à un objet de contexte aux propriétés suivantes : <br />
 <pre>context.
@@ -504,16 +504,16 @@ OriginalUrl.
 
 ### <a name="elements"></a>Éléments
 
-|Nom|Description|Requis|
+|Nom|Description|Obligatoire|
 |----------|-----------------|--------------|
 |set-header|Élément racine.|Oui|
 |value|Spécifie la valeur de l'en-tête à définir. Si plusieurs en-têtes portent le même nom, ajoutez d’autres éléments `value`.|Oui|
 
 ### <a name="properties"></a>properties
 
-|Name|Description|Obligatoire|Default|
+|Nom|Description|Obligatoire|Default|
 |----------|-----------------|--------------|-------------|
-|exists-action|Spécifie l’action à entreprendre lorsque l’en-tête est déjà spécifié. Cet attribut doit avoir une des valeurs suivantes.<br /><br /> - override : remplace la valeur de l’en-tête actuel.<br />- skip : ne remplace pas la valeur de l’en-tête actuel.<br />- append : ajoute la valeur à celle de l’en-tête actuel.<br />- delete : supprime l’en-tête de la demande.<br /><br /> S’il a la valeur `override`, l’inscription de plusieurs entrées portant le même nom fait que l’en-tête est défini selon toutes les entrées (qui figurent plusieurs fois) ; seules les valeurs listées seront définies dans le résultat.|Non|override|
+|exists-action|Spécifie l’action à entreprendre lorsque l’en-tête est déjà spécifié. Cet attribut doit avoir une des valeurs suivantes.<br /><br /> - override : remplace la valeur de l’en-tête actuel.<br />- skip : ne remplace pas la valeur de l’en-tête actuel.<br />- append : ajoute la valeur à celle de l’en-tête actuel.<br />- delete : supprime l’en-tête de la demande.<br /><br /> S’il a la valeur `override`, l’inscription de plusieurs entrées portant le même nom fait que l’en-tête est défini selon toutes les entrées (qui figurent plusieurs fois) ; seules les valeurs listées seront définies dans le résultat.|Non |override|
 |name|Spécifie le nom de l'en-tête à définir.|Oui|N/A|
 
 ### <a name="usage"></a>Usage
@@ -564,7 +564,7 @@ OriginalUrl.
 
 ### <a name="elements"></a>Éléments
 
-|Nom|Description|Requis|
+|Nom|Description|Obligatoire|
 |----------|-----------------|--------------|
 |set-query-parameter|Élément racine.|Oui|
 |value|Fournissez une valeur au paramètre de requête à définir. Si plusieurs paramètres de requête portent le même nom, ajoutez d’autres éléments `value`.|Oui|
@@ -573,7 +573,7 @@ OriginalUrl.
 
 |Nom|Description|Obligatoire|Default|
 |----------|-----------------|--------------|-------------|
-|exists-action|Spécifie l’action à entreprendre lorsque le paramètre de requête est déjà spécifié. Cet attribut doit avoir une des valeurs suivantes.<br /><br /> - override : remplace la valeur du paramètre actuel.<br />- skip : ne remplace pas la valeur du paramètre de requête actuel.<br />- append : ajoute la valeur à celle du paramètre de requête actuel.<br />- delete : supprime le paramètre de requête de la demande.<br /><br /> S’il a la valeur `override`, l’ajout de plusieurs entrées portant le même nom fait que le paramètre de requête est défini selon toutes les entrées (qui figurent plusieurs fois) ; seules les valeurs listées seront définies dans le résultat.|Non|override|
+|exists-action|Spécifie l’action à entreprendre lorsque le paramètre de requête est déjà spécifié. Cet attribut doit avoir une des valeurs suivantes.<br /><br /> - override : remplace la valeur du paramètre actuel.<br />- skip : ne remplace pas la valeur du paramètre de requête actuel.<br />- append : ajoute la valeur à celle du paramètre de requête actuel.<br />- delete : supprime le paramètre de requête de la demande.<br /><br /> S’il a la valeur `override`, l’ajout de plusieurs entrées portant le même nom fait que le paramètre de requête est défini selon toutes les entrées (qui figurent plusieurs fois) ; seules les valeurs listées seront définies dans le résultat.|Non |override|
 |name|Spécifie le nom du paramètre de requête à définir.|Oui|N/A|
 
 ### <a name="usage"></a>Usage
@@ -649,10 +649,10 @@ OriginalUrl.
 
 ### <a name="attributes"></a>Attributs
 
-|Attribut|Description |Obligatoire|Default|
+|Attribut|Description|Obligatoire|Default|
 |---------------|-----------------|--------------|-------------|
-|modèle|URL de service web réelle avec les paramètres de chaîne de requête. Lorsque vous utilisez des expressions, la valeur entière doit être une expression.|Oui|N/A|
-|copy-unmatched-params|Spécifie si les paramètres de requête dans la requête entrante non présents dans le modèle d’URL d’origine sont ajoutés à l’URL définie par le modèle de réécriture|Non|true|
+|template|URL de service web réelle avec les paramètres de chaîne de requête. Lorsque vous utilisez des expressions, la valeur entière doit être une expression.|Oui|N/A|
+|copy-unmatched-params|Spécifie si les paramètres de requête dans la requête entrante non présents dans le modèle d’URL d’origine sont ajoutés à l’URL définie par le modèle de réécriture|Non |true|
 
 ### <a name="usage"></a>Usage
  Cette stratégie peut être utilisée dans les [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.
@@ -712,7 +712,7 @@ OriginalUrl.
 
 ### <a name="elements"></a>Éléments
 
-|Name|Description|Requis|
+|Nom|Description|Obligatoire|
 |----------|-----------------|--------------|
 |xsl-transform|Élément racine.|Oui|
 |paramètre|Permet de définir des variables utilisées dans la transformation|Non|

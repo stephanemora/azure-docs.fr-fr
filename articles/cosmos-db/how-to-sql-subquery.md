@@ -4,14 +4,14 @@ description: En savoir plus sur les sous-requêtes SQL et leurs cas d’utilisat
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/19/2019
+ms.date: 05/23/2019
 ms.author: tisande
-ms.openlocfilehash: 48d0c7a022ff568582637aac36a377ca022a413c
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
-ms.translationtype: HT
+ms.openlocfilehash: 68465f4ca195930ce08bb579e68d0227e9c18dd6
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65977352"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242842"
 ---
 # <a name="sql-subquery-examples-for-azure-cosmos-db"></a>Exemples de sous-requête SQL pour Azure Cosmos DB
 
@@ -130,14 +130,14 @@ Par exemple, considérez ce jeu de données de référence :
 | ng       | Ordre du nanogramme            | 1.00E-09       | Gramme          |
 | µg       | Microgramme           | 1.00E-06       | Gramme          |
 | mg       | Mg           | 1.00E-03       | Gramme          |
-| s        | Gramme                | 1.00E+00       | Gramme          |
+| g        | Gramme                | 1.00E+00       | Gramme          |
 | kg       | Kilogramme            | 1.00E + 03       | Gramme          |
 | groupe d’administration       | Megagram            | 1.00E + 06       | Gramme          |
 | GG       | Gigagram            | 1.00E + 09       | Gramme          |
 | nJ       | Nanojoule           | 1.00E-09       | Joule         |
 | µJ       | Microjoule          | 1.00E-06       | Joule         |
 | mJ       | Millijoule          | 1.00E-03       | Joule         |
-| R        | Joule               | 1.00E+00       | Joule         |
+| J        | Joule               | 1.00E+00       | Joule         |
 | kJ       | Kilojoule           | 1.00E + 03       | Joule         |
 | MJ       | Megajoule           | 1.00E + 06       | Joule         |
 | GJ       | Gigajoule           | 1.00E + 09       | Joule         |

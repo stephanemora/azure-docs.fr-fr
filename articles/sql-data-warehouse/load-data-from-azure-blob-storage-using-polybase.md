@@ -10,12 +10,12 @@ ms.subservice: load data
 ms.date: 04/26/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: a8ca3b52d181578e6b35090489b7133a94b55cbd
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
+ms.openlocfilehash: ac0f8cb4d9069d2ef7ce48939ad2dd1c92732d1a
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65852085"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242961"
 ---
 # <a name="tutorial-load-new-york-taxicab-data-to-azure-sql-data-warehouse"></a>Didacticiel : Chargement des données de New York Taxicab dans Azure SQL Data Warehouse
 
@@ -583,14 +583,14 @@ Le chargement à l’aide de PolyBase et l’authentification via des identités
    > [!NOTE]
    > - Si vous disposez d’un compte de stockage d’objets blob ou v1 universel, vous devez **d’abord le mettre à niveau avec v2** en vous aidant de ce [guide](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
     
-1. Sous votre compte de stockage, accédez à **Contrôle d’accès (IAM)**, puis cliquez sur **Ajouter une attribution de rôle**. Affecter **contributeur aux données stockage Blob** rôle RBAC à votre serveur de base de données SQL.
+1. Sous votre compte de stockage, accédez à **Contrôle d’accès (IAM)** , puis cliquez sur **Ajouter une attribution de rôle**. Affecter **contributeur aux données stockage Blob** rôle RBAC à votre serveur de base de données SQL.
 
    > [!NOTE] 
    > Seuls les membres dotés du privilège Propriétaire peuvent effectuer cette étape. Pour découvrir les divers rôles intégrés pour les ressources Azure, consultez ce [guide](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
   
 1. **Connectivité PolyBase au compte Stockage Azure :**
     
-   1. Créer vos informations d’identification de niveau base de données avec **identité = 'Managed Service Identity'**:
+   1. Créer vos informations d’identification de niveau base de données avec **identité = 'Managed Service Identity'** :
 
        ```SQL
        CREATE DATABASE SCOPED CREDENTIAL msi_cred WITH IDENTITY = 'Managed Service Identity';
@@ -640,7 +640,7 @@ Voici les étapes que vous avez effectuées :
 > * Afficher la progression des données à mesure du chargement
 > * Créer des statistiques sur les données nouvellement chargées
 
-Passez à la vue d’ensemble de la migration pour savoir comment migrer une base de données existante vers SQL Data Warehouse.
+Passez à la vue d’ensemble du développement pour savoir comment migrer une base de données existante vers SQL Data Warehouse.
 
 > [!div class="nextstepaction"]
->[Découvrir comment migrer une base de données existante vers SQL Data Warehouse](sql-data-warehouse-overview-migrate.md)
+>[Décisions de conception pour migrer une base de données existante vers SQL Data Warehouse](sql-data-warehouse-overview-migrate.md)

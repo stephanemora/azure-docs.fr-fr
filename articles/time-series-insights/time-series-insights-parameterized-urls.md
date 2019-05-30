@@ -4,19 +4,19 @@ description: Cet article explique comment développer des URL paramétrables dan
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 04/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3ddde600c2ac15c56b59051fbcd6bb0e8fbae1f6
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: dfc04397b1d7e9f3256810cbe469067ae52c99bd
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65787524"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66238974"
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>Partager une vue personnalisée à l’aide d’une URL paramétrable
 
@@ -68,7 +68,7 @@ Valeurs acceptées correspondent à l’Explorateur Time Series Insights **accé
 
 Le `timeSeriesDefinitions=<collection of term objects>` paramètre spécifie les conditions d’une vue Time Series Insights :
 
-| Paramètre | Élément d’URL | Description  |
+| Paramètre | Élément d’URL | Description |
 | --- | --- | --- |
 | **name** | `\<string>` | nom du *terme* ; |
 | **splitBy** | `\<string>` | nom de colonne pour le *fractionnement* ; |
@@ -81,7 +81,7 @@ Le `timeSeriesDefinitions=<collection of term objects>` paramètre spécifie les
 * Le `timeBucketUnit=<Unit>&timeBucketSize=<integer>` vous permet d’ajuster le curseur intervalle pour fournir plus précis ou plus lisse, plus agrégées vue du graphique.  
 * Le `timezoneOffset=<integer>` paramètre vous permet de définir le fuseau horaire pour le graphique à afficher en tant qu’offset UTC.
 
-| Ou des paires | Description  |
+| Ou des paires | Description |
 | --- | --- |
 | `multiChartStack=false` | `true` est activé par défaut donc passez `false` à la pile. |
 | `multiChartStack=false&multiChartSameScale=true` | L’empilement doit être activé pour pouvoir utiliser la même échelle de l’axe des ordonnées entre les termes.  Il a `false` par défaut, par conséquent, en passant 'true' active cette fonctionnalité. |

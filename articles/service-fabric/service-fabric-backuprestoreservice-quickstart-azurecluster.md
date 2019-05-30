@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/29/2018
+ms.date: 5/24/2019
 ms.author: hrushib
-ms.openlocfilehash: 9bce408215cef540604a72109bc5b29ebc3359e7
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: e81cc1b3d80afd39a74c3046b1f8020e0a524ae4
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65413794"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237377"
 ---
 # <a name="periodic-backup-and-restore-in-azure-service-fabric"></a>Sauvegarde et restauration périodiques dans Azure Service Fabric 
 > [!div class="op_single_selector"]
@@ -185,9 +185,6 @@ Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/j
 
 ```
 
-> [!IMPORTANT]
-> En raison d’un problème dans le runtime, vérifiez que la durée de conservation dans la stratégie de conservation est configurée pour être inférieure à 24 jours, sinon le service de restauration des sauvegardes subit une perte de quorum après le basculement du réplica.
-
 ### <a name="enable-periodic-backup"></a>Activer la sauvegarde périodique
 Après avoir défini la stratégie de sauvegarde pour répondre aux exigences de protection des données de l’application, la stratégie doit être associée à l’application. Selon les besoins, la stratégie de sauvegarde peut être associée à une application, un service ou une partition.
 
@@ -286,10 +283,6 @@ FailureError            :
 ## <a name="limitation-caveats"></a>Limitations/mises en garde
 - Applets de commande PowerShell service Fabric sont en mode Aperçu.
 - Pas de prise en charge des clusters Service Fabric sur Linux.
-
-## <a name="known-issues"></a>Problèmes connus
-- Vérifiez que la durée de conservation est configurée pour être inférieure à 24 jours. 
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 - [Présentation de la configuration de la sauvegarde périodique](./service-fabric-backuprestoreservice-configure-periodic-backup.md)

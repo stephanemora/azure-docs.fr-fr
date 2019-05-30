@@ -1,21 +1,21 @@
 ---
-title: Scénarios d’utilisation du Magasin des requêtes dans Azure Database pour PostgreSQL
-description: Cet article décrit certains scénarios relatifs au Magasin des requêtes dans Azure Database pour PostgreSQL.
+title: Scénarios d’utilisation de Query Store dans Azure Database pour PostgreSQL - serveur unique
+description: Cet article décrit certains scénarios pour le Store de la requête dans la base de données Azure pour PostgreSQL - serveur unique.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 03/26/2018
-ms.openlocfilehash: 873462354b70d13e56ca108c3257031ef34873f8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 029c595ba983d3b758568fbacaf6577014d893db
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60563185"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65067324"
 ---
 # <a name="usage-scenarios-for-query-store"></a>Scénarios d’utilisation du Magasin des requêtes
 
-**S’applique à :** Azure Database pour PostgreSQL 9.6 et 10
+**S’applique à :** Azure Database pour PostgreSQL - monoserveur 9.6 et 10
 
 Vous pouvez utiliser le Magasin des requêtes dans de nombreux scénarios dans lesquels il est essentiel de suivre et de gérer les performances des charges de travail prévisibles. Voici quelques exemples : 
 - Identification et ajustement des requêtes les plus coûteuses 

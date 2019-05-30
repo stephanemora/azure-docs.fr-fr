@@ -8,12 +8,12 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.date: 08/20/2018
 ms.author: bwren
-ms.openlocfilehash: ec6f3884504c94b7669df21882aeb2a1eb9d7220
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: af01ebdc72df096b45c4ca4e755b2ed3880bab65
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60520644"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66255260"
 ---
 # <a name="get-started-with-azure-monitor-log-analytics"></a>Prise en main Azure Monitor Log Analytique
 
@@ -46,7 +46,7 @@ Event | search "error"
 
 Cette requête recherche dans la table _Event_ les enregistrements qui contiennent le terme « error » dans n’importe quelle propriété.
 
-Les requêtes peuvent commencer par un nom de table ou une commande **search**. L’exemple ci-dessus commence par le nom de table _Event_, qui définit l’étendue de la requête. Le caractère barre verticale (|) sépare les commandes ; ainsi, la sortie de la première commande est l’entrée de la commande suivante. Vous pouvez ajouter n’importe quel nombre de commandes à une seule requête.
+Les requêtes peuvent commencer par un nom de table ou une commande **search**. L’exemple ci-dessus commence par le nom de table _Event_, qui définit l’étendue de la requête. Le caractère barre verticale (|) sépare les commandes, donc la sortie de la première sert d’entrée de la commande suivante. Vous pouvez ajouter n’importe quel nombre de commandes à une seule requête.
 
 Une autre façon d’écrire cette même requête serait :
 

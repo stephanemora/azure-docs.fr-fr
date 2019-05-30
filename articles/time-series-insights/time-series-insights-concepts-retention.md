@@ -4,19 +4,19 @@ description: Cet article décrit deux paramètres qui contrôlent la conservatio
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 manager: cshankar
 ms.reviewer: jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 04/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: 443599e1b2876012bcbdf720bef7762a24e1ff90
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: e3336df30873b40d2b8a464d1f866b524f76776d
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65790425"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236997"
 ---
 # <a name="understand-data-retention-in-azure-time-series-insights"></a>Comprendre la conservation des données dans Azure Time Series Insights
 
@@ -42,7 +42,7 @@ Pour plus d’informations sur la commutation des comportements de conservation,
 
 Comparez le comportement de conservation des données :
 
-## <a name="purge-old-data"></a>Vider les anciennes données
+## <a name="purge-old-data"></a>Vidage des données anciennes
 
 - Ce comportement est le comportement par défaut pour les environnements Time Series Insights.  
 - Ce comportement est préférable lorsque les utilisateurs souhaitent toujours voir leur *données les plus récentes* dans leur environnement Time Series Insights.
@@ -63,7 +63,7 @@ Prenons l’exemple d’un environnement configuré également avec le comportem
 
 Lorsque le taux d’entrée quotidien de cet environnement dépasse 0,166 Go par jour, les données ne peuvent pas être stockées pendant 180 jours, étant donné que certaines données sont vidées. Considérez ce même environnement pendant un laps de temps occupé. Supposons que le taux d’entrée de l’environnement atteigne 0,189 Go en moyenne par jour. Durant ce laps de temps occupé, 158 jours environ de données sont conservés (30 Go/0,189 = 158,73 jours de conservation). Cette durée est inférieure à la durée de conservation des données souhaitée.
 
-## <a name="pause-ingress"></a>Suspendre l'entrée
+## <a name="pause-ingress"></a>Suspendre l’entrée
 
 - Le **suspendre l’entrée** paramètre est conçu pour vous assurer de données ne sont pas vidées si les limites de taille et de nombre sont atteintes avant leur période de rétention.  
 - **Suspendre l’entrée** offre plus de temps pour les utilisateurs augmenter la capacité de leur environnement avant que les données soient vidées en raison de la violation de la période de rétention

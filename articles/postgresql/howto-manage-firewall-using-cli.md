@@ -1,20 +1,20 @@
 ---
-title: Création et gestion des règles de pare-feu Azure Database pour PostgreSQL à l’aide de l’interface de ligne de commande Azure
-description: Décrit comment créer et gérer des règles de pare-feu Azure Database pour PostgreSQL à l’aide de l’interface de ligne de commande d’Azure.
+title: Créer et gérer des règles de pare-feu dans Azure Database pour PostgreSQL - serveur unique à l’aide d’Azure CLI
+description: Cet article décrit comment créer et gérer des règles de pare-feu dans Azure Database pour PostgreSQL - serveur unique à l’aide de la ligne de commande Azure CLI.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 04/09/2019
-ms.openlocfilehash: 9a96361d3fb155ea5b400990690e3c2b1f65f819
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 03b1c215994e4089ad0aed4eac3868b05c564c4c
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60422370"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65067531"
 ---
-# <a name="create-and-manage-azure-database-for-postgresql-firewall-rules-using-azure-cli"></a>Création et gestion des règles de pare-feu Azure Database pour PostgreSQL à l’aide de l’interface de ligne de commande Azure
+# <a name="create-and-manage-firewall-rules-in-azure-database-for-postgresql---single-server-using-azure-cli"></a>Créer et gérer des règles de pare-feu dans Azure Database pour PostgreSQL - serveur unique à l’aide d’Azure CLI
 Règles de pare-feu de niveau serveur peuvent être utilisées pour gérer l’accès à une base de données Azure pour serveur PostgreSQL à partir d’une adresse IP spécifique ou de la plage d’adresses IP. À l’aide de commandes d’interface de ligne de commande Azure pratiques, vous pouvez créer, mettre à jour, supprimer, répertorier et afficher les règles de pare-feu pour gérer votre serveur. Pour une vue d’ensemble de base de données Azure pour PostgreSQL les règles de pare-feu, consultez [base de données Azure pour les règles de pare-feu de serveur PostgreSQL](concepts-firewall-rules.md).
 
 Les règles de réseau virtuel peuvent également être utilisés pour sécuriser l’accès à votre serveur. En savoir plus sur [création et gestion de réseau virtuel de points de terminaison et des règles à l’aide de l’interface CLI Azure service](howto-manage-vnet-using-cli.md).

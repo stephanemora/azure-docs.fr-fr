@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: sstein
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 14f76a716447e09299cfa18d6758245706c7b481
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bbb67845922dd9a3b2a78f76bf25d73bace98a82
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60556464"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66240136"
 ---
 # <a name="deploy-and-explore-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>Déployer et explorer une application SaaS multilocataire qui utilise le modèle de base de données par locataire avec SQL Database
 
@@ -129,8 +129,8 @@ L’application Wingtip utilise  [*Azure Traffic Manager*](../traffic-manager/t
 
     | Partie de l’URL        | Description       |
     | :-------------- | :---------------- |
-    | http://events.wingtip-dpt | Parties des événements de l’application Wingtip.<br /><br /> *-dpt* distingue l’implémentation de *base de données par locataire* de Wingtip Tickets des autres implémentations. Par exemple, les implémentations d’application par locataire *autonomes* (*-sa*), ou les *bases de données multi-locataires* (*- mt*). |
-    | .*&lt;user&gt;* | *af1* dans l’exemple. |
+    | http://events.wingtip-dpt | Parties des événements de l’application Wingtip.<br /><br /> *-dpt* distingue l’implémentation de *base de données par locataire* de Wingtip Tickets des autres implémentations. Par exemple, les implémentations d’application par locataire *autonomes* ( *-sa*), ou les *bases de données multi-locataires* ( *- mt*). |
+    | . *&lt;user&gt;* | *af1* dans l’exemple. |
     | .trafficmanager.net/ | Traffic Manager, URL de base. |
     | fabrikamjazzclub | Identifie le locataire nommé Fabrikam Jazz Club. |
     | &nbsp; | &nbsp; |
@@ -182,7 +182,7 @@ Si vous souhaitez contrôler et surveiller les tâches en arrière-plan, utilise
     - Par défaut, les tâches en arrière-plan s’exécutent pendant 120 minutes.
     - Chaque travail cause une charge UC sur une base de données client en exécutant *sp_CpuLoadGenerator*. L’intensité et la durée de la charge varient en fonction de `$DemoScenario`.
     - *sp_CpuLoadGenerator* effectue une boucle sur une instruction SQL SELECT qui cause une charge UC élevée. L’intervalle de temps entre les problèmes de l’instruction SELECT varie en fonction des valeurs du paramètre pour créer une charge processeur contrôlable. Les niveaux de charge et les intervalles sont aléatoires pour simuler des charges plus réalistes.
-    - Ce fichier .sql est stocké sous *WingtipTenantDB\\dbo\\StoredProcedures\\*.
+    - Ce fichier .sql est stocké sous *WingtipTenantDB\\dbo\\StoredProcedures\\* .
 
 4. Si `$OneTime = $false`, le générateur de charge démarre les tâches en arrière-plan et continue de s’exécuter. Toutes les 10 secondes, il contrôle les nouveaux locataires qui sont approvisionnés. Si vous définissez `$OneTime = $true`, le générateur de charge démarre les tâches en arrière-plan, puis arrête son exécution au premier plan. Pour ce didacticiel, laissez `$OneTime = $false`.
 
@@ -221,14 +221,14 @@ Actualisez l’Events Hub pour faire apparaître le nouveau locataire dans la li
 
 Maintenant que vous avez démarré une charge dans le regroupement de locataires, examinons quelques-unes des ressources qui ont été déployées.
 
-1. Dans le  [portail Azure](https://portal.azure.com), accédez à votre liste de serveurs SQL. Ouvrez ensuite le serveur  **catalog-dpt-&lt;UTILISATEUR&gt;** .
+1. Dans le  [portail Azure](https://portal.azure.com), accédez à votre liste de serveurs SQL. Ouvrez ensuite le serveur  **catalog-dpt-&lt;UTILISATEUR&gt;**  .
     - Le serveur de catalogue contient deux bases de données : **tenantcatalog** et **basetenantdb** (un modèle de base de données copié pour créer des locataires).
 
    ![Bases de données](./media/saas-dbpertenant-get-started-deploy/databases.png)
 
 2. Revenez à votre liste de serveurs SQL.
 
-3. Ouvrez le serveur **tenants1-dpt-&lt;UTILISATEUR&gt;**  qui contient les bases de données locataires.
+3. Ouvrez le serveur **tenants1-dpt-&lt;UTILISATEUR&gt;**   qui contient les bases de données locataires.
 
 4. Observez les points suivants :
 
@@ -241,7 +241,7 @@ Maintenant que vous avez démarré une charge dans le regroupement de locataires
 
 Au bout de quelques minutes d’exécution de *LoadGenerator.ps1*, une quantité suffisante de données est disponible pour vous permettre de découvrir certaines fonctionnalités de surveillance. Ces fonctionnalités sont intégrées dans les pools et les bases de données.
 
-Accédez au serveur **tenants1-dpt-&lt;utilisateur&gt;**, puis sélectionnez  **Pool1**  pour afficher l’utilisation des ressources du pool. Dans les graphiques suivants, le générateur de charge s’est exécuté pendant une heure.
+Accédez au serveur **tenants1-dpt-&lt;utilisateur&gt;** , puis sélectionnez  **Pool1**  pour afficher l’utilisation des ressources du pool. Dans les graphiques suivants, le générateur de charge s’est exécuté pendant une heure.
 
    ![Surveiller un pool](./media/saas-dbpertenant-get-started-deploy/monitor-pool.png)
 
@@ -254,7 +254,7 @@ Ces deux graphiques illustrent bien que les pools élastiques et SQL Database so
 
 - Pour plus d’informations, consultez d’autres [didacticiels reposant sur l’application de base de données par locataire SaaS Wingtip Tickets](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials).
 - Pour en savoir plus sur les pools élastiques, consultez  [Qu’est-ce qu’un pool élastique SQL Azure ?](sql-database-elastic-pool.md).
-- Pour en savoir plus sur les travaux élastiques, consultez  [Gérer des bases de données cloud scale-out](sql-database-elastic-jobs-overview.md).
+- Pour en savoir plus sur les travaux élastiques, consultez  [Gérer des bases de données cloud scale-out](elastic-jobs-overview.md).
 - Pour en savoir plus sur les applications SaaS multilocataires, consultez  [Modèles de conception pour les applications SaaS multilocataires](saas-tenancy-app-design-patterns.md).
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/16/2019
+ms.date: 05/24/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b3f070cafa026679eb9322ac7ba2eafe4c7e233d
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 33d0e5f92d5de104530882b204b1f196360511b2
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65826757"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236455"
 ---
 # <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>Transfert de la propriété d’un abonnement Azure à un autre compte
 
@@ -59,7 +59,7 @@ Transférez votre abonnement à un autre utilisateur dans le Centre des comptes 
    ![Page web de transfert du premier abonnement](./media/billing-subscription-transfer/image4.png)
 
    ![Page web de transfert du deuxième abonnement](./media/billing-subscription-transfer/image5.png)
-1. Opération réussie L’abonnement est à présent transféré.
+1. Vous avez réussi ! L’abonnement est à présent transféré.
 
 <a id="EA"></a>
 
@@ -82,7 +82,7 @@ L’administrateur d’entreprise peut transférer la propriété des abonnement
 
 Le transfert d’abonnements en libre-service est disponible pour les offres ou types d’abonnements répertoriés dans le tableau suivant. Actuellement, vous ne pouvez pas transférer une version d’évaluation gratuite ou des abonnements [Azure dans Open (AIO)](https://azure.microsoft.com/offers/ms-azr-0111p/). Pour obtenir une solution de contournement, consultez [Déplacer des ressources vers un nouveau groupe de ressources ou un nouvel abonnement](../azure-resource-manager/resource-group-move-resources.md). Pour transférer d’autres abonnements, comme [Sponsoring](https://azure.microsoft.com/offers/ms-azr-0036p/) ou des plans de support, [contactez le support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-| Nom de l'offre                                                                             | Numéro de l’offre |
+| Nom de l’offre                                                                             | Numéro de l’offre |
 |----------------------------------------------------------------------------------------|--------------|
 | [Contrat Entreprise (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/)\*|MS-AZR-0017P        |
 | [Microsoft Partner Network](https://azure.microsoft.com/offers/ms-azr-0025p/)          | MS-AZR-0025P        |
@@ -102,7 +102,9 @@ Le transfert d’abonnements en libre-service est disponible pour les offres ou 
 
 ### <a name="whoisaa"></a> Qui est l’administrateur de compte de l’abonnement ?
 
-L’administrateur de compte est la personne qui s’est inscrite ou a acheté l’abonnement Azure. Il est autorisé à accéder au [Centre des comptes](https://account.azure.com/Subscriptions) et à effectuer diverses tâches de gestion comme créer des abonnements, annuler des abonnements, modifier la facturation d’un abonnement et modifier l’administrateur de services fédérés. Si vous ne savez pas qui est l’administrateur de compte d’un abonnement, procédez comme suit pour le découvrir.
+L’administrateur de compte est la personne qui s’est inscrite ou a acheté l’abonnement Azure. Il est autorisé à accéder au [Centre des comptes](https://account.azure.com/Subscriptions) et à effectuer diverses tâches de gestion comme créer des abonnements, annuler des abonnements, modifier la facturation d’un abonnement et modifier l’administrateur de services fédérés. Pour plus d’informations sur le fonctionnement des rôles administrateur et les autorisations, consultez [autorisations du rôle administrateur dans Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md)
+
+Si vous ne savez pas qui est l’administrateur de compte d’un abonnement, procédez comme suit pour le découvrir.
 
 1. Accédez à la [page Abonnements du portail Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 1. Sélectionnez l’abonnement que vous souhaitez vérifier, puis regardez sous **Paramètres**.

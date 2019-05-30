@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/18/2019
+ms.date: 05/23/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7cf8d5cb13b39d58920555ff9d99a4949e1bfc20
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 572f8694d31728a3ca570f6ddb60475e13d71e80
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60415751"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235584"
 ---
 # <a name="combined-security-information-registration-preview"></a>Inscription d’informations de sécurité combinée (version préliminaire)
 
@@ -24,7 +24,7 @@ Avant l’inscription combinée, utilisateurs inscrits des méthodes d’authent
 
 ![Affichage de mon profil inscrit les informations de sécurité pour un utilisateur](media/concept-registration-mfa-sspr-combined/combined-security-info-defualts-registered.png)
 
-Avant d’activer la nouvelle expérience, consultez cette documentation axée sur l’administrateur et la documentation orienté utilisateur afin de bien que comprendre les fonctionnalités et les effets de cette fonctionnalité. Baser votre formation sur la documentation utilisateur pour préparer vos utilisateurs pour la nouvelle expérience et de contribuer à assurer un déploiement réussi.
+Avant d’activer la nouvelle expérience, consultez cette documentation axée sur l’administrateur et la documentation orienté utilisateur afin de bien que comprendre les fonctionnalités et les effets de cette fonctionnalité. Baser votre formation sur le [documentation utilisateur](../user-help/user-help-security-info-overview.md) pour préparer vos utilisateurs de la nouvelle expérience et permet de garantir un déploiement réussi.
 
 Azure AD associé à l’inscription n’est pas disponible actuellement sur des clouds nationaux tels que Azure US Government, Azure Allemagne ou Azure China 21Vianet des informations de sécurité.
 
@@ -46,10 +46,10 @@ Combiné prend en charge l’inscription méthodes d’authentification suivante
 
 |   | Register  | Modifier | Supprimer |
 | --- | --- | --- | --- |
-| Microsoft Authenticator | Oui (jusqu'à 5) | Non  | Oui |
+| Microsoft Authenticator | Oui (jusqu'à 5) | Non | Oui |
 | Autres application authenticator | Oui (jusqu'à 5) | Non  | Oui |
-| Jeton matériel | Non  | Non  | Oui |
-| Téléphone | Oui | OUI | Oui |
+| module de sécurité matériel | Non  | Non  | Oui |
+| Phone | Oui | OUI | Oui |
 | Autre téléphone | Oui | OUI | Oui |
 | Téléphone de bureau | Non  | Non  | Non  |
 | Email | Oui | OUI | Oui |
@@ -84,20 +84,20 @@ Inscription combinée respecte les stratégies multi-Factor Authentication et SS
 
 Voici plusieurs scénarios dans lesquels les utilisateurs peuvent être invités à enregistrer ou actualiser les informations de sécurité :
 
-* Inscription à l’authentification multifacteur appliquée via Identity Protection : Les utilisateurs sont invités à s’inscrire pendant la connexion. Ils s’inscrivent de méthodes d’authentification multifacteur et SSPR (si l’utilisateur est activé pour SSPR).
-* Inscription à l’authentification multifacteur appliquée via l’authentification multifacteur par utilisateur : Les utilisateurs sont invités à s’inscrire pendant la connexion. Ils s’inscrivent de méthodes d’authentification multifacteur et SSPR (si l’utilisateur est activé pour SSPR).
-* Inscription à l’authentification multifacteur appliquée via l’accès conditionnel ou d’autres stratégies : Les utilisateurs sont invités à s’inscrire lorsqu’ils utilisent une ressource qui nécessite une authentification multifacteur. Ils s’inscrivent de méthodes d’authentification multifacteur et SSPR (si l’utilisateur est activé pour SSPR).
-* Inscription SSPR appliquée : Les utilisateurs sont invités à s’inscrire pendant la connexion. Ils s’inscrivent uniquement les méthodes SSPR.
-* Actualisation SSPR appliquée : Les utilisateurs doivent vérifier leurs informations de sécurité à la fréquence définie par l’administrateur. Les utilisateurs sont affichés à leurs informations et peuvent confirmer les informations actuelles ou apporter des modifications si nécessaire.
+- Inscription à l’authentification multifacteur appliquée via Identity Protection : Les utilisateurs sont invités à s’inscrire pendant la connexion. Ils s’inscrivent de méthodes d’authentification multifacteur et SSPR (si l’utilisateur est activé pour SSPR).
+- Inscription à l’authentification multifacteur appliquée via l’authentification multifacteur par utilisateur : Les utilisateurs sont invités à s’inscrire pendant la connexion. Ils s’inscrivent de méthodes d’authentification multifacteur et SSPR (si l’utilisateur est activé pour SSPR).
+- Inscription à l’authentification multifacteur appliquée via l’accès conditionnel ou d’autres stratégies : Les utilisateurs sont invités à s’inscrire lorsqu’ils utilisent une ressource qui nécessite une authentification multifacteur. Ils s’inscrivent de méthodes d’authentification multifacteur et SSPR (si l’utilisateur est activé pour SSPR).
+- Inscription SSPR appliquée : Les utilisateurs sont invités à s’inscrire pendant la connexion. Ils s’inscrivent uniquement les méthodes SSPR.
+- Actualisation SSPR appliquée : Les utilisateurs doivent vérifier leurs informations de sécurité à la fréquence définie par l’administrateur. Les utilisateurs sont affichés à leurs informations et peuvent confirmer les informations actuelles ou apporter des modifications si nécessaire.
 
 Si l’inscription a été appliquée, les utilisateurs sont affichés le nombre minimal de méthodes nécessaires pour être conformes aux stratégies de l’authentification multifacteur et SSPR, à partir de la plupart à la moins sécurisée.
 
-Par exemple : 
+Exemple :
 
-* Un utilisateur est activé pour SSPR. La stratégie SSPR requis de deux méthodes pour réinitialiser et a activé les téléphone, e-mail et le code de l’application mobile.
-   * Cet utilisateur est requis pour enregistrer les deux méthodes.
-      * L’utilisateur voit Authenticator et téléphone par défaut.
-      * L’utilisateur peut choisir d’inscrire e-mail au lieu d’application d’authentification ou téléphone.
+- Un utilisateur est activé pour SSPR. La stratégie SSPR requis de deux méthodes pour réinitialiser et a activé les téléphone, e-mail et le code de l’application mobile.
+   - Cet utilisateur est requis pour enregistrer les deux méthodes.
+      - L’utilisateur voit Authenticator et téléphone par défaut.
+      - L’utilisateur peut choisir d’inscrire e-mail au lieu d’application d’authentification ou téléphone.
 
 Cet organigramme décrit quelles méthodes sont affichés à un utilisateur lorsque interrompu pour inscrire pendant la connexion :
 

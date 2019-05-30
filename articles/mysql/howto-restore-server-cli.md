@@ -8,11 +8,11 @@ ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.openlocfilehash: f3850623f5918ea9405131edb1821b941019ac34
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57532322"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66160440"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-cli"></a>Comment sauvegarder et restaurer un serveur dans Azure Database pour MySQL à l’aide d’Azure CLI
 
@@ -72,7 +72,7 @@ La commande `az mysql server restore` requiert les paramètres suivants :
 | Paramètre | Valeur suggérée | Description  |
 | --- | --- | --- |
 | resource-group |  myResourceGroup |  Groupe de ressources où se trouve le serveur source.  |
-| Nom | mydemoserver-restored | Nom du serveur créé par la commande de restauration. |
+| name | mydemoserver-restored | Nom du serveur créé par la commande de restauration. |
 | restore-point-in-time | 2018-03-13T13:59:00Z | Sélectionnez un état antérieur auquel effectuer la restauration. Elles doivent être comprises dans la période de rétention de la sauvegarde du serveur source. Utilisez le format de date et d’heure ISO8601. Par exemple, vous pouvez utiliser votre fuseau horaire local, comme `2018-03-13T05:59:00-08:00`. Vous pouvez également utiliser le format UTC Zulu, par exemple, `2018-03-13T13:59:00Z`. |
 | source-server | mydemoserver | Nom ou identifiant du serveur source à partir duquel la restauration s’effectuera. |
 
@@ -110,7 +110,7 @@ La commande `az mysql server georestore` requiert les paramètres suivants :
 | Paramètre | Valeur suggérée | Description  |
 | --- | --- | --- |
 |resource-group| myResourceGroup | Le nom du groupe de ressources auquel appartient le nouveau serveur.|
-|Nom | mydemoserver-georestored | Le nom du nouveau serveur. |
+|name | mydemoserver-georestored | Le nom du nouveau serveur. |
 |source-server | mydemoserver | Le nom du serveur existant dont les sauvegardes géo-redondantes sont utilisées. |
 |location | eastus | L’emplacement du nouveau serveur. |
 |sku-name| GP_Gen5_8 | Ce paramètre définit le niveau tarifaire, la génération de calculs et le nombre de vCores du nouveau serveur. GP_Gen5_8 mappe sur un serveur d’usage général, 5e génération avec 8 vCores.|

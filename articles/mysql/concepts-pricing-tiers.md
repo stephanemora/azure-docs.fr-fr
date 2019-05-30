@@ -6,12 +6,12 @@ ms.author: janeng
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.openlocfilehash: e5d7ff8513a0659ca1107b9baf07cdf4bac4b807
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 8e3d12db8d2500a2675e451580bee7072d22d41c
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64688627"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66225428"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Niveaux tarifaires Azure Database pour MySQL
 
@@ -38,48 +38,7 @@ Après avoir créé un serveur, le nombre de vCores, la génération du matérie
 
 ## <a name="compute-generations-and-vcores"></a>Générations de calcul et vCores
 
-Les ressources de calcul sont fournies en tant que vCores, représentant le processeur logique du matériel sous-jacent. Actuellement, vous pouvez choisir entre deux générations de calcul, Gen 4 et Gen 5. Les processeurs logiques Gen 4 sont basés sur des processeurs Intel E5-2673 v3 (Haswell) 2.4 GHz. Les processeurs logiques Gen 5 sont basés sur des processeurs Intel E5-2673 v4 (Broadwell) 2.3 GHz. Les processeurs Gen 4 et Gen 5 sont disponibles dans les régions suivantes (« X » indique la disponibilité).
-
-| **Région Azure** | **Gen 4** | **Gen 5** |
-|:---|:----------:|:--------------------:|
-| USA Centre |  | X |
-| USA Est |  | X |
-| USA Est 2 |  | X |
-| USA Centre Nord |  | X |
-| USA Centre Sud |  | X |
-| USA Ouest |  | X |
-| USA Ouest 2 |  | X |
-| Brésil Sud |  | X |
-| Centre du Canada |  | X |
-| Est du Canada |  | X |
-| Europe Nord |  | X |
-| Europe Ouest |  | X |
-| France Centre |  | X |
-| Sud du Royaume-Uni |  | X |
-| Ouest du Royaume-Uni |  | X |
-| Asie Est |  | X |
-| Asie Sud-Est |  | X |
-| Australie Est |  | X |
-| Centre de l’Australie |  | X |
-| Centre de l’Australie 2 |  | X |
-| Australie Sud-Est |  | X |
-| Inde Centre |  | X |
-| Inde Sud |  | X |
-| Inde Ouest |  | X |
-| Japon Est |  | X |
-| Japon Ouest |  | X |
-| Centre de la Corée |  | X |
-| Corée du Sud |  | X |
-| Chine Est 1 | X |  |
-| Chine orientale 2 |  | X |
-| Chine Nord 1 | X |  |
-| Chine Nord 2 |  | X |
-| Centre de l’Allemagne |  | X |
-| Centre des États-Unis – US DoD  | X |  |
-| Est des États-Unis – US DoD  | X |  |
-| Gouvernement des États-Unis – Arizona |  | X |
-| Gouvernement des États-Unis – Texas |  | X |
-| Gouvernement américain - Virginie |  | X |
+Les ressources de calcul sont fournies en tant que vCores, représentant le processeur logique du matériel sous-jacent. Chine orientale 1, en Chine du Nord 1, centre des États-Unis et DoD est utilisent des processeurs logiques Gen 4 qui sont basés sur Intel E5-2673 v3 (Haswell) 2,4 GHz. Toutes les autres régions utilisent des processeurs logiques Gen 5 qui sont basés sur Intel E5-2673 v4 (Broadwell) 2.3 GHz processeurs.
 
 ## <a name="storage"></a>Stockage
 
@@ -92,17 +51,25 @@ Le stockage que vous approvisionnez est la quantité de stockage disponible pour
 | Taille d’incrément de stockage | 1 Go | 1 Go | 1 Go |
 | E/S par seconde | Variable |3 E/S par seconde/Go<br/>Min 100 E/S par seconde<br/>Max 6000 E/S par seconde | 3 E/S par seconde/Go<br/>Min 100 E/S par seconde<br/>Max 6000 E/S par seconde |
 
-Vous pouvez ajouter une capacité de stockage supplémentaire pendant et après la création du serveur. Le niveau De base n’offre pas de garantie d’E/S par seconde. Dans les niveaux tarifaires Usage général et À mémoire optimisée, les IOPS augmentent avec la taille de stockage approvisionnée selon un ratio de 3:1.
+Vous pouvez ajouter de la capacité de stockage supplémentaire pendant et après la création du serveur et autoriser le système à croître automatiquement en fonction de la consommation de stockage de votre charge de travail de stockage. Le niveau De base n’offre pas de garantie d’E/S par seconde. Dans les niveaux tarifaires Usage général et À mémoire optimisée, les IOPS augmentent avec la taille de stockage approvisionnée selon un ratio de 3:1.
 
 Vous pouvez surveiller votre consommation d’E/S dans le Portail Azure ou à l’aide des commandes Azure CLI. Les métriques pertinentes à surveiller sont [la limite de stockage, le pourcentage de stockage, le stockage utilisé et le pourcentage d’E/S](concepts-monitoring.md).
 
 ### <a name="reaching-the-storage-limit"></a>Atteindre la limite de stockage
 
-Le serveur est marqué en lecture seule lorsque la quantité de stockage disponible est inférieure à 5 Go ou 5 % du stockage provisionné, selon la valeur qui est inférieure. Par exemple, si vous avez provisionné 100 Go de stockage, et que l’utilisation réelle dépasse 95 Go, le serveur est marqué en lecture seule. Ou, si vous avez provisionné 5 Go de stockage, le serveur est marqué en lecture seule lorsque le stockage disponible est inférieur à 250 Mo.  
+Serveurs avec moins de 100 Go mis en service de stockage sont marqués en lecture seule si l’espace de stockage est inférieure à 512 Mo ou 5 % de la taille de stockage approvisionné. Serveurs avec plus de 100 Go mis en service de stockage sont en lecture uniquement lorsque l’espace de stockage est inférieure à 5 Go.
+
+Par exemple, si vous avez configuré de 110 Go de stockage, et l’utilisation réelle dépasse 105 Go, le serveur est marqué en lecture seule. Vous pouvez également, si vous avez configuré les 5 Go de stockage, le serveur est marqué en lecture seule lorsque l’espace de stockage atteint moins de 512 Mo.
 
 Pendant que le service tente de marquer le serveur en lecture seule, toutes les nouvelles demandes de transactions d’écriture sont bloquées et les transactions actives existantes continuent de s’exécuter. Une fois que le serveur est marqué en lecture seule, toutes les opérations d’écriture et validations de transaction ultérieures échouent. Les requêtes de lecture continueront de fonctionner sans interruption. Après avoir augmenté le stockage provisionné, le serveur sera prêt à accepter de nouvelles transactions d’écriture.
 
-Nous vous recommandons de configurer une alerte pour vous avertir quand votre serveur de stockage est proche du seuil afin d’éviter la mise en lecture seule. Pour plus d’informations, consultez la documentation sur [comment configurer une alerte](howto-alert-on-metric.md).
+Nous vous recommandons d’activer sur le stockage la croissance automatique ou pour configurer une alerte pour vous avertir quand le stockage serveur approche le seuil par conséquent, vous pouvez éviter d’introduire l’état en lecture seule. Pour plus d’informations, consultez la documentation sur [comment configurer une alerte](howto-alert-on-metric.md).
+
+### <a name="storage-auto-grow"></a>Stockage-la croissance automatique
+
+Si la croissance automatique du stockage est activé, le stockage s’agrandit automatiquement sans affecter la charge de travail. Pour les serveurs avec moins de 100 Go mis en service de stockage, la taille de stockage approvisionné est augmentée de 5 Go dès que l’espace de stockage est ci-dessous supérieur à 1 Go ou 10 % du stockage approvisionné. Pour les serveurs avec plus de 100 Go de stockage approvisionné, la taille de stockage approvisionné est augmentée de 5 % lorsque l’espace de stockage libre est inférieur à 5 % de la taille de stockage approvisionné. Limites de stockage maximale comme indiqué ci-dessus s’appliquent.
+
+Par exemple, si vous avez configuré les 1 000 Go de stockage, et l’utilisation réelle dépasse 950 Go, la taille de stockage du serveur est augmentée à 1050 go. Vous pouvez également, si vous avez approvisionné 10 Go de stockage, la taille de stockage est augmentation à 15 Go lorsque moins de 1 Go de stockage est gratuit.
 
 ## <a name="backup"></a>Sauvegarde
 

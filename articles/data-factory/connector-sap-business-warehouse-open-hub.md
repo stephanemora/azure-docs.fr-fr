@@ -3,22 +3,21 @@ title: Copier des données à partir de SAP Business Warehouse via Open Hub à l
 description: Apprenez à utiliser l'activité de copie dans un pipeline Azure Data Factory pour copier des données de SAP Business Warehouse (BW) vers des banques de données réceptrices prises en charge via Open Hub.
 services: data-factory
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: linda33wj
+manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-origin.date: 03/08/2019
-ms.date: 04/22/2019
-ms.author: v-jay
-ms.openlocfilehash: c64842dc89c9519c738701558f510940f4cc148d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 03/08/2019
+ms.author: jingwang
+ms.openlocfilehash: 6fb989632d3165ac5e54e540aae4385fc2258c85
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60848870"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66256909"
 ---
 # <a name="copy-data-from-sap-business-warehouse-via-open-hub-using-azure-data-factory"></a>Copier des données à partir de SAP Business Warehouse via Open Hub à l'aide d'Azure Data Factory
 
@@ -30,7 +29,7 @@ Vous pouvez copier des données de SAP Business Warehouse vers une banque de don
 
 Plus précisément, ce connecteur SAP Business Warehouse Open Hub prend en charge ce qui suit :
 
-- SAP Business Warehouse **version 7.01 ou une version ultérieure (dans une récente SAP prise en charge de Package pile publiée après l’année 2015)**.
+- SAP Business Warehouse **version 7.01 ou une version ultérieure (dans une récente SAP prise en charge de Package pile publiée après l’année 2015)** .
 - Copie de données via la table OHD locale qui peut être DSO, InfoCube, MultiProvider, DataSource, etc.
 - Copie de données en utilisant une authentification de base.
 - Connexion au serveur d'applications.
@@ -100,7 +99,7 @@ Les propriétés prises en charge pour le service lié SAP Business Warehouse Op
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | type | La propriété type doit être définie sur : **SapOpenHub** | Oui |
-| serveur | Nom du serveur sur lequel réside l’instance SAP BW. | Oui |
+| server | Nom du serveur sur lequel réside l’instance SAP BW. | Oui |
 | systemNumber | Numéro de système du système SAP BW.<br/>Valeur autorisée : nombre décimal à deux chiffres représenté sous forme de chaîne. | Oui |
 | clientId | ID client du client dans le système SAP W.<br/>Valeur autorisée : nombre décimal à trois chiffres représenté sous forme de chaîne. | Oui |
 | langage | Langue utilisée par le système SAP. | Non (la valeur par défaut est **EN**)|
@@ -135,7 +134,7 @@ Les propriétés prises en charge pour le service lié SAP Business Warehouse Op
 
 ## <a name="dataset-properties"></a>Propriétés du jeu de données
 
-Pour obtenir la liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article [Jeux de données](concepts-datasets-linked-services.md). Cette section fournit la liste des propriétés prises en charge par le jeu de données Salesforce.
+Pour obtenir la liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article [Jeux de données](concepts-datasets-linked-services.md). Cette section fournit une liste des propriétés prises en charge par le jeu de données SAP BW Open Hub.
 
 Pour copier des données depuis et vers SAP BW Open Hub, définissez la propriété type du jeu de données sur **SapOpenHubTable**. Les propriétés suivantes sont prises en charge.
 
@@ -173,7 +172,7 @@ Pour obtenir la liste complète des sections et des propriétés disponibles pou
 
 ### <a name="sap-bw-open-hub-as-source"></a>SAP BW Open Hub en tant que source
 
-Pour copier des données à partir de SAP BW Open Hub, définissez **SapOpenHubSource** comme type de source dans l'activité de copie. Bien qu'aucune autre propriété spécifique au type ne soit nécessaire dans la section **source** de l'activité de copie.
+Pour copier des données à partir de SAP BW Open Hub, définissez **SapOpenHubSource** comme type de source dans l'activité de copie. Aucune propriété propre au type supplémentaires nécessaires dans l’activité de copie **source** section.
 
 **Exemple :**
 

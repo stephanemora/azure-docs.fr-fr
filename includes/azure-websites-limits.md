@@ -4,12 +4,12 @@ ms.service: billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: c2db5740d6373c8f6be5dabe0260fe7f99575641
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: ce64047fd7490106790ea8bb1ad7963d82a87c24
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57553771"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66238760"
 ---
 | Ressource | Gratuit | Partagé | De base | standard | Premium (v2) | Isolé </th> |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -20,7 +20,7 @@ ms.locfileid: "57553771"
 | Stockage<sup>5</sup> |1 Go<sup>5</sup> |1 Go<sup>5</sup> |10 Go<sup>5</sup> |50 Go<sup>5</sup> |250 GO<sup>5</sup></p> |1 TO<sup>5</sup>|
 | Temps processeur (5 minutes)<sup>6</sup> |3 minutes |3 minutes |Illimité, facturation aux [tarifs standard](https://azure.microsoft.com/pricing/details/app-service/)</a> |Illimité, facturation aux [tarifs standard](https://azure.microsoft.com/pricing/details/app-service/)</a> |Illimité, facturation aux [tarifs standard](https://azure.microsoft.com/pricing/details/app-service/)</a> |Illimité, facturation aux [tarifs standard](https://azure.microsoft.com/pricing/details/app-service/)</a>|
 | Temps processeur (jour)<sup>6</sup> |60 minutes |240 minutes |Illimité, facturation aux [tarifs standard](https://azure.microsoft.com/pricing/details/app-service/)</a> |Illimité, facturation aux [tarifs standard](https://azure.microsoft.com/pricing/details/app-service/)</a> |Illimité, facturation aux [tarifs standard](https://azure.microsoft.com/pricing/details/app-service/)</a> |Illimité, facturation aux [tarifs standard](https://azure.microsoft.com/pricing/details/app-service/)</a> |
-| Mémoire (1 heure) |1 024 Mo par plan App Service |1 024 Mo par application |S.O. |N/A |N/A |S.O. |
+| Mémoire (1 heure) |1 024 Mo par plan App Service |1 024 Mo par application |N/A |N/A |N/A |N/A |
 | Bande passante |165 Mo |Illimitée, application du [taux de transfert de données](https://azure.microsoft.com/pricing/details/data-transfers/) |Illimitée, application du [taux de transfert de données](https://azure.microsoft.com/pricing/details/data-transfers/) |Illimitée, application du [taux de transfert de données](https://azure.microsoft.com/pricing/details/data-transfers/) |Illimitée, application du [taux de transfert de données](https://azure.microsoft.com/pricing/details/data-transfers/) |Illimitée, application du [taux de transfert de données](https://azure.microsoft.com/pricing/details/data-transfers/) |
 | Architecture de l'application |32 bits |32 bits |32 bits/64 bits |32 bits/64 bits |32 bits/64 bits |32 bits/64 bits |
 | Web sockets par instance<sup>7</sup> |5. |35 |350 |Illimité |Illimité |Illimité |
@@ -29,7 +29,7 @@ ms.locfileid: "57553771"
 | Domaines personnalisés par application</a> |0 (sous-domaine azurewebsites.net uniquement)|500 |500 |500 |500 |500 |
 | domaines personnalisés [Prise en charge SSL](../articles/app-service/app-service-web-tutorial-custom-ssl.md) |Non pris en charge, certificat générique pour *. azurewebsites.net disponible par défaut|Non pris en charge, certificat générique pour *. azurewebsites.net disponible par défaut|Nombre illimité de connexions SNI SSL |Connexions SSL SNI illimitées et 1 connexion IP SSL incluses |Connexions SSL SNI illimitées et 1 connexion IP SSL incluses | Connexions SSL SNI illimitées et 1 connexion IP SSL incluses|
 | Équilibrage de charge intégré | |X |X |X |X |X<sup>9</sup> |
-| [Toujours actif](../articles/app-service/web-sites-configure.md) | | |X |X |X |X |
+| [Toujours actif](../articles/app-service/configure-common.md) | | |X |X |X |X |
 | [Sauvegardes planifiées](../articles/app-service/manage-backup.md) | | | | Sauvegardes planifiées toutes les 2 heures, un maximum de 12 sauvegardes par jour (manuel + planifiée) | Sauvegardes planifiées toutes les heures, un maximum de 50 sauvegardes par jour (manuel + planifiée) | Sauvegardes planifiées toutes les heures, un maximum de 50 sauvegardes par jour (manuel + planifiée) |
 | [Autoscale](../articles/app-service/web-sites-scale.md) | | | |X |X |X |
 | [Tâches web](../articles/app-service/webjobs-create.md)<sup>8</sup> |X |X |X |X |X |X |

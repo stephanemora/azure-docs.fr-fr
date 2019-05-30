@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 05/21/2019
+ms.date: 05/22/2019
 ms.author: mbullwin
-ms.openlocfilehash: 8522b1d0a8f8466870966d3f11ce66f7bf15672b
-ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
+ms.openlocfilehash: cb7ace20fd0a59dafff3d7f8240f54c3c8e12492
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66016371"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66226396"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>Application Insights pour les applications ASP.NET Core
 
@@ -138,7 +138,7 @@ Prise en charge de [les compteurs de performances](https://azure.microsoft.com/d
 
 [Les journaux ILogger](https://docs.microsoft.com/azure/azure-monitor/app/ilogger) de gravité `Warning` ou version ultérieure sont automatiquement capturées à partir du Kit de développement logiciel version 2.7.0-beta3 ou une version ultérieure.
 
-### <a name="live-metrics"></a>Métriques temps réel
+### <a name="live-metrics"></a>Métriques en temps réel
 
 Il peut prendre quelques minutes pour la télémétrie commencer à apparaître dans le portail. Pour vérifier rapidement si tout fonctionne, il est préférable d’utiliser [métriques temps réel](https://docs.microsoft.com/azure/application-insights/app-insights-live-stream), tandis que la fabrication des demandes à l’application en cours d’exécution.
 
@@ -382,7 +382,8 @@ using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
 
 ## <a name="video"></a>Vidéo
 
-- Externe vidéo pas à pas sur [configuration d’Application Insights avec .NET Core et Visual Studio](https://www.youtube.com/watch?v=NoS9UhcR4gA&t) à partir de zéro.
+- Vidéo détaillée externe sur la [configuration d’Application Insights en partant de zéro avec .NET Core et Visual Studio](https://www.youtube.com/watch?v=NoS9UhcR4gA&t).
+- Externe vidéo pas à pas sur [configuration d’Application Insights avec .NET Core et Visual Studio Code](https://youtu.be/ygGt84GDync) à partir de zéro.
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Explorez les flux d’utilisateurs](../../azure-monitor/app/usage-flows.md) pour comprendre comment les utilisateurs naviguent dans votre application.

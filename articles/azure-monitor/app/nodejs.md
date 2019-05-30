@@ -12,16 +12,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: mbullwin
-ms.openlocfilehash: 13379111706eaa816a8fa16cfe72711b7bf4d739
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f2a30d5a040c2713f04173e83732cea5fa19af3b
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60576484"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66255281"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Surveiller vos services et applications Node.js avec Application Insights
 
-[Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) surveille vos services et composants principaux après leur déploiement pour vous permettre de [détecter et diagnostiquer rapidement les problèmes de performances et autres](../../azure-monitor/app/detect-triage-diagnose.md). Vous pouvez utiliser Application Insights pour les services Node.js hébergés dans votre centre de données, dans les machines virtuelles et applications web Azure, et même dans d’autres clouds publics.
+[Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) surveille vos services et composants principaux après le déploiement, pour vous aider à détecter et diagnostiquer rapidement les problèmes de performances et autres. Vous pouvez utiliser Application Insights pour les services Node.js hébergés dans votre centre de données, dans les machines virtuelles et applications web Azure, et même dans d’autres clouds publics.
 
 Pour recevoir, stocker et explorer vos données d’analyse, incluez le kit de développement logiciel (SDK) dans votre code et configurez une ressource Application Insights correspondante dans Azure. Le kit de développement logiciel (SDK) envoie les données à cette ressource pour une analyse et une exploration plus approfondies.
 
@@ -202,7 +202,7 @@ server.on("listening", () => {
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Navigation et tableaux de bord dans le portail Application Insights](../../azure-monitor/app/app-insights-dashboards.md)
+* [Navigation et tableaux de bord dans le portail Application Insights](../../azure-monitor/app/overview-dashboard.md)
 * [Écrire des requêtes Analytics via vos données de télémétrie](../../azure-monitor/log-query/get-started-portal.md)
 
 <!--references-->

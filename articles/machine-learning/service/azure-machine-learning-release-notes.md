@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 05/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3acaf86123f2cab871bc2f99cc873a73015875e2
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 2dd397e879dd76cabd119a3cbedff34041be2d13
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65989849"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66298481"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Notes de publication du service Azure Machine Learning
 
@@ -24,6 +24,21 @@ Dans cet article, découvrez les versions du service Azure Machine Learning.  Po
 + [**Kit de développement logiciel (SDK) de préparation de données**](https://aka.ms/data-prep-sdk) Azure Machine Learning
 
 Consultez la [liste des problèmes connus](resource-known-issues.md) pour en savoir plus sur les bogues connus et les solutions de contournement.
+
+## <a name="2019-05-28"></a>2019-05-28
+
+### <a name="azure-machine-learning-data-prep-sdk-v114"></a>Kit de développement logiciel v1.1.4 de préparation des données d’Azure Machine Learning
+
++ **Nouvelles fonctionnalités**
+  + Vous pouvez maintenant utiliser les fonctions de langage d’expression suivant pour extraire et analyser des valeurs datetime en nouvelles colonnes.
+    + `RegEx.extract_record()` extrait des éléments de date/heure dans une nouvelle colonne.
+    + `create_datetime()` crée des objets datetime à partir d’éléments de date/heure distincts.
+  + Lors de l’appel `get_profile()`, vous pouvez maintenant voir que les colonnes de quantile sont étiquetés (estimé) pour indiquer clairement que les valeurs sont des approximations.
+  + Vous pouvez maintenant utiliser ** utilisation des caractères génériques lors de la lecture depuis le stockage Blob Azure.
+    + Exemple : `dprep.read_csv(path='https://yourblob.blob.core.windows.net/yourcontainer/**/data/*.csv')`
+
++ **Résolution des bogues**
+  + Correction d’un bogue lié à la lecture d’un fichier Parquet à partir d’une source distante (objet Blob Azure).
 
 ## <a name="2019-05-14"></a>2019-05-14
 
@@ -498,7 +513,7 @@ Le portail Azure du service Azure Machine Learning contient les mises à jour su
 ### <a name="azure-machine-learning-sdk-for-python-v0174"></a>SDK Azure Machine Learning pour Python v0.1.74
 
 + **Dernières modifications** 
-  * *Workspace.compute_targets, datastores, experiments, images, models et *webservices* ne sont plus des méthodes, mais deviennent des propriétés. Par exemple, *Workspace.compute_targets* remplace *Workspace.compute_targets()*.
+  * *Workspace.compute_targets, datastores, experiments, images, models et *webservices* ne sont plus des méthodes, mais deviennent des propriétés. Par exemple, *Workspace.compute_targets* remplace *Workspace.compute_targets()* .
   * *Run.get_context* rend *Run.get_submitted_run* obsolète. Cette dernière méthode sera supprimée dans les versions ultérieures.
   * La classe *PipelineData* attend un objet datastore en tant que paramètre et non pas datastore_name. De même, *Pipeline* accepte default_datastore plutôt que default_datastore_name.
 

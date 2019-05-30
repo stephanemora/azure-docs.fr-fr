@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: sdgilley
 ms.author: sgilley
 ms.date: 03/22/2019
-ms.openlocfilehash: 815aeb9ae6036f08fc87e41980a623e2be8414e5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7343692e8484e50a02963b4528889a35cc1fcaa6
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60751239"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66239076"
 ---
 # <a name="ask-a-question-you-can-answer-with-data"></a>Poser une question à laquelle les données permettent de répondre
 ## <a name="video-3-data-science-for-beginners-series"></a>Vidéo 3 : série Science des données pour les débutants
@@ -48,7 +48,7 @@ Comme nous l’avons vu, la science des données est le processus consistant à 
 
 Une question vague n’appelle pas une réponse par un nom ou un nombre. Une question précise si.
 
-Imaginons que vous avez trouvé une lampe magique renfermant un génie qui répond correctement à toutes les questions que vous lui posez. Mais ce génie est espiègle, et il fait en sorte de rendre sa réponse la plus vague et confuse possible. Vous devez le coincer avec une question si bien formulée qu’il sera obligé de vous dire ce que vous voulez savoir.
+Imaginons que vous avez trouvé une lampe magique renfermant un génie qui répond correctement à toutes les questions que vous lui posez. Mais il s’agit d’un génie espiègle, qui tente de rendre leurs réponses plus vague et confuse car ils peuvent en sortir. Vous souhaitez épingler vers le bas avec une question donc étanche qu’ils ne peuvent pas vous aider à tout vous dire ce que vous voulez savoir.
 
 Si vous lui posez une question vague comme « Que va-t-il arriver à mon action ? », le génie pourra très bien répondre « Son cours va changer ». C’est une réponse correcte, mais pas vraiment utile.
 

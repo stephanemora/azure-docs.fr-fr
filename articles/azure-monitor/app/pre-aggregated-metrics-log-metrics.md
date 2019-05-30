@@ -10,12 +10,12 @@ ms.date: 09/18/2018
 ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 96d4c2c8d6c2dd7722b7377dd7a0ffd42acd3126
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 9520cbb9973071bf1c52266d7718837607c1d10f
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64572520"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66256128"
 ---
 # <a name="log-based-and-pre-aggregated-metrics-in-application-insights"></a>Métriques basées sur le journal et pré-agrégées dans Application Insights
 
@@ -34,7 +34,7 @@ Dans le même temps, collecter un ensemble complet d’événements peut s’av�
 
 ## <a name="pre-aggregated-metrics"></a>Métriques pré-agrégées
 
-Outre les métriques basées sur le journal, à l’automne 2018, l’équipe Application Insights a livré une préversion publique des métriques stockées dans un référentiel spécialisé optimisé pour la série chronologique. Les nouvelles métriques ne sont plus conservées sous la forme d’événements individuels avec un grand nombre de propriétés. À la place, elles sont stockées sous la forme de séries chronologiques pré-agrégées et seulement avec les principales dimensions. Les métriques sont ainsi de meilleure qualité au moment de la requête : l’extraction des données s’effectue beaucoup plus rapidement et nécessite moins de puissance de calcul. Cela rend possible de nouveaux scénarios comme [la génération d’alertes quasiment en temps réel sur les dimensions des métriques](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts), des [tableaux de bord](https://docs.microsoft.com/azure/application-insights/app-insights-dashboards) plus réactifs et bien plus encore.
+Outre les métriques basées sur le journal, à l’automne 2018, l’équipe Application Insights a livré une préversion publique des métriques stockées dans un référentiel spécialisé optimisé pour la série chronologique. Les nouvelles métriques ne sont plus conservées sous la forme d’événements individuels avec un grand nombre de propriétés. À la place, elles sont stockées sous la forme de séries chronologiques pré-agrégées et seulement avec les principales dimensions. Les métriques sont ainsi de meilleure qualité au moment de la requête : l’extraction des données s’effectue beaucoup plus rapidement et nécessite moins de puissance de calcul. Cela rend possible de nouveaux scénarios comme [la génération d’alertes quasiment en temps réel sur les dimensions des métriques](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts), des [tableaux de bord](https://docs.microsoft.com/azure/azure-monitor/app/overview-dashboard) plus réactifs et bien plus encore.
 
 > [!IMPORTANT]
 > Les métriques basées sur le journal et pré-agrégées coexistent dans Application Insights. Pour différencier les deux, dans l’expérience utilisateur Application Insights, les métriques pré-agrégées sont maintenant appelées « Métriques standard (préversion) », tandis que les métriques traditionnelles des événements ont été renommées « métriques basées sur le journal ».

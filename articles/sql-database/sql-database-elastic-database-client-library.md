@@ -12,16 +12,16 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 09/25/2018
-ms.openlocfilehash: c0d50f3a66d940618f2bc421537b113120a2eaca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1c6e77f3afc90a8c018296db80253d8b9a22159e
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61475862"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234103"
 ---
 # <a name="building-scalable-cloud-databases"></a>Conception de bases de données cloud évolutives
 
-Le scale-out des bases de données peut être aisément accomplie à l’aide de fonctionnalités et d’outils scalables Azure SQL Database. En particulier, vous pouvez utiliser la **Bibliothèque cliente de bases de données élastiques** pour créer et gérer des bases de données avec montée en charge. Cette fonctionnalité vous permet de développer facilement des applications partitionnées à l'aide de centaines, voire de milliers, de bases de données Azure SQL. [tâches élastiques](sql-database-elastic-jobs-powershell.md) pour faciliter la gestion de ces bases de données.
+Le scale-out des bases de données peut être aisément accomplie à l’aide de fonctionnalités et d’outils scalables Azure SQL Database. En particulier, vous pouvez utiliser la **Bibliothèque cliente de bases de données élastiques** pour créer et gérer des bases de données avec montée en charge. Cette fonctionnalité vous permet de développer facilement des applications partitionnées à l'aide de centaines, voire de milliers, de bases de données Azure SQL.
 
 Pour télécharger :
 

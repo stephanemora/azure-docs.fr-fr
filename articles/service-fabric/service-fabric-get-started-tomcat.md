@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 6/08/2018
 ms.author: v-jamebr
-ms.openlocfilehash: 5ae2ca352c6d3cbe02b659a97fe3147c1a31128f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: df3156688f018aee4717271557220396827dd9e2
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60947391"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306824"
 ---
 # <a name="create-service-fabric-container-running-apache-tomcat-server-on-linux"></a>Créer un conteneur Service Fabric exécutant un serveur Apache Tomcat sur Linux
 Apache Tomcat est une implémentation open source populaire des technologies Java Servlet et Java Server. Cet article montre comment créer un conteneur avec Apache Tomcat et une application web simple, déployer le conteneur sur un cluster Service Fabric exécutant Linux, et se connecter à l’application web.  
@@ -111,9 +111,9 @@ Suivez les étapes décrites dans cette section pour créer une image Docker bas
 ## <a name="push-the-tomcat-image-to-your-container-registry"></a>Envoyer l’image Tomcat à votre registre de conteneurs
 À présent que vous avez vérifié que l’image de Tomcat s’exécute dans un conteneur sur votre ordinateur de développement, envoyez-la à un référentiel dans un registre de conteneurs. Cet article utilise Azure Container Registry pour stocker l’image mais, en apportant quelques modifications aux étapes, vous pouvez utiliser le registre de conteneur de votre choix. Dans cet article, le nom de registre est supposé être *myregistry*, et le nom de registre complet est myregistry.azurecr.io. Modifiez ces noms de façon appropriée pour votre scénario. 
 
-1. Exécutez `docker login` pour vous connecter à votre Registre de conteneur à l’aide de vos [informations d’identification du Registre](../container-registry/container-registry-authentication.md).
+1. Exécutez `docker login` se connecter à votre Registre de conteneurs avec votre [informations d’identification du Registre](../container-registry/container-registry-authentication.md).
 
-   L’exemple suivant transmet l’ID et le mot de passe d’un [principal du service](../active-directory/develop/app-objects-and-service-principals.md) Azure Active Directory . Par exemple, vous pouvez avoir affecté un principal du service à votre Registre pour un scénario d’automatisation. Ou bien, vous pouvez vous connecter à l’aide de votre nom d’utilisateur de registre et mot de passe.
+   L’exemple suivant transmet l’ID et le mot de passe d’un [principal du service](../active-directory/develop/app-objects-and-service-principals.md) Azure Active Directory . Par exemple, vous pouvez avoir affecté un principal du service à votre Registre pour un scénario d’automatisation. Ou bien, vous pouvez vous connecter avec votre nom d’utilisateur du Registre et le mot de passe.
 
    ```bash
    docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p myPassword
@@ -162,7 +162,7 @@ Suivez les étapes décrites dans cette section pour créer une image Docker bas
    </Resources>
    ```
 
-11. Dans le manifeste de l’application (*ServiceFabricTomcat/ServiceFabricTomcat/ApplicationManifest.xml*), sous la balise **ServiceManifestImport**, ajoutez le code XML suivant. Remplacez **AccountName** et **Password** dans la balise **RepositoryCredentials** portant le nom de votre registre de conteneurs et le mot de passe requis pour vous connecter à celui-ci.
+11. Dans le manifeste de l’application (*ServiceFabricTomcat/ServiceFabricTomcat/ApplicationManifest.xml*), sous la balise **ServiceManifestImport**, ajoutez le code XML suivant. Remplacez le **AccountName** et **mot de passe** dans le **RepositoryCredentials** balise portant le nom de votre Registre de conteneurs et le mot de passe requis pour vous y connecter.
 
    ```xml
    <Policies>

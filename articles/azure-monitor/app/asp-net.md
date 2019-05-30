@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: mbullwin
-ms.openlocfilehash: c69e925913d4dcb3a8bec34cbf25dac184ea65c5
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 5b719566ce42639c0c435a8d631e12541d0a0e9d
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65595557"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66256625"
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>Configurer Application Insights pour votre site web ASP.NET
 
@@ -63,7 +63,7 @@ Si vous souhaitez définir le groupe de ressources ou l’emplacement où vos do
 > [!NOTE]
 > Si vous ne souhaitez pas envoyer de données de télémétrie au portail pendant le débogage, ajoutez simplement le kit de développement logiciel (SDK) Application Insights à votre application, mais ne configurez pas de ressource dans le portail. Vous êtes en mesure de voir les données de télémétrie dans Visual Studio pendant le débogage. Plus tard, vous pouvez revenir à cette page de configuration, ou vous pouvez attendre d’avoir déployé votre application et [activer les données de télémétrie au moment de l’exécution](../../azure-monitor/app/monitor-performance-live-website-now.md).
 
-## <a name="run"></a> Étape 2 : Exécuter votre application
+## <a name="run"></a> Étape 2 : Exécutez l'application.
 Exécutez votre application en appuyant sur F5. Ouvrez différentes pages pour générer des données de télémétrie.
 
 Un décompte des événements consignés s’affiche dans Visual Studio.
@@ -99,12 +99,10 @@ Lorsque le portail s’ouvre, il affiche les données de télémétrie de votre 
 
 Dans le portail, cliquez sur n’importe quelle mosaïque ou n’importe quel graphique pour afficher plus de détails.
 
-[En savoir plus sur l’utilisation d’Application Insights dans le portail Azure](../../azure-monitor/app/app-insights-dashboards.md).
-
-## <a name="step-4-publish-your-app"></a>Étape 4 : Publier votre application
+## <a name="step-4-publish-your-app"></a>Étape 4 : Publier votre application
 Publiez votre application sur votre serveur IIS ou sur Azure. Vérifiez [Live Metrics Stream (Flux continu de mesures)](../../azure-monitor/app/metrics-explorer.md#live-metrics-stream) pour vous assurer que tout fonctionne correctement.
 
-Vos données de télémétrie s’affichent dans le portail Application Insights, où vous pouvez surveiller les mesures, effectuer une recherche dans vos données de télémétrie et configurer les [tableaux de bord](../../azure-monitor/app/app-insights-dashboards.md). Vous pouvez également utiliser la puissante [langue de requête Kusto](/azure/kusto/query/) pour analyser l’utilisation et les performances ou rechercher des événements spécifiques.
+Vos builds télémétrie inscrire dans le portail Application Insights, où vous pouvez surveiller les métriques, rechercher vos données de télémétrie. Vous pouvez également utiliser la puissante [langue de requête Kusto](/azure/kusto/query/) pour analyser l’utilisation et les performances ou rechercher des événements spécifiques.
 
 Vous pouvez également continuer à analyser vos données de télémétrie dans [Visual Studio](../../azure-monitor/app/visual-studio.md) à l’aide d’outils comme la recherche de diagnostic et les [tendances](../../azure-monitor/app/visual-studio-trends.md).
 
@@ -146,7 +144,6 @@ Vous pouvez consulter d’autres rubriques selon les aspects qui vous intéresse
 ### <a name="analysis"></a>Analyse
 
 * **[Utilisation d’Application Insights dans Visual Studio](../../azure-monitor/app/visual-studio.md)**<br/>Inclut des informations sur le débogage avec la télémétrie, la recherche de diagnostic et l’accès au code.
-* **[Utilisation du portail Application Insights](../../azure-monitor/app/app-insights-dashboards.md)**<br/> Inclut des informations sur les tableaux de bord, les puissants outils de diagnostic et d’analyse, les alertes, le mappage direct des dépendances de votre application et l’exportation des données de télémétrie.
 * **[Analytics](../../azure-monitor/log-query/get-started-portal.md)** : un puissant langage de requête.
 
 ### <a name="alerts"></a>Alertes

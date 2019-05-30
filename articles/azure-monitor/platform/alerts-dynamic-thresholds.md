@@ -5,17 +5,17 @@ author: yanivlavi
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 11/29/2018
+ms.date: 04/26/2019
 ms.author: yalavi
 ms.reviewer: mbullwin
-ms.openlocfilehash: 3773a3e121c3b0162b83ea075601b7386228e4d5
-ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.openlocfilehash: 0d6c578186dab9622ce650f535e11d505efcecb3
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64876192"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65067622"
 ---
-# <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor-public-preview"></a>Alertes de métrique avec des seuils dynamiques dans Azure Monitor (préversion publique)
+# <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor"></a>Alertes de métrique avec des seuils dynamiques dans Azure Monitor
 
 L’alerte de métrique avec détection des seuils dynamiques s’appuie sur le machine learning avancé pour apprendre le comportement historique des métriques et identifier des modèles et des anomalies indiquant d’éventuels problèmes de service. Elle propose de prendre en charge à la fois une interface utilisateur simple et des opérations à grande échelle en permettant aux utilisateurs de configurer des règles d’alerte par le biais de l’API Azure Resource Manager, de manière totalement automatisée.
 
@@ -64,7 +64,7 @@ Vous pouvez choisir l’alerte à déclencher dans l’une des trois conditions 
 
 ## <a name="what-do-the-advanced-settings-in-dynamic-thresholds-mean"></a>Que signifient les paramètres avancés dans les seuils dynamiques ?
 
-**Périodes d’échec** : Les seuils dynamiques vous permettent également de configurer le « nombre de violations avant de déclencher l’alerte », qui correspond à un nombre minimal d’écarts nécessaire pendant une certaine fenêtre de temps pour que le système déclenche une alerte (la fenêtre de temps par défaut est de quatre écarts en 20 minutes). L’utilisateur peut configurer des périodes d’échec et choisir sur quoi être alerté en modifiant les périodes d’échec et la fenêtre de temps. Cette possibilité permet de réduire le nombre d’alertes générées par des pics passagers. Par exemple : 
+**Périodes d’échec** : Les seuils dynamiques vous permettent également de configurer le « nombre de violations avant de déclencher l’alerte », qui correspond à un nombre minimal d’écarts nécessaire pendant une certaine fenêtre de temps pour que le système déclenche une alerte (la fenêtre de temps par défaut est de quatre écarts en 20 minutes). L’utilisateur peut configurer des périodes d’échec et choisir sur quoi être alerté en modifiant les périodes d’échec et la fenêtre de temps. Cette possibilité permet de réduire le nombre d’alertes générées par des pics passagers. Exemple :
 
 Pour déclencher une alerte quand le problème perdure pendant 20 minutes, 4 fois de suite par groupe de périodes de 5 minutes, utilisez les paramètres suivants :
 

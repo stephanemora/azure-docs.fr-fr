@@ -3,18 +3,18 @@ title: Assurer le monitoring des applications et services Azure à l’aide de G
 description: Acheminez les données Azure Monitor et Application Insights en vue de les afficher dans Grafana.
 services: azure-monitor
 keywords: ''
-author: lingliw
-ms.author: v-lingwu
-ms.date: 04/12/19
+author: rboucher
+ms.author: robb
+ms.date: 11/06/2017
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.subservice: ''
-ms.openlocfilehash: 6ea8f4e591399e23b103871da115dbb937227ca9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e9a20aba84e79e87f84d63e4bdae3ba1aac062f5
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60396024"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66387188"
 ---
 # <a name="monitor-your-azure-services-in-grafana"></a>Surveiller vos services Azure dans Grafana
 Maintenant, vous pouvez superviser les services et applications Azure à partir de [Grafana](https://grafana.com/) en utilisant le [plug-in Azure Monitor de source de données](https://grafana.com/plugins/grafana-azure-monitor-datasource). Le plug-in rassemble des données de performance d’application collectées par Azure Monitor, y compris divers journaux d’activité et métriques. Vous pouvez ensuite afficher ces données dans votre tableau de bord Grafana.
@@ -103,7 +103,7 @@ Lorsque vous êtes correctement connecté, vous devez voir que le plug-in Azure 
      > [!NOTE]
      >
      > La requête par défaut fournie avec le plug-in utilise deux macros : "$__timeFilter() et $__interval. 
-     > Lorsque vous effectuez un zoom sur une partie d’un graphe, ces macros permettent à Grafana de calculer dynamiquement la plage de temps et le fragment de temps. Vous pouvez supprimer ces macros et utiliser un filtre d’heure standard, tel que *TimeGenerated > ago(1h)*, mais cela signifie que le graphe ne prend plus en charge la fonctionnalité de zoom.
+     > Lorsque vous effectuez un zoom sur une partie d’un graphe, ces macros permettent à Grafana de calculer dynamiquement la plage de temps et le fragment de temps. Vous pouvez supprimer ces macros et utiliser un filtre d’heure standard, tel que *TimeGenerated > ago(1h)* , mais cela signifie que le graphe ne prend plus en charge la fonctionnalité de zoom.
     
      ![Grafana - Configuration du graphe pour Azure Log Analytics](./media/grafana-plugin/grafana-graph-config-for-azure-log-analytics-dark.png)
 
@@ -119,8 +119,6 @@ Vous pouvez également réutiliser cette configuration pour inclure des métriqu
 
 Voici des articles de référence sur l’utilisation de Telegraf, InfluxDB, Prometheus et Docker
  - [Guide pratique pour surveiller les métriques système avec TICK Stack sur Ubuntu 16.04](https://www.digitalocean.com/community/tutorials/how-to-monitor-system-metrics-with-the-tick-stack-on-ubuntu-16-04)
-
- - [Surveiller les métriques de ressources Docker avec Grafana, InfluxDB et Telegraf](https://blog.vpetkov.net/2016/08/04/monitor-docker-resource-metrics-with-grafana-influxdb-and-telegraf/)
 
  - [Une solution de surveillance pour les hôtes, conteneurs et services en conteneur Docker](https://stefanprodan.com/2016/a-monitoring-solution-for-docker-hosts-containers-and-containerized-services/)
 
@@ -168,3 +166,4 @@ Si vous avez configuré un environnement Grafana sur Azure, vous êtes facturé 
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Vue d’ensemble des métriques d’Azure Monitor](data-platform.md)
+

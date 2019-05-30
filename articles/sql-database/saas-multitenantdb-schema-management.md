@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: billgib, sstein
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: c7c10608d90f7659b108d2d8c80038f59396de2d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 07e8fce5fd8db5d2070b8e382a0eba2ae7187b0d
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61485198"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242786"
 ---
 # <a name="manage-schema-in-a-saas-application-that-uses-sharded-multi-tenant-sql-databases"></a>Gérer un schéma dans une application SaaS qui utilise des bases de données SQL mutualisées partitionnées
 
@@ -31,7 +31,7 @@ Ce didacticiel explore les deux scénarios suivants :
 - Déployer des mises à jour des données de référence pour tous les locataires.
 - Régénérer un index sur la table qui contient les données de référence.
 
-La fonctionnalité [Tâches élastiques](sql-database-elastic-jobs-overview.md) d’Azure SQL Database est utilisée pour exécuter ces opérations sur les bases de données de locataire. Les travaux fonctionnent également sur la base de données de client « modèle ». Dans l’exemple d’application Wingtip Tickets, cette base de données modèle est copiée pour provisionner une nouvelle base de données client.
+La fonctionnalité [Tâches élastiques](elastic-jobs-overview.md) d’Azure SQL Database est utilisée pour exécuter ces opérations sur les bases de données de locataire. Les travaux fonctionnent également sur la base de données de client « modèle ». Dans l’exemple d’application Wingtip Tickets, cette base de données modèle est copiée pour provisionner une nouvelle base de données client.
 
 Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
@@ -57,7 +57,7 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
 ## <a name="introduction-to-saas-schema-management-patterns"></a>Présentation des modèles de gestion de schéma SaaS
 
-Le modèle de base de données partitionnée mutualisée utilisé dans cet exemple permet à une base de données de locataire de contenir un ou plusieurs locataires. Cet exemple présente la possibilité d’utiliser une combinaison de bases de données mutualisées et à locataire unique, créant ainsi un modèle de gestion de locataire *hybride*. La gestion des modifications apportées à ces bases de données peut être compliquée. Les [travaux élastiques](sql-database-elastic-jobs-overview.md) facilitent l’administration et la gestion d’un grand nombre de bases de données. Les tâches vous permettent d’exécuter de façon sécurisée et fiable des scripts Transact-SQL en tant que tâches, sur un groupe de bases de données de locataire. Les tâches sont indépendants de la saisie ou de l’interaction utilisateur. Cette méthode peut être utilisée pour déployer les modifications de schéma ou de données de référence commune sur tous les locataires d’une application. Les Tâches élastiques permettent également de conserver une copie du modèle finale de la base de données. Le modèle est utilisé pour créer de nouveaux locataires, afin de s’assurer que le schéma et les données de référence les plus récents sont utilisés.
+Le modèle de base de données partitionnée mutualisée utilisé dans cet exemple permet à une base de données de locataire de contenir un ou plusieurs locataires. Cet exemple présente la possibilité d’utiliser une combinaison de bases de données mutualisées et à locataire unique, créant ainsi un modèle de gestion de locataire *hybride*. La gestion des modifications apportées à ces bases de données peut être compliquée. Les [travaux élastiques](elastic-jobs-overview.md) facilitent l’administration et la gestion d’un grand nombre de bases de données. Les tâches vous permettent d’exécuter de façon sécurisée et fiable des scripts Transact-SQL en tant que tâches, sur un groupe de bases de données de locataire. Les tâches sont indépendants de la saisie ou de l’interaction utilisateur. Cette méthode peut être utilisée pour déployer les modifications de schéma ou de données de référence commune sur tous les locataires d’une application. Les Tâches élastiques permettent également de conserver une copie du modèle finale de la base de données. Le modèle est utilisé pour créer de nouveaux locataires, afin de s’assurer que le schéma et les données de référence les plus récents sont utilisés.
 
 ![Écran](media/saas-multitenantdb-schema-management/schema-management.png)
 
@@ -125,7 +125,7 @@ Observez les éléments suivants dans le script *DeployReferenceData.sql* :
     - Un type de membre cible *serveur*.
         - Il s’agit du serveur *tenants1-mt-&lt;user&gt;* qui contient les bases de données de locataire.
         - Y compris le serveur contient les bases de données client qui existent au moment de l'exécution du travail.
-    - Un type de membre cible *base de données* pour la base de données modèle (*basetenantdb*) qui réside sur le serveur *catalog-mt-&lt;utilisateur&gt;*,
+    - Un type de membre cible *base de données* pour la base de données modèle (*basetenantdb*) qui réside sur le serveur *catalog-mt-&lt;utilisateur&gt;* ,
     - Un type de membre cible *base de données* pour inclure la base de données *adhocreporting* utilisée dans un autre didacticiel.
 
 - **sp\_add\_job** crée une tâche appelée *Reference Data Deployment* (Déploiement des données de référence).
@@ -134,7 +134,7 @@ Observez les éléments suivants dans le script *DeployReferenceData.sql* :
 
 - Les autres vues dans le script indiquent l’existence des objets et contrôlent l’exécution du travail. Utilisez ces requêtes pour passer en revue la valeur d’état dans la colonne **cycle de vie** afin de déterminer la fin du travail. La tâche met à jour la base de données de locataire et met à jour les deux bases de données supplémentaires contenant la table de référence.
 
-Dans SSMS, accédez à la base de données de locataire sur le serveur *tenants1-mt -&lt;user&gt;*. Interrogez la table *VenueTypes* pour confirmer que *Motorcycle Racing* et *Swimming Club* sont désormais dans la liste des résultats. Le nombre total de types de lieux doit avoir augmenté par deux unités.
+Dans SSMS, accédez à la base de données de locataire sur le serveur *tenants1-mt -&lt;user&gt;* . Interrogez la table *VenueTypes* pour confirmer que *Motorcycle Racing* et *Swimming Club* sont désormais dans la liste des résultats. Le nombre total de types de lieux doit avoir augmenté par deux unités.
 
 ## <a name="create-a-job-to-manage-the-reference-table-index"></a>Créer une tâche pour gérer l’index de la table de référence
 
@@ -161,8 +161,7 @@ Observez les éléments suivants dans le script *OnlineReindex.sql* :
 <!-- TODO: Additional tutorials that build upon the Wingtip Tickets SaaS Multi-tenant Database application deployment (*Tutorial link to come*)
 (saas-multitenantdb-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
 -->
-* [Gestion des bases de données cloud avec montée en charge](sql-database-elastic-jobs-overview.md)
-* [Créer et gérer des bases de données cloud avec montée en charge](sql-database-elastic-jobs-create-and-manage.md)
+* [Gestion des bases de données cloud avec montée en charge](elastic-jobs-overview.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

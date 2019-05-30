@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: ab439eb77113c53ab046256dd8d448a18b63f887
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 72d744808d6b52ccd151645c97005bfdfe1a5541
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60452671"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243468"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Diffuser des données de surveillance Azure vers un hub d’événements pour les utiliser dans un outil externe
 
@@ -43,7 +43,7 @@ Avant de commencer, vous devez [créer un espace de noms et un hub Event Hubs](.
 * Le nombre d’unités de débit vous permet d’augmenter l’échelle de débit de vos hubs d’événements. Le nombre de partitions vous permet de paralléliser la consommation sur un grand nombre de consommateurs. Une seule partition peut atteindre jusqu’à 20 Mo/s, soit environ 20 000 messages par seconde. En fonction de l’outil qui consomme les données, la consommation simultanée de plusieurs partitions risque de ne pas être prise en charge. Si vous n’êtes pas sûr du nombre de partitions à définir, il est recommandé de commencer avec quatre partitions.
 * Il est également recommandé de définir la conservation des messages de votre hub d’événements sur 7 jours. Si l’outil consommateur est en panne pendant plus d’un jour, cela garantit qu’il pourra reprendre là où il s’est arrêté (pour les événements des 7 derniers jours).
 * Il est recommandé d’utiliser le groupe de consommateurs par défaut pour votre hub d’événements. Il n’est pas nécessaire de créer d’autres groupes de consommateurs ou d’utiliser un groupe de consommateurs distinct, sauf si deux outils doivent utiliser les mêmes données d’un même hub d’événements.
-* Pour le journal des activités Azure, vous pouvez choisir un espace de noms Event Hubs pour qu’Azure Monitor y crée un hub d’événements appelé « insights-logs-operationallogs ». Pour les autres types de journaux d’activité, vous pouvez soit choisir un hub d’événements existant (ce qui vous permet de réutiliser le hub d’événements insights-logs-operationallogs), soit créer un hub d’événements par catégorie de journal d’activité à l’aide d’Azure Monitor.
+* Pour le journal d’activité Azure, vous choisissez un espace de noms Event Hubs et Azure Monitor y crée un concentrateur d’événements au sein de cet espace de noms appelé « insights-logs-operationallogs ». Pour les autres types de journaux d’activité, vous pouvez soit choisir un hub d’événements existant (ce qui vous permet de réutiliser le hub d’événements insights-logs-operationallogs), soit créer un hub d’événements par catégorie de journal d’activité à l’aide d’Azure Monitor.
 * En règle générale, les ports 5671 à 5672 doivent être ouverts sur l’ordinateur qui consomme les données du hub d’événements.
 
 Consultez également le [Forum aux questions (FAQ) sur Azure Event Hubs](../../event-hubs/event-hubs-faq.md).
@@ -117,8 +117,8 @@ Le routage de vos données de surveillance vers un hub d’événements avec Azu
 * **Serveur Syslog** : si vous souhaitez transmettre en continu les données d’Azure Monitor directement à un serveur syslog, vous pouvez consulter [ce référentiel GitHub](https://github.com/miguelangelopereira/azuremonitor2syslog/).
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Archiver le journal d’activité dans un compte de stockage](../../azure-monitor/platform/archive-activity-log.md)
+* [Archiver le journal d’activité à un compte de stockage](../../azure-monitor/platform/archive-activity-log.md)
 * [Lire la présentation du journal d’activité Azure](../../azure-monitor/platform/activity-logs-overview.md)
-* [Définir une alerte basée sur un événement de journal d’activité](../../azure-monitor/platform/alerts-log-webhook.md)
+* [Configurer une alerte basée sur un événement de journal d’activité](../../azure-monitor/platform/alerts-log-webhook.md)
 
 

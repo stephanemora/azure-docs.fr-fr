@@ -11,15 +11,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/04/2018
+ms.date: 05/25/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 80ef63cdd9de8cb2340fe15d761402bb9f00fae9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d077487f85c789bcdfea3d91e29ee0d44ce82de0
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60795970"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66239433"
 ---
 # <a name="sap-hana-large-instances-architecture-on-azure"></a>Architecture SAP HANA (grandes instances) sur Azure
 
@@ -34,7 +34,7 @@ L’architecture globale de SAP HANA sur Azure (grandes instances) fournit une c
 
 L’architecture présentée est divisée en trois sections :
 
-- **droit**: Montre une infrastructure sur site qui exécute différentes applications dans les données centres afin que les utilisateurs finaux puissent accéder métier des applications, telles que SAP. Dans l’idéal, cette infrastructure locale est ensuite connectée à Azure avec [ExpressRoute](https://azure.microsoft.com/services/expressroute/).
+- **droit**: Montre une infrastructure sur site qui exécute différentes applications dans les données centres afin que les utilisateurs finaux puissent accéder métier des applications, telles que SAP. Dans l’idéal, cette locale infrastructure est connectée à Azure avec [ExpressRoute](https://azure.microsoft.com/services/expressroute/).
 
 - **Centre**: Montre Azure IaaS et, dans ce cas, utilisez des machines virtuelles pour héberger SAP ou autres applications qui utilisent SAP HANA comme un système SGBD. Les instances HANA plus petites qui fonctionnent avec la mémoire que les machines virtuelles fournissent sont déployées dans des machines virtuelles avec leur couche Application. Pour plus d’informations sur les machines virtuelles, consultez[Machines virtuelles](https://azure.microsoft.com/services/virtual-machines/).
 
@@ -45,11 +45,11 @@ L’architecture présentée est divisée en trois sections :
   -  [Utiliser SAP sur des machines virtuelles Windows](../../virtual-machines-windows-sap-get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
   -  [Utiliser des solutions SAP sur des machines virtuelles Azure](get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-- **gauche**: Répertorie le matériel certifié TDI SAP HANA dans le tampon de grande Instance Azure. Les unités de grande instance HANA sont connectées aux réseaux virtuels de votre abonnement à l’aide de la même technologie que la connectivité du système local à Azure.
+- **gauche**: Répertorie le matériel certifié TDI SAP HANA dans le tampon de grande Instance Azure. Les unités de grande Instance HANA sont connectées aux réseaux virtuels de votre abonnement Azure à l’aide de la même technologie que la connectivité locale à Azure. À compter de mai 2019, une optimisation a été commercialisée qui permet de communiquer entre les unités de grande Instance HANA et les machines virtuelles Azure sans l’intervention de la passerelle ExpressRoute. Cette optimisation appelée ExpressRoute rapide chemin d’accès s’affiche dans cette architecture (lignes rouges). 
 
 Le tampon de grande instance Azure combine les composants suivants :
 
-- **Informatique**: Serveurs qui sont basés sur des processeurs Intel Xeon E7-8890v3 ou Intel Xeon E7-8890v4 qui fournissent des capacités de calcul nécessaires et sont certifiés SAP HANA.
+- **Informatique**: Serveurs qui sont basées sur différents génération de processeurs Intel Xeon qui fournissent des capacités de calcul nécessaires et sont certifiés SAP HANA.
 - **Réseau** : Une structure réseau haut débit unifiée qui relie le calcul, de stockage et les composants de réseau local.
 - **Stockage** : Une infrastructure de stockage qui est accessible via une structure réseau unifiée. La capacité de stockage spécifique fournie varie selon la configuration SAP HANA sur Azure (grandes instances) spécifique déployée. Une capacité de stockage supplémentaire est disponible pour un coût mensuel supérieur.
 

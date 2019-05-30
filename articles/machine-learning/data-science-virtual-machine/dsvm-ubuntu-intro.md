@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
-ms.openlocfilehash: d693af5ddd0b94734dfa065bef8a1f3a5de09ccc
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 5a9fdebc8db0c2a1acc20a894f80cfcc87fb89d5
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65597128"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236493"
 ---
 # <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>Approvisionner une machine virtuelle pour la science des données pour Linux (Ubuntu)
 
@@ -121,7 +121,7 @@ Vous pouvez accéder à la machine DSVM Ubuntu à l’aide de trois méthodes :
 1. X2Go pour les sessions graphiques
 1. JupyterHub et JupyterLab pour les blocs-notes Jupyter
 
-Vous pouvez également attacher une machine virtuelle de science des données à Azure Notebooks pour exécuter les blocs-notes Jupyter sur la machine virtuelle et de contourner les limitations de la couche de service gratuit. Pour plus d’informations, consultez [gérer et configurer des projets de blocs-notes - niveau de calcul](/azure/notebooks/configure-manage-azure-notebooks-projects.md#compute-tier).
+Vous pouvez également attacher une machine virtuelle de science des données à Azure Notebooks pour exécuter les blocs-notes Jupyter sur la machine virtuelle et de contourner les limitations de la couche de service gratuit. Pour plus d’informations, consultez [gérer et configurer des projets de blocs-notes - niveau de calcul](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier).
 
 ### <a name="ssh"></a>SSH
 
@@ -160,7 +160,7 @@ c.Spawner.default_url = '/lab'
 
 ### <a name="deep-learning-libraries"></a>Bibliothèques d’apprentissage approfondi
 
-#### <a name="cntk"></a>CNTK
+#### <a name="cntk"></a>CNTK (Computational Network Toolkit de Microsoft Research)
 
 Microsoft Cognitive Toolkit est un kit de ressources d’apprentissage profond open source. Les liaisons Python sont disponibles dans les environnements Conda racine et py35. Il contient également un outil en ligne de commande (cntk) qui est déjà dans PATH.
 
@@ -268,7 +268,7 @@ conda install <package> -n py35
 
 Si vous travaillez sur une interface graphique ou que vous avez le programme d’installation du transfert X11, vous pouvez taper **pycharm** pour lancer l’IDE Python PyCharm. Vous pouvez utiliser les éditeurs de texte par défaut. En outre, vous pouvez utiliser Spyder, un IDE Python fourni avec les distributions Anaconda Python. Spyder requiert un bureau graphique ou le transfert X11. Un raccourci vers Spyder est fourni dans le bureau graphique.
 
-### <a name="jupyter-notebook"></a>Notebook Jupyter
+### <a name="jupyter-notebook"></a>Jupyter Notebook
 
 La distribution Anaconda est également fournie avec un serveur Jupyter Notebook, un environnement conçu pour le partage de code et d’analyses. Le serveur Jupyter Notebook est accessible via JupyterHub. Vous vous connectez en utilisant votre nom d’utilisateur Linux local et votre mot de passe.
 

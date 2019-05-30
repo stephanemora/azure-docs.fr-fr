@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 01/22/2019
+ms.date: 05/21/2019
 ms.author: mbullwin
-ms.openlocfilehash: af4d350c715a0792934f9d080f0bf571c3b2d2b5
-ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
+ms.openlocfilehash: c4e924d1e3012bc5e49c89f51026cd651398f4c5
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66023230"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242877"
 ---
 # <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>Adresses IP utilisées par Application Insights et Log Analytics
 Le service [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) utilise plusieurs adresses IP. Vous devrez peut-être connaître ces adresses si l’application que vous surveillez est hébergée derrière un pare-feu.
@@ -432,7 +432,7 @@ Remarque : le domaine *.loganalytics.io appartient à l’équipe Log Analytics.
 | --- | --- | --- |
 | Génération d’alertes | 23.96.11.4 | 443 |
 
-## <a name="profiler"></a>Profiler
+## <a name="profiler"></a>Profileur
 
 | Objectif | URI | IP | Ports |
 | --- | --- | --- | --- |

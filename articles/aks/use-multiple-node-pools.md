@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/17/2019
 ms.author: iainfou
-ms.openlocfilehash: 4086b73313d563afaecad9b6a9289905d7085004
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: 4af2e97e8ace432c37a770f1930514dd19e30944
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66142638"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235756"
 ---
 # <a name="preview---create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Afficher un aperçu : créer et gérer plusieurs pools de nœuds pour un cluster dans Azure Kubernetes Service (ACS)
 
@@ -21,9 +21,10 @@ Dans Azure Kubernetes Service (ACS), les nœuds de la même configuration sont r
 Cet article vous montre comment créer et gérer plusieurs pools de nœuds dans un cluster AKS. Actuellement, cette fonctionnalité est uniquement disponible en tant que version préliminaire.
 
 > [!IMPORTANT]
-> Fonctionnalités de préversion AKS sont libre-service et participer. Les préversions sont fournies pour recueillir des commentaires et des bogues à partir de notre communauté. Toutefois, ils ne sont pas pris en charge par le support technique Azure. Si vous créez un cluster, ou ajoutez ces fonctionnalités à des clusters existants, ce cluster est non pris en charge jusqu'à ce que la fonctionnalité n’est plus disponible en version préliminaire et atteignent à la disposition générale (GA).
+> Fonctionnalités de préversion AKS sont en libre-service, participer. Elles sont fournies pour recueillir des commentaires et des bogues à partir de notre communauté. Dans la version préliminaire, ces fonctionnalités ne sont pas destinées à des fins de production. Fonctionnalités en version préliminaire publique relèvent du « meilleur effort » la prise en charge. L’assistance des équipes de support technique AKS est disponible pendant les heures de bureau PST fuseau horaire (PST) uniquement. Pour plus d’informations, consultez les éléments suivants prennent en charge des articles :
 >
-> Si vous rencontrez des problèmes avec les fonctionnalités en version préliminaire, [de signaler un problème sur le référentiel GitHub d’AKS][aks-github] par le nom de la fonctionnalité d’aperçu dans le titre du bogue.
+> * [Stratégies de prise en charge AKS][aks-support-policies]
+> * [FAQ du Support Azure][aks-faq]
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
@@ -72,6 +73,7 @@ Les limitations suivantes s’appliquent lorsque vous créez et gérez les clust
 * Plusieurs pools de nœud sont uniquement disponibles pour les clusters créés une fois que vous avez correctement inscrit le *MultiAgentpoolPreview* et *VMSSPreview* fonctionnalités pour votre abonnement. Impossible d’ajouter ou de gérer des pools de nœuds avec un cluster ACS existant créé avant que ces fonctionnalités ont été correctement inscrits.
 * Vous ne pouvez pas supprimer le premier pool de nœud.
 * Le module complémentaire de routage application HTTP ne peut pas être utilisé.
+* Vous ne pouvez pas les pools de nœuds de l’ajout/mise à jour/suppression à l’aide d’un modèle Resource Manager existant à l’instar de la plupart des opérations. Au lieu de cela, [utiliser un modèle Resource Manager distinct](#manage-node-pools-using-a-resource-manager-template) pour apporter des modifications aux pools de nœuds dans un cluster AKS.
 
 Bien que cette fonctionnalité est disponible en version préliminaire, les limitations supplémentaires suivantes s’appliquent :
 
@@ -328,6 +330,95 @@ Events:
 
 Uniquement les blocs qui ont ce goût appliqué peuvent être planifiées sur les nœuds dans *gpunodepool*. N’importe quel autre pod sera planifiée dans le *nodepool1* pool de nœud. Si vous créez des pools de nœuds supplémentaires, vous pouvez utiliser de soleil supplémentaires et tolerations pour limiter les pods peuvent être planifiées sur ces ressources de nœud.
 
+## <a name="manage-node-pools-using-a-resource-manager-template"></a>Gérer des pools de nœuds à l’aide d’un modèle Resource Manager
+
+Lorsque vous utilisez un modèle Azure Resource Manager pour créer et les ressources managées, vous pouvez généralement mettre à jour les paramètres dans votre modèle et le redéployer pour mettre à jour de la ressource. Avec nodepools dans ACS, le profil nodepool initiale ne peut pas être mis à jour une fois que le cluster AKS qui a été créé. Ce comportement signifie que vous ne pouvez pas mettre à jour un modèle Resource Manager existant, apportez une modification aux pools de nœud et redéployer. Au lieu de cela, vous devez créer un modèle Resource Manager séparé qui met à jour uniquement les pools d’agents pour un cluster ACS existant.
+
+Créer un modèle tel que `aks-agentpools.json` et collez le manifeste de l’exemple suivant. Cet exemple de modèle configure les paramètres suivants :
+
+* Mises à jour le *Linux* pool d’agents nommé *myagentpool* pour exécuter les trois nœuds.
+* Définit les nœuds dans le pool de nœud pour exécuter la version de Kubernetes *1.12.8*.
+* Définit la taille du nœud en tant que *Standard_DS2_v2*.
+
+Modifiez ces valeurs comme nécessaire pour mettre à jour, ajouter ou supprimer des pools de nœuds en fonction des besoins :
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "clusterName": {
+      "type": "string",
+      "metadata": {
+        "description": "The name of your existing AKS cluster."
+      }
+    },
+    "location": {
+      "type": "string",
+      "metadata": {
+        "description": "The location of your existing AKS cluster."
+      }
+    },
+    "agentPoolName": {
+      "type": "string",
+      "defaultValue": "myagentpool",
+      "metadata": {
+        "description": "The name of the agent pool to create or update."
+      }
+    },
+    "vnetSubnetId": {
+      "type": "string",
+      "defaultValue": "",
+      "metadata": {
+        "description": "The Vnet subnet resource ID for your existing AKS cluster."
+      }
+    }
+  },
+  "variables": {
+    "apiVersion": {
+      "aks": "2019-04-01"
+    },
+    "agentPoolProfiles": {
+      "maxPods": 30,
+      "osDiskSizeGB": 0,
+      "agentCount": 3,
+      "agentVmSize": "Standard_DS2_v2",
+      "osType": "Linux",
+      "vnetSubnetId": "[parameters('vnetSubnetId')]"
+    }
+  },
+  "resources": [
+    {
+      "apiVersion": "2019-04-01",
+      "type": "Microsoft.ContainerService/managedClusters/agentPools",
+      "name": "[concat(parameters('clusterName'),'/', parameters('agentPoolName'))]",
+      "location": "[parameters('location')]",
+      "properties": {
+            "maxPods": "[variables('agentPoolProfiles').maxPods]",
+            "osDiskSizeGB": "[variables('agentPoolProfiles').osDiskSizeGB]",
+            "count": "[variables('agentPoolProfiles').agentCount]",
+            "vmSize": "[variables('agentPoolProfiles').agentVmSize]",
+            "osType": "[variables('agentPoolProfiles').osType]",
+            "storageProfile": "ManagedDisks",
+      "type": "VirtualMachineScaleSets",
+            "vnetSubnetID": "[variables('agentPoolProfiles').vnetSubnetId]",
+            "orchestratorVersion": "1.12.8"
+      }
+    }
+  ]
+}
+```
+
+Déployer ce modèle en utilisant le [créer de déploiement de groupe az] [ az-group-deployment-create] commande, comme indiqué dans l’exemple suivant. Vous êtes invité au nom du cluster AKS et l’emplacement existant :
+
+```azurecli-interactive
+az group deployment create \
+    --resource-group myResourceGroup \
+    --template-file aks-agentpools.json
+```
+
+Il peut prendre quelques minutes pour mettre à jour de votre cluster AKS selon les paramètres de pool de nœud et les opérations que vous définissez dans votre modèle Resource Manager.
+
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Dans cet article, vous avez créé un cluster AKS qui inclut des nœuds basés sur le GPU. Pour réduire les coûts inutiles, vous voudrez peut-être supprimer le *gpunodepool*, ou l’ensemble du cluster AKS.
@@ -351,7 +442,6 @@ Dans cet article, vous avez appris comment créer et gérer plusieurs pools de n
 Pour créer et utiliser des pools de nœuds de conteneur Windows Server, consultez [créer un conteneur Windows Server dans ACS][aks-windows].
 
 <!-- EXTERNAL LINKS -->
-[aks-github]: https://github.com/azure/aks/issues
 [kubernetes-drain]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubectl-taint]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#taint
@@ -379,3 +469,6 @@ Pour créer et utiliser des pools de nœuds de conteneur Windows Server, consult
 [supported-versions]: supported-kubernetes-versions.md
 [operator-best-practices-advanced-scheduler]: operator-best-practices-advanced-scheduler.md
 [aks-windows]: windows-container-cli.md
+[az-group-deployment-create]: /cli/azure/group/deployment#az-group-deployment-create
+[aks-support-policies]: support-policies.md
+[aks-faq]: faq.md

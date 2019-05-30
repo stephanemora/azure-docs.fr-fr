@@ -12,18 +12,18 @@ ms.author: joke
 ms.reviewer: sstein
 manager: craigg
 ms.date: 03/13/2019
-ms.openlocfilehash: f71fe4ff14e5a6f5fd6b91713970a097e4e56fb9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 627b29018afff2adb57b3b8b5c816bea9c421f68
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61475794"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236859"
 ---
 # <a name="migrate-to-the-new-elastic-database-jobs"></a>Migrer vers les nouvelles tâches de base de données élastique
 
 Une version mise à niveau des [tâches de base de données élastique](elastic-jobs-overview.md) est disponible.
 
-Si vous disposez d’une version hébergée par le client des [tâches de base de données élastique](sql-database-elastic-jobs-overview.md), des scripts et applets de commande de migration sont fournis pour un passage facile à la dernière version.
+Si vous avez un client existant hébergé version des travaux de base de données élastiques, applets de commande de migration et les scripts sont fournis pour faire migrer vers la dernière version.
 
 
 ## <a name="prerequisites"></a>Conditions préalables
@@ -32,7 +32,7 @@ La version mise à niveau des tâches de base de données élastique comprend un
 
 ### <a name="install-the-latest-elastic-jobs-cmdlets"></a>Installer les dernières applets de commande de tâches élastiques
 
-Si vous n’avez pas encore d’abonnement Azure, [créez un compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
+Si vous n’avez pas déjà un abonnement Azure, [créer un compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
 Installez la préversion 1.1.1 du module **Az.Sql** pour obtenir les applets de commande de travail élastique les plus récentes. Exécutez les commandes suivantes dans PowerShell avec un accès administrateur.
 

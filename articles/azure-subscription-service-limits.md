@@ -10,12 +10,12 @@ ms.service: billing
 ms.topic: article
 ms.date: 05/17/2019
 ms.author: byvinyal
-ms.openlocfilehash: 3f01e15e4ac39127263c8c68590b6c50be04847d
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 3bdc8580749761242b1fc811b2182d73a2d46328
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "66023216"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66238712"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Abonnement Azure et limites, quotas et contraintes de service
 Ce document répertorie quelques-unes des limites de Microsoft Azure les plus courantes, parfois appelées des quotas. Ce document ne couvre pas actuellement tous les services Azure. Au fil du temps, la liste est étendue et mis à jour pour couvrir plusieurs services.
@@ -155,8 +155,6 @@ Le tableau suivant détaille les fonctionnalités et les limites des [niveaux de
 
 ### <a name="azure-machine-learning-service-limits"></a>Limites de Service Azure Machine Learning
 Vous trouverez les valeurs les plus récentes pour les quotas d’Azure Machine Learning Compute dans le [page des quotas Azure Machine Learning](../articles/machine-learning/service/how-to-manage-quotas.md)
-
-[!INCLUDE [how-to-manage-quotas](../articles/machine-learning/service/how-to-manage-quotas.md)]
 
 ### <a name="networking-limits"></a>Limites de mise en réseau
 [!INCLUDE [azure-virtual-network-limits](../includes/azure-virtual-network-limits.md)]

@@ -2,16 +2,16 @@
 title: Comment modifier, supprimer ou gérer vos groupes d’administration - gouvernance Azure
 description: Découvrez comment afficher, tenir, mettre à jour et supprimer votre hiérarchie de groupes d’administration.
 author: rthorn17
-ms.service: azure-resource-manager
-ms.date: 04/04/2019
+ms.service: governance
+ms.date: 05/22/2019
 ms.author: rithorn
 ms.topic: conceptual
-ms.openlocfilehash: b3798ec7578530e04ec9e00086fffaec9a58a7cd
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 028b4cbf62bf9ed0b3b38f54d3b787a8c1368da0
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65950296"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242947"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Gérer vos ressources avec des groupes d’administration
 
@@ -206,10 +206,12 @@ L’une des raisons de créer un groupe d’administration est de regrouper des 
 Pour déplacer l’abonnement, toutes les autorisations RBAC suivantes doivent être remplies :
 
 - Rôle de « propriétaire » sur l’abonnement enfant.
-- Rôle « Propriétaire », « Collaborateur » ou « Contributeur de groupe d’administration » sur le group.* de gestion cible parent
-- Rôle « Propriétaire », « Collaborateur » ou « Contributeur de groupe d’administration » sur le group.* gestion parent existant
+- Rôle « Propriétaire », « Collaborateur » ou « Contributeur de groupe d’administration » sur le groupe d’administration parent cible.
+- Rôle « Propriétaire », « Collaborateur » ou « Contributeur de groupe d’administration » sur le groupe d’administration parent existant.
 
-* : Sauf si la cible ou le groupe d’administration parent existant est le groupe d’administration racine. Étant donné que le groupe d’administration racine est la valeur par défaut de lancement directs pour tous les nouveaux groupes d’administration et les abonnements, les utilisateurs n’aient les autorisations sur ce dernier pour déplacer un élément.
+Si la cible ou le groupe d’administration parent existant est le groupe d’administration racine, n’appliquent pas les autorisations requises. Étant donné que le groupe d’administration racine est la valeur par défaut de lancement directs pour tous les abonnements et les nouveaux groupes d’administration, vous n’avez pas besoin des autorisations sur ce dernier pour déplacer un élément.
+
+Si le rôle de propriétaire sur l’abonnement est hérité du groupe d’administration actuel, votre cible de déplacement est limitées. Vous pouvez uniquement déplacer l’abonnement à un autre groupe d’administration où vous avez le rôle de propriétaire. Vous ne pouvez pas déplacer vers un groupe d’administration où vous êtes un collaborateur, car vous perdez la propriété de l’abonnement. Si vous est directement attribué au rôle de propriétaire de l’abonnement (non hérité du groupe d’administration), vous pouvez déplacer il à n’importe quel groupe d’administration où vous êtes un collaborateur.
 
 Pour afficher les autorisations dont vous disposez dans le portail Azure, sélectionnez la gestion de groupe, puis sélectionnez **IAM**. Pour en savoir plus sur les rôles RBAC, consultez [Gérer l’accès et les autorisations avec le contrôle d’accès en fonction du rôle (RBAC)](../../role-based-access-control/overview.md).
 
@@ -325,7 +327,7 @@ Les groupes d’administration sont pris en charge dans le [journal d’activit�
 
 ![Journaux d’activité avec les groupes d’administration](media/al-mg.png)
 
-Quand vous cherchez à interroger les groupes d’administration en dehors du portail Azure, l’étendue cible pour les groupes d’administration ressemble à **"/providers/Microsoft.Management/managementGroups/{yourMgID}"**.
+Quand vous cherchez à interroger les groupes d’administration en dehors du portail Azure, l’étendue cible pour les groupes d’administration ressemble à **"/providers/Microsoft.Management/managementGroups/{yourMgID}"** .
 
 ## <a name="referencing-management-groups-from-other-resource-providers"></a>Référencement des groupes d’administration à partir d’autres fournisseurs de ressources
 

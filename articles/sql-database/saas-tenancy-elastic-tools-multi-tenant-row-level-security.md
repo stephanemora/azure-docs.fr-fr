@@ -12,12 +12,12 @@ ms.author: vanto
 ms.reviewer: sstein
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: 71d2d542d71977f9d8dfe07370dffd7fe508bc92
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4834688496330210b273f40f1d6f11230a6ae1c8
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61485379"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234129"
 ---
 # <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>Applications multi-locataires avec des outils de base de données élastique et la sécurité au niveau des lignes
 
@@ -228,7 +228,7 @@ La sécurité SNL est implémentée dans Transact-SQL. Une fonction définie par
     - Un prédicat BLOCK empêche les lignes qui ne répondent pas au filtre d’être insérées (INSERT) ou mises à jour (UPDATE).
     - Si l’élément SESSION\_CONTEXT n’a pas été défini, la fonction retourne la valeur NULL, et aucune ligne n’est visible ou ne peut être insérée.
 
-Pour activer la sécurité SNL sur toutes les partitions, exécutez le code T-SQL suivant à l’aide de Visual Studio (SSDT), de SSMS ou du script PowerShell inclus dans le projet. Ou si vous utilisez des [tâches de base de données élastique](sql-database-elastic-jobs-overview.md), vous pouvez automatiser l’exécution de ce T-SQL sur toutes les partitions.
+Pour activer la sécurité SNL sur toutes les partitions, exécutez le code T-SQL suivant à l’aide de Visual Studio (SSDT), de SSMS ou du script PowerShell inclus dans le projet. Ou si vous utilisez des [tâches de base de données élastique](elastic-jobs-overview.md), vous pouvez automatiser l’exécution de ce T-SQL sur toutes les partitions.
 
 ```sql
 CREATE SCHEMA rls; -- Separate schema to organize RLS objects.

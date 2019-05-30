@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/29/2019
 ms.author: aljo
-ms.openlocfilehash: 42c8fa15c6b1e7c98ae47180bec5cc61236a7c44
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 703830778edb73781a263ae4d92529f7f79a0eb2
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60881383"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306839"
 ---
 # <a name="connect-to-a-secure-cluster"></a>Se connecter à un cluster sécurisé
 
@@ -41,7 +41,7 @@ openssl pkcs12 -in your-cert-file.pfx -out your-cert-file.pem -nodes -passin pas
 
 Si votre fichier .pfx n'est pas protégé par mot de passe, utilisez -passin pass: en guise de dernier paramètre.
 
-Pour spécifier le certificat client en tant que fichier .pem, spécifiez le chemin d’accès de fichier dans l’argument `--pem`. Par exemple : 
+Pour spécifier le certificat client en tant que fichier .pem, spécifiez le chemin d’accès de fichier dans l’argument `--pem`. Exemple :
 
 ```azurecli
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem
@@ -55,7 +55,7 @@ Pour spécifier un certificat, la paire de clés utilise les arguments `--cert` 
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --cert ./client.crt --key ./keyfile.key
 ```
 
-Il arrive que les certificats utilisés pour sécuriser les clusters de test ou de développement ne parviennent pas à valider le certificat. Pour ignorer la vérification du certificat, spécifiez l’option `--no-verify`. Par exemple : 
+Il arrive que les certificats utilisés pour sécuriser les clusters de test ou de développement ne parviennent pas à valider le certificat. Pour ignorer la vérification du certificat, spécifiez l’option `--no-verify`. Exemple :
 
 > [!WARNING]
 > N’utilisez pas l’option `no-verify` lorsque vous vous connectez aux clusters Service Fabric de production.
@@ -64,7 +64,7 @@ Il arrive que les certificats utilisés pour sécuriser les clusters de test ou 
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem --no-verify
 ```
 
-En outre, vous pouvez spécifier des chemins d’accès aux répertoires de certificats d’autorité de certification approuvées, ou à des certificats individuels. Pour spécifier ces chemins d’accès, utilisez l’argument `--ca`. Par exemple : 
+En outre, vous pouvez spécifier des chemins d’accès aux répertoires de certificats d’autorité de certification approuvées, ou à des certificats individuels. Pour spécifier ces chemins d’accès, utilisez l’argument `--ca`. Exemple :
 
 ```azurecli
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem --ca ./trusted_ca
@@ -355,7 +355,7 @@ Pour vous connecter à un cluster sécurisé avec AAD, dirigez votre navigateur 
 
 `https://<your-cluster-endpoint>:19080/Explorer`
 
-Vous êtes automatiquement invité à ouvrir une session avec AAD.
+Vous êtes automatiquement invité à vous connecter avec AAD.
 
 ### <a name="connect-to-a-secure-cluster-using-a-client-certificate"></a>Se connecter à un cluster sécurisé à l’aide d’un certificat client
 

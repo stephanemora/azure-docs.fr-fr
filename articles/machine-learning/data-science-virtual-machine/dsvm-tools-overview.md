@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: gokuma
-ms.openlocfilehash: 1defaea3743ebb8ddb688cef28efb7eee8ecb07c
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 0a503b82c07da62b5c5c768d8e1c92cb19e75aee
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65597103"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236472"
 ---
 # <a name="get-to-know-your-data-science-virtual-machine"></a>Découvrir votre machine virtuelle DSVM
 
@@ -30,7 +30,7 @@ La machine virtuelle DSVM (Data Science Virtual Machine) contient la liste compl
 La machine virtuelle DSVM inclut également plusieurs exemples de code et procédures pas à pas sous la forme de bloc-notes Jupyter qui peuvent être exécutés localement. Il existe également une documentation pour ces exemples afin de faciliter la compréhension. 
 
 > [!NOTE]
-> Vous pouvez utiliser [Azure Notebooks](/azure/notebooks/azure-notebooks-overview.md) à créer, exécuter et partager des blocs-notes Jupyter dans le cloud. Vous pouvez [attacher une machine virtuelle de science des données à Azure Notebooks](/azure/notebooks/configure-manage-azure-notebooks-projects.md#compute-tier) pour développer la puissance de calcul disponibles.
+> Vous pouvez utiliser [Azure Notebooks](/azure/notebooks/azure-notebooks-overview) à créer, exécuter et partager des blocs-notes Jupyter dans le cloud. Vous pouvez [attacher une machine virtuelle de science des données à Azure Notebooks](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier) pour développer la puissance de calcul disponibles.
 
 Les outils, plateformes, utilitaires et exemples compris dans la machine virtuelle DSVM sont organisés selon les sections suivantes :
 

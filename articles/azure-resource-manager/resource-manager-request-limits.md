@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 05/14/2019
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: fc731b1abec9c101356a0fa57eef498b58612ab9
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: b382b9ae35d492b4c779b8f7ee360fb378d54e08
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65791357"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399714"
 ---
 # <a name="throttling-resource-manager-requests"></a>Limitation des requêtes de Resource Manager
 
 Pour chaque abonnement et locataire Azure, Resource Manager autorise jusqu’à 12 000 demandes de lecture et 1 200 demandes d’écriture par heure. Ces limites sont définies d’après l’ID du principal qui effectue les requêtes et l’ID d’abonnement ou l’ID du locataire. Si vos demandes proviennent de plusieurs ID de principal, votre limite dans l’abonnement ou le locataire est supérieure à 12 000 et 1 200 par heure.
 
-Les requêtes sont appliquées à votre abonnement ou à votre locataire. Les requêtes appliquées à l’abonnement sont celles qui impliquent la transmission de votre ID d’abonnement, par exemple pour récupérer les groupes de ressources dans votre abonnement. Les requêtes appliquées au locataire n’incluent pas votre ID d’abonnement, notamment pour la récupération des emplacements Azure valides.
+Les requêtes sont appliquées à votre abonnement ou à votre locataire. Demandes d’abonnement sont celles qui impliquent la transmission de votre ID d’abonnement, par exemple pour récupérer les groupes de ressources dans votre abonnement. Les requêtes appliquées au locataire n’incluent pas votre ID d’abonnement, notamment pour la récupération des emplacements Azure valides.
 
 Ces limites s’appliquent à chaque instance Azure Resource Manager. Chaque région Azure comporte plusieurs instances, et Azure Resource Manager est déployé dans toutes les régions Azure.  Par conséquent, dans la pratique, les limites sont effectivement beaucoup plus importantes que celles-ci, car les requêtes utilisateur sont généralement prises en charge par de nombreuses instances différentes.
 
@@ -31,7 +31,7 @@ Graphique des ressources Azure limite le nombre de demandes à ses opérations. 
 ## <a name="remaining-requests"></a>Requêtes restantes
 Vous pouvez déterminer le nombre de requêtes restantes en examinant les en-têtes de réponse. Demandes de lecture retournent une valeur dans l’en-tête pour le nombre de demandes de lecture restants. Écrire des demandes incluent une valeur pour le nombre de requêtes d’écriture restantes. Le tableau suivant décrit les en-têtes de réponse que vous pouvez examiner pour ces valeurs :
 
-| En-tête de réponse | Description  |
+| En-tête de réponse | Description |
 | --- | --- |
 | x-ms-ratelimit-remaining-subscription-reads |Requêtes de lecture restantes étendues à l’abonnement. Cette valeur est renvoyée pour les opérations de lecture. |
 | x-ms-ratelimit-remaining-subscription-writes |Requêtes d’écriture restantes étendues à l’abonnement. Cette valeur est renvoyée pour les opérations d’écriture. |
@@ -45,7 +45,7 @@ Vous pouvez déterminer le nombre de requêtes restantes en examinant les en-tê
 ## <a name="retrieving-the-header-values"></a>Récupération des valeurs d’en-tête
 La récupération de ces valeurs d’en-tête dans votre code ou script est similaire à la récupération de n’importe quelle valeur d’en-tête. 
 
-Par exemple, en **C#**, vous récupérez la valeur d’en-tête d’un objet **HttpWebResponse** nommé **response** avec le code suivant :
+Par exemple, en **C#** , vous récupérez la valeur d’en-tête d’un objet **HttpWebResponse** nommé **response** avec le code suivant :
 
 ```cs
 response.Headers.GetValues("x-ms-ratelimit-remaining-subscription-reads").GetValue(0)

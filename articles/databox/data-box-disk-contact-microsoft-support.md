@@ -6,23 +6,23 @@ author: alkohli
 ms.service: databox
 ms.subservice: ''
 ms.topic: article
-ms.date: 09/27/2018
+ms.date: 05/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 5b392fecd75f5c18793a6122b8d5d967a2e54afa
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: acba9d2c87d2fb23e48ac24cec22388044702bac
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65604441"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66240145"
 ---
 # <a name="open-a-support-ticket-for-azure-data-box"></a>Ouvrir un ticket de support pour Azure Data Box 
 
-Cet article s’applique aux services Azure Data Box et Azure Data Box Disk, qui sont tous deux managés par le service Azure Data Box. Si vous rencontrez des problèmes avec votre service Azure Data Box, vous pouvez créer une demande de service pour obtenir un support technique. Cet article vous guide tout au long des procédures suivantes :
+Cet article s’applique à Azure Data Box lourd de zone de données Azure et disques Azure Data Box, qui sont gérés par le service Azure Data Box. Si vous rencontrez des problèmes avec votre service Azure Data Box, vous pouvez créer une demande de service pour obtenir un support technique. Cet article vous guide tout au long des procédures suivantes :
 
 * Création d’une demande de support
 * Gestion du cycle de vie d’une demande de support à partir du portail
 
-## <a name="create-a-support-request"></a>Créer une demande de support
+## <a name="create-a-support-request"></a>Création d’une demande de support
 
 Procédez comme suit pour créer une demande de support.
 
@@ -34,7 +34,7 @@ Procédez comme suit pour créer une demande de support.
     
     1. Dans la liste déroulante **Type de problème**, sélectionnez **Technique**.
     2. Choisissez votre **abonnement**.
-    3. Sous **Service**, sélectionnez **Tous les services**. Dans la liste déroulante, sélectionnez **Data Box - Préversion**. 
+    3. Sous **Service**, sélectionnez **Tous les services**. Dans la liste déroulante, sélectionnez **Data Box**. 
     4. Spécifiez votre **Plan de support**.
     5. Cliquez sur **Suivant**.
 
@@ -84,3 +84,5 @@ Après avoir créé un ticket de support, vous pouvez gérer son cycle de vie de
 ## <a name="next-steps"></a>Étapes suivantes
 
 Découvrez comment [résoudre les problèmes liés au service Data Box Disk](data-box-disk-troubleshoot.md).
+Découvrez comment [résoudre les problèmes liés à la zone de données](data-box-troubleshoot.md).
+Découvrez comment [résoudre les problèmes liés au stockage d’objets Blob de données boîte](data-box-troubleshoot-rest.md).

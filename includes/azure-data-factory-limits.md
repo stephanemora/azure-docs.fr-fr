@@ -9,11 +9,11 @@ ms.date: 1/10/2019
 ms.author: jingwang
 ms.custom: include file
 ms.openlocfilehash: 6d06ac6efd08c14f77fd963ddf2c67de54260959
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64733748"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66238784"
 ---
 Azure Data Factory est un service partagé qui a les limites par défaut suivantes dans la place pour s’assurer que les abonnements clients sont protégés contre les charges de travail entre eux. Pour augmenter les limites jusqu'à la limite maximale pour votre abonnement, contactez le support technique.
 

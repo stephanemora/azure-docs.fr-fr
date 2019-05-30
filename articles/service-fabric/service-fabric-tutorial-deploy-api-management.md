@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 9/26/2018
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 92b1e95598da27f0b7d7df30dfa4a82824b4a48c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 970d533424e2e603a96bf7e36317cbcdf5110304
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66158214"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306809"
 ---
 # <a name="integrate-api-management-with-service-fabric-in-azure"></a>Intégrer Gestion des API à Service Fabric dans Azure
 
@@ -75,8 +75,8 @@ Créez un service fiable ASP.NET Core de base sans état en utilisant le modèle
 Démarrez Visual Studio en tant qu’administrateur et créez un service ASP.NET Core :
 
  1. Dans Visual Studio, sélectionnez Fichier -> Nouveau projet.
- 2. Sélectionnez le modèle d’application Service Fabric sous Cloud et nommez-le **« ApiApplication »**.
- 3. Sélectionnez le modèle de service ASP.NET Core et nommez le projet **« WebApiService »**.
+ 2. Sélectionnez le modèle d’application Service Fabric sous Cloud et nommez-le **« ApiApplication »** .
+ 3. Sélectionnez le modèle de service ASP.NET Core et nommez le projet **« WebApiService »** .
  4. Sélectionnez le modèle de projet API Web ASP.NET Core 2.0.
  5. Une fois le projet créé, ouvrez `PackageRoot\ServiceManifest.xml` et supprimez l’attribut `Port` de la configuration des ressources du point de terminaison :
 
@@ -288,7 +288,7 @@ Vous pouvez maintenant essayer d’envoyer une requête à votre service princip
 
 Un cluster est composé d’autres ressources Azure en plus de la ressource de cluster elle-même. Le plus simple pour supprimer le cluster et toutes les ressources qu’il consomme consiste à supprimer le groupe de ressources.
 
-Connectez-vous à Azure et sélectionnez l’ID d’abonnement pour lequel vous souhaitez supprimer le cluster.  Vous pouvez trouver votre ID d’abonnement en vous connectant au [portail Azure](https://portal.azure.com). Supprimer le groupe de ressources et toutes les ressources de cluster à l’aide de la [applet de commande Remove-AzResourceGroup](/en-us/powershell/module/az.resources/remove-azresourcegroup).
+Connectez-vous à Azure et sélectionnez l’ID d’abonnement avec lequel vous souhaitez supprimer le cluster.  Vous pouvez trouver votre ID d’abonnement en vous connectant au [portail Azure](https://portal.azure.com). Supprimer le groupe de ressources et toutes les ressources de cluster à l’aide de la [applet de commande Remove-AzResourceGroup](/en-us/powershell/module/az.resources/remove-azresourcegroup).
 
 ```powershell
 $ResourceGroupName = "sfclustertutorialgroup"

@@ -1,20 +1,20 @@
 ---
-title: Guide pratique pour sauvegarder et restaurer un serveur dans Azure Database pour PostgreSQL
-description: Découvrez comment sauvegarder et restaurer un serveur dans Azure Database pour PostgreSQL avec Azure CLI.
+title: Comment sauvegarder et restaurer un serveur de base de données Azure pour PostgreSQL - serveur unique
+description: Découvrez comment sauvegarder et restaurer un serveur de base de données Azure pour PostgreSQL - serveur unique à l’aide de l’interface CLI.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 04/01/2018
-ms.openlocfilehash: 3415910426d365ea2dc17e7515871c1bf4841fd3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/06/2019
+ms.openlocfilehash: 85fb00ad221ae982e4d3ddc9d2d5d20dd4f2793d
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60419919"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65069093"
 ---
-# <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-postgresql-using-the-azure-cli"></a>Comment sauvegarder et restaurer un serveur Azure Database pour PostgreSQL à l’aide de l’interface Azure CLI
+# <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-postgresql---single-server-using-the-azure-cli"></a>Comment sauvegarder et restaurer un serveur Azure Database pour PostgreSQL - serveur unique à l’aide de l’interface CLI Azure
 
 ## <a name="backup-happens-automatically"></a>La sauvegarde s’effectue automatiquement
 Les serveurs Azure Database pour PostgreSQL sont sauvegardés régulièrement pour activer les fonctionnalités de restauration. À l’aide de cette fonctionnalité, vous pouvez restaurer le serveur et toutes ses bases de données à un point dans le temps antérieur, sur un nouveau serveur.
@@ -72,7 +72,7 @@ La commande `az postgres server restore` requiert les paramètres suivants :
 | Paramètre | Valeur suggérée | Description  |
 | --- | --- | --- |
 | resource-group |  myResourceGroup |  Groupe de ressources où se trouve le serveur source.  |
-| Nom | mydemoserver-restored | Nom du serveur créé par la commande de restauration. |
+| name | mydemoserver-restored | Nom du serveur créé par la commande de restauration. |
 | restore-point-in-time | 2018-03-13T13:59:00Z | Sélectionnez un état antérieur auquel effectuer la restauration. Elles doivent être comprises dans la période de rétention de la sauvegarde du serveur source. Utilisez le format de date et d’heure ISO8601. Par exemple, vous pouvez utiliser votre fuseau horaire local, comme `2018-03-13T05:59:00-08:00`. Vous pouvez également utiliser le format UTC Zulu, par exemple, `2018-03-13T13:59:00Z`. |
 | source-server | mydemoserver | Nom ou identifiant du serveur source à partir duquel la restauration s’effectuera. |
 
@@ -112,7 +112,7 @@ La commande `az postgres server georestore` requiert les paramètres suivants :
 | Paramètre | Valeur suggérée | Description  |
 | --- | --- | --- |
 |resource-group| myResourceGroup | Le nom du groupe de ressources auquel appartient le nouveau serveur.|
-|Nom | mydemoserver-georestored | Le nom du nouveau serveur. |
+|name | mydemoserver-georestored | Le nom du nouveau serveur. |
 |source-server | mydemoserver | Le nom du serveur existant dont les sauvegardes géo-redondantes sont utilisées. |
 |location | eastus | L’emplacement du nouveau serveur. |
 |sku-name| GP_Gen4_8 | Ce paramètre définit le niveau tarifaire, la génération de calculs et le nombre de vCores du nouveau serveur. GP_Gen4_8 mappe sur un serveur d’usage général, 4e génération avec 8 vCores.|

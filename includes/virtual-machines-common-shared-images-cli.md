@@ -5,15 +5,15 @@ services: virtual-machines
 author: axayjo
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 04/30/2019
+ms.date: 05/21/2019
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: 9647cdd584b53f581f46f728ca2d08f9a113ce92
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: 841027fe8d6b97e661faa038dc9381edbb3d4cd8
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66156137"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66226024"
 ---
 ## <a name="before-you-begin"></a>Avant de commencer
 
@@ -25,6 +25,8 @@ Azure Cloud Shell est un interpréteur de commandes interactif et gratuit que vo
 
 Pour ouvrir Cloud Shell, sélectionnez simplement **Essayer** en haut à droite d’un bloc de code. Vous pouvez également lancer Cloud Shell dans un onglet distinct du navigateur en accédant à [https://shell.azure.com/bash](https://shell.azure.com/bash). Sélectionnez **Copier** pour copier les blocs de code, collez-les dans Cloud Shell, puis appuyez sur Entrée pour les exécuter.
 
+Si vous préférez installer et utiliser l’interface CLI localement, consultez [installer Azure CLI](/cli/azure/install-azure-cli).
+
 ## <a name="create-an-image-gallery"></a>Créer une galerie d’images 
 
 Une galerie d’images est la ressource principale utilisée pour activer le partage d’image. Les caractères autorisés pour le nom de galerie sont les lettres majuscules ou minuscules, les chiffres et les points. Le nom de la galerie ne peut pas contenir de tirets.   Les noms de galerie doivent être uniques dans votre abonnement. 
@@ -33,7 +35,7 @@ Créez une galerie d’images à l’aide de [az sig create](/cli/azure/sig#az-s
 
 ```azurecli-interactive
 az group create --name myGalleryRG --location WestCentralUS
-az sig create -g myGalleryRG --gallery-name myGallery
+az sig create --resource-group myGalleryRG --gallery-name myGallery
 ```
 
 ## <a name="create-an-image-definition"></a>Créer une définition d’image
@@ -44,7 +46,7 @@ Créer une définition d’image initiale dans la galerie avec la commande [az s
 
 ```azurecli-interactive 
 az sig image-definition create \
-   -g myGalleryRG \
+   --resource-group myGalleryRG \
    --gallery-name myGallery \
    --gallery-image-definition myImageDefinition \
    --publisher myPublisher \
@@ -58,18 +60,18 @@ az sig image-definition create \
 
 Créez des versions d’image en fonction de vos besoins avec la commande [az image gallery create-image-version](/cli/azure/sig/image-version#az-sig-image-version-create). L’ID de l’image managée sert de base de référence pour la création de la version d’image. Vous pouvez utiliser [az image list](/cli/azure/image?view#az-image-list) pour obtenir des informations sur les images qui se trouvent dans un groupe de ressources. 
 
-Les caractères autorisés pour la version d’image sont les nombres et les points. Les nombres doivent être un entier 32 bits. Format: *MajorVersion*.*MinorVersion*.*Patch*.
+Les caractères autorisés pour la version d’image sont les nombres et les points. Les nombres doivent être un entier 32 bits. Format : *MajorVersion*.*MinorVersion*.*Patch*.
 
-Dans cet exemple, la version de notre image est *1.0.0* et nous allons créer 2 réplicas dans le *ouest des États-Unis* la région, 1 réplica dans le *South Central US* région et 1 réplica dans le *est des États-Unis 2* région.
+Dans cet exemple, la version de notre image est *1.0.0* et nous allons créer 2 réplicas dans le *ouest des États-Unis* la région, 1 réplica dans le *South Central US* région et 1 réplica dans le *est des États-Unis 2* région à l’aide de stockage redondant.
 
 
 ```azurecli-interactive 
 az sig image-version create \
-   -g myGalleryRG \
+   --resource-group myGalleryRG \
    --gallery-name myGallery \
    --gallery-image-definition myImageDefinition \
    --gallery-image-version 1.0.0 \
-   --target-regions "WestCentralUS" "SouthCentralUS=1" "EastUS2=1" \
+   --target-regions "WestCentralUS" "SouthCentralUS=1" "EastUS2=1=Standard_ZRS" \
    --replica-count 2 \
    --managed-image "/subscriptions/<subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/images/myImage"
 ```
@@ -77,5 +79,24 @@ az sig image-version create \
 > [!NOTE]
 > Vous devez attendre que la version de l’image se termine complètement les cours de génération et de réplication avant de pouvoir utiliser la même image managée pour créer une autre version de l’image.
 >
-> Vous pouvez également stocker votre version de l’image dans [stockage redondant](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) en ajoutant `--storage-account-type standard_zrs` lorsque vous créez la version de l’image.
+> Vous pouvez également stocker tous vos réplicas de version d’image dans [stockage redondant](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) en ajoutant `--storage-account-type standard_zrs` lorsque vous créez la version de l’image.
 >
+
+## <a name="share-the-gallery"></a>Partager la galerie
+
+Nous recommandons que vous partagez avec d’autres utilisateurs au niveau de la galerie. Pour obtenir l’ID d’objet de votre galerie, utilisez [show de sig az](/cli/azure/sig#az-sig-show).
+
+```azurecli-interactive
+az sig show \
+   --resource-group myGalleryRG \
+   --gallery-name myGallery \
+   --query id
+```
+
+Utiliser l’ID d’objet en tant qu’étendue, ainsi qu’une adresse de messagerie et [créer d’attribution de rôle az](/cli/azure/role/assignment#az-role-assignment-create) à donner un accès utilisateur à la galerie d’images partagé.
+
+```azurecli-interactive
+az role assignment create --role "Reader" --assignee <email address> --scope <gallery ID>
+```
+
+

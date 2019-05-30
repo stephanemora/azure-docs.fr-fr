@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/15/2019
-ms.openlocfilehash: 7ef8715f23d21a23dc3f37b192314b922847d3e1
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 85d6ed80da93f90e6dc0feaee7081ee3f36f1bf9
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65805905"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242690"
 ---
 # <a name="choose-a-real-time-analytics-and-streaming-processing-technology-on-azure"></a>Choisissez une analytique en temps réel et diffusion en continu de la technologie de traitement sur Azure
 
@@ -25,7 +25,7 @@ Azure Stream Analytique est le service recommandé pour l’analytique de flux d
 * Tableaux de bord pour la visualisation des données
 * En temps réel [alertes](stream-analytics-set-up-alerts.md) à partir de modèles temporelles et spatiales ou des anomalies
 * Extraire, transformer, charger (ETL)
-* [Modèle d’approvisionnement en événements](/azure/architecture/patterns/event-sourcing.md)
+* [Modèle d’approvisionnement en événements](/azure/architecture/patterns/event-sourcing)
 * [IoT Edge](stream-analytics-edge.md)
 
 Ajout d’une Analytique de Stream Azure le travail à votre application est le moyen le plus rapide pour obtenir de diffusion en continu analytique d’et en cours d’exécution dans Azure, en utilisant le langage SQL que vous connaissez déjà. Azure Stream Analytique est un service de travaux, afin que vous n’êtes pas obligé de passer des clusters de gestion de temps, et il est inutile à vous soucier des temps d’arrêt avec un contrat SLA de 99,9 % au niveau du travail. Également, la facturation est effectuée au niveau du travail rendre les coûts de démarrage faible (une seule unité de Streaming), mais évolutif (jusqu'à 192 unités de diffusion en continu). Il est beaucoup plus économique pour exécuter des tâches de Stream Analytique quelques plutôt que d’exécuter et de maintenir un cluster.

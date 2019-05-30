@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/15/2019
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: 8cee74696d9636a8ac1d6fcbab493f18184355e1
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: cb586be1a139b331c259a1197cc62e7ca4f25666
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65787650"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66238736"
 ---
 <a name="virtual-networking-limits-classic"></a>Les limites suivantes s’appliquent uniquement aux ressources gérées par le biais de la mise en réseau le **classic** modèle de déploiement par abonnement. Découvrez comment [afficher l’utilisation actuelle de vos ressources par rapport aux limites de votre abonnement](../articles/networking/check-usage-against-limits.md).
 
@@ -28,9 +28,9 @@ ms.locfileid: "65787650"
 | Règles de groupe de sécurité réseau par groupe de sécurité réseau |1 000 |1 000 |
 | Tables d’itinéraires définis par l’utilisateur |200 |200 |
 | Itinéraires définis par l’utilisateur par table de routage |400 |400 |
-| Adresses IP publiques (dynamiques) |5. |Contacter le support |
-| Adresses IP publiques réservées |20 |Contacter le support |
-| Adresse IP virtuelle publique par déploiement |5. |Contacter le support |
+| Adresses IP publiques (dynamiques) |5. |Contacter le support technique |
+| Adresses IP publiques réservées |20 |Contacter le support technique |
+| Adresse IP virtuelle publique par déploiement |5. |Contacter le support technique |
 | Adresses IP virtuelles privées (équilibrage de charge interne) par déploiement |1 |1 |
 | Listes de contrôle d’accès de point de terminaison (ACL) |50 |50 |
 
@@ -50,11 +50,11 @@ Les limites suivantes s’appliquent uniquement aux ressources gérées par le b
 | Adresses IP privées par interface réseau |256 |
 | Adresses IP privées par machine virtuelle |256 |
 | Flux TCP ou UDP simultanés par carte réseau de machine virtuelle ou instance de rôle |500,000 |
-| Cartes d'interface réseau |65,536 |
+| Cartes d’interface réseau |65,536 |
 | Network Security Group |5 000 |
 | Règles de groupe de sécurité réseau par groupe de sécurité réseau |1 000 |
 | Adresses IP et plages spécifiées pour la source et la destination dans un groupe de sécurité |4 000 |
-| Groupes de sécurité d'application |3 000 |
+| Groupes de sécurité d’application |3 000 |
 | Groupes de sécurité d’application par configuration IP, par carte réseau |20 |
 | Configurations IP par groupe de sécurité d’application |4 000 |
 | Groupes de sécurité d’application qui peuvent être spécifiés dans toutes les règles de sécurité d’un groupe de sécurité réseau |100 |
@@ -70,7 +70,7 @@ Les limites suivantes s’appliquent uniquement aux ressources gérées par le b
 | Adresses IP publiques (dynamiques) | 1 000 pour Basic. |Contactez le support technique. |
 | Adresses IP publiques (statiques) | 1 000 pour Basic. |Contactez le support technique. |
 | Adresses IP publiques (statiques) | 200 pour l’Édition Standard.|Contactez le support technique. |
-| Taille de préfixe IP publique (version préliminaire) | /28 | Contactez le support technique. |
+| Taille de préfixe IP publique | /28 | Contactez le support technique. |
 
 #### <a name="load-balancer"></a>Limites de l’équilibreur de charge
 Les limites suivantes s’appliquent uniquement aux ressources de réseau gérées par le biais d’Azure Resource Manager par région et par abonnement. Découvrez comment [afficher l’utilisation actuelle de vos ressources par rapport aux limites de votre abonnement](../articles/networking/check-usage-against-limits.md).

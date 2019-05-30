@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/29/2018
+ms.date: 5/24/2019
 ms.author: hrushib
-ms.openlocfilehash: 28378b4b769e0d0e70a82a45baac0872d1476036
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: 154efffcb1f86907fefecc060419c1d9450470f8
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65413642"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237343"
 ---
 # <a name="periodic-backup-and-restore-in-azure-service-fabric"></a>Sauvegarde et restauration périodiques dans Azure Service Fabric
 > [!div class="op_single_selector"]
@@ -170,9 +170,6 @@ $url = "http://localhost:19080/BackupRestore/BackupPolicies/$/Create?api-version
 Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/json'
 ```
 
-> [!IMPORTANT]
-> En raison d’un problème dans le runtime, vérifiez que la durée de conservation dans la stratégie de conservation est configurée pour être inférieure à 24 jours, sinon le service de restauration des sauvegardes subit une perte de quorum après le basculement du réplica.
-
 ### <a name="enable-periodic-backup"></a>Activer la sauvegarde périodique
 Après avoir défini la stratégie de sauvegarde pour répondre aux exigences de protection des données de l’application, la stratégie doit être associée à l’application. Selon les besoins, la stratégie de sauvegarde peut être associée à une application, un service ou une partition.
 
@@ -265,11 +262,6 @@ LsnOfLastBackupRecord   : 2437
 CreationTimeUtc         : 2018-04-01T20:09:44Z
 FailureError            : 
 ```
-
-## <a name="known-issues"></a>Problèmes connus
-- Vérifiez que la durée de conservation est configurée pour être inférieure à 24 jours. 
-- Le service de restauration des sauvegardes n’apparaît pas pour les paramètres régionaux où le séparateur décimal est autre que « . »
-- Le service de restauration des sauvegardes n’apparaît pas sur un cluster sécurisé avec une sécurité basée sur gMSA.
 
 ## <a name="limitation-caveats"></a>Limitations/mises en garde
 - Applets de commande PowerShell service Fabric sont en mode Aperçu.

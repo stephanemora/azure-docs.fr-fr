@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: e9daebf46093e38858feff87ca5c4ba89638aa74
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: b670b5aeffcd699226a088d8db21a12dbaf40042
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65951908"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242813"
 ---
 # <a name="add-custom-analyzers-to-an-azure-search-index"></a>Ajouter des analyseurs personnalisés à un index de Recherche Azure
 
@@ -32,7 +32,7 @@ Un *analyseur personnalisé* est un type spécifique d’[analyseur de texte](se
 
  Vous pouvez définir plusieurs analyseurs personnalisés pour varier la combinaison de filtres, mais chaque champ ne peut utiliser qu’un analyseur pour l’analyse de l’indexation et qu’un analyseur pour l’analyse de la recherche. Pour savoir à quoi ressemble un analyseur de client, consultez [Exemple d’analyseur personnalisé](search-analyzers.md#Custom-analyzer-example).
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
  En termes simples, le rôle d’un [moteur de recherche en texte intégral](search-lucene-query-architecture.md) est de traiter et de stocker des documents afin de permettre une interrogation et une récupération efficaces. À un niveau élevé, tout cela se résume à extraire les mots importants des documents, à les placer dans un index, puis à utiliser ce dernier pour rechercher les documents qui correspondent aux mots d’une requête donnée. Le processus d’extraction de mots des documents et de requêtes de recherche est appelé *analyse lexicale*. Les composants qui effectuent une analyse lexicale sont appelés des *analyseurs*.
 
@@ -213,19 +213,22 @@ Pour les analyseurs, les attributs d’index varient selon que vous utilisez des
 
 |||  
 |-|-|  
-|Name|Il doit contenir uniquement des lettres, des chiffres, des espaces, des tirets ou des traits de soulignement. Il doit commencer et se terminer uniquement par des caractères alphanumériques, et ne doit pas dépasser 128 caractères.|  
-|Type|Type de l’analyseur provenant de la liste des analyseurs pris en charge. Consultez la colonne **type_analyseur** dans le tableau [Analyseurs](#AnalyzerTable) ci-dessous.|  
+|Nom|Il doit contenir uniquement des lettres, des chiffres, des espaces, des tirets ou des traits de soulignement. Il doit commencer et se terminer uniquement par des caractères alphanumériques, et ne doit pas dépasser 128 caractères.|  
+|type|Type de l’analyseur provenant de la liste des analyseurs pris en charge. Consultez la colonne **type_analyseur** dans le tableau [Analyseurs](#AnalyzerTable) ci-dessous.|  
 |Options|Il doit s’agir des options valides d’un analyseur prédéfini listées dans le tableau [Analyseurs](#AnalyzerTable) ci-dessous.|  
 
 #### <a name="custom-analyzers"></a>Analyseurs personnalisés
 
 |||  
 |-|-|  
-|Name|Il doit contenir uniquement des lettres, des chiffres, des espaces, des tirets ou des traits de soulignement. Il doit commencer et se terminer uniquement par des caractères alphanumériques, et ne doit pas dépasser 128 caractères.|  
-|Type|Doit être « #Microsoft.Azure.Search.CustomAnalyzer ».|  
+|Nom|Il doit contenir uniquement des lettres, des chiffres, des espaces, des tirets ou des traits de soulignement. Il doit commencer et se terminer uniquement par des caractères alphanumériques, et ne doit pas dépasser 128 caractères.|  
+|type|Doit être « #Microsoft.Azure.Search.CustomAnalyzer ».|  
 |CharFilters|Défini sur un des filtres de caractères prédéfinis listés dans le tableau [Filtres de caractères](#char-filters-reference) ou sur un filtre de caractères personnalisé spécifié dans la définition d’index.|  
 |Générateur de jetons|Requis. Défini sur un des générateurs de jetons prédéfinis listés dans le tableau [Générateur de jetons](#Tokenizers) ou sur un générateur de jetons personnalisé spécifié dans la définition d’index.|  
 |TokenFilters|Défini sur un des filtres de jetons prédéfinis listés dans le tableau [Filtres de jetons](#TokenFilters) ou sur un filtre de jetons personnalisé spécifié dans la définition d’index.|  
+
+> [!NOTE]
+> Il est nécessaire de configurer votre analyseur personnalisé de façon à ne pas produire des jetons d’une longueur supérieure à 300 caractères. L’indexation échoue pour les documents avec de tels jetons. Pour les tronquer ou les ignorer, utilisez respectivement **TruncateTokenFilter** et **LengthTokenFilter**.  Vérifiez [ **filtres de jeton** ](#TokenFilters) pour référence.
 
 <a name="CharFilter"></a>
 
@@ -235,8 +238,8 @@ Pour les analyseurs, les attributs d’index varient selon que vous utilisez des
 
 |||  
 |-|-|  
-|Name|Il doit contenir uniquement des lettres, des chiffres, des espaces, des tirets ou des traits de soulignement. Il doit commencer et se terminer uniquement par des caractères alphanumériques, et ne doit pas dépasser 128 caractères.|  
-|Type|Type de filtre de caractères provenant de la liste des filtres de caractères pris en charge. Consultez la colonne **type_filtre_caractères** dans le tableau [Filtres de caractères](#char-filters-reference) ci-dessous.|  
+|Nom|Il doit contenir uniquement des lettres, des chiffres, des espaces, des tirets ou des traits de soulignement. Il doit commencer et se terminer uniquement par des caractères alphanumériques, et ne doit pas dépasser 128 caractères.|  
+|type|Type de filtre de caractères provenant de la liste des filtres de caractères pris en charge. Consultez la colonne **type_filtre_caractères** dans le tableau [Filtres de caractères](#char-filters-reference) ci-dessous.|  
 |Options|Il doit s’agir des options valides d’un type de [Filtre de caractères](#char-filters-reference) donné.|  
 
 ### <a name="tokenizers"></a>Générateurs de jetons
@@ -249,7 +252,7 @@ Un analyseur personnalisé peut utiliser un générateur de jetons prédéfini a
 |||  
 |-|-|  
 |Nom|Il doit contenir uniquement des lettres, des chiffres, des espaces, des tirets ou des traits de soulignement. Il doit commencer et se terminer uniquement par des caractères alphanumériques, et ne doit pas dépasser 128 caractères.|  
-|Type|Nom du générateur de jetons provenant de la liste des générateurs de jetons pris en charge. Consultez la colonne **type_générateur_jetons** dans le tableau [Générateurs de jetons](#Tokenizers) ci-dessous.|  
+|type|Nom du générateur de jetons provenant de la liste des générateurs de jetons pris en charge. Consultez la colonne **type_générateur_jetons** dans le tableau [Générateurs de jetons](#Tokenizers) ci-dessous.|  
 |Options|Il doit s’agir des options valides d’un type de générateur de jetons donné listé dans le tableau [Générateurs de jetons](#Tokenizers) ci-dessous.|  
 
 ### <a name="token-filters"></a>Filtres de jeton
@@ -260,7 +263,7 @@ Vous pouvez avoir plusieurs filtres de jetons dans un analyseur personnalisé. L
 |||  
 |-|-|  
 |Nom|Il doit contenir uniquement des lettres, des chiffres, des espaces, des tirets ou des traits de soulignement. Il doit commencer et se terminer uniquement par des caractères alphanumériques, et ne doit pas dépasser 128 caractères.|  
-|Type|Nom du filtre de jetons provenant de la liste des filtres de jetons pris en charge. Consultez la colonne **type_filtre_jetons** dans le tableau [Filtres de jetons](#TokenFilters) ci-dessous.|  
+|type|Nom du filtre de jetons provenant de la liste des filtres de jetons pris en charge. Consultez la colonne **type_filtre_jetons** dans le tableau [Filtres de jetons](#TokenFilters) ci-dessous.|  
 |Options|Il doit s’agir de [Filtres de jeton](#TokenFilters) d’un type de filtre de jetons donné.|  
 
 <a name="PropertyReference"></a>  
@@ -319,7 +322,7 @@ Dans le tableau ci-dessous, les générateurs de jetons qui sont implémentés a
 | microsoft_language_stemming_tokenizer | MicrosoftLanguageStemmingTokenizer| Divise le texte en utilisant des règles spécifiques à la langue et réduit les mots à leurs formes de base<br /><br /> **Options**<br /><br />maxTokenLength (type : entier) : la longueur maximale des jetons. Par défaut : 255, maximum : 300. Les jetons dépassant la longueur maximale sont fractionnés. Les jetons de plus de 300 caractères sont d’abord fractionnés en jetons d’une longueur de 300 caractères, puis chacun de ces jetons est ensuite fractionné selon la valeur définie pour maxTokenLength.<br /><br /> isSearchTokenizer (type : booléen) : défini sur true s’il est utilisé comme générateur de jetons de recherche, défini sur false s’il est utilisé comme générateur de jetons d’indexation.<br /><br /> language (type : chaîne) : langue à utiliser, par défaut « english ». Les valeurs autorisées sont les suivantes :<br />"arabic", "bangla", "bulgarian", "catalan", "croatian", "czech", "danish", "dutch", "english", "estonian", "finnish", "french", "german", "greek", "gujarati", "hebrew", "hindi", "hungarian", "icelandic", "indonesian", "italian", "kannada", "latvian", "lithuanian", "malay", "malayalam", "marathi", "norwegianBokmaal", "polish", "portuguese", "portugueseBrazilian", "punjabi", "romanian", "russian", "serbianCyrillic", "serbianLatin", "slovak", "slovenian", "spanish", "swedish", "tamil", "telugu", "turkish", "ukrainian", "urdu" |
 |[nGram](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/ngram/NGramTokenizer.html)|NGramTokenizer|Génère des jetons à partir de l’entrée en n-grammes d’une ou plusieurs tailles données.<br /><br /> **Options**<br /><br /> minGram (type : entier) : par défaut : 1, maximum : 300.<br /><br /> maxGram (type : entier) : par défaut : 2, maximum : 300. Doit être supérieur à minGram. <br /><br /> tokenChars (type : tableau de chaînes) : classes de caractères à conserver dans les jetons. Valeurs autorisées : "letter", "digit", "whitespace", "punctuation", "symbol". La valeur par défaut est un tableau vide - conserve tous les caractères. |  
 |[path_hierarchy_v2](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/path/PathHierarchyTokenizer.html)|PathHierarchyTokenizerV2|Générateur de jetons pour les hiérarchies de type chemin.<br /><br /> **Options**<br /><br /> delimiter (type : chaîne) : par défaut : '/.<br /><br /> replacement (type : chaîne) : s’il est défini, remplace le caractère délimiteur. Par défaut, identique à la valeur du délimiteur.<br /><br /> maxTokenLength (type : entier) : la longueur maximale des jetons. Valeur par défaut : 300, maximum : 300. Les chemins plus longs que maxTokenLength sont ignorés.<br /><br /> reverse (type : booléen) : si la valeur est true, génère le jeton dans l’ordre inverse. Valeur par défaut : false.<br /><br /> skip (type : booléen) : jetons initiaux à ignorer. La valeur par défaut est 0.|  
-|[pattern](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/pattern/PatternTokenizer.html)|PatternTokenizer|Ce générateur de jetons utilise la correspondance de modèle d’expression régulière pour construire des jetons distincts.<br /><br /> **Options**<br /><br /> pattern (type : chaîne) : modèle d’expression régulière. La valeur par défaut est \w+.<br /><br /> [flags](https://docs.oracle.com/javase/6/docs/api/java/util/regex/Pattern.html#field_summary) (type : chaîne) : indicateurs d’expression régulière. La valeur par défaut est une chaîne vide. Valeurs autorisées : CANON_EQ, CASE_INSENSITIVE, COMMENTS, DOTALL, LITERAL, MULTILINE, UNICODE_CASE, UNIX_LINES<br /><br /> group (type : entier) : groupe à extraire dans les jetons. La valeur par défaut est -1 (diviser).|  
+|[pattern](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/pattern/PatternTokenizer.html)|PatternTokenizer|Ce générateur de jetons utilise la correspondance de modèle d’expression régulière pour construire des jetons distincts.<br /><br /> **Options**<br /><br /> [modèle](https://docs.oracle.com/javase/6/docs/api/java/util/regex/Pattern.html) (type : chaîne)-modèle d’expression régulière. La valeur par défaut est \W+. <br /><br /> [flags](https://docs.oracle.com/javase/6/docs/api/java/util/regex/Pattern.html#field_summary) (type : chaîne) : indicateurs d’expression régulière. La valeur par défaut est une chaîne vide. Valeurs autorisées : CANON_EQ, CASE_INSENSITIVE, COMMENTS, DOTALL, LITERAL, MULTILINE, UNICODE_CASE, UNIX_LINES<br /><br /> group (type : entier) : groupe à extraire dans les jetons. La valeur par défaut est -1 (diviser).|
 |[standard_v2](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/standard/StandardTokenizer.html)|StandardTokenizerV2|Décompose le texte en suivant les [règles de segmentation du texte Unicode](https://unicode.org/reports/tr29/).<br /><br /> **Options**<br /><br /> maxTokenLength (type : entier) : la longueur maximale des jetons. Valeur par défaut : 255, maximum : 300. Les jetons dépassant la longueur maximale sont fractionnés.|  
 |[uax_url_email](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/standard/UAX29URLEmailTokenizer.html)|UaxUrlEmailTokenizer|Génère des jetons pour des URL et des e-mails sous la forme d’un seul jeton.<br /><br /> **Options**<br /><br /> maxTokenLength (type : entier) : la longueur maximale des jetons. Valeur par défaut : 255, maximum : 300. Les jetons dépassant la longueur maximale sont fractionnés.|  
 |[whitespace](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/core/WhitespaceTokenizer.html)|(le type s’applique seulement quand des options sont disponibles) |Divise le texte au niveau des espaces. Les jetons d’une longueur supérieure à 255 caractères sont fractionnés.|  
@@ -377,9 +380,6 @@ Dans le tableau ci-dessous, les filtres de jetons qui sont implémentés avec Ap
 |[word_delimiter](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/miscellaneous/WordDelimiterFilter.html)|WordDelimiterTokenFilter|Divise les mots en sous-mots et effectue des transformations facultatives sur les groupes de sous-mots.<br /><br /> **Options**<br /><br /> generateWordParts (type : booléen) : provoque la génération de parties de mots ; par exemple « AzureSearch » devient « Azure » « Search ». La valeur par défaut est true.<br /><br /> generateNumberParts (type : booléen) : provoque la génération de sous-mots constitués de nombres. La valeur par défaut est true.<br /><br /> catenateWords (type : booléen) : provoque la concaténation maximale des parties de mots ; par exemple « Azure-Search » devient « AzureSearch ». La valeur par défaut est false.<br /><br /> catenateNumbers (type : booléen) : provoque la concaténation maximale des parties numériques ; par exemple « 1-2 » devient « 12 ». La valeur par défaut est false.<br /><br /> catenateAll (type : booléen) : provoque la concaténation de tous les éléments qui sont des sous-mots ; par exemple « Azure-Search-1 » devient « AzureSearch1 ». La valeur par défaut est false.<br /><br /> splitOnCaseChange (type : booléen) : si la valeur est true, fractionne les mots au niveau des changements de casse ; par exemple « AzureSearch » devient « Azure » « Search ». La valeur par défaut est true.<br /><br /> preserveOriginal : fait que les mots d’origine sont conservés et ajoutés à la liste des sous-mots. La valeur par défaut est false.<br /><br /> splitOnNumerics (type : booléen) : si la valeur est true, fractionne au niveau des nombres ; par exemple « Azure1Search » devient « Azure », « 1 » « Search ». La valeur par défaut est true.<br /><br /> stemEnglishPossessive (type : booléen) : provoque la suppression du « s » final pour chaque sous-mot. La valeur par défaut est true.<br /><br /> protectedWords (type : tableau de chaînes) : jetons à protéger de la délimitation. La valeur par défaut est une liste vide.|  
 
  <sup>1</sup> Les types de filtres de jetons sont toujours préfixés dans le code par « #Microsoft.Azure.Search » ; ainsi, « ArabicNormalizationTokenFilter » serait spécifié sous la forme « #Microsoft.Azure.Search.ArabicNormalizationTokenFilter ».  Nous avons supprimé le préfixe pour réduire la largeur du tableau, mais n’oubliez pas de l’inclure dans votre code.  
-
-> [!NOTE]
-> Il est nécessaire de configurer votre analyseur personnalisé de façon à ne pas produire des jetons d’une longueur supérieure à 300 caractères. L’indexation échoue pour les documents avec de tels jetons. Pour les tronquer ou les ignorer, utilisez respectivement **TruncateTokenFilter** et **LengthTokenFilter**.
 
 
 ## <a name="see-also"></a>Voir aussi  

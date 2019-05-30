@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: 9224ecebed35a631514c5254703ad2694675d40e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 2dfe1493c6611fb69a417895aaa1028ad5881b9c
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66159932"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237430"
 ---
 # <a name="infrastructure-as-code"></a>Infrastructure as code
 
@@ -95,6 +95,47 @@ for root, dirs, files in os.walk(self.microservices_app_package_path):
         microservices_sfpkg.write(os.path.join(root, file), os.path.join(root_folder, file))
 
 microservices_sfpkg.close()
+```
+
+## <a name="azure-virtual-machine-operating-system-automatic-upgrade-configuration"></a>Configuration de mise à niveau automatique du système d’exploitation Machine virtuelle Azure 
+La mise à niveau de vos machines virtuelles est une opération initiée par l’utilisateur, et il est recommandé d’utiliser [mise à niveau de la Machine virtuelle mise à l’échelle définie automatique Système_exploitation](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) pour gestion des correctifs hôte ; les clusters Azure Service Fabric Application d’Orchestration des correctifs est une solution alternative qui est destinée à quand ils sont hébergés en dehors d’Azure, bien que POA peut être utilisé dans Azure, avec une surcharge de l’hébergement de POA dans Azure en cours d’une raison courante de préférer la mise à niveau automatique du système d’exploitation de Machine virtuelle au fil de POA. Les propriétés du modèle de calcul Machine virtuelle mise à l’échelle définie Resource Manager pour activer la mise à niveau automatique du système d’exploitation sont les suivantes :
+
+```json
+"upgradePolicy": {
+   "mode": "Automatic",
+   "automaticOSUpgradePolicy": {
+        "enableAutomaticOSUpgrade": true,
+        "disableAutomaticRollback": false
+    }
+},
+```
+Lorsque vous utilisez des mises à niveau automatiques de système d’exploitation avec Service Fabric, la nouvelle image du système d’exploitation est déployée à la fois pour assurer une haute disponibilité des services en cours d’exécution dans Service Fabric un seul domaine de mise à jour. Pour utiliser les mises à niveau automatiques du système d’exploitation dans Service Fabric, votre cluster doit être configuré pour utiliser le niveau de durabilité Silver ou une version supérieure.
+
+Vérifiez que la clé de Registre suivante est définie sur false pour empêcher le lancement des mises à jour non coordonnés de vos ordinateurs hôtes de windows : HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU.
+
+Les propriétés du modèle de calcul Machine virtuelle mise à l’échelle définie Resource Manager pour définir la clé de Registre de Windows Update sur false sont les suivantes :
+```json
+"osProfile": {
+        "computerNamePrefix": "{vmss-name}",
+        "adminUsername": "{your-username}",
+        "secrets": [],
+        "windowsConfiguration": {
+          "provisionVMAgent": true,
+          "enableAutomaticUpdates": false
+        }
+      },
+```
+
+## <a name="azure-service-fabric-cluster-upgrade-configuration"></a>Configuration mise à niveau du Cluster Azure Service Fabric
+La propriété de modèle Resource Manager pour activer la mise à niveau automatique du cluster Service Fabric est fourni ci-dessous :
+```json
+"upgradeMode": "Automatic",
+```
+Pour mettre à niveau manuellement votre cluster, téléchargez la distribution de cab/deb à une machine virtuelle de cluster, puis appeler la commande PowerShell suivante :
+```powershell
+Copy-ServiceFabricClusterPackage -Code -CodePackagePath <"local_VM_path_to_msi"> -CodePackagePathInImageStore ServiceFabric.msi -ImageStoreConnectionString "fabric:ImageStore"
+Register-ServiceFabricClusterPackage -Code -CodePackagePath "ServiceFabric.msi"
+Start-ServiceFabricClusterUpgrade -Code -CodePackageVersion <"msi_code_version">
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -4,16 +4,16 @@ description: Découvrez comment résoudre les erreurs d’intégration des solut
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/20/2019
+ms.date: 05/22/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 16a03840f6bbf44853cf01e50189a194672d153e
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 8867912d98897a695c1e59ebd4177301230281bb
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65145161"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399773"
 ---
 # <a name="troubleshoot-errors-when-onboarding-solutions"></a>Résolution des erreurs d’intégration des solutions
 
@@ -42,6 +42,24 @@ Cette erreur est due à des autorisations incorrectes ou manquantes sur la machi
 #### <a name="resolution"></a>Résolution :
 
 Vérifiez que vous disposez des autorisations appropriées pour intégrer la machine virtuelle. Passez en revue les [autorisations nécessaires pour intégrer des machines](../automation-role-based-access-control.md#onboarding), puis essayez à nouveau d'intégrer la solution. Si vous recevez l’erreur `The solution cannot be enabled on this VM because the permission to read the workspace is missing`, assurez-vous d’avoir le `Microsoft.OperationalInsights/workspaces/read` autorisé à être en mesure de trouver si la machine virtuelle est intégrée à un espace de travail.
+
+### <a name="diagnostic-logging"></a>Scénario : L’intégration échoue avec le message - échoué de configuration de compte Automation pour la journalisation des Diagnostics
+
+#### <a name="issue"></a>Problème
+
+Le message suivant s'affiche lorsque vous essayez d'intégrer une machine virtuelle à une solution :
+
+```error
+Failed to configure automation account for diagnostic logging
+```
+
+#### <a name="cause"></a>Cause :
+
+Cette erreur peut être provoquée si le niveau tarifaire ne correspond pas à modèle de facturation de l’abonnement. Pour plus d’informations, consultez [surveiller l’utilisation et estimation des coûts dans Azure Monitor](http://aka.ms/PricingTierWarning).
+
+#### <a name="resolution"></a>Résolution :
+
+Créer votre espace de travail Analytique de journal manuellement et répétez le processus d’intégration pour sélectionner l’espace de travail créé.
 
 ### <a name="computer-group-query-format-error"></a>Scénario : ComputerGroupQueryFormatError
 

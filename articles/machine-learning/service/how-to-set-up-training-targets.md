@@ -11,18 +11,18 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3edc1c2bd328cd6e7b7991ff2b5438b8899a0ce7
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: 59a35e44c78ea86f3b02eb4ad99dc1fd8fcb4870
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66160478"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236622"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>Configurer des cibles de calcul pour l’entraînement des modèles 
 
 Azure Machine Learning service vous permet de former votre modèle sur une variété de ressources ou d’environnements, appelés collectivement [__cibles de calcul__](concept-azure-machine-learning-architecture.md#compute-target). Une cible de calcul peut être un ordinateur local ou une ressource cloud telle qu’une capacité de calcul Azure Machine Learning, Azure HDInsight ou une machine virtuelle distante.  Vous pouvez également créer des cibles de calcul pour le déploiement de modèle, comme décrit dans [« Déployer des modèles avec le service Azure Machine Learning »](how-to-deploy-and-where.md).
 
-Vous pouvez créer et gérer une cible de calcul avec le SDK Azure Machine Learning, Azure CLI ou le portail Azure. Si vous avez des cibles de calcul qui ont été créées via un autre service (par exemple un cluster HDInsight), vous pouvez les utiliser en les attachant à votre espace de travail du service Azure Machine Learning.
+Vous pouvez créer et gérer une cible de calcul à l’aide du SDK Azure Machine Learning, portail Azure, l’extension Azure CLI ou Azure Machine Learning VS Code. Si vous avez des cibles de calcul qui ont été créées via un autre service (par exemple un cluster HDInsight), vous pouvez les utiliser en les attachant à votre espace de travail du service Azure Machine Learning.
  
 Cet article explique comment utiliser les différentes cibles de calcul pour l’entraînement des modèles.  Pour toutes les cibles de calcul, le flux de travail est identique :
 1. __Créez__ une cible de calcul si vous n’en avez pas encore.
@@ -38,7 +38,7 @@ Cet article explique comment utiliser les différentes cibles de calcul pour l�
 La prise en charge par Azure Machine Learning service varie selon les cibles de calcul. Un cycle de vie typique du développement d’un modèle commence par le développement/l’expérience sur une petite quantité de données. À ce stade, nous recommandons d’utiliser un environnement local. Par exemple, votre ordinateur local ou une machine virtuelle basée cloud. Quand vous effectuez un scale-up de votre entraînement sur des jeux de données plus grands ou que vous faites un entraînement distribué, nous recommandons d’utiliser Capacité de calcul Azure Machine Learning pour créer un cluster avec un ou plusieurs nœuds qui se met à l’échelle automatiquement chaque fois que vous lancez une exécution. Vous pouvez également attacher votre propre ressource de calcul, bien que la prise en charge des différents scénarios puisse varier comme indiqué ci-dessous :
 
 
-|Cible de calcul pour l’entraînement| Accélération GPU | Automatisée<br/> optimisation des hyperparamètres | Automatisée<br/> Apprentissage automatique | Pipelines Azure Machine Learning |
+|Cible de calcul pour l’entraînement| Accélération GPU | Automatisé<br/> optimisation des hyperparamètres | Automatisé<br/> Apprentissage automatique | Pipelines Azure Machine Learning |
 |----|:----:|:----:|:----:|:----:|
 |[Ordinateur local](#local)| Peut-être | &nbsp; | ✓ | &nbsp; |
 |[Capacité de calcul Azure Machine Learning](#amlcompute)| ✓ | ✓ | ✓ | ✓ |
@@ -377,6 +377,10 @@ Vous pouvez accéder aux cibles de calcul associées à votre espace de travail 
 
 Pour plus d’informations, voir [Gestion des ressources](reference-azure-machine-learning-cli.md#resource-management).
 
+## <a name="set-up-compute-with-vs-code"></a>Configurer le calcul avec VS Code
+
+Vous pouvez accéder, créer et gérer les cibles de calcul qui sont associés à votre espace de travail à l’aide de la [extension VS Code](how-to-vscode-tools.md#create-and-manage-compute-targets) pour le service Azure Machine Learning.
+
 ## <a id="submit"></a>Soumettre une série de tests d’apprentissage
 
 Après avoir créé une configuration de série de tests, vous l’utilisez pour exécuter votre expérience.  Le modèle de code pour soumettre une série de tests d’apprentissage est le même pour tous les types de cibles de calcul :
@@ -416,8 +420,9 @@ Basculez la même expérience pour qu’elle s’exécute sur une autre cible de
 
 Vous pouvez également :
 
-* Soumettre l’expérience avec un objet `Estimator`, comme indiqué dans [Former des modèles ML avec des estimateurs](how-to-train-ml-models.md). 
+* Soumettre l’expérience avec un objet `Estimator`, comme indiqué dans [Former des modèles ML avec des estimateurs](how-to-train-ml-models.md).
 * Soumettre une expérience [à l’aide de l’extension CLI](reference-azure-machine-learning-cli.md#experiments).
+* Soumettre une expérimentation via le [extension VS Code](how-to-vscode-tools.md#train-and-tune-models).
 
 ## <a name="github-tracking-and-integration"></a>Intégration et suivi de GitHub
 

@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: makromer
-ms.openlocfilehash: b0a6c6feae11f8daeed54c5e763dbff3aa711652
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: c33219eacb1d3bada5630a7792f98ba33dba824e
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66153480"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235858"
 ---
 # <a name="execute-data-flow-activity-in-azure-data-factory"></a>Exécution d’activité de flux de données dans Azure Data Factory
 Utiliser l’activité de flux de données execute pour exécuter votre flux de données ADF dans les exécutions de pipeline debug (sandbox) et dans les exécutions de pipeline déclenchée.
@@ -49,10 +49,6 @@ Utiliser l’activité de flux de données execute pour exécuter votre flux de 
 
 ![Exécuter le flux de données](media/data-flow/activity-data-flow.png "exécuter le flux de données")
 
-### <a name="run-on"></a>Exécuter sur
-
-Choisissez l’environnement de calcul pour cette exécution de votre flux de données. La valeur par défaut est le Runtime d’intégration Azure-résolution automatique par défaut. Ce choix s’exécute le flux de données sur l’environnement Spark dans la même région que votre fabrique de données. Le type de calcul sera un cluster de travail, ce qui signifie que l’environnement de calcul peut prendre plusieurs minutes pour le démarrage.
-
 ### <a name="debugging-pipelines-with-data-flows"></a>Débogage des pipelines avec des flux de données
 
 ![Bouton de débogage](media/data-flow/debugbutton.png "le bouton de débogage")
@@ -65,9 +61,14 @@ Il s’agit d’un champ obligatoire qui définit le Runtime d’intégration à
 
 Le paramètre par défaut pour les exécutions de flux de données est de 8 cœurs de calcul général avec une durée de vie de 60 minutes.
 
+Choisissez l’environnement de calcul pour cette exécution de votre flux de données. La valeur par défaut est le Runtime d’intégration Azure-résolution automatique par défaut. Ce choix s’exécute le flux de données sur l’environnement Spark dans la même région que votre fabrique de données. Le type de calcul sera un cluster de travail, ce qui signifie que l’environnement de calcul peut prendre plusieurs minutes pour le démarrage.
+
 Vous contrôlez l’environnement d’exécution de Spark pour vos activités de flux de données. Dans le [runtime d’intégration Azure](concepts-integration-runtime.md) sont des paramètres pour définir le type de calcul (usage général, mémoire optimisée et optimisé pour le calcul), nombre de cœurs de travail et time-to-live pour faire correspondre le moteur d’exécution avec votre calcul de flux de données configuration requise. En outre, définissant la durée de vie vous permettra de maintenir un cluster à chaud est immédiatement disponible pour les exécutions de tâches.
 
 ![Runtime d’intégration Azure](media/data-flow/ir-new.png "Runtime d’intégration Azure")
+
+> [!NOTE]
+> La sélection de Runtime d’intégration dans l’activité de flux de données s’applique uniquement aux *déclenchée exécutions* de votre pipeline. Débogage de votre pipeline avec le flux de données avec le débogage s’exécute sur un cluster Spark par défaut de 8 cœurs.
 
 ### <a name="staging-area"></a>Zone de transit
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: 0de4da5792553b8e61ce8116988dc0d0b2c55488
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 3f4ef7f333525d7408d0345b917102cddb295386
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66131003"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66255466"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-status-monitor"></a>Instrumenter des applications web lors de l’exécution avec Application Insights Status Monitor
 
@@ -321,7 +321,6 @@ Affichez vos données de télémétrie :
 * [Explorez les mesures](../../azure-monitor/app/metrics-explorer.md) pour surveiller les performances et l’utilisation
 * [Effectuez des recherches dans les événements et les journaux][diagnostic] pour diagnostiquer les problèmes
 * [Utilisez la fonctionnalité Analytics](../../azure-monitor/app/analytics.md) pour des requêtes plus élaborées
-* [Créez des tableaux de bord](../../azure-monitor/app/app-insights-dashboards.md)
 
 Ajoutez des données de télémétrie :
 

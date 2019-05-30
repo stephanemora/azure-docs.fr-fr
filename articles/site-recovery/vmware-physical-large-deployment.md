@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 05/14/2019
 ms.author: raynew
-ms.openlocfilehash: 593a82221ec94e43d50b7382ba89053d5f68864a
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: e96aafe61c0d8547ffca9e97bfd9e90c9529155f
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65805920"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237277"
 ---
 # <a name="set-up-disaster-recovery-at-scale-for-vmware-vmsphysical-servers"></a>Configurer la récupération d’urgence à l’échelle pour les serveurs de machines virtuelles VMware/physique
 
@@ -101,7 +101,7 @@ Ce que répond-elle moyenne ? Pour démarrer une machine virtuelle Azure, Azure
 **Machine est compatible avec Azure ?** | **Limites des machines virtuelles Azure (basculement de disque géré)**
 --- | --- 
 Oui | 2000
-Non | 1 000
+Non  | 1 000
 
 - Limites supposent autrement minimales d’autres travaux sont en cours d’exécution dans la région cible pour l’abonnement.
 - Certaines régions Azure sont plus petites et peuvent avoir des limites légèrement inférieures.
@@ -188,7 +188,7 @@ Une fois que vous lancez la réplication pour le premier lot de machines virtuel
 1. Affecter un administrateur de la récupération d’urgence pour surveiller l’état d’intégrité des machines répliquées.
 2. [Surveiller les événements](site-recovery-monitor-and-troubleshoot.md) pour les éléments répliqués et l’infrastructure.
 3. [Surveiller l’intégrité](vmware-physical-azure-monitor-process-server.md) de vos serveurs de traitement de montée en puissance.
-4. Inscrivez-vous pour recevoir [notifications par courrier électronique](https://docs.microsoft.com/azure/site-recovery/site-recovery-monitor-and-troubleshoot.md#subscribe-to-email-notifications) des événements, pour faciliter la surveillance.
+4. Inscrivez-vous pour recevoir [notifications par courrier électronique](https://docs.microsoft.com/azure/site-recovery/site-recovery-monitor-and-troubleshoot#subscribe-to-email-notifications) des événements, pour faciliter la surveillance.
 5. Mener regular [exercices de récupération d’urgence](site-recovery-test-failover-to-azure.md)pour vous assurer que tout fonctionne comme prévu.
 
 

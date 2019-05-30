@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: 4cca65e2be44d2c846cd4034f0a9d7e8c7d9af28
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: ab30351bfff9c5bbf070a1e8a54a4919e4d2231a
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66130898"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66226265"
 ---
 # <a name="profile-web-apps-running-on-an-azure-virtual-machine-or-a-virtual-machine-scale-set-by-using-application-insights-profiler"></a>Profiler des applications web s’exécutant sur une machine virtuelle Azure ou un groupe de machines virtuelles identiques avec Application Insights Profiler
 
@@ -31,7 +31,8 @@ Vous pouvez également déployer Azure Application Insights Profiler sur ces ser
 ## <a name="deploy-profiler-on-a-virtual-machine-or-a-virtual-machine-scale-set"></a>Déployer Profiler sur une machine virtuelle ou un groupe de machines virtuelles identiques
 Cet article vous montre comment exécuter Application Insights Profiler sur votre machine virtuelle Azure ou votre groupe de machines virtuelles identiques Azure. Profiler est installé avec l’extension Diagnostics Azure pour machines virtuelles. Configurez l’extension pour exécuter Profiler et générez le SDK Application Insights dans votre application.
 
-1. Ajoutez le SDK Application Insights à votre [application ASP.NET](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net) ou [application .NET](windows-services.md?toc=/azure/azure-monitor/toc.json) ordinaire.  
+1. Ajouter le SDK Application Insights à votre [application ASP.NET](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net).
+
    Pour voir les profils de vos demandes, vous devez envoyer les données de télémétrie des demandes à Application Insights.
 
 1. Installez l’extension Diagnostics Azure sur votre machine virtuelle. Pour obtenir des exemples complets de modèles Resource Manager, consultez :  

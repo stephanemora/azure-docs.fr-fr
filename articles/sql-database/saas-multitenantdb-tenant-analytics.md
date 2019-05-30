@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: anjangsh,billgib,genemi
 manager: craigg
 ms.date: 09/19/2018
-ms.openlocfilehash: 0146f6ca610a25e57771fb21436a70acbdd5a5ef
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4bf97c0c447bfabc1454959d457bbd50f3490299
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61486505"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242799"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---multi-tenant-app"></a>Requêtes analytiques entre locataires utilisant des données extraites – Application multilocataire
  
@@ -100,9 +100,9 @@ Maintenant que vous avez déployé l’application et rempli de données client 
 
 Dans l’Explorateur d’objets, procédez comme suit :
 
-1. Développez le serveur *tenants1-mt-\<Utilisateur\>*.
+1. Développez le serveur *tenants1-mt-\<Utilisateur\>* .
 2. Développez le nœud des bases de données, la base de données *tenants1* contenant plusieurs locataires apparaît.
-3. Développez le serveur *catalog-mt-\<Utilisateur\>*.
+3. Développez le serveur *catalog-mt-\<Utilisateur\>* .
 4. Vérifiez que vous voyez le magasin analytique et la base de données jobaccount.
 
 Consultez les éléments suivants de la base de données dans l’Explorateur d’objets SSMS en développant le nœud du magasin d’analytique :
@@ -242,5 +242,5 @@ Félicitations !
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
 Autres [didacticiels reposant sur l’application SaaS Wingtip](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials). 
-- [Tâches élastiques](sql-database-elastic-jobs-overview.md).
+- [Tâches élastiques](elastic-jobs-overview.md).
 - [Requêtes analytiques entre locataires utilisant des données extraites – Application monolocataire](saas-tenancy-tenant-analytics.md) 

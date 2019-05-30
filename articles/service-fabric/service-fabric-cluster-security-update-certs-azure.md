@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/13/2018
 ms.author: aljo
-ms.openlocfilehash: 0038de621a02a2edf3198686e1f2fc88fb917d9c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: f1998ec2fe82b9fd52547fbccb208542b22bc949
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66161815"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306914"
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>Ajouter ou supprimer des certificats pour un cluster Service Fabric dans Azure
 Nous vous recommandons de vous familiariser avec la façon dont Service Fabric utilise les certificats X.509 et de prendre connaissance des [scénarios de sécurité d’un cluster](service-fabric-cluster-security.md). Vous devez comprendre ce qu’est un certificat de cluster et quelle est son utilité avant de passer à la suite.
@@ -48,7 +48,7 @@ Si votre intention est de supprimer le certificat marqué comme principal, vous 
 
 ## <a name="add-a-secondary-certificate-using-resource-manager-powershell"></a>Ajouter un certificat secondaire à l’aide de Resource Manager PowerShell
 > [!TIP]
-> Il est désormais plus facile à ajouter un certificat secondaire à l’aide et le [Add-AzServiceFabricClusterCertificate](/powershell/module/az.servicefabric/add-azservicefabricclustercertificate) applet de commande. Vous n’avez pas besoin de suivre le reste des étapes de cette section.  En outre, il est inutile du modèle à l’origine utilisé pour créer et déployer le cluster lors de l’utilisation du [Add-AzServiceFabricClusterCertificate](/powershell/module/az.servicefabric/add-azservicefabricclustercertificate) applet de commande.
+> Il est désormais un moyen amélioré et plus simple pour ajouter un certificat secondaire à l’aide de la [Add-AzServiceFabricClusterCertificate](/powershell/module/az.servicefabric/add-azservicefabricclustercertificate) applet de commande. Vous n’avez pas besoin de suivre le reste des étapes de cette section.  En outre, il est inutile du modèle à l’origine utilisé pour créer et déployer le cluster lors de l’utilisation du [Add-AzServiceFabricClusterCertificate](/powershell/module/az.servicefabric/add-azservicefabricclustercertificate) applet de commande.
 
 Pour pouvoir exécuter ces étapes, vous devez connaître le fonctionnement de Resource Manager, avoir déployé au moins un cluster Service Fabric à l’aide d’un modèle Resource Manager et disposer du modèle que vous avez utilisé pour configurer le cluster. Il est également supposé que vous maîtrisez l’utilisation de JSON.
 
@@ -195,7 +195,7 @@ Modifiez le fichier de paramètres de votre modèle Resource Manager en ajoutant
 ### <a name="deploy-the-template-to-azure"></a>Déployer le modèle sur Azure
 
 - Vous êtes maintenant prêt à déployer votre modèle sur Azure. Ouvrez une invite de commande Azure PS version 1 ou ultérieure.
-- Connectez-vous à votre compte Azure, puis sélectionnez l’abonnement Azure concerné. C’est une étape importante pour ceux qui ont accès à plusieurs abonnements Azure.
+- Connectez-vous à votre compte Azure et sélectionnez l’abonnement azure spécifique. C’est une étape importante pour ceux qui ont accès à plusieurs abonnements Azure.
 
 ```powershell
 Connect-AzAccount

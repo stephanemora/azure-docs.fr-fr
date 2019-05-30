@@ -1,5 +1,5 @@
 ---
-title: Créer des images de machine virtuelle partagées avec l’interface de ligne de commande Azure | Microsoft Docs
+title: Créer des galeries d’images partagé avec l’interface CLI Azure | Microsoft Docs
 description: Dans cet article, vous allez apprendre à utiliser l’interface de ligne de commande Azure pour créer une image partagée d’une machine virtuelle dans Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/06/2019
 ms.author: akjosh; cynthn
 ms.custom: ''
-ms.openlocfilehash: f69b1aff28165b9bf37c49fe62d1fb5aada91285
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: bb6db6e5d5e33b7c7b5ba5a8711a06d6394b71f2
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236407"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66226042"
 ---
 # <a name="create-a-shared-image-gallery-with-the-azure-cli"></a>Créer une galerie d’images partagées avec l’interface de ligne de commande Azure
 
@@ -33,7 +33,7 @@ La galerie est une ressource de niveau supérieur qui fournit le contrôle d’a
 
 La fonctionnalité Galerie d’images partagées présente plusieurs types de ressources. Dans cet article, nous allons utiliser ou générer ce qui suit :
 
-| Ressource | Description |
+| Ressource | Description|
 |----------|------------|
 | **Image managée** | Il s’agit d’une image de base pouvant être utilisée seule ou pour créer une **version de l’image**  dans une galerie d’images. Les images managées sont créées à partir de machines virtuelles généralisées. Une image managée est un type spécial de disque dur virtuel qui peut être utilisé pour définir plusieurs machines virtuelles et qui peut maintenant être utilisé pour créer des versions d’image partagée. |
 | **Galerie d’images** | Tout comme la Place de marché Azure, une **galerie d’images** est un dépôt permettant de gérer et partager des images, mais vous contrôlez les utilisateurs qui y ont accès. |
@@ -46,15 +46,17 @@ La fonctionnalité Galerie d’images partagées présente plusieurs types de re
 
 ## <a name="create-a-vm"></a>Créer une machine virtuelle
 
-Créez une machine virtuelle à partir de la version d’image avec [az vm create](/cli/azure/vm#az-vm-create).
+Créer une machine virtuelle à partir de la dernière version image via [créer az vm](/cli/azure/vm#az-vm-create).
 
 ```azurecli-interactive 
 az vm create\
-   -g myGalleryRG \
-   -n myVM \
-   --image "/subscriptions/<subscription-ID>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition/versions/1.0.0" \
+   --resource-group myGalleryRG \
+   --name myVM \
+   --image "/subscriptions/subscription ID where the gallery is located>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition" \
    --generate-ssh-keys
 ```
+
+Vous pouvez également utiliser une version spécifique à l’aide de l’ID de version d’image pour le `--image` paramètre. Par exemple, pour utiliser la version de l’image *1.0.0* type : `--image "/subscriptions/<subscription ID where the gallery is located>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition/versions/1.0.0"`.
 
 [!INCLUDE [virtual-machines-common-gallery-list-cli](../../../includes/virtual-machines-common-gallery-list-cli.md)]
 

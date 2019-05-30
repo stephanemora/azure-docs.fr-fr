@@ -12,18 +12,18 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 01/04/2019
+ms.date: 05/23/2019
 ms.author: jowargo
-ms.openlocfilehash: 22494984ca45cde7255fb5e1a30548c859bfad68
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 2ba3be0d51758cf7afd9f85258403bf79ca8401f
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65826525"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66239414"
 ---
 # <a name="security-model-of-azure-notification-hubs"></a>Modèle de sécurité d’Azure Notification Hubs
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
 Cette rubrique décrit le modèle de sécurité d'Azure Notification Hubs. Notification Hubs étant une entité Service Bus, elle implémente le même modèle de sécurité que Service Bus. Pour plus d'informations, consultez les rubriques [Authentification Service Bus](https://msdn.microsoft.com/library/azure/dn155925.aspx) .
 
@@ -43,13 +43,13 @@ Il est important de comprendre que la clé avec un accès en écoute permet à u
 
 Comme pour les autres entités, les opérations Notification Hubs sont autorisées pour trois revendications de sécurité : Écoute, Envoyer et Gérer.
 
-| Revendication   | Description                                           | Opérations autorisées |
+| Revendication   | Description                                          | Opérations autorisées |
 | ------- | ---------------------------------------------------- | ------------------ |
 | Écouter  | Créer/mettre à jour, lire et supprimer des inscriptions uniques | Créer/mettre à jour une inscription<br><br>Lire une inscription<br><br>Lire toutes les inscriptions pour un handle<br><br>Supprimer une inscription |
-| Envoyer    | Envoyer de messages au concentrateur de notification                | Envoyer message |
+| Envoyer    | Envoyer de messages au concentrateur de notification                | Envoyer un message |
 | gérer  | Opérations CRUD sur Notification Hubs (y compris la mise à jour des informations d'identification PNS et les clés de sécurité) et lecture des inscriptions en fonction des balises |Créer/Mettre à jour/Lire/Supprimer des hubs de notification<br><br>Lire des inscriptions par balise |
 
-Notification Hubs accepte les revendications accordées par les jetons de contrôle d'accès Microsoft Azure et les jetons de signature générés avec des clés partagées configurées directement sur le concentrateur de notification.
+Notification Hubs accepte la signature de jetons générés avec partagé clés configurées directement sur le concentrateur de Notification.
 
 Il n’est pas possible d’envoyer une notification à plus d’un espace de noms. Espaces de noms sont un conteneur logique pour les concentrateurs de notification et ne sont pas impliqués avec envoi de notifications.
 Les stratégies d’accès au niveau de l’espace de noms (informations d’identification) peuvent être utilisées pour les opérations au niveau de l’espace de noms, par exemple : répertorier les concentrateurs de notification, la création ou suppression de hubs de notification, etc. Uniquement les stratégies d’accès au niveau du hub vous permet de vous envoyer des notifications.

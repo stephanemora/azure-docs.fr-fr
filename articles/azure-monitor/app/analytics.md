@@ -12,23 +12,20 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 02/02/2019
 ms.author: mbullwin
-ms.openlocfilehash: d75544a30a441b5178a1e9dd368f1ce41cd4d321
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: f5819194e7967b5921f34223cad299752460de30
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64574266"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66255636"
 ---
 # <a name="analytics-in-application-insights"></a>Analytics dans Application Insights
 Analytics est le puissant outil de recherche et de requête d[’Application Insights](app-insights-overview.md). Analytics étant un outil web, aucune installation n’est nécessaire.
-Si vous avez déjà configuré Application Insights pour l’une de vos applications, vous pouvez alors analyser les données de votre application en ouvrant Analytics à partir du [panneau Vue d’ensemble](app-insights-dashboards.md) de votre application.
+Si vous avez déjà configuré Application Insights pour l’une de vos applications, vous pouvez analyser les données de votre application en ouvrant Analytique à partir du Panneau de vue d’ensemble de votre application.
 
 ![Ouvrez portal.azure.com, ouvrez votre ressource Application Insights, puis cliquez sur Analyse.](./media/analytics/001.png)
 
 Vous pouvez également utiliser l[’interface Analytics](https://go.microsoft.com/fwlink/?linkid=859557), un environnement de démonstration gratuit incluant de nombreux exemples de données.
-<br>
-<br>
-> [!VIDEO https://channel9.msdn.com/events/Connect/2016/123/player] 
 
 ## <a name="relation-to-azure-monitor-logs"></a>Relation aux journaux d’activité Azure Monitor
 L’analytique d’Application Insights repose sur [Azure Data Explorer](/azure/data-explorer), comme les journaux d’activité d’Azure Monitor, et utilise également le [langage de requête Kusto](/azure/kusto/query). Il utilise le même [portail d’analytique des journaux d’activité](../log-query/get-started-portal.md) que les journaux d’activité d’Azure Monitor, même si ses données sont stockées dans une partition distincte.

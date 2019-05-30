@@ -16,12 +16,12 @@ ms.date: 04/29/2019
 ms.author: rolyon
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d30bbddd044d1aea70e43825035c94b69a46f1f8
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 1be6fc2b7d6da85778524cb8986f399c341370c1
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64935826"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66307039"
 ---
 # <a name="what-is-azure-ad-identity-governance"></a>Qu’est Azure AD Identity gouvernance ?
 
@@ -60,7 +60,7 @@ En règle générale, le service informatique délègue aux décideurs d’entre
 
 Les organisations peuvent automatiser le processus de cycle de vie des accès à l’aide de technologies comme les [groupes dynamiques](../users-groups-roles/groups-dynamic-membership.md), moyennant l’approvisionnement des utilisateurs sur des [applications SaaS](../saas-apps/tutorial-list.md) ou des [applications intégrées à SCIM](../manage-apps/use-scim-to-provision-users-and-groups.md).  Les organisations peuvent également contrôler les [utilisateurs invités pouvant accéder aux applications locales](../b2b/hybrid-cloud-to-on-premises.md).  Ces droits d’accès peuvent ensuite être révisés régulièrement par le biais de [révisions d’accès Azure AD](access-reviews-overview.md) récurrentes.
 
-Lorsqu’un utilisateur tente d’accéder à des applications, Azure AD applique des stratégies [d’accès conditionnel](/azure/active-directory/conditional-access/). Par exemple, les stratégies d’accès conditionnel peuvent inclure affichant un [conditions d’utilisation](../conditional-access/terms-of-use.md) et [garantissant l’utilisateur a accepté ces conditions](../conditional-access/require-tou.md) avant de pouvoir accéder à une application.
+Lorsqu’un utilisateur tente d’accéder à des applications, Azure AD applique des stratégies [d’accès conditionnel](/azure/active-directory/conditional-access/). Par exemple, les stratégies d’accès conditionnel peuvent inclure l’affichage de [conditions d’utilisation](../conditional-access/terms-of-use.md) et un processus [garantissant que l’utilisateur a accepté ces conditions](../conditional-access/require-tou.md) avant de lui permettre d’accéder à une application.
 
 ## <a name="privileged-access-lifecycle"></a>Cycle de vie des accès privilégiés
 
@@ -84,6 +84,6 @@ Vous pouvez également consulter l’onglet mise en route de **gouvernance des i
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Qu’est la gestion des droits Azure AD ? (Préversion)](entitlement-management-overview.md)
-- [Passe en revue ce que sont les accès Azure AD ?](access-reviews-overview.md)
+- [Présentation des révisions d’accès Azure AD](access-reviews-overview.md)
 - [Qu’est-ce qu’Azure AD Privileged Identity Management ?](../privileged-identity-management/pim-configure.md)
 - [Que puis-je faire avec Conditions d’utilisation ?](active-directory-tou.md)

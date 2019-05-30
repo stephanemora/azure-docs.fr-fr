@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/20/2019
 ms.author: srrengar
-ms.openlocfilehash: ba4d25c749a1c1b99559ce4033fe90d671701d66
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c8f7198b59a0fe7ed6775736f8b97f5b5a262640
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66170969"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306860"
 ---
 # <a name="set-up-azure-monitor-logs-for-a-cluster"></a>Configurer les journaux Azure Monitor pour un cluster
 
@@ -62,7 +62,7 @@ Si vous utilisez Windows, poursuivez les étapes suivantes pour connecter des jo
 
 3. Dans la page **Journaux d’activité de comptes de stockage**, sélectionnez **Ajouter** en haut pour ajouter les journaux d’activité de votre cluster à l’espace de travail.
 
-4. Sélectionnez **Compte de stockage** pour ajouter le compte approprié créé dans votre cluster. Si vous avez utilisé le nom par défaut, le compte de stockage est nommé **sfdg\<nomGroupeRessources\>**. Vous pouvez également le confirmer avec le modèle Azure Resource Manager utilisé pour déployer votre cluster, en vérifiant la valeur utilisée pour **applicationDiagnosticsStorageAccountName**. Si le nom n’apparaît pas, faites défiler vers le bas et sélectionnez **Charger plus**. Sélectionnez le nom du compte de stockage.
+4. Sélectionnez **Compte de stockage** pour ajouter le compte approprié créé dans votre cluster. Si vous avez utilisé le nom par défaut, le compte de stockage est nommé **sfdg\<nomGroupeRessources\>** . Vous pouvez également le confirmer avec le modèle Azure Resource Manager utilisé pour déployer votre cluster, en vérifiant la valeur utilisée pour **applicationDiagnosticsStorageAccountName**. Si le nom n’apparaît pas, faites défiler vers le bas et sélectionnez **Charger plus**. Sélectionnez le nom du compte de stockage.
 
 5. Spécifiez le type de données. Affectez-y la valeur **Événements de Service Fabric**.
 
@@ -110,7 +110,7 @@ $Location = "<Resource group location>"
 $WorkspaceName = "<Log Analytics workspace name>"
 $solution = "ServiceFabric"
 
-# Log in to Azure and access the correct subscription
+# Sign in to Azure and access the correct subscription
 Connect-AzAccount
 Select-AzSubscription -SubscriptionId $SubID 
 

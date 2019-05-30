@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/04/2018
-ms.openlocfilehash: 1a332dd46cac196c8185ddb12c0d900f5c36e1b3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a50778db5fd57202c17f05407045259371912586
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61270976"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66239189"
 ---
 # <a name="mapping-data-flow-debug-mode"></a>Mode de débogage du mappage de flux de données
 
@@ -22,10 +22,13 @@ Azure Data Factory mappage de flux de données a un mode de débogage, ce qui pe
 
 ![Bouton de débogage](media/data-flow/debugbutton.png "le bouton de débogage")
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 Lorsque le mode débogage est activé, vous générerez interactivement votre flux de données avec un cluster Spark actif. La session se ferme dès que vous désactivez le débogage dans Azure Data Factory. Prenez connaissance des frais horaires engendrés par Azure Databricks pendant la durée d’activation de la session de débogage.
 
 Dans la plupart des cas, nous vous recommandons de créer vos flux de données en mode débogage pour que vous puissiez valider votre logique métier et afficher vos transformations de données avant de publier votre travail dans Azure Data Factory. Vous devez également utiliser le bouton « Debug » sur le panneau de configuration de pipeline pour tester votre flux de données à l’intérieur d’un pipeline.
+
+> [!NOTE]
+> Alors que la lumière de mode de débogage est verte dans la barre d’outils de Data Factory, vous serez facturé au taux de débogage de flux de données de 8 cœurs/heure de calcul général avec une minute 60 time-to-live 
 
 ## <a name="debug-mode-on"></a>Sur le mode débogage
 Quand vous activez le mode débogage, un formulaire dans un panneau latéral vous invite à pointer vers votre cluster Azure Databricks interactif et à sélectionner les options relatives à l’échantillonnage source. Vous devez utiliser un cluster Azure Databricks interactif. Ensuite, sélectionnez une taille d’échantillonnage dans chacune de vos transformations Source ou choisissez un fichier texte à utiliser pour vos données de test.
@@ -36,12 +39,12 @@ Quand vous activez le mode débogage, un formulaire dans un panneau latéral vou
 >Quand vous exécutez le mode débogage dans Data Flow, vos données ne sont pas écrites dans la transformation Sink. Le but d’une session de débogage est de servir d’atelier de test pour vos transformations. Les récepteurs ne sont pas obligatoires durant le débogage et sont ignorés dans votre flux de données. Si vous souhaitez tester l’écriture des données dans votre récepteur, exécutez le flux de données à partir d’un pipeline Azure Data Factory et utilisez l’exécution Débogage à partir d’un pipeline.
 
 ## <a name="debug-settings"></a>Paramètres de débogage
-Paramètres de débogage peut être chaque Source à partir de votre flux de données s’affiche dans le panneau latéral et peuvent également être modifiée en sélectionnant « paramètres de la source » sur la barre d’outils Concepteur de flux de données. Vous pouvez sélectionner les limites et/ou la source de fichier à utiliser pour chacune de vos transformations Source ici. Les limites de ligne dans ce paramètre sont uniquement pour la session de débogage actuelle. Vous pouvez également utiliser le paramètre d’échantillonnage dans la source pour la limitation des lignes dans la Source transforamtion.
+Paramètres de débogage peut être chaque Source à partir de votre flux de données s’affiche dans le panneau latéral et peuvent également être modifiée en sélectionnant « paramètres de la source » sur la barre d’outils Concepteur de flux de données. Vous pouvez sélectionner les limites et/ou la source de fichier à utiliser pour chacune de vos transformations Source ici. Les limites de ligne dans ce paramètre sont uniquement pour la session de débogage actuelle. Vous pouvez également utiliser le paramètre d’échantillonnage dans la source pour la limitation des lignes dans la transformation Source.
 
 ## <a name="cluster-status"></a>État du cluster
 Un indicateur d’état du cluster en haut de l’aire de conception devient vert quand le cluster est prêt pour le débogage. Si votre cluster est déjà chaud, l’indicateur vert apparaît presque instantanément. Si votre cluster n’est pas en cours d’exécution quand vous entrez en mode débogage, vous devez attendre 5 à 7 minutes avant que le cluster ne soit opérationnel. L’indicateur reste jaune tant que le cluster n’est pas prêt. Quand votre cluster est prêt pour le débogage de flux de données, l’indicateur passe au vert.
 
-Une fois le débogage terminé, désactivez-le à l’aide du commutateur pour que votre cluster Azure Databricks puisse se terminer.
+Lorsque vous avez terminé le débogage, désactivez le commutateur de débogage afin que votre cluster Azure Databricks peut se terminer et vous serez n’est plus facturé pour l’activité de débogage.
 
 <img src="media/data-flow/datapreview.png" width="400">
 

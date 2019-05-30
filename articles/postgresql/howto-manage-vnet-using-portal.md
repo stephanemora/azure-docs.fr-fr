@@ -1,19 +1,19 @@
 ---
-title: Création et gestion de point de terminaison de service de réseau virtuel et de règles Azure Database pour PostgreSQL à l’aide du portail Azure
-description: Création et gestion de point de terminaison de service de réseau virtuel et de règles Azure Database pour PostgreSQL à l’aide du portail Azure
+title: Créer et gérer des points de terminaison de service réseau virtuel et règles dans Azure Database pour PostgreSQL - serveur unique à l’aide du portail Azure
+description: Créer et gérer des points de terminaison de service réseau virtuel et règles de base de données Azure pour PostgreSQL - serveur unique à l’aide du portail Azure
 author: bolzmj
 ms.author: mbolz
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 10/23/2018
-ms.openlocfilehash: 0f11894e939f589134720f22deb99390e14db9fb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 9da46ae905457f6f6b1786a2161e224d397d0507
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60421640"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65073174"
 ---
-# <a name="create-and-manage-azure-database-for-postgresql-vnet-service-endpoints-and-vnet-rules-by-using-the-azure-portal"></a>Création et gestion de point de terminaison de service de réseau virtuel et de règles de réseau virtuel Azure Database pour PostgreSQL à l’aide du portail Azure
+# <a name="create-and-manage-vnet-service-endpoints-and-vnet-rules-in-azure-database-for-postgresql---single-server-by-using-the-azure-portal"></a>Créer et gérer des points de terminaison de service réseau virtuel et règles de réseau virtuel dans Azure Database pour PostgreSQL - serveur unique à l’aide du portail Azure
 Les règles et points de terminaison de service de réseau virtuel étendent l’espace d’adressage privé d’un réseau virtuel à votre serveur Azure Database pour PostgreSQL. Pour une vue d’ensemble des points de terminaison de service de réseau virtuel Azure Database pour PostgreSQL, y compris les limitations, consultez [Use Virtual Network service endpoints and rules for Azure Database for PostgreSQL](concepts-data-access-and-security-vnet.md) (Utiliser des règles et points de terminaison de service de réseau virtuel pour Azure Database pour PostgreSQL). Les points de terminaison de service de réseau virtuel sont disponibles dans toutes les régions prises en charge pour Azure Database pour PostgreSQL.
 
 > [!NOTE]

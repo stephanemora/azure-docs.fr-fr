@@ -11,30 +11,30 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/17/2019
+ms.date: 05/23/2019
 ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3fa5c5638da390f4416afc9f4bd9c5d58c34cea8
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 0f4e71bd7fd7e0ed9a220619995ba108fdccabe4
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65825572"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66233745"
 ---
 # <a name="set-a-custom-home-page-for-published-apps-by-using-azure-ad-application-proxy"></a>Définir une page d’accueil personnalisée pour les applications publiées à l’aide du proxy d’application Azure AD
 
-Cet article explique comment configurer une application pour diriger un utilisateur vers une page d’accueil personnalisée, qui peut différer selon qu’elles soient internes ou externes. Lorsque vous publiez une application avec Proxy d’Application, vous définissez une URL interne, mais qui n’est parfois pas la page de qu'un utilisateur doit tout d’abord voir. Définir une page d’accueil personnalisée afin qu’un utilisateur obtient la bonne page lorsqu’ils accèdent à l’application. Un utilisateur verra la page d’accueil personnalisée que vous définissez, quel que soit leur accès l’application à partir du volet d’accès Azure Active Directory ou du Lanceur d’applications Office 365.
+Cet article explique comment configurer une application pour diriger un utilisateur vers une page d’accueil personnalisée. Lorsque vous publiez une application avec Proxy d’Application, vous définissez une URL interne, mais qui n’est parfois pas la page de qu'un utilisateur doit tout d’abord voir. Définir une page d’accueil personnalisée afin qu’un utilisateur obtient la bonne page lorsqu’ils accèdent à l’application. Un utilisateur verra la page d’accueil personnalisée que vous définissez, quel que soit leur accès l’application à partir du volet d’accès Azure Active Directory ou du Lanceur d’applications Office 365.
 
 Lorsqu’un utilisateur lance l’application, ils sont dirigés par défaut pour l’URL du domaine racine de l’application publiée. La page d’arrivée est généralement définie comme URL de page d’accueil. Utiliser le module Azure AD PowerShell pour définir une URL de page d’accueil personnalisée lorsque vous souhaitez un utilisateur de l’application arrivent sur une page spécifique au sein de l’application.
 
-Un scénario de Voici qui explique pourquoi votre entreprise définirait une page d’accueil personnalisée, et pourquoi il serait différente selon le type d’utilisateur :
+Voici un scénario qui explique pourquoi votre entreprise définirait une page d’accueil personnalisée :
 
+- À l’intérieur de votre réseau d’entreprise, un utilisateur accède à `https://ExpenseApp/login/login.aspx` pour se connecter et accéder à votre application.
 - Étant donné que vous avez d’autres composants (tels que des images) que le Proxy d’Application doit accéder au niveau supérieur de la structure de dossiers, vous publiez l’application avec `https://ExpenseApp` en tant que l’URL interne.
-- Toutefois, à l’intérieur de votre réseau d’entreprise, un utilisateur accède à `https://ExpenseApp/login/login.aspx` pour se connecter et accéder à votre application.
 - L’URL externe par défaut est `https://ExpenseApp-contoso.msappproxy.net`, qui ne prend pas un utilisateur externe à la page de connexion.
-- Vous souhaitez définir `https://ExpenseApp-contoso.msappproxy.net/login/login.aspx` comme URL de la page d’accueil externe au lieu de cela, par conséquent, un utilisateur externe voit la page de connexion tout d’abord.
+- Vous souhaitez définir `https://ExpenseApp-contoso.msappproxy.net/login/login.aspx` comme URL de la page d’accueil à la place, par conséquent, un utilisateur externe voit la page de connexion tout d’abord.
 
 >[!NOTE]
 >Si vous octroyez aux utilisateurs un accès aux applications publiées, celles-ci sont affichées dans le [volet d’accès Azure AD](../user-help/my-apps-portal-end-user-access.md) et le [lanceur d’applications Office 365](https://www.microsoft.com/microsoft-365/blog/2016/09/27/introducing-the-new-office-365-app-launcher/).
@@ -49,21 +49,21 @@ Avant de définir l’URL de page d’accueil, n’oubliez pas les exigences sui
 
 - Si vous apportez une modification à l’application publiée, ce changement peut réinitialiser la valeur de l’URL de page d’accueil. Ultérieurement, lorsque vous mettez à jour l’application, vous devez revérifier et, si nécessaire, mettre à jour l’URL de page d’accueil.
 
-Vous pouvez modifier la page d’accueil interne ou externe via le portail Azure ou à l’aide de PowerShell.
+Vous pouvez définir l’URL de la page d’accueil via le portail Azure ou à l’aide de PowerShell.
 
 ## <a name="change-the-home-page-in-the-azure-portal"></a>Changer la page d’accueil du portail Azure
 
-Pour modifier les pages d’accueil externes et internes de votre application via le portail Azure AD, procédez comme suit :
+Pour modifier l’URL de la page d’accueil de votre application via le portail Azure AD, procédez comme suit :
 
-1. Se connecter à la [portail Azure Active Directory](https://aad.portal.azure.com/). Le tableau de bord du centre d’administration Azure Active Directory s’affiche.
-2. Dans la barre latérale, sélectionnez **Azure Active Directory**. La page de vue d’ensemble d’Azure AD s’affiche.
-3. Dans la barre latérale de vue d’ensemble, sélectionnez **inscriptions**. La liste des applications inscrites s’affiche.
-4. Choisissez votre application dans la liste. Une page présentant les détails de l’application inscrite s’affiche.
-5. Sélectionnez le lien situé sous **URI de redirection**, qui affiche le nombre d’URI de redirection pour le web et les types de client public. La page d’authentification pour l’application inscrite s’affiche.
-6. Dans la dernière ligne de la **URI de redirection** table, définissez la **TYPE** colonne à **client Public (mobile et bureau)**, puis, dans le **URI de redirection**colonne, tapez l’URL interne que vous souhaitez utiliser. Une nouvelle ligne vide apparaît au-dessous de la ligne que vous venez de modifier.
-7. Dans la nouvelle ligne, définissez la **TYPE** colonne à **Web**, puis, dans le **URI de redirection** colonne, tapez l’URL externe que vous souhaitez utiliser.
-8. Si vous souhaitez supprimer des lignes d’URI de redirection existantes, sélectionnez le **supprimer** icône (une poubelle) en regard de chaque ligne indésirable.
-9. Sélectionnez **Enregistrer**.
+1. Connectez-vous au [portail Azure](https://portal.azure.com/) en tant qu’administrateur.
+2. Sélectionnez **Azure Active Directory**, puis **inscriptions**. La liste des applications inscrites s’affiche.
+3. Choisissez votre application dans la liste. Une page présentant les détails de l’application inscrite s’affiche.
+4. Sous **gérer**, sélectionnez **Branding**.
+5. Mise à jour le **URL de la page d’accueil** avec votre nouveau chemin d’accès.
+
+   ![Page de personnalisation pour une application inscrite indique que le champ URL de la Page d’accueil](media/application-proxy-configure-custom-home-page/app-proxy-app-branding.png)
+ 
+6. Sélectionnez **Enregistrer**.
 
 ## <a name="change-the-home-page-with-powershell"></a>Changer la page d’accueil à l’aide de PowerShell
 

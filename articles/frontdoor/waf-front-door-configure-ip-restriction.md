@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/25/2019
+ms.date: 05/21/2019
 ms.author: kumud;tyao
-ms.openlocfilehash: b129579916330a34a2a78d98f2c7653f129d3319
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: dae2bb8ece9ef56c0999e0f89abbf6f8d8e950e2
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65523706"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242940"
 ---
 # <a name="configure-an-ip-restriction-rule-with-web-application-firewall-for-azure-front-door-preview"></a>Configurer une règle de restriction IP avec des pare-feu d’applications web pour Azure porte d’entrée (version préliminaire)
  Cet article vous montre comment configurer des règles de restriction IP dans le pare-feu d’applications Azure web (WAF) pour la porte d’entrée à l’aide d’Azure CLI, Azure PowerShell ou Azure Resource Manager d’un modèle.
@@ -157,7 +157,7 @@ Créer une correspondance IP toutes les règles de condition
    Utilisez le [New-AzFrontDoorCustomRuleObject](/powershell/module/Az.FrontDoor/New-azfrontdoorwafcustomruleobject) commande pour définir une action et définissez une priorité. Dans l’exemple suivant, à partir d’adresses IP des clients, les requêtes qui correspondent à la liste seront autorisés. 
 
 ```powershell
-  $IPAllowRule = New-AzFrontDoorCustomRuleObject `
+  $IPAllowRule = New-AzFrontDoorWafCustomRuleObject `
     -Name "IPAllowRule" `
     -RuleType MatchRule `
     -MatchCondition $IPMatchCondition `
@@ -166,7 +166,7 @@ Créer une correspondance IP toutes les règles de condition
 Créez un bloc de toutes les règles IP avec une priorité plus faible que la règle d’autorisation de l’adresse IP précédente.
 
 ```powershell
-  $IPBlockAll = New-AzFrontDoorCustomRuleObject `
+  $IPBlockAll = New-AzFrontDoorWafCustomRuleObject `
     -Name "IPDenyAll" `
     -RuleType MatchRule `
     -MatchCondition $IPMatchALlCondition `

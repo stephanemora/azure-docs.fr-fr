@@ -8,12 +8,12 @@ ms.date: 04/25/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: hegate
-ms.openlocfilehash: c0a03b70c6e5e4742e03d4892b2b5f97c908ab9c
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: c50271e28db104522c0e8811508fa882dc316eab
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65467965"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235804"
 ---
 # <a name="build-workflows-with-the-iot-central-connector-in-microsoft-flow"></a>Créer des flux de travail avec le connecteur IoT Central dans Microsoft Flow
 
@@ -41,7 +41,7 @@ Cette section vous montre comment déclencher une notification mobile dans l’a
 
     ![Créer une action Microsoft Flow](media/howto-add-microsoft-flow/createflowaction.png)
 
-1. Vous verrez une liste de flux de travail qui vous avez accès à et sont attachés à cette règle IoT Central. Cliquez sur **Explorer des modèles** ou **New > à partir d’un modèle** et vous pouvez choisir parmi tous les modèles disponibles. 
+1. Vous verrez une liste de flux de travail que vous avez accès à et sont attachés à cette règle IoT Central. Cliquez sur **Explorer des modèles** ou **New > à partir d’un modèle** et vous pouvez choisir parmi tous les modèles disponibles. 
 
     ![Modèles Microsoft Flow disponibles](media/howto-add-microsoft-flow/flowtemplates1.png)
 

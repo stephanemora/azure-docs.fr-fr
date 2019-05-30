@@ -11,32 +11,28 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 05/22/2019
 ms.author: juliako
-ms.openlocfilehash: ac440be4444ca0d62f7ffde2b8b65e41dcba6683
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 041a73cd2840e0b6a1840e15629d9c0e284e9890
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66002434"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66225524"
 ---
-# <a name="dynamic-manifests"></a>Manifestes dynamiques
+# <a name="pre-filtering-manifests-with-dynamic-packager"></a>Manifestes de filtrage préalable avec l’empaquetage dynamique
 
-Media Services propose des **manifestes dynamiques** basés sur des filtres prédéfinis. Lorsque vous définissez des filtres (voir [Définir des filtres](filters-concept.md)), vos clients peuvent les utiliser pour diffuser un rendu ou des sous-clips spécifiques de votre vidéo. Ils peuvent spécifier des filtres dans l'URL de diffusion en continu. Il serait possible d’appliquer des filtres à des protocoles de streaming à débit adaptatif : HLS (HTTP Live Streaming) Apple, MPEG-DASH et Smooth Streaming. 
+Lorsque vous diffusez du contenu vers des appareils de streaming à débit adaptatif, vous devez souvent publier plusieurs versions d’un manifeste pour les fonctionnalités du périphérique spécifique cible ou la bande passante réseau disponible. Le [l’empaquetage dynamique](dynamic-packaging-overview.md) permet de spécifier des filtres qui peuvent filtrer les codecs spécifiques, des résolutions et vitesses de transmission audio combinaisons à la volée évite d’avoir à créer plusieurs copies de suivre. Vous devez simplement publier une nouvelle URL avec un ensemble spécifique de filtres configurés pour vos appareils cibles (iOS, Android, SmartTV ou navigateurs) et les fonctionnalités de réseau (scénarios de bande passante élevée, mobiles ou faible bande passante). Dans ce cas, les clients peuvent manipuler la diffusion en continu de votre contenu via la chaîne de requête (en spécifiant disponible [filtres de ressource ou compte](filters-concept.md)) et utiliser des filtres pour diffuser des sections spécifiques d’un flux.
 
-Le tableau suivant présente des exemples d’URL utilisant des filtres :
+Certains scénarios de remise requièrent que vous vous assurer qu'un client est impossible d’accéder aux pistes spécifiques. Par exemple, il pourrez que vous ne souhaitez pas publier un manifeste qui contient des pistes HD vers un niveau de l’abonné spécifique. Ou bien, vous souhaiterez Supprimer pistes spécifique à débit adaptatif (TBD) pour réduire les coûts de livraison à un appareil spécifique qui ne bénéfique pas des pistes supplémentaires. Dans ce cas, vous pouvez associer une liste de filtres créés au préalable avec votre [localisateur de diffusion en continu](streaming-locators-concept.md) lors de la création. Dans ce cas, les clients ne peut pas manipuler la façon dont le contenu est diffusé en continu, il est défini par le **localisateur de diffusion en continu**.
 
-|Protocol|Exemples|
-|---|---|
-|HLS|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=m3u8-aapl,filter=myAccountFilter)`|
-|MPEG DASH|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=mpd-time-csf,filter=myAssetFilter)`|
-|Smooth Streaming|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(filter=myAssetFilter)`|
- 
+Vous pouvez combiner le filtrage via la spécification [filtres sur le localisateur de diffusion en continu](filters-concept.md#associating-filters-with-streaming-locator) + filtres spécifiques supplémentaires sur les appareils qui spécifie de votre client dans l’URL. Cela peut être utile pour limiter les pistes supplémentaires tels que les flux de métadonnées ou un événement, langues audio ou des pistes audio descriptifs. 
+
+Cette possibilité de spécifier des filtres différents sur votre flux, fournit un puissant **manifeste dynamique** solution de manipulation de cibler plusieurs scénarios d’utilisation pour vos appareils cibles. Cette rubrique décrit les concepts liés aux **Manifestes dynamiques** et fournit des exemples de scénarios dans lesquels vous pouvez utiliser cette fonctionnalité.
+
 > [!NOTE]
-> Les manifestes dynamiques ne changent pas l'élément multimédia ni son manifeste par défaut. Votre client peut choisir de demander un flux avec ou sans filtres. 
+> Les manifestes dynamiques ne changent pas l'élément multimédia ni son manifeste par défaut. 
 > 
-
-Cette rubrique décrit les concepts liés aux **Manifestes dynamiques** et fournit des exemples de scénarios dans lesquels vous pouvez utiliser cette fonctionnalité.
 
 ## <a name="manifests-overview"></a>Vue d’ensemble des manifestes
 
@@ -55,6 +51,16 @@ Pour l’exemple REST, consultez [Charger, encoder et diffuser en continu](strea
 Vous pouvez utiliser la [page de démo Azure Media Player](https://aka.ms/amp) pour surveiller la vitesse de transmission d’un flux vidéo. La page de démo affiche des informations de diagnostic dans l’onglet **Diagnostics** :
 
 ![Diagnostics Azure Media Player][amp_diagnostics]
+ 
+### <a name="examples-urls-with-filters-in-query-string"></a>Exemples : URL avec des filtres dans la chaîne de requête
+
+Il serait possible d’appliquer des filtres à des protocoles de streaming à débit adaptatif : HLS, MPEG-DASH et Smooth Streaming. Le tableau suivant présente des exemples d’URL utilisant des filtres :
+
+|Protocol|Exemples|
+|---|---|
+|HLS|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=m3u8-aapl,filter=myAccountFilter)`|
+|MPEG DASH|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=mpd-time-csf,filter=myAssetFilter)`|
+|Smooth Streaming|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(filter=myAssetFilter)`|
 
 ## <a name="rendition-filtering"></a>Filtrage de rendu
 
@@ -121,10 +127,6 @@ Pour combiner des filtres, vous devez définir les noms de filtre dans l’URL d
 Vous pouvez combiner jusqu’à trois filtres. 
 
 Pour plus d’informations, consultez [ce](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/) blog.
-
-## <a name="associate-filters-with-streaming-locator"></a>Associer des filtres de localisateur de diffusion en continu
-
-Consultez [filtres : associer avec des localisateurs de diffusion en continu](filters-concept.md#associate-filters-with-streaming-locator).
 
 ## <a name="considerations-and-limitations"></a>Considérations et limitations
 

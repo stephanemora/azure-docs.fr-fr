@@ -8,12 +8,12 @@ ms.date: 05/10/2019
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: 4e28ca15197f89caeaeaca0aabb648755b8235f1
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
+ms.openlocfilehash: b6ef57a3f39c82be30d92aef72c1bbe03b653768
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65551539"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236504"
 ---
 # <a name="get-resource-changes"></a>Obtenir les changements des ressources
 
@@ -29,7 +29,7 @@ Détection des modifications et les détails sont utiles pour les exemples de sc
 - En conservant une base de données de gestion de Configuration, appelé une base de données, à jour. Au lieu de l’actualisation de toutes les ressources et leurs jeux de propriétés complet selon une fréquence planifiée, obtenir uniquement ce qui a changé.
 - Comprendre quelles autres propriétés ont été modifiées lorsqu’une ressource a changé d’état de conformité. Évaluation de ces propriétés supplémentaires peut fournir des informations dans les autres propriétés devant être gérés via une définition de stratégie de Azure.
 
-Cet article montre comment rassembler ces informations via le kit SDK du graphique de la ressource. Pour obtenir ces informations dans le portail Azure, consultez de la stratégie Azure [l’historique des modifications](../../policy/how-to/determine-non-compliance.md#change-history-preview) ou le journal d’activité Azure [l’historique des modifications](../../../azure-monitor/platform/activity-logs-overview.md#view-change-history).
+Cet article montre comment rassembler ces informations via le kit SDK du graphique de la ressource. Pour obtenir ces informations dans le portail Azure, consultez de la stratégie Azure [l’historique des modifications](../../policy/how-to/determine-non-compliance.md#change-history-preview) ou le journal d’activité Azure [l’historique des modifications](../../../azure-monitor/platform/activity-log-view.md#azure-portal).
 
 > [!NOTE]
 > Détail des modifications dans le graphique des ressources est pour les propriétés de Resource Manager. Pour le suivi des modifications à l’intérieur d’une machine virtuelle, consultez d’Azure Automation [le suivi des modifications](../../../automation/automation-change-tracking.md) ou de la stratégie Azure [Configuration invité pour les machines virtuelles](../../policy/concepts/guest-configuration.md).
@@ -44,7 +44,7 @@ La première étape pour voir ce qui a changé sur une ressource consiste à tro
 Le **resourceChanges** point de terminaison requiert deux paramètres dans le corps de la demande :
 
 - **resourceId**: La ressource Azure pour rechercher des modifications à.
-- **Intervalle**: Une propriété avec _Démarrer_ et _fin_ dates de contrôle pour un événement de modification à l’aide de la **Zulu fuseau horaire (Z)**.
+- **Intervalle**: Une propriété avec _Démarrer_ et _fin_ dates de contrôle pour un événement de modification à l’aide de la **Zulu fuseau horaire (Z)** .
 
 Exemple de corps de requête :
 

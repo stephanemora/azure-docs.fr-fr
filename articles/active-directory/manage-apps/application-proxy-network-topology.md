@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9ee8800d84d1090f97fb72980123f59d5aa0375
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: cf8e7fed30a9b25b2960e3321eca5c4398911f35
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65783477"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236245"
 ---
 # <a name="network-topology-considerations-when-using-azure-active-directory-application-proxy"></a>Considérations sur la topologie du réseau lors de l’utilisation du proxy d’application Azure Active Directory
 
@@ -102,7 +102,7 @@ La latence n’est pas compromise, car le trafic circule sur une connexion dédi
 
 Bien que cet article ait pour objectif le placement du connecteur, vous pouvez également modifier le placement de l’application pour obtenir de meilleures caractéristiques de latence.
 
-De plus en plus d’organisations déplacent leurs réseaux dans des environnements hébergés. Cela leur permet de placer leurs applications dans un environnement hébergé qui fait également partie de leur réseau d’entreprise tout en restant au sein du domaine. Dans ce cas, les modèles décrits dans les sections précédentes peuvent être appliqués au nouvel emplacement de l’application. Si vous envisagez cette option, consultez la page [Services de domaine Azure AD](../../active-directory-domain-services/active-directory-ds-overview.md).
+De plus en plus d’organisations déplacent leurs réseaux dans des environnements hébergés. Cela leur permet de placer leurs applications dans un environnement hébergé qui fait également partie de leur réseau d’entreprise tout en restant au sein du domaine. Dans ce cas, les modèles décrits dans les sections précédentes peuvent être appliqués au nouvel emplacement de l’application. Si vous envisagez cette option, consultez la page [Services de domaine Azure AD](../../active-directory-domain-services/overview.md).
 
 Envisagez également d’organiser vos connecteurs à l’aide de [groupes de connecteurs](application-proxy-connector-groups.md) pour les applications cibles qui se trouvent dans des réseaux et des emplacements différents. 
 
