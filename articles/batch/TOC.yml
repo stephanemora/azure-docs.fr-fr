@@ -1,6 +1,6 @@
 - name: Documentation Batch
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: Présentation d’Azure Batch
       href: batch-technical-overview.md
@@ -65,7 +65,7 @@
           href: batch-aad-auth.md
         - name: Azure AD avec gestion de lots
           href: batch-aad-auth-management.md
-    - name: Créer des packages d’applications
+    - name: Utilisation de packages d’application
       href: batch-application-packages.md
     - name: Créer et gérer des pools
       items:

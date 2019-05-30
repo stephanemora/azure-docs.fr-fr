@@ -1,6 +1,6 @@
 - name: Documentation IoT Hub
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: "Qu’est-ce qu’Azure IoT Hub\_?"
       href: about-iot-hub.md
@@ -66,6 +66,8 @@
               href: tutorial-routing-config-message-routing-PowerShell.md
         - name: "Partie\_2 - Voir les résultats de routage des messages"
           href: tutorial-routing-view-message-routing-results.md
+    - name: Enrichissements de message
+      href: tutorial-message-enrichments.md
     - name: Utiliser les journaux d’activité de métriques et diagnostics
       href: tutorial-use-metrics-and-diags.md
     - name: Effectuer un basculement manuel
@@ -78,6 +80,8 @@
       href: tutorial-connectivity.md
 - name: Concepts
   items:
+    - name: Vue d’ensemble des enrichissements de message
+      href: iot-hub-message-enrichments-overview.md
     - name: Présentation de la gestion des appareils
       href: iot-hub-device-management-overview.md
     - name: Comparer IoT Hub et Event Hubs

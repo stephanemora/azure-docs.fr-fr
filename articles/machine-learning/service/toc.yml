@@ -78,6 +78,9 @@
         - name: Prédire l’évolution
           displayName: 'Basic Sample, training, classification, sample 5'
           href: ui-sample-classification-predict-churn.md
+    - name: Azure Open Datasets
+      href: 'https://docs.microsoft.com/azure/open-datasets/samples'
+      maintainContext: true
 - name: Concepts
   items:
     - name: Espace de travail
@@ -130,6 +133,9 @@
         - name: Activation de la journalisation
           displayName: 'troubleshoot, log, files, tracing'
           href: how-to-enable-logging.md
+        - name: Définir les répertoires d’entrée et de sortie
+          displayName: 'large data, write, experiment files, size limit'
+          href: how-to-save-write-experiment-files.md
         - name: "Utiliser l’extension VS\_Code"
           displayName: 'Visual Studio Code, VSCode, tools, ai, vs'
           href: how-to-vscode-tools.md

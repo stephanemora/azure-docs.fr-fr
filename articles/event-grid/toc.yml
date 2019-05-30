@@ -101,6 +101,8 @@
       href: event-sources.md
     - name: Gestionnaires d’événements
       href: event-handlers.md
+    - name: Géoreprise d’activité après sinistre
+      href: geo-disaster-recovery.md
 - name: Guides pratiques
   items:
     - name: Envoyer des messages dans une rubrique personnalisée

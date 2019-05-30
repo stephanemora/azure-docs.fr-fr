@@ -1,6 +1,6 @@
 - name: Documentation sur les groupes de machines virtuelles identiques
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: Que sont les groupes de machines virtuelles identiques ?
       href: overview.md
@@ -223,9 +223,17 @@
               href: virtual-machine-scale-sets-manage-cli.md
             - name: Utilisation d'Azure PowerShell
               href: virtual-machine-scale-sets-manage-powershell.md
+        - name: Modifier un groupe identique
+          href: virtual-machine-scale-sets-upgrade-scale-set.md
+        - name: Mise en réseau pour les groupes identiques
+          href: virtual-machine-scale-sets-networking.md
+        - name: Mises à niveau automatiques des systèmes d’exploitation
+          href: virtual-machine-scale-sets-automatic-upgrade.md
+        - name: Protection des instances (préversion)
+          href: virtual-machine-scale-sets-instance-protection.md
         - name: Galeries d’images partagées
           items:
-            - name: Vue d’ensemble
+            - name: Vue d'ensemble
               href: shared-image-galleries.md
             - name: Interface de ligne de commande
               href: shared-images-cli.md
@@ -237,14 +245,8 @@
               href: troubleshooting-shared-images.md
         - name: Mise à l’échelle verticale dans un groupe de machines virtuelles identiques
           href: virtual-machine-scale-sets-vertical-scale-reprovision.md
-        - name: Mises à niveau automatiques des systèmes d’exploitation
-          href: virtual-machine-scale-sets-automatic-upgrade.md
-        - name: Modifier un groupe identique
-          href: virtual-machine-scale-sets-upgrade-scale-set.md
         - name: Groupes de machines virtuelles identiques et configuration d’état souhaité
           href: virtual-machine-scale-sets-dsc.md
-        - name: Mise en réseau pour les groupes identiques
-          href: virtual-machine-scale-sets-networking.md
         - name: Convertir un modèle en disques managés
           href: virtual-machine-scale-sets-convert-template-to-md.md
         - name: Maintenance planifiée

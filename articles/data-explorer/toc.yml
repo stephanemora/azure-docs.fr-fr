@@ -1,6 +1,6 @@
 - name: Documentation de l’Explorateur de données Azure
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: Qu’est-ce que l'Explorateur de données ?
       href: data-explorer-overview.md
@@ -41,14 +41,6 @@
           href: web-query-data.md
         - name: Python
           href: python-query-data.md
-    - name: Visualiser les données
-      items:
-        - name: "Power\_BI\_- connecteur"
-          href: power-bi-connector.md
-        - name: "Power\_BI\_- requête importée"
-          href: power-bi-imported-query.md
-        - name: "Power\_BI\_- requête SQL"
-          href: power-bi-sql-query.md
 - name: Tutoriels
   items:
     - name: Ingérer les données sans utiliser de code
@@ -80,6 +72,20 @@
           href: anomaly-detection.md
         - name: Apprentissage automatique
           href: machine-learning-clustering.md
+    - name: Visualiser les données
+      items:
+        - name: Power BI
+          items:
+            - name: connecteur
+              href: power-bi-connector.md
+            - name: requête importée
+              href: power-bi-imported-query.md
+            - name: "Requête\_SQL"
+              href: power-bi-sql-query.md
+        - name: Sisense
+          href: sisense.md
+        - name: Grafana
+          href: grafana.md
     - name: gérer
       items:
         - name: Gérer des autorisations de base de données
@@ -108,8 +114,6 @@
           href: kqlmagic.md
         - name: Copier des données à l’aide d’Azure Data Factory
           href: data-factory-load-data.md
-        - name: Visualiser des données dans Grafana
-          href: grafana.md
         - name: Se connecter à ODBC
           href: connect-odbc.md
     - name: Résolution des problèmes

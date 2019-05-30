@@ -1,6 +1,6 @@
 - name: API Azure pour FHIR
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: À propos de l’API Azure pour FHIR
       href: overview.md
@@ -23,6 +23,8 @@
       href: fhir-oss-cli-quickstart.md
     - name: Configuration de CORS
       href: configure-cross-origin-resource-sharing.md
+    - name: Configurer Cosmos DB
+      href: configure-cosmos-db.md
 - name: Tutoriels
   expanded: false
   items:

@@ -1,6 +1,6 @@
 - name: Documentation Gestion des appareils
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: "En quoi consiste la gestion des appareils dans Azure AD\_?"
       href: overview.md
@@ -22,6 +22,8 @@
   items:
     - name: Authentification unique auprès de ressources locales
       href: azuread-join-sso.md
+    - name: Stations de travail gérées par Azure
+      href: concept-azure-managed-workstation.md
 - name: Guides pratiques
   expanded: true
   items:
@@ -39,6 +41,8 @@
       href: assign-local-admin.md
     - name: Activer Enterprise State Roaming
       href: enterprise-state-roaming-enable.md
+    - name: Déployer des stations de travail gérées par Azure
+      href: howto-azure-managed-workstation.md
     - name: Résoudre les problèmes de jointure d’Azure AD hybride pour les appareils Windows actuels
       href: troubleshoot-hybrid-join-windows-current.md
     - name: Résoudre les problèmes d’appareils Windows hérités joints Azure AD
