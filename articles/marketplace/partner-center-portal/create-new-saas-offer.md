@@ -7,12 +7,12 @@ ms.author: mattwoj
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 30e547759cbafabf5f762f671b09b0cbeea3a44c
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
+ms.openlocfilehash: 9750aa924ba4b6e4e5f3a51e5b34531d3fab0a6e
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65851231"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243307"
 ---
 # <a name="create-a-new-saas-offer"></a>Créez une offre SaaS
 
@@ -89,7 +89,7 @@ Logiciel de frais de licence sont présentées sous la forme d’un tarif forfai
 - Les partenaires qui ont qualifié pour le **réduite frais liés au Service place de marché** verront un tarif réduit de transaction sur le SaaS offre à partir de 2019 mai jusqu'à juin 2020. Dans ce scénario, Microsoft facture 100,00 $ à votre licence du logiciel et paie out $90,00 au serveur de publication.
 
 > [!NOTE]
-> **Réduit les frais liés au Service place de marché**: Pour certains SaaS offre que vous avez publié sur notre place de marché Commercial, Microsoft sera réduire ses frais liés au Service place de marché de 20 % (comme décrit dans le contrat d’éditeur Microsoft) à 10 %. Dans l’ordre de votre offre qualifier, au moins un de vos offres doit avoir été désigné par Microsoft comme étant IP vente conjointe prêt ou vente conjointe IP par ordre de priorité.  Éligibilité à respecter au moins cinq (5) jours ouvrés avant la fin de chaque mois du calendrier afin de recevoir ces frais de Service place de marché réduit pour le mois.  Les frais de place de marché réduit ne s’applique pas aux machines virtuelles, les applications gérées ou d’autres produits mis à disposition via notre place de marché Commercial.  Les frais de place de marché réduit sera uniquement disponible pour les offres qualifiés pour les frais de licence collectées par Microsoft entre le 31 mai 2019 et le 30 juin 2020.  Après cette date, les frais de place de marché renvoie à son nombre normal. 
+> **Réduit les frais liés au Service place de marché**: Pour certains SaaS offre que vous avez publié sur notre place de marché Commercial, Microsoft sera réduire ses frais liés au Service place de marché de 20 % (comme décrit dans le contrat d’éditeur Microsoft) à 10 %. Dans l’ordre de votre offre qualifier, au moins un de vos offres doit avoir été désigné par Microsoft comme étant IP vente conjointe prêt ou vente conjointe IP par ordre de priorité.  Éligibilité à respecter au moins cinq (5) jours ouvrés avant la fin de chaque mois du calendrier afin de recevoir ces frais de Service place de marché réduit pour le mois.  Les frais de place de marché réduit ne s’applique pas aux machines virtuelles, les applications gérées ou d’autres produits mis à disposition via notre place de marché Commercial.  Les frais de place de marché réduit sera uniquement disponible pour les offres qualifiés pour les frais de licence collectées par Microsoft entre le 1 mai 2019 et le 30 juin 2020.  Après cette date, les frais de place de marché renvoie à son nombre normal. 
 
 |**Microsoft facture**|**100 $ par mois**|
 |:---|:---|
@@ -112,11 +112,15 @@ Promouvoir votre entreprise avec Microsoft en créant une annonce de la place de
 ##### <a name="get-it-now-free"></a>Obtenez-le maintenant (gratuit)
 Liste de gratuitement votre offre aux clients en fournissant une URL valide (commençant par http ou https), où ils peuvent accéder à votre application.  Par exemple : `https://contoso.com/saas-app`
 
-##### <a name="free-trial"></a>Évaluation gratuite
+##### <a name="free-trial"></a>Essai gratuit
 Répertorier votre offre aux clients sur une base d’évaluation gratuite en fournissant une URL valide (commençant par http ou https), où ils peuvent accéder à votre application.  Par exemple : `https://contoso.com/trial/saas-app`
 
 ##### <a name="contact-me"></a>Me contacter
 Collecter les informations de contact client en vous connectant à votre système de gestion de relation client (CRM). Le client sera demandé pour l’autorisation de partager leurs informations. Ces détails du client, ainsi que le nom de l’offre, un ID et une source de la place de marché où ils trouvent votre offre, seront envoyés au système CRM que vous avez configuré. Pour plus d’informations sur la configuration de votre système CRM, consultez [gestion des prospects Connect](#connect-lead-management). 
+
+## <a name="example-marketplace-offer-listing"></a>La place de marché exemple offrent l’annonce
+
+![Des notes offres place de marché, exemple](./media/marketplace-offer.svg)
 
 ## <a name="enable-a-test-drive"></a>Activer une version d’évaluation
 
@@ -128,12 +132,12 @@ En activant la version d’évaluation, vous devrez configurer un environnement 
 
 ### <a name="type-of-test-drive"></a>Type de version d’évaluation
 
-- **[Azure Resource Manager](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive)**: Un modèle de déploiement qui contient toutes les ressources Azure qui composent votre solution. Les produits qui correspondent à ce scénario utilisent uniquement les ressources Azure.
-- **[Dynamics 365 pour Business Central](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cpp-business-central-offer)**: Microsoft héberge et gère le service de lecteur de test (y compris l’approvisionnement et le déploiement) pour un système de planification des ressources d’entreprise Business Central (finance, opérations, chaîne d’approvisionnement, CRM, etc..).  
-- **[Dynamics 365 for Customer Engagement](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/dyn365ce/cpp-customer-engagement-offer)**: Microsoft héberge et gère le service de lecteur de test (y compris l’approvisionnement et le déploiement) pour un système d’Engagement des clients (ventes, service, service de projet, service après-vente, etc.).  
-- **[Dynamics 365 pour les opérations](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cpp-dynamics-365-operations-offer)**: Microsoft héberge et gère le service de lecteur de test (y compris l’approvisionnement et le déploiement) pour un Finance and Operations système enterprise resource planning (finance, opérations, fabrication, la chaîne logistique, etc.). 
-- **[Application logique](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/logic-app-test-drive)**: Un modèle de déploiement englobant toutes les architectures de solution complexe. Tous les produits personnalisés doivent utiliser ce type de version d’évaluation.
-- **[Power BI](https://docs.microsoft.com/power-bi/service-template-apps-overview)**: Un lien incorporé à un tableau de bord personnalisé. Produits qui veulent démontrer qu'un visuel Power BI interactive doivent utiliser ce type de version d’évaluation. Il vous suffit de charger votre URL Power BI incorporée.
+- **[Azure Resource Manager](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive)** : Un modèle de déploiement qui contient toutes les ressources Azure qui composent votre solution. Les produits qui correspondent à ce scénario utilisent uniquement les ressources Azure.
+- **[Dynamics 365 pour Business Central](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cpp-business-central-offer)** : Microsoft héberge et gère le service de lecteur de test (y compris l’approvisionnement et le déploiement) pour un système de planification des ressources d’entreprise Business Central (finance, opérations, chaîne d’approvisionnement, CRM, etc..).  
+- **[Dynamics 365 for Customer Engagement](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/dyn365ce/cpp-customer-engagement-offer)** : Microsoft héberge et gère le service de lecteur de test (y compris l’approvisionnement et le déploiement) pour un système d’Engagement des clients (ventes, service, service de projet, service après-vente, etc.).  
+- **[Dynamics 365 pour les opérations](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cpp-dynamics-365-operations-offer)** : Microsoft héberge et gère le service de lecteur de test (y compris l’approvisionnement et le déploiement) pour un Finance and Operations système enterprise resource planning (finance, opérations, fabrication, la chaîne logistique, etc.). 
+- **[Application logique](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/logic-app-test-drive)** : Un modèle de déploiement englobant toutes les architectures de solution complexe. Tous les produits personnalisés doivent utiliser ce type de version d’évaluation.
+- **[Power BI](https://docs.microsoft.com/power-bi/service-template-apps-overview)** : Un lien incorporé à un tableau de bord personnalisé. Produits qui veulent démontrer qu'un visuel Power BI interactive doivent utiliser ce type de version d’évaluation. Il vous suffit de charger votre URL Power BI incorporée.
 
 #### <a name="additional-test-drive-resources"></a>Ressources de lecteur de test supplémentaires
 - [Meilleures pratiques de test lecteur techniques](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
@@ -170,14 +174,15 @@ Sélectionnez **enregistrer** après avoir effectué ces champs.
 ### <a name="category"></a>Catégorie
 Sélectionnez un minimum d’un (1) et un maximum de trois (3) les catégories utilisées pour regrouper votre offre dans les zones de recherche de la place de marché approprié. Énoncer de comment votre offre prend en charge ces catégories dans la description de l’offre. 
 
-### <a name="industry"></a>Secteur d'activité
+### <a name="industry"></a>Secteur d’activité
 Sélectionnez jusqu'à deux (2) les secteurs utilisés pour le regroupement de votre offre dans les zones de recherche de la place de marché approprié. Si votre offre n’est pas spécifique à un secteur d’activité, ne sélectionnez pas un. Énoncer de comment votre offre prend en charge les industries sélectionnés dans la description de l’offre. 
 
 ### <a name="app-version"></a>Version de l’application
 Il s’agit d’un champ facultatif permettant d’identifier le numéro de version de votre offre dans la place de marché AppSource. 
 
 ### <a name="standard-contract"></a>Contrat standard
-- **Utiliser le contrat Standard ?** 
+
+- **Utiliser le contrat Standard ?**
 
 Pour simplifier le processus d’approvisionnement pour les clients et réduire la complexité juridique éditeurs de logiciels, Microsoft propose un modèle de contrat Standard afin de faciliter une transaction dans la place de marché. 
 
@@ -185,7 +190,8 @@ Au lieu d’élaborer des conditions générales personnalisées, les serveurs d
 
 Le contrat Standard est disponible ici : https://go.microsoft.com/fwlink/?linkid=2041178.
 
-##### <a name="terms-of-use"></a>Conditions d’utilisation
+#### <a name="terms-of-use"></a>Conditions d’utilisation
+
 Si votre contrat de licence est différent du contrat Standard, vous pouvez choisir d’entrer vos propres conditions légales ici. Vous pouvez également entrer jusqu'à 10 000 caractères de texte dans ce champ. Si vos conditions d’utilisation requièrent une description plus longue, entrez un lien URL unique dans ce champ où vous pouvez trouver votre contrat de licence supplémentaires. Il affichera aux clients qu’un lien actif.
 
 Les clients doivent accepter ces conditions avant de pouvoir essayer de votre application. 
@@ -193,9 +199,11 @@ Les clients doivent accepter ces conditions avant de pouvoir essayer de votre ap
 N’oubliez pas de **enregistrer** avant de passer à la section suivante !
 
 ## <a name="offer-listing"></a>Annonce de l’offre
+
 Les offres onglet affiche les langages (et les marchés) où votre offre est disponible, actuellement anglais (États-Unis) est le seul emplacement disponible. En outre, cette page affiche l’état de la liste spécifique à la langue et la date/heure qui il a été ajouté. Vous devez définir les détails de la place de marché (offrent les nom, description, les termes de recherche, etc.) pour chaque langue / mise sur le marché.
 
 ### <a name="offer-listings"></a>Liste des offres
+
 Fournissent des informations à afficher dans la place de marché, notamment des descriptions de votre offre et des ressources marketing.
 
 - **Nom** (obligatoire) : Le nom défini ici s’affiche comme titre de vos offres sur la marketplace(s) que vous avez choisi. Le nom est prérempli en fonction de votre précédente **nouvelle offre** entrée.  Cela peut être marques.  Cela ne doit pas contenir un espace blanc, emojis (sauf si elles sont les symboles de marque et le copyright) et doit être limité à 50 caractères.
@@ -235,7 +243,6 @@ N’oubliez pas de **enregistrer** avant de passer à la section suivante !
 - [Meilleures pratiques pour la place de marché offrent des annonces](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices)
 
 
-
 ## <a name="preview"></a>VERSION PRÉLIMINAIRE
 
 Le **aperçu** onglet vous permet de définir une limitée **aperçu public** pour libérer votre offre avant de publier votre offre en direct à l’audience plus large de la place de marché.
@@ -256,7 +263,7 @@ Le **configuration technique** onglet définit les détails techniques (chemin d
 
 - **URL de la page d’accueil** (obligatoire) : Définir le site URL que les clients seront dirigés arrivent sur après l’acquisition de votre offre à partir de la place de marché. Cette URL sera également le point de terminaison qui recevra les API de connexion afin de faciliter le commerce avec Microsoft.
 
-- **Connexion webhook** (obligatoire) : Pour tous les événements asynchrones que Microsoft doit vous envoyer au nom du client (exemple : Abonnement Azure est devenu non valide), nous vous demandons de fournir un webhook de la connexion. Si vous ne disposez pas d’un système de webhook en place, la configuration la plus simple consiste à disposer d’une application de logique de point de terminaison HTTP qui écoute les événements en cours de publication à ce dernier et puis traiter de manière appropriée (par exemple, https://prod-1westus.logic.azure.com:443/work). Pour plus d’informations, consultez [Appeler, déclencher ou imbriquer des workflows via des points de terminaison HTTP dans des applications logiques](https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint).
+- **Connexion webhook** (obligatoire) : Pour tous les événements asynchrones que Microsoft doit vous envoyer au nom du client (exemple : Abonnement Azure est devenu non valide), nous vous demandons de fournir un webhook de la connexion. Si vous ne disposez pas d’un système de webhook en place, la configuration la plus simple consiste à disposer d’une application de logique de point de terminaison HTTP qui écoute les événements en cours de publication à ce dernier et puis traiter de manière appropriée (par exemple, https :\//prod-1westus.logic.azure.com:443/work). Pour plus d’informations, consultez [Appeler, déclencher ou imbriquer des workflows via des points de terminaison HTTP dans des applications logiques](https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint).
 
 - **ID de locataire Azure AD** (obligatoire) : Dans le portail Azure, nous avons besoin que vous [créer une application Azure Active Directory (AD)](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) afin que nous puissions valider la connexion entre nos deux services se trouve derrière une communication authentifiée. Pour rechercher le [id_locataire](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-tenant-id), accédez à votre Azure Active Directory et sélectionnez **propriétés**, puis recherchez le **ID de répertoire** nombre répertorié (par exemple, 50c464d3-4930-494c-963c-1e951d15360e).
 
@@ -270,14 +277,15 @@ Le **vue d’ensemble du Plan** onglet vous permet de fournir une variété d’
 
 Une fois créé, vous verrez vos noms de plan, ID, modèles, de disponibilité (Public ou privé), la tarification actuelle de publication d’état et les actions disponibles.
 
--   **Actions** disponibles dans le **vue d’ensemble du Plan** varient selon l’état actuel de votre plan et peut inclure :
-  - Si l’état du plan est **Draft** – supprimer le brouillon
-  - Si l’état du plan est **Live** – arrêt vendre plan ou audience privé de synchronisation
+**Actions** disponibles dans le **vue d’ensemble du Plan** varient selon l’état actuel de votre plan et peut inclure :
+
+- Si l’état du plan est **Draft** – supprimer le brouillon
+- Si l’état du plan est **Live** – arrêt vendre plan ou audience privé de synchronisation
 
 **Créer un plan** (au moins un plan pour ceux qui permet de vendre via Microsoft)
 
 - **ID du plan :** Créer un ID de plan unique pour chaque plan dans cette offre. Cet ID sera visible par les clients dans les modèles produit URL et Azure Resource Manager (le cas échéant). Utilisez uniquement des caractères alphanumériques en minuscules, des tirets ou des traits de soulignement. Un maximum de 50 caractères sont autorisés pour cet ID du plan. Notez que l’ID ne peut pas être modifiée une fois en sélectionnant créer.
-- **Nom du plan :** Les clients verront ce nom lorsque vous choisissez le plan à sélectionner dans votre offre. Créer un nom de l’offre unique pour chaque plan dans cette offre. Le nom du plan est utilisé pour différencier les plans de logiciel qui peuvent faire partie de l’offre même (ex :) Nom de l'offre : Windows Server ; plans : Windows Server 2016, Windows Server 2019).
+- **Nom du plan :** Les clients verront ce nom lorsque vous choisissez le plan à sélectionner dans votre offre. Créer un nom de l’offre unique pour chaque plan dans cette offre. Le nom du plan est utilisé pour différencier les plans de logiciel qui peuvent faire partie de l’offre même (ex :) Nom de l’offre : Windows Server ; plans : Windows Server 2016, Windows Server 2019).
 
 ### <a name="plan-listing"></a>Liste de plan
 
@@ -351,6 +359,9 @@ Tandis que les offres SaaS utilisent des ID de locataire pour définir un public
 > [!NOTE]
 > L’audience privé (ou audience restreint) diffère d’un public preview. Dans le **[aperçu](#preview)** onglet, vous pouvez définir un public preview. Un public preview est autorisé à accéder à votre offre *préalable* à l’offre qui sont publiée en direct dans la place de marché. La désignation privée audience s’applique uniquement à un plan spécifique, l’audience de l’aperçu peut afficher tous les plans (privé ou non), mais seulement pendant la période d’évaluation limitée pendant que le plan est testé et validé.
 
+## <a name="example-list-of-plans-within-a-marketplace-offer"></a>Exemple de liste de plans au sein d’une offre de la place de marché
+
+![Exemple de plan de la place de marché répertorier avec des notes](./media/marketplace-plan.svg)
 
 ## <a name="test-drive"></a>Test drive
 
@@ -443,7 +454,7 @@ Le **annonces de version d’évaluation** option se trouve sous le **testez** o
 - **Vidéos : Ajouter des vidéos** (facultatif) : Vidéos peuvent être chargées sur YouTube ou Vimeo et référencées ici avec une image miniature et de lien (pixels de 533 x 324) afin qu’un client peut afficher une procédure pas à pas d’informations pour les aider à mieux comprendre la version d’évaluation, y compris comment utiliser correctement les fonctionnalités de votre proposer et comprendre les scénarios qui mettent en évidence leurs avantages.
   - **Nom** (obligatoire)
   - **URL (YouTube ou Vimeo uniquement)** (obligatoire)
-  - **Miniature (533 x 324px)**: Fichier image doit être au format PNG.
+  - **Miniature (533 x 324px)** : Fichier image doit être au format PNG.
 
 Sélectionnez **enregistrer** après avoir effectué ces champs.
 

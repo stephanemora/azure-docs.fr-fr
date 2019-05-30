@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: raynew
-ms.openlocfilehash: c5c3f498f62d6399534333f8166a514a10f044c5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 350e13a4b1c01329bef1ec270af5ba007cd788aa
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60464347"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399745"
 ---
 # <a name="monitor-alerts-for-azure-virtual-machine-backups"></a>Suivez les alertes des sauvegardes de machines virtuelles Azure
 
@@ -70,7 +70,7 @@ Pour configurer des notifications par e-mail pour les alertes
    | Niveau d’alerte | Alertes envoyées |
    | --- | --- |
    | Critique | Pour les échecs de sauvegarde et les échecs de récupération |
-   | Avertissement | Pour les travaux de sauvegarde réussis avec avertissements (par exemple : échec de certains enregistreurs lors de la création d’un instantané) |
+   | Avertissement | actuellement, aucune alerte d’avertissement n’est disponibles pour les sauvegardes de machines virtuelles Azure (par exemple : Échec de certains enregistreurs lors de la création d’un instantané) |
    | Informations | Actuellement, aucune alerte d’information n’est disponible pour la sauvegarde des machines virtuelles Azure |
 
 ### <a name="situations-where-email-isnt-sent-even-if-notifications-are-configured"></a>Situations lors desquelles un e-mail n’est pas envoyé même si les notifications sont configurées

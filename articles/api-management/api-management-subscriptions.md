@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: apimpm
-ms.openlocfilehash: 6f577530c42952c6340a15110bcd37383a5fca57
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: afd43bbf6f52f498ad8f56d5a48b960d45d84137
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60693543"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243262"
 ---
 # <a name="subscriptions-in-azure-api-management"></a>Abonnements dans Gestion des API Azure
 
@@ -42,7 +42,7 @@ Les abonnements peuvent être associés à différentes étendues : un produit,
 
 ### <a name="subscriptions-for-a-product"></a>Abonnements pour un produit
 
-Habituellement, les abonnements dans la Gestion des API sont toujours associés à une seule étendue de [produit d’API](api-management-terminology.md). Les développeurs trouvent la liste des produits sur le portail des développeurs. Puis, ils soumettent des requêtes d’abonnement pour les produits qu’ils souhaitent utiliser. Dès qu’une requête d’abonnement est approuvée, automatiquement ou par les éditeurs d’API, le développeur peut utiliser les clés contenues pour accéder à toutes les API du produit.
+Habituellement, les abonnements dans la Gestion des API sont toujours associés à une seule étendue de [produit d’API](api-management-terminology.md). Les développeurs trouvent la liste des produits sur le portail des développeurs. Puis, ils soumettent des requêtes d’abonnement pour les produits qu’ils souhaitent utiliser. Après qu’une demande d’abonnement est approuvée, automatiquement ou par les éditeurs d’API, le développeur peut utiliser les clés qu’il contient pour accéder à toutes les API dans le produit. À l’heure actuelle, le portail des développeurs affiche uniquement les abonnements de l’étendue du produit sous la section de profil utilisateur. 
 
 ![Abonnements de produit](./media/api-management-subscriptions/product-subscription.png)
 

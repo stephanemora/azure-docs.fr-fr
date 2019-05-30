@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 05/17/2019
 ms.author: tomfitz
-ms.openlocfilehash: 1ae1afe103d4c52a2a7d921ef4f34dc030f3c6f7
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: 4b836faef4630f6bee914478aecaed1bb4db7d71
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65872636"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66225886"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Déplacer des ressources vers un nouveau groupe de ressource ou un nouvel abonnement
 
@@ -323,7 +323,7 @@ Cette opération peut prendre plusieurs minutes.
 
 ### <a name="recovery-services-limitations"></a>Limitations de Recovery Services
 
- Pour déplacer un coffre Recovery Services, vous devez être inscrit à une [préversion publique limitée](../backup/backup-azure-move-recovery-services-vault.md).
+ Pour déplacer un coffre Recovery Services, procédez comme suit : [Déplacer des ressources vers le nouveau groupe de ressources ou abonnement](../backup/backup-azure-move-recovery-services-vault.md).
 
 Actuellement, vous pouvez déplacer un coffre Recovery Services par région à la fois. Vous ne pouvez pas déplacer les coffres qui sauvegardent les données Azure Files, Azure File Sync ou SQL dans des machines virtuelles IaaS.
 

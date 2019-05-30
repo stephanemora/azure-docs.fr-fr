@@ -11,26 +11,27 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/17/2019
+ms.date: 04/26/2019
 ms.author: magoedte
-ms.openlocfilehash: bbd7c733c7c089328d2fbe016426fe9de3a6b5ce
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 46ac6794272728069d50479f8cd097185bfeeb1a
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60494624"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65072384"
 ---
 # <a name="how-to-set-up-alerts-for-performance-problems-in-azure-monitor-for-containers"></a>Comment configurer des alertes pour les problèmes de performances dans Azure Monitor pour les conteneurs
 Azure Monitor pour les conteneurs surveille les performances des charges de travail de conteneur qui sont déployés sur Azure Container Instances ou sur managed Kubernetes clusters qui sont hébergés sur Azure Kubernetes Service (AKS).
 
 Cet article décrit comment activer les alertes pour les situations suivantes :
 
-* Lorsque l’utilisation du processeur ou mémoire sur les nœuds de cluster dépasse un seuil défini.
-* Lorsque l’utilisation du processeur ou mémoire sur n’importe quel conteneur au sein d’un contrôleur dépasse un seuil défini par rapport à une limite qui est définie sur la ressource correspondante
-* *NotReady* nœud État du compte
-*  *Échec de*, *en attente*, *inconnu*, *en cours d’exécution*, ou *Succeeded* compte de la phase de pod
+- Lorsque l’utilisation du processeur ou mémoire sur les nœuds de cluster dépasse un seuil
+- Lorsque l’utilisation du processeur ou mémoire sur n’importe quel conteneur au sein d’un contrôleur dépasse un seuil par rapport à une limite qui est définie sur la ressource correspondante
+- *NotReady* nœud État du compte
+- *Échec de*, *en attente*, *inconnu*, *en cours d’exécution*, ou *Succeeded* compte de la phase de pod
+- Lorsque espace disque libre sur les nœuds de cluster dépasse un seuil 
 
-Pour alerter en cas de processeur élevé ou utilisation de la mémoire sur les nœuds de cluster, utilisez les requêtes qui sont fournis pour créer une alerte de mesure ou une alerte de mesure métrique. Alertes de métrique ont une latence plus faible que les alertes de journal. Mais fournissent des alertes de journal d’interrogation avancées et complexité. Requêtes comparent une valeur datetime jusqu'à présent à l’aide des alertes de journal le *maintenant* opérateur et en accédant à une heure de sauvegarde. (Azure Monitor pour les conteneurs stocke toutes les dates au format de temps universel coordonné (UTC).)
+Pour alerter en cas de processeur élevé ou utilisation de la mémoire ou manque d’espace disponible sur les nœuds de cluster, utilisez les requêtes qui sont fournis pour créer une alerte de mesure ou une alerte de mesure métrique. Alertes de métrique ont une latence plus faible que les alertes de journal. Mais fournissent des alertes de journal d’interrogation avancées et complexité. Requêtes comparent une valeur datetime jusqu'à présent à l’aide des alertes de journal le *maintenant* opérateur et en accédant à une heure de sauvegarde. (Azure Monitor pour les conteneurs stocke toutes les dates au format de temps universel coordonné (UTC).)
 
 Si vous n’êtes pas familiarisé avec les alertes Azure Monitor, consultez [vue d’ensemble des alertes dans Microsoft Azure](../platform/alerts-overview.md) avant de commencer. Pour en savoir plus sur les alertes qui utilisent des requêtes de journal, consultez [alertes de journal dans Azure Monitor](../platform/alerts-unified-log.md). Pour plus d’informations sur les alertes de métriques, consultez [alertes de métrique dans Azure Monitor](../platform/alerts-metric-overview.md).
 
@@ -255,6 +256,33 @@ let endDateTime = now();
 >[!NOTE]
 >Alerter sur certaines phases pod, telles que *en attente*, *échec*, ou *inconnu*, modifiez la dernière ligne de la requête. Par exemple, pour générer des alertes sur *FailedCount* utiliser : <br/>`| summarize AggregatedValue = avg(FailedCount) by bin(TimeGenerated, trendBinSize)`
 
+La requête suivante retourne les disques de nœuds de cluster qui dépassent 90 % d’espace utilisé. Pour obtenir l’ID de cluster, tout d’abord exécuter la requête suivante et copiez la valeur de la `ClusterId` propriété :
+
+```kusto
+InsightsMetrics
+| extend Tags = todynamic(Tags)            
+| project ClusterId = Tags['container.azm.ms/clusterId']   
+| distinct tostring(ClusterId)   
+``` 
+
+```kusto
+let clusterId = '<cluster-id>';
+let endDateTime = now();
+let startDateTime = ago(1h);
+let trendBinSize = 1m;
+InsightsMetrics
+| where TimeGenerated < endDateTime
+| where TimeGenerated >= startDateTime
+| where Origin == 'container.azm.ms/telegraf'            
+| where Namespace == 'disk'            
+| extend Tags = todynamic(Tags)            
+| project TimeGenerated, ClusterId = Tags['container.azm.ms/clusterId'], Computer = tostring(Tags.hostName), Device = tostring(Tags.device), Path = tostring(Tags.path), DiskMetricName = Name, DiskMetricValue = Val   
+| where ClusterId =~ clusterId       
+| where DiskMetricName == 'used_percent'
+| summarize AggregatedValue = max(DiskMetricValue) by bin(TimeGenerated, trendBinSize)
+| where AggregatedValue >= 90
+```
+
 ## <a name="create-an-alert-rule"></a>Création d'une règle d'alerte
 Suivez ces étapes pour créer une alerte de journal dans Azure Monitor en utilisant l’une des règles de recherche de journal qui a été fourni précédemment.  
 
@@ -272,9 +300,9 @@ Suivez ces étapes pour créer une alerte de journal dans Azure Monitor en utili
 8. Configurez l’alerte comme suit :
 
     1. Dans la liste déroulante **Basé sur**, sélectionnez **Mesure des métriques**. Une mesure métrique crée une alerte pour chaque objet dans la requête qui a une valeur supérieure à notre seuil spécifié.
-    1. Pour **Condition**, sélectionnez **supérieur**, puis entrez **75** comme une base de référence initiale **seuil**. Ou entrez une valeur différente qui répond à vos critères.
+    1. Pour **Condition**, sélectionnez **supérieur**, puis entrez **75** comme une base de référence initiale **seuil** pour les alertes de l’utilisation du processeur et mémoire . Pour l’alerte d’espace disque faible, entrez **90**. Ou entrez une valeur différente qui répond à vos critères.
     1. Dans le **déclencheur alerte basés sur** section, sélectionnez **violations consécutives**. Dans la liste déroulante, sélectionnez **supérieur**, puis entrez **2**.
-    1. Pour configurer une alerte pour l’UC du conteneur ou l’utilisation de la mémoire, sous **agréger sur**, sélectionnez **ContainerName**. 
+    1. Pour configurer une alerte pour l’UC du conteneur ou l’utilisation de la mémoire, sous **agréger sur**, sélectionnez **ContainerName**. Pour configurer l’alerte de disque faible de nœud de cluster, sélectionnez **ClusterId**.
     1. Dans le **évalué selon** section, définissez le **période** valeur **60 minutes**. La règle exécute toutes les 5 minutes et retourner les enregistrements qui ont été créés dans la dernière heure à partir de l’heure actuelle. Définition de la période de temps pour des comptes d’une fenêtre large potentiels latence des données. Elle garantit également que la requête retourne des données afin d’éviter un faux négatif dans lequel l’alerte se déclenche jamais.
 
 9. Sélectionnez **fait** pour terminer la règle d’alerte.

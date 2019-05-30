@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/08/2017
 ms.author: kumud
-ms.openlocfilehash: 0832010707fc9b5d5f435aac29940db6905d18d7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 057810fa8030321f9a94085f66bc1ea93dbc3830
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60330004"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66238946"
 ---
 # <a name="add-disable-enable-or-delete-endpoints"></a>Ajouter, désactiver, activer ou supprimer des points de terminaison
 
@@ -52,7 +52,7 @@ Vous pouvez également désactiver des points de terminaison individuels qui fon
 1. Dans un navigateur, connectez-vous au [portail Azure](https://portal.azure.com).
 2. Dans la barre de recherche du portail, recherchez le nom du **profil Traffic Manager** que vous souhaitez modifier, puis cliquez sur le profil Traffic Manager dans les résultats affichés.
 3. Dans le panneau **Profil Traffic Manager**, dans la section **Paramètres**, cliquez sur **Points de terminaison**. 
-4. Cliquez sur le point de terminaison que vous souhaitez désactiver, puis, dans le panneau **Point de terminaison** qui s’affiche, cliquez sur **Modifier**.
+4. Cliquez sur le point de terminaison que vous souhaitez désactiver.
 5. Dans le panneau **Point de terminaison**, changez l’état du point de terminaison en **Désactivé**, puis cliquez sur **Enregistrer**.
 6. Les clients continuent à envoyer le trafic vers le point de terminaison pendant la durée de vie (TTL). Vous pouvez modifier la durée de vie sur la page Configuration du profil Traffic Manager.
 
@@ -61,7 +61,7 @@ Vous pouvez également désactiver des points de terminaison individuels qui fon
 1. Dans un navigateur, connectez-vous au [portail Azure](https://portal.azure.com).
 2. Dans la barre de recherche du portail, recherchez le nom du **profil Traffic Manager** que vous souhaitez modifier, puis cliquez sur le profil Traffic Manager dans les résultats affichés.
 3. Dans le panneau **Profil Traffic Manager**, dans la section **Paramètres**, cliquez sur **Points de terminaison**. 
-4. Cliquez sur le point de terminaison que vous souhaitez désactiver, puis, dans le panneau **Point de terminaison** qui s’affiche, cliquez sur **Modifier**.
+4. Cliquez sur le point de terminaison que vous souhaitez activer.
 5. Dans le panneau **Point de terminaison**, changez l’état du point de terminaison en **Activé**, puis cliquez sur **Enregistrer**.
 6. Les clients continuent à envoyer le trafic vers le point de terminaison pendant la durée de vie (TTL). Vous pouvez modifier la durée de vie sur la page Configuration du profil Traffic Manager.
 
@@ -70,8 +70,8 @@ Vous pouvez également désactiver des points de terminaison individuels qui fon
 1. Dans un navigateur, connectez-vous au [portail Azure](https://portal.azure.com).
 2. Dans la barre de recherche du portail, recherchez le nom du **profil Traffic Manager** que vous souhaitez modifier, puis cliquez sur le profil Traffic Manager dans les résultats affichés.
 3. Dans le panneau **Profil Traffic Manager**, dans la section **Paramètres**, cliquez sur **Points de terminaison**. 
-4. Cliquez sur le point de terminaison que vous souhaitez désactiver, puis, dans le panneau **Point de terminaison** qui s’affiche, cliquez sur **Modifier**.
-5. Dans le panneau **Point de terminaison**, changez l’état du point de terminaison en **Activé**, puis cliquez sur **Enregistrer**.
+4. Cliquez sur le point de terminaison que vous souhaitez supprimer.
+5. Dans le **point de terminaison** panneau, cliquez sur **supprimer**
 
 
 ## <a name="next-steps"></a>Étapes suivantes

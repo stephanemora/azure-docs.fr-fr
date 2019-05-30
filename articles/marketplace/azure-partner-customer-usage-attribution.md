@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: yijenj
-ms.openlocfilehash: dcab4d24ca948980f28483fd09f29588e0329b63
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 09ce4cdc6ab4556f0ba68507bb23d09e02ae0357
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65800970"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66296827"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Attribution de l’utilisation de client partenaire Azure
 
@@ -186,7 +186,7 @@ Une fois que vous aurez ajouté le GUID à votre modèle ou dans l’agent utili
 
    ![Sélectionner Add Tracking GUID (Ajouter un GUID de suivi)](media/marketplace-publishers-guide/guid-how-to-add-tracking.png)
 
-1. Dans le champ **GUID de suivi**, entrez votre GUID de suivi. Entrez simplement le GUID sans le préfixe **pid-**. Dans le champ **Description personnalisée**, entrez le nom ou la description de l’offre.
+1. Dans le champ **GUID de suivi**, entrez votre GUID de suivi. Entrez simplement le GUID sans le préfixe **pid-** . Dans le champ **Description personnalisée**, entrez le nom ou la description de l’offre.
 
    ![Page Profil](media/marketplace-publishers-guide/guid-dev-center-login.png)
 
@@ -208,7 +208,7 @@ Une fois que vous aurez ajouté le GUID à votre modèle ou dans l’agent utili
 
 Une fois que vous avez modifié votre modèle et effectué un déploiement de tests, utilisez le script PowerShell suivant pour récupérer les ressources déployées et balisées.
 
-Vous pouvez utiliser ce script pour vérifier que le GUID a été ajouté avec succès à votre modèle Resource Manager. Le script ne s’applique pas au déploiement de l’API Resource Manager.
+Vous pouvez utiliser ce script pour vérifier que le GUID a été ajouté avec succès à votre modèle Resource Manager. Le script ne s’applique pas aux déploiements API Resource Manager ou de Terraform.
 
 Connectez-vous à Azure. Sélectionnez l’abonnement avec le déploiement que vous souhaitez vérifier avant d’exécuter le script. Exécutez le script dans le contexte d’abonnement du déploiement.
 

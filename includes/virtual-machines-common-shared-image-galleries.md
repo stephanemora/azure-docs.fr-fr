@@ -8,19 +8,20 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: 4063e79a9415ac35b09cc77d0110c04e191b49c7
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: 7a0e628eed861767d1eeb50b0ded7bb3d8807328
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66145871"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66271571"
 ---
-La galerie d’images partagées est un service qui vous permet de structurer et d’organiser vos images de machine virtuelle managées personnalisées. Fournissent des galeries d’images partagé :
+Galerie d’images partagé est un service qui vous permet de créer la structure et l’organisation autour de vos images gérés. Fournissent des galeries d’images partagé :
 
 - Réplication globale gérée d’images.
 - Le contrôle de version et le regroupement des images pour faciliter la gestion.
-- Rendre vos images hautement disponible avec les comptes de stockage de redondant Zone (ZRS) dans les régions qui prennent en charge les Zones de disponibilité. Le stockage ZRS offre une meilleure résilience contre les défaillances zonales.
-- Partage dans des abonnements et même entre les clients, à l’aide de RBAC.
+- Images hautement disponibles avec des comptes de stockage de redondant Zone (ZRS) dans les régions qui prennent en charge les Zones de disponibilité. Le stockage ZRS offre une meilleure résilience contre les défaillances zonales.
+- Partage dans des abonnements et même entre les locataires Active Directory (AD), à l’aide de RBAC.
+- Mise à l’échelle vos déploiements avec des réplicas d’image dans chaque région.
 
 Celle-ci vous permet de partager vos images avec différents utilisateurs, principaux de service ou groupes Active Directory au sein de votre organisation. Il est possible de répliquer des images partagées dans plusieurs régions, pour une mise à l’échelle plus rapide de vos déploiements.
 
@@ -30,7 +31,7 @@ Si vous avez un grand nombre d’images gérées que vous avez besoin maintenir 
 
 La fonctionnalité Galerie d’images partagées a plusieurs types de ressources :
 
-| Ressource | Description |
+| Ressource | Description|
 |----------|------------|
 | **Image managée** | Une image de base qui peut être utilisée seul ou utilisée pour créer un **version de l’image** dans une galerie d’images. Les images managées sont créées à partir de machines virtuelles généralisées. Une image managée est un type spécial de disque dur virtuel qui peut être utilisé pour définir plusieurs machines virtuelles et qui peut maintenant être utilisé pour créer des versions d’image partagée. |
 | **Galerie d’images** | Tout comme la Place de marché Azure, une **galerie d’images** est un dépôt permettant de gérer et partager des images, mais vous contrôlez les utilisateurs qui y ont accès. |
@@ -42,18 +43,18 @@ La fonctionnalité Galerie d’images partagées a plusieurs types de ressources
 
 ![Graphique montrant comment vous pouvez avoir plusieurs versions d’une image dans la galerie](./media/shared-image-galleries/shared-image-gallery.png)
 
-## <a name="image-definitions"></a>Définitions d'image
+## <a name="image-definitions"></a>Définitions de l’image
 
 Définitions de l’image sont un regroupement logique des versions d’une image. La définition de l’image conserve plus d’informations sur la raison pour laquelle l’image a été créée, quel système d’exploitation pour et les informations sur l’utilisation de l’image. Une définition de l’image ressemble à un plan pour tous les détails relatifs à la création d’une image spécifique. Vous ne déployez pas une machine virtuelle à partir d’une définition de l’image, mais à partir de la version de l’image créée à partir de la définition.
 
 
-Il existe trois paramètres pour chaque définition de l’image qui sont utilisées en combinaison - **Publisher**, **offrent** et **référence (SKU)**. Ceux-ci sont utilisés pour trouver une définition de l’image spécifique. Des versions d'image peuvent partager une ou deux de ces valeurs, mais pas les trois.  Par exemple, voici trois définitions d'image et leurs valeurs :
+Il existe trois paramètres pour chaque définition de l’image qui sont utilisées en combinaison - **Publisher**, **offrent** et **référence (SKU)** . Ceux-ci sont utilisés pour trouver une définition de l’image spécifique. Des versions d'image peuvent partager une ou deux de ces valeurs, mais pas les trois.  Par exemple, voici trois définitions d'image et leurs valeurs :
 
 |Définition de l’image|Publisher|Offre|Sku|
 |---|---|---|---|
-|myImage1|Contoso|Finance|Backend|
-|myImage2|Contoso|Finance|Serveur frontal|
-|myImage3|Test|Finance|Serveur frontal|
+|myImage1|Contoso|Finances|Backend|
+|myImage2|Contoso|Finances|Serveur frontal|
+|myImage3|Test|Finances|Serveur frontal|
 
 Ces trois définitions présentent des ensembles de valeurs uniques. Le format est semblable à la façon dont vous pouvez spécifier actuellement de serveur de publication, l’offre et référence (SKU) pour [images Azure Marketplace](../articles/virtual-machines/windows/cli-ps-findimage.md) dans Azure PowerShell pour obtenir la dernière version d’une image de place de marché. Chaque définition de l’image doit posséder un ensemble unique de ces valeurs.
 
@@ -77,11 +78,11 @@ Régions de la source sont répertoriées dans le tableau ci-dessous. Toutes les
 
 | Régions de code source |
 |---------------------|-----------------|------------------|-----------------|
-| Centre de l’Australie   | USA Centre - EUAP | Centre de la Corée    | Sud du Royaume-Uni 2      |
+| Centre de l’Australie   | EUAP USA Centre | Centre de la Corée    | Sud du Royaume-Uni 2      |
 | Centre de l’Australie 2 | Asie Est       | Corée du Sud      | Ouest du Royaume-Uni         |
 | Australie Est      | USA Est         | USA Centre Nord | USA Centre-Ouest |
 | Australie Sud-Est | USA Est 2       | Europe Nord     | Europe Ouest     |
-| Brésil Sud        | USA Est 2 - EUAP  | USA Centre Sud | Inde Ouest      |
+| Brésil Sud        | (Euap) de l’est des États-Unis 2  | USA Centre Sud | Inde Ouest      |
 | Centre du Canada      | France Centre  | Inde Sud      | USA Ouest         |
 | Est du Canada         | France Sud    | Asie du Sud-Est   | USA Ouest         |
 | Inde Centre       | Japon Est      | Nord du Royaume-Uni         | USA Ouest 2       |
@@ -102,7 +103,26 @@ Pour plus d’informations, consultez [vérifier l’utilisation des ressources 
 ## <a name="scaling"></a>Mise à l'échelle
 La galerie d’images partagées vous permet de spécifier le nombre de réplicas qu’Azure doit conserver pour les images. De cette façon, dans les scénarios de déploiement multimachines virtuelles, les déploiements de machines virtuelles peuvent être répartis sur différents réplicas pour réduire le risque de limitation du traitement de création d’instances liée à la surcharge d’un seul réplica.
 
+
+Avec la galerie d’images partagé, vous pouvez désormais déployer jusqu'à un 1 000 instances de machine virtuelle dans un jeu de mise à l’échelle de machine virtuelle (en haut à partir de 600 avec des images managées). Fournissent des réplicas de l’image pour la cohérence, de fiabilité et de meilleures performances de déploiement.  Vous pouvez définir un nombre de réplicas différents dans chaque région cible, selon les besoins de mise à l’échelle pour la région. Étant donné que chaque réplica est une copie complète de votre image, cela permet de mettre à l’échelle vos déploiements de façon linéaire avec chaque réplica supplémentaire. Bien que nous ne comprenons aucuns deux images ou régions sont identiques, voici notre règle générale sur l’utilisation des réplicas dans une région :
+
+- Pour chaque 20 machines virtuelles que vous créez simultanément, nous vous recommandons de que conserver un réplica. Par exemple, si vous créez des machines 120 virtuelles simultanément à l’aide de la même image dans une région, nous vous conseillons de que conserver au moins 6 réplicas de votre image. 
+- Pour chaque déploiement identiques avec des instances jusqu'à 600, nous vous recommandons de que conserver au moins un réplica. Par exemple, si vous créez 5 identiques simultanément, chacune avec 600 instances de machine virtuelle à l’aide de la même image dans une seule région, nous vous conseillons de que conserver au moins 5 réplicas de votre image. 
+
+Nous recommandons toujours à surprovisionner le nombre de réplicas en raison de facteurs tels que la taille de l’image, de contenus et de type de système d’exploitation.
+
+
 ![Graphique montrant comment mettre à l’échelle des images](./media/shared-image-galleries/scaling.png)
+
+
+
+## <a name="make-your-images-highly-available"></a>Rendre vos images hautement disponible
+
+[Azure Zone Redundant Storage (ZRS)](https://azure.microsoft.com/blog/azure-zone-redundant-storage-in-public-preview/) fournit une résilience contre une défaillance de la Zone de disponibilité dans la région. Avec la disponibilité générale de la galerie d’images partagé, vous pouvez choisir de stocker vos images dans les comptes ZRS dans des régions avec des Zones de disponibilité. 
+
+Vous pouvez également choisir le type de compte pour chacune des régions cible. Le type de compte de stockage par défaut est Standard_LRS, mais vous pouvez choisir Standard_ZRS pour les régions avec des Zones de disponibilité. Vérifiez la disponibilité régionale de ZRS [ici](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs).
+
+![Graphique montrant ZRS](./media/shared-image-galleries/zrs.png)
 
 
 ## <a name="replication"></a>Réplication
@@ -115,40 +135,39 @@ Les régions sur lesquelles est répliquée une version d’image partagée peuv
 
 ## <a name="access"></a>Access
 
-Tout comme la Galerie d’images partagées, l’Image partagée et la version d’Image partagée sont des ressources qui peuvent être partagées à l’aide des contrôles RBAC d’Azure natifs intégrés. À l’aide de RBAC, vous pouvez partager ces ressources pour les autres utilisateurs principaux de service et les groupes. Vous pouvez même partager l’accès aux personnes en dehors du locataire, dans qu'ils ont été créés. Une fois qu’un utilisateur a accès à la version d’Image partagées, ils peuvent déployer une machine virtuelle ou un jeu de mise à l’échelle de Machine virtuelle.  La matrice de partage suivante vous aide à comprendre les éléments auxquels l’utilisateur a accès :
+Galerie d’images partagé, de la définition de l’Image et de la version de l’Image sont toutes les ressources, elles peuvent être partagées à l’aide du contrôle natif Azure RBAC intégrés. À l’aide de RBAC, vous pouvez partager ces ressources pour les autres utilisateurs principaux de service et les groupes. Vous pouvez même partager l’accès aux personnes en dehors du locataire, dans qu'ils ont été créés. Une fois qu’un utilisateur a accès à la version d’Image partagées, ils peuvent déployer une machine virtuelle ou un jeu de mise à l’échelle de Machine virtuelle.  La matrice de partage suivante vous aide à comprendre les éléments auxquels l’utilisateur a accès :
 
-| Partagé avec l’utilisateur     | Galerie d'images partagées | Image partagée | Version d’image partagée |
+| Partagé avec l’utilisateur     | Galerie d’images partagées | Définition de l’image | Version de l’image |
 |----------------------|----------------------|--------------|----------------------|
-| Galerie d'images partagées | Oui                  | OUI          | Oui                  |
-| Image partagée         | Non                   | OUI          | Oui                  |
-| Version d’image partagée | Non                   | Non            | Oui                  |
+| Galerie d’images partagées | Oui                  | OUI          | Oui                  |
+| Définition de l’image     | Non                    | OUI          | Oui                  |
 
-Nous vous recommandons de partage au niveau de la galerie pour une expérience optimale. Pour plus d’informations sur RBAC, consultez [gérer l’accès aux ressources Azure à l’aide de RBAC](../articles/role-based-access-control/role-assignments-portal.md).
+Nous vous recommandons de partage au niveau de la galerie pour une expérience optimale. Nous vous déconseillons de partage de versions des images individuelles. Pour plus d’informations sur RBAC, consultez [gérer l’accès aux ressources Azure à l’aide de RBAC](../articles/role-based-access-control/role-assignments-portal.md).
 
-Images peuvent également être partagées, à grande échelle, entre les clients à l’aide d’une inscription d’une application multi-locataire. Pour plus d’informations sur le partage d’images entre les locataires, consultez [partager des images de machine virtuelle de la galerie sur les locataires Azure](../articles/virtual-machines/linux/share-images-across-tenants.md).
+Images peuvent également être partagées, à grande échelle, même entre les clients à l’aide d’une inscription d’une application multi-locataire. Pour plus d’informations sur le partage d’images entre les locataires, consultez [partager des images de machine virtuelle de la galerie sur les locataires Azure](../articles/virtual-machines/linux/share-images-across-tenants.md).
 
 ## <a name="billing"></a>Facturation
 L’utilisation du service Galerie d’images partagées n’engendre aucuns frais supplémentaires. Vous êtes facturé pour les ressources suivantes :
 - Coûts de stockage des versions d’Image partagée. Coût varie selon le nombre de réplicas de la version de l’image et le nombre de régions d’à que la version est répliquée. Par exemple, si vous avez 2 les images et les deux sont répliquées sur 3 régions, puis vous sera modifié pour 6 disques gérés en fonction de leur taille. Pour plus d’informations, consultez [Tarification de la fonctionnalité Disques managés](https://azure.microsoft.com/pricing/details/managed-disks/).
 - Frais de sortie de réseau pour la réplication de la première version de l’image à partir de la région source pour les régions répliquées. Les réplicas suivants sont gérés dans la région, il y a pas de frais supplémentaires. 
 
-## <a name="updating-resources"></a>Mise à jour des ressources
+## <a name="updating-resources"></a>La mise à jour des ressources
 
 Une fois créé, vous pouvez modifier certains les ressources de galerie d’image. Ceux-ci sont limités à :
  
 Galerie d’images partagées :
-- Description 
+- Description
 
 Définition d’image :
 - Processeurs virtuels recommandés
 - Mémoire recommandée
-- Description 
+- Description
 - Date de fin de vie
 
 Version d’image :
 - Nombre de réplicas régionaux
 - Régions cibles
-- Exclusion du dernier
+- Exclure de la dernière version
 - Date de fin de vie
 
 

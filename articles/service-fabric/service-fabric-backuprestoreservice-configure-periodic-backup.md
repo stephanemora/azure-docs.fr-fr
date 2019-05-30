@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/01/2018
+ms.date: 2/01/2019
 ms.author: hrushib
-ms.openlocfilehash: 31c5feac577dc5e9e0eed9ced9ccfe25c12d3086
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b1b36ed5197aeb056c70200a49e09cc777d66d0b
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60310463"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237353"
 ---
 # <a name="understanding-periodic-backup-configuration-in-azure-service-fabric"></a>Compréhension de la configuration de la sauvegarde périodique dans Azure Service Fabric
 
@@ -137,9 +137,6 @@ Une stratégie de sauvegarde se compose des configurations suivantes :
             "MinimumNumberOfBackups": 20
         }
         ```
-
-> [!IMPORTANT]
-> En raison d’un problème dans le runtime, vérifiez que la durée de rétention dans la stratégie de rétention est configurée pour être inférieure à 24 jours. Autrement, le service de restauration des sauvegardes subira une perte de quorum après le basculement du réplica.
 
 ## <a name="enable-periodic-backup"></a>Activer la sauvegarde périodique
 Après définition d’une stratégie de sauvegarde répondant aux exigences de sauvegarde de données, cette stratégie doit être correctement associée à une _application_, à un _service_ ou à une _partition_.

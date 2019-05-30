@@ -13,12 +13,12 @@ ms.date: 08/03/2018
 ms.author: lizross
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dfd38e775ba418fbe31cafa8df5f37b45c3b0643
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 62faa47c116cceb941f575a9f76052e8bc57f036
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60474423"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243270"
 ---
 # <a name="join-your-work-device-to-your-organizations-network"></a>Joindre votre appareil professionnel au réseau de votre organisation
 Joignez votre appareil Windows 10 professionnel au réseau de votre organisation afin de pouvoir accéder à des ressources potentiellement restreintes.
@@ -116,3 +116,4 @@ Après avoir joint votre appareil au réseau de votre organisation, vous devriez
 
 - Si votre organisation vous demande d’inscrire votre appareil personnel, tel que votre téléphone, consultez [Inscrire votre appareil personnel sur le réseau de votre organisation](user-help-register-device-on-network.md).
 
+- Si votre organisation est gérée à l’aide de Microsoft Intune et que vous avez des questions sur l’inscription, connexion, ou tout autre problème relatives à Intune, consultez le [contenu d’aide utilisateur Intune](https://docs.microsoft.com/intune-user-help/use-managed-devices-to-get-work-done).

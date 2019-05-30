@@ -6,12 +6,12 @@ ms.author: janeng
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 04/15/2019
-ms.openlocfilehash: 5eb2ba509983918a55370ae0deafd019e03f53d8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7a52d05c77d0aeb8ebeba196df60e59f0647fea9
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60740282"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66233921"
 ---
 # <a name="azure-database-for-mariadb-pricing-tiers"></a>Niveaux tarifaires pour Azure Database for MariaDB
 
@@ -51,19 +51,25 @@ Le stockage que vous provisionnez est la quantité de stockage disponible pour v
 | Taille d’incrément de stockage | 1 Go | 1 Go | 1 Go |
 | E/S par seconde | Variable |3 E/S par seconde/Go<br/>Min 100 E/S par seconde<br/>Max 6000 E/S par seconde | 3 E/S par seconde/Go<br/>Min 100 E/S par seconde<br/>Max 6000 E/S par seconde |
 
-Vous pouvez ajouter une capacité de stockage supplémentaire pendant et après la création du serveur. Le niveau De base n’offre pas de garantie d’E/S par seconde. Dans les niveaux tarifaires Usage général et À mémoire optimisée, les IOPS augmentent avec la taille de stockage approvisionnée selon un ratio de 3:1.
+Vous pouvez ajouter de la capacité de stockage supplémentaire pendant et après la création du serveur et autoriser le système à croître automatiquement en fonction de la consommation de stockage de votre charge de travail de stockage. Le niveau De base n’offre pas de garantie d’E/S par seconde. Dans les niveaux tarifaires Usage général et À mémoire optimisée, les IOPS augmentent avec la taille de stockage approvisionnée selon un ratio de 3:1.
 
 Vous pouvez surveiller votre consommation d’E/S dans le Portail Azure ou à l’aide des commandes Azure CLI. Les métriques pertinentes à surveiller sont [la limite de stockage, le pourcentage de stockage, le stockage utilisé et le pourcentage d’E/S](concepts-monitoring.md).
 
 ### <a name="reaching-the-storage-limit"></a>Atteindre la limite de stockage
 
-Le serveur est marqué en lecture seule lorsque la quantité de stockage disponible est inférieure à 5 Go ou 5 % du stockage provisionné, selon la valeur qui est inférieure. Par exemple, si vous avez provisionné 100 Go de stockage, et que l’utilisation réelle dépasse 95 Go, le serveur est marqué en lecture seule. Ou, si vous avez provisionné 5 Go de stockage, le serveur est marqué en lecture seule lorsque le stockage disponible est inférieur à 250 Mo.  
+Serveurs avec moins de 100 Go mis en service de stockage sont marqués en lecture seule si l’espace de stockage est inférieure à 512 Mo ou 5 % de la taille de stockage approvisionné. Serveurs avec plus de 100 Go mis en service de stockage sont en lecture uniquement lorsque l’espace de stockage est inférieure à 5 Go.
+
+Par exemple, si vous avez configuré de 110 Go de stockage, et l’utilisation réelle dépasse 105 Go, le serveur est marqué en lecture seule. Vous pouvez également, si vous avez configuré les 5 Go de stockage, le serveur est marqué en lecture seule lorsque l’espace de stockage atteint moins de 512 Mo.
 
 Pendant que le service tente de marquer le serveur en lecture seule, toutes les nouvelles demandes de transactions d’écriture sont bloquées et les transactions actives existantes continuent de s’exécuter. Une fois que le serveur est marqué en lecture seule, toutes les opérations d’écriture et validations de transaction ultérieures échouent. Les requêtes de lecture continueront de fonctionner sans interruption. Après avoir augmenté le stockage provisionné, le serveur sera prêt à accepter de nouvelles transactions d’écriture.
 
-Nous vous recommandons de configurer une alerte pour vous avertir quand votre serveur de stockage est proche du seuil afin d’éviter la mise en lecture seule. 
+Nous vous recommandons d’activer sur le stockage la croissance automatique ou pour configurer une alerte pour vous avertir quand le stockage serveur approche le seuil par conséquent, vous pouvez éviter d’introduire l’état en lecture seule. Pour plus d’informations, consultez la documentation sur [comment configurer une alerte](howto-alert-metric.md).
 
-Pour plus d’informations, consultez la documentation sur [comment configurer une alerte](howto-alert-metric.md).
+### <a name="storage-auto-grow"></a>Stockage-la croissance automatique
+
+Si la croissance automatique du stockage est activé, le stockage s’agrandit automatiquement sans affecter la charge de travail. Pour les serveurs avec moins de 100 Go mis en service de stockage, la taille de stockage approvisionné est augmentée de 5 Go dès que l’espace de stockage est ci-dessous supérieur à 1 Go ou 10 % du stockage approvisionné. Pour les serveurs avec plus de 100 Go de stockage approvisionné, la taille de stockage approvisionné est augmentée de 5 % lorsque l’espace de stockage libre est inférieur à 5 % de la taille de stockage approvisionné. Limites de stockage maximale comme indiqué ci-dessus s’appliquent.
+
+Par exemple, si vous avez configuré les 1 000 Go de stockage, et l’utilisation réelle dépasse 950 Go, la taille de stockage du serveur est augmentée à 1050 go. Vous pouvez également, si vous avez approvisionné 10 Go de stockage, la taille de stockage est augmentation à 15 Go lorsque moins de 1 Go de stockage est gratuit.
 
 ## <a name="backup"></a>Sauvegarde
 

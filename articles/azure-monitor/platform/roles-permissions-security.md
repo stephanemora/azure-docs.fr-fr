@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: bac57b18ec5474cfe3c27ad1079c5af7e1d2c451
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4949391aded58f27ba8acd5c9ec437e8933f9843
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60453065"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243418"
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Familiarisation avec les rôles, les autorisations et la sécurité dans Azure Monitor
 
@@ -28,11 +28,11 @@ Les rôles intégrés d’Azure Monitor sont conçus pour vous aider à limiter 
 Les personnes affectées au rôle de lecteur d’analyse peuvent afficher toutes les données d’analyse dans un abonnement, mais ne peuvent pas modifier de ressource ou modifier les paramètres relatifs à l’analyse des ressources. Ce rôle est approprié pour les utilisateurs dans une organisation, tels que les ingénieurs de support ou d’opération, qui doivent être en mesure de faire ce qui suit :
 
 * Afficher des tableaux de bord d’analyse dans le portail et créer leurs propres tableaux de bord privés d’analyse.
-* Afficher les règles d’alerte définies dans [Alertes Azure](../../azure-monitor/platform/alerts-overview.md)
-* Requête de mesures avec l’[API REST Azure Monitor](https://msdn.microsoft.com/library/azure/dn931930.aspx), les [applets de commande PowerShell](../../azure-monitor/platform/powershell-quickstart-samples.md) ou le [CLI multiplateforme](../../azure-monitor/platform/cli-samples.md).
+* Afficher les règles d’alerte définies dans [Alertes Azure](alerts-overview.md)
+* Requête de mesures avec l’[API REST Azure Monitor](https://msdn.microsoft.com/library/azure/dn931930.aspx), les [applets de commande PowerShell](powershell-quickstart-samples.md) ou le [CLI multiplateforme](cli-samples.md).
 * Interroger le journal d’activité via le portail, l’API REST Azure Monitor, les applets de commande PowerShell ou le CLI multiplateforme.
-* Affichez les [Paramètres de diagnostic](../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings) pour une ressource.
-* Afficher le [profil de journalisation](../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile) pour un abonnement.
+* Affichez les [Paramètres de diagnostic](diagnostic-logs-overview.md#diagnostic-settings) pour une ressource.
+* Afficher le [profil de journalisation](activity-log-export.md) pour un abonnement.
 * Affichez les paramètres de mise à l’échelle automatique.
 * Afficher les activités et paramètres d’alerte.
 * Accéder aux données Application Insights et affichez les données dans AI Analytics.
@@ -52,9 +52,9 @@ Les personnes affectées au rôle de lecteur d’analyse peuvent afficher toutes
 Les personnes affectées au rôle de contributeur d’analyse peuvent afficher toutes les données d’analyse dans un abonnement, et créer ou modifier des paramètres d’analyse, mais ne peuvent pas modifier d’autres ressources. Ce rôle est un surensemble du rôle lecteur d’analyse et est approprié pour les membres de l’équipe d’analyse d’une organisation ou les fournisseurs de services gérés qui, outre les autorisations ci-dessus, doivent également être en mesure de faire ce qui suit :
 
 * Publier des tableaux de bord d’analyse en tant que tableau de bord partagé.
-* Définissez [les paramètres de diagnostic](../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings) pour une ressource.\*
-* Définir le [profil de journal](../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile) pour un abonnement.\*
-* Définir l’activité et les paramètres de règles d’alerte via [Alertes Azure](../../azure-monitor/platform/alerts-overview.md).
+* Définissez [les paramètres de diagnostic](diagnostic-logs-overview.md#diagnostic-settings) pour une ressource.\*
+* Définir le [profil de journal](activity-log-export.md) pour un abonnement.\*
+* Définir l’activité et les paramètres de règles d’alerte via [Alertes Azure](alerts-overview.md).
 * Créer des tests web et composants Application Insights.
 * Répertorier les clés partagées d’espace de travail Log Analytics.
 * Activer ou désactiver les packs d’analyse dans l’espace de travail Analytique de journal.

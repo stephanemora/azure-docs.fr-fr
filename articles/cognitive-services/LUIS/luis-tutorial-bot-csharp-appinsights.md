@@ -9,20 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 05/30/2019
 ms.author: diberry
-ms.openlocfilehash: d546951cf283cf15874b1b6d95da75549a8a93ac
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 56ceb48be9d5cc9d1cdceed7505e2e3e918a7286
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60496773"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399657"
 ---
 # <a name="add-luis-results-to-application-insights-with-a-bot-in-c"></a>Ajouter des résultats LUIS à Application Insights avec un bot en C#
 
-Ce didacticiel permet d’ajouter des informations de réponse LUIS au stockage des données de télémétrie [Application Insights](https://azure.microsoft.com/services/application-insights/). Une fois que vous avez les données, vous pouvez les interroger avec le langage Kusto ou PowerBI pour les analyser, les agréger et générer des rapports sur les intentions et les entités de l’énoncé en temps réel. Cette analyse vous aide à déterminer si vous devez ajouter ou modifier les intentions et les entités de votre application LUIS.
+Ce didacticiel permet d’ajouter des informations de réponse LUIS au stockage des données de télémétrie [Application Insights](https://azure.microsoft.com/services/application-insights/). Une fois que vous avez ces données, vous pouvez l’interroger avec le langage Kusto ou Power BI pour analyser, d’agréger et signaler des intentions et entités de l’énoncé en temps réel. Cette analyse vous aide à déterminer si vous devez ajouter ou modifier les intentions et les entités de votre application LUIS.
 
-Le bot est créé avec Bot Framework 3.x et le bot d’application web Azure.
+Le bot est créé avec Bot Framework 3.x et le bot d’application web Azure. Un [Bot Framework 4.x tutoriel LUIS](luis-csharp-tutorial-bf-v4.md) est également disponible.
 
 Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
@@ -31,7 +31,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Capturer et envoyer des résultats de requête LUIS à Application Insights
 > * Interroger Application Insights pour obtenir les principaux score, intention et énoncé
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 * Votre bot d’application web LUIS du **[didacticiel précédent](luis-csharp-tutorial-build-bot-framework-sample.md)** avec Application Insights activé.
 * [Visual Studio 2017](https://www.visualstudio.com/downloads/) installé localement sur votre ordinateur.
@@ -51,7 +51,7 @@ Ce didacticiel suppose que vous disposez de code semblable à ce qui suit, ou qu
 
 Actuellement, le service Application Insights, ajouté dans le cadre de la création du service web de bot d’application web, collecte la télémétrie d’état général pour le bot. Il ne collecte pas les informations de réponse LUIS. Pour analyser et améliorer LUIS, vous avez besoin des informations de réponse LUIS.  
 
-Pour capturer la réponse LUIS, le bot d’application web a besoin qu’**[Application Insights](https://www.nuget.org/packages/Microsoft.ApplicationInsights/)** soit installé et configuré pour le projet.
+Pour capturer la réponse LUIS, le bot d’application web a besoin qu’ **[Application Insights](https://www.nuget.org/packages/Microsoft.ApplicationInsights/)** soit installé et configuré pour le projet.
 
 ## <a name="download-web-app-bot"></a>Télécharger le bot d’application web
 
@@ -204,7 +204,7 @@ Ouvrez Application Insights pour voir les entrées de LUIS.
 
 1. Dans le portail, sélectionnez **Toutes les ressources**, puis filtrez sur le nom du bot d’application web. Cliquez sur la ressource du type **Application Insights**. L’icône d’Application Insights est une ampoule.
 
-    ![Rechercher des insights d’application dans le portail Azure](./media/luis-tutorial-bot-csharp-appinsights/portal-service-list-app-insights.png)
+    ![Rechercher des informations d’application dans le portail Azure](./media/luis-tutorial-bot-csharp-appinsights/portal-service-list-app-insights.png)
 
 2. Lorsque la ressource s’ouvre, cliquez sur l’icône **Rechercher** de la loupe dans le panneau le plus à droite. Un nouveau panneau s’affiche à droite. Selon la quantité des données de télémétrie trouvées, le panneau peut prendre une seconde à afficher. Recherchez `LUIS`. La liste est réduite aux seuls résultats de requête LUIS ajoutés avec ce didacticiel.
 
@@ -221,7 +221,7 @@ Ouvrez Application Insights pour voir les entrées de LUIS.
 
 ## <a name="query-application-insights-for-intent-score-and-utterance"></a>Interroger Application Insights pour les intentions, les scores et les énoncés
 
-Application Insights vous permet d’interroger les données avec le langage [Kusto](https://docs.microsoft.com/azure/application-insights/app-insights-analytics#query-data-in-analytics), ainsi que de les exporter vers [PowerBI](https://powerbi.microsoft.com).
+Application Insights vous donne la possibilité d’interroger les données avec le [Kusto](https://docs.microsoft.com/azure/application-insights/app-insights-analytics#query-data-in-analytics) langue, ainsi que l’exportation à [Power BI](https://powerbi.microsoft.com).
 
 1. Cliquez sur **Analytics** en haut de la liste des dépendances, au-dessus de la zone de filtre.
 
@@ -243,7 +243,7 @@ Application Insights vous permet d’interroger les données avec le langage [Ku
 
     ![Rapport analytique personnalisé](./media/luis-tutorial-bot-csharp-appinsights/analytics-query-2.png)
 
-En savoir plus sur le [langage de requête Kusto](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries) ou l’[export des données vers PowerBi](https://docs.microsoft.com/azure/application-insights/app-insights-export-power-bi).
+En savoir plus sur la [langage de requête Kusto](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries) ou [exporter les données vers Power BI](https://docs.microsoft.com/azure/application-insights/app-insights-export-power-bi).
 
 ## <a name="learn-more-about-bot-framework"></a>En savoir plus sur Bot Framework
 

@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: f4bbea8acd447a731cf5c56f9876baf9183735ea
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cba57875daf9b570d274ec8c4e9c4146af0dc045
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60518659"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65072827"
 ---
 # <a name="container-groups-in-azure-container-instances"></a>Groupes de conteneurs dans Azure Container Instances
 
@@ -65,7 +65,7 @@ Pour plus d’informations, consultez le [ResourceRequirements] [ resource-requi
 
 * Allouer un **minimale** 1 processeur et 1 Go de mémoire à un groupe de conteneurs. Instances de conteneur individuels au sein d’un groupe peuvent être configurées avec moins de 1 processeur et 1 Go de mémoire. 
 
-* Pour le **maximale** des ressources dans un groupe de conteneurs, consultez la [disponibilité des ressources] [aci-région-disponibilité] pour Azure Container Instances dans la région de déploiement.
+* Pour le **maximale** des ressources dans un groupe de conteneurs, consultez le [la disponibilité des ressources] [ region-availability] pour Azure Container Instances dans la région de déploiement.
 
 ## <a name="networking"></a>Mise en réseau
 

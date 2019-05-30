@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/14/2019
+ms.date: 05/22/2019
 ms.author: raynew
-ms.openlocfilehash: 1712e46494796e563c26316b4f45d968872c304f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d8ade598e4f1b6331367e8bd04ad59951ef5de8f
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60781711"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242372"
 ---
 # <a name="restore-sql-server-databases-on-azure-vms"></a>Restaurer des bases de données SQL Server sur des machines virtuelles Azure
 
@@ -41,6 +41,7 @@ Avant de restaurer une base de données, notez les points suivants :
     - Seul le nom de client spécifié peut ouvrir la connexion.
 - Pour toutes les bases de données système (modèle, master, msdb), arrêtez le service de l’Agent SQL Server avant de déclencher la restauration.
 - Fermez toutes les applications qui pourraient essayer d’effectuer une connexion à un de ces bases de données.
+- Si vous avez plusieurs instances en cours d’exécution sur un serveur, toutes les instances doivent être augmenté et en cours d’exécution dans le cas contraire le serveur n’apparaît pas dans la liste des serveurs de destination pour vous permettent de restaurer la base de données.
 
 ## <a name="restore-a-database"></a>Restauration d’une base de données
 
@@ -152,6 +153,13 @@ Si vous avez sélectionné **Complète et différentielle** comme type de restau
 1. Suivre la progression de la restauration dans le **Notifications** zone, ou le suivi en sélectionnant **travaux de restauration** dans le menu de la base de données.
 
     ![Progression du travail de restauration](./media/backup-azure-sql-database/restore-job-notification.png)
+
+### <a name="restore-databases-with-large-number-of-files"></a>Restaurer des bases de données avec un grand nombre de fichiers
+
+Si la taille de la chaîne total des fichiers dans une base de données est supérieure à un [limite particulière](backup-sql-server-azure-troubleshoot.md#files-size-limit-beyond-which-restore-happens-to-default-path), sauvegarde Azure stocke la liste des fichiers de base de données dans un composant pit différents tels que vous ne serez pas en mesure de définir le chemin d’accès de restauration cible pendant la restauration opération. Les fichiers seront restaurés vers le chemin d’accès par défaut SQL à la place.
+
+  ![Restaurer la base de données avec des fichiers volumineux](./media/backup-azure-sql-database/restore-large-files.jpg)
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

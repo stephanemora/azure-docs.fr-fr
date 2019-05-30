@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 04/22/2019
-ms.openlocfilehash: 7f3afec0425033fba174e000195fa26b295aaef1
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.date: 05/23/2019
+ms.openlocfilehash: 98bd70d9f6eb70cb7848dfa74e19c78e55a34991
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65507934"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66240355"
 ---
 # <a name="resource-limits-for-elastic-pools-using-the-vcore-based-purchasing-model-limits"></a>Limites de ressources pour les pools élastiques suivant les limites du modèle d’achat vCore
 
@@ -44,6 +44,7 @@ Vous pouvez définir le niveau de service, la taille de calcul et la quantité d
 |Génération H/W|4|4|4|4|4|4|
 |vCores|1|2|3|4|5|6.|
 |Mémoire (Go)|7|14|21|28|35|42|
+|Nombre maximal de bases de données par pool|100|200|500|500|500|500|
 |Prise en charge de ColumnStore|OUI|OUI|OUI|OUI|OUI|OUI|
 |Stockage In-Memory OLTP (Go)|N/A|N/A|N/A|N/A|N/A|S.O.|
 |Taille maximale des données (Go)|512|756|756|1536|1536|1536|
@@ -56,7 +57,6 @@ Vous pouvez définir le niveau de service, la taille de calcul et la quantité d
 |Nombre maximal de workers simultanés par pool (demandes) * |210|420|630|840|1050|1 260|
 |Nombre maximal de connexions simultanées par pool * |210|420|630|840|1050|1 260|
 |Nombre maximal de sessions autorisé|30000|30000|30000|30000|30000|30000|
-|Nombre maximal de bases de données par pool|100|200|300|500|500|500|
 |Choix du nombre minimal/maximal de cœurs virtuels de pool élastique par base de données|0 ; 0,25 ; 0,5 ; 1|0 ; 0,25 ; 0,5 ; 1 ; 2|0 ; 0,25 ; 0,5 ; 1...3|0 ; 0,25 ; 0,5, 1...4|0 ; 0,25 ; 0,5 ; 1...5|0 ; 0,25 ; 0,5 ; 1...6|
 |Nombre de réplicas|1|1|1|1|1|1|
 |Plusieurs zones de disponibilités|N/A|N/A|N/A|N/A|N/A|N/A|
@@ -72,6 +72,7 @@ Vous pouvez définir le niveau de service, la taille de calcul et la quantité d
 |Génération H/W|4|4|4|4|4|4|
 |vCores|7|8|9|10|16|24|
 |Mémoire (Go)|49|56|63|70|112|168|
+|Nombre maximal de bases de données par pool|500|500|500|500|500|500|
 |Prise en charge de ColumnStore|OUI|OUI|OUI|OUI|OUI|OUI|
 |Stockage In-Memory OLTP (Go)|N/A|N/A|N/A|N/A|N/A|S.O.|
 |Taille maximale des données (Go)|1536|2 048|2 048|2 048|3584|4096|
@@ -84,7 +85,6 @@ Vous pouvez définir le niveau de service, la taille de calcul et la quantité d
 |Nombre maximal de workers simultanés par pool (demandes) *|1470|1680|1890|2100|3360|5040|
 |Pool de connexions simultanées max (demandes) *|1470|1680|1890|2100|3360|5040|
 |Nombre maximal de sessions autorisé|30000|30000|30000|30000|30000|30000|
-|Nombre maximal de bases de données par pool|200|500|500|500|500|500|
 |Choix du nombre minimal/maximal de cœurs virtuels de pool élastique par base de données|0 ; 0,25 ; 0,5 ; 1... 7|0 ; 0,25 ; 0,5 ; 1... 8|0 ; 0,25 ; 0,5 ; 1... 9|0 ; 0,25 ; 0,5 ; 1... 10|0 ; 0,25 ; 0,5 ; 1... 10 ; 16|0 ; 0,25 ; 0,5 ; 1... 10 ; 16 ; 24|
 |Nombre de réplicas|1|1|1|1|1|1|
 |Plusieurs zones de disponibilités|N/A|N/A|N/A|N/A|N/A|N/A|
@@ -100,6 +100,7 @@ Vous pouvez définir le niveau de service, la taille de calcul et la quantité d
 |Génération H/W|5.|5.|5.|5.|5.|5.|5.|
 |vCores|2|4|6.|8|10|12|14|
 |Mémoire (Go)|10.2|20,4|30,6|40,8|51|61,2|71,4|
+|Nombre maximal de bases de données par pool|100|200|500|500|500|500|500|
 |Prise en charge de ColumnStore|OUI|OUI|OUI|OUI|OUI|OUI|OUI|
 |Stockage In-Memory OLTP (Go)|N/A|N/A|N/A|N/A|N/A|N/A|S.O.|
 |Taille maximale des données (Go)|512|756|756|1536|1536|1536|
@@ -112,7 +113,6 @@ Vous pouvez définir le niveau de service, la taille de calcul et la quantité d
 |Nombre maximal de workers simultanés par pool (demandes) *|210|420|630|840|1050|1 260|1470|
 |Nombre maximal de connexions simultanées par pool (demandes) *|210|420|630|840|1050|1 260|1470|
 |Nombre maximal de sessions autorisé|30000|30000|30000|30000|30000|30000|30000|
-|Nombre maximal de bases de données par pool|200|500|500|500|500|500|500|
 |Choix du nombre minimal/maximal de cœurs virtuels de pool élastique par base de données|0 ; 0,25 ; 0,5 ; 1 ; 2|0 ; 0,25 ; 0,5, 1...4|0 ; 0,25 ; 0,5 ; 1...6|0 ; 0,25 ; 0,5 ; 1... 8|0 ; 0,25 ; 0,5 ; 1... 10|0 ; 0,25 ; 0,5 ; 1... 12|0 ; 0,25 ; 0,5 ; 1... 14|
 |Nombre de réplicas|1|1|1|1|1|1|1|
 |Plusieurs zones de disponibilités|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
@@ -128,6 +128,7 @@ Vous pouvez définir le niveau de service, la taille de calcul et la quantité d
 |Génération H/W|5.|5.|5.|5.|5.|5.|5.|
 |vCores|16|18|20|24|32|40|80|
 |Mémoire (Go)|81,6|91,8|102|122,4|163,2|204|408|
+|Nombre maximal de bases de données par pool|500|500|500|500|500|500|500|
 |Prise en charge de ColumnStore|OUI|OUI|OUI|OUI|OUI|OUI|OUI|
 |Stockage In-Memory OLTP (Go)|N/A|N/A|N/A|N/A|N/A|N/A|S.O.|
 |Taille maximale des données (Go)|2 048|2 048|3 072|3 072|4096|4096|4096|
@@ -139,7 +140,6 @@ Vous pouvez définir le niveau de service, la taille de calcul et la quantité d
 |Limites de taux de journal (Mbits/s)|37.5|37.5|37.5|37.5|37.5|37.5|37.5|
 |Nombre maximal de workers simultanés par pool (demandes) *|1680|1890|2100|2520|33600|4200|8400|
 |Nombre maximal de connexions simultanées par pool (demandes) *|1680|1890|2100|2520|33600|4200|8400|
-|Nombre maximal de bases de données par pool|500|500|500|500|500|500|500|
 |Choix du nombre minimal/maximal de cœurs virtuels de pool élastique par base de données|0 ; 0,25 ; 0,5 ; 1... 16|0 ; 0,25 ; 0,5 ; 1... 18|0 ; 0,25 ; 0,5 ; 1... 20|0 ; 0,25 ; 0,5 ; 1... 20 ; 24|0 ; 0,25 ; 0,5 ; 1... 20 ; 24 ; 32|0 ; 0,25 ; 0,5 ; 1... 16 ; 24 ; 32 ; 40|0 ; 0,25 ; 0,5 ; 1... 16 ; 24 ; 32 ; 40 ; 80|
 |Nombre de réplicas|1|1|1|1|1|1|1|
 |Plusieurs zones de disponibilités|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
@@ -157,6 +157,7 @@ Vous pouvez définir le niveau de service, la taille de calcul et la quantité d
 |Génération H/W|4|4|4|4|4|4|
 |vCores|1|2|3|4|5|6.|
 |Mémoire (Go)|7|14|21|28|35|42|
+|Nombre maximal de bases de données par pool|Seules les bases de données uniques sont prises en charge pour cette taille de calcul|50|100|100|100|100|
 |Prise en charge de ColumnStore|OUI|OUI|OUI|OUI|OUI|OUI|
 |Stockage In-Memory OLTP (Go)|1|2|3|4|5|6.|
 |Type de stockage|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
@@ -169,7 +170,6 @@ Vous pouvez définir le niveau de service, la taille de calcul et la quantité d
 |Nombre maximal de workers simultanés par pool (demandes) *|210|420|630|840|1050|1 260|
 |Nombre maximal de connexions simultanées par pool (demandes) *|210|420|630|840|1050|1 260|
 |Nombre maximal de sessions autorisé|30000|30000|30000|30000|30000|30000|
-|Nombre maximal de bases de données par pool|Seules les bases de données uniques sont prises en charge pour cette taille de calcul|50|100|100|100|100|
 |Choix du nombre minimal/maximal de cœurs virtuels de pool élastique par base de données|S.O.|0 ; 0,25 ; 0,5 ; 1 ; 2|0 ; 0,25 ; 0,5 ; 1...3|0 ; 0,25 ; 0,5, 1...4|0 ; 0,25 ; 0,5 ; 1...5|0 ; 0,25 ; 0,5 ; 1...6|
 |Nombre de réplicas|4|4|4|4|4|4|
 |Plusieurs zones de disponibilités|OUI|OUI|OUI|OUI|OUI|OUI|
@@ -185,6 +185,7 @@ Vous pouvez définir le niveau de service, la taille de calcul et la quantité d
 |Génération H/W|4|4|4|4|4|4|
 |vCores|7|8|9|10|16|24|
 |Mémoire (Go)|81,6|91,8|102|122,4|163,2|204|
+|Nombre maximal de bases de données par pool|100|100|100|100|100|100|
 |Prise en charge de ColumnStore|S.O.|N/A|N/A|N/A|N/A|S.O.|
 |Stockage In-Memory OLTP (Go)|7|8|9,5|11|20|36|
 |Type de stockage|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
@@ -197,7 +198,6 @@ Vous pouvez définir le niveau de service, la taille de calcul et la quantité d
 |Nombre maximal de workers simultanés par pool (demandes) *|1470|1680|1890|2100|3360|5040|
 |Nombre maximal de connexions simultanées par pool (demandes) *|1470|1680|1890|2100|3360|5040|
 |Nombre maximal de sessions autorisé|30000|30000|30000|30000|30000|30000|
-|Nombre maximal de bases de données par pool|100|100|100|100|100|100|
 |Choix du nombre minimal/maximal de cœurs virtuels de pool élastique par base de données|0 ; 0,25 ; 0,5 ; 1... 7|0 ; 0,25 ; 0,5 ; 1... 8|0 ; 0,25 ; 0,5 ; 1... 9|0 ; 0,25 ; 0,5 ; 1... 10|0 ; 0,25 ; 0,5 ; 1... 10 ; 16|0 ; 0,25 ; 0,5 ; 1... 10 ; 16 ; 24|
 |Nombre de réplicas|4|4|4|4|4|4|
 |Plusieurs zones de disponibilités|OUI|OUI|OUI|OUI|OUI|OUI|
@@ -213,6 +213,7 @@ Vous pouvez définir le niveau de service, la taille de calcul et la quantité d
 |Génération H/W|5.|5.|5.|5.|5.|5.|5.|
 |vCores|2|4|6.|8|10|12|14|
 |Mémoire (Go)|10.2|20,4|30,6|40,8|51|61,2|71,4|
+|Nombre maximal de bases de données par pool|Seules les bases de données uniques sont prises en charge pour cette taille de calcul|50|100|100|100|100|100|
 |Prise en charge de ColumnStore|OUI|OUI|OUI|OUI|OUI|OUI|OUI|
 |Stockage In-Memory OLTP (Go)|1 571|3 142|4 713|6 284|8 655|11 026|13 397|
 |Taille maximale des données (Go)|1 024|1 024|1536|1536|1536|3 072|3 072|
@@ -225,7 +226,6 @@ Vous pouvez définir le niveau de service, la taille de calcul et la quantité d
 |Nombre maximal de workers simultanés par pool (demandes) *|210|420|630|840|1050|1 260|1470|
 |Nombre maximal de connexions simultanées par pool (demandes) *|210|420|630|840|1050|1 260|1470|
 |Nombre maximal de sessions autorisé|30000|30000|30000|30000|30000|30000|30000|
-|Nombre maximal de bases de données par pool|Seules les bases de données uniques sont prises en charge pour cette taille de calcul|50|100|100|100|100|100|
 |Choix du nombre minimal/maximal de cœurs virtuels de pool élastique par base de données|S.O.|0 ; 0,25 ; 0,5, 1...4|0 ; 0,25 ; 0,5 ; 1...6|0 ; 0,25 ; 0,5 ; 1... 8|0 ; 0,25 ; 0,5 ; 1... 10|0 ; 0,25 ; 0,5 ; 1... 12|0 ; 0,25 ; 0,5 ; 1... 14|
 |Nombre de réplicas|4|4|4|4|4|4|4|
 |Plusieurs zones de disponibilités|OUI|OUI|OUI|OUI|OUI|OUI|
@@ -241,6 +241,7 @@ Vous pouvez définir le niveau de service, la taille de calcul et la quantité d
 |Génération H/W|5.|5.|5.|5.|5.|5.|5.|
 |vCores|16|18|20|24|32|40|80|
 |Mémoire (Go)|81,6|91,8|102|122,4|163,2|204|408|
+|Nombre maximal de bases de données par pool|100|100|100|100|100|100|100|
 |Prise en charge de ColumnStore|OUI|OUI|OUI|OUI|OUI|OUI|OUI|
 |Stockage In-Memory OLTP (Go)|15 768|18 139|20,51|25 252|37 936|52.22|131,64|
 |Taille maximale des données (Go)|3 072|3 072|3 072|4096|4096|4096|4096|
@@ -253,7 +254,6 @@ Vous pouvez définir le niveau de service, la taille de calcul et la quantité d
 |Nombre maximal de workers simultanés par pool (demandes) *|1680|1890|2100|2520|3360|4200|8400|
 |Nombre maximal de connexions simultanées par pool (demandes) *|1680|1890|2100|2520|3360|4200|8400|
 |Nombre maximal de sessions autorisé|30000|30000|30000|30000|30000|30000|30000|
-|Nombre maximal de bases de données par pool|100|100|100|100|100|100|100|
 |Choix du nombre minimal/maximal de cœurs virtuels de pool élastique par base de données|0 ; 0,25 ; 0,5 ; 1... 16|0 ; 0,25 ; 0,5 ; 1... 18|0 ; 0,25 ; 0,5 ; 1... 20|0 ; 0,25 ; 0,5 ; 1... 20 ; 24|0 ; 0,25 ; 0,5 ; 1... 20 ; 24 ; 32|0 ; 0,25 ; 0,5 ; 1... 20 ; 24 ; 32 ; 40|0 ; 0,25 ; 0,5 ; 1... 20 ; 24 ; 32 ; 40 ; 80|
 |Nombre de réplicas|4|4|4|4|4|4|4|
 |Plusieurs zones de disponibilités|OUI|OUI|OUI|OUI|OUI|OUI|OUI|

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: d886aa364ca928d32100c570689f13beb0c682c9
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: e993378634262de25449975431c0a9e3145ca9fb
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65143417"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66255243"
 ---
 # <a name="status-monitor-v2-api-enable-instrumentationengine-v021-alpha"></a>État du moniteur v2 API : Enable-InstrumentationEngine (v0.2.1-alpha)
 
@@ -79,7 +79,7 @@ Configuring registry for instrumentation engine...
  - [Explorez les mesures](../../azure-monitor/app/metrics-explorer.md) pour surveiller les performances et l’utilisation
 - [Recherchez les événements et journaux](../../azure-monitor/app/diagnostic-search.md) pour diagnostiquer les problèmes
 - [Utilisez la fonctionnalité Analytics](../../azure-monitor/app/analytics.md) pour des requêtes plus élaborées
-- [Créez des tableaux de bord](../../azure-monitor/app/app-insights-dashboards.md)
+- [Créez des tableaux de bord](../../azure-monitor/app/overview-dashboard.md)
  
  Ajoutez des données de télémétrie :
  - [Créez des tests web](monitor-web-app-availability.md) s’assurer que votre site reste actif.

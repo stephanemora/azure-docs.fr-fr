@@ -16,12 +16,12 @@ ms.date: 04/23/2019
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c95eb45d75a54af75fdc8004316bc8bfeeddbd7e
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 0cfaea53156b78fad024046bb6f55229f8ad6536
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65783932"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236267"
 ---
 # <a name="troubleshoot-kerberos-constrained-delegation-configurations-for-application-proxy"></a>Résolution des problèmes de configuration de la délégation Kerberos contrainte pour le proxy d’application
 
@@ -182,4 +182,4 @@ Si le problème persiste, contactez le support technique Microsoft. Émettez un 
 - L'authentification à tronçons multiples est couramment utilisée dans les scénarios où une application est hiérarchisée, avec un serveur principal et un serveur frontal requérant tous les deux une authentification, comme SQL Server Reporting Services. Pour configurer le scénario à tronçons multiples, consultez l’article de support [La délégation Kerberos contrainte peut nécessiter une transition de protocole dans les scénarios à tronçons multiples](https://support.microsoft.com/help/2005838/kerberos-constrained-delegation-may-require-protocol-transition-in-mul).
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Configurer la délégation Kerberos contrainte sur un domaine géré](../../active-directory-domain-services/active-directory-ds-enable-kcd.md).
+[Configurer la délégation Kerberos contrainte sur un domaine géré](../../active-directory-domain-services/deploy-kcd.md).

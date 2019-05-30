@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 04/30/2019
-ms.openlocfilehash: be592cb6bb7c041fab0a2f96a338f4f4bb0ff00a
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 2d70e1b5434b2fb263d1f4587888d4758fac2828
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510923"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66225361"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Réplicas en lecture dans Azure Database pour MySQL
 
@@ -42,8 +42,7 @@ Si un serveur maître n’a aucun serveur de réplica existant, le maître sera 
 
 Lorsque vous démarrez le flux de travail de réplica de créer, un vide serveur Azure Database pour MySQL est créé. Le nouveau serveur est rempli avec les données qui se trouvaient sur le serveur maître. Le temps de création dépend de la quantité de données présentes sur le serveur maître et du temps écoulé depuis la dernière sauvegarde complète hebdomadaire. Le temps nécessaire peut aller de quelques minutes à plusieurs heures.
 
-> [!NOTE]
-> Si aucune alerte de stockage n’est configurée sur vos serveurs, nous vous recommandons de le faire. L’alerte vous informe quand un serveur approche de sa limite de stockage, ce qui affecte la réplication.
+Chaque réplica est activé pour le stockage [la croissance automatique](concepts-pricing-tiers.md#storage-auto-grow). La fonctionnalité de croissance automatique permet au réplica de suivre les données répliquées sur elle et empêcher une interruption dans la réplication a provoqué par des erreurs de stockage.
 
 Découvrez comment [créer un réplica en lecture dans le portail Azure](howto-read-replicas-portal.md).
 
@@ -110,11 +109,11 @@ Si vous arrêtez la réplication entre un serveur maître et un réplica en lect
 
 Quand un serveur maître est supprimé, la réplication est arrêtée sur tous les réplicas en lecture. Ces réplicas deviennent des serveurs autonomes. Le serveur maître lui-même est supprimé.
 
-### <a name="user-accounts"></a>Comptes d'utilisateur
+### <a name="user-accounts"></a>Comptes d'utilisateurs
 
 Les utilisateurs sur le serveur maître sont répliqués sur les réplicas en lecture. Vous ne pouvez vous connecter à un réplica en lecture qu’avec des comptes d’utilisateur disponibles sur le serveur maître.
 
-### <a name="server-parameters"></a>Paramètres du serveur
+### <a name="server-parameters"></a>Paramètres de serveur
 
 Pour empêcher les données de devenir désynchronisés et afin d’éviter le potentiel de perte de données ou de corruption, certains paramètres de serveur sont verrouillés à partir de la mise à jour à l’aide de lire des réplicas.
 

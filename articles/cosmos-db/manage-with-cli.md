@@ -4,14 +4,14 @@ description: Utilisez l'interface Azure CLI pour gérer votre compte, votre base
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 4/8/2019
+ms.date: 05/23/2019
 ms.author: mjbrown
-ms.openlocfilehash: 1d19e58b2d1381725de490b68d9e4d00a2ca4cb6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 144515fef9da714ab80f15bb39757ed2283c6dd0
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66151208"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243377"
 ---
 # <a name="manage-azure-cosmos-resources-using-azure-cli"></a>Gérer les ressources Azure Cosmos à l’aide d’Azure CLI
 
@@ -21,7 +21,7 @@ Le guide suivant décrit les commandes courantes pour automatiser la gestion de 
 
 Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, vous devez exécuter Azure CLI version 2.0 ou une version ultérieure pour poursuivre la procédure décrite dans cet article. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI](/cli/azure/install-azure-cli).
 
-## <a name="create-an-azure-cosmos-db-account"></a>Créer un compte Azure Cosmos DB
+## <a name="create-an-azure-cosmos-db-account"></a>Création d’un compte Azure Cosmos DB
 
 Pour créer un compte Azure Cosmos DB avec l’API SQL, la cohérence de Session dans les régions est et ouest des États-Unis, exécutez la commande suivante :
 

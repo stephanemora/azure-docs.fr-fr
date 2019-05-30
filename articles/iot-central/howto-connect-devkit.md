@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 82222dd927f46761941a6a750d96222cc626e71b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 130ca6bc946d44d80cddba5486d405bfb15523cb
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60887267"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235876"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Connecter un appareil DevKit IoT MXChip à votre application Azure IoT Central
 
@@ -66,7 +66,7 @@ Si vous avez déjà utilisé l’appareil et vous souhaitez reconfigurer pour qu
 #### <a name="to-prepare-the-devkit-device"></a>Pour préparer l'appareil DevKit
 
 1. Téléchargez la dernière version du microprogramme Azure IoT Central prédéfini pour MXChip à partir de la page [Releases](https://aka.ms/iotcentral-docs-MXChip-releases) de GitHub.
-1. Connectez l’appareil DevKit à votre machine de développement à l’aide d’un câble USB. Dans Windows, une fenêtre Explorateur de fichiers s’ouvre sur un lecteur mappé au stockage de l’appareil DevKit. Par exemple, le lecteur peut s’appeler **AZ3166 (d)**.
+1. Connectez l’appareil DevKit à votre machine de développement à l’aide d’un câble USB. Dans Windows, une fenêtre Explorateur de fichiers s’ouvre sur un lecteur mappé au stockage de l’appareil DevKit. Par exemple, le lecteur peut s’appeler **AZ3166 (d)** .
 1. Faites glisser le fichier **iotCentral.bin** jusqu’à la fenêtre du lecteur. Une fois la copie effectuée, l’appareil redémarre avec le nouveau microprogramme.
 
 1. Pendant le redémarrage de l’appareil DevKit, voici l’écran que vous obtenez :
@@ -197,9 +197,9 @@ Une application créée à partir du modèle d’application Exemples de Devkits
 | humidité       | %      | 0       | 100     | 0              |
 | temp           | °C     | -40     | 120     | 0              |
 | pression       | hPa    | 260     | 1 260    | 0              |
-| magnetometerX  | mgauss | -1 000   | 1 000    | 0              |
-| magnetometerY  | mgauss | -1 000   | 1 000    | 0              |
-| magnetometerZ  | mgauss | -1 000   | 1 000    | 0              |
+| magnetometerX  | mgauss | -1000   | 1 000    | 0              |
+| magnetometerY  | mgauss | -1000   | 1 000    | 0              |
+| magnetometerZ  | mgauss | -1000   | 1 000    | 0              |
 | accelerometerX | mg     | -2 000   | 2000    | 0              |
 | accelerometerY | mg     | -2 000   | 2000    | 0              |
 | accelerometerZ | mg     | -2 000   | 2000    | 0              |
@@ -208,12 +208,12 @@ Une application créée à partir du modèle d’application Exemples de Devkits
 | gyroscopeZ     | mdps   | -2 000   | 2000    | 0              |
 
 #### <a name="states"></a>États 
-| Nom          | Nom complet   | NORMAL | AVERTISSEMENT | DANGER | 
+| Nom          | Display name   | NORMAL | AVERTISSEMENT | DANGER | 
 | ------------- | -------------- | ------ | ------- | ------ | 
 | DeviceState   | État de l’appareil   | Vert  | Orange  | Rouge    | 
 
 #### <a name="events"></a>Événements 
-| Nom             | Nom complet      | 
+| Nom             | Display name      | 
 | ---------------- | ----------------- | 
 | ButtonBPressed   | Bouton B enfoncé  | 
 
@@ -221,7 +221,7 @@ Une application créée à partir du modèle d’application Exemples de Devkits
 
 Paramètres numériques
 
-| Nom complet | Nom du champ | Units | Nombre de décimales | Minimale | Maximale | Initial |
+| Display name | Nom du champ | Units | Nombre de décimales | Minimale | Maximale | Initial |
 | ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
 | Voltage      | setVoltage | Volts | 0              | 0       | 240     | 0       |
 | Current      | setCurrent | Amps  | 0              | 0       | 100     | 0       |
@@ -229,13 +229,13 @@ Paramètres numériques
 
 Paramètres de bascule
 
-| Nom complet | Nom du champ | Texte pour Activé | Texte pour Désactivé | Initial |
+| Display name | Nom du champ | Texte pour Activé | Texte pour Désactivé | Initial |
 | ------------ | ---------- | ------- | -------- | ------- |
 | IR           | activateIR | ACTIVÉ      | ÉTEINT      | Off     |
 
 ### <a name="properties"></a>properties
 
-| Type            | Nom complet | Nom du champ | Type de données |
+| type            | Display name | Nom du champ | Type de données |
 | --------------- | ------------ | ---------- | --------- |
 | Propriété d’appareil | Numéro gravé   | dieNumber  | number    |
 | Propriété d’appareil | Emplacement de l’appareil   | location  | location    |
@@ -243,11 +243,11 @@ Paramètres de bascule
 
 ### <a name="commands"></a>Commandes
 
-| Nom complet | Nom du champ | Type de retour | Nom complet du champ d’entrée | Nom du champ d’entrée | Type de champ d’entrée |
+| Display name | Nom du champ | Type de retour | Nom complet du champ d’entrée | Nom du champ d’entrée | Type de champ d’entrée |
 | ------------ | ---------- | ----------- | ------------------------ | ---------------- | ---------------- |
 | Echo         | echo       | text        | valeur à afficher         | displayedValue   | text             |
-| compte à rebours    | countdown  | number      | Nombre à partir de               | countFrom        | number           |
+| Compte à rebours    | countdown  | number      | Nombre à partir de               | countFrom        | number           |
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Maintenant que vous avez appris à connecter un Raspberry Pi à votre application Azure IoT Central, l’étape suivante suggérée consiste à apprendre comment [définir un modèle d’appareil personnalisé](howto-set-up-template.md) pour votre propre appareil IoT.
+Maintenant que vous avez appris à connecter un appareil Devkit IoT Mxchip à votre application Azure IoT Central, l’étape suivante suggérée consiste à apprendre comment [définir un modèle d’appareil personnalisé](howto-set-up-template.md) pour votre propre appareil IoT.

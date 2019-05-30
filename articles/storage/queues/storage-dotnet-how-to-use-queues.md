@@ -10,19 +10,19 @@ ms.date: 05/21/2019
 ms.author: mhopkins
 ms.reviewer: cbrooks
 ms.subservice: queues
-ms.openlocfilehash: 054369a7fd75663c75c99c6ee586843582a6b6f9
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
-ms.translationtype: HT
+ms.openlocfilehash: bfa69c6904644f707626e57a6696695cf4868c50
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65965963"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236615"
 ---
 # <a name="get-started-with-azure-queue-storage-using-net"></a>Prise en main du stockage de files d’attente Azure à l’aide de .NET
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
 
 [!INCLUDE [storage-check-out-samples-dotnet](../../../includes/storage-check-out-samples-dotnet.md)]
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 Le stockage de files d’attente Azure fournit une messagerie cloud entre les composants d’application. Lors de la conception d'applications pour la mise à l'échelle, des composants d'application sont souvent découplés, de sorte qu'ils peuvent être mis à l'échelle indépendamment. Le stockage de files d’attente offre une messagerie asynchrone pour la communication entre les composants d’application, qu’ils soient exécutés dans le cloud, sur le bureau, sur un serveur local ou sur un appareil mobile. Le stockage de files d’attente prend également en charge la gestion des tâches asynchrones et la création des flux de travail de processus.
 
 ### <a name="about-this-tutorial"></a>À propos de ce didacticiel
@@ -75,7 +75,7 @@ CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
     
 Vous êtes maintenant prêt à écrire du code qui lit et écrit des données dans le Queue Storage.
 
-## <a name="create-a-queue"></a>Créer une file d'attente
+## <a name="create-a-queue"></a>Créer une file d’attente
 Cet exemple montre comment créer une file d’attente, si elle n’existe pas encore :
 
 ```csharp
@@ -231,7 +231,7 @@ foreach (CloudQueueMessage message in queue.GetMessages(20, TimeSpan.FromMinutes
 ```
 
 ## <a name="get-the-queue-length"></a>Obtention de la longueur de la file d'attente
-Vous pouvez obtenir une estimation du nombre de messages dans une file d'attente. La méthode [FetchAttributes](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.storage.queue.cloudqueue.fetchattributes?view=azure-dotnet) demande au service de files d'attente d'extraire les attributs de la file d'attente, y compris le nombre de messages. La propriété [ApproximateMessageCount](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.storage.queue.cloudqueue.approximatemessagecount?view=azure-dotnet) renvoie la dernière valeur extraite par la méthode **FetchAttributes**, sans appeler le service de files d’attente.
+Vous pouvez obtenir une estimation du nombre de messages dans une file d'attente. La méthode [FetchAttributes](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.fetchattributes?view=azure-dotnet) demande au service de files d'attente d'extraire les attributs de la file d'attente, y compris le nombre de messages. La propriété [ApproximateMessageCount](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.approximatemessagecount?view=azure-dotnet) renvoie la dernière valeur extraite par la méthode **FetchAttributes**, sans appeler le service de files d’attente.
 
 ```csharp
 // Retrieve storage account from connection string.
@@ -255,7 +255,7 @@ Console.WriteLine("Number of messages in queue: " + cachedMessageCount);
 ```
 
 ## <a name="delete-a-queue"></a>Suppression d'une file d'attente
-Pour supprimer une file d'attente et tous les messages qu'elle contient, appelez la méthode [Delete](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.storage.queue.cloudqueue.delete?view=azure-dotnet) sur l'objet file d'attente.
+Pour supprimer une file d'attente et tous les messages qu'elle contient, appelez la méthode [Delete](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.delete?view=azure-dotnet) sur l'objet file d'attente.
 
 ```csharp
 // Retrieve storage account from connection string.

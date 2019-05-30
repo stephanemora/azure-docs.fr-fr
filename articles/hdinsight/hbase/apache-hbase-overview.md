@@ -6,14 +6,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 02/22/2018
+ms.date: 05/23/2019
 ms.author: hrasheed
-ms.openlocfilehash: a492adbf1c01271ceea736bde9de999190fc2da4
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 358b835b42862bd0ceb1a5c4a48ba4b18a567f4d
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65789201"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235909"
 ---
 # <a name="what-is-apache-hbase-in-azure-hdinsight"></a>Nouveautés d’Apache HBase dans Azure HDInsight
 
@@ -30,7 +30,7 @@ HDInsight HBase est proposé en tant que cluster géré intégré à l'environne
 La mise en œuvre de HDInsight exploite l'architecture de montée en charge de HBase pour fournir un partitionnement automatique des tables, une cohérence forte pour les lectures et les écritures, et un basculement automatique. Les performances sont optimisées par la mise en cache en mémoire des lectures et par des écritures en diffusion à débit élevé. Vous pouvez créer un cluster HBase au sein du réseau virtuel. Pour en savoir plus, voir [Création de clusters HBase sur Azure Virtual Network](./apache-hbase-provision-vnet.md).
 
 ## <a name="how-is-data-managed-in-hdinsight-hbase"></a>Mode de gestion des données HDInsight HBase
-Les données peuvent être gérées dans HBase au moyen des commandes `create`, `get`, `put` et `scan` provenant du Shell HBase. Les données sont écrites dans la base de données au moyen de `put` et lues avec `get`. La commande `scan` permet d'obtenir des données à partir de plusieurs lignes dans une table. Les données peuvent également être gérées au moyen de l'API HBase C#, qui fournit une bibliothèque cliente par-dessus l'API REST HBase. Une base de données HBase peut également être interrogée en utilisant [Apache Hive](https://hive.apache.org/). En guise d’introduction à ces modèles de programmation, consultez la page [Bien démarrer avec Apache HBase et Apache Hadoop dans HDInsight](./apache-hbase-tutorial-get-started-linux.md). Des coprocesseurs, permettant de traiter des données dans les nœuds qui hébergent la base de données, sont également disponibles.
+Les données peuvent être gérées dans HBase au moyen des commandes `create`, `get`, `put` et `scan` provenant du Shell HBase. Les données sont écrites dans la base de données au moyen de `put` et lues avec `get`. La commande `scan` permet d'obtenir des données à partir de plusieurs lignes dans une table. Les données peuvent également être gérées au moyen de l'API HBase C#, qui fournit une bibliothèque cliente par-dessus l'API REST HBase. Une base de données HBase peut également être interrogée en utilisant [Apache Hive](https://hive.apache.org/). En guise d’introduction à ces modèles de programmation, consultez la page [Bien démarrer avec Apache HBase et Apache Hadoop dans HDInsight](./apache-hbase-tutorial-get-started-linux.md). COPROCESSEURS sont également disponibles, qui permettent de traitement des données dans les nœuds qui hébergent la base de données.
 
 > [!NOTE]  
 > Thrift n’est pas pris en charge par HBase dans HDInsight.

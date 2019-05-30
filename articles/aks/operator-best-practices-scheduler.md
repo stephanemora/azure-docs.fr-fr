@@ -2,18 +2,17 @@
 title: Bonnes pratiques de l’opérateur - Fonctionnalités de base du planificateur dans Azure Kubernetes Service (AKS)
 description: Découvrir les bonnes pratiques de l’opérateur relatives aux fonctionnalités de base du planificateur, notamment les quotas de ressources et les budgets de perturbation de pod dans Azure Kubernetes Service (AKS)
 services: container-service
-author: rockboyfor
+author: iainfoulds
 ms.service: container-service
 ms.topic: conceptual
-origin.date: 11/26/2018
-ms.date: 04/08/2019
-ms.author: v-yeche
-ms.openlocfilehash: 8233330973946e552e36a85a11bdbbfb06c739f0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 11/26/2018
+ms.author: iainfou
+ms.openlocfilehash: f6e370442c9c359a38025762fb90269119ec0ea6
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60463878"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65074123"
 ---
 # <a name="best-practices-for-basic-scheduler-features-in-azure-kubernetes-service-aks"></a>Bonnes pratiques relatives aux fonctionnalités de base du planificateur dans Azure Kubernetes Service (AKS)
 
@@ -95,7 +94,7 @@ spec:
       app: nginx-frontend
 ```
 
-Vous pouvez également définir un pourcentage (par exemple, *60 %*), pour compenser automatiquement le scale-up du nombre de pods par le jeu de réplicas.
+Vous pouvez également définir un pourcentage (par exemple, *60 %* ), pour compenser automatiquement le scale-up du nombre de pods par le jeu de réplicas.
 
 Vous pouvez définir le nombre maximal d’instances non disponibles dans un jeu de réplicas. Là encore, vous pouvez définir un pourcentage indiquant le nombre maximal de pods indisponibles. Selon le manifeste YAML du budget de perturbation de pod suivant, il ne peut pas y avoir plus de deux pods indisponibles dans le jeu de réplicas :
 
@@ -127,6 +126,8 @@ Pour plus d’informations sur l’utilisation de budgets de perturbation de pod
 
 Le [kube-conseiller] [ kube-advisor] outil est un projet open source AKS associé qui analyse un cluster Kubernetes et les rapports sur les problèmes qu’il trouve. Une vérification utile consiste à identifier les pods dépourvus de demandes et de limites de ressources.
 
+L’outil Conseiller de kube peut signaler sur demande de ressource et les limites manquant dans les applications PodSpecs pour Windows, ainsi que des applications Linux, mais l’outil de kube-conseiller lui-même doit être planifiée sur un bloc de Linux. Vous pouvez planifier un pod pour s’exécuter sur un pool de nœuds avec un système d’exploitation spécifiques à l’aide un [sélecteur de nœud] [ k8s-node-selector] dans la configuration du pod.
+
 Dans un cluster AKS qui héberge plusieurs applications et équipes de développement, il peut être difficile de suivre les pods sans ces demandes et limites de ressources. Une bonne pratique consiste à exécuter régulièrement `kube-advisor` sur vos clusters AKS, surtout si vous n’affectez pas de quotas de ressources aux espaces de noms.
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -148,3 +149,4 @@ Dans cet article, nous avons traité des fonctionnalités de base du planificate
 [aks-best-practices-cluster-isolation]: operator-best-practices-cluster-isolation.md
 [aks-best-practices-advanced-scheduler]: operator-best-practices-advanced-scheduler.md
 [aks-best-practices-identity]: operator-best-practices-identity.md
+[k8s-node-selector]: concepts-clusters-workloads.md#node-selectors

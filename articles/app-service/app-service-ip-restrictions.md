@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 04/22/2018
+ms.date: 05/23/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: de898a7ebb9611f469f42bb23774b3b0a0c2410d
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: be0de7e809565fce4171401760d11ef9de45724e
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65541686"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236115"
 ---
 # <a name="azure-app-service-access-restrictions"></a>Restrictions d’accès Azure App Service #
 
@@ -54,7 +54,7 @@ Vous pouvez cliquer sur **[+] ajouter** pour ajouter une nouvelle règle de rest
 
 Lorsque vous créez une règle, vous devez sélectionner autoriser ou refuser, ainsi que le type de règle. Vous devez également fournir la valeur de priorité et ce que vous pouvez réserver l’accès.  Vous pouvez éventuellement ajouter un nom et une description à la règle.  
 
-Règle basée sur pour définir une adresse IP, sélectionnez un type de IPv4 ou IPv6. Pour les adresses IPv4 et IPv6, la notation CIDR doit être utilisée. Pour spécifier une adresse exacte, vous pouvez utiliser le format 1.2.3.4/32, où les quatre premiers octets représentent votre adresse IP, et /32 correspond au masque. La notation CIDR IPv4 est 0.0.0.0/0 pour toutes les adresses. Pour plus d’informations sur la notation CIDR, consultez [Classless Inter-Domain Routing](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing). 
+Règle basée sur pour définir une adresse IP, sélectionnez un type de IPv4 ou IPv6. Pour les adresses IPv4 et IPv6, la notation CIDR doit être utilisée. Pour spécifier une adresse exacte, vous pouvez utiliser le format 1.2.3.4/32, où les quatre premiers octets représentent votre adresse IP, et /32 correspond au masque. La notation CIDR IPv4 est 0.0.0.0/0 pour toutes les adresses. Pour plus d’informations sur la notation CIDR, consultez [Classless Inter-Domain Routing](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
 
 ![Ajouter une règle de restriction d’accès réseau virtuel](media/app-service-ip-restrictions/access-restrictions-vnet-add.png)
 
@@ -70,7 +70,7 @@ Lorsque vous modifiez une règle, vous ne pouvez pas modifier le type entre une 
 
 ![modifier une règle de restriction d’accès](media/app-service-ip-restrictions/access-restrictions-vnet-edit.png)
 
-Pour supprimer une règle, cliquez sur les trois points (**...**) dans votre règle, puis cliquez sur **Supprimer**.
+Pour supprimer une règle, cliquez sur les trois points ( **...** ) dans votre règle, puis cliquez sur **Supprimer**.
 
 ![supprimer la règle de restriction d’accès](media/app-service-ip-restrictions/access-restrictions-delete.png)
 
@@ -79,6 +79,14 @@ Pour supprimer une règle, cliquez sur les trois points (**...**) dans votre rè
 Outre la possibilité de contrôler l’accès à votre application, vous pouvez également restreindre l’accès au site scm utilisé par votre application. Le site scm est le web déployer le point de terminaison, ainsi que la console Kudu. Vous pouvez séparément adjoindre des restrictions d’accès au site scm à partir de l’application ou utiliser les mêmes pour l’application et le site scm. Lorsque vous activez la case pour ont les mêmes restrictions que votre application, tout ce dont s’affiche en grisé. Si vous décochez la case, les paramètres que vous aviez précédemment sur le site scm sont appliquées. 
 
 ![restrictions d’accès de liste](media/app-service-ip-restrictions/access-restrictions-scm-browse.png)
+
+## <a name="blocking-a-single-ip-address"></a>Blocage d’une seule adresse IP ##
+
+Lorsque vous ajoutez votre première règle de Restriction d’adresse IP, le service va ajouter explicite **refuser tout** règle avec une priorité de 2147483647. Dans la pratique, explicite **refuser tout** règle sera la dernière règle exécutée et bloquera l’accès à n’importe quelle adresse IP qui n’est pas autorisé de manière explicite à l’aide un **autoriser** règle.
+
+Pour le scénario où les utilisateurs souhaitent bloquer explicitement une seule adresse IP ou le bloc d’adresses IP, mais autoriser tout autre accès, il est nécessaire d’ajouter un texte explicite **autoriser tous les** règle.
+
+![adresse ip unique de bloc](media/app-service-ip-restrictions/block-single-address.png)
 
 ## <a name="programmatic-manipulation-of-access-restriction-rules"></a>Manipulation par programmation des règles de restriction d’accès ##
 

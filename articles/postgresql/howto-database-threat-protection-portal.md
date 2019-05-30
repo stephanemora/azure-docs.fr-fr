@@ -1,19 +1,19 @@
 ---
-title: Advanced Threat Protection – Azure Database pour PostgreSQL
+title: Advanced Threat Protection - Azure Database pour PostgreSQL - monoserveur
 description: La protection contre les menaces détecte les activités de base de données anormales qui indiquent la présence potentielle de menaces de sécurité pour la base de données.
 author: bolzmj
 ms.author: mbolz
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 01/24/2019
-ms.openlocfilehash: bbb48708d0e5a7cd07a3971a6966f40696107562
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: a69a8b651188b9566fdbec4bc6de09a8fec164c7
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60421278"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65067464"
 ---
-# <a name="advanced-threat-protection-for-azure-database-for-postgresql"></a>Protection avancée contre les menaces d’Azure Database pour PostgreSQL
+# <a name="advanced-threat-protection-for-azure-database-for-postgresql---single-server"></a>Protection avancée contre les menaces pour Azure Database pour PostgreSQL - serveur unique
 
 La protection avancée contre les menaces d’Azure Database pour PostgreSQL détecte des activités anormales indiquant des tentatives d’accès ou d’exploitation inhabituelles et potentiellement dangereuses de vos bases de données.
 
@@ -28,7 +28,7 @@ La protection avancée contre les menaces fait partie de l’offre Advanced Data
 
 ## <a name="set-up-threat-detection"></a>Configurer la détection des menaces
 1. Lancez le portail Azure sur [https://portal.azure.com](https://portal.azure.com).
-2. Accédez à la page de configuration du serveur Azure Database pour PostgreSQL que vous voulez protéger. Dans les paramètres de sécurité, sélectionnez **Protection avancée contre les menaces (préversion)**.
+2. Accédez à la page de configuration du serveur Azure Database pour PostgreSQL que vous voulez protéger. Dans les paramètres de sécurité, sélectionnez **Protection avancée contre les menaces (préversion)** .
 3. Dans la page de configuration **Protection avancée contre les menaces (préversion)** :
 
    - Activez la protection avancée contre les menaces sur le serveur.

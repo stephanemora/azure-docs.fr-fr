@@ -14,19 +14,19 @@ ms.workload: na
 ms.tgt_pltfrm: mobile-html
 ms.devlang: javascript
 ms.topic: conceptual
-ms.date: 07/07/2017
+ms.date: 05/09/2019
 ms.author: crdun
-ms.openlocfilehash: 7014d09bbb62e78c37a9496628e3509b6eaaa4ac
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: ac6c2b0f93c56de6e0a2b559645884b60d761ba8
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62123329"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66240238"
 ---
 # <a name="create-an-apache-cordova-app"></a>Créer une application Apache Cordova
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 Ce didacticiel montre comment ajouter un backend cloud à une application mobile Apache Cordova à l’aide d’un backend d’application mobile Azure.  Vous créez un backend d’application mobile et une simple application Apache Cordova *Todo list* qui stocke les données d’application dans Azure.
 
 Le suivi de ce didacticiel est un prérequis pour tous les autres didacticiels Apache Cordova sur l’utilisation de la fonctionnalité Mobile Apps dans Azure App Service.
@@ -43,42 +43,13 @@ Vous pouvez également contourner Visual Studio et utiliser directement la ligne
 ## <a name="create-an-azure-mobile-app-backend"></a>Créer un serveur principal d'applications mobiles Azure
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
-[Regarder une vidéo montrant des étapes similaires](https://channel9.msdn.com/series/Azure-connected-services-with-Cordova/Azure-connected-services-task-1-Create-an-Azure-Mobile-App)
-
-## <a name="configure-the-server-project"></a>Configurer le projet de serveur
+## <a name="create-a-database-connection-and-configure-the-client-and-server-project"></a>Créer une connexion de base de données et de configurer le projet client et serveur
 [!INCLUDE [app-service-mobile-configure-new-backend.md](../../includes/app-service-mobile-configure-new-backend.md)]
 
 ## <a name="download-and-run-the-apache-cordova-app"></a>Télécharger et exécuter l'application Apache Cordova
 [!INCLUDE [app-service-mobile-cordova-run-app](../../includes/app-service-mobile-cordova-run-app.md)]
-
-## <a name="next-steps"></a>Étapes suivantes
-Maintenant que vous avez terminé ce didacticiel de démarrage rapide, passez à l’un des didacticiels suivants :
-
-* [Ajoutez des données hors connexion](app-service-mobile-cordova-get-started-offline-data.md) à votre application Apache Cordova.
-* [Ajout de l’authentification](app-service-mobile-cordova-get-started-users.md) à votre application Apache Cordova.
-* [Ajout de notifications Push](app-service-mobile-cordova-get-started-push.md) à votre application Apache Cordova.
-
-En savoir plus sur les concepts clés avec Azure App Service.
-
-* [Données hors connexion]
-* [Authentification]
-* [Notifications Push]
-
-Découvrez comment utiliser les Kits de développement logiciel.
-
-* [Kit de développement logiciel (SDK) Apache Cordova]
-* [Kit de développement logiciel du serveur ASP.NET]
-* [Kit de développement logiciel du serveur Node.js]
-
-<!-- Images. -->
-
 <!-- URLs -->
-[Azure portal]: https://portal.azure.com/
+[Portail azure] : https://portal.azure.com/
+
 [Visual Studio Community 2017]: https://www.visualstudio.com/
 [Visual Studio Tools pour Apache Cordova]: https://www.visualstudio.com/en-us/features/cordova-vs.aspx
-[Données hors connexion]: app-service-mobile-offline-data-sync.md
-[Authentification]: app-service-mobile-auth.md
-[Notifications Push]: ../notification-hubs/notification-hubs-push-notification-overview.md
-[Kit de développement logiciel (SDK) Apache Cordova]: app-service-mobile-cordova-how-to-use-client-library.md
-[Kit de développement logiciel du serveur ASP.NET]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
-[Kit de développement logiciel du serveur Node.js]: app-service-mobile-node-backend-how-to-use-server-sdk.md

@@ -1,5 +1,5 @@
 ---
-title: Classification de l’entrepôt de données SQL | Microsoft Docs
+title: Classification de l’entrepôt de données SQL Azure | Microsoft Docs
 description: Conseils d’utilisation de classification pour gérer l’accès concurrentiel, importance, ressources et de calcul pour les requêtes dans Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: ronortloff
@@ -10,14 +10,14 @@ ms.subservice: workload management
 ms.date: 05/01/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: c4630e11ef4001c546aecfe74dbced346b6d30e4
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 3edae23183896651efcbf7f867204a618a10c85d
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66000116"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236899"
 ---
-# <a name="sql-data-warehouse-workload-classification"></a>Classification de la charge de travail de SQL Data Warehouse
+# <a name="azure-sql-data-warehouse-workload-classification"></a>Classification de la charge de travail de l’entrepôt de données SQL Azure
 
 Cet article explique le processus de classification de la charge de travail de SQL Data Warehouse d’affectation d’une classe de ressources et l’importance aux requêtes entrantes.
 

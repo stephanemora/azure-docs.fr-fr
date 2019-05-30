@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 12/05/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 349896a7114fba83d852b8bc066f4f7eb0a070ba
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e1fc405951789305b0df86fd0f7b91890fb45c06
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60550300"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242633"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Métriques, alertes et journaux d’activité Batch pour l’évaluation de diagnostic et la supervision
 
@@ -109,7 +109,7 @@ Autres destinations facultatives pour les journaux de diagnostic :
 
     ![Diagnostics Batch](media/batch-diagnostics/diagnostics-portal.png)
 
-D’autres options sont disponibles pour activer la collecte de journaux : vous pouvez notamment utiliser Azure Monitor dans le portail pour configurer les paramètres de diagnostic, prendre un [modèle Resource Manager](../azure-monitor/platform/diagnostic-logs-stream-template.md) ou utiliser Azure PowerShell ou CLI. Consultez [Collecter et utiliser des données de journaux à partir de vos ressources Azure](../azure-monitor/platform/diagnostic-logs-overview.md#how-to-enable-collection-of-diagnostic-logs).
+D’autres options sont disponibles pour activer la collecte de journaux : vous pouvez notamment utiliser Azure Monitor dans le portail pour configurer les paramètres de diagnostic, prendre un [modèle Resource Manager](../azure-monitor/platform/diagnostic-logs-stream-template.md) ou utiliser Azure PowerShell ou CLI. Consultez [Collecter et utiliser des données de journaux à partir de vos ressources Azure](../azure-monitor/platform/diagnostic-logs-overview.md).
 
 
 ### <a name="access-diagnostics-logs-in-storage"></a>Accéder aux journaux de diagnostics dans le stockage

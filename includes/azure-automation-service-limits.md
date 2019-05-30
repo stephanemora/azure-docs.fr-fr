@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/13/2018
 ms.author: gwallace
 ms.custom: include file
-ms.openlocfilehash: 04929de241ff36e4d67f24907747d89a16a73898
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 2823a33b25812a69ad463433bacd9710655c9176
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64733787"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66238684"
 ---
 #### <a name="process-automation"></a>Automatisation de processus
 
@@ -53,3 +53,11 @@ Le tableau suivant indique les limites de l’élément suivies par ordinateur p
 |Packages Linux|1,250||
 |Services|250||
 |Daemon|250||
+
+#### <a name="update-management"></a>Update Management
+
+Le tableau suivant indique les limites pour la gestion de la mise à jour.
+
+| **Ressource** | **Limite**| **Remarques** |
+|---|---|---|
+|Nombre d’ordinateurs par le déploiement de mise à jour|1 000||

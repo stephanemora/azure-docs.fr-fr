@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.workload: tbd
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: d27c0e9570959e01267d83a768ead45b48b7cea1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1520b01826de2a80d8baeccf4913fa180d385644
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60903212"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66256302"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights pour les services cloud Azure
 [Application Insights][start] peut superviser les [applications de service cloud Azure](https://azure.microsoft.com/services/cloud-services/) pour vérifier la disponibilité, les performances, les échecs et l’utilisation en combinant les données des SDK Application Insights avec les données d’[Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) de vos services cloud. Avec les retours que vous obtenez sur les performances et l’efficacité de votre application dans la nature, vous pouvez prendre des décisions avisées sur la direction de la conception de chaque cycle de développement.
@@ -41,7 +41,7 @@ Cette option instrumente votre application au moment de l’exécution, ce qui v
 
 Si cette option vous suffit, vous avez terminé. 
 
-Les étapes suivantes sont la [consultation des métriques de votre application](../../azure-monitor/app/metrics-explorer.md), l’[interrogation de vos données avec Analytics](../../azure-monitor/app/analytics.md) et éventuellement la configuration d’un [tableau de bord](../../azure-monitor/app/app-insights-dashboards.md). 
+La prochaine étape [affichage des métriques à partir de votre application](../../azure-monitor/app/metrics-explorer.md), [interroger vos données avec Analytique](../../azure-monitor/app/analytics.md). 
 
 Pour superviser les performances dans le navigateur, vous pouvez configurer des [tests de disponibilité](../../azure-monitor/app/monitor-web-app-availability.md) et [ajouter du code à vos pages web](../../azure-monitor/app/javascript.md).
 
@@ -61,7 +61,7 @@ Les données de télémétrie de votre application sont stockées, analysées et
 Chaque ressource appartient à un groupe de ressources. Les groupes de ressources servent à gérer les coûts, à accorder l’accès aux membres d’équipe et à déployer des mises à jour dans une seule transaction coordonnée. Par exemple, vous pouvez [écrire un script pour déployer](../../azure-resource-manager/resource-group-template-deploy.md) un service cloud Azure et ses ressources de supervision Application Insights en une seule opération.
 
 ### <a name="resources-for-components"></a>Ressources pour les composants
-Nous vous recommandons de créer une ressource distincte pour chaque composant de votre application. Autrement dit, vous créez une ressource pour chaque rôle web et rôle de travail. Vous pouvez analyser chaque composant séparément, mais vous créez un [tableau de bord](../../azure-monitor/app/app-insights-dashboards.md) qui réunit les principaux graphiques de tous les composants, pour pouvoir les comparer et les superviser ensemble dans une même vue. 
+Nous vous recommandons de créer une ressource distincte pour chaque composant de votre application. Autrement dit, vous créez une ressource pour chaque rôle web et rôle de travail. Vous pouvez analyser chaque composant séparément, mais vous créez un [tableau de bord](../../azure-monitor/app/overview-dashboard.md) qui réunit les principaux graphiques de tous les composants, pour pouvoir les comparer et les superviser ensemble dans une même vue. 
 
 Une autre approche consiste à envoyer les données de télémétrie de plusieurs rôles à la même ressource, mais en [ajoutant une propriété de dimension à chaque élément de télémétrie](../../azure-monitor/app/api-filtering-sampling.md#add-properties-itelemetryinitializer) qui identifie son rôle source. Dans cette approche, les graphiques de métriques comme les exceptions affichent normalement une agrégation des décomptes des différents rôles, mais vous pouvez segmenter le graphique en fonction de l’identificateur de rôle si nécessaire. Vous pouvez également filtrer les recherches sur la même dimension. Cette solution facilite légèrement la consultation simultanée de tous les éléments, mais elle peut aussi entraîner une certaine confusion entre les rôles.
 
@@ -91,7 +91,7 @@ Si vous avez décidé de créer une ressource distincte pour chaque rôle (et é
 ## <a name="set-up-azure-diagnostics-for-each-role"></a>Configurer Diagnostics Azure pour chaque rôle
 Définissez cette option pour surveiller votre application avec Application Insights. Pour les rôles web, cette option permet de superviser les performances, de recevoir des alertes, des diagnostics et d’analyser l’utilisation. Pour d’autres rôles, vous pouvez rechercher et superviser des diagnostics Azure comme le redémarrage, les compteurs de performances et les appels à System.Diagnostics.Trace. 
 
-1. Dans l’Explorateur de solutions Visual Studio, sous **\<votre_service_cloud>** > **Rôles**, ouvrez les propriétés de chaque rôle.
+1. Dans l’Explorateur de solutions Visual Studio, sous **\<votre_service_cloud>**  > **Rôles**, ouvrez les propriétés de chaque rôle.
 
 1. Dans **Configuration**, cochez la case **Envoyer des données de diagnostic à Application Insights** et sélectionnez la ressource Application Insights que vous avez créée plus tôt.
 
@@ -229,7 +229,7 @@ Pour obtenir des données de télémétrie basées sur un navigateur, comme le n
 Pour vérifier que votre application est en ligne et réactive, [Configurez des tests web][availability].
 
 ## <a name="display-everything-together"></a>Afficher tous les éléments ensemble
-Pour une vue d’ensemble de votre système, vous pouvez rassembler les principaux graphiques de supervision sur un même [tableau de bord](../../azure-monitor/app/app-insights-dashboards.md). Vous pouvez par exemple épingler le décompte des demandes et des échecs de chaque rôle. 
+Pour une vue d’ensemble de votre système, vous pouvez rassembler les principaux graphiques de supervision sur un même [tableau de bord](../../azure-monitor/app/overview-dashboard.md). Vous pouvez par exemple épingler le décompte des demandes et des échecs de chaque rôle. 
 
 Si votre système utilise d’autres services Azure, comme Stream Analytics, ajoutez également leurs graphiques de supervision. 
 

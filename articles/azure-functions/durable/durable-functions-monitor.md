@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 243a388ee59a1a550f80882b0af61e1f1db008ca
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.openlocfilehash: 9d5e06c3d72d87a87b41a52ed4df369ebc04dccd
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65977436"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66387092"
 ---
 # <a name="monitor-scenario-in-durable-functions---weather-watcher-sample"></a>Scénario de surveillance dans l’extension Fonctions durables - Exemple d’observateur météo
 
@@ -42,7 +42,7 @@ Cet exemple surveille les conditions météorologiques actuelles d’un lieu et 
 
 Cet exemple implique l’utilisation de l’API Weather Underground pour vérifier les conditions météorologiques actuelles pour un lieu.
 
-La première chose dont vous avez besoin est un compte Weather Underground. Vous pouvez en créer un gratuitement à l’adresse [https://www.wunderground.com/signup](https://www.wunderground.com/signup). Une fois que vous avez un compte, vous devez acquérir une clé d’API. Pour ce faire, visitez le site [https://www.wunderground.com/weather/api](https://www.wunderground.com/weather/api), puis sélectionnez les paramètres de la clé. Le plan Stratus Developer est gratuit et suffisant pour exécuter cet exemple.
+La première chose dont vous avez besoin est un compte Weather Underground. Vous pouvez en créer un gratuitement à l’adresse [https://www.wunderground.com/signup](https://www.wunderground.com/signup). Une fois que vous avez un compte, vous devez acquérir une clé d’API. Pour ce faire, visitez le site [https://www.wunderground.com/weather/api](https://www.wunderground.com/weather/api/?MR=1), puis sélectionnez les paramètres de la clé. Le plan Stratus Developer est gratuit et suffisant pour exécuter cet exemple.
 
 Une fois que vous disposez d’une clé API, ajoutez le **paramètre d’application** suivant à votre application de fonction.
 

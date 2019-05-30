@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 050f301b55c718e80c1b4157639bd9dce506f6ba
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.openlocfilehash: 428a1614889409300064420e1d3d4fbc0423a0ec
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65979498"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237527"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Obtenir des données de conformité des ressources Azure
 
@@ -416,7 +416,8 @@ Trent Baker
 
 ## <a name="azure-monitor-logs"></a>Journaux d’activité Azure Monitor
 
-Si vous avez un [espace de travail Analytique de journal](../../../log-analytics/log-analytics-overview.md) avec `AzureActivity` à partir de la [solution d’Analytique de journal d’activité](../../../azure-monitor/platform/collect-activity-logs.md) liée à votre abonnement, vous pouvez également afficher les résultats de non-conformité du cycle d’évaluation à l’aide requêtes Kusto simples et `AzureActivity` table. Grâce aux informations des journaux d’activité Azure Monitor, des alertes peuvent être configurées de manière à signaler les problèmes de non-conformité.
+Si vous avez un [espace de travail Analytique de journal](../../../log-analytics/log-analytics-overview.md) avec `AzureActivity` à partir de la [solution d’Analytique de journal d’activité](../../../azure-monitor/platform/activity-log-collect.md) liée à votre abonnement, vous pouvez également afficher les résultats de non-conformité du cycle d’évaluation à l’aide requêtes Kusto simples et `AzureActivity` table. Grâce aux informations des journaux d’activité Azure Monitor, des alertes peuvent être configurées de manière à signaler les problèmes de non-conformité.
+
 
 ![Conformité à la stratégie Azure à l’aide des journaux Azure Monitor](../media/getting-compliance-data/compliance-loganalytics.png)
 
@@ -427,4 +428,4 @@ Si vous avez un [espace de travail Analytique de journal](../../../log-analytics
 - Consultez la page [Compréhension des effets de Policy](../concepts/effects.md).
 - Comprendre comment [créer par programmation des stratégies](programmatically-create.md).
 - Découvrez comment [corriger les ressources non conformes](remediate-resources.md).
-- Examinez un groupe d’administration avec [organiser vos ressources avec des groupes d’administration Azure](../../management-groups/overview.md).
+- Pour en savoir plus sur les groupes d’administration, consultez [Organiser vos ressources avec des groupes d’administration Azure](../../management-groups/overview.md).

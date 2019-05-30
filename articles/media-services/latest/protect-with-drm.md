@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 05/25/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 24ea6b2b44518b4cf75389585caf42ff6bc6722f
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: ce3b7a29f6f57b2bc309c719dbbab6c4574f0a46
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65191072"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306487"
 ---
 # <a name="tutorial-use-drm-dynamic-encryption-and-license-delivery-service"></a>Didacticiel : Utilisation du chiffrement dynamique DRM et du service de remise des licences
 
@@ -74,21 +74,21 @@ Pour commencer à utiliser les API Media Services avec .NET, vous devez créer u
 
 ## <a name="create-an-output-asset"></a>Créer une ressource de sortie  
 
-La [ressource](https://docs.microsoft.com/rest/api/media/assets) de sortie stocke le résultat de votre travail d’encodage.  
+La [ressource](assets-concept.md) de sortie stocke le résultat de votre travail d’encodage.  
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#CreateOutputAsset)]
  
 ## <a name="get-or-create-an-encoding-transform"></a>Obtenir ou créer un encodage de transformation
 
-Lorsque vous créez une instance de [transformation](https://docs.microsoft.com/rest/api/media/transforms), vous devez spécifier ce qu’elle doit produire comme sortie. Le paramètre requis est un objet **TransformOutput**, comme indiqué dans le code ci-dessous. Chaque objet **TransformOutput** contient un **préréglage**. Le **préréglage** décrit les instructions détaillées concernant les opérations de traitement vidéo et/ou audio qui doivent être utilisées pour générer l’objet **TransformOutput** souhaité. L’exemple décrit dans cet article utilise un préréglage appelé **AdaptiveStreaming**. Le préréglage encode la vidéo d’entrée dans une échelle des vitesses de transmission générée automatiquement (paires vitesse de transmission-résolution) basée sur la vitesse de transmission et la résolution de la sortie, et crée des fichiers MP4 ISO avec des fichiers audio AAC et des fichiers vidéo H.264 qui correspondent à chaque paire vitesse de transmission-résolution. 
+Lorsque vous créez une instance de [transformation](transforms-jobs-concept.md), vous devez spécifier ce qu’elle doit produire comme sortie. Le paramètre requis est un `transformOutput` de l’objet, comme indiqué dans le code ci-dessous. Chaque TransformOutput contient un **présélection**. Présélection décrit les instructions pas à pas d’opérations de traitement vidéo et/ou audio qui doivent être utilisées pour générer le TransformOutput souhaitée. L’exemple décrit dans cet article utilise un préréglage appelé **AdaptiveStreaming**. Le préréglage encode la vidéo d’entrée dans une échelle des vitesses de transmission générée automatiquement (paires vitesse de transmission-résolution) basée sur la vitesse de transmission et la résolution de la sortie, et crée des fichiers MP4 ISO avec des fichiers audio AAC et des fichiers vidéo H.264 qui correspondent à chaque paire vitesse de transmission-résolution. 
 
-Avant de créer une [transformation](https://docs.microsoft.com/rest/api/media/transforms), vous devez tout d’abord vérifier s’il en existe déjà une à l’aide de la méthode **Get**, comme indiqué dans le code suivant.  Dans Media Services v3, les méthodes **Get** appliquées sur les entités renvoient **null** si l’entité n’existe pas (une vérification du nom respectant la casse).
+Avant de créer une **transformation**, vous devez tout d’abord vérifier s’il en existe déjà une à l’aide de la méthode **Get**, comme indiqué dans le code suivant.  Dans Media Services v3, les méthodes **Get** appliquées sur les entités renvoient **null** si l’entité n’existe pas (une vérification du nom respectant la casse).
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#EnsureTransformExists)]
 
 ## <a name="submit-job"></a>Envoi du travail
 
-Comme indiqué ci-dessus, l’objet [Transformation](https://docs.microsoft.com/rest/api/media/transforms) est la formule et un [travail](https://docs.microsoft.com/rest/api/media/jobs) est la requête réelle envoyée à Media Services pour appliquer cette **transformation** à un contenu vidéo ou audio d’entrée donné. Le **travail** spécifie des informations telles que l’emplacement de la vidéo d’entrée et celui de la sortie.
+Comme indiqué ci-dessus, l’objet **Transformation** est la formule et un [travail](transforms-jobs-concept.md) est la requête réelle envoyée à Media Services pour appliquer cette **transformation** à un contenu vidéo ou audio d’entrée donné. Le **travail** spécifie des informations telles que l’emplacement de la vidéo d’entrée et celui de la sortie.
 
 Dans ce tutoriel, nous créons l’entrée du travail à partir d’un fichier qui est ingéré directement depuis une [URL HTTPS source](job-input-from-http-how-to.md).
 
@@ -96,17 +96,17 @@ Dans ce tutoriel, nous créons l’entrée du travail à partir d’un fichier q
 
 ## <a name="wait-for-the-job-to-complete"></a>Attendre la fin du travail
 
-Le travail prend du temps à se terminer et vous voulez être prévenu lorsque c’est le cas. L’exemple de code ci-dessous montre comment interroger le service pour connaître l’état du [travail](https://docs.microsoft.com/rest/api/media/jobs). L’interrogation n’est pas une meilleure pratique recommandée pour les applications de production en raison de la latence potentielle. L’interrogation peut être limitée si elle est utilisée de façon excessive sur un compte. À la place, les développeurs doivent utiliser Event Grid. Consultez [Acheminer des événements Azure Media Services vers un point de terminaison personnalisé à l’aide de CLI](job-state-events-cli-how-to.md).
+Le travail prend du temps à se terminer et vous voulez être prévenu lorsque c’est le cas. L’exemple de code ci-dessous montre comment interroger le service pour connaître l’état du **travail**. L’interrogation n’est pas une meilleure pratique recommandée pour les applications de production en raison de la latence potentielle. L’interrogation peut être limitée si elle est utilisée de façon excessive sur un compte. À la place, les développeurs doivent utiliser Event Grid. Consultez [Acheminer des événements Azure Media Services vers un point de terminaison personnalisé à l’aide de CLI](job-state-events-cli-how-to.md).
 
 Le **travail** passe généralement par les états suivants : **Planifié**, **En attente**,  **Traitement en cours**, **Terminé** (l’état final). Si le travail a rencontré une erreur, vous obtenez l’état **Erreur**. Si le travail est en cours d’annulation, vous obtenez **Annulation en cours** et **Annulé** une fois l’opération terminée.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#WaitForJobToFinish)]
 
-## <a name="create-a-contentkeypolicy"></a>Créer une stratégie ContentKeyPolicy
+## <a name="create-a-content-key-policy"></a>Créer une stratégie de clé de contenu
 
-Une clé de contenu fournit un accès sécurisé à vos éléments multimédias. Vous devez créer une stratégie de clé de contenu qui configure le mode de remise de la clé de contenu pour les clients finaux. La clé de contenu est associée à StreamingLocator. Media Services assure également le service de distribution des clés qui fournit des clés de chiffrement et des licences aux utilisateurs autorisés. 
+Une clé de contenu fournit un accès sécurisé à vos éléments multimédias. Vous devez créer un [stratégie de la clé de contenu](content-key-policy-concept.md) pour chiffrer votre contenu avec un DRM. La stratégie configure le mode de remise de la clé de contenu pour les clients. La clé de contenu est associée à un localisateur de diffusion en continu. Media Services assure également le service de distribution des clés qui fournit des clés de chiffrement et des licences aux utilisateurs autorisés. 
 
-Vous devez définir la configuration requise (les restrictions) sur la stratégie de clé de contenu pour transmettre des clés avec la configuration spécifiée. Dans cet exemple, nous avons défini les configurations et les conditions requises suivantes :
+Vous devez définir la configuration requise (restrictions) sur le **stratégie clé de contenu** qui doivent être remplies pour fournir des clés avec la configuration spécifiée. Dans cet exemple, nous avons défini les configurations et les conditions requises suivantes :
 
 * Configuration 
 
@@ -120,19 +120,19 @@ Lorsqu’un lecteur demande un flux de données, Media Services utilise la clé 
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#GetOrCreateContentKeyPolicy)]
 
-## <a name="create-a-streaminglocator"></a>Créer un localisateur de diffusion en continu
+## <a name="create-a-streaming-locator"></a>Créer un localisateur de streaming
 
 Une fois l’encodage terminé, et la stratégie de clé de contenu configurée, l’étape suivante consiste à mettre à la disposition des clients la vidéo dans la ressource de sortie pour qu’ils puissent la lire. Vous pouvez réaliser cela en deux étapes : 
 
-1. Créez un élément [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators).
+1. Créer un [localisateur de streaming](streaming-locators-concept.md)
 2. Générez les URL de streaming que les clients peuvent utiliser. 
 
-Le processus de création de l’élément **StreamingLocator** est appelé publication. Par défaut, l’élément **StreamingLocator** est valide immédiatement après avoir effectué les appels d’API et dure jusqu’à ce qu’il soit supprimé, sauf si vous configurez les durées de début et de fin optionnelles. 
+Le processus de création du **localisateur de diffusion en continu** est appelée publication. Par défaut, le **localisateur de streaming** est valide immédiatement après avoir effectué les appels d’API et dure jusqu’à ce qu’il soit supprimé, sauf si vous configurez les durées de début et de fin optionnelles. 
 
-Lors de la création d’un élément [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators), vous devez spécifier le nom **StreamingPolicyName** souhaité. Dans ce didacticiel, nous utilisons un des éléments StreamingPolicies prédéfinis, ce qui indique à Azure Media Services comment publier le contenu en vue de la diffusion en continu. Dans cet exemple, nous définissons l’élément StreamingLocator.StreamingPolicyName pour la stratégie «Predefined_MultiDrmCencStreaming». Cette stratégie indique que vous souhaitez que deux clés de contenu (enveloppe et CENC) soient générées et définies sur le localisateur. Par conséquent, les chiffrements d’enveloppe, de PlayReady et de Widevine sont appliqués (la clé est envoyée au client de la lecture en fonction des licences DRM configurées). Si vous voulez aussi chiffrer votre flux avec CBCS (FairPlay), utilisez l’élément «Predefined_MultiDrmStreaming». 
+Lorsque vous créez un **localisateur de diffusion en continu**, vous devez spécifier le texte souhaité `StreamingPolicyName`. Dans ce didacticiel, nous utilisons un de la diffusion en continu des stratégies prédéfinies, qui indique à Azure Media Services comment publier le contenu de diffusion en continu. Dans cet exemple, nous définissons l’élément StreamingLocator.StreamingPolicyName pour la stratégie «Predefined_MultiDrmCencStreaming». Le chiffrement PlayReady et Widevine est appliquées, la clé est envoyée au client la lecture basé sur les licences DRM configurés. Si vous voulez aussi chiffrer votre flux avec CBCS (FairPlay), utilisez l’élément «Predefined_MultiDrmStreaming». 
 
 > [!IMPORTANT]
-> Lorsque vous utilisez une stratégie [StreamingPolicy](https://docs.microsoft.com/rest/api/media/streamingpolicies) personnalisée, vous devez concevoir un ensemble limité de ces stratégies pour votre compte Media Services et les réutiliser pour vos éléments StreamingLocators chaque fois que les mêmes protocoles et options de chiffrement sont nécessaires. Votre compte Media Services a un quota en matière de nombre d’entrées de stratégie StreamingPolicy. Vous ne devez pas créer une stratégie StreamingPolicy pour chaque élément StreamingLocator.
+> Quand vous utilisez une [stratégie de streaming](streaming-policy-concept.md) personnalisée, vous devez concevoir un ensemble limité de ces stratégies pour votre compte Media Services et les réutiliser pour vos éléments StreamingLocators chaque fois que les mêmes protocoles et options de chiffrement sont nécessaires. Votre compte Media Services a un quota en matière de nombre d’entrées de stratégie StreamingPolicy. Vous ne devez pas créer une stratégie StreamingPolicy pour chaque élément StreamingLocator.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#CreateStreamingLocator)]
 
@@ -140,13 +140,13 @@ Lors de la création d’un élément [StreamingLocator](https://docs.microsoft.
         
 Dans ce didacticiel, nous spécifions que la stratégie de clé de contenu a une restriction au niveau du jeton. La stratégie de restriction à jeton doit être accompagnée d’un jeton émis par un service d’émission de jeton de sécurité (STS). Media Services prend en charge les jetons aux formats [JSON Web Token](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3) (JWT), et c’est ce qui est configuré dans cet exemple.
 
-L’élément ContentKeyIdentifierClaim est utilisé dans ContentKeyPolicy, ce qui signifie que le jeton présenté au service de remise de clé doit contenir l’identificateur de la ContentKey. Dans l’exemple, nous ne spécifions pas de clé de contenu lors de la création de l’élément StreamingLocator. Le système en crée une de manière aléatoire pour nous. Afin de générer le jeton de test, nous devons obtenir l’élément ContentKeyId à placer dans la revendication ContentKeyIdentifierClaim.
+L’élément ContentKeyIdentifierClaim est utilisé dans ContentKeyPolicy, ce qui signifie que le jeton présenté au service de remise de clé doit contenir l’identificateur de la ContentKey. Dans l’exemple, nous ne spécifions pas une clé de contenu lors de la création du localisateur de diffusion en continu, le système crée un de manière aléatoire pour nous. Afin de générer le jeton de test, nous devons obtenir l’élément ContentKeyId à placer dans la revendication ContentKeyIdentifierClaim.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#GetToken)]
 
 ## <a name="build-a-streaming-url"></a>Générer une URL de diffusion en continu
 
-Maintenant que l’élément [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators) a été créé, vous pouvez obtenir les URL de diffusion en continu. Pour générer une URL, vous devez concaténer le nom d’hôte [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints) et le chemin d’accès **StreamingLocator**. Dans cet exemple, la *valeur par défaut* **StreamingEndpoint** est utilisée. Lorsque vous créez pour la première fois un compte Media Services, cette *valeur par défaut* **StreamingEndpoint** est à l’état Arrêté. Vous devez donc appeler **Démarrer**.
+Maintenant que l’élément [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators) a été créé, vous pouvez obtenir les URL de diffusion en continu. Pour générer une URL, vous devez concaténer la [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints) nom d’hôte et le **localisateur de diffusion en continu** chemin d’accès. Dans cet exemple, le **point de terminaison de streaming** *par défaut* est utilisé. Quand vous créez pour la première fois un compte Media Services, ce **point de terminaison de streaming** *par défaut* est dans l’état Arrêté. Vous devez donc appeler **Start**.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#GetMPEGStreamingUrl)]
 
@@ -172,7 +172,7 @@ Exécutez la commande CLI suivante :
 az group delete --name amsResourceGroup
 ```
 
-## <a name="ask-questions-give-feedback-get-updates"></a>Posez des questions, commentaires, obtenir des mises à jour
+## <a name="ask-questions-give-feedback-get-updates"></a>Poser des questions, envoyer des commentaires, obtenir des mises à jour
 
 Découvrez l’article [Communauté Azure Media Services](media-services-community.md) pour découvrir les différentes façons dont vous pouvez poser des questions, faire des commentaires et obtenir des mises à jour sur Media Services.
 

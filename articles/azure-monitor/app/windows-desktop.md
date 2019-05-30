@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: mbullwin
-ms.openlocfilehash: 95ff8d1a70325357fee4bc24fd96c1a1c7a73845
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 567163a5d5ce37eeffb5ef2bc6f9adb7c5b027ec
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60371476"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66255719"
 ---
 # <a name="monitoring-usage-and-performance-in-classic-windows-desktop-apps"></a>Analyse des niveaux de performance et de l’utilisation dans les applications de bureau Windows Classic
 
@@ -37,7 +37,7 @@ Les applications hébergées en local, dans Azure, et dans d’autres clouds peu
    
     Si vous utilisez ApplicationInsights.config, assurez-vous que ses propriétés dans l’Explorateur de solutions sont définies sur **Build Action = Content, Copy to Output Directory = Copy**.
 5. [Utilisez l’API](../../azure-monitor/app/api-custom-events-metrics.md) pour envoyer les données de télémétrie.
-6. Exécutez votre application et consultez la télémétrie dans la ressource que vous avez créée dans le portail Azure.
+6. Exécutez votre application et afficher ces données dans la ressource que vous avez créé dans le portail Azure.
 
 ## <a name="telemetry"></a>Exemple de code
 ```csharp
@@ -77,7 +77,7 @@ Les applications hébergées en local, dans Azure, et dans d’autres clouds peu
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Création d’un tableau de bord](../../azure-monitor/app/app-insights-dashboards.md)
+* [Création d’un tableau de bord](../../azure-monitor/app/overview-dashboard.md)
 * [Recherche de diagnostic](../../azure-monitor/app/diagnostic-search.md)
 * [Exploration des mesures](../../azure-monitor/app/metrics-explorer.md)
 * [Écriture de requêtes Analytics](../../azure-monitor/app/analytics.md)

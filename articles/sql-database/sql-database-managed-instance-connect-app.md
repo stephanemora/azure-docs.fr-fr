@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 manager: craigg
 ms.date: 11/09/2018
-ms.openlocfilehash: 52a9cfa52cd63715addadcbfb367510ded56fd76
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 6cbfdc9e595ebdf682356990ec975dbd0514035d
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65142723"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66297087"
 ---
 # <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>Connecter votre application à Azure SQL Database Managed Instance
 
@@ -56,7 +56,7 @@ Vous avez deux options pour la connexion locale à un réseau virtuel Azure :
 - Connexion VPN de site à site ([portail Azure](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md), [PowerShell](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md), [Azure CLI](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md))
 - Connexion [ExpressRoute](../expressroute/expressroute-introduction.md)  
 
-Si vous avez établi une connexion locale à Azure et que vous ne parvenez pas à établir une connexion à Managed Instance, vérifiez si votre pare-feu dispose d’une connexion sortante ouverte sur le port SQL 1 433 et la plage de ports 11 000 à 12 000 à des fins de redirection.
+Si vous avez établi avec succès en local pour la connexion à Azure et vous ne pouvez pas établir de connexion à Managed Instance, vérifiez si votre pare-feu dispose d’une connexion sortante ouverte sur le port SQL 1433 ainsi qu’une plage 11000-11999 de ports pour la redirection.
 
 ## <a name="connect-an-application-on-the-developers-box"></a>Connecter une application dans la box de développeur
 
@@ -96,7 +96,7 @@ Ce scénario est illustré dans le diagramme suivant :
 
 Pour résoudre les problèmes de connectivité, lisez ce qui suit :
 
-- Si vous ne parvenez pas à vous connecter à Managed Instance à partir d’une machine virtuelle Azure appartenant au même réseau virtuel mais à un sous-réseau différent, vérifiez qu’un groupe de sécurité réseau défini dans le sous-réseau de la machine virtuelle ne bloque pas l’accès. En outre, notez que vous devez ouvrir une connexion sortante sur le port SQL 1433, ainsi que des ports dans la plage 11000-12000, car ceux-ci sont nécessaires pour se connecter via une redirection à l’intérieur des limites Azure.
+- Si vous ne parvenez pas à vous connecter à Managed Instance à partir d’une machine virtuelle Azure dans le même réseau virtuel mais un autre sous-réseau, vérifiez si vous disposez d’un groupe de sécurité réseau défini sur le sous-réseau d’ordinateurs virtuels qui peut-être bloquer l’accès. Notez en outre que vous devez ouvrir une connexion sortante sur le port SQL 1433, ainsi que des ports dans la plage 11000-11999 étant donné que celles nécessaires pour la connexion via la redirection à l’intérieur de la limite Azure.
 - Pour la table de routage associée au réseau virtuel, vérifiez que la propagation BGP est définie sur **Activé**.
 - Si vous utilisez une connexion VPN point à site, accédez à la configuration dans le portail Azure pour voir si les sections **Entrée/Sortie** contiennent des chiffres. La présence de chiffres autres que zéro indiquent qu’Azure achemine le trafic entrant et sortant sur l’ordinateur local.
 
