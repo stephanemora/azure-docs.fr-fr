@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 03/04/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 87c5d24f0e9077acf66bacd97097cfc32bd49ead
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 3a307c32d15aa8c7809d728d98220b0819e91c7c
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57432105"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357388"
 ---
 # <a name="what-is-computer-vision"></a>Qu’est-ce que le service Vision par ordinateur ?
 
@@ -46,7 +46,7 @@ Vous pouvez analyser des images pour obtenir des informations détaillées sur l
 
 Vous pouvez utiliser le service Vision par ordinateur pour extraire le texte d’une image dans un flux de caractères lisible par machine à l’aide d’une [reconnaissance optique de caractères (OCR)](concept-recognizing-text.md#ocr-optical-character-recognition-api). Le cas échéant, la fonction OCR corrige la rotation du texte reconnu et fournit les coordonnées du cadre de chaque mot. La fonction OCR prend en charge 25 langues et détecte automatiquement la langue du texte reconnu.
 
-Vous pouvez également utiliser l’[API Read](concept-recognizing-text.md#read-api) pour extraire du texte imprimé et manuscrit d’images et de documents contenant beaucoup de texte. L’API Read utilise des modèles à jour et fonctionne pour divers objets dont les surfaces et arrière-plans diffèrent, tels que les accusés de réception, des affiches, des cartes de visite, des lettres et des tableaux blancs. Actuellement, l’API Read est disponible en préversion, et l’anglais est la seule langue prise en charge.
+Vous pouvez également utiliser l’[API Read](concept-recognizing-text.md#read-api) pour extraire du texte imprimé et manuscrit d’images et de documents contenant beaucoup de texte. L’API Read utilise des modèles à jour et fonctionne pour divers objets dont les surfaces et arrière-plans diffèrent, tels que les accusés de réception, des affiches, des cartes de visite, des lettres et des tableaux blancs. Actuellement, l’anglais est la seule langue prise en charge.
 
 ## <a name="moderate-content-in-images"></a>Modérer du contenu dans les images
 

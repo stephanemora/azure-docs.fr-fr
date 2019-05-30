@@ -4,14 +4,14 @@ description: Découvrez comment trouver les frais d’unités de requête pour t
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 04/15/2019
+ms.date: 05/23/2019
 ms.author: thweiss
-ms.openlocfilehash: 730f0604d0c292764aaee6e0ffb8ef95d90be5f2
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 8ccb7ae9869ec01b4f26009535af613ccb1d35d0
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65410291"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241122"
 ---
 # <a name="find-the-request-unit-charge-in-azure-cosmos-db"></a>Rechercher les frais d’unités de requête dans Azure Cosmos DB
 

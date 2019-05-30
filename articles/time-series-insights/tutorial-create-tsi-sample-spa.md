@@ -5,21 +5,21 @@ author: ashannon7
 ms.service: time-series-insights
 ms.topic: tutorial
 ms.date: 04/25/2019
-ms.author: anshan
+ms.author: dpalled
 manager: cshankar
 ms.custom: seodec18
-ms.openlocfilehash: 3c2de4bd1f9d487cbb58be9581a0395bf1caa3f9
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 5ee6e9aefb235feb28468798c3bd6b107f8c7c49
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65991899"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244035"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-single-page-web-app"></a>Didacticiel : Créer une application web monopage Azure Time Series Insights
 
 Ce didacticiel vous guide tout au long du processus de création de votre propre application web monopage (SPA) pour accéder aux données Azure Time Series Insights. 
 
-Ce didacticiel vous apprendra à effectuer les opérations suivantes :
+Ce tutoriel vous apprendra à effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 > * La conception de l’application
@@ -30,7 +30,7 @@ Ce didacticiel vous apprendra à effectuer les opérations suivantes :
 > * Le code source pour ce didacticiel est disponible sur [GitHub](https://github.com/Microsoft/tsiclient/tree/tutorial/pages/tutorial).
 > * L’[exemple d’application cliente](https://insights.timeseries.azure.com/clientsample) Time Series Insights est hébergé pour présenter l’application terminée utilisée dans ce didacticiel.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 * Souscrivez un [abonnement Azure gratuit](https://azure.microsoft.com/free/) si vous n’en avez pas déjà un.
 
@@ -188,7 +188,7 @@ L’application web est chargée, mais présente une page de connexion textuelle
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Ce didacticiel crée plusieurs services Azure en cours d’exécution. Si vous ne prévoyez pas de terminer cette série de didacticiels, nous vous conseillons de supprimer toutes les ressources afin d’éviter d’exposer des frais inutiles.
+Ce tutoriel crée plusieurs services Azure en cours d’exécution. Si vous ne prévoyez pas de terminer cette série de didacticiels, nous vous conseillons de supprimer toutes les ressources afin d’éviter d’exposer des frais inutiles.
 
 Dans le menu gauche du portail Azure :
 

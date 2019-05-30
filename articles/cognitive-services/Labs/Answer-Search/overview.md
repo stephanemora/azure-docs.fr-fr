@@ -11,11 +11,11 @@ ms.topic: overview
 ms.date: 04/13/2018
 ms.author: rosh
 ms.openlocfilehash: ac1717a8e8a08fcfedc3bc21bb0f03b3e3ca2511
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57548079"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "60721859"
 ---
 # <a name="what-is-project-answer-search"></a>Qu’est-ce que Project Answer Search ?
 L’API Project Answer Search utilise le point de terminaison Bing v7 pour obtenir des réponses à des requêtes sous forme de questions. Une question comme « Quelle est la circonférence de la terre ? » retourne une réponse avec des informations factuelles.  Une requête concernant une personne, un lieu ou une chose retourne des informations sur l’entité identifiée par la requête. Ces scénarios peuvent être utiles dans des applications telles que des bots de conversation, des applications de messagerie, des lecteurs, etc.  

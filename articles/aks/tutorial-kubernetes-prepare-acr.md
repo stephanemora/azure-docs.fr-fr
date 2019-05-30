@@ -2,20 +2,20 @@
 title: Didacticiel Kubernetes sur Azure - Créer un registre de conteneurs
 description: Dans le cadre de ce didacticiel Azure Kubernetes Service (AKS), vous allez créer une instance Azure Container Registry et y charger un exemple d’image conteneur d’application.
 services: container-service
-author: iainfoulds
+author: tylermsft
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 12/19/2018
-ms.author: iainfou
+ms.author: twhitney
 ms.custom: mvc
-ms.openlocfilehash: 1ba320a523d21beebe089084f40efff4b36dc4af
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 1bd41dc464c251a2e7dab3087f3feffb15db785f
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55753569"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66304408"
 ---
-# <a name="tutorial-deploy-and-use-azure-container-registry"></a>Tutoriel : Déployer et utiliser Azure Container Registry
+# <a name="tutorial-deploy-and-use-azure-container-registry"></a>Didacticiel : Déployer et utiliser Azure Container Registry
 
 Azure Container Registry (ACR) est un registre privé destiné d’images de conteneur. Un registre de conteneurs privé vous permet de générer et déployer vos applications et codes personnalisés en toute sécurité. Au cours de ce didacticiel, le deuxième d’une série de sept, vous allez déployer une instance ACR et lui envoyer une image conteneur par une transmission de type push. Vous allez apprendre à effectuer les actions suivantes :
 
@@ -57,7 +57,7 @@ Pour utiliser l’instance ACR, vous devez commencer par vous y connecter. Utili
 az acr login --name <acrName>
 ```
 
-Après son exécution, la commande retourne le message *Login Succeeded (Connexion réussie)*.
+Après son exécution, la commande retourne le message *Login Succeeded (Connexion réussie)* .
 
 ## <a name="tag-a-container-image"></a>Baliser une image conteneur
 

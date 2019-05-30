@@ -8,12 +8,12 @@ ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: overview
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: fdde10c9ef7c035ed36b5f823a0b77e7c8b53803
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: cd004e1eb6a40648c52dd3b5aee0ec38bff8f9b3
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65964556"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66304184"
 ---
 # <a name="frequently-asked-questions-about-azure-spatial-anchors"></a>Questions fréquentes (FAQ) sur Azure Spatial Anchors
 
@@ -57,7 +57,7 @@ Pour illustrer cela, voici une image d’environnement et le nuage de points dis
 
 Azure Spatial Anchors respecte les [conditions du contrat de service Azure](https://go.microsoft.com/fwLink/?LinkID=522330&amp;amp;clcid=0x9) et la [déclaration de confidentialité Microsoft](https://go.microsoft.com/fwlink/?LinkId=521839&amp;clcid=0x409).
 
-![Un environnement et son nuage de points disséminés qui en est dérivé](./media/sparce-point-cloud.png)
+![Un environnement et son nuage de points disséminés qui en est dérivé](./media/sparse-point-cloud.png)
 *Figure 1 : Un environnement et son nuage de points disséminés qui en est dérivé*
 
 

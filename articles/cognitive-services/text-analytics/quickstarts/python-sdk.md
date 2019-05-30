@@ -10,22 +10,17 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 03/28/2019
 ms.author: aahi
-ms.openlocfilehash: 2e9e26243511972c7d05dc55c8e041d83efcbc7d
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: b319abf22f9aa4cdd9a5fef91be0628672d47bd4
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65546600"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66297786"
 ---
 # <a name="quickstart-call-the-text-analytics-service-using-the-python-sdk"></a>Démarrage rapide : Appeler le service Analyse de texte à l'aide du kit de développement logiciel (SDK) Python 
 <a name="HOLTop"></a>
 
-Utilisez ce démarrage rapide pour commencer l’analyse du langage avec le SDK Analyse de texte pour Python. Si l’API REST Analyse de texte est compatible avec la plupart des langages de programmation, le kit SDK offre quant à lui un moyen facile d’intégrer le service à vos applications, sans sérialisation ni désérialisation JSON.
-
-
-> [!Note]
-> * Consultez les [définitions des API](//go.microsoft.com/fwlink/?LinkID=759346) pour accéder à la documentation technique des API.
-> * Le code source de cet exemple est disponible sur [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/language/text_analytics_samples.py).  
+Utilisez ce démarrage rapide pour commencer l’analyse du langage avec le SDK Analyse de texte pour Python. Si l’API REST Analyse de texte est compatible avec la plupart des langages de programmation, le kit SDK offre quant à lui un moyen facile d’intégrer le service à vos applications, sans sérialisation ni désérialisation JSON. Le code source de cet exemple est disponible sur [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/language/text_analytics_samples.py).
 
 ## <a name="prerequisites"></a>Prérequis
 

@@ -4,19 +4,19 @@ description: Découvrez comment fonctionne l’environnement de démonstration A
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 manager: cshankar
 ms.reviewer: anshan
 ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
 ms.date: 04/22/2019
-ms.openlocfilehash: dbdbfc797d37ed38936d6cfd354383d412c6b52d
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: e35d46607e0a186c8a3a38669c68a6ea52711b51
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205818"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242089"
 ---
 # <a name="quickstart-explore-the-azure-time-series-insights-preview-demo-environment"></a>Démarrage rapide : Explorer l’environnement de démonstration Azure Time Series Insights (préversion)
 
@@ -40,14 +40,14 @@ L’Explorateur Time Series Insights (préversion) présente des données d’hi
 
 1. Intéressons-nous à l’éolienne **W7** du parc **Contoso Plant 1**.  
 
-    * Sélectionnez une plage d’affichage allant du **01/01/17 20:00 au 10/03/17 20:00 (UTC)**.
+    * Sélectionnez une plage d’affichage allant du **01/01/17 20:00 au 10/03/17 20:00 (UTC)** .
     * Sélectionnez le capteur **Contoso Plant 1** > **W7** > **Generator System** > **GeneratorSpeed**. Passez en revue les valeurs résultantes.
 
       [![W7 dans Contoso Plant 1](media/v2-update-quickstart/quickstart-one.png)](media/v2-update-quickstart/quickstart-one.png#lightbox)
 
 1. Dernièrement, Contoso a détecté un incendie sur l’éolienne **W7**. Les opinions varient sur la cause directe de l’incendie. En y regardant de plus près, nous constatons que le capteur d’alerte incendie a été activé durant l’incendie.
 
-    * Sélectionnez une plage d’affichage allant du **09/03/17 20:00 au 10/03/17 20:00 (UTC)**.
+    * Sélectionnez une plage d’affichage allant du **09/03/17 20:00 au 10/03/17 20:00 (UTC)** .
     * Sélectionnez le capteur **Safety System** > **FireAlert**.
 
       [![Détection par Contoso d’un incendie sur l’éolienne W7](media/v2-update-quickstart/quickstart-two.png)](media/v2-update-quickstart/quickstart-two.png#lightbox)
@@ -61,7 +61,7 @@ L’Explorateur Time Series Insights (préversion) présente des données d’hi
 
 1. Notez l’augmentation des capteurs associés à la pression de l’huile et aux avertissements actifs juste avant l’incendie. Développez la série chronologique affichée pour déterminer la présence d’autres signes précurseurs de l’incendie. Les deux capteurs fluctuent régulièrement au fil du temps, indiquant une tendance persistante et préoccupante.
 
-    * Sélectionnez une plage d’affichage allant du **24/02/17 20:00 au 10/03/17 20:00 (UTC)**.
+    * Sélectionnez une plage d’affichage allant du **24/02/17 20:00 au 10/03/17 20:00 (UTC)** .
 
       [![Augmentation des capteurs associés à la pression de l’huile et aux avertissements actifs](media/v2-update-quickstart/quickstart-four.png)](media/v2-update-quickstart/quickstart-four.png#lightbox)
 
@@ -82,7 +82,7 @@ Avec Azure Time Series Insights et les données de télémétrie de nos capteurs
 
 1. Certains scénarios nécessitent une analyse sophistiquée pour découvrir des indices subtils dans les données. Sélectionnez l’éolienne **W6** en date du **25/6**.
 
-    * Sélectionnez une plage d’affichage allant du **01/06/17 20:00 au 01/07/17 20:00 (UTC)**.
+    * Sélectionnez une plage d’affichage allant du **01/06/17 20:00 au 01/07/17 20:00 (UTC)** .
     * Sélectionnez ensuite le capteur **Contoso Plant 1** > **W6** > **Safety System** > **VoltageActuatorSwitchWarning**.
 
       [![Mise à jour de la plage d’affichage et sélection de W6](media/v2-update-quickstart/quickstart-six.png)](media/v2-update-quickstart/quickstart-six.png#lightbox)

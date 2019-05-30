@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: e994150f68c0f274c97c27fccc89f226bc8236cd
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: c0c326525f5a551ddb00a709ed0a36a68a1343db
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66000495"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66356481"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hrworks-single-sign-on"></a>Didacticiel : Intégration d’Azure Active Directory à HRworks Single Sign-On | Microsoft Docs
 
@@ -130,7 +130,7 @@ Pour configurer l’authentification unique Azure AD avec HRworks Single Sign-O
 
 2. Cliquez sur **Administrator** > **Basics** > **Security** > **Single Sign-on** (Authentification unique) sur le côté gauche de la barre de menus, puis effectuez les étapes suivantes :
 
-       ![Configure Single Sign-On](./media/hrworks-single-sign-on-tutorial/configure01.png)
+    ![Configurer l’authentification unique](./media/hrworks-single-sign-on-tutorial/configure01.png)
 
     a. Cochez la case **Use Single Sign-on** (Utiliser l’authentification unique).
 

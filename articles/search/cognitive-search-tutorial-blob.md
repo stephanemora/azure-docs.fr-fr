@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: tutorial
-ms.date: 05/02/2019
+ms.date: 05/28/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 0ce1c8b811c11d0268cde79a609c05e740a529b6
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: fb45d2e36939a53d6242cf7cd5a0b9f1990780c3
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66171568"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66299050"
 ---
 # <a name="rest-tutorial-call-cognitive-services-apis-in-an-azure-search-indexing-pipeline"></a>Tutoriel REST : Appeler des API Cognitive Services dans un pipeline d’indexation Recherche Azure
 
@@ -419,7 +419,7 @@ La réponse indique si l’indexeur est en cours d’exécution. Une fois l’in
 
 Les avertissements sont courants avec certaines combinaisons de fichiers sources et de compétences et n’indiquent pas toujours un problème. Dans ce tutoriel, les avertissements sont sans gravité (par exemple, aucune entrée de texte à partir des fichiers JPEG). Vous pouvez examiner la réponse d’état pour rechercher des informations détaillées sur les avertissements émis lors de l’indexation.
  
-## <a name="verify-content"></a>Vérifier le contenu
+## <a name="query-your-index"></a>Interroger votre index
 
 Une fois l’indexation terminée, exécutez des requêtes qui retournent le contenu de champs individuels. Par défaut, le service Recherche Azure retourne les 50 meilleurs résultats. Les données d’exemple sont petites si bien que la configuration par défaut fonctionne correctement. Toutefois, lorsque vous travaillez avec des jeux de données plus volumineux, vous pouvez être amené à inclure des paramètres dans la chaîne de requête pour retourner plus de résultats. Pour obtenir des instructions, consultez [Guide pratique pour présenter les résultats dans Recherche Azure](search-pagination-page-layout.md).
 
@@ -445,74 +445,8 @@ Répétez ces étapes pour les champs supplémentaires : content, languageCode,
 
 Vous pouvez utiliser GET ou POST, en fonction de la longueur et de la complexité de la chaîne de requête. Pour plus d’informations, consultez [Exécuter des requêtes à l’aide de l’API REST](https://docs.microsoft.com/rest/api/searchservice/search-documents).
 
-<a name="access-enriched-document"></a>
 
-## <a name="accessing-the-enriched-document"></a>Accès au document enrichi
 
-La recherche cognitive vous permet de voir la structure du document enrichi. Les documents enrichis sont des structures temporaires créées pendant l’enrichissement, puis supprimées une fois le processus terminé.
-
-Pour capturer un instantané du document enrichi créé lors de l’indexation, ajoutez un champ appelé ```enriched``` à votre index. L’indexeur vide automatiquement dans ce champ une représentation de chaîne de tous les enrichissements de ce document.
-
-Le champ ```enriched``` contiendra une chaîne qui est une représentation logique du document enrichi en mémoire dans JSON.  Toutefois, la valeur du champ est un document JSON valide. Les guillemets sont échappés si bien que vous devez remplacer `\"` par `"` afin d’afficher le document en tant que document JSON formaté.  
-
-Le champ ```enriched``` est fourni à des fins de débogage, uniquement pour vous aider à comprendre la forme logique du contenu par rapport auquel les expressions sont évaluées. Ce peut être un outil utile pour comprendre et déboguer votre ensemble de compétences.
-
-Répétez l’exercice précédent, y compris un champ `enriched` pour capturer le contenu d’un document enrichi :
-
-### <a name="request-body-syntax"></a>Syntaxe du corps de la demande
-```json
-{
-  "fields": [
-    {
-      "name": "id",
-      "type": "Edm.String",
-      "key": true,
-      "searchable": true,
-      "filterable": false,
-      "facetable": false,
-      "sortable": true
-    },
-    {
-      "name": "content",
-      "type": "Edm.String",
-      "sortable": false,
-      "searchable": true,
-      "filterable": false,
-      "facetable": false
-    },
-    {
-      "name": "languageCode",
-      "type": "Edm.String",
-      "searchable": true,
-      "filterable": false,
-      "facetable": false
-    },
-    {
-      "name": "keyPhrases",
-      "type": "Collection(Edm.String)",
-      "searchable": true,
-      "filterable": false,
-      "facetable": false
-    },
-    {
-      "name": "organizations",
-      "type": "Collection(Edm.String)",
-      "searchable": true,
-      "sortable": false,
-      "filterable": false,
-      "facetable": false
-    },
-    {
-      "name": "enriched",
-      "type": "Edm.String",
-      "searchable": false,
-      "sortable": false,
-      "filterable": false,
-      "facetable": false
-    }
-  ]
-}
-```
 <a name="reset"></a>
 
 ## <a name="reset-and-rerun"></a>Réinitialiser et réexécuter

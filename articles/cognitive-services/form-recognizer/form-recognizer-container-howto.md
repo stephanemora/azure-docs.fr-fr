@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: form-recognizer
 ms.topic: overview
-ms.date: 05/07/2019
+ms.date: 05/28/2019
 ms.author: pafarley
-ms.openlocfilehash: a7159fccc9c4ef232cfca08b173e712e268343ea
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: f65375bfd826660f8583068875a1fddc545a86d7
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65507802"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306546"
 ---
 # <a name="install-and-run-form-recognizer-containers"></a>Installer et exécuter des conteneurs Form Recognizer
 Form Recognizer applique la technologie de machine learning pour identifier et extraire des tables et des paires clé-valeur à partir de formulaires. En leur associant des valeurs et des entrées de table, cette ressource restitue des données structurées qui incluent les relations du fichier d’origine. Vous pouvez appeler votre modèle personnalisé Form Recognizer au moyen d’une API REST simple, afin de réduire la complexité et facilement l’intégrer à votre processus d’automatisation de workflow ou à une autre application. Et comme cinq documents (ou un formulaire vide) seulement sont nécessaires, vous obtenez des résultats rapidement, avec précision et en adéquation avec votre contenu spécifique, sans intervention manuelle lourde ni recours à des compétences approfondies en science des données. Aucun étiquetage ni aucune annotation de données ne sont exigés.
@@ -34,7 +34,7 @@ L’utilisation des conteneurs Form Recognizer est soumise aux prérequis suivan
 |Moteur Docker| Vous avez besoin d’un moteur Docker installé sur un [ordinateur hôte](#the-host-computer). Docker fournit des packages qui configurent l’environnement Docker sur [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) et [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Pour apprendre les principes de base de Docker et des conteneurs, consultez la [vue d’ensemble de Docker](https://docs.docker.com/engine/docker-overview/).<br><br> Vous devez configurer Docker pour permettre aux conteneurs de se connecter à Azure et de lui envoyer des données de facturation. <br><br> **Sur Windows**, vous devez également configurer Docker pour prendre en charge les conteneurs Linux.<br><br>|
 |Bonne connaissance de Docker | Vous devez avoir une compréhension élémentaire des concepts Docker, notamment les registres, référentiels, conteneurs et images conteneurs, ainsi qu’une maîtrise des commandes `docker` de base.|
 |Azure CLI| Vous devez installer l’interface [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) sur votre hôte.|
-|Ressource API Vision par ordinateur| Pour pouvoir traiter documents et images numérisés, une **ressource Vision par ordinateur** est nécessaire. Vous pouvez accéder à la fonctionnalité **Reconnaître le texte** en tant que ressource Azure (API REST ou kit SDK) ou en tant que `cognitive-services-recognize-text`[conteneur](../Computer-vision/computer-vision-how-to-install-containers.md##get-the-container-image-with-docker-pull). Les frais de facturation habituels s’appliquent. <br><br>Vous devez transmettre la clé et le point de terminaison de facturation de votre ressource Vision par ordinateur spécifique (cloud Azure ou conteneur Cognitive Services). Utilisez cette clé et le point de terminaison de facturation en tant que {COMPUTER_VISION_API_KEY} et {COMPUTER_VISION_BILLING_ENDPOINT_URI}.<br><br> Si vous utilisez le **conteneur `cognitive-services-recognize-text`**, assurez-vous que :<br><br>* Votre clé Vision par ordinateur du conteneur Form Recognizer est la clé spécifiée dans la commande `docker run` de Vision par ordinateur du conteneur `cognitive-services-recognize-text`.<br>* Votre point de terminaison de facturation est le point de terminaison du conteneur, par exemple `https://localhost:5000`. Si vous utilisez un conteneur Vision par ordinateur et un conteneur Form Recognizer ensemble sur le même hôte, ils ne peuvent pas être tous les deux démarrés avec le port par défaut `5000`.  |  
+|Ressource API Vision par ordinateur| Pour pouvoir traiter documents et images numérisés, une **ressource Vision par ordinateur** est nécessaire. Vous pouvez accéder à la fonctionnalité **Reconnaître le texte** en tant que ressource Azure (API REST ou kit SDK) ou en tant que `cognitive-services-recognize-text`[conteneur](../Computer-vision/computer-vision-how-to-install-containers.md##get-the-container-image-with-docker-pull). Les frais de facturation habituels s’appliquent. <br><br>Vous devez transmettre la clé et le point de terminaison de facturation de votre ressource Vision par ordinateur spécifique (cloud Azure ou conteneur Cognitive Services). Utilisez cette clé et le point de terminaison de facturation en tant que {COMPUTER_VISION_API_KEY} et {COMPUTER_VISION_BILLING_ENDPOINT_URI}.<br><br> Si vous utilisez le **conteneur `cognitive-services-recognize-text`** , assurez-vous que :<br><br>* Votre clé Vision par ordinateur du conteneur Form Recognizer est la clé spécifiée dans la commande `docker run` de Vision par ordinateur du conteneur `cognitive-services-recognize-text`.<br>* Votre point de terminaison de facturation est le point de terminaison du conteneur, par exemple `https://localhost:5000`. Si vous utilisez un conteneur Vision par ordinateur et un conteneur Form Recognizer ensemble sur le même hôte, ils ne peuvent pas être tous les deux démarrés avec le port par défaut `5000`.  |  
 |Ressource Form Recognizer |Pour pouvoir utiliser ces conteneurs, vous devez disposer des éléments suivants :<br><br>Ressource Azure _Form Recognizer_ afin d’obtenir la clé de facturation et l’URI du point de terminaison de facturation associés. Les deux valeurs, disponibles dans les pages Clés et Vue d’ensemble de **Form Recognizer** du portail Azure, sont nécessaires au démarrage du conteneur.<br><br>**{BILLING_KEY}**  : clé de ressource<br><br>**{BILLING_ENDPOINT_URI}**  : exemple d’UURI de point de terminaison : `https://westus.api.cognitive.microsoft.com/forms/v1.0`| 
 
 ## <a name="request-access-to-the-container-registry"></a>Demander l’accès au registre de conteneurs
@@ -282,6 +282,10 @@ Les conteneurs Form Recognizer envoient des informations de facturation à Azure
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
 Pour plus d’informations sur ces options, consultez [Configurer des conteneurs](form-recognizer-container-configuration.md).
+
+<!--blogs/samples/video coures -->
+
+[!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
 
 ## <a name="summary"></a>Résumé
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: kumud
-ms.openlocfilehash: 30b1b08e27eca826a9f882475723913810b3feb4
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a040f3895f710f4ebbdcd3f73568775a909aa64c
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64721853"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258269"
 ---
 # <a name="quickstart-create-a-virtual-network-using-powershell"></a>Démarrage rapide : Créer un réseau virtuel à l’aide de PowerShell
 
@@ -140,9 +140,6 @@ Ouvrez une invite de commandes sur votre ordinateur local. Exécutez la commande
 ```cmd
 mstsc /v:<publicIpAddress>
 ```
-
-Un fichier *.rdp* (Remote Desktop Protocol) est téléchargé sur votre ordinateur et un Bureau à distance s’ouvre.
-
 1. Si vous y êtes invité, sélectionnez **Connexion**.
 
 1. Entrez le nom d’utilisateur et le mot de passe spécifiés lors de la création de la machine virtuelle.

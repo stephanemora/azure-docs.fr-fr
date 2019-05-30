@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 04/17/2019
 ms.author: pafarley
-ms.openlocfilehash: ce7e8788ec807c8ceccb49a7d435041b34e75348
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 9b126d5ccbbf3cb1f22163ffb6ac53a8aff61004
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64917078"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357332"
 ---
 # <a name="azure-cognitive-services-computer-vision-sdk-for-python"></a>SDK Vision par ordinateur d’Azure Cognitive Services pour Python
 
@@ -42,7 +42,7 @@ Vous cherchez plus de documentation ?
 
 ### <a name="if-you-dont-have-an-azure-subscription"></a>Si vous n’avez pas d’abonnement Azure
 
-Créez une clé gratuite valide pendant 7 jours avec l’expérience d’**[essai gratuit][computervision_resource]** pour le service Vision par ordinateur. Quand la clé est créée, copiez-la ainsi que le nom du point de terminaison. Vous en aurez besoin pour [créer le client](#create-client).
+Créez une clé gratuite valide pendant 7 jours avec l’expérience d’ **[essai gratuit][computervision_resource]** pour le service Vision par ordinateur. Quand la clé est créée, copiez-la ainsi que le nom du point de terminaison. Vous en aurez besoin pour [créer le client](#create-client).
 
 Gardez les éléments suivants une fois que la clé est créée :
 
@@ -220,18 +220,16 @@ Vous pouvez obtenir n’importe quel texte manuscrit ou imprimé figurant dans u
 
 ```Python
 # import models
-from azure.cognitiveservices.vision.computervision.models import TextRecognitionMode
 from azure.cognitiveservices.vision.computervision.models import TextOperationStatusCodes
 import time
 
 url = "https://azurecomcdn.azureedge.net/cvt-1979217d3d0d31c5c87cbd991bccfee2d184b55eeb4081200012bdaf6a65601a/images/shared/cognitive-services-demos/read-text/read-1-thumbnail.png"
-mode = TextRecognitionMode.handwritten
 raw = True
 custom_headers = None
 numberOfCharsInOperationId = 36
 
 # Async SDK call
-rawHttpResponse = client.batch_read_file(url, mode, custom_headers,  raw)
+rawHttpResponse = client.batch_read_file(url, custom_headers,  raw)
 
 # Get ID from returned headers
 operationLocation = rawHttpResponse.headers["Operation-Location"]

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 03/18/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: e811d1f7fb84e2539ba9daea3eea13f5e028f997
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: de2e848bd587f3b9bf2efe3fa8df3710e24243e4
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60389535"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241380"
 ---
 # <a name="tutorial-create-linked-azure-resource-manager-templates"></a>Tutoriel : Créer des modèles Azure Resource Manager liés
 
@@ -89,7 +89,7 @@ Le modèle lié crée un compte de stockage. Le modèle lié peut être utilisé
 2. Effectuez les modifications suivantes :
 
     * Supprimez tous les paramètres autres que **location**.
-    * Ajoutez un paramètre appelé **storageAccountName**. 
+    * Ajoutez un paramètre appelé **storageAccountName**.
         ```json
         "storageAccountName":{
           "type": "string",
@@ -99,7 +99,7 @@ Le modèle lié crée un compte de stockage. Le modèle lié peut être utilisé
         },
         ```
         Le nom et l’emplacement du compte de stockage sont passés du modèle principal au modèle lié en tant que paramètres.
-        
+
     * Supprimez l’élément **variables** et toutes les définitions de variable.
     * Supprimez toutes les ressources autres que le compte de stockage. Vous supprimez quatre ressources au total.
     * Mettez à jour la valeur de l’élément **name** de la ressource de compte de stockage comme suit :
@@ -109,7 +109,7 @@ Le modèle lié crée un compte de stockage. Le modèle lié peut être utilisé
         ```
 
     * Mettez à jour l’élément **outputs**, de sorte qu’il ressemble à ce qui suit :
-    
+
         ```json
         "outputs": {
           "storageUri": {
@@ -272,7 +272,7 @@ Le modèle principal se nomme azuredeploy.json.
     Prenez note des détails suivants :
 
     * Une ressource `Microsoft.Resources/deployments` dans le modèle principal est utilisée pour créer le lien avec un autre modèle.
-    * La ressource `deployments` se nomme `linkedTemplate`. Ce nom est utilisé pour [configurer la dépendance](#configure-dependency).  
+    * La ressource `deployments` se nomme `linkedTemplate`. Ce nom est utilisé pour [configurer la dépendance](#configure-dependency).
     * Vous pouvez uniquement utiliser le mode de déploiement [Incremental](./deployment-modes.md) lors de l’appel de modèles liés.
     * `templateLink/uri` contient l’URI du modèle lié. Mettez à jour la valeur avec l’URI que vous obtenez quand vous chargez le modèle lié (celui avec un jeton SAS).
     * Pour passer des valeurs du modèle principal au modèle lié, utilisez `parameters`.
@@ -305,7 +305,7 @@ Nous avons vu dans le [Tutoriel : Créer des modèles Azure Resource Manager av
 
     ![Dépendance configurée par les modèles liés Azure Resource Manager](./media/resource-manager-tutorial-create-linked-templates/resource-manager-template-linked-templates-configure-dependency.png)
 
-    Le nom de la ressource de déploiement *linkedTemplate*.  
+    Le nom de la ressource de déploiement *linkedTemplate*.
 3. Mettez à jour **properties/diagnosticsProfile/bootDiagnostics/storageUri** comme indiqué dans la capture d’écran précédente.
 4. Enregistrez le modèle modifié.
 
@@ -334,4 +334,4 @@ Pour améliorer le projet, apportez les modifications supplémentaires suivantes
 Dans ce tutoriel, vous avez modularisé un modèle en un modèle principal et un modèle lié. Pour découvrir comment utiliser les extensions de machine virtuelle afin d’exécuter les tâches post-déploiement, consultez :
 
 > [!div class="nextstepaction"]
-> [Déployer des extensions de machine virtuelle](./deployment-manager-tutorial.md)
+> [Déployer des extensions de machine virtuelle](./resource-manager-tutorial-deploy-vm-extensions.md)

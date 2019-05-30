@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 03/25/2019
-ms.openlocfilehash: 553564be494b4175cba937b583d49ad84a8d0e66
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 28785bb99dcdb767a64ae977e8326b80130fb135
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59526518"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66240190"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-powershell"></a>Créer un cluster et une base de données Azure Data Explorer à l’aide de PowerShell
 
@@ -76,7 +76,7 @@ Les étapes suivantes ne sont pas obligatoires si vous exécutez des commandes d
 1. Exécutez la commande suivante pour vérifier si votre cluster a bien été créé :
 
     ```azurepowershell-interactive
-    Get-AzKustoCluster -Name mykustocluster --ResourceGroupName testrg
+    Get-AzKustoCluster -Name mykustocluster -ResourceGroupName testrg
     ```
 
 Si le résultat contient `provisioningState` avec la valeur `Succeeded`, alors le cluster a correctement été créé.
@@ -100,7 +100,7 @@ Si le résultat contient `provisioningState` avec la valeur `Succeeded`, alors l
 1. Exécutez la commande suivante pour voir la base de données que vous avez créée :
 
     ```azurepowershell-interactive
-    Get-AzKustoDatabase -ClusterName mykustocluster --ResourceGroupName testrg -Name mykustodatabase
+    Get-AzKustoDatabase -ClusterName mykustocluster -ResourceGroupName testrg -Name mykustodatabase
     ```
 
 Vous disposez maintenant d’un cluster et d’une base de données.

@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: vlvinogr
 ms.openlocfilehash: 3a46462f761e7608ae7554604577a1e9d7f88b15
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60558013"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66238106"
 ---
 ## <a name="go-to-your-api-management-instance"></a>Accéder à votre instance Gestion des API
 
@@ -21,7 +21,7 @@ ms.locfileid: "60558013"
 
 3. Dans la zone de recherche, entrez `api management`.
 
-4. Dans les résultats de la recherche, sélectionnez **API Management services (Services Gestion des API)**.
+4. Dans les résultats de la recherche, sélectionnez **API Management services (Services Gestion des API)** .
 
 5. Sélectionnez votre instance de service Gestion des API.
 

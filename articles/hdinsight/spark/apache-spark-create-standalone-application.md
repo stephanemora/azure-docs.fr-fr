@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
-ms.date: 01/30/2019
-ms.openlocfilehash: 2d431659e46465bf16f6e597f3a49f7008432bb5
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 05/28/2019
+ms.openlocfilehash: 212a2ca89b91de518f07d097b00b31e785216cb0
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64722860"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66304005"
 ---
 # <a name="tutorial-create-a-scala-maven-application-for-apache-spark-in-hdinsight-using-intellij"></a>Didacticiel : Créer une application Scala Maven pour Apache Spark dans HDInsight à l’aide d’IntelliJ
 
@@ -80,7 +80,7 @@ Effectuez les étapes suivantes pour installer le plug-in Scala :
   	|Nom du projet| Entrez un nom.|  
   	|Project&nbsp;location (Emplacement du projet)| Entrez l’emplacement où vous souhaitez enregistrer votre projet.|
   	|Project SDK (SDK du projet)| Ce champ est vide si vous utilisez IDEA pour la première fois.  Sélectionnez **New...** (Nouveau) et accédez à votre JDK.|
-  	|Version de Spark|L’Assistant de création intègre la version correcte des SDK Spark et Scala. Si la version du cluster spark est antérieure à la version 2.0, sélectionnez **Spark 1.x**. Sinon, sélectionnez **Spark 2.x**. Cet exemple utilise **Spark 2.3.0 (Scala 2.11.8)**.|
+  	|Version de Spark|L’Assistant de création intègre la version correcte des SDK Spark et Scala. Si la version du cluster spark est antérieure à la version 2.0, sélectionnez **Spark 1.x**. Sinon, sélectionnez **Spark 2.x**. Cet exemple utilise **Spark 2.3.0 (Scala 2.11.8)** .|
 
     ![Sélection du kit de développement logiciel (SDK) Spark](./media/apache-spark-create-standalone-application/hdi-new-project.png)
 
@@ -175,7 +175,7 @@ Effectuez les étapes suivantes pour installer le plug-in Scala :
     
     1. Dans le menu **File** (Fichier), sélectionnez **Project Structure...** (Structure du projet).
 
-    2. À partir de la fenêtre **Project Structure** (Structure du projet), accédez à **Artifacts** > **le signe +** > **JAR** > **From modules with dependencies...** (À partir de modules avec des dépendances).
+    2. À partir de la fenêtre **Project Structure** (Structure du projet), accédez à **Artifacts** > **le signe +**  > **JAR** > **From modules with dependencies...** (À partir de modules avec des dépendances).
        
         ![Créer un fichier jar](./media/apache-spark-create-standalone-application/create-jar-1.png)
 
@@ -189,7 +189,7 @@ Effectuez les étapes suivantes pour installer le plug-in Scala :
        
         ![Créer un fichier jar](./media/apache-spark-create-standalone-application/create-jar-3.png)
 
-    6. L’onglet **Output Layout** (Disposition de la sortie) répertorie tous les fichiers jar inclus dans le cadre du projet Maven. Vous pouvez sélectionner et supprimer ceux sur lesquels l’application Scala n’a aucune dépendance directe. Pour l’application que vous créez ici, vous pouvez tous les supprimer sauf le dernier (**SparkSimpleApp compile output**). Sélectionnez les fichiers JAR à supprimer, puis sélectionnez le signe moins **-**.
+    6. L’onglet **Output Layout** (Disposition de la sortie) répertorie tous les fichiers jar inclus dans le cadre du projet Maven. Vous pouvez sélectionner et supprimer ceux sur lesquels l’application Scala n’a aucune dépendance directe. Pour l’application que vous créez ici, vous pouvez tous les supprimer sauf le dernier (**SparkSimpleApp compile output**). Sélectionnez les fichiers JAR à supprimer, puis sélectionnez le signe moins **-** .
        
         ![Créer un fichier jar](./media/apache-spark-create-standalone-application/delete-output-jars.png)
        
