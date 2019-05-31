@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/23/2019
 ms.author: sachdevaswati
-ms.openlocfilehash: 2fba8b0056c80a62837682a6820b68f71fba9ea8
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
-ms.translationtype: HT
+ms.openlocfilehash: 0307dc5c83782119f6c10279563b8b9f0a999d28
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65952937"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236877"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Sauvegarder des bases de données SQL Server sur des machines virtuelles Azure
 
@@ -21,7 +21,7 @@ Bases de données SQL Server sont des charges de travail critiques qui nécessit
 
 Cet article explique comment sauvegarder une base de données SQL Server qui s’exécute sur une machine virtuelle Azure dans un coffre Azure Backup Recovery Services.
 
-Dans cet article, vous allez découvrir comment :
+Cet article porte sur les points suivants :
 
 > [!div class="checklist"]
 > * Créer et configurer un coffre
@@ -49,7 +49,7 @@ Pour toutes les opérations, une machine virtuelle SQL Server nécessite une con
 
 Établir la connectivité en utilisant l’une des options suivantes :
 
-- **Autoriser les plages IP de centre de données Azure**. Cette option permet de [plages d’adresses IP](https://www.microsoft.com/download/details.aspx?id=41653) dans le téléchargement. Pour accéder à un groupe de sécurité réseau (NSG), utilisez l’applet de commande Set-AzureNetworkSecurityRule. Si vous êtes mise en liste verte uniquement spécifiques à une région adresses IP, vous aurez également besoin à la liste d’autorisation Azure Active Directory (Azure AD) numéro de série pour activer l’authentification.
+- **Autoriser les plages IP de centre de données Azure**. Cette option permet de [plages d’adresses IP](https://www.microsoft.com/download/details.aspx?id=41653) dans le téléchargement. Pour accéder à un groupe de sécurité réseau (NSG), utilisez l’applet de commande Set-AzureNetworkSecurityRule. Si vous êtes sûr, seules les adresses IP spécifiques à une région de liste de destinataires, vous devez également mettre à jour la liste de destinataires fiables de la balise de service Azure Active Directory (Azure AD) pour activer l’authentification.
 
 - **Autoriser l’accès à l’aide de balises de groupe de sécurité réseau**. Si vous utilisez des groupes de sécurité réseau pour limiter la connectivité, cette option ajoute une règle à votre groupe de sécurité réseau qui autorise un accès sortant à la sauvegarde Azure à l’aide de la balise AzureBackup. En plus de cette balise, vous devez également correspondant [règles](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) pour Azure AD et le stockage Azure pour autoriser la connectivité pour le transfert de données et d’authentification. La balise AzureBackup est actuellement disponible sur PowerShell uniquement. Pour créer une règle à l’aide de la balise AzureBackup :
 
@@ -68,7 +68,7 @@ Pour toutes les opérations, une machine virtuelle SQL Server nécessite une con
   - Enregistrer le groupe de sécurité réseau<br/>
     `Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg`
 - **Autoriser l’accès à l’aide de balises de pare-feu Azure**. Si vous utilisez des pare-feu d’Azure, créer une règle d’application à l’aide de la AzureBackup [balise de nom de domaine complet](https://docs.microsoft.com/azure/firewall/fqdn-tags). Cela permet un accès sortant à sauvegarde Azure.
-- **Déployer un serveur proxy HTTP pour acheminer le trafic**. Lorsque vous sauvegardez une base de données SQL Server sur une machine virtuelle Azure, l’extension de sauvegarde sur la machine virtuelle utilise les API de HTTPS pour envoyer des commandes de gestion de sauvegarde Azure et les données vers le stockage Azure. L’extension de sauvegarde utilise également Azure AD pour l’authentification. Acheminez le trafic de l’extension de sauvegarde pour ces trois services via le proxy HTTP. Les extensions sont le seul composant qui est configuré pour l’accès à l’internet public.
+- **Déployer un serveur proxy HTTP pour acheminer le trafic**. Lorsque vous sauvegardez une base de données SQL Server sur une machine virtuelle Azure, l’extension de sauvegarde sur la machine virtuelle utilise les API de HTTPS pour envoyer des commandes de gestion de sauvegarde Azure et les données vers le stockage Azure. L’extension de sauvegarde utilise également Azure AD pour l’authentification. Acheminez le trafic de l’extension de sauvegarde pour ces trois services via le proxy HTTP. Les extensions sont le seul composant configuré pour l’accès à l’internet public.
 
 Options de connectivité sont les avantages et inconvénients suivants :
 
@@ -96,7 +96,8 @@ Si vous n’avez pas créé la machine virtuelle SQL Server dans Azure Marketpla
   * Les espaces à gauche et à droite
   * Fin des points d’exclamation ( !)
   * Crochets fermant (])
-  * En commençant par F:\
+  * Point-virgule « ; »
+  * Barre oblique « / »
 
 Alias n’est disponible pour les caractères non pris en charge, mais nous vous recommandons de les éviter. Pour plus d'informations, consultez la rubrique [Présentation du modèle de données du service de Table](https://docs.microsoft.com/rest/api/storageservices/Understanding-the-Table-Service-Data-Model?redirectedfrom=MSDN).
 
@@ -115,7 +116,7 @@ Comment découvrir les bases de données en cours d’exécution sur une machine
 
 3. Dans **objectif de sauvegarde**, affectez la valeur **où s’exécute votre charge de travail ?** à **Azure**.
 
-4. Dans **Que souhaitez-vous sauvegarder ?**, sélectionnez **SQL Server dans une machine virtuelle Azure**.
+4. Dans **Que souhaitez-vous sauvegarder ?** , sélectionnez **SQL Server dans une machine virtuelle Azure**.
 
     ![Sélectionnez SQL Server dans une machine virtuelle Azure pour la sauvegarde](./media/backup-azure-sql-database/choose-sql-database-backup-goal.png)
 
@@ -162,7 +163,7 @@ Comment découvrir les bases de données en cours d’exécution sur une machine
 
      * Pour protéger plus de 50 bases de données, configurez plusieurs sauvegardes.
      * Pour activer [ ](#enable-auto-protection) l’intégralité de l’instance ou le groupe de disponibilité Always On. Dans le **la protection automatique** liste déroulante, sélectionnez **ON**, puis sélectionnez **OK**.
-     
+
     > [!NOTE]
     > Le [la protection automatique](#enable-auto-protection) fonctionnalité permet non seulement de protection sur toutes les bases de données existantes à la fois, mais protège également automatiquement les nouvelles bases de données ajoutés à cette instance ou le groupe de disponibilité.  
 
@@ -174,7 +175,7 @@ Comment découvrir les bases de données en cours d’exécution sur une machine
 
    - Sélectionnez la stratégie par défaut comme HourlyLogBackup.
    - Choisir une stratégie de sauvegarde existante créée précédemment pour SQL.
-   - Définir une stratégie basée sur votre plage RPO et de rétention.
+   - Définir une nouvelle stratégie selon votre RPO et la durée de rétention.
 
      ![Sélectionner la stratégie de sauvegarde](./media/backup-azure-sql-database/select-backup-policy.png)
 
@@ -182,7 +183,7 @@ Comment découvrir les bases de données en cours d’exécution sur une machine
 
     ![Activer la stratégie de sauvegarde choisie](./media/backup-azure-sql-database/enable-backup-button.png)
 
-7. Suivre la progression de la configuration dans le **Notifications** zone du portail.
+7. Vous pouvez suivre la progression de la configuration dans la zone  **Notifications**  du portail.
 
     ![Zone Notifications](./media/backup-azure-sql-database/notifications-area.png)
 
