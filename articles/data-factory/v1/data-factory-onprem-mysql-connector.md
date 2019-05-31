@@ -69,7 +69,7 @@ Le tableau suivant fournit la description des éléments JSON spécifiques au se
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
 | type |La propriété type doit être définie sur : **OnPremisesMySql** |Oui |
-| serveur |Nom du serveur MySQL. |Oui |
+| server |Nom du serveur MySQL. |Oui |
 | database |Nom de la base de données MySQL. |Oui |
 | schema |Nom du schéma dans la base de données. |Non  |
 | authenticationType |Type d'authentification utilisé pour se connecter à la base de données MySQL. Les valeurs possibles sont les suivantes : `Basic`. |Oui |
@@ -84,7 +84,7 @@ La section **typeProperties** est différente pour chaque type de jeu de donnée
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
-| TableName |Nom de la table dans l'instance de base de données MySQL à laquelle le service lié fait référence. |Non (si la **requête** de **RelationalSource** est spécifiée) |
+| tableName |Nom de la table dans l'instance de base de données MySQL à laquelle le service lié fait référence. |Non (si la **requête** de **RelationalSource** est spécifiée) |
 
 ## <a name="copy-activity-properties"></a>Propriétés de l’activité de copie
 Pour obtenir la liste complète des sections et des propriétés disponibles pour la définition des activités, consultez l’article [Création de pipelines](data-factory-create-pipelines.md). Les propriétés comme le nom, la description, les tables d'entrée et de sortie et les différentes stratégies sont disponibles pour tous les types d’activités.
