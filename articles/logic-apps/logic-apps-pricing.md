@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: f8f528f5-51c5-4006-b571-54ef74532f32
 ms.topic: article
 ms.date: 05/22/2019
-ms.openlocfilehash: b37a6b6995df6f784b5f1b4a7a3f54d91faafc13
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 20e84482b31c4da991f3fdc9c7bbf6ee0e7f902a
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65990187"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66299099"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Modèle de tarif pour Azure Logic Apps
 
@@ -38,14 +38,14 @@ Azure Logic Apps mesure toutes les actions qui s’exécutent dans votre applica
 
 ## <a name="fixed-pricing-model"></a>Modèle de tarif fixe
 
-Un [ *environnement de service d’intégration* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) offre un moyen privé, isolé et dédié pour pouvoir créer et exécuter des applications logiques qui peuvent accéder aux ressources dans un réseau virtuel Azure. Pour les nouvelles applications logique qui s’exécutent dans une fenêtre ISE, vous payez un tarif mensuel fixe pour les déclencheurs et actions intégrées et également pour les connecteurs Standard.
+Un [ *environnement de service d’intégration* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) offre un moyen privé, isolé et dédié pour pouvoir créer et exécuter des applications logiques qui peuvent accéder aux ressources dans un réseau virtuel Azure. Pour les nouvelles applications logique qui s’exécutent dans une fenêtre ISE, vous payez un [prix mensuel fixe](https://azure.microsoft.com/pricing/details/logic-apps) des actions intégrées et des déclencheurs, ainsi que pour les connecteurs Standard.
 
-Votre ISE inclut également un connecteur gratuit Enterprise, qui inclut toutes les connexions que vous le souhaitez. Utilisation de connecteurs d’entreprise supplémentaires est facturée selon le tarif de la consommation d’entreprise.
+Votre ISE inclut également un connecteur gratuit Enterprise, qui inclut autant *connexions* que vous le souhaitez. Utilisation de connecteurs d’entreprise supplémentaires est facturée selon le [tarif de la consommation d’entreprise](https://azure.microsoft.com/pricing/details/logic-apps). Uniquement disponibles connecteurs d’entreprise sont facturés au prix de la consommation d’entreprise. Connecteurs d’entreprise version préliminaire publique sont facturés à la [taux de connecteur Standard](https://azure.microsoft.com/pricing/details/logic-apps).
 
 > [!NOTE]
 > Dans une fenêtre ISE, les déclencheurs intégrés et les actions afficher le **Core** étiqueter et de s’exécuter dans l’environnement ISE même en tant que vos applications logiques. Standard et des connecteurs d’entreprise qui affichent la **ISE** étiquette s’exécutent dans l’environnement ISE même en tant que vos applications logiques. Les connecteurs qui ne s’affichent pas l’étiquette ISE s’exécuter dans le service Logic Apps global.
 
-Votre unité de base ISE a résolu la capacité, donc si vous avez besoin de davantage de débit, vous pouvez [ajouter des unités d’échelle](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#add-capacity), soit lors de la création ou ultérieurement. 
+Votre unité de base ISE a résolu la capacité, donc si vous avez besoin de davantage de débit, vous pouvez [ajouter des unités d’échelle](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#add-capacity), soit lors de la création ou ultérieurement. Les applications logiques qui s’exécutent dans une fenêtre ISE échappez les coûts de rétention de données.
 
 Pour plus d’informations concernant la tarification, consultez [tarification de Azure Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps).
 
@@ -87,7 +87,7 @@ Pour les actions qui s’exécutent dans des boucles, Azure Logic Apps est compt
 Désactivé logic apps ne sont pas facturées, car ils ne peuvent pas créer de nouvelles instances tandis que s’ils sont désactivés.
 Une fois que vous avez désactivé une application logique, l’arrêt complet des instances en cours d’exécution peut prendre un certain de temps.
 
-## <a name="integration-accounts"></a>Comptes d'intégration
+## <a name="integration-accounts"></a>Comptes d’intégration
 
 Tarification de la consommation s’applique aux [comptes d’intégration](logic-apps-enterprise-integration-create-integration-account.md) où vous pouvez Explorer, développer et tester le [B2B et EDI](logic-apps-enterprise-integration-b2b.md) et [traitement XML](logic-apps-enterprise-integration-xml.md) fonctionnalités dans Azure Logic Apps gratuitement coût supplémentaire.
 Vous pouvez avoir un compte d’intégration dans chaque région Azure. Chaque compte d’intégration peut stocker jusqu’à un [nombre spécifique d’artefacts](../logic-apps/logic-apps-limits-and-config.md), qui incluent les contrats, partenaires commerciaux, cartes, schémas, assemblys, certificats, configurations de lot, etc.
@@ -108,7 +108,7 @@ Pour plus d’informations concernant la tarification, consultez [tarification d
 
 ## <a name="data-retention"></a>Conservation des données
 
-Toutes les entrées et sorties qui sont stockés dans l’historique des exécutions de votre application logique facturés en fonction d’une application logique [exécuter la période de rétention](logic-apps-limits-and-config.md#run-duration-retention-limits). Pour plus d’informations concernant la tarification, consultez [tarification d’Azure Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps).
+À l’exception des applications logiques qu’exécuter dans un environnement de service d’intégration (ISE), toutes les entrées et sorties qui sont stockés dans l’historique des exécutions de votre application logique facturés selon une application logique [exécuter la période de rétention](logic-apps-limits-and-config.md#run-duration-retention-limits). Les applications logiques qui s’exécutent dans une fenêtre ISE échappez les coûts de rétention de données. Pour plus d’informations concernant la tarification, consultez [tarification d’Azure Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps).
 
 Pour vous aider à surveiller la consommation du stockage de votre application logique, vous pouvez :
 

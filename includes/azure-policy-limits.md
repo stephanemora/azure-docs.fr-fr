@@ -5,15 +5,15 @@ services: azure-policy
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 09/18/2018
+ms.date: 05/30/2019
 ms.author: dacoulte
 ms.custom: include file
-ms.openlocfilehash: 57cec39bde460c6079091490acf541761c61e003
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 7907504401f4b47aafe6032ea895d9647e6c303c
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66119301"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66420727"
 ---
 Il existe un nombre maximal pour chaque type d'objet concernant Azure Policy. Une entrée _Scope_ (Étendue) fait référence soit à l’abonnement, soit au [groupe d’administration](../articles/governance/management-groups/overview.md).
 
@@ -26,5 +26,5 @@ Il existe un nombre maximal pour chaque type d'objet concernant Azure Policy. Un
 | Définition de stratégie | parameters | 20 |
 | Définition d’initiative | Stratégies | 100 |
 | Définition d’initiative | parameters | 100 |
-| Affectations de stratégies et d'initiatives | Exclusion (notScopes) | 250 |
+| Affectations de stratégies et d'initiatives | Exclusion (notScopes) | 400 |
 | Règle de stratégie | Éléments conditionnels imbriqués | 512 |

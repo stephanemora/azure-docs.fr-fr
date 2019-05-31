@@ -1,11 +1,8 @@
 ---
 title: Annulation de votre abonnement Azure | Microsoft Docs
 description: Décrit comment annuler votre abonnement Azure, par exemple l’abonnement d’essai gratuit
-services: ''
-documentationcenter: ''
-author: genlin
-manager: adpick
-editor: ''
+author: bandersmsft
+manager: amberb
 tags: billing
 ms.assetid: 3051d6b0-179f-4e3a-bda4-3fee7135eac5
 ms.service: billing
@@ -13,24 +10,25 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 1/23/2019
+ms.date: 5/30/2019
 ms.author: banders
-ms.openlocfilehash: 374224663323e75a1d1413c47490bd3aacd00267
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 235d93de56289bb2daaa661ee9806732da3b6d6a
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60918480"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417609"
 ---
 # <a name="cancel-your-subscription-for-azure"></a>Annuler votre abonnement Azure
 
-Vous pouvez annuler votre abonnement Azure en tant qu’[administrateur de compte](billing-subscription-transfer.md#whoisaa). Après l’annulation de l’abonnement, vous n’avez plus accès aux ressources ni aux services Azure.
+Uniquement un abonnement Azure [administrateur de compte](billing-subscription-transfer.md#whoisaa) peut annuler un abonnement Azure. Un administrateur d’abonnement Azure peut également [affecter un autre utilisateur en tant qu’un administrateur d’abonnement](billing-add-change-azure-subscription-administrator.md#assign-a-user-as-an-administrator-of-a-subscription) afin qu’il peut annuler un abonnement. Après l’annulation de l’abonnement, vous n’avez plus accès aux ressources ni aux services Azure.
 
 Avant d’annuler votre abonnement :
 
 * Sauvegardez vos données. Par exemple, si vous stockez des données dans le stockage Azure ou SQL, téléchargez une copie. Si vous avez une machine virtuelle, enregistrez une image localement.
 * Arrêtez les services. Accédez à la [page de ressources du portail de gestion](https://ms.portal.azure.com/?flight=1#blade/HubsExtension/Resources/resourceType/Microsoft.Resources%2Fresources) et **arrêtez** les machines virtuelles, les applications ou autres services en cours d’exécution.
 * Envisagez de migrer vos données. Consultez la page [Déplacer des ressources vers un nouveau groupe de ressources ou un nouvel abonnement](../azure-resource-manager/resource-group-move-resources.md).
+* Vous devez supprimer toutes les ressources et tous les groupes de ressources. Il est nécessaire de les supprimer avant de vous pouvez annuler un abonnement. Chaque groupe de ressources doit être supprimé individuellement. Lors de la suppression du groupe de ressources, vous devez confirmer la suppression en tapant le nom de groupe de ressources.
 
 Si vous annulez un plan de support Azure, vous êtes toujours facturé du reliquat de l’abonnement. Pour plus d’informations, consultez les [Plans de support Azure](https://azure.microsoft.com/support/plans/).
 
@@ -49,7 +47,7 @@ Une fois que vous l’annulez, la facturation s’arrête immédiatement. Toutef
 
 Une fois ce délai passé, vos services sont désactivés. Cela signifie que vos machines virtuelles et les adresses IP temporaires sont libérées et que le stockage est en lecture seule.
 
-Si vous annulez en milieu de période de facturation, nous envoyons la facture finale à la date de facture par défaut à la fin de la période. 
+Si vous annulez en milieu de période de facturation, nous envoyons la facture finale à la date de facture par défaut à la fin de la période.
 
 Nous attendons 90 jours avant de supprimer définitivement vos données au cas où vous devriez y accéder ou changeriez d’avis. Nous ne vous facturons pas la conservation des données. Pour en savoir plus, consultez [Microsoft Trust Center - How we manage your data](https://go.microsoft.com/fwLink/p/?LinkID=822930&clcid=0x409) (Centre de gestion de la confidentialité de Microsoft - Comment nous gérons vos données).
 

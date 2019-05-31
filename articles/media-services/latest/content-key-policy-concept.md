@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 05/28/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: a1d2cc50b405df2c71d94e74973b3291a4e908cb
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
-ms.translationtype: HT
+ms.openlocfilehash: 04808dda193a3a472813cda852a1a2f24d00e112
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393485"
+ms.locfileid: "66418000"
 ---
 # <a name="content-key-policies"></a>Stratégies de clé de contenu
 
@@ -25,7 +25,7 @@ Media Services vous permet de transmettre votre contenu dynamique ou à la deman
 
 Pour spécifier les options de chiffrement sur votre flux, vous devez créer un [stratégie de diffusion en continu](streaming-policy-concept.md) et associez-la à votre [localisateur de diffusion en continu](streaming-locators-concept.md). Vous créez le [stratégie de la clé de contenu](https://docs.microsoft.com/rest/api/media/contentkeypolicies) pour configurer comment la clé de contenu (qui fournit un accès sécurisé à votre [actifs](assets-concept.md)) est remis pour les clients. Vous devez définir la configuration requise (restrictions) sur la stratégie de clé de contenu qui doivent être remplies dans l’ordre des clés avec la configuration spécifiée à remettre aux clients. Cette stratégie de clé de contenu n’est pas nécessaire pour effacer de diffusion en continu ou de téléchargement. 
 
-En règle générale, vous associez votre **stratégie clé de contenu** avec votre **localisateur de diffusion en continu**. Vous pouvez également spécifier la stratégie de clé de contenu à l’intérieur d’une stratégie de diffusion en continu (lors de la création d’une stratégie personnalisée de diffusion en continu pour les scénarios avancés). 
+En règle générale, vous associez votre **stratégie clé de contenu** avec votre [localisateur de diffusion en continu](streaming-locators-concept.md). Vous pouvez également spécifier la stratégie de clé de contenu à l’intérieur d’un [stratégie de diffusion en continu](streaming-policy-concept.md) (lorsque la création d’une stratégie personnalisée de diffusion en continu pour les scénarios avancés). 
 
 Il est recommandé de laisser Media Services pour générer automatiquement les clés de contenu. En règle générale, vous utilisez une clé de longue durée et vérifier l’existence de stratégies avec **obtenir**. Pour vous procurer la clé, vous devez appeler une méthode d'action distincte afin d'obtenir des informations d'identification ou des secrets ; reportez-vous à l'exemple ci-dessous.
 

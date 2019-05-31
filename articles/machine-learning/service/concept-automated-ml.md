@@ -11,12 +11,12 @@ author: nacharya1
 ms.author: nilesha
 ms.date: 05/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: df666843b8a42711aa860a6f8c5e916fb68f036d
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
-ms.translationtype: HT
+ms.openlocfilehash: 16d100256f9252b478500488c2dc5a01c7e6a0b5
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/30/2019
-ms.locfileid: "66389924"
+ms.locfileid: "66418062"
 ---
 # <a name="what-is-automated-machine-learning"></a>Qu’est-ce que le machine learning automatisé ?
 
@@ -155,9 +155,11 @@ Avec Azure Machine Learning, vous pouvez utiliser ML automatisé pour générer 
 
 ML automatisé est également disponible dans d’autres solutions de Microsoft telles que :
 
-+ Dans les applications .NET à l’aide de Visual Studio et Visual Studio Code avec [ML.NET](https://docs.microsoft.com/dotnet/machine-learning/automl-overview)
-+ [Sur HDInsight](../../hdinsight/spark/apache-spark-run-machine-learning-automl.md), où vous faire évoluer vos travaux de formation automatisée ML sur Spark dans les clusters HDInsight en parallèle.
-+ [Dans Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-automated)
+|Intégrations|Description
+|------------|-----------
+|ML.NET|Sélection d’un modèle automatique et de formation dans les applications .NET à l’aide de Visual Studio et Visual Studio Code avec ML.NET automatisée ML (version préliminaire). [En savoir plus](https://docs.microsoft.com/dotnet/machine-learning/automl-overview)
+|HDIsnight|Faire évoluer vos travaux de formation automatisée ML sur Spark dans les clusters HDInsight en parallèle. [En savoir plus](../../hdinsight/spark/apache-spark-run-machine-learning-automl.md)
+|PowerBI|Appeler des modèles machine learning directement dans Power BI (version préliminaire). [En savoir plus](https://docs.microsoft.com/power-bi/service-machine-learning-automated)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

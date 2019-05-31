@@ -1,22 +1,22 @@
 ---
-title: Créer, afficher et gérer des alertes de journal d’activité dans Azure Monitor
-description: Comment créer des alertes de journal d’activité depuis le portail Azure, un modèle de ressources et PowerShell
+title: Créer, afficher et gérer les activités des alertes de journal dans Azure Monitor
+description: Comment créer des alertes de journal d’activité à l’aide du portail Azure, un modèle Azure Resource Manager et Azure PowerShell.
 author: msvijayn
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
-ms.openlocfilehash: 2b069e55d98da824363dc480c211cde0fcc2518c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: f25321fa5a13ed5a39a62a4115bb0bc10306d36f
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66130094"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244957"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-using-azure-monitor"></a>Créer, afficher et gérer des alertes de journal d'activité avec Azure Monitor  
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 Les alertes de journal d’activité s’activent lorsqu’un nouvel événement du journal d’activité correspond aux conditions spécifiées dans l’alerte.
 
 Elles concernent les ressources Azure. Pour les créer, il est possible d’utiliser un modèle Azure Resource Manager. Elles peuvent également être créées, mises à jour ou supprimées dans le portail Azure. En général, les alertes de journal d’activité permettent de recevoir une notification en cas de modification particulière des ressources de l’abonnement Azure, souvent à l’échelle d’un groupe de ressources ou d’une ressource en particulier. Par exemple, vous pouvez demander à être informé lorsqu’une machine virtuelle de **myProductionResourceGroup** (exemple de groupe de ressources) est supprimée, ou que de nouveaux rôles sont attribués à l’un des utilisateurs de votre abonnement.
@@ -59,9 +59,9 @@ Procédez comme suit :
      **Exemple de vue de cible d’alerte**
      ![sélectionner la cible](media/alerts-activity-log/select-target.png)
 
-   - Sous **Critères de ciblage**, cliquez sur **Ajouter des critères**. Tous les signaux disponibles pour la cible s’affichent alors, y compris ceux des différentes catégories du **journal d’activité**. Le nom de la catégorie est ajouté dans le nom **Service de surveillance**.
+   - Sous **critères de ciblage**, cliquez sur **ajouter des critères** et tous les signaux disponibles pour la cible sont affichés, y compris celles de différentes catégories de **journal d’activité**; avec nom de catégorie ajouté dans **Service Moniteur** nom.
 
-   - Sélectionnez le signal dans la liste des différentes opérations possibles pour le type **Journal d’activité**.
+   - Sélectionnez le signal dans la liste affichée des différentes opérations possibles pour le type **journal d’activité**.
 
      Vous pouvez sélectionner la chronologie de l’historique du journal et la logique d’alerte correspondante pour ce signal cible :
 
@@ -97,7 +97,7 @@ Procédez comme suit :
     Vous pouvez activer, désactiver, modifier ou supprimer une règle. En savoir plus sur la gestion des règles de journal d’activité.
 
 
-Sinon, pour bien comprendre les conditions dans lesquelles des règles d’alerte peuvent être créées sur le journal d’activité, il est possible d’explorer ou de filtrer les événements par le biais du [Journal d’activité dans le portail Azure](../../azure-monitor/platform/activity-logs-overview.md#query-the-activity-log-in-the-azure-portal). Dans Azure Monitor - Journal d’activité, il est possible de filtrer ou de rechercher l’événement requis, puis de créer une alerte à l’aide du bouton **Ajouter une alerte de journal d’activité**. Poursuivez ensuite jusqu’à l’étape 4 comme indiqué dans le didacticiel ci-dessus.
+Une analogie simple pour les conditions de fonctionnement sur lequel les règles d’alerte peuvent être créés sur le journal d’activité, est également à Explorer ou filtrer des événements via [journal d’activité dans le portail Azure](activity-log-view.md#azure-portal). Dans Azure Monitor - journal d’activité, il est possible filtrer ou rechercher les événements nécessaires et ensuite créer une alerte à l’aide de la **ajouter une alerte activité journal** bouton ; puis suivez les étapes 4 et versions ultérieures comme indiqué dans le didacticiel ci-dessus.
     
  ![ ajouter une alerte du journal d’activité](media/alerts-activity-log/add-activity-log.png)
     
@@ -201,7 +201,7 @@ L’exemple json ci-dessus peut par exemple être enregistré en tant que sample
 > L'activation d'une nouvelle règle d'alerte de journal d'activité peut prendre jusqu'à 5 minutes.
 
 ## <a name="rest-api"></a>API REST 
-L’[API Azure Monitor - Alertes du journal d'activité](https://docs.microsoft.com/rest/api/monitor/activitylogalerts) est une API REST entièrement compatible avec l’API REST Azure Resource Manager. Elle peut donc être utilisée par le biais de Powershell à l’aide d’applets de commande Resource Manager en plus d’Azure CLI.
+[Azure Monitor - journal d’activité alertes API](https://docs.microsoft.com/rest/api/monitor/activitylogalerts) est une API REST et entièrement compatible avec le REST API Azure Resource Manager. Elle peut donc être utilisée par le biais de Powershell à l’aide d’applets de commande Resource Manager en plus d’Azure CLI.
 
 ## <a name="powershell"></a>PowerShell
 
@@ -216,7 +216,7 @@ New-AzResourceGroupDeployment -ResourceGroupName "myRG" -TemplateFile sampleActi
 
 où le sampleActivityLogAlert.parameters.json contient les valeurs fournies pour les paramètres nécessaires pour la création d’une règle d’alerte.
 
-### <a name="use-activity-log-powershell-cmdlets"></a>Utiliser les applets de commande PowerShell de journal d’activité
+### <a name="use-activity-log-powershell-cmdlets"></a>Utiliser le journal d’activité applets de commande PowerShell
 
 Les alertes de journal d'activité disposent de cmdlets PowerShell dédiées :
 
