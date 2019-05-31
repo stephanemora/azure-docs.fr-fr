@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 01/31/2019
+ms.date: 05/31/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 59c06ae83327683942885190e4b401617dc020f9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9e65f7ca0a01e0ceee6448ea49e1d6d6da696cf6
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60468315"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417083"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Rôles d'administrateur par tâche administrateur dans Azure Active Directory
 
@@ -338,7 +338,7 @@ Mettre à jour les paramètres utilisateur | Administrateur général |
 
 Tâche | Rôle moins privilégié | Autres rôles
 ---- | --------------------- | ----------------
-Envoyer un ticket de support | Administrateur de services | Administrateur d’application, administrateur de facturation, administrateur d’application cloud, administrateur de conformité, administrateur Dynamics 365, administrateur Desktop Analytics, administrateur Exchange, administrateur de mot de passe, administrateur Information Protection, administrateur Intune, administrateur Skype Entreprise, administrateur Power BI, administrateur d’authentification privilégié, administrateur SharePoint, administrateur des communications Teams, administrateur Teams, administrateur d’utilisateur, administrateur Analyse du temps de travail
+Envoyer un ticket de support | Administrateur de services | Administrateur d’application, Azure administrateur Information Protection, mot de passe administrateur, administrateur d’Application Cloud, conformité, administrateur Dynamics 365, Analytique de bureau, administrateur Exchange, de facturation Administrateur, administrateur Intune, Skype pour administrateur d’entreprise, administrateur Power BI, administrateur de l’authentification privilégié, administrateur SharePoint, administrateur de Communications d’équipes, équipes administrateur, administrateur de l’utilisateur, Espace de travail Analytique administrateur
 
 ## <a name="next-steps"></a>Étapes suivantes
 

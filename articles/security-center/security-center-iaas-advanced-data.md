@@ -12,33 +12,33 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/08/2019
-ms.author: v-mohabe
-ms.openlocfilehash: cfe633c5251842257a0bef5237ea6b80aeaf05e9
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.date: 05/29/2019
+ms.author: monhaber
+ms.openlocfilehash: e7420adfe1608df39ef72124817f1d6dadf07db8
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65968588"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66400164"
 ---
 # <a name="advanced-data-security-for-sql-servers-on-iaas"></a>Sécurité avancée des données pour les serveurs SQL sur IaaS
-Sécurité avancée des données pour les serveurs SQL IaaS est un package unifié incluant des fonctionnalités de sécurité avancées SQL. Cela inclut actuellement les fonctionnalités pour les surfaces et atténuer les vulnérabilités potentielles de base de données et détecter les activités anormales pouvant indiquer une menace pour votre base de données.
+Sécurité avancée des données pour les serveurs SQL Server sur des Machines virtuelles Azure est un package unifié incluant des fonctionnalités de sécurité avancées SQL. Cela inclut actuellement les fonctionnalités pour les surfaces et atténuer les vulnérabilités potentielles de base de données et détecter les activités anormales pouvant indiquer une menace pour votre base de données. 
 
-Cette offre pour les serveurs SQL de IaaS est basée sur la même technologie fondamentale utilisée dans le [package de base de données SQL Azure Advanced données sécurité](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security).
+Cette offre pour les serveurs SQL de machines virtuelles Azure est basée sur la même technologie fondamentale utilisée dans le [package de base de données SQL Azure Advanced données sécurité](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security).
 
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
-Sécurité des données avancées (ADS) fournit un ensemble de fonctionnalités avancées de sécurité SQL, composée d’évaluation des vulnérabilités et une Protection avancée contre les menaces.
+Sécurité des données avancée fournit un ensemble de fonctionnalités avancées de sécurité SQL, composée d’évaluation des vulnérabilités et une Protection avancée contre les menaces.
 
 * La fonctionnalité [Évaluation des vulnérabilités](https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment) est un service simple à configurer, qui vous permet de découvrir, suivre et de corriger des vulnérabilités de base de données potentielles. Il offre une visibilité de votre état de sécurité et inclut les étapes pour résoudre des problèmes de sécurité et améliorer votre fortifications de base de données.
 * [Advanced Threat Protection](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview) détecte les activités anormales indiquant des tentatives inhabituelles ou potentiellement dangereuses visant à accéder ou à exploiter votre serveur SQL server. Il analyse votre base de données pour les activités suspectes et fournit des alertes de sécurité action orientée sur les modèles d’accès de base de données anormales en continu. Ces alertes fournissent les détails de l’activité suspecte et mesures recommandées pour examiner et atténuer la menace.
 
-## <a name="get-started-with-ads-for-iaas"></a>Bien démarrer avec des annonces pour IaaS
+## <a name="get-started-with-advanced-data-security-for-sql-on-azure-vms"></a>Bien démarrer avec fonctions avancées de sécurité de données pour SQL sur des machines virtuelles Azure
 
-Les étapes suivantes vous aident à démarrer avec des annonces pour IaaS.
+Les étapes suivantes vous aident à démarrer avec fonctions avancées de sécurité de données pour SQL sur des machines virtuelles Azure.
 
-### <a name="set-up-ads-for-iaas"></a>Configurer les publicités pour IaaS
+### <a name="set-up-advanced-data-security-for-sql-on-azure-vms"></a>Configurer les fonctions avancées de sécurité de données pour SQL sur des machines virtuelles Azure
 
 **Avant de commencer**: Vous avez besoin d’un espace de travail Analytique de journal pour stocker les journaux de sécurité en cours d’analyse. Si vous n’en avez pas, vous pouvez en créer un simple, comme expliqué dans [créer un espace de travail Analytique de journal dans le portail Azure](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
 
@@ -95,14 +95,14 @@ Vous pouvez afficher et gérer vos alertes de sécurité actuel.
 
 Vous pouvez définir une liste de destinataires pour recevoir une notification par e-mail lors de la génération d’alertes ASC. L’e-mail contient un lien direct vers l’alerte dans Azure Security Center avec tous les détails pertinents. 
 
-1. Accédez à **Security Center** > **stratégie de sécurité** et dans la ligne de l’abonnement approprié, cliquez sur **modifier les paramètres >**.
+1. Accédez à **Security Center** > **stratégie de sécurité** et dans la ligne de l’abonnement approprié, cliquez sur **modifier les paramètres >** .
 
     ![Paramètres d’abonnement](./media/security-center-advanced-iaas-data/subscription-settings.png)
 
 1. À partir de la **paramètres** menu, cliquez sur **notifications par courrier électronique**. 
 1. Dans le **adresse de messagerie** texte, entrez les adresses de messagerie pour recevoir les notifications. Vous pouvez entrer plusieurs adresses de messagerie en séparant les adresses e-mail par une virgule (,).  Par exemple admin1@mycompany.com,admin2@mycompany.com,admin3@mycompany.com
 
-      ![Paramètres de messagerie](./media/security-center-advanced-iaas-data/email-settings.png)
+      ![Paramètres de courrier électronique](./media/security-center-advanced-iaas-data/email-settings.png)
 
 1. Dans le **notification par courrier électronique** paramètres, définissez les options suivantes :
   
@@ -120,7 +120,7 @@ Le tableau de bord évaluation des vulnérabilités fournit une vue d’ensemble
 
 Vous pouvez afficher vos résultats d’évaluation de vulnérabilité et les rapports directement à partir de l’Analytique de journal.
 
-1. Accédez à votre espace de travail Analytique de journal avec la solution ADS.
+1. Accédez à votre espace de travail Analytique de journal avec la solution de sécurité avancée des données.
 1. Accédez à **Solutions** et sélectionnez le **évaluation des vulnérabilités SQL** solution.
 1. Dans le **Résumé** volet, cliquez sur **afficher le résumé** et sélectionnez votre **rapport d’évaluation de vulnérabilité de SQL**.
 
@@ -130,7 +130,7 @@ Vous pouvez afficher vos résultats d’évaluation de vulnérabilité et les ra
 
     ![Définir des 7 derniers jours](./media/security-center-advanced-iaas-data/ads-sql-server-2.png)
 
-1. Pour descendre pour plus d’informations, cliquez sur un des éléments du tableau de bord. Exemple :
+1. Pour descendre pour plus d’informations, cliquez sur un des éléments du tableau de bord. Exemple :
 
    1. Cliquez sur une vérification d’une vulnérabilité dans le **échec vérifie Résumé** section pour afficher une table de journal Analytique avec les résultats de cette vérification sur toutes les bases de données. Ceux qui ont des résultats est répertoriés en premier.
 
@@ -142,7 +142,7 @@ Vous pouvez afficher vos résultats d’évaluation de vulnérabilité et les ra
 
 1. Vous pouvez exécuter des requêtes d’Analytique de journal sur vos données de résultats d’évaluation des vulnérabilités, pour segmenter et découper les données selon vos besoins.
 
-## <a name="advanced-threat-protection-for-sql-servers-on-iaas-alerts"></a>Avancées de Protection contre les menaces pour les serveurs SQL IaaS alertes
+## <a name="advanced-threat-protection-for-sql-servers-on-azure-vms-alerts"></a>Avancées de Protection contre les menaces pour les serveurs SQL sur les alertes de machines virtuelles Azure
 Alertes sont générées par les tentatives inhabituelles ou potentiellement dangereuses visant à accéder ou à exploiter les serveurs SQL. Ces événements peuvent déclencher les alertes suivantes :
 
 ### <a name="anomalous-access-pattern-alerts"></a>Alertes de modèle d’accès anormaux

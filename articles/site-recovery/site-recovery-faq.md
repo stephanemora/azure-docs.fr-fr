@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 4/08/2019
+ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: 74ccc76ff139cae21e3583b0fea11596f5fd6b62
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: f2d64e0a081ff483be84053c442f48e7d145ca50
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65413921"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66396498"
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery : Forum Aux Questions (FAQ)
 Cet article résume les questions fréquemment posées sur Azure Site Recovery.</br>

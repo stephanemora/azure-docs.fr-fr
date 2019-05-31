@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2019
 ms.author: apimpm
-ms.openlocfilehash: b8bd6e7c77faa54a8ebf0842cf140ef8aa73e953
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.openlocfilehash: 9a19165f9ac15f7a40aea0501f960b06efbd63a3
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65834542"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66304359"
 ---
 # <a name="api-management-policy-expressions"></a>Expressions de stratégie de la Gestion des API
 Cet article décrit la syntaxe des expressions de stratégie de C# 7. Chaque expression a accès à la variable de [contexte](api-management-policy-expressions.md#ContextVariables) fournie implicitement et à un [sous-ensemble](api-management-policy-expressions.md#CLRTypes) autorisé de types .NET Framework.
@@ -74,7 +74,7 @@ Les expressions peuvent être utilisées comme valeurs d’attribut ou valeurs d
 ## <a name="CLRTypes"></a> Types .NET Framework autorisés dans les expressions de stratégie
 Le tableau suivant liste les types .NET Framework et leurs membres qui sont autorisés dans les expressions de stratégie.
 
-|Type|Membres pris en charge|
+|type|Membres pris en charge|
 |--------------|-----------------------|
 |Newtonsoft.Json.Formatting|Tous|
 |Newtonsoft.Json.JsonConvert|SerializeObject, DeserializeObject|
@@ -192,7 +192,7 @@ Le tableau suivant liste les types .NET Framework et leurs membres qui sont auto
 |System.Xml.Linq.XComment|Tous|
 |System.Xml.Linq.XContainer|Tous|
 |System.Xml.Linq.XDeclaration|Tous|
-|System.Xml.Linq.XDocument|Tous, à l’exception de : Charger|
+|System.Xml.Linq.XDocument|Tous, à l’exception de : charger|
 |System.Xml.Linq.XDocumentType|Tous|
 |System.Xml.Linq.XElement|Tous|
 |System.Xml.Linq.XName|Tous|
@@ -210,26 +210,26 @@ Une variable nommée `context` est implicitement disponible dans toutes les [exp
 
 |Variable de contexte|Méthodes, propriétés et valeurs de paramètres autorisées|
 |----------------------|-------------------------------------------------------|
-|context|Api: IApi<br /><br /> Déploiement<br /><br /> Elapsed: TimeSpan (intervalle de temps entre la valeur Timestamp et l’heure actuelle)<br /><br /> lastError<br /><br /> Opération<br /><br /> Produit<br /><br /> Requête<br /><br /> RequestId: Guid (identificateur de requête unique)<br /><br /> response<br /><br /> Abonnement<br /><br /> Timestamp: DateTime (point dans le temps où la requête a été reçue)<br /><br /> Tracing: bool (indique si le traçage est activé ou désactivé) <br /><br /> Utilisateur<br /><br /> Variables: IReadOnlyDictionary<string, object><br /><br /> void Trace(message: string)|
-|context.Api|Id: string<br /><br /> IsCurrentRevision: bool<br /><br />  Name: string<br /><br /> Path: string<br /><br /> Revision: string<br /><br /> ServiceUrl: IUrl<br /><br /> Version: string |
-|context.Deployment|Region: string<br /><br /> ServiceName: string<br /><br /> Certificates: IReadOnlyDictionary<string, X509Certificate2>|
-|context.LastError|Source: string<br /><br /> Reason: string<br /><br /> Message: string<br /><br /> Scope: string<br /><br /> Section: string<br /><br /> Path: string<br /><br /> PolicyId: string<br /><br /> Pour plus d’informations sur context.LastError, consultez la page [Gestion des erreurs](api-management-error-handling-policies.md).|
-|context.Operation|Id: string<br /><br /> Method: string<br /><br /> Name: string<br /><br /> UrlTemplate: string|
-|context.Product|Apis: IEnumerable<IApi\><br /><br /> ApprovalRequired: bool<br /><br /> Groups: IEnumerable<IGroup\><br /><br /> Id: string<br /><br /> Name: string<br /><br /> State: enum ProductState {NotPublished, Published}<br /><br /> SubscriptionLimit: int?<br /><br /> SubscriptionRequired: bool|
-|context.Request|Corps : IMessageBody<br /><br /> Certificate: System.Security.Cryptography.X509Certificates.X509Certificate2<br /><br /> Headers: IReadOnlyDictionary<string, string[]><br /><br /> IpAddress: string<br /><br /> MatchedParameters: IReadOnlyDictionary<string, string><br /><br /> Method: string<br /><br /> OriginalUrl:IUrl<br /><br /> Url: IUrl|
-|string context.Request.Headers.GetValueOrDefault(headerName: string, defaultValue: string)|headerName: string<br /><br /> defaultValue: string<br /><br /> Renvoie des valeurs d’en-tête de demande séparées par des virgules ou `defaultValue` si l’en-tête est introuvable.|
-|context.Response|Corps : IMessageBody<br /><br /> Headers: IReadOnlyDictionary<string, string[]><br /><br /> StatusCode: int<br /><br /> StatusReason: string|
-|string context.Response.Headers.GetValueOrDefault(headerName: string, defaultValue: string)|headerName: string<br /><br /> defaultValue: string<br /><br /> Renvoie des valeurs d’en-tête de réponse séparées par des virgules ou `defaultValue` si l’en-tête est introuvable.|
-|context.Subscription|CreatedTime: DateTime<br /><br /> EndDate: DateTime?<br /><br /> Id: string<br /><br /> Key: string<br /><br /> Name: string<br /><br /> PrimaryKey: string<br /><br /> SecondaryKey: string<br /><br /> StartDate: DateTime?|
-|context.User|Email: string<br /><br /> FirstName: string<br /><br /> Groups: IEnumerable<IGroup\><br /><br /> Id: string<br /><br /> Identities: IEnumerable<IUserIdentity\><br /><br /> LastName: string<br /><br /> Note: string<br /><br /> RegistrationDate: DateTime|
-|IApi|Id: string<br /><br /> Name: string<br /><br /> Path: string<br /><br /> Protocols: IEnumerable<string\><br /><br /> ServiceUrl: IUrl<br /><br /> SubscriptionKeyParameterNames: ISubscriptionKeyParameterNames|
-|IGroup|Id: string<br /><br /> Name: string|
-|IMessageBody|As<T\>(preserveContent: bool = false): Where T: string, JObject, JToken, JArray, XNode, XElement, XDocument<br /><br /> Les méthodes `context.Request.Body.As<T>` et `context.Response.Body.As<T>` sont utilisées pour lire un corps de message de demande et de réponse dans un type `T` spécifié. Par défaut, la méthode utilise le flux du corps du message d’origine et le rend indisponible après son retour. Pour éviter cela en faisant en sorte que la méthode travaille sur une copie du flux du corps, définissez le paramètre `preserveContent` sur `true`. Accédez [ici](api-management-transformation-policies.md#SetBody) pour voir un exemple.|
-|IUrl|Host: string<br /><br /> Path: string<br /><br /> Port: int<br /><br /> Requête : IReadOnlyDictionary<string, string[]><br /><br /> QueryString: string<br /><br /> Scheme: string|
-|IUserIdentity|Id: string<br /><br /> Provider: string|
-|ISubscriptionKeyParameterNames|Header: string<br /><br /> Query: string|
-|string IUrl.Query.GetValueOrDefault(queryParameterName: string, defaultValue: string)|queryParameterName: string<br /><br /> defaultValue: string<br /><br /> Renvoie des valeurs de paramètre de requête séparées par des virgules ou `defaultValue` si le paramètre est introuvable.|
-|T context.Variables.GetValueOrDefault<T\>(variableName: string, defaultValue: T)|variableName: string<br /><br /> defaultValue: M<br /><br /> Renvoie la valeur de variable avec conversion de type vers `T` ou `defaultValue` si la variable est introuvable.<br /><br /> Cette méthode lève une exception si le type spécifié ne correspond pas au type réel de la variable renvoyée.|
+|context|[API](#ref-context-api): [IApi](#ref-iapi)<br /><br /> [Déploiement](#ref-context-deployment)<br /><br /> Elapsed: TimeSpan (intervalle de temps entre la valeur Timestamp et l’heure actuelle)<br /><br /> [LastError](#ref-context-lasterror)<br /><br /> [opération](#ref-context-operation)<br /><br /> [Produit](#ref-context-product)<br /><br /> [Requête](#ref-context-request)<br /><br /> RequestId: Guid (identificateur de requête unique)<br /><br /> [Réponse](#ref-context-response)<br /><br /> [Abonnement](#ref-context-subscription)<br /><br /> Timestamp : DateTime (point dans le temps où la requête a été reçue)<br /><br /> Tracing: bool (indique si le traçage est activé ou désactivé) <br /><br /> [Utilisateur](#ref-context-user)<br /><br /> [Variables](#ref-context-variables) : IReadOnlyDictionary<string, object><br /><br /> void Trace(message: string)|
+|<a id="ref-context-api"></a>context.Api|Id: string<br /><br /> IsCurrentRevision: bool<br /><br />  Name: string<br /><br /> Path: string<br /><br /> Revision: string<br /><br /> ServiceUrl: [IUrl](#ref-iurl)<br /><br /> Version: string |
+|<a id="ref-context-deployment"></a>context.Deployment|Region: string<br /><br /> ServiceName: string<br /><br /> Certificates: IReadOnlyDictionary<string, X509Certificate2>|
+|<a id="ref-context-lasterror"></a>context.LastError|Source: string<br /><br /> Reason: string<br /><br /> Message: string<br /><br /> Scope: string<br /><br /> Section: string<br /><br /> Path: string<br /><br /> PolicyId: string<br /><br /> Pour plus d’informations sur context.LastError, consultez la page [Gestion des erreurs](api-management-error-handling-policies.md).|
+|<a id="ref-context-operation"></a>context.Operation|Id: string<br /><br /> Method: string<br /><br /> Name: string<br /><br /> UrlTemplate: string|
+|<a id="ref-context-product"></a>context.Product|Apis: IEnumerable <[IApi](#ref-iapi)\><br /><br /> ApprovalRequired: bool<br /><br /> Groups: IEnumerable <[IGroup](#ref-igroup)\><br /><br /> Id: string<br /><br /> Name: string<br /><br /> State: enum ProductState {NotPublished, Published}<br /><br /> SubscriptionLimit: int?<br /><br /> SubscriptionRequired: bool|
+|<a id="ref-context-request"></a>context.Request|Corps : [IMessageBody](#ref-imessagebody)<br /><br /> Certificate: System.Security.Cryptography.X509Certificates.X509Certificate2<br /><br /> [En-têtes](#ref-context-request-headers): IReadOnlyDictionary<string, string[]><br /><br /> IpAddress: string<br /><br /> MatchedParameters: IReadOnlyDictionary<string, string><br /><br /> Method: string<br /><br /> OriginalUrl: [IUrl](#ref-iurl)<br /><br /> Url: [IUrl](#ref-iurl)|
+|<a id="ref-context-request-headers"></a>contexte de chaîne. Request.Headers.GetValueOrDefault (headerName : string, defaultValue : chaîne)|headerName: string<br /><br /> defaultValue: string<br /><br /> Renvoie des valeurs d’en-tête de demande séparées par des virgules ou `defaultValue` si l’en-tête est introuvable.|
+|<a id="ref-context-response"></a>context.Response|Corps : [IMessageBody](#ref-imessagebody)<br /><br /> [En-têtes](#ref-context-response-headers): IReadOnlyDictionary<string, string[]><br /><br /> StatusCode: int<br /><br /> StatusReason: string|
+|<a id="ref-context-response-headers"></a>contexte de chaîne. Response.Headers.GetValueOrDefault (headerName : string, defaultValue : chaîne)|headerName: string<br /><br /> defaultValue: string<br /><br /> Renvoie des valeurs d’en-tête de réponse séparées par des virgules ou `defaultValue` si l’en-tête est introuvable.|
+|<a id="ref-context-subscription"></a>context.Subscription|CreatedTime: DateTime<br /><br /> EndDate: DateTime?<br /><br /> Id: string<br /><br /> Key: string<br /><br /> Name: string<br /><br /> PrimaryKey: string<br /><br /> SecondaryKey: string<br /><br /> StartDate: DateTime?|
+|<a id="ref-context-user"></a>context.User|Email: string<br /><br /> FirstName: string<br /><br /> Groups: IEnumerable <[IGroup](#ref-igroup)\><br /><br /> Id: string<br /><br /> Identities: IEnumerable<[IUserIdentity](#ref-iuseridentity)\><br /><br /> LastName: string<br /><br /> Note: string<br /><br /> RegistrationDate: DateTime|
+|<a id="ref-iapi"></a>IApi|Id: string<br /><br /> Name: string<br /><br /> Path: string<br /><br /> Protocols: IEnumerable<string\><br /><br /> ServiceUrl: [IUrl](#ref-iurl)<br /><br /> SubscriptionKeyParameterNames: [ISubscriptionKeyParameterNames](#ref-isubscriptionkeyparameternames)|
+|<a id="ref-igroup"></a>IGroup|Id: string<br /><br /> Name: string|
+|<a id="ref-imessagebody"></a>IMessageBody|As<T\>(preserveContent: bool = false): Where T: string, JObject, JToken, JArray, XNode, XElement, XDocument<br /><br /> Les méthodes `context.Request.Body.As<T>` et `context.Response.Body.As<T>` sont utilisées pour lire un corps de message de demande et de réponse dans un type `T` spécifié. Par défaut, la méthode utilise le flux du corps du message d’origine et le rend indisponible après son retour. Pour éviter cela en faisant en sorte que la méthode travaille sur une copie du flux du corps, définissez le paramètre `preserveContent` sur `true`. Accédez [ici](api-management-transformation-policies.md#SetBody) pour voir un exemple.|
+|<a id="ref-iurl"></a>IUrl|Host: string<br /><br /> Path: string<br /><br /> Port: int<br /><br /> [Requête](#ref-iurl-query) : IReadOnlyDictionary<string, string[]><br /><br /> QueryString: string<br /><br /> Scheme: string|
+|<a id="ref-iuseridentity"></a>IUserIdentity|Id: string<br /><br /> Provider: string|
+|<a id="ref-isubscriptionkeyparameternames"></a>ISubscriptionKeyParameterNames|Header: string<br /><br /> Query: string|
+|<a id="ref-iurl-query"></a>chaîne IUrl.Query.GetValueOrDefault (queryParameterName : string, defaultValue : chaîne)|queryParameterName: string<br /><br /> defaultValue: string<br /><br /> Renvoie des valeurs de paramètre de requête séparées par des virgules ou `defaultValue` si le paramètre est introuvable.|
+|<a id="ref-context-variables"></a>Contexte de T. Variables.GetValueOrDefault < T\>(Nom_variable : string, defaultValue : T)|variableName: string<br /><br /> defaultValue: T<br /><br /> Renvoie la valeur de variable avec conversion de type vers `T` ou `defaultValue` si la variable est introuvable.<br /><br /> Cette méthode lève une exception si le type spécifié ne correspond pas au type réel de la variable renvoyée.|
 |BasicAuthCredentials AsBasic(input: this string)|input: string<br /><br /> Si le paramètre d’entrée contient une valeur valide d’en-tête de demande d’authentification de base HTTP, la méthode renvoie un objet de type `BasicAuthCredentials` ; sinon, la méthode renvoie Null.|
 |bool TryParseBasic(input: this string, result: out BasicAuthCredentials)|input: string<br /><br /> result: out BasicAuthCredentials<br /><br /> Si le paramètre d’entrée contient une valeur valide dans l’en-tête de demande d’authentification de base HTTP, la méthode renvoie `true` et le paramètre de résultats contient une valeur de type `BasicAuthCredentials` ; sinon, la méthode renvoie `false`.|
 |BasicAuthCredentials|Password: string<br /><br /> UserId: string|

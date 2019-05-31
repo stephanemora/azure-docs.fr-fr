@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: e69158a6ee4d8415f52cf458c028cab56f481d8b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a33c6f6621e7fc7944bc116b27e5f26de88f77d9
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60235142"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389575"
 ---
 # <a name="how-to-trigger-complex-actions-with-azure-monitor-alerts"></a>Guide pratique pour déclencher des actions complexes avec des alertes Azure Monitor
 
@@ -26,7 +26,7 @@ Le processus général est le suivant :
 
 -   Créez l’application logique pour le type d’alerte en question.
 
--   Importez le schéma associé au type d’alerte en question dans l’application logique.
+-   Importer un exemple de charge utile pour le type d’alerte respectif dans l’application logique.
 
 -   Définissez le comportement de l’application logique.
 
@@ -58,7 +58,7 @@ Le processus est similaire si vous souhaitez que l’application logique effectu
 
     ![Utiliser un exemple de charge utile](media/action-groups-logic-app/use-sample-payload-button.png "Utiliser un exemple de charge utile")
 
-8.  Copiez et collez l’exemple de schéma suivant dans la boîte de dialogue :
+8.  Copiez et collez l’exemple suivant de charge utile dans la boîte de dialogue :
 
     ```json
         {
@@ -140,7 +140,7 @@ La prochaine fois qu’une alerte appellera votre groupe d’actions, votre appl
 Les entrées Azure Service Health font partie du journal d’activité. Le processus de création de l’alerte est semblable à celui de [création d’une alerte de journal d'activité](#create-an-activity-log-alert-administrative), mais avec quelques modifications :
 
 - Les étapes 1 à 7 sont identiques.
-- À l’étape 8, utilisez l’exemple de schéma suivant pour le déclencheur de requête HTTP :
+- Pour l’étape 8, utilisez l’exemple suivant de charge utile pour le déclencheur de requête HTTP :
 
     ```json
     {
@@ -228,7 +228,7 @@ Les entrées Azure Service Health font partie du journal d’activité. Le proce
 Le processus de création d’une alerte de métrique est semblable à celui de [création d’une alerte de journal d'activité](#create-an-activity-log-alert-administrative), mais avec quelques modifications :
 
 - Les étapes 1 à 7 sont identiques.
-- À l’étape 8, utilisez l’exemple de schéma suivant pour le déclencheur de requête HTTP :
+- Pour l’étape 8, utilisez l’exemple suivant de charge utile pour le déclencheur de requête HTTP :
 
     ```json
     {
@@ -281,11 +281,11 @@ Le processus de création d’une alerte de métrique est semblable à celui de 
        
        ![« Condition de charge utile d’alerte de métrique »](media/action-groups-logic-app/metric-alert-payload-condition.png "Condition de charge utile d’alerte de métrique")
 
-  2. Dans la condition **If true**, ajoutez une boucle **For each** et l’action Microsoft Teams. Définissez le message en utilisant une combinaison de HTML et de contenu dynamique.
+  1. Dans la condition **If true**, ajoutez une boucle **For each** et l’action Microsoft Teams. Définissez le message en utilisant une combinaison de HTML et de contenu dynamique.
 
       ![« Action de publication pour condition vraie d’alerte de métrique »](media/action-groups-logic-app/metric-alert-true-condition-post-action.png "Action de publication pour condition vraie d’alerte de métrique")
 
-  3. Dans la condition **If false**, définissez une action Microsoft Teams pour signaler que l’alerte de métrique ne correspond pas aux attentes de l’application logique. Incluez la charge utile JSON. Notez comment faire référence au contenu dynamique `triggerBody` de l’expression `json()`.
+  1. Dans la condition **If false**, définissez une action Microsoft Teams pour signaler que l’alerte de métrique ne correspond pas aux attentes de l’application logique. Incluez la charge utile JSON. Notez comment faire référence au contenu dynamique `triggerBody` de l’expression `json()`.
 
       ![« Action de publication pour condition fausse d’alerte de métrique »](media/action-groups-logic-app/metric-alert-false-condition-post-action.png "Action de publication pour condition fausse d’alerte de métrique")
 
@@ -298,3 +298,4 @@ Logic Apps propose plusieurs connecteurs qui vous permettent de déclencher des 
 * Dans une [vue d’ensemble des alertes du journal d’activité Azure](../../azure-monitor/platform/alerts-overview.md), découvrez comment recevoir des alertes.  
 * Découvrez comment [configurer des alertes lorsqu’une notification Azure Service Health est publiée](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).
 * En savoir plus sur les [groupes d’actions](../../azure-monitor/platform/action-groups.md).
+

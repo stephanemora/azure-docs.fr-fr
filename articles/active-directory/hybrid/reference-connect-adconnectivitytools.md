@@ -10,12 +10,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.topic: reference
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1084a3e546a234739fbede46612dce96537c7d4a
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 318f21beffb401053c56576ccd9e641dc89cf559
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65950640"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66298805"
 ---
 # <a name="azure-ad-connect--adconnectivitytools-powershell-reference"></a>Azure AD Connect :  Informations de référence sur le module PowerShell ADConnectivityTools
 
@@ -35,8 +35,7 @@ Confirm-DnsConnectivity [-Forest] <String> [-DCs] <Array> [-ReturnResultAsPSObje
 
 ### <a name="description"></a>Description
 
-Exécute des tests de connectivité DNS locaux.
-Pour configurer le connecteur Active Directory, utilisateur doit avoir les deux résolution de noms pour la forêt ils tentent de se connecter à ainsi que dans les contrôleurs de domaine associés à cette forêt.
+Exécute des tests de connectivité DNS locaux. Pour configurer le connecteur Active Directory, l’utilisateur doit avoir les deux résolution de noms pour la forêt ils tentent de se connecter à ainsi que dans les contrôleurs de domaine associés à cette forêt.
 
 ### <a name="examples"></a>EXEMPLES
 

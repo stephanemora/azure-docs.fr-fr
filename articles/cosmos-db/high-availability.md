@@ -4,15 +4,15 @@ description: Cet article décrit comment Azure Cosmos DB offre une haute disponi
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/21/2019
+ms.date: 05/29/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 74e2d7901d127c9dd7edd8509e5bba082c4ad220
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.openlocfilehash: 74eee3d164e7ee3831f292568da9cf0620e576e5
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65978972"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399281"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Haute disponibilité avec Azure Cosmos DB
 
@@ -54,7 +54,49 @@ Pannes de courant régionales ne sont pas rares et Azure Cosmos DB permet de s�
 
 - Les comptes dans une seule région peuvent perdre leur disponibilité en raison d’une panne régionale. Il est recommandé de toujours configurer **au moins deux régions** (de préférence, au moins deux écrire régions) avec votre compte Cosmos pour garantir une haute disponibilité en permanence.
 
-- Même dans un événement rare et malheureux lorsque la région Azure est définitivement irrécupérable, il est sans perte de données si votre compte Cosmos avec plusieurs régions est configuré avec le niveau de cohérence par défaut de *fort*. En cas d’une région d’écriture définitivement irrécupérable, pour les comptes de Cosmos dans plusieurs régions configurés avec une cohérence obsolescence limitée, la fenêtre de perte de données potentielle est limitée à la fenêtre d’obsolescence (*K* ou *T*) ; pour la session, les niveaux de cohérence préfixe cohérent et éventuel, la fenêtre de perte de données potentielle est limitée à un maximum de cinq secondes.
+- Même dans un événement rare et malheureux lorsque la région Azure est définitivement irrécupérable, il est sans perte de données si votre compte Cosmos avec plusieurs régions est configuré avec le niveau de cohérence par défaut de *fort*. En cas d’une région d’écriture définitivement irrécupérable, pour les comptes de Cosmos dans plusieurs régions configurés avec une cohérence obsolescence limitée, la fenêtre de perte de données potentielle est limitée à la fenêtre d’obsolescence (*K* ou *T*) ; pour la session, les niveaux de cohérence préfixe cohérent et éventuel, la fenêtre de perte de données potentielle est limitée à un maximum de cinq secondes. 
+
+## <a name="availability-zone-support"></a>Prise en charge de la Zone de disponibilité
+
+Azure Cosmos DB est un service de base de données multimaîtres globalement distribué qui fournit une haute disponibilité et la résilience lors de pannes régionales. En outre à l’intersection de la résilience de région, vous pouvez maintenant activer **redondance de zone** lors de la sélection d’une région à associer à votre base de données Azure Cosmos. 
+
+Avec prise en charge de la Zone de disponibilité, Azure Cosmos DB garantit sont placés les réplicas sur plusieurs fuseaux horaires dans une région donnée pour fournir une haute disponibilité et la résilience lors de pannes zonales. Il n’y a aucune modification à la latence et d’autres contrats SLA dans cette configuration. En cas d’un échec de zone unique, redondance de zone fournit la durabilité des données complète avec RPO = 0 et disponibilité avec RTO = 0. 
+
+Redondance de zone est un *fonctionnalité supplémentaire* à la [réplication multimaître](how-to-multi-master.md) fonctionnalité. Redondance de zone autonome ne peut pas se reposer pour atteindre une résilience régionale. Par exemple, en cas de pannes de courant régionales ou accès à faible latence dans les régions, il est conseillé d’avoir plusieurs régions d’écriture en plus de redondance de zone. 
+
+Lorsque vous configurez des écritures dans plusieurs régions pour votre compte Azure Cosmos, vous pouvez opter pour redondance de zone à aucun coût supplémentaire. Sinon, consultez la Remarque ci-dessous concernant la tarification pour la prise en charge de redondance de zone. Vous pouvez activer une redondance de zone sur une région existante de votre compte Azure Cosmos en supprimant la région, puis ajoutez-la avec la redondance de zone est activée.
+
+Cette fonctionnalité est disponible dans les régions Azure suivantes :
+
+* Sud du Royaume-Uni
+* Asie du Sud-Est 
+
+> [!NOTE] 
+> L’activation des Zones de disponibilité pour une seule région compte Azure Cosmos entraîne des frais équivalents à l’ajout d’une région supplémentaire à votre compte. Pour plus d’informations sur la tarification, consultez la [page de tarification](https://azure.microsoft.com/pricing/details/cosmos-db/) et [coût dans plusieurs régions dans Azure Cosmos DB](optimize-cost-regions.md) articles. 
+
+Le tableau suivant récapitule la fonctionnalité de haute disponibilité de différentes configurations de compte : 
+
+|Indicateur de performance clé  |Région unique sans Zones de disponibilité (Non-AZ)  |Région unique avec des Zones de disponibilité (AZ)  |Plusieurs régions avec des Zones de disponibilité (AZ, 2 régions) – plus les paramètre recommandé |
+|---------|---------|---------|---------|
+|Écrire le contrat SLA de disponibilité     |   99,99 %      |    99,99 %     |  99, 999 %  |
+|Lire le contrat SLA de disponibilité   |   99,99 %      |   99,99 %      |  99, 999 %       |
+|Prix  |  Taux de facturation d’une seule région |  Taux de facturation de Zone de disponibilité de région unique |  Taux de facturation dans plusieurs régions       |
+|Échecs de zone : perte de données   |  Perte de données  |   Aucune perte de données |   Aucune perte de données  |
+|Échecs de zone – disponibilité |  Perte de disponibilité  | Aucune perte de disponibilité  |  Aucune perte de disponibilité  |
+|Latence de lecture    |  Cross-région    |   Cross-région   |    Faible  |
+|Latence d’écriture    |   Cross-région   |  Cross-région    |   Faible   |
+|Panne régionale : perte de données    |   Perte de données      |  Perte de données       |   Perte de données <br/><br/> Lors de l’aide délimité cohérence obsolescence limitée avec multi maître et plusieurs régions, une perte de données est limitée à l’obsolescence limitée configuré sur votre compte. <br/><br/> Perte de données pendant une panne régionale peut être évitée en configurant une cohérence forte avec plusieurs régions. Cette option est fourni avec les compromis qui affectent les performances et disponibilité.      |
+|Panne régionale – disponibilité  |  Perte de disponibilité       |  Perte de disponibilité       |  Aucune perte de disponibilité  |
+|Débit    |  X RU/s de débit configuré      |  X RU/s de débit configuré       |  2 x débit approvisionné de RU/s <br/><br/> Ce mode de configuration nécessite deux fois la quantité de débit par rapport à une seule région avec des Zones de disponibilité, car il existe deux régions.   |
+
+Vous pouvez activer la redondance de zone lorsque vous ajoutez une région à des comptes Azure Cosmos nouveau ou existants. Actuellement, vous pouvez uniquement activer redondance de zone à l’aide de PowerShell ou Azure Resource Manager de modèles. Pour activer la redondance de zone sur votre compte Azure Cosmos, vous devez définir le `isZoneRedundant` indicateur `true` pour un emplacement spécifique. Vous pouvez définir cet indicateur dans la propriété d’emplacements. Par exemple, l’extrait de code powershell suivant permet la redondance de zone pour la région « Asie du Sud-est » :
+
+```powershell
+$locations = @( 
+    @{ "locationName"="Southeast Asia"; "failoverPriority"=0; "isZoneRedundant"= "true" }, 
+    @{ "locationName"="East US"; "failoverPriority"=1 } 
+) 
+```
 
 ## <a name="building-highly-available-applications"></a>Génération d’applications hautement disponibles
 
@@ -64,7 +106,7 @@ Pannes de courant régionales ne sont pas rares et Azure Cosmos DB permet de s�
 
 - Même si votre compte Cosmos est hautement disponible, votre application peut ne pas être pas correctement conçue pour rester hautement disponible. Pour tester la haute disponibilité de bout en bout de votre application, appeler régulièrement la [basculement manuel à l’aide d’Azure CLI ou le portail Azure](how-to-manage-database-account.md#manual-failover), dans le cadre de votre application de test ou de récupération d’urgence (DR) exercices.
 
-- Dans un environnement de base de données globalement distribuée, il existe une relation directe entre le niveau de cohérence et la durabilité des données en situation de panne à l'échelle d'une région. Au moment de l'élaboration de votre plan de continuité d'activité, vous devez identifier le délai maximal acceptable nécessaire à la récupération complète de l'application après un événement perturbateur. Ce délai s’appelle l’objectif de délai de récupération (RTO, recovery time objective). Vous devez également déterminer sur quelle période maximale l'application peut accepter de perdre les mises à jour de données récentes lors de la récupération après l'événement perturbateur. Il s’agit de l’objectif de point de récupération (RPO, recovery point objective). Pour obtenir le RPO et le RTO pour Azure Cosmos DB, consultez [Niveaux de cohérence et durabilité des données](consistency-levels-tradeoffs.md#rto)
+- Dans un environnement de base de données distribuée globalement, il est une relation directe entre la durabilité de la cohérence des données de niveau et en présence d’une panne au niveau régional. Au moment de l'élaboration de votre plan de continuité d'activité, vous devez identifier le délai maximal acceptable nécessaire à la récupération complète de l'application après un événement perturbateur. Ce délai s’appelle l’objectif de délai de récupération (RTO, recovery time objective). Vous devez également déterminer sur quelle période maximale l'application peut accepter de perdre les mises à jour de données récentes lors de la récupération après l'événement perturbateur. Il s’agit de l’objectif de point de récupération (RPO, recovery point objective). Pour obtenir le RPO et le RTO pour Azure Cosmos DB, consultez [Niveaux de cohérence et durabilité des données](consistency-levels-tradeoffs.md#rto)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

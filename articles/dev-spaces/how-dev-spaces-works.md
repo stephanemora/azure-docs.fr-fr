@@ -10,12 +10,12 @@ ms.date: 03/04/2019
 ms.topic: conceptual
 description: Décrit les processus qu’espaces de développement Azure power et comment ils sont configurés dans le fichier de configuration azds.yaml
 keywords: azds.yaml, espaces de développement Azure, les espaces de développement, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs
-ms.openlocfilehash: f7cf5ae875fa0fb87322052df036d35e8e5e89a4
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: e437a53d640bbdad3cdeeba8fd73e1f9ffef4023
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65605413"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399830"
 ---
 # <a name="how-azure-dev-spaces-works-and-is-configured"></a>Comment les espaces de développement Azure fonctionne et est configuré
 
@@ -80,7 +80,7 @@ Nous aborderons plus de détails du fonctionnement des espaces de développement
 ## <a name="prepare-your-aks-cluster"></a>Préparer votre cluster AKS
 
 La préparation de votre cluster AKS implique :
-* Vérification de votre ACS cluster se trouve dans une région [pris en charge par des espaces de développement Azure](https://docs.microsoft.com/azure/dev-spaces/#a-rapid,-iterative-kubernetes-development-experience-for-teams).
+* Vérification de votre ACS cluster se trouve dans une région [pris en charge par des espaces de développement Azure][supported-regions].
 * Vérification de Kubernetes 1.10.3 sont en cours d’exécution ou une version ultérieure.
 * L’activation des espaces de développement Azure sur votre cluster à l’aide `az aks use-dev-spaces`
 
@@ -278,7 +278,7 @@ Lorsqu’une requête HTTP est effectuée pour un service à l’extérieur du c
 
 Lorsqu’une requête HTTP est effectuée à un service à partir d’un autre service au sein du cluster, la demande est d’abord envoyé via le conteneur de devspaces-proxy du service de l’appelant. Le conteneur devspaces-proxy examine la demande HTTP et les vérifications de la `azds-route-as` en-tête. En fonction de l’en-tête, le conteneur de proxy devspaces recherchera l’adresse IP du service associé à la valeur d’en-tête. Si une adresse IP est trouvée, le conteneur devspaces-proxy redirige la demande à cette adresse IP. Si une adresse IP n’est pas trouvée, le conteneur de proxy devspaces achemine la demande vers le conteneur d’application parent.
 
-Par exemple, les applications *serviceA* et *serviceB* sont déployés sur un espace de développement parent appelé *par défaut*. *serviceA* s’appuie sur *serviceB* et effectue des appels HTTP à celle-ci. Utilisateur Azure crée un espace de développement enfant selon le *par défaut* espace appelé *azureuser*. Utilisateur Azure déploie également leur propre version de *serviceA* à leur espace enfant. Quand une demande est faite pour *http://azureuser.s.default.serviceA.fedcba09...azds.io*:
+Par exemple, les applications *serviceA* et *serviceB* sont déployés sur un espace de développement parent appelé *par défaut*. *serviceA* s’appuie sur *serviceB* et effectue des appels HTTP à celle-ci. Utilisateur Azure crée un espace de développement enfant selon le *par défaut* espace appelé *azureuser*. Utilisateur Azure déploie également leur propre version de *serviceA* à leur espace enfant. Quand une demande est faite pour *http://azureuser.s.default.serviceA.fedcba09...azds.io* :
 
 ![Azure Dev espaces routage](media/how-dev-spaces-works/routing.svg)
 
@@ -337,13 +337,13 @@ Le *install.set* propriété vous permet de configurer une ou plusieurs valeurs 
 
 Dans l’exemple ci-dessus, le *install.set.replicaCount* propriété indique le contrôleur de combien d’instances de votre application s’exécute dans votre espace de développement. Selon votre scénario, vous pouvez augmenter cette valeur, mais il aura un impact sur l’attachement d’un débogueur sur les pod de votre application. Pour plus d’informations, consultez le [article sur le dépannage](troubleshooting.md).
 
-Dans le graphique Helm généré, l’image de conteneur est définie sur *{{. Values.image.Repository}}  :{{. Values.image.Tag}}*. Le `azds.yaml` fichier définit *install.set.image.tag* propriété en tant que *$(tag)* par défaut, qui est utilisé comme valeur pour *{{. Values.image.Tag}}*. En définissant le *install.set.image.tag* propriété de cette façon, il permet l’image de conteneur pour votre application doit être référencé de manière distincte lors de l’exécution des espaces de développement Azure. Dans ce cas précis, l’image est marqué comme  *\<valeur à partir de image.repository > : $(tag)*. Vous devez utiliser le *$(tag)* variable comme valeur de *install.set.image.tag* dans l’ordre pour les espaces de développement reconnaître et de trouver le conteneur dans le cluster AKS.
+Dans le graphique Helm généré, l’image de conteneur est définie sur *{{. Values.image.Repository}}  :{{. Values.image.Tag}}* . Le `azds.yaml` fichier définit *install.set.image.tag* propriété en tant que *$(tag)* par défaut, qui est utilisé comme valeur pour *{{. Values.image.Tag}}* . En définissant le *install.set.image.tag* propriété de cette façon, il permet l’image de conteneur pour votre application doit être référencé de manière distincte lors de l’exécution des espaces de développement Azure. Dans ce cas précis, l’image est marqué comme  *\<valeur à partir de image.repository > : $(tag)* . Vous devez utiliser le *$(tag)* variable comme valeur de *install.set.image.tag* dans l’ordre pour les espaces de développement reconnaître et de trouver le conteneur dans le cluster AKS.
 
-Dans l’exemple ci-dessus, `azds.yaml` définit *install.set.ingress.hosts*. Le *install.set.ingress.hosts* propriété définit un format de nom d’hôte pour les points de terminaison publics. Cette propriété utilise également *$(spacePrefix)*, *$(rootSpacePrefix)*, et *$(hostSuffix)*, qui sont des valeurs fournies par le contrôleur. 
+Dans l’exemple ci-dessus, `azds.yaml` définit *install.set.ingress.hosts*. Le *install.set.ingress.hosts* propriété définit un format de nom d’hôte pour les points de terminaison publics. Cette propriété utilise également *$(spacePrefix)* , *$(rootSpacePrefix)* , et *$(hostSuffix)* , qui sont des valeurs fournies par le contrôleur. 
 
 Le *$(spacePrefix)* est le nom de l’espace de développement enfant, qui prend la forme de *SPACENAME.s*. Le *$(rootSpacePrefix)* est le nom de l’espace de parent. Par exemple, si *azureuser* est un espace enfant de *par défaut*, la valeur de *$(rootSpacePrefix)* est *par défaut* et la valeur de *$(spacePrefix)* est *azureuser.s*. Si l’espace n’est pas un espace enfant, *$(spacePrefix)* est vide. Par exemple, si le *par défaut* espace n’a parent d’espace, la valeur de *$(rootSpacePrefix)* est *par défaut* et la valeur de *$(spacePrefix)* est vide. Le *$(hostSuffix)* est un suffixe DNS qui pointe vers le contrôleur d’entrée Azure Dev espaces qui s’exécute dans votre cluster AKS. Ce suffixe DNS correspond à une entrée DNS générique, par exemple  *\*. RANDOM_VALUE.eus.azds.IO*, qui a été créé lorsque le contrôleur d’espaces de développement Azure a été ajouté à votre cluster AKS.
 
-Dans l’exemple ci-dessus `azds.yaml` fichier, vous pouvez également mettre à jour *install.set.ingress.hosts* pour modifier le nom d’hôte de votre application. Par exemple, si vous souhaitez simplifier le nom d’hôte de votre application à partir de *$(spacePrefix)$(rootSpacePrefix)webfrontend$(hostSuffix)* à *$(spacePrefix)$(rootSpacePrefix)web$(hostSuffix)*.
+Dans l’exemple ci-dessus `azds.yaml` fichier, vous pouvez également mettre à jour *install.set.ingress.hosts* pour modifier le nom d’hôte de votre application. Par exemple, si vous souhaitez simplifier le nom d’hôte de votre application à partir de *$(spacePrefix)$(rootSpacePrefix)webfrontend$(hostSuffix)* à *$(spacePrefix)$(rootSpacePrefix)web$(hostSuffix)* .
 
 Pour créer le conteneur de votre application, le contrôleur utilise le dessous des sections de la `azds.yaml` fichier de configuration :
 
@@ -408,7 +408,7 @@ Pour les applications Java, .NET et Node.js, vous pouvez déboguer votre applica
 
 ![Débogage de votre code](media/get-started-node/debug-configuration-nodejs2.png)
 
-Lorsque vous lancez votre application à l’aide de Visual Studio Code ou Visual Studio pour le débogage, ils gèrent de lancement et la connexion à votre espace de développement de la même façon que l’exécution `azds up`. Les outils côté client dans Visual Studio Code et de Visual Studio fournissent également un paramètre supplémentaire avec des informations spécifiques pour le débogage. Le paramètre contient le nom de l’image de débogueur, l’emplacement du débogueur dans l’image du débogueur et l’emplacement de destination au sein du conteneur de l’application pour monter le dossier de débogueur. 
+Lorsque vous lancez votre application à l’aide de Visual Studio Code ou Visual Studio pour le débogage, ils gèrent de lancement et la connexion à votre espace de développement de la même façon que l’exécution `azds up`. Les outils côté client dans Visual Studio Code et de Visual Studio fournissent également un paramètre supplémentaire avec des informations spécifiques pour le débogage. Le paramètre contient le nom de l’image de débogueur, l’emplacement du débogueur dans l’image du débogueur et l’emplacement de destination au sein du conteneur de l’application pour monter le dossier de débogueur.
 
 L’image de débogueur est automatiquement déterminée par les outils côté client. Il utilise une méthode similaire à celui utilisé pendant le fichier Dockerfile et générer un graphique Helm lors de l’exécution `azds prep`. Une fois le débogueur est monté dans l’image de l’application, il est exécuté à l’aide de `azds exec`.
 
@@ -420,7 +420,7 @@ Vous pouvez également créer un nouvel espace de développement qui est dériv�
 
 L’espace de développement dérivée sera également intelligemment acheminer les demandes entre ses propres applications et les applications partagées à partir de son parent. Le fonctionnement du routage par une tentative de demande d’itinéraire à une application dans le domaine du développement dérivée et revenir à l’application partagée à partir de l’espace de développement parent. Le routage se tourne vers l’application partagée dans l’espace grand-parent si l’application n’est pas dans l’espace de parent.
 
-Exemple :
+Exemple :
 * L’espace de développement *par défaut* possède des applications *serviceA* et *serviceB* .
 * L’espace de développement *azureuser* est dérivée de *par défaut*.
 * Une version mise à jour de *serviceA* est déployée sur *azureuser*.
@@ -442,3 +442,7 @@ Pour vous familiariser avec le développement en équipe, consultez les articles
 * [Développement en équipe - .NET Core avec Visual Studio Code et CLI](team-development-netcore.md)
 * [Développement en équipe - .NET Core avec Visual Studio](team-development-netcore-visualstudio.md)
 * [Développement en équipe - Node.js avec CLI et Visual Studio Code](team-development-nodejs.md)
+
+
+
+[supported-regions]: about.md#supported-regions-and-configurations

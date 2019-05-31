@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: 72306132f88f211180c99cd30845781667605204
-ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
+ms.openlocfilehash: 4418b11de4da7c69dd13ae74d94be90daadcb1f6
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65921887"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390546"
 ---
 # <a name="connect-your-fortinet-appliance"></a>Se connecter à votre appliance Fortinet 
 
@@ -133,7 +133,7 @@ Il peut prendre plus de 20 minutes jusqu'à ce que vos journaux commencent à ap
 
 3. Assurez-vous que les journaux que vous envoyez sont conformes aux [RFC 5424](https://tools.ietf.org/html/rfc542).
 
-4. Sur l’ordinateur exécutant l’agent Syslog, assurez-vous que ces ports 514, 25226 sont ouverts et écoute, à l’aide de la commande `netstat -a -n:`. Pour plus d’informations sur l’utilisation de cette commande, consultez [netstat(8) - page man Linux](https://linux.die.netman/8/netstat). Si elle est à l’écoute correctement, vous verrez ceci :
+4. Sur l’ordinateur exécutant l’agent Syslog, assurez-vous que ces ports 514, 25226 sont ouverts et écoute, à l’aide de la commande `netstat -a -n:`. Pour plus d’informations sur l’utilisation de cette commande, consultez [netstat(8) - page man Linux](https://linux.die.net/man/8/netstat). Si elle est à l’écoute correctement, vous verrez ceci :
 
    ![Ports Sentinel Azure](./media/connect-cef/ports.png) 
 

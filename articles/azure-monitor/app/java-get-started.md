@@ -12,17 +12,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: lagayhar
-ms.openlocfilehash: bbf9c162cd52dc94ee820c8597f36f7cbfeace5a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4cc1456aa9928cbd4a24c203eab62e3e75b4d7c1
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60691256"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66256179"
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Prise en main d'Application Insights dans un projet web Java
 
-
-[Application Insights](https://azure.microsoft.com/services/application-insights/) est un service d’analyse extensible pour développeurs web qui vous permet de comprendre les performances et l’utilisation de votre application en direct. Utilisez-le pour [instrumenter automatiquement les requêtes, effectuer le suivi des dépendances et recueillir les compteurs de performances](auto-collect-dependencies.md#java), [diagnostiquer les problèmes de performances et les exceptions](../../azure-monitor/app/detect-triage-diagnose.md), et [écrire du code][api] pour suivre l’utilisation de votre application. 
+[Application Insights](https://azure.microsoft.com/services/application-insights/) est un service d’analyse extensible pour développeurs web qui vous permet de comprendre les performances et l’utilisation de votre application en direct. Utilisez-le pour [automatiquement instrument demande, suivi des dépendances et les compteurs de performances collecter](auto-collect-dependencies.md#java), diagnostiquer les problèmes de performances et les exceptions, et [écrire du code] [ api] pour suivre ce que les utilisateurs font avec votre application. 
 
 ![Capture d’écran des exemples de données de vue d’ensemble](./media/java-get-started/overview-graphs.png)
 
@@ -95,7 +94,7 @@ Actualisez ensuite les dépendances du projet pour télécharger les fichiers bi
 Utilisez le [Kit de développement logiciel (SDK) Application Insights pour plug-in Java][eclipse]. Remarque : bien que ce plug-in vous permette d’être opérationnel avec Application Insights plus rapidement (en supposant que vous n’utilisez pas Maven ou Gradle), il ne s’agit pas un système de gestion des dépendances. Par conséquent, la mise à jour du plug-in ne mettra pas automatiquement les bibliothèques d’Application Insights à jour dans votre projet.
 
 * *Des erreurs de validation de build ou de somme de contrôle ?* Essayez d’utiliser une version spécifique, telle que : `version:'2.0.n'`. Vous trouverez la version la plus récente dans les [notes de publication du Kit de développement logiciel (SDK)](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) ou dans les [artefacts Maven](https://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
-* *Pour effectuer une mise à jour vers un Kit de développement logiciel (SDK)*, actualisez les dépendances de votre projet.
+* *Pour effectuer une mise à jour vers un Kit de développement logiciel (SDK)* , actualisez les dépendances de votre projet.
 
 #### <a name="otherwise-if-you-are-manually-managing-dependencies-"></a>Sinon, si vous gérez manuellement les dépendances...
 Téléchargez la [version la plus récente](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest) et copiez les fichiers nécessaires dans votre projet, en remplaçant toutes les versions antérieures.
@@ -487,7 +486,6 @@ Application Insights peut tester votre site web à intervalles réguliers pour v
 * [Surveillance des compteurs de performances Unix](java-collectd.md)
 * Ajoutez [la surveillance à vos pages web](javascript.md) pour surveiller le temps de chargement des pages, les appels AJAX et les exceptions du navigateur.
 * Écrivez [télémétrie personnalisée](../../azure-monitor/app/api-custom-events-metrics.md) pour suivre l’utilisation sur le navigateur ou le serveur.
-* Créez des [tableaux de bord](../../azure-monitor/app/app-insights-dashboards.md) pour rassembler les graphiques essentiels pour la surveillance de votre système.
 * Utilisez [Analytics](../../azure-monitor/app/analytics.md) pour des requêtes puissantes sur les données de télémétrie de votre application
 * Pour plus d’informations, consultez [Azure pour les développeurs Java](/java/azure).
 

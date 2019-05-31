@@ -5,15 +5,15 @@ author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 05/23/2019
 ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: 186e0365ae8aee3b7f92fcc06142e4d0496ffd08
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: 70de178df86a4b202298eda63b0f59cb7bc96281
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65415454"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237832"
 ---
 # <a name="sql-language-reference-for-azure-cosmos-db"></a>Référence sur le langage SQL pour Azure Cosmos DB 
 
@@ -710,7 +710,7 @@ OFFSET <offset_amount> LIMIT <limit_amount>
 ##  <a name="bk_built_in_functions"></a> Fonctions intégrées  
  Cosmos DB fournit de nombreuses fonctions SQL intégrées. Les catégories de fonctions intégrées sont répertoriées ci-dessous.  
   
-|Fonction|Description |  
+|Fonction|Description|  
 |--------------|-----------------|  
 |[Fonctions mathématiques](#bk_mathematical_functions)|Chaque fonction mathématique effectue un calcul, généralement basé sur les valeurs d'entrée fournies comme arguments, et retourne une valeur numérique.|  
 |[Fonctions de vérification du type](#bk_type_checking_functions)|Les fonctions de vérification du type vous permettent de vérifier le type d'une expression donnée dans les requêtes SQL.|  
@@ -3159,7 +3159,7 @@ GetCurrentDateTime ()
   |YYYY|année à quatre chiffres|
   |MM|mois à deux chiffres (01 = janvier, etc..)|
   |DD|jour à deux chiffres du mois (01 à 31)|
-  |M|signifier pour le début des éléments d’heure|
+  |T|signifier pour le début des éléments d’heure|
   |hh|heure à deux chiffres (de 00 à 23)|
   |MM|minutes à deux chiffres (de 00 à 59)|
   |ss|secondes à deux chiffres (de 00 à 59)|

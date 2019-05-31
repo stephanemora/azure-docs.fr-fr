@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: mbullwin
-ms.openlocfilehash: d0a4180a3ea28427b8d82c6f5cf86ef9fa51d580
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 6e20aef77625fe426526884c3fcee83019afd0c0
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65785899"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66299246"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API Application Insights pour les événements et les mesures personnalisés
 
@@ -55,11 +55,11 @@ Si vous n’avez pas encore de référence sur le kit SDK Application Insights :
   * [JavaScript dans chaque page web](../../azure-monitor/app/javascript.md) 
 * Ajoutez au code de votre périphérique ou de votre serveur web :
 
-    *C# :*`using Microsoft.ApplicationInsights;`
+    *C# :* `using Microsoft.ApplicationInsights;`
 
-    *Visual Basic :*`Imports Microsoft.ApplicationInsights`
+    *Visual Basic :* `Imports Microsoft.ApplicationInsights`
 
-    *Java:*`import com.microsoft.applicationinsights.TelemetryClient;`
+    *Java:* `import com.microsoft.applicationinsights.TelemetryClient;`
 
     *Node.js :* `var applicationInsights = require("applicationinsights");`
 
@@ -712,7 +712,7 @@ dependencies
 
 ## <a name="flushing-data"></a>Vidage des données
 
-Normalement, le kit SDK envoie des données à des moments choisis pour minimiser l'impact sur l'utilisateur. Toutefois, dans certains cas vous pouvez vider la mémoire tampon - par exemple, si vous utilisez le kit SDK dans une application qui s'arrête.
+Normalement, le SDK envoie des données à intervalles réguliers (généralement 30 secondes), ou chaque fois que la mémoire tampon est complète (en général, les éléments de 500). Toutefois, dans certains cas vous pouvez vider la mémoire tampon - par exemple, si vous utilisez le kit SDK dans une application qui s'arrête.
 
 *C#*
 

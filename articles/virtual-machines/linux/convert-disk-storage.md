@@ -16,16 +16,18 @@ ms.topic: article
 ms.date: 07/12/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 2e7eb455a53abbe2df6ff72f091a599665732429
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: bc42bcbf7149f88eb895317a411c7acd5913d63d
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64724895"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417697"
 ---
 # <a name="convert-azure-managed-disks-storage-from-standard-to-premium-or-premium-to-standard"></a>Convertir Azure stockage managed disks standard vers Premium ou Premium à Standard
 
-Il existe quatre [types de disques](disks-types.md) pour Azure des disques gérés : Stockage sur disque Ultra Azure, Premium SSD, disque SSD Standard et Standard HDD. Vous pouvez facilement basculer entre Premium SSD, disque SSD Standard et disques durs Standard en fonction de vos besoins en performances avec peu de temps mort. Cette fonctionnalité n’est pas pris en charge pour les disques non gérés ou Ultra stockage sur disque. Toutefois, vous pouvez facilement [convert non gérés vers des disques gérés](convert-unmanaged-to-managed-disks.md) pour être en mesure de basculer entre les types de disque.
+Il existe quatre types de disques de Azure des disques gérés : SSDs ultra Azure (aperçu), premium SSD, disque SSD standard et disques durs standard. Vous pouvez basculer entre les trois types de disque de la disponibilité générale (premium SSD, disque SSD standard et disques durs standard) en fonction de vos besoins en performances. Vous n’êtes pas encore en mesure de basculer depuis ou vers un disque SSD ultra, vous devez déployer un nouveau.
+
+Cette fonctionnalité n’est pas pris en charge pour les disques non gérés. Toutefois, vous pouvez facilement [convertir un disque non managé en un disque géré](convert-unmanaged-to-managed-disks.md) pour être en mesure de basculer entre les types de disque.
 
 Cet article explique comment convertir des disques gérés Standard vers Premium ou Premium à Standard à l’aide de l’interface CLI. Pour installer ou mettre à niveau de l’outil, consultez [installer Azure CLI](/cli/azure/install-azure-cli).
 

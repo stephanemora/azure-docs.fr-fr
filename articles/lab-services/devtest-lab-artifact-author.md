@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2018
+ms.date: 05/30/2019
 ms.author: spelluru
-ms.openlocfilehash: 0d1e269a1818f013bc14842bc541216d7f31bc84
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 69b83590fb9b25c68d231b732b985ba633bb6884
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60311126"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399197"
 ---
 # <a name="create-custom-artifacts-for-your-devtest-labs-virtual-machine"></a>Créer des artefacts personnalisés pour votre machine virtuelle DevTest Labs
 
@@ -55,7 +55,7 @@ L'exemple suivant indique les sections qui composent la structure de base d'un f
 
 | Nom de l'élément | Requis ? | Description |
 | --- | --- | --- |
-| $schema |Non  |Emplacement du fichier de schéma JSON. Le fichier de schéma JSON peut vous aider à tester la validité du fichier de définition. |
+| $schema |Non |Emplacement du fichier de schéma JSON. Le fichier de schéma JSON peut vous aider à tester la validité du fichier de définition. |
 | title |Oui |Nom de l'artefact affiché dans le laboratoire. |
 | description |Oui |Description de l'artefact affiché dans le laboratoire. |
 | iconUri |Non  |URI de l’icône affichée dans le laboratoire. |
@@ -78,7 +78,7 @@ Pour définir des paramètres, utilisez la structure suivante :
 
 | Nom de l'élément | Requis ? | Description |
 | --- | --- | --- |
-| Type |Oui |Type de la valeur du paramètre. Consultez la liste suivante des types autorisés. |
+| type |Oui |Type de la valeur du paramètre. Consultez la liste suivante des types autorisés. |
 | displayName |Oui |Nom du paramètre qui est affiché à un utilisateur dans le laboratoire. |
 | description |Oui |Description du paramètre qui est affiché dans le laboratoire. |
 
@@ -89,10 +89,35 @@ Les types autorisés sont :
 * bool (n’importe quel booléen JSON valide)
 * array (n’importe quel tableau JSON valide)
 
+## <a name="secrets-as-secure-strings"></a>Secrets en tant que chaînes sécurisées
+Déclarer des secrets en tant que chaînes sécurisées. Voici la syntaxe de déclaration d’un paramètre de chaîne sécurisée dans le `parameters` section de la **artifactfile.json** fichier :
+
+```json
+
+    "securestringParam": {
+      "type": "securestring",
+      "displayName": "Secure String Parameter",
+      "description": "Any text string is allowed, including spaces, and will be presented in UI as masked characters.",
+      "allowEmpty": false
+    },
+```
+
+Commande d’installation pour l’artefact, exécutez le script PowerShell qui accepte la chaîne sécurisée créée à l’aide de la commande de ConvertTo-SecureString. 
+
+```json
+  "runCommand": {
+    "commandToExecute": "[concat('powershell.exe -ExecutionPolicy bypass \"& ./artifact.ps1 -StringParam ''', parameters('stringParam'), ''' -SecureStringParam (ConvertTo-SecureString ''', parameters('securestringParam'), ''' -AsPlainText -Force) -IntParam ', parameters('intParam'), ' -BoolParam:$', parameters('boolParam'), ' -FileContentsParam ''', parameters('fileContentsParam'), ''' -ExtraLogLines ', parameters('extraLogLines'), ' -ForceFail:$', parameters('forceFail'), '\"')]"
+  }
+```
+
+Pour l’exemple complet d’artifactfile.json et le artifact.ps1 (script PowerShell), consultez [cet exemple sur GitHub](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts/windows-test-paramtypes).
+
+Un autre point important à retenir ne pas doit consigner les secrets dans la console lors de la capture de sortie pour le débogage de l’utilisateur. 
+
 ## <a name="artifact-expressions-and-functions"></a>Expressions et fonctions d'artefact
 Vous pouvez utiliser des expressions et des fonctions pour construire la commande d’installation d’artefact.
 Les expressions sont placées entre crochets ([ et ]) et sont évaluées au moment où l'artefact est installé. Les expressions peuvent apparaître n’importe où dans une valeur de chaîne JSON. Les expressions retournent toujours une autre valeur JSON. Si vous avez besoin d’utiliser une chaîne littérale qui commence par un crochet ([), vous devez utiliser deux crochets ([[).
-En général, vous utilisez des expressions avec des fonctions pour construire une valeur. Exactement comme dans JavaScript, les appels de fonctions sont mis en forme de la manière suivante : **functionName(arg1, arg2, arg3)**.
+En général, vous utilisez des expressions avec des fonctions pour construire une valeur. Exactement comme dans JavaScript, les appels de fonctions sont mis en forme de la manière suivante : **functionName(arg1, arg2, arg3)** .
 
 La liste suivante indique les fonctions courantes :
 

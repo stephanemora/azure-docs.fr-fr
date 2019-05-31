@@ -7,13 +7,13 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 05/07/2019
-ms.openlocfilehash: f3838bf6b9f7daa24c0cdb5b0c5a08d41d164530
-ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
+ms.date: 05/29/2019
+ms.openlocfilehash: e63937cedf44b1642e091a4744d898a26422be10
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65561133"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393689"
 ---
 # <a name="azure-stream-analytics-preview-features"></a>Fonctionnalités d’évaluation Azure Stream Analytics
 
@@ -30,10 +30,6 @@ Les travaux Azure Stream Analytics peuvent être créés dans Visual Studio Code
 ### <a name="anomaly-detection"></a>Détection des anomalies
 
 Azure Stream Analytics introduit de nouveaux modèles Machine Learning avec la prise en charge de la détection de *pics* et de *chutes* qui vient s’ajouter à la détection des tendances négatives lentes, positives lentes et bidirectionnelles. Pour plus d’informations, visitez [détection d’anomalies dans Azure Stream Analytique](stream-analytics-machine-learning-anomaly-detection.md).
-
-### <a name="sql-database-reference-data"></a>Données de référence SQL Database
-
-Azure Stream Analytics prend en charge l'utilisation d'Azure SQL Database comme source d'entrée de données de référence. Vous pouvez utiliser les données SQL Database comme données de référence pour votre travail Stream Analytics sur le portail Azure et dans Visual Studio avec les outils Stream Analytics. Pour plus d'informations, consultez [Utiliser les données de référence d'une instance de SQL Database pour un travail Azure Stream Analytics](sql-reference-data.md).
 
 ### <a name="integration-with-azure-machine-learning"></a>Intégration à Azure Machine Learning
 

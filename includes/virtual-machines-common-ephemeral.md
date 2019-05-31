@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/02/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 47407df90a83501b8739a428789e20cddc59e83d
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 3e9885466d422a0428311ed3013e2ab34341cd25
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66145918"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66391373"
 ---
 Les disques du système d’exploitation éphémères sont créés sur le stockage local de la Machine virtuelle (VM) et pas conservés dans le stockage Azure à distance. Disques du système d’exploitation éphémères fonctionnent bien pour les charges de travail de sans état, où les applications tolèrent les défaillances isolées de machine virtuelle, mais sont plus préoccupé par le temps que nécessaire pour les déploiements à grande échelle ou de temps pour réimage les instances de machine virtuelle individuelles. Il est également idéale pour les applications déployées à l’aide du modèle de déploiement classique, à déplacer vers le modèle de déploiement Resource Manager. Comparé à un disque de système d'exploitation standard, un disque éphémère offre une latence plus faible pour les opérations de lecture/écriture et permet une réinitialisation plus rapide des machines virtuelles. En outre, disque de système d’exploitation éphémère est gratuit, vous encourez sans coût de stockage pour le disque du système d’exploitation. 
  
@@ -35,41 +35,9 @@ Différences clés entre les disques du système d’exploitation persistants et
 | Prise en charge de la région              | Toutes les régions                                                                                  | Toutes les régions                              |
 | Persistance des données            | Les données de disque du système d’exploitation écrites sur le disque du système d’exploitation sont stockées dans le stockage Azure                                  | Données écrites sur le disque du système d’exploitation sont stockées sur le stockage local de la machine virtuelle et ne sont pas persistant dans le stockage Azure. |
 | État arrêtée-désallouée      | Machines virtuelles et instances de groupe identique peuvent être arrêtée-désallouée et redémarrés à partir de l’état arrêtée-désallouée | Machines virtuelles et instances de groupe identique ne peut pas être arrêtée-désallouée                                  |
-| Prise en charge des disques de système d’exploitation spécialisé | Oui                                                                                          | Non                                                                                 |
+| Prise en charge des disques de système d’exploitation spécialisé | Oui                                                                                          | Non                                                                                  |
 | Redimensionnement du disque du système d’exploitation              | Prise en charge lors de la création de machine virtuelle et une fois que la machine virtuelle est arrêtée-désallouée                                | Prise en charge lors de la création de machine virtuelle uniquement                                                  |
 | Redimensionnement à une nouvelle taille de machine virtuelle   | Les données de disque du système d’exploitation sont conservées.                                                                    | Données sur le disque du système d’exploitation sont supprimées, le système d’exploitation est redéployé                                      |
-
-## <a name="register-for-the-preview"></a>S’inscrire pour la préversion
-
-
-S’inscrire automatiquement pour la version préliminaire de disques du système d’exploitation éphémères à l’aide de la dernière version de l’interface CLI Azure ou Azure PowerShell.
-
-### <a name="powershell"></a>PowerShell
-
-```azurepowershell-interactive
-Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
-Register-AzProviderFeature –FeatureName LocalDiffDiskPreview -ProviderNamespace Microsoft.Compute
-```
-
-Pour vérifier si vous êtes inscrit pour la version préliminaire :
-
-```azurepowershell-interactive
-Get-AzProviderFeature –FeatureName LocalDiffDiskPreview -ProviderNamespace Microsoft.Compute
-```
-
-### <a name="cli"></a>Interface de ligne de commande
-
-```azurecli-interactive
-az provider register --namespace Microsoft.Compute
-az feature register --namespace Microsoft.Compute --name LocalDiffDiskPreview
-```
-
-Pour vérifier si vous êtes inscrit pour la version préliminaire :
- 
-```azurecli-interactive
-az provider show --namespace Microsoft.Compute
-```
-
 
 ## <a name="scale-set-deployment"></a>Ensemble d’échelle de déploiement  
 Le processus de création d’un groupe identique qui utilise un disque de système d’exploitation éphémère consiste à ajouter le `diffDiskSettings` propriété à la `Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile` type de ressource dans le modèle. En outre, la stratégie mise en cache doit être définie sur `ReadOnly` pour le disque du système d’exploitation éphémère. 

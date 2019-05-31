@@ -5,14 +5,14 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 04/30/2019
+ms.date: 05/28/2019
 ms.author: dacurwin
-ms.openlocfilehash: 5dbd4fefd5c5e1acd7e12ace547ddb8866b7f081
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 1ac3cdecc79cafb9ea2697cca3c87b2ebe083d40
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148589"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66254865"
 ---
 # <a name="common-questions-about-backing-up-files-and-folders"></a>Questions courantes sur la sauvegarde de fichiers et dossiers 
 
@@ -101,7 +101,7 @@ Cet avertissement peut apparaître même si vous avez configuré une stratégie 
 La taille du dossier du cache détermine la quantité de données que vous sauvegardez.
 - Les volumes de dossier de cache doivent avoir un espace libre égal au moins 5 à 10 % de la taille totale des données de sauvegarde.
 - Si le volume possède moins de 5 % d’espace libre, augmentez la taille du volume, ou déplacez le dossier du cache vers un volume avec suffisamment d’espace.
-- 
+- Si vous sauvegardez l’état du système Windows, vous devez 30 à 35 Go d’espace libre dans le volume contenant le dossier du cache supplémentaires
 ### <a name="how-do-i-change-the-cache-location-for-the-mars-agent"></a>Comment modifier l’emplacement du cache pour l’agent MARS ?
 
 

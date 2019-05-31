@@ -15,12 +15,12 @@ ms.author: billmath
 search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 146fdc3ca2af708a96e6b9a604493eb63c2e6530
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 66ff1cb57bb3317adc7ab6208ebf5029361b7c54
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60348307"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235153"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Implémenter la synchronisation de hachage de mot de passe avec la synchronisation Azure AD Connect
 Cet article vous fournit les informations nécessaires pour synchroniser vos mots de passe utilisateur à partir d’une instance Active Directory (AD) locale vers une instance Azure Active Directory (Azure AD) dans le cloud.
@@ -64,7 +64,7 @@ La section suivante explique en détail comment fonctionne la synchronisation du
 >Le hachage MD4 d’origine n’est pas transmis à Azure AD. Au lieu de cela, le hachage SHA256 du hachage MD4 d’origine est transmis. Par conséquent, si le hachage stocké dans Azure AD est obtenu, il ne peut pas être utilisé dans une attaque de type pass-the-hash locale.
 
 ### <a name="how-password-hash-synchronization-works-with-azure-active-directory-domain-services"></a>Fonctionnement de la synchronisation de hachage de mot de passe avec Azure Active Directory Domain Services
-Vous pouvez également utiliser la fonctionnalité de synchronisation de hachage de mot de passe pour synchroniser vos mots de passe locaux avec [Azure Active Directory Domain Services](../../active-directory-domain-services/active-directory-ds-overview.md). Ce scénario permet à l’instance Azure Active Directory Domain Services d’authentifier vos utilisateurs dans le cloud avec toutes les méthodes disponibles dans votre instance Active Directory locale. L’expérience de ce scénario est similaire à l’utilisation de l’outil de migration Active Directory (ADMT) dans un environnement local.
+Vous pouvez également utiliser la fonctionnalité de synchronisation de hachage de mot de passe pour synchroniser vos mots de passe locaux avec [Azure Active Directory Domain Services](../../active-directory-domain-services/overview.md). Ce scénario permet à l’instance Azure Active Directory Domain Services d’authentifier vos utilisateurs dans le cloud avec toutes les méthodes disponibles dans votre instance Active Directory locale. L’expérience de ce scénario est similaire à l’utilisation de l’outil de migration Active Directory (ADMT) dans un environnement local.
 
 ### <a name="security-considerations"></a>Considérations relatives à la sécurité
 Lors de la synchronisation des mots de passe, la version en texte brut de votre mot de passe n’est exposée ni à la fonctionnalité de synchronisation de hachage de mot de passe, ni à Azure AD, ni à l’un des services associés.

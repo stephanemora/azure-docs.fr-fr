@@ -8,12 +8,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 5/13/2019
 ms.author: sajaya
-ms.openlocfilehash: 86efb6b655405500f994a5a5ec7acbd18c645004
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 1400c023e43179a9c8490334e262711486c75a2d
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65957849"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417933"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Forum aux questions sur Azure Container Registry
 
@@ -253,10 +253,11 @@ Mise en quarantaine de l’image est actuellement une fonctionnalité prélimina
 - [Nouvelles autorisations utilisateur ne peuvent pas être efficaces immédiatement après la mise à jour](#new-user-permissions-may-not-be-effective-immediately-after-updating)
 - [Informations d’authentification ne sont pas spécifiées dans le format correct sur les appels directs de l’API REST](#authentication-information-is-not-given-in-the-correct-format-on-direct-rest-api-calls)
 - [Pourquoi ne le portail Azure répertorie pas tous mes dépôts ou balises ?](#why-does-the-azure-portal-not-list-all-my-repositories-or-tags)
+- [Comment collecter les traces http sur Windows ?](#how-do-i-collect-http-traces-on-windows)
 
 ### <a name="docker-pull-fails-with-error-nethttp-request-canceled-while-waiting-for-connection-clienttimeout-exceeded-while-awaiting-headers"></a>extraction de docker échoue avec l’erreur : net/http : demande annulée en attendant la connexion (Client.Timeout dépassé en attendant les en-têtes)
 
- - Si cette erreur est un problème temporaire, nouvelle tentative réussit. 
+ - Si cette erreur est un problème temporaire, nouvelle tentative réussit.
  - Si `docker pull` échoue en permanence, il peut y avoir un problème avec le démon docker. Le problème peut généralement être résolu en redémarrant le démon docker. 
  - Si vous continuez à voir ce problème après le redémarrage du démon docker, puis le problème est peut-être certains problèmes de connectivité réseau avec l’ordinateur. Pour vérifier si le réseau d’ordre général sur l’ordinateur est intègre, essayez une commande comme `ping www.bing.com`.
  - Vous devez toujours avoir un mécanisme de nouvelle tentative sur toutes les opérations du client docker.
@@ -283,7 +284,7 @@ unauthorized: authentication required
 ```
 
 Pour résoudre l’erreur :
-1. Ajoutez l’option `--signature-verification=false` au fichier de configuration du démon docker `/etc/sysconfig/docker`. Exemple :
+1. Ajoutez l’option `--signature-verification=false` au fichier de configuration du démon docker `/etc/sysconfig/docker`. Exemple :
 
   ```
   OPTIONS='--selinux-enabled --log-driver=journald --live-restore --signature-verification=false'
@@ -387,6 +388,28 @@ curl $redirect_url
 ### <a name="why-does-the-azure-portal-not-list-all-my-repositories-or-tags"></a>Pourquoi ne le portail Azure répertorie pas tous mes dépôts ou balises ? 
 
 Si vous utilisez le navigateur Microsoft Edge, vous pouvez voir au maximum 100 dépôts ou les balises répertoriées. Si votre Registre a plus de 100 dépôts ou les balises, nous vous recommandons d’utiliser le navigateur Firefox ou Chrome tous les répertorier.
+
+### <a name="how-do-i-collect-http-traces-on-windows"></a>Comment collecter les traces http sur Windows ?
+
+#### <a name="prerequisites"></a>Conditions préalables
+
+- Activer le déchiffrement https dans fiddler :  <https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS>
+- Activer Docker pour utiliser un proxy via l’interface utilisateur Docker : <https://docs.docker.com/docker-for-windows/#proxies>
+- Veillez à rétablir lorsque vous avez terminé.  Docker ne fonctionne pas avec cette option est activée et fiddler ne pas en cours d’exécution.
+
+#### <a name="windows-containers"></a>Conteneurs Windows
+
+Configurer le proxy de Docker à 127.0.0.1:8888
+
+#### <a name="linux-containers"></a>Conteneurs Linux
+
+Rechercher l’adresse ip de la commande Docker de commutateur virtuel de machine virtuelle :
+
+```powershell
+(Get-NetIPAddress -InterfaceAlias "*Docker*" -AddressFamily IPv4).IPAddress
+```
+
+Configurer le proxy de Docker pour la sortie de la commande précédente et le port 8888 (par exemple 10.0.75.1:8888)
 
 ## <a name="tasks"></a>Tâches
 

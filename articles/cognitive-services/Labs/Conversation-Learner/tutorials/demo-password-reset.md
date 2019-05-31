@@ -3,19 +3,19 @@ title: Modèle Conversation Learner de démonstration, réinitialisation de mot 
 titleSuffix: Azure
 description: Découvrez comment créer un modèle Conversation Learner de démonstration.
 services: cognitive-services
-author: v-jaswel
+author: nitinme
 manager: nolachar
 ms.service: cognitive-services
 ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: v-jaswel
-ms.openlocfilehash: 6436193dadb5933074fdce861a31672a0f4849de
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: nitinme
+ms.openlocfilehash: 15aa3a8346087908cf77f1f68db916cc2c184448
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60313132"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389872"
 ---
 # <a name="demo-password-reset"></a>Démo : Réinitialisation de mot de passe
 Ce didacticiel présente un simple bot de support technique qui peut aider à réinitialiser des mot de passe, optimisé par Conversation Learner. Le modèle du bot peut apprendre des flux de dialogue non triviaux et des séquences à plusieurs tours incluant des classes hors domaine. La tâche peut être accomplie sans code ou entité.

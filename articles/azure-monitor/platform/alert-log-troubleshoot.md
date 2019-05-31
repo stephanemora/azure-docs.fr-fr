@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 1c7712fc2ce55a3d22995bb119a9ee485a064903
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 8b1a9b3dee999a35950559a049230f7fdbbc47b6
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64683393"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399183"
 ---
 # <a name="troubleshoot-log-alerts-in-azure-monitor"></a>Résoudre les alertes de journal dans Azure Monitor  
 
@@ -38,7 +38,7 @@ Pour atténuer des retards, le système attend et tente à nouveau la requête d
 
 Comme décrit dans l’article sur [terminologie pour les alertes de journal](../platform/alerts-unified-log.md#log-search-alert-rule---definition-and-types), la période indiquée dans la configuration spécifie l’intervalle de temps pour la requête. La requête retourne uniquement les enregistrements qui ont été créés dans cette plage. 
 
-La période de temps restreint les données sont extraites pour une requête de journal éviter les abus, et il contourne n’importe quelle commande de temps (comme **il y a**) utilisé dans une requête de journal. Par exemple, si la période est définie sur 60 minutes et la requête exécutée à 13 h 15, seuls les enregistrements créés entre 12 h 15 et 13 h 15 sont utilisés pour la requête de journal. Si la requête de journal utilise une commande de temps comme **il y a (1D)**, la requête utilise toujours uniquement les données entre 12 h 15 et 13 h 15, car la période est définie pour cet intervalle.
+La période de temps restreint les données sont extraites pour une requête de journal éviter les abus, et il contourne n’importe quelle commande de temps (comme **il y a**) utilisé dans une requête de journal. Par exemple, si la période est définie sur 60 minutes et la requête exécutée à 13 h 15, seuls les enregistrements créés entre 12 h 15 et 13 h 15 sont utilisés pour la requête de journal. Si la requête de journal utilise une commande de temps comme **il y a (1D)** , la requête utilise toujours uniquement les données entre 12 h 15 et 13 h 15, car la période est définie pour cet intervalle.
 
 Vérifiez que la période de temps dans la configuration correspond à votre requête. Pour l’exemple présentée, si la requête de journal utilise **il y a (1D)** avec la marque verte, la période de temps doit être définie à 24 heures ou 1 440 minutes (indiqués en rouge). Ce paramètre garantit que la requête s’exécute comme prévu.
 
@@ -181,6 +181,7 @@ L’exemple d’événement dans le journal d’activité Azure est pour une rè
 Chaque règle d’alerte journal créé dans Azure Monitor dans le cadre de sa configuration doit spécifier une requête analytique exécute périodiquement le service d’alerte. La requête analytique peut-être la syntaxe correcte au moment de la création de la règle ou de mise à jour. Mais parfois, sur une période de temps, la requête fournie dans la règle d’alerte de journal peut développer des problèmes de syntaxe et provoquer l’échec de l’exécution de la règle. Voici quelques causes courantes pourquoi une requête analytique fournie dans une règle d’alerte de journal permettre développer des erreurs sont :
 
 - La requête est écrite dans [exécuter sur plusieurs ressources](../log-query/cross-workspace-query.md). Et un ou plusieurs des ressources spécifiées n’existent plus.
+- [alerte de journal de type de mesure métrique](../../azure-monitor/platform/alerts-unified-log.md#metric-measurement-alert-rules) configuré associée à une alerte n’est pas conforme avec les normes de syntaxe de la requête
 - Il n’y a eu aucun flux de données pour la plateforme d’analytique. Le [l’exécution de requête génère une erreur](https://dev.loganalytics.io/documentation/Using-the-API/Errors) , car il n’existe aucune donnée pour la requête fournie.
 - Modifie dans [langage de requête](https://docs.microsoft.com/azure/kusto/query/) incluent un format révisé pour les commandes et fonctions. Par conséquent, la requête fournie plus haut dans une règle d’alerte n’est plus valide.
 

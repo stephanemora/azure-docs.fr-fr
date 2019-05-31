@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/06/2019
 ms.author: cynthn
 ms.custom: ''
-ms.openlocfilehash: d46c545db9e1950988b49cdb577d074b6d04380c
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: f63b705f7967eeddaf522941d6db9be5d9f2719d
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236600"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244986"
 ---
 # <a name="create-a-shared-image-gallery-using-the-azure-portal"></a>Créer une galerie d’images partagé à l’aide du portail Azure
 
@@ -33,7 +33,7 @@ La galerie est une ressource de niveau supérieur qui fournit le contrôle d’a
 
 La fonctionnalité Galerie d’images partagées présente plusieurs types de ressources. Dans cet article, nous allons utiliser ou générer ce qui suit :
 
-| Ressource | Description |
+| Ressource | Description|
 |----------|------------|
 | **Image managée** | Il s’agit d’une image de base pouvant être utilisée seule ou pour créer une **version de l’image**  dans une galerie d’images. Les images managées sont créées à partir de machines virtuelles généralisées. Une image managée est un type spécial de disque dur virtuel qui peut être utilisé pour définir plusieurs machines virtuelles et qui peut maintenant être utilisé pour créer des versions d’image partagée. |
 | **Galerie d’images** | Tout comme la Place de marché Azure, une **galerie d’images** est un dépôt permettant de gérer et partager des images, mais vous contrôlez les utilisateurs qui y ont accès. |
@@ -67,6 +67,7 @@ Cet exemple crée une machine virtuelle nommée *myVMfromImage*, dans le groupe 
 1. Si vous souhaitez autoriser l’accès à distance à la machine virtuelle, sous **ports d’entrée publics**, choisissez **autoriser les ports sélectionnés** , puis sélectionnez **RDP (3389)** à partir de la liste déroulante. Si vous ne souhaitez pas autoriser l’accès à distance à la machine virtuelle, laissez **aucun** sélectionné pour **ports d’entrée publics**.
 1. Lorsque vous avez terminé, sélectionnez le **révision + créer** bouton en bas de la page.
 1. Une fois la machine virtuelle passe la validation, sélectionnez **créer** en bas de la page pour commencer le déploiement.
+
 
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources

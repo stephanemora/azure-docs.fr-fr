@@ -7,12 +7,12 @@ ms.service: analysis-services
 ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: chlound
-ms.openlocfilehash: abbad97e29f60e5f135017cd43f9d30eba1805ca
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 4cae93cff594ad561973f8029ea7335dc4c60263
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66142726"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66356996"
 ---
 # <a name="refresh-with-azure-automation"></a>Actualiser avec Azure Automation
 
@@ -26,7 +26,7 @@ Un exemple de PowerShell Runbook qui illustre l’actualisation d’un modèle e
 
 Tous les appels doivent être authentifiées avec un jeton Azure Active Directory (OAuth 2) valide.  L’exemple dans cet article utilisera un Principal de Service (SPN) pour s’authentifier auprès d’Azure Analysis Services.
 
-Pour en savoir plus sur la création d’un Principal de Service, consultez]
+Pour en savoir plus sur la création d’un Principal de Service, consultez [créer un principal de service à l’aide du portail Azure](../active-directory/develop/howto-create-service-principal-portal.md).
 
 ## <a name="prerequisites"></a>Conditions préalables
 
@@ -39,11 +39,11 @@ Pour en savoir plus sur la création d’un Principal de Service, consultez]
 
 2. Dans la barre de recherche, recherchez **SqlServer**.
 
-    ![Rechercher dans les modules](./media/analysis-services-refresh-azure-automation/1.png)
+    ![Modules de recherche](./media/analysis-services-refresh-azure-automation/1.png)
 
 3. Sélectionnez SQL Server, puis cliquez sur **importation**.
  
-    ![Importer un module](./media/analysis-services-refresh-azure-automation/2.png)
+    ![Module d’importation](./media/analysis-services-refresh-azure-automation/2.png)
 
 4. Cliquez sur **OK**.
  
@@ -67,11 +67,11 @@ Le principal du Service que vous créez doit avoir des autorisations d’adminis
 
 3. Importer le Runbook Automation
 
-    ![Importer le Runbook](./media/analysis-services-refresh-azure-automation/8.png)
+    ![Importer un Runbook](./media/analysis-services-refresh-azure-automation/8.png)
 
 4. Recherchez le **actualisation-Model.ps1** de fichiers, fournissez un **nom** et **description**, puis cliquez sur **créer**.
 
-    ![Importer le Runbook](./media/analysis-services-refresh-azure-automation/9.png)
+    ![Importer un Runbook](./media/analysis-services-refresh-azure-automation/9.png)
 
 5. Lorsque le Runbook a été créé, il passe automatiquement en mode édition.  Sélectionnez **Publier**.
 

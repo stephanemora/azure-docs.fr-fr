@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: glenga
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: fe483f00c5711c2b2b62add32e951d26f732de2f
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 3c8d64f34f01e4339b27bdeba455fac143ad53ff
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66131455"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241172"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Utiliser Azure Functions Core Tools
 
@@ -151,7 +151,7 @@ Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 
 `func init` prend en charge les options suivantes, qui sont, sauf indication contraire, uniquement des versions 2.x :
 
-| Option     | Description                             |
+| Option     | Description                            |
 | ------------ | -------------------------------------- |
 | **`--csx`** | Initialise un projet de Script C# (.csx). Vous devez spécifier `--csx` dans les commandes suivantes. |
 | **`--docker`** | Créez un fichier Dockerfile pour un conteneur à l’aide d’une image de base définie par le `--worker-runtime` choisi. Utiliser cette option lorsque vous projetez de publier sur un conteneur Linux personnalisé. |
@@ -186,8 +186,8 @@ Le fichier local.settings.json stocke les paramètres de l’application, les ch
   },
   "Host": {
     "LocalHttpPort": 7071,
-    "CORS": "*"
-    "CORSCredentials": true
+    "CORS": "*",
+    "CORSCredentials": false
   },
   "ConnectionStrings": {
     "SQLConnectionString": "<sqlclient-connection-string>"
@@ -195,7 +195,7 @@ Le fichier local.settings.json stocke les paramètres de l’application, les ch
 }
 ```
 
-| Paramètre      | Description                             |
+| Paramètre      | Description                            |
 | ------------ | -------------------------------------- |
 | **`IsEncrypted`** | Lorsque la valeur `true`, toutes les valeurs sont chiffrées à l’aide d’une clé d’ordinateur local. Utilisé avec les commandes `func settings`. La valeur par défaut est `false`. |
 | **`Values`** | Collection des paramètres d’application et des chaînes de connexion utilisés lors de l’exécution locale. Ces valeurs correspondent aux paramètres d’application dans votre function app dans Azure, tel que [ `AzureWebJobsStorage` ]. Plusieurs déclencheurs et liaisons ont une propriété qui fait référence à un paramètre application de la chaîne de connexion, tel que `Connection` pour le [déclencheur stockage Blob](functions-bindings-storage-blob.md#trigger---configuration). Pour ces propriétés, vous avez besoin d’un paramètre d’application défini dans le `Values` tableau. <br/>[`AzureWebJobsStorage`] une application obligatoire consiste à définir pour les déclencheurs autres que HTTP. <br/>Version 2.x du runtime Functions requiert le [ `FUNCTIONS_WORKER_RUNTIME` ] paramètre, qui est générée pour votre projet par Core Tools. <br/> Lorsque vous avez le [émulateur de stockage Azure](../storage/common/storage-use-emulator.md) installé localement, vous pouvez définir [ `AzureWebJobsStorage` ] à `UseDevelopmentStorage=true` et outils Core utilise l’émulateur. Cette configuration est utile lors du développement, mais vous devez la tester avec une connexion de stockage réelle avant le déploiement. |
@@ -280,7 +280,7 @@ Writing C:\myfunctions\myMyFunctionProj\MyQueueTrigger\function.json
 
 Vous pouvez également spécifier ces options dans la commande en utilisant les arguments suivants :
 
-| Argument     | Description                             |
+| Argument     | Description                            |
 | ------------------------------------------ | -------------------------------------- |
 | **`--csx`** | (Version 2.x) Génère les mêmes modèles de script C# (.csx) que ceux utilisés dans la version 1.x et dans le portail. |
 | **`--language -l`**| Langage de programmation du modèle, tel que C#, F# ou JavaScript. Cette option est requise dans la version 1.x. Dans la version 2.x, n’utilise pas cette option ou choisissez un langage qui correspond au runtime worker. |
@@ -311,7 +311,7 @@ La commande `host` est requise uniquement dans la version 1.x.
 
 `func host start` prend en charge les options suivantes :
 
-| Option     | Description                             |
+| Option     | Description                            |
 | ------------ | -------------------------------------- |
 | **`--no-build`** | Ne générez pas le projet actif avant l’exécution. Pour les projets dotnet uniquement. La valeur par défaut est false. Version 2.x uniquement. |
 | **`--cert`** | Le chemin d’accès vers un fichier .pfx qui contient une clé privée. Utilisé uniquement avec `--useHttps`. Version 2.x uniquement. |
@@ -403,7 +403,7 @@ Vous pouvez également appeler une fonction directement à l’aide de `func run
 
 `func run` prend en charge les options suivantes :
 
-| Option     | Description                             |
+| Option     | Description                            |
 | ------------ | -------------------------------------- |
 | **`--content -c`** | Contenu inclus. |
 | **`--debug -d`** | Joindre un débogueur au processus hôte avant d’exécuter la fonction.|
@@ -443,14 +443,14 @@ La commande `publish` charge le contenu du répertoire du projet Functions. Si v
 
 Les options de publication de projet suivantes s’appliquent aux versions 1.x et 2.x :
 
-| Option     | Description                             |
+| Option     | Description                            |
 | ------------ | -------------------------------------- |
 | **`--publish-local-settings -i`** |  Publier dans Azure les paramètres figurant dans local.settings.json, avec demande de confirmation du remplacement si le paramètre existe déjà. Si vous utilisez l’émulateur de stockage, vous modifiez le paramètre d’application en choisissant une [connexion de stockage réelle](#get-your-storage-connection-strings). |
 | **`--overwrite-settings -y`** | Supprimer l’invite de remplacement des paramètres de l’application lorsque `--publish-local-settings -i` est utilisé.|
 
 Les options de publication de projet suivantes sont uniquement prises en charge dans la version 2.x :
 
-| Option     | Description                             |
+| Option     | Description                            |
 | ------------ | -------------------------------------- |
 | **`--publish-settings-only -o`** |  Publiez les paramètres uniquement et ignorez le contenu. Par défaut, l’accord de l’utilisateur est sollicité. |
 |**`--list-ignored-files`** | Affiche une liste de fichiers ignorés lors de la publication basée sur le fichier .funcignore. |
@@ -473,7 +473,7 @@ func deploy
 
 Les options de déploiement de conteneur personnalisées suivantes sont disponibles :
 
-| Option     | Description                             |
+| Option     | Description                            |
 | ------------ | -------------------------------------- |
 | **`--registry`** | Le nom d’un registre Docker auquel l’utilisateur actuel est connecté. |
 | **`--platform`** | Plateforme d’hébergement pour l’application de fonction. Les options valides sont `kubernetes` |

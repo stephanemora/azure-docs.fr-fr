@@ -13,15 +13,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/25/2019
+ms.date: 05/24/2019
 ms.author: manayar
 ms.custom: na
-ms.openlocfilehash: b5af6c5007130d71f94e1fa748adc333a8d08a48
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 0674d8c98f4bf37bbf9417de60ff4c60910d802a
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64689324"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258282"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>FAQ sur les groupes de machines virtuelles identiques Azure
 
@@ -232,8 +232,8 @@ Vous pouvez fournir les clés publiques SSH en texte brut lorsque vous créez un
 nom d’élément linuxConfiguration | Obligatoire | Type | Description
 --- | --- | --- | ---
 ssh | Non  | Collection | Spécifie la configuration de la clé SSH pour un système d’exploitation Linux
-chemin d’accès | Oui | Chaîne | Spécifie le chemin d’accès du fichier Linux où les clés SSH ou le certificat doivent être placés
-keyData | Oui | Chaîne | Spécifie une clé publique SSH encodée en base64
+path | Oui | String | Spécifie le chemin d’accès du fichier Linux où les clés SSH ou le certificat doivent être placés
+keyData | Oui | String | Spécifie une clé publique SSH encodée en base64
 
 Pour obtenir un exemple, consultez [le modèle de démarrage rapide GitHub 101-vm-sshkey](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
 
@@ -521,7 +521,7 @@ Pour déployer un groupe de machines virtuelles identiques sur un réseau virtue
 
 ### <a name="can-i-use-scale-sets-with-accelerated-networking"></a>Puis-je me servir de groupes identiques lors d’une mise en réseau accélérée ?
 
-Oui. Pour utiliser la mise en réseau accélérée, définissez enableAcceleratedNetworking sur True dans les paramètres networkInterfaceConfigurations du groupe identique. Par exemple :
+Oui. Pour utiliser la mise en réseau accélérée, définissez enableAcceleratedNetworking sur True dans les paramètres networkInterfaceConfigurations du groupe identique. Exemple :
 ```json
 "networkProfile": {
     "networkInterfaceConfigurations": [
@@ -621,11 +621,11 @@ Vous bénéficiez d’une certaine flexibilité dans la façon dont vous gérez 
 
 ## <a name="patching-and-operations"></a>Application de correctifs et opérations
 
-### <a name="how-do-i-create-a-scale-set-in-an-existing-resource-group"></a>Comment créer un groupe identique dans un groupe de ressources existant ?
+### <a name="can-i-create-a-scale-set-in-an-existing-resource-group"></a>Puis-je créer un groupe identique dans un groupe de ressources existant ?
 
-La création de groupes identiques dans un groupe de ressources existant n’est pas encore possible à partir du portail Azure, mais vous pouvez spécifier un groupe de ressources existant lors du déploiement d’un groupe identique à partir d’un modèle Azure Resource Manager. Vous pouvez également spécifier un groupe de ressources existant lors de la création d’un groupe identique à l’aide d’Azure PowerShell ou de l’interface CLI.
+Oui, vous pouvez créer un groupe identique dans un groupe de ressources existant.
 
-### <a name="can-we-move-a-scale-set-to-another-resource-group"></a>Pouvons-nous déplacer un groupe identique vers un autre groupe de ressources ?
+### <a name="can-i-move-a-scale-set-to-another-resource-group"></a>Puis-je déplacer un groupe identique à un autre groupe de ressources ?
 
 Oui, vous pouvez déplacer des ressources d’un groupe identique vers un nouvel abonnement ou un nouveau groupe de ressources.
 
@@ -686,7 +686,7 @@ Pour obtenir des informations sur les propriétés de chaque machine virtuelle s
 
 Non, vous ne pouvez pas transférer des arguments d’extension différents à des machines virtuelles différentes dans un groupe de machines virtuelles identiques. Toutefois, les extensions peuvent agir en fonction des propriétés uniques de la machine virtuelle où elles s’exécutent, comme le nom de la machine. Les extensions peuvent aussi interroger les métadonnées d’instance sur http://169.254.169.254 pour obtenir plus d’informations sur la machine virtuelle.
 
-### <a name="why-are-there-gaps-between-my-virtual-machine-scale-set-vm-machine-names-and-vm-ids-for-example-0-1-3"></a>Pourquoi y a-t-il des écarts entre les noms de machines virtuelles de mon groupe de machines virtuelles identiques et les ID des machines virtuelles ? Par exemple :  0, 1, 3...
+### <a name="why-are-there-gaps-between-my-virtual-machine-scale-set-vm-machine-names-and-vm-ids-for-example-0-1-3"></a>Pourquoi y a-t-il des écarts entre les noms de machines virtuelles de mon groupe de machines virtuelles identiques et les ID des machines virtuelles ? Exemple : 0, 1, 3...
 
 Il existe des écarts entre les noms des machines virtuelles de votre groupe de machines virtuelles identiques et les ID des machines virtuelles, car la propriété **overprovision** de votre groupe de machines virtuelles identiques est définie sur la valeur par défaut **true**. Si le sur-approvisionnement est défini sur **true**, le nombre de machines virtuelles créées est supérieur à ce qui est demandé. Les machines virtuelles supplémentaires sont ensuite supprimées. Dans ce cas, vous obtenez une fiabilité de déploiement accrue aux dépens d’une affectation de noms contigus et de règles NAT contiguës.
 

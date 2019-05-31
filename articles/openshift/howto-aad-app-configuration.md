@@ -1,20 +1,20 @@
 ---
 title: Intégration d’Azure Active Directory pour Azure Red Hat OpenShift | Microsoft Docs
 description: Découvrez comment créer un groupe de sécurité Azure AD et un utilisateur pour tester des applications sur votre cluster Microsoft Azure Red Hat OpenShift.
-author: tylermsft
-ms.author: twhitney
+author: jimzim
+ms.author: jzim
 ms.service: openshift
 manager: jeconnoc
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/13/2019
-ms.openlocfilehash: f6b87748c33c1afd047ae25dfb7df3670a73e7c8
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: adc5a601a04936a376d7c69b26c2429940ebdf6e
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65779676"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306470"
 ---
 # <a name="azure-active-directory-integration-for-azure-red-hat-openshift"></a>Intégration d’Azure Active Directory pour Azure Red Hat OpenShift
 
@@ -69,7 +69,7 @@ Si votre organisation n’a pas encore une inscription de l’application Azure 
 2. Dans le **inscrire une application** volet, entrez un nom pour l’inscription de votre application.
 3. Vérifiez que sous **pris en charge les types de comptes** qui **comptes dans ce répertoire d’organisation uniquement** est sélectionné. Il s’agit de l’option la plus sûre.
 4. Nous allons ajouter un URI de redirection ultérieurement une fois que nous savons que l’URI du cluster. Cliquez sur le **inscrire** bouton permettant de créer l’inscription de l’application Azure AD.
-5. Dans la page qui s’affiche, notez le **ID d’Application (client)**. Nous faisons référence à cette valeur en tant que `APPID` dans le [créer un cluster Azure Red Hat OpenShift](tutorial-create-cluster.md) didacticiel.
+5. Dans la page qui s’affiche, notez le **ID d’Application (client)** . Nous faisons référence à cette valeur en tant que `APPID` dans le [créer un cluster Azure Red Hat OpenShift](tutorial-create-cluster.md) didacticiel.
 
 ![Capture d’écran de la page de l’objet d’application](./media/howto-create-tenant/get-app-id.png)
 

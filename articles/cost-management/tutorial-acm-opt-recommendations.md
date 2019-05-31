@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 05/20/2019
+ms.date: 05/30/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: 67cf15b00e597131afe421bf8306a5df4511af9a
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 81180d6930816a4a7715ce60313347019029fccd
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65965519"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66416093"
 ---
 # <a name="tutorial-optimize-costs-from-recommendations"></a>Didacticiel : Optimiser les coûts à partir de recommandations
 
@@ -49,7 +49,17 @@ Pour afficher les recommandations pour un groupe d’administration, ouvrez l’
 
 La liste des recommandations identifie les inefficacités d’utilisation ou affiche des recommandations d’achat qui peuvent vous aider à faire des économies supplémentaires. La valeur **Économies annuelles potentielles** totale affiche le montant total que vous pouvez économiser si vous arrêtez ou libérez toutes vos machines virtuelles qui répondent aux règles de recommandation. Si vous ne voulez pas les arrêter, envisagez de les déplacer vers une référence (SKU) de machine virtuelle moins coûteuse.
 
-La catégorie **Impact** ainsi que la valeur **Économies annuelles potentielles** sont destinées à simplifier l’identification des recommandations qui ont la possibilité d’économiser autant que possible. Les recommandations ayant un impact élevé sont [Acheter des instances de machine virtuelle réservées pour économiser sur les coûts du paiement à l’utilisation](../advisor/advisor-cost-recommendations.md#buy-reserved-virtual-machine-instances-to-save-money-over-pay-as-you-go-costs) et [Optimiser le coût de la machine virtuelle en redimensionnant ou en arrêtant les instances sous-utilisées](../advisor/advisor-cost-recommendations.md#optimize-virtual-machine-spend-by-resizing-or-shutting-down-underutilized-instances). Les recommandations ayant un impact moyen sont [Réduire les coûts en éliminant les circuits ExpressRoute non provisionnés](../advisor/advisor-cost-recommendations.md#reduce-costs-by-eliminating-unprovisioned-expressroute-circuits) et [Réduire les coûts en supprimant ou en reconfigurant les passerelles de réseau virtuel inactives](../advisor/advisor-cost-recommendations.md#reduce-costs-by-deleting-or-reconfiguring-idle-virtual-network-gateways).
+La catégorie **Impact** ainsi que la valeur **Économies annuelles potentielles** sont destinées à simplifier l’identification des recommandations qui ont la possibilité d’économiser autant que possible.
+
+Les recommandations ayant un impact élevé sont :
+- [Acheter des instances de machine virtuelle réservée pour réaliser des économies sur les coûts du paiement à l’utilisation](../advisor/advisor-cost-recommendations.md#buy-reserved-virtual-machine-instances-to-save-money-over-pay-as-you-go-costs)
+- [Optimiser les dépenses de machine virtuelle en redimensionnant ou en arrêt les instances sous-utilisées](../advisor/advisor-cost-recommendations.md#optimize-virtual-machine-spend-by-resizing-or-shutting-down-underutilized-instances)
+- [Utilisez le stockage Standard pour stocker les instantanés des disques gérés ](../advisor/advisor-cost-recommendations.md#use-standard-snapshots-for-managed-disks)
+
+Les recommandations ayant un impact moyen :
+- [Supprimer les pipelines Azure Data Factory qui échouent](../advisor/advisor-cost-recommendations.md#delete-azure-data-factory-pipelines-that-are-failing)
+- [Réduire les coûts en éliminant les circuits ExpressRoute non déployés](../advisor/advisor-cost-recommendations.md#reduce-costs-by-eliminating-unprovisioned-expressroute-circuits)
+- [Réduire les coûts en supprimant ou en reconfigurant les passerelles de réseau virtuel inactives](../advisor/advisor-cost-recommendations.md#reduce-costs-by-deleting-or-reconfiguring-idle-virtual-network-gateways)
 
 ## <a name="act-on-a-recommendation"></a>Agir sur une recommandation
 

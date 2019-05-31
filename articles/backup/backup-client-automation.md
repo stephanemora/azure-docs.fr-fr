@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 5/24/2018
 ms.author: pvrk
-ms.openlocfilehash: 6280ca55023fc604e70b62cabdc30cca6409d9e6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: eac7f6ec7ec41d257317d9d2a62f0bacc046dbab
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66127820"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66400198"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>Déployer et gérer une sauvegarde vers Azure pour un serveur/client Windows à l’aide de PowerShell
 
@@ -86,7 +86,7 @@ Properties        : Microsoft.Azure.Commands.RecoveryServices.ARSVaultProperties
 Avant d’installer l'agent de sauvegarde Azure, vous devez avoir téléchargé le programme d’installation sur le serveur Windows. Vous pouvez obtenir la dernière version du programme d’installation à partir du [Centre de téléchargement Microsoft](https://aka.ms/azurebackup_agent) ou de la page Tableau de bord du coffre Recovery Services. Enregistrez le programme d’installation dans un emplacement auquel vous pouvez accéder facilement, par exemple *C:\Téléchargements\*.
 
 Vous pouvez également utiliser PowerShell pour obtenir le téléchargeur :
- 
+
  ```powershell
  $MarsAURL = 'https://aka.ms/Azurebackup_Agent'
  $WC = New-Object System.Net.WebClient
@@ -139,7 +139,7 @@ $CredsFilename = Get-AzRecoveryServicesVaultSettingsFile -Backup -Vault $Vault1 
 ```
 
 Sur le serveur Windows Server ou l’ordinateur client Windows, exécutez l’applet de commande [Start-OBRegistration](https://technet.microsoft.com/library/hh770398%28v=wps.630%29.aspx) pour inscrire l’ordinateur auprès du coffre.
-Cette applet de commande, ainsi que d’autres utilisées pour la sauvegarde, proviennent du module MSONLINE que le Mars AgentInstaller a ajouté dans le cadre du processus d’installation. 
+Cette applet de commande, ainsi que d’autres utilisées pour la sauvegarde, proviennent du module MSONLINE que le Mars AgentInstaller a ajouté dans le cadre du processus d’installation.
 
 Le programme d’installation de l’agent ne met pas à jour la variable $Env:PSModulePath. Cela signifie que le chargement automatique du module échoue. Pour résoudre ce problème, vous pouvez effectuer les étapes suivantes :
 
@@ -391,6 +391,32 @@ RetentionPolicy : Retention Days : 7
 State           : New
 PolicyState     : Valid
 ```
+## <a name="back-up-windows-server-system-state-in-mabs-agent"></a>Sauvegarder de l’état du système Windows Server dans l’agent de serveur de sauvegarde AZURE
+
+Cette section traite de la commande PowerShell pour définir l’état du système de l’agent du serveur de sauvegarde AZURE
+
+### <a name="schedule"></a>Planification
+```powershell
+$sched = New-OBSchedule -DaysOfWeek Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday -TimesOfDay 2:00
+```
+
+### <a name="retention"></a>Rétention
+
+```powershell
+$rtn = New-OBRetentionPolicy -RetentionDays 32 -RetentionWeeklyPolicy -RetentionWeeks 13 -WeekDaysOfWeek Sunday -WeekTimesOfDay 2:00  -RetentionMonthlyPolicy -RetentionMonths 13 -MonthDaysOfMonth 1 -MonthTimesOfDay 2:00
+```
+
+### <a name="configuring-schedule-and-retention"></a>Configuration de planification et rétention
+
+```powershell
+New-OBPolicy | Add-OBSystemState |  Set-OBRetentionPolicy -RetentionPolicy $rtn | Set-OBSchedule -Schedule $sched | Set-OBSystemStatePolicy
+ ```
+
+### <a name="verifying-the-policy"></a>Vérification de la stratégie
+
+```powershell
+Get-OBSystemStatePolicy
+ ```
 
 ### <a name="applying-the-policy"></a>Application de la stratégie
 

@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 05/21/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 4685d02fa9a1f08d86bdbe2915b94f177235b864
-ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
+ms.openlocfilehash: 929a4ae2e954933bf00550770ba9d41319dc6241
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66016415"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66418050"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Déployer des modèles avec le service Azure Machine Learning
 
@@ -92,7 +92,7 @@ Pour plus d'informations, consultez la documentation de référence de la classe
 
 Les éléments suivants de calcul cibles, ou les ressources de calcul, peuvent être utilisées pour héberger votre déploiement de service web. 
 
-| Cible de calcul | Usage | Description  |
+| Cible de calcul | Usage | Description |
 | ----- | ----- | ----- |
 | [Service web local](#local) | Test/debug | Convient pour les tests et la résolution des problèmes limitée.
 | [Azure Kubernetes Service (AKS)](#aks) | Inférence en temps réel | Convient aux déploiements de production à grande échelle. Fournit la mise à l’échelle automatique et des temps de réponse rapides. |
@@ -225,7 +225,7 @@ Le tableau suivant fournit un exemple de création d’une configuration de dép
 | Cible de calcul | Exemple de configuration de déploiement |
 | ----- | ----- |
 | Local | `deployment_config = LocalWebservice.deploy_configuration(port=8890)` |
-| Azure Container Instances | `deployment_config = AciWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
+| Azure Container Instance | `deployment_config = AciWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
 | Azure Kubernetes Service | `deployment_config = AksWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
 
 Les sections suivantes expliquent comment créer la configuration de déploiement et puis l’utiliser pour déployer le service web.
@@ -235,9 +235,6 @@ Les sections suivantes expliquent comment créer la configuration de déploiemen
 ### <a id="local"></a> Déploiement local
 
 Pour déployer en local, vous devez disposer **Docker installé** sur votre ordinateur local.
-
-Les exemples de cette section utilisent [deploy_from_image](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-from-model-workspace--name--models--image-config--deployment-config-none--deployment-target-none-), ce qui nécessite que vous enregistriez le modèle et l’image avant de procéder à un déploiement. Pour plus d’informations sur les autres méthodes de déploiement, consultez [déployer](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-workspace--name--model-paths--image-config--deployment-config-none--deployment-target-none-) et [deploy_from_model](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-from-model-workspace--name--models--image-config--deployment-config-none--deployment-target-none-).
-
 
 + **L’utilisation du SDK**
 

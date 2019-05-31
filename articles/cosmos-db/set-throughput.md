@@ -4,14 +4,14 @@ description: Découvrez comment définir un débit provisionné pour vos contene
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 05/28/2019
 ms.author: rimman
-ms.openlocfilehash: 598a1562127a67c78f67cdd02b00d83d4a606739
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: f30155c0fbdbdd93ab4ffc3ae85ef2ad62b188c9
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65953543"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389247"
 ---
 # <a name="provision-throughput-on-containers-and-databases"></a>Approvisionner le débit sur les conteneurs et les bases de données
 
@@ -71,8 +71,7 @@ L’illustration suivante montre comment une partition physique peut héberger u
 Vous pouvez combiner les deux modèles. Provisionner le débit sur la base de données et le conteneur est autorisé. L’exemple suivant montre comment provisionner le débit sur une base de données et un conteneur Azure Cosmos :
 
 * Vous pouvez créer une base de données Azure Cosmos nommée *Z* avec un débit approvisionné de *« K »* unités de requête. 
-* Ensuite, créez cinq conteneurs nommés *A*, *B*, *C*, *D*, et *E* au sein de la base de données.
-* Vous pouvez configurer explicitement *« P »* RU de débit approvisionné sur le conteneur nommé *B*.
+* Ensuite, créez cinq conteneurs nommés *A*, *B*, *C*, *D*, et *E* au sein de la base de données. Lorsque vous créez un conteneur B, veillez à activer **approvisionner le débit dédié pour ce conteneur** option et de configurer explicitement *« P »* RU de débit approvisionné sur ce conteneur. Notez que vous pouvez configurer le débit partagé et dédié uniquement lors de la création de la base de données et le conteneur. 
 * Le *« K »* RUs débit est partagé entre les quatre conteneurs *A*, *C*, *D*, et *E*. La quantité exacte de débit disponible pour *A*, *C*, *D*, ou *E* varie. Il n’existe pas de contrat SLA correspondant au débit de chaque conteneur individuel.
 * Le conteneur nommé *B* est assurée de bénéficier de la *« P »* RUs débit tout le temps. Il est associé à des contrats SLA.
 

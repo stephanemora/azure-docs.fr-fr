@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 05/30/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: cdef62fabdaf3b76effba380c38fa7b8b3c9a87b
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: eefb5f3ea10d72cdf355fc810147414fe1714d67
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/30/2019
-ms.locfileid: "66399730"
+ms.locfileid: "66417009"
 ---
 # <a name="what-are-availability-zones-in-azure"></a>Que sont les zones de disponibilité dans Azure ?
 Les Zones de disponibilité constituent une offre à haute disponibilité qui protège vos applications et données contre les pannes des centres de données. Les Zones de disponibilité sont des emplacements physiques uniques au sein d’une région Azure. Chaque zone de disponibilité est composée d’un ou de plusieurs centres de données équipés d’une alimentation, d’un système de refroidissement et d’un réseau indépendants. Pour garantir la résilience, il existe un minimum de trois zones distinctes dans toutes les régions activées. La séparation physique des Zones de disponibilité dans une région protège les applications et les données des défaillances dans le centre de données. Les services redondants interzone répliquent vos applications et données entre des Zones de disponibilité pour les protéger contre des points uniques de panne. Avec les Zones de disponibilité, Azure propose des contrats de niveau de service de durée de fonctionnement des machines virtuelles de pointe de 99,99 %. La version complète du [contrat SLA Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/) explique la disponibilité garantie d’Azure dans son ensemble.
@@ -86,7 +86,7 @@ Il n’existe aucun coût supplémentaire pour les machines virtuelles déployé
 - [Géo-reprise d’activité après sinistre Event Hubs](../event-hubs/event-hubs-geo-dr.md#availability-zones)
 - [Géo-reprise d’activité après sinistre Service Bus](../service-bus-messaging/service-bus-geo-dr.md#availability-zones)
 - [Créer une passerelle de réseau virtuel redondante interzone](../vpn-gateway/create-zone-redundant-vnet-gateway.md)
-- [Ajoutez la région redondant de zone pour Azure Cosmos DB](../cosmos-db/high-availability.md##availability-zone-support)
+- [Ajoutez la région redondant de zone pour Azure Cosmos DB](../cosmos-db/high-availability.md#availability-zone-support)
 
 
 ## <a name="next-steps"></a>Étapes suivantes

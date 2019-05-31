@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: codepen
-ms.openlocfilehash: b8205383c25ba04212126e0e6ca1bd44e4efad1a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 31403a11e8989cee6a1c166879a0b2f594892704
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60768901"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357626"
 ---
 # <a name="show-directions-from-a-to-b"></a>Afficher des directions de A à B
 
@@ -29,7 +29,7 @@ Il existe deux manières de procéder. La première consiste à interroger l’[
 
 Dans le code ci-dessus, le premier bloc de code construit un objet de mappage et définit le mécanisme d’authentification à utiliser la clé d’abonnement. Vous pouvez consulter la section [Créer une carte](./map-create.md) pour obtenir des instructions.
 
-Le deuxième bloc de code crée un `SubscriptionKeyCredentialPolicy` pour authentifier les demandes HTTP vers Azure Maps avec la clé d’abonnement. `atlas.service.MapsURL.newPipeline()` utilise la stratégie `SubscriptionKeyCredential` et crée une instance de [pipeline](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-iot-typescript-latest). `routeURL` représente une URL des opérations sur l’[itinéraire](https://docs.microsoft.com/rest/api/maps/route) d’Azure Maps.
+Le deuxième bloc de code crée un `SubscriptionKeyCredentialPolicy` pour authentifier les demandes HTTP vers Azure Maps avec la clé d’abonnement. `atlas.service.MapsURL.newPipeline()` utilise la stratégie `SubscriptionKeyCredential` et crée une instance de [pipeline](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-maps-typescript-latest). `routeURL` représente une URL des opérations sur l’[itinéraire](https://docs.microsoft.com/rest/api/maps/route) d’Azure Maps.
 
 Le troisième bloc de code crée et ajoute un [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) objet à la carte.
 

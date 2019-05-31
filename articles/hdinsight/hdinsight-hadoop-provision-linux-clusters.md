@@ -8,13 +8,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.topic: conceptual
-ms.date: 01/28/2019
-ms.openlocfilehash: 2f8c3aa0a5d37327ba49aebb1def94e90751b7cc
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.date: 05/28/2019
+ms.openlocfilehash: 351b6a8e056d22fa8f2d695a2722b39b9771c8b0
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65597576"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66299387"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-apache-hadoop-apache-spark-apache-kafka-and-more"></a>Configurer des clusters dans HDInsight avec Apache Hadoop, Apache Spark, Apache Kafka, etc.
 
@@ -22,7 +22,7 @@ ms.locfileid: "65597576"
 
 Découvrez comment installer et configurer des clusters dans HDInsight avec Apache Hadoop, Apache Spark, Apache Kafka, Interactive Query, Apache HBase, ML Services ou Apache Storm. En outre, découvrez comment personnaliser des clusters et ajouter une sécurité en les joignant à un domaine.
 
-Un cluster Hadoop se compose de plusieurs machines virtuelles (nœuds) utilisées pour le traitement distribué de tâches. Azure HDInsight prend en charge les détails de mise en œuvre de l’installation et de la configuration des nœuds individuels, de sorte que vous n’avez plus qu’à fournir les informations de configuration générales. 
+Un cluster Hadoop se compose de plusieurs machines virtuelles (nœuds) utilisées pour le traitement distribué de tâches. Azure HDInsight prend en charge les détails de mise en œuvre de l’installation et de la configuration des nœuds individuels, de sorte que vous n’avez plus qu’à fournir les informations de configuration générales.
 
 > [!IMPORTANT]  
 > La facturation du cluster HDInsight démarre à la création du cluster et s’arrête à sa suppression. La facturation est effectuée au prorata des minutes écoulées. Par conséquent, vous devez toujours supprimer votre cluster lorsqu’il n’est plus utilisé. Apprenez comment [supprimer un cluster.](hdinsight-delete-cluster.md)
@@ -52,11 +52,7 @@ Suivez les instructions à l’écran pour effectuer une configuration de cluste
 * Connexion au cluster et nom d’utilisateur SSH
 * [Lieu](#location)
 
-> [!IMPORTANT]  
-> Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, reportez-vous à la rubrique [Déclassement de HDInsight 3.3](hdinsight-component-versioning.md#hdinsight-windows-retirement).
->
-
-## <a name="resource-group-name"></a>Nom de groupe ressources 
+## <a name="resource-group-name"></a>Nom de groupe ressources
 
 [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) vous permet de manipuler les ressources de votre application sous la forme d’un groupe, nommé groupe de ressources Azure. Vous pouvez déployer, mettre à jour, surveiller ou supprimer toutes les ressources de votre application dans le cadre d’une opération unique et coordonnée.
 
@@ -160,10 +156,10 @@ Chaque type de cluster possède son propre nombre de nœuds, sa terminologie pou
 
 | Type | Nœuds | Diagramme |
 | --- | --- | --- |
-| Hadoop |Nœud principal (2), nœud de données (1+) |![Nœuds de cluster Hadoop HDInsight](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hadoop-cluster-type-nodes.png) |
+| Hadoop |Nœud principal (2), nœud Worker (1 +) |![Nœuds de cluster Hadoop HDInsight](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hadoop-cluster-type-nodes.png) |
 | hbase |Serveur principal (2), serveur de région (1+), nœud principal/ZooKeeper (3) |![Nœuds de cluster HDInsight HBase](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hbase-cluster-type-setup.png) |
 | Storm |Nœud Nimbus (2), serveur supervisor (1+), nœud ZooKeeper (3) |![Nœuds de cluster HDInsight Storm](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-storm-cluster-type-setup.png) |
-| Spark |Nœud principal (2), nœud worker (1+), nœud ZooKeeper (3) (gratuits pour les machines virtuelles ZooKeeper A1) |![Nœuds de cluster HDInsight Spark](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-spark-cluster-type-setup.png) |
+| Spark |Nœud principal (2), nœud Worker (1 +), nœud ZooKeeper (3) (gratuit pour les machines virtuelles ZooKeeper A1) |![Nœuds de cluster HDInsight Spark](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-spark-cluster-type-setup.png) |
 
 Pour plus d’informations, consultez [Configuration des nœuds par défaut et tailles des machines virtuelles pour les clusters](hdinsight-component-versioning.md#default-node-configuration-and-virtual-machine-sizes-for-clusters) dans « Quels sont les composants Hadoop et les versions dans HDInsight ? »
 
@@ -172,17 +168,16 @@ Le coût des clusters HDInsight est déterminé par le nombre de nœuds et par l
 Les différents types de clusters ont des types de nœuds, nombres de nœuds et tailles de nœuds différents :
 * Type de cluster Hadoop par défaut : 
     * Deux *nœuds principaux*  
-    * Quatre *nœuds de données*
+    * Quatre *nœuds Worker*
 * Type de cluster Storm par défaut : 
     * Deux *nœuds Nimbus*
     * Trois *nœuds ZooKeeper*
     * Quatre *nœuds superviseurs* 
 
-Si vous essayez simplement out HDInsight, nous vous recommandons d'utiliser un nœud de données. Pour plus d'informations sur la tarification de HDInsight, consultez la rubrique [Tarification HDInsight](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409).
+Si vous essayez simplement out HDInsight, nous vous recommandons de qu'utiliser un seul nœud de travail. Pour plus d'informations sur la tarification de HDInsight, consultez la rubrique [Tarification HDInsight](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409).
 
 > [!NOTE]  
 > La limite de taille du cluster varie selon les abonnements Azure. Contactez le [support de facturation Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) pour augmenter la limite.
->
 
 Lorsque vous utilisez le portail Azure pour configurer le cluster, la taille de nœud est disponible via le panneau **Niveaux de tarification du nœud**. Dans le portail, vous pouvez également voir le coût associé aux différentes tailles de nœuds. 
 
@@ -196,9 +191,7 @@ Lorsque vous déployez des clusters, choisissez les ressources de calcul basées
 Pour connaître la valeur que vous devez utiliser pour spécifier une taille de machine virtuelle lors de la création d’un cluster à l’aide de kits de développement logiciel différents ou lorsque vous utilisez Azure PowerShell, consultez les [tailles de machines virtuelles à utiliser pour les clusters HDInsight](../cloud-services/cloud-services-sizes-specs.md#size-tables). À partir de cet article lié, utilisez la valeur de la colonne **Taille** des tables.
 
 > [!IMPORTANT]  
-> Si vous avez besoin de plus de 32 nœuds worker dans un cluster, vous devez sélectionner une taille de nœud principal avec au moins 8 cœurs et 14 Go de RAM.
->
->
+> Si vous avez besoin de plus de 32 nœuds Worker dans un cluster, vous devez sélectionner une taille de nœud principal avec au moins 8 cœurs et 14 Go de RAM.
 
 Pour plus d’informations, consultez [Tailles des machines virtuelles](../virtual-machines/windows/sizes.md). Pour plus d’informations sur la tarification des différentes tailles, consultez [Tarification de HDInsight](https://azure.microsoft.com/pricing/details/hdinsight).   
 
@@ -212,8 +205,6 @@ Certains composants Java natifs, comme Apache Mahout et Cascading, peuvent être
 > En cas de problèmes lors du déploiement ou de l’appel des fichiers JAR sur les clusters HDInsight, contactez le [support Microsoft](https://azure.microsoft.com/support/options/).
 >
 > Cascading n’est pas pris en charge par HDInsight et ne peut pas bénéficier du support Microsoft. Pour obtenir la liste des composants pris en charge, consultez la rubrique [Nouveautés des versions de cluster fournies par HDInsight](hdinsight-component-versioning.md).
->
->
 
 Vous souhaitez parfois configurer des fichiers de configuration suivants pendant le processus de création :
 

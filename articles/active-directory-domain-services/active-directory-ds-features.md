@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services : Fonctionnalités | Microsoft Do
 description: Caractéristiques des services de domaine Azure Active Directory
 services: active-directory-ds
 documentationcenter: ''
-author: eringreenlee
+author: MikeStephens-MS
 manager: daveba
 editor: curtand
 ms.assetid: 8d1c3eb3-1022-4add-a919-c98cc6584af1
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/30/2018
-ms.author: ergreenl
-ms.openlocfilehash: 9e4ab7aa4f61921d8b327404a266694349d78164
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/10/2019
+ms.author: mstephen
+ms.openlocfilehash: 27aaaca4f28feac0f68b4e034426c64b934b1f95
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60417263"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234932"
 ---
 # <a name="azure-ad-domain-services"></a>Services de domaine Azure AD
 ## <a name="features"></a>Caractéristiques
@@ -32,10 +32,10 @@ Les fonctionnalités suivantes sont disponibles dans les domaines gérés des se
 * **Créer des domaines avec des noms personnalisés :** Vous pouvez créer des domaines avec des noms personnalisés (par exemple, « contoso100.com ») à l’aide d’Azure AD Domain Services. Vous pouvez utiliser des noms de domaine vérifiés ou non vérifiés. Si vous le souhaitez, vous pouvez également créer un domaine avec le suffixe de domaine intégré (c’est-à-dire, * .onmicrosoft.com) proposé par votre annuaire Azure AD.
 * **Intégration à Azure AD :** Vous n’avez pas besoin de configurer ou de gérer la réplication sur Azure AD Domain Services. Les comptes d’utilisateur, les appartenances aux groupes et les informations d’identification (mots de passe) issus de votre annuaire Azure AD sont automatiquement disponibles dans les services de domaine Azure AD. Les nouveaux utilisateurs ou groupes ou les modifications apportées aux attributs dans votre client Azure AD ou dans votre annuaire local sont automatiquement synchronisés avec les services de domaine Azure AD.
 * **Authentification NTLM et Kerberos :** Grâce à la prise en charge de l’authentification NTLM et Kerberos, vous pouvez déployer des applications qui reposent sur l’authentification intégrée de Windows.
-* **Utilisation de vos informations d’identification/mots de passe d’entreprise :** Les mots de passe des utilisateurs dans votre client Azure AD fonctionnent avec Azure AD Domain Services. Les utilisateurs peuvent utiliser leurs informations d’identification d’entreprise pour joindre des machines à des domaines, se connecter de manière interactive ou via le bureau à distance et s’authentifier sur le domaine géré.
+* **Utilisation de vos informations d’identification/mots de passe d’entreprise :** Les mots de passe des utilisateurs dans votre client Azure AD fonctionnent avec Azure AD Domain Services. Les utilisateurs peuvent utiliser leurs informations d’identification d’entreprise pour les machines de jonction de domaine, connectez-vous de manière interactive ou via Bureau à distance et s’authentifier sur le domaine géré.
 * **Prise en charge des liaisons LDAP et des lectures LDAP :** Vous pouvez utiliser des applications qui reposent sur les liaisons LDAP pour authentifier les utilisateurs dans des domaines pris en charge par Azure AD Domain Services. En outre, les applications qui utilisent des opérations de lecture LDAP pour interroger les attributs des utilisateurs ou ordinateurs à partir de l’annuaire peuvent également fonctionner auprès des services de domaine Azure AD.
 * **LDAP sécurisé (LDAPS) :** Vous pouvez activer l’accès au répertoire via LDAP sécurisé (LDAPS). L’accès LDAP sécurisé est disponible au sein du réseau virtuel par défaut. Toutefois, vous pouvez activer également l’accès LDAP sécurisé via internet.
-* **Stratégie de groupe :** Vous pouvez utiliser un seul objet de stratégie de groupe intégré pour les conteneurs des utilisateurs et des ordinateurs afin d’imposer la conformité aux stratégies de sécurité nécessaires pour les comptes d’utilisateur et aux ordinateurs joints au domaine. Vous pouvez également créer vos propres objets de stratégie de groupe personnalisés et les affecter à des unités d’organisation personnalisées pour [gérer la stratégie de groupe](active-directory-ds-admin-guide-administer-group-policy.md).
+* **Stratégie de groupe :** Vous pouvez utiliser un seul objet de stratégie de groupe intégré pour les conteneurs des utilisateurs et des ordinateurs afin d’imposer la conformité aux stratégies de sécurité nécessaires pour les comptes d’utilisateur et aux ordinateurs joints au domaine. Vous pouvez également créer vos propres objets de stratégie de groupe personnalisés et les affecter à des unités d’organisation personnalisées pour [gérer la stratégie de groupe](manage-group-policy.md).
 * **Gérer DNS :** Les membres du groupe AAD DC Administrators peuvent gérer les DNS de votre domaine géré à l’aide d'outils d’administration DNS courants comme le composant logiciel enfichable DNS Administration MMC.
 * **Créer des unités organisationnelles (UO) personnalisées :** Les membres du groupe « AAD DC Administrators » peuvent créer des unités d’organisation personnalisées dans le domaine géré. Ces utilisateurs bénéficient de privilèges administratifs complets sur les unités organisationnelles personnalisées et peuvent donc ajouter/supprimer des comptes de service, des ordinateurs, des groupes, etc. au sein de ces unités organisationnelles personnalisées.
 * **Disponible dans plusieurs régions Azure :** Pour connaître les régions Azure dans lesquelles les services de domaine Azure AD sont disponibles, consultez la page [Services Azure par région](https://azure.microsoft.com/regions/#services/) .

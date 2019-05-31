@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 12/03/2018
 ms.author: cephalin;dariagrigoriu
 ms.custom: seodec18
-ms.openlocfilehash: fcb2c270b36d5efbe7b799787cf2a123b51bea5c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 384f709bb32f973efec39518eaa895e25136fe23
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60765614"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390635"
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>Déploiement continu vers Azure App Service
 Cet article vous explique comment configurer un déploiement continu pour [Azure App Service](overview.md). Azure App Service permet un déploiement continu depuis BitBucket, GitHub et [Azure DevOps Services](https://www.visualstudio.com/team-services/) en extrayant les mises à jour les plus récentes de votre référentiel existant pour les envoyer dans l’un de ces services.
@@ -130,7 +130,7 @@ Sur la page **Configurer**, dans la section **Build**, indiquez l’infrastructu
 
 Sur la page **Test**, choisissez si activer les tests de charge, puis cliquez sur **Continuer**.
 
-En fonction de la [tarification](https://azure.microsoft.com/pricing/details/app-service/plans/) de votre plan App Service, il peut arriver qu’une page proposant un **déploiement intermédiaire** s’affiche. Choisissez si [activer des emplacements de déploiement](deploy-staging-slots.md), puis cliquez sur **Continuer**. 
+En fonction de la [tarification](https://azure.microsoft.com/pricing/details/app-service/plans/) de votre plan App Service, il peut arriver qu’une page proposant un **déploiement intermédiaire** s’affiche. Choisissez si [activer des emplacements de déploiement](deploy-staging-slots.md), puis cliquez sur **Continuer**. DevOps n’autorise pas la livraison continue à l’emplacement de production. Ceci est normal pour empêcher les déploiements accidentels en production. Vous devez définir la diffusion en continu vers un emplacement intermédiaire, vérifiez vos modifications et échanger les emplacements lorsque vous êtes prêt.
 
 ### <a name="finish-configuration"></a>Terminer la configuration
 

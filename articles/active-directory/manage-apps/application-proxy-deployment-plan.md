@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04-04-2019
-ms.author: barbaraselden
+ms.date: 04/04/2019
+ms.author: baselden
 ms.reviewer: ''
-ms.openlocfilehash: d8686b9296c8b1d7c5232e2e46a0e66a9896656b
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 04a2e9968e8716818637a34adea86de88e1f848c
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66113023"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388307"
 ---
 # <a name="plan-an-azure-ad-application-proxy-deployment"></a>Planifier un déploiement de Proxy d’Application Azure AD
 
@@ -92,8 +92,8 @@ Compiler un inventaire de toutes les applications dans la portée qui sont publi
 
 | Type d’informations| Informations à collecter |
 |---|---|
-| Type de service| Exemple : SharePoint, SAP, CRM, Application Web personnalisée, API |
-| Plateforme d’application | Exemple : Windows IIS, Apache sur Linux, Tomcat, NGINX |
+| Type de service| Exemple : SharePoint, SAP, CRM, Application Web personnalisée, API |
+| Plateforme d’application | Exemple : Windows IIS, Apache sur Linux, Tomcat, NGINX |
 | Appartenance au domaine| Nom de domaine complet du serveur Web (FQDN) |
 | Emplacement de l’application | Emplacement du serveur web ou une batterie de serveurs dans votre infrastructure |
 | Accès interne | L’URL exacte utilisée lors de l’accès de l’application en interne. <br> Si une batterie de serveurs, quel type d’équilibrage de charge est en cours d’utilisation ? <br> Indique si l’application dessine le contenu à partir de sources autres que lui-même.<br> Déterminer si l’application fonctionne sur WebSockets. |

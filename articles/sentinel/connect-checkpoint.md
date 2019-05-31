@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: c487856c7fb959f684700dee1d463783954b1a53
-ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
+ms.openlocfilehash: cad1f84f611ac3214b8823bb11817ffceb3e2017
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65921968"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388695"
 ---
 # <a name="connect-your-check-point-appliance"></a>Se connecter à votre appliance de Check Point
 
@@ -123,7 +123,7 @@ Il peut prendre plus de 20 minutes jusqu'à ce que vos journaux commencent à ap
 
 3. Assurez-vous que les journaux que vous envoyez sont conformes aux [RFC 5424](https://tools.ietf.org/html/rfc542).
 
-4. Sur l’ordinateur exécutant l’agent Syslog, assurez-vous que ces ports 514, 25226 sont ouverts et écoute, à l’aide de la commande `netstat -a -n:`. Pour plus d’informations sur l’utilisation de cette commande, consultez [netstat(8) - page man Linux](https://linux.die.netman/8/netstat). Si elle est à l’écoute correctement, vous verrez ceci :
+4. Sur l’ordinateur exécutant l’agent Syslog, assurez-vous que ces ports 514, 25226 sont ouverts et écoute, à l’aide de la commande `netstat -a -n:`. Pour plus d’informations sur l’utilisation de cette commande, consultez [netstat(8) - page man Linux](https://linux.die.net/man/8/netstat). Si elle est à l’écoute correctement, vous verrez ceci :
 
    ![Ports Sentinel Azure](./media/connect-cef/ports.png) 
 

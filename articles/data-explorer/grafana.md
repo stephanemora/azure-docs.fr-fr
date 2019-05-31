@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 12/05/2018
-ms.openlocfilehash: 188cb310cfc13fe2fc41ba3e01deb01068c0184d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 135f8f1c9c352f9d2307a8bf9ad1bec892aac179
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60446999"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399915"
 ---
 # <a name="visualize-data-from-azure-data-explorer-in-grafana"></a>Visualiser des données Azure Data Explorer dans Grafana
 
@@ -154,7 +154,7 @@ Maintenant que le principal de service est affecté au rôle *observateurs*, vou
     | Interface utilisateur de Grafana | Portail Azure | Azure CLI |
     | --- | --- | --- |
     | ID d’abonnement | ID D’ABONNEMENT | SubscriptionId |
-    | ID client | ID du répertoire | tenant |
+    | ID client | ID du répertoire | locataire |
     | ID de client | ID de l'application | appId |
     | Clé secrète client | Mot de passe | password |
     | | | |
@@ -208,6 +208,6 @@ Maintenant que vous avez fini de configurer Azure Data Explorer en tant que sour
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Écrire des requêtes pour l’Explorateur de données Azure](write-queries.md)
+* [Écrire des requêtes pour l’Explorateur de données Azure](write-queries.md)
 
-[Tutoriel : Visualiser des données Azure Data Explorer dans Power BI](visualize-power-bi.md)
+* [Tutoriel : Visualiser des données Azure Data Explorer dans Power BI](visualize-power-bi.md)

@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/28/2019
+ms.date: 05/23/2019
 ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74767e9d00f630efd2be026c3c3688c816c2ccee
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 387f1e0bf6461b5e87da1de35e74c5e49c5dc632
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66113357"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66305541"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Nouveautés d’Azure Active Directory
 
@@ -40,6 +40,18 @@ Cette page est mise à jour tous les mois. Donc, consultez-la régulièrement. S
 ---
 
 ## <a name="april-2019"></a>Avril 2019
+
+### <a name="new-azure-ad-threat-intelligence-detection-is-now-available-in-refreshed-azure-ad-identity-protection"></a>Nouvelle détection intelligence des menaces Azure AD est désormais disponible dans actualisé Azure AD Identity Protection
+
+**Type :** Nouvelle fonctionnalité  
+**Catégorie de service :** Azure AD Identity Protection  
+**Fonctionnalité de produit :** Protection et sécurité des identités
+
+Détection intelligence des menaces Azure AD est désormais disponible dans l’Azure AD Identity Protection actualisée. Cette nouvelle fonctionnalité permet d’indiquer l’activité de l’utilisateur qui est rare qu’un utilisateur spécifique ou qui est cohérente avec les modèles d’attaque connus en fonction internes et externes sur les menaces de Microsoft.
+
+Pour plus d’informations sur la version actualisée du Azure AD Identity Protection, consultez le [quatre principales améliorations d’Azure AD Identity Protection sont désormais en version préliminaire publique](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Four-major-Azure-AD-Identity-Protection-enhancements-are-now-in/ba-p/326935) blog et le [qu’est Azure Active Directory Protection d’identité (actualisée) ?](https://docs.microsoft.com/azure/active-directory/identity-protection/overview-v2) article. Pour plus d’informations sur la détection de Azure AD threat intelligence, consultez le [événements à risque Azure Active Directory Identity Protection](https://docs.microsoft.com/azure/active-directory/identity-protection/risk-events-reference#azure-ad-threat-intelligence) article.
+
+---
 
 ### <a name="azure-active-directory-azure-ad-entitlement-management-is-now-available-public-preview"></a>Gestion des habilitations Azure Active Directory (Azure AD) est désormais disponible (version préliminaire publique)
 
@@ -125,7 +137,7 @@ Pour plus d’informations sur la création d’une révision d’accès, consul
 **Catégorie de service :** AD Sync  
 **Fonctionnalité de produit :** Plateforme
 
-Azure AD Connect est en cours de transition de notre messagerie alerte système (s), potentiellement montrant certains clients à un nouvel expéditeur de courrier électronique. Pour résoudre ce problème, vous devez ajouter `azure-noreply@microsoft.com` à la liste verte de votre organisation, ou vous ne pourrez continuer à recevoir des alertes importantes de votre Office 365, Azure ou vos services de synchronisation.
+Azure AD Connect est en cours de transition de notre messagerie alerte système (s), potentiellement montrant certains clients à un nouvel expéditeur de courrier électronique. Pour résoudre ce problème, vous devez ajouter `azure-noreply@microsoft.com` à liste verte de votre organisation ou vous ne pourrez pas continuer à recevoir des alertes importantes de votre Office 365, Azure ou vos services de synchronisation.
 
 ---
 
@@ -285,8 +297,8 @@ Pour aider à empêcher les administrateurs d’accidentellement procéder eux-m
 
 ### <a name="improved-end-user-terms-of-use-experiences-on-mobile-devices"></a>Termes du contrat de l’utilisateur final améliorée des expériences d’utilisation sur les appareils mobiles
 
-**Type :** Fonctionnalité modifiée  
-**Catégorie de service :** Conditions d’utilisation  
+**Type :** Fonctionnalité modifiée  
+**Catégorie de service :** Conditions d’utilisation  
 **Fonctionnalité de produit :** Gouvernance
 
 Nous avons mis à jour nos conditions existantes d’expériences d’utilisation pour aider à améliorer la façon dont vous passez en revue et acceptez les conditions d’utilisation sur un appareil mobile. Vous pouvez maintenant effectuer un zoom avant et arrière, revenez en arrière, télécharger les informations et sélectionner des liens hypertexte. Pour plus d’informations sur les conditions de mise à jour d’utilisation, consultez [Azure Active Directory fonctionnalité conditions d’utilisation](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use#what-terms-of-use-looks-like-for-users).
@@ -660,38 +672,38 @@ Pour en savoir plus sur la récupération et l’utilisation de ce timestamp, co
 
 ### <a name="administrators-can-require-users-to-accept-a-terms-of-use-on-each-device"></a>Les administrateurs peuvent demander aux utilisateurs d’accepter les conditions d’utilisation sur chaque appareil
 
-**Type :** Nouvelle fonctionnalité  
-**Catégorie de service :** Conditions d’utilisation  
+**Type :** Nouvelle fonctionnalité  
+**Catégorie de service :** Conditions d’utilisation  
 **Fonctionnalité de produit :** Gouvernance
  
-Les administrateurs peuvent maintenant activer l’option **Require users to consent on every device (Demander le consentement des utilisateurs sur chaque appareil)** pour demander aux utilisateurs d’accepter vos conditions d’utilisation sur chaque appareil à partir duquel ils utilisent votre locataire.
+Les administrateurs peuvent maintenant activer la **obliger les utilisateurs à donner son consentement sur chaque appareil** option à vos utilisateurs à accepter vos conditions d’utilisation sur chaque appareil qu’ils utilisent sur votre client.
 
-Pour plus d’informations, consultez la section [Conditions d’utilisation par appareil de la page Fonctionnalité Conditions d’utilisation d’Azure Active Directory](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use#per-device-terms-of-use).
+Pour plus d’informations, consultez le [termes par périphérique de la section Utilisation des termes du contrat Azure Active Directory d’utiliser la fonctionnalité](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use#per-device-terms-of-use).
 
 ---
 
-### <a name="administrators-can-configure-a-terms-of-use-to-expire-based-on-a-recurring-schedule"></a>Les administrateurs peuvent configurer l’expiration des conditions d’utilisation selon une planification périodique
+### <a name="administrators-can-configure-a-terms-of-use-to-expire-based-on-a-recurring-schedule"></a>Les administrateurs peuvent configurer les conditions d’utilisation expire selon une planification périodique
 
-**Type :** Nouvelle fonctionnalité  
-**Catégorie de service :** Conditions d’utilisation  
+**Type :** Nouvelle fonctionnalité  
+**Catégorie de service :** Conditions d’utilisation  
 **Fonctionnalité de produit :** Gouvernance
  
 
-Les administrateurs peuvent maintenant activer l’option **Faire expirer les consentements** pour faire expirer les conditions d’utilisation de tous vos utilisateurs en fonction de votre planification périodique spécifiée. La planification peut être une fois par an, deux fois par an, tous les trimestres ou tous les mois. Une fois que les conditions d’utilisation expirent, les utilisateurs doivent acceptent.
+Les administrateurs peuvent maintenant activer la **expirer consentements** expiration d’option pour rendre les conditions d’utilisation pour tous vos utilisateurs en fonction de votre planification périodique spécifiée. La planification peut être une fois par an, deux fois par an, tous les trimestres ou tous les mois. Une fois que les conditions d’utilisation expirent, les utilisateurs doivent acceptent.
 
-Pour plus d’informations, consultez la section [Ajouter des conditions d’utilisation de la page Fonctionnalité Conditions d’utilisation d’Azure Active Directory](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use#add-terms-of-use).
+Pour plus d’informations, consultez le [ajouter des conditions de la section Utilisation des termes du contrat Azure Active Directory d’utiliser la fonctionnalité](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use#add-terms-of-use).
 
 ---
 
-### <a name="administrators-can-configure-a-terms-of-use-to-expire-based-on-each-users-schedule"></a>Les administrateurs peuvent configurer l’expiration des conditions d’utilisation selon la planification de chaque utilisateur
+### <a name="administrators-can-configure-a-terms-of-use-to-expire-based-on-each-users-schedule"></a>Les administrateurs peuvent configurer les conditions d’utilisation expire en fonction planification de chaque utilisateur
 
-**Type :** Nouvelle fonctionnalité  
-**Catégorie de service :** Conditions d’utilisation  
+**Type :** Nouvelle fonctionnalité  
+**Catégorie de service :** Conditions d’utilisation  
 **Fonctionnalité de produit :** Gouvernance
 
-Les administrateurs peuvent maintenant spécifier la durée après laquelle l’utilisateur doit réaccepter les conditions d’utilisation. Par exemple, les administrateurs peuvent spécifier que les utilisateurs doivent réaccepter les conditions d’utilisation tous les 90 jours.
+Les administrateurs peuvent désormais spécifier une durée de cet utilisateur doit acceptent les conditions d’utilisation. Par exemple, les administrateurs peuvent spécifier que les utilisateurs doivent réaccepter les conditions d’utilisation de tous les 90 jours.
 
-Pour plus d’informations, consultez la section [Ajouter des conditions d’utilisation de la page Fonctionnalité Conditions d’utilisation d’Azure Active Directory](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use#add-terms-of-use).
+Pour plus d’informations, consultez le [ajouter des conditions de la section Utilisation des termes du contrat Azure Active Directory d’utiliser la fonctionnalité](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use#add-terms-of-use).
  
 ---
 

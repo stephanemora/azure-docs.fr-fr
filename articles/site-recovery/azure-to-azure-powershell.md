@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 3/29/2019
 ms.author: sutalasi
-ms.openlocfilehash: f09a186ee5626718c7b5e1085dd75d8857e44bb1
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: c585b300a65091bee3320a21b7bce7ba94d269ec
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64705163"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258802"
 ---
 # <a name="set-up-disaster-recovery-for-azure-virtual-machines-using-azure-powershell"></a>Configurer la récupération d’urgence pour des machines virtuelles Azure à l’aide d’Azure PowerShell
 
@@ -135,19 +135,12 @@ Properties        : Microsoft.Azure.Commands.RecoveryServices.ARSVaultProperties
 ```
 ## <a name="set-the-vault-context"></a>Définir le contexte du coffre
 
-> [!TIP]
-> Le module Azure Site Recovery PowerShell (module Az.RecoveryServices) est fourni avec des alias faciles à utiliser pour la plupart des applets de commande. Les applets de commande dans le module prennent la forme  *\<opération >-**AzRecoveryServicesAsr**\<objet >* et possèdent des alias équivalents qui prennent la forme  *\< Opération >-**ASR**\<objet >*. Cet article utilise les alias de cmdlet afin de faciliter la lecture.
 
-Définissez le contexte du coffre pour l’utiliser dans la session PowerShell. Pour ce faire, téléchargez le fichier de paramètres du coffre, et importez-le dans la session PowerShell pour définir le contexte du coffre.
-
-Ensuite, les opérations suivantes d’Azure Site Recovery dans la session PowerShell sont effectuées dans le contexte du coffre sélectionné.
+Définissez le contexte du coffre pour l’utiliser dans la session PowerShell. Ensuite, les opérations suivantes d’Azure Site Recovery dans la session PowerShell sont effectuées dans le contexte du coffre sélectionné.
 
  ```azurepowershell
-#Download the vault settings file for the vault.
-$Vaultsettingsfile = Get-AzRecoveryServicesVaultSettingsFile -Vault $vault -SiteRecovery -Path C:\users\user\Documents\
-
-#Import the downloaded vault settings file to set the vault context for the PowerShell session.
-Import-AzRecoveryServicesAsrVaultSettingsFile -Path $Vaultsettingsfile.FilePath
+#Setting the vault context.
+Set-AsrVaultSettings -Vault $vault
 
 ```
 ```

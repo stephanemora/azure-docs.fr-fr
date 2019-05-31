@@ -16,16 +16,18 @@ ms.topic: article
 ms.date: 02/22/2019
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: abd893c68f2e9cac713e09dd0bdafb7f277ae889
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 5687e6d0094083a9ee58455cc72b0b2e4da32d65
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64707533"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417154"
 ---
 # <a name="update-the-storage-type-of-a-managed-disk"></a>Mettre à jour le type de stockage d’un disque managé
 
-Il existe quatre options pour Azure des disques gérés : Stockage sur disque Ultra Azure, Premium SSD, disque SSD Standard et Standard HDD. Vous pouvez basculer entre ces types de stockage selon vos besoins en performances avec peu de temps mort. Cette fonctionnalité n’est pas pris en charge pour les disques non gérés. Toutefois, vous pouvez facilement [convertir un disque non managé en un disque géré](convert-unmanaged-to-managed-disks.md) pour être en mesure de basculer entre les types de disque.
+Il existe quatre types de disques de Azure des disques gérés : SSDs ultra Azure (aperçu), premium SSD, disque SSD standard et disques durs standard. Vous pouvez basculer entre les trois types de disque de la disponibilité générale (premium SSD, disque SSD standard et disques durs standard) en fonction de vos besoins en performances. Vous n’êtes pas encore en mesure de basculer depuis ou vers un disque SSD ultra, vous devez déployer un nouveau.
+
+Cette fonctionnalité n’est pas pris en charge pour les disques non gérés. Toutefois, vous pouvez facilement [convertir un disque non managé en un disque géré](convert-unmanaged-to-managed-disks.md) pour être en mesure de basculer entre les types de disque.
 
 [!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 

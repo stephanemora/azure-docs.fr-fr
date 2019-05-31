@@ -13,16 +13,16 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 11/03/2017
 ms.author: ghogen
-ms.openlocfilehash: 5298721b7f60cec677c22faf1b35011aab02defb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4b8e3ddf1cf5d61f730ce01a35ee0813b47ad2d2
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60204328"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66305934"
 ---
 # <a name="publish-an-aspnet-web-app-to-an-azure-vm-from-visual-studio"></a>Publier une application web ASP.NET sur une machine virtuelle Azure à partir de Visual Studio
 
-Ce document décrit comment publier une application web ASP.NET sur une machine virtuelle Azure à l’aide de la fonctionnalité de publication **Machines virtuelles Microsoft Azure** dans Visual Studio 2017.  
+Ce document décrit comment publier une application de web ASP.NET à une machine virtuelle (VM) à l’aide de la **Microsoft Azure Virtual Machines** fonctionnalité de publication dans Visual Studio 2019.  
 
 ## <a name="prerequisites"></a>Conditions préalables
 Pour pouvoir publier un projet ASP.NET sur une machine virtuelle Azure à l’aide de Visual Studio, vous devez configurer la machine virtuelle correctement.
@@ -34,7 +34,7 @@ Pour pouvoir publier un projet ASP.NET sur une machine virtuelle Azure à l’ai
 ## <a name="publish-your-aspnet-web-app-to-the-azure-vm-using-visual-studio"></a>Publier votre application web ASP.NET sur la machine virtuelle Azure à l’aide de Visual Studio
 La section suivante décrit comment publier une application web ASP.NET existante sur une machine virtuelle Azure.
 
-1. Ouvrez votre solution d’application web dans Visual Studio 2017.
+1. Ouvrez votre solution d’application web dans Visual Studio 2019.
 2. Cliquez avec le bouton droit sur le projet dans l’Explorateur de solutions, puis choisissez **Publier**.
 3. Utilisez la flèche à droite de la page pour faire défiler les options de publication jusqu’à **Machines virtuelles Microsoft Azure**.  
 
@@ -58,7 +58,7 @@ La section suivante décrit comment publier une application web ASP.NET existant
 
 7. Cliquez sur OK pour commencer la publication.
 
-8. Quand vous êtes invité à fournir les informations d’identification, spécifiez le nom d’utilisateur et le mot de passe d’un compte d’utilisateur sur la machine virtuelle cible qui est configuré avec des droits de publication (il s’agit en général du nom d’utilisateur et du mot de passe d’administrateur utilisés lors de la création de la machine virtuelle).  
+8. Lorsque vous y êtes invité pour les informations d’identification, fournissez le nom d’utilisateur et le mot de passe d’un compte d’utilisateur sur la machine virtuelle qui est configuré avec des droits de publication cible. Ces informations d’identification sont généralement le nom d’utilisateur administrateur et le mot de passe utilisé lors de la création de la machine virtuelle.  
 
    ![Connexion à WebDeploy]
 
@@ -99,12 +99,12 @@ Vos paramètres doivent ressembler à ce qui suit :
 ![Paramètres de publication - Page Connexion]
 
 #### <a name="save-user-name-and-password"></a>Enregistrer le nom d’utilisateur et le mot de passe
-- Pour éviter de fournir des informations d’authentification chaque fois que vous publiez, vous pouvez renseigner les champs **Nom d’utilisateur** et **Mot de passe** et sélectionner la zone **Enregistrer le mot de passe**.
+- Évitez de fournir des informations d’authentification chaque fois que vous publiez. Pour ce faire, vous devez remplir le **nom d’utilisateur** et **mot de passe** champs, puis sélectionnez le **enregistrer le mot de passe** boîte.
 - Utilisez le bouton **Valider la connexion** pour confirmer que vous avez entré les informations correctes.
 
 #### <a name="deploy-to-clean-web-server"></a>Déployer sur un nouveau serveur web
 
-- Si vous souhaitez vous assurer que le serveur web dispose d’une nouvelle copie de l’application web après chaque chargement (et qu’il ne reste aucun autre fichier d’un déploiement précédent), vous pouvez cocher la case **Supprimer les fichiers supplémentaires de la destination** sous l’onglet **Paramètres**.
+- Si vous souhaitez vous assurer que le serveur web a une nouvelle copie de l’application web après chaque téléchargement et qu’aucun autre fichier il reste à partir d’un déploiement précédent, vous pouvez vérifier le **supprimer les fichiers supplémentaires à la destination** case à cocher dans la  **Paramètres** onglet.
 
 - Avertissement : Publication avec ce paramètre supprime tous les fichiers qui existent sur le serveur web (répertoire wwwroot). Assurez-vous de connaître l’état de la machine avant de publier avec cette option activée. 
 

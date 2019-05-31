@@ -12,16 +12,16 @@ ms.author: moslake
 ms.reviewer: sstein, carlrab
 manager: craigg
 ms.date: 05/20/2019
-ms.openlocfilehash: 57f2c38ce0479f43d7f24de8d1feb554517bcc69
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: a9f883a9776f68a7ece471caca5dc1d7af2aec32
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65951484"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393541"
 ---
 # <a name="sql-database-serverless-preview"></a>SQL Database serverless (préversion)
 
-## <a name="what-is-the-serverless-compute-tier"></a>Qu’est-ce que le niveau de calcul serverless ?
+## <a name="serverless-compute-tier"></a>Niveau de calcul serverless
 
 SQL Database serverless (préversion) est un niveau de calcul qui facture le volume de calcul utilisé par une base de données unique par seconde. Serverless constitue un rapport prix/performance optimisé pour les bases de données uniques avec des modèles d’utilisation intermittents imprévisibles pouvant supporter un délai dans le préchauffage du calcul après des périodes d’inactivité.
 
@@ -73,7 +73,7 @@ Le tableau suivant résume les différences entre le niveau de calcul serverless
 
 Actuellement, SQL Database serverless est juste pris en charge dans le niveau Usage général sur du matériel de génération 5 dans le modèle d’achat Vcore.
 
-## <a name="autoscaling"></a>Mise à l’échelle automatique
+## <a name="autoscale"></a>Autoscale
 
 ### <a name="scaling-responsiveness"></a>Réactivité de la mise à l’échelle
 
@@ -83,7 +83,7 @@ En règle générale, les bases de données sont exécutées sur un ordinateur a
 
 Mémoire pour les bases de données sans serveur est récupérée plus fréquemment que pour les bases de données de calcul provisionné. Ce comportement est important de contrôler les coûts dans sans serveur et peut affecter les performances.
 
-#### <a name="cache-reclaiming"></a>Mettre en cache la récupération
+#### <a name="cache-reclamation"></a>Récupération du cache
 
 Contrairement aux bases de données de calcul provisionné, mémoire du cache SQL est récupérée à partir d’une base de données sans serveur lors de l’utilisation du processeur ou de cache est faible.
 
@@ -120,7 +120,7 @@ La reprise automatique est déclenchée si l’une des conditions suivantes est 
 |Découverte et classification des données|Ajout, modification, suppression ou affichage des étiquettes de sensibilité|
 |Audit|Affichage des enregistrements d’audit.<br>Mise à jour ou affichage de la stratégie d’audit|
 |Masquage de données|Ajout, modification, suppression ou affichage des règles de masquage des données|
-|Transparent Data Encryption|État ou statut d’affichage du chiffrement transparent des données|
+|Chiffrement transparent des données|État ou statut d’affichage du chiffrement transparent des données|
 |Magasin de données des requêtes (performances)|Modification ou affichage des paramètres du Magasin des requêtes ; réglage automatique|
 |Réglage automatique|Application et vérification des recommandations de réglage automatique telles que l’indexation automatique|
 |Copie de base de données|Création d’une base de données comme copie<br>Exportation vers un fichier BACPAC|
@@ -145,7 +145,7 @@ Les fonctionnalités suivantes ne prennent pas en charge la mise en pause automa
 - Base de données de synchronisation utilisée dans SQL Data Sync.
 
 
-## <a name="on-boarding-into-the-serverless-compute-tier"></a>Intégration au niveau de calcul serverless
+## <a name="onboarding-into-serverless-compute-tier"></a>Intégration dans le niveau de calcul sans serveur
 
 La création d’une base de données ou le déplacement d’une base de données existante dans un niveau de calcul serverless suivent le même modèle que la création d’une nouvelle base de données dans un niveau de calcul provisionné et impliquent les deux étapes suivantes :
 
@@ -167,11 +167,11 @@ La création d’une base de données ou le déplacement d’une base de donnée
 > [!NOTE]
 > Actuellement, l’utilisation de T-SQL pour déplacer une base de données existante dans le niveau serverless ou changer sa taille de calcul n’est pas prise en charge, mais vous pouvez effectuer ces opérations via le portail Azure ou PowerShell.
 
-### <a name="create-new-database-using-the-azure-portal"></a>Créer une base de données à l’aide du portail Azure
+### <a name="create-new-serverless-database-using-azure-portal"></a>Créer la nouvelle base de données sans serveur à l’aide du portail Azure
 
 Consultez [Démarrage rapide : Créez une base de données unique dans Azure SQL Database à l’aide du portail Azure](sql-database-single-database-get-started.md).
 
-### <a name="create-new-database-using-powershell"></a>Créer une base de données à l’aide de PowerShell
+### <a name="create-new-serverless-database-using-powershell"></a>Créer la nouvelle base de données sans serveur à l’aide de PowerShell
 
 L’exemple suivant crée une base de données dans le niveau de calcul serverless défini par l’objectif de service nommé GP_S_Gen5_4 avec les valeurs par défaut pour le nombre minimal de vCores et le délai de mise en pause automatique.
 
@@ -190,7 +190,7 @@ New-AzSqlDatabase `
   -AutoPauseDelay 720
 ```
 
-### <a name="move-existing-database-into-the-serverless-compute-tier"></a>Déplacer une base de données existante dans le niveau de calcul serverless
+### <a name="move-provisioned-compute-database-into-serverless-compute-tier"></a>Déplacer la base de données de calcul provisionné dans le niveau de calcul sans serveur
 
 L’exemple suivant déplace une base de données unique existante du niveau de calcul provisionné vers le niveau de calcul serverless. Cet exemple spécifie explicitement le nombre minimal de vCores, le nombre maximal de vCores et le délai de mise en pause automatique.
 
@@ -207,11 +207,11 @@ Set-AzSqlDatabase
   -AutoPauseDelay 1440
 ```
 
-### <a name="move-a-database-out-of-the-serverless-compute-tier"></a>Enlever une base de données du niveau de calcul serverless
+### <a name="move-serverless-database-into-provisioned-compute-tier"></a>Déplacer la base de données sans serveur dans la couche de calcul provisionné
 
 Vous pouvez déplacer une base de données serverless dans un niveau de calcul provisionné de la même façon que lorsque vous déplacez une base de données de calcul provisionné dans un niveau de calcul serverless.
 
-## <a name="modify-serverless-configuration-parameters"></a>Modifier les paramètres de configuration serverless
+## <a name="modifying-serverless-configuration"></a>Modification de la configuration sans serveur
 
 ### <a name="maximum-vcores"></a>Nombre maximal de vCores
 
@@ -225,7 +225,7 @@ Modification du nombre de VCORE minimale est effectuée à l’aide de la [Set-A
 
 Modifier le délai de pause automatique est effectuée à l’aide de la [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) commande dans PowerShell à l’aide la `AutoPauseDelay` argument.
 
-## <a name="monitor-serverless-database"></a>Superviser une base de données serverless
+## <a name="monitoring"></a>Surveillance
 
 ### <a name="resources-used-and-billed"></a>Ressources utilisées et facturées
 
@@ -237,11 +237,11 @@ Le package d’application représente le maximum en termes de gestion des resso
 
 #### <a name="user-resource-pool"></a>Pool de ressources utilisateur
 
-Le pool de ressources utilisateur représente le minimum en termes de gestion des ressources d’une base de données, que celle-ci soit dans un niveau de calcul serverless ou provisionné. Le pool de ressources utilisateur comprend le processeur et les E/S de la charge de travail utilisateur générée par les requêtes DDL (par exemple, CREATE, ALTER, etc.) et les requêtes DML (par exemple, SELECT, INSERT, UPDATE, DELETE, etc.). Ces requêtes représentent généralement la proportion la plus importante de l’utilisation dans le package d’application.
+Le pool de ressources utilisateur représente le minimum en termes de gestion des ressources d’une base de données, que celle-ci soit dans un niveau de calcul serverless ou provisionné. L’utilisateur pool étendues de ressources processeur et e/s pour les charges de travail utilisateur générées par les requêtes DDL telles que les requêtes CREATE et ALTER et DML telles que sélectionner, insérer, mettre à jour et supprimer. Ces requêtes représentent généralement la proportion la plus importante de l’utilisation dans le package d’application.
 
-### <a name="metrics"></a>Mesures
+### <a name="metrics"></a>metrics
 
-|Entité|Métrique|Description |Unités|
+|Entité|Métrique|Description|Units|
 |---|---|---|---|
 |Package d’application|app_cpu_percent|Pourcentage de vCores utilisés par l’application par rapport au nombre maximal de vCores autorisé pour l’application.|Pourcentage|
 |Package d’application|app_cpu_billed|Volume de calcul facturé pour l’application pendant la période de rapport. Le montant payé pendant cette période est le produit de cette métrique et du prix unitaire d’un vCore. <br><br>Les valeurs de cette métrique sont déterminées par l’agrégation de la quantité maximale du processeur utilisé et de la mémoire utilisée par seconde. Si la quantité utilisée est inférieure à la quantité minimale provisionnée tel que définie par le nombre minimal de vCores et la mémoire minimum, la quantité minimale provisionnée est facturée. Pour comparer le processeur à la mémoire à des fins de facturation, la mémoire est normalisée en unités de vCores en remettant à l’échelle la quantité de mémoire en Go à 3 Go par vCore.|Secondes de vCore|
@@ -278,7 +278,7 @@ Pour les limites de ressources, consultez [Niveau de calcul serverless](sql-data
 
 Le volume de calcul facturé correspond à la quantité maximale de processeur et de mémoire utilisée par seconde. Si la quantité de processeur et de mémoire utilisée est inférieure à la quantité minimale provisionnée pour chaque, la quantité provisionnée est facturée. Pour comparer le processeur à la mémoire à des fins de facturation, la mémoire est normalisée en unités de vCores en remettant à l’échelle la quantité de mémoire en Go à 3 Go par vCore.
 
-- **Ressource facturée** : UC et mémoire
+- **Ressource facturée** : Processeur et mémoire
 - **Montant facturé ($)**  : prix unitaire d’un vCore * max (vCores min, vCores utilisés, mémoire min Go * 1/3, mémoire Go utilisée * 1/3) 
 - **Fréquence de facturation** : À la seconde
 
@@ -298,7 +298,7 @@ Dans ce cas, la base de données est facturé pour le calcul et de stockage pend
 
 Plus précisément, la facture de calcul dans cet exemple est calculée comme suit :
 
-|Intervalle|nombre de VCORE utilisés par seconde|Go utilisés par seconde|Dimension facturée de calcul|secondes de vCore facturées sur l’intervalle de temps|
+|Intervalle de temps|nombre de VCORE utilisés par seconde|Go utilisés par seconde|Dimension facturée de calcul|secondes de vCore facturées sur l’intervalle de temps|
 |---|---|---|---|---|
 |0:00-1:00|4|9|nombre de VCORE utilisés|4 vCores * 3600 seconds = 14400 vCore seconds|
 |1:00-2:00|1|12|Mémoire utilisée|12 Go * 1/3 * 3 600 secondes = 14400 vCore secondes|
@@ -310,7 +310,7 @@ Supposons que le prix unitaire du calcul est $0.000073/vCore/seconde.  Le calcu
 
 ## <a name="available-regions"></a>Régions disponibles
 
-Le niveau de calcul serverless est disponible dans toutes les régions, sauf dans les régions suivantes : Australie Centre, Chine Est, Chine Nord, France Sud, Allemagne Centre, Allemagne Nord-Est, Inde Ouest, Corée Sud, Afrique du Sud Ouest, Royaume-Uni Nord, Royaume-Uni Sud, Royaume-Uni Ouest et USA Centre-Ouest
+Le niveau de calcul serverless est disponible dans toutes les régions, sauf dans les régions suivantes : Est de l’Australie centrale, Chine, Nord de la Chine, France-Sud, Nord-est de l’Allemagne centrale, Allemagne, Inde-ouest, Corée du Sud, Afrique du Sud Ouest, Royaume-Uni Nord, Royaume-Uni Sud, Royaume-Uni ouest et centre ouest des États-Unis.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

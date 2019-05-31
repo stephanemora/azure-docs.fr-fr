@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2019
 ms.author: gokuma
-ms.openlocfilehash: 03bf0833bdc1bda24b9d435dafe329e9a3c8e4b2
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 64642da88850e9a0a17173bc50ae9e750cab55a2
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65596507"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235097"
 ---
 # <a name="provision-a-windows-data-science-virtual-machine-on-azure"></a>Provisionner une machine virtuelle DSVM Windows sur Azure
 
@@ -106,7 +106,7 @@ Pour créer une instance de DSVM
 
 Une fois la machine virtuelle créée et approvisionnée, vous pouvez vous y connecter à l’aide du bureau distant en utilisant les informations d’identification du compte administrateur que vous avez configurées dans la section **Paramètres de base** précédente. Vous êtes maintenant prêt à utiliser les outils qui sont installés et configurés sur la machine virtuelle. La plupart des outils sont accessibles par le biais des icônes du Bureau et des vignettes du menu Démarrer.
 
-Vous pouvez également attacher une machine virtuelle de science des données à Azure Notebooks pour exécuter les blocs-notes Jupyter sur la machine virtuelle et de contourner les limitations de la couche de service gratuit. Pour plus d’informations, consultez [gérer et configurer des projets de blocs-notes - niveau de calcul](/azure/notebooks/configure-manage-azure-notebooks-projects.md#compute-tier).
+Vous pouvez également attacher une machine virtuelle de science des données à Azure Notebooks pour exécuter les blocs-notes Jupyter sur la machine virtuelle et de contourner les limitations de la couche de service gratuit. Pour plus d’informations, consultez [gérer et configurer des projets de blocs-notes - niveau de calcul](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier).
 
 ## <a name="tools-installed-on-the-microsoft-data-science-virtual-machine"></a>Outils installés sur la machine virtuelle de science des données
 

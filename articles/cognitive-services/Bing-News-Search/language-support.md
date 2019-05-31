@@ -10,12 +10,12 @@ ms.subservice: bing-news-search
 ms.topic: conceptual
 ms.date: 1/10/2019
 ms.author: aahi
-ms.openlocfilehash: e8a7f6d20ed36c4b3e900602fb52e31dceefae88
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: d15058126f43fff328acfc563ffd081164a69a90
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65799328"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66384985"
 ---
 # <a name="language-and-region-support-for-the-bing-news-search-api"></a>Langages et régions pris en charge par l’API Recherche d’actualités Bing
 
@@ -34,7 +34,7 @@ Pour obtenir la liste des codes pays/régions que vous pouvez spécifier dans le
 |Pays/région|Langue|Code du marché|  
 |---------------------|--------------|-----------------|
 |Danemark|Danois|da-DK|
-|L'Autriche|Allemand|de-AT|
+|Autriche|Allemand|de-AT|
 |Suisse|Allemand|de-CH|
 |Allemagne|Allemand|de-DE|
 |Australie|Anglais|en-AU|
@@ -43,11 +43,11 @@ Pour obtenir la liste des codes pays/régions que vous pouvez spécifier dans le
 |Indonésie|Anglais|en-ID|
 |Irlande|Anglais|en-IE|
 |Inde|Anglais|en-IN|
-|Malaysie|Anglais|en-MY|
+|Malaisie|Anglais|en-MY|
 |Nouvelle-Zélande|Anglais|en-NZ|
 |République des Philippines|Anglais|en-PH|
 |Singapour|Anglais|en-SG|
-|États-Unis|Anglais|fr-FR|
+|États-Unis|Anglais|en-US|
 |Anglais|général|en-WW|
 |Anglais|général|en-XA|
 |Afrique du Sud|Anglais|en-ZA|
@@ -58,17 +58,17 @@ Pour obtenir la liste des codes pays/régions que vous pouvez spécifier dans le
 |États-Unis|Espagnol|es-US|
 |Espagnol|général|es-XL|
 |Finlande|Finnois|fi-FI|  
-|France|Français|fr-BE|
-|Canada|Français|fr-CA|
+|France|Anglais|fr-BE|
+|Canada|Anglais|fr-CA|
 |Belgique|Néerlandais|nl-BE|
-|Suisse|Français|fr-CH|
-|France|Français|fr-FR|  
+|Suisse|Anglais|fr-CH|
+|France|Anglais|fr-FR|  
 |Italie|Italien|it-IT|
 |Hong Kong (R.A.S.)|Chinois traditionnel|zh-HK|  
-|Taiwan|Chinois traditionnel|zh-TW|
+|Taïwan|Chinois traditionnel|zh-TW|
 |Japon|Japonais|ja-JP|  
 |Corée du Sud|Coréen|ko-KR|  
-|Pays-Bas|Néerlandais|nl-NL|  
+|Pays-bas|Néerlandais|nl-NL|  
 |République populaire de Chine|Chinois|zh-CN|  
 |Brésil|Portugais|pt-br|
 |Russie|Russe|ru-RU|  
@@ -86,14 +86,14 @@ Pour obtenir la liste des codes pays/régions que vous pouvez spécifier dans le
 |Allemagne|Allemand|de-DE|
 |Australie|Anglais|en-AU|
 |Royaume-Uni|Anglais|en-GB|
-|États-Unis|Anglais|fr-FR|
+|États-Unis|Anglais|en-US|
 |Anglais|général|en-WW|
 |Chili|Espagnol|es-CL|
 |Mexique|Espagnol|es-MX|
 |États-Unis|Espagnol|es-US|
 |Finlande|Finnois|fi-FI|  
-|Canada|Français|fr-CA|
-|France|Français|fr-FR|  
+|Canada|Anglais|fr-CA|
+|France|Anglais|fr-FR|  
 |Italie|Italien|it-IT|
 |Brésil|Portugais|pt-br|
 |République populaire de Chine|Chinois|zh-CN|
@@ -108,25 +108,25 @@ Pour obtenir la liste des codes pays/régions que vous pouvez spécifier dans le
 |Allemagne|Allemand|de-DE|
 |Australie|Anglais|en-AU|
 |Royaume-Uni|Anglais|en-GB|
-|États-Unis|Anglais|fr-FR|
+|États-Unis|Anglais|en-US|
 |Canada|Anglais|en-CA|
 |Inde|Anglais|en-IN|
-|France|Français|fr-FR|
-|Canada|Français|fr-CA|
+|France|Anglais|fr-FR|
+|Canada|Anglais|fr-CA|
 |Brésil|Portugais|pt-br|
 |République populaire de Chine|Chinois|zh-CN|
 
 
 <a name="countrycodes"></a>   
-### <a name="country-codes"></a>Codes pays  
+### <a name="country-codes"></a>Codes de pays  
 
 Vous trouverez ci-dessous les codes pays/régions que vous pouvez spécifier dans le paramètre de requête `cc`. La liste est susceptible d’être modifiée.  
 
-|Pays/région|Code pays/région|  
+|Pays/région|Code pays|  
 |---------------------|------------------|  
 |Argentine|AR|  
 |Australie|AU|  
-|L'Autriche|AT|  
+|Autriche|AT|  
 |Belgique|BE|  
 |Brésil|BR|  
 |Canada|CA|  
@@ -138,12 +138,12 @@ Vous trouverez ci-dessous les codes pays/régions que vous pouvez spécifier dan
 |Hong Kong (R.A.S.)|HK|  
 |Inde|IN|  
 |Indonésie|ID|  
-|Italie|it|  
+|Italie|IT|  
 |Japon|JP|  
 |Corée du Sud|KR|  
-|Malaysie|MY|  
+|Malaisie|MY|  
 |Mexique|MX|  
-|Pays-Bas|NL|  
+|Pays-bas|NL|  
 |Nouvelle-Zélande|NZ|  
 |Norvège|NON|  
 |République populaire de Chine|CN|  
@@ -151,15 +151,15 @@ Vous trouverez ci-dessous les codes pays/régions que vous pouvez spécifier dan
 |Portugal|PT|  
 |République des Philippines|PH|  
 |Russie|RU|  
-|Arabie saoudite|SA|  
+|Arabie Saoudite|SA|  
 |Afrique du Sud|ZA|  
 |Espagne|ES|  
 |Suède|SE|  
 |Suisse|CH|  
-|Taiwan|TW|  
+|Taïwan|TW|  
 |Turquie|TR|  
-|Royaume-Uni| Go|  
+|Royaume-Uni|GB|  
 |États-Unis|FR|
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour plus d’informations sur les points de terminaison de recherche d’actualités Bing, consultez [Référence de l’API de recherche d’actualité v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference).
+Pour plus d’informations sur les points de terminaison de recherche d’actualités Bing, consultez [Référence de l’API de recherche d’actualité v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference).

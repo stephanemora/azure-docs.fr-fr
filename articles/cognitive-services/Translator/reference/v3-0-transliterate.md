@@ -3,19 +3,19 @@ title: Méthode Transliterate de l’API de traduction de texte Translator Text
 titlesuffix: Azure Cognitive Services
 description: Utilisez la méthode Transliterate de l’API de traduction de texte Translator Text.
 services: cognitive-services
-author: v-pawal
+author: rajdeep-in
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
-ms.author: v-jansko
-ms.openlocfilehash: cd7fee34f020f16d1511bc57b4ad86dbd5eb168d
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.author: v-pawal
+ms.openlocfilehash: 138a04cca1bbbaf7b59f628f491a5f13d73fb6f7
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65796960"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66387392"
 ---
 # <a name="translator-text-api-30-transliterate"></a>API de traduction de texte Translator Text 3.0 : Transliterate
 
@@ -29,19 +29,19 @@ Envoyez une demande `POST` à :
 https://api.cognitive.microsofttranslator.com/transliterate?api-version=3.0
 ```
 
-## <a name="request-parameters"></a>Paramètres de requête
+## <a name="request-parameters"></a>Paramètres de la demande
 
 Les paramètres de demande transmis à la chaîne de requête sont les suivants :
 
 <table width="100%">
   <th width="20%">Paramètre de requête.</th>
-  <th>Description </th>
+  <th>Description</th>
   <tr>
     <td>api-version</td>
     <td>*Paramètre obligatoire*.<br/>Version de l’API demandée par le client. La valeur doit être `3.0`.</td>
   </tr>
   <tr>
-    <td>Langage</td>
+    <td>langage</td>
     <td>*Paramètre obligatoire*.<br/>Spécifie la langue du texte à convertir d’un script à un autre. Les langues possibles sont répertoriées dans l’étendue `transliteration` obtenue en interrogeant le service pour connaître les [langues prises en charge](./v3-0-languages.md).</td>
   </tr>
   <tr>
@@ -57,8 +57,8 @@ Les paramètres de demande transmis à la chaîne de requête sont les suivants�
 Les en-têtes de demande sont les suivants :
 
 <table width="100%">
-  <th width="20%">En-têtes</th>
-  <th>Description </th>
+  <th width="20%">headers</th>
+  <th>Description</th>
   <tr>
     <td>En-têtes d’authentification</td>
     <td><em>En-tête de demande obligatoire</em>.<br/>Voir les <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">options disponibles pour l’authentification</a>.</td>
@@ -114,8 +114,8 @@ Exemple de réponse JSON :
 ## <a name="response-headers"></a>En-têtes de réponse
 
 <table width="100%">
-  <th width="20%">En-têtes</th>
-  <th>Description </th>
+  <th width="20%">headers</th>
+  <th>Description</th>
   <tr>
     <td>X-RequestId</td>
     <td>Valeur générée par le service pour identifier la demande. Elle sert à des fins de dépannage.</td>
@@ -128,10 +128,10 @@ Voici les codes d’état HTTP qu’une demande peut retourner.
 
 <table width="100%">
   <th width="20%">Code d’état</th>
-  <th>Description </th>
+  <th>Description</th>
   <tr>
     <td>200</td>
-    <td>Réussite.</td>
+    <td>Vous avez réussi !</td>
   </tr>
   <tr>
     <td>400</td>
@@ -139,7 +139,7 @@ Voici les codes d’état HTTP qu’une demande peut retourner.
   </tr>
   <tr>
     <td>401</td>
-    <td>Impossible d'authentifier la demande. Vérifiez que les informations d’identification sont spécifiées et valides.</td>
+    <td>Il n’a pas été possible d’authentifier la demande. Vérifiez que les informations d’identification sont spécifiées et valides.</td>
   </tr>
   <tr>
     <td>403</td>
@@ -151,7 +151,7 @@ Voici les codes d’état HTTP qu’une demande peut retourner.
   </tr>
   <tr>
     <td>500</td>
-    <td>Une erreur inattendue est survenue. Si l’erreur persiste, signalez-la en fournissant les informations suivantes : date et heure de la défaillance, identificateur de la demande dans l’en-tête de réponse,`X-RequestId` et identificateur du client dans l’en-tête de demande `X-ClientTraceId`.</td>
+    <td>Une erreur inattendue s’est produite. Si l’erreur persiste, signalez-la en fournissant les informations suivantes : date et heure de la défaillance, identificateur de la demande dans l’en-tête de réponse,`X-RequestId` et identificateur du client dans l’en-tête de demande `X-ClientTraceId`.</td>
   </tr>
   <tr>
     <td>503</td>

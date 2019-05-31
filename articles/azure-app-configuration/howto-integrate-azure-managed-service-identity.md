@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: ff098ebd23d2ce5a8c9c39f154375be1dae6a262
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 3977991386dbcd07e92f21d1ac541f486b4f7f0a
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65408910"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393645"
 ---
 # <a name="integrate-with-azure-managed-identities"></a>S’intégrer avec des identités managées Azure
 
@@ -49,7 +49,7 @@ Pour suivre ce didacticiel, vous avez besoin de :
 
 Pour configurer une identité managée dans le portail, vous créez d’abord une application selon la procédure habituelle, puis vous activez la fonctionnalité.
 
-1. Créez une application dans le [portail Azure](https://aka.ms/azconfig/portal) comme vous le faites normalement. Accédez-y dans le portail.
+1. Créez une application dans le [portail Azure](https://portal.azure.com) comme vous le faites normalement. Accédez-y dans le portail.
 
 2. Faites défiler l’écran jusqu’au groupe **Paramètres** dans le volet de gauche, puis sélectionnez **Identité**.
 
@@ -59,9 +59,9 @@ Pour configurer une identité managée dans le portail, vous créez d’abord un
 
 ## <a name="grant-access-to-app-configuration"></a>Accorder l’accès à App Configuration
 
-1. Dans le [portail Azure](https://aka.ms/azconfig/portal), sélectionnez **Toutes les ressources**, puis sélectionnez le magasin de configuration d’application que vous avez créé dans le guide de démarrage rapide.
+1. Dans le [portail Azure](https://portal.azure.com), sélectionnez **Toutes les ressources**, puis sélectionnez le magasin de configuration d’application que vous avez créé dans le guide de démarrage rapide.
 
-2. Sélectionnez **Contrôle d’accès (IAM)**.
+2. Sélectionnez **Contrôle d’accès (IAM)** .
 
 3. Sous l’onglet **Vérifier l’accès**, sélectionnez **Ajouter** dans l’interface utilisateur de carte **Ajouter une attribution de rôle**.
 
@@ -75,7 +75,7 @@ Pour configurer une identité managée dans le portail, vous créez d’abord un
 
 ## <a name="use-a-managed-identity"></a>Utiliser une identité managée
 
-1. Ouvrez *appsettings.json*, puis ajoutez le script suivant. Remplacez *\<service_endpoint>*, crochets compris, par l’URL de votre magasin de configuration d’application :
+1. Ouvrez *appsettings.json*, puis ajoutez le script suivant. Remplacez *\<service_endpoint>* , crochets compris, par l’URL de votre magasin de configuration d’application :
 
     ```json
     "AppConfig": {

@@ -6,14 +6,14 @@ manager: carmonm
 services: site-recovery
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/18/2019
+ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: 520f30b5fabebf299b5407a502b76d7d30850bfd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 32cad7005b2b4da830ac3febf6da847933967a3d
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60947334"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66400027"
 ---
 # <a name="about-recovery-plans"></a>À propos des plans de récupération
 
@@ -61,11 +61,11 @@ Avec cette personnalisation, voici ce qui se passe lorsque vous exécutez un bas
 
 La récupération d’applications de grande taille peut être une tâche complexe. Les étapes manuelles du processus sont source d’erreurs et la personne qui exécute le basculement n’a peut-être pas connaissance de toutes les subtilités de l’application. Vous pouvez utiliser un plan de récupération pour imposer un ordre et automatiser les actions nécessaires à chaque étape, à l’aide de runbooks Azure Automation pour le basculement vers Azure, ou de scripts. Pour les tâches qui ne peuvent pas être automatisées, vous pouvez insérer des pauses pour des actions manuelles dans les plans de récupération. Vous pouvez configurer deux types de tâches :
 
-* **Tâches sur la machine virtuelle Azure après le basculement** : quand vous basculez vers Azure, vous devez généralement effectuer des actions afin de pouvoir vous connecter à la machine virtuelle après le basculement. Par exemple :  
+* **Tâches sur la machine virtuelle Azure après le basculement** : quand vous basculez vers Azure, vous devez généralement effectuer des actions afin de pouvoir vous connecter à la machine virtuelle après le basculement. Exemple : 
     * Créer une adresse IP publique sur la machine virtuelle Azure.
     * Associer un groupe de sécurité réseau à la carte réseau de la machine virtuelle Azure.
     * Ajouter un équilibreur de charge à un groupe à haute disponibilité
-* **Tâches dans la machine virtuelle après le basculement** : ces tâches reconfigurent généralement l’application exécutée sur la machine afin qu’elle continue à fonctionner correctement dans le nouvel environnement. Par exemple : 
+* **Tâches dans la machine virtuelle après le basculement** : ces tâches reconfigurent généralement l’application exécutée sur la machine afin qu’elle continue à fonctionner correctement dans le nouvel environnement. Exemple :
     * Modifier la chaîne de connexion de base de données dans la machine.
     * Modifier les règles ou la configuration du serveur web
 

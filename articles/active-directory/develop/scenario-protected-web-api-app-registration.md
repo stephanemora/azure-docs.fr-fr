@@ -16,12 +16,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a1d8c8fcf84cd008957fcdb7cd14c4a07d9f3643
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 59af4e20c7fe838f7c725b47e45968941fa85cb7
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65074904"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66254054"
 ---
 # <a name="protected-web-api---app-registration"></a>API - inscription de l’application web protégée
 
@@ -33,8 +33,8 @@ Consultez [Démarrage rapide : Inscrire une application avec la plateforme Micr
 
 Le point de terminaison Microsoft identity plateforme peut émettre les deux types de jetons : jetons v1.0 et v2.0 jetons. Plus d’informations sur ces jetons dans [de jetons d’accès](access-tokens.md). La version de jeton acceptée varie selon le **pris en charge les types de comptes** que vous avez choisi lorsque vous avez créé votre application :
 
-- Si la valeur de **pris en charge les types de comptes** est **comptes dans n’importe quel annuaire d’organisation et les comptes personnels Microsoft (par exemple, Skype, Xbox, Outlook.com)**, la version de jeton acceptée sera v2.0.
-- Sinon, la version de jeton acceptée sera v2.0.
+- Si la valeur de **pris en charge les types de comptes** est **comptes dans n’importe quel annuaire d’organisation et les comptes personnels Microsoft (par exemple, Skype, Xbox, Outlook.com)** , la version de jeton acceptée sera v2.0.
+- Sinon, la version de jeton acceptée sera v1.0.
 
 Une fois que vous avez créé l’application, vous pouvez modifier la version de jeton acceptée en suivant ces étapes :
 

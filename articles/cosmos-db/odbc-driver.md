@@ -4,14 +4,14 @@ description: Découvrez comment utiliser le pilote ODBC Azure Cosmos DB pour cr�
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/22/2018
+ms.date: 05/28/2019
 ms.author: sngun
-ms.openlocfilehash: a4cf3a9c19497057d7799be3bec78ad0de97e71a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 352cd23f00e911b895e52aacaced1bfba38f7f84
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60932009"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257252"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>Se connecter à Azure Cosmos DB à l’aide d’outils d’analyse décisionnelle avec le pilote ODBC
 
@@ -52,9 +52,9 @@ Familiarisons-nous avec le pilote ODBC.
 
 1. Après l’[installation du pilote ODBC Azure Cosmos DB](#install), dans la fenêtre **Administrateur de sources de données ODBC**, cliquez sur **Ajouter**. Vous pouvez créer un DSN utilisateur ou système. Dans cet exemple, vous allez créer un DSN utilisateur.
 
-1. Dans la fenêtre **Créer une nouvelle source de données**, sélectionnez **Microsoft Azure Cosmos DB ODBC Driver (Pilote ODBC Microsoft Azure Cosmos DB)**, puis cliquez sur **Terminer**.
+1. Dans la fenêtre **Créer une nouvelle source de données**, sélectionnez **Microsoft Azure Cosmos DB ODBC Driver (Pilote ODBC Microsoft Azure Cosmos DB)** , puis cliquez sur **Terminer**.
 
-1. Dans la fenêtre **Azure Cosmos DB ODBC Driver SDN Setup (Configuration DSN du pilote ODBC Azure Cosmos DB)**, indiquez les informations suivantes : 
+1. Dans la fenêtre **Azure Cosmos DB ODBC Driver SDN Setup (Configuration DSN du pilote ODBC Azure Cosmos DB)** , indiquez les informations suivantes : 
 
     ![Fenêtre de configuration DSN du pilote ODBC Azure Cosmos DB](./media/odbc-driver/odbc-driver-dsn-setup.png)
     - **Nom de source de données** : le nom convivial de votre DSN ODBC. Ce nom étant spécifique à votre compte Azure Cosmos DB, choisissez-le de manière appropriée si vous possédez plusieurs comptes.

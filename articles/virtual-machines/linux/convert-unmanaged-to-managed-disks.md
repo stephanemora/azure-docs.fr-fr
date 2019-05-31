@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 12/15/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 7c1167a6170cdc0b897c57a51c417a9312b6f41a
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: eb6a5ed74073a1a31fc9bb1972266e76c7bc2782
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65794149"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66418464"
 ---
 # <a name="convert-a-linux-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>Convertir les disques non managés d’une machine virtuelle Linux en disques managés
 
@@ -34,6 +34,7 @@ Cet article explique comment convertir des machines virtuelles avec Azure CLI. S
 
 [!INCLUDE [virtual-machines-common-convert-disks-considerations](../../../includes/virtual-machines-common-convert-disks-considerations.md)]
 
+* Les disques durs virtuels et le compte de stockage d’origine utilisé par la machine virtuelle avant la conversion ne sont pas supprimés. Ils continuent à être facturés. Pour éviter la facturation de ces artefacts, supprimez les objets BLOB du disque dur virtuel d’origine après avoir vérifié que la conversion est terminée. Si vous devez rechercher ces disques non attachés afin de les supprimer, consultez notre article [rechercher et supprimer des disques managés et non managés Azure non attachés](find-unattached-disks.md).
 
 ## <a name="convert-single-instance-vms"></a>Convertir des machines virtuelles à instance unique
 Cette section explique comment convertir vos machines virtuelles Azure à instance unique à partir de disques non managés vers des disques managés. (Si vos machines virtuelles sont dans un groupe à haute disponibilité, voir la section suivante.) Vous pouvez utiliser ce processus pour convertir les machines virtuelles qui utilisent des disques non managés premium (SSD) afin qu’elles utilisent des disques managés premium, ou qui utilisent des disques non managés standard (HDD) afin qu’elles utilisent des disques managés standard.

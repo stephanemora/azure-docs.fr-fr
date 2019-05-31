@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: cae0fbd450e6b392e1689d4642181f6e5279752b
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
-ms.translationtype: HT
+ms.openlocfilehash: 2fa43fcd48736a3d044deb07ed690af580c3b987
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393208"
+ms.locfileid: "66416277"
 ---
 # <a name="monitoring-and-performance-tuning"></a>Surveillance et optimisation des performances
 
@@ -143,6 +143,24 @@ WHERE
 GROUP BY q.query_hash
 ORDER BY count (distinct p.query_id) DESC
 ```
+### <a name="factors-influencing-query-plan-changes"></a>Facteurs influant sur les changements de plan de requête
+
+Un plan de requête généré qui diffère de ce qui a été initialement mis en cache peut entraîner une recompilation de plan de requête d’exécution. Il existe différentes raisons pourquoi un plan d’origine existant peut être automatiquement recompilé :
+- Modifications dans le schéma référencé par la requête
+- Modifications de données pour les tables référencées par la requête 
+- Modifications apportées aux options de contexte de requête 
+
+Un plan compilé peut-être être supprimés du cache à partir du cache pour diverses raisons, y compris les redémarrages d’instance, les modifications de configuration, la pression de mémoire et demandes explicites pour effacer le cache de niveau base de données. En outre, à l’aide d’un indicateur RECOMPILE signifie qu’un plan ne sont pas être mis en cache.
+
+Une recompilation (ou une nouvelle compilation après l’éviction du cache) peut toujours entraîner la génération d’un plan d’exécution de requête identiques de celui observé à l’origine.  Si, toutefois, il existe des modifications du plan par rapport au plan d’origine ou antérieur, voici les explications plus courantes pour la raison pour laquelle un plan d’exécution de requête modifié :
+
+- **Modifié PDS**. Par exemple, les nouveaux index créés que plus efficacement garde que les exigences d’une requête peuvent être utilisées sur une nouvelle compilation si l’optimiseur de requête détermine qu’il est plus efficace pour tirer parti de ce nouvel index que d’utiliser la structure de données sélectionnée à l’origine pour la première version de l’exécution de la requête.  Toutes les modifications physiques pour les objets référencés peuvent entraîner un nouveau choix de plan au moment de la compilation.
+
+- **Différences de ressource de serveur**. Dans un scénario où un seul plan diffère sur « système A » et « système B » : la disponibilité des ressources, comme le nombre de processeurs disponibles, peuvent influencer quel plan est généré.  Par exemple, si un système a un nombre plus élevé de processeurs, un plan parallèle peut être choisi. 
+
+- **Différentes statistiques**. Les statistiques associées aux objets référencés modifié ou sont fondamentalement différents des statistiques du système d’origine.  Si les statistiques modifier et une recompilation se produit, l’optimiseur de requête utilisera statistiques depuis ce point spécifique dans le temps. Les statistiques révisées peuvent avoir des distributions de données très différente et les fréquences qui n’étaient pas le cas dans la compilation d’origine.  Ces modifications sont utilisées pour estimer les estimations de cardinalité (nombre de lignes que prévu à circuler via l’arborescence logique de requête).  Modifications apportées aux estimations de cardinalité peuvent cela nous amène à choisir les différents opérateurs physiques et l’ordre des opérations associées.  Un plan d’exécution de requête modifiée peuvent entraîner des modifications mineures aux statistiques.
+
+- **Version estimateur de la base de données modifiées compatibilité niveau ou de la cardinalité**.  Modifications au niveau de compatibilité de base de données peuvent permettre aux nouvelles stratégies et des fonctionnalités qui peuvent entraîner un plan d’exécution de requête différents.  Au-delà du niveau de compatibilité de base de données, la désactivation ou l’activation de l’indicateur de trace 4199 ou modifiez l’état de la base de données de configuration d’étendues QUERY_OPTIMIZER_HOTFIXES peut également influencer interroger le choix de plan d’exécution au moment de la compilation.  Indicateurs de trace 9481 (force estimation de cardinalité héritée) et 2312 (forcer la valeur par défaut CE) sont également qui affectent le plan. 
 
 ### <a name="resolve-problem-queries-or-provide-more-resources"></a>Résoudre les requêtes de problème ou fournir davantage de ressources
 

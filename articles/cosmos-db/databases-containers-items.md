@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 7d607b4370d51ea2605fae6543bd3336853b0806
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 574dd9fd6189b6d0f1e5d455146d6d083ad7ff77
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65954207"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389469"
 ---
 # <a name="work-with-databases-containers-and-items-in-azure-cosmos-db"></a>Travailler avec les bases de données, les conteneurs et les éléments dans Azure Cosmos DB
 
@@ -41,7 +41,7 @@ Vous pouvez interagir avec une base de données Azure Cosmos Azure Cosmos API co
 | --- | --- | --- | --- | --- | --- | --- |
 |Énumérer toutes les bases de données| Oui | Oui | Oui (la base de données est mappée sur un espace de clés) | Oui | N/D | N/D |
 |Lire le contenu de la base de données| Oui | Oui | Oui (la base de données est mappée sur un espace de clés) | Oui | N/D | N/D |
-|Créer une base de données| Oui | Oui | Oui (la base de données est mappée sur un espace de clés) | Oui | N/D | N/D |
+|Create new database| Oui | Oui | Oui (la base de données est mappée sur un espace de clés) | Oui | N/D | N/D |
 |Mettre à jour la base de données| Oui | Oui | Oui (la base de données est mappée sur un espace de clés) | Oui | N/D | N/D |
 
 
@@ -54,6 +54,9 @@ Lorsque vous créez un conteneur Azure Cosmos, vous configurez le débit dans un
 * **Mode de débit approvisionné dédié**: Le débit approvisionné sur un conteneur est exclusivement réservé pour ce conteneur et il est sauvegardé par les contrat SLA. Pour plus d’informations, consultez [comment configurer le débit sur un conteneur Azure Cosmos](how-to-provision-container-throughput.md).
 
 * **Mode de débit approvisionné partagé**: Ces conteneurs partagent le débit approvisionné avec les autres conteneurs dans la même base de données (à l’exclusion des conteneurs qui ont été configurés avec un débit approvisionné dédié). En d’autres termes, le débit approvisionné sur la base de données est partagé entre tous les conteneurs de « débit partagé ». Pour plus d’informations, consultez [comment configurer le débit sur une base de données Azure Cosmos](how-to-provision-database-throughput.md).
+
+> [!NOTE]
+> Vous pouvez configurer le débit partagé et dédié uniquement lors de la création de la base de données et le conteneur. Pour basculer du mode de débit dédié au mode de débit partagé (et inversement) une fois que le conteneur est créé, vous devez créer un nouveau conteneur et migrer les données vers le nouveau conteneur. Vous pouvez migrer les données à l’aide de la fonctionnalité de flux de modification Azure Cosmos DB.
 
 Un conteneur Azure Cosmos peut évoluer en toute flexibilité, si vous créez des conteneurs en utilisant les modes de débit approvisionné dédiée ou partagée.
 
@@ -71,7 +74,7 @@ Un conteneur Azure Cosmos est spécialisé dans les entités spécifiques de l�
 
 | Entité Cosmos Azure | API SQL | API Cassandra | API Azure Cosmos DB pour MongoDB | API Gremlin | API de table |
 | --- | --- | --- | --- | --- | --- |
-|Conteneur Azure Cosmos | Collection | Table | Collection | Graphe | Table |
+|Conteneur Azure Cosmos | Collection | Table | Collection | Graph | Table |
 
 ### <a name="properties-of-an-azure-cosmos-container"></a>Propriétés d’un conteneur Azure Cosmos
 
@@ -79,9 +82,9 @@ Un conteneur Azure Cosmos possède un ensemble de propriétés définies par le 
 
 | Propriété définie par le système | Configurables par l’utilisateur ou générée par le système | Objectif | API SQL | API Cassandra | API Azure Cosmos DB pour MongoDB | API Gremlin | API de table |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|\_id | Généré par le système | Identificateur unique du conteneur | Oui | Non  | Non  | Non  | Non |
-|\_etag | Généré par le système | Étiquette d’entité utilisée pour le contrôle de l’accès concurrentiel optimiste | Oui | Non  | Non  | Non  | Non |
-|\_TS | Généré par le système | Dernière mise à jour de l’horodatage du conteneur | Oui | Non  | Non  | Non  | Non |
+|\_id | Généré par le système | Identificateur unique du conteneur | Oui | Non  | Non  | Non  | Non  |
+|\_etag | Généré par le système | Étiquette d’entité utilisée pour le contrôle de l’accès concurrentiel optimiste | Oui | Non  | Non  | Non  | Non  |
+|\_TS | Généré par le système | Dernière mise à jour de l’horodatage du conteneur | Oui | Non  | Non  | Non  | Non  |
 |\_self | Généré par le système | URI adressable du conteneur | Oui | Non  | Non  | Non  | Non |
 |id | Configurables par l’utilisateur | Nom unique du conteneur défini par l’utilisateur | Oui | OUI | OUI | OUI | Oui |
 |indexingPolicy | Configurables par l’utilisateur | Fournit la possibilité de modifier le chemin d’accès de l’index, le type d’index et le mode d’indexation | Oui | Non  | Non  | Non  | Oui |
@@ -97,7 +100,7 @@ Un conteneur Azure Cosmos prend en charge les opérations suivantes lorsque vous
 | --- | --- | --- | --- | --- | --- | --- |
 | Énumérer les conteneurs d’une base de données | Oui | OUI | OUI | Oui | N/D | N/D |
 | Lire le contenu d’un conteneur | Oui | OUI | OUI | Oui | N/D | N/D |
-| Créer un conteneur | Oui | OUI | OUI | Oui | N/D | N/D |
+| Créer un nouveau conteneur | Oui | OUI | OUI | Oui | N/D | N/D |
 | Mettre à jour d’un conteneur | Oui | OUI | OUI | Oui | N/D | N/D |
 | Supprimer un conteneur | Oui | OUI | OUI | Oui | N/D | N/D |
 
@@ -115,12 +118,12 @@ Chaque élément d’Azure Cosmos a les propriétés suivantes définies par le 
 
 | Propriété définie par le système | Configurables par l’utilisateur ou générée par le système| Objectif | API SQL | API Cassandra | API Azure Cosmos DB pour MongoDB | API Gremlin | API de table |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|\_id | Généré par le système | Identificateur unique de l’élément | Oui | Non  | Non  | Non  | Non |
-|\_etag | Généré par le système | Étiquette d’entité utilisée pour le contrôle de l’accès concurrentiel optimiste | Oui | Non  | Non  | Non  | Non |
-|\_TS | Généré par le système | Horodatage de la dernière mise à jour de l’élément | Oui | Non  | Non  | Non  | Non |
+|\_id | Généré par le système | Identificateur unique de l’élément | Oui | Non  | Non  | Non  | Non  |
+|\_etag | Généré par le système | Étiquette d’entité utilisée pour le contrôle de l’accès concurrentiel optimiste | Oui | Non  | Non  | Non  | Non  |
+|\_TS | Généré par le système | Horodatage de la dernière mise à jour de l’élément | Oui | Non  | Non  | Non  | Non  |
 |\_self | Généré par le système | URI adressable de l’élément | Oui | Non  | Non  | Non  | Non |
 |id | Vous pouvez soit utiliser | Nom unique défini par l’utilisateur dans une partition logique. Si l’utilisateur ne spécifie pas l’ID, le système génère automatiquement un. | Oui | OUI | OUI | OUI | Oui |
-|Propriétés arbitraires définies par l’utilisateur | Défini par l'utilisateur | Propriétés définies par l’utilisateur représentées dans la représentation sous forme de l’API natives (y compris JSON, BSON et CQL) | Oui | OUI | OUI | OUI | Oui |
+|Propriétés arbitraires définies par l’utilisateur | Défini par l’utilisateur | Propriétés définies par l’utilisateur représentées dans la représentation sous forme de l’API natives (y compris JSON, BSON et CQL) | Oui | OUI | OUI | OUI | Oui |
 
 ### <a name="operations-on-items"></a>Actions possibles sur les éléments
 
@@ -128,7 +131,7 @@ Chaque élément d’Azure Cosmos a les propriétés suivantes définies par le 
 
 | Opération | Azure CLI | API SQL | API Cassandra | API Azure Cosmos DB pour MongoDB | API Gremlin | API de table |
 | --- | --- | --- | --- | --- | --- | --- |
-| Insérer, remplacer, supprimer, upsert, lire | Non | OUI | OUI | OUI | OUI | OUI |
+| Insérer, remplacer, supprimer, upsert, lire | Non  | OUI | OUI | OUI | OUI | OUI |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -11,12 +11,12 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 05/08/2017
 ms.author: bking
-ms.openlocfilehash: 7c074d5d25453e2b2a1ddfc32422790235815f1c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6afaa2f497fa1a23d083c3ddd76359a49105732d
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61431155"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66384839"
 ---
 # <a name="build-a-console-app-search-client-in-c"></a>Générer un client de recherche d’application console en C#
 
@@ -38,7 +38,7 @@ Pour suivre le tutoriel, vous avez besoin des éléments suivants :
 
 Dans Visual Studio, créez un projet avec `Ctrl`+`Shift`+`N`.
 
-Dans la boîte de dialogue **Nouveau projet**, cliquez sur **Visual C# > Bureau classique Windows > Application console (.NET Framework)**.
+Dans la boîte de dialogue **Nouveau projet**, cliquez sur **Visual C# > Bureau classique Windows > Application console (.NET Framework)** .
 
 Nommez l’application **MyConsoleSearchApp**, puis cliquez sur **OK**.
 
@@ -46,7 +46,7 @@ Nommez l’application **MyConsoleSearchApp**, puis cliquez sur **OK**.
 
 Json.NET vous permet d’utiliser les réponses JSON retournées par l’API. Ajoutez son package NuGet à votre projet :
 
-- Dans **l’Explorateur de solutions**, cliquez avec le bouton droit sur le projet, puis sélectionnez **Gérer les packages NuGet...**.
+- Dans **l’Explorateur de solutions**, cliquez avec le bouton droit sur le projet, puis sélectionnez **Gérer les packages NuGet...** .
 - Sous l’onglet **Parcourir**, recherchez `Newtonsoft.Json`. Sélectionnez la version la plus récente, puis cliquez sur **Installer**.
 - Cliquez sur le bouton **OK** dans la fenêtre **Examiner les modifications**.
 - Fermez l’onglet de Visual Studio intitulé **NuGet : MyConsoleSearchApp**.
@@ -221,7 +221,7 @@ Avant de voir comment afficher les résultats dans un ordre de classement, exami
 }
 ```
 
-L’objet JSON `rankingResponse` ([documentation](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#rankingresponse)) décrit l’ordre d’affichage approprié pour les résultats de la recherche. Il contient un ou plusieurs des groupes suivants, classés par ordre de priorité :
+L’objet JSON `rankingResponse` ([documentation](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#rankingresponse)) décrit l’ordre d’affichage approprié pour les résultats de la recherche. Il contient un ou plusieurs des groupes suivants, classés par ordre de priorité :
 
 - `pole`: Résultats de la recherche qui doivent être les plus visibles (par exemple, affichés au-dessus de la partie principale et de l’encadré).
 - `mainline`: Résultats de la recherche à afficher dans la partie principale.

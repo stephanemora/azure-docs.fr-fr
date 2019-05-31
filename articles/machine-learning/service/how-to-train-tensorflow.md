@@ -10,18 +10,20 @@ ms.author: minxia
 author: mx-iao
 ms.date: 05/28/2019
 ms.custom: seodec18
-ms.openlocfilehash: f3d675d0eac1255974995fd7717192ec6a21bac1
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
-ms.translationtype: HT
+ms.openlocfilehash: 314917ce91407206d786b191df118893696ac82c
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/30/2019
-ms.locfileid: "66400230"
+ms.locfileid: "66417130"
 ---
-# <a name="use-azure-machine-learning-service-to-train-and-register-tensorflow-models"></a>Utiliser le service Azure Machine Learning pour former et enregistrer des modèles de TensorFlow
+# <a name="train-and-register-tensorflow-models-at-scale-with-azure-machine-learning-service"></a>Former et enregistrer des modèles TensorFlow à l’échelle avec le service Azure Machine Learning
 
 Cet article vous montre comment former et enregistrer un modèle TensorFlow à l’aide du service Azure Machine Learning. Nous allons utiliser le fameux [jeu de données MNIST](http://yann.lecun.com/exdb/mnist/) pour classer les chiffres manuscrits à l’aide d’un réseau neuronal profond basé sur TensorFlow.
 
-Avec le service Azure Machine Learning, vous pourrez rapidement monter en charge de vos travaux de formation de l’open source à l’aide de ressources de calcul cloud élastique. Vous pourrez également effectuer le suivi de vos exécutions de formation, les modèles de version, de déployer des modèles et bien plus encore. Si vous développez un modèle TensorFlow à partir de la configuration de bout en bout ou que vous importez un modèle existant dans le cloud, service Azure Machine Learning est là pour vous aider à créer des modèles prêts pour la production.
+Avec le service Azure Machine Learning, vous pourrez rapidement monter en charge de vos travaux de formation de l’open source à l’aide de ressources de calcul cloud élastique. Vous pourrez également effectuer le suivi de vos exécutions de formation, les modèles de version, de déployer des modèles et bien plus encore. 
+
+Si vous développez un modèle TensorFlow à partir de la configuration de bout en bout ou que vous importez un modèle existant dans le cloud, vous pouvez créer des modèles prêts pour la production avec le service Azure Machine Learning.
 
 ## <a name="prerequisites"></a>Conditions préalables
 

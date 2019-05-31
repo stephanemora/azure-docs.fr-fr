@@ -2,31 +2,24 @@
 title: Valider le débit VPN vers un réseau virtuel Microsoft Azure | Microsoft Docs
 description: L’objectif de ce document est d’aider les utilisateurs à valider le débit du réseau de leurs ressources locales vers une machine virtuelle.
 services: vpn-gateway
-documentationcenter: na
-author: chadmath
+author: cherylmc
 manager: jasmc
-editor: ''
-tags: azure-resource-manager,azure-service-management
-ms.assetid: ''
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: troubleshooting
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 06/15/2018
+ms.date: 05/29/2019
 ms.author: radwiv;chadmat;genli
-ms.openlocfilehash: 819415712d8e605825957aa602fc99dcf6902d82
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c1117afcf6254c32ebe0a4e72ad5619606098253
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60457525"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388613"
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>Comment valider un débit VPN sur un réseau virtuel
 
 La connexion à la passerelle VPN vous permet d'établir une connectivité entre les locaux sécurisée entre votre réseau virtuel Azure et votre infrastructure informatique locale.
 
-Cet article montre comment valider le débit du réseau des ressources locales vers une machine virtuelle Azure. Il fournit également des instructions de dépannage.
+Cet article montre comment valider le débit du réseau des ressources locales vers une machine virtuelle Azure. Il fournit également des instructions de dépannage. 
 
 >[!NOTE]
 >Cet article a pour objet de vous aider à diagnostiquer et résoudre les problèmes courants. Si vous ne parvenez pas à résoudre le problème en utilisant les informations suivantes, [contactez le support technique](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
@@ -127,7 +120,7 @@ Vous pouvez rencontrer des problèmes de copie trop lente de fichiers lorsque vo
 - La vitesse en lecture/écriture du disque de la machine virtuelle est insuffisante. Pour plus d'informations, consultez [Dépannage Azure Storage](../storage/common/storage-e2e-troubleshooting.md).
 
 ## <a name="on-premises-device-external-facing-interface"></a>Interface externe avec appareil local
-Si l’adresse Internet de l’appareil VPN est incluse dans la définition du [réseau local](vpn-gateway-howto-site-to-site-resource-manager-portal.md#LocalNetworkGateway) dans Azure, vous pourriez avoir du mal à utiliser le VPN ou subir des déconnexions occasionnelles ou des problèmes de performances.
+Si le périphérique VPN local adresse accessible sur Internet est inclus dans le [réseau local](vpn-gateway-howto-site-to-site-resource-manager-portal.md#LocalNetworkGateway) définition de l’espace adresse dans Azure, vous pouvez rencontrer mal à utiliser la connexion VPN, sporadique se déconnecte, ou des problèmes de performances.
 
 ## <a name="checking-latency"></a>Vérification de la latence
 Utilisez tracert pour le suivi jusqu’à l’appareil Microsoft Azure Edge pour déterminer s’il existe des retards supérieurs à 100 ms entre les tronçons.

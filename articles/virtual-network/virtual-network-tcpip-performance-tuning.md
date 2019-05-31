@@ -28,12 +28,12 @@ ms.author:
 - minale
 - btalb
 - prachank
-ms.openlocfilehash: d0124d6656167af3942e0d054b4e1fa7a2b48e8b
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: ad1a5b69e4ec7b44c0e61a5ddd2c06633464d31a
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65410042"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234999"
 ---
 # <a name="tcpip-performance-tuning-for-azure-vms"></a>TCP/IP réglage des performances pour les machines virtuelles Azure
 
@@ -79,7 +79,7 @@ N’oubliez pas que l’augmentation de la taille MTU ne créez pas nécessairem
 
 #### <a name="azure-and-vm-mtu"></a>Azure et MTU de la machine virtuelle
 
-La taille MTU de machines virtuelles Azure de la valeur par défaut est 1 500 octets. La pile de réseau virtuel Azure va tenter de fragment d’un paquet à 1 400 octets. Mais la pile de réseau virtuel permet de paquets jusqu'à 2,006 octets lorsque l’option ne pas fragmenter est défini dans l’en-tête IP.
+La taille MTU de machines virtuelles Azure de la valeur par défaut est 1 500 octets. La pile de réseau virtuel Azure va tenter de fragment d’un paquet à 1 400 octets.
 
 Notez que la pile de réseau virtuel n’est pas intrinsèquement inefficace, car il fragmente les paquets à 1 400 octets même si les machines virtuelles ont une taille MTU de 1 500. Un grand pourcentage des paquets réseau sont beaucoup plus petite que 1 400 ou 1 500 octets.
 
@@ -240,7 +240,7 @@ Ce sont les paramètres TCP efficaces pour `AutoTuningLevel`:
 |Désactivé|Aucun|Aucun|Taille de la fenêtre|
 |Restreint|4|2^4|Taille de la fenêtre * (2 ^ 4)|
 |Hautement restreint|2|2^2|Taille de la fenêtre * (2 ^ 2)|
-|Normale|8|2^8|Taille de la fenêtre * (2 ^ 8)|
+|Normal|8|2^8|Taille de la fenêtre * (2 ^ 8)|
 |Expérimental|14|2^14|Taille de la fenêtre * (2 ^ 14)|
 
 Ces paramètres sont les plus susceptibles d’affecter les performances de TCP, mais n’oubliez pas que beaucoup d’autres facteurs sur internet, en dehors du contrôle d’Azure, peut également affecter les performances de TCP.
@@ -264,7 +264,7 @@ Mise en réseau accélérée fournit la latence du réseau ultra basse cohérent
 
 Mise en réseau accélérée améliore les performances en permettant à l’ordinateur virtuel de contourner l’hôte et d’établir un chemin de données directement avec SmartNIC l’hôte invité. Voici quelques avantages de la mise en réseau accélérée :
 
-- **Réduire la latence / nombre supérieur de paquets par seconde (pps)**: Suppression du commutateur virtuel à partir du chemin de données élimine le temps que consacrent des paquets dans l’hôte pour le traitement de la stratégie et augmente le nombre de paquets qui peuvent être traitées dans la machine virtuelle.
+- **Réduire la latence / nombre supérieur de paquets par seconde (pps)** : Suppression du commutateur virtuel à partir du chemin de données élimine le temps que consacrent des paquets dans l’hôte pour le traitement de la stratégie et augmente le nombre de paquets qui peuvent être traitées dans la machine virtuelle.
 
 - **Instabilité réduite**: Traitement de commutateur virtuel dépend de la quantité de stratégie qui doit être appliquée et la charge de travail de l’UC qui effectue le traitement. Le déchargement des stratégies pour le matériel supprime cette variabilité en fournissant des paquets directement à la machine virtuelle, en éliminant la communication de machine virtuelle hôte et toutes les interruptions de logiciel et les changements de contexte.
 

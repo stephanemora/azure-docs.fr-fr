@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 3/19/2019
 ms.author: victorh
-ms.openlocfilehash: 1259e755642563a7baad5496bc84ed736d5499f8
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
+ms.openlocfilehash: ee901fdcae9717cc6d03d7653bcaacc0c32518e0
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65849822"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66254321"
 ---
 # <a name="overview-of-ssl-termination-and-end-to-end-ssl-with-application-gateway"></a>Vue d’ensemble de la terminaison SSL et SSL de bout en bout avec Application Gateway
 
@@ -50,7 +50,7 @@ Passerelle d’application prend en charge les types de certificats suivants :
 Pour plus d’informations, consultez [configurer une terminaison SSL avec application gateway](https://docs.microsoft.com/azure/application-gateway/create-ssl-portal).
 
 ### <a name="size-of-the-certificate"></a>Taille du certificat
-Le fichier PFX Personal Information Exchange () avec les informations de certificat SSL ne doit pas être plus de 10 Ko.
+Vérifier le [limites d’Application Gateway](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits) section pour connaître le protocole SSL maximal taille prise en charge de certificat.
 
 ## <a name="end-to-end-ssl-encryption"></a>Le chiffrement SSL de bout en bout
 

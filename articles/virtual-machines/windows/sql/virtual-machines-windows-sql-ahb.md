@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 02/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 3f62557d024f56b7014784b6956f15a950f8cca7
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 1fb67600ea01629e7bf3ab4c7c470e4727b0e923
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64926251"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393174"
 ---
 # <a name="how-to-change-the-licensing-model-for-a-sql-server-virtual-machine-in-azure"></a>Guide pratique pour changer le modèle de licence d’une machine virtuelle SQL Server dans Azure
 Cet article décrit comment changer le modèle de licence d’une machine virtuelle SQL Server dans Azure à l’aide du nouveau fournisseur de ressources de machine virtuelle SQL, **Microsoft.SqlVirtualMachine**. Il existe deux modèles pour une machine virtuelle (VM) qui héberge SQL Server - paiement à l’utilisation, de licence et apportez votre propre licence (BYOL). Et, à l’aide du portail Azure, Azure CLI ou PowerShell vous pouvez maintenant modifier le modèle de licence utilise votre machine virtuelle SQL Server. 
@@ -34,7 +34,7 @@ Le passage d’un modèle à l’autre n’entraîne **aucun temps d’arrêt**,
 ## <a name="remarks"></a>Remarques
 
 
- - Les clients CSP peuvent utiliser l’avantage AHB en commençant par déployer une machine virtuelle avec paiement à l’utilisation, puis en la convertissant en licence BYOL. 
+ - Azure Cloud Solution partenaire (CSP) les clients peuvent utiliser Azure Hybrid Benefit en déployant d’abord une machine virtuelle de paiement à l’utilisation, puis en les convertissant en bring-your-propre licence. 
  - Lorsque vous inscrivez une image de machine virtuelle SQL Server personnalisée avec le fournisseur de ressources, spécifiez le type de licence que = 'AHUB'. En laissant la licence, tapez comme vide, ou la définition de « Paiement à l’utilisation » provoque l’inscription de l’échec. 
  - Si vous supprimez votre ressource de machine virtuelle SQL Server, vous revenez au paramètre codé en dur la licence de l’image. 
  - Ajout d’une machine virtuelle SQL Server à un groupe à haute disponibilité nécessite la recréation de la machine virtuelle. En tant que machines virtuelles de ce type, n’importe quel est ajoutés à une disponibilité ensemble revient au type de licence de paiement à l’utilisation par défaut et AHB doit être activée à nouveau. 

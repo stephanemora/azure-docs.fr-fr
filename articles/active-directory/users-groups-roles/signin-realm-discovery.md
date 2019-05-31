@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: kexia
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e9f21b592f31790daa9cc4eeb217ea6e2987fc38
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: db627359b75aa0ea19e30a8d22bcacaa3409cb4a
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920514"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66418152"
 ---
 # <a name="home-realm-discovery-for-azure-active-directory-sign-in-pages"></a>Découverte de domaine d’accueil pour les pages de connexion Azure Active Directory
 
@@ -32,19 +32,19 @@ Pour prendre en charge un large éventail d’informations d’identification et
 
 Un autre avantage de ce travail est l’amélioration des erreurs de messagerie. Voici quelques exemples de l’erreur améliorée messagerie lorsque vous vous connectez à une application qui prend en charge uniquement les utilisateurs Azure Active Directory.
 
-1. Le nom d’utilisateur est mal orthographiée ou le nom d’utilisateur n’a pas encore été synchronisé à Azure AD :
+- Le nom d’utilisateur est mal orthographiée ou le nom d’utilisateur n’a pas encore été synchronisé à Azure AD :
   
     ![le nom d’utilisateur est mal orthographiée ou introuvable](./media/signin-realm-discovery/typo-username.png)
   
-2. Le nom de domaine est mal tapé :
+- Le nom de domaine est mal tapé :
   
     ![le nom de domaine est mal orthographiée ou introuvable](./media/signin-realm-discovery/typo-domain.png)
   
-3. Utilisateur tente de se connecter avec un domaine consommateur connus :
+- Utilisateur tente de se connecter avec un domaine consommateur connus :
   
     ![Connectez-vous à l’aide d’un domaine consommateur connus](./media/signin-realm-discovery/consumer-domain.png)
   
-4. Le mot de passe mal orthographié, mais le nom d’utilisateur est précis :  
+- Le mot de passe mal orthographié, mais le nom d’utilisateur est précis :  
   
     ![faute de frappe de mot de passe avec le bon nom d’utilisateur](./media/signin-realm-discovery/incorrect-password.png)
   

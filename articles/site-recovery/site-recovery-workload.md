@@ -5,14 +5,14 @@ author: rayne-wiselman
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 12/31/2018
+ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: 3ad3438f02ead9063a683a39d4ac5823274d55f7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8f4e78f7e16f775a852b4c8172d1fa9fd70ec341
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61276135"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417839"
 ---
 # <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>Quelles charges de travail pouvez-vous protéger avec Azure Site Recovery ?
 
@@ -20,7 +20,7 @@ Cet article décrit les charges de travail et les applications que vous pouvez p
 
 
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
 Les organisations ont besoin d’une stratégie de continuité des activités et de récupération d’urgence pour que les charges de travail et les données demeurent en sécurité et disponibles pendant les temps d’arrêt prévus et imprévus, et pour rétablir au plus vite des conditions de travail normales.
 
@@ -103,8 +103,8 @@ RDS active l’infrastructure de bureau virtuel (VDI), les bureaux basés sur se
 
 | **RDS** |**Réplication de machines virtuelles Azure dans Azure** | **Réplication de machines virtuelles Hyper-V vers un site secondaire** | **Réplication de machines virtuelles Hyper-V dans Azure** | **Réplication de machines virtuelles VMware vers un site secondaire** | **Réplication de machines virtuelles VMware dans Azure** | **Réplication de serveurs physiques vers un site secondaire** | **Répliquer des serveurs physiques dans Azure** |
 |---| --- | --- | --- | --- | --- | --- | --- |
-| **Bureau virtuel en pool (non géré)** |Non |Oui |Non  |Oui |Non  |Oui |Non  |
-| **Bureau virtuel en pool (géré et sans UPD)** |Non |Oui |Non  |Oui |Non  |Oui |Non  |
+| **Bureau virtuel en pool (non géré)** |Non|Oui |Non |Oui |Non |Oui |Non |
+| **Bureau virtuel en pool (géré et sans UPD)** |Non|Oui |Non |Oui |Non |Oui |Non |
 | **Applications à distance et sessions de bureau (sans UPD)** |Oui|OUI |OUI |OUI |OUI |OUI |Oui |
 
 [Configurez la récupération d’urgence de RDS à l’aide d’Azure Site Recovery](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-disaster-recovery-with-azure).

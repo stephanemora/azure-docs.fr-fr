@@ -14,12 +14,12 @@ ms.custom: vs-azure
 ms.workload: azure-vs
 ms.date: 02/18/2019
 ms.author: glenga;david.ebbo;suwatch;pbatum;naren.soni
-ms.openlocfilehash: 4d375b559019529bdc170ce6bab535481e0569e0
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: b8cc628ef7db198c5068bb3917cf41113ba1687a
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65873020"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417090"
 ---
 # <a name="develop-and-deploy-webjobs-using-visual-studio---azure-app-service"></a>Développer et déployer des tâches web à l’aide de Visual Studio - Azure App Service
 
@@ -27,7 +27,7 @@ Cet article explique comment utiliser Visual Studio pour déployer un projet d�
 
 Vous pouvez publier plusieurs WebJobs pour une application web unique. Assurez-vous que chaque tâche Web dans une application web a un nom unique.
 
-Version 3.x de le [Azure WebJobs SDK](webjobs-sdk-how-to.md) permet de développer des tâches Web qui s’exécutent en tant qu’applications .NET Core, tandis que la version 2.x prend en charge le .NET Framework. La façon de déployer un projet de tâches est différents projets .NET Core par rapport à celles de .NET Framework.
+Version 3.x de le [Azure WebJobs SDK](webjobs-sdk-how-to.md) vous permet de développer des tâches Web qui s’exécutent en tant que les applications .NET Core ou .NET Framework applications, tout en prend en charge la version 2.x du .NET Framework. La façon de déployer un projet de tâches est différente pour les projets .NET Core par rapport à celles de .NET Framework.
 
 ## <a name="webjobs-as-net-core-console-apps"></a>Tâches Web en tant qu’applications de console .NET Core
 
@@ -144,7 +144,7 @@ Pour créer un projet compatible avec les tâches web, vous pouvez utiliser le m
 > 
 
 #### <a id="createnolink"></a> Utiliser le modèle de nouveau projet WebJobs pour une tâche web indépendante
-1. Cliquez sur **Fichier** > **Nouveau projet**, puis dans la boîte de dialogue **Nouveau projet**, cliquez sur **Cloud** > **Azure WebJob (.NET Framework)**.
+1. Cliquez sur **Fichier** > **Nouveau projet**, puis dans la boîte de dialogue **Nouveau projet**, cliquez sur **Cloud** > **Azure WebJob (.NET Framework)** .
    
     ![New Project dialog showing WebJob template](./media/webjobs-dotnet-deploy-vs/np.png)
 2. Suivez les instructions affichées précédemment pour [faire du projet de l'application console un projet de tâche web indépendant](#convertnolink).

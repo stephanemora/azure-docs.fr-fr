@@ -8,12 +8,12 @@ ms.date: 01/24/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: f93f6c8891ba9f7407310a8f09387e97f5c1f578
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 65de80004dd05e3eb29f3313bc17405c40450d7a
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60401780"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66397123"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Résoudre les erreurs avec les runbooks
 
@@ -38,7 +38,7 @@ Cette erreur se produit si le nom de la ressource d’informations d’identific
 
 Pour identifier le problème, effectuez les étapes suivantes :  
 
-1. Assurez-vous qu’il n’existe aucun caractère spécial, notamment le caractère **\@**, dans le nom de la ressource d’informations d’identification Automation que vous utilisez pour vous connecter à Azure.  
+1. Assurez-vous qu’il n’existe aucun caractère spécial, notamment le caractère **\@** , dans le nom de la ressource d’informations d’identification Automation que vous utilisez pour vous connecter à Azure.  
 2. Vérifiez que vous pouvez utiliser le nom d’utilisateur et le mot de passe stockés dans les informations d’identification Azure Automation dans votre éditeur PowerShell ISE local. Vous pouvez vérifier si le nom d’utilisateur et le mot de passe sont corrects en exécutant les applets de commande suivantes dans PowerShell ISE :  
 
    ```powershell
@@ -305,6 +305,8 @@ Cette erreur se produit en raison d’un des problèmes suivants :
 
 4. Votre runbook a tenté d’appeler un fichier exécutable ou de sous-processus dans un runbook qui s’exécute dans un bac à sable Azure. Ce scénario n’est pas pris en charge dans les bacs à sable Azure.
 
+5. Votre runbook a tenté d’écrire des données d’exception trop au flux de sortie.
+
 #### <a name="resolution"></a>Résolution :
 
 Une des solutions suivantes corrige ce problème :
@@ -316,6 +318,8 @@ Une des solutions suivantes corrige ce problème :
 * Une autre solution consiste à exécuter le runbook sur un [Runbook Worker hybride](../automation-hrw-run-runbooks.md). Les Workers hybrides ne sont pas restreints par les limites de mémoire et réseau associées aux bacs à sable Azure.
 
 * S'il vous faut appeler un processus (par exemple, .exe ou subprocess.call) dans un runbook, vous devez exécuter le runbook sur un [Runbook Worker hybride](../automation-hrw-run-runbooks.md).
+
+* Il existe une limite de 1 Mo sur le flux de sortie de travail. Assurez-vous que vous placez les appels à un fichier exécutable ou un sous-processus dans un bloc try/catch. Si elles lèvent une exception, écrire le message à partir de cette exception dans une variable Automation. Cela l’empêchera pas d’écrire dans le flux de sortie de travail.
 
 ### <a name="fails-deserialized-object"></a>Scénario : Le runbook échoue à cause d’un objet désérialisé
 

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/20/2019
-ms.author: pareshmu
-ms.openlocfilehash: 00748f0a245dd0c63d59b32113077b5b10915d3d
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
-ms.translationtype: HT
+ms.date: 05/28/2019
+ms.author: mialdrid
+ms.openlocfilehash: 671fdafeb4bba871256968c6eebca73130a229b5
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65977971"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66252876"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Partenaires ExpressRoute et emplacements d’homologation
 
@@ -52,7 +52,7 @@ Le tableau ci-dessous fournit une carte des régions Azure vers des emplacements
 | **Corée du Sud** | 2 |Centre de la Corée, Corée du Sud |Busan, Séoul|
 | **ÉMIRATS ARABES UNIS** | 3 | Émirats Arabes Unis, États-Unis, Nord des Émirats Arabes Unis | Dubaï, Dubai2 |
 | **Afrique du Sud** | 3 |Afrique du Sud Ouest, Nord de l’Afrique du Sud |Le Cap, Johannesburg |
-| **Amérique du Sud** | 3 |Brésil Sud |São Paulo |
+| **Amérique du Sud** | 3 |Brésil Sud |Sao Paulo |
 
 
 ### <a name="regions-and-geopolitical-boundaries-for-national-clouds"></a>Régions et limites géopolitiques pour les clouds nationaux
@@ -79,7 +79,7 @@ Le tableau suivant présente les emplacements, en fonction de chaque fournisseur
 | **[AARNet](https://www.aarnet.edu.au/network-and-services/cloud-services-applications/azure-expressroute/)** |Pris en charge |Pris en charge |Melbourne, Sydney |
 | **[Airtel](https://www.airtel.in/creatingsmiles/)** | Pris en charge | Pris en charge | Chennai2, Mumbai2 |
 | **[Aryaka Networks](https://www.aryaka.com/)** |Pris en charge |Pris en charge |Amsterdam, Chicago, Dallas, Hong Kong (r.a.s.), Sao Paulo, Seattle, Silicon Valley, Singapour, Tokyo, Washington DC |
-| **[Ascenty Data Centers](https://ascenty.com/servicos/cloud-connect/microsoft-expressroute/)** |Pris en charge |Pris en charge |São Paulo |
+| **[Ascenty Data Centers](https://ascenty.com/servicos/cloud-connect/microsoft-expressroute/)** |Pris en charge |Pris en charge |Sao Paulo |
 | **[AT&amp;T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** |Pris en charge |Pris en charge |Amsterdam, Chicago, Dallas, Londres, Silicon Valley, Singapour, Sydney, Tokyo, Toronto, Washington DC |
 | **[Bell Canada](https://business.bell.ca/shop/enterprise/cloud-connect-access-to-cloud-partner-services)** |Pris en charge |Pris en charge |Montréal, Toronto, Québec |
 | **[British Telecom](https://www.globalservices.bt.com/en/solutions/products/bt-compute-for-microsoft-azure)** |Pris en charge |Pris en charge |Amsterdam, Hong Kong (r.a.s.), Londres, Newport(Wales), Sao Paulo, Silicon Valley, Singapour, Sydney, Tokyo, Washington DC |
@@ -117,7 +117,7 @@ Le tableau suivant présente les emplacements, en fonction de chaque fournisseur
 | **[Liquid Telecom](https://www.liquidtelecom.com/products-and-services/cloud.html)** |Pris en charge |Pris en charge |Le Cap, Johannesburg |
 | **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Pris en charge |Pris en charge |Amsterdam, Atlanta, Chicago, Dallas, Denver, Dublin, RAS de Hong Kong, Las Vegas, Londres, Los Angeles, Melbourne, Miami, New York, Perth, Québec, San Antonio, Seattle, Silicon Valley, Singapour, singapour2, Sydney, Toronto, Washington DC |
 | **[MTN](https://www.mtnbusiness.com/en/enterprise/Pages/microsoft-express-route.aspx)** |Pris en charge |Pris en charge |Londres |
-| **[Neutrona Networks](http://www.neutrona.com/index.php/azure-expressroute/)** |Pris en charge |Pris en charge |Dallas, Los Angeles, Miami, Sao Paulo |
+| **[Neutrona Networks](http://www.neutrona.com/index.php/azure-expressroute/)** |Pris en charge |Pris en charge |Dallas, Los Angeles, Miami, Sao Paulo, Washington DC |
 | **[Next Generation Data](https://www.nextgenerationdata.co.uk/ngd-cloud-gateway/)** |Pris en charge |Pris en charge |Newport (Nouvelle-Galles du Sud) |
 | **[NEXTDC](https://www.nextdc.com/services/axon-ethernet/microsoft-expressroute)** |Pris en charge |Pris en charge |Melbourne, Perth, Sydney |
 | **[NTT Communications](https://www.ntt.com/en/services/network/virtual-private-network.html)** |Pris en charge |Pris en charge |Amsterdam, Hong Kong (r.a.s.), Londres, Los Angeles, Osaka, Singapour, Sydney, Tokyo, Washington DC |
@@ -140,11 +140,11 @@ Le tableau suivant présente les emplacements, en fonction de chaque fournisseur
 | **[Telia Carrier](https://teliacarrier.com/our-services/connectivity/cloud-connect.html?title=Cloud%20Connect)** | Pris en charge | Pris en charge |Amsterdam, Chicago, Dallas, London, Paris, Washington DC |
 | **Telmex Uninet**| Pris en charge | Pris en charge | Dallas |
 | **[Telstra Corporation](https://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** |Pris en charge |Pris en charge |Melbourne, Singapour, Sydney |
-| **[Telus](https://www.telus.com)** |Pris en charge |Pris en charge |Montréal, Toronto |
+| **[Telus](https://www.telus.com)** |Pris en charge |Pris en charge |Montréal, Seattle, Toronto |
 | **[Teraco](https://www.teraco.co.za/services/africa-cloud-exchange/)** |Pris en charge |Pris en charge |Le Cap, Johannesburg |
 | **[TIME dotCom](https://www.time.com.my/enterprise/connectivity/cloud-interconnect)** | Pris en charge | Pris en charge | Kuala Lumpur |
-| **[UOLDIVEO](https://www.uoldiveo.com.br/)** |Pris en charge |Pris en charge |São Paulo |
-| **[Verizon](https://enterprise.verizon.com/products/network/application-enablement/secure-cloud-interconnect/)** |Pris en charge |Pris en charge |Amsterdam, Chicago, Dallas, Hong Kong (r.a.s.), Londres, Silicon Valley, Singapour, Sydney, Tokyo, Washington DC |
+| **[UOLDIVEO](https://www.uoldiveo.com.br/)** |Pris en charge |Pris en charge |Sao Paulo |
+| **[Verizon](https://enterprise.verizon.com/products/network/application-enablement/secure-cloud-interconnect/)** |Pris en charge |Pris en charge |Amsterdam, Chicago, Dallas, Hong Kong (r.a.s.), Londres, Mumbai, Silicon Valley, Singapour, Sydney, Tokyo, Toronto, Washington DC |
 | **[Vodafone](https://www.vodafone.com/business/global-enterprise/global-connectivity/vodafone-ip-vpn-cloud-connect)** |Pris en charge |Pris en charge |Londres, Singapour |
 | **Vodafone Idea** | Pris en charge | Pris en charge | Mumbai, Mumbai2 |
 | **[Zayo](https://www.zayo.com/solutions/industries/cloud-connectivity/microsoft-expressroute)** |Pris en charge |Pris en charge |Amsterdam, Chicago, Dallas, Denver, Londres, Los Angeles, Montréal, New York, Paris, Seattle, Silicon Valley, Toronto, Washington DC |
@@ -168,7 +168,7 @@ Le tableau suivant présente les emplacements, en fonction de chaque fournisseur
 
 | **Fournisseur de services** | **Microsoft Azure** | **Office 365** | **Emplacements** |
 | --- | --- | --- | --- |
-| **China Telecom** |Pris en charge |Non pris en charge |Beijing, Shanghai |
+| **China Telecom** |Pris en charge |Non pris en charge |Beijing, Beijing2, Shanghai, Shanghai2 |
 | **[GDS](http://en.gds-services.com/news_detail/newsId=21.html)** |Pris en charge |Non pris en charge |Beijing2, Shanghai2 |
 
 Pour plus d’informations, consultez [ExpressRoute en Chine](http://www.windowsazure.cn/home/features/expressroute/).
@@ -245,29 +245,36 @@ Si votre fournisseur de connectivité ne se trouve pas dans la liste des section
 | **[Proximus](https://www.proximus.be/en/id_b_cl_proximus_external_cloud_connect/companies-and-public-sector/discover/magazines/expert-blog/proximus-external-cloud-connect.html)**|Equinix | Amsterdam, Dublin, Londres, Paris |
 | **[QSC AG](https://www.qsc.de/de/produkte-loesungen/cloud-services-und-it-outsourcing/pure-enterprise-cloud/multi-cloud-management/azure-expressroute/)** |Interxion | Francfort |  
 | **Rogers** | Cologix, Equinix | Montréal, Toronto |
-| **[Tamares Telecom](http://www.tamarestelecom.com/our-services/#Connectivity)** | Telecity | Londres | 
+| **[Spectre Enterprise](https://enterprise.spectrum.com/services/cloud.html)** | Equinix | Chicago, Dallas, Los Angeles, New York, Silicon Valley | 
+| **[Tamares Telecom](https://www.tamarestelecom.com/our-services/#Connectivity)** | Telecity | Londres | 
 | **[TDC Erhverv](https://tdc.dk/Produkter/cloudaccessplus)** | Equinix | Amsterdam | 
 | **[Telecom Italia Sparkle](https://www.tisparkle.com/our-platform/corporate-platform/sparkle-cloud-connect#catalogue)**| Equinix | Amsterdam |
 | **[Telia](https://www.telia.se/foretag/losningar/produkter-tjanster/datanet)** | Equinix | Amsterdam |
 | **[ThinkTel](https://www.thinktel.ca/services/agile-ix-data/expressroute/)** | Equinix | Toronto | 
 | **[Transtelco](https://www.transtelco.net/tcloud/microsoft)** |Equinix | Dallas, Los Angeles |
 | **[United Information Highway (UIH)](https://www.uih.co.th/en/internet-solution/cloud-direct/uih-cloud-direct-for-microsoft-azure-expressroute)**| Equinix | Singapour |
-| **[Venha Pra Nuvem](https://venhapranuvem.com.br/)** | Equinix | São Paulo |
+| **[Venha Pra Nuvem](https://venhapranuvem.com.br/)** | Equinix | Sao Paulo |
 | **[Webair](https://www.webair.com/microsoft-express-route-partnership/)**| Megaport | New York |
 | **[Windstream](https://www.windstreambusiness.com/solutions/cloud-services/cloud-and-managed-hosting-services)**| Equinix | Chicago, Silicon Valley, Washington DC |
 | **Zain** |Equinix |Londres|
 | **[Zertia](https://www.zertia.es)**| Niveau 3 | Madrid |
-| **[Zirro](https://zirro.com/services/)**| Equinix | Montréal, Toronto |
+| **[Zirro](https://zirro.com/services/)**| Cologix, Equinix | Montréal, Toronto |
 
 ## <a name="connectivity-through-datacenter-providers"></a>Connectivité via des fournisseurs de centres de données
 
 | **Fournisseur** | **Microsoft Exchange** |
 | --- | --- |
-| **[Cyrus One](https://cyrusone.com/enterprise-data-center-services/connectivity-and-interconnection/cloud-connectivity-reaching-amazon-microsoft-google-and-more/microsoft-azure-expressroute/?doing_wp_cron=1498512235.6733090877532958984375)** | Megaport |
-| **[Cyxtera](https://www.cyxtera.com/data-center-services/interconnection)** | Megaport |
-| **[Digital Realty](https://www.digitalrealty.com/services/interconnection/service-exchange/)** | Megaport |
-| **[EdgeConnex](https://www.edgeconnex.com/services/edge-data-centers-proximity-matters/)** | Megaport |
-| **[RagingWire Data Centers](https://www.ragingwire.com/wholesale/wholesale-data-centers-worldwide-nexcenters)** | IX Reach |
+| **[CyrusOne](https://cyrusone.com/enterprise-data-center-services/connectivity-and-interconnection/cloud-connectivity-reaching-amazon-microsoft-google-and-more/microsoft-azure-expressroute/?doing_wp_cron=1498512235.6733090877532958984375)** | Megaport, PacketFabric |
+| **[Cyxtera](https://www.cyxtera.com/data-center-services/interconnection)** | Megaport, PacketFabric |
+| **[Databank](https://www.databank.com/platforms/connectivity/cloud-direct-connect/)** | Megaport |
+| **[DataFoundry](https://www.datafoundry.com/services/cloud-connect/)** | Megaport |
+| **[Digital Realty](https://www.digitalrealty.com/services/interconnection/service-exchange/)** | IX Reach, Megaport PacketFabric |
+| **[EdgeConnex](https://www.edgeconnex.com/services/edge-data-centers-proximity-matters/)** | Megaport, PacketFabric |
+| **[Flexential](https://www.flexential.com/connectivity/cloud-connect-microsoft-azure-expressroute)** | IX Reach, Megaport, PacketFabric |
+| **[Centres de données QTS](https://www.qtsdatacenters.com/hybrid-solutions/connectivity/azure-cloud )** | Megaport, PacketFabric |
+| **[Centres de données Stream]( https://www.streamdatacenters.com/products-services/network-cloud/ )** | Megaport |
+| **[RagingWire Data Centers](https://www.ragingwire.com/wholesale/wholesale-data-centers-worldwide-nexcenters)** | IX Reach, Megaport, PacketFabric |
+| **[vXchnge](https://www.vxchnge.com/colocation-services/interconnection)** | IX Reach, Megaport |
 | **[T5 Datacenters](https://t5datacenters.com/network-cloud-connect/)** | IX Reach |
 
 ## <a name="connectivity-through-national-research-and-education-networks-nren"></a>Connectivité via les réseaux nationaux de la recherche et de l’enseignement (NREN)

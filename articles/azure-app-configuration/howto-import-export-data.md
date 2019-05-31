@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 6557f3a4129076c1e8708208e5d4e0d4f53dcec3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 377c5088d39821e87412c517540b3190b0a14a00
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60741747"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393287"
 ---
 # <a name="import-or-export-configuration-data"></a>Importer ou exporter des données de configuration
 
@@ -29,7 +29,7 @@ Cet article fournit un guide pour l’importation et exportation de données ave
 
 Importation apporte à stocker des données dans une Configuration d’application à partir d’une source existante, au lieu d’entrer manuellement l’il de configuration. Utilisez la fonction d’importation pour migrer des données dans un magasin de configuration d’application ou les données agrégées à partir de plusieurs sources. Configuration de l’application prend en charge l’importation à partir d’un fichier JSON, YAML ou propriétés.
 
-Importer des données à l’aide la [Azure portal](https://aka.ms/azconfig/portal) ou [Azure CLI](./scripts/cli-import.md). À partir du portail Azure, procédez comme suit :
+Importer des données à l’aide la [Azure portal](https://portal.azure.com) ou [Azure CLI](./scripts/cli-import.md). Sur le portail Azure, procédez comme suit :
 
 1. Accédez à votre magasin de configuration d’application et sélectionnez **Import/Export**.
 
@@ -53,7 +53,7 @@ Importer des données à l’aide la [Azure portal](https://aka.ms/azconfig/port
 
 Exportation écrit les données de configuration stockées dans la Configuration de l’application vers une autre destination. Utilisez la fonction d’exportation, par exemple, pour enregistrer les données dans un magasin de configuration d’application dans un fichier qui est incorporé avec le code de votre application pendant le déploiement.
 
-Exporter des données à l’aide la [Azure portal](https://aka.ms/azconfig/portal) ou [Azure CLI](./scripts/cli-export.md). À partir du portail Azure, procédez comme suit :
+Exporter des données à l’aide la [Azure portal](https://portal.azure.com) ou [Azure CLI](./scripts/cli-export.md). Sur le portail Azure, procédez comme suit :
 
 1. Accédez à votre magasin de configuration d’application et sélectionnez **Import/Export**.
 

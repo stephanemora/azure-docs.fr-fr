@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a20299887de827f25e4c3306f5e78c188c9a8a7f
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 95cde28bc4789346aabd58b5f7b543e1bbc989c1
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65969400"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357695"
 ---
 # <a name="install-sap-netweaver-high-availability-on-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances-on-azure"></a>Installer la haute disponibilité SAP NetWeaver sur un cluster de basculement Windows et un partage de fichiers pour des instances SAP ASCS/SCS sur Azure
 
@@ -291,7 +291,7 @@ Set-Acl $UsrSAPFolder $Acl -Verbose
 
 ## <a name="create-a-virtual-host-name-for-the-clustered-sap-ascsscs-instance"></a>Créer un nom d’hôte virtuel pour l’instance SAP ASCS/SCS en cluster
 
-Créez un nom réseau du cluster SAP ASCS/SCS (par exemple, **pr1-ascs [10.0.6.7]**) comme décrit dans la section [Créer un nom d’hôte virtuel pour l’instance SAP ASCS/SCS en cluster][sap-high-availability-installation-wsfc-shared-disk-create-ascs-virt-host].
+Créez un nom réseau du cluster SAP ASCS/SCS (par exemple, **pr1-ascs [10.0.6.7]** ) comme décrit dans la section [Créer un nom d’hôte virtuel pour l’instance SAP ASCS/SCS en cluster][sap-high-availability-installation-wsfc-shared-disk-create-ascs-virt-host].
 
 
 ## <a name="install-an-ascsscs-and-ers-instances-in-the-cluster"></a>Installer une instance ASCS/SCS et ERS dans le cluster
@@ -300,7 +300,7 @@ Créez un nom réseau du cluster SAP ASCS/SCS (par exemple, **pr1-ascs [10.0.6.7
 
 Installez une instance SAP ASCS/SCS sur le premier nœud de cluster. Pour installer l’instance, dans l’outil d’installation SAP SWPM, accédez à :
 
-**\<Produit >** > **\<SGBD >** > **Installation** > **Application Server ABAP** () ou **Java**) > **système à haute disponibilité** > **instance ASCS/SCS** > **premier nœud de cluster**.
+**\<Produit >**  >  **\<SGBD >**  > **Installation** > **Application Server ABAP** () ou **Java**) > **système à haute disponibilité** > **instance ASCS/SCS** > **premier nœud de cluster**.
 
 ### <a name="add-a-probe-port"></a>Ajouter un port de sonde
 
@@ -310,12 +310,12 @@ Configurez le port de sonde SAP-SID-IP (ressource de cluster SAP) à l’aide de
 
 Installez une instance SAP ASCS/SCS sur le deuxième nœud de cluster. Pour installer l’instance, dans l’outil d’installation SAP SWPM, accédez à :
 
-**\<Produit >** > **\<SGBD >** > **Installation** > **Application Server ABAP** () ou **Java**) > **système à haute disponibilité** > **instance ASCS/SCS** > **nœud de cluster supplémentaire** .
+**\<Produit >**  >  **\<SGBD >**  > **Installation** > **Application Server ABAP** () ou **Java**) > **système à haute disponibilité** > **instance ASCS/SCS** > **nœud de cluster supplémentaire** .
 
 
 ## <a name="update-the-sap-ascsscs-instance-profile"></a>Mettre à jour le profil d’instance SAP ASCS/SCS
 
-Mettre à jour les paramètres dans le profil d’instance SAP ASCS/SCS \<SID >_ASCS/SCS\<Nr >_\<hôte >.
+Mettre à jour les paramètres dans le profil d’instance SAP ASCS/SCS \<SID >_ASCS/SCS\<Nr >_ \<hôte >.
 
 
 | Nom du paramètre | Valeur du paramètre |
@@ -324,7 +324,7 @@ Mettre à jour les paramètres dans le profil d’instance SAP ASCS/SCS \<SID >_
 | enque/encni/set_so_keepalive  | **true** |
 | service/ha_check_node | **1** |
 
-Redémarrez l’instance SAP ASCS/SCS. Définissez `KeepAlive` paramètres sur les deux nœuds de cluster SAP ASCS/SCS suivent les instructions pour [définir des entrées de Registre sur les nœuds de cluster de l’instance SAP ASCS/SCS]([high-availability-guide]:high-availability-guide.md). 
+Redémarrez l’instance SAP ASCS/SCS. Définissez `KeepAlive` paramètres sur les deux nœuds de cluster SAP ASCS/SCS suivent les instructions pour [définir des entrées de Registre sur les nœuds de cluster de l’instance SAP ASCS/SCS][high-availability-guide]. 
 
 ## <a name="install-a-dbms-instance-and-sap-application-servers"></a>Installer une instance de SGBD et les serveurs d’applications SAP
 

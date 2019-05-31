@@ -9,18 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/09/2019
+ms.date: 05/30/2019
 ms.author: diberry
-ms.openlocfilehash: f23cf78bfca48b3a78e234520d645abdb354038f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9d8f3461e94f04e8e82658ede5e60d53350056c5
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60197388"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399654"
 ---
 # <a name="luis-bot-in-c-with-the-bot-framework-3x-and-the-azure-web-app-bot"></a>Bot LUIS en C# avec Bot Framework 3.x et bot d’application web Azure
 
 À l’aide de C#, créez un bot conversationnel intégré avec compréhension de la langue (LUIS). Ce bot conversationnel utilise le domaine HomeAutomation prédéfini pour implémenter rapidement une solution de bot. Le bot est créé avec Bot Framework 3.x et le bot d’application web Azure.
+
+Un [Bot Framework 4.x tutoriel LUIS](luis-csharp-tutorial-bf-v4.md) est également disponible.
 
 ## <a name="prerequisite"></a>Configuration requise
 

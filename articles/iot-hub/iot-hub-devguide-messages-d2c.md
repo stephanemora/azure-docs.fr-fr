@@ -6,14 +6,14 @@ manager: briz
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 08/13/2018
+ms.date: 05/15/2019
 ms.author: asrastog
-ms.openlocfilehash: fddea12d4c6b7d09d87174d29c645ef6da54af6f
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 094641baaa1472b481140072cd5d3d35d27d5ed7
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64917418"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390522"
 ---
 # <a name="use-iot-hub-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>Utiliser le routage des messages IoT Hub pour envoyer des messages appareil-à-cloud à différents points de terminaison
 
@@ -39,7 +39,7 @@ Vous pouvez utiliser [l’intégration et les SDK standard Event Hubs](iot-hub-d
 
 ### <a name="azure-blob-storage"></a>un stockage Azure Blob
 
-IoT Hub prend en charge l’écriture de données dans le stockage Blob Azure dans le [Apache Avro](https://avro.apache.org/) , ainsi que le format JSON. La fonctionnalité permettant d’encoder au format JSON est en préversion dans toutes les régions où IoT Hub est disponible, à l’exception des régions USA Est, USA Ouest et Europe Ouest. La valeur par défaut est AVRO. Le format d’encodage peut être défini uniquement lorsque le point de terminaison de stockage blob est configuré. Le format ne peut pas être modifié pour un point de terminaison existant. Lorsque vous utilisez l’encodage JSON, vous devez définir le contentType sur JSON et contentEncoding au format UTF-8 dans le message [propriétés système](iot-hub-devguide-routing-query-syntax.md#system-properties). Vous pouvez sélectionner le format d’encodage à l’aide de l’IoT Hub Create ou l’API REST de mise à jour, en particulier le [RoutingStorageContainerProperties](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate#routingstoragecontainerproperties), le portail Azure, [Azure CLI](https://docs.microsoft.com/cli/azure/iot/hub/routing-endpoint?view=azure-cli-latest) ou [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.iothub/add-aziothubroutingendpoint?view=azps-1.3.0). Le diagramme suivant montre comment sélectionner le format d’encodage dans le portail Azure.
+IoT Hub prend en charge l’écriture de données dans le stockage Blob Azure dans le [Apache Avro](https://avro.apache.org/) format ainsi que celui de format JSON. La fonctionnalité pour encoder au format JSON est généralement disponible dans toutes les régions dans lesquelles IoT Hub est disponible. La valeur par défaut est AVRO. Le format d’encodage peut être défini uniquement lorsque le point de terminaison de stockage blob est configuré. Le format ne peut pas être modifié pour un point de terminaison existant. Lorsque vous utilisez l’encodage JSON, vous devez définir le contentType sur JSON et contentEncoding au format UTF-8 dans le message [propriétés système](iot-hub-devguide-routing-query-syntax.md#system-properties). S’il n’est pas défini, IoT Hub écrire les messages dans un format de codé en base 64. Vous pouvez sélectionner le format d’encodage à l’aide de l’IoT Hub Create ou l’API REST de mise à jour, en particulier le [RoutingStorageContainerProperties](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate#routingstoragecontainerproperties), le portail Azure, [Azure CLI](https://docs.microsoft.com/cli/azure/iot/hub/routing-endpoint?view=azure-cli-latest), ou le [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.iothub/add-aziothubroutingendpoint?view=azps-1.3.0). Le diagramme suivant montre comment sélectionner le format d’encodage dans le portail Azure.
 
 ![Encodage de point de terminaison de stockage BLOB](./media/iot-hub-devguide-messages-d2c/blobencoding.png)
 
@@ -95,19 +95,19 @@ Utilisez les tutoriels suivants pour découvrir comment lire un message à parti
 
 ## <a name="fallback-route"></a>Itinéraire de secours
 
-La route de secours envoie tous les messages qui ne satisfont pas aux conditions de la requête sur une des routes existantes aux hubs d’événements existants (**messages/événements**), compatible avec [Event Hubs](/azure/event-hubs/). Si le routage des messages est activé, vous pouvez activer la fonctionnalité de route de secours. Une fois qu’un itinéraire est créé, données cessent de circuler au intégré-en-point de terminaison, sauf si un itinéraire est créé pour ce point de terminaison. S’il n’existe pas de route vers le point de terminaison intégré et qu’une route de secours est activée, seuls les messages qui ne correspondent pas aux conditions de la requête sur les routes sont envoyées au point de terminaison intégré. En outre, si toutes les routes existantes sont supprimées, la route de secours doit être activée pour recevoir toutes les données sur le point de terminaison intégré. 
+La route de secours envoie tous les messages qui ne satisfont pas aux conditions de la requête sur une des routes existantes aux hubs d’événements existants (**messages/événements**), compatible avec [Event Hubs](/azure/event-hubs/). Si le routage des messages est activé, vous pouvez activer la fonctionnalité de route de secours. Une fois qu’un itinéraire est créé, données cessent de circuler au intégré-en-point de terminaison, sauf si un itinéraire est créé pour ce point de terminaison. S’il n’existe pas de route vers le point de terminaison intégré et qu’une route de secours est activée, seuls les messages qui ne correspondent pas aux conditions de la requête sur les routes sont envoyées au point de terminaison intégré. En outre, si toutes les routes existantes sont supprimées, la route de secours doit être activée pour recevoir toutes les données sur le point de terminaison intégré.
 
-Vous pouvez activer/désactiver la route de secours dans le portail Azure -> Panneau Routage des messages. Vous pouvez également utiliser Azure Resource Manager pour que [FallbackRouteProperties](/rest/api/iothub/iothubresource/createorupdate#fallbackrouteproperties) utilise un point de terminaison personnalisé pour la route de secours.
+Vous pouvez activer/désactiver l’itinéraire de secours dans le portail Azure -> Panneau de routage des messages. Vous pouvez également utiliser Azure Resource Manager pour que [FallbackRouteProperties](/rest/api/iothub/iothubresource/createorupdate#fallbackrouteproperties) utilise un point de terminaison personnalisé pour la route de secours.
 
 ## <a name="non-telemetry-events"></a>Événements autres que les événements de télémétrie
 
 En plus de la télémétrie des appareils, le routage des messages permet également l’envoi d’événements de modification des jumeaux d’appareil et des événements du cycle de vie des appareils. Par exemple, si une route est créée avec la source de données définie sur **Événements de modification de jumeau d’appareil**, IoT Hub envoie les messages au point de terminaison qui contient la modification du jumeau d’appareil. De même, si une route est créée avec la source de données définie sur **Événements de cycle de vie d’appareil**, IoT Hub envoie un message qui indique si l’appareil a été supprimé ou créé. 
 
-[IoT Hub s'intègre également à Azure Event Grid](iot-hub-event-grid.md) pour publier des événements d'appareils de façon à prendre en charge les intégrations en temps réel et l'automatisation des workflows basés sur ces événements. Pour découvrir ce qui convient le mieux à votre scénario, consultez les [différences principales entre le routage des messages et Event Grid](iot-hub-event-grid-routing-comparison.md).
+[IoT Hub s’intègre également avec Azure Event Grid](iot-hub-event-grid.md) pour publier des événements de périphérique pour prendre en charge des intégrations en temps réel et une automatisation des workflows basés sur ces événements. Pour découvrir ce qui convient le mieux à votre scénario, consultez les [différences principales entre le routage des messages et Event Grid](iot-hub-event-grid-routing-comparison.md).
 
 ## <a name="testing-routes"></a>Test des routes
 
-Quand vous créez un nouvelle route ou que modifiez une route existante, vous devez tester la requête de route avec un exemple de message. Vous pouvez tester des routes individuelles ou toutes les routes à la fois. Aucun message n’est routé vers les points de terminaison pendant le test. Vous pouvez utiliser le portail Azure, Azure Resource Manager, Azure PowerShell et Azure CLI pour les tests. Résultats vous aider à déterminer si l’exemple de message correspond à la requête, de message ne correspond pas à la requête ou de test n’a pas pu s’exécuter, car l’exemple de syntaxe message ou de la requête sont incorrectes. Pour plus d’informations, consultez [Tester une route](/rest/api/iothub/iothubresource/testroute) et [Tester toutes les routes](/rest/api/iothub/iothubresource/testallroutes).
+Quand vous créez un nouvelle route ou que modifiez une route existante, vous devez tester la requête de route avec un exemple de message. Vous pouvez tester des routes individuelles ou toutes les routes à la fois. Aucun message n’est routé vers les points de terminaison pendant le test. Portail Azure, Azure Resource Manager, Azure PowerShell et Azure CLI peuvent être utilisé pour le test. Résultats vous aider à déterminer si l’exemple de message correspond à la requête, de message ne correspond pas à la requête ou de test n’a pas pu s’exécuter, car l’exemple de syntaxe message ou de la requête sont incorrectes. Pour plus d’informations, consultez [Tester une route](/rest/api/iothub/iothubresource/testroute) et [Tester toutes les routes](/rest/api/iothub/iothubresource/testallroutes).
 
 ## <a name="latency"></a>Latence
 
@@ -117,11 +117,11 @@ Dans la plupart des cas, l’augmentation moyenne de la latence est inférieure 
 
 ## <a name="monitoring-and-troubleshooting"></a>Surveillance et dépannage
 
-IoT Hub fournit plusieurs métriques liées aux routages et aux point de terminaison pour vous donner une vue d’ensemble de l’intégrité de votre hub et des messages envoyés. Vous pouvez combiner les informations de plusieurs métriques pour identifier la cause racine des problèmes. Par exemple, utilisez métrique **routage : messages de télémétrie déposés** ou **d2c.telemetry.egress.dropped** pour identifier le nombre de messages qui ont été interrompues lorsque ne correspondant pas aux requêtes sur un des itinéraires et l’itinéraire de secours a été désactivée. [Métriques IoT Hub](iot-hub-metrics.md) liste toutes les métriques activées par défaut pour votre hub IoT.
+IoT Hub fournit plusieurs métriques liées à des points de terminaison pour vous donner une vue d’ensemble de l’intégrité de votre hub et les messages envoyés et de routage. Vous pouvez combiner les informations de plusieurs métriques pour identifier la cause racine des problèmes. Par exemple, utilisez métrique **routage : messages de télémétrie déposés** ou **d2c.telemetry.egress.dropped** pour identifier le nombre de messages qui ont été interrompues lorsque ne correspondant pas aux requêtes sur un des itinéraires et l’itinéraire de secours a été désactivée. [Métriques IoT Hub](iot-hub-metrics.md) liste toutes les métriques activées par défaut pour votre hub IoT.
 
 Vous pouvez utiliser l’API REST [obtenir de l’intégrité du point de terminaison](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) pour obtenir [l’état d’intégrité](iot-hub-devguide-endpoints.md#custom-endpoints) des points de terminaison. Nous vous recommandons d’utiliser le [métriques IoT Hub](iot-hub-metrics.md) associées à la latence de message routage pour identifier et déboguer des erreurs lors de l’intégrité du point de terminaison est défectueux ou inactif. Par exemple, pour le type de point de terminaison Event Hubs, vous pouvez surveiller **d2c.endpoints.latency.eventHubs**. L’état d’un point de terminaison défectueux est être mis à jour intègre IoT Hub a établi un état cohérent d’intégrité.
 
-Grâce aux journaux de diagnostic des **routes** dans les [paramètres de diagnostic](../iot-hub/iot-hub-monitor-resource-health.md) d’Azure Monitor, vous pouvez suivre les erreurs qui se produisent lors de l’évaluation d’une requête de routage et de l’intégrité du point de terminaison telle qu’elle est perçue par IoT Hub, par exemple quand un point de terminaison est inactif. Ces journaux de diagnostic peuvent être envoyés à des journaux Azure Monitor, Event Hubs ou stockage Azure pour un traitement personnalisé.
+À l’aide de la **itinéraires** journaux de diagnostic dans Azure Monitor [les paramètres de diagnostic](../iot-hub/iot-hub-monitor-resource-health.md), vous pouvez suivre les erreurs qui se produisent pendant l’évaluation d’une intégrité routage de la requête et de point de terminaison perçue par IoT Hub, par exemple lorsque un point de terminaison est inactif. Ces journaux de diagnostic peuvent être envoyés à des journaux Azure Monitor, Event Hubs ou stockage Azure pour un traitement personnalisé.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 05/22/2019
 ms.author: ryanwi
 ms.reviwer: lenalepa, sureshja
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b2242c6fc46f5556de0b0dd63659670e9c3f998d
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 399f72c7819378ddc1566c2bdde94801b2c71687
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65540174"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235325"
 ---
 # <a name="how-to-configure-terms-of-service-and-privacy-statement-for-an-app"></a>Activation Configurer les termes du contrat de service et déclaration de confidentialité pour une application
 
@@ -44,7 +44,7 @@ Les exemples suivants montrent l’expérience de consentement de l’utilisateu
 
 Avant d’ajouter des liens vers les documents des conditions d’utilisation et de la déclaration de confidentialité de votre application, vérifiez que les URL respectent les instructions suivantes.
 
-| Instruction     | Description                            |
+| Instruction     | Description                           |
 |---------------|---------------------------------------|
 | Format        | URL valide                             |
 | Schémas valides | HTTP et HTTPS<br/>Nous recommandons HTTPS |
@@ -56,33 +56,20 @@ Exemples : `https://myapp.com/terms-of-service` et `https://myapp.com/privacy-st
 
 Quand les conditions d’utilisation et la déclaration de confidentialité sont prêtes, vous pouvez ajouter des liens vers ces documents dans votre application à l’aide de l’une des méthodes suivantes :
 
-* [À l’aide du portail Azure](#registered-in-azure-portal)
-* [Dans le portail d’inscription des applications ou le Centre de développement](#registered-in-app-reg-portal)
+* [À l’aide du portail Azure](#azure-portal)
 * [À l’aide de l’objet JSON de l’application](#app-object-json)
 * [À l’aide de l’API REST de MSGraph version bêta](#msgraph-beta-rest-api)
 
-### <a name="registered-in-azure-portal"></a>Si vous avez inscrit votre application dans le portail Azure
-
-Si vous avez inscrit votre application dans le portail Azure, effectuez les étapes suivantes.
+### <a name="azure-portal"></a>À l’aide du portail Azure
+Suivez ces étapes dans le portail Azure.
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
 2. Accédez à la section **Inscriptions d’applications** et sélectionnez votre application.
-3. Ouvrez la section **Propriétés** de l’application.
+3. Ouvrez le **Branding** volet.
 4. Remplissez les champs **URL des conditions d’utilisation** et **URL de la déclaration confidentialité**.
 5. Enregistrez vos modifications.
 
     ![Section des propriétés de l’application avec les URL des conditions d’utilisation et de la déclaration de confidentialité](./media/howto-add-terms-of-service-privacy-statement/azure-portal-terms-service-privacy-statement-urls.png)
-
-### <a name="registered-in-app-reg-portal"></a>Si vous avez inscrit votre application dans le portail d’inscription des applications
-
-Si vous avez inscrit votre application dans le portail d’inscription des applications ou dans le Centre de développement, effectuez les étapes suivantes.
-
-1. Connectez-vous au [portail d’inscription des applications](https://apps.dev.microsoft.com/).
-2. Sélectionnez votre application, puis faites défiler jusqu’à la section **Profil**.
-3. Remplissez les champs **URL des conditions d’utilisation** et **URL de la déclaration confidentialité**.
-4. Enregistrez vos modifications.
-
-    ![Section du profil de l’application avec les URL des conditions d’utilisation et de la déclaration de confidentialité](./media/howto-add-terms-of-service-privacy-statement/app-registration-portal-profile-terms-service-privacy-statement-urls.png)
 
 ### <a name="app-object-json"></a>À l’aide de l’objet JSON de l’application
 

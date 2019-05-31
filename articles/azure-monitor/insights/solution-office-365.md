@@ -10,18 +10,26 @@ ms.service: operations-management-suite
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 05/29/2019
 ms.author: bwren
-ms.openlocfilehash: da9e322f74433df7066ec574db7a49123f96d76b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4c7e1225a8da1e20bc90986d1530b781f7f2c11a
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66130798"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357574"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Solution de gestion Office 365 dans Azure (préversion)
 
 ![Logo Office 365](media/solution-office-365/icon.png)
+
+
+> [!NOTE]
+> L’activation de la méthode recommandée pour installer et configurer la solution Office 365 le [Connecteur Office 365](../../sentinel/connect-office-365.md) dans [Azure Sentinel](../../sentinel/overview.md) au lieu d’utiliser les étapes décrites dans cet article. Il s’agit d’une version mise à jour de la solution Office 365 avec une expérience de configuration améliorés. Pour connecter les journaux d’Azure AD, utilisez le [Sentinel Azure AD Azure connecteur](../../sentinel/connect-azure-active-directory.md), qui fournit des données de journal plus riches que les journaux de gestion Office 365. 
+>
+> Lorsque vous [Sentinel à intégrer Azure](../../sentinel/quickstart-onboard.md), spécifiez l’espace de travail Analytique de journal que vous souhaitez que la solution Office 365 installée dans. Une fois que vous activez le connecteur, la solution sera disponible dans l’espace de travail et utilisé exactement comme d’autres solutions de surveillance que vous avez installé.
+>
+> Utilisateurs du cloud Azure government doivent installer Office 365, suivant les étapes de cet article dans la mesure où Azure Sentinel n’est pas encore disponible dans le cloud government.
 
 La solution de gestion Office 365 vous permet d’effectuer le monitoring de votre environnement Office 365 dans Azure Monitor.
 
@@ -30,6 +38,7 @@ La solution de gestion Office 365 vous permet d’effectuer le monitoring de vot
 - Détectez et analysez le comportement des utilisateurs indésirables, qui peut être personnalisé pour les besoins de votre organisation.
 - Présentation d’audit et de conformité. Par exemple, vous pouvez surveiller les opérations d’accès aux fichiers sur des fichiers confidentiels, ce qui peut vous aider dans le processus d’audit et de conformité.
 - Effectuez un dépannage opérationnel à l’aide des [requêtes dans les journaux](../log-query/log-query-overview.md) en haut des données d’activité Office 365 de votre organisation.
+
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 

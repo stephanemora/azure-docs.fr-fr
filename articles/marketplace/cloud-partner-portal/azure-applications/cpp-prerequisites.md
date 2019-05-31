@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: pabutler
-ms.openlocfilehash: 296f843f9d09b57e12e867700f456126eca128b3
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 64039234a3863332ca19b915fb59a5271625d695
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64942875"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258180"
 ---
 # <a name="azure-application-prerequisites"></a>Conditions préalables à Azure Application
 
@@ -38,7 +38,8 @@ Pour plus d’informations, consultez [Créer une interface utilisateur de porta
 
 Les exigences de l’entreprise incluent des obligations procédurales, contractuelles et légales suivantes :
 
-* Vous devez être inscrit en tant qu’éditeur de la place de marché Cloud. Si vous n’êtes pas inscrit, suivez les étapes décrites dans l’article [devenir un éditeur de place de marché Cloud](../../become-publisher.md).
+* Vous devez être inscrit en tant qu’éditeur de la place de marché Cloud. Si vous n’êtes pas inscrit, suivez les étapes décrites dans l’article [devenir un éditeur de place de marché Cloud](https://docs.microsoft.com/azure/marketplace/become-publisher
+).
 
 >[!NOTE]
 >Vous devez utiliser le même compte d’inscription au Centre de développement Microsoft pour vous connecter au Portail Cloud Partner. Vous ne devez utiliser qu'un seul compte Microsoft pour vos offres Azure Marketplace. Ce compte ne doit pas être propre à des services ou des offres spécifiques.

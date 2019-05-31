@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: raynew
-ms.openlocfilehash: 2267a4e836fe1aff214f40e34afa830de50fa2d5
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: 2f48e0d8b46684d067fe2e32f241e28d94c2edbd
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65471646"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399672"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Tableau de prise en charge pour la sauvegarde de machines virtuelles Azure
 Vous pouvez utiliser la [service Azure Backup](backup-overview.md) pour sauvegarder des machines locales et les charges de travail et les machines virtuelles (VM) Azure. Cet article résume les paramètres de prise en charge et les limitations lors de la sauvegarde des machines virtuelles Azure avec sauvegarde Azure.
@@ -40,7 +40,7 @@ En savoir plus sur sauvegarde [à l’aide d’un serveur de sauvegarde](backup-
 
 **Action** | **Support**
 --- | ---
-Activer la sauvegarde quand vous créez une machine virtuelle Azure Windows | Pris en charge pour :  Windows Server 2019 (centre de données/Datacenter Core), Windows Server 2016 (Core du centre de données/centre de données) ; Windows Server 2012 R2 Datacenter ; Windows Server 2008 R2 (RTM et SP1)
+Activer la sauvegarde quand vous créez une machine virtuelle Azure Windows | Pris en charge pour : <br/><br/> -Windows Server 2019 (centre de données/Datacenter Core/Standard) <br/><br/> -Windows Server 2016 (centre de données/Datacenter Core/Standard) <br/><br/> -Windows Server 2012 R2 (éditions Datacenter et Standard) <br/><br/> -Windows Server 2008 R2 (RTM et SP1 Édition Standard)
 Activer la sauvegarde quand vous créez une machine virtuelle Linux | Pris en charge pour :<br/><br/> - Ubuntu Server : 18.04, 17.10, 17.04, 16.04 (LTS), 14.04 (LTS)<br/><br/> - Red Hat : RHEL 6.7, 6.8, 6.9, 7.2, 7.3, 7.4<br/><br/> - SUSE Linux Enterprise Server: 11 SP4, 12 SP2, 12 SP3, 15 <br/><br/> - Debian : 8, 9<br/><br/> - CentOS : 6.9, 7.3<br/><br/> -Oracle Linux : 6.7, 6.8, 6.9, 7.2, 7.3
 Sauvegarder une machine virtuelle qui est arrêt/hors connexion machine virtuelle |  Pris en charge.<br/><br/> L’instantané a une cohérence en cas d’incident uniquement, mais pas de cohérence des applications.
 Sauvegarder les disques après que la migration vers des disques gérés |  Pris en charge.<br/><br/> La sauvegarde continuera à fonctionner. Aucune action n’est requise.
@@ -61,7 +61,7 @@ Le tableau suivant résume les systèmes d’exploitation pris en charge lors de
 
 **Scénario** | **Système d’exploitation pris en charge**
 --- | ---
-Sauvegarder avec l’extension de l’agent de machine virtuelle Azure | Client Windows : Non pris en charge<br/><br/> Windows Server 2019 (centre de données/Datacenter Core), Windows Server 2016 (Core du centre de données/centre de données) ; Windows Server 2012 R2 Datacenter ; Windows Server 2008 R2 (RTM et SP1)
+Sauvegarder avec l’extension de l’agent de machine virtuelle Azure | Client Windows : Non pris en charge<br/><br/>-Windows Server 2019 (centre de données/Datacenter Core/Standard) <br/><br/> -Windows Server 2016 (centre de données/Datacenter Core/Standard) <br/><br/> -Windows Server 2012 R2 (éditions Datacenter et Standard) <br/><br/> -Windows Server 2008 R2 (RTM et SP1 Édition Standard)
 Sauvegarder avec l’agent MARS | Systèmes d’exploitation [pris en charge](backup-support-matrix-mars-agent.md#support-for-direct-backups).
 Sauvegarder avec DPM/de sauvegarde AZURE | Systèmes d’exploitation pris en charge pour la sauvegarde avec [MABS](backup-mabs-protection-matrix.md) et [DPM](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix?view=sc-dpm-1807).
 

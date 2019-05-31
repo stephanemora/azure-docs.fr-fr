@@ -5,30 +5,30 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: include
-ms.date: 06/12/2018
+ms.date: 05/28/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: c025c431d826d3a2951a9eb5c09308695e172887
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 9f7f9b1504533e0ec503e97c086c380da71671a0
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66170732"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66299710"
 ---
 | Ressource | Limite par défaut/maximale |
 | --- | --- |
 | Circuits ExpressRoute par abonnement |10 |
 | Circuits ExpressRoute par région et par abonnement, avec Azure Resource Manager |10 |
-| Nombre maximal d’itinéraires pour l’homologation privée Azure avec ExpressRoute Standard |4 000 |
-| Nombre maximal d’itinéraires pour l’homologation privée Azure avec le module complémentaire ExpressRoute Premium |10 000 |
-| Nombre maximal d’itinéraires pour l’homologation privée Azure à partir de l’espace d’adressage de réseau virtuel pour une connexion ExpressRoute |200 | 
-| Nombre maximal d’itinéraires pour l’homologation de Microsoft Azure avec ExpressRoute Standard |200 |
-| Nombre maximal d’itinéraires pour l’homologation de Microsoft Azure avec le module complémentaire ExpressRoute Premium |200 |
+| Nombre maximal d’itinéraires publiés pour l’homologation privée Azure avec ExpressRoute Standard |4 000 |
+| Nombre maximal d’itinéraires publiés pour l’homologation privée Azure avec le module complémentaire ExpressRoute Premium |10 000 |
+| Nombre maximal d’itinéraires publiés à partir de l’homologation privée Azure à partir de l’espace d’adressage de réseau virtuel pour une connexion ExpressRoute |200 |
+| Nombre maximal d’itinéraires publiés pour l’homologation Microsoft avec ExpressRoute Standard |200 |
+| Nombre maximal d’itinéraires publiés pour l’homologation Microsoft avec le module complémentaire ExpressRoute Premium |200 |
 | Nombre maximal de circuits ExpressRoute lié au même réseau virtuel dans le même emplacement d’homologation |4 |
 | Nombre maximal de circuits ExpressRoute liés au même réseau virtuel dans différents emplacements d’appairage |4 |
-| Nombre de liens de réseau virtuel autorisés par circuit ExpressRoute |Consultez le tableau suivant. |
+| Nombre de liens de réseau virtuel autorisés par circuit ExpressRoute |Consultez le [nombre de réseaux virtuels par circuit ExpressRoute](#vnetpercircuit) table.  |
 
-#### <a name="number-of-virtual-networks-per-expressroute-circuit"></a>Nombre de réseaux virtuels par circuit ExpressRoute
+#### <a name="vnetpercircuit"></a> Nombre de réseaux virtuels par circuit ExpressRoute
 | **Taille du circuit** | **Nombre de liens de réseau virtuel pour l’Édition Standard** | **Nombre de liens de réseau virtuel avec le module complémentaire Premium** |
 | --- | --- | --- |
 | 50 Mbits/s |10 |20 |

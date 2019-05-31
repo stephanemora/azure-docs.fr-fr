@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/30/2019
 ms.author: radeltch
-ms.openlocfilehash: 3bd8600d0839c31a17221bb5421dc36165deb434
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: b3b5a89b43eaa5c0851962aef414ec9c9b7440da
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65142978"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357729"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-with-azure-netapp-files-for-sap-applications"></a>Haute disponibilité pour SAP NetWeaver sur machines virtuelles Azure sur SUSE Linux Enterprise Server avec Azure Files de NetApp pour les applications SAP
 
@@ -58,7 +58,7 @@ ms.locfileid: "65142978"
 [sap-hana-ha]:sap-hana-high-availability.md
 [nfs-ha]:high-availability-guide-suse-nfs.md
 
-Cet article décrit comment déployer les ordinateurs virtuels, configurez les machines virtuelles, installer l’infrastructure de cluster et installer un système SAP NetWeaver 7.50 à haute disponibilité, à l’aide de [Azure NetApp Files (en préversion publique)](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-introduction/).
+Cet article décrit comment déployer les ordinateurs virtuels, configurez les machines virtuelles, installer l’infrastructure de cluster et installer un système SAP NetWeaver 7.50 à haute disponibilité, à l’aide de [Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-introduction/).
 Dans les exemples de configuration, etc. les commandes d’installation, l’instance ASCS est numéros 00, le numéro d’instance ERS 01, l’instance d’Application principal (PAS) est 02 et l’instance d’Application (AAS) est 03. Assurance qualité de SAP System ID est utilisée. 
 
 Cet article explique comment atteindre une haute disponibilité pour l’application SAP NetWeaver avec Azure Files de NetApp. La couche de base de données n’est pas couvert en détail dans cet article.
@@ -87,7 +87,7 @@ Commencez par lire les notes et publications SAP suivantes :
 * [Notes de publication de SUSE High Availability Extension 12 SP3][suse-ha-12sp3-relnotes]
 * [NetApp les Applications SAP sur Microsoft Azure à l’aide de fichiers NetApp de Azure][anf-sap-applications-azure]
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
 Availability(HA) élevé pour les services centraux SAP Netweaver nécessite un stockage partagé.
 Pour ce faire sur SUSE Linux jusqu'à présent, il était nécessaire créer le cluster NFS à haute disponibilité distinct. 
@@ -139,13 +139,13 @@ SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS et la base de données 
 
 SAP NetWeaver nécessite un stockage partagé pour le répertoire de transport et de profil.  Avant de poursuivre le programme d’installation pour l’infrastructure de fichiers Azure NetApp, familiarisez-vous avec les [documentation relative aux fichiers de NetApp Azure][anf-azure-doc]. Vérifiez si votre région Azure sélectionnée offre Azure NetApp Files. Le lien suivant affiche la disponibilité des fichiers de NetApp Azure par région Azure : [Disponibilité des fichiers NetApp Azure par région Azure][anf-avail-matrix].
 
-La fonctionnalité de fichiers Azure NetApp est en version préliminaire publique dans plusieurs régions Azure. Avant de déployer les fichiers NetApp Azure, inscrivez-vous à Azure NetApp Files preview, suivant le [inscrire pour obtenir des instructions de fichiers Azure NetApp][anf-register]. 
+Les fichiers NetApp Azure est disponible dans plusieurs [régions Azure](https://azure.microsoft.com/global-infrastructure/services/?products=netapp). Avant de déployer Azure Files de NetApp, demande d’intégration à Azure Files de NetApp, suivant le [inscrire pour obtenir des instructions de fichiers Azure NetApp][anf-register]. 
 
 ### <a name="deploy-azure-netapp-files-resources"></a>Déployer des ressources de fichiers NetApp de Azure  
 
-Les étapes supposent que vous avez déjà déployé [réseau virtuel Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview). N’oubliez pas que les ressources de fichiers NetApp de Azure et les machines virtuelles, où les ressources de fichiers NetApp de Azure seront montés doivent être déployés dans le même réseau virtuel Azure.  
+Les étapes supposent que vous avez déjà déployé [réseau virtuel Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview). Les ressources de fichiers NetApp de Azure et les machines virtuelles, où les ressources de fichiers NetApp de Azure seront montés doivent être déployés dans le même réseau virtuel Azure ou dans des réseaux virtuels homologués Azure.  
 
-1. Si vous n’avez pas encore qui, demander à [s’inscrire à la version préliminaire d’Azure NetApp](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-register).  
+1. Si vous n’avez pas encore qui, demander [l’intégration à Azure Files de NetApp](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-register).  
 
 2. Créer le compte de NetApp dans la région Azure sélectionnée, en suivant le [instructions pour créer le compte de NetApp](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-netapp-account).  
 3. Configurer le pool de capacité Azure NetApp Files, suivant le [obtenir des instructions sur la configuration de pool de capacité Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool).  
@@ -153,7 +153,7 @@ L’architecture de SAP Netweaver présentée dans cet article utilise un seul p
 
 4. Déléguer un sous-réseau pour les fichiers Azure NetApp, comme décrit dans la [instructions déléguer un sous-réseau pour Azure Files de NetApp](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-delegate-subnet).  
 
-5. Déployer des volumes de fichiers NetApp de Azure, suivant le [obtenir des instructions pour créer un volume pour les fichiers de NetApp Azure](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes). Déployer les volumes dans les fichiers de NetApp Azure désigné [sous-réseau](https://docs.microsoft.com/rest/api/virtualnetwork/subnets). N’oubliez pas que les ressources de fichiers NetApp de Azure et les machines virtuelles Azure doivent être dans le même réseau virtuel Azure. Par exemple sapmnt<b>assurance qualité</b>, usrsap<b>assurance qualité</b>, etc. sont les noms de volume et les sapmnt<b>assurance qualité</b>, usrsap<b>assurance qualité</b>, etc. sont le filepaths pour Azure Volumes de fichiers de NetApp.  
+5. Déployer des volumes de fichiers NetApp de Azure, suivant le [obtenir des instructions pour créer un volume pour les fichiers de NetApp Azure](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes). Déployer les volumes dans les fichiers de NetApp Azure désigné [sous-réseau](https://docs.microsoft.com/rest/api/virtualnetwork/subnets). N’oubliez pas que les ressources de fichiers NetApp de Azure et les machines virtuelles Azure doivent être dans le même réseau virtuel Azure ou dans des réseaux virtuels homologués Azure. Par exemple sapmnt<b>assurance qualité</b>, usrsap<b>assurance qualité</b>, etc. sont les noms de volume et les sapmnt<b>assurance qualité</b>, usrsap<b>assurance qualité</b>, etc. sont le filepaths pour Azure Volumes de fichiers de NetApp.  
 
    1. volume sapmnt<b>assurance qualité</b> (nfs://10.1.0.4/sapmnt<b>assurance qualité</b>)
    2. volume usrsap<b>assurance qualité</b> (nfs://10.1.0.4/usrsap<b>assurance qualité</b>)
@@ -364,7 +364,7 @@ Les éléments suivants sont précédés de **[A]** (applicable à tous les nœu
    > [!NOTE]
    > Fichiers de NetApp Azure prend actuellement en charge uniquement NFSv3. N’omettez pas le nfsvers = 3 commutateur.
    
-   Redémarrer autofs pour monter les nouveaux partages
+   Redémarrez `autofs` pour monter les nouveaux partages
     <pre><code>
       sudo systemctl enable autofs
       sudo service autofs restart
@@ -734,7 +734,7 @@ Les éléments suivants sont précédés **[A]** - applicable aux adresses fourn
    /usr/sap/<b>QAS</b>/D<b>02</b> -nfsvers=3,nobind,sync <b>10.1.0.5</b>:/ursap<b>qas</b>pas
    </code></pre>
 
-   Redémarrer autofs pour monter les nouveaux partages
+   Redémarrez `autofs` pour monter les nouveaux partages
 
    <pre><code>
    sudo systemctl enable autofs
@@ -759,7 +759,7 @@ Les éléments suivants sont précédés **[A]** - applicable aux adresses fourn
    /usr/sap/<b>QAS</b>/D<b>03</b> -nfsvers=3,nobind,sync <b>10.1.0.4</b>:/usrsap<b>qas</b>aas
    </code></pre>
 
-   Redémarrer autofs pour monter les nouveaux partages
+   Redémarrez `autofs` pour monter les nouveaux partages
 
    <pre><code>
    sudo systemctl enable autofs
@@ -1230,7 +1230,7 @@ Les tests suivants sont une copie du cas de test de la [meilleures guides pratiq
    <pre><code>anftstsapcl1:~ # pgrep er.sapQAS | xargs kill -9
    </code></pre>
 
-   Si vous n’exécutez la commande qu’une seule fois, sapstart redémarrera le processus. Si vous l’exécutez suffisamment souvent, sapstart ne redémarrera pas le processus et la ressource se trouvera dans un état arrêté. Exécutez les commandes suivantes en tant que racine pour nettoyer l’état de la ressource de l’instance ERS après le test.
+   Si vous exécutez uniquement la commande une seule fois, `sapstart` va redémarrer le processus. Si vous l’exécutez assez souvent `sapstart` ne redémarre pas le processus et la ressource se trouve dans un état arrêté. Exécutez les commandes suivantes en tant que racine pour nettoyer l’état de la ressource de l’instance ERS après le test.
 
    <pre><code>anftstsapcl1:~ # crm resource cleanup rsc_sap_QAS_ERS01
    </code></pre>

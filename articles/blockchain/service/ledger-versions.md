@@ -10,26 +10,32 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: janders
 manager: femila
-ms.openlocfilehash: 63c9a8b9e266dacbb0fb6faba50fb44ac9a4b46e
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 53f65ec91a1e0f1e5a6322f0125bf83cd3e400b2
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65027884"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399106"
 ---
 # <a name="supported-azure-blockchain-service-ledger-versions"></a>Versions de comptabilité Azure Blockchain Service prises en charge
 
-Azure Blockchain Service utilise le Ethereum [Quorum](https://github.com/jpmorganchase/quorum/wiki) général conçu pour le traitement des transactions privés au sein d’un groupe de participants connus, identifié comme un consortium dans Azure Blockchain Service.
+Azure Blockchain Service utilise le Ethereum [Quorum](https://www.goquorum.com/developers) général conçu pour le traitement des transactions privés au sein d’un groupe de participants connus, identifié comme un consortium dans Azure Blockchain Service.
 
 Actuellement, Azure Blockchain Service prend en charge [Quorum version 2.2.1](https://github.com/jpmorganchase/quorum/releases/tag/v2.2.1) et [Gestionnaire de transactions Tessera](https://github.com/jpmorganchase/tessera).
 
 ## <a name="managing-updates-and-upgrades"></a>Gestion des mises à jour et des mises à niveau
 
-Le contrôle de version dans le Quorum est effectuée via une version majeure, version majeure intermédiaire et une point mineur de version. Par exemple, si le Quorum version 2.0.1, 2 est une version majeure, 0 est une version majeure de point, et 1 est la version de point mineur. Le service effectue automatiquement les versions mineures de point de comptabilité. Actuellement, les versions majeure et principales point la mise à niveau ne sont pas pris en charge.
+Le contrôle de version dans le Quorum est effectuée via une majeure, mineure et libère de correctif. Par exemple, si la version de Quorum est 2.0.1, type de version sont catégorisée comme suit :
+
+|Major | Secondaire  | Correctif  |
+| :--- | :----- | :----- |
+| 2 | 0 | 1 | 
+
+Azure Blockchain Service met automatiquement à jour les versions de correctifs de Quorum aux membres en cours d’exécution existants dans les 30 jours de la mise à disposition à partir de Quorum.
 
 ## <a name="availability-of-new-ledger-versions"></a>Disponibilité de nouvelles versions de livre
 
-Azure Blockchain Service fournit les dernières versions de la comptabilité dans les 60 jours d’être disponibles auprès du fabricant du grand livre. Un maximum de quatre versions principales point sont fournis pour consortiums sélectionnables lors de la configuration d’un nouveau membre et un consortium.
+Azure Blockchain Service fournit les dernières versions majeure et mineure de la comptabilité de Quorum dans les 60 jours d’être disponibles auprès du fabricant de Quorum. Un maximum de quatre versions mineures sont fournis pour consortiums sélectionnables lors de la configuration d’un nouveau membre et un consortium. Version de la mise à niveau à partir de des principales ou secondaire n’est actuellement pas pris en charge.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

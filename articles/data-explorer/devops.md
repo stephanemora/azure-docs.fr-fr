@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 05/05/2019
-ms.openlocfilehash: a70a887ccb19d9c1cbdb5f8ebf6aa8d4b25a0dfd
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 0628d5c07d7258cc4d68727c364e65bd81c78e8e
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65161069"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388991"
 ---
 # <a name="azure-devops-task-for-azure-data-explorer"></a>Tâche DevOps Azure pour Explorer des données Azure
 
@@ -67,7 +67,7 @@ Créez les dossiers d’exemple suivants (*fonctions*, *stratégies*, *Tables*) 
 
     ![Créer la variable](media/devops/create-variable.png)
 
-    Pour rechercher votre Endpoint_URL, la page Vue d’ensemble de votre **Cluster de l’Explorateur de données Azure** dans le portail Azure portal contient l’URI de cluster de l’Explorateur de données Azure. Construire l’URI au format suivant `https://<Azure Data Explorer cluster URI>?DatabaseName=<DBName>`.  Par exemple, https://kustodocs.westus.kusto.windows.net?DatabaseName=SampleDB
+    Pour rechercher votre Endpoint_URL, la page Vue d’ensemble de votre **Cluster de l’Explorateur de données Azure** dans le portail Azure portal contient l’URI de cluster de l’Explorateur de données Azure. Construire l’URI au format suivant `https://<Azure Data Explorer cluster URI>?DatabaseName=<DBName>`.  Par exemple, https :\//kustodocs.westus.kusto.windows.net?DatabaseName=SampleDB
 
     ![URI de cluster de l’Explorateur de données Azure](media/devops/adx-cluster-uri.png)
 
@@ -85,7 +85,7 @@ Créez les dossiers d’exemple suivants (*fonctions*, *stratégies*, *Tables*) 
 
 1. Cliquez sur **Kusto commande** sur la gauche et la mise à jour la tâche avec les informations suivantes :
     * **Nom d'affichage** : Nom de la tâche
-    * **Chemin d’accès du fichier**: Dans le **Tables** de tâches, spécifiez */Tables/*.csl dans la mesure où les fichiers de la création de table sont dans le *Table* dossier.
+    * **Chemin d’accès du fichier**: Dans le **Tables** de tâches, spécifiez */Tables/* .csl dans la mesure où les fichiers de la création de table sont dans le *Table* dossier.
     * **URL de point de terminaison**: entrez le `EndPoint URL`variable créée à l’étape précédente.
     * Sélectionnez **point de terminaison de Service usage** et sélectionnez **+ nouveau**.
 

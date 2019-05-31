@@ -7,14 +7,14 @@ manager: christw
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
-ms.author: v-rada
+ms.author: v-pawal
 ms.topic: conceptual
-ms.openlocfilehash: ccd31a0e8b91bc95ac364fe5bc0ec0ecdfaa4618
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 675ae10e304bd22c441740a87e8033136ff63ebd
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61457215"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389312"
 ---
 # <a name="view-system-test-results"></a>Afficher les résultats de test système
 
@@ -86,14 +86,14 @@ Pour demander un déploiement :
 
 Pour mettre à jour les paramètres de déploiement :
 
-1.  Sélectionnez un projet, accédez à l’onglet **Models (Modèles)**.
+1.  Sélectionnez un projet, accédez à l’onglet **Models (Modèles)** .
 
-2. Pour un modèle déployé réussi, il affiche le bouton **Update (Mettre à jour)**.
+2. Pour un modèle déployé réussi, il affiche le bouton **Update (Mettre à jour)** .
 
     ![Déployer le modèle](media/how-to/how-to-update-undeploy-model.png)
 
 3.  Sélectionnez **Update**.
-4.  Sélectionnez **Deployed (Déployé)** ou **Undeployed (Non déployé)** pour la ou les régions où vous souhaitez déployer votre modèle (ou en annuler le déploiement), puis cliquez sur **Save (Enregistrer)**.
+4.  Sélectionnez **Deployed (Déployé)** ou **Undeployed (Non déployé)** pour la ou les régions où vous souhaitez déployer votre modèle (ou en annuler le déploiement), puis cliquez sur **Save (Enregistrer)** .
 
     ![Déployer le modèle](media/how-to/how-to-undeploy-model.png)
 

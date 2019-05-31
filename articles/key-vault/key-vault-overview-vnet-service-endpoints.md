@@ -8,12 +8,12 @@ manager: barbkess
 ms.date: 01/02/2019
 ms.service: key-vault
 ms.topic: conceptual
-ms.openlocfilehash: d003e851dcfa77b18a67450946a71e4a13ce495c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 00274f8e15006f6f58a7c5f153bf0bbc0d26afb9
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64700968"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66416424"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Points de terminaison de service de réseau virtuel pour Azure Key Vault
 
@@ -53,7 +53,7 @@ Pour plus d’informations, consultez [Configurer les pare-feux et réseaux virt
 > Notez les limitations de configuration suivantes :
 > * Un maximum de 127 règles de réseau virtuel et 127 règles IPv4 sont autorisées. 
 > * Les petites plages d’adresses qui utilisent les tailles de préfixe « /31 » ou « /32 » ne sont pas prises en charge. Au lieu de cela, configurez ces plages avec des règles d’adresses IP individuelles.
-> * Les règles de réseau IP sont autorisées uniquement pour les adresses IP publiques. Les plages d’adresses IP réservées aux réseaux privés (comme défini dans RFC 1918) ne sont pas autorisées dans les règles IP. Réseaux privés incluent les adresses qui commencent par **10.**, **172.16-31**, et **192.168.**. 
+> * Les règles de réseau IP sont autorisées uniquement pour les adresses IP publiques. Les plages d’adresses IP réservées aux réseaux privés (comme défini dans RFC 1918) ne sont pas autorisées dans les règles IP. Réseaux privés incluent les adresses qui commencent par **10.** , **172.16-31**, et **192.168.** . 
 > * Seules les adresses IPv4 sont prises en charge pour le moment.
 
 ## <a name="trusted-services"></a>Services approuvés
@@ -68,7 +68,7 @@ Voici une liste de services approuvés qui sont autorisés à accéder à un cof
 |Sauvegarde Azure|Autoriser la sauvegarde et restauration des clés et des secrets pertinents lors de la sauvegarde de Machines virtuelles Azure avec [Sauvegarde Azure](../backup/backup-introduction-to-azure-backup.md).|
 |Exchange Online et SharePoint Online|Autoriser l’accès à la clé du client pour Azure Storage Service Encryption avec une [clé de client](https://support.office.com/article/Controlling-your-data-in-Office-365-using-Customer-Key-f2cd475a-e592-46cf-80a3-1bfb0fa17697).|
 |Azure Information Protection|Autoriser l’accès à la clé de locataire pour [Azure Information Protection](https://docs.microsoft.com/azure/information-protection/what-is-information-protection)|
-|Azure App Service|[Déploiement d’un certificat Azure Web App via Key Vault](https://blogs.msdn.microsoft.com/appserviceteam/2016/05/24/deploying-azure-web-app-certificate-through-key-vault/).|
+|Azure App Service|[Déploiement d’un certificat Azure Web App via Key Vault](https://azure.github.io/AppService/2016/05/24/Deploying-Azure-Web-App-Certificate-through-Key-Vault.html).|
 |Azure SQL Database|[Transparent Data Encryption avec prise en charge de BYOK pour Azure SQL Database et Data Warehouse](../sql-database/transparent-data-encryption-byok-azure-sql.md?view=sql-server-2017&viewFallbackFrom=azuresqldb-current).|
 |Stockage Azure|[Chiffrement du service de stockage à l’aide de clés gérées par le client dans Azure Key Vault](../storage/common/storage-service-encryption-customer-managed-keys.md).|
 |Azure Data Lake Store|[Chiffrement de données dans Azure Data Lake Store](../data-lake-store/data-lake-store-encryption.md) avec une clé gérée par le client.|

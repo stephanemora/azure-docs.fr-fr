@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 11/20/2018
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: f086850ecc2f15c41ab89db34b16d6d2e4a229cb
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 9b7bc043c748000f03a98a28f856299527015388
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956225"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66397829"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions-preview"></a>Utiliser des références Key Vault pour App Service et Azure Functions (préversion)
 
@@ -37,14 +37,14 @@ Pour pouvoir lire les secrets dans Key Vault, vous devez créer un coffre et don
    > [!NOTE] 
    > Actuellement, les références Key Vault prennent uniquement en charge les identités managées affectées par le système. Vous ne pouvez pas utiliser d’identités affectées par l’utilisateur.
 
-1. Créez une [stratégie d’accès dans Key Vault](../key-vault/key-vault-secure-your-key-vault.md#key-vault-access-policies) pour l’identité d’application que vous avez créée précédemment. Activez l’autorisation de secret « Get » sur cette stratégie. Ne configurez pas les paramètres « application autorisée » ou `appliationId` car ils sont incompatibles avec une identité managée.
+1. Créez une [stratégie d’accès dans Key Vault](../key-vault/key-vault-secure-your-key-vault.md#key-vault-access-policies) pour l’identité d’application que vous avez créée précédemment. Activez l’autorisation de secret « Get » sur cette stratégie. Ne configurez pas les paramètres « application autorisée » ou `applicationId` car ils sont incompatibles avec une identité managée.
 
 ## <a name="reference-syntax"></a>Syntaxe de référence
 
 Une référence Key Vault est de la forme `@Microsoft.KeyVault({referenceString})`, où `{referenceString}` est remplacé par une des options suivantes :
 
 > [!div class="mx-tdBreakAll"]
-> | Chaîne de référence                                                            | Description                                                                                                                                                                                  |
+> | Chaîne de référence                                                            | Description                                                                                                                                                                                 |
 > |-----------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 > | SecretUri=_URI_secret_                                                       | L’**URI_secret** doit être l’URI complet du plan de données d’un secret dans Key Vault, y compris une version, par exemple, https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931  |
 > | VaultName=_Nom_coffre_;SecretName=_Nom_secret_;SecretVersion=_Version_secret_ | Le **Nom_coffre** doit être le nom de votre ressource Key Vault. Le **Nom_secret** doit être le nom du secret cible. La **Version_secret** doit être la version du secret à utiliser. |

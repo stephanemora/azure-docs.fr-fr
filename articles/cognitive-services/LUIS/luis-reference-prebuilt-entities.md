@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 04/05/2019
+ms.date: 05/29/2019
 ms.author: diberry
-ms.openlocfilehash: 96157511c0255774a64c0f64a333fe88a37f80d6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 729d5d1c9ad21654fbd5923b9f3ffacc3b709ef0
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60712687"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388786"
 ---
 # <a name="entities-per-culture-in-your-luis-model"></a>Entités par culture dans votre modèle LUIS
 
@@ -65,7 +65,7 @@ Les entités suivantes sont prises en charge :
 ------|:------:|
 [Age](luis-reference-prebuilt-age.md) :<br>year<br>month<br>week<br>day   |    ✔   |
 [Devise (monnaie)](luis-reference-prebuilt-currency.md):<br>dollar<br>Unité fractionnelle (par exemple, centime)  |    ✔   |
-[Datetimev2](luis-reference-prebuilt-datetimev2.md) :<br>date<br>daterange<br>time<br>plage horaire   |    -   | 
+[Datetime](luis-reference-prebuilt-deprecated.md)   |    -   | 
 [Dimension](luis-reference-prebuilt-dimension.md) :<br>volume<br>superficie<br>poids<br>informations (p. ex. : bit/octet)<br>longueur (p. ex. : mètre)<br>vitesse (p. ex : km par heure)  |    ✔   | 
 [E-mail](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
@@ -170,7 +170,7 @@ Les entités suivantes sont prises en charge :
 ------|:------:|
 [Age](luis-reference-prebuilt-age.md) :<br>year<br>month<br>week<br>day   |    ✔   |
 [Devise (monnaie)](luis-reference-prebuilt-currency.md):<br>dollar<br>Unité fractionnelle (par exemple, centime)  |    ✔   |
-[Datetimev2](luis-reference-prebuilt-datetimev2.md) :<br>date<br>daterange<br>time<br>plage horaire   |    -   | 
+[Datetime](luis-reference-prebuilt-deprecated.md)   |    -   | 
 [Dimension](luis-reference-prebuilt-dimension.md) :<br>volume<br>superficie<br>poids<br>informations (p. ex. : bit/octet)<br>longueur (p. ex. : mètre)<br>vitesse (p. ex : km par heure)  |    ✔   | 
 [E-mail](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
@@ -191,7 +191,7 @@ Les entités suivantes sont prises en charge :
 ------|:------:|
 [Age](luis-reference-prebuilt-age.md) :<br>year<br>month<br>week<br>day   |    ✔   |
 [Devise (monnaie)](luis-reference-prebuilt-currency.md):<br>dollar<br>Unité fractionnelle (par exemple, centime)  |    ✔   |
-[Datetimev2](luis-reference-prebuilt-datetimev2.md) :<br>date<br>daterange<br>time<br>plage horaire   |    -   | 
+[Datetime](luis-reference-prebuilt-deprecated.md)   |    -   | 
 [Dimension](luis-reference-prebuilt-dimension.md) :<br>volume<br>superficie<br>poids<br>informations (p. ex. : bit/octet)<br>longueur (p. ex. : mètre)<br>vitesse (p. ex : km par heure)  |    ✔   | 
 [E-mail](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
@@ -212,7 +212,7 @@ Les entités suivantes sont prises en charge :
 ------|:------:|
 [Age](luis-reference-prebuilt-age.md) :<br>year<br>month<br>week<br>day   |    -   |
 [Devise (monnaie)](luis-reference-prebuilt-currency.md):<br>dollar<br>Unité fractionnelle (par exemple, centime)  |    -   |
-[Datetimev2](luis-reference-prebuilt-datetimev2.md) :<br>date<br>daterange<br>time<br>plage horaire   |    -   | 
+[Datetime](luis-reference-prebuilt-deprecated.md)   |    -   | 
 [Dimension](luis-reference-prebuilt-dimension.md) :<br>volume<br>superficie<br>poids<br>informations (p. ex. : bit/octet)<br>longueur (p. ex. : mètre)<br>vitesse (p. ex : km par heure)  |    -   | 
 [E-mail](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 

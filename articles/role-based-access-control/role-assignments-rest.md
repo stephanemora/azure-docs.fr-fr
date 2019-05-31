@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 06/20/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 0e0c83d411242be38992dd763dea72eda70ffbf4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e9c307b2b2e720881acb983a2a1b00ac8e03dac4
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60531839"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357075"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-the-rest-api"></a>Gérer l'accès aux ressources Azure à l'aide du contrôle d'accès en fonction du rôle (RBAC) et de l'API REST
 
@@ -38,12 +38,16 @@ Dans le contrôle d’accès en fonction du rôle, vous répertoriez les attribu
 
 1. Dans l’URI, remplacez *{scope}* par l’étendue dont vous souhaitez lister les attributions de rôle.
 
-    | Étendue | Type |
+    | `Scope` | type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Abonnement |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Groupe de ressources |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Ressource |
-
+    
+       
+     > [!NOTE]
+     > Dans l’exemple ci-dessus que Microsoft.Web est que le fournisseur de ressources est utilisé, qui fait référence à l’instance de service d’application. De même, vous pouvez utiliser n’importe quel autre fournisseur de ressources et générer l’URI de portée. Pour comprendre plus d’informations, consultez [des fournisseurs de ressources Azure et types](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services) et prise en charge [opérations du fournisseur de ressources Azure RM](https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations).  
+     
 1. Remplacez *{filter}* par la condition que vous voulez appliquer pour filtrer la liste des attributions de rôle.
 
     | Filtrer | Description |
@@ -77,7 +81,7 @@ Dans le contrôle d’accès en fonction du rôle, vous créez une attribution d
     
 1. Dans l’URI, remplacez *{scope}* par l’étendue de l’attribution de rôle.
 
-    | Étendue | Type |
+    | `Scope` | type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Abonnement |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Groupe de ressources |
@@ -85,7 +89,7 @@ Dans le contrôle d’accès en fonction du rôle, vous créez une attribution d
 
 1. Remplacez *{roleAssignmentName}* par l’identificateur GUID de l’attribution de rôle.
 
-1. Au sein du corps de la requête *{subscriptionId}*, par votre identificateur d’abonnement.
+1. Au sein du corps de la requête *{subscriptionId}* , par votre identificateur d’abonnement.
 
 1. Remplacez *{roleDefinitionId}* par l’identificateur de définition de rôle.
 
@@ -105,7 +109,7 @@ Dans le RBAC, vous supprimez une attribution de rôle pour supprimer un accès. 
 
 1. Dans l’URI, remplacez *{scope}* par l’étendue de suppression de l’attribution de rôle.
 
-    | Étendue | Type |
+    | `Scope` | type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Abonnement |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Groupe de ressources |

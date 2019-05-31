@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2019
 ms.author: manayar
-ms.openlocfilehash: 6c271c2c9feb1520951b2a8e301da4878970d60a
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
-ms.translationtype: HT
+ms.openlocfilehash: 61430f5a43a04fa0e5b2f0c79ff03419c73aaf28
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66259421"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66416553"
 ---
 # <a name="instance-protection-for-azure-virtual-machine-scale-set-instances-preview"></a>Protection de l’instance pour la mise à l’échelle de machine virtuelle Azure définie instances (version préliminaire)
 Les machines virtuelles Azure identiques activer élasticité mieux pour vos charges de travail via [mise à l’échelle](virtual-machine-scale-sets-autoscale-overview.md), vous pouvez configurer lors de votre infrastructure échelles-out et quand elle s’adapte. Les groupes identiques vous permettent également de gérer, configurer et mettre à jour un grand nombre de machines virtuelles via différents de manière centralisée [mise à niveau de la stratégie](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) paramètres. Vous pouvez configurer une mise à jour sur le modèle de jeu de mise à l’échelle et la nouvelle configuration est appliquée automatiquement à chaque instance de groupe identique, si vous avez défini la stratégie de mise à niveau automatique ou enchaînées.
@@ -30,7 +30,7 @@ Comme votre application traite le trafic, il peut y avoir définir le cas où vo
 Cet article décrit comment vous pouvez appliquer et utiliser les fonctionnalités de protection autre instance avec des instances de jeu de mise à l’échelle.
 
 > [!NOTE]
->Protection de l’instance est actuellement en version préliminaire publique. Aucune procédure participer n’est nécessaire pour utiliser la fonctionnalité de la version préliminaire publique décrite ci-dessous. Aperçu protection de l’instance est uniquement pris en charge avec la version 2019-03-01 API ci-dessus.
+>Protection de l’instance est actuellement en version préliminaire publique. Aucune procédure participer n’est nécessaire pour utiliser la fonctionnalité de la version préliminaire publique décrite ci-dessous. Aperçu protection de l’instance est uniquement pris en charge avec la version 2019-03-01 API sur les jeux de mise à l’échelle à l’aide de disques gérés.
 
 ## <a name="types-of-instance-protection"></a>Types de protection de l’instance
 Scale sets offre deux types de fonctionnalités de protection d’instance :

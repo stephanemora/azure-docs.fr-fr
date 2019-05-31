@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: spelluru
-ms.openlocfilehash: 9f284fea701220906a994cf108ed58cb6998aef9
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 76a4c16afc9edef0a88ac9f2892de9738fd30289
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65187655"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66305052"
 ---
 # <a name="understand-event-filtering-for-event-grid-subscriptions"></a>Comprendre le filtrage d’événements pour les abonnements Event Grid
 
@@ -107,7 +107,7 @@ Aucune des comparaisons de chaînes n’est sensible à la casse.
 
 Pour les événements dans le schéma Event Grid, utilisez les valeurs suivantes pour la clé :
 
-* ID
+* Id
 * Rubrique
 * Subject
 * Type d’événement
@@ -140,8 +140,6 @@ Le filtrage avancé présente les limites suivantes :
 * Cinq filtres avancés par abonnement Event Grid
 * 512 caractères par valeur de type chaîne
 * Cinq valeurs pour les opérateurs **dans** et **pas dans**
-* La clé ne peut avoir qu'un niveau d’imbrication (comme data.key1)
-* Pour filtrer les schémas d’événement personnalisés, utilisez les champs de niveau supérieur
 
 La même clé peut être utilisée dans plusieurs filtres.
 

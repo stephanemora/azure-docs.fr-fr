@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 931e44f85131e8cbdd7aecddd6398f6f59d1b166
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 90577ea9f24bc5f36113bc1bdb913949772325c9
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64937287"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66305499"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Archive des nouveautés d’Azure Active Directory
 
@@ -483,10 +483,10 @@ Pour plus d’informations sur cette mise à jour, consultez [Azure AD Connect :
 
 ---
 
-### <a name="updates-to-the-terms-of-use-tou-end-user-ui"></a>Mises à jour de l’interface utilisateur des conditions d’utilisation (conditions d’utilisation)
+### <a name="updates-to-the-terms-of-use-end-user-ui"></a>Mises à jour les conditions d’utilisent l’interface utilisateur de l’utilisateur final
 
-**Type :** Fonctionnalité modifiée  
-**Catégorie de service :** Conditions d’utilisation  
+**Type :** Fonctionnalité modifiée  
+**Catégorie de service :** Conditions d’utilisation  
 **Fonctionnalité de produit :** Gouvernance
 
 Nous mettons à jour la chaîne de l’acceptation de l’interface utilisateur des conditions d’utilisation.
@@ -641,25 +641,25 @@ Pour plus d’informations sur la protection des mots de passe Azure AD, consult
 
 ---
 
-### <a name="new-all-guests-conditional-access-policy-template-created-during-terms-of-use-tou-creation"></a>Nouveau modèle de stratégie d’accès conditionnel « tous les invités » créé lors de la création des conditions d’utilisation
+### <a name="new-all-guests-conditional-access-policy-template-created-during-terms-of-use-creation"></a>Nouveau « tous les invités » accès conditionnel modèle de stratégie créé au cours des conditions d’utiliser la création de
 
-**Type :** Nouvelle fonctionnalité  
-**Catégorie de service :** Conditions d’utilisation  
+**Type :** Nouvelle fonctionnalité  
+**Catégorie de service :** Conditions d’utilisation  
 **Fonctionnalité de produit :** Gouvernance
 
-Lors de la création de vos conditions d’utilisation, un nouveau modèle de stratégie d’accès conditionnel est créé pour « tous les invités » et « toutes les applications ». Ce nouveau modèle de stratégie applique les conditions d’utilisation qui viennent d’être créées, ce qui simplifie les processus de création et de mise en œuvre pour les invités.
+Lors de la création de vos conditions d’utilisation, un nouveau modèle de stratégie d’accès conditionnel est également créé pour « tous les invités » et « toutes les applications ». Ce nouveau modèle de stratégie applique les conditions d’utilisation qui viennent d’être créées, ce qui simplifie les processus de création et de mise en œuvre pour les invités.
 
 Pour plus d’informations, consultez [Fonctionnalité Conditions d’utilisation d’Azure Active Directory](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use).
 
 ---
 
-### <a name="new-custom-conditional-access-policy-template-created-during-terms-of-use-tou-creation"></a>Nouveau modèle de stratégie d’accès conditionnel «personnalisé » créé lors de la création des conditions d’utilisation
+### <a name="new-custom-conditional-access-policy-template-created-during-terms-of-use-creation"></a>Nouveau modèle de stratégie d’accès conditionnel « custom » créée au cours des conditions d’utiliser la création de
 
-**Type :** Nouvelle fonctionnalité  
-**Catégorie de service :** Conditions d’utilisation  
+**Type :** Nouvelle fonctionnalité  
+**Catégorie de service :** Conditions d’utilisation  
 **Fonctionnalité de produit :** Gouvernance
 
-Lors de la création de vos conditions d’utilisation, un nouveau modèle de stratégie d’accès conditionnel «personnalisé » est également créé. Ce nouveau modèle de stratégie vous permet de créer les conditions d’utilisation, puis de passer immédiatement au panneau de création de la stratégie d’accès conditionnel, sans devoir accéder manuellement dans le portail.
+Lors de la création de vos conditions d’utilisation, un nouveau modèle de stratégie d’accès conditionnel « custom » est également créé. Ce nouveau modèle de stratégie vous permet de créer les conditions d’utilisation, puis de passer immédiatement au panneau de création de la stratégie d’accès conditionnel, sans devoir accéder manuellement dans le portail.
 
 Pour plus d’informations, consultez [Fonctionnalité Conditions d’utilisation d’Azure Active Directory](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use).
 
@@ -715,21 +715,21 @@ Les offres de SaaS, comme Azure Active Directory (Azure AD) sont conçues pour o
 
 Même si nous modifions la prise en charge, nous savons qu’il existe toujours des situations où vous devrez peut-être utiliser un ensemble dédié de circuits pour le trafic d’authentification. Pour cette raison, Azure AD continue à prendre en charge les restrictions de plage d’adresses IP par abonné avec ExpressRoute et les services qui utilisent déjà l’appairage Microsoft avec la communauté « Autres services en ligne Office 365 ». Si vos services sont concernés, mais que vous avez besoin d’ExpressRoute, vous devez procéder comme suit :
 
-- **Si vous utilisez l’appairage public Azure.** Passez à l’appairage Microsoft et inscrivez-vous à la communauté **Autres services en ligne Office 365 (12076:5100)**. Pour plus d’informations sur le passage de l’appairage public Azure à l’appairage Microsoft, consultez l’article [Déplacer un appairage public vers l’appairage Microsoft](https://docs.microsoft.com/azure/expressroute/how-to-move-peering) l’article.
+- **Si vous utilisez l’appairage public Azure.** Passez à l’appairage Microsoft et inscrivez-vous à la communauté **Autres services en ligne Office 365 (12076:5100)** . Pour plus d’informations sur le passage de l’appairage public Azure à l’appairage Microsoft, consultez l’article [Déplacer un appairage public vers l’appairage Microsoft](https://docs.microsoft.com/azure/expressroute/how-to-move-peering) l’article.
 
-- **Si vous utilisez l’appairage Microsoft.** Inscrivez-vous à la communauté **Autres services en ligne Office 365 (12076:5100)**. Pour plus d’informations sur la configuration de routage requise, consultez la section [Prise en charge des communautés BGP](https://docs.microsoft.com/azure/expressroute/expressroute-routing#bgp) de l’article Configuration requise pour le routage ExpressRoute.
+- **Si vous utilisez l’appairage Microsoft.** Inscrivez-vous à la communauté **Autres services en ligne Office 365 (12076:5100)** . Pour plus d’informations sur la configuration de routage requise, consultez la section [Prise en charge des communautés BGP](https://docs.microsoft.com/azure/expressroute/expressroute-routing#bgp) de l’article Configuration requise pour le routage ExpressRoute.
 
-Si vous devez continuer à utiliser des circuits dédiés, discutez avec l’équipe des comptes Microsoft au sujet de la façon d’obtenir l’autorisation d’utiliser la communauté **Autres services en ligne Office 365 (12076:5100)**. Le comité de révision géré par MS Office vérifiera si vous avez vraiment besoin de ces circuits et s’assurera que vous comprenez bien les implications techniques découlant de leur conservation. Les abonnements non autorisés qui essaient de créer des filtres de routage pour Office 365 reçoivent un message d’erreur. 
+Si vous devez continuer à utiliser des circuits dédiés, discutez avec l’équipe des comptes Microsoft au sujet de la façon d’obtenir l’autorisation d’utiliser la communauté **Autres services en ligne Office 365 (12076:5100)** . Le comité de révision géré par MS Office vérifiera si vous avez vraiment besoin de ces circuits et s’assurera que vous comprenez bien les implications techniques découlant de leur conservation. Les abonnements non autorisés qui essaient de créer des filtres de routage pour Office 365 reçoivent un message d’erreur. 
  
 ---
 
 ### <a name="microsoft-graph-apis-for-administrative-scenarios-for-tou"></a>API Microsoft Graph pour les scénarios d’administration des conditions d’utilisation
 
 **Type :** Nouvelle fonctionnalité  
-**Catégorie de service :** Conditions d’utilisation  
+**Catégorie de service :** Conditions d’utilisation  
 **Fonctionnalité de produit :** Expérience de développement
  
-Nous avons ajouté l’API Microsoft Graph pour vous permettre de gérer les conditions d’utilisation d’Azure AD. Libre à vous ainsi de créer, mettre à jour et supprimer l’objet des conditions d’utilisation.
+Nous avons ajouté des API Microsoft Graph pour l’opération d’administration de conditions d’utilisation de Azure AD. Vous êtes en mesure de créer, mettre à jour, supprimer les termes du contrat de l’objet de l’utilisation.
 
 ---
 
@@ -914,10 +914,10 @@ Pour plus d'informations, consultez les pages suivantes :
 
 ---
  
-### <a name="azure-ad-terms-of-use-now-has-per-user-reporting"></a>La fonctionnalité Conditions d’utilisation Azure AD propose à présent des rapports par utilisateur
+### <a name="azure-ad-terms-of-use-now-has-per-user-reporting"></a>Azure AD conditions d’utilisation maintenant a par utilisateur de rapport
 
 **Type :** Nouvelle fonctionnalité  
-**Catégorie de service :** Conditions d’utilisation  
+**Catégorie de service :** Conditions d’utilisation  
 **Fonctionnalité de produit :** Conformité
  
 Les administrateurs peuvent à présent sélectionner des conditions d’utilisation données et afficher tous les utilisateurs qui ont accepté les conditions d’utilisation, ainsi que la date et l’heure de leur consentement.
@@ -959,11 +959,11 @@ Pour plus d’informations, consultez la page [Configuration de l’authentifica
 ### <a name="azure-ad-terms-of-use-now-generally-available"></a>Fonctionnalité Conditions d’utilisation Azure AD maintenant à la disposition générale
 
 **Type :** Nouvelle fonctionnalité  
-**Catégorie de service :** Conditions d’utilisation  
+**Catégorie de service :** Conditions d’utilisation  
 **Fonctionnalité de produit :** Conformité
  
 
-La fonctionnalité Conditions d’utilisation Azure AD est passée de la préversion publique à la disponibilité générale.
+Conditions d’utilisation de Azure AD sont passés à partir de la version préliminaire publique à la disposition générale.
 
 Pour plus d’informations, consultez [Fonctionnalité Conditions d’utilisation d’Azure Active Directory](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use).
 
@@ -1463,10 +1463,10 @@ Pour plus d'informations, consultez les pages suivantes :
 
 ---
 
-### <a name="terms-of-use-update-to-mobile-experience"></a>Mise à jour des conditions d’utilisation pour l’expérience mobile 
+### <a name="terms-of-use-update-to-mobile-experience"></a>Termes du contrat de mise à jour de l’utilisation pour l’expérience mobile 
 
 **Type :** Fonctionnalité modifiée  
-**Catégorie de service :** Conditions d’utilisation  
+**Catégorie de service :** Conditions d’utilisation  
 **Fonctionnalité de produit :** Conformité
 
 Lorsque les conditions d’utilisation s’affichent, vous pouvez maintenant cliquer sur **Des problèmes d’affichage ? Cliquez ici**. Ce lien ouvre les conditions d’utilisation en mode natif sur votre appareil. Quelle que soit la taille de police dans le document ou la taille d’écran de l’appareil, vous pouvez effectuer un zoom avant et lire le document selon vos besoins. 
@@ -2035,7 +2035,7 @@ Pour plus d’informations, consultez [Révisions d’accès Azure AD](https://d
 **Catégorie de service :** My Apps  
 **Fonctionnalité de produit :** Authentification unique  
 
-Désormais, vous pouvez mieux gérer les applications qui s’affichent sur les portails de vos utilisateurs grâce à une nouvelle propriété permettant de **masquer une application**. Vous pouvez masquer des applications pour plus de clarté en cas d’affichage de mosaïques d’applications pour les services principaux, de vignettes en double et de lanceurs d’applications des utilisateurs. La commande se trouve dans la section **Properties (Propriétés)** de l’application tierce et s’appelle **Visible to user? (Visible par l’utilisateur ?)**. Vous pouvez également masquer une application par programme l’aide de PowerShell. 
+Désormais, vous pouvez mieux gérer les applications qui s’affichent sur les portails de vos utilisateurs grâce à une nouvelle propriété permettant de **masquer une application**. Vous pouvez masquer des applications pour plus de clarté en cas d’affichage de mosaïques d’applications pour les services principaux, de vignettes en double et de lanceurs d’applications des utilisateurs. La commande se trouve dans la section **Properties (Propriétés)** de l’application tierce et s’appelle **Visible to user? (Visible par l’utilisateur ?)** . Vous pouvez également masquer une application par programme l’aide de PowerShell. 
 
 Pour plus d’informations, consultez [Masquer une application de l’expérience utilisateur dans Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-hide-third-party-app). 
 

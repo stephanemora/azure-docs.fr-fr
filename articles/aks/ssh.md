@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 05/20/2019
+ms.date: 05/24/2019
 ms.author: iainfou
-ms.openlocfilehash: a85c39fbfbf629e6ba9e668d55dd905c1ce0800c
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 57eacca75d711c5125a2856a7b6219cd2ec5306b
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956357"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242033"
 ---
 # <a name="connect-with-ssh-to-azure-kubernetes-service-aks-cluster-nodes-for-maintenance-or-troubleshooting"></a>Se connecter avec SSH à des nœuds de cluster AKS (Azure Kubernetes Service) pour effectuer des tâches de maintenance ou de dépannage
 
@@ -33,18 +33,25 @@ Par défaut, les clés SSH sont obtenues, ou générés, puis ajoutées aux nœu
 > [!NOTE]
 > Peut de clés SSH actuellement uniquement être ajoutés à des nœuds Linux à l’aide de l’interface CLI. Si vous utilisez des nœuds de serveur Windows, utilisez les touches SSH fournis lorsque vous avez créé le cluster AKS et passez à l’étape sur [comment obtenir l’adresse du nœud AKS](#get-the-aks-node-address). Ou, [vous connecter aux nœuds Windows Server à l’aide de connexions de protocole Bureau à distance (RDP)][aks-windows-rdp].
 
+Les étapes pour obtenir l’adresse IP privée des nœuds AKS est différente selon le type de cluster AKS, vous exécutez :
+
+* Pour la plupart des clusters AKS, suivez les étapes pour [obtenir l’adresse IP pour les clusters AKS régulières](#add-ssh-keys-to-regular-aks-clusters).
+* Si vous utilisez des fonctionnalités en version préliminaire dans ACS qui utilisent les jeux de mise à l’échelle de machine virtuelle, tels que plusieurs pools de nœuds ou de prise en charge des conteneurs Windows Server, [suivez les étapes de l’échelle de machine virtuelle basée sur l’ensemble des clusters AKS](#add-ssh-keys-to-virtual-machine-scale-set-based-aks-clusters).
+
+### <a name="add-ssh-keys-to-regular-aks-clusters"></a>Ajouter des clés SSH pour les clusters AKS régulières
+
 Pour ajouter votre clé SSH à un nœud Linux AKS, procédez comme suit :
 
-1. Obtenez le nom du groupe de ressources pour vos ressources de cluster AKS à l’aide de la commande [az aks show][az-aks-show]. Fournissez vos propres groupe de ressources principal et nom du cluster AKS :
+1. Obtenez le nom du groupe de ressources pour vos ressources de cluster AKS à l’aide de la commande [az aks show][az-aks-show]. Fournir votre propre principal groupe de ressources et le nom du cluster AKS. Le nom du cluster est affecté à la variable nommée *CLUSTER_RESOURCE_GROUP*:
 
     ```azurecli-interactive
-    az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
+    CLUSTER_RESOURCE_GROUP=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv)
     ```
 
 1. Répertoriez les machines virtuelles dans le groupe de ressources de cluster AKS avec la commande [az vm list][az-vm-list]. Ces machines virtuelles sont vos nœuds AKS :
 
     ```azurecli-interactive
-    az vm list --resource-group MC_myResourceGroup_myAKSCluster_eastus -o table
+    az vm list --resource-group $CLUSTER_RESOURCE_GROUP -o table
     ```
 
     L’exemple de sortie suivant montre les nœuds AKS :
@@ -59,25 +66,61 @@ Pour ajouter votre clé SSH à un nœud Linux AKS, procédez comme suit :
 
     ```azurecli-interactive
     az vm user update \
-      --resource-group MC_myResourceGroup_myAKSCluster_eastus \
+      --resource-group $CLUSTER_RESOURCE_GROUP \
       --name aks-nodepool1-79590246-0 \
       --username azureuser \
       --ssh-key-value ~/.ssh/id_rsa.pub
+    ```
+
+### <a name="add-ssh-keys-to-virtual-machine-scale-set-based-aks-clusters"></a>Ajouter des clés SSH à l’échelle de machine virtuelle basée sur l’ensemble des clusters AKS
+
+Pour ajouter votre clé SSH à un nœud Linux AKS qui fait partie d’un jeu de mise à l’échelle de machine virtuelle, procédez comme suit :
+
+1. Obtenez le nom du groupe de ressources pour vos ressources de cluster AKS à l’aide de la commande [az aks show][az-aks-show]. Fournir votre propre principal groupe de ressources et le nom du cluster AKS. Le nom du cluster est affecté à la variable nommée *CLUSTER_RESOURCE_GROUP*:
+
+    ```azurecli-interactive
+    CLUSTER_RESOURCE_GROUP=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv)
+    ```
+
+1. Ensuite, obtenez les machines virtuelles identiques pour votre cluster AKS à l’aide du [liste de vmss az] [ az-vmss-list] commande. Le nom de jeu de mise à l’échelle de machine virtuelle est affecté à la variable nommée *SCALE_SET_NAME*:
+
+    ```azurecli-interactive
+    SCALE_SET_NAME=$(az vmss list --resource-group $CLUSTER_RESOURCE_GROUP --query [0].name -o tsv)
+    ```
+
+1. Pour ajouter vos clés SSH pour les nœuds dans un jeu de mise à l’échelle de machine virtuelle, utilisez le [az vmss extension set] [ az-vmss-extension-set] commande. Le groupe de ressources de cluster et le nom de jeu de mise à l’échelle de machine virtuelle sont fournis à partir des commandes précédentes. Par défaut, le nom d’utilisateur pour les nœuds AKS est *azureuser*. Si nécessaire, mettre à jour l’emplacement de votre propre emplacement de clé publique SSH, comme *~/.ssh/id_rsa.pub*:
+
+    ```azurecli-interactive
+    az vmss extension set  \
+        --resource-group $CLUSTER_RESOURCE_GROUP \
+        --vmss-name $SCALE_SET_NAME \
+        --name VMAccessForLinux \
+        --publisher Microsoft.OSTCExtensions \
+        --version 1.4 \
+        --protected-settings "{\"username\":\"azureuser\", \"ssh_key\":\"$(cat ~/.ssh/id_rsa.pub)\"}"
+    ```
+
+1. Appliquer la clé SSH pour les nœuds à l’aide de la [az vmss update-instances] [ az-vmss-update-instances] commande :
+
+    ```azurecli-interactive
+    az vmss update-instances --instance-ids '*' \
+        --resource-group $CLUSTER_RESOURCE_GROUP \
+        --name $SCALE_SET_NAME
     ```
 
 ## <a name="get-the-aks-node-address"></a>Obtenir l’adresse des nœuds AKS
 
 Les nœuds AKS ne sont pas exposés publiquement sur Internet. Pour vous connecter avec SSH aux nœuds AKS, vous utilisez l’adresse IP privée. Dans l’étape suivante, vous créez un pod d’assistance dans votre cluster AKS qui vous permet de SSH à cette adresse IP privée du nœud. Les étapes pour obtenir l’adresse IP privée des nœuds AKS est différente selon le type de cluster AKS, vous exécutez :
 
-* Pour la plupart des clusters AKS, suivez les étapes pour [obtenir l’adresse IP pour les clusters AKS régulières](#regular-aks-clusters).
-* Si vous utilisez des fonctionnalités en version préliminaire dans ACS qui utilisent les jeux de mise à l’échelle de machine virtuelle, tels que plusieurs pools de nœuds ou de prise en charge des conteneurs Windows Server, [suivez les étapes de l’échelle de machine virtuelle basée sur l’ensemble des clusters AKS](#virtual-machine-scale-set-based-aks-clusters).
+* Pour la plupart des clusters AKS, suivez les étapes pour [obtenir l’adresse IP pour les clusters AKS régulières](#ssh-to-regular-aks-clusters).
+* Si vous utilisez des fonctionnalités en version préliminaire dans ACS qui utilisent les jeux de mise à l’échelle de machine virtuelle, tels que plusieurs pools de nœuds ou de prise en charge des conteneurs Windows Server, [suivez les étapes de l’échelle de machine virtuelle basée sur l’ensemble des clusters AKS](#ssh-to-virtual-machine-scale-set-based-aks-clusters).
 
-### <a name="regular-aks-clusters"></a>Clusters AKS régulières
+### <a name="ssh-to-regular-aks-clusters"></a>SSH pour les clusters AKS régulières
 
 Affichez l’adresse IP privée d’un nœud de cluster AKS à l’aide de la commande [az vm list-ip-addresses][az-vm-list-ip-addresses]. Fournissez le nom de votre propre groupe de ressources de cluster AKS obtenu à une étape [az-aks-show][az-aks-show] précédente :
 
 ```azurecli-interactive
-az vm list-ip-addresses --resource-group MC_myResourceGroup_myAKSCluster_eastus -o table
+az vm list-ip-addresses --resource-group $CLUSTER_RESOURCE_GROUP -o table
 ```
 
 L’exemple de sortie suivant montre les adresses IP privées des nœuds AKS :
@@ -88,7 +131,7 @@ VirtualMachine            PrivateIPAddresses
 aks-nodepool1-79590246-0  10.240.0.4
 ```
 
-### <a name="virtual-machine-scale-set-based-aks-clusters"></a>L’échelle de machine virtuelle basée sur l’ensemble des clusters AKS
+### <a name="ssh-to-virtual-machine-scale-set-based-aks-clusters"></a>SSH à l’échelle de machine virtuelle basée sur l’ensemble des clusters AKS
 
 L’adresse IP interne des nœuds à l’aide de la liste le [kubectl get commande][kubectl-get]:
 
@@ -199,3 +242,6 @@ Si vous avez besoin de données de dépannage supplémentaires, vous pouvez [aff
 [aks-windows-rdp]: rdp.md
 [ssh-nix]: ../virtual-machines/linux/mac-create-ssh-keys.md
 [ssh-windows]: ../virtual-machines/linux/ssh-from-windows.md
+[az-vmss-list]: /cli/azure/vmss#az-vmss-list
+[az-vmss-extension-set]: /cli/azure/vmss/extension#az-vmss-extension-set
+[az-vmss-update-instances]: /cli/azure/vmss#az-vmss-update-instances

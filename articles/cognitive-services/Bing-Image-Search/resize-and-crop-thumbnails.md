@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: scottwhi
 ms.custom: seodec2018
-ms.openlocfilehash: c53b84f31100ab72458ab6fb79b2009450eda15c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3e005677f6a21c0f795f649f43407b55bec2a40a
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60914583"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66383583"
 ---
 # <a name="resize-and-crop-thumbnail-images"></a>Redimensionner et rogner les images miniatures
 
@@ -28,7 +28,7 @@ Lors du traitement d’une requête de recherche, Bing génère des informations
 ![Expanded view of thumbnail image](../bing-web-search/media/cognitive-services-bing-web-api/bing-web-image-thumbnail-expansion.PNG)
 -->
 
-Si l’utilisateur clique sur la miniature, vous pouvez utiliser [contentUrl](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#image-contenturl) pour afficher l’image en taille réelle. Veillez à attribuer l’image.
+Si l’utilisateur clique sur la miniature, vous pouvez utiliser [contentUrl](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#image-contenturl) pour afficher l’image en taille réelle. Veillez à attribuer l’image.
 
 Si `shoppingSourcesCount` ou `recipeSourcesCount` est supérieur à zéro, ajoutez un badge à la miniature, par exemple un panier d’achat, pour indiquer que l’élément dans l’image est associé à des achats ou à des recettes.
 
@@ -36,12 +36,12 @@ Si `shoppingSourcesCount` ou `recipeSourcesCount` est supérieur à zéro, ajout
 ![Shopping sources badge](./media/cognitive-services-bing-images-api/bing-images-shopping-source.PNG)
 -->
 
-Pour obtenir des insights sur l’image, par exemple les pages web dans lesquelles figure l’image ou les personnes reconnues dans l’image, utilisez [imageInsightsToken](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#image-imageinsightstoken). Pour plus d’informations, consultez [Insights sur les images](image-insights.md).
+Pour obtenir des insights sur l’image, par exemple les pages web dans lesquelles figure l’image ou les personnes reconnues dans l’image, utilisez [imageInsightsToken](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#image-imageinsightstoken). Pour plus d’informations, consultez [Insights sur les images](image-insights.md).
 
 ## <a name="resizing-and-cropping-thumbnails"></a>Redimensionnement et rognage des miniatures
 
 Vous pouvez également redimensionner et développer des miniatures, par exemple lorsque le curseur de l’utilisateur passe sur ces éléments.
 > [!NOTE]
-> Veillez à attribuer l’image si vous la développez. Vous pouvez par exemple extraire l’hôte de [hostPageDisplayUrl](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#image-hostpagedisplayurl) et l’afficher sous l’image.
+> Veillez à attribuer l’image si vous la développez. Vous pouvez par exemple extraire l’hôte de [hostPageDisplayUrl](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#image-hostpagedisplayurl) et l’afficher sous l’image.
 
 [!INCLUDE [cognitive-services-bing-resize-crop-thumbnails](../../../includes/cognitive-services-bing-resize-crop-thumbnails.md)]

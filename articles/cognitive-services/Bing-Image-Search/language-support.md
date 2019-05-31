@@ -10,12 +10,12 @@ ms.subservice: bing-image-search
 ms.topic: article
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: 57a96648e480c89d1112f069676edb1abcc7cfc3
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 6f4c354c89fa00d5fc65c635f5f6315761be2f01
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64869847"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66384141"
 ---
 # <a name="language-and-region-support-for-the-bing-image-search-api"></a>Langues et régions prises en charge par l’API Recherche d’images Bing
 
@@ -32,7 +32,7 @@ De même, vous pouvez spécifier le pays/la région à l’aide du paramètre de
 > - en-AU (anglais, Australie)
 > - zh-CN (chinois, Chine)
 
-## <a name="countriesregions"></a>Pays ou régions
+## <a name="countriesregions"></a>Pays/régions
 
 |Pays/région|Code|
 |-------|----|
@@ -76,7 +76,7 @@ De même, vous pouvez spécifier le pays/la région à l’aide du paramètre de
 
 ## <a name="markets"></a>Marchés
 
-|Pays/région|Langage|Code du marché|
+|Pays/région|Langue|Code du marché|
 |-------|--------|-----------|
 |Argentine|Espagnol|es-AR|
 |Australie|Anglais|en-AU|
@@ -119,4 +119,4 @@ De même, vous pouvez spécifier le pays/la région à l’aide du paramètre de
 |États-Unis|Espagnol|es-US|
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour plus d’informations sur les points de terminaison de Recherche d’actualités Bing, consultez [Référence de l’API Recherche d’images v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference).
+Pour plus d’informations sur les points de terminaison de Recherche d’actualités Bing, consultez [Référence de l’API Recherche d’images v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference).

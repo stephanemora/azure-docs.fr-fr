@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
-ms.openlocfilehash: 49a28c120ae71224195edcdb3809335aeea1fa3a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e80fb136220330ddc53d513b22ebcfa19a35117b
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61364104"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66252793"
 ---
 # <a name="create-and-read-iot-hub-messages"></a>Créer et lire des messages IoT Hub
 
@@ -42,6 +42,8 @@ La messagerie appareil-à-cloud avec IoT Hub présente les caractéristiques sui
 * IoT Hub n’autorise pas le partitionnement arbitraire. Les messages appareil-à-cloud sont partitionnés selon leur **deviceId**d’origine.
 
 * Comme expliqué dans [Contrôler l’accès à IoT Hub](iot-hub-devguide-security.md), IoT Hub permet l’authentification et le contrôle d’accès pour chaque appareil.
+
+* Vous pouvez marquer les messages avec des informations qui sont placées dans les propriétés d’application. Pour plus d’informations, consultez [enrichissement de message](iot-hub-message-enrichments-overview.md).
 
 Pour plus d’informations sur l’encodage et le décodage des messages envoyés avec différents protocoles, consultez [SDK Azure IoT](iot-hub-devguide-sdks.md).
 

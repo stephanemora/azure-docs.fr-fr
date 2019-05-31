@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: pabutler
-ms.openlocfilehash: 0b14180c894977d822aa30ea5f46a2e21e247dc1
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: dd2e68c820a8c9e503a3539fd50bf3fba68e3949
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64942327"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257524"
 ---
 # <a name="dynamics-365-for-customer-engagement-prerequisites"></a>Prérequis pour Dynamics 365 for Customer Engagement
 
@@ -40,7 +40,7 @@ Votre application Dynamics 365 for Customer Engagement doit être conforme aux 
 
 Les exigences de l’entreprise incluent des obligations procédurales, contractuelles et légales suivantes :
 
-* Vous devez être inscrit au réseau [MPN (Microsoft Partner Network)](https://partners.microsoft.com/PartnerProgram/simplifiedenrollment.aspx) ou être un éditeur sur la Place de marché dans le cloud inscrit. Si vous n’êtes pas inscrit, suivez les étapes décrites dans [Devenir un éditeur sur la Place de marché dans le cloud](../../become-publisher.md).  (Pour la troisième étape, utilisez plutôt le [formulaire de candidature pour partenaire AppSource](https://appsource.microsoft.com/partners/signup)). 
+* Vous devez être inscrit au réseau [MPN (Microsoft Partner Network)](https://partners.microsoft.com/PartnerProgram/simplifiedenrollment.aspx) ou être un éditeur sur la Place de marché dans le cloud inscrit. Si vous n’êtes pas inscrit, suivez les étapes décrites dans [Devenir un éditeur sur la Place de marché dans le cloud](https://docs.microsoft.com/azure/marketplace/become-publisher).  (Pour la troisième étape, utilisez plutôt le [formulaire de candidature pour partenaire AppSource](https://appsource.microsoft.com/partners/signup)). 
 
     >[!NOTE]
     >Vous devez utiliser le même compte d’inscription au Centre de développement Microsoft pour vous connecter au Portail Cloud Partner. Vous ne devez utiliser qu'un seul compte Microsoft pour vos offres Azure Marketplace. Ce compte ne doit pas être propre à des services ou des offres spécifiques.

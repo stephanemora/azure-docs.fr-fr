@@ -14,15 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 7cb8d494d32f2a9c192418bfab2d5ca9b679c5fe
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 5517bb59d168ffa8d9339d9e765c385cef6db4ce
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60704926"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389487"
 ---
 # <a name="monitor-identity-and-access-in-azure-security-center-preview"></a>Surveiller l’identité et l’accès dans Azure Security Center (Préversion)
 Cet article vous aide à utiliser Azure Security Center pour surveiller l’identité et l’activité d’accès d’un utilisateur.
+
+> [!NOTE]
+> La « vue *classic* identité et accès « lien sera supprimé le 31 juillet 2019. Cliquez sur [ici](security-center-features-retirement-july2019.md#menu_classicidentity) pour en savoir plus sur les autres services.
 
 > [!NOTE]
 > La surveillance de l’identité et de l’accès est uniquement disponible en préversion, au niveau Standard du Security Center. Consultez [Tarification](security-center-pricing.md) pour en savoir plus sur les niveaux tarifaires de Security Center.
@@ -115,8 +118,8 @@ Utilisez le tableau ci-dessous pour mieux comprendre les recommandations Identit
 |Abonnement|30|Supprimer les comptes externes disposant d’autorisations de type propriétaire de votre abonnement|Supprimez de votre abonnement les comptes externes disposant d’autorisations de type propriétaire afin d’empêcher tout accès non contrôlé. |
 |Abonnement|30|Activer l’authentification MFA pour les comptes Azure Management App disposant d’autorisations d’accès en lecture sur votre abonnement|Activez Multi-Factor Authentication (MFA) pour tous les comptes de l’abonnement disposant de privilèges d’accès en lecture, afin d’éviter toute violation de comptes ou de ressources.|
 |Abonnement|25|Supprimer les comptes externes disposant d’autorisations d’écriture de votre abonnement|Supprimez de votre abonnement les comptes externes disposant d’autorisations d’accès en écriture afin d’empêcher tout accès non contrôlé. |
-|Abonnement|20|Supprimer de votre abonnement les comptes déconseillés disposant d’autorisations de type propriétaire|Supprimez de vos abonnements les comptes déconseillés disposant d’autorisations de type propriétaire.|
-|Abonnement|5.|Supprimer de votre abonnement les comptes déconseillés|Supprimez de vos abonnements les comptes déconseillés afin de restreindre l’accès aux utilisateurs actuels. |
+|Abonnement|20|Supprimer de votre abonnement les comptes déconseillés disposant d’autorisations de type propriétaire|Supprimez de vos abonnements les comptes déconseillés disposant d’autorisations de type propriétaire. Les comptes obsolètes sont les comptes pour lesquels connexion a été bloquée dans Azure AD.|
+|Abonnement|5.|Supprimer de votre abonnement les comptes déconseillés|Supprimez de vos abonnements les comptes déconseillés afin de restreindre l’accès aux utilisateurs actuels. Les comptes obsolètes sont les comptes pour lesquels connexion a été bloquée dans Azure AD.|
 |Abonnement|5.|Désigner plusieurs propriétaires de votre abonnement|Désignez plusieurs propriétaires d’abonnement pour assurer une redondance de l’accès administrateur.|
 |Abonnement|5.|Désigner jusqu’à 3 propriétaires de votre abonnement|Désignez moins de trois propriétaires d’abonnement afin de réduire le risque de violation par un propriétaire compromis.|
 |Coffre de clés|5.|Activer les journaux de diagnostic dans Key Vault|Activez les journaux d’activité et conservez-les un an maximum. Permet de recréer les pistes d’activité à des fins d’investigation en cas d’incident de sécurité ou de compromission du réseau. |

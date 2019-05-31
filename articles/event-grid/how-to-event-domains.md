@@ -7,16 +7,16 @@ ms.service: event-grid
 ms.author: babanisa
 ms.topic: conceptual
 ms.date: 01/17/2019
-ms.openlocfilehash: c49044d8bd96efb7e86cf54509c32033900be305
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 73c837897f4a104fabb4143d4b49fa3fbc258bb4
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60561747"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66305024"
 ---
 # <a name="manage-topics-and-publish-events-using-event-domains"></a>Gérer des rubriques et publier des événements à l’aide de domaines de l’événement
 
-Cet article montre comment :
+Cet article explique comment :
 
 * Créer un domaine Event Grid
 * S’abonner aux rubriques de grille d’événement
@@ -27,10 +27,6 @@ Pour en savoir plus sur les domaines d’événements, consultez [Comprendre les
 
 [!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
 
-## <a name="install-preview-feature"></a>Installer la fonctionnalité d'évaluation
-
-[!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
-
 ## <a name="create-an-event-domain"></a>Créer un domaine d’événement
 
 Pour gérer de grands ensembles de rubriques, créez un domaine d’événements.
@@ -38,10 +34,6 @@ Pour gérer de grands ensembles de rubriques, créez un domaine d’événements
 Pour l’interface de ligne de commande Azure, consultez :
 
 ```azurecli-interactive
-# If you haven't already installed the extension, do it now.
-# This extension is required for preview features.
-az extension add --name eventgrid
-
 az eventgrid domain create \
   -g <my-resource-group> \
   --name <my-domain-name> \
@@ -51,10 +43,6 @@ az eventgrid domain create \
 Pour PowerShell, utilisez la commande suivante :
 
 ```azurepowershell-interactive
-# If you have not already installed the module, do it now.
-# This module is required for preview features.
-Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery
-
 New-AzureRmEventGridDomain `
   -ResourceGroupName <my-resource-group> `
   -Name <my-domain-name> `
@@ -203,6 +191,23 @@ Get-AzureRmEventGridDomainKey `
 ```
 
 Ensuite, publiez vos événements sur votre domaine Event Grid en effectuant une requête HTTP POST selon la méthode de votre choix.
+
+## <a name="search-lists-of-topics-or-subscriptions"></a>Listes de recherche de rubriques ou abonnements
+
+Pour faciliter la recherche et la gestion d’un grand nombre de rubriques ou abonnements, les API de Event Grid prendre en charge la liste une pagination.
+
+### <a name="using-cli"></a>Utiliser l'interface CLI
+
+Pour utiliser il Assurez-vous que vous utilisez la version d’extension Azure CLI Event Grid 0.4.1 ou une version ultérieure.
+
+```azurecli-interactive
+# If you haven't already installed the extension, do it now.
+# This extension is required for preview features.
+az extension add --name eventgrid
+
+az eventgrid topic list \
+    --odata-query "contains(name, 'my-test-filter')"
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 

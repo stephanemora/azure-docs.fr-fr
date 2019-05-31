@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
-ms.openlocfilehash: 83ae5f923130ecb46b7b94cd8112ee45ae13e3f4
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: e4799ca099d608c3b8ecd16612b790f5654df7dd
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236255"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390415"
 ---
 # <a name="configure-your-bing-custom-search-experience"></a>Configurer votre expérience de Recherche personnalisée Bing
 
@@ -25,7 +25,7 @@ Le portail vous permet de créer une instance de recherche qui spécifie les sec
 
 Utilisez les éléments suivants pour définir vos sections du web :
 
-| Nom de la section | Description                                                                                                                                                                                                                                                                                                 |
+| Nom de la section | Description                                                                                                                                                                                                                                                                                                |
 |------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Domaine     | Une section de domaine inclut tout le contenu trouvé dans un domaine internet. Par exemple : `www.microsoft.com`. L’omission de `www.` oblige Bing à rechercher également dans les sous-domaines du domaine. Par exemple, si vous spécifiez `microsoft.com`, Bing renvoie également les résultats à partir de `support.microsoft.com` ou `technet.microsoft.com`. |
 | Sous-page    | Une section de sous-page comprend tout le contenu trouvé dans la sous-page, et les chemins situés en dessous de celle-ci. Vous pouvez indiquer un maximum de deux sous-pages dans le chemin. Par exemple, `www.microsoft.com/en-us/windows/`                                                                                                                       |
@@ -74,7 +74,7 @@ Après l’ajout de sections web à la liste **Active**, le portail Recherche pe
 
 ## <a name="search-for-images-and-videos"></a>Rechercher des images et vidéos
 
-Vous pouvez rechercher des images et vidéos de la même façon que du contenu web à l’aide de l’[API Recherche d’images personnalisée Bing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-images-api-v7-reference) ou de l’[API Recherche de vidéos personnalisée Bing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-videos-api-v7-reference). Vous pouvez afficher ces résultats avec l’[interface utilisateur hébergée](hosted-ui.md) ou les API. 
+Vous pouvez rechercher des images et vidéos de la même façon que du contenu web à l’aide de l’[API Recherche d’images personnalisée Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-images-api-v7-reference) ou de l’[API Recherche de vidéos personnalisée Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-videos-api-v7-reference). Vous pouvez afficher ces résultats avec l’[interface utilisateur hébergée](hosted-ui.md) ou les API. 
 
 Ces API sont similaires aux API [Recherche d’images Bing](../Bing-Image-Search/overview.md) et [Recherche de vidéos Bing](../Bing-Video-Search/search-the-web.md) non personnalisées, mais recherchent dans l’intégralité du web et ne nécessitent pas le paramètre de requête `customConfig`. Pour plus d’informations sur l’utilisation d’images et de vidéos, voir ces ensembles de documentation. 
 
@@ -83,7 +83,7 @@ Ces API sont similaires aux API [Recherche d’images Bing](../Bing-Image-Search
 Vous pouvez tester votre instance de recherche en utilisant le volet de visualisation situé du côté droit du portail pour soumettre des requêtes de recherche et afficher les résultats. 
 
 1. Sous la zone de recherche, sélectionnez **My instance** (Mon instance). Vous pouvez comparer les résultats de votre expérience de recherche à Bing en sélectionnant **Bing**. 
-2. Sélectionnez un filtre de recherche sécurisée et le marché dans lequel effectuer la recherche (voir [Paramètres de requête](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#query-parameters)).
+2. Sélectionnez un filtre de recherche sécurisée et le marché dans lequel effectuer la recherche (voir [Paramètres de requête](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters)).
 3. Entrez une requête et appuyez sur Entrée ou cliquez sur l’icône de recherche pour afficher les résultats issus de la configuration active. Vous pouvez modifier le type de recherche que vous effectuez en cliquant sur **Web**, **Image** ou **Vidéo** pour obtenir les résultats correspondants. 
 
 <a name="adjustrank"></a>
@@ -129,11 +129,11 @@ Par défaut, des pages web ne sont épinglées en tête des résultats de recher
 > [!NOTE]
 > Les comparaisons entre la requête de recherche de l’utilisateur et la requête de recherche de l’épingle ne respectent pas la casse.
 
-| Valeur | Description                                                                           |
+| Valeur | Description                                                                          |
 |---------------|----------------------------------------------------------------------------------|
 | Starts With (Commence par) | Une correspondance d’épingle est trouvée si la chaîne de requête de l’utilisateur commence par la chaîne de requête de l’épingle. |
 | Ends with (Se termine par)   | Une correspondance d’épingle est trouvée si la chaîne de requête de l’utilisateur se termine par la chaîne de requête de l’épingle.  |
-| Contient    | Une correspondance d’épingle est trouvée si la chaîne de requête de l’utilisateur contient la chaîne de requête de l’épingle.   |
+| Contains    | Une correspondance d’épingle est trouvée si la chaîne de requête de l’utilisateur contient la chaîne de requête de l’épingle.   |
 
 
 Pour modifier la condition de correspondance de l’épingle, cliquez sur l’icône de modification de l’épingle. Dans la colonne **Query match condition** (Condition de correspondance de la requête), cliquez sur la liste déroulante, puis sélectionnez la nouvelle condition à utiliser. Ensuite, cliquez sur l’icône d’enregistrement pour enregistrer les modifications.
@@ -144,7 +144,7 @@ Pour modifier l’ordre de vos épingles, vous pouvez les glisser-déplacer ou m
 
 Si plusieurs épingles remplissent une condition de correspondance, Recherche personnalisée Bing utilise la plus élevée dans la liste.
 
-## <a name="view-statistics"></a>Afficher les statistiques
+## <a name="view-statistics"></a>Consulter les statistiques
 
 Si vous êtes abonné au niveau approprié de la Recherche personnalisée (voir les [Tarifs](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/)), un onglet **Statistics** (Statistiques) est ajouté à vos instances de production. Cet onglet de statistiques affiche des informations détaillées sur l’utilisation de vos points de terminaison de Recherche personnalisée, notamment sur le volume d’appels, les requêtes principales, la répartition géographique, les codes de réponse et la recherche sécurisée. Vous pouvez filtrer ces informations à l’aide des contrôles fournis.
 

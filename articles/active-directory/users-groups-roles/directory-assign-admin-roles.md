@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 04/15/2019
+ms.date: 05/31/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1107a6df92bf577cd60b9ad31627219da8e1a388
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 5044567396d832d3c3b2b46e3c3e90e053834595
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956545"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417902"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Autorisations des rôles d’administrateur dans Azure Active Directory
 
@@ -51,7 +51,7 @@ Les rôles d’administrateur disponibles sont les suivants :
 
   Le rôle d’administrateur de l’authentification est actuellement en version préliminaire publique. Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-  <b>Important !</b> Les utilisateurs auxquels ce rôle est assigné peuvent changer les informations d’identification des personnes susceptibles d’avoir accès à des informations sensibles ou privées ou à des configurations critiques à l’intérieur et à l’extérieur d’Azure Active Directory. Changer les informations d’identification d’un utilisateur peut signifier la capacité d’assumer l’identité et les autorisations de cet utilisateur. Par exemple : 
+  <b>Important !</b> Les utilisateurs auxquels ce rôle est assigné peuvent changer les informations d’identification des personnes susceptibles d’avoir accès à des informations sensibles ou privées ou à des configurations critiques à l’intérieur et à l’extérieur d’Azure Active Directory. Changer les informations d’identification d’un utilisateur peut signifier la capacité d’assumer l’identité et les autorisations de cet utilisateur. Par exemple :
 
   * Les propriétaires d’inscription d’application et d’application d’entreprise, qui peuvent gérer les informations d’identification des applications qu’ils possèdent. Ces applications peuvent disposer d’autorisations privilégiées dans Azure AD et ailleurs qui ne sont pas accordées aux administrateurs d’authentification. Ce chemin d’accès à un administrateur de l’authentification peut être en mesure d’emprunter l’identité du propriétaire de l’application et ensuite assumer l’identité d’une application à privilèges en mettant à jour les informations d’identification pour l’application.
   * Propriétaires d’abonnement Azure, qui peuvent avoir accès à des informations confidentielles ou privées ou à une configuration critique dans Azure.
@@ -59,15 +59,17 @@ Les rôles d’administrateur disponibles sont les suivants :
   * Administrateurs d’autres services en dehors d’Azure AD, tels qu’Exchange Online, le Centre de sécurité et de conformité Office et les systèmes de ressources humaines.
   * Les non-administrateurs comme les cadres supérieurs, les conseillers juridiques et les employés des ressources humaines qui peuvent avoir accès à des informations sensibles ou privées.
 
-* **[Administrateur de flux d’utilisateurs B2C](#b2c-user-flow-administrator)**: Les utilisateurs disposant de ce rôle peuvent créer et gérer B2C User Flows (également appelé « intégrées » stratégies) dans le portail Azure. En créant ou modifiant des flux d’utilisateurs, ces utilisateurs peuvent modifier le contenu html, CSS et javascript de l’expérience utilisateur, exigences liées à MFA par flux de l’utilisateur de modifier, modifier les revendications du jeton et ajuster les paramètres de session pour toutes les stratégies dans le locataire. En revanche, ce rôle n’incluent la possibilité de consulter les données de l’utilisateur, ni apporter des modifications aux attributs qui sont inclus dans le schéma de locataire. Modifications apportées à l’infrastructure d’expérience d’identité (également appelé personnalisé) stratégies est également en dehors de l’étendue de ce rôle.
+* **[Administrateur de Azure Information Protection](#azure-information-protection-administrator)** : Les utilisateurs avec ce rôle ont toutes les autorisations dans le service Azure Information Protection. Ce rôle permet de configurer les étiquettes pour la stratégie Azure Information Protection, de gérer les modèles de protection et d’activer la protection. Il n’octroie aucune autorisation dans Identity Protection Center, Privileged Identity Management, Monitor Office 365 Service Health ni dans le Centre de sécurité et conformité Office 365.
 
-* **[B2C utilisateur flux attribut administrateur](#b2c-user-flow-attribute-administrator)**: Les utilisateurs disposant de ce rôle ajouter ou supprimer des attributs personnalisés disponibles pour tous les flux d’utilisateur dans le client. Par conséquent, les utilisateurs disposant de ce rôle peuvent modifier ou ajouter de nouveaux éléments au schéma utilisateur final et avoir un impact sur le comportement de tous les flux d’utilisateur et indirectement risque de modifier les données peuvent être invitées des utilisateurs finaux et finalement envoyées en tant que revendications aux applications. Ce rôle ne peut pas modifier le flux d’utilisateurs.
+* **[Administrateur de flux d’utilisateurs B2C](#b2c-user-flow-administrator)** : Les utilisateurs disposant de ce rôle peuvent créer et gérer B2C User Flows (également appelé « intégrées » stratégies) dans le portail Azure. En créant ou modifiant des flux d’utilisateurs, ces utilisateurs peuvent modifier le contenu html, CSS et javascript de l’expérience utilisateur, exigences liées à MFA par flux de l’utilisateur de modifier, modifier les revendications du jeton et ajuster les paramètres de session pour toutes les stratégies dans le locataire. En revanche, ce rôle n’incluent la possibilité de consulter les données de l’utilisateur, ni apporter des modifications aux attributs qui sont inclus dans le schéma de locataire. Modifications apportées à l’infrastructure d’expérience d’identité (également appelé personnalisé) stratégies est également en dehors de l’étendue de ce rôle.
 
-* **[Administrateur de jeu de clés B2C IEF](#b2c-ief-keyset-administrator)**:    Utilisateur peut créer et gérer des clés de stratégie et les secrets de chiffrement des jetons, signatures de jetons et chiffrement/déchiffrement de la revendication. En ajoutant de nouvelles clés aux conteneurs de clé existants, cet administrateur limité peut les secrets de substitution en fonction des besoins sans affecter les applications existantes. Cet utilisateur peut voir la totalité du contenu de ces secrets et leurs dates d’expiration, même après leur création.
+* **[B2C utilisateur flux attribut administrateur](#b2c-user-flow-attribute-administrator)** : Les utilisateurs disposant de ce rôle ajouter ou supprimer des attributs personnalisés disponibles pour tous les flux d’utilisateur dans le client. Par conséquent, les utilisateurs disposant de ce rôle peuvent modifier ou ajouter de nouveaux éléments au schéma utilisateur final et avoir un impact sur le comportement de tous les flux d’utilisateur et indirectement risque de modifier les données peuvent être invitées des utilisateurs finaux et finalement envoyées en tant que revendications aux applications. Ce rôle ne peut pas modifier le flux d’utilisateurs.
+
+* **[Administrateur de jeu de clés B2C IEF](#b2c-ief-keyset-administrator)** :    Utilisateur peut créer et gérer des clés de stratégie et les secrets de chiffrement des jetons, signatures de jetons et chiffrement/déchiffrement de la revendication. En ajoutant de nouvelles clés aux conteneurs de clé existants, cet administrateur limité peut les secrets de substitution en fonction des besoins sans affecter les applications existantes. Cet utilisateur peut voir la totalité du contenu de ces secrets et leurs dates d’expiration, même après leur création.
     
   <b>Important :</b> il s’agit d’un rôle sensible. Le rôle d’administrateur de jeu de clés doit être soigneusement audité et attribué avec précaution au cours de préproduction et production.
 
-* **[Administrateur de la stratégie B2C IEF](#b2c-ief-policy-administrator)**: Les utilisateurs de ce rôle ont la possibilité de créer, lire, mettre à jour et supprimez toutes les stratégies personnalisées dans Azure AD B2C et par conséquent avoir un contrôle total sur l’infrastructure d’expérience d’identité dans le locataire Azure AD B2C pertinentes. En modifiant les stratégies, cet utilisateur peut établir une fédération directe avec les fournisseurs d’identité externes, modifiez le schéma de répertoire, modifier le contenu de tous les visibles par l’utilisateur (HTML, CSS et JavaScript), modifier la configuration requise pour effectuer une authentification, créer de nouveaux utilisateurs, envoyez les données utilisateur à des systèmes externes, notamment complète des migrations et modifier toutes les informations utilisateur, notamment les champs sensibles comme les mots de passe et les numéros de téléphone. À l’inverse, ce rôle ne peut pas modifier les clés de chiffrement ou modifier les clés secrètes utilisées pour la fédération dans le locataire.
+* **[Administrateur de la stratégie B2C IEF](#b2c-ief-policy-administrator)** : Les utilisateurs de ce rôle ont la possibilité de créer, lire, mettre à jour et supprimez toutes les stratégies personnalisées dans Azure AD B2C et par conséquent avoir un contrôle total sur l’infrastructure d’expérience d’identité dans le locataire Azure AD B2C pertinentes. En modifiant les stratégies, cet utilisateur peut établir une fédération directe avec les fournisseurs d’identité externes, modifiez le schéma de répertoire, modifier le contenu de tous les visibles par l’utilisateur (HTML, CSS et JavaScript), modifier la configuration requise pour effectuer une authentification, créer de nouveaux utilisateurs, envoyez les données utilisateur à des systèmes externes, notamment complète des migrations et modifier toutes les informations utilisateur, notamment les champs sensibles comme les mots de passe et les numéros de téléphone. À l’inverse, ce rôle ne peut pas modifier les clés de chiffrement ou modifier les clés secrètes utilisées pour la fédération dans le locataire.
 
   <b>Important :</b> L’administrateur de la stratégie IEF B2 est un rôle très sensible qui doit être affecté de manière très limitée pour les clients en production. Activités par ces utilisateurs doivent être étroitement auditées, en particulier pour les clients en production.
 
@@ -99,7 +101,7 @@ Les rôles d’administrateur disponibles sont les suivants :
   [Intune](https://docs.microsoft.com/intune/role-based-access-control) | View all Intune audit data
   [Cloud App Security](https://docs.microsoft.com/cloud-app-security/manage-admins) | Has read-only permissions and can manage alerts<br>Can create and modify file policies and allow file governance actions<br> Can view all the built-in reports under Data Management
 -->
-* **[Administrateur de l’accès conditionnel](#conditional-access-administrator)**: Les utilisateurs avec ce rôle ont la possibilité de gérer les paramètres d’accès conditionnel Azure Active Directory.
+* **[Administrateur de l’accès conditionnel](#conditional-access-administrator)** : Les utilisateurs avec ce rôle ont la possibilité de gérer les paramètres d’accès conditionnel Azure Active Directory.
   > [!NOTE]
   > Pour pouvoir déployer la stratégie d’accès conditionnel Exchange ActiveSync dans Azure, l’utilisateur doit également être administrateur général.
   
@@ -122,7 +124,7 @@ Les rôles d’administrateur disponibles sont les suivants :
   > [!NOTE]
   > Dans l’API Microsoft Graph, l’API Azure AD Graph et Azure AD PowerShell, ce rôle est identifié comme « Administrateur de services Exchange ». Il est appelé « Administrateur Exchange » dans le [portail Azure](https://portal.azure.com). Il est « Administrateur Exchange en ligne » dans le [centre d’administration Exchange](https://go.microsoft.com/fwlink/p/?LinkID=529144). 
 
-* **[Administrateur de fournisseur d’identité externe](#external-identity-provider-administrator)**: Cet administrateur gère la fédération entre les locataires Azure Active Directory et les fournisseurs d’identité externes. Avec ce rôle, les utilisateurs peuvent ajouter de nouveaux fournisseurs d’identité et configurer tous les paramètres disponibles (par exemple, chemin d’authentification, id de service, attribué des conteneurs de clé). Cet utilisateur peut activer le client approuve les authentifications à partir de fournisseurs d’identité externes. L’impact sur les expériences utilisateur final varie selon le type de client :
+* **[Administrateur de fournisseur d’identité externe](#external-identity-provider-administrator)** : Cet administrateur gère la fédération entre les locataires Azure Active Directory et les fournisseurs d’identité externes. Avec ce rôle, les utilisateurs peuvent ajouter de nouveaux fournisseurs d’identité et configurer tous les paramètres disponibles (par exemple, chemin d’authentification, id de service, attribué des conteneurs de clé). Cet utilisateur peut activer le client approuve les authentifications à partir de fournisseurs d’identité externes. L’impact sur les expériences utilisateur final varie selon le type de client :
   * Clients Azure Active Directory pour les employés et partenaires : L’ajout d’une fédération (par exemple, avec Gmail) affecte immédiatement toutes les invitations d’invités pas encore utilisées. Consultez [Ajout de Google comme fournisseur d’identité pour les utilisateurs invités B2B](https://docs.microsoft.com/azure/active-directory/b2b/google-federation).
   * Clients Azure Active Directory B2C : L’ajout d’une fédération (par exemple, Facebook, ou avec un autre Azure Active Directory) n’affecte pas immédiatement le flux de l’utilisateur final jusqu'à ce que le fournisseur d’identité est ajouté en tant qu’option dans un flux d’utilisateur (également appelé stratégie intégrée). Consultez [configuration d’un compte Microsoft comme fournisseur d’identité](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-msa-app) pour obtenir un exemple. Pour modifier le flux d’utilisateurs, le rôle limité de « B2C User flux Administrator » est requis.
 
@@ -135,13 +137,16 @@ Les rôles d’administrateur disponibles sont les suivants :
 
 * **[Inviteur d’invités](#guest-inviter)**  : les utilisateurs auxquels ce rôle est assigné peuvent gérer les invitations d’utilisateurs invités Azure Active Directory B2B lorsque le paramètre utilisateur **Les membres peuvent inviter** est défini sur Non. Pour plus d’informations sur B2B Collaboration, consultez la page [À propos d’Azure AD B2B Collaboration](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b). Il n’inclut pas d’autres autorisations.
 
-* **[Administrateur Information Protection](#information-protection-administrator)**  : Les utilisateurs avec ce rôle ont toutes les autorisations dans le service Azure Information Protection. Ce rôle permet de configurer les étiquettes pour la stratégie Azure Information Protection, de gérer les modèles de protection et d’activer la protection. Il n’octroie aucune autorisation dans Identity Protection Center, Privileged Identity Management, Monitor Office 365 Service Health ni dans le Centre de sécurité et conformité Office 365.
-
 * **[Administrateur Intune](#intune-service-administrator)**  : Les utilisateurs avec ce rôle ont des autorisations générales dans Microsoft Intune Online, quand le service est présent. Ce rôle donne aussi la possibilité de gérer les utilisateurs et les appareils afin d’associer la stratégie, ainsi que de créer et de gérer des groupes. Pour plus d’informations, consultez la page [Contrôle d’accès en fonction du rôle (RBAC) avec Microsoft Intune](https://docs.microsoft.com/intune/role-based-access-control).
   > [!NOTE]
   > Dans l’API Microsoft Graph, l’API Azure AD Graph et Azure AD PowerShell, ce rôle est identifié comme « Administrateur de service Intune ». Il est « Administrateur Intune » dans le [portail Azure](https://portal.azure.com).
+  
+ * **[Administrateur de Kaizala](#kaizala-administrator)** : Les utilisateurs disposant de ce rôle ont des autorisations globales pour gérer les paramètres au sein de Microsoft Kaizala, lorsque le service est présent, ainsi que la possibilité de gérer les tickets de support et surveiller l’intégrité du service.
+En outre, l’utilisateur peut accéder à des rapports liés à l’adoption et l’utilisation de Kaizala par les membres de l’organisation et les rapports d’entreprise générés à l’aide d’actions Kaizala. 
 
 * **[Administrateur de licence](#license-administrator)**  : Les utilisateurs dans ce rôle peuvent ajouter, supprimer et mettre à jour des attributions de licence pour les utilisateurs, les groupes (à l’aide de la gestion des licences par groupe) et gérer l’emplacement d’utilisation pour les utilisateurs. Le rôle ne permet pas d’acheter ou de gérer des abonnements, de créer ou de gérer des groupes, ni de créer ou de gérer les utilisateurs au-delà de leur emplacement d’utilisation. Ce rôle n’a pas d'accès pour afficher, créer ou gérer des tickets de support.
+
+* **[Lecteur de confidentialité de centre de messages](#message-center-privacy-reader)** : Les utilisateurs de ce rôle peuvent surveiller toutes les notifications dans le centre de messages, y compris les messages de confidentialité de données. Centre de messages confidentialité lecteurs obtiennent des notifications par courrier électronique, dont celles liées à la confidentialité des données, et ils peuvent se désinscrire à l’aide des préférences du centre de Message. Seul l’administrateur Global et le lecteur de confidentialité du centre de Message peuvent lire les messages de confidentialité de données. Ce rôle contient également la possibilité d’afficher les groupes, des domaines et des abonnements. Ce rôle est pas autorisé à afficher, créer ou gérer les demandes de service.
 
 * **[Lecteur du Centre de messages](#message-center-reader)**  : Les utilisateurs dans ce rôle peuvent superviser les notifications et les mises à jour d’avis d’intégrité dans le [Centre de messages Office 365](https://support.office.com/article/Message-center-in-Office-365-38FB3333-BFCC-4340-A37B-DEDA509C2093) pour leur organisation sur les services configurés comme Exchange, Intune et Microsoft Teams. Les lecteurs du Centre de messages reçoivent par e-mail des résumés hebdomadaires des publications, mises à jour, et peuvent partager les messages publiés sur le Centre de messages dans Office 365. Dans Azure AD, les utilisateurs affectés à ce rôle disposeront d’un accès en lecture seule aux services Azure AD comme les utilisateurs et les groupes. Ce rôle n’a pas d'accès pour afficher, créer ou gérer des tickets de support.
 
@@ -149,14 +154,14 @@ Les rôles d’administrateur disponibles sont les suivants :
 
 * **[Prise en charge de niveau 2 de partenaire](#partner-tier2-support)**  : Ne pas utiliser. Ce rôle est déconseillé et sera prochainement supprimé d’Azure AD. Il s’adresse à un petit nombre de partenaires revendeurs Microsoft et n’est pas destiné à une utilisation générale.
 
-* **[Administrateur du support technique (mot de passe)](#helpdesk-administrator)**: Les utilisateurs avec ce rôle peuvent changer des mots de passe, rendre non valides les jetons d’actualisation, gérer les demandes de service et superviser l’intégrité du service. L’invalidation d’un jeton d’actualisation oblige l’utilisateur à se reconnecter. Administrateurs du support technique peuvent réinitialiser les mots de passe et invalider les jetons d’actualisation des autres utilisateurs qui sont non administrateurs ou affecter les rôles suivants uniquement :
+* **[Administrateur du support technique (mot de passe)](#helpdesk-administrator)** : Les utilisateurs avec ce rôle peuvent changer des mots de passe, rendre non valides les jetons d’actualisation, gérer les demandes de service et superviser l’intégrité du service. L’invalidation d’un jeton d’actualisation oblige l’utilisateur à se reconnecter. Administrateurs du support technique peuvent réinitialiser les mots de passe et invalider les jetons d’actualisation des autres utilisateurs qui sont non administrateurs ou affecter les rôles suivants uniquement :
   * Lecteurs de répertoires
   * Inviteur
   * Administrateur du support technique
   * Lecteur du Centre de messages
   * Lecteur de rapports
   
-  <b>Important !</b> Les utilisateurs auxquels ce rôle est assigné peuvent changer les mots de passe des personnes susceptibles d’avoir accès à des informations sensibles ou privées ou à des configurations critiques à l’intérieur et à l’extérieur d’Azure Active Directory. Changer le mot de passe d’un utilisateur peut signifier la capacité d’assumer l’identité et les autorisations de cet utilisateur. Par exemple : 
+  <b>Important !</b> Les utilisateurs auxquels ce rôle est assigné peuvent changer les mots de passe des personnes susceptibles d’avoir accès à des informations sensibles ou privées ou à des configurations critiques à l’intérieur et à l’extérieur d’Azure Active Directory. Changer le mot de passe d’un utilisateur peut signifier la capacité d’assumer l’identité et les autorisations de cet utilisateur. Par exemple :
   * Les propriétaires d’inscription d’application et d’application d’entreprise, qui peuvent gérer les informations d’identification des applications qu’ils possèdent. Ces applications peuvent disposer d’autorisations privilégiées dans Azure AD et ailleurs qui ne sont pas accordées aux administrateurs du support technique. Grâce à ce chemin d’accès, un administrateur de support technique peut être en mesure d’assumer l’identité d’un propriétaire d’application, puis d’assumer l’identité d’une application privilégiée en mettant à jour les identifiants de celle-ci.
   * Propriétaires d’abonnement Azure, qui peuvent avoir accès à des informations confidentielles ou privées ou à une configuration critique dans Azure.
   * Propriétaires de groupe de sécurité et de groupe Office 365, qui peuvent gérer l’appartenance à un groupe. Ces groupes peuvent accorder l’accès à des informations sensibles ou privées ou à une configuration critique dans Azure AD et ailleurs.
@@ -176,15 +181,19 @@ Les rôles d’administrateur disponibles sont les suivants :
   > [!NOTE]
   > Dans l’API Microsoft Graph, l’API Azure AD Graph et Azure AD PowerShell, ce rôle est identifié comme « Administrateur de service Power BI ». Il est appelé « Administrateur Power BI » dans le [portail Azure](https://portal.azure.com).
 
-* **[Privilèges d’administrateur de l’authentification](#privileged-authentication-administrator)**: Les utilisateurs disposant de ce rôle peuvent définir ou réinitialiser les informations d’identification sans mot de passe pour tous les utilisateurs, y compris les administrateurs généraux. Les administrateurs de l’authentification privilégié peut forcer les utilisateurs à réinscrire par rapport à des informations d’identification sans mot de passe existante (par exemple, authentification Multifacteur, FIDO) et de révoquer « mémoriser MFA sur l’appareil », demande d’authentification Multifacteur à la prochaine connexion de tous les utilisateurs. Les administrateurs de l’authentification privilégié peuvent :
+* **[Privilèges d’administrateur de l’authentification](#privileged-authentication-administrator)** : Les utilisateurs disposant de ce rôle peuvent définir ou réinitialiser les informations d’identification sans mot de passe pour tous les utilisateurs, y compris les administrateurs généraux. Les administrateurs de l’authentification privilégié peut forcer les utilisateurs à réinscrire par rapport à des informations d’identification sans mot de passe existante (par exemple, authentification Multifacteur, FIDO) et de révoquer « mémoriser MFA sur l’appareil », demande d’authentification Multifacteur à la prochaine connexion de tous les utilisateurs. Les administrateurs de l’authentification privilégié peuvent :
   * Forcer les utilisateurs à se réinscrire par rapport à des informations d’identification sans mot de passe existante (par exemple, authentification Multifacteur, FIDO)
   * Révoquer « mémoriser MFA sur l’appareil », demande d’authentification Multifacteur à la prochaine connexion
 
-* **[Administrateur de rôle privilégié](#privileged-role-administrator)**  : Les utilisateurs avec ce rôle peuvent gérer les attributions de rôles dans Azure Active Directory et Azure AD Privileged Identity Management. En outre, ce rôle permet de gérer tous les aspects de Privileged Identity Management.
+* **[Administrateur de rôle privilégié](#privileged-role-administrator)**  : Les utilisateurs avec ce rôle peuvent gérer les attributions de rôles dans Azure Active Directory et Azure AD Privileged Identity Management. En outre, ce rôle permet la gestion de tous les aspects de Privileged Identity Management et les unités administratives.
 
   <b>Important !</b> Ce rôle donne la possibilité de gérer les affectations pour tous les rôles d’Azure AD, y compris le rôle d’administrateur général. Ce rôle n’inclut pas d’autres capacités privilégiées dans Azure AD, comme la création ou la mise à jour des utilisateurs. Toutefois, les utilisateurs affectés à ce rôle peuvent s’accorder ou accorder à d’autres des privilèges supplémentaires en leur attribuant des rôles supplémentaires.
 
 * **[Lecteur de rapports](#reports-reader)**  : Les utilisateurs disposant de ce rôle peuvent afficher des données de création de rapports d’utilisation et le tableau de bord de rapports dans le centre d’administration Microsoft 365 et le contexte d’adoption pack dans Power BI. En outre, ce rôle donne accès aux rapports de connexion et aux activités dans Azure AD, ainsi qu’aux données renvoyées par l’API de création de rapports Microsoft Graph. Un utilisateur disposant du rôle Lecteur de rapports peut uniquement accéder au métriques d’utilisation et d’adoption pertinentes. Il n’a pas les autorisations administrateur permettant de configurer les paramètres ou d’accéder aux centres d’administration propres au produit comme Exchange. Ce rôle n’a pas d'accès pour afficher, créer ou gérer des tickets de support.
+
+* **[Administrateur de la recherche](#search-administrator)** : Les utilisateurs de ce rôle ont un accès complet à toutes les fonctionnalités de gestion de Microsoft Search dans le centre d’administration Microsoft 365. Rechercher des administrateurs peuvent déléguer les administrateurs de la recherche et l’éditeur de recherche des rôles aux utilisateurs, créer et gérer le contenu, comme des signets, Q & comme et les emplacements. En outre, ces utilisateurs peuvent afficher le centre de messages, surveiller l’intégrité du service et créer des demandes de service.
+
+* **[Éditeur de recherche](#search-editor)** : Les utilisateurs de ce rôle peuvent créer, gérer et supprimer du contenu pour Microsoft Search dans le centre d’administration Microsoft 365, y compris les signets, Q & comme et les emplacements.
 
 * **[Administrateur de la sécurité](#security-administrator)**  : Les utilisateurs disposant de ce rôle sont autorisés à gérer les fonctionnalités liées à la sécurité dans le Centre de sécurité Microsoft 365, Azure Active Directory Identity Protection, Azure Information Protection et le Centre de sécurité et conformité Office 365. Pour plus d’informations sur les autorisations Office 365, consultez [Autorisations dans le Centre de sécurité et conformité Office 365](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
   
@@ -251,7 +260,7 @@ Les rôles d’administrateur disponibles sont les suivants :
 
 * **[Spécialiste du support des communications Teams](#teams-communications-support-specialist)**  : Les utilisateurs dans ce rôle peuvent résoudre les problèmes de communication dans Microsoft Teams et Skype Entreprise à l’aide des outils de résolution de problèmes des appels utilisateur dans le centre d’administration Microsoft Teams et Skype Entreprise. Les utilisateurs disposant de ce rôle ne peuvent visualiser les détails utilisateur d’un appel que pour l’utilisateur qu’ils ont spécifiquement recherché. Ce rôle n’a pas d'accès pour afficher, créer ou gérer des tickets de support.
 
-* **Administrateur de l’utilisateur**: Les utilisateurs avec ce rôle de peuvent créer des utilisateurs, gérer tous les aspects des utilisateurs avec certaines restrictions (voir ci-dessous) et peuvent mettre à jour les stratégies d’expiration de mot de passe. De plus, les utilisateurs dotés de ce rôle peuvent créer et gérer tous les groupes. Ce rôle inclut également la possibilité de créer et de gérer des affichages utilisateur, de gérer les tickets de support et de surveiller l’état d’intégrité des services.
+* **[Administrateur de l’utilisateur](#user-administrator)** : Les utilisateurs avec ce rôle de peuvent créer des utilisateurs, gérer tous les aspects des utilisateurs avec certaines restrictions (voir ci-dessous) et peuvent mettre à jour les stratégies d’expiration de mot de passe. De plus, les utilisateurs dotés de ce rôle peuvent créer et gérer tous les groupes. Ce rôle inclut également la possibilité de créer et de gérer des affichages utilisateur, de gérer les tickets de support et de surveiller l’état d’intégrité des services.
 
   | | |
   | --- | --- |
@@ -259,7 +268,7 @@ Les rôles d’administrateur disponibles sont les suivants :
   |<p>Tous les utilisateurs, notamment les administrateurs</p>|<p>Gérer les licences</p><p>Gérer toutes les propriétés de l’utilisateur, sauf le nom d’utilisateur principal</p>
   |Uniquement pour les utilisateurs qui ne sont pas administrateurs ou qui ont l’un des rôles d’administrateur limités suivants :<ul><li>Lecteurs de répertoires<li>Inviteur<li>Administrateur du support technique<li>Lecteur du Centre de messages<li>Lecteur de rapports<li>Administrateur d'utilisateurs|<p>Supprimer et restaurer</p><p>Désactiver et activer</p><p>Invalider les jetons d’actualisation</p><p>Gérer toutes les propriétés de l’utilisateur, y compris le nom d’utilisateur principal</p><p>Réinitialiser le mot de passe</p><p>Mettre à jour les clés d’appareil (FIDO)</p>
   
-  <b>Important !</b> Les utilisateurs auxquels ce rôle est assigné peuvent changer les mots de passe des personnes susceptibles d’avoir accès à des informations sensibles ou privées ou à des configurations critiques à l’intérieur et à l’extérieur d’Azure Active Directory. Changer le mot de passe d’un utilisateur peut signifier la capacité d’assumer l’identité et les autorisations de cet utilisateur. Par exemple : 
+  <b>Important !</b> Les utilisateurs auxquels ce rôle est assigné peuvent changer les mots de passe des personnes susceptibles d’avoir accès à des informations sensibles ou privées ou à des configurations critiques à l’intérieur et à l’extérieur d’Azure Active Directory. Changer le mot de passe d’un utilisateur peut signifier la capacité d’assumer l’identité et les autorisations de cet utilisateur. Par exemple :
   * Les propriétaires d’inscription d’application et d’application d’entreprise, qui peuvent gérer les informations d’identification des applications qu’ils possèdent. Ces applications peuvent disposer d’autorisations privilégiées dans Azure AD et ailleurs qui ne sont pas accordées aux administrateurs utilisateurs. Grâce à ce chemin d’accès, un administrateur utilisateur peut être en mesure d’assumer l’identité d’un propriétaire d’application, puis d’assumer l’identité d’une application privilégiée en mettant à jour les identifiants de celle-ci.
   * Propriétaires d’abonnement Azure, qui peuvent avoir accès à des informations confidentielles ou privées ou à une configuration critique dans Azure.
   * Propriétaires de groupe de sécurité et de groupe Office 365, qui peuvent gérer l’appartenance à un groupe. Ces groupes peuvent accorder l’accès à des informations sensibles ou privées ou à une configuration critique dans Azure AD et ailleurs.
@@ -332,6 +341,22 @@ Permet d’afficher, de définir et de réinitialiser les informations de métho
 | microsoft.azure.serviceHealth/allEntities/allTasks | Lisez et configurez Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Créez et gérez les tickets de support Azure. |
 | microsoft.office365.webPortal/allEntities/basic/read | Lisez les propriétés de base sur toutes les ressources dans microsoft.office365.webPortal. |
+| microsoft.office365.serviceHealth/allEntities/allTasks | Lisez et configurez Office 365 Service Health. |
+| microsoft.office365.supportTickets/allEntities/allTasks | Créez et gérez des tickets de support Office 365. |
+
+### <a name="azure-information-protection-administrator"></a>Administrateur de Azure Information Protection
+Peut gérer tous les aspects du service Azure Information Protection.
+
+  > [!NOTE]
+  > Ce rôle dispose d’autorisations supplémentaires en dehors d’Azure Active Directory. Pour plus d’informations, consultez la description des rôles ci-dessus.
+  >
+  >
+
+| **Actions** | **Description** |
+| --- | --- |
+| microsoft.azure.informationProtection/allEntities/allTasks | Gérez tous les aspects d’Azure Information Protection. |
+| microsoft.azure.serviceHealth/allEntities/allTasks | Lisez et configurez Azure Service Health. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Créez et gérez les tickets de support Azure. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Lisez et configurez Office 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Créez et gérez des tickets de support Office 365. |
 
@@ -761,22 +786,6 @@ Peut réinitialiser des mots de passe pour les utilisateurs non-administrateurs 
 | microsoft.office365.serviceHealth/allEntities/allTasks | Lisez et configurez Office 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Créez et gérez des tickets de support Office 365. |
 
-### <a name="information-protection-administrator"></a>Administrateur Information Protection
-Peut gérer tous les aspects du produit Azure Information Protection.
-
-  > [!NOTE]
-  > Ce rôle dispose d’autorisations supplémentaires en dehors d’Azure Active Directory. Pour plus d’informations, consultez la description des rôles ci-dessus.
-  >
-  >
-
-| **Actions** | **Description** |
-| --- | --- |
-| microsoft.azure.informationProtection/allEntities/allTasks | Gérez tous les aspects d’Azure Information Protection. |
-| microsoft.azure.serviceHealth/allEntities/allTasks | Lisez et configurez Azure Service Health. |
-| microsoft.azure.supportTickets/allEntities/allTasks | Créez et gérez les tickets de support Azure. |
-| microsoft.office365.serviceHealth/allEntities/allTasks | Lisez et configurez Office 365 Service Health. |
-| microsoft.office365.supportTickets/allEntities/allTasks | Créez et gérez des tickets de support Office 365. |
-
 ### <a name="intune-service-administrator"></a>Administrateur de services Intune
 Peut gérer tous les aspects du produit Intune.
 
@@ -814,6 +823,20 @@ Peut gérer tous les aspects du produit Intune.
 | microsoft.office365.supportTickets/allEntities/allTasks | Créez et gérez des tickets de support Office 365. |
 | microsoft.office365.webPortal/allEntities/basic/read | Lisez les propriétés de base sur toutes les ressources dans microsoft.office365.webPortal. |
 
+### <a name="kaizala-administrator"></a>Administrateur de Kaizala
+Peut gérer les paramètres de Microsoft Kaizala.  
+
+  > [!NOTE]
+  > Ce rôle dispose d’autorisations supplémentaires en dehors d’Azure Active Directory. Pour plus d’informations, consultez la description des rôles ci-dessus.
+  >
+  >  
+  
+| **Actions** | **Description** |
+| --- | --- |
+| microsoft.office365.serviceHealth/allEntities/allTasks | Lisez et configurez Office 365 Service Health. |
+| microsoft.office365.supportTickets/allEntities/allTasks | Créez et gérez des tickets de support Office 365. |
+| microsoft.office365.webPortal/allEntities/basic/read | Centre d’administration en lecture Office 365. |
+
 ### <a name="license-administrator"></a>Administrateur de licence
 Peut gérer les licences de produit pour les utilisateurs et les groupes.
 
@@ -841,6 +864,20 @@ Peut gérer tous les aspects du produit Skype Entreprise.
 | microsoft.office365.serviceHealth/allEntities/allTasks | Lisez et configurez Office 365 Service Health. |
 | microsoft.office365.skypeForBusiness/allEntities/allTasks | Gérez tous les aspects de Skype Entreprise Online. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Créez et gérez des tickets de support Office 365. |
+
+### <a name="message-center-privacy-reader"></a>Lecteur de confidentialité de centre de messages
+Peut lire le centre de messages publications, messages de confidentialité des données, groupes, domaines et abonnements.
+
+  > [!NOTE]
+  > Ce rôle dispose d’autorisations supplémentaires en dehors d’Azure Active Directory. Pour plus d’informations, consultez la description des rôles ci-dessus.
+  >
+  >
+
+| **Actions** | **Description** |
+| --- | --- |
+| microsoft.office365.webPortal/allEntities/basic/read | Lisez les propriétés de base sur toutes les ressources dans microsoft.office365.webPortal. |
+| microsoft.office365.messageCenter/messages/read | Lisez les messages dans microsoft.office365.messageCenter. |
+| microsoft.office365.messageCenter/securityMessages/read | Lisez les messages securityMessages dans microsoft.office365.messageCenter. |
 
 ### <a name="message-center-reader"></a>Lecteur du Centre de messages
 Peut lire les messages et les mises à jour de son organisation dans le Centre de messages Office 365 uniquement. 
@@ -961,8 +998,12 @@ Peut gérer les attributions de rôles dans Azure AD et tous les aspects de Pri
 
 | **Actions** | **Description** |
 | --- | --- |
-| microsoft.aad.directory/directoryRoles/update | Mettez à jour des rôles d’annuaire dans Azure Active Directory. |
 | microsoft.aad.privilegedIdentityManagement/allEntities/allTasks | Créez et supprimez toutes les ressources, et lisez et mettez à jour des propriétés standard dans microsoft.aad.privilegedIdentityManagement. |
+| microsoft.aad.directory/servicePrincipals/appRoleAssignedTo/allTasks | Lire et configurer les propriétés de servicePrincipals.appRoleAssignedTo dans Azure Active Directory. |
+| microsoft.aad.directory/servicePrincipals/oAuth2PermissionGrants/allTasks | Lire et configurer les propriétés de servicePrincipals.oAuth2PermissionGrants dans Azure Active Directory. |
+| microsoft.aad.directory/administrativeUnits/allProperties/allTasks | Créer et gérer des unités administratives (y compris les membres) |
+| microsoft.aad.directory/roleAssignments/allProperties/allTasks | Créer et gérer des attributions de rôles. |
+| microsoft.aad.directory/roleDefinitions/allProperties/allTasks | Créer et gérer des définitions de rôles. |
 
 ### <a name="reports-reader"></a>Lecteur de rapports
 Peut lire les rapports d’audit et sur les connexions.
@@ -978,6 +1019,37 @@ Peut lire les rapports d’audit et sur les connexions.
 | microsoft.aad.directory/signInReports/allProperties/read | Lisez toutes les propriétés (y compris les propriétés privilégiées) sur signInReports dans Azure Active Directory. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Lisez et configurez Azure Service Health. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Lisez et configurez Office 365 Service Health. |
+| microsoft.office365.usageReports/allEntities/read | Lisez des rapports d’utilisation Office 365. |
+
+### <a name="search-administrator"></a>Administrateur de recherche
+Peut créer et gérer tous les aspects des paramètres de Microsoft Search.
+
+  > [!NOTE]
+  > Ce rôle dispose d’autorisations supplémentaires en dehors d’Azure Active Directory. Pour plus d’informations, consultez la description des rôles ci-dessus.
+  >
+  >
+
+| **Actions** | **Description** |
+| --- | --- |
+| microsoft.office365.messageCenter/messages/read | Lisez les messages dans microsoft.office365.messageCenter. |
+| microsoft.office365.search/allEntities/allProperties/allTasks | Créer et supprimer toutes les ressources, lire et mettre à jour toutes les propriétés dans microsoft.office365.search. |
+| microsoft.office365.serviceHealth/allEntities/allTasks | Lisez et configurez Office 365 Service Health. |
+| microsoft.office365.supportTickets/allEntities/allTasks | Créez et gérez des tickets de support Office 365. |
+| microsoft.office365.usageReports/allEntities/read | Lisez des rapports d’utilisation Office 365. |
+| microsoft.office365.webPortal/allEntities/basic/read | Lisez les propriétés de base sur toutes les ressources dans microsoft.office365.webPortal. |
+
+### <a name="search-editor"></a>Éditeur de recherche
+Peut créer et gérer le contenu rédactionnel telles que les signets, Q et en tant que, l’emplacements, le plan d’étage.
+
+  > [!NOTE]
+  > Ce rôle dispose d’autorisations supplémentaires en dehors d’Azure Active Directory. Pour plus d’informations, consultez la description des rôles ci-dessus.
+  >
+  >
+
+| **Actions** | **Description** |
+| --- | --- |
+| microsoft.office365.messageCenter/messages/read | Lisez les messages dans microsoft.office365.messageCenter. |
+| microsoft.office365.search/content/allProperties/allTasks | Créer et supprimer du contenu et lire et mettre à jour toutes les propriétés dans microsoft.office365.search. |
 | microsoft.office365.usageReports/allEntities/read | Lisez des rapports d’utilisation Office 365. |
 
 ### <a name="security-administrator"></a>Security Administrator
@@ -1183,6 +1255,11 @@ DisplayName du graphique | Nom complet du portail Azure | directoryRoleTemplateI
 Administrateur d’application | Administrateur d’application | 9B895D92-2CD3-44C7-9D02-A6AC2D5EA5C3
 Développeur d’applications | Développeur d’applications | CF1C38E5-3621-4004-A7CB-879624DCED7C
 Administrateur d’authentification | Administrateur d’authentification | c4e39bd9-1100-46d3-8c65-fb160da0071f
+Administrateur de Azure Information Protection | Administrateur Azure Information Protection | 7495fdc4-34c4-4d15-a289-98788ce399fd
+Flux de B2C utilisateur administrateur | Flux de B2C utilisateur administrateur | 6e591065-9bad-43ed-90f3-e9424366d2f0
+Administrateur d'attributs de flux d'utilisateurs B2C | Administrateur d'attributs de flux d'utilisateurs B2C | 0f971eea-41eb-4569-a71e-57bb8a3eff1e
+Administrateur de jeux de clés B2C IEF | Administrateur de jeux de clés B2C IEF | aaf43236-0c0d-4d5f-883a-6955382ac081
+Administrateur de stratégies B2C IEF | Administrateur de stratégies B2C IEF | 3edaf663-341e-4475-9f94-5c398ef6c070
 Administrateur de facturation | Administrateur de facturation | b0f54661-2d74-4c50-afa3-1ec803f12efe
 Administrateur Desktop Analytics | Administrateur Desktop Analytics | 38a96431-2bdf-4b4c-8b6e-5d3d8abac1a4
 Administrateur d'applications cloud | Administrateur d’application cloud | 158c047a-c907-4556-b7ef-446551a6b5f7
@@ -1200,12 +1277,14 @@ Lecteurs de répertoires | Lecteurs d’annuaires | 88d8e3e3-8f55-4a1e-953a-9b98
 Comptes de synchronisation d’annuaires | Comptes de synchronisation d’annuaires | d29b2b05-8046-44ba-8758-1e26182fcf32
 Enregistreurs de répertoire | Enregistreurs de répertoire | 9360feb5-f418-4baa-8175-e2a00bac4301
 Administrateur de services Exchange | Administrateur Exchange | 29232cdf-9323-42fd-ade2-1d097af3e4de
+Administrateur de fournisseur d’identité externe | Administrateur de fournisseur d’identité externe | be2f45a1-457d-42af-a067-6ec1fa63bc45
 Inviteur | Inviteur d’invités | 95e79109-95c0-4d8e-aee3-d01accf2d47b
 Administrateur du support technique | Administrateur de mots de passe | 729827e3-9c14-49f7-bb1b-9608f156bbb8
-Administrateur Information Protection | Administrateur Information Protection | 7495fdc4-34c4-4d15-a289-98788ce399fd
 Administrateur de services Intune | Administrateur Intune | 3a2c62db-5318-420d-8d74-23affee5d9d5
+Administrateur de Kaizala | Administrateur de Kaizala | 74ef975b-6605-40af-a5d2-b9539d836353
 Administrateur de licence | Administrateur de licence | 4d6ac14f-3453-41d0-bef9-a3e0c569773a
 Administrateur de services Lync | Administrateur Skype Entreprise | 75941009-915a-4869-abe7-691bff18279e
+Lecteur de confidentialité de centre de messages | Lecteur de confidentialité de centre de messages | ac16e43d-7b2d-40e0-ac05-243ff356ab5b
 Lecteur du Centre de messages | Lecteur du Centre de messages | 790c1fb9-7f7d-4f88-86a1-ef1f95c05c1b
 Prise en charge de niveau 1 de partenaire | Prise en charge de niveau 1 de partenaire | 4ba39ca4-527c-499a-b93d-d9b492c50246
 Prise en charge de niveau 2 de partenaire | Prise en charge de niveau 2 de partenaire | e00e864a-17c5-4a4b-9c06-f5b95a8d5bd8
@@ -1213,6 +1292,8 @@ Administrateur du service Power BI | Administrateur Power BI | a9ea8996-122f-4c7
 Administrateur d’authentification privilégié | Administrateur d’authentification privilégié | 7be44c8a-adaf-4e2a-84d6-ab2649e08a13
 Administrateur de rôle privilégié | Administrateur de rôle privilégié | e8611ab8-c189-46e8-94e1-60213ab1f814
 Lecteur de rapports | Lecteur de rapports | 4a5d8f65-41da-4de4-8968-e035b65339cf
+Administrateur de recherche | Administrateur de recherche | 0964bb5e-9bdb-4d7b-ac29-58e794862a40
+Éditeur de recherche | Éditeur de recherche | 8835291a-918c-4fd7-a9ce-faa49f0cf7d9
 Security Administrator | Administrateur de sécurité | 194ae4cb-b126-40b2-bd5b-6091b380977d
 Lecteur de sécurité | Lecteur de sécurité | 5d6b6bb7-de71-4623-b4af-96380a352509
 Administrateur de support de service | Administrateur de services fédérés | f023fd81-a637-4b56-95fd-791ac0226033

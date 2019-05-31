@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/02/2019
 ms.author: rkarlin
-ms.openlocfilehash: 51fd1195942a7bae86bb4cc0af9df3146d6e45c2
-ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
+ms.openlocfilehash: 8e711c0586ce63d4293e2fb0914bbe884b55971f
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65921914"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389966"
 ---
 # <a name="connect-your-external-solution-using-common-event-format"></a>Connectez votre solution externe à l’aide du Format d’événement commun
 
@@ -44,6 +44,8 @@ La connexion entre Azure Sentinel et votre appliance CEF a lieu en trois étapes
 2. L’agent Syslog collecte les données et l’envoie en toute sécurité à l’Analytique de journal, où il est analysé et enrichie.
 3. L’agent stocke les données dans un espace de travail Analytique de journal, donc il peut être interrogé en fonction des besoins, à l’aide d’analytique, les règles de corrélation et les tableaux de bord.
 
+> [!NOTE]
+> L’agent peut collecter les journaux à partir de plusieurs sources, mais doit être installé sur l’ordinateur du serveur proxy dédié.
 
 ## <a name="step-1-connect-to-your-cef-appliance-via-dedicated-azure-vm"></a>Étape 1 : Se connecter à votre appliance CEF par le biais de machine virtuelle Azure dédiée
 
@@ -61,7 +63,7 @@ Vous pouvez également déployer l’agent manuellement sur une machine virtuell
 1. Dans le portail Azure Sentinel, cliquez sur **connecteurs de données** et sélectionnez le type de votre appliance. 
 
 1. Sous **configuration de l’agent Linux Syslog**:
-   - Choisissez **déploiement automatique** si vous souhaitez créer un nouvel ordinateur qui est préinstallé avec l’agent Sentinel Azure et inclut tous les besoins de configuration, comme décrit ci-dessus. Sélectionnez **déploiement automatique** et cliquez sur **déploiement d’agent automatique**. Vous accédez à la page d’achat pour une VM Linux dédié qui est automatiquement connecté à votre espace de travail, est. La machine virtuelle est un **standard D2s v3 (2 processeurs virtuels, 8 Go de mémoire)** et a une adresse IP publique.
+   - Choisissez **déploiement automatique** si vous souhaitez créer un nouvel ordinateur qui est préinstallé avec l’agent Sentinel Azure et inclut tous les besoins de configuration, comme décrit ci-dessus. Sélectionnez **déploiement automatique** et cliquez sur **déploiement d’agent automatique**. Vous accédez à la page d’achat pour une VM Linux dédié qui est automatiquement connecté à votre espace de travail. La machine virtuelle est un **standard D2s v3 (2 processeurs virtuels, 8 Go de mémoire)** et a une adresse IP publique.
       1. Dans le **déploiement personnalisé** page, fournir vos informations et choisissez un nom d’utilisateur et un mot de passe et si vous acceptez les termes et conditions, achetez la machine virtuelle.
       1. Configurez votre appliance pour envoyer des journaux en utilisant les paramètres répertoriés dans la page de connexion. Pour le connecteur générique Common Event Format, utilisez ces paramètres :
          - Protocol = UDP
@@ -118,6 +120,13 @@ Si vous n’utilisez pas Azure, déployer manuellement l’agent Sentinel Azure 
   
  Pour utiliser le schéma pertinent dans Analytique de journal pour les événements CEF, recherchez `CommonSecurityLog`.
 
+## <a name="step-2-forward-common-event-format-cef-logs-to-syslog-agent"></a>Étape 2 : Transférer les journaux de Format d’événement commun (CEF) à l’agent Syslog
+
+Définissez votre solution de sécurité pour envoyer des messages de Syslog au format CEF à votre agent Syslog. Vérifiez que vous utilisez les mêmes paramètres qui apparaissent dans votre configuration de l’agent. Il s’agit généralement :
+
+- Port 514
+- Fonctionnalité local4
+
 ## <a name="step-3-validate-connectivity"></a>Étape 3 : Valider la connectivité
 
 Il peut prendre plus de 20 minutes jusqu'à ce que vos journaux commencent à apparaître dans le journal Analytique. 
@@ -128,7 +137,7 @@ Il peut prendre plus de 20 minutes jusqu'à ce que vos journaux commencent à ap
 
 3. Assurez-vous que les journaux que vous envoyez sont conformes aux [RFC 5424](https://tools.ietf.org/html/rfc542).
 
-4. Sur l’ordinateur exécutant l’agent Syslog, assurez-vous que ces ports 514, 25226 sont ouverts et écoute, à l’aide de la commande `netstat -a -n:`. Pour plus d’informations sur l’utilisation de cette commande, consultez [netstat(8) - page man Linux](https://linux.die.netman/8/netstat). Si elle est à l’écoute correctement, vous verrez ceci :
+4. Sur l’ordinateur exécutant l’agent Syslog, assurez-vous que ces ports 514, 25226 sont ouverts et écoute, à l’aide de la commande `netstat -a -n:`. Pour plus d’informations sur l’utilisation de cette commande, consultez [netstat(8) - page man Linux](https://linux.die.net/man/8/netstat). Si elle est à l’écoute correctement, vous verrez ceci :
 
    ![Ports Sentinel Azure](./media/connect-cef/ports.png) 
 

@@ -12,12 +12,12 @@ ms.reviewer: sstein, carlrab, bonova
 manager: craigg
 ms.date: 03/13/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 17609212fcc7620dc0d6d617e7626d12c8bb0592
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
+ms.openlocfilehash: 5c8a15aa5198983a56a0238c1bb56f9345d07acc
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65852149"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258588"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Différences T-SQL entre Azure SQL Database Managed Instance et SQL Server
 
@@ -27,6 +27,7 @@ Cet article résume et explique les différences de syntaxe et de comportement e
 - [Sécurité](#security) inclut les différences dans [audit](#auditing), [certificats](#certificates), [informations d’identification](#credential), [fournisseurs de chiffrement](#cryptographic-providers), [connexions et utilisateurs](#logins-and-users)et le [clé du service et la clé principale du service](#service-key-and-service-master-key).
 - [Configuration](#configuration) inclut les différences dans [extension du pool de mémoires tampons](#buffer-pool-extension), [classement](#collation), [niveaux de compatibilité](#compatibility-levels), [mise en miroir de base de données ](#database-mirroring), [options de base de données](#database-options), [Agent SQL Server](#sql-server-agent), et [table options](#tables).
 - [Fonctionnalités](#functionalities) inclut [insertion en bloc/OPENROWSET](#bulk-insert--openrowset), [CLR](#clr), [DBCC](#dbcc), [les transactions distribuées](#distributed-transactions), [événements étendus](#extended-events), [bibliothèques externes](#external-libraries), [filestream et FileTable](#filestream-and-filetable), [recherche sémantique de recherche en texte intégral](#full-text-semantic-search), [serveurs liés](#linked-servers), [PolyBase](#polybase), [réplication](#replication), [restaurer](#restore-statement), [Service Broker](#service-broker), [, fonctions, déclencheurs et procédures stockées](#stored-procedures-functions-and-triggers).
+- [Paramètres d’environnement](#Environment) tels que les configurations de réseaux virtuels et le sous-réseau.
 - [Fonctionnalités qui présentent un comportement différent dans les instances gérées](#Changes).
 - [Problèmes connus et limitations temporaires](#Issues).
 
@@ -454,6 +455,19 @@ Le Service Broker entre instances n’est pas pris en charge :
 - `xp_cmdshell` n’est pas pris en charge. Consultez [xp_cmdshell](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/xp-cmdshell-transact-sql).
 - `Extended stored procedures` ne sont pas pris en charge, qui inclut `sp_addextendedproc`  et `sp_dropextendedproc`. Consultez [les procédures stockées étendues](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/general-extended-stored-procedures-transact-sql).
 - `sp_attach_db`, `sp_attach_single_file_db` et `sp_detach_db` ne sont pas pris en charge. Consultez [sp_attach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-db-transact-sql), [sp_attach_single_file_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-single-file-db-transact-sql) et [sp_detach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-detach-db-transact-sql).
+
+## <a name="Environment"></a>Contraintes Environmet
+
+### <a name="subnet"></a>Sous-réseau
+- Dans le sous-réseau réservé pour votre Instance gérée, vous ne pouvez pas placer toutes les autres ressources (par exemple des machines virtuelles). Placez ces ressources dans d’autres sous-réseaux.
+- Sous-réseau doit avoir un nombre suffisant de disponibles [adresses IP](sql-database-managed-instance-connectivity-architecture.md#network-requirements). Valeur minimale est 16, tandis qu’est recommandé d’avoir au moins 32 adresses IP dans le sous-réseau.
+- [Points de terminaison de service ne peut pas être associés à sous-réseau de l’instance gérée](sql-database-managed-instance-connectivity-architecture.md#network-requirements). Assurez-vous que l’option de points de terminaison de service est désactivée lorsque vous créez le réseau virtuel.
+- Le nombre et les types d’instances que vous pouvez placer dans le sous-réseau ont certaines [limites et contraintes](sql-database-managed-instance-resource-limits.md#strategies-for-deploying-mixed-general-purpose-and-business-critical-instances)
+- Il existe certaines [des règles de sécurité qui doivent être appliquées sur le sous-réseau](sql-database-managed-instance-connectivity-architecture.md#network-requirements).
+
+### <a name="vnet"></a>Réseau virtuel
+- Réseau virtuel peut être déployé à l’aide du modèle de ressource - modèle classique pour réseau virtuel n’est pas pris en charge.
+- Certains services tels que les environnements App Service, Logic apps et les Instances gérées (utilisé pour la géo-réplication, la réplication transactionnelle, ou par le biais de serveurs liés) ne peut pas accéder aux Instances gérées dans des régions différentes si leurs réseaux virtuels sont connectés à l’aide de [l’homologation globale](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers). Vous pouvez vous connecter à ces ressources via ExpressRoute ou réseau via des passerelles de réseau virtuel.
 
 ## <a name="Changes"></a> Changements de comportement
 

@@ -9,18 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 05/30/2019
 ms.author: diberry
-ms.openlocfilehash: 27ebe827e97c8361c7f93a125f09aa9e339a6a14
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8bd6a9df9518cb1b2312b525e8876629a2189bd2
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60196982"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399614"
 ---
 # <a name="luis-bot-in-nodejs-with-the-bot-framework-3x-and-the-azure-web-app-bot"></a>Bot LUIS dans Node.js avec Bot Framework 3.x et bot d’application web Azure
 
 À l’aide de Node.js, créez un bot conversationnel intégré avec compréhension de la langue (LUIS). Ce bot conversationnel utilise le domaine HomeAutomation prédéfini pour implémenter rapidement une solution de bot. Le bot est créé avec Bot Framework 3.x et le bot d’application web Azure.
+
+Un [Bot Framework 4.x tutoriel LUIS](luis-nodejs-tutorial-bf-v4.md) est également disponible.
 
 ## <a name="prerequisite"></a>Configuration requise
 
@@ -98,7 +100,7 @@ Ouvrez **Paramètres de l’application** dans la première fenêtre de navigate
 
   ![Mettre à jour l’ID d’application LUIS dans Azure](./media/luis-tutorial-node-bot/bot-service-app-id.png)
 
-Si vous ne connaissez pas l’ID de l’application LUIS, connectez-vous au site web [LUIS](luis-reference-regions.md) avec le compte que vous utilisez pour vous connecter à Azure. Sélectionnez **Mes applications**. 
+Si vous n’avez pas l’ID d’application LUIS, connectez-vous à la [LUIS](luis-reference-regions.md) site Web en utilisant le même compte que vous utilisez pour vous connecter à Azure. Sélectionnez **Mes applications**. 
 
 1. Localisez l’application LUIS que vous avez créée et qui contient les intentions et les entités du domaine HomeAutomation.
 
@@ -236,7 +238,7 @@ bot.dialog('TurnOff',
 ```
 ## <a name="test-the-bot"></a>Tester le bot
 
-Sur le Portail Azure, sélectionnez **Tester dans la Discussion Web** pour tester le bot. Essayez de taper des messages comme « Allumer les lumières » et « Éteindre mon radiateur » pour appeler les intentions qui vous y avez ajoutées.
+Dans le portail Azure, sélectionnez sur **tester dans Web Chat** pour tester le robot. Essayez de taper des messages comme « Allumer les lumières » et « Éteindre mon radiateur » pour appeler les intentions qui vous y avez ajoutées.
    ![Tester le bot HomeAutomation dans la Discussion Web](./media/luis-tutorial-node-bot/bot-service-chat-results.png)
 
 > [!TIP]

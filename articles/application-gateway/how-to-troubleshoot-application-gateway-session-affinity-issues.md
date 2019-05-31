@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/22/2019
 ms.author: absha
-ms.openlocfilehash: 07165a497e75934a65719e48a9af7d8d6906ee7b
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 66f61b5d6fcb86ed93e4dbae802ae7a80613c83d
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65538334"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66397850"
 ---
 # <a name="troubleshoot-azure-application-gateway-session-affinity-issues"></a>Résoudre les problèmes d’affinité Azure Application Gateway Session
 
@@ -86,7 +86,7 @@ Pour identifier ce problème, suivez les instructions :
 
     ![troubleshoot-session-affinity-issues-3](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-3.png)
 
-        ![troubleshoot-session-affinity-issues-4](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-4.png)
+    ![troubleshoot-session-affinity-issues-4](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-4.png)
 
 L’application continue à essaie de définir le cookie à chaque demande jusqu'à ce qu’il obtienne la réponse.
 
@@ -96,7 +96,7 @@ Ce problème se produit car Internet Explorer et autres navigateurs ne peuvent p
 
 #### <a name="resolution"></a>Résolution :
 
-Pour résoudre ce problème, vous devez accéder à la passerelle d’Application à l’aide d’un nom de domaine complet. Par exemple, utilisez [ http://website.com ](https://website.com/) ou [ http://appgw.website.com ](http://appgw.website.com/) .
+Pour résoudre ce problème, vous devez accéder à la passerelle d’application en utilisant un nom de domaine complet. Par exemple, utilisez [ http://website.com ](https://website.com/) ou [ http://appgw.website.com ](http://appgw.website.com/) .
 
 ## <a name="additional-logs-to-troubleshoot"></a>Autres journaux pour résoudre les problèmes
 
@@ -167,23 +167,23 @@ Utilisez le débogueur web de votre choix. Dans cet exemple, nous allons utilise
 
 2. Cliquez avec le bouton droit sur l’exécutable d’installation et exécuter en tant qu’administrateur pour installer.
 
-            ![troubleshoot-session-affinity-issues-12](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-12.png)
+    ![troubleshoot-session-affinity-issues-12](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-12.png)
 
 3. Lorsque vous ouvrez Fiddler, il doit démarrer automatiquement la capture du trafic (Notez que la capture à l’angle inférieur gauche). Appuyez sur F12 pour démarrer ou arrêter la capture du trafic.
 
-        ![troubleshoot-session-affinity-issues-13](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-13.png)
+    ![troubleshoot-session-affinity-issues-13](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-13.png)
 
 4. Très probablement, vous serez intéressé par le trafic HTTPS décrypté, et vous pouvez activer le déchiffrement HTTPS en sélectionnant **outils** > **Fiddler Options**, puis cochez la case « **déchiffrer Le trafic HTTPS**».
 
-        ![troubleshoot-session-affinity-issues-14](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-14.png)
+    ![troubleshoot-session-affinity-issues-14](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-14.png)
 
 5. Vous pouvez supprimer les sessions non liées précédentes avant de reproduire le problème en cliquant sur **X** (icône) > **supprimer tout** comme suivent la capture d’écran : 
 
-        ![troubleshoot-session-affinity-issues-15](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-15.png)
+    ![troubleshoot-session-affinity-issues-15](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-15.png)
 
 6. Une fois que vous avez reproduit le problème, enregistrez le fichier pour la révision en sélectionnant **fichier** > **enregistrer** > **toutes les Sessions...** . 
 
-        ![troubleshoot-session-affinity-issues-16](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-16.png)
+    ![troubleshoot-session-affinity-issues-16](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-16.png)
 
 7. Vérifier et analyser les journaux de session pour déterminer la cause du problème.
 
@@ -194,11 +194,11 @@ Utilisez le débogueur web de votre choix. Dans cet exemple, nous allons utilise
    > [!NOTE]
    > Cette valeur ARRAffinity est l’id de cookie, qui définit de la passerelle d’Application pour le client à envoyer à un serveur principal particulier.
 
-    ![troubleshoot-session-affinity-issues-17](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-17.png)
+   ![troubleshoot-session-affinity-issues-17](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-17.png)
 
 - **Exemple b :** Le journal de session suivant suivie de la précédente est le client répond à la passerelle d’Application, qui a défini le ARRAAFFINITY. Si l’id de cookie ARRAffinity correspond à, le paquet doit être envoyé sur le même serveur principal qui a été utilisé précédemment. Vérifier les lignes suivantes de communication http pour voir si le cookie du client ARRAffinity change.
 
-    ![troubleshoot-session-affinity-issues-18](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-18.png)
+   ![troubleshoot-session-affinity-issues-18](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-18.png)
 
 > [!NOTE]
 > Pour la même session de communication, le cookie ne doit ne pas pour modifier. Vérifiez la zone supérieure sur le côté droit, sélectionnez l’onglet « Cookies » pour voir si le client est en utilisant le cookie et renvoyer à la passerelle d’Application. Si ce n’est pas le cas, le navigateur client n’est pas en conservant et en utilisant le cookie pour les conversations. Parfois, le client peut se trouver.

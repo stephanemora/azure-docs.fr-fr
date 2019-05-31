@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f6e1a1c614bfa126d58cf9343f945d16fd1c2733
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 30a4bfa2cf7a39a28db0575a6851f5b7b481524c
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65781010"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388170"
 ---
 # <a name="choosing-the-application-type-when-adding-an-application-in-azure-active-directory"></a>Choix du type d’application lors de l’ajout d’une application dans Azure Active Directory
 Découvrez les quatre types d’applications que vous pouvez ajouter dans Azure Active Directory (Azure AD). Lorsque vous ajoutez une application dans Azure Active Directory, vous êtes invité à choisir l’un des quatre types d’application. 
@@ -80,7 +80,7 @@ Vous trouverez ci-après les modes **d’authentification unique** pris en charg
   >
   >
 
-- **Authentification basée sur l’en-tête** : choisissez le mode d’authentification unique [Authentification basée sur l’en-tête](https://docs.microsoft.com/azure/active-directory/application-proxy-ping-access#what-is-pingaccess-for-azure-ad) si vous disposez d’une application utilisant PingAccess qui prend en charge l’authentification basée sur un en-tête HTTP et pour laquelle vous souhaitez utiliser l’authentification unique. 
+- **Authentification basée sur l’en-tête** : choisissez le mode d’authentification unique [Authentification basée sur l’en-tête](application-proxy-configure-single-sign-on-with-ping-access.md) si vous disposez d’une application utilisant PingAccess qui prend en charge l’authentification basée sur un en-tête HTTP et pour laquelle vous souhaitez utiliser l’authentification unique. 
 
   >[!NOTE]
   >Cette option est uniquement disponible si le proxy d’application et PingAccess sont configurés pour une application.

@@ -11,15 +11,15 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/26/2019
+ms.date: 05/30/2019
 ms.author: magoedte
 ms.subservice: ''
-ms.openlocfilehash: e0b9faeb796653abb4c061884ab2fbb78e867e71
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: ead3122d2040a544c6f09e434f27b7970f0d5840
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64918979"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417867"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Gérer l’utilisation et les coûts avec les journaux d’Azure Monitor
 
@@ -151,13 +151,13 @@ Une utilisation plus importante est due à l’un des éléments suivants, voire
 
 ## <a name="understanding-nodes-sending-data"></a>Présentation des nœuds qui envoient des données
 
-Pour plus d’informations sur le nombre d’ordinateurs (nœuds) qui ont envoyé quotidiennement des données au cours du mois passé, utilisez
+Pour comprendre le nombre d’ordinateurs qui signalent des pulsations chaque jour du mois dernier, utilisez
 
 `Heartbeat | where TimeGenerated > startofday(ago(31d))
 | summarize dcount(Computer) by bin(TimeGenerated, 1d)    
 | render timechart`
 
-Pour obtenir la liste des ordinateurs envoyant **facturé des types de données** (certains types de données sont gratuits), tirer parti de la `_IsBillable` [propriété](log-standard-properties.md#_isbillable):
+Pour obtenir une liste d’ordinateurs est facturé en tant que nœuds si l’espace de travail est dans le hérité par nœud de niveau tarifaire, recherchez les nœuds qui envoient des **facturé des types de données** (certains types de données sont gratuites). Pour ce faire, utilisez le `_IsBillable` [propriété](log-standard-properties.md#_isbillable) et utiliser le champ le plus à gauche du nom de domaine qualifié complet. Cette commande renvoie la liste des ordinateurs avec des données de facturation :
 
 `union withsource = tt * 
 | where _IsBillable == true 
@@ -165,15 +165,24 @@ Pour obtenir la liste des ordinateurs envoyant **facturé des types de données*
 | where computerName != ""
 | summarize TotalVolumeBytes=sum(_BilledSize) by computerName`
 
-L’exécution d’analyses sur différents types de données étant coûteuse, utilisez ces requêtes `union withsource = tt *` avec parcimonie. Cette requête remplace l’ancienne méthode d’interrogation des informations par ordinateur avec le type de données d’utilisation.  
-
-Cela peut être étendu pour retourner le nombre d’ordinateurs par heure qui envoient facturé des types de données (c'est-à-dire comment Analytique de journal calcule les nœuds facturables pour le hérité par nœud de niveau tarifaire) :
+Le nombre de nœuds facturables vu peut être estimé en tant que : 
 
 `union withsource = tt * 
 | where _IsBillable == true 
 | extend computerName = tolower(tostring(split(Computer, '.')[0]))
 | where computerName != ""
-| summarize dcount(computerName) by bin(TimeGenerated, 1h) | sort by TimeGenerated asc`
+| billableNodes=dcount(computerName)`
+
+> [!NOTE]
+> L’exécution d’analyses sur différents types de données étant coûteuse, utilisez ces requêtes `union withsource = tt *` avec parcimonie. Cette requête remplace l’ancienne méthode d’interrogation des informations par ordinateur avec le type de données d’utilisation.  
+
+Un calcul plus précis de ce qui est réellement facturé consiste à obtenir le nombre d’ordinateurs qui envoient des types de données facturée par heure. (Pour les espaces de travail dans le niveau tarifaire par nœud hérité, Analytique de journal calcule le nombre de nœuds qui doivent être facturés sur une base horaire.) 
+
+`union withsource = tt * 
+| where _IsBillable == true 
+| extend computerName = tolower(tostring(split(Computer, '.')[0]))
+| where computerName != ""
+| summarize billableNodes=dcount(computerName) by bin(TimeGenerated, 1h) | sort by TimeGenerated asc`
 
 ## <a name="understanding-ingested-data-volume"></a>Volume de données ingérée de présentation
 
@@ -197,24 +206,19 @@ Pour voir les **taille** d’événements facturables ingérées par ordinateur,
 ```kusto
 union withsource = tt * 
 | where _IsBillable == true 
-| summarize Bytes=sum(_BilledSize) by  Computer | sort by Bytes nulls last
+| extend computerName = tolower(tostring(split(Computer, '.')[0]))
+| summarize Bytes=sum(_BilledSize) by  computerName | sort by Bytes nulls last
 ```
 
 Le `_IsBillable` [propriété](log-standard-properties.md#_isbillable) Spécifie si les données ingérées occasionnent des frais.
 
-Pour afficher le **nombre** d’événements reçus par ordinateur, utilisez
-
-```kusto
-union withsource = tt *
-| summarize count() by Computer | sort by count_ nulls last
-```
-
-Pour afficher le nombre d’événements facturables reçus par ordinateur, utilisez 
+Pour afficher le nombre de **facturables** événements reçus par l’ordinateur, utilisez 
 
 ```kusto
 union withsource = tt * 
 | where _IsBillable == true 
-| summarize count() by Computer  | sort by count_ nulls last
+| extend computerName = tolower(tostring(split(Computer, '.')[0]))
+| summarize eventCount=count() by computerName  | sort by count_ nulls last
 ```
 
 Si vous souhaitez afficher les types de données facturables qui envoient des données à un ordinateur spécifique, utilisez :

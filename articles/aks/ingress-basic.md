@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 03/27/2019
+ms.date: 05/24/2019
 ms.author: iainfou
-ms.openlocfilehash: fd9695698f90a1efebb71a2b24a196dd8c911081
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 52b929d8caa7b855e45ce9ca57d39d1dfcbcb8a1
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65073885"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66392703"
 ---
 # <a name="create-an-ingress-controller-in-azure-kubernetes-service-aks"></a>Créer un contrôleur d’entrée dans Azure Kubernetes Service (AKS)
 
@@ -31,11 +31,13 @@ Vous pouvez également :
 
 Cet article utilise Helm pour installer le contrôleur d’entrée NGINX, cert-manager et un exemple d’application web. Helm doit être initialisé dans votre cluster AKS et utiliser un compte de service pour Tiller. Pour plus d’informations sur la configuration et l’utilisation de Helm, consultez [Installer des applications avec Helm dans Azure Kubernetes Service (AKS)][use-helm].
 
-Cet article nécessite également que vous exécutiez Azure CLI version 2.0.61 ou version ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installer Azure CLI 2.0][azure-cli-install].
+Cet article nécessite également que vous exécutiez Azure CLI version 2.0.64 ou version ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installer Azure CLI 2.0][azure-cli-install].
 
 ## <a name="create-an-ingress-controller"></a>Créer un contrôleur d’entrée
 
 Pour créer le contrôleur d’entrée, utilisez `Helm` pour installer *nginx-ingress*. Pour renforcer la redondance, deux réplicas des contrôleurs d’entrée NGINX sont déployés avec le paramètre `--set controller.replicaCount`. Pour tirer pleinement parti de l’exécution de réplicas des contrôleurs d’entrée, vérifiez que votre cluster AKS comprend plusieurs nœuds.
+
+Le contrôleur d’entrée doit également être planifiée sur un nœud Linux. Les nœuds de Windows Server (actuellement en version préliminaire dans ACS) ne doit pas exécuter le contrôleur d’entrée. Un sélecteur de nœud est spécifié en utilisant le `--set nodeSelector` paramètre indiquant le planificateur Kubernetes pour exécuter le contrôleur d’entrée NGINX sur un nœud basés sur Linux.
 
 > [!TIP]
 > L’exemple suivant crée un espace de noms Kubernetes pour les ressources d’entrée nommé *entrée-basic*. Spécifiez un espace de noms pour votre propre environnement en fonction des besoins. Si votre cluster AKS n’est pas activée de RBAC, ajoutez `--set rbac.create=false` aux commandes Helm.
@@ -45,7 +47,11 @@ Pour créer le contrôleur d’entrée, utilisez `Helm` pour installer *nginx-in
 kubectl create namespace ingress-basic
 
 # Use Helm to deploy an NGINX ingress controller
-helm install stable/nginx-ingress --namespace ingress-basic --set controller.replicaCount=2
+helm install stable/nginx-ingress \
+    --namespace ingress-basic \
+    --set controller.replicaCount=2 \
+    --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux \
+    --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux
 ```
 
 Lorsque le service équilibreur de charge Kubernetes est créé pour le contrôleur d’entrée NGINX, votre adresse IP publique dynamique est affectée, comme indiqué dans l’exemple de sortie suivant :
@@ -102,19 +108,19 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
-    nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
 spec:
   rules:
   - http:
       paths:
-      - path: /
-        backend:
+      - backend:
           serviceName: aks-helloworld
           servicePort: 80
-      - path: /hello-world-two
-        backend:
+        path: /(.*)
+      - backend:
           serviceName: ingress-demo
           servicePort: 80
+        path: /hello-world-two(/|$)(.*)
 ```
 
 Créez la ressource d’entrée avec la commande `kubectl apply -f hello-world-ingress.yaml`.
@@ -127,11 +133,11 @@ ingress.extensions/hello-world-ingress created
 
 ## <a name="test-the-ingress-controller"></a>Tester le contrôleur d’entrée
 
-Pour tester les itinéraires du contrôleur d’entrée, accédez aux deux applications. Ouvrez un navigateur web à l’adresse IP de votre contrôleur d’entrée NGINX, par exemple, *http://40.117.74.8*. La première application de démonstration s’affiche dans le navigateur web, comme illustré dans l’exemple suivant :
+Pour tester les itinéraires du contrôleur d’entrée, accédez aux deux applications. Ouvrez un navigateur web à l’adresse IP de votre contrôleur d’entrée NGINX, par exemple, *http://40.117.74.8* . La première application de démonstration s’affiche dans le navigateur web, comme illustré dans l’exemple suivant :
 
 ![Première application en cours d’exécution derrière le contrôleur d’entrée](media/ingress-basic/app-one.png)
 
-Maintenant, ajoutez le chemin */hello-world-two* à l’adresse IP, par exemple, *http://40.117.74.8/hello-world-two*. La deuxième application de démonstration portant le titre personnalisé s’affiche :
+Maintenant, ajoutez le chemin */hello-world-two* à l’adresse IP, par exemple, *http://40.117.74.8/hello-world-two* . La deuxième application de démonstration portant le titre personnalisé s’affiche :
 
 ![Deuxième application en cours d’exécution derrière le contrôleur d’entrée](media/ingress-basic/app-two.png)
 

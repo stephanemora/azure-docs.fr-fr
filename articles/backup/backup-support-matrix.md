@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.author: raynew
-ms.openlocfilehash: 51bd4b935b32bea20d3f5de0b8cda62dfdbf07b8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 99dd3c0b07307f2d0bf97dbff697e32e648705ae
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60236642"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66400176"
 ---
 # <a name="azure-backup-support-matrix"></a>Tableau de prise en charge de Sauvegarde Azure
 
@@ -27,7 +27,7 @@ Autres matrices de prise en charge disponibles :
 
 ## <a name="vault-support"></a>Prise en charge des coffres
 
-Sauvegarde Azure utilise des coffres Recovery Services pour orchestrer et gérer des sauvegardes. Il utilise également les coffres pour stocker les données sauvegardées. 
+Sauvegarde Azure utilise des coffres Recovery Services pour orchestrer et gérer des sauvegardes. Il utilise également les coffres pour stocker les données sauvegardées.
 
 Le tableau suivant décrit les fonctionnalités des coffres Recovery Services :
 
@@ -36,8 +36,8 @@ Le tableau suivant décrit les fonctionnalités des coffres Recovery Services :
 **Coffres dans l’abonnement** | Jusqu’à 500 coffres Recovery Services dans un même abonnement.
 **Machines dans un coffre** | Jusqu'à 1 000 machines virtuelles Azure dans un seul coffre.<br/><br/> Jusqu’à 50 serveurs MABS peuvent être inscrits dans un seul coffre.
 **Source de données dans le stockage du coffre** | Maximale 54 400 Go. Le nombre des sauvegardes de machines virtuelles Azure n’est pas limité.
-**Sauvegardes dans le coffre** | **Les machines virtuelles Azure :** Une fois par jour.<br/><br/>**Machines protégées par DPM/de sauvegarde AZURE :** Deux fois par jour.<br/><br/> **Les machines sauvegardées directement à l’aide de l’agent MARS :** Trois fois par jour. 
-**Sauvegardes entre les coffres** | La sauvegarde s’effectue dans une région.<br/><br/> Vous avez besoin d’un coffre dans chaque région Azure qui contient les machines virtuelles que vous souhaitez sauvegarder. Vous ne pouvez pas sauvegarder vers une autre région. 
+**Sauvegardes dans le coffre** | **Les machines virtuelles Azure :** Une fois par jour.<br/><br/>**Machines protégées par DPM/de sauvegarde AZURE :** Deux fois par jour.<br/><br/> **Les machines sauvegardées directement à l’aide de l’agent MARS :** Trois fois par jour.
+**Sauvegardes entre les coffres** | La sauvegarde s’effectue dans une région.<br/><br/> Vous avez besoin d’un coffre dans chaque région Azure qui contient les machines virtuelles que vous souhaitez sauvegarder. Vous ne pouvez pas sauvegarder vers une autre région.
 **Déplacer les coffres** | Vous pouvez [déplacer les coffres](https://review.docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault) entre des abonnements ou entre des groupes de ressources dans le même abonnement.
 **Déplacer des données entre des coffres** | Déplacement des données sauvegardées entre les coffres n’est pas pris en charge.
 **Modifier le type de stockage de coffre** | Vous pouvez modifier le type de réplication de stockage (stockage géo-redondant ou stockage localement redondant) pour un coffre avant que les sauvegardes sont stockées. Une fois que les sauvegardes commencent dans le coffre, le type de réplication ne peut pas être modifié.
@@ -69,7 +69,7 @@ Voici ce qui est pris en charge si vous souhaitez sauvegarder des machines virtu
 **Machine** | **Éléments sauvegardés** | **Lieu** | **Caractéristiques**
 --- | --- | --- | ---
 **Sauvegarde des machines virtuelles Azure à l’aide d’extension de machine virtuelle** | Machine virtuelle complète | Sauvegarder vers le pour coffre. | Extension installée lorsque vous activez la sauvegarde pour une machine virtuelle.<br/><br/> Sauvegarder une fois par jour.<br/><br/> Sauvegarde prenant en charge les applications pour les machines virtuelles Windows ; sauvegarde cohérente des fichiers pour les machines virtuelles Linux. Vous pouvez configurer la cohérence des applications pour les machines Linux à l’aide de scripts personnalisés.<br/><br/> Restaurer une machine virtuelle ou disque.<br/><br/> Ne peut pas sauvegarder une machine virtuelle Azure vers un emplacement sur site.
-**Sauvegarde des machines virtuelles Azure à l’aide de l’agent MARS** | Fichiers, dossiers | Sauvegarder vers le pour coffre. | Sauvegarder trois fois par jour.<br/><br/> Si vous souhaitez sauvegarder des fichiers spécifiques ou de dossiers plutôt que sous forme de la machine virtuelle entière, l’agent MARS peut s’exécuter en même temps que l’extension de machine virtuelle.
+**Sauvegarde des machines virtuelles Azure à l’aide de l’agent MARS** | Fichiers, dossiers, état du système | Sauvegarder vers le pour coffre. | Sauvegarder trois fois par jour.<br/><br/> Si vous souhaitez sauvegarder des fichiers spécifiques ou de dossiers plutôt que sous forme de la machine virtuelle entière, l’agent MARS peut s’exécuter en même temps que l’extension de machine virtuelle.
 **Machine virtuelle Azure avec DPM** | Fichiers, dossiers, volumes, état du système, données d’application | Sauvegarder sur le stockage local de machine virtuelle Azure DPM est en cours d’exécution. DPM, puis sauvegarde dans le coffre. | Instantanés tenant compte des applications.<br/><br/> Précision totale pour la sauvegarde et la récupération.<br/><br/> Linux pris en charge pour les machines virtuelles (Hyper-V/VMware).<br/><br/> Oracle non pris en charge.
 **Machine virtuelle Azure avec MABS** | Fichiers, dossiers, volumes, état du système, données d’application | Sauvegarder sur le stockage local de machine virtuelle Azure qui exécute le serveur de sauvegarde AZURE. MABS effectue ensuite la sauvegarde dans le coffre. | Instantanés tenant compte des applications.<br/><br/> Précision totale pour la sauvegarde et la récupération.<br/><br/> Linux pris en charge pour les machines virtuelles (Hyper-V/VMware).<br/><br/> Oracle non pris en charge.
 

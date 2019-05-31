@@ -6,14 +6,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 12/28/2018
+ms.date: 05/29/2019
 ms.author: hrasheed
-ms.openlocfilehash: 9da9c6c438aac2c160a9ec7bc658e5d7b4ea207e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: cf1a6ffa61b41af5abd20dac13b85024001d2ed2
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64715187"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393989"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-by-using-the-azure-portal"></a>Créer des clusters Linux dans HDInsight à l’aide du portail Azure
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -42,7 +42,7 @@ Le portail Azure expose la plupart des propriétés du cluster. Avec les modèle
    
     ![Créer un cluster dans le portail Azure](./media/hdinsight-hadoop-create-linux-clusters-portal/hdinsight-create-cluster.png "Création d’un cluster dans le portail Azure")
 
-1. Dans la page **HDInsight**, sélectionnez **Personnalisé (taille, paramètres, applications)**.
+1. Dans la page **HDInsight**, sélectionnez **Personnalisé (taille, paramètres, applications)** .
 
 1. Sélectionnez **1 De base**. Entrez ensuite les informations ci-dessous.
 
@@ -92,7 +92,7 @@ Le portail Azure expose la plupart des propriétés du cluster. Avec les modèle
      Cliquez sur **Suivant** pour passer à la page suivante.
 
 
-6. Dans **4 Applications (facultatif)**, sélectionnez les applications souhaitées. Ces applications peuvent être développées par Microsoft, par des éditeurs de logiciels indépendants (ISV) ou par vous-même. Pour plus d’informations, consultez [Installer des applications lors de la création du cluster](hdinsight-apps-install-applications.md#install-applications-during-cluster-creation).
+6. Dans **4 Applications (facultatif)** , sélectionnez les applications souhaitées. Ces applications peuvent être développées par Microsoft, par des éditeurs de logiciels indépendants (ISV) ou par vous-même. Pour plus d’informations, consultez [Installer des applications lors de la création du cluster](hdinsight-apps-install-applications.md#install-applications-during-cluster-creation).
 
     Cliquez sur **Suivant** pour passer à la page suivante.
 

@@ -12,14 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2019
+ms.date: 05/23/2019
 ms.author: lahugh
-ms.openlocfilehash: e6bb947503371e379e4d4972ddfc3614e129174b
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.openlocfilehash: 183e2144317bf3f1c9a60443d393bdcb3fd7c04a
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65835206"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390560"
 ---
 # <a name="generation-2-vms-preview-on-azure"></a>Machines virtuelles de génération 2 (version préliminaire) sur Azure
 
@@ -30,7 +30,7 @@ ms.locfileid: "65835206"
 
 Prise en charge pour les machines virtuelles de génération 2 (VM) est désormais disponible en version préliminaire publique sur Azure. Vous ne pouvez pas modifier la génération d’une machine virtuelle une fois que vous l’avez créé. Par conséquent, nous vous recommandons d’examiner les considérations [ici](https://docs.microsoft.com/windows-server/virtualization/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v) ainsi que les informations sur cette page avant de choisir une génération.
 
-Fonctionnalités clées de génération 2 machines virtuelles prise en charge, telles que : une mémoire, Intel® Software Guard Extensions (SGX) et mémoire persistante virtuel (vPMEM), qui ne sont pas pris en charge sur les machines virtuelles de génération 1. Machines virtuelles de génération 2 ont certaines fonctionnalités qui ne sont pas encore pris en charge sur Azure. Pour plus d’informations, consultez le [fonctionnalités et capacités](#features-and-capabilities) section. 
+Génération 2 machines virtuelles prise en charge des fonctionnalités clés qui ne sont pas en charge sur les machines virtuelles de génération 1, telles que : une mémoire, Intel® Software Guard Extensions (SGX) et virtuel mémoire persistante (vPMEM). Machines virtuelles de génération 2 ont également certaines fonctionnalités qui ne sont pas encore pris en charge sur Azure. Pour plus d’informations, consultez le [fonctionnalités et capacités](#features-and-capabilities) section.
 
 Machines virtuelles de génération 2 utilisent les nouveau vs d’architecture démarrage basé sur UEFI l’architecture de basés sur BIOS utilisé par les machines virtuelles de génération 1. Par rapport aux machines virtuelles de génération 1, machines virtuelles de génération 2 peuvent avoir de meilleures durées d’installation et de démarrage. Pour une vue d’ensemble de machines virtuelles de génération 2 et certaines des principales différences entre la génération 1 et la génération 2, consultez [dois-je créer une machine virtuelle de génération 1 ou 2 dans Hyper-V ?](https://docs.microsoft.com/windows-server/virtualization/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
 
@@ -84,7 +84,7 @@ Azure ne prend pas en charge certaines des fonctionnalités qui prend en charge 
 | Système d’exploitation / Image/échange de disque personnalisée         | :heavy_check_mark:         | :heavy_check_mark: |
 | Prise en charge de machines virtuelles identiques | :heavy_check_mark:         | :heavy_check_mark: |
 | Récupération automatique du système/sauvegarde                        | :heavy_check_mark:         | :x:                |
-| Galerie d'images partagées              | :heavy_check_mark:         | :x:                |
+| Galerie d’images partagées              | :heavy_check_mark:         | :x:                |
 | Azure Disk Encryption             | :heavy_check_mark:         | :x:                |
 
 ## <a name="creating-a-generation-2-vm"></a>Création d’une génération 2 machines virtuelles
@@ -113,6 +113,29 @@ Génération 2 machines virtuelles peuvent être créés à partir d’image man
 Génération que 2 machines virtuelles peuvent également être créés à l’aide de machines virtuelles identiques. Vous pouvez créer la génération 2 machines virtuelles à l’aide de jeux de mise à l’échelle de machine virtuelle Azure via Azure CLI.
 
 ## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
+
+* **Sont de génération 2 machines virtuelles disponibles dans toutes les régions Azure ?**  
+    Oui. Toutefois, pas toutes [tailles de machine virtuelle de génération 2](#generation-2-vm-sizes) sont disponibles dans chaque région. La disponibilité de la génération de 2 machines virtuelles dépend de la disponibilité de la taille de machine virtuelle.
+
+* **Existe-t-il une différence de prix entre la génération 1 et la génération 2 machines virtuelles ?**  
+    Il n’existe aucune différence dans la tarification entre la génération 1 et les machines virtuelles de génération 2.
+
+* **Comment augmenter la taille du disque du système d’exploitation ?**  
+  Disques de système d’exploitation supérieures à 2 To débutent à la génération 2 machines virtuelles. Par défaut, la plupart des disques du système d’exploitation sont moins de 2 To pour les machines virtuelles de génération 2, mais la taille du disque peut être augmentée à un maximum de 4 To recommandé. Vous pouvez augmenter la taille du disque du système d’exploitation via l’interface CLI ou le portail Azure. Pour plus d’informations sur les disques d’extension par programmation, consultez [redimensionner un disque](expand-disks.md).
+
+  Pour augmenter la taille du disque du système d’exploitation via le portail Azure :
+
+  * Accédez à la page de propriétés de machine virtuelle sur le portail Azure.
+
+  * Arrêter et libérer la machine virtuelle en utilisant le **arrêter** bouton.
+
+  * Dans le **disques** , sélectionnez le disque du système d’exploitation que vous souhaitez augmenter.
+
+  * Sélectionnez **Configuration** dans le **disques** section et la mise à jour le **taille** sur la valeur souhaitée.
+  
+  * Revenez à la page de propriétés de machine virtuelle et **Démarrer** la machine virtuelle.
+
+  Vous pouvez voir un avertissement pour les disques du système d’exploitation supérieures à 2 To. L’avertissement ne s’applique pas aux machines virtuelles de génération 2 ; Toutefois, les tailles de disque du système d’exploitation supérieures à 4 To sont **ne pas recommandée.**
 
 * **Machines virtuelles de génération 2 prennent-ils en charge le mise en réseau accélérée ?**  
     Oui, la prise en charge des machines virtuelles de génération 2 [mise en réseau accélérée](../../virtual-network/create-vm-accelerated-networking-cli.md).

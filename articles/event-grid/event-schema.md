@@ -8,18 +8,21 @@ ms.service: event-grid
 ms.topic: reference
 ms.date: 01/20/2019
 ms.author: babanisa
-ms.openlocfilehash: b67d656ed6ab537a01696ec9c0c98f84b880f03b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4a795221790a9d56bcbfe30a50b0c838fb8d9e56
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60561560"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66304243"
 ---
 # <a name="azure-event-grid-event-schema"></a>Schéma d’événement Azure Event Grid
 
 Cet article décrit les propriétés et les schémas qui sont présents dans tous les événements. Les événements se composent de cinq propriétés de chaîne et d’un objet de données obligatoires. Les propriétés sont communes à tous les événements, quel que soit le serveur de publication. L’objet de données a des propriétés spécifiques à chaque serveur de publication. Dans les rubriques du système, ces propriétés sont spécifiques au fournisseur de ressources tel que Stockage Azure ou Azure Event Hubs.
 
-Les sources d’événements envoient des événements à Azure Event Grid dans un tableau qui peut avoir plusieurs objets d’événement. Lorsque les événements sont envoyés vers une rubrique Event Grid, le tableau peut avoir une taille totale de 1 Mo. Chaque événement du tableau est limité à 64 Ko. Si un événement ou si le tableau dépasse la taille maximale autorisée, vous recevez le message suivant : **413 Payload Too Large** (413 : charge utile maximale dépassée).
+Les sources d’événements envoient des événements à Azure Event Grid dans un tableau qui peut avoir plusieurs objets d’événement. Lorsque les événements sont envoyés vers une rubrique Event Grid, le tableau peut avoir une taille totale de 1 Mo. Chaque événement dans le tableau est limité à 64 Ko (disponibilité générale) ou 1 Mo (version préliminaire). Si un événement ou si le tableau dépasse la taille maximale autorisée, vous recevez le message suivant : **413 Payload Too Large** (413 : charge utile maximale dépassée).
+
+> [!NOTE]
+> Un événement de taille jusqu'à 64 Ko est couverte par contrat de niveau Service (SLA) GA (General Availability). La prise en charge pour un événement de taille jusqu'à 1 Mo est actuellement en version préliminaire. Événements de plus de 64 Ko sont facturées par incréments de 64 Ko. 
 
 Event Grid envoie les événements aux abonnés sous forme de tableau ne contenant qu’un seul événement. Ce comportement est susceptible de changer.
 

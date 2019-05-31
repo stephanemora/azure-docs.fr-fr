@@ -7,19 +7,19 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: howto
-ms.date: 05/13/2019
-ms.openlocfilehash: 44b6f099b5b17329976b9fec3c0ac38b5e394221
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
-ms.translationtype: HT
+ms.date: 05/24/2019
+ms.openlocfilehash: c40bae6ac1af2489e4e77d2c280b95cccf8b5603
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65978014"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257830"
 ---
 # <a name="configure-outbound-network-traffic-restriction-for-azure-hdinsight-clusters-preview"></a>Configurer la restriction du trafic réseau sortant pour les clusters Azure HDInsight (version préliminaire)
 
 Cet article fournit les étapes pour vous permet de sécuriser le trafic sortant à partir de votre cluster HDInsight à l’aide de pare-feu Azure. Les étapes ci-dessous supposent que vous configurez un pare-feu d’Azure pour un cluster existant. Si vous déployez un nouveau cluster et derrière un pare-feu, créez d’abord votre cluster de HDInsight et le sous-réseau, puis suivez les étapes décrites dans ce guide.
 
-## <a name="background"></a>Arrière-plan 
+## <a name="background"></a>Arrière-plan
 
 Les clusters Azure HDInsight sont normalement déployées dans votre propre réseau virtuel. Le cluster a des dépendances sur les services en dehors de ce réseau virtuel qui nécessitent un accès réseau fonctionne correctement.
 
@@ -32,38 +32,23 @@ La solution de sécurisation des adresses sortantes consiste à utiliser un disp
 ## <a name="configuring-azure-firewall-with-hdinsight"></a>Configuration du pare-feu Azure avec HDInsight
 
 Un résumé des étapes pour verrouiller la sortie à partir de votre HDInsight existant avec le pare-feu Azure sont :
-1. Activer les points de terminaison de service.
 1. Créer un pare-feu.
 1. Ajouter des règles d’application vers le pare-feu
 1. Ajouter des règles de réseau vers le pare-feu.
 1. Créez une table de routage.
 
-### <a name="enable-service-endpoints"></a>Activer les points de terminaison de service
-
-Si vous souhaitez contourner le pare-feu (par exemple, pour réduire les coûts de transfert de données), vous pouvez activer des points de terminaison de service pour SQL et le stockage sur votre sous-réseau HDInsight. Lorsque vous avez des points de terminaison de service activés pour SQL Azure, toutes les dépendances SQL Azure a de votre cluster doivent être configurés avec les points de terminaison de service ainsi.
-
-Pour activer les points de terminaison de service approprié, procédez comme suit :
-
-1. Connectez-vous au portail Azure et sélectionnez le réseau virtuel déployé dans votre cluster HDInsight.
-1. Sélectionnez **sous-réseaux** sous **paramètres**.
-1. Sélectionnez le sous-réseau sur lequel est déployé votre cluster.
-1. Dans l’écran pour modifier les paramètres de sous-réseau, cliquez sur **Microsoft.SQL** et/ou **Microsoft.Storage** à partir de la **points de terminaison de Service**  >   **Services** zone de liste déroulante.
-1. Si vous utilisez un cluster ESP, vous devez également sélectionner le **Microsoft.AzureActiveDirectory** point de terminaison de service.
-1. Cliquez sur **Enregistrer**.
-
 ### <a name="create-a-new-firewall-for-your-cluster"></a>Créer un nouveau pare-feu de votre cluster
 
 1. Créez un sous-réseau nommé **AzureFirewallSubnet** dans le réseau virtuel où se trouve de votre cluster. 
 1. Créer un nouveau pare-feu **Test-FW01** à l’aide de la procédure décrite dans [didacticiel : Déployer et configurer un pare-feu Azure à l’aide du portail Azure](../firewall/tutorial-firewall-deploy-portal.md#deploy-the-firewall)
-1. Sélectionnez le nouveau pare-feu à partir du portail Azure. Cliquez sur **règles** sous **paramètres** > **regroupement de règles d’Application** > **ajouter le regroupement de règles d’application**.
-
-    ![Titre : Ajouter une collection de règles d'application](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection.png)
 
 ### <a name="configure-the-firewall-with-application-rules"></a>Configurer le pare-feu avec des règles d’application
 
 Créer un regroupement de règles d’application qui permet au cluster envoyer et recevoir les communications importantes.
 
 Sélectionnez le nouveau pare-feu **Test-FW01** à partir du portail Azure. Cliquez sur **règles** sous **paramètres** > **regroupement de règles d’Application** > **ajouter le regroupement de règles d’application**.
+
+![Titre : Ajouter le regroupement de règles d’application](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection.png)
 
 Sur le **ajouter le regroupement de règles d’application** écran, procédez comme suit :
 
@@ -75,12 +60,9 @@ Sur le **ajouter le regroupement de règles d’application** écran, procédez 
     1. Une règle pour autoriser l’activité de connexion de Windows :
         1. Dans le **cible FQDN** section, fournissez un **nom**et définissez **adresses sources** à `*`.
         1. Entrez `https:443` sous **: Port de protocole** et `login.windows.net` sous **cibler les noms de domaine complets**.
-    1. Une règle pour autoriser les données de télémétrie SQM :
-        1. Dans le **cible FQDN** section, fournissez un **nom**et définissez **adresses sources** à `*`.
-        1. Entrez `https:443` sous **: Port de protocole** et `sqm.telemetry.microsoft.com` sous **cibler les noms de domaine complets**.
     1. Si votre cluster est sauvegardé par WASB et que vous n’utilisez pas les points de terminaison de service ci-dessus, puis ajoutez une règle pour WASB :
         1. Dans le **cible FQDN** section, fournissez un **nom**et définissez **adresses sources** à `*`.
-        1. Entrez `http` ou [https] en fonction de si vous utilisez wasb : / / ou wasbs : / / sous **: Port de protocole** et l’url de compte de stockage sous **noms de domaine complets cible**.
+        1. Entrez `http` ou `https` selon que vous utilisez wasb : / / ou wasbs : / / sous **: Port de protocole** et l’url de compte de stockage sous **noms de domaine complets cible**.
 1. Cliquez sur **Add**.
 
 ![Titre : Entrez les détails de la collection application règle](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection-details.png)
@@ -88,9 +70,6 @@ Sur le **ajouter le regroupement de règles d’application** écran, procédez 
 ### <a name="configure-the-firewall-with-network-rules"></a>Configurer le pare-feu avec les règles de réseau
 
 Créer les règles de réseau pour configurer correctement votre cluster HDInsight.
-
-> [!Important]
-> Vous pouvez choisir entre l’utilisation de balises de service SQL dans le pare-feu à l’aide de règles de réseau comme décrit dans cette section, ou une instance SQL de service point de terminaison un décrite dans [la section sur les points de terminaison de service](#enable-service-endpoints). Si vous choisissez d’utiliser des balises SQL dans les règles de réseau, vous pouvez ouvrir une session et auditer le trafic SQL. À l’aide d’un point de terminaison de service aura le trafic SQL à contourner le pare-feu.
 
 1. Sélectionnez le nouveau pare-feu **Test-FW01** à partir du portail Azure.
 1. Cliquez sur **règles** sous **paramètres** > **regroupement de règles de réseau** > **ajouter le regroupement de règles de réseau**.
@@ -112,12 +91,7 @@ Créer les règles de réseau pour configurer correctement votre cluster HDInsig
         1. Définissez **adresses sources** `*`.
         1. Entrez l’adresse IP de votre compte de stockage dans **adresses de Destination**.
         1. Définissez **Ports de Destination** à `*`.
-    1. Une règle de réseau pour permettre la communication avec la clé de gestion pour Windows l’Activation du Service.
-        1. Dans la ligne suivante dans le **règles** section, fournissez un **nom** et sélectionnez **n’importe quel** à partir de la **protocole** liste déroulante.
-        1. Définissez **adresses sources** `*`.
-        1. Définissez **adresses de Destination** à `*`.
-        1. Définissez **Ports de Destination** à `1688`.
-    1. Si vous utilisez l’Analytique de journal, puis créer une règle de réseau pour permettre la communication avec votre espace de travail Analytique de journal.
+    1. (Facultatif) Si vous utilisez l’Analytique de journal, puis créer une règle de réseau pour permettre la communication avec votre espace de travail Analytique de journal.
         1. Dans la ligne suivante dans le **règles** section, fournissez un **nom** et sélectionnez **n’importe quel** à partir de la **protocole** liste déroulante.
         1. Définissez **adresses sources** `*`.
         1. Définissez **adresses de Destination** à `*`.
@@ -150,7 +124,7 @@ Par exemple, pour configurer la table de routage d’un cluster créé dans la r
 1. Cliquez sur **itinéraires** sous **paramètres**.
 1. Cliquez sur **ajouter** pour créer des itinéraires pour les adresses IP dans le tableau ci-dessous.
 
-| Nom de l'itinéraire | Préfixe d'adresse | Type de tronçon suivant | Adresse du tronçon suivant |
+| Nom de l’itinéraire | Préfixe de l’adresse | Type de tronçon suivant | adresse de tronçon suivant |
 |---|---|---|---|
 | 168.61.49.99 | 168.61.49.99/32 | Internet | N/D |
 | 23.99.5.239 | 23.99.5.239/32 | Internet | N/D |

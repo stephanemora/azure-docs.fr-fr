@@ -8,15 +8,17 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 01/30/2019
 ms.author: maquaran
-ms.openlocfilehash: 56ec4d867abd5f2767c64b0800eeb017c0fb9923
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 2a4d636ccb03e36f7c495f3c10c90033d7c3c93c
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65793006"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417912"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>Kit de développement logiciel (SDK) du processeur de flux de modification .NET Téléchargement et notes de publication
+
 > [!div class="op_single_selector"]
+>
 > * [.NET](sql-api-sdk-dotnet.md)
 > * [Flux de modification .NET](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
@@ -156,8 +158,8 @@ ms.locfileid: "65793006"
 * Kit SDK GA
 * Compatible avec les versions 1.14.1 et inférieures du [Kit de développement logiciel (SDK) SQL .NET](sql-api-sdk-dotnet.md).
 
-
 ## <a name="release--retirement-dates"></a>Dates de lancement et de suppression
+
 Microsoft fournira une notification au moins **12 mois** avant le retrait d’un Kit de développement logiciel (SDK) pour faciliter la transition vers une version plus récente/prise en charge.
 
 Les nouvelles fonctionnalités et fonctions, et les optimisations sont uniquement ajoutées au Kit SDK actuel. Par conséquent, il est recommandé de toujours passer à la dernière version du SDK dès que possible. 
@@ -166,7 +168,7 @@ Le service rejette toute requête envoyée à Cosmos DB à l’aide d’un Kit d
 
 <br/>
 
-| Version | Date de mise en production | Date de suppression |
+| Version | Date de lancement | Date de suppression |
 | --- | --- | --- |
 | [2.2.7](#2.2.7) |14 mai 2019 |--- |
 | [2.2.6](#2.2.6) |29 janvier 2019 |--- |
@@ -183,10 +185,10 @@ Le service rejette toute requête envoyée à Cosmos DB à l’aide d’un Kit d
 | [1.1.0](#1.1.0) |13 août 2017 |--- |
 | [1.0.0](#1.0.0) |7 juillet 2017 |--- |
 
-
 ## <a name="faq"></a>Forum Aux Questions
+
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
 ## <a name="see-also"></a>Voir aussi
-Pour en savoir plus sur Cosmos DB, consultez la page du service [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). 
 
+Pour en savoir plus sur Cosmos DB, consultez la page du service [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).

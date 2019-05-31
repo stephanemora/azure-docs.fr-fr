@@ -5,18 +5,18 @@ author: dkamstra
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 5/10/2019
+ms.date: 5/30/2019
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: fba5119feb1ff7a0170a573371e479caa5fc33eb
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: f4f10191ea28f73732f81eb9dc25321f82683652
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65544472"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66416956"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Créer et gérer des groupes d’actions sur le Portail Azure
-## <a name="overview"></a>Présentation ##
+## <a name="overview"></a>Vue d'ensemble ##
 Un groupe d’actions est une collection de préférences de notification définies par le propriétaire d’un abonnement Azure. Les alertes Azure Monitor et Service Health utilisent des groupes d’actions pour avertir les utilisateurs qu’une alerte a été déclenchée. Plusieurs alertes peuvent utiliser le même groupe d’actions ou des groupes d’actions différents selon les besoins de l’utilisateur. Vous pouvez configurer jusqu'à 2 000 groupes d'actions au sein d'un abonnement.
 
 Vous configurez une action pour avertir une personne par e-mail ou SMS, qu'ils reçoivent une confirmation indiquant qu’ils ont été ajoutés au groupe d’actions.
@@ -35,9 +35,9 @@ Pour plus d’informations sur l’utilisation de modèles Azure Resource Manage
 1. Dans le [Portail](https://portal.azure.com), sélectionnez **Moniteur**. Le **moniteur** volet consolide toutes vos paramètres de surveillance et données dans une vue.
 
     ![Le service « Moniteur »](./media/action-groups/home-monitor.png)
-1. Sélectionnez **Alertes**, puis **Gérer les groupes d’actions**.
+1. Sélectionnez **alertes** puis sélectionnez **gérer les actions**.
 
-    ![Bouton Gérer les groupes d’actions](./media/action-groups/manage-action-groups.png)
+    ![Gérer le bouton Actions](./media/action-groups/manage-action-groups.png)
 1. Sélectionnez **Ajouter un groupe d’actions** et renseignez les champs.
 
     ![La commande « Ajouter un groupe d’actions »](./media/action-groups/add-action-group.png)
@@ -102,6 +102,8 @@ Plage d’adresses IP sources
  - 13.106.57.196
  - 52.244.68.117
  - 52.244.65.137
+ - 52.183.31.0
+ - 52.184.145.166
  - 51.4.138.199
  - 51.5.148.86
  - 51.5.149.19

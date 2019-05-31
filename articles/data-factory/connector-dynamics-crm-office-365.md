@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: jingwang
-ms.openlocfilehash: 6a52749c78cd0f090e66220fe51e3d04985f96e7
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 481b19d0121e93c84d123579e91bcbfb9fb50815
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64869529"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66356971"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Copier des données à partir et vers Dynamics 365 (Common Data Service) ou Dynamics CRM à l’aide d’Azure Data Factory
 
@@ -205,7 +205,7 @@ Pour copier des données de Dynamics, définissez le type de source dans l’act
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | type | La propriété de type de la source de l’activité de copie doit être définie sur **DynamicsSource**. | Oui |
-| query | FetchXML est un langage de requête propriétaire qui est utilisé dans Dynamics (en ligne et local). Consultez l’exemple qui suit. Pour en savoir plus, consultez [Build queries with FeachXML](https://msdn.microsoft.com/library/gg328332.aspx) (Générer des requêtes avec FeachXML). | Non (si « entityName » est spécifié dans le jeu de données) |
+| query | FetchXML est un langage de requête propriétaire qui est utilisé dans Dynamics (en ligne et local). Consultez l’exemple qui suit. Pour plus d’informations, consultez [générer des requêtes avec FetchXML](https://msdn.microsoft.com/library/gg328332.aspx). | Non (si « entityName » est spécifié dans le jeu de données) |
 
 >[!NOTE]
 >La colonne PK sera toujours copiée, même si la projection de colonne que vous avez configurée dans la requête FetchXML ne la contient pas.
@@ -269,7 +269,7 @@ Pour copier des données vers Dynamics, définissez le type de récepteur dans l
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | type | La propriété de type du récepteur d’activité de copie doit être définie sur **DynamicsSink**. | Oui |
-| writeBehavior | Comportement d’écriture de l’opération.<br/>La valeur autorisée est **« Upsert »**. | Oui |
+| writeBehavior | Comportement d’écriture de l’opération.<br/>La valeur autorisée est **« Upsert »** . | Oui |
 | writeBatchSize | Nombre de lignes de données écrites dans Dynamics pour chaque lot. | Non (valeur par défaut : 10) |
 | ignoreNullValues | Indique si les valeurs Null des données d’entrée (à l’exception des champs clés) doivent être ignorées pendant une opération d’écriture.<br/>Les valeurs autorisées sont **true** et **false**.<br>- **True** : Laisser inchangées les données dans l’objet de destination quand vous effectuez une opération upsert/mise à jour. Insérer une valeur définie par défaut lorsque vous effectuez une opération insert.<br/>- **False** : Mettre à jour les données dans l’objet de destination quand vous effectuez une opération upsert/mise à jour. Insérer une valeur NULL lorsque vous effectuez une opération insert. | Non (valeur par défaut : false) |
 

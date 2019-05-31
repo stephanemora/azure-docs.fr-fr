@@ -10,12 +10,12 @@ ms.service: event-grid
 ms.topic: reference
 ms.date: 01/17/2019
 ms.author: kgremban
-ms.openlocfilehash: 5fcd7c10002e7e1ae9683fdd89d3af14a1500050
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e770beb0470b54d8e13493bca4790323b2e96ce1
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60561793"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393201"
 ---
 # <a name="azure-event-grid-event-schema-for-iot-hub"></a>Schéma des événements Azure Event Grid pour IoT Hub
 
@@ -33,6 +33,9 @@ IoT Hub émet les types d’événements suivants :
 | Microsoft.Devices.DeviceDeleted | Publié quand un appareil est supprimé d’un hub IoT. | 
 | Microsoft.Devices.DeviceConnected | Publié quand un appareil est connecté à un hub IoT. |
 | Microsoft.Devices.DeviceDisconnected | Publié quand un appareil est déconnecté d’un hub IoT. | 
+| Microsoft.Devices.DeviceTelemetry | Publié lorsqu’un message de télémétrie est envoyé à un IoT hub. |
+
+Tous les événements de périphérique à l’exception des événements de télémétrie d’appareil sont généralement disponibles dans toutes les régions prises en charge par Event Grid. Événement de télémétrie d’appareil est en version préliminaire publique et est disponible dans toutes les régions à l’exception des États-Unis, ouest des États-Unis, Europe de l’ouest, [Azure Government](/azure-government/documentation-government-welcome.md), [Azure China 21Vianet](/azure/china/china-welcome.md), et [Azure Germany](https://azure.microsoft.com/global-infrastructure/germany/).
 
 ## <a name="example-event"></a>Exemple d’événement
 
@@ -56,6 +59,40 @@ Les schémas pour les événements DeviceConnected et DeviceDisconnected ont la 
   }, 
   "dataVersion": "1", 
   "metadataVersion": "1" 
+}]
+```
+
+L’événement DeviceTelemetry est déclenché lorsqu’un événement de télémétrie est envoyé à un IoT Hub. Vous trouverez ci-dessous un exemple de schéma pour cet événement.
+
+```json
+[{
+  "id": "9af86784-8d40-fe2g-8b2a-bab65e106785",
+  "topic": "/SUBSCRIPTIONS/<subscription ID>/RESOURCEGROUPS/<resource group name>/PROVIDERS/MICROSOFT.DEVICES/IOTHUBS/<hub name>", 
+  "subject": "devices/LogicAppTestDevice", 
+  "eventType": "Microsoft.Devices.DeviceTelemetry",
+  "eventTime": "2019-01-07T20:58:30.48Z",
+  "data": {        
+      "body": {            
+          "Weather": {                
+              "Temperature": 900            
+          },
+          "Location": "USA"        
+      },
+        "properties": {            
+          "Status": "Active"        
+        },
+        "systemProperties": {            
+            "iothub-content-type": "application/json",
+            "iothub-content-encoding": "utf-8",
+            "iothub-connection-device-id": "d1",
+            "iothub-connection-auth-method": "{\"scope\":\"device\",\"type\":\"sas\",\"issuer\":\"iothub\",\"acceptingIpFilterRule\":null}",
+            "iothub-connection-auth-generation-id": "123455432199234570",
+            "iothub-enqueuedtime": "2019-01-07T20:58:30.48Z",
+            "iothub-message-source": "Telemetry"        
+        }    
+    },
+  "dataVersion": "",
+  "metadataVersion": "1"
 }]
 ```
 
@@ -129,7 +166,9 @@ Pour tous les événements IoT Hub, l’objet de données contient les propriét
 | hubName | string | Nom du hub IoT où l’appareil a été créé ou supprimé. |
 | deviceId | string | Identificateur unique de l’appareil. Cette chaîne qui respecte la casse peut contenir jusqu’à 128 caractères et prend en charge les caractères alphanumériques 7 bits ASCII, ainsi que les caractères spéciaux suivants :`- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
 
-Le contenu de l’objet de données est différent pour chaque serveur de publication d’événements. Pour les événements IoT Hub **DeviceConnected** et **DeviceDisconnected**, l’objet de données contient les propriétés suivantes :
+Le contenu de l’objet de données est différent pour chaque serveur de publication d’événements. 
+
+Pour les événements IoT Hub **DeviceConnected** et **DeviceDisconnected**, l’objet de données contient les propriétés suivantes :
 
 | Propriété | Type | Description |
 | -------- | ---- | ----------- |
@@ -137,7 +176,15 @@ Le contenu de l’objet de données est différent pour chaque serveur de public
 | deviceConnectionStateEventInfo | objet | Informations d’événement sur l’état de connexion d’appareil
 | sequenceNumber | string | Un numéro qui vous aide à indiquer l’ordre des événements de connexion et de déconnexion d’appareils. Le dernier événement aura un numéro de séquence plus élevé que l’événement précédent. Ce numéro peut changer de plus d’une unité, mais il ne peut qu’augmenter. Consultez [comment utiliser le numéro de séquence](../iot-hub/iot-hub-how-to-order-connection-state-events.md). |
 
-Le contenu de l’objet de données est différent pour chaque serveur de publication d’événements. Pour les événements IoT Hub **DeviceCreated** et **DeviDeleted**, l’objet de données contient les propriétés suivantes :
+Pour **télémétrie d’appareil** événement IoT Hub, l’objet de données contient le message appareil-à-cloud dans [format des messages IoT hub](../iot-hub/iot-hub-devguide-messages-construct.md) et a les propriétés suivantes :
+
+| Propriété | Type | Description |
+| -------- | ---- | ----------- |
+| body | string | Le contenu du message à partir de l’appareil. |
+| properties | string | Les propriétés de l’application sont des chaînes définies par l’utilisateur qui peuvent être ajoutées au message. Ces champs sont facultatifs. |
+| Propriétés système | string | [Propriétés système](../iot-hub/iot-hub-devguide-routing-query-syntax.md#system-properties) aider à identifier le contenu et la source des messages. Message de télémétrie d’appareil doit être au format JSON valid avec le contentType défini au format JSON et contentEncoding défini sur UTF-8 dans les propriétés système du message. S’il n’est pas défini, IoT Hub écrire les messages dans un format de codé en base 64.  |
+
+Pour les événements IoT Hub **DeviceCreated** et **DeviDeleted**, l’objet de données contient les propriétés suivantes :
 
 | Propriété | Type | Description |
 | -------- | ---- | ----------- |

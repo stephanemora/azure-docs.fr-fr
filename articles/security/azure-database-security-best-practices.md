@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: b4744201f506730303e190783acc60bfaa383720
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 9cd02172af5246c60b93a6e4696988268abed506
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65409807"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258680"
 ---
 # <a name="azure-database-security-best-practices"></a>Meilleures pratiques en matière de sécurité pour les bases de données Azure
 Cet article décrit les meilleures pratiques pour la sécurité de la base de données.
@@ -165,6 +165,10 @@ L’activation de ces fonctionnalités vous permet d’effectuer les opérations
 - Détecter et traiter les menaces potentielles.
 
 De plus, le service Détection des menaces intègre les alertes avec Azure Security Center pour une vue centralisée de l’état de sécurité de toutes vos ressources Azure.
+
+## <a name="enable-feature-restrictions"></a>Activer les restrictions de fonctionnalité
+
+Les données contenues dans vos bases de données peuvent être exposées à des personnes malveillantes à l’aide de vecteurs d’attaque qui tirent parti des erreurs de base de données et les temps d’exécution de requête. Base de données SQL Azure fournit plusieurs mécanismes de restriction de fonctionnalité pour protéger votre base de données. Pour plus d’informations, consultez [Restrictions des fonctionnalités de base de données SQL](../sql-database/sql-database-feature-restrictions.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 Consultez l’article [Bonnes pratiques et tendances Azure relatives à la sécurité](security-best-practices-and-patterns.md) pour découvrir d’autres bonnes pratiques en matière de sécurité à appliquer dans le cadre de la conception, du déploiement et de la gestion de vos solutions cloud avec Azure.

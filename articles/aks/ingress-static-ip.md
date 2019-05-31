@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 03/27/2019
+ms.date: 05/24/2019
 ms.author: iainfou
-ms.openlocfilehash: 57f71be436ac7632f111a7f88f9dc2d4bea608c4
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 55db0ab9a5f6ec5379622d6420397954ca3b9aca
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65073868"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66392458"
 ---
 # <a name="create-an-ingress-controller-with-a-static-public-ip-address-in-azure-kubernetes-service-aks"></a>Créer un contrôleur d’entrée avec une adresse IP publique statique dans Azure Kubernetes Service (AKS)
 
@@ -33,7 +33,7 @@ Cet article suppose que vous avez un cluster AKS existant. Si vous avez besoin d
 
 Cet article utilise Helm pour installer le contrôleur d’entrée NGINX, cert-manager et un exemple d’application web. Helm doit être initialisé dans votre cluster AKS et utiliser un compte de service pour Tiller. Vérifiez que vous utilisez la dernière version de Helm. Pour obtenir des instructions de mise à niveau, consultez la [documentation d’installation de Helm][helm-install]. Pour plus d’informations sur la configuration et l’utilisation de Helm, consultez [Installer des applications avec Helm dans Azure Kubernetes Service (AKS)][use-helm].
 
-Cet article nécessite également que vous exécutiez Azure CLI version 2.0.61 ou version ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installer Azure CLI 2.0][azure-cli-install].
+Cet article nécessite également que vous exécutiez Azure CLI version 2.0.64 ou version ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installer Azure CLI 2.0][azure-cli-install].
 
 ## <a name="create-an-ingress-controller"></a>Créer un contrôleur d’entrée
 
@@ -48,22 +48,12 @@ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeRes
 Ensuite, créez une adresse IP publique avec la méthode d’allocation *statique* à l’aide de la commande [az network public-ip create][az-network-public-ip-create]. L’exemple suivant crée une adresse IP publique nommée *myAKSPublicIP* dans le groupe de ressources de cluster AKS obtenu à l’étape précédente :
 
 ```azurecli-interactive
-az network public-ip create --resource-group MC_myResourceGroup_myAKSCluster_eastus --name myAKSPublicIP --allocation-method static
-```
-
-L’adresse IP s’affiche, comme illustré dans la sortie condensée suivante :
-
-```json
-{
-  "publicIp": {
-    [...]
-    "ipAddress": "40.121.63.72",
-    [...]
-  }
-}
+az network public-ip create --resource-group MC_myResourceGroup_myAKSCluster_eastus --name myAKSPublicIP --allocation-method static --query publicIp.ipAddress -o tsv
 ```
 
 À présent, déployez le graphique *nginx-ingress* avec Helm. Ajoutez le paramètre `--set controller.service.loadBalancerIP` et spécifiez votre propre adresse IP publique créée à l’étape précédente. Pour renforcer la redondance, deux réplicas des contrôleurs d’entrée NGINX sont déployés avec le paramètre `--set controller.replicaCount`. Pour tirer pleinement parti de l’exécution de réplicas des contrôleurs d’entrée, vérifiez que votre cluster AKS comprend plusieurs nœuds.
+
+Le contrôleur d’entrée doit également être planifiée sur un nœud Linux. Les nœuds de Windows Server (actuellement en version préliminaire dans ACS) ne doit pas exécuter le contrôleur d’entrée. Un sélecteur de nœud est spécifié en utilisant le `--set nodeSelector` paramètre indiquant le planificateur Kubernetes pour exécuter le contrôleur d’entrée NGINX sur un nœud basés sur Linux.
 
 > [!TIP]
 > L’exemple suivant crée un espace de noms Kubernetes pour les ressources d’entrée nommé *entrée-basic*. Spécifiez un espace de noms pour votre propre environnement en fonction des besoins. Si votre cluster AKS n’est pas activée de RBAC, ajoutez `--set rbac.create=false` aux commandes Helm.
@@ -75,8 +65,10 @@ kubectl create namespace ingress-basic
 # Use Helm to deploy an NGINX ingress controller
 helm install stable/nginx-ingress \
     --namespace ingress-basic \
-    --set controller.service.loadBalancerIP="40.121.63.72"  \
-    --set controller.replicaCount=2
+    --set controller.replicaCount=2 \
+    --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux \
+    --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux \
+    --set controller.service.loadBalancerIP="40.121.63.72"
 ```
 
 Lorsque le service équilibreur de charge Kubernetes est créé pour le contrôleur d’entrée NGINX, votre adresse IP statique est affectée, comme indiqué dans l’exemple de sortie suivant :
@@ -124,7 +116,7 @@ Pour installer le contrôleur cert-manager dans un cluster où RBAC est activé,
 
 ```console
 # Install the CustomResourceDefinition resources separately
-kubectl apply -f https://raw.githubusercontent.com/jetstack/cert-manager/release-0.7/deploy/manifests/00-crds.yaml
+kubectl apply -f https://raw.githubusercontent.com/jetstack/cert-manager/release-0.8/deploy/manifests/00-crds.yaml
 
 # Create the namespace for cert-manager
 kubectl create namespace cert-manager
@@ -142,7 +134,7 @@ helm repo update
 helm install \
   --name cert-manager \
   --namespace cert-manager \
-  --version v0.7.0 \
+  --version v0.8.0 \
   jetstack/cert-manager
 ```
 
@@ -219,7 +211,7 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: nginx
     certmanager.k8s.io/cluster-issuer: letsencrypt-staging
-    nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
 spec:
   tls:
   - hosts:
@@ -229,14 +221,14 @@ spec:
   - host: demo-aks-ingress.eastus.cloudapp.azure.com
     http:
       paths:
-      - path: /
-        backend:
+      - backend:
           serviceName: aks-helloworld
           servicePort: 80
-      - path: /hello-world-two
-        backend:
+        path: /(.*)
+      - backend:
           serviceName: ingress-demo
           servicePort: 80
+        path: /hello-world-two(/|$)(.*)
 ```
 
 Créez la ressource d’entrée avec la commande `kubectl apply -f hello-world-ingress.yaml`.
@@ -299,7 +291,7 @@ certificate.certmanager.k8s.io/tls-secret created
 
 ## <a name="test-the-ingress-configuration"></a>Tester la configuration d’entrée
 
-Ouvrez un navigateur web pour accéder au nom de domaine complet de votre contrôleur d’entrée Kubernetes, par exemple, *https://demo-aks-ingress.eastus.cloudapp.azure.com*.
+Ouvrez un navigateur web pour accéder au nom de domaine complet de votre contrôleur d’entrée Kubernetes, par exemple, *https://demo-aks-ingress.eastus.cloudapp.azure.com* .
 
 Comme ces exemples utilisent `letsencrypt-staging`, le certificat SSL émis n’est pas approuvé par le navigateur. Acceptez l’avertissement pour accéder à votre application. Les informations de certificat montrent que le certificat *Fake LE Intermediate X1* est émis par Let’s Encrypt. Ce faux certificat indique que `cert-manager` a correctement traité la demande et a reçu un certificat du fournisseur :
 
@@ -313,7 +305,7 @@ L’application de démonstration s’affiche dans le navigateur web :
 
 ![Exemple d’application numéro un](media/ingress/app-one.png)
 
-Maintenant, ajoutez le chemin */hello-world-two* au nom de domaine complet, par exemple, *https://demo-aks-ingress.eastus.cloudapp.azure.com/hello-world-two*. La deuxième application de démonstration portant le titre personnalisé s’affiche :
+Maintenant, ajoutez le chemin */hello-world-two* au nom de domaine complet, par exemple, *https://demo-aks-ingress.eastus.cloudapp.azure.com/hello-world-two* . La deuxième application de démonstration portant le titre personnalisé s’affiche :
 
 ![Exemple d’application numéro deux](media/ingress/app-two.png)
 

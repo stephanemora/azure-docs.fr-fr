@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 05/01/2019
+ms.date: 05/29/2019
 ms.author: juliako
-ms.openlocfilehash: 8f50188480b963d13460c79175ea6972d3e68f6a
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: a5ce6467a547b9fded03b3b5a6f40f84d29d3618
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153078"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66385144"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notes de publication Azure Media Services v3
 
@@ -34,9 +34,23 @@ Pour vous informer des développements les plus récents, cet article détaille 
 
 Pour plus d’informations, consultez [Conseils de migration pour le passage de Media Services v2 à Media Services v3](migrate-from-v2-to-v3.md#known-issues).
 
-## <a name="may-2019"></a>Mai 2019
+## <a name="may-2019"></a>Mai 2019
+
+### <a name="hls-v4-and-above-support-in-dynamic-packaging"></a>HLS v4 et versions ultérieures de la prise en charge dans l’empaquetage dynamique 
+
+Ajouté HLS (version 4 ou version ultérieure) prend en charge dans le Packaging dynamique pour les ressources qui ont plusieurs pistes audio avec plusieurs langues et les codecs.
+
+Pour plus d’informations, consultez [empaquetage dynamique](dynamic-packaging-overview.md).
+
+### <a name="korea-regional-pair-is-open-for-media-services"></a>Paire régionale Corée est ouvert pour Media Services 
+
+Media Services est désormais disponible dans les régions de Corée et Corée du Sud. 
+
+Pour plus d’informations, consultez [Clouds et des régions dans Media Services v3 existe](azure-clouds-regions.md).
 
 ### <a name="performance-improvements"></a>Amélioration des performances
+
+Ajout des mises à jour qui incluent des améliorations de performances de Media Services.
 
 * La taille de fichier maximale prise en charge pour le traitement a été mis à jour. Consultez, [Quotas et limitations](limits-quotas-constraints.md).
 * [Améliorations des vitesses de codage](media-reserved-units-cli-how-to.md#choosing-between-different-reserved-unit-types).
@@ -52,7 +66,7 @@ Pour plus d’informations, consultez [Conseils de migration pour le passage de 
 
 Maintenant l’empaquetage dynamique prend en charge les Atmos de Dolby. Pour plus d’informations, consultez [codecs Audio pris en charge par l’empaquetage dynamique](dynamic-packaging-overview.md#audio-codecs-supported-by-dynamic-packaging).
 
-Vous pouvez maintenant spécifier une liste de filtres de compte d’actif ou, s’applique également à votre localisateur de diffusion en continu. Pour plus d’informations, consultez [associer des filtres de localisateur de diffusion en continu](filters-concept.md#associate-filters-with-streaming-locator).
+Vous pouvez maintenant spécifier une liste de filtres de compte d’actif ou, s’applique également à votre localisateur de diffusion en continu. Pour plus d’informations, consultez [associer des filtres de localisateur de diffusion en continu](filters-concept.md#associating-filters-with-streaming-locator).
 
 ## <a name="february-2019"></a>Février 2019
 
@@ -215,10 +229,10 @@ Les fonctionnalités suivantes sont présentes dans le kit SDK .NET :
 
 * Quand vous soumettez un travail, vous pouvez spécifier l’ingestion de votre vidéo source à l’aide d’URL HTTPS, d’URL SAP ou de chemins de fichiers situés dans le stockage Blob Azure. AMS v3 ne prend pas en charge l’encodage de transfert mémorisé en bloc sur les URL HTTPS.
 
-## <a name="ask-questions-give-feedback-get-updates"></a>Posez des questions, commentaires, obtenir des mises à jour
+## <a name="ask-questions-give-feedback-get-updates"></a>Poser des questions, envoyer des commentaires, obtenir des mises à jour
 
 Découvrez l’article [Communauté Azure Media Services](media-services-community.md) pour découvrir les différentes façons dont vous pouvez poser des questions, faire des commentaires et obtenir des mises à jour sur Media Services.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Vue d'ensemble](media-services-overview.md)
+[Vue d’ensemble](media-services-overview.md)

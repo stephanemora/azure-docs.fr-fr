@@ -15,12 +15,12 @@ ms.date: 02/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b808654baded5bbe721866441a8d1115eff7bcaa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 842d3146bf1927871e29eb750cde09e9029b7c12
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60308893"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242101"
 ---
 # <a name="view-activity-logs-for-rbac-changes-to-azure-resources"></a>Afficher les journaux d’activité des changements de contrôle d’accès en fonction du rôle apportés aux ressources Azure
 
@@ -121,9 +121,9 @@ Voici les étapes de base pour bien démarrer :
 
 1. [Créez un espace de travail Log Analytics](../azure-monitor/learn/quick-create-workspace.md).
 
-1. [Configurez la solution Activity Log Analytics](../azure-monitor/platform/collect-activity-logs.md#configuration) pour vos espaces de travail.
+1. [Configurez la solution Activity Log Analytics](../azure-monitor/platform/activity-log-collect.md#activity-logs-analytics-monitoring-solution) pour vos espaces de travail.
 
-1. [Affichez les journaux d’activité](../azure-monitor/platform/collect-activity-logs.md#using-the-solution). Un moyen rapide d’accéder à la page de vue d’ensemble de solution Analytique de journal d’activité consiste à cliquer sur le **Analytique de journal** option.
+1. [Affichez les journaux d’activité](../azure-monitor/platform/activity-log-collect.md#activity-logs-analytics-monitoring-solution). Un moyen rapide d’accéder à la page de vue d’ensemble de solution Analytique de journal d’activité consiste à cliquer sur le **Analytique de journal** option.
 
    ![Option de journaux Azure Monitor dans le portail](./media/change-history-report/azure-log-analytics-option.png)
 

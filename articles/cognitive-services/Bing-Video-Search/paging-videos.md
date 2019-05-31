@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: scottwhi
-ms.openlocfilehash: 0af36fa68b2d801eed52e6f081b040fb56929c91
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 12549bb53a21dd657f51a4a02460ddc82c47bef8
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60613646"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66386382"
 ---
 # <a name="paging-through-video-search-results"></a>Pagination des résultats de recherche de vidéos
 
@@ -26,7 +26,7 @@ L’API Recherche de vidéos Bing retourne une partie de tous les résultats de 
 
 ## <a name="total-estimated-matches"></a>Estimation du nombre total de correspondances
 
-Pour obtenir l’estimation du nombre de résultats de recherche trouvés, utilisez le champ [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videos-totalestimatedmatches) dans la réponse JSON.   
+Pour obtenir l’estimation du nombre de résultats de recherche trouvés, utilisez le champ [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos-totalestimatedmatches) dans la réponse JSON.   
   
 ```json  
 {
@@ -39,7 +39,7 @@ Pour obtenir l’estimation du nombre de résultats de recherche trouvés, utili
   
 ## <a name="paging-through-videos"></a>Pagination de vidéos
 
-Pour paginer les vidéos disponibles, utilisez les paramètres de requête [count](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#count) et [offset](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#offset) au moment d’envoyer votre requête.  
+Pour paginer les vidéos disponibles, utilisez les paramètres de requête [count](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#count) et [offset](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#offset) au moment d’envoyer votre requête.  
   
 
 |Paramètre  |Description  |
@@ -57,7 +57,7 @@ Ocp-Apim-Subscription-Key: 123456789ABCDE
 Host: api.cognitive.microsoft.com  
 ```  
 
-Si vous utilisez la valeur par défaut pour le paramètre [count](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#count), vous devez uniquement spécifier le paramètre de requête `offset`, comme dans l’exemple suivant.  
+Si vous utilisez la valeur par défaut pour le paramètre [count](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#count), vous devez uniquement spécifier le paramètre de requête `offset`, comme dans l’exemple suivant.  
   
 ```cURL  
 GET https://api.cognitive.microsoft.com/bing/v7.0/videos/search?q=sailing+dinghies&offset=40&mkt=en-us HTTP/1.1  
@@ -67,7 +67,7 @@ Host: api.cognitive.microsoft.com
 
 Si vous paginez 35 vidéos à la fois, vous devez définir le paramètre de requête `offset` avec la valeur 0 pour la première requête, puis incrémenter `offset` de 35 pour chaque requête ultérieure. Toutefois, deux réponses successives peuvent contenir des résultats en double. Par exemple, les deux premières vidéos d’une réponse peuvent être les mêmes que les deux dernières vidéos de la réponse précédente.
 
-Pour éliminer les doublons, utilisez le champ [nextOffset](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videos-nextoffset) de l’objet `Videos`.
+Pour éliminer les doublons, utilisez le champ [nextOffset](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos-nextoffset) de l’objet `Videos`.
 
 Par exemple, si vous souhaitez paginer 30 vidéos à la fois, vous devez définir `count` avec la valeur 30 et `offset` avec la valeur 0 dans la première requête. Dans la requête suivante, vous devez définir le paramètre de requête `offset` avec la valeur `nextOffset`.
 
