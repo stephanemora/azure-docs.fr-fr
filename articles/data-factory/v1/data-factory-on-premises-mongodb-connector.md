@@ -67,7 +67,7 @@ La table suivante fournit une description des éléments JSON spécifiques au se
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
 | type |La propriété type doit être définie sur : **OnPremisesMongoDb** |Oui |
-| serveur |Nom d’hôte ou adresse IP du serveur MongoDB. |Oui |
+| server |Nom d’hôte ou adresse IP du serveur MongoDB. |Oui |
 | port |Le port TCP utilisé par le serveur MongoDB pour écouter les connexions clientes. |Facultatif, valeur par défaut : 27017 |
 | authenticationType |De base ou anonyme. |Oui |
 | username |Compte d’utilisateur pour accéder à MongoDB. |Oui (si l’authentification de base est utilisée). |
@@ -75,7 +75,7 @@ La table suivante fournit une description des éléments JSON spécifiques au se
 | authSource |Nom de la base de données MongoDB que vous souhaitez utiliser pour vérifier vos informations d’identification pour l’authentification. |Facultatif (si l’authentification de base est utilisée). Par défaut : utilise le compte d’administrateur et la base de données spécifiée à l’aide de la propriété databaseName. |
 | databaseName |Nom de la base de données MongoDB à laquelle vous souhaitez accéder. |Oui |
 | gatewayName |Nom de la passerelle qui accède au magasin de données. |Oui |
-| Encryptedcredential |Informations d’identification chiffrées par la passerelle. |Facultatif |
+| encryptedCredential |Informations d’identification chiffrées par la passerelle. |Facultatif |
 
 ## <a name="dataset-properties"></a>Propriétés du jeu de données
 Pour obtenir une liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article [Création de jeux de données](data-factory-create-datasets.md). Les sections comme la structure, la disponibilité et la stratégie d'un jeu de données JSON sont similaires pour tous les types de jeux de données (SQL Azure, Azure Blob, Azure Table, etc.).
