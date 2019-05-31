@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/14/2019
+ms.date: 05/23/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60453c320a66a8eebd7460b3930241f9e81b8a1b
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 235877ac8f84e695e5f81770d33b6fed89a5f241
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65784326"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66298797"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect : Historique de publication des versions
 L’équipe Azure Active Directory (Azure AD) met régulièrement à jour Azure AD Connect avec de nouvelles fonctions et fonctionnalités. Tous les ajouts ne sont pas applicables à toutes les configurations.
@@ -44,10 +44,20 @@ Bien que nous examinerons ce processus, le numéro de version de la version s’
 La mise à niveau automatique ne concernera pas toutes les versions d’Azure AD Connect. L’état de la version indique si une version est disponible en mise à niveau automatique ou en téléchargement uniquement. Si la mise à niveau automatique a été activée sur votre serveur Azure AD Connect, celui-ci sera automatiquement mis à niveau vers la dernière version d’Azure AD Connect qui est disponible en mise à niveau automatique. Certaines configurations Azure AD Connect seulement sont éligibles à la mise à niveau automatique. Veuillez suivre ce lien pour en savoir plus sur la [mise à niveau automatique](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-automatic-upgrade)
 
 ## <a name="13210"></a>1.3.21.0
+>[!IMPORTANT]
+>Il existe un problème connu avec la mise à niveau d’Azure AD Connect à partir d’une version antérieure à 1.3.21.0 où le portail Office 365 ne reflète pas la version mise à jour même si Azure AD Connect est mis à niveau avec succès.
+>
+> Pour résoudre le problème vous devez importer le **AdSync** module, puis exécutez le`Set-ADSyncDirSyncConfiguration` applet de commande powershell sur le serveur Azure AD Connect.  Vous pouvez utiliser les étapes suivantes :
+>
+>1. Ouvrez Powershell en mode d’administrateur
+>2. Exécutez `Import-Module "ADSync"`
+>3. Exécutez `Set-ADSyncDirSyncConfiguration -AnchorAttribute ""`
+ 
+
 
 ### <a name="release-status"></a>État de la version 
 
-05/14/2019: TBD
+05/14/2019: publiée pour téléchargement
 
 
 ### <a name="fixed-issues"></a>Problèmes résolus 
@@ -797,7 +807,7 @@ Synchronisation d’Azure AD Connect
 * Résolution d’un problème provoquant une mise à niveau automatique sur le serveur Azure AD Connect, même si le client a désactivé la fonctionnalité à l’aide de l’applet de commande Set-ADSyncAutoUpgrade. Avec ce correctif, le processus de mise à niveau automatique sur le serveur continue de vérifier régulièrement la disponibilité des mises à niveau, mais le programme d’installation téléchargé respecte la configuration de la mise à niveau automatique.
 * Durant la mise à niveau sur place de DirSync, Azure AD Connect crée un compte de service Azure AD que le connecteur Azure AD peut utiliser pour la synchronisation avec Azure AD. Une fois le compte créé, Azure AD Connect s’authentifie auprès d’Azure AD en utilisant le compte. Parfois, l’authentification échoue en raison de problèmes temporaires, ce qui entraîne un échec de la mise à niveau sur place de DirSync avec l’erreur *« An error has occurred executing Configure AAD Sync task: AADSTS50034: To sign into this application, the account must be added to the xxx.onmicrosoft.com directory. »* (une erreur s’est produite l’exécution de la tâche Configurer AAD Sync : AADSTS50034 : Pour que vous puissiez vous connecter à cette application, le compte doit être ajouté dans l’annuaire xxx.onmicrosoft.com). Pour améliorer la résilience de la mise à niveau de DirSync, Azure AD Connect retente désormais l’étape d’authentification.
 * Un problème dans la build 443 avait pour effet que la mise à niveau sur place de DirSync réussissait, mais que les profils d’exécution requis pour la synchronisation d’annuaires n’étaient pas créés. Une logique de réparation est incluse dans cette build d’Azure AD Connect. Quand le client met à niveau vers cette build, Azure AD Connect détecte les profils d’exécution manquants et les crée.
-* Correction d’un problème entraînant l’échec du démarrage du processus de synchronisation de mot de passe avec l’ID d’événement 6900 et l’erreur *« Un élément avec la même clé a déjà été ajouté »*. Ce problème se produit si vous mettez à jour la configuration du filtrage de l’unité d’organisation afin d’inclure la partition de configuration Active Directory. Pour résoudre ce problème, le processus de synchronisation de mot de passe synchronise désormais les changements de mot de passe uniquement à partir de partitions de domaine Active Directory. Les partitions autres que de domaine, telles que les partitions de configuration sont ignorées.
+* Correction d’un problème entraînant l’échec du démarrage du processus de synchronisation de mot de passe avec l’ID d’événement 6900 et l’erreur *« Un élément avec la même clé a déjà été ajouté »* . Ce problème se produit si vous mettez à jour la configuration du filtrage de l’unité d’organisation afin d’inclure la partition de configuration Active Directory. Pour résoudre ce problème, le processus de synchronisation de mot de passe synchronise désormais les changements de mot de passe uniquement à partir de partitions de domaine Active Directory. Les partitions autres que de domaine, telles que les partitions de configuration sont ignorées.
 * Lors d’une installation rapide, Azure AD Connect crée un compte AD DS local que le connecteur Active Directory utilise pour communiquer avec l’AD DS local. Auparavant, le compte était créé avec l’indicateur PASSWD_NOTREQD défini sur l’attribut de contrôle de compte d’utilisateur (user-Account-Control), et un mot de passe aléatoire était défini sur le compte. Désormais, Azure AD Connect supprime explicitement l’indicateur PASSWD_NOTREQD une fois le mot de passe défini sur le compte.
 * Correction d’un problème qui entraînait l’échec de la mise à niveau de DirSync avec l’erreur *« a deadlock occurred in sql server which trying to acquire an application lock »* (un blocage s’est produit dans sql server qui tente d’acquérir un verrou d’application) lorsque l’attribut mailNickname figure dans le schéma AD local, mais n’est pas limité à la classe d’objets utilisateur AD.
 * Correction d’un problème qui avait pour effet de désactiver automatiquement la fonctionnalité d’écriture différée d’appareil quand un administrateur mettait à jour la configuration de la synchronisation Azure AD Connect à l’aide de l’Assistant Azure AD Connect. Ce problème résultait du fait que l’Assistant vérifiait les prérequis de la configuration existante de la réécriture d’appareil dans la version locale d’AD ; or cette vérification échouait. La solution consiste à ignorer la vérification si l’écriture différée d’appareil est déjà activée.
@@ -1018,7 +1028,7 @@ Publication : Mai 2016
 
 * Vous avertit et vous permet de vérifier les domaines si vous ne l’avez pas fait avant d’exécuter Azure AD Connect.
 * Ajout de la prise en charge de [Microsoft Cloud Allemagne](reference-connect-instances.md#microsoft-cloud-germany).
-* Ajout de la prise en charge de la toute dernière infrastructure [cloud Microsoft Azure Government](reference-connect-instances.md#microsoft-azure-government-cloud) avec de nouvelles exigences d’URL.
+* Ajout de la prise en charge de la toute dernière infrastructure [cloud Microsoft Azure Government](reference-connect-instances.md#microsoft-azure-government) avec de nouvelles exigences d’URL.
 
 **Problèmes résolus et améliorations :**
 

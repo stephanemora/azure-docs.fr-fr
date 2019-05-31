@@ -7,16 +7,20 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: pabutler
-ms.openlocfilehash: 4efd9556e255709204654cf0acbf1b08fa2c1fc0
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: 432fef4c5dec697fecce694e251dd533aa1cbf07
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65872152"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66418021"
 ---
 # <a name="saas-fulfillment-apis-version-2"></a>Version d’API SaaS traitement 2 
 
 Cet article explique comment l’API qui permet des éditeurs de logiciels indépendants (ISV) pour vendre leurs applications SaaS dans AppSource et de la place de marché Azure. Cette API est qu'une exigence pour SaaS transactable offre sur AppSource et à la place de marché Azure.
+
+> [!IMPORTANT] 
+> SaaS offre des fonctionnalités a été migrée vers le [Microsoft Partner Center](https://partner.microsoft.com/dashboard/directory).  Tous les nouveaux éditeurs doivent utiliser le centre de partenaires pour la création de nouvelles offres de SaaS et de gestion des offres existants.  Éditeurs actuels avec les offres SaaS sont batchwise migrées à partir du portail Cloud Partner pour l’espace partenaires.  Le portail Cloud Partner affiche des messages d’état pour indiquer quand les offres spécifiques ont été migrés.
+> Pour plus d’informations, consultez [créer une offre SaaS](../../partner-center-portal/create-new-saas-offer.md).
 
 ## <a name="managing-the-saas-subscription-lifecycle"></a>La gestion du cycle de vie des abonnement SaaS
 
@@ -35,7 +39,7 @@ Lorsqu’un client démarre un achat, l’ISV reçoit ces informations dans un C
 
 ![Appels d’API pour un service SaaS d’approvisionnement.](./media/saas-post-provisioning-api-v2-calls.png)
 
-#### <a name="provisioned"></a>Provisionné
+#### <a name="provisioned"></a>approvisionné
 
 Cet état est l’état stable d’un service configuré.
 
@@ -61,7 +65,7 @@ Cet état indique que le paiement d’un client n’a pas été reçu. Par la st
 - L’abonnement doit être conservée dans un état récupérable qui peut restaurer toutes les fonctionnalités sans perte de données ou de paramètres. 
 - Vous pouvez vous attendre à obtenir une demande de réactivation pour cet abonnement par le biais de l’API de traitement ou une demande de mise hors service à la fin de la période de grâce. 
 
-#### <a name="unsubscribed"></a>Sans abonnement 
+#### <a name="unsubscribed"></a>Désabonné 
 
 Abonnements atteint cet état en réponse à une demande client explicite ou en réponse à non-paiement des droits d’inscription. L’attente de l’éditeur de logiciels est que les données du client sont conservées pour la récupération sur demande pour un minimum de X jours, puis supprimées. 
 
@@ -112,30 +116,30 @@ Le point de terminaison résolution permet à l’éditeur résoudre un jeton de
 
 *Codes de réponse :*
 
-Code : 200<br>
+Code : 200<br>
 Résout le jeton opaque à un abonnement de SaaS.<br>
 
 ```json
 Response body:
 {
-    "subscriptionId": "<guid>",  
+    "id": "<guid>",  
     "subscriptionName": "Contoso Cloud Solution",
     "offerId": "offer1",
     "planId": "silver",
-    "quantity": "20" 
+    "quantity": "20" // This will not be returned if the "quantity" = 1
 }
 ```
 
-Code : 404<br>
+Code : 404<br>
 Introuvable
 
-Code : 400<br>
+Code : 400<br>
 Demande incorrecte. x-ms-marketplace-token est manquant, incorrect ou expiré.
 
-Code : 403<br>
+Code : 403<br>
 Non autorisé. Le jeton d’authentification n’a pas été fourni, n’est pas valide, ou la demande tente d’accéder une acquisition qui n’appartient pas au serveur de publication en cours.
 
-Code : 500<br>
+Code : 500<br>
 Erreur interne du serveur
 
 ```json
@@ -152,7 +156,7 @@ Erreur interne du serveur
 L’API de l’abonnement prend en charge les opérations HTTPS suivantes : **Obtenir**, **Post**, **correctif**, et **supprimer**.
 
 
-#### <a name="list-subscriptions"></a>Répertorier les abonnements
+#### <a name="list-subscriptions"></a>Liste des abonnements
 
 Répertorie tous les abonnements de SaaS pour un serveur de publication.
 
@@ -175,7 +179,7 @@ Répertorie tous les abonnements de SaaS pour un serveur de publication.
 
 *Codes de réponse :*
 
-Code : 200 <br/>
+Code : 200 <br/>
 Selon le jeton d’authentification, obtenir le serveur de publication et les abonnements correspondants pour les offres de tous les l’éditeur.<br> Charge utile de réponse :<br>
 
 ```json
@@ -207,10 +211,10 @@ Selon le jeton d’authentification, obtenir le serveur de publication et les ab
 
 Le jeton de continuation sera uniquement présent s’il existe plus « pages » de plans pour récupérer. 
 
-Code : 403 <br>
+Code : 403 <br>
 Non autorisé. Le jeton d’authentification n’a pas été fourni, n’est pas valide, ou la demande tente d’accéder une acquisition qui n’appartient pas au serveur de publication en cours. 
 
-Code : 500 Erreur interne du serveur
+Code : 500 Erreur interne du serveur
 
 ```json
 {
@@ -245,7 +249,7 @@ Obtient l’abonnement spécifié de SaaS. Utilisez cet appel pour obtenir des i
 
 *Codes de réponse :*
 
-Code : 200<br>
+Code : 200<br>
 Obtient l’abonnement de SaaS à partir de l’identificateur<br> Charge utile de réponse :<br>
 
 ```json
@@ -269,13 +273,13 @@ Response Body:
 }
 ```
 
-Code : 404<br>
+Code : 404<br>
 Introuvable<br> 
 
-Code : 403<br>
+Code : 403<br>
 Non autorisé. Le jeton d’authentification n’a pas été fourni, n’est pas valide, ou la demande tente d’accéder une acquisition qui n’appartient pas au serveur de publication en cours.
 
-Code : 500<br>
+Code : 500<br>
 Erreur interne du serveur<br>
 
 ```json
@@ -309,7 +313,7 @@ Utilisez cet appel pour déterminer s’il y a aucune offre publique/privée pou
 
 *Codes de réponse :*
 
-Code : 200<br>
+Code : 200<br>
 Obtenir la liste des plans disponibles pour un client.<br>
 
 Corps de réponse :
@@ -324,13 +328,13 @@ Corps de réponse :
 }
 ```
 
-Code : 404<br>
+Code : 404<br>
 Introuvable<br> 
 
-Code : 403<br>
+Code : 403<br>
 Non autorisé. Le jeton d’authentification n’a pas été fourni, n’est pas valide, ou la demande tente d’accéder une acquisition qui n’appartient pas au serveur de publication en cours. <br> 
 
-Code : 500<br>
+Code : 500<br>
 Erreur interne du serveur<br>
 
 ```json
@@ -372,19 +376,19 @@ Erreur interne du serveur<br>
 
 *Codes de réponse :*
 
-Code : 200<br>
+Code : 200<br>
 Active l’abonnement.<br>
 
-Code : 404<br>
+Code : 404<br>
 Introuvable
 
-Code : 400<br>
+Code : 400<br>
 Échecs de Validation de demande incorrect
 
-Code : 403<br>
+Code : 403<br>
 Non autorisé. Le jeton d’authentification n’a pas été fourni, n’est pas valide, ou la demande tente d’accéder une acquisition qui n’appartient pas au serveur de publication en cours.
 
-Code : 500<br>
+Code : 500<br>
 Erreur interne du serveur
 
 ```json
@@ -435,22 +439,22 @@ Request Body:
 
 *Codes de réponse :*
 
-Code : 202<br>
+Code : 202<br>
 La demande de modification de plan a été acceptée. Les éditeurs de logiciels indépendants doit interroger l’opération-Location pour déterminer la réussite ou l’échec. <br>
 
-Code : 404<br>
+Code : 404<br>
 Introuvable
 
-Code : 400<br>
+Code : 400<br>
 Échecs de Validation de demande incorrecte.
 
 >[!Note]
 >Seul un plan ou une quantité peut être corrigée en même temps, mais pas les deux. Modifie un abonnement avec **mise à jour** n’est pas dans `allowedCustomerOperations`.
 
-Code : 403<br>
+Code : 403<br>
 Non autorisé. Le jeton d’authentification n’a pas été fourni, n’est pas valide, ou la demande tente d’accéder une acquisition qui n’appartient pas au serveur de publication en cours.
 
-Code : 500<br>
+Code : 500<br>
 Erreur interne du serveur
 
 ```json
@@ -501,22 +505,22 @@ Request Body:
 
 *Codes de réponse :*
 
-Code : 202<br>
+Code : 202<br>
 Accepté. La demande de modification de quantité a été acceptée. Les éditeurs de logiciels indépendants doit interroger l’opération-Location pour déterminer la réussite ou l’échec. <br>
 
-Code : 404<br>
+Code : 404<br>
 Introuvable
 
-Code : 400<br>
+Code : 400<br>
 Échecs de Validation de demande incorrecte.
 
 >[!Note]
 >Seul un plan ou une quantité peut être corrigée en même temps, mais pas les deux. Modifie un abonnement avec **mise à jour** n’est pas dans `allowedCustomerOperations`.
 
-Code : 403<br>
+Code : 403<br>
 Non autorisé. Le jeton d’authentification n’a pas été fourni, n’est pas valide, ou la demande tente d’accéder une acquisition qui n’appartient pas au serveur de publication en cours.
 
-Code : 500<br>
+Code : 500<br>
 Erreur interne du serveur
 
 ```json
@@ -552,19 +556,19 @@ Annuler l’abonnement et de supprimer l’abonnement spécifié.
 
 *Codes de réponse :*
 
-Code : 202<br>
+Code : 202<br>
 Appel initié par des éditeurs de logiciels pour indiquer vous désabonner d’un abonnement de SaaS.<br>
 
-Code : 404<br>
+Code : 404<br>
 Introuvable
 
-Code : 400<br>
+Code : 400<br>
 Supprimer un abonnement avec **supprimer** pas dans `allowedCustomerOperations`.
 
-Code : 403<br>
+Code : 403<br>
 Non autorisé. Le jeton d’authentification n’a pas été fourni, n’est pas valide, ou la demande tente d’accéder une acquisition qui n’appartient pas au serveur de publication en cours.
 
-Code : 500<br>
+Code : 500<br>
 Erreur interne du serveur
 
 ```json
@@ -605,7 +609,7 @@ Répertorie les opérations en attente pour le serveur de publication en cours.
 
 *Codes de réponse :*
 
-Code : 200<br> Obtient la liste des opérations en attente sur un abonnement.<br>
+Code : 200<br> Obtient la liste des opérations en attente sur un abonnement.<br>
 Charge utile de réponse :
 
 ```json
@@ -623,16 +627,16 @@ Charge utile de réponse :
 }]
 ```
 
-Code : 404<br>
+Code : 404<br>
 Introuvable
 
-Code : 400<br>
+Code : 400<br>
 Échecs de Validation de demande incorrect
 
-Code : 403<br>
+Code : 403<br>
 Non autorisé. Le jeton d’authentification n’a pas été fourni, n’est pas valide, ou la demande tente d’accéder une acquisition qui n’appartient pas au serveur de publication en cours.
 
-Code : 500<br>
+Code : 500<br>
 Erreur interne du serveur
 
 ```json
@@ -666,7 +670,7 @@ Permet à l’éditeur effectuer le suivi de l’état de l’opération asynchr
 |  x-ms-correlationid |  Valeur de chaîne unique pour l’opération sur le client. Ce paramètre met en corrélation tous les événements à partir de l’opération du client avec des événements côté serveur. Si cette valeur n’est pas fournie, une sera générée et fournie dans les en-têtes de réponse.  |
 |  autorisation     |[Obtenir un jeton PORTEUR JSON web token (JWT).](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
 
-*Codes de réponse :* Code : 200<br> Obtient le texte spécifié en attente de l’opération de SaaS<br>
+*Codes de réponse :* Code : 200<br> Obtient le texte spécifié en attente de l’opération de SaaS<br>
 Charge utile de réponse :
 
 ```json
@@ -686,16 +690,16 @@ Response body:
 
 ```
 
-Code : 404<br>
+Code : 404<br>
 Introuvable
 
-Code : 400<br>
+Code : 400<br>
 Échecs de Validation de demande incorrect
 
-Code : 403<br>
+Code : 403<br>
 Non autorisé. Le jeton d’authentification n’a pas été fourni, n’est pas valide, ou la demande tente d’accéder une acquisition qui n’appartient pas au serveur de publication en cours.
  
-Code : 500<br> Erreur interne du serveur
+Code : 500<br> Erreur interne du serveur
 
 ```json
 {
@@ -742,21 +746,21 @@ Mettre à jour l’état d’une opération pour indiquer la réussite/échec av
 
 *Codes de réponse :*
 
-Code : 200<br> L’appel à informer de la fin d’une opération sur le côté de l’éditeur de logiciels indépendant. Par exemple, cette réponse pouvant signaler la modification des sièges/plans.
+Code : 200<br> L’appel à informer de la fin d’une opération sur le côté de l’éditeur de logiciels indépendant. Par exemple, cette réponse pouvant signaler la modification des sièges/plans.
 
-Code : 404<br>
+Code : 404<br>
 Introuvable
 
-Code : 400<br>
+Code : 400<br>
 Échecs de Validation de demande incorrect
 
-Code : 403<br>
+Code : 403<br>
 Non autorisé. Le jeton d’authentification n’a pas été fourni, n’est pas valide, ou la demande tente d’accéder une acquisition qui n’appartient pas au serveur de publication en cours.
 
-Code : 409<br>
+Code : 409<br>
 Conflit. Par exemple, une transaction la plus récente est déjà remplie
 
-Code : 500<br> Erreur interne du serveur
+Code : 500<br> Erreur interne du serveur
 
 ```json
 {

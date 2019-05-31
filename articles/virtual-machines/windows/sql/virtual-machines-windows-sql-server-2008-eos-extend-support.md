@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 04/08/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 398b7a78c9bc13631e15c8725efb8cc0fba3f127
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 62261e46dc4744597acd10c32f0a835f4a597d4d
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65806475"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243970"
 ---
 # <a name="extend-support-for-sql-server-2008-and-sql-server-2008-r2-with-azure"></a>Étendre la prise en charge de SQL Server 2008 et SQL Server 2008 R2 avec Azure
 
@@ -58,7 +58,7 @@ SQL Server nécessite des captures instantanées de cohérence des applications 
 
 ### <a name="database-migration-service"></a>Database Migration Service
 
-Le [Database Migration Service](/dms/dms-overview) est une option pour les clients si la migration du système local pour machine virtuelle Azure en mettant à niveau de SQL Server vers SQL Server 2012 et supérieures.
+Le [Database Migration Service](/azure/dms/dms-overview) est une option pour les clients si la migration du système local pour machine virtuelle Azure en mettant à niveau de SQL Server vers SQL Server 2012 et supérieures.
 
 ## <a name="disaster-recovery"></a>Récupération d'urgence
 

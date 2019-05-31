@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/1/2019
 ms.author: mlottner
-ms.openlocfilehash: 5d56c878eab92a7152bc0b248cab5c2ebf7e6dde
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 85e342f08e5402e50e5b0dfd1fe2df90337f29ca
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65198416"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66254290"
 ---
 # <a name="deploy-a-security-module-on-your-iot-edge-device"></a>Déployer un module de sécurité sur votre appareil IoT Edge
 
@@ -70,7 +70,7 @@ Utilisez les étapes suivantes pour déployer un ASC pour le module de sécurit�
 
 Il existe trois étapes pour créer un déploiement IoT Edge d’Azure Security Center pour IoT. Les sections suivantes les décrivent en détail. 
 
-#### <a name="step-1-add-modules"></a>Étape 1 : Ajouter des modules
+#### <a name="step-1-add-modules"></a>Étape 1 : Ajouter des Modules
 
 1. À partir de la **ajouter des Modules** onglet, **Modules de déploiement** zone, cliquez sur **AzureSecurityCenterforIoT**. 
    
@@ -134,9 +134,9 @@ Il existe trois étapes pour créer un déploiement IoT Edge d’Azure Security 
    
 1. Cliquez sur **Suivant**.
 
-#### <a name="step-2-specify-routes"></a>Étape 2 : Spécifier des routes 
+#### <a name="step-2-specify-routes"></a>Étape 2 : Spécifier des itinéraires 
 
-1. Dans le **spécifier des itinéraires** onglet, définissez la **ASCForIoTToIoTHub** router vers **» à partir / messages/modules/azureiotsecurity/\* dans $ en amont »**, puis cliquez sur  **Suivant**.
+1. Dans le **spécifier des itinéraires** onglet, définissez la **ASCForIoTToIoTHub** router vers **» à partir / messages/modules/azureiotsecurity/\* dans $ en amont »** , puis cliquez sur  **Suivant**.
 
    ![Spécifier des routes](media/howto/edge-onboarding-9.png)
 
@@ -158,7 +158,7 @@ Si vous rencontrez un problème, les journaux de conteneur sont la meilleure fa�
    
    | Nom | IMAGE |
    | --- | --- |
-   | azureIoTSecurity | mcr.microsoft.com/ascforiot/azureiotsecurity:0.0.3 |
+   | azureiotsecurity | mcr.microsoft.com/ascforiot/azureiotsecurity:0.0.3 |
    | edgeHub | mcr.microsoft.com/ascforiot/edgehub:1.0.9-preview |
    | edgeAgent | mcr.microsoft.com/azureiotedge-agent:1.0 |
    

@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services : Prise en main | Microsoft Docs'
 description: Activer Azure Active Directory Domain Services à l’aide du portail Azure
 services: active-directory-ds
 documentationcenter: ''
-author: eringreenlee
+author: MikeStephens-MS
 manager: daveba
 editor: curtand
 ms.assetid: ace1ed4a-bf7f-43c1-a64a-6b51a2202473
@@ -13,20 +13,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/23/2018
-ms.author: ergreenl
-ms.openlocfilehash: 3020d7b29f19ec2ab578acbebac8db8ea320a844
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.date: 05/22/2019
+ms.author: mstephen
+ms.openlocfilehash: 65cc63b32afcc565f1901c4df2893ad103ec0da3
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62103548"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234908"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Activer Azure Active Directory Domain Services à l’aide du portail Azure
 
 
 ## <a name="before-you-begin"></a>Avant de commencer
-Reportez-vous à [Considérations relatives à la mise en réseau pour Azure Active Directory Domain Services](active-directory-ds-networking.md).
+Reportez-vous à [Considérations relatives à la mise en réseau pour Azure Active Directory Domain Services](network-considerations.md).
 
 
 ## <a name="task-2-configure-network-settings"></a>Tâche 2 : Configurer les paramètres réseau
@@ -41,7 +41,7 @@ La tâche de configuration suivante consiste à créer un réseau virtuel Azure 
 3. Choisissez le réseau virtuel dans lequel Azure AD Domain Services doit être activé. Vous pouvez choisir un réseau virtuel existant ou en créer un.
 
    > [!TIP]
-   > **Vous ne pouvez pas déplacer le domaine géré vers un autre réseau virtuel une fois Azure AD Domain Services activé.** Sélectionnez le réseau virtuel adapté pour activer votre domaine géré. Après avoir créé un domaine géré, vous ne pouvez pas le déplacer vers un autre réseau virtuel sans supprimer le domaine géré. Nous vous recommandons de consulter les [Considérations relatives à la mise en réseau pour Azure Active Directory Domain Services](active-directory-ds-networking.md) avant de continuer.  
+   > **Vous ne pouvez pas déplacer le domaine géré vers un autre réseau virtuel une fois Azure AD Domain Services activé.** Sélectionnez le réseau virtuel adapté pour activer votre domaine géré. Après avoir créé un domaine géré, vous ne pouvez pas le déplacer vers un autre réseau virtuel sans supprimer le domaine géré. Nous vous recommandons de consulter les [Considérations relatives à la mise en réseau pour Azure Active Directory Domain Services](network-considerations.md) avant de continuer.  
    >
 
 4. **Créer un réseau virtuel :** Cliquez sur **Créer** pour créer un réseau virtuel. Utilisez un sous-réseau dédié pour Azure AD Domain Services. Par exemple, créez un sous-réseau nommé « DomainServices », de façon à aider les autres administrateurs à comprendre ce qui est déployé au sein du sous-réseau. Cliquez sur **OK** quand vous avez terminé.
@@ -57,7 +57,7 @@ La tâche de configuration suivante consiste à créer un réseau virtuel Azure 
 
    > [!NOTE]
    > **Indications pour la sélection d’un sous-réseau**
-   > 1. Utilisez un sous-réseau dédié pour Azure AD Domain Services. Ne déployez pas d’autres machines virtuelles sur ce sous-réseau. Cette configuration vous permet de configurer des groupes de sécurité réseau (NSG) pour vos charges de travail ou machines virtuelles sans perturber votre domaine managé. Pour plus de détails, consultez [Considérations relatives à la mise en réseau pour Azure Active Directory Domain Services](active-directory-ds-networking.md).
+   > 1. Utilisez un sous-réseau dédié pour Azure AD Domain Services. Ne déployez pas d’autres machines virtuelles sur ce sous-réseau. Cette configuration vous permet de configurer des groupes de sécurité réseau (NSG) pour vos charges de travail ou machines virtuelles sans perturber votre domaine managé. Pour plus de détails, consultez [Considérations relatives à la mise en réseau pour Azure Active Directory Domain Services](network-considerations.md).
    > 2. Ne sélectionnez pas le sous-réseau de passerelle pour déployer Azure AD Domain Services, car cette configuration n’est pas prise en charge.
    > 3. Le sous-réseau que vous avez sélectionné doit avoir au moins 3 à 5 adresses IP disponibles dans son espace d’adressage.
 

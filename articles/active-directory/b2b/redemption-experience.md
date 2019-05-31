@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d00808295d39247729f6e843ac59ad7b23407148
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 99fe386ec75e60a16f3095f22dccc3852883f8aa
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65785415"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66304509"
 ---
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Utilisation d'invitations Azure Active Directory B2B Collaboration
 
@@ -56,7 +56,7 @@ Pour plus d’informations sur la manière dont vous pouvez, en tant qu’admini
 
 ## <a name="terms-of-use"></a>Conditions d’utilisation
 
-Vous pouvez présenter les conditions d’utilisation à l’utilisateur invité pendant le processus d’acceptation initial à l’aide de la fonctionnalité Conditions d’utilisation Azure AD. Dans Azure Active Directory, accédez à cette fonctionnalité sous **Gérer** > **Relations organisationnelles** > **Conditions d’utilisation** ou sous **Sécurité** > **Accès conditionnel** > **Conditions d’utilisation**. Pour plus d’informations, consultez [Fonctionnalité Conditions d’utilisation Azure AD](../conditional-access/terms-of-use.md).
+Vous pouvez présenter les conditions d’utilisation à l’utilisateur invité pendant le processus d’échange initial à l’aide de l’Azure AD fonctionnalité conditions d’utilisation. Dans Azure Active Directory, accédez à cette fonctionnalité sous **Gérer** > **Relations organisationnelles** > **Conditions d’utilisation** ou sous **Sécurité** > **Accès conditionnel** > **Conditions d’utilisation**. Pour plus d’informations, consultez [fonctionnalité conditions d’utilisation de Azure AD](../conditional-access/terms-of-use.md).
 
 ![Capture d’écran montrant les nouvelles conditions d’utilisation](media/redemption-experience/organizational-relationships-terms-of-use.png) 
 

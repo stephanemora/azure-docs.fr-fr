@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services : Activer la synchronisation de h
 description: Prise en main des services de domaine Azure Active Directory
 services: active-directory-ds
 documentationcenter: ''
-author: eringreenlee
+author: MikeStephens-MS
 manager: daveba
 editor: curtand
 ms.assetid: 5a32a0df-a3ca-4ebe-b980-91f58f8030fc
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/02/2018
-ms.author: ergreenl
-ms.openlocfilehash: ad905f93a8c4b03fd6ccc9edb93b52f23bcb2c58
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/10/2019
+ms.author: mstephen
+ms.openlocfilehash: 734e4bad970229ea8eb770d586062b098e586353
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60417440"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234889"
 ---
 # <a name="enable-password-hash-synchronization-to-azure-active-directory-domain-services"></a>Activer la synchronisation de hachage de mot de passe pour Azure Active Directory Domain Services
 Dans les tâches précédentes, vous avez activé Azure Active Directory Domain Services pour votre locataire Azure Active Directory (Azure AD). Dans la tâche suivante, vous allez activer la synchronisation des hachages de mot de passe requise pour l’authentification NT LAN Manager (NTLM) et Kerberos avec Azure AD Domain Services. Une fois la synchronisation des informations de hachage de mot de passe configurée, les utilisateurs peuvent se connecter au domaine managé à l’aide de leurs informations d’identification d’entreprise.
@@ -78,10 +78,10 @@ Voici les instructions que vous devez fournir aux utilisateurs pour qu’ils pui
 
 Quelques minutes après cette modification, le nouveau mot de passe est utilisable Azure AD DS. Au bout de 20 minutes environ, vous pouvez vous connecter aux ordinateurs joints au domaine managé à l’aide du nouveau mot de passe.
 
-## <a name="related-content"></a>Contenu connexe
+## <a name="related-content"></a>Contenu associé
 * [Comment mettre à jour votre mot de passe](../active-directory/user-help/active-directory-passwords-update-your-own-password.md)
 * [Prise en main de la gestion de mot de passe dans Azure AD](../active-directory/authentication/quickstart-sspr.md)
 * [Activer la synchronisation du mot de passe pour Azure Active Directory Domain Services](active-directory-ds-getting-started-password-sync-synced-tenant.md)
-* [Administrer un domaine managé par Azure Active Directory Domain Services ](active-directory-ds-admin-guide-administer-domain.md)
+* [Gérer un domaine Azure AD Domain Services](manage-domain.md)
 * [Joindre une machine virtuelle Windows à un domaine managé par Azure Active Directory Domain Services](active-directory-ds-admin-guide-join-windows-vm.md)
 * [Joindre une machine virtuelle Red Hat Enterprise Linux à un domaine managé par Azure Active Directory Domain Services](active-directory-ds-admin-guide-join-rhel-linux-vm.md)

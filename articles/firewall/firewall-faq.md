@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 5/3/2019
+ms.date: 5/30/2019
 ms.author: victorh
-ms.openlocfilehash: 84b42654ec472ea2c7c81bed545f56b647158c95
-ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
+ms.openlocfilehash: 75b1131f2853cb444481b9c7a6c96e28f8537538
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66016018"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66384670"
 ---
 # <a name="azure-firewall-faq"></a>FAQ Pare-feu Azure
 
@@ -34,7 +34,7 @@ Pare-feu Azure est un service de sécurité réseau informatique géré qui prot
 
 ## <a name="what-is-the-typical-deployment-model-for-azure-firewall"></a>Qu’est le modèle de déploiement type de Pare-feu Azure ?
 
-Vous pouvez déployer Pare-feu Azure sur n’importe quel réseau virtuel, mais en général, les clients le déploient sur un réseau virtuel central et appairent les autres réseaux virtuels à celui-ci dans un modèle hub-and-spoke. Vous pouvez ensuite définir l’itinéraire par défaut des réseaux virtuels appairés pour qu’il pointe vers ce réseau virtuel de pare-feu central. Global VNet peering est pris en charge, mais n’est pas recommandée en raison des performances potentielles et problèmes de latence entre les régions. Pour de meilleures performances, déployez un pare-feu par région.
+Vous pouvez déployer Pare-feu Azure sur n’importe quel réseau virtuel, mais en général, les clients le déploient sur un réseau virtuel central et appairent les autres réseaux virtuels à celui-ci dans un modèle hub-and-spoke. Vous pouvez ensuite définir l’itinéraire par défaut des réseaux virtuels appairés pour qu’il pointe vers ce réseau virtuel de pare-feu central. Global VNet peering est pris en charge, mais il n’est pas recommandé en raison des performances potentielles et problèmes de latence entre les régions. Pour de meilleures performances, déployez un pare-feu par région.
 
 L'avantage de ce modèle est qu'il permet d'exercer un contrôle centralisé sur plusieurs réseaux virtuels spoke pour différents abonnements. Il permet également de réaliser des économies de coûts puisqu'il n'est pas nécessaire de déployer un pare-feu au sein de chaque réseau virtuel. Les économies doivent être mesurées par rapport aux coûts de peering associés en fonction des modèles de trafic du client.
 
@@ -62,7 +62,7 @@ Pare-feu Azure est intégré à Azure Monitor pour la consultation et l’analys
 
 ## <a name="how-does-azure-firewall-work-differently-from-existing-services-such-as-nvas-in-the-marketplace"></a>En quoi Pare-feu Azure fonctionne-t-il différemment des services existants comme les appliances virtuelles réseau sur la Place de marché ?
 
-Pare-feu Azure est un service de pare-feu de base qui peut résoudre les problèmes que rencontrent les clients dans certains cas. Il est probable que vous obteniez un mélange d’appliances virtuelles réseau et de Pare-feu Azure tiers. Mieux travailler ensemble est une priorité.
+Pare-feu Azure est un service de pare-feu de base qui peut résoudre les problèmes que rencontrent les clients dans certains cas. Il est probable que vous disposiez d’un mélange d’appliances virtuelles réseau et les pare-feu d’Azure par des tiers. Mieux travailler ensemble est une priorité.
 
 ## <a name="what-is-the-difference-between-application-gateway-waf-and-azure-firewall"></a>Quelle est la différence entre Application Gateway WAF et Pare-feu Azure ?
 
@@ -71,6 +71,11 @@ Le pare-feu d’applications web (WAF, Web Application Firewall) est une fonctio
 ## <a name="what-is-the-difference-between-network-security-groups-nsgs-and-azure-firewall"></a>Quelle est la différence entre les groupes de sécurité réseau (NSG) et Pare-feu Azure ?
 
 Le service Pare-feu Azure complète les fonctionnalités de groupe de sécurité réseau. Ensemble, ils fournissent une meilleure sécurité réseau grâce à une défense approfondie. Les groupes de sécurité réseau assurent un filtrage du trafic distribué au niveau de la couche réseau pour limiter le trafic aux ressources au sein de réseaux virtuels de chaque abonnement. Pare-feu Azure est un service de pare-feu entièrement centralisé et avec état qui offre une protection au niveau du réseau et de l’application entre les différents abonnements et réseaux virtuels.
+
+## <a name="are-network-security-groups-nsgs-supported-on-the-azure-firewall-subnet"></a>Groupes de sécurité réseau (NSG) sont pris en charge sur le sous-réseau de pare-feu Azure ?
+
+Pare-feu Azure est un service géré avec plusieurs couches de protection, y compris la protection de plateforme avec des NSG au niveau de carte réseau (non visible).  Niveau de sous-réseau ne sont pas requis sur le sous-réseau de pare-feu Azure et sont désactivées pour éviter les interruptions de service.
+
 
 ## <a name="how-do-i-set-up-azure-firewall-with-my-service-endpoints"></a>Comment faire pour configurer Pare-feu Azure avec mes points de terminaison de service ?
 
@@ -125,7 +130,7 @@ Le tunneling forcé n’est pas pris en charge par défaut, mais il peut être a
 
 Le Pare-feu Azure doit avoir une connectivité Internet directe. Si votre AzureFirewallSubnet prend connaissance d’un itinéraire par défaut pour votre réseau local via le protocole BGP, vous devez le remplacer par un UDR 0.0.0.0/0 avec la valeur **NextHopType** définie sur **Internet** pour garantir une connectivité Internet directe. Par défaut, Pare-feu Azure ne prend en charge le tunneling forcé vers un réseau local.
 
-Toutefois, si votre configuration nécessite un tunneling forcé vers un réseau local, Microsoft le prendra en charge au cas par cas. Contactez le support technique afin qu’il puisse étudier votre cas. Si votre dossier est accepté, nous ajouterons votre abonnement à la liste verte afin de garantir le maintien de la connectivité Internet du pare-feu.
+Toutefois, si votre configuration nécessite un tunneling forcé vers un réseau local, Microsoft le prendra en charge au cas par cas. Contactez le support technique afin qu’il puisse étudier votre cas. Si accepté, nous permettre de votre abonnement et garantir que la conservation de la connectivité Internet de pare-feu nécessaires.
 
 ## <a name="are-there-any-firewall-resource-group-restrictions"></a>Les groupes de ressources de pare-feu font-ils l’objet de restrictions ?
 
@@ -137,7 +142,7 @@ Non. Les règles NAT ajoutent implicitement une règle de réseau correspondante
 
 ## <a name="how-do-wildcards-work-in-an-application-rule-target-fqdn"></a>Comment les caractères génériques ne fonctionnent pas dans une cible de la règle application FQDN ?
 
-Si vous configurez ***. contoso.com**, il permet de *anyvalue*. contoso.com, mais pas contoso.com (l’extrémité de domaine). Si vous souhaitez autoriser l’extrémité de domaine, vous devez le configurer explicitement comme un nom de domaine complet de la cible.
+Si vous configurez * **. contoso.com**, il permet de *anyvalue*. contoso.com, mais pas contoso.com (l’extrémité de domaine). Si vous souhaitez autoriser l’extrémité de domaine, vous devez le configurer explicitement comme un nom de domaine complet de la cible.
 
 ## <a name="what-does-provisioning-state-failed-mean"></a>Ce que fait *état d’approvisionnement : Échec de* signifie ?
 

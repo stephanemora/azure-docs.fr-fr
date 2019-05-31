@@ -12,12 +12,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 27309c08fe4419197faa17dcceb3645b00387e93
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 98588e0c25439fd4988fe39e06e7042cfa9113cb
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65227923"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66305677"
 ---
 # <a name="what-is-the-location-condition-in-azure-active-directory-conditional-access"></a>Qu’est-ce que la condition d’emplacement dans l’accès conditionnel Azure Active Directory ? 
 
@@ -56,7 +56,7 @@ Un emplacement nommé se compose des éléments suivants :
 - **Pays/régions** : cette option vous permet de sélectionner un ou plusieurs pays ou régions pour définir un emplacement nommé.
 - **Inclure les zones inconnues** -certaines adresses IP ne sont pas mappées à une région ou un pays spécifique. Cette option vous permet de choisir si ces adresses IP doivent être incluses dans l’emplacement nommé. Utilisez ce paramètre lorsque la stratégie utilisant l’emplacement nommé doit s’appliquer à des emplacements inconnus.
 
-Le nombre d’emplacements nommés que vous pouvez configurer est limité par la taille de l’objet associé dans Azure AD. Les organisations peuvent configurer jusqu'à 90 emplacements nommés, chacun configuré avec des plages d’adresses IP jusqu'à 12000.
+Le nombre d’emplacements nommés que vous pouvez configurer est limité par la taille de l’objet associé dans Azure AD. Les organisations peuvent configurer jusqu'à 90 emplacements nommés, chacun configuré avec 1200 plages d’adresses IP.
 
 Stratégie d’accès conditionnel s’applique au trafic IPv4 et IPv6. Emplacements nommés actuellement n’autorisent pas les plages d’adresses IPv6 à configurer. Cette limitation entraîne les situations suivantes :
 
@@ -88,13 +88,13 @@ Si les deux étapes échouent, un utilisateur est considéré comme n’étant p
 
 Lorsque vous configurez la condition d’emplacement, vous avez la possibilité de faire la distinction entre :
 
-- Tous les emplacements
+- N’importe quel emplacement
 - Tous les emplacements approuvés
-- Emplacements sélectionnés
+- Des emplacements sélectionnés
 
 ![Configuration de la condition d’emplacement](./media/location-condition/01.png)
 
-### <a name="any-location"></a>Tous les emplacements
+### <a name="any-location"></a>N’importe quel emplacement
 
 Par défaut, la sélection de **N’importe quel emplacement** entraîne l’application d’une stratégie à toutes les adresses IP, à savoir n’importe quelle adresse sur Internet. Ce paramètre ne se limite pas aux adresses IP que vous avez configurées en tant qu’emplacement nommé. Lorsque vous sélectionnez **N’importe quel emplacement**, vous pouvez toujours exclure des emplacements spécifiques d’une stratégie. Par exemple, vous pouvez appliquer une stratégie à tous les emplacements, sauf des emplacements approuvés, afin de définir l’étendue à tous les emplacements, à l’exception du réseau d’entreprise.
 
@@ -105,7 +105,7 @@ Cette option s’applique à :
 - Tous les emplacements qui ont été marqués comme emplacement approuvé
 - **Adresses IP approuvées MFA** (si configurées)
 
-### <a name="selected-locations"></a>Emplacements sélectionnés
+### <a name="selected-locations"></a>Des emplacements sélectionnés
 
 Avec cette option, vous pouvez sélectionner un ou plusieurs emplacements nommés. Pour une stratégie avec ce paramètre à appliquer, un utilisateur doit se connecter à partir de l’un des emplacements sélectionnés. Lorsque vous cliquez sur **Sélectionner**, le contrôle de sélection du réseau nommé qui affiche la liste des réseaux nommés s’ouvre. La liste indique également si l’emplacement réseau a été marqué comme approuvé. L’emplacement nommé appelé **Adresses IP approuvées MFA** est utilisé pour inclure les paramètres IP pouvant être configurés dans la page des paramètres du service d’authentification multifacteur.
 

@@ -5,15 +5,15 @@ services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 04/25/2019
+ms.date: 05/21/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 82187b05a398c066f9da94c57cbe8a59a6ba3275
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: bae66078a1bcb1d80f0798b1d501598fa785fb80
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66145791"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241196"
 ---
 ## <a name="launch-azure-cloud-shell"></a>Lancement d’Azure Cloud Shell
 
@@ -73,7 +73,7 @@ $galleryImage = New-AzGalleryImageDefinition `
 
 Créer une version de l’image à partir d’une image managée à l’aide [New-AzGalleryImageVersion](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion). 
 
-Les caractères autorisés pour la version d’image sont les nombres et les points. Les nombres doivent être un entier 32 bits. Format: *MajorVersion*.*MinorVersion*.*Patch*.
+Les caractères autorisés pour la version d’image sont les nombres et les points. Les nombres doivent être un entier 32 bits. Format : *MajorVersion*.*MinorVersion*.*Patch*.
 
 Dans cet exemple, la version d'image, *1.0.0*, elle est répliquée dans les deux centres de données *USA Centre-Ouest* et *USA Centre Sud*. Lors du choix des régions cibles pour la réplication, n’oubliez pas que vous devez également inclure le *source* région en tant que cible pour la réplication.
 
@@ -105,3 +105,20 @@ $job.State
 >
 > Vous pouvez également stocker votre version de l’image dans [stockage redondant](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) en ajoutant `-StorageAccountType Standard_ZRS` lorsque vous créez la version de l’image.
 >
+
+
+## <a name="share-the-gallery"></a>Partager la galerie
+
+Nous recommandons que vous partagez l’accès au niveau de la galerie d’image. Utiliser une adresse e-mail et le [Get-AzADUser](/powershell/module/az.resources/get-azaduser) applet de commande pour obtenir l’ID d’objet pour l’utilisateur, puis utilisez [New-AzRoleAssignment](/powershell/module/Az.Resources/New-AzRoleAssignment) pour leur donner accès à la galerie. Remplacez l’exemple d’e-mail, alinne_montes@contoso.com dans cet exemple, avec vos propres informations.
+
+```azurepowershell-interactive
+# Get the object ID for the user
+$user = Get-AzADUser -StartsWith alinne_montes@contoso.com
+# Grant access to the user for our gallery
+New-AzRoleAssignment `
+   -ObjectId $user.Id `
+   -RoleDefinitionName Reader `
+   -ResourceName $gallery.Name `
+   -ResourceType Microsoft.Compute/galleries `
+   -ResourceGroupName $resourceGroup.ResourceGroupName
+```

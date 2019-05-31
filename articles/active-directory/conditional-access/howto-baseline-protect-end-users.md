@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 35cd52fb82e5e4cce759be5dfdd8872f64802459
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 104665774eee885cc2f562e9813cffcf23aa943e
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66003160"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235501"
 ---
 # <a name="baseline-policy-end-user-protection-preview"></a>Stratégie de référence : Protection de l’utilisateur final (version préliminaire)
 
@@ -75,11 +75,11 @@ Cette stratégie de référence vous offre la possibilité d’exclure les utili
 
 La stratégie **stratégie de référence : Protection de l’utilisateur final (version préliminaire)** est préconfigurée et s’affichera en haut lorsque vous accédez au panneau d’accès conditionnel dans le portail Azure.
 
-Pour activer cette stratégie et protéger vos administrateurs :
+Pour activer cette stratégie et protéger vos utilisateurs :
 
 1. Se connecter à la **Azure portal** en tant qu’administrateur général, administrateur de sécurité ou administrateur de l’accès conditionnel.
 1. Accédez à **Azure Active Directory** > **accès conditionnel**.
-1. Dans la liste des stratégies, sélectionnez **stratégie de référence : Protection de l’utilisateur final (version préliminaire)**.
+1. Dans la liste des stratégies, sélectionnez **stratégie de référence : Protection de l’utilisateur final (version préliminaire)** .
 1. Définissez **activer la stratégie** à **utiliser immédiatement la stratégie**.
 1. Ajoutez les exclusions d’utilisateur en cliquant sur **utilisateurs** > **sélectionner les utilisateurs exclus** et en choisissant les utilisateurs qui doivent être exclues. Cliquez sur **sélectionnez** puis **fait**.
 1. Cliquez sur **enregistrer**.

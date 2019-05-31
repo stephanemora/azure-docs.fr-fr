@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: 60ca12e5b362a37eb9f85c9a0d1fc23ca99e9edc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e8b8f9856fe7e0fa591ceb42aab97e92642b6098
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60362337"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399363"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-hyper-v-vms-to-a-secondary-site"></a>Matrice de prise en charge pour la récupération d’urgence de machines virtuelles Hyper-V vers un site secondaire
 
@@ -58,10 +58,10 @@ Seules les machines Linux avec le stockage suivant peuvent être répliquées :
 Hôte - Association de cartes réseau | Oui 
 Hôte -VLAN | Oui 
 Hôte - IPv4 | Oui 
-Hôte - IPv6 | Non  
+Hôte - IPv6 | Non 
 Machine virtuelle invitée - Association de cartes réseau | Non 
 Machine virtuelle invitée - IPv4 | Oui
-Machine virtuelle invitée - IPv6 | Non 
+Machine virtuelle invitée - IPv6 | Non
 Machine virtuelle invitée - Windows/Linux - Adresse IP statique | Oui
 Machine virtuelle invitée - Plusieurs cartes réseau | Oui
 
@@ -72,7 +72,7 @@ Machine virtuelle invitée - Plusieurs cartes réseau | Oui
 
 **Stockage (hôte)** | **Pris en charge**
 --- | --- 
-NFS | S.O.
+NFS | N/A
 SMB 3.0 |  Oui
 SAN (ISCSI) | Oui
 Chemins d’accès multiples (MPIO) | Oui
@@ -81,19 +81,19 @@ Chemins d’accès multiples (MPIO) | Oui
 
 **Configuration** | **Pris en charge**
 --- | --- | 
-VMDK |  S.O.
+VMDK |  N/A
 VHD/VHDX | Oui (jusqu’à 16 disques)
 Machine virtuelle de 2e génération | Oui
 Disque de cluster partagé | Non 
 Disque chiffré | Non 
-UEFI| S.O.
+UEFI| N/A
 NFS | Non 
-SMB 3.0 | Non 
-RDM | S.O.
+SMB 3.0 | Non
+RDM | N/A
 Disque > 1 To | Oui
 Volume avec disque à bandes > 1 To<br/><br/> LVM | Oui
 Espaces de stockage | Oui
-Ajout/suppression de disque à chaud | Non 
+Ajout/suppression de disque à chaud | Non
 Exclure le disque | Oui
 Chemins d’accès multiples (MPIO) | Oui
 

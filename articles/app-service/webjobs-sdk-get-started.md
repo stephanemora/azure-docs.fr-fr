@@ -13,18 +13,18 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 6f743f7ea7fda368fc5895646145f553f3fb50fb
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: 20bb8d5380f5a905a827dfb12dcc032e327267e0
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65864861"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66418229"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Prise en main du Kit de développement logiciel (SDK) Azure WebJobs pour le traitement en arrière-plan basé sur les événements
 
-Cet article explique comment utiliser Visual Studio 2019 pour créer un projet de kit de développement logiciel Azure WebJobs, exécutez-le localement et déployez-le dans [Azure App Service](overview.md). Le projet que vous créez est une application de console .NET Core, qui utilise la version 3.x du SDK WebJobs. Si vous êtes intéressé par version 2.x, qui utilise le .NET Framework, consultez [développer et déployer des tâches Web à l’aide de Visual Studio - Azure App Service](webjobs-dotnet-deploy-vs.md).
+Cet article explique comment utiliser Visual Studio 2019 pour créer un projet de kit de développement logiciel Azure WebJobs, exécutez-le localement et déployez-le dans [Azure App Service](overview.md). Version 3.x du SDK WebJobs prend en charge les applications de console .NET Core et .NET Framework. Pour en savoir plus sur l’utilisation avec le SDK WebJobs, consultez [comment utiliser le SDK Azure WebJobs pour le traitement d’arrière-plan pilotée par événements](webjobs-sdk-how-to.md).
 
-Pour en savoir plus sur l’utilisation avec le SDK WebJobs, consultez [comment utiliser le SDK Azure WebJobs pour le traitement d’arrière-plan pilotée par événements](webjobs-sdk-how-to.md).
+Cet article vous montre comment déployer des tâches Web comme une application de console .NET Core. Pour déployer des tâches Web comme une application de console .NET Framework, consultez [WebJobs que .NET Framework des applications de console](webjobs-dotnet-deploy-vs.md#webjobs-as-net-framework-console-apps). Si vous vous intéressez au SDK WebJobs version 2.x, qui prend uniquement en charge de .NET Framework, consultez [développer et déployer des tâches Web à l’aide de Visual Studio - Azure App Service](webjobs-dotnet-deploy-vs.md).
 
 ## <a name="prerequisites"></a>Conditions préalables
 
@@ -36,7 +36,7 @@ Pour en savoir plus sur l’utilisation avec le SDK WebJobs, consultez [comment 
 
 1. Dans Visual Studio, sélectionnez **créer un nouveau projet**.
 
-2. Sélectionnez **Console App (.NET Core)**.
+2. Sélectionnez **Console App (.NET Core)** .
 
 3. Nommez le projet *WebJobsSDKSample*, puis sélectionnez **créer**.
 
@@ -217,7 +217,7 @@ L’émulateur de stockage Azure exécuté localement ne possède pas toutes les
 
    ![Créer un compte de stockage](./media/webjobs-sdk-get-started/create-storage-account.png)
 
-1. Sous le nœud **Stockage** dans **l’Explorateur de serveurs**, sélectionnez le nouveau compte de stockage. Dans la fenêtre **Propriétés**, sélectionnez les points de suspension (**...** ) à droite du champ de valeur **Chaîne de connexion**.
+1. Sous le nœud **Stockage** dans **l’Explorateur de serveurs**, sélectionnez le nouveau compte de stockage. Dans la fenêtre **Propriétés**, sélectionnez les points de suspension ( **...** ) à droite du champ de valeur **Chaîne de connexion**.
 
    ![Points de suspension du champ Chaîne de connexion](./media/webjobs-sdk-get-started/conn-string-ellipsis.png)
 

@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/19/2019
-ms.openlocfilehash: 8142caf867ffe811726677fb1dcbadc7d1458251
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 0582fa8b26bee05e4d2948037cc39a71ed656fce
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65793566"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243950"
 ---
 # <a name="what-is-enterprise-security-package-in-azure-hdinsight"></a>Quel est le Package de sécurité d’entreprise dans Azure HDInsight
 
@@ -36,7 +36,7 @@ La sécurité du périmètre dans HDInsight est obtenue par le biais de réseaux
 Le service de passerelle VPN permet d’obtenir un autre niveau de sécurité du périmètre. La passerelle agit en tant que première ligne de défense pour toutes les requêtes entrantes dans le cluster HDInsight. Elle accepte la requête, la valide et seulement après autorise la requête à passer sur les autres nœuds du cluster. De cette façon, la passerelle assure la sécurité du périmètre d’autres nœuds du nom et des données dans le cluster.
 
 ## <a name="authentication"></a>Authentication
-Un administrateur d’entreprise peut créer un cluster HDInsight avec ESP dans un [réseau virtuel](https://azure.microsoft.com/services/virtual-network/). Tous les nœuds du cluster HDInsight sont joints au domaine que l’entreprise gère. Ceci s’effectue par l’intermédiaire d’[Azure Active Directory Domain Services](../../active-directory-domain-services/active-directory-ds-overview.md). 
+Un administrateur d’entreprise peut créer un cluster HDInsight avec ESP dans un [réseau virtuel](https://azure.microsoft.com/services/virtual-network/). Tous les nœuds du cluster HDInsight sont joints au domaine que l’entreprise gère. Ceci s’effectue par l’intermédiaire d’[Azure Active Directory Domain Services](../../active-directory-domain-services/overview.md). 
 
 Avec cette configuration, employés de l’entreprise peuvent se connecter aux nœuds du cluster à l’aide de leurs informations d’identification de domaine. Ils peuvent également utiliser leurs informations d’identification de domaine pour s’authentifier auprès d’autres points de terminaison approuvés comme les vues Ambari, ODBC, JDBC, PowerShell et les API REST afin d’interagir avec le cluster. L’administrateur dispose d’un contrôle total sur la limitation du nombre d’utilisateurs interagissant avec le cluster via ces points de terminaison.
 

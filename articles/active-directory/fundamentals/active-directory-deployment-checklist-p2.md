@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e9ee0d6fab96c84eee8a520d01d97faddab49f2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8b0844030d069fba40bfd2fdf55252d8b9e3b1c2
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60249704"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235123"
 ---
 # <a name="azure-active-directory-feature-deployment-guide"></a>Guide de déploiement des fonctionnalités d’Azure Active Directory
 
@@ -65,7 +65,7 @@ Dans cette étape, les administrateurs activent des fonctionnalités de sécurit
 | Tâche | Détails | Licence obligatoire |
 | ---- | ------ | ---------------- |
 | [Installer Azure AD Connect](../connect/active-directory-aadconnect-select-installation.md) | Préparez la synchronisation des utilisateurs de votre annuaire local existant dans le cloud. | Azure AD Gratuit |
-| [Implémenter la synchronisation de hachage du mot de passe](../connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md) | Synchronisez les hachages de mot de passe pour autoriser la réplication des changements de mot de passe, la détection et la correction de mot de passe incorrect et le signalement des informations d’identification ayant fait l’objet d’une fuite. | Azure AD Premium P1 |
+| [Implémenter la synchronisation de hachage du mot de passe](../connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md) | Synchronisez les hachages de mot de passe pour autoriser la réplication des changements de mot de passe, la détection et la correction de mot de passe incorrect et le signalement des informations d’identification ayant fait l’objet d’une fuite. | Azure AD Gratuit |
 | [Implémenter l’écriture différée du mot de passe](../authentication/howto-sspr-writeback.md) | Autorisez la réécriture des changements de mot de passe dans le cloud vers un environnement local Windows Server Active Directory. | Azure AD Premium P1 |
 | [Implémenter Azure AD Connect Health](../connect-health/active-directory-aadconnect-health.md) | Activez la supervision des principales statistiques d’intégrité pour vos serveurs Azure AD Connect, vos serveurs AD FS et vos contrôleurs de domaine. | Azure AD Premium P1 |
 | [Affecter des licences aux utilisateurs par appartenance aux groupes dans Azure Active Directory](../users-groups-roles/licensing-groups-assign.md) | Économisez du temps et des efforts en créant des groupes de licences qui activent ou désactivent des fonctionnalités par groupe et non par utilisateur. | |

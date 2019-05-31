@@ -5,14 +5,14 @@ services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 02/20/2019
+ms.date: 05/29/2019
 ms.author: yushwang
-ms.openlocfilehash: 30558300036974a765765fe0eb0181e2a8dc73ca
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 6535949767999e04b11106ff8a294e912a6d0fb8
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65508358"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388851"
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>À propos des périphériques VPN et des paramètres IPsec/IKE pour les connexions de passerelle VPN site à site
 
@@ -65,8 +65,10 @@ Pour configurer plus facilement votre périphérique VPN, reportez-vous aux lien
 | ShareTech | UTM nouvelle génération (série NU) | 9.0.1.3 | Non compatible | [Guide de configuration](http://www.sharetech.com.tw/images/file/Solution/NU_UTM/S2S_VPN_with_Azure_Route_Based_en.pdf) |
 | SonicWall |Série TZ, série NSA<br>Série SuperMassive<br>Série NSA classe E |SonicOS 5.8.x<br>SonicOS 5.9.x<br>SonicOS 6.x |Non compatible |[Guide de configuration](https://www.sonicwall.com/support/knowledge-base/170505320011694) |
 | Sophos | Pare-feu XG Next Gen | XG v17 | | [Guide de configuration](https://community.sophos.com/kb/127546)<br><br>[Guide de configuration - Associations de sécurité multiples](https://community.sophos.com/kb/en-us/133154) |
+| Synology | MR2200ac <br>RT2600ac <br>RT1900ac | SRM1.1.5/VpnPlusServer-1.2.0 |  | [Guide de configuration](https://www.synology.com/en-global/knowledgebase/SRM/tutorial/VPN/How_to_set_up_Site_to_Site_VPN_between_Synology_Router_and_MS_Azure) |
 | Ubiquiti | EdgeRouter | Version 1.10 d’EdgeOS |  | [Protocole BGP sur IKEv2/IPsec](https://help.ubnt.com/hc/en-us/articles/115012374708)<br><br>[Protocole VTI sur IKEv2/IPsec](https://help.ubnt.com/hc/en-us/articles/115012305347)
 | WatchGuard |Tous |Fireware XTM<br> PolicyBased: v11.11.x<br>RouteBased: v11.12.x |[Guide de configuration](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA2F00000000LI7KAM&lang=en_US) |[Guide de configuration](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA22A000000XZogSAG&lang=en_US)|
+| Zyxel |Série de ZyWALL USG<br>Série de ZyWALL ATP<br>Série de ZyWALL VPN | ZLD v4.32 + | | [Protocole VTI sur IKEv2/IPsec](https://businessforum.zyxel.com/discussion/2648/)<br>[Protocole BGP sur IKEv2/IPsec](https://businessforum.zyxel.com/discussion/2650/)|
 
 > [!NOTE]
 >

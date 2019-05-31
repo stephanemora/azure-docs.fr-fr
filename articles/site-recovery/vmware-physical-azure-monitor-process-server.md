@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 08/24/2019
+ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: f3ba08bc1d557d53bca2421b5052f496c740b185
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 4ff52e737438210296b8f2201d5e66e1d38b7bc9
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65969327"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66418287"
 ---
 # <a name="monitor-the-process-server"></a>Surveiller le serveur de traitement.
 
@@ -24,7 +24,7 @@ Cet article explique comment surveiller la [Site Recovery](site-recovery-overvie
 
 [En savoir plus](vmware-physical-azure-config-process-server-overview.md) sur le rôle et le déploiement de serveurs de traitement.
 
-## <a name="monitoring-overview"></a>Vue d'ensemble de la surveillance
+## <a name="monitoring-overview"></a>Vue d’ensemble de la surveillance
 
 Étant donné que le serveur de processus a de nombreux rôles, en particulier dans la mise en cache des données répliquées, la compression et le transfert vers Azure, il est important de surveiller l’intégrité du serveur de processus de manière continue.
 

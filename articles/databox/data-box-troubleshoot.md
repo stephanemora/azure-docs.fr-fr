@@ -1,54 +1,36 @@
 ---
-title: Résoudre les problèmes sur votre Azure Data Box | Microsoft Docs
-description: Décrit comment résoudre les problèmes rencontrés dans Azure Data Box lors du chargement des données dans Azure.
+title: Résoudre les problèmes sur votre Azure Data Box, lourd de zone de données Azure | Microsoft Docs
+description: Décrit comment résoudre les problèmes rencontrés dans Azure Data Box et lourdes de zone de données Azure lors de la copie des données sur ces appareils.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 05/13/2019
+ms.date: 05/28/2019
 ms.author: alkohli
-ms.openlocfilehash: 1126002a93419371be3216c55114385c9c600419
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 0c454c5f19ebefc7f91df62511448dbedb93dfc4
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65594003"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257284"
 ---
-# <a name="troubleshoot-issues-related-to-azure-data-box"></a>Résoudre les problèmes liés à Azure Data Box
+# <a name="troubleshoot-issues-related-to-azure-data-box-and-azure-data-box-heavy"></a>Résoudre les problèmes liés à Azure Data Box et lourdes de zone de données Azure
 
-Cet article fournit des informations sur la façon de résoudre les problèmes peut s’afficher lors de l’utilisation d’Azure Data Box détaillées.
+Cet article fournit des informations sur la façon de résoudre les problèmes peut s’afficher lorsque vous utilisez la Boxn de données Azure ou lourd de zone de données Azure détaillées.
 
 ## <a name="errors-during-data-copy"></a>Erreurs lors de la copie des données
 
 Toutes les erreurs sont observés pendant la copie des données sont résumées dans les sections suivantes.
 
-### <a name="errorcontainerorsharenamelength"></a>ERROR_CONTAINER_OR_SHARE_NAME_LENGTH 
-
-**Description de l’erreur :** Le nom du conteneur ou du partage doit comporter entre 3 et 63 caractères.
-
-**Résolution suggérée :** Le dossier sous le partage de la zone de données (SMB/NFS) sur lequel vous avez copié les données devient un conteneur dans votre compte de stockage Azure. 
-
-- Sur le **Connect et copie** page de l’interface utilisateur web locale Data Box, télécharger et examinez les fichiers d’erreur pour identifier le dossier des noms avec des problèmes.
-- Modifier le nom du dossier sous le partage de la zone de données pour vous assurer que :
-
-    - Le nom a entre 3 et 63 caractères.
-    - Les noms ne peuvent avoir que des lettres, des chiffres et des traits d’union.
-    - Les noms ne peut pas commencer ou finir par des traits d’union.
-    - Les noms ne peuvent pas avoir des traits d’union consécutifs.
-    - Exemples de noms valides : `my-folder-1`, `my-really-extra-long-folder-111`.
-    - Exemples de noms qui ne sont pas valides : `my-folder_1`, `my`, `--myfolder`, `myfolder--`, `myfolder!`
-
-    Pour plus d’informations, consultez les conventions d’affectation de noms Azure pour [les noms de conteneur](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names) et [partagent noms](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#share-names).
-
 ### <a name="errorcontainerorsharenamelength"></a>ERROR_CONTAINER_OR_SHARE_NAME_LENGTH     
 
 **Description de l’erreur :** Le nom du conteneur ou du partage doit comporter entre 3 et 63 caractères. 
 
-**Résolution suggérée :** Le dossier sous le partage de la zone de données (SMB/NFS) sur lequel vous avez copié les données devient un conteneur dans votre compte de stockage Azure. 
+**Résolution suggérée :** Le dossier sous le share(SMB/NFS) Data Box ou élevée de zone de données à laquelle vous avez copié des données devient un conteneur dans votre compte de stockage Azure. 
 
-- Sur le **Connect et copie** page de l’interface utilisateur web locale Data Box, télécharger et examinez les fichiers d’erreur pour identifier le dossier des noms avec des problèmes.
-- Modifier le nom du dossier sous le partage de la zone de données pour vous assurer que :
+- Sur le **Connect et copie** page de l’interface utilisateur web locale de périphérique, téléchargement et examinez les fichiers d’erreur pour identifier le dossier des noms avec des problèmes.
+- Modifier le nom du dossier sous le partage de Data Box ou élevée de zone de données pour vous assurer que :
 
     - Le nom a entre 3 et 63 caractères.
     - Les noms ne peuvent avoir que des lettres, des chiffres et des traits d’union.
@@ -64,10 +46,10 @@ Toutes les erreurs sont observés pendant la copie des données sont résumées 
 
 **Description de l’erreur :** Le nom du conteneur ou du partage doit uniquement comporter des lettres, des chiffres ou des traits d’union.
 
-**Résolution suggérée :** Le dossier sous le partage de la zone de données (SMB/NFS) sur lequel vous avez copié les données devient un conteneur dans votre compte de stockage Azure. 
+**Résolution suggérée :** Le dossier sous le share(SMB/NFS) Data Box ou élevée de zone de données à laquelle vous avez copié des données devient un conteneur dans votre compte de stockage Azure. 
 
-- Sur le **Connect et copie** page de l’interface utilisateur web locale Data Box, télécharger et examinez les fichiers d’erreur pour identifier le dossier des noms avec des problèmes.
-- Modifier le nom du dossier sous le partage de la zone de données pour vous assurer que :
+- Sur le **Connect et copie** page de l’interface utilisateur web locale de périphérique, téléchargement et examinez les fichiers d’erreur pour identifier le dossier des noms avec des problèmes.
+- Modifier le nom du dossier sous le partage de Data Box ou élevée de zone de données pour vous assurer que :
 
     - Le nom a entre 3 et 63 caractères.
     - Les noms ne peuvent avoir que des lettres, des chiffres et des traits d’union.
@@ -82,10 +64,10 @@ Toutes les erreurs sont observés pendant la copie des données sont résumées 
 
 **Description de l’erreur :** Les noms de conteneur et les noms de partage ne peut pas commencer ou se terminer par des traits d’union et ne peut pas avoir des traits d’union consécutifs.
 
-**Résolution suggérée :** Le dossier sous le partage de la zone de données (SMB/NFS) sur lequel vous avez copié les données devient un conteneur dans votre compte de stockage Azure. 
+**Résolution suggérée :** Le dossier sous le share(SMB/NFS) Data Box ou élevée de zone de données à laquelle vous avez copié des données devient un conteneur dans votre compte de stockage Azure. 
 
-- Sur le **Connect et copie** page de l’interface utilisateur web locale Data Box, télécharger et examinez les fichiers d’erreur pour identifier le dossier des noms avec des problèmes.
-- Modifier le nom du dossier sous le partage de la zone de données pour vous assurer que :
+- Sur le **Connect et copie** page de l’interface utilisateur web locale de périphérique, téléchargement et examinez les fichiers d’erreur pour identifier le dossier des noms avec des problèmes.
+- Modifier le nom du dossier sous le partage de Data Box ou élevée de zone de données pour vous assurer que :
 
     - Le nom a entre 3 et 63 caractères.
     - Les noms ne peuvent avoir que des lettres, des chiffres et des traits d’union.
@@ -112,7 +94,7 @@ Pour plus d’informations, consultez [copie vers des disques gérés](data-box-
 
 **Description de l’erreur :** Partage de fichiers Azure limite un partage à 5 To de données. Cette limite a dépassé certaines actions.
 
-**Résolution suggérée :** Sur le **Connect et copie** page de la zone données interface utilisateur web locale, téléchargez et examinez les fichiers de l’erreur.
+**Résolution suggérée :** Sur le **Connect et copie** page de l’interface utilisateur web locale, téléchargez et examinez les fichiers de l’erreur.
 
 Identifiez les dossiers qui ont ce problème dans les journaux d’erreur et assurez-vous que les fichiers dans ce dossier sont de taille inférieure à 5 To.
 
@@ -194,7 +176,7 @@ Pour plus d’informations, consultez les conventions d’affectation de noms Az
 
 **Description de l’erreur :** L’alignement du blob ou du fichier est incorrect.
 
-**Résolution suggérée :** Le partage de blob de page sur la zone de données uniquement prend en charge les fichiers qui sont 512 octets alignés (par exemple, VHD/VHDX). Toutes les données copiées vers le partage d’objets blob de page sont téléchargées vers Azure en tant qu’objets BLOB de pages.
+**Résolution suggérée :** Le partage de blob de page sur Data Box ou élevée de zone de données uniquement prend en charge les fichiers qui sont 512 octets alignés (par exemple, VHD/VHDX). Toutes les données copiées vers le partage d’objets blob de page sont téléchargées vers Azure en tant qu’objets BLOB de pages.
 
 Supprimer toutes les données non-VHD/VHDX à partir du partage d’objets blob de page. Vous pouvez utiliser des partages pour l’objet blob de blocs ou de fichiers Azure pour les données génériques.
 

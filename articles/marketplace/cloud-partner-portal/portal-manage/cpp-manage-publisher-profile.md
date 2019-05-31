@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: pabutler
-ms.openlocfilehash: 6ca0eb23dad218262eff5d80543628df273022c9
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: c97bf10daa8f062cc833c7d7c5f7b0ca4835ca6f
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64942240"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257538"
 ---
 # <a name="manage-your-azure-marketplace-and-appsource-publisher-profile"></a>Gérer votre profil d’éditeur Azure Marketplace et AppSource
 
@@ -49,7 +49,7 @@ vous pouvez également lier votre compte Centre de développement à votre profi
 > [!NOTE]
 > Inscription du compte Centre de développement est obligatoire pour la publication payée des références SKU de la place de marché.
 
-Si vous n’avez pas un compte de centre de développement, vous pouvez créer un compte comme décrit dans [inscrire dans le centre de développement](../../register-dev-center.md).  Ajoutez ensuite l’adresse e-mail inscrite en tant que propriétaire dans le portail Microsoft Cloud Partner pour votre offre. Un propriétaire peut uniquement ajouter l’adresse e-mail inscrite dans votre profil d’éditeur à partir de la section **Utilisateur**. Connectez-vous ensuite au portail avec la même adresse e-mail, puis liez votre compte du Centre de développement.
+Si vous n’avez pas un compte de centre de développement, vous pouvez créer un compte comme décrit dans [inscrire dans le centre de développement](https://docs.microsoft.com/azure/marketplace/register-dev-center).  Ajoutez ensuite l’adresse e-mail inscrite en tant que propriétaire dans le portail Microsoft Cloud Partner pour votre offre. Un propriétaire peut uniquement ajouter l’adresse e-mail inscrite dans votre profil d’éditeur à partir de la section **Utilisateur**. Connectez-vous ensuite au portail avec la même adresse e-mail, puis liez votre compte du Centre de développement.
 
 ![Détails du profil d’éditeur - Description du profil d’éditeur](./media/publisherprofiledescription.png)
 

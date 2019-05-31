@@ -7,12 +7,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/24/2019
-ms.openlocfilehash: 5b8ed75863087e077d483c792ac4134a0c3e1eb0
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: cfbd68e66730fc338130bc16849fe0b2f4abd6be
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65203634"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244405"
 ---
 # <a name="os-patching-for-hdinsight"></a>Mise à jour corrective du système d’exploitation pour HDInsight 
 
@@ -45,6 +45,7 @@ L’utilisation de ce script requiert les informations suivantes :
 
 > [!NOTE]  
 > Vous devez marquer ce script comme persistant lorsqu’il s’applique à un cluster existant. Sinon, les nœuds créés lors d’opérations de mise à l’échelle utilisent la planification de mise à jour corrective par défaut.  Si vous appliquez le script dans le cadre du processus de création du cluster, il est automatiquement défini comme persistant.
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

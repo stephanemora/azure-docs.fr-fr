@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/26/2019
 ms.author: bwren
-ms.openlocfilehash: 0485f8e3b377ce94ec23a4a1a94eb7e189b0232b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c72ac62b55b2b08be5aaad563933bcb2b703cba9
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60787101"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66245073"
 ---
 # <a name="azure-monitor-overview"></a>Vue d’ensemble d’Azure Monitor
 
@@ -55,7 +55,7 @@ Azure Monitor peut recueillir des données de diverses sources. Vous pouvez envi
 - **Données de surveillance de l’abonnement Azure** : données concernant le fonctionnement et la gestion d’un abonnement Azure, mais aussi données concernant l’intégrité et le fonctionnement d’Azure. 
 - **Données de surveillance du locataire Azure** : données concernant le fonctionnement des services Azure au niveau du locataire, tels qu’Azure Active Directory.
 
-Dès que vous créez un abonnement Azure et commencez à ajouter des ressources telles que des machines virtuelles et des applications web, Azure Monitor commence la collecte de données.  Les [journaux d’activité](platform/activity-logs-overview.md) enregistrent la création et la modification des ressources. Les [métriques](platform/data-platform.md) vous indiquent les performances de la ressource et les ressources qu’elle consomme. 
+Dès que vous créez un abonnement Azure et commencez à ajouter des ressources telles que des machines virtuelles et des applications web, Azure Monitor commence la collecte de données.  [Journaux d’activité](platform/activity-logs-overview.md) enregistrer lorsque les ressources sont créés ou modifiés. Les [métriques](platform/data-platform.md) vous indiquent les performances de la ressource et les ressources qu’elle consomme. 
 
 Augmentez le champ des données que vous collectez dans le fonctionnement actuel des ressources en [activant les diagnostics](platform/diagnostic-logs-overview.md) et en [ajoutant un agent](platform/agent-windows.md) aux ressources de calcul. Vous recueillerez ainsi les données de télémétrie pour le fonctionnement interne de la ressource et pourrez configurer différentes [sources de données](platform/agent-data-sources.md) afin de collecter les journaux d’activité et les métriques à partir du système d’exploitation invité Windows et Linux. 
 

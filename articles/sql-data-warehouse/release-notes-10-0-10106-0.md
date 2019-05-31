@@ -10,12 +10,12 @@ author: anumjs
 ms.author: anjangsh
 ms.reviewer: jrasnick
 manager: craigg
-ms.openlocfilehash: 215f7c9c65658ddbb10498bb59f3d326bf3a10f1
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 9e5f10c2b4c2108626db79ad9821a8b07e57a2e3
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65988284"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417701"
 ---
 # <a name="azure-sql-data-warehouse-release-notes"></a>Notes de publication pour Azure SQL Data Warehouse
 
@@ -23,13 +23,13 @@ Cet article résume les nouvelles fonctionnalités et améliorations des version
 
 ## <a name="check-your-azure-sql-data-warehouse-version"></a>Vérifier votre version d’Azure SQL Data Warehouse
 
-Comme les nouvelles fonctionnalités sont continuellement déployées pour toutes les régions, veuillez vérifier la version déployée sur votre instance et les dernières notes de publication d’Azure SQL DW pour la disponibilité des fonctionnalités. Pour vérifier votre version d’Azure SQL DW, connectez-vous à votre entrepôt de données via SQL Server Management Studio (SSMS) et exécutez `SELECT @@VERSION AS 'SQL Data Warehouse';` pour retourner la version actuelle de l’entrepôt de données SQL Azure.
+Comme les nouvelles fonctionnalités sont continuellement déployées pour toutes les régions, vérifiez la version déployée sur votre instance et les dernières notes de publication d’Azure SQL DW pour la disponibilité des fonctionnalités. Pour vérifier votre version d’Azure SQL DW, connectez-vous à votre entrepôt de données via SQL Server Management Studio (SSMS) et exécutez `SELECT @@VERSION AS 'SQL Data Warehouse';` pour retourner la version actuelle de l’entrepôt de données SQL Azure.
 
 Exemple de sortie : ![Version de SQL Data Warehouse](./media/release-notes/sql_data_warehouse_version.png)
 
 Utilisez la date identifiée pour confirmer la version a été appliqué à votre entrepôt de données SQL Azure.
 
-## <a name="may-2019"></a>Mai 2019
+## <a name="may-2019"></a>Mai 2019
 
 | Améliorations du service | Détails |
 | --- | --- |
@@ -38,6 +38,7 @@ Utilisez la date identifiée pour confirmer la version a été appliqué à votr
 |**Prise en charge supplémentaire de T-SQL**|La zone de surface de langage T-SQL pour SQL Data Warehouse a été étendue pour prendre en charge : </br> - [TRIM](/sql/t-sql/functions/trim-transact-sql?view=azure-sqldw-latest)|
 |**Fonctions JSON**|Les analystes d’entreprise peuvent maintenant utiliser familier langage T-SQL pour interroger et manipuler des documents qui sont mis en forme en tant que données JSON à l’aide des nouvelles fonctions JSON suivantes dans Azure Data Warehouse :</br> - [ISJSON](/sql/t-sql/functions/isjson-transact-sql?view=azure-sqldw-latest)</br> - [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?view=azure-sqldw-latest)</br> -  [JSON_QUERY](/sql/t-sql/functions/json-query-transact-sql?view=azure-sqldw-latest)</br> -  [JSON_MODIFY](/sql/t-sql/functions/json-modify-transact-sql?view=azure-sqldw-latest)</br> - [OPENJSON](/sql/t-sql/functions/openjson-transact-sql?view=azure-sqldw-latest)|
 |**Résultat de la mise en cache (version préliminaire)**|La mise en cache du jeu de résultats permet des temps de réponse de requête instantanée tout en réduisant les temps d’analyse pour les analystes d’entreprise et utilisateurs des rapports. Pour plus d'informations, consultez les pages suivantes :</br> - [ALTER DATABASE (Transact-SQL)](/sql/t-sql/statements/alter-database-transact-sql?view=azure-sqldw-latest)</br> - [Options ALTER DATABASE SET (Transact-SQL)](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest)</br> - [DÉFINIR le jeu de résultat mise en cache (Transact-SQL)](/sql/t-sql/statements/set-result-set-caching-transact-sql?view=azure-sqldw-latest)</br> - [Instruction SET (Transact-SQL)](/sql/t-sql/statements/set-statements-transact-sql)</br> - [sys.databases (Transact-SQL)](/sql/relational-databases/system-catalog-views/sys-databases-transact-sql?view=azure-sqldw-latest)|
+|**Commandé un index cluster columnstore (version préliminaire)**|ColumnStore est un outil indispensable pour stocker et interroger efficacement de grandes quantités de données. Pour chaque table, il divise les données entrantes en groupes de lignes et de chaque colonne d’un formulaire de groupe de lignes un Segment sur un disque.  Ordonné en clusters columnstore index davantage optimisent l’exécution des requêtes en activant l’élimination de segment efficace.   Pour plus d'informations, consultez les pages suivantes :</br> -  [CRÉER la TABLE (Azure SQL Data Warehouse)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?view=azure-sqldw-latest)</br> -  [CREATE COLUMNSTORE INDEX (Transact-SQL)](/sql/t-sql/statements/create-columnstore-index-transact-sql?view=azure-sqldw-latest).|
 
 ## <a name="march-2019"></a>Mars 2019
 

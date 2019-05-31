@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 05/21/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2269eac0790e61dbf0ce893bbb737cb22d58d497
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: d4e1ad106b928c41bd6940d7c3713b5fb34afe3a
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66002479"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389108"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Solution de démarrage/arrêt des machines virtuelles durant les heures creuses dans Azure Automation
 
@@ -71,7 +71,8 @@ Pour déployer le Start/Stop VMs au cours de désactiver la solution d’heures 
 | Microsoft.OperationsManagement/solutions/write | Groupe de ressources |
 | Microsoft.OperationalInsights/workspaces/* | Groupe de ressources |
 | Microsoft.Insights/diagnosticSettings/write | Groupe de ressources |
-| Microsoft.Insights/ActionGroups/WriteMicrosoft.Insights/ActionGroups/read | Groupe de ressources |
+| Microsoft.Insights/ActionGroups/Write | Groupe de ressources |
+| Microsoft.Insights/ActionGroups/read | Groupe de ressources |
 | Microsoft.Resources/subscriptions/resourceGroups/read | Groupe de ressources |
 | Microsoft.Resources/deployments/* | Groupe de ressources |
 
@@ -119,7 +120,7 @@ Procédez comme suit pour ajouter la solution Start/Stop VMs during off-hours (p
    - Dans la liste déroulante **Abonnement**, sélectionnez un abonnement à lier si la valeur par défaut sélectionnée n’est pas appropriée.
    - Sous **Groupe de ressources**, vous pouvez créer un groupe de ressources ou en sélectionner un qui existe déjà.
    - Sélectionnez un **emplacement**. Actuellement, les seuls emplacements disponibles sont **Australie Sud-Est**, **Canada Centre**, **Inde Centre**, **USA Est**, **Japon Est**, **Asie Sud-Est**, **Royaume-Uni Sud**, **Europe Ouest** et **USA Ouest 2**.
-   - Sélectionner un **niveau de tarification**. Choisissez l’option **Par Go (autonome)**. Journaux d’analyse Azure a mis à jour [tarification](https://azure.microsoft.com/pricing/details/log-analytics/) et le niveau par Go est la seule option.
+   - Sélectionner un **niveau de tarification**. Choisissez l’option **Par Go (autonome)** . Journaux d’analyse Azure a mis à jour [tarification](https://azure.microsoft.com/pricing/details/log-analytics/) et le niveau par Go est la seule option.
 
    > [!NOTE]
    > Lors de l’activation de solutions, seules certaines régions sont prises en charge pour la liaison d’un espace de travail Log Analytics et d’un compte Automation.
@@ -138,7 +139,7 @@ Procédez comme suit pour ajouter la solution Start/Stop VMs during off-hours (p
 
    Ce volet vous permet de :
    - Spécifier les **noms des groupes de ressources cibles**. Ces valeurs sont les noms des groupes de ressources qui contiennent les machines virtuelles devant être gérées par cette solution. Vous pouvez entrer plusieurs noms en les séparant par des virgules (les valeurs ne respectent pas la casse). Si vous souhaitez cibler les machines virtuelles de tous les groupes de ressources de l’abonnement, l’utilisation d’un caractère générique est prise en charge. Cette valeur est stockée dans les variables **External_Start_ResourceGroupNames** et **External_Stop_ResourceGroupnames**.
-   - Spécifier la **liste d’exclusion de machines virtuelles (chaîne)**. Cette valeur est le nom d’une ou de plusieurs machines virtuelles appartenant au groupe de ressources cible. Vous pouvez entrer plusieurs noms en les séparant par des virgules (les valeurs ne respectent pas la casse). Les caractères génériques sont pris en charge. Cette valeur est stockée dans la variable **External_ExcludeVMNames**.
+   - Spécifier la **liste d’exclusion de machines virtuelles (chaîne)** . Cette valeur est le nom d’une ou de plusieurs machines virtuelles appartenant au groupe de ressources cible. Vous pouvez entrer plusieurs noms en les séparant par des virgules (les valeurs ne respectent pas la casse). Les caractères génériques sont pris en charge. Cette valeur est stockée dans la variable **External_ExcludeVMNames**.
    - Sélectionner une **planification**. Cette valeur est une date et une heure récurrentes pour le démarrage et l’arrêt des machines virtuelles des groupes de ressources cibles. Par défaut, la planification est exécutée toutes les 30 minutes. La sélection d’une autre région n’est pas possible. Pour configurer la planification sur votre propre fuseau horaire après la configuration de la solution, consultez [Modification de la planification de démarrage et d’arrêt](#modify-the-startup-and-shutdown-schedules).
    - Pour recevoir des **notifications par e-mail** de la part d’un groupe d’actions, acceptez la valeur par défaut **Oui**, puis fournissez une adresse e-mail valide. Si vous sélectionnez **Non**, mais décidez ultérieurement de recevoir les notifications par e-mail, vous pouvez mettre à jour le [groupe d’actions](../azure-monitor/platform/action-groups.md) qui est créé en y ajoutant des adresses e-mail valides, séparées par une virgule. Activez également les règles d’alerte suivantes :
 
@@ -147,7 +148,7 @@ Procédez comme suit pour ajouter la solution Start/Stop VMs during off-hours (p
      - Sequenced_StartStop_Parent
 
      > [!IMPORTANT]
-     > La valeur par défaut pour les **noms des groupes de ressources cibles** est un **&ast;**. Elle cible toutes les machines virtuelles dans un abonnement. Si vous ne souhaitez pas que la solution cible toutes les machines virtuelles dans votre abonnement, vous devez définir cette valeur sur une liste de noms de groupes de ressources avant d’activer les planifications.
+     > La valeur par défaut pour les **noms des groupes de ressources cibles** est un **&ast;** . Elle cible toutes les machines virtuelles dans un abonnement. Si vous ne souhaitez pas que la solution cible toutes les machines virtuelles dans votre abonnement, vous devez définir cette valeur sur une liste de noms de groupes de ressources avant d’activer les planifications.
 
 8. Après avoir configuré les paramètres initiaux requis pour la solution, cliquez sur **OK** pour fermer la page **Paramètres** et sélectionnez **Créer**. Quand tous les paramètres sont validés, la solution est déployée dans votre abonnement. Ce processus peut prendre plusieurs secondes. Vous pouvez suivre la progression sous **Notifications** dans le menu.
 
@@ -353,7 +354,7 @@ Le tableau suivant fournit des exemples de recherches de journaux pour les enreg
 
 Pour accéder à la solution, rendez-vous dans votre compte Automation et sous **RESSOURCES CONNEXES**, sélectionnez **Espace de travail**. Dans la page d’analytique de journal, sélectionnez **Solutions** sous **général**. Sur la page **Solutions**, sélectionnez la solution **Start-Stop-VM[espace de travail]** dans la liste.
 
-La sélection de la solution affiche la page Solution de **Start-Stop-VM[espace de travail]**. Vous pouvez y consulter des informations importantes, telles que la vignette **StartStopVM**. Tout comme dans votre espace de travail Log Analytics, cette vignette affiche un compteur et une représentation graphique des tâches de runbooks démarrées et terminées avec succès.
+La sélection de la solution affiche la page Solution de **Start-Stop-VM[espace de travail]** . Vous pouvez y consulter des informations importantes, telles que la vignette **StartStopVM**. Tout comme dans votre espace de travail Log Analytics, cette vignette affiche un compteur et une représentation graphique des tâches de runbooks démarrées et terminées avec succès.
 
 ![Page de solution de gestion des mises à jour de Automation](media/automation-solution-vm-management/azure-portal-vmupdate-solution-01.png)
 
@@ -421,7 +422,7 @@ Pour supprimer la solution, procédez comme suit :
 1. À partir de votre compte Automation, sous **ressources associées**, sélectionnez **espace de travail lié**.
 1. Sélectionnez **accédez à l’espace de travail**.
 1. Sous **général**, sélectionnez **Solutions**. 
-1. Sur la page **Solutions**, sélectionnez la solution **Start-Stop-VM [Espace de travail]**. Sur la page **VMManagementSolution[Espace de travail]**, sélectionnez l’option **Supprimer** dans le menu.<br><br> ![Supprimer la solution de gestion de machine virtuelle](media/automation-solution-vm-management/vm-management-solution-delete.png)
+1. Sur la page **Solutions**, sélectionnez la solution **Start-Stop-VM [Espace de travail]** . Sur la page **VMManagementSolution[Espace de travail]** , sélectionnez l’option **Supprimer** dans le menu.<br><br> ![Supprimer la solution de gestion de machine virtuelle](media/automation-solution-vm-management/vm-management-solution-delete.png)
 1. Dans la fenêtre **Supprimer la solution**, confirmez que vous souhaitez supprimer la solution.
 1. Pendant que les informations sont vérifiées et la solution supprimée, vous pouvez suivre la progression sous **Notifications** dans le menu. Vous serez redirigé vers la page **Solutions** après le démarrage du processus de suppression de la solution.
 

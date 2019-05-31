@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services : Prise en main | Microsoft Docs'
 description: Activer Azure Active Directory Domain Services à l’aide du portail Azure
 services: active-directory-ds
 documentationcenter: ''
-author: eringreenlee
+author: MikeStephens-MS
 manager: daveba
 editor: curtand
 ms.assetid: ace1ed4a-bf7f-43c1-a64a-6b51a2202473
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/27/2018
-ms.author: ergreenl
-ms.openlocfilehash: 734fb5ce641d48800cef68ea79cdb258e44ac267
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/20/2019
+ms.author: mstephen
+ms.openlocfilehash: a4a515f3d669794d5bcdd8fa506a8d3b846db987
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60417707"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234941"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Activer Azure Active Directory Domain Services à l’aide du portail Azure
 
@@ -44,7 +44,7 @@ L’Assistant crée automatiquement le groupe d’administration dans votre rép
 
 ## <a name="configure-synchronization"></a>Configurer la synchronisation
 
-Azure AD Domain Services permet une synchronisation complète de tous les utilisateurs et groupes disponibles dans Azure AD, ou vous pouvez sélectionner avec une synchronisation étendue pour synchroniser uniquement des groupes spécifiques. Si vous choisissez la synchronisation complète, vous ne pourrez **pas** choisir la synchronisation étendue ultérieurement. Pour en savoir plus sur la synchronisation étendue, consultez [l’article sur la synchronisation étendue Azure AD Domain Services](active-directory-ds-scoped-synchronization.md).
+Azure AD Domain Services permet une synchronisation complète de tous les utilisateurs et groupes disponibles dans Azure AD, ou vous pouvez sélectionner avec une synchronisation étendue pour synchroniser uniquement des groupes spécifiques. Si vous choisissez la synchronisation complète, vous ne pourrez **pas** choisir la synchronisation étendue ultérieurement. Pour en savoir plus sur la synchronisation étendue, consultez [l’article sur la synchronisation étendue Azure AD Domain Services](scoped-synchronization.md).
 
 ### <a name="full-synchronization"></a>Synchronisation complète
 
@@ -98,7 +98,7 @@ Le processus d’approvisionnement de votre domaine managé peut prendre jusqu�
 
 ## <a name="need-help"></a>Vous avez besoin d’aide ?
 
-L’approvisionnement de votre domaine géré peut prendre une ou deux heures pour chaque contrôleur de domaine. Si votre déploiement a échoué ou est bloqué à l’état « En attente » pendant plusieurs heures, n’hésitez pas à [contactez l’équipe de produit pour obtenir de l’aide](active-directory-ds-contact-us.md).
+L’approvisionnement de votre domaine géré peut prendre une ou deux heures pour chaque contrôleur de domaine. Si votre déploiement a échoué ou est bloqué à l’état « En attente » pendant plusieurs heures, n’hésitez pas à [contactez l’équipe de produit pour obtenir de l’aide](contact-us.md).
 
 ## <a name="next-step"></a>Étape suivante
 

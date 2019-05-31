@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/14/2018
 ms.author: cynthn;azcspmt;jonbeck
 ms.custom: include file
-ms.openlocfilehash: c0d73b2e37046f75a1cea700d9099c5bbb5f6e0c
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: c849aadcd0fdc8f8ba071e3db5572e9e4c590e92
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66170415"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66391359"
 ---
 Les tailles de machine virtuelle au GPU optimisé sont des machines virtuelles spécialisées disponibles avec des GPU NVIDIA uniques ou multiples. Ces tailles sont conçues pour des charges de travail de visualisation, mais également de calcul et d’affichage graphique intensifs. Cet article donne des informations sur le nombre et le type de GPU, de processeurs virtuels, de disques de données et de cartes réseau. Le débit de stockage et la bande passante réseau sont également inclus pour chacune des tailles de ce regroupement. 
 
@@ -110,7 +110,7 @@ Les machines virtuelles de la série NDv2 rejoignent la famille de processeurs g
 
 | Taille              | Processeurs virtuels | GPU              | Mémoire  | Cartes réseau (max) | Bande passante taille du disque           | Bande passante disques de données (1 023 Go chacun) | Bande passante réseau maximale | 
 |-------------------|------|------------------|---------|------------|--------------------------|--------------------------------|-----------------------|
-| Standard_ND40s_v2 | 40   | 8 V100 (NVLink) | 672 Gio | 8          | 1344 / 2948XIO temporaires | 32                             | 24 000 Mbits/s           |
+| Standard_ND40s_v2 | 40   | 8 V100 (NVLink) | 672 Gio | 8          | 1344 / 2948XIO temporaires | 32                             | 24000 Mbits/s           |
 
 ## <a name="nd-series"></a>Série ND
 
@@ -165,9 +165,9 @@ Chaque GPU dans les instances de NVv3 est fourni avec une licence de la grille. 
 
 | Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | GPU | Mémoire GPU : Gio | Disques de données max. | Nombre max de cartes réseau | Stations de travail virtuelles | Applications virtuelles | 
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_NV6s_v3 | 12 | 112 |320 | 1 | 8 | 12 | 4 | 1 | 25 |
-| Standard_NV12s_v3 | 24 | 224 |640 | 2 | 16 | 24 | 8 | 2 | 50 |
-| Standard_NV24s_v3 | 48 | 448 |1 280 | 4 | 32 | 32 | 8 | 4 | 100 |
+| Standard_NV12s_v3 | 12 | 112 |320 | 1 | 8 | 12 | 4 | 1 | 25 |
+| Standard_NV24s_v3 | 24 | 224 |640 | 2 | 16 | 24 | 8 | 2 | 50 |
+| Standard_NV48s_v3 | 48 | 448 |1 280 | 4 | 32 | 32 | 8 | 4 | 100 |
 
 1 GPU = une moitié de carte M60.
 

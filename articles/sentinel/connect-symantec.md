@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/07/2019
+ms.date: 05/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 0410b052f17a868aed70ce407b9c9fdefbe023df
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 3b21371d6321b208b19ca8b2524308736c3ceca9
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65233642"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244345"
 ---
 # <a name="connect-your-symantec-icdx-appliance"></a>Connecter votre application Symantec ICDX 
 
@@ -37,13 +37,36 @@ Connecteur de Symantec ICDX vous permet de connecter facilement tous vos journau
 
 Symantec ICDX peut intégrer et exporter les journaux directement vers Azure Sentinel.
 
-1. Ouvrez la Console de gestion ICDX.
-2. Dans le menu de navigation de gauche, sélectionnez **Configuration** , puis le **redirecteurs** onglet.
-3. Dans la ligne de Microsoft Azure Log Analytique, cliquez sur **plus**, suivie **modifier**. 
-4. Dans le **redirecteur de Microsoft Azure Log Analytique** fenêtre, définissez les éléments suivants :
-    - Laissez le nom de journal personnalisé en tant que la valeur par défaut, SymantecICDX.
-    - Copiez l’ID de l’espace de travail et le coller dans le **identificateur du client** champ. Copie le **clé primaire** et collez-le dans le champ de clé partagée. Vous pouvez copier ces valeurs à partir du portail Azure Sentinel en sélectionnant **connecteurs de données** , puis **Symantec ICDX**.
-6. Pour utiliser le schéma pertinent dans Analytique de journal pour les événements de Symantec ICDX, recherchez **SymantecICDX_CL**.
+1. Ouvrez la Console de gestion ICDX pour ajouter des redirecteurs Microsoft Azure Sentinel (Analytique de journal).
+2. Dans la barre de navigation ICDx, cliquez sur **Configuration**. 
+3. En haut de la **Configuration** , cliquez sur **redirecteurs**.
+4. Sous **redirecteurs**, en regard de Microsoft Azure Sentinel (Analytique de journal), cliquez sur **ajouter**. 
+4. Dans le **Microsoft Azure Sentinel (journal Analytique)** fenêtre, cliquez sur **afficher les options avancées**. 
+5. En haut de l’étendue à fenêtre Microsoft Azure Sentinel (Analytique de journal), procédez comme suit :
+    -   **Nom** : Tapez un nom pour le redirecteur comportant pas plus de 30 caractères. Choisissez un nom unique et significatif. Ce nom apparaît dans la liste des redirecteurs sur les **Configuration** écran et dans les tableaux de bord sur le **tableau de bord** écran. Exemple : Microsoft Azure Log Analytique est des États-Unis. Ce champ est obligatoire.
+    -   **Description** : Tapez une description pour le redirecteur. Cette description apparaît également dans la liste des redirecteurs sur les **Configuration** écran. Inclure des détails tels que le type d’événement transmis et le groupe qui doit inspecter les données.
+    -   **Type de démarrage**: Sélectionnez la méthode de démarrage pour la configuration du redirecteur. Vos options sont manuel et automatique.<br>La valeur par défaut est automatique. 
+6. Sous **événements**, procédez comme suit : 
+    - **Source** : Sélectionnez un ou plusieurs archives à partir duquel transférer des événements. Vous pouvez sélectionner des archives de collecteur actif (y compris l’Archive courantes), orphelins archives collecteur (autrement dit, les archives pour les collecteurs de que vous avez supprimées), archives de récepteur ICDx ou le système Archive. <br>La valeur par défaut est Archive courants.
+      > [!NOTE]
+      > Archives de récepteur ICDx sont répertoriés séparément, par nom. 
+ 
+    - **Filtre** : Ajoutez un filtre qui spécifie le sous-ensemble d’événements à transférer. Effectuez l’une des actions suivantes :
+        - Pour sélectionner une condition de filtre, cliquez sur un Type, un attribut, un opérateur et une valeur. 
+        - Dans le champ filtre, passez en revue la condition de filtre. Vous pouvez modifier directement dans le champ ou la supprimer si nécessaire.
+        - Cliquez sur et ou ou à ajouter à la condition de filtre.
+        - Vous pouvez également cliquer sur les requêtes enregistrées pour appliquer une requête enregistrée.
+    - **Inclure les attributs**: Tapez la liste délimitée par des virgules des attributs à inclure dans les données transférées. Les attributs inclus sont prioritaires sur les attributs exclus.
+    - **Exclure les attributs**: Tapez la liste délimitée par des virgules des attributs pour exclure les données transférées.
+    - **Taille de lot**: Sélectionnez le nombre d’événements à envoyer par lot. Vos options sont 10, 50, 100, 500 et 1000.<br>La valeur par défaut est 100. 
+    - **Limite de taux**: Sélectionnez la vitesse à laquelle les événements sont transférés, exprimée sous la forme d’événements par seconde. Vos options sont illimité, 500 et 1000, 5000, 10000. <br> La valeur par défaut est 5000. 
+7. Sous **Destination Azure**, procédez comme suit : 
+    - **ID de l’espace de travail**: Collez l’ID de l’espace de travail ci-dessous. Ce champ est obligatoire.
+    - **Clé primaire**: Collez la clé primaire ci-dessous. Ce champ est obligatoire.
+    - **Nom de journal personnalisé**: Tapez le nom de journal personnalisé dans l’espace de journal Analytique portail Microsoft Azure auquel vous vous apprêtez à transférer des événements. La valeur par défaut est SymantecICDx. Ce champ est obligatoire.
+8. Cliquez sur *enregistrer* pour terminer la configuration du redirecteur. 
+9. Pour démarrer le redirecteur, sous **Options**, cliquez sur **plus** , puis **Démarrer**.
+10. Pour utiliser le schéma pertinent dans Analytique de journal pour les événements de Symantec ICDX, recherchez **SymantecICDX_CL**.
 
 
 ## <a name="validate-connectivity"></a>Valider la connectivité

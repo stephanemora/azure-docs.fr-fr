@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 0203/26/2019
 ms.author: bwren
-ms.openlocfilehash: ec037b16840afe669ac3934beaa832f850cdcfb0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 897f2eef0a52838d6190cb85a6a7f4492250935b
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60809215"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244853"
 ---
 # <a name="logs-in-azure-monitor"></a>Journaux dans Azure Monitor
 
@@ -79,7 +79,7 @@ Azure Monitor peut collecter des données de journal à partir de diverses sourc
 | Données | Description |
 |:---|:---|
 | Journaux d’audit Azure Active Directory | Configuré via les paramètres de Diagnostic pour chaque répertoire. Consultez [journaux d’intégration Azure AD avec Azure Monitor journaux](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md).  |
-| Journaux d’activité | Par défaut, stockés séparément et peut être utilisé pour les alertes en temps réel en temps quasi. Installez la solution d’Analytique de journal d’activité pour écrire dans l’espace de travail Analytique de journal. Consultez [collecter et analyser les journaux d’activité Azure dans Log Analytique](collect-activity-logs.md). |
+| Journaux d’activité | Par défaut, stockés séparément et peut être utilisé pour les alertes en temps réel en temps quasi. Installer la solution d’Analytique pour écrire dans l’espace de travail Analytique de journal journal d’activité. Consultez [collecter et analyser les journaux d’activité Azure dans Log Analytique](activity-log-collect.md). |
 
 ### <a name="azure-resources"></a>Ressources Azure
 

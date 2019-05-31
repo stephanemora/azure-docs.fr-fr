@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: shared-capabilities
 author: georgewallace
 ms.author: gwallace
-ms.date: 05/21/2019
+ms.date: 05/24/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3afe27bf71d112b53c31ab696f71d4e1a0cf6b79
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 140b1263047849e13a44441c368e6357078574d8
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66002506"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66240805"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Gérer les comptes d’identification Azure Automation
 
@@ -54,7 +54,7 @@ Pour créer ou mettre à jour un compte d’identification, vous devez disposer 
 |Créer ou supprimer un certificat Automation|[New-AzureRmAutomationCertificate](/powershell/module/AzureRM.Automation/New-AzureRmAutomationCertificate)</br>[Remove-AzureRmAutomationCertificate](/powershell/module/AzureRM.Automation/Remove-AzureRmAutomationCertificate)     | Contributeur sur le groupe de ressources         |Groupe de ressources du compte Automation|
 |Créer ou supprimer une connexion Automation|[New-AzureRmAutomationConnection](/powershell/module/AzureRM.Automation/New-AzureRmAutomationConnection)</br>[Remove-AzureRmAutomationConnection](/powershell/module/AzureRM.Automation/Remove-AzureRmAutomationConnection)|Contributeur sur le groupe de ressources |Groupe de ressources du compte Automation|
 
-<sup>1</sup> Les utilisateurs non-administrateurs dans votre locataire Azure AD peuvent [inscrire des applications AD](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions) si l’option **Les utilisateurs peuvent inscrire des applications** du locataire Azure AD dans la page **Paramètres utilisateur** a la valeur **Oui**. Si le paramètre inscriptions est définie sur **non**, l’utilisateur qui effectue cette action doit être un **administrateur général** dans Azure AD.
+<sup>1</sup> Les utilisateurs non-administrateurs dans votre locataire Azure AD peuvent [inscrire des applications AD](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions) si l’option **Les utilisateurs peuvent inscrire des applications** du locataire Azure AD dans la page **Paramètres utilisateur** a la valeur **Oui**. Si le paramètre inscriptions est définie sur **non**, l’utilisateur qui effectue cette action doit être celui défini dans le tableau précédent.
 
 Si vous n’êtes pas un membre de l’instance d’abonnement Active Directory avant que vous êtes ajouté à la **administrateur général** rôle de l’abonnement, vous êtes ajouté en tant qu’invité. Dans ce cas, vous recevez un avertissement `You do not have permissions to create…` sur la page **Ajouter un compte Automation**. Les utilisateurs qui ont été ajoutés à la **administrateur général** rôle tout d’abord peut être supprimé de l’instance d’abonnement Active Directory et ajouter à nouveau pour les rendre des utilisateurs complets dans Active Directory. Pour vérifier si tel est le cas, dans le volet **Azure Active Directory** du portail Azure, sélectionnez **Utilisateurs et groupes** et **Tous les utilisateurs**, choisissez l’utilisateur concerné, puis sélectionnez **Profil**. La valeur de l’attribut **Type d’utilisateur** sous le profil de l’utilisateur ne doit pas être **Invité**.
 
@@ -372,11 +372,11 @@ Pour renouveler le certificat, procédez comme suit :
 
 Pour contrôler le ciblage de l’automatisation sur des ressources dans Azure Automation, des droits de contributeur sont accordés au compte d’identification dans l’abonnement. Si vous devez limiter ce que peut faire le principal de service RunAs, vous pouvez supprimer le compte du rôle de contributeur à l’abonnement et l’ajouter comme contributeur aux groupes de ressources que vous voulez spécifier.
 
-Dans le portail Azure, sélectionnez **Abonnements**, puis choisissez l’abonnement de votre compte Automation. Sélectionnez **Contrôle d’accès (IAM)**, puis l’onglet **Attributions de rôles** . Recherchez le principal de service pour votre compte Automation (il ressemble à \<AutomationAccountName\>_identificateur unique). Sélectionnez le compte, puis cliquez sur **Supprimer** pour le supprimer de l’abonnement.
+Dans le portail Azure, sélectionnez **Abonnements**, puis choisissez l’abonnement de votre compte Automation. Sélectionnez **Contrôle d’accès (IAM)** , puis l’onglet **Attributions de rôles** . Recherchez le principal de service pour votre compte Automation (il ressemble à \<AutomationAccountName\>_identificateur unique). Sélectionnez le compte, puis cliquez sur **Supprimer** pour le supprimer de l’abonnement.
 
 ![Contributeurs d’abonnement](media/manage-runas-account/automation-account-remove-subscription.png)
 
-Pour ajouter le principal de service à un groupe de ressources, sélectionnez le groupe de ressources dans le portail Azure, puis sélectionnez **Contrôle d’accès (IAM)**. Sélectionnez **Ajouter une attribution de rôle**. La page **Ajouter une attribution de rôle** s’ouvre alors. Pour **Rôle**, sélectionnez **Contributeur**. Dans la zone de texte **Sélectionner**, tapez le nom du principal de service pour votre compte d’identification, puis sélectionnez-le dans la liste. Cliquez sur **Enregistrer** pour enregistrer les modifications. Effectuez cette opération pour les groupes de ressources auxquels vous voulez accorder l’accès à votre principal de service d’identification Azure Automation.
+Pour ajouter le principal de service à un groupe de ressources, sélectionnez le groupe de ressources dans le portail Azure, puis sélectionnez **Contrôle d’accès (IAM)** . Sélectionnez **Ajouter une attribution de rôle**. La page **Ajouter une attribution de rôle** s’ouvre alors. Pour **Rôle**, sélectionnez **Contributeur**. Dans la zone de texte **Sélectionner**, tapez le nom du principal de service pour votre compte d’identification, puis sélectionnez-le dans la liste. Cliquez sur **Enregistrer** pour enregistrer les modifications. Effectuez cette opération pour les groupes de ressources auxquels vous voulez accorder l’accès à votre principal de service d’identification Azure Automation.
 
 ## <a name="misconfiguration"></a>Configuration incorrecte
 

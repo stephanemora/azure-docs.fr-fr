@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/17/2019
 ms.author: spelluru
-ms.openlocfilehash: fc8877ed23b408ea041de67018a71cc203c5e8c0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 14ae5f2a0b6a950889d8587cd4d03ff4fc9a171b
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66162034"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66304213"
 ---
 # <a name="post-to-custom-topic-for-azure-event-grid"></a>Publier dans une rubrique personnalisée pour Azure Event Grid
 
@@ -76,7 +76,10 @@ Pour les rubriques personnalisées, les données de premier niveau contiennent l
 ]
 ```
 
-Pour obtenir une description de ces propriétés, consultez [Schéma d’événement Azure Event Grid](event-schema.md). Lorsque les événements sont envoyés vers une rubrique Event Grid, le tableau peut avoir une taille totale de 1 Mo. Chaque événement du tableau est limité à 64 Ko.
+Pour obtenir une description de ces propriétés, consultez [Schéma d’événement Azure Event Grid](event-schema.md). Lorsque les événements sont envoyés vers une rubrique Event Grid, le tableau peut avoir une taille totale de 1 Mo. Chaque événement dans le tableau est limité à 64 Ko (disponibilité générale) ou 1 Mo (version préliminaire).
+
+> [!NOTE]
+> Un événement de taille jusqu'à 64 Ko est couverte par contrat de niveau Service (SLA) GA (General Availability). La prise en charge pour un événement de taille jusqu'à 1 Mo est actuellement en version préliminaire. Événements de plus de 64 Ko sont facturées par incréments de 64 Ko. 
 
 Par exemple, un schéma de données d’événement valide est :
 
@@ -103,7 +106,7 @@ Après la validation pour le point de terminaison de la rubrique, vous recevez u
 |Succès  | 200 OK  |
 |Les données d’événement ont un format incorrect | 400 Demande incorrecte |
 |Clé d’accès non valide | 401 Non autorisé |
-|Point de terminaison incorrecte | 404 Non trouvé |
+|Point de terminaison incorrecte | 404 Introuvable |
 |La taille du tableau ou de l’événement dépasse la limite autorisée | 413 charge utile maximale dépassée |
 
 Pour les erreurs, le corps du message a le format suivant :

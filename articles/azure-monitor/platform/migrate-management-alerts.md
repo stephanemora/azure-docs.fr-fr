@@ -1,26 +1,26 @@
 ---
 title: Migrer les alertes Azure pour les événements de gestion vers les alertes de journal d’activité
 description: Les alertes pour les événements de gestion seront supprimées le 1er octobre. Préparez-vous en migrant les alertes existantes.
-author: lingliw
+author: rboucher
 services: monitoring
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 04/12/19
-ms.author: v-lingwu
+ms.date: 08/14/2017
+ms.author: robb
 ms.subservice: alerts
-ms.openlocfilehash: fb54e11c9da6bec2a1e0354317df6343140cbf09
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 78519dad85739b6e4d760bc34719837956638f48
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60255924"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388716"
 ---
 # <a name="migrate-azure-alerts-on-management-events-to-activity-log-alerts"></a>Migrer les alertes Azure pour les événements de gestion vers les alertes de journal d’activité
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 > [!WARNING]
-> Les alertes pour les événements de gestion seront désactivées à partir du 1er octobre. Utilisez les instructions ci-dessous pour déterminer si vous avez ce type d’alertes et migrez-les le cas échéant.
+> Alertes sur des événements de gestion seront désactivées sur ou après octobre 1,2017. Utilisez les instructions ci-dessous pour déterminer si vous avez ce type d’alertes et migrez-les le cas échéant.
 
 ## <a name="what-is-changing"></a>Changements
 
@@ -32,7 +32,7 @@ Azure Monitor (anciennement Azure Insights) proposait une fonctionnalité permet
 Le script PowerShell suivant retourne une liste de toutes les alertes sur les événements de gestion figurant dans votre abonnement, ainsi que les conditions définies pour chaque alerte.
 
 ```powershell
-Connect-AzAccount -Environment AzureChinaCloud
+Connect-AzAccount
 $alerts = $null
 foreach ($rg in Get-AzResourceGroup ) {
   $alerts += Get-AzAlertRule -ResourceGroup $rg.ResourceGroupName
@@ -115,3 +115,4 @@ Les alertes pour des événements de gestion que vous avez créées précédemme
 * Consulter le [schéma de webhook d’alerte de journal d’activité](../../azure-monitor/platform/activity-log-alerts-webhook.md)
 * Apprenez-en plus sur les [notifications de service](../../azure-monitor/platform/service-notifications.md)
 * En savoir plus sur les [groupes d’actions](../../azure-monitor/platform/action-groups.md)
+

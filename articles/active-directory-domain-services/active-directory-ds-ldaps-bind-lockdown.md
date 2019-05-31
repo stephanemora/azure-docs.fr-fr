@@ -3,7 +3,7 @@ title: Créer une liaison à l’aide du protocole LDAP sécurisé (LDAPS) à un
 description: Créer une liaison à un domaine managé Azure AD Domain Services à l’aide du protocole LDAP sécurisé (LDAPS)
 services: active-directory-ds
 documentationcenter: ''
-author: eringreenlee
+author: MikeStephens-MS
 manager: daveba
 editor: curtand
 ms.assetid: 6871374a-0300-4275-9a45-a39a52c65ae4
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/01/2018
-ms.author: ergreenl
-ms.openlocfilehash: 62776408675acba1ee8a57252c794e5a1c840155
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/20/2019
+ms.author: mstephen
+ms.openlocfilehash: 47c9553b4191fe6dbae8d92d75dfae83f191a063
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60417031"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234852"
 ---
 # <a name="bind-to-an-azure-ad-domain-services-managed-domain-using-secure-ldap-ldaps"></a>Créer une liaison à un domaine managé Azure AD Domain Services à l’aide du protocole LDAP sécurisé (LDAPS)
 
@@ -64,13 +64,13 @@ L’exemple de groupe de sécurité réseau dans le tableau suivant verrouille l
 
 
 ## <a name="related-content"></a>Contenu connexe
-* [Services de domaine Azure AD : guide de prise en main](active-directory-ds-getting-started.md)
-* [Administrer un domaine géré par les services de domaine Azure Active Directory](active-directory-ds-admin-guide-administer-domain.md)
+* [Services de domaine Azure AD : guide de mise en route](create-instance.md)
+* [Gérer un domaine Azure AD Domain Services](manage-domain.md)
 * [LDAP query basics](https://technet.microsoft.com/library/aa996205.aspx)
-* [Gérer la stratégie de groupe sur un domaine géré par les services de domaine Azure AD](active-directory-ds-admin-guide-administer-group-policy.md)
+* [Gérer la stratégie de groupe pour les Services de domaine Azure AD](manage-group-policy.md)
 * [Groupes de sécurité réseau](../virtual-network/security-overview.md)
 * [Créer des groupes de sécurité réseau à l’aide du portail Azure](../virtual-network/tutorial-filter-network-traffic.md)
 
 
 ## <a name="next-step"></a>Étape suivante
-[Résoudre les problèmes de protocole LDAP sécurisé sur un domaine managé](active-directory-ds-ldaps-troubleshoot.md)
+[Résoudre les problèmes de protocole LDAP sécurisé sur un domaine managé](tshoot-ldaps.md)

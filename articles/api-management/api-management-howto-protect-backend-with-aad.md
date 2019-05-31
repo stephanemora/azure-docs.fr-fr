@@ -11,14 +11,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2018
+ms.date: 05/21/2019
 ms.author: apimpm
-ms.openlocfilehash: b5467711f06380ca61b4a9d5150b66c3f945c08c
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 73dd46d1ca0a20748d7a3a7838c499f0c659253d
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65141073"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241676"
 ---
 # <a name="protect-an-api-by-using-oauth-20-with-azure-active-directory-and-api-management"></a>Guide pratique pour protéger une API à l’aide d’OAuth 2.0 avec Azure Active Directory et Gestion des API
 
@@ -30,7 +30,7 @@ Pour suivre les étapes décrites dans cet article, vous devez avoir :
 * Une API publiée qui utilise l’instance Gestion des API
 * un locataire Azure AD ;
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
 Voici un petit aperçu des étapes :
 
@@ -44,17 +44,19 @@ Voici un petit aperçu des étapes :
 
 Pour protéger une API avec Azure AD, la première étape consiste à inscrire dans Azure AD une application qui représente l’API. 
 
-1. Accédez à votre client Azure AD, puis accédez à **inscriptions d’application (hérité)**.
+1. Accédez à la [portail Azure - inscriptions](https://go.microsoft.com/fwlink/?linkid=2083908) page. 
 
-2. Sélectionnez **Nouvelle inscription d’application**. 
+2. Sélectionnez **Nouvelle inscription**. 
 
-3. Spécifiez le nom de l’application. (Pour cet exemple, le nom est `backend-app`.)  
+1. Lorsque la page **Inscrire une application** s’affiche, saisissez les informations d’inscription de votre application : 
+    - Dans la section **Nom**, saisissez un nom d’application cohérent qui s’affichera pour les utilisateurs de l’application, par exemple `backend-app`. 
+    - Dans le **pris en charge les types de comptes** section, sélectionnez **comptes dans n’importe quel répertoire organisation**. 
 
-4. Choisissez **Application web/API** comme **Type d’application**. 
+1. Laissez le **URI de redirection** section vide pour l’instant.
 
-5. Pour **URL de connexion**, vous pouvez utiliser `https://localhost` comme espace réservé.
+1. Sélectionnez **Inscrire** pour créer l’application. 
 
-6. Sélectionnez **Créer**.
+1. Dans la page **Vue d’ensemble** de l’application, recherchez la valeur **ID d’application (client)** et notez-la.
 
 Une fois l’application créée, prenez note de l’**ID d’application** ; vous en aurez besoin lors d’une étape ultérieure. 
 
@@ -62,23 +64,25 @@ Une fois l’application créée, prenez note de l’**ID d’application** ; vo
 
 Chaque application cliente qui appelle l’API doit également être inscrite en tant qu’application dans Azure AD. Ici, l’exemple d’application cliente est la console de développeur dans le portail des développeurs de Gestion des API. Voici comment inscrire une autre application dans Azure AD pour représenter la console de développeur.
 
-1. Lorsque vous êtes dans **inscriptions d’application (hérité)**, sélectionnez **nouvelle inscription d’application**. 
+1. Accédez à la [portail Azure - inscriptions](https://go.microsoft.com/fwlink/?linkid=2083908) page. 
 
-2. Spécifiez le nom de l’application. (Pour cet exemple, le nom est `client-app`.)
+1. Sélectionnez **Nouvelle inscription**.
 
-3. Choisissez **Application web/API** comme **Type d’application**.  
+1. Lorsque la page **Inscrire une application** s’affiche, saisissez les informations d’inscription de votre application : 
+    - Dans la section **Nom**, saisissez un nom d’application cohérent qui s’affichera pour les utilisateurs de l’application, par exemple `client-app`. 
+    - Dans le **pris en charge les types de comptes** section, sélectionnez **comptes dans n’importe quel répertoire organisation**. 
 
-4. Pour **URL de connexion**, vous pouvez utiliser `https://localhost` comme espace réservé ou utiliser l’URL de connexion de votre instance Gestion des API. (Pour cet exemple, l’URL est `https://contoso5.portal.azure-api.net/signin`.)
+1. Dans le **URI de redirection** section, sélectionnez `Web` et entrez l’URL `https://contoso5.portal.azure-api.net/signin`
 
-5. Sélectionnez **Créer**.
+1. Sélectionnez **Inscrire** pour créer l’application. 
 
-Une fois l’application créée, prenez note de l’**ID d’application** ; vous en aurez besoin lors d’une étape ultérieure. 
+1. Dans la page **Vue d’ensemble** de l’application, recherchez la valeur **ID d’application (client)** et notez-la.
 
 Maintenant, créez un secret client pour cette application, que nous utiliserons lors d’une étape ultérieure.
 
-1. Sélectionnez **Paramètres** et accédez à **Clés**.
+1. Dans la liste des pages pour votre application cliente, sélectionnez **certificats et clés secrètes**, puis sélectionnez **nouvelle clé secrète client**.
 
-2. Sous **Mots de passe**, fournissez une **Description de la clé**. Choisissez quand la clé doit expirer et sélectionnez **Enregistrer**.
+2. Sous **ajouter une clé secrète client**, fournir un **Description**. Choisissez quand la clé doit expirer et sélectionnez **ajouter**.
 
 Prenez note de la valeur de la clé. 
 
@@ -86,17 +90,17 @@ Prenez note de la valeur de la clé.
 
 Maintenant que vous avez inscrit deux applications pour représenter l’API et la console de développeur, vous devez accorder des autorisations pour permettre à client-app d’appeler backend-app.  
 
-1. Accédez à **inscriptions d’Application (hérité)**. 
+1. Accédez à **inscriptions**. 
 
-2. Sélectionnez `client-app` et accédez à **Paramètres**.
+2. Sélectionnez `client-app`et dans la liste des pages de l’application, accédez à **autorisations d’API**.
 
-3. Sélectionnez **Autorisations requises** > **Ajouter**.
+3. Sélectionnez **ajouter une autorisation**.
 
-4. Sélectionnez **Sélectionner une API** et recherchez `backend-app`.
+4. Sous **sélectionner une API**, recherchez et sélectionnez `backend-app`.
 
-5. Sous **Autorisations déléguées**, cochez `Access backend-app`. 
+5. Sous **autorisations déléguées**, sélectionnez les autorisations appropriées pour `backend-app`.
 
-6. Sélectionnez **Sélectionner**, puis sélectionnez **Terminé**. 
+6. Sélectionnez **ajouter des autorisations** 
 
 > [!NOTE]
 > Si **Azure Active Directory** n’est pas listé sous les autorisations d’autres applications, sélectionnez **Ajouter** pour l’ajouter à partir de la liste.
@@ -107,7 +111,7 @@ Maintenant que vous avez inscrit deux applications pour représenter l’API et 
 
 Dans cet exemple, la console de développeur est l’application cliente. Les étapes suivantes décrivent comment activer l’autorisation utilisateur OAuth 2.0 dans la console de développeur. 
 
-1. Sur le Portail Azure, accédez à votre instance Gestion des API.
+1. Dans le portail Azure, accédez à votre instance gestion des API.
 
 2. Sélectionnez **OAuth 2.0** > **Ajouter**.
 

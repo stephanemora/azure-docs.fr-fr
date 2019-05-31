@@ -8,12 +8,12 @@ services: site-recovery
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: raynew
-ms.openlocfilehash: 2d1999077f6315658dbfd69473ddf5561bd76e0b
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 514aaaf7a274e60a17bbae62b3c62e7cf3668e7a
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65540586"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237304"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matrice de prise en charge de la reprise d’activité des machines virtuelles VMware et serveurs physiques sur Azure
 
@@ -46,7 +46,7 @@ RAM | 16 Go
 Nombre de disques | 3 disques<br/><br/> Les disques comprennent le disque du système d’exploitation, le disque de cache du serveur de traitement et le lecteur de rétention pour la restauration automatique.
 Espace disque libre | 600 Go d’espace requis pour le cache du serveur de traitement.
 Espace disque libre | 600 Go d’espace requis pour le lecteur de rétention.
-Système d’exploitation  | Windows Server 2012 R2 ou Windows Server 2016 |
+Système d’exploitation  | Windows Server 2012 R2 ou Windows Server 2016 avec expérience utilisateur |
 Paramètres régionaux du système d’exploitation | Anglais (en-us)
 PowerCLI | [PowerCLI 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1 "PowerCLI 6.0") n’est pas obligatoire pour le serveur de configuration avec les versions de [9,14](https://support.microsoft.com/help/4091311/update-rollup-23-for-azure-site-recovery).
 Rôles Windows Server | N’activez pas les éléments suivants : <br/> - Active Directory Domain Services <br/>- Internet Information Services <br/> - Hyper-V |
@@ -163,7 +163,7 @@ Mise en réseau accélérée | Non
 **Composant** | **Pris en charge**
 --- | ---
 Disque dynamique | Le disque du système d’exploitation doit être un disque de base. <br/><br/>Les disques de données peuvent être des disques dynamiques
-Configuration des disques Docker | Non
+Configuration des disques Docker | Non 
 Hôte NFS | Oui pour VMware<br/><br/> Non pour les serveurs physiques
 Hôte SAN (iSCSI/FC) | OUI
 vSAN hôte | Oui pour VMware<br/><br/> N/A pour les serveurs physiques
@@ -173,7 +173,7 @@ VMDK invité/serveur | Oui
 Disque de cluster partagé invité/serveur | Non 
 Disque chiffré invité/serveur | Non 
 NFS invité/serveur | Non
-Invité/serveur iSCSI | Non
+Invité/serveur iSCSI | Non 
 SMB 3.0 invité/serveur | Non 
 RDM invité/serveur | OUI<br/><br/> N/A pour les serveurs physiques
 Disque invité/serveur > 1 To | OUI<br/><br/>Jusqu’à 4 095 Go<br/><br/> Le disque doit être d’une taille supérieure à 1 024 Mo.
@@ -183,7 +183,7 @@ Volume invité/serveur avec disque à bandes > 4 To <br/><br/>Gestion des volume
 Invité/serveur - Espaces de stockage | Non 
 Ajout/retrait à chaud de disque d’Invité/de serveur | Non 
 Invité/serveur - Exclure le disque | OUI
-Multipath invité/serveur (MPIO) | Non
+Multipath invité/serveur (MPIO) | Non 
 Démarrage EFI/UEFI invité/serveur | Prise en charge lors de la migration des machines virtuelles VMware ou serveurs physiques exécutant Windows Server 2012 ou version ultérieure vers Azure.<br/><br/> Vous pouvez uniquement répliquer des machines virtuelles pour la migration. La restauration automatique en local n’est pas pris en charge.<br/><br/> Le disque de système d’exploitation du serveur ne doit pas comprendre plus de 4 partitions.<br/><br/> Nécessite la version 9.13 du service Mobilité d’Azure Site Recovery, ou une version ultérieure.<br/><br/> Seul le système NTFS est pris en charge.
 
 ## <a name="replication-channels"></a>Canaux de réplication
@@ -191,7 +191,7 @@ Démarrage EFI/UEFI invité/serveur | Prise en charge lors de la migration des m
 |**Type de réplication**   |**Pris en charge**  |
 |---------|---------|
 |Transferts de données déchargées (ODX)    |       Non  |
-|Amorçage hors connexion        |   Non      |
+|Amorçage hors connexion        |   Non       |
 | Azure Data Box | Non
 
 

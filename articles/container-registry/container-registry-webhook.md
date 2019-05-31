@@ -5,18 +5,18 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 03/14/2019
+ms.date: 05/24/2019
 ms.author: danlep
-ms.openlocfilehash: 0a3d2d0e858dc052095c0a58287970d10c06f0ba
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 18ac3fcb2797b24c9d5e5f05968eed4bf8732af7
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60787250"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389447"
 ---
 # <a name="using-azure-container-registry-webhooks"></a>Utilisation de webhooks Azure Container Registry
 
-Un registre Azure Container Registry stocke et gère des images conteneurs Docker privé, de la même manière qu’un Hub Docker stocke des images de Docker public. Il peut également héberger des référentiels pour [Helm graphiques](container-registry-helm-repos.md) mettre en forme un empaquetage (version préliminaire), pour déployer des applications sur Kubernetes. Vous pouvez utiliser des webhooks pour déclencher des événements quand certaines actions sont exécutées dans l’un des dépôts de votre registre. Les webhooks peuvent répondre à des événements au niveau du registre ou être réduits à une balise de dépôt spécifique.
+Un registre Azure Container Registry stocke et gère des images conteneurs Docker privé, de la même manière qu’un Hub Docker stocke des images de Docker public. Il peut également héberger des référentiels pour [Helm graphiques](container-registry-helm-repos.md) mettre en forme un empaquetage (version préliminaire), pour déployer des applications sur Kubernetes. Vous pouvez utiliser des webhooks pour déclencher des événements quand certaines actions sont exécutées dans l’un des dépôts de votre registre. Les webhooks peuvent répondre à des événements au niveau du registre ou être réduits à une balise de dépôt spécifique. Avec un [géorépliqué](container-registry-geo-replication.md) Registre, vous configurez chaque webhook pour répondre aux événements dans un réplica régional spécifique.
 
 Pour plus d’informations sur les requêtes de webhook, consultez la [référence de schéma du webhook Azure Container Registry](container-registry-webhook-reference.md).
 
@@ -35,7 +35,8 @@ Pour plus d’informations sur les requêtes de webhook, consultez la [référen
 
 | Valeur | Description |
 |---|---|
-| Nom | Nom que vous voulez donner au webhook. Il peut contenir uniquement des lettres et des chiffres et doit être de 5 à 50 caractères. |
+| Nom de Webhook | Nom que vous voulez donner au webhook. Il peut contenir uniquement des lettres et des chiffres et doit être de 5 à 50 caractères. |
+| Lieu | Pour un [géorépliqué](container-registry-geo-replication.md) Registre, spécifiez la région Azure du réplica du Registre. 
 | URI de service | URI auquel le webhook doit envoyer des notifications POST. |
 | En-têtes personnalisés | En-têtes que vous souhaitez passer avec la demande POST. Ils doivent être au format « clé : valeur ». |
 | Actions de déclencheur | Actions qui déclenchent le webhook. Les actions incluent des push de l’image, suppression de l’image, push de graphique Helm, suppression du graphique Helm et mise en quarantaine de l’image. Vous pouvez choisir une ou plusieurs actions pour déclencher le webhook. |

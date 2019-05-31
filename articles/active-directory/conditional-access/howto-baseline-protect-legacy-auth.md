@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b562214d4bf8fd83f740e114a6d77200b4611649
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: e7eebc68ae8a55d636f3bc85e179bd7d6813be8d
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66003220"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235553"
 ---
 # <a name="baseline-policy-block-legacy-authentication-preview"></a>Stratégie de référence : Authentification hérités de bloc (version préliminaire)
 
@@ -74,13 +74,13 @@ Si vous utilisez MacOS, nous vous recommandons de mettre à niveau vers Office p
 
 Pour que les clients Outlook basée sur Windows utilisent l’authentification moderne, Exchange Online doit être l’authentification moderne activée ainsi. Si l’authentification moderne est désactivée pour Exchange Online, les clients Outlook basée sur Windows qui prennent en charge l’authentification moderne (Outlook 2013 ou version ultérieure) utilisera l’authentification de base pour se connecter aux boîtes aux lettres Exchange Online.
 
-SharePoint Online est activé par défaut de l’authentification moderne. Pour les répertoires créés après le 1er août 2017, l’authentification moderne est activée par défaut dans Exchange Online. Toutefois, si vous aviez précédemment désactivé l’authentification moderne ou si vous utilisez un répertoire créé avant cette date, suivez les étapes décrites dans l’article suivant pour [activer l’authentification moderne dans Exchange Online](https://docs.microsoft.com/en-us/exchange/clients-and-mobile-in-exchange-online/enable-or-disable-modern-authentication-in-exchange-online).
+SharePoint Online est activé par défaut de l’authentification moderne. Pour les répertoires créés après le 1er août 2017, l’authentification moderne est activée par défaut dans Exchange Online. Toutefois, si vous aviez précédemment désactivé l’authentification moderne ou si vous utilisez un répertoire créé avant cette date, suivez les étapes décrites dans l’article suivant pour [activer l’authentification moderne dans Exchange Online](https://docs.microsoft.com/exchange/clients-and-mobile-in-exchange-online/enable-or-disable-modern-authentication-in-exchange-online).
 
 ### <a name="step-4-skype-for-business"></a>Étape 4 : Skype Entreprise
 
 Pour empêcher les requêtes d’authentification hérités effectuées par Skype pour entreprises, il est nécessaire activer l’authentification moderne pour Skype entreprise Online. Pour les répertoires créés après le 1er août 2017, l’authentification moderne pour Skype pour entreprises est activée par défaut.
 
-Pour activer l’authentification moderne dans Skype pour entreprises, nous vous suggérons de transition vers Microsoft Teams, qui prend en charge l’authentification moderne par défaut. Toutefois, si vous ne parvenez pas à tr à ce stade, vous devez activer l’authentification moderne pour Skype entreprise Online afin que Skype pour les clients entreprise démarre à l’aide de l’authentification moderne. Suivez ces étapes dans l’article [Skype pour les topologies Business pris en charge avec l’authentification moderne](https://docs.microsoft.com/en-us/skypeforbusiness/plan-your-deployment/modern-authentication/topologies-supported), pour savoir comment activer l’authentification moderne pour Skype for Business.
+Pour activer l’authentification moderne dans Skype pour entreprises, nous vous suggérons de transition vers Microsoft Teams, qui prend en charge l’authentification moderne par défaut. Toutefois, si vous ne parvenez pas à tr à ce stade, vous devez activer l’authentification moderne pour Skype entreprise Online afin que Skype pour les clients entreprise démarre à l’aide de l’authentification moderne. Suivez ces étapes dans l’article [Skype pour les topologies Business pris en charge avec l’authentification moderne](https://docs.microsoft.com/skypeforbusiness/plan-your-deployment/modern-authentication/topologies-supported), pour savoir comment activer l’authentification moderne pour Skype for Business.
 
 En plus de permettre l’authentification moderne pour Skype entreprise Online, nous vous recommandons de moderne authentification être activée pour Exchange Online, lorsque vous activez l’authentification moderne pour Skype for Business. Ce processus aidera à synchroniser l’état de l’authentification moderne dans Exchange Online et Skype entreprise online et empêche plusieurs invites de connexion pour Skype pour les clients d’entreprise.
 
@@ -105,11 +105,11 @@ Pour activer l’authentification moderne, voir les articles suivants :
 
 La stratégie **stratégie de référence : Authentification hérités de bloc (version préliminaire)** est préconfigurée et s’affichera en haut lorsque vous accédez au panneau d’accès conditionnel dans le portail Azure.
 
-Pour activer cette stratégie et protéger vos administrateurs :
+Pour activer cette stratégie et protéger votre organisation :
 
 1. Se connecter à la **Azure portal** en tant qu’administrateur général, administrateur de sécurité ou administrateur de l’accès conditionnel.
 1. Accédez à **Azure Active Directory** > **accès conditionnel**.
-1. Dans la liste des stratégies, sélectionnez **stratégie de référence : Authentification hérités de bloc (version préliminaire)**.
+1. Dans la liste des stratégies, sélectionnez **stratégie de référence : Authentification hérités de bloc (version préliminaire)** .
 1. Définissez **activer la stratégie** à **utiliser immédiatement la stratégie**.
 1. Ajoutez les exclusions d’utilisateur en cliquant sur **utilisateurs** > **sélectionner les utilisateurs exclus** et en choisissant les utilisateurs qui doivent être exclues. Cliquez sur **sélectionnez** puis **fait**.
 1. Cliquez sur **enregistrer**.

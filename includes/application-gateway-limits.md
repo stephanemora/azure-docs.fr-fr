@@ -4,12 +4,12 @@ ms.service: application-gateway
 ms.topic: include
 ms.date: 3/26/2019
 ms.author: victorh
-ms.openlocfilehash: e35f01cc5479a5d27d92c9ed74a12bc44db673cd
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 65ed28c967164be4d239cd4d59b6b36f06caeced
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65754026"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66238207"
 ---
 | Ressource | Limite par défaut/maximale | Remarque |
 | --- | --- | --- |
@@ -23,10 +23,11 @@ ms.locfileid: "65754026"
 | Paramètres HTTP du serveur principal |100<sup>1</sup> | |
 | Instances par passerelle |32 | |
 | Certificats SSL |100<sup>1</sup> |1 par écouteur HTTP |
+| Taille maximale du certificat SSL |V1 RÉFÉRENCE SKU - 10 KO<br>V2 RÉFÉRENCE SKU - 25 KO| |
 | Certificats d’authentification |100 | |
 | Certificats racines approuvés |100 | |
-| Délai d’expiration de requête minimale |1 seconde | |
-| Délai d’expiration de la demande maximale |24 heures | |
+| Délai d’expiration de requête minimale |1 seconde | |
+| Délai d’expiration de la demande maximale |24 heures | |
 | Nombre de sites |100<sup>1</sup> |1 par écouteur HTTP |
 | Mappages d’URL par écouteur |1 | |
 | Nombre maximal de règles basées sur le chemin par mappage d’URL|100||

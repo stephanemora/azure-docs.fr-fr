@@ -9,12 +9,12 @@ ms.date: 10/24/2018
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 3d4c40e172352fc2d92ea5523cad2aebe5468e1e
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 111167584fb2e0e2ee5977e0e24b3ebf07b170c1
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65961426"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66238007"
 ---
 # <a name="zone-redundant-storage-zrs-highly-available-azure-storage-applications"></a>Stockage redondant interzone (ZRS) : applications Stockage Azure hautement disponibles
 [!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-zrs.md)]
@@ -33,7 +33,7 @@ Le stockage ZRS est généralement disponible dans les régions suivantes :
 - Japon Est
 - Sud du Royaume-Uni
 - USA Centre
-- Est des États-Unis
+- USA Est
 - USA Est 2
 - USA Ouest 2
 
@@ -49,7 +49,7 @@ Le stockage ZRS ne peut pas protéger vos données contre un sinistre régional,
 ## <a name="converting-to-zrs-replication"></a>Conversion en réplication ZRS
 Une migration vers ou à partir de LRS, GRS et RA-GRS est simple. Utilisez le portail Azure ou l’API Fournisseur de ressources de stockage pour modifier le type de redondance de votre compte. Azure va ensuite répliquer vos données en conséquence. 
 
-Une migration de données vers ou à partir de stockage redondant interzone (ZRS) requiert une stratégie différente. Une migration de ZRS implique le déplacement physique de données à partir d’un tampon de stockage unique vers plusieurs tampons au sein d’une région.
+Migration de données vers le stockage ZRS nécessite une stratégie différente. Une migration de ZRS implique le déplacement physique de données à partir d’un tampon de stockage unique vers plusieurs tampons au sein d’une région.
 
 Il existe deux options principales pour la migration vers ZRS : 
 

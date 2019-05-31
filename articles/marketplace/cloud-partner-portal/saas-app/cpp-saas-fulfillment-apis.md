@@ -7,14 +7,18 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: pabutler
-ms.openlocfilehash: ec206c2d637f9fb2727d72cf17087050a765672c
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: e7a01af1eba865b0a088b0fa7226273527abd70e
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64941957"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257405"
 ---
 # <a name="saas-fulfillment-apis"></a>API de traitement SaaS
+
+> [!IMPORTANT] 
+> SaaS offre des fonctionnalités a été migrée vers le [Microsoft Partner Center](https://partner.microsoft.com/dashboard/directory).  Tous les nouveaux éditeurs doivent utiliser le centre de partenaires pour la création de nouvelles offres de SaaS et de gestion des offres existants.  Éditeurs actuels avec les offres SaaS sont batchwise migrées à partir du portail Cloud Partner pour l’espace partenaires.  Le portail Cloud Partner affiche des messages d’état pour indiquer quand les offres spécifiques ont été migrés.
+> Pour plus d’informations, consultez [créer une offre SaaS](../../partner-center-portal/create-new-saas-offer.md).
 
 Les API de traitement des commandes SaaS permettent des éditeurs de logiciels indépendants (ISV) pour intégrer leurs applications SaaS à la place de marché Azure. Ces API permettre aux applications d’éditeurs de logiciels indépendants à participer à tous les canaux de commerce électronique : direct, par les partenaires (revendeurs) et conduit de champ.  Ils sont nécessaires pour répertorier les offres de SaaS transactable sur la place de marché Azure.
 

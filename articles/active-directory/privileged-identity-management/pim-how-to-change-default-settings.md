@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 04/09/2019
+ms.date: 05/31/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3cb8944578caf00fac5ca430e411f044a875f6af
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2bc7d3ffcb56251825bf5f6d760de647938f1ead
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60288712"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417876"
 ---
 # <a name="configure-azure-ad-role-settings-in-pim"></a>Configurer les paramètres de rôle Azure AD dans PIM
 
@@ -72,6 +72,7 @@ Utilisez le commutateur **Authentification multifacteur** pour spécifier si les
 * Les utilisateurs qui disposent de comptes Microsoft pour leurs adresses de messagerie (généralement @outlook.com mais pas toujours) ne peuvent pas s’inscrire à Azure MFA. Si vous souhaitez attribuer des rôles aux utilisateurs disposant de comptes Microsoft, vous devez les rendre administrateurs permanents ou désactiver l’authentification multifacteur pour ce rôle.
 * Vous ne pouvez pas désactiver l’authentification multifacteur pour les rôles à privilèges élevés pour Azure AD et Office 365. Il s’agit d’une fonctionnalité de sécurité car ces rôles doivent être soigneusement protégés :  
   
+  * Administrateur de Azure Information Protection
   * Administrateur de facturation
   * Administrateur d'applications cloud
   * Administrateur de conformité
@@ -81,7 +82,6 @@ Utilisez le commutateur **Authentification multifacteur** pour spécifier si les
   * Enregistreurs de répertoire
   * Administrateur Exchange
   * Administrateur général
-  * Administrateur Information Protection
   * Administrateur de services Intune
   * Administrateur du service Power BI
   * Administrateur de rôle privilégié

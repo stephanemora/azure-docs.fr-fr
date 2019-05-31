@@ -13,23 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/13/2019
+ms.date: 05/21/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jmprieur, saeeda, jesakowi, nacanuma
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c989b690e9537dcaaf3710996474a1b8b99826b
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 314d7a8e8cf6837e2b22446ba23fee03d539bf35
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65962739"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235349"
 ---
 # <a name="microsoft-identity-platform-developer-glossary"></a>Glossaire du développeur Microsoft identity platform
 
 Cet article contient des définitions pour certains des principaux concepts de développement et la terminologie, qui sont utiles lors de l’apprentissage sur le développement d’applications à l’aide de la plateforme d’identité Microsoft.
 
-## <a name="access-token"></a>jeton d'accès
+## <a name="access-token"></a>access token
 
 Un type de [jeton de sécurité](#security-token) émis par un [serveur d’autorisation](#authorization-server) et utilisé par une [application cliente](#client-application) pour accéder à un [serveur de ressources protégé](#resource-server). Apparaissant généralement sous la forme d’un jeton [JSON Web Token (JWT)][JWT], le jeton représente l’autorisation accordée au client par le [propriétaire de la ressource](#resource-owner) pour un niveau d’accès demandé. Le jeton contient toutes les [revendications](#claim) applicables sur le sujet, permettant à l’application cliente de l’utiliser en guise d’informations d’identification lors de l’accès à une ressource donnée. Le propriétaire de la ressource n’a ainsi pas non plus besoin d’exposer ses informations d’identification au client.
 
@@ -119,7 +119,7 @@ Consultez l’[infrastructure de consentement](consent-framework.md) pour plus d
 
 Consultez [référence de jeton de plate-forme Microsoft identity] [ AAD-Tokens-Claims] pour plus d’informations.
 
-## <a name="microsoft-identity-platform"></a>Plateforme d'identité Microsoft
+## <a name="microsoft-identity-platform"></a>Plateforme d’identité Microsoft
 
 La plateforme d’identité Microsoft est une évolution de la plateforme de développeur et de service d’identité Azure Active Directory (Azure AD). Elle permet aux développeurs de générer des applications qui connectent toutes les identités Microsoft et obtiennent des jetons pour appeler Microsoft Graph, d’autres APIs Microsoft ou des API que des développeurs ont créées. C’est une plateforme complète qui se compose d’un service d’authentification, de bibliothèques, de fonctionnalités d’inscription et de configuration d’application, d’une documentation de développement exhaustive et d’exemples de code et autres contenus destinés aux développeurs. La plateforme d’identité Microsoft prend en charge les protocoles standard tels qu’OAuth 2.0 et OpenID Connect. Consultez [À propos de la plateforme d’identité Microsoft](about-microsoft-identity-platform.md) pour en savoir plus.
 
@@ -142,7 +142,7 @@ Une [application cliente](#client-application) accède à un [serveur de ressour
 
 Elles apparaissent également pendant le processus de [consentement](#consent) , donnant à l’administrateur ou au propriétaire des ressources la possibilité d’autoriser/de refuser l’accès client aux ressources de son client.
 
-Vous pouvez configurer des demandes d’autorisation sous l’onglet « Applications » / « Paramètres » du [portail Azure][AZURE-portal], sous « Autorisations requises », en sélectionnant les « Autorisations déléguées » et les « Autorisations d’application » souhaitées (ces dernières nécessitent l’appartenance au rôle Administrateur général). Du fait qu’un [client public](#client-application) ne peut pas conserver de façon sécurisée les informations d’identification, il peut demander uniquement des autorisations déléguées, alors qu’un [client confidentiel](#client-application) peut demander des autorisations déléguées et des autorisations d’application. L’[objet application](#application-object) du client stocke les autorisations déclarées dans sa [propriété requiredResourceAccess][AAD-Graph-App-Entity].
+Demandes d’autorisation sont configurés sur le **autorisations d’API** page pour une application dans le [portail Azure][AZURE-portal], en sélectionnant le souhaitée « autorisations déléguées » et » Autorisations d’application » (ces dernières nécessitent l’appartenance au rôle Administrateur général). Du fait qu’un [client public](#client-application) ne peut pas conserver de façon sécurisée les informations d’identification, il peut demander uniquement des autorisations déléguées, alors qu’un [client confidentiel](#client-application) peut demander des autorisations déléguées et des autorisations d’application. L’[objet application](#application-object) du client stocke les autorisations déclarées dans sa [propriété requiredResourceAccess][AAD-Graph-App-Entity].
 
 ## <a name="resource-owner"></a>propriétaire de la ressource
 
@@ -182,7 +182,7 @@ Lorsque vous inscrivez/mettez à jour une application dans le [portail Azure][AZ
 
 Pour plus d’informations, consultez [Application and Service Principal Objects (Objets application et principaux du service)][AAD-App-SP-Objects].
 
-## <a name="sign-in"></a>se connecter
+## <a name="sign-in"></a>connexion
 
 Processus par lequel une [application cliente](#client-application) initialise l’authentification de l’utilisateur final et enregistre l’état associé à des fins d’acquisition d’un [jeton de sécurité](#security-token) et d’adaptation de l’étendue de la session de l’application à cet état. L’état peut inclure des artefacts tels que les informations de profil utilisateur et des informations dérivées des revendications de jeton.
 
@@ -192,7 +192,7 @@ La fonction d’ouverture de session d’une application est généralement util
 
 Processus de désactivation de l’authentification d’un utilisateur final par lequel l’état utilisateur associé à [l’application cliente](#client-application) pendant la [connexion](#sign-in) est détaché.
 
-## <a name="tenant"></a>tenant
+## <a name="tenant"></a>locataire
 
 Une instance d’un répertoire Azure AD est désignée sous le nom de client Azure AD. Celui-ci fournit plusieurs fonctionnalités, notamment :
 

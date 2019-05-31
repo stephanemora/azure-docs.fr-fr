@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eebb68218fd6f9cbda229aae3d9e544e87441562
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 5a0e0508babdd9ae703e38d58b079ab5fa16f68c
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65192429"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66397881"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Règles d’appartenance de groupe dynamique dans Azure Active Directory
 
@@ -60,7 +60,7 @@ Les parenthèses sont facultatives pour une expression unique. La longueur total
 
 Il existe trois types de propriétés utilisables pour construire une règle d’appartenance.
 
-* Boolean
+* Booléen
 * Chaîne
 * Collection de chaînes
 
@@ -353,7 +353,6 @@ Les attributs d’appareil suivants peuvent être utilisés.
  deviceManufacturer | Toute valeur de chaîne. | (device.deviceManufacturer -eq "Samsung")
  deviceModel | Toute valeur de chaîne. | (device.deviceModel -eq "iPad Air")
  deviceOwnership | Personnel, Entreprise, Inconnu | (device.deviceOwnership -eq "Company")
- domainName | Toute valeur de chaîne. | (device.domainName -eq "contoso.com")
  enrollmentProfileName | Nom du profil d’inscription des appareils Apple ou du profil AutoPilot Windows | (device.enrollmentProfileName -eq "DEP iPhones")
  isRooted | true false | (device.isRooted -eq true)
  managementType | Gestion des périphériques mobiles (pour les appareils mobiles).<br>PC (pour les ordinateurs gérés par l’agent PC Intune) | (device.managementType -eq "MDM")
@@ -372,4 +371,4 @@ Ces articles fournissent des informations supplémentaires sur les groupes dans 
 * [Création d’un nouveau groupe et ajout de membres](../fundamentals/active-directory-groups-create-azure-portal.md)
 * [Gérer les paramètres d’un groupe](../fundamentals/active-directory-groups-settings-azure-portal.md)
 * [Gérer l’appartenance à un groupe](../fundamentals/active-directory-groups-membership-azure-portal.md)
-* [Gérer les règles dynamiques pour les utilisateurs dans un groupe](groups-dynamic-membership.md)
+* [Gérer les règles dynamiques pour les utilisateurs dans un groupe](groups-create-rule.md)

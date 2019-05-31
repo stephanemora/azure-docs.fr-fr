@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: c80e9953a24504c4ad324ce077b741e60a52b1fb
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 215b839c21c2590c08ac2f4250086eaf97914ce1
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65908022"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243713"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-net-sdk"></a>Authentification des utilisateurs finaux auprès d’Azure Data Lake Storage Gen1 à l’aide du SDK .NET
 > [!div class="op_single_selector"]
@@ -38,7 +38,7 @@ Dans cet article, vous allez apprendre à utiliser le SDK .NET pour authentifier
 
 ## <a name="create-a-net-application"></a>Créer une application .NET
 1. Dans Visual Studio, sélectionnez le **fichier** menu, **New**, puis **projet**.
-2. Choisissez **application Console (.NET Framework)**, puis sélectionnez **suivant**.
+2. Choisissez **application Console (.NET Framework)** , puis sélectionnez **suivant**.
 3. Dans **nom_projet**, entrez `CreateADLApplication`, puis sélectionnez **créer**.
 
 4. Ajoutez les packages NuGet à votre projet.
@@ -74,7 +74,7 @@ Dans cet article, vous allez apprendre à utiliser le SDK .NET pour authentifier
 ## <a name="end-user-authentication"></a>Authentification de l’utilisateur final
 Ajoutez cet extrait de code dans votre application cliente .NET. Remplacez les valeurs d’espace réservé par les valeurs récupérées à partir d’une application native Azure AD (répertoriée comme prérequis). Cet extrait de code vous permet d’authentifier votre application **de manière interactive** auprès de Data Lake Storage Gen1, ce qui signifie que vous êtes invité à entrer vos informations d’identification Azure.
 
-Pour simplifier l’utilisation, l’extrait de code suivant utilise les valeurs par défaut de l’ID client et l’URI de redirection qui sont valides avec n’importe quel abonnement Azure. Dans l’extrait de code suivant, il vous suffit de fournir la valeur de votre ID de locataire. Vous pouvez récupérer l’ID de locataire en suivant les instructions fournies dans la section [Obtenir l’ID de locataire](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-id).
+Pour simplifier l’utilisation, l’extrait de code suivant utilise les valeurs par défaut de l’ID client et l’URI de redirection qui sont valides avec n’importe quel abonnement Azure. Dans l’extrait de code suivant, il vous suffit de fournir la valeur de votre ID de locataire. Vous pouvez récupérer l’ID de locataire en suivant les instructions fournies dans la section [Obtenir l’ID de locataire](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
     
 - Remplacez la fonction Main() par le code suivant :
 

@@ -3,7 +3,7 @@ title: Comparer la jonction à Azure AD avec Azure Active Directory Domain Servi
 description: Choix entre la jonction Azure AD et Azure AD Domain Services
 services: active-directory-ds
 documentationcenter: ''
-author: eringreenlee
+author: MikeStephens-MS
 manager: daveba
 editor: curtand
 ms.assetid: 31a71d36-58c1-4839-b958-80da0c6a77eb
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/26/2017
-ms.author: ergreenl
-ms.openlocfilehash: d4f50ea89f2623d387fb77acb09e609def547468
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/20/2019
+ms.author: mstephen
+ms.openlocfilehash: eaa8cb54a46b1ff3c2c0f7c40c824f6ddcca16b9
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60359430"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234960"
 ---
 # <a name="choose-between-azure-active-directory-join-and-azure-active-directory-domain-services"></a>Choisir entre la jonction Azure Active Directory et Azure Active Directory Domain Services
 Cet article explique les différences qui existent entre la jonction Azure Active Directory (AD) et Azure AD Domain Services, afin de vous aider à choisir en fonction de vos cas d’usage.
@@ -58,7 +58,7 @@ Sur une machine jointe au domaine, l’authentification de l’utilisateur s’e
 |:---| --- | --- |
 | Appareil contrôlé par | Azure AD | Domaine managé par Azure AD Domain Services |
 | Représentation dans l’annuaire | Objets appareil dans l’annuaire Azure AD. | Objets ordinateur dans le domaine managé AAD-DS. |
-| Authentification | Protocoles OAuth/OpenID Connect | Protocoles Kerberos, NTLM |
+| Authentication | Protocoles OAuth/OpenID Connect | Protocoles Kerberos, NTLM |
 | gestion | Logiciels de gestion des appareils mobiles (GAM) tels qu’Intune | Stratégie de groupe |
 | Mise en réseau | Fonctionne sur Internet | Exige que les machines soient sur le même réseau virtuel que le domaine managé.|
 | Idéal pour... | Appareils mobiles ou de bureau des utilisateurs finaux | Machines virtuelles en serveur déployées sur Azure |
@@ -66,14 +66,14 @@ Sur une machine jointe au domaine, l’authentification de l’utilisateur s’e
 
 ## <a name="next-steps"></a>Étapes suivantes
 ### <a name="learn-more-about-azure-ad-domain-services"></a>En savoir plus sur Azure AD Domain Services
-* [Vue d’ensemble d’Azure AD Domain Services](active-directory-ds-overview.md)
+* [Vue d’ensemble d’Azure AD Domain Services](overview.md)
 * [Caractéristiques](active-directory-ds-features.md)
-* [Scénarios de déploiement](active-directory-ds-scenarios.md)
-* [Déterminer si la solution Azure AD Domain Services répond aux besoins de vos cas d’usage](active-directory-ds-comparison.md)
-* [Comprendre comment la solution Azure AD Domain Services est synchronisée avec votre annuaire Azure AD](active-directory-ds-synchronization.md)
+* [Scénarios de déploiement](scenarios.md)
+* [Déterminer si la solution Azure AD Domain Services répond aux besoins de vos cas d’usage](comparison.md)
+* [Comprendre comment la solution Azure AD Domain Services est synchronisée avec votre annuaire Azure AD](synchronization.md)
 
 ### <a name="learn-more-about-azure-ad-join"></a>En savoir plus sur la jonction à Azure AD
 * [Présentation de la gestion des appareils dans Azure Active Directory](../active-directory/device-management-introduction.md)
 
 ### <a name="get-started-with-azure-ad-domain-services"></a>Prise en main des services de domaine Azure AD
-* [Activer Azure AD Domain Services à l’aide du portail Azure](active-directory-ds-getting-started.md)
+* [Activer Azure AD Domain Services à l’aide du portail Azure](create-instance.md)

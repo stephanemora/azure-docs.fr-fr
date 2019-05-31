@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 05/22/2019
+ms.date: 05/24/2019
 ms.author: jingwang
-ms.openlocfilehash: 6d2ed8ba13fac03a60d9a0730776bc8348876b62
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: 5ce838897370430c388d74c3d356497f16efdc8d
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66153570"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66245063"
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Copier des données depuis/vers Azure SQL Data Warehouse à l’aide d’Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
@@ -146,7 +146,7 @@ Pour utiliser l’authentification du jeton d’application Azure AD basée sur 
     CREATE USER [your application name] FROM EXTERNAL PROVIDER;
     ```
 
-4. **Accordez les autorisations requises par le principal de service** comme vous le feriez d’habitude pour des utilisateurs SQL ou autres. Exécutez le code suivant, ou consultez davantage d’options [ici](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017).
+4. **Accordez les autorisations requises par le principal de service** comme vous le feriez d’habitude pour des utilisateurs SQL ou autres. Exécutez le code suivant, ou consultez davantage d’options [ici](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017). Si vous souhaitez utiliser PolyBase pour charger les données, Découvrez le [l’autorisation de base de données requise](#required-database-permission).
 
     ```sql
     EXEC sp_addrolemember db_owner, [your application name];
@@ -196,7 +196,7 @@ Pour utiliser l’authentification d’identité gérée, procédez comme suit 
     CREATE USER [your Data Factory name] FROM EXTERNAL PROVIDER;
     ```
 
-3. **Accorder des autorisations requises de l’identité gérée de fabrique de données** comme vous le feriez normalement pour les utilisateurs SQL et d’autres. Exécutez le code suivant, ou consultez davantage d’options [ici](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017).
+3. **Accorder des autorisations requises de l’identité gérée de fabrique de données** comme vous le feriez normalement pour les utilisateurs SQL et d’autres. Exécutez le code suivant, ou consultez davantage d’options [ici](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017). Si vous souhaitez utiliser PolyBase pour charger les données, Découvrez le [l’autorisation de base de données requise](#required-database-permission).
 
     ```sql
     EXEC sp_addrolemember db_owner, [your Data Factory name];
@@ -227,7 +227,7 @@ Pour utiliser l’authentification d’identité gérée, procédez comme suit 
 
 ## <a name="dataset-properties"></a>Propriétés du jeu de données
 
-Pour obtenir la liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article [Jeux de données](https://docs.microsoft.com/azure/data-factory/concepts-datasets-linked-services). Cette section fournit la liste des propriétés prises en charge par le jeu de données Azure SQL Data Warehouse.
+Pour obtenir la liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article [Jeux de données](concepts-datasets-linked-services.md). Cette section fournit la liste des propriétés prises en charge par le jeu de données Azure SQL Data Warehouse.
 
 Pour copier des données depuis ou vers Azure SQL Data Warehouse, les propriétés suivantes sont prises en charge :
 
@@ -375,7 +375,7 @@ Pour copier des données vers Azure SQL Data Warehouse, définissez **SqlDWSink*
 | rejectValue | Spécifie le nombre ou le pourcentage de lignes pouvant être rejetées avant l’échec de la requête.<br/><br/>Découvrez-en plus sur les options de rejet de PolyBase dans la section Arguments de [CREATE EXTERNAL TABLE (Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx). <br/><br/>Les valeurs autorisées sont : 0 (par défaut), 1, 2, et ainsi de suite. |Non  |
 | rejectType | Indique si l’option **rejectValue** est une valeur littérale ou un pourcentage.<br/><br/>Les valeurs autorisées sont **Value** (par défaut) et **Percentage**. | Non  |
 | rejectSampleValue | Détermine le nombre de lignes à extraire avant que PolyBase recalcule le pourcentage de lignes rejetées.<br/><br/>Les valeurs autorisées sont 1, 2, et ainsi de suite. | Oui, si **rejectType** est **percentage** |
-| useTypeDefault | Spécifie comment gérer les valeurs manquantes dans les fichiers texte délimités lorsque PolyBase extrait des données à partir du fichier texte.<br/><br/>Pour plus d’informations sur cette propriété, consultez la section Arguments dans [CREATE EXTERNAL FILE FORMAT (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx).<br/><br/>Les valeurs autorisées sont **True** et **False** (par défaut).<br><br>**Consultez [des conseils de dépannage](#polybase-troubleshooting) liés à ce paramètre.** | Non |
+| useTypeDefault | Spécifie comment gérer les valeurs manquantes dans les fichiers texte délimités lorsque PolyBase extrait des données à partir du fichier texte.<br/><br/>Pour plus d’informations sur cette propriété, consultez la section Arguments dans [CREATE EXTERNAL FILE FORMAT (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx).<br/><br/>Les valeurs autorisées sont **True** et **False** (par défaut).<br><br>**Consultez [des conseils de dépannage](#polybase-troubleshooting) liés à ce paramètre.** | Non  |
 | writeBatchSize | Nombre de lignes pour les insertions dans la table SQL **par lot**. S’applique uniquement quand PolyBase n’est pas utilisé.<br/><br/>La valeur autorisée est **integer** (nombre de lignes). Par défaut, Data Factory déterminer dynamiquement la taille de lot approprié selon la taille de ligne. | Non  |
 | writeBatchTimeout | Temps d’attente pour que l’opération d’insertion de lot soit terminée avant d’expirer. S’applique uniquement quand PolyBase n’est pas utilisé.<br/><br/>La valeur autorisée est **timespan**. Exemple : “00:30:00” (30 minutes). | Non  |
 | preCopyScript | Spécifiez une requête SQL pour l’activité de copie à exécuter avant l’écriture de données dans Azure SQL Data Warehouse à chaque exécution. Utilisez cette propriété pour nettoyer les données préchargées. | Non  |
@@ -400,10 +400,10 @@ Apprenez-en davantage sur la façon d’utiliser PolyBase pour charger efficacem
 
 ## <a name="use-polybase-to-load-data-into-azure-sql-data-warehouse"></a>Utiliser PolyBase pour charger des données dans Azure SQL Data Warehouse
 
-L’utilisation de [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) est un moyen efficace de charger de grandes quantités de données dans Azure SQL Data Warehouse avec un débit élevé. Vous profiterez d’un gain important de débit en utilisant PolyBase au lieu du mécanisme BULKINSERT par défaut. Consultez [Référence sur les performances](copy-activity-performance.md#performance-reference) pour obtenir une comparaison détaillée. Pour obtenir une procédure pas à pas avec un cas d’utilisation, consultez [Charger 1 To dans Azure SQL Data Warehouse](https://docs.microsoft.com/azure/data-factory/v1/data-factory-load-sql-data-warehouse).
+L’utilisation de [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) est un moyen efficace de charger de grandes quantités de données dans Azure SQL Data Warehouse avec un débit élevé. Vous profiterez d’un gain important de débit en utilisant PolyBase au lieu du mécanisme BULKINSERT par défaut. Consultez [Référence sur les performances](copy-activity-performance.md#performance-reference) pour obtenir une comparaison détaillée. Pour obtenir une procédure pas à pas avec un cas d’utilisation, consultez [Charger 1 To dans Azure SQL Data Warehouse](v1/data-factory-load-sql-data-warehouse.md).
 
-* Si votre source de données se trouve dans **Blob Azure, Azure Data Lake Storage Gen1 ou Azure Data Lake Storage Gen2**et le **format est PolyBase compatible**, vous pouvez utiliser l’activité de copie pour appeler directement PolyBase pour permettre à Azure SQL Data Warehouse extraire les données à partir de la source. Pour plus d’informations, consultez **[Copie directe à l’aide de PolyBase](#direct-copy-by-using-polybase)**.
-* Si votre magasin de données source et son format ne sont pas pris en charge à l’origine par PolyBase, utilisez plutôt la fonctionnalité **[Copie intermédiaire avec PolyBase](#staged-copy-by-using-polybase)**. La fonctionnalité de copie intermédiaire offre également un meilleur débit. Elle convertit automatiquement les données dans un format compatible avec PolyBase. Et elle stocke les données dans Stockage Blob Azure. Elle charge ensuite les données dans SQL Data Warehouse.
+* Si votre source de données se trouve dans **Blob Azure, Azure Data Lake Storage Gen1 ou Azure Data Lake Storage Gen2**et le **format est PolyBase compatible**, vous pouvez utiliser l’activité de copie pour appeler directement PolyBase pour permettre à Azure SQL Data Warehouse extraire les données à partir de la source. Pour plus d’informations, consultez **[Copie directe à l’aide de PolyBase](#direct-copy-by-using-polybase)** .
+* Si votre magasin de données source et son format ne sont pas pris en charge à l’origine par PolyBase, utilisez plutôt la fonctionnalité **[Copie intermédiaire avec PolyBase](#staged-copy-by-using-polybase)** . La fonctionnalité de copie intermédiaire offre également un meilleur débit. Elle convertit automatiquement les données dans un format compatible avec PolyBase. Et elle stocke les données dans Stockage Blob Azure. Elle charge ensuite les données dans SQL Data Warehouse.
 
 >[!TIP]
 >En savoir plus sur [meilleures pratiques d’utilisation de PolyBase](#best-practices-for-using-polybase).
@@ -426,7 +426,7 @@ Si les critères ne sont pas remplis, Azure Data Factory contrôle les paramètr
     | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | Authentification par clé de compte, l’authentification des identités gérées |
 
     >[!IMPORTANT]
-    >Si votre stockage Azure est configuré avec le point de terminaison de service réseau virtuel, vous devez utiliser l’authentification d’identité gérée. Reportez-vous à [Impact de l’utilisation de points de terminaison de Service réseau virtuel avec stockage Azure](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage)
+    >Si votre stockage Azure est configuré avec le point de terminaison de service réseau virtuel, vous devez utiliser l’authentification d’identité gérée. Reportez-vous à [Impact de l’utilisation de points de terminaison de Service réseau virtuel avec stockage Azure](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage)
 
 2. Le **format de données source** est de **Parquet**, **ORC**, ou **texte délimité**, avec les configurations suivantes :
 

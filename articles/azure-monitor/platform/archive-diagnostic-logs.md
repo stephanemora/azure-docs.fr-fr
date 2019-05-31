@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 82aaa573c55748daf62b620cdd82561bae6af492
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bc1804e547bb1a29fc0dc680b948f1bb31af8307
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60345973"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244917"
 ---
 # <a name="archive-azure-diagnostic-logs"></a>Archivage des journaux de diagnostic Azure
 
-Dans cet article, nous vous expliquons comment utiliser le portail Azure, les applets de commande PowerShell, l’interface de ligne de commande ou l’API REST pour archiver vos [journaux de diagnostic Azure](../../azure-monitor/platform/diagnostic-logs-overview.md) dans un compte de stockage. Cette option est utile si vous voulez conserver vos journaux de diagnostic avec une stratégie de rétention facultative à des fins d’audit, d’analyse statique ou de sauvegarde. Il n’est pas nécessaire que le compte de stockage se trouve dans le même abonnement que la ressource générant des journaux d’activité, à condition que l’utilisateur qui configure le paramètre ait un accès RBAC approprié aux deux abonnements.
+Dans cet article, nous vous expliquons comment utiliser le portail Azure, les applets de commande PowerShell, l’interface de ligne de commande ou l’API REST pour archiver vos [journaux de diagnostic Azure](diagnostic-logs-overview.md) dans un compte de stockage. Cette option est utile si vous voulez conserver vos journaux de diagnostic avec une stratégie de rétention facultative à des fins d’audit, d’analyse statique ou de sauvegarde. Il n’est pas nécessaire que le compte de stockage se trouve dans le même abonnement que la ressource générant des journaux d’activité, à condition que l’utilisateur qui configure le paramètre ait un accès RBAC approprié aux deux abonnements.
 
 > [!WARNING]
 > À compter du 1er novembre 2018, le format des données de journal dans le compte de stockage deviendra JSON Lines. [Consultez cet article pour en savoir plus sur les conséquences liées à ce changement et pour découvrir comment mettre à jour vos outils pour qu’ils gèrent ce nouveau format.](./../../azure-monitor/platform/diagnostic-logs-append-blobs.md) 
@@ -26,7 +26,7 @@ Dans cet article, nous vous expliquons comment utiliser le portail Azure, les ap
 
 ## <a name="prerequisites"></a>Conditions préalables
 
-Avant de commencer, vous devez [créer un compte de stockage](../../storage/common/storage-quickstart-create-account.md) sur lequel vous pouvez archiver vos journaux de diagnostic. Nous vous recommandons vivement de ne pas utiliser un compte de stockage existant sur lequel sont stockées d’autres données de non-analyse, afin de pouvoir mieux contrôler l’accès aux données d’analyse. En revanche, si vous archivez également votre journal d’activité et des métriques de diagnostic sur un compte de stockage, il peut être judicieux d’utiliser également ce compte pour vos journaux de diagnostic, afin de centraliser toutes vos données d’analyse.
+Avant de commencer, vous devez [créer un compte de stockage](../../storage/common/storage-quickstart-create-account.md) sur lequel vous pouvez archiver vos journaux de diagnostic. Nous vous recommandons vivement de ne pas utiliser un compte de stockage existant sur lequel sont stockées d’autres données de non-analyse, afin de pouvoir mieux contrôler l’accès aux données d’analyse. En revanche, si vous archivez également votre journal d’activité et les métriques de diagnostic sur un compte de stockage, il peut être judicieux d’utiliser ce compte de stockage pour vos journaux de diagnostic à conserver toutes les données d’analyse dans un emplacement central.
 
 > [!NOTE]
 >  Actuellement, vous ne pouvez pas archiver les données vers un stockage situé derrière un réseau virtuel sécurisé.
@@ -111,7 +111,7 @@ L’argument `--resource-group` n’est nécessaire que si `--storage-account` n
 
 ## <a name="schema-of-diagnostic-logs-in-the-storage-account"></a>Schéma des journaux de diagnostic dans le compte de stockage
 
-Une fois que vous avez configuré l’archivage, un conteneur de stockage est créé dans le compte de stockage dès qu’un événement se produit dans les catégories de journaux que vous avez activées. Les objets blob du conteneur suivent la même convention de nommage dans l’ensemble des journaux d’activité et des journaux de diagnostic, comme illustré ici :
+Une fois que vous avez configuré l’archivage, un conteneur de stockage est créé dans le compte de stockage dès qu’un événement se produit dans les catégories de journaux que vous avez activées. Les objets BLOB au sein du conteneur suivent la même convention d’affectation de noms dans les journaux d’activité et les journaux de Diagnostic, comme illustré ici :
 
 ```
 insights-logs-{log category name}/resourceId=/SUBSCRIPTIONS/{subscription ID}/RESOURCEGROUPS/{resource group name}/PROVIDERS/{resource provider name}/{resource type}/{resource name}/y={four-digit numeric year}/m={two-digit numeric month}/d={two-digit numeric day}/h={two-digit 24-hour clock hour}/m=00/PT1H.json

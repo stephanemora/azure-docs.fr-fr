@@ -3,22 +3,22 @@ title: Gérer l’utilisation et les coûts pour Azure Application Insights | Mi
 description: Gérer les volumes de données de télémétrie et surveiller les coûts dans Application Insights.
 services: application-insights
 documentationcenter: ''
-author: mrbullwinkle
+author: DaleKoetke
 manager: carmonm
 ms.assetid: ebd0d843-4780-4ff3-bc68-932aa44185f6
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.reviewer: Dale.Koetke
-ms.date: 12/21/2018
-ms.author: mbullwin
-ms.openlocfilehash: edf724d6fd659ad4e8887a9c68467d17a33f5ccc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.reviewer: mbullwin
+ms.date: 05/29/2019
+ms.author: dalek
+ms.openlocfilehash: ebcb0922335a2bdc5423ec4e4bfce7c1cd71c46a
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60254546"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357277"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Gérer l’utilisation et les coûts pour Application Insights
 
@@ -35,7 +35,7 @@ Les tarifs pour [Azure Application Insights][start] sont basés sur le volume de
 ### <a name="data-volume-details"></a>Détails du volume de données
 
 * à savoir le nombre d’octets de données de télémétrie reçus par Application Insights. Le volume de données est mesuré comme la taille du package de données JSON non compressé reçu par Application Insights de la part de votre application. Pour [les données tabulaires importées dans Analytics](https://docs.microsoft.com/azure/application-insights/app-insights-analytics-import), le volume de données est mesuré en tant que taille non compressée des fichiers envoyés à Application Insights.
-* Les frais relatifs aux volumes de données de votre application figurent désormais sur un nouveau compteur de facturation nommé **Ingestion des données** depuis avril 2018. Ce nouveau compteur doit être partagé par plusieurs technologies de supervision comme Applications Insights et Log Analytics, et apparaît actuellement sous le nom de service **Log Analytics**. 
+* Les frais relatifs aux volumes de données de votre application figurent désormais sur un nouveau compteur de facturation nommé **Ingestion des données** depuis avril 2018. Ce compteur est partagé entre la surveillance des technologies telles que les Applications Insights et Analytique de journal et est actuellement sous le nom du service **Analytique de journal**. 
 * Les données des [Flux de métriques temps réel](../../azure-monitor/app/live-stream.md) ne sont pas comptabilisées dans la tarification.
 
 Pour connaître les prix actuels dans votre devise et pour votre région, consultez [Tarification Application Insights][pricing].
@@ -132,57 +132,56 @@ Pour découvrir le taux d’échantillonnage réel, indépendamment de l’endro
 
 Pour chaque enregistrement conservé, `itemCount` indique le nombre d’enregistrements d’origine qu’il représente. Ce nombre est égal à 1 + le nombre d’enregistrements précédents ignorés. 
 
-## <a name="automation"></a>Automatisation
-
-Vous pouvez utiliser le service de gestion des ressources Azure pour écrire un script de définition de plan tarifaire. [Découvrez comment](powershell.md#price).
-
 ## <a name="limits-summary"></a>Synthèse des limites
 
 [!INCLUDE [application-insights-limits](../../../includes/application-insights-limits.md)]
 
 ## <a name="disable-daily-cap-e-mails"></a>Désactiver les e-mails de limite quotidienne
 
-Pour désactiver les e-mails de limite de volume quotidienne, accédez à la section **Configurer** de votre ressource Application Insights dans le volet **Utilisation et estimation des coûts**, puis sélectionnez **Limite quotidienne**. Il existe des paramètres pour envoyer un e-mail quand la limite est atteinte, ainsi que quand un niveau d’avertissement réglable a été atteint. Si vous souhaitez désactiver tous les e-mails liés à la limite de volume quotidienne, décochez les deux cases.
+Pour désactiver les e-mails de limite de volume quotidienne, accédez à la section **Configurer** de votre ressource Application Insights dans le volet **Utilisation et estimation des coûts**, puis sélectionnez **Limite quotidienne**. Il existe des paramètres pour envoyer un e-mail quand la limite est atteinte, ainsi que quand un niveau d’avertissement réglable a été atteint. Si vous souhaitez désactiver tout quotidienne liés au volume des messages électroniques décochez les deux zones.
 
-## <a name="legacy-enterprise-pricing-plan"></a>Plan tarifaire Entreprise hérité
+## <a name="legacy-enterprise-per-node-pricing-tier"></a>Entreprise hérité (par nœud), niveau de tarification
 
-Pour les utilisateurs précoces d’Azure Application Insights, il existe toujours deux plans tarifaires possibles : De base et Entreprise. Le plan tarifaire de base est identique à celui décrit ci-dessus et il s’agit du plan par défaut. Il inclut toutes les fonctionnalités du plan Entreprise, sans frais supplémentaires. La facturation du plan De base repose essentiellement sur le volume de données ingéré. 
+Pour les utilisateurs précoces d’Azure Application Insights, il existe toujours deux niveaux tarifaires possibles : De base et Entreprise. Le niveau tarifaire de base est identique à celui décrit ci-dessus et le niveau par défaut. Il inclut toutes les fonctionnalités de niveau entreprise, sans coût supplémentaire. Les échéances de niveau de base principalement sur le volume de données sont ingérées. 
 
-Le plan Entreprise donne lieu à une facturation par nœud, chaque nœud recevant une allocation de données quotidienne. Dans le plan tarifaire Entreprise, vous êtes facturé pour les données ingérées au-delà de l’allocation incluse. Si vous utilisez Operations Management Suite, vous devez choisir le plan Entreprise. 
+> [!NOTE]
+> Ces niveaux de tarification hérités ont été renommées. L’entreprise de niveau de tarification s’appelle désormais **par nœud** et le niveau tarifaire de base est désormais appelé **par Go**. Ces nouveaux noms sont utilisés ci-dessous et dans le portail Azure.  
+
+Le niveau par nœud (anciennement Enterprise) a un coût par nœud, et chaque nœud reçoit un volume quotidien de données. Dans le niveau tarifaire par nœud, vous êtes facturé pour les données ingérées au-delà de l’allocation incluse. Si vous utilisez Operations Management Suite, vous devez choisir le niveau par nœud. 
 
 Pour connaître les prix actuels dans votre devise et pour votre région, consultez la page [Tarification Application Insights](https://azure.microsoft.com/pricing/details/application-insights/).
 
 > [!NOTE]
 > En avril 2018, nous [introduisons](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/) un nouveau modèle tarifaire pour la surveillance Azure. Ce modèle adopte un modèle de « paiement à l’utilisation » simple sur le portefeuille complet de services de surveillance. En savoir plus sur le [nouveau modèle tarifaire](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs), sur [l’évaluation de l’impact du passage à ce modèle](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs#assessing-the-impact-of-the-new-pricing-model) en fonction de vos modèles d’utilisation et sur [l’adoption du nouveau modèle](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs#moving-to-the-new-pricing-model)
 
-### <a name="enterprise-plan-and-operations-management-suite-subscription-entitlements"></a>Plan Entreprise et droits d’abonnement à Operations Management Suite
+### <a name="per-node-tier-and-operations-management-suite-subscription-entitlements"></a>Par niveau de nœud et les droits d’abonnement à Operations Management Suite
 
-Comme [annoncé récemment](https://blogs.technet.microsoft.com/msoms/2017/05/19/azure-application-insights-enterprise-as-part-of-operations-management-suite-subscription/), les clients qui achètent Operations Management Suite E1 et E2 peuvent obtenir Application Insights Enterprise en tant que composant supplémentaire, sans frais supplémentaires. Plus précisément, chaque unité Operations Management Suite E1 et E2 inclut un droit à un nœud du plan Entreprise Application Insights. Chaque nœud Application Insights inclut l’intégration de 200 Mo de données maximum par jour (en plus de l’intégration des données Log Analytics), avec une période de rétention des données de 90 jours, sans coût supplémentaire. Le plan est décrit plus loin dans cet article. 
+Les clients qui achètent Operations Management Suite E1 et E2 peuvent obtenir Application Insights par nœud comme composant supplémentaire sans coût supplémentaire en tant que [précédemment annoncé](https://blogs.technet.microsoft.com/msoms/2017/05/19/azure-application-insights-enterprise-as-part-of-operations-management-suite-subscription/). Plus précisément, chaque unité Operations Management Suite E1 et E2 inclut un droit à un nœud de la couche d’Application Insights par nœud. Chaque nœud Application Insights inclut l’intégration de 200 Mo de données maximum par jour (en plus de l’intégration des données Log Analytics), avec une période de rétention des données de 90 jours, sans coût supplémentaire. Le niveau est décrite plus loin dans cet article. 
 
-Ce plan ne s’appliquant qu’aux clients détenant un abonnement Operations Management Suite, ceux sans abonnement Operations Management Suite ne peuvent pas le sélectionner.
+Étant donné que ce niveau s’applique uniquement aux clients ayant un abonnement Operations Management Suite, les clients qui n’ont pas un abonnement Operations Management Suite ne voyez pas une option pour sélectionner ce niveau.
 
 > [!NOTE]
-> Pour pouvoir bénéficier de ce droit, vos ressources Application Insights doivent figurer dans le plan tarifaire Entreprise. Ce droit s’applique uniquement sous forme de nœuds. Les ressources Application Insights dans le plan De base n’en bénéficient pas. Ce droit n’est pas visible dans l’estimation des coûts figurant dans le volet **Utilisation et estimation des coûts**. De plus, si vous déplacez un abonnement vers le nouveau modèle tarifaire pour le monitoring Azure en avril 2018, le plan De base est le seul plan disponible. Nous vous déconseillons de déplacer un abonnement vers le nouveau modèle tarifaire pour le monitoring Azure si vous avez un abonnement Operations Management Suite.
+> Pour vous assurer que vous obtenez ce droit, vos ressources Application Insights doivent être dans le niveau tarifaire par nœud. Ce droit s’applique uniquement sous forme de nœuds. Ressources application Insights dans le niveau par Go ne bénéficient pas. Ce droit n’est pas visible dans l’estimation des coûts figurant dans le volet **Utilisation et estimation des coûts**. En outre, si vous déplacez un abonnement vers le nouvel Azure analyse le modèle de tarification en avril 2018, le niveau par Go est le seul niveau de tarification disponible. Nous vous déconseillons de déplacer un abonnement vers le nouveau modèle tarifaire pour le monitoring Azure si vous avez un abonnement Operations Management Suite.
 
-### <a name="how-the-enterprise-plan-works"></a>Fonctionnement du plan Entreprise
+### <a name="how-the-per-node-tier-works"></a>Fonctionne de la couche par nœud
 
-* Vous payez pour chaque nœud qui envoie des données de télémétrie pour n’importe quelle application dans le plan Entreprise.
+* Vous payez pour chaque nœud qui envoie des données de télémétrie pour toutes les applications dans le niveau par nœud.
   * Un *nœud* correspond à une machine serveur virtuelle ou physique ou à une instance de rôle PaaS (Platform-as-a-Service) qui héberge votre application.
   * Les ordinateurs de développement, les navigateurs clients et les appareils mobiles ne sont pas considérés comme des nœuds.
   * Si votre application comporte plusieurs composants qui envoient des données de télémétrie, comme un service web et un Worker principal, ces composants sont comptabilisés séparément.
   * Les données des [Flux de métriques temps réel](../../azure-monitor/app/live-stream.md) ne sont pas comptabilisées dans la tarification. Dans un abonnement, vos frais sont calculés par nœud, et non par application. Si vous disposez de cinq nœuds envoyant des données de télémétrie pour 12 applications, les frais sont calculés pour cinq nœuds.
 * Bien que les frais indiqués soient par mois, vous êtes facturé uniquement pour toutes les heures dans lesquelles un nœud envoie des données de télémétrie à partir d’une application. Le tarif horaire est le prix mensuel indiqué divisé par 744 (nombre d’heures dans un mois de 31 jours).
 * Une allocation de volume de données de 200 Mo par jour est accordée pour chaque nœud détecté (avec une granularité par heure). Le volume de données alloué inutilisé n’est pas reporté de jour en jour.
-  * Lorsque vous choisissez le plan tarifaire Entreprise, chaque abonnement reçoit un volume quotidien de données en fonction du nombre de nœuds qui envoient des données de télémétrie aux ressources Application Insights dans cet abonnement. Par conséquent, si vous disposez de cinq nœuds qui envoient des données toute la journée, une allocation groupée de 1 Go est appliquée à toutes les ressources Application Insights de cet abonnement. Le fait que certains nœuds envoient plus de données que d’autres a peu d’importance, car les données incluses sont partagées entre tous les nœuds. Si, un jour donné, les ressources d’Application Insights reçoivent plus de données que le volume quotidien alloué pour cet abonnement, les frais de données de dépassement par Go s’appliquent. 
+  * Si vous choisissez le niveau tarifaire par nœud, chaque abonnement reçoit un volume quotidien de données en fonction du nombre de nœuds qui envoient des données de télémétrie aux ressources Application Insights dans cet abonnement. Par conséquent, si vous disposez de cinq nœuds qui envoient des données toute la journée, une allocation groupée de 1 Go est appliquée à toutes les ressources Application Insights de cet abonnement. Le fait que certains nœuds envoient plus de données que d’autres a peu d’importance, car les données incluses sont partagées entre tous les nœuds. Si un jour donné, les ressources Application Insights reçoivent plus de données est inclus dans le volume quotidien alloué pour cet abonnement, les frais de données de dépassement par Go s’appliquent. 
   * Le volume de données quotidien alloué est calculé comme suit : nombre d’heures quotidiennes (UTC) pendant lesquelles chaque nœud envoie des données de télémétrie, divisé par 24 multiplié par 200 Mo. Par conséquent, si quatre nœuds envoient des données de télémétrie pendant 15 heures sur les 24 heures de la journée, les données incluses pour le jour en question sont calculées comme suit : ((4 &#215; 15) / 24) &#215; 200 Mo = 500 Mo. Au prix de 2,30 USD par Go pour le dépassement de données, les frais s'élèvent à 1,15 USD si les nœuds envoient 1 Go de données dans cette journée.
-  * Le volume de données quotidien alloué du plan Entreprise n’est pas partagé entre les applications pour lesquelles vous avez choisi le plan tarifaire De base. Le volume alloué inutilisé n’est pas reporté de jour en jour. 
+  * L’octroi quotidien du niveau par nœud n’est pas partagé avec les applications pour lesquelles vous avez choisi le niveau par Go. Le volume alloué inutilisé n’est pas reporté de jour en jour. 
 
 ### <a name="examples-of-how-to-determine-distinct-node-count"></a>Exemples de détermination du nombre de nœuds distincts
 
 | Scénario                               | Nombre total de nœuds quotidien |
 |:---------------------------------------|:----------------:|
 | 1 application utilisant 3 instances Azure App Service et 1 serveur virtuel | 4 |
-| 3 applications s’exécutant sur 2 machines virtuelles ; ressources Application Insights pour ces applications figurant dans le même abonnement et dans le plan Entreprise | 2 | 
+| 3 applications s’exécutant sur 2 machines virtuelles ; les ressources Application Insights pour ces applications sont dans le même abonnement et dans le niveau par nœud | 2 | 
 | 4 applications dont les ressources Applications Insights figurent dans le même abonnement ; chaque application exécutant 2 instances pendant 16 heures creuses, ainsi que 4 instances pendant 8 heures de pointe | 13.33 | 
 | Services cloud avec 1 rôle de travail et 1 rôle web, chacune exécutant 2 instances | 4 | 
 | Cluster Azure Service Fabric de 5 nœuds exécutant 50 microservices ; chaque microservice exécutant 3 instances | 5.|
@@ -192,6 +191,11 @@ Ce plan ne s’appliquant qu’aux clients détenant un abonnement Operations Ma
   * Pour les versions antérieures du Kit de développement logiciel (SDK), le [Kit de développement logiciel (SDK) web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/) se comporte comme les nouvelles versions du Kit de développement logiciel (SDK), mais le [Kit de développement logiciel (SDK) principal](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) ne signale qu’un seul nœud, quel que soit le nombre d’hôtes d’application. 
   * Si votre application utilise le Kit de développement logiciel (SDK) pour définir l’instance de rôle (**roleInstance**) sur une valeur personnalisée, cette même valeur est utilisée par défaut pour déterminer le nombre de nœuds. 
   * Si vous utilisez une nouvelle version du Kit de développement logiciel (SDK) avec une application qui s’exécute à partir d’ordinateurs clients ou d’appareils mobiles, le nombre de nœuds renvoyé peut se révéler très important (en raison du grand nombre d’ordinateurs clients ou d’appareils mobiles). 
+
+## <a name="automation"></a>Automatisation
+
+Vous pouvez écrire un script pour définir le niveau de tarification à l’aide de gestion des ressources Azure. [Découvrez comment](powershell.md#price).
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

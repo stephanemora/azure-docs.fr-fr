@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2cc5d953ec412c1c747989d58303beae05f2039c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 201998168b0709b1608ffad2565518e15d47e52c
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66118061"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234303"
 ---
 # <a name="azure-disk-encryption-prerequisites-previous-release"></a>Prérequis d’Azure Disk Encryption (version précédente)
 
@@ -73,7 +73,7 @@ Vous trouverez un exemple des commandes permettant de monter les disques de donn
 **Stratégie de groupe :**
  - La solution Azure Disk Encryption utilise le protecteur de clé externe BitLocker pour les machines virtuelles IaaS Windows. Pour les machines virtuelles jointes à un domaine, n’envoyez (push) pas de stratégies de groupe qui appliquent des protecteurs de Module de plateforme sécurisée (TPM). Pour en savoir plus sur la stratégie de groupe pour « Autoriser BitLocker sans module de plateforme sécurisée compatible », consultez la rubrique [BitLocker Group Policy Reference](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings#a-href-idbkmk-unlockpol1arequire-additional-authentication-at-startup) (Référence de stratégie de groupe BitLocker).
 
--  La stratégie BitLocker sur les machines virtuelles jointes à un domaine avec stratégie de groupe personnalisée doit inclure le paramètre suivant : [Configurer le stockage par les utilisateurs des informations de récupération BitLocker -> Autoriser une clé de récupération de 256 bits](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings). En cas d'incompatibilité des paramètres de la stratégie de groupe personnalisée de BitLocker, Azure Disk Encryption échouera. Sur les machines dont le paramètre de stratégie était incorrect, il peut être nécessaire d’appliquer la nouvelle stratégie, de forcer la mise à jour de cette dernière (gpupdate.exe /force), puis de procéder à un redémarrage.  
+-  La stratégie BitLocker sur les machines virtuelles jointes à un domaine avec stratégie de groupe personnalisée doit inclure le paramètre suivant : [Configurer le stockage de l’utilisateur de BitLocker, les informations de récupération -> clé de récupération permettent de 256 bits](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings). En cas d'incompatibilité des paramètres de la stratégie de groupe personnalisée de BitLocker, Azure Disk Encryption échouera. Sur les machines dont le paramètre de stratégie était incorrect, il peut être nécessaire d’appliquer la nouvelle stratégie, de forcer la mise à jour de cette dernière (gpupdate.exe /force), puis de procéder à un redémarrage.  
 
 
 ## <a name="bkmk_PSH"></a> Azure PowerShell
@@ -246,7 +246,7 @@ Pour créer une application Azure AD, exécutez la procédure de l’article [Ut
 1. [Vérifiez les autorisations requises](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
 2. [Créez une application Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application). 
      - Lorsque vous créez l’application, vous pouvez utiliser le nom et l’URL de connexion de votre choix.
-3. [Obtenez l’ID d’application et la clé d’authentification](../active-directory/develop/howto-create-service-principal-portal.md#get-application-id-and-authentication-key). 
+3. [Obtenez l’ID d’application et la clé d’authentification](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in). 
      - La clé d’authentification est la clé secrète client et est utilisée comme le AadClientSecret pour Set-AzVMDiskEncryptionExtension. 
         - La clé d’authentification est utilisée par l’application en tant qu’information d’identification pour la connexion à Azure AD. Dans le Portail Azure, ce secret est appelé clés, mais n’a aucun rapport avec les coffres de clés. Sécurisez ce secret de manière appropriée. 
      - L’ID d’application servira ultérieurement en tant que le AadClientId pour Set-AzVMDiskEncryptionExtension et ServicePrincipalName pour Set-AzKeyVaultAccessPolicy. 

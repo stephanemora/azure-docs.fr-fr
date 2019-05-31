@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 09/19/2018
 ms.author: rogarana
-ms.openlocfilehash: af903ce3ce7cfa165c278e415827dda36630e7b4
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: ad8ddf7e9e324bbcc48f15c95870a24fe7476828
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65209722"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237761"
 ---
 # <a name="overview-of-azure-active-directory-authentication-over-smb-for-azure-files-preview"></a>Vue d’ensemble de l’authentification Azure Active Directory sur SMB pour Azure Files (préversion)
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -26,7 +26,7 @@ Vous devez comprendre certains termes clés relatifs à l’authentification Azu
     Azure Active Directory (Azure AD) est le service cloud Microsoft multilocataire de gestion des annuaires et des identités. Azure AD associe des services d’annuaires principaux, la gestion de l’accès aux applications et la protection des identités dans une même solution. Pour plus d’informations, consultez [Qu’est-ce qu’Azure Active Directory ?](../../active-directory/fundamentals/active-directory-whatis.md)
 
 -   **Services de domaine Azure AD**  
-    Azure AD Domain Services fournit des services de domaine gérés, comme la jonction de domaine, les stratégies de groupe, le protocole LDAP et l’authentification Kerberos/NTLM. Ces services sont entièrement compatibles avec Windows Server Active Directory. Pour plus d’informations, consultez [Azure Active Directory (AD) Domain Services](../../active-directory-domain-services/active-directory-ds-overview.md).
+    Azure AD Domain Services fournit des services de domaine gérés, comme la jonction de domaine, les stratégies de groupe, le protocole LDAP et l’authentification Kerberos/NTLM. Ces services sont entièrement compatibles avec Windows Server Active Directory. Pour plus d’informations, consultez [Azure Active Directory (AD) Domain Services](../../active-directory-domain-services/overview.md).
 
 -   **Contrôle d’accès en fonction du rôle (RBAC) Azure**  
     Le contrôle d’accès en fonction du rôle (RBAC) Azure permet une gestion précise de l’accès pour Azure. À l’aide de RBAC, vous pouvez gérer l’accès aux ressources en accordant aux utilisateurs les autorisations minimales dont ils ont besoin pour effectuer leur travail. Pour plus d’informations sur RBAC, consultez [Qu’est-ce que le contrôle d’accès en fonction du rôle (RBAC) dans Azure ?](../../role-based-access-control/overview.md)
@@ -60,7 +60,7 @@ Quand une identité associée à une application s’exécutant sur une machine 
 ### <a name="enable-azure-ad-authentication-over-smb"></a>Activer l’authentification Azure AD sur SMB
 Vous pouvez activer l’authentification Azure AD sur SMB pour Azure Files sur vos comptes de stockage nouveaux et existants créés après le 24 septembre 2018. 
 
-Avant d’activer l’authentification Azure AD sur SMB, vérifiez qu’Azure AD Domain Services est déployé pour le locataire Azure AD principal auquel est associé votre compte de stockage. Si vous n’avez pas encore configuré Azure AD Domain Services, suivez les instructions pas à pas fournies dans [Activer Azure Active Directory Domain Services à l’aide du portail Azure](../../active-directory-domain-services/active-directory-ds-getting-started.md).
+Avant d’activer l’authentification Azure AD sur SMB, vérifiez qu’Azure AD Domain Services est déployé pour le locataire Azure AD principal auquel est associé votre compte de stockage. Si vous n’avez pas encore configuré Azure AD Domain Services, suivez les instructions pas à pas fournies dans [Activer Azure Active Directory Domain Services à l’aide du portail Azure](../../active-directory-domain-services/create-instance.md).
 
 Le déploiement d’Azure AD Domain Services prend généralement 10 à 15 minutes. Une fois Azure AD Domain Services déployé, vous pouvez activer l’authentification Azure AD sur SMB pour Azure Files. Pour plus d’informations, consultez [Activer l’authentification Azure Active Directory sur SMB pour Azure Files (préversion)](storage-files-active-directory-enable.md). 
 

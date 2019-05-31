@@ -8,21 +8,21 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: b07a932ef048aa894af990baa57b87529d9da3aa
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 8b96c38d5bb24a267ad0203083e485d1780f28c8
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64717393"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241476"
 ---
 # <a name="create-a-non-interactive-authentication-net-hdinsight-application"></a>Créer une application .NET HDInsight d’authentification non interactive
 Vous pouvez exécuter votre application Microsoft .NET Azure HDInsight sous l’identité de l’application (non interactive) ou sous l’identité de l’utilisateur connecté à l’application (interactive). Cet article vous présente la création d’une application .NET d’authentification non interactive pour se connecter à Azure et gérer HDInsight. Pour voir un exemple d’application interactive, consultez [Se connecter à Azure HDInsight](hdinsight-administer-use-dotnet-sdk.md#connect-to-azure-hdinsight). 
 
 À partir de votre application .NET non interactive, vous avez besoin des éléments suivants :
 
-* Votre ID de locataire d’abonnement Azure (également appelée *ID répertoire*). Voir [Obtenir l’ID de locataire](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-id).
-* L’ID client d’application Azure Active Directory (Azure AD). Voir [Créer une application Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) et la rubrique [Obtenir un ID d’application](../active-directory/develop/howto-create-service-principal-portal.md#get-application-id-and-authentication-key).
-* La clé secrète de l’application Azure AD. Voir la rubrique sur [l’obtention de la clé d’authentification de l’application](../active-directory/develop/howto-create-service-principal-portal.md#get-application-id-and-authentication-key).
+* Votre ID de locataire d’abonnement Azure (également appelée *ID répertoire*). Voir [Obtenir l’ID de locataire](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
+* L’ID client d’application Azure Active Directory (Azure AD). Voir [Créer une application Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) et la rubrique [Obtenir un ID d’application](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
+* La clé secrète de l’application Azure AD. Voir la rubrique sur [l’obtention de la clé d’authentification de l’application](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
 
 ## <a name="prerequisites"></a>Conditions préalables
 * Un cluster HDInsight. Voir le [didacticiel de prise en main](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster).
@@ -35,7 +35,7 @@ Affectez à votre application Azure AD un [rôle](../role-based-access-control/b
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 2. Dans le menu de gauche, sélectionnez **Groupe de ressources**.
 3. Sélectionnez le groupe de ressources qui contient le cluster HDInsight sur lequel vous exécuterez votre requête Hive plus tard dans ce didacticiel. Si vous avez un grand nombre de groupes de ressources, vous pouvez utiliser le filtre pour trouver celui qui que vous intéresse.
-4. Dans le menu du groupe de ressources, sélectionnez **Contrôle d’accès (IAM)**.
+4. Dans le menu du groupe de ressources, sélectionnez **Contrôle d’accès (IAM)** .
 5. Sélectionnez l’onglet **Attributions de rôles** pour voir les attributions de rôles actuelles.
 6. En haut de la page, sélectionnez **Ajouter une attribution de rôle**.
 7. Suivez les instructions pour ajouter le rôle Propriétaire à votre application Azure AD. Une fois le rôle ajouté, l’application est listée sous le rôle Propriétaire. 

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/06/2019
 ms.author: iainfou
-ms.openlocfilehash: 1b983c534ab92218759175655bbf396788e4c39d
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 5c27d47a918939d012abee3c2317eba39587d734
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956497"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243577"
 ---
 # <a name="preview---secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Preview - le serveur d’API à l’aide d’un accès sécurisé autorisé des plages d’adresses IP dans Azure Kubernetes Service (ACS)
 
@@ -21,9 +21,10 @@ Dans Kubernetes, le serveur d’API reçoit des requêtes pour effectuer des act
 Cet article vous montre comment utiliser des plages d’adresses IP API serveur autorisé pour limiter les demandes à un plan de contrôle. Actuellement, cette fonctionnalité est uniquement disponible en tant que version préliminaire.
 
 > [!IMPORTANT]
-> Fonctionnalités de préversion AKS sont libre-service et participer. Les préversions sont fournies pour recueillir des commentaires et des bogues à partir de notre communauté. Toutefois, ils ne sont pas pris en charge par le support technique Azure. Si vous créez un cluster, ou ajoutez ces fonctionnalités à des clusters existants, ce cluster est non pris en charge jusqu'à ce que la fonctionnalité n’est plus disponible en version préliminaire et atteignent à la disposition générale (GA).
+> Fonctionnalités de préversion AKS sont en libre-service, participer. Elles sont fournies pour recueillir des commentaires et des bogues à partir de notre communauté. Dans la version préliminaire, ces fonctionnalités ne sont pas destinées à des fins de production. Fonctionnalités en version préliminaire publique relèvent du « meilleur effort » la prise en charge. L’assistance des équipes de support technique AKS est disponible pendant les heures de bureau PST fuseau horaire (PST) uniquement. Pour plus d’informations, consultez les éléments suivants prennent en charge des articles :
 >
-> Si vous rencontrez des problèmes avec les fonctionnalités en version préliminaire, [de signaler un problème sur le référentiel GitHub d’AKS][aks-github] par le nom de la fonctionnalité d’aperçu dans le titre du bogue.
+> * [Stratégies de prise en charge AKS][aks-support-policies]
+> * [FAQ du Support Azure][aks-faq]
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
@@ -242,7 +243,6 @@ Dans cet article, vous avez activé les plages d’adresses IP API serveur autor
 Pour plus d’informations, consultez [les concepts de sécurité pour les applications et des clusters dans AKS] [ concepts-security] et [meilleures pratiques pour la sécurité du cluster et les mises à niveau dans AKS] [ operator-best-practices-cluster-security].
 
 <!-- LINKS - external -->
-[aks-github]: https://github.com/azure/aks/issues]
 [azure-firewall-costs]: https://azure.microsoft.com/pricing/details/azure-firewall/
 
 <!-- LINKS - internal -->
@@ -265,3 +265,5 @@ Pour plus d’informations, consultez [les concepts de sécurité pour les appli
 [az-network-firewall-ip-config-create]: /cli/azure/ext/azure-firewall/network/firewall/ip-config#ext-azure-firewall-az-network-firewall-ip-config-create
 [az-network-firewall-network-rule-create]: /cli/azure/ext/azure-firewall/network/firewall/network-rule#ext-azure-firewall-az-network-firewall-network-rule-create
 [az-network-route-table-route-create]: /cli/azure/network/route-table/route#az-network-route-table-route-create
+[aks-support-policies]: support-policies.md
+[aks-faq]: faq.md

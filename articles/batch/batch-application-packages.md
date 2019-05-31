@@ -12,15 +12,15 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-ms.date: 04/05/2019
+ms.date: 04/26/2019
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ee54d37050991763e60a6feb96c75d80384a42ac
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: c17835a4155e97395e8ae1b8e9ba6d2a42433f71
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64726670"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66298744"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Déployer des applications sur les nœuds avec des packages d’applications Batch
 
@@ -176,7 +176,7 @@ Pour ajouter une version du package d’application pour une application existan
 
 ![Panneau Ajouter un package d’application dans le Portail Azure][8]
 
-Comme vous pouvez le voir, les champs correspondent à ceux de la fenêtre **Nouvelle application**, mais la boîte **ID d’application** est désactivée. Comme vous l’avez fait pour la nouvelle application, spécifiez la **version** de votre nouveau package, accédez au fichier .zip de votre **package d’application**, puis cliquez sur **OK** pour charger le package.
+Comme vous pouvez le voir, les champs correspondent à celles de la **nouvelle application** fenêtre, mais la **ID d’Application** zone est désactivée. Comme vous l’avez fait pour la nouvelle application, spécifiez la **version** de votre nouveau package, accédez au fichier .zip de votre **package d’application**, puis cliquez sur **OK** pour charger le package.
 
 ### <a name="update-or-delete-an-application-package"></a>Mettre à jour ou supprimer un package d’application
 Pour mettre à jour ou supprimer un package d’application existant, ouvrez les détails de l’application, cliquez sur **Packages**, cliquez sur **ellipse** dans la ligne du package d’application que vous voulez modifier, puis sélectionnez l’action à exécuter.
@@ -261,7 +261,7 @@ Windows:
 AZ_BATCH_APP_PACKAGE_APPLICATIONID#version
 ```
 
-Sur des nœuds Linux, le format est légèrement différent. Les points (.), les tirets (-) et les signes dièse (#) sont aplatis en traits de soulignement dans la variable d’environnement. En outre, notez que la casse de l’ID d’application est conservée. Par exemple : 
+Sur des nœuds Linux, le format est légèrement différent. Les points (.), les tirets (-) et les signes dièse (#) sont aplatis en traits de soulignement dans la variable d’environnement. En outre, notez que la casse de l’ID d’application est conservée. Exemple :
 
 ```
 Linux:

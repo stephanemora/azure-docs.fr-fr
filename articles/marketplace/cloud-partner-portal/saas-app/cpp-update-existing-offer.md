@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/16/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 2195c9a5e1f0d3683ea8cf6564d97cbabd072f81
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.openlocfilehash: 825170be5dc4d1b25980c7d5037d72779169b3cc
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65834212"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258068"
 ---
 # <a name="update-an-existing-saas-application-offer"></a>Mettre à jour une offre d’application SaaS existante
 
@@ -20,6 +20,7 @@ Différents types de mises à jour peuvent s’appliquer à votre offre à l’i
 
 > [!IMPORTANT] 
 > SaaS offre des fonctionnalités sont migrée vers le [Microsoft Partner Center](https://partner.microsoft.com/dashboard/directory).  Tous les nouveaux éditeurs doivent utiliser le centre de partenaires pour la création de nouvelles offres de SaaS et de gestion des offres existants.  Éditeurs actuels avec les offres SaaS sont batchwise migrées à partir du portail Cloud Partner pour l’espace partenaires.  Le portail Cloud Partner affiche des messages d’état pour indiquer quand les offres spécifiques ont été migrés.
+> Pour plus d’informations, consultez [créer une offre SaaS](../../partner-center-portal/create-new-saas-offer.md).
 
 Vous pouvez mettre à jour votre offre pour plusieurs raisons, par exemple :
 

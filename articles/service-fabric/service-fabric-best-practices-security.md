@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: 3349abfb1b7cf85247b1bb5de8eb53fa09299b74
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 449dbb04d58fe7980c845b8c5bc8d837b643c1be
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65136485"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66386728"
 ---
 # <a name="azure-service-fabric-security"></a>Sécurité de Microsoft Azure Service Fabric 
 
@@ -201,6 +201,14 @@ L’exemple suivant montre comment faire pour une ressource Cosmos DB :
 ```bash
 cosmos_db_password=$(curl 'https://management.azure.com/subscriptions/<YOUR SUBSCRIPTION>/resourceGroups/<YOUR RG>/providers/Microsoft.DocumentDB/databaseAccounts/<YOUR ACCOUNT>/listKeys?api-version=2016-03-31' -X POST -d "" -H "Authorization: Bearer $access_token" | python -c "import sys, json; print(json.load(sys.stdin)['primaryMasterKey'])")
 ```
+## <a name="windows-security-baselines"></a>Lignes de base de sécurité de Windows
+[Nous vous recommandons d’implémenter une configuration standard de l’industrie qui est largement connue et bien testée, telles que des bases de sécurité de Microsoft, par opposition à la création d’une ligne de base vous-même](https://docs.microsoft.com/windows/security/threat-protection/windows-security-baselines); une option pour l’approvisionnement sur votre Machine virtuelle Identiques consiste à utiliser le Gestionnaire d’extensions Azure Desired State Configuration (DSC), pour configurer les machines virtuelles comme ils sont fournis en ligne, afin qu’elles exécutent le logiciel en production.
+
+## <a name="azure-firewall"></a>Pare-feu Azure
+[Pare-feu Azure est un service de sécurité réseau géré, basé sur le cloud qui protège vos ressources de réseau virtuel Azure. Il est entièrement de pare-feu en tant que service avec une haute disponibilité intégrée et l’évolutivité de cloud non restreint. ](https://docs.microsoft.com/azure/firewall/overview); Cela permet de limiter le trafic HTTP/S sortant vers une liste spécifiée des noms de domaine complet (FQDN), y compris les caractères génériques. Cette fonctionnalité ne nécessite pas d’arrêt SSL. Son recommandé d’exploiter [balises Azure Firewall FQDN](https://docs.microsoft.com/azure/firewall/fqdn-tags) des mises à jour de Windows et pour activer le trafic réseau à Microsoft Windows Update les points de terminaison peuvent transiter par votre pare-feu. [Déployer le pare-feu d’Azure à l’aide d’un modèle](https://docs.microsoft.com/azure/firewall/deploy-template) propose un exemple de définition de modèle de ressource Microsoft.Network/azureFirewalls.
+
+## <a name="tls-12"></a>TLS 1.2
+[TSG](https://github.com/Azure/Service-Fabric-Troubleshooting-Guides/blob/master/Security/TLS%20Configuration.md)
 
 ## <a name="windows-defender"></a>Windows Defender 
 

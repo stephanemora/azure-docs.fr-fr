@@ -9,12 +9,12 @@ ms.date: 10/04/2018
 ms.topic: conceptual
 description: Découvrez comment créer rapidement un cluster Kubernetes activé pour Azure Dev Spaces directement depuis votre navigateur, sans rien installer.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs, Helm, service Mesh, routage du service Mesh, kubectl, k8s
-ms.openlocfilehash: c9dabc13e85295b88483f43b26ccf0b15406ad9b
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: 532a094f96817f3c525384694b6fa60a292aa948
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65861608"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66391675"
 ---
 # <a name="create-a-kubernetes-cluster-using-azure-cloud-shell"></a>Créer un cluster Kubernetes à l’aide d’Azure Cloud Shell
 
@@ -22,7 +22,7 @@ Vous pouvez utiliser [Azure Cloud Shell](/azure/cloud-shell) pour créer un clus
 
 ## <a name="create-the-cluster"></a>Création du cluster
 
-Tout d’abord, créez le groupe de ressources dans un [région qui prend en charge des espaces de développement Azure](https://docs.microsoft.com/azure/dev-spaces/#a-rapid,-iterative-kubernetes-development-experience-for-teams).
+Tout d’abord, créez le groupe de ressources dans un [région qui prend en charge des espaces de développement Azure][supported-regions].
 
 ```azurecli-interactive
 az group create --name MyResourceGroup --location <region>
@@ -39,3 +39,6 @@ La création du cluster ne prend que quelques minutes.  Une fois terminée, la s
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour obtenir des liens vers les didacticiels complets, consultez la section [Azure Dev Spaces](/azure/dev-spaces/).
+
+
+[supported-regions]: ../about.md#supported-regions-and-configurations

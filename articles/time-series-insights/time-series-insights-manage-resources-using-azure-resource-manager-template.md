@@ -4,19 +4,19 @@ description: Cet article explique comment gérer un environnement Azure Time Ser
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 manager: cshankar
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: f5e350e8a9093936f1e747afda7c3192b4d8368d
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: ba7d412e9bfc29a53cd0aa47a926f60580b45490
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65471712"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237654"
 ---
 # <a name="create-time-series-insights-resources-using-azure-resource-manager-templates"></a>Créer des ressources Time Series Insights à l’aide de modèles Azure Resource Manager
 
@@ -24,10 +24,10 @@ Cet article explique comment créer et déployer des ressources Time Series Insi
 
 Time Series Insights prend en charge les ressources suivantes :
 
-   | Ressource | Description  |
+   | Ressource | Description |
    | --- | --- |
    | Environnement | Un environnement Time Series Insights est un regroupement logique des événements qui sont de lire à partir de répartiteurs, stockés et disponibles pour la requête. Pour plus d’informations, consultez [planifier votre environnement Azure Time Series Insights](time-series-insights-environment-planning.md) |
-   | Source de l'événement | Une source d’événement est une connexion à un répartiteur d’événements à partir de laquelle Time Series Insights lit et ingère des événements dans l’environnement. Sont actuellement pris en charge IoT Hub et Event Hub. |
+   | Source de l’événement | Une source d’événement est une connexion à un répartiteur d’événements à partir de laquelle Time Series Insights lit et ingère des événements dans l’environnement. Sont actuellement pris en charge IoT Hub et Event Hub. |
    | Jeu de données de référence | Les jeux de données de référence fournissent des métadonnées sur les événements de l’environnement. Les métadonnées des jeux de données de référence seront jointes à des événements au cours de l’entrée. Les jeux de données de référence sont définis comme des ressources par leurs propriétés de clé d’événement. Les métadonnées qui composent le jeu de données de référence sont chargées ou modifiées par le biais d’API de plan de données. |
    | Stratégie d’accès | Les stratégies d’accès accordent l’autorisation de générer des requêtes de données, de manipuler les données de référence dans l’environnement et de partager des requêtes enregistrées et des perspectives associées à l’environnement. Pour plus d’informations, consultez [accorder l’accès aux données dans un environnement Time Series Insights à l’aide du portail Azure](time-series-insights-data-access.md) |
 
@@ -59,7 +59,7 @@ La procédure suivante explique comment utiliser PowerShell pour déployer un mo
 
    * Paramètres obligatoires
 
-     | Paramètre | Description  |
+     | Paramètre | Description |
      | --- | --- |
      | eventHubNamespaceName | Espace de noms du hub de la source de l’événement. |
      | eventHubName | Nom du hub de la source de l’événement. |
@@ -71,7 +71,7 @@ La procédure suivante explique comment utiliser PowerShell pour déployer un mo
 
    * Paramètres facultatifs
 
-     | Paramètre | Description  |
+     | Paramètre | Description |
      | --- | --- |
      | existingEventHubResourceId | ID de ressource facultatif d’un hub d’événements existant qui sera connecté à l’environnement Time Series Insights par le biais de la source de l’événement. **REMARQUE :** L'utilisateur qui déploie le modèle doit disposer de privilèges pour effectuer l'opération listkeys sur le hub d'événements. Si aucune valeur n’est transmise, un nouveau hub d’événements sera créé par le modèle. |
      | environmentDisplayName | Nom convivial facultatif à afficher dans les outils et les interfaces utilisateur à la place du nom de l’environnement. |
@@ -148,7 +148,7 @@ La procédure suivante explique comment utiliser PowerShell pour déployer un mo
 
 1. Créez un groupe de ressources s'il n'en existe pas.
 
-   * Si vous n’avez pas d’une ressource existante, créer un nouveau groupe de ressources avec le **New-AzResourceGroup** commande. Indiquez le nom du groupe de ressources et l'emplacement que vous souhaitez utiliser. Exemple :
+   * Si vous n’avez pas d’une ressource existante, créer un nouveau groupe de ressources avec le **New-AzResourceGroup** commande. Indiquez le nom du groupe de ressources et l'emplacement que vous souhaitez utiliser. Exemple :
 
      ```powershell
      New-AzResourceGroup -Name MyDemoRG -Location "West US"

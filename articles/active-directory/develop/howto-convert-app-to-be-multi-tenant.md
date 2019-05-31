@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/12/2019
+ms.date: 05/22/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur, lenalepa, sureshja
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 68973d3a88791bcfffc8183f5e3a16975fe15742
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 2e6a5ecd704aabb4994337cb7b7df9e84677348d
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65540453"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235275"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Activation Connecter un utilisateur Azure Active Directory à l’aide du modèle d’application multilocataire
 
@@ -45,7 +45,7 @@ Examinons chaque étape en détail. Vous pouvez également accéder directement 
 
 ## <a name="update-registration-to-be-multi-tenant"></a>Conversion d’une inscription en inscription mutualisée
 
-Par défaut, les inscriptions web app/API dans Azure AD sont de type client unique. Vous pouvez rendre votre inscription mutualisée en activant le commutateur **Mutualisé** dans le volet **Propriétés** de l’inscription de votre application dans le [portail Azure][AZURE-portal], et en le positionnant sur **Oui**.
+Par défaut, les inscriptions web app/API dans Azure AD sont de type client unique. Vous pouvez rendre votre inscription mutualisée en activant le **pris en charge les types de comptes** basculer le **authentification** volet inscription de votre application dans le [deportailAzure] [ AZURE-portal] et l’affectation **comptes dans n’importe quel répertoire organisation**.
 
 Avant qu’une application soit mutualisée, Azure AD nécessite que l’URI ID d’application soit globalement unique. L’URI ID d’application est l’une des méthodes d’identification d'une application dans les messages de protocole. Pour une application à client unique, il suffit que l’URI ID d’application soit unique au sein de ce client. Pour une application mutualisée, l’URI doit être globalement unique afin qu’Azure AD puisse trouver l’application sur tous les clients. L’unicité globale est appliquée en obligeant l’URI ID d’application à avoir un nom d’hôte correspondant à un domaine vérifié du client Azure AD.
 
@@ -138,7 +138,7 @@ Votre application peut comporter plusieurs niveaux, chacun représenté par sa p
 
 #### <a name="multiple-tiers-in-a-single-tenant"></a>Plusieurs niveaux dans un seul locataire
 
-Cela peut poser problème si votre application logique implique deux ou plusieurs inscriptions d’application, par exemple un client et une ressource distincts. Comment ajouter d’abord la ressource au client ? Azure AD traite ce cas en permettant au client et aux ressources d’être consentis en une seule étape. L’utilisateur voit l’ensemble des autorisations demandées par le client et les ressources sur la page de consentement. Pour activer ce comportement, l’inscription d’application de la ressource doit inclure l’ID d’application du client en tant que `knownClientApplications` dans son [manifeste d’application][AAD-App-Manifest]. Exemple :
+Cela peut poser problème si votre application logique implique deux ou plusieurs inscriptions d’application, par exemple un client et une ressource distincts. Comment ajouter d’abord la ressource au client ? Azure AD traite ce cas en permettant au client et aux ressources d’être consentis en une seule étape. L’utilisateur voit l’ensemble des autorisations demandées par le client et les ressources sur la page de consentement. Pour activer ce comportement, l’inscription d’application de la ressource doit inclure l’ID d’application du client en tant que `knownClientApplications` dans son [manifeste d’application][AAD-App-Manifest]. Exemple :
 
     knownClientApplications": ["94da0930-763f-45c7-8d26-04d5938baab2"]
 

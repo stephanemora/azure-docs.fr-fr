@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 5ad7ef714147616fe55a9b978d501b974323e251
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 5adba958ed3bcb9efbf66c079b541e11ceed570c
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65949576"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243590"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Contrôle d’accès dans Azure Data Lake Storage Gen2
 
@@ -26,9 +26,9 @@ Azure Data Lake Storage Gen2 implémente un modèle de contrôle d’accès qui 
 
 RBAC utilise les attributions de rôles appliquer efficacement les jeux d’autorisations *principaux de sécurité*. Un *principal de sécurité* est un objet qui représente un utilisateur, un groupe, un principal de service ou une identité gérée qui est définie dans Azure Active Directory (AD) qui demande l’accès aux ressources Azure.
 
-En règle générale, ces ressources Azure sont limitées aux ressources de niveau supérieur (par exemple : Comptes de stockage Azure). Avec le Stockage Azure, et par conséquent Azure Data Lake Storage Gen2, ce mécanisme a été étendu à la ressource du système de fichiers.
+En règle générale, ces ressources Azure sont limitées aux ressources de niveau supérieur (par exemple : Comptes de stockage Azure). Dans le cas de stockage Azure et, par conséquent, le stockage Azure Data Lake Gen2, ce mécanisme a été étendu à la ressource (système de fichiers) du conteneur.
 
-Pour savoir comment affecter des rôles aux entités de sécurité dans l’étendue de votre compte de stockage, consultez [authentifier l’accès à Azure d’objets BLOB et files d’attente à l’aide d’Azure Active Directory](https://docs.microsoft.com/azure/storage/common/storage-auth-aad?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+Pour savoir comment affecter des rôles aux entités de sécurité dans l’étendue de votre compte de stockage, consultez [accorder l’accès aux données blob et file d’attente Azure avec RBAC dans le portail Azure](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 ### <a name="the-impact-of-role-assignments-on-file-and-directory-level-access-control-lists"></a>L’impact des affectations de rôle sur les listes de contrôle d’accès au niveau fichier et répertoire
 
@@ -49,7 +49,7 @@ Les jetons SAP incluent les autorisations accordées dans le jeton. Les autorisa
 
 ## <a name="access-control-lists-on-files-and-directories"></a>Listes de contrôle d’accès sur les fichiers et répertoires
 
-Vous pouvez associer une entité de sécurité à un niveau d’accès pour les fichiers et répertoires. Ces associations sont capturées dans un *liste de contrôle d’accès (ACL)*. Chaque fichier et répertoire dans votre compte de stockage a une liste de contrôle d’accès.
+Vous pouvez associer une entité de sécurité à un niveau d’accès pour les fichiers et répertoires. Ces associations sont capturées dans un *liste de contrôle d’accès (ACL)* . Chaque fichier et répertoire dans votre compte de stockage a une liste de contrôle d’accès.
 
 Si un rôle est attribué à un principal de sécurité au niveau de compte de stockage, vous pouvez utiliser des listes de contrôle d’accès à accorder à que ce principal de sécurité un accès élevé aux répertoires et fichiers spécifiques.
 
@@ -77,8 +77,6 @@ ACL par défaut est des modèles d’ACL associé à un répertoire qui détermi
 
 Les ACL d’accès et les ACL par défaut ont la même structure.
 
-Les ACL d’accès et les ACL par défaut ont la même structure.
-
 > [!NOTE]
 > La modification de l’ACL par défaut d’un parent n’affecte pas l’ACL d’accès ni l’ACL par défaut des éléments enfants qui existent déjà.
 
@@ -92,6 +90,9 @@ Les autorisations sur un objet de système de fichiers sont **Lecture**, **Écri
 | **Écriture (W)** | Permet d’écrire ou d’ajouter du contenu dans un fichier | Requiert les autorisations **Écriture** et **Exécution** pour créer des éléments enfants dans un répertoire |
 | **Exécution (X)** | Cela ne signifie rien dans le contexte de Data Lake Storage Gen2 | Requise pour parcourir les éléments enfants d’un répertoire |
 
+> [!NOTE]
+> Si vous accordez des autorisations à l’aide uniquement les ACL (aucun RBAC), pour accorder une lecture de principal de service ou d’un accès en écriture à un fichier, vous devez donner le principal du service **Execute** autorisations pour le système de fichiers et chaque dossier dans le hiérarchie de dossiers qui mènent au fichier.
+
 #### <a name="short-forms-for-permissions"></a>Formes abrégées des autorisations
 
 **RWX** correspond à **Lecture + Écriture + Exécution**. Il existe une forme numérique plus condensée dans laquelle **Lecture = 4**, **Écriture = 2** et **Exécution = 1**. Les autorisations sont représentées par la somme de ces chiffres. Voici quelques exemples.
@@ -101,7 +102,7 @@ Les autorisations sur un objet de système de fichiers sont **Lecture**, **Écri
 | 7            | `RWX`        | Lecture + Écriture + Exécution |
 | 5.            | `R-X`        | Lecture + Exécution         |
 | 4            | `R--`        | Lire                   |
-| 0            | `---`        | Aucune autorisation         |
+| 0            | `---`        | | Aucune autorisation         |
 
 #### <a name="permissions-inheritance"></a>Héritage des autorisations
 

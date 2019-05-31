@@ -3,26 +3,29 @@ title: Déclarer des modules et des routes avec des manifestes de déploiement -
 description: Découvrez comment un manifeste de déploiement déclare les modules à déployer, comment les déployer et comment créer des itinéraires de messages entre eux.
 author: kgremban
 manager: philmea
-ms.author: v-yiso
-origin.date: 03/28/2019
-ms.date: 04/22/2019
+ms.author: kgremban
+ms.date: 05/28/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: f4a562cab445398986c1b8f379f6cb90ca843342
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.custom: seodec18
+ms.openlocfilehash: f4828b59ffa43365f48c002262368d383dfcff05
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61363157"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389362"
 ---
 # <a name="learn-how-to-deploy-modules-and-establish-routes-in-iot-edge"></a>Découvrez comment déployer des modules et établir des itinéraires dans IoT Edge.
 
-Chaque appareil IoT Edge exécute au moins deux modules : $edgeAgent et $edgeHub, qui font partie du runtime IoT Edge. En outre, les appareils IoT Edge peuvent exécuter plusieurs modules pour effectuer autant de processus que nécessaire. Comme vous déployez tous ces modules sur un appareil à la fois, IoT Edge permet d’indiquer quels modules installer et comment les configurer pour qu’ils fonctionnent ensemble. 
+Chaque appareil IoT Edge exécute au moins deux modules : $edgeAgent et $edgeHub, qui font partie du runtime IoT Edge. APPAREIL IoT Edge peut exécuter plusieurs modules supplémentaires pour n’importe quel nombre de processus. Utilisez un manifeste de déploiement pour indiquer à quels modules à installer votre appareil et comment les configurer pour fonctionner ensemble. 
 
 Le *manifeste de déploiement* est un document JSON qui décrit :
 
-* le jumeau de module **de l’agent IoT Edge**, qui inclut l’image conteneur pour chaque module, les informations d’identification pour accéder aux registres de conteneurs privés et les instructions indiquant comment créer et gérer chaque module ;
+* Le **agent IoT Edge** jumeau de module, qui comprend trois composants. 
+  * L’image de conteneur pour chaque module qui s’exécute sur l’appareil.
+  * Les informations d’identification pour accéder aux registres de conteneurs privés qui contiennent des images de module.
+  * Instructions pour la façon dont chaque module doit-elle être créée et gérée.
 * le jumeau de module du **hub IoT Edge**, qui inclut le mode de flux des messages entre les modules et finalement vers IoT Hub ;
 * le cas échéant, les propriétés souhaitées de tout jumeau de module supplémentaire.
 
@@ -134,7 +137,9 @@ Chaque itinéraire requiert une source et un récepteur, mais la condition est f
 
 ### <a name="source"></a>Source
 
-La source spécifie d'où proviennent les messages. IoT Edge peut acheminer les messages d’appareils de nœuds terminaux ou de modules.
+La source spécifie d'où proviennent les messages. IoT Edge peut acheminer les messages à partir de modules ou feuille d’appareils. 
+
+À l’aide des kits de développement logiciel IoT, les modules peuvent déclarer des files d’attente de sortie spécifiques pour leurs messages à l’aide de la classe ModuleClient. Files d’attente de sortie ne sont pas nécessaires, mais sont utiles pour la gestion de plusieurs itinéraires. Appareils feuilles peuvent utiliser la classe DeviceClient des kits SDK IoT pour envoyer des messages aux appareils de passerelle IoT Edge de la même façon qu’ils seraient envoient des messages à IoT Hub. Pour plus d’informations, consultez [comprendre et utiliser le SDK Azure IoT Hub](../iot-hub/iot-hub-devguide-sdks.md).
 
 La propriété source peut être l’une des valeurs suivantes :
 
@@ -142,14 +147,14 @@ La propriété source peut être l’une des valeurs suivantes :
 | ------ | ----------- |
 | `/*` | Tous les messages appareil-à-cloud ou les notifications de changement de jumeau à partir de n’importe quel module ou appareil de nœud terminal |
 | `/twinChangeNotifications` | Tout changement de jumeau (propriétés signalées) en provenance de n’importe quel module ou appareil de nœud terminal |
-| `/messages/*` | Tout message appareil-à-cloud envoyé par un module ou par une appareil de nœud terminal, via une sortie ou non |
+| `/messages/*` | Tout message appareil-à-cloud envoyé par un module via une sortie ou aucune, ou par un appareil de nœud terminal |
 | `/messages/modules/*` | Tout message appareil-à-cloud envoyé par un module via une sortie ou aucune |
 | `/messages/modules/<moduleId>/*` | Tout message appareil-à-cloud envoyé par un module spécifique, via une sortie ou non |
 | `/messages/modules/<moduleId>/outputs/*` | Tout message appareil-à-cloud envoyé par un module spécifique, via une sortie |
 | `/messages/modules/<moduleId>/outputs/<output>` | Tout message appareil-à-cloud envoyé par un module spécifique via une sortie spécifique |
 
 ### <a name="condition"></a>Condition
-La condition est facultative dans une déclaration d’itinéraire. Si vous souhaitez transmettre tous les messages du récepteur à la source, il suffit d’omettre la clause **WHERE** entièrement. Vous pouvez également utiliser le [langage de requête IoT Hub](../iot-hub/iot-hub-devguide-routing-query-syntax.md) pour filtrer certains messages ou types de messages qui répondent à la condition. Les itinéraires IoT Edge ne prennent pas en charge les messages de filtrage basés sur les propriétés ou balises de jumeaux. 
+La condition est facultative dans une déclaration d’itinéraire. Si vous souhaitez transmettre tous les messages à partir de la source au récepteur, omettre la **où** clause entièrement. Vous pouvez également utiliser le [langage de requête IoT Hub](../iot-hub/iot-hub-devguide-routing-query-syntax.md) pour filtrer certains messages ou types de messages qui répondent à la condition. Les itinéraires IoT Edge ne prennent pas en charge les messages de filtrage basés sur les propriétés ou balises de jumeaux. 
 
 Les messages qui transitent entre les modules dans IoT Edge sont mis en forme de la même manière que les messages qui passent entre les appareils et Azure IoT Hub. Tous les messages sont au format JSON et ont les paramètres **systemProperties**, **appProperties** et **corps**. 
 
@@ -276,9 +281,3 @@ L’exemple suivant montre à quoi peut ressembler un document de manifeste de d
 * Pour obtenir une liste complète des propriétés qui peuvent ou doivent être incluses dans $edgeAgent et $edgeHub, consultez [propriétés de l’agent IoT Edge et hub IoT Edge](module-edgeagent-edgehub.md).
 
 * Maintenant que vous savez comment les modules IoT Edge sont utilisés, vous pouvez lire [Comprendre les exigences et les outils de développement de modules IoT Edge](module-development.md).
-
-[lnk-deploy]: module-deployment-monitoring.md
-[lnk-iothub-query]: ../iot-hub/iot-hub-devguide-routing-query-syntax.md
-[lnk-docker-create-options]: https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate
-[lnk-docker-logging-options]: https://docs.docker.com/engine/admin/logging/overview/
-[lnk-module-dev]: module-development.md

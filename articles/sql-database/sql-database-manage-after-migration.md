@@ -12,12 +12,12 @@ ms.author: josack
 ms.reviewer: sstein
 manager: craigg
 ms.date: 02/13/2019
-ms.openlocfilehash: e13907e96bba338648bddcc102e3b4f51887d0ea
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 73bc2d9889727a1633986e12642bd06cf2714632
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65949907"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357326"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-single-and-pooled-databases-in-azure-sql-database"></a>Nouvel administrateur de base de données dans le cloud - Gérer vos bases de données uniques et mises en pool dans Azure SQL Database
 
@@ -29,6 +29,7 @@ Le passage d’un environnement autogéré et auto-contrôlé traditionnel à un
 
 Cet article traite de certaines caractéristiques essentielles d'Azure SQL Database en tant que plateforme, auxquelles vous pouvez facilement avoir recours lorsque vous utilisez des bases de données uniques et des bases de données mises en pool dans des pools élastiques. Ces caractéristiques sont les suivantes :
 
+- Surveiller la base de données à l’aide du portail Azure
 - Continuité d’activité et récupération d’urgence (BCDR)
 - Sécurité et conformité
 - Surveillance et maintenance de bases de données intelligentes
@@ -36,6 +37,25 @@ Cet article traite de certaines caractéristiques essentielles d'Azure SQL Datab
 
 > [!NOTE]
 > Cet article s'applique aux options de déploiement suivantes d'Azure SQL Database : bases de données uniques et pools élastiques. Il ne s'applique pas à l'option de déploiement des instances gérées de SQL Database.
+
+## <a name="monitor-databases-using-the-azure-portal"></a>Analyser des bases de données au moyen du portail Azure
+
+Dans le [Azure portal](https://portal.azure.com/), vous pouvez surveiller une utilisation de la base de données individuelle s en sélectionnant votre base de données, puis en cliquant sur le **surveillance** graphique. Une fenêtre **Métrique** apparaît. Vous pouvez la modifier en cliquant sur le bouton **Modifier le graphique**. Ajoutez les mesures suivantes :
+
+- Pourcentage UC
+- Pourcentage DTU
+- Pourcentage E/S des données
+- Pourcentage de la taille de la base de données
+
+Une fois que vous avez ajouté ces métriques, vous pouvez continuer à les afficher dans le graphique **Surveillance** avec plus d’informations dans la fenêtre **Métrique**. Les quatre mesures montrent le pourcentage d’utilisation moyen correspondant aux **DTU** de votre base de données. Consultez les articles [Modèle d’achat DTU](sql-database-service-tiers-dtu.md) et [Modèle d’achat vCore](sql-database-service-tiers-vcore.md) pour en savoir plus sur les niveaux de service.  
+
+![Surveillance des niveaux de service des performances de la base de données.](./media/sql-database-single-database-monitoring/sqldb_service_tier_monitoring.png)
+
+Vous pouvez également configurer des alertes sur les mesures de performances. Cliquez sur le bouton **Ajouter une alerte** situé dans la fenêtre **Métrique**. Suivez l'assistant pour configurer votre alerte. Vous avez la possibilité de configurer une alerte si les mesures dépassent un certain seuil ou si la mesure tombe en dessous d’un certain seuil.
+
+Par exemple, si vous pensez que la charge de travail dans votre base de données va augmenter, vous pouvez choisir de configurer une alerte par courrier électronique chaque fois que votre base de données atteint 80 % de n'importe quelle mesure de performances. Vous pouvez l’utiliser comme un avertissement anticipé pour déterminer le moment auquel vous devez passer à la taille de calcul supérieure.
+
+Les métriques de performances peuvent également vous aider à déterminer si vous pouvez passer à une taille de calcul inférieure. Supposons que vous utilisez une base de données standard S2 et que toutes les mesures de performance indiquent que la base de données n'utilise pas plus de 10 % des performances en moyenne. Cette base de données fonctionnerait très bien en version S1 standard. Toutefois, prenez en considération les éventuels pics ou baisses de charges de travail avant de passer à une taille de calcul inférieure.
 
 ## <a name="business-continuity-and-disaster-recovery-bcdr"></a>Continuité d’activité et récupération d’urgence (BCDR)
 
@@ -152,7 +172,7 @@ Pour protéger vos données sensibles en transit et au repos, SQL Database propo
 |**Caractéristiques**|**Always Encrypted**|**Chiffrement transparent des données**|
 |---|---|---|
 |**Étendue de chiffrement**|Bout en bout|Données au repos|
-|**Le serveur de base de données peut accéder aux données sensibles**|Non|Oui, étant donné que le chiffrement concerne les données au repos|
+|**Le serveur de base de données peut accéder aux données sensibles**|Non |Oui, étant donné que le chiffrement concerne les données au repos|
 |**Opérations T-SQL autorisées**|Comparaison d’égalité|Toute la surface d’exposition T-SQL est disponible|
 |**Modifications de l’application exigées pour utiliser la fonctionnalité**|Minimales|Très minimes|
 |**Granularité de chiffrement**|Au niveau des colonnes|Au niveau de la base de données|

@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/23/2018
+ms.date: 05/23/2019
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12819bdc20dea57a8a114bb4ff311f828be8b15a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3ba36825805ff54165a3e6c4e221550cc30b07d3
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60249770"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235180"
 ---
 # <a name="what-is-the-azure-active-directory-architecture"></a>Qu’est-ce que l’architecture Azure Active Directory ?
 Azure Active Directory (Azure AD) vous permet de gérer en toute sécurité l’accès aux ressources et aux services Azure pour vos utilisateurs. Azure AD comprend une suite complète de fonctionnalités de gestion des identités. Pour plus d’informations sur les fonctionnalités d’Azure AD, voir [Qu’est Azure Active Directory ?](active-directory-whatis.md)
@@ -30,14 +30,14 @@ L’architecture distribuée géographiquement d’Azure AD combine des fonction
 
 Les éléments d’architecture suivants sont traités dans cet article :
  *  Conception de l’architecture de service
- *  Facilité d'utilisation 
+ *  Extensibilité
  *  Disponibilité continue
  *  Centres de données
 
 ### <a name="service-architecture-design"></a>Conception de l’architecture de service
 La méthode la plus courante pour créer un système riche en données, accessible et pratique, consiste à s’appuyer sur des éléments fondamentaux indépendants : des unités d’échelle. Au niveau des données Azure AD, les unités d’échelle s’appellent des *partitions*. 
 
-Le niveau de données possède plusieurs services frontaux offrant une fonctionnalité de lecture-écriture. Le diagramme suivant montre comment les composants d’une partition à répertoire unique sont délivrés entre des centres de données géographiquement distribués. 
+Le niveau de données possède plusieurs services frontaux offrant une fonctionnalité de lecture-écriture. Le diagramme suivant montre comment les composants d’une partition de répertoire unique sont remis dans l’ensemble des centres de données répartis géographiquement. 
 
   ![Schéma de partition à répertoire unique](./media/active-directory-architecture/active-directory-architecture.png)
 
@@ -49,7 +49,7 @@ Le *réplica principal* reçoit tous les *écrits* pour la partition à laquelle
 
 **Réplicas secondaires**
 
-Toutes les *lectures* de répertoire sont traitées à partir des *réplicas secondaires*, qui se trouvent dans des centres de données répartis entre différentes zones géographiques. Il existe plusieurs réplicas secondaires, car les données sont répliquées de manière asynchrone. Les lectures de répertoire, telles que les requêtes d’authentification, sont traitées à partir de centres de données proches des clients. Les réplicas secondaires sont responsables de l’évolutivité de lecture.
+Répertoire de tous les *lit* sont traitées à partir *réplicas secondaires*, qui sont dans les centres de données qui sont trouvent physiquement entre différentes zones géographiques. Il existe plusieurs réplicas secondaires, car les données sont répliquées de manière asynchrone. Lectures de répertoire, telles que les demandes d’authentification, sont traitées à partir de centres de données qui sont proches des clients. Les réplicas secondaires sont responsables de l’évolutivité de lecture.
 
 ### <a name="scalability"></a>Extensibilité
 
@@ -61,7 +61,7 @@ Les applications de répertoire se connectent aux centres de données les plus p
 
 ### <a name="continuous-availability"></a>Disponibilité continue
 
-La disponibilité (ou le temps d’activité) définit la capacité d’un système à s’exécuter sans interruption. La haute disponibilité d’Azure AD s’appuie sur le fait que les services peuvent transmettre rapidement le trafic entre plusieurs centres de données répartis géographiquement. Chaque centre de données est indépendant, ce qui permet les modes d’échec décorrélés.
+La disponibilité (ou le temps d’activité) définit la capacité d’un système à s’exécuter sans interruption. La clé pour la haute disponibilité d’Azure AD est que les services peuvent transmettre rapidement le trafic entre plusieurs centres de données dispersés géographiquement. Chaque centre de données est indépendant, ce qui permet des modes d’échec de décorrélés. Dans cette conception haute disponibilité, Azure AD nécessite sans temps d’arrêt pour les activités de maintenance.
 
 La conception de partition Azure AD est simplifiée par rapport à la conception d’AD entreprise, grâce à une conception principale unique qui inclut un processus de basculement du réplica principal soigneusement orchestré et déterministe.
 
@@ -73,21 +73,21 @@ Les opérations de lecture (largement supérieures aux opérations d’écriture
 
 **Durabilité des données**
 
-Avant d’être acceptée, une écriture doit être validée durablement sur au moins deux centres de données. Cela se produit lorsque vous commencez par valider l’écriture sur le serveur principal et que vous répliquez immédiatement l’écriture dans au moins l’un des autres centres de données. Grâce à cette action d’écriture, le risque de perte catastrophique du centre de données hébergeant le réplica principal n’entraîne pas de perte de données.
+Une écriture est validée durablement sur au moins deux centres de données avant d’être acceptée. Cela se produit en premier valider l’écriture sur le serveur principal et que vous répliquez immédiatement l’écriture dans au moins un autre centre de données. Cette action d’écriture qui garantit un potentiel de perte catastrophique du centre de données hébergeant le réplica principal n’entraîne pas de perte de données.
 
 Azure AD maintient un [objectif de délai de récupération (RTO)](https://en.wikipedia.org/wiki/Recovery_time_objective) de zéro pour ne pas perdre de données lors des basculements. notamment :
 -  Émission de jeton et lectures de répertoire
 -  RTO de 5 minutes environ seulement possible pour les écritures de répertoire
 
-### <a name="data-centers"></a>Centres de données
+### <a name="datacenters"></a>Centres de données
 
-Les réplicas d’Azure AD sont stockés dans des centres du monde entier. Pour plus d’informations,voir [Centres de données Azure](https://azure.microsoft.com/overview/datacenters).
+Les réplicas d’Azure AD sont stockés dans des centres du monde entier. Pour plus d’informations, consultez [infrastructure mondiale Azure](https://azure.microsoft.com/global-infrastructure/).
 
 Azure AD fonctionne dans les centres de données avec les caractéristiques suivantes :
 
  * Les services AD Authentication, Graph et autres se trouvent derrière le service de passerelle. La passerelle gère l’équilibrage de charge de ces services. Elle bascule automatiquement si des serveurs défaillants sont détectés par les sondes d’intégrité transactionnelles. En fonction de ces sondes d’intégrité, la passerelle achemine dynamiquement le trafic vers les centres de données intègres.
- * Pour les *lectures*, le répertoire possède des réplicas secondaires et des services frontaux correspondants dans une configuration en mode actif/actif opérant dans plusieurs centres de données. En cas de défaillance complète d’un centre de données, le trafic sera automatiquement redirigé vers un autre centre de données.
- *  Pour les *écritures*, le répertoire bascule le réplica principal (maître) dans les centres de données via des procédures de basculement planifié (le nouveau réplica principal est synchronisé avec l’ancien) ou d’urgence. La durabilité des données est obtenue en répliquant toute validation vers au moins deux centres de données.
+ * Pour *lit*, le répertoire possède des réplicas secondaires et les services frontaux correspondants dans une configuration actif / actif opérant dans plusieurs centres de données. En cas de défaillance d’un centre de données, le trafic sera automatiquement redirigé vers un autre centre de données.
+ *  Pour *écrit*, le répertoire bascule réplica (maître) entre les centres de données via planifié (le nouveau réplica principal est synchronisé à l’ancien réplica principal) ou des procédures de basculement d’urgence. La durabilité des données est obtenue en répliquant toute validation vers au moins deux centres de données.
 
 **Cohérence des données**
 

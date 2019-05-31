@@ -10,17 +10,17 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: dc208f3231882a0726733c897e70557c657cddf3
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 6e627de5b22a67051961e70bab56b2d931129281
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024521"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244797"
 ---
 # <a name="how-to-work-with-search-results-in-azure-search"></a>Guide pratique pour utiliser les résultats de la recherche dans la Recherche Azure
 Cet article explique comment implémenter les éléments standard d’une page de résultats de recherche, comme les totaux, l’extraction de documents, les ordres de tri et la navigation. Les options de page qui fournissent des données ou des informations aux résultats de recherche sont spécifiées par le biais des demandes [Recherche de documents](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) envoyées au service Recherche Azure. 
 
-Dans l’API REST, les demandes incluent une commande GET, un chemin d’accès et des paramètres de requête informant le service de la nature de la demande et de la formulation de la réponse. Dans le kit SDK .NET, l’API équivalente est la classe [DocumentSearchResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.documentsearchresult?view=azure-dotnet).
+Dans l’API REST, les demandes incluent une commande GET, un chemin d’accès et des paramètres de requête informant le service de la nature de la demande et de la formulation de la réponse. Dans le kit SDK .NET, l’API équivalente est la classe [DocumentSearchResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.documentsearchresult-1).
 
 Plusieurs exemples de code comportent une interface frontale web, qui se trouve ici : [Application de démonstration New York City Jobs](https://azjobsdemo.azurewebsites.net/) et [CognitiveSearchFrontEnd](https://github.com/LuisCabrer/CognitiveSearchFrontEnd).
 

@@ -3,19 +3,19 @@ title: Prise en charge linguistique - API de traduction de texte Translator Text
 titleSuffix: Azure Cognitive Services
 description: Liste des langages naturels pris en charge par l’API de traduction de texte Translator Text.
 services: cognitive-services
-author: v-pawal
+author: rajdeep-in
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/21/2019
-ms.author: v-jansko
-ms.openlocfilehash: 8de9d7e6aac052ca24f1eef5f99c3146029bddbb
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.author: v-pawal
+ms.openlocfilehash: 153fd5a8202ca0d919a2254449d846f8798bd10d
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64690150"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66382489"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Langues et régions prises en charge par l’API de traduction de texte Translator Text
 
@@ -40,7 +40,7 @@ L’**API Translator V3** est neurale par défaut et les systèmes statistiques
 > [!NOTE]
 > Actuellement, un sous-ensemble des langues NEURONALES sont disponibles dans le traducteur de personnalisé et nous ajoutons progressivement de nouvelles. [Afficher des langues actuellement disponibles dans personnalisé Translator](#customization).
 
-|Langage|  Code de langue|  API V2| API V3|
+|Langue|  Code de langue|  API V2| API V3|
 |:-----|:-----:|:-----|:-----|
 |Afrikaans| `af`    |Statistique uniquement|  Neuronale|
 |Arabe|    `ar`    |Neural disponible|  Neuronale|
@@ -111,7 +111,7 @@ L’**API Translator V3** est neurale par défaut et les systèmes statistiques
 
 La méthode Transliterate prend en charge les langues ci-après. Dans la colonne « Vers/De », le symbole « <--> » indique que la langue peut être translittérée aussi bien à partir des scripts indiqués que vers ces derniers. Le symbole « --> » signifie que la langue peut uniquement être translittérée du premier script vers le second.
 
-| Langage    | Code de langue | Script | Vers/De | Script|
+| Langue    | Code de langue | Script | Vers/De | Script|
 |:----------- |:-------------:|:-------------:|:-------------:|:-------------:|
 | Arabe | `ar` | Arabe `Arab` | <--> | Latin `Latn` |
 |Bangla  | `bn` | Bengali `Beng` | <--> | Latin `Latn` |
@@ -138,7 +138,7 @@ La méthode Transliterate prend en charge les langues ci-après. Dans la colonne
 
 Le dictionnaire prend en charge les langues ci-après de ou vers l’anglais à l’aide des méthodes Lookup et Examples.
 
-| Langage    | Code de langue |
+| Langue    | Code de langue |
 |:----------- |:-------------:|
 | Afrikaans      | `af`          |
 | Arabe       | `ar`          |
@@ -206,7 +206,7 @@ Vous pouvez utiliser la méthode Languages pour récupérer la liste des langues
 
 Les langues suivantes sont disponibles pour la personnalisation vers ou à partir de l’anglais à l’aide de [personnalisé Translator](https://aka.ms/CustomTranslator).
 
-| Langage    | Code de langue |
+| Langue    | Code de langue |
 |:----------- |:-------------:|
 | Arabe       | `ar`          |
 | Bangla      | `bn`          |

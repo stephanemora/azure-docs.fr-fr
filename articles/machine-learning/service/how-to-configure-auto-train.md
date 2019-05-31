@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3fcc1926d580007750e7e1f5a3de06ef6578e1b5
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: c0f8a56df5b41236256115ced0d46a87c5ee91a5
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65957456"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66400247"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configurer des expériences ML automatisés dans Python
 
@@ -59,6 +59,14 @@ classification ; | régression ; | Prévision de séries chronologiques
 [Naive Bayes](https://scikit-learn.org/stable/modules/naive_bayes.html#bernoulli-naive-bayes)|
 [Stochastic Gradient Descent (SGD)](https://scikit-learn.org/stable/modules/sgd.html#sgd)|
 
+Utilisez le `task` paramètre dans le `AutoMLConfig` constructeur pour spécifier le type de votre expérience.
+
+```python
+from azureml.train.automl import AutoMLConfig
+
+# task can be one of classification, regression, forecasting
+automl_config = AutoMLConfig(task="classification")
+```
 
 ## <a name="data-source-and-format"></a>Source et format des données
 Le machine learning automatisé prend en charge les données qui se trouvent sur votre poste de travail local ou dans le cloud, comme Stockage Blob Azure. Les données peuvent être lues dans les formats de données pris en charge par scikit-learn. Vous pouvez lire les données dans :
@@ -117,11 +125,11 @@ automl_config = AutoMLConfig(****, data_script=project_folder + "/get_data.py", 
 
 Le script `get_data` peut retourner :
 
-Clé | Type | Mutuellement exclusif avec    | Description 
+Clé | type | Mutuellement exclusif avec    | Description
 ---|---|---|---
 X | Tramedonnées Pandas ou tableaux Numpy | data_train, étiquette, colonnes |  Toutes les caractéristiques pour l’entraînement
 y | Tramedonnées Pandas ou tableaux Numpy |   label   | Données des étiquettes pour l’entraînement. Pour la classification, il doit s’agir d’un tableau d’entiers.
-X_valid | Tramedonnées Pandas ou tableaux Numpy   | data_train, étiquette | _Facultatif_ Toutes les caractéristiques pour la validation. Si non spécifié, X est divisé entre l’entraînement et la validation
+X_valid | Tramedonnées Pandas ou tableaux Numpy   | data_train, étiquette | _Facultatif_ données constituant l’ensemble de validation de fonctionnalité. Si non spécifié, X est divisé entre l’entraînement et la validation
 y_valid |   Tramedonnées Pandas ou tableaux Numpy | data_train, étiquette | _Facultatif_ Les données d’étiquette pour l’entraînement. Si non spécifié, y est divisé entre l’entraînement et la validation
 sample_weight | Tramedonnées Pandas ou tableaux Numpy |   data_train, étiquette, colonnes| _Facultatif_ Une valeur de pondération pour chaque échantillon. À utiliser quand vous voulez affecter des pondérations différentes à vos points de données
 sample_weight_valid | Tramedonnées Pandas ou tableaux Numpy | data_train, étiquette, colonnes |    _Facultatif_ Une valeur de pondération pour chaque échantillon de validation. Si non spécifié, sample_weight est divisé entre l’entraînement et la validation
@@ -129,30 +137,6 @@ data_train |    Tramedonnées Pandas |  X, y, X_valid, y_valid |    Toutes les d
 label | string  | X, y, X_valid, y_valid |  La colonne de data_train qui représente l’étiquette
 colonnes | Tableau de chaînes  ||  _Facultatif_ Liste verte de colonnes à utiliser pour les caractéristiques
 cv_splits_indices   | Tableau d’entiers ||  _Facultatif_ Liste des index pour diviser les données pour la validation croisée
-
-### <a name="load-and-prepare-data-using-data-prep-sdk"></a>Charger et préparer des données à l’aide du Kit de développement logiciel la préparation des données
-Expérience d’apprentissage automatique prend en charge le chargement des données et transformations à l’aide de la préparation des données SDK. L’utilisation du SDK donne les possibilités suivantes :
-
->* Chargement à partir de nombreux types de fichiers avec déduction des paramètres d’analyse (codage, séparateur, en-têtes)
->* Conversion de type à l’aide de l’inférence pendant le chargement de fichier
->* Prise en charge de la connexion pour MS SQL Server et Azure Data Lake Storage
->* Ajouter une colonne à l’aide d’une expression
->* Imputer des valeurs manquantes
->* Dériver des colonnes par exemple
->* Filtrage
->* Transformations Python personnalisées
-
-Pour plus d’informations sur le SDK DataPrep, reportez-vous à l’article [Guide pratique pour préparer les données pour la modélisation](how-to-load-data.md).
-Voici un exemple de chargement de données avec le SDK DataPrep.
-```python
-# The data referenced here was pulled from `sklearn.datasets.load_digits()`.
-simple_example_data_root = 'https://dprepdata.blob.core.windows.net/automl-notebook-data/'
-X = dprep.auto_read_file(simple_example_data_root + 'X.csv').skip(1)  # Remove the header row.
-# You can use `auto_read_file` which intelligently figures out delimiters and datatypes of a file.
-
-# Here we read a comma delimited file and convert all columns to integers.
-y = dprep.read_csv(simple_example_data_root + 'y.csv').to_long(dprep.ColumnSelector(term='.*', use_regex = True))
-```
 
 ## <a name="train-and-validation-data"></a>Données pour l’entraînement et la validation
 
@@ -501,6 +485,8 @@ from azureml.widgets import RunDetails
 RunDetails(local_run).show()
 ```
 ![Graphique d’importance des caractéristiques](./media/how-to-configure-auto-train/feature-importance.png)
+
+Pour plus d’informations sur comment les explications de modèle et l’importance de fonctionnalité peuvent être activées dans d’autres zones du SDK en dehors de l’apprentissage automatique, consultez le [concept](machine-learning-interpretability-explainability.md) article sur ce problème.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

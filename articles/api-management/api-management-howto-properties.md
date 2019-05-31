@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2018
 ms.author: apimpm
-ms.openlocfilehash: 478b80b021b4df36e2eccc37ac9c74f75e43a5bb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 9e1b1953520c5502668fbbae70a37a140253b035
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60658000"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241690"
 ---
 # <a name="how-to-use-named-values-in-azure-api-management-policies"></a>Guide pratique pour utiliser des valeurs nommées dans les stratégies Gestion des API Azure
 Les stratégies Gestion des API sont une fonctionnalité puissante du système qui permet au portail Azure de modifier le comportement de l’API grâce à la configuration. Les stratégies sont un ensemble d'instructions qui sont exécutées dans l'ordre sur demande ou sur réponse d'une API. Les instructions de la stratégie peuvent être construites à l’aide de valeurs de texte littéral, d’expressions de stratégie et de valeurs nommées. 
@@ -27,10 +27,10 @@ Chaque instance du service Gestion des API possède une collection de propriét�
 
 | Attribut | Type | Description |
 | --- | --- | --- |
-| Display name |string |Chaîne alphanumérique utilisée pour référencer la propriété dans les stratégies. |
-| `Value` |string |Valeur de la propriété. Elle ne peut pas être vide ni se composer uniquement d’espaces blancs. |
-|`Secret`|booléenne|Détermine si la valeur est un secret et doit être chiffrée.|
-| Tags |tableau de chaînes |Balises facultatives qui, lorsqu’elles sont fournies, peuvent être utilisées pour filtrer la liste de propriétés. |
+| `Display name` |string |Chaîne alphanumérique utilisée pour référencer la propriété dans les stratégies. |
+| `Value`        |string |Valeur de la propriété. Elle ne peut pas être vide ni se composer uniquement d’espaces blancs. |
+| `Secret`       |booléenne|Détermine si la valeur est un secret et doit être chiffrée.|
+| `Tags`         |tableau de chaînes |Balises facultatives qui, lorsqu’elles sont fournies, peuvent être utilisées pour filtrer la liste de propriétés. |
 
 ![Valeurs nommées](./media/api-management-howto-properties/named-values.png)
 
@@ -55,7 +55,7 @@ Les valeurs de propriété peuvent contenir des chaînes littérales et des [exp
 
 Une fois que la propriété est créée, vous pouvez le modifier en cliquant sur la propriété. Si vous modifiez le nom de propriété, toutes les stratégies qui font référence à cette propriété sont automatiquement mises à jour pour utiliser le nouveau nom.
 
-Pour plus d’informations sur la modification d’une propriété à l’aide de l’API REST, consultez [Modifier une propriété à l’aide de l’API REST](/rest/api/apimanagement/property?Patch).
+Pour plus d’informations sur la modification d’une propriété à l’aide de l’API REST, consultez [Modifier une propriété à l’aide de l’API REST](/rest/api/apimanagement/2019-01-01/property?patch).
 
 ## <a name="to-delete-a-property"></a>Pour supprimer une propriété
 
@@ -66,7 +66,7 @@ Pour supprimer une propriété, cliquez sur **Supprimer** en regard de la propri
 > 
 > 
 
-Pour plus d’informations sur la suppression d’une propriété à l’aide de l’API REST, consultez [Supprimer une propriété à l’aide de l’API REST](/rest/api/apimanagement/property?Delete).
+Pour plus d’informations sur la suppression d’une propriété à l’aide de l’API REST, consultez [Supprimer une propriété à l’aide de l’API REST](/rest/api/apimanagement/2019-01-01/property/delete).
 
 ## <a name="to-search-and-filter-named-values"></a>Pour rechercher et filtrer des valeurs nommées
 

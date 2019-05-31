@@ -10,23 +10,23 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: diberry
-ms.openlocfilehash: b620cbb8e51fbe41defb6bdbdc66ba4a7e539aa0
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 7a4153dd382a901db21752dd3d55a01803431791
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66306551"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388684"
 ---
 # <a name="install-and-run-speech-service-containers"></a>Installer et exécuter des conteneurs de Service de reconnaissance vocale
 
-Conteneurs de reconnaissance vocale permettent aux clients de créer une architecture d’application de reconnaissance vocale est optimisée pour tirer parti des fonctionnalités de cloud fiable et localité de bord. Les conteneurs de deux vocale que nous prenons en charge désormais sont **parole-texte** et **synthèse vocale**. 
+Conteneurs de reconnaissance vocale permettent aux clients de créer une architecture d’application de reconnaissance vocale est optimisée pour tirer parti des fonctionnalités de cloud fiable et localité de bord. 
 
 Les conteneurs de deux vocale sont **parole-texte** et **synthèse vocale**. 
 
 |Fonction|Caractéristiques|Dernière|
 |-|-|--|
-|Reconnaissance vocale| <li>Retranscrit une voix en un texte de façon continue et en temps réel.<li>Peut effectuer une transcription en lot à partir d’enregistrements audio. <li>Prend en charge les résultats intermédiaires, la détection de fin de parole, la mise en forme automatique du texte et le masquage des grossièretés. <li>Peut appeler le [Language Understanding](https://docs.microsoft.com/azure/cognitive-services/luis/) (LUIS) pour déduire l’intention de l’utilisateur à partir des transcriptions.\*|1.1.1|
-|Synthèse vocale| <li>Convertit le texte en paroles naturelles. <li>Offre différents sexes et/ou dialectes pour de nombreuses langues prises en charge. <li>Prend en charge l’entrée de texte brut ou le langage de balisage de synthèse vocale (SSML). |1.1.0|
+|Reconnaissance vocale| <li>Retranscrit continu en temps réel vocale ou le traitement des enregistrements audio dans le texte avec des résultats intermédiaires.|1.1.1|
+|Synthèse vocale| <li>Convertit le texte en paroles naturelles. avec l’entrée de texte brut ou Markup langage SSML (Speech Synthesis). |1.1.0|
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
@@ -80,7 +80,7 @@ Le nombre de cœurs et la quantité de mémoire correspondent aux paramètres `-
 
 Images de conteneur pour la reconnaissance vocale sont disponibles. 
 
-| Conteneur | Dépôt |
+| Conteneur | Référentiel |
 |-----------|------------|
 | cognitive-services-speech-to-text | `containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text:latest` |
 | cognitive-services-text-to-speech | `containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech:latest` |
@@ -111,7 +111,7 @@ Le tableau suivant répertorie les paramètres régionaux pris en charge pour **
 |--|--|
 |Chinois|`zh-cn`|
 |Anglais |`en-us`<br>`en-gb`<br>`en-au`<br>`en-in`|
-|Français |`fr-ca`<br>`fr-fr`|
+|Anglais |`fr-ca`<br>`fr-fr`|
 |Allemand|`de-de`|
 |Italien|`it-it`|
 |Japonais|`ja-jp`|
@@ -143,8 +143,8 @@ Le tableau suivant répertorie les paramètres régionaux pris en charge pour **
 |Anglais |`en-gb`|George-apollo<br>hazelrus<br>Susan-apollo|
 |Anglais |`en-in`|heera-apollo<br>priyarus<br>ravi-apollo<br>|
 |Anglais |`en-us`|jessarus<br>benjaminrus<br>jessa24krus<br>zirarus<br>guy24krus|
-|Français|`fr-ca`|Caroline<br>harmonierus|
-|Français|`fr-fr`|hortenserus<br>julie-apollo<br>paul-apollo|
+|Anglais|`fr-ca`|Caroline<br>harmonierus|
+|Anglais|`fr-fr`|hortenserus<br>julie-apollo<br>paul-apollo|
 |Allemand|`de-de`|hedda<br>heddarus<br>stefan-apollo|
 |Italien|`it-it`|Cosimo-apollo<br>luciarus|
 |Japonais|`ja-jp`|ayumi-apollo<br>harukarus<br>ichiro-apollo|

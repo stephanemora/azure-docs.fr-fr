@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/11/2019
+ms.date: 05/30/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 536210922d13f66aaa5a09bd87bd2d92da8d416c
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: cfc9c027806cb1a3f65e67eda771894a7250ee67
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65546112"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417650"
 ---
 # <a name="microsoft-identity-platform-protocols"></a>Protocoles de plateforme d’identité Microsoft
 
@@ -48,7 +48,7 @@ Dans presque tous les flux OAuth 2.0 et OpenID Connect, quatre parties sont con
 Chaque application qui souhaite accepter à la fois personnelles et comptes professionnels ou scolaires doive être inscrits via le **inscriptions** d’expérience dans le [portail Azure](https://aka.ms/appregistrations) avant il peut se connecter à ces utilisateurs à l’aide d’OAuth 2.0 ou OpenID Connect. Le processus d’inscription des applications collecte quelques valeurs et les affecte à votre application :
 
 * un **ID d’application** qui identifie de manière unique votre application ;
-* un **URI de redirection** ou un **identificateur de package** pouvant être utilisé pour diriger des réponses vers votre application ;
+* Un **URI de redirection** (facultatif) qui peut être utilisé pour diriger les réponses à votre application
 * quelques valeurs spécifiques au scénario.
 
 Pour plus d’informations, découvrez comment [inscrire une application](quickstart-register-app.md).
@@ -64,7 +64,7 @@ https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token
 
 Où le `{tenant}` peut prendre l’une de quatre valeurs différentes :
 
-| Valeur | Description  |
+| Valeur | Description |
 | --- | --- |
 | `common` | Permet aux utilisateurs avec des comptes Microsoft personnels et des comptes professionnels/scolaires Azure AD de se connecter à l’application. |
 | `organizations` | Permet uniquement aux utilisateurs avec des comptes professionnels/scolaires Azure AD de se connecter à l’application. |

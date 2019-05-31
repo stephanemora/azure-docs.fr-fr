@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/14/2019
 ms.author: iainfou
-ms.openlocfilehash: de0ba13a527569e446a44c275b7323d4487f53b6
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 13fbb20cde454a0aaab156a74a9fbcbac2d90d07
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65780297"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66418134"
 ---
 # <a name="preview---limit-egress-traffic-for-cluster-nodes-and-control-access-to-required-ports-and-services-in-azure-kubernetes-service-aks"></a>Version préliminaire - le trafic de sortie de limite pour les nœuds de cluster et de contrôler l’accès aux services dans Azure Kubernetes Service (ACS) et les ports requis
 
@@ -21,9 +21,10 @@ Par défaut, les clusters AKS sortant (sortie) internet un accès illimité. Ce 
 Cet article décrit en détail les ports réseau et les noms de domaine complet (FQDN) sont obligatoires et facultatifs si vous limitez le trafic de sortie dans un cluster AKS.  Actuellement, cette fonctionnalité est uniquement disponible en tant que version préliminaire.
 
 > [!IMPORTANT]
-> Fonctionnalités de préversion AKS sont libre-service et participer. Les préversions sont fournies pour recueillir des commentaires et des bogues à partir de notre communauté. Toutefois, ils ne sont pas pris en charge par le support technique Azure. Si vous créez un cluster, ou ajoutez ces fonctionnalités à des clusters existants, ce cluster est non pris en charge jusqu'à ce que la fonctionnalité n’est plus disponible en version préliminaire et atteignent à la disposition générale (GA).
+> Fonctionnalités de préversion AKS sont en libre-service, participer. Elles sont fournies pour recueillir des commentaires et des bogues à partir de notre communauté. Dans la version préliminaire, ces fonctionnalités ne sont pas destinées à des fins de production. Fonctionnalités en version préliminaire publique relèvent du « meilleur effort » la prise en charge. L’assistance des équipes de support technique AKS est disponible pendant les heures de bureau PST fuseau horaire (PST) uniquement. Pour plus d’informations, consultez les éléments suivants prennent en charge des articles :
 >
-> Si vous rencontrez des problèmes avec les fonctionnalités en version préliminaire, [de signaler un problème sur le référentiel GitHub d’AKS][aks-github] par le nom de la fonctionnalité d’aperçu dans le titre du bogue.
+> * [Stratégies de prise en charge AKS][aks-support-policies]
+> * [FAQ du Support Azure][aks-faq]
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
@@ -68,11 +69,11 @@ Dans ACS, il existe deux jeux de ports et adresses :
 Les ports de sortie suivantes ou les règles de réseau sont requises pour un cluster ACS :
 
 * Le port TCP *443*
-* Le port TCP *9000*
+* Le port TCP *9000* et le port TCP *22* pour le pod avant de tunnel communiquer avec la fin du tunnel sur le serveur d’API.
 
 Le nom de domaine complet suivant ou les règles d’application sont requis :
 
-| Nom de domaine complet                      | Port      | Utilisation      |
+| FQDN                      | Port      | Utilisation      |
 |---------------------------|-----------|----------|
 | *.azmk8s.io               | HTTPS:443 | Cette adresse est le point de terminaison de serveur API. |
 | aksrepos.azurecr.io       | HTTPS:443 | Cette adresse est nécessaire pour l’accès aux images dans Azure Container Registry (ACR). |
@@ -90,7 +91,7 @@ Les ports de sortie suivants / règles de réseau ne sont pas nécessaires pour 
 
 Le nom de domaine complet suivant / règles d’application sont recommandés pour les clusters AKS de fonctionner correctement :
 
-| Nom de domaine complet                                    | Port      | Utilisation      |
+| FQDN                                    | Port      | Utilisation      |
 |-----------------------------------------|-----------|----------|
 | *.ubuntu.com                            | HTTP:80   | Cette adresse permet de télécharger les correctifs de sécurité requis et les mises à jour les nœuds de cluster Linux. |
 | packages.microsoft.com                  | HTTPS:443 | Cette adresse est le référentiel de packages Microsoft utilisé pour la mise en cache *apt-get* operations. |
@@ -105,9 +106,6 @@ Le nom de domaine complet suivant / règles d’application sont recommandés po
 
 Dans cet article, vous avez appris les ports et les adresses pour autoriser si vous restreindre le trafic de sortie pour le cluster. Vous pouvez également définir la façon dont les pods eux-mêmes peuvent communiquer et quelles restrictions qu’ils ont au sein du cluster. Pour plus d’informations, consultez [sécuriser le trafic entre les pods dans ACS à l’aide de stratégies de réseau][network-policy].
 
-<!-- LINKS - external -->
-[aks-github]: https://github.com/azure/aks/issues]
-
 <!-- LINKS - internal -->
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
@@ -118,3 +116,5 @@ Dans cet article, vous avez appris les ports et les adresses pour autoriser si v
 [az-feature-list]: /cli/azure/feature#az-feature-list
 [az-provider-register]: /cli/azure/provider#az-provider-register
 [aks-upgrade]: upgrade-cluster.md
+[aks-support-policies]: support-policies.md
+[aks-faq]: faq.md

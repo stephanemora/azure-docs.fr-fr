@@ -12,12 +12,12 @@ ms.date: 05/03/2019
 ms.author: mimart
 ms.reviewer: arvindh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 41dde1579fc98db37ab7d92ce362d0a4ce9a82cf
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 23e5fc24e426c87bbc5062183f2ee2db0e546484
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65824569"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388210"
 ---
 # <a name="end-user-experiences-for-applications-in-azure-active-directory"></a>Expériences d’utilisateurs finaux auprès des applications dans Azure Active Directory
 Azure Active Directory (Azure AD) offre plusieurs moyens personnalisables pour déployer des applications pour les utilisateurs finaux de votre organisation :
@@ -48,7 +48,7 @@ Pour plus d’informations sur le lanceur d’applications Office 365, consulte
 ## <a name="direct-sign-on-to-federated-apps"></a>Authentification directe pour les applications fédérées
 La plupart des applications fédérées qui prennent en charge la connexion SAML 2.0, WS-Federation ou OpenID prennent également en charge la capacité des utilisateurs à démarrer l’application, puis à obtenir la connexion via Azure AD, soit par une redirection automatique, soit en cliquant sur un lien. Cette connexion initiée par un fournisseur de service est prise en charge par la plupart des applications fédérées de la galerie d’applications Azure AD (voir la documentation mentionnée dans l’Assistant Configuration de l’authentification unique de l’application sur le Portail Azure pour plus d’informations).
 
-![](./media/end-user-experiences/workdaymobile.png)
+![Exemple d’une page de connexion application mobile](./media/end-user-experiences/workdaymobile.png)
 
 ## <a name="direct-sign-on-links"></a>Liens d’authentification directe
 Azure AD prend également en charge les liens d’authentification unique directs vers les applications qui prennent en charge l’authentification unique par mot de passe, l’authentification unique liée et l’authentification unique fédérée.

@@ -2,17 +2,17 @@
 title: Limitations pour les pools de nœuds Windows Server dans Azure Kubernetes Service (ACS)
 description: En savoir plus sur les limitations connues lors de l’exécution des charges de travail et les pools de nœuds Windows Server dans Azure Kubernetes Service (ACS)
 services: container-service
-author: iainfoulds
+author: tylermsft
 ms.service: container-service
 ms.topic: article
 ms.date: 05/06/2019
-ms.author: iainfou
-ms.openlocfilehash: 3d249271995d96307722dadf6b3e012e63565e6a
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.author: twhitney
+ms.openlocfilehash: 34ece6e49332f781f688a8741db3514faf8c9a25
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956267"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66304390"
 ---
 # <a name="current-limitations-for-windows-server-node-pools-and-application-workloads-in-azure-kubernetes-service-aks"></a>Limitations actuelles pour les pools de nœuds Windows Server et des charges de travail dans Azure Kubernetes Service (ACS)
 
@@ -21,9 +21,10 @@ Dans Azure Kubernetes Service (ACS), vous pouvez créer un pool de nœud qui ex�
 Cet article présente quelques-unes des limitations et des concepts de système d’exploitation pour les nœuds de Windows Server dans ACS. Pools de nœuds pour Windows Server sont actuellement en version préliminaire.
 
 > [!IMPORTANT]
-> Fonctionnalités de préversion AKS sont libre-service et participer. Les préversions sont fournies pour recueillir des commentaires et des bogues à partir de notre communauté. Toutefois, ils ne sont pas pris en charge par le support technique Azure. Si vous créez un cluster, ou ajoutez ces fonctionnalités à des clusters existants, ce cluster est non pris en charge jusqu'à ce que la fonctionnalité n’est plus disponible en version préliminaire et atteignent à la disposition générale (GA).
+> Fonctionnalités de préversion AKS sont en libre-service, participer. Elles sont fournies pour recueillir des commentaires et des bogues à partir de notre communauté. Dans la version préliminaire, ces fonctionnalités ne sont pas destinées à des fins de production. Fonctionnalités en version préliminaire publique relèvent du « meilleur effort » la prise en charge. L’assistance des équipes de support technique AKS est disponible pendant les heures de bureau PST fuseau horaire (PST) uniquement. Pour plus d’informations, consultez les éléments suivants prennent en charge des articles :
 >
-> Si vous rencontrez des problèmes avec les fonctionnalités en version préliminaire, [de signaler un problème sur le référentiel GitHub d’AKS][aks-github] par le nom de la fonctionnalité d’aperçu dans le titre du bogue.
+> * [Stratégies de prise en charge AKS][aks-support-policies]
+> * [FAQ du Support Azure][aks-faq]
 
 ## <a name="limitations-for-windows-server-in-kubernetes"></a>Limitations pour Windows Server dans Kubernetes
 
@@ -57,6 +58,8 @@ Les limitations supplémentaires suivantes s’appliquent à la prise en charge 
 - Fonctionnalités préliminaires dans ACS telles que la stratégie de réseau et cluster autoscaler, ne sont pas approuvées pour les nœuds de Windows Server.
 - Les contrôleurs d’entrée doivent être planifiés uniquement sur des nœuds Linux à l’aide d’un NodeSelector.
 - Les espaces de développement Azure est actuellement uniquement disponible pour les pools de nœuds basés sur Linux.
+- Prise en charge (gMSA) lorsque les nœuds Windows Server ne sont pas joints à un domaine Active Directory n’est pas disponible actuellement dans ACS de comptes de service administrés de groupe.
+    - L’open source, en amont [ACS-engine] [ aks-engine] projet fournit actuellement prise en charge du service administré de groupe si vous avez besoin d’utiliser cette fonctionnalité.
 
 ## <a name="os-concepts-that-are-different"></a>Concepts du système d’exploitation qui sont différents
 
@@ -74,11 +77,13 @@ Prise en main des conteneurs de Windows Server dans ACS, [créer un pool de nœu
 
 <!-- LINKS - external -->
 [upstream-limitations]: https://kubernetes.io/docs/setup/windows/#limitations
-[aks-github]: https://github.com/azure/aks/issues]
 [kubernetes]: https://kubernetes.io
+[aks-engine]: https://github.com/azure/aks-engine
 
 <!-- LINKS - internal -->
 [azure-network-models]: concepts-network.md#azure-virtual-networks
 [configure-azure-cni]: configure-azure-cni.md
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
 [windows-node-cli]: windows-container-cli.md
+[aks-support-policies]: support-policies.md
+[aks-faq]: faq.md

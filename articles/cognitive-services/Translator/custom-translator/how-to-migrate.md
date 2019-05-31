@@ -7,14 +7,14 @@ manager: christw
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
-ms.author: v-rada
+ms.author: v-pawal
 ms.topic: conceptual
-ms.openlocfilehash: 73fc0d26612d32f2614899c62f680ff9e85d1609
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 901b5312d216c241331b90a6b61d263437ab5c70
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60512866"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389302"
 ---
 # <a name="migrate-hub-workspace-and-projects-to-custom-translator"></a>Migrer un espace de travail et des projets Microsoft Hub vers Custom Translator
 
@@ -134,9 +134,9 @@ Ce tableau compare les fonctionnalités de Microsoft Translator Hub et celles de
 |:-----|:----:|:----:|
 |État de la fonctionnalité de personnalisation   | Disponibilité générale  | Disponibilité générale |
 | Version de l'API de texte  | V2    | V3  |
-| Personnalisation TA statistique | Oui   | Non  |
+| Personnalisation TA statistique | Oui   | Non |
 | Personnalisation TA neuronale | Non     | Oui |
-| Nouvelle personnalisation unifiée des services vocaux | Non     | Oui |
+| Nouvelle personnalisation unifiée des services vocaux | Non    | Oui |
 | Sans trace | Oui | Oui |
 
 ## <a name="new-languages"></a>De nouvelles langues

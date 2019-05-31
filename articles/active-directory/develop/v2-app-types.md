@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ec10359c6f684b1d7fb008946b7ceca2ed626ba
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: cd7055794860398ecc6296d0174a691e7fac4450
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65545372"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235251"
 ---
 # <a name="application-types-for-microsoft-identity-platform"></a>Types d’applications pour la plateforme d’identité Microsoft
 
@@ -51,7 +51,7 @@ https://login.microsoftonline.com/common/oauth2/v2.0/token
 
 ## <a name="single-page-apps-javascript"></a>Applications à page unique (Javascript)
 
-De nombreuses applications modernes disposent d’un frontend d’application à page unique écrit principalement en JavaScript. Souvent, il est écrit à l’aide d’une infrastructure telle qu’AngularJS, Ember.js ou Durandal.js. Le point de terminaison Microsoft identity plateforme prend en charge ces applications à l’aide de la [flux implicite OAuth 2.0](v2-oauth2-implicit-grant-flow.md).
+De nombreuses applications modernes disposent d’un frontend d’application à page unique écrit principalement en JavaScript. Souvent, il est écrit à l’aide d’une infrastructure telle que Angular, React ou Vue. Le point de terminaison Microsoft identity plateforme prend en charge ces applications à l’aide de la [flux implicite OAuth 2.0](v2-oauth2-implicit-grant-flow.md).
 
 Dans ce flux, l’application reçoit des jetons directement à partir de la plateforme Microsoft identity autoriser le point de terminaison, sans exécuter d’échanges de serveur à serveur. Tout traitement de logique d'authentification et de gestion de sessions est entièrement exécuté dans le client javascript, sans redirections de pages supplémentaires.
 
@@ -59,7 +59,7 @@ Dans ce flux, l’application reçoit des jetons directement à partir de la pla
 
 Pour voir ce scénario en action, essayez l’un des exemples de code d’application à page unique dans le [plateforme d’identité Microsoft mise en route](v2-overview.md#getting-started) section.
 
-## <a name="web-apps"></a>Applications web
+## <a name="web-apps"></a>les applications web
 
 Pour les applications web (.NET, PHP, Java, Ruby, Python, Node, etc.) auxquelles l’utilisateur accède par le biais d’un navigateur, vous pouvez utiliser [OpenID Connect](active-directory-v2-protocols.md) pour la connexion de l’utilisateur. Dans OpenID Connect, l’application web reçoit un jeton d’ID. Un jeton d’ID est un jeton de sécurité qui vérifie l’identité de l’utilisateur et fournit des informations le concernant sous la forme de revendications :
 

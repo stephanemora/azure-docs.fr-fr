@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 03/28/2019
 ms.author: routlaw
 ms.custom: seodec18
-ms.openlocfilehash: 3361013d8421cd859c834c07018356318d5e2989
-ms.sourcegitcommit: f4469b7bb1f380bf9dddaf14763b24b1b508d57c
+ms.openlocfilehash: cf9356c2792781558c4403608ff5de0e3aaddb6a
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66179819"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66254463"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>Configurer une application Linux Java pour Azure App Service
 
@@ -57,7 +57,7 @@ Activez [Journal des applications](../troubleshoot-diagnostic-logs.md?toc=%2fazu
 
 Si votre application utilise [Logback](https://logback.qos.ch/) ou [Log4j](https://logging.apache.org/log4j) pour le traçage, vous pouvez transférer ces traces pour révision vers Azure Application Insights en suivant les instructions de configuration des frameworks de journalisation dans [Exploration des journaux d’activité de traces Java dans Application Insights](/azure/application-insights/app-insights-java-trace-logs).
 
-### <a name="troubleshooting-tools"></a>Outils de résolution des problèmes
+### <a name="troubleshooting-tools"></a>Outils de dépannage
 
 Les images de Java intégrées sont basées sur le [Linux Alpine](https://alpine-linux.readthedocs.io/en/latest/getting_started.html) système d’exploitation. Utilisez le `apk` Gestionnaire de package pour installer des procédures de dépannage des outils ou commandes.
 
@@ -164,7 +164,7 @@ for (Object key : map.keySet()) {
     }
 ```
 
-Pour déconnecter les utilisateurs et effectuer d’autres actions, consultez la documentation sur [l’utilisation de l’authentification App Service et d’autorisation](https://docs.microsoft.com/en-us/azure/app-service/app-service-authentication-how-to). Il existe également une documentation officielle sur Tomcat [HttpServletRequest interface](https://tomcat.apache.org/tomcat-5.5-doc/servletapi/javax/servlet/http/HttpServletRequest.html) et ses méthodes. Le servlet suivant méthodes sont également alimentés selon votre configuration de Service d’application :
+Pour déconnecter les utilisateurs et effectuer d’autres actions, consultez la documentation sur [l’utilisation de l’authentification App Service et d’autorisation](https://docs.microsoft.com/azure/app-service/app-service-authentication-how-to). Il existe également une documentation officielle sur Tomcat [HttpServletRequest interface](https://tomcat.apache.org/tomcat-5.5-doc/servletapi/javax/servlet/http/HttpServletRequest.html) et ses méthodes. Le servlet suivant méthodes sont également alimentés selon votre configuration de Service d’application :
 
 ```java
 public boolean isSecure()

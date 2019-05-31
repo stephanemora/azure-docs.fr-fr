@@ -4,7 +4,7 @@ description: Cet article explique comment analyser, diagnostiquer et réduire le
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 05/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4b2f73013b399dd2ca3d549e2ac2ec4ffba65b81
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: 6151af941b89198812f2a33a522b30ff0a8796a0
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65471734"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242074"
 ---
 # <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights"></a>Surveiller et réduire la limitation afin d'éviter la latence dans Azure Time Series Insights
 
@@ -52,7 +52,7 @@ Les alertes peuvent vous aider à diagnostiquer et réduire les problèmes de la
 
 À partir de là, vous pouvez configurer des alertes à l’aide des mesures suivantes :
 
-|Métrique  |Description   |
+|Métrique  |Description  |
 |---------|---------|
 |**Octets reçus en entrée**     | Nombre d’octets bruts lus à partir des sources d’événements. Le nombre brut inclut généralement le nom de la propriété et la valeur.  |  
 |**Messages non valides reçus en entrée**     | Nombre de messages non valides lus à partir de la totalité des Event Hubs Azure ou des sources d’événements Azure IoT Hub.      |

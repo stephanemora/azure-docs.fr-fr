@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/08/2019
+ms.date: 05/21/2019
 ms.author: kumud;tyao
-ms.openlocfilehash: 414869833b894e2688505a91fed8fafe0c912b73
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: aac871e71ca0dd30a32e74dd92e417fc95eaa5e1
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65523737"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241336"
 ---
 # <a name="configure-a-web-application-firewall-policy-using-azure-powershell"></a>Configurer une stratégie de pare-feu d’applications web à l’aide d’Azure PowerShell
 Stratégie de pare-feu (WAF) d’application web Azure définit des inspections requises lorsqu’une demande arrive à la porte d’entrée.
@@ -57,15 +57,15 @@ L’exemple suivant montre comment configurer une règle personnalisée avec deu
 ```powershell-interactive
 $referer = New-AzFrontDoorWafMatchConditionObject -MatchVariable RequestHeader -OperatorProperty Equal -Selector "Referer" -MatchValue "www.mytrustedsites.com/referpage.html"
 $password = New-AzFrontDoorWafMatchConditionObject -MatchVariable QueryString -OperatorProperty Contains -MatchValue "password"
-$AllowFromTrustedSites = New-AzFrontDoorCustomRuleObject -Name "AllowFromTrustedSites" -RuleType MatchRule -MatchCondition $referer,$password -Action Allow -Priority 1
+$AllowFromTrustedSites = New-AzFrontDoorWafCustomRuleObject -Name "AllowFromTrustedSites" -RuleType MatchRule -MatchCondition $referer,$password -Action Allow -Priority 1
 ```
 
 ## <a name="custom-rule-based-on-http-request-method"></a>Règle personnalisée selon la méthode de demande http
-Créer une règle de blocage « PUT » l’à l’aide de la méthode [New-AzFrontDoorCustomRuleObject](/powershell/module/az.frontdoor/new-azfrontdoorwafcustomruleobject) comme suit :
+Créer une règle de blocage « PUT » l’à l’aide de la méthode [New-AzFrontDoorWafCustomRuleObject](/powershell/module/az.frontdoor/new-azfrontdoorwafcustomruleobject) comme suit :
 
 ```powershell-interactive
 $put = New-AzFrontDoorWafMatchConditionObject -MatchVariable RequestMethod -OperatorProperty Equal -MatchValue PUT
-$BlockPUT = New-AzFrontDoorCustomRuleObject -Name "BlockPUT" -RuleType MatchRule -MatchCondition $put -Action Block -Priority 2
+$BlockPUT = New-AzFrontDoorWafCustomRuleObject -Name "BlockPUT" -RuleType MatchRule -MatchCondition $put -Action Block -Priority 2
 ```
 
 ## <a name="create-a-custom-rule-based-on-size-constraint"></a>Créer une règle personnalisée en fonction de la contrainte de taille
@@ -73,7 +73,7 @@ $BlockPUT = New-AzFrontDoorCustomRuleObject -Name "BlockPUT" -RuleType MatchRule
 L’exemple suivant crée une règle qui bloque les demandes avec l’Url de plus de 100 caractères, à l’aide d’Azure PowerShell :
 ```powershell-interactive
 $url = New-AzFrontDoorWafMatchConditionObject -MatchVariable RequestUri -OperatorProperty GreaterThanOrEqual -MatchValue 100
-$URLOver100 = New-AzFrontDoorCustomRuleObject -Name "URLOver100" -RuleType MatchRule -MatchCondition $url -Action Block -Priority 3
+$URLOver100 = New-AzFrontDoorWafCustomRuleObject -Name "URLOver100" -RuleType MatchRule -MatchCondition $url -Action Block -Priority 3
 ```
 ## <a name="add-managed-default-rule-set"></a>Ajouter managé par défaut d’ensemble de règles
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: jingwang
-ms.openlocfilehash: 9ca3cbb1ef46c7fe53b6b16bda40ebef245613f3
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: 80ef8870bafa00f3debda99db299018a39d42a82
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65415655"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66245036"
 ---
 # <a name="copy-data-from-office-365-into-azure-using-azure-data-factory"></a>Copier des données à partir d’Office 365 dans Azure à l’aide d’Azure Data Factory
 
@@ -41,8 +41,8 @@ Pour copier des données depuis Office 365 dans Azure, vous devez effectuer les 
 - L’administrateur de votre locataire Office 365 doit effectuer des actions d’intégration comme décrit [ici](https://docs.microsoft.com/graph/data-connect-get-started).
 - Créez et configurez une application web Azure AD dans Azure Active Directory.  Pour obtenir des instructions, consultez la page [Créer une application Azure AD](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application).
 - Prenez note des valeurs suivantes, que vous utiliserez afin de définir le service lié pour Office 365 :
-    - ID de locataire. Pour obtenir des instructions, consultez [Obtenir l’ID de locataire](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-id).
-    - ID d’application et clé d’application.  Pour obtenir des instructions, consultez [Obtenir un ID d’application et une clé d’authentification](../active-directory/develop/howto-create-service-principal-portal.md#get-application-id-and-authentication-key).
+    - ID de locataire. Pour obtenir des instructions, consultez [Obtenir l’ID de locataire](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
+    - ID d’application et clé d’application.  Pour obtenir des instructions, consultez [Obtenir un ID d’application et une clé d’authentification](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
 - Ajoutez l’identité de l’utilisateur effectuant la demande d’accès aux données en tant que propriétaire de l’application web Azure AD (à partir de l’application web Azure AD > Paramètres > Propriétaires > Ajouter un propriétaire). 
     - L’identité de l’utilisateur doit être dans l’organisation Office 365 à partir de laquelle vous obtenez des données et ne doit pas être un utilisateur Invité.
 
@@ -120,7 +120,7 @@ Pour copier des données depuis Office 365, les propriétés suivantes sont pris
 |:--- |:--- |:--- |
 | type | La propriété type du jeu de données doit être définie sur : **Office365Table** | Oui |
 | tableName | Nom du jeu de données à extraire d’Office 365. Cliquez [ici](https://docs.microsoft.com/graph/data-connect-datasets#datasets) pour obtenir la liste des jeux de données Office 365 disponibles pour l’extraction. | Oui |
-| allowedGroups | Prédicat de sélection de groupe.  Cette propriété permet de sélectionner jusqu'à 10 groupes d’utilisateurs pour lesquels les données seront récupérées.  Si aucun groupe n’est spécifié, les données seront affichera pour toute l’organisation. | Non |
+| allowedGroups | Prédicat de sélection de groupe.  Cette propriété permet de sélectionner jusqu'à 10 groupes d’utilisateurs pour lesquels les données seront récupérées.  Si aucun groupe n’est spécifié, les données seront affichera pour toute l’organisation. | Non  |
 | userScopeFilterUri | Lorsque `allowedGroups` propriété n’est pas spécifiée, vous pouvez utiliser une expression de prédicat est appliquée sur l’ensemble du locataire pour filtrer les lignes spécifiques à extraire à partir d’Office 365. Le format de prédicat doit correspondre au format de requête de l’API Microsoft Graph, par exemple, `https://graph.microsoft.com/v1.0/users?$filter=Department eq 'Finance'`. | Non |
 | dateFilterColumn | Nom de la colonne de filtre de date/heure. Cette propriété permet de limiter l’intervalle de temps pour les Office 365 sont extraites les données. | Oui, si le jeu de données comporte une ou plusieurs colonnes de date/heure. Consultez [ici](https://docs.microsoft.com/graph/data-connect-filtering#filtering) pour la liste des jeux de données qui nécessitent ce filtre de date/heure. |
 | startTime | Démarrer la valeur DateTime à filtrer. | Oui, si `dateFilterColumn` est spécifié |

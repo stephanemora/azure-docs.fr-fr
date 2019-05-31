@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/18/2017
 ms.author: eustacea
-ms.openlocfilehash: b7464e5cc052ecade4a10102de947d37a63c962a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3d02d3573902964a8549fa0eeb1f4f1471de1752
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60615006"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257575"
 ---
 # <a name="device-authentication-using-x509-ca-certificates"></a>Authentification des appareils à l’aide de certificats d’autorité de certification X.509
 
@@ -24,7 +24,7 @@ Cet article décrit comment utiliser des certificats d’autorité de certificat
 * Comment signer des appareils à l’aide de certificats d’autorité de certification X.509
 * Comment les appareils signés à l’aide d’une autorité de certification X.509 sont authentifiés
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
 La fonctionnalité d’autorité de certification X.509 permet l’authentification des appareils auprès d’IoT Hub à l’aide d’une autorité de certification. Elle simplifie considérablement le processus d’inscription initial des appareils et la logistique de la chaîne d’approvisionnement lors de la fabrication de l’appareil. [Pour en savoir plus, consultez cet article de scénario sur l’importance d’utiliser des certificats d’autorités de certification X.509](iot-hub-x509ca-concept.md) pour l’authentification des appareils.  Nous vous invitons à lire cet article de scénario avant de poursuivre car il explique l’objectif des étapes qui suivent.
 
@@ -40,7 +40,7 @@ Pour un environnement de production, nous vous recommandons d’acheter un certi
 
 Vous pouvez également créer une autorité de certification X.509 auto-signée à des fins de tests ou pour une utilisation sur des réseaux IoT fermés.
 
-Quelle que soit la provenance de votre certificat d’autorité de certification X.509, veillez constamment à garder secrète et à protéger sa clé privée.  Cette condition est nécessaire pour établir une relation de confiance dans le cadre de l’authentification de l’autorité de certification X.509.
+Quel que soit le comment obtenir votre certificat d’autorité de certification X.509, veillez à conserver sa clé privée correspondante secrète et protégé à tout moment.  Cette condition est nécessaire pour établir une relation de confiance dans le cadre de l’authentification de l’autorité de certification X.509.
 
 Découvrez comment [créer un certificat d’autorité de certification auto-signé](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) à des fins d’expérimentation tout au long de la description de cette fonctionnalité.
 

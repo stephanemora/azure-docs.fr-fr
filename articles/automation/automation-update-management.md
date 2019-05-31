@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/29/2019
+ms.date: 05/22/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b92083b78971ab00f87e073ba7f4944a6f828daf
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 885c5266e80114b54007d05d2220fbf5ea5ab84e
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65991638"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66397633"
 ---
 # <a name="update-management-solution-in-azure"></a>Solution Update Management dans Azure
 
@@ -262,7 +262,7 @@ Sélectionnez **Mises à jour manquantes** pour afficher la liste des mises à j
 
 ## <a name="view-update-deployments"></a>Afficher les déploiements de mises à jour
 
-Sélectionnez l’onglet **Déploiements de mises à jour** pour afficher la liste des déploiements de mises à jour existants. Sélectionnez l’un des déploiements de mises à jour dans le tableau pour ouvrir le volet **Exécution du déploiement des mises à jour** de ce déploiement de mises à jour.
+Sélectionnez l’onglet **Déploiements de mises à jour** pour afficher la liste des déploiements de mises à jour existants. Sélectionnez l’un des déploiements de mises à jour dans le tableau pour ouvrir le volet **Exécution du déploiement des mises à jour** de ce déploiement de mises à jour. Les journaux d’activité de travail sont stockés pendant 30 jours maximum.
 
 ![Vue d’ensemble des résultats d’un déploiement de mises à jour](./media/automation-update-management/update-deployment-run.png)
 

@@ -8,12 +8,12 @@ ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: kasparks
-ms.openlocfilehash: 5850b683189136eac70451075933b0c57ecc37cd
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 8fdae1e12e56dcbcb56941726b0c089ad59b8fc8
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920445"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66254651"
 ---
 # <a name="improve-performance-of-azure-applications-with-azure-advisor"></a>Améliorer les performances des applications Azure avec Azure Advisor
 
@@ -93,6 +93,22 @@ Azure Advisor s’appuie sur l’heuristique de basée sur la charge de travail 
 
 ### <a name="scale-your-azure-mysql-azure-postgresql-or-azure-mariadb-server-to-a-higher-sku-to-prevent-connection-constraints"></a>Mettre à l’échelle de votre serveur Azure MySQL, PostgreSQL Azure ou Azure MariaDB vers une référence SKU plus élevé pour empêcher les contraintes de connexion
 Chaque nouvelle connexion à votre serveur de base de données occupe la partie de la mémoire. Si l’échec des connexions à votre serveur fait de dégradent les performances du serveur de base de données un [limite supérieure](https://docs.microsoft.com/azure/postgresql/concepts-limits) en mémoire. Azure Advisor identifie les serveurs en cours d’exécution avec nombreux échecs de connexion et recommandons des limites de connexions de votre serveur pour fournir davantage de mémoire à votre serveur par la mise à l’échelle de calcul ou à l’aide de la mémoire optimisé références (SKU), qui ont un calcul plus par cœur de la mise à niveau.
+
+## <a name="scale-your-cache-to-a-different-size-or-sku-to-improve-cache-and-application-performance"></a>Mettre à l’échelle votre Cache vers une taille différente ou référence (SKU) pour améliorer le Cache et les performances de l’application
+
+Instances de cache offrent de meilleures performances lors de le n'exécution pas sous pression de mémoire élevée, la charge de serveur élevée ou la bande passante réseau élevée qui risque de cesser de répondre, rencontrer une perte de données, ou deviennent indisponibles. Advisor identifie les instances de Cache dans ces conditions et vous recommandons d’appliquer les meilleures pratiques pour réduire la sollicitation de la mémoire, charge du serveur ou la bande passante réseau ou mise à l’échelle à une taille différente ou une référence (SKU) avec davantage de capacités.
+
+## <a name="add-regions-with-traffic-to-your-azure-cosmos-db-account"></a>Ajouter des régions avec le trafic à votre compte Azure Cosmos DB
+
+L’Assistant détecte comptes Azure Cosmos DB dont le trafic à partir d’une région qui n’est pas actuellement configurée et vous recommandons d’ajouter cette région. Cela améliorera la latence pour les demandes provenant de cette région et garantit la disponibilité en cas de pannes dans la région. [En savoir plus sur la distribution globale des données avec Azure Cosmos DB](https://aka.ms/cosmos/globaldistribution)
+
+## <a name="configure-your-azure-cosmos-db-indexing-policy-with-customer-included-or-excluded-paths"></a>Configurer votre Azure Cosmos DB stratégie d’indexation avec client inclus ou exclu des chemins d’accès
+
+Azure Advisor identifie les conteneurs Cosmos DB qui sont à l’aide de la valeur par défaut de stratégie d’indexation, mais peuvent tirer parti d’une stratégie d’indexation personnalisée basée sur le modèle de charge de travail. La valeur par défaut de stratégie d’indexation indexe toutes les propriétés, mais l’utilisation d’une stratégie d’indexation personnalisée avec des chemins explicites inclus ou exclus utilisées dans les filtres de requête peut réduire les unités de requête et le stockage utilisé pour l’indexation. [En savoir plus sur la modification des stratégies d’index](https://aka.ms/cosmosdb/modify-index-policy)
+
+## <a name="configure-your-azure-cosmos-db-query-page-size-maxitemcount-to--1"></a>Configurer votre taille de page de requête Azure Cosmos DB (MaxItemCount)-1 
+
+Azure Advisor identifie les conteneurs Azure Cosmos DB qui sont à l’aide de la taille de page de requête de 100 et est recommandé d’utiliser une taille de page-1 pour une analyse plus rapide. [En savoir plus sur le nombre maximal d’éléments](https://aka.ms/cosmosdb/sql-api-query-metrics-max-item-count)
 
 ## <a name="how-to-access-performance-recommendations-in-advisor"></a>Comment accéder aux recommandations en matière de performances dans le conseiller
 

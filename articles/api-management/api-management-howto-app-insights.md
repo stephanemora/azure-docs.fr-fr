@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: 69f36773b702d9f0059e0cd27dbb864ccd7f7b2b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3bbab82831fba389cd4bf172e7ea762d5971579b
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60527594"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241841"
 ---
 # <a name="how-to-integrate-azure-api-management-with-azure-application-insights"></a>Guide pratique pour intégrer la Gestion des API Azure avec Azure Application Insights
 
 La Gestion des API Azure est parfaitement compatible avec Azure Application Insights, un service extensible permettant aux développeurs web de créer et de gérer des applications sur de multiples plateformes. Ce guide décrit la marche à suivre pour effectuer cette intégration, ainsi que des stratégies visant à réduire l’impact sur le fonctionnement de l’instance de service Gestion des API.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour suivre ce guide, vous devrez disposer d’une instance de Gestion des API Azure. Si vous n’en avez pas, suivez d’abord le [tutoriel](get-started-create-service-instance.md).
 
@@ -51,7 +51,7 @@ Pour pouvoir utiliser Azure Application Insights, il faut commencer par créer u
     ![Enregistreur d'événements App Insights](media/api-management-howto-app-insights/apim-app-insights-logger-2.png)  
 
 > [!NOTE]
-> En arrière-plan, une entité [Enregistreur d’événements](https://docs.microsoft.com/rest/api/apimanagement/logger/createorupdate) est créée dans votre instance de gestion des API, qui contient la clé d’instrumentation de l’instance Application Insights.
+> En arrière-plan, une entité [Enregistreur d’événements](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/logger/createorupdate) est créée dans votre instance de gestion des API, qui contient la clé d’instrumentation de l’instance Application Insights.
 
 ## <a name="enable-application-insights-logging-for-your-api"></a>Activer la journalisation Application Insights pour l’API
 
@@ -70,7 +70,7 @@ Pour pouvoir utiliser Azure Application Insights, il faut commencer par créer u
 > Le remplacement de la valeur par défaut **0** dans le champ **Premiers octets du corps** peut considérablement réduire les performances de vos API.
 
 > [!NOTE]
-> En arrière-plan, une entité [Diagnostic](https://docs.microsoft.com/rest/api/apimanagement/diagnostic/createorupdate) nommée « applicationinsights » est créée au niveau de l’API.
+> En arrière-plan, une entité [Diagnostic](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/diagnostic/createorupdate) nommée « applicationinsights » est créée au niveau de l’API.
 
 | Nom du paramètre                        | Type de valeur                        | Description                                                                                                                                                                                                                                                                                                                                      |
 |-------------------------------------|-----------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

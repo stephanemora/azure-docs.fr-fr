@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/29/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 66ec923f12c59d606056d48c09f1ba346e9a4d32
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: 291ec651061b7a8a3ea3c0645a6bd6581d529ef6
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66170385"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244999"
 ---
 ## <a name="sign-in-to-azure"></a>Connexion à Azure 
 
@@ -50,18 +50,17 @@ Créez la définition d’image de galerie à l’intérieur de votre galerie. D
 1. Pour **système d’exploitation**, sélectionnez l’option appropriée en fonction de votre image source.
 1. Pour **Publisher**, type *myPublisher*. 
 1. Pour **offrent**, type *myOffer*.
-1. Pour **référence (SKU)**, type *mySKU*.
+1. Pour **référence (SKU)** , type *mySKU*.
 1. Lorsque vous avez terminé, sélectionnez **révision + créer**.
 1. Une fois la définition de l’image est validé, sélectionnez **créer**.
 1. Lorsque le déploiement est terminé, sélectionnez **accéder à la ressource**.
-
 
 
 ## <a name="create-an-image-version"></a>Créer une version d’image
 
 Créer une version de l’image à partir d’une image managée. Dans cet exemple, la version d'image, *1.0.0*, elle est répliquée dans les deux centres de données *USA Centre-Ouest* et *USA Centre Sud*. Lors du choix des régions cibles pour la réplication, n’oubliez pas que vous devez également inclure le *source* région en tant que cible pour la réplication.
 
-Les caractères autorisés pour la version d’image sont les nombres et les points. Les nombres doivent être un entier 32 bits. Format: *MajorVersion*.*MinorVersion*.*Patch*.
+Les caractères autorisés pour la version d’image sont les nombres et les points. Les nombres doivent être un entier 32 bits. Format : *MajorVersion*.*MinorVersion*.*Patch*.
 
 1. Dans la page de votre définition de l’image, sélectionnez **ajouter version** à partir du haut de la page.
 1. Dans **région**, sélectionnez la région où se trouve votre image managée. Versions de l’image doivent être créés dans la même région que l’image managée qu’ils sont créés à partir de.
@@ -75,3 +74,20 @@ Les caractères autorisés pour la version d’image sont les nombres et les poi
 1. Lorsque le déploiement est terminé, sélectionnez **accéder à la ressource**.
 
 Il peut prendre un certain temps pour répliquer l’image à l’ensemble des régions cible.
+
+## <a name="share-the-gallery"></a>Partager la galerie
+
+Nous recommandons que vous partagez l’accès au niveau de la galerie d’image. Les éléments suivants vous guide à travers le partage de la galerie que vous venez de créer.
+
+1. Ouvrez le [portail Azure](https://portal.azure.com).
+1. Dans le menu de gauche, sélectionnez **groupes de ressources**. 
+1. Dans la liste des groupes de ressources, sélectionnez **myGalleryRG**. Le panneau de votre groupe de ressources s’ouvre.
+1. Dans le menu à gauche de la **myGalleryRG** page, sélectionnez **contrôle d’accès (IAM)** . 
+1. Sous **ajouter une attribution de rôle**, sélectionnez **ajouter**. Le **ajouter une attribution de rôle** volet s’ouvre. 
+1. Sous **rôle**, sélectionnez **lecteur**.
+1. Sous **attribuer l’accès à**, conservez la valeur par défaut **utilisateur, groupe ou principal du service Azure AD**.
+1. Sous **sélectionnez**, entrez l’adresse de messagerie de la personne que vous souhaitez inviter.
+1. Si l’utilisateur se trouve en dehors de votre organisation, vous verrez le message **cet utilisateur sera envoyé un e-mail qui leur permet de collaborer avec Microsoft.** Sélectionnez l’utilisateur avec l’adresse de messagerie, puis cliquez **enregistrer**.
+
+Si l’utilisateur se trouve en dehors de votre organisation, ils obtiendront un message d’invitation à rejoindre l’organisation. L’utilisateur doit accepter l’invitation, puis ils seront en mesure de voir la galerie et toutes les définitions de l’image et les versions dans leur liste de ressources.
+

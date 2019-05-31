@@ -11,21 +11,70 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 5/8/2019
+ms.date: 5/23/2019
 ms.author: raiye
-ms.openlocfilehash: f63b707f72b6966615d09ef0b86ce3d056a39249
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 4c0f364e596fbe2bf9083cbcf521902523c92a70
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65465548"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241321"
 ---
 # <a name="azure-guest-os"></a>Système d’exploitation invité d'Azure
 Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Response Center) appliquées au système d’exploitation invité d'Azure. Parcourez cet article pour déterminer si une mise à jour spécifique s'applique au système d’exploitation invité que vous utilisez. Les mises à jour vont toujours de l'avant pour la [famille][family-explain] spécifique avec laquelle elles ont été présentées.
 
+## <a name="may-2019-guest-os"></a>Système d’exploitation invité de mai 2019
+
+>[!NOTE]
+>Le système d’exploitation invité peut est actuellement déployée pour les machines virtuelles du Service Cloud qui sont configurés pour les mises à jour automatiques. Une fois le déploiement terminé, cette version sera disponible pour les mises à jour manuelles via le portail Azure et les fichiers de configuration. Les correctifs suivants sont inclus dans le système d’exploitation invité peut. Cette liste est susceptible d’être modifiée.
+
+| Catégorie de produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
+| --- | --- | --- | --- | --- |
+|  Rel 19-05   |  [4498206 ]  |  Correctif cumulatif IE mai   |  2,86, 3.73, 4.66  |  14 mai 2019  |
+|  Rel 19-05   |  [4505050 ]  |  Correctif cumulatif IE mai   |  2,86, 3.73, 4.66  |  18 mai 2019  |
+|  Rel 19-05   |  [4497932 ]  |  Peut clignoter mise à jour   |  3.73, 4.66, 5.31  |  14 mai 2019  |
+|  Rel 19-05   |  [4499175 ]  |  Correctif cumulatif de sécurité mai   |  2.86  |  14 mai 2019  |
+|  Rel 19-05   |  [4495612 ]  |  Correctif cumulatif de sécurité .NET 3.5 mai   |  2.86  |  14 mai 2019  |
+|  Rel 19-05   |  [4495593 ]  |  Correctif cumulatif de sécurité .NET 4.5.2 mai   |  2.86  |  14 mai 2019  |
+|  Rel 19-05   |  [4499158 ]  |  Correctif cumulatif de sécurité mai   |  3,73  |  14 mai 2019  |
+|  Rel 19-05   |  [4495607 ]  |  Correctif cumulatif de sécurité .NET 3.5 mai   |  3,73  |  14 mai 2019  |
+|  Rel 19-05   |  [4495591 ]  |  Correctif cumulatif de sécurité .NET 4.5.2 mai   |  3,73  |  14 mai 2019  |
+|  Rel 19-05   |  [4492872 ]  |  Cumul d’IE   |  3,73  |  16 avril 2019  |
+|  Rel 19-05   |  [4499165 ]  |  Cumul de sécurité de mars   |  4.66  |  14 mai 2019  |
+|  Rel 19-05   |  [4495615 ]  |  Correctif cumulatif de sécurité .NET 3.5 mai   |  4.66  |  14 mai 2019  |
+|  Rel 19-05   |  [4495589 ]  |  Correctif cumulatif de sécurité .NET 4.5.2 mai   |  4.66  |  14 mai 2019  |
+|  Rel 19-05   |  [4498947 ]  |  SSU mai   |  5.31  |  14 mai 2019  |
+|  Rel 19-05   |  [4494175 ]  |  Mise à jour du Microcode mai   |  5.31  |  14 mai 2019  |
+|  Rel 19-05   |  [4505052 ]  |  Correctif cumulatif de sécurité mai   |  5.31  |  19 mai 2019  |
+|  Rel 19-05   |  [4499728 ]  |  SSU mai   |  6.7  |  19 mai 2019  |
+|  Rel 19-05   |  [4505056 ]  |  Correctif cumulatif de sécurité mai   |  6.7  |  19 mai 2019  |
+|  Rel 19-05   |  [4494174 ]  |  Mise à jour du Microcode mai   |  6.7  |  14 mai 2019  |
+|  Rel 19-05   |  [4495590 ]  |  Correctif cumulatif de sécurité .NET mai   |  6.7  |  14 mai 2019  |
+
+[KB4493510]: https://support.microsoft.com/kb/KB4493510
+[KB4493472]: https://support.microsoft.com/kb/KB4493472
+[KB4493451]: https://support.microsoft.com/kb/KB4493451
+[KB4493446]: https://support.microsoft.com/kb/KB4493446
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## <a name="april-2019-guest-os"></a>Système d’exploitation invité d’avril 2019
 
-| Catégorie du produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
+| Catégorie de produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
 | --- | --- | --- | --- | --- |
 | Rel 19-04 | [4493509] | Sécurité de Windows 10 | 6.6 | 9 avril 2019 |
 | Rel 19-04 | [4493470] | Sécurité de Windows 10 | 5.30 | 9 avril 2019 |
@@ -55,7 +104,7 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 
 ## <a name="march-2019-guest-os"></a>Système d’exploitation invité de mars 2019
 
-| Catégorie du produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
+| Catégorie de produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
 | --- | --- | --- | --- | --- |
 | Rel 19-03 | [4489873] | Internet Explorer | 2.84, 3.71, 4.64 | 12 mars 2019 |
 | Rel 19-03 | [4489907] | Clignote | 3.71, 4.64, 5.29, 6.5 | 12 mars 2019 |
@@ -97,7 +146,7 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 
 ## <a name="february-2019-guest-os"></a>Système d’exploitation invité de février 2019
 
-| Catégorie du produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
+| Catégorie de produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
 | --- | --- | --- | --- | --- |
 | Rel 19-02 | [4486474] | Internet Explorer | 2.83, 3.70, 4.63 | 12 février 2019 |
 | Rel 19-02 | [4487038] | Clignote | 3.70, 4.63, 5.28, 6.4 | 12 février 2019 |
@@ -149,7 +198,7 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 
 ## <a name="january-2019-guest-os"></a>Système d'exploitation invité, janvier 2019
 
-| Catégorie du produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
+| Catégorie de produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
 | --- | --- | --- | --- | --- |
 | Version 01-19 | [4480116] | Sécurité de Windows 10 | 6.3 | 8 janvier 2019 |
 | Version 01-19 | [4480961] | Sécurité de Windows 10 | 5.27 | 8 janvier 2019 |
@@ -201,7 +250,7 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 
 ## <a name="december-2018-guest-os"></a>Système d’exploitation invité, décembre 2018
 
-| Catégorie du produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
+| Catégorie de produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
 | --- | --- | --- | --- | --- |
 | Version 12-18 | [4471321] | Sécurité de Windows 10 | 5.26 | 11 décembre 2018 |
 | Version 12-18 | [4471328] | Sécurité Windows   | 2.81 | 11 décembre 2018 |
@@ -239,7 +288,7 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 
 ## <a name="november-2018-guest-os"></a>Système d’exploitation invité, novembre 2018
 
-| Catégorie du produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
+| Catégorie de produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
 | --- | --- | --- | --- | --- |
 | Version 11/18 | [4466536] | Internet Explorer | 2.80, 3.67, 4.60 | 13 novembre 2018 |
 | Version 11/18 | [4467694] | Clignote | 3.67, 4.60, 5.25 | 13 novembre 2018 |
@@ -271,7 +320,7 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 
 ## <a name="october-2018-guest-os"></a>Système d’exploitation invité, octobre 2018
 
-| Catégorie du produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
+| Catégorie de produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
 | --- | --- | --- | --- | --- |
 | Version 18/10 | [4462917] | Sécurité de Windows 10 | 5.24 | 9 octobre 2018 |
 | Version 18/10 | [4462915] | Sécurité Windows | 2.79 | 9 octobre 2018 |
@@ -308,7 +357,7 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 [4457036]: https://support.microsoft.com/kb/4457036
 
 ## <a name="september-2018-guest-os"></a>Système d’exploitation invité, septembre 2018
-| Catégorie du produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
+| Catégorie de produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
 | --- | --- | --- | --- | --- |
 | Version 18/09 | [4457131] | Sécurité de Windows 10 | 5.23 | 11 septembre 2018 |
 | Version 18/09 | [4457145] | Sécurité Windows uniquement | 2.78 | 11 septembre 2018 |
@@ -330,7 +379,7 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 | N/A | [4344147] | Correctif cumulatif .NET 4.x non relatif à la sécurité, août | 4.58 | 14 août 2018 |
 
 ## <a name="august-2018-guest-os"></a>Système d’exploitation invité, août 2018
-| Catégorie du produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
+| Catégorie de produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
 | --- | --- | --- | --- | --- |
 | Version 18/08 | [4343887] | Sécurité de Windows 10 | 5.22 | 14 août 2018 |
 | Version 18/08 | [4343899] | Sécurité Windows uniquement | 2.77 | 14 août 2018 |
@@ -353,7 +402,7 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 | N/A | [4338415] |Correctif cumulatif .NET 4.x non relatif à la sécurité, juillet |3.64 | 10 juillet 2018 |
 
 ## <a name="july-2018-guest-os"></a>Système d’exploitation invité, juillet 2018
-| Catégorie du produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
+| Catégorie de produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
 | --- | --- | --- | --- | --- |
 | Éd. 18/07 | [4338814] |Sécurité de Windows 10 |5.21 |10 juillet 2018 |
 | Éd. 18/07 | [4338823] |Sécurité Windows uniquement |2.76 |10 juillet 2018 |
@@ -373,7 +422,7 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 | N/A | [4284815] |Correctif cumulatif non relatif à la sécurité de juin |4.56 |12 juin 2018 |
 
 ## <a name="june-2018-guest-os"></a>Système d’exploitation invité, juin 2018
-| Catégorie du produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
+| Catégorie de produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
 | --- | --- | --- | --- | --- |
 | Éd. 18/06 | [4284880] |Sécurité de Windows 10 |5.20 |12 juin 2018 |
 | Éd. 18/06 | [4284867] |Sécurité Windows uniquement |2.75 |12 juin 2018 |
@@ -398,7 +447,7 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 | N/A | [4132216] |SSU mai |5.20 |8 mai 2018 |
 
 ## <a name="may-2018-guest-os"></a>Système d’exploitation invité, mai 2018
-| Catégorie du produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
+| Catégorie de produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
 | --- | --- | --- | --- | --- |
 | Éd. 18/05 | [4103721], [4103727], [4103723] |Sécurité de Windows 10 |5.19 |8 mai 2018 |
 | Éd. 18/05 | [4103712] |Sécurité Windows uniquement |2.74 |8 mai 2018 |
@@ -418,7 +467,7 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 
 
 ## <a name="april-2018-guest-os"></a>Système d’exploitation invité, avril 2018
-| Catégorie du produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
+| Catégorie de produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
 | --- | --- | --- | --- | --- |
 | Éd. 18/04 | [4093119] |Sécurité de Windows 10 |5.18 |10 avril 2018 |
 | Éd. 18/04 | [4093108] |Sécurité Windows uniquement |2.73 |10 avril 2018 |
@@ -432,7 +481,7 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 | N/A | [4088876] |Correctif cumulatif non relatif à la sécurité de mars |4.53 |13 mars 2018 |
 
 ## <a name="march-2018-guest-os"></a>Système d’exploitation invité, mars 2018
-| Catégorie du produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
+| Catégorie de produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
 | --- | --- | --- | --- | --- |
 | Éd. 18/03 | [4088787], [4088776] |Sécurité de Windows 10 |5.17 |13 mars 2018 |
 | Éd. 18/03 | [4088878], [4088880], [4088879] |Sécurité Windows uniquement |2.72, 3.59, 4.52 |13 mars 2018 |
@@ -445,7 +494,7 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 
 
 ## <a name="february-2018-guest-os"></a>Système d’exploitation invité, février 2018
-| Catégorie du produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
+| Catégorie de produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
 | --- | --- | --- | --- | --- |
 | Éd. 18/02 | [4074590], [4074588] |Sécurité de Windows 10 |5.16 |13 février 2018 |
 | Éd. 18/02 | [4074587], [4074589], [4074597] |Sécurité Windows uniquement |2.71, 3.58, 4.51 |13 février 2018 |
@@ -459,7 +508,7 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 | N/A | [4054177], [4054170] |Correctif cumulatif .NET de janvier |4.51 |4 janvier 2018 |
 
 ## <a name="january-2018-guest-os"></a>Système d’exploitation invité, janvier 2018
-| Catégorie du produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
+| Catégorie de produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
 | --- | --- | --- | --- | --- |
 | Éd. 18/01 | [4056898], [4056897], [4056899] |Sécurité Windows uniquement |2.70, 3.57, 4.50 |3 janvier 2018 |
 | Éd. 18/01 | [4056890], [4056892] |Sécurité Windows uniquement |5.15 |3 janvier 2018 |
@@ -471,7 +520,7 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 
 
 ## <a name="december-2017-guest-os"></a>Système d’exploitation invité, décembre 2017
-| Catégorie du produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
+| Catégorie de produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
 | --- | --- | --- | --- | --- |
 | Éd. 17/12 | [4053579], [4054517] |Mises à jour de sécurité Windows 10 |4.49, 5.14 |12 décembre 2017 |
 | Éd. 17/12 | [4054521], [4054522], [4054523] |Sécurité Windows uniquement |2.69, 3.56, 4.49 |12 décembre 2017 |
@@ -483,7 +532,7 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 | N/A | [4049068] |Mise à jour du fuseau horaire de décembre |2.69, 3.56, 4.49 |12 décembre 2017 |
 
 ## <a name="november-2017-guest-os"></a>Système d’exploitation invité, novembre 2017
-| Catégorie du produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
+| Catégorie de produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
 | --- | --- | --- | --- | --- |
 | Éd. 17/11 | [4048953] |Mises à jour Windows 10 |5.13 |14 novembre 2017 |
 | Éd. 17/11 | [4048960], [4048962], [4048961] |Sécurité Windows uniquement |2.68, 3.55, 4.48 |14 novembre 2017 |
@@ -497,7 +546,7 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 | N/A | [3191564] |Mise à jour pour Windows Management Framework 5.1  |4.48 |14 novembre 2017 |
 
 ## <a name="october-2017-guest-os"></a>Système d’exploitation invité, octobre 2017
-| Catégorie du produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
+| Catégorie de produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
 | --- | --- | --- | --- | --- |
 | Éd. 17/10 | [4041691] |Mises à jour Windows 10 |5.12 |10 octobre 2017 |
 | Éd. 17/10 | [4041678], [4041679], [4041687] |Sécurité Windows uniquement |2.67, 3.54, 4.47 |10 octobre 2017 |
@@ -511,7 +560,7 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 | N/A | [4040981] |Correctif cumulatif non relatif à la sécurité de septembre pour .NET |4.47 |12 septembre 2017 |
 
 ## <a name="september-2017-guest-os"></a>Système d’exploitation invité, septembre 2017
-| Catégorie du produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
+| Catégorie de produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
 | --- | --- | --- | --- | --- |
 | Éd. 17/09 | [4038782] |Mises à jour Windows 10 |5.11 |12 septembre 2017 |
 | Éd. 17/09 | [4038779], [4038786], [4038793] |Sécurité Windows uniquement |2.66, 3.53, 4.46 |12 septembre 2017 |
@@ -523,7 +572,7 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 | N/A | [4034681] |Correctif cumulatif non relatif à la sécurité d’août |4.46 |8 août 2017 |
 
 ## <a name="august-2017-guest-os"></a>Système d’exploitation invité, août 2017
-| Catégorie du produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
+| Catégorie de produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
 | --- | --- | --- | --- | --- |
 | Éd. 17/07 | [4034658] |Mises à jour Windows 10 |5.10 |8 août 2017 |
 | Éd. 17/07 | [4034679] |Sécurité Windows uniquement |2.65 |8 août 2017 |
@@ -537,7 +586,7 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 | Éd. 17/07 | [4025336] |Correctif cumulatif non relatif à la sécurité de juillet |4.45 |11 juillet 2017 |
 
 ## <a name="july-2017-guest-os"></a>Système d’exploitation invité, juillet 2017
-| Catégorie du produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
+| Catégorie de produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
 | --- | --- | --- | --- | --- |
 | Éd. 17/07 | [4025339] |Mises à jour Windows 10 |5.9 |11 juillet 2017 |
 | Éd. 17/07 | [4025337] |Sécurité Windows uniquement |2.64 |11 juillet 2017 |
@@ -551,7 +600,7 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 | N/A | [4022726] |Correctif cumulatif non relatif à la sécurité de juin |4.44 |13 juin 2017 |
 
 ## <a name="june-2017-guest-os"></a>Système d’exploitation invité, juin 2017
-| Catégorie du produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
+| Catégorie de produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
 | --- | --- | --- | --- | --- |
 | Éd. 17/06 | [4019472] |Améliorations de la qualité du système d’exploitation WS 2016 |5.8 |9 mai 2017 |
 | Éd. 17/06 | [4022722] |Sécurité Windows uniquement |2.63 |13 juin 2017 |
@@ -579,7 +628,7 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 | N/A | [4014512] |Correctif cumulatif non relatif à la sécurité de mai pour .NET |4.43 |9 mai 2017 |
 
 ## <a name="may-2017-guest-os"></a>Système d’exploitation invité, mai 2017
-| Catégorie du produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
+| Catégorie de produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
 | --- | --- | --- | --- | --- |
 | Éd. 17/05 | [4019472] |Améliorations de la qualité du système d’exploitation WS 2016 |5.7 | 9 mai 2017 |
 | Éd. 17/05 | [4019263] |Sécurité Windows uniquement |2.62 | 9 mai 2017 |
@@ -607,7 +656,7 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 | N/A | [4013418] |Mise à jour de la pile de maintenance |5.7 | 14 mars 2017 |
 
 ## <a name="april-2017-guest-os"></a>Système d’exploitation invité, avril 2017
-| Catégorie du produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
+| Catégorie de produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
 | --- | --- | --- | --- | --- |
 | Éd. 17/04 |  [4015217]  |Améliorations de la qualité du système d’exploitation WS 2016 | 5.6 | 11 avril 2017 |
 | Éd. 17/04 |  [4015546]  |Sécurité Windows uniquement |2.61 | 11 avril 2017 |
@@ -627,7 +676,7 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 | Éd. 17/04 |  [4012216]  |Correctif qualitatif mensuel de sécurité de mars 2017 pour Windows 8.1 et Windows Server 2012 R2 |4.41 | 11 avril 2017 |
 
 ## <a name="march-2017-guest-os"></a>Système d’exploitation invité, mars 2017
-| Catégorie du produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
+| Catégorie de produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
 | --- | --- | --- | --- | --- |
 | Éd. 17/03 |  [4013429] |Améliorations et correctifs | 5.5 | 14 mars 2017 |
 | Éd. 17/03 |  [4012212] |Mise à jour qualité de la sécurité seule de mars 2017 pour Windows 7 SP1 et Windows Server 2008 R2 SP1 |2.60 |14 mars 2017 |

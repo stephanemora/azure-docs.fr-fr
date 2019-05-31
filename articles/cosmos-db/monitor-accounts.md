@@ -4,15 +4,15 @@ description: Découvrez comment surveiller, dans votre compte Azure Cosmos DB, l
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 05/23/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: a12e0f567747b67c67f7bc825df1079d852e2f16
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 02bbde9a2d744c79cc8a7e95b0732b775c4dc695
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61330949"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241626"
 ---
 # <a name="monitor-performance-and-storage-metrics-in-azure-cosmos-db"></a>Superviser les métriques de performances et de stockage dans Azure Cosmos DB
 
@@ -23,7 +23,7 @@ Vous pouvez consulter les mesures sur la page Compte, sur la nouvelle page Mesur
 ## <a name="view-performance-metrics-on-the-metrics-page"></a>Affichage des mesures de performances sur la page Mesures
 1. Dans le [portail Azure](https://portal.azure.com/), cliquez sur **Tous les services**, faites défiler jusqu’à **Bases de données**, puis cliquez sur **Azure Cosmos DB**. Ensuite, cliquez sur le nom du compte Azure Cosmos DB dont vous souhaitez afficher les métriques de performances.
 2. Lorsque la nouvelle page se charge, dans le menu de la ressource, sous **Surveillance**, cliquez sur **Mesures**.
-3. Lorsque la page Mesures s’ouvre, sélectionnez la collection à réviser à partir de la liste déroulante **Collection(s)**.
+3. Lorsque la page Mesures s’ouvre, sélectionnez la collection à réviser à partir de la liste déroulante **Collection(s)** .
 
    Le portail Azure affiche la suite des mesures de collection disponibles. Notez que les mesures de débit, de stockage, de disponibilité, de latence et de cohérence sont fournies sous des onglets distincts. Pour obtenir des détails supplémentaires sur les mesures fournies, cliquez sur la double flèche en haut à droite de chaque volet de mesures.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: c72392e46805049703300dd6f60fc7bf08b9053b
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 9bddb6552b11dd506ee3e2c1c416c15da11048b7
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65235765"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258750"
 ---
 # <a name="capacity-planning-and-scaling"></a>Planification et mise à l’échelle de la capacité
 
@@ -42,7 +42,7 @@ Opérations de mise à l’échelle doit être effectuée via le déploiement du
 
 ## <a name="vertical-scaling-considerations"></a>Considérations relatives à la mise à l’échelle verticale
 
-[Mise à l’échelle verticale](https://docs.microsoft.com/azure/service-fabric/virtual-machine-scale-set-scale-node-type-scale-out) un type de nœud dans Azure Service Fabric requiert un nombre d’étapes et considérations. Exemple :
+[Mise à l’échelle verticale](https://docs.microsoft.com/azure/service-fabric/virtual-machine-scale-set-scale-node-type-scale-out) un type de nœud dans Azure Service Fabric requiert un nombre d’étapes et considérations. Exemple :
 
 * Le cluster doit être intègre avant sa mise à l’échelle, Sinon vous serez uniquement déstabiliser le cluster davantage.
 * **Au moins au niveau de durabilité de niveau Silver** est obligatoire pour tous les types de nœud de Cluster Service Fabric qui hébergent des services avec état.
@@ -70,6 +70,9 @@ Une fois les propriétés de nœud et les contraintes de placement déclarées, 
 2. Exécutez `Get-ServiceFabricNode` pour vous assurer que le nœud a bien été désactivé. Si ce n’est pas le cas, patientez jusqu'à ce que le nœud soit désactivé. Cette opération peut prendre plusieurs heures pour chaque nœud. Ne continuez pas tant que le nœud n'a pas été désactivé.
 3. Réduisez une à une le nombre de machines virtuelles dans ce type de nœud. L'instance de machine virtuelle la plus élevée va à présent être supprimée.
 4. Répétez les étapes 1 à 3 selon vos besoins, mais ne faites jamais descendre en puissance le nombre d’instances sur les types de nœuds principaux sur une valeur inférieure à celle garantie par le niveau de fiabilité. Pour obtenir la liste des instances recommandées, consultez [Planification de la capacité du cluster Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity).
+
+> [!NOTE]
+> Un scénario pris en charge pour le moment auquel effectuer une opération de mise à l’échelle verticale est : Puis-je migrer mon Cluster Service Fabric et l’Application à partir du disque non managé vers des disques gérés sans interruption de l’Application. En configurant un nouvel ordinateur virtuel groupes identiques avec disques gérés, et exécution d’une Application de la mise à niveau avec les contraintes de placement qui ciblent approvisionné capacité ; votre cluster Service Fabric peut planifier votre charge de travail sur la capacité de nœud de cluster configuré est transférée par domaine de mise à niveau sans interruption de l’Application. [Référence de base Azure des équilibreurs de charge](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview#skus) points de terminaison de pool principal peuvent être une machine virtuelle dans un groupe à haute disponibilité ou les machines virtuelles identiques. Cela signifie que vous ne pouvez pas utiliser un équilibreur de charge de référence SKU de base si vous déplacez votre Application Service Fabric systèmes entre les groupes identiques, sans provoquer l’inaccessibilité temporaire de votre Service Fabric cluster point de terminaison de gestion, même si le cluster et son Application sont en cours d’exécution ; couramment utilisateur configurer un équilibreur de charge de référence (SKU) Standard, lorsque vous effectuez un échange d’adresse IP (VIP) virtuelles entre des ressources de base équilibreur de charge de référence (SKU) et d’équilibrage de charge de référence (SKU) Standard, pour atténuer toute future environ 30 secondes d’inaccessibilité requise pour l’adresse IP virtuelle de l’échange.
 
 ## <a name="horizontal-scaling"></a>Mise à l’échelle horizontale
 
@@ -99,7 +102,7 @@ Pour monter en charge manuellement, mettre à jour de la capacité dans la propr
 
 ### <a name="scaling-in"></a>Mise à l'échelle
 
-La mise à l'échelle requiert une plus grande attention que la montée en charge. Exemple :
+La mise à l'échelle requiert une plus grande attention que la montée en charge. Exemple :
 
 * Les services système Service Fabric s’exécutent sur le type de nœud principal de votre cluster. Vous ne devez jamais arrêter ou faire descendre en puissance le nombre d’instances pour ces types de nœuds sur une valeur d'instances inférieure à celle garantie par le niveau de fiabilité. 
 * Pour un service avec état, un certain nombre de nœuds doivent toujours fonctionner afin de maintenir la disponibilité et de conserver l’état de votre service. Au minimum, le nombre de nœuds doit être égal au nombre de jeux de réplicas cibles du service/de la partition.
@@ -123,7 +126,7 @@ Pour mettre à l’échelle dans manuellement, mettre à jour de la capacité da
 
 1. Répétez les étapes 1 à 3 selon vos besoins. Ne faites jamais descendre en puissance le nombre d’instances sur les types de nœuds principaux sur une valeur inférieure à celle garantie par le niveau de fiabilité. Pour plus d’informations sur les niveaux de fiabilité et le nombre d’instances requises, consultez [Planification de la capacité du cluster Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity).
 
-Vous devez préparer le nœud à l'arrêt pour une mise à l'échelle par programmation. Pour ce faire, vous devez identifier le nœud à supprimer présentant l'instance la plus élevée et le désactiver. Exemple :
+Vous devez préparer le nœud à l'arrêt pour une mise à l'échelle par programmation. Pour ce faire, vous devez identifier le nœud à supprimer présentant l'instance la plus élevée et le désactiver. Exemple :
 
 ```c#
 using (var client = new FabricClient())

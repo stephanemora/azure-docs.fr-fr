@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 82c0aa53fa8905e0e58cb784a478ade474ec5601
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 9144165a3ce593dce11b5e50ce5f0af9f0afa480
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65232763"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237669"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planification d’un déploiement Azure Files
 
@@ -101,9 +101,9 @@ Partages doivent être approvisionnés incréments de 1 Go. Taille minimale est 
 >
 > Limite de rafale = 3 * ligne de base d’e/s. (Jusqu'à un maximum de 100 000 e/s).
 >
-> taux de sortie = 60 Mio/s + 0,06 * approvisionné Gio
+> Débit de sortie = 60 Mio/s + 0,06 * Gio provisionnés
 >
-> taux d’entrée = 40 Mio/s + 0.04 * approvisionné Gio
+> Débit d’entrée = 40 Mio/s + 0,04 * Gio provisionnés
 
 Taille du partage peut être augmentée à tout moment, mais peut être diminuée uniquement après 24 heures depuis l’augmentation de la dernière. Après avoir attendu sans augmenter la taille des dernières 24 heures, vous pouvez réduire la taille du partage autant de fois que vous le souhaitez, jusqu'à ce que vous l’augmentez à nouveau. Modifications de mise à l’échelle d’IOPS/débit entreront en vigueur après quelques minutes après le changement de taille.
 
@@ -191,7 +191,7 @@ Il existe de nombreuses options pour facilement transférer en bloc les données
 * **Azure File Sync** : lors de la première synchronisation entre un partage de fichiers Azure (un « point de terminaison cloud ») et un espace de noms de répertoire Windows (un « point de terminaison de serveur »), Azure File Sync réplique toutes les données du partage de fichiers existant sur Azure Files.
 * **[Azure Import Export](../common/storage-import-export-service.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)** : Le service Azure Import/Export permet de transférer en toute sécurité des volumes importants de données dans un partage de fichiers Azure en expédiant des disques durs vers un centre de données Azure. 
 * **[Robocopy](https://technet.microsoft.com/library/cc733145.aspx)** : Robocopy est un outil de copie bien connu fourni avec Windows et Windows Server. Robocopy peut servir à transférer des données dans Azure Files en montant le partage de fichiers localement, puis en utilisant l’emplacement monté comme destination de la commande Robocopy.
-* **[AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#upload-files-to-an-azure-file-share)** : AzCopy est un utilitaire de ligne de commande conçu pour copier des données à destination et à partir d’Azure Files, ou d’un stockage blob Azure, en utilisant des commandes simples avec des performances optimales. AzCopy est disponible pour Windows et Linux.
+* **[AzCopy](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)** : AzCopy est un utilitaire de ligne de commande conçu pour copier des données à destination et à partir d’Azure Files, ou d’un stockage blob Azure, en utilisant des commandes simples avec des performances optimales.
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Planification d’un déploiement Azure File Sync](storage-sync-files-planning.md)

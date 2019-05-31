@@ -6,14 +6,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/06/2018
+ms.date: 05/27/2019
 ms.author: hrasheed
-ms.openlocfilehash: 2d0b8aba95787f179733dd596e783f097cba4299
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 16041d2b7a971c9ba479c133261930b38d130792
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64692122"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66252778"
 ---
 # <a name="ports-used-by-apache-hadoop-services-on-hdinsight"></a>Ports utilisés par les services Apache Hadoop sur HDInsight
 
@@ -27,7 +27,6 @@ En interne, HDInsight est implémenté par plusieurs machines virtuelles Azure (
 
 > [!IMPORTANT]  
 > Si vous ne spécifiez pas de réseau virtuel Azure comme une option de configuration pour HDInsight, un réseau virtuel Azure sera créé automatiquement. Toutefois, vous ne pouvez pas associer d’autres ordinateurs (comme les autres machines virtuelles Azure ou votre ordinateur de développement client) à ce réseau virtuel.
-
 
 Pour joindre des ordinateurs supplémentaires au réseau virtuel, vous devez d’abord créer le réseau virtuel, puis le spécifier lors de la création de votre cluster HDInsight. Pour plus d’informations, consultez [Étendre les capacités de HDInsight en utilisant un réseau virtuel Azure](hdinsight-extend-hadoop-virtual-network.md)
 
@@ -55,7 +54,7 @@ Les éléments suivants sont disponibles pour les types de clusters spécifiques
 | Serveur Spark Thrift |443 |HTTPS |Spark |Le serveur Spark Thrift utilisé pour envoyer des requêtes Hive. Voir [Utiliser Beeline avec Apache Hive sur HDInsight](hadoop/apache-hadoop-use-hive-beeline.md) |
 | Storm |443 |HTTPS |Storm |Interface utilisateur web de Storm. Voir [Déploiement et gestion des topologies Apache Storm sur HDInsight](storm/apache-storm-deploy-monitor-topology-linux.md) |
 
-### <a name="authentication"></a>Authentification
+### <a name="authentication"></a>Authentication
 
 Tous les services exposés publiquement sur Internet doivent être authentifiés :
 
@@ -104,7 +103,7 @@ Exemples :
 | Scheduler Resource Manager |Nœuds principaux |8030 |HTTP |Interface d’administration |
 | Interface d’application Resource Manager |Nœuds principaux |8050 |HTTP |Adresse de l’interface du gestionnaire d’applications |
 | NodeManager |Tous les nœuds de travail |30050 |&nbsp; |L’adresse du gestionnaire de conteneurs |
-| Interface utilisateur web de NodeManager |Tous les nœuds de travail |30060 |HTTP |Interface de Resource Manager |
+| Interface utilisateur web de NodeManager |Tous les nœuds de travail |30060 |HTTP |Interface du Gestionnaire de ressources |
 | Adresse de Timeline |Nœuds principaux |10200 |RPC |Le service RPC du service de Timeline. |
 | Interface utilisateur web de Timeline |Nœuds principaux |8181 |HTTP |L’interface utilisateur web du service Timeline |
 

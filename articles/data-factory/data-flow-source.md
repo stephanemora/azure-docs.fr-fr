@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: dc0a6e008c7a1f4fb414f6d8adad3a94abc7a6b2
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 51c1ea7b554178f7fb3f264bf731ffd5872ceea2
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65792331"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234558"
 ---
 # <a name="source-transformation-for-mapping-data-flow"></a>Transformation source pour le mappage de flux de données 
 
@@ -92,7 +92,7 @@ Choisissez les paramètres pour gérer les fichiers dans votre source.
 
 Si votre source est dans la base de données SQL ou SQL Data Warehouse, vous disposez des options supplémentaires pour la gestion des fichiers sources.
 
-* **Requête** : entrez une requête SQL pour votre source. Ce paramètre remplace n’importe quelle table que vous avez choisi dans le jeu de données. Notez que **Order By** clauses ne sont pas pris en charge ici. Mais vous pouvez définir une instruction SELECT FROM complet ici.
+* **Requête** : entrez une requête SQL pour votre source. Ce paramètre remplace n’importe quelle table que vous avez choisi dans le jeu de données. Notez que **Order By** clauses ne sont pas pris en charge ici, mais vous pouvez définir une instruction SELECT FROM complète. Vous pouvez également utiliser les fonctions de table défini par l’utilisateur. **Sélectionnez * à partir de udfGetData()** est une fonction UDF dans SQL qui retourne une table. Cette requête génère une table source que vous pouvez utiliser dans votre flux de données.
 * **Taille de lot** : Entrez une taille de lot pour découper les données volumineuses en lectures.
 
 > [!NOTE]

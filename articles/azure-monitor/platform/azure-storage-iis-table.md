@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
-ms.openlocfilehash: a4e0432260cfb9ee11ed318305fb967d160de835
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 901544886e0a0c90c29e83fc71f7a7a25ffc6862
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66129688"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244883"
 ---
-# <a name="use-azure-blob-storage-for-iis-and-azure-table-storage-for-events-with-azure-monitor"></a>Utilisation du stockage blob Azure pour IIS et table le stockage Azure pour les événements avec Azure Monitor
+# <a name="collect-azure-diagnostic-logs-from-azure-storage"></a>Collecter les journaux de diagnostic Azure depuis le stockage Azure
 
 Azure Monitor peut lire les journaux pour les services suivants qui écrivent des diagnostics dans le stockage de tables ou journaux IIS écrits dans le stockage blob :
 

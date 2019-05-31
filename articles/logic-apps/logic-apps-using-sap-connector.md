@@ -10,12 +10,12 @@ ms.reviewer: divswa, LADocs
 ms.topic: article
 ms.date: 05/09/2019
 tags: connectors
-ms.openlocfilehash: 3fb39103fc9cb0f38bca56dcaeea4837ff4dfabe
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: bccefec80ef3afd6d312bb1048d3be5d8e708728
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65541126"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258148"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Se connecter aux systèmes SAP à partir d’Azure Logic Apps
 
@@ -27,7 +27,7 @@ Le connecteur SAP utilise le [bibliothèque du connecteur SAP .NET (NCo)](https:
 * **Recevoir de SAP** : Recevoir des IDoc via tRFC, appeler des fonctions BAPI via tRFC ou appeler des RFC/tRFC dans les systèmes SAP.
 * **Générer des schémas** : Créer des schémas pour les artefacts SAP IDoc, BAPI et RFC.
 
-Pour toutes les opérations ci-dessus, le connecteur SAP prend en charge l’authentification de base via un nom d’utilisateur et un mot de passe. Le connecteur prend également en charge [réseau CRS (Communications sécurisées)](https://help.sap.com/doc/saphelp_nw70/7.0.31/e6/56f466e99a11d1a5b00000e835363f/content.htm?no_cache=true), qui peut être utilisée pour SAP NetWeaver Single Sign-On, ou pour les fonctionnalités de sécurité supplémentaires fournies par un produit de sécurité externes.
+Pour toutes les opérations ci-dessus, le connecteur SAP prend en charge l'authentification de base via un nom d'utilisateur et un mot de passe. Le connecteur prend également en charge [réseau CRS (Communications sécurisées)](https://help.sap.com/doc/saphelp_nw70/7.0.31/e6/56f466e99a11d1a5b00000e835363f/content.htm?no_cache=true), qui peut être utilisée pour SAP NetWeaver Single Sign-On, ou pour les fonctionnalités de sécurité supplémentaires fournies par un produit de sécurité externes.
 
 Le connecteur SAP s’intègre aux systèmes SAP locaux via la [passerelle de données locale](../logic-apps/logic-apps-gateway-connection.md). Dans les scénarios d’envoi, par exemple, lors de l’envoi d’un message à partir d’applications logiques à un système SAP, la passerelle de données agit comme un client RFC et transfère les demandes provenant d’applications logiques à SAP.
 De même, dans les scénarios de réception, la passerelle de données agit en tant que RFC serveur qui reçoit des demandes de SAP et la transfère à l’application logique.
@@ -96,7 +96,7 @@ Dans Azure Logic Apps, une [action](../logic-apps/logic-apps-overview.md#logic-a
 
 1. Dans le Concepteur d’application logique, sous le déclencheur, choisissez **nouvelle étape**.
 
-   ![Cliquez sur « Nouvelle étape »](./media/logic-apps-using-sap-connector/add-action.png)
+   ![Choisir « Nouvelle étape »](./media/logic-apps-using-sap-connector/add-action.png)
 
 1. Dans la zone de recherche, entrez « sap » comme filtre. Dans la liste des actions, sélectionnez cette action : **Envoyer un message à SAP**
   
@@ -119,6 +119,8 @@ Dans Azure Logic Apps, une [action](../logic-apps/logic-apps-overview.md#logic-a
       Si la propriété **Type de connexion** est définie sur **Groupe**, ces propriétés, qui apparaissent habituellement facultatives, sont obligatoires :
 
       ![Créer une connexion au serveur de messagerie SAP](media/logic-apps-using-sap-connector/create-SAP-message-server-connection.png)
+
+      Par défaut, le typage fort est utilisé pour vérifier les valeurs non valides en effectuant la validation XML par rapport au schéma. Ce comportement peut vous aider à détecter les problèmes plus tôt. Le **tapant sécurisé** option est disponible pour la compatibilité descendante et ne vérifie que la longueur de chaîne. En savoir plus sur la [ **tapant sécurisé** option](#safe-typing).
 
    1. Lorsque vous êtes prêt, choisissez **Créer**.
 
@@ -225,6 +227,8 @@ Cet exemple utilise une application logique qui se déclenche lors de la récept
 
       ![Créer une connexion au serveur de messagerie SAP](media/logic-apps-using-sap-connector/create-SAP-message-server-connection.png)  
 
+      Par défaut, le typage fort est utilisé pour vérifier les valeurs non valides en effectuant la validation XML par rapport au schéma. Ce comportement peut vous aider à détecter les problèmes plus tôt. Le **tapant sécurisé** option est disponible pour la compatibilité descendante et ne vérifie que la longueur de chaîne. En savoir plus sur la [ **tapant sécurisé** option](#safe-typing).
+
 1. Spécifiez les paramètres nécessaires en fonction de la configuration de votre système SAP.
 
    Vous pouvez si vous le souhaitez fournir une ou plusieurs actions SAP. Cette liste d’actions spécifie les messages que le déclencheur reçoit de votre serveur SAP via la passerelle de données. Une liste vide spécifie que le déclencheur reçoit tous les messages. Si la liste comporte plus d’un message, le déclencheur reçoit seulement les messages spécifiés dans la liste. Tous les autres messages envoyés depuis votre serveur SAP sont rejetés par la passerelle.
@@ -282,7 +286,7 @@ Dans la barre d’outils du concepteur, choisissez **Enregistrer**.
 
 1. Dans le Concepteur d’application logique, sous le déclencheur, choisissez **nouvelle étape**.
 
-   ![Cliquez sur « Nouvelle étape »](./media/logic-apps-using-sap-connector/add-action.png)
+   ![Choisir « Nouvelle étape »](./media/logic-apps-using-sap-connector/add-action.png)
 
 1. Dans la zone de recherche, entrez « sap » comme filtre. Dans la liste des actions, sélectionnez cette action : **Générer les schémas**
   
@@ -306,7 +310,11 @@ Dans la barre d’outils du concepteur, choisissez **Enregistrer**.
 
       ![Créer une connexion au serveur de messagerie SAP](media/logic-apps-using-sap-connector/create-SAP-message-server-connection.png)
 
-   1. Lorsque vous êtes prêt, choisissez **Créer**. Logic Apps configure et teste votre connexion pour vérifier son bon fonctionnement.
+      Par défaut, le typage fort est utilisé pour vérifier les valeurs non valides en effectuant la validation XML par rapport au schéma. Ce comportement peut vous aider à détecter les problèmes plus tôt. Le **tapant sécurisé** option est disponible pour la compatibilité descendante et ne vérifie que la longueur de chaîne. En savoir plus sur la [ **tapant sécurisé** option](#safe-typing).
+
+   1. Lorsque vous êtes prêt, choisissez **Créer**. 
+   
+      Logic Apps configure et teste votre connexion pour vérifier son bon fonctionnement.
 
 1. Indiquez le chemin de l’artefact pour lequel vous voulez générer le schéma.
 
@@ -391,7 +399,7 @@ Pour activer les SNC pour vos demandes vers ou à partir du système SAP, sélec
 
    ![Configurer des SNC SAP dans la connexion](media/logic-apps-using-sap-connector/configure-sapsnc.png)
 
-   | Propriété | Description  |
+   | Propriété | Description |
    |----------| ------------|
    | **Bibliothèque SNC** | Nom de la bibliothèque SNC ou chemin d’accès relatif à l’emplacement d’installation NCo ou chemin d’accès absolu. Par exemple, `sapsnc.dll` ou `.\security\sapsnc.dll` ou `c:\security\sapsnc.dll` |
    | **SNC SSO** | Lors de la connexion via SNC, l’identité SNC est généralement utilisée pour authentifier l’appelant. Une autre option consiste à substituer afin que les informations d’utilisateur et mot de passe peuvent être utilisées pour authentifier l’appelant, mais la ligne est toujours chiffrée. |
@@ -402,6 +410,53 @@ Pour activer les SNC pour vos demandes vers ou à partir du système SAP, sélec
 
    > [!NOTE]
    > Variables d’environnement SNC_LIB et SNC_LIB_64 ne doivent pas être définies sur l’ordinateur où vous avez passerelle de données et de la bibliothèque SNC. Si la valeur, ils seraient prioritaire sur la valeur de la bibliothèque SNC passée via le connecteur.
+
+<a name="safe-typing"></a>
+
+## <a name="safe-typing"></a>Tapant sans échec
+
+Par défaut, lorsque vous créez votre connexion SAP, un typage fort est utilisé pour vérifier les valeurs non valides en effectuant la validation XML par rapport au schéma. Ce comportement peut vous aider à détecter les problèmes plus tôt. Le **tapant sécurisé** option est disponible pour la compatibilité descendante et ne vérifie que la longueur de chaîne. Si vous choisissez **tapant sécurisé**, les types de fichiers DAT et Tim dans SAP sont traités en tant que chaînes plutôt que comme leurs équivalents XML, `xs:date` et `xs:time` où `xmlns:xs="http://www.w3.org/2001/XMLSchema"`. Tapant sécurisé affecte le comportement de tous les de génération de schéma, l’envoi de messages pour la charge utile « reçu » et la réponse « reçu » et déclencheur. 
+
+Lorsqu’un typage fort est utilisé (**tapant sécurisé** n’est ne pas activée), le schéma mappe les types de fichiers DAT et Tim sur des types XML plus simples :
+
+```xml
+<xs:element minOccurs="0" maxOccurs="1" name="UPDDAT" nillable="true" type="xs:date"/>
+<xs:element minOccurs="0" maxOccurs="1" name="UPDTIM" nillable="true" type="xs:time"/>
+```
+
+Lors de l’envoi des messages à l’aide d’un typage fort, la réponse DATS et TIM est conforme au format de type XML correspondant :
+
+```xml
+<DATE>9999-12-31</DATE>
+<TIME>23:59:59</TIME>
+```
+
+Lorsque **tapant sécurisé** est activé, le schéma mappe les fichiers DAT et les types de TIM au format XML par exemple des champs avec uniquement, les restrictions de longueur de chaîne :
+
+```xml
+<xs:element minOccurs="0" maxOccurs="1" name="UPDDAT" nillable="true">
+  <xs:simpleType>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="8" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:element>
+<xs:element minOccurs="0" maxOccurs="1" name="UPDTIM" nillable="true">
+  <xs:simpleType>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="6" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:element>
+```
+
+Lors de l’envoi de messages avec **tapant sécurisé** activé, la réponse DATS et Tim ressemble à cet exemple :
+
+```xml
+<DATE>99991231</DATE>
+<TIME>235959</TIME>
+```
+
 
 ## <a name="known-issues-and-limitations"></a>Problèmes connus et limitations
 

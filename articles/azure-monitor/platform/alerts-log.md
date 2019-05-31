@@ -5,15 +5,15 @@ author: msvijayn
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 09/15/2018
+ms.date: 05/30/2019
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: d893fb1023188498260813642678397a39bb2442
-ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.openlocfilehash: b7240b38e595fdcf9f9d4f995f71643154ee0f9b
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64872369"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399169"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Créer, afficher et gérer des alertes de journal à l’aide d’Azure Monitor
 
@@ -58,7 +58,7 @@ Vous trouverez ci-après un guide pas à pas sur l’utilisation des alertes de 
 
    > [!NOTE]
    > 
-   > Les listes d’alertes peuvent importer une requête analytique en tant que type de signal : **Journal (requête enregistrée)**, comme indiqué dans l’illustration ci-dessus. Afin que les utilisateurs puissent perfectionner votre requête dans l’Analytique et puis les enregistrer pour une utilisation ultérieure dans les alertes, plus d’informations sur l’enregistrement de requêtes disponible à l’adresse [à l’aide de la requête de journal dans Azure Monitor](../log-query/log-query-overview.md) ou [requêtes partagées dans analytique d’insights d’application ](../log-query/log-query-overview.md).
+   > Les listes d’alertes peuvent importer une requête analytique en tant que type de signal : **Journal (requête enregistrée)** , comme indiqué dans l’illustration ci-dessus. Afin que les utilisateurs puissent perfectionner votre requête dans l’Analytique et puis les enregistrer pour une utilisation ultérieure dans les alertes, plus d’informations sur l’enregistrement de requêtes disponible à l’adresse [à l’aide de la requête de journal dans Azure Monitor](../log-query/log-query-overview.md) ou [requêtes partagées dans analytique d’insights d’application ](../log-query/log-query-overview.md).
 
 1. *Alertes de journal* : Une fois sélectionnée, la requête de génération d’alerte peut être indiquée dans le champ **Requête de recherche**. Si la syntaxe de la requête est incorrecte, le champ affiche un message d’erreur en rouge. Si la syntaxe de la requête est correcte, les données de la requête indiquée sont indiquées à titre de référence sous forme de graphique avec la possibilité d’ajuster la fenêtre de temps entre les six dernières heures et la semaine précédente.
 
@@ -308,23 +308,36 @@ Vous trouverez ci-dessous la structure d'un modèle de ressource basé sur la [c
 
 L’exemple json ci-dessus peut par exemple être enregistré en tant que sampleScheduledQueryRule.json pour les besoins de cette procédure pas à pas, et peut être déployé à l’aide d’[Azure Resource Manager dans le portail Azure](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template).
 
-## <a name="managing-log-alerts-using-powershell-cli-or-api"></a>Gestion des alertes de journal à l’aide de PowerShell, de la CLI ou d’une API
+## <a name="managing-log-alerts-using-powershell"></a>La gestion des alertes de journal à l’aide de PowerShell
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Azure Monitor - [API de règles de requête planifiée](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) est une API REST et entièrement compatible avec le REST API Azure Resource Manager. Elle peut donc être utilisée par le biais de Powershell à l’aide d’applets de commande Resource Manager en plus d’Azure CLI.
+Azure Monitor - [API de règles de requête planifiée](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) est une API REST et entièrement compatible avec le REST API Azure Resource Manager. Et les applets de commande PowerShell ci-dessous sont disponibles pour tirer parti de la [API de règles de requête planifiée](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/).
+
+1. [Nouvelle AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryrule) : Applet de commande PowerShell pour créer une règle d’alerte de journal.
+1. [Set-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/set-azscheduledqueryrule) : Applet de commande PowerShell pour mettre à jour une règle d’alerte de journal existante.
+1. [New-AzScheduledQueryRuleSource](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryrulesource) : Applet de commande PowerShell pour créer ou mettre à jour d’objet spécifiant les paramètres de source pour une alerte de journal. Utilisé en tant qu’entrée par [New-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryrule) et [Set-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/set-azscheduledqueryrule) applet de commande.
+1. [New-AzScheduledQueryRuleSchedule](https://docs.microsoft.com/powershell/module/az.monitor/New-AzScheduledQueryRuleSchedule): L’applet de commande PowerShell pour créer ou mettre à jour de l’objet en spécifiant des paramètres de planification pour une alerte de journal. Utilisé en tant qu’entrée par [New-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryrule) et [Set-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/set-azscheduledqueryrule) applet de commande.
+1. [New-AzScheduledQueryRuleAlertingAction](https://docs.microsoft.com/powershell/module/az.monitor/New-AzScheduledQueryRuleAlertingAction) : Applet de commande PowerShell pour créer ou mettre à jour d’objet qui spécifie les paramètres d’action pour une alerte de journal. Utilisé en tant qu’entrée par [New-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryrule) et [Set-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/set-azscheduledqueryrule) applet de commande.
+1. [New-AzScheduledQueryRuleAznsActionGroup](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryruleaznsactiongroup) : L’applet de commande PowerShell pour créer ou mettre à jour d’objet spécifiant l’action regroupe les paramètres pour une alerte de journal. Utilisé en tant qu’entrée par [New-AzScheduledQueryRuleAlertingAction](https://docs.microsoft.com/powershell/module/az.monitor/New-AzScheduledQueryRuleAlertingAction) applet de commande.
+1. [New-AzScheduledQueryRuleTriggerCondition](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryruletriggercondition) : Applet de commande PowerShell pour créer ou mettre à jour les paramètres de condition de déclencheur en spécifiant objet d’alerte de journal. Utilisé en tant qu’entrée par [New-AzScheduledQueryRuleAlertingAction](https://docs.microsoft.com/powershell/module/az.monitor/New-AzScheduledQueryRuleAlertingAction) applet de commande.
+1. [New-AzScheduledQueryRuleLogMetricTrigger](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryrulelogmetrictrigger) : L’applet de commande PowerShell pour créer ou mettre à jour d’objet spécifiant les paramètres de condition de déclencheur de métrique de [alerte de journal de type de mesure métrique](../../azure-monitor/platform/alerts-unified-log.md#metric-measurement-alert-rules). Utilisé en tant qu’entrée par [New-AzScheduledQueryRuleTriggerCondition](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryruletriggercondition) applet de commande.
+1. [Get-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/get-azscheduledqueryrule) : Ouvrir une session applet de commande PowerShell à un élément existant de la liste des règles d’alerte ou une règle d’alerte de journal spécifique
+1. [Update-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/update-azscheduledqueryrule) : L’applet de commande PowerShell pour activer ou désactiver la règle d’alerte log
+1. [Remove-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/remove-azscheduledqueryrule): L’applet de commande PowerShell pour supprimer une règle d’alerte de journal existant
+
+> [!NOTE]
+> Applets de commande PowerShell de ScheduledQueryRules peut uniquement gérer les règles créées d’applet de commande lui-même ou à l’aide d’Azure Monitor - [API de règles de requête planifiée](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/). Connecter des règles d’alerte créées à l’aide de hérité [API d’alerte Log Analytique](api-alerts.md) et modèles hérités de [Analytique de journal des alertes et recherches enregistrées](../insights/solutions-resources-searches-alerts.md) peuvent être gérés à l’aide des applets de commande PowerShell de ScheduledQueryRules uniquement après utilisateur [bascule de préférence de l’API pour les alertes de journal d’Analytique](alerts-log-api-switch.md).
+
+## <a name="managing-log-alerts-using-cli-or-api"></a>La gestion des alertes de journal à l’aide de CLI ou l’API
+
+Azure Monitor - [API de règles de requête planifiée](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) est une API REST et entièrement compatible avec le REST API Azure Resource Manager. Par conséquent, il peut être utilisé via Powershell à l’aide des commandes Resource Manager pour Azure CLI.
 
 
 > [!NOTE]
 > Les alertes de journal pour Log Analytics peuvent également être gérées à l’aide de l’[API d’alerte Log Analytics](api-alerts.md) existante et des modèles existants des [alertes et recherches Log Analytics enregistrées](../insights/solutions-resources-searches-alerts.md). Pour plus d’informations sur l’utilisation par défaut de la nouvelle API ScheduledQueryRules détaillée ici, consultez [Opter pour la nouvelle API des alertes Log Analytics](alerts-log-api-switch.md).
 
-Alertes de journal n’est actuellement des commandes PowerShell ou CLI dédiées actuellement ; mais, comme illustré ci-dessous peut être utilisé via l’applet de commande PowerShell Azure Resource Manager pour l’exemple illustré précédemment du modèle de ressource (sampleScheduledQueryRule.json) dans la section de modèle de ressource :
-
-```powershell
-New-AzResourceGroupDeployment -ResourceGroupName "contosoRG" -TemplateFile "D:\Azure\Templates\sampleScheduledQueryRule.json"
-```
-
-Vous trouverez ci-dessous une illustration de l’utilisation par le biais de la commande Azure Resource Manager dans Azure CLI pour l’exemple de modèle de ressource présenté plus haut (sampleScheduledQueryRule.json) dans la section Modèle de ressource :
+Alertes de journal n’est actuellement des commandes CLI dédiées actuellement ; mais, comme illustré ci-dessous peut être utilisé via la commande CLI du Gestionnaire de ressources Azure pour l’exemple illustré précédemment du modèle de ressource (sampleScheduledQueryRule.json) dans la section de modèle de ressource :
 
 ```azurecli
 az group deployment create --resource-group contosoRG --template-file sampleScheduledQueryRule.json

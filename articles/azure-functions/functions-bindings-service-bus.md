@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 04/01/2017
 ms.author: cshoe
-ms.openlocfilehash: e1cd7d9e135f5e3196f02237076c5c8069048fb0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 199ce2fe24d76595493dc2128cebb3fcb642fcab
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61442730"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241144"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Liaisons Azure Service Bus pour Azure Functions
 
@@ -330,7 +330,7 @@ Le déclencheur Service Bus fournit plusieurs [propriétés de métadonnées](./
 |`CorrelationId`|`string`|L’ID de corrélation.|
 
 > [!NOTE]
-> Actuellement, le déclencheur fonctionne uniquement avec les files d’attente et les abonnements qui n’utilisent pas de sessions. Veuillez suivre [cet élément de fonctionnalité](https://github.com/Azure/azure-functions-host/issues/563) pour toute mise à jour supplémentaire concernant cette fonctionnalité. 
+> Déclencheur de bus de Service qui fonctionne avec les abonnements et les files d’attente activée dans la session est actuellement en version préliminaire. Veuillez suivre [cet élément](https://github.com/Azure/azure-webjobs-sdk/issues/529#issuecomment-491113458) des mises à jour supplémentaires au sujet de ce. 
 
 Consultez les [exemples de code](#trigger---example) qui utilisent ces propriétés précédemment dans cet article.
 

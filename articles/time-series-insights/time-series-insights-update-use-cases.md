@@ -2,7 +2,7 @@
 title: Cas d’usage de la préversion d’Azure Time Series Insights | Microsoft Docs
 description: Comprendre les cas d’usage de la préversion d’Azure Time Series Insights.
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 ms.workload: big-data
 manager: cshankar
 ms.service: time-series-insights
@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 04/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: 27c79155a4630f49faf49f30b2d46bf1e0dffd90
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 787445d5186a173b2cba674b36cd95879cc863e5
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65508315"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389996"
 ---
 # <a name="azure-time-series-insights-preview-use-cases"></a>Cas d’usage de la préversion d’Azure Time Series Insights
 
@@ -28,11 +28,11 @@ Plus précisément, cet article répond aux questions suivantes :
 * Quels sont les avantages de l’utilisation de Time Series Insights pour [analyse opérationnelle et l’efficacité des processus](#operational-analysis-and-driving-process-efficiency)?
 * Quels sont les avantages de l’utilisation de Time Series Insights pour [avancées d’analytique](#advanced-analytics)?
 
-Une vue d’ensemble de ces scénarios d’utilisation est décrite ci-dessous.
+Une vue d’ensemble de ces scénarios d’utilisation est décrite dans les sections suivantes.
 
 ## <a name="introduction"></a>Présentation
 
-Azure Time Series Insights est une offre platform-as-a-service de bout en bout. Il est utilisé pour collecter, traiter, stocker, analyser et interroger hautement CONTEXTUALISÉES temps série-optimisées, données IoT à l’échelle. Time Series Insights est idéal pour l’exploration de données ad hoc et l’analyse opérationnelle. Il s’agit d’une offre de service personnalisée et extensible de manière unique qui répond aux besoins étendus des déploiements IoT sectoriels.
+Azure Time Series Insights est une offre platform-as-a-service de bout en bout. Elle est utilisée pour collecter, traiter, stocker, analyser et interroger des données à l’échelle IoT optimisées pour une série chronologique hautement contextualisée. Time Series Insights est idéal pour l’exploration de données ad hoc et l’analyse opérationnelle. Time Series Insights est un service extensible de manière unique, personnalisé offre que répond au large a besoin des déploiements IoT industriels.
 
 ## <a name="data-exploration-and-visual-anomaly-detection"></a>Exploration des données et détection d’anomalies visuelles
 
@@ -54,7 +54,7 @@ Il existe trois méthodes principales pour interagir avec les données stockées
 
     * Lire le [bibliothèque cliente de temps série Insights JS](tutorial-explore-js-client-lib.md) et le [client de Time Series Insights](https://github.com/Microsoft/tsiclient) documentation pour en savoir plus sur le SDK JavaScript.
 
-    * En savoir plus sur le partage des URL et la nouvelle interface utilisateur en examinant [visualiser les données dans l’Explorateur de version préliminaire](time-series-insights-update-explorer.md).
+    * En savoir plus sur le partage des URL et la nouvelle interface utilisateur en examinant [visualiser les données dans l’Explorateur Azure temps série Insights Preview](time-series-insights-update-explorer.md).
 
 - La troisième méthode consiste à utiliser les puissantes API pour interroger les données stockées dans Time Series Insights. Time Series Insights a tels que les opérateurs temporels `from`, `to`, `first`, et `last`. Il possède des transformations et des agrégations telles que `average`, `min`, `max`, `split by`, `order by`, et `DateHistogram`. Il a également comme opérateurs de filtrage `has`, `in`, `and`, `or`, `greater than`, et `REGEX`. Tous ces opérateurs permettent aux applications en aval d’identifier rapidement des tendances et des modèles intéressants dans vos données. Utilisez-les pour remplir les visualisations personnalisées afin de détecter les anomalies.
 
@@ -97,7 +97,5 @@ Pour combler les lacunes des données IoT pour effectuer des analyses avancées,
 ## <a name="next-steps"></a>Étapes suivantes
 
 - En savoir plus sur [l’explorateur de la préversion de Time Series Insights](./time-series-insights-update-explorer.md).
-
-- Pour planifier votre environnement, consultez [Time Series Insights planning](./time-series-insights-update-plan.md) (Planification de Time Series Insights).
-
+- Lecture [temps série Insights Preview planification](./time-series-insights-update-plan.md) de planifier votre environnement.
 - Consultez la documentation [client de Time Series Insights](https://github.com/Microsoft/tsiclient).

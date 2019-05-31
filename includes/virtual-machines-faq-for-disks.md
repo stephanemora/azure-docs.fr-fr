@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/13/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 0ad006ca966cfcc2c817ae4e8bfd3dc2d477259e
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: 0e361edfea6365c3d3fe072e12bb303e71bb8d63
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66145910"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66248802"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Forum aux questions sur les disques de machines virtuelles et les disques Premium gérés et non gérés Azure IaaS
 
@@ -141,19 +141,9 @@ Vous ne pouvez pas renommer les disques managés. Par contre, vous pouvez renomm
 
 Le partitionnement GPT peut être utilisé uniquement sur les disques de données, pas sur les disques de système d’exploitation. Les disques de système d’exploitation doivent utiliser le style de partition MBR.
 
-## <a name="uploading-to-a-managed-disk"></a>Charger sur un disque géré
+**Quels types de disque prend en charge les captures instantanées ?**
 
-**Puis-je télécharger des données à un disque géré existant ?**
-
-Non, chargement est utilisable uniquement lors de la création d’un nouveau disque vide avec le **ReadyToUpload** état.
-
-**Puis-je attacher un disque à une machine virtuelle s’il est dans un état de chargement ?**
-
-Non.
-
-**Puis-je effectuer une capture instantanée d’un disque géré dans un état de chargement ?**
-
-Non.
+Disque SSD Premium, disque SSD standard et SSD standard prennent en charge des captures instantanées, sans aucune limite de taille. Vous pouvez donc les disques de grande taille d’instantané (jusqu'à 32 To). Ultra SSDs ne gèrent pas les captures instantanées.
 
 ## <a name="standard-ssd-disks"></a>Disques SSD Standard
 
@@ -353,7 +343,7 @@ Oui.
 
 **Quelles sont les plus grandes tailles de disque pris en charge par le service sauvegarde Azure et Azure Site Recovery ?**
 
-La plus grande taille de disque prise en charge par Sauvegarde Azure et Azure Site Recovery est de 4 Tio. Prise en charge pour les disques plus volumineux jusqu'à 32 To est bientôt ajouté.
+La plus grande taille de disque prise en charge par Sauvegarde Azure et Azure Site Recovery est de 4 Tio. Prise en charge pour les disques plus volumineux jusqu'à 32 To n’est pas encore disponible.
 
 **Quels sont la machine virtuelle recommandée tailles pour les tailles de disque plus volumineux (> 4 TIO) pour disque SSD Standard et des disques HDD Standard d’atteindre optimisée disque IOPS et bande passante ?**
 

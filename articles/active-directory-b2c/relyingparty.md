@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 01/25/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: ca78e7a9ce44b492dafcc00c1663d54718ca7fac
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 9e8718d9216bb2f4a83f8e0373b4788210015b75
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64705082"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66253774"
 ---
 # <a name="relyingparty"></a>RelyingParty
 
@@ -124,7 +124,7 @@ L’élément **SingleSignOn** contient l’attribut suivant :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| Étendue | Oui | Étendue du comportement d’authentification unique. Valeurs possibles : `Suppressed`, `Tenant`, `Application` ou `Policy`. La valeur `Suppressed` indique que le comportement est supprimé. Par exemple, dans le cas d’une session d’authentification unique, aucune session n’est conservée pour l’utilisateur et celui-ci est toujours invité à sélectionner un fournisseur d’identité. La valeur `TrustFramework` indique que le comportement est appliqué pour toutes les stratégies dans l’infrastructure de confiance. Par exemple, un utilisateur suivant deux parcours de stratégie pour une infrastructure de confiance n’est pas invité à sélectionner un fournisseur d’identité. La valeur `Tenant` indique que le comportement est appliqué à toutes les stratégies dans le locataire. Par exemple, un utilisateur suivant deux parcours de stratégie pour un locataire n’est pas invité à sélectionner un fournisseur d’identité. La valeur `Application` indique que le comportement est appliqué à toutes les stratégies pour l’application qui effectue la requête. Par exemple, un utilisateur suivant deux parcours de stratégie pour une application n’est pas invité à sélectionner un fournisseur d’identité. La valeur `Policy` indique que le comportement s’applique uniquement à une stratégie. Par exemple, un utilisateur suivant deux parcours de stratégie pour une infrastructure de confiance est invité à sélectionner un fournisseur d’identité en cas de basculement d’une stratégie à une autre. |
+| `Scope` | Oui | Étendue du comportement d’authentification unique. Valeurs possibles : `Suppressed`, `Tenant`, `Application` ou `Policy`. La valeur `Suppressed` indique que le comportement est supprimé. Par exemple, dans le cas d’une session d’authentification unique, aucune session n’est conservée pour l’utilisateur et celui-ci est toujours invité à sélectionner un fournisseur d’identité. La valeur `TrustFramework` indique que le comportement est appliqué pour toutes les stratégies dans l’infrastructure de confiance. Par exemple, un utilisateur suivant deux parcours de stratégie pour une infrastructure de confiance n’est pas invité à sélectionner un fournisseur d’identité. La valeur `Tenant` indique que le comportement est appliqué à toutes les stratégies dans le locataire. Par exemple, un utilisateur suivant deux parcours de stratégie pour un locataire n’est pas invité à sélectionner un fournisseur d’identité. La valeur `Application` indique que le comportement est appliqué à toutes les stratégies pour l’application qui effectue la requête. Par exemple, un utilisateur suivant deux parcours de stratégie pour une application n’est pas invité à sélectionner un fournisseur d’identité. La valeur `Policy` indique que le comportement s’applique uniquement à une stratégie. Par exemple, un utilisateur suivant deux parcours de stratégie pour une infrastructure de confiance est invité à sélectionner un fournisseur d’identité en cas de basculement d’une stratégie à une autre. |
 | KeepAliveInDays | Oui | Contrôle la durée pendant laquelle l’utilisateur reste connecté. Affecter la valeur 0 désactive la fonctionnalité KMSI. Pour plus d’informations, consultez [Maintenir la connexion](active-directory-b2c-reference-kmsi-custom.md). |
 
 ## <a name="journeyinsights"></a>JourneyInsights
@@ -170,7 +170,7 @@ L’élément **TechnicalProfile** contient l’attribut suivant :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- | 
-| ID | Oui | La valeur doit être `PolicyProfile`. |
+| Id | Oui | La valeur doit être `PolicyProfile`. |
 
 L’élément **TechnicalProfile** contient les éléments suivants :
 
@@ -208,7 +208,7 @@ L’élément **OutputClaim** contient les attributs suivants :
 ### <a name="subjectnaminginfo"></a>SubjectNamingInfo
 
 Avec l’élément **SubjectNameingInfo**, vous contrôlez la valeur du sujet du jeton :
-- **Jeton JTW** : la revendication `sub`. Il s’agit d’un principal sur lequel portent les assertions d’informations du jeton, comme l’utilisateur d’une application. Cette valeur est immuable et ne peut pas être réattribuée ou réutilisée. Vous pouvez l’utiliser pour effectuer des vérifications d’autorisation en toute sécurité, par exemple quand le jeton est utilisé pour accéder à une ressource. Par défaut, la revendication de l’objet est remplie avec l’ID d’objet de l’utilisateur dans le répertoire. Pour plus d’informations, consultez [Configuration du jeton, de la session et de l’authentification unique](active-directory-b2c-token-session-sso.md).
+- **Jeton JWT** - le `sub` de revendication. Il s’agit d’un principal sur lequel portent les assertions d’informations du jeton, comme l’utilisateur d’une application. Cette valeur est immuable et ne peut pas être réattribuée ou réutilisée. Vous pouvez l’utiliser pour effectuer des vérifications d’autorisation en toute sécurité, par exemple quand le jeton est utilisé pour accéder à une ressource. Par défaut, la revendication de l’objet est remplie avec l’ID d’objet de l’utilisateur dans le répertoire. Pour plus d’informations, consultez [Configuration du jeton, de la session et de l’authentification unique](active-directory-b2c-token-session-sso.md).
 - **Jeton SAML** : élément `<Subject><NameID>` qui identifie l’élément de sujet.
 
 L’élément **SubjectNamingInfo** contient l’attribut suivant :

@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/20/2017
-ms.openlocfilehash: eaeb2b4decc7da4caa75cb2af68829b4bf7ce64d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7be57733f9bb5936747c77aa06bde3397eb84fa1
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61478893"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66302901"
 ---
 # <a name="programmatically-create-a-stream-analytics-job-monitor"></a>Créer la surveillance des tâches Stream Analytics par programmation
 
@@ -24,7 +24,7 @@ Cet article explique comment activer la surveillance d'une tâche Stream Analyt
 
 Avant de commencer ce processus, vous devez disposer les conditions préalables suivantes :
 
-* Visual Studio 2017 ou 2015
+* Visual Studio 2019 ou 2015
 * [kit de développement logiciel (SDK) Azure .NET](https://azure.microsoft.com/downloads/) téléchargé et installé
 * Un travail Stream Analytics existant pour lequel la surveillance doit être activée
 

@@ -4,19 +4,19 @@ description: Cet article explique comment diagnostiquer, dépanner et résoudre 
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 05/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7be2652355e3b9830d4a5198ba71c0f4a78858dd
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: 68d46b54bf066724d8f3474f421d2d1f751b75e3
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65471703"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235040"
 ---
 # <a name="diagnose-and-solve-issues-in-your-time-series-insights-environment"></a>Diagnostiquer et résoudre les problèmes dans votre environnement Time Series Insights
 
@@ -104,7 +104,7 @@ Vérifiez que le nom et la valeur de la propriété timestamp répondent aux cri
 
 La méthode la plus simple pour vous assurer que votre nom de propriété timestamp est capturé et fonctionne correctement consiste à utiliser l’explorateur Time Series Insights. Dans l’explorateur Time Series Insights, à l’aide du graphique, sélectionnez une période de temps spécifique après avoir indiqué le nom de la propriété timestamp. Cliquez avec le bouton droit sur la sélection, puis sélectionnez l’option **Explorer les événements**.
 
-Le premier en-tête de colonne doit correspondre au nom de votre propriété timestamp. En regard du mot **Timestamp**, vous devez voir **($ts)**.
+Le premier en-tête de colonne doit correspondre au nom de votre propriété timestamp. En regard du mot **Timestamp**, vous devez voir **($ts)** .
 
 Vous ne devez pas voir les valeurs suivantes :
 

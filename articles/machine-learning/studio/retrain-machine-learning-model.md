@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/14/2019
-ms.openlocfilehash: 395a231fcf43378a51e22427254abb196a46081e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a3f441a0dd7f7b9f402390e853bd1c28f282f653
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64709006"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66245092"
 ---
 # <a name="retrain-and-deploy-a-machine-learning-model"></a>Recycler et déployer un modèle Machine Learning
 
@@ -49,7 +49,7 @@ Suivez les étapes ci-dessous pour déployer un service web de recyclage :
     Vous allez maintenant déployer l’expérience de formation en tant que service web de recyclage produisant un modèle entraîné et les résultats de son évaluation.
 
 1. En bas du canevas de l’expérience, cliquez sur **Configurer le service web**.
-1. Sélectionnez **Déployer le service web [Nouveau]**. Le portail des services web Azure Machine Learning s’ouvre sur la page **Déployer le service web**.
+1. Sélectionnez **Déployer le service web [Nouveau]** . Le portail des services web Azure Machine Learning s’ouvre sur la page **Déployer le service web**.
 1. Tapez le nom de votre service web et choisissez un plan de paiement.
 1. Sélectionnez **Déployer**.
 
@@ -59,7 +59,7 @@ Pour cet exemple, nous utilisons le langage C# pour créer l’application de re
 
 Suivez les étapes ci-dessous pour appeler les API de recyclage :
 
-1. Créez une application console C# dans Visual Studio : **Nouveau** > **Projet** > **Visual C#** > **Bureau classique Windows** > **Console App (.NET Framework)**.
+1. Créez une application console C# dans Visual Studio : **Nouveau** > **Projet** > **Visual C#**  > **Bureau classique Windows** > **Console App (.NET Framework)** .
 1. Connectez-vous au portail des services web Azure Machine Learning.
 1. Cliquez sur le service web que vous utilisez.
 1. Cliquez sur **Consommer**.
@@ -89,7 +89,7 @@ L’exemple de code BES charge un fichier d’un lecteur local (par exemple, «�
 1. Dans la liste des comptes de stockage, sélectionnez-en un pour stocker le modèle reformé.
 1. Dans la colonne de navigation de gauche, cliquez sur **Clés d’accès**.
 1. Copiez et enregistrez la **Clé d’accès primaire**.
-1. Dans la colonne de navigation de gauche, cliquez sur **Conteneurs**.
+1. Dans la colonne de navigation de gauche, cliquez sur **Blobs**.
 1. Sélectionnez un conteneur existant ou créez-en un et enregistrez le nom.
 
 Localisez les déclarations *StorageAccountName*, *StorageAccountKey* et *StorageContainerName*, puis mettez à jour les valeurs que vous avez enregistrées à partir du portail.

@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: dea0153b9ca6d8e751fd94cc558abd44b2591907
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f0612a688bb1e0fd79325b9a1f9b43731a210d10
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66120441"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399235"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-with-azure-sql-database-geo-replication-and-failover"></a>Configurer Azure-SSIS Integration Runtime avec la géo-réplication et le basculement Azure SQL Database
 
@@ -100,6 +100,59 @@ Suivez ces étapes pour arrêter votre runtime d’intégration Azure-SSIS, basc
     Pour plus d’informations sur cette commande PowerShell, voir [Créer le runtime d’intégration Azure-SSIS dans Azure Data Factory](create-azure-ssis-integration-runtime.md).
 
 3. Redémarrez le runtime d’intégration.
+
+## <a name="scenario-3---attaching-an-existing-ssisdb-ssis-catalog-to-a-new-azure-ssis-ir"></a>Scénario 3 : attacher un existant SSISDB (catalogue SSIS) à un nouveau runtime d’intégration Azure-SSIS
+
+En cas d’un incident ADF ou IR Azure-SSIS dans la zone en cours, vous pouvez rendre votre conserve SSISDB fonctionne avec un nouveau runtime d’intégration de Azure-SSIS dans une nouvelle région.
+
+### <a name="prerequisites"></a>Conditions préalables
+
+- Si vous utilisez un réseau virtuel dans la région actuelle, utilisez un autre réseau virtuel dans la nouvelle région pour connecter votre runtime d’intégration Azure-SSIS. Pour plus d’information, voir [Joindre un runtime d’intégration Azure-SSIS à un réseau virtuel](join-azure-ssis-integration-runtime-virtual-network.md).
+
+- Si vous utilisez une configuration personnalisée, vous devrez peut-être préparer un autre URI SAS pour le conteneur d’objets blob qui stocke votre script de configuration personnalisée et les fichiers associés, de sorte qu’il reste accessible en cas d’interruption. Pour plus d’informations, voir [Configuration personnalisée du runtime d’intégration Azure-SSIS](how-to-configure-azure-ssis-ir-custom-setup.md).
+
+### <a name="steps"></a>Étapes
+
+Suivez ces étapes pour arrêter votre runtime d’intégration Azure-SSIS, basculez-le dans une nouvelle région et redémarrez-le.
+
+1. Exécuter une procédure stockée pour rendre SSISDB attaché à **\<new_data_factory_name\>** ou  **\<new_integration_runtime_name\>** .
+   
+  ```SQL
+    EXEC [catalog].[failover_integration_runtime] @data_factory_name='<new_data_factory_name>', @integration_runtime_name='<new_integration_runtime_name>'
+   ```
+
+2. Créer une fabrique de données nommée **\<new_data_factory_name\>** dans la nouvelle région. Pour plus d’informations, voir créer une fabrique de données.
+
+     ```powershell
+     Set-AzDataFactoryV2 -ResourceGroupName "new resource group name" `
+                         -Location "new region"`
+                         -Name "<new_data_factory_name>"
+     ```
+    Pour plus d’informations sur cette commande PowerShell, consultez [créer une fabrique de données Azure à l’aide de PowerShell](quickstart-create-data-factory-powershell.md)
+
+3. Créer un nouveau runtime d’intégration d’Azure-SSIS nommé **\<new_integration_runtime_name\>** dans la nouvelle région à l’aide d’Azure PowerShell.
+
+    ```powershell
+    Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName "new resource group name" `
+                                           -DataFactoryName "new data factory name" `
+                                           -Name "<new_integration_runtime_name>" `
+                                           -Description $AzureSSISDescription `
+                                           -Type Managed `
+                                           -Location $AzureSSISLocation `
+                                           -NodeSize $AzureSSISNodeSize `
+                                           -NodeCount $AzureSSISNodeNumber `
+                                           -Edition $AzureSSISEdition `
+                                           -LicenseType $AzureSSISLicenseType `
+                                           -MaxParallelExecutionsPerNode $AzureSSISMaxParallelExecutionsPerNode `
+                                           -VnetId "new vnet" `
+                                           -Subnet "new subnet" `
+                                           -CatalogServerEndpoint $SSISDBServerEndpoint `
+                                           -CatalogPricingTier $SSISDBPricingTier
+    ```
+
+    Pour plus d’informations sur cette commande PowerShell, voir [Créer le runtime d’intégration Azure-SSIS dans Azure Data Factory](create-azure-ssis-integration-runtime.md).
+
+4. Redémarrez le runtime d’intégration.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

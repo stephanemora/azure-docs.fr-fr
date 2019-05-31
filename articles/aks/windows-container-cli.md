@@ -2,17 +2,17 @@
 title: Afficher un aperçu, pour créer un conteneur Windows Server sur un cluster Azure Kubernetes Service (AKS)
 description: Découvrez comment créer un cluster Kubernetes rapidement, de déployer une application dans un conteneur Windows Server dans Azure Kubernetes Service (ACS) à l’aide de l’interface CLI.
 services: container-service
-author: zr-msft
+author: tylermsft
 ms.service: container-service
 ms.topic: article
 ms.date: 05/06/2019
-ms.author: zarhoads
-ms.openlocfilehash: 328fb9707c7151b8696cfb55e13567db90e45b7f
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.author: twhitney
+ms.openlocfilehash: 5f727cb5c56c31e769edcb365f6d571253174567
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65991151"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66305299"
 ---
 # <a name="preview---create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Afficher un aperçu, pour créer un conteneur Windows Server sur un cluster Azure Kubernetes Service (AKS) à l’aide de l’interface CLI Azure
 
@@ -35,9 +35,10 @@ Si vous choisissez d’installer et utiliser l’interface CLI localement, cet a
 Vous devez ajouter un pool de nœuds supplémentaires après avoir créé votre cluster qui peut exécuter des conteneurs Windows Server. Ajout d’un pool de nœud supplémentaire est couverte dans une étape ultérieure, mais vous devez d’abord activer quelques fonctionnalités en version préliminaire.
 
 > [!IMPORTANT]
-> Fonctionnalités de préversion AKS sont libre-service et participer. Les préversions sont fournies pour recueillir des commentaires et des bogues à partir de notre communauté. Toutefois, ils ne sont pas pris en charge par le support technique Azure. Si vous créez un cluster, ou ajoutez ces fonctionnalités à des clusters existants, ce cluster est non pris en charge jusqu'à ce que la fonctionnalité n’est plus disponible en version préliminaire et atteignent à la disposition générale (GA).
+> Fonctionnalités de préversion AKS sont en libre-service, participer. Elles sont fournies pour recueillir des commentaires et des bogues à partir de notre communauté. Dans la version préliminaire, ces fonctionnalités ne sont pas destinées à des fins de production. Fonctionnalités en version préliminaire publique relèvent du « meilleur effort » la prise en charge. L’assistance des équipes de support technique AKS est disponible pendant les heures de bureau PST fuseau horaire (PST) uniquement. Pour plus d’informations, consultez les éléments suivants prennent en charge des articles :
 >
-> Si vous rencontrez des problèmes avec les fonctionnalités en version préliminaire, [de signaler un problème sur le référentiel GitHub d’AKS][aks-github] par le nom de la fonctionnalité d’aperçu dans le titre du bogue.
+> * [Stratégies de prise en charge AKS][aks-support-policies]
+> * [FAQ du Support Azure][aks-faq]
 
 ### <a name="install-aks-preview-cli-extension"></a>Installer l’extension CLI de préversion d’aks
     
@@ -276,7 +277,7 @@ Pour voir l’exemple d’application en action, ouvrez un navigateur web à l�
 
 ![Image de la navigation vers l’exemple d’application ASP.NET](media/windows-container/asp-net-sample-app.png)
 
-## <a name="delete-cluster"></a>Supprimer le cluster
+## <a name="delete-cluster"></a>Supprimer un cluster
 
 Lorsque vous n’avez plus besoin du cluster, utilisez la commande [az group delete][az-group-delete] pour supprimer le groupe de ressources, le service conteneur et toutes les ressources associées.
 
@@ -302,7 +303,6 @@ Pour en savoir plus sur ACS et parcourir le code complet de l’exemple de dépl
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [node-selector]: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/
 [dotnet-samples]: https://hub.docker.com/_/microsoft-dotnet-framework-samples/
-[aks-github]: https://github.com/azure/aks/issues
 [azure-cni]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
 
 <!-- LINKS - internal -->
@@ -328,3 +328,5 @@ Pour en savoir plus sur ACS et parcourir le code complet de l’exemple de dépl
 [kubernetes-dashboard]: kubernetes-dashboard.md
 [restricted-vm-sizes]: quotas-skus-regions.md#restricted-vm-sizes
 [use-advanced-networking]: configure-advanced-networking.md
+[aks-support-policies]: support-policies.md
+[aks-faq]: faq.md

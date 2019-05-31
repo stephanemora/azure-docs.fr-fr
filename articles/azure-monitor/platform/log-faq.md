@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
-ms.openlocfilehash: dcd546b4b4d8e47395535cd37e1629166c8c2e7f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 08e915354df4f4aa1d9a183e78cbad47460b8d37
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60394827"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66356224"
 ---
 # <a name="log-analytics-faq"></a>FAQ sur Log Analytics
 
@@ -35,7 +35,7 @@ R : Il n’y en a pas. [Log Analytics est intégré en tant que fonctionnalité
 
 ### <a name="q-can-i-still-use-log-search"></a>Q : Puis-je continuer à utiliser Recherche dans les journaux ? 
 
-R : Recherche dans les journaux d’activité est actuellement toujours disponible dans le portail OMS et dans le portail Azure, sous le nom **Journaux d’activité (classique)**. Le portail OMS sera officiellement mis hors-service le 15 janvier 2019. L’expérience de journaux d’activité classique dans le portail Azure sera progressivement retirée et remplacée par la nouvelle expérience de journaux d’activité. 
+R : Recherche dans les journaux d’activité est actuellement toujours disponible dans le portail OMS et dans le portail Azure, sous le nom **Journaux d’activité (classique)** . Le portail OMS sera officiellement mis hors-service le 15 janvier 2019. L’expérience de journaux d’activité classique dans le portail Azure sera progressivement retirée et remplacée par la nouvelle expérience de journaux d’activité. 
 
 ### <a name="q-can-i-still-use-advanced-analytics-portal"></a>Q. Puis-je continuer à utiliser le portail Advanced Analytics ? 
 La nouvelle expérience de journaux d’activité dans le portail Azure est basée sur le portail Advanced Analytics, mais vous pouvez toujours y accéder en dehors du portail Azure. La feuille de route de suppression de ce portail externe sera bientôt annoncée.
@@ -84,7 +84,7 @@ R : Les listes des vues et des solutions installées sont disponibles dans le p
 
 ### <a name="q-why-i-cant-create-workspaces-in-west-central-us-region"></a>Q. Pourquoi ne puis-je pas créer des espaces de travail dans la région ouest USA Centre-Ouest ? 
 
-R : Cette région a une limite de capacité temporaire. Une solution à la limite est prévue au cours du premier semestre 2019.
+R : Cette région a une limite de capacité temporaire. Cette limite est prévue pour être traité par la fin de septembre, 2019.
 
 
 ### <a name="q-does-log-analytics-use-the-same-agent-as-azure-security-center"></a>Q. Log Analytics utilise-t-il le même agent qu’Azure Security Center ?
@@ -195,7 +195,7 @@ Une icône d’avertissement jaune signifie que l’agent rencontre des problèm
 ### <a name="q-how-do-i-stop-an-agent-from-communicating-with-log-analytics"></a>Q : Comment interrompre la communication d’un agent avec Log Analytics ?
 
 R : Dans System Center Operations Manager, supprimez l’ordinateur de la liste des ordinateurs gérés par OMS. Operations Manager met à jour la configuration de l’agent pour qu’il ne fasse plus de rapports à Log Analytics. En ce qui concerne les agents connectés directement à Log Analytics, vous pouvez les empêcher de communiquer de la façon suivante : Panneau de configuration, Sécurité et paramètres, **Microsoft Monitoring Agent**.
-Sous **Azure Log Analytics (OMS)**, supprimez tous les espaces de travail répertoriés.
+Sous **Azure Log Analytics (OMS)** , supprimez tous les espaces de travail répertoriés.
 
 ### <a name="q-why-am-i-getting-an-error-when-i-try-to-move-my-workspace-from-one-azure-subscription-to-another"></a>Q : Pourquoi j’obtiens une erreur quand j’essaie de déplacer mon espace de travail d’un abonnement Azure vers un autre ?
 

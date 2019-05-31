@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
 ms.date: 01/08/2019
-ms.openlocfilehash: c1006aa21b3009bb7508c7a24ab501d39737261c
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.openlocfilehash: 48c59ddc1e203030bd967911d536930cb94761d3
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65978247"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66356175"
 ---
 # <a name="securely-run-experiments-and-inference-inside-an-azure-virtual-network"></a>Exécuter en toute sécurité des expériences et l’inférence à l’intérieur d’un réseau virtuel Azure
 
@@ -141,7 +141,7 @@ Lorsque vous ajoutez les itinéraires définis par l’utilisateur, définissez 
 
 ![Exemple d’itinéraire défini par l’utilisateur pour un préfixe d’adresse](./media/how-to-enable-virtual-network/user-defined-route.png)
 
-Pour plus d’informations, consultez le [créer un pool Azure Batch dans un réseau virtuel](/azure/batch/batch-virtual-network.md#user-defined-routes-for-forced-tunneling) article.
+Pour plus d’informations, consultez le [créer un pool Azure Batch dans un réseau virtuel](../../batch/batch-virtual-network.md#user-defined-routes-for-forced-tunneling) article.
 
 ### <a name="create-machine-learning-compute-in-a-virtual-network"></a>Créer un cluster Capacité de calcul dans un réseau virtuel
 
@@ -155,7 +155,7 @@ Pour créer un cluster Capacité de calcul Machine Learning à l’aide du porta
 
 1. Pour configurer cette ressource de calcul afin d’utiliser un réseau virtuel, utilisez ces options :
 
-    - __Configuration réseau__ : Sélectionnez __Advanced (Avancé)__.
+    - __Configuration réseau__ : Sélectionnez __Advanced (Avancé)__ .
 
     - __Groupe de ressources__ : sélectionnez le groupe de ressources qui contient le réseau virtuel.
 
@@ -221,7 +221,7 @@ Pour utiliser une machine virtuelle ou un cluster Azure HDInsight dans un résea
 
     * __Balise du service source__ : Sélectionnez __AzureMachineLearning__.
 
-    * __Plages de ports source__ : Sélectionnez __*__.
+    * __Plages de ports source__ : Sélectionnez __*__ .
 
     * __Destination__ : Sélectionnez __N’importe laquelle__.
 
@@ -263,7 +263,7 @@ Pour ajouter Azure Kubernetes Service dans un réseau virtuel à votre espace de
 
 1. Pour configurer cette ressource de calcul afin d’utiliser un réseau virtuel, utilisez ces options :
 
-    - __Configuration réseau__ : Sélectionnez __Advanced (Avancé)__.
+    - __Configuration réseau__ : Sélectionnez __Advanced (Avancé)__ .
 
     - __Groupe de ressources__ : sélectionnez le groupe de ressources qui contient le réseau virtuel.
 
@@ -271,11 +271,11 @@ Pour ajouter Azure Kubernetes Service dans un réseau virtuel à votre espace de
 
     - __Sous-réseau__ : Sélectionnez le sous-réseau.
 
-    - __Plage d’adresses du service Kubernetes__ : Sélectionnez la plage d’adresses du service Kubernetes. Cette plage, qui définit les adresses IP disponibles pour le cluster, correspond à une plage d’adresses IP exprimée selon la notation CIDR. Elle ne doit empiéter sur aucune plage d’adresses IP de sous-réseau. Exemple : 10.0.0.0/16.
+    - __Plage d’adresses du service Kubernetes__ : Sélectionnez la plage d’adresses du service Kubernetes. Cette plage, qui définit les adresses IP disponibles pour le cluster, correspond à une plage d’adresses IP exprimée selon la notation CIDR. Elle ne doit empiéter sur aucune plage d’adresses IP de sous-réseau. Exemple : 10.0.0.0/16.
 
-    - __Adresse IP du service DNS Kubernetes__ : sélectionnez l’Adresse IP du service DNS Kubernetes. Cette adresse IP est affectée au service DNS Kubernetes. Elle doit se situer dans la plage d’adresses du service Kubernetes. Exemple : 10.0.0.10.
+    - __Adresse IP du service DNS Kubernetes__ : sélectionnez l’Adresse IP du service DNS Kubernetes. Cette adresse IP est affectée au service DNS Kubernetes. Elle doit se situer dans la plage d’adresses du service Kubernetes. Exemple : 10.0.0.10.
 
-    - __Adresse du pont Docker__ : sélectionnez l’adresse du pont Docker. Cette adresse IP est affectée au pont Docker. Elle ne doit appartenir à aucune plage d’adresses IP de sous-réseau, ni à la plage d’adresses du service Kubernetes. Exemple : 172.17.0.1/16.
+    - __Adresse du pont Docker__ : sélectionnez l’adresse du pont Docker. Cette adresse IP est affectée au pont Docker. Elle ne doit appartenir à aucune plage d’adresses IP de sous-réseau, ni à la plage d’adresses du service Kubernetes. Exemple : 172.17.0.1/16.
 
    ![Azure Machine Learning service : Paramètres de réseau virtuel Capacité de calcul Machine Learning](./media/how-to-enable-virtual-network/aks-virtual-network-screen.png)
 

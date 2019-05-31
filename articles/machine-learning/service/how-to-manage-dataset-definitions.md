@@ -1,5 +1,5 @@
 ---
-title: Définition du jeu de données et le contrôle de version avec azureml-jeux de données
+title: Version et gérer des définitions de jeu de données avec des groupes de données azureml
 titleSuffix: Azure Machine Learning service
 description: Découvrez comment mettre à jour des définitions de jeu de données et de gérer le cycle de vie de définitions
 services: machine-learning
@@ -10,14 +10,14 @@ ms.author: sihhu
 author: MayMSFT
 ms.reviewer: larryfr
 ms.date: 05/02/2019
-ms.openlocfilehash: e58ce156deaaad259ea7b74521bcf9b79afbd183
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: 4476bdd902f054683fa544dc44b548689f3a1881
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66146204"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241878"
 ---
-# <a name="update-and-manage-the-lifecycle-of-dataset-definitions"></a>Mettre à jour et gérer le cycle de vie des définitions de jeu de données
+# <a name="version-and-manage-your-dataset-definitions"></a>Version et de gérer vos définitions de jeu de données
 
 Découvrez comment mettre à jour et gérer des définitions de jeu de données avec des jeux de données Azure Machine Learning (version préliminaire).
 
@@ -37,7 +37,7 @@ Vous devez disposer d’un abonnement Azure et un espace de travail pour enregis
 
 L’exemple de fichier utilisé dans les exemples de ce document est disponible à l’adresse [ https://dprepdata.blob.core.windows.net/dataset-sample-files/crime.csv ](https://dprepdata.blob.core.windows.net/dataset-sample-files/crime.csv).
 
-## <a name="update-dataset-definitions"></a>Mettre à jour des définitions de jeu de données
+## <a name="create-and-update-definitions"></a>Créer et mettre à jour de définitions
 
 Tout d’abord nous créer et enregistrer un jeu de données avec votre espace de travail.
 
@@ -176,7 +176,7 @@ ds_def_old.head(5)
       <th>Block</th>
       <th>IUCR</th>
       <th>Primary Type</th>
-      <th>Description </th>
+      <th>Description</th>
       <th>Location Description</th>
       <th>Arrest</th>
       <th>Domestic</th>
@@ -344,7 +344,7 @@ Une fois que vous avez récupéré une définition, vous pouvez l’utiliser ave
 
 Vous pouvez gérer le cycle de vie de chaque définition de Dataset indépendamment. Il existe trois phases du cycle de vie : actif, déconseillées ou archivé.
 
-### <a name="active"></a>Active
+### <a name="active"></a>Actif
 
 Lorsqu’une nouvelle définition de jeu de données est créée, il est actif par défaut. 
 

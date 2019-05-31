@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/27/2019
+ms.date: 05/22/2019
 ms.author: juliako
-ms.openlocfilehash: 78e3897ec653326bcd88a538a6ea7d33938659b9
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 25c0fe7a179db484f18c1aca16471e39a739052c
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65761946"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66299184"
 ---
 # <a name="dynamic-packaging"></a>Empaquetage dynamique
 
@@ -31,6 +31,9 @@ Pour tirer parti des **empaquetage dynamique**, vous devez avoir un **Asset** av
 Par conséquent, il vous suffit de stocker et de payer les fichiers dans un seul format de stockage. Le service Media Services se charge de créer et de fournir la réponse appropriée en fonction des demandes des clients. 
 
 Dans Media Services, l’empaquetage dynamique est utilisé si vous diffusez en continu en direct ou à la demande. 
+
+> [!NOTE]
+> Actuellement, vous ne pouvez pas utiliser le portail Azure pour gérer des ressources v3. Utilisez l’[API REST](https://aka.ms/ams-v3-rest-ref), l’interface [CLI](https://aka.ms/ams-v3-cli-ref) ou l’un des kits [SDK](media-services-apis-overview.md#sdks) pris en charge.
 
 ## <a name="common-on-demand-workflow"></a>Flux de travail courant à la demande
 
@@ -92,10 +95,32 @@ Empaquetage dynamique prend en charge les fichiers MP4, qui contiennent la vidé
 
 ## <a name="audio-codecs-supported-by-dynamic-packaging"></a>Codecs audio pris en charge par l’empaquetage dynamique
 
-Empaquetage dynamique prend en charge les fichiers MP4, qui contiennent des données audio encodée avec [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding) (AAC-LC, HE-AAC v1, HE-AAC v2), [Dolby Digital Plus](https://en.wikipedia.org/wiki/Dolby_Digital_Plus)(Enhanced AC-3 ou E-AC3), Dolby Atmos, ou [DTS](https://en.wikipedia.org/wiki/DTS_%28sound_system%29) (DTS Express, LBR de DTS, DTS HD, HD DTS sans perte). La diffusion en continu du contenu de Dolby Atmos est prise en charge des normes comme protocole de MPEG-DASH avec le Format de diffusion en continu courants (CSF) ou Format de Application commune Media (CMAF) au format MP4 fragmenté et par le biais de HTTP Live Streaming (HLS) avec CMAF.
+### <a name="mp4-files-support"></a>Prise en charge des fichiers MP4
 
-> [!NOTE]
-> L’empaquetage dynamique ne prend pas en charge les fichiers qui contiennent des données audio [Dolby Digital](https://en.wikipedia.org/wiki/Dolby_Digital) (AC3) (il s’agit d’un codec hérité).
+Empaquetage dynamique prend en charge les fichiers MP4, qui contiennent des données audio encodée avec 
+
+* [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding) (AAC-LC, HE-AAC v1, HE-AAC v2)
+* [Dolby Digital Plus](https://en.wikipedia.org/wiki/Dolby_Digital_Plus)(Enhanced AC-3 ou E-AC3)
+* Dolby Atmos
+   
+   La diffusion en continu du contenu de Dolby Atmos est prise en charge des normes comme protocole de MPEG-DASH avec le Format de diffusion en continu courants (CSF) ou Format de Application commune Media (CMAF) au format MP4 fragmenté et par le biais de HTTP Live Streaming (HLS) avec CMAF.
+
+* [DTS](https://en.wikipedia.org/wiki/DTS_%28sound_system%29)
+
+    DTS les codecs pris en charge par les formats d’empaquetage de tiret-CSF, CMAF de DASH, HLS-M2TS et HLS-CMAF sont :  
+
+    * DTS Digital Surround (dtsc)
+    * DTS-HD haute résolution et Audio HD de DTS Master (dtsh)
+    * DTS Express (dtse)
+    * DTS-HD sans perte (aucune core) (dtsl)
+
+### <a name="hls-support"></a>Prise en charge HLS
+
+Empaquetage dynamique prend en charge HLS (version 4 ou version ultérieure) pour les ressources qui ont plusieurs pistes audio avec plusieurs langues et les codecs.
+
+### <a name="not-supported"></a>Non pris en charge
+
+L’empaquetage dynamique ne prend pas en charge les fichiers qui contiennent des données audio [Dolby Digital](https://en.wikipedia.org/wiki/Dolby_Digital) (AC3) (il s’agit d’un codec hérité).
 
 ## <a name="dynamic-encryption"></a>Chiffrement dynamique
 
@@ -193,10 +218,7 @@ Voici un exemple de manifeste Smooth Streaming :
 
 ## <a name="dynamic-manifest"></a>Manifeste dynamique
 
-Le filtrage dynamique est utilisé pour contrôler le nombre de pistes, des formats, des débits binaires et des fenêtres de temps de présentation qui sont envoyés aux joueurs. Pour plus d’informations, consultez [filtres et manifestes dynamiques](filters-dynamic-manifest-overview.md).
-
-> [!NOTE]
-> Actuellement, vous ne pouvez pas utiliser le portail Azure pour gérer des ressources v3. Utilisez l’[API REST](https://aka.ms/ams-v3-rest-ref), l’interface [CLI](https://aka.ms/ams-v3-cli-ref) ou l’un des kits [SDK](media-services-apis-overview.md#sdks) pris en charge.
+Le filtrage dynamique est utilisé pour contrôler le nombre de pistes, des formats, des débits binaires et des fenêtres de temps de présentation qui sont envoyés aux joueurs. Pour plus d’informations, consultez [filtre préalable manifestes avec l’empaquetage dynamique](filters-dynamic-manifest-overview.md).
 
 ## <a name="ask-questions-give-feedback-get-updates"></a>Poser des questions, envoyer des commentaires, obtenir des mises à jour
 

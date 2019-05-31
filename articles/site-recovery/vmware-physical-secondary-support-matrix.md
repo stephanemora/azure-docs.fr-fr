@@ -6,14 +6,14 @@ manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: article
-ms.date: 04/08/2019
+ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: b316d6a8293d9f23eb89e8b6fffedac316759df4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 742f1359d928aa05a8b8d36bde2ccf022db93b79
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60564848"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66418255"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>Matrice de prise en charge de la récupération d’urgence des machines virtuelles VMware et serveurs physiques sur un site secondaire
 
@@ -60,10 +60,10 @@ Seules les machines Linux avec le stockage suivant peuvent être répliquées :
 Hôte - Association de cartes réseau | Oui 
 Hôte -VLAN | Oui 
 Hôte - IPv4 | Oui 
-Hôte - IPv6 | Non  
-Machine virtuelle invitée - Association de cartes réseau | Non 
+Hôte - IPv6 | Non 
+Machine virtuelle invitée - Association de cartes réseau | Non
 Machine virtuelle invitée - IPv4 | Oui
-Machine virtuelle invitée - IPv6 | Non 
+Machine virtuelle invitée - IPv6 | Non
 Machine virtuelle invitée - Windows/Linux - Adresse IP statique | Oui
 Machine virtuelle invitée - Plusieurs cartes réseau | Oui
 
@@ -87,14 +87,14 @@ VMDK | Oui
 VHD/VHDX | N/A 
 Machine virtuelle de 2e génération | N/A 
 Disque de cluster partagé | Oui 
-Disque chiffré | Non  
+Disque chiffré | Non 
 UEFI| Oui 
-NFS | Non  
-SMB 3.0 | Non  
+NFS | Non 
+SMB 3.0 | Non 
 RDM | Oui 
 Disque > 1 To | Oui 
 Volume avec disque à bandes > 1 To<br/><br/> LVM | Oui 
-Espaces de stockage | Non  
+Espaces de stockage | Non 
 Ajout/suppression de disque à chaud | Oui 
 Exclure le disque | Oui 
 Chemins d’accès multiples (MPIO) | N/A 
@@ -103,8 +103,8 @@ Chemins d’accès multiples (MPIO) | N/A
 
 **Action** | **Pris en charge** 
 --- | --- 
-Déplacer les coffres entre plusieurs groupes de ressources (dans ou entre les différents abonnements) | Non  
-Déplacer le stockage, les réseaux, les machines virtuelles Azure entre des groupes de ressources (dans ou entre les différents abonnements) | Non  
+Déplacer les coffres entre plusieurs groupes de ressources (dans ou entre les différents abonnements) | Non 
+Déplacer le stockage, les réseaux, les machines virtuelles Azure entre des groupes de ressources (dans ou entre les différents abonnements) | Non 
 
 ## <a name="mobility-service-and-updates"></a>Service mobilité et mises à jour
 

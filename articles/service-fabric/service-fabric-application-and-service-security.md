@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/16/2018
 ms.author: aljo
-ms.openlocfilehash: b4d3699c0327bb2771a358d3e3c2921bdc39ee5e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cb0f750f4049a1ce652c829f43928a95f30e6973
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60621551"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66302238"
 ---
 # <a name="service-fabric-application-and-service-security"></a>Sécurité des applications et des services Service Fabric
 Une architecture de microservices peut présenter de [nombreux avantages](service-fabric-overview-microservices.md). Cependant, la gestion de la sécurité des microservices représente un défi autrement plus complexe que celui constitué par la gestion de la sécurité des applications monolithiques traditionnelles. 
@@ -31,12 +31,12 @@ Cet article n’est pas un guide de sécurité des microservices (de tels guides
 ## <a name="authentication-and-authorization"></a>Authentification et autorisation
 Il est souvent nécessaire de limiter les ressources et les API exposées par un service à certains utilisateurs ou clients approuvés. L’authentification est le processus qui permet de vérifier de manière fiable l’identité d’un utilisateur.  L’autorisation est le processus qui permet aux seuls utilisateurs authentifiés d’accéder aux API et aux services disponibles.
 
-### <a name="authentication"></a>Authentification
+### <a name="authentication"></a>Authentication
 L’authentification est la première chose à laquelle vous devez penser si vous devez décider d’une approbation au niveau des API. L’authentification est le processus qui permet de vérifier de manière fiable l’identité d’un utilisateur.  Dans les scénarios de microservices, l’authentification est généralement gérée de manière centralisée. Si vous utilisez une passerelle d’API, vous pouvez [déléguer l’authentification](/azure/architecture/patterns/gateway-offloading) à la passerelle. Si vous utilisez cette approche, vérifiez que les services ne sont pas accessibles directement (sans la passerelle API), sauf si une mesure de sécurité supplémentaire a été mise en place pour authentifier les messages, qu’ils proviennent ou non de la passerelle.
 
 Si les services sont accessibles directement, un service d’authentification, comme Azure Active Directory ou un microservice d’authentification dédié faisant office de service d’émission de jeton de sécurité (STS), peut être utilisé pour authentifier les utilisateurs. Les décisions d’approbation sont partagées entre les services à l’aide de jetons de sécurité ou de cookies. 
 
-Pour ASP.NET Core, le mécanisme principal [d’authentification des utilisateurs](/dotnet/standard/microservices-architecture/secure-net-microservices-web-applications/) est le système d’appartenance ASP.NET Core Identity. ASP.NET Core Identity stocke les informations utilisateur (notamment les revendications, les rôles et les informations de connexion) dans un magasin de données configuré par le développeur. ASP.NET Core Identity prend en charge l’authentification à 2 facteurs.  Les fournisseurs d’authentification externes sont également pris en charge, ce qui permet aux utilisateurs de se connecter à l’aide de processus d’authentification existants, comme ceux de Microsoft, Google, Facebook ou Twitter. 
+Pour ASP.NET Core, le mécanisme principal [d’authentification des utilisateurs](/dotnet/standard/microservices-architecture/secure-net-microservices-web-applications/) est le système d’appartenance ASP.NET Core Identity. ASP.NET Core Identity stocke les informations utilisateur (notamment les revendications, les rôles et les informations de connexion) dans un magasin de données configuré par le développeur. ASP.NET Core Identity prend en charge l’authentification à 2 facteurs.  Fournisseurs d’authentification externes sont également prises en charge, les utilisateurs peuvent se connecter à l’aide du processus d’authentification existants de fournisseurs comme Microsoft, Google, Facebook ou Twitter.
 
 ### <a name="authorization"></a>Authorization
 Après l’authentification, les services doivent autoriser l’accès utilisateur ou déterminer ce qu’un utilisateur est autorisé à faire. Ce processus permet à un service d’autoriser uniquement les utilisateurs authentifiés à accéder aux API. L’autorisation est orthogonale et indépendante de l’authentification, qui est le processus permettant d’identifier un utilisateur. L’authentification peut créer une ou plusieurs identités pour l’utilisateur actuel.

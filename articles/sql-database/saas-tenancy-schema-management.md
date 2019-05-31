@@ -12,18 +12,18 @@ ms.author: sstein
 ms.reviewer: billgib
 manager: craigg
 ms.date: 09/19/2018
-ms.openlocfilehash: b2aa3eb6a117bbbdcf9c4aa44161dc25ddea2f1a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: eb461367d58f7cadeccd434c0e4ab452b7fc640e
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61484373"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241918"
 ---
 # <a name="manage-schema-in-a-saas-application-using-the-database-per-tenant-pattern-with-azure-sql-database"></a>Gérer le schéma dans une application SaaS à l’aide du modèle de base de données par locataire avec Azure SQL Database
  
 Etant donné qu’une application de base de données évolue, des modifications doivent inévitablement être effectuées sur le schéma de base de données ou les données de référence.  Des tâches de maintenance de la base de données sont aussi régulièrement nécessaires. La gestion d’une application qui utilise le modèle de base de données par locataire requiert que vous appliquiez ces modifications ou tâches de maintenance sur l’ensemble d’un parc de bases de données de locataire.
 
-Ce didacticiel explore deux scénarios : le déploiement de mises à jour des données de référence pour tous les locataires et la reconstruction d’un index sur la table contenant les données de référence. La fonctionnalité [Travaux élastiques](sql-database-elastic-jobs-overview.md) est utilisée pour exécuter ces actions sur toutes les bases de données de locataire et sur la base de données modèle utilisée pour créer des bases de données de locataire.
+Ce didacticiel explore deux scénarios : le déploiement de mises à jour des données de référence pour tous les locataires et la reconstruction d’un index sur la table contenant les données de référence. La fonctionnalité [Travaux élastiques](elastic-jobs-overview.md) est utilisée pour exécuter ces actions sur toutes les bases de données de locataire et sur la base de données modèle utilisée pour créer des bases de données de locataire.
 
 Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
@@ -46,7 +46,7 @@ Pour suivre ce didacticiel, vérifiez que les conditions préalables ci-dessous 
 
 ## <a name="introduction-to-saas-schema-management-patterns"></a>Présentation des modèles de gestion de schéma SaaS
 
-Le modèle de base de données par locataire isole efficacement les données de locataire, mais augmente le nombre de bases de données à gérer et à entretenir. Les [travaux élastiques](sql-database-elastic-jobs-overview.md) facilitent l’administration et la gestion des bases de données SQL. Les travaux vous permettent d’exécuter de façon sécurisée et fiable des tâches (scripts T-SQL), sur un groupe de bases de données. Les travaux peuvent déployer les modifications de schéma et de données de référence communes sur toutes les bases de données de locataire d’une application. Les travaux élastiques permettent également de maintenir à jour un *modèle* de la base de données utilisée pour créer de nouveaux locataires afin de s’assurer qu’elle contient en permanence le schéma et les données de référence les plus récents.
+Le modèle de base de données par locataire isole efficacement les données de locataire, mais augmente le nombre de bases de données à gérer et à entretenir. Les [travaux élastiques](elastic-jobs-overview.md) facilitent l’administration et la gestion des bases de données SQL. Les travaux vous permettent d’exécuter de façon sécurisée et fiable des tâches (scripts T-SQL), sur un groupe de bases de données. Les travaux peuvent déployer les modifications de schéma et de données de référence communes sur toutes les bases de données de locataire d’une application. Les travaux élastiques permettent également de maintenir à jour un *modèle* de la base de données utilisée pour créer de nouveaux locataires afin de s’assurer qu’elle contient en permanence le schéma et les données de référence les plus récents.
 
 ![Écran](media/saas-tenancy-schema-management/schema-management-dpt.png)
 
@@ -133,5 +133,4 @@ Ensuite, essayez le [didacticiel sur les rapports Ad hoc](saas-tenancy-cross-ten
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
 * [Autres didacticiels reposant sur le déploiement de l’application de base de données Wingtip Tickets SaaS par client](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
-* [Gestion des bases de données cloud avec montée en charge](sql-database-elastic-jobs-overview.md)
-* [Créer et gérer des bases de données cloud avec montée en charge](sql-database-elastic-jobs-create-and-manage.md)
+* [Gestion des bases de données cloud avec montée en charge](elastic-jobs-overview.md)

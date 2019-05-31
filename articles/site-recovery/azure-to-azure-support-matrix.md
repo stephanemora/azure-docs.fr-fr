@@ -5,16 +5,16 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/14/2019
+ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: de2e57901becad68f3fad16967faf3ae4833177a
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 928d741132623bd92dae1097724295691d7f3808
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65797875"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66398333"
 ---
-# <a name="support-matrix-for-replicating-azure-vms-from-one-region-to-another"></a>Matrice de prise en charge pour la réplication des machines virtuelles Azure à partir d’une région vers une autre
+# <a name="support-matrix-for-replicating-azure-vms-from-one-region-to-another"></a>Matrice de support pour la réplication de machines virtuelles Azure d'une région vers une autre
 
 Cet article résume la prise en charge et les conditions préalables lorsque vous définissez de récupération d’urgence de machines virtuelles Azure à partir d’une région Azure sur un autre, en utilisant le [Azure Site Recovery](site-recovery-overview.md) service.
 
@@ -182,6 +182,7 @@ Ce tableau récapitule la prise en charge du disque du système d’exploitation
 Taille maximale du disque du système d’exploitation | 2048 GB | [En savoir plus](../virtual-machines/windows/managed-disks-overview.md) sur les disques de machines virtuelles.
 Disque temporaire | Non pris en charge | Le disque temporaire est toujours exclu de la réplication.<br/><br/> Ne conservez pas de données persistantes sur le disque temporaire. [Plus d’informations](../virtual-machines/windows/managed-disks-overview.md)
 Taille maximale du disque de données | 4095 Go |
+Taille minimale de disque de données | Aucune restriction pour les disques non gérés. 2 Go pour les disques gérés | 
 Nombre maximal de disques de données | Jusqu’à 64, en adéquation avec la prise en charge pour une taille spécifique de machine virtuelle Azure | [En savoir plus](../virtual-machines/windows/sizes.md) sur les tailles de machines virtuelles.
 Taux de modification du disque de données | 10 Mo/s maximum par disque pour le stockage Premium. 2 Mo/s maximum par disque pour le stockage Standard. | Si le taux moyen de modification des données sur le disque est en permanence supérieur à la valeur maximale, la réplication ne pourra pas suivre.<br/><br/>  Toutefois, si la valeur maximale est dépassée de manière sporadique, la réplication peut suivre, mais les points de récupération pourraient être légèrement différés.
 Disque de données - Compte de stockage Standard | Pris en charge |

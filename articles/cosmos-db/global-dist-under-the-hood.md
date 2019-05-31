@@ -4,15 +4,15 @@ description: Cet article fournit des détails techniques sur la distribution mon
 author: dharmas-cosmos
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/31/2019
+ms.date: 05/23/2019
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: 8c916a2fcff606a99e5c567318c1818ff7d5d273
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: c490657eb67a34e79c8dbaea31cb59b49cc6448e
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65071943"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241090"
 ---
 # <a name="global-data-distribution-with-azure-cosmos-db---under-the-hood"></a>Distribution de données mondiale avec Azure Cosmos DB - Sous le capot
 
@@ -68,7 +68,7 @@ Nous employons des horloges vectorielles codées (contenant un identificateur de
 
 Pour les bases de données Cosmos configurées avec plusieurs régions d’écriture, le système offre des stratégies flexibles de résolution automatique des conflits parmi lesquelles les développeurs peuvent choisir, notamment : 
 
-- **Dernière-écriture-Wins (LWW)**, qui, par défaut, utilise une propriété définie par le système de timestamp (qui est basée sur le protocole de synchronisation de l’heure horloge). Cosmos DB vous permet également de spécifier toute autre propriété numérique personnalisée à utiliser pour la résolution des conflits.  
+- **Dernière-écriture-Wins (LWW)** , qui, par défaut, utilise une propriété définie par le système de timestamp (qui est basée sur le protocole de synchronisation de l’heure horloge). Cosmos DB vous permet également de spécifier toute autre propriété numérique personnalisée à utiliser pour la résolution des conflits.  
 - **Défini par l’application (personnalisée) sont en conflit de stratégie de résolution** (exprimé via des procédures de fusion), qui est conçu pour le rapprochement de sémantique définie par l’application de conflits. Ces procédures sont appelées lors de la détection de conflits d’écriture-écriture sous les auspices d’une transaction de base de données côté serveur. Le système fournit exactement garantit qu’une seule fois pour l’exécution d’une procédure de fusion dans le cadre du protocole d’engagement. Il existe [plusieurs sont en conflit les exemples de résolution](how-to-manage-conflicts.md) disponibles pour vous amuser avec.  
 
 ## <a name="consistency-models"></a>Modèles de cohérence

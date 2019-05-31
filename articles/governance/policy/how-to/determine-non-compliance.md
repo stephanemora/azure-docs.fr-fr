@@ -7,12 +7,12 @@ ms.date: 04/26/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 6e3e01ca9bd459aa6c6aca8dfaacb98b1267fada
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.openlocfilehash: fb7f238bb5c04bb03ee500b1b953895cc88c0596
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65979342"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66298921"
 ---
 # <a name="determine-causes-of-non-compliance"></a>Déterminer les causes de non-conformité
 
@@ -22,7 +22,7 @@ Quand une ressource Azure est évaluée comme non conformes à une règle de str
 > - [Détails de la conformité](#compliance-details)
 > - [Historique des modifications (version préliminaire)](#change-history-preview)
 
-## <a name="compliance-details"></a>Détails de conformité
+## <a name="compliance-details"></a>Détails de la conformité
 
 Lorsqu’une ressource est non conforme, les détails de conformité pour cette ressource sont disponibles à partir de la **conformité à la stratégie** page. Le volet d’informations de conformité inclut les informations suivantes :
 
@@ -87,22 +87,26 @@ La matrice suivante mappe chaque possible _raison_ pour le responsable [conditio
 
 |Reason | Condition |
 |-|-|
-|La valeur actuelle doit contenir la valeur cible en tant que clé. |containsKey ou **pas** notContainsKey |
-|La valeur actuelle doit contenir la valeur cible. |contient ou **pas** notContains |
-|La valeur actuelle doit être égale à la valeur cible. |est égal à ou **pas** notEquals |
-|La valeur actuelle doit exister. |Existe |
+|Valeur actuelle doit contenir la valeur cible en tant que clé. |containsKey ou **pas** notContainsKey |
+|Valeur actuelle doit contenir la valeur cible. |contient ou **pas** notContains |
+|Valeur actuelle doit être égale à la valeur cible. |est égal à ou **pas** notEquals |
+|Valeur actuelle doit être inférieure à la valeur cible. |inférieur ou **pas** greaterOrEquals |
+|Valeur actuelle doit être supérieure ou égale à la valeur cible. |greaterOrEquals ou **pas** moins |
+|Valeur actuelle doit être supérieure à la valeur cible. |supérieur ou **pas** lessOrEquals |
+|Valeur actuelle doit être inférieure ou égale à la valeur cible. |lessOrEquals ou **pas** supérieure |
+|Valeur actuelle doit exister. |exists |
 |Valeur actuelle doit être dans la valeur cible. |dans ou **pas** notIn |
-|La valeur actuelle doit être identique à la valeur cible. |comme ou **pas** notLike |
-|La valeur actuelle doit correspondre à la valeur cible (sensibilité à la casse). |correspond à ou **pas** notMatch |
-|La valeur actuelle doit correspondre à la valeur cible (non-sensibilité à la casse). |matchInsensitively ou **pas** notMatchInsensitively |
-|La valeur actuelle ne doit pas contenir la valeur cible en tant que clé. |notContainsKey ou **pas** containsKey|
-|La valeur actuelle ne doit pas contenir la valeur cible. |notContains ou **pas** contient |
-|La valeur actuelle ne doit pas être égale à la valeur cible. |notEquals ou **pas** est égal à |
-|La valeur actuelle ne doit pas exister. |**pas** existe  |
-|La valeur actuelle ne doit pas être dans la valeur cible. |notIn ou **pas** dans |
-|La valeur actuelle ne doit pas être identique à la valeur cible. |notLike ou **pas** comme |
-|La valeur actuelle ne doit pas correspondre à la valeur cible (sensibilité à la casse). |notMatch ou **pas** correspond à |
-|La valeur actuelle ne doit pas correspondre à la valeur cible (non-sensibilité à la casse). |notMatchInsensitively ou **pas** matchInsensitively |
+|Valeur actuelle doit être identique à la valeur cible. |comme ou **pas** notLike |
+|Valeur actuelle doit correspondance sensible à la valeur cible. |correspond à ou **pas** notMatch |
+|Valeur actuelle doit correspondance non sensible à la valeur cible. |matchInsensitively ou **pas** notMatchInsensitively |
+|Valeur actuelle ne doit pas contenir la valeur cible en tant que clé. |notContainsKey ou **pas** containsKey|
+|Valeur actuelle ne doit pas contenir la valeur cible. |notContains ou **pas** contient |
+|Valeur actuelle ne doit pas être égale à la valeur cible. |notEquals ou **pas** est égal à |
+|Valeur actuelle ne doit pas exister. |**pas** existe  |
+|Valeur actuelle ne doit pas être dans la valeur cible. |notIn ou **pas** dans |
+|Valeur actuelle ne doit pas être telles que la valeur cible. |notLike ou **pas** comme |
+|Valeur actuelle doit correspondance non sensible à la valeur cible. |notMatch ou **pas** correspond à |
+|Valeur actuelle ne doit pas la casse de la valeur cible. |notMatchInsensitively ou **pas** matchInsensitively |
 |Aucune ressource associées ne corresponde les détails de l’effet dans la définition de stratégie. |Une ressource du type défini dans **then.details.type** et associées à la ressource définie dans le **si** partie de la règle de stratégie n’existe pas. |
 
 ## <a name="compliance-details-for-guest-configuration"></a>Détails de conformité pour la Configuration de l’invité
@@ -128,7 +132,7 @@ Vous ne disposez pas accès pour vous connecter directement à la machine virtue
    - **Type de ressource** - le _guestConfigurationAssignments_ nom complet.
    - **Dernière évaluation** - la dernière fois que le service de Configuration de l’invité notifié Azure Policy sur l’état de la machine virtuelle cible.
 
-   ![Afficher les détails de la conformité.](../media/determine-non-compliance/guestconfig-assignment-view.png)
+   ![Afficher les détails de conformité](../media/determine-non-compliance/guestconfig-assignment-view.png)
 
 1. Sélectionnez le nom de l’affectation de Configuration invité dans le **nom** colonne pour ouvrir la **conformité des ressources** page.
 
@@ -136,7 +140,7 @@ Vous ne disposez pas accès pour vous connecter directement à la machine virtue
 
 Le **invité attribution** page affiche tous les détails de conformité disponibles. Chaque ligne dans la vue représente une version d’évaluation a été effectuée à l’intérieur de la machine virtuelle. Dans le **raison** colonne, une phrase qui décrit pourquoi l’attribution de l’invité est _Non conforme_ s’affiche. Par exemple, si vous êtes l’audit que les machines virtuelles doivent être joints à un domaine, le **raison** colonne afficherait texte, y compris l’appartenance au domaine actuel.
 
-![Afficher les détails de la conformité.](../media/determine-non-compliance/guestconfig-compliance-details.png)
+![Afficher les détails de conformité](../media/determine-non-compliance/guestconfig-compliance-details.png)
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
@@ -233,4 +237,4 @@ Modification des données d’historique sont fournies par [graphique des ressou
 - Comprendre comment [créer par programmation des stratégies](programmatically-create.md).
 - Découvrez comment [obtenir des données de conformité](getting-compliance-data.md).
 - Découvrez comment [corriger les ressources non conformes](remediate-resources.md).
-- Examinez un groupe d’administration avec [organiser vos ressources avec des groupes d’administration Azure](../../management-groups/overview.md).
+- Pour en savoir plus sur les groupes d’administration, consultez [Organiser vos ressources avec des groupes d’administration Azure](../../management-groups/overview.md).

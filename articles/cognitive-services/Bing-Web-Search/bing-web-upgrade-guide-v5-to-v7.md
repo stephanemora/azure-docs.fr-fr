@@ -11,12 +11,12 @@ ms.subservice: bing-web-search
 ms.topic: reference
 ms.date: 02/12/2019
 ms.author: scottwhi
-ms.openlocfilehash: 8e5876c9141a3eb85593b12f45b0bde4c7984adf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e3d78a1b7488e7489b02e34e9733a5d741213855
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61431138"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66384891"
 ---
 # <a name="upgrade-from-bing-web-search-api-v5-to-v7"></a>Mise à niveau de l’API Recherche Web Bing v5 vers v7
 
@@ -75,14 +75,14 @@ Bloqué|InvalidRequest.Blocked
 
 ### <a name="headers"></a>headers
 
-- Ajout de l’en-tête de requête [Pragma](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#pragma) facultatif. Par défaut, Bing retourne le contenu en cache, s’il est disponible. Pour éviter cela, définissez l’en-tête Pragma sur no-cache (par exemple, Pragma: no-cache).
+- Ajout de l’en-tête de requête [Pragma](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#pragma) facultatif. Par défaut, Bing retourne le contenu en cache, s’il est disponible. Pour éviter cela, définissez l’en-tête Pragma sur no-cache (par exemple, Pragma: no-cache).
 
 ### <a name="query-parameters"></a>Paramètres de requête
 
-- Ajout du paramètre de requête [answerCount](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#answercount). Utilisez ce paramètre pour spécifier le nombre de réponses que la réponse doit inclure. Les réponses sont choisies en fonction du classement. Par exemple, si vous définissez ce paramètre sur trois (3), la réponse inclut les trois réponses de rang supérieur.  
+- Ajout du paramètre de requête [answerCount](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#answercount). Utilisez ce paramètre pour spécifier le nombre de réponses que la réponse doit inclure. Les réponses sont choisies en fonction du classement. Par exemple, si vous définissez ce paramètre sur trois (3), la réponse inclut les trois réponses de rang supérieur.  
 
-- Ajout du paramètre de requête [promote](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#promote). Utilisez ce paramètre avec `answerCount` pour inclure explicitement un ou plusieurs types de réponse, quel que soit leur classement. Par exemple, pour promouvoir des vidéos et des images dans la réponse, définissez promote sur *videos,images*. La liste des réponses que vous souhaitez promouvoir n’entre pas dans la limite `answerCount`. Par exemple, si `answerCount` est 2 et `promote` est défini sur *videos,images*, la réponse peut inclure des pages web, des actualités, des vidéos et des images.
+- Ajout du paramètre de requête [promote](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#promote). Utilisez ce paramètre avec `answerCount` pour inclure explicitement un ou plusieurs types de réponse, quel que soit leur classement. Par exemple, pour promouvoir des vidéos et des images dans la réponse, définissez promote sur *videos,images*. La liste des réponses que vous souhaitez promouvoir n’entre pas dans la limite `answerCount`. Par exemple, si `answerCount` est 2 et `promote` est défini sur *videos,images*, la réponse peut inclure des pages web, des actualités, des vidéos et des images.
 
 ### <a name="object-changes"></a>Modifications d’objet
 
-- Ajout du champ `someResultsRemoved` à l’objet [WebAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#webanswer). Le champ contient une valeur booléenne qui indique si la réponse a exclu des résultats de la réponse web.  
+- Ajout du champ `someResultsRemoved` à l’objet [WebAnswer](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#webanswer). Le champ contient une valeur booléenne qui indique si la réponse a exclu des résultats de la réponse web.  

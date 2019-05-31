@@ -12,12 +12,12 @@ ms.author: moslake
 ms.reviewer: ninarn, carlrab
 manager: craigg
 ms.date: 02/28/2019
-ms.openlocfilehash: 96160745fa8702fc6f931904098c28d8968de2c1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c1db16475224cc3c91a5353ead0aabd091098e14
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60936370"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66240364"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>Les pools élastiques vous aident à gérer et à mettre à l’échelle plusieurs bases de données Azure SQL
 
@@ -132,7 +132,7 @@ Dans les cas où vous ne pouvez pas utiliser les outils, la procédure pas à pa
 
 ### <a name="elastic-jobs-and-elastic-pools"></a>Travaux élastiques et pools élastiques
 
-Un pool simplifie les tâches de gestion grâce à l’exécution des scripts dans des **[tâches élastiques](sql-database-elastic-jobs-overview.md)**. Un travail élastique élimine pratiquement le caractère fastidieux d’un nombre élevé de bases de données. Pour commencer, consultez l’article [Prise en main de Tâches de bases de données élastiques](sql-database-elastic-jobs-getting-started.md).
+Un pool simplifie les tâches de gestion grâce à l’exécution des scripts dans des **[tâches élastiques](elastic-jobs-overview.md)** . Un travail élastique élimine pratiquement le caractère fastidieux d’un nombre élevé de bases de données.
 
 Pour en savoir plus sur les autres outils de base de données permettant d’utiliser plusieurs bases de données, consultez [Scale-out avec Azure SQL Database](sql-database-elastic-scale-introduction.md).
 

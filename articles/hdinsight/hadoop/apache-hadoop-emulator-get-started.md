@@ -7,14 +7,14 @@ author: hrasheed-msft
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 12/11/2017
+ms.date: 05/29/2019
 ms.author: hrasheed
-ms.openlocfilehash: 15152196e45265985c8abb409523982bd4c5d427
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 2cb99cfe765e1d3444f362e591812f5088c78c0e
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64697424"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393148"
 ---
 # <a name="get-started-with-an-apache-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>Bien démarrer avec un bac à sable Apache Hadoop, un émulateur sur un ordinateur virtuel
 
@@ -24,19 +24,16 @@ Apprenez à installer le bac à sable (sandbox) Apache Hadoop de Hortonworks sur
 * [Oracle VirtualBox](https://www.virtualbox.org/) Téléchargez et installez l’application à partir d’[ici](https://www.virtualbox.org/wiki/Downloads).
 
 
-
 ## <a name="download-and-install-the-virtual-machine"></a>Téléchargement et installation de la machine virtuelle
-1. Accédez aux [téléchargements Hortonworks](https://hortonworks.com/downloads/#sandbox).
+1. Accédez à la [Cloudera télécharge](https://www.cloudera.com/downloads/hortonworks-sandbox/hdp.html).
 
-2. Cliquez sur **TÉLÉCHARGER POUR VIRTUALBOX** pour télécharger le dernier bac à sable Hortonworks sur une machine virtuelle. Vous serez invité à vous inscrire à Hortonworks avant le lancement du téléchargement. Une à deux heures sont nécessaires pour le téléchargement, en fonction de la vitesse de votre réseau.
+2. Cliquez sur **VIRTUALBOX** sous **choisir le Type Installation** pour télécharger le dernier bac à sable de Hortonworks sur une machine virtuelle. Connectez-vous ou complétez le formulaire d’intérêt de produit.
 
-    ![Image du lien pour le téléchargement de Hortonworks Sandbox pour VirtualBox](./media/apache-hadoop-emulator-get-started/download-sandbox.png)
-3. À partir de la même page web, cliquez sur le lien **Importer dans Virtual Box** pour télécharger un fichier PDF contenant des instructions d’installation de la machine virtuelle.
+1. Cliquez sur le bouton **HDP bac à sable (dernière version)** pour commencer le téléchargement.
 
-Pour télécharger un bac à sable (sandbox) de version HDP plus ancienne, développez l’archive :
+Pour obtenir des instructions sur la configuration du bac à sable, consultez [bac à sable Guide de déploiement et installer](https://hortonworks.com/tutorial/sandbox-deployment-and-install-guide/section/1/).
 
-![Archive sandbox Hortonworks](./media/apache-hadoop-emulator-get-started/hortonworks-sandbox-archive.png)
-
+Pour télécharger un bac à sable de version HDP plus anciens, consultez les liens situés sous **les Versions antérieures**.
 
 ## <a name="start-the-virtual-machine"></a>Démarrage de la machine virtuelle
 
@@ -49,10 +46,10 @@ Pour télécharger un bac à sable (sandbox) de version HDP plus ancienne, déve
 
 ## <a name="set-sandbox-passwords"></a>Définition de mots de passe Sandbox
 
-1. Dans la page de **prise en main** de Hortonworks Sandbox, sélectionnez **View Advanced Options (Options d’affichage avancées)**. Utilisez les informations de cette page pour vous connecter au bac à sable avec SSH. Utilisez le nom et le mot de passe fournis.
+1. Dans la page de **prise en main** de Hortonworks Sandbox, sélectionnez **View Advanced Options (Options d’affichage avancées)** . Utilisez les informations de cette page pour vous connecter au bac à sable avec SSH. Utilisez le nom et le mot de passe fournis.
 
    > [!NOTE]
-   > Si vous n’avez pas de client SSH installé, vous pouvez utiliser le client SSH en ligne fourni par la machine virtuelle à l’adresse **http://localhost:4200/**.
+   > Si vous n’avez pas de client SSH installé, vous pouvez utiliser le client SSH en ligne fourni par la machine virtuelle à l’adresse **http://localhost:4200/** .
 
     La première fois que vous vous connectez avec SSH, vous serez invité à modifier le mot de passe du compte racine. Entrez un nouveau mot de passe que vous utiliserez lorsque vous vous connecterez à l’aide de SSH.
 

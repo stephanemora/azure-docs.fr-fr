@@ -5,16 +5,16 @@ services: azure-portal
 keywords: ''
 author: kfollis
 ms.author: kfollis
-ms.date: 03/22/2019
+ms.date: 05/24/2019
 ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: bff6fe697912bca0bc55501a74a01a92b1330521
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: de04b461d8e2d2dce9a88052a86fbe5d163fafec
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60551405"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244195"
 ---
 # <a name="azure-portal-overview"></a>Présentation du portail Azure
 
@@ -23,6 +23,8 @@ Cet article présente le portail Azure, identifie les éléments de la page du p
 ## <a name="what-is-the-azure-portal"></a>Qu’est le portail Azure ?
 
 Le portail Azure est une console unifiée basée sur le web qui fournit une alternative aux outils de ligne de commande. Avec le portail Azure, vous pouvez gérer votre abonnement Azure à l’aide d’une interface utilisateur graphique. Vous pouvez créer, gérer et surveiller tout ce que de simples applications web pour les déploiements de cloud complexes, créer des tableaux de bord personnalisés pour une vue organisée des ressources et configurer les options d’accessibilité pour une expérience optimale.
+
+Le portail Azure est conçu pour la résilience et une disponibilité continue. Il a une présence dans chaque centre de données Azure rendant résistant aux défaillances de centre de données individuel et évite également les ralentissements du réseau s’ils sont proches des utilisateurs. Le portail Azure met à jour en permanence et ne requiert aucun temps d’arrêt pour les activités de maintenance.
 
 ## <a name="azure-home"></a>Page d’accueil Azure
 
@@ -66,7 +68,6 @@ Nous les préremplies vos favoris dans la barre latérale avec des liens vers de
 
 > [!TIP]
 > Le moyen le plus rapide pour rechercher une ressource, un service ou une documentation consiste à utiliser *recherche* dans l’en-tête global. Utilisez les liens de navigation pour revenir aux pages précédentes.
->
 >
 
 ## <a name="next-steps"></a>Étapes suivantes

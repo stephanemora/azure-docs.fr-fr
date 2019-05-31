@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 75c0deaa8bca94349091e3317e4ca70129bb4426
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 1a6f3fbc0160a78fb76f810257d3285725445eba
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65991607"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257965"
 ---
 # <a name="expressroute-faq"></a>Forum Aux Questions ExpressRoute
 
@@ -288,7 +288,7 @@ Oui. Les frais d’ExpressRoute Premium s’ajoutent aux frais de circuit Expres
 
 ## <a name="expressroute-local"></a>ExpressRoute Local
 ### <a name="what-is-expressroute-local"></a>Qu’est ExpressRoute Local ?
-ExpressRoute Local est un circuit de référence (SKU) de ExpressRoute. Une fonctionnalité clé de variable locale est qu’un circit Local à un circuit ExpressRoute emplacement d’homologation vous donne accès uniquement à une ou deux régions Azure dans ou près le même métro. En revanche, un circuit Standard vous donne accès à toutes les régions Azure dans une zone géopolitique et un circuit de Premium pour toutes les régions Azure dans le monde entier. 
+ExpressRoute Local est un circuit de référence (SKU) de ExpressRoute. Une fonctionnalité clé de variable locale est qu’un circuit Local à un circuit ExpressRoute emplacement d’homologation vous donne l’accès uniquement à une ou deux régions Azure dans ou près le même métro. En revanche, un circuit Standard vous donne accès à toutes les régions Azure dans une zone géopolitique et un circuit de Premium pour toutes les régions Azure dans le monde entier. 
 
 ### <a name="what-are-the-benefits-of-expressroute-local"></a>Quels sont les avantages de variable locale ExpressRoute ?
 Bien que vous avez besoin de payer le transfert de données de sortie pour votre circuit Standard ou Premium ExpressRoute, vous ne payez pas transfert de données de sortie séparément pour votre circuit ExpressRoute Local. En d’autres termes, le prix de variable locale ExpressRoute inclut les frais de transfert de données. ExpressRoute Local est une solution plus économique si vous avez des quantités massives de données à transférer et de faire passer vos données via une connexion privée à un emplacement d’homologation ExpressRoute près de votre groupe de régions Azure. 

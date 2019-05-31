@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/13/2019
-ms.author: v-mohabe
-ms.openlocfilehash: 17f01d89598d99425d157e4c9c31e64ab1ccbcda
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.date: 05/24/2019
+ms.author: monhaber
+ms.openlocfilehash: f35f410ddc039ee264fa1de317e152cb03f391b5
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65966973"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241516"
 ---
 # <a name="adaptive-network-hardening-in-azure-security-center"></a>Renforcement du réseau adaptative dans Azure Security Center
 Découvrez comment configurer le renforcement de réseau adaptative dans Azure Security Center.
@@ -33,7 +33,6 @@ Par exemple, supposons que la règle de groupe de sécurité réseau existante c
 
 ![affichage de renforcement de la sécurité réseau](./media/security-center-adaptive-network-hardening/traffic-hardening.png)
 
-
 > [!NOTE]
 > Recommandations de renforcement du réseau ADAPTATIF sont pris en charge sur les ports suivants : 22, 3389, 21, 23, 445, 4333, 3306, 1433, 1434, 53, 20, 5985, 5986, 5432, 139, 66, 1128
 
@@ -42,8 +41,8 @@ Par exemple, supposons que la règle de groupe de sécurité réseau existante c
 1. Dans Security Center, sélectionnez **mise en réseau** -> **renforcement de réseau ADAPTATIF**. Les machines virtuelles de réseau sont répertoriés sous trois onglets distincts :
    * **Ressources défectueuses**: Machines virtuelles qui ont actuellement des recommandations et des alertes qui ont été déclenchées en exécutant l’algorithme adaptatif renforcement de réseau. 
    * **Ressources saines**: Machines virtuelles sans recommandations et des alertes.
-   * **Non analysé ressources**: Machines virtuelles qui l’algorithme adaptatif renforcement de réseau ne peut pas être exécuté à cause d’une des raisons suivantes :
-      * **Les machines virtuelles sont des machines virtuelles classiques**:-uniquement machines virtuelles Azure Resource Manager sont pris en charge.
+   * **Non analysé ressources**: Machines virtuelles qui l’algorithme adaptatif renforcement de réseau ne peut pas être exécuté sur une des raisons suivantes :
+      * **Les machines virtuelles sont des machines virtuelles classiques**: Uniquement le Gestionnaire de ressources des machines virtuelles Azure sont pris en charge.
       * **Pas assez de données est disponible**: Pour générer des recommandations de renforcement de trafic précis, Security Center requiert au moins 30 jours de données de trafic.
       * **Machine virtuelle n’est pas protégé par la norme ASC**: Seules les machines virtuelles qui sont définies au niveau tarifaire Standard de Security Center sont éligibles pour cette fonctionnalité.
 
@@ -57,18 +56,23 @@ Par exemple, supposons que la règle de groupe de sécurité réseau existante c
 ## <a name="review-and-apply-adaptive-network-hardening-recommended-rules"></a>Passer en revue et adaptatif réseau renforcement des règles recommandées
 
 1. À partir de la **ressources défectueuses** , sélectionnez une machine virtuelle. Les alertes et les règles de renforcement recommandée sont répertoriés.
-   ![renforcement des alertes](./media/security-center-adaptive-network-hardening/hardening-alerts.png)
+
+     ![règles de sécurisation renforcée](./media/security-center-adaptive-network-hardening/hardening-alerts.png)
 
    > [!NOTE]
    > Le **règles** onglet répertorie les règles de sécurisation renforcée des adaptatif du réseau vous recommande de vous ajouter. Le **alertes** onglet répertorie les alertes qui ont été générées en raison de trafic, à la ressource, ce qui n’est pas dans la plage IP autorisée dans les règles recommandées.
-
-   ![règles de sécurisation renforcée](./media/security-center-adaptive-network-hardening/hardening-rules.png)
 
 2. Si vous souhaitez modifier certains des paramètres d’une règle, vous pouvez le modifier, comme expliqué dans [modifier une règle](#modify-rule).
    > [!NOTE]
    > Vous pouvez également [supprimer](#delete-rule) ou [ajouter](#add-rule) une règle.
 
-3. Sélectionnez les règles que vous souhaitez appliquer sur le groupe de sécurité réseau, puis cliquez sur **appliquer**. 
+3. Sélectionnez les règles que vous souhaitez appliquer sur le groupe de sécurité réseau, puis cliquez sur **appliquer**.
+
+      > [!NOTE]
+      > Les règles appliquées sont ajoutés à la NSG(s) protège la machine virtuelle. (Une machine virtuelle peut être protégée par un groupe de sécurité réseau qui est associé à sa carte réseau, ou le sous-réseau dans lequel réside la machine virtuelle ou les deux)
+
+    ![appliquer les règles](./media/security-center-adaptive-network-hardening/enforce-hard-rule2.png)
+
 
 ### Modifier une règle  <a name ="modify-rule"> </a>
 
@@ -82,13 +86,13 @@ Certaines instructions importantes pour la modification d’une règle de sécur
   > [!NOTE]
   > Création et modification des règles de « refus » s’effectuent directement sur le groupe de sécurité réseau pour plus d’informations, consultez [créer, modifier ou supprimer un groupe de sécurité réseau](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group).
 
-* Un **refuser tout le trafic** règle est le seul type de règle « deny » qui serait répertoriée ici, et elle ne peut pas être modifiée. Vous pouvez, toutefois, peut le supprimer (consultez [supprimer une règle](#delete-rule)).
+* Un **refuser tout le trafic** règle est le seul type de règle « deny » qui serait répertoriée ici, et elle ne peut pas être modifiée. Vous pouvez, toutefois, le supprimer (consultez [supprimer une règle](#delete-rule)).
   > [!NOTE]
-  > Un **refuser tout le trafic** règle est recommandée lorsque, par conséquent de l’exécution de l’algorithme, Security Center n’identifie pas le trafic qui doit être autorisé, selon la configuration de groupe de sécurité réseau existante. Par conséquent, la règle recommandée consiste à refuser tout le trafic vers le port spécifié. Le nom de ce type de règle est affiché en tant que « générée par le système ». Après l’application de cette règle, son nom réel dans le groupe de sécurité réseau sera une chaîne composée le protocole, direction du trafic, « Refus » et un nombre aléatoire.
+  > Un **refuser tout le trafic** règle est recommandée lorsque, par conséquent de l’exécution de l’algorithme, Security Center n’identifie pas le trafic qui doit être autorisé, selon la configuration de groupe de sécurité réseau existante. Par conséquent, la règle recommandée consiste à refuser tout le trafic vers le port spécifié. Le nom de ce type de règle est affiché en tant que «*générées par le système*». Après l’application de cette règle, son nom réel dans le groupe de sécurité réseau sera une chaîne composée le protocole, direction du trafic, « Refus » et un nombre aléatoire.
 
 *Pour modifier une règle de sécurisation renforcée des adaptatif du réseau :*
 
-1. Pour modifier certains des paramètres d’une règle, dans le **règles** onglet, cliquez sur les trois points (...) à la fin de ligne de la règle, puis cliquez sur **modifier la règle**.
+1. Pour modifier certains des paramètres d’une règle, dans le **règles** onglet, cliquez sur les trois points (...) à la fin de ligne de la règle, puis cliquez sur **modifier**.
 
    ![modifier la règle](./media/security-center-adaptive-network-hardening/edit-hard-rule.png)
 
@@ -97,10 +101,13 @@ Certaines instructions importantes pour la modification d’une règle de sécur
    > [!NOTE]
    > Après avoir cliqué sur **enregistrer**, vous avez modifié avec succès de la règle. *Toutefois, vous n’avez appliqué il pour le groupe de sécurité réseau.* Pour l’appliquer, vous devez sélectionner la règle dans la liste, puis cliquez sur **appliquer** (comme expliqué dans l’étape suivante).
 
+   ![modifier la règle](./media/security-center-adaptive-network-hardening/edit-hard-rule3.png)
+
 3. Pour appliquer la règle de mise à jour, dans la liste, sélectionnez la règle de mise à jour, puis cliquez sur **appliquer**.
 
-### Ajouter une nouvelle règle <a name ="add-rule"> </a>
+    ![appliquer la règle](./media/security-center-adaptive-network-hardening/enforce-hard-rule.png)
 
+### Ajouter une nouvelle règle <a name ="add-rule"> </a>
 
 Vous pouvez ajouter une règle « Autoriser » qui a été déconseillée par Security Center.
 
@@ -113,13 +120,14 @@ Vous pouvez ajouter une règle « Autoriser » qui a été déconseillée par 
 
    ![Ajouter une règle](./media/security-center-adaptive-network-hardening/add-hard-rule.png)
 
-1. Dans le **modifier une règle** fenêtre, entrez les détails, cliquez sur **enregistrer**.
+1. Dans le **nouvelle règle** fenêtre, entrez les détails, cliquez sur **ajouter**.
 
    > [!NOTE]
-   > Après avoir cliqué sur **enregistrer**, vous avez ajouté la règle, et elle est répertoriée avec les autres règles recommandées. Toutefois, vous n'avez pas appliquée sur le groupe de sécurité réseau. Pour l’activer, vous devez sélectionner la règle dans la liste, puis cliquez sur **appliquer** (comme expliqué dans l’étape suivante).
+   > Après avoir cliqué sur **ajouter**, vous avez ajouté la règle, et elle est répertoriée avec les autres règles recommandées. Toutefois, vous n'avez pas appliquée sur le groupe de sécurité réseau. Pour l’activer, vous devez sélectionner la règle dans la liste, puis cliquez sur **appliquer** (comme expliqué dans l’étape suivante).
 
 3. Pour appliquer la nouvelle règle, dans la liste, sélectionnez la nouvelle règle, puis cliquez sur **appliquer**.
 
+    ![appliquer la règle](./media/security-center-adaptive-network-hardening/enforce-hard-rule.png)
 
 
 ### Supprimer une règle <a name ="delete-rule"> </a>
@@ -128,9 +136,9 @@ Lorsque cela est nécessaire, vous pouvez supprimer une règle recommandée. Par
 
 *Pour supprimer une règle de sécurisation renforcée des adaptatif du réseau :*
 
-1. Dans le **règles** onglet, cliquez sur les trois points (...) à la fin de ligne de la règle, puis cliquez sur **supprimer la règle**.
+1. Dans le **règles** onglet, cliquez sur les trois points (...) à la fin de ligne de la règle, puis cliquez sur **supprimer**.  
 
-   ![Supprimer la règle](./media/security-center-adaptive-network-hardening/delete-hard-rule.png)
+    ![règles de sécurisation renforcée](./media/security-center-adaptive-network-hardening/delete-hard-rule.png)
 
 
 

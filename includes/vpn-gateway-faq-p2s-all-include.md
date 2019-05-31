@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/18/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: f72ce02a8655ea97497098dc1412f69e07686861
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: 42c94188c0c38448660998bcfc122ae626285566
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66146996"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66248995"
 ---
 ### <a name="how-many-vpn-client-endpoints-can-i-have-in-my-point-to-site-configuration"></a>Combien de points de terminaison clients VPN puis-je avoir dans ma configuration point à site ?
 
@@ -38,9 +38,11 @@ Les systèmes d’exploitation clients pris en charge sont les suivants :
 
 ### <a name="can-i-traverse-proxies-and-firewalls-using-point-to-site-capability"></a>Puis-je parcourir les serveurs proxy et les pare-feu à l’aide de la fonctionnalité point à site ?
 
-Azure prend en charge deux types d’options de VPN point à site :
+Azure prend en charge trois types d’options de Point-to-site VPN :
 
 * Protocole SSTP (Secure Socket Tunneling Protocol). SSTP est une solution SSL propriétaire de Microsoft qui peut pénétrer les pare-feux, car la plupart des pare-feux ouvrent le port TCP 443 utilisé par SSL.
+
+* OpenVPN. OpenVPN est une solution basée sur SSL qui peut pénétrer des pare-feux puisque la plupart des pare-feu ouvrir le port TCP 443 utilisé par SSL.
 
 * VPN IKEv2. Le VPN IKEv2 est une solution VPN IPsec basée sur des normes qui utilise les ports UDP 500 et 4500 ainsi que le protocole IP no. 50. Les pare-feux n’ouvrent pas toujours ces ports. Il est donc possible que le VPN IKEv2 ne soit pas en mesure de parcourir les proxies et pare-feux.
 
@@ -66,7 +68,7 @@ Il est difficile de maintenir le débit exact des tunnels VPN. IPsec et SSTP son
 
 ### <a name="can-i-use-any-software-vpn-client-for-point-to-site-that-supports-sstp-andor-ikev2"></a>Puis-je utiliser un client VPN logiciel pour une connexion point à site prenant en charge SSTP et/ou IKEv2 ?
 
-Non. Vous ne pouvez utiliser le client VPN natif sur Windows que pour SSTP et pour le client VPN natif sur Mac pour IKEv2. Reportez-vous à la liste des systèmes d’exploitation client pris en charge.
+Non. Vous ne pouvez utiliser le client VPN natif sur Windows que pour SSTP et pour le client VPN natif sur Mac pour IKEv2. Toutefois, vous pouvez utiliser le client OpenVPN sur toutes les plateformes pour se connecter via le protocole OpenVPN. Reportez-vous à la liste des systèmes d’exploitation client pris en charge.
 
 ### <a name="does-azure-support-ikev2-vpn-with-windows"></a>Azure prend-elle en charge le VPN IKEv2 avec Windows ?
 

@@ -7,18 +7,15 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 06/27/2018
-ms.openlocfilehash: 8ed9d84cba7cb9eeca94a1376fc03f1d256afa85
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.date: 05/29/2019
+ms.openlocfilehash: 6fecd2278ddad4de3a2cff9035d60083101e873e
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65779216"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393834"
 ---
 # <a name="what-is-ml-services-in-azure-hdinsight"></a>Nouveautés des Services de ML dans Azure HDInsight
-
-> [!NOTE]  
-> En septembre 2017, Microsoft R Server a été lancé sous le nouveau nom **Microsoft Machine Learning Server** ou ML Server. Par conséquent, le cluster R Server sur HDInsight s’appelle désormais cluster **Machine Learning Services** ou **ML Services** sur HDInsight. Pour plus d’informations sur le changement de nom de R Server, consultez [Microsoft R Server est désormais Microsoft Machine Learning Server](https://docs.microsoft.com/machine-learning-server/rebranding-microsoft-r-server#get-support-for-r-server).
 
 Microsoft Machine Learning Server vous est proposé comme option de déploiement au moment de créer des clusters HDInsight dans Azure. Le type de cluster qui fournit cette option est appelé **ML Services**. Cette fonctionnalité offre aux experts en science des données, aux statisticiens et aux programmeurs R un accès à la demande à des méthodes d’analyse extensibles et distribuées sur HDInsight.
 
@@ -60,7 +57,7 @@ ML Services dans HDInsight offre les avantages suivants :
 
 ML Services sur HDInsight inclut les fonctionnalités suivantes.
 
-| Catégorie de fonctionnalité | Description  |
+| Catégorie de fonctionnalité | Description |
 |------------------|-------------|
 | Pour R | [Packages R](https://docs.microsoft.com/machine-learning-server/r-reference/introducing-r-server-r-package-reference) pour les solutions écrites en R, avec une distribution open source de R et une infrastructure d’exécution pour l’exécution de script. |
 | Pour Python | [Modules Python](https://docs.microsoft.com/machine-learning-server/python-reference/introducing-python-package-reference) pour les solutions écrites en Python, avec une distribution open source de Python et une infrastructure d’exécution pour l’exécution de script.
