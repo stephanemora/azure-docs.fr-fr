@@ -1,7 +1,7 @@
 ---
 title: Qu’est un espace de travail
 titleSuffix: Azure Machine Learning service
-description: Découvrez quels un espace de travail est et pourquoi vous en avez besoin pour le service Azure Machine Learning.
+description: L’espace de travail est la ressource de niveau supérieur du service Azure Machine Learning. Il conserve un historique de toutes les exécutions de formation, y compris les journaux, mesures, sortie et un instantané de vos scripts. Ces informations vous permettent de déterminer qui s’exécutent de formation produit le meilleur modèle
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,20 +9,18 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 05/21/2019
-ms.openlocfilehash: 5785bf8f6538f1d91e7a23178e29487ebee14f29
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 3ecdf62cfed7d70873f3dc752bfacd134e367a90
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65989834"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388949"
 ---
-# <a name="what-is-an-azure-machine-learning-workspace"></a>Qu’est un espace de travail Azure Machine Learning ?
+# <a name="what-is-an-azure-machine-learning-service-workspace"></a>Qu’est un espace de travail du service Azure Machine Learning ?
 
-L’espace de travail est la ressource de niveau supérieur du service Azure Machine Learning. Il fournit un emplacement centralisé dans lequel utiliser tous les artefacts que vous créez lorsque vous utilisez le service Azure Machine Learning.
+L’espace de travail est la ressource de niveau supérieur pour le service Azure Machine Learning, en fournissant un emplacement centralisé pour travailler avec tous les artefacts que vous créez lorsque vous utilisez le service Azure Machine Learning.  L’espace de travail conserve un historique de toutes les exécutions de formation, y compris les journaux, mesures, sortie et un instantané de vos scripts. Vous utilisez ces informations pour déterminer quelle exécution d’entraînement produit le meilleur modèle.  
 
-L’espace de travail conserve un historique des exécutions de formation, y compris les journaux, mesures, sortie et un instantané de vos scripts. Vous utilisez ces informations pour déterminer quelle exécution d’entraînement produit le meilleur modèle.  
-
-Une fois que vous avez un modèle que vous le souhaitez, enregistrez-le avec l’espace de travail. Vous utilisez le modèle inscrit et scripts de calcul de score à déployer sur Azure Container Instances, Azure Kubernetes Service, ou sur un tableau de portes à champ programmable (FPGA) comme un point de terminaison HTTP basé sur REST. Vous pouvez également déployer le modèle sur un appareil Azure IoT Edge en tant que module.
+Une fois que vous avez un modèle que vous le souhaitez, enregistrez-le avec l’espace de travail. Vous ensuite utiliser le modèle inscrit et le score de scripts pour déployer sur Azure Container Instances, Azure Kubernetes Service, ou sur un tableau de portes à champ programmable (FPGA) comme un point de terminaison HTTP basé sur REST. Vous pouvez également déployer le modèle sur un appareil Azure IoT Edge en tant que module.
 
 ## <a name="taxonomy"></a>Taxonomie 
 
@@ -50,7 +48,7 @@ Le diagramme montre les composants suivants d’un espace de travail :
 Vous pouvez interagir avec votre espace de travail comme suit :
 
 + Sur le web :
-    + [Portail Azure](https://azure.portal.com)
+    + [Portail Azure](https://portal.azure.com)
     + Le [interface visuelle (version préliminaire)](ui-concept-visual-interface.md)
 + Dans Python à l’aide d’Azure Machine Learning [SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
 + Sur la ligne de commande à l’aide de l’Azure Machine Learning [extension CLI](https://docs.microsoft.com/azure/machine-learning/service/reference-azure-machine-learning-cli)

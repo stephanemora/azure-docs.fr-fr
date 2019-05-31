@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/28/2019
+ms.date: 05/24/2019
 ms.author: spelluru
-ms.openlocfilehash: 9ad6f82d7b9bd7c4957df1dd37d0f2ddf7462e9e
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 389d467bd9672743d4a086e8a1c505fb0366dba7
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65410947"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237110"
 ---
 # <a name="enable-and-use-remote-desktop-for-linux-virtual-machines-in-a-lab-in-azure-lab-services"></a>Activer et utiliser le Bureau à distance pour les machines virtuelles Linux dans un laboratoire dans Azure Lab Services
 Cet article vous montre comment effectuer les tâches suivantes :
@@ -31,6 +31,10 @@ Cet article vous montre comment effectuer les tâches suivantes :
 Lors de la création de laboratoire, les enseignants peuvent activer **connexion Bureau à distance** pour **Linux** images. Le **activer une connexion Bureau à distance** option est affichée lorsqu’une image Linux est sélectionnée pour le modèle. Lorsque cette option est activée, les enseignants peuvent se connecter au modèle de machine virtuelle et les machines virtuelles d’étudiant via RDP (bureau à distance). 
 
 ![Activer une connexion Bureau à distance pour une image Linux](../media/how-to-enable-remote-desktop-linux/enable-rdp-option.png)
+
+Sur le **l’activation de la connexion de bureau à distance** boîte de message, sélectionnez **continuer avec le Bureau à distance**. 
+
+![Activer une connexion Bureau à distance pour une image Linux](../media/how-to-enable-remote-desktop-linux/enabling-remote-desktop-connection-dialog.png)
 
 > [!IMPORTANT] 
 > L’activation de **connexion Bureau à distance** ouvre uniquement le **RDP** port sur les machines Linux. Vous, en tant qu’enseignant, connectez à la machine Linux à l’aide de SSH pour la première fois et que vous installez les packages RDP et l’interface utilisateur graphique afin que vous pouvez vous connecter à la machine Linux à l’aide de RDP ultérieurement. Ensuite, vous **publier** l’image afin que les étudiants peuvent RDP dans pour les étudiants, les machines virtuelles Linux. 
@@ -54,27 +58,32 @@ Vous voyez la **Bureau à distance** option sur la page d’accueil du laboratoi
 
 ![Se connecter au modèle par le biais de RDP après avoir créé le laboratoire](../media/how-to-enable-remote-desktop-linux/rdp-after-lab-creation.png) 
 
-Lorsque vous sélectionnez le **RDP** option, il télécharge un fichier RDP. Vous ouvrez pour vous connecter à la machine Linux. 
+Pour plus d’informations sur la connexion à la machine virtuelle à l’aide de SSH ou RDP, consultez [Connect à l’aide de SSH ou RDP]((#connect-using-ssh-or-rdp). 
 
 ## <a name="teachers-connecting-to-a-student-vm-using-rdp"></a>Les enseignants de la connexion à un machine virtuelle de l’étudiant à l’aide de RDP
-Un propriétaire de laboratoire (enseignant) peut se connecter à un machine virtuelle d’étudiant en basculant vers le **Machines virtuelles** afficher, puis en sélectionnant le **connecter** icône. Avant cela, les enseignants doivent **publier** l’image de modèle avec les packages RDP et l’interface graphique utilisateur installé dessus. 
+Un enseignant peut se connecter à un machine virtuelle d’étudiant en basculant vers le **Machines virtuelles** afficher, puis en sélectionnant le **connecter** icône. Avant cela, les enseignants doivent **publier** l’image de modèle avec les packages RDP et l’interface graphique utilisateur installé dessus. 
 
 ![Enseignants de la connexion à la machine virtuelle de l’étudiant](../media/how-to-enable-remote-desktop-linux/teacher-connect-to-student-vm.png)
+
+Pour plus d’informations sur la connexion à la machine virtuelle à l’aide de SSH ou RDP, consultez [Connect à l’aide de SSH ou RDP]((#connect-using-ssh-or-rdp). 
 
 ## <a name="students-connecting-to-the-student-vm"></a>Étudiants de la connexion à la machine virtuelle de l’étudiant
 Étudiant peut RDP dans pour leurs machines virtuelles Linux après le propriétaire de laboratoire (enseignant) **publie** le modèle de machine virtuelle avec RDP et l’interface graphique utilisateur des packages installés sur l’ordinateur. Voici la procédure à suivre : 
 
 1. Lorsqu’un étudiant se connecte au portail Labs directement (`https://labs.azure.com`) ou à l’aide d’un lien d’inscription (`https://labs.azure.com/register/<registrationCode>`), une vignette pour chaque laboratoire l’étudiant a accès à s’affiche. 
 2. Sur la vignette, sélectionnez **Démarrer** si la machine virtuelle est arrêtée. 
-3. Sélectionnez **Connecter**. Cette action télécharge le fichier RDP à votre machine. Enregistrer et l’ouvrir pour vous connecter à l’ordinateur Linux via RDP. 
+3. Sélectionnez **Connecter**. Vous voyez deux options pour se connecter à la machine virtuelle : **SSH** et **Bureau à distance**.
 
-    ![Étudiant machine virtuelle - RDP télécharger](../media/how-to-enable-remote-desktop-linux/student-rdp-download.png)
+    ![Étudiant VM - options de connexion](../media/how-to-enable-remote-desktop-linux/student-vm-connect-options.png)
 
-    Vous pouvez toujours vous connecter à la VM Linux à l’aide de SSH. Sélectionnez **... (points de suspension)**  pour voir l’option de SSH. 
-    
-    ![Étudiant machine virtuelle - SSH](../media/how-to-enable-remote-desktop-linux/student-ssh.png)
+## <a name="connect-using-ssh-or-rdp"></a>Se connecter à l’aide de SSH ou RDP
+Si vous sélectionnez le **SSH** option, vous consultez les rubriques suivantes **se connecter à votre machine virtuelle** boîte de dialogue :  
 
-    Copiez et enregistrez la chaîne de connexion SSH sur le **se connecter à votre machine virtuelle** boîte de dialogue. Utilisez cette chaîne de connexion dans un terminal SSH (tel que [Putty](https://www.putty.org/)) pour vous connecter à la machine virtuelle. 
+![Chaîne de connexion SSH](../media/how-to-enable-remote-desktop-linux/ssh-connection-string.png)
+
+Sélectionnez le **copie** bouton en regard de la zone de texte pour le copier dans le Presse-papiers. Enregistrer la chaîne de connexion SSH. Utilisez cette chaîne de connexion dans un terminal SSH (tel que [Putty](https://www.putty.org/)) pour vous connecter à la machine virtuelle.
+
+Si vous sélectionnez le **RDP** option, un fichier RDP est téléchargée sur votre ordinateur. Enregistrer et l’ouvrir pour vous connecter à l’ordinateur. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 Consultez les articles suivants :
