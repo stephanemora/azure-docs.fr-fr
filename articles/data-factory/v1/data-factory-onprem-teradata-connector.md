@@ -65,7 +65,7 @@ Le tableau suivant fournit la description des éléments JSON spécifiques au se
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
 | type |La propriété type doit être définie sur : **OnPremisesTeradata** |Oui |
-| serveur |Nom du serveur Teradata. |Oui |
+| server |Nom du serveur Teradata. |Oui |
 | authenticationType |Type d'authentification utilisé pour se connecter à la base de données Teradata. Les valeurs possibles sont les suivantes : Anonymous, Basic et Windows. |Oui |
 | username |Spécifiez le nom d'utilisateur si vous utilisez l'authentification de base ou Windows. |Non  |
 | password |Spécifiez le mot de passe du compte d’utilisateur que vous avez spécifié pour le nom d’utilisateur. |Non  |
