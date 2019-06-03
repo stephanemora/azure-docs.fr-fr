@@ -85,14 +85,14 @@ L’activité Pig de HDInsight d’un [pipeline](data-factory-create-pipelines.m
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
-| Nom |Nom de l’activité |Oui |
+| name |Nom de l’activité |Oui |
 | description |Texte décrivant la raison motivant l’activité. |Non  |
-| Type |HDinsightPig |Oui |
+| type |HDinsightPig |Oui |
 | inputs |Une ou plusieurs entrées utilisées par l'activité pig |Non  |
 | outputs |Une ou plusieurs sorties produites par l’activité pig |Oui |
 | linkedServiceName |Référence au cluster HDInsight enregistré comme un service lié dans Data Factory |Oui |
 | script |Spécifier le script en ligne pig |Non  |
-| chemin d'accès du script |Stockez le script pig dans un stockage d'objets blob Azure et indiquez le chemin d'accès au fichier. Utilisez la propriété ’script’ ou ’scriptPath’. Les deux propriétés ne peuvent pas être utilisées simultanément. Le nom de fichier respecte la casse. |Non  |
+| scriptPath |Stockez le script pig dans un stockage d'objets blob Azure et indiquez le chemin d'accès au fichier. Utilisez la propriété ’script’ ou ’scriptPath’. Les deux propriétés ne peuvent pas être utilisées simultanément. Le nom de fichier respecte la casse. |Non  |
 | defines |Spécifier les paramètres sous forme de paires clé/valeur pour le référencement au sein du script pig |Non  |
 
 ## <a name="example"></a>Exemples
