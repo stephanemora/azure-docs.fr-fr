@@ -127,8 +127,7 @@
           href: platform/log-faq.md
         - name: Application Insights
           href: app/troubleshoot-faq.md
-- name: |
-    Guides pratiques
+- name: Guides pratiques
   items:
     - name: Planifier et préparer
       items:
@@ -838,6 +837,8 @@
                   href: platform/action-groups-create-resource-manager-template.md
                 - name: Implémenter une action d’application logique
                   href: platform/action-groups-logic-app.md
+                - name: Intégrer le schéma d’alerte courant avec Logic Apps
+                  href: platform/alerts-common-schema-integrations.md
             - name: Solution Alert Management
               href: platform/alert-management-solution.md
             - name: Interface utilisateur des alertes

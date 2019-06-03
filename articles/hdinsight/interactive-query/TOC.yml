@@ -1,6 +1,6 @@
 - name: "Documentation Azure\_HDInsight"
   href: /azure/hdinsight
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: Composants Apache Hadoop sur HDInsight
       href: ../hdinsight-component-versioning.md
@@ -297,7 +297,7 @@
   items:
     - name: Sécurité d’entreprise
       items:
-        - name: Vue d’ensemble
+        - name: Vue d'ensemble
           href: ../domain-joined/apache-domain-joined-introduction.md
           maintainContext: true
         - name: Planifier la sécurité d’entreprise
@@ -320,12 +320,14 @@
       maintainContext: true
     - name: Accès réseau
       items:
+        - name: Architecture de réseau virtuel HDInsight
+          href: ../hdinsight-virtual-network-architecture.md
+        - name: Utiliser un pare-feu pour limiter le trafic sortant
+          href: ../hdinsight-restrict-outbound-traffic.md
         - name: HDInsight dans le réseau virtuel Azure
           href: ../hdinsight-extend-hadoop-virtual-network.md
-          maintainContext: true
         - name: Connecter HDInsight à un réseau local
           href: ../connect-on-premises-network.md
-          maintainContext: true
     - name: Supervision de l’utilisation des journaux d’activité Azure Monitor
       items:
         - name: Utiliser les journaux d’activité Azure Monitor

@@ -84,7 +84,7 @@ Les étapes ci-dessous copient les données vers la région cible à l’aide d�
 3. Dans **Nom**, indiquez le nom convivial **ContosoVMVault**. Si vous avez plusieurs abonnements, sélectionnez l’abonnement approprié.
 4. Créez un groupe de ressources **ContosoRG**.
 5. Spécifiez une région Azure. Pour vérifier les régions prises en charge, consultez [Informations détaillées sur la tarification d’Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
-6. Dans Coffres Recovery Services, sélectionnez **Vue d’ensemble** > **ConsotoVMVault** > **+Répliquer**.
+6. Dans Coffres Recovery Services, sélectionnez **Vue d’ensemble** > **ConsotoVMVault** >  **+Répliquer**.
 7. Dans **Source**, sélectionnez **Azure**.
 8. Dans **Emplacement source**, sélectionnez la région Azure source où vos machines virtuelles s’exécutent actuellement.
 9. Sélectionnez le modèle de déploiement Azure Resource Manager. Sélectionnez ensuite **Abonnement source** et **Groupe de ressources source**.
@@ -110,7 +110,7 @@ Site Recovery récupère une liste des machines virtuelles associées à l’abo
 1. Accédez au coffre. Dans **Paramètres** > **Éléments répliqués**, sélectionnez la machine virtuelle que vous souhaitez déplacer vers la région cible. Sélectionnez ensuite **Test de basculement**.
 2. Dans **Test de basculement**, sélectionnez un point de récupération à utiliser pour le basculement :
 
-   - **Dernier point traité** : bascule la machine virtuelle vers le dernier point de récupération qui a été traité par le service Site Recovery. L’horodatage est affiché. Aucun temps n’est passé à traiter les données, et cette option offre donc un objectif de délai de récupération faible (RTO).
+   - **Dernier point traité** : bascule la machine virtuelle vers le dernier point de récupération qui a été traité par le service Site Recovery. L’horodatage est affiché. Comme le traitement des données ne prend pas de temps, cette option offre donc un objectif de délai de récupération faible (RTO).
    - **Dernier point de cohérence des applications** : bascule toutes les machines virtuelles vers le dernier point de récupération de cohérence des applications. L’horodatage est affiché.
    - **Personnalisé** : sélectionnez n’importe quel point de récupération.
 

@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 02/27/2019
 ms.author: cherylmc
 ms.openlocfilehash: 34d8eb976a2a1e173f234be214799832dae7e9ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 05/31/2019
 ms.locfileid: "66115383"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication"></a>Créer et installer les fichiers de configuration du client VPN pour une authentification P2S RADIUS
@@ -145,7 +145,7 @@ Suivez les étapes suivantes pour configurer le client VPN Windows natif pour un
     ![Détails de la connexion VPN](./media/point-to-site-vpn-client-configuration-radius/adconnection.png)
 11. Sélectionnez **Paramètres d’authentification**. Sélectionnez **Nom d’utilisateur** dans la liste et entrez vos informations d’identification. Si vous avez entré les informations d’identification précédemment, alors **Nom d’utilisateur** est automatiquement sélectionné dans la liste et le nom d’utilisateur et le mot de passe sont déjà renseignés. Sélectionnez **OK** pour enregistrer les paramètres.
 
-    ![Paramètres d'authentification](./media/point-to-site-vpn-client-configuration-radius/adauthentication.png)
+    ![Authentication settings](./media/point-to-site-vpn-client-configuration-radius/adauthentication.png)
 12. Dans la boîte de dialogue **Réseau**, sélectionnez **Appliquer** pour enregistrer les modifications. Pour lancer la connexion, sélectionnez **Connecter**.
 
 #### <a name="adlinuxcli"></a>Configuration du client VPN Linux via strongSwan
@@ -252,7 +252,7 @@ Suivez les étapes ci-dessous afin de configurer le client VPN Mac natif pour un
    ![Informations sur le serveur](./media/point-to-site-vpn-client-configuration-radius/servertag.png)
 5. Sélectionnez **Paramètres d’authentification**, puis **Certificat**. 
 
-   ![Paramètres d'authentification](./media/point-to-site-vpn-client-configuration-radius/certoption.png)
+   ![Authentication settings](./media/point-to-site-vpn-client-configuration-radius/certoption.png)
 6. Cliquez sur **Sélectionner** pour choisir le certificat que vous souhaitez utiliser pour l’authentification.
 
    ![Sélection d’un certificat pour l’authentification](./media/point-to-site-vpn-client-configuration-radius/certificate.png)

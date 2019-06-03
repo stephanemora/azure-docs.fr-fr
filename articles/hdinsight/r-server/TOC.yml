@@ -1,6 +1,6 @@
 - name: "Documentation Azure\_HDInsight"
   href: /azure/hdinsight
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: "Qu’est-ce que ML\_Services dans HDInsight\_?"
       href: r-server-overview.md
@@ -247,6 +247,10 @@
       href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
     - name: Accès réseau
       items:
+        - name: Architecture de réseau virtuel HDInsight
+          href: ../hdinsight-virtual-network-architecture.md
+        - name: Utiliser un pare-feu pour limiter le trafic sortant
+          href: ../hdinsight-restrict-outbound-traffic.md
         - name: HDInsight dans le réseau virtuel Azure
           href: ../hdinsight-extend-hadoop-virtual-network.md
         - name: Connecter HDInsight à un réseau local

@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: 4f1ce8fd44a501f594f3093789d1ef03e664d018
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 69c14c6b98b572bc413f5a35696269e13344387e
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60829546"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417314"
 ---
 # <a name="language-and-region-support-for-the-text-analytics-api"></a>Langues et régions prises en charge par l’API Analyse de texte
 
@@ -23,7 +23,11 @@ Cet article explique quelles langues sont prises en charge pour chaque opératio
 
 ## <a name="language-detection"></a>Détection de la langue
 
-L’API Analyse de texte peut détecter jusqu'à 120 langues différentes. La fonction de détection de la langue renvoie le « script » d’une langue. Par exemple, pour la phrase « I have a dog », elle renvoie `en` à la place de `en-US`. Le chinois est un cas spécial unique : la fonction de détection de la langue renvoie `zh_CHS` ou `zh_CHT` si elle parvient à déterminer le script dans le texte fourni. Dans les situations où un script spécifique n’est pas identifié dans un document chinois, elle renvoie simplement `zh`.
+L’API d’Analytique de texte peut détecter un large éventail de langages, les variantes, dialectes et certains langages culturelles/régionales.  La fonction de détection de la langue renvoie le « script » d’une langue. Par exemple, pour la phrase « I have a dog », elle renvoie `en` à la place de `en-US`. Le chinois est un cas spécial unique : la fonction de détection de la langue renvoie `zh_CHS` ou `zh_CHT` si elle parvient à déterminer le script dans le texte fourni. Dans les situations où un script spécifique n’est pas identifié dans un document chinois, elle renvoie simplement `zh`.
+
+Nous ne publions pas la liste exacte des langues pour cette fonctionnalité, mais il peut détecter un large éventail de langages, les variantes, dialectes et certains langages culturelles/régionales. 
+
+Si vous avez du contenu exprimée dans un langage moins fréquemment utilisé, vous pouvez essayer pour voir si elle retourne un code de détection de la langue. La réponse pour les langages qui ne peut pas être détecté est `unknown`.
 
 ## <a name="sentiment-analysis-key-phrase-extraction-and-named-entity-recognition"></a>Analyse des sentiments, Extraction de phrases clés et reconnaissance d’entité nommée
 
@@ -33,7 +37,7 @@ Pour l’analyse des sentiments, l’extraction de phrases clés et la reconnais
 
 Les langues prises en charge sont initialement déployées en préversion avant d’évoluer vers l’état de disponibilité générale, indépendamment les unes des autres et du service Analyse de texte global. Il est possible que les langues restent disponibles en préversion, même si l’API Analyse de texte est rendue globalement disponible.
 
-| Langage    | Code de langue | Sentiments | Expressions clés | Reconnaissance d’entité nommée |   Notes  |
+| Langue    | Code de langue | Sentiments | Expressions clés | Reconnaissance d’entité nommée |   Notes  |
 |:----------- |:-------------:|:---------:|:-----------:|:-----------:|:-----------:
 | Arabe      | `ar`          |           |             | ✔ \*                     | |
 | Tchèque       | `cs`          |           |             | ✔ \*                     | |

@@ -71,7 +71,7 @@ Le tableau suivant fournit la description des éléments JSON spécifiques au se
 | type |La propriété type doit être définie sur : **OnPremisesMySql** |Oui |
 | server |Nom du serveur MySQL. |Oui |
 | database |Nom de la base de données MySQL. |Oui |
-| schema |Nom du schéma dans la base de données. |Non  |
+| schema |Nom du schéma dans la base de données. |Non |
 | authenticationType |Type d'authentification utilisé pour se connecter à la base de données MySQL. Les valeurs possibles sont les suivantes : `Basic`. |Oui |
 | username |Spécifiez le nom d’utilisateur associé à la connexion à la base de données MySQL. |Oui |
 | password |Spécifiez le mot de passe du compte d’utilisateur que vous avez indiqué. |Oui |

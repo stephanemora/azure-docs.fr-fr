@@ -2,7 +2,7 @@
   href: index.md
 - name: Baie virtuelle StorSimple
   items:
-    - name: Vue d’ensemble
+    - name: Vue d'ensemble
       items:
         - name: Quelle est la solution ?
           href: storsimple-ova-overview.md
@@ -87,14 +87,16 @@
           href: storsimple-ova-web-ui-admin.md
     - name: Notes de publication
       items:
-        - name: "Update\_1.1\_- en cours"
+        - name: "Update\_1.2"
+          href: storsimple-virtual-array-update-12-release-notes.md
+        - name: "Update\_1.1"
           href: storsimple-virtual-array-update-11-release-notes.md
         - name: "Update\_1"
           href: storsimple-virtual-array-update-1-release-notes.md
-        - name: "Update\_0.6"
-          href: storsimple-virtual-array-update-06-release-notes.md
         - name: Archivage
           items:
+            - name: "Update\_0.6"
+              href: storsimple-virtual-array-update-06-release-notes.md
             - name: "Update\_0.5"
               href: storsimple-virtual-array-update-05-release-notes.md
             - name: "Update\_0.4"
@@ -103,9 +105,9 @@
               href: storsimple-ova-update-03-release-notes.md
             - name: Update 0.2 et 0.1
               href: storsimple-ova-update-01-release-notes.md
-- name: "Gamme StorSimple\_8000 (portail Azure)"
+- name: "Gamme StorSimple\_8000"
   items:
-    - name: Vue d’ensemble
+    - name: Vue d'ensemble
       items:
         - name: Quelle est la solution ?
           href: storsimple-overview.md
@@ -190,7 +192,7 @@
                 - name: Gérer les volumes - en cours
                   href: storsimple-8000-manage-volumes-u2.md
                   items:
-                    - name: "Questions fréquentes\_: Volumes épinglés localement\_"
+                    - name: "Questions fréquentes\_: Volumes épinglés localement"
                       href: storsimple-8000-local-volume-faq.md
                 - name: Contrôle d’accès en fonction du rôle
                   href: storsimple-8000-role-based-access-control.md
@@ -219,7 +221,7 @@
               items:
                 - name: Gérer le contrôleur de l’appareil
                   href: storsimple-8000-manage-device-controller.md
-                - name: 'Configurer le proxy web '
+                - name: Configurer le proxy web
                   href: storsimple-8000-configure-web-proxy.md
                 - name: Modifier les paramètres DATA 0
                   href: storsimple-8000-modify-data-0.md
@@ -363,7 +365,7 @@
           href: /azure/templates/microsoft.storsimple/allversions
 - name: StorSimple Data Manager
   items:
-    - name: Vue d’ensemble
+    - name: Vue d'ensemble
       items:
         - name: Quelle est la solution ?
           href: storsimple-data-manager-overview.md
@@ -381,7 +383,7 @@
           href: storsimple-data-manager-change-default-blob-path.md
 - name: StorSimple pour les partenaires
   items:
-    - name: Vue d’ensemble
+    - name: Vue d'ensemble
       items:
         - name: Quelle est la solution ?
           href: storsimple-partner-csp-overview.md

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: 073166a594088bca04d81883247a5880fcbd1cb7
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: bd0160073898a5a83af2e7b2bba2dba007c04513
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66234526"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66425665"
 ---
 # <a name="quickstart-run-the-speech-devices-sdk-sample-app-on-android"></a>Démarrage rapide : Exécuter l’exemple d’application Speech SDK de périphériques sur Android
 
@@ -84,7 +84,7 @@ Pour valider votre programme d’installation du kit de développement, génére
 
 1. Ajoutez votre clé d’abonnement vocale au code source. Si vous voulez essayer la reconnaissance de l’intention, ajoutez également votre clé d’abonnement au [service Language Understanding](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/), ainsi que l’ID de l’application.
 
-   Pour la reconnaissance vocale et LUIS vos informations prendra MainActivity.java :
+   Pour la reconnaissance vocale et LUIS, ces informations sont envoyées dans MainActivity.java :
 
    ```java
     // Subscription
@@ -95,7 +95,7 @@ Pour valider votre programme d’installation du kit de développement, génére
     private static String LuisAppId = "<enter your LUIS AppId>";
    ```
 
-    Si vous utilisez la transcription de conversation vos informations de clé et la région de reconnaissance vocale sont également nécessaires dans conversation.java :
+    Si vous utilisez la transcription de conversation, vos informations de clé et la région de reconnaissance vocale sont également nécessaires dans conversation.java :
 
    ```java
     private static final String CTSKey = "<Conversation Transcription Service Key>";
@@ -145,7 +145,7 @@ Pour valider votre programme d’installation du kit de développement, génére
 
    ![Exemple d’application et options du Kit de développement logiciel (SDK) Speech Devices](media/speech-devices-sdk/qsg-8.png)
 
-1. Qui vient d’être ajouté est la démonstration de Transcription de Conversation. Démarrer la transcription avec « Démarrer la Session ». Par défaut, tout le monde est un invité, cependant, si vous avez des signatures de voix du participant elles peuvent être placés dans un /video/participants.properties fichier sur l’appareil. Pour générer la voix signature examiner [transcription des conversations (SDK)](how-to-use-conversation-transcription-service.md).
+1. Essayez la nouvelle démonstration de Transcription de Conversation. Démarrer la transcription avec « Démarrer la Session ». Par défaut, tout le monde est un invité. Toutefois, si vous avez des signatures de voix du participant ils peuvent placer dans un fichier `/video/participants.properties` sur l’appareil. Pour générer la signature de la voix, examinez [transcription des conversations (SDK)](how-to-use-conversation-transcription-service.md).
 
    ![Application de démonstration Transcription de Conversation](media/speech-devices-sdk/qsg-15.png)
 

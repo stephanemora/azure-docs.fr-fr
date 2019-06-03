@@ -210,6 +210,8 @@
         - name: Contrôle d’accès en fonction du rôle
           displayName: rbac
           href: role-based-access-control.md
+        - name: Attributs de sécurité
+          href: cosmos-db-security-attributes.md
     - name: Préparation pour l’entreprise
       items:
         - name: Sauvegarde en ligne et restauration à la demande
