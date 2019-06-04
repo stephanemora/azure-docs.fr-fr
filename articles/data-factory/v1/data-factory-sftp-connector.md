@@ -51,14 +51,14 @@ Le tableau suivant fournit la description des éléments JSON spécifiques du se
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
-| Type | La propriété de type doit être définie sur `Sftp`. |Oui |
+| type | La propriété de type doit être définie sur `Sftp`. |Oui |
 | host | Nom ou adresse IP du serveur SFTP. |OUI |
 | port |Port sur lequel le serveur SFTP écoute. La valeur par défaut est : 21 |Non  |
 | authenticationType |Spécification du type d’authentification. Valeurs autorisées : **Basic**, **SshPublicKey**. <br><br> Reportez-vous aux sections [Utilisation de l’authentification par clé publique SSH](#using-basic-authentication) et [Utilisation de l’authentification par clé publique SSH](#using-ssh-public-key-authentication) portant respectivement sur des propriétés supplémentaires et des exemples JSON. |Oui |
 | skipHostKeyValidation | Spécifiez s’il faut ignorer la validation de la clé hôte. | Non. valeur par défaut : false |
 | hostKeyFingerprint | Spécifiez l’empreinte de la clé hôte. | Oui, si `skipHostKeyValidation` est défini sur false.  |
 | gatewayName |Nom de la passerelle de gestion des données pour se connecter à un serveur SFTP local. | Oui en cas de copie de données à partir d’un serveur SFTP local. |
-| Encryptedcredential | Informations d’identification chiffrées pour accéder au serveur SFTP. Généré automatiquement lorsque vous spécifiez l’authentification de base (nom d’utilisateur + mot de passe) ou l’authentification SshPublicKey (nom d’utilisateur + chemin d’accès ou contenu de la clé privée) dans l’Assistant de copie ou la boîte de dialogue contextuelle ClickOnce. | Non. S’applique uniquement pour la copie de données à partir d’un serveur SFTP local. |
+| encryptedCredential | Informations d’identification chiffrées pour accéder au serveur SFTP. Généré automatiquement lorsque vous spécifiez l’authentification de base (nom d’utilisateur + mot de passe) ou l’authentification SshPublicKey (nom d’utilisateur + chemin d’accès ou contenu de la clé privée) dans l’Assistant de copie ou la boîte de dialogue contextuelle ClickOnce. | Non. S’applique uniquement pour la copie de données à partir d’un serveur SFTP local. |
 
 ### <a name="using-basic-authentication"></a>Utilisation de l’authentification de base
 
