@@ -6,33 +6,32 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,seodec18
 ms.topic: tutorial
-ms.date: 11/06/2018
+ms.date: 05/22/2019
 ms.author: hrasheed
-ms.openlocfilehash: 388ce607cf75a12705c9a32fe19086dbf9f15e71
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 51f84234ac35be5f60d1aaa5dac661ad9ce5e0c2
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64707995"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257901"
 ---
 # <a name="tutorial-use-apache-spark-structured-streaming-with-apache-kafka-on-hdinsight"></a>Tutoriel : Utiliser Apache Spark Structured Streaming avec Apache Kafka sur HDInsight
 
-Ce tutoriel montre comment utiliser [Apache Spark Structured Streaming](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html) pour lire et écrire des données avec [Apache Kafka](https://kafka.apache.org/) sur Azure HDInsight.
+Ce tutoriel montre comment utiliser [Apache Spark Structured Streaming](https://spark.apache.org/docs/latest/structured-streaming-programming-guide) pour lire et écrire des données avec [Apache Kafka](https://kafka.apache.org/) sur Azure HDInsight.
 
 Spark Structured Streaming est un moteur de traitement de flux basé sur Spark SQL. Il vous permet d’exprimer des calculs de diffusion en continu de la même façon que pour les calculs de lot sur les données statiques.  
 
 Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
-> * Structured streaming avec Kafka
-> * Créer des clusters Kafka et Spark
-> * Charger le bloc-notes vers Spark
-> * Utiliser le bloc-notes
-> * Supprimer des ressources
+> * Utilisez un modèle Azure Resource Manager pour créer des clusters.
+> * Utiliser Spark Structured Streaming avec Kafka
 
 Lorsque vous avez terminé les étapes décrites dans ce document, n’oubliez pas de supprimer les clusters pour éviter les frais supplémentaires.
 
 ## <a name="prerequisites"></a>Prérequis
+
+* jq, processeur JSON en ligne de commande.  Voir [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/).
 
 * Connaissances sur l’utilisation des blocs-notes [Jupyter Notebook](https://jupyter.org/) avec Spark sur HDInsight. Pour plus d’informations, consultez le document [Charger des données et exécuter des requêtes sur un cluster Apache Spark dans Azure HDInsight](spark/apache-spark-load-data-run-query.md).
 
@@ -60,6 +59,7 @@ val kafkaDF = spark.read.format("kafka")
                 .option("subscribe", kafkaTopic)
                 .option("startingOffsets", "earliest")
                 .load()
+
 // Select data and write to file
 kafkaDF.select(from_json(col("value").cast("string"), schema) as "trip")
                 .write
@@ -76,6 +76,7 @@ val kafkaStreamDF = spark.readStream.format("kafka")
                 .option("subscribe", kafkaTopic)
                 .option("startingOffsets", "earliest")
                 .load()
+
 // Select data from the stream and write to file
 kafkaStreamDF.select(from_json(col("value").cast("string"), schema) as "trip")
                 .writeStream
@@ -93,11 +94,11 @@ Dans les deux extraits de code, les données sont lues à partir de Kafka et éc
 | `write` | `writeStream` |
 | `save` | `start` |
 
-L’opération de diffusion en continu utilise également `awaitTermination(30000)`, ce qui bloque le flux après 30 000 ms. 
+L’opération de streaming utilise également `awaitTermination(30000)`, ce qui bloque le flux après 30 000 ms. 
 
 Pour utiliser Structured Streaming avec Kafka, votre projet doit avoir une dépendance sur le package `org.apache.spark : spark-sql-kafka-0-10_2.11`. La version de ce package doit correspondre à la version de Spark sur HDInsight. Pour Spark 2.2.0 (disponible dans HDInsight 3.6), les informations de dépendance relatives à différents types de projet se trouvent sur [https://search.maven.org/#artifactdetails%7Corg.apache.spark%7Cspark-sql-kafka-0-10_2.11%7C2.2.0%7Cjar](https://search.maven.org/#artifactdetails%7Corg.apache.spark%7Cspark-sql-kafka-0-10_2.11%7C2.2.0%7Cjar).
 
-Pour le bloc-notes Jupyter Notebook fourni avec ce didacticiel, la cellule suivante charge cette dépendance de package :
+Pour le notebook Jupyter qui est utilisé dans ce tutoriel, la cellule suivante charge cette dépendance de package :
 
 ```
 %%configure -f
@@ -123,10 +124,10 @@ Le diagramme suivant illustre les flux de communication entre Spark et Kafka :
 Pour créer un réseau virtuel Azure puis les clusters Kafka et Spark qu’il contient, procédez comme suit :
 
 1. Utilisez le bouton suivant pour vous connecter à Azure et ouvrir le modèle dans le portail Azure.
-    
+
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fhdinsight-spark-kafka-structured-streaming%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-apache-spark-with-kafka/deploy-to-azure.png" alt="Deploy to Azure"></a>
-    
-    Le modèle Azure Resource Manager se trouve dans **https://raw.githubusercontent.com/Azure-Samples/hdinsight-spark-kafka-structured-streaming/master/azuredeploy.json**.
+
+    Le modèle Azure Resource Manager se trouve dans **https://raw.githubusercontent.com/Azure-Samples/hdinsight-spark-kafka-structured-streaming/master/azuredeploy.json** .
 
     Ce modèle crée les ressources suivantes :
 
@@ -160,32 +161,157 @@ Pour créer un réseau virtuel Azure puis les clusters Kafka et Spark qu’il co
 > [!NOTE]  
 > La création des clusters peut prendre jusqu’à 20 minutes.
 
-## <a name="upload-the-notebook"></a>Charger le bloc-notes
+## <a name="use-spark-structured-streaming"></a>Utiliser Spark Structured Streaming
 
-Pour télécharger le bloc-notes à partir du projet pour votre cluster Spark sur HDInsight, procédez comme suit :
+Cet exemple montre comment utiliser Spark Structured Streaming avec Kafka sur HDInsight Il utilise des données concernant des courses de taxi, qui sont fournies par la ville de New York.  Le jeu de données utilisé par ce notebook provient du site [2016 Green Taxi Trip Data](https://data.cityofnewyork.us/Transportation/2016-Green-Taxi-Trip-Data/hvrh-b6nb).
 
-1. Téléchargez le projet à partir de [https://github.com/Azure-Samples/hdinsight-spark-kafka-structured-streaming](https://github.com/Azure-Samples/hdinsight-spark-kafka-structured-streaming).
+1. Collectez les informations concernant l’hôte. Utilisez les commandes curl et [jq](https://stedolan.github.io/jq/) ci-dessous pour obtenir les informations concernant les hôtes Kafka ZooKeeper et les hôtes de répartiteur. Ces commandes sont conçues pour être utilisées dans une invite de commandes Windows. Pour les autres environnements, de légères différences sont à prévoir. Remplacez `KafkaCluster` par le nom de votre cluster Kafka, et remplacez `KafkaPassword` par le mot de passe de connexion de votre cluster. Ensuite, remplacez `C:\HDI\jq-win64.exe` par le chemin de votre installation jq. Entrez les commandes dans une invite de commandes Windows, puis enregistrez la sortie en vue de l’utiliser ultérieurement.
 
-1. Dans votre navigateur web, connectez-vous au bloc-notes Jupyter sur votre cluster Spark. Dans l’URL suivante, remplacez `CLUSTERNAME` par le nom de votre cluster __Spark__ :
+    ```cmd
+    set CLUSTERNAME=KafkaCluster
+    set PASSWORD=KafkaPassword
+    
+    curl -u admin:%PASSWORD% -G "https://%CLUSTERNAME%.azurehdinsight.net/api/v1/clusters/%CLUSTERNAME%/services/ZOOKEEPER/components/ZOOKEEPER_SERVER" | C:\HDI\jq-win64.exe -r "["""\(.host_components[].HostRoles.host_name):2181"""] | join(""",""")"
+    
+    curl -u admin:%PASSWORD% -G "https://%CLUSTERNAME%.azurehdinsight.net/api/v1/clusters/%CLUSTERNAME%/services/KAFKA/components/KAFKA_BROKER" | C:\HDI\jq-win64.exe -r "["""\(.host_components[].HostRoles.host_name):9092"""] | join(""",""")"
+    ```
+
+2. Dans votre navigateur web, connectez-vous au bloc-notes Jupyter sur votre cluster Spark. Dans l’URL suivante, remplacez `CLUSTERNAME` par le nom de votre cluster __Spark__ :
 
         https://CLUSTERNAME.azurehdinsight.net/jupyter
 
     Lorsque vous y êtes invité, entrez l’identifiant de connexion (admin) et le mot de passe du cluster utilisés lors de la création du cluster.
 
-2. Dans le coin supérieur droit de la page, utilisez le bouton __Charger__ pour télécharger le fichier __spark-structured-streaming-kafka.ipynb__ sur le cluster. Sélectionnez __Ouvrir__ pour démarrer le chargement.
+3. Sélectionnez **Nouveau > Spark** pour créer un notebook.
 
-    ![Utiliser le bouton Charger pour sélectionner et charger un bloc-notes](./media/hdinsight-apache-kafka-spark-structured-streaming/upload-button.png)
+4. Chargez les packages utilisés par le notebook en entrant les informations suivantes dans une cellule de notebook. Exécutez la commande à l’aide de **CTRL + ENTRÉE**.
 
-    ![Sélectionner le fichier KafkaStreaming.ipynb](./media/hdinsight-apache-kafka-spark-structured-streaming/select-notebook.png)
+    ```
+    %%configure -f
+    {
+        "conf": {
+            "spark.jars.packages": "org.apache.spark:spark-sql-kafka-0-10_2.11:2.2.0",
+            "spark.jars.excludes": "org.scala-lang:scala-reflect,org.apache.spark:spark-tags_2.11"
+        }
+    }
+    ```
 
-3. Recherchez l’entrée __spark-structured-streaming-kafka.ipynb__ dans la liste des bloc-notes, puis sélectionnez __Charger__ en regard.
+5. Créez la rubrique Kafka. Modifiez la commande ci-dessous en remplaçant `YOUR_ZOOKEEPER_HOSTS` par les informations sur l’hôte Zookeeper qui ont été extraites lors de la première étape. Entrez la commande modifiée dans votre notebook Jupyter pour créer la rubrique `tripdata`.
 
-    ![Pour charger le bloc-notes, utilisez le bouton Charger pour l’entrée KafkaStreaming.ipynb.](./media/hdinsight-apache-kafka-spark-structured-streaming/upload-notebook.png)
+    ```scala
+    %%bash
+    export KafkaZookeepers="YOUR_ZOOKEEPER_HOSTS"
 
+    /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic tripdata --zookeeper $KafkaZookeepers
+    ```
 
-## <a name="use-the-notebook"></a>Utiliser le bloc-notes
+6. Récupérez les données concernant les courses de taxi. Entrez la commande dans la cellule suivante pour charger les données sur les courses de taxi de New York. Les données sont chargées dans une trame de données qui est ensuite affichée comme sortie de la cellule.
 
-Une fois que les fichiers ont été chargés, sélectionnez l’entrée __spark-structured-streaming-kafka.ipynb__ pour ouvrir le bloc-notes. Pour savoir comment utiliser le flux structuré Spark avec Kafka sur HDInsight, suivez les instructions dans le bloc-notes.
+    ```scala
+    import spark.implicits._
+
+    // Load the data from the New York City Taxi data REST API for 2016 Green Taxi Trip Data
+    val url="https://data.cityofnewyork.us/resource/pqfs-mqru.json"
+    val result = scala.io.Source.fromURL(url).mkString
+    
+    // Create a dataframe from the JSON data
+    val taxiDF = spark.read.json(Seq(result).toDS)
+    
+    // Display the dataframe containing trip data
+    taxiDF.show()
+    ```
+
+7. Définissez les informations concernant les hôtes de répartiteur Kafka. Remplacez `YOUR_KAFKA_BROKER_HOSTS` par les informations concernant les hôtes de répartiteur que vous avez extraites à l’étape 1.  Entrez la commande modifiée dans la cellule suivante du notebook Jupyter.
+
+    ```scala
+    // The Kafka broker hosts and topic used to write to Kafka
+    val kafkaBrokers="YOUR_KAFKA_BROKER_HOSTS"
+    val kafkaTopic="tripdata"
+    
+    println("Finished setting Kafka broker and topic configuration.")
+    ```
+
+8. Envoyez les données vers Kafka. Dans la commande suivante, le champ `vendorid`est utilisé comme la valeur de clé du message Kafka. La clé est utilisée par Kafka lors du partitionnement des données. Tous les champs sont stockés dans le message Kafka en tant que valeur de chaîne JSON. Entrez la commande suivante dans Jupyter pour enregistrer les données dans Kafka à l’aide d’une requête par lot.
+
+    ```scala
+    // Select the vendorid as the key and save the JSON string as the value.
+    val query = taxiDF.selectExpr("CAST(vendorid AS STRING) as key", "to_JSON(struct(*)) AS value").write.format("kafka").option("kafka.bootstrap.servers", kafkaBrokers).option("topic", kafkaTopic).save()
+
+    println("Data sent to Kafka")
+    ```
+
+9. Déclarez un schéma. La commande suivante montre comment utiliser un schéma lorsque vous lisez des données JSON dans Kafka. Entrez la commande dans la cellule Jupyter suivante.
+
+    ```scala
+    // Import bits useed for declaring schemas and working with JSON data
+    import org.apache.spark.sql._
+    import org.apache.spark.sql.types._
+    import org.apache.spark.sql.functions._
+    
+    // Define a schema for the data
+    val schema = (new StructType).add("dropoff_latitude", StringType).add("dropoff_longitude", StringType).add("extra", StringType).add("fare_amount", StringType).add("improvement_surcharge", StringType).add("lpep_dropoff_datetime", StringType).add("lpep_pickup_datetime", StringType).add("mta_tax", StringType).add("passenger_count", StringType).add("payment_type", StringType).add("pickup_latitude", StringType).add("pickup_longitude", StringType).add("ratecodeid", StringType).add("store_and_fwd_flag", StringType).add("tip_amount", StringType).add("tolls_amount", StringType).add("total_amount", StringType).add("trip_distance", StringType).add("trip_type", StringType).add("vendorid", StringType)
+    // Reproduced here for readability
+    //val schema = (new StructType)
+    //   .add("dropoff_latitude", StringType)
+    //   .add("dropoff_longitude", StringType)
+    //   .add("extra", StringType)
+    //   .add("fare_amount", StringType)
+    //   .add("improvement_surcharge", StringType)
+    //   .add("lpep_dropoff_datetime", StringType)
+    //   .add("lpep_pickup_datetime", StringType)
+    //   .add("mta_tax", StringType)
+    //   .add("passenger_count", StringType)
+    //   .add("payment_type", StringType)
+    //   .add("pickup_latitude", StringType)
+    //   .add("pickup_longitude", StringType)
+    //   .add("ratecodeid", StringType)
+    //   .add("store_and_fwd_flag", StringType)
+    //   .add("tip_amount", StringType)
+    //   .add("tolls_amount", StringType)
+    //   .add("total_amount", StringType)
+    //   .add("trip_distance", StringType)
+    //   .add("trip_type", StringType)
+    //   .add("vendorid", StringType)
+    
+    println("Schema declared")
+    ```
+
+10. Sélectionnez les données et démarrez le flux de données. La commande suivante montre comment récupérer des données à partir de Kafka à l’aide d’une requête par lot, puis comment écrire les résultats dans HDFS, sur le cluster Spark. Dans cet exemple, `select` récupère le message (champ de valeur) à partir de Kafka et lui applique le schéma. Les données sont ensuite écrites dans HDFS (WASB ou ADL) au format parquet. Entrez la commande dans la cellule Jupyter suivante.
+
+    ```scala
+    // Read a batch from Kafka
+    val kafkaDF = spark.read.format("kafka").option("kafka.bootstrap.servers", kafkaBrokers).option("subscribe", kafkaTopic).option("startingOffsets", "earliest").load()
+    
+    // Select data and write to file
+    val query = kafkaDF.select(from_json(col("value").cast("string"), schema) as "trip").write.format("parquet").option("path","/example/batchtripdata").option("checkpointLocation", "/batchcheckpoint").save()
+    
+    println("Wrote data to file")
+    ```
+
+11. Vous pouvez vérifier que les fichiers ont été créés en entrant la commande dans la cellule Jupyter suivante. Celle-ci affiche la liste des fichiers qui se trouvent dans le répertoire `/example/batchtripdata`.
+
+    ```scala
+    %%bash
+    hdfs dfs -ls /example/batchtripdata
+    ```
+
+12. Dans l’exemple précédent, nous avons utilisé une requête par lot. La commande suivante montre comment faire la même chose à l’aide d’une requête de streaming. Entrez la commande dans la cellule Jupyter suivante.
+
+    ```scala
+    // Stream from Kafka
+    val kafkaStreamDF = spark.readStream.format("kafka").option("kafka.bootstrap.servers", kafkaBrokers).option("subscribe", kafkaTopic).option("startingOffsets", "earliest").load()
+    
+    // Select data from the stream and write to file
+    kafkaStreamDF.select(from_json(col("value").cast("string"), schema) as "trip").writeStream.format("parquet").option("path","/example/streamingtripdata").option("checkpointLocation", "/streamcheckpoint").start.awaitTermination(30000)
+    println("Wrote data to file")
+    ```
+
+13. Exécutez la cellule suivante pour vérifier que les fichiers ont bien été écrits par la requête de streaming.
+
+    ```scala
+    %%bash
+    hdfs dfs -ls /example/streamingtripdata
+    ```
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 

@@ -9,12 +9,12 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 05/07/2019
 ms.author: edjez
-ms.openlocfilehash: 7b1e972b5516aa79d1754e32e487e17c9e68ac1d
-ms.sourcegitcommit: eea74d11a6d6ea6d187e90e368e70e46b76cd2aa
+ms.openlocfilehash: 437dc1fba2502602109483aa9d6f25b4265af26f
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/03/2019
-ms.locfileid: "65035424"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66239895"
 ---
 # <a name="guidelines-for-responsible-implementation-of-personalizer"></a>Instructions pour une implémentation responsable de Personalizer
 
@@ -49,7 +49,7 @@ L’implémentation de Personalizer peut apporter une belle valeur ajoutée à v
 
 L’utilisation d’un service qui apprend à personnaliser le contenu et les interfaces utilisateur est très utile. Elle peut aussi être néfaste si la personnalisation crée des effets secondaires négatifs dans le monde réel, notamment si les utilisateurs n’ont pas connaissance de la personnalisation du contenu. 
 
-L’utilisation de Personalizer peut présenter un risque accru d’effets secondaires négatifs ou un manque de transparence dans certains scénarios, par exemple si la « récompense » dépend de nombreux facteurs complexes à long terme qui, en cas de simplification exagérée en une récompense immédiate, peuvent générer des résultats défavorables pour les individus. Ces choix ont tendance à être considérés comme « ayant des conséquences », c’est-à-dire impliquant un risque de dommage. Par exemple :  
+L’utilisation de Personalizer peut présenter un risque accru d’effets secondaires négatifs ou un manque de transparence dans certains scénarios, par exemple si la « récompense » dépend de nombreux facteurs complexes à long terme qui, en cas de simplification exagérée en une récompense immédiate, peuvent générer des résultats défavorables pour les individus. Ces choix ont tendance à être considérés comme « ayant des conséquences », c’est-à-dire impliquant un risque de dommage. Par exemple : 
 
 
 * **Finances** : offres de personnalisation sur des produits de prêt, d’assurance ou financiers, où les facteurs de risque sont basés sur des données que les individus ne connaissent pas, ne peuvent pas obtenir ou ne peuvent pas contester. 
@@ -128,17 +128,13 @@ Voici une liste des domaines de conception pour des implémentations responsable
 * Archivez les informations et les ressources (telles que les modèles, les stratégies d’apprentissage et autres données) utilisées par Personalizer dans le cadre de son fonctionnement, afin de pouvoir reproduire les résultats.
 
 ### <a name="transparency"></a>Transparence
-*Les systèmes d’intelligence artificielle doivent être compréhensibles*. Avec Personalizer
+*Les systèmes d’intelligence artificielle doivent être compréhensibles*. Avec Personalizer :
 
-• Donnez aux utilisateurs des informations sur la façon dont le contenu a été personnalisé. Par exemple, vous pouvez proposer à vos utilisateurs un bouton nommé « Pourquoi ces suggestions ? » présentant les principales actions et caractéristiques de l’utilisateur ayant joué un rôle dans les résultats de Personalizer.
-• Assurez-vous que vos conditions d’utilisation mentionnent le fait que vous utiliserez les informations relatives aux utilisateurs et à leur comportement pour personnaliser l’expérience.
-
-
-* *Donnez aux utilisateurs des informations sur la façon dont le contenu a été personnalisé.* Par exemple, vous pouvez proposer à vos utilisateurs un bouton nommé `Why These Suggestions?` présentant les principales actions et caractéristiques de l’utilisateur ayant joué un rôle dans la personnalisation.
-* Assurez-vous que vos conditions d’utilisation mentionnent le fait que vous utiliserez les informations relatives aux utilisateurs pour personnaliser l’expérience.
+* *Donnez aux utilisateurs des informations sur la façon dont le contenu a été personnalisé.* Par exemple, vous pouvez proposer à vos utilisateurs un bouton nommé `Why These Suggestions?` présentant les principales actions et caractéristiques de l’utilisateur ayant joué un rôle dans les résultats de Personalizer.
+* Assurez-vous que vos conditions d’utilisation mentionnent le fait que vous utiliserez les informations relatives aux utilisateurs et à leur comportement pour personnaliser l’expérience.
 
 ### <a name="fairness"></a>Équité
-* Les systèmes d’intelligence artificielle doivent traiter tous les individus de manière équitable.
+*Les systèmes d’IA doivent traiter tous les individus de manière équitable*.
 
 * N’utilisez pas Personalizer pour les cas d’usage où les résultats ont des conséquences à long terme ou impliquent des dommages réels.
 * N’utilisez pas de caractéristiques avec lesquelles il n’est pas approprié de personnaliser le contenu, ou qui peuvent aider à propager des préjugés indésirables. Par exemple, tous les individus ayant des circonstances financières semblables doivent voir les mêmes recommandations personnalisées pour les produits financiers.

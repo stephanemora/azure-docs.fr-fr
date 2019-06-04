@@ -5,21 +5,21 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: overview
-ms.date: 03/05/2019
+ms.date: 05/06/2019
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: a147d95701af166c650411a91fb24e3448cfec09
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: b14e4b452c1dcd92cc3e5447428c28f1d2c5b18e
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59995028"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65073810"
 ---
 # <a name="azure-kubernetes-service-aks"></a>Service Azure Kubernetes (AKS)
 
 Azure Kubernetes Service (AKS) simplifie le déploiement d’un cluster Kubernetes géré dans Azure. AKS permet de réduire la complexité et la surcharge opérationnelle de la gestion d’un cluster Kubernetes en déléguant une grande partie de cette responsabilité à Azure. En tant que service Kubernetes hébergé, Azure gère pour vous des tâches critiques telles que l’analyse de l'intégrité et la maintenance. Les maîtres Kubernetes sont gérés par Azure. Vous gérez et tenez à jour uniquement les nœuds d’agent. En tant que service Kubernetes managé, AKS est gratuit. Vous payez uniquement pour les nœuds de l’agent au sein de vos clusters, pas pour les maîtres.
 
-Vous pouvez créer un cluster AKS dans le portail Azure, avec Azure CLI ou des options de déploiement piloté par modèle, comme les modèles Resource Manager et Terraform. Lors du déploiement d’un cluster AKS, le maître Kubernetes et tous les nœuds sont déployés et configurés pour vous. Des fonctionnalités supplémentaires telles que la mise en réseau avancée, l’intégration d’Azure Active Directory et la surveillance peuvent aussi être configurées lors du processus de déploiement.
+Vous pouvez créer un cluster AKS dans le portail Azure, avec Azure CLI ou des options de déploiement piloté par modèle, comme les modèles Resource Manager et Terraform. Lors du déploiement d’un cluster AKS, le maître Kubernetes et tous les nœuds sont déployés et configurés pour vous. Des fonctionnalités supplémentaires telles que la mise en réseau avancée, l’intégration d’Azure Active Directory et la surveillance peuvent aussi être configurées lors du processus de déploiement. Le support des conteneurs Windows Server dans AKS est actuellement disponible en préversion.
 
 Pour plus d’informations sur les principes fondamentaux de Kubernetes, consultez [Concepts de base de Kubernetes pour AKS][concepts-clusters-workloads].
 
@@ -43,9 +43,9 @@ Pour comprendre les performances de vos applications déployées et de votre clu
 
 Pour plus d’informations, voir [Analyser le fonctionnement des conteneurs Azure Kubernetes Service][container-health].
 
-## <a name="cluster-and-node"></a>Cluster et nœud
+## <a name="clusters-and-nodes"></a>Clusters et nœuds
 
-Les nœuds AKS s’exécutent sur des machines virtuelles Azure. Vous pouvez connecter le stockage à des nœuds et des pods, mettre à niveau les composants du cluster et utiliser des GPU.
+Les nœuds AKS s’exécutent sur des machines virtuelles Azure. Vous pouvez connecter le stockage à des nœuds et des pods, mettre à niveau les composants du cluster et utiliser des GPU. AKS prend en charge les clusters Kubernetes qui exécutent plusieurs pools de nœuds pour prendre en charge des systèmes d’exploitation mixtes et des conteneurs Windows Server (actuellement en préversion). Les nœuds Linux exécutent une image de système d’exploitation Ubuntu personnalisée et les nœuds Windows Server exécutent une image de système d’exploitation Windows Server 2019 personnalisée.
 
 ### <a name="cluster-node-and-pod-scaling"></a>Nœud de cluster et la mise à l’échelle de pod
 

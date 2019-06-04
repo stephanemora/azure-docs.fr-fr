@@ -10,12 +10,12 @@ ms.date: 03/24/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 82da44409c4500ff097805efec33cec8cf6bbedd
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 6ec429bc7c1598e947b798c30e7992e3d357d00c
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64575622"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66303813"
 ---
 # <a name="tutorial-develop-and-deploy-a-python-iot-edge-module-for-linux-devices"></a>Didacticiel : Développer et déployer un module IoT Edge Python pour des appareils Linux
 
@@ -40,7 +40,7 @@ Ce tutoriel montre comment développer un module en **Python** à l’aide de **
 
 Utilisez le tableau suivant afin de comprendre les options dont vous disposez pour développer et déployer des modules en Python sur des appareils Linux : 
 
-| Python | Visual Studio Code | Visual Studio 2017 | 
+| Python | Visual Studio Code | Visual Studio 2017/2019 | 
 | - | ------------------ | ------------------ |
 | **Linux AMD64** | ![Utilisez VS Code pour modules Python sur Linux AMD64](./media/tutorial-c-module/green-check.png) |  |
 | **Linux ARM32** | ![Utilisez VS Code pour modules Python sur Linux ARM32](./media/tutorial-c-module/green-check.png) |  |
@@ -112,7 +112,7 @@ Le fichier d’environnement stocke les informations d’identification de votre
 
 Visual Studio Code peut développer des modules C pour les appareils Linux AMD64 et Linux ARM32v7. Vous devez sélectionner l’architecture que vous ciblez avec chaque solution, car le conteneur est généré et s’exécute différemment pour chaque type d’architecture. Linux AMD64 est la valeur par défaut. 
 
-1. Ouvrez la palette de commandes et recherchez **Azure IoT Edge : Définir la plateforme de cible par défaut pour la solution Edge**, ou sélectionnez l’icône de raccourci dans la barre latérale en bas de la fenêtre. 
+1. Ouvrez la palette de commandes et recherchez **Azure IoT Edge: Définir la plateforme cible par défaut pour la solution Edge**, ou sélectionnez l’icône de raccourci dans la barre latérale en bas de la fenêtre. 
 
 2. Dans la palette de commandes, sélectionnez l’architecture cible dans la liste des options. Pour ce tutoriel, comme nous utilisons une machine virtuelle Ubuntu en tant qu’appareil IoT Edge, ce dernier conservera la valeur par défaut **amd64**. 
 
@@ -242,7 +242,7 @@ Une fois que vous appliquez le manifeste de déploiement à votre appareil IoT E
 
 Vous pouvez afficher l’état de votre appareil IoT Edge dans la section **Appareils Azure IoT Hub** de l’explorateur de Visual Studio Code. Développez les détails de votre appareil pour afficher la liste des modules déployés et en cours d’exécution.
 
-1. Dans l’Explorateur Visual Studio Code, cliquez avec le bouton droit sur le nom de votre appareil IoT Edge et sélectionnez **Start monitoring D2C message** (Démarrer la supervision du message D2C).
+1. Dans l’explorateur Visual Studio Code, cliquez avec le bouton droit sur le nom de votre appareil IoT Edge, puis sélectionnez **Démarrer la supervision du point de terminaison d’événements intégré**.
 
 2. Affichez les messages reçus dans votre hub IoT. Les messages peuvent mettre un certain temps à arriver, car l’appareil IoT Edge doit recevoir son nouveau déploiement et démarrer tous les modules. Ensuite, les modifications que nous avons apportées au code du module PythonModule attendent que la température de la machine atteigne 25 degrés avant d’envoyer les messages. Le type de message **Alerte** est également ajouté à chaque message qui atteint ce seuil de température. 
 
@@ -260,7 +260,7 @@ Nous avons utilisé le jumeau du module PythonModule dans le manifeste de déplo
 
 5. Cliquez avec le bouton droit sur le volet d’édition du jumeau de module et sélectionnez **Mettre à jour le jumeau de module**. 
 
-5. Supervisez les messages appareil-à-cloud entrants. Vous devriez voir les messages s’arrêter jusqu’à ce que le nouveau seuil de température soit atteint. 
+6. Supervisez les messages appareil-à-cloud entrants. Vous devriez voir les messages s’arrêter jusqu’à ce que le nouveau seuil de température soit atteint. 
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources 
 
@@ -270,13 +270,12 @@ Sinon, vous pouvez supprimer les ressources Azure et les configurations locales 
 
 [!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
 
-
 ## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce tutoriel, vous avez créé un module IoT Edge qui contient le code pour filtrer les données brutes générées par votre appareil IoT Edge. Quand vous êtes prêt à créer vos propres modules, vous pouvez en apprendre plus sur le [développement de vos propres modules IoT Edge](module-development.md) et sur le [développement de modules avec Visual Studio Code](how-to-vs-code-develop-module.md). Vous pouvez passer aux tutoriels suivants afin de découvrir comment Azure IoT Edge peut vous aider à déployer des services cloud Azure pour traiter et analyser des données en périphérie.
 
 > [!div class="nextstepaction"]
-> [Fonctions](tutorial-deploy-function.md)
+> [Functions](tutorial-deploy-function.md)
 > [Stream Analytics](tutorial-deploy-stream-analytics.md)
 > [Machine Learning](tutorial-deploy-machine-learning.md)
-> [Service Vision personnalisée](tutorial-deploy-custom-vision.md)
+> [Service Custom Vision](tutorial-deploy-custom-vision.md)

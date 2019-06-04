@@ -9,12 +9,12 @@ ms.date: 04/23/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 046398af8678e708784614dfdc231778454ed945
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 7678415b7ce505da7678a00a4bcf2d933e260530
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64576196"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66303976"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>Didacticiel : Développer un module IoT Edge en C# pour les appareils Windows
 
@@ -32,13 +32,13 @@ Le module IoT Edge que vous créez dans ce didacticiel filtre les données de te
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="solution-scope"></a>Étendue de solution
+## <a name="solution-scope"></a>Étendue de la solution
 
-Ce tutoriel montre comment développer un module en **C#** à l’aide de **Visual Studio 2017**et comment le déployer sur un **appareil Windows**. Si vous développez des modules pour les appareils Linux, consultez [Développer un module IoT Edge en C# pour les appareils Linux](tutorial-csharp-module.md). 
+Ce tutoriel montre comment développer un module en **C#** à l’aide de **Visual Studio 2019**, et comment le déployer sur un **appareil Windows**. Si vous développez des modules pour les appareils Linux, consultez [Développer un module IoT Edge en C# pour les appareils Linux](tutorial-csharp-module.md). 
 
 Utilisez le tableau suivant afin de comprendre les options dont vous disposez pour développer et déployer des modules en C sur des appareils Windows : 
 
-| C# | Visual Studio Code | Visual Studio 2017 | 
+| C# | Visual Studio Code | Visual Studio 2017/2019 | 
 | -- | ------------------ | ------------------ |
 | **Développement pour Windows AMD64** | ![Développer des modules en C# pour WinAMD64 dans VS Code](./media/tutorial-c-module/green-check.png) | ![Développer des modules en C# pour WinAMD64 dans Visual Studio](./media/tutorial-c-module/green-check.png) |
 | **Débogage pour Windows AMD64** |   | ![Déboguer des modules en C# pour WinAMD64 dans Visual Studio](./media/tutorial-c-module/green-check.png) |
@@ -50,8 +50,11 @@ Avant de commencer ce tutoriel, vous devez avoir effectué celui qui précède p
 * Un niveau gratuit ou standard [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) dans Azure.
 * Un [appareil Windows exécutant Azure IoT Edge](quickstart.md).
 * Un registre de conteneurs tel qu’[Azure Container Registry](https://docs.microsoft.com/azure/container-registry/).
-* [Visual Studio 2017](https://docs.microsoft.com/visualstudio/install/install-visual-studio?view=vs-2017) version 15.7 ou supérieure, configuré avec l’extension [Azure IoT Edge Tools](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools).
+* [Visual Studio 2019](https://docs.microsoft.com/visualstudio/install/install-visual-studio) configuré avec l’extension [Azure IoT Edge Tools](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools).
 * [Docker CE](https://docs.docker.com/install/), configuré pour exécuter des conteneurs Windows.
+
+> [!TIP]
+> Si vous utilisez Visual Studio 2017 (version 15.7 ou supérieure), téléchargez et installez [Azure IoT Edge Tools (préversion)](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) pour VS 2017 à partir de la place de marché Visual Studio.
 
 ## <a name="create-a-module-project"></a>Créer un projet de module
 
@@ -59,21 +62,22 @@ Les étapes suivantes permettent de créer un projet de module IoT Edge à l’a
 
 ### <a name="create-a-new-project"></a>Création d'un projet
 
-L’extension Azure IoT Tools fournit des modèles de projet pour tous les langages de module IoT Edge pris en charge dans Visual Studio 2017. Ces modèles ont tous les fichiers et tout le code dont vous avez besoin pour déployer un module opérationnel afin de tester IoT Edge. Vous pouvez également vous servir de ces modèles comme point de départ et les personnaliser avec votre propre logique métier. 
+Azure IoT Edge Tools fournit des modèles de projet pour tous les langages de module IoT Edge pris en charge dans Visual Studio. Ces modèles ont tous les fichiers et tout le code dont vous avez besoin pour déployer un module opérationnel afin de tester IoT Edge. Vous pouvez également vous servir de ces modèles comme point de départ et les personnaliser avec votre propre logique métier. 
 
-1. Exécutez Visual Studio en tant qu’administrateur.
+1. Lancez Visual Studio 2019, puis sélectionnez **Créer un projet**.
 
-2. Sélectionnez **Fichier** > **Nouveau** > **Projet**. 
-
-3. Dans la fenêtre Nouveau projet, sélectionnez le type de projet **Azure IoT**, puis choisissez le projet **Azure IoT Edge**. Renommez le projet et la solution à l’aide d’un nom descriptif comme **CSharpTutorialApp**. Cliquez sur **OK** pour créer le projet. 
+2. Dans la fenêtre Nouveau projet, recherchez **IoT Edge**, puis sélectionnez le projet **Azure IoT Edge (Windows amd64)** . Cliquez sur **Suivant**. 
 
    ![Créer un projet Azure IoT Edge](./media/tutorial-csharp-module-windows/new-project.png)
+
+3. Dans la fenêtre Configurer votre nouveau projet, renommez le projet et la solution à l’aide d’un nom descriptif comme **CSharpTutorialApp**. Cliquez sur **Créer** pour créer le projet. 
+
+   ![Configurer un nouveau projet Azure IoT Edge](./media/tutorial-csharp-module-windows/configure-project.png)
 
 4. Dans l’application et la fenêtre du module IoT Edge, configurez votre projet à l’aide des valeurs suivantes : 
 
    | Champ | Valeur |
    | ----- | ----- |
-   | Plateforme d’application | Décochez la case **Linux Amd64** et cochez **WindowsAmd64**. |
    | Sélectionner un modèle | Sélectionnez **Module C#** . | 
    | Nom du projet de module | Nommez votre module **CSharpModule**. | 
    | Dépot d’images Docker | Un référentiel d’images comprend le nom de votre registre de conteneurs et celui de votre image conteneur. Votre image conteneur est préremplie avec le nom du projet de module. Remplacez **localhost:5000** par la valeur de serveur de connexion de votre registre de conteneurs Azure. Vous pouvez récupérer le serveur de connexion à partir de la page Vue d’ensemble de votre registre de conteneurs dans le Portail Azure. <br><br> Le référentiel d’images final ressemble à ceci : \<nom_registre\>.azurecr.io/csharpmodule. |
@@ -322,7 +326,7 @@ Vous pouvez utiliser l’extension IoT Edge Tools pour voir les messages à mesu
 
 1. Dans Visual Studio Cloud Explorer, sélectionnez le nom de votre appareil IoT Edge. 
 
-2. Dans la liste **Actions**, sélectionnez **Démarrer la supervision du message appareil-à-cloud**. 
+2. Dans la liste **Actions**, sélectionnez **Démarrer la supervision du point de terminaison d’événements intégré**. 
 
 3. Affichez les messages reçus dans votre hub IoT. La réception des messages peut prendre du temps, car les modifications que nous avons apportées au code du module CSharpModule attendent que la température de la machine atteigne 25 degrés avant d’envoyer les messages. Le type de message **Alerte** est également ajouté à chaque message qui atteint ce seuil de température. 
 
@@ -346,7 +350,7 @@ Nous avons utilisé le jumeau de module de CSharpModule pour définir le seuil d
 
 Si vous envisagez de passer à l’article recommandé suivant, vous pouvez conserver les ressources et configurations que vous avez créées afin de les réutiliser. Vous pouvez également continuer à utiliser le même appareil IoT Edge comme appareil de test. 
 
-Sinon, vous pouvez supprimer les ressources Azure et les configurations locales que vous avez utilisées dans cet article pour éviter des frais. 
+Sinon, vous pouvez supprimer les ressources Azure et les configurations locales que vous avez utilisées dans cet article pour éviter les frais. 
 
 [!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
 
@@ -355,7 +359,7 @@ Sinon, vous pouvez supprimer les ressources Azure et les configurations locales 
 Dans ce didacticiel, vous avez créé un module IoT Edge contenant le code pour filtrer les données brutes générées par votre appareil IoT Edge. Quand vous êtes prêt à créer vos propres modules, vous pouvez en apprendre plus sur le [développement de vos propres modules IoT Edge](module-development.md) et sur le [développement de modules avec Visual Studio](how-to-visual-studio-develop-module.md). Vous pouvez passer aux tutoriels suivants afin de découvrir comment Azure IoT Edge peut vous aider à déployer des services cloud Azure pour traiter et analyser des données en périphérie.
 
 > [!div class="nextstepaction"]
-> [Fonctions](tutorial-deploy-function.md)
+> [Functions](tutorial-deploy-function.md)
 > [Stream Analytics](tutorial-deploy-stream-analytics.md)
 > [Machine Learning](tutorial-deploy-machine-learning.md)
-> [Service Vision personnalisée](tutorial-deploy-custom-vision.md)
+> [Service Custom Vision](tutorial-deploy-custom-vision.md)

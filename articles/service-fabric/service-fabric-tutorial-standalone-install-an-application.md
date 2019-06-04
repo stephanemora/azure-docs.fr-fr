@@ -1,6 +1,6 @@
 ---
 title: 'Didacticiel : installer une application sur votre cluster Service Fabric autonome - Azure Service Fabric | Microsoft Docs'
-description: Dans ce didacticiel, vous allez apprendre à installer une application dans votre cluster Service Fabric autonome.
+description: Dans ce tutoriel, vous allez apprendre à installer une application dans votre cluster Service Fabric autonome.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
@@ -15,18 +15,18 @@ ms.workload: NA
 ms.date: 05/11/2018
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 17bb5f5d8fe7ee407caf0ea5c34dc5380dbd79b0
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 5bc326bbc16ef93d484425f26b6f8226150c77c6
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670301"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66302419"
 ---
 # <a name="tutorial-deploy-an-application-on-your-service-fabric-standalone-cluster"></a>Didacticiel : déployer une application sur votre cluster autonome Service Fabric
 
-Les clusters autonomes Service Fabric vous permettent de choisir votre propre environnement et de créer un cluster dans le cadre de l’approche « n’importe quel SE, n’importe quel cloud » suivie par Service Fabric. Dans cette série de didacticiels, vous créez un cluster autonome hébergé sur AWS et vous déployez une application dans celui-ci.
+Les clusters autonomes Service Fabric vous permettent de choisir votre propre environnement et de créer un cluster dans le cadre de l’approche « n’importe quel SE, n’importe quel cloud » suivie par Service Fabric. Dans cette série de tutoriels, vous créez un cluster autonome hébergé sur AWS et vous déployez une application dans celui-ci.
 
-Ce tutoriel est le troisième de la série.  Les clusters autonomes Service Fabric vous permettent de choisir votre propre environnement et de créer un cluster dans le cadre de l’approche « n’importe quel SE, n’importe quel cloud » avec Service Fabric. Ce didacticiel vous montre comment créer l’infrastructure AWS nécessaire pour héberger ce cluster autonome.
+Ce tutoriel est le troisième de la série.  Les clusters autonomes Service Fabric vous permettent de choisir votre propre environnement et de créer un cluster dans le cadre de l’approche « n’importe quel SE, n’importe quel cloud » avec Service Fabric. Ce didacticiel vous montre comment créer l’infrastructure AWS nécessaire pour héberger ce cluster autonome.
 
 Dans ce troisième volet, vous apprenez à :
 
@@ -38,7 +38,7 @@ Dans ce troisième volet, vous apprenez à :
 
 Avant de commencer ce tutoriel :
 
-* [Installez Visual Studio 2017](https://www.visualstudio.com/) et les charges de travail **Développement Azure** et **Développement web et ASP.NET**.
+* [Installez Visual Studio 2019](https://www.visualstudio.com/) et les charges de travail **Développement Azure** et **Développement web et ASP.NET**.
 * [Installez le Kit de développement logiciel (SDK) Service Fabric](service-fabric-get-started.md)
 
 ## <a name="download-the-voting-sample-application"></a>Télécharger l’exemple d’application de vote

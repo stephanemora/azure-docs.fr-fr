@@ -9,12 +9,12 @@ ms.subservice: form-recognizer
 ms.topic: quickstart
 ms.date: 04/15/2019
 ms.author: pafarley
-ms.openlocfilehash: bd68e2803b3b538011cfa37378890f2cc7b22223
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 942f84723bc207c200b36a63ca7f65cb9d7dab59
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65906997"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235607"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-curl"></a>Démarrage rapide : Entraîner un modèle Form Recognizer et extraire des données à partir de formulaires au moyen d’une API REST avec cURL
 
@@ -108,7 +108,7 @@ Notez la valeur `"modelId"`. Vous en aurez besoin dans les étapes suivantes.
 
 1. Remplacez `<Endpoint>` par le point de terminaison que vous avez obtenu avec votre clé d’abonnement Form Recognizer. Vous la trouverez sous l’onglet **Vue d’ensemble** de la ressource Form Recognizer.
 1. Remplacez `<modelID>` par l’ID de modèle que vous avez reçu à la section précédente.
-1. Remplacez `<path to your form>` par le chemin de fichier de votre formulaire.
+1. Remplacez `<path to your form>` par le chemin de fichier de votre formulaire. Par exemple c:\temp\file.pdf. 
 1. Remplacez `<file type>` par le type de fichier. Les types pris en charge sont pdf, image/jpeg, image/png.
 1. Remplacez `<subscription key>` par votre clé d’abonnement.
 

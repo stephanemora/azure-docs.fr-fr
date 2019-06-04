@@ -12,12 +12,12 @@ ms.date: 05/21/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ae8b9709e7294e8cb7819afe3ec9f6eb5a06427
-ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
+ms.openlocfilehash: 7110d7004ae9be58bb150674d516692049507608
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66015421"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66299078"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Didacticiel : Ajouter une application locale pour un accès à distance via le service Proxy d'application d'Azure Active Directory
 
@@ -51,9 +51,9 @@ Pour bénéficier d'une haute disponibilité dans votre environnement de product
 
 2. Le serveur de connecteurs et les serveurs d’applications web doivent appartenir au même domaine Active Directory ou chevaucher des domaines approbateurs. Les serveurs doivent impérativement se trouver dans le même domaine ou dans des domaines approbateurs pour utiliser l’authentification unique avec l’authentification Windows intégrée (IWA) et la délégation Kerberos contrainte (KCD). Si le serveur de connecteurs et les serveurs d'applications web se trouvent dans des domaines Active Directory différents, vous devez utiliser la délégation basée sur les ressources pour l'authentification unique. Pour plus d’informations, consultez [KCD pour l’authentification unique avec le proxy d’application](application-proxy-configure-single-sign-on-with-kcd.md).
 
-#### <a name="software-requirements"></a>Configuration logicielle requise
+#### <a name="tls-requirements"></a>Exigences relatives à TLS
 
-TLS 1.2 doit être activé sur le serveur de connecteurs Windows Server avant l'installation du connecteur du Proxy d'application. Jusqu’à nouvel ordre, les connecteurs existants avec des versions antérieures à 1.5.612.0 continueront de fonctionner sur les versions antérieures de TLS. 
+TLS 1.2 doit être activé sur le serveur de connecteurs Windows Server avant l'installation du connecteur du Proxy d'application.
 
 Pour activer TLS 1.2 :
 
@@ -67,6 +67,9 @@ Pour activer TLS 1.2 :
     ```
 
 2. Redémarrez le serveur.
+
+>[!Important] 
+> Pour fournir un chiffrement de qualité à nos clients, nous avons apporté des mises à jour au service Proxy d’application afin d’autoriser l’accès uniquement aux protocoles TLS 1.2. En fonction du niveau de préparation des clients, les modifications seront progressivement déployées pour les clients utilisant uniquement les protocoles TLS 1.2 (cette modification n’aura aucun impact visible pour eux). La dépréciation de TLS 1.0 et 1.1 est prévue le 31 août 2019. Les clients recevront un avis préalable afin de se préparer à ce changement. Pour vous préparer, vérifiez que toutes les combinaisons client-serveur et serveur-navigateur sont mises à jour pour utiliser TLS 1.2, afin de maintenir la connexion au service Proxy d’application. Cela comprend notamment les clients que vos utilisateurs utilisent pour accéder aux applications publiées par le biais du Proxy d’application. Pour accéder à des ressources et des références utiles, consultez [Préparation à l’utilisation de TLS 1.2 dans Office 365](https://support.microsoft.com/help/4057306/preparing-for-tls-1-2-in-office-365).
 
 ## <a name="prepare-your-on-premises-environment"></a>Préparer votre environnement local
 

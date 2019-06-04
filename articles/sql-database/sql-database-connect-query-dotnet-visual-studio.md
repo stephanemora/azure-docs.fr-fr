@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/25/2019
-ms.openlocfilehash: 3959eb789102cd3d54fc7bab32e585b3c09d897b
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 7870322746d8cb647547e5c85036579611ac3292
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65792153"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66303302"
 ---
 # <a name="quickstart-use-net-and-c-in-visual-studio-to-connect-to-and-query-an-azure-sql-database"></a>Démarrage rapide : Utilisation de NET et C# dans Visual Studio pour se connecter à une base de données Azure SQL et l’interroger
 
@@ -43,7 +43,7 @@ Pour effectuer ce démarrage rapide, les éléments suivants sont requis :
   > [!IMPORTANT]
   > Les scripts fournis dans cet article utilisent la base de données Adventure Works. Avec une instance managée, vous devez importer la base de données Adventure Works dans une base de données d’instance, ou modifier les scripts fournis dans cet article pour utiliser la base de données Wide World Importers.
 
-- [Visual Studio 2017](https://www.visualstudio.com/downloads/) édition Communauté, Professionnel ou Entreprise.
+- [Visual Studio 2019](https://www.visualstudio.com/downloads/) édition Community, Professional ou Enterprise.
 
 ## <a name="get-sql-server-connection-information"></a>Obtenir des informations de connexion SQL Server
 
@@ -59,7 +59,7 @@ Procurez-vous les informations de connexion dont vous avez besoin pour vous conn
 
 1. Dans Visual Studio, sélectionnez **Fichier** > **Nouveau** > **Projet**. 
    
-1. Dans la boîte de dialogue **Nouveau projet**, sélectionnez **Visual C#**, puis **Application console (.NET Framework)**.
+1. Dans la boîte de dialogue **Nouveau projet**, sélectionnez **Visual C#** , puis **Application console (.NET Framework)** .
    
 1. Entrez *sqltest* pour le nom du projet puis sélectionnez **OK**. Le nouveau projet est créé. 
    
@@ -73,7 +73,7 @@ Procurez-vous les informations de connexion dont vous avez besoin pour vous conn
    
 1. Une fois l’installation terminée, vous pouvez fermer le **Gestionnaire de package NuGet**. 
    
-1. Dans l’éditeur de code, remplacez le contenu de **Program.cs** par le code suivant. Remplacez `<server>`, `<username>`, `<password>`, et `<database>` par vos valeurs.
+1. Dans l’éditeur de code, remplacez le contenu de **Program.cs** par le code suivant. Remplacez `<server>`, `<username>`, `<password>` et `<database>` par vos valeurs.
    
    >[!IMPORTANT]
    >Dans cet exemple, le code utilise les exemples de données AdventureWorksLT que vous pouvez choisir comme source lors de la création de votre base de données. Si votre base de données comporte des données différentes, utilisez des tables de votre propre base de données dans la requête SELECT. 

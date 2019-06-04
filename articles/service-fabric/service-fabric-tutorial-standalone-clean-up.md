@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 05/11/2018
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 28cc2bf4794620641fb6af46bd4017d74f87e955
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 67334a0e8ae3e6dcca86830cd088e6e446331aee
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58666989"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306716"
 ---
 # <a name="tutorial-clean-up-your-standalone-cluster"></a>Didacticiel : Supprimer votre cluster autonome
 
@@ -60,7 +60,7 @@ The cluster is successfully removed.
 
 ## <a name="clean-up-aws-resources"></a>Supprimer les ressources AWS
 
-* Connectez-vous à votre compte AWS.
+* Se connecter au compte AWS
 * Accédez à la console EC2.
 * Sélectionnez les trois nœuds que vous avez créés dans la première partie du didacticiel.
 * Cliquez sur **Actions** > **État de l’instance** > **Terminer**

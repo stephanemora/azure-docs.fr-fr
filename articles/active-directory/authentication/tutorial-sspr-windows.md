@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: acd100ccc3aafc2de1f2c7970ff9437c92156b17
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: ea65120a2a735477d048b9012e160e0cdafe8835
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65861528"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66253067"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>Didacticiel : Réinitialisation du mot de passe Azure AD depuis l’écran de connexion
 
@@ -29,7 +29,7 @@ Dans ce tutoriel, vous allez autoriser les utilisateurs à réinitialiser leurs 
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Vous devez exécuter au moins Windows 10, avec la mise à jour d’avril 2018 et les appareils doivent être :
+* Vous devez exécuter au moins Windows 10, avec la mise à jour d’avril 2018 (v1803), et les appareils doivent être :
    * [joints à Azure AD](../device-management-azure-portal.md) ou
    * [joints à Azure AD Hybride](../device-management-hybrid-azuread-joined-devices-setup.md), avec une connexion réseau à un contrôleur de domaine.
 * Vous devez activer la réinitialisation de mot de passe en libre-service Azure AD.
@@ -122,7 +122,7 @@ Lorsque vous testez cette fonctionnalité à l’aide du Bureau à distance ou d
 
 * Actuellement, la réinitialisation du mot de passe n’est pas prise en charge à partir d’un Bureau à distance.
 
-Si Ctrl+Alt+Suppr est exigé par la stratégie dans les versions de Windows 10 avant 1809, **Réinitialiser le mot de passe** ne fonctionnera pas.
+Si Ctrl+Alt+Suppr est exigé par la stratégie dans les versions de Windows 10 avant v1809, **Réinitialiser le mot de passe** ne fonctionnera pas.
 
 Si les notifications sur l’écran de verrouillage sont désactivées, **Réinitialiser le mot de passe** ne fonctionnera pas.
 

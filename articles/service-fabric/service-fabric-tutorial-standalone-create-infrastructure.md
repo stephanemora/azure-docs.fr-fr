@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 05/11/2018
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: aa50cbe640c928c4113fb64c1b503548a95ee0a9
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 69508628356a5f33073311e4d062d66875509192
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670266"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66302473"
 ---
 # <a name="tutorial-create-aws-infrastructure-to-host-a-service-fabric-cluster"></a>Didacticiel : Créer l’infrastructure AWS pour héberger un cluster Service Fabric
 
@@ -33,7 +33,7 @@ Dans ce premier volet, vous apprenez à :
 > [!div class="checklist"]
 > * Créer un ensemble d’instances EC2
 > * Modifier le groupe de sécurité
-> * Vous connecter à une des instances
+> * Se connecter à l’une des instances
 > * Préparer l’instance pour Service Fabric
 
 ## <a name="prerequisites"></a>Prérequis
@@ -42,7 +42,7 @@ Pour suivre ce didacticiel, vous avez besoin d’un compte AWS.  Si vous n’en 
 
 ## <a name="create-ec2-instances"></a>Créer des instances EC2
 
-Connectez-vous à la console AWS > entrez **EC2** dans la zone de recherche > **EC2 Virtual Servers in the Cloud** (Serveurs virtuels EC2 dans le cloud)
+Connectez-vous à la console AWS > entrez **EC2** dans la zone de recherche > **EC2 Virtual Servers in the Cloud** (Serveurs virtuels EC2 dans le cloud).
 
 ![Recherche dans la console AWS][aws-console]
 
@@ -151,7 +151,7 @@ Dans la première partie de la série, vous avez appris comment démarrer trois 
 > [!div class="checklist"]
 > * Créer un ensemble d’instances EC2
 > * Modifier le groupe de sécurité
-> * Vous connecter à une des instances
+> * Se connecter à l’une des instances
 > * Préparer l’instance pour Service Fabric
 
 Passez à la deuxième partie de la série pour configurer Service Fabric sur votre cluster.

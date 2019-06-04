@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: overview
-ms.date: 01/03/2019
+ms.date: 05/24/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 498dd3be75cb27263c811d9db541b2e040599156
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: e8a68ca87307e1265c200f2e05464ff87983c1e6
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65788021"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258405"
 ---
 # <a name="introduction-to-azure-blob-storage"></a>Présentation du Stockage Blob Azure
 
@@ -68,8 +68,8 @@ Plusieurs solutions existent pour migrer des données existantes vers le stockag
 - La **bibliothèque de déplacement des données de Stockage Azure** est une bibliothèque .NET pour déplacer des données entre les services Stockage Azure. L’utilitaire AzCopy est créé avec la bibliothèque de déplacement des données. Pour plus d’informations, consultez la [documentation de référence](/dotnet/api/microsoft.azure.storage.datamovement) de la bibliothèque de déplacement des données. 
 - **Azure Data Factory** prend en charge la copie de données vers et depuis le stockage Blob avec une clé de compte, une signature d’accès partagé, un principal du service ou des identités managées pour les authentifications des ressources Azure. Pour plus d’informations, consultez [Copier des données depuis/vers Azure Data Lake Store à l’aide d’Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). 
 - **Blobfuse** est un pilote de système de fichiers virtuel pour Stockage Blob Azure. Vous pouvez utiliser blobfuse pour accéder à vos données d’objets blob de blocs existantes dans votre compte de stockage via le système de fichiers Linux. Pour plus d’informations, consultez [Guide pratique pour monter le stockage Blob comme système de fichiers avec blobfuse](storage-how-to-mount-container-linux.md).
-- **Azure Data Box Disk** est un service permettant de transférer des données locales vers le stockage Blob quand des gros jeux de données ou des contraintes réseau rendent infaisable le chargement de données via le réseau. Vous pouvez utiliser [Azure Data Box Disk](../../databox/data-box-disk-overview.md) pour demander des disques SSD à Microsoft. Vous pouvez ensuite copier vos données sur ces disques et les expédier à Microsoft qui les chargera dans le stockage Blob.
-- Le **service Azure Import/Export** offre un moyen d’exporter de grandes quantités de données depuis votre compte de stockage sur des disques durs que vous fournissez, et que Microsoft vous renvoie avec vos données. Pour plus d’informations, consultez [Utiliser le service Microsoft Azure Import/Export pour transférer des données vers le stockage Blob](../common/storage-import-export-service.md).
+- Le service **Azure Data Box** permet de transférer des données locales vers le stockage Blob quand des gros jeux de données ou des contraintes réseau rendent infaisable le chargement de données via le réseau. Selon la taille de vos données, vous pouvez demander des appareils [Azure Data Box Disk](../../databox/data-box-disk-overview.md), [Azure Data Box](../../databox/data-box-overview.md) ou [Azure Data Box Heavy](../../databox/data-box-heavy-overview.md) à Microsoft. Vous pouvez ensuite copier vos données sur ces appareils et les expédier à Microsoft qui les chargera dans le stockage Blob.
+- Le **service Azure Import/Export** offre un moyen d’importer et d’exporter de grandes quantités de données depuis et vers votre compte de stockage à l’aide de disques durs que vous fournissez. Pour plus d’informations, consultez [Utiliser le service Microsoft Azure Import/Export pour transférer des données vers le stockage Blob](../common/storage-import-export-service.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

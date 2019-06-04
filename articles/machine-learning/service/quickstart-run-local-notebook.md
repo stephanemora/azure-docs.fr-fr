@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 03/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 53e495a3c2d82738e1008ead84a4124e44435c9a
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: c814f4bb0cc24350e45400d141c97d1b2eb4998d
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65864378"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237793"
 ---
 # <a name="quickstart-use-your-own-notebook-server-to-get-started-with-azure-machine-learning"></a>Démarrage rapide : Utiliser votre propre serveur de notebooks pour démarrer avec Azure Machine Learning
 
@@ -33,14 +33,29 @@ Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de com
 
 * Un serveur de notebooks Python 3.6 avec le SDK Azure Machine Learning installé
 * Un espace de travail Azure Machine Learning service
-* Un fichier de configuration d’espace de travail ( **.azureml/config.json** ).
+* Un fichier de configuration d’espace de travail ( **.azureml/config.json**).
 
-Obtenez tous ces prérequis à partir de [Créer un espace de travail Azure Machine Learning service](setup-create-workspace.md#portal).
+Obtenez tous ces prérequis à partir de [Créer un espace de travail Azure Machine Learning service](setup-create-workspace.md#sdk).
+
 
 
 ## <a name="use-the-workspace"></a>Utiliser l'espace de travail
 
-Créez un script ou démarrez un notebook dans le même répertoire que votre fichier de configuration d’espace de travail. Exécutez du code qui utilise les API de base du SDK pour suivre les exécutions des expériences.
+Créez un script ou démarrez un notebook dans le même répertoire que votre fichier de configuration d’espace de travail ( **.azureml/config.json**).
+
+### <a name="attach-to-workspace"></a>Attacher à l’espace de travail
+
+Ce code lit les informations du fichier de configuration à attacher à votre espace de travail.
+
+```
+from azureml.core import Workspace
+
+ws = Workspace.from_config()
+```
+
+### <a name="log-values"></a>Journaliser les valeurs
+
+Exécutez du code qui utilise les API de base du SDK pour suivre les exécutions des expériences.
 
 1. Créer une expérience dans l’espace de travail.
 1. Journaliser une valeur unique dans l’expérience.

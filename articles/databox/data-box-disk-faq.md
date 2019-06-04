@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: overview
-ms.date: 04/08/2019
+ms.date: 05/23/2019
 ms.author: alkohli
-ms.openlocfilehash: 27200406f0866697100e1cf9b32c199203ad600d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 69068304a6bc72f503ed85edf05229f10e4a8bc0
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59258774"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236348"
 ---
 # <a name="what-is-azure-data-box-disk"></a>Qu’est-ce qu’Azure Data Box Disk ?
 
@@ -55,6 +55,9 @@ R.  Pour voir où les disques Data Box Disk sont actuellement disponibles, accé
 
 ### <a name="q-which-regions-can-i-store-data-in-with-data-box-disks"></a>Q. Dans quelles régions puis-je stocker des données avec des disques Data Box ?
 R. La solution Data Box Disk est prise en charge dans toutes les régions des États-Unis, du Canada, de l’Australie, de l’Europe Ouest, de l’Europe Nord, de la Corée et du Japon. Seules les régions du cloud public Azure sont prises en charge. Azure Government et les autres clouds souverains ne sont pas pris en charge.
+
+### <a name="q-will-my-data-box-disk-cross-country-borders-during-shipping"></a>Q. Mon disque Data Box Disk traversera-t-il des frontières lors de son expédition ?
+R. Les disques Data Box Disk sont envoyés au sein du même pays, ils ne franchissent aucune frontière internationale. La seule exception concerne les commandes au sein de l’Union européenne (UE), où les disques peuvent être expédiés depuis et vers n’importe quel pays de l’UE.
 
 ### <a name="q-whom-should-i-contact-if-i-encounter-any-issues--with-data-box-disks"></a>Q. Qui dois-je contacter si je rencontre des problèmes avec des disques Data Box ?
 R. Si vous rencontrez des problèmes avec Data Box Disk, veuillez [contacter le Support Microsoft](https://docs.microsoft.com/azure/databox/data-box-disk-contact-microsoft-support).
@@ -164,9 +167,9 @@ R. Vous pouvez cloner votre commande précédente. Ainsi, vous créez une comman
 
 ### <a name="q-i-copied-data-to-manageddisk-folder-i-dont-see-any-managed-disks-with-the-resource-group-specified-for-managed-disks-was-my-data-uploaded-to-azure-and-how-can-i-locate-it"></a>Q. J’ai copié les données dans le dossier ManagedDisk. Je ne vois pas de disque managé avec le groupe de ressources spécifié pour les disques managés. Mes données ont-elles été chargées sur Azure et comment puis-je les localiser ?
 R. Oui. Vos données a été chargées sur Azure mais, si vous ne voyez aucun disque managé avec les groupes de ressources spécifiés, il est probable que les données n’étaient pas valides. Si les objets blob de pages, les objets blob de blocs, les fichiers Azure et les disques managés n’étaient pas valides, ils iraient dans les dossiers suivants :
- - Les objets blob de pages iraient dans un conteneur d’objets blob de blocs dont le nom commence par *databoxdisk-invalid-pb-*.
- - Les fichiers Azure iraient dans un conteneur d’objets blob de blocs dont le nom commence par *databoxdisk-invalid-af-*.
- - Les disques managés iraient dans un conteneur d’objets blob de blocs dont le nom commence par *databoxdisk-invalid-md-*.
+ - Les objets blob de pages iraient dans un conteneur d’objets blob de blocs dont le nom commence par *databoxdisk-invalid-pb-* .
+ - Les fichiers Azure iraient dans un conteneur d’objets blob de blocs dont le nom commence par *databoxdisk-invalid-af-* .
+ - Les disques managés iraient dans un conteneur d’objets blob de blocs dont le nom commence par *databoxdisk-invalid-md-* .
 
 ## <a name="next-steps"></a>Étapes suivantes
 

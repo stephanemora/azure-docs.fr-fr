@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/25/2019
 ms.author: kumud
-ms.openlocfilehash: a947b5983f4a7d58878fc15785cfbcbcbba7f226
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 698714990b9b34567d918d3b8c536bc3e39d66b8
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66156193"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257694"
 ---
 # <a name="quickstart-create-a-load-balancer-to-load-balance-vms-using-azure-cli"></a>Démarrage rapide : Créer un équilibreur de charge pour équilibrer la charge des machines virtuelles à l’aide d’Azure CLI
 
@@ -146,7 +146,7 @@ Créez une règle de groupe de sécurité réseau pour autoriser les connexions 
 ```
 ### <a name="create-nics"></a>Créer des cartes réseau
 
-Créez trois interfaces réseau à l’aide de la commande [az network nic create](/cli/azure/network/nic#az-network-nic-create) et associez-les à l’adresse IP publique et au groupe de sécurité réseau. 
+Créez deux interfaces réseau à l’aide de la commande [az network nic create](/cli/azure/network/nic#az-network-nic-create) et associez-les à l’adresse IP publique et au groupe de sécurité réseau. 
 
 ```azurecli-interactive
 for i in `seq 1 2`; do
@@ -164,7 +164,7 @@ done
 
 ## <a name="create-backend-servers"></a>Créer des serveurs principaux
 
-Dans cet exemple, vous créez trois machines virtuelles à utiliser en tant que serveurs principaux pour l’équilibreur de charge. Pour vérifier que l’équilibreur de charge a bien été créé, vous installez également NGINX sur les machines virtuelles.
+Dans cet exemple, vous créez deux machines virtuelles à utiliser en tant que serveurs principaux pour l’équilibreur de charge. Pour vérifier que l’équilibreur de charge a bien été créé, vous installez également NGINX sur les machines virtuelles.
 
 ### <a name="create-an-availability-set"></a>Créer un groupe à haute disponibilité
 

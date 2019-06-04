@@ -5,23 +5,25 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: quickstart
-ms.date: 08/20/2018
+ms.date: 05/06/2019
 ms.author: danlep
-ms.openlocfilehash: 6db5bb4ee1995e08bd00588203db1fdba87a3db5
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: ca9ef32a830f56edb471256b3b9175ba0fbec51d
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52727329"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65069227"
 ---
 # <a name="content-trust-in-azure-container-registry"></a>Approbation de contenu dans Azure Container Registry
 
-Pour tout système distribué dont la conception est axée sur la sécurité, il est important de vérifier à la fois la *source* et *l’intégrité* des données qui pénètrent dans le système. Les consommateurs des données doivent être en mesure de vérifier l’éditeur (source) des données, et de s’assurer que ces données n’ont pas été modifiées après leur publication (intégrité). Azure Container Registry prend en charge ces deux tâches en implémentant le modèle [d’approbation de contenu][docker-content-trust] de Docker, avec lequel cet article vous permet de vous familiariser.
+Azure Container Registry implémente le modèle d’[approbation de contenu][docker-content-trust] de Docker, lequel permet l’envoi (push) et le tirage (pull) d’images signées. Cet article vous permet de bien démarrer avec l’activation de l’approbation de contenu dans vos registres de conteneur.
 
-> [!IMPORTANT]
-> Actuellement, cette fonctionnalité est uniquement disponible en tant que version préliminaire. Les préversions sont à votre disposition, à la condition d’accepter les [conditions d’utilisation supplémentaires][terms-of-use]. Certains aspects de cette fonctionnalité sont susceptibles d’être modifiés avant la mise à disposition générale.
+> [!NOTE]
+> L’approbation de contenu est une fonctionnalité de la [référence SKU Premium](container-registry-skus.md) d’Azure Container Registry.
 
 ## <a name="how-content-trust-works"></a>Fonctionnement de l’approbation de contenu
+
+Pour tout système distribué dont la conception est axée sur la sécurité, il est important de vérifier à la fois la *source* et *l’intégrité* des données qui pénètrent dans le système. Les consommateurs des données doivent être en mesure de vérifier l’éditeur (source) des données, et de s’assurer que ces données n’ont pas été modifiées après leur publication (intégrité). 
 
 En votre qualité d’éditeur d’images, l’approbation de contenu vous permet de **signer** les images que vous envoyez à votre registre par une transmission de type push. Les consommateurs de vos images (personnes ou systèmes qui extraient des images de votre registre) peuvent configurer leurs clients pour qu’ils extraient (pull) *uniquement* des images signées. Lorsqu’un consommateur d’images extrait une image signée, son client Docker vérifie l’intégrité de cette image. Ce modèle offre aux consommateurs l’assurance que les images signées dans votre registre ont été effectivement publiées par vos soins, et qu’elles n’ont pas été modifiées depuis leur publication.
 
@@ -40,7 +42,7 @@ L’approbation de contenu est gérée par le biais d’un ensemble de clés de 
 
 La première étape consiste à activer l’approbation de contenu au niveau du registre. Une fois que vous activez l’approbation de contenu, les clients (utilisateurs ou services) peuvent envoyer des images signées à votre registre. L’activation de l’approbation de contenu sur votre registre ne limite pas l’utilisation du registre uniquement aux consommateurs ayant activé l’approbation de contenu. Les consommateurs pour lesquels l’approbation de contenu est désactivée peuvent continuer à utiliser votre registre normalement. Toutefois, les consommateurs qui ont activé l’approbation de contenu dans leurs clients seront *uniquement* en mesure de visualiser les images signées dans votre registre.
 
-Pour activer l’approbation de contenu pour votre registre, commencez par accéder au registre dans le Portail Azure. Sous **STRATÉGIES**, sélectionnez **Content Trust (Preview) (Approbation de contenu [préversion])** > **Activé** > **Enregistrer**.
+Pour activer l’approbation de contenu pour votre registre, commencez par accéder au registre dans le Portail Azure. Sous **Stratégies**, sélectionnez **Approbation de contenu** > **Activé** > **Enregistrer**.
 
 ![Activation de l’approbation de contenu pour un registre dans le Portail Azure][content-trust-01-portal]
 
@@ -71,13 +73,13 @@ docker build --disable-content-trust -t myacr.azurecr.io/myimage:v1 .
 
 ## <a name="grant-image-signing-permissions"></a>Accorder des autorisations de signature d’image
 
-Seuls les utilisateurs ou les systèmes qui disposent des autorisations requises peuvent envoyer des images approuvées à votre registre. Pour accorder l’autorisation d’envoi d’images approuvées à un utilisateur (ou à un système à l’aide d’un principal de service), octroyez à leurs identités Azure Active Directory le rôle `AcrImageSigner`. Ce rôle vient s’ajouter au rôle `Contributor` (ou `Owner`) requis pour l’envoi d’images au registre.
+Seuls les utilisateurs ou les systèmes qui disposent des autorisations requises peuvent envoyer des images approuvées à votre registre. Pour accorder l’autorisation d’envoi d’images approuvées à un utilisateur (ou à un système à l’aide d’un principal de service), octroyez à leurs identités Azure Active Directory le rôle `AcrImageSigner`. Ce rôle vient s’ajouter au rôle `AcrPush` (ou équivalent) requis pour l’envoi (push) d’images au registre. Pour plus d’informations, consultez [Autorisations et rôles Azure Container Registry](container-registry-roles.md).
 
 Les procédures détaillées d’octroi du rôle `AcrImageSigner` dans le Portail Azure et dans l’interface de ligne de commande Azure (Azure CLI) sont décrites ci-après.
 
 ### <a name="azure-portal"></a>Portail Azure
 
-Accédez à votre registre dans le portail Azure, puis sélectionnez **Contrôle d’accès (IAM)** > **Ajouter une attribution de rôle**. Sous **Ajouter une attribution de rôle**, sélectionnez `AcrImageSigner` sous **Rôle**, sélectionnez un ou plusieurs utilisateurs ou principaux de service dans le champ **Sélectionner**, puis cliquez sur **Enregistrer**.
+Accédez à votre registre dans le portail Azure, puis sélectionnez **Contrôle d’accès (IAM)**  > **Ajouter une attribution de rôle**. Sous **Ajouter une attribution de rôle**, sélectionnez `AcrImageSigner` sous **Rôle**, sélectionnez un ou plusieurs utilisateurs ou principaux de service dans le champ **Sélectionner**, puis cliquez sur **Enregistrer**.
 
 Dans cet exemple, le rôle `AcrImageSigner` a été assigné à deux entités : un principal de service nommé « service-principal » et un utilisateur nommé « Azure User ».
 
@@ -110,6 +112,8 @@ az role assignment create --scope $REGISTRY_ID --role AcrImageSigner --assignee 
 
 La variable `<service principal ID>` peut correspondre à l’élément **appId** ou **objectId** du principal de service, ou à l’un de ses éléments **servicePrincipalNames**. Pour plus d’informations sur l’utilisation des principaux de service et d’Azure Container Registry, consultez l’article [Authentification Azure Container Registry avec des principaux de service](container-registry-auth-service-principal.md).
 
+Après toute modification de rôle, exécutez `az acr login` pour actualiser le jeton d’identité local pour Azure CLI afin que les nouveaux rôles puissent entrer en vigueur.
+
 ## <a name="push-a-trusted-image"></a>Envoyer une image approuvée
 
 Pour envoyer une balise d’image approuvée à votre registre de conteneurs, activez l’approbation de contenu, puis envoyez l’image avec `docker push`. La première fois que vous envoyez une balise signée, vous êtes invité à créer une phrase secrète à la fois pour une clé de signature racine et pour une clé de signature de référentiel. La clé racine et la clé de référentiel sont générées et stockées localement sur votre machine.
@@ -138,7 +142,7 @@ Après l’exécution de votre première commande `docker push` avec l’approba
 
 ## <a name="pull-a-trusted-image"></a>Extraire une image approuvée
 
-Pour extraire une image approuvée, activez l’approbation de contenu et exécutez la commande `docker pull` normalement. Les consommateurs ayant activé l’approbation de contenu peuvent uniquement extraire les images dotées de balises signées. Voici un exemple d’extraction de balise signée :
+Pour extraire une image approuvée, activez l’approbation de contenu et exécutez la commande `docker pull` normalement. Pour tirer (pull) des images approuvées, le rôle `AcrPull` suffit pour les utilisateurs normaux. Aucun rôle supplémentaire comme le rôle `AcrImageSigner` n’est nécessaire. Les consommateurs ayant activé l’approbation de contenu peuvent uniquement extraire les images dotées de balises signées. Voici un exemple d’extraction de balise signée :
 
 ```console
 $ docker pull myregistry.azurecr.io/myimage:signed
@@ -184,15 +188,13 @@ Si vous perdez l’accès à votre clé racine, vous perdez l’accès aux balis
 > [!WARNING]
 > La désactivation et la réactivation de l’approbation de contenu dans votre registre **suppriment toutes les données d’approbation pour toutes les balises signées dans chaque référentiel de votre registre**. Cette opération est irréversible : Azure Container Registry ne peut pas récupérer les données d’approbation supprimées. La désactivation de l’approbation de contenu ne supprime pas les images proprement dites.
 
-Pour désactiver l’approbation de contenu pour votre registre, accédez au registre dans le Portail Azure. Sous **STRATÉGIES**, sélectionnez **Content Trust (Preview) (Approbation de contenu [préversion])** > **Désactivé** > **Enregistrer**. Un message vous signale la perte de toutes les signatures dans le registre. Sélectionnez **OK** pour supprimer définitivement toutes les signatures dans votre registre.
+Pour désactiver l’approbation de contenu pour votre registre, accédez au registre dans le Portail Azure. Sous **Stratégies**, sélectionnez **Approbation de contenu** > **Désactivé** > **Enregistrer**. Un message vous signale la perte de toutes les signatures dans le registre. Sélectionnez **OK** pour supprimer définitivement toutes les signatures dans votre registre.
 
 ![Désactivation de l’approbation de contenu pour un registre dans le Portail Azure][content-trust-03-portal]
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur l’approbation de contenu, consultez la documentation Docker. Bien que cet article ait abordé plusieurs points clés, l’approbation de contenu est un vaste sujet couvert de manière plus approfondie dans la documentation Docker.
-
-[Content trust in Docker][docker-content-trust] (Approbation de contenu dans Docker)
+Pour plus d’informations sur l’approbation de contenu, consultez [Approbation de contenu dans Docker][docker-content-trust]. Bien que cet article ait abordé plusieurs points clés, l’approbation de contenu est un vaste sujet couvert de manière plus approfondie dans la documentation Docker.
 
 <!-- IMAGES> -->
 [content-trust-01-portal]: ./media/container-registry-content-trust/content-trust-01-portal.png

@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: overview
-ms.date: 05/02/2019
+ms.date: 05/28/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 24c6df6a06d08249f236fc36d64b4204b0103b3c
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 8af927bee11d66c473707b603951fa693f6840e3
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65540898"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66299028"
 ---
 # <a name="what-is-cognitive-search-in-azure-search"></a>Qu’est-ce que la « recherche cognitive » dans Recherche Azure ?
 
@@ -86,7 +86,7 @@ Les index sont générés à partir d’un schéma d’index qui définit les ch
 | Traitement en langage naturel | Traitement de texte pour des insights et des informations sur les entrées de texte. La détection de langue, l’analyse des sentiments et l’extraction de phrases clés sont des compétences qui se trouvent dans le traitement en langage naturel.  | [Key Phrase Extraction cognitive skill](cognitive-search-skill-keyphrases.md) (Compétence cognitive d’extraction de phrases clés), [Language detection cognitive skill](cognitive-search-skill-language-detection.md) (Compétence cognitive de détection de langue), [Sentiment cognitive skill](cognitive-search-skill-sentiment.md) (Compétence cognitive d’analyse des sentiments) |
 | Décodage du document | Le processus d’extraction ou de création du contenu textuel à partir de sources non textuelles lors de l’indexation. La reconnaissance optique des caractères (OCR) est un exemple, mais il désigne généralement les fonctionnalités principales de l’indexeur, car l’indexeur extrait le contenu des fichiers d’application. La source de données qui fournit l’emplacement du fichier source et la définition d’indexeur qui fournit des mappages de champs, sont les deux facteurs clés du décodage de document. | Consultez [Indexeurs dans Recherche Azure](search-indexer-overview.md) |
 | Modélisation | Fusionner des fragments de texte dans une structure plus importante, ou à l’inverse, diviser des blocs de texte plus volumineux afin d’obtenir une taille plus facile à gérer pour davantage de traitements en aval. | [Shaper cognitive skill](cognitive-search-skill-shaper.md) (Compétence cognitive de modélisation), [Text Merge cognitive skill](cognitive-search-skill-textmerger.md) (Compétence cognitive de fusion de texte), [Text split cognitive skill](cognitive-search-skill-textsplit.md) (Compétence cognitive de fractionnement de texte) |
-| Documents enrichis | Une structure interne provisoire, pas directement accessible dans le code. Des documents enrichis sont générés au cours du traitement, mais seules les sorties finales sont conservées dans un index de recherche. Les mappages de champs déterminent quels éléments de données sont ajoutés à l’index. | Consultez [Accès au document enrichi](cognitive-search-tutorial-blob.md#access-enriched-document). |
+| Documents enrichis | Structure interne transitoire, générée lors du traitement, avec reflet de la sortie finale dans un index de recherche. Un ensemble de compétences détermine les enrichissements effectués. Les mappages de champs déterminent quels éléments de données sont ajoutés à l’index. Si vous le souhaitez, vous pouvez créer un magasin de connaissances pour conserver et explorer les documents enrichis en utilisant des outils tels que l’Explorateur Stockage, Power BI ou tout autre outil qui se connecte à Stockage Blob Azure. | Consultez [Magasin de connaissances (préversion)](knowledge-store-concept-intro.md). |
 | Indexeur |  Un analyseur qui extrait les données et métadonnées pouvant faire l’objet d’une recherche d’une source de données externe et renseigne un index en fonction des mappages champ à champ entre l’index et votre source de données pour le décodage du document. Pour les enrichissements de recherche cognitive, l’indexeur appelle un ensemble de compétences et héberge les mappages de dossiers associant la sortie de l’enrichissement pour cibler des champs dans l’index. La définition de l’indexeur contient toutes les instructions et références pour les opérations du pipeline, et le pipeline est appelé lors de l’exécution de l’indexeur. | [Indexeurs](search-indexer-overview.md) |
 | source de données  | Un objet utilisé par un indexeur pour se connecter à une source de données externes des types pris en charge sur Azure. | Consultez [Indexeurs dans Recherche Azure](search-indexer-overview.md) |
 | Index | Un index de recherche conservé dans Recherche Azure, créé à partir d’un schéma d’index qui définit l’utilisation et la structure du champ. | [Index dans Recherche Azure](search-what-is-an-index.md) | 

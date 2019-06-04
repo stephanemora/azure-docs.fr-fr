@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 6f85b0088fac97f4b9f2dd2835e3052cb598a987
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 6c48aaf404803c45122ed3fad0d6af1345406f7b
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65142756"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66239664"
 ---
 # <a name="tutorial-deploy-azure-machine-learning-as-an-iot-edge-module-preview"></a>Didacticiel : Déployer Azure Machine Learning en tant que module IoT Edge (préversion)
 
@@ -139,13 +139,13 @@ Les étapes suivantes montrent comment configurer Visual Studio Code pour survei
 
 1. Dans Visual Studio Code, sélectionnez **Appareils IoT Hub**.
 
-2. Sélectionnez **...**, puis **Définir la chaîne de connexion IoT Hub** dans le menu.
+2. Sélectionnez **...** , puis **Définir la chaîne de connexion IoT Hub** dans le menu.
 
    ![Définir la chaîne de connexion IoT Hub](./media/tutorial-deploy-machine-learning/set-connection.png)
 
 3. Dans la zone de texte qui s’ouvre en haut de la page, entrez la chaîne de connexion iothubowner de votre hub IoT. Votre appareil IoT Edge devrait apparaître dans la liste Appareils IoT Hub.
 
-4. Sélectionnez à nouveau **...**, puis **Commencer le monitoring du message D2C**.
+4. Sélectionnez de nouveau **...** , puis sélectionnez **Démarrer la supervision du point de terminaison d’événements intégré**.
 
 5. Observez les messages en provenance de tempSensor toutes les cinq secondes. Le corps du message contient une propriété appelée **anomaly**, qui est fournie par machinelearningmodule avec la valeur true ou false. La propriété **AzureMLResponse** contient la valeur « OK » si le modèle a été exécuté correctement.
 

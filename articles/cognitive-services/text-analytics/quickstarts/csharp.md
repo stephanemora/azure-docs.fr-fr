@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 04/29/2019
+ms.date: 05/28/2019
 ms.author: assafi
-ms.openlocfilehash: 44d4a9427fcf6b582d44707127b87c262781520f
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: a8b41f6853e9c91e64de903960b880e44f22ed55
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65602349"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66297799"
 ---
 # <a name="quickstart-use-the-net-sdk-and-c-to-call-the-text-analytics-service"></a>Démarrage rapide : Utiliser le SDK .NET et C# pour appeler le service Analyse de texte
 <a name="HOLTop"></a>
@@ -29,16 +29,11 @@ Pour les détails techniques, reportez-vous au SDK pour consulter la [référenc
 
 ## <a name="prerequisites"></a>Prérequis
 
+* N’importe quelle édition de [visual studio 2017 ou ultérieure]
+* [SDK Analyse de texte pour .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.TextAnalytics)
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
 Il vous faut également le [point de terminaison et la clé d’accès](../How-tos/text-analytics-how-to-access-key.md) générée pendant le processus d’inscription.
-
-> [!Tip]
->  Il est possible d’appeler directement les [points de terminaison HTTP](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9) avec C#, mais il est plus facile d’appeler le service avec le Kit de développement logiciel (SDK) Microsoft.Azure.CognitiveServices.Language sans avoir à sérialiser et désérialiser le code JSON.
->
-> Quelques liens utiles :
-> - [Page du Kit SDK NuGet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.TextAnalytics)
-> - [Code du Kit SDK](https://github.com/Azure/azure-sdk-for-net/tree/master/src/SDKs/CognitiveServices/dataPlane/Language/TextAnalytics)
 
 ## <a name="create-the-visual-studio-solution-and-install-the-sdk"></a>Créer la solution Visual Studio et installer le SDK
 
@@ -120,8 +115,7 @@ Dans la fonction `Main` de votre projet, appelez la méthode d’exemple de votr
         var credentials = new ApiKeyServiceClientCredentials(SubscriptionKey);
         var client = new TextAnalyticsClient(credentials)
         {
-            //Replace 'westus' with the correct region for your Text Analytics subscription.
-            Endpoint = "https://westus.api.cognitive.microsoft.com"
+            Endpoint = Endpoint
         };
 
         // Change the console encoding to display non-ASCII characters.

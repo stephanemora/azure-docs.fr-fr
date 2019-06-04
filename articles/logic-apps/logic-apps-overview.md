@@ -1,26 +1,26 @@
 ---
-title: Intégration d’entreprise avec Azure Logic Apps | Microsoft Docs
-description: Cette vue d’ensemble décrit comment vous pouvez créer des solutions d’intégration d’entreprise en automatisant des tâches, des flux de travail et des processus d’entreprise qui intègrent des applications, des données, des services et des systèmes entre des entreprises et des organisations. Créez des solutions pour l’intégration de données, l’intégration de systèmes, l’intégration des applications de l’entreprise (EAI) et les scénarios d’orchestration.
+title: Intégration d’entreprise avec Azure Logic Apps
+description: Vue d’ensemble de la création de solutions d’intégration d’entreprise en automatisant et orchestrant des tâches, des flux de travail et des processus d’entreprise qui intègrent des applications, des données, des services et des systèmes entre des entreprises et des organisations. Créez des solutions pour l’intégration de données, l’intégration de systèmes, l’intégration des applications de l’entreprise (EAI) et les scénarios d’orchestration.
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
+manager: carmonm
+ms.reviewer: klam, LADocs
 ms.topic: overview
 ms.custom: mvc
 ms.date: 6/29/2018
-ms.reviewer: klam, LADocs
-ms.suite: integration
-ms.openlocfilehash: d9f3bb33ab0638fddfcf64e61642c236a03d6293
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 2892dc3b8f25624e7925c9b4aa86110c167ad616
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54065268"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66299107"
 ---
 # <a name="what-is-azure-logic-apps"></a>Qu’est-ce qu’Azure Logic Apps ?
 
-[Azure Logic Apps](https://azure.microsoft.com/services/logic-apps) est un service cloud qui vous permet d’automatiser et d’orchestrer des tâches, des processus d’entreprise, et des [flux de travail](#logic-app-concepts) lorsque vous avez besoin d’intégrer des applications, des données, des systèmes et des services entre des entreprises ou des organisations. Logic Apps simplifie la conception et la création de solutions scalables pour l’[intégration](https://azure.microsoft.com/product-categories/integration/) d’applications, l’intégration de données, l’intégration de systèmes, l’intégration d’applications d’entreprise (IAE) et la communication interentreprises (B2B), que ce soit dans un environnement cloud, un environnement local, ou les deux.
+[Azure Logic Apps](https://azure.microsoft.com/services/logic-apps) est un service cloud qui vous permet de planifier, d’automatiser et d’orchestrer des tâches, des processus métier et des [workflows](#logic-app-concepts) quand vous avez besoin d’intégrer des applications, des données, des systèmes et des services entre des entreprises ou des organisations. Logic Apps simplifie la conception et la création de solutions scalables pour l’[intégration](https://azure.microsoft.com/product-categories/integration/) d’applications, l’intégration de données, l’intégration de systèmes, l’intégration d’applications d’entreprise (IAE) et la communication interentreprises (B2B), que ce soit dans un environnement cloud, un environnement local, ou les deux.
 
 Par exemple, voici quelques charges de travail que vous pouvez automatiser avec les applications logiques :
 
@@ -35,7 +35,7 @@ Pour créer des solutions d’intégration d’entreprise avec Azure Logic Apps,
 
 ## <a name="how-does-logic-apps-work"></a>Comment fonctionne Logic Apps ? 
 
-Chaque flux de travail d’application logique commence par un déclencheur, qui se déclenche lorsqu’un événement spécifique se produit, ou lorsque de nouvelles données disponibles répondent aux critères spécifiques. Plusieurs déclencheurs incluent des fonctionnalités de planification de base afin que vous puissiez choisir la régularité d’exécution des charges de travail. Pour des scénarios de planification plus personnalisés, démarrez vos flux de travail avec le déclencheur de planification. En savoir plus sur [la façon de générer des flux de travail basés sur une planification](../logic-apps/tutorial-build-schedule-recurring-logic-app-workflow.md).
+Chaque flux de travail d’application logique commence par un déclencheur, qui se déclenche lorsqu’un événement spécifique se produit, ou lorsque de nouvelles données disponibles répondent aux critères spécifiques. Plusieurs déclencheurs fournis par les connecteurs dans Logic Apps incluent des fonctionnalités de planification de base qui vous permettent de configurer la régularité d’exécution des charges de travail. Pour configurer une planification plus complexe ou des fréquences avancées, vous pouvez utiliser un déclencheur de fréquence comme première étape d’un workflow. Découvrez les [workflows basés sur une planification](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md).
 
 Chaque fois que le déclencheur s’active, le moteur Logic Apps crée une instance d’application logique qui exécute les actions dans le flux de travail. Ces actions peuvent également inclure des conversions de données et des contrôles de flux, telles que des instructions conditionnelles, des instructions de basculement, des boucles et la création de branches. Par exemple, cette application logique démarre par un déclencheur Dynamics 365 avec le critère intégré « lorsqu’un enregistrement est mis à jour ». Si le déclencheur détecte un événement correspondant à ce critère, il est activé et exécute les actions du flux de travail. Ici, ces actions incluent la transformation XML, les mises à jour de données, la création de branches de décision et les notifications par e-mail.
 
@@ -132,14 +132,9 @@ Tous ces services vous aident à « coller » et connecter des systèmes hétér
 
 ## <a name="get-started"></a>Commencer 
 
-Logic Apps est l’un des nombreux services hébergés sur Microsoft Azure. Avant de commencer, vous avez besoin d’un abonnement Azure. Si vous n’avez pas encore d’abonnement, vous pouvez <a href="https://azure.microsoft.com/free/" target="_blank">vous inscrire pour obtenir un compte Azure gratuitement</a>. 
+Logic Apps est l’un des nombreux services hébergés sur Microsoft Azure. Avant de commencer, vous avez besoin d’un abonnement Azure. Si vous n’avez pas encore d’abonnement, vous pouvez [vous inscrire pour obtenir un compte Azure gratuitement](https://azure.microsoft.com/free/). 
 
 Si vous avez un abonnement Azure, essayez ce [guide de démarrage rapide pour créer votre première application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md), qui surveille le nouveau contenu sur un site web via un flux RSS et envoie un e-mail lorsqu’un nouveau contenu apparaît.
-
-## <a name="support-and-feedback"></a>Support et commentaires
-
-* Si vous avez des questions, consultez le [forum Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Pour voter pour des idées de fonctionnalités ou pour en soumettre, visitez le [site de commentaires des utilisateurs Logic Apps](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -14,16 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/12/2018
 ms.author: kumud
-ms.openlocfilehash: 44094a38fff17908fd5ea851209130f89a49c988
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 23093cd8bcb5793b9e5b9abc835f64233e666ce1
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64707030"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241744"
 ---
 # <a name="what-is-azure-virtual-network"></a>Présentation du réseau virtuel Azure
 
-Le réseau virtuel Azure permet à de nombreux types de ressources Azure, tels que les machines virtuelles (VM) Azure de communiquer en toute sécurité entre elles, avec Internet et avec les réseaux locaux. Un réseau virtuel s’étend à une seule région. Toutefois, plusieurs réseaux virtuels de différentes régions peuvent être connectés à l’aide de l’homologation de réseau virtuel.
+Le réseau virtuel Azure permet à de nombreux types de ressources Azure, tels que les machines virtuelles (VM) Azure de communiquer en toute sécurité entre elles, avec Internet et avec les réseaux locaux. Un réseau virtuel s’étend à une seule région Azure. Une [région](https://azure.microsoft.com/global-infrastructure/regions/) Azure est constituée d’un ensemble de centres de données déployés dans un périmètre avec une latence définie et connectés via un réseau régional dédié à faible latence. 
+
+Les réseaux virtuels sont constitués de sous-réseaux. Un sous-réseau est une plage d’adresses IP dans votre réseau virtuel. Les sous-réseaux, comme les réseaux virtuels, s’étendent à une seule région Azure. 
+
+Plusieurs réseaux virtuels de différentes régions peuvent être connectés à l’aide du peering de réseau virtuel.
 
 Le réseau virtuel Azure fournit les fonctionnalités clés suivantes :
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: jeedes
-ms.openlocfilehash: d42e266de9c958c8a71cc5fa680a78c2278cec6e
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 1a1acde81baa596e71b7e39763b0464c8de2fb86
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956776"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244179"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-netdocuments"></a>Didacticiel : Intégration d’Azure Active Directory à NetDocuments
 
@@ -109,7 +109,7 @@ Pour configurer l’authentification unique Azure AD avec NetDocuments, procéde
     b. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=<Repository ID>`
 
     > [!NOTE]
-    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de réponse et l’URL de connexion réelles. L’ID de dépôt est une valeur commençant par l’autorité de certification suivie du code à 8 caractères associé à votre dépôt NetDocuments. Pour plus d’informations, consultez le [document sur la prise en charge des identités fédérées NetDocuments](https://support.netdocuments.com/hc/en-us/articles/205220410-Federated-Identity-Login). Vous pouvez également contacter l’[équipe de support technique de NetDocuments](https://support.netdocuments.com/hc/) pour obtenir ces valeurs si vous rencontrez des difficultés lorsque vous effectuez la configuration en utilisant les informations ci-dessus. Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
+    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de réponse et l’URL de connexion réelles. L’ID de dépôt est une valeur commençant par **CA-** suivi du code à huit caractères associé à votre dépôt NetDocuments. Pour plus d’informations, consultez le [document sur la prise en charge des identités fédérées NetDocuments](https://support.netdocuments.com/hc/en-us/articles/205220410-Federated-Identity-Login). Vous pouvez également contacter l’[équipe de support technique de NetDocuments](https://support.netdocuments.com/hc/) pour obtenir ces valeurs si vous rencontrez des difficultés lorsque vous effectuez la configuration en utilisant les informations ci-dessus. Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
 5. Sur la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le fichier **XML de métadonnées de fédération** en fonction des options définies en fonction de vos besoins, puis enregistrez-le sur votre ordinateur.
 

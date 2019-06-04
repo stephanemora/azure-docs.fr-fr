@@ -8,26 +8,24 @@ ms.topic: include
 ms.date: 01/22/2019
 ms.author: yegu
 ms.custom: include file
-ms.openlocfilehash: a02144914e73ca1788976d8b01ccd95d1b9e9a1b
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 8f2e956603fbb9aec81b08260eade846eb6a622c
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66133045"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393321"
 ---
 Si vous souhaitez suivre les tutoriels, conservez les ressources créées dans ce guide de démarrage rapide. Vous pouvez les réutiliser dans le tutoriel suivant.
 
 Si vous en avez terminé avec l’exemple d’application de démarrage rapide, supprimez les ressources Azure que vous avez créées dans ce guide de démarrage rapide afin d’éviter des frais.
 
 > [!IMPORTANT]
-> La suppression d’un groupe de ressources est irréversible. Le groupe de ressources et toutes les ressources qu’il contient sont supprimés définitivement. Veillez à ne pas supprimer accidentellement les mauvaises ressources ou le mauvais groupe de ressources. Vous avez peut-être créé les ressources pour l’hébergement de cet exemple dans un groupe de ressources existant, qui contient des ressources que vous souhaitez conserver. Vous pouvez supprimer chaque ressource individuellement à partir de son panneaux respectif au lieu de supprimer le groupe de ressources.
->
->
+> La suppression d’un groupe de ressources est irréversible. Le groupe de ressources et toutes les ressources qu’il contient sont supprimés définitivement. Veillez à ne pas supprimer accidentellement les mauvaises ressources ou le mauvais groupe de ressources. Si vous avez créé les ressources pour l’hébergement de cet exemple dans un groupe de ressources contenant des ressources que vous souhaitez conserver, supprimez chaque ressource individuellement à partir de son volet, au lieu de supprimer l’intégralité du groupe de ressources.
 
-Connectez-vous au [portail Azure](https://aka.ms/azconfig/portal), puis sélectionnez **Groupes de ressources**.
+1. Connectez-vous au [portail Azure](https://portal.azure.com), puis sélectionnez **Groupes de ressources**.
+1. Dans la zone **Filtrer par nom**, entrez le nom de votre groupe de ressources. Les instructions relatives à ce démarrage rapide utilisaient un groupe de ressources nommé *AppConfigTestResources*.
+1. Dans la liste des résultats, sélectionnez le groupe de ressources et cliquez avec le bouton droit sur la ligne ou utilisez les **points de suspension** ( **...** ) pour ouvrir le menu contextuel.
+1. Sélectionnez **Supprimer le groupe de ressources**.
+1. Vous êtes invité à confirmer la suppression du groupe de ressources. Entrez le nom de votre groupe de ressources à confirmer, puis sélectionnez **Supprimer**.
 
-Dans la zone **Filtrer par nom**, entrez le nom de votre groupe de ressources. Les instructions relatives à ce démarrage rapide utilisaient un groupe de ressources nommé *AppConfigTestResources*. Sur votre groupe de ressources dans la liste des résultats, sélectionnez **...**, puis **Supprimer le groupe de ressources**.
-
-Vous êtes invité à confirmer la suppression du groupe de ressources. Entrez le nom de votre groupe de ressources à confirmer, puis sélectionnez **Supprimer**.
-
-Après quelques instants, le groupe de ressources et toutes les ressources qu’il contient sont supprimés.
+Après quelques instants, le groupe de ressources et toutes ses ressources sont supprimés.

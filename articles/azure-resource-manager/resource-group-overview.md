@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/05/2019
+ms.date: 05/24/2019
 ms.author: tomfitz
-ms.openlocfilehash: 0ad1d12a4a2ca3a293546f2bac85210bb9152269
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: b6d84a07de408cedb0e21181c70e5c1481ac62bc
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59269286"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66225915"
 ---
 # <a name="azure-resource-manager-overview"></a>Présentation d’Azure Resource Manager
 
@@ -91,7 +91,7 @@ Si la région du groupe de ressources est temporairement indisponible, vous ne p
 
 Chaque fournisseur de ressources propose un ensemble de ressources et d’opérations pour utiliser ces ressources. Par exemple, si vous voulez stocker des clés et des secrets, vous travaillez avec le fournisseur de ressources **Microsoft.KeyVault** . Ce fournisseur de ressources offre un type de ressource appelé **coffres** pour créer le coffre de clés.
 
-Le nom d’un type de ressource est au format : **{fournisseur de ressources}/{type de ressource}**. Le type de ressource pour un coffre de clés est **Microsoft.KeyVault/vaults**.
+Le nom d’un type de ressource est au format : **{fournisseur de ressources}/{type de ressource}** . Le type de ressource pour un coffre de clés est **Microsoft.KeyVault/vaults**.
 
 Avant de commencer à déployer vos ressources, vous devez connaître les fournisseurs de ressources disponibles. Connaître les noms des fournisseurs de ressources et des ressources vous permettra de mieux définir les ressources que vous allez déployer dans Azure. En outre, vous devez connaître les emplacements valides et les versions d’API pour chaque type de ressource. Pour plus d’informations, consultez [les types et les fournisseurs de ressources](resource-manager-supported-services.md).
 
@@ -174,7 +174,21 @@ Une fois votre modèle défini, vous êtes prêt à déployer vos ressources dan
 
 Lorsque vous déployez un service complexe vers Azure, vous devrez peut-être déployer votre service dans plusieurs régions et contrôler son intégrité avant de passer à l’étape suivante. Utilisez [Azure Deployment Manager](deployment-manager-overview.md) pour coordonner un déploiement intermédiaire du service. Avec un déploiement intermédiaire de votre service, vous pouvez rechercher des problèmes potentiels avant le déploiement dans toutes les régions. Si vous n’avez pas besoin de ces précautions, les opérations de déploiement dans la section précédente constituent la meilleure option.
 
-Deployment Manager est actuellement en préversion privée.
+Deployment Manager est actuellement en préversion publique.
+
+## <a name="resiliency-of-azure-resource-manager"></a>Résilience d’Azure Resource Manager
+
+Le service Azure Resource Manager est conçu pour la résilience et la disponibilité continue. Les opérations Resource Manager et du plan de contrôle (demandes envoyées à management.azure.com) dans l’API REST sont :
+
+* Distribuées dans différentes régions. Certains services sont régionaux.
+
+* Distribuées dans différentes zones de disponibilité (et régions) dans les localisations qui ont plusieurs zones de disponibilité.
+
+* Non dépendantes d’un seul centre de données logique.
+
+* Jamais arrêtées pour des activités de maintenance.
+
+Cette résilience s’applique aux services qui reçoivent des demandes par le biais de Resource Manager. Par exemple, Key Vault bénéficie de cette résilience.
 
 [!INCLUDE [arm-tutorials-quickstarts](../../includes/resource-manager-tutorials-quickstarts.md)]
 

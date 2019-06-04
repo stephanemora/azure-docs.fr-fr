@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 41589dccae4e1259e4dc9368d5825ba770b4bdcc
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 11fa72f5853350c76b2a8d0aa4fd7b96b598b670
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66146699"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66303845"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-linux-devices"></a>Didacticiel : Développer des modules IoT Edge pour les appareils Linux
 
@@ -42,18 +42,18 @@ Ce tutoriel présente le développement d’un module IoT Edge. Un *module IoT E
 
 Lors du développement d’un module IoT Edge, il est important de comprendre la différence entre la machine de développement et l’appareil IoT Edge cible où le module sera finalement déployé. Le conteneur que vous générez pour le stockage du code du module doit correspondre au système d’exploitation (OS) de l’*appareil cible*. Par exemple, le scénario le plus courant est le développement d’un module sur un ordinateur Windows avec l’intention de cibler un appareil Linux exécutant IoT Edge. Dans ce cas, le système d’exploitation du conteneur est Linux. À mesure que vous parcourez ce tutoriel, gardez à l’esprit la différence entre *système d’exploitation de la machine de développement* et *système d’exploitation du conteneur*.
 
-Ce tutoriel cible les appareils Linux exécutant IoT Edge. Vous pouvez utiliser le système d’exploitation de votre choix pour la machine de développement, à condition que celle-ci puisse exécuter des conteneurs Linux. Visual Studio Code étant recommandé pour développer pour les appareils Linux, nous allons l’utiliser dans le cadre de ce tutoriel. Vous pouvez aussi bien utiliser Visual Studio 2017, bien qu’il existe des différences de prise en charge entre les deux outils.
+Ce tutoriel cible les appareils Linux exécutant IoT Edge. Vous pouvez utiliser le système d’exploitation de votre choix pour la machine de développement, à condition que celle-ci puisse exécuter des conteneurs Linux. Visual Studio Code étant recommandé pour développer pour les appareils Linux, nous allons l’utiliser dans le cadre de ce tutoriel. Vous pouvez aussi bien utiliser Visual Studio, bien qu’il existe des différences de prise en charge entre les deux outils.
 
-Le tableau suivant liste les scénarios de développement pris en charge pour des **conteneurs Linux** dans Visual Studio Code et Visual Studio 2017.
+Le tableau suivant liste les scénarios de développement pris en charge pour des **conteneurs Linux** dans Visual Studio Code et Visual Studio.
 
-|   | Visual Studio Code | Visual Studio 2017 |
+|   | Visual Studio Code | Visual Studio 2017/2019 |
 | - | ------------------ | ------------------ |
 | **Architecture d’appareil Linux** | Linux AMD64 <br> Linux ARM32 | Linux AMD64 <br> Linux ARM32 |
 | **Services Azure** | Azure Functions <br> Azure Stream Analytics <br> Azure Machine Learning |   |
 | **Langues** | C <br> C# <br> Java <br> Node.js <br> Python | C <br> C# |
-| **Plus d’informations** | [Azure IoT Edge pour Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) | [Outils Azure IoT Edge pour Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) |
+| **Plus d’informations** | [Azure IoT Edge pour Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) | [Azure IoT Edge Tools pour Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools), [Azure IoT Edge Tools pour Visual Studio 2019](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) |
 
-Ce tutoriel décrit les étapes de développement pour Visual Studio Code. Si vous préférez utiliser Visual Studio 2017, reportez-vous aux instructions dans [Utiliser Visual Studio 2017 pour développer et déboguer des modules pour Azure IoT Edge](how-to-visual-studio-develop-module.md).
+Ce tutoriel décrit les étapes de développement pour Visual Studio Code. Si vous préférez utiliser Visual Studio, reportez-vous aux instructions dans [Utiliser Visual Studio 2019 pour développer et déboguer des modules pour Azure IoT Edge](how-to-visual-studio-develop-module.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -284,7 +284,7 @@ Vous avez vérifié que les images de conteneur générées sont stockées dans 
 
 Le code SampleModule reçoit des messages via sa file d’attente d’entrée et les transmet à sa file d’attente de sortie. Le manifeste de déploiement a déclaré des routes qui ont passé les messages depuis SampleModule vers tempSensor, puis vers le hub IoT. Les outils Azure IoT pour Visual Studio Code vous permettent de voir les messages à mesure qu’ils arrivent au hub IoT en provenance de vos différents appareils. 
 
-1. Dans l’Explorateur Visual Studio Code, cliquez avec le bouton droit sur l’appareil IoT Edge que vous souhaitez superviser, puis sélectionnez **Start Monitoring D2C Message** (Démarrer la supervision du message appareil-à-cloud). 
+1. Dans l’explorateur Visual Studio Code, cliquez avec le bouton droit sur l’appareil IoT Edge que vous souhaitez superviser, puis sélectionnez **Démarrer la supervision du point de terminaison d’événements intégré**. 
 
 2. Regardez la fenêtre de sortie dans Visual Studio Code pour voir les messages arrivant à votre hub IoT. 
 

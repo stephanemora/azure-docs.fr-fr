@@ -5,16 +5,16 @@ services: storage
 author: normesta
 ms.service: storage
 ms.topic: tutorial
-ms.date: 12/07/2018
+ms.date: 05/22/2019
 ms.author: normesta
 ms.reviewer: seguler
 ms.custom: seodec18
-ms.openlocfilehash: 7320f5cd8d012973139adb099785cddae123f775
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 2b0bb94be2ba8ea983cda8fd015d05fcd532f2bc
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65949605"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66226071"
 ---
 # <a name="tutorial-use-azure-cdn-to-enable-a-custom-domain-with-ssl-for-a-static-website"></a>Tutoriel : Utiliser Azure CDN pour activer un domaine personnalisé avec SSL pour un site web statique
 
@@ -38,15 +38,27 @@ Pour commencer, connectez-vous au [portail Azure](https://portal.azure.com/).
 
 ## <a name="create-a-cdn-endpoint-on-the-static-website-endpoint"></a>Créer un point de terminaison CDN sur le point de terminaison de site web statique
 
-1. Ouvrez le [portail Azure](https://portal.azure.com/) dans votre navigateur web. 
-1. Recherchez votre compte de stockage et affichez la vue d’ensemble du compte.
+1. Recherchez votre compte de stockage dans le portail Azure et affichez la vue d’ensemble du compte.
 1. Sélectionnez **Azure CDN** dans le menu **Service Blob** pour configurer Azure CDN.
-1. Dans la section **Nouveau point de terminaison**, renseignez les champs pour créer un point de terminaison CDN.
-1. Entrez un nom de point de terminaison, tel que *mystaticwebsiteCDN*.
-1. Entrez le domaine de votre site web en tant que nom d’hôte pour votre point de terminaison CDN.
-1. Comme nom d’hôte d’origine, entrez votre point de terminaison de site web statique. Pour trouver votre point de terminaison de site web statique, accédez à la section **Site web statique** correspondant à votre compte de stockage et copiez le point de terminaison (supprimez la mention « https:// » qui précède)
-1. Testez votre point de terminaison CDN en accédant à *mywebsitecdn.azureedge.net* dans votre navigateur.
-1. Vérifiez également l’origine en accédant à **Nouveau point de terminaison** sous Paramètres, pour voir si le type d’origine est défini sur *Origine personnalisée*, et si *Nom d’hôte de l’origine* affiche le nom du point de terminaison du site web statique.
+1. Dans la section **Profil CDN**, spécifiez un profil CDN existant ou nouveau. Pour plus d’informations, consultez [Démarrage rapide : Créer un point de terminaison et un profil de réseau de distribution de contenu Azure](../../cdn/cdn-create-new-endpoint.md).
+1. Spécifiez un niveau tarifaire pour le point de terminaison CDN. Ce tutoriel utilise le niveau tarifaire **Standard Akamai**, car il se propage rapidement, d’ordinaire en quelques minutes. D’autres niveaux tarifaires sont peut-être plus longs à se propager, mais peuvent aussi offrir d’autres avantages. Pour plus d’informations, consultez [Comparer les caractéristiques du produit Azure CDN](../../cdn/cdn-features.md).
+1. Dans le champ **Nom du point de terminaison CDN**, spécifiez un nom pour votre point de terminaison CDN. Le point de terminaison CDN doit être unique dans tout Azure.
+1. Spécifiez votre point de terminaison de site web statique dans le champ **Nom d’hôte d’origine**. Pour trouver votre point de terminaison de site web statique, accédez aux paramètres **Site web statique** de votre compte de stockage. Copiez le point de terminaison principal et collez-le dans la configuration CDN, en supprimant l’identificateur de protocole (*par exemple*, HTTPS).
+
+    L’illustration suivante montre un exemple de configuration de point de terminaison :
+
+    ![Capture d’écran montrant un exemple de configuration de point de terminaison CDN](media/storage-blob-static-website-custom-domain/add-cdn-endpoint.png)
+
+1. Créez le point de terminaison CDN et attendez qu’il se propage.
+1. Pour vérifier que le point de terminaison CDN est correctement configuré, cliquez dessus pour accéder à ses paramètres. Depuis la vue d’ensemble CDN de votre compte de stockage, recherchez le nom d’hôte du point de terminaison et accédez au point de terminaison, comme illustré dans l’image suivante. Le format de votre point de terminaison CDN est similaire à `https://staticwebsitesamples.azureedge.net`.
+
+    ![Capture d’écran montrant la vue d’ensemble du point de terminaison CDN](media/storage-blob-static-website-custom-domain/verify-cdn-endpoint.png)
+
+    Une fois la propagation du point de terminaison CDN terminée, l’accès au point de terminaison CDN affiche le contenu du fichier index.html que vous avez précédemment chargé sur votre site web statique.
+
+1. Pour passer en revue les paramètres d’origine de votre point de terminaison CDN, accédez à **Origine** dans la section **Paramètres** de votre point de terminaison CDN. Vous verrez que le champ **Type d’origine** a la valeur *Origine personnalisée* et que le champ **Nom d’hôte d’origine** indique le point de terminaison de votre site web statique.
+
+    ![Capture d’écran montrant les paramètres d’origine du point de terminaison CDN](media/storage-blob-static-website-custom-domain/verify-cdn-origin.png)
 
 ## <a name="enable-custom-domain-and-ssl"></a>Activer un domaine personnalisé et SSL
 
@@ -54,17 +66,19 @@ Pour commencer, connectez-vous au [portail Azure](https://portal.azure.com/).
 
     ![Spécifier l’enregistrement CNAME pour le sous-domaine www](media/storage-blob-static-website-custom-domain/subdomain-cname-record.png)
 
-1. Dans le portail Azure, cliquez sur le point de terminaison qui vient d’être créé pour configurer le domaine personnalisé et le certificat SSL.
+1. Dans le portail Azure, affichez les paramètres de votre point de terminaison CDN. Accédez à **Domaines personnalisés** sous **Paramètres** pour configurer le domaine personnalisé et le certificat SSL.
 1. Sélectionnez **Ajouter un domaine personnalisé** et entrez votre nom de domaine, puis cliquez sur **Ajouter**.
-1. Sélectionnez le mappage de domaine personnalisé qui vient d’être créé pour provisionner un certificat SSL.
-1. Affectez la valeur **ON** à **Domaine personnalisé HTTPS**. Sélectionnez **CDN géré** pour faire en sorte qu’Azure CDN gère votre certificat SSL. Cliquez sur **Enregistrer**.
-1. Testez votre site web en accédant à son URL.
+1. Sélectionnez le nouveau mappage de domaine personnalisé pour provisionner un certificat SSL.
+1. Affectez la valeur **ON** à **Domaine personnalisé HTTPS**, puis cliquez sur **Enregistrer**. La configuration de votre domaine personnalisé peut prendre plusieurs heures. Le portail indique la progression, comme l’illustre l’image suivante.
+
+    ![Capture d’écran montrant la progression de la configuration du domaine personnalisé](media/storage-blob-static-website-custom-domain/configure-custom-domain-https.png)
+
+1. Testez le mappage de votre site web statique à votre domaine personnalisé en accédant à l’URL de votre domaine personnalisé.
+
+Pour plus d’informations sur l’activation du protocole HTTPS pour les domaines personnalisés, consultez [Tutoriel : Configurer HTTPS sur un domaine personnalisé Azure CDN](../../cdn/cdn-custom-ssl.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Dans la deuxième partie de ce tutoriel, vous avez appris à configurer un domaine personnalisé avec SSL dans Azure CDN pour votre site web statique.
 
-Suivez ce lien pour en savoir plus sur l’hébergement de site web statique sur Stockage Azure.
-
-> [!div class="nextstepaction"]
-> [En savoir plus sur les sites web statiques](storage-blob-static-website.md)
+Pour plus d’informations sur la configuration et l’utilisation d’Azure CDN, consultez [Qu’est-ce qu’Azure CDN ?](../../cdn/cdn-overview.md)
