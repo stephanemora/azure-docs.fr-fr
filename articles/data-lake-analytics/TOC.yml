@@ -1,6 +1,6 @@
 - name: Documentation Data Lake Analytics
   href: index.md
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: "Qu’est-ce que Data Lake Analytics\_?"
       href: data-lake-analytics-overview.md
@@ -48,6 +48,8 @@
           href: data-lake-analytics-diagnostic-logs.md
         - name: Ajuster les limites de quota
           href: data-lake-analytics-quota-limits.md
+        - name: Planifier la récupération d'urgence
+          href: data-lake-analytics-disaster-recovery.md
     - name: Développer des programmes U-SQL
       items:
         - name: Langage U-SQL
@@ -108,7 +110,7 @@
           href: data-lake-analytics-schedule-jobs-ssis.md
     - name: Intégration et déploiement continus
       items:
-        - name: Vue d’ensemble
+        - name: Vue d'ensemble
           href: data-lake-analytics-cicd-overview.md
         - name: Inscription d’assembly
           href: data-lake-analytics-cicd-manage-assemblies.md

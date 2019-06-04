@@ -5,6 +5,8 @@
   items:
     - name: "Qu’est-ce que le service Language Understanding\_?"
       href: what-is-luis.md
+    - name: Nouveautés
+      href: whats-new.md
 - name: Démarrages rapides
   items:
     - name: Créer un exemple d’application de domaine
@@ -197,8 +199,9 @@
         - name: Avec l’API Vérification orthographique Bing v7
           href: luis-tutorial-bing-spellcheck.md
         - name: Avec le service de reconnaissance vocale
-          href: luis-tutorial-speech-to-intent.md
-        - name: Utiliser Bot Framework V3
+          maintainContext: true
+          href: ../speech-service/how-to-recognize-intents-from-speech-csharp.md?toc=/azure/cognitive-services/luis/toc.json&bc=/azure/cognitive-services/luis/breadcrumb/toc.json
+        - name: Avec un bot
           items:
             - name: Web App Bot
               items:
@@ -400,8 +403,6 @@
       href: 'https://github.com/Microsoft/Cognitive-Samples-IntelligentKiosk'
 - name: Ressources
   items:
-    - name: Nouveautés
-      href: whats-new.md
     - name: Disponibilité régionale
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
     - name: Prise en charge de la région et de la langue

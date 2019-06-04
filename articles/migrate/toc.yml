@@ -20,14 +20,6 @@
       href: concepts-dependency-visualization.md
 - name: Guides pratiques
   items:
-    - name: Bonnes pratiques en matière de migration
-      items:
-        - name: Bonnes pratiques relatives à la sécurité et à la gestion après la migration
-          href: migrate-best-practices-security-management.md
-        - name: Bonnes pratiques relatives au réseau après la migration
-          href: migrate-best-practices-networking.md
-        - name: Bonnes pratiques relatives à l’évaluation des coûts et au dimensionnement après la migration
-          href: migrate-best-practices-costs.md
     - name: Série d’exemples de migration de Contoso
       href: contoso-migration-overview.md
     - name: Découvrir et évaluer un environnement de grande taille

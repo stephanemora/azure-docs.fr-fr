@@ -27,6 +27,9 @@
         - name: "Caractéristiques\_: action et contexte"
           href: concepts-features.md
           displayName: 'action, context, feature, namespace, JSON, best practice, set'
+        - name: Apprentissage actif
+          href: concept-active-learning.md
+          displayName: 'active, inactive'
         - name: Récompenses
           href: concept-rewards.md
           displayName: 'reward, wait time, default reward'
@@ -44,7 +47,7 @@
   items:
     - name: Créer et configurer Personalizer
       href: how-to-settings.md
-      displayName: 'azure, portal, settings, evaluation, offline, policy'
+      displayName: 'azure, portal, settings, evaluation, offline, policy, export, model'
     - name: Analyser
       items:
         - name: Évaluation hors connexion

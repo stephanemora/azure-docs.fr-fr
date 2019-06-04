@@ -1,6 +1,6 @@
 - name: Azure Blockchain Service (Préversion)
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: À propos d’Azure Blockchain Service
       href: overview.md
@@ -58,7 +58,7 @@
     - name: Communauté
       href: 'https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain'
     - name: Forum
-      href: 'https://social.msdn.microsoft.com/Forums/home?forum=azureblockchain'
+      href: 'https://aka.ms/workbenchforum'
     - name: Commentaires sur le produit
       href: 'https://feedback.azure.com/forums/921130-azure-blockchain-service'
     - name: Tarifs

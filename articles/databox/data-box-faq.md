@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 05/22/2019
+ms.date: 05/23/2019
 ms.author: alkohli
-ms.openlocfilehash: 2b021975983858386cd7c847ba11a26f4feb9562
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 18c6175ede1e8459d3a9ca60f7890cc43d75e5ba
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66150456"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236284"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box : Forum Aux Questions (FAQ)
 
@@ -184,7 +184,7 @@ R. Si votre appareil est arrivé endommagé ou présente des signes de falsifica
 R. Pour le service Data Box, Microsoft gère la livraison vers et depuis le centre de données Azure. Si vous souhaitez utiliser votre propre transporteur, vous pouvez utiliser le service Azure Import/Export. Pour plus d’informations, consultez [Qu’est-ce que le service Azure Import/Export ?](../storage/common/storage-import-export-service.md)
 
 ### <a name="q-will-my-data-box-devices-cross-country-borders-during-shipping"></a>Q. Mes appareils Data Box traverseront-ils des frontières lors de leur expédition ?
-R. Le transport des appareils Data Box s'effectue au sein du même pays ; ils ne franchissent aucune frontière internationale. La seule exception concerne les commandes au sein de l'Union européenne (UE), où les appareils peuvent être expédiés depuis et vers n'importe quel pays de l'UE.
+R. Le transport des appareils Data Box s'effectue au sein du même pays ; ils ne franchissent aucune frontière internationale. La seule exception concerne les commandes au sein de l'Union européenne (UE), où les appareils peuvent être expédiés depuis et vers n'importe quel pays de l'UE. Cela concerne les appareils Data Box et Data Box Heavy.
 
 ### <a name="q-e-ink-display-is-not-showing-the-return-shipment-label-what-should-i-do"></a>Q. L’écran E-ink n’affiche pas l’étiquette de retour. Que dois-je faire ?
 R. Si l’écran E-ink n’affiche pas l’étiquette de retour, procédez comme suit :
@@ -247,7 +247,7 @@ R.  Les rapports suivants sont disponibles pour prendre en charge la chaîne de 
 R.  Les journaux d’activité de suivi du transporteur sont consignés dans l’historique des commandes Data Box. Ce rapport est à votre disposition une fois que l’appareil a été retourné au centre de données Azure et que les données stockées sur les disques de l’appareil ont été nettoyées. Pour vos besoins immédiats, vous pouvez également accéder directement au site Web du transporteur et y saisir le numéro de suivi de la commande pour obtenir les informations de suivi.
 
 ### <a name="can-i-transport-the-data-box-to-azure-datacenter"></a>Puis-je apporter la Data Box au centre de données Azure ? 
-R.   Non. Actuellement, le centre de données Azure n’accepte pas la remise des Data Box des clients ou de transporteurs autres que UPS.
+R.  Non. Actuellement, le centre de données Azure n’accepte pas la remise des Data Box des clients ou de transporteurs autres que UPS.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

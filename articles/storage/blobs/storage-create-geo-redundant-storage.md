@@ -10,12 +10,12 @@ ms.author: tamram
 ms.reviewer: artek
 ms.custom: mvc
 ms.subservice: blobs
-ms.openlocfilehash: 24869981595cd68eb833f7b176e17a2683127945
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: cbf6409efa2fbb56500c6919edc6c741c4a2c45a
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65787910"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306753"
 ---
 # <a name="tutorial-build-a-highly-available-application-with-blob-storage"></a>Didacticiel : Générer une application hautement disponible avec le stockage Blob
 
@@ -40,7 +40,7 @@ Pour suivre ce tutoriel :
 
 # <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
-* Installez [Visual Studio 2017](https://www.visualstudio.com/downloads/) avec les charges de travail suivantes :
+* Installez [Visual Studio 2019](https://www.visualstudio.com/downloads/) avec les charges de travail suivantes :
   - **Développement Azure**
 
   ![Développement Azure (sous Web & Cloud)](media/storage-create-geo-redundant-storage/workloads.png)
@@ -82,6 +82,8 @@ Suivez ces étapes pour créer un compte de stockage géographiquement redondant
    | **Modèle de déploiement** | Gestionnaire de ressources  | Le Gestionnaire des ressources contient les fonctionnalités les plus récentes.|
    | **Type de compte** | StorageV2 | Pour plus d’informations sur les types de compte, consultez [Types de compte de stockage](../common/storage-introduction.md#types-of-storage-accounts) |
    | **Performances** | standard | Le type Standard est suffisant pour l’exemple de scénario. |
+   | **Réplication**| Stockage géo-redondant avec accès en lecture (RA-GRS) | Ce paramètre est nécessaire pour que l’exemple fonctionne. |
+   |**Abonnement** | Votre abonnement |Pour plus d’informations sur vos abonnements, consultez [Abonnements](https://account.windowsazure.com/Subscriptions). |
    | **Réplication**| Stockage géo-redondant avec accès en lecture (RA-GRS) | Ce paramètre est nécessaire pour que l’exemple fonctionne. |
    |**Abonnement** | Votre abonnement |Pour plus d’informations sur vos abonnements, consultez [Abonnements](https://account.azure.com/Subscriptions). |
    |**ResourceGroup** | myResourceGroup |Pour les noms de groupe de ressources valides, consultez [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Conventions d’affectation de nom). |
@@ -139,7 +141,7 @@ Dans le portail Azure, accédez à votre compte de stockage. Sélectionnez **Cl�
 export storageconnectionstring=<yourconnectionstring>
 ```
 
-### <a name="windows"></a> Windows
+### <a name="windows"></a>Windows
 
 ```powershell
 setx storageconnectionstring "<yourconnectionstring>"
@@ -158,7 +160,7 @@ export accountname=<youraccountname>
 export accountkey=<youraccountkey>
 ```
 
-### <a name="windows"></a> Windows
+### <a name="windows"></a>Windows
 
 ```powershell
 setx accountname "<youraccountname>"
@@ -194,7 +196,7 @@ AZURE_STORAGE_ACCOUNT_ACCESS_KEY=<replace with your storage account access key>
 
 Pour trouver ces informations dans le portail Azure, accédez à votre compte de stockage et sélectionnez **Clés d’accès** dans la section **Paramètres**.
 
-Vous devez également installer les dépendances demandées. Pour cela, ouvrez une invite de commandes, accédez à l’exemple de dossier et entrez `npm install`.
+Installez les dépendances nécessaires. Pour cela, ouvrez une invite de commandes, accédez à l’exemple de dossier et entrez `npm install`.
 
 ---
 
@@ -231,11 +233,11 @@ Pour exécuter l’exemple, utilisez Maven au niveau de la ligne de commande.
 
 Cet exemple permet de créer un fichier de test dans votre répertoire par défaut. Pour les utilisateurs Windows, ce répertoire est **AppData\Local\Temp**. L’exemple présente ensuite les options suivantes des commandes que vous pouvez entrer :
 
-- Entrez **P** pour exécuter une opération put blob, qui permet de charger un fichier temporaire dans votre compte de stockage.
-- Entrez **L** pour effectuer une opération list blob, qui permet de lister les objets blob actuellement dans votre conteneur.
-- Entrez **G** pour effectuer une opération get blob, qui permet de télécharger un fichier depuis votre compte de stockage vers votre ordinateur local.
-- Entrez **D** pour exécuter une opération delete blob, qui permet de supprimer l’objet blob de votre compte de stockage.
-- Entrez **E** pour fermer l’exemple, ce qui permet également de supprimer toutes les ressources que l’exemple a créées.
+- Entrez **P** pour exécuter une opération put blob. Cette commande permet de charger un fichier temporaire dans votre compte de stockage.
+- Entrez **L** pour effectuer une opération list blob. Cette commande permet de lister les objets blob actuellement dans votre conteneur.
+- Entrez **G** pour effectuer une opération get blob. Cette commande permet de télécharger un fichier depuis votre compte de stockage vers votre ordinateur local.
+- Entrez **D** pour exécuter une opération delete blob. Cette commande permet de supprimer l’objet blob de votre compte de stockage.
+- Entrez **E** pour fermer l’exemple. Cette commande permet également de supprimer toutes les ressources que l’exemple a créées.
 
 Cet exemple montre la sortie si vous exécutez l’application sous Windows.
 

@@ -1,6 +1,6 @@
 - name: Documentation sur l’authentification
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: Qu’est-ce que l’authentification ?
       href: overview-authentication.md
@@ -43,8 +43,6 @@
       items:
         - name: Fonctionnement de l’authentification multifacteur (MFA)
           href: concept-mfa-howitworks.md
-        - name: Quelle version est adaptée ?
-          href: concept-mfa-whichversion.md
         - name: Mettre vos utilisateurs sous licence
           href: concept-mfa-licensing.md
         - name: Gérer un fournisseur d’authentification
