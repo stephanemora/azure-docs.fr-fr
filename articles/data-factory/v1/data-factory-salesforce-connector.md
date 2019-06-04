@@ -82,7 +82,7 @@ La section **typeProperties** est différente pour chaque type de jeu de donnée
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
-| TableName |Nom de la table dans Salesforce. |Non (si une **requête** de type **RelationalSource** est spécifiée) |
+| tableName |Nom de la table dans Salesforce. |Non (si une **requête** de type **RelationalSource** est spécifiée) |
 
 > [!IMPORTANT]
 > La partie « __c » du nom de l’API est requise pour tout objet personnalisé.
@@ -286,24 +286,24 @@ Pour obtenir la liste des propriétés prises en charge par RelationalSource, vo
 
 | Type Salesforce | Type basé sur .NET |
 | --- | --- |
-| Numérotation automatique |String |
-| Case à cocher |Boolean |
-| Devise |Decimal |
-| Date |Datetime |
-| Date/Heure |Datetime |
+| Auto Number |String |
+| Checkbox |Boolean |
+| Currency |Decimal |
+| Date |DateTime |
+| Date/Time |DateTime |
 | Email |String |
-| ID |String |
-| Relation de recherche |String |
-| Liste déroulante à sélection multiple |String |
+| Id |String |
+| Lookup Relationship |String |
+| Multi-Select Picklist |String |
 | Number |Decimal |
-| Pourcentage |Decimal |
-| Téléphone |String |
-| Liste déroulante |String |
+| Percent |Decimal |
+| Phone |String |
+| Picklist |String |
 | Text |String |
-| Zone de texte |String |
-| Zone de texte (long) |String |
-| Zone de texte (enrichi) |String |
-| Texte (chiffré) |String |
+| Text Area |String |
+| Text Area (Long) |String |
+| Text Area (Rich) |String |
+| Text (Encrypted) |String |
 | URL |String |
 
 > [!NOTE]
