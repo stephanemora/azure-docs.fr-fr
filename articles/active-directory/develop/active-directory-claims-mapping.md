@@ -105,7 +105,7 @@ Il existe des ensembles de revendications qui définissent comment et quand ils 
 | grant_type |
 | graph |
 | group_sids |
-| Groupes |
+| groups |
 | hasgroups |
 | hash_alg |
 | home_oid |
@@ -156,10 +156,10 @@ Il existe des ensembles de revendications qui définissent comment et quand ils 
 | refresh_token |
 | refreshtoken |
 | request_nonce |
-| Ressource |
-| rôle |
-| rôles |
-| portée |
+| resource |
+| role |
+| roles |
+| scope |
 | scp |
 | sid |
 | signature |
