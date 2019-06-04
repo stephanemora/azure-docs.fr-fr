@@ -275,6 +275,8 @@
           href: storage-blob-event-overview.md
         - name: Fonctionnalités d’objet blob de pages
           href: storage-blob-pageblob-overview.md
+        - name: Sites web statiques
+          href: storage-blob-static-website.md
     - name: Procédures
       items:
         - name: Créer et gérer les comptes de stockage
@@ -353,7 +355,7 @@
         - name: Définir et récupérer des propriétés et métadonnées d’objet
           href: storage-properties-metadata.md
         - name: Héberger un site web statique
-          href: storage-blob-static-website.md
+          href: storage-blob-static-website-how-to.md
         - name: Mapper Azure CDN à un domaine personnalisé pour l’accès via HTTPS
           href: storage-https-custom-domain-cdn.md
         - name: Configuration d’un domaine personnalisé

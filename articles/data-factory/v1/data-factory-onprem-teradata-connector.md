@@ -67,8 +67,8 @@ Le tableau suivant fournit la description des éléments JSON spécifiques au se
 | type |La propriété type doit être définie sur : **OnPremisesTeradata** |Oui |
 | server |Nom du serveur Teradata. |Oui |
 | authenticationType |Type d'authentification utilisé pour se connecter à la base de données Teradata. Les valeurs possibles sont les suivantes : Anonymous, Basic et Windows. |Oui |
-| username |Spécifiez le nom d'utilisateur si vous utilisez l'authentification de base ou Windows. |Non  |
-| password |Spécifiez le mot de passe du compte d’utilisateur que vous avez spécifié pour le nom d’utilisateur. |Non  |
+| username |Spécifiez le nom d'utilisateur si vous utilisez l'authentification de base ou Windows. |Non |
+| password |Spécifiez le mot de passe du compte d’utilisateur que vous avez spécifié pour le nom d’utilisateur. |Non |
 | gatewayName |Nom de la passerelle que le service Data Factory doit utiliser pour se connecter à la base de données Teradata locale. |Oui |
 
 ## <a name="dataset-properties"></a>Propriétés du jeu de données
@@ -297,7 +297,7 @@ Lors du déplacement de données vers Teradata, les mappages suivants sont utili
 | ByteInt |Int16 |
 | Decimal |Decimal |
 | Double |Double |
-| Entier  |Int32 |
+| Entier |Int32 |
 | Number |Double |
 | SmallInt |Int16 |
 | Date |DateTime |

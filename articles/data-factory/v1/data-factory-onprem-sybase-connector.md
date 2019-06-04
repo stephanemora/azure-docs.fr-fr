@@ -69,10 +69,10 @@ Le tableau suivant fournit la description des éléments JSON spécifiques au se
 | type |La propriété type doit être définie sur : **OnPremisesSybase** |Oui |
 | server |Nom du serveur Sybase. |Oui |
 | database |Nom de la base de données Sybase. |Oui |
-| schema |Nom du schéma dans la base de données. |Non  |
+| schema |Nom du schéma dans la base de données. |Non |
 | authenticationType |Type d'authentification utilisé pour se connecter à la base de données Sybase. Les valeurs possibles sont les suivantes : Anonymous, Basic et Windows. |Oui |
-| username |Spécifiez le nom d'utilisateur si vous utilisez l'authentification de base ou Windows. |Non  |
-| password |Spécifiez le mot de passe du compte d’utilisateur que vous avez spécifié pour le nom d’utilisateur. |Non  |
+| username |Spécifiez le nom d'utilisateur si vous utilisez l'authentification de base ou Windows. |Non |
+| password |Spécifiez le mot de passe du compte d’utilisateur que vous avez spécifié pour le nom d’utilisateur. |Non |
 | gatewayName |Nom de la passerelle que le service Data Factory doit utiliser pour se connecter à la base de données Sybase locale. |Oui |
 
 ## <a name="dataset-properties"></a>Propriétés du jeu de données

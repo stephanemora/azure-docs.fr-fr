@@ -229,8 +229,6 @@
                   href: msal-js-initializing-client-applications.md
             - name: Gérer les erreurs et exceptions
               href: msal-handling-exceptions.md
-            - name: Tester les applications MSAL
-              href: msal-testing.md
             - name: Journalisation
               href: msal-logging.md
             - name: Authentification unique (JS)
@@ -366,6 +364,12 @@
                   href: msal-net-user-gets-consent-for-multiple-resources.md
                 - name: Fournir votre propre HttpClient
                   href: msal-net-provide-httpclient.md
+            - name: MSAL.js
+              items:
+                - name: Éviter les rechargements de page
+                  href: msal-js-avoid-page-reloads.md
+                - name: Passer un état personnalisé dans les demandes d’authentification
+                  href: msal-js-pass-custom-state-authentication-request.md
         - name: Interroger Azure SQL Data Warehouse (sqlcmd) (Visual Studio)
           items:
             - name: Utiliser le service connecté Active Directory

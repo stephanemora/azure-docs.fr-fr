@@ -22,6 +22,8 @@
   items:
     - name: Authentification unique auprès de ressources locales
       href: azuread-join-sso.md
+    - name: Jetons d’actualisation principaux
+      href: concept-primary-refresh-token.md
     - name: Stations de travail gérées par Azure
       href: concept-azure-managed-workstation.md
 - name: Guides pratiques
@@ -35,7 +37,7 @@
       href: azureadjoin-plan.md
     - name: Planifier votre implémentation de la jointure d’Azure AD hybride
       href: hybrid-azuread-join-plan.md
-    - name: Contrôler la jointure d’Azure AD hybride de vos appareils
+    - name: Validation contrôlée de la jonction Azure AD hybride
       href: hybrid-azuread-join-control.md
     - name: Assigner des administrateurs locaux aux appareils joints Azure AD
       href: assign-local-admin.md

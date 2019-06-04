@@ -86,14 +86,14 @@ L’activité Pig de HDInsight d’un [pipeline](data-factory-create-pipelines.m
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
 | name |Nom de l’activité |Oui |
-| description |Texte décrivant la raison motivant l’activité. |Non  |
+| description |Texte décrivant la raison motivant l’activité. |Non |
 | type |HDinsightPig |Oui |
-| inputs |Une ou plusieurs entrées utilisées par l'activité pig |Non  |
+| inputs |Une ou plusieurs entrées utilisées par l'activité pig |Non |
 | outputs |Une ou plusieurs sorties produites par l’activité pig |Oui |
 | linkedServiceName |Référence au cluster HDInsight enregistré comme un service lié dans Data Factory |Oui |
-| script |Spécifier le script en ligne pig |Non  |
-| scriptPath |Stockez le script pig dans un stockage d'objets blob Azure et indiquez le chemin d'accès au fichier. Utilisez la propriété ’script’ ou ’scriptPath’. Les deux propriétés ne peuvent pas être utilisées simultanément. Le nom de fichier respecte la casse. |Non  |
-| defines |Spécifier les paramètres sous forme de paires clé/valeur pour le référencement au sein du script pig |Non  |
+| script |Spécifier le script en ligne pig |Non |
+| scriptPath |Stockez le script pig dans un stockage d'objets blob Azure et indiquez le chemin d'accès au fichier. Utilisez la propriété ’script’ ou ’scriptPath’. Les deux propriétés ne peuvent pas être utilisées simultanément. Le nom de fichier respecte la casse. |Non |
+| defines |Spécifier les paramètres sous forme de paires clé/valeur pour le référencement au sein du script pig |Non |
 
 ## <a name="example"></a>Exemples
 Prenons un exemple d’analyse de journaux d’activité de jeux où vous souhaitez identifier le temps passé par les joueurs à jouer à des jeux créés par votre entreprise.
@@ -211,7 +211,7 @@ Pour utiliser le script pig paramétré, procédez comme suit :
       }
     }
     ```
-* Dans le script pig, reportez-vous aux paramètres à l'aide de ’**$parameterName**’ comme indiqué dans l'exemple suivant :
+* Dans le script pig, reportez-vous aux paramètres à l'aide de ’ **$parameterName**’ comme indiqué dans l'exemple suivant :
 
     ```
     PigSampleIn = LOAD '$Input' USING PigStorage(',') AS (ProfileID:chararray, SessionStart:chararray, Duration:int, SrcIPAddress:chararray, GameType:chararray);

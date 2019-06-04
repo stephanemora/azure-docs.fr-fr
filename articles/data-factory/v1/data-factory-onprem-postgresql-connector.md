@@ -77,10 +77,10 @@ Le tableau suivant fournit la description des éléments JSON spécifiques au se
 | type |La propriété type doit être définie sur : **OnPremisesPostgreSql** |Oui |
 | server |Nom du serveur PostgreSQL. |Oui |
 | database |Nom de la base de données PostgreSQL. |Oui |
-| schema |Nom du schéma dans la base de données. Le nom du schéma respecte la casse. |Non  |
+| schema |Nom du schéma dans la base de données. Le nom du schéma respecte la casse. |Non |
 | authenticationType |Type d'authentification utilisé pour se connecter à la base de données PostgreSQL. Les valeurs possibles sont les suivantes : Anonymous, Basic et Windows. |Oui |
-| username |Spécifiez le nom d'utilisateur si vous utilisez l'authentification de base ou Windows. |Non  |
-| password |Spécifiez le mot de passe du compte d’utilisateur que vous avez spécifié pour le nom d’utilisateur. |Non  |
+| username |Spécifiez le nom d'utilisateur si vous utilisez l'authentification de base ou Windows. |Non |
+| password |Spécifiez le mot de passe du compte d’utilisateur que vous avez spécifié pour le nom d’utilisateur. |Non |
 | gatewayName |Nom de la passerelle que le service Data Factory doit utiliser pour se connecter à la base de données PostgreSQL locale. |Oui |
 
 ## <a name="dataset-properties"></a>Propriétés du jeu de données
