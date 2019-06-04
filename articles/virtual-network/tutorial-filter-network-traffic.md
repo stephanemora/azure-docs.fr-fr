@@ -14,12 +14,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 12/13/2018
 ms.author: kumud
-ms.openlocfilehash: ad34c6a876ca21bc7ef32cce638240e0d23b3177
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 4097d4fc46aac88cd44d21a4cdcf0d7d5093feea
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64723914"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242734"
 ---
 # <a name="tutorial-filter-network-traffic-with-a-network-security-group-using-the-azure-portal"></a>Didacticiel : Filtrer le trafic réseau avec un groupe de sécurité réseau à l’aide du portail Azure
 
@@ -157,7 +157,7 @@ Créez deux machines virtuelles dans le réseau virtuel.
     |Paramètre|Valeur|
     |---|---|
     |Réseau virtuel |Sélectionner **myVirtualNetwork**|
-    |Groupe de sécurité réseau | Sélectionnez **Advanced (Avancé)**.|
+    |Groupe de sécurité réseau | Sélectionnez **Advanced (Avancé)** .|
     |Groupe de sécurité réseau (pare-feu)| Sélectionnez **(nouveau) myVmWeb-nsg**, puis sous **Choisir un groupe de sécurité réseau**, sélectionnez **Aucun**. |
 
 6. Sous **Créer** dans le **résumé**, sélectionnez **Créer** pour démarrer le déploiement de la machine virtuelle.

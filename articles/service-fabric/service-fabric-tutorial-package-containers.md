@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 01/31/2019
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 0dbd0445f4167485172a2b98cec3bb2b2a47ac20
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: a54ec7349317fdd8621fecec57cb06ad98f4660b
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58668413"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306747"
 ---
 # <a name="tutorial-package-and-deploy-containers-as-a-service-fabric-application-using-yeoman"></a>Didacticiel : Empaqueter et déployer des conteneurs sous forme d’application Service Fabric à l’aide de Yeoman
 
@@ -128,7 +128,7 @@ Connectez-vous à votre instance ACR. Utilisez la commande **az acr login** pour
 az acr login --name <acrName>
 ```
 
-Après son exécution, la commande retourne le message **Login Succeeded (Connexion réussie)**.
+Après son exécution, la commande retourne le message **Login Succeeded (Connexion réussie)** .
 
 Exécutez ensuite la commande suivante pour obtenir le mot de passe de votre registre de conteneurs. Ce mot de passe est utilisé par Service Fabric pour l’authentification auprès d’ACR, afin d’extraire les images conteneur.
 
