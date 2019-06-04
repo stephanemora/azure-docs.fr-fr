@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 05/10/2019
+ms.date: 05/30/2019
 ms.author: tulasim
-ms.openlocfilehash: 2454e07e4fc4600f846acc7afbcc19cc0b677450
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 3088d0f161496cfd2e1cb8897cef36365ece9962
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65792232"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66496953"
 ---
 # <a name="get-a-knowledge-answer-with-the-generateanswer-api-and-metadata"></a>Obtenir une réponse de la base de connaissances avec les API de GenerateAnswer et les métadonnées
 
@@ -86,6 +86,7 @@ Le corps JSON a plusieurs paramètres :
 |`scoreThreshold`|facultatif|integer|Seront affichera uniquement les réponses avec le score de confiance au-dessus de ce seuil. La valeur par défaut est 0.|
 |`isTest`|facultatif|booléenne|Si défini sur true, renvoie les résultats à partir de `testkb` index de recherche au lieu de l’index publié.|
 |`strictFilters`|facultatif|string|si elle est spécifiée, cette chaîne indique à QnA Maker de retourner uniquement les réponses qui contiennent les métadonnées spécifiées. Utilisez `none` pour indiquer la réponse ne doit comporter aucun filtre de métadonnées. |
+|`RankerType`|facultatif|string|S’il est spécifié en tant que `QuestionOnly`, indique à QnA Maker pour rechercher uniquement les questions. Si non spécifié, QnA Maker recherche questions et réponses.
 
 Un exemple de corps JSON ressemble à :
 
@@ -119,7 +120,7 @@ Une réponse réussie retourne un état de 200 et une réponse JSON.
 |source|nom de la source à partir de laquelle la réponse a été extraite ou enregistrée dans la base de connaissances.|
 |metadata|métadonnées associées à la réponse.|
 |metadata.name|nom des métadonnées. (chaîne, longueur maximale : 100, obligatoire)|
-|Metadata.Value : valeur des métadonnées. (chaîne, longueur maximale : 100, obligatoire)|
+|metadata.value|valeur des métadonnées. (chaîne, longueur maximale : 100, obligatoire)|
 
 
 ```json
@@ -172,7 +173,7 @@ Prenez la question de l’utilisateur « Quand cet hôtel ferme-t-il ? » où l�
 }
 ```
 
-<name="keep-context"></a>
+<a name="keep-context"></a>
 
 ## <a name="use-question-and-answer-results-to-keep-conversation-context"></a>Utilisez les résultats de questions et réponses pour conserver le contexte de conversation
 
@@ -201,6 +202,21 @@ La réponse à la GenerateAnswer contient les informations de métadonnées corr
             ]
         }
     ]
+}
+```
+
+## <a name="match-questions-only-by-text"></a>Correspondance de questions, en texte
+
+Par défaut, QnA Maker effectue une recherche dans les questions et réponses. Si vous souhaitez effectuer une recherche dans les questions uniquement, pour générer une réponse, utilisez le `RankerType=QuestionOnly` dans le corps POST de la demande GenerateAnswer.
+
+Vous pouvez parcourir la base de connaissances publié, à l’aide de `isTest=false`, ou dans la base de connaissances de test à l’aide de `isTest=true`.
+
+```json
+{
+  "question": "Hi",
+  "top": 30,
+  "isTest": true,
+  "RankerType":"QuestionOnly"
 }
 ```
 

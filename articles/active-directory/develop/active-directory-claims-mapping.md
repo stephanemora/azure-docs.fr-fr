@@ -44,7 +44,7 @@ Une stratégie de mappage de revendications est un type d’objet de **stratégi
 
 Il existe des ensembles de revendications qui définissent comment et quand ils sont utilisés dans des jetons.
 
-| Ensemble de revendications | Description  |
+| Ensemble de revendications | Description |
 |---|---|
 | Ensemble de revendications principal | Sont présents dans chaque jeton, quelle que soit la stratégie. Ces revendications sont également considérées comme restreintes, et ne peuvent pas être modifiées. |
 | Ensemble de revendications de base | Inclut les revendications émises par défaut pour les jetons (en plus de l’ensemble de revendications principal). Vous pouvez omettre ou modifier des revendications de base à l’aide de stratégies de mappage de revendications. |
@@ -284,11 +284,11 @@ L’élément ID identifie la propriété définie sur la source qui fournit la 
 
 #### <a name="table-3-valid-id-values-per-source"></a>Tableau 3 : Valeurs d’ID valides par source
 
-| Source | ID | Description  |
+| Source | ID | Description |
 |-----|-----|-----|
 | Utilisateur | surname | Nom de famille |
 | Utilisateur | givenname | Prénom |
-| Utilisateur | displayname | Nom complet  |
+| Utilisateur | displayname | Nom complet |
 | Utilisateur | objectid | ObjectID |
 | Utilisateur | mail | Adresse de messagerie |
 | Utilisateur | userPrincipalName | Nom principal de l'utilisateur |
@@ -358,7 +358,7 @@ Selon la méthode choisie, un ensemble d’entrées et sorties est attendu. Déf
 
 #### <a name="table-4-transformation-methods-and-expected-inputs-and-outputs"></a>Tableau 4 : Méthodes de transformation et entrées et sorties attendues
 
-|Méthode de transformation|Entrée attendue|Sortie attendue|Description |
+|Méthode de transformation|Entrée attendue|Sortie attendue|Description|
 |-----|-----|-----|-----|
 |Join|string1, string2, séparateur|outputClaim|Joint les chaînes d’entrée à l’aide d’un séparateur. Par exemple : string1:"foo@bar.com", string2:"sandbox", separator:"." produit outputClaim:"foo@bar.com.sandbox"|
 |ExtractMailPrefix|mail|outputClaim|Extrait la partie locale d’une adresse de courrier. Par exemple : mail:"foo@bar.com" produit outputClaim:"foo". Si aucun symbole \@ n’est présent, la chaîne d’entrée d’origine est retournée telle quelle.|
@@ -384,7 +384,7 @@ Selon la méthode choisie, un ensemble d’entrées et sorties est attendu. Déf
 
 #### <a name="table-5-attributes-allowed-as-a-data-source-for-saml-nameid"></a>Tableau 5 : Attributs autorisés en tant que sources de données pour NameID SAML
 
-|Source|ID|Description |
+|Source|ID|Description|
 |-----|-----|-----|
 | Utilisateur | mail|Adresse de messagerie|
 | Utilisateur | userPrincipalName|Nom principal de l'utilisateur|

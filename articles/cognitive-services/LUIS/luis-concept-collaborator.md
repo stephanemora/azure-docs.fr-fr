@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 04/01/2019
+ms.date: 06/03/2019
 ms.author: diberry
-ms.openlocfilehash: 8c2ed8932e67a2e0c83fe4e3fdf6783c24e56a6e
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 294905ccfd0ce8db6da8737277b0ce978ba837ea
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956985"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66473517"
 ---
 # <a name="collaborating-with-other-authors"></a>Collaboration avec d’autres auteurs
 
@@ -31,7 +31,7 @@ Pour plus d’informations sur les comptes d’utilisateur Active Directory, voi
 
 ## <a name="luis-app-owner"></a>Propriétaire d’application LUIS
 
-Le compte qui crée une application est le propriétaire, et chaque application dispose d’un seul propriétaire. Le propriétaire est répertorié dans l’application **[paramètres](luis-how-to-collaborate.md)** page. Le propriétaire peut supprimer l’application de réception e-mail lorsque le quota de point de terminaison atteint 75 % de la limite mensuelle. 
+Le compte qui crée une application est le propriétaire, et chaque application dispose d’un seul propriétaire. Le propriétaire est répertorié dans l’application **[paramètres](luis-how-to-collaborate.md)** page. Le propriétaire reçoit le message électronique lorsque le quota de point de terminaison atteint 75 % de la limite mensuelle. 
 
 ## <a name="authorization-roles"></a>Rôles d’autorisation
 LUIS ne prend pas en charge des rôles différents pour les propriétaires et collaborateurs, à une exception près. Le propriétaire est le seul compte qui peut supprimer l’application.

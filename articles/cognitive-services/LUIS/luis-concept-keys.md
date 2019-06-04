@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: diberry
-ms.openlocfilehash: 1f5aab607c5046df0dee4db5caf36b0b7de53c4d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: feb4622be14b51cfa72c33cda6c2477f799758c6
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60813940"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66473594"
 ---
 # <a name="authoring-and-query-prediction-endpoint-keys-in-luis"></a>Clés de point de terminaison de création et de prédiction de requête dans LUIS
 LUIS utilise deux clés : [création](#programmatic-key) et [point de terminaison](#endpoint-key). La clé de création est générée automatiquement lorsque vous créez votre compte LUIS. Lorsque vous êtes prêt à publier votre application LUIS, vous devez [créer la clé de point de terminaison](luis-how-to-azure-subscription.md), [l’affecter](luis-how-to-azure-subscription.md) à votre application LUIS et [l’utiliser avec la requête de point de terminaison](#use-endpoint-key-in-query). 
@@ -49,11 +49,11 @@ Une fois que vous aurez besoin de **requêtes de point de terminaison de product
 
 À la fin du processus de création de ressource Azure, [affectez la clé](luis-how-to-azure-subscription.md) à l’application. 
 
-    * La clé de point de terminaison permet un quota d’accès au point de terminaison basé sur le plan de l’utilisation que vous avez spécifié lors de la création de la clé. Consultez [tarification de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/?v=17.23h) pour des informations sur la tarification.
+* La clé de point de terminaison permet un quota d’accès au point de terminaison basé sur le plan de l’utilisation que vous avez spécifié lors de la création de la clé. Consultez [tarification de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/?v=17.23h) pour des informations sur la tarification.
 
-    * La clé de point de terminaison peut être utilisée pour toutes vos applications LUIS, ou pour des applications LUIS spécifiques. 
+* La clé de point de terminaison peut être utilisée pour toutes vos applications LUIS, ou pour des applications LUIS spécifiques. 
 
-    * N’utilisez pas la clé de point de terminaison pour la création d’applications LUIS. 
+* N’utilisez pas la clé de point de terminaison pour la création d’applications LUIS. 
 
 ## <a name="use-endpoint-key-in-query"></a>Utilisez la clé de point de terminaison dans la requête
 Le point de terminaison LUIS accepte deux styles de requêtes, les deux utilisant la clé de point de terminaison, mais à des emplacements différents :

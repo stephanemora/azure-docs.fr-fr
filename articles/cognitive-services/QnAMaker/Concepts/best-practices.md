@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 05/10/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 2677c993b759988b0a9906b357bcd352b243b5a7
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: b599beb6a8d14d0e62d236251fb5f5b1e1a8bcfd
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65792674"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66496938"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>Bonnes pratiques pour une base de connaissances QnA Maker
 Le [cycle de vie du développement d’une base de connaissances](../Concepts/development-lifecycle-knowledge-base.md) vous guide de bout en bout sur la façon de gérer votre base de connaissances. Suivez ces bonnes pratiques pour améliorer votre base de connaissances et fournir des résultats plus pertinents aux utilisateurs finaux de votre application/bot conversationnel.
@@ -59,11 +59,11 @@ Il existe certaines questions propres au bot qui font partie du jeu de données 
 
 Nous vous recommandons de rendre les questions-réponses d’échanges de conversation suivantes plus spécifiques :
 
-* Qui êtes-vous ?
+* Qui êtes-vous ?
 * Que pouvez-vous faire ?
 * Quel âge avez-vous ?
 * Qui vous a créé ?
-* Bonjour
+* Hello
    
 
 ## <a name="rankingscoring"></a>Classement/scoring
@@ -72,10 +72,13 @@ Essayez d’optimiser l’utilisation des fonctionnalités de classement que QnA
 ### <a name="choosing-a-threshold"></a>Choix d’un seuil
 Le score de confiance par défaut utilisé comme seuil est de 50, mais vous pouvez le changer pour votre base de connaissances en fonction de vos besoins. Chaque base de connaissances étant différente, vous devez procéder à des test et choisir le seuil qui convient le mieux à votre base de connaissances. Pour en savoir plus sur le score de confiance, consultez [cet article](../Concepts/confidence-score.md). 
 
+### <a name="choosing-ranker-type"></a>Choix du type thématiques
+Par défaut, QnA Maker effectue une recherche dans les questions et réponses. Si vous souhaitez effectuer une recherche dans les questions uniquement, pour générer une réponse, utilisez le `RankerType=QuestionOnly` dans le corps POST de la demande GenerateAnswer.
+
 ### <a name="add-alternate-questions"></a>Ajouter des questions alternatives
 Les [questions alternatives](../How-To/edit-knowledge-base.md) augmentent la probabilité de trouver une correspondance avec une requête utilisateur. Les questions alternatives sont utiles quand il existe plusieurs manières de poser une question. C’est notamment le cas pour les variantes syntaxiques et lexicales.
 
-|Requête d’origine|Autres requêtes|Changer| 
+|Requête d’origine|Autres requêtes|Modifier| 
 |--|--|--|
 |Un stationnement est-il disponible ?|Vous avez un parking ?|Variante syntaxique|
  |Salut|Bonjour<br>Ça va ?|Variante lexicale ou argot|
@@ -103,7 +106,7 @@ Par exemple, vous pouvez avoir deux entités QnA distinctes avec les questions s
 |où est l’*emplacement* de stationnement|
 |où est *l’emplacement* du distributeur automatique de billets|
 
-Ces deux entités QnA employant des mots très similaires, elles pourraient générer des scores très similaires pour de nombreuses requêtes d’utilisateur utilisant la tournure de phrase *« où est l’emplacement de `<x>` ».* Essayez plutôt de les distinguer clairement avec des requêtes du type *« où est le parking »* et *« où est le distributeur automatique de billets »*, en évitant des mots comme « emplacement » susceptibles de figurer dans de nombreuses questions de la base de connaissances. 
+Ces deux entités QnA employant des mots très similaires, elles pourraient générer des scores très similaires pour de nombreuses requêtes d’utilisateur utilisant la tournure de phrase *« où est l’emplacement de `<x>` ».* Essayez plutôt de les distinguer clairement avec des requêtes du type *« où est le parking »* et *« où est le distributeur automatique de billets »* , en évitant des mots comme « emplacement » susceptibles de figurer dans de nombreuses questions de la base de connaissances. 
 
 ## <a name="collaborate"></a>Travailler en collaboration
 QnA Maker permet aux utilisateurs de [travailler en collaboration](../How-to/collaborate-knowledge-base.md) sur une base de connaissances. Les utilisateurs doivent avoir accès au groupe de ressources Azure QnA Maker pour accéder à la base de connaissances. Certaines organisations souhaitent externaliser la mise à jour et la gestion des bases de connaissances tout en pouvant quand même protéger l’accès à leurs ressources Azure. Ce modèle éditeur-approbateur s’obtient en configurant deux [services QnA Maker](../How-to/set-up-qnamaker-service-azure.md) identiques dans des abonnements différents et en sélectionnant l’un d’entre eux pour le cycle de modification-test. À la fin des tests, le contenu de la base de connaissances est transféré, par un processus [importation-exportation](../Tutorials/migrate-knowledge-base.md), au service QnA Maker de l’approbateur, qui publiera la base de connaissances et mettra à jour le point de terminaison.
