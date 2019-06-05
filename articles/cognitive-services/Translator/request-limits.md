@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 02/21/2019
+ms.date: 06/04/2019
 ms.author: erhopf
-ms.openlocfilehash: 91cc002f373318e5124fc21f76edbfd000d17238
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: c19e39918aa64730a35a27fcdadd70800f47f4fa
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65796905"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514653"
 ---
 # <a name="request-limits-for-translator-text"></a>Limites de requête pour la traduction de texte Translator Text
 
@@ -29,16 +29,16 @@ Les table listes tableau élément et caractère limites suivantes pour chaque o
 
 | Opération | Taille maximale de l’élément de tableau |   Nombre maximal d’éléments de tableau |  Taille de demande maximale (caractères) |
 |:----|:----|:----|:----|
-| Déplacer | 5 000 | 100   | 5 000 |
+| Translate | 5 000 | 100   | 5 000 |
 | Transliterate | 5 000 | 10    | 5 000 |
-| Détecter | 10 000 | 100 |   50 000 |
+| Detect | 10 000 | 100 |   50 000 |
 | BreakSentence | 10 000    | 100 | 5,0000 |
 | Recherche dans le dictionnaire| 100 |  10  | 1 000 |
 | Exemples de dictionnaire | 100 pour le texte et 100 pour la traduction (total de 200)| 10|   2 000 |
 
 ## <a name="character-limits-per-hour"></a>Limites de caractères par heure
 
-Votre limite de caractère par heure est basée sur votre niveau d’abonnement Translator Text. Le quota de toutes les heures doit être utilisé uniformément tout au long de l’heure. Si vous atteindrez ou dépasser ces limites ou envoyez trop volumineux d’une partie du quota sur une courte période de temps, vous recevrez probablement une réponse de quota à l’emploi. 
+Votre limite de caractère par heure est basée sur votre niveau d’abonnement Translator Text. Le quota de toutes les heures doit être utilisé uniformément tout au long de l’heure. Si vous atteindrez ou dépasser ces limites ou envoyez trop volumineux d’une partie du quota sur une courte période de temps, vous recevrez probablement une réponse de quota à l’emploi.
 
 | Niveau | Limite de caractères |
 |------|-----------------|
@@ -69,7 +69,7 @@ Quand vous utilisez la fonction [BreakSentence](https://docs.microsoft.com/azure
 | Portugais | pt | 290 |
 | Espagnol | es | 280 |
 | Italien | it | 280 |
-| Thaï | e | 258 |
+| Thaï | th | 258 |
 
 > [!NOTE]
 > Cette limite ne s’applique pas aux traductions.

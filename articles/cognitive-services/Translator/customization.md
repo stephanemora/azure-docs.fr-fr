@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 02/21/2019
+ms.date: 06/04/2019
 ms.author: v-pawal
-ms.openlocfilehash: 2c17ef292d6afcf66d9a5aaf2c502751276bb470
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: cb15ae375f412a66b9d7939b6a580ebb95f2f7a8
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66389585"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515102"
 ---
 # <a name="customize-your-text-translations"></a>Personnaliser vos traductions de texte
 
@@ -51,9 +51,9 @@ Vous trouverez plus de détails sur les différents niveaux de personnalisation 
 |:-----|:----:|:----:|
 |État de la fonctionnalité de personnalisation   | Disponibilité générale  | Disponibilité générale |
 | Version de l'API de texte  | V2 uniquement   | V3 uniquement |
-| Personnalisation TA statistique | Oui   | Non  |
-| Personnalisation TA neuronale | Non     | Oui |
-| Nouvelle personnalisation unifiée des services vocaux | Non     | Oui |
+| Personnalisation TA statistique | Oui   | Non |
+| Personnalisation TA neuronale | Non    | Oui |
+| Nouvelle personnalisation unifiée des services vocaux | Non    | Oui |
 | [Sans trace](https://www.aka.ms/notrace) | Oui  | Oui |
 
 ## <a name="collaborative-translations-framework"></a>Infrastructure de traductions collaboratives

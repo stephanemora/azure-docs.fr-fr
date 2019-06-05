@@ -79,8 +79,8 @@ Le tableau suivant fournit la description des éléments JSON spécifiques au se
 | type |La propriété de type doit être définie sur : **OnPremisesSqlServer**. |Oui |
 | connectionString |Spécifiez les informations connectionString nécessaires pour connecter la base de données SQL Server locale à l’aide de l’authentification SQL ou de l’authentification Windows. |Oui |
 | gatewayName |Nom de la passerelle que le service Data Factory doit utiliser pour se connecter à la base de données SQL Server locale. |Oui |
-| username |Spécifiez le nom d’utilisateur si vous utilisez l’authentification Windows. Exemple : **domainname\\username**. |Non  |
-| password |Spécifiez le mot de passe du compte d’utilisateur que vous avez spécifié pour le nom d’utilisateur. |Non  |
+| username |Spécifiez le nom d’utilisateur si vous utilisez l’authentification Windows. Exemple : **domainname\\username**. |Non |
+| password |Spécifiez le mot de passe du compte d’utilisateur que vous avez spécifié pour le nom d’utilisateur. |Non |
 
 Vous pouvez chiffrer les informations d’identification à l’aide de la **New-AzDataFactoryEncryptValue** applet de commande et les utiliser, comme illustré dans l’exemple suivant, dans la chaîne de connexion (**EncryptedCredential** propriété) :
 
@@ -150,9 +150,9 @@ Lorsqu’une source dans une activité de copie est de type **SqlSource**, les p
 
 | Propriété | Description | Valeurs autorisées | Obligatoire |
 | --- | --- | --- | --- |
-| sqlReaderQuery |Utilise la requête personnalisée pour lire des données. |Chaîne de requête SQL. Par exemple : select * from MyTable. Peut faire référence à plusieurs tables de la base de données référencée par le jeu de données d’entrée. S’il n’est pas spécifié, l’instruction SQL est exécutée : select from MyTable. |Non  |
-| sqlReaderStoredProcedureName |Nom de la procédure stockée qui lit les données de la table source. |Nom de la procédure stockée. La dernière instruction SQL doit être une instruction SELECT dans la procédure stockée. |Non  |
-| storedProcedureParameters |Paramètres de la procédure stockée. |Paires nom/valeur. Les noms et la casse des paramètres doivent correspondre aux noms et à la casse des paramètres de la procédure stockée. |Non  |
+| sqlReaderQuery |Utilise la requête personnalisée pour lire des données. |Chaîne de requête SQL. Par exemple : select * from MyTable. Peut faire référence à plusieurs tables de la base de données référencée par le jeu de données d’entrée. S’il n’est pas spécifié, l’instruction SQL est exécutée : select from MyTable. |Non |
+| sqlReaderStoredProcedureName |Nom de la procédure stockée qui lit les données de la table source. |Nom de la procédure stockée. La dernière instruction SQL doit être une instruction SELECT dans la procédure stockée. |Non |
+| storedProcedureParameters |Paramètres de la procédure stockée. |Paires nom/valeur. Les noms et la casse des paramètres doivent correspondre aux noms et à la casse des paramètres de la procédure stockée. |Non |
 
 Si **sqlReaderQuery** est spécifié pour la SqlSource, l'activité de copie exécute cette requête dans la source Azure SQL Database pour obtenir les données.
 
@@ -168,12 +168,12 @@ Si vous ne spécifiez pas sqlReaderQuery ou sqlReaderStoredProcedureName, les co
 
 | Propriété | Description | Valeurs autorisées | Obligatoire |
 | --- | --- | --- | --- |
-| writeBatchTimeout |Temps d’attente pour que l’opération d’insertion de lot soit terminée avant d’expirer. |intervalle de temps<br/><br/> Exemple : “00:30:00” (30 minutes). |Non  |
+| writeBatchTimeout |Temps d’attente pour que l’opération d’insertion de lot soit terminée avant d’expirer. |intervalle de temps<br/><br/> Exemple : “00:30:00” (30 minutes). |Non |
 | writeBatchSize |Insère des données dans la table SQL lorsque la taille du tampon atteint writeBatchSize |Nombre entier (nombre de lignes) |Non (valeur par défaut : 10000) |
-| sqlWriterCleanupScript |Spécifiez une requête pour exécuter l'activité de copie de sorte que les données d'un segment spécifique sont nettoyées. Pour en savoir plus, voir la section [Copie renouvelée](#repeatable-copy). |Une instruction de requête. |Non  |
-| sliceIdentifierColumnName |Spécifiez le nom de la colonne que l’activité de copie doit remplir avec l’identificateur de segment généré automatiquement, et qui est utilisée pour nettoyer les données d’un segment spécifique lors de la réexécution. Pour en savoir plus, voir la section [Copie renouvelée](#repeatable-copy). |Nom d’une colonne avec le type de données binary(32). |Non  |
-| sqlWriterStoredProcedureName |Nom de la procédure stockée qui définit comment appliquer les données sources dans la table cible, par exemple pour effectuer des upserts ou des transformations à l’aide de votre propre logique métier. <br/><br/>Notez que cette procédure stockée sera **appelée par lot**. Si vous souhaitez effectuer une opération qui ne s’exécute qu’une seule fois et n’a rien à faire avec les données sources, par exemple supprimer/tronquer, utilisez la propriété `sqlWriterCleanupScript`. |Nom de la procédure stockée. |Non  |
-| storedProcedureParameters |Paramètres de la procédure stockée. |Paires nom/valeur. Les noms et la casse des paramètres doivent correspondre aux noms et à la casse des paramètres de la procédure stockée. |Non  |
+| sqlWriterCleanupScript |Spécifiez une requête pour exécuter l'activité de copie de sorte que les données d'un segment spécifique sont nettoyées. Pour en savoir plus, voir la section [Copie renouvelée](#repeatable-copy). |Une instruction de requête. |Non |
+| sliceIdentifierColumnName |Spécifiez le nom de la colonne que l’activité de copie doit remplir avec l’identificateur de segment généré automatiquement, et qui est utilisée pour nettoyer les données d’un segment spécifique lors de la réexécution. Pour en savoir plus, voir la section [Copie renouvelée](#repeatable-copy). |Nom d’une colonne avec le type de données binary(32). |Non |
+| sqlWriterStoredProcedureName |Nom de la procédure stockée qui définit comment appliquer les données sources dans la table cible, par exemple pour effectuer des upserts ou des transformations à l’aide de votre propre logique métier. <br/><br/>Notez que cette procédure stockée sera **appelée par lot**. Si vous souhaitez effectuer une opération qui ne s’exécute qu’une seule fois et n’a rien à faire avec les données sources, par exemple supprimer/tronquer, utilisez la propriété `sqlWriterCleanupScript`. |Nom de la procédure stockée. |Non |
+| storedProcedureParameters |Paramètres de la procédure stockée. |Paires nom/valeur. Les noms et la casse des paramètres doivent correspondre aux noms et à la casse des paramètres de la procédure stockée. |Non |
 | sqlWriterTableType |Spécifiez le nom du type de table à utiliser dans la procédure stockée. L’activité de copie place les données déplacées disponibles dans une table temporaire avec ce type de table. Le code de procédure stockée peut ensuite fusionner les données copiées avec les données existantes. |Nom de type de table. |Non |
 
 

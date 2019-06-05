@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 02/21/2019
+ms.date: 06/04/2019
 ms.author: v-pawal
-ms.openlocfilehash: 1cfe4038ff422ecba68f110707e9535226ccd4a5
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 924324b11f49a50bfb5f00e117b33c0cc572e3bb
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 06/04/2019
-ms.locfileid: "66472108"
+ms.locfileid: "66514983"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Langues et régions prises en charge par l’API de traduction de texte Translator Text
 
@@ -35,7 +35,7 @@ L’API de traduction de texte Translator Text prend en charge les langues ci-ap
 * Neural par défaut : Neural est le système de traduction par défaut. Utilisez le paramètre `category=smt` pour accéder au système de statistiques en vue d’une utilisation avec Microsoft Translator Hub.
 * Neural uniquement : Seule la traduction neurale est disponible.
 
-L’**API Translator V3** est neurale par défaut et les systèmes statistiques ne sont disponibles qu’en l’absence d’un système neural. 
+L’**API Translator V3** est neurale par défaut et les systèmes statistiques ne sont disponibles qu’en l’absence d’un système neural.
 
 > [!NOTE]
 > Actuellement, un sous-ensemble des langues NEURONALES sont disponibles dans le traducteur de personnalisé et nous ajoutons progressivement de nouvelles. [Afficher des langues actuellement disponibles dans personnalisé Translator](#customization).

@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 02/21/2019
+ms.date: 06/04/2019
 ms.author: v-pawal
-ms.openlocfilehash: 72c23270d6e8cdef55f07d0b702fd1858a7710f8
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: d3a77ee9273e9f587b6157bb6ed2294865b1fca5
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66389552"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514257"
 ---
-# <a name="how-to-use-the-dynamic-dictionary-feature-of-the-translator-text-api"></a>Comment utiliser la fonctionnalité du dictionnaire dynamique de l’API de traduction de texte Translator Text
+# <a name="how-to-use-a-dynamic-dictionary"></a>Comment utiliser un dictionnaire dynamique
 
 Si vous connaissez déjà la traduction que vous souhaitez appliquer à un mot ou à une phrase, vous pouvez la fournir en tant que balisage dans la demande. Le dictionnaire dynamique n’est sûr que pour des noms composés, tels que des noms propres et des noms de produits.
 

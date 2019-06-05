@@ -8,17 +8,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
-ms.date: 04/30/2019
-ms.openlocfilehash: edf4a3e9d9e9b51ac44f839cababa9d14bc0d17a
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.date: 05/29/2019
+ms.openlocfilehash: 21209548d1cfe7b6eebb1757e817a12c797e78a9
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65228052"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66688842"
 ---
 # <a name="moderate-text-from-the-api-console"></a>Modérer du texte à partir de la console d’API
 
-Utilisez le [l’API Modération du texte](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f) dans Azure Content Moderator pour analyser le contenu de votre texte. L’opération d’analyse de votre contenu blasphèmes sur et compare le contenu par rapport à des listes de blocage personnalisées et partagées.
+Utilisez le [API de modération de texte](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f) dans Azure Content Moderator pour analyser votre contenu de texte blasphèmes sur et comparer aux listes personnalisées et partagées.
 
 ## <a name="get-your-api-key"></a>Obtenir votre clé API
 
@@ -72,7 +72,7 @@ Also, 999-99-9999 looks like a social security number (SSN).
 
 ## <a name="analyze-the-response"></a>Analyser la réponse
 
-La réponse suivante montre les différentes informations fournies par l’API. Elle contient les propos injurieux potentiels, les informations d’identification personnelle, la classification (préversion) et la version corrigée automatiquement.
+La réponse suivante montre les différentes informations fournies par l’API. Il contient les injures potentielles, des données personnelles, la classification (version préliminaire) et la version corrigé automatiquement.
 
 > [!NOTE]
 > La fonctionnalité « Classification » assistée par ordinateur est en préversion et prend en charge uniquement l’anglais.

@@ -330,32 +330,32 @@ Le tableau suivant décrit les propriétés JSON utilisées dans la définition 
 | Propriété | Description | Obligatoire |
 | -------- | ----------- | -------- |
 | name | Nom de l'activité dans le pipeline. | Oui |
-| description | Texte qui décrit l’activité. | Non  |
+| description | Texte qui décrit l’activité. | Non |
 | type | Cette propriété doit être définie sur HDInsightSpark. | Oui |
 | linkedServiceName | Nom d’un service lié HDInsight sur lequel s’exécute le programme Spark. | Oui |
 | rootPath | Conteneur d’objets Blob et dossier contenant le fichier Spark. Le nom de fichier est sensible à la casse. | Oui |
 | entryFilePath | Chemin d’accès relatif au dossier racine du code/package Spark. | Oui |
-| className | Classe principale Java/Spark de l’application. | Non  |
-| arguments | Liste d’arguments de ligne de commande du programme Spark. | Non  |
-| proxyUser | Compte d’utilisateur à emprunter pour exécuter le programme Spark. | Non  |
-| sparkConfig | Spécifiez les valeurs des propriétés de configuration de Spark lisétes dans la rubrique [Configuration Spark : Propriétés de l’application](https://spark.apache.org/docs/latest/configuration.html#available-properties). | Non  |
-| getDebugInfo | Spécifie quand les fichiers journaux de Spark sont copiés vers le stockage utilisé par le cluster HDInsight (ou) spécifié par sparkJobLinkedService. Les valeurs autorisées sont Aucun, Toujours ou Échec. La valeur par défaut est Aucun. | Non  |
-| sparkJobLinkedService | Service lié Stockage qui contient le fichier de travail, les dépendances et les journaux d’activité Spark. Si vous ne spécifiez pas de valeur pour cette propriété, le stockage associé au cluster HDInsight est utilisé. | Non  |
+| className | Classe principale Java/Spark de l’application. | Non |
+| arguments | Liste d’arguments de ligne de commande du programme Spark. | Non |
+| proxyUser | Compte d’utilisateur à emprunter pour exécuter le programme Spark. | Non |
+| sparkConfig | Spécifiez les valeurs des propriétés de configuration de Spark lisétes dans la rubrique [Configuration Spark : Propriétés de l’application](https://spark.apache.org/docs/latest/configuration.html#available-properties). | Non |
+| getDebugInfo | Spécifie quand les fichiers journaux de Spark sont copiés vers le stockage utilisé par le cluster HDInsight (ou) spécifié par sparkJobLinkedService. Les valeurs autorisées sont Aucun, Toujours ou Échec. La valeur par défaut est Aucun. | Non |
+| sparkJobLinkedService | Service lié Stockage qui contient le fichier de travail, les dépendances et les journaux d’activité Spark. Si vous ne spécifiez pas de valeur pour cette propriété, le stockage associé au cluster HDInsight est utilisé. | Non |
 
 ## <a name="folder-structure"></a>Structure de dossiers
 L’activité Spark ne prend pas en charge un script en ligne, contrairement aux activités Pig et Hive. Les travaux Spark sont également plus extensibles que les travaux Pig/Hive. Pour les travaux Spark, vous pouvez fournir plusieurs dépendances, telles que des packages jar (placés dans le CLASSPATH Java), des fichiers Python (placés dans le PYTHONPATH) et tout autre fichier.
 
 Créez la structure de dossiers suivante dans le stockage Blob référencé par le service lié HDInsight. Chargez ensuite les fichiers dépendants dans les sous-dossiers appropriés dans le dossier racine représenté par **entryFilePath**. Par exemple, chargez les fichiers Python dans le sous-dossier pyFiles et les fichiers jar dans le sous-dossier jars du dossier racine. Lors de l’exécution, le service Data Factory attend la structure de dossiers suivante dans le stockage Blob : 
 
-| path | Description | Obligatoire | Type |
+| path | Description | Obligatoire | type |
 | ---- | ----------- | -------- | ---- |
 | . | Chemin d’accès racine du travail Spark dans le service lié de stockage. | Oui | Dossier |
 | &lt;défini par l’utilisateur &gt; | Chemin d’accès qui pointe vers le fichier d’entrée du travail Spark. | Oui | Fichier |
-| ./jars | Tous les fichiers dans ce dossier sont chargés et placés dans le classpath Java du cluster. | Non  | Dossier |
-| ./pyFiles | Tous les fichiers dans ce dossier sont chargés et placés dans le PYTHONPATH du cluster. | Non  | Dossier |
-| ./files | Tous les fichiers dans ce dossier sont chargés et placés dans le répertoire de travail de l’exécuteur. | Non  | Dossier |
-| ./archives | Tous les fichiers dans ce dossier sont décompressés. | Non  | Dossier |
-| ./logs | Dossier dans lequel sont stockés les journaux d’activité du cluster Spark| Non  | Dossier |
+| ./jars | Tous les fichiers dans ce dossier sont chargés et placés dans le classpath Java du cluster. | Non | Dossier |
+| ./pyFiles | Tous les fichiers dans ce dossier sont chargés et placés dans le PYTHONPATH du cluster. | Non | Dossier |
+| ./files | Tous les fichiers dans ce dossier sont chargés et placés dans le répertoire de travail de l’exécuteur. | Non | Dossier |
+| ./archives | Tous les fichiers dans ce dossier sont décompressés. | Non | Dossier |
+| ./logs | Dossier dans lequel sont stockés les journaux d’activité du cluster Spark| Non | Dossier |
 
 Voici un exemple de stockage qui contient deux fichiers de travail Spark dans le stockage Blob référencé par le service lié HDInsight :
 

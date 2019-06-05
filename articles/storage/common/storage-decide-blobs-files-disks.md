@@ -23,7 +23,7 @@ Microsoft Azure propose plusieurs fonctionnalités dans le stockage Azure pour s
 
 Le tableau suivant compare les fichiers, les objets blob et les disques, et il présente des exemples de scénarios appropriés pour chacun.
 
-| Fonctionnalité | Description  | Quand utiliser |
+| Fonctionnalité | Description | Quand utiliser |
 |--------------|-------------|-------------|
 | **Azure Files** | Fournit une interface SMB, des bibliothèques clientes et une [interface REST](/rest/api/storageservices/file-service-rest-api) qui permet d’accéder en tout lieu aux fichiers stockés. | Vous souhaitez développer et transférer une application dans le cloud qui utilise déjà les API du système de fichiers natif pour partager des données avec d’autres applications s’exécutant dans Azure.<br/><br/>Vous souhaitez stocker les outils de développement et de débogage qui doivent être accessibles à partir de nombreuses machines virtuelles. |
 | **Objets blob Azure** | Fournit des bibliothèques de client et une [interface REST](/rest/api/storageservices/blob-service-rest-api) qui permet de stocker des données non structurées et d’y accéder à grande échelle dans des objets blob de blocs.<br/><br/>Prend également en charge [Azure Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md) pour les solutions d’analytique d’entreprise Big Data. | Vous souhaitez que votre application prenne en charge le streaming et l’accès aléatoire.<br/><br/>Vous souhaitez être en mesure d’accéder aux données d’application à partir de n’importe quel endroit.<br/><br/>Vous souhaitez générer un Data Lake d’entreprise sur Azure et effectuer une analytique de Big Data. |
@@ -36,7 +36,7 @@ Le tableau suivant compare les fichiers Azure et les objets blob Azure.
 ||||  
 |-|-|-|  
 |**Attribut**|**Objets blob Azure**|**Azure Files**|  
-|Options de durabilité|LRS, ZRS, GRS, RA-GRS|LRS, ZRS, GRS|  
+|Options de durabilité||LRS, ZRS, GRS, RA-GRS|LRS, ZRS, GRS|  
 |Accessibilité|API REST|API REST<br /><br /> SMB 2.1 et SMB 3.0 (API du système de fichiers standard)|  
 |Connectivité|API REST : monde entier|API REST : monde entier<br /><br /> SMB 2.1 : région<br /><br /> SMB 3.0 : monde entier|  
 |Points de terminaison|`http://myaccount.blob.core.windows.net/mycontainer/myblob`|`\\myaccount.file.core.windows.net\myshare\myfile.txt`<br /><br /> `http://myaccount.file.core.windows.net/myshare/myfile.txt`|  
