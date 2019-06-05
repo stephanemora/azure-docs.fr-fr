@@ -329,9 +329,9 @@ Le tableau suivant décrit les propriétés JSON utilisées dans la définition 
 
 | Propriété | Description | Obligatoire |
 | -------- | ----------- | -------- |
-| Nom | Nom de l'activité dans le pipeline. | Oui |
+| name | Nom de l'activité dans le pipeline. | Oui |
 | description | Texte qui décrit l’activité. | Non  |
-| Type | Cette propriété doit être définie sur HDInsightSpark. | Oui |
+| type | Cette propriété doit être définie sur HDInsightSpark. | Oui |
 | linkedServiceName | Nom d’un service lié HDInsight sur lequel s’exécute le programme Spark. | Oui |
 | rootPath | Conteneur d’objets Blob et dossier contenant le fichier Spark. Le nom de fichier est sensible à la casse. | Oui |
 | entryFilePath | Chemin d’accès relatif au dossier racine du code/package Spark. | Oui |
