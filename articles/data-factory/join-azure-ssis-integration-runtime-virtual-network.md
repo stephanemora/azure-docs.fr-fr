@@ -185,11 +185,11 @@ Vous devez configurer un réseau virtuel avant d’y joindre un runtime d’int�
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com). 
 
-1. Sélectionnez **Plus de services**. Filtrez et sélectionnez **Réseaux virtuels (classiques)**. 
+1. Sélectionnez **Plus de services**. Filtrez et sélectionnez **Réseaux virtuels (classiques)** . 
 
 1. Filtrez et sélectionnez votre réseau virtuel dans la liste. 
 
-1. Dans la page **Réseau virtuel (classique)**, sélectionnez **Propriétés**. 
+1. Dans la page **Réseau virtuel (classique)** , sélectionnez **Propriétés**. 
 
    ![ID de ressource de réseau virtuel classique](media/join-azure-ssis-integration-runtime-virtual-network/classic-vnet-resource-id.png)
 
