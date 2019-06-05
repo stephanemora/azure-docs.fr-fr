@@ -55,11 +55,11 @@
     - name: Tutoriels
       items:
         - name: Activer un fournisseur de ressources
-          href: 'https://docs.azure.cloudsimple.com/enable-cloudsimple-service/'
+          href: enable-cloudsimple-service.md
         - name: Créer le service CloudSimple
-          href: 'https://docs.azure.cloudsimple.com/create-cloudsimple-service/'
+          href: create-cloudsimple-service.md
         - name: Accéder au portail CloudSimple
-          href: 'https://docs.azure.cloudsimple.com/access-cloudsimple-portal/'
+          href: access-cloudsimple-portal.md
         - name: Gérer les nœuds
           items:
             - name: Acheter des nœuds

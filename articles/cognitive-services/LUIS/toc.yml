@@ -199,7 +199,6 @@
         - name: Avec l’API Vérification orthographique Bing v7
           href: luis-tutorial-bing-spellcheck.md
         - name: Avec le service de reconnaissance vocale
-          maintainContext: true
           href: ../speech-service/how-to-recognize-intents-from-speech-csharp.md?toc=/azure/cognitive-services/luis/toc.json&bc=/azure/cognitive-services/luis/breadcrumb/toc.json
         - name: Avec un bot
           items:

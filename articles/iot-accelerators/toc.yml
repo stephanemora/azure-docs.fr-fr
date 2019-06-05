@@ -1,6 +1,6 @@
 - name: Documentation sur les accélérateurs de solution IoT
   href: index.md
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   expanded: true
   items:
     - name: Que sont les accélérateurs de solution IoT ?
@@ -9,7 +9,7 @@
       href: iot-accelerators-permissions.md
 - name: Surveillance à distance
   items:
-    - name: Vue d’ensemble
+    - name: Vue d'ensemble
       href: iot-accelerators-remote-monitoring-sample-walkthrough.md
       items:
         - name: Choix d’architecture
@@ -129,7 +129,7 @@
           href: iot-accelerators-faq-rm-v2.md
 - name: IoT industriel
   items:
-    - name: Vue d’ensemble
+    - name: Vue d'ensemble
       items:
         - name: Définition de l’IoT industriel
           href: overview-iot-industrial.md
@@ -147,16 +147,12 @@
       items:
         - name: Architecture d’OPC Twin
           href: overview-opc-twin-architecture.md
-        - name: Architecture de Connected Factory
-          href: iot-accelerators-connected-factory-sample-walkthrough.md
     - name: Guides pratiques
       items:
         - name: Fabrique connectée
           items:
             - name: Utiliser le tableau de bord
               href: iot-accelerators-connected-factory-dashboard.md
-            - name: Déployer une passerelle
-              href: iot-accelerators-connected-factory-gateway-deployment.md
             - name: Utiliser l’éditeur d’OPC
               href: 'https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md'
             - name: Configurer l’accélérateur de solution
@@ -189,7 +185,7 @@
           href: iot-accelerators-faq-cf.md
 - name: Simulation d’appareil
   items:
-    - name: Vue d’ensemble
+    - name: Vue d'ensemble
       href: iot-accelerators-device-simulation-overview.md
     - name: Démarrages rapides
       items:
@@ -221,7 +217,7 @@
           href: 'https://github.com/Azure/device-simulation-dotnet'
 - name: Maintenance prédictive
   items:
-    - name: Vue d’ensemble
+    - name: Vue d'ensemble
       href: iot-accelerators-predictive-walkthrough.md
     - name: Démarrages rapides
       items:
@@ -233,7 +229,7 @@
           href: 'https://github.com/Azure/azure-iot-predictive-maintenance'
 - name: Architecture de référence
   items:
-    - name: Vue d’ensemble
+    - name: Vue d'ensemble
       href: iot-accelerators-architecture-overview.md
     - name: Téléchargement
       href: 'https://aka.ms/iotrefarchitecture'

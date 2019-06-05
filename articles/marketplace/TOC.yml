@@ -58,8 +58,6 @@
         - name: Vos avantages sur la Place de marché
           href: ./gtm-your-marketplace-benefits.md
           items:
-            - name: Faites la promotion de votre entreprise avec Microsoft
-              href: ./gtm-promote-your-business.md
             - name: Solutions recommandées
               href: ./preferred-solutions.md
             - name: Solutions intégrées

@@ -5,13 +5,13 @@ metadata:
   title: Documentation Azure Active Directory B2C
   meta.description: 'Learn how to use Azure Active Directory B2C to customize and control how customers sign up, sign in, and manage their profiles when using your applications.'
   services: active-directory-b2c
-  author: davidmu1
+  author: mmacy
   manager: daveba
   ms.service: active-directory
   ms.subservice: B2C
   ms.topic: landing-page
   ms.date: 03/29/2018
-  ms.author: davidmu
+  ms.author: marsma
 abstract:
   description: 'Azure Active Directory (Azure AD) B2C est un service de gestion d’identité qui vous permet de personnaliser et de contrôler la façon dont les clients s’inscrivent, se connectent et gèrent leurs profils lorsqu’ils utilisent vos applications. Cela inclut les applications développées pour iOS, Android et .NET, entre autres. Azure AD B2C permet ces actions tout en protégeant les identités de vos clients. Découvrez comment utiliser Azure AD B2V en tirant parti de nos guides de démarrage rapide, de nos tutoriels et de nos exemples.'
   aside:
