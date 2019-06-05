@@ -36,7 +36,7 @@ Le tableau suivant compare les fichiers Azure et les objets blob Azure.
 ||||  
 |-|-|-|  
 |**Attribut**|**Objets blob Azure**|**Azure Files**|  
-|Options de durabilité||LRS, ZRS, GRS, RA-GRS|LRS, ZRS, GRS|  
+|Options de durabilité|LRS, ZRS, GRS, RA-GRS|LRS, ZRS, GRS|  
 |Accessibilité|API REST|API REST<br /><br /> SMB 2.1 et SMB 3.0 (API du système de fichiers standard)|  
 |Connectivité|API REST : monde entier|API REST : monde entier<br /><br /> SMB 2.1 : région<br /><br /> SMB 3.0 : monde entier|  
 |Points de terminaison|`http://myaccount.blob.core.windows.net/mycontainer/myblob`|`\\myaccount.file.core.windows.net\myshare\myfile.txt`<br /><br /> `http://myaccount.file.core.windows.net/myshare/myfile.txt`|  
