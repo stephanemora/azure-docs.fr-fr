@@ -1,6 +1,6 @@
 - name: Documentation sur Azure IoT Central
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: Qu’est-ce que Azure IoT Central ?
       href: overview-iot-central.md
@@ -105,6 +105,8 @@
           href: howto-configure-homepage.md
         - name: Personnaliser l’interface utilisateur de l’application
           href: howto-customize-ui.md
+        - name: Utiliser des modèles d’application
+          href: howto-use-app-templates.md
         - name: Gérer à partir du portail Azure
           href: howto-manage-iot-central-from-portal.md
         - name: Gérer à partir d’Azure CLI
@@ -141,9 +143,9 @@
           href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
         - name: Time Series Insights
           href: /azure/time-series-insights
-    - name: Edge
+    - name: IoT Edge
       items:
-        - name: IoT Edge
+        - name: "Azure IoT\_Edge"
           href: /azure/iot-edge
         - name: Kits de développement logiciel (SDK) IoT Device
           href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'

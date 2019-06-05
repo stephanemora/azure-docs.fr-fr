@@ -1,5 +1,5 @@
 - name: Documentation Apprenant de conversation
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   expanded: true
   items:
     - name: "Qu’est-ce que l’Apprenant de conversation\_?"
@@ -34,6 +34,8 @@
       href: tutorials/08-pre-trained-entities.md
     - name: Résolveurs d’entité
       href: tutorials/09-entity-resolvers.md
+    - name: Entités d’énumération
+      href: tutorials/tutorial-enum-set-entity.md
     - name: Entrées alternatives
       href: tutorials/10-alternative-inputs.md
     - name: Boîtes de dialogue du journal

@@ -74,7 +74,11 @@
         - name: Configurer le chiffrement de jetons SAML (préversion)
           href: howto-saml-token-encryption.md
     - name: Authentification unique
-      href: what-is-single-sign-on.md
+      items:
+        - name: Qu’est-ce que l’authentification unique
+          href: what-is-single-sign-on.md
+        - name: Planification d’un déploiement d’authentification unique
+          href: plan-sso-deployment.md
     - name: Portails d’utilisateurs finaux
       href: end-user-experiences.md
 - name: Guides pratiques
@@ -93,7 +97,9 @@
           href: application-proxy-configure-for-claims-aware-applications.md
         - name: Inscrire le connecteur - installation silencieuse
           href: application-proxy-register-connector-powershell.md
-        - name: Configurer des applications de client natif
+        - name: Donner accès aux applications mobiles et de bureau aux API locales
+          href: application-proxy-secure-api-access.md
+        - name: Configurer des applications de clients mobile et de bureau
           href: application-proxy-configure-native-client-application.md
         - name: Configurer une page d’accueil personnalisée
           href: application-proxy-configure-custom-home-page.md

@@ -1,6 +1,6 @@
 - name: Documentation de Front Door Service
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: Qu’est-ce que le service Azure Front Door Service ?
       href: front-door-overview.md
@@ -48,7 +48,7 @@
       href: front-door-url-rewrite.md
     - name: WAF
       items:
-        - name: Vue d’ensemble
+        - name: Vue d'ensemble
           href: waf-overview.md
         - name: Règles personnalisées
           href: waf-front-door-custom-rules.md
@@ -70,6 +70,8 @@
           href: waf-front-door-create-portal.md
         - name: Configurer une stratégie WAF - Azure PowerShell
           href: waf-front-door-custom-rules-powershell.md
+        - name: Configurer la protection bot
+          href: waf-front-door-policy-configure-bot-protection.md
         - name: Configurer un code de réponse personnalisé
           href: waf-front-door-configure-custom-response-code.md
         - name: "Configurer des restrictions\_IP"

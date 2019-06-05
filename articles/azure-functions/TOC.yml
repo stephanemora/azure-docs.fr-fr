@@ -1,6 +1,6 @@
 - name: Documentation des fonctions
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: À propos d’Azure Functions
       href: functions-overview.md
@@ -15,6 +15,16 @@
       href: functions-create-your-first-function-visual-studio.md
     - name: Créer une fonction - Visual Studio Code
       href: functions-create-first-function-vs-code.md
+    - name: Créer une fonction - Node.js avec Visual Studio Code
+      items:
+        - name: Prise en main
+          href: tutorial-javascript-vscode-get-started.md
+        - name: Création de l'application
+          href: tutorial-javascript-vscode-create-app.md
+        - name: Exécuter et tester votre application localement
+          href: tutorial-javascript-vscode-run-app.md
+        - name: Déployer le site web
+          href: tutorial-javascript-vscode-deploy-app.md
     - name: Créer une fonction - Java/Maven
       href: functions-create-first-java-maven.md
     - name: Créer une fonction - Python
@@ -58,7 +68,7 @@
     - name: Redimensionnement d’image avec Event Grid
       href: ../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2fazure%2fazure-functions%2ftoc.json
     - name: Créer une application web sans serveur
-      href: 'https://docs.microsoft.com/azure/functions/tutorial-static-website-serverless-api-with-database'
+      href: /learn/modules/automatic-update-of-a-webapp-using-azure-functions-and-signalr
     - name: Créer une image Linux personnalisée
       href: functions-create-function-linux-custom-image.md
     - name: Fonctions sur un appareil IoT Edge

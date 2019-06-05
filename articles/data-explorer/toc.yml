@@ -7,34 +7,10 @@
 - name: Démarrages rapides
   expanded: true
   items:
-    - name: Créer un cluster et une base de données
-      items:
-        - name: Portail Azure
-          href: create-cluster-database-portal.md
-        - name: Azure CLI
-          href: create-cluster-database-cli.md
-        - name: PowerShell
-          href: create-cluster-database-powershell.md
-        - name: 'C#'
-          href: create-cluster-database-csharp.md
-        - name: Python
-          href: create-cluster-database-python.md
-    - name: Réception de données
-      items:
-        - name: 'Diffusion en continu de données : Event Hub'
-          href: ingest-data-event-hub.md
-        - name: "Streaming des données\_: Event Grid"
-          href: ingest-data-event-grid.md
-        - name: 'Données de diffusion en continu : Kafka'
-          href: ingest-data-kafka.md
-        - name: 'Traitement par lots de données : Python'
-          href: python-ingest-data.md
-        - name: 'Traitement par lots de données : Kit de développement logiciel (SDK) Node'
-          href: node-ingest-data.md
-        - name: 'Données de traitement par lots : Kit de développement logiciel (SDK) .NET standard'
-          href: net-standard-ingest-data.md
-        - name: "Données de traitement par lots\_: Logstash"
-          href: ingest-data-logstash.md
+    - name: Créer un cluster et une base de données - Portail Azure
+      href: create-cluster-database-portal.md
+    - name: Ingérer des exemples de données
+      href: ingest-sample-data.md
     - name: Données de requête
       items:
         - name: Interface utilisateur web
@@ -52,12 +28,38 @@
     - name: Vue d’ensemble de l’ingestion de données
       displayName: 'pipelines, connectors, plugins, Python, .NET, Java, Node, REST'
       href: ingest-data-overview.md
+    - name: Vue d’ensemble de la visualisation de données
+      href: viz-overview.md
 - name: Guides pratiques
   items:
-    - name: Prise en main
+    - name: Créer un cluster et une base de données
       items:
-        - name: Ingérer des exemples de données
-          href: ingest-sample-data.md
+        - name: Azure CLI
+          href: create-cluster-database-cli.md
+        - name: PowerShell
+          href: create-cluster-database-powershell.md
+        - name: 'C#'
+          href: create-cluster-database-csharp.md
+        - name: Python
+          href: create-cluster-database-python.md
+    - name: Réception de données
+      items:
+        - name: Event Hub
+          href: ingest-data-event-hub.md
+        - name: Event Grid
+          href: ingest-data-event-grid.md
+        - name: Kafka
+          href: ingest-data-kafka.md
+        - name: Python
+          href: python-ingest-data.md
+        - name: SDK Node
+          href: node-ingest-data.md
+        - name: SDK .NET Standard
+          href: net-standard-ingest-data.md
+        - name: Logstash
+          href: ingest-data-logstash.md
+        - name: Copier des données à l’aide d’Azure Data Factory
+          href: data-factory-load-data.md
     - name: Déployer
       items:
         - name: Tâche DevOps
@@ -82,10 +84,14 @@
               href: power-bi-imported-query.md
             - name: "Requête\_SQL"
               href: power-bi-sql-query.md
+        - name: Connecteur ODBC
+          href: connect-odbc.md
         - name: Sisense
           href: sisense.md
         - name: Grafana
           href: grafana.md
+        - name: Tableau
+          href: tableau.md
     - name: gérer
       items:
         - name: Gérer des autorisations de base de données
@@ -100,11 +106,11 @@
           href: delete-data.md
         - name: Gérer des données en double
           href: dealing-with-duplicates.md
-    - name: Surveillance
+    - name: Surveiller
       items:
         - name: Utilisation de métriques pour superviser l’intégrité du cluster
           href: using-metrics.md
-    - name: Utiliser d’autres outils
+    - name: Intégrer aux autres outils
       items:
         - name: Connecteur Apache Spark
           href: spark-connector.md
@@ -112,10 +118,6 @@
           href: connect-from-databricks.md
         - name: Analyser des données dans Jupyter Notebook et Kqlmagic
           href: kqlmagic.md
-        - name: Copier des données à l’aide d’Azure Data Factory
-          href: data-factory-load-data.md
-        - name: Se connecter à ODBC
-          href: connect-odbc.md
     - name: Résolution des problèmes
       items:
         - name: Création d’un cluster

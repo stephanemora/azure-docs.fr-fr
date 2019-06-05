@@ -43,7 +43,7 @@
       items:
         - name: Filtrer des données avec Azure Functions
           href: tutorial-deploy-function.md
-        - name: Rechercher des moyennes avec ASA
+        - name: Rechercher des moyennes avec Azure Stream Analytics
           href: tutorial-deploy-stream-analytics.md
         - name: Attribuer un score avec Azure Machine Learning service
           href: tutorial-deploy-machine-learning.md

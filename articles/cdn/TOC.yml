@@ -1,6 +1,6 @@
 - name: Documentation CDN
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: Présentation d’Azure CDN
       href: cdn-overview.md
@@ -42,7 +42,7 @@
       href: cdn-pop-list-api.md
     - name: Passer de Standard Verizon à Premium Verizon
       href: cdn-migrate.md
-    - name: Protection DDOS
+    - name: Protection DDoS
       href: cdn-ddos.md
 - name: Guides pratiques
   items:
@@ -94,7 +94,7 @@
         - name: Surveiller les ressources
           href: cdn-resource-health.md
         - name: Remplacer le comportement à l’aide de règles
-          href: cdn-rules-engine.md
+          href: cdn-verizon-premium-rules-engine.md
         - name: "Utiliser Traffic\_Manager"
           href: cdn-traffic-manager.md
     - name: Analyser
@@ -134,15 +134,15 @@
           href: cdn-troubleshoot-allowed-ca.md
 - name: Informations de référence
   items:
-    - name: Informations de référence du moteur de règles
-      href: cdn-rules-engine-reference.md
+    - name: Informations de référence du moteur de règles Verizon Premium
+      href: cdn-verizon-premium-rules-engine-reference.md
       items:
         - name: Expressions conditionnelles du moteur de règles
-          href: cdn-rules-engine-reference-conditional-expressions.md
+          href: cdn-verizon-premium-rules-engine-reference-conditional-expressions.md
         - name: Conditions de correspondance du moteur de règles
-          href: cdn-rules-engine-reference-match-conditions.md
+          href: cdn-verizon-premium-rules-engine-reference-match-conditions.md
         - name: Fonctionnalités du moteur de règles
-          href: cdn-rules-engine-reference-features.md
+          href: cdn-verizon-premium-rules-engine-reference-features.md
         - name: Variables HTTP
           href: cdn-http-variables.md
     - name: En-têtes HTTP propres à Verizon
@@ -158,8 +158,6 @@
       href: /java/api/com.microsoft.azure.management.cdn
     - name: REST
       href: /rest/api/cdn/
-    - name: Modèle Resource Manager
-      href: /azure/templates/microsoft.cdn/allversions
 - name: Ressources
   items:
     - name: Emplacements POP des CDN Azure

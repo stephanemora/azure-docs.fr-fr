@@ -1,6 +1,6 @@
 - name: Documentation sur Azure Maps
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: "Qu’est-ce qu’Azure Maps\_?"
       href: about-azure-maps.md
@@ -164,6 +164,8 @@
       items:
         - name: Commandes de la carte
           href: 'https://docs.microsoft.com/javascript/api/azure-maps-javascript/'
+        - name: Outils de dessin
+          href: 'https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/'
         - name: Module de service
           href: 'https://docs.microsoft.com/javascript/api/azure-maps-rest/'
     - name: Modèle Resource Manager

@@ -600,6 +600,8 @@
       items:
         - name: Conseils sur les performances
           items:
+            - name: Obtenir les métriques d’exécution des requêtes
+              href: profile-sql-api-query.md
             - name: Régler les performances des requêtes
               href: sql-api-query-metrics.md
             - name: Conseils en matière de performances pour le Kit de développement logiciel (SDK) .NET
