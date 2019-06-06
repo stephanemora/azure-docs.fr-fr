@@ -1,8 +1,8 @@
-- name: Documentation Gestion des appareils
+- name: Documentation sur les identités d’appareil
   href: index.yml
 - name: Vue d'ensemble
   items:
-    - name: "En quoi consiste la gestion des appareils dans Azure AD\_?"
+    - name: "Qu’est-ce qu’une identité d’appareil\_?"
       href: overview.md
     - name: Qu’est-ce qu’Enterprise State Roaming ?
       href: enterprise-state-roaming-overview.md
@@ -29,7 +29,7 @@
 - name: Guides pratiques
   expanded: true
   items:
-    - name: Gérer les appareils via le portail Azure
+    - name: Gérer une identité d’appareil
       href: device-management-azure-portal.md
     - name: Gérer les appareils obsolètes
       href: manage-stale-devices.md

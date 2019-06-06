@@ -1,6 +1,6 @@
 - name: Base de données Azure pour les documents MySQL
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: "Qu’est-ce qu’Azure DB pour MySQL\_?"
       href: overview.md
@@ -83,7 +83,7 @@
           href: concepts-data-access-and-security-vnet.md
     - name: Continuité de l’activité
       items:
-        - name: Vue d’ensemble
+        - name: Vue d'ensemble
           href: concepts-business-continuity.md
         - name: Sauvegarde et restauration
           href: concepts-backup.md
@@ -157,6 +157,10 @@
           href: howto-server-parameters.md
         - name: Azure CLI
           href: howto-configure-server-parameters-using-cli.md
+    - name: Augmenter automatiquement le stockage
+      items:
+        - name: Portail Azure
+          href: howto-auto-grow-storage-portal.md
     - name: Accéder aux journaux d’activité du serveur
       items:
         - name: Portail Azure

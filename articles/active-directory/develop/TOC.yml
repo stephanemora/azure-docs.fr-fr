@@ -235,6 +235,8 @@
               href: msal-js-sso.md
             - name: Comportement d’invite (JS)
               href: msal-js-prompt-behavior.md
+            - name: Prise en charge d’ADFS (.NET)
+              href: msal-net-adfs-support.md
             - name: Intégrer avec Azure AD B2C
               items:
                 - name: JavaScript
