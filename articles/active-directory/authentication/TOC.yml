@@ -142,10 +142,6 @@
               href: active-directory-certificate-based-authentication-android.md
             - name: CBA sur des appareils iOS
               href: active-directory-certificate-based-authentication-ios.md
-    - name: Développement
-      items:
-        - name: Créer une authentification multifacteur dans des applications personnalisées
-          href: howto-mfa-sdk.md
     - name: Reporting
       items:
         - name: Rapports SSPR

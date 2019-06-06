@@ -47,6 +47,8 @@
       href: concept-point-time-snapshot.md
     - name: Gestion des fonctionnalités
       href: concept-feature-management.md
+    - name: Gestion des événements
+      href: concept-app-configuration-event.md
     - name: Haute disponibilité
       items:
         - name: Résilience et reprise d’activité après sinistre
@@ -57,6 +59,8 @@
       href: howto-integrate-azure-managed-service-identity.md
     - name: Importer ou exporter des données de configuration
       href: howto-import-export-data.md
+    - name: Acheminer des événements vers un point de terminaison personnalisé
+      href: howto-app-configuration-event.md
     - name: Bonnes pratiques
       href: howto-best-practices.md
 - name: Informations de référence
