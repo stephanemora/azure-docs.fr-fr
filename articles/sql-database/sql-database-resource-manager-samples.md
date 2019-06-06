@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: sstein
 manager: craigg
 ms.date: 02/04/2019
-ms.openlocfilehash: 1e2f55d334d432544ffc185e5c68dfe4325b2b09
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: b967dc872529ec8b045df81542eec4c555b17a6c
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59356821"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66418437"
 ---
 # <a name="azure-resource-manager-templates-for-azure-sql-database"></a>Modèles Azure Resource Manager pour Azure SQL Database
 
@@ -33,7 +33,6 @@ Le tableau suivant inclut des liens vers des modèles Azure Resource Manager pou
 | [Serveur logique](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-logical-server) | Ce modèle Azure Resource Manager crée un serveur logique pour Azure SQL Database. |
 | [Pool élastique](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-elastic-pool-create) | Ce modèle vous permet de déployer un nouveau pool élastique avec son nouveau serveur SQL Server associé et ses nouvelles bases de données SQL à lui assigner. |
 | [Groupes de basculement](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-with-failover-group) | Ce modèle crée deux serveurs logiques SQL Azure, une base de données SQL et un groupe de basculement.|
-| [Protection avancée contre les menaces](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-advanced-threat-protection-server-policy) | Ce modèle vous permet de déployer un serveur logique Azure SQL avec le service Advanced Threat Protection activé et une éventuelle base de données Azure SQL. Protection avancée contre les menaces SQL est un package unifié de fonctionnalités de sécurité SQL avancées.|
 | [Détection de menaces](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-threat-detection-db-policy-multiple-databases) | Ce modèle vous permet de déployer un serveur logique Azure SQL et un ensemble de bases de données Azure SQL avec la détection des menaces activée, ainsi qu’une adresse e-mail pour les alertes de chaque base de données. La détection de menaces fait partie de l’offre SQL Advanced Threat Protection (ATP) qui fournit une couche de sécurité en réponse aux menaces potentielles qui pèsent sur les bases de données et les serveurs SQL.|
 | [Audit dans Stockage Blob Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-blob-storage) | Ce modèle vous permet de déployer un serveur logique SQL Azure avec audit activé pour écrire des journaux d’audit dans un stockage d’objets blob. L’audit pour Azure SQL Database suit les événements de base de données et les écrit dans un journal d’audit que vous pouvez placer dans votre compte de stockage Azure, votre espace de travail OMS ou Event Hubs.|
 | [Audit pour Azure Event Hub](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-eventhub) | Ce modèle vous permet de déployer un serveur SQL Azure avec audit activé pour écrire des journaux d’audit dans un hub d’événements existant. Pour envoyer des événements d’audit à Event Hub, définissez des paramètres d’audit avec `Enabled` `State` et affectez à `IsAzureMonitorTargetEnabled` la valeur `true`. De plus, configurez des paramètres de diagnostic avec la catégorie des journaux de diagnostic `SQLSecurityAuditEvents` sur la base de données `master` (pour l’audit au niveau du serveur). L’audit pour Azure SQL Database et SQL Data Warehouse suit les événements de base de données et les écrit dans un journal d’audit que vous pouvez placer dans votre compte de stockage Azure, votre espace de travail OMS ou Event Hubs.|

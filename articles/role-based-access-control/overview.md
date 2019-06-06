@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 03/13/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 6510099f9fb145951cbce1ea168b36dba5f76e07
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: db9424ff4ddd2663ae1342294181dc885c6ed937
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65540916"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479541"
 ---
 # <a name="what-is-role-based-access-control-rbac-for-azure-resources"></a>Qu’est-ce que le contrôle d’accès en fonction du rôle (RBAC) pour les ressources Azure ?
 
@@ -84,7 +84,7 @@ Dans Azure, vous pouvez spécifier une étendue à plusieurs niveaux : [groupe d
 
 ![Étendue pour une attribution de rôle](./media/overview/rbac-scope.png)
 
-Lorsque vous accordez l’accès à une étendue parente, ces autorisations sont héritées par les étendues enfant. Par exemple : 
+Lorsque vous accordez l’accès à une étendue parente, ces autorisations sont héritées par les étendues enfant. Par exemple :
 
 - Si vous affectez le rôle de [propriétaire](built-in-roles.md#owner) à un utilisateur dans l’étendue de groupe d’administration, cet utilisateur peut gérer tous les éléments de tous les abonnements dans le groupe d’administration.
 - Si vous affectez le rôle de [lecteur](built-in-roles.md#reader) à un groupe au niveau de l’étendue de l’abonnement, les membres de ce groupe peuvent afficher chaque groupe de ressources et la ressource dans l’abonnement.
@@ -132,6 +132,10 @@ Voici les principales étapes suivies par RBAC pour déterminer si vous avez acc
 1. Si l’utilisateur n’a aucun rôle avec l’action à l’étendue demandée, l’accès n’est pas accordé. Sinon, Azure Resource Manager vérifie si une affectation de refus s’applique.
 
 1. Si c’est le cas, l’accès est bloqué. Autrement, l’accès est accordé.
+
+## <a name="license-requirements"></a>Conditions de licence :
+
+[!INCLUDE [Azure AD free license](../../includes/active-directory-free-license.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 

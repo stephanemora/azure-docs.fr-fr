@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: brandwe
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8538a96e1919fbff9f800a785788ccaa41a68392
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: d6274557ede35d7640eba37e5777cb0cb67d459a
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66121928"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66497094"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-app"></a>Démarrage rapide : Connecter des utilisateurs et appeler l’API Microsoft Graph à partir d’une application iOS
 
@@ -100,7 +100,7 @@ Maintenant que vous disposez d’une application dans Azure AD, vous pouvez inst
     link_with ['QuickStart']
     xcodeproj 'QuickStart'
 
-    pod 'ADALiOS'
+    pod 'ADAL'
     ```
 
 1. Chargez le podfile à l’aide de CocoaPods. Cette étape crée un espace de travail XCode que vous allez charger.

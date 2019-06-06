@@ -10,12 +10,12 @@ ms.subservice: bing-autosuggest
 ms.topic: overview
 ms.date: 02/20/2019
 ms.author: scottwhi
-ms.openlocfilehash: 669eaaf0eaf28c696a7ca368c02f5816054e5d10
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 24f35d795b34e7d9c214a23c040791841b4a711b
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57010104"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66382569"
 ---
 # <a name="what-is-bing-autosuggest"></a>Qu’est-ce que la Suggestion automatique Bing ?
 
@@ -47,7 +47,7 @@ Quand un utilisateur sélectionne une suggestion dans la liste déroulante, vous
 
 Pour configurer rapidement votre première requête, consultez [Création de votre première requête](quickstarts/csharp.md).
 
-Familiarisez-vous avec les informations de référence sur [l’API Suggestion automatique Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference). Vous y trouverez la liste des points de terminaison, en-têtes et paramètres de requête à utiliser pour demander des suggestions de termes de requête, ainsi que les définitions des objets de réponse.
+Familiarisez-vous avec les informations de référence sur [l’API Suggestion automatique Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference). Vous y trouverez la liste des points de terminaison, en-têtes et paramètres de requête à utiliser pour demander des suggestions de termes de requête, ainsi que les définitions des objets de réponse.
 
 Découvrez comment effectuer des recherches sur le web à l’aide de l’[API Recherche Web Bing](../bing-web-search/search-the-web.md).
 

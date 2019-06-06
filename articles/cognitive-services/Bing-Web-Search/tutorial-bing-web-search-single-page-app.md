@@ -10,12 +10,12 @@ ms.subservice: bing-web-search
 ms.topic: tutorial
 ms.date: 05/15/2019
 ms.author: aahi
-ms.openlocfilehash: 668c380f38f410083ffe7d2cd6690be447f614dc
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 1203947efadf4fed328655c9cfb839f666a80b0c
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65798332"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390044"
 ---
 # <a name="tutorial-create-a-single-page-app-using-the-bing-web-search-api"></a>Didacticiel : Créer une application web monopage à l’aide de l’API Recherche Web Bing
 
@@ -80,7 +80,7 @@ L’élément `index.html` comprend un formulaire qui permet aux utilisateurs de
 
 ## <a name="query-options"></a>Options de requête
 
-Le formulaire HTML inclut des options qui mappent à des paramètres de requête dans [l’API Recherche Web Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#query-parameters). Le tableau suivant montre comment les utilisateurs peuvent filtrer les résultats de recherche à l’aide de l’exemple d’application :
+Le formulaire HTML inclut des options qui mappent à des paramètres de requête dans [l’API Recherche Web Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#query-parameters). Le tableau suivant montre comment les utilisateurs peuvent filtrer les résultats de recherche à l’aide de l’exemple d’application :
 
 | Paramètre | Description |
 |-----------|-------------|
@@ -93,7 +93,7 @@ Le formulaire HTML inclut des options qui mappent à des paramètres de requête
 | `offset` | Champ masqué. Décalage du premier résultat de recherche dans la requête, qui est utilisé pour la pagination. Il est réinitialisé sur `0` à chaque nouvelle requête. |
 
 > [!NOTE]
-> L’API Recherche Web Bing offre des paramètres de requête supplémentaires pour affiner les résultats de la recherche. Le présent exemple en utilise seulement quelque uns. Pour obtenir la liste complète des paramètres disponibles, consultez les [informations de référence sur l’API Recherche Web Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#query-parameters).
+> L’API Recherche Web Bing offre des paramètres de requête supplémentaires pour affiner les résultats de la recherche. Le présent exemple en utilise seulement quelque uns. Pour obtenir la liste complète des paramètres disponibles, consultez les [informations de référence sur l’API Recherche Web Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#query-parameters).
 
 La fonction `bingSearchOptions()` convertit ces options pour correspondre au format exigé par l’API Recherche Bing.
 

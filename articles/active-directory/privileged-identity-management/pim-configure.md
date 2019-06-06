@@ -14,12 +14,12 @@ ms.date: 04/09/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: be8b9fe027a023cec6c816fa641beb41e5849741
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: a0678dc42d8c22c8dcc20137cf70f81a1eb4f61c
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59496076"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66473684"
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>Qu’est-ce qu’Azure AD Privileged Identity Management ?
 
@@ -41,15 +41,6 @@ PIM vous permet de gérer qui a accès aux ressources importantes, à quel momen
 - Recevoir des **notifications** lors de l’activation de rôles privilégiés
 - Effectuer des **révisions d’accès** pour vérifier que les utilisateurs ont toujours besoin de leurs rôles
 - Télécharger l’**historique des audits** (internes ou externes)
-
-## <a name="prerequisites"></a>Prérequis
-
-Pour utiliser PIM, vous devez disposer de l’une des licences payantes ou gratuites suivantes : Pour plus d’informations, consultez [Qu’est-ce qu’Azure Active Directory ?](../fundamentals/active-directory-whatis.md).
-
-- Azure AD Premium P2
-- Enterprise Mobility + Security (EMS) E5
-
-Pour plus d’informations sur les licences utilisateur, consultez [Exigences relatives aux licences pour l’utilisation de PIM](subscription-requirements.md).
 
 ## <a name="terminology"></a>Terminologie
 
@@ -87,7 +78,7 @@ Pour les rôles de ressources Azure, seul un administrateur d’abonnement, un p
 
 PIM prend en charge les scénarios suivants :
 
-**En tant qu’Administrateur de rôle privilégié, vous pouvez :**
+**En tant qu’Administrateur de rôle privilégié, vous pouvez :**
 
 - Activer l’approbation pour des rôles spécifiques
 - Spécifier les utilisateurs et/ou groupes approbateurs pour approuver des demandes
@@ -105,8 +96,14 @@ PIM prend en charge les scénarios suivants :
 - Afficher l’état de votre demande d’activation
 - Exécuter la tâche dans Azure AD si l’activation a été approuvée
 
+## <a name="license-requirements"></a>Conditions de licence :
+
+[!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
+
+Pour plus d’informations sur les licences utilisateur, consultez [Exigences relatives aux licences pour l’utilisation de PIM](subscription-requirements.md).
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Licences requises pour utiliser PIM](subscription-requirements.md)
+- [Exigences relatives aux licences pour l’utilisation de PIM](subscription-requirements.md)
 - [Sécurisation de l’accès privilégié pour les déploiements hybrides et cloud dans Azure AD](../users-groups-roles/directory-admin-roles-secure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
-- [Déployer PIM](pim-deployment-plan.md)
+- [Déployer PIM (Privileged Identity Management)](pim-deployment-plan.md)

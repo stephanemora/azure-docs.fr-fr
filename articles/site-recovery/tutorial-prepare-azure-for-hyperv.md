@@ -5,15 +5,15 @@ author: rayne-wiselman
 ms.service: site-recovery
 services: site-recovery
 ms.topic: tutorial
-ms.date: 04/08/2019
+ms.date: 05/30/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 29189a5919a01fcb897758fb64ca9e84b9381fb6
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 07a5ee6ccdaecc78c9a8e61ae9e64a5264e3a875
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65410898"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66418358"
 ---
 # <a name="prepare-azure-resources-for-disaster-recovery-of-on-premises-machines"></a>Préparer les ressources Azure pour la récupération d’urgence de machines locales
 
@@ -55,7 +55,7 @@ Les images des machines répliquées sont conservées dans le stockage Azure. Le
 1. Dans le menu du [portail Azure](https://portal.azure.com), sélectionnez **Créer une ressource** > **Stockage** > **Compte de stockage - blob, fichier, table, file d’attente**.
 2. Dans **Créer un compte de stockage** , entrez un nom correspondant au compte.  Le nom que vous choisissez doit être unique dans Azure, comprendre entre 3 et 24 caractères, et contenir uniquement des lettres minuscules et des chiffres. Pour ce tutoriel, utilisez **contosovmsacct1910171607**.
 3. Dans **Modèle de déploiement**, sélectionnez **Resource Manager**.
-4. Dans **Type de compte**, sélectionnez **Stockage (v1 universel)**. Ne sélectionnez pas Stockage Blob.
+4. Dans **Type de compte**, sélectionnez **Stockage (v1 universel)** . Ne sélectionnez pas Stockage Blob.
 5. Dans **Réplication**, sélectionnez la valeur par défaut **Stockage géo-redondant avec accès en lecture** pour la redondance de stockage. Laissez le paramètre Transfert sécurisé requis désactivé.
 6. Dans **Performances**, sélectionnez **Standard**. Ensuite, dans **Niveau d’accès**, sélectionnez l’option par défaut **Chaud**.
 7. Dans **Abonnement**, choisissez l’abonnement dans lequel vous souhaitez créer le compte de stockage.
@@ -68,7 +68,7 @@ Les images des machines répliquées sont conservées dans le stockage Azure. Le
 ## <a name="create-a-recovery-services-vault"></a>Créer un coffre Recovery Services
 
 1. Dans le portail Azure, sélectionnez **+ Créer une ressource**, puis recherchez Recovery Services sur la Place de marché Azure.
-2. Sélectionnez **Backup and Site Recovery (OMS)**. Ensuite, dans la page **Backup and Site Recovery**, sélectionnez **Créer**.
+2. Sélectionnez **Backup and Site Recovery (OMS)** . Ensuite, dans la page **Backup and Site Recovery**, sélectionnez **Créer**.
 1. Dans **Coffre Recovery Services > Nom**, entrez un nom convivial permettant d’identifier le coffre. Pour ce didacticiel, utilisez **ContosoVMVault**.
 2. Dans **Groupe de ressources**, sélectionnez un groupe de ressources existant ou créez-en un. Pour ce tutoriel, utilisez **contosoRG**.
 3. Dans **Emplacement**, sélectionnez la région où le coffre doit se trouver. Pour ce tutoriel, utilisez **Europe Ouest**.

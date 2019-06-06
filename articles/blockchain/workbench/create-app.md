@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 05/14/2019
+ms.date: 05/30/2019
 ms.topic: tutorial
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: 92a37133d84833c43fff5b1a6c31e003ef53f7de
-ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
+ms.openlocfilehash: b444ad799eaa356d654952c32ac58188de8d7131
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65619755"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417369"
 ---
 # <a name="tutorial-create-a-blockchain-application-in-azure-blockchain-workbench"></a>Didacticiel : Créer une application blockchain dans Azure Blockchain Workbench
 
@@ -39,9 +39,10 @@ Vous découvrirez comment effectuer les actions suivantes :
 
 ## <a name="hello-blockchain"></a>Hello, Blockchain !
 
-Générons une application de base dans laquelle un demandeur envoie une requête et un répondeur envoie une réponse à la requête. Par exemple, une requête peut être : « Hello, comment allez-vous ? », et la réponse peut être : « Je vais très bien ! ». La requête et la réponse sont enregistrées sur le blockchain sous-jacent. 
+Générons une application de base dans laquelle un demandeur envoie une requête et un répondeur envoie une réponse à la requête.
+Par exemple, une requête peut être : « Hello, comment allez-vous ? », et la réponse peut être : « Je vais très bien ! ». La requête et la réponse sont enregistrées sur le blockchain sous-jacent.
 
-Suivez les étapes pour créer les fichiers d’application, ou vous pouvez [télécharger l’exemple à partir de GitHub](https://github.com/Azure-Samples/blockchain/tree/master/blockchain-workbench/application-and-smart-contract-samples/hello-blockchain). 
+Suivez les étapes pour créer les fichiers d’application, ou vous pouvez [télécharger l’exemple à partir de GitHub](https://github.com/Azure-Samples/blockchain/tree/master/blockchain-workbench/application-and-smart-contract-samples/hello-blockchain).
 
 ## <a name="configuration-file"></a>Fichier de configuration
 
@@ -215,7 +216,7 @@ La section des rôles d’application définit les rôles d’utilisateur autori
 
 ### <a name="workflows"></a>Flux de travail
 
-Les flux de travail définissent une ou plusieurs étapes et actions du contrat. Dans le scénario de requête-réponse, la première étape (état) du flux de travail implique qu’un demandeur (rôle) effectue une action (transition) pour envoyer une requête (fonction). L’étape suivante (état) implique qu’un répondeur (rôle) effectue une action (transition) pour envoyer une réponse (fonction). Le flux de travail d’une application peut impliquer des propriétés, fonctions et états nécessaires pour décrire le flux d’un contrat. 
+Les flux de travail définissent une ou plusieurs étapes et actions du contrat. Dans le scénario de requête-réponse, la première étape (état) du flux de travail implique qu’un demandeur (rôle) effectue une action (transition) pour envoyer une requête (fonction). L’étape suivante (état) implique qu’un répondeur (rôle) effectue une action (transition) pour envoyer une réponse (fonction). Le flux de travail d’une application peut impliquer des propriétés, fonctions et états nécessaires pour décrire le flux d’un contrat.
 
 Pour plus d’informations sur le contenu des fichiers de configuration, consultez [Azure Blockchain Workflow configuration reference](configuration.md) (Référence de configuration de flux de travail Azure Blockchain).
 
@@ -229,24 +230,23 @@ Dans votre éditeur favori, créez un fichier appelé `HelloBlockchain.sol`.
 
 ### <a name="version-pragma"></a>Pragma de version
 
-En tant que meilleure pratique, indiquez la version de Solidity que vous ciblez. Spécifier la version permet d’éviter les problèmes d’incompatibilité avec les versions futures de Solidity. 
+En tant que meilleure pratique, indiquez la version de Solidity que vous ciblez. Spécifier la version permet d’éviter les problèmes d’incompatibilité avec les versions futures de Solidity.
 
 Ajoutez le pragma de version suivant en haut du fichier de code de contrat intelligent `HelloBlockchain.sol`.
 
-
-  ``` solidity
-  pragma solidity ^0.4.20;
-  ```
+``` solidity
+pragma solidity >=0.4.25 <0.6.0;
+```
 
 ### <a name="configuration-and-smart-contract-code-relationship"></a>Configuration et relation de code de contrat intelligent
 
-Blockchain Workbench utilise le fichier de configuration et le fichier de code de contrat intelligent pour créer une application blockchain. Il existe une relation entre ce qui est défini dans la configuration et le code dans le contrat intelligent. Les détails, fonctions, paramètres et types du contrat doivent correspondre pour créer l’application. Blockchain Workbench vérifie les fichiers avant la création de l’application. 
+Blockchain Workbench utilise le fichier de configuration et le fichier de code de contrat intelligent pour créer une application blockchain. Il existe une relation entre ce qui est défini dans la configuration et le code dans le contrat intelligent. Les détails, fonctions, paramètres et types du contrat doivent correspondre pour créer l’application. Blockchain Workbench vérifie les fichiers avant la création de l’application.
 
 ### <a name="contract"></a>Contrat
 
 Ajoutez l’en-tête **contract** à votre fichier de code de contrat intelligent `HelloBlockchain.sol`.
 
-```
+``` solidity
 contract HelloBlockchain {
 ```
 
@@ -254,17 +254,17 @@ contract HelloBlockchain {
 
 Les variables d’état stockent les valeurs d’état de chaque instance de contrat. Les variables d’état dans votre contrat doivent correspondre aux propriétés de flux de travail définies dans le fichier de configuration.
 
-Ajoutez les variables d’état à votre contrat dans votre fichier de code de contrat intelligent `HelloBlockchain.sol`. 
+Ajoutez les variables d’état à votre contrat dans votre fichier de code de contrat intelligent `HelloBlockchain.sol`.
 
-```
+``` solidity
     //Set of States
     enum StateType { Request, Respond}
-    
+
     //List of properties
     StateType public  State;
     address public  Requestor;
     address public  Responder;
-    
+
     string public RequestMessage;
     string public ResponseMessage;
 ```
@@ -275,11 +275,11 @@ Le constructeur définit des paramètres d’entrée pour une nouvelle instance 
 
 Dans la fonction de constructeur, écrivez une logique métier à exécuter avant la création du contrat. Par exemple, initialisez les variables d’état avec des valeurs de départ.
 
-Ajoutez la fonction de constructeur à votre contrat dans votre fichier de code de contrat intelligent `HelloBlockchain.sol`. 
+Ajoutez la fonction de constructeur à votre contrat dans votre fichier de code de contrat intelligent `HelloBlockchain.sol`.
 
-```
+``` solidity
     // constructor function
-    constructor(string message) public
+    constructor(string memory message) public
     {
         Requestor = msg.sender;
         RequestMessage = message;
@@ -293,22 +293,23 @@ Les fonctions sont les unités exécutables de logique métier dans un contrat. 
 
 Écrivez une logique métier à exécuter dans la fonction. Par exemple, la modification de la valeur d’une variable d’état.
 
-1. Ajoutez les fonctions suivantes à votre contrat dans votre fichier de code de contrat intelligent `HelloBlockchain.sol`. 
+1. Ajoutez les fonctions suivantes à votre contrat dans votre fichier de code de contrat intelligent `HelloBlockchain.sol`.
 
-    ```
+    ``` solidity
         // call this function to send a request
-        function SendRequest(string requestMessage) public
+        function SendRequest(string memory requestMessage) public
         {
             if (Requestor != msg.sender)
             {
                 revert();
             }
+    
             RequestMessage = requestMessage;
             State = StateType.Request;
         }
     
         // call this function to send a response
-        function SendResponse(string responseMessage) public
+        function SendResponse(string memory responseMessage) public
         {
             Responder = msg.sender;
     
@@ -327,20 +328,20 @@ Pour ajouter une application blockchain à Blockchain Workbench, vous chargez le
 1. Dans un navigateur web, accédez à l’adresse web de Blockchain Workbench. Par exemple, `https://{workbench URL}.azurewebsites.net/`. L’application web est créée lorsque vous déployez Blockchain Workbench. Pour plus d’informations sur la façon de trouver l’adresse web de Blockchain Workbench, consultez [URL Web Blockchain Workbench](deploy.md#blockchain-workbench-web-url)
 2. Connectez-vous en tant [qu’administrateur Blockchain Workbench](manage-users.md#manage-blockchain-workbench-administrators).
 3. Sélectionnez **Applications** > **Nouveau**. Le volet **Nouvelle application** s’affiche.
-4. Sélectionnez **Upload the contract configuration (Charger la configuration du contrat)** > **Parcourir** pour localiser le fichier de configuration **HelloBlockchain.json** que vous avez créé. Le fichier de configuration est automatiquement validé. Sélectionnez le lien **Afficher** pour afficher les erreurs de validation. Corrigez les erreurs de validation avant de déployer l’application.
-5. Sélectionnez **Upload the contract code (Charger le code de contrat)** > **Parcourir** pour localiser le fichier de code de contrat intelligent **HelloBlockchain.sol**. Le fichier de code est automatiquement validé. Sélectionnez le lien **Afficher** pour afficher les erreurs de validation. Corrigez les erreurs de validation avant de déployer l’application.
+4. Sélectionnez **Upload the contract configuration (Charger la configuration du contrat)**  > **Parcourir** pour localiser le fichier de configuration **HelloBlockchain.json** que vous avez créé. Le fichier de configuration est automatiquement validé. Sélectionnez le lien **Afficher** pour afficher les erreurs de validation. Corrigez les erreurs de validation avant de déployer l’application.
+5. Sélectionnez **Upload the contract code (Charger le code de contrat)**  > **Parcourir** pour localiser le fichier de code de contrat intelligent **HelloBlockchain.sol**. Le fichier de code est automatiquement validé. Sélectionnez le lien **Afficher** pour afficher les erreurs de validation. Corrigez les erreurs de validation avant de déployer l’application.
 6. Sélectionnez **Déployer** pour créer l’application blockchain en fonction des fichiers de configuration et de contrat intelligent.
 
 Le déploiement de l’application blockchain prend quelques minutes. Lorsque le déploiement est terminé, la nouvelle application s’affiche dans **Applications**. 
 
 > [!NOTE]
-> Vous pouvez également créer des applications blockchain à l’aide de l’[API REST Azure Blockchain Workbench](https://docs.microsoft.com/rest/api/azure-blockchain-workbench). 
+> Vous pouvez également créer des applications blockchain à l’aide de l’[API REST Azure Blockchain Workbench](https://docs.microsoft.com/rest/api/azure-blockchain-workbench).
 
 ## <a name="add-blockchain-application-members"></a>Ajouter des membres d’application blockchain
 
 Ajoutez des membres d’application à votre application pour initier et effectuer des actions sur des contrats. Pour ajouter des membres d’application, vous devez être un [administrateur Blockchain Workbench](manage-users.md#manage-blockchain-workbench-administrators).
 
-1. Sélectionnez **Applications** > **Hello, Blockchain!**.
+1. Sélectionnez **Applications** > **Hello, Blockchain!** .
 2. Le nombre de membres associés à l’application s’affiche dans le coin supérieur droit de la page. Pour une nouvelle application, le nombre de membres sera de zéro.
 3. Sélectionnez le lien **membres** dans le coin supérieur droit de la page. La liste actuelle des membres de l’application s’affiche.
 4. Dans la liste des membres, sélectionnez **Ajouter des membres**.

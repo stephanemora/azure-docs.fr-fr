@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 03/18/2019
+ms.date: 05/30/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 53b2c2945062ef348104e24a352895a14eed1a04
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: a4889d82ac1c837581771860f2aba86faf7650ee
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58314839"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399437"
 ---
 # <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-azure"></a>Basculer et restaurer automatiquement des machines virtuelles Hyper-V répliquées sur Azure
 
@@ -73,7 +73,7 @@ L’opération de restauration automatique est essentiellement un basculement d�
 
 1. Dans **Paramètres** > **Éléments répliqués**, cliquez sur la machine virtuelle > **Basculement planifié**.
 2. Dans **Confirmer le basculement planifié**, vérifiez le sens du basculement (depuis Azure), et sélectionnez les emplacements source et cible.
-3. Sélectionnez **Synchroniser les données avant le basculement (synchroniser seulement les modifications d’ordre différentiel)**. Cette option réduit le temps d’arrêt de machine virtuelle, car il synchronise la machine virtuelle sans l’arrêter.
+3. Sélectionnez **Synchroniser les données avant le basculement (synchroniser seulement les modifications d’ordre différentiel)** . Cette option réduit le temps d’arrêt de machine virtuelle, car il synchronise la machine virtuelle sans l’arrêter.
 4. Lancez le basculement. Vous pouvez suivre la progression du basculement sur l’onglet **Tâches** .
 5. Quand la synchronisation initiale des données est terminée et que vous êtes prêt à arrêter les machines virtuelles Azure, cliquez sur **Tâches** > Nom de la tâche de basculement planifié > **Terminer le basculement**. Ceci arrête la machine virtuelle Azure, transfère les dernières modifications locales et démarre la machine virtuelle locale.
 6. Connectez-vous à la machine virtuelle locale pour vérifier qu’elle est disponible comme prévu.

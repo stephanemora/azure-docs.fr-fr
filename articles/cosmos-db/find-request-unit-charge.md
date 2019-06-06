@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 05/23/2019
 ms.author: thweiss
-ms.openlocfilehash: 8ccb7ae9869ec01b4f26009535af613ccb1d35d0
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 0671556a1ad049782090ffede509072adbac4c6a
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66241122"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66416042"
 ---
 # <a name="find-the-request-unit-charge-in-azure-cosmos-db"></a>Rechercher les frais d’unités de requête dans Azure Cosmos DB
 
@@ -231,7 +231,7 @@ Lorsque vous utilisez le [Kit de développement logiciel (SDK) .NET](https://www
 
 ```csharp
 RowSet rowSet = session.Execute("SELECT table_name FROM system_schema.tables;");
-double requestCharge = BitConverter.ToDouble(rowSet.Info.IncomingPayload["RequestCharge"], 0);
+double requestCharge = BitConverter.ToDouble(rowSet.Info.IncomingPayload["RequestCharge"].Reverse().ToArray(), 0);
 ```
 
 Pour plus d’informations, consultez [Démarrage rapide : Générer une application Cassandra à l’aide du Kit de développement logiciel (SDK) .NET et d’Azure Cosmos DB](create-cassandra-dotnet.md).

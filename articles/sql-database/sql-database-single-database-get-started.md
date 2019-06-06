@@ -12,12 +12,12 @@ ms.author: ninarn
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/23/2019
-ms.openlocfilehash: 18dde6b028365cc04343b6d2f461cdb8c1a2bede
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 3a0f3154142dc02a9ab48bc288c543b02fef46ea
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65074333"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389071"
 ---
 # <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-portal"></a>Démarrage rapide : Créer et interroger une base de données unique dans Azure SQL Database à l’aide du portail Azure
 
@@ -78,7 +78,7 @@ Pour créer une base de données unique contenant les exemples de données Adven
 
      ![Couche de calcul serverless](media/sql-database-get-started-portal/create-database-serverless.png)
 
-   - Vérifiez les paramètres pour **vCores max.**, **vCores min.**, **Délai de pause automatique** et **Taille maximale de données**. Modifiez-les comme vous le souhaitez.
+   - Vérifiez les paramètres pour **vCores max.** , **vCores min.** , **Délai de pause automatique** et **Taille maximale de données**. Modifiez-les comme vous le souhaitez.
    - Acceptez les termes de la préversion et cliquez sur **OK**.
    - Sélectionnez **Appliquer**.
 
@@ -137,4 +137,4 @@ Une fois que vous avez fini d’utiliser ces ressources, vous pouvez les supprim
   - [Se connecter et effectuer des requêtes à l’aide d’Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)
 - Pour créer une base de données unique dans la couche de calcul approvisionnée à l’aide d’Azure CLI, consultez [Exemples Azure CLI](sql-database-cli-samples.md).
 - Pour créer une base de données unique dans la couche de calcul approvisionnée à l’aide d’Azure PowerShell, consultez [Exemples Azure PowerShell](sql-database-powershell-samples.md).
-- Pour créer une base de données unique dans la couche de calcul serverless à l’aide d’Azure PowerShell, consultez [Créer une base de données serverless à l’aide de PowerShell](sql-database-serverless.md#create-new-database-using-powershell)
+- Pour créer une base de données unique dans la couche de calcul serverless à l’aide d’Azure PowerShell, consultez [Créer une base de données serverless à l’aide de PowerShell](sql-database-serverless.md#create-new-serverless-database-using-powershell)

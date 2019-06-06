@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Créer une application de traduction avec WPF, C# - API Traduction de texte Translator Text'
+title: 'Didacticiel : Créer une application de traduction avec WPF, C# - API Traduction de texte Translator Text'
 titleSuffix: Azure Cognitive Services
 description: Dans ce tutoriel, vous créez une application Windows Presentation Foundation (WPF) qui utilise les API Cognitive Services pour la traduction de texte, la détection de langue et la correction orthographique avec une seule clé d’abonnement. Cet exercice explique comment utiliser les fonctionnalités de l’API Traduction de texte Translator Text et de l’API Vérification orthographique Bing.
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: tutorial
-ms.date: 02/13/2019
+ms.date: 06/04/2019
 ms.author: erhopf
-ms.openlocfilehash: f7f8e86f17b0fdb715afc96dba80db0746440cef
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2deaa0ed8b21d5e091fe5d3b3e6986eaf2340281
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58078123"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514713"
 ---
-# <a name="tutorial-create-a-translation-app-with-wpf"></a>Tutoriel : Créer une application de traduction avec WPF
+# <a name="tutorial-create-a-translation-app-with-wpf"></a>Didacticiel : Créer une application de traduction avec WPF
 
 Dans ce tutoriel, vous créez une application [Windows Presentation Foundation (WPF)](https://docs.microsoft.com/visualstudio/designers/getting-started-with-wpf?view=vs-2017) qui utilise les API Cognitive Services pour la traduction de texte, la détection de langue et la correction orthographique avec une seule clé d’abonnement. Plus précisément, votre application appelle des API Traduction de texte Translator Text et de [Vérification orthographique Bing](https://azure.microsoft.com/services/cognitive-services/spell-check/).
 
@@ -60,7 +60,7 @@ Avant de continuer, vous avez besoin des éléments suivants :
 La première chose à faire est de configurer notre projet dans Visual Studio.
 
 1. Ouvrez Visual Studio. Sélectionnez **Fichier > Nouveau > Projet**.
-2. Dans le panneau de gauche, recherchez et sélectionnez **Visual C#**. Ensuite, sélectionnez **Application WPF (.NET Framework)** dans le panneau central.
+2. Dans le panneau de gauche, recherchez et sélectionnez **Visual C#** . Ensuite, sélectionnez **Application WPF (.NET Framework)** dans le panneau central.
    ![Créer une application WPF dans Visual Studio](media/create-wpf-project-visual-studio.png)
 3. Nommez votre projet, définissez la version de framework sur **.NET Framework 4.5.2 ou version ultérieure**, puis cliquez sur **OK**.
 4. Votre projet a été créé. Notez que deux onglets sont ouverts : `MainWindow.xaml` et `MainWindow.xaml.cs`. Tout au long de ce tutoriel, nous allons ajouter du code à ces deux fichiers. Le premier concerne l’interface utilisateur de l’application, le deuxième concerne nos appels à l’API Traduction de texte Translator Text et l’API Vérification orthographique Bing.
@@ -76,12 +76,12 @@ Notre projet nécessite un certain nombre d’assemblys .NET Framework et Newton
 
 Nous ajoutons des assemblys à notre projet pour sérialiser et désérialiser des objets, et pour gérer les demandes et les réponses HTTP.
 
-1. Recherchez votre projet dans l’Explorateur de solutions de Visual Studio (volet droit). Cliquez avec le bouton droit sur votre projet, puis sélectionnez **Ajouter > Référence...**, qui ouvre le **Gestionnaire de références**.
+1. Recherchez votre projet dans l’Explorateur de solutions de Visual Studio (volet droit). Cliquez avec le bouton droit sur votre projet, puis sélectionnez **Ajouter > Référence...** , qui ouvre le **Gestionnaire de références**.
    ![Ajouter des références d’assembly](media/add-assemblies-sample.png)
 2. L’onglet des assemblys liste tous les assemblys .NET Framework que vous pouvez référencer. Utilisez la barre de recherche en haut à droite de l’écran pour rechercher ces références et les ajouter à votre projet :
-   * [System.Runtime.Serialization](https://docs.microsoft.com/dotnet/api/system.runtime.serialization?view=netframework-4.7.2)
-   * [System.Web](https://docs.microsoft.com/dotnet/api/system.web?view=netframework-4.7.2)
-   * [System.Web.Extensions](https://docs.microsoft.com/dotnet/api/system.web?view=netframework-4.7.2)
+   * [System.Runtime.Serialization](https://docs.microsoft.com/dotnet/api/system.runtime.serialization)
+   * [System.Web](https://docs.microsoft.com/dotnet/api/system.web)
+   * [System.Web.Extensions](https://docs.microsoft.com/dotnet/api/system.web)
 3. Une fois que vous avez ajouté ces références à votre projet, vous pouvez cliquer sur **OK** pour fermer le **Gestionnaire de références**.
 
 > [!NOTE]
@@ -91,7 +91,7 @@ Nous ajoutons des assemblys à notre projet pour sérialiser et désérialiser d
 
 Notre application utilise NewtonSoft.Json pour désérialiser des objets JSON. Suivez ces instructions pour installer le package.
 
-1. Recherchez votre projet dans l’Explorateur de solutions de Visual Studio et cliquez dessus avec le bouton droit. Sélectionnez **Gérer les packages NuGet...**.
+1. Recherchez votre projet dans l’Explorateur de solutions de Visual Studio et cliquez dessus avec le bouton droit. Sélectionnez **Gérer les packages NuGet...** .
 2. Recherchez et sélectionnez l’onglet **Parcourir**.
 3. Tapez [NewtonSoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/) dans la barre de recherche.
    ![Rechercher et installer Newtonsoft.Json](media/add-nuget-packages.png)
@@ -347,7 +347,7 @@ L’interface utilisateur est définie en XAML, par conséquent, vous n’avez p
    // In the following sections, we'll add code below this.
    ```
 
-Cette méthode effectue une itération sur le dictionnaire `languageCodesAndTitles` et ajoute chaque clé aux deux menus. Une fois les menus remplis, les langues source et cible par défaut sont définies sur **Detect** et **English** respectivement.
+Cette méthode effectue une itération sur le dictionnaire `languageCodesAndTitles` et ajoute chaque clé aux deux menus. Une fois les menus remplis, les langues source et cible par défaut sont définies sur **Détecter** et **Anglais** respectivement.
 
 > [!TIP]
 > Si nous ne définissons pas de sélection par défaut pour nos menus, l’utilisateur peut cliquer sur **Traduire** sans choisir de langue source ou cible. Les valeurs par défaut évitent d’avoir à résoudre ce problème.

@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 03/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: b6e546130efd52312fca62ab4e6a22626778a19e
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 65e28b557a3708c155bf80f21a784374c4497783
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "60648135"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66383037"
 ---
 # <a name="what-is-the-bing-web-search-api"></a>Qu’est-ce que l’API Recherche Web Bing ?
 
@@ -50,5 +50,5 @@ L’API Recherche Web Bing peut être facilement appelée à partir de n’impor
 
 * Utilisez notre [guide de démarrage rapide Python](quickstarts/python.md) pour effectuer votre premier appel de l’API Recherche Web Bing.  
 * [Créez une application web à page unique](tutorial-bing-web-search-single-page-app.md).
-* Consultez la documentation de [référence sur l’API Recherche Web v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference).  
+* Consultez la documentation de [référence sur l’API Recherche Web v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference).  
 * Apprenez-en davantage sur les [conditions d’utilisation et d’affichage](UseAndDisplayRequirements.md) de l’API Recherche Web Bing.  

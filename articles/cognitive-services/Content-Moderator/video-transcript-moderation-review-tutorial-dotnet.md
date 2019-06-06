@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: tutorial
 ms.date: 03/11/2019
 ms.author: pafarley
-ms.openlocfilehash: fc49081c765834a0ed0e5199923606ced7daa081
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 4a28e9f1f911e274f9a53275afa577024405b336
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58522075"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66474687"
 ---
 # <a name="tutorial-video-and-transcript-moderation"></a>Didacticiel : Modération de vidéos et de transcriptions
 
@@ -44,15 +44,15 @@ Ce didacticiel vous explique les procédures suivantes :
 
 Modifiez le fichier `App.config` et ajoutez le nom du locataire Active Directory, les points de terminaison de service et les clés d’abonnement indiquées par `#####`. Vous avez besoin des informations suivantes :
 
-    |Clé|Description|
-    |-|-|
-    |`AzureMediaServiceRestApiEndpoint`|Point de terminaison pour l’API Azure Media Services (AMS)|
-    |`ClientSecret`|Clé d’abonnement pour Azure Media Services|
-    |`ClientId`|ID client pour Azure Media Services|
-    |`AzureAdTenantName`|Nom du locataire Active Directory représentant votre organisation|
-    |`ContentModeratorReviewApiSubscriptionKey`|Clé d’abonnement pour l’API de révision Content Moderator|
-    |`ContentModeratorApiEndpoint`|Point de terminaison pour l’API Content Moderator|
-    |`ContentModeratorTeamId`|ID d’équipe Content Moderator|
+|Clé|Description|
+|-|-|
+|`AzureMediaServiceRestApiEndpoint`|Point de terminaison pour l’API Azure Media Services (AMS)|
+|`ClientSecret`|Clé d’abonnement pour Azure Media Services|
+|`ClientId`|ID client pour Azure Media Services|
+|`AzureAdTenantName`|Nom du locataire Active Directory représentant votre organisation|
+|`ContentModeratorReviewApiSubscriptionKey`|Clé d’abonnement pour l’API de révision Content Moderator|
+|`ContentModeratorApiEndpoint`|Point de terminaison pour l’API Content Moderator|
+|`ContentModeratorTeamId`|ID d’équipe Content Moderator|
 
 ## <a name="examine-the-main-code"></a>Examinez le code principal
 
