@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 6140a8aea3fe0fe0a8f1c01cd1c97404c41f7a69
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 5248b9546ffe931b72123778d0d23574e5238405
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65805980"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66742416"
 ---
 # <a name="extend-azure-iot-central-with-custom-rules-that-send-notifications"></a>Étendre Azure IoT Central à l’aide des règles personnalisées qui envoient des notifications
 
@@ -40,9 +40,9 @@ Créer une application IoT Central à partir de la [Azure IoT Central - mes appl
 
 | Paramètre | Valeur |
 | ------- | ----- |
-| Plan de paiement | Paiement à l'utilisation |
+| Plan de paiement | Pay-As-You-Go |
 | Modèle d’application | Exemple Contoso |
-| Nom de l'application | Acceptez la valeur par défaut ou choisissez votre propre nom |
+| Nom de l’application | Acceptez la valeur par défaut ou choisissez votre propre nom |
 | URL | Acceptez la valeur par défaut ou choisissez votre propre préfixe d’URL unique |
 | Répertoire | Votre client Azure Active Directory |
 | Abonnement Azure | Votre abonnement Azure |
@@ -67,7 +67,7 @@ Utilisez le [portail Azure pour créer un espace de noms Event Hubs](https://por
 | Lieu | USA Est |
 | Unités de débit | 1 |
 
-### <a name="stream-analytics-job"></a>Tâche Stream Analytics
+### <a name="stream-analytics-job"></a>Travail d’Analytique de Stream
 
 Utilisez le [portail Azure pour créer un travail Stream Analytique](https://portal.azure.com/#create/Microsoft.StreamAnalyticsJob) avec les paramètres suivants :
 
@@ -77,8 +77,8 @@ Utilisez le [portail Azure pour créer un travail Stream Analytique](https://por
 | Abonnement | Votre abonnement |
 | Groupe de ressources | DetectStoppedDevices |
 | Lieu | USA Est |
-| Environnement d'hébergement | Cloud |
-| Unités de streaming | 3 |
+| Environnement d’hébergement | Cloud |
+| Unités de diffusion en continu | 3 |
 
 ### <a name="function-app"></a>Conteneur de fonctions
 
@@ -90,9 +90,9 @@ Utilisez le [portail Azure pour créer une application de fonction](https://port
 | Abonnement | Votre abonnement |
 | Groupe de ressources | DetectStoppedDevices |
 | SE | Windows |
-| Plan d'hébergement | Plan Consommation |
+| Plan d’hébergement | Plan de consommation |
 | Lieu | USA Est |
-| Pile d'exécution | .NET |
+| Pile d’exécution | .NET |
 | Stockage | Création |
 
 ### <a name="sendgrid-account"></a>Compte SendGrid
@@ -152,7 +152,7 @@ Le portail crée une fonction par défaut appelée **HttpTrigger1**:
 
 Pour envoyer des courriers électroniques avec SendGrid, vous devez configurer les liaisons de votre fonction comme suit :
 
-1. Sélectionnez **intégrer**, choisissez la sortie **HTTP ($return)**, puis sélectionnez **supprimer**.
+1. Sélectionnez **intégrer**, choisissez la sortie **HTTP ($return)** , puis sélectionnez **supprimer**.
 1. Choisissez **+ nouvelle sortie**, puis choisissez **SendGrid**, puis choisissez **sélectionnez**. Choisissez **installer** pour installer l’extension de SendGrid.
 1. Lors de l’installation terminée, sélectionnez **utiliser la valeur de retour de fonction**. Ajouter un valide **à l’adresse** pour recevoir des notifications par courrier électronique.  Ajouter un valide **à partir de l’adresse** à utiliser en tant que l’expéditeur de courrier électronique.
 1. Sélectionnez **nouveau** regard **paramètre d’application SendGrid API clé**. Entrez **SendGridAPIKey** comme clé et la clé API SendGrid vous avez notée comme valeur. Sélectionnez ensuite **Créer**.
@@ -312,19 +312,19 @@ Accédez à la [application IoT Central](https://aka.ms/iotcentral) vous avez cr
 
     | Paramètre | Valeur |
     | ------- | ----- |
-    | Nom complet  | Exporter vers Event Hubs |
-    | activé | Sur |
+    | Nom d’affichage | Exporter vers Event Hubs |
+    | activé | Il en va |
     | Espace de noms Event Hubs | Nom de votre espace de noms Event Hubs |
     | Event Hub | centralexport |
-    | Mesures | Sur |
-    | Appareils | Inactif |
-    | Modèles d'appareil | Inactif |
+    | Mesures | Il en va |
+    | Appareils | Off |
+    | Modèles d’appareil | Off |
 
 ![Configuration de l’exportation continue des données](media/howto-create-custom-rules/cde-configuration.png)
 
 Attendez que l’état de l’exportation est **en cours d’exécution** avant de continuer.
 
-## <a name="test"></a>Tester
+## <a name="test"></a>Test
 
 Pour tester la solution, vous pouvez désactiver l’exportation continue des données à partir de IoT Central pour les appareils simulés arrêtés :
 
@@ -353,4 +353,4 @@ Dans ce guide pratique, vous avez appris à effectuer les opérations suivantes�
 * Créer une requête de Stream Analytique qui détecte quand un appareil a arrêté l’envoi des données.
 * Envoyer une notification par courrier électronique à l’aide d’Azure Functions et services SendGrid.
 
-Maintenant que vous savez comment créer des règles personnalisées et les notifications, l’étape suivante suggérée consiste à apprendre comment [visualiser et analyser vos données Azure IoT Central dans un tableau de bord Power BI](howto-connect-powerbi.md).
+Maintenant que vous savez comment créer des règles personnalisées et les notifications, l’étape suivante suggérée consiste à apprendre comment [étendre Azure IoT Central avec analytique personnalisée](howto-create-custom-analytics.md).

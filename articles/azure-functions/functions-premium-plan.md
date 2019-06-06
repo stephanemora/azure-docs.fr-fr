@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: jehollan
-ms.openlocfilehash: de1915c7efb4bd8634228f341df2c57c443dd28e
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: dab7561db8f223bff87f41ef756605359c3478e4
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66242300"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66492698"
 ---
 # <a name="azure-functions-premium-plan-preview"></a>Offre des fonctions Premium Azure (version préliminaire)
 
@@ -56,7 +56,7 @@ az resource update -g <resource_group> -n <function_app_name>/config/web --set p
 
 ### <a name="private-network-connectivity"></a>Connectivité de réseau privé
 
-Azure Functions sont déployées sur un plan Premium tire parti de [nouvelle intégration au réseau virtuel pour les applications web](../app-service/web-sites-integrate-with-vnet.md#new-vnet-integration).  En cas de configuré, votre application peut communiquer avec les ressources au sein de votre réseau virtuel ou sécurisé par le biais de points de terminaison de service.  Restrictions d’adresse IP sont également disponibles sur l’application pour limiter le trafic entrant.
+Azure Functions sont déployées sur un plan Premium tire parti de [nouvelle intégration au réseau virtuel pour les applications web](../app-service/web-sites-integrate-with-vnet.md).  En cas de configuré, votre application peut communiquer avec les ressources au sein de votre réseau virtuel ou sécurisé par le biais de points de terminaison de service.  Restrictions d’adresse IP sont également disponibles sur l’application pour limiter le trafic entrant.
 
 Quand vous affectez un sous-réseau à votre application de fonction dans un plan Premium, vous avez besoin d’un sous-réseau avec suffisamment d’adresses IP pour chaque instance potentiel. Bien que le nombre maximal d’instances peut-être varier durant la phase préliminaire, nous avons besoin d’un bloc d’IP au moins 100 adresses disponibles.
 

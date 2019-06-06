@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e9ecf6d04056a91f1f9dd62a5238f60177d2bf59
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: 16e4a5f63ba80b02a967888ad76fedf165a576c8
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66420587"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66473400"
 ---
 # <a name="what-is-a-primary-refresh-token"></a>Qu’est un principal jeton d’actualisation ?
 
@@ -111,8 +111,11 @@ Lorsqu’un utilisateur lance une interaction du navigateur, le navigateur (ou l
 Un PRT peut obtenir une revendication de l’authentification multifacteur (MFA) dans des scénarios spécifiques. Lorsqu’un PRT basée sur l’authentification Multifacteur est utilisé pour demander des jetons pour les applications, la revendication MFA est transférée vers ces jetons d’application. Cette fonctionnalité offre une expérience transparente aux utilisateurs en empêchant l’authentification MFA pour chaque application qui en a besoin. Un PRT permettre obtenir une revendication MFA comme suit :
 
 * **Connectez-vous à Windows Hello for Business**: Windows Hello entreprise remplace les mots de passe et utilise des clés de chiffrement pour fournir une authentification forte à deux facteurs. Windows Hello entreprise est spécifique à un utilisateur sur un appareil, et lui-même exige l’authentification Multifacteur à approvisionner. Quand un utilisateur se connecte avec Windows Hello entreprise, PRT l’utilisateur obtient une revendication d’authentification Multifacteur. Ce scénario s’applique également aux utilisateurs se connectant avec cartes à puce si l’authentification par carte à puce génère une revendication MFA d’ADFS.
+   * Comme Windows Hello entreprise est considérée comme l’authentification multifacteur, la revendication MFA est mis à jour lorsque le PRT lui-même est actualisée, donc la durée de l’authentification Multifacteur s’étendre en continu lorsque les utilisateurs se connectent avec WIndows Hello entreprise
 * **Authentification Multifacteur pendant la connexion interactive WAM**: Pendant une demande de jeton via WAM, si un utilisateur est requis pour effectuer l’authentification Multifacteur pour accéder à l’application, PRT renouvelé pendant cette interaction est empreinte avec une revendication d’authentification Multifacteur.
+   * Dans ce cas, la revendication MFA n’est pas actualisée en permanence, donc la durée de l’authentification Multifacteur est basée sur la durée de vie définie sur le répertoire.
 * **Authentification Multifacteur lors de l’inscription de périphérique**: Si un administrateur a configuré les paramètres de périphérique dans Azure AD pour [exiger l’authentification Multifacteur inscrire des appareils](device-management-azure-portal.md#configure-device-settings), l’utilisateur a besoin pour effectuer l’authentification Multifacteur pour terminer l’inscription. Pendant ce processus, PRT émis pour l’utilisateur a la revendication MFA obtenue lors de l’inscription. Cette fonctionnalité s’applique uniquement à l’utilisateur qui a effectué l’opération de jointure, pas à d’autres utilisateurs qui se connectent à sur cet appareil.
+   * Comme pour la connexion interactive WAM, la revendication MFA n’est pas actualisée en permanence, donc la durée de l’authentification Multifacteur est basée sur la durée de vie définie sur le répertoire.
 
 Windows 10 gère une liste partitionnée de PRTs pour chaque information d’identification. Par conséquent, il existe un PRT pour chacun de Windows Hello entreprise, mot de passe ou carte à puce. Ce partitionnement garantit que les revendications MFA sont isolées selon les informations d’identification utilisées et ne pas mélangés au cours des demandes de jeton.
 

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/14/2018
 ms.author: raynew
-ms.openlocfilehash: f5ec5a64f1de39cd0d196242fb1a93669dbab15d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: d850cb222b0028f862cdba302140ce12af8576db
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64681844"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66492737"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>Gérer et surveiller des bases de données SQL Server sauvegardées
 
@@ -89,6 +89,14 @@ Pour arrêter la protection de la base de données :
     ![Conserver ou supprimer des données dans le menu Arrêter la sauvegarde](./media/backup-azure-sql-database/stop-backup-button.png)
 
 6. Sélectionnez **arrêter la sauvegarde**.
+
+>
+> [!NOTE]
+Consultez le ci-dessous FAQ pour plus d’informations sur l’option de suppression de données : <br/>
+* [Si je supprime une base de données à partir d’une instance autoprotected, que se passera-t-il pour les sauvegardes ?](faq-backup-sql-server.md#if-i-delete-a-database-from-an-autoprotected-instance-what-will-happen-to-the-backups)<br/>
+* [Si l’opération de sauvegarde d’une base de données autoprotected arrêter quel sera son comportement ?](faq-backup-sql-server.md#if-i-change-the-name-of-the-database-after-it-has-been-protected-what-will-be-the-behavior)
+>
+>
 
 
 ## <a name="resume-protection-for-a-sql-database"></a>Rétablir la protection d’une base de données SQL

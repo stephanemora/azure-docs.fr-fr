@@ -7,16 +7,16 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 05/16/2019
 ms.author: v-chjenk
-ms.openlocfilehash: c3f31e8d260ea5e462e8782fadd9f61f34d03add
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: b3032aa796b3c79572bbf8b2beb85efc252ff73b
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66307271"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66497539"
 ---
 # <a name="fslogix-profile-containers-and-azure-files"></a>Conteneurs de profil FSLogix et fichiers Azure
 
-Le service de Windows Virtual Desktop Preview recommande des conteneurs de profil FSLogix comme une solution de profil utilisateur. FSLogix est conçu pour se déplacer de profils dans des environnements informatiques à distance, telles que bureau virtuel Windows. Elle stocke un profil complet de l’utilisateur dans un seul conteneur. Lors de la connexion, le conteneur est dynamiquement attaché à l’environnement informatique natif, dans l’invité dur virtuel Hyper-V et disque dur virtuel (VHD) disque (VHDX) les services Microsoft. Le profil utilisateur est immédiatement disponible et apparaît dans le système exactement comme un profil utilisateur natives.
+Le service de Windows Virtual Desktop Preview recommande des conteneurs de profil FSLogix comme une solution de profil utilisateur. FSLogix est conçu pour se déplacer de profils dans des environnements informatiques à distance, telles que bureau virtuel Windows. Elle stocke un profil complet de l’utilisateur dans un seul conteneur. Lors de la connexion, ce conteneur est dynamiquement attaché à l’environnement informatique à l’aide de disque dur virtuel Hyper-V et de disque dur virtuel (VHD) pris en charge en mode natif (VHDX). Le profil utilisateur est immédiatement disponible et apparaît dans le système exactement comme un profil utilisateur natives.
 
 Dans cet article, nous décrirons les conteneurs de profil FSLogix utilisés avec Azure Files. Les informations figurent dans le contexte de bureau virtuel de Windows, ce qui a été [annoncées sur 3/21](https://www.microsoft.com/microsoft-365/blog/2019/03/21/windows-virtual-desktop-public-preview/).
 
@@ -24,7 +24,7 @@ Dans cet article, nous décrirons les conteneurs de profil FSLogix utilisés ave
 
 Un profil utilisateur contient des éléments de données sur une personne, y compris les informations de configuration telles que les paramètres des bureaux, des connexions réseau persistantes et paramètres de l’application. Par défaut, Windows crée un profil utilisateur local qui est étroitement intégré au système d’exploitation.
 
-Un profil utilisateur à distance fournit une partition entre les données utilisateur et le système d’exploitation. Il permet au système d’exploitation être remplacés ou modifiés sans incidence sur les données utilisateur. Dans l’hôte de Session de bureau à distance (RDSH) et Virtual Desktop Infrastructure (VDI), le système d’exploitation peut être remplacé pour les raisons suivantes :
+Un profil utilisateur à distance fournit une partition entre les données utilisateur et le système d’exploitation. Il permet au système d’exploitation être remplacé ou modifié sans affecter les données utilisateur. Dans l’hôte de Session de bureau à distance (RDSH) et Virtual Desktop Infrastructure (VDI), le système d’exploitation peut être remplacé pour les raisons suivantes :
 
 - Une mise à niveau du système d’exploitation
 - Un remplacement d’une Machine virtuelle (machine virtuelle existante)
@@ -47,11 +47,11 @@ Le tableau suivant présente les avantages et les limites des technologies de pr
 
 | Technology | Paramètres modernes | Paramètres de Win32 | Paramètres de système d’exploitation | Données utilisateur | Prise en charge sur le serveur de référence (SKU) | Stockage back-end sur Azure | Stockage back-end en local | Versions prises en charge | Pour les connexions suivantes dans le temps |Notes|
 | ---------- | :-------------: | :------------: | :---------: | --------: | :---------------------: | :-----------------------: | :--------------------------: | :-------------: | :---------------------: |-----|
-| **Disques de profil utilisateur (UPD)** | Oui | OUI | OUI | OUI | Oui | Non  | Oui | Win 7 + | Oui | |
-| **Itinérance de profil utilisateur (RUP), mode de maintenance** | Non | OUI | OUI | OUI | Oui| Non  | Oui | Win 7 + | Non  | |
-| **Enterprise State Roaming (ESR)** | Oui | Non  | Oui | Non | Voir les remarques | Oui | Non  | Win 10 | Non | Fonctions sur le serveur de référence (SKU), mais aucune interface utilisateur prise en charge |
-| **User Experience Virtualization (UE-V)** | Oui | OUI | Oui | Non  | Oui | Non  | Oui | Win 7 + | Non |  |
-| **Fichiers de cloud OneDrive** | Non | Non  | Non  | Oui | Voir les remarques | Voir les remarques  | Consultez les notes de publication | Win 10 RS3 | Non | Pas testé sur le serveur de référence (SKU). Stockage back-end sur Azure dépend du client de synchronisation. Stockage principal local a besoin d’un client de synchronisation. |
+| **Disques de profil utilisateur (UPD)** | Oui | OUI | OUI | OUI | Oui | Non | Oui | Win 7 + | Oui | |
+| **Itinérance de profil utilisateur (RUP), mode de maintenance** | Non | OUI | OUI | OUI | Oui| Non | Oui | Win 7 + | Non | |
+| **Enterprise State Roaming (ESR)** | Oui | Non | Oui | Non | Voir les remarques | Oui | Non | Win 10 | Non | Fonctions sur le serveur de référence (SKU), mais aucune interface utilisateur prise en charge |
+| **User Experience Virtualization (UE-V)** | Oui | OUI | Oui | Non | Oui | Non | Oui | Win 7 + | Non |  |
+| **Fichiers de cloud OneDrive** | Non | Non | Non | Oui | Voir les remarques | Voir les remarques  | Consultez les notes de publication | Win 10 RS3 | Non | Pas testé sur le serveur de référence (SKU). Stockage back-end sur Azure dépend du client de synchronisation. Stockage principal local a besoin d’un client de synchronisation. |
 
 #### <a name="performance"></a>Performances
 
@@ -67,7 +67,7 @@ Les clusters S2D nécessitent un système d’exploitation est corrigé, mis à 
 
 ## <a name="fslogix-profile-containers"></a>Conteneurs de profil FSLogix
 
-Le 19 novembre 2018 [Microsoft a acquis FSLogix](https://blogs.microsoft.com/blog/2018/11/19/microsoft-acquires-fslogix-to-enhance-the-office-365-virtualization-experience/). Les adresses de FSLogix sont de nombreux défis conteneur profil, le clé entre eux :
+Le 19 novembre 2018, [Microsoft a acquis FSLogix](https://blogs.microsoft.com/blog/2018/11/19/microsoft-acquires-fslogix-to-enhance-the-office-365-virtualization-experience/). FSLogix résout de nombreux défis de conteneur de profil. Les plus importants sont :
 
 - **Performances :** Le [conteneurs de profil FSLogix](https://fslogix.com/products/profile-containers) haute performance et de résoudre les problèmes de performances ont bloqué historiquement mis en cache en mode exchange.
 - **OneDrive :** Sans les conteneurs de profil FSLogix, OneDrive entreprise n’est pas pris en charge dans les environnements RDSH ou VDI non persistant. [OneDrive pour les meilleures pratiques d’entreprise et FSLogix](https://fslogix.com/products/technical-faqs/284-onedrive-for-business-and-fslogix-best-practices) décrit la façon dont ils interagissent. Pour plus d’informations, consultez [utiliser le client de synchronisation sur les bureaux virtuels](https://docs.microsoft.com/deployoffice/rds-onedrive-business-vdi).

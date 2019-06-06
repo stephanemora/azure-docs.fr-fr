@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: mayg
-ms.openlocfilehash: bcfeca34eb11caaddac06971fe7f825a142586a2
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: efb49db6cce7ba238d40bf80ddf87b2a1a83834f
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65602071"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479993"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>Installer un serveur cible maître Linux pour la restauration automatique
 Après avoir basculé une machine virtuelle sur Azure, vous pouvez la restaurer automatiquement sur le site local. L’opération de restauration vous oblige à reprotéger la machine virtuelle à partir d’Azure sur le site local. Pour ce faire, vous avez besoin d’un serveur cible maître, capable de recevoir le trafic. 
@@ -160,7 +160,7 @@ Pour obtenir l’ID de chaque disque dur SCSI d’une machine virtuelle Linux, v
 
 3. Sélectionnez l’onglet **Options** (Options).
 
-4. Dans le volet gauche, sélectionnez **Advanced (Avancé)** > **General (Général)**, puis cliquez sur le bouton **Configuration Parameters** (Paramètres de configuration) dans la partie inférieure droite de l’écran.
+4. Dans le volet gauche, sélectionnez **Advanced (Avancé)**  > **General (Général)** , puis cliquez sur le bouton **Configuration Parameters** (Paramètres de configuration) dans la partie inférieure droite de l’écran.
 
     ![Ouvrir le paramètre de configuration](./media/vmware-azure-install-linux-master-target/image24-ubuntu.png) 
 
@@ -245,7 +245,7 @@ Pour créer un disque de rétention, procédez comme suit :
 
     ![ID Multipath](./media/vmware-azure-install-linux-master-target/image27.png)
 
-3. Formatez le disque, puis créez un système de fichiers sur le nouveau lecteur : **mkfs.ext4/dev/mapper/<id multichemin du disque de rétention>**.
+3. Formatez le disque, puis créez un système de fichiers sur le nouveau lecteur : **mkfs.ext4/dev/mapper/<id multichemin du disque de rétention>** .
     
     ![Système de fichiers](./media/vmware-azure-install-linux-master-target/image23-centos.png)
 

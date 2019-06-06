@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 05/15/2019
 ms.author: shvija
-ms.openlocfilehash: acc756ac04e5127d07760746bd0178f0f6cb1d6f
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: c5e58f7bc89fbe2d93f6610465abf4a92fd31406
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65789247"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66476119"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Forum Aux Questions (FAQ) sur Event Hubs
 
@@ -73,7 +73,7 @@ Consultez le tableau suivant pour les ports de sortie que vous devez ouvrir pour
 | -------- | ----- | ------- | 
 | AMQP | 5671 et 5672 | Consultez [guide du protocole AMQP](../service-bus-messaging/service-bus-amqp-protocol-guide.md) | 
 | HTTP, HTTPS | 80, 443 |  |
-| Kafka | 9092 | Consultez [utiliser Event Hubs à partir d’applications de Kafka](event-hubs-for-kafka-ecosystem-overview.md)
+| Kafka | 9093 | Consultez [utiliser Event Hubs à partir d’applications de Kafka](event-hubs-for-kafka-ecosystem-overview.md)
 
 ### <a name="what-ip-addresses-do-i-need-to-whitelist"></a>Quelles adresses IP dois-je à la liste verte ?
 Pour trouver les adresses IP appropriées à la liste verte pour vos connexions, procédez comme suit :

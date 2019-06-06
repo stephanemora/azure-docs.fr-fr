@@ -7,15 +7,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: howto
-ms.date: 05/24/2019
-ms.openlocfilehash: c40bae6ac1af2489e4e77d2c280b95cccf8b5603
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.date: 05/30/2019
+ms.openlocfilehash: 0e3a35c2ceed5f3bb08b2d332f05bbaf416c94b2
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66257830"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66743244"
 ---
-# <a name="configure-outbound-network-traffic-restriction-for-azure-hdinsight-clusters-preview"></a>Configurer la restriction du trafic réseau sortant pour les clusters Azure HDInsight (version préliminaire)
+# <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall-preview"></a>Configurer le trafic réseau sortant pour les clusters Azure HDInsight à l’aide de pare-feu (version préliminaire)
 
 Cet article fournit les étapes pour vous permet de sécuriser le trafic sortant à partir de votre cluster HDInsight à l’aide de pare-feu Azure. Les étapes ci-dessous supposent que vous configurez un pare-feu d’Azure pour un cluster existant. Si vous déployez un nouveau cluster et derrière un pare-feu, créez d’abord votre cluster de HDInsight et le sous-réseau, puis suivez les étapes décrites dans ce guide.
 
@@ -60,9 +60,9 @@ Sur le **ajouter le regroupement de règles d’application** écran, procédez 
     1. Une règle pour autoriser l’activité de connexion de Windows :
         1. Dans le **cible FQDN** section, fournissez un **nom**et définissez **adresses sources** à `*`.
         1. Entrez `https:443` sous **: Port de protocole** et `login.windows.net` sous **cibler les noms de domaine complets**.
-    1. Si votre cluster est sauvegardé par WASB et que vous n’utilisez pas les points de terminaison de service ci-dessus, puis ajoutez une règle pour WASB :
+    1. Si votre cluster est soutenu par WASB, puis ajoutez une règle pour WASB :
         1. Dans le **cible FQDN** section, fournissez un **nom**et définissez **adresses sources** à `*`.
-        1. Entrez `http` ou `https` selon que vous utilisez wasb : / / ou wasbs : / / sous **: Port de protocole** et l’url de compte de stockage sous **noms de domaine complets cible**.
+        1. Entrez `http:80,https:443` sous **: Port de protocole** et l’url de compte de stockage sous **noms de domaine complets cible**. Le format sera similaire à < storage_account_name.blob.core.windows.net >. Pour utiliser le protocole https uniquement, assurez-vous connexions [« transfert sécurisé requis »](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) est activé sur le compte de stockage.
 1. Cliquez sur **Add**.
 
 ![Titre : Entrez les détails de la collection application règle](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection-details.png)
@@ -75,29 +75,29 @@ Créer les règles de réseau pour configurer correctement votre cluster HDInsig
 1. Cliquez sur **règles** sous **paramètres** > **regroupement de règles de réseau** > **ajouter le regroupement de règles de réseau**.
 1. Sur le **ajouter le regroupement de règles de réseau** écran, entrez un **nom**, **priorité**, puis cliquez sur **autoriser** à partir de la **Action** menu déroulant.
 1. Créer les règles suivantes :
-    1. Une règle de réseau qui autorise le cluster effectue la synchronisation de l’horloge à l’aide de NTP.
-        1. Dans le **règles** section, fournissez un **nom** et sélectionnez **n’importe quel** à partir de la **protocole** liste déroulante.
+    1. Une règle de réseau dans la section adresses IP qui permet au cluster effectuer la synchronisation de l’horloge à l’aide de NTP.
+        1. Dans le **règles** section, fournissez un **nom** et sélectionnez **UDP** à partir de la **protocole** liste déroulante.
         1. Définissez **adresses Source** et **adresses de Destination** à `*`.
         1. Définissez **Ports de Destination** à 123.
-    1. Si vous utilisez Enterprise Security Package (ESP), puis ajoutez une règle réseau qui permet la communication avec AAD-DS pour les clusters de ESP.
+    1. Si vous utilisez Enterprise Security Package (ESP), puis ajoutez une règle de réseau dans la section adresses IP qui permet la communication avec AAD-DS pour les clusters de ESP.
         1. Déterminer les deux adresses IP pour vos contrôleurs de domaine.
         1. Dans la ligne suivante dans le **règles** section, fournissez un **nom** et sélectionnez **n’importe quel** à partir de la **protocole** liste déroulante.
         1. Définissez **adresses sources** `*`.
         1. Entrez toutes les adresses IP pour vos contrôleurs de domaine dans **adresses de Destination** séparés par des virgules.
         1. Définissez **Ports de Destination** à `*`.
-    1. Si vous utilisez Azure Data Lake Storage, vous pouvez ajouter une règle de réseau pour résoudre un problème SNI avec ADLS Gen1 et Gen2. Cette option acheminera le trafic au pare-feu, ce qui peut entraîner des coûts plus élevés pour les chargements de données volumineux, mais le trafic sera enregistrée et contrôlable.
+    1. Si vous utilisez Azure Data Lake Storage, vous pouvez ajouter une règle de réseau dans la section adresses IP à résoudre un problème SNI avec ADLS Gen1 et Gen2. Cette option acheminera le trafic au pare-feu, ce qui peut entraîner des coûts plus élevés pour les chargements de données volumineux, mais le trafic sera enregistrée et contrôlable dans les journaux de pare-feu.
         1. Déterminer l’adresse IP de votre compte Data Lake Storage. Vous pouvez utiliser une commande powershell comme `[System.Net.DNS]::GetHostAddresses("STORAGEACCOUNTNAME.blob.core.windows.net")` pour résoudre le nom de domaine complet pour une adresse IP.
-        1. Dans la ligne suivante dans le **règles** section, fournissez un **nom** et sélectionnez **n’importe quel** à partir de la **protocole** liste déroulante.
+        1. Dans la ligne suivante dans le **règles** section, fournissez un **nom** et sélectionnez **TCP** à partir de la **protocole** liste déroulante.
         1. Définissez **adresses sources** `*`.
         1. Entrez l’adresse IP de votre compte de stockage dans **adresses de Destination**.
         1. Définissez **Ports de Destination** à `*`.
-    1. (Facultatif) Si vous utilisez l’Analytique de journal, puis créer une règle de réseau pour permettre la communication avec votre espace de travail Analytique de journal.
-        1. Dans la ligne suivante dans le **règles** section, fournissez un **nom** et sélectionnez **n’importe quel** à partir de la **protocole** liste déroulante.
+    1. (Facultatif) Si vous utilisez l’Analytique de journal, vous devez ensuite créer une règle de réseau dans la section adresses IP pour permettre la communication avec votre espace de travail Analytique de journal.
+        1. Dans la ligne suivante dans le **règles** section, fournissez un **nom** et sélectionnez **TCP** à partir de la **protocole** liste déroulante.
         1. Définissez **adresses sources** `*`.
         1. Définissez **adresses de Destination** à `*`.
         1. Définissez **Ports de Destination** à `12000`.
-    1. Configurer une balise de service pour SQL qui vous permettra de se connecter et à auditer le trafic SQL.
-        1. Dans la ligne suivante dans le **règles** section, fournissez un **nom** et sélectionnez **n’importe quel** à partir de la **protocole** liste déroulante.
+    1. Configurer une règle de réseau dans la section balises de Service pour SQL qui vous permettra de se connecter et à auditer le trafic SQL, sauf si vous avez configuré des points de terminaison de Service pour SQL Server sur le sous-réseau HDInsight qui contournent le pare-feu.
+        1. Dans la ligne suivante dans le **règles** section, fournissez un **nom** et sélectionnez **TCP** à partir de la **protocole** liste déroulante.
         1. Définissez **adresses sources** `*`.
         1. Définissez **adresses de Destination** à `*`.
         1. Sélectionnez **Sql** à partir de la **balises de Service** liste déroulante.
@@ -110,10 +110,9 @@ Créer les règles de réseau pour configurer correctement votre cluster HDInsig
 
 Créer une table de routage avec les entrées suivantes :
 
-1. Sept des adresses [cette liste d’adresses IP de gestion nécessaires HDInsight](../hdinsight/hdinsight-extend-hadoop-virtual-network.md#hdinsight-ip) avec un tronçon suivant de **Internet**:
+1. Six des adresses [cette liste d’adresses IP de gestion nécessaires HDInsight](../hdinsight/hdinsight-extend-hadoop-virtual-network.md#hdinsight-ip) avec un tronçon suivant de **Internet**:
     1. Quatre adresses IP pour tous les clusters dans toutes les régions
     1. Deux adresses IP qui sont spécifiques à la région où le cluster est créé.
-    1. Une adresse IP pour le programme de résolution récursive d’Azure
 1. Un itinéraire d’Appliance virtuelle pour 0.0.0.0/0 des adresses IP avec le tronçon suivant qui est votre adresse IP privée de pare-feu Azure.
 
 Par exemple, pour configurer la table de routage d’un cluster créé dans la région États-Unis de « États-Unis », utilisez comme suit :
@@ -132,20 +131,15 @@ Par exemple, pour configurer la table de routage d’un cluster créé dans la r
 | 138.91.141.162 | 138.91.141.162/32 | Internet | N/D |
 | 13.67.223.215 | 13.67.223.215/32 | Internet | N/D |
 | 40.86.83.253 | 40.86.83.253/32 | Internet | N/D |
-| 168.63.129.16 | 168.63.129.16/32 | Internet | N/D |
 | 0.0.0.0 | 0.0.0.0/0 | Appliance virtuelle | 10.1.1.4 |
-
-![Titre : Créer une table de routage](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-route-table.png)
 
 Terminer la configuration de table de routage :
 
 1. Affectez la table de routage que vous avez créé à votre sous-réseau HDInsight en cliquant sur **sous-réseaux** sous **paramètres** , puis **associer**.
-1. Sur le **associer un sous-réseau** , sélectionnez le réseau virtuel créé dans votre cluster et le **AzureFirewallSubnet** que vous avez créé pour une utilisation avec votre pare-feu.
+1. Sur le **associer un sous-réseau** , sélectionnez le réseau virtuel créé dans votre cluster et le **HDInsight sous-réseau** vous avez utilisé pour votre cluster HDInsight.
 1. Cliquez sur **OK**.
 
-![Titre : Créer une table de routage](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-route-table-associate-subnet.png)
-
-## <a name="edge-node-application-traffic"></a>Trafic d’application de nœud de périmètre
+## <a name="edge-node-or-custom-application-traffic"></a>Nœud de périmètre ou le trafic d’application personnalisée
 
 Les étapes ci-dessus vous permettent du cluster de fonctionner sans problème. Vous devez toujours configurer les dépendances pour s’adapter à vos applications personnalisées s’exécutant sur les nœuds de périphérie, le cas échéant.
 
@@ -166,6 +160,9 @@ AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
 ```
 
 Il est utile de l’intégration de votre pare-feu d’Azure avec Azure Monitor journaux lorsque tout d’abord obtenir un travail de l’application lorsque vous n’avez pas connaissance de toutes les dépendances d’application. Pour en savoir plus sur les journaux d’activité Azure Monitor, consultez [Analyser les données de journal d’activité dans Azure Monitor](../azure-monitor/log-query/log-query-overview.md)
+
+## <a name="access-to-the-cluster"></a>Accès au cluster
+Après avoir correctement la configuration du pare-feu, vous pouvez utiliser le point de terminaison interne (https://<clustername>-int.azurehdinsight.net) pour accéder à la Ambari à partir du réseau virtuel. Pour utiliser le point de terminaison public (https://<clustername>. azurehdinsight.net) ou ssh point de terminaison (<clustername>-SSH.azurehdinsight.NET), assurez-vous que vous avez les itinéraires de droite dans la table de routage et le programme d’installation de règles de groupe de sécurité réseau pour éviter l’asymétrique problème de routage expliqué [ici](https://docs.microsoft.com/azure/firewall/integrate-lb).
 
 ## <a name="configure-another-network-virtual-appliance"></a>Configurer une autre appliance virtuelle réseau
 

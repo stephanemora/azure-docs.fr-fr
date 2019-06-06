@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 05/31/2019
 ms.author: abnarain
-ms.openlocfilehash: 6a7daae90254bb4192dbaf13e1c2f9202e2d2baa
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 7c86577abe1e8e158299e3a6aee2cff7f3568241
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65232431"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66427136"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Infrastructure Integration Runtime dans Azure Data Factory
 IR est l’infrastructure de calcul utilisée par Azure Data Factory pour fournir les fonctionnalités d’intégration de données suivantes entre différents environnements réseau :
@@ -114,11 +114,11 @@ L’emplacement du runtime d’intégration définit l’emplacement de son calc
 ### <a name="azure-ir-location"></a>Emplacement du runtime d'intégration Azure
 Vous pouvez définir l’emplacement spécifique d’un runtime d'intégration Azure, auquel cas le déplacement des données ou la distribution d’activité se fera dans cette région spécifique. 
 
-Si vous choisissez d’utiliser la résolution automatique du runtime d'intégration Azure, définie par défaut, 
+Si vous choisissez d’utiliser le **runtime d’intégration Azure-résolution automatique** qui est la valeur par défaut 
 
 - Pour une activité de copie, ADF fera au mieux pour détecter automatiquement votre récepteur et banque de données source afin de choisir le meilleur emplacement, que ce soit dans la même région si disponible ou dans région la plus proche dans la même zone géographique. S’ils ne sont pas détectables, il utilisera la région de la fabrique de données comme alternative.
 
-- Pour la distribution de l’exécution et de la transformation de l’activité Lookup/GetMetadata, ADF utilise le runtime d'intégration dans la région de la fabrique de données.
+- Pour recherche/GetMetadata/Supprimer activité d’exécution (également connu sous les activités de Pipeline), activité de transformation, la distribution (également appelé externes activités) et la création d’opérations (tester la connexion, liste des dossiers de parcourir et liste de tables, afficher un aperçu des données), ADF utilise le runtime d’intégration dans la région de la fabrique de données.
 
 - Pour les flux de données, ADF utilisera le runtime d’intégration dans la région de la fabrique de données. 
 

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: aa42371692cd5d0dc96835db5b66fe0877b90665
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 66b9342f1a67c4c9d35fda447a297cc64d048c1e
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61280388"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66480296"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-iis-based-web-application"></a>Configurer la reprise d’activité pour une application web multiniveau basée sur IIS
 
@@ -62,7 +62,7 @@ Scénario | Vers un site secondaire | Vers Azure
 --- | --- | ---
 Hyper-V | Oui | Oui
 VMware | Oui | Oui
-Serveur physique | Non  | Oui
+Serveur physique | Non | Oui
 Azure|N/D|Oui
 
 ## <a name="replicate-virtual-machines"></a>Répliquer des machines virtuelles
@@ -109,7 +109,7 @@ Si la chaîne de connexion désigne la machine virtuelle base de données à l�
         </connectionStrings>
         </configuration>
 
-Pour mettre à jour la chaîne de connexion dans la couche Web, ajoutez un [script de mise à jour de la connexion IIS](https://aka.ms/asr-update-webtier-script-classic) après le groupe 3, dans le plan de récupération.
+Pour mettre à jour la chaîne de connexion dans la couche Web, ajoutez un [script de mise à jour de la connexion IIS](https://gallery.technet.microsoft.com/Update-IIS-connection-2579aadc) après le groupe 3, dans le plan de récupération.
 
 #### <a name="site-bindings-for-the-application"></a>Liaisons de site pour l’application
 Chaque site comporte des informations de liaison. Ces informations de liaison incluent le type de liaison, l’adresse IP à laquelle le serveur IIS écoute les requêtes correspondant au site, le numéro de port et les noms d’hôte du site. Lors d’un basculement, vous pouvez être amené à mettre à jour ces liaisons en cas de modification de l’adresse IP qui leur est associée.

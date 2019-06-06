@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 5/27/2019
+ms.date: 6/03/2019
 ms.author: monhaber
-ms.openlocfilehash: 807bde76bb6bb50490ee599768273a59c49d5e45
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: c5b5b88ee1334ac6d7b39b8ad53bd020e6042454
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66258702"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66480542"
 ---
 # <a name="platforms-and-features-supported-by-azure-security-center"></a>Plateformes et fonctionnalités prises en charge par Azure Security Center
 
@@ -93,7 +93,7 @@ Les machines virtuelles en cours d’exécution dans un service cloud sont égal
 |FIM|✔|✔|✔|✔|✔|✔|standard|
 |Évaluation de chiffrement de disque|✔|✔|X|✔|✔|X|Gratuit|
 |Déploiement tiers|✔|X|X|✔|X|X|Gratuit|
-|Évaluation de groupes de sécurité réseau|✔|✔|X|✔|✔|X|Gratuit|
+|Évaluation du groupe de sécurité réseau|✔|✔|X|✔|✔|X|Gratuit|
 |Détection des menaces sans fichier|✔|✔|✔|X|X|X|standard|
 |Mappage réseau|✔|✔|X|✔|✔|X|standard|
 |Contrôles réseau adaptatifs|✔|✔|X|✔|✔|X|standard|
@@ -112,11 +112,11 @@ Pour savoir quand les recommandations sont générées pour chacun de ces protec
 |------|------|-----|-----|
 | Windows Defender (logiciel anti-programme malveillant de Microsoft)| Windows Server 2016| Non, intégré au système d’exploitation| Oui |
 | System Center Endpoint Protection (logiciel anti-programme malveillant de Microsoft) | Windows Server 2012 R2, 2012, 2008 R2 (voir la remarque ci-dessous) | Via l’extension | Oui |
-| Trend Micro : toutes les versions | Gamme Windows Server  | Non  | Oui |
-| Symantec v12.1.1100+| Gamme Windows Server  | Non  | Oui |
-| McAfee v10+ | Gamme Windows Server  | Non  | Oui |
-| Kaspersky| Gamme Windows Server  | Non  | Non   |
-| Sophos| Gamme Windows Server  | Non | Non   |
+| Trend Micro : toutes les versions | Gamme Windows Server  | Non | Oui |
+| Symantec v12.1.1100+| Gamme Windows Server  | Non | Oui |
+| McAfee v10+ | Gamme Windows Server  | Non | Oui |
+| Kaspersky| Gamme Windows Server  | Non | Non  |
+| Sophos| Gamme Windows Server  | Non | Non  |
 
 > [!NOTE]
 > - La détection de System Center Endpoint Protection (SCEP) sur une machine virtuelle Windows Server 2008 R2 requiert l’installation de SCEP après celle de PowerShell 3.0 (ou d’une version ultérieure).
@@ -129,7 +129,7 @@ Pour savoir quand les recommandations sont générées pour chacun de ces protec
 |SQL|✔| ✔|
 |PostGreSQL*|✔| ✔|
 |MySQL*|✔| ✔|
-|Comptes de stockage Azure blob*|✔| ✔|
+|Comptes de stockage Blob Azure|✔| ✔|
 |App Services|✔| ✔|
 |Cloud Services|✔| X|
 |Réseaux virtuels|✔| N/D|
@@ -137,7 +137,6 @@ Pour savoir quand les recommandations sont générées pour chacun de ces protec
 |Cartes réseau|✔| N/D|
 |Groupes de sécurité réseau|✔| N/D|
 |Abonnement|✔ **| ✔|
-|App Service|✔| N/D|
 |Batch|✔| N/D|
 |Service Fabric|✔| N/D|
 |Compte Automation|✔| N/D|
@@ -147,14 +146,9 @@ Pour savoir quand les recommandations sont générées pour chacun de ces protec
 |Stream Analytics|✔| N/D|
 |Event Hub|✔| N/D|
 |Logic Apps|✔| N/D|
-|Sous-réseau|✔| N/D|
-|Réseau virtuel|✔| N/D|
 |Compte de stockage|✔| N/D|
 |Redis|✔| N/D|
-|SQL|✔| N/D|
 |Data Lake Analytics|✔| N/D|
-|Compte de stockage|✔| N/D|
-|Abonnement|✔| N/D|
 |Coffre de clés|✔| N/D|
 
 

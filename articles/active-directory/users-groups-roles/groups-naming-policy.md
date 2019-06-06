@@ -1,6 +1,6 @@
 ---
 title: Appliquer la stratégie d’affectation de noms de groupe de groupes Office 365 - Azure Active Directory | Microsoft Docs
-description: Définir une stratégie de nommage pour les groupes Office 365 dans Azure Active Directory (préversion)
+description: Comment configurer la stratégie de nommage de groupes Office 365 dans Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9d21616938978e501cc112fde105be4db4499b2a
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 0c13b95028975c5463217455c940bb84c3867899
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65605553"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734789"
 ---
 # <a name="enforce-a-naming-policy-on-office-365-groups-in-azure-active-directory"></a>Appliquer une stratégie d’affectation de noms sur les groupes Office 365 dans Azure Active Directory
 
@@ -76,28 +76,28 @@ Certains administrateurs peuvent être exemptés de ces stratégies dans toutes 
 - Administrateur d’utilisateurs
 - Enregistreurs de répertoire
 
-## <a name="configure-naming-policy-in-azure-portal-preview"></a>Configurer une stratégie d’affectation de noms dans le portail Azure (version préliminaire)
+## <a name="configure-naming-policy-in-azure-portal"></a>Configurer une stratégie d’affectation de noms dans le portail Azure
 
 1. Se connecter au [centre d’administration Azure AD](https://aad.portal.azure.com) avec un compte administrateur d’utilisateurs.
-1. Sélectionnez **groupes**, puis sélectionnez **stratégie de nommage** pour ouvrir la page de stratégie d’affectation de noms.
+1. Sélectionnez **Groupes**, puis **Stratégie d'attribution de noms** pour ouvrir la page Stratégie d'attribution de noms.
 
-    ![Ouvrez la page de stratégie d’affectation de noms dans le centre d’administration](./media/groups-naming-policy/policy-preview.png)
+    ![Ouvrez la page Stratégie d'attribution de noms dans le Centre d'administration](./media/groups-naming-policy/policy.png)
 
 ### <a name="view-or-edit-the-prefix-suffix-naming-policy"></a>Afficher ou modifier la stratégie d’affectation de noms du préfixe-suffixe
 
-1. Sur le **stratégie de nommage** page, sélectionnez **d’affectation de noms de stratégie de groupe**.
-1. Vous pouvez afficher ou modifier le préfixe ou suffixe actuel d’affectation de noms stratégies individuellement en sélectionnant les attributs ou les chaînes que vous souhaitez appliquer dans le cadre de la stratégie d’affectation de noms.
-1. Pour supprimer un préfixe ou un suffixe dans la liste, sélectionnez le préfixe ou le suffixe, puis **supprimer**. Plusieurs éléments peuvent être supprimés en même temps.
+1. Sur la page **Stratégie d'attribution de noms**, sélectionnez **Stratégie de noms de groupes**.
+1. Vous pouvez afficher ou modifier individuellement les stratégies actuelles d'attribution de suffixes/préfixes en sélectionnant les attributs ou les chaînes que vous souhaitez appliquer dans le cadre de la stratégie d'attribution de noms.
+1. Pour supprimer un préfixe ou un suffixe dans la liste, sélectionnez-le et choisissez **Supprimer**. Plusieurs éléments peuvent être supprimés en même temps.
 1. Enregistrez vos modifications pour la nouvelle stratégie prennent effet en sélectionnant **enregistrer**.
 
 ### <a name="edit-custom-blocked-words"></a>Modifier les mots bloqués personnalisés
 
-1. Sur le **stratégie de nommage** page, sélectionnez **mots bloqués**.
+1. Sur la page **Stratégie d'attribution de noms**, sélectionnez **Mots bloqués**.
 
-    ![modifier et télécharger la liste de mots bloqués pour la stratégie de nommage](./media/groups-naming-policy/blockedwords-preview.png)
+    ![Modifier et charger la liste de mots bloqués pour la stratégie d'attribution de noms](./media/groups-naming-policy/blockedwords.png)
 
-1. Afficher ou modifier la liste actuelle des mots bloqués personnalisés en sélectionnant **télécharger**.
-1. Télécharger la nouvelle liste de mots bloqués personnalisés en sélectionnant l’icône de fichier.
+1. Affichez ou modifiez la liste actuelle des mots bloqués personnalisés en sélectionnant **Télécharger**.
+1. Chargez la nouvelle liste de mots bloqués personnalisés en sélectionnant l'icône de fichier.
 1. Enregistrez vos modifications pour la nouvelle stratégie prennent effet en sélectionnant **enregistrer**.
 
 ## <a name="install-powershell-cmdlets"></a>Installer les applets de commande PowerShell
@@ -198,10 +198,10 @@ Set-AzureADDirectorySetting -Id $Settings.Id -DirectorySetting $Settings
 
 ## <a name="remove-the-naming-policy"></a>Supprimer la stratégie de noms de groupes
 
-### <a name="remove-the-naming-policy-using-azure-portal-preview"></a>Supprimer la stratégie d’affectation de noms à l’aide du portail Azure (version préliminaire)
+### <a name="remove-the-naming-policy-using-azure-portal"></a>Supprimer la stratégie d’affectation de noms à l’aide du portail Azure
 
-1. Sur le **stratégie de nommage** page, sélectionnez **supprimer la stratégie**.
-1. Après avoir confirmé la suppression, la stratégie de nommage est supprimée, y compris tous les préfixe-suffixe d’attribution de noms stratégie et les mots bloqués personnalisés.
+1. Sur la page **Stratégie d'attribution de noms**, sélectionnez **Supprimer une stratégie**.
+1. Une fois la suppression confirmée, la stratégie d'attribution de noms est supprimée, de même que toutes les stratégies d'attribution de suffixes/préfixes et tous les mots bloqués personnalisés.
 
 ### <a name="remove-the-naming-policy-using-azure-ad-powershell"></a>Supprimer la stratégie d’affectation de noms à l’aide d’Azure AD PowerShell
 
@@ -240,7 +240,7 @@ SharePoint  |  SharePoint affiche le nom appliqué de la stratégie de nommage q
 Microsoft Stream | Microsoft Stream affiche le nom appliqué de la stratégie de nommage de groupes quand l’utilisateur tape un nom de groupe ou un alias d’e-mail de groupe. Quand un utilisateur entre un mot bloqué personnalisé, un message d’erreur s’affiche avec le mot bloqué pour qu’il puisse le supprimer.
 Application Outlook pour iOS et Android | Les groupes créés dans les applications Outlook sont conformes à la stratégie de nommage configurée. L’application mobile Outlook n’affiche pas encore l’aperçu du nom appliqué de la stratégie de nommage et ne retourne pas d’erreurs liées aux mots bloqués personnalisés au moment où l’utilisateur entre le nom du groupe. Cependant, la stratégie de nommage est appliquée automatiquement quand l’utilisateur clique sur Créer ou Modifier, et des messages d’erreur s’affichent en présence de mots bloqués personnalisés dans le nom ou l’alias de groupe.
 Application mobile Groups | Les groupes créés dans l’application mobile Groups sont conformes à la stratégie de nommage. L’application mobile Groups n’affiche pas l’aperçu de la stratégie de nommage et ne retourne pas d’erreurs liées aux mots bloqués personnalisés au moment où l’utilisateur entre le nom du groupe. En revanche, la stratégie de nommage est appliquée automatiquement pendant la création ou la modification d’un groupe, et les erreurs appropriées sont présentées aux utilisateurs si le nom ou l’alias de groupe contient des mots bloqués personnalisés.
-Planificateur | Planner est conforme à la stratégie de nommage. Planner affiche un aperçu de la stratégie de nommage au moment où le nom du plan est entré. Quand un utilisateur entre un mot bloqué personnalisé, un message d’erreur s’affiche pendant la création du plan.
+Planner | Planner est conforme à la stratégie de nommage. Planner affiche un aperçu de la stratégie de nommage au moment où le nom du plan est entré. Quand un utilisateur entre un mot bloqué personnalisé, un message d’erreur s’affiche pendant la création du plan.
 Dynamics 365 for Customer Engagement | Dynamics 365 for Customer Engagement est conforme à la stratégie de nommage. Dynamics 365 affiche le nom appliqué de la stratégie d’appellation quand l’utilisateur tape un nom de groupe ou un alias d’e-mail de groupe. Quand l’utilisateur entre un mot bloqué personnalisé, un message d’erreur s’affiche avec le mot bloqué pour qu’il puisse le supprimer.
 School Data Sync (SDS) | Les groupes créés via SDS sont conformes à la stratégie de nommage, mais celle-ci ne s’applique pas automatiquement. Les administrateurs SDS doivent ajouter les préfixes et les suffixes aux noms de classes pour lesquels des groupes doivent être créés puis chargés dans SDS. À défaut, la création ou la modification de groupe échoue.
 Outlook Customer Manager (OCM) | Outlook Customer Manager est conforme à la stratégie de nommage, qui est appliquée automatiquement au groupe créé dans Outlook Customer Manager. Si un mot bloqué personnalisé est détecté, la création de groupe dans OCM est bloquée, et l’utilisateur ne peut pas utiliser l’application OCM.

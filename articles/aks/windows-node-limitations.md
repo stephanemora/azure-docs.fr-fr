@@ -5,14 +5,14 @@ services: container-service
 author: tylermsft
 ms.service: container-service
 ms.topic: article
-ms.date: 05/06/2019
+ms.date: 05/31/2019
 ms.author: twhitney
-ms.openlocfilehash: 34ece6e49332f781f688a8741db3514faf8c9a25
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 12fb9dc67e8afae3dcb9ade97dd61ab438e0fac5
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66304390"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475401"
 ---
 # <a name="current-limitations-for-windows-server-node-pools-and-application-workloads-in-azure-kubernetes-service-aks"></a>Limitations actuelles pour les pools de nœuds Windows Server et des charges de travail dans Azure Kubernetes Service (ACS)
 
@@ -45,6 +45,7 @@ Les limitations suivantes en amont pour les conteneurs Windows Server dans Kuber
 Les limitations supplémentaires suivantes s’appliquent à la prise en charge du pool de nœuds Windows Server dans ACS :
 
 - Un cluster AKS contient toujours un pool de nœuds Linux en tant que le premier pool de nœud. Impossible de supprimer ce premier pool de nœud basés sur Linux, sauf si le cluster AKS lui-même est supprimé.
+- Actuellement, AKS prend uniquement en charge l’équilibrage de charge de base, ce qui permet uniquement pour un pool principal, le pool de nœud Linux par défaut. Par conséquent, le trafic sortant à partir de pods de Windows sera toujours [traduit en adresse gérés par Azure publique IP][azure-outbound-traffic]. Étant donné que cette adresse IP n’est pas configurable, il n’est pas possible actuellement d’une liste verte le trafic provenant de pods de Windows. 
 - Les clusters AKS doivent utiliser le modèle de mise en réseau (Avancé) de Azure CNI.
     - Mise en réseau de Kubenet (basic) n’est pas pris en charge. Impossible de créer un cluster AKS qui utilise kubenet. Pour plus d’informations sur les différences dans les modèles de réseau, consultez [réseau concepts pour les applications dans ACS][azure-network-models].
     - Le modèle de réseau Azure CNI nécessite une planification supplémentaire et considérations relatives à la gestion des adresses IP. Pour plus d’informations sur la façon de planifier et implémenter Azure CNI, consultez [mise en réseau de configurer Azure CNI dans AKS][configure-azure-cni].
@@ -87,3 +88,4 @@ Prise en main des conteneurs de Windows Server dans ACS, [créer un pool de nœu
 [windows-node-cli]: windows-container-cli.md
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md
+[azure-outbound-traffic]: ../load-balancer/load-balancer-outbound-connections.md#defaultsnat

@@ -16,17 +16,17 @@ ms.date: 04/23/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 96442a9d49581da6841fa7acb8329354ec727f60
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 6a50f4a8a63022668dac68c974f8c828c72777c9
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64918472"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66473138"
 ---
 # <a name="common-scenarios-in-azure-ad-entitlement-management-preview"></a>Scénarios courants dans la gestion des droits Azure AD (version préliminaire)
 
 > [!IMPORTANT]
-> Gestion des habilitations Azure Active Directory (Azure AD) est actuellement en version préliminaire publique.
+> La gestion des droits d’utilisation Azure Active Directory (Azure AD) est actuellement en préversion publique.
 > Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
 > Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -50,7 +50,7 @@ Il existe plusieurs façons que vous pouvez configurer la gestion des habilitati
 > | **2.** [Ajouter des rôles de ressource pour accéder au package](entitlement-management-access-package-edit.md#add-resource-roles)<ul><li>Groupes</li><li>APPLICATIONS</li><li>Sites SharePoint</li></ul> | ![Ajouter des rôles de ressources](./media/entitlement-management-scenarios/resource-roles.png) |
 > | **3.** [Ajouter une stratégie](entitlement-management-access-package-edit.md#policy-for-users-in-your-directory)<ul><li>Pour les utilisateurs dans votre répertoire</li><li>Exiger une approbation</li><li>Paramètres d’expiration</li></ul> | ![Add policy](./media/entitlement-management-scenarios/policy.png) |
 
-### <a name="i-want-to-allow-users-from-my-business-partners-including-users-not-yet-in-my-directory-to-request-access-to-groups-applications-or-sharepoint-sites"></a>Je souhaite permettre aux utilisateurs de mon partenaires commerciaux (y compris les utilisateurs ne sont pas encore dans mon répertoire) pour demander l’accès à des groupes, des applications ou des sites SharePoint
+### <a name="i-want-to-allow-users-from-my-business-partners-directory-including-users-not-yet-in-my-directory-to-request-access-to-groups-applications-or-sharepoint-sites"></a>Je souhaite permettre aux utilisateurs de mon répertoire de partenaires d’entreprise (y compris les utilisateurs ne sont pas encore dans mon répertoire) pour demander l’accès à des groupes, des applications ou des sites SharePoint
 
 > [!div class="mx-tableFixed"]
 > | Étapes | Exemples |
@@ -91,7 +91,7 @@ Il existe plusieurs façons que vous pouvez configurer la gestion des habilitati
 > | Étapes | Exemples |
 > | --- | --- |
 > | **1.** [Demande d’ouverture dans le portail mon accès](entitlement-management-request-approve.md#open-request) | [![Icône de mon portail d’accès](./media/entitlement-management-scenarios/my-access-portal.png)](./media/entitlement-management-scenarios/my-access-portal-expanded.png#lightbox) |
-> | **2.** [Approuver la demande d’accès](entitlement-management-request-approve.md#approve-or-deny-request) | ![Appouver l'accès](./media/entitlement-management-scenarios/approve-access.png) |
+> | **2.** [Approuver la demande d’accès](entitlement-management-request-approve.md#approve-or-deny-request) | ![Approuver l’accès](./media/entitlement-management-scenarios/approve-access.png) |
 
 ## <a name="requestors"></a>Demandeurs
 

@@ -1,26 +1,26 @@
 ---
-title: 'Démarrage rapide : Ingérer des objets blob Azure dans Azure Data Explorer'
-description: Dans ce guide de démarrage rapide, vous allez apprendre à envoyer des données de compte de stockage à Azure Data Explorer en utilisant un abonnement Event Grid.
+title: Ingérer des objets blob Azure dans Azure Data Explorer
+description: Dans cet article, vous allez apprendre à envoyer des données de compte de stockage à l’Explorateur de données Azure à l’aide d’un abonnement Event Grid.
 author: radennis
 ms.author: radennis
 ms.reviewer: orspodek
 ms.service: data-explorer
-ms.topic: quickstart
-ms.date: 01/30/2019
-ms.openlocfilehash: 19db47610449ced45fa61610bbe964042e815c7a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.topic: conceptual
+ms.date: 06/03/2019
+ms.openlocfilehash: 7d9c21b46f760055846194f52f1594f25b1ee989
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59051850"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66494747"
 ---
-# <a name="quickstart-ingest-blobs-into-azure-data-explorer-by-subscribing-to-event-grid-notifications"></a>Démarrage rapide : Ingérer des objets blob dans Azure Data Explorer en s’abonnant à des notifications Event Grid
+# <a name="ingest-blobs-into-azure-data-explorer-by-subscribing-to-event-grid-notifications"></a>Ingérer des objets blob dans Azure Data Explorer en s’abonnant à des notifications Event Grid
 
 Azure Data Explorer est un service d’exploration de données rapide et évolutif pour les données de journal et de télémétrie. Il assure une ingestion continue (chargement de données) à partir d’objets blob écrits dans des conteneurs d’objets blob. 
 
-Dans ce guide de démarrage rapide, vous allez apprendre à définir un abonnement [Azure Event Grid](/azure/event-grid/overview) et à acheminer les événements vers Azure Data Explorer via un Event Hub. Pour commencer, vous devez avoir un compte de stockage avec un abonnement Event Grid qui envoie des notifications à Azure Event Hubs. Ensuite, vous créez une connexion de données Event Grid et voyez les données circuler dans le système.
+Dans cet article, vous allez apprendre à définir un [Azure Event Grid](/azure/event-grid/overview) abonnement et acheminer les événements vers l’Explorateur de données Azure via un concentrateur d’événements. Pour commencer, vous devez avoir un compte de stockage avec un abonnement Event Grid qui envoie des notifications à Azure Event Hubs. Ensuite, vous créez une connexion de données Event Grid et voyez les données circuler dans le système.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 * Un abonnement Azure. Créez un [compte Azure gratuit](https://azure.microsoft.com/free/).
 * [Un cluster et une base de données](create-cluster-database-portal.md).
@@ -41,7 +41,7 @@ Dans ce guide de démarrage rapide, vous allez apprendre à définir un abonneme
     | Nom | *test-grid-connection* | Nom de la grille d’événement que vous voulez créer.|
     | Schéma d’événement | *Schéma Event Grid* | Schéma à utiliser pour la grille d’événement. |
     | Type de rubrique | *Compte de stockage* | Type de rubrique Event Grid. |
-    | Ressource de rubrique | *gridteststorage* | nom de votre compte de stockage. |
+    | Ressource de rubrique | *gridteststorage* | Nom de votre compte de stockage. |
     | S’abonner à tous les types d’événements | *clear* | Ne pas être notifié de tous les événements. |
     | Types d’événements définis | *Objet blob créé* | De quels événements spécifiques être notifié. |
     | Type de point de terminaison | *Event Hubs* | Type de point de terminaison auquel vous envoyez les événements. |
@@ -50,7 +50,7 @@ Dans ce guide de démarrage rapide, vous allez apprendre à définir un abonneme
 
 1. Sélectionnez l’onglet **Fonctionnalités supplémentaires** si vous voulez effectuer le suivi des fichiers d’un conteneur spécifique. Définissez les filtres pour les notifications comme suit :
     * Le champ **Le sujet commence par** est le préfixe *littéral* du conteneur d’objets blob. Comme le modèle appliqué est *startswith*, il peut s’étendre sur plusieurs conteneurs. Les caractères génériques ne sont pas autorisés.
-     Il *doit* être défini comme suit : *`/blobServices/default/containers/`*[préfixe de conteneur]
+     Il *doit* être défini comme suit : *`/blobServices/default/containers/`* [préfixe de conteneur]
     * Le champ **Le sujet se termine par** est le suffixe *littéral* de l’objet blob. Les caractères génériques ne sont pas autorisés.
 
 ## <a name="create-a-target-table-in-azure-data-explorer"></a>Créer une table cible dans l’Explorateur de données Azure
@@ -157,7 +157,7 @@ Enregistrez les données dans un fichier et chargez celui-ci avec ce script :
 > [!NOTE]
 > Azure Data Explorer est associé à une stratégie d’agrégation (traitement par lot) conçue pour optimiser le processus d’ingestion des données.
 Par défaut, la stratégie est configurée sur 5 minutes.
-Vous pouvez modifier la stratégie ultérieurement si nécessaire. Dans ce guide de démarrage rapide, vous pouvez vous attendre à une latence de quelques minutes.
+Vous pouvez modifier la stratégie ultérieurement si nécessaire. Dans cet article, vous pouvez attendre une latence de quelques minutes.
 
 1. Dans le portail Azure, sous votre grille d’événement, vous voyez le pic de l’activité pendant l’exécution de l’application.
 
@@ -196,5 +196,4 @@ Si vous ne prévoyez pas de réutiliser votre grille d’événement, effacez **
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-> [!div class="nextstepaction"]
-> [Démarrage rapide : Interroger des données dans Azure Data Explorer](web-query-data.md)
+* [Interroger des données dans l’Explorateur de données Azure](web-query-data.md)

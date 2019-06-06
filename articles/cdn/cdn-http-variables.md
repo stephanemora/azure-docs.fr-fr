@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: magattus
-ms.openlocfilehash: 8d4fc5fbdc3185c46f00d94537b197ec03f66755
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d572da27cee33cf546933e55a59c27dac4c1efd9
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60709918"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475205"
 ---
 # <a name="http-variables-for-azure-cdn-rules-engine"></a>Variables HTTP pour le moteur de règles Azure CDN
 Les variables HTTP vous permettent de récupérer les métadonnées de requête et de réponse HTTP. Ces métadonnées peuvent ensuite servir à modifier une requête ou une réponse de façon dynamique. L’utilisation de variables HTTP est limitée aux fonctionnalités de moteur de règles suivantes :
 
-- [Cache-Key Rewrite](cdn-rules-engine-reference-features.md#cache-key-rewrite)
-- [Modify Client Request Header](cdn-rules-engine-reference-features.md#modify-client-request-header)
-- [Modify Client Response Header](cdn-rules-engine-reference-features.md#modify-client-response-header)
-- [URL Redirect](cdn-rules-engine-reference-features.md#url-redirect)
-- [URL Rewrite](cdn-rules-engine-reference-features.md#url-rewrite)
+- [Cache-Key Rewrite](cdn-verizon-premium-rules-engine-reference-features.md#cache-key-rewrite)
+- [Modify Client Request Header](cdn-verizon-premium-rules-engine-reference-features.md#modify-client-request-header)
+- [Modify Client Response Header](cdn-verizon-premium-rules-engine-reference-features.md#modify-client-response-header)
+- [URL Redirect](cdn-verizon-premium-rules-engine-reference-features.md#url-redirect)
+- [URL Rewrite](cdn-verizon-premium-rules-engine-reference-features.md#url-rewrite)
 
 ## <a name="definitions"></a>Définitions
 Le tableau suivant décrit les variables HTTP prises en charge. Une valeur vide est retournée lorsque les métadonnées géographiques (par exemple, code postal) ne sont pas disponibles pour une requête particulière.
@@ -113,7 +113,7 @@ Le tableau suivant décrit les circonstances dans lesquelles le texte spécifié
 | Condition | Description | Exemples |
 | --------- | ----------- | --------|
 | Échappement du symbole % | Le symbole de pourcentage peut faire l’objet d’un échappement au moyen d’une barre oblique inverse. <br />L’exemple de valeur à droite sera considéré comme une valeur littérale et non comme une variable HTTP.| \%{host} |
-| Variables inconnues | Une chaîne vide est toujours retournée pour les variables inconnues. | %{unknownvariable} |
+| Variables inconnues | Une chaîne vide est toujours retournée pour les variables inconnues. | %{unknown_variable} |
 | Caractères ou syntaxe non valides | Les variables qui contiennent des caractères ou une syntaxe non valides sont traitées comme des valeurs littérales. <br /><br />Exemple #1 : La valeur spécifiée contient un caractère non valide (par exemple,-). <br /><br />Exemple #2 : La valeur spécifiée contient un double ensemble d’accolades. <br /><br />Exemple #3 : Il manque une accolade fermante à la valeur spécifiée.<br /> | Exemple 1 : %{resp_user-agent} <br /><br />Exemple 2 : %{{host}} <br /><br />Exemple 3 : %{host |
 | Nom de la variable manquant | Une valeur Null est toujours retournée lorsqu’une variable n’est pas spécifiée. | %{} |
 | Caractères de fin | Les caractères de fin d’une variable sont traités comme des valeurs littérales. <br />L’exemple de valeur à droite contient une accolade de fin qui sera traitée comme une valeur littérale. | %{host}} |
@@ -127,9 +127,9 @@ Le tableau suivant décrit comment définir une valeur par défaut.
 
 | Condition | Syntaxe | Exemples | Description |
 | --------- | ------ | --------| ----------- |
-| Définition d’une valeur par défaut pour un en-tête dans les conditions suivantes : <br /><br />- en-tête manquant ; <br /><br />- valeur d’en-tête définie sur Null.| %{Variable:=Value} | %{http_referer:=unspecified} | L’en-tête Referer est uniquement défini sur *unspecified* quand il est manquant ou défini avec la valeur Null. Aucune action n’est effectuée s’il a été défini. |
-| Définition d’un en-tête à une valeur par défaut lorsqu’il est manquant. | %{Variable=Value} | %{http_referer=unspecified} | L’en-tête Referer est uniquement défini sur *unspecified* quand il est manquant. Aucune action n’est effectuée s’il a été défini. |
-| Définition d’une valeur par défaut pour un en-tête quand il ne satisfait aucune des conditions suivantes : <br /><br />- en-tête manquante ;<br /><br /> - valeur de l’en-tête définie sur Null. | %{Variable:+Value} | %{http_referer:+unspecified} | L’en-tête Referer est uniquement défini sur *unspecified* lorsqu’une valeur lui a été assignée. Aucune action n’est effectuée s’il est manquant ou défini avec la valeur Null. |
+| Définition d’une valeur par défaut pour un en-tête dans les conditions suivantes : <br /><br />- en-tête manquant ; <br /><br />- valeur d’en-tête définie sur Null.| %{Variable:=Value} | %{http_referrer:=unspecified} | L’en-tête du référent n’a la valeur *non spécifiée* quand elle est manquante ou définie avec la valeur NULL. Aucune action n’est effectuée s’il a été défini. |
+| Définition d’un en-tête à une valeur par défaut lorsqu’il est manquant. | %{Variable=Value} | %{http_referrer=unspecified} | L’en-tête du référent n’a la valeur *non spécifiée* quand il est manquant. Aucune action n’est effectuée s’il a été défini. |
+| Définition d’une valeur par défaut pour un en-tête quand il ne satisfait aucune des conditions suivantes : <br /><br />- en-tête manquante ;<br /><br /> - valeur de l’en-tête définie sur Null. | %{Variable:+Value} | %{http_referrer:+unspecified} | L’en-tête du référent n’a la valeur *non spécifiée* quand une valeur a été affectée à ce dernier. Aucune action n’est effectuée s’il est manquant ou défini avec la valeur Null. |
 
 ## <a name="manipulating-variables"></a>Manipulation de variables
 Les variables peuvent être manipulées comme suit :

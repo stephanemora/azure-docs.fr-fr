@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.openlocfilehash: dfbbdf3f2414f7b00445b271b667ad761ba93df0
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 5701bb534d0fd0e25aab90f9d1035c96bb55c518
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64724371"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66476106"
 ---
 # <a name="optimize-apache-spark-jobs"></a>Optimiser des travaux Apache Spark
 
@@ -57,12 +57,12 @@ Le meilleur format du point de vue des performances est parquet avec *compressio
 
 Quand vous créez un cluster Spark, vous pouvez sélectionner Stockage Blob Azure ou Azure Data Lake Storage comme stockage par défaut de votre cluster. Les deux options offrent l’avantage d’un stockage à long terme pour les clusters temporaires. Ainsi, vos données ne sont pas supprimées automatiquement quand vous supprimez votre cluster. Vous pouvez recréer un cluster temporaire et encore accéder à vos données.
 
-| Type de magasin | Système de fichiers | Vitesse | Temporaire | Cas d'utilisation |
+| Type de magasin | Système de fichiers | Vitesse | Temporaire | Cas d’usage |
 | --- | --- | --- | --- | --- |
-| un stockage Azure Blob | **wasb[s]:**//url/ | **Standard** | Oui | Cluster temporaire |
-| Azure Data Lake Storage Gen 2| **abfs[s]:**//url/ | **Plus rapide** | Oui | Cluster temporaire |
-| Azure Data Lake Storage Gen 1| **adl:**//url/ | **Plus rapide** | Oui | Cluster temporaire |
-| HDFS local | **hdfs:**//url/ | **Le plus rapide** | Non  | Cluster 24/7 interactif |
+| un stockage Azure Blob | **wasb:** //url/ | **Standard** | Oui | Cluster temporaire |
+| Azure Data Lake Storage Gen 2| **abfs[s]:** //url/ | **Plus rapide** | Oui | Cluster temporaire |
+| Azure Data Lake Storage Gen 1| **adl:** //url/ | **Plus rapide** | Oui | Cluster temporaire |
+| HDFS local | **hdfs:** //url/ | **Le plus rapide** | Non | Cluster 24/7 interactif |
 
 ## <a name="use-the-cache"></a>Utiliser le cache
 

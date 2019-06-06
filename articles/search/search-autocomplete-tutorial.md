@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: mcarter
 ms.custom: seodec2018
-ms.openlocfilehash: 9385ed5127b8cc1aaf84c887b652fd8970883ba6
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: b881a645a42d92407aa39d0f4896629f799e6928
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65524023"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66426926"
 ---
 # <a name="add-suggestions-or-autocomplete-to-your-azure-search-application"></a>Ajouter des suggestions ou avec saisie semi-automatique à votre application de recherche Azure
 
@@ -46,7 +46,7 @@ Un service Azure Search est facultatif pour cet exercice, car la solution utilis
 
 * Téléchargez le [DotNetHowToAutoComplete exemple](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToAutocomplete).
 
-L’exemple est complet, des suggestions de couverture, la saisie semi-automatique, la navigation à facettes et la mise en cache côté client. Vous devez examiner le fichier Lisez-moi et les commentaires pour une description complète de ce que propose l’exemple.
+L’exemple est complet, des suggestions de couverture, la saisie semi-automatique, la navigation à facettes et la mise en cache côté client. Passez en revue le fichier Lisez-moi et les commentaires pour une description complète de ce que propose l’exemple.
 
 ## <a name="run-the-sample"></a>Exécution de l'exemple
 
@@ -70,7 +70,7 @@ Ouvrez le **Index.cshtml** fichier sous le dossier \Views\Home pour afficher le 
 <input class="searchBox" type="text" id="example1a" placeholder="search">
 ```
 
-Il s’agit d’une zone de texte d’entrée simple avec une classe pour le style, un ID d’être référencées par JavaScript et le texte d’espace réservé.  La magie réside dans le code JavaScript incorporé.
+Cet exemple est une zone de texte d’entrée simple avec une classe pour le style, un ID d’être référencées par JavaScript et le texte d’espace réservé.  La magie réside dans le code JavaScript incorporé.
 
 Le C# langage utilise JavaScript dans Index.cshtml pour tirer parti de la [bibliothèque de la saisie semi-automatique de l’interface utilisateur jQuery](https://jqueryui.com/autocomplete/). Cette bibliothèque ajoute l’expérience de la saisie semi-automatique à la zone de recherche en effectuant des appels asynchrones au contrôleur MVC pour récupérer les suggestions. La version de langage JavaScript est IndexJavaScript.cshtml. Il inclut le script ci-dessous pour la barre de recherche, ainsi que les appels d’API REST d’Azure Search.
 
@@ -95,7 +95,7 @@ Le code ci-dessus s’exécute dans le navigateur lors du chargement de page pou
 source: "/home/suggest?highlights=false&fuzzy=false&",
 ```
 
-La ligne ci-dessus indique à la fonction de la saisie semi-automatique de l’interface utilisateur jQuery où obtenir la liste des éléments à afficher sous la zone de recherche. Dans la mesure où il s’agit d’un projet MVC, il appelle la fonction Suggérer dans HomeController.cs qui contient la logique permettant de retourner des suggestions de requête (plus sur suggérer dans la section suivante). Cette fonction transmet également les paramètres de quelques points importants du contrôle, la correspondance approximative et terme. L’API JavaScript d’autocomplétion ajoute le paramètre de terme.
+La ligne ci-dessus indique à la fonction de la saisie semi-automatique de l’interface utilisateur jQuery où obtenir la liste des éléments à afficher sous la zone de recherche. Dans la mesure où ce projet est un projet MVC, il appelle la fonction Suggérer dans HomeController.cs qui contient la logique permettant de retourner des suggestions de requête (plus sur suggérer dans la section suivante). Cette fonction transmet également les paramètres de quelques points importants du contrôle, la correspondance approximative et terme. L’API JavaScript d’autocomplétion ajoute le paramètre de terme.
 
 ### <a name="extending-the-sample-to-support-fuzzy-matching"></a>Développement de l’exemple pour la prise en charge des correspondances approximatives
 
@@ -162,7 +162,7 @@ Maintenant que nous avons passé en revue le code JavaScript pour la page web, e
 
 Ouvrez le **HomeController.cs** fichier sous le répertoire de contrôleurs. 
 
-La première chose que vous remarquerez est une méthode en haut de la classe appelée `InitSearch`. Cette méthode crée un client d’index HTTP authentifié dans le service de Recherche Azure. Pour plus d’informations, consultez [comment utiliser Azure Search à partir d’une Application .NET](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk).
+La première chose que vous remarquerez est une méthode en haut de la classe appelée `InitSearch`. Cette méthode crée un client d’index HTTP authentifié au service Azure Search. Pour plus d’informations, consultez [comment utiliser Azure Search à partir d’une Application .NET](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk).
 
 Sur la ligne 41, notez que la fonction Suggérer. Il est basé sur le [DocumentsOperationsExtensions.Suggest méthode](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.suggest?view=azure-dotnet).
 
@@ -271,7 +271,7 @@ $(function () {
 });
 ```
 
-En le comparant à l’exemple ci-dessus, qui appelle le fichier HomeController, vous pouvez remarquer plusieurs similarités.  La configuration de l’autocomplétion de `minLength` et `position` est exactement la même. 
+Si vous comparez cet exemple à l’exemple ci-dessus qui appelle le contrôleur Home, vous remarquerez plusieurs similarités.  La configuration de l’autocomplétion de `minLength` et `position` est exactement la même. 
 
 La différence importante se trouve dans la source. Au lieu d’appeler la méthode suggérer dans le contrôleur home, une requête REST est créée dans une fonction JavaScript et exécutées à l’aide d’Ajax. La réponse est ensuite traitée dans « success » et utilisée comme source.
 
@@ -302,7 +302,7 @@ Jusqu'à présent, vous avez été à l’aide de l’index de démonstration NY
 
 1. Dans le dossier de chargeur de données de l’exemple de code NYCJobs, ouvrez **DataLoader.sln** dans Visual Studio.
 
-1. Ajoutez les informations de connexion pour votre service Azure Search. Ouvrez le fichier App.config dans le projet DataLoader et modifiez les fichiers appSettings TargetSearchServiceName et TargetSearchServiceApiKey pour qu’ils correspondent à votre service Recherche Azure et à la clé d’API Recherche Azure. Ces éléments sont indiqués dans le portail Azure.
+1. Ajoutez les informations de connexion pour votre service Azure Search. Ouvrez le fichier App.config dans le projet DataLoader et modifiez les fichiers appSettings TargetSearchServiceName et TargetSearchServiceApiKey pour qu’ils correspondent à votre service Recherche Azure et à la clé d’API Recherche Azure. Vous trouverez ces informations dans le portail Azure.
 
 1. Appuyez sur F5 pour lancer l’application, en créant des deux index et en important les données d’exemple NYCJob.
 

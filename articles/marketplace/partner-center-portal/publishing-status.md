@@ -7,22 +7,34 @@ ms.author: mattwoj
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 461c9f3f3725ba27410088ca19f1ec050375adf2
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 9bf3136969974abbe9a99a5632478e3cbb22307e
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65806145"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66474529"
 ---
 # <a name="check-the-publishing-status-of-your-commercial-marketplace-offer"></a>Vérifier l’état de publication de votre offre place de marché Commercial
 
 Vous pouvez afficher votre actuel **l’état de publication** sur le **offrent la vue d’ensemble** onglet de la [portail place de marché Commercial](https://partner.microsoft.com/dashboard/commercial-marketplace/offers) dans Partner Center.
 
+Un des indicateurs d’état suivants doit être affiché pour chaque offre.
+
+| **État**    | **Description**  |
+| :---------- | :-------------------|
+| **Draft** | Offre a été créée, mais il n’est pas en cours de publication. |
+| **Publish in progress** (Publication en cours) | Plan/offre travaille livrée à travers les étapes du processus de publication. |
+| **Faites attention** | Un problème critique a été détecté lors de la certification par Microsoft ou l’une des étapes de publication. |
+| **Préversion** | Offre a été certifiée par Microsoft et attend maintenant une vérification finale par le serveur de publication. Sélectionnez mise en ligne pour rendre l’offre en direct. |
+| **En direct** | Offre est également disponible dans la place de marché et peut les voir et acquis par les clients. |
+| **Vente d’arrêt en attente** | Serveur de publication sélectionné « arrêter la vente » sur l’offre ou de plan, mais l’action n’est pas encore terminée. |
+| **Non disponible dans la place de marché** | Un plan/offre déjà publié dans la place de marché a été supprimé. |
+
 ## <a name="automated-validation"></a>Validation automatique
 
 La première étape dans le processus de publication est un ensemble de validations automatisés. Chaque étape de validation correspond à une fonctionnalité que vous avez choisi d’activer la création de votre offre. Si cette fonctionnalité n’était pas activée, la validation avance à l’étape suivante de publication. Chaque contrôle de validation doit être effectuée avant que l’état de publication est approuvée.
 
-- **Offre des paramètres de flux d’achat (> 10 min)**
+- **Offre des paramètres de flux d’achat (< 10 min)**
 
 Dans cette étape, nous nous assurer que votre offre peut être traitée lors de l’achat par les clients via le portail Azure. Cette étape est uniquement applicable aux offres vendus via Microsoft.
 
@@ -34,7 +46,7 @@ Dans cette étape, nous validons les données que vous avez fourni dans la secti
 
 Dans cette étape, après avoir vérifié les données et les fonctionnalités de votre version d’évaluation à l’étape précédente, nous déployer et répliquer les instances de votre version d’évaluation afin qu’ils sont prêts pour une utilisation par le client.  Cette étape est uniquement applicable pour les offres avec une version d’évaluation est activée.
 
-- **Entraîner la validation de la gestion et l’enregistrement (> 15 min)**
+- **Entraîner la validation de la gestion et l’enregistrement (< 15 min)**
 
 Dans cette étape, nous confirmer que votre système de gestion responsable peut recevoir des prospects selon les détails fournis dans le programme d’installation de l’offre. Cette étape est uniquement applicable pour les offres avec gestion des prospects est activée.
 

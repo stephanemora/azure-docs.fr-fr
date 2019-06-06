@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/26/2018
 ms.author: malop;kumud
-ms.openlocfilehash: 73664359b206a9e149ebac6859df24a1263cd313
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 751a3a940dad74cbc8c7343ee70309736b381d5b
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60731661"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66478869"
 ---
 # <a name="security-groups"></a>Groupes de sécurité
 <a name="network-security-groups"></a>
@@ -72,7 +72,7 @@ Les règles de sécurité augmentée simplifient la définition de la sécurité
 * **AzureContainerRegistry** (Resource Manager uniquement) : Cette balise désigne les préfixes d’adresse du service Azure Container Registry. Si vous spécifiez *AzureContainerRegistry* comme valeur, le trafic vers AzureContainerRegistry est autorisé ou refusé. Si vous souhaitez uniquement autoriser l’accès à AzureContainerRegistry dans une [région](https://azure.microsoft.com/regions) spécifique, vous pouvez spécifier la région au format suivant : AzureContainerRegistry.[nom_région]. 
 * **AppService** (Resource Manager uniquement) : Cette balise désigne les préfixes d’adresse du service Azure AppService. Si vous spécifiez *AppService* comme valeur, le trafic vers AppService est autorisé ou refusé. Si vous souhaitez uniquement autoriser l’accès à AppService dans une [région](https://azure.microsoft.com/regions) spécifique, vous pouvez spécifier la région au format suivant : AppService.[nom_région]. 
 * **AppServiceManagement** (Resource Manager uniquement) : Cette balise désigne les préfixes d’adresse du service Azure AppService Management. Si vous spécifiez *AppServiceManagement* comme valeur, le trafic vers AppServiceManagement est autorisé ou refusé. 
-* **ApiManagement** (Resource Manager uniquement) : Cette balise désigne les préfixes d’adresse du service Gestion des API Azure. Si vous spécifiez *ApiManagement* comme valeur, le trafic vers ApiManagement est autorisé ou refusé.  
+* **ApiManagement** (Resource Manager uniquement) : Cette balise désigne les préfixes d’adresse du service Gestion des API Azure. Si vous spécifiez *ApiManagement* pour la valeur, le trafic est autorisé ou refusé à partir de l’interface de gestion de ApiManagement.  
 * **AzureConnectors** (Resource Manager uniquement) : Cette balise désigne les préfixes d’adresse du service Azure Connectors. Si vous spécifiez *AzureConnectors* comme valeur, le trafic vers AzureConnectors est autorisé ou refusé. Si vous souhaitez uniquement autoriser l’accès à AzureConnectors dans une [région](https://azure.microsoft.com/regions) spécifique, vous pouvez spécifier la région au format suivant : AzureConnectors.[nom_région]. 
 * **GatewayManager** (Resource Manager uniquement) : Cette balise désigne les préfixes d’adresse du service Azure Gateway Manager. Si vous spécifiez *GatewayManager* comme valeur, le trafic vers GatewayManager est autorisé ou refusé.  
 * **AzureDataLake** (Resource Manager uniquement) : Cette balise désigne les préfixes d’adresse du service Azure Data Lake. Si vous spécifiez *AzureDataLake* comme valeur, le trafic vers AzureDataLake est autorisé ou refusé. 
@@ -98,7 +98,7 @@ Azure crée les règles par défaut suivantes dans chaque groupe de sécurité r
 
 |Priorité|Source|Ports source|Destination|Ports de destination|Protocol|Access|
 |---|---|---|---|---|---|---|
-|65 000|VirtualNetwork|0-65535|VirtualNetwork|0-65535|Tous|AUTORISER|
+|65000|VirtualNetwork|0-65535|VirtualNetwork|0-65535|Tous|AUTORISER|
 
 #### <a name="allowazureloadbalancerinbound"></a>AllowAzureLoadBalancerInBound
 
@@ -118,7 +118,7 @@ Azure crée les règles par défaut suivantes dans chaque groupe de sécurité r
 
 |Priorité|Source|Ports source| Destination | Ports de destination | Protocol | Access |
 |---|---|---|---|---|---|---|
-| 65 000 | VirtualNetwork | 0-65535 | VirtualNetwork | 0-65535 | Tous | AUTORISER |
+| 65000 | VirtualNetwork | 0-65535 | VirtualNetwork | 0-65535 | Tous | AUTORISER |
 
 #### <a name="allowinternetoutbound"></a>AllowInternetOutBound
 
@@ -227,7 +227,7 @@ Vous pouvez facilement afficher des règles d’agrégation appliquées à une i
   Si vous avez créé votre abonnement Azure avant le 15 novembre 2017, vous pouvez, en plus d’utiliser des services de relais SMTP, envoyer des messages électroniques via le port TCP 25 directement. Si vous avez créé votre abonnement après le 15 novembre 2017, vous ne serez peut-être pas en mesure d’envoyer des messages électroniques via le port TCP 25 directement. Le comportement des communications sortantes via le port 25 dépend de votre type d’abonnement :
 
      - **Contrat Entreprise** : Les communications sortantes via le port 25 sont autorisées. Vous êtes en mesure d’envoyer du courrier sortant directement depuis les machines virtuelles vers des fournisseurs de messagerie électronique externes, sans limitations de la plateforme Azure. 
-     - **Paiement à l’utilisation** : Les communications sortantes via le port 25 sont bloquées pour toutes les ressources. Si vous devez envoyer des courriers électroniques directement depuis une machine virtuelle vers des fournisseurs de messagerie électronique externes (sans utiliser des relais SMTP authentifiés), vous pouvez effectuer une requête pour retirer la restriction. Les demandes sont étudiées et acceptées par Microsoft. Elles ne sont accordées qu’après des vérifications antifraude. Pour effectuer une requête, ouvrez un cas d’assistance avec pour type de problème *Technique*, *Connectivité du réseau virtuel*, *Envoi de messages électroniques impossible (SMTP/Port 25)*. Dans votre cas d’assistance, indiquez les raisons pour lesquelles votre abonnement doit être en mesure d’envoyer des courriers électroniques directement aux fournisseurs, sans passer par un relais authentifié SMTP. Si votre abonnement est exempté, seules les machines virtuelles créées après la date d’exemption sont en mesure d’utiliser des communications sortantes via le port 25.
+     - **Paiement à l’utilisation** : Les communications sortantes via le port 25 sont bloquées pour toutes les ressources. Si vous devez envoyer des courriers électroniques directement depuis une machine virtuelle vers des fournisseurs de messagerie électronique externes (sans utiliser des relais SMTP authentifiés), vous pouvez effectuer une requête pour retirer la restriction. Les demandes sont étudiées et acceptées par Microsoft. Elles ne sont accordées qu’après des vérifications antifraude. Pour effectuer une requête, ouvrez un cas d’assistance avec pour type de problème *Technique*, *Connectivité du réseau virtuel*, *Envoi de messages électroniques impossible (SMTP/Port 25)* . Dans votre cas d’assistance, indiquez les raisons pour lesquelles votre abonnement doit être en mesure d’envoyer des courriers électroniques directement aux fournisseurs, sans passer par un relais authentifié SMTP. Si votre abonnement est exempté, seules les machines virtuelles créées après la date d’exemption sont en mesure d’utiliser des communications sortantes via le port 25.
      - **MSDN, Pass Azure, Azure dans Open, Éducation, BizSpark et Essai gratuit** : Les communications sortantes via le port 25 sont bloquées pour toutes les ressources. Aucune demande pour retirer la restriction ne peut être faite. Elles ne sont pas autorisées. Si vous devez envoyer des courriers électroniques depuis votre machine virtuelle, vous devez utiliser un service de relais SMTP.
      - **Fournisseur de services cloud** : Les clients qui consomment des ressources Azure via un fournisseur de services cloud peuvent créer une demande de support auprès de celui-ci et demander qu’il crée une demande de déblocage en son nom, si un relais SMTP sécurisé ne peut pas être utilisé.
 

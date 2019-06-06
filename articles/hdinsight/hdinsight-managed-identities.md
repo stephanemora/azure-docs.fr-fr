@@ -7,12 +7,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: hrasheed
-ms.openlocfilehash: 5012b669b7460a44cb2732d7db7bf76fd1f567cf
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 30631c4b71d1e8f3b0380a39bab49b900df32621
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64715766"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66427634"
 ---
 # <a name="managed-identities-in-azure-hdinsight"></a>Les identités dans Azure HDInsight
 
@@ -41,7 +41,7 @@ Les étapes restantes pour la configuration de l’identité gérée varient sel
 
 Les identités sont utilisées dans Azure HDInsight dans plusieurs scénarios. Consultez les documents connexes pour le programme d’installation détaillée et des instructions de configuration :
 
-* [Azure Data Lake Storage Gen2](hdinsight-hadoop-use-data-lake-storage-gen2.md#create-a-user-managed-identity)
+* [Azure Data Lake Storage Gen2](hdinsight-hadoop-use-data-lake-storage-gen2.md#create-a-user-assigned-managed-identity)
 * [Pack Sécurité Entreprise](domain-joined/apache-domain-joined-configure-using-azure-adds.md#create-and-authorize-a-managed-identity)
 * [Kafka Bring Your Own Key (BYOK)](kafka/apache-kafka-byok.md#get-started-with-byok)
 

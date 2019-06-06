@@ -2,20 +2,20 @@
 title: Configurer la connexion avec un fournisseur SAML Salesforce en utilisant des stratégies personnalisées dans Azure Active Directory B2C | Microsoft Docs
 description: Configurez la connexion avec un fournisseur SAML Salesforce en utilisant des stratégies personnalisées dans Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/21/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 9dd730a7adc94c08a197049468b21e1b7eb6f737
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e565822c006191615dbc10b980da24dcd9ed787a
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64723883"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66508302"
 ---
 # <a name="set-up-sign-in-with-a-salesforce-saml-provider-by-using-custom-policies-in-azure-active-directory-b2c"></a>Configurer la connexion avec un fournisseur SAML Salesforce en utilisant des stratégies personnalisées dans Azure Active Directory B2C
 
@@ -34,21 +34,21 @@ Cet article explique comment autoriser la connexion d’utilisateurs à partir d
 1. [Connectez-vous à Salesforce](https://login.salesforce.com/). 
 2. Dans le menu de gauche, sous **Paramètres**, développez **Identité**, puis sélectionnez **Fournisseur d’identité**.
 3. Cliquez sur **Activer le fournisseur d’identité**.
-4. Sous **Select the certificate (Sélectionner le certificat)**, sélectionnez le certificat que vous souhaitez que Salesforce utilise pour communiquer avec Azure AD B2C Vous pouvez utiliser le certificat par défaut. 
+4. Sous **Select the certificate (Sélectionner le certificat)** , sélectionnez le certificat que vous souhaitez que Salesforce utilise pour communiquer avec Azure AD B2C Vous pouvez utiliser le certificat par défaut. 
 5. Cliquez sur **Enregistrer**. 
 
 ### <a name="create-a-connected-app-in-salesforce"></a>Créer une application connectée dans Salesforce
 
 1. Sur la page **Fournisseur d’identité**, sélectionnez **Les fournisseurs de services sont maintenant créés via des applications connectées. Cliquez ici.**
-2. Sous **Basic Information (Informations de base)**, entrez les valeurs requises pour votre application connectée.
+2. Sous **Basic Information (Informations de base)** , entrez les valeurs requises pour votre application connectée.
 3. Sous **Paramètres de l’application web**, cochez la case **Activer SAML**.
-4. Dans le champ **Entity ID (ID d’entité)**, entrez l’URL suivante. Assurez-vous de remplacer la valeur de `your-tenant` par le nom de votre locataire Azure AD B2C.
+4. Dans le champ **Entity ID (ID d’entité)** , entrez l’URL suivante. Assurez-vous de remplacer la valeur de `your-tenant` par le nom de votre locataire Azure AD B2C.
 
       ```
       https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/B2C_1A_TrustFrameworkBase
       ```
 
-6. Dans le champ **ACS URL (URL ACS)**, entrez l’URL suivante. Assurez-vous de remplacer la valeur de `your-tenant` par le nom de votre locataire Azure AD B2C.
+6. Dans le champ **ACS URL (URL ACS)** , entrez l’URL suivante. Assurez-vous de remplacer la valeur de `your-tenant` par le nom de votre locataire Azure AD B2C.
       
       ```
       https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/B2C_1A_TrustFrameworkBase/samlp/sso/assertionconsumer
@@ -57,7 +57,7 @@ Cet article explique comment autoriser la connexion d’utilisateurs à partir d
 
 ### <a name="get-the-metadata-url"></a>Obtenir l’URL des métadonnées
 
-1. Dans la page de présentation de votre application connectée, cliquez sur **Manage (Gérer)**.
+1. Dans la page de présentation de votre application connectée, cliquez sur **Manage (Gérer)** .
 2. Copiez la valeur de **point de terminaison de découverte des métadonnées**, puis enregistrez-la. Vous l’utiliserez plus loin dans cet article.
 
 ### <a name="set-up-salesforce-users-to-federate"></a>Configurer des utilisateurs Salesforce pour fédérer

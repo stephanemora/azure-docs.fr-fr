@@ -8,14 +8,14 @@ ms.subservice: heavy
 ms.topic: article
 ms.date: 05/22/2019
 ms.author: alkohli
-ms.openlocfilehash: 8cd2f96954cde367eb99d89e89bcf672b53dd590
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: b9e249885bd0e930773d4b374f85d72e60abdbdc
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66247993"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66427743"
 ---
-# <a name="azure-data-box-heavy-system-requirements"></a>Configuration requise lourd de zone de données Azure
+# <a name="azure-data-box-heavy-system-requirements-preview"></a>Azure lourd de zone de données requise (version préliminaire)
 
 Cet article décrit la configuration système requise importante pour votre appareil lourd de zone de données Azure et pour les clients se connectant à l’appareil. Nous vous recommandons de que lire attentivement les informations avant de déployer votre lourd de zone de données, puis d’y revenir si nécessaire pendant le déploiement et les opérations suivantes.
 

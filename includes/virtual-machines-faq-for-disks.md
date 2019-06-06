@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/13/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 0e361edfea6365c3d3fe072e12bb303e71bb8d63
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: b993b34f81298b40c8849084380b2d1770708351
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66248802"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66482276"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Forum aux questions sur les disques de machines virtuelles et les disques Premium gérés et non gérés Azure IaaS
 
@@ -143,7 +143,7 @@ Le partitionnement GPT peut être utilisé uniquement sur les disques de donnée
 
 **Quels types de disque prend en charge les captures instantanées ?**
 
-Disque SSD Premium, disque SSD standard et SSD standard prennent en charge des captures instantanées, sans aucune limite de taille. Vous pouvez donc les disques de grande taille d’instantané (jusqu'à 32 To). Ultra SSDs ne gèrent pas les captures instantanées.
+Disque SSD Premium, disque SSD standard et le disque dur standard prennent en charge des captures instantanées. Pour ces types de trois disque, les instantanés sont pris en charge pour toutes les tailles de disque (y compris les disques jusqu'à 32 To de taille). Ultra SSDs ne gèrent pas les captures instantanées.
 
 ## <a name="standard-ssd-disks"></a>Disques SSD Standard
 

@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 01/29/2019
+ms.date: 05/31/2019
 ms.author: iainfou
-ms.openlocfilehash: 23922ec02f7406b5cbc482c938dbcf6a56cad6d7
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 58552914f369c49eed33ccefbb7736cf8dbf1fc6
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66234160"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475647"
 ---
 # <a name="preview---automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Preview - automatiquement à l’échelle un cluster pour répondre aux besoins de l’application sur Azure Kubernetes Service (AKS)
 
@@ -28,11 +28,11 @@ Cet article vous montre comment activer et gérer le programme de mise à l’é
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Pour les besoins de cet article, vous devez utiliser Azure CLI version 2.0.55 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installer Azure CLI 2.0][azure-cli-install].
+Cet article nécessite que vous exécutiez Azure CLI version 2.0.65 ou version ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installer Azure CLI 2.0][azure-cli-install].
 
 ### <a name="install-aks-preview-cli-extension"></a>Installer l’extension CLI de préversion d’aks
 
-Les clusters AKS qui prennent en charge le programme de mise à l’échelle automatique de cluster doivent utiliser des groupes de machines virtuelles identiques et exécuter Kubernetes *1.12.4* ou ultérieur. Cette prise en charge des groupes identiques est en préversion. Pour accepter et créer des clusters utilisant des groupes identiques, installez tout d’abord l’extension d’Azure CLI *aks-preview* à l’aide de la commande [az extension add][az-extension-add], comme indiqué dans l’exemple suivant :
+Les clusters AKS qui prennent en charge l’autoscaler de cluster doivent utiliser des machines virtuelles identiques et exécutent la version de Kubernetes *1.12.7* ou version ultérieure. Cette prise en charge des groupes identiques est en préversion. Pour accepter et créer des clusters utilisant des groupes identiques, installez tout d’abord l’extension d’Azure CLI *aks-preview* à l’aide de la commande [az extension add][az-extension-add], comme indiqué dans l’exemple suivant :
 
 ```azurecli-interactive
 az extension add --name aks-preview
@@ -63,9 +63,10 @@ az provider register --namespace Microsoft.ContainerService
 
 ## <a name="limitations"></a>Limites
 
-Les limitations suivantes s’appliquent lorsque vous créez et gérez les clusters AKS qui utilisent les jeux de mise à l’échelle de machine virtuelle :
+Les limitations suivantes s’appliquent lorsque vous créez et gérez les clusters AKS qui utilisent l’autoscaler de cluster :
 
 * Le module complémentaire de routage application HTTP ne peut pas être utilisé.
+* Plusieurs pools de nœuds (actuellement en version préliminaire dans ACS) actuellement ne peut pas être utilisés.
 
 ## <a name="about-the-cluster-autoscaler"></a>À propos du programme de mise à l’échelle automatique de cluster
 

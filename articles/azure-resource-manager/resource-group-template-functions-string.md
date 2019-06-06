@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/08/2019
 ms.author: tomfitz
-ms.openlocfilehash: bf9faa34c1f0923761ce583c22ba4084d7bd42a8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 82b9403a3d5a5b6938f5b95bbfce888d1e70e451
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60782920"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66431209"
 ---
 # <a name="string-functions-for-azure-resource-manager-templates"></a>Fonctions de chaînes pour les modèles Azure Resource Manager
 
@@ -248,8 +248,8 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 | Nom | type | Valeur |
 | ---- | ---- | ----- |
-| base64Output | Chaîne | b25lLCB0d28sIHRocmVl |
-| toStringOutput | Chaîne | one, two, three |
+| base64Output | String | b25lLCB0d28sIHRocmVl |
+| toStringOutput | String | one, two, three |
 | toJsonOutput | Object | {"one": "a", "two": "b"} |
 
 ## <a name="concat"></a>concat
@@ -263,7 +263,7 @@ Combine plusieurs valeurs de chaîne et retourne la chaine concaténée, ou comb
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
 | arg1 |Oui |chaîne ou tableau |La première valeur pour la concaténation. |
-| arguments supplémentaires |Non  |string |Valeurs supplémentaires en ordre séquentiel pour la concaténation. |
+| arguments supplémentaires |Non |string |Valeurs supplémentaires en ordre séquentiel pour la concaténation. |
 
 ### <a name="return-value"></a>Valeur de retour
 Chaîne ou tableau de valeurs concaténées.
@@ -296,7 +296,7 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 | Nom | type | Valeur |
 | ---- | ---- | ----- |
-| concatOutput | Chaîne | prefix-5yj4yjf5mbg72 |
+| concatOutput | String | prefix-5yj4yjf5mbg72 |
 
 [L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/concat-array.json) suivant montre comment combiner deux tableaux.
 
@@ -710,7 +710,7 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 | Nom | type | Valeur |
 | ---- | ---- | ----- |
-| arrayOutput | Chaîne | one |
+| arrayOutput | String | one |
 | stringOutput | Chaîne | O |
 
 ## <a name="format"></a>format
@@ -725,7 +725,7 @@ Crée une chaîne mise en forme à partir de valeurs d’entrée.
 |:--- |:--- |:--- |:--- |
 | formatString | Oui | string | La chaîne de format composite. |
 | arg1 | Oui | chaîne, entier ou valeur booléenne | La valeur à inclure dans la chaîne mise en forme. |
-| arguments supplémentaires | Non  | chaîne, entier ou valeur booléenne | Valeurs supplémentaires à inclure dans la chaîne mise en forme. |
+| arguments supplémentaires | Non | chaîne, entier ou valeur booléenne | Valeurs supplémentaires à inclure dans la chaîne mise en forme. |
 
 ### <a name="remarks"></a>Remarques
 
@@ -768,7 +768,7 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 | Nom | type | Valeur |
 | ---- | ---- | ----- |
-| formatTest | Chaîne | Bonjour, utilisateur. Nombre mis en forme : 8,175,133 |
+| formatTest | String | Bonjour, utilisateur. Nombre mis en forme : 8,175,133 |
 
 ## <a name="guid"></a>GUID
 
@@ -781,7 +781,7 @@ Crée une valeur sous la forme d’un identificateur global unique basé sur les
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
 | baseString |Oui |string |Valeur utilisée dans la fonction de hachage pour créer le GUID. |
-| paramètres supplémentaires le cas échéant |Non  |string |Vous pouvez ajouter autant de chaînes que nécessaire pour créer la valeur qui spécifie le niveau d’unicité. |
+| paramètres supplémentaires le cas échéant |Non |string |Vous pouvez ajouter autant de chaînes que nécessaire pour créer la valeur qui spécifie le niveau d’unicité. |
 
 ### <a name="remarks"></a>Remarques
 
@@ -952,7 +952,7 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 | Nom | type | Valeur |
 | ---- | ---- | ----- |
 | arrayOutput | Chaîne | three |
-| stringOutput | Chaîne | e |
+| stringOutput | String | e |
 
 ## <a name="lastindexof"></a>lastIndexOf
 
@@ -1183,7 +1183,7 @@ Renvoie une chaîne alignée à droite en lui ajoutant des caractères sur la ga
 |:--- |:--- |:--- |:--- |
 | valeur_à_remplir |Oui |chaîne ou entier |Valeur à aligner à droite. |
 | longueur_totale |Oui |int |Nombre total de caractères de la chaîne renvoyée. |
-| caractère_de_remplissage |Non  |caractère unique |Caractère de remplissage à insérer sur la gauche jusqu’à ce que la longueur totale soit atteinte. La valeur par défaut est un espace. |
+| caractère_de_remplissage |Non |caractère unique |Caractère de remplissage à insérer sur la gauche jusqu’à ce que la longueur totale soit atteinte. La valeur par défaut est un espace. |
 
 Si la chaîne d’origine est plus longue que le nombre de caractères de remplissage, aucun caractère n’est ajouté.
 
@@ -1219,7 +1219,7 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 | Nom | type | Valeur |
 | ---- | ---- | ----- |
-| stringOutput | Chaîne | 0000000123 |
+| stringOutput | String | 0000000123 |
 
 ## <a name="replace"></a>replace
 
@@ -1259,7 +1259,7 @@ Chaîne contenant les caractères remplacés.
             "type": "string",
             "value": "[replace(parameters('testString'),'-', '')]"
         },
-        "secodeOutput": {
+        "secondOutput": {
             "type": "string",
             "value": "[replace(parameters('testString'),'1234', 'xxxx')]"
         }
@@ -1271,8 +1271,8 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 | Nom | type | Valeur |
 | ---- | ---- | ----- |
-| firstOutput | Chaîne | 1231231234 |
-| secodeOutput | Chaîne | 123-123-xxxx |
+| firstOutput | String | 1231231234 |
+| secondOutput | String | 123-123-xxxx |
 
 ## <a name="skip"></a>skip
 
@@ -1534,7 +1534,7 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 | Nom | type | Valeur |
 | ---- | ---- | ----- |
-| objectOutput | Chaîne | {"valueA":10,"valueB":"Example Text"} |
+| objectOutput | String | {"valueA":10,"valueB":"Example Text"} |
 | arrayOutput | Chaîne | ["a","b","c"] |
 | intOutput | Chaîne | 5. |
 
@@ -1549,8 +1549,8 @@ Retourne une sous-chaîne qui commence à la position de caractère spécifiée 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
 | chaîne_à_analyser |Oui |string |La chaîne d’origine de laquelle la sous-chaîne est extraite. |
-| index_début |Non  |int |La position de caractère (commençant à zéro) de la sous-chaîne. |
-| length |Non  |int |Le nombre de caractères de la sous-chaîne. Doit faire référence à un emplacement au sein de la chaîne. Doit être égal à zéro ou supérieur. |
+| index_début |Non |int |La position de caractère (commençant à zéro) de la sous-chaîne. |
+| length |Non |int |Le nombre de caractères de la sous-chaîne. Doit faire référence à un emplacement au sein de la chaîne. Doit être égal à zéro ou supérieur. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -1813,7 +1813,7 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 | Nom | type | Valeur |
 | ---- | ---- | ----- |
-| return | Chaîne | one two three |
+| return | String | one two three |
 
 ## <a name="uniquestring"></a>uniqueString
 
@@ -1826,7 +1826,7 @@ Crée une chaîne de hachage déterministe basée sur les valeurs fournies en ta
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
 | baseString |Oui |string |La valeur utilisée dans la fonction de hachage pour créer une chaîne unique. |
-| paramètres supplémentaires le cas échéant |Non  |string |Vous pouvez ajouter autant de chaînes que nécessaire pour créer la valeur qui spécifie le niveau d’unicité. |
+| paramètres supplémentaires le cas échéant |Non |string |Vous pouvez ajouter autant de chaînes que nécessaire pour créer la valeur qui spécifie le niveau d’unicité. |
 
 ### <a name="remarks"></a>Remarques
 
@@ -1954,7 +1954,7 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 | Nom | type | Valeur |
 | ---- | ---- | ----- |
 | uriOutput | Chaîne | http://contoso.com/resources/nested/azuredeploy.json |
-| componentOutput | Chaîne | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
+| componentOutput | String | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
 | toStringOutput | Chaîne | http://contoso.com/resources/nested/azuredeploy.json |
 
 ## <a name="uricomponent"></a>uriComponent
@@ -2063,9 +2063,9 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 | Nom | type | Valeur |
 | ---- | ---- | ----- |
-| uriOutput | Chaîne | http://contoso.com/resources/nested/azuredeploy.json |
+| uriOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
 | componentOutput | Chaîne | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
-| toStringOutput | Chaîne | http://contoso.com/resources/nested/azuredeploy.json |
+| toStringOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
 
 ## <a name="utcnow"></a>utcNow
 
@@ -2077,7 +2077,7 @@ Retourne la valeur de date/heure actuelle (UTC) au format spécifié. Si aucun f
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| format |Non  |string |Valeur encodée de l’URI à convertir en une chaîne. Utilisez [chaînes de format standard](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [chaînes de format personnalisées](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). |
+| format |Non |string |Valeur encodée de l’URI à convertir en une chaîne. Utilisez [chaînes de format standard](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [chaînes de format personnalisées](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). |
 
 ### <a name="remarks"></a>Remarques
 

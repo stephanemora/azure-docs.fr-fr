@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/17/2019
 ms.author: iainfou
-ms.openlocfilehash: 4af2e97e8ace432c37a770f1930514dd19e30944
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: a295dfa1f7f2c58b3e45036212434837ac4bfb4d
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66235756"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475459"
 ---
 # <a name="preview---create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Afficher un aperçu : créer et gérer plusieurs pools de nœuds pour un cluster dans Azure Kubernetes Service (ACS)
 
@@ -74,6 +74,7 @@ Les limitations suivantes s’appliquent lorsque vous créez et gérez les clust
 * Vous ne pouvez pas supprimer le premier pool de nœud.
 * Le module complémentaire de routage application HTTP ne peut pas être utilisé.
 * Vous ne pouvez pas les pools de nœuds de l’ajout/mise à jour/suppression à l’aide d’un modèle Resource Manager existant à l’instar de la plupart des opérations. Au lieu de cela, [utiliser un modèle Resource Manager distinct](#manage-node-pools-using-a-resource-manager-template) pour apporter des modifications aux pools de nœuds dans un cluster AKS.
+* Le cluster autoscaler (actuellement en version préliminaire dans ACS) ne peut pas être utilisé.
 
 Bien que cette fonctionnalité est disponible en version préliminaire, les limitations supplémentaires suivantes s’appliquent :
 
@@ -222,7 +223,7 @@ Il prend quelques minutes pour supprimer les nœuds et le pool de nœud.
 
 ## <a name="specify-a-vm-size-for-a-node-pool"></a>Spécifiez une taille de machine virtuelle pour un pool de nœuds
 
-Dans les exemples précédents pour créer un pool de nœud, une taille de machine virtuelle par défaut a été utilisée pour les nœuds créés dans le cluster. Un scénario plus courant est de créer des pools de nœuds avec des fonctionnalités et les différentes tailles de machine virtuelle. Par exemple, vous pouvez créer un pool de nœud qui contient les nœuds de grandes quantités de mémoire ou de processeur ou un pool de nœuds qui fournit la prise en charge GPU. Dans l’étape suivante, vous [utilisation de soleil et tolerations][#schedule-pods-using-taints-and-tolerations] pour indiquer le planificateur Kubernetes comment limiter l’accès aux blocs pouvant s’exécuter sur ces nœuds.
+Dans les exemples précédents pour créer un pool de nœud, une taille de machine virtuelle par défaut a été utilisée pour les nœuds créés dans le cluster. Un scénario plus courant est de créer des pools de nœuds avec des fonctionnalités et les différentes tailles de machine virtuelle. Par exemple, vous pouvez créer un pool de nœud qui contient les nœuds de grandes quantités de mémoire ou de processeur ou un pool de nœuds qui fournit la prise en charge GPU. Dans l’étape suivante, vous [utiliser de soleil et tolerations](#schedule-pods-using-taints-and-tolerations) pour indiquer le planificateur Kubernetes comment limiter l’accès aux blocs pouvant s’exécuter sur ces nœuds.
 
 Dans l’exemple suivant, créez un pool de nœud basées sur GPU qui utilise le *Standard_NC6* taille de machine virtuelle. Ces machines virtuelles sont alimentées par la carte NVIDIA Tesla K80. Pour plus d’informations sur les tailles de machine virtuelle disponibles, consultez [tailles des machines virtuelles Linux dans Azure][vm-sizes].
 
@@ -332,7 +333,7 @@ Uniquement les blocs qui ont ce goût appliqué peuvent être planifiées sur le
 
 ## <a name="manage-node-pools-using-a-resource-manager-template"></a>Gérer des pools de nœuds à l’aide d’un modèle Resource Manager
 
-Lorsque vous utilisez un modèle Azure Resource Manager pour créer et les ressources managées, vous pouvez généralement mettre à jour les paramètres dans votre modèle et le redéployer pour mettre à jour de la ressource. Avec nodepools dans ACS, le profil nodepool initiale ne peut pas être mis à jour une fois que le cluster AKS qui a été créé. Ce comportement signifie que vous ne pouvez pas mettre à jour un modèle Resource Manager existant, apportez une modification aux pools de nœud et redéployer. Au lieu de cela, vous devez créer un modèle Resource Manager séparé qui met à jour uniquement les pools d’agents pour un cluster ACS existant.
+Lorsque vous utilisez un modèle Azure Resource Manager pour créer et les ressources managées, vous pouvez généralement mettre à jour les paramètres dans votre modèle et le redéployer pour mettre à jour de la ressource. Avec les pools de nœuds dans ACS, le profil de pool de nœud initial ne peut pas être mis à jour une fois que le cluster AKS qui a été créé. Ce comportement signifie que vous ne pouvez pas mettre à jour un modèle Resource Manager existant, apportez une modification aux pools de nœud et redéployer. Au lieu de cela, vous devez créer un modèle Resource Manager séparé qui met à jour uniquement les pools d’agents pour un cluster ACS existant.
 
 Créer un modèle tel que `aks-agentpools.json` et collez le manifeste de l’exemple suivant. Cet exemple de modèle configure les paramètres suivants :
 
@@ -437,7 +438,7 @@ az group delete --name myResourceGroup --yes --no-wait
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans cet article, vous avez appris comment créer et gérer plusieurs pools de nœuds dans un cluster AKS. Pour plus d’informations sur la façon de contrôler les pods entre les pools de nœuds, consultez [meilleures pratiques pour les fonctionnalités avancées du planificateur dans ACS][operator-best-practices-advanced-scheduler].
+Dans cet article, vous avez appris à créer et gérer plusieurs pools de nœuds dans un cluster AKS. Pour plus d’informations sur la façon de contrôler les pods entre les pools de nœuds, consultez [meilleures pratiques pour les fonctionnalités avancées du planificateur dans ACS][operator-best-practices-advanced-scheduler].
 
 Pour créer et utiliser des pools de nœuds de conteneur Windows Server, consultez [créer un conteneur Windows Server dans ACS][aks-windows].
 

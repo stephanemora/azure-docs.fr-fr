@@ -3,18 +3,18 @@ title: Comment afficher des données personnalisées sur une carte raster dans A
 description: Effectuer le rendu des données personnalisées sur une carte raster dans Azure Maps.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 02/12/2019
+ms.date: 04/03/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 46f08aaa33563f620e7a011620730249e903f7b7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a9fed8464bd19c4b8a32e37c8c97698f0a2d9503
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60794592"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734293"
 ---
 # <a name="render-custom-data-on-a-raster-map"></a>Afficher les données personnalisées sur une carte raster
 
@@ -42,7 +42,7 @@ Pour afficher les repères avec des étiquettes et une image personnalisée, pro
 
 2. Pour créer la demande, sélectionnez **New** à nouveau. Dans le **créer un nouveau** fenêtre, sélectionnez **demande**. Entrez un **nom de la demande** pour les repères, sélectionnez le regroupement que vous avez créé à l’étape précédente en tant que l’emplacement dans lequel enregistrer la demande, puis sélectionnez **enregistrer**.
     
-    ![Créer une requête dans Postman](./media/tutorial-geofence/postman-new.png)
+    ![Créer une requête dans Postman](./media/how-to-render-custom-data/postman-new.png)
 
 3. Sélectionnez la méthode HTTP GET sur l’onglet Générateur de rapports et entrez l’URL suivante pour créer une demande GET.
 
@@ -145,7 +145,7 @@ Vous pouvez également obtenir les informations d’emplacement de chemin d’ac
     https://atlas.microsoft.com/map/static/png?subscription-key={subscription-key}&api-version=1.0&layer=basic&style=main&zoom=12&center=-73.96682739257812%2C40.78119135317995&pins=default|la-35+50|ls12|lc003C62|co9B2F15||'Times Square'-73.98516297340393 40.758781646381024|'Central Park'-73.96682739257812 40.78119135317995&path=lc0000FF|fc0000FF|lw3|la0.80|fa0.30||udid-{udId}
     ```
 
-6. Voici l’image résultante :
+    Voici l’image de la réponse :
 
     ![Obtenir des données à partir du stockage de données Azure Maps](./media/how-to-render-custom-data/uploaded-path.png)
 
@@ -164,9 +164,9 @@ Vous pouvez modifier l’apparence d’un polygone en utilisant des modificateur
     &subscription-key={subscription--key}
     ```
 
-Voici l’image résultante :
+    Voici l’image de la réponse :
 
-![Dessiner un polygone opaque](./media/how-to-render-custom-data/opaque-polygon.png)
+    ![Dessiner un polygone opaque](./media/how-to-render-custom-data/opaque-polygon.png)
 
 
 ## <a name="render-a-circle-and-pushpins-with-custom-labels"></a>Afficher un cercle et punaises avec légendes personnalisées
@@ -186,9 +186,9 @@ Suivez ces étapes pour rendre un cercle et punaises avec légendes personnalis�
     https://atlas.microsoft.com/map/static/png?api-version=1.0&style=main&layer=basic&zoom=14&height=700&Width=700&center=-122.13230609893799,47.64599069048016&path=lcFF0000|lw2|la0.60|ra1000||-122.13230609893799 47.64599069048016&pins=default|la15+50|al0.66|lc003C62|co002D62||'Microsoft Corporate Headquarters'-122.14131832122801  47.64690503939462|'Microsoft Visitor Center'-122.136828 47.642224|'Microsoft Conference Center'-122.12552547454833 47.642940335653996|'Microsoft The Commons'-122.13687658309935  47.64452336193245&subscription-key={subscription-key}
     ```
 
-Voici l’image résultante :
+    Voici l’image de la réponse :
 
-![Afficher un cercle avec des punaises personnalisés](./media/how-to-render-custom-data/circle-custom-pins.png)
+    ![Afficher un cercle avec des punaises personnalisés](./media/how-to-render-custom-data/circle-custom-pins.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

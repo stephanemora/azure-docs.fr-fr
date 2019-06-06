@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: fa7730247ddc5f30c3d21a32421a6c55ec4ef72e
-ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.openlocfilehash: 9b2630614e549181f4dd2f4e79871c4594d09201
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64872762"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66496862"
 ---
 # <a name="vpn-gateways-overview"></a>Vue d’ensemble des passerelles VPN
 
@@ -36,6 +36,8 @@ Cas d’utilisation de VPN de site à site sont les suivantes :
 * Utilisation de votre annuaire local Active Directory comme une source d’identité vCenter.
 * Pratique le transfert de modèles, les fichiers ISO et les autres fichiers de machine virtuelle à partir de vos ressources locales à votre vCenter de cloud privé.
 * Accessibilité des charges de travail en cours d’exécution sur votre cloud privé à partir de votre réseau local.
+
+![Topologie de connexion VPN de site à Site](media/cloudsimple-site-to-site-vpn-connection.png)
 
 ### <a name="cryptographic-parameters"></a>Paramètres de chiffrement
 

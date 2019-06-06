@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: saurse
-ms.openlocfilehash: f36442c5e26391f410eeb5e39a7485da7199bdad
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: d8a1d261808eb8f97d1e0dab78b767b37ae6802f
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66243447"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66743140"
 ---
 # <a name="troubleshoot-microsoft-azure-recovery-services-mars-agent"></a>Résoudre les problèmes liés à l'agent MARS (Microsoft Azure Recovery Services)
 
@@ -82,7 +82,15 @@ Nous vous recommandons d’effectuer le ci-dessous validation, avant de commence
 Si les sauvegardes planifiées ne se déclenchent pas automatiquement, alors que vous n’avez aucun problème à effectuer des sauvegardes manuelles, essayez ceci :
 
 - Vérifiez la planification de sauvegarde de Windows Server n’est pas en conflit avec Azure planification de sauvegarde de fichiers et dossiers.
-- Accédez à **Panneau de configuration** > **Outils d’administration** > **Planificateur de tâches**. Développez **Microsoft** et sélectionnez **Sauvegarde en ligne**. Double-cliquez sur **Microsoft-OnlineBackup** et accédez à l’onglet **Déclencheurs**. Assurez-vous que l’état est défini sur **Activé**. Si ce n’est pas le cas, sélectionnez **Modifier**, cochez la case **Activé**, puis cliquez sur **OK**. Sous l'onglet **Général**, accédez à **Options de sécurité** et assurez-vous que le compte d’utilisateur sélectionné pour l’exécution de la tâche est **SYSTÈME** ou le **groupe Administrateurs locaux** sur le serveur.
+
+- Vérifiez l’état de la sauvegarde en ligne est définie sur **activer**. Pour vérifier l’état effectuer le ci-dessous :
+
+  - Accédez à **Panneau de configuration** > **Outils d’administration** > **Planificateur de tâches**.
+    - Développez **Microsoft** et sélectionnez **Sauvegarde en ligne**.
+  - Double-cliquez sur **Microsoft-OnlineBackup** et accédez à l’onglet **Déclencheurs**.
+  - Vérifiez si l’état est défini sur **activé**. Si ce n’est pas le cas, sélectionnez **Modifier**, cochez la case **Activé**, puis cliquez sur **OK**.
+
+- Vérifiez que le compte d’utilisateur sélectionné pour l’exécution de la tâche est soit **système** ou **groupe des administrateurs locaux** sur le serveur. Pour vérifier le compte d’utilisateur, accédez à la **général** et vérifiez le **options de sécurité**.
 
 - Vérifiez que PowerShell 3.0 ou version ultérieure est installé sur le serveur. Pour vérifier la version de PowerShell, exécutez la commande suivante et vérifiez que le numéro de la version *principale* est supérieur ou égal à 3.
 
@@ -97,6 +105,15 @@ Si les sauvegardes planifiées ne se déclenchent pas automatiquement, alors que
   `PS C:\WINDOWS\system32> Get-ExecutionPolicy -List`
 
   `PS C:\WINDOWS\system32> Set-ExecutionPolicy Unrestricted`
+
+- Vérifiez le serveur a été redémarré après l’installation de l’agent de sauvegarde
+
+- Assurez-vous n’est manquant ou endommagé **PowerShell** module **MSonlineBackup**. En cas de n’importe quel fichier manquant ou endommagé, à résoudre le problème, effectuez la ci-dessous :
+
+  - À partir d’un autre ordinateur (Windows 2008 R2) que l’agent MARS fonctionne correctement, copiez le dossier de MSOnlineBackup de *(C:\Program Files\Microsoft Azure Recovery Services Agent\bin\Modules)* chemin d’accès.
+  - Collez cette machine problématique dans le même chemin d’accès *(C:\Program Files\Microsoft Azure Recovery Services Agent\bin\Modules)* .
+  - Si **MSOnlineBackup** dossier est déjà existe dans la machine, coller/remplacer les fichiers de contenu qu’il contient.
+
 
 > [!TIP]
 > Pour veiller à ce que les modifications soient appliquées de manière cohérente, redémarrez le serveur après avoir suivi les étapes ci-dessus.

@@ -2,20 +2,20 @@
 title: Ajouter des revendications et personnaliser l’entrée utilisateur avec des stratégies personnalisées – Azure Active Directory B2C | Microsoft Docs
 description: Découvrez comment personnaliser l’entrée utilisateur et ajouter des revendications au parcours d’inscription ou de connexion dans Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/07/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: a64c58d23543279a3a32d2d7b612b43dee8741eb
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: c15d315d186af5622d9fa988945750d93e8eb11f
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65768005"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66507561"
 ---
 #  <a name="add-claims-and-customize-user-input-using-custom-policies-in-azure-active-directory-b2c"></a>Ajouter des revendications et personnaliser l’entrée utilisateur avec des stratégies personnalisées dans Azure Active Directory B2C
 
@@ -263,7 +263,7 @@ Les éléments suivants sont utilisés pour définir la revendication :
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 2. Veillez à utiliser le répertoire contenant votre locataire Azure AD en cliquant sur le **filtre Répertoire et abonnement** dans le menu du haut et en choisissant le répertoire en question.
 3. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Inscriptions d’applications**.
-4. Sélectionnez **Identity Experience Framework (préversion)**.
+4. Sélectionnez **Identity Experience Framework (préversion)** .
 5. Sélectionnez **Charger une stratégie personnalisée**, puis chargez les deux fichiers de stratégie que vous avez modifiés.
 2. Sélectionnez la stratégie d’inscription et de connexion que vous avez chargée, puis cliquez sur le bouton **Exécuter maintenant**.
 3. Vous devriez pouvoir vous inscrire à l’aide d’une adresse de messagerie.

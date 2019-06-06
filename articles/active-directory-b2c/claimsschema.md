@@ -2,20 +2,20 @@
 title: ClaimsSchema  - Azure Active Directory B2C | Microsoft Docs
 description: Spécifiez l’élément ClaimsSchema d’une stratégie personnalisée dans Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 81df3532ee466f32ee42f0010de9aa74dbeb6d85
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e09c4530fc6dce00e6d807908c7de598422a440b
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64721751"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66511867"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
@@ -44,7 +44,7 @@ L’élément **ClaimType** contient l’attribut suivant :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| ID | Oui | Identificateur utilisé pour le type de revendication. D’autres éléments peuvent utiliser cet identificateur dans la stratégie. |
+| Id | Oui | Identificateur utilisé pour le type de revendication. D’autres éléments peuvent utiliser cet identificateur dans la stratégie. |
 
 L’élément **ClaimType** contient les éléments suivants :
 
@@ -107,7 +107,7 @@ L’élément **Mask** contient les attributs suivants :
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
 | `Type` | Oui | Type du masque de revendication. Valeurs possibles : `Simple` ou `Regex`. La valeur `Simple` indique qu’un masque de texte simple est appliqué à la partie gauche d’une revendication de chaîne. La valeur `Regex` indique qu’une expression régulière est appliquée à la revendication de chaîne dans son ensemble.  Si la valeur `Regex` est spécifiée, un attribut facultatif doit également être défini avec l’expression régulière à utiliser. |
-| `Regex` | Non  | Si **`Type`** a la valeur `Regex`, spécifiez l’expression régulière à utiliser.
+| `Regex` | Non | Si **`Type`** a la valeur `Regex`, spécifiez l’expression régulière à utiliser.
 
 L’exemple suivant configure une revendication **PhoneNumber** avec le masque `Simple` :
 
@@ -146,14 +146,14 @@ L’élément **Restriction** peut contenir l’attribut suivant :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| MergeBehavior | Non  | Méthode utilisée pour fusionner des valeurs d’énumération avec un ClaimType dans une stratégie parente avec le même identificateur. Utilisez cet attribut quand vous remplacez une revendication spécifiée dans la stratégie de base. Valeurs possibles : `Append`, `Prepend` ou `ReplaceAll`. La valeur `Append` est une collection de données qui doivent être ajoutées à la fin de la collection spécifiée dans la stratégie parente. La valeur `Prepend` est une collection de données qui doivent être ajoutées avant la collection spécifiée dans la stratégie parente. La valeur `ReplaceAll` est une collection de données spécifiée dans la stratégie parente qui doit être ignorée. |
+| MergeBehavior | Non | Méthode utilisée pour fusionner des valeurs d’énumération avec un ClaimType dans une stratégie parente avec le même identificateur. Utilisez cet attribut quand vous remplacez une revendication spécifiée dans la stratégie de base. Valeurs possibles : `Append`, `Prepend` ou `ReplaceAll`. La valeur `Append` est une collection de données qui doivent être ajoutées à la fin de la collection spécifiée dans la stratégie parente. La valeur `Prepend` est une collection de données qui doivent être ajoutées avant la collection spécifiée dans la stratégie parente. La valeur `ReplaceAll` est une collection de données spécifiée dans la stratégie parente qui doit être ignorée. |
 
 L’élément **Restriction** contient les éléments suivants :
 
 | Élément | Occurrences | Description |
 | ------- | ----------- | ----------- |
 | Énumération | 1:n | Options que l’utilisateur peut sélectionner dans l’interface utilisateur pour une revendication, telles qu’une valeur dans une liste déroulante. |
-| Modèle | 1:1 | Expression régulière à utiliser. |
+| Motif | 1:1 | Expression régulière à utiliser. |
 
 ### <a name="enumeration"></a>Énumération
 
@@ -163,7 +163,7 @@ L’élément **Enumeration** contient les attributs suivants :
 | --------- | -------- | ----------- |
 | Text | Oui | Chaîne d’affichage présentée à l’utilisateur dans l’interface utilisateur pour cette option. |
 |Valeur | Oui | Valeur de revendication associée à la sélection de cette option. |
-| SelectByDefault | Non  | Indique si cette option doit être sélectionnée par défaut dans l’interface utilisateur. Valeurs possibles : True ou False. |
+| SelectByDefault | Non | Indique si cette option doit être sélectionnée par défaut dans l’interface utilisateur. Valeurs possibles : True ou False. |
 
 L’exemple suivant configure une revendication de liste déroulante **city** avec une valeur par défaut définie sur `New York` :
 
@@ -184,14 +184,14 @@ Liste déroulante de villes avec New York comme valeur par défaut :
 ![Liste déroulante de villes](./media/claimsschema/dropdownsingleselect.png)
 
 
-### <a name="pattern"></a>Modèle
+### <a name="pattern"></a>Motif
 
 L’élément **Pattern** peut contenir les attributs suivants :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
 | RegularExpression | Oui | Expression régulière auxquelles les revendications de ce type doivent correspondre pour être valides. |
-| HelpText | Non  | Modèle ou expression régulière pour cette revendication. |
+| HelpText | Non | Modèle ou expression régulière pour cette revendication. |
 
 L’exemple suivant configure une revendication **email** avec validation de l’entrée d’expression régulière et texte d’aide :
 

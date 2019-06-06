@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 05/14/2019
+ms.date: 06/04/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: vitavor
 ms.custom: secdec18
-ms.openlocfilehash: 89ba5b9641d156dfb098d51272b8bf8d3fd53f5b
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 946a9bd7595692dddd157d01945fd15bdf1ab965
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65785853"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66493752"
 ---
 # <a name="assign-access-to-cost-management-data"></a>Affecter une autorisation d’accès aux données Cost Management
 
@@ -40,7 +40,7 @@ Pour afficher les données de coût relatives aux abonnements Azure EA, un utili
 | <sup>Premier</sup> compte de facturation | [https://ea.azure.com](https://ea.azure.com/) | Administrateur d'entreprise | Aucun | Abonnements du contrat entreprise |
 | department | [https://ea.azure.com](https://ea.azure.com/) | Administrateur de service | Activation de l’option d’**affichage des frais pour l’administrateur de service** | Abonnements appartenant à un compte d’inscription lié au service |
 | <sup>Deuxième</sup> compte d’inscription | [https://ea.azure.com](https://ea.azure.com/) | Propriétaire du compte | Activation de l’option d’**affichage des frais pour le propriétaire du compte** | Abonnements à partir du compte d’inscription |
-| Groupe d'administration | [https://portal.azure.com](https://portal.azure.com/) | Lecteur Cost Management (ou Lecteur) | Activation de l’option d’**affichage des frais pour le propriétaire du compte** | Abonnements en dessous du groupe d’administration |
+| Groupe d’administration | [https://portal.azure.com](https://portal.azure.com/) | Lecteur Cost Management (ou Lecteur) | Activation de l’option d’**affichage des frais pour le propriétaire du compte** | Abonnements en dessous du groupe d’administration |
 | Abonnement | [https://portal.azure.com](https://portal.azure.com/) | Lecteur Cost Management (ou Lecteur) | Activation de l’option d’**affichage des frais pour le propriétaire du compte** | Ressources/groupes de ressources compris dans l’abonnement |
 | Groupe de ressources | [https://portal.azure.com](https://portal.azure.com/) | Lecteur Cost Management (ou Lecteur) | Activation de l’option d’**affichage des frais pour le propriétaire du compte** | Ressources comprises dans le groupe de ressources |
 
@@ -61,7 +61,7 @@ De mêmes, lorsque **les coûts d’affichage DA** sont désactivés dans le por
 Pour afficher les données de coûts d’autres abonnements Azure, un utilisateur doit disposer au moins d’un accès en lecture à une ou plusieurs des étendues suivantes :
 
 - Compte Azure
-- Groupe d'administration
+- Groupe d’administration
 - Groupe de ressources
 
 ## <a name="enable-access-to-costs-in-the-ea-portal"></a>Activer l’accès aux coûts dans le portail EA
@@ -135,7 +135,7 @@ L’accès à une étendue de groupe d’administration requiert au minimum l’
 2. Dans la barre latérale, sélectionnez **Tous les services**, recherchez _groupes d’administration_, puis sélectionnez **groupes d’administration**.
 3. Sélectionnez le groupe d’administration dans la hiérarchie.
 4. En regard du nom de votre groupe d’administration, cliquez sur **Détails**.
-5. Dans le volet gauche, sélectionnez **Contrôle d’accès (IAM)**.
+5. Dans le volet gauche, sélectionnez **Contrôle d’accès (IAM)** .
 6. Cliquez sur **Add**.
 7. Sous **Rôle**, sélectionnez **Lecteur Cost Management**.
 8. Sous **Attribuer l’accès à**, sélectionnez **Utilisateur, groupe ou application Azure AD**.
@@ -150,7 +150,7 @@ L’accès à un abonnement requiert au minimum l’autorisation de lecteur Cost
 1. Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.azure.com).
 2. Dans la barre latérale, sélectionnez **Tous les services**, recherchez _abonnements_, puis sélectionnez **Abonnements**.
 3. Sélectionnez votre abonnement.
-4. Dans le volet gauche, sélectionnez **Contrôle d’accès (IAM)**.
+4. Dans le volet gauche, sélectionnez **Contrôle d’accès (IAM)** .
 5. Cliquez sur **Add**.
 6. Sous **Rôle**, sélectionnez **Lecteur Cost Management**.
 7. Sous **Attribuer l’accès à**, sélectionnez **Utilisateur, groupe ou application Azure AD**.
@@ -164,12 +164,19 @@ L’accès à un groupe de ressources requiert au minimum l’autorisation de le
 1. Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.azure.com).
 2. Dans la barre latérale, sélectionnez **Tous les services**, recherchez _groupes de ressources_, puis sélectionnez **Groupes de ressources**.
 3. Sélectionnez votre groupe de ressources.
-4. Dans le volet gauche, sélectionnez **Contrôle d’accès (IAM)**.
+4. Dans le volet gauche, sélectionnez **Contrôle d’accès (IAM)** .
 5. Cliquez sur **Add**.
 6. Sous **Rôle**, sélectionnez **Lecteur Cost Management**.
 7. Sous **Attribuer l’accès à**, sélectionnez **Utilisateur, groupe ou application Azure AD**.
 8. Pour affecter une autorisation d’accès, recherchez, puis sélectionnez l’utilisateur.
 9. Cliquez sur **Enregistrer**.
+
+## <a name="cross-tenant-authentication-issues"></a>Problèmes d’authentification inter-clients
+
+Actuellement, Azure Cost Management prend en charge limitée pour l’authentification entre locataires. Dans certaines circonstances lorsque vous tentez de vous authentifier sur les locataires, vous pouvez recevoir un **accès refusé** erreur dans l’analyse des coûts. Ce problème peut se produire si vous configurez le contrôle d’accès en fonction du rôle (RBAC) pour l’abonnement d’un autre client et que vous essayez d’afficher les données de coût.
+
+*Pour contourner le problème*: Après avoir configuré inter-clients RBAC, patientez une heure. Essayez d’afficher les coûts dans l’analyse des coûts ou d’accorder l’accès de la gestion des coûts pour les utilisateurs dans les deux clients.  
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

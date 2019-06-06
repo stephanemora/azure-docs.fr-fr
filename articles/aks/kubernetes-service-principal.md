@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: iainfou
-ms.openlocfilehash: eeb9f5fa91252bbc3c3038ab88bd2d7e802f263f
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: d8a8a2f005a92988158b3f9c36ce24936fb020b4
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65786390"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475628"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>Principaux de service avec Azure Kubernetes Service (AKS)
 
@@ -91,7 +91,7 @@ L’élément `--scope` d’une ressource doit être un ID de ressource complet,
 
 Les sections suivantes détaillent les délégations courantes que vous serez peut-être amené à effectuer.
 
-### <a name="azure-container-registry"></a>Registre de conteneurs Azure
+### <a name="azure-container-registry"></a>Azure Container Registry
 
 Si vous utilisez Azure Container Registry (ACR) comme magasin d’images conteneur, vous devez accorder des autorisations pour que votre cluster AKS puisse lire et extraire des images. Le rôle *Lecteur* doit être délégué au principal du service du cluster AKS dans le registre. Pour des instructions détaillées, consultez [Accorder à AKS un accès à ACR][aks-to-acr].
 
@@ -126,7 +126,7 @@ Lorsque vous travaillez avec des principaux de service AKS et Azure AD, gardez l
 
 - Le principal de service pour Kubernetes fait partie de la configuration du cluster. Toutefois, n’utilisez pas l’identité pour déployer le cluster.
 - Par défaut, les informations d’identification du principal de service sont valides pendant un an. Vous pouvez [mettre à jour ou faire pivoter les informations d’identification du principal de service] [ update-credentials] à tout moment.
-- Chaque principal de service est associé à une application Azure AD. Le principal de service pour un cluster Kubernetes peut être associé à tout nom d’application Azure AD valide (par exemple : *https://www.contoso.org/example*). L’URL de l’application ne doit pas être un point de terminaison réel.
+- Chaque principal de service est associé à une application Azure AD. Le principal de service pour un cluster Kubernetes peut être associé à tout nom d’application Azure AD valide (par exemple : *https://www.contoso.org/example* ). L’URL de l’application ne doit pas être un point de terminaison réel.
 - Lorsque vous spécifiez **l’ID client** du principal de service, utilisez la valeur de `appId`.
 - Sur le nœud de l’agent machines virtuelles du cluster Kubernetes, les informations d’identification du principal de service sont stockées dans le fichier `/etc/kubernetes/azure.json`
 - Si vous utilisez la commande [az aks create][az-aks-create] pour générer automatiquement le principal de service, les informations d’identification du principal de service sont écrites dans le fichier `~/.azure/aksServicePrincipal.json` sur la machine utilisée pour exécuter la commande.
@@ -136,6 +136,24 @@ Lorsque vous travaillez avec des principaux de service AKS et Azure AD, gardez l
         ```azurecli
         az ad sp delete --id $(az aks show -g myResourceGroup -n myAKSCluster --query servicePrincipalProfile.clientId -o tsv)
         ```
+
+## <a name="troubleshoot"></a>Résolution des problèmes
+
+Les informations d’identification du principal de service pour un cluster ACS sont mis en cache par l’interface CLI. Si ces informations d’identification ont expiré, vous rencontrez des erreurs de déploiement de clusters AKS. Le message d’erreur suivant lors de l’exécution [créer az aks] [ az-aks-create] peut indiquer un problème avec les informations d’identification du principal de service mis en cache :
+
+```console
+Operation failed with status: 'Bad Request'.
+Details: The credentials in ServicePrincipalProfile were invalid. Please see https://aka.ms/aks-sp-help for more details.
+(Details: adal: Refresh request failed. Status Code = '401'.
+```
+
+Vérifier l’âge du fichier d’informations d’identification à l’aide de la commande suivante :
+
+```console
+ls -la $HOME/.azure/aksServicePrincipal.json
+```
+
+Le délai d’expiration par défaut pour les informations d’identification du principal de service est un an. Si votre *aksServicePrincipal.json* fichier est antérieure à un an, supprimez le fichier et essayez de déployer un cluster AKS à nouveau.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

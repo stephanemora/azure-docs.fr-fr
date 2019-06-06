@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 11/17/2017
 ms.author: mezha
-ms.openlocfilehash: 640c65b1f6995a6c5fb7a3a1fcfeb580aecf5c43
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: b55685bc9cfdc8c31e6658050be94cbe49062f89
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64869410"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66472160"
 ---
 # <a name="securing-azure-cdn-assets-with-token-authentication"></a>Sécurisation des ressources CDN Azure avec l’authentification du jeton
 
@@ -72,7 +72,7 @@ L’organigramme suivant décrit comment Azure CDN valide une demande du client 
 
       ```rand -hex <key length>```
 
-      Par exemple : 
+      Exemple :
 
       ```OpenSSL> rand -hex 32``` 
 
@@ -80,7 +80,7 @@ L’organigramme suivant décrit comment Azure CDN valide une demande du client 
     
    2. Entrez une clé de chiffrement unique dans la zone **Clé primaire**, puis tapez éventuellement une clé de sauvegarde dans la zone **Clé de sauvegarde**.
 
-   3. Sélectionnez la version minimale de chiffrement pour chaque clé dans sa liste **Minimum Encryption Version (Version minimale de chiffrement)**, puis sélectionnez **Update (Mettre à jour)** :
+   3. Sélectionnez la version minimale de chiffrement pour chaque clé dans sa liste **Minimum Encryption Version (Version minimale de chiffrement)** , puis sélectionnez **Update (Mettre à jour)** :
       - **V2**: Indique que la clé peut être utilisée pour générer des jetons de version 2.0 et 3.0. Utilisez cette option uniquement si vous effectuez la transition depuis une clé de chiffrement version 2.0 héritée vers une clé de version 3.0.
       - **V3**: (Recommandé) Indique que la clé peut uniquement être utilisée pour générer des jetons de version 3.0.
 
@@ -156,34 +156,34 @@ L’organigramme suivant décrit comment Azure CDN valide une demande du client 
       > </tr>
       > </table>
 
-   5. Après avoir entré les valeurs des paramètres de chiffrement, sélectionnez une clé à chiffrer (si vous avez créé à la fois une clé primaire et une clé de sauvegarde) dans la liste **Key To Encrypt (Clé à chiffrer)**.
+   5. Après avoir entré les valeurs des paramètres de chiffrement, sélectionnez une clé à chiffrer (si vous avez créé à la fois une clé primaire et une clé de sauvegarde) dans la liste **Key To Encrypt (Clé à chiffrer)** .
     
    6. Sélectionnez une version de chiffrement dans le **chiffrement Version** liste : **V2** pour la version 2 ou **V3** pour la version 3 (recommandé). 
 
    7. Sélectionnez **Encrypt (Chiffrer)** pour générer le jeton.
 
-      Lorsque le jeton est généré, il est affiché dans la zone **Generated Token (Jeton généré)**. Pour utiliser le jeton, ajoutez-le en tant que chaîne de requête à la fin du fichier dans le chemin de l’URL. Par exemple : `http://www.domain.com/content.mov?a4fbc3710fd3449a7c99986b`.
+      Lorsque le jeton est généré, il est affiché dans la zone **Generated Token (Jeton généré)** . Pour utiliser le jeton, ajoutez-le en tant que chaîne de requête à la fin du fichier dans le chemin de l’URL. Par exemple : `http://www.domain.com/content.mov?a4fbc3710fd3449a7c99986b`.
         
-   8. Vous pouvez tester votre jeton avec l’outil de déchiffrement afin d’afficher les paramètres de votre jeton. Collez la valeur du jeton dans la zone **Token to Decrypt (Jeton à déchiffrer)**. Sélectionnez la clé de chiffrement à utiliser dans la liste **Key To Decrypt (Clé pour déchiffrer)**, puis sélectionnez **Decrypt (Déchiffrer)**.
+   8. Vous pouvez tester votre jeton avec l’outil de déchiffrement afin d’afficher les paramètres de votre jeton. Collez la valeur du jeton dans la zone **Token to Decrypt (Jeton à déchiffrer)** . Sélectionnez la clé de chiffrement à utiliser dans la liste **Key To Decrypt (Clé pour déchiffrer)** , puis sélectionnez **Decrypt (Déchiffrer)** .
 
-      Une fois que le jeton est déchiffré, ses paramètres sont affichés dans la zone **Original Parameters (Paramètres d’origine)**.
+      Une fois que le jeton est déchiffré, ses paramètres sont affichés dans la zone **Original Parameters (Paramètres d’origine)** .
 
-   9. Personnalisez éventuellement le type de code de réponse qui est retourné lorsqu’une requête est refusée. Sélectionnez **Enabled (Activé)**, puis sélectionnez le code de réponse dans la liste **Code de réponse**. Le **Header Name (Nom d’en-tête)** est automatiquement défini sur **Location (Emplacement)**. Sélectionnez **Save (Enregistrer)** pour implémenter le nouveau code de réponse. Pour certains codes de réponse, vous devez également entrer l’URL de votre page d’erreur dans la zone **Header Value (Valeur d’en-tête)**. Le code de réponse **403** (Interdit) est sélectionné par défaut. 
+   9. Personnalisez éventuellement le type de code de réponse qui est retourné lorsqu’une requête est refusée. Sélectionnez **Enabled (Activé)** , puis sélectionnez le code de réponse dans la liste **Code de réponse**. Le **Header Name (Nom d’en-tête)** est automatiquement défini sur **Location (Emplacement)** . Sélectionnez **Save (Enregistrer)** pour implémenter le nouveau code de réponse. Pour certains codes de réponse, vous devez également entrer l’URL de votre page d’erreur dans la zone **Header Value (Valeur d’en-tête)** . Le code de réponse **403** (Interdit) est sélectionné par défaut. 
 
 3. Sélectionnez **Rules Engine (Moteur de règles)** sous **HTTP Large**. Le moteur de règles permet de définir les chemins d’accès pour appliquer la fonctionnalité, d’activer la fonctionnalité d’authentification du jeton et d’activer d’autres fonctionnalités associées à l’authentification du jeton. Pour plus d’informations, consultez [Moteur des règles Azure CDN](cdn-rules-engine-reference.md).
 
    1. Sélectionnez une règle existante ou créez-en une pour définir la ressource ou le chemin d’accès pour lesquels vous souhaitez appliquer l’authentification du jeton. 
-   2. Pour activer l’authentification du jeton sur une règle, sélectionnez **[Token Auth (Authentification du jeton)](cdn-rules-engine-reference-features.md#token-auth)** dans la liste **Fonctionnalités**, puis sélectionnez **Enabled (Activé)**. Sélectionnez **Update (Mettre à jour)** si vous mettez à jour une règle ou **Add (Ajouter)** si vous en créez une.
+   2. Pour activer l’authentification du jeton sur une règle, sélectionnez **[Token Auth (Authentification du jeton)](cdn-verizon-premium-rules-engine-reference-features.md#token-auth)** dans la liste **Fonctionnalités**, puis sélectionnez **Enabled (Activé)** . Sélectionnez **Update (Mettre à jour)** si vous mettez à jour une règle ou **Add (Ajouter)** si vous en créez une.
         
       ![Exemple d’activation de l’authentification du jeton via le moteur de règles dans CDN](./media/cdn-token-auth/cdn-rules-engine-enable2.png)
 
-4. Dans le moteur de règles, vous pouvez également activer d’autres fonctionnalités associées à l’authentification. Pour activer l’une des fonctionnalités suivantes, sélectionnez-la dans la liste **Features (Fonctionnalités)**, puis sélectionnez **Enabled (Activé)**.
+4. Dans le moteur de règles, vous pouvez également activer d’autres fonctionnalités associées à l’authentification. Pour activer l’une des fonctionnalités suivantes, sélectionnez-la dans la liste **Features (Fonctionnalités)** , puis sélectionnez **Enabled (Activé)** .
     
-   - **[Token Auth Denial Code](cdn-rules-engine-reference-features.md#token-auth-denial-code)**: Détermine le type de réponse est renvoyé à un utilisateur lorsqu’une demande est refusée. Les règles définies ici remplacent les codes de réponse de la section **Custom Denial Handling (Gestion personnalisée des refus)** de la page d’authentification basée sur le jeton.
+   - **[Token Auth Denial Code](cdn-verizon-premium-rules-engine-reference-features.md#token-auth-denial-code)** : Détermine le type de réponse est renvoyé à un utilisateur lorsqu’une demande est refusée. Les règles définies ici remplacent les codes de réponse de la section **Custom Denial Handling (Gestion personnalisée des refus)** de la page d’authentification basée sur le jeton.
 
-   - **[Authentification de jeton ignorer la casse de l’URL](cdn-rules-engine-reference-features.md#token-auth-ignore-url-case)**: Détermine si l’URL utilisée pour valider le jeton respecte la casse.
+   - **[Authentification de jeton ignorer la casse de l’URL](cdn-verizon-premium-rules-engine-reference-features.md#token-auth-ignore-url-case)** : Détermine si l’URL utilisée pour valider le jeton respecte la casse.
 
-   - **[Paramètre d’authentification de jeton](cdn-rules-engine-reference-features.md#token-auth-parameter)**: Renomme le paramètre de chaîne de requête de jeton d’authentification qui s’affiche dans l’URL demandée. 
+   - **[Paramètre d’authentification de jeton](cdn-verizon-premium-rules-engine-reference-features.md#token-auth-parameter)** : Renomme le paramètre de chaîne de requête de jeton d’authentification qui s’affiche dans l’URL demandée. 
         
      ![Exemple de paramètres d’authentification du jeton via le moteur de règles dans CDN](./media/cdn-token-auth/cdn-rules-engine2.png)
 

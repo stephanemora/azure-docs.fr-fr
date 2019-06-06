@@ -7,27 +7,28 @@ ms.author: mattwoj
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 9750aa924ba4b6e4e5f3a51e5b34531d3fab0a6e
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 9c8b8a6ad8a10a65a05b46bf433d00b4e3ecb402
+ms.sourcegitcommit: ec7b0bf593645c0d1ef401a3350f162e02c7e9b8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66243307"
+ms.lasthandoff: 06/01/2019
+ms.locfileid: "66455641"
 ---
 # <a name="create-a-new-saas-offer"></a>Créez une offre SaaS
 
-Pour commencer à créer des logiciels que l’offre de Service (SaaS), assurez-vous que vous avez premier [créer un compte espace partenaires](./create-account.md) et ouvrez le [tableau de bord de la place de marché Commercial](https://partner.microsoft.com/dashboard/commercial-marketplace/offers), avec le **offre** onglet sélectionné. 
+Pour commencer à créer des logiciels que l’offre de Service (SaaS), assurez-vous que vous avez premier [créer un compte espace partenaires](./create-account.md) et ouvrez le [tableau de bord de la place de marché Commercial](https://partner.microsoft.com/dashboard/commercial-marketplace/offers), avec le **vue d’ensemble** onglet sélectionné.
 
-![Tableau de bord Marketplace commercial sur les partenaires](./media/commercial-marketplace-offers.png)
+![Tableau de bord Marketplace commercial sur les partenaires](./media/new-offer-overview.png)
 
 Sélectionnez le + **créer un nouveau...** bouton, puis sélectionnez le **logiciel en tant que Service** élément de menu. 
 
 Si vous sélectionnez un des autres types d’offre, vous êtes redirigé vers l’ancien [portail Microsoft Cloud Partner](https://cloudpartner.azure.com/).  Seules les offres SaaS sont disponibles dans le portail de la place de marché Commercial sur les partenaires pour l’instant. 
 
-![Créer la fenêtre de l’offre sur les partenaires](./media/new-offer.png)
+![Créer la fenêtre de l’offre sur les partenaires](./media/new-offer-click.png)
 
+Le **nouvelle offre** boîte de dialogue s’affiche. 
 
-Le **nouvelle offre** boîte de dialogue s’affiche. ![Boîte de dialogue Nouvelle offre](./media/new-offer-popup.png)
+![Boîte de dialogue Nouvelle offre](./media/new-offer-popup.png)
 
 
 ## <a name="offer-id-and-name"></a>ID d’offre et le nom

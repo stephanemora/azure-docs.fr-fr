@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Détection d’anomalies sur la diffusion en continu des données à l’aide d’Azure Databricks'
+title: 'Didacticiel : Détection d’anomalie sur les données de streaming avec Azure Databricks'
 description: Utilisez l’API de détecteur d’anomalies et Azure Databricks pour surveiller des anomalies dans vos données.
 titlesuffix: Azure Cognitive Services
 services: cognitive-services
@@ -10,16 +10,16 @@ ms.subservice: anomaly-detector
 ms.topic: article
 ms.date: 05/08/2019
 ms.author: aahi
-ms.openlocfilehash: a00ad2523c215fa54d7d19d8c9e923b621f3081a
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: d1808bb88ac1bb27f2fd0652585521fbb2abdf56
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65791821"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734664"
 ---
-# <a name="tutorial-anomaly-detection-on-streaming-data-using-azure-databricks"></a>Didacticiel : Détection d’anomalies sur la diffusion en continu des données à l’aide d’Azure Databricks
+# <a name="tutorial-anomaly-detection-on-streaming-data-using-azure-databricks"></a>Didacticiel : Détection d’anomalie sur les données de streaming avec Azure Databricks
 
-Microsoft Power BI Desktop est une application gratuite qui vous permet de vous connecter à vos données, de les transformer et de les visualiser. L’API de détecteur d’anomalie, partie d’Azure Cognitive Services, offre un moyen de l’analyse de vos données de série chronologique. Utilisez ce didacticiel pour exécuter la détection d’anomalie sur un flux de données en quasi-temps réel à l’aide d’Azure Databricks. Vous allez recevoir des données de twitter à l’aide d’Azure Event Hubs et les importer dans Azure Databricks en utilisant le connecteur Spark Event Hubs. Vous utiliserez par la suite, l’API pour détecter les anomalies sur les données diffusées. 
+[Azure Databricks](https://azure.microsoft.com/en-us/services/databricks/) est un service rapide, simple et collaborative analytique basée sur Apache Spark. L’API de détecteur d’anomalie, partie d’Azure Cognitive Services, offre un moyen de l’analyse de vos données de série chronologique. Utilisez ce didacticiel pour exécuter la détection d’anomalie sur un flux de données en quasi-temps réel à l’aide d’Azure Databricks. Vous allez recevoir des données de twitter à l’aide d’Azure Event Hubs et les importer dans Azure Databricks en utilisant le connecteur Spark Event Hubs. Vous utiliserez par la suite, l’API pour détecter les anomalies sur les données diffusées. 
 
 L’illustration suivante montre le flux d’application :
 
@@ -79,7 +79,7 @@ Dans cette section, vous allez créer un espace de travail Azure Databricks à l
 
     Sélectionnez **Créer**.
 
-4. La création du compte prend quelques minutes. 
+4. La création de l’espace de travail dure quelques minutes. 
 
 ## <a name="create-a-spark-cluster-in-databricks"></a>Créer un cluster Spark dans Databricks
 
@@ -96,10 +96,11 @@ Dans cette section, vous allez créer un espace de travail Azure Databricks à l
     Acceptez toutes les valeurs par défaut autres que les suivantes :
 
    * Entrez un nom pour le cluster.
-   * Pour cet article, créez un cluster avec **5.2** runtime. Ne sélectionnez pas **5.3** runtime.
+   * Pour cet article, créez un cluster avec le runtime **5.2**. Ne sélectionnez pas **5.3** runtime.
    * Assurez-vous que le **s’arrêtent après \_ \_ minutes d’inactivité** case à cocher est activée. Fournir une durée (en minutes) pour arrêter le cluster, si le cluster n’est pas utilisé.
 
-     Sélectionnez **Créer un cluster**. Une fois que le cluster est en cours d’exécution, vous pouvez y attacher des notebooks et exécuter des travaux Spark.
+     Sélectionnez **Créer un cluster**. 
+4. La création du cluster prend plusieurs minutes. Une fois que le cluster est en cours d’exécution, vous pouvez y attacher des notebooks et exécuter des travaux Spark.
 
 ## <a name="create-a-twitter-application"></a>Création d'une application Twitter
 
@@ -127,7 +128,7 @@ Dans ce didacticiel, vous allez utiliser les API Twitter pour envoyer des tweets
 
    ![Boîte de dialogue Ajouter une bibliothèque](../media/tutorials/databricks-add-library-option.png "Boîte de dialogue Ajouter une bibliothèque")
 
-2. Sur la page Nouvelle bibliothèque, sélectionnez **Coordonnées Maven** comme **Source**. Pour **Coordonnées**, saisissez les coordonnées du package que vous voulez ajouter. Voici les coordonnées Maven des bibliothèques utilisées dans ce didacticiel :
+2. Dans la page nouvelle bibliothèque, pour **Source** sélectionnez **Maven**. Pour **coordonne**, saisissez les coordonnées pour le package que vous souhaitez ajouter. Voici les coordonnées Maven des bibliothèques utilisées dans ce didacticiel :
 
    * Connecteur Spark Event Hubs : `com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.10`
    * API Twitter : `org.twitter4j:twitter4j-core:4.0.7`
@@ -161,7 +162,7 @@ Dans ce didacticiel, vous utilisez le [API du détecteur d’anomalies Azure Cog
 
 4. Dans la boîte de dialogue **Créer**, saisissez les valeurs suivantes :
 
-    |Valeur |Description   |
+    |Valeur |Description  |
     |---------|---------|
     |Nom     | Un nom pour la ressource de détecteur d’anomalies.        |
     |Abonnement     | L’abonnement Azure, la ressource sera associé.        |
@@ -172,17 +173,13 @@ Dans ce didacticiel, vous utilisez le [API du détecteur d’anomalies Azure Cog
 
      Sélectionnez **Créer**.
 
-5. Une fois que la ressource est créée, à partir de la **vue d’ensemble** onglet, sélectionnez **afficher les clés d’accès**.
+5. Une fois que la ressource est créée, à partir de la **vue d’ensemble** onglet, copiez et enregistrez le **point de terminaison** URL, comme indiqué dans la capture d’écran. Puis sélectionnez **afficher les clés d’accès**.
 
     ![Afficher les clés d’accès](../media/tutorials/cognitive-services-get-access-keys.png "Afficher les clés d’accès")
 
-    Aussi, copiez une partie de l’URL du point de terminaison, comme montré par la capture d’écran. Il vous faut cette URL dans ce didacticiel.
-
-6. Sous **clés**, sélectionnez l’icône de copie par rapport à la clé que vous souhaitez utiliser.
+6. Sous **clés**, sélectionnez l’icône de copie par rapport à la clé que vous souhaitez utiliser. Enregistrez la clé d’accès.
 
     ![Copier les clés d’accès](../media/tutorials/cognitive-services-copy-access-keys.png "Copier les clés d’accès")
-
-7. Enregistrez les valeurs de l’URL du point de terminaison et de la clé d’accès que vous avez récupérées à cette étape. Vous en aurez besoin ultérieurement dans ce didacticiel.
 
 ## <a name="create-notebooks-in-databricks"></a>Créer des notebooks dans Databricks
 
@@ -191,7 +188,7 @@ Dans cette section, vous allez créer deux notebooks dans l’espace de travail 
 - **SendTweetsToEventHub** : un notebook producteur à utiliser pour obtenir des tweets de Twitter et les diffuser dans Event Hubs.
 - **AnalyzeTweetsFromEventHub** -un notebook consommateur à utiliser pour lire les tweets à partir de concentrateurs d’événements et exécuter la détection des anomalies.
 
-1. Dans le volet gauche, sélectionnez **Espace de travail**. Dans la liste déroulante **Espace de travail**, sélectionnez **Créer** et **Notebook**.
+1. Dans l’espace de travail Azure Databricks, sélectionnez **espace de travail** dans le volet gauche. Dans la liste déroulante **Espace de travail**, sélectionnez **Créer** et **Notebook**.
 
     ![Créer un notebook dans Databricks](../media/tutorials/databricks-create-notebook.png "Créer un notebook dans Databricks")
 
@@ -205,7 +202,7 @@ Dans cette section, vous allez créer deux notebooks dans l’espace de travail 
 
 ## <a name="send-tweets-to-event-hubs"></a>Envoyer des tweets vers Event Hubs
 
-Dans le notebook **SendTweetsToEventHub**, collez le code suivant, et remplacez l'espace réservé par les valeurs de votre espace de noms Event Hubs et de l'application Twitter que vous avez créés précédemment. Ce notebook diffuse les tweets avec le mot-clé « Azure » dans Event Hubs en temps réel.
+Dans le notebook **SendTweetsToEventHub**, collez le code suivant, et remplacez l'espace réservé par les valeurs de votre espace de noms Event Hubs et de l'application Twitter que vous avez créés précédemment. Ce bloc-notes extrait l’heure de création et le nombre de « Like » s à partir de tweets avec le mot clé « Azure » et ceux en tant qu’événements diffuser dans Event Hubs en temps réel.
 
 ```scala
 //
@@ -302,7 +299,7 @@ eventHubClient.get().close()
 pool.shutdown()
 ```
 
-Appuyez sur **Maj+Entrée** pour exécuter le notebook. Vous verrez alors une sortie, comme montré dans l’extrait de code suivant. Chaque événement de la sortie représente un tweet ingéré par Event Hubs.
+Appuyez sur **Maj+Entrée** pour exécuter le notebook. Vous verrez alors une sortie, comme montré dans l’extrait de code suivant. Chaque événement dans la sortie est une combinaison de timestamp et nombre de « Like » s ingéré par Event Hubs.
 
     Sent event: {"timestamp":"2019-04-24T09:39:40.000Z","favorite":0}
 
@@ -325,7 +322,7 @@ Appuyez sur **Maj+Entrée** pour exécuter le notebook. Vous verrez alors une so
 
 ## <a name="read-tweets-from-event-hubs"></a>Lire des tweets à partir d’Event Hubs
 
-Dans le notebook **AnalyzeTweetsFromEventHub**, collez le code suivant, et remplacez l’espace réservé par les valeurs du concentrateur d’événements Azure Event Hubs que vous avez créé précédemment. Ce notebook lit les tweets que vous avez diffusés précédemment dans Event Hubs à l’aide du notebook **SendTweetsToEventHub**.
+Dans le **AnalyzeTweetsFromEventHub** bloc-notes, collez le code suivant et remplacez l’espace réservé avec des valeurs pour votre ressource de détecteur d’anomalies que vous avez créé précédemment. Ce notebook lit les tweets que vous avez diffusés précédemment dans Event Hubs à l’aide du notebook **SendTweetsToEventHub**.
 
 Tout d’abord, écrire un client pour appeler le détecteur d’anomalies. 
 ```scala
@@ -387,7 +384,7 @@ object AnomalyDetector extends Serializable {
     return response.toString()
   }
 
-  // Calls the Latest Point Detection API for timeserie.
+  // Calls the Latest Point Detection API.
   def detectLatestPoint(series: Series): Option[AnomalySingleResponse] = {
     try {
       println("Process Timestamp: " + series.series.apply(series.series.length-1).timestamp.toString + ", size: " + series.series.length)
@@ -406,7 +403,7 @@ object AnomalyDetector extends Serializable {
     }
   }
 
-  // Calls the Batch Detection API for timeserie.
+  // Calls the Batch Detection API.
   def detectBatch(series: Series): Option[AnomalyBatchResponse] = {
     try {
       val response = processUsingApi(gson.toJson(series), batchDetectionUrl)
@@ -425,7 +422,7 @@ object AnomalyDetector extends Serializable {
 }
 ```
 
-Appuyez sur **Maj+Entrée** pour exécuter le notebook. Vous verrez alors une sortie, comme montré dans l’extrait de code suivant. :
+Appuyez sur **Maj+Entrée** pour exécuter le notebook. Vous verrez alors une sortie, comme montré dans l’extrait de code suivant.
 
     import java.io.{BufferedReader, DataOutputStream, InputStreamReader}
     import java.net.URL
@@ -447,10 +444,9 @@ Ensuite, préparez une fonction d’agrégation pour un usage futur.
 import org.apache.spark.sql.Row
 import org.apache.spark.sql.expressions.{MutableAggregationBuffer, UserDefinedAggregateFunction}
 import org.apache.spark.sql.types.{StructType, TimestampType, FloatType, MapType, BooleanType, DataType}
-//import org.apache.spark.sql.functions._
 import scala.collection.immutable.ListMap
 
-class AnomalyDetectorAggregationFunction_Hourly extends UserDefinedAggregateFunction {
+class AnomalyDetectorAggregationFunction extends UserDefinedAggregateFunction {
   override def inputSchema: StructType = new StructType().add("timestamp", TimestampType).add("value", FloatType)
   
   override def bufferSchema: StructType = new StructType().add("point", MapType(TimestampType, FloatType))
@@ -482,8 +478,8 @@ class AnomalyDetectorAggregationFunction_Hourly extends UserDefinedAggregateFunc
       
       
       // 0.25 is maxAnomalyRatio. It represents 25%, max anomaly ratio in a time series.
-      // 95 is the sensitivity of the algorithms. 
-      // Check Anomaly detector API reference (https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector/operations/post-timeseries-last-detect)
+      // 95 is the sensitivity of the algorithms.
+      // Check Anomaly detector API reference (https://aka.ms/anomaly-detector-rest-api-ref)
       
       val series: Series = new Series(detect_points.toArray, 0.25, 95, "hourly")
       val response: Option[AnomalySingleResponse] = AnomalyDetector.detectLatestPoint(series)
@@ -498,7 +494,7 @@ class AnomalyDetectorAggregationFunction_Hourly extends UserDefinedAggregateFunc
 
 ```
 
-Appuyez sur **Maj+Entrée** pour exécuter le notebook. Vous verrez alors une sortie, comme montré dans l’extrait de code suivant. 
+Appuyez sur **Maj+Entrée** pour exécuter le notebook. Vous verrez alors une sortie, comme montré dans l’extrait de code suivant.
 
     import org.apache.spark.sql.Row
     import org.apache.spark.sql.expressions.{MutableAggregationBuffer, UserDefinedAggregateFunction}
@@ -506,7 +502,7 @@ Appuyez sur **Maj+Entrée** pour exécuter le notebook. Vous verrez alors une so
     import scala.collection.immutable.ListMap
     defined class AnomalyDetectorAggregationFunction
 
-Puis charger des données à partir du concentrateur d’événements pour la détection des anomalies.
+Puis charger des données à partir du concentrateur d’événements pour la détection des anomalies. Remplacez l’espace réservé avec des valeurs pour votre Azure Event Hubs que vous avez créé précédemment.
 
 ```scala
 //
@@ -544,7 +540,7 @@ display(msgStream)
 
 ```
 
-La sortie ressemble maintenant à l’image suivante. Soyez attentif aux que votre date de la table peut être différente de la date dans ce didacticiel que les données sont en temps réel.
+La sortie ressemble maintenant à l’image suivante. Notez que votre date de la table peut être différente de la date dans ce didacticiel que les données sont en temps réel.
 ![Hub d’événement à partir de données de charge](../media/tutorials/load-data-from-eventhub.png "charge données à partir d’Event Hub")
 
 Vous avez diffusé en continu les données issues d'Azure Event Hubs sur Azure Databricks presque en temps réel à l'aide du connecteur Event Hubs pour Apache Spark. Pour plus d’informations sur la façon d’utiliser le connecteur Event Hubs pour Spark, consultez la [documentation relative au connecteur](https://github.com/Azure/azure-event-hubs-spark/tree/master/docs).
@@ -583,7 +579,8 @@ groupTime                       average
 
 ```
 
-Puis obtenir le résultat de sortie agrégées à Delta. Détection d’anomalie exigeant une fenêtre d’historique plus de temps, nous utilisons le Delta de conserver les données d’historique pour le point que vous souhaitez détecter. 
+Puis obtenir le résultat de sortie agrégées à Delta. Détection d’anomalie exigeant une fenêtre d’historique plus de temps, nous utilisons le Delta de conserver les données d’historique pour le point que vous souhaitez détecter. Remplacez le « [espace réservé : nom de la table] » avec un nom de table qualifié Delta doit être créé (par exemple, « tweets »). Remplacez « [espace réservé : nom du dossier pour les points de contrôle] » avec une valeur de chaîne qui est unique à chaque fois que vous exécutez ce code (par exemple, « etl-de-eventhub-20190605 »).
+Pour en savoir plus sur Lake Delta sur Azure Databricks, reportez-vous à [Delta Lake Guide](https://docs.azuredatabricks.net/delta/index.html)
 
 
 ```scala
@@ -599,6 +596,7 @@ groupStream.writeStream
 
 ```
 
+Remplacez le « [espace réservé : nom de la table] » portant le même nom de table Delta, vous avez sélectionné ci-dessus.
 ```scala
 //
 // Show Aggregate Result
@@ -625,26 +623,34 @@ groupTime                       average
 
 ```
 
-Désormais les données de série agrégées de temps en permanence ingérées par le Delta. Puis vous pouvez planifier une tâche toutes les heures pour détecter les anomalies du dernier point. 
+Désormais les données de série agrégées de temps en permanence ingérées par le Delta. Ensuite, vous pouvez planifier une tâche toutes les heures pour détecter les anomalies du dernier point. Remplacez le « [espace réservé : nom de la table] » portant le même nom de table Delta, vous avez sélectionné ci-dessus.
 
 ```scala
 //
-// Anomaly Detection with Batch query
+// Anomaly Detection
 //
 
 import java.time.Instant
+import java.time.format.DateTimeFormatter
+import java.time.ZoneOffset
 import java.time.temporal.ChronoUnit
 
 val detectData = spark.read.format("delta").table("[Placeholder: table name]")
 
-// How long history you want to use in anomaly detection. It is hourly time series in this tutorial, so 72 means 72 hours. 
-val batchSize = 72
+// You could use Databricks to schedule an hourly job and always monitor the latest data point
+// Or you could specify a const value here for testing purpose
+// For example, val endTime = Instant.parse("2019-04-16T00:00:00Z")
+val endTime = Instant.now()
 
-// Change the endTime to where you want to detect. You could use Databricks to schedule a job and change it to the latest hour. 
-val endTime = Instant.parse("2019-04-16T00:00:00Z")
+// This is when your input of anomaly detection starts. It is hourly time series in this tutorial, so 72 means 72 hours ago from endTime.
+val batchSize = 72
 val startTime = endTime.minus(batchSize, ChronoUnit.HOURS)
 
-val series = detectData.filter($"groupTime" < endTime.toString && $"groupTime" >= startTime.toString).sort($"groupTime")
+val DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss").withZone(ZoneOffset.UTC);
+
+val series = detectData.filter($"groupTime" <= DATE_TIME_FORMATTER.format(endTime))
+  .filter($"groupTime" > DATE_TIME_FORMATTER.format(startTime))
+  .sort($"groupTime")
 
 series.createOrReplaceTempView("series")
 
@@ -653,7 +659,7 @@ series.createOrReplaceTempView("series")
 // Register the function to access it
 spark.udf.register("anomalydetect", new AnomalyDetectorAggregationFunction)
 
-val adResult = spark.sql("SELECT '" + endTime.toString + "' as timestamp, anomalydetect(groupTime, average) as anomaly FROM series")
+val adResult = spark.sql("SELECT '" + endTime.toString + "' as datetime, anomalydetect(groupTime, average) as anomaly FROM series")
 adResult.show()
 ```
 Résultat comme indiqué ci-dessous : 
@@ -665,36 +671,21 @@ Résultat comme indiqué ci-dessous :
 |2019-04-16T00:00:00Z|  false|
 +--------------------+-------+
 
-```
-Le résultat de la détection d’anomalie vers le Delta de sortie. 
-```scala
-//
-// Output Batch AD Result to delta
-//
 
-adResult.writeStream
-  .format("delta")
-  .outputMode("complete")
-  .option("checkpointLocation", "/delta/[Placeholder: table name]/_checkpoints/[Placeholder: folder name for checkpoints]")
-  .table("[Placeholder: table name]")
-  
-```
+That's it! Using Azure Databricks, you have successfully streamed data into Azure Event Hubs, consumed the stream data using the Event Hubs connector, and then run anomaly detection on streaming data in near real time.
+Although in this tutorial, the granularity is hourly, you can always change the granularity to meet your need. 
 
+## Clean up resources
 
-Et voilà ! À l’aide d’Azure Databricks, vous avez réussi à diffuser données dans Azure Event Hubs, utilisé les données de flux de données à l’aide du connecteur Event Hubs et à exécuter la détection d’anomalie sur la diffusion en continu des données en temps quasi réel.
-Bien que dans ce didacticiel, la granularité est toutes les heures, vous pouvez toujours modifier la granularité pour répondre à vos besoins. 
+After you have finished running the tutorial, you can terminate the cluster. To do so, in the Azure Databricks workspace, select **Clusters** from the left pane. For the cluster you want to terminate, move the cursor over the ellipsis under **Actions** column, and select the **Terminate** icon and then select **Confirm**.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+![Stop a Databricks cluster](../media/tutorials/terminate-databricks-cluster.png "Stop a Databricks cluster")
 
-Une fois le tutoriel terminé, vous pouvez arrêter le cluster. Pour cela, dans l’espace de travail Azure Databricks, dans le volet gauche, sélectionnez **Clusters**. Pour le cluster que vous voulez arrêter, déplacez le curseur sur les points de suspension dans la colonne **Actions**, puis sélectionnez l’icône **Arrêter**.
+If you don't manually terminate the cluster it will automatically stop, provided you selected the **Terminate after \_\_ minutes of inactivity** checkbox while creating the cluster. In such a case, the cluster will automatically stop if it has been inactive for the specified time.
 
-![Arrêter un cluster Databricks](../media/tutorials/terminate-databricks-cluster.png "Arrêter un cluster Databricks")
+## Next steps
 
-Si vous n’arrêtez manuellement le cluster, il s’arrêtera automatiquement, condition d’avoir coché les **s’arrêtent après \_ \_ minutes d’inactivité** case à cocher lors de la création du cluster. Dans ce cas, le cluster s’arrête automatiquement s’il a été inactif pendant la période renseignée.
-
-## <a name="next-steps"></a>Étapes suivantes
-
-Dans ce didacticiel, vous avez appris à utiliser Azure Databricks pour diffuser des données dans Azure Event Hubs et à lire ces données depuis Event Hubs en temps réel. Passez au didacticiel suivant pour apprendre à appeler l’API de détecteur d’anomalies et visualiser les anomalies à l’aide de Power BI desktop. 
+In this tutorial, you learned how to use Azure Databricks to stream data into Azure Event Hubs and then read the streaming data from Event Hubs in real time. Advance to the next tutorial to learn how to call the Anomaly Detector API and visualize anomalies using Power BI desktop. 
 
 > [!div class="nextstepaction"]
->[Détection d’anomalie de lot avec Power BI desktop](batch-anomaly-detection-powerbi.md)
+>[Batch anomaly detection with Power BI desktop](batch-anomaly-detection-powerbi.md)

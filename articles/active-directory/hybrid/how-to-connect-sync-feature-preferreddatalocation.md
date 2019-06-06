@@ -1,5 +1,5 @@
 ---
-title: 'Synchronisation Azure Active Directory Connect : Configurer un emplacement de données par défaut pour les fonctionnalités multigéographiques dans Office 365 | Microsoft Docs'
+title: 'Azure AD Connect : Configurer un emplacement de données par défaut pour les ressources Office 365'
 description: Explique comment rapprocher vos ressources utilisateur Office 365 de l’utilisateur avec la synchronisation Azure Active Directory Connect.
 services: active-directory
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/30/2018
+ms.date: 05/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a7b9c8827979ac4135bcaf4dfeef7cd5de02b2d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 927987237b51a47d0c8b7c66054842b0a7ff09a7
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60348179"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66473023"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Synchronisation Azure Active Directory Connect : Configurer un emplacement de données par défaut pour les ressources Office 365
 L’objectif de cette rubrique est de vous expliquer comment configurer l’attribut d’emplacement des données préféré dans la synchronisation Azure Active Directory (Azure AD) Connect. Lorsqu’une personne utilise les fonctionnalités multigéographiques dans Office 365, vous utilisez cet attribut pour désigner l’emplacement géographique des données Office 365 de l’utilisateur. (Les termes *région* et *zone géographique* sont utilisés de manière interchangeable.)
@@ -84,7 +84,7 @@ Les étapes suivantes fournissent les étapes d’activation de la synchronisati
 > [!NOTE]
 > Les étapes sont décrites dans le cadre d’un déploiement d’Azure AD avec une topologie de forêt unique et sans règles de synchronisation personnalisées. Si vous avez une topologie à forêts multiples, des règles de synchronisation personnalisées configurées ou un serveur intermédiaire, vous devez ajuster les étapes en conséquence.
 
-## <a name="step-1-disable-sync-scheduler-and-verify-there-is-no-synchronization-in-progress"></a>Étape 1 : Désactiver le planificateur de synchronisation et vérifier qu'aucune synchronisation n’est en cours
+## <a name="step-1-disable-sync-scheduler-and-verify-there-is-no-synchronization-in-progress"></a>Étape 1 : Désactiver le planificateur de synchronisation et vérifier qu'aucune synchronisation n’est en cours
 Pour éviter l’exportation de modifications indésirables vers Azure AD, veillez à ce qu’aucune synchronisation ne se produise pendant la mise à jour des règles de synchronisation. Pour désactiver le planificateur de synchronisation intégré :
 
 1. Lancez une session PowerShell sur le serveur Azure AD Connect.
@@ -94,7 +94,7 @@ Pour éviter l’exportation de modifications indésirables vers Azure AD, veill
 
 ![Capture d’écran de Synchronization Service Manager](./media/how-to-connect-sync-feature-preferreddatalocation/preferreddatalocation-step1.png)
 
-## <a name="step-2-add-the-source-attribute-to-the-on-premises-active-directory-connector-schema"></a>Étape 2 : Ajouter l’attribut source au schéma du connecteur Active Directory local
+## <a name="step-2-add-the-source-attribute-to-the-on-premises-active-directory-connector-schema"></a>Étape 2 : Ajouter l’attribut source au schéma du connecteur Active Directory local
 Certains attributs Azure AD ne sont pas importés dans l’espace connecteur Active Directory local. Si vous avez choisi d’utiliser un attribut qui n’est pas synchronisé par défaut, vous devez l’importer. Pour ajouter l’attribut source à la liste des attributs importés :
 
 1. Sélectionnez l’onglet **Connecteurs** dans Synchronization Service Manager.
@@ -116,7 +116,7 @@ Par défaut, l’attribut **preferredDataLocation** n’est pas importé dans l�
 
 ![Capture d’écran de Synchronization Service Manager et de la boîte de dialogue Propriétés](./media/how-to-connect-sync-feature-preferreddatalocation/preferreddatalocation-step3.png)
 
-## <a name="step-4-create-an-inbound-synchronization-rule"></a>Étape 4 : Créer une règle de synchronisation de trafic entrant
+## <a name="step-4-create-an-inbound-synchronization-rule"></a>Étape 4 : Créer une règle de synchronisation de trafic entrant
 La règle de synchronisation du trafic entrant permet de transmettre la valeur de l’attribut au métaverse à partir de l’attribut source de l’Active Directory local.
 
 1. Lancez **Synchronization Rules Editor** dans le menu **DÉMARRER** > **Éditeur de règles de synchronisation**.
@@ -145,7 +145,7 @@ La règle de synchronisation du trafic entrant permet de transmettre la valeur d
 
 ![Capture d’écran de la Créer une règle de synchronisation de trafic entrant](./media/how-to-connect-sync-feature-preferreddatalocation/preferreddatalocation-step4.png)
 
-## <a name="step-5-create-an-outbound-synchronization-rule"></a>Étape 5 : Créer une règle de synchronisation de trafic sortant
+## <a name="step-5-create-an-outbound-synchronization-rule"></a>Étape 5 : Créer une règle de synchronisation de trafic sortant
 La règle de synchronisation du trafic sortant permet de transmettre la valeur de l’attribut à l’attribut **preferredDataLocation** dans Azure AD à partir du métaverse :
 
 1. Accédez à l’**Éditeur de règles de synchronisation**.

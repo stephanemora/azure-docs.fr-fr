@@ -4,16 +4,16 @@ description: Découvrez comment résoudre les problèmes rencontrés avec Update
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 05/07/2019
+ms.date: 05/31/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: f286877c6a9e787c06a8a846efaf94668c04fc4e
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 9bcc871ecc9413f02545e6aec4caa6342d563b44
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65787695"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66474575"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Résolution des problèmes rencontrés avec Update Management
 
@@ -78,19 +78,48 @@ $s = New-AzureRmAutomationSchedule -ResourceGroupName mygroup -AutomationAccount
 New-AzureRmAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -AutomationAccountName $aa -Schedule $s -Windows -AzureVMResourceId $azureVMIdsW -NonAzureComputer $nonAzurecomputers -Duration (New-TimeSpan -Hours 2) -IncludedUpdateClassification Security,UpdateRollup -ExcludedKbNumber KB01,KB02 -IncludedKbNumber KB100
 ```
 
-### <a name="nologs"></a>Scénario : Mettre à jour les données de gestion s’affichent ne pas dans les journaux Azure Monitor pour un ordinateur
+### <a name="nologs"></a>Scénario : Machines n’apparaissent pas dans le portail de gestion de la mise à jour
 
 #### <a name="issue"></a>Problème
 
-Vous avez des machines avec la mention **non évalué** sous **conformité**, mais vous voyez les données de pulsation dans les journaux Azure Monitor pour les workers hybrides, mais pas Update Management.
+Vous pouvez exécuter sur les scénarios suivants :
+
+* Votre ordinateur s’affiche **ne pas configuré** à partir de la vue de gestion de la mise à jour d’une machine virtuelle
+
+* Vos machines sont manquants dans la vue de gestion de la mise à jour de votre compte Automation
+
+* Vous avez des machines avec la mention **non évalué** sous **conformité**, mais vous voyez les données de pulsation dans les journaux Azure Monitor pour les workers hybrides, mais pas Update Management.
 
 #### <a name="cause"></a>Cause :
 
+Cela peut résulter des éventuels problèmes de configuration local ou de Configuration d’étendue configurés incorrectement.
+
 Il est possible que le Runbook Worker hybride doive être réinscrit et réinstallé.
+
+Vous avez défini un quota dans votre espace de travail qui a été atteints et arrêt des données du stockage.
 
 #### <a name="resolution"></a>Résolution :
 
-Suivez les étapes de la section [Déployer un Runbook Worker hybride Windows](../automation-windows-hrw-install.md) pour réinstaller le Worker hybride sous Windows ou celles de la section [Déployer un Runbook Worker hybride Linux](../automation-linux-hrw-install.md) pour Linux.
+* Assurez-vous que votre ordinateur est signalé à l’espace de travail correct. Vérifiez quel espace de travail rapports à votre ordinateur. Pour obtenir des instructions sur la façon de vérifier cela, consultez [vérifier la connectivité de l’agent pour l’Analytique de journal](../../azure-monitor/platform/agent-windows.md#verify-agent-connectivity-to-log-analytics). Ensuite, assurez-vous qu’est l’espace de travail qui est lié à votre compte Azure Automation. Pour vérifier cela, accédez à votre compte Automation, puis cliquez sur **espace de travail lié** sous **les ressources associées**.
+
+* Vérifiez que les ordinateurs apparaissent dans votre espace de travail Analytique de journal. Exécutez la requête suivante dans votre espace de travail Analytique de journal qui est lié à votre compte Automation. Si vous ne voyez pas votre ordinateur dans les résultats de requête, votre ordinateur n’est pas pulsation, ce qui signifie qu’il est très probablement un problème de configuration local. Vous pouvez exécuter la résolution des problèmes pour [Windows](update-agent-issues.md#troubleshoot-offline) ou [Linux](update-agent-issues-linux.md#troubleshoot-offline) selon le système d’exploitation, ou vous pouvez [réinstaller l’agent](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows). Si votre ordinateur s’affiche dans les résultats de requête, vous devrez très la configuration de l’étendue spécifiée dans la puce suivante.
+
+  ```loganalytics
+  Heartbeat
+  | summarize by Computer, Solutions
+  ```
+
+* Recherchez les problèmes de configuration d’étendue. [Configuration de l’étendue](../automation-onboard-solutions-from-automation-account.md#scope-configuration) détermine quels ordinateurs obtient configurées pour la solution. Si votre ordinateur ne s’affichent dans votre espace de travail mais n’est pas affichaient vous devez configurer la configuration d’étendue pour cibler les ordinateurs. Pour savoir comment procéder, consultez [intégrer des machines dans l’espace de travail](../automation-onboard-solutions-from-automation-account.md#onboard-machines-in-the-workspace).
+
+* Si les étapes ci-dessus ne résolvent pas votre problème, suivez les étapes indiquées dans [déployer un Runbook Worker hybride de Windows](../automation-windows-hrw-install.md) pour réinstaller le Worker hybride pour Windows ou [déployer un Runbook Worker hybride de Linux](../automation-linux-hrw-install.md) pour Linux.
+
+* Dans votre espace de travail, exécutez la requête suivante. Si vous voyez le résultat `Data collection stopped due to daily limit of free data reached. Ingestion status = OverQuota` disposer d’un quota défini sur votre espace de travail qui a été atteinte et a cessé de données ne sont pas enregistrées. Dans votre espace de travail, accédez à **l’utilisation et estimation des coûts** > **gestion du volume de données** et vérifier votre quota ou supprimer le quota que vous avez.
+
+  ```loganalytics
+  Operation
+  | where OperationCategory == 'Data Collection Status'
+  | sort by TimeGenerated desc
+  ```
 
 ## <a name="windows"></a>Windows
 
@@ -255,7 +284,7 @@ Les causes possibles sont :
 
 * Le Gestionnaire de package n’est pas sain
 * Des packages spécifiques peuvent interférer avec la mise à jour corrective cloud
-* Autres motifs
+* Autres raisons
 
 #### <a name="resolution"></a>Résolution :
 

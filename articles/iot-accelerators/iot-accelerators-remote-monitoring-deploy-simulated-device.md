@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 08/15/2018
 ms.topic: conceptual
-ms.openlocfilehash: cdd2b24e6f833ee0acb229a37c7cd3b8b6f36339
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7cbab38db859935c9f4490d79a131d6c9a7e302b
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66143387"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66427572"
 ---
 # <a name="deploy-a-new-simulated-device"></a>Déployer un nouvel appareil simulé
 
@@ -88,13 +88,14 @@ Dans cette section, vous allez configurer Docker pour charger les fichiers de mo
 1. Copiez les fichiers de modèles d’appareils existants du conteneur vers le nouvel emplacement. Commencez par chercher l’ID de conteneur pour le conteneur de simulation d’appareil :
 
     ```sh
-    docker ps
+    sudo docker ps
     ```
 
     Copiez ensuite les fichiers de modèles d’appareils vers le dossier **tmp** dans la machine virtuelle. La commande suivante suppose que l’ID de conteneur est c378d6878407. Remplacez cette valeur par votre ID de conteneur de simulation d’appareil :
 
     ```sh
-    docker cp c378d6878407:/app/webservice/data/devicemodels /tmp
+    sudo docker cp c378d6878407:/app/webservice/data/devicemodels /tmp
+    sudo chown -R azureuser /tmp/devicemodels/
     ```
 
     Gardez la fenêtre **bash** avec votre session SSH ouverte.
@@ -116,13 +117,13 @@ Dans cette section, vous allez configurer Docker pour charger les fichiers de mo
     Si vous voulez afficher l’état et l’ID des conteneurs Docker en cours d’exécution, utilisez la commande suivante :
 
     ```sh
-    docker ps
+    sudo docker ps
     ```
 
     Si vous voulez voir le journal du conteneur de simulation d’appareil, exécutez la commande suivante. Remplacez l’ID de conteneur par l’ID de votre conteneur de simulation d’appareil :
 
     ```sh
-    docker logs -f 5d3f3e78822e
+    sudo docker logs -f 5d3f3e78822e
     ```
 
 ## <a name="run-simulation"></a>Exécuter une simulation

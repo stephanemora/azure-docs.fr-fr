@@ -1,6 +1,6 @@
 ---
 title: Vue d’ensemble de Azure Status Monitor v2 | Microsoft Docs
-description: Vue d’ensemble du moniteur d’état v2. Surveiller les performances de site Web sans avoir à redéployer le site Web. Fonctionne avec les applications web ASP.NET hébergées localement, dans des machines virtuelles ou sur Azure.
+description: Vue d’ensemble du moniteur d’état v2. Surveiller les performances de site Web sans avoir à redéployer le site Web. Fonctionne avec les applications web ASP.NET hébergées en local, dans les machines virtuelles, ou sur Azure.
 services: application-insights
 documentationcenter: .net
 author: MS-TimothyMothra
@@ -12,31 +12,33 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 2adc706c5da4fa53ace2a8a471789e276878c491
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: 2126408222433e6339723dc2da0d2611bb234fe8
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66255857"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734160"
 ---
 # <a name="status-monitor-v2"></a>Status Monitor version 2
 
-État du moniteur v2 est un Module PowerShell publié sur le [PowerShellGallery](https://www.powershellgallery.com/packages/Az.ApplicationMonitor) et remplace [Status Monitor](https://docs.microsoft.com/azure/azure-monitor/app/monitor-performance-live-website-now). Ce module fournit une instrumentation sans code des applications web .NET Web hébergé par IIS.
-Données de télémétrie seront envoyées au portail Azure dans laquelle vous pouvez [moniteur](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) votre application.
+État du moniteur v2 est un PowerShell module publié dans le [PowerShell Gallery](https://www.powershellgallery.com/packages/Az.ApplicationMonitor).
+Il remplace [Status Monitor](https://docs.microsoft.com/azure/azure-monitor/app/monitor-performance-live-website-now).
+Le module fournit l’instrumentation d’applications .NET web hébergé par IIS.
+La télémétrie au portail Azure, dans laquelle vous pouvez [moniteur](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) votre application.
 
 > [!IMPORTANT]
 > État du moniteur v2 est actuellement en version préliminaire publique.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
-> Pour plus d’informations, consultez [conditions d’utilisation supplémentaires pour les versions préliminaires de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
+> Cette version préliminaire est fournie sans contrat de niveau de service, et nous n’est pas recommandé pour les charges de travail de production. Certaines fonctionnalités ne peuvent pas être pris en charge, et certains peuvent avoir des fonctionnalités limitées.
+> Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="powershell-gallery"></a>PowerShell Gallery
 
-https://www.powershellgallery.com/packages/Az.ApplicationMonitor
+PowerShell Gallery se trouve ici : https://www.powershellgallery.com/packages/Az.ApplicationMonitor.
 
 
 ## <a name="instructions"></a>Instructions
-- Consultez notre [mise en route des instructions](status-monitor-v2-get-started.md) prise en main maintenant des exemples de code concis.
-- Consultez notre [des instructions détaillées](status-monitor-v2-detailed-instructions.md) pour une présentation approfondie sur la prise en main.
+- Consultez le [mise en route des instructions](status-monitor-v2-get-started.md) pour vous familiariser avec les exemples de code concis.
+- Consultez le [des instructions détaillées](status-monitor-v2-detailed-instructions.md) pour une présentation approfondie sur la prise en main.
 
 ## <a name="powershell-api-reference"></a>Référence de l’API de PowerShell
 - [Disable-ApplicationInsightsMonitoring](status-monitor-v2-api-disable-monitoring.md)
@@ -56,13 +58,16 @@ https://www.powershellgallery.com/packages/Az.ApplicationMonitor
 
 - Status Monitor v2 prend en charge les installations de proxy ?
 
-  **Oui**. Vous avez plusieurs options pour télécharger Status Monitor v2. Si votre ordinateur a accès à internet, vous pouvez les intégrer à l’aide de PowerShell Gallery `-Proxy` paramètres. Vous pouvez également télécharger manuellement ce module et installez-la sur votre ordinateur ou utiliser le module directement. Chacune de ces options est décrite dans notre [obtenir des Instructions détaillées](status-monitor-v2-detailed-instructions.md).
+  *Oui*. Il existe plusieurs façons de télécharger Status Monitor v2. Si votre ordinateur a accès à internet, vous pouvez les intégrer dans PowerShell Gallery à l’aide de `-Proxy` paramètres.
+Vous pouvez également télécharger manuellement le module et installez-la sur votre ordinateur ou l’utiliser directement.
+Chacune de ces options est décrite dans le [des instructions détaillées](status-monitor-v2-detailed-instructions.md).
   
-- Comment vérifier l’activation a réussi ?
+- Comment vérifier que l’activation a réussi ?
 
-   Nous n’avons une applet de commande pour vérifier que cette activation a réussi. Nous vous recommandons d’utiliser [métriques temps réel](https://docs.microsoft.com/azure/azure-monitor/app/live-stream) à observer rapidement si votre application nous est envoyant des données de télémétrie.
+   Il n’existe aucune applet de commande pour vérifier l’activation a réussi.
+Nous vous recommandons d’utiliser [métriques temps réel](https://docs.microsoft.com/azure/azure-monitor/app/live-stream) pour déterminer rapidement si votre application envoie la télémétrie.
 
-   Vous pouvez également utiliser [Analytique](../log-query/get-started-portal.md) pour répertorier tous les rôles de cloud actuellement envoyer la télémétrie.
+   Vous pouvez également utiliser [Analytique de journal](../log-query/get-started-portal.md) pour répertorier tous les rôles de cloud actuellement envoyer la télémétrie :
    ```Kusto
    union * | summarize count() by cloud_RoleName, cloud_RoleInstance
    ```
@@ -71,14 +76,14 @@ https://www.powershellgallery.com/packages/Az.ApplicationMonitor
 
 Affichez vos données de télémétrie :
 
-* [Explorez les mesures](../../azure-monitor/app/metrics-explorer.md) pour surveiller les performances et l’utilisation
-* [Recherchez les événements et journaux](../../azure-monitor/app/diagnostic-search.md) pour diagnostiquer les problèmes
-* [Utilisez la fonctionnalité Analytics](../../azure-monitor/app/analytics.md) pour des requêtes plus élaborées
-* [Créez des tableaux de bord](../../azure-monitor/app/overview-dashboard.md)
+* [Exploration des mesures](../../azure-monitor/app/metrics-explorer.md) pour surveiller les performances et l’utilisation.
+* [Recherchez les événements et journaux](../../azure-monitor/app/diagnostic-search.md) pour diagnostiquer les problèmes.
+* [Utiliser l’Analytique](../../azure-monitor/app/analytics.md) pour plus d’informations de requêtes avancées.
+* [Créer des tableaux de bord](../../azure-monitor/app/overview-dashboard.md).
 
 Ajoutez des données de télémétrie :
 
 * [Créez des tests web](monitor-web-app-availability.md) s’assurer que votre site reste actif.
-* [Ajoutez la télémétrie de client web](../../azure-monitor/app/javascript.md) pour afficher les exceptions à partir du code de page web et vous permettre d’insérer des appels de trace.
-* [Ajoutez le kit SDK Application Insights à votre code](../../azure-monitor/app/asp-net.md) afin que vous pouvez insérer un suivi et enregistrer les appels
+* [Ajoutez la télémétrie de client web](../../azure-monitor/app/javascript.md) pour afficher les exceptions à partir du code de page web et pour activer les appels de trace.
+* [Ajouter le SDK Application Insights à votre code](../../azure-monitor/app/asp-net.md) afin de pouvoir insérer un suivi et enregistrer les appels.
 

@@ -1,40 +1,32 @@
 ---
 title: Se connecter à l’Explorateur de données Azure avec ODBC
-description: Dans cette procédure, vous allez apprendre à configurer une connexion ODBC à l’Explorateur de données Azure, puis utiliser cette connexion pour visualiser les données avec un Tableau.
+description: Dans cet article, vous allez apprendre à configurer une connexion de la connectivité ODBC (Open Database) à l’Explorateur de données Azure.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 02/21/2019
-ms.openlocfilehash: d01c825e50e30e3545a0d47e432835c658d677af
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 06/03/2019
+ms.openlocfilehash: 02ae9673f1dc402ee1500b466d7e259263ef3262
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60448348"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66494845"
 ---
 # <a name="connect-to-azure-data-explorer-with-odbc"></a>Se connecter à l’Explorateur de données Azure avec ODBC
 
 Open Database Connectivity ([ODBC](/sql/odbc/reference/odbc-overview)) est une interface de programmation d’application largement acceptées (API) pour l’accès de base de données. Utiliser ODBC pour se connecter à l’Explorateur de données Azure à partir d’applications qui n’ont pas un connecteur dédié.
 
-Dans les coulisses, applications appellent des fonctions dans l’interface ODBC, qui sont implémentées dans des modules spécifiques à la base de données appelées *pilotes*. Explorateur de données Azure prend en charge un sous-ensemble du protocole de communication de SQL Server ([MS-TDS](/azure/kusto/api/tds/)) ; par conséquent, il peut utiliser le pilote ODBC pour SQL Server.
+Dans les coulisses, applications appellent des fonctions dans l’interface ODBC, qui sont implémentées dans des modules spécifiques à la base de données appelées *pilotes*. Explorateur de données Azure prend en charge un sous-ensemble du protocole de communication de SQL Server ([MS-TDS](/azure/kusto/api/tds/)), donc il peut utiliser le pilote ODBC pour SQL Server.
 
-Dans cet article, vous allez apprendre à utiliser le pilote ODBC de SQL Server, pour vous connecter à l’Explorateur de données Azure à partir de n’importe quelle application qui prend en charge ODBC. Vous pouvez ensuite si vous le souhaitez vous connecter à l’Explorateur de données Azure à partir du Tableau et importer des données à partir d’un cluster de l’exemple.
+Dans cet article, vous allez apprendre à utiliser le pilote ODBC de SQL Server, pour vous connecter à l’Explorateur de données Azure à partir de n’importe quelle application qui prend en charge ODBC.
 
 ## <a name="prerequisites"></a>Conditions préalables
 
-Pour suivre ce guide pratique, vous avez besoin des éléments suivants :
+Vous avez besoin des éléments suivants :
 
 * [Microsoft ODBC Driver for SQL Server version 17.2.0.1 ou version ultérieure](/sql/connect/odbc/download-odbc-driver-for-sql-server) pour votre système d’exploitation.
-
-* Si vous souhaitez suivre notre exemple de Tableau, vous devez également :
-
-  * Tableau Desktop, complète ou [d’évaluation](https://www.tableau.com/products/desktop/download) version.
-
-  * Un cluster qui inclut l’exemple de données StormEvents. Pour plus d’informations, consultez [Démarrage rapide : Créer un cluster et une base de données Azure Data Explorer](create-cluster-database-portal.md) et [Ingérer des exemples de données dans Azure Data Explorer](ingest-sample-data.md).
-
-    [!INCLUDE [data-explorer-storm-events](../../includes/data-explorer-storm-events.md)]
 
 ## <a name="configure-the-odbc-data-source"></a>Configurer la source de données ODBC
 
@@ -56,7 +48,7 @@ Suivez ces étapes pour configurer une source de données ODBC à l’aide du pi
 
 1. Sélectionnez **intégrées à Active Directory** puis **suivant**.
 
-    ![Active Directory intégré](media/connect-odbc/active-directory-integrated.png)
+    ![Intégrée à Active Directory](media/connect-odbc/active-directory-integrated.png)
 
 1. Sélectionnez la base de données avec les exemples de données puis **suivant**.
 
@@ -72,34 +64,6 @@ Suivez ces étapes pour configurer une source de données ODBC à l’aide du pi
 
     ![Test a réussi](media/connect-odbc/test-succeeded.png)
 
-## <a name="visualize-data-in-tableau-optional"></a>Visualiser les données dans le Tableau (facultatif)
-
-Maintenant vous avez terminé la configuration d’ODBC, vous pouvez importer des exemples de données dans le Tableau.
-
-1. Dans le Tableau Desktop, dans le menu de gauche, sélectionnez **autres bases de données (ODBC)**.
-
-    ![Se connecter à ODBC](media/connect-odbc/connect-odbc.png)
-
-1. Pour **DSN**, sélectionnez la source de données que vous avez créé pour ODBC, puis sélectionnez **Sign In**.
-
-    ![Connexion dans ODBC](media/connect-odbc/odbc-sign-in.png)
-
-1. Pour **base de données**, sélectionnez la base de données sur votre cluster de l’exemple, tel que *TestDatabase*. Pour **schéma**, sélectionnez *dbo*et pour **Table**, sélectionnez le *StormEvents* exemple de table.
-
-    ![Sélectionnez la base de données et de table](media/connect-odbc/select-database-table.png)
-
-1. Tableau affiche maintenant le schéma pour les exemples de données. Sélectionnez **mise à jour maintenant** pour importer les données dans le Tableau.
-
-    ![Mettre à jour des données](media/connect-odbc/update-data.png)
-
-    Lorsque les données sont importées, Tableau affiche des lignes de données similaires à l’image suivante.
-
-    ![Jeu de résultats](media/connect-odbc/result-set.png)
-
-1. Vous pouvez désormais créer des visualisations dans le Tableau en fonction des données importées à partir de l’Explorateur de données Azure. Pour plus d’informations, consultez [Tableau Learning](https://www.tableau.com/learn).
-
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Écrire des requêtes pour l’Explorateur de données Azure](write-queries.md)
-
-[Tutoriel : Visualiser des données Azure Data Explorer dans Power BI](visualize-power-bi.md)
+* [Se connecter à l’Explorateur de données Azure à partir du Tableau](tableau.md)

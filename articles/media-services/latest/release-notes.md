@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 05/29/2019
+ms.date: 06/04/2019
 ms.author: juliako
-ms.openlocfilehash: a5ce6467a547b9fded03b3b5a6f40f84d29d3618
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: e34e0f9fee1d09e66dcdd5069e800dc1f3f750cb
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66385144"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66688649"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notes de publication Azure Media Services v3
 
@@ -36,11 +36,18 @@ Pour plus d’informations, consultez [Conseils de migration pour le passage de 
 
 ## <a name="may-2019"></a>Mai 2019
 
-### <a name="hls-v4-and-above-support-in-dynamic-packaging"></a>HLS v4 et versions ultérieures de la prise en charge dans l’empaquetage dynamique 
+### <a name="azure-monitor-support-for-media-services-diagnostic-logs-and-metrics"></a>Prise en charge de Azure Monitor pour les journaux de diagnostic de Media Services et les mesures
 
-Ajouté HLS (version 4 ou version ultérieure) prend en charge dans le Packaging dynamique pour les ressources qui ont plusieurs pistes audio avec plusieurs langues et les codecs.
+Vous pouvez maintenant utiliser Azure Monitor pour afficher les données de télémétrie données émis par Media Services.
 
-Pour plus d’informations, consultez [empaquetage dynamique](dynamic-packaging-overview.md).
+* Utilisez les journaux de diagnostic Azure Monitor pour surveiller les demandes envoyées par le point de terminaison de fourniture de clé Media Services. 
+* Surveiller les mesures émises par Media Services [les points de terminaison de diffusion en continu](streaming-endpoint-concept.md).   
+
+Pour plus d’informations, consultez [métriques de surveillance des Services de support et journaux de diagnostic](media-services-metrics-diagnostic-logs.md).
+
+### <a name="multi-audio-tracks-support-in-dynamic-packaging"></a>Plusieurs pistes audio prennent en charge dans l’empaquetage dynamique 
+
+Lors de la diffusion en continu de ressources qui ont plusieurs pistes audio avec plusieurs langues, et les codecs [empaquetage dynamique](dynamic-packaging-overview.md) prend désormais en charge les pistes audio multiples pour la sortie HLS (version 4 ou version ultérieure).
 
 ### <a name="korea-regional-pair-is-open-for-media-services"></a>Paire régionale Corée est ouvert pour Media Services 
 

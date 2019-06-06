@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/08/2019
-ms.openlocfilehash: 2724451d44a793023f7b69196b186f68f6fc6a26
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 320b8f948d08e46c43085e174dfbe838f44bac79
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64720471"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479166"
 ---
 # <a name="compare-storage-options-for-use-with-azure-hdinsight-clusters"></a>Comparer les options de stockage à utiliser avec les clusters Azure HDInsight
 
@@ -45,15 +45,15 @@ Vous pouvez créer un cluster à l’aide de différentes combinaisons de servic
 | Version de HDInsight | Stockage principal | Stockage secondaire | Pris en charge |
 |---|---|---|---|
 | 3.6 & 4.0 | Usage général V1, usage général V2 | Usage général V1, V2 à usage général, BlobStorage (objets BLOB de blocs) | Oui |
-| 3.6 & 4.0 | Usage général V1, usage général V2 | Data Lake Storage Gen2 | Non  |
+| 3.6 & 4.0 | Usage général V1, usage général V2 | Data Lake Storage Gen2 | Non |
 | 3.6 & 4.0 | Usage général V1, usage général V2 | Data Lake Storage Gen 1 | Oui |
 | 3.6 & 4.0 | Data Lake Storage Gen2 * | Data Lake Storage Gen2 | Oui |
 | 3.6 & 4.0 | Data Lake Storage Gen2 * | Usage général V1, V2 à usage général, BlobStorage (objets BLOB de blocs) | Oui |
-| 3.6 & 4.0 | Data Lake Storage Gen2 | Data Lake Storage Gen 1 | Non  |
+| 3.6 & 4.0 | Data Lake Storage Gen2 | Data Lake Storage Gen 1 | Non |
 | 3.6 | Data Lake Storage Gen 1 | Data Lake Storage Gen 1 | Oui |
 | 3.6 | Data Lake Storage Gen 1 | Usage général V1, V2 à usage général, BlobStorage (objets BLOB de blocs) | Oui |
-| 3.6 | Data Lake Storage Gen 1 | Data Lake Storage Gen2 | Non  |
-| 4.0 | Data Lake Storage Gen 1 | Quelconque | Non  |
+| 3.6 | Data Lake Storage Gen 1 | Data Lake Storage Gen2 | Non |
+| 4.0 | Data Lake Storage Gen 1 | Quelconque | Non |
 
 * = Cela peut être un ou plusieurs comptes Data Lake Storage Gen2, tant qu’ils sont tous les paramètres à utiliser la même identité gérée pour l’accès au cluster.
 
@@ -137,7 +137,7 @@ HDInsight permet d'accéder au système de fichiers distribués (DFS) connecté 
 
 Avec HDInsight, vous pouvez également accéder aux données dans Stockage Azure. La syntaxe est la suivante :
 
-    wasb[s]://<containername>@<accountname>.blob.core.windows.net/<path>
+    wasb://<containername>@<accountname>.blob.core.windows.net/<path>
 
 Voici quelques points à prendre en compte quand vous utilisez un compte Stockage Azure avec des clusters HDInsight :
 
@@ -217,7 +217,7 @@ Data Lake Storage Gen1 utilise Azure Active Directory pour l’authentification,
 
 | **Fonctionnalité** | **Description** |
 | --- | --- |
-| Authentification |Data Lake Storage Gen1 s’intègre à Azure Active Directory (Azure AD) pour la gestion des identités et des accès de toutes les données stockées dans Data Lake Storage Gen1. Grâce à cette intégration, Data Lake Storage Gen1 tire parti de toutes les fonctionnalités d’Azure AD, notamment l’authentification multifacteur, l’accès conditionnel, le contrôle d’accès en fonction du rôle, la supervision de l’utilisation des applications, la supervision de la sécurité, les alertes, et ainsi de suite. Data Lake Storage Gen1 prend en charge le protocole OAuth 2.0 pour l’authentification auprès de l’interface REST. Voir [Authentification auprès d’Azure Data Lake Storage Gen1 à l’aide d’Azure Active Directory](../data-lake-store/data-lakes-store-authentication-using-azure-active-directory.md).|
+| Authentication |Data Lake Storage Gen1 s’intègre à Azure Active Directory (Azure AD) pour la gestion des identités et des accès de toutes les données stockées dans Data Lake Storage Gen1. Grâce à cette intégration, Data Lake Storage Gen1 tire parti de toutes les fonctionnalités d’Azure AD, notamment l’authentification multifacteur, l’accès conditionnel, le contrôle d’accès en fonction du rôle, la supervision de l’utilisation des applications, la supervision de la sécurité, les alertes, et ainsi de suite. Data Lake Storage Gen1 prend en charge le protocole OAuth 2.0 pour l’authentification auprès de l’interface REST. Voir [Authentification auprès d’Azure Data Lake Storage Gen1 à l’aide d’Azure Active Directory](../data-lake-store/data-lakes-store-authentication-using-azure-active-directory.md).|
 | Contrôle d’accès |Data Lake Storage Gen1 offre un contrôle d’accès grâce à la prise en charge des autorisations de type POSIX exposées par le protocole WebHDFS. Les ACL peuvent être activées au niveau du dossier racine, des sous-dossiers et des fichiers individuels. Pour plus d’informations sur le fonctionnement des listes ACL dans le contexte de Data Lake Storage Gen1, consultez [Contrôle d’accès dans Data Lake Storage Gen1](../data-lake-store/data-lake-store-access-control.md). |
 | Chiffrement |Data Lake Storage Gen1 assure également le chiffrement des données stockées dans le compte. Vous spécifiez les paramètres de chiffrement lors de la création d’un compte Data Lake Storage Gen1. Vous pouvez choisir de chiffrer vos données ou non. Pour plus d’informations, consultez l’article [Chiffrement dans Data Lake Storage Gen1](../data-lake-store/data-lake-store-encryption.md). Pour savoir comment définir une configuration avec chiffrement, consultez [Bien démarrer avec Azure Data Lake Storage Gen1 à l’aide du Portail Azure](../data-lake-store/data-lake-store-get-started-portal.md). |
 

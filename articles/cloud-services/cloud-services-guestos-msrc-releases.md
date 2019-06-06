@@ -11,65 +11,63 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 5/23/2019
+ms.date: 6/6/2019
 ms.author: raiye
-ms.openlocfilehash: 4c0f364e596fbe2bf9083cbcf521902523c92a70
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: ecf898d331ec426aa343441d29084b4f2c656fa0
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66241321"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66743039"
 ---
 # <a name="azure-guest-os"></a>Système d’exploitation invité d'Azure
 Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Response Center) appliquées au système d’exploitation invité d'Azure. Parcourez cet article pour déterminer si une mise à jour spécifique s'applique au système d’exploitation invité que vous utilisez. Les mises à jour vont toujours de l'avant pour la [famille][family-explain] spécifique avec laquelle elles ont été présentées.
 
 ## <a name="may-2019-guest-os"></a>Système d’exploitation invité de mai 2019
 
->[!NOTE]
->Le système d’exploitation invité peut est actuellement déployée pour les machines virtuelles du Service Cloud qui sont configurés pour les mises à jour automatiques. Une fois le déploiement terminé, cette version sera disponible pour les mises à jour manuelles via le portail Azure et les fichiers de configuration. Les correctifs suivants sont inclus dans le système d’exploitation invité peut. Cette liste est susceptible d’être modifiée.
-
 | Catégorie de produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
 | --- | --- | --- | --- | --- |
-|  Rel 19-05   |  [4498206 ]  |  Correctif cumulatif IE mai   |  2,86, 3.73, 4.66  |  14 mai 2019  |
-|  Rel 19-05   |  [4505050 ]  |  Correctif cumulatif IE mai   |  2,86, 3.73, 4.66  |  18 mai 2019  |
-|  Rel 19-05   |  [4497932 ]  |  Peut clignoter mise à jour   |  3.73, 4.66, 5.31  |  14 mai 2019  |
-|  Rel 19-05   |  [4499175 ]  |  Correctif cumulatif de sécurité mai   |  2.86  |  14 mai 2019  |
-|  Rel 19-05   |  [4495612 ]  |  Correctif cumulatif de sécurité .NET 3.5 mai   |  2.86  |  14 mai 2019  |
-|  Rel 19-05   |  [4495593 ]  |  Correctif cumulatif de sécurité .NET 4.5.2 mai   |  2.86  |  14 mai 2019  |
-|  Rel 19-05   |  [4499158 ]  |  Correctif cumulatif de sécurité mai   |  3,73  |  14 mai 2019  |
-|  Rel 19-05   |  [4495607 ]  |  Correctif cumulatif de sécurité .NET 3.5 mai   |  3,73  |  14 mai 2019  |
-|  Rel 19-05   |  [4495591 ]  |  Correctif cumulatif de sécurité .NET 4.5.2 mai   |  3,73  |  14 mai 2019  |
-|  Rel 19-05   |  [4492872 ]  |  Cumul d’IE   |  3,73  |  16 avril 2019  |
-|  Rel 19-05   |  [4499165 ]  |  Cumul de sécurité de mars   |  4.66  |  14 mai 2019  |
-|  Rel 19-05   |  [4495615 ]  |  Correctif cumulatif de sécurité .NET 3.5 mai   |  4.66  |  14 mai 2019  |
-|  Rel 19-05   |  [4495589 ]  |  Correctif cumulatif de sécurité .NET 4.5.2 mai   |  4.66  |  14 mai 2019  |
-|  Rel 19-05   |  [4498947 ]  |  SSU mai   |  5.31  |  14 mai 2019  |
-|  Rel 19-05   |  [4494175 ]  |  Mise à jour du Microcode mai   |  5.31  |  14 mai 2019  |
-|  Rel 19-05   |  [4505052 ]  |  Correctif cumulatif de sécurité mai   |  5.31  |  19 mai 2019  |
-|  Rel 19-05   |  [4499728 ]  |  SSU mai   |  6.7  |  19 mai 2019  |
-|  Rel 19-05   |  [4505056 ]  |  Correctif cumulatif de sécurité mai   |  6.7  |  19 mai 2019  |
-|  Rel 19-05   |  [4494174 ]  |  Mise à jour du Microcode mai   |  6.7  |  14 mai 2019  |
-|  Rel 19-05   |  [4495590 ]  |  Correctif cumulatif de sécurité .NET mai   |  6.7  |  14 mai 2019  |
+|  Rel 19-05   |  [4498206]  |  Correctif cumulatif IE mai   |  2,86, 3.73, 4.66  |  14 mai 2019  |
+|  Rel 19-05   |  [4505050]  |  Correctif cumulatif IE mai   |  2,86, 3.73, 4.66  |  18 mai 2019  |
+|  Rel 19-05   |  [4497932]  |  Peut clignoter mise à jour   |  3.73, 4.66, 5.31  |  14 mai 2019  |
+|  Rel 19-05   |  [4499175]  |  Correctif cumulatif de sécurité mai   |  2.86  |  14 mai 2019  |
+|  Rel 19-05   |  [4495612]  |  Correctif cumulatif de sécurité .NET 3.5 mai   |  2.86  |  14 mai 2019  |
+|  Rel 19-05   |  [4495593]  |  Correctif cumulatif de sécurité .NET 4.5.2 mai   |  2.86  |  14 mai 2019  |
+|  Rel 19-05   |  [4499158]  |  Correctif cumulatif de sécurité mai   |  3,73  |  14 mai 2019  |
+|  Rel 19-05   |  [4495607]  |  Correctif cumulatif de sécurité .NET 3.5 mai   |  3,73  |  14 mai 2019  |
+|  Rel 19-05   |  [4495591]  |  Correctif cumulatif de sécurité .NET 4.5.2 mai   |  3,73  |  14 mai 2019  |
+|  Rel 19-05   |  [4492872]  |  Cumul d’IE   |  3,73  |  16 avril 2019  |
+|  Rel 19-05   |  [4499165]  |  Cumul de sécurité de mars   |  4.66  |  14 mai 2019  |
+|  Rel 19-05   |  [4495615]  |  Correctif cumulatif de sécurité .NET 3.5 mai   |  4.66  |  14 mai 2019  |
+|  Rel 19-05   |  [4495589]  |  Correctif cumulatif de sécurité .NET 4.5.2 mai   |  4.66  |  14 mai 2019  |
+|  Rel 19-05   |  [4498947]  |  SSU mai   |  5.31  |  14 mai 2019  |
+|  Rel 19-05   |  [4494175]  |  Mise à jour du Microcode mai   |  5.31  |  14 mai 2019  |
+|  Rel 19-05   |  [4505052]  |  Correctif cumulatif de sécurité mai   |  5.31  |  19 mai 2019  |
+|  Rel 19-05   |  [4499728]  |  SSU mai   |  6.7  |  19 mai 2019  |
+|  Rel 19-05   |  [4505056]  |  Correctif cumulatif de sécurité mai   |  6.7  |  19 mai 2019  |
+|  Rel 19-05   |  [4494174]  |  Mise à jour du Microcode mai   |  6.7  |  14 mai 2019  |
+|  Rel 19-05   |  [4495590]  |  Correctif cumulatif de sécurité .NET mai   |  6.7  |  14 mai 2019  |
 
-[KB4493510]: https://support.microsoft.com/kb/KB4493510
-[KB4493472]: https://support.microsoft.com/kb/KB4493472
-[KB4493451]: https://support.microsoft.com/kb/KB4493451
-[KB4493446]: https://support.microsoft.com/kb/KB4493446
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+[4498206]: https://support.microsoft.com/kb/4498206
+[4505050]: https://support.microsoft.com/kb/4505050
+[4497932]: https://support.microsoft.com/kb/4497932
+[4499175]: https://support.microsoft.com/kb/4499175
+[4495612]: https://support.microsoft.com/kb/4495612
+[4495593]: https://support.microsoft.com/kb/4495593
+[4499158]: https://support.microsoft.com/kb/4499158
+[4495607]: https://support.microsoft.com/kb/4495607
+[4495591]: https://support.microsoft.com/kb/4495591
+[4492872]: https://support.microsoft.com/kb/4492872
+[4499165]: https://support.microsoft.com/kb/4499165
+[4495615]: https://support.microsoft.com/kb/4495615
+[4495589]: https://support.microsoft.com/kb/4495589
+[4498947]: https://support.microsoft.com/kb/4498947
+[4494175]: https://support.microsoft.com/kb/4494175
+[4505052]: https://support.microsoft.com/kb/4505052
+[4499728]: https://support.microsoft.com/kb/4499728
+[4505056]: https://support.microsoft.com/kb/4505056
+[4494174]: https://support.microsoft.com/kb/4494174
+[4495590]: https://support.microsoft.com/kb/4495590
 
 
 ## <a name="april-2019-guest-os"></a>Système d’exploitation invité d’avril 2019
@@ -83,11 +81,11 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 | Rel 19-04 | [4493448] | Sécurité Windows | 2.85 | 9 avril 2019 |
 | Rel 19-04 | [4493478] | Clignote | 3.72, 4.65, 5.30, 6.6 | 9 avril 2019 |
 | Rel 19-04 | [4493435] | Internet Explorer | 2.85, 3.72, 4.65 | 9 avril 2019 |
-| Rel 19-04 | [KB4490628] | Mise à jour de la pile de maintenance | 2.85 | 12 mars 2019 |
-| Rel 19-04 | [KB4474419] | Prise en charge SHA2 | 2.85 | 12 mars 2019 |
-| Rel 19-04 | [KB4489878] | Cumul de sécurité de mars | 2.85 | 12 mars 2019 |
-| Rel 19-04 | [KB4489891] | Cumul de sécurité de mars | 3.72 | 12 mars 2019 |
-| Rel 19-04 | [KB4489881] | Cumul de sécurité de mars | 4.65 | 12 mars 2019 |
+| Rel 19-04 | [4490628] | Mise à jour de la pile de maintenance | 2.85 | 12 mars 2019 |
+| Rel 19-04 | [4474419] | Prise en charge SHA2 | 2.85 | 12 mars 2019 |
+| Rel 19-04 | [4489878] | Cumul de sécurité de mars | 2.85 | 12 mars 2019 |
+| Rel 19-04 | [4489891] | Cumul de sécurité de mars | 3.72 | 12 mars 2019 |
+| Rel 19-04 | [4489881] | Cumul de sécurité de mars | 4.65 | 12 mars 2019 |
 
 [4493509]: https://support.microsoft.com/kb/4493509
 [4493470]: https://support.microsoft.com/kb/4493470
@@ -96,11 +94,11 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 [4493448]: https://support.microsoft.com/kb/4493448
 [4493478]: https://support.microsoft.com/kb/4493478
 [4493435]: https://support.microsoft.com/kb/4493435
-[KB4490628]: https://support.microsoft.com/kb/KB4490628
-[KB4474419]: https://support.microsoft.com/kb/KB4474419
-[KB4489878]: https://support.microsoft.com/kb/KB4489878
-[KB4489891]: https://support.microsoft.com/kb/KB4489891
-[KB4489881]: https://support.microsoft.com/kb/KB4489881
+[4490628]: https://support.microsoft.com/kb/KB4490628
+[4474419]: https://support.microsoft.com/kb/KB4474419
+[4489878]: https://support.microsoft.com/kb/KB4489878
+[4489891]: https://support.microsoft.com/kb/KB4489891
+[4489881]: https://support.microsoft.com/kb/KB4489881
 
 ## <a name="march-2019-guest-os"></a>Système d’exploitation invité de mars 2019
 

@@ -11,19 +11,17 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein, carlrab
 manager: craigg
-ms.date: 04/19/2019
-ms.openlocfilehash: cbcdcfd151951334246a4e85d9f521a15bb6269d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 06/03/2019
+ms.openlocfilehash: 1b452fb0bac91429793f8d55e439c36c70784722
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66146104"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66492719"
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads"></a>Utilisez des réplicas en lecture seule aux charges de travail de l’équilibrage de charge des requêtes en lecture seule
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-> [!IMPORTANT]
-> Le module PowerShell Azure Resource Manager est toujours pris en charge par Azure SQL Database, mais tous les développements futurs sont pour le module Az.Sql. Pour ces applets de commande, consultez [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Les arguments pour les commandes dans le module Az et dans les modules AzureRm sont sensiblement identiques.
 
 Dans le cadre de la [architecture de haute disponibilité](./sql-database-high-availability.md#premium-and-business-critical-service-tier-availability), chaque base de données dans le niveau de service Premium, critique pour l’entreprise ou très grande échelle est automatiquement configurée avec un réplica principal et plusieurs réplicas secondaires. Les réplicas secondaires sont configurés avec la même taille de calcul en tant que le réplica principal. Le **lecture du Scale-Out** fonctionnalité vous permet d’équilibrer la charge de la base de données SQL en lecture seule des charges de travail à l’aide de la capacité d’un des réplicas en lecture seule au lieu de partager le réplica en lecture-écriture. De cette façon, la charge de travail en lecture seule sera isolée à partir de la charge de travail principale en lecture-écriture et n’affectera pas ses performances. La fonctionnalité est conçue pour les applications qui incluent logiquement séparées en lecture seule des charges de travail, tels qu’analytique. Ils peuvent obtenir des gains de performance à l’aide de cette capacité supplémentaire à aucun coût supplémentaire.
 

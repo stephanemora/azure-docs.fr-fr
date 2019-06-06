@@ -2,20 +2,20 @@
 title: Page unique et connectez-vous à l’aide d’un flux implicite - Azure Active Directory B2C | Microsoft Docs
 description: Découvrez comment ajouter une inscription de page unique en utilisant le flux implicite OAuth 2.0 avec Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/16/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 06156b1050bbf77fbbd5be8559b3c1683c2ced24
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a66fa70f6f5615257554e98e40e605d6a7e981fe
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64698948"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66508971"
 ---
 # <a name="single-page-sign-in-using-the-oauth-20-implicit-flow-in-azure-active-directory-b2c"></a>Connexion de page unique utilisant le flux implicite OAuth 2.0 dans Azure Active Directory B2C
 
@@ -83,13 +83,13 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | --------- | -------- | ----------- |
 | client_id | Oui | L’ID d’application qui le [Azure portal](https://portal.azure.com/) affecté à votre application. |
 | response_type | Oui | Doit inclure `id_token` pour la connexion à OpenID Connect. Il peut également inclure le type de réponse `token`. Si vous utilisez `token`, votre application peut recevoir immédiatement un jeton d’accès du point de terminaison d’autorisation sans avoir à effectuer une deuxième demande au point de terminaison d’autorisation.  Si vous utilisez le type de réponse `token`, le paramètre `scope` doit contenir une étendue indiquant la ressource pour laquelle le jeton doit être émis. |
-| redirect_uri | Non  | L’URI de redirection de votre application, vers lequel votre application peut envoyer et recevoir des réponses d’authentification. Il doit correspondre exactement à un des URI de redirection que vous avez inscrits dans le portail, sauf qu’il doit être codé dans l’URL. |
-| response_mode | Non  | Spécifie la méthode à utiliser pour renvoyer le jeton résultant à votre application.  Pour les flux implicites, utilisez `fragment`. |
+| redirect_uri | Non | L’URI de redirection de votre application, vers lequel votre application peut envoyer et recevoir des réponses d’authentification. Il doit correspondre exactement à un des URI de redirection que vous avez inscrits dans le portail, sauf qu’il doit être codé dans l’URL. |
+| response_mode | Non | Spécifie la méthode à utiliser pour renvoyer le jeton résultant à votre application.  Pour les flux implicites, utilisez `fragment`. |
 | scope | Oui | Une liste d’étendues séparées par des espaces. Une valeur d’étendue unique indique à Azure AD les deux autorisations qui sont demandées. L’étendue `openid` indique une autorisation pour connecter l’utilisateur et obtenir des données relatives à l’utilisateur sous la forme de jetons d’ID. L’étendue `offline_access` est facultative pour les applications Web. Elle indique que votre application a besoin d’un jeton d’actualisation pour un accès durable aux ressources. |
-| state | Non  | Valeur incluse dans la demande qui est également retournée dans la réponse de jeton. Il peut s’agir d’une chaîne de n’importe quel contenu que vous voulez utiliser. Généralement, une valeur unique générée de manière aléatoire est utilisée, de façon à empêcher les attaques par falsification de requête intersites. L’état est également utilisé pour coder les informations sur l’état de l’utilisateur dans l’application avant la demande d’authentification, comme la page sur laquelle il était positionné. |
+| state | Non | Valeur incluse dans la demande qui est également retournée dans la réponse de jeton. Il peut s’agir d’une chaîne de n’importe quel contenu que vous voulez utiliser. Généralement, une valeur unique générée de manière aléatoire est utilisée, de façon à empêcher les attaques par falsification de requête intersites. L’état est également utilisé pour coder les informations sur l’état de l’utilisateur dans l’application avant la demande d’authentification, comme la page sur laquelle il était positionné. |
 | nonce | Oui | Une valeur incluse dans la demande (générée par l’application) qui est incluse dans le jeton d’ID résultant en tant que revendication. L’application peut ensuite vérifier cette valeur afin de contrer les attaques par relecture de jetons. En général, la valeur est une chaîne unique aléatoire qui peut être utilisée pour identifier l’origine de la demande. |
-| p | Oui | Stratégie à exécuter. Il s’agit du nom d’une stratégie (flux d’utilisateur) qui est créée dans votre locataire Azure AD B2C. La valeur du nom de la stratégie doit commencer par **b2c\_1\_**. |
-| prompt | Non  | Type d’interaction utilisateur demandée. Actuellement, la seule valeur possible est `login`. Ce paramètre oblige l’utilisateur à entrer leurs informations d’identification lors de cette requête. L’authentification unique ne prendre effet. |
+| p | Oui | Stratégie à exécuter. Il s’agit du nom d’une stratégie (flux d’utilisateur) qui est créée dans votre locataire Azure AD B2C. La valeur du nom de la stratégie doit commencer par **b2c\_1\_** . |
+| prompt | Non | Type d’interaction utilisateur demandée. Actuellement, la seule valeur possible est `login`. Ce paramètre oblige l’utilisateur à entrer leurs informations d’identification lors de cette requête. L’authentification unique ne prendre effet. |
 
 À ce stade, il est demandé à l’utilisateur d’effectuer le flux de travail de la stratégie. L’utilisateur peut avoir à entrer son nom d’utilisateur et le mot de passe, inscrivez-vous avec une identité sociale, l’authentification pour le répertoire ou un nombre illimité d’étapes. Les actions de l’utilisateur dépendent de la façon dont le flux d’utilisateur est défini.
 
@@ -152,7 +152,7 @@ Pour déterminer le flux d’utilisateur utilisé pour signer un jeton d’ID (e
 Après avoir acquis le document de métadonnées auprès du point de terminaison de métadonnées OpenID Connect, vous pouvez utiliser les clés publiques RSA 256 (qui se trouvent sur ce point de terminaison) pour valider la signature du jeton d’ID. Il peut y avoir plusieurs clés répertoriées sur ce point de terminaison, chacune étant identifiée par un `kid`. L’en-tête de `id_token` contient également une revendication de `kid`. Il indique laquelle de ces clés a été utilisée pour signer le jeton d’ID. Pour plus d’informations, notamment sur la [validation des jetons](active-directory-b2c-reference-tokens.md), consultez les [informations de référence sur les jetons d’Azure AD B2C](active-directory-b2c-reference-tokens.md).
 <!--TODO: Improve the information on this-->
 
-Après la validation de la signature du jeton d’ID, plusieurs revendications nécessitent une vérification. Par exemple : 
+Après la validation de la signature du jeton d’ID, plusieurs revendications nécessitent une vérification. Exemple :
 
 * Validez la revendication `nonce` afin d’empêcher les attaques par relecture de jetons. Sa valeur doit correspondre à ce que vous avez spécifié dans la requête de connexion.
 * Validez la revendication `aud` pour vérifier que le jeton d’ID a été émis pour votre application. Sa valeur doit correspondre à l’ID d’application de votre application.
@@ -248,7 +248,7 @@ Les jetons d’ID et les jetons d’accès expirent après une courte période d
 ## <a name="send-a-sign-out-request"></a>Envoi d’une demande de déconnexion
 Lorsque vous souhaitez déconnecter l’utilisateur de l’application, redirigez l’utilisateur vers Azure AD pour effectuer cette déconnexion. Si vous ne rediriger l’utilisateur, il peuvent être en mesure de s’authentifier de nouveau à votre application sans entrer à nouveau leurs informations d’identification, car ils ont une session unique valide l’authentification auprès d’Azure AD.
 
-Vous pouvez simplement rediriger l’utilisateur vers le `end_session_endpoint` qui est répertorié dans le même document de métadonnées OpenID Connect décrit dans [Validation du jeton d’ID](#validate-the-id-token). Par exemple : 
+Vous pouvez simplement rediriger l’utilisateur vers le `end_session_endpoint` qui est répertorié dans le même document de métadonnées OpenID Connect décrit dans [Validation du jeton d’ID](#validate-the-id-token). Exemple :
 
 ```
 GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/logout?

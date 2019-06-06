@@ -4,14 +4,14 @@ description: Utilisez Azure Resource Manager et Azure PowerShell pour déployer 
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 05/14/2019
+ms.date: 05/31/2019
 ms.author: tomfitz
-ms.openlocfilehash: 5203519b1553de54d4e3cd1fafe6fb3d1c18ebd6
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 63d729f19b0ef20d0e7a716d6857b4627095856b
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65779954"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66476980"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-powershell"></a>Déployer des ressources à l’aide de modèles Resource Manager et d’Azure PowerShell
 
@@ -35,6 +35,8 @@ Pour déployer sur un **abonnement**, utilisez [New-AzDeployment](/powershell/mo
 New-AzDeployment -Location <location> -TemplateFile <path-to-template>
 ```
 
+Actuellement, les déploiements de groupes de gestion sont uniquement pris en charge via l’API REST. Consultez [déployer des ressources avec des modèles Resource Manager et les REST API Resource Manager](resource-group-template-deploy-rest.md).
+
 Les exemples de cet article utilisent des déploiements de groupes de ressources. Pour plus d’informations sur les déploiements d’abonnement, consultez [créer des groupes de ressources et des ressources au niveau de l’abonnement](deploy-to-subscription.md).
 
 ## <a name="prerequisites"></a>Conditions préalables
@@ -44,7 +46,7 @@ Vous avez besoin d’un modèle de déploiement. Si vous n’en avez déjà, té
 Sauf si vous utilisez Azure Cloud shell pour déployer des modèles, vous devez installer Azure PowerShell et connectez-vous à Azure :
 
 - **Installez les cmdlets Azure PowerShell sur votre ordinateur local.** Pour plus d’informations, consultez [Bien démarrer avec Azure PowerShell](/powershell/azure/get-started-azureps).
-- **Connectez-vous à Azure à l'aide de [Connect-AZAccount](/powershell/module/az.accounts/connect-azaccount)**. Si vous disposez de plusieurs abonnements Azure, vous devrez peut-être également exécuter [Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext). Pour plus d'informations, consultez [Utiliser plusieurs abonnements Azure](/powershell/azure/manage-subscriptions-azureps).
+- **Connectez-vous à Azure à l'aide de [Connect-AZAccount](/powershell/module/az.accounts/connect-azaccount)** . Si vous disposez de plusieurs abonnements Azure, vous devrez peut-être également exécuter [Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext). Pour plus d'informations, consultez [Utiliser plusieurs abonnements Azure](/powershell/azure/manage-subscriptions-azureps).
 
 ## <a name="deploy-local-template"></a>Déployer un modèle local
 
@@ -216,7 +218,7 @@ Si votre modèle inclut un paramètre utilisant le même nom que l’un des para
 
 ## <a name="test-template-deployments"></a>Tester les déploiements de modèles
 
-Pour tester votre modèle et vos valeurs de paramètre sans réellement déployer toutes les ressources, utilisez [Test-AzureRmResourceGroupDeployment](/powershell/module/az.resources/test-azresourcegroupdeployment).  
+Pour tester votre modèle et vos valeurs de paramètre sans réellement déployer toutes les ressources, utilisez [Test-AzureRmResourceGroupDeployment](/powershell/module/az.resources/test-azresourcegroupdeployment). 
 
 ```powershell
 Test-AzResourceGroupDeployment -ResourceGroupName ExampleResourceGroup `

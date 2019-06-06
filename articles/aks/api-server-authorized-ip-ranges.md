@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/06/2019
 ms.author: iainfou
-ms.openlocfilehash: 5c27d47a918939d012abee3c2317eba39587d734
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 185c16e76094fe55a54fb17bef24fcd03d7b54f0
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66243577"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475145"
 ---
 # <a name="preview---secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Preview - le serveur d’API à l’aide d’un accès sécurisé autorisé des plages d’adresses IP dans Azure Kubernetes Service (ACS)
 
@@ -74,8 +74,6 @@ Les limitations suivantes s’appliquent lorsque vous configurez les plages d’
 Le serveur d’API Kubernetes est comment APIs Kubernetes sous-jacentes sont exposés. Ce composant fournit l’interaction des outils de gestion, tels que `kubectl` ou le tableau de bord Kubernetes. AKS fournit un maître de cluster de client unique, avec un serveur d’API dédié. Par défaut, le serveur d’API est attribué une adresse IP publique, et vous devez contrôler l’accès à l’aide de contrôles d’accès en fonction du rôle (RBAC).
 
 Pour sécuriser l’accès au plan de contrôle AKS sinon accessible publiquement / serveur d’API, vous pouvez activer et utiliser autorisé de plages d’adresses IP. Ces plages d’adresses IP autorisées autorisent uniquement les plages d’adresses IP définies communiquer avec le serveur d’API. Une demande adressée au serveur d’API à partir d’une adresse IP qui ne fait pas partie de ces plages d’adresses IP autorisées est bloquée. Vous devez continuer à utiliser RBAC pour autoriser des utilisateurs et les actions qu’ils demandent.
-
-Pour utiliser la fonctionnalité de plage IP autorisée, une adresse IP publique est exposée sur le pool de nœud en déployant un service de NGINX de base. Le serveur d’API communique avec le pool de nœud via cette adresse IP publique autorisé. Ensuite, vous définissez des plages d’adresses IP supplémentaires qui peuvent accéder au serveur d’API.
 
 Pour plus d’informations sur le serveur d’API et d’autres composants de cluster, consultez [Kubernetes principaux concepts pour AKS][concepts-clusters-workloads].
 

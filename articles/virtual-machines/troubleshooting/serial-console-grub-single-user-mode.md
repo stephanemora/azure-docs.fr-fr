@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/08/2019
 ms.author: alsin
-ms.openlocfilehash: 89cbf220c9ae32c7f63da4941ced1bdbfa1e5293
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.openlocfilehash: 440d917c2ee4a51f2c8ba4b134b50508bdaf4bcb
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65835039"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66735261"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>Utiliser la console série pour accéder au GRUB et au mode mono-utilisateur
 GRUB, acronyme de GRand Unified Bootloader, est probablement la première chose que vous voyez quand vous démarrez une machine virtuelle. Parce qu’il s’affiche avant que le système d’exploitation ne démarre, il n’est pas accessible par le biais du protocole SSH. Un GRUB vous permet de modifier votre configuration d’amorçage, notamment pour démarrer en mode mono-utilisateur.
@@ -184,7 +184,7 @@ L’accès au GRUB dans SLES requiert une configuration de chargeur de démarrag
 Vous êtes automatiquement amené dans l’interpréteur de commandes d’urgence si SLES ne peut pas démarrer normalement. Pour entrer manuellement dans l’interpréteur de commandes d’urgence, appliquez les instructions suivantes :
 
 1. À partir du GRUB, appuyez sur « e » pour modifier votre entrée de démarrage (entrée SLES)
-1. Recherchez la ligne du noyau qui commence par `linux`
+1. Recherchez la ligne du noyau : elle commence par `linux`
 1. Ajoutez `systemd.unit=emergency.target` à la fin de la ligne
 1. Appuyez sur Ctrl + X pour redémarrer avec ces paramètres, puis entrez dans l’interpréteur de commandes d’urgence
    > Vous êtes amené dans l’interpréteur de commandes d’urgence avec un système de fichiers _en lecture seule_. Pour apporter des modifications à l’un des fichiers, vous devez remonter le système de fichiers avec des autorisations en lecture-écriture. Pour ce faire, entrez `mount -o remount,rw /` dans l’interpréteur de commandes

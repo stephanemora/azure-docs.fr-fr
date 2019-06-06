@@ -6,40 +6,38 @@ manager: deshner
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 12/27/2018
+ms.date: 06/05/2019
 ms.author: stefanmsft
 ms.custom: seodec18
-ms.openlocfilehash: 6122cd4507ed0883d1b78ca519269c25098e55ff
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 455e78c63960103f5facae764aff3d2b3b2a590d
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60924854"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66735202"
 ---
 # <a name="how-to-debug-user-defined-functions-in-azure-digital-twins"></a>Guide pratique pour utiliser des fonctions de débogage définies par l’utilisateur dans Azure Digital Twins
 
-Cet article explique brièvement comment diagnostiquer et déboguer des fonctions définies par l’utilisateur. Il décrit ensuite certains des scénarios plus courants rencontrés lors de leur débogage.
+Cet article résume comment diagnostiquer et déboguer des fonctions définies par l’utilisateur dans Azure des représentations numériques. Il décrit ensuite certains des scénarios plus courants rencontrés lors de leur débogage.
 
 >[!TIP]
 > Consultez [Guide pratique pour configurer la supervision et la journalisation](./how-to-configure-monitoring.md) pour en savoir plus sur la configuration des outils de débogage dans Azure Digital Twins à l’aide des journaux d’activité, des journaux de diagnostic et d’Azure Monitor.
 
 ## <a name="debug-issues"></a>Résoudre les problèmes
 
-Le fait de savoir comment diagnostiquer tout problème se produisant au sein de votre instance Azure Digital Twins vous aide à identifier efficacement celui-ci, ainsi que sa cause et une solution.
+Savoir comment diagnostiquer les problèmes au sein de représentations numériques Azure vous permet analyser les problèmes, identifier la cause des problèmes et leur fournir les solutions appropriées.
 
-### <a name="enable-log-analytics-for-your-instance"></a>Activer l’analytique des journaux d’activité pour votre instance
+Une variété de journalisation, analytique et outils de diagnostic sont fournis à cette fin.
 
-Les journaux d’activité et les métriques de votre instance Azure Digital Twins sont affichés dans Azure Monitor. Cette documentation suppose que vous avez créé un [Azure Monitor enregistre](../azure-monitor/log-query/log-query-overview.md) espace de travail via le [Azure Portal](../azure-monitor/learn/quick-create-workspace.md), jusqu'à [Azure CLI](../azure-monitor/learn/quick-create-workspace-cli.md), ou via [ PowerShell](../azure-monitor/learn/quick-create-workspace-posh.md).
+### <a name="enable-logging-for-your-instance"></a>Activer la journalisation pour votre instance
 
-> [!NOTE]
-> Vous pouvez rencontrer un délai de 5 minutes lors de l’envoi des événements dans les journaux d’Azure Monitor pour la première fois.
+Azure Digital Twins prend en charge de solides fonctionnalités de journalisation, de supervision et d’analytique. Les développeurs de solutions peuvent utiliser des journaux Azure Monitor, les journaux de diagnostic, les journaux d’activité et les autres services pour prendre en charge les besoins d’analyse complexes d’une application IoT. Vous pouvez combiner les options de journalisation afin d’interroger ou d’afficher des enregistrements entre plusieurs services et de fournir une couverture de journalisation précise pour de nombreux services.
 
-Pour configurer la supervision et la journalisation pour les ressources Azure Digital Twins, consultez [Guide pratique pour configurer la supervision et la journalisation](./how-to-configure-monitoring.md).
+* Pour la configuration de journalisation spécifique aux représentations numériques d’Azure, consultez [comment configurer la surveillance et journalisation](./how-to-configure-monitoring.md).
+* Consultez le le [Azure Monitor](../azure-monitor/overview.md) vue d’ensemble pour en savoir plus sur les paramètres de journaux puissant activées via Azure Monitor.
+* Consultez l’article [collecter et consommer des données de journal à partir de vos ressources Azure](../azure-monitor/platform/diagnostic-logs-overview.md) pour la configuration des paramètres de journal de diagnostic dans Azure des représentations numériques via le portail Azure, Azure CLI ou PowerShell.
 
-Pour savoir comment configurer les paramètres du journal de diagnostic dans Azure Digital Twins via le portail Azure, Azure CLI ou PowerShell, voir l’article [Collecter et utiliser des données de journaux à partir de vos ressources Azure](../azure-monitor/platform/diagnostic-logs-overview.md).
-
->[!IMPORTANT]
-> Veillez à sélectionner la totalité des catégories de journaux et des métriques, ainsi que votre espace de travail Azure Log Analytics.
+Une fois configuré, vous serez en mesure de sélectionner toutes les catégories de journaux, mesures et utiliser des espaces de travail analytique de journal Azure Monitor puissants pour prendre en charge vos efforts de débogage.
 
 ### <a name="trace-sensor-telemetry"></a>Tracer les données de télémétrie des capteurs
 
@@ -209,4 +207,6 @@ Si vous activez les paramètres de diagnostic, vous pouvez rencontrer ces except
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Découvrez comment activer la [supervision et les journaux d’activité](../azure-monitor/platform/activity-logs-overview.md) dans Azure Digital Twins.
+- Découvrez comment activer la [supervision et les journaux d’activité](./how-to-configure-monitoring.md) dans Azure Digital Twins.
+
+- Lecture la [journal de la vue d’ensemble de l’activité Azure](../azure-monitor/platform/activity-logs-overview.md) article pour les options de journalisation Azure supplémentaires.

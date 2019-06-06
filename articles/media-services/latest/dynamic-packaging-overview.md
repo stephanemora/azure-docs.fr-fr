@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/22/2019
+ms.date: 06/03/2019
 ms.author: juliako
-ms.openlocfilehash: 25c0fe7a179db484f18c1aca16471e39a739052c
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.openlocfilehash: c25aef76b5559b6d00ccf60675d61ea5ea346773
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66299184"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66494345"
 ---
 # <a name="dynamic-packaging"></a>Empaquetage dynamique
 
@@ -114,10 +114,10 @@ Empaquetage dynamique prend en charge les fichiers MP4, qui contiennent des donn
     * DTS Express (dtse)
     * DTS-HD sans perte (aucune core) (dtsl)
 
-### <a name="hls-support"></a>Prise en charge HLS
+### <a name="multi-audio-tracks"></a>Pistes audio multiples
 
-Empaquetage dynamique prend en charge HLS (version 4 ou version ultérieure) pour les ressources qui ont plusieurs pistes audio avec plusieurs langues et les codecs.
-
+Lors de la diffusion en continu des ressources qui ont plusieurs pistes audio avec plusieurs langues et les codecs, empaquetage dynamique prend en charge les pistes audio multiples pour la sortie HLS (version 4 ou version ultérieure).
+ 
 ### <a name="not-supported"></a>Non pris en charge
 
 L’empaquetage dynamique ne prend pas en charge les fichiers qui contiennent des données audio [Dolby Digital](https://en.wikipedia.org/wiki/Dolby_Digital) (AC3) (il s’agit d’un codec hérité).

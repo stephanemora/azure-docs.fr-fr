@@ -7,12 +7,12 @@ author: ash2017
 ms.topic: conceptual
 ms.date: 04/11/2019
 ms.author: asrastog
-ms.openlocfilehash: ff8f8c6656c4cd095749b3e048c72572d113f1ad
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: f4baab6e0909144efc613572207e7f24c4b4fe1f
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "66015265"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66743269"
 ---
 # <a name="order-device-connection-events-from-azure-iot-hub-using-azure-cosmos-db"></a>Commander des événements de connexion d’appareils depuis Azure IoT Hub à l’aide d’Azure Cosmos DB
 
@@ -266,13 +266,13 @@ Dans cette section, vous configurez votre hub IoT pour publier des événements 
 
 4. Renseignez **détails de l’abonnement événement**: fournissez un nom descriptif et sélectionnez **Schéma Event Grid**.
 
-5. Renseignez le **Types d’événements** champs. Décochez la case **s’abonner à tous les types d’événements** et sélectionnez **appareil connecté** et **périphérique déconnecté** à partir du menu.
+5. Renseignez le **Types d’événements** champs. Dans la liste déroulante, sélectionnez uniquement **appareil connecté** et **périphérique déconnecté** à partir du menu. Cliquez sur n’importe où sur l’écran pour fermer la liste et enregistrer vos sélections.
 
    ![Définir les types d’événements à rechercher](./media/iot-hub-how-to-order-connection-state-events/set-event-types.png)
 
 6. Pour **détails du point de terminaison**, sélectionnez le Type de point de terminaison **Webhook** et cliquez sur le point de terminaison sélectionnez et collez l’URL que vous avez copiée à partir de votre application logique et confirmer la sélection.
 
-   ![sélectionner une url de point de terminaison](./media/iot-hub-how-to-order-connection-state-events/endpoint-url.png)
+   ![sélectionner une url de point de terminaison](./media/iot-hub-how-to-order-connection-state-events/endpoint-select.png)
 
 7. Le formulaire doit maintenant ressembler à l’exemple suivant :
 
@@ -302,11 +302,9 @@ Maintenant que votre abonnement aux événements est configuré, nous allons le 
 
    ![ConnectionString pour appareil](./media/iot-hub-how-to-order-connection-state-events/DeviceConnString.png)
 
-HostName=test-eventgrid-hub.azure-devices.net;DeviceId=Demo-Device-1;SharedAccessKey=cv8uPNixe7E2R9EHtimoY/PlJfBV/lOYCMajVOp/Cuw=
-
 ### <a name="start-raspberry-pi-simulator"></a>Démarrer le simulateur Raspberry Pi
 
-1. Nous allons utiliser le simulateur web Raspberry Pi pour simuler la connexion de l’appareil.
+Nous allons utiliser le simulateur web Raspberry Pi pour simuler la connexion de l’appareil.
 
 [Démarrer le simulateur Raspberry Pi](https://azure-samples.github.io/raspberry-pi-web-simulator/#Getstarted)
 
@@ -340,7 +338,7 @@ Au lieu d’utiliser le [portail Azure](https://portal.azure.com), vous pouvez e
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Ce didacticiel utilise des ressources qui peuvent entraîner des frais sur votre abonnement Azure. Quand vous avez terminé de tester le didacticiel et vos résultats, désactivez ou supprimez les ressources que vous ne souhaitez pas conserver.
+Ce didacticiel utilise des ressources qui peuvent entraîner des frais sur votre abonnement Azure. Lorsque vous avez terminé le tester le didacticiel et vos résultats, désactiver ou supprimer des ressources que vous ne souhaitez pas conserver.
 
 Pour ne pas perdre le travail effectué sur votre application logique, désactivez-la au lieu de la supprimer.
 

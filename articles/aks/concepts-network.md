@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: iainfou
-ms.openlocfilehash: 2d51699138914e4a8ad5d2a133161fcfce71e9fe
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 5ce3290f7af32b10e1dfbf9b72686e5d30c885bb
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65074062"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66431319"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Concepts de réseau pour les applications dans AKS (Azure Kubernetes Service)
 
@@ -99,6 +99,8 @@ Les *contrôleurs d’entrée* fonctionnent au niveau de la couche 7 ; ils peu
 Dans AKS, vous pouvez créer une ressource d’entrée à l’aide de NGINX, ou d’un outil similaire, ou utiliser la fonctionnalité de routage d’application HTTP AKS. Quand vous activez le routage d’application HTTP pour un cluster AKS, la plateforme Azure crée le contrôleur d’entrée et un contrôleur *DNS externe*. Quand des ressources d’entrée sont créées dans Kubernetes, les enregistrements DNS A requis sont créés dans une zone DNS propre au cluster. Pour plus d’informations, consultez [Déployer le routage d’applications HTTP][aks-http-routing].
 
 Une autre fonctionnalité d’entrée courante est l’arrêt SSL/TLS. Sur les grandes applications web accessibles via HTTPS, l’arrêt TLS peut être géré par la ressource d’entrée plutôt que dans l’application proprement dite. Pour fournir la configuration et la génération automatiques de la certification TLS, vous pouvez configurer la ressource d’entrée pour utiliser des fournisseurs tels que Let's Encrypt. Pour plus d’informations sur la configuration d’un contrôleur d’entrée NGINX avec Let's Encrypt, consultez [Entrée et TLS][aks-ingress-tls].
+
+Vous pouvez également configurer votre contrôleur d’entrée pour conserver l’adresse IP source de client sur les demandes vers les conteneurs dans votre cluster AKS. Lorsqu’une demande du client est acheminée vers un conteneur dans votre cluster ACS par le biais de votre contrôleur d’entrée, il se peut que l’ip source d’origine de la demande ne sera pas disponible pour le conteneur cible. Lorsque vous activez *préservation du client source IP*, l’adresse IP source pour le client est disponible dans l’en-tête de demande sous *X-Forwarded-For*. Si vous utilisez la préservation d’IP client source sur votre contrôleur d’entrée, vous ne pouvez pas utiliser directe SSL. Préservation du client source IP et directe SSL utilisable avec d’autres services, tels que le *LoadBalancer* type.
 
 ## <a name="network-security-groups"></a>Groupes de sécurité réseau
 

@@ -7,15 +7,15 @@ manager: shivamg
 keywords: Analytique de journal ; Sauvegarde Azure ; Alertes ; Paramètres de diagnostic ; Groupes d’actions
 ms.service: backup
 ms.topic: conceptual
-ms.date: 02/26/2019
+ms.date: 06/04/2019
 ms.author: pullabhk
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: 94fde7714f3efe0a460983966923071bce1afcc6
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 2d7c158b32c15fb8be153511136eafb73147afa6
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190502"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734851"
 ---
 # <a name="monitoring-at-scale-using-azure-monitor"></a>Surveillance à l’échelle à l’aide d’Azure Monitor
 
@@ -46,7 +46,7 @@ Vous pouvez sélectionner un espace de travail de LA à partir d’un autre abon
 
 ### <a name="deploying-solution-to-log-analytics-workspace"></a>Déploiement de solution dans l’espace de travail Analytique de journal
 
-Une fois les données au sein de l’espace de travail de LA, [déployer un modèle github](https://azure.microsoft.com/resources/templates/101-backup-oms-monitoring/) sur LA pour visualiser les données. Vérifiez que vous donnez le même groupe de ressources, nom de l’espace de travail et emplacement de l’espace de travail pour identifier correctement l’espace de travail, puis installer ce modèle sur celui-ci.
+Une fois les données au sein de l’espace de travail de LA, [déployer un modèle GitHub](https://azure.microsoft.com/resources/templates/101-backup-oms-monitoring/) sur LA pour visualiser les données. Vérifiez que vous donnez le même groupe de ressources, nom de l’espace de travail et emplacement de l’espace de travail pour identifier correctement l’espace de travail, puis installer ce modèle sur celui-ci.
 
 ### <a name="view-azure-backup-data-using-log-analytics-la"></a>Afficher les données de sauvegarde Azure à l’aide d’Analytique de journal (LA)
 
@@ -109,7 +109,7 @@ L’aspect clé est la condition de déclenchement de l’alerte. En cliquant su
 
 ![LAAzureBackupAlertCondition](media/backup-azure-monitoring-laworkspace/la-azurebackup-alertlogic.png)
 
-Modifiez la requête Kusto, si nécessaire, sélectionnez le seuil de droite (qui décidera lorsque l’alerte sera déclenchée), la période de droite (fenêtre de temps pour lequel la requête est exécutée) et la fréquence. Par exemple :  Si le seuil est supérieur à 0, la période est de 5 minutes et la fréquence est de 5 minutes, puis la règle est traduite en tant que « Exécuter la requête toutes les 5 minutes pour les 5 dernières minutes et si le nombre de résultats est supérieur à 0, m’avertir par le groupe d’actions sélectionné »
+Modifiez la requête Kusto, si nécessaire, sélectionnez le seuil de droite (qui décidera lorsque l’alerte sera déclenchée), la période de droite (fenêtre de temps pour lequel la requête est exécutée) et la fréquence. Exemple : Si le seuil est supérieur à 0, la période est de 5 minutes et la fréquence est de 5 minutes, puis la règle est traduite en tant que « Exécuter la requête toutes les 5 minutes pour les 5 dernières minutes et si le nombre de résultats est supérieur à 0, m’avertir par le groupe d’actions sélectionné »
 
 #### <a name="action-group-integration"></a>Intégration des groupes d’action
 
@@ -242,13 +242,13 @@ Appliquez les filtres de l’image suivante pour vérifier si vous recevez bien 
 
 ![Journaux d’activité pour les sauvegardes de machines virtuelles Azure](media/backup-azure-monitoring-laworkspace/activitylogs-azurebackup-vmbackups.png)
 
-Vous pouvez cliquer sur le segment « JSON » pour obtenir plus de détails et les afficher en les copiant-collant dans un éditeur de texte. Il doit afficher les détails du coffre et l’élément qui a déclenché l’activité de journaux, autrement dit, l’élément de sauvegarde.
+Cliquez sur le nom de l’opération, il affichera l’opération et les détails pertinents.
 
-Ensuite, cliquez sur « Ajouter une alerte de journal d’activité » afin de générer des alertes pour tous les journaux d’activité de ce type.
+![Nouvelle règle d’alerte](media/backup-azure-monitoring-laworkspace/new-alert-rule.png)
 
-Vous pouvez cliquer sur « Ajouter alerte activité journal » ci-dessus et s’ouvre l’écran de création d’alerte qui est similaire à l’écran de création d’alerte [comme décrit ci-dessus](#create-alerts-using-log-analytics).
+Cliquez sur **nouvelle règle d’alerte** pour ouvrir le **créer une règle** écran, vous pouvez créer des alertes à l’aide des étapes décrites dans ce [article](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log).
 
-Ici la ressource est le coffre RS lui-même, et par conséquent, vous devez répéter la même action pour tous les coffres dans lequel vous souhaitez notification via les journaux d’activité. La condition sera inutile n’importe quel seuil, la période, la fréquence dans la mesure où il s’agit d’une alerte en fonction des événements. Dès que le journal d’activité pertinentes est généré, l’alerte est déclenchée.
+Ici la ressource est le coffre Recovery Service lui-même, et par conséquent, vous devez répéter la même action pour tous les coffres dans lequel vous souhaitez notification via les journaux d’activité. La condition sera inutile n’importe quel seuil, la période, la fréquence dans la mesure où il s’agit d’une alerte en fonction des événements. Dès que le journal d’activité pertinentes est généré, l’alerte est déclenchée.
 
 ## <a name="recommendation"></a>Recommandation
 

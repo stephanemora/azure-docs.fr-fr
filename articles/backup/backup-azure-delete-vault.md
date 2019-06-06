@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: raynew
-ms.openlocfilehash: e7cea725a25d48ac9f1ffad6acc434e21145890e
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: a7dd5530c3941fe55e8a649f8adb217159823f5d
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65473240"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66492792"
 ---
 # <a name="delete-a-recovery-services-vault"></a>Supprimer un coffre Recovery Services
 
@@ -62,7 +62,7 @@ Pour plus d’informations sur la commande de ARMClient, consultez ce [document]
 
 ### <a name="use-azure-resource-manager-client-to-delete-recovery-services-vault"></a>Client d’Azure Resource Manager permet de supprimer le coffre Recovery Services
 
-1. Exécutez la commande suivante à l’aide de votre ID d’abonnement, le nom de groupe de ressources et le nom du coffre. W\hen vous exécutez la commande, qu'il supprime le coffre si vous n’avez pas toutes les dépendances.
+1. Exécutez la commande suivante à l’aide de votre ID d’abonnement, le nom de groupe de ressources et le nom du coffre. Lorsque vous exécutez la commande il supprime le coffre si vous n’avez pas toutes les dépendances.
 
    ```
    ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>?api-version=2015-03-15

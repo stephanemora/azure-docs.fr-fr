@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f37c501bb53b3b73c30d02d00d49515f907e4ae
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: d2889af6000e77fba7a91392c0adb227588b5306
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65463626"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66430797"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Associer ou ajouter un abonnement Azure à votre locataire Azure Active Directory
 
@@ -42,6 +42,7 @@ Avant de pouvoir associer ou ajouter votre abonnement, vous devez effectuer les 
     - Les utilisateurs qui ont été affectés des rôles à l’aide de RBAC perdent leur accès
     - Administrateur de service et les Coadministrateurs vont perdre l’accès
     - Si vous avez des coffres de clés, ils seront inaccessibles et vous devrez les corriger après l’association
+    - Si vous avez des identités gérées pour les ressources telles que les Machines virtuelles ou des applications logiques, vous devrez réactiver ou de les recréer après l’association
     - Si vous avez un inscrit Azure Stack, vous devrez réinscrire après l’association
 
 1. Connectez-vous avec un compte qui :
@@ -76,7 +77,9 @@ Une fois que vous associez un abonnement vers un autre répertoire, il peut y av
 
 1. Si vous avez des coffres de clés, vous devez modifier l’ID de client de coffre de clés. Pour plus d’informations, consultez [modifier un ID de client de coffre de clés après un déplacement d’abonnement](../../key-vault/key-vault-subscription-move-fix.md).
 
-2. Si vous avez inscrit une pile d’Azure à l’aide de cet abonnement, vous devez réenregistrer. Pour plus d’informations, consultez [inscrire Azure Stack avec Azure](/azure-stack/operator/azure-stack-registration).
+2. Si vous utilisiez attribué par le système des identités gérées pour les ressources, vous devez réactiver ces. Si vous utilisiez affectée à l’utilisateur des identités gérées, vous devez recréer ces. Après la réactivation ou recréer les identités gérés, vous devez redéfinir les autorisations attribuées à ces identités. Pour plus d’informations, consultez [What ' s des identités gérées pour les ressources Azure ?](../managed-identities-azure-resources/overview.md).
+
+3. Si vous avez inscrit une pile d’Azure à l’aide de cet abonnement, vous devez réenregistrer. Pour plus d’informations, consultez [inscrire Azure Stack avec Azure](/azure-stack/operator/azure-stack-registration).
 
 
 

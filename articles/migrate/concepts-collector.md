@@ -4,15 +4,15 @@ description: Fournit des informations sur l’appliance Collector dans Azure Mig
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 04/26/2019
+ms.date: 05/31/2019
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: d00899e0ca358b4e2970caa8c63c98e375ea970c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 865e0679ed05823d115baeb9eea3c01d7fb5f2a5
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64728024"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428464"
 ---
 # <a name="about-the-collector-appliance"></a>À propos de l’appliance Collector
 
@@ -111,7 +111,7 @@ Vous validez la vérification de la connectivité en vous connectant à une list
 --- | --- | ---
 *. portal.azure.com | S’applique à Azure Global. Vérifie la connectivité avec le service Azure et la synchronisation de l’heure. | Accès à l’URL requise.<br/><br/> La vérification du prérequis échoue s’il n’y a pas de connectivité.
 *.portal.azure.us | S’applique uniquement à Azure Government. Vérifie la connectivité avec le service Azure et la synchronisation de l’heure. | Accès à l’URL requise.<br/><br/> La vérification du prérequis échoue s’il n’y a pas de connectivité.
-*.oneget.org:443<br/><br/> *.windows.net:443<br/><br/> *.windowsazure.com:443<br/><br/> *.powershellgallery.com:443<br/><br/> *.msecnd.net:443<br/><br/> *.visualstudio.com:443| Permet de télécharger le module PowerShell vCenter PowerCLI. | Accès aux URL est obligatoire.<br/><br/> La vérification du prérequis n’échoue pas.<br/><br/> L’installation automatique du module sur la machine virtuelle Collecteur échoue. Vous devez installer le module manuellement sur un ordinateur qui possède une connexion internet, puis copier les modules dans l’appliance. [En savoir plus en accédant à l’étape 4 dans ce guide de dépannage](https://docs.microsoft.com/azure/migrate/troubleshooting-general#error-unhandledexception-internal-error-occurred-systemiofilenotfoundexception).
+*.oneget.org:443<br/><br/> *.github.com/oneget/oneget<br/><br/> *.windows.net:443<br/><br/> *.windowsazure.com:443<br/><br/> *.azure.microsoft.com<br/><br/> *.Azure.Microsoft.com/en-us<br/><br/> *.powershellgallery.com:443<br/><br/> *.msecnd.net:443<br/><br/> *.visualstudio.com:443<br/><br/> *.visualstudio.microsoft.com | Permet de télécharger le module PowerShell vCenter PowerCLI. | Accès aux URL est obligatoire.<br/><br/> La vérification du prérequis n’échoue pas.<br/><br/> L’installation automatique du module sur la machine virtuelle Collecteur échoue. Vous devez installer le module manuellement sur un ordinateur qui possède une connexion internet, puis copier les modules dans l’appliance. [En savoir plus en accédant à l’étape 4 dans ce guide de dépannage](https://docs.microsoft.com/azure/migrate/troubleshooting-general#error-unhandledexception-internal-error-occurred-systemiofilenotfoundexception).
 
 
 ### <a name="install-vmware-powercli-module-manually"></a>Installer le module VMware PowerCLI manuellement

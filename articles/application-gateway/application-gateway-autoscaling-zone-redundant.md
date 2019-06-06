@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 5/22/2019
+ms.date: 6/1/2019
 ms.author: victorh
-ms.openlocfilehash: 8e17c5e34ec3e2397c3054b1d0e0d97dbf410db2
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 40564e52cbcde0e835ed97132196bf7ed084f5b7
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65986868"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66431199"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway"></a>Mise à l’échelle et la passerelle d’Application redondant 
 
@@ -26,8 +26,8 @@ La nouvelle référence (SKU) v2 inclut les améliorations suivantes :
   Redondance de zone est disponible uniquement où les Zones Azure sont disponibles. Dans d’autres régions, toutes les autres fonctionnalités sont prises en charge. Pour plus d’informations, consultez [quelles sont les Zones de disponibilité dans Azure ?](../availability-zones/az-overview.md#services-support-by-region)
 - **Adresse IP virtuelle statique** : Application gateway v2 référence (SKU) prend en charge l’adresse IP virtuelle statique tapez exclusivement. Cela garantit que l’adresse IP virtuelle associé avec la passerelle d’application ne change pas pendant le cycle de vie du déploiement, même après un redémarrage.
 - **Réécriture de l’en-tête**: Application Gateway vous permet de vous ajouter, supprimer ou mettre à jour des en-têtes de demande et de réponse HTTP avec la référence (SKU) v2. Pour plus d’informations, consultez [en-têtes HTTP réécrire avec Application Gateway](rewrite-http-headers.md)
-- **Key Vault Integration (version préliminaire)**: Application Gateway v2 prend en charge l’intégration avec Key Vault (en préversion publique) pour les certificats de serveur qui sont attachés aux écouteurs d’activation du HTTPS. Pour plus d’informations, consultez [une terminaison SSL avec certificats Key Vault](key-vault-certs.md).
-- **Azure Kubernetes Service entrée contrôleur (version préliminaire)**: Le contrôleur d’entrée de passerelle d’Application v2 permet la passerelle d’Application Azure à utiliser en tant que l’entrée pour un Azure Kubernetes Service (AKS) appelé Cluster AKS. Pour plus d’informations, consultez le [page de documentation](https://azure.github.io/application-gateway-kubernetes-ingress/).
+- **Key Vault Integration (version préliminaire)** : Application Gateway v2 prend en charge l’intégration avec Key Vault (en préversion publique) pour les certificats de serveur qui sont attachés aux écouteurs d’activation du HTTPS. Pour plus d’informations, consultez [une terminaison SSL avec certificats Key Vault](key-vault-certs.md).
+- **Azure Kubernetes Service entrée contrôleur (version préliminaire)** : Le contrôleur d’entrée de passerelle d’Application v2 permet la passerelle d’Application Azure à utiliser en tant que l’entrée pour un Azure Kubernetes Service (AKS) appelé Cluster AKS. Pour plus d’informations, consultez le [page de documentation](https://azure.github.io/application-gateway-kubernetes-ingress/).
 - **Amélioration des performances** : Le v2 référence (SKU) offre jusqu'à 5 SSL mieux X décharger des performances par rapport à la référence SKU Standard/WAF.
 - **Temps de déploiement et de mise à jour** la référence (SKU) v2 fournit le temps de déploiement et de mise à jour par rapport à la référence (SKU) Standard/WAF. Cela inclut également des modifications de configuration de pare-feu d’applications Web.
 
@@ -54,6 +54,8 @@ Guide de l’unité de calcul :
 > [!NOTE]
 > Chaque instance peut prend actuellement en charge environ 10 unités de capacité.
 > Le nombre de demandes de qu'une unité de calcul peut gérer dépend de différents critères comme taille de clé de certificat TLS, algorithme d’échange de clés, réécritures d’en-tête et en cas de la taille de la demande entrante WAF. Nous vous recommandons de qu'effectuer des tests d’application pour déterminer le taux de demandes par unité de calcul. Des unités de calcul et de l’unité de capacité sera disponibles en tant qu’une mesure avant la facturation démarre.
+
+Le tableau suivant montre les prix de l’exemple et est proposés à des fins d’illustration uniquement.
 
 **La tarification dans la région est des États-Unis**:
 
@@ -142,9 +144,12 @@ Le tableau suivant compare les fonctionnalités disponibles avec chaque référe
 |Intégration de Network Watcher|Non pris en charge.|
 |Intégration du centre de Support Azure|Pas encore disponible.
 
+## <a name="migrate-from-v1-to-v2"></a>Effectuer la migration de la version 1 à la version 2
+
+Un script Azure PowerShell est disponible dans la galerie PowerShell pour vous aider à migrer à partir de votre passerelle/WAF d’Application v1 vers la référence (SKU) de mise à l’échelle v2. Ce script vous permet de copier la configuration à partir de votre passerelle v1. Migration de trafic est toujours de votre responsabilité. Pour plus d’informations, consultez [migrer Azure Application Gateway à partir de v1 à v2](migrate-v1-v2.md).
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Démarrage rapide : Trafic web direct avec Azure Application Gateway - portail Azure](quick-create-portal.md)
+- [Démarrage rapide : diriger le trafic web avec Azure Application Gateway - Portail Azure](quick-create-portal.md)
 - [Créer une passerelle d’application redondante dans une zone, avec mise à l’échelle automatique et avec une adresse IP virtuelle réservée à l’aide d’Azure PowerShell](tutorial-autoscale-ps.md)
 - Découvrez [Application Gateway](overview.md).
 - Découvrez le [Pare-feu Azure](../firewall/overview.md).

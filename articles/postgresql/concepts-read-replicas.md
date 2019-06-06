@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 5/6/2019
-ms.openlocfilehash: 13580289144d798a57e636f15ab5bce629ff3572
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.date: 06/05/2019
+ms.openlocfilehash: 75a3c8a9912fe9ace70e411983996167da755128
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66242290"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734650"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Réplicas en lecture dans Azure Database pour PostgreSQL - serveur unique
 
@@ -60,17 +60,15 @@ psql -h myreplica.postgres.database.azure.com -U myadmin@myreplica -d postgres
 À l’invite, entrez le mot de passe du compte d’utilisateur.
 
 ## <a name="monitor-replication"></a>Superviser la réplication
-Azure Database pour PostgreSQL fournit la métrique **Retard maximum entre réplicas** dans Azure Monitor. Cette métrique est disponible sur le serveur maître uniquement. La métrique indique le retard en octets entre le serveur maître et le réplica le plus en retard. 
+Azure Database pour PostgreSQL fournit deux mesures de surveillance de la réplication. Les deux mesures sont **Nb max. de décalage entre les réplicas** et **réplica Lag**. Pour savoir comment afficher ces mesures, consultez la **surveiller un réplica** section de la [lire l’article sur les procédures de réplica](howto-read-replicas-portal.md).
 
-Azure Database pour PostgreSQL fournit également la métrique **Retard du réplica** dans Azure Monitor. Cette métrique est disponible pour les réplicas uniquement. 
+Le **Nb max. de décalage entre les réplicas** métrique affiche le décalage en octets entre le maître et le réplica de la plupart-en retard. Cette métrique est disponible sur le serveur maître uniquement.
 
-La métrique est calculée à partir de la vue `pg_stat_wal_receiver` :
+Le **réplica Lag** métrique affiche l’heure dans la mesure où le dernier relus transaction. S’il n’existe aucune transaction sur votre serveur maître, la métrique reflète ce retard. Cette mesure est disponible pour les serveurs de réplication uniquement. Décalage de réplica est calculée à partir de la `pg_stat_wal_receiver` vue :
 
 ```SQL
 EXTRACT (EPOCH FROM now() - pg_last_xact_replay_timestamp());
 ```
-
-La métrique Retard du réplica indique le temps écoulé depuis la dernière transaction réexécutée. S’il n’existe aucune transaction sur votre serveur maître, la métrique reflète ce retard.
 
 Définissez une alerte qui vous informe quand le retard du réplica atteint une valeur inacceptable pour votre charge de travail. 
 

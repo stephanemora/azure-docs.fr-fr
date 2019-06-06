@@ -10,36 +10,36 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 82d49a6a82251f440c06db03edc92851fce87741
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: efa85491f4b183a044ec5d9e5e6e3d11eebedbe3
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65023631"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428437"
 ---
 # <a name="example-create-a-custom-skill-using-the-text-translate-api"></a>Exemple : créer une compétence personnalisée à l’aide de l’API Traduire le texte
 
-Cet exemple montre comment créer une compétence personnalisée d’API web qui accepte un texte dans une langue quelconque et le traduit en anglais. L’exemple utilise une [Fonction Azure](https://azure.microsoft.com/services/functions/) pour inclure dans un wrapper l’[API Traduire le texte](https://azure.microsoft.com/services/cognitive-services/translator-text-api/) de façon à ce qu’elle implémente l’interface de la compétence personnalisée.
+Dans cet exemple, découvrez comment créer une compétence personnalisé d’API web. Cette compétence acceptera le texte dans n’importe quel langage et le traduit en anglais. L’exemple utilise une [Fonction Azure](https://azure.microsoft.com/services/functions/) pour inclure dans un wrapper l’[API Traduire le texte](https://azure.microsoft.com/services/cognitive-services/translator-text-api/) de façon à ce qu’elle implémente l’interface de la compétence personnalisée.
 
 ## <a name="prerequisites"></a>Conditions préalables
 
-+ Si vous ne connaissez pas l’interface d’entrée/sortie qu’une compétence personnalisée doit implémenter, lisez l’article sur l’[interface de compétence personnalisée](cognitive-search-custom-skill-interface.md).
++ En savoir plus sur [interface de compétences personnalisées](cognitive-search-custom-skill-interface.md) article si vous n’êtes pas familiarisé avec l’interface d’entrée/sortie une compétence personnalisée doit implémenter.
 
 + [Inscrivez-vous pour l’API Traduire le texte](../cognitive-services/translator/translator-text-how-to-signup.md) afin d’obtenir une clé API permettant de l’utiliser.
 
-+ Installez [Visual Studio 2017 version 15.5](https://www.visualstudio.com/vs/) ou version ultérieure, incluant la charge de travail de développement Azure.
++ Installer [Visual Studio 2019](https://www.visualstudio.com/vs/) ou version ultérieure, y compris la charge de travail de développement Azure.
 
 ## <a name="create-an-azure-function"></a>Création d’une fonction Azure
 
-Bien que cet exemple utilise une Fonction Azure pour héberger une API web, elle n’est pas indispensable.  Pour autant que vous respectiez les [exigences d’interface pour une compétence cognitive](cognitive-search-custom-skill-interface.md), l’approche que vous adoptez est sans importance. Toutefois, Azure Functions facilite la création d’une compétence personnalisée.
+Bien que cet exemple utilise une fonction Azure pour héberger une API web, il n’est pas nécessaire.  Pour autant que vous respectiez les [exigences d’interface pour une compétence cognitive](cognitive-search-custom-skill-interface.md), l’approche que vous adoptez est sans importance. Toutefois, Azure Functions facilite la création d’une compétence personnalisée.
 
 ### <a name="create-a-function-app"></a>Créer une application de fonction
 
 1. Dans Visual Studio, dans le menu Fichier, sélectionnez **Nouveau** > **Projet**.
 
-1. Dans la boîte de dialogue Nouveau projet, sélectionnez **Installé**, développez **Visual C#** > **Cloud**, sélectionnez **Azure Functions**, tapez un Nom pour votre projet, puis cliquez sur **OK**. Le nom d’application de la fonction doit être valide en tant qu’espace de noms C#, afin de ne pas utiliser des traits d’union, des traits de soulignement ou d’autres caractères non alphanumériques.
+1. Dans la boîte de dialogue Nouveau projet, sélectionnez **Installé**, développez **Visual C#**  > **Cloud**, sélectionnez **Azure Functions**, tapez un Nom pour votre projet, puis cliquez sur **OK**. Le nom d’application de la fonction doit être valide en tant qu’espace de noms C#, afin de ne pas utiliser des traits d’union, des traits de soulignement ou d’autres caractères non alphanumériques.
 
-1. Sélectionnez **v2 d’Azure Functions (.NET Core)**. Vous pouvez également utiliser la version 1, mais le code écrit ci-dessous est basé sur le modèle v2.
+1. Sélectionnez **v2 d’Azure Functions (.NET Core)** . Vous pouvez également utiliser la version 1, mais le code écrit ci-dessous est basé sur le modèle v2.
 
 1. Sélectionnez le type **Déclencheur HTTP**
 
@@ -195,7 +195,7 @@ Cet exemple est un enrichisseur simple qui ne fonctionne que sur un enregistreme
 
 ## <a name="test-the-function-from-visual-studio"></a>Tester la fonction à partir de Visual Studio
 
-Appuyez sur **F5** pour exécuter le programme et tester le comportement de la fonction. Dans ce cas, nous allons utiliser la fonction ci-dessous pour traduire un texte de l’espagnol vers l’anglais. Utilisez Postman ou Fiddler pour émettre un appel tel que celui ci-dessous :
+Appuyez sur **F5** pour exécuter le programme et tester le comportement de la fonction. Dans ce cas, nous allons utiliser la fonction ci-dessous pour traduire un texte en espagnol vers l’anglais. Utilisez Postman ou Fiddler pour émettre un appel tel que celui ci-dessous :
 
 ```http
 POST https://localhost:7071/api/Translate
@@ -235,11 +235,11 @@ Vous devriez voir une réponse similaire à l’exemple suivant :
 
 ## <a name="publish-the-function-to-azure"></a>Publier la fonction sur Azure
 
-Lorsque vous êtes satisfait du comportement de la fonction, vous pouvez la publier.
+Lorsque vous êtes satisfait avec le comportement de la fonction, vous pouvez le publier.
 
 1. Dans **l’Explorateur de solutions**, cliquez avec le bouton droit sur le projet, puis sélectionnez **Publier**. Choisissez **Créer** > **Publier**.
 
-1. Si vous n’avez pas encore connecté Visual Studio à votre compte Azure, sélectionnez **Ajouter un compte...**.
+1. Si vous n’avez pas encore connecté Visual Studio à votre compte Azure, sélectionnez **Ajouter un compte...** .
 
 1. Suivez les invitations qui s’affichent à l’écran. Vous êtes invité à spécifier le compte Azure, le groupe de ressources, le plan d’hébergement et le compte de stockage que vous souhaitez utiliser. Si vous n’en avez pas de groupe de ressources, de plan d’hébergement et de compte de stockage, vous pouvez les créer. Quand vous avez terminé, sélectionnez **Créer**.
 
@@ -270,7 +270,7 @@ POST https://translatecogsrch.azurewebsites.net/api/Translate?code=[enter defaul
 }
 ```
 
-Cela devrait produire un résultat similaire à celui que vous avez obtenu précédemment lors de l’exécution de la fonction dans l’environnement local.
+Cet exemple doit produire un résultat similaire à celle que vous l’avez vu précédemment lors de l’exécution de la fonction dans l’environnement local.
 
 ## <a name="connect-to-your-pipeline"></a>Connexion à votre pipeline
 À présent que vous avez une nouvelle compétence personnalisée, vous pouvez l’ajouter à vos jeu de compétences. L’exemple ci-dessous montre comment appeler la compétence. Comme la compétence ne gère pas les lots, ajoutez une instruction pour définir la taille maximale de lot sur ```1``` afin d’envoyer les documents un par un.

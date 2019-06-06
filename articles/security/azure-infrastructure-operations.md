@@ -1,8 +1,8 @@
 ---
-title: Opérations et administration du réseau de production Azure
-description: Cet article fournit une description générale de l’administration et du fonctionnement du réseau de production Azure.
+title: Gestion de réseau de production Azure - Microsoft Azure
+description: Cet article décrit la façon dont Microsoft gère et exploite le réseau de production Azure pour sécuriser les centres de données Azure.
 services: security
-documentationcenter: na
+documentationcenter: n
 author: TerryLanfear
 manager: barbkess
 editor: TomSh
@@ -12,16 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/28/2018
+ms.date: 05/30/2019
 ms.author: terrylan
-ms.openlocfilehash: 0099eb61d97f813f7adca320b47c195fa1aabbdc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 515896851c5bf7b9c847416ebadedf1242e0eeb9
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60591473"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428263"
 ---
-# <a name="azure-production-operations-and-management"></a>Opérations et administration du réseau de production Azure    
+# <a name="management-and-operation-of-the-azure-production-network"></a>Gestion et le fonctionnement du réseau de production Azure    
+Cet article décrit la façon dont Microsoft gère et exploite le réseau de production Azure pour sécuriser les centres de données Azure.
+
+## <a name="monitor-log-and-report"></a>Analyse, les journaux et les rapports
+
 Pour administrer et faire fonctionner le réseau de production Azure, les équipes des opérations Azure et Azure SQL Database doivent coordonner leurs efforts. Ces dernières utilisent plusieurs outils de monitoring des performances système et d’application dans l’environnement. Elles utilisent également les outils appropriés pour superviser les appareils réseau, les serveurs, les services et les processus d’application.
 
 Pour garantir une exécution sécurisée des services qui s’exécutent dans l’environnement Microsoft Azure, les équipes d’opérations implémentent plusieurs niveaux de monitoring, de journalisation et de création de rapports, notamment les actions suivantes :

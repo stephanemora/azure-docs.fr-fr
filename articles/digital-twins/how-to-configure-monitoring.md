@@ -6,15 +6,15 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 12/26/2018
+ms.date: 06/03/2018
 ms.author: v-adgera
 ms.custom: seodec18
-ms.openlocfilehash: 3c35633c9b25eafdb738ed591c7c7022fbd8149a
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 9765af13a22a0ae9db8a45c396e7d5a32b71b79c
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65967823"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66730319"
 ---
 # <a name="how-to-configure-monitoring-in-azure-digital-twins"></a>Guide pratique pour configurer la supervision dans Azure Digital Twins
 
@@ -40,17 +40,17 @@ La journalisation de l’activité pour Azure Digital Twins est activée par dé
 1. Sélectionnant votre instance Azure Digital Twins.
 1. Choisissant **Journal d’activité** pour afficher le panneau d’affichage :
 
-    ![Journal d’activité][1]
+    [![Journal d’activité](media/how-to-configure-monitoring/activity-log.png)](media/how-to-configure-monitoring/activity-log.png#lightbox)
 
 Pour la journalisation de l’activité avancée :
 
 1. Sélectionnez l’option **Journaux d’activité** pour afficher la **Vue d’ensemble d’Activity Log Analytics** :
 
-    ![Sélection][2]
+    [![Selection](media/how-to-configure-monitoring/activity-log-select.png)](media/how-to-configure-monitoring/activity-log-select.png#lightbox)
 
 1. La **Vue d’ensemble de l’analytique des journaux d’activité** récapitule les principales données du journal d’activité :
 
-    ![Vue d’ensemble de Log Analytics][3]
+    [![Vue d’ensemble d’analytique de journal des activités]( media/how-to-configure-monitoring/log-analytics-overview.png)]( media/how-to-configure-monitoring/log-analytics-overview.png#lightbox)
 
 >[!TIP]
 >Utilisez **Journaux d’activité** pour obtenir des insights rapides sur les événements de niveau abonnement.
@@ -70,12 +70,12 @@ Pour activer les journaux de diagnostic pour une instance :
 1. Affichez la ressource dans le portail Azure.
 1. Cliquez sur **Paramètres de diagnostic** :
 
-    ![Paramètres de diagnostic (1)][4]
+    [![Paramètres de diagnostics un](media/how-to-configure-monitoring/diagnostic-settings-one.png)](media/how-to-configure-monitoring/diagnostic-settings-one.png#lightbox)
 
 1. Cliquez sur **Activer les diagnostics** pour collecter des données (s’ils n’étaient pas activés).
 1. Renseignez les champs demandés et sélectionnez comment et où les données doivent être enregistrées :
 
-    ![Paramètres de diagnostic (2)][5]
+    [![Deux paramètres de diagnostic](media/how-to-configure-monitoring/diagnostic-settings-two.png)](media/how-to-configure-monitoring/diagnostic-settings-two.png#lightbox)
 
     Journaux de diagnostic sont souvent enregistrés à l’aide de [stockage fichier Azure](../storage/files/storage-files-deployment-guide.md) et partagées avec [Azure Monitor enregistre](../azure-monitor/log-query/get-started-portal.md). Les deux options peuvent être sélectionnées.
 
@@ -99,24 +99,24 @@ Interrogation du journal complet est fourni via [Azure Monitor enregistre](../az
 1. Recherchez **Log Analytics** dans le portail Azure.
 1. Vous verrez votre disponible **espace de travail Analytique de journal** instances. Choisissez-en une et sélectionnez les **Journaux d’activité** à interroger :
 
-    ![Log Analytics][6]
+    [![Analytique de journal](media/how-to-configure-monitoring/log-analytics.png)](media/how-to-configure-monitoring/log-analytics.png#lightbox)
 
 1. Si vous n’avez pas déjà un **espace de travail Analytique de journal** instance, vous pouvez créer un espace de travail en cliquant sur le **ajouter** bouton :
 
-    ![Créer un espace de travail OMS][7]
+    [![Créer OMS](media/how-to-configure-monitoring/log-analytics-oms.png)](media/how-to-configure-monitoring/log-analytics-oms.png#lightbox)
 
 Une fois votre **espace de travail Analytique de journal** instance est approvisionnée, vous pouvez utiliser des requêtes puissantes pour rechercher des entrées dans les journaux de multiples ou à l’aide des critères spécifiques à l’aide de **gestion des journaux**:
 
-   ![Gestion du journal][8]
+   [![Gestion des journaux](media/how-to-configure-monitoring/log-analytics-management.png)](media/how-to-configure-monitoring/log-analytics-management.png#lightbox)
 
 Pour plus d’informations sur les opérations de requêtes puissantes, consultez [Bien démarrer avec les requêtes](../azure-monitor/log-query/get-started-queries.md).
 
 > [!NOTE]
 > Vous pouvez rencontrer un délai de 5 minutes lors de l’envoi d’événements à **espace de travail Analytique de journal** pour la première fois.
 
-Journaux d’Azure Monitor fournit également des erreurs puissante et les services de notification d’alerte, qui peuvent être affichés en cliquant sur **diagnostiquer et résoudre les problèmes**:
+Journaux d’analyse Azure fournissent également erreur puissants et des services de notification d’alerte, qui peuvent être affichés en cliquant sur **diagnostiquer et résoudre les problèmes**:
 
-   ![Notifications d’alerte et d’erreur][9]
+   [![Notifications d’alerte et d’erreur](media/how-to-configure-monitoring/log-analytics-notifications.png)](media/how-to-configure-monitoring/log-analytics-notifications.png#lightbox)
 
 >[!TIP]
 >Utilisez **espace de travail Analytique de journal** à historiques de journal de requête pour plusieurs fonctionnalités de l’application, les abonnements ou les services.
@@ -132,14 +132,3 @@ Azure Digital Twins prend également en charge la journalisation et l’audit de
 - Approfondissez votre connaissance des paramètres de diagnostic Azure en lisant une [présentation des journaux de diagnostic](../azure-monitor/platform/diagnostic-logs-overview.md).
 
 - En savoir plus sur [Azure Monitor enregistre](../azure-monitor/log-query/get-started-portal.md).
-
-<!-- Images -->
-[1]: media/how-to-configure-monitoring/activity-log.png
-[2]: media/how-to-configure-monitoring/activity-log-select.png
-[3]: media/how-to-configure-monitoring/log-analytics-overview.png
-[4]: media/how-to-configure-monitoring/diagnostic-settings-one.png
-[5]: media/how-to-configure-monitoring/diagnostic-settings-two.png
-[6]: media/how-to-configure-monitoring/log-analytics.png
-[7]: media/how-to-configure-monitoring/log-analytics-oms.png
-[8]: media/how-to-configure-monitoring/log-analytics-management.png
-[9]: media/how-to-configure-monitoring/log-analytics-notifications.png

@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 11/19/2018
 ms.author: ramkris
-ms.openlocfilehash: 4f2d8b3246901f139695998224dfe036cccb9833
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 74eddadd7fd967daa1eebb9d7cb223fdc708025f
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60627148"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66471426"
 ---
 # <a name="net-bulk-executor-library-download-information"></a>Bibliothèque d’exécuteurs en bloc .NET : Télécharger des informations 
 
@@ -42,6 +42,18 @@ ms.locfileid: "60627148"
 
 ## <a name="release-notes"></a>Notes de publication
 
+### <a name="a-name230-preview2230-preview2"></a><a name="2.3.0-preview2"/>2.3.0-preview2
+
+* Prise en charge ajoutée pour l’exécuteur en bloc de graphique accepter la durée de vie sur les vertex et bords
+
+### <a name="a-name220-preview2220-preview2"></a><a name="2.2.0-preview2"/>2.2.0-preview2
+
+* Résolution du problème, qui ont provoqué des exceptions lors de l’échelle élastique d’Azure Cosmos DB lors de l’exécution en mode passerelle. Ce correctif est fonctionnellement équivalent à 1.4.1 mise en production.
+
+### <a name="a-name210-preview2210-preview2"></a><a name="2.1.0-preview2"/>2.1.0-preview2
+
+* Ajout de suppressions en bloc prennent en charge pour les comptes d’API SQL accepter la clé de partition, les tuples d’id de document à supprimer. Cette modification rend fonctionnellement équivalent à 1.4.0 mise en production.
+
 ### <a name="a-name200-preview2200-preview2"></a><a name="2.0.0-preview2"/>2.0.0-preview2
 
 * Ajout de MongoBulkExecutor pour prendre en charge .NET Standard 2.0. Cette fonctionnalité le rend fonctionnellement équivalent à la version 1.3.0, avec l’ajout de la prise en charge de .NET Standard 2.0 comme framework cible.
@@ -50,10 +62,24 @@ ms.locfileid: "60627148"
 
 * Ajout de .NET Standard 2.0 comme l’un des frameworks cibles pris en charge pour que la bibliothèque BulkExecutor fonctionne avec les applications .NET Core.
 
+### <a name="a-name160160"></a><a name="1.6.0"/>1.6.0
+
+* Mise à jour de l’exécuteur en bloc pour à présent utiliser la dernière version du SDK Azure Cosmos DB .NET (2.4.0)
+
+### <a name="a-name150150"></a><a name="1.5.0"/>1.5.0
+
+* Prise en charge ajoutée pour l’exécuteur en bloc de graphique accepter la durée de vie sur les vertex et bords
+
+### <a name="a-name141141"></a><a name="1.4.1"/>1.4.1
+
+* Résolution du problème, qui ont provoqué des exceptions lors de l’échelle élastique d’Azure Cosmos DB lors de l’exécution en mode passerelle.
+
+### <a name="a-name140140"></a><a name="1.4.0"/>1.4.0
+
+* Ajout de suppressions en bloc prennent en charge pour les comptes d’API SQL accepter la clé de partition, les tuples d’id de document à supprimer.
+
 ### <a name="a-name130130"></a><a name="1.3.0"/>1.3.0
 
-* Ajout d’une surcharge pour l’opération BulkDelete afin que les comptes d’API SQL acceptent la clé de partition et les tuples d’id de document à supprimer.
-* Ajout d’une surcharge pour l’opération BulkDelete afin que les comptes d’API SQL acceptent les RequestOptions contenant la clé de partition spécifiant la valeur de la clé de partition, en plus de son utilisation comme filtre dans la requête d’entrée spécifiant les documents à supprimer.
 * Résolution d’un problème qui provoquait un problème de mise en forme dans l’agent utilisateur utilisé par BulkExecutor.
 
 ### <a name="a-name120120"></a><a name="1.2.0"/>1.2.0

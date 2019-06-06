@@ -12,12 +12,12 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 02/24/2019
 ms.author: glenga
-ms.openlocfilehash: 635e72a8e8a70b8885afea282511fbfaf24d2f94
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: a021ed2be3a94add7500a98d71a962bb580078e9
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65957335"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66729465"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guide des développeurs JavaScript sur Azure Functions
 
@@ -110,7 +110,7 @@ Dans JavaScript, les [liaisons](functions-triggers-bindings.md) sont configurée
 
 ### <a name="inputs"></a>Entrées
 Les entrées sont réparties en deux catégories dans Azure Functions : l’une correspond à l’entrée du déclencheur et l’autre, à l’entrée supplémentaire. Le déclencheur et autres liaisons d’entrée (liaisons de `direction === "in"`) peuvent être lus par une fonction de trois façons :
- - **_[Recommandé]_  En tant que paramètres transmis à votre fonction.** Elles sont transmises à la fonction dans l’ordre dans lequel elles sont définies dans le fichier *function.json*. Le `name` propriété définie dans *function.json* pas nécessairement correspondre au nom de votre paramètre, bien qu’il le devrait.
+ - ** _[Recommandé]_  En tant que paramètres transmis à votre fonction.** Elles sont transmises à la fonction dans l’ordre dans lequel elles sont définies dans le fichier *function.json*. Le `name` propriété définie dans *function.json* pas nécessairement correspondre au nom de votre paramètre, bien qu’il le devrait.
  
    ```javascript
    module.exports = async function(context, myTrigger, myInput, myOtherInput) { ... };
@@ -141,7 +141,7 @@ Une fonction peut écrire des données dans les sorties (liaisons de `direction 
 
 Vous pouvez affecter des données aux liaisons de sortie de l’une des manières suivantes (ne pas de combiner ces méthodes) :
 
-- **_[Recommandé pour plusieurs sorties]_  Retourner un objet.** Si vous utilisez un async/promesse retour de fonction, vous pouvez retourner un objet avec les données de sortie attribué. Dans l’exemple ci-dessous, les liaisons de sortie sont nommées « httpResponse » et « queueOutput » dans *function.json*.
+- ** _[Recommandé pour plusieurs sorties]_  Retourner un objet.** Si vous utilisez un async/promesse retour de fonction, vous pouvez retourner un objet avec les données de sortie attribué. Dans l’exemple ci-dessous, les liaisons de sortie sont nommées « httpResponse » et « queueOutput » dans *function.json*.
 
   ```javascript
   module.exports = async function(context) {
@@ -156,7 +156,7 @@ Vous pouvez affecter des données aux liaisons de sortie de l’une des manière
   ```
 
   Si vous utilisez une fonction synchrone, vous pouvez retourner cet objet à l’aide de [`context.done`](#contextdone-method) (voir l’exemple).
-- **_[Recommandé en cas de sortie unique]_  Retourner une valeur directement et utiliser le nom de la liaison $return.** Cela fonctionne uniquement pour les fonctions de retour async/Promise. Voir l’exemple dans l’[exportation en tant que fonction asynchrone](#exporting-an-async-function). 
+- ** _[Recommandé en cas de sortie unique]_  Retourner une valeur directement et utiliser le nom de la liaison $return.** Cela fonctionne uniquement pour les fonctions de retour async/Promise. Voir l’exemple dans l’[exportation en tant que fonction asynchrone](#exporting-an-async-function). 
 - **Assigner des valeurs à `context.bindings`** Vous pouvez affecter des valeurs directement à context.bindings.
 
   ```javascript
@@ -273,7 +273,7 @@ context.log(message)
 Vous permet d’écrire dans les journaux d’activité de fonction de streaming au niveau de trace par défaut. Des méthodes de journalisation supplémentaires sont disponibles sur `context.log` pour vous permettre d’écrire des journaux d’activité de fonction à d’autres niveaux de trace :
 
 
-| Méthode                 | Description                                 |
+| Méthode                 | Description                                |
 | ---------------------- | ------------------------------------------ |
 | **error(_message_)**   | Écrit dans la journalisation du niveau d’erreur, ou à un niveau inférieur.   |
 | **warn(_message_)**    | Écrit dans la journalisation du niveau d’avertissement, ou à un niveau inférieur. |
@@ -350,7 +350,7 @@ Les déclencheurs HTTP et webhook ainsi que les liaisons de sortie HTTP utilisen
 
 L’objet (de demande) `context.req` comporte les propriétés suivantes :
 
-| Propriété      | Description                                                     |
+| Propriété      | Description                                                    |
 | ------------- | -------------------------------------------------------------- |
 | _body_        | Objet qui contient le corps de la demande.               |
 | _headers_     | Objet qui contient les en-têtes de la demande.                   |
@@ -365,7 +365,7 @@ L’objet (de demande) `context.req` comporte les propriétés suivantes :
 
 L’objet (de réponse) `context.res` comporte les propriétés suivantes :
 
-| Propriété  | Description                                                |
+| Propriété  | Description                                               |
 | --------- | --------------------------------------------------------- |
 | _body_    | Objet qui contient le corps de la réponse.         |
 | _headers_ | Objet qui contient les en-têtes de la réponse.             |
@@ -397,9 +397,9 @@ Quand vous utilisez des déclencheurs HTTP, de nombreuses méthodes vous permett
     ```javascript
     context.bindings.response = { status: 201, body: "Insert succeeded." };
     ```
-+ **_[Réponse uniquement]_ En appelant `context.res.send(body?: any)`.** Une réponse HTTP est créée avec l’entrée `body` comme corps de réponse. `context.done()` est appelé de manière implicite.
++ ** _[Réponse uniquement]_ En appelant `context.res.send(body?: any)`.** Une réponse HTTP est créée avec l’entrée `body` comme corps de réponse. `context.done()` est appelé de manière implicite.
 
-+ **_[Réponse uniquement]_ En appelant `context.done()`.** Un type spécial de liaison HTTP renvoie la réponse transmise à la méthode `context.done()`. La liaison de sortie HTTP suivante définit un paramètre de sortie `$return` :
++ ** _[Réponse uniquement]_ En appelant `context.done()`.** Un type spécial de liaison HTTP renvoie la réponse transmise à la méthode `context.done()`. La liaison de sortie HTTP suivante définit un paramètre de sortie `$return` :
 
     ```json
     {
@@ -465,23 +465,16 @@ Vous pouvez installer des packages sur votre application de fonction de deux fa�
 
 ## <a name="environment-variables"></a>Variables d’environnement
 
-Dans Functions, les [paramètres de l’application](functions-app-settings.md), par exemple, les chaînes de connexion de service, sont exposées en tant que variables d’environnement pendant l’exécution. Vous pouvez accéder à ces paramètres à l’aide de `process.env`, comme illustré ici dans la fonction `GetEnvironmentVariable` :
+Dans Functions, les [paramètres de l’application](functions-app-settings.md), par exemple, les chaînes de connexion de service, sont exposées en tant que variables d’environnement pendant l’exécution. Vous pouvez accéder à ces paramètres à l’aide de `process.env`, comme illustré ici dans les appels de deuxième et troisième à `context.log()` où nous allons nous connecter le `AzureWebJobsStorage` et `WEBSITE_SITE_NAME` variables d’environnement :
 
 ```javascript
-module.exports = function (context, myTimer) {
+module.exports = async function (context, myTimer) {
     var timeStamp = new Date().toISOString();
 
     context.log('Node.js timer trigger function ran!', timeStamp);
-    context.log(GetEnvironmentVariable("AzureWebJobsStorage"));
-    context.log(GetEnvironmentVariable("WEBSITE_SITE_NAME"));
-
-    context.done();
+    context.log("AzureWebJobsStorage: " + process.env["AzureWebJobsStorage"]);
+    context.log("WEBSITE_SITE_NAME: " + process.env["WEBSITE_SITE_NAME"]);
 };
-
-function GetEnvironmentVariable(name)
-{
-    return name + ": " + process.env[name];
-}
 ```
 
 [!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]

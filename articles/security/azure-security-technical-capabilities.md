@@ -1,6 +1,6 @@
 ---
-title: Fonctionnalités techniques de la sécurité Azure | Microsoft Docs
-description: Découvrez les services informatiques cloud qui incluent une large sélection d’instances de calcul et de services pouvant être mis à l’échelle automatiquement pour répondre aux besoins de votre application ou de votre entreprise.
+title: Fonctions techniques de sécurité dans Azure - Microsoft Azure
+description: Introduction aux services de sécurité dans Azure qui vous aident à vous protéger des données, des ressources et des applications dans le cloud.
 services: security
 documentationcenter: na
 author: UnifyCloud
@@ -12,18 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 05/31/2019
 ms.author: TomSh
-ms.openlocfilehash: c904d8306c145bad57ca7d77b139a2ad6d216b0b
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 2dad1caeba8a0417b7ac16ebaa45f4f291f54495
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62121553"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66480697"
 ---
 # <a name="azure-security-technical-capabilities"></a>Fonctionnalités techniques de la sécurité Azure
-
-Afin d’aider les clients Azure, actuels et futurs, à comprendre et à utiliser les différentes fonctionnalités de sécurité qui sont disponibles dans et autour de la plateforme Azure, Microsoft a développé une série de livres blancs, de présentations, de bonnes pratiques et de listes de vérifications sur la sécurité. Les rubriques sont aussi précises que variées et sont mises à jour régulièrement. Ce document fait partie de cette série, comme mentionné dans la section Résumé ci-dessous. Des informations complémentaires sur cette série consacrée à la sécurité Azure sont mises à votre disposition à cette adresse (URL).
+Cet article fournit une introduction à la sécurité dans Azure, les services qui vous aident à vous protéger les données, des ressources et des applications dans le cloud et répondre aux besoins de sécurité de votre entreprise.
 
 ## <a name="azure-platform"></a>Plateforme Azure
 
@@ -41,29 +40,19 @@ Avec Microsoft Azure, vous pouvez :
 
 - Protéger vos activités.
 
-## <a name="scope"></a>Étendue
+## <a name="security-technical-capabilities-to-fulfil-your-responsibility"></a>Fonctions techniques de sécurité de votre responsabilité de remplir
 
-L’idée-force de ce livre blanc s’intéresse aux fonctions et fonctionnalités de sécurité prenant en charge les composants essentiels de Microsoft Azure, c’est-à-dire [Stockage Microsoft Azure](https://docs.microsoft.com/azure/storage/storage-introduction), [Microsoft Azure SQL Database](https://docs.microsoft.com/azure/sql-database/), le [modèle de machine virtuelle de Microsoft Azure](https://docs.microsoft.com/azure/virtual-machines/), ainsi que les outils et l’infrastructure qui les gèrent tous. Ce livre blanc cible principalement les fonctionnalités techniques de Microsoft Azure qui sont mises à votre disposition et à celle de vos clients pour protéger la sécurité et la confidentialité de leurs données.
-
-L’importance de comprendre ce modèle de responsabilité partagée est vitale pour les clients qui migrent vers le cloud. Les fournisseurs de cloud offrent des avantages considérables en termes d’efforts sur la conformité et la sécurité, mais ces avantages ne soustraient pas le client à sa responsabilité de protection de ses utilisateurs, de ses applications et de ses offres de service.
-
-En ce qui concerne les solutions IaaS, le client est responsable ou partage la responsabilité pour ce qui est de la sécurisation et de la gestion du système d’exploitation, de la configuration réseau, des applications, de l’identité, des clients et des données.  Les solutions PaaS s’élaborent sur des déploiements IaaS, le client est toujours responsable ou a une part de responsabilité au niveau de la sécurisation et de la gestion des applications, de l’identité, des clients et des données. Pour les solutions SaaS, cela étant, la responsabilité du client continue d’être engagée. Il doit s’assurer que les données sont classées correctement, et partage une responsabilité de gestion de ses utilisateurs et de ses appareils de point de terminaison.
-
-Ce document ne traite pas en détail les composants de la plateforme Microsoft Azure connexes, tels que Sites Web Microsoft Azure, Azure Active Directory, HDInsight, Media Services et d’autres services qui viennent s’ajouter aux composants de base. Même si un minimum d’informations générales sont données ici, les lecteurs sont censés connaître les concepts fondamentaux d’Azure, tels que décrits dans les autres documentations de référence fournies par Microsoft et incluses dans les liens indiqués dans ce livre blanc.
-
-## <a name="available-security-technical-capabilities-to-fulfil-user-customer-responsibility---big-picture"></a>Fonctionnalités techniques de sécurité disponibles pour s’acquitter de la responsabilité de l’utilisateur (client) - Vue d’ensemble
-
-Microsoft Azure fournit des services qui permettent aux clients de répondre aux besoins de sécurité, de confidentialité et de conformité. L’illustration suivante explique les différents services Azure mis à la disposition des utilisateurs pour créer une infrastructure d’applications sécurisée et conforme, s’appuyant sur des normes industrielles.
+Microsoft Azure fournit des services qui vous aident à répondre à vos besoins de sécurité, confidentialité et de conformité. L’image suivante explique les divers services Azure disponibles pour vous permettre de créer une infrastructure d’applications sécurisée et conforme selon les normes du secteur.
 
 ![Fonctionnalités techniques de sécurité disponibles - Vue d’ensemble](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig1.png)
 
-## <a name="manage-and-control-identity-and-user-access-protect"></a>Gérer et contrôler l’identité et l’accès utilisateur (protection)
+## <a name="manage-and-control-identity-and-user-access"></a>Gérer et contrôler l’identité et l’accès utilisateur
 
 Azure vous aide à protéger les informations professionnelles et personnelles en vous permettant de gérer les informations d’identification et les identités des utilisateurs, et d’en contrôler l’accès.
 
 ### <a name="azure-active-directory"></a>Azure Active Directory
 
-Les solutions de gestion des identités et accès de Microsoft aident les services informatiques à protéger l’accès aux applications et ressources dans le centre de données d’entreprise comme dans le cloud, en activant des niveaux supplémentaires de validation telles que l’authentification multifacteur et les stratégies d’accès conditionnel. En surveillant les activités suspectes via les fonctions avancées de reporting, d’audit et d’alertes de sécurité, vous êtes en mesure de limiter les problèmes de sécurité potentiels. [Azure Active Directory Premium](https://docs.microsoft.com/azure/active-directory/active-directory-editions) fournit une authentification unique à des milliers d’applications cloud (SaaS) et assure un accès aux applications web que vous exécutez en local.
+Les solutions de gestion des identités et accès de Microsoft aident les services informatiques à protéger l’accès aux applications et ressources dans le centre de données d’entreprise comme dans le cloud, en activant des niveaux supplémentaires de validation telles que l’authentification multifacteur et les stratégies d’accès conditionnel. En surveillant les activités suspectes via les fonctions avancées de reporting, d’audit et d’alertes de sécurité, vous êtes en mesure de limiter les problèmes de sécurité potentiels. [Azure Active Directory Premium](https://docs.microsoft.com/azure/active-directory/active-directory-editions) fournit l’authentification unique à des milliers d’applications cloud et l’accès aux applications web que vous exécutez en local.
 
 Azure Active Directory (Azure AD) présente de nombreux avantages en termes de sécurité :
 
@@ -75,11 +64,11 @@ Azure Active Directory (Azure AD) présente de nombreux avantages en termes de s
 
 - Accès à distance sécurisé aux applications web locales via le proxy d’application Azure AD
 
-Le [portail Azure Active Directory](https://aad.portal.azure.com/) fait partie du portail Azure. À partir de ce tableau de bord, vous pouvez obtenir une vue d’ensemble de l’état de votre organisation et vous plonger facilement dans la gestion des accès aux annuaires, aux utilisateurs ou aux applications.
+Le [portail Azure Active Directory](https://aad.portal.azure.com/) est disponible dans le cadre du portail Azure. À partir de ce tableau de bord, vous pouvez obtenir une vue d’ensemble de l’état de votre organisation et gérer facilement l’annuaire, les utilisateurs ou les accès aux applications.
 
 ![Azure Active Directory](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig2.png)
 
-Voici les principales fonctionnalités de gestion des identités Azure :
+Voici les principales fonctionnalités de gestion des identités Azure :
 
 - Authentification unique
 
@@ -99,7 +88,7 @@ Voici les principales fonctionnalités de gestion des identités Azure :
 
 Avec l’[authentification unique (SSO)](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/), vous pouvez accéder à toutes les applications et à toutes les ressources dont vous avez besoin pour travailler, en vous connectant une seule fois avec un seul compte d’utilisateur. Une fois connecté, vous accédez à toutes les applications qui vous sont indispensables, sans avoir besoin de vous réauthentifier (par exemple, en tapant un mot de passe).
 
-De nombreuses entreprises s’appuient sur des applications SaaS, comme Office 365, Box et Salesforce, pour accroître la productivité des utilisateurs finaux. Historiquement, le personnel informatique devait créer et mettre à jour chaque compte d’utilisateur dans chaque application SaaS et les utilisateurs devaient mémoriser un mot de passe pour chaque application SaaS.
+De nombreuses organisations s’appuient sur une application de service (SaaS) tels que Office 365, Box et Salesforce pour la productivité des utilisateurs. Historiquement, le personnel informatique devait créer et mettre à jour chaque compte d’utilisateur dans chaque application SaaS et les utilisateurs devaient mémoriser un mot de passe pour chaque application SaaS.
 
 [Azure AD étend Active Directory local dans le cloud](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis), ce qui permet aux utilisateurs d’utiliser leur compte professionnel principal, non seulement pour se connecter à leurs appareils liés au domaine et aux ressources de l’entreprise, mais aussi à toutes les applications SaaS et web nécessaires à leur travail.
 
@@ -107,7 +96,7 @@ Non seulement les utilisateurs n’ont plus besoin de gérer plusieurs noms d’
 
 #### <a name="multi-factor-authentication"></a>Authentification multifacteur
 
-[Azure Multi-Factor Authentication (MFA)](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication) est une méthode d’authentification qui nécessite l’utilisation de plusieurs méthodes de vérification et ajoute une deuxième couche critique de sécurité aux connexions et transactions des utilisateurs. [MFA contribue à sécuriser](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-how-it-works) l’accès aux données et aux applications tout en répondant à la demande des utilisateurs souhaitant un processus d’authentification simple. Cette méthode fournit une authentification forte par le biais de diverses options de vérification : appel téléphonique, SMS, notification par application mobile ou code de vérification et jetons OAuth tiers.
+[Azure multi-Factor Authentication (MFA)](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication) est une méthode d’authentification qui requiert l’utilisation de plusieurs méthodes de vérification et ajoute une deuxième couche critique de sécurité aux connexions utilisateur et des transactions. [MFA contribue à sécuriser](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-how-it-works) l’accès aux données et aux applications tout en répondant à la demande des utilisateurs souhaitant un processus d’authentification simple. Cette méthode fournit une authentification forte par le biais de diverses options de vérification : appel téléphonique, SMS, notification par application mobile ou code de vérification et jetons OAuth tiers.
 
 #### <a name="security-monitoring-alerts-and-machine-learning-based-reports"></a>Surveillance de la sécurité, alertes et rapports Machine Learning
 
@@ -117,11 +106,11 @@ Dans le portail Azure ou le [portail Azure Active Directory](https://aad.portal.
 
 - Rapports d’anomalies : contiennent les événements de connexion qui peuvent nous sembler anormaux. Notre objectif est de vous faire part de ces activités et de vous permettre de décider si un événement est suspect.
 
-- Rapports d’application intégrée : fournissent des indications sur l’utilisation des applications du cloud au sein de votre société. Azure Active Directory permet d’intégrer des milliers d'applications du cloud.
+- Rapports d’application intégrée : fournissent des informations sur l’utilisation des applications cloud dans votre organisation. Azure Active Directory permet d’intégrer des milliers d'applications du cloud.
 
 - Rapports d’erreurs : indiquent les erreurs qui peuvent survenir lors de la configuration de comptes sur des applications externes.
 
-- Rapports spécifiques à l’utilisateur : affichent les données d’activité relatives aux appareils/connexions d’un utilisateur spécifique.
+- Rapports propres aux utilisateurs – périphérique d’affichage et connectez-vous aux données d’activité pour un utilisateur spécifique.
 
 - Journaux d’activité : contiennent un enregistrement de tous les événements audités durant les dernières 24 heures, les derniers 7 jours ou les derniers 30 jours, des modifications d’activité de groupes, et des activités d’enregistrement et de réinitialisation de mot de passe.
 
@@ -159,7 +148,7 @@ Grâce à Azure AD Privileged Identity Management, vous pouvez :
 
 [Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) est un service de sécurité offrant une vue centralisée des événements à risque et des vulnérabilités potentielles qui affectent les identités de votre organisation. Identity Protection utilise des fonctionnalités existantes de détection des anomalies d’Azure Active Directory (disponibles via les rapports d’activités anormales d’Azure AD) et introduit de nouveaux types d’événements à risque capables de détecter les anomalies en temps réel.
 
-## <a name="secured-resource-access-in-azure"></a>Accès des ressources sécurisées dans Azure
+## <a name="secure-resource-access"></a>Sécuriser l’accès aux ressources
 
 Le contrôle des accès dans Azure s’envisage d’abord dans une perspective de facturation. Le propriétaire d’un compte Azure accessible par le biais du [Centre des comptes Azure](https://account.windowsazure.com/subscriptions) est l’administrateur de compte. Les abonnements sont un conteneur de facturation, mais ils constituent également une limite de sécurité : chaque abonnement a un administrateur de service qui peut ajouter, supprimer et modifier des ressources Azure dans cet abonnement à l’aide du portail Azure. L'administrateur de sécurité par défaut d'un nouvel abonnement est l'administrateur de compte, mais ce dernier peut modifier l'administrateur de sécurité dans le Centre des comptes Azure.
 
@@ -175,7 +164,7 @@ Avec le contrôle d’accès en fonction du rôle, vous pouvez séparer les tâc
 
 ![Accès aux ressources sécurisées dans Azure (RBAC)](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig5.png)
 
-## <a name="azure-data-security-and-encryption-protect"></a>Chiffrement et sécurité des données dans Azure (protection)
+## <a name="data-security-and-encryption"></a>Chiffrement et sécurité des données
 
 Pour assurer la protection des données dans le cloud, l’un des facteurs clés consiste à tenir compte des états que les données peuvent présenter, mais aussi des contrôles disponibles pour ces états. Pour les bonnes pratiques de chiffrement et de sécurité des données dans Azure, les recommandations que nous formulons s’articulent autour des états suivants des données :
 
@@ -199,12 +188,12 @@ Prend en charge au moins un des modèles de chiffrement recommandés qui sont r�
 
 **Identifier tous les emplacements où vos données sont stockées**
 
-Le chiffrement au repos vise à chiffrer toutes les données. En agissant ainsi, la possibilité qu’il puisse manquer des données importantes ou des emplacements persistants est éliminée. Énumérez toutes les données stockées par votre application. 
+Le chiffrement au repos vise à chiffrer toutes les données. En agissant ainsi, la possibilité qu’il puisse manquer des données importantes ou des emplacements persistants est éliminée. Énumérez toutes les données stockées par votre application.
 
-> [!Note] 
+> [!Note]
 > Pas simplement les « données d’application » ou les « informations d’identification personnelle », mais les données relatives à l’application, y compris les métadonnées de compte (mappages d’abonnement, informations de contrat, informations d’identification personnelle).
 
-Réfléchissez aux banques d’informations que vous utilisez pour stocker les données. Par exemple : 
+Réfléchissez aux banques d’informations que vous utilisez pour stocker les données. Par exemple :
 
 - Stockage externe (par exemple, SQL Azure, Document DB, HDInsights, Data Lake, etc.)
 
@@ -214,7 +203,7 @@ Réfléchissez aux banques d’informations que vous utilisez pour stocker les d
 
 ### <a name="leverage-the-existing-encryption-at-rest-support-in-azure"></a>Optimiser la prise en charge existante du chiffrement au repos dans Azure
 
-Pour chaque banque d’informations que vous utilisez, tirez parti de la prise en charge existante pour le chiffrement au repos.
+Pour chaque magasin que vous utilisez, tirer parti du chiffrement existant sur le support technique de rest.
 
 - Stockage Azure : Consultez [Chiffrement du service Stockage Azure pour les données au repos](https://docs.microsoft.com/azure/storage/storage-service-encryption),
 
@@ -288,10 +277,10 @@ Les organisations bénéficiant d’une [classification](https://download.micros
 > [!Note]
 > Vous pouvez en savoir plus sur Azure RMS en lisant l’article [Prise en main d’Azure Rights Management](https://technet.microsoft.com/library/jj585016.aspx).
 
-## <a name="secure-your-application-protect"></a>Sécuriser votre application (protection)
+## <a name="secure-your-application"></a>Sécuriser votre application
 Si Azure est responsable de la sécurisation de l’infrastructure et de la plateforme sur laquelle votre application s’exécute, il vous incombe de sécuriser votre application elle-même. En d’autres termes, vous devez développer, déployer et gérer votre code d’application et le contenu de manière sécurisée. Sinon, votre code d’application ou le contenu peut encore être vulnérable aux menaces.
 
-### <a name="web-application-firewall-waf"></a>Pare-feu d’applications web (WAF)
+### <a name="web-application-firewall"></a>Pare-feu d’application web
 Le [pare-feu d’applications Web (WAF, Web Application Firewall)](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-overview) est une fonctionnalité de [Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction) qui protège vos applications web de manière centralisée contre les vulnérabilités et exploits courants.
 
 Le pare-feu d’applications web suit les règles des [Ensembles de règles de base OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.0 ou 2.2.9. Les applications Web sont de plus en plus la cible d’attaques malveillantes qui exploitent des vulnérabilités connues. Les types d’attaques les plus courantes sont l’injection de code SQL, les attaques de script site à site, entre autres. Empêcher ces attaques dans le code d’application peut se révéler difficile et nécessiter une maintenance rigoureuse, des mises à jour correctives ainsi que la surveillance au niveau de plusieurs couches de la topologie de l’application. Un pare-feu d’applications web centralisé facilite grandement la gestion de la sécurité et offre une meilleure garantie de protection aux administrateurs de l’application contre les menaces ou les intrusions. Une solution WAF peut également réagir plus rapidement à une menace de sécurité en exécutant la mise à jour corrective d’une vulnérabilité connue dans un emplacement central plutôt que de sécuriser individuellement chacune des applications web. Les passerelles d’application existantes peuvent être facilement converties en une passerelle d’application avec un pare-feu d’applications web.
@@ -343,7 +332,7 @@ Azure dispose de plusieurs fonctionnalités simples d’utilisation pour aider �
 
 Azure App Service utilise la même solution anti-programme malveillant qu’Azure Cloud Services et que les ordinateurs virtuels. Pour en savoir plus à ce sujet, consultez notre [documentation sur les logiciels anti-programme malveillant](https://docs.microsoft.com/azure/security/azure-security-antimalware).
 
-## <a name="secure-your-network-protect"></a>Sécuriser votre réseau (protection)
+## <a name="secure-your-network"></a>Sécuriser votre réseau
 Microsoft Azure inclut une infrastructure réseau solide pour prendre en charge les exigences de connectivité de vos applications et services. La connectivité réseau est possible entre les ressources hébergées dans Azure, entre les ressources hébergées sur site et dans Azure, mais aussi vers et à partir d’Internet et d’Azure.
 
 L’[infrastructure réseau d’Azure](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-networking-guidelines) vous permet de connecter en toute sécurité les ressources Azure entre elles en utilisant des [réseaux virtuels](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview). Un réseau virtuel est une représentation de votre propre réseau dans le cloud. Un réseau virtuel est une isolation logique du réseau cloud Azure dédié à votre abonnement. Vous pouvez connecter des réseaux virtuels à vos réseaux locaux.
@@ -358,7 +347,7 @@ Le [tunneling forcé](https://www.petri.com/azure-forced-tunneling) est un méca
 
 Azure prend en charge la connectivité d’une liaison de réseau étendu dédiée entre votre réseau local et un réseau virtuel Microsoft Azure via [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction). La liaison entre Azure et votre site se fait via une connexion dédiée qui ne passe pas par l’Internet public. Si votre application Azure s’exécute dans plusieurs centres de données, vous pouvez utiliser [Microsoft Azure Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-overview) pour acheminer intelligemment les requêtes des utilisateurs vers différentes instances de l’application. Vous pouvez aussi acheminer le trafic vers des services qui ne s’exécutent pas dans Azure s’ils sont accessibles par Internet.
 
-## <a name="virtual-machine-security-protect"></a>Sécurité de la machine virtuelle (protection)
+## <a name="virtual-machine-security"></a>Sécurité de la machine virtuelle
 
 Les [Machines virtuelles Microsoft Azure](https://docs.microsoft.com/azure/virtual-machines/) vous permettent de déployer un large éventail de solutions de calcul de façon agile. Avec la prise en charge de Microsoft Windows, Linux, Microsoft SQL Server, Oracle, IBM, SAP et Azure BizTalk Services, vous pouvez déployer des charges de travail et des langages variés sur la plupart des systèmes d’exploitation.
 
@@ -370,7 +359,7 @@ Microsoft Antimalware pour Azure Cloud Services et Machines virtuelles offre une
 
 [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview) aide à coordonner la réplication, le basculement et la récupération des charges de travail et des applications afin qu’elles soient disponibles à partir d’un site secondaire si votre site principal tombe en panne.
 
-## <a name="ensure-compliance-cloud-services-due-diligence-checklist-protect"></a>Garantissez la conformité : Liste de contrôle d’obligation de diligence des services cloud (protéger)
+## <a name="ensure-compliance-cloud-services-due-diligence-checklist"></a>Garantissez la conformité : Liste de vérification de diligence des services cloud
 
 Microsoft a développé la [liste des points à vérifier avec une prudence mesurée pour les services cloud](https://aka.ms/cloudchecklist.download), afin d’aider les organisations à faire preuve d’une sage circonspection lorsqu’elles envisagent une migration vers le cloud. Cette liste fournit une structure à une organisation, quels que soient sa taille et son type — entreprises privées et organisations du secteur public, notamment tous les niveaux de l’administration et les associations —, en lui permettant d’identifier ses propres performances, services, gestion des données, de même que ses exigences et objectifs de gouvernance. L’organisation peut alors comparer les offres de divers fournisseurs de services cloud tout en jetant en définitive les bases d’un contrat de service cloud.
 
@@ -390,7 +379,7 @@ Par ailleurs, la liste de vérifications préalables :
 
 - Fournit une série logique de questions, avec les mêmes conditions, définitions, mesures et résultats pour chaque fournisseur, afin de simplifier le processus de comparaison des offres émanant de différents fournisseurs de services cloud
 
-## <a name="azure-infrastructure-and-application-security-validation-detect"></a>Validation de la sécurité des applications et de l’infrastructure Azure (détection)
+## <a name="azure-infrastructure-and-application-security-validation"></a>Azure application et infrastructure de validation de la sécurité
 
 [Azure Operational Security](https://docs.microsoft.com/azure/security/azure-operational-security) comprend les services, contrôles et fonctionnalités auxquels les utilisateurs ont accès pour protéger leurs données, leurs applications et d’autres ressources dans Microsoft Azure.
 

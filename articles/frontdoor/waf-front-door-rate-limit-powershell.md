@@ -9,22 +9,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/16/2019
+ms.date: 05/31/2019
 ms.author: kumud;tyao
-ms.openlocfilehash: 99b0cab3fd277f90a675f0e6087d572853053a08
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 903405c8fada6165b79e780a7828c6de3b95163e
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66387348"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66478925"
 ---
 # <a name="configure-a-web-application-firewall-rate-limit-rule-using-azure-powershell"></a>Configurer une règle de limite de taux de pare-feu web application à l’aide d’Azure PowerShell
 La règle de limite de la vitesse (pare-feu) d’application web Azure pour Azure porte d’entrée contrôle le nombre de demandes autorisées à partir d’une adresse IP unique client pendant une durée d’une minute.
 Cet article explique comment configurer une règle de limite de taux de WAF qui contrôle le nombre de demandes autorisées à partir d’un seul client à une application web qui contient */promo* dans l’URL à l’aide d’Azure PowerShell.
-
-> [!IMPORTANT]
-> La fonctionnalité de règles WAF taux limite pour Azure porte d’entrée est actuellement en version préliminaire publique.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 

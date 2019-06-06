@@ -4,26 +4,26 @@ description: Migrer des données à partir d’un magasin HDFS en local vers le 
 services: storage
 author: normesta
 ms.service: storage
-ms.date: 03/01/2019
+ms.date: 06/05/2019
 ms.author: normesta
 ms.topic: article
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: 1eac7ecce88dc817b9bd7bd5330d10b019cc7dd2
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 9a42135df38cde91cc6626a3f7d0328334af0a5d
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64939254"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66729063"
 ---
 # <a name="use-azure-data-box-to-migrate-data-from-an-on-premises-hdfs-store-to-azure-storage"></a>Utiliser Azure Data Box pour migrer des données à partir d’un magasin HDFS en local vers le stockage Azure
 
-Vous pouvez migrer des données à partir d’un magasin HDFS en local de votre cluster Hadoop dans Azure Storage (stockage d’objets blob ou Data Lake Storage Gen2) à l’aide d’un appareil Data Box.
+Vous pouvez migrer des données à partir d’un magasin HDFS en local de votre cluster Hadoop dans Azure Storage (stockage d’objets blob ou Data Lake Storage Gen2) à l’aide d’un appareil Data Box. Vous pouvez choisir à partir d’une zone de données de 80 to ou une forte de zone de données de 770-to.
 
 Cet article vous aide à effectuer ces tâches :
 
-:heavy_check_mark: Copier vos données sur un appareil Data Box.
+:heavy_check_mark: Copier vos données dans une zone de données ou un appareil lourd de zone de données.
 
-:heavy_check_mark: Expédier l’appareil Data Box à Microsoft.
+:heavy_check_mark: Expédier l’appareil à Microsoft.
 
 :heavy_check_mark: Déplacer les données sur votre compte de stockage Data Lake Storage Gen2.
 
@@ -37,10 +37,10 @@ Vous avez besoin de ces éléments pour effectuer la migration.
 
 * Un cluster Hadoop en local qui contient vos données source.
 
-* Un [appareil Azure Data Box](https://azure.microsoft.com/services/storage/databox/). 
+* Un [appareil Azure Data Box](https://azure.microsoft.com/services/storage/databox/).
 
-    - [Commandez votre Data Box](https://docs.microsoft.com/azure/databox/data-box-deploy-ordered). Lors de la commande de votre zone, n’oubliez pas de choisir un compte de stockage qui **ne** possède des espaces de noms hiérarchique activée sur ce dernier. Il s’agit, car la zone de données ne prend pas en charge ingestion directe dans Azure Data Lake Storage Gen2. Vous devrez copier dans un compte de stockage, puis effectuez une deuxième copie dans le compte ADLS Gen2. Les instructions de cette sont indiquées dans les étapes ci-dessous.
-    - [Et connecter votre Data Box](https://docs.microsoft.com/azure/databox/data-box-deploy-set-up) à un réseau local.
+    - [Commandez votre Data Box](https://docs.microsoft.com/azure/databox/data-box-deploy-ordered) ou [Data Box lourds](https://docs.microsoft.com/azure/databox/data-box-heavy-deploy-ordered). Lors de la commande de votre appareil, n’oubliez pas de choisir un compte de stockage qui **ne** possède des espaces de noms hiérarchique activée sur ce dernier. Il s’agit, car les appareils de la zone de données ne gèrent pas encore ingestion directe dans Azure Data Lake Storage Gen2. Vous devrez copier dans un compte de stockage, puis effectuez une deuxième copie dans le compte ADLS Gen2. Les instructions de cette sont indiquées dans les étapes ci-dessous.
+    - Et connecter votre [Data Box](https://docs.microsoft.com/azure/databox/data-box-deploy-set-up) ou [importante de données boîte](https://docs.microsoft.com/azure/databox/data-box-heavy-deploy-set-up) à un réseau local.
 
 Si vous êtes prêt, commençons.
 
@@ -48,12 +48,12 @@ Si vous êtes prêt, commençons.
 
 Pour copier les données à partir de votre magasin HDFS en local sur un appareil Data Box, vous allez configurer quelques éléments, puis utiliser le [DistCp](https://hadoop.apache.org/docs/stable/hadoop-distcp/DistCp.html) outil.
 
-Si la quantité de données que vous copiez est supérieure à la capacité d’une zone de données unique, vous devez diviser votre jeu de données dans des tailles qui entrent dans vos boîtes de données.
+Si la quantité de données que vous copiez est supérieure à la capacité d’une zone de données unique ou celui du nœud unique sur lourd de zone de données, divisez votre jeu de données dans des tailles qui entrent dans vos appareils.
 
-Suivez ces étapes pour copier des données via le stockage REST API de/objet Blob vers votre boîte de données. L’interface de l’API REST fera la zone de données apparaissent sous la forme d’un magasin HDFS à votre cluster. 
+Suivez ces étapes pour copier des données via le stockage REST API de/objet Blob sur votre appareil Data Box. L’interface de l’API REST sera le rendre apparaissent sous la forme d’un magasin HDFS à votre cluster. 
 
 
-1. Avant de copier les données via l’API REST, identifiez les primitives de sécurité et de connexion pour se connecter à l’interface REST sur la zone de données. Connectez-vous à l’interface utilisateur de Data Box de web locale et accédez à **Connect et copie** page. Dans le stockage Azure du compte pour votre zone de données, sous **accéder aux paramètres**, recherchez et sélectionnez **REST(Preview)**.
+1. Avant de copier les données via l’API REST, identifiez les primitives de sécurité et de connexion pour se connecter à l’interface REST sur la zone données ou lourd de zone de données. Connectez-vous à l’interface utilisateur de Data Box de web locale et accédez à **Connect et copie** page. Dans le stockage Azure du compte de votre appareil, sous **accéder aux paramètres**, recherchez et sélectionnez **REST**.
 
     ![Page « Se connecter et copier »](media/data-lake-storage-migrate-on-premises-HDFS-cluster/data-box-connect-rest.png)
 
@@ -63,7 +63,7 @@ Suivez ces étapes pour copier des données via le stockage REST API de/objet Bl
 
      ![Boîte de dialogue « Accéder aux compte de stockage et charger des données »](media/data-lake-storage-migrate-on-premises-HDFS-cluster/data-box-connection-string-http.png)
 
-3. Ajouter le point de terminaison et l’adresse IP de zone de données à `/etc/hosts` sur chaque nœud.
+3. Ajouter le point de terminaison et l’adresse IP du nœud Data Box ou élevée de zone de données à `/etc/hosts` sur chaque nœud.
 
     ```    
     10.128.5.42  mystorageaccount.blob.mydataboxno.microsoftdatabox.com
@@ -123,21 +123,29 @@ Suivez ces étapes pour copier des données via le stockage REST API de/objet Bl
 Pour améliorer la vitesse de copie :
 - Essayez de modifier le nombre de mappeurs. (L’exemple ci-dessus utilise `m` = 4 mappeurs.)
 - Essayez d’exécuter plusieurs `distcp` en parallèle.
-- N’oubliez pas que des fichiers volumineux plus performantes que les petits fichiers.       
+- N’oubliez pas que des fichiers volumineux plus performantes que les petits fichiers.
     
 ## <a name="ship-the-data-box-to-microsoft"></a>Expédition de la zone de données à Microsoft
 
 Suivez ces étapes pour préparer et expédier l’appareil Data Box à Microsoft.
 
-1. Une fois la copie des données est terminée, exécutez [préparer l’expédition](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-rest) dans votre boîte de données. Une fois la préparation de l’appareil terminée, téléchargez les fichiers de nomenclature. Vous utilisez ces BOM ou manifeste des fichiers plus tard pour vérifier les données chargées sur Azure. Arrêtez l’appareil et débranchez les câbles. 
-2.  Planifier l’enlèvement avec onduleur à [expédier votre zone de données vers Azure](https://docs.microsoft.com/azure/databox/data-box-deploy-picked-up). 
-3.  Une fois que Microsoft reçoit votre appareil, il est connecté au centre de données réseau et les données sont téléchargées vers le compte de stockage que vous avez spécifié (avec les espaces de noms hiérarchique désactivé) lorsque vous avez commandé la zone de données. Vérifier les fichiers de nomenclature que toutes vos données est téléchargé vers Azure. Vous pouvez maintenant déplacer ces données vers un compte de stockage Data Lake Storage Gen2.
+1. Une fois la copie des données est terminée, exécutez :
+    
+    - [Préparer l’expédition sur votre zone de données ou importante de données boîte](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-rest).
+    - Une fois la préparation de l’appareil terminée, téléchargez les fichiers de nomenclature. Vous utilisez ces BOM ou manifeste des fichiers plus tard pour vérifier les données chargées sur Azure. 
+    - Arrêtez l’appareil et débranchez les câbles.
+2.  Planifiez un enlèvement avec UPS. Suivez les instructions pour :
+
+    - [Expédier votre Data Box](https://docs.microsoft.com/azure/databox/data-box-deploy-picked-up) 
+    - [Expédier votre lourds de zone de données](https://docs.microsoft.com/azure/databox/data-box-heavy-deploy-picked-up).
+3.  Une fois que Microsoft reçoit votre appareil, il est connecté au réseau de centre de données et les données sont téléchargées vers le compte de stockage que vous avez spécifié (avec les espaces de noms hiérarchique désactivé) lorsque vous avez placé l’ordre de l’appareil. Vérifier les fichiers de nomenclature que toutes vos données est téléchargé vers Azure. Vous pouvez maintenant déplacer ces données vers un compte de stockage Data Lake Storage Gen2.
+
 
 ## <a name="move-the-data-onto-your-data-lake-storage-gen2-storage-account"></a>Déplacer les données sur votre compte de stockage Data Lake Storage Gen2
 
 Cette étape est nécessaire si vous utilisez le stockage Azure Data Lake Gen2 comme magasin de données. Si vous utilisez simplement un compte de stockage d’objets blob sans espace de noms hiérarchique comme magasin de données, il est inutile d’effectuer cette étape.
 
-Vous pouvez le faire dans 2 méthodes. 
+Vous pouvez pour cela de deux manières.
 
 - Utilisez [Azure Data Factory pour déplacer des données vers ADLS Gen2](https://docs.microsoft.com/azure/data-factory/load-azure-data-lake-storage-gen2). Vous devrez spécifier **stockage Blob Azure** comme source.
 

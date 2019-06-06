@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2018
 ms.author: magattus
-ms.openlocfilehash: 4ba42850ee28e2e212d9bc2b7b64be103218757c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e5693e0e191b36aa8d4552824c649a38d2f17b5b
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60736970"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475291"
 ---
 # <a name="x-ec-debug-http-headers-for-azure-cdn-rules-engine"></a>En-têtes HTTP X-EC-Debug pour le moteur de règles Azure CDN
 L’en-tête de requête de cache de débogage `X-EC-Debug` fournit des informations supplémentaires sur la stratégie de cache qui est appliquée à la ressource demandée. Ces en-têtes sont spécifiques aux produits **Azure CDN Premium de Verizon**.
@@ -27,7 +27,7 @@ L’en-tête de requête de cache de débogage `X-EC-Debug` fournit des informat
 ## <a name="usage"></a>Usage
 La réponse envoyée à partir des serveurs POP à un utilisateur comprend l’en-tête `X-EC-Debug` uniquement lorsque les conditions suivantes sont remplies :
 
-- La [fonctionnalité En-têtes de réponse de cache de débogage](cdn-rules-engine-reference-features.md#debug-cache-response-headers) a été activée sur le moteur de règles pour la requête spécifiée.
+- La [fonctionnalité En-têtes de réponse de cache de débogage](cdn-verizon-premium-rules-engine-reference-features.md#debug-cache-response-headers) a été activée sur le moteur de règles pour la requête spécifiée.
 - La requête spécifiée définit l’ensemble des en-têtes de réponse de cache de débogage qui seront inclus dans la réponse.
 
 ## <a name="requesting-debug-cache-information"></a>Demander des informations sur le cache de débogage
@@ -118,7 +118,7 @@ L’exemple d’en-tête de réponse suivant indique si le contenu demandé pour
 ## <a name="cache-key-response-header"></a>En-tête de réponse Cache-Key
 L’en-tête de réponse `X-EC-Debug: x-ec-cache-key` indique la clé de cache physique associée au contenu demandé. Une clé de cache physique consiste en un chemin d’accès qui identifie une ressource pour les besoins de la mise en cache. En d’autres termes, les serveurs recherchent une version mise en cache d’une ressource en fonction de son chemin, tel que défini par sa clé de cache.
 
-Cette clé de cache physique commence par une double barre oblique (//) suivie du protocole utilisé pour demander le contenu (HTTP ou HTTPS). Ce protocole est suivi du chemin d’accès relatif à la ressource demandée, qui commence par le point d’accès au contenu (par exemple, _/000001/_).
+Cette clé de cache physique commence par une double barre oblique (//) suivie du protocole utilisé pour demander le contenu (HTTP ou HTTPS). Ce protocole est suivi du chemin d’accès relatif à la ressource demandée, qui commence par le point d’accès au contenu (par exemple, _/000001/_ ).
 
 Par défaut, les plateformes HTTP sont configurées pour utiliser *standard-cache*, ce qui signifie que les chaînes de requête sont ignorées par le mécanisme de mise en cache. Ce type de configuration empêche la clé de cache d’inclure les données de la chaîne de requête.
 
@@ -151,7 +151,7 @@ Les termes utilisés dans la syntaxe de l’en-tête de réponse ci-dessus sont 
 
 - MATimePeriod : Convertit la valeur de max-age (autrement dit, MASeconds) en valeur équivalente approximative d’une unité supérieure (par exemple, jours). 
 
-- UnixTime : Indique l’horodatage du cache du contenu demandé en temps Unix (également appelé) heure POSIX ou époque Unix). L’horodatage du cache indique la date/heure de début à partir de laquelle la durée de vie d’une ressource sera calculée. 
+- UnixTime : Indique l’horodatage du cache du contenu demandé dans le temps Unix (également appelé POSIX temps ou époque Unix). L’horodatage du cache indique la date/heure de début à partir de laquelle la durée de vie d’une ressource sera calculée. 
 
     Si le serveur d’origine n’utilise pas de serveur de mise en cache HTTP tiers ou si ce serveur ne retourne pas l’en-tête de réponse Age, alors l’horodatage du cache sera toujours la date/heure à laquelle la ressource a été récupérée ou revalidée. Sinon, les serveurs POP utilise le champ Age pour calculer la durée de vie de la ressource comme suit : Retrieval/RevalidateDateTime - Age.
 

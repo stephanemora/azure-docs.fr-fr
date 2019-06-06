@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/05/2019
 ms.author: v-mohabe
-ms.openlocfilehash: e038c500d93e4d631c585eed743a373b5e6cec85
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 6b3cef32cf79c2448d2e254e27c332e01ea83c62
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65968340"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428366"
 ---
 # <a name="protect-your-network-resources-in-azure-security-center"></a>Protection de vos ressources réseau dans Azure Security Center
 Azure Security Center analyse continuellement l’état de sécurité de vos ressources Azure pour les meilleures pratiques de sécurité réseau. Lorsque Security Center identifie des failles de sécurité potentielles, il crée des suggestions qui vous guident tout au long du processus de configuration des contrôles nécessaires afin de renforcer et protéger vos ressources.
@@ -33,7 +33,7 @@ Cet article traite des suggestions relatives à la sécurité réseau qui s’ap
 La page **Mise en réseau** page fournit une vue d’ensemble des sections que vous pouvez approfondir. Pour obtenir plus d’informations sur l’intégrité de vos ressources réseau :
 
 - Mappage réseau (niveau standard d’Azure Security Center uniquement)
-- Renforcement du réseau adaptatif
+- Durcissement réseau adaptatif
 - Suggestions en matière de sécurité réseau.
 - Panneau **Mise en réseau** héritée (panneau de mise en réseau précédent) 
  
@@ -129,18 +129,16 @@ Le troisième niveau affiche les machines virtuelles, ce qui est similaire à ce
 
 ## <a name="network-recommendations"></a>Recommandations pour le réseau
 
-|Type de ressource|Degré de sécurisation|Recommandation|Description |
+|Type de ressource|Degré de sécurisation|Recommandation|Description|
 |----|----|----|----|
-|Machine|40|Activer des groupes de sécurité réseau sur des machines virtuelles|Activez des groupes de sécurité réseau pour contrôler l’accès réseau de vos machines virtuelles.|
-|Sous-réseau|35|Activer les groupes de sécurité réseau sur les sous-réseaux |Activez des groupes de sécurité réseau pour contrôler l’accès réseau aux ressources déployées sur vos réseaux virtuels.|
-|Machine|30|Appliquer un contrôle d'accès réseau Juste à temps|Appliquer un contrôle d’accès de machine virtuelle Juste à temps pour bloquer définitivement l’accès aux ports sélectionnés et permettre aux utilisateurs autorisés de les ouvrir via le même mécanisme, pour une durée limitée.|
-|Machine|20|Limiter l'accès par le biais d'un point de terminaison accessible sur Internet|Renforcez les groupes de sécurité réseau de vos machines virtuelles accessibles sur Internet, en limitant l’accès des règles d’autorisation existantes.|
+|Machine|40|Les groupes de sécurité réseau pour les machines virtuelles doit être activés.|Activez des groupes de sécurité réseau pour contrôler l’accès réseau de vos machines virtuelles.|
+|Sous-réseau|35|Les groupes de sécurité réseau au niveau du sous-réseau doit être activés.|Activez des groupes de sécurité réseau pour contrôler l’accès réseau aux ressources déployées sur vos réseaux virtuels.|
+|Machine|30|Contrôle d’accès juste-à-temps réseau doit être appliqué sur des machines virtuelles|Appliquer un contrôle d’accès de machine virtuelle Juste à temps pour bloquer définitivement l’accès aux ports sélectionnés et permettre aux utilisateurs autorisés de les ouvrir via le même mécanisme, pour une durée limitée.|
+|Machine|20|Restreindre l’accès via un point de terminaison accessible sur Internet|Renforcez les groupes de sécurité réseau de vos machines virtuelles accessibles sur Internet, en limitant l’accès des règles d’autorisation existantes.|
 |Machine|10|Ajouter un pare-feu de nouvelle génération|Ajoutez une solution de pare-feu nouvelle génération afin de mieux protéger les machines virtuelles accessibles sur Internet.|
 |Machine|5.|Acheminer le trafic via le pare-feu de la passerelle de réseau uniquement|Afin de finaliser le déploiement de votre solution de pare-feu nouvelle génération, le trafic vers les machines virtuelles accessible sur Internet que vous protégez doit être acheminé uniquement par le biais de la solution de pare-feu nouvelle génération.|
-|Réseau virtuel|5.|Activer la norme de protection DDoS|Les applications avec des adresses IP publiques dans ces réseaux virtuels ne sont pas protégées avec le service de protection DDOS standard. Il est conseillé de l’activer pour limiter les risques d’attaques volumétrique et les attaques par protocole réseau.|
-|Machine|10|Ajouter un pare-feu de nouvelle génération|Ajoutez une solution de pare-feu nouvelle génération afin de mieux protéger les machines virtuelles accessibles sur Internet.|
-|Machine|5.|Acheminer le trafic via le pare-feu de la passerelle de réseau uniquement|Afin de finaliser le déploiement de votre solution de pare-feu nouvelle génération, le trafic vers les machines virtuelles accessible sur Internet que vous protégez doit être acheminé uniquement par le biais de la solution de pare-feu nouvelle génération.|
-Réseau virtuel|5.|Activer la norme de protection DDoS|Les applications avec des adresses IP publiques dans ces réseaux virtuels ne sont pas protégées avec le service de protection DDOS standard. Il est conseillé de l’activer pour limiter les risques d’attaques volumétrique et les attaques par protocole réseau.|
+|Réseau virtuel|5.|Activer la protection DDoS standard|Les applications avec des adresses IP publiques dans ces réseaux virtuels ne sont pas protégées avec le service de protection DDOS standard. Il est conseillé de l’activer pour limiter les risques d’attaques volumétrique et les attaques par protocole réseau.|
+
 ## <a name="see-also"></a>Voir aussi
 Pour en savoir plus sur les recommandations qui s’appliquent à d’autres types de ressources Azure, consultez les rubriques suivantes :
 

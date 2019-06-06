@@ -2,20 +2,20 @@
 title: Vue d’ensemble de jetons - Azure Active Directory B2C | Microsoft Docs
 description: En savoir plus sur les jetons utilisés dans Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/16/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: ac3c2132fc28d9813a9322898f79c7cdfffa12d7
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: b0a5eca4823bd6ec7d1197adb205f7fb98f8d67e
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64681888"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66509079"
 ---
 # <a name="overview-of-tokens-in-azure-active-directory-b2c"></a>Vue d’ensemble de jetons dans Azure Active Directory B2C
 
@@ -65,7 +65,7 @@ Le tableau suivant répertorie les revendications que vous pouvez attendre dans 
 | Référence de classe du contexte d’authentification | `acr` | Non applicable | Utilisé uniquement avec des stratégies plus anciennes. |
 | Stratégie d’infrastructure de confiance | `tfp` | `b2c_1_signupsignin1` | Le nom de la stratégie qui a été utilisée pour obtenir le jeton d’ID. |
 | Moment de l’authentification | `auth_time` | `1438535543` | Heure à laquelle un utilisateur dernières informations d’identification entrées, représentée en heure epoch. |
-| Étendue | `scp` | `Read`| Les autorisations accordées à la ressource pour un jeton d’accès. Plusieurs autorisations octroyées sont séparées par un espace. |
+| `Scope` | `scp` | `Read`| Les autorisations accordées à la ressource pour un jeton d’accès. Plusieurs autorisations octroyées sont séparées par un espace. |
 | Tiers autorisé | `azp` | `975251ed-e4f5-4efd-abcb-5f1a8f566ab7` | **ID** de l’application cliente qui a initié la demande. |
 
 ## <a name="configuration"></a>Configuration

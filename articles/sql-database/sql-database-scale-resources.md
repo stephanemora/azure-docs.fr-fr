@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: e476f27e2a1945135bd90435078d5bcd47c4b3de
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: c918abdc635e7a4a831e367e159354bb752e95e6
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "65073135"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66743103"
 ---
 # <a name="dynamically-scale-database-resources-with-minimal-downtime"></a>Mettre à l’échelle de façon dynamique les ressources de base de données moyennant un temps d’arrêt minimal
 
@@ -55,6 +55,9 @@ Ces trois possibilités d’Azure SQL Database offrent des capacités à mettre 
 - Avec une [base de données unique](sql-database-single-database-scale.md), vous pouvez utiliser des modèles [DTU](sql-database-dtu-resource-limits-single-databases.md) ou [vCore](sql-database-vcore-resource-limits-single-databases.md) pour définir le volume maximal de ressources assignées à chaque base de données.
 - Une instance [Managed Instance](sql-database-managed-instance.md) utilise le modèle [vCores](sql-database-managed-instance.md#vcore-based-purchasing-model) et vous permet de définir la quantité maximale de cœurs de processeur et de stockage allouée à votre instance. Toutes les bases de données au sein de l’instance partageront les ressources allouées à l’instance.
 - Les [pools élastiques](sql-database-elastic-pool-scale.md) vous permettent de définir la limite de ressources maximale par groupe de bases de données dans le pool.
+
+> [!NOTE]
+> Vous pouvez vous attendre à un saut de connexion court lors de la mise à l’échelle l’évolutivité et du processus est terminé. Si vous avez implémenté [logique pour les erreurs temporaires standards de nouvelle tentative](sql-database-connectivity-issues.md#retry-logic-for-transient-errors), vous ne remarquerez pas le basculement.
 
 ## <a name="alternative-scale-methods"></a>Autres méthodes de mise à l’échelle
 

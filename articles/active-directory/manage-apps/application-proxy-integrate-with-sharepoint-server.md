@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9e491f0c452b7b51eac4e8cccab1cc7ed8430e49
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: c5eff7925599931104440213112ce288fd521b61
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65783441"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66473778"
 ---
 # <a name="enable-remote-access-to-sharepoint-with-azure-ad-application-proxy"></a>Activer l’accès distant à SharePoint avec le proxy d’application Azure AD
 
@@ -114,8 +114,8 @@ Pour configurer la délégation KCD, répétez les étapes suivantes pour chaque
 
 Maintenant que vous avez configuré la délégation Kerberos contrainte, vous êtes prêt à configurer un proxy d’application Azure AD.
 
-1. Publiez votre site SharePoint avec les paramètres suivants. Pour obtenir des instructions pas à pas, consultez [Publication d’applications à l’aide du proxy d’application Azure AD](application-proxy-publish-azure-portal.md).
-   * **URL interne** : URL interne SharePoint qui a été choisie précédemment, tel que **<https://SharePoint/>**.
+1. Publiez votre site SharePoint avec les paramètres suivants. Pour obtenir des instructions pas à pas, consultez [Publication d’applications à l’aide du proxy d’application Azure AD](application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad).
+   * **URL interne** : URL interne SharePoint qui a été choisie précédemment, tel que **<https://SharePoint/>** .
    * **Méthode de pré-authentification** : Azure Active Directory
    * **Traduire l’URL dans les en-têtes** : NON
 

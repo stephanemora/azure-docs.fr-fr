@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 365f017fe7d71500c17d0a9ccd9c5a0a26a78b75
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: ab08c93662988655154cf300ac4ee3758fbc7872
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65989572"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66472804"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Authentification basée sur l’en-tête pour une authentification unique avec le proxy d’application et PingAccess
 
@@ -78,7 +78,7 @@ Pour publier votre propre application en local :
 1. Si vous n’avez pas dans la dernière section, vous connecter à la [portail Azure Active Directory](https://aad.portal.azure.com/) en tant qu’application administrateur.
 2. Sélectionnez **applications d’entreprise** > **nouvelle application** > **On-premises application**. Le **ajouter votre propre application en local** page s’affiche.
 
-   ![Ajouter votre propre application locale](./media/application-proxy-configure-single-sign-on-with-ping-access/add-your-own-on-premises-application.png)
+   ![Ajouter votre propre application en local](./media/application-proxy-configure-single-sign-on-with-ping-access/add-your-own-on-premises-application.png)
 3. Remplissez les champs obligatoires avec des informations sur votre nouvelle application. Utilisez les instructions ci-dessous pour les paramètres.
 
    > [!NOTE]
@@ -124,11 +124,11 @@ Enfin, configurer votre application en local afin que les utilisateurs ont accè
 
 1. À partir de la **inscriptions** encadré pour votre application, sélectionnez **autorisations d’API** > **ajouter une autorisation**  >   **API Microsoft** > **Microsoft Graph**. Le **autorisations d’API demande** page **Microsoft Graph** s’affiche, qui contient les API pour Windows Azure Active Directory.
 
-   ![Demander des autorisations d'API](./media/application-proxy-configure-single-sign-on-with-ping-access/required-permissions.png)
+   ![Demander des autorisations de l’API](./media/application-proxy-configure-single-sign-on-with-ping-access/required-permissions.png)
 2. Sélectionnez **autorisations déléguées** > **utilisateur** > **User.Read**.
 3. Sélectionnez **autorisations d’Application** > **Application** > **Application.ReadWrite.All**.
 4. Sélectionnez **ajouter des autorisations**.
-5. Dans le **autorisations d’API** page, sélectionnez **accorder le consentement de l’administrateur pour \<votre nom de répertoire >**.
+5. Dans le **autorisations d’API** page, sélectionnez **accorder le consentement de l’administrateur pour \<votre nom de répertoire >** .
 
 #### <a name="collect-information-for-the-pingaccess-steps"></a>Collecter les informations pour la procédure PingAccess
 
@@ -150,7 +150,7 @@ Pour collecter ces informations :
 4. Suivant le **ID de répertoire (locataire)** valeur, sélectionnez également **copier dans le Presse-papiers**, puis copiez et enregistrez-le. Vous spécifiez cette valeur ultérieurement en tant que l’émetteur de PingAccess.
 5. À partir de la barre latérale de la **inscriptions** pour votre application, sélectionnez **certificats et clés secrètes** > **nouvelle clé secrète client**. Le **ajouter une clé secrète client** page s’affiche.
 
-   ![Ajouter un secret client](./media/application-proxy-configure-single-sign-on-with-ping-access/add-a-client-secret.png)
+   ![Ajouter une clé secrète client](./media/application-proxy-configure-single-sign-on-with-ping-access/add-a-client-secret.png)
 6. Dans **Description**, type `PingAccess key`.
 7. Sous **expiration**, choisissez comment définir la clé de PingAccess : **Dans 1 an**, **dans 2 ans**, ou **jamais**.
 8. Sélectionnez **Ajouter**. Les PingAccess clé s’affiche dans la table de clés secrètes de client, avec un texte aléatoire de chaîne qui est automatiquement renseignée dans le **valeur** champ.
@@ -158,9 +158,9 @@ Pour collecter ces informations :
 
 ### <a name="update-graphapi-to-send-custom-fields-optional"></a>Mettre à jour de GraphAPI pour envoyer des champs personnalisés (facultatif)
 
-Pour obtenir la liste de jetons de sécurité Azure AD envoie pour l’authentification, consultez [les jetons d’ID plateforme Microsoft identity](../develop/id-tokens.md). Si vous avez besoin d’une revendication personnalisée qui envoie d’autres jetons, définissez le `acceptMappedClaims` champ d’application à `True`. Vous pouvez utiliser l’Explorateur graphique ou manifeste d’application du portail Azure AD pour effectuer cette modification.
+Si vous avez besoin d’une revendication personnalisée qui envoie d’autres jetons dans le jeton d’accès consommée par PingAccess, définissez le `acceptMappedClaims` champ d’application à `True`. Vous pouvez utiliser l’Explorateur graphique ou manifeste d’application du portail Azure AD pour effectuer cette modification.
 
-Cet exemple utilise l’Explorateur Graph :
+**Cet exemple utilise l’Explorateur graphique :**
 
 ```
 PATCH https://graph.windows.net/myorganization/applications/<object_id_GUID_of_your_application>
@@ -170,7 +170,7 @@ PATCH https://graph.windows.net/myorganization/applications/<object_id_GUID_of_y
 }
 ```
 
-Cet exemple utilise le [portail Azure Active Directory](https://aad.portal.azure.com/) pour mettre à jour le `acceptMappedClaims` champ :
+**Cet exemple utilise le [portail Azure Active Directory](https://aad.portal.azure.com/) pour mettre à jour le `acceptMappedClaims` champ :**
 
 1. Se connecter à la [portail Azure Active Directory](https://aad.portal.azure.com/) en tant qu’application administrateur.
 2. Sélectionnez **Azure Active Directory** > **Inscriptions des applications**. Une liste d’applications s’affiche.
@@ -179,7 +179,28 @@ Cet exemple utilise le [portail Azure Active Directory](https://aad.portal.azure
 5. Recherchez le `acceptMappedClaims` champ et remplacez la valeur par `True`.
 6. Sélectionnez **Enregistrer**.
 
-### <a name="use-a-custom-claim-optional"></a>Utiliser une revendication personnalisée (facultative)
+
+### <a name="use-of-optional-claims-optional"></a>Utilisation de revendications facultatives (facultatives)
+Revendications facultatives vous permet d’ajouter des revendications standard-but-not-included-by-default chaque utilisateur et le client ont. Vous pouvez configurer des revendications facultatives pour votre application en modifiant le manifeste d’application. Pour plus d’informations, consultez le [présentation de l’article manifeste des applications Azure AD](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest/)
+
+Exemple pour inclure l’adresse de messagerie dans le jeton d’accès qui consomme PingAccess :
+```
+    "optionalClaims": {
+        "idToken": [],
+        "accessToken": [
+            {
+                "name": "email",
+                "source": null,
+                "essential": false,
+                "additionalProperties": []
+            }
+        ],
+        "saml2Token": []
+    },
+```
+
+### <a name="use-of-claims-mapping-policy-optional"></a>Utilisation de la stratégie (facultatif) de mappage de revendications
+[Stratégie de mappage (version préliminaire) de revendications](https://docs.microsoft.com/azure/active-directory/develop/active-directory-claims-mapping#claims-mapping-policy-properties/) pour les attributs qui n’existent pas dans Azure AD. Mappage de revendications permet de migrer les anciennes applications locales vers le cloud en ajoutant des revendications personnalisées supplémentaires qui sont soutenues par vos objets AD FS ou un utilisateur
 
 Pour rendre votre application utilise une revendication personnalisée et inclure des champs supplémentaires, veillez à ce que vous avez également [créé une stratégie de mappage des revendications personnalisées et lui a attribué à l’application](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment).
 
@@ -187,6 +208,16 @@ Pour rendre votre application utilise une revendication personnalisée et inclur
 > Pour utiliser une revendication personnalisée, vous devez également disposer d’une stratégie personnalisée définie et affectée à l’application. Cette stratégie doit inclure tous les attributs personnalisés nécessaires.
 >
 > Vous pouvez effectuer la définition de stratégie et l’assignation via PowerShell, Azure AD Graph Explorer ou Microsoft Graph. Si vous les effectuez dans PowerShell, vous devrez peut-être d’abord utiliser `New-AzureADPolicy` et puis l’affecter à l’application avec `Add-AzureADServicePrincipalPolicy`. Pour plus d’informations, consultez [affectation de stratégie de mappage de revendications](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment).
+
+Exemple :
+```powershell
+$pol = New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema": [{"Source":"user","ID":"employeeid","JwtClaimType":"employeeid"}]}}') -DisplayName "AdditionalClaims" -Type "ClaimsMappingPolicy"
+
+Add-AzureADServicePrincipalPolicy -Id "<<The object Id of the Enterprise Application you published in the previous step, which requires this claim>>" -RefObjectId $pol.Id 
+```
+
+### <a name="enable-pingaccess-to-use-custom-claims-optional-but-required-if-you-expect-the-application-to-consume-additional-claims"></a>Activer PingAccess utiliser des revendications personnalisées (facultatif mais requis si vous prévoyez l’application d’utiliser les revendications supplémentaires)
+Lorsque vous allez configurer PingAccess dans l’étape suivante, la Session Web que vous allez créer (Paramètres -> accès -> Sessions Web) doit avoir **demande de profil** désélectionnée et **actualiser les attributs utilisateur** la valeur **non**
 
 ## <a name="download-pingaccess-and-configure-your-application"></a>Télécharger PingAccess et configurer votre application
 

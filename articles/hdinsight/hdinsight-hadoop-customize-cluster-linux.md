@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/02/2019
-ms.openlocfilehash: 63f81c331db619323f74b77e48627fd8b432565f
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.openlocfilehash: 03fcbb0216d85e337b4161aa24ceeb7d3a2bdebe
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65518887"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479463"
 ---
 # <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>Personnaliser des clusters Azure HDInsight à l’aide des actions de script
 
@@ -58,7 +58,7 @@ Une action de script est un script bash qui s’exécute sur les nœuds dans un 
 
      * Pour les clusters avec ESP :
          
-         * Le wasb [s]  :// ou http [s]  :// URI sont pris en charge.
+         * Le wasb : / / ou wasbs : / / ou http [s]  :// URI sont pris en charge.
             
 * Elles peuvent être limitées de manière à s’exécuter uniquement sur certains types de nœuds, par exemple des nœuds principaux ou des nœuds worker.
 
@@ -352,7 +352,7 @@ Pour obtenir un exemple d’utilisation du SDK .NET afin d’appliquer des scrip
 
     ![Actions de script, Propriétés](./media/hdinsight-hadoop-customize-cluster-linux/promote-script-actions.png)
 
-6. Vous pouvez également sélectionner les points de suspension (**…**) à droite des entrées dans la section Actions de script pour effectuer des actions.
+6. Vous pouvez également sélectionner les points de suspension ( **…** ) à droite des entrées dans la section Actions de script pour effectuer des actions.
 
     ![Actions de script, points de suspension](./media/hdinsight-hadoop-customize-cluster-linux/deletepromoted.png)
 

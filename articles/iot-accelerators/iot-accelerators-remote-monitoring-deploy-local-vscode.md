@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: bfe28f3ff994d518cb744233e88a6f04b5771a83
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: ed3301eb0e723e05e2a642ffea2f1609032553b4
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65967518"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66730162"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---visual-studio-code"></a>Déployer localement la solution de supervision à distance - Visual Studio Code
 
@@ -62,13 +62,14 @@ dotnet build -c Release
 Les étapes suivantes vous montrent comment exécuter les microservices de surveillance à distance dans Visual Studio Code :
 
 1. Lancez Visual Studio Code.
-1. Ouvrez le module **azure-iot-pcs-remote-monitoring-dotnet** à partir de votre copie locale dans Visual Studio Code.
-1. Copiez les fichiers **launch.json** et **tasks.json** à partir de scripts\local\launch\idesettings\vscode\. Créez un dossier **azure-iot-pcs-remote-monitoring-dotnet\.vscode** et collez les fichiers à cet emplacement.
-1. Ouvrez le panneau de débogage dans Visual Studio Code et exécutez la configuration **Exécuter tous les microservices**. Cette configuration exécute le microservice de simulation d’appareil dans Docker et les autres microservices dans le débogueur.
+1. Dans VS Code, ouvrez le **azure-iot-pcs-remote-monitoring-dotnet** dossier.
+1. Créez un dossier appelé **.vscode** dans le **azure-iot-pcs-remote-monitoring-dotnet** dossier.
+1. Copiez les fichiers **launch.json** et **tasks.json** de services\scripts\local\launch\idesettings\vscode à la **.vscode** dossier que vous venez de créer.
+1. Ouvrez le **Panneau de débogage** dans VS Code et exécutez le **exécuter tous les microservices** configuration. Cette configuration exécute le microservice de simulation d’appareil dans Docker et les autres microservices dans le débogueur.
 
-Par exemple, la sortie du service **Auth** dans la **Console de débogage** ressemble à ceci :
+La sortie d’en cours d’exécution **exécuter tous les microservices** dans la Console de débogage ressemble à ceci :
 
-[![Deploy-Local-Auth-Service](./media/deploy-locally-vscode/auth-debug-results-inline.png)](./media/deploy-locally-vscode/auth-debug-results-expanded.png#lightbox)
+[![Déployer-Local-Microservices](./media/deploy-locally-vscode/auth-debug-results-inline.png)](./media/deploy-locally-vscode/auth-debug-results-expanded.png#lightbox)
 
 ### <a name="run-the-web-ui"></a>Exécuter l’interface utilisateur web
 

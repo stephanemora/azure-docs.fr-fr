@@ -16,12 +16,12 @@ ms.date: 05/22/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bae204ec1789f227150adc560d4a292404d23b7e
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: ec3909ffbb624284f999360140b7454098643062
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66113298"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66473371"
 ---
 # <a name="complete-an-access-review-of-groups-or-applications-in-azure-ad-access-reviews"></a>Effectuer une révision d’accès de groupes ou révisions d’accès des applications dans Azure AD
 
@@ -40,7 +40,7 @@ Pour plus d’informations, consultez [les utilisateurs doivent disposer de lice
 
 Vous pouvez suivre la progression à mesure que les réviseurs effectuent des révisions.
 
-1. Connectez-vous pour le portail Azure et ouvrez le [page des révisions d’accès](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
+1. Connectez-vous pour le portail Azure et ouvrez le [page de gouvernance des identités](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
 
 1. Dans le menu de gauche, cliquez sur **révisions d’accès**.
 

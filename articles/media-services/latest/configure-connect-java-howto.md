@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2019
 ms.author: juliako
-ms.openlocfilehash: 68e09ec6ce4aeb91e00c2a15caa8ec81f40064c1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b7ee54c852ce3332415b69ca6105b472dab0ab8a
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60733910"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66480260"
 ---
 # <a name="connect-to-media-services-v3-api---java"></a>Se connecter à l’API de Media Services v3 - Java
 
@@ -74,7 +74,7 @@ Lorsque vous exécutez la commande, le `pom.xml`, `App.java`, et d’autres fich
      <artifactId>azure-client-authentication</artifactId>
      <version>1.6.6</version>
    </dependency>
-```
+    ```
 
 ## <a name="connect-to-the-java-client"></a>Se connecter au client Java
 
@@ -114,7 +114,7 @@ Lorsque vous exécutez la commande, le `pom.xml`, `App.java`, et d’autres fich
       System.out.println(e.toString());
    }
    ```
-1. Exécutez l'application.
+1. Exécuter l’application.
 
 ## <a name="see-also"></a>Voir aussi
 

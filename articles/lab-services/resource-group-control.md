@@ -10,14 +10,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2019
+ms.date: 06/03/2019
 ms.author: spelluru
-ms.openlocfilehash: 1001e6aec7ba2f6ce62eb267d218149296048bb9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 574cc0c41ce645c71302178afcf6e7deaec69d8e
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60394340"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66476086"
 ---
 # <a name="specify-a-resource-group-for-lab-virtual-machines-in-azure-devtest-labs"></a>Spécifier un groupe de ressources pour les machines virtuelles de labo dans Azure DevTest Labs
 
@@ -29,6 +29,9 @@ En tant que propriétaire de labo, vous pouvez configurer les machines virtuelle
 - Consolider toutes vos ressources de laboratoire au sein d’un seul groupe de ressources pour simplifier le suivi de ces ressources et l’application [stratégies](../governance/policy/overview.md) pour gérer les ressources au niveau du groupe de ressources.
 
 Avec cette fonctionnalité, vous pouvez utiliser un script pour spécifier un groupe de ressources nouveau ou existant au sein de votre abonnement Azure pour toutes vos machines virtuelles de laboratoire. Actuellement, Azure DevTest Labs prend en charge cette fonctionnalité via une API.
+
+> [!NOTE]
+> Toutes les limites d’abonnement s’appliquent lorsque vous créez des laboratoires dans DevTest Labs. Considérez un laboratoire comme toute autre ressource dans votre abonnement. En cas de groupes de ressources, la limite est [980 groupes de ressources par abonnement](../azure-subscription-service-limits.md#subscription-limits---azure-resource-manager). 
 
 ## <a name="use-azure-portal"></a>Utiliser le portail Azure
 Suivez ces étapes pour spécifier un groupe de ressources pour toutes les machines virtuelles créées dans le laboratoire. 

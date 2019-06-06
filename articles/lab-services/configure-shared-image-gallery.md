@@ -14,24 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2019
 ms.author: spelluru
-ms.openlocfilehash: 51b394043f88789865edea5be6376ae536f88848
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: fba969b70ae052c928f33888d3c93eb7683ae9f7
+ms.sourcegitcommit: ec7b0bf593645c0d1ef401a3350f162e02c7e9b8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66420437"
+ms.lasthandoff: 06/01/2019
+ms.locfileid: "66455719"
 ---
-# <a name="configure-a-shared-image-gallery-in-azure-devtest-labs"></a>Configurer une galerie d’images partagé dans Azure DevTest Labs
-DevTest Labs prend désormais en charge la [Galerie d’images partagé](/virtual-machines/windows/shared-image-galleries.md) fonctionnalité. Il permet aux utilisateurs de laboratoire accéder aux images à partir d’un emplacement partagé lors de la création des ressources de laboratoire. Il vous permet également de créer la structure et l’organisation autour de vos images de machine virtuelle personnalisée gérée. La fonctionnalité de la galerie d’images partagé prend en charge :
+# <a name="configure-a-shared-image-gallery-in-azure-devtest-labs"></a>Configurer une galerie d’images partagées dans Azure DevTest Labs
+DevTest Labs prend désormais en charge la [Galerie d’images partagé](/virtual-machines/windows/shared-image-galleries.md) fonctionnalité. Celle-ci permet aux utilisateurs de lab d’accéder à des provenant d’un emplacement partagé lors de la création de ressources de lab. Elle vous permet également de structurer et d’organiser vos images de machine virtuelle managées personnalisées. La fonctionnalité de la galerie d’images partagé prend en charge :
 
-- Réplication globale gérée d’images
-- Le contrôle de version et du regroupement des images pour faciliter la gestion
-- Rendre vos images hautement disponible avec les comptes de stockage de redondant Zone (ZRS) dans les régions qui prennent en charge les zones de disponibilité. Le stockage ZRS offre une meilleure résilience contre les défaillances zonales.
-- Partage dans des abonnements et même entre les clients, à l’aide du contrôle d’accès en fonction du rôle (RBAC).
+- Réplication mondiale et managée des images
+- Création de versions et de groupes d’images pour faciliter la gestion
+- Créez des images hautement disponibles avec les comptes ZRS (Zone Redundant Storage) dans les régions qui prennent en charge les zones de disponibilité. Le stockage redondant interzone (ZRS) offre une meilleure résilience en cas de défaillances de zones.
+- Partage entre différents abonnements et même entre locataires à l’aide du contrôle d’accès en fonction du rôle (RBAC).
 
 Pour plus d’informations, consultez [documentation de la galerie d’images partagé](../virtual-machines/windows/shared-image-galleries.md). 
  
-Si vous avez un grand nombre d’images managées à gérer et que vous voulez qu’elles soient disponibles pour toute l’entreprise, vous pouvez utiliser une galerie d’images partagées comme un dépôt qui facilite la mise à jour et le partage de vos images. En tant que propriétaire d’un laboratoire, vous pouvez attacher une galerie d’images partagé existant à votre laboratoire. Une fois cette galerie est attachée, les utilisateurs de laboratoire peuvent créer des machines à partir de ces dernières images. Des principaux avantages de cette fonctionnalité sont que DevTest Labs peuvent maintenant tirer parti de partager des images entre les laboratoires, entre des abonnements et régions. 
+Si vous avez un grand nombre d’images managées à gérer et que vous voulez qu’elles soient disponibles pour toute l’entreprise, vous pouvez utiliser une galerie d’images partagées comme un dépôt qui facilite la mise à jour et le partage de vos images. En tant que propriétaire d’un lab, vous pouvez attacher une galerie d’images partagées existante à votre lab. Une fois que la galerie est attachée, les utilisateurs du lab peuvent créer des machines à partir de ces images les plus récentes. Un avantage clé de cette fonctionnalité est que DevTest Labs peut maintenant tirer parti du partage d’images dans l’ensemble des labs, abonnements et régions. 
 
 ## <a name="considerations"></a>Considérations
 - Vous pouvez uniquement attacher une galerie d’images partagé à un laboratoire à la fois. Si vous souhaitez attacher une autre bibliothèque, vous devez détacher un existant et ajouter une autre. 
@@ -46,10 +46,17 @@ Si vous avez un grand nombre d’images managées à gérer et que vous voulez q
 1. Dans la liste des laboratoires, sélectionnez votre **lab**.
 1. Sélectionnez **Configuration et stratégies** dans le **paramètres** section dans le menu de gauche.
 1. Sélectionnez **galeries d’images partagé** sous **bases de machine virtuelle** sur le menu de gauche.
+
+    ![Menu des galeries d’images partagé](./media/configure-shared-image-gallery/shared-image-galleries-menu.png)
 1. Attacher une galerie d’images partagé existant à votre laboratoire en cliquant sur le **attacher** bouton et en sélectionnant votre galerie dans la liste déroulante.
+
+    ![Joindre](./media/configure-shared-image-gallery/attach-options.png)
 1. Accédez à la galerie attachée et configurez votre galerie sur **activer ou désactiver** d’images pour la création de machines virtuelles partagées.
+
+    ![Activer ou désactiver](./media/configure-shared-image-gallery/enable-disable.png)
 1. Les utilisateurs de laboratoire peuvent ensuite créer une machine virtuelle avec les images est activées en cliquant sur **+ ajouter** et la recherche de l’image dans le **choisir votre base** page.
 
+    ![Utilisateurs de labo](./media/configure-shared-image-gallery/lab-users.png)
 ## <a name="use-azure-resource-manager-template"></a>Utilisation d’un modèle Azure Resource Manager
 
 ### <a name="attach-a-shared-image-gallery-to-your-lab"></a>Attacher une galerie d’images partagé à votre laboratoire

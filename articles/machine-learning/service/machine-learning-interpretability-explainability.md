@@ -10,12 +10,12 @@ ms.author: mesameki
 author: mesameki
 ms.reviewer: larryfr
 ms.date: 05/30/2019
-ms.openlocfilehash: 94309a019800b560cf6731d84cea324932e3f357
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: 4f1dd0bfc0637c6681b513860a63df2b8c35fe5e
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66398548"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66430860"
 ---
 # <a name="model-interpretability-with-azure-machine-learning-service"></a>Problème de modèle avec le service Azure Machine Learning
 
@@ -462,7 +462,7 @@ L’explicatif peut être déployé en même temps que le modèle d’origine et
 
 Apprentissage automatique contient des packages permettant d’interpréter l’importance de fonctionnalité dans les modèles formés en automatique. En outre, les scénarios de classification permettent de récupérer l’importance de fonctionnalité au niveau de la classe. Il existe deux méthodes pour activer ce comportement dans l’apprentissage automatique :
 
-* Pour activer l’importance de fonctionnalité pour un modèle formé ensemble, utilisez le [ `explain_model()` ](https://docs.microsoft.com/en-us/python/api/azureml-train-automl/azureml.train.automl.automlexplainer?view=azure-ml-py) (fonction).
+* Pour activer l’importance de fonctionnalité pour un modèle formé ensemble, utilisez le [ `explain_model()` ](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlexplainer?view=azure-ml-py) (fonction).
 
     ```python
     from azureml.train.automl.automlexplainer import explain_model
@@ -471,7 +471,7 @@ Apprentissage automatique contient des packages permettant d’interpréter l’
         per_class_summary, per_class_imp = explain_model(fitted_model, X_train, X_test)
     ```
 
-* Pour activer l’importance de fonctionnalité pour chaque exécution avant la formation, définissez le `model_explainability` paramètre `True` dans le `AutoMLConfig` objet, ainsi que de fournir des données de validation. Utilisez ensuite le [ `retrieve_model_explanation()` ](https://docs.microsoft.com/en-us/python/api/azureml-train-automl/azureml.train.automl.automlexplainer?view=azure-ml-py) (fonction).
+* Pour activer l’importance de fonctionnalité pour chaque exécution avant la formation, définissez le `model_explainability` paramètre `True` dans le `AutoMLConfig` objet, ainsi que de fournir des données de validation. Utilisez ensuite le [ `retrieve_model_explanation()` ](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlexplainer?view=azure-ml-py) (fonction).
 
     ```python
     from azureml.train.automl.automlexplainer import retrieve_model_explanation

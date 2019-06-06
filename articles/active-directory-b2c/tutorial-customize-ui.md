@@ -2,20 +2,20 @@
 title: Tutoriel - Personnaliser l'interface des expériences utilisateur - Azure Active Directory B2C | Microsoft Docs
 description: Découvrez comment personnaliser l’interface utilisateur de vos applications dans Azure Active Directory B2C à l’aide du portail Azure.
 services: B2C
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: c2a84bf72ab68937224ac93bd9ffd035e32c603d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 4c0fdbee2c5108dd3203217cb721576703b3faca
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64702545"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66512079"
 ---
 # <a name="tutorial-customize-the-interface-of-user-experiences-in-azure-active-directory-b2c"></a>Didacticiel : Personnaliser l'interface des expériences utilisateur dans Azure Active Directory B2C
 
@@ -55,7 +55,7 @@ Bien que vous puissiez stocker vos fichiers de plusieurs façons, pour les besoi
 ### <a name="create-a-container"></a>Créez un conteneur.
 
 1. Dans la page de vue d’ensemble du compte de stockage, sélectionnez **Objets blob**.
-2. Sélectionnez **Conteneur**, entrez un nom pour le conteneur, choisissez **Blob (accès en lecture anonyme pour les objets blob uniquement)**, puis cliquez sur **OK**.
+2. Sélectionnez **Conteneur**, entrez un nom pour le conteneur, choisissez **Blob (accès en lecture anonyme pour les objets blob uniquement)** , puis cliquez sur **OK**.
 
 ### <a name="enable-cors"></a>Activez CORS
 
@@ -138,7 +138,7 @@ Dans ce tutoriel, vous stockez les fichiers que vous avez créés dans le compte
 ## <a name="update-the-user-flow"></a>Mettre à jour le flux d'utilisateurs
 
 1. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
-2. Sélectionnez **Flux d'utilisateurs (stratégies)**, puis choisissez le flux d'utilisateurs *B2C_1_signupsignin1*.
+2. Sélectionnez **Flux d'utilisateurs (stratégies)** , puis choisissez le flux d'utilisateurs *B2C_1_signupsignin1*.
 3. Sélectionnez **Mises en page**, puis sous **Page unifiée d'inscription ou de connexion**, cliquez sur **Oui** pour **Utiliser un contenu de page personnalisé**.
 4. Dans **URI la page personnalisée**, entrez l'URI du fichier *custom-ui.html* notée précédemment.
 5. En haut de la page, sélectionnez **Enregistrer**.

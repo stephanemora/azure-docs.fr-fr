@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/14/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: cc65d6d3f7e7dcc08ea29ecc8a299b556563135b
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: bfa3e5a943ee59b1ed335f45e113a60f62572675
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66236309"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66735027"
 ---
 # <a name="get-started-with-azcopy"></a>Prise en main d’AzCopy
 
@@ -26,9 +26,9 @@ AzCopy est un utilitaire de ligne de commande que vous pouvez utiliser pour copi
 
 <a id="download-and-install-azcopy" />
 
-## <a name="download-azcopy"></a>Téléchargement d’AzCopy
+## <a name="download-azcopy"></a>Télécharger AzCopy
 
-Tout d’abord, téléchargez le fichier exécutable AzCopy V10 à n’importe quel dossier sur votre ordinateur. Pour plus de commodité, vous pouvez envisager l’emplacement du dossier AzCopy à votre chemin d’accès système pour sa facilité d’utilisation.
+Tout d’abord, téléchargez le fichier exécutable AzCopy V10 à n’importe quel répertoire sur votre ordinateur. 
 
 - [Windows](https://aka.ms/downloadazcopy-v10-windows) (zip)
 - [Linux](https://aka.ms/downloadazcopy-v10-linux) (tar)
@@ -39,13 +39,15 @@ Tout d’abord, téléchargez le fichier exécutable AzCopy V10 à n’importe q
 
 ## <a name="run-azcopy"></a>Exécuter AzCopy
 
-À partir d’une invite de commandes, accédez au répertoire où vous avez téléchargé le fichier.
+Pour plus de commodité, vous pouvez envisager l’emplacement du répertoire de l’exécutable AzCopy à votre chemin d’accès système pour sa facilité d’utilisation. De cette façon, vous pouvez taper `azcopy` à partir de n’importe quel répertoire sur votre système.
 
-Pour afficher une liste de commandes AzCopy, tapez `azCopy`, puis appuyez sur la touche ENTRÉE.
+Si vous choisissez de ne pas ajouter le répertoire AzCopy à votre chemin d’accès, vous devrez modifier les répertoires à l’emplacement de votre fichier exécutable AzCopy et de type `azcopy` ou `.\azcopy` dans les invites de commandes Windows PowerShell.
 
-Pour en savoir plus sur une commande spécifique, tapez `azCopy` suivie du nom de la commande.
+Pour afficher une liste de commandes, tapez `azcopy -h` et appuyez sur la touche ENTRÉE.
 
-Par exemple, pour en savoir plus sur la `copy` de commandes, tapez `azcopy copy`, puis appuyez sur la touche ENTRÉE.
+Pour en savoir plus sur une commande spécifique, incluez simplement le nom de la commande (par exemple : `azcopy list -h`).
+
+![Aide en ligne](media/storage-use-azcopy-v10/azcopy-inline-help.png)
 
 Avant de vous donner un sens avec AzCopy, vous devez décider comment vous allez fournir des informations d’identification d’autorisation pour le service de stockage.
 
@@ -81,7 +83,7 @@ Ces rôles peuvent être affectés à votre identité dans un de ces étendues 
 
 Pour savoir comment vérifier et attribuer des rôles, consultez [accorder l’accès aux données blob et file d’attente Azure avec RBAC dans le portail Azure](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
-Vous n’avez pas besoin d’avoir une de ces rôles affectés à votre identité si votre identité est ajoutée à la liste de contrôle d’accès (ACL) du conteneur cible ou du dossier. Dans l’ACL, votre identité a besoin d’autorisation en écriture sur le dossier cible et l’autorisation d’exécution sur le conteneur et chaque dossier parent.
+Vous n’avez pas besoin d’avoir une de ces rôles affectés à votre identité si votre identité est ajoutée à la liste de contrôle d’accès (ACL) du conteneur cible ou du répertoire. Dans l’ACL, votre identité a besoin d’autorisation d’écriture sur le répertoire cible et l’autorisation d’exécution sur le conteneur et chaque répertoire parent.
 
 Pour plus d’informations, consultez [contrôle d’accès dans Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
 
@@ -102,7 +104,7 @@ Ces rôles peuvent être affectés à votre identité dans un de ces étendues 
 
 Pour savoir comment vérifier et attribuer des rôles, consultez [accorder l’accès aux données blob et file d’attente Azure avec RBAC dans le portail Azure](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
-Vous n’avez pas besoin d’avoir une de ces rôles affectés à votre identité si votre identité est ajoutée à la liste de contrôle d’accès (ACL) du conteneur cible ou du dossier. Dans l’ACL, votre identité a besoin d’autorisation de lecture sur le dossier cible et l’autorisation execute sur le conteneur et chaque dossier parent.
+Vous n’avez pas besoin d’avoir une de ces rôles affectés à votre identité si votre identité est ajoutée à la liste de contrôle d’accès (ACL) du conteneur cible ou du répertoire. Dans l’ACL, votre identité a besoin d’une autorisation sur le répertoire cible, autorisations read et execute sur le conteneur et chaque répertoire parent.
 
 Pour plus d’informations, consultez [contrôle d’accès dans Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
 
@@ -114,11 +116,11 @@ Une fois que vous avez vérifié que votre identité a été donnée le niveau d
 azcopy login
 ```
 
-Cette commande retourne un code d’authentification et l’URL d’un site Web. Ouvrez le site Web, fournissez le code, puis choisissez le **suivant** bouton.
+Cette commande retourne un code d’authentification et l’URL d’un site web. Ouvrez le site web, indiquez le code, puis choisissez le bouton **Suivant**.
 
 ![Créez un conteneur.](media/storage-use-azcopy-v10/azcopy-login.png)
 
-Une fenêtre de connexion s’affiche. Dans cette fenêtre, connectez-vous à votre compte Azure à l’aide de vos informations d’identification de compte Azure. Une fois que vous avez correctement connecté, vous pouvez fermer la fenêtre du navigateur et commencer à l’aide d’AzCopy.
+Une fenêtre de connexion s’affiche. Dans cette fenêtre, connectez-vous à votre compte Azure à l’aide de vos informations d’identification de compte Azure. Une fois connecté, vous pouvez fermer la fenêtre du navigateur et commencer à utiliser AzCopy.
 
 ### <a name="option-2-use-a-sas-token"></a>Option 2 : Utiliser un jeton SAS
 
@@ -138,11 +140,11 @@ Une fois que vous avez authentifié votre identité ou obtenu un jeton SAP, vous
 
 Pour rechercher des exemples de commandes, consultez un de ces articles.
 
-- [Transfert de données avec AzCopy et le stockage blob](storage-use-azcopy-blobs.md)
+- [Transférer des données avec AzCopy et le Stockage Blob](storage-use-azcopy-blobs.md)
 
-- [Transfert de données avec AzCopy et stockage fichier](storage-use-azcopy-files.md)
+- [Transférer des données avec AzCopy et le stockage de fichiers](storage-use-azcopy-files.md)
 
-- [Transfert de données avec AzCopy et Amazon S3 compartiments](storage-use-azcopy-s3.md)
+- [Transférer des données avec AzCopy et des compartiments Amazon S3](storage-use-azcopy-s3.md)
 
 ## <a name="configure-optimize-and-troubleshoot-azcopy"></a>Configurer, optimiser et résoudre les problèmes d’AzCopy
 

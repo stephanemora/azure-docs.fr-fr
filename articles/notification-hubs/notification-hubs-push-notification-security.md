@@ -12,36 +12,36 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 05/23/2019
+ms.date: 05/31/2019
 ms.author: jowargo
-ms.openlocfilehash: 2ba3be0d51758cf7afd9f85258403bf79ca8401f
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 3f5b23028094b545262e9c01640890f2c0b989ca
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66239414"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66431254"
 ---
-# <a name="security-model-of-azure-notification-hubs"></a>Modèle de sécurité d’Azure Notification Hubs
+# <a name="notification-hubs-security"></a>Sécurité de Notification Hubs
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Présentation
 
-Cette rubrique décrit le modèle de sécurité d'Azure Notification Hubs. Notification Hubs étant une entité Service Bus, elle implémente le même modèle de sécurité que Service Bus. Pour plus d'informations, consultez les rubriques [Authentification Service Bus](https://msdn.microsoft.com/library/azure/dn155925.aspx) .
+Cette rubrique décrit le modèle de sécurité d'Azure Notification Hubs.
 
 ## <a name="shared-access-signature-security-sas"></a>Sécurité Signature d'accès partagé (SAP)
 
 Notification Hubs implémente un modèle de sécurité de niveau entité appelé SAP (Signature d'accès partagé). Ce schéma permet aux entités de messagerie de déclarer dans leur description jusqu'à 12 règles d'autorisation accordant des droits sur cette entité.
 
-Chaque règle contient un nom, une valeur clé (secret partagé) et un ensemble de droits, comme expliqué dans la section « Revendications de sécurité ». Lorsque vous créez un concentrateur de notification, deux règles sont automatiquement créées : une avec des droits d'écoute (utilisée par l'application cliente) et l'autre avec tous les droits (utilisé par le serveur principal d'application).
+Chaque règle contient un nom, une valeur de clé (secret partagé) et un ensemble de droits, comme expliqué dans [revendications de sécurité](#security-claims). Lorsque vous créez un Hub de Notification, deux règles sont automatiquement créées : une avec **écouter** droits (utilisée par l’application cliente) et l’autre avec **tous les** droits (utilisée par le serveur principal d’application).
 
 Lors de la gestion de l'inscription à partir d’applications clientes, si les informations envoyées via des notifications ne sont pas sensibles (par exemple, des mises à jour météorologiques), une méthode courante pour accéder à un concentrateur de notification consiste à attribuer la valeur clé de la règle d'accès en écoute uniquement à l'application cliente et à attribuer la valeur clé de la règle d’accès complet au serveur principal.
 
-Il est déconseillé d'incorporer la valeur clé dans les applications clientes Windows Store. Pour éviter l'incorporation de la valeur clé, l'application cliente peut la récupérer à partir du serveur principal d'application au démarrage.
+Les applications ne doit pas incorporer la valeur de clé dans les applications clientes Windows Store, à la place application cliente peut la récupérer à partir du serveur principal d’application au démarrage.
 
-Il est important de comprendre que la clé avec un accès en écoute permet à une application cliente de s’inscrire pour n’importe quelle balise. Si votre application doit limiter les inscriptions à des balises spécifiques pour des clients spécifiques (par exemple, lorsque les balises représentent des ID utilisateur), votre serveur principal d’application doit effectuer ces inscriptions. Pour plus d'informations, consultez Gestion des inscriptions. Notez que de cette façon, l'application cliente ne disposera pas d'un accès direct à Notification Hubs.
+La clé avec **écouter** accès permet à une application cliente pour vous inscrire à n’importe quelle balise. Si votre application doit limiter les inscriptions à des balises spécifiques à des clients spécifiques (par exemple, lorsque les balises représentent des ID d’utilisateur), votre serveur principal d’application doit effectuer ces inscriptions. Pour plus d’informations, consultez [gestion des inscriptions](notification-hubs-push-notification-registration-management.md). Notez que de cette façon, l'application cliente ne disposera pas d'un accès direct à Notification Hubs.
 
 ## <a name="security-claims"></a>Revendications de sécurité
 
-Comme pour les autres entités, les opérations Notification Hubs sont autorisées pour trois revendications de sécurité : Écoute, Envoyer et Gérer.
+Comme pour les autres entités, les opérations Notification Hubs sont autorisées pour trois revendications de sécurité : **Écouter**, **envoyer**, et **gérer**.
 
 | Revendication   | Description                                          | Opérations autorisées |
 | ------- | ---------------------------------------------------- | ------------------ |

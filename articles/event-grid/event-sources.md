@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: spelluru
-ms.openlocfilehash: f6c00f4ada0590df91fce0c36281d0c0cac67b77
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: 3611072759c62f42294730405f1dc402c496acce
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66257951"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66735007"
 ---
 # <a name="event-sources-in-azure-event-grid"></a>Sources d’événements dans Azure Event Grid
 
@@ -140,6 +140,15 @@ Abonnez-vous aux événements Azure Maps pour répondre aux événements de limi
 | [Réagir aux événements Azure Maps à l’aide d’Event Grid](../azure-maps/azure-maps-event-grid-integration.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Vue d’ensemble de l’intégration d’Azure Maps à Event Grid. |
 | [Tutoriel : Définir une limite géographique](../azure-maps/tutorial-geofence.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Ce tutoriel vous montre les étapes de base qui sont nécessaires à la configuration d’une limite géographique à l’aide d’Azure Maps. Vous utilisez Azure Event Grid pour diffuser en continu les résultats de la limite géographique et pour configurer une notification en fonction de ces résultats. |
 | [Schéma d’événement](event-schema-azure-maps.md) | Affiche les champs dans les événements Azure Maps. |
+
+## <a name="app-configuration"></a>Configuration d’application
+S’abonner aux événements de Configuration de l’application Azure pour répondre aux événements de modification de clé-valeur.
+
+|Intitulé | Description |
+|---------|---------|
+| [Réagir aux événements de Configuration de l’application Azure à l’aide d’Event Grid](../azure-app-configuration/concept-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Vue d’ensemble de l’intégration de la Configuration de l’application Azure avec Event Grid. |
+| [Démarrage rapide : acheminer des événements de Configuration de l’application Azure vers un point de terminaison web personnalisé avec Azure CLI](../azure-app-configuration/howto-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Montre comment utiliser Azure CLI pour envoyer des événements de Configuration de l’application Azure à un WebHook. |
+| [Schéma d’événement](event-schema-app-configuration.md) | Affiche les champs dans les événements de Configuration de l’application Azure. |
 
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -1,20 +1,18 @@
 ---
-title: Azure HDInsight Tools - Utiliser Visual Studio Code pour Hive, LLAP ou PySpark | Microsoft Docs
+title: Azure HDInsight Tools - utiliser Visual Studio Code pour Hive, LLAP ou PySpark
 description: Découvrez comment utiliser Azure HDInsight Tools pour Visual Studio Code pour créer et envoyer des requêtes et des scripts.
-Keywords: Visual Studio Code, les outils Azure HDInsight, Hive, Python, PySpark, Spark, HDInsight, Hadoop, LLAP, Interactive Hive, Interactive Query
-documentationcenter: ''
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 02/04/2019
-ms.openlocfilehash: 04e607517bc806b60d7e76e5076f9d3518e530eb
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 05/30/2019
+ms.openlocfilehash: d114a1e62ae0d28e7d4a3ad453d5d7bd3e1d5b7a
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64681767"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66427694"
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>Utiliser les Azure HDInsight Tools pour Visual Studio Code
 
@@ -55,7 +53,7 @@ Une fois que vous avez tous les éléments prérequis, installez Azure HDInsight
 
 Procédez comme suit pour ouvrir un dossier de travail et créer un fichier dans Visual Studio Code :
 
-1. À partir de la barre de menus, accédez à **Fichier** > **Ouvrir le dossier...** > **C:\HD\HDexample**, puis sélectionnez le bouton **Sélectionner le dossier**. Le dossier s’affiche dans la vue **Explorer** sur la gauche.
+1. À partir de la barre de menus, accédez à **Fichier** > **Ouvrir le dossier...**  > **C:\HD\HDexample**, puis sélectionnez le bouton **Sélectionner le dossier**. Le dossier s’affiche dans la vue **Explorer** sur la gauche.
 
 2. À partir de la vue **Explorer**, sélectionnez le dossier, **HDexample**, puis l’icône **Nouveau fichier** en regard du dossier de travail.
 
@@ -67,11 +65,11 @@ Procédez comme suit pour ouvrir un dossier de travail et créer un fichier dans
 
 Avant de pouvoir envoyer des scripts à des clusters HDInsight à partir de Visual Studio Code, vous devez vous connecter à votre compte Azure, ou lier un cluster (à l’aide du nom d’utilisateur/mot de passe Ambari ou d’un compte joint au domaine).  Suivez les étapes ci-dessous pour vous connecter à Azure :
 
-1. À partir de la barre de menus, accédez à **Afficher** > **Palette de commandes...**, puis entrez **HDInsight : Connexion**.
+1. À partir de la barre de menus, accédez à **Afficher** > **Palette de commandes...** , puis entrez **HDInsight : Connexion**.
 
     ![Connexion à HDInsight Tools pour Visual Studio Code](./media/hdinsight-for-vscode/hdinsight-for-vscode-extension-login.png)
 
-2. Suivez les instructions de connexion affichées dans le volet **OUTPUT**.
+2. Suivez les instructions de la connexion le **sortie** volet.
     + Pour l'environnement global Azure, la commande **HDInsight: Login** déclenchera l'action **Se connecter à Azure** dans l'explorateur HDInsight, et vice versa.
 
         ![Instructions de connexion pour Azure](./media/hdinsight-for-vscode/hdi-azure-hdinsight-azure-signin.png)
@@ -87,7 +85,7 @@ Avant de pouvoir envoyer des scripts à des clusters HDInsight à partir de Visu
 
 Vous pouvez lier un cluster normal à l’aide d’un nom d’utilisateur [Apache Ambari](https://ambari.apache.org/) managé ou lier un cluster de sécurité Hadoop de Pack Sécurité Entreprise à l’aide d’un nom d’utilisateur de domaine (par exemple : user1@contoso.com).
 
-1. À partir de la barre de menus, accédez à **Afficher** > **Palette de commandes...**, puis entrez **HDInsight : Lier un cluster**.
+1. À partir de la barre de menus, accédez à **Afficher** > **Palette de commandes...** , puis entrez **HDInsight : Lier un cluster**.
 
    ![commande de lien du cluster](./media/hdinsight-for-vscode/link-cluster-command.png)
 
@@ -109,7 +107,7 @@ Vous pouvez lier un cluster normal à l’aide d’un nom d’utilisateur [Apach
 
 ## <a name="create-link-generic-livy-endpoint"></a>Créer un lien : Generic Livy Endpoint (point de terminaison Livy générique)
 
-1. À partir de la barre de menus, accédez à **Afficher** > **Palette de commandes...**, puis entrez **HDInsight : Lier un cluster**.
+1. À partir de la barre de menus, accédez à **Afficher** > **Palette de commandes...** , puis entrez **HDInsight : Lier un cluster**.
 
 2. Sélectionnez le type de cluster lié **Generic Livy Endpoint**.
 
@@ -123,7 +121,7 @@ Vous pouvez lier un cluster normal à l’aide d’un nom d’utilisateur [Apach
 
 ## <a name="list-hdinsight-clusters"></a>Afficher la liste des clusters HDInsight
 
-1. À partir de la barre de menus, accédez à **Afficher** > **Palette de commandes...**, puis entrez **HDInsight : Répertorier un cluster**.
+1. À partir de la barre de menus, accédez à **Afficher** > **Palette de commandes...** , puis entrez **HDInsight : Répertorier un cluster**.
 
 2. Sélectionnez l’abonnement souhaité.
 
@@ -149,7 +147,7 @@ Vous pouvez lier un cluster normal à l’aide d’un nom d’utilisateur [Apach
 
 1. [Connectez-vous](#connect-to-hdinsight-cluster) à votre compte Azure, si ce n’est déjà fait.
 
-2. À partir de la barre de menus, accédez à **Afficher** > **Palette de commandes...**, puis entrez **HDInsight : Définir l’environnement Azure**.
+2. À partir de la barre de menus, accédez à **Afficher** > **Palette de commandes...** , puis entrez **HDInsight : Définir l’environnement Azure**.
 
 3. Sélectionnez un environnement en tant que votre entrée de connexion par défaut.
 
@@ -219,7 +217,7 @@ HDInsight Tools pour Visual Studio Code vous permet d’envoyer des requêtes, s
 
 8. L’outil prend également en charge la requêtes avec **Clause SQL**.
 
-   ![Résultat de l’envoi du travail Python](./media/hdinsight-for-vscode/pyspark-ineteractive-select-result.png) L’état de l’envoi s’affiche en bas à gauche dans la barre d’état lors de l’exécution des requêtes. N’envoyez pas d’autres requêtes lorsque l’état est **PySpark Kernel (busy)**.  
+   ![Résultat de l’envoi du travail Python](./media/hdinsight-for-vscode/pyspark-ineteractive-select-result.png) L’état de l’envoi s’affiche en bas à gauche dans la barre d’état lors de l’exécution des requêtes. N’envoyez pas d’autres requêtes lorsque l’état est **PySpark Kernel (busy)** .  
 
 >[!NOTE]  
 >Les clusters peuvent mettre à jour les informations de session. La variable et la fonction définies, ainsi que les valeurs correspondantes sont conservées dans la session, ce qui permet de les référencer dans plusieurs appels de service pour le même cluster. 
@@ -360,7 +358,7 @@ Envoyez un fichier, notez que le dossier .vscode est ajouté automatiquement au 
 
 HDInsight pour Visual Studio Code prend en charge les fonctionnalités suivantes :
 
-- **Saisie semi-automatique IntelliSense**. Fenêtre contextuelle de suggestions de mots-clés, de méthodes, de variables, etc. Des icônes différentes représentent des types d’objets différents.
+- **La saisie semi-automatique IntelliSense**. Fenêtre contextuelle de suggestions de mots-clés, de méthodes, de variables, etc. Des icônes différentes représentent des types d’objets différents.
 
     ![types d’objets IntelliSense dans HDInsight Tools pour Visual Studio Code](./media/hdinsight-for-vscode/hdinsight-for-vscode-auto-complete-objects.png)
 - **Marqueur d’erreurs IntelliSense**. Le service de langage souligne les erreurs de saisie dans le script Hive.     
@@ -371,7 +369,7 @@ HDInsight pour Visual Studio Code prend en charge les fonctionnalités suivantes
 
 ## <a name="unlink-cluster"></a>Supprimer le lien du cluster
 
-1. À partir de la barre de menus, accédez à **Afficher** > **Palette de commandes...**, puis entrez **HDInsight : Supprimer le lien du cluster**.  
+1. À partir de la barre de menus, accédez à **Afficher** > **Palette de commandes...** , puis entrez **HDInsight : Supprimer le lien du cluster**.  
 
 2. Sélectionnez le cluster pour lequel supprimer le lien.  
 
@@ -380,7 +378,7 @@ HDInsight pour Visual Studio Code prend en charge les fonctionnalités suivantes
 
 ## <a name="logout"></a>Déconnexion  
 
-À partir de la barre de menus, accédez à **Afficher** > **Palette de commandes...**, puis entrez **HDInsight : Déconnexion**.  Une fenêtre contextuelle s’affiche dans l’angle inférieur droit signalant **Déconnexion réussie !**.
+À partir de la barre de menus, accédez à **Afficher** > **Palette de commandes...** , puis entrez **HDInsight : Déconnexion**.  Une fenêtre contextuelle s’affiche dans l’angle inférieur droit signalant **Déconnexion réussie !** .
 
 
 ## <a name="next-steps"></a>Étapes suivantes

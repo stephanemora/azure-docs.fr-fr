@@ -6,13 +6,13 @@ ms.author: ashish
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 05/13/2019
-ms.openlocfilehash: 622261d0f7e602635aa6a638357278a9c63a6ecd
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.date: 06/03/2019
+ms.openlocfilehash: eb68421c4f62d94eedf266a0c34a0e276eacc4a6
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65990521"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479285"
 ---
 # <a name="scale-hdinsight-clusters"></a>Mettre à l’échelle les clusters HDInsight
 
@@ -26,7 +26,7 @@ Vous pouvez mettre à l’échelle un cluster manuellement à l’aide d’une d
 
 Microsoft fournit les utilitaires suivants pour mettre à l’échelle des clusters :
 
-|Utilitaire | Description |
+|Utilitaire | Description|
 |---|---|
 |[PowerShell Az](https://docs.microsoft.com/powershell/azure)|[Set-AzHDInsightClusterSize](https://docs.microsoft.com/powershell/module/az.hdinsight/set-azhdinsightclustersize) - ClusterName \<nom du Cluster > - TargetInstanceCount \<NewSize >|
 |[PowerShell AzureRM](https://docs.microsoft.com/powershell/azure/azurerm) |[Set-AzureRmHDInsightClusterSize](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/set-azurermhdinsightclustersize) - ClusterName \<nom du Cluster > - TargetInstanceCount \<NewSize >|
@@ -58,13 +58,12 @@ Pour éviter que vos travaux en cours d’exécution échoue pendant une opérat
 1. Arrêtez manuellement les travaux.
 1. Soumettez à nouveau les travaux une fois l’opération de mise à l’échelle terminée.
 
-Pour afficher une liste d’attente et des travaux en cours d’exécution, vous pouvez utiliser le fils **ResourceManager UI**, procédez comme suit :
+Pour afficher une liste d’attente et des travaux en cours d’exécution, vous pouvez utiliser le fils **Resource Manager UI**, procédez comme suit :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
-2. À partir de la gauche, accédez à **tous les services** > **Analytique** > **HDInsight Clusters**, puis sélectionnez votre cluster.
-3. À partir de la vue principale, accédez à **des tableaux de bord de Cluster** > **Ambari domestique**. Entrez vos informations d’identification du cluster.
-4. À partir de l’UI Ambari, sélectionnez **YARN** sur la liste des services sur le menu de gauche.  
-5. Dans la page YARN, sélectionnez **liens rapides** et placez le curseur sur le nœud principal actif, puis sélectionnez **ResourceManager UI**.
+1. À partir de la [Azure portal](https://portal.azure.com/), sélectionnez votre cluster.  Pour obtenir des instructions, consultez la page [Énumération et affichage des clusters](./hdinsight-administer-use-portal-linux.md#showClusters). Le cluster est ouvert dans une nouvelle page de portail.
+2. À partir de la vue principale, accédez à **des tableaux de bord de Cluster** > **Ambari domestique**. Entrez vos informations d’identification du cluster.
+3. À partir de l’UI Ambari, sélectionnez **YARN** sur la liste des services sur le menu de gauche.  
+4. Dans la page YARN, sélectionnez **liens rapides** et placez le curseur sur le nœud principal actif, puis sélectionnez **ResourceManager UI**.
 
     ![Interface utilisateur ResourceManager](./media/hdinsight-scaling-best-practices/resourcemanager-ui.png)
 
@@ -80,7 +79,7 @@ Pour arrêter manuellement cette application en cours d’exécution, exécutez 
 yarn application -kill <application_id>
 ```
 
-Exemple :
+Exemple :
 
 ```bash
 yarn application -kill "application_1499348398273_0003"

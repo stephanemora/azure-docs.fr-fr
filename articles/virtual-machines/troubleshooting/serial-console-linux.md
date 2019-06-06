@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: 52c79a0b883ff4c9ac77d7523764384b88c06a08
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: a561d29f462d44eb6bc440bb6110430cc5c51688
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66389019"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66735243"
 ---
 # <a name="azure-serial-console-for-linux"></a>Console série Azure pour Linux
 
@@ -47,6 +47,7 @@ Pour la documentation de la Console série pour Windows, consultez [Console sér
 
 - Pour découvrir les paramètres spécifiques des distributions Linux, consultez [Disponibilité de distributions Linux pour la console série](#serial-console-linux-distribution-availability).
 
+- Votre instance de groupe identique machine virtuelle ou une machine virtuelle doit être configuré pour la sortie en série sur `ttys0`. Ceci est la valeur par défaut pour les images Azure, mais vous pouvez Vérifiez cela sur des images personnalisées. Détails [ci-dessous](#custom-linux-images).
 
 
 ## <a name="get-started-with-the-serial-console"></a>Bien démarrer avec la Console série
@@ -84,6 +85,9 @@ Console série est disponible sur une base par instance pour les machines virtue
 ## <a name="serial-console-linux-distribution-availability"></a>Disponibilité de la distribution Linux de la Console série
 Afin de permettre le bon fonctionnement de la console série, le système d’exploitation invité doit être configuré pour la lecture et l’écriture des messages de console sur le port série. La plupart des [distributions Azure Linux approuvées](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) présentent la console série configurée par défaut. Sélectionnez **Console série** dans la section **Support + dépannage** du portail Azure pour accéder à la console série.
 
+> [!NOTE]
+> Si vous ne voyez rien dans la console série, vérifiez que les diagnostics de démarrage sont activés sur votre machine virtuelle. Atteindre **entrée** permet généralement de corriger les problèmes où rien ne s’affiche dans la console série.
+
 Distribution      | Accès à la console série
 :-----------|:---------------------
 Red Hat Enterprise Linux    | Accès à la console série activé par défaut.
@@ -92,10 +96,13 @@ Ubuntu      | Accès à la console série activé par défaut.
 CoreOS      | Accès à la console série activé par défaut.
 SUSE        | Les images SLES les plus récentes disponibles sur Azure disposent de l’accès à la console série activé par défaut. Si vous utilisez des versions antérieures (version 10 ou antérieure) de SLES sur Azure, consultez les instructions de l’[article de la base de connaissances](https://www.novell.com/support/kb/doc.php?id=3456486) pour activer la console série.
 Oracle Linux        | Accès à la console série activé par défaut.
-Images Linux personnalisées     | Afin d’activer la console série pour votre image Linux personnalisée de machine virtuelle, activez l’accès à la console dans le fichier */etc/inittab* pour exécuter un terminal sur `ttyS0`. Par exemple : `S0:12345:respawn:/sbin/agetty -L 115200 console vt102`. Pour plus d’informations sur la création d’images personnalisées, consultez [Création et téléchargement d’un disque dur virtuel Linux dans Azure](https://aka.ms/createuploadvhd). Si vous générez un noyau personnalisé, envisagez d’activer les indicateurs de noyau `CONFIG_SERIAL_8250=y` et `CONFIG_MAGIC_SYSRQ_SERIAL=y`. Le fichier config se trouve généralement sous */boot/* .
 
-> [!NOTE]
-> Si vous ne voyez rien dans la console série, vérifiez que les diagnostics de démarrage sont activés sur votre machine virtuelle. Atteindre **entrée** permet généralement de corriger les problèmes où rien ne s’affiche dans la console série.
+### <a name="custom-linux-images"></a>Images Linux personnalisées
+Afin d’activer la console série pour votre image Linux personnalisée de machine virtuelle, activez l’accès à la console dans le fichier */etc/inittab* pour exécuter un terminal sur `ttyS0`. Par exemple : `S0:12345:respawn:/sbin/agetty -L 115200 console vt102`.
+
+Vous devez également ajouter ttys0 comme destination de sortie en série. Pour plus d’informations sur la configuration d’une image personnalisée pour travailler avec la console série, consultez la configuration système générale requise à [créer et charger un VHD Linux dans Azure](https://aka.ms/createuploadvhd#general-linux-system-requirements).
+
+Si vous générez un noyau personnalisé, envisagez d’activer les indicateurs de noyau `CONFIG_SERIAL_8250=y` et `CONFIG_MAGIC_SYSRQ_SERIAL=y`. Le fichier config se trouve généralement sous */boot/* . |
 
 ## <a name="common-scenarios-for-accessing-the-serial-console"></a>Scénarios courants pour l’accès à la Console série
 
@@ -201,6 +208,7 @@ Le texte de la console série n’occupe l’écran que partiellement (souvent a
 Le collage de chaînes longues ne fonctionne pas. | La console série limite la longueur des chaînes collées dans le terminal à 2 048 caractères afin d’empêcher toute surcharge de la bande passante du port série.
 Serial console ne fonctionne pas avec un pare-feu de compte de stockage. | Serial console, de par sa conception, ne peut pas fonctionner avec des pare-feu de compte de stockage activés sur le compte de stockage des diagnostics de démarrage.
 Console série ne fonctionne pas avec un compte de stockage à l’aide d’Azure Data Lake Storage Gen2 avec des espaces de noms hiérarchique. | Il s’agit d’un problème connu avec les espaces de noms hiérarchiques. Pour atténuer, vérifiez que compte de stockage de diagnostics de démarrage de votre machine virtuelle n’est pas créé, à l’aide d’Azure Data Lake Storage Gen2. Cette option peut uniquement être définie lors de la création de compte de stockage. Vous devrez peut-être créer un diagnostic de démarrage séparé compte de stockage sans Azure Data Lake Storage Gen2 est activé pour atténuer ce problème.
+Erratique entrée au clavier dans les images SLES BYOS. Entrée au clavier est reconnue uniquement sporadique. | Il s’agit d’un problème avec le package Plymouth. Plymouth ne doit pas être exécuté dans Azure que vous n’avez pas besoin d’un écran de démarrage et Plymouth interfère avec la possibilité de plateforme à utiliser la Console série. Supprimer Plymouth avec `sudo zypper remove plymouth` puis redémarrez. Vous pouvez également modifier la ligne du noyau de votre configuration GRUB en ajoutant `plymouth.enable=0` à la fin de la ligne. Vous pouvez faire [modification de l’entrée de démarrage au moment du démarrage](https://aka.ms/serialconsolegrub#single-user-mode-in-suse-sles), ou en modifiant la ligne GRUB_CMDLINE_LINUX dans `/etc/default/grub`, reconstruction GRUB avec `grub2-mkconfig -o /boot/grub2/grub.cfg`, puis redémarrez votre ordinateur.
 
 
 ## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)

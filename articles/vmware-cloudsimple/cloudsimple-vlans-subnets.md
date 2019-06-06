@@ -8,16 +8,18 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: e88977cc4d99df176116e6be7d8e06adb6297782
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 9d29445054848d798476fed8184b89f9b6c1210f
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65209574"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66497573"
 ---
 # <a name="vlans-and-subnets-overview"></a>Vue d’ensemble des réseaux locaux virtuels et sous-réseaux
 
 CloudSimple fournit un réseau par région où votre service CloudSimple est déployé.  Le réseau est un seul espace d’adresse TCP de couche 3 avec routage activé par défaut.  Tous les clouds privés et les sous-réseaux créés dans cette région peuvent communiquer entre eux sans aucune configuration supplémentaire.  Vous pouvez créer des groupes de ports distribué sur le serveur vCenter à l’aide des réseaux locaux virtuels.
+
+![Topologie de réseau de CloudSimple](media/cloudsimple-network-topology.png)
 
 ## <a name="vlans"></a>Réseaux VLAN
 
@@ -34,6 +36,10 @@ Tous les sous-réseaux peuvent communiquer entre eux par défaut, ce qui réduit
 Un Cloud privé est créé comme une pile VMware isolée (hôtes ESXi vCenter, vSAN et NSX) environnement géré par un serveur vCenter.  Composants de gestion sont déployés dans le réseau sélectionné pour **vSphere/vSAN sous-réseaux CIDR**.  La plage CIDR du réseau est divisé en sous-réseaux différents pendant le déploiement.
 
 Préfixe de plage minimale vSphere/vSAN sous-réseaux CIDR : **/24** sous-réseaux de vSphere/vSAN Maximum CIDR de plage préfixe :   **/21**
+
+> [!CAUTION]
+> Adresses IP dans la plage CIDR vSphere/vSAN sont réservés pour une utilisation par l’infrastructure de Cloud privé. N’utilisez pas une adresse IP dans cette plage sur n’importe quelle machine virtuelle.
+
 
 ### <a name="vspherevsan-subnets-cidr-range-limits"></a>limites de plage de sous-réseaux vSphere/vSAN CIDR
 

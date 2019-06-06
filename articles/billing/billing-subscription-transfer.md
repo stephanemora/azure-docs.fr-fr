@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/24/2019
+ms.date: 06/03/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 33d0e5f92d5de104530882b204b1f196360511b2
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 91880e43382662b5d55f112455ee8f4c92ad01c5
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66236455"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66471603"
 ---
 # <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>Transfert de la propriété d’un abonnement Azure à un autre compte
 
@@ -116,7 +116,8 @@ Toutes les ressources telles que les machines virtuelles, les disques, et les si
 
 ### <a id="no-button"></a> Pourquoi le bouton Transférer un abonnement ne s’affiche-t-il pas ?
 
-Malheureusement, transfert d’abonnement libre-service n’est pas disponible pour votre offre. Afficher la liste des offres prises en charge dans les [prise en charge des offres](#supported-offers) section de cet article.
+Malheureusement, transfert d’abonnement libre-service n’est pas disponible pour votre offre. Afficher la liste des offres prises en charge dans les [prise en charge des offres](#supported-offers) section de cet article. En outre, nous ne bloquent pas de transfert d’abonnement pour n’importe quel pays. Toutefois, entre pays transfert n'est pas pris en charge. Pour transférer votre abonnement cross pays, [contactez le support technique](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). 
+
 
 ### <a name="can-i-transfer-ownership-to-an-account-in-another-country"></a>Puis-je transférer la propriété à un compte dans un autre pays ?
 

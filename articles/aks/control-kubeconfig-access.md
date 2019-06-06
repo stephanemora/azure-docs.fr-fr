@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 01/03/2019
+ms.date: 05/31/2019
 ms.author: iainfou
-ms.openlocfilehash: d4d3d9a3ff57a7a388e9703d0d145d8ce6eafd12
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: b55cc226cfbb462cdccd73b3b80cfb0d56c10711
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66143023"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475614"
 ---
 # <a name="use-azure-role-based-access-controls-to-define-access-to-the-kubernetes-configuration-file-in-azure-kubernetes-service-aks"></a>Utiliser les contrôles d’accès en fonction du rôle Azure pour définir l’accès au fichier de configuration Kubernetes dans Azure Kubernetes Service (AKS)
 
@@ -24,7 +24,7 @@ Cet article vous montre comment attribuer des rôles RBAC qui limitent les utili
 
 Cet article suppose que vous avez un cluster AKS existant. Si vous avez besoin d’un cluster AKS, consultez le guide de démarrage rapide d’AKS [avec Azure CLI][aks-quickstart-cli] ou [avec le portail Azure][aks-quickstart-portal].
 
-Pour les besoins de cet article, vous devez également exécuter Azure CLI version 2.0.53 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installer Azure CLI 2.0][azure-cli-install].
+Cet article nécessite également que vous exécutiez Azure CLI version 2.0.65 ou version ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installer Azure CLI 2.0][azure-cli-install].
 
 ## <a name="available-cluster-roles-permissions"></a>Autorisations des rôles de cluster disponibles
 
@@ -45,9 +45,9 @@ Ces rôles RBAC peuvent être appliquées à un utilisateur Azure Active Directo
 
 ## <a name="assign-role-permissions-to-a-user-or-group"></a>Affecter des autorisations de rôle à un utilisateur ou un groupe
 
-Pour affecter l’un des rôles disponibles, vous devez obtenir l’ID de ressource du cluster AKS et l’ID du compte d’utilisateur Azure AD ou du groupe. Les exemples de commandes suivants effectuent ces étapes :
+Pour affecter l’un des rôles disponibles, vous devez obtenir l’ID de ressource du cluster AKS et l’ID du compte d’utilisateur Azure AD ou du groupe. L’exemple de commande suivant :
 
-* Obtient l’ID de ressource du cluster à l’aide de la commande [az aks show][az-aks-show] pour le cluster nommé *myAKSCluster* dans le groupe de ressources *myResourceGroup*. Fournissez votre propre nom de groupe de ressources et de cluster, au besoin.
+* Obtenir l’ID de ressource de cluster à l’aide du [show d’ACS az] [ az-aks-show] commande pour le cluster nommé *myAKSCluster* dans le *myResourceGroup* groupe de ressources. Fournissez votre propre nom de groupe de ressources et de cluster, au besoin.
 * Utilise le [show de compte az] [ az-account-show] et [show d’utilisateur az ad] [ az-ad-user-show] commandes pour obtenir votre ID d’utilisateur.
 * Enfin, attribue un rôle au moyen de la commande [az role assignment create][az-role-assignment-create].
 
@@ -69,7 +69,7 @@ az role assignment create \
 ```
 
 > [!TIP]
-> Si vous souhaitez affecter des autorisations à un groupe Azure AD, mettez à jour le `--assignee` paramètre avec l’ID d’objet pour le groupe plutôt qu’un utilisateur comme indiqué dans l’exemple précédent. Pour obtenir l’ID d’objet pour un groupe, utilisez le [show de groupe az ad] [ az-ad-group-show] commande. L’exemple suivant obtient l’ID d’objet pour le groupe Azure AD nommé *appdev*: `az ad group show --group appdev --query objectId -o tsv`
+> Si vous souhaitez affecter des autorisations à un groupe Azure AD, mettez à jour le `--assignee` paramètre indiqué dans l’exemple précédent avec l’ID d’objet pour le *groupe* au lieu d’un *utilisateur*. Pour obtenir l’ID d’objet pour un groupe, utilisez le [show de groupe az ad] [ az-ad-group-show] commande. L’exemple suivant obtient l’ID d’objet pour le groupe Azure AD nommé *appdev*: `az ad group show --group appdev --query objectId -o tsv`
 
 Vous pouvez modifier l’affectation précédente au *rôle d’utilisateur de cluster*, le cas échéant.
 

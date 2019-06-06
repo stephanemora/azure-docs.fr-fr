@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.workload: tbd
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: 1520b01826de2a80d8baeccf4913fa180d385644
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: eb7cbb80be12498242363eb8141a468e08cba73a
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66256302"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66478331"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights pour les services cloud Azure
 [Application Insights][start] peut superviser les [applications de service cloud Azure](https://azure.microsoft.com/services/cloud-services/) pour vérifier la disponibilité, les performances, les échecs et l’utilisation en combinant les données des SDK Application Insights avec les données d’[Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) de vos services cloud. Avec les retours que vous obtenez sur les performances et l’efficacité de votre application dans la nature, vous pouvez prendre des décisions avisées sur la direction de la conception de chaque cycle de développement.
@@ -194,18 +194,18 @@ Pour les rôles de travail, il existe deux façons de suivre les exceptions :
 ## <a name="performance-counters"></a>Compteurs de performances
 Les compteurs suivants sont collectés par défaut :
 
-    * \Processus(??APP_WIN32_PROC??)\% Temps processeur
-    * \Memory\Octets disponibles
-    * \.Exceptions .NET CLR(??APP_CLR_PROC??)\# Nombre d'exceptions levées/s
-    * \Processus(??APP_WIN32_PROC??)\Octets privés
-    * \Processus(??APP_WIN32_PROC??)\Nombre d’octets de données E/S par s
-    * \Processor(_Total)\% temps processeur
+* \Processus(??APP_WIN32_PROC??)\% Temps processeur
+* \Memory\Octets disponibles
+* \.Exceptions .NET CLR(??APP_CLR_PROC??)\# Nombre d'exceptions levées/s
+* \Processus(??APP_WIN32_PROC??)\Octets privés
+* \Processus(??APP_WIN32_PROC??)\Nombre d’octets de données E/S par s
+* \Processor(_Total)\% temps processeur
 
 Pour les rôles web, ces compteurs sont également collectés :
 
-    * \Applications ASP.NET(??APP_W3SVC_PROC??)\Demandes/s
-    * \Applications ASP.NET (??APP_W3SVC_PROC??)\Durée d’exécution de la demande
-    * \Applications ASP.NET (??APP_W3SVC_PROC??)\Demandes dans la file d’attente d’application
+* \Applications ASP.NET(??APP_W3SVC_PROC??)\Demandes/s
+* \Applications ASP.NET (??APP_W3SVC_PROC??)\Durée d’exécution de la demande
+* \Applications ASP.NET (??APP_W3SVC_PROC??)\Demandes dans la file d’attente d’application
 
 Vous pouvez spécifier des compteurs de performances personnalisés ou d’autres compteurs de performances Windows en modifiant *ApplicationInsights.config* [comme indiqué dans cet exemple](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/ApplicationInsights.config#L14).
 

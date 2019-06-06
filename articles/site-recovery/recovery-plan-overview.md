@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: 32cad7005b2b4da830ac3febf6da847933967a3d
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: ea2399572177cc10006a5d9ee715190fff4a347b
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66400027"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66471442"
 ---
 # <a name="about-recovery-plans"></a>À propos des plans de récupération
 
@@ -37,10 +37,10 @@ Un plan de récupération vous permet de définir un processus de récupération
 
 Vous pouvez planifier et créer un groupe de récupération pour capturer les propriétés propres à l’application. Par exemple, prenons une application à trois niveaux classique avec un serveur SQL principal, un intergiciel et un serveur web frontal. En règle générale, vous personnalisez le plan de récupération afin que les machines de chaque niveau démarrent dans l’ordre approprié après un basculement.
 
-    - Le serveur SQL principal doit être le premier, l’intergiciel suivant et enfin le serveur web frontal.
-    - Cet ordre de démarrage garantit le bon fonctionnement de l’application au moment où la dernière machine démarre.
-    - Cet ordre permet de s’assurer que lorsque l’intergiciel démarre et tente de se connecter au niveau SQL Server, le niveau SQL Server est déjà en cours d’exécution. 
-    - Cet ordre permet également de s’assurer que les serveurs frontaux démarrent en dernier, de sorte que les utilisateurs finaux ne se connectent pas à l’URL de l’application avant que tous les composants ne soient opérationnels, et que l’application soit prête à accepter des requêtes.
+- Le serveur SQL principal doit être le premier, l’intergiciel suivant et enfin le serveur web frontal.
+- Cet ordre de démarrage garantit le bon fonctionnement de l’application au moment où la dernière machine démarre.
+- Cet ordre permet de s’assurer que lorsque l’intergiciel démarre et tente de se connecter au niveau SQL Server, le niveau SQL Server est déjà en cours d’exécution. 
+- Cet ordre permet également de s’assurer que les serveurs frontaux démarrent en dernier, de sorte que les utilisateurs finaux ne se connectent pas à l’URL de l’application avant que tous les composants ne soient opérationnels, et que l’application soit prête à accepter des requêtes.
 
 Pour créer cet ordre, vous ajoutez des groupes au groupe de récupération et ajoutez des machines dans les groupes.
 - Si un ordre est spécifié, un séquencement est utilisé. Les actions sont exécutées en parallèle, le cas échéant, afin d’améliorer le RTO de récupération de l’application.

@@ -1,25 +1,25 @@
 ---
-title: Administration de l’interface utilisateur web locale de Microsoft Azure Data Box | Docs Microsoft dans les données
-description: Explique comment utiliser l’interface utilisateur web locale pour gérer votre appareil Data Box
+title: Local web administration de l’interface utilisateur pour Azure Data Box, lourd de zone de données Azure | Microsoft Docs
+description: Décrit comment utiliser l’interface utilisateur web locale pour gérer vos appareils Data Box et lourdes de zone de données
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
-ms.topic: overview
-ms.date: 02/01/2019
+ms.topic: article
+ms.date: 06/03/2019
 ms.author: alkohli
-ms.openlocfilehash: d5b6949930161f78c6edf4213df98471e96b1d42
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
-ms.translationtype: HT
+ms.openlocfilehash: bf8af37b0caf51966e336bcb4cea0c4ece5ca9c7
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57404040"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66496265"
 ---
-# <a name="use-the-local-web-ui-to-administer-your-data-box"></a>Utiliser l’interface utilisateur web locale pour administrer votre Data Box
+# <a name="use-the-local-web-ui-to-administer-your-data-box-and-data-box-heavy"></a>Utiliser l’interface utilisateur web locale pour gérer vos Data Box et lourdes de zone de données
 
-Cet article décrit certaines des tâches de gestion et de configuration qui peuvent être effectuées sur la Data Box. Vous pouvez gérer la Data Box via l’interface utilisateur du portail Azure et l’interface utilisateur web locale pour l’appareil. Cet article se concentre sur les tâches que vous pouvez effectuer à l'aide de l'interface utilisateur web locale.
+Cet article décrit certaines des tâches de configuration et de gestion qui peuvent être effectuées sur les appareils Data Box et lourdes de zone de données. Vous pouvez gérer les appareils de Data Box et lourdes de zone de données via l’interface utilisateur du portail Azure et l’interface utilisateur web locale pour l’appareil. Cet article se concentre sur les tâches que vous pouvez effectuer à l'aide de l'interface utilisateur web locale.
 
-L’interface utilisateur web locale pour la Data Box est utilisée pour la configuration initiale de l’appareil. Vous pouvez également utiliser l’interface utilisateur web locale pour arrêter ou redémarrer la Data Box, exécuter des tests de diagnostic, mettre à jour les logiciels, afficher les journaux d’activité de copie et générer un package de journaux d’activité destiné au support Microsoft.
+Interface utilisateur pour la zone de données et lourd de zone de données web locale est utilisée pour la configuration initiale de l’appareil. Vous pouvez également utiliser l’interface utilisateur web locale pour arrêter ou redémarrer l’appareil, exécuter des tests de diagnostic, mettre à jour de logiciels, afficher les journaux de copie et générer un package de journaux pour le Support Microsoft. Sur un appareil lourd de zone de données avec deux nœuds indépendants, vous pouvez accéder à deux interfaces utilisateur de web local distinct correspondant à chaque nœud de l’appareil.
 
 Cet article inclut les didacticiels suivants :
 
@@ -27,11 +27,11 @@ Cet article inclut les didacticiels suivants :
 - Arrêter ou redémarrer votre appareil
 - Télécharger les fichiers manifeste ou de nomenclature
 - Afficher la capacité disponible sur l’appareil
-- Ignorer la validation de la somme de contrôle 
+- Ignorer la validation de la somme de contrôle
 
 ## <a name="generate-support-package"></a>Générer un package de support
 
-Si vous rencontrez des problèmes avec l’appareil, vous pouvez créer un package de support dans les journaux d’activité système. Le support Microsoft utilise ce package pour résoudre le problème. Pour générer un package de support, procédez comme suit :
+Si vous rencontrez des problèmes avec l’appareil, vous pouvez créer un package de support dans les journaux d’activité système. Le support Microsoft utilise ce package pour résoudre le problème. Pour générer un package de Support, procédez comme suit :
 
 1. Dans l’interface utilisateur web locale, accédez à **Contacter le support technique**, puis cliquez sur **Générer un package de support**.
 
@@ -52,9 +52,9 @@ Si vous rencontrez des problèmes avec l’appareil, vous pouvez créer un packa
 
 ## <a name="shut-down-or-restart-your-device"></a>Arrêter ou redémarrer votre appareil
 
-Vous pouvez arrêter ou redémarrer Data Box à l'aide de l'interface utilisateur web locale. Avant de redémarrer, nous vous recommandons de mettre les partages hors connexion sur l’ordinateur hôte. Vous réduisez ainsi toute possibilité d’altération des données. Vérifiez que la copie des données n’est pas en cours lorsque vous arrêtez l’appareil.
+Vous pouvez arrêter ou redémarrer votre appareil à l’aide de l’interface utilisateur web locale. Avant de redémarrer, nous vous recommandons de mettre les partages hors connexion sur l’ordinateur hôte. Vous réduisez ainsi toute possibilité d’altération des données. Vérifiez que la copie des données n’est pas en cours lorsque vous arrêtez l’appareil.
 
-Pour arrêter votre Data Box, procédez comme suit.
+Pour arrêter votre appareil, procédez comme suit.
 
 1. Dans l’interface utilisateur web locale, accédez à **Arrêter ou redémarrer**.
 2. Cliquez sur **Arrêter**.
@@ -70,7 +70,7 @@ Une fois l’appareil arrêté, utilisez le bouton d’alimentation sur le panne
 Pour redémarrer votre Data Box, suivez les étapes ci-dessous.
 
 1. Dans l’interface utilisateur web locale, accédez à **Arrêter ou redémarrer**.
-2. Cliquez sur **Restart (Redémarrer)**.
+2. Cliquez sur **Restart (Redémarrer)** .
 
     ![Redémarrer Data Box 1](media/data-box-local-web-ui-admin/restart-local-web-ui-1.png)
 
@@ -80,11 +80,11 @@ Pour redémarrer votre Data Box, suivez les étapes ci-dessous.
 
 ## <a name="download-bom-or-manifest-files"></a>Télécharger les fichiers manifeste ou de nomenclature
 
-Les fichiers manifeste ou de nomenclature contiennent la liste des fichiers copiés dans la Data Box. Ces fichiers sont générés quand vous préparez l’expédition de la Data Box.
+La facture de matériel (BOM) ou les fichiers manifeste contient la liste des fichiers qui sont copiés dans la zone données ou lourd de zone de données. Ces fichiers sont générés lorsque vous préparez l’appareil pour l’expédition.
 
-Avant de commencer, vérifiez que l’étape **Préparer l’expédition** est terminée pour votre Data Box. Pour télécharger les fichiers manifeste ou de nomenclature, effectuez les étapes suivantes :
+Avant de commencer, assurez-vous que votre appareil est terminée **préparer l’expédition** étape. Pour télécharger les fichiers manifeste ou de nomenclature, effectuez les étapes suivantes :
 
-1. Accédez à l’interface utilisateur web locale de votre Data Box. Vous pouvez voir que la préparation de l’expédition est terminée pour la Data Box. Au terme de la préparation de l’appareil, son état passe à **Prêt pour l’expédition**.
+1. Accédez à l’interface utilisateur web locale pour votre appareil. Vous verrez que le périphérique a terminé la préparation à expédier. Au terme de la préparation de l’appareil, son état passe à **Prêt pour l’expédition**.
 
     ![Appareil prêt pour l’expédition](media/data-box-portal-admin/ready-to-ship.png)
 
@@ -109,6 +109,9 @@ Avant de commencer, vérifiez que l’étape **Préparer l’expédition** est t
     |mydbmdrg2_MDisk-BOM.txt     |Disque managé         |SMB/NFS         |
 
 Utilisez cette liste pour vérifier les fichiers chargés dans le compte de stockage Azure une fois la Data Box renvoyée au centre de données Azure. Vous trouverez ci-dessous un exemple de fichier manifeste.
+
+> [!NOTE]
+> Sur un lourd de zone de données, les deux ensembles de la liste des fichiers (BOM) sont présents correspondant aux deux nœuds sur l’appareil.
 
 ```xml
 <file size="52689" crc64="0x95a62e3f2095181e">\databox\media\data-box-deploy-copy-data\prepare-to-ship2.png</file>
@@ -150,25 +153,24 @@ Utilisez cette liste pour vérifier les fichiers chargés dans le compte de stoc
 <file size="3603" crc64="0x7e34c25d5606693f">\databox\TOC.yml</file>
 ```
 
-Ce fichier contient la liste de tous les fichiers copiés dans la Data Box. Dans ce fichier, la valeur *crc64* est liée à la somme de contrôle générée pour le fichier correspondant.
+Ce fichier contient la liste de tous les fichiers qui ont été copiés sur la zone données ou lourd de zone de données. Dans ce fichier, la valeur *crc64* est liée à la somme de contrôle générée pour le fichier correspondant.
 
 ## <a name="view-available-capacity-of-the-device"></a>Afficher la capacité disponible sur l’appareil
 
-Vous pouvez utiliser le tableau de bord de l’appareil pour afficher la capacité disponible et la capacité utilisée de l’appareil. 
+Vous pouvez utiliser le tableau de bord de l’appareil pour afficher la capacité disponible et la capacité utilisée de l’appareil.
 
 1. Dans l’interface utilisateur web locale, accédez à **Afficher le tableau de bord**.
 2. La fenêtre **Connexion et copie** affiche l’espace libre et l’espace utilisé sur l’appareil.
 
     ![Afficher la capacité disponible](media/data-box-local-web-ui-admin/verify-used-space-dashboard.png)
 
-
 ## <a name="skip-checksum-validation"></a>Ignorer la validation de la somme de contrôle
 
-Par défaut, des sommes de contrôle sont générées pour vos données quand vous préparez l’expédition. Dans de rares cas, selon le type de données (fichiers de petite taille), les performances peuvent diminuer. Dans ces cas, vous pouvez ignorer la somme de contrôle. 
+Par défaut, des sommes de contrôle sont générées pour vos données quand vous préparez l’expédition. Dans de rares cas, selon le type de données (fichiers de petite taille), les performances peuvent diminuer. Dans ces cas, vous pouvez ignorer la somme de contrôle.
 
 Nous vous recommandons vivement de ne pas désactiver la somme de contrôle, sauf si les performances sont fortement affectées.
 
-1. Dans le coin supérieur droit de l’interface utilisateur web locale de votre appareil, accédez à Paramètres.
+1. Dans l’angle supérieur droit de l’interface utilisateur de votre appareil de web local, accédez à **paramètres**.
 
     ![Désactiver la somme de contrôle](media/data-box-local-web-ui-admin/disable-checksum.png)
 
@@ -177,5 +179,5 @@ Nous vous recommandons vivement de ne pas désactiver la somme de contrôle, sau
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Découvrez comment [gérer Data Box via le portail Azure](data-box-portal-admin.md).
+- Découvrez comment [gérer Data Box et lourdes de zone de données via le portail Azure](data-box-portal-admin.md).
 

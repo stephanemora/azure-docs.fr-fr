@@ -1,23 +1,18 @@
 ---
 title: Pratiques de déploiement sécurisé entre les régions – Azure Deployment Manager
 description: Explique comment déployer un service sur plusieurs régions avec Azure Deployment Manager. Montre des pratiques de déploiement sécurisé consistant à vérifier la stabilité d’un déploiement avant sa propagation à toutes les régions.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 05/13/2019
+ms.date: 05/31/2019
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: d93d9999c407e64658b88025feda48d33e1a5ad1
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 52b132b45bd90d7d21bb072e9a94d8588d5cf301
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65595788"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66431172"
 ---
 # <a name="enable-safe-deployment-practices-with-azure-deployment-manager-public-preview"></a>Activer les pratiques de déploiement sécurisé avec le Gestionnaire de déploiement Azure (version préliminaire publique)
 
@@ -25,7 +20,7 @@ Afin de déployer votre service dans de nombreuses régions et vous assurer qu�
 
 Deployment Manager est une fonction de Resource Manager. Elle étend vos fonctionnalités au cours du déploiement. Utilisez Deployment Manager lorsque vous avez un service complexe à déployer sur plusieurs régions. Avec un déploiement intermédiaire de votre service, vous pouvez rechercher des problèmes potentiels avant le déploiement dans toutes les régions. Si les précautions supplémentaires apportées par un lancement par étapes ne vous sont pas utiles, préférez les [options de déploiement](resource-group-template-deploy-portal.md) standard pour Resource Manager. Deployment Manager s’intègre parfaitement à tous les outils tiers existants qui prennent en charge des déploiements Resource Manager, telles que les offres d’intégration continue et de livraison continue (CI/CD). 
 
-Azure Deployment Manager est en préversion privée. Pour utiliser Azure Deployment Manager, remplissez le [formulaire d’inscription](https://aka.ms/admsignup). Aidez-nous à améliorer cette fonctionnalité en apportant des [commentaires](https://aka.ms/admfeedback).
+Le Gestionnaire de déploiement Azure est disponible en version préliminaire. Aidez-nous à améliorer la fonctionnalité en fournissant [commentaires](https://aka.ms/admfeedback).
 
 Pour utiliser Deployment Manager, vous devez créer quatre fichiers :
 
@@ -217,7 +212,7 @@ Cette étape d’attente suspend le déploiement avant de poursuivre. Elle vous 
 
 La propriété duration utilise la [norme ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations). L’exemple précédent indique une attente d’une minute.
 
-Pour plus d’informations sur l’étape de vérification d’intégrité, consultez [introduire de lancement de l’intégration d’intégrité pour le Gestionnaire de déploiement Azure](./deployment-manager-health-check.md) et [didacticiel : Utilisation de contrôle d’intégrité dans le Gestionnaire de déploiement Azure](./deployment-manager-tutorial-health-check.md).
+Pour plus d’informations sur l’étape de vérification d’intégrité, consultez [introduire de lancement de l’intégration d’intégrité pour le Gestionnaire de déploiement Azure](./deployment-manager-health-check.md) et [didacticiel : Utiliser le contrôle d’intégrité dans Azure Deployment Manager](./deployment-manager-tutorial-health-check.md).
 
 Pour plus d’informations, consultez [Informations de référence sur le modèle des étapes](/azure/templates/Microsoft.DeploymentManager/steps).
 

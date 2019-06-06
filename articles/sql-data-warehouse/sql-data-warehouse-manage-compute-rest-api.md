@@ -10,12 +10,12 @@ ms.subservice: implement
 ms.date: 03/29/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 658b35163e20d024118bc7a3142c86614540f00c
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 5b8652a0b08b426e708a909ff988e51eee9c0821
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62105324"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66476064"
 ---
 # <a name="rest-apis-for-azure-sql-data-warehouse"></a>API REST pour Azure SQL Data Warehouse
 API REST pour gérer le calcul dans Azure SQL Data Warehouse.
@@ -51,6 +51,9 @@ POST https://management.azure.com/subscriptions/{subscription-id}/resourceGroups
 ```
 
 ## <a name="check-database-state"></a>Vérifier l’état de la base de données
+
+> [!NOTE]
+> Actuellement, vérifier l’état de base de données peut-être retourner en ligne pendant que la base de données se termine le flux de travail en ligne, ce qui entraîne des erreurs de connexion. Vous devrez peut-être ajouter un délai de 2 à 3 minutes dans votre code d’application si vous utilisez cet appel d’API pour déclencher des tentatives de connexion.
 
 ```
 GET https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}?api-version=2014-04-01 HTTP/1.1

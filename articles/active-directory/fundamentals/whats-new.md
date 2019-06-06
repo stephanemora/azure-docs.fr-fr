@@ -16,12 +16,12 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 387f1e0bf6461b5e87da1de35e74c5e49c5dc632
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: e6a66aefec69a0551f85b11a380c90d1915bd776
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66305541"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66474191"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Nouveautés d’Azure Active Directory
 
@@ -39,6 +39,192 @@ Cette page est mise à jour tous les mois. Donc, consultez-la régulièrement. S
 
 ---
 
+## <a name="may-2019"></a>Mai 2019
+
+### <a name="service-change-future-support-for-only-tls-12-protocols-on-the-application-proxy-service"></a>Modification du service : Prise en charge uniquement les protocoles TLS 1.2 sur le service de Proxy d’Application
+
+**Type :** Modification planifiée  
+**Catégorie de service :** Proxy d’application  
+**Fonctionnalité de produit :** Contrôle d’accès
+
+Pour aider à fournir le chiffrement de qualité pour nos clients, nous nous limitons l’accès aux seuls les protocoles TLS 1.2 sur le service de Proxy d’Application. Cette modification est progressivement déployée pour les clients qui sont déjà uniquement à l’aide des protocoles TLS 1.2, donc vous ne devriez pas voir toutes les modifications.
+
+Dépréciation de TLS 1.0 et TLS 1.1 se produit sur le 31 août 2019, mais nous vous fournirons supplémentaires à l’avance, vous devez donc le temps pour vous préparer à cette modification. Pour vous préparer à cette modification Vérifiez vos combinaisons client-serveur et le navigateur et le serveur, y compris tous les clients vos utilisateurs utilisent pour accéder aux applications publiées via le Proxy d’Application, sont mis à jour pour utiliser le protocole TLS 1.2 pour maintenir la connexion à l’Application Service de proxy. Pour plus d’informations, consultez [ajouter une application en local pour l’accès à distance via le Proxy d’Application dans Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#before-you-begin).
+
+---
+
+### <a name="use-the-usage-and-insights-report-to-view-your-app-related-sign-in-data"></a>Le rapport d’utilisation et insights permet d’afficher vos données de connexion liés à l’application
+
+**Type :** Nouvelle fonctionnalité  
+**Catégorie de service :** Applications d’entreprise  
+**Fonctionnalité de produit :** Monitoring et création de rapports
+
+Vous pouvez maintenant utiliser le rapport d’utilisation et insights, situé dans le **applications d’entreprise** zone du portail Azure, pour obtenir une vue centrée sur l’application de vos données de la connexion, notamment des informations sur :
+
+- Top des applications utilisées pour votre organisation
+
+- Applications avec les connexions plus ayant échouées
+
+- Erreurs de connexion supérieurs pour chaque application
+
+Pour plus d’informations sur cette fonctionnalité, consultez [insights et l’utilisation de rapports dans le portail Azure Active Directory](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-usage-insights-report)
+
+---
+
+### <a name="automate-your-user-provisioning-to-cloud-apps-using-azure-ad"></a>Automatiser votre approvisionnement d’utilisateur pour applications cloud avec Azure AD
+
+**Type :** Nouvelle fonctionnalité  
+**Catégorie de service :** Applications d’entreprise  
+**Fonctionnalité de produit :** Monitoring et création de rapports
+
+Suivez ces nouveaux didacticiels pour utiliser le Service de provisionnement Azure AD pour automatiser la création, suppression et la mise à jour des comptes d’utilisateur pour les applications de cloud suivantes :
+
+- [Comeet](https://docs.microsoft.com/azure/active-directory/saas-apps/comeet-recruiting-software-provisioning-tutorial)
+
+- [DynamicSignal](https://docs.microsoft.com/azure/active-directory/saas-apps/dynamic-signal-provisioning-tutorial)
+
+- [KeeperSecurity](https://docs.microsoft.com/azure/active-directory/saas-apps/keeper-password-manager-digitalvault-provisioning-tutorial)
+
+Vous pouvez également suivre cette nouvelle [Dropbox didacticiel](https://docs.microsoft.com/azure/active-directory/saas-apps/dropboxforbusiness-provisioning-tutorial), qui fournit des informations sur la configuration d’objets de groupe.
+
+Pour plus d’informations sur comment sécuriser au mieux votre organisation via l’approvisionnement de compte automatique des utilisateurs, consultez [automatiser l’approvisionnement des utilisateurs pour les applications SaaS avec Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
+
+---
+
+### <a name="identity-secure-score-is-now-available-in-azure-ad-general-availability"></a>Score sécurisé d’identité est désormais disponible dans Azure AD (disponibilité générale)
+
+**Type :** Nouvelle fonctionnalité  
+**Catégorie de service :** S.O.  
+**Fonctionnalité de produit :** Protection et sécurité des identités
+
+Vous pouvez désormais surveiller et améliorer votre identité posture de sécurité à l’aide de l’identité secure score fonctionnalité dans Azure AD. L’identité secure score fonctionnalité utilise un tableau de bord unique pour vous aider à :
+
+- Mesurer objectivement votre posture de sécurité d’identité, selon un score compris entre 1 et 223.
+
+- Plan pour les améliorations de sécurité de votre identité
+
+- Passez en revue la réussite de vos améliorations de sécurité
+
+Pour plus d’informations sur la fonctionnalité de score identité de sécurité, consultez [quel est le score sécurisé d’identité dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/fundamentals/identity-secure-score).
+
+---
+
+### <a name="new-app-registrations-experience-is-now-available-general-availability"></a>Nouvelle expérience des inscriptions d’application est désormais disponible (disponibilité générale)
+
+**Type :** Nouvelle fonctionnalité  
+**Catégorie de service :** Authentifications (connexions)  
+**Fonctionnalité de produit :** Expérience de développement
+
+La nouvelle [inscriptions](https://aka.ms/appregistrations) expérience est désormais en disponibilité générale. Cette nouvelle expérience inclut toutes les fonctionnalités clés que vous connaissez à partir du portail Azure et le portail d’inscription d’Application et améliore les via :
+
+- **Une meilleure gestion de l’application.** Au lieu de voir vos applications sur des portails différents, vous pouvez maintenant voir toutes vos applications dans un seul emplacement.
+
+- **Inscription simplifiée des applications.** À partir de l’expérience de navigation améliorée pour l’expérience de sélection revisitée autorisation, il est désormais plus facile pour vous inscrire et gérer vos applications.
+
+- **Informations plus détaillées.** Vous trouverez plus d’informations sur votre application, notamment les guides de démarrage rapide et bien plus encore.
+
+Pour plus d’informations, consultez [plateforme d’identité Microsoft](https://docs.microsoft.com/azure/active-directory/develop/) et [expérience des inscriptions d’application est désormais disponible !](https://developer.microsoft.com/identity/blogs/new-app-registrations-experience-is-now-generally-available/) annonce du blog.
+
+---
+
+### <a name="new-capabilities-available-in-the-risky-users-api-for-identity-protection"></a>Nouvelles fonctionnalités disponibles dans l’API d’utilisateurs à risque pour la Protection d’identité
+
+**Type :** Nouvelle fonctionnalité  
+**Catégorie de service :** Identity Protection  
+**Fonctionnalité de produit :** Protection et sécurité des identités
+
+Nous sommes heureux d’annoncer que vous pouvez maintenant utiliser l’API d’utilisateurs à risque pour récupérer l’historique de risque des utilisateurs, de faire disparaître les utilisateurs à risque et de vérifier les utilisateurs comme compromis. Cette modification vous aide à mettre à jour l’état de risque de vos utilisateurs plus efficacement et de comprendre leur historique de risque.
+
+Pour plus d’informations, consultez le [documentation de référence des API d’utilisateurs à risque](https://docs.microsoft.com/graph/api/resources/riskyuser?view=graph-rest-beta).
+
+---
+
+### <a name="new-federated-apps-available-in-azure-ad-app-gallery---may-2019"></a>Nouvelles applications fédérées disponibles dans la galerie d’applications Azure AD - mai 2019
+
+**Type :** Nouvelle fonctionnalité  
+**Catégorie de service :** Applications d’entreprise  
+**Fonctionnalité de produit :** Intégration tierce
+
+En mai 2019, nous avons ajouté la que prise en charge de ces nouvelles applications avec fédération 21 à la galerie d’applications :
+
+[Freedcamp](https://docs.microsoft.com/azure/active-directory/saas-apps/freedcamp-tutorial), [réel lie](https://docs.microsoft.com/azure/active-directory/saas-apps/real-links-tutorial), [Kianda](https://app.kianda.com/sso/OpenID/AzureAD/), [Simple connexion](https://docs.microsoft.com/azure/active-directory/saas-apps/simple-sign-tutorial), [BRASAGE](https://docs.microsoft.com/azure/active-directory/saas-apps/braze-tutorial), [Displayr](https://docs.microsoft.com/azure/active-directory/saas-apps/displayr-tutorial), [Templafy](https://docs.microsoft.com/azure/active-directory/saas-apps/templafy-tutorial), [Marketo Sales engager](https://toutapp.com/login), [ACLP](https://docs.microsoft.com/azure/active-directory/saas-apps/aclp-tutorial), [OutSystems](https://docs.microsoft.com/azure/active-directory/saas-apps/outsystems-tutorial), [Meta4 Global HR](https://docs.microsoft.com/azure/active-directory/saas-apps/meta4-global-hr-tutorial), [Quantum Workplace](https://docs.microsoft.com/azure/active-directory/saas-apps/quantum-workplace-tutorial), [Cobalt](https://docs.microsoft.com/azure/active-directory/saas-apps/cobalt-tutorial), [webMethods API Cloud](https://docs.microsoft.com/azure/active-directory/saas-apps/webmethods-integration-cloud-tutorial), [RefFlag](https://pocketstop.com/redflag/), [Whatfix](https://docs.microsoft.com/azure/active-directory/saas-apps/whatfix-tutorial), [Contrôle](https://docs.microsoft.com/azure/active-directory/saas-apps/control-tutorial), [JOBHUB](https://docs.microsoft.com/azure/active-directory/saas-apps/jobhub-tutorial), [NEOGOV](https://docs.microsoft.com/azure/active-directory/saas-apps/neogov-tutorial), [Foodee](https://docs.microsoft.com/azure/active-directory/saas-apps/foodee-tutorial), [MyVR](https://docs.microsoft.com/azure/active-directory/saas-apps/myvr-tutorial)
+
+Pour plus d’informations sur les applications, consultez [Intégration des applications SaaS à Azure Active Directory](https://aka.ms/appstutorial). Pour plus d’informations sur le référencement de votre application dans la galerie Azure AD App, consultez [Lister votre application dans la galerie d’applications Azure Active Directory](https://aka.ms/azureadapprequest).
+
+---
+
+### <a name="improved-groups-creation-and-management-experiences-in-the-azure-ad-portal"></a>Création de groupes améliorée et la gestion des expériences dans le portail Azure AD
+
+**Type :** Nouvelle fonctionnalité  
+**Catégorie de service :** Gestion des groupes  
+**Fonctionnalité de produit :** Collaboration
+
+Nous avons apporté des améliorations pour les expériences relatives aux groupes dans le portail Azure AD. Ces améliorations permettent aux administrateurs de mieux gérer les listes de groupes, les listes de membres et pour fournir des options supplémentaires de la création.
+
+Les améliorations incluent :
+
+- Filtrage de base par type d’appartenance et de type de groupe.
+
+- Ajout de nouvelles colonnes, telles que de la Source et adresse de messagerie.
+
+- Possibilité de sélections plusieurs groupes, les membres et propriétaire listes pour faciliter la suppression.
+
+- Possibilité de choisir une adresse de messagerie et d’ajouter des propriétaires lors de la création de groupe.
+
+Pour plus d’informations, consultez [créer un groupe de base et ajouter des membres à l’aide d’Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal).
+
+---
+
+### <a name="configure-a-naming-policy-for-office-365-groups-in-azure-ad-portal-general-availability"></a>Configurer une stratégie d’affectation de noms pour les groupes Office 365 dans le portail Azure AD (disponibilité générale)
+
+**Type :** Fonctionnalité modifiée  
+**Catégorie de service :** Gestion des groupes  
+**Fonctionnalité de produit :** Collaboration
+
+Les administrateurs peuvent configurer maintenant une stratégie d’affectation de noms pour les groupes Office 365, à l’aide du portail Azure AD. Cette modification permet d’appliquer des conventions de nommage cohérentes pour les groupes Office 365 créées ou modifiées par les utilisateurs de votre organisation.
+
+Vous pouvez configurer une stratégie d’affectation de noms pour les groupes Office 365 de deux manières différentes :
+
+- Définir des préfixes ou suffixes, qui sont automatiquement ajoutés à un nom de groupe.
+
+- Charger un jeu personnalisé de mots bloqués pour votre organisation, qui ne sont pas autorisés dans les noms de groupe (par exemple, « PDG, paie, RH »).
+
+Pour plus d’informations, consultez [appliquer une stratégie d’affectation de noms pour les groupes Office 365](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-naming-policy).
+
+---
+
+### <a name="microsoft-graph-api-endpoints-are-now-available-for-azure-ad-activity-logs-general-availability"></a>Les points de terminaison API Microsoft Graph sont désormais disponibles pour les journaux d’activité Azure AD (disponibilité générale)
+
+**Type :** Fonctionnalité modifiée  
+**Catégorie de service :** Reporting  
+**Fonctionnalité de produit :** Monitoring et création de rapports
+
+Nous sommes heureux d’annoncer la disponibilité générale de prise en charge des points de terminaison API Microsoft Graph pour l’activité d’Azure AD journaux. Avec cette version, vous pouvez maintenant utiliser la Version 1.0 de l’Azure AD de l’audit ouvre une session, ainsi que les journaux de connexion API.
+
+Pour plus d’informations, consultez [vue d’ensemble des API de journal d’audit Azure AD](https://docs.microsoft.com/graph/api/resources/azure-ad-auditlog-overview?view=graph-rest-1.0).
+
+---
+
+### <a name="administrators-can-now-use-conditional-access-for-the-combined-registration-process-public-preview"></a>Les administrateurs peuvent utiliser maintenant l’accès conditionnel pour le processus d’inscription combiné (version préliminaire publique)
+
+**Type :** Nouvelle fonctionnalité  
+**Catégorie de service :** Accès conditionnel  
+**Fonctionnalité de produit :** Protection et sécurité des identités  
+
+Administrateurs peuvent désormais créer des stratégies d’accès conditionnel pour une utilisation par la page d’inscription combinées. Cela inclut l’application des stratégies afin d’autoriser l’inscription si :
+
+- Les utilisateurs se trouvent sur un réseau approuvé.
+
+- Les utilisateurs sont un faible risque de connexion.
+
+- Les utilisateurs se trouvent sur un appareil géré.
+
+- Les utilisateurs accepte les termes de l’organisation d’utilisation (conditions d’utilisation).
+
+Pour plus d’informations sur l’accès conditionnel et de réinitialisation de mot de passe, vous pouvez voir le [l’accès conditionnel pour Azure AD combinées MFA et billet de blog d’expérience d’inscription de réinitialisation de mot de passe](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Conditional-access-for-the-Azure-AD-combined-MFA-and-password/ba-p/566348). Pour plus d’informations sur les stratégies d’accès conditionnel pour le processus d’inscription combiné, consultez [stratégies d’accès conditionnel pour l’inscription combinée](https://docs.microsoft.com/azure/active-directory/authentication/howto-registration-mfa-sspr-combined#conditional-access-policies-for-combined-registration). Pour plus d’informations sur les termes du contrat de Azure AD d’utiliser la fonctionnalité, consultez [Azure Active Directory fonctionnalité conditions d’utilisation](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use).
+
+---
+
 ## <a name="april-2019"></a>Avril 2019
 
 ### <a name="new-azure-ad-threat-intelligence-detection-is-now-available-in-refreshed-azure-ad-identity-protection"></a>Nouvelle détection intelligence des menaces Azure AD est désormais disponible dans actualisé Azure AD Identity Protection
@@ -53,7 +239,7 @@ Pour plus d’informations sur la version actualisée du Azure AD Identity Prote
 
 ---
 
-### <a name="azure-active-directory-azure-ad-entitlement-management-is-now-available-public-preview"></a>Gestion des habilitations Azure Active Directory (Azure AD) est désormais disponible (version préliminaire publique)
+### <a name="azure-ad-entitlement-management-is-now-available-public-preview"></a>Gestion des droits Azure AD est désormais disponible (version préliminaire publique)
 
 **Type :** Nouvelle fonctionnalité  
 **Catégorie de service :** Gouvernance des identités  
@@ -69,7 +255,7 @@ Gestion des droits Azure AD, désormais en version préliminaire publique, aide 
 **Catégorie de service :** Gestion des groupes  
 **Fonctionnalité de produit :** Collaboration
 
-Les administrateurs peuvent configurer maintenant une stratégie d’affectation de noms pour les groupes Office 365, à l’aide du portail Azure AD. Cette modification permet d’appliquer des conventions de nommage cohérentes pour les groupes Office 365 créées ou modifiées par les utilisateurs de votre organisation. 
+Les administrateurs peuvent configurer maintenant une stratégie d’affectation de noms pour les groupes Office 365, à l’aide du portail Azure AD. Cette modification permet d’appliquer des conventions de nommage cohérentes pour les groupes Office 365 créées ou modifiées par les utilisateurs de votre organisation.
 
 Vous pouvez configurer une stratégie d’affectation de noms pour les groupes Office 365 de deux manières différentes :
 
@@ -388,10 +574,10 @@ Pour plus d’informations sur les applications, consultez [Intégration des app
 **Type :** Fonctionnalité modifiée  
 **Catégorie de service :** Réinitialisation de mot de passe en libre-service  
 **Fonctionnalité de produit :** Authentification utilisateur
- 
+
 En réponse aux commentaires des clients, nous avons amélioré l’expérience de préversion de l’inscription MFA/SSPR combiné, vous aidez les utilisateurs à inscrire plus rapidement leurs informations de sécurité pour l’authentification Multifacteur et SSPR. 
 
-**Pour activer l’expérience améliorée pour vos utilisateurs dès aujourd'hui, procédez comme suit :**
+**Pour activer l’expérience améliorée pour vos utilisateurs aujourd'hui, procédez comme suit :**
 
 1. Comme un administrateur général ou un administrateur de l’utilisateur, connectez-vous au portail Azure et accédez à **Azure Active Directory > Paramètres utilisateur > Gérer les paramètres des fonctionnalités en version préliminaire de panneau accès**. 
 
@@ -752,59 +938,5 @@ En novembre 2018, nous avons ajouté dans notre galerie d’applications les 26 
 [CoreStack](https://cloud.corestack.io/site/login), [HubSpot](https://docs.microsoft.com/azure/active-directory/saas-apps/HubSpot-tutorial), [GetThere](https://docs.microsoft.com/azure/active-directory/saas-apps/getthere-tutorial), [Gra-Pe](https://docs.microsoft.com/azure/active-directory/saas-apps/grape-tutorial), [eHour](https://getehour.com/try-now), [Consent2Go](https://docs.microsoft.com/azure/active-directory/saas-apps/Consent2Go-tutorial), [Appinux](https://docs.microsoft.com/azure/active-directory/saas-apps/appinux-tutorial), [DriveDollar](https://azuremarketplace.microsoft.com/marketplace/apps/savitas.drivedollar-azuread?tab=Overview), [Useall](https://docs.microsoft.com/azure/active-directory/saas-apps/useall-tutorial), [Infinite Campus](https://docs.microsoft.com/azure/active-directory/saas-apps/infinitecampus-tutorial), [Alaya](https://alayagood.com/en/demo/), [HeyBuddy](https://docs.microsoft.com/azure/active-directory/saas-apps/heybuddy-tutorial), [Wrike SAML](https://docs.microsoft.com/azure/active-directory/saas-apps/wrike-tutorial), [Drift](https://docs.microsoft.com/azure/active-directory/saas-apps/drift-tutorial), [Zenegy for Business Central 365](https://accounting.zenegy.com/), [Everbridge Member Portal](https://docs.microsoft.com/azure/active-directory/saas-apps/everbridge-tutorial), [IDEO](https://profile.ideo.com/users/sign_up), [Ivanti Service Manager (ISM)](https://docs.microsoft.com/azure/active-directory/saas-apps/ivanti-service-manager-tutorial), [Peakon](https://docs.microsoft.com/azure/active-directory/saas-apps/peakon-tutorial), [Allbound SSO](https://docs.microsoft.com/azure/active-directory/saas-apps/allbound-sso-tutorial), [Plex Apps - Classic Test](https://test.plexonline.com/signon), [Plex Apps – Classic](https://www.plexonline.com/signon), [Plex Apps - UX Test](https://test.cloud.plex.com/sso), [Plex Apps – UX](https://cloud.plex.com/sso), [Plex Apps – IAM](https://accounts.plex.com/), [CRAFTS - Childcare Records, Attendance, & Financial Tracking System](https://getcrafts.ca/craftsregistration) 
 
 Pour plus d’informations sur les applications, consultez [Intégration des applications SaaS à Azure Active Directory](https://aka.ms/appstutorial). Pour plus d’informations sur le référencement de votre application dans la galerie Azure AD App, consultez [Lister votre application dans la galerie d’applications Azure Active Directory](https://aka.ms/azureadapprequest).
-
----
-
-## <a name="october-2018"></a>Octobre 2018
-
-### <a name="azure-ad-logs-now-work-with-azure-log-analytics-public-preview"></a>Les journaux d’activité Azure AD fonctionnent maintenant avec Azure Log Analytics (préversion publique)
-
-**Type :** Nouvelle fonctionnalité  
-**Catégorie de service :** Reporting  
-**Fonctionnalité de produit :** Monitoring et création de rapports
-
-Nous sommes heureux d’annoncer que vous pouvez maintenant transférer vos journaux d’activité Azure AD vers Azure Log Analytics ! Grâce à cette fonctionnalité très demandée, vous pouvez encore mieux accéder aux analyses de votre activité, de vos opérations et de votre sécurité, et elle vous aide à surveiller votre infrastructure. Pour plus d’informations, consultez le blog [Journaux d’activité Azure Active Directory dans Azure Log Analytics désormais disponible](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-Active-Directory-Activity-logs-in-Azure-Log-Analytics-now/ba-p/274843).
-
----
-
-### <a name="new-federated-apps-available-in-azure-ad-app-gallery---october-2018"></a>Nouvelles applications fédérées disponibles dans la galerie d'applications Azure AD (octobre 2018)
-
-**Type :** Nouvelle fonctionnalité  
-**Catégorie de service :** Applications d’entreprise  
-**Fonctionnalité de produit :** Intégration tierce
- 
-En octobre 2018, nous avons ajouté à notre galerie d’applications les 14 nouvelles applications ci-dessous, qui prennent en charge la fédération :
-
-[My Award Points](https://docs.microsoft.com/azure/active-directory/saas-apps/myawardpoints-tutorial), [Vibe HCM](https://docs.microsoft.com/azure/active-directory/saas-apps/vibehcm-tutorial), ambyint, [MyWorkDrive](https://docs.microsoft.com/azure/active-directory/saas-apps/myworkdrive-tutorial), [BorrowBox](https://docs.microsoft.com/azure/active-directory/saas-apps/borrowbox-tutorial), Dialpad, [ON24 Virtual Environment](https://docs.microsoft.com/azure/active-directory/saas-apps/on24-tutorial), [RingCentral](https://docs.microsoft.com/azure/active-directory/saas-apps/ringcentral-tutorial), [Zscaler Three](https://docs.microsoft.com/azure/active-directory/saas-apps/zscaler-three-tutorial), [Phraseanet](https://docs.microsoft.com/azure/active-directory/saas-apps/phraseanet-tutorial), [Appraisd](https://docs.microsoft.com/azure/active-directory/saas-apps/appraisd-tutorial), [Workspot Control](https://docs.microsoft.com/azure/active-directory/saas-apps/workspotcontrol-tutorial), [Shuccho Navi](https://docs.microsoft.com/azure/active-directory/saas-apps/shucchonavi-tutorial), [Glassfrog](https://docs.microsoft.com/azure/active-directory/saas-apps/glassfrog-tutorial)
-
-Pour plus d’informations sur les applications, consultez [Intégration des applications SaaS à Azure Active Directory](https://aka.ms/appstutorial). Pour plus d’informations sur le référencement de votre application dans la galerie Azure AD App, consultez [Lister votre application dans la galerie d’applications Azure Active Directory](https://aka.ms/azureadapprequest).
-
----
-
-### <a name="azure-ad-domain-services-email-notifications"></a>Notifications par e-mail pour Azure AD Domain Services
-
-**Type :** Nouvelle fonctionnalité  
-**Catégorie de service :** Services de domaine Azure AD  
-**Fonctionnalité de produit :** Services de domaine Azure AD
-
-Azure AD Domain Services fournit sur le portail Azure des alertes sur les erreurs de configuration ou les problèmes avec votre domaine géré. Ces alertes incluent des guides pas à pas pour que vous puissiez essayer de résoudre les problèmes sans avoir à contacter le support.
-
-En octobre, vous serez en mesure de personnaliser les paramètres de notification pour votre domaine managé afin d’en cas de nouvelles alertes, un e-mail soit envoyé à un groupe de personnes désigné, ce qui évite de devoir vérifier en permanence le portail pour détecter les mises à jour.
-
-Pour plus d’informations, consultez [Paramètres de notification dans Azure AD Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-notifications).
-
----
-
-### <a name="azure-ad-portal-supports-using-the-forcedelete-domain-api-to-delete-custom-domains"></a>Le portail Azure AD assure la prise en charge à l’aide de l’API du domaine ForceDelete pour supprimer des domaines personnalisés. 
-
-**Type :** Fonctionnalité modifiée  
-**Catégorie de service :** Gestion de répertoires  
-**Fonctionnalité de produit :** Répertoire
-
-Nous sommes heureux de vous annoncer que vous pouvez maintenant utiliser l'API de domaine ForceDelete pour supprimer vos noms de domaine personnalisés en renommant de façon asynchrone les références, comme les utilisateurs, les groupes et les applications de votre nom de domaine personnalisé (contoso.com) pour revenir au nom de domaine par défaut initial (contoso.onmicrosoft.com).
-
-Ce changement vous permet de supprimer plus rapidement vos noms de domaine personnalisés si votre organisation n'utilise plus le nom, ou si vous devez utiliser le nom de domaine avec un autre AD Azure.
-
-Pour plus d’informations, consultez [Supprimer un nom de domaine personnalisé](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-manage#delete-a-custom-domain-name).
 
 ---

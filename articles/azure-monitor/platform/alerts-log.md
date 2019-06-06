@@ -1,6 +1,6 @@
 ---
 title: Créer, afficher et gérer les alertes de journal à l’aide de Azure Monitor | Microsoft Docs
-description: Utilisez Azure Monitor pour créer, afficher et gérer des règles d’alerte de journal dans Azure.
+description: Utilisez l’analyse Azure pour créer, afficher et gérer les règles d’alerte dans Azure.
 author: msvijayn
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: b7240b38e595fdcf9f9d4f995f71643154ee0f9b
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: f758007a0fa0d7fb619873d94d762e7019077e05
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66399169"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66427455"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Créer, afficher et gérer des alertes de journal à l’aide d’Azure Monitor
 

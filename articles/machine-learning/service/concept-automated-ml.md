@@ -11,12 +11,12 @@ author: nacharya1
 ms.author: nilesha
 ms.date: 05/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 16d100256f9252b478500488c2dc5a01c7e6a0b5
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: 93eb0fba91ce5064d04a340e8b3e5b984ee73081
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66418062"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515565"
 ---
 # <a name="what-is-automated-machine-learning"></a>Qu’est-ce que le machine learning automatisé ?
 
@@ -155,11 +155,11 @@ Avec Azure Machine Learning, vous pouvez utiliser ML automatisé pour générer 
 
 ML automatisé est également disponible dans d’autres solutions de Microsoft telles que :
 
-|Intégrations|Description
-|------------|-----------
-|ML.NET|Sélection d’un modèle automatique et de formation dans les applications .NET à l’aide de Visual Studio et Visual Studio Code avec ML.NET automatisée ML (version préliminaire). [En savoir plus](https://docs.microsoft.com/dotnet/machine-learning/automl-overview)
-|HDIsnight|Faire évoluer vos travaux de formation automatisée ML sur Spark dans les clusters HDInsight en parallèle. [En savoir plus](../../hdinsight/spark/apache-spark-run-machine-learning-automl.md)
-|PowerBI|Appeler des modèles machine learning directement dans Power BI (version préliminaire). [En savoir plus](https://docs.microsoft.com/power-bi/service-machine-learning-automated)
+|Intégrations|Description|
+|------------|-----------|
+|[ML.NET](https://docs.microsoft.com/dotnet/machine-learning/automl-overview)|Sélection d’un modèle automatique et de formation dans les applications .NET à l’aide de Visual Studio et Visual Studio Code avec ML.NET automatisée ML (version préliminaire).|
+|[HDIsnight](../../hdinsight/spark/apache-spark-run-machine-learning-automl.md)|Faire évoluer vos travaux de formation automatisée ML sur Spark dans les clusters HDInsight en parallèle.|
+|[PowerBI](https://docs.microsoft.com/power-bi/service-machine-learning-automated)|Appeler des modèles machine learning directement dans Power BI (version préliminaire).|
 
 ## <a name="next-steps"></a>Étapes suivantes
 

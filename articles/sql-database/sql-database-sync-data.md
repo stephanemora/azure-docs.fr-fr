@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: f83eb87d2eecb91aa18b1caceb42f9d8bd6c2a0e
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: cfa94fc1c75bcd1eaa9a076cfe63369f60ce5f1c
+ms.sourcegitcommit: 18a0d58358ec860c87961a45d10403079113164d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64939583"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66693086"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Synchroniser des données sur plusieurs bases de données cloud et locales avec SQL Data Sync
 
@@ -129,6 +129,7 @@ Le provisionnement et le déprovisionnement lors de la création, la mise à jou
 - Les noms des objets (bases de données, tables et colonnes) ne peuvent pas contenir les caractères imprimables suivants : point (.), crochet gauche ou crochet droit (]).
 - L’authentification Azure Active Directory n’est pas prise en charge.
 - Les tables avec le même nom mais avec un schéma différent (par exemple dbo.customers et sales.customers) ne sont pas prises en charge.
+- Colonnes avec des Types de données définis par l’utilisateur ne sont pas pris en charge.
 
 #### <a name="unsupported-data-types"></a>Types de données non pris en charge
 
@@ -139,7 +140,7 @@ Le provisionnement et le déprovisionnement lors de la création, la mise à jou
 
 #### <a name="unsupported-column-types"></a>Types de colonne non pris en charge
 
-Data Sync ne peut pas synchroniser des colonnes en lecture seule ou générées par le système. Par exemple : 
+Data Sync ne peut pas synchroniser des colonnes en lecture seule ou générées par le système. Par exemple :
 
 - Colonnes calculées.
 - Colonnes générées par le système pour les tables temporelles.

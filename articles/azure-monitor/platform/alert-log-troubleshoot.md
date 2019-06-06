@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 8b1a9b3dee999a35950559a049230f7fdbbc47b6
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: 03a6ea45577b4a4bf57501b1834f91438feb4e2b
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66399183"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66477862"
 ---
 # <a name="troubleshoot-log-alerts-in-azure-monitor"></a>Résoudre les alertes de journal dans Azure Monitor  
 
 Cet article vous explique comment résoudre les problèmes courants susceptibles de se produire lorsque vous configurez des alertes de journal dans Azure Monitor. Il fournit également des solutions aux problèmes courants avec les fonctionnalités ou la configuration d’alertes de journal. 
 
-Le terme *alertes de journal* décrit les alertes qu’incendie basé sur une requête de journal dans un [espace de travail Azure Log Analytique](../learn/tutorial-viewdata.md) ou dans [Azure Application Insights](../../azure-monitor/app/analytics.md). En savoir plus sur des fonctionnalités, la terminologie et les types dans [alertes de journal dans Azure Monitor](../platform/alerts-unified-log.md).
+Le terme *alertes de journal* décrivent les règles qu’incendie basées sur une requête de journal dans un [espace de travail Azure Log Analytique](../learn/tutorial-viewdata.md) ou dans [Azure Application Insights](../../azure-monitor/app/analytics.md). En savoir plus sur des fonctionnalités, la terminologie et les types dans [alertes de journal dans Azure Monitor](../platform/alerts-unified-log.md).
 
 > [!NOTE]
 > Cet article ne considère pas les cas où le portail Azure affiche une règle d’alerte déclenchée et une notification n’est pas effectuée par un groupe d’actions associé. Pour ce cas, consultez les détails dans [créer et gérer des groupes d’actions dans le portail Azure](../platform/action-groups.md).
