@@ -104,12 +104,12 @@ Un événement contient les données générales suivantes :
 
 | Propriété | Type | Description |
 | -------- | ---- | ----------- |
-| rubrique | string | Chemin d’accès complet à la source de l’événement. Ce champ n’est pas modifiable. Event Grid fournit cette valeur. |
+| topic | string | Chemin d’accès complet à la source de l’événement. Ce champ n’est pas modifiable. Event Grid fournit cette valeur. |
 | subject | string | Chemin de l’objet de l’événement, défini par le serveur de publication. |
 | eventType | string | Un des types d’événements inscrits pour cette source d’événement. |
 | eventTime | string | L’heure à quelle l’événement est généré selon l’heure UTC du fournisseur. |
 | id | string | Identificateur unique de l’événement. |
-| données | objet | Données d’événement de geofencing. |
+| data | objet | Données d’événement de geofencing. |
 | dataVersion | string | Version du schéma de l’objet de données. Le serveur de publication définit la version du schéma. |
 | metadataVersion | string | Version du schéma des métadonnées d’événement. Event Grid définit le schéma des propriétés de niveau supérieur. Event Grid fournit cette valeur. |
 
@@ -119,7 +119,7 @@ L’objet de données comporte les propriétés suivantes :
 | -------- | ---- | ----------- |
 | apiCategory | string | Catégorie d’API de l’événement. |
 | apiName | string | Nom d’API de l’événement. |
-| problèmes | objet | Répertorie les problèmes rencontrés durant le traitement. Si des problèmes sont retournés, aucune géométrie n’est retournée avec la réponse. |
+| issues | objet | Répertorie les problèmes rencontrés durant le traitement. Si des problèmes sont retournés, aucune géométrie n’est retournée avec la réponse. |
 | responseCode | number | Code de réponse HTTP |
 | geometries | objet | Répertorie les géométries de la limite qui contiennent la position des coordonnées ou chevauchent le searchBuffer autour de la position. |
 
@@ -134,7 +134,7 @@ L’objet ErrorDetails est retourné lorsqu’une erreur se produit dans l’API
 | Propriété | Type | Description |
 | -------- | ---- | ----------- |
 | code | string | Code d’état HTTP. |
-| Message | string | Si elle est disponible, description de l’erreur compréhensible par l’utilisateur. |
+| message | string | Si elle est disponible, description de l’erreur compréhensible par l’utilisateur. |
 | innererror | InnerError | En cas de disponibilité, un objet contenant des informations sur l’intention reconnue. |
 
 L’InnerError est un objet contenant des informations spécifiques au service pour l’erreur. L’objet InnerError comporte les propriétés suivantes : 
