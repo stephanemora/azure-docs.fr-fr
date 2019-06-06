@@ -40,12 +40,12 @@ En cas de tentative d’approvisionnement d’un nouvel objet avec une valeur UP
 
 ## <a name="behavior-with-duplicate-attribute-resiliency"></a>Comportement avec une résilience d’attribut en double
 Au lieu de rejeter l’approvisionnement ou la mise à jour d’un objet comportant un attribut en double, Azure Active Directory met en « quarantaine » l’attribut en double qui enfreint la contrainte d’unicité. Si cet attribut est requis pour l’approvisionnement, comme pour UserPrincipalName, le service affecte une valeur d’espace réservé. Le format de ces valeurs temporaires est  
-«***\<OriginalPrefix > +\<4DigitNumber >\@\<InitialTenantDomain >. onmicrosoft.com***».  
+“***\<OriginalPrefix > +\<4DigitNumber >\@\<InitialTenantDomain >. onmicrosoft.com***”.  
 Si l’attribut n’est pas obligatoire, comme **ProxyAddress**, Azure Active Directory met simplement en quarantaine l’attribut à l’origine du conflit et poursuit la création ou la mise à jour de l’objet.
 
 Lorsque l’attribut est mis en quarantaine, des informations sur le conflit sont envoyées dans le même e-mail de rapport d’erreur utilisé avec l’ancien comportement. Toutefois, ces informations n’apparaissent qu’une fois dans le rapport d’erreurs (lors de la mise en quarantaine) ; elles ne sont pas consignées dans les e-mails suivants. En outre, étant donné que l’exportation de cet objet a réussi, le client de synchronisation ne consigne pas d’erreur et ne retente pas la création/la mise à jour lors des cycles de synchronisation suivants.
 
-Pour prendre en charge ce comportement, un nouvel attribut a été ajouté aux classes d’objets Utilisateur, Groupe et Contact :   
+Pour prendre en charge ce comportement, un nouvel attribut a été ajouté aux classes d’objets Utilisateur, Groupe et Contact :  
 **DirSyncProvisioningErrors**
 
 Il s’agit d’un attribut à valeurs multiples utilisé pour stocker les attributs en conflit qui enfreindraient la contrainte d’unicité s’ils étaient ajoutés normalement. Une tâche du minuteur d’arrière-plan a été activée dans Azure Active Directory. Celle-ci s’exécute toutes les heures pour rechercher des conflits d’attributs en double ayant été résolus, puis supprime automatiquement les attributs en question de la quarantaine.
@@ -90,7 +90,7 @@ Une fois connecté, exécutez ce qui suit pour voir une liste générale d’err
 
 `Get-MsolDirSyncProvisioningError -ErrorCategory PropertyConflict`
 
-Le résultat ressemble à ce qui suit :   
+Le résultat ressemble à ce qui suit :  
  ![Get-MsolDirSyncProvisioningError](./media/how-to-connect-syncservice-duplicate-attribute-resiliency/1.png "Get-MsolDirSyncProvisioningError")  
 
 #### <a name="by-property-type"></a>Par type de propriété
@@ -103,7 +103,7 @@ Ou
 `Get-MsolDirSyncProvisioningError -ErrorCategory PropertyConflict -PropertyName ProxyAddresses`
 
 #### <a name="by-conflicting-value"></a>Par valeur en conflit
-Pour afficher les erreurs concernant une propriété spécifique, ajoutez l’indicateur **-PropertyValue** (**-PropertyName** doit également être utilisé avec cet indicateur) :
+Pour afficher les erreurs concernant une propriété spécifique, ajoutez l’indicateur **-PropertyValue** ( **-PropertyName** doit également être utilisé avec cet indicateur) :
 
 `Get-MsolDirSyncProvisioningError -ErrorCategory PropertyConflict -PropertyValue User@domain.com -PropertyName UserPrincipalName`
 
@@ -128,7 +128,7 @@ Pour obtenir des instructions sur l’affichage des erreurs de synchronisation d
 ### <a name="identity-synchronization-error-report"></a>Rapport d’erreur de synchronisation d’identité
 Lorsqu’un objet présentant un conflit d’attribut en double est traité avec ce nouveau comportement, une notification afférente est incluse dans l’e-mail standard contenant le rapport d’erreur de synchronisation d’identité. Ce dernier est envoyé au contact du client en charge des notifications techniques. Toutefois, ce comportement présente un changement majeur. Auparavant, les informations de conflit d’attribut en double apparaissaient dans chaque rapport d’erreurs généré jusqu’à la résolution du conflit. Avec ce nouveau comportement, la notification d’erreur pour un conflit donné n’apparaît qu’une fois : au moment où l’attribut en conflit est mis en quarantaine.
 
-Voici un exemple de notification par e-mail d’un conflit ProxyAddress :   
+Voici un exemple de notification par e-mail d’un conflit ProxyAddress :  
     ![Utilisateurs actifs](./media/how-to-connect-syncservice-duplicate-attribute-resiliency/6.png "Utilisateurs actifs")  
 
 ## <a name="resolving-conflicts"></a>Résolution des conflits
@@ -142,7 +142,7 @@ Aucun de ces problèmes connus n’entraîne une dégradation du service ou une 
 **Comportement de base :**
 
 1. Les objets ayant une configuration d’attribut spécifique continuent à recevoir des erreurs d’exportation ; les attributs dupliqués ne sont pas mis en quarantaine.  
-   Par exemple : 
+   Par exemple :
    
     a. Nouvel utilisateur est créé dans AD avec un nom UPN **Joe\@contoso.com** et ProxyAddress **smtp:Joe\@contoso.com**
    
@@ -154,7 +154,7 @@ Aucun de ces problèmes connus n’entraîne une dégradation du service ou une 
 **Rapport du portail Office**:
 
 1. Le message d’erreur détaillé pour deux objets dans un ensemble de conflit UPN est le même. Cela indique que l’UPN des deux objets a changé/été mis en quarantaine, alors que seules les données de l’un d’entre eux ont changé.
-2. Le message d’erreur détaillé d’un conflit UPN affiche une propriété displayName incorrecte pour un utilisateur dont l’UPN a changé/été mis en quarantaine. Par exemple : 
+2. Le message d’erreur détaillé d’un conflit UPN affiche une propriété displayName incorrecte pour un utilisateur dont l’UPN a changé/été mis en quarantaine. Par exemple :
    
     a. **L’utilisateur A** se synchronise en premier avec **UPN = utilisateur\@contoso.com**.
    
