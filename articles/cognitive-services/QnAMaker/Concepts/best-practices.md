@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 05/10/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: b599beb6a8d14d0e62d236251fb5f5b1e1a8bcfd
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: fde10da8d46a3aa5d0163a89d1212911701c4b60
+ms.sourcegitcommit: 18a0d58358ec860c87961a45d10403079113164d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66496938"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66693220"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>Bonnes pratiques pour une base de connaissances QnA Maker
 Le [cycle de vie du développement d’une base de connaissances](../Concepts/development-lifecycle-knowledge-base.md) vous guide de bout en bout sur la façon de gérer votre base de connaissances. Suivez ces bonnes pratiques pour améliorer votre base de connaissances et fournir des résultats plus pertinents aux utilisateurs finaux de votre application/bot conversationnel.
@@ -113,7 +113,7 @@ QnA Maker permet aux utilisateurs de [travailler en collaboration](../How-to/col
 
 ## <a name="active-learning"></a>Apprentissage actif
 
-L’[apprentissage actif](../How-to/improve-knowledge-base.md) est le plus à même de suggérer d’autres questions quand il dispose d’un large éventail qualitatif et quantitatif de requêtes utilisateur. Il est important d’autoriser les requêtes utilisateur des applications clientes à participer à la boucle de commentaires sur l’apprentissage actif sans censure. Une fois que les questions sont suggérées dans le portail QnA Maker, vous pouvez **[filtrer par suggestions](../How-To/improve-knowledge-base.md#add-active-learning-suggestion-to-knowledge-base)** puis passez en revue et accepter ou rejeter ces suggestions. 
+L’[apprentissage actif](../How-to/improve-knowledge-base.md) est le plus à même de suggérer d’autres questions quand il dispose d’un large éventail qualitatif et quantitatif de requêtes utilisateur. Il est important d’autoriser les requêtes utilisateur des applications clientes à participer à la boucle de commentaires sur l’apprentissage actif sans censure. Une fois que les questions sont suggérées dans le portail QnA Maker, vous pouvez **[filtrer par suggestions](../How-To/improve-knowledge-base.md)** puis passez en revue et accepter ou rejeter ces suggestions. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
