@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: robreed
-ms.openlocfilehash: 6ec85e840f8e61c46e86b0fa8fb947fb763a4265
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.openlocfilehash: 410990ecdca8a94be9c7c3d0b48a5092fcaa6060
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65518856"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515903"
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Présentation du gestionnaire d’extensions de configuration d’état souhaité Microsoft Azure
 
@@ -81,7 +81,7 @@ Ces informations peuvent être consultées dans le [Azure portal](../../automati
 (Get-AzAutomationRegistrationInfo -ResourceGroupName <resourcegroupname> -AutomationAccountName <accountname>).PrimaryKey
 ```
 
-Pour le nom de la Configuration de nœud, assurez-vous que vous utilisez le nom de la *Configuration de nœud* et pas la Configuration.
+Pour le nom de la Configuration de nœud, assurez-vous que la configuration du nœud existe dans la Configuration d’état Azure.  Si elle n’est pas le cas, le déploiement de l’extension renvoie un échec.  Vérifiez également que vous utilisez le nom de la *Configuration de nœud* et pas la Configuration.
 Une Configuration est définie dans un script qui est utilisé [pour compiler la Configuration de nœud (fichiers MOF)](https://docs.microsoft.com/azure/automation/automation-dsc-compile).
 Le nom sera toujours la Configuration du suivi d’un point `.` et `localhost` ou un nom d’ordinateur spécifique.
 

@@ -2,20 +2,20 @@
 title: Intégrer les échanges de revendications de l’API REST dans le parcours utilisateur Azure Active Directory B2C | Microsoft Docs
 description: Intégrer les échanges de revendications de l’API REST dans votre parcours utilisateur Azure Active Directory B2C comme validation d’une entrée de l’utilisateur.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/30/2017
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: e44bb1ed6a7a090b4b1213ca14be2b42642475e4
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: b3b896b2c423f2f9155ddb7803e59e719bd027cf
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64717295"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66510717"
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-of-user-input"></a>Intégrer les échanges de revendications de l’API REST dans votre parcours utilisateur Azure Active Directory B2C comme validation d’une entrée de l’utilisateur
 
@@ -60,7 +60,7 @@ Suivez les étapes décrites dans [Bien démarrer avec les stratégies personnal
 
 1. Dans Visual Studio, créez un projet en sélectionnant **Fichier** > **Nouveau** > **Projet**.
 
-2. Dans la fenêtre **Nouveau projet**, sélectionnez **Visual C#** > **Web** > **Application web ASP.NET(.NET Framework)**.
+2. Dans la fenêtre **Nouveau projet**, sélectionnez **Visual C#**  > **Web** > **Application web ASP.NET(.NET Framework)** .
 
 3. Dans la zone **Nom**, tapez un nom pour l’application (par exemple, *Contoso.AADB2C.API*), puis sélectionnez **OK**.
 

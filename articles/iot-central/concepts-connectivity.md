@@ -7,13 +7,13 @@ ms.date: 04/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-manager: timlt
-ms.openlocfilehash: f11d1c6b727799f2cc67c6f5012dc4d117556d2e
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+manager: philmea
+ms.openlocfilehash: 533327ca1d202f15376e580d20317ddaf0b1d302
+ms.sourcegitcommit: 18a0d58358ec860c87961a45d10403079113164d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65467799"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66693192"
 ---
 # <a name="device-connectivity-in-azure-iot-central"></a>Connectivité des appareils dans Azure IoT Central
 
@@ -139,7 +139,7 @@ Les étapes suivantes décrivent ce processus plus en détail. Les étapes diff�
 
 1. L’appareil connecté s’affiche initialement en tant qu’un **appareil non associée** sur le **Device Explorer** page. L’état d’approvisionnement de l’appareil est **Inscrit**. **Associer** l’appareil pour le modèle de périphérique approprié et approuver l’appareil pour se connecter à votre application IoT Central. L’appareil peut ensuite extraire une chaîne de connexion IoT Hub et commencer à envoyer des données. Provisionnement des appareils est désormais terminé et l’état de configuration est maintenant **approvisionné**.
 
-## <a name="provisioning-status"></a>État de mise en service
+## <a name="provisioning-status"></a>État de l’approvisionnement
 
 Quand un appareil réel se connecte à votre application IoT Central, les modifications apportées à son état approvisionnement comme suit :
 

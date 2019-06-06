@@ -1,6 +1,6 @@
 ---
-title: 'Référence des API v2 statut Azure Monitor : Désactiver la surveillance | Microsoft Docs'
-description: État du moniteur v2 API référence Disable-ApplicationInsightsMonitoring. Surveiller les performances de site Web sans avoir à redéployer le site Web. Fonctionne avec les applications web ASP.NET hébergées localement, dans des machines virtuelles ou sur Azure.
+title: 'Référence des API Azure Status Monitor v2 : Désactiver la surveillance | Microsoft Docs'
+description: Référence d’API v2 de moniteur d’état. Disable-ApplicationInsightsMonitoring. Surveiller les performances de site Web sans avoir à redéployer le site Web. Fonctionne avec les applications web ASP.NET hébergées en local, dans les machines virtuelles, ou sur Azure.
 services: application-insights
 documentationcenter: .net
 author: MS-TimothyMothra
@@ -12,29 +12,29 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 6f2bde824c2a9815dc9fd4791ab43e03558da835
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 201c5cc251896efae6b9f4639818471c0f011afe
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65144930"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514407"
 ---
 # <a name="status-monitor-v2-api-disable-applicationinsightsmonitoring-v021-alpha"></a>État du moniteur v2 API : Disable-ApplicationInsightsMonitoring (v0.2.1-alpha)
 
-Ce document décrit une applet de commande qui est fourni en tant que membre de la [Az.ApplicationMonitor PowerShell module](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
+Cet article décrit une applet de commande qui est un membre de la [Az.ApplicationMonitor PowerShell module](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
 
 > [!IMPORTANT]
 > État du moniteur v2 est actuellement en version préliminaire publique.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
-> Pour plus d’informations, consultez [conditions d’utilisation supplémentaires pour les versions préliminaires de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
+> Cette version préliminaire est fournie sans contrat de niveau de service, et nous n’est pas recommandé pour les charges de travail de production. Certaines fonctionnalités ne peuvent pas être pris en charge, et certains peuvent avoir des fonctionnalités limitées.
+> Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="description"></a>Description
 
-Désactiver l’analyse sur l’ordinateur cible.
-Cette applet de commande pour effacer les modifications pour le fichier applicationHost.config IIS et supprimer des clés de Registre.
+Désactive l’analyse sur l’ordinateur cible.
+Cette applet de commande supprime les modifications dans le fichier applicationHost.config IIS et supprimer des clés de Registre.
 
 > [!IMPORTANT] 
-> Cette applet de commande requiert une PowerShell Session avec des autorisations d’administrateur.
+> Cette applet de commande requiert une session PowerShell avec des autorisations d’administrateur.
 
 ## <a name="examples"></a>Exemples
 
@@ -45,7 +45,7 @@ PS C:\> Disable-ApplicationInsightsMonitoring
 ## <a name="parameters"></a>parameters 
 
 ### <a name="-verbose"></a>-Verbose
-**Paramètre commun.** Utilisez ce commutateur pour générer des journaux détaillés.
+**Paramètre commun.** Utilisez ce commutateur pour afficher les journaux détaillés.
 
 ## <a name="output"></a>Sortie
 
@@ -77,4 +77,4 @@ Successfully disabled Application Insights Status Monitor
 ## <a name="next-steps"></a>Étapes suivantes
 
  Faire plus avec Status Monitor v2 :
- - Utilisez notre guide [dépannage](status-monitor-v2-troubleshoot.md) Status Monitor v2.
+ - Utilisez notre guide [dépanner](status-monitor-v2-troubleshoot.md) Status Monitor v2.

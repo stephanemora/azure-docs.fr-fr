@@ -2,20 +2,20 @@
 title: Configurer des jetons - Azure Active Directory B2C | Microsoft Docs
 description: Découvrez comment configurer les paramètres de compatibilité et de durée de vie des jetons dans Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/16/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 69a6284ea7b8905bb5efdb1f4c9f26027bd6f9d9
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e1163c88a100ebb7500607475ab5740557904137
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64689609"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66511328"
 ---
 # <a name="configure-tokens-in-azure-active-directory-b2c"></a>Configurer des jetons dans Azure Active Directory B2C
 
@@ -32,7 +32,7 @@ Vous pouvez configurer la durée de vie de jeton sur n’importe quel flux utili
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 2. Vérifiez que vous utilisez le répertoire qui contient votre locataire Azure AD B2C. Sélectionnez le **filtre Directory et abonnement** dans le menu supérieur et sélectionnez le répertoire qui contient votre locataire Azure AD B2C.
 3. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
-4. Sélectionnez **flux d’utilisateurs (stratégies)**.
+4. Sélectionnez **flux d’utilisateurs (stratégies)** .
 5. Ouvrir le flux d’utilisateur que vous avez créé précédemment. 
 6. Sélectionner **Propriétés**.
 7. Sous **durée de vie du jeton**, ajustez les propriétés suivantes en fonction des besoins de votre application :
@@ -43,7 +43,7 @@ Vous pouvez configurer la durée de vie de jeton sur n’importe quel flux utili
 
 ## <a name="configure-token-compatibility"></a>Configurer la compatibilité des jetons
 
-1. Sélectionnez **flux d’utilisateurs (stratégies)**.
+1. Sélectionnez **flux d’utilisateurs (stratégies)** .
 2. Ouvrir le flux d’utilisateur que vous avez créé précédemment. 
 3. Sélectionner **Propriétés**.
 4. Sous **les paramètres de compatibilité de jeton**, ajustez les propriétés suivantes en fonction des besoins de votre application :

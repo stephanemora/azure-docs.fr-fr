@@ -2,20 +2,20 @@
 title: Configurer l’inscription et la connexion avec un compte Weibo à l’aide d’Azure Active Directory B2C | Microsoft Docs
 description: Proposez l’inscription et la connexion aux clients disposant de comptes Weibo dans vos applications à l’aide d’Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/11/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 9701d1583a19be46c4c72a82d9f376a8db0c625c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 808d4bc8521917b89a7265be6dfab60757baf910
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64704242"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66508047"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-weibo-account-using-azure-active-directory-b2c"></a>Configurer l’inscription et la connexion avec un compte Weibo à l’aide d’Azure Active Directory B2C
 
@@ -55,6 +55,6 @@ Pour utiliser un compte Weibo en tant que fournisseur d’identité dans Azure A
 3. Choisissez **Tous les services** dans le coin supérieur gauche du Portail Azure, recherchez et sélectionnez **Azure Active Directory B2C**.
 4. Cliquez sur **Fournisseurs d’identité**, puis sélectionnez **Ajouter**.
 5. Fournissez un **nom**. Par exemple, entrez *Weibo*.
-6. Sélectionnez **Type de fournisseur d'identité**, **Weibo (préversion)**, puis cliquez sur **OK**.
+6. Sélectionnez **Type de fournisseur d'identité**, **Weibo (préversion)** , puis cliquez sur **OK**.
 7. Sélectionnez **Configurer ce fournisseur d’identité**, entrez la clé d’application enregistrée précédemment en tant **qu’ID Client** et entrez le secret d’application enregistré en tant que **Secret client** de l’application Weibo créée précédemment.
 8. Cliquez sur **OK**, puis sur **Créer** pour enregistrer votre configuration Weibo.

@@ -8,16 +8,16 @@ ms.topic: article
 ms.date: 04/23/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: c0bc74ac0fe45f2502064340a0c3ce5b82694b06
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: b18c4c039b615c7c88268b6e668df9f7fec9fabf
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66245698"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66687910"
 ---
 # <a name="copy-data-from-amazon-s3-buckets-by-using-azcopy"></a>Copier des données à partir de compartiments d’Amazon S3 à l’aide d’AzCopy
 
-AzCopy est un utilitaire de ligne de commande que vous pouvez utiliser pour copier des objets BLOB ou des fichiers vers ou à partir d’un compte de stockage. Cet article vous aide à copier des objets, des dossiers et des compartiments à partir d’Amazon Web Services (AWS) S3 vers le stockage blob Azure à l’aide d’AzCopy.
+AzCopy est un utilitaire de ligne de commande que vous pouvez utiliser pour copier des objets BLOB ou des fichiers vers ou à partir d’un compte de stockage. Cet article vous aide à copier des objets, des répertoires et des compartiments de S3 d’Amazon Web Services (AWS) vers stockage blob Azure à l’aide d’AzCopy.
 
 ## <a name="choose-how-youll-provide-authorization-credentials"></a>Choisissez comment vous allez fournir des informations d’identification de l’autorisation
 
@@ -46,7 +46,7 @@ Recueillir votre clé d’accès AWS et la clé d’accès secrète et puis déf
 | **Linux** | `export AWS_ACCESS_KEY_ID=<access-key>`<br>`export AWS_SECRET_ACCESS_KEY=<secret-access-key>` |
 | **MacOS** | `export AWS_ACCESS_KEY_ID=<access-key>`<br>`export AWS_SECRET_ACCESS_KEY=<secret-access-key>`|
 
-## <a name="copy-objects-folders-and-buckets"></a>Copie d’objets, des dossiers et des compartiments
+## <a name="copy-objects-directories-and-buckets"></a>Copie d’objets, des répertoires et des compartiments
 
 AzCopy utilise le [placer le bloc à partir d’URL](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url) API, donc les données sont copiées directement entre AWS S3 et les serveurs de stockage. Ces opérations de copie n’utilisent pas la bande passante réseau de votre ordinateur.
 
@@ -64,12 +64,12 @@ AzCopy utilise le [placer le bloc à partir d’URL](https://docs.microsoft.com/
 >
 > Pour en savoir plus sur l’hébergement virtuel de compartiments, consultez [virtuel qui héberge des compartiments]] (https://docs.aws.amazon.com/AmazonS3/latest/dev/VirtualHosting.html).
 
-### <a name="copy-a-folder"></a>Copier un dossier
+### <a name="copy-a-directory"></a>Copier un répertoire
 
 |    |     |
 |--------|-----------|
-| **Syntaxe** | `azcopy cp "https://s3.amazonaws.com/<bucket-name>/<folder-name>" "https://<storage-account-name>.blob.core.windows.net/<container-name>/<folder-name>" --recursive=true` |
-| **Exemple** | `azcopy cp "https://s3.amazonaws.com/mybucket/myfolder" "https://mystorageaccount.blob.core.windows.net/mycontainer/myfolder" --recursive=true` |
+| **Syntaxe** | `azcopy cp "https://s3.amazonaws.com/<bucket-name>/<directory-name>" "https://<storage-account-name>.blob.core.windows.net/<container-name>/<directory-name>" --recursive=true` |
+| **Exemple** | `azcopy cp "https://s3.amazonaws.com/mybucket/mydirectory" "https://mystorageaccount.blob.core.windows.net/mycontainer/mydirectory" --recursive=true` |
 
 ### <a name="copy-a-bucket"></a>Copier un compartiment
 
@@ -134,8 +134,8 @@ Trouver plus d’exemples dans ces articles :
 
 - [Bien démarrer avec AzCopy](storage-use-azcopy-v10.md)
 
-- [Transfert de données avec AzCopy et le stockage blob](storage-use-azcopy-blobs.md)
+- [Transférer des données avec AzCopy et le Stockage Blob](storage-use-azcopy-blobs.md)
 
-- [Transfert de données avec AzCopy et stockage fichier](storage-use-azcopy-files.md)
+- [Transférer des données avec AzCopy et le stockage de fichiers](storage-use-azcopy-files.md)
 
-- [Configurer, optimiser et résoudre les problèmes d’AzCopy](storage-use-azcopy-configure.md)
+- [Configurer, optimiser et dépanner AzCopy](storage-use-azcopy-configure.md)

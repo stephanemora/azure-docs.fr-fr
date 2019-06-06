@@ -12,21 +12,21 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/27/2019
+ms.date: 05/30/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0b9baa48c13e317ba3fb54d998ee8f125d2093c7
-ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
+ms.openlocfilehash: efd3ff8a6e7ddf2aa6242cc322d8a6536a6bd26b
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65921057"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66474064"
 ---
 # <a name="what-is-azure-ad-entitlement-management-preview"></a>Qu’est la gestion des droits Azure AD ? (Préversion)
 
 > [!IMPORTANT]
-> Gestion des habilitations Azure Active Directory (Azure AD) est actuellement en version préliminaire publique.
+> La gestion des droits d’utilisation Azure Active Directory (Azure AD) est actuellement en préversion publique.
 > Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
 > Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -42,7 +42,7 @@ Les entreprises doivent souvent faire face les défis lors de la gestion des acc
 - Les utilisateurs peuvent avoir des difficultés à localiser les personnes appropriées ou les ressources droite
 - Une fois que les utilisateurs de trouver et obtenez l’accès à une ressource, ils peuvent conserver pour accéder plus que nécessaire à des fins professionnelles
 
-Ces problèmes sont compliquent pour les utilisateurs qui ont besoin d’accéder à partir d’un autre annuaire, telles que les utilisateurs externes qui proviennent d’organisations de chaîne d’approvisionnement ou d’autres partenaires commerciaux. Exemple :
+Ces problèmes sont compliquent pour les utilisateurs qui ont besoin d’accéder à partir d’un autre annuaire, telles que les utilisateurs externes qui proviennent d’organisations de chaîne d’approvisionnement ou d’autres partenaires commerciaux. Exemple :
 
 - Les organisations peuvent ne pas savoir toutes les personnes dans d’autres répertoires pour être en mesure de les inviter
 - Même si les organisations ont été en mesure d’inviter ces utilisateurs, les organisations peuvent vous souvenez pas gérer l’ensemble de l’accès utilisateur cohérente
@@ -70,26 +70,17 @@ Voici les types de ressources que vous pouvez gérer l’accès à avec la gesti
 
 - Groupes de sécurité Azure AD
 - Groupes Office 365
-- Applications d’entreprise AD Azure
-- Applications SaaS
-- Applications intégrées personnalisé
-- Collections de sites SharePoint Online
-- Sites SharePoint Online
+- Applications d’entreprise AD Azure, y compris l’application SaaS et les applications intégrées personnalisées qui prennent en charge la fédération ou l’approvisionnement
+- Sites et collections de sites SharePoint Online
 
-## <a name="prerequisites"></a>Conditions préalables
+Vous pouvez également contrôler l’accès à d’autres ressources qui s’appuient sur des groupes de sécurité Azure AD ou Office 365.  Exemple :
 
-Pour utiliser la gestion des droits Azure AD (version préliminaire), vous devez disposer d’une des licences suivantes :
-
-- Azure AD Premium P2
-- Licence Enterprise Mobility + Security (EMS) E5
-
-Pour plus d’informations, consultez [s’inscrire pour les éditions d’Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) ou [Enterprise Mobility + Security E5 essai](https://aka.ms/emse5trial).
-
-Clouds spécialisés, tels que Azure Government, Azure Allemagne et Azure China 21Vianet, ne sont pas actuellement disponibles pour une utilisation dans cette version préliminaire.
+- Vous pouvez attribuer des licences aux utilisateurs pour Microsoft Office 365 en à l’aide d’un groupe de sécurité Azure AD dans un package d’accès et la configuration [gestion des licences par groupe](../users-groups-roles/licensing-groups-assign.md) pour ce groupe
+- Vous pouvez accorder aux utilisateurs l’accès pour gérer les ressources Azure à l’aide d’un groupe de sécurité Azure AD dans un package de l’accès en créant un [attribution de rôle Azure](../../role-based-access-control/role-assignments-portal.md) pour ce groupe
 
 ## <a name="what-are-access-packages-and-policies"></a>Quelles sont les stratégies et les packages de l’accès ?
 
-Gestion des habilitations introduit le concept d’un *package access*. Un package d’accès est un ensemble de toutes les ressources qu’un utilisateur a besoin pour travailler sur un projet ou d’effectuer leur travail. Les ressources comprennent l’accès aux groupes, des applications ou des sites. Accès aux packages sont utilisés pour régir l’accès pour vos employés internes et également les utilisateurs en dehors de votre organisation. Packages d’accès sont définies dans des conteneurs appelés *catalogues*.
+Gestion des habilitations introduit le concept d’un *package access*. Un package d’accès est un ensemble de toutes les ressources qu’un utilisateur a besoin pour travailler sur un projet ou d’effectuer leur travail. Les ressources comprennent l’accès aux groupes, des applications ou des sites. Accès aux packages sont utilisés pour régir l’accès pour vos employés internes et également les utilisateurs en dehors de votre organisation. Les packages d’accès sont définis dans des conteneurs appelés *catalogues*.
 
 Packages de l’accès est également incluent un ou plusieurs *stratégies*. Une stratégie définit les règles ou les guardrails pour accéder à un package d’accès. L’activation d’une stratégie impose que seuls les utilisateurs appropriés accès sont accordés, aux ressources appropriées et pour la bonne quantité de temps.
 
@@ -124,16 +115,16 @@ Lorsqu’une demande est approuvée, gestion des habilitations configurera l’u
 
 Pour mieux comprendre le gestion des habilitations et sa documentation, vous devez examiner les termes suivants.
 
-| Terme ou concept | Description  |
+| Terme ou concept | Description |
 | --- | --- |
 | gestion des habilitations | Un service qui est attribué, révoque et administre les packages de l’accès. |
 | package de l’accès | Une collection d’autorisations et les stratégies de ressources que les utilisateurs peuvent demander. Un package d’accès est toujours contenu dans un catalogue. |
 | demande d’accès | Une demande à accéder à un package d’accès. Une demande passe généralement par un flux de travail. |
 | policy | Un ensemble de règles qui définit le cycle de vie de l’accès, telles que la façon dont les utilisateurs ont accès, qui peuvent approuver, et la durée pendant laquelle les utilisateurs ont accès. Les exemples de stratégie comprennent l’accès des employés et l’accès externe. |
-| catalogue | Un conteneur de ressources associées et leur accès aux packages. |
+| catalog | Un conteneur de ressources associées et leur accès aux packages. |
 | Catalogue général | Catalogue intégré qui est toujours disponible. Pour ajouter des ressources dans le catalogue général, requiert certaines autorisations. |
-| Ressource | Une ressource ou un service (par exemple, un groupe, une application ou un site) qui peut disposer des autorisations pour un utilisateur. |
-| type de ressource | Le type de ressource, qui inclut les groupes, les applications et sites SharePoint Online. |
+| resource | Une ressource ou un service (par exemple, un groupe, une application ou un site) qui peut disposer des autorisations pour un utilisateur. |
+| Type de ressource | Le type de ressource, qui inclut les groupes, les applications et sites SharePoint Online. |
 | rôle de ressource | Une collection d’autorisations associées à une ressource. |
 | répertoire de ressources | Un répertoire qui a une ou plusieurs ressources à partager. |
 | utilisateurs affectés | Une affectation d’un package de l’accès à un utilisateur ou un groupe. |
@@ -143,7 +134,7 @@ Pour mieux comprendre le gestion des habilitations et sa documentation, vous dev
 
 Gestion des habilitations a différents rôles basés sur la fonction.
 
-| Rôle | Description  |
+| Rôle | Description |
 | --- | --- |
 | [Administrateur de l’utilisateur](../users-groups-roles/directory-assign-admin-roles.md#user-administrator) | Gérer tous les aspects de la gestion des habilitations.<br/>Créer des utilisateurs et groupes. |
 | Créateur de catalogue | Créer et gérer des catalogues. En général, un administrateur ou propriétaire de la ressource. La personne qui crée un catalogue automatiquement devient propriétaire du catalogue premier du catalogue. |
@@ -173,6 +164,12 @@ Le tableau suivant répertorie les autorisations pour chacun de ces rôles.
 | [Ajouter/supprimer des ressources vers ou à partir d’un catalogue](entitlement-management-catalog-create.md#add-resources-to-a-catalog) | :heavy_check_mark: |  | :heavy_check_mark: |  |  |
 | [Ajouter des propriétaires de catalogue ou accéder aux gestionnaires de packages](entitlement-management-catalog-create.md#add-catalog-owners-or-access-package-managers) | :heavy_check_mark: |  | :heavy_check_mark: |  |  |
 | [Modifier/supprimer un catalogue](entitlement-management-catalog-create.md#edit-a-catalog) | :heavy_check_mark: |  | :heavy_check_mark: |  |  |
+
+## <a name="license-requirements"></a>Conditions de licence :
+
+[!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
+
+Clouds spécialisés, tels que Azure Government, Azure Allemagne et Azure China 21Vianet, ne sont pas actuellement disponibles pour une utilisation dans cette version préliminaire.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

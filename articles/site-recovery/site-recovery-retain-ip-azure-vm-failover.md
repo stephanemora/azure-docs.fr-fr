@@ -6,12 +6,12 @@ ms.date: 4/9/2019
 author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 618d60417aa6b582eaef94bf75dcf16c74750f83
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7b7772bad5bb1c5b43a4bcc8d727a22c82547043
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61277216"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479958"
 ---
 # <a name="retain-ip-addresses-during-failover"></a>Conserver les adresses IP pendant le basculement
 
@@ -43,7 +43,7 @@ Voici l’architecture avant le basculement.
         - Asie Est a un réseau virtuel (**Source VNet**) avec l’espace d’adressage 10.1.0.0/16
         - Asie Est a des charges de travail réparties entre trois sous-réseaux sur le réseau virtuel :
             - **Sous-réseau 1** : 10.1.1.0/24
-            - **Sous-réseau 2** : 10.1.2.0/24,
+            - **Sous-réseau 2** : 10.1.2.0/24
             - **Sous-réseau 3** : 10.1.3.0/24
     - La région Azure secondaire (cible) est Asie Sud-Est
         - Asie Sud-Est a un réseau virtuel de récupération (**Recovery VNet**) identique à **Source VNet**.
@@ -131,11 +131,11 @@ Voici à quoi ressemble l’architecture réseau avant le basculement :
 - Asie Est a un réseau virtuel (**Source VNet**) avec l’espace d’adressage 10.1.0.0/16
   - Asie Est a des charges de travail réparties entre trois sous-réseaux sur **Source VNet** :
     - **Sous-réseau 1** : 10.1.1.0/24
-    - **Sous-réseau 2** : 10.1.2.0/24,
-    - **Sous-réseau 3** : 10.3.0.0/24 utilisant un réseau virtuel Azure avec l’espace d’adressage 10.1.0.0/16. Ce réseau virtuel se nomme **Source VNet**
+    - **Sous-réseau 2** : 10.1.2.0/24
+    - **Sous-réseau 3** : 10.1.3.0/24, utilisant un réseau virtuel Azure avec l’espace d’adressage 10.1.0.0/16. Ce réseau virtuel se nomme **Source VNet**
       - La région Azure secondaire (cible) est Asie Sud-Est :
   - Asie Sud-Est a un réseau virtuel de récupération (**Recovery VNet**) identique à **Source VNet**.
-- Les machines virtuelles dans Asie Est sont connectées à un centre de données local avec Azure ExpressRoute ou un réseau privé virtuel de site à site
+- Machines virtuelles de la région Asie sont connectés à un centre de données local avec Azure ExpressRoute ou VPN de site à site.
 - Pour réduire le RTO, la société B provisionne des passerelles sur Recovery VNet dans la région Azure Asie Sud-Est avant le basculement
 - La société B affecte/vérifie les adresses IP cibles pour les machines virtuelles répliquées. L’adresse IP cible est identique à l’adresse IP source pour chaque machine virtuelle
 

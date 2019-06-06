@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/10/2019
 ms.author: magoedte
-ms.openlocfilehash: 38979aa5cbb7eff0a949dfb77d6a29b2cdb5c67b
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 23ce57add0d55ba5901e2f5fcf82b3279d349cdc
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65602076"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66472579"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms-preview"></a>Comment interroger des journaux d’activité des requête à partir d’Azure Monitor pour machines virtuelles (préversion)
 Azure Monitor pour les machines virtuelles collecte des performances et métriques de connexion, ordinateur et traiter les données de l’inventaire et informations d’état d’intégrité et la transfère à l’espace de travail Analytique de journal dans Azure Monitor.  Ces données sont disponibles pour [requête](../../azure-monitor/log-query/log-query-overview.md) dans Azure Monitor. Vous pouvez appliquer ces données à divers scénarios tels que la planification de la migration, l’analyse de la capacité, la détection et la résolution de problèmes de performances à la demande.
@@ -43,8 +43,8 @@ Les champs et les conventions suivantes s’appliquent à VMConnection et VMBoun
 
 - Ordinateur : Nom de domaine complet de l’ordinateur de création de rapports 
 - ID de l’agent : L’identificateur unique pour un ordinateur avec l’agent d’Analytique de journal  
-- Machine : Nom de la ressource Azure Resource Manager pour la machine exposée par ServiceMap. Il est au format *m-{GUID}*, où *GUID* est le même GUID que l’ID de l’agent  
-- Processus : Nom de la ressource Azure Resource Manager pour le processus exposé par ServiceMap. Il est au format *p-{chaîne hexadécimale}*. Processus est unique au sein d’une étendue de l’ordinateur et pour générer un ID de processus unique sur plusieurs ordinateurs, combiner des champs de processus et de la Machine. 
+- Machine : Nom de la ressource Azure Resource Manager pour la machine exposée par ServiceMap. Il est au format *m-{GUID}* , où *GUID* est le même GUID que l’ID de l’agent  
+- Processus : Nom de la ressource Azure Resource Manager pour le processus exposé par ServiceMap. Il est au format *p-{chaîne hexadécimale}* . Processus est unique au sein d’une étendue de l’ordinateur et pour générer un ID de processus unique sur plusieurs ordinateurs, combiner des champs de processus et de la Machine. 
 - ProcessName : Nom de l’exécutable du processus de création de rapports.
 - Toutes les adresses IP sont des chaînes au format canonique IPv4, par exemple *13.107.3.160* 
 
@@ -124,13 +124,6 @@ Chaque propriété RemoteIp de la table *VMConnection* est comparée à un ensem
 
 ### <a name="ports"></a>Ports 
 Ports sur un ordinateur qui activement accepteront le trafic entrant ou pourraient potentiellement accepter le trafic, mais sont inactives pendant la fenêtre de temps de création de rapports, sont écrites dans la table VMBoundPort.  
-
->[!NOTE]
->Azure Monitor pour les machines virtuelles ne prend pas en charge les rassembler et enregistrer les données de port dans un espace de travail Analytique de journal dans les régions suivantes :  
->- USA Est  
->- Europe Ouest
->
-> Collecte des données est activée dans l’autre [régions prises en charge](vminsights-enable-overview.md#log-analytics) pour Azure Monitor pour les machines virtuelles. 
 
 Chaque enregistrement dans VMBoundPort est identifiée par les champs suivants : 
 

@@ -2,20 +2,20 @@
 title: ClaimsTransformations - Azure Active Directory B2C | Microsoft Docs
 description: Définition de l’élément ClaimsTransformations dans le schéma Infrastructure d’expérience d’identité d’Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 65b64563bf00bb519a65b6d2e0418b4f755dea2d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: c904ac9d4c59a467dd8402ec44682c3cbd03fd8d
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64710800"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66511529"
 ---
 # <a name="claimstransformations"></a>ClaimsTransformations
 
@@ -37,7 +37,7 @@ Le **ClaimsTransformation** élément contient les attributs suivants :
 
 | Attribut |Obligatoire | Description |
 | --------- |-------- | ----------- |
-| ID |Oui | Identificateur servant à identifier de façon unique la transformation de revendication. L’identificateur est référencé à partir d’autres éléments XML dans la stratégie. |
+| Id |Oui | Identificateur servant à identifier de façon unique la transformation de revendication. L’identificateur est référencé à partir d’autres éléments XML dans la stratégie. |
 | Méthode de transformation | Oui | Méthode de transformation à utiliser dans la transformation de revendication. Chaque transformation de revendication a ses propres valeurs. Pour obtenir la liste complète des valeurs disponibles, consultez la [référence des transformations de revendications](#claims-transformations-reference). |
 
 ## <a name="claimstransformation"></a>ClaimsTransformation
@@ -94,7 +94,7 @@ L’élément **InputParameters** contient l’élément suivant :
 
 | Attribut | Obligatoire |Description |
 | --------- | ----------- |----------- |
-| ID | Oui | Identificateur qui est une référence à un paramètre de la méthode de transformation de revendication. Chaque méthode de transformation de revendication a ses propres valeurs. Pour obtenir une liste complète des valeurs disponibles, consultez le tableau de transformations de revendications. |
+| Id | Oui | Identificateur qui est une référence à un paramètre de la méthode de transformation de revendication. Chaque méthode de transformation de revendication a ses propres valeurs. Pour obtenir une liste complète des valeurs disponibles, consultez le tableau de transformations de revendications. |
 | DataType | Oui | Type de données du paramètre, tel que String, Boolean, Int ou DateTime conformément à l’énumération DataType dans le schéma XML de stratégie personnalisée. Ce type est utilisé pour effectuer des opérations arithmétiques correctement. Chaque transformation de revendication a ses propres valeurs. Pour obtenir la liste complète des valeurs disponibles, consultez la [référence des transformations de revendications](#claims-transformations-reference). |
 | Valeur | Oui | Valeur passée telle quelle à la transformation. Certaines valeurs sont arbitraires, et vous en sélectionnez certaines à partir de la méthode de transformation de revendication. |
 

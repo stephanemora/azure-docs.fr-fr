@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: 49f89d39b3b917ec6357b241d7c413c2790eca25
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: f13e498859986d5ee697cbd67907fd344147ed0c
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64575606"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66492835"
 ---
 # <a name="azure-functions-networking-options"></a>Options de mise en réseau d’Azure Functions
 
@@ -61,7 +61,7 @@ Intégration de réseau virtuel permet de votre function app l’accès aux ress
 
 Vous pouvez utiliser l’intégration de réseau virtuel pour activer l’accès à partir d’applications pour les bases de données et services web exécutés dans votre réseau virtuel. Avec l’intégration de réseau virtuel, vous n’avez pas besoin d’exposer un point de terminaison public pour les applications sur votre machine virtuelle. Vous pouvez utiliser les adresses routables privés et internet non à la place.
 
-La version généralement disponible de l’intégration de réseau virtuel s’appuie sur une passerelle VPN pour se connecter des applications de fonction à un réseau virtuel. Il est disponible dans les fonctions hébergées dans un plan App Service. Pour savoir comment configurer cette fonctionnalité, consultez [intégrer votre application à un réseau virtuel Azure](../app-service/web-sites-integrate-with-vnet.md#enabling-vnet-integration).
+La version généralement disponible de l’intégration de réseau virtuel s’appuie sur une passerelle VPN pour se connecter des applications de fonction à un réseau virtuel. Il est disponible dans les fonctions hébergées dans un plan App Service. Pour savoir comment configurer cette fonctionnalité, consultez [intégrer votre application à un réseau virtuel Azure](../app-service/web-sites-integrate-with-vnet.md).
 
 ### <a name="preview-version-of-virtual-network-integration"></a>Version préliminaire de l’intégration de réseau virtuel
 

@@ -2,20 +2,20 @@
 title: TrustFrameworkPolicy - Azure Active Directory B2C | Microsoft Docs
 description: Spécifiez l’élément TrustFrameworkPolicy d’une stratégie personnalisée dans Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 1a3382e560287502ae8afccae556bc5f56245904
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 1102aee9d7fa5fe3df0e048398cdc8bd71ff0a3c
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65812939"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66512300"
 ---
 # <a name="trustframeworkpolicy"></a>TrustFrameworkPolicy
 
@@ -38,12 +38,12 @@ Une stratégie personnalisée est représentée par un ou plusieurs fichiers au 
 
 L’élément **TrustFrameworkPolicy** contient les attributs suivants :
 
-| Attribut | Obligatoire | Description  |
+| Attribut | Obligatoire | Description |
 |---------- | -------- | ----------- |
 | PolicySchemaVersion | Oui | Version du schéma à utiliser pour exécuter la stratégie. La valeur doit être `0.3.0.0`. |
 | TenantObjectId | Non | Identificateur d’objet unique du locataire Azure Active Directory (Azure AD) B2C. |
 | TenantId | Oui | Identificateur unique du locataire auquel appartient cette stratégie. |
-| `PolicyId` | Oui | Identificateur unique de la stratégie. Cet identificateur doit avoir le préfixe *B2C_1A_*. |
+| `PolicyId` | Oui | Identificateur unique de la stratégie. Cet identificateur doit avoir le préfixe *B2C_1A_* . |
 | PublicPolicyUri | Oui | URI de la stratégie, qui est une combinaison de l’ID de locataire et de l’ID de stratégie. |
 | DeploymentMode | Non | Valeurs possibles : `Production`, `Debugging` ou `Development`. `Production` est la valeur par défaut. Cette propriété permet de déboguer votre stratégie. Pour plus d’informations, voir [Collecte de journaux d’activité](active-directory-b2c-troubleshoot-custom.md). |
 | UserJourneyRecorderEndpoint | Non | Point de terminaison utilisé quand **DeploymentMode** est défini sur `Development`. La valeur doit être `urn:journeyrecorder:applicationinsights`. Pour plus d’informations, voir [Collecte de journaux d’activité](active-directory-b2c-troubleshoot-custom.md). |
@@ -88,7 +88,7 @@ Pour hériter d’une autre stratégie, un élément **BasePolicy** doit être d
 
 L’élément **BasePolicy** contient les éléments suivants :
 
-| Élément | Occurrences | Description  |
+| Élément | Occurrences | Description |
 | ------- | ----------- | --------|
 | TenantId | 1:1 | Identificateur de votre locataire Azure AD B2C. |
 | `PolicyId` | 1:1 | Identificateur de la stratégie parente. |

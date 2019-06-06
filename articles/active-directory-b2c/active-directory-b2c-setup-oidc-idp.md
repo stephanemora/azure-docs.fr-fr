@@ -2,20 +2,20 @@
 title: Configurer l’inscription et la connexion avec OpenID Connect - Azure Active Directory B2C | Microsoft Docs
 description: Configurez l’inscription et la connexion avec OpenID Connect à l’aide d’Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/30/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 81968aa3ba9f082194f4f447161a3eef7e014374
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 774716aeb28ca5d9563f38272a59c8e675a11e4b
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64704148"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66508393"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-openid-connect-using-azure-active-directory-b2c"></a>Configurer l’inscription et la connexion avec OpenID Connect à l’aide d’Azure Active Directory B2C
 
@@ -31,7 +31,7 @@ ms.locfileid: "64704148"
 2. Veillez à utiliser l’annuaire qui contient votre locataire Azure AD B2C en cliquant sur le **filtre Répertoire et abonnement** dans le menu du haut et en choisissant l’annuaire qui contient votre locataire.
 3. Choisissez **Tous les services** dans le coin supérieur gauche du Portail Azure, recherchez et sélectionnez **Azure Active Directory B2C**.
 4. Sélectionnez **Fournisseurs d’identité**, puis cliquez sur **Ajouter**.
-5. Pour **Type de fournisseur d’identité**, sélectionnez **OpenID Connect (Préversion)**.
+5. Pour **Type de fournisseur d’identité**, sélectionnez **OpenID Connect (Préversion)** .
 
 ## <a name="configure-the-identity-provider"></a>Configurer le fournisseur d’identité
 

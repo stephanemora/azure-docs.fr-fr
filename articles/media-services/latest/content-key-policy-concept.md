@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 05/28/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 04808dda193a3a472813cda852a1a2f24d00e112
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: a597ab3519f4ba1696e111622541bcab89488558
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66418000"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66425432"
 ---
 # <a name="content-key-policies"></a>Stratégies de clé de contenu
 
@@ -35,7 +35,7 @@ Les **stratégies de clé de contenu** peuvent être mises à jour. Cela peut pr
 > * Les propriétés des **stratégies de clé de contenu** de type DateHeure sont toujours au format UTC.
 > * Vous devez concevoir un ensemble limité de stratégies pour votre compte Media Services et les réutiliser pour vos éléments StreamingLocators chaque fois que les mêmes options sont nécessaires. Pour plus d’informations, consultez [Quotas et limitations](limits-quotas-constraints.md).
 
-## <a name="example"></a>Exemples
+### <a name="example"></a>Exemples
 
 Pour obtenir la clé, utilisez **GetPolicyPropertiesWithSecretsAsync**, comme illustré dans le [obtenir une clé de signature à partir de la stratégie existante](get-content-key-policy-dotnet-howto.md#get-contentkeypolicy-with-secrets) exemple.
 

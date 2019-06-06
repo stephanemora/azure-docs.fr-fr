@@ -2,20 +2,20 @@
 title: Tutoriel - Ajouter des fournisseurs d’identité à vos applications - Azure Active Directory B2C | Microsoft Docs
 description: Découvrez comment ajouter des fournisseurs d’identité à vos applications dans Azure Active Directory B2C à l’aide du portail Azure.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 02/01/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: c1bd78442f6a7218dde3710236766117816c42fe
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 76e12dc6bf9bcb50dc58e7730f3a08dd6a9d4440
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64710139"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66512197"
 ---
 # <a name="tutorial-add-identity-providers-to-your-applications-in-azure-active-directory-b2c"></a>Didacticiel : Ajouter des fournisseurs d’identité à vos applications dans Azure Active Directory B2C
 
@@ -95,7 +95,7 @@ Après avoir créé l’application pour le fournisseur d’identité que vous s
 2. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
 3. Cliquez sur **Fournisseurs d’identité**, puis sélectionnez **Ajouter**.
 4. Saisissez un **Nom**. Par exemple, entrez *Contoso Azure AD*.
-5. Sélectionnez **Type de fournisseur d’identité**, sélectionnez **Open ID Connect (préversion)**, puis cliquez sur **OK**.
+5. Sélectionnez **Type de fournisseur d’identité**, sélectionnez **Open ID Connect (préversion)** , puis cliquez sur **OK**.
 6. Cliquez sur **Configurer ce fournisseur d’identité**.
 7. Pour **URL des métadonnées**, entrez l’URL suivante qui remplace `your-AD-tenant-domain` par le nom de domaine de votre locataire Azure AD.
 
@@ -130,7 +130,7 @@ Après avoir créé l’application pour le fournisseur d’identité que vous s
 
 Dans le tutoriel que vous avez suivi dans le cadre des prérequis, vous avez créé un flux d’utilisateur pour l’inscription et la connexion nommé *B2C_1_signupsignin1*. Dans cette section, vous ajoutez les fournisseurs d’identité au flux d’utilisateur *B2C_1_signupsignin1*.
 
-1. Sélectionnez **Flux d’utilisateurs (stratégies)**, puis sélectionnez le flux utilisateur *B2C_1_signupsignin1*.
+1. Sélectionnez **Flux d’utilisateurs (stratégies)** , puis sélectionnez le flux utilisateur *B2C_1_signupsignin1*.
 2. Sélectionnez **Fournisseurs d’identité**, sélectionnez les fournisseurs d’identité **Facebook** et **Contoso Azure AD** que vous avez ajoutés.
 3. Sélectionnez **Enregistrer**.
 

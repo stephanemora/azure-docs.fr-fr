@@ -2,20 +2,20 @@
 title: Définir un profil technique pour un émetteur de jeton JSON Web Token dans une stratégie personnalisée dans Azure Active Directory B2C | Microsoft Docs
 description: Définir un profil technique pour un émetteur de jeton JSON Web Token dans une stratégie personnalisée dans Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 10/30/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 33dce27b69d080c57b925562ba83db0046b77ca9
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 573463d91fc7a4119bd1bc30182588ff9dfdecb7
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64683781"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66510700"
 ---
 # <a name="define-a-technical-profile-for-a-jwt-token-issuer-in-an-azure-active-directory-b2c-custom-policy"></a>Définir un profil technique pour un émetteur de jeton JSON Web Token dans une stratégie personnalisée Azure Active Directory B2C
 
@@ -47,14 +47,14 @@ Les éléments **InputClaims**, **OutputClaims** et **PersistClaims** sont vides
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
 | issuer_refresh_token_user_identity_claim_type | Oui | Revendication à utiliser comme revendication d’identité d’utilisateur dans les codes d’autorisation OAuth2 et jetons d’actualisation. Par défaut, vous devriez la définir sur `objectId`, sauf si vous spécifiez un autre type de revendication SubjectNamingInfo. | 
-| SendTokenResponseBodyWithJsonNumbers | Non  | Toujours défini sur `true`. Pour un format hérité où des valeurs numériques sont fournies sous forme de chaînes au lieu de nombres JSON, défini sur `false`. Cet attribut est nécessaire pour les clients qui ont pris une dépendance sur une implémentation antérieure qui a retourné des propriétés telles que des chaînes. | 
-| token_lifetime_secs | Non  | Durées de vie des jetons d’accès. Durée de vie du jeton du porteur OAuth 2.0 utilisé pour accéder à une ressource protégée. La valeur par défaut est 3 600 secondes (1 heure). La valeur minimale (inclusive) est 300 secondes (5 minutes). La valeur maximale (inclusive) est 86 400 secondes (24 heures). | 
-| id_token_lifetime_secs | Non  | Durées de vie des jetons d’ID. La valeur par défaut est 3 600 secondes (1 heure). La valeur minimale (inclusive) est 300 secondes (5 minutes). La valeur maximale (inclusive) est 86 400 secondes (24 heures). | 
-| refresh_token_lifetime_secs | Non  | Durées de vie des jetons d’actualisation. Période maximale avant laquelle un jeton d’actualisation peut être utilisé pour acquérir un nouveau jeton d’accès si l’étendue offline_access a été accordée à votre application. La valeur par défaut est 1 209 600 secondes (14 jours). La valeur minimale (inclusive) est 86 400 secondes (24 heures). La valeur maximale (inclusive) est 7 776 000 secondes (90 jours). | 
-| rolling_refresh_token_lifetime_secs | Non  | Durée de vie de la fenêtre glissante du jeton d'actualisation. Une fois cette période écoulée, l’utilisateur est obligé de s’authentifier de nouveau, quelle que soit la période de validité du dernier jeton d’actualisation acquis par l’application. Si vous ne souhaitez pas appliquer une durée de vie de fenêtre glissante, définissez la valeur d’allow_infinite_rolling_refresh_token sur `true`. La valeur par défaut est 7 776 000 secondes (90 jours). La valeur minimale (inclusive) est 86 400 secondes (24 heures). La valeur maximale (inclusive) est 31 536 000 secondes (365 jours). | 
-| allow_infinite_rolling_refresh_token | Non  | Si la valeur est `true`, la durée de vie de la fenêtre glissante jeton d’actualisation n’expire jamais. |
+| SendTokenResponseBodyWithJsonNumbers | Non | Toujours défini sur `true`. Pour un format hérité où des valeurs numériques sont fournies sous forme de chaînes au lieu de nombres JSON, défini sur `false`. Cet attribut est nécessaire pour les clients qui ont pris une dépendance sur une implémentation antérieure qui a retourné des propriétés telles que des chaînes. | 
+| token_lifetime_secs | Non | Durées de vie des jetons d’accès. Durée de vie du jeton du porteur OAuth 2.0 utilisé pour accéder à une ressource protégée. La valeur par défaut est 3 600 secondes (1 heure). La valeur minimale (inclusive) est 300 secondes (5 minutes). La valeur maximale (inclusive) est 86 400 secondes (24 heures). | 
+| id_token_lifetime_secs | Non | Durées de vie des jetons d’ID. La valeur par défaut est 3 600 secondes (1 heure). La valeur minimale (inclusive) est 300 secondes (5 minutes). La valeur maximale (inclusive) est 86 400 secondes (24 heures). | 
+| refresh_token_lifetime_secs | Non | Durées de vie des jetons d’actualisation. Période maximale avant laquelle un jeton d’actualisation peut être utilisé pour acquérir un nouveau jeton d’accès si l’étendue offline_access a été accordée à votre application. La valeur par défaut est 1 209 600 secondes (14 jours). La valeur minimale (inclusive) est 86 400 secondes (24 heures). La valeur maximale (inclusive) est 7 776 000 secondes (90 jours). | 
+| rolling_refresh_token_lifetime_secs | Non | Durée de vie de la fenêtre glissante du jeton d'actualisation. Une fois cette période écoulée, l’utilisateur est obligé de s’authentifier de nouveau, quelle que soit la période de validité du dernier jeton d’actualisation acquis par l’application. Si vous ne souhaitez pas appliquer une durée de vie de fenêtre glissante, définissez la valeur d’allow_infinite_rolling_refresh_token sur `true`. La valeur par défaut est 7 776 000 secondes (90 jours). La valeur minimale (inclusive) est 86 400 secondes (24 heures). La valeur maximale (inclusive) est 31 536 000 secondes (365 jours). | 
+| allow_infinite_rolling_refresh_token | Non | Si la valeur est `true`, la durée de vie de la fenêtre glissante jeton d’actualisation n’expire jamais. |
 | IssuanceClaimPattern | Oui | Contrôle la revendication d’émetteur (iss). Une des valeurs suivantes :<ul><li>AuthorityAndTenantGuid : la revendication iss inclut votre nom de domaine, tel que `login.microsoftonline` ou `tenant-name.b2clogin.com`, et votre identificateur de locataire https://login.microsoftonline.com/00000000-0000-0000-0000-000000000000/v2.0/.</li><li>AuthorityWithTfp : la revendication iss inclut votre nom de domaine, tel que `login.microsoftonline` ou `tenant-name.b2clogin.com`, votre identificateur de locataire et votre nom de stratégie de partie de confiance. https://login.microsoftonline.com/tfp/00000000-0000-0000-0000-000000000000/b2c_1a_tp_sign-up-or-sign-in/v2.0/</li></ul> | 
-| AuthenticationContextReferenceClaimPattern | Non  | Contrôle la valeur de revendication `acr`.<ul><li>None : Azure AD B2C ne génère pas la revendication acr</li><li>PolicyId : la revendication `acr` contient le nom de la stratégie</li></ul>Les options permettant de définir cette valeur sont TFP (Trust Framework Policy) et ACR (Authentication Context Reference). Il est recommandé de définir cette valeur sur TFP. Pour définir la valeur, assurez-vous que `<Item>` avec `Key="AuthenticationContextReferenceClaimPattern"` existe et que la valeur est `None`. Dans votre stratégie de partie de confiance, ajoutez `<OutputClaims>` item et ajoutez cet élément `<OutputClaim ClaimTypeReferenceId="trustFrameworkPolicy" Required="true" DefaultValue="{policy}" />`. Vérifiez également que votre stratégie contient le type de revendication `<ClaimType Id="trustFrameworkPolicy">   <DisplayName>trustFrameworkPolicy</DisplayName>     <DataType>string</DataType> </ClaimType>` | 
+| AuthenticationContextReferenceClaimPattern | Non | Contrôle la valeur de revendication `acr`.<ul><li>None : Azure AD B2C ne génère pas la revendication acr</li><li>PolicyId : la revendication `acr` contient le nom de la stratégie</li></ul>Les options permettant de définir cette valeur sont TFP (Trust Framework Policy) et ACR (Authentication Context Reference). Il est recommandé de définir cette valeur sur TFP. Pour définir la valeur, assurez-vous que `<Item>` avec `Key="AuthenticationContextReferenceClaimPattern"` existe et que la valeur est `None`. Dans votre stratégie de partie de confiance, ajoutez `<OutputClaims>` item et ajoutez cet élément `<OutputClaim ClaimTypeReferenceId="trustFrameworkPolicy" Required="true" DefaultValue="{policy}" />`. Vérifiez également que votre stratégie contient le type de revendication `<ClaimType Id="trustFrameworkPolicy">   <DisplayName>trustFrameworkPolicy</DisplayName>     <DataType>string</DataType> </ClaimType>` | 
 
 ## <a name="cryptographic-keys"></a>Clés de chiffrement
 

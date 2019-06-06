@@ -8,14 +8,15 @@ ms.subservice: heavy
 ms.topic: article
 ms.date: 05/21/2019
 ms.author: alkohli
-ms.openlocfilehash: 115c1a3ab9a7ffe564924edce47f9915448f97e9
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: da518de4702925ebad29727e2bdce99e67d40249
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66248008"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66427764"
 ---
-# <a name="azure-data-box-heavy-limits"></a>Limites de lourdes de zone de données Azure
+# <a name="azure-data-box-heavy-limits-preview"></a>Limites de lourdes de zone de données Azure (version préliminaire)
+
 
 Prendre en compte ces limites lors du déploiement et d’utiliser votre équipement lourd de zone de données Azure. Le tableau suivant décrit ces limites pour Data Box.
 

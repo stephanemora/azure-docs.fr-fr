@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: sogup
-ms.openlocfilehash: b345f5e7f6f32d7fbb76d4f0227c8f4f925ff884
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: 9fba7d679b7d0edb3c99207c99b23f9616c6fa0e
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66400295"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66477572"
 ---
 # <a name="create-a-recovery-services-vault"></a>Créer un coffre Recovery Services
 
@@ -76,7 +76,7 @@ Sauvegarde Azure gère automatiquement le stockage pour le coffre. Vous devez sp
    - En savoir plus sur [géo](../storage/common/storage-redundancy-grs.md) et [local](../storage/common/storage-redundancy-lrs.md) redondance.
 
 > [!NOTE]
-> Une fois que vous choisissez la **type de réplication de stockage** de **géo-redondant** à **localement redondant**, vous ne pouvez pas revenir en arrière.
+> Modification **type de réplication de stockage** (localement redondant / géo-redondant) pour une récupération de coffre de services doit être effectuée avant de configurer des sauvegardes dans le coffre. Une fois que vous configurez la sauvegarde, l’option de modification est désactivée et vous ne pouvez pas modifier le **type de réplication de stockage**. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

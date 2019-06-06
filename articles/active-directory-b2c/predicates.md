@@ -2,20 +2,20 @@
 title: Predicates et PredicateValidations - Azure Active Directory B2C | Microsoft Docs
 description: Exemples de transformations de revendications de comptes sociaux pour le schéma Infrastructure d’expérience d’identité d’Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: eff8e2cedd6f9388d811002a622dbcdcd0e7ed6c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 06879164c6f72891b734da077c667c6f90448fe4
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64714169"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66512965"
 ---
 # <a name="predicates-and-predicatevalidations"></a>Predicates et PredicateValidations
 
@@ -41,7 +41,7 @@ L’élément **Predicate** contient les attributs suivants :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| ID | Oui | Identificateur utilisé pour le prédicat. D’autres éléments peuvent utiliser cet identificateur dans la stratégie. |
+| Id | Oui | Identificateur utilisé pour le prédicat. D’autres éléments peuvent utiliser cet identificateur dans la stratégie. |
 | Méthode | Oui | Type de la méthode à utiliser pour la validation. Valeurs possibles : **IsLengthRange**, **MatchesRegex**, **IncludesCharacters** ou **IsDateRange**. La valeur **IsLengthRange** vérifie si la longueur d’une valeur de revendication de chaîne est dans la plage des paramètres minimaux et maximaux spécifiés. La valeur **MatchesRegex** vérifie si une valeur de revendication de chaîne correspond à une expression régulière. La valeur **IncludesCharacters** vérifie si une valeur de revendication de chaîne contient un jeu de caractères. La valeur **IsDateRange** vérifie si une valeur de revendication de date est dans la plage des paramètres minimaux et maximaux spécifiés. |
 
 L’élément **Predicate** contient les éléments suivants :
@@ -61,7 +61,7 @@ L’élément **Parameter** contient les attributs suivants :
 
 | Élément | Occurrences | Description |
 | ------- | ----------- | ----------- |
-| ID | 1:1 | Identificateur du paramètre. |
+| Id | 1:1 | Identificateur du paramètre. |
 
 L’exemple suivant montre une méthode `IsLengthRange` avec les paramètres `Minimum` et `Maximum` qui spécifient la plage de la longueur de la chaîne :
 
@@ -140,7 +140,7 @@ L’élément **PredicateValidation** contient l’attribut suivant :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| ID | Oui | Identificateur utilisé pour la validation de prédicat. L’élément **ClaimType** peut utiliser cet identificateur dans la stratégie. |
+| Id | Oui | Identificateur utilisé pour la validation de prédicat. L’élément **ClaimType** peut utiliser cet identificateur dans la stratégie. |
 
 L’élément **PredicateValidation** contient l’élément suivant :
 
@@ -158,7 +158,7 @@ L’élément **PredicateGroup** contient l’attribut suivant :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| ID | Oui | Identificateur utilisé pour le groupe de prédicats.  |
+| Id | Oui | Identificateur utilisé pour le groupe de prédicats.  |
 
 L’élément **PredicateGroup** contient les éléments suivants :
 
@@ -171,7 +171,7 @@ L’élément **PredicateReferences** contient les attributs suivants :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| MatchAtLeast | Non  | Indique que la valeur doit correspondre au moins à cette quantité de définitions de prédicat pour que l’entrée soit acceptée. |
+| MatchAtLeast | Non | Indique que la valeur doit correspondre au moins à cette quantité de définitions de prédicat pour que l’entrée soit acceptée. |
 
 L’élément **PredicateReferences** contient les éléments suivants :
 
@@ -183,7 +183,7 @@ L’élément **PredicateReference** contient les attributs suivants :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| ID | Oui | Identificateur utilisé pour la validation de prédicat.  |
+| Id | Oui | Identificateur utilisé pour la validation de prédicat.  |
 
 
 ## <a name="configure-password-complexity"></a>Configurer la complexité du mot de passe

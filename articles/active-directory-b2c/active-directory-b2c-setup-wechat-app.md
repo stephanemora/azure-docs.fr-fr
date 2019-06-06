@@ -2,20 +2,20 @@
 title: Configurer l’inscription et la connexion avec un compte WeChat à l’aide d’Azure Active Directory B2C | Microsoft Docs
 description: Proposez l’inscription et la connexion aux clients disposant de comptes WeChat dans vos applications à l’aide d’Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/11/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: cfe5309a142b444d8118419cd24a7f5ec8d5cf26
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: aa44edcf009d381894a581172ea5edffefe946a0
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64703794"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66508134"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-wechat-account-using-azure-active-directory-b2c"></a>Configurer l’inscription et la connexion avec un compte WeChat à l’aide d’Azure Active Directory B2C
 
@@ -42,7 +42,7 @@ Pour utiliser un compte WeChat en tant que fournisseur d’identité dans Azure 
 3. Choisissez **Tous les services** dans le coin supérieur gauche du Portail Azure, recherchez et sélectionnez **Azure Active Directory B2C**.
 4. Cliquez sur **Fournisseurs d’identité**, puis sélectionnez **Ajouter**.
 5. Entrez un **nom**. Par exemple, entrez *WeChat*.
-6. Sélectionnez **Type de fournisseur d'identité**, **WeChat (préversion)**, puis cliquez sur **OK**.
+6. Sélectionnez **Type de fournisseur d'identité**, **WeChat (préversion)** , puis cliquez sur **OK**.
 7. Sélectionnez **Configurer ce fournisseur d’identité**, entrez l’ID de l’application enregistrée précédemment en tant **qu’ID Client** et entrez la clé de l’application enregistrée en tant que **Secret client** de l’application WeChat créée précédemment.
 8. Cliquez sur **OK**, puis sur **Créer** pour enregistrer votre configuration WeChat.
 

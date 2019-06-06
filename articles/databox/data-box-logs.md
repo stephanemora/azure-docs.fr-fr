@@ -1,43 +1,43 @@
 ---
-title: Suivre et enregistrer des événements d’Azure Data Box | Microsoft Docs
-description: Décrit comment suivre et enregistrer des événements aux divers stades de votre commande d’Azure Data Box.
+title: Effectuer le suivi et les journaux d’Azure Data Box, événements lourd de zone de données Azure | Microsoft Docs
+description: Décrit comment suivre et enregistrer des événements aux divers stades de votre commande d’Azure Data Box et lourdes de zone de données Azure.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 05/14/2019
+ms.date: 06/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 7a6adc72c1dfbe67311ae2ca98d5b07dfab41719
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 108d17d3e0ca5f32648f9d4f6cf4b5f9a2984d0c
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65806505"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66495822"
 ---
-# <a name="tracking-and-event-logging-for-your-azure-data-box"></a>Suivi et journalisation des événements pour votre Azure Data Box
+# <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy"></a>Suivi et journalisation des événements pour votre Azure Data Box et lourdes de zone de données Azure
 
-Une commande Data Box parcourt les étapes suivantes : commander, configurer, copie des données, retourneront, chargement sur Azure et vérifier et l’effacement des données. Correspondant à chaque étape dans l’ordre, vous pouvez effectuer plusieurs actions pour contrôler l’accès à la commande, les événements d’audit, effectuer le suivi de l’ordre et interpréter les différents journaux sont générés.
+Une commande Data Box ou élevée de zone de données passe par les étapes suivantes : commander, configurer, copie des données, retourneront, chargement sur Azure et vérifier et l’effacement des données. Correspondant à chaque étape dans l’ordre, vous pouvez effectuer plusieurs actions pour contrôler l’accès à la commande, les événements d’audit, effectuer le suivi de l’ordre et interpréter les différents journaux sont générés.
 
-Le tableau suivant récapitule les étapes de la commande Data Box et les outils disponibles pour effectuer le suivi et d’audit de l’ordre au cours de chaque étape.
+Le tableau suivant récapitule les étapes de commande Data Box ou élevée de zone de données et les outils disponibles pour effectuer le suivi et d’audit de l’ordre au cours de chaque étape.
 
 | Stade de zone des données à l’aide de la commande       | Outil de suivi et d’audit                                                                        |
 |----------------------------|------------------------------------------------------------------------------------------------|
 | Créer une commande               | [Configurer le contrôle d’accès de la commande par le biais de RBAC](#set-up-access-control-on-the-order)                                                    |
 | Ordre de traitement            | [Suivre l’ordre de](#track-the-order) via <ul><li> Portail Azure </li><li> Site Web du transporteur de livraison </li><li>Notifications par e-mail</ul> |
 | Configurer l’appareil              | APPAREIL accès enregistrés dans les informations d’identification [journaux d’activité](#query-activity-logs-during-setup)                                              |
-| Copie des données sur l’appareil        | [Vue *error.xml* fichiers](#view-error-log-during-data-copy-to-data-box) pour la copie des données                                                             |
-| Préparer l'expédition            | [Inspecter les fichiers de nomenclature](#inspect-bom-during-prepare-to-ship) ou les fichiers manifeste sur l’appareil                                      |
+| Copie des données sur l’appareil        | [Vue *error.xml* fichiers](#view-error-log-during-data-copy) pour la copie des données                                                             |
+| Préparer l’expédition            | [Inspecter les fichiers de nomenclature](#inspect-bom-during-prepare-to-ship) ou les fichiers manifeste sur l’appareil                                      |
 | Chargement des données vers Azure       | [Révision *copylogs* ](#review-copy-log-during-upload-to-azure) pour les erreurs au cours des données à charger au centre de données Azure                         |
 | Effacement des données à partir de l’appareil   | [Afficher la chaîne de responsabilité journaux](#get-chain-of-custody-logs-after-data-erasure) y compris les journaux d’audit et l’historique des commandes                                                   |
 
-Cet article décrit en détail les différents mécanismes ou outils disponibles pour effectuer le suivi et d’audit de commande Data Box.
+Cet article décrit en détail les différents mécanismes ou outils disponibles pour effectuer le suivi et d’audit de commande Data Box ou élevée de zone de données. Les informations contenues dans cet article s’applique à la fois, Data Box et lourdes de zone de données. Dans les sections suivantes, toutes les références à la zone de données s’appliquent également à lourd de zone de données.
 
 ## <a name="set-up-access-control-on-the-order"></a>Configurer le contrôle d’accès sur l’ordre
 
 Vous pouvez contrôler qui peut accéder à votre commande lorsque l’ordre est créé. Configurer les rôles de contrôle d’accès en fonction du rôle (RBAC) dans différentes portées pour contrôler l’accès à la commande Data Box. Un rôle RBAC détermine le type d’accès : lecture-écriture, en lecture seule, en lecture-écriture à un sous-ensemble d’opérations.
 
-Les deux rôles de zone de données qui peuvent être définies sont :
+Les deux rôles qui peuvent être définis pour le service Azure Data Box sont :
 
 - **Lecteur de données boîte** -ont un accès en lecture seule à un ou les commandes telles que définies par l’étendue. Ils peuvent uniquement afficher les détails d’une commande. Ils ne peuvent pas accéder à tous les autres détails liés aux comptes de stockage ou modifier les détails de commande comme adresse et ainsi de suite.
 - **Contributeur de zone de données** -peut créer uniquement une commande pour transférer des données vers un compte de stockage donné *s’ils ont déjà accès en écriture à un compte de stockage*. Si elles n’ont pas accès à un compte de stockage, ils ne peuvent pas même créer une commande Data Box pour copier des données au compte. Ce rôle ne définit pas de n’importe quel compte de stockage liés autorisations ni accorde l’accès aux comptes de stockage.  
@@ -70,9 +70,9 @@ Vous pouvez suivre votre commande via le portail Azure et via le site Web du tra
 
 - Chaque connexion dans la zone de données est connecté en temps réel. Toutefois, ces informations sont uniquement disponibles dans le [journaux d’Audit](#audit-logs) une fois que la commande est terminée avec succès.
 
-## <a name="view-error-log-during-data-copy-to-data-box"></a>Afficher le journal d’erreur pendant la copie de données à la zone de données
+## <a name="view-error-log-during-data-copy"></a>Afficher le journal d’erreur pendant la copie de données
 
-Lors de la copie des données à la zone de données, un fichier d’erreur est généré s’il existe des problèmes avec les données copiées.
+Lors de la copie des données dans Data Box ou élevée de zone de données, un fichier d’erreur est généré s’il existe des problèmes avec les données copiées.
 
 ### <a name="errorxml-file"></a>Fichier de Error.Xml
 
@@ -147,7 +147,7 @@ Voici un exemple de la *error.xml* pour différentes erreurs lors de la copie da
 <file error="ERROR_CONTAINER_OR_SHARE_NAME_ALPHA_NUMERIC_DASH">\Starting with Capital</file>
 ```
 
-Dans chacun des cas ci-dessus, résoudre les erreurs avant de passer à l’étape suivante. Pour plus d’informations sur les erreurs reçues pendant la copie de données dans Data Box via les protocoles SMB ou NFS, accédez à [zone de données de résoudre les problèmes](data-box-troubleshoot.md). Pour plus d’informations sur les erreurs reçues pendant la copie de données dans la zone de données via l’API REST, accédez à [les problèmes de stockage de résoudre les problèmes de données boîte Blob](data-box-troubleshoot-rest.md).
+Dans chacun des cas ci-dessus, résoudre les erreurs avant de passer à l’étape suivante. Pour plus d’informations sur les erreurs reçues pendant la copie de données dans Data Box via les protocoles SMB ou NFS, accédez à [problèmes lourd de zone de données et de résoudre les problèmes de zone de données](data-box-troubleshoot.md). Pour plus d’informations sur les erreurs reçues pendant la copie de données dans la zone de données via l’API REST, accédez à [les problèmes de stockage de résoudre les problèmes de données boîte Blob](data-box-troubleshoot-rest.md).
 
 ## <a name="inspect-bom-during-prepare-to-ship"></a>Inspecter la nomenclature au cours de préparer l’expédition
 
@@ -157,7 +157,7 @@ Au cours de préparer l’expédition, une liste de fichiers connus comme la nom
 - Ce fichier permet de vérifier les tailles réelles des fichiers.
 - Vérifiez que le *crc64* correspond à une chaîne non nulle. <!--A null value for crc64 indicates that there was a reparse point error)-->
 
-Pour plus d’informations sur les erreurs reçues lors de la préparer pour livrés, accédez à [zone de données de résoudre les problèmes](data-box-troubleshoot.md).
+Pour plus d’informations sur les erreurs reçues lors de la préparer pour livrés, accédez à [problèmes lourd de zone de données et de résoudre les problèmes de zone de données](data-box-troubleshoot.md).
 
 ### <a name="bom-or-manifest-file"></a>Fichier de manifeste ou BOM
 
@@ -253,7 +253,7 @@ Une fois les données sont effacées à partir des disques Data Box conformémen
 
 ### <a name="audit-logs"></a>Journaux d’audit
 
-Journaux d’audit contiennent des informations sur la mise sous tension et partager l’accès sur la zone de données lorsqu’il est en dehors du centre de données Azure. Ces journaux sont situés à : `storage-account/azuredatabox-chainofcustodylogs`
+Journaux d’audit contiennent des informations sur la mise sous tension et partager l’accès sur la zone données ou lourd de zone de données lorsqu’il est en dehors du centre de données Azure. Ces journaux sont situés à : `storage-account/azuredatabox-chainofcustodylogs`
 
 Voici un exemple du journal d’audit à partir d’une zone de données :
 
@@ -308,9 +308,9 @@ The authentication information fields provide detailed information about this sp
 ```
 
 
-## <a name="download-order-history"></a>Télécharger l'historique des commandes
+## <a name="download-order-history"></a>Télécharger l’historique des commandes
 
-L’historique des commandes sont disponible dans le portail Azure. Si la commande est terminée et que le nettoyage de l’appareil (l’effacement des données à partir des disques) est terminée, puis accédez à **commande Data Box > Order details**. ** Télécharger l’historique des commandes** option est disponible. Pour plus d’informations, consultez [télécharger l’historique des commandes](data-box-portal-admin.md#download-order-history).
+L’historique des commandes sont disponible dans le portail Azure. Si la commande est terminée et que le nettoyage de l’appareil (l’effacement des données à partir des disques) est terminée, accédez à votre commande de l’appareil, puis accédez à **Order details**. ** Télécharger l’historique des commandes** option est disponible. Pour plus d’informations, consultez [télécharger l’historique des commandes](data-box-portal-admin.md#download-order-history).
 
 Si vous faites défiler l’historique des commandes, vous voyez :
 
@@ -324,7 +324,7 @@ Voici un exemple du journal d’historique de commande à partir du portail Azur
 -------------------------------
 Microsoft Data Box Order Report
 -------------------------------
-Name                                               : gus-pinto                              
+Name                                               : gus-poland                              
 StartTime(UTC)                              : 9/19/2018 8:49:23 AM +00:00                       
 DeviceType                                     : DataBox                                           
 -------------------
@@ -362,11 +362,11 @@ Time(UTC)                 | Activity                       | Status          | D
 Data Box Log Links
 ------------------
 Account Name         : gusacct
-Copy Logs Path       : databoxcopylog/gus-pinto_<Device-serial-no>_CopyLog_<GUID>.xml
+Copy Logs Path       : databoxcopylog/gus-poland_<Device-serial-no>_CopyLog_<GUID>.xml
 Audit Logs Path      : azuredatabox-chainofcustodylogs\<GUID>\<Device-serial-no>
 BOM Files Path       : azuredatabox-chainofcustodylogs\<GUID>\<Device-serial-no>
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Découvrez comment [résoudre les problèmes sur votre Data Box](data-box-troubleshoot.md).
+- Découvrez comment [résoudre les problèmes sur votre Data Box et lourdes de zone de données](data-box-troubleshoot.md).

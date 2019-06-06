@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 05/23/2019
+ms.date: 05/28/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: be0de7e809565fce4171401760d11ef9de45724e
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: e408439c4868a9fadfd15ab8ae303b2d881c481e
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66236115"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66494261"
 ---
 # <a name="azure-app-service-access-restrictions"></a>Restrictions d’accès Azure App Service #
 
@@ -50,17 +50,25 @@ La liste affiche toutes les restrictions actuelles qui se trouvent sur votre app
 
 Vous pouvez cliquer sur **[+] ajouter** pour ajouter une nouvelle règle de restriction d’accès. Quand vous ajoutez une règle, celle-ci est appliquée immédiatement. Les règles sont appliquées par ordre de priorité, du chiffre le moins élevé au chiffre le plus élevé. Il existe une règle implicite « Tout refuser » qui s’applique dès que vous ajoutez une règle.
 
+### <a name="adding-ip-address-rules"></a>Ajout de règles d’adresses IP
+
 ![Ajouter une règle de restriction d’accès IP](media/app-service-ip-restrictions/access-restrictions-ip-add.png)
 
 Lorsque vous créez une règle, vous devez sélectionner autoriser ou refuser, ainsi que le type de règle. Vous devez également fournir la valeur de priorité et ce que vous pouvez réserver l’accès.  Vous pouvez éventuellement ajouter un nom et une description à la règle.  
 
-Règle basée sur pour définir une adresse IP, sélectionnez un type de IPv4 ou IPv6. Pour les adresses IPv4 et IPv6, la notation CIDR doit être utilisée. Pour spécifier une adresse exacte, vous pouvez utiliser le format 1.2.3.4/32, où les quatre premiers octets représentent votre adresse IP, et /32 correspond au masque. La notation CIDR IPv4 est 0.0.0.0/0 pour toutes les adresses. Pour plus d’informations sur la notation CIDR, consultez [Classless Inter-Domain Routing](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
+Règle basée sur pour définir une adresse IP, sélectionnez un type de IPv4 ou IPv6. Pour les adresses IPv4 et IPv6, la notation CIDR doit être utilisée. Pour spécifier une adresse exacte, vous pouvez utiliser le format 1.2.3.4/32, où les quatre premiers octets représentent votre adresse IP, et /32 correspond au masque. La notation CIDR IPv4 est 0.0.0.0/0 pour toutes les adresses. Pour plus d’informations sur la notation CIDR, consultez [Classless Inter-Domain Routing](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing). 
+
+### <a name="service-endpoints"></a>Points de terminaison de service
 
 ![Ajouter une règle de restriction d’accès réseau virtuel](media/app-service-ip-restrictions/access-restrictions-vnet-add.png)
 
 Pour restreindre l’accès à des sous-réseaux sélectionnées, sélectionnez un type de réseau virtuel. Ci-dessous, vous serez en mesure de sélectionner l’abonnement, le réseau virtuel et le sous-réseau que vous souhaitez autoriser ou refuser l’accès avec. Si les points de terminaison de service ne sont pas encore activés avec Microsoft.Web pour le sous-réseau que vous avez sélectionné, il est automatiquement activé pour vous, sauf si vous cochez la case demandant ne pas à le faire. La situation où vous souhaiteriez activer sur l’application, mais pas le sous-réseau en grande partie concerne si vous disposez des autorisations pour activer les points de terminaison de service sur le sous-réseau ou non. Si vous avez besoin obtenir de quelqu'un d’autre pour activer les points de terminaison de service sur le sous-réseau, vous pouvez la case à cocher et que votre application configurée pour les points de terminaison de service en prévision de celle-ci en cours d’activation ultérieurement sur le sous-réseau. 
 
 Points de terminaison de service ne peut pas être utilisés pour restreindre l’accès aux applications qui s’exécutent dans un environnement App Service. Lorsque votre application se trouve dans un environnement App Service, vous pouvez contrôler l’accès à votre application avec des règles d’accès IP. 
+
+Avec les points de terminaison de service, vous pouvez configurer votre application avec les passerelles d’Application ou d’autres appareils de WAF. Vous pouvez également configurer des applications à plusieurs niveaux avec les serveurs principaux sécurisés. Pour plus d’informations sur quelques-unes des possibilités, consultez [App Service et les fonctionnalités de mise en réseau](networking-features.md).
+
+### <a name="managing-access-restriction-rules"></a>Gestion des règles de restriction d’accès
 
 Vous pouvez cliquer sur n’importe quelle ligne pour modifier une règle de restriction d’accès existante. Les modifications sont appliquées immédiatement, y compris les changements de priorité.
 
@@ -74,19 +82,19 @@ Pour supprimer une règle, cliquez sur les trois points ( **...** ) dans votre r
 
 ![supprimer la règle de restriction d’accès](media/app-service-ip-restrictions/access-restrictions-delete.png)
 
-### <a name="scm-site"></a>Site SCM 
-
-Outre la possibilité de contrôler l’accès à votre application, vous pouvez également restreindre l’accès au site scm utilisé par votre application. Le site scm est le web déployer le point de terminaison, ainsi que la console Kudu. Vous pouvez séparément adjoindre des restrictions d’accès au site scm à partir de l’application ou utiliser les mêmes pour l’application et le site scm. Lorsque vous activez la case pour ont les mêmes restrictions que votre application, tout ce dont s’affiche en grisé. Si vous décochez la case, les paramètres que vous aviez précédemment sur le site scm sont appliquées. 
-
-![restrictions d’accès de liste](media/app-service-ip-restrictions/access-restrictions-scm-browse.png)
-
-## <a name="blocking-a-single-ip-address"></a>Blocage d’une seule adresse IP ##
+### <a name="blocking-a-single-ip-address"></a>Blocage d’une seule adresse IP ##
 
 Lorsque vous ajoutez votre première règle de Restriction d’adresse IP, le service va ajouter explicite **refuser tout** règle avec une priorité de 2147483647. Dans la pratique, explicite **refuser tout** règle sera la dernière règle exécutée et bloquera l’accès à n’importe quelle adresse IP qui n’est pas autorisé de manière explicite à l’aide un **autoriser** règle.
 
 Pour le scénario où les utilisateurs souhaitent bloquer explicitement une seule adresse IP ou le bloc d’adresses IP, mais autoriser tout autre accès, il est nécessaire d’ajouter un texte explicite **autoriser tous les** règle.
 
 ![adresse ip unique de bloc](media/app-service-ip-restrictions/block-single-address.png)
+
+### <a name="scm-site"></a>Site SCM 
+
+Outre la possibilité de contrôler l’accès à votre application, vous pouvez également restreindre l’accès au site scm utilisé par votre application. Le site scm est le web déployer le point de terminaison, ainsi que la console Kudu. Vous pouvez séparément adjoindre des restrictions d’accès au site scm à partir de l’application ou utiliser les mêmes pour l’application et le site scm. Lorsque vous activez la case pour ont les mêmes restrictions que votre application, tout ce dont s’affiche en grisé. Si vous décochez la case, les paramètres que vous aviez précédemment sur le site scm sont appliquées. 
+
+![restrictions d’accès de liste](media/app-service-ip-restrictions/access-restrictions-scm-browse.png)
 
 ## <a name="programmatic-manipulation-of-access-restriction-rules"></a>Manipulation par programmation des règles de restriction d’accès ##
 

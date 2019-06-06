@@ -11,14 +11,14 @@ ms.workload: ''
 ms.topic: article
 ms.date: 04/27/2019
 ms.author: juliako
-ms.openlocfilehash: 3f939154d2b34e6dc043e505ab89897221bcfe23
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 3e1a5d8ba8b6d0ec8e3ec1ba9506a88ee87d8ed1
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149233"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515743"
 ---
-# <a name="streaming-endpoints-origin"></a>Points de terminaison de diffusion en continu (origine)
+# <a name="streaming-endpoints"></a>Points de terminaison de diffusion en continu 
 
 Dans Microsoft Azure Media Services, un [le point de terminaison de diffusion en continu](https://docs.microsoft.com/rest/api/media/streamingendpoints) représente un dynamique (juste-à-temps) empaquetage et l’origine service qui peut fournir votre contenu en direct et à la demande directement à une application de lecteur client, à l’aide d’un de le diffusion en continu media protocoles communs (HLS ou DASH). En outre, le **le point de terminaison de diffusion en continu** fournit le chiffrement dynamique (juste-à-temps) pour ses systèmes de DRM de pointe.
 
@@ -55,10 +55,10 @@ Pour plus d’informations de contrat SLA, consultez [tarification et les contra
 
 Fonctionnalité|standard|Premium
 ---|---|---
-Gratuit les 15 premiers jours <sup>1</sup>| Oui |Non 
+Gratuit les 15 premiers jours <sup>1</sup>| Oui |Non
 Débit |Jusqu'à 600 Mbits/s et peut fournir un débit bien plus efficace important lors de l’utilisation d’un CDN.|200 Mbits/s par unité de streaming (SU). Peut de fournir un débit bien plus efficace important lors de l’utilisation d’un CDN.
 CDN|Azure CDN, CDN tiers ou sans CDN.|Azure CDN, CDN tiers ou sans CDN.
-La facturation est calculée sur la base d'un taux| Quotidien|Quotidien
+La facturation est calculée sur la base d'un taux| Tous les jours|Tous les jours
 Chiffrement dynamique|Oui|Oui
 l’empaquetage dynamique|Oui|Oui
 Scale|Mise à l’échelle automatique vers le débit cible.|Unités de recherche supplémentaires
@@ -156,7 +156,7 @@ L’intégration du CDN est activée dans tous les centres de données Azure, sa
 
 Vous pouvez déterminer si DNS a été modifié sur un point de terminaison de diffusion en continu (le trafic dirigé vers le CDN Azure) à l’aide de https://www.digwebinterface.com. Si les résultats contient des noms de domaine azureedge.net dans les résultats, le trafic est maintenant pointé le CDN.
 
-## <a name="ask-questions-give-feedback-get-updates"></a>Posez des questions, commentaires, obtenir des mises à jour
+## <a name="ask-questions-give-feedback-get-updates"></a>Poser des questions, envoyer des commentaires, obtenir des mises à jour
 
 Découvrez l’article [Communauté Azure Media Services](media-services-community.md) pour découvrir les différentes façons dont vous pouvez poser des questions, faire des commentaires et obtenir des mises à jour sur Media Services.
 

@@ -1,6 +1,6 @@
 ---
-title: 'Référence des API v2 statut Azure Monitor : Obtenir l’état | Microsoft Docs'
-description: État du moniteur v2 API référence Get-ApplicationInsightsMonitoringStatus. Surveiller les performances de site Web sans avoir à redéployer le site Web. Fonctionne avec les applications web ASP.NET hébergées localement, dans des machines virtuelles ou sur Azure.
+title: 'Référence des API Azure Status Monitor v2 : Obtenir l’état | Microsoft Docs'
+description: Référence d’API v2 de moniteur d’état. Get-ApplicationInsightsMonitoringStatus. Surveiller les performances de site Web sans avoir à redéployer le site Web. Fonctionne avec les applications web ASP.NET hébergées localement, dans des machines virtuelles ou sur Azure.
 services: application-insights
 documentationcenter: .net
 author: MS-TimothyMothra
@@ -12,37 +12,37 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: ff61cf2bfb49a64d2f885cb13fd6c48e32c1f8f3
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: 860226320fe1a546798cc462e4e5c06d4b9228cf
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65415999"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514304"
 ---
 # <a name="status-monitor-v2-api-get-applicationinsightsmonitoringstatus-v022-alpha"></a>État du moniteur v2 API : Get-ApplicationInsightsMonitoringStatus (v0.2.2-alpha)
 
-Ce document décrit une applet de commande qui est fourni en tant que membre de la [Az.ApplicationMonitor PowerShell module](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
+Cet article décrit une applet de commande qui est un membre de la [Az.ApplicationMonitor PowerShell module](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
 
 > [!IMPORTANT]
 > État du moniteur v2 est actuellement en version préliminaire publique.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
-> Pour plus d’informations, consultez [conditions d’utilisation supplémentaires pour les versions préliminaires de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
+> Cette version préliminaire est fournie sans contrat de niveau de service, et nous n’est pas recommandé pour les charges de travail de production. Certaines fonctionnalités ne peuvent pas être pris en charge, et certains peuvent avoir des fonctionnalités limitées.
+> Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="description"></a>Description 
+## <a name="description"></a>Description
 
-Cette applet de commande est fourni pour la résolution des problèmes du PowerShell Module en cours d’utilisation.
-Cette applet de commande signale les informations de version et les fichiers de clés nécessaires à l’analyse.
-Les paramètres supplémentaires fournissent des rapports supplémentaires sur l’état actuel de l’analyse.
+Permet la résolution des problèmes du module PowerShell qui est utilisé.
+Cette applet de commande signale les informations de version et des informations sur les fichiers de clés nécessaires à l’analyse.
+Paramètres supplémentaires fournissent des rapports supplémentaires sur l’état de surveillance.
 
 > [!IMPORTANT] 
-> Cette applet de commande requiert une PowerShell Session avec des autorisations d’administrateur.
+> Cette applet de commande requiert une session PowerShell avec des autorisations d’administrateur.
 
 ## <a name="examples"></a>Exemples
 
 
-### <a name="example-basic-information"></a>Exemple : les informations de base
+### <a name="example-basic-information"></a>Exemple : Informations de base
 
-Exécutez la commande : `Get-ApplicationInsightsMonitoringStatus` pour obtenir une sortie d’informations sur ce module :
+Exécutez `Get-ApplicationInsightsMonitoringStatus` pour afficher des informations sur le module actuel :
 
 ```
 PS C:\> Get-ApplicationInsightsMonitoringStatus
@@ -77,11 +77,11 @@ Machine Identifier:
 0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF
 ```
 
-### <a name="example-runtime-status"></a>Exemple : état de runtime
+### <a name="example-runtime-status"></a>Exemple : État d’exécution
 
 Vous pouvez inspecter le processus sur l’ordinateur instrumenté pour voir si toutes les DLL sont chargées. Si le fonctionnement de l’analyse, au moins 12 DLL doivent être chargés.
 
-- Cmd : `Get-ApplicationInsightsMonitoringStatus -InspectProcess`
+Exécutez la commande `Get-ApplicationInsightsMonitoringStatus -InspectProcess`:
 
 
 ```
@@ -115,19 +115,19 @@ listdlls64.exe -accepteula w3wp
 0x000000000ad60000  0x108000  C:\Windows\TEMP\2.4.0.0.Microsoft.ApplicationInsights.Extensions.Intercept_x64.dll
 ```
 
-## <a name="parameters"></a>parameters 
+## <a name="parameters"></a>parameters
 
-### <a name="no-params"></a>(Ne contient aucun paramètre)
+### <a name="no-parameters"></a>(Aucun paramètre)
 
-Par **par défaut**, cette applet de commande signalera les numéros de version et chemins d’accès des DLL nécessaires à l’analyse.
+Par défaut, cette applet de commande signale les numéros de version et les chemins d’accès des DLL nécessaires à l’analyse.
 
 Utilisez cette option si vous avez besoin identifier la version de n’importe quelle DLL, y compris le SDK Application Insights.
 
 
 ### <a name="-inspectprocess"></a>-InspectProcess
 
-**Facultative**. Cette applet de commande signalera si IIS est en cours d’exécution.
-Cette applet de commande télécharge également des outils externes pour inspecter si les DLL sont chargées dans le runtime d’IIS.
+**Facultative**. Utilisez ce paramètre pour signaler si IIS est en cours d’exécution.
+Il télécharge également des outils externes pour déterminer si les DLL sont chargées dans le runtime d’IIS.
 
 
 Si ce processus échoue pour une raison quelconque, vous pouvez exécuter ces commandes manuellement :
@@ -138,10 +138,10 @@ Si ce processus échoue pour une raison quelconque, vous pouvez exécuter ces co
 
 ### <a name="-force"></a>-Force
 
-**Facultative**. Utilisé uniquement avec InspectProcess. Ce commutateur ignore l’invite utilisateur à télécharger les outils supplémentaires.
+**Facultative**. Utilisé uniquement avec InspectProcess. Utilisez ce commutateur pour ignorer l’invite d’utilisateur qui apparaît avant le téléchargement des outils supplémentaires.
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
  Faire plus avec Status Monitor v2 :
- - Utilisez notre guide [dépannage](status-monitor-v2-troubleshoot.md) Status Monitor v2.
+ - Utilisez notre guide [dépanner](status-monitor-v2-troubleshoot.md) Status Monitor v2.

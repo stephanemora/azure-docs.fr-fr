@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect : Migrer de la fédération à l’authentification directe pour Azure Active Directory | Microsoft Docs'
+title: 'Azure AD Connect : Migrer à partir de la fédération à PTA pour Azure AD'
 description: Cet article contient des informations sur le déplacement d’un environnement d’identité hybride de la fédération à l’authentification directe.
 services: active-directory
 author: billmath
@@ -8,16 +8,16 @@ ms.reviewer: martincoetzer
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
-ms.date: 12/13/2018
+ms.date: 05/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf0bb51470272099ed2824d0450082f93fe65f14
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: eb421442a7b45f3cd5925fd1475a0a69053c3113
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60382667"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66473378"
 ---
 # <a name="migrate-from-federation-to-pass-through-authentication-for-azure-active-directory"></a>Migrer de la fédération à l’authentification directe pour Azure Active Directory
 
@@ -75,7 +75,7 @@ Pour savoir quelle méthode utiliser, effectuez les étapes des sections suivant
 2. Dans la page **Tâches supplémentaires**, sélectionnez **Afficher la configuration actuelle**, puis sélectionnez **Suivant**.<br />
  
    ![Capture d’écran de l’option Afficher la configuration actuelle dans la page Tâches supplémentaires](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image2.png)<br />
-3. Dans la page **Vérification de votre solution**n faites défiler jusqu’à **Services Active Directory Federation Services (ADFS)**.<br />
+3. Dans la page **Vérification de votre solution**n faites défiler jusqu’à **Services Active Directory Federation Services (ADFS)** .<br />
 
    * Si la configuration d’AD FS apparaît dans cette section, vous pouvez considérer qu’AD FS a été initialement configuré à l’aide d’Azure AD Connect. Vous pouvez convertir vos domaines de l’identité fédérée en identité managée en utilisant l’option **Modifier la connexion utilisateur** d’Azure AD Connect. Pour plus d’informations sur le processus, consultez la section **Option 1 : Configurer l’authentification directe à l’aide d’Azure AD Connect**.
    * Si AD FS n’est pas listé dans les paramètres actuels, vous devez convertir manuellement vos domaines de l’identité fédérée à l’identité managée avec PowerShell. Pour plus d’informations sur ce processus, consultez la section **Option 2 : Passer de la fédération à l’authentification directe avec Azure AD Connect et PowerShell**.
@@ -218,7 +218,7 @@ Vous avez planifié votre solution. Vous pouvez maintenant l’implémenter. L�
 * Préparation pour l’authentification unique fluide.
 * Changement de la méthode de connexion pour l’authentification directe et activation de l’authentification unique fluide.
 
-### <a name="step-1-prepare-for-seamless-sso"></a>Étape 1 : Préparer pour l’authentification unique fluide
+### <a name="step-1-prepare-for-seamless-sso"></a>Étape 1 : Préparer pour l’authentification unique fluide
 
 Pour que vos appareils utilisent l’authentification unique fluide, vous devez ajouter une URL Azure AD aux paramètres de zone intranet des utilisateurs via une stratégie de groupe dans Active Directory.
 
@@ -229,7 +229,7 @@ Effectuez les étapes pour [déployer](https://docs.microsoft.com/azure/active-d
 > [!IMPORTANT]
 > Ce changement ne modifie pas la façon dont vos utilisateurs se connectent à Azure AD. Cependant, il est important d’appliquer cette configuration à tous vos appareils avant de continuer. Les utilisateurs qui se connectent sur des appareils qui n’ont pas reçu cette configuration doivent simplement entrer un nom d’utilisateur et un mot de passe pour se connecter à Azure AD.
 
-### <a name="step-2-change-the-sign-in-method-to-pass-through-authentication-and-enable-seamless-sso"></a>Étape 2 : Changer la méthode de connexion pour l’authentification directe et activer l’authentification unique fluide
+### <a name="step-2-change-the-sign-in-method-to-pass-through-authentication-and-enable-seamless-sso"></a>Étape 2 : Changer la méthode de connexion pour l’authentification directe et activer l’authentification unique fluide
 
 Vous avez deux options pour changer la méthode de connexion pour l’authentification directe et activer l’authentification unique fluide.
 

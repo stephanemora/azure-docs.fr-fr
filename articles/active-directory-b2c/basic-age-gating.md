@@ -2,20 +2,20 @@
 title: Activer la vérification de l’âge dans Azure Active Directory B2C | Microsoft Docs
 description: Découvrez comment identifier les mineurs à l’aide de votre application.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: b594dc6eadce5093c58d693492f8e86eb92ae4e3
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 33b379a03c92b81885f7adfc70f7025a85ce9057
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65228007"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66511666"
 ---
 # <a name="enable-age-gating-in-azure-active-directory-b2c"></a>Activer la vérification de l'âge dans Azure Active Directory B2C
 
@@ -31,11 +31,11 @@ Azure AD B2C utilise les informations indiquées par l’utilisateur pour déte
 
 La vérification de l’âge implique deux valeurs d’âge : l’âge auquel un utilisateur n’est plus considéré comme mineur et l’âge auquel un mineur doit obtenir un accord parental. Le tableau suivant liste les règles d’âge utilisées pour déterminer si un utilisateur est mineur et s’il a besoin d’un accord parental.
 
-| Pays ou région | Nom de pays/région | Accord parental | Majorité |
+| Pays/région | Nom de pays/région | Accord parental | Majorité |
 | -------------- | ------------------- | ----------------- | --------- |
 | Default | Aucun | Aucun | 18 |
 | AE | Émirats Arabes Unis | Aucun | 21 |
-| AT | L'Autriche | 14 | 18 |
+| AT | Autriche | 14 | 18 |
 | BE | Belgique | 14 | 18 |
 | BG | Bulgarie | 16 | 18 |
 | BH | Bahreïn | Aucun | 21 |
@@ -48,19 +48,19 @@ La vérification de l’âge implique deux valeurs d’âge : l’âge auquel u
 | EG | Égypte | Aucun | 21 |
 | ES | Espagne | 13 | 18 |
 | FR | France | 16 | 18 |
-|  Go | Royaume-Uni | 13 | 18 |
+| GB | Royaume-Uni | 13 | 18 |
 | GR | Grèce | 16 | 18 |
 | HR | Croatie | 16 | 18 |
 | HU | Hongrie | 16 | 18 |
 | IE | Irlande | 13 | 18 |
-| it | Italie | 16 | 18 |
+| IT | Italie | 16 | 18 |
 | KR | Corée, République de | 14 | 18 |
 | LT | Lituanie | 16 | 18 |
 | LU | Luxembourg | 16 | 18 |
 | LV | Lettonie | 16 | 18 |
 | MT | Malte | 16 | 18 |
 | N/D | Namibie | Aucun | 21 |
-| NL | Pays-Bas | 16 | 18 |
+| NL | Pays-bas | 16 | 18 |
 | PL | Pologne | 13 | 18 |
 | PT | Portugal | 16 | 18 |
 | RO | Roumanie | 16 | 18 |
@@ -70,7 +70,7 @@ La vérification de l’âge implique deux valeurs d’âge : l’âge auquel u
 | SK | Slovaquie | 16 | 18 |
 | TD | Tchad | Aucun | 21 |
 | MJ | Thaïlande | Aucun | 20 |
-| TW | Taiwan | Aucun | 20 | 
+| TW | Taïwan | Aucun | 20 | 
 | FR | États-Unis | 13 | 18 |
 
 ## <a name="age-gating-options"></a>Options de vérification de l’âge

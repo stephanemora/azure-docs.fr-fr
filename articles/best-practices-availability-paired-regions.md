@@ -7,12 +7,12 @@ ms.service: multiple
 ms.topic: article
 ms.date: 04/28/2019
 ms.author: raynew
-ms.openlocfilehash: e23b5ff9917eda7272e378aa70d6e2dd79f4b9f1
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 5ed9dc595c537d8a923d3eb056dcb002cf225f7c
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64918969"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66427114"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Continuité et reprise d’activité : Régions jumelées Azure
 
@@ -35,7 +35,7 @@ Figure 1 – Paires régionales Azure
 | Canada |Centre du Canada |Est du Canada |
 | Chine |Chine du Nord |Chine orientale|
 | Chine |Chine Nord 2 |Chine Est 2|
-| Europe |Europe du Nord |Europe Ouest |
+| Europe |Europe Nord (Irlande) |Europe de l’Ouest (Pays-Bas) |
 | France |France Centre|France Sud|
 | Allemagne |Centre de l’Allemagne |Nord-Est de l’Allemagne |
 | Inde |Inde centrale |Inde du Sud |
@@ -48,7 +48,7 @@ Figure 1 – Paires régionales Azure
 | Amérique du Nord |Ouest des États-Unis 2 |USA Centre-Ouest 
 | Afrique du Sud | Afrique du Sud Nord | Afrique du Sud Ouest
 | Royaume-Uni |Ouest du Royaume-Uni |Sud du Royaume-Uni |
-| Émirats Arabes Unis | Nord des Émirats arabes unis | Centre des Émirats Arabes Unis
+| Émirats Arabes Unis | Nord des Émirats arabes unis | Centre des Émirats arabes unis
 | Ministère de la défense des États-Unis |Est des États-Unis – US DoD |Centre des États-Unis – US DoD |
 | Gouvernement américain |Gouvernement des États-Unis – Arizona |Gouvernement des États-Unis – Texas |
 | Gouvernement américain |US Gov Iowa |Gouvernement américain - Virginie |

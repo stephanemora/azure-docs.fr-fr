@@ -12,21 +12,21 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/26/2019
+ms.date: 05/30/2019
 ms.author: rolyon
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ab18c8f165fc30636cd05091be1181743f9972d
-ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.openlocfilehash: aede5e315141251026867f7028ebf989d44da4d5
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64873649"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66473066"
 ---
 # <a name="request-process-and-email-notifications-in-azure-ad-entitlement-management-preview"></a>Demande de processus et les notifications électroniques dans Gestion des droits Azure AD (version préliminaire)
 
 > [!IMPORTANT]
-> Gestion des habilitations Azure Active Directory (Azure AD) est actuellement en version préliminaire publique.
+> La gestion des droits d’utilisation Azure Active Directory (Azure AD) est actuellement en préversion publique.
 > Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
 > Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -42,9 +42,9 @@ Un utilisateur qui a besoin d’accéder à un package d’accès peut soumettre
 
 | État | Description |
 | --- | --- |
-| Envoyé | Utilisateur soumet une demande. |
+| Soumis | Utilisateur soumet une demande. |
 | Approbation en attente | Si la stratégie pour un package d’accès exige une approbation, parcours d’une demande pour en attente d’approbation. |
-| Expiré | Si aucun approbateur n’examinez une demande dans le délai d’expiration de la demande d’approbation, la demande expire. Pour réessayer, l’utilisateur devra soumettre à nouveau leur demande. |
+| Expiré | Si aucun approbateur n’approuve une demande dans le délai d’expiration de la demande d’approbation, la demande expire. Pour réessayer, l’utilisateur devra soumettre à nouveau leur demande. |
 | Refusé | Approbateur refuse une requête. |
 | Approved | Approbateur approuve une demande. |
 | Remise | Utilisateur a **pas** été affecté un accès à toutes les ressources dans le package de l’accès. S’il s’agit d’un utilisateur externe, l’utilisateur n’a pas encore accessible de répertoire de ressources et accepté les autorisations de l’invite de commandes. |
@@ -71,7 +71,7 @@ Le tableau suivant fournit plus de détails sur chacune de ces notifications par
 | 7 | Votre accès à *[package d’accès]* expire dans X jours | Expiration de X jours avant l’accès au package d’accès du demandeur | Demandeur |
 | 8 | Votre accès à *[package d’accès]* a expiré | Lorsque l’accès du demandeur à un package d’accès arrive à expiration | Demandeur |
 
-### <a name="review-access-request-emails"></a>E-mails de demande de révision accès
+### <a name="access-request-emails"></a>E-mails de demande d’accès
 
 Lorsqu’un demandeur envoie une demande d’accès pour un package d’accès qui est configuré pour exiger l’approbation, tous les approbateurs configurés dans la stratégie de recevoir une notification par courrier électronique avec les détails de la demande. Détails incluent le nom du demandeur, organisation, date de début et de fin s’il est fourni, justification professionnelle, lorsque la demande a été soumise et date d’expiration de la demande d’accès. Cet e-mail inclut un lien où les approbateurs peuvent approuver ou refuser la demande d’accès. Voici un exemple de notification de courrier électronique est envoyé à un approbateur lorsqu’un demandeur envoie une demande d’accès.
 
@@ -79,7 +79,7 @@ Lorsqu’un demandeur envoie une demande d’accès pour un package d’accès q
 
 ### <a name="approved-or-denied-emails"></a>E-mails approuvées ou refusées
 
-Demandeurs sont avertis lorsque leur demande d’accès est approuvé et disponibles pour l’accès, ou lorsque leur demande d’accès est refusé. Lorsqu’un approbateur examine une demande d’accès présentée par un demandeur, ils peuvent approuver ou refuser la demande d’accès. L’approbateur doit ajouter une justification pour leur décision.
+Demandeurs sont avertis lorsque leur demande d’accès est approuvé et disponibles pour l’accès, ou lorsque leur demande d’accès est refusé. Quand un approbateur reçoit une demande d’accès présentée par un demandeur, ils peuvent approuver ou refuser la demande d’accès. L’approbateur doit ajouter une justification pour leur décision.
 
 Lorsqu’une demande d’accès est approuvée, gestion des habilitations démarre le processus d’octroi au demandeur un accès à chacune des ressources dans le package de l’accès. Une fois que le demandeur a accès à toutes les ressources dans le package de l’accès, une notification par courrier électronique est envoyée au demandeur que sa demande d’accès a été approuvée et qu’ils ont accès au package d’accès. Voici un exemple de notification de courrier électronique est envoyé à un demandeur lors de l’accès à un package de l’accès leur est accordé.
 

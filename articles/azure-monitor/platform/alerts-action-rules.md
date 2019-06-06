@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: anantr
 ms.component: alerts
-ms.openlocfilehash: f8d7b00de24c566cab204c66371dac9b569c42c9
-ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
+ms.openlocfilehash: 6e97826499842a257f6402bd5268edc4cd6a486e
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65619997"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734911"
 ---
 # <a name="action-rules-preview"></a>Règles d’action (version préliminaire)
 
@@ -33,7 +33,7 @@ Bien que les règles d’alerte vous permettent de définir le groupe d’action
 
 ## <a name="configuring-an-action-rule"></a>Configuration d’une règle d’action
 
-Vous pouvez accéder à la fonctionnalité en sélectionnant **gérer actions** à partir des page d’accueil dans Azure Monitor les alertes. Puis sélectionnez **règles d’Action (version préliminaire)**. Vous pouvez y accéder en sélectionnant **règles d’Action (version préliminaire)** du tableau de bord de la page d’accueil pour les alertes.
+Vous pouvez accéder à la fonctionnalité en sélectionnant **gérer actions** à partir des page d’accueil dans Azure Monitor les alertes. Puis sélectionnez **règles d’Action (version préliminaire)** . Vous pouvez y accéder en sélectionnant **règles d’Action (version préliminaire)** du tableau de bord de la page d’accueil pour les alertes.
 
 ![Règles d’action à partir de la page d’accueil de Azure Monitor](media/alerts-action-rules/action-rules-landing-page.png)
 
@@ -67,7 +67,7 @@ Les filtres disponibles sont :
 * **ID de règle d’alerte**: Vous permet de filtrer des règles d’alerte spécifiques à l’aide de l’ID du Gestionnaire de ressources de la règle d’alerte.
 * **Surveiller la Condition**: Filtre pour les instances d’alerte avec « Déclenché » ou « Résolu » en tant que la condition du moniteur.
 * **Description** : Expression régulière de la mise en correspondance dans la description définie dans le cadre de la règle d’alerte.
-* **Contexte de l’alerte (charge utile)**: Correspondance d’expression régulière dans le [contexte de l’alerte](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-definitions#alert-context-fields) champs d’une instance d’alerte.
+* **Contexte de l’alerte (charge utile)** : Correspondance d’expression régulière dans le [contexte de l’alerte](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-definitions#alert-context-fields) champs d’une instance d’alerte.
 
 Ces filtres sont appliqués conjointement un à l’autre. Par exemple, si je définis le « Type de ressource » = « Machines virtuelles » et « Gravité » = « Sev0 », puis j’ai filtrée pour toutes les alertes « Sev0 » sur uniquement mes machines virtuelles. 
 
@@ -80,13 +80,13 @@ Ensuite, configurez la règle d’action pour la suppression d’alerte ou prise
 #### <a name="suppression"></a>Suppression
 
 Si vous sélectionnez **suppression**, configurer la durée de la suppression des actions et notifications. Choisissez une des opérations suivantes :
-* **À partir de maintenant (toujours)**: Supprime toutes les notifications indéfiniment.
+* **À partir de maintenant (toujours)** : Supprime toutes les notifications indéfiniment.
 * **À une heure planifiée**: Supprimer les notifications au sein d’une durée limitée.
 * **Avec une périodicité**: Supprimer une planification de périodicité, qui peut être quotidienne, hebdomadaire ou mensuelle.
 
 ![Suppression de règle d’action](media/alerts-action-rules/action-rules-new-rule-creation-flow-suppression.png)
 
-#### <a name="action-group"></a>Groupe d'actions
+#### <a name="action-group"></a>Groupe d’actions
 
 Si vous sélectionnez **groupe d’actions** dans le bouton bascule, ajoutez un groupe d’actions existant ou créez-en un. 
 
@@ -100,7 +100,7 @@ Si vous sélectionnez **groupe d’actions** dans le bouton bascule, ajoutez un 
 Enfin, configurez les détails suivants pour la règle d’action
 * Nom
 * Groupe de ressources dans lequel il sera enregistré
-* Description  
+* Description 
 
 ## <a name="example-scenarios"></a>Exemples de scénarios
 
@@ -128,12 +128,15 @@ Contoso souhaite supprimer les notifications pour tous les journaux d’alertes 
 
 ### <a name="scenario-3-action-group-defined-at-a-resource-group"></a>Scénario 3 : Groupe d’actions défini à un groupe de ressources
 
-Contoso a défini [une alerte de mesure à un niveau d’abonnement](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-overview#monitoring-at-scale-using-metric-alerts-in-azure-monitor), mais il veut définir les actions qui déclenchent des alertes séparément pour leur groupe de ressources 'ContosoRG'.
+Contoso a défini [une alerte de mesure à un niveau d’abonnement](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-overview#monitoring-at-scale-using-metric-alerts-in-azure-monitor), mais il veut définir les actions qui déclenchent spécifiquement pour les alertes générées à partir de leur groupe de ressources 'ContosoRG'.
 
 **Solution :** Créer une règle d’action avec
 * Scope = 'ContosoRG'
 * Aucun filtre
 * Groupe d’actions défini sur « ContosoActionGroup »
+
+> [!NOTE]
+> **Groupes d’actions définies dans les règles d’action et de règles d’alerte fonctionnent indépendamment, avec aucune déduplication**. Dans le scénario décrit ci-dessus, s’il existe un groupe d’actions défini pour la règle d’alerte, il déclenchera conjointement avec le groupe d’actions défini dans la règle d’action. 
 
 ## <a name="managing-your-action-rules"></a>La gestion de vos règles d’action
 

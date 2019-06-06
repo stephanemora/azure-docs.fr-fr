@@ -5,14 +5,14 @@ author: msmbaldwin
 ms.service: security
 ms.topic: article
 ms.author: mbaldwin
-ms.date: 04/16/2019
+ms.date: 06/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5c49a639c0426b4535c4c2e88d36d447c10826f1
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: 149452bd7d43ce46f320b9bae63a6f9cd48d98d4
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66416709"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66730695"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>FAQ Azure Disk Encryption pour machines virtuelles IaaS
 
@@ -82,6 +82,9 @@ Non, Azure Disk Encryption chiffre uniquement les volumes montés.
 ## <a name="how-do-i-rotate-secrets-or-encryption-keys"></a>La rotation des secrets ou des clés de chiffrement ?
 
 Pour faire pivoter des secrets, appelez simplement la même commande que vous avez utilisé initialement pour activer le chiffrement de disque, en spécifiant un autre coffre de clé. Pour faire pivoter la clé de chiffrement à clé, appelez la même commande que vous avez utilisé initialement pour activer le chiffrement de disque, en spécifiant la nouvelle clé de chiffrement. 
+
+>[!WARNING]
+> - Si vous avez utilisé précédemment [Azure Disk Encryption avec Azure AD app](azure-security-disk-encryption-prerequisites-aad.md) en spécifiant les informations d’identification Azure AD pour chiffrer cette machine virtuelle, vous devrez continuer cette option permet de chiffrer votre machine virtuelle. Vous ne pouvez pas utiliser [Azure Disk Encryption](azure-security-disk-encryption-prerequisites.md) sur cette machine virtuelle chiffrée car un tel scénario n’est pas pris en charge. Autrement dit, l’utilisation d’une autre application que l’application AAD pour cette machine virtuelle n’est pas encore prise en charge.
 
 ## <a name="how-do-i-add-or-remove-a-key-encryption-key-if-i-didnt-originally-use-one"></a>Comment ajouter ou supprimer une clé de chiffrement à clé si je n’en utilisez pas à l’origine ?
 

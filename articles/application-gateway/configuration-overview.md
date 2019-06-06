@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 4/30/2019
+ms.date: 6/1/2019
 ms.author: absha
-ms.openlocfilehash: 5bfd1f930c190e717e435856f424f0cdf80deb2c
-ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
+ms.openlocfilehash: 55c7670821ee6c6f5b924bf18b5f7ad01d4b6d51
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64946807"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66431306"
 ---
 # <a name="application-gateway-configuration-overview"></a>Vue d’ensemble de configuration Application Gateway
 
@@ -57,7 +57,7 @@ Groupes de sécurité réseau (NSG) sont pris en charge sur Application Gateway.
 
 - Le trafic en provenance du **AzureLoadBalancer** balise doit être autorisée.
 
-##### <a name="whitelist-application-gateway-access-to-a-few-source-ips"></a>Accéder à des adresses IP sources quelques liste verte Application Gateway
+##### <a name="allow-application-gateway-access-to-a-few-source-ips"></a>Autoriser l’accès de passerelle d’Application à plusieurs adresses IP de sources
 
 Pour ce scénario, utilisez les groupes de sécurité réseau sur le sous-réseau de passerelle d’Application. Placez les restrictions suivantes sur le sous-réseau dans l’ordre de priorité :
 
@@ -209,13 +209,13 @@ Pour une règle basée sur le chemin d’accès, ajoutez plusieurs paramètres H
 
 ### <a name="redirection-setting"></a>Paramètre de redirection
 
-Si la redirection est configurée pour une règle de base, toutes les demandes sur l’écouteur associé sont redirigées vers la cible. Il s’agit de *global* la redirection. Si la redirection est configurée pour une règle basée sur le chemin d’accès, seules les requêtes dans une zone spécifique de site sont redirigées. Un exemple est une zone de panier d’achat qui est indiquée par */cart/\**. Il s’agit de *basée sur le chemin d’accès* la redirection.
+Si la redirection est configurée pour une règle de base, toutes les demandes sur l’écouteur associé sont redirigées vers la cible. Il s’agit de *global* la redirection. Si la redirection est configurée pour une règle basée sur le chemin d’accès, seules les requêtes dans une zone spécifique de site sont redirigées. Un exemple est une zone de panier d’achat qui est indiquée par */cart/\** . Il s’agit de *basée sur le chemin d’accès* la redirection.
 
 Pour plus d’informations sur les redirections, consultez [vue d’ensemble de la redirection Application Gateway](https://docs.microsoft.com/azure/application-gateway/redirect-overview).
 
 #### <a name="redirection-type"></a>Type de redirection
 
-Choisissez le type de redirection requis : *Permanent(301)*, *Temporary(307)*, *Found(302)*, ou *consultez other(303)*.
+Choisissez le type de redirection requis : *Permanent(301)* , *Temporary(307)* , *Found(302)* , ou *consultez other(303)* .
 
 #### <a name="redirection-target"></a>Cible de redirection
 

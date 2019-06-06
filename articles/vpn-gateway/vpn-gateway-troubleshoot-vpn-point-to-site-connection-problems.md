@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/11/2018
+ms.date: 05/31/2019
 ms.author: genli
-ms.openlocfilehash: 174bc4895bbad4546392581c2c769aac762d6106
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cab40284f36f21f9de72ee4dc1faf78153621d26
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60457474"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475960"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Résolution des problèmes : problèmes de connexion point à site Azure
 
@@ -62,7 +62,7 @@ Pour en savoir plus sur la façon d’installer le certificat client, consultez 
 
 ### <a name="symptom"></a>Symptôme
 
-Lorsque vous essayez et vous connecter à un gteway de réseau virtuel Azure à l’aide d’IKEv2 sur Windows, vous obtenez le message d’erreur suivant :
+Lorsque vous essayez et vous connecter à une passerelle de réseau virtuel Azure à l’aide d’IKEv2 sur Windows, vous obtenez le message d’erreur suivant :
 
 **La connexion réseau entre votre ordinateur et le serveur VPN n’a pas pu être établie car le serveur distant ne répond pas**
 
@@ -175,7 +175,7 @@ Extrayez le package de configuration du client VPN et localisez le fichier .cer.
 1. Ouvrez mmc.exe.
 2. Ajoutez le composant logiciel enfichable **Certificats**.
 3. Sélectionnez le compte **Ordinateur** de l’ordinateur local.
-4. Cliquez sur le nœud **Autorités de certification racines de confiance** avec le bouton droit de la souris. Cliquez sur **All-Task (Toutes les tâches)** > **Import**, puis naviguez vers le fichier .cer extrait du package de configuration du client VPN.
+4. Cliquez sur le nœud **Autorités de certification racines de confiance** avec le bouton droit de la souris. Cliquez sur **All-Task (Toutes les tâches)**  > **Import**, puis naviguez vers le fichier .cer extrait du package de configuration du client VPN.
 5. Redémarrez l'ordinateur. 
 6. Essayez d’installer le client VPN.
 
@@ -305,7 +305,7 @@ Supprimez la connexion VPN de point à site, puis réinstallez le client VPN. Da
 
 ### <a name="solution"></a>Solution
 
-Pour résoudre le problème, supprimez les anciens fichiers de configuration du client VPN à partir de **C:\Users\UserName\AppData\Roaming\Microsoft\Network\Connections\<VirtualNetworkId>**, puis réexécutez le programme d’installation du client VPN.
+Pour résoudre le problème, supprimez les anciens fichiers de configuration du client VPN à partir de **C:\Users\UserName\AppData\Roaming\Microsoft\Network\Connections\<VirtualNetworkId>** , puis réexécutez le programme d’installation du client VPN.
 
 ## <a name="point-to-site-vpn-client-cannot-resolve-the-fqdn-of-the-resources-in-the-local-domain"></a>Le client VPN de point à site ne peut pas résoudre le nom de domaine complet des ressources dans le domaine local
 
@@ -390,7 +390,7 @@ Ce problème peut être provoqué par des installations précédentes du client 
 
 ### <a name="solution"></a>Solution
 
-Supprimez les anciens fichiers de configuration du client VPN à partir de **C:\Users\UserName\AppData\Roaming\Microsoft\Network\Connections\<VirtualNetworkId>**, puis réexécutez le programme d’installation du client VPN. 
+Supprimez les anciens fichiers de configuration du client VPN à partir de **C:\Users\UserName\AppData\Roaming\Microsoft\Network\Connections\<VirtualNetworkId>** , puis réexécutez le programme d’installation du client VPN. 
 
 ## <a name="the-vpn-client-hibernates-or-sleep-after-some-time"></a>Le client VPN se met en veille prolongée ou en veille après un certain temps
 

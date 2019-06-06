@@ -2,20 +2,20 @@
 title: Résoudre les problèmes liés aux stratégies personnalisées dans Azure Active Directory B2C | Microsoft Docs
 description: Découvrez les approches pour résoudre les erreurs lorsque vous utilisez des stratégies personnalisées dans Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/07/2017
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 5345069005f9161ff04fffb063fda99b7594ec08
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 552f056a6637b3ebacfbd15eb878c28adbec6b88
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64703039"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66509974"
 ---
 # <a name="troubleshoot-azure-ad-b2c-custom-policies-and-identity-experience-framework"></a>Résoudre les problèmes liés aux stratégies personnalisées Azure AD B2C et à l’Infrastructure d’expérience d’identité.
 
@@ -57,8 +57,8 @@ Extrait de code de l’erreur :`Reason: User is currently logged as a user of '
 
 * Utilisez `Run Now` et `https://jwt.io` pour tester vos stratégies indépendamment de votre application web ou mobile. Ce site web agit comme une application par partie de confiance. Il affiche le contenu du JSON Web Token (JWT) généré par votre stratégie Azure AD B2C. Pour créer une application de test dans l’Infrastructure d’expérience d’identité, utilisez les valeurs suivantes :
     * Nom : TestApp
-    * Application/API web : Non 
-    * Client natif : Non 
+    * Application/API web : Non
+    * Client natif : Non
 
 * Pour suivre l’échange de messages entre votre navigateur client et Azure AD B2C, utilisez [Fiddler](https://www.telerik.com/fiddler). Il peut vous aider à obtenir une indication de l’endroit où vos étapes d’orchestration échouent dans le parcours utilisateur.
 

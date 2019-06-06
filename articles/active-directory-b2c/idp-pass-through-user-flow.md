@@ -2,20 +2,20 @@
 title: Passer un jeton d’accès via un flux d’utilisateur à votre application - Azure Active Directory B2C | Microsoft Docs
 description: Découvrez comment passer un jeton d’accès pour les fournisseurs d’identité OAuth 2.0 en tant que revendication dans un flux utilisateur dans Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/16/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 0270ef3ff74a219442a6800b67055deda7a0583f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: db4b799aa31a4132609b0dd158b65070fb2474b7
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64705343"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66510964"
 ---
 # <a name="pass-an-access-token-through-a-user-flow-to-your-application-in-azure-active-directory-b2c"></a>Passer un jeton d’accès par le biais d’un flux utilisateur à une application dans Azure Active Directory B2C
 
@@ -36,7 +36,7 @@ Pour l’instant, Azure AD B2C permet uniquement de passer le jeton d’accès 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/) en tant qu’administrateur général de votre locataire Azure AD B2C.
 2. Vérifiez que vous utilisez le répertoire qui contient votre locataire Azure AD B2C. Sélectionnez le **filtre Directory et abonnement** dans le menu supérieur et sélectionnez le répertoire qui contient votre client.
 3. Choisissez **Tous les services** dans le coin supérieur gauche du Portail Azure, recherchez et sélectionnez **Azure Active Directory B2C**.
-4. Sélectionnez **flux d’utilisateurs (stratégies)**, puis sélectionnez votre flux d’utilisateur. Par exemple, **B2C_1_signupsignin1**.
+4. Sélectionnez **flux d’utilisateurs (stratégies)** , puis sélectionnez votre flux d’utilisateur. Par exemple, **B2C_1_signupsignin1**.
 5. Cliquez sur **Revendications de l’application**.
 6. Activer la **Identity Provider Access Token** de revendication.
 

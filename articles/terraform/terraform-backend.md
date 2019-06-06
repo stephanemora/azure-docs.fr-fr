@@ -7,12 +7,12 @@ ms.service: azure
 ms.topic: article
 ms.date: 09/13/2018
 ms.author: tarcher
-ms.openlocfilehash: 89108f02957990ad1c7eb736f39de89537f06db5
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.openlocfilehash: a88ad25e335026d5172c7997f62629d5ada46f6e
+ms.sourcegitcommit: 18a0d58358ec860c87961a45d10403079113164d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66297917"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66693299"
 ---
 # <a name="store-terraform-state-in-azure-storage"></a>Stocker l’état de Terraform dans le stockage Azure
 
@@ -102,7 +102,7 @@ resource "azurerm_resource_group" "state-demo-secure" {
 
 Lorsque vous utilisez un blob Azure Storage Blob pour le stockage de l’état, l’objet blob est automatiquement verrouillé avant toute opération d’écriture de l’état. Cette configuration empêche plusieurs opérations d’état simultanées, lesquelles peuvent entraîner une corruption. Pour plus d’informations, consultez le [Verrouillage d’état][terraform-state-lock] dans la documentation Terraform.
 
-Le verrou peut être vu lorsque vous examinez l’objet blob via le portail Azure ou d’autres outils de gestion Azure.
+Le verrou peut être consulté lors de l’examen de l’objet blob par le biais du portail Azure ou d’autres outils de gestion Azure.
 
 ![Blob Azure avec verrou](media/terraform-backend/lock.png)
 

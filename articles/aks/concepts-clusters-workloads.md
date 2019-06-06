@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 05/17/2019
+ms.date: 06/03/2019
 ms.author: iainfou
-ms.openlocfilehash: 7b983535f862a452c900d0a0a12ae0d79b56f92f
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
+ms.openlocfilehash: ab818c0bded71b4566173f4a6a720fce9bc539c3
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65850528"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514527"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Concepts de base de Kubernetes pour AKS (Azure Kubernetes Service)
 
@@ -70,7 +70,7 @@ Pour exécuter vos applications et les services de prise en charge, vous avez be
 
 La taille des machines virtuelles Azure pour vos nœuds détermine le nombre d’UC, la quantité de mémoire, ainsi que la taille et le type de stockage disponible (par exemple, SSD hautes performances ou HDD classique). Si vous pensez avoir un jour besoin d’applications nécessitant une grande quantité d’UC et de mémoire ou un stockage hautes performances, planifiez la taille des nœuds en conséquence. Vous pouvez également augmenter le nombre de nœuds dans votre cluster AKS afin de répondre à la demande.
 
-Dans AKS, l’image de machine virtuelle pour les nœuds de votre cluster est actuellement basée sur Ubuntu Linux ou Windows Server 2019. Quand vous créez un cluster AKS ou augmentez le nombre de nœuds, la plateforme Azure crée le nombre demandé de machines virtuelles et les configure. Il n’existe aucune configuration manuelle pour vous permettent d’effectuer.
+Dans AKS, l’image de machine virtuelle pour les nœuds de votre cluster est actuellement basée sur Ubuntu Linux ou Windows Server 2019. Quand vous créez un cluster AKS ou augmentez le nombre de nœuds, la plateforme Azure crée le nombre demandé de machines virtuelles et les configure. Il n’existe aucune configuration manuelle pour vous permettent d’effectuer. Les nœuds d’agent sont facturés en tant que machines virtuelles standard, les remises vous donc sur la taille de machine virtuelle que vous utilisez (y compris [réservations Azure][reservation-discounts]) sont automatiquement appliquées.
 
 Si vous avez besoin d’utiliser un autre système d’exploitation hôte ou runtime de conteneur, ou bien d’inclure des packages personnalisés, vous pouvez déployer votre propre cluster Kubernetes à l’aide d’[aks-engine][aks-engine]. En amont, `aks-engine` assure la mise en production des fonctionnalités et fournit les options de configuration avant qu'elles ne soient officiellement prises en charge dans les clusters AKS. Par exemple, si vous souhaitez utiliser un runtime de conteneur autre que Moby, vous pouvez utiliser `aks-engine` pour configurer et déployer un cluster Kubernetes qui répond à vos besoins actuels.
 
@@ -83,7 +83,7 @@ Vous n’avez pas besoin de gérer les principaux composants de Kubernetes sur c
 
 Ces réservations signifient que la quantité disponible d’UC et de mémoire pour vos applications peut apparaître inférieure à ce que le nœud lui-même contient. S’il existe des contraintes de ressources en raison du nombre d’applications que vous exécutez, ces réservations garantissent que l’UC et la mémoire restent disponibles pour les principaux composants de Kubernetes. Les réserves de ressources ne peut pas être modifiés.
 
-Par exemple : 
+Par exemple :
 
 - La taille de nœud **Standard DS2 v2** contient 2 processeurs virtuels et 7 Gio de mémoire
     - 20 % de 7 Gio de mémoire = 1,4 Gio
@@ -270,3 +270,4 @@ Cet article décrit certains des principaux composants Kubernetes et leur applic
 [operator-best-practices-scheduler]: operator-best-practices-scheduler.md
 [use-multiple-node-pools]: use-multiple-node-pools.md
 [operator-best-practices-advanced-scheduler]: operator-best-practices-advanced-scheduler.md
+[reservation-discounts]: ../billing/billing-save-compute-costs-reservations.md

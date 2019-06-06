@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: iainfou
-ms.openlocfilehash: 1cc91f55d3895f06176875cb9ae620685dc09a26
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ea39bceaa6b58e84def9635436d902002e33cd14
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60464802"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514508"
 ---
 # <a name="best-practices-for-container-image-management-and-security-in-azure-kubernetes-service-aks"></a>Meilleures pratiques relatives à la gestion et à la sécurisation des images de conteneur dans Azure Kubernetes Services (AKS)
 
@@ -22,7 +22,6 @@ Cet article est dédié à la sécurisation de votre conteneur dans AKS. Vous al
 
 > [!div class="checklist"]
 > * Rechercher et corriger les vulnérabilités de l’image
-> * Utiliser un Registre approuvé avec des images de conteneur signées numériquement
 > * Déclencher et redéployer automatiquement les images de conteneur lors de la mise à jour d’une image de base
 
 Vous pouvez également consulter les meilleures pratiques relatives à la [sécurité des clusters][best-practices-cluster-security] et à la [sécurité du pod][best-practices-pod-security].
@@ -36,16 +35,6 @@ Un problème avec l’adoption de charges de travail basées sur les conteneurs 
 ![Analyser et corriger les images de conteneur, les valider et les déployer](media/operator-best-practices-container-security/scan-container-images-simplified.png)
 
 Dans un exemple concret, vous pouvez utiliser un pipeline d’intégration continue et de déploiement continu (CI/CD) pour automatiser les analyses, la vérification et les déploiements d’image. Azure Container Registry inclut ces fonctions d’analyse de vulnérabilités.
-
-## <a name="use-a-trusted-registry"></a>Utiliser un Registre de confiance
-
-**Meilleures pratiques** : limitez les Registres d’images que les pods et déploiements peuvent utiliser. Autorisez uniquement les Registres approuvés dans lesquels vous validez et contrôlez les images disponibles.
-
-Pour renforcer la sécurité, vous pouvez également signer numériquement vos images de conteneur tout comme vous pouvez signer numériquement le code de votre application. Vous autorisez ensuite AKS à déployer uniquement les images signées. Ce processus fournit une couche supplémentaire de sécurité dans la mesure où vous demandez à AKS d’extraire uniquement les images numériquement signées et approuvées par vos soins, pas seulement les images ayant passé une vérification des vulnérabilités. Vous devez également vous assurer que l’image de conteneur n’a pas été altérée et remplacée par une image du même nom.
-
-Les Registres approuvés qui fournissent des images de conteneur signées numériquement compliquent votre environnement, mais ils peuvent être nécessaires pour certaines stratégies ou à des fins de conformité réglementaire. Azure Container Registry prend en charge l’utilisation des Registres approuvés et des images signées.
-
-Pour plus d’informations sur les images numériquement signées, consultez [Approbation de contenu dans Azure Container Registry][acr-content-trust].
 
 ## <a name="automatically-build-new-images-on-base-image-update"></a>Générer automatiquement les nouvelles images sur la mise à jour de l’image de base
 
@@ -62,7 +51,6 @@ Pour plus d’informations sur la mise à jour des images de base, voir [Automat
 Cet article était dédié à la sécurisation de vos conteneurs. Pour implémenter quelques-unes de ces pratiques, consultez les articles suivants :
 
 * [Automatiser la génération des images en fonction de la mise à jour d’une image de base avec Azure Container Registry Tasks][acr-base-image-update]
-* [Approbation de contenu dans Azure Container Registry][acr-content-trust]
 
 <!-- EXTERNAL LINKS -->
 [azure-pipelines]: /azure/devops/pipelines/?view=vsts
@@ -72,5 +60,4 @@ Cet article était dédié à la sécurisation de vos conteneurs. Pour implémen
 <!-- INTERNAL LINKS -->
 [best-practices-cluster-security]: operator-best-practices-cluster-security.md
 [best-practices-pod-security]: developer-best-practices-pod-security.md
-[acr-content-trust]: ../container-registry/container-registry-content-trust.md
 [acr-base-image-update]: ../container-registry/container-registry-tutorial-base-image-update.md

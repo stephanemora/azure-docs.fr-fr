@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/21/2018
 ms.author: raynew
-ms.openlocfilehash: 6a29aeda52fe599ec7e2ee3b3ea1846e05b73d7d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f7d97866bb3ae895f83fff248ceec2e83dd60bf9
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61231832"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66688902"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Surveiller et gérer les coffres Recovery Services
 
@@ -156,7 +156,7 @@ Choisissez la gravité d’alerte (critique ou avertissement) à utiliser pour g
 
 ## <a name="manage-backup-items"></a>Gérer les éléments de sauvegarde
 
-Un coffre Recovery Services peut contenir de nombreux types de données de sauvegarde. Pour obtenir la liste complète des types de sauvegarde, consultez [Quelles applications et charges de travail est-il possible de sauvegarder ?](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use). Pour gérer les différents serveurs, ordinateurs, bases de données et charges de travail, cliquez sur la vignette **Éléments de sauvegarde** pour afficher le contenu du coffre.
+Un coffre Recovery Services peut contenir de nombreux types de données de sauvegarde. [En savoir plus](backup-overview.md#what-can-i-back-up) sur ce que vous pouvez sauvegarder. Pour gérer les différents serveurs, ordinateurs, bases de données et charges de travail, cliquez sur la vignette **Éléments de sauvegarde** pour afficher le contenu du coffre.
 
 ![Mosaïque Éléments de sauvegarde](./media/backup-azure-manage-windows-server/backup-items.png)
 
@@ -221,7 +221,7 @@ Le type d’élément correspond au type de gestion des sauvegardes de l’insta
 Vous pouvez afficher une seule opération ou toutes les opérations. Vous ne pouvez pas sélectionner deux ou trois opérations. Les opérations disponibles sont les suivantes :
 
 * Toutes les opérations
-* Register 
+* Register
 * Configurer une sauvegarde
 * Sauvegarde
 * Restore

@@ -2,20 +2,20 @@
 title: UserJourneys | Microsoft Docs
 description: Spécifiez l’élément UserJourneys d’une stratégie personnalisée dans Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: f5e56d4953eecdb488d5dadd4497b1c42b932f35
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: d2e6ad9aa9692efa4ea5633dff78b262bb1917be
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65812581"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66512026"
 ---
 # <a name="userjourneys"></a>UserJourneys
 
@@ -29,19 +29,19 @@ Pour définir les parcours utilisateur pris en charge par la stratégie, un él�
 
 L’élément **UserJourneys** contient l’élément suivant :
 
-| Élément | Occurrences | Description  |
+| Élément | Occurrences | Description |
 | ------- | ----------- | ----------- |
 | UserJourney | 1:n | Parcours utilisateur qui définit toutes les constructions nécessaires pour un flux d’utilisateur complet. | 
 
 L’élément **UserJourney** contient l’attribut suivant :
 
-| Attribut | Obligatoire | Description  |
+| Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| ID | Oui | Identificateur d’un parcours utilisateur qui peut être utilisé pour le référencer à partir d’autres éléments dans la stratégie. L’élément **DefaultUserJourney** de la [stratégie de partie de confiance](relyingparty.md) pointe vers cet attribut. |
+| Id | Oui | Identificateur d’un parcours utilisateur qui peut être utilisé pour le référencer à partir d’autres éléments dans la stratégie. L’élément **DefaultUserJourney** de la [stratégie de partie de confiance](relyingparty.md) pointe vers cet attribut. |
 
 L’élément **UserJourney** contient les éléments suivants :
 
-| Élément | Occurrences | Description  |
+| Élément | Occurrences | Description |
 | ------- | ----------- | ----------- |
 | OrchestrationSteps | 1:n | Séquence d’orchestration qui doit être suivie pour que la transaction réussisse. Chaque parcours utilisateur est composé d’une liste ordonnée d’étapes d’orchestration qui sont exécutées de manière séquentielle. Si une étape échoue, la transaction échoue. |
 
@@ -55,13 +55,13 @@ Pour spécifier la liste ordonnée d’étapes d’orchestration, un élément *
 
 L’élément **OrchestrationSteps** contient l’élément suivant :
 
-| Élément | Occurrences | Description  |
+| Élément | Occurrences | Description |
 | ------- | ----------- | ----------- |
 | OrchestrationStep | 1:n | Étape d’orchestration ordonnée. | 
 
 L’élément **OrchestrationSteps** contient les attributs suivants :
 
-| Attribut | Obligatoire | Description  |
+| Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
 | `Order` | Oui | Ordre des étapes d’orchestration. | 
 | `Type` | Oui | Type de l’étape d’orchestration. Valeurs possibles : <ul><li>**ClaimsProviderSelection** : indique que l’étape d’orchestration présente divers fournisseurs de revendications à l’utilisateur afin qu’il en sélectionne un.</li><li>**CombinedSignInAndSignUp** : indique que l’étape d’orchestration présente une page combinée d’inscription de compte local et de connexion au fournisseur d’identité sociale.</li><li>**ClaimsExchange** : indique que l’étape d’orchestration échange des revendications avec un fournisseur de revendications.</li><li>**SendClaims** : indique que l’étape d’orchestration envoie les revendications à la partie de confiance avec un jeton émis par un émetteur de revendications.</li></ul> | 
@@ -71,7 +71,7 @@ L’élément **OrchestrationSteps** contient les attributs suivants :
 
 L’élément **OrchestrationStep** peut contenir les éléments suivants :
 
-| Élément | Occurrences | Description  |
+| Élément | Occurrences | Description |
 | ------- | ----------- | ----------- | 
 | Preconditions | 0:n | Liste de conditions préalables qui doivent être remplies pour que l’étape d’orchestration s’exécute. | 
 | ClaimsProviderSelections | 0:n | Liste de sélection de fournisseur de revendications pour l’étape d’orchestration. | 
@@ -81,7 +81,7 @@ L’élément **OrchestrationStep** peut contenir les éléments suivants :
 
 L’élément **Preconditions** contient l’élément suivant :
 
-| Élément | Occurrences | Description  |
+| Élément | Occurrences | Description |
 | ------- | ----------- | ----------- | 
 | Precondition | 0:n | En fonction du profil technique utilisé, redirige le client d’après la sélection de fournisseur de revendications ou effectue un appel au serveur pour échanger des revendications. | 
 
@@ -90,14 +90,14 @@ L’élément **Preconditions** contient l’élément suivant :
 
 Le **la précondition** élément contient les attributs suivants :
 
-| Attribut | Obligatoire | Description  |
+| Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
 | `Type` | Oui | Type de vérification ou de requête à exécuter pour cette condition préalable. La valeur peut être **ClaimsExist**, qui indique que les actions doivent être effectuées si les revendications spécifiées existent dans le jeu de revendications actuel de l’utilisateur, ou **ClaimEquals**, qui indique que les actions doivent être effectuées si la revendication spécifiée existe et que sa valeur est égale à la valeur spécifiée. |
 | `ExecuteActionsIf` | Oui | Utilisez un test true ou false pour décider si les actions mentionnées dans la condition préalable doivent être effectuées. | 
 
 L’élément **Precondition** contient les éléments suivants :
 
-| Élément | Occurrences | Description  |
+| Élément | Occurrences | Description |
 | ------- | ----------- | ----------- |
 | Valeur | 1:n | ClaimTypeReferenceId à interroger. Un autre élément de valeur contient la valeur à vérifier.</li></ul>|
 | Action | 1:1 | Action à effectuer si la vérification de condition préalable dans une étape d’orchestration a la valeur true. Si la valeur de `Action` est `SkipThisOrchestrationStep`, l’élément `OrchestrationStep` associé ne doit pas être exécuté. | 
@@ -164,13 +164,13 @@ Une étape d’orchestration de type `ClaimsProviderSelection` ou `CombinedSignI
 
 L’élément **ClaimsProviderSelection** contient l’élément suivant :
 
-| Élément | Occurrences | Description  |
+| Élément | Occurrences | Description |
 | ------- | ----------- | ----------- |
 | ClaimsProviderSelection | 0:n | Fournit la liste des fournisseurs de revendications qui peuvent être sélectionnés.|
 
 L’élément **ClaimsProviderSelection** contient les attributs suivants : 
 
-| Attribut | Obligatoire | Description  |
+| Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
 | TargetClaimsExchangeId | Non | Identificateur de l’échange de revendications, qui est exécuté à l’étape d’orchestration suivante de la sélection du fournisseur de revendications. Cet attribut ou l’attribut ValidationClaimsExchangeId doit être spécifié, mais pas les deux. | 
 | ValidationClaimsExchangeId | Non | Identificateur de l’échange de revendications, qui est exécuté lors de l’étape d’orchestration en cours afin de valider la sélection du fournisseur de revendications. Cet attribut ou l’attribut TargetClaimsExchangeId doit être spécifié, mais pas les deux. |
@@ -216,13 +216,13 @@ Dans l’étape suivante de l’orchestration, l’utilisateur peut choisir pour
 
 L’élément **ClaimsExchanges** contient l’élément suivant :
 
-| Élément | Occurrences | Description  |
+| Élément | Occurrences | Description |
 | ------- | ----------- | ----------- |
 | ClaimsExchange | 0:n | En fonction du profil technique utilisé, redirige le client conformément à l’élément ClaimsProviderSelection sélectionné, ou effectue un appel au serveur pour échanger des revendications. | 
 
 L’élément **ClaimsExchange** contient les attributs suivants :
 
-| Attribut | Obligatoire | Description  |
+| Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| ID | Oui | Identificateur de l’étape d’échange de revendications. L’identificateur est utilisé pour référencer l’échange de revendications à partir d’une étape de sélection de fournisseur de revendications dans la stratégie. | 
+| Id | Oui | Identificateur de l’étape d’échange de revendications. L’identificateur est utilisé pour référencer l’échange de revendications à partir d’une étape de sélection de fournisseur de revendications dans la stratégie. | 
 | TechnicalProfileReferenceId | Oui | Identificateur du profil technique qui doit être exécuté. |

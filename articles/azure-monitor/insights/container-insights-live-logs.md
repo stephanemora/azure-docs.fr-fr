@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/10/2019
+ms.date: 06/04/2019
 ms.author: magoedte
-ms.openlocfilehash: 376a7f3f83cc7fcf7490675d9c0aef1513862e8a
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: 8d4cc5e46066ad2f18d596d0484f62f478b4cc23
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65521735"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514320"
 ---
 # <a name="how-to-view-logs-and-events-in-real-time-preview"></a>Comment afficher les journaux et les événements en temps réel (version préliminaire)
 Azure Monitor pour les conteneurs inclut une fonctionnalité qui est actuellement en version préliminaire, qui fournit un affichage en temps réel dans vos journaux de conteneurs Azure Kubernetes Service (AKS) (stdout/stderr) et les événements sans avoir à exécuter des commandes kubectl. Lorsque vous sélectionnez une option, un nouveau volet s’affiche au-dessous de la table de données de performances sur le **nœuds**, **contrôleurs**, et **conteneurs** vue. Il montre la journalisation en direct et les événements générés par le moteur de conteneur pour venir en aide à résoudre les problèmes en temps réel. 
@@ -27,7 +27,7 @@ Azure Monitor pour les conteneurs inclut une fonctionnalité qui est actuellemen
 >**Contributeur** accès à la ressource de cluster est requis pour cette fonctionnalité soit opérationnelle.
 >
 
-Les journaux d’activité dynamiques prennent en charge trois méthodes de contrôle d’accès aux journaux d’activité :
+Journaux en direct prennent en charge trois méthodes différentes pour contrôler l’accès aux journaux :
 
 1. AKS sans autorisation Kubernetes RBAC activée 
 2. AKS activé avec autorisation Kubernetes RBAC
@@ -66,10 +66,13 @@ Si vous avez activé l’autorisation Kubernetes RBAC, vous devez appliquer la l
          apiGroup: rbac.authorization.k8s.io
     ```
 
-2. Si vous le configurez pour la première fois, vous créez la liaison de règle de cluster en exécutant la commande suivante : `kubectl create -f LogReaderRBAC.yaml`. Si vous déjà activé la prise en charge pour les journaux en direct en version préliminaire avant que nous avons introduit les journaux des événements en direct, pour mettre à jour votre configuration, exécutez la commande suivante : `kubectl apply -f LiveLogRBAC.yml`. 
+2. Si vous le configurez pour la première fois, vous créez la liaison de règle de cluster en exécutant la commande suivante : `kubectl create -f LogReaderRBAC.yaml`. Si vous déjà activé la prise en charge pour les journaux en direct en version préliminaire avant que nous avons introduit les journaux des événements en direct, pour mettre à jour votre configuration, exécutez la commande suivante : `kubectl apply -f LogReaderRBAC.yml`. 
 
 ## <a name="configure-aks-with-azure-active-directory"></a>Configurer AKS avec Azure Active Directory
-AKS peut être configuré dans le but d’utiliser Azure Active Directory (AD) pour l’authentification utilisateur. Si vous effectuez cette configuration pour la première fois, consultez [Intégrer Azure Active Directory dans Azure Kubernetes Service](../../aks/azure-ad-integration.md). Au cours des étapes de création de l’[application cliente](../../aks/azure-ad-integration.md#create-client-application) et de spécification de l’**URI de redirection**, vous devez ajouter un autre URI à la liste `https://ininprodeusuxbase.microsoft.com/*`.  
+AKS peut être configuré dans le but d’utiliser Azure Active Directory (AD) pour l’authentification utilisateur. Si vous le configurez pour la première fois, consultez [intégrer Azure Active Directory avec Azure Kubernetes Service](../../aks/azure-ad-integration.md). Au cours des étapes pour créer le [application cliente](../../aks/azure-ad-integration.md#create-client-application), vous devez spécifier deux **l’URI de redirection** entrées. Les deux URI sont :
+
+- https://ininprodeusuxbase.microsoft.com/*
+- https://afd.hosting.portal.azure.net/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html  
 
 >[!NOTE]
 >La configuration de l’authentification avec Azure Active Directory pour l’authentification unique est possible seulement pendant le déploiement initial d’un nouveau cluster AKS. Vous ne pouvez pas configurer l’authentification unique pour un cluster AKS déjà déployé. Vous devez configurer l’authentification à partir de **inscription de l’application (hérité)** option dans Azure AD afin de prendre en charge l’utilisation d’un caractère générique dans l’URI et alors qu’ajouter à la liste, inscrivez-le comme une **natif** application.
@@ -77,7 +80,7 @@ AKS peut être configuré dans le but d’utiliser Azure Active Directory (AD) p
 
 ## <a name="view-live-logs-and-events"></a>Afficher les journaux en direct et des événements
 
-Vous pouvez afficher les événements de journal en temps réel qu’ils sont générés par le moteur de conteneur à partir de la **nœuds**, **contrôleurs**, et **conteneurs** vue. Dans le volet de propriétés que vous sélectionnez **consulter les données actives (version préliminaire)** option et un volet est présentée ci-dessous la table de données de performances où vous pouvez afficher les journaux et les événements dans un flux continu. 
+Vous pouvez afficher les événements de journal en temps réel qu’ils sont générés par le moteur de conteneur à partir de la **nœuds**, **contrôleurs**, et **conteneurs** vue. Dans le volet Propriétés, vous sélectionnez **consulter les données actives (version préliminaire)** option et un volet est présentée ci-dessous la table de données de performances où vous pouvez afficher les journaux et les événements dans un flux continu. 
 
 ![Option de journaux en direct d’affichage du volet Propriétés de nœud](./media/container-insights-live-logs/node-properties-live-logs-01.png)  
 

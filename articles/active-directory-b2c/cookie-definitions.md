@@ -2,20 +2,20 @@
 title: Définitions de cookie - Azure Active Directory B2C | Microsoft Docs
 description: Fournit des définitions pour les cookies utilisés dans Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 03/18/2019
-ms.author: davidmu
+ms.author: marsma
 ms.component: B2C
-ms.openlocfilehash: 7864320b71416d1b06661b8ae96c6113962250dd
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 1de1734d791608f3262d2af70becc2e082c9f317
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64703973"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66511143"
 ---
 # <a name="cookies-definitions-for-azure-active-directory-b2c"></a>Définitions de cookies pour Azure Active Directory B2C
 

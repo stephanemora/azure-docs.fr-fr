@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: raynew
-ms.openlocfilehash: 8a3c9a4fb1b43c1d00d66fee3548ccd10a1e075e
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 5a659da4bcc86544c31d7a789779253a0f571f34
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65969377"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66497541"
 ---
 # <a name="monitor-site-recovery"></a>Moniteur Site Recovery
 
@@ -97,12 +97,12 @@ La section **Vue d’infrastructure** affiche les composants d’infrastructure 
 
     **Scénario** | **State**  | **Vue disponible ?**
     --- |--- | ---
-    **Réplication entre des sites locaux** | Tous les états | Non  
+    **Réplication entre des sites locaux** | Tous les états | Non 
     **Réplication de machines virtuelles Azure entre les régions Azure**  | Réplication activée/réplication initiale en cours | Oui
-    **Réplication de machines virtuelles Azure entre les régions Azure** | Basculement/restauration automatique | Non    
+    **Réplication de machines virtuelles Azure entre les régions Azure** | Basculement/restauration automatique | Non   
     **Réplication VMware vers Azure** | Réplication activée/réplication initiale en cours | Oui     
-    **Réplication VMware vers Azure** | Basculement/restauration automatique | Non       
-    **Réplication Hyper-V vers Azure** | Basculement/restauration automatique | Non 
+    **Réplication VMware vers Azure** | Basculement/restauration automatique | Non      
+    **Réplication Hyper-V vers Azure** | Basculement/restauration automatique | Non
 
 - Pour afficher la vue d’infrastructure pour une seule machine en cours de réplication, dans le menu du coffre, cliquez sur **Éléments répliqués**, puis sélectionnez un serveur.  
 
@@ -190,7 +190,7 @@ Vous pouvez vous abonner pour recevoir des notifications par courrier électroni
 
 Pour vous abonner, procédez comme suit :
 
-Dans le coffre > section **Surveillance et rapports**, cliquez sur **Événements Site Recovery**.
+Dans le coffre > **surveillance** , cliquez sur **événements Site Recovery**.
 1. Cliquez sur **Notifications par e-mail**.
 1. Sous **Notifications par e-mail**, activez les notifications et spécifiez le destinataire des notifications. Vous pouvez choisir d’envoyer les notifications à tous les administrateurs de l’abonnement ou à des adresses e-mail spécifiques.
 

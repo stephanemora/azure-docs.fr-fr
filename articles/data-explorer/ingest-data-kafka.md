@@ -1,24 +1,24 @@
 ---
-title: 'Démarrage rapide : Ingérer des données de Kafka dans Azure Data Explorer'
-description: Dans ce guide de démarrage rapide, vous découvrez comment ingérer (charger) des données dans Azure Data Explorer depuis Kafka.
+title: Ingérer des données de Kafka dans Azure Data Explorer
+description: Dans cet article, vous allez apprendre à ingérer les données (charge) dans Explorateur de données Azure à partir de Kafka.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
-ms.topic: quickstart
-ms.date: 05/17/2019
-ms.openlocfilehash: f36acb7237438848a53fdf91c291c4f67233af5d
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
-ms.translationtype: HT
+ms.topic: conceptual
+ms.date: 06/03/2019
+ms.openlocfilehash: 03b46ff50683149a22c71ccb155480a0f08455bd
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65901027"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66497283"
 ---
-# <a name="quickstart-ingest-data-from-kafka-into-azure-data-explorer"></a>Démarrage rapide : Ingérer des données de Kafka dans Azure Data Explorer
+# <a name="ingest-data-from-kafka-into-azure-data-explorer"></a>Ingérer des données de Kafka dans Azure Data Explorer
  
 L’Explorateur de données Azure est un service d’exploration de données rapide et hautement évolutive pour les données des journaux et les données de télémétrie. Azure Data Explorer permet l’ingestion (le chargement de données) à partir de Kafka. Kafka est une plateforme de streaming distribuée qui permet la création de pipelines de données de streaming en temps réel, qui déplacent les données de façon fiable entre des systèmes ou des applications.
  
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
  
 * Si vous n’avez pas d’abonnement Azure, créez un [compte Azure gratuit](https://azure.microsoft.com/free/) avant de commencer. 
  
@@ -162,5 +162,4 @@ cd ./azure-kusto-samples-dotnet/kafka/
  
 ## <a name="next-steps"></a>Étapes suivantes
  
-> [!div class="nextstepaction"]
-> [Démarrage rapide : Interroger des données dans Azure Data Explorer](web-query-data.md)
+* [Interroger des données dans l’Explorateur de données Azure](web-query-data.md)

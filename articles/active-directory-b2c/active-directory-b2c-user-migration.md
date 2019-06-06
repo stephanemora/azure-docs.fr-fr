@@ -2,20 +2,20 @@
 title: Approches de migration des utilisateurs dans Azure Active Directory B2C | Microsoft Docs
 description: Abordez les principaux concepts et les concepts avancés de la migration utilisateur avec API Graph et éventuellement avec les stratégies personnalisées Azure AD B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/04/2017
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: a4195d7c292100712e6d68831443369ab793bb95
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 1e913b02f99095afb7ee1a3f2122e3c1fe1a60b5
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64726120"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66507667"
 ---
 # <a name="azure-active-directory-b2c-user-migration"></a>Azure Active Directory B2C : Migration utilisateur
 Quand vous migrez votre fournisseur d’identité vers Azure Active Directory B2C (Azure AD B2C), il se peut que vous deviez également migrer les comptes d’utilisateur. Cet article explique comment migrer des comptes d’utilisateur existants de n’importe quel fournisseur d’identité vers Azure AD B2C. L’article n’a pas vocation à être normatif, mais plutôt à décrire quelques scénarios. Le développeur est responsable du choix de l’approche adaptée.
@@ -25,7 +25,7 @@ Avec Azure AD B2C, vous pouvez effectuer une migration des utilisateurs par le b
 
 - **Prémigration** : Ce flux s’applique quand avez librement accès aux informations d’identification d’un utilisateur (nom d’utilisateur et mot de passe) ou quand les informations d’identification sont chiffrées, mais que vous pouvez les déchiffrer. Le processus de prémigration implique la lecture des utilisateurs de l’ancien fournisseur d’identité et la création de comptes dans le répertoire Azure AD B2C.
 
-- **Prémigration et réinitialisation du mot de passe** : Ce flux s’applique quand le mot de passe d’un utilisateur n’est pas accessible. Par exemple : 
+- **Prémigration et réinitialisation du mot de passe** : Ce flux s’applique quand le mot de passe d’un utilisateur n’est pas accessible. Par exemple :
    - Le mot de passe est stocké au format HASH.
    - Le mot de passe est stocké dans un fournisseur d’identité auquel vous n’avez pas accès. Votre ancien fournisseur d’identité valide les informations d’identification utilisateur en appelant un service web.
 
@@ -238,12 +238,12 @@ Pour obtenir le lien vers votre stratégie de réinitialisation de mot de passe,
 > Pour vérifier et modifier l’état de migration utilisateur, vous devez utiliser une stratégie personnalisée. Vous devez suivre les instructions d’installation indiquées dans [Bien démarrer avec les stratégies personnalisées][B2C-GetStartedCustom].
 >
 
-Quand les utilisateurs tentent de se connecter sans commencer par réinitialiser le mot de passe, votre stratégie doit renvoyer un message d’erreur convivial. Par exemple : 
+Quand les utilisateurs tentent de se connecter sans commencer par réinitialiser le mot de passe, votre stratégie doit renvoyer un message d’erreur convivial. Par exemple :
 >*Votre mot de passe a expiré. Pour le réinitialiser, sélectionnez le lien Réinitialiser le mot de passe.*
 
 Pour cette étape facultative, vous devez utiliser des stratégies personnalisées Azure AD B2C, comme décrit dans l’article [Bien démarrer avec les stratégies personnalisées][B2C-GetStartedCustom].
 
-Dans cette section, vous modifiez la stratégie pour vérifier l’état de migration utilisateur à la connexion. Si l’utilisateur n’a pas changé le mot de passe, renvoyez un message d’erreur 409 HTTP invitant l’utilisateur à sélectionner le lien **Vous avez oublié votre mot de passe ?**.
+Dans cette section, vous modifiez la stratégie pour vérifier l’état de migration utilisateur à la connexion. Si l’utilisateur n’a pas changé le mot de passe, renvoyez un message d’erreur 409 HTTP invitant l’utilisateur à sélectionner le lien **Vous avez oublié votre mot de passe ?** .
 
 Pour suivre la modification de mot de passe, vous utilisez une table Azure. Quand vous exécutez le processus de prémigration avec le paramètre de ligne de commande `2`, vous créez une entité d’utilisateur dans une table Azure. Votre service effectue les opérations suivantes :
 

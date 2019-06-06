@@ -11,19 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2017
+ms.date: 05/28/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: d536e9d14edfa17e890480c07951eccb70e9eb9a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e9c34d3cfd5ce9bb3a8f9a9072f2843331065100
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61228340"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66496516"
 ---
 # <a name="use-an-app-service-environment"></a>Utilisation d’un environnement App Service #
-
-## <a name="overview"></a>Présentation ##
 
 Azure App Service Environment est un déploiement d’Azure App Service dans un sous-réseau dans le réseau virtuel Azure d’un client. Elle comprend :
 
@@ -62,17 +60,14 @@ Pour créer une application dans un ASE :
 
 1. Sélectionnez votre OS. 
 
-    * Étant donné que l’hébergement d’une application Linux dans un environnement ASE est une nouvelle fonctionnalité préliminaire, nous vous suggérons de ne pas ajouter d’applications Linux dans un environnement ASE qui est en train d’exécuter des charges de travail de production. 
-    * L’ajout d’une application Linux dans un environnement ASE signifie que l’environnement ASE est également en préversion. 
-
 1. Sélectionnez un plan App Service existant dans votre environnement ASE ou créez-en un en procédant comme suit :
 
     a. Sélectionnez **Créer**.
 
     b. Entrez le nom de votre plan App Service.
 
-    c. Sélectionnez votre environnement ASE dans la liste déroulante **Emplacement**. L’hébergement d’une application Linux dans un environnement ASE est uniquement activé dans 6 régions, pour le moment : **USA Ouest, USA Est, Europe Ouest, Europe Nord, Australie Est, Asie Sud-Est.** 
-
+    c. Sélectionnez votre environnement ASE dans la liste déroulante **Emplacement**. 
+    
     d. Sélectionnez un niveau tarifaire **Isolé**. Sélectionnez **Sélectionner**.
 
     e. Sélectionnez **OK**.
