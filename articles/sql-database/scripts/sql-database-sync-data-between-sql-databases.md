@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: de11144680b253ac74f19e6545851b0f9e879c3b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 11b76374843743d3308b352c054ce9e8995f3543
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60387874"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66729215"
 ---
 # <a name="use-powershell-to-sync-between-multiple-sql-databases"></a>Utiliser PowerShell pour la synchronisation entre plusieurs bases de données SQL
  
@@ -25,7 +25,7 @@ Cet exemple PowerShell configure la synchronisation des données entre plusieurs
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 Si vous choisissez d’installer et d’utiliser PowerShell en local, vous aurez besoin de la version 1.4.0 d’AZ PowerShell ou d’une version ultérieure pour suivre ce didacticiel. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-az-ps). Si vous exécutez PowerShell en local, vous devez également lancer `Connect-AzAccount` pour créer une connexion avec Azure.
 
@@ -372,7 +372,7 @@ Pour plus d’informations sur SQL Data Sync, consultez :
 -   Configurer Data Sync
     - Sur le portail - [Tutoriel : Configurer SQL Data Sync pour synchroniser les données entre Azure SQL Database et SQL Server en local](../sql-database-get-started-sql-data-sync.md)
     - Avec PowerShell
-        -  [Utiliser PowerShell pour la synchronisation entre une base de données SQL Azure et une base de données locale SQL Server](sql-database-sync-data-between-azure-onprem.md)
+        -  [Utiliser PowerShell pour la synchronisation entre une base de données Azure SQL et une base de données locale SQL Server](sql-database-sync-data-between-azure-onprem.md)
 -   Agent de synchronisation des données - [Agent de synchronisation des données pour Azure SQL Data Sync](../sql-database-data-sync-agent.md)
 -   Bonnes pratiques - [Bonnes pratiques pour Azure SQL Data Sync](../sql-database-best-practices-data-sync.md)
 -   Supervision – [Superviser SQL Data Sync avec les journaux d’activité Azure Monitor](../sql-database-sync-monitor-oms.md)

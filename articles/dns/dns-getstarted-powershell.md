@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: quickstart
 ms.date: 3/11/2019
 ms.author: victorh
-ms.openlocfilehash: 75ac8a45eb49ac5c4ec3b39667542f4f454a9954
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ccf60a333dcc83e27702d572f922ef6aec741c14
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66111302"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66730310"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-azure-powershell"></a>Démarrage rapide : Créer un enregistrement et une zone Azure DNS à l’aide d’Azure PowerShell
 
@@ -24,7 +24,7 @@ Une zone DNS permet d’héberger les enregistrements DNS d’un domaine particu
 
 Azure DNS prend également en charge la création de domaines privés. Pour obtenir des instructions détaillées sur la création de votre première zone DNS privée et enregistrement, consultez [Bien démarrer avec les zones privées Azure DNS à l’aide de PowerShell](private-dns-getstarted-powershell.md).
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
@@ -80,7 +80,7 @@ Maintenant que vous disposez d’une zone DNS test avec un enregistrement « A
    nslookup www.contoso.xyz <name server name>
    ```
 
-   Par exemple : 
+   Par exemple :
 
    ```
    nslookup www.contoso.xyz ns1-08.azure-dns.com.

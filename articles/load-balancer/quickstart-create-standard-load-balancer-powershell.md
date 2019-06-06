@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 05/07/2019
 ms.author: kumud
 ms:custom: seodec18
-ms.openlocfilehash: 513d3931c31ca94b4089139992bceb6f679caa98
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 04db0232e14ccac7938d7062d77c36a54526489c
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65467687"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66730467"
 ---
 # <a name="quickstart-create-a-standard-load-balancer-using-azure-powershell"></a>Démarrage rapide : Créer un Standard Load Balancer à l’aide d’Azure PowerShell
 
@@ -29,7 +29,7 @@ Ce démarrage rapide vous montre comment créer un Standard Load Balancer à l�
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 Si vous choisissez d’installer et d’utiliser PowerShell en local, vous devez exécuter le module Azure PowerShell version 5.4.1 ou ultérieure pour les besoins de cet article. Exécutez `Get-Module -ListAvailable Az` pour rechercher la version installée. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-Az-ps). Si vous exécutez PowerShell en local, vous devez également lancer `Connect-AzAccount` pour créer une connexion avec Azure.
 

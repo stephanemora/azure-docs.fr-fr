@@ -12,12 +12,12 @@ ms.author: jovanpop-msft
 ms.reviewer: sstein
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: dfd81735b7dfd95a38caf3934fe9057adbcde5a7
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 2d5ecb3035aad657485916a4c472f6f4dc9eb530
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59790007"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66729151"
 ---
 # <a name="use-powershell-with-azure-resource-manager-template-to-create-a-managed-instance-in-azure-sql-database"></a>Utiliser PowerShell avec un modèle Azure Resource Manager pour créer une instance managée dans Azure SQL Database
 
@@ -25,7 +25,7 @@ Vous pouvez créer une instance managée Azure SQL Database à l’aide de la bi
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 Si vous choisissez d’installer et d’utiliser PowerShell en local, vous aurez besoin de la version 1.4.0 d’AZ PowerShell ou d’une version ultérieure pour suivre ce didacticiel. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-az-ps). Si vous exécutez PowerShell en local, vous devez également lancer `Connect-AzAccount` pour créer une connexion avec Azure.
 
