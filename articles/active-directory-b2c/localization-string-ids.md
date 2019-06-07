@@ -2,20 +2,20 @@
 title: ID de chaînes de localisation - Azure Active Directory B2C | Microsoft Docs
 description: Spécifiez les ID d’une définition de contenu avec un Id api.signuporsignin dans une stratégie personnalisée dans Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: c6cabcc89e66e9fbf153f2931bfe8b9b70c5f426
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 41a72013f1538b0a857c76bc949a7109e1cd54b4
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64682706"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66510921"
 ---
 # <a name="localization-string-ids"></a>ID de chaînes de localisation
 
@@ -33,7 +33,7 @@ Les ID suivants sont utilisés pour une définition de contenu avec un ID `api.s
 | **logonIdentifier_email** | Adresse de messagerie |
 | **requiredField_email** | Entrez votre adresse e-mail |
 | **invalid_email** | Entrez une adresse e-mail valide |
-| **email_pattern** | ^ [a-zA-Z0-9. ! #$% &''*c++ / = ? ^ _\`{\|} ~-]+@[a-zA-Z0-9-]+ ( ? :\\. [ un-zA-Z0 - 9-] +)*$ |
+| **email_pattern** | ^ [a-zA-Z0-9. ! #$% &''*c++ / = ? ^ _\`{\|} ~-]+@[a-zA-Z0-9-]+ ( ? :\\. [ un-zA-Z0 - 9-] +)* $ |
 | **local_intro_username** | Connectez-vous avec votre nom d'utilisateur |
 | **logonIdentifier_username** | Nom d’utilisateur |
 | **requiredField_username** | Entrez votre nom d'utilisateur |
@@ -120,7 +120,7 @@ Voici les ID pour une définition de contenu avec un ID `api.localaccountsignup`
 | **ver_incorrect_format** | Format incorrect. |
 | **ver_but_edit** | Modifier l'adresse e-mail |
 | **ver_but_verify** | Vérifier le code |
-| **alert_no** | Non  |
+| **alert_no** | Non |
 | **ver_info_msg** | Le code de vérification a été envoyé à votre boîte de réception. Veuillez le copier dans la zone d’entrée ci-dessous. |
 | **day** | jour |
 | **ver_fail_throttled** | Il y a eu trop de demandes pour vérifier cette adresse e-mail. Veuillez patienter quelques instants, puis réessayez. |
