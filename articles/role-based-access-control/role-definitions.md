@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/09/2019
+ms.date: 06/06/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 5a08c2ae0b82841fd15aac4af06a8874cf64ba53
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 04ceac3b06972687ef6cdeac4dad1f07fea611cb
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65949994"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754892"
 ---
 # <a name="understand-role-definitions-for-azure-resources"></a>Comprendre les définitions de rôle relatives aux ressources Azure
 
@@ -48,7 +48,7 @@ Les opérations sont spécifiées à l’aide de chaînes dont le format est le 
 
 La portion `{action}` d’une chaîne d’opération spécifie le type des opérations que vous pouvez effectuer sur un type de ressource. Par exemple, vous verrez les sous-chaînes suivantes dans `{action}` :
 
-| Sous-chaîne d’action    | Description          |
+| Sous-chaîne d’action    | Description         |
 | ------------------- | ------------------- |
 | `*` | Le caractère générique donne accès à toutes les opérations qui correspondent à la chaîne. |
 | `read` | Permet les opérations de lecture (GET). |
@@ -179,7 +179,7 @@ Le portail Azure permet également aux utilisateurs de parcourir et de gérer le
 
 L’autorisation `Actions` spécifie les opérations d’administration que le rôle autorise. Il s’agit d’un ensemble de chaînes d’opération qui identifient les opérations sécurisables des fournisseurs de ressources Azure. Voici quelques exemples d’opérations de gestion qui peuvent être utilisées dans `Actions`.
 
-| Chaîne d’opération    | Description          |
+| Chaîne d’opération    | Description         |
 | ------------------- | ------------------- |
 | `*/read` | Accorde l’accès aux opérations de lecture pour tous les types de ressources de l’ensemble des fournisseurs de ressources Azure.|
 | `Microsoft.Compute/*` | Accorde l’accès à l’ensemble des opérations pour tous les types de ressources dans le fournisseur de ressources Microsoft.Compute.|
@@ -199,7 +199,7 @@ L’autorisation `NotActions` spécifie les opérations de gestion qui sont excl
 
 L’autorisation `DataActions` spécifie les opérations de données que le rôle autorise sur vos données au sein de cet objet. Par exemple, si un utilisateur dispose d’un accès en lecture aux données blob d’un compte de stockage, il peut lire les objets blob de ce compte de stockage. Voici quelques exemples d’opérations sur les données qui peuvent être utilisées dans `DataActions`.
 
-| Chaîne d’opération    | Description          |
+| Chaîne d’opération    | Description         |
 | ------------------- | ------------------- |
 | `Microsoft.Storage/storageAccounts/ blobServices/containers/blobs/read` | Retourne un objet blob ou une liste d'objets blob. |
 | `Microsoft.Storage/storageAccounts/ blobServices/containers/blobs/write` | Retourne le résultat de l'écriture d'un objet blob. |
@@ -216,7 +216,7 @@ L’autorisation `NotDataActions` spécifie les opérations sur les données qui
 
 ## <a name="assignablescopes"></a>AssignableScopes
 
-La propriété `AssignableScopes` spécifie les étendues (abonnements, groupes de ressources ou ressources) dans lesquelles le rôle est disponible pour attribution. Vous pouvez rendre le rôle disponible pour attribution uniquement dans les abonnements ou les groupes de ressources qui le nécessitent, mais pas surcharger l’expérience utilisateur pour le reste des abonnements ou groupes de ressources. Vous devez utiliser au moins un abonnement, groupe de ressources ou ID de ressource.
+Le `AssignableScopes` propriété spécifie les étendues (abonnements, groupes de ressources ou ressources) qui ont cette définition de rôle disponible. Vous pouvez rendre disponible pour l’attribution uniquement dans les abonnements ou groupes de ressources qui en ont besoin et pas encombrer l’expérience utilisateur pour le reste des abonnements ou des groupes de ressources. Vous devez utiliser au moins un abonnement, groupe de ressources ou ID de ressource.
 
 La chaîne `AssignableScopes` est définie sur l’étendue racine (`"/"`) pour les rôles intégrés. L’étendue racine indique que le rôle est disponible pour attribution dans toutes les étendues. Voici des exemples d’étendues assignables valides :
 

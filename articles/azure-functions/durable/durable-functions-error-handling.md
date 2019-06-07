@@ -10,16 +10,16 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: f3d7f916d31a03d7b868749026f541dd646459f6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 79af90d1c2c5b698ee7394f7fb20486b3069038c
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60732516"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66751946"
 ---
 # <a name="handling-errors-in-durable-functions-azure-functions"></a>Gestion des erreurs dans Fonctions durables (Azure Functions)
 
-Les orchestrations Fonctions durables sont implémentées dans du code et peuvent utiliser les fonctionnalités de gestion des erreurs du langage de programmation. Cela dit, lorsque vous incorporez la gestion des erreurs et les compensations dans vos orchestrations, vous n’avez pas besoin d’apprendre de nouveaux concepts. Toutefois, vous devez tenir compte de certains comportements.
+Les orchestrations Fonctions durables sont implémentées dans du code et peuvent utiliser les fonctionnalités de gestion des erreurs du langage de programmation. Dans cet esprit, il ne sont pas vraiment de nouveaux concepts que vous avez besoin pour en savoir plus sur l’incorporation de la gestion des erreurs et la compensation dans vos orchestrations. Toutefois, vous devez tenir compte de certains comportements.
 
 ## <a name="errors-in-activity-functions"></a>Erreurs liées aux fonctions d’activité
 

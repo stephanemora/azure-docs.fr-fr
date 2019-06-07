@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 05/31/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 1be9d11db9a1c614614e0a4023f84b15588ba5f0
-ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
+ms.openlocfilehash: 89539509e759da7f041ce0216397b1a9c8ff1f16
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66742957"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66753097"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Déployer des modèles avec le service Azure Machine Learning
 
@@ -92,14 +92,7 @@ Pour plus d'informations, consultez la documentation de référence de la classe
 
 Les éléments suivants de calcul cibles, ou les ressources de calcul, peuvent être utilisées pour héberger votre déploiement de service web. 
 
-| Cible de calcul | Usage | Description |
-| ----- | ----- | ----- |
-| [Service web local](#local) | Test/debug | Convient pour les tests et la résolution des problèmes limitée.
-| [Azure Kubernetes Service (AKS)](#aks) | Inférence en temps réel | Convient aux déploiements de production à grande échelle. Fournit la mise à l’échelle automatique et des temps de réponse rapides. |
-| [Azure Container Instances (ACI)](#aci) | Test | Convient pour la petite échelle, les charges de travail basées sur le processeur. |
-| [Capacité de calcul Azure Machine Learning](how-to-run-batch-predictions.md) | Inférence de lot | Exécutez l’inférence de traitement par lots sur le calcul sans serveur. Prend en charge des machines virtuelles normale et basse priorité. |
-| [Azure IoT Edge](#iotedge) | (Version préliminaire) Module IoT | Déployer et traiter les modèles ML sur les appareils IoT. |
-
+[!INCLUDE [aml-compute-target-deploy](../../../includes/aml-compute-target-deploy.md)]
 
 ## <a name="prepare-to-deploy"></a>Préparer au déploiement
 

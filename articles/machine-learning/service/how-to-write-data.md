@@ -12,12 +12,12 @@ manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0275d27a0a27d0279886f6f7fd15b14d312a44ea
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: 6206ad1a7356221bf94134e5d293c27d778cc187
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65472003"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66752873"
 ---
 # <a name="write-and-configure-data--with-the-azure-machine-learning-data-prep-sdk"></a>Écrire et de configurer les données avec le SDK Azure Machine Learning Data Prep
 
@@ -73,7 +73,7 @@ Exemple de sortie :
 
 ### <a name="delimited-file-example"></a>Exemple de fichier délimité
 
-Le code suivant utilise la [ `write_to_csv()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#write-to-csv-directory-path--destinationpath--separator--str--------na--str----na---error--str----error------azureml-dataprep-api-dataflow-dataflow) fonction pour écrire des données dans un fichier délimité.
+Le code suivant utilise la [ `write_to_csv()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow#write-to-csv-directory-path--datadestination--separator--str--------na--str----na---error--str----error------azureml-dataprep-api-dataflow-dataflow) fonction pour écrire des données dans un fichier délimité.
 
 ```python
 # Create a new data flow using `write_to_csv` 
@@ -90,11 +90,11 @@ Exemple de sortie :
 
 | | Colonne1 | Colonne2 | Colonne3 | Colonne4 | Colonne5 | Colonne6 | Colonne7 | Colonne8 | Colonne9 |
 | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- |
-|0| 10000.0 | 99999.0 | ERREUR | NON | NON | ENRS | NaN    | NaN | NaN |   
-|1| 10003.0 | 99999.0 | ERREUR | NON | NON | ENSO |    NaN | NaN | NaN |   
-|2| 10010.0 | 99999.0 | ERREUR | NON | JN | ENJA |    70933.0 | -8667.0 | 90.0 |
-|3| 10013.0 | 99999.0 | ERREUR | NON | NON |     | NaN | NaN | NaN |
-|4| 10014.0 | 99999.0 | ERREUR | NON | NON | ENSO |    59783.0 | 5350.0 |  500.0|
+|0| 10000.0 | 99999.0 | ERROR | NON | NON | ENRS | NaN    | NaN | NaN |   
+|1| 10003.0 | 99999.0 | ERROR | NON | NON | ENSO |    NaN | NaN | NaN |   
+|2| 10010.0 | 99999.0 | ERROR | NON | JN | ENJA |    70933.0 | -8667.0 | 90.0 |
+|3| 10013.0 | 99999.0 | ERROR | NON | NON |     | NaN | NaN | NaN |
+|4| 10014.0 | 99999.0 | ERROR | NON | NON | ENSO |    59783.0 | 5350.0 |  500.0|
 
 Dans la sortie précédente, plusieurs erreurs apparaissent dans les colonnes numériques, car certains nombres n’ont pas été analysés correctement. Lorsqu’elles sont écrites au format CSV, les valeurs Null sont par défaut remplacées par la chaîne « ERROR ».
 
@@ -121,7 +121,7 @@ Le code précédent produit cette sortie :
 
 ### <a name="parquet-file-example"></a>Exemple de fichier Parquet
 
-Semblable à `write_to_csv()`, le [ `write_to_parquet()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#write-to-parquet-file-path--typing-union--destinationpath--nonetype----none--directory-path--typing-union--destinationpath--nonetype----none--single-file--bool---false--error--str----error---row-groups--int---0-----azureml-dataprep-api-dataflow-dataflow) fonction retourne un nouveau flux de données avec une écriture étape Parquet qui est exécutée lorsque le flux de données s’exécute.
+Semblable à `write_to_csv()`, le [ `write_to_parquet()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow#write-to-parquet-file-path--typing-union--datadestination--nonetype----none--directory-path--typing-union--datadestination--nonetype----none--single-file--bool---false--error--str----error---row-groups--int---0-----azureml-dataprep-api-dataflow-dataflow) fonction retourne un nouveau flux de données avec une écriture étape Parquet qui est exécutée lorsque le flux de données s’exécute.
 
 ```python
 write_parquet_t = t.write_to_parquet(directory_path=dprep.LocalFileOutput('./test_parquet_out/'),

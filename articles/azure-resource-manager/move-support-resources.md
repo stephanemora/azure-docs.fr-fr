@@ -4,14 +4,14 @@ description: Liste les types de ressources Azure qui peuvent être déplacés ve
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 5/17/2019
+ms.date: 6/6/2019
 ms.author: tomfitz
-ms.openlocfilehash: dcac557f29a987ea732744c1b82f90f858623ec5
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: 314b28edbd5770186d96fb2a2b203f26ff27bda0
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65872554"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66752358"
 ---
 # <a name="move-operation-support-for-resources"></a>Prise en charge de l’opération de déplacement pour les ressources
 Cet article indique si un type de ressource Azure donné prend en charge l’opération de déplacement. Même si un type de ressource prend en charge l’opération de déplacement, il peut exister des conditions qui empêchent la ressource d’être déplacée. Pour plus d’informations sur les conditions qui affectent les opérations de déplacement, consultez [Déplacer des ressources vers un nouveau groupe de ressources ou un nouvel abonnement](resource-group-move-resources.md).
@@ -36,7 +36,7 @@ Pour obtenir les mêmes données qu'un fichier de valeurs séparées par des vir
 ## <a name="microsoftanalysisservices"></a>Microsoft.AnalysisServices
 | Type de ressource | Groupe de ressources | Abonnement |
 | ------------- | ----------- | ---------- |
-| serveurs | Oui | Oui |
+| servers | Oui | Oui |
 
 ## <a name="microsoftapimanagement"></a>Microsoft.ApiManagement
 | Type de ressource | Groupe de ressources | Abonnement |
@@ -92,7 +92,7 @@ Pour obtenir les mêmes données qu'un fichier de valeurs séparées par des vir
 | ------------- | ----------- | ---------- |
 | clusters | Non | Non |
 | fileservers | Non | Non |
-| tâches | Non | Non |
+| jobs | Non | Non |
 | workspaces | Non | Non |
 
 ## <a name="microsoftbingmaps"></a>Microsoft.BingMaps
@@ -157,7 +157,7 @@ Pour obtenir les mêmes données qu'un fichier de valeurs séparées par des vir
 ## <a name="microsoftcognitiveservices"></a>Microsoft.CognitiveServices
 | Type de ressource | Groupe de ressources | Abonnement |
 | ------------- | ----------- | ---------- |
-| comptes | Oui | Oui |
+| accounts | Oui | Oui |
 
 ## <a name="microsoftcompute"></a>Microsoft.Compute
 | Type de ressource | Groupe de ressources | Abonnement |
@@ -174,7 +174,7 @@ Pour obtenir les mêmes données qu'un fichier de valeurs séparées par des vir
 | restorepointcollections | Non | Non |
 | sharedvmimages | Non | Non |
 | sharedvmimages/versions | Non | Non |
-| captures instantanées | Oui | Oui |
+| snapshots | Oui | Oui |
 | virtualmachines | Oui | Oui |
 | virtualmachines/extensions | Oui | Oui |
 | virtualmachinescalesets | Oui | Oui |
@@ -213,7 +213,7 @@ Pour obtenir les mêmes données qu'un fichier de valeurs séparées par des vir
 ## <a name="microsoftcortanaanalytics"></a>Microsoft.CortanaAnalytics
 | Type de ressource | Groupe de ressources | Abonnement |
 | ------------- | ----------- | ---------- |
-| comptes | Non | Non |
+| accounts | Non | Non |
 
 ## <a name="microsoftcostmanagement"></a>Microsoft.CostManagement
 | Type de ressource | Groupe de ressources | Abonnement |
@@ -228,7 +228,7 @@ Pour obtenir les mêmes données qu'un fichier de valeurs séparées par des vir
 ## <a name="microsoftdatabox"></a>Microsoft.DataBox
 | Type de ressource | Groupe de ressources | Abonnement |
 | ------------- | ----------- | ---------- |
-| tâches | Non | Non |
+| jobs | Non | Non |
 
 ## <a name="microsoftdataboxedge"></a>Microsoft.DataBoxEdge
 | Type de ressource | Groupe de ressources | Abonnement |
@@ -271,12 +271,12 @@ Pour obtenir les mêmes données qu'un fichier de valeurs séparées par des vir
 ## <a name="microsoftdatalakeanalytics"></a>Microsoft.DataLakeAnalytics
 | Type de ressource | Groupe de ressources | Abonnement |
 | ------------- | ----------- | ---------- |
-| comptes | Oui | Oui |
+| accounts | Oui | Oui |
 
 ## <a name="microsoftdatalakestore"></a>Microsoft.DataLakeStore
 | Type de ressource | Groupe de ressources | Abonnement |
 | ------------- | ----------- | ---------- |
-| comptes | Oui | Oui |
+| accounts | Oui | Oui |
 
 ## <a name="microsoftdatamigration"></a>Microsoft.DataMigration
 | Type de ressource | Groupe de ressources | Abonnement |
@@ -288,18 +288,18 @@ Pour obtenir les mêmes données qu'un fichier de valeurs séparées par des vir
 ## <a name="microsoftdbformariadb"></a>Microsoft.DBforMariaDB
 | Type de ressource | Groupe de ressources | Abonnement |
 | ------------- | ----------- | ---------- |
-| serveurs | Oui | Oui |
+| servers | Oui | Oui |
 
 ## <a name="microsoftdbformysql"></a>Microsoft.DBforMySQL
 | Type de ressource | Groupe de ressources | Abonnement |
 | ------------- | ----------- | ---------- |
-| serveurs | Oui | Oui |
+| servers | Oui | Oui |
 
 ## <a name="microsoftdbforpostgresql"></a>Microsoft.DBforPostgreSQL
 | Type de ressource | Groupe de ressources | Abonnement |
 | ------------- | ----------- | ---------- |
 | servergroups | Non | Non |
-| serveurs | Oui | Oui |
+| servers | Oui | Oui |
 | serversv2 | Oui | Oui |
 
 ## <a name="microsoftdeploymentmanager"></a>Microsoft.DeploymentManager
@@ -373,12 +373,12 @@ Pour obtenir les mêmes données qu'un fichier de valeurs séparées par des vir
 | Type de ressource | Groupe de ressources | Abonnement |
 | ------------- | ----------- | ---------- |
 | clusters | Oui | Oui |
-| espaces de noms | Oui | Oui |
+| namespaces | Oui | Oui |
 
 ## <a name="microsoftgenomics"></a>Microsoft.Genomics
 | Type de ressource | Groupe de ressources | Abonnement |
 | ------------- | ----------- | ---------- |
-| comptes | Non | Non |
+| accounts | Non | Non |
 
 ## <a name="microsofthanaonazure"></a>Microsoft.HanaOnAzure
 | Type de ressource | Groupe de ressources | Abonnement |
@@ -398,7 +398,7 @@ Pour obtenir les mêmes données qu'un fichier de valeurs séparées par des vir
 ## <a name="microsofthybridcompute"></a>Microsoft.HybridCompute
 | Type de ressource | Groupe de ressources | Abonnement |
 | ------------- | ----------- | ---------- |
-| machines | Non | Non |
+| Machines | Non | Non |
 
 ## <a name="microsofthybriddata"></a>Microsoft.HybridData
 | Type de ressource | Groupe de ressources | Abonnement |
@@ -408,12 +408,12 @@ Pour obtenir les mêmes données qu'un fichier de valeurs séparées par des vir
 ## <a name="microsoftimportexport"></a>Microsoft.ImportExport
 | Type de ressource | Groupe de ressources | Abonnement |
 | ------------- | ----------- | ---------- |
-| tâches | Oui | Oui |
+| jobs | Oui | Oui |
 
 ## <a name="microsoftinsights"></a>microsoft.insights
 | Type de ressource | Groupe de ressources | Abonnement |
 | ------------- | ----------- | ---------- |
-| comptes | Non | Non |
+| accounts | Non | Non |
 | actiongroups | Oui | Oui |
 | activitylogalerts | Non | Non |
 | alertrules | Oui | Oui |
@@ -423,9 +423,9 @@ Pour obtenir les mêmes données qu'un fichier de valeurs séparées par des vir
 | metricalerts | Non | Non |
 | notificationgroups | Non | Non |
 | notificationrules | Non | Non |
-| scheduledqueryrules | Non | Non |
+| scheduledqueryrules | Oui | Oui |
 | webtests | Oui | Oui |
-| classeurs | Oui | Oui |
+| workbooks | Oui | Oui |
 
 ## <a name="microsoftiotcentral"></a>Microsoft.IoTCentral
 | Type de ressource | Groupe de ressources | Abonnement |
@@ -436,7 +436,7 @@ Pour obtenir les mêmes données qu'un fichier de valeurs séparées par des vir
 | Type de ressource | Groupe de ressources | Abonnement |
 | ------------- | ----------- | ---------- |
 | checknameavailability | Oui | Oui |
-| graphe | Oui | Oui |
+| graph | Oui | Oui |
 
 ## <a name="microsoftkeyvault"></a>Microsoft.KeyVault
 | Type de ressource | Groupe de ressources | Abonnement |
@@ -457,12 +457,12 @@ Pour obtenir les mêmes données qu'un fichier de valeurs séparées par des vir
 ## <a name="microsoftlocationbasedservices"></a>Microsoft.LocationBasedServices
 | Type de ressource | Groupe de ressources | Abonnement |
 | ------------- | ----------- | ---------- |
-| comptes | Oui | Oui |
+| accounts | Oui | Oui |
 
 ## <a name="microsoftlocationservices"></a>Microsoft.LocationServices
 | Type de ressource | Groupe de ressources | Abonnement |
 | ------------- | ----------- | ---------- |
-| comptes | Non | Non |
+| accounts | Non | Non |
 
 ## <a name="microsoftlogic"></a>Microsoft.Logic
 | Type de ressource | Groupe de ressources | Abonnement |
@@ -488,7 +488,7 @@ Pour obtenir les mêmes données qu'un fichier de valeurs séparées par des vir
 ## <a name="microsoftmachinelearningexperimentation"></a>Microsoft.MachineLearningExperimentation
 | Type de ressource | Groupe de ressources | Abonnement |
 | ------------- | ----------- | ---------- |
-| comptes | Non | Non |
+| accounts | Non | Non |
 | accounts/workspaces | Non | Non |
 | accounts/workspaces/projects | Non | Non |
 | teamaccounts | Non | Non |
@@ -498,7 +498,7 @@ Pour obtenir les mêmes données qu'un fichier de valeurs séparées par des vir
 ## <a name="microsoftmachinelearningmodelmanagement"></a>Microsoft.MachineLearningModelManagement
 | Type de ressource | Groupe de ressources | Abonnement |
 | ------------- | ----------- | ---------- |
-| comptes | Oui | Oui |
+| accounts | Oui | Oui |
 
 ## <a name="microsoftmachinelearningoperationalization"></a>Microsoft.MachineLearningOperationalization
 | Type de ressource | Groupe de ressources | Abonnement |
@@ -518,7 +518,7 @@ Pour obtenir les mêmes données qu'un fichier de valeurs séparées par des vir
 ## <a name="microsoftmaps"></a>Microsoft.Maps
 | Type de ressource | Groupe de ressources | Abonnement |
 | ------------- | ----------- | ---------- |
-| comptes | Oui | Oui |
+| accounts | Oui | Oui |
 
 ## <a name="microsoftmarketplaceapps"></a>Microsoft.MarketplaceApps
 | Type de ressource | Groupe de ressources | Abonnement |
@@ -556,7 +556,7 @@ Pour obtenir les mêmes données qu'un fichier de valeurs séparées par des vir
 | applicationsecuritygroups | Oui | Oui |
 | azurefirewalls | Oui | Oui |
 | bastionhosts | Non | Non |
-| connexions | Oui | Oui |
+| connections | Oui | Oui |
 | ddoscustompolicies | Oui | Oui |
 | ddosprotectionplans | Non | Non |
 | dnszones | Oui | Oui |
@@ -564,7 +564,7 @@ Pour obtenir les mêmes données qu'un fichier de valeurs séparées par des vir
 | expressroutecrossconnections | Non | Non |
 | expressroutegateways | Non | Non |
 | expressrouteports | Non | Non |
-| portes d'entrée | Oui | Oui |
+| frontdoors | Oui | Oui |
 | frontdoorwebapplicationfirewallpolicies | Oui | Oui |
 | loadbalancers | Oui | Oui |
 | localnetworkgateways | Oui | Oui |
@@ -601,7 +601,7 @@ Pour obtenir les mêmes données qu'un fichier de valeurs séparées par des vir
 ## <a name="microsoftnotificationhubs"></a>Microsoft.NotificationHubs
 | Type de ressource | Groupe de ressources | Abonnement |
 | ------------- | ----------- | ---------- |
-| espaces de noms | Oui | Oui |
+| namespaces | Oui | Oui |
 | namespaces/notificationhubs | Oui | Oui |
 
 ## <a name="microsoftoperationalinsights"></a>Microsoft.OperationalInsights
@@ -619,7 +619,7 @@ Pour obtenir les mêmes données qu'un fichier de valeurs séparées par des vir
 ## <a name="microsoftpeering"></a>Microsoft.Peering
 | Type de ressource | Groupe de ressources | Abonnement |
 | ------------- | ----------- | ---------- |
-| peerings | Non | Non |
+| homologations | Non | Non |
 
 ## <a name="microsoftportal"></a>Microsoft.Portal
 | Type de ressource | Groupe de ressources | Abonnement |
@@ -644,7 +644,7 @@ Pour obtenir les mêmes données qu'un fichier de valeurs séparées par des vir
 ## <a name="microsoftprojectoxford"></a>Microsoft.ProjectOxford
 | Type de ressource | Groupe de ressources | Abonnement |
 | ------------- | ----------- | ---------- |
-| comptes | Non | Non |
+| accounts | Non | Non |
 
 ## <a name="microsoftrecoveryservices"></a>Microsoft.RecoveryServices
 | Type de ressource | Groupe de ressources | Abonnement |
@@ -654,7 +654,7 @@ Pour obtenir les mêmes données qu'un fichier de valeurs séparées par des vir
 ## <a name="microsoftrelay"></a>Microsoft.Relay
 | Type de ressource | Groupe de ressources | Abonnement |
 | ------------- | ----------- | ---------- |
-| espaces de noms | Oui | Oui |
+| namespaces | Oui | Oui |
 
 ## <a name="microsoftsaas"></a>Microsoft.SaaS
 | Type de ressource | Groupe de ressources | Abonnement |
@@ -664,7 +664,7 @@ Pour obtenir les mêmes données qu'un fichier de valeurs séparées par des vir
 ## <a name="microsoftscheduler"></a>Microsoft.Scheduler
 | Type de ressource | Groupe de ressources | Abonnement |
 | ------------- | ----------- | ---------- |
-| flux | Oui | Oui |
+| flows | Oui | Oui |
 | jobcollections | Oui | Oui |
 
 ## <a name="microsoftsearch"></a>Microsoft.Search
@@ -686,7 +686,7 @@ Pour obtenir les mêmes données qu'un fichier de valeurs séparées par des vir
 ## <a name="microsoftservicebus"></a>Microsoft.ServiceBus
 | Type de ressource | Groupe de ressources | Abonnement |
 | ------------- | ----------- | ---------- |
-| espaces de noms | Oui | Oui |
+| namespaces | Oui | Oui |
 
 ## <a name="microsoftservicefabric"></a>Microsoft.ServiceFabric
 | Type de ressource | Groupe de ressources | Abonnement |
@@ -696,7 +696,7 @@ Pour obtenir les mêmes données qu'un fichier de valeurs séparées par des vir
 | containergroups | Non | Non |
 | containergroupsets | Non | Non |
 | edgeclusters | Non | Non |
-| Réseaux | Non | Non |
+| networks | Non | Non |
 | secretstores | Non | Non |
 | volumes | Non | Non |
 
@@ -706,7 +706,7 @@ Pour obtenir les mêmes données qu'un fichier de valeurs séparées par des vir
 | applications | Oui | Oui |
 | containergroups | Non | Non |
 | gateways | Oui | Oui |
-| Réseaux | Oui | Oui |
+| networks | Oui | Oui |
 | secrets | Oui | Oui |
 | volumes | Oui | Oui |
 
@@ -735,7 +735,7 @@ Pour obtenir les mêmes données qu'un fichier de valeurs séparées par des vir
 | instancepools | Oui | Oui |
 | managedinstances | Oui | Oui |
 | managedinstances/databases | Oui | Oui |
-| serveurs | Oui | Oui |
+| servers | Oui | Oui |
 | servers/databases | Oui | Oui |
 | servers/elasticpools | Oui | Oui |
 | virtualclusters | Oui | Oui |
@@ -799,7 +799,7 @@ Pour obtenir les mêmes données qu'un fichier de valeurs séparées par des vir
 | Type de ressource | Groupe de ressources | Abonnement |
 | ------------- | ----------- | ---------- |
 | providerregistrations | Non | Non |
-| ressources | Non | Non |
+| les ressources | Non | Non |
 
 ## <a name="microsofttimeseriesinsights"></a>Microsoft.TimeSeriesInsights
 | Type de ressource | Groupe de ressources | Abonnement |
@@ -835,9 +835,9 @@ Pour obtenir les mêmes données qu'un fichier de valeurs séparées par des vir
 ## <a name="microsoftweb"></a>Microsoft.Web
 | Type de ressource | Groupe de ressources | Abonnement |
 | ------------- | ----------- | ---------- |
-| certificats | Non | Oui |
+| certificates | Non | Oui |
 | connectiongateways | Oui | Oui |
-| connexions | Oui | Oui |
+| connections | Oui | Oui |
 | customapis | Oui | Oui |
 | hostingenvironments | Non | Non |
 | serverfarms | Oui | Oui |

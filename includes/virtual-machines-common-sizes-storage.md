@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/17/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 5123ee3f65744f3d0c255712efe990b01be58e26
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: de998265188b1482be22225bba3c6ab3d58e562b
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66420755"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66755609"
 ---
 Les tailles de machines virtuelles à stockage optimisé offrent un débit de disque et d’E/S élevé. Elles sont idéales pour les bases de données Big Data, SQL, NoSQL ainsi que pour l’entreposage de données et les grandes bases de données transactionnelles.  Cassandra, MongoDB, Cloudera et Redis en sont des exemples. Cet article fournit des informations sur le nombre de processeurs virtuels, de disques de données et de cartes réseau ainsi que sur le débit de stockage local et la bande passante réseau pour chaque taille optimisée.
 
@@ -57,7 +57,7 @@ Mise en cache de stockage Premium : Non pris en charge
 - SLES 12 SP2 ou version ultérieure
 - RHEL ou CentOS version 6.7 thru 6.10, avec le package LIS fournie par Microsoft 4.3.1 (ou version ultérieure) installé
 - Version RHEL ou CentOS 7.3, avec le package fournie par Microsoft LIS 4.2.1 (ou version ultérieure) installé
-- RHEL ou CentOS 7.4 ou version ultérieure
+- RHEL ou CentOS 7.6 ou version ultérieure
 - Oracle Linux avec UEK4 ou version ultérieure
 - Debian 9 avec le noyau backports, Debian, 10 ou version ultérieure
 - CoreOS avec un noyau 4.14 ou version ultérieure

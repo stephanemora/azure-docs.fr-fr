@@ -5,18 +5,18 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 05/14/2019
+ms.date: 06/06/2019
 ms.author: iainfou
-ms.openlocfilehash: b5a203150906758bde33431a1dab717e090f2e28
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 43ba7593336372bbbd7a3a4bb9821665a42bbf29
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66475579"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66752178"
 ---
 # <a name="preview---limit-egress-traffic-for-cluster-nodes-and-control-access-to-required-ports-and-services-in-azure-kubernetes-service-aks"></a>Version préliminaire - le trafic de sortie de limite pour les nœuds de cluster et de contrôler l’accès aux services dans Azure Kubernetes Service (ACS) et les ports requis
 
-Par défaut, les clusters AKS sortant (sortie) internet un accès illimité. Ce niveau d’accès réseau permet de nœuds et les services que vous exécutez pour accéder aux ressources externes en fonction des besoins. Si vous souhaitez restreindre le trafic de sortie, un nombre limité de ports et adresses doit être accessible à mettre à jour les tâches de maintenance d’intégrité du cluster. Votre cluster est ensuite configuré pour utiliser uniquement des images de conteneur système de base à partir du Registre de conteneur Microsoft (MCR) ou Azure Container Registry (ACR), les référentiels publics pas externes.
+Par défaut, les clusters AKS sortant (sortie) internet un accès illimité. Ce niveau d’accès réseau permet de nœuds et les services que vous exécutez pour accéder aux ressources externes en fonction des besoins. Si vous souhaitez restreindre le trafic de sortie, un nombre limité de ports et adresses doit être accessible à mettre à jour les tâches de maintenance d’intégrité du cluster. Votre cluster est ensuite configuré pour utiliser uniquement des images de conteneur système de base à partir du Registre de conteneur Microsoft (MCR) ou Azure Container Registry (ACR), les référentiels publics pas externes. Vous devez configurer vos règles de pare-feu et de sécurité par défaut pour autoriser ces ports requis et les adresses.
 
 Cet article décrit en détail les ports réseau et les noms de domaine complet (FQDN) sont obligatoires et facultatifs si vous limitez le trafic de sortie dans un cluster AKS.  Actuellement, cette fonctionnalité est uniquement disponible en tant que version préliminaire.
 
@@ -28,7 +28,7 @@ Cet article décrit en détail les ports réseau et les noms de domaine complet 
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Vous avez besoin d’Azure CLI version 2.0.61 ou ultérieur installé et configuré. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installer Azure CLI 2.0][install-azure-cli].
+Vous avez besoin d’Azure CLI version 2.0.66 ou ultérieur installé et configuré. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installer Azure CLI 2.0][install-azure-cli].
 
 Pour créer un cluster AKS qui peut limiter le trafic sortant, d’abord activer un indicateur de fonctionnalité sur votre abonnement. Cette inscription de fonctionnalité configure tous les clusters AKS crées pour utiliser des images de conteneur système de base à partir de MCR ou ACR. Pour inscrire le *AKSLockingDownEgressPreview* indicateur des fonctionnalités, utilisez le [register de fonctionnalité az] [ az-feature-register] commande comme indiqué dans l’exemple suivant :
 
@@ -54,7 +54,7 @@ Pour la gestion et à des fins opérationnelles, les nœuds dans un cluster ACS 
 
 Pour renforcer la sécurité de votre cluster AKS, vous pouvez souhaiter restreindre le trafic de sortie. Le cluster est configuré pour extraire des images de conteneur à partir de MCR ou ACR de système de base. Si vous verrouillez le trafic de sortie de cette manière, vous devez définir des noms de domaine complets pour autoriser les nœuds AKS communiquer correctement avec les services externes requis et des ports spécifiques. Sans ces ports autorisés et les noms de domaine complets, vos nœuds AKS ne peut pas communiquer avec le serveur d’API ou installer les composants principaux.
 
-Vous pouvez utiliser [pare-feu Azure] [ azure-firewall] ou une appliance de pare-feu de 3 rd-party pour sécuriser votre trafic de sortie et de définir ces requise des ports et adresses.
+Vous pouvez utiliser [pare-feu Azure] [ azure-firewall] ou une appliance de pare-feu de 3 rd-party pour sécuriser votre trafic de sortie et de définir ces requise des ports et adresses. ACS ne crée pas automatiquement de ces règles pour vous. Les ports et les adresses suivantes sont à titre de référence que vous créez les règles appropriées dans votre pare-feu réseau.
 
 Dans ACS, il existe deux jeux de ports et adresses :
 
@@ -70,23 +70,26 @@ Les ports de sortie suivantes ou les règles de réseau sont requises pour un cl
 
 * Le port TCP *443*
 * Le port TCP *9000* et le port TCP *22* pour le pod avant de tunnel communiquer avec la fin du tunnel sur le serveur d’API.
+    * Pour obtenir plus spécifiques, consultez le * *.hcp.\< emplacement\>. azmk8s.io* et * *. tun.\< emplacement\>. azmk8s.io* adresses dans le tableau suivant.
 
 Le nom de domaine complet suivant ou les règles d’application sont requis :
 
-| FQDN                      | Port      | Utilisation      |
-|---------------------------|-----------|----------|
-| *.azmk8s.io               | HTTPS:443,22,9000 | Cette adresse est le point de terminaison de serveur API. |
-| aksrepos.azurecr.io       | HTTPS:443 | Cette adresse est nécessaire pour l’accès aux images dans Azure Container Registry (ACR). |
-| *.blob.core.windows.net   | HTTPS:443 | Cette adresse est le magasin principal pour les images stockées dans l’ACR. |
-| mcr.microsoft.com         | HTTPS:443 | Cette adresse est nécessaire pour l’accès aux images dans le Registre de conteneur Microsoft (MCR). |
-| management.azure.com      | HTTPS:443 | Cette adresse est obligatoire pour les opérations de Kubernetes GET/PUT. |
-| login.microsoftonline.com | HTTPS:443 | Cette adresse est requise pour l’authentification Azure Active Directory. |
+| FQDN                       | Port      | Utilisation      |
+|----------------------------|-----------|----------|
+| *.hcp.\<location\>.azmk8s.io | HTTPS:443, TCP:22, TCP:9000 | Cette adresse est le point de terminaison de serveur API. Remplacez *\<emplacement\>* avec la région où votre cluster AKS est déployé. |
+| *.tun.\<location\>.azmk8s.io | HTTPS:443, TCP:22, TCP:9000 | Cette adresse est le point de terminaison de serveur API. Remplacez *\<emplacement\>* avec la région où votre cluster AKS est déployé. |
+| aksrepos.azurecr.io        | HTTPS:443 | Cette adresse est nécessaire pour l’accès aux images dans Azure Container Registry (ACR). |
+| *.blob.core.windows.net    | HTTPS:443 | Cette adresse est le magasin principal pour les images stockées dans l’ACR. |
+| mcr.microsoft.com          | HTTPS:443 | Cette adresse est nécessaire pour l’accès aux images dans le Registre de conteneur Microsoft (MCR). |
+| *.cdn.mscr.io              | HTTPS:443 | Cette adresse est requise pour le stockage MCR soutenu par le réseau de distribution de contenu Azure (CDN). |
+| management.azure.com       | HTTPS:443 | Cette adresse est obligatoire pour les opérations de Kubernetes GET/PUT. |
+| login.microsoftonline.com  | HTTPS:443 | Cette adresse est requise pour l’authentification Azure Active Directory. |
+| api.snapcraft.io           | HTTPS:443, HTTP:80 | Cette adresse est requis pour installer les packages du composant logiciel enfichable sur des nœuds Linux. |
+| ntp.ubuntu.com             | UDP:123   | Cette adresse est nécessaire pour la synchronisation de temps NTP sur des nœuds Linux. |
+| *.docker.io                | HTTPS:443 | Cette adresse est nécessaire pour extraire des images de conteneur requis pour le front de tunnel. |
 
 ## <a name="optional-recommended-addresses-and-ports-for-aks-clusters"></a>Facultatif recommandé adresses et ports pour les clusters AKS
 
-Les ports de sortie suivants / règles de réseau ne sont pas nécessaires pour les clusters AKS de fonctionner correctement, mais sont recommandées :
-
-* Le port UDP *123* pour la synchronisation de temps NTP
 * Le port UDP *53* pour DNS
 
 Le nom de domaine complet suivant / règles d’application sont recommandés pour les clusters AKS de fonctionner correctement :

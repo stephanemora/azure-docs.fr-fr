@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: kgremban
-ms.openlocfilehash: f08845dbf4168627d0198e81d2092a1fe56c6c89
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.openlocfilehash: 73a9aebfd0c5338f63927860ce3f6c57b20428a4
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66733865"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754773"
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions"></a>Réagir aux événements IoT Hub en utilisant Event Grid pour déclencher des actions
 
@@ -25,7 +25,7 @@ Azure IoT Hub s’intègre à Azure Event Grid pour vous permettre d’envoyer d
 
 ## <a name="regional-availability"></a>Disponibilité régionale
 
-L’intégration Event Grid est disponible pour les hubs IoT situés dans les régions où Event Grid est pris en charge. Tous les événements de périphérique à l’exception des événements de télémétrie d’appareil sont généralement disponibles. Événement de télémétrie d’appareil est en version préliminaire publique et est disponible dans toutes les régions à l’exception des États-Unis, ouest des États-Unis, Europe de l’ouest, [Azure Government](/azure/azure-government/documentation-government-welcome), [Azure China 21Vianet](/azure/china/china-welcome), et [Azure Germany](https://azure.microsoft.com/global-infrastructure/germany/). Pour consulter la dernière liste des régions, reportez-vous à [Présentation d’Azure Event Grid](../event-grid/overview.md).
+L’intégration Event Grid est disponible pour les hubs IoT situés dans les régions où Event Grid est pris en charge. Tous les événements de périphérique à l’exception des événements de télémétrie d’appareil sont généralement disponibles. Événement de télémétrie d’appareil est en version préliminaire publique et est disponible dans toutes les régions à l’exception des États-Unis, ouest des États-Unis, Europe de l’ouest, [Azure Government](/azure/azure-government/documentation-government-welcome), [Azure China 21Vianet](/azure/china), et [Azure Germany](https://azure.microsoft.com/global-infrastructure/germany/). Pour consulter la dernière liste des régions, reportez-vous à [Présentation d’Azure Event Grid](../event-grid/overview.md).
 
 ## <a name="event-types"></a>Types d’événements
 

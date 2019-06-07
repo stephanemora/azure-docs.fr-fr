@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 5adba958ed3bcb9efbf66c079b541e11ceed570c
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 72a72e385217178cb6afee237cc3a3e5c5d1248b
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66243590"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66751642"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Contrôle d’accès dans Azure Data Lake Storage Gen2
 
@@ -53,7 +53,7 @@ Vous pouvez associer une entité de sécurité à un niveau d’accès pour les 
 
 Si un rôle est attribué à un principal de sécurité au niveau de compte de stockage, vous pouvez utiliser des listes de contrôle d’accès à accorder à que ce principal de sécurité un accès élevé aux répertoires et fichiers spécifiques.
 
-Vous ne pouvez pas utiliser les listes de contrôle d’accès pour fournir un niveau d’accès qui est inférieur à un niveau accordé par une attribution de rôle. Par exemple, si vous assignez le [contributeur aux données stockage Blob](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor-preview) répertorie de rôle à une entité, vous ne pouvez pas utiliser le contrôle d’accès de sécurité pour empêcher l’écriture dans un répertoire de ce principal de sécurité.
+Vous ne pouvez pas utiliser les listes de contrôle d’accès pour fournir un niveau d’accès qui est inférieur à un niveau accordé par une attribution de rôle. Par exemple, si vous assignez le [contributeur aux données stockage Blob](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) répertorie de rôle à une entité, vous ne pouvez pas utiliser le contrôle d’accès de sécurité pour empêcher l’écriture dans un répertoire de ce principal de sécurité.
 
 ### <a name="set-file-and-directory-level-permissions-by-using-access-control-lists"></a>Définir des autorisations au niveau fichier et répertoire à l’aide de listes de contrôle d’accès
 

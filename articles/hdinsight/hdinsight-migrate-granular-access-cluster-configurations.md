@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 9a592533a92ec724c9a332bef5fdfcf385cb7b2c
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: 1ec4786291d6e2e5be6785e52cf3ab5bb5bbc690
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66730682"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754539"
 ---
 # <a name="migrate-to-granular-role-based-access-for-cluster-configurations"></a>Migrer vers un accès en fonction du rôle granulaire pour les configurations de cluster
 
@@ -59,10 +59,10 @@ Les API suivantes seront modifiés ou obsolètes :
 - [**GET /configurations/ {configurationName}** ](https://docs.microsoft.com/rest/api/hdinsight/hdinsight-cluster#get-configuration) (les informations sensibles)
     - Précédemment utilisé pour obtenir les types de configuration individuels (y compris les secrets).
     - Cet appel d’API renvoie les types de configuration individuels avec des secrets omis. Pour obtenir toutes les configurations, notamment les secrets, utilisez le nouvel appel /configurations POST. Pour obtenir uniquement les paramètres de passerelle, utilisez le nouvel appel /getGatewaySettings POST.
-- [**GET /configurations** ](https://docs.microsoft.com/rest/api/hdinsight/hdinsight-cluster#get-configurations) (déconseillée)
+- [**GET /configurations** ](https://docs.microsoft.com/rest/api/hdinsight/hdinsight-cluster#get-configuration) (déconseillée)
     - Précédemment utilisé pour obtenir toutes les configurations (y compris les secrets)
     - Cet appel d’API n’est plus prises en charge. Pour obtenir toutes les configurations à l’avenir, utilisez le nouvel appel /configurations POST. Pour obtenir des configurations avec des paramètres sensibles omis, utilisez l’appel de /configurations/ {configurationName} GET.
-- [**POST /configurations/ {configurationName}** ](https://docs.microsoft.com/rest/api/hdinsight/hdinsight-cluster#change-connectivity-settings) (déconseillée)
+- [**POST /configurations/ {configurationName}** ](https://docs.microsoft.com/rest/api/hdinsight/hdinsight-cluster#update-gateway-settings) (déconseillée)
     - Précédemment utilisé pour mettre à jour les informations d’identification de la passerelle.
     - Cet appel d’API est déconseillé et n’est plus pris en charge. Utilisez la nouvelle /updateGatewaySettings POST à la place.
 

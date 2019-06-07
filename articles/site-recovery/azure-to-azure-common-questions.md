@@ -7,14 +7,14 @@ ms.service: site-recovery
 ms.date: 04/29/2019
 ms.topic: conceptual
 ms.author: asgan
-ms.openlocfilehash: 1a13bda37c5bfac4efe6bd6109cb1dfcd5f7d2a9
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 271e3c31c3e08d170add84ca4995f4876d4d3a33
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925673"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66753778"
 ---
-# <a name="common-questions-azure-to-azure-disaster-recovery"></a>Questions courantes : Récupération d’urgence Azure vers Azure
+# <a name="common-questions-azure-to-azure-disaster-recovery"></a>Questions courantes : Récupération d'urgence d'Azure vers Azure
 
 Cet article fournit des réponses aux questions courantes sur la récupération d’urgence de machines virtuelles Azure vers une autre région Azure à l’aide de [Site Recovery](site-recovery-overview.md). 
 
@@ -59,7 +59,7 @@ Oui, vous pouvez exclure des disques au moment de la protection à l’aide de P
 Oui, cela est pris en charge pour les machines virtuelles Azure avec des disques gérés. Lorsque vous ajoutez un nouveau disque à une machine virtuelle Azure prenant en charge pour la réplication, intégrité de la réplication pour la machine virtuelle affiche un avertissement, avec une remarque qui spécifie qu’un ou plusieurs disques sur la machine virtuelle sont disponibles pour la protection. Vous pouvez activer la réplication pour les disques ajoutés.
 - Si vous activez la protection pour les disques ajoutés, l’avertissement disparaît après la réplication initiale.
 - Si vous choisissez de ne pas activer la réplication pour le disque, vous pouvez sélectionner pour ignorer l’avertissement.
-- Lorsque vous basculez une machine virtuelle à laquelle vous ajoutez un disque et activez la réplication, les points de la réplication affichera les disques qui sont disponibles pour la récupération. Par exemple, si une machine virtuelle a un seul disque et que vous ajoutez un nouveau, les points de réplication qui ont été créés avant que vous avez ajouté le disque montrent que le point de réplication se compose de « 1 de 2 disques ».
+- Lorsque vous basculez une machine virtuelle à laquelle vous ajoutez un disque et activez la réplication, les points de la réplication affichera les disques qui sont disponibles pour la récupération. Par exemple, si une machine virtuelle comporte un seul disque et que vous en ajoutez un nouveau, les points de réplication créés avant l’ajout du disque montrent que le point de réplication se compose de « 1 de 2 disques ».
 
 Site Recovery ne prend pas en charge le « à chaud supprimer » d’un disque à partir d’une machine virtuelle répliquée. Si vous supprimez un disque de machine virtuelle, vous devez désactiver puis réactiver la réplication pour la machine virtuelle.
 
@@ -143,7 +143,7 @@ Oui. Si vous augmentez la période de rétention de 24 à 72 heures, Site Rec
 Cette fonctionnalité permet de s’assurer que le point de récupération est cohérent dans toutes les machines virtuelles répliquées.
 Site Recovery fournit l’option Cohérence multimachine virtuelle, qui, lorsque vous la sélectionnez, crée un groupe de réplication pour répliquer ensemble toutes les machines qui font partie du groupe.
 Toutes les machines virtuelles ont des points de récupération cohérents après incident et cohérents au niveau application lorsqu’elles basculent.
-Consultez le tutoriel pour [activer la cohérence multimachine virtuelle](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication#enable-replication).
+Consultez le tutoriel pour [activer la cohérence multimachine virtuelle](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication#enable-replication-for-a-vm).
 
 ### <a name="can-i-failover-single-virtual-machine-within-a-multi-vm-consistency-replication-group"></a>Puis-je basculer une seule machine virtuelle au sein d’un groupe de réplication avec cohérence multimachine virtuelle ?
 En sélectionnant l’option Cohérence multimachine virtuelle, vous indiquez que l’application a une dépendance sur toutes les machines virtuelles au sein d’un groupe. Par conséquent, le basculement d’une machine virtuelle unique n’est pas autorisé.

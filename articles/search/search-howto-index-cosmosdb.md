@@ -10,18 +10,18 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 07989b06b756e1e360ac3c37927a8267c84d9162
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: 0610f57e264189961a6803bee5bb93c1ec9fb103
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65522837"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66753987"
 ---
 # <a name="how-to-index-cosmos-db-using-an-azure-search-indexer"></a>Comment indexer Cosmos DB à l’aide d’un indexeur recherche Azure
 
 
 > [!Note]
-> Prise en charge de l’API MongoDB est en version préliminaire et les a pas été conçu pour la production. Le [API REST version 2019-05-06-Preview](search-api-preview.md) fournit cette fonctionnalité. Il n’existe aucun portail ou la prise en charge du SDK .NET pour l’instant.
+> Prise en charge de l’API MongoDB est en version préliminaire et les a pas été conçu pour la production. L’[API REST version 2019-05-06-Preview](search-api-preview.md) fournit cette fonctionnalité. Il n’existe aucun portail ou la prise en charge du SDK .NET pour l’instant.
 >
 > API SQL est généralement disponible.
 
@@ -40,7 +40,7 @@ Vous pouvez utiliser la [portal](#cosmos-indexer-portal), API REST ou .NET SDK p
 
 <a name="cosmos-indexer-portal"></a>
 
-## <a name="use-the-portal"></a>Utiliser le portail 
+## <a name="use-the-portal"></a>Utiliser le portail
 
 La méthode la plus simple pour l’indexation des éléments d’Azure Cosmos consiste à utiliser un Assistant dans le [Azure portal](https://portal.azure.com/). Via un échantillonnage des données et de lecture des métadonnées sur le conteneur, le [ **importer des données** ](search-import-data-portal.md) Assistant dans recherche Azure peut créer un index par défaut, mapper des champs sources aux champs d’index cible et charger l’index dans un seul opération. Selon la taille et la complexité de la source de données, vous pouvez obtenir un index de recherche en texte intégral opérationnel en quelques minutes.
 
@@ -174,7 +174,7 @@ Pour créer une source de données, formuler une demande POST :
 
 Le corps de la requête contient la définition de la source de données, qui doit inclure les champs suivants :
 
-| Champ   | Description  |
+| Champ   | Description |
 |---------|-------------|
 | **name** | Requis. Choisissez un nom pour représenter votre objet de source de données. |
 |**type**| Requis. Doit être `cosmosdb`. |
@@ -282,6 +282,8 @@ Une fois l'index et la source de données créés, vous êtes prêt à créer l�
 Cet indexeur s’exécute toutes les deux heures (intervalle de planification défini sur « PT2H »). Pour exécuter un indexeur toutes les 30 minutes, définissez l’intervalle sur « PT30M ». Le plus court intervalle pris en charge est de 5 minutes. La planification est facultative : en cas d’omission, un indexeur ne s’exécute qu’une seule fois lorsqu’il est créé. Toutefois, vous pouvez à tout moment exécuter un indexeur à la demande.   
 
 Pour plus d’informations sur l’API Créer un indexeur, consultez [Créer un indexeur](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
+
+Pour plus d’informations sur la définition des planifications de l’indexeur, consultez [comment planifier des indexeurs pour Azure Search](search-howto-schedule-indexers.md).
 
 ## <a name="use-net"></a>Utiliser .NET
 

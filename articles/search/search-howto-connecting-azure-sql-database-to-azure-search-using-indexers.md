@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: c23933e7f379a438d436fd99c5fea7899c5891ef
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 59a45791676f62f42763e0e834d327b0c0c4106d
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025359"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66755102"
 ---
 # <a name="connect-to-and-index-azure-sql-database-content-using-azure-search-indexers"></a>Se connecter à Azure SQL Database et indexer le contenu à l’aide d’indexeurs Recherche Azure
 
@@ -158,23 +158,7 @@ Vous pouvez également configurer l'indexeur pour qu’il s’exécute à interv
 
 Le paramètre **interval** est obligatoire. Il correspond à la durée entre le début de deux exécutions consécutives de l’indexeur. L'intervalle minimal autorisé est de 5 minutes, l'intervalle maximal autorisé est d'une journée. Il doit être formaté en tant que valeur « dayTimeDuration » XSD (un sous-ensemble limité d'une valeur de [durée ISO 8601](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) ). Le modèle est le suivant : `P(nD)(T(nH)(nM))`. Exemples : `PT15M` toutes les 15 minutes, `PT2H` toutes les deux heures.
 
-Le paramètre **startTime** facultatif indique quand les exécutions planifiées doivent commencer. S’il est omis, l’heure UTC actuelle est utilisée. Cette heure peut être passée, auquel cas la première exécution est planifiée comme si l’indexeur s’exécutait en continu depuis l’heure de début.  
-
-L’indexeur ne peut s’exécuter qu’une seule fois simultanément. Si un indexeur est en cours d’exécution au moment de son exécution planifiée, celle-ci est différée jusqu’à la prochaine date planifiée.
-
-Pour être plus clair, prenons un exemple. Supposons que nous avons configuré la planification suivante :
-
-    "schedule" : { "interval" : "PT1H", "startTime" : "2015-03-01T00:00:00Z" }
-
-Voici ce qui se passe :
-
-1. La première exécution de l'indexeur commence à ou autour du 1er mars 2015 à 0 heure UTC.
-2. Supposons que cette exécution prend 20 minutes (ou en tout cas, moins de 1 heure).
-3. La deuxième exécution commence à ou autour du 1er mars 2015 à 1 heure.
-4. Supposons maintenant que cette exécution dure plus d’une heure, par exemple, 70 minutes, et se termine à environ 2 h 10.
-5. Il est maintenant 2 h 00, heure du début de la troisième exécution. Cependant, comme la deuxième exécution démarrée à 1 heure est toujours en cours d’exécution, la troisième exécution est ignorée. Elle commence à 3 h 00.
-
-Vous pouvez ajouter, modifier ou supprimer une planification d’indexeur en utilisant une requête **PUT indexer** .
+Pour plus d’informations sur la définition des planifications de l’indexeur, consultez [comment planifier des indexeurs pour Azure Search](search-howto-schedule-indexers.md).
 
 <a name="CaptureChangedRows"></a>
 

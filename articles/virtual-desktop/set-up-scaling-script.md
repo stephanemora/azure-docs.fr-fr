@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 7687abf5fc4af0eea9fa6aa210cfd6734cec2b36
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: e9f500e3ab965b9dbfc5e395a6572497c85f6f8f
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65410583"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66755129"
 ---
 # <a name="automatically-scale-session-hosts"></a>Mettre automatiquement à l’échelle vos hôtes de session
 
@@ -26,7 +26,7 @@ L’environnement dans lequel vous exécutez le script doit disposer des éléme
 
 - Un client de bureau virtuel Windows et compte ou un principal de service avec des autorisations pour interroger ce client (par exemple, contributeur de services Bureau à distance).
 - Machines virtuelles du pool session hôte configuré et inscrit auprès du service Bureau virtuel Windows.
-- Une machine virtuelle supplémentaire qui exécute la tâche planifiée par le biais du Planificateur de tâches et dispose d’un accès réseau aux hôtes de session. Ce sera fait référence à plus tard dans le document en tant que machine virtuelle de scaler.
+- Une machine virtuelle supplémentaire qui exécute la tâche planifiée par le biais du Planificateur de tâches et dispose d’un accès réseau aux hôtes de session. Cela sera être appelé plus loin dans le document scaler machine virtuelle.
 - Le [module Microsoft Azure Resource Manager PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) installé sur la machine virtuelle exécutant la tâche planifiée.
 - Le [module PowerShell de bureau virtuel Windows](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) installé sur la machine virtuelle exécutant la tâche planifiée.
 
@@ -81,7 +81,7 @@ Ensuite, vous devez créer les informations d’identification stockées en tout
 
 Entrez les valeurs appropriées dans les champs suivants pour mettre à jour les paramètres de script de mise à l’échelle dans le fichier config.xml :
 
-| Champ                     | Description                     |
+| Champ                     | Description                    |
 |-------------------------------|------------------------------------|
 | AADTenantId                   | ID du locataire AD Azure qui associe l’abonnement dans lequel exécuter des machines virtuelles de l’hôte de session     |
 | AADApplicationId              | ID d’application du principal du service                                                       |

@@ -7,12 +7,12 @@ ms.author: parthp
 ms.service: marketplace
 ms.topic: how-to
 ms.date: 05/30/2019
-ms.openlocfilehash: 935d2e1c96705506636c2883113a64bb70c39336
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 5cb4caa6f0f8098e68d693be6cc2f33b5ccbeb32
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65806190"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66752832"
 ---
 # <a name="how-to-manage-your-commercial-marketplace-account-in-partner-center"></a>Comment gérer votre compte de la place de marché Commercial dans Partner Center 
 
@@ -63,7 +63,7 @@ Dans la section Détails du compte, vous pouvez voir des informations de base, t
 
 Dans la section de l’ID du serveur de publication, vous pouvez voir votre **ID de vendeur**, **ID MPN**, et **ID de l’éditeur**. Ces valeurs sont assignés par Microsoft pour identifier votre compte de développeur et ne peut pas être modifiés.
 
-### <a name="contact-info"></a>Infos de contact
+### <a name="contact-info"></a>Informations de contact
 
 Dans la section informations de Contact, vous pouvez voir votre **nom d’affichage de serveur de publication**, **les informations de contact du vendeur** (le nom du contact, e-mail, numéro de téléphone et adresse pour le vendeur d’entreprise) et le **entreprise approbateur** (nom, e-mail et numéro de téléphone de la personne avec autorité pour approuver les décisions de l’entreprise). 
 
@@ -149,7 +149,7 @@ Pour plus d’informations, consultez le [l’utilisation du client Azure suivi 
 
 Tire parti des partenaires [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) (Azure AD) pour la gestion et accès aux comptes d’utilisateurs multiples. Votre organisation Azure AD est automatiquement associé à votre compte espace partenaires dans le cadre du processus d’inscription. 
 
-## <a name="manage-users"></a>Gérer les utilisateurs
+## <a name="manage-users"></a>Manage Users
 
 Le **utilisateurs** section de partenaires (sous **comptable**) vous utilisez Azure AD pour gérer les utilisateurs, groupes et les applications Azure AD qui ont accès à votre compte espace partenaires. Notez que pour gérer les utilisateurs, vous devez être connecté avec votre [compte professionnel](./company-work-accounts.md) (locataire Azure AD associé). Pour gérer les utilisateurs au sein d’un compte de travail / client, vous devrez vous déconnecter et puis reconnectez-vous en tant qu’utilisateur avec **Manager** fonctionnent les autorisations sur ce compte / locataire. 
 
@@ -279,7 +279,7 @@ Si vous souhaitez accorder l’accès de partenaires à un tout nouveau Azure co
 1.  À partir de la **utilisateurs** page (sous **paramètres du compte**), sélectionnez **ajouter des applications Azure AD**.
 2.  Sur la page suivante, sélectionnez **New Azure AD application**.
 3.  Entrez le **URL de réponse** pour la nouvelle application Azure AD. Il s’agit de l’URL où les utilisateurs peuvent se connecter et utiliser votre application Azure AD (parfois également appelée URL de l’application ou URL de connexion). Le **URL de réponse** ne peut pas dépasser 256 caractères et doit être unique dans votre répertoire.
-4.  Entrez le **URI ID d’application** pour la nouvelle application Azure AD. Il s’agit d’un identificateur logique de l’application Azure AD qui est présentée lorsqu’une demande d’authentification unique est envoyée à Azure AD. Notez que le **URI ID d’application** doit être unique pour chaque application Azure AD dans votre répertoire. Cet ID ne peut pas dépasser 256 caractères. Pour plus d’informations sur l’URI ID d’application, consultez [intégration d’applications dans Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#changing-the-application-registration-to-support-multi-tenant).
+4.  Entrez le **URI ID d’application** pour la nouvelle application Azure AD. Il s’agit d’un identificateur logique de l’application Azure AD qui est présentée lorsqu’une demande d’authentification unique est envoyée à Azure AD. Notez que le **URI ID d’application** doit être unique pour chaque application Azure AD dans votre répertoire. Cet ID ne peut pas dépasser 256 caractères. Pour plus d’informations sur l’URI ID d’application, consultez [intégration d’applications dans Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/quickstart-modify-supported-accounts#change-the-application-registration-to-support-different-accounts).
 5.  Dans le **rôles** section, spécifiez l’ou les rôles ou les autorisations personnalisées pour l’application Azure AD.
 6.  Sélectionnez **Enregistrer**.
 
@@ -313,7 +313,7 @@ Notez les rôles de locataire Azure Active Directory (AAD) incluent l’administ
 |      |• Créer des tickets de support pour l’espace partenaires
 ||• Afficher les contrats, des listes de prix et des offres
 ||• Afficher, créer et gérer des utilisateurs partenaires|
-|Responsable|• Peuvent accéder à toutes les fonctionnalités de compte Microsoft, à l’exception des paramètres de taxe et de paiement
+|Manager|• Peuvent accéder à toutes les fonctionnalités de compte Microsoft, à l’exception des paramètres de taxe et de paiement
 |      |• Peuvent gérer les utilisateurs, rôles et utiliser des comptes (clients)|
 |Développeur|• Peut charger des packages, soumettre des applications et des modules complémentaires et afficher le rapport d’utilisation pour plus d’informations de télémétrie
 |      |• Ne peut pas accéder à des paramètres de compte ou des informations financières|

@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 04/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8bb06d04aec8e98308c0f5595b6b39e4b98302ff
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: f369f899d4a383205ad124e4fcd8dabf9f92f63f
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66480061"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66753190"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Voici comment Azure Machine Learning service fonctionne : Architecture et concepts
 
@@ -27,7 +27,7 @@ En savoir plus sur l’architecture, les concepts et les flux de travail pour le
 
 Le flux de travail machine learning suit généralement cette séquence :
 
-1. Développez les scripts d’entraînement de machine learning avec **Python**.
+1. Développer l’apprentissage, formation de scripts dans **Python** ou avec l’interface visuelle.
 1. Créez et configurez une **cible de calcul**.
 1. **Envoyez les scripts** à la cible de calcul configurée en vue de leur exécution dans cet environnement. Pendant l’entraînement, les scripts peuvent lire ou écrire dans un **magasin de données**. De plus, les enregistrements de l’exécution sont enregistrés en tant que **séries** dans l’**espace de travail** et regroupés dans des **expériences**.
 1. **Interrogez cette expérience** pour obtenir les métriques journalisées relatives aux exécutions actuelles et passées. Si les métriques ne montrent pas le résultat souhaité, retournez à l’étape 1, puis itérez vos scripts.
@@ -107,34 +107,7 @@ Utilisez l’API du SDK Python ou l’interface CLI Azure Machine Learning pour 
 
 ## <a name="compute-target"></a>Cible de calcul
 
-Une cible de calcul est une ressource de calcul que vous utilisez pour exécuter votre script de formation ou pour héberger votre déploiement de service. Les cibles de calcul prises en charge sont les suivantes :
-
-| Cible de calcul | Formation | Déploiement |
-| ---- |:----:|:----:|
-| Votre ordinateur local | ✓ | &nbsp; |
-| Capacité de calcul Azure Machine Learning | ✓ | &nbsp; |
-| Une machine virtuelle Linux dans Azure</br>(par exemple Data Science Virtual Machine) | ✓ | &nbsp; |
-| Azure Databricks | ✓ | &nbsp; |
-| Service Analytique Azure Data Lake | ✓ | &nbsp; |
-| Apache Spark pour HDInsight | ✓ | &nbsp; |
-| Azure Container Instances | &nbsp; | ✓ |
-| Azure Kubernetes Service | &nbsp; | ✓ |
-| Azure IoT Edge | &nbsp; | ✓ |
-| FPGA (Field-Programmable Gate Array) | &nbsp; | ✓ |
-
-Les cibles de calcul sont attachées à un espace de travail. Les cibles de calcul autres que l’ordinateur local sont partagées par les utilisateurs de l’espace de travail.
-
-### <a name="managed-and-unmanaged-compute-targets"></a>Cibles de calcul managées et non managées
-
-* **Managées** : Cibles de calcul qui sont créées et managées par le service Azure Machine Learning. Ces cibles de calcul sont optimisées pour les charges de travail Machine Learning. À l’heure actuelle, la capacité de calcul Azure Machine Learning est la seule cible de calcul managée à partir du 4 décembre 2018. Il se peut que d’autres cibles de calcul managées soient ajoutées à l’avenir.
-
-    Vous pouvez créer des instances de capacité de calcul ML directement via l’espace de travail à l’aide du Portail Azure, du SDK Azure Machine Learning ou d’Azure CLI. Toutes les autres cibles de calcul doivent être créées hors de l’espace de travail avant d’y être jointes.
-
-* **Non managées** : Les cibles de calcul ne sont *pas* managées par Azure Machine Learning service. Il se peut que vous deviez les créer hors d’Azure Machine Learning, puis les joindre à votre espace de travail avant utilisation. Il se peut que des étapes supplémentaires soient requises pour ces cibles de calcul non managées afin de maintenir ou d’améliorer les performances des charges de travail Machine Learning.
-
-Pour plus d’informations sur la sélection d’une cible de calcul pour l’entraînement, consultez [Sélectionner et utiliser une cible de calcul pour entraîner votre modèle](how-to-set-up-training-targets.md).
-
-Pour plus d’informations sur la sélection d’une cible de calcul pour le déploiement, consultez [Déployer des modèles avec le service Azure Machine Learning](how-to-deploy-and-where.md).
+Un [cible de calcul](concept-compute-target.md) vous permet de pour spécifier la ressource de calcul où vous exécutez votre script de formation ou d’un hôte de votre déploiement de service. Cet emplacement peut être votre ordinateur local ou une ressource de calcul basé sur le cloud. Cibles de calcul facilitent la modification de votre environnement de calcul sans modifier votre code. 
 
 ## <a name="training-script"></a>Script d’entraînement
 

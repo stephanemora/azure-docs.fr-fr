@@ -7,12 +7,12 @@ ms.author: mattwoj
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 9c8b8a6ad8a10a65a05b46bf433d00b4e3ecb402
-ms.sourcegitcommit: ec7b0bf593645c0d1ef401a3350f162e02c7e9b8
+ms.openlocfilehash: 897634ac0c30b4a2cc496c225965f465a94fe4e9
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2019
-ms.locfileid: "66455641"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66751903"
 ---
 # <a name="create-a-new-saas-offer"></a>Créez une offre SaaS
 
@@ -74,7 +74,7 @@ Pour répertorier les logiciels que celle proposée par un Service (SaaS) avec l
 
 - Votre offre doit être compatible avec les clients Azure. (Souvent les applications SaaS sont aussi hébergées sur Azure pour meilleures performances et la compatibilité, mais cela n’est pas obligatoire.) 
 - Votre offre doit utiliser [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) pour l’authentification et de gestion des identités.
-- Votre offre doit utiliser [API de traitement des commandes SaaS](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-fulfillment-api-v2) à intégrer à la place de marché Azure.
+- Votre offre doit utiliser [API de traitement des commandes SaaS](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2) à intégrer à la place de marché Azure.
 
 #### <a name="billing-infrastructure-costs"></a>Facturation des coûts d’infrastructure
 Pour les offres SaaS, vous, en tant que le serveur de publication devez tenir compte de frais d’utilisation de l’infrastructure Azure et les frais de licence de logiciel en tant qu’un élément de coût unique. Ce coût est représenté comme un tarif mensuel fixe pour le client. Utilisation de l’infrastructure Azure est gérée et facturée à vous, le partenaire, directement. Les frais réels d’utilisation de l’infrastructure ne sont pas visibles par le client. Les éditeurs choisissent généralement d’inclure les frais d’utilisation de l’infrastructure Azure dans leurs tarifs de licence logicielle. 

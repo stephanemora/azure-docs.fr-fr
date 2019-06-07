@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/29/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 73ed98bf950f7c9f52e2b8eeb431fe4b36bfe324
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.openlocfilehash: 375d0de60b916becc8e86a1e33cf4ed46f12c077
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66427928"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754823"
 ---
 # <a name="use-azure-files-with-linux"></a>Utiliser Azure Files avec Linux
 
@@ -75,7 +75,10 @@ ms.locfileid: "66427928"
 
     Sur les autres distributions, utilisez le gestionnaire de package approprié ou effectuez une [compilation à partir de la source](https://wiki.samba.org/index.php/LinuxCIFS_utils#Download).
 
-* **Déterminer les autorisations de fichier/répertoire du partage monté** : dans les exemples ci-dessous, l’autorisation `0777` permet d’accorder des autorisations de lecture, d’écriture et d’exécution à tous les utilisateurs. Vous pouvez les remplacer par d’autres [autorisations chmod](https://en.wikipedia.org/wiki/Chmod) comme vous le souhaitez.
+* **Déterminer les autorisations de fichier/répertoire du partage monté** : dans les exemples ci-dessous, l’autorisation `0777` permet d’accorder des autorisations de lecture, d’écriture et d’exécution à tous les utilisateurs. Vous pouvez le remplacer par d’autres [autorisations chmod](https://en.wikipedia.org/wiki/Chmod) comme vous le souhaitez, bien que cela signifie potentiellement restreindre l’accès. Si vous utilisez d’autres autorisations, vous devez envisager d’utiliser également des uid et gid pour conserver l’accès pour les groupes locaux de votre choix.
+
+> [!NOTE]
+> Si vous n’affectez pas explicitement d’autorisation de répertoires et de fichiers avec les bits dir_mode et file_mode, ils seront par défaut 0755.
 
 * **Vérifiez que le port 445 est ouvert** : SMB communique via le port TCP 445. Assurez-vous que votre pare-feu ne bloque pas les ports TCP 445 à partir de la machine cliente.
 
@@ -89,7 +92,7 @@ ms.locfileid: "66427928"
     mkdir -p <storage_account_name>/<file_share_name>
     ```
 
-1. **utilisez la commande de montagne pour monter le partage de fichiers Azure** : N’oubliez pas de remplacer **< nom_compte_stockage >** , **< nom_partage >** , **< smb_version >** , **< storage_account_key >** , et **< point >** avec les informations appropriées pour votre environnement. Si votre distribution Linux prend en charge SMB 3.0 avec chiffrement (voir [requise pour le client SMB comprendre](#smb-client-reqs) pour plus d’informations), utilisez **3.0** pour **< smb_version >** . Pour les distributions Linux qui ne prennent pas en charge SMB 3.0 avec chiffrement, utilisez **2.1** pour **< smb_version >** . Un partage de fichiers Azure peut uniquement être monté en dehors d’une région Azure (notamment en local ou dans une autre région Azure) avec SMB 3.0. 
+1. **utilisez la commande de montagne pour monter le partage de fichiers Azure** : N’oubliez pas de remplacer **< nom_compte_stockage >** , **< nom_partage >** , **< smb_version >** , **< storage_account_key >** , et **< point >** avec les informations appropriées pour votre environnement. Si votre distribution Linux prend en charge SMB 3.0 avec chiffrement (voir [requise pour le client SMB comprendre](#smb-client-reqs) pour plus d’informations), utilisez **3.0** pour **< smb_version >** . Pour les distributions Linux qui ne prennent pas en charge SMB 3.0 avec chiffrement, utilisez **2.1** pour **< smb_version >** . Un partage de fichiers Azure peut uniquement être monté en dehors d’une région Azure (notamment en local ou dans une autre région Azure) avec SMB 3.0. Si vous le souhaitez, vous pouvez modifier les autorisations de répertoires et les fichiers de votre partage monté, mais, cela signifierait que restreindre l’accès.
 
     ```bash
     sudo mount -t cifs //<storage_account_name>.file.core.windows.net/<share_name> <mount_point> -o vers=<smb_version>,username=<storage_account_name>,password=<storage_account_key>,dir_mode=0777,file_mode=0777,serverino

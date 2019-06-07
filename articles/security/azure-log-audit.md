@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/14/2019
 ms.author: TomSh
-ms.openlocfilehash: 6ab6ec6a88dbba066be9ecf9919be876090cfdff
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: edadb369461bb3865dd6894c3329e7079fa9d13f
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62121499"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66752558"
 ---
 # <a name="azure-logging-and-auditing"></a>Journalisation et audit Azure
 
@@ -279,7 +279,7 @@ Le tableau suivant liste et décrit des scénarios d’intégration :
 |[Plan de l’application](https://docs.microsoft.com/azure/application-insights/app-insights-app-map)|Les composants de votre application, avec des alertes et des mesures clés.|
 |[Recherche de diagnostic pour les données d’instance](https://docs.microsoft.com/azure/application-insights/app-insights-diagnostic-search)| Cherchez et filtrez les événements, comme les requêtes, les exceptions, les appels de dépendance, les suivis de journaux et les affichages de pages.|
 |[Metrics Explorer pour les données agrégées](https://docs.microsoft.com/azure/azure-monitor/app/metrics-explorer)|Explorez, filtrez et segmentez des données agrégées, comme les taux de demandes, d’échecs et d’exceptions, les temps de réponse et les durées de chargement des pages.|
-|[Tableaux de bord](https://docs.microsoft.com/azure/application-insights/app-insights-dashboards#dashboards)|Combinez des données de plusieurs sources et partagez-les avec d’autres. Idéal pour les applications à composants multiples et pour un affichage en continu dans la salle de l’équipe.|
+|[Tableaux de bord](https://docs.microsoft.com/azure/azure-monitor/app/overview-dashboard)|Combinez des données de plusieurs sources et partagez-les avec d’autres. Idéal pour les applications à composants multiples et pour un affichage en continu dans la salle de l’équipe.|
 |[Flux de métriques temps réel](https://docs.microsoft.com/azure/azure-monitor/app/live-stream)|Lorsque vous déployez une nouvelle version, observez ces indicateurs de performance quasiment en temps réel pour vous assurer que tout fonctionne comme prévu.|
 |[Analyse](https://docs.microsoft.com/azure/application-insights/app-insights-analytics)|Répondez à des questions difficiles sur les performances et l’utilisation de votre application avec ce langage de requêtes puissant.|
 |[Alertes automatiques et manuelles](https://docs.microsoft.com/azure/application-insights/app-insights-alerts)|Les alertes automatiques s’adaptent aux modèles télémétriques habituels de votre application et se déclenchent lorsqu’un comportement inhabituel est détecté. Vous pouvez également définir des alertes sur des niveaux particuliers de mesures personnalisées ou standard.|
@@ -330,7 +330,7 @@ Il existe quatre façons de [collecter des journaux d’activité et des métriq
 
 | de diffusion en continu | Type de ressource | Journaux d’activité | Mesures | Solution |
 | :------ | :------------ | :--- | :------ | :------- |
-|Azure Application Gateway| Microsoft.Network/<br>applicationGateways|  Diagnostics|Diagnostics|    [Azure Application](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics#azure-application-gateway-analytics-solution-in-log-analytics)[Gateway Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics#azure-application-gateway-analytics-solution-in-log-analytics)|
+|Azure Application Gateway| Microsoft.Network/<br>applicationGateways|  Diagnostics|Diagnostics|    [Azure Application](https://docs.microsoft.com/azure/azure-monitor/insights/azure-networking-analytics)[Gateway Analytics](https://docs.microsoft.com/azure/azure-monitor/insights/azure-networking-analytics#azure-application-gateway-analytics-solution-in-azure-monitor)|
 |Application Insights||     Connecteur|  Connecteur|  [Connecteur](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/)[Application Insights (version préliminaire)](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/)|
 |Comptes Azure Automation| Microsoft.Automation/<br>AutomationAccounts|    Diagnostics||       [Plus d’informations](https://docs.microsoft.com/azure/automation/automation-manage-send-joblogs-log-analytics)|
 |Comptes Azure Batch|  Microsoft.Batch/<br>batchAccounts|  Diagnostics|    Diagnostics||
@@ -344,7 +344,7 @@ Il existe quatre façons de [collecter des journaux d’activité et des métriq
 |Azure Load Balancer|   Microsoft.Network/<br>loadBalancers|    Diagnostics|||
 |Azure Logic Apps|  Microsoft.Logic/<br>workflows|  Diagnostics|    Diagnostics||
 ||Microsoft.Logic/<br>integrationAccounts||||
-|Network Security Group|   Microsoft.Network/<br>networksecuritygroups|Diagnostics||   [Azure Network Security Group Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics#azure-network-security-group-analytics-solution-in-log-analytics)|
+|Network Security Group|   Microsoft.Network/<br>networksecuritygroups|Diagnostics||   [Azure Network Security Group Analytics](https://docs.microsoft.com/azure/azure-monitor/insights/azure-networking-analytics#azure-application-gateway-and-network-security-group-analytics)|
 |Coffres de récupération|   Microsoft.RecoveryServices/<br>vaults|||[Azure Recovery Services Analytics (version préliminaire)](https://github.com/krnese/AzureDeploy/blob/master/OMS/MSOMS/Solutions/recoveryservices/)|
 |Services de recherche|   Microsoft.Search/<br>searchServices|    Diagnostics|    Diagnostics||
 |Espace de noms Service Bus| Microsoft.ServiceBus/<br>namespaces|    Diagnostics|Diagnostics|    [Service Bus Analytics (version préliminaire)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-servicebus-solution)|
@@ -354,7 +354,7 @@ Il existe quatre façons de [collecter des journaux d’activité et des métriq
 |Stockage|||         Script| [Azure Storage Analytics (version préliminaire)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-azure-storage-analytics-solution)|
 |Machines virtuelles Azure|    Microsoft.Compute/<br>virtualMachines|  Extension|  Extension||
 ||||Diagnostics||
-|Groupes identiques de machines virtuelles |    Microsoft.Compute/<br>virtualMachines    ||Diagnostics||
+|Groupes identiques de machines virtuelles|    Microsoft.Compute/<br>virtualMachines    ||Diagnostics||
 ||Microsoft.Compute/<br>virtualMachineScaleSets/<br>virtualMachines||||
 |Batteries de serveurs web|Microsoft.Web/<br>serverfarms||   Diagnostics
 |Sites web|  Microsoft.Web/<br>sites ||      Diagnostics|    [Plus d’informations](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webappazure-oms-monitoring)|

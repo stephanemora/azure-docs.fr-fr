@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: 95c6e1f015e519bd1e753fce9a2c6f064a854456
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 05335cb6949928244e10641ebe82008275830e67
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64713770"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754066"
 ---
 # <a name="diagnose-on-premises-connectivity-via-vpn-gateways"></a>Diagnostiquer la connectivité locale par le biais de passerelles VPN
 
@@ -36,7 +36,7 @@ Vous pouvez configurer une connexion site à site entre Azure et votre site loca
 
 1. Passerelle de réseau virtuel - La passerelle VPN sur Azure
 1. Passerelle de réseau local : représentation de la [passerelle VPN (FortiGate) locale](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md#LocalNetworkGateway) dans le cloud Azure
-1. Connexion site à site (basée sur l’itinéraire) : [Connexion entre la passerelle VPN et le routeur local](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal#createconnection)
+1. Connexion site à site (basée sur l’itinéraire) : [Connexion entre la passerelle VPN et le routeur local](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal#CreateConnection)
 1. [Configuration de FortiGate](https://github.com/Azure/Azure-vpn-config-samples/blob/master/Fortinet/Current/Site-to-Site_VPN_using_FortiGate.md)
 
 Vous trouverez des instructions étape par étape détaillées sur la configuration d’une connexion de site à site en consultant : [Créer un réseau virtuel avec une connexion de site à site à l’aide du portail Azure](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md).
@@ -84,13 +84,13 @@ La fonctionnalité de résolution des problèmes d’Azure Network Watcher vous 
 | Type d’erreur | Motif | Journal|
 |---|---|---|
 | NoFault | Quand aucune erreur n’est détectée. |Oui|
-| GatewayNotFound | Passerelle introuvable ou non approvisionnée. |Non |
-| PlannedMaintenance |  Instance de passerelle en maintenance.  |Non |
-| UserDrivenUpdate | Quand une mise à jour utilisateur est en cours. Il peut s’agir d’une opération de redimensionnement. | Non  |
-| VipUnResponsive | Impossible d’atteindre l’instance principale de la passerelle. Cela se produit en cas d’échec de la sonde d’intégrité. | Non  |
-| PlatformInActive | Il existe un problème avec la plateforme. | Non |
-| ServiceNotRunning | Le service sous-jacent ne fonctionne pas. | Non |
-| NoConnectionsFoundForGateway | Aucune connexion n’existe sur la passerelle. Il s’agit simplement d’un avertissement.| Non |
+| GatewayNotFound | Passerelle introuvable ou non approvisionnée. |Non|
+| PlannedMaintenance |  Instance de passerelle en maintenance.  |Non|
+| UserDrivenUpdate | Quand une mise à jour utilisateur est en cours. Il peut s’agir d’une opération de redimensionnement. | Non |
+| VipUnResponsive | Impossible d’atteindre l’instance principale de la passerelle. Cela se produit en cas d’échec de la sonde d’intégrité. | Non |
+| PlatformInActive | Il existe un problème avec la plateforme. | Non|
+| ServiceNotRunning | Le service sous-jacent ne fonctionne pas. | Non|
+| NoConnectionsFoundForGateway | Aucune connexion n’existe sur la passerelle. Il s’agit simplement d’un avertissement.| Non|
 | ConnectionsNotConnected | Aucune des connexions n’est connectée. Il s’agit simplement d’un avertissement.| Oui|
 | GatewayCPUUsageExceeded | L’utilisation du processeur par la passerelle est actuellement supérieure à 95 %. | Oui |
 
@@ -99,12 +99,12 @@ La fonctionnalité de résolution des problèmes d’Azure Network Watcher vous 
 | Type d’erreur | Motif | Journal|
 |---|---|---|
 | NoFault | Quand aucune erreur n’est détectée. |Oui|
-| GatewayNotFound | Passerelle introuvable ou non approvisionnée. |Non |
-| PlannedMaintenance | Instance de passerelle en maintenance.  |Non |
-| UserDrivenUpdate | Quand une mise à jour utilisateur est en cours. Il peut s’agir d’une opération de redimensionnement.  | Non  |
-| VipUnResponsive | Impossible d’atteindre l’instance principale de la passerelle. Cela se produit en cas d’échec de la sonde d’intégrité. | Non  |
-| ConnectionEntityNotFound | La configuration de la connexion est manquante. | Non  |
-| ConnectionIsMarkedDisconnected | La connexion est identifiée comme étant « déconnectée ». |Non |
+| GatewayNotFound | Passerelle introuvable ou non approvisionnée. |Non|
+| PlannedMaintenance | Instance de passerelle en maintenance.  |Non|
+| UserDrivenUpdate | Quand une mise à jour utilisateur est en cours. Il peut s’agir d’une opération de redimensionnement.  | Non |
+| VipUnResponsive | Impossible d’atteindre l’instance principale de la passerelle. Cela se produit en cas d’échec de la sonde d’intégrité. | Non |
+| ConnectionEntityNotFound | La configuration de la connexion est manquante. | Non |
+| ConnectionIsMarkedDisconnected | La connexion est identifiée comme étant « déconnectée ». |Non|
 | ConnectionNotConfiguredOnGateway | Le service sous-jacent n’a pas la connexion configurée. | Oui |
 | ConnectionMarkedStandby | Le service sous-jacent est identifié comme étant en veille.| Oui|
 | Authentication | Non-concordance des clés prépartagées. | Oui|

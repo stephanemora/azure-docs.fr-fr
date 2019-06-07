@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: keithcharlie
-ms.openlocfilehash: 5106b22500b73b650742e7fe0f881c2a4c984eff
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 4501a343b406f07b4775f3ad0e84d71825412a4b
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64937713"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66752728"
 ---
 # <a name="saas-applications-offer-publishing-guide"></a>Guide de publication de l’offre des applications SaaS
 
@@ -25,14 +25,14 @@ Des applications SaaS sont disponibles dans les deux vitrines Azure. Le tableau 
 | Option de vitrine | Énumération | Essai/Transaction |  
 | --- | --- | --- |  
 | AppSource | Oui (Me contacter) | Oui (Power BI/Dynamics) |
-| Place de marché Azure | Non  | Oui (Applications SaaS) |   
+| Place de marché Azure | Non | Oui (Applications SaaS) |   
 
 **Liste** :  l’option de publication Liste consiste en une offre de type Me contacter, et est utilisée quand une participation de niveau Essai ou Transaction n’est pas possible. L’avantage de cette méthode est qu’elle permet aux éditeurs commercialisant une solution de commencer immédiatement à recevoir des prospects convertibles en transactions pour développer leur activité.  
 **Essai/Transaction :**  le client a la possibilité d’acheter directement votre solution ou de demander un essai gratuit pour celle-ci. Proposer une version d’évaluation augmente le niveau d’engagement des clients en leur permettant de découvrir votre solution avant de l’acheter. Avec une expérience d’évaluation, vous augmentez vos chances d’être mieux référencé dans les vitrines, et donc d’obtenir des prospects en plus grand nombre et plus intéressants. Les versions d’essai doivent fournir un support gratuit, au moins pendant la période d’évaluation.  
 
 | Offre d’applications SaaS | Exigences commerciales | Exigences techniques |  
 | --- | --- | --- |  
-| **Nous contacter** | Oui | Non  |  
+| **Nous contacter** | Oui | Non |  
 | **Power BI / Dynamics** | Oui | Oui (Intégration Azure AD) |  
 | **Applications SaaS**| Oui | Oui (Intégration Azure AD) |     
 
@@ -148,4 +148,4 @@ Si vous ne l’avez pas déjà fait,
 Si vous êtes inscrit et créez une nouvelle offre ou travaillez sur une offre existante,
 
 - [Connectez-vous au portail Cloud Partner](https://cloudpartner.azure.com) pour créer ou terminer votre offre.
-- Pour plus d’informations, consultez [Offre d’application Azure SaaS](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-offer).
+- Pour plus d’informations, consultez [Offre d’application Azure SaaS](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-saas-offer).

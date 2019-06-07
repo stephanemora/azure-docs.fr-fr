@@ -15,12 +15,12 @@ ms.date: 05/16/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 5d964ebd40ac1bd8817bc93d5e4f78096f221be2
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.openlocfilehash: 427c4615fcbb036ffff56a8fc592f258fb98845e
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65977766"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66755108"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Rôles intégrés pour les ressources Azure
 
@@ -33,7 +33,7 @@ Cet article répertorie les rôles intégrés pour les ressources Azure, qui son
 Le tableau ci-après fournit une brève description de chaque rôle intégré. Cliquez sur le nom d’un rôle pour voir la liste de `Actions`, `NotActions`, `DataActions` et `NotDataActions` concernant ce rôle. Pour plus d’informations sur la signification de ces actions et la manière dont elles s'appliquent en termes de gestion et de données, consultez [Comprendre les définitions de rôle relatives aux ressources Azure](role-definitions.md).
 
 
-| Rôle intégré | Description  |
+| Rôle intégré | Description |
 | --- | --- |
 | [Propriétaire](#owner) | Permet de tout gérer, notamment l’accès aux ressources. |
 | [Contributeur](#contributor) | Permet de tout gérer, à l’exception de l’accès aux ressources. |
@@ -56,14 +56,14 @@ Le tableau ci-après fournit une brève description de chaque rôle intégré. C
 | [Opérateur d’AVERE](#avere-operator) | Utilisé par le cluster de vFXT Avere pour gérer le cluster |
 | [Rôle d’administrateur de cluster Azure Kubernetes Service](#azure-kubernetes-service-cluster-admin-role) | Répertorie les actions relatives aux informations d’identification de l’administrateur du cluster. |
 | [Rôle d’utilisateur de cluster Azure Kubernetes Service](#azure-kubernetes-service-cluster-user-role) | Répertorie les actions relatives aux informations d’identification de l’utilisateur du cluster. |
-| [Lecteur de données Azure Maps (version préliminaire)](#azure-maps-data-reader-preview) | Accorde l'accès aux données liées à la lecture de carte à partir d'un compte Azure Maps. |
+| [Lecteur de données Azure Maps (version préliminaire)](#azure-maps-data-reader-preview) | Octroie l’accès à lire mapper les données associées à partir d’un compte Azure maps. |
 | [Propriétaire de l’inscription Azure Stack](#azure-stack-registration-owner) | Permet de gérer les inscriptions Azure Stack. |
 | [Contributeur de sauvegarde](#backup-contributor) | Permet de gérer le service de sauvegarde, mais pas de créer des coffres, ni de permettre l’accès à d’autres personnes |
 | [Opérateur de sauvegarde](#backup-operator) | Permet de gérer des services de sauvegarde, à l’exception de la suppression de la sauvegarde, de la création de coffres et de l’octroi d’autorisations d’accès à d’autres personnes |
 | [Lecteur de sauvegarde](#backup-reader) | Peut afficher des services de sauvegarde, mais pas apporter des modifications |
 | [Lecteur de facturation](#billing-reader) | Autorise l’accès en lecture aux données de facturation |
 | [Contributeur BizTalk](#biztalk-contributor) | Permet de gérer des services BizTalk, mais pas d’y accéder. |
-| [Accès au nœud de membre de la fonctionnalité « blockchain » (version préliminaire)](#blockchain-member-node-access-preview) | Permet d'accéder aux nœuds Membre Blockchain |
+| [Accès au nœud de membre de la fonctionnalité « blockchain » (version préliminaire)](#blockchain-member-node-access-preview) | Permet d’accéder aux nœuds de membre de la Blockchain |
 | [Contributeur de point de terminaison CDN](#cdn-endpoint-contributor) | Peut gérer les points de terminaison CDN, mais ne peut pas accorder l’accès à d’autres utilisateurs. |
 | [Lecteur de point de terminaison CDN](#cdn-endpoint-reader) | Peut afficher des points de terminaison CDN, mais ne peut pas effectuer de modifications. |
 | [Contributeur de profil CDN](#cdn-profile-contributor) | Peut gérer des profils CDN et leurs points de terminaison, mais ne peut pas accorder l’accès à d’autres utilisateurs. |
@@ -582,7 +582,7 @@ Le tableau ci-après fournit une brève description de chaque rôle intégré. C
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Accorde l'accès aux données liées à la lecture de carte à partir d'un compte Azure Maps. |
+> | **Description** | Octroie l’accès à lire mapper les données associées à partir d’un compte Azure maps. |
 > | **Id** | 423170ca-a8f6-4b0f-8487-9e4eb8f49bfa |
 > | **Actions** |  |
 > | *Aucune* |  |
@@ -834,11 +834,11 @@ Le tableau ci-après fournit une brève description de chaque rôle intégré. C
 > | **NotDataActions** |  |
 > | *Aucune* |  |
 
-## <a name="blockchain-member-node-access-preview"></a>Accès au nœud Membre Blockchain (préversion)
+## <a name="blockchain-member-node-access-preview"></a>Accès au nœud de membre de la fonctionnalité « blockchain » (version préliminaire)
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Permet d'accéder aux nœuds Membre Blockchain |
+> | **Description** | Permet d’accéder aux nœuds de membre de la Blockchain |
 > | **Id** | 31a002a1-acaf-453e-8a5b-297c9ca1ea24 |
 > | **Actions** |  |
 > | Microsoft.Blockchain/blockchainMembers/transactionNodes/read | Obtient ou répertorie les nœuds de Transaction de membre Blockchain existants. |
@@ -2533,7 +2533,7 @@ Le tableau ci-après fournit une brève description de chaque rôle intégré. C
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Lire, écrire et supprimer des objets BLOB et conteneurs de stockage Azure. Pour savoir quelles actions sont requises pour une opération de données spécifique, consultez [autorisations pour appeler des opérations de données d’objets blob et file d’attente](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations). |
+> | **Description** | Lire, écrire et supprimer des objets BLOB et conteneurs de stockage Azure. Pour savoir quelles actions sont requises pour une opération de données spécifique, consultez [autorisations pour appeler des opérations de données d’objets blob et file d’attente](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). |
 > | **Id** | ba92f5b4-2d11-453d-a403-e96b0029c9fe |
 > | **Actions** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/delete | Supprimer un conteneur. |
@@ -2552,7 +2552,7 @@ Le tableau ci-après fournit une brève description de chaque rôle intégré. C
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Fournit un accès complet aux conteneurs d’objets blob stockage Azure et aux données, y compris l’attribution de contrôle d’accès POSIX. Pour savoir quelles actions sont requises pour une opération de données spécifique, consultez [autorisations pour appeler des opérations de données d’objets blob et file d’attente](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations). |
+> | **Description** | Fournit un accès complet aux conteneurs d’objets blob stockage Azure et aux données, y compris l’attribution de contrôle d’accès POSIX. Pour savoir quelles actions sont requises pour une opération de données spécifique, consultez [autorisations pour appeler des opérations de données d’objets blob et file d’attente](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). |
 > | **Id** | b7e6dc6d-f1e8-4753-8033-0f276bb0955b |
 > | **Actions** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/* | Toutes les autorisations sur les conteneurs. |
@@ -2567,7 +2567,7 @@ Le tableau ci-après fournit une brève description de chaque rôle intégré. C
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Lire et répertorier des objets BLOB et conteneurs de stockage Azure. Pour savoir quelles actions sont requises pour une opération de données spécifique, consultez [autorisations pour appeler des opérations de données d’objets blob et file d’attente](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations). |
+> | **Description** | Lire et répertorier des objets BLOB et conteneurs de stockage Azure. Pour savoir quelles actions sont requises pour une opération de données spécifique, consultez [autorisations pour appeler des opérations de données d’objets blob et file d’attente](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). |
 > | **Id** | 2a2b9908-6ea1-4ae2-8e65-a410df84e7d1 |
 > | **Actions** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/read | Retourne un conteneur ou une liste de conteneurs. |
@@ -2582,7 +2582,7 @@ Le tableau ci-après fournit une brève description de chaque rôle intégré. C
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Lire, écrire et supprimer des files d’attente de stockage Azure et des messages de file d’attente. Pour savoir quelles actions sont requises pour une opération de données spécifique, consultez [autorisations pour appeler des opérations de données d’objets blob et file d’attente](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations). |
+> | **Description** | Lire, écrire et supprimer des files d’attente de stockage Azure et des messages de file d’attente. Pour savoir quelles actions sont requises pour une opération de données spécifique, consultez [autorisations pour appeler des opérations de données d’objets blob et file d’attente](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). |
 > | **Id** | 974c5e8b-45b9-4653-ba55-5f855dd0fb88 |
 > | **Actions** |  |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/delete | Supprimer une file d’attente. |
@@ -2601,7 +2601,7 @@ Le tableau ci-après fournit une brève description de chaque rôle intégré. C
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Aperçu, récupérer et supprimer un message à partir d’une file d’attente de stockage Azure. Pour savoir quelles actions sont requises pour une opération de données spécifique, consultez [autorisations pour appeler des opérations de données d’objets blob et file d’attente](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations). |
+> | **Description** | Aperçu, récupérer et supprimer un message à partir d’une file d’attente de stockage Azure. Pour savoir quelles actions sont requises pour une opération de données spécifique, consultez [autorisations pour appeler des opérations de données d’objets blob et file d’attente](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). |
 > | **Id** | 8a0f0c08-91a1-4084-bc3d-661d67233fed |
 > | **Actions** |  |
 > | *Aucune* |  |
@@ -2617,7 +2617,7 @@ Le tableau ci-après fournit une brève description de chaque rôle intégré. C
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Ajouter des messages à une file d’attente de stockage Azure. Pour savoir quelles actions sont requises pour une opération de données spécifique, consultez [autorisations pour appeler des opérations de données d’objets blob et file d’attente](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations). |
+> | **Description** | Ajouter des messages à une file d’attente de stockage Azure. Pour savoir quelles actions sont requises pour une opération de données spécifique, consultez [autorisations pour appeler des opérations de données d’objets blob et file d’attente](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). |
 > | **Id** | c6a89b2d-59bc-44d0-9896-0f6e12d7b80a |
 > | **Actions** |  |
 > | *Aucune* |  |
@@ -2632,7 +2632,7 @@ Le tableau ci-après fournit une brève description de chaque rôle intégré. C
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Lire et répertorier les files d’attente de stockage Azure et les messages de file d’attente. Pour savoir quelles actions sont requises pour une opération de données spécifique, consultez [autorisations pour appeler des opérations de données d’objets blob et file d’attente](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations). |
+> | **Description** | Lire et répertorier les files d’attente de stockage Azure et les messages de file d’attente. Pour savoir quelles actions sont requises pour une opération de données spécifique, consultez [autorisations pour appeler des opérations de données d’objets blob et file d’attente](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). |
 > | **Id** | 19e7f393-937e-4f77-808e-94535e297925 |
 > | **Actions** |  |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/read | Retourne une file d’attente ou une liste de files d’attente. |

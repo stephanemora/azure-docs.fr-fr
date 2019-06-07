@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 03/02/2019
 ms.author: alkohli
-ms.openlocfilehash: cdc1b07b93386c0225c1e6c5f570ea1247e450b5
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: e9092fb91ad98e6147647717e11d1a64bcff580e
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924389"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754182"
 ---
 # <a name="use-cases-for-azure-data-box-gateway"></a>Cas d’utilisation pour Azure Data Box Gateway
 
@@ -50,7 +50,7 @@ Avant de commencer, vérifiez que vous avez un dispositif Data Box Gateway en co
 - Une fois les données chargées, vous devrez les déplacer vers le niveau Archive. Vous pouvez définir le niveau de blob de deux manières : avec un script Azure PowerShell ou avec une stratégie de gestion du cycle de vie Stockage Azure.  
     - Si vous utilisez Azure PowerShell, suivez ces [étapes](/azure/databox/data-box-how-to-set-data-tier#use-azure-powershell-to-set-the-blob-tier) pour déplacer les données vers le niveau Archive.
     - Si vous utilisez la gestion du cycle de vie Azure, suivez ces étapes pour déplacer les données vers le niveau Archive.
-        - [Inscrivez-vous](/azure/storage/common/storage-lifecycle-management-concepts#register-for-preview) pour la préversion du service de gestion de cycle de vie de blob afin d’utiliser le niveau Archive.
+        - [Inscrivez-vous](/azure/storage/common/storage-lifecycle-management-concepts) pour la préversion du service de gestion de cycle de vie de blob afin d’utiliser le niveau Archive.
         - Utiliser la stratégie suivante pour [archiver des données au moment de l’ingestion](/azure/storage/blobs/storage-lifecycle-management-concepts#archive-data-at-ingest).
 - Une fois les objets blob marqués comme Archive, ils ne peuvent plus être modifiés par la passerelle, sauf s’ils sont déplacés vers le niveau chaud ou froid. Si le fichier est dans le stockage local, aucune des modifications apportées à la copie locale (y compris les suppressions) n’est chargée vers le niveau Archive.
 - Pour lire des données dans le stockage Archive, vous devez les réactiver en basculant le niveau du blob sur chaud ou froid. [L’actualisation du partage](data-box-gateway-manage-shares.md#refresh-shares) sur la passerelle ne réactive pas le blob.

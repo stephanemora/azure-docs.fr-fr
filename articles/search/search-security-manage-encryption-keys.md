@@ -9,17 +9,17 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.custom: ''
-ms.openlocfilehash: 9d2cd2a2f4b3143d58d0ef03d67de094ea03303e
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: 567f32cba76aaf2d1657b2476c4d11596d44dec5
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65523090"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66753959"
 ---
 # <a name="azure-search-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Chiffrement de recherche Azure à l’aide de clés gérées par le client dans Azure Key Vault
 
 > [!Note]
-> Le chiffrement avec des clés gérées par le client est en version préliminaire et les a pas été conçu pour la production. Le [API REST version 2019-05-06-Preview](search-api-preview.md) fournit cette fonctionnalité. Vous pouvez également utiliser la SDK .NET version 8.0 préliminaire.
+> Le chiffrement avec des clés gérées par le client est en version préliminaire et les a pas été conçu pour la production. L’[API REST version 2019-05-06-Preview](search-api-preview.md) fournit cette fonctionnalité. Vous pouvez également utiliser la SDK .NET version 8.0 préliminaire.
 >
 > Cette fonctionnalité n’est pas disponible pour les services gratuits. Vous devez utiliser un service de recherche facturables créé l’ou après 2019-01-01. Il n’existe aucune prise en charge de portail pour l’instant.
 
@@ -227,7 +227,7 @@ Pour créer une application AAD dans le portail :
 
 1. [Créez une application Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#create-an-azure-active-directory-application).
 
-1. [Obtenir la clé d’authentification et l’ID application](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-application-id-and-authentication-key) comme ceux sera nécessaire pour la création d’un index de cryptée. Vous devrez fournir les valeurs incluent **ID d’application** et **clé d’authentification**.
+1. [Obtenir la clé d’authentification et l’ID application](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) comme ceux sera nécessaire pour la création d’un index de cryptée. Vous devrez fournir les valeurs incluent **ID d’application** et **clé d’authentification**.
 
 >[!Important]
 > Lorsque vous décidez d’utiliser une application AAD d’authentification au lieu d’une identité gérée, prendre en compte le fait que Azure Search n’est pas autorisé à gérer votre application AAD à votre place, et il vous incombe de gérer votre application AAD, telles que la rotation périodique de la clé d’authentification d’application.

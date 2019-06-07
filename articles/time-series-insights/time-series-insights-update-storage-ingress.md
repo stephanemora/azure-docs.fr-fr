@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8587fb0138309040232b6e0abc0f3eb17cc3093a
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 33ca86fc2d13fb7f6e29c43e9a7c1d2dc6ef4169
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66244070"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66755242"
 ---
 # <a name="data-storage-and-ingress-in-azure-time-series-insights-preview"></a>Entrée et stockage des données dans Azure Time Series Insights - Préversion
 
@@ -37,7 +37,7 @@ Comme les autres objets blob de Stockage Azure, les objets blob créés par Time
 
 Pour obtenir une vue d’ensemble du Stockage blob Azure, consultez [Storage blobs introduction](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction) (Introduction aux objets blob de stockage).
 
-Pour plus d’informations sur le type de fichier Parquet, consultez [Supported file types in Azure Storage](https://docs.microsoft.com/azure/data-factory/supported-file-formats-and-compression-codecs#Parquet-format) (Types de fichiers pris en charge dans Stockage Azure).
+Pour plus d’informations sur le type de fichier Parquet, consultez [Supported file types in Azure Storage](https://docs.microsoft.com/azure/data-factory/supported-file-formats-and-compression-codecs#parquet-format) (Types de fichiers pris en charge dans Stockage Azure).
 
 ## <a name="parquet-file-format"></a>Format de fichier Parquet
 
