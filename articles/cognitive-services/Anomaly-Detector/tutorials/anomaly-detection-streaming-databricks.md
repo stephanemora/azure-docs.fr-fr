@@ -10,16 +10,16 @@ ms.subservice: anomaly-detector
 ms.topic: article
 ms.date: 05/08/2019
 ms.author: aahi
-ms.openlocfilehash: d1808bb88ac1bb27f2fd0652585521fbb2abdf56
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.openlocfilehash: a5790b5412023f06d9f9fd1d2ff61c11db4c53f3
+ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66734664"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66807467"
 ---
 # <a name="tutorial-anomaly-detection-on-streaming-data-using-azure-databricks"></a>Didacticiel : Détection d’anomalie sur les données de streaming avec Azure Databricks
 
-[Azure Databricks](https://azure.microsoft.com/en-us/services/databricks/) est un service rapide, simple et collaborative analytique basée sur Apache Spark. L’API de détecteur d’anomalie, partie d’Azure Cognitive Services, offre un moyen de l’analyse de vos données de série chronologique. Utilisez ce didacticiel pour exécuter la détection d’anomalie sur un flux de données en quasi-temps réel à l’aide d’Azure Databricks. Vous allez recevoir des données de twitter à l’aide d’Azure Event Hubs et les importer dans Azure Databricks en utilisant le connecteur Spark Event Hubs. Vous utiliserez par la suite, l’API pour détecter les anomalies sur les données diffusées. 
+[Azure Databricks](https://azure.microsoft.com/services/databricks/) est un service rapide, simple et collaborative analytique basée sur Apache Spark. L’API de détecteur d’anomalie, partie d’Azure Cognitive Services, offre un moyen de l’analyse de vos données de série chronologique. Utilisez ce didacticiel pour exécuter la détection d’anomalie sur un flux de données en quasi-temps réel à l’aide d’Azure Databricks. Vous allez recevoir des données de twitter à l’aide d’Azure Event Hubs et les importer dans Azure Databricks en utilisant le connecteur Spark Event Hubs. Vous utiliserez par la suite, l’API pour détecter les anomalies sur les données diffusées. 
 
 L’illustration suivante montre le flux d’application :
 

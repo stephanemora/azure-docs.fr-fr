@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: wellsi
-ms.openlocfilehash: fab23c86ee2e8f654ac4a9619c39d05ee4e9e4c1
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 1c91cde45a6a420376af36f70487adf7fe0ee83a
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66237934"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66751815"
 ---
 # <a name="release-notes-of-cognitive-services-speech-devices-sdk"></a>Notes de publication du Kit de développement logiciel (SDK) Speech Devices de Cognitive Services
 Les sections suivantes dressent la liste des modifications dans les versions les plus récentes.
@@ -49,7 +49,7 @@ Les sections suivantes dressent la liste des modifications dans les versions les
 
 **Dernières modifications** 
 
-*   [L’installation d’un mot de mise en éveil](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-qsg#run-a-sample-application) a été simplifié, il fait désormais partie de l’application et n’a pas besoin de l’installation distincte sur l’appareil.
+*   [L’installation d’un mot de mise en éveil](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-create-kws) a été simplifié, il fait désormais partie de l’application et n’a pas besoin de l’installation distincte sur l’appareil.
 *   La reconnaissance de word de mise en éveil a changé, et deux événements sont pris en charge.
     - RecognizingKeyword, indique le résultat de reconnaissance vocale contient du texte de mot clé (non vérifié).
     - RecognizedKeyword, indique cette reconnaissance du mot clé terminée reconnaissant le mot-clé donné.
