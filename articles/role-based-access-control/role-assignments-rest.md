@@ -12,15 +12,15 @@ ms.workload: multiple
 ms.tgt_pltfrm: rest-api
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 05/28/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: e9c307b2b2e720881acb983a2a1b00ac8e03dac4
-ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
+ms.openlocfilehash: 3602e4ca83e828270ebef56c688670b896ca58a4
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66357075"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66472734"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-the-rest-api"></a>Gérer l'accès aux ressources Azure à l'aide du contrôle d'accès en fonction du rôle (RBAC) et de l'API REST
 
@@ -38,7 +38,7 @@ Dans le contrôle d’accès en fonction du rôle, vous répertoriez les attribu
 
 1. Dans l’URI, remplacez *{scope}* par l’étendue dont vous souhaitez lister les attributions de rôle.
 
-    | `Scope` | type |
+    | `Scope` | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Abonnement |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Groupe de ressources |
@@ -52,9 +52,9 @@ Dans le contrôle d’accès en fonction du rôle, vous répertoriez les attribu
 
     | Filtrer | Description |
     | --- | --- |
-    | `$filter=atScope()` | Répertorier les affectations de rôle pour l’étendue spécifiée seulement, sans y inclure les affectations de rôles à des étendues secondaires. |
-    | `$filter=principalId%20eq%20'{objectId}'` | Répertorier les affectations de rôle pour un utilisateur, un groupe ou un principal de service spécifié. |
-    | `$filter=assignedTo('{objectId}')` | Répertorier les affectations de rôle pour un utilisateur spécifié, y compris celles héritées de groupes. |
+    | `$filter=atScope()` | Répertorie les attributions de rôle pour la portée spécifiée seulement, sans compter les attributions de rôles à des étendues secondaires. |
+    | `$filter=principalId%20eq%20'{objectId}'` | Liste des attributions de rôles pour un utilisateur spécifié, un groupe ou un principal de service. |
+    | `$filter=assignedTo('{objectId}')` | Répertorie les attributions de rôles pour un utilisateur spécifié ou le principal du service. Si l’utilisateur est membre d’un groupe qui a une attribution de rôle, cette attribution de rôle est également répertoriée. Ce filtre est transitif pour les groupes, ce qui signifie que si l’utilisateur est un membre d’un groupe et ce groupe est membre d’un autre groupe qui a une attribution de rôle, cette attribution de rôle est également répertoriée. Ce filtre accepte uniquement un id d’objet pour un utilisateur ou un principal de service. Vous ne pouvez pas passer un id d’objet pour un groupe. |
 
 ## <a name="grant-access"></a>Accorder l'accès
 
@@ -81,7 +81,7 @@ Dans le contrôle d’accès en fonction du rôle, vous créez une attribution d
     
 1. Dans l’URI, remplacez *{scope}* par l’étendue de l’attribution de rôle.
 
-    | `Scope` | type |
+    | `Scope` | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Abonnement |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Groupe de ressources |
@@ -109,7 +109,7 @@ Dans le RBAC, vous supprimez une attribution de rôle pour supprimer un accès. 
 
 1. Dans l’URI, remplacez *{scope}* par l’étendue de suppression de l’attribution de rôle.
 
-    | `Scope` | type |
+    | `Scope` | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Abonnement |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Groupe de ressources |

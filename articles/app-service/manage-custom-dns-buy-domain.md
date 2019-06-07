@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/24/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: b3177c5dfc5602dd2b6530b0934c17400ab5d528
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.openlocfilehash: 4b26446845d004b4dd92807c0b5ec0ada9ed181f
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65978892"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475225"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>Acheter un nom de domaine personnalisé pour Azure App Service
 
@@ -55,7 +55,7 @@ La page de gestion de l’application App Service s’affiche.
 
 ### <a name="check-the-pricing-tier"></a>Vérification du niveau tarifaire
 
-Dans la navigation gauche de la page de l’application, faites défiler jusqu’à la section **Paramètres** et sélectionnez **Monter en puissance (plan App Service)**.
+Dans la navigation gauche de la page de l’application, faites défiler jusqu’à la section **Paramètres** et sélectionnez **Monter en puissance (plan App Service)** .
 
 ![Menu Monter en puissance](./media/app-service-web-tutorial-custom-domain/scale-up-menu.png)
 
@@ -116,10 +116,10 @@ Il est très important de remplir tous les champs obligatoires aussi préciséme
 
 Sélectionnez ensuite les options souhaitées pour votre domaine. Pour plus de précisions, consultez le tableau suivant :
 
-| Paramètre | Valeur suggérée | Description  |
+| Paramètre | Valeur suggérée | Description |
 |-|-|-|
 |Protection des données personnelles | Activer | Choisissez l'option « Protection des données personnelles », incluse _gratuitement_ dans le prix d'achat. Certains domaines de niveau supérieur sont gérés par des bureaux d'enregistrement qui ne prennent pas en charge la protection des données personnelles. Ils sont répertoriés dans la page **Protection des données personnelles**. |
-| Affecter des noms d'hôte par défaut | **www** et **\@** | Si vous le souhaitez, vous pouvez sélectionner les liaisons de nom d’hôte souhaitées. Lorsque l’opération d’achat de domaine est terminée, votre application est accessible aux noms d’hôtes choisis. Si l’application se trouve derrière [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/), vous ne voyez pas l’option pour attribuer le domaine racine (@), car Traffic Manager ne prend pas en charge les enregistrements A. Vous pouvez apporter des modifications aux attributions de nom d’hôte après l’achat de domaine. |
+| Attribuer des noms d’hôte par défaut | **www** et **\@** | Si vous le souhaitez, vous pouvez sélectionner les liaisons de nom d’hôte souhaitées. Lorsque l’opération d’achat de domaine est terminée, votre application est accessible aux noms d’hôtes choisis. Si l’application se trouve derrière [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/), vous ne voyez pas l’option pour attribuer le domaine racine (@), car Traffic Manager ne prend pas en charge les enregistrements A. Vous pouvez apporter des modifications aux attributions de nom d’hôte après l’achat de domaine. |
 
 ### <a name="accept-terms-and-purchase"></a>Accepter les mentions et acheter
 
@@ -138,13 +138,17 @@ Retournez sur la page **Domaine App Service**, puis cliquez sur **OK**. Pendant 
 
 ### <a name="test-the-hostnames"></a>Test des noms d’hôte
 
-Si vous avez attribué des noms d’hôte par défaut à votre application, vous voyez également une notification de réussite pour chaque nom d’hôte choisi. 
+Si vous avez attribué des noms d’hôte par défaut à votre application, vous voyez également une notification de réussite pour chaque nom d’hôte choisi.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-bind-success.png)
 
-Vous voyez également les noms d’hôtes choisis sur la page **Domaines personnalisés**, dans la section **Noms d’hôte personnalisés**. 
+Vous voyez également les noms d’hôtes choisis sur la page **Domaines personnalisés**, dans la section **Noms d’hôte personnalisés**.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostnames-added.png)
+
+> [!NOTE]
+> Un **Remarque Secure** étiquette pour votre signifie de domaine personnalisé qu’il n’est pas encore lié à un certificat SSL, et recevez toute demande HTTPS à partir d’un navigateur vers votre domaine personnalisé et un erreur ou un avertissement, selon le navigateur. Pour configurer la liaison SSL, consultez [acheter et configurer un certificat SSL pour Azure App Service](web-sites-purchase-ssl-web-site.md).
+>
 
 Pour tester des noms d’hôte, accédez à ceux qui sont répertoriés dans le navigateur. Dans l’exemple de la capture d’écran précédente, essayez d’accéder à _kontoso.net_ et _www\.kontoso.net_.
 
@@ -174,7 +178,7 @@ Vérifiez que votre domaine acheté est répertorié dans la section **Domaines 
 Sélectionnez **Ajouter un nom d’hôte**.
 
 ### <a name="configure-hostname"></a>Configurer le nom d’hôte
-Dans la boîte de dialogue **Ajouter un nom d’hôte**, entrez le nom de domaine complet du domaine App Service ou de n’importe quel sous-domaine. Exemple :
+Dans la boîte de dialogue **Ajouter un nom d’hôte**, entrez le nom de domaine complet du domaine App Service ou de n’importe quel sous-domaine. Exemple :
 
 - kontoso.net
 - www\.kontoso.net
@@ -267,7 +271,7 @@ Dans le portail Azure, dans le menu de gauche, sélectionnez **Tous les services
 
 Sélectionnez le domaine que vous souhaitez annuler ou supprimer. 
 
-### <a name="delete-hostname-bindings"></a>Supprimer les liaisons de nom d’hôte
+### <a name="delete-hostname-bindings"></a>Supprimer des liaisons de noms d’hôte
 
 Dans le menu de gauche du domaine, sélectionnez **Liaisons de noms d’hôte**. Les liaisons de nom d’hôte de tous les services Azure sont répertoriées ici.
 
@@ -275,7 +279,7 @@ Dans le menu de gauche du domaine, sélectionnez **Liaisons de noms d’hôte**.
 
 Vous ne pouvez pas supprimer le domaine App Service avant d’avoir supprimé toutes les liaisons de nom d’hôte.
 
-Supprimez chaque liaison de nom d’hôte en sélectionnant **...** > **Supprimer**. Après avoir supprimé toutes les liaisons, sélectionnez **Enregistrer**.
+Supprimez chaque liaison de nom d’hôte en sélectionnant **...**  > **Supprimer**. Après avoir supprimé toutes les liaisons, sélectionnez **Enregistrer**.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-delete-hostname-bindings.png)
 

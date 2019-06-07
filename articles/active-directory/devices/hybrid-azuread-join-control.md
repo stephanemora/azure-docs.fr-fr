@@ -1,136 +1,102 @@
 ---
-title: Contrôler la jonction Azure AD Hybride de vos appareils | Microsoft Docs
-description: Découvrez comment contrôler la jonction Azure AD Hybride de vos appareils dans Azure Active Directory.
+title: Validation contrôlée d’une jointure hybrid Azure AD - Azure AD
+description: Apprenez à effectuer une validation contrôlée de jointure Azure AD hybride avant de l’activer dans toute l’organisation à la fois
 services: active-directory
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-editor: ''
-ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
 ms.subservice: devices
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2018
+ms.date: 05/30/2019
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 93afc6f748ca9f464261c59e037a603ab6113bf8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cd5b388f92a875fb2635037a6eae3ff3b6a95793
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60353106"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66513284"
 ---
-# <a name="control-the-hybrid-azure-ad-join-of-your-devices"></a>Contrôler la jointure d’Azure AD hybride de vos appareils
+# <a name="controlled-validation-of-hybrid-azure-ad-join"></a>Validation contrôlée de la jonction Azure AD hybride
 
-La jonction Azure AD Hybride (Azure AD) est un processus qui consiste à inscrire automatiquement auprès d’Azure AD des appareils joints au domaine local. Vous pouvez parfois souhaiter ne pas inscrire tous vos appareils automatiquement. C’est le cas, par exemple, lors du déploiement initial, afin de vérifier que tout fonctionne conformément à ce qui est attendu.
+Lorsque toutes les conditions préalables sont en place, les appareils Windows seront inscriront automatiquement en tant qu’appareils dans votre locataire Azure AD. L’état de ces identités des appareils dans Azure AD est appelée une jointure hybrid Azure AD. Vous trouverez plus d’informations sur les concepts abordés dans cet article dans les articles [Introduction à la gestion des appareils dans Azure Active Directory](overview.md) et [planifier votre implémentation de jonction hybride Azure Active Directory ](hybrid-azuread-join-plan.md).
 
-Cet article fournit des conseils sur la façon de contrôler la jonction Azure AD Hybride de vos appareils. 
+Organisations peuvent vouloir effectuer une validation contrôlée de jointure Azure AD hybride avant de l’activer dans leur organisation entière à la fois. Cet article explique comment effectuer une validation contrôlée de jointure Azure AD hybride.
 
-
-## <a name="prerequisites"></a>Prérequis
-
-Cet article suppose de connaître :
-
--  [Présentation de la gestion des appareils dans Azure Active Directory](../device-management-introduction.md)
- 
--  [Planifier l’implémentation de la jonction Azure Active Directory Hybride](hybrid-azuread-join-plan.md)
-
--  [Configurer la jonction Azure Active Directory Hybride pour les domaines managés](hybrid-azuread-join-managed-domains.md) ou [Configurer la jonction Azure Active Directory Hybride pour les domaines fédérés](hybrid-azuread-join-federated-domains.md)
-
-
-
-## <a name="control-windows-current-devices"></a>Contrôler les appareils Windows actuels
+## <a name="controlled-validation-of-hybrid-azure-ad-join-on-windows-current-devices"></a>Validation contrôlée d’une jointure hybrid Azure AD sur les appareils Windows actuels
 
 Pour les appareils qui fonctionnent avec le système d’exploitation d’ordinateur Windows, la version prise en charge est la Mise à jour anniversaire Windows 10 (version 1607) ou une version ultérieure. La meilleure pratique consiste à effectuer une mise à niveau vers la dernière version de Windows 10.
 
-Tous les appareils Windows actuels s’inscrivent automatiquement auprès d’Azure AD lorsqu’ils sont démarrés ou que l’utilisateur se connecte. Vous pouvez contrôler ce comportement au moyen d’un objet de stratégie de groupe (GPO) ou par le biais de System Center Configuration Manager.
+Pour effectuer une validation contrôlée d’une jointure hybrid Azure AD sur les appareils Windows actuels, vous devez :
 
-Pour contrôler les appareils Windows actuels, vous devez : 
-
-
-1.  **Pour tous les appareils** : désactiver l’inscription automatique d’appareils.
-2.  **Pour les appareils sélectionnés** : activer l’inscription automatique d’appareils.
-
-Après avoir vérifié que tout fonctionne conformément à ce qui est attendu, vous êtes prêt à activer de nouveau l’inscription automatique pour tous les appareils.
+1. Effacer l’entrée de Point de connexion de Service (SCP) à partir d’Active Directory (AD) si elle existe
+1. Configurer le paramètre de Registre côté client pour SCP sur vos ordinateurs joints au domaine à l’aide d’un objet de stratégie de groupe (GPO)
+1. Si vous utilisez AD FS, vous devez également configurer le paramètre de Registre côté client pour SCP sur votre serveur AD FS à l’aide d’un objet de stratégie de groupe  
 
 
 
-### <a name="group-policy-object"></a>Objet de stratégie de groupe 
+### <a name="clear-the-scp-from-ad"></a>Désactivez le SCP à partir d’AD
 
-Vous pouvez contrôler le comportement de l’inscription de vos appareils en déployant l’objet de stratégie de groupe suivant : **Enregistrer les ordinateurs appartenant au domaine en tant qu’appareils**.
+Utilisez l’éditeur Active Directory Services Interfaces (ADSI Edit) pour modifier les objets SCP dans Active Directory.
 
-Pour définir l’objet de stratégie de groupe :
+1. Lancer le **ADSI Edit** à partir d’application de bureau et station de travail d’administration ou un contrôleur de domaine en tant qu’administrateur d’entreprise.
+1. Se connecter à la **le contexte de nommage de Configuration** de votre domaine.
+1. Accédez à **CN = Configuration, DC = contoso, DC = com** > **CN = Services** > **CN = Device Registration Configuration**
+1. Cliquez avec le bouton droit sur l’objet modèle feuille sous **CN = Device Registration Configuration** et sélectionnez **propriétés**
+   1. Sélectionnez **mots clés** à partir de la **Éditeur d’attributs** fenêtre et cliquez sur **modifier**
+   1. Sélectionnez les valeurs de **azureADId** et **azureADName** (un à la fois) et cliquez sur **supprimer**
+1. Fermer **éditeur ADSI**
 
-1.  Ouvrez le **Gestionnaire de serveur** et accédez à **Outils** > **Gestion des stratégies de groupe**.
 
-2.  Accédez au nœud de domaine qui correspond au domaine dans lequel vous souhaitez désactiver ou activer l’inscription automatique.
+### <a name="configure-client-side-registry-setting-for-scp"></a>Configurer le paramètre de Registre côté client pour SCP
 
-3.  Cliquez avec le bouton droit sur **Objets de stratégie de groupe**, puis sélectionnez **Nouveau**.
+L’exemple suivant permet de créer un objet de stratégie de groupe (GPO) pour déployer un paramètre de Registre configuration d’une entrée de SCP dans le Registre de vos appareils.
 
-4.  Entrez un nom (par exemple, **Jonction Azure AD Hybride**) pour votre objet de stratégie de groupe. 
+1. Ouvrez une console de gestion des stratégies de groupe et créer un nouvel objet de stratégie de groupe dans votre domaine.
+   1. Nommez votre objet de stratégie de groupe nouvellement créé (par exemple, ClientSideSCP).
+1. Modifier l’objet de stratégie de groupe et recherchez le chemin suivant : **Configuration de l’ordinateur** > **préférences** > **Windows paramètres** > **Registre**
+1. Avec le bouton droit sur le Registre, puis sélectionnez **New** > **élément de Registre**
+   1. Sur le **général** , configurez les éléments suivants
+      1. Action : **Mettre à jour**
+      1. Hive : **HKEY_LOCAL_MACHINE**
+      1. Chemin de clé : **SOFTWARE\Microsoft\Windows\CurrentVersion\CDJ\AAD**
+      1. Nom de la valeur : **TenantId**
+      1. Type de valeur : **REG_SZ**
+      1. Données de valeur : Le GUID ou **ID de répertoire** de votre instance Azure AD (cette valeur se trouve dans le **Azure portal** > **Azure Active Directory**  >   **Propriétés** > **ID de répertoire**)
+   1. Cliquez sur **OK**
+1. Avec le bouton droit sur le Registre, puis sélectionnez **New** > **élément de Registre**
+   1. Sur le **général** , configurez les éléments suivants
+      1. Action : **Mettre à jour**
+      1. Hive : **HKEY_LOCAL_MACHINE**
+      1. Chemin de clé : **SOFTWARE\Microsoft\Windows\CurrentVersion\CDJ\AAD**
+      1. Nom de la valeur : **TenantName**
+      1. Type de valeur : **REG_SZ**
+      1. Données de valeur : Votre vérifié **nom de domaine** dans Azure AD (par exemple, `contoso.onmicrosoft.com` ou tout autre nom de domaine vérifié dans votre répertoire)
+   1. Cliquez sur **OK**
+1. Fermez l’éditeur pour l’objet de stratégie de groupe nouvellement créé
+1. Lier le GPO nouvellement créé à l’unité d’organisation souhaitée contenant des ordinateurs joints au domaine qui appartiennent à votre population de lancement contrôlé
 
-5.  Sélectionnez **OK**.
+### <a name="configure-ad-fs-settings"></a>Configurer les paramètres AD FS
 
-6.  Cliquez avec le bouton droit sur votre nouvel objet de stratégie de groupe, puis sélectionnez **Modifier**.
+Si vous utilisez AD FS, vous devez d’abord configurer le SCP côté client en suivant les instructions mentionnées ci-dessus, mais la liaison de l’objet de stratégie de groupe à vos serveurs AD FS. Cette configuration est nécessaire pour AD FS établir la source pour les identités des appareils comme Azure AD.
 
-7.  Accédez à **Configuration ordinateur** > **Stratégies** > **Modèles d’administration** > **Composants Windows** > **Enregistrement d’appareil**. 
+## <a name="controlled-validation-of-hybrid-azure-ad-join-on-windows-down-level-devices"></a>Validation contrôlée d’une jointure hybrid Azure AD sur les appareils de bas niveau Windows
 
-8.  Cliquez avec le bouton droit sur **Enregistrer les ordinateurs appartenant à un domaine en tant qu’appareils**, puis sélectionnez **Modifier**.
+Pour inscrire des appareils de bas niveau Windows, les organisations doivent installer [Microsoft Workplace Join pour les ordinateurs non-Windows 10](https://www.microsoft.com/download/details.aspx?id=53554) disponible sur du Microsoft Download Center.
 
-    > [!NOTE] 
-    > Ce modèle de stratégie de groupe a été renommé par rapport aux versions précédentes de la Console de gestion des stratégies de groupe. Si vous utilisez une version antérieure de la console, accédez à **Configuration ordinateur** > **stratégies** > **modèles d’administration**  >  **Les composants Windows** > **Device Registration** > **Register domaine joint à un ordinateur en tant qu’appareil**. 
+Vous pouvez déployer le package à l’aide d’un système de distribution de logiciels comme [System Center Configuration Manager](https://www.microsoft.com/cloud-platform/system-center-configuration-manager). Le package prend en charge les options d’installation sans assistance standard avec le paramètre quiet. La branche actuelle de Configuration Manager offre des avantages supplémentaires par rapport aux versions précédentes, comme la possibilité d’effectuer le suivi des inscriptions effectuées.
 
-9.  Sélectionnez un des paramètres suivants, puis sélectionnez **Appliquer** :
+Le programme d’installation crée une tâche planifiée sur le système qui s’exécute dans le contexte de l’utilisateur. La tâche est déclenchée lorsque l’utilisateur se connecte à Windows. La tâche joint en mode silencieux l’appareil à Azure AD, au moyen des informations d’identification de l’utilisateur, après son authentification auprès d’Azure AD.
 
-    - **Désactivé** : pour éviter l’inscription automatique d’appareils.
-    - **Enabled** : pour activer l’inscription automatique d’appareils.
+Pour contrôler l’inscription d’appareil, vous devez déployer le package Windows Installer pour votre groupe d’appareils de bas niveau Windows sélectionné.
 
-10. Sélectionnez **OK**.
+> [!NOTE]
+> Si un SCP n’est pas configuré dans Active Directory, vous devez suivre la même approche décrite pour [configurer le paramètre de Registre côté client pour SCP](#configure-client-side-registry-setting-for-scp)) sur vos ordinateurs joints au domaine à l’aide d’un objet de stratégie de groupe (GPO).
 
-Vous devez lier l’objet de stratégie de groupe à l’emplacement de votre choix. Par exemple, pour définir cette stratégie pour tous les appareils actuels joints au domaine dans votre organisation, liez l’objet de stratégie de groupe au domaine. Pour effectuer un déploiement contrôlé, définissez cette stratégie sur les appareils Windows actuels joints au domaine qui appartiennent à une unité d’organisation ou à un groupe de sécurité.
 
-### <a name="configuration-manager-controlled-deployment"></a>Déploiement contrôlé du Gestionnaire de configuration 
-
-Vous pouvez contrôler le comportement d’inscription de vos appareils actuels en configurant le paramètre client suivant : **Inscrire automatiquement les nouveaux appareils joints au domaine Windows 10 auprès d’Azure Active Directory**.
-
-Pour configurer le paramètre client :
-
-1.  Ouvrez **Configuration Manager**, sélectionnez **Administration**, puis accédez à **paramètres Client**.
-
-2.  Ouvrez les propriétés de **paramètres Client par défaut** et sélectionnez **Services Cloud**.
-
-3.  Sous **Paramètres de l’appareil**, sélectionnez un des paramètres suivants pour **Inscrire automatiquement les nouveaux appareils joints au domaine Windows 10 auprès d’Azure Active Directory** :
-
-    - **Non** : pour éviter l’inscription automatique d’appareils.
-    - **Oui** : pour activer l’inscription automatique d’appareils.
-
-4.  Sélectionnez **OK**.
-
-Vous devez lier ce paramètre client à l’emplacement de votre choix. Par exemple, pour configurer ce paramètre client pour tous les appareils Windows actuels dans votre organisation, liez le paramètre client au domaine. Pour effectuer un déploiement contrôlé, vous pouvez configurer le paramètre client pour les appareils Windows actuels joints au domaine qui appartiennent à une unité d’organisation ou à un groupe de sécurité.
-
-> [!Important]
-> Bien que la précédente configuration prenne en charge les appareils Windows 10 joints à un domaine existant, des appareils joints récemment au domaine peuvent encore tenter d’effectuer une jonction Azure AD Hybride, et ce en raison du délai pouvant exister dans l’application des paramètres de la stratégie de groupe ou de Configuration Manager sur les appareils. 
->
-> Pour éviter ce problème, nous recommandons de créer une image Sysprep (utilisée comme exemple pour une méthode de provisionnement). Créez-la à partir d’un appareil qui n’a encore jamais été joint à Azure AD Hybride, et dont le paramètre de stratégie de groupe ou le paramètre de client Configuration Manager est déjà appliqué. Vous devez également utiliser la nouvelle image pour le provisionnement des nouveaux ordinateurs qui joignent le domaine de votre organisation. 
-
-## <a name="control-windows-down-level-devices"></a>Contrôler des appareils Windows de bas niveau
-
-Pour inscrire des appareils Windows de bas niveau, vous devez télécharger et installer le package Windows Installer (.msi) à partir du Centre de téléchargement, dans la page [Microsoft Workplace Join for non-Windows 10 computers](https://www.microsoft.com/download/details.aspx?id=53554) (Microsoft Workplace Join pour les ordinateurs non Windows 10).
-
-Vous pouvez déployer le package à l’aide d’un système de distribution de logiciels, comme [System Center Configuration Manager](https://www.microsoft.com/cloud-platform/system-center-configuration-manager). Le package prend en charge les options d’installation sans assistance standard avec le paramètre quiet. La branche actuelle de Configuration Manager offre des avantages supplémentaires par rapport aux versions précédentes, comme la possibilité d’effectuer le suivi des inscriptions effectuées.
-
-Le programme d’installation crée une tâche planifiée sur le système, qui s’exécute dans le contexte de l’utilisateur. La tâche est déclenchée lorsque l’utilisateur se connecte à Windows. La tâche joint en mode silencieux l’appareil à Azure AD, au moyen des informations d’identification de l’utilisateur, après son authentification auprès d’Azure AD.
-
-Pour contrôler l’inscription des appareils, vous devez déployer le package Windows Installer uniquement sur un groupe sélectionné d’appareils Windows de bas niveau. Si vous avez vérifié que tout fonctionne conformément à ce qui est attendu, vous êtes prêt pour le déploiement du package sur tous les appareils de bas niveau.
-
+Après avoir vérifié que tout fonctionne comme prévu, vous pouvez inscrire automatiquement le reste de vos appareils en cours et de bas niveau de Windows avec Azure AD par [configuration SCP à l’aide d’Azure AD Connect](hybrid-azuread-join-managed-domains.md#configure-hybrid-azure-ad-join).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Présentation de la gestion des appareils dans Azure Active Directory](../device-management-introduction.md)
-
-
-
+[Planifier l’implémentation de la jonction Azure Active Directory hybride](hybrid-azuread-join-plan.md)

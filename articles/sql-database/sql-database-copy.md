@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sahsan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 04/11/2019
-ms.openlocfilehash: 4516d61c1bf8a32e807bcbc01ea1e5b283e31060
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.date: 06/03/2019
+ms.openlocfilehash: ba787ccd51bf5ea9ec8e06e341a0f698afb5a7e2
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65762692"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66688074"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-an-azure-sql-database"></a>Copier une copie cohérente au niveau transactionnel d'une base de données Azure SQL Database
 
@@ -49,8 +49,6 @@ Pour copier une base de données à l’aide du portail Azure, ouvrez la page de
 ## <a name="copy-a-database-by-using-powershell"></a>Copier une base de données à l’aide de PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-> [!IMPORTANT]
-> Le module PowerShell Azure Resource Manager est toujours pris en charge par Azure SQL Database, mais tous les développements futurs sont pour le module Az.Sql. Pour ces applets de commande, consultez [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Les arguments pour les commandes dans le module Az et dans les modules AzureRm sont sensiblement identiques.
 
 Pour copier une base de données à l’aide de PowerShell, utilisez le [New-AzSqlDatabaseCopy](/powershell/module/az.sql/new-azsqldatabasecopy) applet de commande. 
 

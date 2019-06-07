@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/14/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: a160591ef0a47eed097ce8db373878f32965de9b
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 18dc3e224df18c900653e4549badcdd93f0df6ec
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66247123"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66688026"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>Configurer, optimiser et résoudre les problèmes d’AzCopy
 
@@ -22,9 +22,9 @@ AzCopy est un utilitaire de ligne de commande que vous pouvez utiliser pour copi
 > [!NOTE]
 > Si vous avez besoin pour le contenu pour vous aider à bien démarrer avec AzCopy, consultez les articles suivants :
 > - [Bien démarrer avec AzCopy](storage-use-azcopy-v10.md)
-> - [Transfert de données avec AzCopy et le stockage blob](storage-use-azcopy-blobs.md)
-> - [Transfert de données avec AzCopy et stockage fichier](storage-use-azcopy-files.md)
-> - [Transfert de données avec AzCopy et Amazon S3 compartiments](storage-use-azcopy-s3.md)
+> - [Transférer des données avec AzCopy et le Stockage Blob](storage-use-azcopy-blobs.md)
+> - [Transférer des données avec AzCopy et le stockage de fichiers](storage-use-azcopy-files.md)
+> - [Transférer des données avec AzCopy et des compartiments Amazon S3](storage-use-azcopy-s3.md)
 
 ## <a name="configure-proxy-settings"></a>Configuration des paramètres de proxy
 
@@ -52,7 +52,7 @@ Utilisez le `azcopy env` pour vérifier la valeur actuelle de cette variable.  S
 
 ## <a name="change-the-location-of-the-log-files"></a>Changer l'emplacement des fichiers journaux
 
-Par défaut, les fichiers journaux sont situés dans le `%USERPROFILE\\.azcopy` sur Windows, ou dans le `$HOME\\.azcopy` dossier sur Mac et Linux. Vous pouvez modifier cet emplacement si vous avez besoin à l’aide de ces commandes.
+Par défaut, les fichiers journaux sont situés dans le `%USERPROFILE\\.azcopy` répertoire sur Windows ou dans le `$HOME\\.azcopy` répertoire sur Mac et Linux. Vous pouvez modifier cet emplacement si vous avez besoin à l’aide de ces commandes.
 
 | Système d’exploitation | Commande  |
 |--------|-----------|
@@ -74,7 +74,7 @@ AzCopy crée des fichiers journaux et de plan pour chaque travail. Vous pouvez u
 
 Les journaux contient l’état de défaillance (`UPLOADFAILED`, `COPYFAILED`, et `DOWNLOADFAILED`), le chemin d’accès complet et le motif de l’échec.
 
-Par défaut, les fichiers journaux et plan se trouvent dans le `%USERPROFILE\\.azcopy` dossier sur Windows ou `$HOME\\.azcopy` dossier sur Mac et Linux.
+Par défaut, les fichiers journaux et plan se trouvent dans le `%USERPROFILE\\.azcopy` répertoire sur Windows ou `$HOME\\.azcopy` répertoire sur Mac et Linux.
 
 > [!IMPORTANT]
 > Lorsque vous soumettez une demande de Support Microsoft (ou résoudre le problème impliquant un tiers), partagent la version rédigée de la commande que vous souhaitez exécuter. Cela garantit que la SAP n’est pas accidentellement partagée avec tout le monde. Vous trouverez la version expurgée au début du fichier journal.

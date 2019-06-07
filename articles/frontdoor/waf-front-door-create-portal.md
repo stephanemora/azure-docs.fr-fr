@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/8/2019
+ms.date: 05/31/2019
 ms.author: kumud;tyao
-ms.openlocfilehash: 26db3a67c3efbd0ba2a5c58facd0c07175f7ed12
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 15a80dac0e0601480e22ad960f2827f3d8f290c0
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61460247"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479059"
 ---
 # <a name="create-a-waf-policy-for-azure-front-door-by-using-the-azure-portal"></a>Créer une stratégie de pare-feu d’applications Web pour Azure porte d’entrée à l’aide du portail Azure
 
@@ -63,17 +63,19 @@ Pour voir le pare-feu d’applications Web en action, vous pouvez modifier les p
 
  ![Mode de stratégie de modification WAF](./media/waf-front-door-create-portal/policy.png)
 
+### <a name="custom-rules"></a>Règles personnalisées
+
+Vous pouvez créer une règle personnalisée en sélectionnant **ajouter une règle personnalisée** sous le **règles personnalisées** section. Cette action lance la page de configuration de règle personnalisée. Voici un exemple de configuration d’une règle personnalisée pour bloquer une demande si la chaîne de requête contient **blockme**.
+
+![Mode de stratégie de modification WAF](./media/waf-front-door-create-portal/customquerystring2.png)
+
 ### <a name="default-rule-set-drs"></a>Ensemble de règles par défaut (DRS)
 
 Gérés par Azure un ensemble de règles par défaut est activée par défaut. Pour désactiver une règle individuelle au sein d’un groupe de règles, développez les règles dans ce groupe de règles, sélectionnez le **case à cocher** devant le numéro de la règle, puis sélectionnez **désactiver** sous l’onglet ci-dessus. Pour modifier les types d’actions pour les règles individuelles au sein de la règle définie, activez la case à cocher devant le numéro de la règle, puis sélectionnez le **modifiez action** onglet ci-dessus.
 
- ![Modifier l’ensemble de règles de pare-feu d’applications Web](./media/waf-front-door-create-portal/managed.png)
+ ![Modifier l’ensemble de règles de pare-feu d’applications Web](./media/waf-front-door-create-portal/managed2.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - En savoir plus sur [pare-feu d’applications web Azure](waf-overview.md).
 - En savoir plus sur [porte d’entrée Azure](front-door-overview.md).
-
-
-
-

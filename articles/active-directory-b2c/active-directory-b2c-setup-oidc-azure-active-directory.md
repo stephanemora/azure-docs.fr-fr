@@ -2,20 +2,20 @@
 title: Configurer la connexion pour une organisation Azure Active Directory - Azure Active Directory B2C | Microsoft Docs
 description: Configurez la connexion pour une organisation Azure Active Directory spécifique dans Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: bae5759beb6a817c411ee52d7eb27dbff4cfe01c
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 28dbf0382ac151857e72d4bb59e207f07c8ad3f3
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65785245"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66508422"
 ---
 # <a name="set-up-sign-in-for-a-specific-azure-active-directory-organization-in-azure-active-directory-b2c"></a>Configurer la connexion pour une organisation Azure Active Directory spécifique dans Azure Active Directory B2C
 
@@ -54,7 +54,7 @@ Pour autoriser la connexion des utilisateurs d’une organisation Azure AD spé
 2. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
 3. Cliquez sur **Fournisseurs d’identité**, puis sélectionnez **Ajouter**.
 4. Saisissez un **Nom**. Par exemple, entrez : `Contoso Azure AD`.
-5. Sélectionnez **Type de fournisseur d’identité**, sélectionnez **Open ID Connect (préversion)**, puis cliquez sur **OK**.
+5. Sélectionnez **Type de fournisseur d’identité**, sélectionnez **Open ID Connect (préversion)** , puis cliquez sur **OK**.
 6. Sélectionnez **configurer ce fournisseur d’identité**
 7. Pour **URL des métadonnées**, entrez l’URL suivante qui remplace `your-AD-tenant-domain` par le nom de domaine de votre locataire Azure AD. Exemple `https://login.microsoftonline.com/contoso.onmicrosoft.com/.well-known/openid-configuration` :
 

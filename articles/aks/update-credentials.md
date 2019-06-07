@@ -2,18 +2,17 @@
 title: Réinitialiser les informations d’identification d’un cluster Azure Kubernetes Service (AKS)
 description: Découvrir comment mettre à jour ou réinitialiser les informations d’identification de principal du service pour un cluster dans Azure Kubernetes Service (AKS)
 services: container-service
-author: rockboyfor
+author: iainfoulds
 ms.service: container-service
 ms.topic: article
-origin.date: 01/30/2019
-ms.date: 03/04/2019
-ms.author: v-yeche
-ms.openlocfilehash: d880615d0d132403c935fe39e8478d7b3fc48dbe
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/31/2019
+ms.author: iainfou
+ms.openlocfilehash: 189bcf2ddc7d301c8100f74e51374abd217a144f
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61029354"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475484"
 ---
 # <a name="update-or-rotate-the-credentials-for-a-service-principal-in-azure-kubernetes-service-aks"></a>Mettre à jour ou faire pivoter les informations d’identification d’un principal du service dans Azure Kubernetes Service (AKS)
 
@@ -21,7 +20,7 @@ Par défaut, les clusters AKS sont créés avec un principal de service dont le 
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Azure CLI 2.0.56 (ou version ultérieure) doit être installé et configuré. Exécutez  `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez  [Installation d’Azure CLI 2.0][install-azure-cli].
+Vous avez besoin d’Azure CLI version 2.0.65 ou ultérieur installé et configuré. Exécutez  `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez  [Installation d’Azure CLI 2.0][install-azure-cli].
 
 ## <a name="choose-to-update-or-create-a-service-principal"></a>Choisir de mettre à jour ou de créer un principal du service
 
@@ -34,17 +33,18 @@ Si vous souhaitez créer un principal du service puis mettre à jour le cluster 
 
 ### <a name="get-the-service-principal-id"></a>Obtenir l’ID du principal du service
 
-Pour mettre à jour les informations d’identification du principal du service existant, obtenez l’ID du principal du service de votre cluster à l’aide de la commande [az aks show][az-aks-show]. L’exemple suivant permet d’obtenir l’ID du cluster *myAKSCluster* dans le groupe de ressources *myResourceGroup*. L’ID du principal du service est défini en tant que variable pour être utilisé dans d’autres commandes.
+Pour mettre à jour les informations d’identification du principal du service existant, obtenez l’ID du principal du service de votre cluster à l’aide de la commande [az aks show][az-aks-show]. L’exemple suivant permet d’obtenir l’ID du cluster *myAKSCluster* dans le groupe de ressources *myResourceGroup*. L’ID du principal de service est défini comme une variable nommée *SP_ID* pour une utilisation dans des commandes supplémentaires.
 
-```azurecli
-SP_ID=$(az aks show -g myResourceGroup -n myAKSCluster --query servicePrincipalProfile.clientId -o tsv)
+```azurecli-interactive
+SP_ID=$(az aks show --resource-group myResourceGroup --name myAKSCluster \
+    --query servicePrincipalProfile.clientId -o tsv)
 ```
 
 ### <a name="update-the-service-principal-credentials"></a>Mettre à jour les informations d’identification du principal du service
 
 Avec un jeu de variables contenant l’ID du principal du service, réinitialisez les informations d’identification à l’aide de [az ad sp credential reset][az-ad-sp-credential-reset]. L’exemple suivant permet à la plateforme Azure de générer un nouveau secret sécurisé pour le principal du service. Ce nouveau secret sécurisé est également stocké dans une variable.
 
-```azurecli
+```azurecli-interactive
 SP_SECRET=$(az ad sp credential reset --name $SP_ID --query password -o tsv)
 ```
 
@@ -56,7 +56,7 @@ Si vous avez choisi de mettre à jour les informations d’identification du pri
 
 Pour créer un principal du service puis mettre à jour le cluster AKS pour qu’il utilise ces nouvelles informations d’identification, utilisez la commande [az ad sp create-for-rbac][az-ad-sp-create]. Dans l’exemple suivant, le paramètre `--skip-assignment` empêche toute affectation par défaut supplémentaire :
 
-```azurecli
+```azurecli-interactive
 az ad sp create-for-rbac --skip-assignment
 ```
 
@@ -73,7 +73,7 @@ Le résultat ressemble à l’exemple qui suit. Prenez note de vos propres valeu
 
 Définissez maintenant des variables pour l’ID du principal du service et le secret client à l’aide du résultat de votre propre commande [az ad sp create-for-rbac][az-ad-sp-create], comme indiqué dans l’exemple suivant. *SP_ID* correspond à votre *appId*, et *SP_SECRET* à votre *mot de passe* :
 
-```azurecli
+```azurecli-interactive
 SP_ID=7d837646-b1f3-443d-874c-fd83c7c739c5
 SP_SECRET=a5ce83c9-9186-426d-9183-614597c7f2f7
 ```
@@ -82,7 +82,7 @@ SP_SECRET=a5ce83c9-9186-426d-9183-614597c7f2f7
 
 Que vous ayez choisi de mettre à jour les informations d’identification du principal du service existant ou de créer un principal de service, vous mettez maintenant à jour le cluster AKS avec vos nouvelles informations d’identification à l’aide de la commande [az aks update-credentials][az-aks-update-credentials]. Les variables pour *--service-principal* et *--client-secret* sont utilisées :
 
-```azurecli
+```azurecli-interactive
 az aks update-credentials \
     --resource-group myResourceGroup \
     --name myAKSCluster \
@@ -98,9 +98,9 @@ La mise à jour des informations d’identification du principal du service dans
 Dans cet article, le principal du service du cluster AKS lui-même a été mis à jour. Pour plus d’informations sur la gestion de l’identité des charges de travail dans un cluster, consultez [Meilleures pratiques d’authentification et d’autorisation dans AKS][best-practices-identity].
 
 <!-- LINKS - internal -->
-[install-azure-cli]: https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest
-[az-aks-show]: https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-show
-[az-aks-update-credentials]: https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-update-credentials
+[install-azure-cli]: /cli/azure/install-azure-cli
+[az-aks-show]: /cli/azure/aks#az-aks-show
+[az-aks-update-credentials]: /cli/azure/aks#az-aks-update-credentials
 [best-practices-identity]: operator-best-practices-identity.md
-[az-ad-sp-create]: https://docs.azure.cn/zh-cn/cli/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac
-[az-ad-sp-credential-reset]: https://docs.azure.cn/zh-cn/cli/ad/sp/credential?view=azure-cli-latest#az-ad-sp-credential-reset
+[az-ad-sp-create]: /cli/azure/ad/sp#az-ad-sp-create-for-rbac
+[az-ad-sp-credential-reset]: /cli/azure/ad/sp/credential#az-ad-sp-credential-reset

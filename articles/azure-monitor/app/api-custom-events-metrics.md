@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: mbullwin
-ms.openlocfilehash: 6e20aef77625fe426526884c3fcee83019afd0c0
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.openlocfilehash: 5194b9e6f40dbcd5e48b33c12db4b3cd94f75de3
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66299246"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66478403"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API Application Insights pour les événements et les mesures personnalisés
 
@@ -153,7 +153,7 @@ telemetry.trackEvent({name: "WinGame"});
 
 La télémétrie est disponible dans la table `customEvents` dans [Application Insights - Analytique](analytics.md). Chaque ligne représente un appel à `trackEvent(..)` dans votre application.
 
-Si un [échantillonnage](../../azure-monitor/app/sampling.md) est en cours, la propriété itemCount affiche une valeur supérieure à 1. Par exemple, itemCount==10 signifie que sur 10 appels à trackEvent(), le processus d’échantillonnage n’en a transmis qu’un seul. Pour obtenir un nombre correct d’événements personnalisés, vous devez utiliser un code similaire à `customEvents | summarize sum(itemCount)`.
+Si un [échantillonnage](../../azure-monitor/app/sampling.md) est en cours, la propriété itemCount affiche une valeur supérieure à 1. Par exemple, itemCount==10 signifie que sur 10 appels à trackEvent(), le processus d’échantillonnage n’en a transmis qu’un seul. Pour obtenir un nombre correct d’événements personnalisés, vous devez donc utiliser le code `customEvents | summarize sum(itemCount)`.
 
 ## <a name="getmetric"></a>GetMetric
 
@@ -529,7 +529,7 @@ exceptions
 | summarize sum(itemCount) by type
 ```
 
-La plupart des informations importantes sur la pile sont déjà extraites dans des variables distinctes, mais vous pouvez extraire séparément la structure `details` pour en savoir plus. Comme cette structure est dynamique, vous devez effectuer une conversion de type (transtypage) du résultat vers le type attendu. Par exemple : 
+La plupart des informations importantes sur la pile sont déjà extraites dans des variables distinctes, mais vous pouvez extraire séparément la structure `details` pour en savoir plus. Comme cette structure est dynamique, vous devez effectuer une conversion de type (transtypage) du résultat vers le type attendu. Par exemple :
 
 ```kusto
 exceptions
@@ -592,7 +592,7 @@ Vous pouvez effectuer une recherche dans le contenu du message, mais (contrairem
 La limite de taille sur `message` est plus importante que la limite des propriétés.
 l’un des avantages de TrackTrace est que vous pouvez insérer des données relativement longues dans le message. Par exemple, vous pourriez y encoder des données POST.  
 
-Par ailleurs, vous pouvez ajouter un niveau de gravité à votre message. Comme pour les autres données de télémétrie, vous pouvez également ajouter des valeurs de propriété qui permettent de filtrer ou rechercher différents jeux de traces. Par exemple : 
+Par ailleurs, vous pouvez ajouter un niveau de gravité à votre message. Comme pour les autres données de télémétrie, vous pouvez également ajouter des valeurs de propriété qui permettent de filtrer ou rechercher différents jeux de traces. Par exemple :
 
 *C#*
 
@@ -1155,7 +1155,7 @@ var appInsights = window.appInsights || function(config){ ...
 
 ## <a name="telemetrycontext"></a>TelemetryContext
 
-TelemetryClient a une propriété de contexte contenant les valeurs qui sont envoyées avec toutes les données de télémétrie. Elles sont normalement définies par les modules de télémétrie standard, mais vous pouvez également les définir vous-même. Par exemple : 
+TelemetryClient a une propriété de contexte contenant les valeurs qui sont envoyées avec toutes les données de télémétrie. Elles sont normalement définies par les modules de télémétrie standard, mais vous pouvez également les définir vous-même. Par exemple :
 
 ```csharp
 telemetry.Context.Operation.Name = "MyOperationName";

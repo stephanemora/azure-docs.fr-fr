@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 02/27/2019
 ms.author: ellacroi
-ms.openlocfilehash: 4cbc0b399bddbaebd4cb951dcd116e090c2e0c09
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 363cd9319db0477e9b5ba2d2dd03a7e995a26fef
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64938023"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515619"
 ---
 # <a name="integrated-solutions-in-azure-marketplace-and-appsource"></a>Solutions intégrées dans Azure Marketplace et AppSource
 
@@ -30,6 +30,15 @@ Avantages d’une approche intégrée sont :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Vous pouvez découvrir des Solutions intégrées et vous connecter avec ces partenaires en consultant la section Services de Conseil de [place de marché Azure](https://azuremarketplace.microsoft.com/marketplace/consulting-services).
+Vous pouvez découvrir des Solutions intégrées et communiquez avec ces partenaires en visitant leurs annonces ici :
+
+* [Client 360 alimentées par Zero2Hero](https://azuremarketplace.microsoft.com/marketplace/consulting-services/bardess.customer-360-powered-by-zero2hero)
+* [Commerce rapide](https://azuremarketplace.microsoft.com/marketplace/consulting-services/publicis-sapient.rapid_commerce)
+* [Analytique de crédit](https://azuremarketplace.microsoft.com/marketplace/consulting-services/rcg-us.rcg-enable-credit-analytics)
+* [Pile de sécurité Cloud de soins de santé](https://azuremarketplace.microsoft.com/marketplace/consulting-services/xentit.azure-xentit-trendmicro-qualys-hcss-12months)
+* [Moteur d’accélération DevOps](https://azuremarketplace.microsoft.com/marketplace/consulting-services/sirrus7.sirrus7-devops-acceleration-engine?search=devops%20acceleration%20engine&page=1)
+* [Serveur Windows de fin de Support](https://azuremarketplace.microsoft.com/marketplace/consulting-services/new-signature.eos_appfactory)
+
+et en accédant à la section Services de Conseil d’également [place de marché Azure](https://azuremarketplace.microsoft.com/marketplace/consulting-services).
 
 ---

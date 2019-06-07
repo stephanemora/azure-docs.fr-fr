@@ -2,20 +2,20 @@
 title: Configurer le comportement de session - Azure Active Directory B2C | Microsoft Docs
 description: Configurer le comportement de la session dans Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/16/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 7bfa34f44ca8ba53b89e4218303a7cd77cd0add9
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 3167a63be46e0d777fbec0c6a3301684fb7636bd
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64700987"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66512564"
 ---
 # <a name="configure-session-behavior-in-azure-active-directory-b2c"></a>Configurer le comportement de la session dans Azure Active Directory B2C
 
@@ -51,10 +51,10 @@ Les cas d’usage suivants sont activés à l’aide de ces propriétés :
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 2. Veillez à utiliser l’annuaire qui contient votre locataire Azure AD B2C en cliquant sur le **filtre annuaire et abonnement** dans le menu du haut et en choisissant l’annuaire qui contient votre locataire Azure AD B2C.
 3. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
-4. Sélectionnez **flux d’utilisateurs (stratégies)**.
+4. Sélectionnez **flux d’utilisateurs (stratégies)** .
 5. Ouvrir le flux d’utilisateur que vous avez créé précédemment. 
 6. Sélectionner **Propriétés**.
-7. Configurer **Web application durée de vie de session (minutes)**, **délai d’expiration de session Web application**, **configuration de l’authentification unique**, et **nécessitent l’ID de jeton dans les demandes de déconnexion**  en fonction des besoins.
+7. Configurer **Web application durée de vie de session (minutes)** , **délai d’expiration de session Web application**, **configuration de l’authentification unique**, et **nécessitent l’ID de jeton dans les demandes de déconnexion**  en fonction des besoins.
 
     ![Configurer le comportement de la session](./media/session-behavior/session-behavior.png)
     

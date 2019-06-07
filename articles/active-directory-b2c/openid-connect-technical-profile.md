@@ -2,20 +2,20 @@
 title: Définir un profil technique OpenId Connect dans une stratégie personnalisée dans Azure Active Directory B2C | Microsoft Docs
 description: Définir un profil technique OpenId Connect dans une stratégie personnalisée dans Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 9ec323d4596c866da33c4a8ff5499bf2ad92a8bd
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 6d16415aa5111388ec2d2a1009ff477574ae42c5
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64710313"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66512917"
 ---
 # <a name="define-an-openid-connect-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Définir un profil technique OpenId Connect dans une stratégie personnalisée Azure Active Directory B2C
 
@@ -76,17 +76,17 @@ Le profil technique retourne également des revendications qui ne sont pas retou
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
 | client_id | Oui | Identificateur d’application du fournisseur d’identité. |
-| IdTokenAudience | Non  | Audience du jeton id_token. Si la valeur est spécifiée, Azure AD B2C vérifie si le jeton figure dans une revendication retournée par le fournisseur d’identité, et est identique à celui spécifié. |
+| IdTokenAudience | Non | Audience du jeton id_token. Si la valeur est spécifiée, Azure AD B2C vérifie si le jeton figure dans une revendication retournée par le fournisseur d’identité, et est identique à celui spécifié. |
 | METADATA | Oui | URL qui pointe vers un document de configuration JSON mis en forme conformément à la spécification OpenID Connect Discovery, qui est un point de terminaison de configuration openid bien connu. |
-| ProviderName | Non  | Nom du fournisseur d'identité. |
-| response_types | Non  | Type de réponse conformément à la spécification OpenID Connect Core 1.0. Valeurs possibles : `id_token`, `code` ou `token`. |
-| response_mode | Non  | Méthode que le fournisseur d’identité utilise pour renvoyer le résultat à Azure AD B2C. Valeurs possibles : `query`, `form_post` (par défaut) ou `fragment`. |
-| scope | Non  | L’étendue de la demande qui est définie selon la spécification OpenID Connect Core 1.0. Par exemple, `openid`, `profile` ou `email`. |
-| HttpBinding | Non  | Liaison HTTP attendue aux points de terminaison de jeton d’accès et de jeton de revendications. Valeurs possibles : `GET` ou `POST`.  |
-| ValidTokenIssuerPrefixes | Non  | Clé utilisable pour se connecter à chacun des locataires en cas d’utilisation d’un fournisseur d’identité mutualisé tel qu’Azure Active Directory. |
-| UsePolicyInRedirectUri | Non  | Indique s’il faut utiliser une stratégie lors de la construction de l’URI de redirection. Lorsque vous configurez votre application dans le fournisseur d’identité, vous devez spécifier l’URI de redirection. L’URI de redirection pointe vers Azure AD B2C, `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` (login.microsoftonline.com peut être remplacé par votre-nom-locataire.b2clogin.com).  Si vous spécifiez `false`, vous devez ajouter un URI de redirection pour chaque stratégie que vous utilisez. Par exemple : `https://login.microsoftonline.com/te/{tenant}/{policy}/oauth2/authresp`. |
-| MarkAsFailureOnStatusCode5xx | Non  | Indique si une demande adressée à un service externe doit être marquée comme un échec si le code d’état HTTP s’inscrit dans la plage 5xx. Par défaut, il s’agit de `false`. |
-| DiscoverMetadataByTokenIssuer | Non  | Indique si les métadonnées OIDC doivent être découvertes à l’aide de l’émetteur dans le jeton JSON Web Token. |
+| ProviderName | Non | Nom du fournisseur d'identité. |
+| response_types | Non | Type de réponse conformément à la spécification OpenID Connect Core 1.0. Valeurs possibles : `id_token`, `code` ou `token`. |
+| response_mode | Non | Méthode que le fournisseur d’identité utilise pour renvoyer le résultat à Azure AD B2C. Valeurs possibles : `query`, `form_post` (par défaut) ou `fragment`. |
+| scope | Non | L’étendue de la demande qui est définie selon la spécification OpenID Connect Core 1.0. Par exemple, `openid`, `profile` ou `email`. |
+| HttpBinding | Non | Liaison HTTP attendue aux points de terminaison de jeton d’accès et de jeton de revendications. Valeurs possibles : `GET` ou `POST`.  |
+| ValidTokenIssuerPrefixes | Non | Clé utilisable pour se connecter à chacun des locataires en cas d’utilisation d’un fournisseur d’identité mutualisé tel qu’Azure Active Directory. |
+| UsePolicyInRedirectUri | Non | Indique s’il faut utiliser une stratégie lors de la construction de l’URI de redirection. Lorsque vous configurez votre application dans le fournisseur d’identité, vous devez spécifier l’URI de redirection. L’URI de redirection pointe vers Azure AD B2C, `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` (login.microsoftonline.com peut être remplacé par votre-nom-locataire.b2clogin.com).  Si vous spécifiez `false`, vous devez ajouter un URI de redirection pour chaque stratégie que vous utilisez. Par exemple : `https://login.microsoftonline.com/te/{tenant}/{policy}/oauth2/authresp`. |
+| MarkAsFailureOnStatusCode5xx | Non | Indique si une demande adressée à un service externe doit être marquée comme un échec si le code d’état HTTP s’inscrit dans la plage 5xx. Par défaut, il s’agit de `false`. |
+| DiscoverMetadataByTokenIssuer | Non | Indique si les métadonnées OIDC doivent être découvertes à l’aide de l’émetteur dans le jeton JSON Web Token. |
 
 ## <a name="cryptographic-keys"></a>Clés de chiffrement
 

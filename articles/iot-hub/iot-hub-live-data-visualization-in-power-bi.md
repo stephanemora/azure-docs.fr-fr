@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 4/11/2018
 ms.author: robinsh
-ms.openlocfilehash: 7c770aced36e4c90f654de8d31c12d55ad80c8d0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3e932048b41e9af149f14a814a1c92d86bd26f29
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60780015"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479870"
 ---
 # <a name="visualize-real-time-sensor-data-from-azure-iot-hub-using-power-bi"></a>Visualiser des données de capteur en temps réel depuis Azure IoT Hub, à l’aide de Power BI
 
@@ -25,7 +25,7 @@ ms.locfileid: "60780015"
 
 ## <a name="what-you-learn"></a>Contenu
 
-Vous apprenez à visualiser les données de capteur en temps réel que votre instance Azure IoT Hub reçoit par l’intermédiaire de Power BI. Si vous souhaitez essayer de visualiser les données dans votre instance IoT Hub avec Web Apps, consultez [Utiliser Azure Web Apps pour visualiser les données de capteur en temps réel à partir d’Azure IoT Hub](iot-hub-live-data-visualization-in-web-apps.md).
+Vous apprenez à visualiser les données de capteur en temps réel que votre instance Azure IoT Hub reçoit par l’intermédiaire de Power BI. Si vous souhaitez essayer toe visualiser les données dans votre IoT hub avec une application web, consultez [utiliser une application web pour visualiser les données de capteur en temps réel depuis Azure IoT Hub](iot-hub-live-data-visualization-in-web-apps.md).
 
 ## <a name="what-you-do"></a>Procédure
 
@@ -61,7 +61,7 @@ Commençons par la création d’une tâche Stream Analytics. Une fois la tâche
 
    **Groupe de ressources** : utilisez le même groupe de ressources que celui de votre hub IoT.
 
-   **Emplacement** : utilisez le même emplacement que votre groupe de ressources.
+   **Emplacement** : utilisez le même emplacement que votre groupe de ressources.
 
    **Épingler au tableau de bord** : cochez cette option pour pouvoir accéder facilement à votre hub IoT à partir du tableau de bord.
 
@@ -179,6 +179,6 @@ Microsoft propose également des [applications mobiles Power BI](https://power
 
 Vous avez correctement utilisé Power BI pour visualiser les données de capteur en temps réel, à partir de votre instance Azure IoT Hub.
 
-Cela dit, il existe un autre moyen de visualiser ces données depuis Azure IoT Hub. Voir [Utiliser Azure Web Apps pour visualiser les données de capteur en temps réel à partir d’Azure IoT Hub](iot-hub-live-data-visualization-in-web-apps.md).
+Pour une autre façon de visualiser les données à partir d’Azure IoT Hub, consultez [utiliser une application web pour visualiser les données de capteur en temps réel depuis Azure IoT Hub](iot-hub-live-data-visualization-in-web-apps.md).
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
