@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39495e11e42853bf3cf9481475d970667c56223f
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: c55dc0cbc175542d0b208bbe72566a0adb55a371
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64919106"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66496738"
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>Définir une stratégie d’adoption des identités hybrides
 Dans le cadre de cette tâche, vous définissez la stratégie d’adoption des identités hybrides pour que votre solution d’identités hybrides réponde aux exigences de l’entreprise évoquées dans les articles suivants :
@@ -54,9 +54,9 @@ Le tableau ci-après vous aide à déterminer les avantages et inconvénients de
 
 | Stratégie | Avantages | Inconvénients |
 | --- | --- | --- |
-| **Identités cloud** |Plus faciles à gérer pour les petites entreprises. <br> Rien à installer en local. Pas de matériel supplémentaire requis.<br>Faciles à désactiver si l’utilisateur quitte l’entreprise |Les utilisateurs doivent se connecter lorsqu’ils accèdent aux charges de travail dans le cloud <br>  Les mots de passe peuvent être les mêmes ou non pour les identités cloud et locales |
-| **Synchronisée** |Le mot de passe local authentifie les répertoires locaux et cloud <br>Plus faciles à gérer pour les petites, moyennes et grandes entreprises <br>Les utilisateurs peuvent disposer de l’authentification unique (SSO) pour certaines ressources <br> Méthode Microsoft préférée pour la synchronisation <br>  Plus faciles à gérer |Certains clients peuvent rechigner à synchroniser leurs répertoires avec le cloud en raison de la stratégie spécifique de l’entreprise |
-| **Adresses IP fédérées** |Les utilisateurs peuvent disposer de l’authentification unique (SSO)  <br>Si un utilisateur a achevé sa mission ou quitte l’entreprise, le compte peut immédiatement être désactivé et l’accès révoqué<br> Prise en charge de scénarios avancés qui ne peuvent pas être concrétisés avec l’option Synchronisée |Étapes supplémentaires pour l’installation et la configuration <br> Maintenance plus élevée <br> Peut requérir du matériel supplémentaire pour l’infrastructure STS <br> Peut nécessiter un matériel supplémentaire pour l’installation du serveur de fédération. Requiert des logiciels supplémentaires en cas d’utilisation des services de fédération Active Directory (AD FS). <br> Requiert une installation complète pour l’authentification unique <br> Point de défaillance critique : si le serveur de fédération est arrêté, les utilisateurs ne sont pas en mesure de s’authentifier |
+| **Identités cloud** |Plus faciles à gérer pour les petites entreprises. <br> Rien à installer en local. Pas de matériel supplémentaire requis.<br>Faciles à désactiver si l’utilisateur quitte l’entreprise |Les utilisateurs doivent se connecter lorsqu’ils accèdent aux charges de travail dans le cloud <br> Les mots de passe peuvent être les mêmes ou non pour les identités cloud et locales |
+| **Synchronisée** |Le mot de passe local authentifie les répertoires locaux et cloud <br>Plus faciles à gérer pour les petites, moyennes et grandes entreprises <br>Les utilisateurs peuvent disposer de l’authentification unique (SSO) pour certaines ressources <br> Méthode Microsoft préférée pour la synchronisation <br> Plus faciles à gérer |Certains clients peuvent rechigner à synchroniser leurs répertoires avec le cloud en raison de la stratégie spécifique de l’entreprise |
+| **Adresses IP fédérées** |Les utilisateurs peuvent disposer de l’authentification unique (SSO) <br>Si un utilisateur a achevé sa mission ou quitte l’entreprise, le compte peut immédiatement être désactivé et l’accès révoqué<br> Prise en charge de scénarios avancés qui ne peuvent pas être concrétisés avec l’option Synchronisée |Étapes supplémentaires pour l’installation et la configuration <br> Maintenance plus élevée <br> Peut requérir du matériel supplémentaire pour l’infrastructure STS <br> Peut nécessiter un matériel supplémentaire pour l’installation du serveur de fédération. Requiert des logiciels supplémentaires en cas d’utilisation des services de fédération Active Directory (AD FS). <br> Requiert une installation complète pour l’authentification unique <br> Point de défaillance critique : si le serveur de fédération est arrêté, les utilisateurs ne sont pas en mesure de s’authentifier |
 
 ### <a name="client-experience"></a>Expérience client
 La stratégie que vous utilisez détermine l’expérience de connexion utilisateur.  Les tableaux suivants vous fournissent des informations sur ce que les utilisateurs peuvent attendre de leur expérience de connexion.  Certains fournisseurs d’identité fédérée ne prennent pas en charge l’authentification unique dans tous les scénarios.
@@ -185,7 +185,7 @@ Options de conception multifacteur :
 | Applications Microsoft |Oui |Oui |
 | Applications SaaS dans la galerie d’applications |Oui |Oui |
 | Applications IIS publiées via le proxy d'application Azure AD |Oui |Oui |
-| Applications IIS non publiées via le proxy Azure AD App  |no |Oui |
+| Applications IIS non publiées via le proxy Azure AD App |no |Oui |
 | Accès à distance en tant que VPN, passerelle Bureau à distance (RDG) |no |Oui |
 
 Même si vous avez opté pour une solution pour votre stratégie, vous devez toujours utiliser l’évaluation ci-dessus sur l’emplacement où se trouvent vos utilisateurs.  Cela peut entraîner la modification de la solution.  Utilisez le tableau ci-dessous pour vous aider à déterminer les éléments suivants :
@@ -199,8 +199,7 @@ Même si vous avez opté pour une solution pour votre stratégie, vous devez tou
 | AD local |Serveur Multi-Factor Authentication |
 
 > [!NOTE]
-> Vous devez également vous assurer que l’option de conception de l’authentification multifacteur sélectionnée prend en charge les fonctionnalités requises pour votre conception.  Pour plus d’informations, consultez la rubrique [Choix de la solution de sécurité multifacteur la mieux adaptée](../authentication/concept-mfa-whichversion.md#what-am-i-trying-to-secure).
-> 
+> Vous devez également vous assurer que l’option de conception de l’authentification multifacteur sélectionnée prend en charge les fonctionnalités requises pour votre conception.  Pour plus d’informations, consultez la rubrique [Choix de la solution de sécurité multifacteur la mieux adaptée](../authentication/concept-mfa-howitworks.md).
 > 
 
 ## <a name="multi-factor-auth-provider"></a>Fournisseur d’authentification multi facteurs

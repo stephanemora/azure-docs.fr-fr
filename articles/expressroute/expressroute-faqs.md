@@ -5,15 +5,15 @@ services: expressroute
 author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 06/06/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 1a6f3fbc0160a78fb76f810257d3285725445eba
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: adffb18272d10c579f8b28bef055813b1074a237
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66257965"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754747"
 ---
 # <a name="expressroute-faq"></a>Forum Aux Questions ExpressRoute
 
@@ -39,7 +39,7 @@ Pour plus d'informations sur la tarification, consultez la page [Tarification](h
 
 ### <a name="if-i-pay-for-an-expressroute-circuit-of-a-given-bandwidth-does-the-vpn-connection-i-purchase-from-my-network-service-provider-have-to-be-the-same-speed"></a>Si j’achète un circuit ExpressRoute d’une bande passante donnée, la connexion VPN que j’achète auprès de mon fournisseur de services réseau doit-elle être de la même vitesse ?
 
- Non. Vous pouvez acheter une connexion VPN de n’importe quelle vitesse chez votre fournisseur de services. Toutefois, votre connexion à Azure est limitée à la bande passante du circuit ExpressRoute que vous achetez.
+Non. Vous pouvez acheter une connexion VPN de n’importe quelle vitesse chez votre fournisseur de services. Toutefois, votre connexion à Azure est limitée à la bande passante du circuit ExpressRoute que vous achetez.
 
 ### <a name="if-i-pay-for-an-expressroute-circuit-of-a-given-bandwidth-do-i-have-the-ability-to-burst-up-to-higher-speeds-if-necessary"></a>Si j’achète un circuit ExpressRoute présentant une bande passante donnée, puis-je augmenter sa vitesse en cas de nécessité ?
 
@@ -139,7 +139,7 @@ Vous n’avez besoin que d’une seule connexion physique si votre fournisseur d
 
 ### <a name="can-i-extend-one-of-my-vlans-to-azure-using-expressroute"></a>Puis-je étendre l’un de mes réseaux locaux virtuels vers Azure avec ExpressRoute ?
 
- Non. Nous ne prenons pas en charge les extensions de connectivité de couche 2 dans Azure.
+Non. Nous ne prenons pas en charge les extensions de connectivité de couche 2 dans Azure.
 
 ### <a name="can-i-have-more-than-one-expressroute-circuit-in-my-subscription"></a>Puis-je avoir plusieurs circuits ExpressRoute dans mon abonnement ?
 
@@ -188,7 +188,7 @@ Pour plus d'informations, consultez la page [Partage d'un circuit ExpressRoute e
 
 ### <a name="are-virtual-networks-connected-to-the-same-circuit-isolated-from-each-other"></a>Les réseaux virtuels sont-ils connectés à un même circuit en étant isolés les uns des autres ?
 
- Non. Dans une perspective de routage, l’ensemble des réseaux virtuels liés au même circuit ExpressRoute fait partie du même domaine de routage et ne sont pas isolés les un des autres. Si vous devez isoler des itinéraires, vous devez créer un circuit ExpressRoute distinct.
+Non. Dans une perspective de routage, l’ensemble des réseaux virtuels liés au même circuit ExpressRoute fait partie du même domaine de routage et ne sont pas isolés les un des autres. Si vous devez isoler des itinéraires, vous devez créer un circuit ExpressRoute distinct.
 
 ### <a name="can-i-have-one-virtual-network-connected-to-more-than-one-expressroute-circuit"></a>Puis-je avoir un seul réseau virtuel connecté à plusieurs circuits ExpressRoute ?
 
@@ -276,7 +276,7 @@ Vous pouvez désactiver ExpressRoute Premium en appelant l’API REST/l’applet
 
 ### <a name="can-i-pick-and-choose-the-features-i-want-from-the-premium-feature-set"></a>Puis-je choisir les fonctionnalités parmi l’ensemble des fonctionnalités Premium ?
 
- Non. Vous ne pouvez pas sélectionner les fonctionnalités. Nous activons toutes les fonctionnalités lorsque vous activez ExpressRoute Premium.
+Non. Vous ne pouvez pas sélectionner les fonctionnalités. Nous activons toutes les fonctionnalités lorsque vous activez ExpressRoute Premium.
 
 ### <a name="how-much-does-expressroute-premium-cost"></a>Combien coûte ExpressRoute Premium ?
 
@@ -288,7 +288,7 @@ Oui. Les frais d’ExpressRoute Premium s’ajoutent aux frais de circuit Expres
 
 ## <a name="expressroute-local"></a>ExpressRoute Local
 ### <a name="what-is-expressroute-local"></a>Qu’est ExpressRoute Local ?
-ExpressRoute Local est un circuit de référence (SKU) de ExpressRoute. Une fonctionnalité clé de variable locale est qu’un circuit Local à un circuit ExpressRoute emplacement d’homologation vous donne l’accès uniquement à une ou deux régions Azure dans ou près le même métro. En revanche, un circuit Standard vous donne accès à toutes les régions Azure dans une zone géopolitique et un circuit de Premium pour toutes les régions Azure dans le monde entier. 
+ExpressRoute Local est un circuit de référence (SKU) de ExpressRoute disponible sur [ExpressRoute Direct](expressroute-erdirect-about.md). Une fonctionnalité clé de variable locale est qu’un circuit Local à un circuit ExpressRoute emplacement d’homologation vous donne l’accès uniquement à une ou deux régions Azure dans ou près le même métro. En revanche, un circuit Standard vous donne accès à toutes les régions Azure dans une zone géopolitique et un circuit de Premium pour toutes les régions Azure dans le monde entier. 
 
 ### <a name="what-are-the-benefits-of-expressroute-local"></a>Quels sont les avantages de variable locale ExpressRoute ?
 Bien que vous avez besoin de payer le transfert de données de sortie pour votre circuit Standard ou Premium ExpressRoute, vous ne payez pas transfert de données de sortie séparément pour votre circuit ExpressRoute Local. En d’autres termes, le prix de variable locale ExpressRoute inclut les frais de transfert de données. ExpressRoute Local est une solution plus économique si vous avez des quantités massives de données à transférer et de faire passer vos données via une connexion privée à un emplacement d’homologation ExpressRoute près de votre groupe de régions Azure. 

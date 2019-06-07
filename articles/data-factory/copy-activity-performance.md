@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/28/2019
 ms.author: jingwang
-ms.openlocfilehash: 47b9ede2d529f78b14c21f53c6cd18ed691a3df3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 81a5f99b0babd79af0034f684c45bfcf1bb25bd8
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60768157"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66425609"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Guide sur les performances et le réglage de l’activité de copie
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -79,7 +79,7 @@ Points à noter :
 
 ## <a name="data-integration-units"></a>Unités d’intégration de données
 
-Une **unité d’intégration de données** (auparavant appelée « unité de déplacement de données cloud ») est une mesure qui représente la puissance (une combinaison d’allocation de ressources d’UC, de mémoire et de réseau) d’une unité dans Data Factory. Une **unité d’intégration de données s’applique seulement à [Azure Integration Runtime](concepts-integration-runtime.md#azure-integration-runtime)**, et non pas au [runtime d’intégration auto-hébergé](concepts-integration-runtime.md#self-hosted-integration-runtime).
+Une **unité d’intégration de données** (auparavant appelée « unité de déplacement de données cloud ») est une mesure qui représente la puissance (une combinaison d’allocation de ressources d’UC, de mémoire et de réseau) d’une unité dans Data Factory. Une **unité d’intégration de données s’applique seulement à [Azure Integration Runtime](concepts-integration-runtime.md#azure-integration-runtime)** , et non pas au [runtime d’intégration auto-hébergé](concepts-integration-runtime.md#self-hosted-integration-runtime).
 
 **Le nombre minimal d’unités d’intégration de données pour exécuter l’activité de copie est de deux.** S’il n’est pas spécifié, le tableau suivant répertorie les unités d’intégration de données par défaut utilisées dans différents scénarios de copie :
 
@@ -93,7 +93,7 @@ Pour remplacer cette valeur par défaut, spécifiez comme suit une valeur pour l
 Vous pouvez voir les unités d’intégration de données réellement utilisées pour chaque exécution de la copie dans la sortie de l’activité de copie lors de la surveillance de l’exécution d’une activité. Pour plus d’informations, consultez la rubrique sur le [monitoring de l’activité de copie](copy-activity-overview.md#monitoring).
 
 > [!NOTE]
-> Pour l’instant, un nombre d’unités d’intégration de données **supérieur à 4** fonctionne uniquement lorsque vous **copiez plusieurs fichiers à partir du stockage Blob, d’une instance Data Lake Storage, d’Amazon S3, d’un FTP cloud, d’un SFTP cloud vers d’autres magasins de données cloud**.
+> Définition de DIUs **supérieure à 4** actuellement s’applique uniquement lorsque vous **copier plusieurs fichiers à partir d’Azure stockage/Data Lake Storage d’Amazon S3/Google Cloud Storage/cloud FTP/cloud SFTP pour les autres magasins de données cloud**.
 >
 
 **Exemple :**
@@ -191,9 +191,9 @@ Configurez le paramètre **enableStaging** sur l’activité de copie pour spéc
 | Propriété | Description | Valeur par défaut | Requis |
 | --- | --- | --- | --- |
 | **enableStaging** |Indiquez si vous souhaitez copier les données via un magasin de données intermédiaire. |False |Non |
-| **linkedServiceName** |Spécifiez le nom d’un service lié [AzureStorage](connector-azure-blob-storage.md#linked-service-properties) faisant référence à l’instance de stockage que vous utilisez comme magasin de données intermédiaire. <br/><br/>  Vous ne pouvez pas utiliser le stockage avec une signature d’accès partagé pour charger les données dans SQL Data Warehouse via PolyBase. Vous pouvez l’utiliser dans tous les autres scénarios. |N/A |Oui, quand **enableStaging** est défini sur TRUE |
-| **path** |Spécifiez le chemin du stockage Blob où vous souhaitez placer les données intermédiaires. Si vous ne renseignez pas le chemin d’accès, le service crée un conteneur pour stocker les données temporaires. <br/><br/>  Ne spécifiez un chemin d’accès que si vous utilisez le stockage avec une signature d’accès partagé, ou si vous avez besoin de données temporaires dans un emplacement spécifique. |N/A |Non |
-| **enableCompression** |Spécifie si les données doivent être compressées avant d’être copiées vers la destination. Ce paramètre réduit le volume de données transférées. |False |Non  |
+| **linkedServiceName** |Spécifiez le nom d’un service lié [AzureStorage](connector-azure-blob-storage.md#linked-service-properties) faisant référence à l’instance de stockage que vous utilisez comme magasin de données intermédiaire. <br/><br/> Vous ne pouvez pas utiliser le stockage avec une signature d’accès partagé pour charger les données dans SQL Data Warehouse via PolyBase. Vous pouvez l’utiliser dans tous les autres scénarios. |N/A |Oui, quand **enableStaging** est défini sur TRUE |
+| **path** |Spécifiez le chemin du stockage Blob où vous souhaitez placer les données intermédiaires. Si vous ne renseignez pas le chemin d’accès, le service crée un conteneur pour stocker les données temporaires. <br/><br/> Ne spécifiez un chemin d’accès que si vous utilisez le stockage avec une signature d’accès partagé, ou si vous avez besoin de données temporaires dans un emplacement spécifique. |N/A |Non |
+| **enableCompression** |Spécifie si les données doivent être compressées avant d’être copiées vers la destination. Ce paramètre réduit le volume de données transférées. |False |Non |
 
 >[!NOTE]
 > Si vous utilisez une copie intermédiaire avec compression activée, l’authentification du principal du service ou MSI pour le service lié d’objets blob intermédiaire n’est pas prise en charge.

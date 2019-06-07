@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/22/2019
 ms.author: magoedte
-ms.openlocfilehash: 76d18b6a942ed9b8c6871b0ff7cbc1c83917ada4
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: c84c3eb74d214a5c98aabef7b2e2987dfdf67c0f
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66130465"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66472592"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-overview"></a>Activer Azure Monitor pour une vue d’ensemble de machines virtuelles (version préliminaire)
 
@@ -40,6 +40,7 @@ Avant de commencer, prenez connaissance de ce qui suit.
 Azure Monitor pour les machines virtuelles prend en charge un espace de travail Analytique de journal dans les régions suivantes :
 
 - USA Centre-Ouest
+- Ouest des États-Unis 2<sup>1</sup>
 - USA Est
 - Canada Central<sup>1</sup>
 - Royaume-Uni Sud<sup>1</sup>
@@ -154,7 +155,7 @@ Le tableau suivant décrit les sources connectées prises en charge par la fonct
 |:--|:--|:--|
 | Agents Windows | Oui | Outre [l’agent Log Analytics pour Windows](../../azure-monitor/platform/log-analytics-agent.md), les agents Windows nécessitent l’agent de dépendances Microsoft. Pour obtenir la liste complète des versions des systèmes d’exploitation, consultez les [systèmes d’exploitation pris en charge](#supported-operating-systems). |
 | Agents Linux | Oui | Outre [l’agent Log Analytics pour Linux](../../azure-monitor/platform/log-analytics-agent.md), les agents Linux nécessitent l’agent de dépendances Microsoft. Pour obtenir la liste complète des versions des systèmes d’exploitation, reportez-vous aux [systèmes d’exploitation pris en charge](#supported-operating-systems). |
-| Groupe d’administration Microsoft System Center Operations Manager | Non  | |
+| Groupe d’administration Microsoft System Center Operations Manager | Non | |
 
 L’agent Dependency peut être téléchargé à partir des emplacements suivants :
 
@@ -177,7 +178,7 @@ Pour plus d’informations sur la façon de contrôler l’accès à un espace d
 
 Vous activez Azure Monitor pour les machines virtuelles en utilisant l’une des méthodes suivantes décrites dans le tableau suivant.
 
-| État du déploiement | Méthode | Description  |
+| État du déploiement | Méthode | Description |
 |------------------|--------|-------------|
 | Ensemble d’échelle de machine virtuelle Azure ou une machine virtuelle unique | [Directement à partir de la machine virtuelle](vminsights-enable-single-vm.md) | Vous pouvez activer une seule machine virtuelle Azure en sélectionnant **Insights (version préliminaire)** directement à partir de l’échelle de machine virtuelle ou une machine virtuelle définie. |
 | Plusieurs machines virtuelles Azure ou machines virtuelles identiques | [Azure Policy](vminsights-enable-at-scale-policy.md) | Vous pouvez activer plusieurs machines virtuelles de Azure à l’aide de la stratégie de Azure et les définitions de stratégie disponibles. |
@@ -197,11 +198,11 @@ Azure Monitor pour les machines virtuelles configure un espace de travail Analyt
 |LogicalDisk |Avg. Disk sec/Transfer |
 |LogicalDisk |Avg. Disk sec/Write |
 |LogicalDisk |Disk Bytes/sec |
-|LogicalDisk |Nb d’octets de lecture de disque/s  |
-|LogicalDisk |Nb d’opérations de lectures de disque/s  |
+|LogicalDisk |Nb d’octets de lecture de disque/s |
+|LogicalDisk |Nb d’opérations de lectures de disque/s |
 |LogicalDisk |Disk Transfers/sec |
-|LogicalDisk | Nb d’octets d’écriture de disque/s |
-|LogicalDisk | Nb d’opération d’écriture de disque/s |
+|LogicalDisk |Nb d’octets d’écriture de disque/s |
+|LogicalDisk |Nb d’opération d’écriture de disque/s |
 |LogicalDisk |Free Megabytes |
 |Mémoire |Nombre d’octets disponibles |
 |Carte réseau |Octets reçus/s |
@@ -213,11 +214,11 @@ Azure Monitor pour les machines virtuelles configure un espace de travail Analyt
 |Nom d’objet |Nom du compteur |
 |------------|-------------|
 |Logical Disk |% Used Space |
-|Logical Disk |Nb d’octets de lecture de disque/s  |
-|Logical Disk |Nb d’opérations de lectures de disque/s  |
+|Logical Disk |Nb d’octets de lecture de disque/s |
+|Logical Disk |Nb d’opérations de lectures de disque/s |
 |Logical Disk |Disk Transfers/sec |
-|Logical Disk | Nb d’octets d’écriture de disque/s |
-|Logical Disk | Nb d’opération d’écriture de disque/s |
+|Logical Disk |Nb d’octets d’écriture de disque/s |
+|Logical Disk |Nb d’opération d’écriture de disque/s |
 |Logical Disk |Free Megabytes |
 |Logical Disk |Logical Disk Bytes/sec |
 |Mémoire |Available MBytes Memory |

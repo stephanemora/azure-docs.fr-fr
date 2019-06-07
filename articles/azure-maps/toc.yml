@@ -42,6 +42,8 @@
           href: render-coverage.md
         - name: Couverture du routage
           href: routing-coverage.md
+        - name: Couverture de la mobilité
+          href: mobility-coverage.md
     - name: Prise en charge de la localisation
       href: supported-languages.md
     - name: Styles de carte pris en charge
@@ -50,6 +52,8 @@
       href: supported-browsers.md
     - name: Niveaux de zoom et grille mosaïque
       href: zoom-levels-and-tile-grid.md
+    - name: Structure des données Mobility Service
+      href: mobility-service-data-structure.md
 - name: Guides pratiques
   items:
     - name: Gérer les comptes Maps
@@ -70,6 +74,10 @@
           href: how-to-use-best-practices-for-search.md
         - name: Rendre les données personnalisées sur une carte statique
           href: how-to-render-custom-data.md
+        - name: Demander des routes de transit public
+          href: how-to-request-transit-data.md
+        - name: Demander des données de transit public en temps réel
+          href: how-to-request-real-time-data.md
     - name: Développer avec le kit SDK web
       items:
         - name: Commandes de la carte

@@ -18,6 +18,10 @@
       href: tutorial-phs-backup.md
 - name: Concepts
   items:
+    - name: Identité hybride
+      items:
+        - name: Gestion gouvernée par le cloud pour les charges de travail locales
+          href: cloud-governed-management-for-on-premises.md
     - name: Azure AD Connect et Connect Health
       items:
         - name: Présentation d’Azure AD Connect et Connect Health

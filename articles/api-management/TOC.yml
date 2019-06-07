@@ -1,6 +1,6 @@
 - name: Documentation Gestion des API Azure
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: En savoir plus sur la Gestion des API
       href: api-management-key-concepts.md
@@ -45,7 +45,7 @@
       href: api-management-terminology.md
     - name: Stratégies
       items:
-        - name: Vue d’ensemble
+        - name: Vue d'ensemble
           href: api-management-howto-policies.md
         - name: Index de référence de stratégie
           href: api-management-policies.md
@@ -121,6 +121,8 @@
           href: api-management-howto-manage-protocols-ciphers.md
     - name: Personnalisation de l’expérience de développement
       items:
+        - name: Accéder et personnaliser le nouveau portail des développeurs
+          href: api-management-howto-developer-portal.md
         - name: Modifier la disposition et le contenu des pages
           href: api-management-modify-content-layout.md
         - name: Personnaliser les pages système à l’aide de modèles
@@ -207,7 +209,7 @@
           href: api-management-howto-use-managed-service-identity.md
         - name: Intégrer avec Service Fabric
           items:
-            - name: Vue d’ensemble
+            - name: Vue d'ensemble
               href: ../service-fabric/service-fabric-api-management-overview.md
             - name: Didacticiel
               href: ../service-fabric/service-fabric-tutorial-deploy-api-management.md

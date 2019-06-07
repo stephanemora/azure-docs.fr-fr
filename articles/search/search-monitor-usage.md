@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/16/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 3fa463cb7178fa5cc2108383047a7ca94ffb48a3
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: bac897178c8220abe72a92a5cf14fc4767cdd3bf
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65797380"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66755064"
 ---
 # <a name="monitor-resource-consumption-and-query-activity-in-azure-search"></a>Superviser la consommation des ressources et l’activité des requêtes dans la Recherche Azure
 
@@ -114,7 +114,7 @@ Les objets blob contenant vos journaux d’activité du trafic de votre service 
 | Nom | Type | Exemples | Notes |
 | --- | --- | --- | --- |
 | time |Datetime |"2018-12-07T00:00:43.6872559Z" |Horodatage de l’opération |
-| ResourceId |string |«/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>  MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE » |Votre ID de ressource |
+| ResourceId |string |«/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE » |Votre ID de ressource |
 | operationName |string |« Query.Search » |Nom de l’opération |
 | operationVersion |string |"2019-05-06" |Version d’API utilisée |
 | category |string |« OperationLogs » |constant |
@@ -138,7 +138,7 @@ Les métriques sont capturées pour les demandes de requête.
 
 | Nom | Type | Exemples | Notes |
 | --- | --- | --- | --- |
-| ResourceId |string |«/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE » |Votre ID de ressource |
+| ResourceId |string |«/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE » |Votre ID de ressource |
 | metricName |string |« Latency » |Nom de la mesure |
 | time |Datetime |"2018-12-07T00:00:43.6872559Z" |Horodatage de l’opération |
 | average |int |64 |Valeur moyenne des échantillons bruts dans l’intervalle de temps de la mesure |
@@ -175,7 +175,7 @@ L’API REST de Recherche Azure et le SDK .NET fournissent tous les deux un acc
 * [Nombre de documents](/rest/api/searchservice/count-documents)
 * [Obtention de l’état d’indexeur](/rest/api/searchservice/get-indexer-status)
 
-Pour activer à l’aide de PowerShell ou de l’interface de ligne de commande Azure, consultez la documentation qui se trouve [ici](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs#how-to-enable-collection-of-diagnostic-logs).
+Pour activer à l’aide de PowerShell ou de l’interface de ligne de commande Azure, consultez la documentation qui se trouve [ici](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -1,4 +1,4 @@
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: Prise en main
       href: get-started.md
@@ -6,7 +6,7 @@
       href: sap-certifications.md
 - name: SAP HANA sur Azure (grandes instances)
   items:
-    - name: Vue d’ensemble
+    - name: Vue d'ensemble
       items:
         - name: "Qu’est-ce que SAP HANA sur Azure (grandes instances)\_?"
           href: hana-overview-architecture.md
@@ -86,6 +86,8 @@
       href: cal-s4h.md
     - name: Configurations et opérations de l’infrastructure SAP HANA sur Azure
       href: hana-vm-operations.md
+    - name: Configurations du stockage des machines virtuelles SAP HANA Azure
+      href: hana-vm-operations-storage.md
     - name: "Disponibilité de SAP\_HANA sur les machines virtuelles Azure"
       items:
         - name: Vue d’ensemble de la disponibilité de SAP HANA sur Azure
@@ -146,7 +148,7 @@
       href: lama-installation.md
     - name: Haute disponibilité (HA) sur Windows et Linux
       items:
-        - name: Vue d’ensemble
+        - name: Vue d'ensemble
           href: sap-high-availability-guide-start.md
         - name: Architecture haute disponibilité
           items:

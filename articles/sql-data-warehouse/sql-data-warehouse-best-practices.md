@@ -2,20 +2,20 @@
 title: Meilleures pratiques pour Azure SQL Data Warehouse | Microsoft Docs
 description: Recommandations et meilleures pratiques que vous devez connaître pour développer des solutions pour Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: happynicolle
+author: mlee3gsd
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: design
 ms.date: 11/26/2018
-ms.author: nicw
+ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 1e7fe0f7630e59be231f2513cdb7e38f8c15a68f
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 72a705e11a84e27a97946f33f837105614691f6a
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65762649"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515773"
 ---
 # <a name="best-practices-for-azure-sql-data-warehouse"></a>Meilleures pratiques pour Azure SQL Data Warehouse
 Cet article rassemble les meilleures pratiques qui vous permettront d’obtenir des performances optimales de votre instance Azure SQL Data Warehouse.  Certains des concepts de cet article sont basiques et faciles à expliquer, d’autres concepts sont plus avancés et nous ne faisons que les survoler dans cet article.  L’objectif de cet article est de vous donner quelques conseils de base et de vous informer des points importants à prendre en compte lorsque vous créez votre entrepôt de données.  Chaque section présente un concept et vous dirige ensuite vers des articles plus détaillés qui expliquent davantage le concept.
@@ -29,7 +29,7 @@ Pour plus d’informations sur la réduction des coûts à l’aide de la suspen
 
 
 ## <a name="maintain-statistics"></a>Mettre à jour les statistiques
-Contrairement à SQL Server, qui détecte et crée ou met à jour les statistiques automatiquement dans les colonnes, SQL Data Warehouse nécessite une maintenance manuelle des statistiques.  Nous envisageons de changer ce comportement à l’avenir, mais en attendant, mettez à jour vos statistiques afin de garantir l’optimisation des plans SQL Data Warehouse.  Les plans créés par l’optimiseur sont aussi bons que les statistiques disponibles.  **La création de statistiques échantillonnées est un bon moyen de se familiariser avec la notion de statistiques.**   Il est également important de mettre à jour les statistiques car des modifications significatives affectent vos données.  Une méthode plus classique serait peut-être de mettre à jour vos statistiques tous les jours ou après chaque charge.  Lorsque vous créez et mettez des statistiques à jour, vous devez toujours faire un compromis entre les performances et les coûts. Si vous trouvez que la mise à jour de toutes vos statistiques est trop longue, vous souhaiterez peut-être sélectionner les colonnes qui possèdent des statistiques ou celles nécessitant une mise à jour fréquente.  Par exemple, vous pouvez mettre à jour des colonnes de date, où de nouvelles valeurs peuvent être ajoutées de façon quotidienne. **Vous bénéficierez de performances optimales en lançant des statistiques sur les colonnes impliquées dans les jointures, celles utilisées dans la clause WHERE et celles figurant dans GROUP BY.**
+Contrairement à SQL Server, qui détecte et crée ou met à jour les statistiques automatiquement dans les colonnes, SQL Data Warehouse nécessite une maintenance manuelle des statistiques.  Nous envisageons de changer ce comportement à l’avenir, mais en attendant, mettez à jour vos statistiques afin de garantir l’optimisation des plans SQL Data Warehouse.  Les plans créés par l’optimiseur sont aussi bons que les statistiques disponibles.  **La création de statistiques échantillonnées est un bon moyen de se familiariser avec la notion de statistiques.**  Il est également important de mettre à jour les statistiques car des modifications significatives affectent vos données.  Une méthode plus classique serait peut-être de mettre à jour vos statistiques tous les jours ou après chaque charge.  Lorsque vous créez et mettez des statistiques à jour, vous devez toujours faire un compromis entre les performances et les coûts. Si vous trouvez que la mise à jour de toutes vos statistiques est trop longue, vous souhaiterez peut-être sélectionner les colonnes qui possèdent des statistiques ou celles nécessitant une mise à jour fréquente.  Par exemple, vous pouvez mettre à jour des colonnes de date, où de nouvelles valeurs peuvent être ajoutées de façon quotidienne. **Vous bénéficierez de performances optimales en lançant des statistiques sur les colonnes impliquées dans les jointures, celles utilisées dans la clause WHERE et celles figurant dans GROUP BY.**
 
 Voir aussi [Gestion des statistiques sur les tables][Manage table statistics], [CREATE STATISTICS][CREATE STATISTICS], [UPDATE STATISTICS][UPDATE STATISTICS]
 
@@ -39,7 +39,7 @@ Une charge unique dans une petite table à l’aide d’une instruction INSERT o
 Voir aussi [INSERT][INSERT]
 
 ## <a name="use-polybase-to-load-and-export-data-quickly"></a>Utiliser PolyBase pour charger et exporter rapidement des données
-SQL Data Warehouse prend en charge le chargement et l’exportation de données via plusieurs outils dont Azure Data Factory, PolyBase et BCP.  Pour les petits volumes de données où les performances ne sont pas essentielles, n’importe quel outil peut suffire à vos besoins.  Toutefois, lorsque vous chargez ou exportez de gros volumes de données ou si des performances de vitesse sont nécessaires, PolyBase représente le meilleur choix.  PolyBase est conçu pour tirer parti de l’architecture MPP (Massively Parallel Processing) de SQL Data Warehouse et, par conséquent, chargera et exportera les magnitudes des données plus rapidement que n’importe quel autre outil.  Les charges PolyBase peuvent être exécutées à l’aide de CTAS ou d’INSERT INTO.  **L’utilisation de CTAS permet de minimiser la journalisation des transactions et constitue le moyen le plus rapide de charger vos données.**  Azure Data Factory prend également en charge les charges PolyBase et peut atteindre les mêmes performances que CTAS.  PolyBase prend en charge une variété de formats de fichiers, y compris les fichiers Gzip.  **Pour maximiser le débit lors de l’utilisation de fichiers texte gzip, divisez les fichiers en 60 fichiers ou plus pour optimiser le parallélisme de votre charge.**   Pour un débit total plus rapide, envisagez le chargement simultané des données.
+SQL Data Warehouse prend en charge le chargement et l’exportation de données via plusieurs outils dont Azure Data Factory, PolyBase et BCP.  Pour les petits volumes de données où les performances ne sont pas essentielles, n’importe quel outil peut suffire à vos besoins.  Toutefois, lorsque vous chargez ou exportez de gros volumes de données ou si des performances de vitesse sont nécessaires, PolyBase représente le meilleur choix.  PolyBase est conçu pour tirer parti de l’architecture MPP (Massively Parallel Processing) de SQL Data Warehouse et, par conséquent, chargera et exportera les magnitudes des données plus rapidement que n’importe quel autre outil.  Les charges PolyBase peuvent être exécutées à l’aide de CTAS ou d’INSERT INTO.  **L’utilisation de CTAS permet de minimiser la journalisation des transactions et constitue le moyen le plus rapide de charger vos données.**  Azure Data Factory prend également en charge les charges PolyBase et peut atteindre les mêmes performances que CTAS.  PolyBase prend en charge une variété de formats de fichiers, y compris les fichiers Gzip.  **Pour maximiser le débit lors de l’utilisation de fichiers texte gzip, divisez les fichiers en 60 fichiers ou plus pour optimiser le parallélisme de votre charge.**  Pour un débit total plus rapide, envisagez le chargement simultané des données.
 
 Consultez aussi [Chargement de données][Load data], [Guide d’utilisation de PolyBase][Guide for using PolyBase], [Modèles et stratégies de chargement Azure SQL Data Warehouse][Azure SQL Data Warehouse loading patterns and strategies], [Téléchargement de données avec Azure Data Factory][Load Data with Azure Data Factory], [Déplacer des données à l’aide d’Azure Data Factory][Move data with Azure Data Factory], [CREATE EXTERNAL FILE FORMAT][CREATE EXTERNAL FILE FORMAT], [Create table as select (CTAS)][Create table as select (CTAS)]
 

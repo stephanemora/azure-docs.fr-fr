@@ -38,10 +38,6 @@
       items:
         - name: Notifications Push avec le push cloud Baidu
           href: notification-hubs-baidu-china-android-notifications-get-started.md
-    - name: Chrome
-      items:
-        - name: Notifications Push sur les applications Chrome
-          href: notification-hubs-chrome-push-notifications-get-started.md
     - name: iOS
       items:
         - name: Notifications Push sur les applications iOS
@@ -68,7 +64,7 @@
           href: notification-hubs-windows-mobile-push-notifications-mpns.md
         - name: Notifications Push sur des appareils spécifiques
           href: notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md
-    - name: ' Windows'
+    - name: Windows
       items:
         - name: Notifications Push sur les applications de la plateforme Windows universelle
           href: notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md

@@ -1,6 +1,6 @@
 - name: Documentation Azure Time Series Insights
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: À propos de Time Series Insights
       href: time-series-insights-update-overview.md
@@ -137,6 +137,10 @@
               href: /rest/api/time-series-insights/preview-env
             - name: Expression et syntaxe Time Series
               href: /rest/api/time-series-insights/preview-tsx
+    - name: Kit de développement logiciel (SDK) client
+      items:
+        - name: SDK client JavaScript
+          href: 'https://github.com/microsoft/tsiclient/blob/master/docs/API.md'
 - name: Rubriques connexes
   items:
     - name: solutions
