@@ -236,12 +236,12 @@ Un événement contient les données générales suivantes :
 
 | Propriété | Type | Description |
 | -------- | ---- | ----------- |
-| rubrique | string | Chemin d’accès complet à la source de l’événement. Ce champ n’est pas modifiable. Event Grid fournit cette valeur. |
+| topic | string | Chemin d’accès complet à la source de l’événement. Ce champ n’est pas modifiable. Event Grid fournit cette valeur. |
 | subject | string | Chemin de l’objet de l’événement, défini par le serveur de publication. |
 | eventType | string | Un des types d’événements inscrits pour cette source d’événement. |
 | eventTime | string | L’heure à quelle l’événement est généré selon l’heure UTC du fournisseur. |
 | id | string | Identificateur unique de l’événement. |
-| données | objet | Données d’événement d’abonnement. |
+| data | objet | Données d’événement d’abonnement. |
 | dataVersion | string | Version du schéma de l’objet de données. Le serveur de publication définit la version du schéma. |
 | metadataVersion | string | Version du schéma des métadonnées d’événement. Event Grid définit le schéma des propriétés de niveau supérieur. Event Grid fournit cette valeur. |
 
@@ -250,7 +250,7 @@ L’objet de données comporte les propriétés suivantes :
 | Propriété | Type | Description |
 | -------- | ---- | ----------- |
 | autorisation | objet | Autorisation demandée pour l’opération. |
-| réclamations | objet | Propriétés des revendications. Pour en savoir plus, consultez la [Spécification JWT](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html). |
+| claims | objet | Propriétés des revendications. Pour en savoir plus, consultez la [Spécification JWT](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html). |
 | correlationId | string | ID d’opération pour le dépannage. |
 | httpRequest | objet | Détails de l’opération. Cet objet est inclus uniquement lors de la mise à jour ou de la suppression d’une ressource existante. |
 | resourceProvider | string | Fournisseur de ressources pour l’opération. |
