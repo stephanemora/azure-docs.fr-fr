@@ -85,12 +85,12 @@ Tous les événements contiennent les mêmes données de supérieur suivantes :
 
 | Propriété | Type | Description |
 | -------- | ---- | ----------- |
-| rubrique | string | Chemin d’accès complet à la source de l’événement. Ce champ n’est pas modifiable. Event Grid fournit cette valeur. |
+| topic | string | Chemin d’accès complet à la source de l’événement. Ce champ n’est pas modifiable. Event Grid fournit cette valeur. |
 | subject | string | Chemin de l’objet de l’événement, défini par le serveur de publication. |
 | eventType | string | Un des types d’événements inscrits pour cette source d’événement. |
 | eventTime | string | L’heure à quelle l’événement est généré selon l’heure UTC du fournisseur. |
 | id | string | Identificateur unique de l’événement. |
-| données | objet | Données d’événement spécifiques au fournisseur de ressources. |
+| data | objet | Données d’événement spécifiques au fournisseur de ressources. |
 | dataVersion | string | Version du schéma de l’objet de données. Le serveur de publication définit la version du schéma. |
 | metadataVersion | string | Version du schéma des métadonnées d’événement. Event Grid définit le schéma des propriétés de niveau supérieur. Event Grid fournit cette valeur. |
 
