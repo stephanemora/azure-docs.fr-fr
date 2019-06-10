@@ -319,8 +319,8 @@ Envoyez un fichier, notez que le dossier .vscode est ajouté automatiquement au 
     | executorCores | Nombre de cœurs à utiliser pour chaque exécuteur | int |
     | numExecutors | Nombre d’exécuteurs à lancer pour cette session | int |
     | archives | Archives à utiliser dans cette session | Liste de chaînes |
-    | file d'attente | Nom de la file d’attente YARN vers laquelle effectuer l’envoi | string |
-    | Nom | Nom de cette session | string |
+    | queue | Nom de la file d’attente YARN vers laquelle effectuer l’envoi | string |
+    | name | Nom de cette session | string |
     | conf | Propriétés de configuration Spark. | Map of key=val |
 
     Corps de réponse   
