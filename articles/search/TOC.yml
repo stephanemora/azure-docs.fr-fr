@@ -1,6 +1,6 @@
 - name: Documentation Recherche Azure
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: Présentation de Recherche Azure
       href: search-what-is-azure-search.md
@@ -163,24 +163,28 @@
       items:
         - name: Présentation des indexeurs
           href: search-indexer-overview.md
-        - name: Indexeur de stockage d’objets Blob
-          href: search-howto-indexing-azure-blob-storage.md
-        - name: Indexeur de stockage de table
+        - name: Indexeur Stockage Table Azure
           href: search-howto-indexing-azure-tables.md
-        - name: Indexeur SQL DB
+        - name: Indexeur Azure SQL DB
           href: search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md
-        - name: Indexeur Cosmos DB
+        - name: "Indexeur Azure Cosmos\_DB"
           href: search-howto-index-cosmosdb.md
-        - name: Indexation des objets blob de type un-à-plusieurs
-          href: search-howto-index-one-to-many-blobs.md
-        - name: Indexation des objets Blob CSV
-          href: search-howto-index-csv-blobs.md
-        - name: Indexation des objets Blob JSON
-          href: search-howto-index-json-blobs.md
+        - name: Indexeur Stockage Blob Azure
+          items:
+            - name: Configurer un indexeur d’objets blob
+              href: search-howto-indexing-azure-blob-storage.md
+            - name: Indexer des objets blob de type un-à-plusieurs
+              href: search-howto-index-one-to-many-blobs.md
+            - name: Indexer des objets blob CSV
+              href: search-howto-index-csv-blobs.md
+            - name: Indexer des objets blob JSON
+              href: search-howto-index-json-blobs.md
+        - name: Planifier des indexeurs
+          href: search-howto-schedule-indexers.md
+        - name: Mapper des champs
+          href: search-indexer-field-mappings.md
         - name: Se connecter à des machines virtuelles SQL Server
           href: search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md
-        - name: Mappages de champs
-          href: search-indexer-field-mappings.md
         - name: Résolution des problèmes courants
           href: search-indexer-troubleshooting.md
     - name: Enrichir avec l’intelligence artificielle

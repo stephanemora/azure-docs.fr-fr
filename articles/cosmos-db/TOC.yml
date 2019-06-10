@@ -533,8 +533,8 @@
           href: how-to-sql-subquery.md
     - name: Modifier le flux
       items:
-        - name: Journaux de déclencheur Azure Cosmos DB
-          href: how-to-configure-cosmos-db-trigger-logs.md
+        - name: Stratégie de connexion de déclencheur Azure Cosmos DB
+          href: how-to-configure-cosmos-db-trigger-connection-policy.md
         - name: Plusieurs déclencheurs Azure Cosmos DB
           href: how-to-create-multiple-cosmos-db-triggers.md
         - name: Résoudre les problèmes des déclencheurs Azure Cosmos DB
