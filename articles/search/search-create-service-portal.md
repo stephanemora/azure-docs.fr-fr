@@ -6,15 +6,15 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 05/08/2019
+ms.date: 05/29/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 9de8fa297c2b3f89f74b17e0dac3eab007367b9b
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: 650dfa7284b41407e9b128a2096548d7acfc1567
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65471592"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393791"
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>Création d'un service Azure Search dans le portail
 
@@ -69,11 +69,14 @@ Si vous ne combinez pas des ressources dans un même groupe, ou si les groupes d
 
 ## <a name="select-a-location"></a>Sélectionner un emplacement
 
-En sa qualité de service Azure, Recherche Azure peut être hébergé dans les centres de données du monde entier. [Les prix peuvent varier](https://azure.microsoft.com/pricing/details/search/) selon la zone géographique.
+En sa qualité de service Azure, Recherche Azure peut être hébergé dans les centres de données du monde entier. Vous trouverez la liste des régions prises en charge dans la [page de tarification](https://azure.microsoft.com/pricing/details/search/). 
 
-Si vous indexez des données fournies par un autre service Azure (stockage Azure, Azure Cosmos DB, Azure SQL Database), créez votre service Recherche Azure dans la même région pour éviter les frais liés à la bande passante. Il n’y a aucuns frais liés aux données sortantes lorsque les services se trouvent dans la même région.
+Si vous indexez des données fournies par un autre service Azure (Stockage Azure, Azure Cosmos DB, Azure SQL Database), nous vous recommandons de créer votre service Recherche Azure dans la même région pour éviter les frais liés à la bande passante. Il n’y a aucuns frais liés aux données sortantes lorsque les services se trouvent dans la même région.
 
 Si vous utilisez des enrichissements IA pour la recherche cognitive, créez votre service dans la même région que votre ressource Cognitive Services. La colocalisation de services est une exigence pour un enrichissement IA.
+
+> [!Note]
+> Inde Centre est actuellement indisponible pour les nouveaux services. Pour les services déjà dans la région Inde Centre, vous pouvez effectuer un scale-up sans aucune restriction, et votre service est entièrement pris en charge dans cette région. La restriction sur cette région est temporaire et nous supprimerons cette remarque dès qu’elle ne sera plus d’application.
 
 ## <a name="select-a-pricing-tier-sku"></a>Sélectionner un niveau de tarification (SKU)
 

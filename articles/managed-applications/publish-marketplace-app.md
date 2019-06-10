@@ -8,14 +8,14 @@ ms.service: managed-applications
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
-ms.date: 07/10/2018
+ms.date: 06/04/2019
 ms.author: tomfitz
-ms.openlocfilehash: 61cac49c34eb193d641a94c9a7839282289dd9c7
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 40132f67b135b0dc081180c34361047e59776b81
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64572582"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66688566"
 ---
 # <a name="azure-managed-applications-in-the-marketplace"></a>Applications gérées Azure sur la Place de marché
 
@@ -42,7 +42,7 @@ Il existe également plusieurs prérequis métier. Il s'agit de :
 Pour devenir éditeur sur la Place de marché Azure, vous devez :
 
 1. Créer un identifiant Microsoft - Créez votre compte Microsoft avec une adresse e-mail qui appartient au domaine de votre entreprise, mais pas à une seule personne. Cette adresse e-mail est utilisée pour le Portail Cloud Partner et pour le Centre de développement Microsoft. Pour plus d’informations, consultez le [Guide pour les éditeurs de la Place de marché Azure](https://aka.ms/sellerguide).
-1. Envoyer le [formulaire de candidature pour la Place de marché Azure](https://aka.ms/ampnomination) - Pour **Solution that you intend to publish? (Quelle solution avez-vous l’intention de publier ?)** , sélectionnez **Managed Application (Application managée)** . Une fois le formulaire envoyé, l’équipe d’intégration de la Place de marché examine la candidature et valide la demande. Le processus d’approbation peut prendre un à trois jours. Une fois votre candidature approuvée, vous recevez un code promotionnel vous dispensant des frais d’inscription au Centre de développement. Si vous ne remplissez **pas** le formulaire de candidature pour la Place de marché, vous devez payer des frais d’inscription de 99 $.
+1. Envoyer le [formulaire de candidature pour la Place de marché Azure](https://aka.ms/ampnomination) - Pour **Solution that you intend to publish?** (Quelle solution avez-vous l’intention de publier ?), sélectionnez **Managed Application** (Application managée). Une fois le formulaire envoyé, l’équipe d’intégration de la Place de marché examine la candidature et valide la demande. Le processus d’approbation peut prendre un à trois jours. Une fois votre candidature approuvée, vous recevez un code promotionnel vous dispensant des frais d’inscription au Centre de développement. Si vous ne remplissez **pas** le formulaire de candidature pour la Place de marché, vous devez payer des frais d’inscription de 99 $.
 1. Vous inscrire auprès du [Centre de développement](https://dev.windows.com/registration?accountprogram=azure) : Microsoft vérifie que votre organisation est une entité juridique valide avec un numéro d’identification du contribuable valide dans le pays ou la région où elle est enregistrée. Le processus d’approbation peut prendre de cinq à dix jours. Pour éviter les frais d’inscription, utilisez le code promotionnel que vous avez reçu par e-mail suite à la procédure de candidature. Pour plus d’informations, consultez le [Guide pour les éditeurs de la Place de marché Azure](https://aka.ms/sellerguide).
 1. Vous connecter au [Portail Cloud Partner](https://cloudpartner.azure.com) : dans le profil d’éditeur, associez votre compte du Centre de développement au profil d’éditeur de la Place de marché. Pour plus d’informations, consultez le [Guide pour les éditeurs de la Place de marché Azure](https://aka.ms/sellerguide).
 
@@ -103,6 +103,8 @@ Une référence (SKU) s’affiche sous l’offre parente dans la Place de march�
 
    * **Version** : Entrez la version du package chargé. Il doit respecter le format `{number}.{number}.{number}{number}`.
    * **Fichier de package (.zip)**  : Ce package contient deux fichiers nécessaires qui sont compressés dans un package .zip. L’un des fichiers est un modèle Resource Manager, qui définit les ressources à déployer pour l’application gérée. L’autre fichier définit [l’interface utilisateur](create-uidefinition-overview.md) pour les consommateurs qui déploient l’application gérée via le portail. Dans l’interface utilisateur, vous spécifiez les éléments qui permettent aux consommateurs de fournir des valeurs de paramètre.
+   * **ID du locataire** : ID du locataire du compte pour lequel obtenir un accès.
+   * **Activer l’accès JIT** : Sélectionnez **Oui** afin d’activer le [contrôle d’accès juste-à-temps](request-just-in-time-access.md) pour le compte. Lorsqu’il est activé, vous demandez à accéder au compte de l’utilisateur pendant une période spécifiée. Pour exiger que les utilisateurs de votre application managée accordent à votre compte un accès permanent, sélectionnez **Non**.
    * **PrincipalId** : Cette propriété représente l’identificateur Azure Active Directory (Azure AD) d’un utilisateur, d’un groupe d’utilisateurs ou d’une application auxquels l’accès aux ressources de l’abonnement du client a été accordé. La définition de rôle décrit les autorisations.
    * **Définition de rôle** : Cette propriété dresse une liste de tous les rôles RBAC intégrés qui sont fournis par Azure AD. Vous pouvez sélectionner le rôle le mieux adapté pour gérer les ressources pour le compte du client.
    * **Paramètres de stratégie** : Appliquez une stratégie [Azure Policy](../governance/policy/overview.md) à votre application managée afin de spécifier des exigences de conformité pour les solutions déployées. Parmi les options disponibles, sélectionnez les stratégies à appliquer. Pour **Paramètres de stratégie**, indiquez une chaîne JSON avec les valeurs de paramètre. Pour les définitions de stratégie et le format des valeurs de paramètre, consultez [Exemples Azure Policy](../governance/policy/samples/index.md).
@@ -117,7 +119,7 @@ Le formulaire Marketplace (Place de marché) permet de définir les champs qui s
 
 ### <a name="preview-subscription-ids"></a>ID d’abonnement pour version préliminaire
 
-Entrez une liste d’ID d’abonnement Azure qui peuvent accéder à l’offre après sa publication. Vous pouvez utiliser ces abonnements autorisés pour tester l’offre préliminaire avant sa publication. Vous pouvez compiler une liste verte de jusqu'à 100 abonnements dans le portail partenaire.
+Entrez une liste d’ID d’abonnement Azure qui peuvent accéder à l’offre après sa publication. Vous pouvez utiliser ces abonnements autorisés pour tester l’offre préliminaire avant sa publication. Vous pouvez compiler une liste verte de 100 abonnements maximum dans le portail partenaire.
 
 ### <a name="suggested-categories"></a>Catégories suggérées
 

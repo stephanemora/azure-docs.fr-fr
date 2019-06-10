@@ -9,18 +9,22 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 02/26/2019
 ms.author: aahi
-ms.openlocfilehash: 4ccb8665c9880e21897c81ed4b4ff534e52bb6d1
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 481f7a7589a58baac922001d230f95198ed45eb7
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60002270"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417943"
 ---
 # <a name="example-how-to-detect-language-with-text-analytics"></a>Exemple : Comment détecter la langue avec l’Analyse de texte
 
-L’[API Détection de langue](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7) évalue le texte en entrée pour chaque document de texte et retourne les identificateurs de langue avec un score qui indique la puissance de l’analyse. Analyse de texte reconnaît jusqu'à 120 langues.
+La fonctionnalité [Détection de langue](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7) de l’API évalue le texte en entrée pour chaque document et retourne les identificateurs de langue avec un score qui indique la puissance de l’analyse.
 
 Cette capacité est utile pour les magasins de contenu qui collectent du texte arbitraire dont la langue est inconnue. Vous pouvez analyser les résultats de cette analyse pour déterminer la langue utilisée dans le document d’entrée. La réponse retourne également un score qui reflète la confiance du modèle (valeur comprise entre 0 et 1).
+
+Nous ne publions pas la liste exacte des langues pour cette fonctionnalité, mais elle peut détecter une grande variété de langues, de variantes, de dialectes, et de certaines langues régionales/de culture. 
+
+Si vous avez du contenu exprimé dans une langue moins fréquemment utilisée, vous pouvez essayer Détection de langue pour voir si elle retourne un code. La réponse pour les langues qui ne peuvent pas être détectées est `unknown`.
 
 > [!TIP]
 > Analyse de texte fournit également une image conteneur Docker basée sur Linux pour la détection de la langue. Vous pouvez ainsi [installer et exécuter le conteneur Analyse de texte](text-analytics-how-to-install-containers.md) à proximité de vos données.
@@ -206,7 +210,7 @@ Le résultat obtenu se compose de la langue prédominante, avec un score inféri
 
 Dans cet article, vous avez vu les concepts et le flux de travail de détection de langue à l’aide de l’API Analyse de texte dans Cognitive Services. Voici un rappel rapide des points principaux précédemment expliqués et illustrés :
 
-+ L’[API Détection de langue](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7) est disponible pour 120 langues.
++ [Détection de langue](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7) est disponible pour une grande variété de langues, de variantes, de dialectes, et de certaines langues régionales/de culture.
 + Les documents JSON figurant dans le corps de la demande incluent un ID et un texte.
 + La demande POST s’effectue sur un point de terminaison `/languages`, à l’aide [d’une clé d’accès et d’un point de terminaison](text-analytics-how-to-access-key.md) personnalisés valides pour votre abonnement.
 + La sortie de réponse, qui se compose d’identificateurs de langues pour chaque ID de document, peut être diffusée vers n’importe quelle application qui accepte JSON, y compris Excel et Power BI, pour n’en citer que quelques-unes.

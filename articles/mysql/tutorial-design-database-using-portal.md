@@ -1,20 +1,20 @@
 ---
-title: 'Tutoriel : Créer une base de données Azure Database pour MySQL à l’aide du portail Azure'
-description: Ce didacticiel explique comment créer et gérer un serveur de base de données Azure pour MySQL à l’aide du portail Azure.
+title: 'Didacticiel : Créer une base de données Azure Database pour MySQL à l’aide du portail Azure'
+description: Ce tutoriel explique comment créer et gérer un serveur Azure Database pour MySQL à l’aide du portail Azure.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: tutorial
 ms.date: 03/20/2018
 ms.custom: mvc
-ms.openlocfilehash: 0b637ab5f2b6234fed301a60ee1857960a464a33
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d9c6a16dd7e6c32a71d496abe8a67e23cc075a6d
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57864437"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515818"
 ---
-# <a name="tutorial-design-an-azure-database-for-mysql-database-using-the-azure-portal"></a>Tutoriel : Créer une base de données Azure Database pour MySQL à l’aide du portail Azure
+# <a name="tutorial-design-an-azure-database-for-mysql-database-using-the-azure-portal"></a>Didacticiel : Créer une base de données Azure Database pour MySQL à l’aide du portail Azure
 Base de données Azure pour MySQL est un service géré qui vous permet d’exécuter, de gérer et de mettre à l’échelle des bases de données MySQL hautement disponibles dans le cloud. À l’aide du portail Azure, vous pouvez facilement gérer votre serveur et concevoir une base de données.
 
 Ce didacticiel vous montre comment utiliser le portail Azure pour :
@@ -58,6 +58,9 @@ Un serveur de base de données Azure pour MySQL est créé avec un ensemble déf
     Niveau tarifaire | **Usage général**, **Gen 5**, **2 vCores**, **5 Go**, **7 jours**, **Géoredondant** | Les configurations de calcul, de stockage et de sauvegarde pour votre nouveau serveur. Sélectionnez **Niveau tarifaire**. Ensuite, sélectionnez l’onglet **Usage général**. *Gen 5*, *2 vCores*, *5 Go* et *7 jours* sont les valeurs par défaut pour **Génération de calcul**, **vCore**, **Stockage** et la **Période de conservation des sauvegardes**. Vous pouvez laisser ces curseurs en l’état. Pour activer les sauvegardes de votre serveur dans le stockage géo-redondant, sélectionnez **Géographiquement redondant** dans les **Options de redondance de sauvegarde**. Pour enregistrer cette sélection du niveau tarifaire, sélectionnez **OK**. La capture d’écran suivante capture ces sélections.
     
    ![Niveau tarifaire](./media/tutorial-design-database-using-portal/3-pricing-tier.png)
+
+   > [!TIP]
+   > Lorsque la **croissance automatique** est activée, votre serveur augmente le stockage quand vous vous approchez de la limite allouée, sans impacter votre charge de travail.
 
 3. Cliquez sur **Créer**. En une minute ou deux, un nouveau serveur de base de données Azure pour MySQL s’exécute dans le cloud. Dans la barre d’outils, cliquez sur le bouton **Notifications** pour surveiller le processus de déploiement.
 

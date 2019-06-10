@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 05/06/2019
+ms.date: 05/31/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 8ffc64359faab539ab74e354caad4081f31fcd43
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: d43a0e7c48db9dd42c7cf3b52e5d4072a4827898
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65790123"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479181"
 ---
 # <a name="tutorial-use-health-check-in-azure-deployment-manager-public-preview"></a>Didacticiel : Utiliser le contrôle d’intégrité dans Azure Deployment Manager (préversion publique)
 
@@ -50,18 +50,18 @@ Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https:/
 Pour effectuer ce qui est décrit dans cet article, vous avez besoin des éléments suivants :
 
 * Effectuez le tutoriel [Utiliser Azure Deployment Manager avec des modèles Resource Manager](./deployment-manager-tutorial.md).
-* Téléchargez [les modèles et artefacts](https://armtutorials.blob.core.windows.net/admtutorial/ADMTutorial.zip) utilisés dans ce tutoriel. 
+* Téléchargez [les modèles et artefacts](https://armtutorials.blob.core.windows.net/admtutorial/ADMTutorial.zip) utilisés dans ce tutoriel.
 
 ## <a name="create-a-health-check-service-simulator"></a>Créer un simulateur de service de contrôle d’intégrité
 
-En production, vous utilisez généralement un ou plusieurs fournisseurs de supervision. Pour faciliter l’intégration de l’intégrité, Microsoft collabore avec certaines des principales sociétés de supervision de l’intégrité de service pour vous fournir une solution copier/coller simple vous permettant d’intégrer des contrôles d’intégrité à vos déploiements. Pour obtenir la liste de ces sociétés, consultez [Fournisseurs de contrôle d’intégrité](./deployment-manager-health-check.md#health-monitoring-providers). Pour les besoins de ce tutoriel, vous créez une [fonction Azure](/azure/azure-functions/) afin de simuler un service de supervision de l’intégrité. Cette fonction prend un code d’état et retourne le même code. Votre modèle Azure Deployment Manager utilise le code d’état pour déterminer comment effectuer le déploiement. 
+En production, vous utilisez généralement un ou plusieurs fournisseurs de supervision. Pour faciliter l’intégration de l’intégrité, Microsoft collabore avec certaines des principales sociétés de supervision de l’intégrité de service pour vous fournir une solution copier/coller simple vous permettant d’intégrer des contrôles d’intégrité à vos déploiements. Pour obtenir la liste de ces sociétés, consultez [Fournisseurs de contrôle d’intégrité](./deployment-manager-health-check.md#health-monitoring-providers). Pour les besoins de ce tutoriel, vous créez une [fonction Azure](/azure/azure-functions/) afin de simuler un service de supervision de l’intégrité. Cette fonction prend un code d’état et retourne le même code. Votre modèle Azure Deployment Manager utilise le code d’état pour déterminer comment effectuer le déploiement.
 
 Les deux fichiers suivants sont utilisés pour le déploiement de la fonction Azure. Vous n’avez pas besoin de télécharger ces fichiers pour suivre le tutoriel.
 
-* Un modèle Resource Manager situé sur [https://armtutorials.blob.core.windows.net/admtutorial/deploy_hc_azure_function.json](https://armtutorials.blob.core.windows.net/admtutorial/deploy_hc_azure_function.json). Vous déployez ce modèle pour créer une fonction Azure.  
-* Un fichier zip contenant le code source de la fonction Azure, [http://armtutorials.blob.core.windows.net/admtutorial/ADMHCFunction0417.zip](http://armtutorials.blob.core.windows.net/admtutorial/RestHealthTest.zip). Ce fichier zip est appelé par le modèle Resource Manager.
+* Un modèle Resource Manager situé sur [https://armtutorials.blob.core.windows.net/admtutorial/deploy_hc_azure_function.json](https://armtutorials.blob.core.windows.net/admtutorial/deploy_hc_azure_function.json). Vous déployez ce modèle pour créer une fonction Azure.
+* Un fichier zip contenant le code source de la fonction Azure, [http://armtutorials.blob.core.windows.net/admtutorial/ADMHCFunction0417.zip](http://armtutorials.blob.core.windows.net/admtutorial/ADMHCFunction0417.zip). Ce fichier zip est appelé par le modèle Resource Manager.
 
-Pour déployer la fonction Azure, sélectionnez **Try it** afin d’ouvrir Azure Cloud shell, puis collez le script suivant dans la fenêtre de l’interpréteur de commandes.  Pour coller le code, cliquez avec le bouton droit sur la fenêtre de l’interpréteur de commandes, puis sélectionnez **Coller**. 
+Pour déployer la fonction Azure, sélectionnez **Try it** afin d’ouvrir Azure Cloud shell, puis collez le script suivant dans la fenêtre de l’interpréteur de commandes.  Pour coller le code, cliquez avec le bouton droit sur la fenêtre de l’interpréteur de commandes, puis sélectionnez **Coller**.
 
 > [!IMPORTANT]
 > **projectName** dans le script PowerShell sert à générer des noms pour les services Azure qui sont déployés dans ce tutoriel. Différents services Azure ont des exigences différentes quant aux noms. Pour garantir la réussite du déploiement, choisissez un nom comportant moins de 12 caractères avec uniquement des lettres minuscules et des chiffres.
@@ -81,7 +81,7 @@ Pour vérifier et tester la fonction Azure
 1. Ouvrez le [portail Azure](https://portal.azure.com).
 1. Ouvrez le groupe de ressources.  Le nom par défaut est le nom du projet avec **rg** ajouté.
 1. Sélectionnez le service d’application dans le groupe de ressources.  Le nom par défaut du service d’application est le nom du projet avec **webapp** ajouté.
-1. Développez **Fonctions**, puis sélectionnez **HttpTrigger1**. 
+1. Développez **Fonctions**, puis sélectionnez **HttpTrigger1**.
 
     ![Fonction Azure de contrôle d’intégrité Azure Deployment Manager](./media/deployment-manager-tutorial-health-check/azure-deployment-manager-hc-function.png)
 
@@ -178,7 +178,7 @@ L’objectif de cette section est de vous montrer comment inclure une étape de 
     },
     ```
 
-    En fonction de la définition, le lancement se poursuit si l’état d’intégrité est *healthy* ou *warning*. 
+    En fonction de la définition, le lancement se poursuit si l’état d’intégrité est *healthy* ou *warning*.
 
 1. Mettez à jour le **dependsON** de la définition de lancement pour inclure l’étape de contrôle d’intégrité qui vient d’être définie :
 
@@ -189,7 +189,7 @@ L’objectif de cette section est de vous montrer comment inclure une étape de 
     ],
     ```
 
-1. Mettez à jour **stepGroups** pour inclure l’étape de contrôle d’intégrité. Le **healthCheckStep** est appelé dans **postDeploymentSteps** de **stepGroup2**. **stepGroup3** et **stepGroup4** sont déployés uniquement si l’état sain est *healthy* ou *warning*. 
+1. Mettez à jour **stepGroups** pour inclure l’étape de contrôle d’intégrité. Le **healthCheckStep** est appelé dans **postDeploymentSteps** de **stepGroup2**. **stepGroup3** et **stepGroup4** sont déployés uniquement si l’état sain est *healthy* ou *warning*.
 
     ```json
     "stepGroups": [
@@ -265,7 +265,7 @@ L’option **Afficher les types masqués** doit être sélectionnée pour voir l
 
 ## <a name="deploy-the-rollout-with-the-unhealthy-status"></a>Déployer le lancement avec l’état non sain
 
-Pour simplifier ce tutoriel, le modèle de lancement révisé est partagé à l’emplacement suivant afin de vous éviter de préparer votre propre copie. Si vous souhaitez utiliser votre propre modèle de lancement, suivez les instructions fournies dans [Tutoriel : Utiliser Azure Deployment Manager avec des modèles Resource Manager](./deployment-manager-tutorial.md).
+Pour simplifier ce tutoriel, le modèle de lancement révisé est partagé aux emplacements suivants afin de vous éviter de préparer votre propre copie. Si vous souhaitez utiliser votre propre modèle de lancement, suivez les instructions fournies dans [Tutoriel : Utiliser Azure Deployment Manager avec des modèles Resource Manager](./deployment-manager-tutorial.md).
 
 * Modèle de topologie : https://armtutorials.blob.core.windows.net/admtutorial/ADMTemplatesHC/CreateADMRollout.json
 * Magasin d’artefacts : https://armtutorials.blob.core.windows.net/admtutorial/ArtifactStore
@@ -394,7 +394,7 @@ Lorsque vous n’en avez plus besoin, nettoyez les ressources Azure que vous ave
     * **&lt;namePrefix>ServiceWUSrg** : contient les ressources définies par ServiceWUS.
     * **&lt;namePrefix>ServiceEUSrg** : contient les ressources définies par ServiceEUS.
     * Le groupe de ressources pour l’identité managée définie par l’utilisateur.
-3. Sélectionnez le nom du groupe de ressources.  
+3. Sélectionnez le nom du groupe de ressources.
 4. Sélectionnez **Supprimer le groupe de ressources** dans le menu supérieur.
 5. Répétez les deux dernières étapes pour supprimer d’autres groupes de ressources créés lors de ce didacticiel.
 

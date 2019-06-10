@@ -12,12 +12,12 @@ ms.date: 05/21/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7110d7004ae9be58bb150674d516692049507608
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.openlocfilehash: 82c7b698f655b82ba95f66127f27a921def02cde
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66299078"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66472985"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Didacticiel : Ajouter une application locale pour un accès à distance via le service Proxy d'application d'Azure Active Directory
 
@@ -34,10 +34,11 @@ Ce didacticiel :
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Pour ajouter une application à votre locataire, vous devez :
+Pour intégrer une application locale à Azure AD, vous devez :
 
 * Avoir un [abonnement Microsoft Azure AD De base ou Premium](https://azure.microsoft.com/pricing/details/active-directory)
 * Avoir un compte administrateur d’application
+* Les identités utilisateur doivent être synchronisées à partir d’un annuaire local ou créées directement dans vos locataires Azure AD. La synchronisation des identités permet à Azure AD de pré-authentifier les utilisateurs avant de leur accorder l’accès aux applications publiées via le proxy d’application, mais aussi d’obtenir les identificateurs d’utilisateur nécessaires pour effectuer l’authentification unique (SSO).
 
 ### <a name="windows-server"></a>Windows Server
 

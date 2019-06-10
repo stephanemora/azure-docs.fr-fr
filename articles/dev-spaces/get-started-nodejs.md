@@ -9,12 +9,12 @@ ms.date: 09/26/2018
 ms.topic: tutorial
 description: Développement Kubernetes rapide avec des conteneurs et des microservices sur Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs, Helm, service Mesh, routage du service Mesh, kubectl, k8s
-ms.openlocfilehash: c01870aa7ae4a0ae5cf1cc8302200675ac0e8022
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: e461f210dc5b2d0dda0eabd5ea80dfcdc9ccebfb
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65861706"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66392811"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-nodejs"></a>Bien démarrer avec l’utilisation d’Azure Dev Spaces conjointement à Node.js
 
@@ -55,7 +55,7 @@ az account set --subscription <subscription ID>
 
 ## <a name="create-a-kubernetes-cluster-enabled-for-azure-dev-spaces"></a>Créer un cluster Kubernetes activé pour Azure Dev Spaces
 
-À l’invite de commandes, créez le groupe de ressources dans une [région qui prend en charge Azure Dev Spaces](https://docs.microsoft.com/azure/dev-spaces/#a-rapid,-iterative-kubernetes-development-experience-for-teams).
+À l’invite de commandes, créez le groupe de ressources dans une [région qui prend en charge Azure Dev Spaces][supported-regions].
 
 ```cmd
 az group create --name MyResourceGroup --location <region>
@@ -272,3 +272,5 @@ Dans cette configuration, le conteneur est configuré pour démarrer *nodemon*. 
 > [!div class="nextstepaction"]
 > [En savoir plus sur le développement multiservice](multi-service-nodejs.md)
 
+
+[supported-regions]: about.md#supported-regions-and-configurations

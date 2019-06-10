@@ -6,18 +6,18 @@ author: stevelas
 manager: jeconnoc
 ms.service: container-registry
 ms.topic: overview
-ms.date: 04/10/2018
+ms.date: 05/24/2019
 ms.author: stevelas
-ms.openlocfilehash: 2dc314dd1d1e728f03c1d0c660d9339254ddc462
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: a26b261a900dfae742e00d9540e744524b781815
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57541857"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66384116"
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Géoréplication dans Azure Container Registry
 
-Les entreprises qui souhaitent une présence locale ou une sauvegarde à chaud choisissent d’exécuter des services à partir de plusieurs régions Azure. La meilleure pratique recommandée consiste à placer un registre de conteneurs dans chaque région où les images sont exécutées afin de permettre des opérations à proximité du réseau pour des transferts de calque d’image rapides et fiables. La géoréplication permet à un registre de conteneurs Azure de fonctionner comme un registre unique desservant plusieurs régions à l’aide de registres régionaux à multiples maîtres.
+Les entreprises qui souhaitent une présence locale ou une sauvegarde à chaud choisissent d’exécuter des services à partir de plusieurs régions Azure. La meilleure pratique recommandée consiste à placer un registre de conteneurs dans chaque région où les images sont exécutées afin de permettre des opérations à proximité du réseau pour des transferts de calque d’image rapides et fiables. La géoréplication permet à un registre de conteneurs Azure de fonctionner comme un registre unique desservant plusieurs régions à l’aide de registres régionaux à multiples maîtres. 
 
 Un registre géorépliqué offre les avantages suivants :
 
@@ -60,10 +60,11 @@ La fonctionnalité de géoréplication d’Azure Container Registry permet de b�
 
 * Gérer un registre unique dans toutes les régions : `contoso.azurecr.io`
 * Gérer une configuration unique pour le déploiement des images, car toutes les régions utilisent la même URL d’image : `contoso.azurecr.io/public/products/web:1.2`
-* Transmettre les données vers un registre unique, tandis qu’ACR gère la géoréplication, y compris des webhooks régionaux pour les notifications locales.
+* Envoyer (push) vers un registre unique, tandis qu’ACR gère la géoréplication. Vous pouvez configurer des [webhooks](container-registry-webhook.md) régionaux pour avertir de vos événements dans des réplicas spécifiques.
 
 ## <a name="configure-geo-replication"></a>Configuration de la géo-réplication
-La configuration de la géoréplication est aussi simple que de cliquer sur des régions sur une carte.
+
+La configuration de la géoréplication est aussi simple que de cliquer sur des régions sur une carte. Vous pouvez aussi gérer la géoréplication à l’aide d’outils, notamment les commandes [az acr replication](/cli/azure/acr/replication) dans l’interface Azure CLI.
 
 La géoréplication est une fonctionnalité disponible uniquement pour les [registres Premium](container-registry-skus.md). Si votre registre n’est pas encore Premium, vous pouvez passer de la formule De base ou Standard à Premium dans le [portail Azure](https://portal.azure.com) :
 
@@ -91,15 +92,19 @@ Pour configurer des réplicas supplémentaires, sélectionnez les hexagones vert
 
 ACR commence la synchronisation des images entre les réplicas configurés. Une fois l’opération terminée, le portail affiche la mention *Prêt*. L’état du réplica dans le portail n’est pas mis à jour automatiquement. Utilisez le bouton Actualiser pour le mettre à jour.
 
+## <a name="considerations-for-using-a-geo-replicated-registry"></a>Considérations sur l’utilisation d’un registre géorépliqué
+
+* Chaque région d’un registre géorépliqué est indépendante une fois qu’elle est configurée. Le contrat SLA d’Azure Container Registry s’applique à chaque région géorépliquée.
+* Quand vous envoyez (push) ou que vous extrayez (pull) des images dans un registre géorépliqué, Azure Traffic Manager envoie en arrière-plan la demande au registre qui se trouve dans la région la plus proche de vous.
+* Une fois que vous avez envoyé (push) la mise à jour d’une image ou d’une étiquette à la région la plus proche, un certain temps est nécessaire à Azure Container Registry pour répliquer les manifestes et les couches vers les régions restantes que vous avez choisies. La réplication des grandes images prend plus de temps que celle des plus petites. Les images et les étiquettes sont synchronisées entre les régions de réplication avec un modèle de cohérence à terme.
+* Pour gérer des flux de travail qui dépendent de mises à jour d’envoi (push) vers un registre géorépliqué, nous vous recommandons de configurer des [webhooks](container-registry-webhook.md) pour répondre aux événements d’envoi. Vous pouvez configurer des webhooks régionaux dans un registre géorépliqué pour effectuer le suivi des événements d’envoi (push) au fil de leur occurrence dans les régions géorépliquées.
+
+
 ## <a name="geo-replication-pricing"></a>Tarification de la géoréplication
 
 La géoréplication est une fonctionnalité de la [Référence SKU Premium](container-registry-skus.md) d’Azure Container Registry. Lorsque vous répliquez un registre dans les régions de votre choix, cela entraîne des frais de registre Premium pour chaque région.
 
 Dans l’exemple précédent, Contoso a fusionné deux registres en un seul, en ajoutant des réplicas dans les régions USA Est, Canada Centre et Europe Ouest. Contoso payerait le tarif Premium quatre fois par mois, sans configuration ni gestion supplémentaire. Chaque région extraie désormais ses images localement, ce qui améliore les performances et la fiabilité sans frais de sortie de réseau de la région USA Ouest au Canada, en passant par USA Est.
-
-## <a name="summary"></a>Résumé
-
-Avec la géoréplication, vous pouvez gérer vos centres de données régionaux comme un cloud global. Comme les images sont utilisées dans de nombreux services Azure, vous pouvez bénéficier d’un plan de gestion unique tout en conservant des extractions d’images locales à proximité du réseau, rapides et fiables.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

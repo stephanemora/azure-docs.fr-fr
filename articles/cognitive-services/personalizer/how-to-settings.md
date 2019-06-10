@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 05/07/2019
 ms.author: edjez
-ms.openlocfilehash: 80e5feeccc4acc3e1f3dab6b815c8605332c7c71
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.openlocfilehash: 976830232453eee0993e64ac445c2e6a2f7e20ef
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65834296"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66478579"
 ---
 # <a name="personalizer-settings"></a>Paramètres de Personalizer
 
@@ -63,7 +63,9 @@ Après avoir changé ce paramètre, veillez à sélectionner **Enregistrer**.
 
 ### <a name="model-update-frequency"></a>Fréquence de mise à jour du modèle
 
-**Fréquence de mise à jour du modèle** définit la fréquence à laquelle un nouveau modèle Personalizer est réentraîné. 
+Le dernier modèle, qui a été entraîné à l’aide des appels d’API Reward de chaque événement actif, n’est pas utilisé automatiquement par les appels Rank de Personalizer. La **fréquence de mise à jour des modèles** définit la fréquence à laquelle le modèle utilisé par l’appel Rank est mis à jour. 
+
+Les fréquences élevées de mise à jour des modèles sont utiles lorsque vous souhaitez suivre de près les modifications apportées au comportements des utilisateurs, par exemple, dans le cas de sites d’actualités en direct, de contenu viral ou d’enchères en direct. Dans de tels scénarios, vous pouvez utiliser une fréquence de 15 minutes. Pour la plupart des cas d’usage, une fréquence de mise à jour moins élevée restera efficace. Une mise à jour effectuée toutes les minutes peut se révéler utile lorsque vous déboguez le code d’une application à l’aide de Personalizer, lorsque vous effectuez des démonstrations ou lorsque vous testez interactivement certains aspects de Machine Learning.
 
 ![La fréquence de mise à jour du modèle définit la fréquence à laquelle un nouveau modèle Personalizer est réentraîné.](media/settings/configure-model-update-frequency-settings.png)
 
@@ -77,7 +79,7 @@ Après avoir changé ce paramètre, veillez à sélectionner **Enregistrer**.
 
 ## <a name="export-the-personalizer-model"></a>Exporter le modèle de Personalizer
 
-Dans la section Gestion des ressources pour **Modèle et stratégie**, passez en revue la création du modèle et la date de la dernière mise à jour, puis exportez le modèle actuel.
+Dans la section Gestion des ressources pour **Modèle et stratégie**, passez en revue la création du modèle et la date de la dernière mise à jour, puis exportez le modèle actuel. Vous pouvez utiliser le portail Azure ou les API Personalizer pour exporter un fichier de modèle à des fins d’archivage. 
 
 ![Exporter le modèle actuel de Personalizer](media/settings/export-current-personalizer-model.png)
 

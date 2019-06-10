@@ -14,26 +14,26 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: 86113246fab399e8364653198e9a6971317e3f2c
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 46247d42837f8ac181d33216d2b93d28e2533c09
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66121703"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66482361"
 ---
 # <a name="add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Ajouter la connexion avec Microsoft à une application ASP.NET
 
 Ce guide explique comment implémenter la connexion avec Microsoft à l’aide d’une solution ASP.NET MVC avec une application basée sur un navigateur web traditionnel avec une norme OpenID Connect.
 
-À la fin de ce guide, votre application pourra accepter des connexions de comptes personnels (y compris outlook.com, live.com et autres), ainsi que des comptes professionnels et scolaires de n’importe quelle société ou organisation ayant intégré Azure Active Directory.
+À la fin de ce guide, votre application sera en mesure d’accepter les connexions à l’aide de comptes personnels, comme les comptes outlook.com, live.com et autres. Cela comprend également les comptes professionnels et scolaires de toute entreprise ou organisation ayant intégré Azure Active Directory.
 
-> Pour suivre ce guide, vous avez besoin de Visual Studio 2017.  Ni l’un, ni l’autre ne sont installés sur votre ordinateur ?  [Téléchargez gratuitement Visual Studio 2017](https://www.visualstudio.com/downloads/)
+> Pour suivre ce guide, vous avez besoin de Visual Studio 2019.  Ni l’un, ni l’autre ne sont installés sur votre ordinateur ?  [Télécharger Visual Studio 2019 gratuitement](https://www.visualstudio.com/downloads/)
 
 ## <a name="how-the-sample-app-generated-by-this-guide-works"></a>Fonctionnement de l’exemple d’application de ce guide
 
 ![Fonctionnement de l’exemple d’application généré par ce tutoriel](media/active-directory-develop-guidedsetup-aspnetwebapp-intro/aspnetbrowsergeneral.svg)
 
-L’exemple d’application créé dans le cadre de ce guide est basé sur un scénario dans lequel un utilisateur se sert du navigateur pour accéder à un site web ASP.NET qui l’invite à s’authentifier via un bouton de connexion. Dans ce scénario, la majorité du travail pour afficher la page web se passe côté serveur.
+L’exemple d’application que vous créez est basé sur un scénario dans lequel vous utilisez le navigateur pour accéder à un site web ASP.NET qui vous invite à vous authentifier via un bouton de connexion. Dans ce scénario, la majorité du travail pour afficher la page web se passe côté serveur.
 
 ## <a name="libraries"></a>Bibliothèques
 

@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 04/06/2019
-ms.openlocfilehash: 52b5291e4b56b5065b9dddd5b8908ade0c1a8387
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: e37e99323c92adad0b9e897af8c276a8ac153371
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "66019840"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515630"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-visual-interface"></a>Didacticiel : Prédire le prix de véhicules automobiles à l’aide de l’interface visuelle
 
@@ -78,13 +78,13 @@ Si vous avez réutilisé avec succès votre expérience de démarrage rapide, ig
 
 Si vous n’avez pas suivi le guide de démarrage rapide, suivez ces étapes pour créer rapidement une expérience qui importe et nettoie le jeu de données automobiles.
 
-1. Créez une expérience en sélectionnant **+NOUVEAU** en bas de la fenêtre d’interface visuelle.
+1. Créez une expérience en sélectionnant **+Nouveau** en bas de la fenêtre d’interface visuelle.
 
-1. Sélectionnez **EXPÉRIENCE** >  **Expérience vide**.
+1. Sélectionnez **Expériences** >  **Expérience vide**.
 
-1. Sélectionnez le nom d’expérience par défaut, **« Expérience créée le ... »**, situé en haut du canevas, et remplacez-le par un nom significatif. Par exemple, **Prédiction du prix de véhicules automobiles**. Le nom n’a pas besoin d’être unique.
+1. Sélectionnez le nom d’expérience par défaut, **« Expérience créée le ... »** , situé en haut du canevas, et remplacez-le par un nom significatif. Par exemple, **Prédiction du prix de véhicules automobiles**. Le nom n’a pas besoin d’être unique.
 
-1. Sur la gauche de la zone de dessin de l’expérience se trouve une palette de jeux de données et de modules. Pour rechercher des modules, utilisez la zone de recherche en haut de la palette des modules. Tapez la valeur **automobile** dans la zone de recherche pour localiser le jeu de données **Données sur le prix des véhicules automobiles (brutes)**. Faites glisser ce jeu de données vers le canevas de l’expérience.
+1. Sur la gauche de la zone de dessin de l’expérience se trouve une palette de jeux de données et de modules. Pour rechercher des modules, utilisez la zone de recherche en haut de la palette des modules. Tapez la valeur **automobile** dans la zone de recherche pour localiser le jeu de données **Données sur le prix des véhicules automobiles (brutes)** . Faites glisser ce jeu de données vers le canevas de l’expérience.
 
     ![Capture d’écran montrant comment rechercher le jeu de données des prix des véhicules automobiles](./media/ui-tutorial-automobile-price-train-score/automobile-dataset.png)
 

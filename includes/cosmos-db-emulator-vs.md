@@ -4,12 +4,12 @@ ms.service: cosmos-db
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: sngun
-ms.openlocfilehash: 6b009c58e15b4e54d0fc405135f077145bf44620
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: da595176f93b23af8487fa85dac129a688c0eeb7
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66154615"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66482472"
 ---
-Si vous n’avez pas encore installé Visual Studio 2017, vous pouvez télécharger et utiliser la **version gratuite** 
-[ Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Veillez à activer la charge de travail **Développement Azure** lors de l’installation de Visual Studio.
+Téléchargez et utilisez la **version gratuite de** 
+[Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Veillez à activer la charge de travail **Développement Azure** lors de l’installation de Visual Studio.

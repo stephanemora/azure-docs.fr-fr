@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/07/2019
+ms.date: 05/30/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 713e4e7874b2ca650ab669d52f9d3026b5e80899
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 166452b052313397f1ec17adb59cad3c20fab1f9
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57780981"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66497367"
 ---
 # <a name="configure-an-openidoauth-application-from-the-azure-ad-app-gallery"></a>Configurer une application OpenID/OAuth à partir de la galerie d’applications Azure AD
 
@@ -98,7 +98,25 @@ L’API Graph fournit également un accès aux utilisateurs et groupes d’Azure
 
 Les étapes suivantes vous montrent comment l’expérience de consentement fonctionne pour le développeur d’applications et pour l’utilisateur :
 
-1. Supposons que l’une de vos applications clientes web doive demander des autorisations spécifiques pour accéder à une ressource ou à une API. Le Portail Azure est utilisé pour déclarer les demandes d’autorisation au moment de la configuration. Comme d’autres paramètres de configuration, elles sont incluses dans l’inscription Azure AD de l’application :
+1. Supposons que l’une de vos applications clientes web doive demander des autorisations spécifiques pour accéder à une ressource ou à une API. Le Portail Azure est utilisé pour déclarer les demandes d’autorisation au moment de la configuration. Comme d’autres paramètres de configuration, elles sont incluses dans les inscriptions Azure AD de l’application. Pour le chemin des demandes d’autorisations, vous devez effectuer les étapes ci-dessous :
+
+    a. Cliquez sur **Inscriptions d’applications** à gauche du menu et ouvrez votre application en tapant son nom dans la zone de recherche.
+
+    ![API Graph](./media/openidoauth-tutorial/application.png)
+
+    b. Cliquez sur **Afficher les autorisations de l’API**.
+
+    ![API Graph](./media/openidoauth-tutorial/api-permission.png)
+
+    c. Cliquez sur **Ajouter une autorisation**.
+
+    ![API Graph](./media/openidoauth-tutorial/add-permission.png)
+
+    d. Cliquez sur **Microsoft Graph**.
+
+    ![API Graph](./media/openidoauth-tutorial/microsoft-graph.png)
+
+    e. Sélectionnez les options appropriées dans **Autorisations déléguées** et **Autorisations d’application**.
 
     ![API Graph](./media/openidoauth-tutorial/graphapi.png)
 
@@ -118,12 +136,12 @@ Un utilisateur standard peut donner son consentement pour certaines autorisation
 
 ## <a name="difference-between-admin-consent-and-user-consent"></a>Différence entre le consentement administrateur et le consentement de l’utilisateur
 
-En tant qu’administrateur, vous pouvez également donner votre consentement pour les autorisations déléguées d’une application pour le compte de tous les utilisateurs de votre client. Le consentement administrateur évite que la boîte de dialogue de consentement ne s’affiche pour tous les utilisateurs du locataire. Les utilisateurs disposant du rôle d’administrateur peuvent indiquer leur consentement dans le portail Azure. Dans la page **Paramètres** de votre application, sélectionnez **Autorisations requises** > **Accorder des autorisations**.
+En tant qu’administrateur, vous pouvez également donner votre consentement pour les autorisations déléguées d’une application pour le compte de tous les utilisateurs de votre client. Le consentement administrateur évite que la boîte de dialogue de consentement ne s’affiche pour tous les utilisateurs du locataire. Les utilisateurs disposant du rôle d’administrateur peuvent indiquer leur consentement dans le portail Azure. Dans la page **Paramètres** de l’application, sélectionnez **Autorisations requises** > **Accorder le consentement administrateur**.
 
 ![Bouton Accorder des autorisations](./media/openidoauth-tutorial/grantpermission.png)
 
 > [!NOTE]
-> Pour les applications monopages (SPA) qui utilisent ADAL.js, vous devez maintenant accorder un consentement explicite à l’aide du bouton **Accorder des autorisations**. Sinon, l’application échoue lorsque le jeton d’accès est demandé.
+> Pour les applications monopage (SPA) qui utilisent ADAL.js, vous devez maintenant accorder un consentement explicite à l’aide du bouton **Accorder le consentement administrateur**. Sinon, l’application échoue lorsque le jeton d’accès est demandé.
 
 Les autorisations application seule nécessitent toujours le consentement de l’administrateur d’un client. Si votre application demande une autorisation application seule et qu’un utilisateur tente de se connecter à l’application, un message d’erreur s’affiche. Le message indique que l’utilisateur n’est pas en mesure de donner son consentement.
 

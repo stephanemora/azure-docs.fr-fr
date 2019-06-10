@@ -11,12 +11,12 @@ ms.topic: quickstart
 description: Développement Kubernetes rapide avec des conteneurs et des microservices sur Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs, Helm, service Mesh, routage du service Mesh, kubectl, k8s
 manager: jeconnoc
-ms.openlocfilehash: 1ffb3f0071409e148f394913d4bda5ba73319e3e
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: 3f502b84145b81153d5e39a03cca104d4285c581
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65861625"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393424"
 ---
 # <a name="quickstart-develop-with-net-core-on-kubernetes-using-azure-dev-spaces-visual-studio-code"></a>Démarrage rapide : Développer avec .NET Core sur Kubernetes en utilisant Azure Dev Spaces (Visual Studio Code)
 
@@ -35,7 +35,7 @@ Dans ce guide, vous allez apprendre à :
 
 ## <a name="create-an-azure-kubernetes-service-cluster"></a>Créer un cluster Azure Kubernetes Service
 
-Vous devez créer un cluster AKS dans une [région prise en charge](https://docs.microsoft.com/azure/dev-spaces/#a-rapid,-iterative-kubernetes-development-experience-for-teams). Les commandes ci-dessous créent un groupe de ressources nommé *MyResourceGroup* et un cluster AKS nommé *MyAKS*.
+Vous devez créer un cluster AKS dans une [région prise en charge][supported-regions]. Les commandes ci-dessous créent un groupe de ressources nommé *MyResourceGroup* et un cluster AKS nommé *MyAKS*.
 
 ```cmd
 az group create --name MyResourceGroup --location eastus
@@ -115,13 +115,13 @@ Service 'webfrontend' port 80 (http) is available at http://localhost:54256
 ...
 ```
 
-Vous pouvez voir le service en cours d’exécution en ouvrant l’URL publique qui est affichée dans la sortie de la commande `azds up`. Dans cet exemple, l’URL publique est *http://webfrontend.1234567890abcdef1234.eus.azds.io/*.
+Vous pouvez voir le service en cours d’exécution en ouvrant l’URL publique qui est affichée dans la sortie de la commande `azds up`. Dans cet exemple, l’URL publique est *http://webfrontend.1234567890abcdef1234.eus.azds.io/* .
 
 Si vous arrêtez la commande `azds up` avec *Ctrl+C*, le service continue de s’exécuter dans AKS et l’URL publique reste disponible.
 
 ## <a name="update-code"></a>Mettre à jour le code
 
-Pour déployer une version mise à jour de votre service, vous pouvez mettre à jour n’importe quel fichier de votre projet, puis réexécuter la commande `azds up`. Par exemple : 
+Pour déployer une version mise à jour de votre service, vous pouvez mettre à jour n’importe quel fichier de votre projet, puis réexécuter la commande `azds up`. Par exemple :
 
 1. Si `azds up` est toujours en cours d’exécution, appuyez sur *Ctrl+C*.
 1. Changez la [ligne 20 dans `Controllers/HomeController.cs`](https://github.com/Azure/dev-spaces/blob/master/samples/dotnetcore/getting-started/webfrontend/Controllers/HomeController.cs#L20) en :
@@ -148,7 +148,7 @@ Pour déployer une version mise à jour de votre service, vous pouvez mettre à 
 
 ## <a name="enable-visual-studio-code-to-debug-in-kubernetes"></a>Activer Visual Studio Code pour déboguer dans Kubernetes
 
-Ouvrez Visual Studio Code, cliquez sur *Fichier* puis sur *Ouvrir...*, accédez au répertoire *dev-spaces/samples/dotnetcore/getting-started/webfrontend*, puis cliquez sur *Ouvrir*.
+Ouvrez Visual Studio Code, cliquez sur *Fichier* puis sur *Ouvrir...* , accédez au répertoire *dev-spaces/samples/dotnetcore/getting-started/webfrontend*, puis cliquez sur *Ouvrir*.
 
 Vous avez maintenant le projet *webfrontend* ouvert dans Visual Studio Code, qui est le même service que celui que vous avez exécuté avec la commande `azds up`. Pour déboguer ce service dans AKS avec Visual Studio Code, au lieu d’utiliser `azds up` directement, vous devez préparer ce projet à utiliser Visual Studio Code pour communiquer avec votre espace de développement.
 
@@ -171,7 +171,7 @@ Cette commande génère et exécute votre service dans Azure Dev Spaces en mode 
 
 ## <a name="setting-and-using-breakpoints-for-debugging"></a>Définition et utilisation de points d’arrêt pour le débogage
 
-Démarrez votre service en mode de débogage avec *.NET Core Launch (AZDS)*.
+Démarrez votre service en mode de débogage avec *.NET Core Launch (AZDS)* .
 
 Revenez à la vue *Explorer* en cliquant sur *Afficher*, puis sur *Explorer*. Ouvrez `Controllers/HomeController.cs`, puis cliquez quelque part sur la ligne 20 pour y placer votre curseur. Pour définir un point d’arrêt, appuyez sur *F9* ou cliquez sur *Déboguer*, puis sur *Activer/désactiver le point d’arrêt*.
 
@@ -183,7 +183,7 @@ Supprimez le point d’arrêt en plaçant votre curseur sur la ligne 20 dans `Co
 
 ## <a name="update-code-from-visual-studio-code"></a>Mettre à jour le code à partir de Visual Studio Code
 
-Avec le service en cours d’exécution en mode de débogage, mettez à jour la ligne 20 dans `Controllers/HomeController.cs`. Par exemple : 
+Avec le service en cours d’exécution en mode de débogage, mettez à jour la ligne 20 dans `Controllers/HomeController.cs`. Par exemple :
 
 ```csharp
 ViewData["Message"] = "Your application description page in Azure while debugging!";
@@ -209,3 +209,6 @@ Découvrez comment Azure Dev Spaces vous aide à développer des applications pl
 
 > [!div class="nextstepaction"]
 > [Utilisation de plusieurs conteneurs et développement en équipe](multi-service-netcore.md)
+
+
+[supported-regions]: about.md#supported-regions-and-configurations

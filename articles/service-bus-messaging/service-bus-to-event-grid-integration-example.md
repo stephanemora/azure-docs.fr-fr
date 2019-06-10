@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: tutorial
 ms.date: 05/14/2019
 ms.author: spelluru
-ms.openlocfilehash: b29798bb87b7c5c677e7d80e552e45e8d1290541
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: b7dbc7dbc0b670de81a3f4603b0d52bce7559af8
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65787080"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428320"
 ---
 # <a name="respond-to-azure-service-bus-events-received-via-azure-event-grid-by-using-azure-functions-and-azure-logic-apps"></a>Répondre aux événements Azure Service Bus reçus via Azure Event Grid à l’aide d’Azure Functions et d’Azure Logic Apps
 Dans ce tutoriel, vous allez apprendre à répondre aux événements Azure Service Bus qui sont reçus via Azure Event Grid à l’aide d’Azure Functions et d’Azure Logic Apps. Vous allez effectuer les étapes suivantes :
@@ -280,13 +280,12 @@ Connectez une application logique avec Azure Service Bus et Azure Event Grid en 
     3. Pour **Nom de la ressource**, sélectionnez votre espace de noms Service Bus. 
     4. Sélectionnez **Ajouter un nouveau paramètre**, puis **Filtre de suffixe**. 
     5. Pour **Filtre de suffixe**, entrez le nom de votre deuxième abonnement à la rubrique Service Bus. 
-
-        ![Concepteur Logic Apps - configurer l’événement](./media/service-bus-to-event-grid-integration-example/logic-app-configure-event.png)
+        ![Concepteur Logic Apps - Configurer un événement](./media/service-bus-to-event-grid-integration-example/logic-app-configure-event.png)
 6. Sélectionnez **+ Nouvelle étape** dans le concepteur et procédez comme suit :
     1. Recherchez **Service Bus**.
     2. Sélectionnez **Service Bus** dans la liste. 
     3. Recherchez **Obtenir les messages** dans la liste **Actions**. 
-    4. Sélectionnez **Obtenir des messages à partir d’un abonnement à une rubrique (Peek-lock)**. 
+    4. Sélectionnez **Obtenir des messages à partir d’un abonnement à une rubrique (Peek-lock)** . 
 
         ![Concepteur Logic Apps - action Obtenir les messages](./media/service-bus-to-event-grid-integration-example/service-bus-get-messages-step.png)
     5. Attribuez un **nom à cette connexion**. Par exemple :  **Obtenir des messages à partir de l’abonnement à la rubrique**, puis sélectionnez l’espace de noms Service Bus. 

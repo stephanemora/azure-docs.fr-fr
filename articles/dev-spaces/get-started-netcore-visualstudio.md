@@ -11,12 +11,12 @@ ms.date: 07/09/2018
 ms.topic: tutorial
 description: Développement Kubernetes rapide avec des conteneurs et des microservices sur Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs, Helm, service Mesh, routage du service Mesh, kubectl, k8s
-ms.openlocfilehash: 39948479cc563d2f622763ea7b4d09910ffc494c
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 9b529780387e1129dd7827e4d9c805d185a459d0
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65779867"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399251"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-net-core-and-visual-studio"></a>Bien démarrer avec l’utilisation d’Azure Dev Spaces conjointement à .NET Core et Visual Studio
 
@@ -36,7 +36,7 @@ Dans ce guide, vous allez apprendre à :
 1. Connectez-vous au portail Azure sur https://portal.azure.com.
 1. Choisissez **Créer une ressource** > recherchez **Kubernetes** > sélectionnez **Kubernetes Service** > **Créer**.
 
-   Procédez comme suit sous chaque en-tête du formulaire *Créer un cluster Kubernetes* et vérifiez vos [supports de région Azure Dev Spaces](https://docs.microsoft.com/azure/dev-spaces/#a-rapid,-iterative-kubernetes-development-experience-for-teams) sélectionnés.
+   Effectuez les étapes suivantes sous chaque en-tête du formulaire *Créer un cluster Kubernetes*, puis vérifiez que la [région sélectionnée prend en charge Azure Dev Spaces][supported-regions].
 
    - **DÉTAILS DU PROJET** : sélectionnez un abonnement Azure et un groupe de ressources Azure nouveau ou existant.
    - **DÉTAILS DU CLUSTER** : entrez le nom, la région, la version et le préfixe de nom DNS du cluster AKS.
@@ -54,10 +54,7 @@ Dans ce guide, vous allez apprendre à :
 1. Sélectionnez **Vérifier + créer**, puis **Créer** lorsque vous avez terminé.
 
 ## <a name="get-the-visual-studio-tools"></a>Obtenir les outils Visual Studio
-1. Installez la dernière version de [Visual Studio 2017](https://www.visualstudio.com/vs/).
-1. Dans le programme d’installation de Visual Studio, vérifiez que la charge de travail suivante est sélectionnée :
-    * Développement web et ASP.NET
-1. Installer [Visual Studio Tools pour Kubernetes](https://aka.ms/get-azds-visualstudio)
+Installez la dernière version de [Visual Studio](https://www.visualstudio.com/vs/). Pour la version Windows de Visual Studio 2019, vous devez installer la charge de travail Développement Azure. Pour la version Windows de Visual Studio 2017, vous devez installer la charge de travail Développement ASP.NET et web, ainsi que [Visual Studio Tools pour Kubernetes](https://aka.ms/get-azds-visualstudio).
 
 ## <a name="create-a-web-app-running-in-a-container"></a>Créer une application web s’exécutant dans un conteneur
 
@@ -65,7 +62,7 @@ Dans cette section, vous allez apprendre à créer une application web ASP.NET C
 
 ### <a name="create-an-aspnet-web-app"></a>Créez une application web ASP.NET
 
-Dans Visual Studio 2017, créez un projet. Actuellement, le projet doit correspondre à **Application web ASP.NET Core**. Nommez le projet « **webfrontend** ».
+Dans Visual Studio, créez un projet. Actuellement, le projet doit correspondre à **Application web ASP.NET Core**. Nommez le projet « **webfrontend** ».
 
 ![](media/get-started-netcore-visualstudio/NewProjectDialog1.png)
 
@@ -150,3 +147,6 @@ Actualisez l’application web dans le navigateur, puis accédez à la page À p
 
 > [!div class="nextstepaction"]
 > [En savoir plus sur le développement multiservice](multi-service-netcore-visualstudio.md)
+
+
+[supported-regions]: about.md#supported-regions-and-configurations

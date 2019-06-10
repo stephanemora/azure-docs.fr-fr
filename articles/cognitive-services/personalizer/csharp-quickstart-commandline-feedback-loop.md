@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 05/08/2019
 ms.author: edjez
-ms.openlocfilehash: b0dc8fbbb80a4d03b2cb64d09ffe9a36883c5bf9
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: a7f6c6fe25bf9dff2f102080f93fc1e0024ac660
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65521368"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66478627"
 ---
 # <a name="quickstart-personalize-content-using-c"></a>Démarrage rapide : Personnaliser du contenu avec C# 
 
@@ -40,7 +40,9 @@ La prise en main de Personalizer implique les étapes suivantes :
 
 ## <a name="change-the-model-update-frequency"></a>Changer la fréquence de mise à jour du modèle
 
-Dans la ressource Personalizer au sein du portail Azure, définissez la **fréquence de mise à jour du modèle** sur 10 secondes. Ainsi, le service est entraîné rapidement, ce qui vous permet de voir comment l’action en premier change pour chaque itération.
+Dans la ressource Personalizer au sein du portail Azure, définissez la **fréquence de mise à jour du modèle** sur 10 secondes. Ainsi, le service est entraîné rapidement, ce qui vous permet de voir comment la première action change pour chaque itération.
+
+Quand une boucle Personalizer est instanciée pour la première fois, aucun modèle n’est disponible puisqu’il n’y a pas encore d’appels d’API Reward à partir desquels s’entraîner. Les appels Rank retourneront des probabilités égales pour chaque élément. Votre application doit toujours classer le contenu à l’aide de la sortie de RewardActionId.
 
 ![Changer la fréquence de mise à jour du modèle](./media/settings/configure-model-update-frequency-settings.png)
 

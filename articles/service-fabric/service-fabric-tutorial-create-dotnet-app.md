@@ -15,18 +15,18 @@ ms.workload: NA
 ms.date: 01/14/2019
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 097cb554523a9e75b265ca16e79769daf0a49b40
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 998d33730586316fe3bf423663ffae5148843ed0
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58665795"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515846"
 ---
 # <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Didacticiel : Créer et déployer une application avec un service frontal API Web ASP.NET Core et un service principal avec état
 
 Ce didacticiel est la première partie d’une série d’étapes.  Vous allez découvrir comment créer une application Azure Service Fabric avec un service frontal API Web ASP.NET Core et un service principal avec état pour stocker vos données. Lorsque vous avez terminé, vous disposez d’une application de vote avec un composant web frontal ASP.NET Core qui enregistre les résultats de vote dans un service principal avec état dans le cluster. Si vous ne souhaitez pas créer l’application de vote manuellement, vous pouvez [télécharger le code source](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) pour obtenir l’application terminée et passer directement au [Guide de l’exemple d’application de vote](#walkthrough_anchor).  Si vous préférez, vous pouvez également regarder une [vidéo de procédure pas-à-pas](https://channel9.msdn.com/Events/Connect/2017/E100) de ce tutoriel.
 
-![Diagramme de l’application](./media/service-fabric-tutorial-create-dotnet-app/application-diagram.png)
+![API front-end AngularJS+ASP.NET - Connexion à un service back-end avec état dans Service Fabric](./media/service-fabric-tutorial-create-dotnet-app/application-diagram.png)
 
 Dans ce premier volet, vous apprenez à :
 
@@ -68,7 +68,7 @@ Commencez par créer le web frontal de l’application de vote à l’aide d’A
    
    ![Choix du service web ASP.NET dans la boîte de dialogue Nouveau service](./media/service-fabric-tutorial-create-dotnet-app/new-project-dialog-2.png) 
 
-6. La page suivante fournit un ensemble de modèles de projets ASP.NET Core. Pour ce tutoriel, sélectionnez **Application web (Model-View-Controller)**, puis cliquez sur **OK**.
+6. La page suivante fournit un ensemble de modèles de projets ASP.NET Core. Pour ce tutoriel, sélectionnez **Application web (Model-View-Controller)** , puis cliquez sur **OK**.
    
    ![Choisir le type de projet ASP.NET](./media/service-fabric-tutorial-create-dotnet-app/vs-new-aspnet-project-dialog.png)
 
@@ -625,18 +625,18 @@ Pour examiner ce qui se produit dans le code, procédez comme suit :
 
       ![Ajouter un service de vote frontal](./media/service-fabric-tutorial-create-dotnet-app/addvote-frontend.png)
 
-   2. Tout d’abord, créez l’URL du ReverseProxy pour le service principal **(1)**.
-   3. Ensuite, envoyez la requête HTTP PUT au ReverseProxy **(2)**.
-   4. Pour finir, renvoyez la réponse du service principal au client **(3)**.
+   2. Tout d’abord, créez l’URL du ReverseProxy pour le service principal **(1)** .
+   3. Ensuite, envoyez la requête HTTP PUT au ReverseProxy **(2)** .
+   4. Pour finir, renvoyez la réponse du service principal au client **(3)** .
 
 5. Appuyez sur **F5** pour continuer.
    1. Vous êtes à présent au point d’arrêt dans le service principal.
 
       ![Ajouter un service de vote principal](./media/service-fabric-tutorial-create-dotnet-app/addvote-backend.png)
 
-   2. Dans la première ligne de la méthode **(1)**, utilisez le `StateManager` pour obtenir ou ajouter un dictionnaire fiable nommé `counts`.
+   2. Dans la première ligne de la méthode **(1)** , utilisez le `StateManager` pour obtenir ou ajouter un dictionnaire fiable nommé `counts`.
    3. Toutes les interactions avec des valeurs d’un dictionnaire fiable requièrent une transaction. Cette instruction using **(2)** crée cette transaction.
-   4. Dans la transaction, mettez à jour la valeur de la clé appropriée pour l’option de vote et validez l’opération **(3)**. Lorsque la méthode commit retourne des données, celles-ci sont mises à jour dans le dictionnaire et répliquées sur d’autres nœuds du cluster. Les données sont à présent stockées en sécurité dans le cluster, et le service principal peut basculer vers d’autres nœuds, tout en gardant les données disponibles.
+   4. Dans la transaction, mettez à jour la valeur de la clé appropriée pour l’option de vote et validez l’opération **(3)** . Lorsque la méthode commit retourne des données, celles-ci sont mises à jour dans le dictionnaire et répliquées sur d’autres nœuds du cluster. Les données sont à présent stockées en sécurité dans le cluster, et le service principal peut basculer vers d’autres nœuds, tout en gardant les données disponibles.
 6. Appuyez sur **F5** pour continuer.
 
 Pour arrêter la session de débogage, appuyez sur **Maj+F5**.

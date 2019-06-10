@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 05/07/2018
+ms.date: 06/03/2019
 ms.author: diberry
-ms.openlocfilehash: 3315af0898cb3b18af0334a433a94242b056a8bd
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 1408e29793fdac77b89e3f0cc0a7be525f7fa1d2
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236197"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479762"
 ---
 # <a name="tutorial--get-sentiment-of-utterance"></a>Didacticiel :  Obtenir le sentiment d’un énoncé
 
@@ -54,6 +54,7 @@ S’agissant d’un paramètre de publication, vous ne le voyez pas sur les page
 
 ## <a name="add-personname-prebuilt-entity"></a>Ajouter l’entité prédéfinie PersonName 
 
+1. Dans le menu de navigation, sélectionnez **Générer**.
 
 1. Dans le menu de navigation de gauche, sélectionnez **Entités**.
 
@@ -69,11 +70,11 @@ S’agissant d’un paramètre de publication, vous ne le voyez pas sur les page
 
 Ajouter une nouvelle intention de recueillir des commentaires employés de la part des membres de la société. 
 
-1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. Dans le panneau gauche, sélectionnez **Intents** (Intentions).
 
-2. Sélectionnez **Créer une intention**.
+1. Sélectionnez **Créer une intention**.
 
-3. Entrez le nom de la nouvelle intention `EmployeeFeedback`.
+1. Entrez le nom de la nouvelle intention `EmployeeFeedback`.
 
     ![Créez une nouvelle boîte de dialogue d’intention nommée RetoursEmployés](./media/luis-quickstart-intent-and-sentiment-analysis/hr-create-new-intent-ddl.png)
 
@@ -106,7 +107,7 @@ Ajouter une nouvelle intention de recueillir des commentaires employés de la pa
 
 1. Sélectionnez **Gérer** dans le volet de navigation droit supérieur, puis sélectionnez **Paramètres de publication** dans le menu de gauche.
 
-1. Sélectionnez **Analyse des sentiments** pour activer ce paramètre. 
+1. Sélectionnez **Use sentiment analysis to determine if a user’s utterance is positive, negative, or neutral** (Utiliser l’analyse des sentiments pour déterminer si l’énoncé d’un utilisateur est positif, négatif ou neutre) pour activer ce paramètre. 
 
     ![Activer l'Analyse des sentiments comme paramètre de publication](./media/luis-quickstart-intent-and-sentiment-analysis/turn-on-sentiment-analysis-as-publish-setting.png)
 
@@ -118,7 +119,11 @@ Ajouter une nouvelle intention de recueillir des commentaires employés de la pa
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
-1. Accédez à la fin de l’URL dans la barre d’adresses, puis entrez `Jill Jones work with the media team on the public portal was amazing`. Le dernier paramètre de la chaîne de requête est `q`, l’énoncé est **query**. Comme cet énoncé est différent des énoncés étiquetés, c’est un bon test qui doit retourner l’intention `EmployeeFeedback` avec l’analyse des sentiments extraite.
+1. Accédez à la fin de l’URL dans la barre d’adresses, puis entrez l’énoncé suivant :
+
+    `Jill Jones work with the media team on the public portal was amazing` 
+
+    Le dernier paramètre de la chaîne de requête est `q`, l’énoncé est **query**. Comme cet énoncé est différent des énoncés étiquetés, c’est un bon test qui doit retourner l’intention `EmployeeFeedback` avec l’analyse des sentiments extraite.
     
     ```json
     {
@@ -153,6 +158,8 @@ Ajouter une nouvelle intention de recueillir des commentaires employés de la pa
     ```
 
     sentimentAnalysis est positif avec un score de 86 %. 
+
+    Essayez un autre énoncé en supprimant la valeur de `q` dans la barre d’adresses du navigateur : `William Jones did a terrible job presenting his ideas.` Le score de sentiment indique un sentiment négatif en retournant un faible score `0.18597582`.
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 

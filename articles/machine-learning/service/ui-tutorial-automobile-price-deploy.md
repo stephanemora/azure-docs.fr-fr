@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 04/06/2019
-ms.openlocfilehash: fe26417c6e3a9f159e884c19d7bd7c9dc7569229
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 8512ca2fe01c772d7e4c21a5cb09303b9804899c
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65787832"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389217"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-visual-interface"></a>Didacticiel : Déployer un modèle Machine Learning avec l’interface visuelle
 
@@ -107,7 +107,7 @@ Vous pouvez tester un service web sous l’onglet du service web, dans l’inter
 
     ![Capture d’écran montrant la page de test du service web](./media/ui-tutorial-automobile-price-deploy/web-service-test.png)
 
-1. Entrez des données de test ou utilisez les exemples de données automatiquement renseignés et sélectionnez **Test** dans la partie inférieure. La demande de test est envoyée au service web et les résultats sont affichés sur la page.
+1. Entrez des données de test ou utilisez les exemples de données automatiquement renseignés et sélectionnez **Test** dans la partie inférieure. La demande de test est envoyée au service web et les résultats sont affichés sur la page. Même si une valeur de prix est générée pour les données d’entrée, celle-ci n’est pas utilisée pour générer la valeur de prédiction.
 
 ## <a name="manage-the-web-service"></a>Gérer le service web
 

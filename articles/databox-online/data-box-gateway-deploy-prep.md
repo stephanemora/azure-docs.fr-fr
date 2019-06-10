@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 04/23/2019
+ms.date: 06/03/2019
 ms.author: alkohli
-ms.openlocfilehash: f9650cdb6935fb45f0c59e8a114a9ce1c8e2d809
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: d99b10598b9f16da2cf202330f0b5bac9219699f
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64686535"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66476832"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-data-box-gateway"></a>Didacticiel : Préparer le déploiement d’Azure Data Box Gateway
 
@@ -50,8 +50,12 @@ Dans les informations suivantes, vous trouverez la configuration requise pour vo
 
 Avant de commencer, assurez-vous que :
 
-- Votre abonnement Microsoft Azure doit être pris en charge pour la ressource Data Box Gateway. Les abonnements à l’utilisation ne sont pas pris en charge.
-- Vous avez un accès Propriétaire ou Contributeur à votre abonnement.
+- Votre abonnement Microsoft Azure doit être pris en charge pour la ressource Data Box Gateway. Les abonnements de type Paiement à l’utilisation ne sont pas pris en charge.
+- Vous disposez d’un accès Propriétaire ou Contributeur au niveau du groupe de ressources pour les ressources Data Box Edge/Data Box Gateway, IoT Hub et Stockage Azure.
+
+    - Pour créer une ressource Data Box Edge/Data Box Gateway, vous devez disposer d’autorisations Contributeur (ou supérieures) au niveau du groupe de ressources. Vous devez également être sûr que le fournisseur `Microsoft.DataBoxEdge` est inscrit. Pour plus d’informations sur l’inscription, consultez [Inscrire un fournisseur de ressources](data-box-gateway-manage-access-power-connectivity-mode.md#register-resource-providers).
+    - Pour créer une ressource IoT Hub, vérifiez que le fournisseur Microsoft.Devices est bien inscrit. Pour plus d’informations sur l’inscription, consultez [Inscrire un fournisseur de ressources](data-box-gateway-manage-access-power-connectivity-mode.md#register-resource-providers).
+    - Pour créer une ressource de compte de stockage, là encore, vous avez besoin d’autorisations Contributeur (ou supérieures) au niveau du groupe de ressources. Par défaut, le stockage Azure est un fournisseur de ressources inscrit.
 - Vous avez un accès Administrateur ou Utilisateur à l’API Graph Azure Active Directory. Pour plus d’informations, consultez [API Graph Azure Active Directory](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
 - Vous disposez d’un compte de stockage Microsoft Azure doté d’informations d’identification d’accès.
 

@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: overview
 ms.date: 02/20/2019
 ms.author: pafarley
-ms.openlocfilehash: 7e9c12c7da701fb627c51373e57f870d3fc77ac5
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
+ms.openlocfilehash: 14cf500cff9f1f7f8b1573862c3060326e6518fa
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65551309"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66688858"
 ---
 # <a name="what-is-azure-content-moderator"></a>Qu’est-ce qu’Azure Content Moderator ?
 
@@ -28,8 +28,11 @@ Voici quelques scénarios dans lesquels un développeur de logiciels ou une équ
 - Modération des catalogues de produits et du contenu généré par l’utilisateur sur les marketplaces en ligne
 - Modération des artefacts créés par les utilisateurs et des messageries instantanées par les sociétés de jeu
 - Modération des images, du texte et des vidéos ajoutés par les utilisateurs sur les plateformes de messagerie sociale
-- Mise en place par les sociétés de contenu d’entreprise d’un système de modération centralisée du contenu
-- Filtrage du contenu inapproprié pour les étudiants et les enseignants par les fournisseurs de solutions éducatives (maternelle-terminale)
+- Mise en place par les sociétés de contenu d’entreprise d’un système de modération centralisé du contenu
+- Filtrage du contenu inapproprié pour les élèves et les enseignants par les fournisseurs de solutions éducatives (maternelle-terminale)
+
+> [!NOTE]
+> Vous ne pouvez pas utiliser Content Moderator pour détecter des images illégales d’exploitation d’enfants. Toutefois, les organisations qualifiées peuvent utiliser le [service cloud PhotoDNA](https://www.microsoft.com/photodna "service cloud PhotoDNA de Microsoft") pour détecter ce type de contenu.
 
 ## <a name="what-it-includes"></a>Contenu
 

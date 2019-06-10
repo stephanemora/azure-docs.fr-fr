@@ -12,12 +12,12 @@ ms.topic: overview
 ms.workload: tbd
 ms.date: 04/19/2019
 ms.author: yegu
-ms.openlocfilehash: 4c741bb86242abfb03d01c902dbaa84d83491dd9
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: b25cc8c04aed8cd333ff4de5b12db6674323787d
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65408741"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393605"
 ---
 # <a name="keys-and-values"></a>Clés et valeurs
 
@@ -27,7 +27,7 @@ Azure App Configuration stocke les données de configuration sous la forme de pa
 
 Les clés servent de nom pour les paires clé-valeur ; elles sont utilisées pour stocker et récupérer des valeurs correspondantes. Il est courant d’organiser les clés dans un espace de noms hiérarchique en utilisant un caractère délimiteur, comme `/` ou `:`. Utilisez la convention qui convient le mieux à votre application. App Configuration traite les clés dans leur ensemble. Il n’analyse pas les clés pour déterminer la structure de leur nom ou pour appliquer une règle quelconque.
 
-L’utilisation du magasin de configuration dans les frameworks d’application peut exiger des schémas de nommage spécifiques pour les valeurs des clés. Par exemple, le framework Spring Cloud de Java définit des ressources `Environment` qui fournissent des paramètres à une application Spring pour qu’elle soit paramétrée par des variables qui incluent le *nom de l’application* et le *profil*. Les clés des données de configuration associées à Spring Cloud commencent généralement par ces deux éléments, séparés par un délimiteur.
+L’utilisation des données de configuration dans des frameworks d’application peut exiger des schémas de nommage spécifiques pour les valeurs des clés. Par exemple, le framework Spring Cloud de Java définit des ressources `Environment` qui fournissent des paramètres à une application Spring pour qu’elle soit paramétrée par des variables qui incluent le *nom de l’application* et le *profil*. Les clés des données de configuration associées à Spring Cloud commencent généralement par ces deux éléments, séparés par un délimiteur.
 
 Les clés stockées dans App Configuration sont des chaînes Unicode qui respectent la casse. Les clés *app1* et *App1* sont des clés distinctes dans un magasin de configuration d’application. Gardez cette précision à l’esprit quand vous utilisez des paramètres de configuration au sein d’une application, car certains frameworks gèrent les clés de configuration sans tenir compte de la casse. Par exemple, le système de configuration ASP.NET Core traite les clés comme des chaînes qui ne respectent pas la casse. Pour éviter tout comportement inattendu quand vous interrogez App Configuration au sein d’une application ASP.NET Core, n’utilisez pas de clés qui diffèrent uniquement par leur casse.
 

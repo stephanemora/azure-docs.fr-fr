@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 05/23/2019
 ms.author: mjbrown
-ms.openlocfilehash: 07d177987db1dea261520e8ee2543d871d552acb
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: abd50f4e2ca08bea2af491f4b3991278a6dc3b5e
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66240887"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399881"
 ---
 # <a name="manage-an-azure-cosmos-account"></a>Gérer un compte Azure Cosmos
 
@@ -41,7 +41,7 @@ az cosmosdb create \
 
 ### <a id="create-database-account-via-ps"></a>Azure PowerShell
 ```azurepowershell-interactive
-# Create an Azure Cosmos Account for Core (SQL) API
+# Create an Azure Cosmos account for Core (SQL) API
 $resourceGroupName = "myResourceGroup"
 $location = "West US"
 $accountName = "mycosmosaccount" # must be lower case.
@@ -71,7 +71,7 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
 
 ### <a id="create-database-account-via-arm-template"></a>Modèle Azure Resource Manager
 
-Ce modèle Azure Resource Manager va créer un compte Azure Cosmos DB pour n’importe quelle API prise en charge configurée avec deux régions et des options pour sélectionner le niveau de cohérence, le basculement automatique et la fonction multimaître. Pour déployer ce modèle, cliquez sur Déployer dans Azure sur la page readme [Créer un compte Azure Cosmos DB](https://github.com/Azure/azure-quickstart-templates/tree/master/101-cosmosdb-create-multi-region-account)
+Ce modèle Azure Resource Manager va créer un compte Azure Cosmos pour n’importe quelle API prise en charge configurée avec deux régions et des options pour sélectionner le niveau de cohérence, le basculement automatique et la fonction multimaître. Pour déployer ce modèle, cliquez sur Déployer sur Azure dans la page lisezmoi (readme) [Créer un compte Azure Cosmos](https://github.com/Azure/azure-quickstart-templates/tree/master/101-cosmosdb-create-multi-region-account).
 
 ## <a name="addremove-regions-from-your-database-account"></a>Ajouter/supprimer des régions à partir de votre compte de base de données
 
@@ -185,7 +185,7 @@ az cosmosdb update --name $accountName --resource-group $resourceGroupName --ena
 ### <a id="configure-multiple-write-regions-ps"></a>Azure PowerShell
 
 ```azurepowershell-interactive
-# Update an Azure Cosmos Account from single to multi-master
+# Update an Azure Cosmos account from single to multi-master
 
 $account = Get-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
     -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName -Name $accountName
@@ -200,7 +200,7 @@ Set-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
 
 ### <a id="configure-multiple-write-regions-arm"></a>modèle Azure Resource Manager
 
-Un compte peut passer de maître unique à multimaître en déployant le modèle Resource Manager utilisé pour créer le compte et définir `enableMultipleWriteLocations: true`. Le modèle Azure Resource Manager suivant est un modèle minimal qui va déployer un compte Azure Cosmos DB pour l’API SQL avec une seule région et la fonction multimaître activée.
+Un compte peut passer de maître unique à multimaître en déployant le modèle Resource Manager utilisé pour créer le compte et définir `enableMultipleWriteLocations: true`. Le modèle Azure Resource Manager suivant est un modèle minimal qui va déployer un compte Azure Cosmos pour l’API SQL avec une seule région et la fonction multimaître activée.
 
 ```json
 {
@@ -239,13 +239,13 @@ Un compte peut passer de maître unique à multimaître en déployant le modèle
 }
 ```
 
-## <a id="automatic-failover"></a>Activer le basculement automatique pour votre compte Azure Cosmos DB
+## <a id="automatic-failover"></a>Activer le basculement automatique pour votre compte Azure Cosmos
 
 L’option de basculement automatique permet à Azure Cosmos DB de basculer vers la région ayant la priorité de basculement la plus élevée sans action de l’utilisateur au cas où une région devienne indisponible. Lorsque le basculement automatique est activé, la priorité des régions peut être modifiée. Le compte doit avoir au moins deux régions pour activer le basculement automatique.
 
 ### <a id="enable-automatic-failover-via-portal"></a>Portail Azure
 
-1. Accédez à votre compte Azure Cosmos DB et ouvrez le volet **Répliquer les données globalement**.
+1. Dans votre compte Azure Cosmos, ouvrez le volet **Répliquer les données globalement**.
 
 2. En haut du volet, sélectionnez **Basculement automatique**.
 
@@ -344,7 +344,7 @@ Invoke-AzResourceAction -Action failoverPriorityChange `
 Le processus de basculement manuel implique de changer la région d’écriture du compte (priorité de basculement = 0) pour une autre région configurée pour le compte.
 
 > [!NOTE]
-> Les comptes multimaître ne peuvent pas être basculés manuellement. Pour les applications qui utilisent le SDK Azure Cosmos DB, celui-ci détecte lorsqu’une région devient indisponible, puis redirige automatiquement vers la région la plus proche si vous utilisez une API d’hébergement multiple dans le SDK.
+> Les comptes multimaître ne peuvent pas être basculés manuellement. Pour les applications qui utilisent le SDK Azure Cosmos, celui-ci détecte le moment où une région devient indisponible, puis redirige automatiquement vers la région la plus proche si vous utilisez une API d’hébergement multiple dans le SDK.
 
 ### <a id="enable-manual-failover-via-portal"></a>Portail Azure
 

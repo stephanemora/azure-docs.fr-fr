@@ -1,6 +1,6 @@
 ---
 title: 'Didacticiel : Intégration d’Azure Active Directory à Control | Microsoft Docs'
-description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Control.
+description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Continuity Control.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -16,18 +16,18 @@ ms.topic: tutorial
 ms.date: 05/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 569021d79e74bc7a5a2582741109e1094ba90de8
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: aa66ae77ccc271e475d61b286e0f236429e40feb
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65874047"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66507504"
 ---
-# <a name="tutorial-integrate-control-with-azure-active-directory"></a>Didacticiel : Intégrer Control à Azure Active Directory
+# <a name="tutorial-integrate-continuity-control-with-azure-active-directory"></a>Didacticiel : Intégrer Continuity Control à Azure Active Directory
 
-Dans ce tutoriel, vous allez apprendre à intégrer Control à Azure Active Directory (Azure AD). Quand vous intégrez Control à Azure AD, vous pouvez :
+Dans ce tutoriel, vous allez apprendre à intégrer Continuity Control à Azure Active Directory (Azure AD). Quand vous intégrez Control à Azure AD, vous pouvez :
 
-* Contrôler qui a accès à Control dans Azure AD.
+* Contrôler dans Azure AD qui a accès à Continuity Control.
 * Permettre à vos utilisateurs de se connecter automatiquement à Control avec leur compte Azure AD.
 * Gérez tous vos comptes dans un même emplacement : le portail Azure.
 
@@ -38,7 +38,7 @@ Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, cons
 Pour commencer, vous devez disposer de ce qui suit :
 
 * Un abonnement Azure AD Si vous n’en avez pas, vous pouvez obtenir un essai gratuit d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
-* Un abonnement Control pour lequel l’authentification unique (SSO) est activée
+* Un abonnement Control pour lequel l’authentification unique (SSO) est activée.
 
 ## <a name="scenario-description"></a>Description du scénario
 
@@ -83,7 +83,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
     Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<SUBDOMAIN>.continuity.net/auth/saml`
 
     > [!Note]
-    > Cette valeur n’est pas la valeur réelle. Mettez à jour la valeur avec l’URL de connexion réelle. Pour obtenir ces valeurs, contactez l’[équipe du support technique Control](mailto:help@continuity.net). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
+    > Cette valeur n’est pas la valeur réelle. Mettez à jour la valeur avec le sous-domaine approprié. Vous pouvez configurer le sous-domaine de l’authentification unique dans [Stratégies d’authentification pour Control](https://control.continuity.net/settings/account_profile#tab/security). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
 1. Dans la section **Certificat de signature SAML**, cliquez sur le bouton **Modifier** pour ouvrir la boîte de dialogue **Certificat de signature SAML**.
 
@@ -93,25 +93,19 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
     ![Copier la valeur de l’empreinte](common/copy-thumbprint.png)
 
-1. Dans la section **Configurer Control**, copiez la ou les URL appropriées en fonction de vos besoins.
+1. Dans la section **Configurer Control**, copiez l’URL de connexion et enregistrez-la sur votre ordinateur.
 
     ![Copier les URL de configuration](common/copy-configuration-urls.png)
 
-    a. URL de connexion
-
-    b. Identificateur Azure AD
-
-    c. URL de déconnexion
-
 ### <a name="configure-control-sso"></a>Configurer l’authentification unique pour Control
 
-Pour configurer l’authentification unique côté **Control**, vous devez envoyer la **valeur de l’empreinte** et les URL copiées correspondantes à partir du portail Azure à l’[équipe du support technique Control](mailto:help@continuity.net). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+Pour configurer l’authentification unique côté **Control**, vous devez mettre à jour les paramètres d’authentification unique dans [Stratégies d’authentification pour Control](https://control.continuity.net/settings/account_profile#tab/security). Mettez à jour l’**URL SSO SAML** avec l’**URL de connexion** et l’**empreinte digitale du certificat** avec la **valeur d’empreinte numérique**, respectivement copiées à partir du portail Azure.
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
-Dans cette section, vous allez créer un utilisateur de test appelé Britta Simon dans le portail Azure.
+Dans cette section, vous allez créer un utilisateur de test appelé Britta Simon dans le Portail Azure.
 
-1. Dans le volet gauche du portail Azure, sélectionnez **Azure Active Directory**, **Utilisateurs**, puis **Tous les utilisateurs**.
+1. Dans le volet gauche du Portail Azure, sélectionnez **Azure Active Directory**, **Utilisateurs**, puis **Tous les utilisateurs**.
 1. Sélectionnez **Nouvel utilisateur** dans la partie supérieure de l’écran.
 1. Dans les propriétés **Utilisateur**, effectuez les étapes suivantes :
    1. Dans le champ **Nom**, entrez `Britta Simon`.  
@@ -139,7 +133,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 ### <a name="create-control-test-user"></a>Créer un utilisateur de test Control
 
-Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Control. Collaborez avec l’ [équipe du support technique Control](mailto:help@continuity.net) pour ajouter des utilisateurs dans la plateforme Control. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
+Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Control. Collaborez avec l’ [équipe du support technique Control](mailto:help@continuity.net) pour ajouter des utilisateurs dans la plateforme Control. Utilisez le **nom d’utilisateur** de Britta Simon dans Azure AD pour remplir le champ **Identity Provider User ID** (ID utilisateur du fournisseur d’identité) associé dans Control. Les utilisateurs doivent être créés, et leur identificateur **Identity Provider User ID** défini dans Control, avant de pouvoir utiliser l’authentification unique.
 
 ### <a name="test-sso"></a>Tester l’authentification unique (SSO)
 

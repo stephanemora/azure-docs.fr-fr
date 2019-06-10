@@ -11,12 +11,12 @@ ms.topic: quickstart
 description: Développement Kubernetes rapide avec des conteneurs, des microservices et Node.js sur Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs, Helm, service Mesh, routage du service Mesh, kubectl, k8s
 manager: jeconnoc
-ms.openlocfilehash: 7507b6741a373f28e0e780af08d076235e377839
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: 5efacc38ab6b30a1a4ae45772f2b81030e76eb83
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65873151"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393927"
 ---
 # <a name="quickstart-develop-with-nodejs-on-kubernetes-using-azure-dev-spaces"></a>Démarrage rapide : Développer avec Node.js sur Kubernetes en utilisant Azure Dev Spaces
 
@@ -35,7 +35,7 @@ Dans ce guide, vous allez apprendre à :
 
 ## <a name="create-an-azure-kubernetes-service-cluster"></a>Créer un cluster Azure Kubernetes Service
 
-Vous devez créer un cluster AKS dans une [région prise en charge](https://docs.microsoft.com/azure/dev-spaces/#a-rapid,-iterative-kubernetes-development-experience-for-teams). Les commandes ci-dessous créent un groupe de ressources nommé *MyResourceGroup* et un cluster AKS nommé *MyAKS*.
+Vous devez créer un cluster AKS dans une [région prise en charge][supported-regions]. Les commandes ci-dessous créent un groupe de ressources nommé *MyResourceGroup* et un cluster AKS nommé *MyAKS*.
 
 ```cmd
 az group create --name MyResourceGroup --location eastus
@@ -111,13 +111,13 @@ Service 'webfrontend' port 80 (http) is available at http://localhost:54256
 ...
 ```
 
-Vous pouvez voir le service en cours d’exécution en ouvrant l’URL publique qui est affichée dans la sortie de la commande `azds up`. Dans cet exemple, l’URL publique est *http://webfrontend.1234567890abcdef1234.eus.azds.io/*.
+Vous pouvez voir le service en cours d’exécution en ouvrant l’URL publique qui est affichée dans la sortie de la commande `azds up`. Dans cet exemple, l’URL publique est *http://webfrontend.1234567890abcdef1234.eus.azds.io/* .
 
 Si vous arrêtez la commande `azds up` avec *Ctrl+C*, le service continue de s’exécuter dans AKS et l’URL publique reste disponible.
 
 ## <a name="update-code"></a>Mettre à jour le code
 
-Pour déployer une version mise à jour de votre service, vous pouvez mettre à jour n’importe quel fichier de votre projet, puis réexécuter la commande `azds up`. Par exemple : 
+Pour déployer une version mise à jour de votre service, vous pouvez mettre à jour n’importe quel fichier de votre projet, puis réexécuter la commande `azds up`. Par exemple :
 
 1. Si `azds up` est toujours en cours d’exécution, appuyez sur *Ctrl+C*.
 1. Changez la [ligne 10 dans `server.js`](https://github.com/Azure/dev-spaces/blob/master/samples/nodejs/getting-started/webfrontend/server.js#L10) en :
@@ -143,7 +143,7 @@ Pour déployer une version mise à jour de votre service, vous pouvez mettre à 
 
 ## <a name="initialize-code-for-debugging-in-kubernetes-with-visual-studio-code"></a>Initialiser le code pour le débogage dans Kubernetes avec Visual Studio Code
 
-Ouvrez Visual Studio Code, cliquez sur *Fichier* puis sur *Ouvrir...*, accédez au répertoire *dev-spaces/samples/nodejs/getting-started/webfrontend*, puis cliquez sur *Ouvrir*.
+Ouvrez Visual Studio Code, cliquez sur *Fichier* puis sur *Ouvrir...* , accédez au répertoire *dev-spaces/samples/nodejs/getting-started/webfrontend*, puis cliquez sur *Ouvrir*.
 
 Vous avez maintenant le projet *webfrontend* ouvert dans Visual Studio Code, qui est le même service que celui que vous avez exécuté avec la commande `azds up`. Pour déboguer ce service dans AKS avec Visual Studio Code, au lieu d’utiliser `azds up` directement, vous devez préparer ce projet à utiliser Visual Studio Code pour communiquer avec votre espace de développement.
 
@@ -168,7 +168,7 @@ Cliquez sur *Déboguer*, puis sur *Arrêter le débogage* pour arrêter le débo
 
 ## <a name="setting-and-using-breakpoints-for-debugging"></a>Définition et utilisation de points d’arrêt pour le débogage
 
-Démarrez votre service en utilisant *Lancer le serveur (AZDS)*.
+Démarrez votre service en utilisant *Lancer le serveur (AZDS)* .
 
 Revenez à la vue *Explorer* en cliquant sur *Afficher*, puis sur *Explorer*. Ouvrez `server.js`, puis cliquez quelque part sur la ligne 10 pour y placer votre curseur. Pour définir un point d’arrêt, appuyez sur *F9* ou cliquez sur *Déboguer*, puis sur *Activer/désactiver le point d’arrêt*.
 
@@ -190,7 +190,7 @@ Cette commande génère et exécute votre service dans Azure Dev Spaces. Elle d�
 
 Une fois le service démarré, accédez-y avec votre navigateur et interagissez avec lui.
 
-Avec le service en cours d’exécution, revenez à Visual Studio Code et mettez à jour la ligne 10 dans `server.js`. Par exemple : 
+Avec le service en cours d’exécution, revenez à Visual Studio Code et mettez à jour la ligne 10 dans `server.js`. Par exemple :
 ```javascript
     res.send('Hello from webfrontend in Azure while debugging!');
 ```
@@ -211,3 +211,6 @@ Découvrez comment Azure Dev Spaces vous aide à développer des applications pl
 
 > [!div class="nextstepaction"]
 > [Utilisation de plusieurs conteneurs et développement en équipe](multi-service-nodejs.md)
+
+
+[supported-regions]: about.md#supported-regions-and-configurations
