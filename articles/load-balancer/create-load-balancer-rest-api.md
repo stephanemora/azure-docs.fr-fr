@@ -36,7 +36,7 @@ Utilisez la requête PUT HTTP suivante pour créer un équilibreur de charge Azu
 |Nom  |Dans  |Obligatoire |Type |Description |
 |---------|---------|---------|---------|--------|
 |subscriptionId   |  chemin d’accès       |  True       |   string      |  Les informations d’identification d’abonnement qui identifient de façon unique l’abonnement Microsoft Azure. L’ID d’abonnement fait partie de l’URI pour chaque appel de service.      |
-|nom_groupe_ressources     |     chemin d’accès    | True        |  string       |   Nom du groupe de ressources.     |
+|resourceGroupName     |     chemin d’accès    | True        |  string       |   Nom du groupe de ressources.     |
 |loadBalancerName     |  chemin d’accès       |      True   |    string     |    Le nom de l’équilibreur de charge.    |
 |api-version    |   query     |  True       |     string    |  Version d’API client.      |
 
