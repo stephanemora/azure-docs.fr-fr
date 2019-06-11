@@ -304,7 +304,7 @@ Envoyez un fichier, notez que le dossier .vscode est ajouté automatiquement au 
     **POST /batches**   
     Corps de la requête
 
-    | Nom | description | Type | 
+    | name | description | Type | 
     | :- | :- | :- | 
     | file | Fichier contenant l’application à exécuter | chemin (obligatoire) | 
     | proxyUser | Utilisateur auquel emprunter l’identité lors de l’exécution de la tâche | string | 
@@ -326,7 +326,7 @@ Envoyez un fichier, notez que le dossier .vscode est ajouté automatiquement au 
     Corps de réponse   
     Objet Batch créé
 
-    | Nom | description | Type | 
+    | name | description | Type | 
     | :- | :- | :- | 
     | id | ID de la session | int | 
     | appId | ID d’application de cette session |  Chaîne |
