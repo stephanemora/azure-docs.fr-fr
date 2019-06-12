@@ -120,15 +120,15 @@ Ces étapes décrivent le processus détaillé utilisé par Logic Apps pour char
    | Champ d’en-tête de la requête Logic Apps | Valeur | Type | Description |
    |---------------------------------|-------|------|-------------|
    | **x-ms-transfer-mode** | segmenté | String | Indique que le contenu est chargé sous forme de segments |
-   | **x-ms-content-length** | <*content-length*> | Entier  | La taille, en octets, de l’intégralité du contenu avant segmentation |
+   | **x-ms-content-length** | <*content-length*> | Integer  | La taille, en octets, de l’intégralité du contenu avant segmentation |
    ||||
 
 2. Le point de terminaison répond avec le code d’état de réussite « 200 » et ces informations facultatives :
 
    | Champ d’en-tête de réponse de point de terminaison | Type | Obligatoire | Description |
    |--------------------------------|------|----------|-------------|
-   | **x-ms-chunk-size** | Entier  | Non  | La taille de segment suggérée en octets |
-   | **Lieu** | String | Non  | L’adresse URL vers laquelle envoyer les messages HTTP PATCH |
+   | **x-ms-chunk-size** | Integer  | Non  | La taille de segment suggérée en octets |
+   | **Location** | String | Non  | L’adresse URL vers laquelle envoyer les messages HTTP PATCH |
    ||||
 
 3. Votre application logique crée et envoie des messages HTTP PATCH de suivi, chacun contenant les informations suivantes :
