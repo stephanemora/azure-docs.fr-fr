@@ -59,7 +59,7 @@ Cet article fournit un code personnalisé que vous pouvez utiliser dans les couc
 | Propriété | Type | Description |
 | --- | --- | --- |
 | sourceType |   | Type de source d’exécution. Les valeurs autorisées sont **Microsoft.Logic/workflows** et **custom**. (obligatoire) |
-| Source |   | Si le type de source est **Microsoft.Logic/workflows**, les informations source doivent suivre ce schéma. Si le type de source est **custom**, le schéma est un JToken. (obligatoire) |
+| source |   | Si le type de source est **Microsoft.Logic/workflows**, les informations source doivent suivre ce schéma. Si le type de source est **custom**, le schéma est un JToken. (obligatoire) |
 | systemId | Chaîne | ID système d’application logique. (obligatoire) |
 | runId | Chaîne | ID d’exécution d’application logique. (obligatoire) |
 | operationName | Chaîne | Nom de l’opération (par exemple action ou déclencheur). (obligatoire) |
