@@ -58,20 +58,20 @@ Pour surveiller le succès, les erreurs et les propriétés des messages lors de
 
 | Propriété | Type | Description |
 | --- | --- | --- |
-| senderPartnerName | Chaîne | Nom de partenaire de l’expéditeur du message AS2. (facultatif) |
-| receiverPartnerName | Chaîne | Nom de partenaire du destinataire du message AS2. (facultatif) |
-| as2To | Chaîne | Nom du destinataire du message AS2 dans les en-têtes du message AS2. (obligatoire) |
-| as2From | Chaîne | Nom de l’expéditeur du message AS2 dans les en-têtes du message AS2. (obligatoire) |
-| agreementName | Chaîne | Nom du contrat AS2 dans lequel les messages sont résolus. (facultatif) |
-| direction | Chaîne | Direction du flux de messages (envoi ou réception). (obligatoire) |
-| messageId | Chaîne | ID du message AS2 dans les en-têtes du message AS2 (facultatif) |
-| dispositionType |Chaîne | Valeur de type de disposition MDN (notification de réception du message). (facultatif) |
-| fileName | Chaîne | Nom de fichier, de l’en-tête du message AS2. (facultatif) |
+| senderPartnerName | String | Nom de partenaire de l’expéditeur du message AS2. (facultatif) |
+| receiverPartnerName | String | Nom de partenaire du destinataire du message AS2. (facultatif) |
+| as2To | String | Nom du destinataire du message AS2 dans les en-têtes du message AS2. (obligatoire) |
+| as2From | String | Nom de l’expéditeur du message AS2 dans les en-têtes du message AS2. (obligatoire) |
+| agreementName | String | Nom du contrat AS2 dans lequel les messages sont résolus. (facultatif) |
+| direction | String | Direction du flux de messages (envoi ou réception). (obligatoire) |
+| messageId | String | ID du message AS2 dans les en-têtes du message AS2 (facultatif) |
+| dispositionType |String | Valeur de type de disposition MDN (notification de réception du message). (facultatif) |
+| fileName | String | Nom de fichier, de l’en-tête du message AS2. (facultatif) |
 | isMessageFailed |Boolean | Indique si le message AS2 a échoué. (obligatoire) |
 | isMessageSigned | Boolean | Indique si le message AS2 a été signé. (obligatoire) |
 | isMessageEncrypted | Boolean | Indique si le message AS2 a été chiffré. (obligatoire) |
 | isMessageCompressed |Boolean | Indique si le message AS2 a été compressé. (obligatoire) |
-| correlationMessageId | Chaîne | ID de message AS2 permettant de mettre en corrélation les messages avec des MDN. (facultatif) |
+| correlationMessageId | String | ID de message AS2 permettant de mettre en corrélation les messages avec des MDN. (facultatif) |
 | incomingHeaders |Dictionnaire de JToken | Détails de l’en-tête de message AS2 entrant. (facultatif) |
 | outgoingHeaders |Dictionnaire de JToken | Détails de l’en-tête de message AS2 sortant. (facultatif) |
 | isNrrEnabled | Boolean | Utiliser la valeur par défaut si cette valeur est inconnue. (obligatoire) |
@@ -111,21 +111,21 @@ Pour surveiller le succès, les erreurs et les propriétés des messages lors de
 
 | Propriété | Type | Description |
 | --- | --- | --- |
-| senderPartnerName | Chaîne | Nom de partenaire de l’expéditeur du message AS2. (facultatif) |
-| receiverPartnerName | Chaîne | Nom de partenaire du destinataire du message AS2. (facultatif) |
-| as2To | Chaîne | Nom du partenaire qui reçoit le message AS2. (obligatoire) |
-| as2From | Chaîne | Nom du partenaire qui envoie le message AS2. (obligatoire) |
-| agreementName | Chaîne | Nom du contrat AS2 dans lequel les messages sont résolus. (facultatif) |
-| direction |Chaîne | Direction du flux de messages (envoi ou réception). (obligatoire) |
-| messageId | Chaîne | ID du message AS2. (facultatif) |
-| originalMessageId |Chaîne | ID du message AS2 d’origine. (facultatif) |
-| dispositionType | Chaîne | Valeur du type de disposition MDN. (facultatif) |
+| senderPartnerName | String | Nom de partenaire de l’expéditeur du message AS2. (facultatif) |
+| receiverPartnerName | String | Nom de partenaire du destinataire du message AS2. (facultatif) |
+| as2To | String | Nom du partenaire qui reçoit le message AS2. (obligatoire) |
+| as2From | String | Nom du partenaire qui envoie le message AS2. (obligatoire) |
+| agreementName | String | Nom du contrat AS2 dans lequel les messages sont résolus. (facultatif) |
+| direction |String | Direction du flux de messages (envoi ou réception). (obligatoire) |
+| messageId | String | ID du message AS2. (facultatif) |
+| originalMessageId |String | ID du message AS2 d’origine. (facultatif) |
+| dispositionType | String | Valeur du type de disposition MDN. (facultatif) |
 | isMessageFailed |Boolean | Indique si le message AS2 a échoué. (obligatoire) |
 | isMessageSigned |Boolean | Indique si le message AS2 a été signé. (obligatoire) |
 | isNrrEnabled | Boolean | Utiliser la valeur par défaut si cette valeur est inconnue. (obligatoire) |
 | statusCode | Enum | Les valeurs autorisées sont **Accepted**, **Rejected** et **AcceptedWithErrors**. (obligatoire) |
 | micVerificationStatus | Enum | Les valeurs autorisées sont **NotApplicable**, **Succeeded** et **Failed**. (obligatoire) |
-| correlationMessageId | Chaîne | ID de corrélation. ID du message d’origine (ID de message du message pour lequel MDN est configurée). (facultatif) |
+| correlationMessageId | String | ID de corrélation. ID du message d’origine (ID de message du message pour lequel MDN est configurée). (facultatif) |
 | incomingHeaders | Dictionnaire de JToken | Indique les détails de l’en-tête de message entrant. (facultatif) |
 | outgoingHeaders |Dictionnaire de JToken | Indique les détails de l’en-tête de message sortant. (facultatif) |
 ||||
