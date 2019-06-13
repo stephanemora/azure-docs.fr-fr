@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/14/2016
 ms.author: jeconnoc
-ms.openlocfilehash: 8b521ebe869210b66ac3b3efeebda873f7c0e50b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 4fa3885f9c273cf6aaf9173ebd3fee3d4499be34
+ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60519436"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66808099"
 ---
 # <a name="enable-communication-for-role-instances-in-azure"></a>Activer la communication pour les instances de rôle dans Azure
 Les rôles de service cloud communiquent via des connexions internes et externes. Les connexions externes sont appelées **points de terminaison d’entrée** tandis que les connexions internes sont appelées **points de terminaison internes**. Cette rubrique explique comment modifier la [définition de service](cloud-services-model-and-package.md#csdef) pour créer des points de terminaison.
 
 ## <a name="input-endpoint"></a>Point de terminaison d’entrée
-Le point de terminaison d’entrée est utilisé lorsque vous souhaitez exposer un port à l’extérieur. Vous spécifiez le type de protocole et le port du point de terminaison qui s’applique ensuite aux ports internes et externes du point de terminaison. Si vous le souhaitez, vous pouvez spécifier un autre port interne pour le point de terminaison avec l’attribut [localPort](/previous-versions/azure/reference/gg557552(v=azure.100)#InputEndpoint) .
+Le point de terminaison d’entrée est utilisé lorsque vous souhaitez exposer un port à l’extérieur. Vous spécifiez le type de protocole et le port du point de terminaison qui s’applique ensuite aux ports internes et externes du point de terminaison. Si vous le souhaitez, vous pouvez spécifier un autre port interne pour le point de terminaison avec l’attribut [localPort](/previous-versions/azure/reference/gg557552(v=azure.100)#inputendpoint) .
 
 Le point de terminaison d’entrée peut utiliser les protocoles suivants : **http, https, tcp, udp**.
 

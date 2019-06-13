@@ -9,12 +9,12 @@ ms.date: 05/14/2019
 ms.author: normesta
 ms.reviewer: seguler
 ms.subservice: common
-ms.openlocfilehash: e40a0b35cd99565bec4e26862c938f6228bf9836
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.openlocfilehash: 193c00354b6222152e26476d0b06cfb1555c207e
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393743"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754883"
 ---
 #  <a name="tutorial-migrate-on-premises-data-to-cloud-storage-by-using-azcopy"></a>Didacticiel : Migrer des données locales vers un stockage cloud à l’aide d’AzCopy
 
@@ -79,7 +79,7 @@ Une fenêtre de connexion s’affiche. Dans cette fenêtre, connectez-vous à vo
 
 ## <a name="upload-contents-of-a-folder-to-blob-storage"></a>Charger les contenus d’un dossier dans le Stockage Blob
 
-Vous pouvez utiliser AzCopy pour charger tous les fichiers d’un dossier dans le Stockage Blob sur [Windows](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy#upload-blobs-to-blob-storage) ou [Linux](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux#blob-download). Pour charger tous les objets blob d’un dossier, entrez la commande AzCopy suivante :
+Vous pouvez utiliser AzCopy pour charger tous les fichiers d’un dossier dans le Stockage Blob sur [Windows](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy) ou [Linux](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux). Pour charger tous les objets blob d’un dossier, entrez la commande AzCopy suivante :
 
 ```AzCopy
 azcopy copy "<local-folder-path>" "https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>" --recursive=true

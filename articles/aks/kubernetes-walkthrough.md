@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 05/20/2019
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: b96c1ada1ebb1bc53f7f55311c69a3cdc04f7574
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: b99ee8e6a379a1e86eaf37bb232176c3ca13c0d9
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956418"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66687953"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Démarrage rapide : déployer un cluster AKS (Azure Kubernetes Service) à l’aide d’Azure CLI
 
@@ -251,11 +251,11 @@ Les conteneurs *azure-vote-back* et *azure-vote-front* s’affichent, comme illu
 
 ![Afficher l’intégrité des conteneurs en cours d’exécution dans AKS](media/kubernetes-walkthrough/monitor-containers.png)
 
-Pour consulter les journaux du pod `azure-vote-front`, choisissez l'option **Afficher dans Analyses**, puis sélectionnez le lien **Afficher les journaux du conteneur** à droite de la liste des conteneurs. Vous pourrez voir les flux *stdout* et *stderr* du conteneur.
+Pour consulter les journaux du pod `azure-vote-back`, choisissez l'option **Afficher dans Analyses**, puis cliquez sur le lien **Afficher les journaux du conteneur** à droite de la liste des conteneurs. Vous pourrez voir les flux *stdout* et *stderr* du conteneur.
 
 ![Afficher les journaux d’activité de conteneurs dans AKS](media/kubernetes-walkthrough/monitor-container-logs.png)
 
-## <a name="delete-cluster"></a>Supprimer un cluster
+## <a name="delete-the-cluster"></a>Supprimer le cluster
 
 Lorsque vous n’avez plus besoin du cluster, utilisez la commande [az group delete][az-group-delete] pour supprimer le groupe de ressources, le service conteneur et toutes les ressources associées.
 

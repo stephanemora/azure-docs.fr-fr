@@ -8,12 +8,12 @@ ms.date: 04/25/2019
 ms.author: dpalled
 manager: cshankar
 ms.custom: seodec18
-ms.openlocfilehash: 5ee6e9aefb235feb28468798c3bd6b107f8c7c49
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 2f25267b95e9ed5f7d5f6e6373fb9e3807927a7f
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66244035"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66735345"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-single-page-web-app"></a>Didacticiel : Créer une application web monopage Azure Time Series Insights
 
@@ -126,7 +126,7 @@ Avant de générer l’application, vous devez l’inscrire auprès d’Azure AD
 
    1. Supprimez les commentaires des trois lignes sous le commentaire `"PROD RESOURCE LINKS"` pour basculer les dépendances de DÉVELOPPEMENT vers PRODUCTION. Supprimez les commentaires des trois lignes sous le commentaire `"DEV RESOURCE LINKS"`.
 
-      [!code-javascript[head-sample](~/samples-javascript/pages/tutorial/index.html?range=2-20&highlight=10-13,15-18)]
+      [!code-html[head-sample](~/samples-javascript/pages/tutorial/index.html?range=2-20&highlight=10-13,15-18)]
 
       Vos dépendances doivent être commentées comme dans l’exemple suivant :
 
@@ -146,7 +146,7 @@ Avant de générer l’application, vous devez l’inscrire auprès d’Azure AD
 
       [!code-javascript[head-sample](~/samples-javascript/pages/tutorial/index.html?range=147-153&highlight=4-5)]
 
-      Par exemple : 
+      Par exemple :
 
       ```javascript
       clientId: '8884d4ca-b9e7-403a-bd8a-366d0ce0d460',

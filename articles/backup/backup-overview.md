@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 04/24/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: bd90d315fd5590a8bd862a1a3397cf8c254fccc8
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 9e926ca2625f98522652ae7e7d245ecf2ed576c4
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64714287"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66688713"
 ---
 # <a name="what-is-azure-backup"></a>Qu’est-ce qu’Azure Backup ?
 
@@ -32,7 +32,7 @@ Le service Sauvegarde Azure offre les principaux avantages suivants :
     - Si vous effectuez une sauvegarde initiale hors connexion avec le service Azure Import/Export pour importer de grandes quantités de données, des frais associés aux données entrantes sont facturés.  [Plus d’informations](backup-azure-backup-import-export.md)
 - **Sécuriser les données** : Sauvegarde Azure fournit des solutions pour sécuriser les données en transit et au repos.
 - **Obtenir des sauvegardes cohérentes au niveau application** : une sauvegarde cohérente au niveau application signifie qu’un point de récupération dispose de toutes les données nécessaires pour restaurer la copie de sauvegarde. Sauvegarde Microsoft Azure fournit des sauvegardes cohérentes avec les applications, qui garantissent qu’aucun correctif supplémentaire n’est requis pour restaurer les données. La restauration de données cohérentes avec les applications réduit le délai de restauration, ce qui permet de rétablir rapidement le fonctionnement normal.
-- **Conserver des données à court et à long terme** : Vous pouvez utiliser des coffres Recovery Services pour la conservation de données à court et à long terme. Azure ne limite pas la durée de conservation des données dans un coffre Recovery Services. Vous pouvez les conserver dans un coffre aussi longtemps que vous le souhaitez. Azure Backup est limité à 9 999 points de récupération par instance protégée. [Découvrez plus d’informations](backup-introduction-to-azure-backup.md#backup-and-retention) sur la façon dont cette limite a un impact sur vos besoins de sauvegarde.
+- **Conserver des données à court et à long terme** : Vous pouvez utiliser des coffres Recovery Services pour la conservation de données à court et à long terme. Azure ne limite pas la durée de conservation des données dans un coffre Recovery Services. Vous pouvez les conserver dans un coffre aussi longtemps que vous le souhaitez. Azure Backup est limité à 9 999 points de récupération par instance protégée. 
 - **Gestion automatique du stockage** : les environnements hybrides impliquent souvent un stockage hétérogène (une partie en local et une autre dans le cloud). Avec Azure Backup, l’utilisation d’appareils de stockage locaux ne génère aucun coût. Sauvegarde Azure alloue et gère automatiquement le stockage des sauvegardes sur la base d’un modèle de paiement à l’utilisation : vous ne payez donc que le stockage que vous consommez. [Apprenez-en davantage sur la](https://azure.microsoft.com/pricing/details/backup) tarification.
 - **Plusieurs options de stockage** : Sauvegarde Azure offre deux types de réplication pour conserver votre stockage/vos données hautement disponibles.
     - Le [stockage localement redondant (LRS)](../storage/common/storage-redundancy-lrs.md) réplique vos données trois fois (il crée trois copies de vos données) dans une unité d’échelle de stockage d’un centre de données. Toutes les copies des données existent dans la même région. Le stockage LRS est une option à faible coût qui protège vos données contre les défaillances matérielles locales.
@@ -109,6 +109,25 @@ Découvrez plus d’informations sur le [fonctionnement de la sauvegarde](backup
 **Je veux sauvegarder des applications s’exécutant en local** | Pour les sauvegardes tenant compte des applications, les machines doivent être protégées par DPM ou MABS.
 **Je veux des paramètres de sauvegarde et de récupération précis et flexibles pour les machines virtuelles Azure** | Protégez les machines virtuelles Azure avec MABS/DPM s’exécutant dans Azure afin de bénéficier d’une flexibilité supplémentaire pour la planification des sauvegardes et d’une flexibilité totale pour la protection et la restauration de fichiers, de dossiers, de volumes, d’applications et de l’état du système.
 
+## <a name="backup-and-retention"></a>Sauvegarde et rétention
+
+La solution Sauvegarde Azure présente une limite de 9 999 points de récupération, également appelés copies ou instantanés de sauvegarde, par *instance protégée*.
+
+- Une instance protégée est un ordinateur, un serveur (physique ou virtuel) ou une charge de travail configurés pour sauvegarder des données dans Azure. Une instance est protégée une fois qu’une copie de sauvegarde des données a été enregistrée.
+- La copie de sauvegarde des données constitue la protection. Si les données sources sont perdues ou endommagées, la copie de sauvegarde peut les restaurer.
+
+Le tableau suivant indique la fréquence de sauvegarde maximale pour chaque composant. Votre configuration de la stratégie de sauvegarde détermine la vitesse à laquelle vous consommez les points de récupération. Par exemple, si vous créez un point de récupération chaque jour, vous pouvez conserver les points de récupération pendant 27 ans avant d’en manquer. Si vous optez pour un point de récupération par mois, vous pouvez conserver les points de récupération pendant 833 ans avant d’en manquer. Le service de sauvegarde ne définit pas de délai d’expiration pour un point de récupération.
+
+|  | Agent Azure Backup | System Center DPM | Azure Backup Server | Sauvegarde des machines virtuelles IaaS Azure |
+| --- | --- | --- | --- | --- |
+| Fréquence de sauvegarde<br/> (vers un coffre Recovery Services) |Trois sauvegardes par jour |Deux sauvegardes par jour |Deux sauvegardes par jour |Une sauvegarde par jour |
+| Fréquence de sauvegarde<br/> (vers le disque) |Non applicable |Toutes les 15 minutes pour SQL Server<br/><br/> Toutes les heures pour les autres charges de travail |Toutes les 15 minutes pour SQL Server<br/><br/> Toutes les heures pour les autres charges de travail |Non applicable |
+| Options de rétention |Quotidienne, hebdomadaire, mensuelle, annuelle |Quotidienne, hebdomadaire, mensuelle, annuelle |Quotidienne, hebdomadaire, mensuelle, annuelle |Quotidienne, hebdomadaire, mensuelle, annuelle |
+| Nombre maximal de points de récupération par instance protégée |9 999|9 999|9 999|9 999|
+| Période de rétention maximale |Dépend de la fréquence de sauvegarde |Dépend de la fréquence de sauvegarde |Dépend de la fréquence de sauvegarde |Dépend de la fréquence de sauvegarde |
+| Points de récupération sur le disque local |Non applicable | 64 pour les serveurs de fichiers<br/><br/> 448 pour les serveurs d’applications | 64 pour les serveurs de fichiers<br/><br/> 448 pour les serveurs d’applications |Non applicable |
+| Points de récupération sur bande |Non applicable |Illimité |Non applicable |Non applicable |
+
 ## <a name="how-does-azure-backup-work-with-encryption"></a>Comment fonctionne la Sauvegarde Azure avec le chiffrement ?
 
 **Chiffrement** | **Sauvegarder en local** | **Sauvegarder des machines virtuelles Azure** | **Sauvegarder SQL sur une machine virtuelle Azure**
@@ -119,7 +138,7 @@ Chiffrement en transit<br/> (Chiffrement des données déplacées d’un emplace
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Examinez](backup-architecture.md) l’architecture et les composants de différents scénarios de sauvegarde.
-- [Vérifiez](backup-support-matrix.md) les fonctionnalités et les paramètres pris en charge pour la sauvegarde.
+- [Vérifiez](backup-support-matrix.md) les exigences de prise en charge et les limitations pour la sauvegarde et la [sauvegarde de machine virtuelle Azure](backup-support-matrix-iaas.md).
 
 [green]: ./media/backup-introduction-to-azure-backup/green.png
 [yellow]: ./media/backup-introduction-to-azure-backup/yellow.png

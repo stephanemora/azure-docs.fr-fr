@@ -6,14 +6,14 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: overview
 ms.custom: mvc
-ms.date: 4/30/2019
+ms.date: 5/31/2019
 ms.author: victorh
-ms.openlocfilehash: 78dd4b31991a15d3d946c47c5394f64bb3afea95
-ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
+ms.openlocfilehash: e2e29bf0068fae5d6f4987ec5c3f2a52b883e4bd
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64947263"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66418110"
 ---
 # <a name="what-is-azure-application-gateway"></a>Qu’est-ce qu’Azure Application Gateway ?
 
@@ -29,9 +29,9 @@ Ce type de routage est connu comme l’équilibrage de charge de la couche d’a
 
 Les fonctionnalités suivantes sont incluses dans Azure Application Gateway :
 
-## <a name="secure-sockets-layer-ssl-termination"></a>Terminaison SSL (Secure Sockets Layer)
+## <a name="secure-sockets-layer-ssltls-termination"></a>Terminaison Secure Sockets Layer (SSL/TLS)
 
-La passerelle Application Gateway prend en charge la terminaison SSL au niveau de la passerelle, après laquelle le trafic transite généralement de façon non chiffrée vers les serveurs principaux. Grâce à cette fonctionnalité, les serveurs web ne sont plus chargés des opérations coûteuses de chiffrement et de déchiffrement. Cependant, une communication non chiffrée vers les serveurs n’est parfois pas une option acceptable. Cela peut être dû à des d’exigences de sécurité et de conformité, ou au fait que l’application accepte uniquement une connexion sécurisée. Pour ces applications, la passerelle Application Gateway prend désormais en charge le chiffrement SSL de bout en bout.
+Application Gateway prend en charge l’arrêt SSL/TLS au niveau de la passerelle, après lequel le trafic transite généralement de façon non chiffrée vers les serveurs backend. Grâce à cette fonctionnalité, les serveurs web ne sont plus chargés des opérations coûteuses de chiffrement et de déchiffrement. Cependant, une communication non chiffrée vers les serveurs n’est parfois pas une option acceptable. Cela peut être dû à des d’exigences de sécurité et de conformité, ou au fait que l’application accepte uniquement une connexion sécurisée. Pour ces applications, la passerelle Application Gateway prend désormais en charge le chiffrement SSL/TLS de bout en bout.
 
 ## <a name="autoscaling"></a>Mise à l’échelle automatique
 

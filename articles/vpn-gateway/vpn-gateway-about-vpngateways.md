@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: overview
 ms.date: 05/22/2019
 ms.author: cherylmc
-ms.openlocfilehash: 79697d44ea3e5126d43169f36c550046af3bc366
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 0d4bba41170408b640b4e8d3809c77b7a6443c6a
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66170618"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66480039"
 ---
 # <a name="what-is-vpn-gateway"></a>Qu’est-ce qu’une passerelle VPN ?
 
@@ -23,7 +23,9 @@ Une passerelle VPN est un type spécifique de passerelle de réseau virtuel qui 
 
 Une passerelle de réseau virtuel est composée d’au moins deux machines virtuelles déployées sur un sous-réseau spécifique que vous créez, appelé *sous-réseau de la passerelle*. Les machines virtuelles qui se trouvent dans le sous-réseau de la passerelle sont créées lors de la création de la passerelle de réseau virtuel. Les machines virtuelles de la passerelle de réseau virtuel sont configurées de manière à contenir les tables de routage et les services de passerelle spécifiques de la passerelle. Vous ne pouvez pas configurer directement les machines virtuelles qui font partie de la passerelle de réseau virtuel et vous ne devez jamais déployer de ressources supplémentaires sur le sous-réseau de la passerelle.
 
-La création d’une passerelle de réseau virtuel peut prendre jusqu’à 45 minutes. Lors de la création d’une passerelle de réseau virtuel, les machines virtuelles de passerelle sont déployées sur le sous-réseau de la passerelle et configurées avec les paramètres que vous spécifiez. L’un des paramètres que vous configurez est le type de passerelle. Le type de passerelle « vpn » spécifie que le type de passerelle de réseau virtuel créé est une passerelle VPN. Après avoir créé une passerelle VPN, vous pouvez créer une connexion de tunnel IPsec/IKE VPN entre cette passerelle VPN et une autre (de réseau virtuel à réseau virtuel), ou créer une connexion de tunnel IPsec/IKE VPN intersite entre la passerelle VPN et un périphérique VPN local (de site à site). Vous pouvez également créer une connexion VPN de point à site (VPN sur IKEv2 ou SSTP), ce qui vous permet de vous connecter à votre réseau virtuel à partir d’un emplacement distant, par exemple une salle de conférence ou votre domicile.
+Des passerelles VPN peuvent être déployées dans des zones de disponibilité Azure. Cela apporte de la résilience, de l’extensibilité et une plus grande disponibilité aux passerelles de réseau virtuel. Le déploiement de passerelles dans les zones de disponibilité Azure sépare les passerelles physiquement et logiquement au sein d’une région, tout en protégeant votre connectivité de réseau local à Azure à partir d’échecs au niveau de la zone. Voir [À propos des passerelles de réseau virtuel redondantes interzone dans les Zones de disponibilité Azure](about-zone-redundant-vnet-gateways.md)
+
+La création d’une passerelle de réseau virtuel peut prendre jusqu’à 45 minutes. Lors de la création d’une passerelle de réseau virtuel, les machines virtuelles de passerelle sont déployées sur le sous-réseau de la passerelle et configurées avec les paramètres que vous spécifiez. L’un des paramètres que vous configurez est le type de passerelle. Le type de passerelle « vpn » spécifie que le type de passerelle de réseau virtuel créé est une passerelle VPN. Après avoir créé une passerelle VPN, vous pouvez créer une connexion de tunnel IPsec/IKE VPN entre cette passerelle VPN et une autre (de réseau virtuel à réseau virtuel), ou créer une connexion de tunnel IPsec/IKE VPN intersite entre la passerelle VPN et un périphérique VPN local (de site à site). Vous pouvez également créer une connexion VPN de point à site (VPN sur OpenVPN, IKEv2 ou SSTP), ce qui vous permet de vous connecter à votre réseau virtuel à partir d’un emplacement distant, par exemple une salle de conférence ou votre domicile.
 
 ## <a name="configuring"></a>Configuration d’une passerelle VPN
 
@@ -83,7 +85,7 @@ Ce type de connexion est une variante de la connexion site à site. Vous créez 
 
 [!INCLUDE [site-to-site and multi-site table](../../includes/vpn-gateway-table-site-to-site-include.md)]
 
-## <a name="P2S"></a>Point à site (VPN via IKEv2 ou SSTP)
+## <a name="P2S"></a>VPN de point à site
 
 Une connexion par passerelle VPN point à site (P2S) vous permet de créer une connexion sécurisée à votre réseau virtuel à partir d’un ordinateur de client individuel. Une connexion P2S est établie en étant démarrée à partir de l’ordinateur client. Cette solution est utile pour les télétravailleurs souhaitant se connecter à un réseau virtuel à partir d’un emplacement distant, comme depuis leur domicile ou pendant une conférence. De même, l’utilisation d’un VPN P2S est une solution utile qui constitue une alternative au VPN Site à Site (S2S) lorsqu’un nombre restreint de clients doit se connecter à un réseau virtuel.
 

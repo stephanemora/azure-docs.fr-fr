@@ -12,7 +12,7 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.openlocfilehash: 3f812c1142b5cd40169f7340163295b0f7ea6a4d
 ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60996580"
@@ -75,7 +75,7 @@ Vous pouvez aussi spécifier manuellement la stratégie de nouvelle tentative da
 |-------|------|-------------|
 | <*retry-policy-type*> | String | Type de stratégie de nouvelles tentatives à utiliser : `default`, `none`, `fixed` ou `exponential` | 
 | <*retry-interval*> | String | Intervalle de nouvelle tentative, où la valeur doit être au [format ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). L’intervalle minimal par défaut est `PT5S` et l’intervalle maximal est `PT1D`. Quand vous utilisez la stratégie d’intervalle exponentiel, vous pouvez spécifier différentes valeurs minimales et maximales. | 
-| <*retry-attempts*> | Integer  | Nombre de nouvelles tentatives, qui doit être compris entre 1 et 90 | 
+| <*retry-attempts*> | Entier | Nombre de nouvelles tentatives, qui doit être compris entre 1 et 90 | 
 ||||
 
 *Facultatif*

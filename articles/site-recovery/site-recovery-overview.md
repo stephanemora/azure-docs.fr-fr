@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: overview
-ms.date: 03/12/2019
+ms.date: 05/30/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 3121c7e4b1b1adfb079368aa86c272e9ea473ead
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 907d12464156f551930098f6bd6a6a24596307cb
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57855212"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479922"
 ---
 # <a name="about-site-recovery"></a>À propos de Site Recovery
 
@@ -56,7 +56,7 @@ Site Recovery peut gérer la réplication pour :
 
 **Pris en charge** | **Détails**
 --- | ---
-**Scénarios de réplication** | Répliquez des machines virtuelles Azure d’une région Azure vers une autre.<br/><br/>  Répliquez des machines virtuelles VMware, des machines virtuelles Hyper-V, des serveurs physiques (Windows et Linux) et des machines virtuelles Azure Stack locales sur Azure.<br/><br/> Répliquer des machines virtuelles VMware locales, des machines virtuelles Hyper-V gérées par System Center VMM et des serveurs physiques vers un site secondaire.
+**Scénarios de réplication** | Répliquez des machines virtuelles Azure d’une région Azure vers une autre.<br/><br/>  Répliquez des machines virtuelles VMware, des machines virtuelles Hyper-V, des serveurs physiques (Windows et Linux) et des machines virtuelles Azure Stack locales sur Azure.<br/><br/> <br/><br/> Répliquez des instances Windows AWS sur Azure.<br/><br/> Répliquer des machines virtuelles VMware locales, des machines virtuelles Hyper-V gérées par System Center VMM et des serveurs physiques vers un site secondaire.
 **Régions** | Consultez les [régions prises en charge](https://azure.microsoft.com/regions/services/) pour Site Recovery. |
 **Machines répliquées** | Passez en revue la configuration requise pour la réplication de [machines virtuelles Azure](azure-to-azure-support-matrix.md#replicated-machine-operating-systems), de [machines virtuelles locales VMware et de serveurs physiques](vmware-physical-azure-support-matrix.md#replicated-machines),et de [machines virtuelles locales Hyper-V](hyper-v-azure-support-matrix.md#replicated-vms).
 **Charges de travail** | Vous pouvez répliquer toutes les charges de travail qui s’exécutent sur une machine prenant en charge la réplication. En outre, l’équipe de Site Recovery a effectué des tests pour un [certain nombre d’applications](site-recovery-workload.md#workload-summary).

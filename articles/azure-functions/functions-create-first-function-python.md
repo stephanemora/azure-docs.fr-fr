@@ -11,12 +11,12 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: python
 manager: jeconnoc
-ms.openlocfilehash: 88e8d543e8bc3c3ae07133ec333b33c4486c2684
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: ea890a49fc7b6a153ece183b153f5bc2a49760b5
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65864514"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66496567"
 ---
 # <a name="create-an-http-triggered-function-in-azure"></a>Créer une fonction déclenchée via HTTP dans Azure
 
@@ -175,7 +175,7 @@ az functionapp create --resource-group myResourceGroup --os-type Linux \
 ```
 
 > [!NOTE]
-> Les applications Linux et Windows ne peut pas être hébergées dans le même groupe de ressources. Si vous disposez d’un groupe de ressources existant nommé `myResourceGroup` avec une application de fonction Windows ou une application web, vous devez utiliser un autre groupe de ressources.
+> Azure Functions, plan de consommation pour Linux est actuellement en préversion et disponible uniquement sur les régions suivantes : USA Ouest,USA Est, Europe Ouest, Asie Est. En outre, les applications Linux et Windows ne peuvent pas être hébergées dans le même groupe de ressources. Si vous disposez d’un groupe de ressources existant nommé `myResourceGroup` avec une application de fonction Windows ou une application web, vous devez utiliser un autre groupe de ressources.
 
 Vous êtes désormais prêt à publier votre projet de fonctions local sur l’application de fonction dans Azure.
 

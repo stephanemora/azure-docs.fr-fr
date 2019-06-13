@@ -1,21 +1,17 @@
 ---
 title: Vue d’ensemble des applications gérées Azure | Microsoft Docs
 description: Décrit les concepts relatifs aux applications gérées Azure
-services: managed-applications
 author: tfitzmac
-manager: timlt
 ms.service: managed-applications
-ms.devlang: na
 ms.topic: overview
-ms.tgt_pltfrm: na
-ms.date: 10/04/2018
+ms.date: 05/31/2019
 ms.author: tomfitz
-ms.openlocfilehash: 48bb241a7871d2a209636f66837fb2afd95fd22c
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 5b6cb030c6eba5d80dfd046f1c3950609da1ed73
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66001801"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479828"
 ---
 # <a name="azure-managed-applications-overview"></a>Vue d’ensemble des applications gérées Azure
 
@@ -55,7 +51,9 @@ Pour plus d’informations sur la publication d’une application managée sur l
 
 ## <a name="resource-groups-for-managed-applications"></a>Groupes de ressources pour les applications managées
 
-En règle générale, les ressources d’une application managée résident dans deux groupes de ressources. Le consommateur gère l’un des groupes de ressources, tandis que l’éditeur gère l’autre. Lors de la définition de l’application managée, l’éditeur spécifie les niveaux d’accès. La restriction de l’accès aux [opérations de données](../role-based-access-control/role-definitions.md) n’est actuellement pas prise en charge pour tous les fournisseurs de données dans Azure.
+En règle générale, les ressources d’une application managée résident dans deux groupes de ressources. Le consommateur gère l’un des groupes de ressources, tandis que l’éditeur gère l’autre. Lors de la définition de l’application managée, l’éditeur spécifie les niveaux d’accès. L’éditeur peut demander une affectation de rôle permanente, ou un [accès juste-à-temps](request-just-in-time-access.md) dans le cadre d’une affectation limitée à une période.
+
+La restriction de l’accès aux [opérations de données](../role-based-access-control/role-definitions.md) n’est actuellement pas prise en charge pour tous les fournisseurs de données dans Azure.
 
 L’illustration suivante montre un scénario dans lequel l’éditeur demande le rôle de propriétaire pour le groupe de ressources managé. L’éditeur a placé un verrou en lecture seule sur ce groupe de ressources pour le consommateur. Les identités de l’éditeur qui ont accès au groupe de ressources managé sont exemptées du verrou.
 
@@ -69,7 +67,7 @@ Le consommateur dispose d’un accès complet au groupe de ressources et l’uti
 
 ### <a name="managed-resource-group"></a>Groupe de ressources géré
 
-Ce groupe de ressources contient toutes les ressources exigées par l’application managée. Il contient par exemple les machines virtuelles, les comptes de stockage et les réseaux virtuels pour la solution. Le consommateur dispose d’un accès limité à ce groupe de ressources, car il ne gère pas les ressources individuelles pour l’application managée. L’accès de l’éditeur à ce groupe de ressources correspond au rôle spécifié dans la définition de l’application managée. Par exemple, l’éditeur peut demander le rôle Propriétaire ou Contributeur pour ce groupe de ressources.
+Ce groupe de ressources contient toutes les ressources exigées par l’application managée. Il contient par exemple les machines virtuelles, les comptes de stockage et les réseaux virtuels pour la solution. Le consommateur dispose d’un accès limité à ce groupe de ressources, car il ne gère pas les ressources individuelles pour l’application managée. L’accès de l’éditeur à ce groupe de ressources correspond au rôle spécifié dans la définition de l’application managée. Par exemple, l’éditeur peut demander le rôle Propriétaire ou Contributeur pour ce groupe de ressources. L’accès est limité de façon permanente ou à une période spécifique.
 
 Quand le consommateur supprime l’application managée, le groupe de ressources managé est également supprimé.
 

@@ -6,19 +6,19 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc
-ms.date: 3/29/2019
+ms.date: 6/5/2019
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: 7f313af75e78db8a60fe6864c41cd8e6c5a3ad9b
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: b1763e7c24ea75a698c3718ab5e205dcc3e0c8c4
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "60193024"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66495800"
 ---
 # <a name="what-is-azure-firewall"></a>Qu’est-ce qu’un pare-feu Azure ?
 
-Pare-feu Azure est un service de sécurité réseau informatique géré qui protège vos ressources Réseau virtuel Azure. Il s’agit d’un service de pare-feu entièrement avec état, pourvu d’une haute disponibilité intégrée et de l’extensibilité du cloud sans limites. 
+Pare-feu Azure est un service de sécurité réseau informatique géré qui protège vos ressources Réseau virtuel Azure. Il s’agit d’un service de pare-feu avec état intégral, doté d’une haute disponibilité intégrée et d’une scalabilité illimitée dans le cloud. 
 
 ![Présentation du pare-feu](media/overview/firewall-threat.png)
 
@@ -50,7 +50,7 @@ Les balises FQDN vous aident à autoriser le trafic réseau du service Azure via
 
 ### <a name="service-tags"></a>Balises de service
 
-Une balise de service représente un groupe de préfixes d’adresses IP qui permet de simplifier la création de règles de sécurité. Vous ne peut pas créer votre propre balise de service, ni spécifier les adresses IP incluses dans une balise. Microsoft gère les préfixes d’adresse englobés par la balise de service et met à jour automatiquement la balise de service quand les adresses changent.
+Une balise de service représente un groupe de préfixes d’adresses IP qui permet de simplifier la création de règles de sécurité. Vous ne pouvez pas créer votre propre balise de service, ni spécifier les adresses IP incluses dans une balise. Microsoft gère les préfixes d’adresse englobés par la balise de service et met à jour automatiquement la balise de service quand les adresses changent.
 
 ### <a name="threat-intelligence"></a>Informations sur les menaces
 
@@ -81,7 +81,9 @@ Les règles de filtrage réseau pour les protocoles autres que TCP/UDP (par exem
 |Le déplacement d’un pare-feu vers un autre groupe de ressources ou un autre abonnement n’est pas pris en charge|Le déplacement d’un pare-feu vers un autre groupe de ressources ou un autre abonnement n’est pas pris en charge.|La prise en charge de cette fonctionnalité figure sur notre feuille de route. Pour déplacer un pare-feu vers un autre groupe de ressources ou un autre abonnement, vous devez supprimer l’instance actuelle et la recréer dans le nouveau groupe de ressources ou le nouvel abonnement.|
 |Plage de ports dans les règles de réseau et d’application|Les ports sont limités à 64 000, car les ports élevés sont réservés aux sondes d’intégrité et à la gestion. |Nous travaillons actuellement à l’assouplissement de cette limitation.|
 |Les alertes Threat intelligence peuvent être masquées|Les règles de réseau avec la destination 80/443 pour le filtrage sortant masque les alertes intelligentes de menaces lorsqu’elles sont configurées pour en mode alerte uniquement.|Créez un filtrage sortant pour 80/443 à l’aide de règles d’application. Ou modifiez le mode d’intelligence contre les menaces pour **alerter et rejeter**.|
-|Le Pare-feu Azure utilise Azure DNS uniquement pour la résolution de noms|Le Pare-feu Azure résout les noms de domaine complets uniquement à l’aide d’Azure DNS. Un serveur DNS personnalisé n’est pas pris en charge. Il n’y a aucun impact sur la résolution DNS dans les autres sous-réseaux.|Nous travaillons actuellement à l’assouplissement de cette limitation.
+|Le Pare-feu Azure utilise Azure DNS uniquement pour la résolution de noms|Le Pare-feu Azure résout les noms de domaine complets uniquement à l’aide d’Azure DNS. Un serveur DNS personnalisé n’est pas pris en charge. Il n’y a aucun impact sur la résolution DNS dans les autres sous-réseaux.|Nous travaillons actuellement à l’assouplissement de cette limitation.|
+|Le Pare-feu Azure SNAT/DNAT ne fonctionne pas pour les destinations IP privées|La prise en charge du Pare-feu Azure SNAT/DNAT est limitée à la sortie/l’entrée Internet. Actuellement, SNAT/DNAT ne fonctionne pas pour les destinations IP privées. Par exemple, spoke-à-spoke.|Ce problème est en cours d’examen.
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Tutoriel : Déployer et configurer un pare-feu Azure à l’aide du portail Azure](tutorial-firewall-deploy-portal.md)

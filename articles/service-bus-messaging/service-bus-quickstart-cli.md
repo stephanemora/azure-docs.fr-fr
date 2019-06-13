@@ -9,12 +9,12 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 04/10/2019
 ms.author: spelluru
-ms.openlocfilehash: 076e3b41a50681e453c1a07575ac6cb7071d97d2
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: e34599b12b8b0c487c6813038951b051d1eaf425
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65992030"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66400258"
 ---
 # <a name="quickstart-use-the-azure-cli-to-create-a-service-bus-queue"></a>Démarrage rapide : Utiliser Azure CLI pour créer une file d’attente Service Bus
 Ce guide de démarrage rapide explique comment envoyer et recevoir des messages avec Service Bus à l’aide d’Azure CLI et de la bibliothèque Java Service Bus. Enfin, si vous êtes intéressé par plus de détails techniques, vous pouvez [lire une explication](#understand-the-sample-code) des éléments clé de l’exemple de code.
@@ -22,7 +22,7 @@ Ce guide de démarrage rapide explique comment envoyer et recevoir des messages 
 [!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
 ## <a name="prerequisites"></a>Prérequis
-Si vous n'avez pas d'abonnement Azure, vous pouvez créer un [compte gratuit][] avant de commencer.
+Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit][free account] avant de commencer.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -368,7 +368,7 @@ void registerReceiver(QueueClient queueClient, ExecutorService executorService) 
 ```
 
 > [!NOTE]
-> Vous pouvez gérer les ressources Service Bus à l'aide de [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). Service Bus Explorer permet aux utilisateurs de se connecter à un espace de noms Service Bus et de gérer les entités de messagerie en toute simplicité. L'outil fournit des fonctionnalités avancées telles que l'importation/exportation ou la possibilité de tester des sujets, des files d'attente, des abonnements, des services de relais, des hubs de notification et des hubs d'événements. 
+> Vous pouvez gérer les ressources Service Bus à l'aide de [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). Service Bus Explorer permet aux utilisateurs de se connecter à un espace de noms Service Bus et de gérer les entités de messagerie en toute simplicité. L’outil fournit des fonctionnalités avancées telles que la fonction d’importation/exportation ou la possibilité de tester une rubrique, des files d’attente, des abonnements, des services de relais, des hubs de notification et des hubs d’événements. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -377,7 +377,7 @@ Dans cet article, vous avez créé un espace de noms Service Bus et d’autres r
 > [!div class="nextstepaction"]
 > [Envoyer et recevoir des messages](service-bus-dotnet-get-started-with-queues.md)
 
-[compte gratuit]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
+[free account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name
 [Install the Azure CLI]: /cli/azure/install-azure-cli
 [az group create]: /cli/azure/group#az_group_create

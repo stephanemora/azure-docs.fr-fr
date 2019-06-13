@@ -9,19 +9,19 @@ ms.date: 10/1/2018
 ms.topic: overview
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: 44c58e09c478c9dba9143b10d150babc553f4695
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: d315ca0702b1d76e0f990d4d33a3807a1dc57935
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58337678"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428175"
 ---
 # <a name="what-is-service-fabric-mesh"></a>Qu’est-ce que Service Fabric Mesh ?
 
 Cette vidéo fournit une vue d’ensemble rapide de Service Fabric Mesh.
 > [!VIDEO https://www.youtube.com/embed/7qWeVGzAid0]
 
-Azure Service Fabric mesh est un service entièrement géré qui permet aux développeurs de déployer des applications de microservices sans gestion de machines virtuelles, de stockage ou de mise en réseau. Les applications hébergées sur Service Fabric Mesh sont exécutées et mises à l’échelle sans que vous ayez à vous soucier de l’infrastructure sous-jacente.  Service Fabric Mesh se compose de clusters constitués de milliers de machines.  Toutes les opérations de cluster sont cachées au développeur. Chargez simplement votre code et spécifiez les ressources dont vous avez besoin, les exigences de disponibilité et les limites des ressources.  Service Fabric Mesh alloue automatiquement l’infrastructure et gère les défaillances d’infrastructure. Vous êtes ainsi assuré que vos applications sont hautement disponibles. Il vous suffit de veiller à l’intégrité et à la réactivité de votre application, mais pas à l’infrastructure.  
+Azure Service Fabric mesh est un service entièrement géré qui permet aux développeurs de déployer des applications de microservices sans gestion de machines virtuelles, de stockage ou de mise en réseau. Les applications hébergées sur Service Fabric Mesh sont exécutées et mises à l’échelle sans que vous ayez à vous soucier de l’infrastructure sous-jacente.  Service Fabric Mesh se compose de clusters constitués de milliers de machines.  Toutes les opérations de cluster sont cachées au développeur. Chargez votre code et spécifiez les ressources dont vous avez besoin, les exigences de disponibilité et les limites des ressources.  Service Fabric Mesh alloue automatiquement l’infrastructure et gère les défaillances d’infrastructure. Vous êtes ainsi assuré que vos applications sont hautement disponibles. Il vous suffit de veiller à l’intégrité et à la réactivité de votre application, mais pas à l’infrastructure.  
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
@@ -29,24 +29,24 @@ Cet article contient une vue d’ensemble des principaux avantages de Service Fa
 
 ## <a name="great-developer-experience"></a>Expérience de développement améliorée
 
-Service Fabric Mesh prend en charge tout langage ou infrastructure de programmation pouvant être exécuté dans un conteneur. La prise en charge des outils de Visual Studio 2017 et Visual Studio Code assure une puissante expérience de modification et de débogage pour les applications .NET et .NET Core. 
+Service Fabric Mesh prend en charge tout langage ou infrastructure de programmation pouvant être exécuté dans un conteneur. La prise en charge des outils de Visual Studio 2019 et Visual Studio Code assure une puissante expérience de modification et de débogage pour les applications .NET et .NET Core. 
 
 Avec Service Fabric Mesh, vous pouvez :
 
 - Effectuez une migration « lift-and-shift » des applications existantes dans des conteneurs pour moderniser et exécuter vos applications actuelles à grande échelle.
-- Générer et déployer de nouvelles applications de microservices à grande échelle dans Azure.  Intégrez-les à d’autres services Azure ou applications existantes qui s’exécutent dans des conteneurs. Chaque microservice fait partie d’une application isolée du réseau sécurisée, avec des stratégies de gouvernance de ressources définies pour les cœurs de processeurs, la mémoire, l’espace disque, etc.
+- Générer et déployer de nouvelles applications de microservices à grande échelle dans Azure.  Intégrez-les à d’autres services Azure ou applications existantes qui s’exécutent dans des conteneurs. Chaque microservice fait partie d’une application sécurisée et isolée du réseau. Le microservice applique des stratégies de gouvernance de ressources définies pour les cœurs de processeurs, la mémoire, l’espace disque, etc.
 - Intégrer et étendre des applications existantes sans leur apporter de modifications. Utilisez votre propre réseau virtuel pour connecter une application existante à la nouvelle application.  
 - Moderniser vos applications Services Cloud existantes en procédant à une migration vers Service Fabric Mesh.  
 
 ## <a name="simple-operational-lifecycle"></a>Cycle de vie opérationnel simple
 
-Gérez facilement des applications en cours d’exécution, notamment leurs mises à niveau et contrôles de version, leur supervision ainsi que leur débogage dans des environnements de production. Ces applications peuvent contenir un seul microservice ou plusieurs microservices isolés dans leur propre réseau. Les applications sont exécutées efficacement avec des délais rapides de déploiement, de positionnement et de basculement.
+Gérez facilement des applications en cours d’exécution, leur supervision ainsi que leur débogage dans des environnements de production. Cette gestion inclut les mises à niveau et les versions des applications. Ces applications peuvent contenir un seul microservice ou plusieurs microservices isolés dans leur propre réseau. Les applications sont exécutées efficacement avec des délais rapides de déploiement, de positionnement et de basculement.
 
 Avec Service Fabric Mesh, vous pouvez :
 
 - Déployer et gérer des applications sans devoir explicitement approvisionner et gérer l’infrastructure.  Service Fabric Mesh approvisionne, met à niveau, corrige et gère l’infrastructure sous-jacente à votre place.
 - Configurer l’intégration continue en utilisant les outils intégrés pour empaqueter et déployer facilement des applications.
-- Tirer parti de toutes les fonctionnalités des ressources Azure Resource Manager (par exemple, piste d’audit et [contrôle d’accès en fonction du rôle](/azure/role-based-access-control/overview)), car toutes les ressources (telles que les applications, les services, les secrets, etc.) que vous déployez vers le service Service Fabric Mesh dans Azure sont des ressources Azure Resource Manager.
+- Exploitez toutes les fonctionnalités des ressources Azure Resource Manager. Une piste d’audit et un [contrôle d’accès en fonction du rôle](/azure/role-based-access-control/overview) sont des exemples de ces fonctionnalités. Toutes les ressources que vous déployez sur le service Service Fabric Mesh dans Azure sont des ressources Azure Resource Manager. Ces ressources incluent des applications, des services, des secrets, etc.
 - Déployer et gérer des ressources à l’aide du [portail Azure](https://portal.azure.com), des modèles Resource Manager ou des bibliothèques d’Azure CLI/PowerShell.
 - Configurer la supervision opérationnelle et la génération d’alertes à l’aide [d’Application Insights](/azure/application-insights/) (ou de l’outil de votre choix) pour capturer des traces opérationnelles et de diagnostic à partir de la plateforme.
 - Accéder aux informations de diagnostic des applications émises à partir du modèle d’application à l’aide [d’Application Insights](/azure/application-insights/) ou de l’outil de votre choix.
@@ -54,7 +54,7 @@ Avec Service Fabric Mesh, vous pouvez :
 
 ## <a name="mission-critical-platform-capabilities"></a>Fonctionnalités stratégiques de la plateforme
 
-Service Fabric Mesh crée une collection de clusters qui s’étend sur les [Zones de disponibilité Azure](/azure/availability-zones/az-overview) et/ou les limites régionales géopolitiques. Les applications sont décrites avec un ensemble d’intentions comme les besoins de mise à l’échelle, la configuration matérielle requise, les spécifications de durabilité et les stratégies de sécurité.  Lorsque l’application est déployée, Service Fabric Mesh recherche l’emplacement optimal pour l’exécuter.
+Service Fabric Mesh crée une collection de clusters qui s’étend sur les [Zones de disponibilité Azure](/azure/availability-zones/az-overview) et/ou les limites régionales géopolitiques. Service Fabric Mesh représente des applications avec un ensemble d’intentions comme les besoins de mise à l’échelle, la configuration matérielle requise, les spécifications de durabilité et les stratégies de sécurité.  Lorsque l’application est déployée, Service Fabric Mesh recherche l’emplacement optimal pour l’exécuter.
 
 Avec Service Fabric Mesh, vous pouvez :
 

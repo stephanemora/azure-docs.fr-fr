@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 01/31/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: c83e14d65b30775f0dad54ab9ade1a7bed5ac821
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ad211eef673731a856c4db99fe0b4712217b23e5
+ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66139449"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66808487"
 ---
 # <a name="tutorial-build-an-aspnet-core-and-sql-database-app-in-azure-app-service"></a>Didacticiel : Générer une application ASP.NET Core et SQL Database dans Azure App Service
 
@@ -148,7 +148,7 @@ az sql db create --resource-group myResourceGroup --server <server_name> --name 
 
 ### <a name="create-connection-string"></a>Créer une chaîne de connexion
 
-Remplacez la chaîne suivante par les valeurs *\<server_name>*, *\<db_username>* et *\<db_password>* utilisées précédemment.
+Remplacez la chaîne suivante par les valeurs *\<server_name>* , *\<db_username>* et *\<db_password>* utilisées précédemment.
 
 ```
 Server=tcp:<server_name>.database.windows.net,1433;Database=coreDB;User ID=<db_username>;Password=<db_password>;Encrypt=true;Connection Timeout=30;
@@ -182,7 +182,7 @@ az webapp config connection-string set --resource-group myResourceGroup --name <
 
 Définissez ensuite le paramètre d’application `ASPNETCORE_ENVIRONMENT` sur _Production_. Ce paramètre vous permet de savoir si vous utilisez Azure, car vous utilisez SQLite pour votre environnement de développement local et SQL Database pour votre environnement Azure.
 
-L’exemple suivant configure un paramètre d’application `ASPNETCORE_ENVIRONMENT` dans votre application Azure. Remplacez l’espace réservé *\<appname>*.
+L’exemple suivant configure un paramètre d’application `ASPNETCORE_ENVIRONMENT` dans votre application Azure. Remplacez l’espace réservé *\<appname>* .
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings ASPNETCORE_ENVIRONMENT="Production"
@@ -371,7 +371,7 @@ Toutes les tâches existantes sont toujours affichées. Lorsque vous republiez v
 
 Pendant l’exécution de l’application ASP.NET Core dans Azure App Service, vous pouvez acheminer les journaux d’activité de la console vers Cloud Shell. De cette façon, vous pouvez obtenir les mêmes messages de diagnostic pour vous aider à déboguer les erreurs d’application.
 
-L’exemple de projet suit déjà les instructions fournies dans [Journalisation ASP.NET Core dans Azure](https://docs.microsoft.com/aspnet/core/fundamentals/logging#logging-in-azure), et apporte deux changements à la configuration :
+L’exemple de projet suit déjà les instructions fournies dans [Journalisation ASP.NET Core dans Azure](https://docs.microsoft.com/aspnet/core/fundamentals/logging#azure-app-service-provider), et apporte deux changements à la configuration :
 
 - Il inclut une référence à `Microsoft.Extensions.Logging.AzureAppServices` dans *DotNetCoreSqlDb.csproj*.
 - Il appelle `loggerFactory.AddAzureWebAppDiagnostics()` dans *Startup.cs*.

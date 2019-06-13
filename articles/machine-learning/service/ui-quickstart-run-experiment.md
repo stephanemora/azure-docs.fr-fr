@@ -9,18 +9,18 @@ ms.topic: quickstart
 author: sdgilley
 ms.author: sgilley
 ms.date: 05/02/2019
-ms.openlocfilehash: 0c492424e67853f7cb4a017fb4215d38a555a8a4
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 07b86138a95853673b5d54e272b40af41d58f418
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65545023"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475943"
 ---
 # <a name="quickstart-prepare-and-visualize-data-without-writing-code-in-azure-machine-learning"></a>Démarrage rapide : Préparer et visualiser des données sans écrire de code dans Azure Machine Learning
 
-Préparez et visualisez vos données dans l’interface visuelle par glisser-déplacer (préversion) d’Azure Machine Learning. Les données que vous allez utiliser sont constituées d’entrées sur différentes voitures, notamment des informations sur la marque, le modèle, les caractéristiques techniques et le prix.  
+Préparez et visualisez vos données dans l’interface visuelle par glisser-déplacer (préversion) d’Azure Machine Learning. Les données que vous allez utiliser sont constituées d’entrées sur différentes voitures, notamment des informations sur la marque, le modèle, les caractéristiques techniques et le prix. Après avoir terminé ce guide de démarrage rapide, vous pourrez utiliser ces données pour prédire les prix d’un véhicule automobile. 
 
-Dans ce guide de démarrage rapide, vous allez explorer et préparer les données :
+Avant d’entraîner un modèle Machine Learning, vous devez comprendre et préparer vos données.  Dans ce guide de démarrage rapide, vous allez :
 
 - Créer votre première expérience pour ajouter et prévisualiser des données
 - Préparer les données en supprimant les valeurs manquantes
@@ -131,7 +131,7 @@ Maintenant que vous avez exécuté votre expérience initiale, vous pouvez visua
 
      ![Prévisualiser les données](./media/ui-quickstart-run-experiment/preview-data.gif)
 
-1. Cliquez sur chaque colonne pour mieux comprendre votre jeu de données.
+1. Cliquez sur chaque colonne pour obtenir plus d’informations sur votre jeu de données, et déterminez si ces colonnes seront utiles pour prédire le prix d’une voiture.
 
 ## <a name="prepare-data"></a>Préparer les données
 
@@ -176,7 +176,7 @@ Tout d’abord, supprimez entièrement la colonne **normalized-losses**.
 
 ### <a name="clean-missing-data"></a>Nettoyage des données manquantes
 
-Ajoutez maintenant un module qui supprime toutes les lignes restantes dans lesquelles il manque des données.
+Lorsque vous entraînez un modèle, vous devez traiter le problème des données manquantes.  Dans ce cas, vous allez ajouter un module pour supprimer toutes les lignes restantes dans lesquelles il manque des données.  
 
 1. Tapez **Clean** dans la zone de recherche pour trouver le module **Clean Missing Data**.
 
@@ -216,7 +216,7 @@ Comme vous avez apporté des modifications aux modules de votre expérience, l�
 
     Il existe désormais 193 lignes et 25 colonnes.
 
-    Quand vous cliquez sur **num-of-doors**, vous constatez qu’il reste 2 valeurs uniques mais aucune valeur manquante.  
+    Quand vous cliquez sur **num-of-doors**, vous constatez qu’il reste 2 valeurs uniques mais aucune valeur manquante. Cliquez sur les autres colonnes pour vérifier qu’il ne manque aucune valeur dans le jeu de données. 
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
@@ -228,7 +228,7 @@ Dans ce démarrage rapide, vous avez appris comment :
 
 - Créer votre première expérience pour ajouter et prévisualiser des données
 - Préparer les données en supprimant les valeurs manquantes
-- Visualiser les données résultantes
+- Visualiser les données préparées
 
 Passez au tutoriel pour prédire le prix d’une voiture en utilisant ces données.
 

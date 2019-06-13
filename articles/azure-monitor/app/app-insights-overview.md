@@ -11,19 +11,17 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: overview
 ms.custom: mvc
-ms.date: 02/14/2019
+ms.date: 06/03/2019
 ms.author: mbullwin
-ms.openlocfilehash: ec595e23fbbf3ace5bfd0786d88250a88b61453c
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: cdaae4e539d5216cf4950c15349f01b54ae8acd2
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66256647"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66496370"
 ---
 # <a name="what-is-application-insights"></a>Présentation d’Application Insights
 Application Insights est un service extensible de gestion des performances des applications (APM) destiné aux développeurs web sur de multiples plateformes. Utilisez-le pour analyser votre application web en direct. Ce service détecte automatiquement les problèmes de performances. Il intègre de puissants outils d’analyse pour vous aider à diagnostiquer les problèmes et à comprendre ce que font les utilisateurs avec votre application.  Il a été conçu pour vous permettre d’améliorer continuellement les performances et la convivialité. Il fonctionne avec des applications sur un large éventail de plateformes, notamment .NET, Node.js et Java EE, qu’elles soient hébergées localement, de manière hybride ou dans n’importe quel cloud public. Il s’intègre à votre processus DevOps et offre des points de connexion à un large éventail d’outils de développement. Il peut surveiller et analyser les données de télémétrie des applications mobiles en s’intégrant à Visual Studio App Center.
-
-[Consultez l’animation de présentation](https://www.youtube.com/watch?v=fX2NtGrh-Y0).
 
 ## <a name="how-does-application-insights-work"></a>Comment fonctionne Application Insights ?
 Vous installez un petit package d’instrumentation dans votre application puis configurez une ressource Application Insights dans le portail Microsoft Azure. L’instrumentation surveille votre application et envoie les données de télémétrie au portail. (L’application peut s’exécuter partout, elle n’a pas besoin d’être hébergée dans Azure.)
@@ -104,11 +102,13 @@ Application Insights est un des nombreux services hébergés dans Microsoft Azur
 
 Il existe plusieurs façons de démarrer avec Application Insights. Commencez par la méthode qui vous convient le mieux. Vous pourrez ajouter les autres par la suite.
 
-* **Au moment de l’exécution : instrumentez votre application web sur le serveur.** Permet d’éviter toute mise à jour du code. Vous avez besoin de l’accès administrateur à votre serveur.
-  * [**IIS local ou sur une machine virtuelle**](../../azure-monitor/app/monitor-performance-live-website-now.md)
-  * [**Application web ou machine virtuelle Azure**](../../azure-monitor/app/monitor-performance-live-website-now.md)
-* **Au moment du développement : ajoutez Application Insights à votre code.** Vous permet d’écrire des données de télémétrie personnalisées et d’instrumenter le serveur principal et les applications de bureau.
-  * [Visual Studio](../../azure-monitor/app/asp-net.md) 2013 Update 2 ou version ultérieure.
+* **Au moment de l’exécution : instrumentez votre application web sur le serveur.** Idéal pour les applications déjà déployées. Permet d’éviter toute mise à jour du code.
+  * [**Applications ASP.NET hébergées dans IIS en local ou sur une machine virtuelle**](../../azure-monitor/app/monitor-performance-live-website-now.md)
+  * [**Applications ASP.NET ou ASP.NET Core hébergées sur Azure Web Apps**](../../azure-monitor/app/azure-web-apps.md)
+* **Au moment du développement : ajoutez Application Insights à votre code.** Vous permet de personnaliser la collecte des données de télémétrie et d’envoyer des données de télémétrie supplémentaires.
+  * [Applications ASP.NET](../../azure-monitor/app/asp-net.md)
+  * [Applications ASP.NET Core](../../azure-monitor/app/asp-net-core.md)
+  * [Applications de console .NET](../../azure-monitor/app/console.md)
   * [Java](../../azure-monitor/app/java-get-started.md)
   * [Node.JS](../../azure-monitor/app/nodejs.md)
   * [autres plateformes](../../azure-monitor/app/platforms.md)
@@ -120,10 +120,12 @@ Il existe plusieurs façons de démarrer avec Application Insights. Commencez pa
 Prise en main lors de l’exécution avec :
 
 * [Serveur IIS](../../azure-monitor/app/monitor-performance-live-website-now.md)
+* [Azure Web Apps](../../azure-monitor/app/azure-web-apps.md)
 
 Prise en main pendant le développement avec :
 
 * [ASP.NET](../../azure-monitor/app/asp-net.md)
+* [ASP.NET Core](../../azure-monitor/app/asp-net-core.md)
 * [Java](../../azure-monitor/app/java-get-started.md)
 * [Node.JS](../../azure-monitor/app/nodejs.md)
 
@@ -139,9 +141,9 @@ Prise en main pendant le développement avec :
 
 ## <a name="videos"></a>Videos
 
-[![Présentation animée](./media/app-insights-overview/video-front-1.png)](https://www.youtube.com/watch?v=fX2NtGrh-Y0)
-
-> [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player] 
+- Vidéo externe : [Configuration d’Application Insights avec une application ASP.NET](https://www.youtube.com/watch?v=blnGAVgMAfA).
+- Vidéo externe : [Configuration d’Application Insights avec ASP.NET Core et Visual Studio](https://www.youtube.com/watch?v=NoS9UhcR4gA&t).
+- Vidéo externe : [Configuration d’Application Insights avec ASP.NET Core et Visual Studio Code](https://youtu.be/ygGt84GDync).
 
 <!--Link references-->
 

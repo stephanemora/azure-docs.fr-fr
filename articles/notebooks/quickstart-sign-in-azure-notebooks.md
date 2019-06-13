@@ -10,15 +10,15 @@ ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: quickstart
 ms.date: 04/15/2019
 ms.author: kraigb
-ms.openlocfilehash: eb8ba7f23de99d333693430d806a8d887c55a678
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: a9ba6fcc0c8b74664f5c4b32e54530fb4aaa2881
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60237934"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66751726"
 ---
 # <a name="quickstart-sign-in-and-set-a-user-id"></a>Démarrage rapide : Se connecter et définir un identifiant utilisateur
 
@@ -35,7 +35,7 @@ Bien que vous puissiez toujours afficher Azure Notebooks sans vous connecter, vo
     ![Commande Créer un compte Microsoft dans l’invite de connexion](media/accounts/create-new-microsoft-account.png)
 
     > [!Tip]
-    > Si vous tentez de créer un nouveau compte avec une adresse de messagerie qui a déjà un compte associé, vous pouvez voir le message, « vous ne pouvez pas inscrire ici avec un travail ou adresse e-mail scolaire. Utiliser une adresse e-mail personnelle comme Gmail ou Yahoo!, ou obtenez un nouvel e-mail Outlook. » Dans ce cas, essayez de vous connecter avec l’adresse de messagerie professionnelle sans créer un nouveau compte.
+    > Si vous tentez de créer un compte avec une adresse e-mail déjà associée à un compte, le message « Vous ne pouvez pas vous connecter avec une adresse e-mail de compte professionnel ou scolaire. Utilisez une adresse e-mail personnelle comme Gmail ou Yahoo!, ou configurez une nouvelle adresse e-mail Outlook. » peut s’afficher. Dans ce cas, essayez de vous connecter avec l’adresse e-mail professionnelle sans créer de compte.
 
 1. Entrez votre mot de passe lorsque vous y êtes invité.
 
@@ -56,7 +56,7 @@ Bien que vous puissiez toujours afficher Azure Notebooks sans vous connecter, vo
     ![Affichage initial d’une page de profil Azure Notebooks](media/accounts/profile-page-new.png)
 
 > [!NOTE]
-> Si vous voyez le message, « ID d’utilisateur est déjà en cours d’utilisation, » essayez un autre ID. ID d’utilisateur sont uniques sur tous les comptes Azure Notebooks et blocs-notes Azure réserve également certains ID utilisateur, tels que les noms de marque Microsoft.
+> Si le message « User ID is already in use » (ID d’utilisateur déjà utilisé) apparaît, essayez un autre ID. Les ID d’utilisateur sont uniques sur tous les comptes Azure Notebooks, et Azure Notebooks réserve également certains ID d’utilisateur, notamment les noms de marque Microsoft.
 
 ## <a name="sign-out"></a>Se déconnecter
 

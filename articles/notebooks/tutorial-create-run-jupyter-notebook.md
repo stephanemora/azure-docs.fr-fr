@@ -10,15 +10,15 @@ ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 01/11/2019
 ms.author: kraigb
-ms.openlocfilehash: c593b472326fc373c0b715865b839cca3b6bcf45
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.openlocfilehash: 09d4038e705fb3bc4ff2c82daf5dc4c07f346f94
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66480251"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66751754"
 ---
 # <a name="tutorial-create-and-run-a-jupyter-notebook-with-python"></a>Tutoriel : Créer et exécuter un notebook Jupyter avec Python
 
@@ -49,7 +49,7 @@ Vous trouverez le notebook terminé sur [GitHub - Exemples Azure Notebooks](http
 
 ## <a name="create-the-data-file"></a>Créer le fichier de données
 
-Le modèle de régression linéaire que vous créez dans le notebook trace des données à partir d’un fichier dans votre projet appelé *cricket_chirps.csv*. Vous pouvez créer ce fichier en le copiant à partir de [GitHub - exemples de blocs-notes Azure](https://github.com/Microsoft/AzureNotebooks/tree/master/Samples/Linear%20Regression%20-%20Cricket%20Chirps), ou en entrant les données directement. Les sections suivantes décrivent les deux approches.
+Le modèle de régression linéaire que vous créez dans le notebook trace des données à partir d’un fichier dans votre projet appelé *cricket_chirps.csv*. Vous pouvez créer ce fichier en le copiant à partir de [GitHub - Exemples Azure Notebooks](https://github.com/Microsoft/AzureNotebooks/tree/master/Samples/Linear%20Regression%20-%20Cricket%20Chirps), ou en entrant les données directement. Les sections suivantes décrivent les deux approches.
 
 ### <a name="upload-the-data-file"></a>Charger le fichier de données
 

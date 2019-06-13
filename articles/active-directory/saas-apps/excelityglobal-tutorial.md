@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: jeedes
-ms.openlocfilehash: bb18aa35c89657f01319512eac6c15096174891f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: dd4fe4f7b105fd7aa2d2cf7ee568f85a7ad98ecb
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59265727"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734806"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-excelityglobal"></a>Didacticiel : Intégration d’Azure Active Directory avec ExcelityGlobal
 
@@ -52,7 +52,7 @@ Pour configurer l’intégration d’ExcelityGlobal à Azure AD, vous devez ajo
 
 **Pour ajouter ExcelityGlobal à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -140,7 +140,7 @@ Pour configurer l’authentification unique Azure AD avec ExcelityGlobal, procé
 
 ### <a name="configure-excelityglobal-single-sign-on"></a>Configurer l’authentification unique ExcelityGlobal
 
-Pour configurer l’authentification unique côté **ExcelityGlobal**, vous devez envoyer la **valeur de l’empreinte numérique** et les URL copiées appropriées du portail Azure à l’[équipe du support technique ExcelityGlobal](https://www.excelityglobal.com/contact-us/our-locations/). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+Pour configurer l’authentification unique côté **ExcelityGlobal**, vous devez envoyer la **valeur de l’empreinte numérique** et les URL copiées appropriées du portail Azure à l’[équipe du support technique ExcelityGlobal](https://www.excelityglobal.com/contact-us). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
@@ -195,7 +195,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 ### <a name="create-excelityglobal-test-user"></a>Créer utilisateur de test ExcelityGlobal
 
-Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans ExcelityGlobal. Collaborez avec  [l’équipe du support technique ExcelityGlobal](https://www.excelityglobal.com/contact-us/our-locations/) pour ajouter les utilisateurs dans la plateforme ExcelityGlobal. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
+Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans ExcelityGlobal. Collaborez avec  [l’équipe du support technique ExcelityGlobal](https://www.excelityglobal.com/contact-us) pour ajouter les utilisateurs dans la plateforme ExcelityGlobal. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
 ### <a name="test-single-sign-on"></a>Tester l’authentification unique
 

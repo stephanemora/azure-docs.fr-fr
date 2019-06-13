@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: overview
-ms.date: 03/21/2019
+ms.date: 05/31/2019
 ms.author: helohr
-ms.openlocfilehash: 820c89ce352db772f629a99a438ed86448af02fe
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 296ea271e88dfbbd91b901dc1b24d49fc31c139e
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65965722"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66476730"
 ---
 # <a name="what-is-windows-virtual-desktop-preview"></a>Qu’est-ce que Windows Virtual Desktop Preview ? 
 
@@ -26,6 +26,12 @@ Voici ce que vous pouvez faire quand vous exécutez Windows Virtual Desktop sur 
 * Tirer parti de vos applications et bureaux Windows Server et Services Bureau à distance existants sur n’importe quel ordinateur
 * Virtualiser des bureaux et des applications
 * Gérer des bureaux et des applications Windows 10, Windows Server et Windows 7 avec une expérience de gestion unifiée
+
+## <a name="introductory-video"></a>Vidéo d’introduction
+
+Dans la vidéo suivante, Scott Manchester présente certaines des fonctionnalités Windows Virtual Desktop :
+
+<br></br><iframe src="https://www.youtube-nocookie.com/embed/30dOLcZ4_9U" width="640" height="320" allowFullScreen="true" frameBorder="0"></iframe>
 
 ## <a name="key-capabilities"></a>Fonctionnalités clés
 
@@ -92,7 +98,6 @@ Les clients Bureau à distance suivants prennent en charge Windows Virtual Deskt
 
 * [Windows](https://docs.microsoft.com/azure/virtual-desktop/connect-windows-7-and-10)
 * [HTML5](https://docs.microsoft.com/azure/virtual-desktop/connect-web)
-
 
 ## <a name="supported-virtual-machine-os-image"></a>Image de système d'exploitation de machine virtuelle prise en charge
 

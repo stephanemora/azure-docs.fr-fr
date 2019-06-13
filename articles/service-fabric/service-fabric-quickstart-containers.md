@@ -15,18 +15,18 @@ ms.workload: NA
 ms.date: 01/31/2019
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: afeaccd798204ab0973be87ea36c275e1d633403
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 03f2f6bb572c46a1683d73ba42f435eca59829e5
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66110373"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428103"
 ---
 # <a name="quickstart-deploy-windows-containers-to-service-fabric"></a>Démarrage rapide : déployer des conteneurs Windows sur Service Fabric
 
 Azure Service Fabric est une plateforme de systèmes distribués pour le déploiement et la gestion de microservices et conteneurs extensibles et fiables.
 
-L’exécution d’une application existante dans un conteneur Windows sur un cluster Service Fabric ne nécessite aucune modification de votre application. Ce guide de démarrage rapide montre comment déployer une image de conteneur Docker préconstruite dans une application Service Fabric. Une fois terminé, vous disposerez de Windows Server Core 2016 Server et d’un conteneur IIS en fonction. Ce guide de démarrage rapide décrit la procédure de déploiement d’un conteneur Windows. Consultez [ce guide de démarrage rapide](service-fabric-quickstart-containers-linux.md) si vous souhaitez déployer un conteneur Linux.
+L’exécution d’une application existante dans un conteneur Windows sur un cluster Service Fabric ne nécessite aucune modification de votre application. Ce guide de démarrage rapide montre comment déployer une image de conteneur Docker préconstruite dans une application Service Fabric. Une fois terminé, vous disposerez de Windows Server Core 2016 Server et d’un conteneur IIS en fonction. Ce guide de démarrage rapide décrit la procédure de déploiement d’un conteneur Windows. Lisez [ce guide de démarrage rapide](service-fabric-quickstart-containers-linux.md) pour déployer un conteneur Linux.
 
 ![Page web IIS par défaut][iis-default]
 
@@ -44,7 +44,7 @@ Dans ce guide de démarrage rapide, vous apprenez à :
 
 * Un abonnement Azure (vous pouvez créer un [ compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)).
 * Un ordinateur de développement exécutant :
-  * Visual Studio 2015 ou Visual Studio 2017.
+  * Visual Studio 2015 ou Windows 2019.
   * [Outils et SDK Service Fabric](service-fabric-get-started.md).
 
 ## <a name="package-a-docker-image-container-with-visual-studio"></a>Placer un conteneur d’images Docker avec Visual Studio dans un package
@@ -106,7 +106,7 @@ Copiez le script suivant dans le Presse-papiers et ouvrez **Windows PowerShell I
 
 Quand vous avez terminé d’affecter vos valeurs aux variables, appuyez sur **F5** pour exécuter le script.
 
-Une fois le script exécuté et le cluster créé, recherchez le `ClusterEndpoint` dans la sortie. Par exemple : 
+Une fois le script exécuté et le cluster créé, recherchez le `ClusterEndpoint` dans la sortie. Par exemple :
 
 ```powershell
 ...
@@ -117,7 +117,7 @@ ClusterEndpoint : https://southcentralus.servicefabric.azure.com/runtime/cluster
 
 Nous allons à présent installer le fichier PFX dans le magasin de certificats *CurrentUser\My*. Le fichier PFX se trouve dans le répertoire que vous avez spécifié à l’aide de la variable d’environnement `certfolder` dans le script PowerShell ci-dessus.
 
-Accédez à ce répertoire, puis exécutez la commande PowerShell suivante en indiquant le nom du fichier PFX qui se trouve dans votre répertoire `certfolder` et le mot de passe que vous avez spécifié dans la variable `certpwd`. Dans cet exemple, le répertoire actif est celui spécifié par la variable `certfolder` dans le script PowerShell. La commande `Import-PfxCertificate` est alors exécutée :
+Accédez à ce répertoire, puis exécutez la commande PowerShell suivante en remplaçant le nom du fichier PFX qui se trouve dans votre répertoire `certfolder` et le mot de passe que vous avez spécifié dans la variable `certpwd`. Dans cet exemple, le répertoire actif est celui spécifié par la variable `certfolder` dans le script PowerShell. La commande `Import-PfxCertificate` est alors exécutée :
 
 ```powershell
 PS C:\mycertificates> Import-PfxCertificate -FilePath .\mysfclustergroup20190130193456.pfx -CertStoreLocation Cert:\CurrentUser\My -Password (ConvertTo-SecureString Password#1234 -AsPlainText -Force)

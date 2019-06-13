@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 05/02/2019
+ms.date: 05/29/2019
 ms.topic: quickstart
 ms.service: azure-blockchain
 ms.reviewer: janders
 manager: femila
-ms.openlocfilehash: 51775c5534a13fb2515fafa182658beafd38c1eb
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 5cb236dc38ae41b202004b7e4806d8129378cfdb
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65029937"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417499"
 ---
 # <a name="quickstart-create-an-azure-blockchain-service-using-the-azure-portal"></a>Démarrage rapide : Créer une instance Azure Blockchain Service à l’aide du portail Azure
 
@@ -40,11 +40,12 @@ Azure Blockchain Service est créé avec un ensemble défini de ressources de ca
     Abonnement | Sélectionnez l’abonnement Azure que vous souhaitez utiliser pour votre serveur. Si vous avez plusieurs abonnements, sélectionnez l’abonnement dans lequel la ressource est facturée.
     Groupe de ressources | Un nouveau nom de groupe de ressources ou un nom de groupe existant dans votre abonnement.
     Région | L’emplacement doit être le même pour tous les membres du consortium.
-    Mot de passe du compte du membre | Spécifiez un mot de passe pour le compte du membre. Le mot de passe du compte du membre est utilisé pour s’authentifier auprès du point de terminaison public du membre blockchain à l’aide de l’authentification de base.
+    Mot de passe du compte du membre | Le mot de passe du compte du membre sert à chiffrer la clé privée du compte Ethereum créé pour votre membre. Vous utilisez le compte du membre et le mot de passe du compte du membre pour la gestion du consortium.
     Nom du consortium | Pour un nouveau consortium, entrez un nom unique. Si vous rejoignez un consortium par le biais d’une invitation, la valeur correspond au consortium que vous rejoignez.
     Description | Description du consortium.
     Protocole |  La préversion prend en charge le protocole Quorum.
-    Tarifs | Configuration des nœuds de votre nouveau service. Sélectionnez **Standard**. Le paramètre par défaut comprend deux nœuds validateurs et un nœud de transaction.
+    Tarifs | Configuration des nœuds de votre nouveau service. Sélectionnez **Standard**. Les paramètres par défaut comprennent 2 nœuds validateurs et 1 nœud de transaction.
+    Mot de passe du nœud de transaction | Le mot de passe du nœud de transaction par défaut du membre. Utilisez le mot de passe pour l’authentification de base lorsque vous vous connectez au point de terminaison public du nœud de transaction par défaut du membre blockchain.
 
 1. Sélectionnez **Créer** pour provisionner le service. Le provisionnement prend environ 10 minutes.
 1. Pour superviser le processus de déploiement, sélectionnez **Notifications** dans la barre d’outils.

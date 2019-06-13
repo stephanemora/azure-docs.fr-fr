@@ -1,28 +1,29 @@
 ---
 title: En quoi consiste Azure SQL Data Warehouse ? | Microsoft Docs
-description: Base de données distribuée dédiée aux entreprises qui prend en charge le traitement de pétaoctets de données relationnelles et non relationnelles. Il s’agit du premier entrepôt de données cloud prenant en charge l’augmentation, la réduction et la pause en quelques secondes.
+description: Base de données distribuée dédiée aux entreprises, capable de traiter des pétaoctets de données relationnelles et non relationnelles. Il s’agit du premier entrepôt de données cloud prenant en charge l’augmentation, la réduction et la pause en quelques secondes.
 services: sql-data-warehouse
-author: happynicolle
+author: mlee3gsd
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: overview
 ms.subservice: design
-ms.date: 04/17/2018
-ms.author: nicw
+ms.date: 05/30/2019
+ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 29296d703e59cb234177349ca477c3fdab74ee61
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+mscustom: sqlfreshmay19
+ms.openlocfilehash: a9126e9023091dd8c3df71f2aa2558a01227a8be
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65790850"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428037"
 ---
 # <a name="what-is-azure-sql-data-warehouse"></a>En quoi consiste Azure SQL Data Warehouse ?
 
 SQL Data Warehouse est un entrepôt de données d’entreprise basé sur le cloud qui utilise le traitement massivement parallèle pour exécuter rapidement des requêtes complexes parmi des pétaoctets de données. Utilisez SQL Data Warehouse comme composant clé d’une solution Big Data. Importez des données volumineuses dans SQL Data Warehouse avec des requêtes T-SQL [PolyBase](/sql/relational-databases/polybase/polybase-guide?view=sql-server-2017&viewFallbackFrom=azure-sqldw-latest) simples, puis utilisez le traitement massivement parallèle pour exécuter des analyses hautes performances. À mesure de vos intégrations et analyses, l’entrepôt de données deviendra la seule source pertinente sur laquelle votre activité peut compter pour obtenir des informations précises.  
 
-
 ## <a name="key-component-of-big-data-solution"></a>Composant clé de la solution Big Data
+
 SQL Data Warehouse est un composant clé d’une solution Big Data complète dans le cloud.
 
 ![Solution d’entrepôt de données](media/sql-data-warehouse-overview-what-is/data-warehouse-solution.png) 
@@ -33,19 +34,21 @@ SQL Data Warehouse stocke les données dans des tables relationnelles avec stock
 
 Les résultats d’analyse peuvent s’étendre aux applications ou bases de données de rapports mondiales. Les analystes commerciaux peuvent alors obtenir des informations pour prendre des décisions éclairées pour l’activité.
 
-
 ## <a name="next-steps"></a>Étapes suivantes
-À présent que vous en savez un peu plus sur SQL Data Warehouse, découvrez comment [créer rapidement un SQL Data Warehouse][create a SQL Data Warehouse] et [charger des exemples de données][load sample data]. Si vous n’êtes pas encore familiarisé avec Azure, vous pouvez vous appuyer sur le [Glossaire Azure][Azure glossary] lorsque vous rencontrez de nouveaux termes. Ou bien, consultez ces autres ressources de SQL Data Warehouse.  
 
-* [Témoignages de clients]
-* [Blogs]
-* [Demandes de fonctionnalités]
-* [Vidéos]
-* [Blogs de l’équipe de conseil clientèle]
+- Explorer la section [Architecture Azure SQL Data Warehouse](/azure/sql-data-warehouse/massively-parallel-processing-mpp-architecture)
+- [Créer rapidement une base de données SQL Data Warehouse][create a SQL Data Warehouse]
+- [Charger les exemples de données][load sample data].
+- Explorer les [vidéos](/azure/sql-data-warehouse/sql-data-warehouse-videos)
+
+Ou bien, consultez ces autres ressources de SQL Data Warehouse.  
+* Effectuer des recherches dans les [blogs]
+* Soumettre une [Demandes de fonctionnalités]
+* Effectuer des recherches dans les [blogs de l’équipe de conseil clientèle]
 * [Création d’un ticket de support]
-* [Forum MSDN]
-* [Forum Stack Overflow]
-* [Twitter]
+* Effectuer des recherches dans [Forum MSDN]
+* Effectuer des recherches dans le [forum Stack Overflow]
+
 
 <!--Image references-->
 [1]: ./media/sql-data-warehouse-overview-what-is/dwarchitecture.png
@@ -63,14 +66,13 @@ Les résultats d’analyse peuvent s’étendre aux applications ou bases de don
 <!--MSDN references-->
 
 <!--Other Web references-->
-[Témoignages de clients]: https://azure.microsoft.com/case-studies/?service=sql-data-warehouse
 [Blogs]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
 [Blogs de l’équipe de conseil clientèle]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
 [Demandes de fonctionnalités]: https://feedback.azure.com/forums/307516-sql-data-warehouse
 [Forum MSDN]: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=AzureSQLDataWarehouse
 [Forum Stack Overflow]: https://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
-[Vidéos]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
+[Videos]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
 [SLA for SQL Data Warehouse]: https://azure.microsoft.com/support/legal/sla/sql-data-warehouse/v1_0/
 [Volume Licensing]: https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=37
 [Service Level Agreements]: https://azure.microsoft.com/support/legal/sla/

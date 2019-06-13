@@ -1,5 +1,5 @@
 ---
-title: Développer avec .NET Core sur AKS avec Azure Dev Spaces et Visual Studio 2017
+title: Développer avec .NET Core sur AKS avec Azure Dev Spaces et Visual Studio
 titleSuffix: Azure Dev Spaces
 author: zr-msft
 services: azure-dev-spaces
@@ -13,30 +13,29 @@ keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs, 
 manager: jeconnoc
 ms.custom: vs-azure
 ms.workload: azure-vs
-ms.openlocfilehash: 7a85afd3c0a00260112ef2a945b0f5c5a538194e
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 110962c03f0236ebb26c9ed586981b51f36c635f
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65765298"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399219"
 ---
-# <a name="quickstart-develop-with-net-core-on-kubernetes-with-azure-dev-spaces-visual-studio-2017"></a>Démarrage rapide : Développer avec .NET Core sur Kubernetes avec Azure Dev Spaces (Visual Studio 2017)
+# <a name="quickstart-develop-with-net-core-on-kubernetes-with-azure-dev-spaces-visual-studio"></a>Démarrage rapide : Développer avec .NET Core sur Kubernetes avec Azure Dev Spaces (Visual Studio)
 
 Dans ce guide, vous allez apprendre à :
 
 - Configurer Azure Dev Spaces avec un cluster Kubernetes géré dans Azure.
-- Développez du code de façon itérative dans des conteneurs avec Visual Studio 2017.
-- Déboguez du code qui s’exécute dans votre cluster avec Visual Studio 2017.
+- Développer du code de façon itérative dans des conteneurs à l’aide de Visual Studio.
+- Déboguez du code qui s’exécute dans votre cluster avec Visual Studio.
 
 ## <a name="prerequisites"></a>Prérequis
 
 - Un abonnement Azure. Si vous n’en avez pas, vous pouvez créer un [compte gratuit](https://azure.microsoft.com/free).
-- Visual Studio 2017 sur Windows avec la charge de travail Développement web installée. Si vous ne l’avez pas installé, vous pouvez le [télécharger ici](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
-- [Visual Studio Tools pour Kubernetes](https://aka.ms/get-vsk8stools) installé.
+- Visual Studio 2019 sur Windows avec la charge de travail de développement Azure installée. Vous pouvez également utiliser Visual Studio 2017 sur Windows lorsque la charge de travail Développement web et [Visual Studio Tools pour Kubernetes](https://aka.ms/get-vsk8stools) sont installés. Si vous n’avez pas installé Visual Studio, vous pouvez le télécharger [ici](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
 
 ## <a name="create-an-azure-kubernetes-service-cluster"></a>Créer un cluster Azure Kubernetes Service
 
-Vous devez créer un cluster AKS dans une [région prise en charge](https://docs.microsoft.com/azure/dev-spaces/#a-rapid,-iterative-kubernetes-development-experience-for-teams). Pour créer un cluster :
+Vous devez créer un cluster AKS dans une [région prise en charge][supported-regions]. Pour créer un cluster :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com)
 1. Sélectionnez *+ Créer une ressource > Service Kubernetes*. 
@@ -55,7 +54,7 @@ Accédez à votre cluster AKS dans le portail Azure et cliquez sur *Dev Spaces*.
 
 ## <a name="create-a-new-aspnet-web-app"></a>Créer une application web ASP.NET
 
-1. Ouvrez Visual Studio 2017.
+1. Ouvrez Visual Studio.
 1. Créer un projet
 1. Choisissez *Application web ASP.NET Core* et nommez votre projet *webfrontend*.
 1. Cliquez sur *OK*.
@@ -101,7 +100,7 @@ Ce processus peut avoir désactivé l’accès public à votre service. Pour act
 
 ## <a name="update-code"></a>Mettre à jour le code
 
-Si Visual Studio 2017 est toujours connecté à votre espace de développement, cliquez sur le bouton Arrêter. Changez la ligne 20 dans `Controllers/HomeController.cs` en :
+Si Visual Studio est toujours connecté à votre espace de développement, cliquez sur le bouton Arrêter. Changez la ligne 20 dans `Controllers/HomeController.cs` en :
     
 ```csharp
 ViewData["Message"] = "Your application description page in Azure.";
@@ -113,9 +112,9 @@ Au lieu de regénérer et de redéployer une nouvelle image conteneur chaque foi
 
 ## <a name="setting-and-using-breakpoints-for-debugging"></a>Définition et utilisation de points d’arrêt pour le débogage
 
-Si Visual Studio 2017 est toujours connecté à votre espace de développement, cliquez sur le bouton Arrêter. Ouvrez `Controllers/HomeController.cs`, puis cliquez quelque part sur la ligne 20 pour y placer votre curseur. Pour définir un point d’arrêt, appuyez sur *F9* ou cliquez sur *Déboguer*, puis sur *Activer/désactiver le point d’arrêt*. Pour démarrer votre service en mode de débogage dans votre espace de développement, appuyez sur *F5* ou cliquez sur *Déboguer*, puis sur *Démarrer le débogage*.
+Si Visual Studio est toujours connecté à votre espace de développement, cliquez sur le bouton Arrêter. Ouvrez `Controllers/HomeController.cs`, puis cliquez quelque part sur la ligne 20 pour y placer votre curseur. Pour définir un point d’arrêt, appuyez sur *F9* ou cliquez sur *Déboguer*, puis sur *Activer/désactiver le point d’arrêt*. Pour démarrer votre service en mode de débogage dans votre espace de développement, appuyez sur *F5* ou cliquez sur *Déboguer*, puis sur *Démarrer le débogage*.
 
-Ouvrez votre service dans un navigateur ; notez qu’aucun message n’est affiché. Revenez à Visual Studio 2017 et notez que la ligne 20 est mise en surbrillance. Le point d’arrêt que vous avez défini a suspendu le service à la ligne 20. Pour reprendre le service, appuyez sur *F5* ou cliquez sur *Déboguer*, puis sur *Continuer*. Revenez à votre navigateur et notez que le message est maintenant affiché.
+Ouvrez votre service dans un navigateur ; notez qu’aucun message n’est affiché. Revenez à Visual Studio et notez que la ligne 20 est mise en surbrillance. Le point d’arrêt que vous avez défini a suspendu le service à la ligne 20. Pour reprendre le service, appuyez sur *F5* ou cliquez sur *Déboguer*, puis sur *Continuer*. Revenez à votre navigateur et notez que le message est maintenant affiché.
 
 Quand vous exécutez votre service dans Kubernetes avec un débogueur attaché, vous avez un accès total aux informations de débogage, comme la pile des appels, les variables locales et les informations sur les exceptions.
 
@@ -135,3 +134,4 @@ az group delete --name MyResourceGroup --yes --no-wait
 > [Utilisation de plusieurs conteneurs et développement en équipe](multi-service-netcore-visualstudio.md)
 
 [ingress-update]: how-dev-spaces-works.md#how-running-your-code-is-configured
+[supported-regions]: about.md#supported-regions-and-configurations

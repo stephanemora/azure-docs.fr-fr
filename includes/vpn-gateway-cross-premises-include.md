@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 05/16/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 14793d7f787780bfc8604e4af11eb05f1ff0d937
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 8c82e3d2c978a7980d02bc686346acdcb21dd591
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66170613"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66425751"
 ---
 |  | **De point à site** | **De site à site** | **ExpressRoute** |
 | --- | --- | --- | --- |
 | **Services pris en charge par Azure** |Cloud Services et Virtual Machines |Cloud Services et Virtual Machines |[Liste des services](../articles/expressroute/expressroute-faqs.md#supported-services) |
 | **Bandes passantes classiques** |Basé sur la référence SKU de passerelle |En règle générale < 1 Gbit/s agrégé |50 Mbit/s, 100 Mbit/s, 200 Mbit/s, 500 Mbit/s, 1 Gbit/s, 2 Gbit/s, 5 Gbit/s, 10 Gbit/s |
-| **Protocoles pris en charge** |Secure Sockets Tunneling Protocol (SSTP) et IPsec |IPsec |Connexion directe sur des VLAN, les technologies VPN des fournisseurs de services réseau (MPLS, VPLS,...) |
+| **Protocoles pris en charge** |Secure Sockets Tunneling Protocol (SSTP), OpenVPN et IPsec |IPsec |Connexion directe sur des VLAN, les technologies VPN des fournisseurs de services réseau (MPLS, VPLS,...) |
 | **Routage** |RouteBased (dynamique) |Nous prenons en charge le routage basé sur des stratégies (statique) et basé sur un itinéraire (VPN de routage dynamique) |BGP |
 | **Résilience de connexion** |actif / passif |actif/passif ou actif/actif |actif / actif |
 | **Cas d’utilisation classique** |Création de prototypes, scénarios de développement / test / labo pour les services cloud et les machines virtuelles |Scénarios de développement / test / labo et charges de travail de production à petite échelle pour les services cloud et les machines virtuelles |Accès à tous les services Azure (liste validée), charges de travail professionnelles et critiques, sauvegarde, Big Data, Azure sous la forme d'un site de récupération d'urgence |

@@ -2,22 +2,18 @@
 title: Présentation d’Azure Resource Manager | Microsoft Docs
 description: Explique comment utiliser Azure Resource Manager pour les tâches de déploiement, de gestion et de contrôle d’accès des ressources sur Azure.
 services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
 ms.assetid: 76df7de1-1d3b-436e-9b44-e1b3766b3961
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: overview
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 05/24/2019
+ms.date: 05/31/2019
 ms.author: tomfitz
-ms.openlocfilehash: b6d84a07de408cedb0e21181c70e5c1481ac62bc
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 6ad87c776bbbab9959f7c90a8d006ae7f62bde79
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66225915"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514340"
 ---
 # <a name="azure-resource-manager-overview"></a>Présentation d’Azure Resource Manager
 
@@ -51,13 +47,15 @@ Resource Manager offre plusieurs avantages :
 * Vous pouvez appliquer des balises aux ressources pour organiser logiquement toutes les ressources de votre abonnement.
 * Vous pouvez clarifier la facturation de votre organisation en affichant les coûts d’un groupe de ressources partageant la même balise.
 
-## <a name="understand-management-scope"></a>Comprendre l’étendue de la gestion
+## <a name="understand-scope"></a>Comprendre la portée
 
-Azure fournit quatre niveaux d’étendue de gestion : [Groupes d’administration](../governance/management-groups/index.md), Abonnements, [Groupes de ressource](#resource-groups) et Ressources. L’image suivante représente un exemple de ces couches.
+Azure fournit quatre niveaux d’étendue : [Groupes d’administration](../governance/management-groups/index.md), Abonnements, [Groupes de ressource](#resource-groups) et Ressources. L’image suivante représente un exemple de ces couches.
 
 ![Étendue](./media/resource-group-overview/scope-levels.png)
 
 Vous appliquez les paramètres de gestion à tous ces niveaux de l’étendue. Le niveau que vous sélectionnez détermine à quel point le paramètre est appliqué. Les niveaux inférieurs héritent des paramètres des niveaux supérieurs. Par exemple, Lorsque vous appliquez une [stratégie](../governance/policy/overview.md) à l’abonnement, cette stratégie est appliquée à tous les groupes de ressources et les ressources de votre abonnement. Lorsque vous appliquez une stratégie sur le groupe de ressources, cette stratégie est appliquée sur le groupe de ressources et toutes ses ressources. Toutefois, un autre groupe de ressources ne dispose pas de cette affectation de stratégie.
+
+Vous pouvez déployer des modèles sur des groupes d'administration, des abonnements ou des groupes de ressources.
 
 ## <a name="guidance"></a>Assistance
 
@@ -85,7 +83,7 @@ Lorsque vous définissez votre groupe de ressources, vous devez prendre en compt
 
 Lorsque vous créez un groupe de ressources, vous devez indiquer un emplacement pour ce groupe. Vous vous demandez peut-être « Pourquoi un groupe de ressources a-t-il besoin un emplacement ? Et, si les ressources peuvent avoir des emplacements différents de celui du groupe de ressources, pourquoi l’emplacement du groupe de ressources a-t-il une importance ? ». Le groupe de ressources stocke des métadonnées sur les ressources. Quand vous spécifiez un emplacement pour le groupe de ressources, vous indiquez donc où stocker ces métadonnées. Pour des raisons de conformité, vous devrez peut-être vous assurer que vos données sont stockées dans une région particulière.
 
-Si la région du groupe de ressources est temporairement indisponible, vous ne pourrez pas mettre à jour les ressources du groupe, car les métadonnées ne seront pas disponibles. Les ressources des autres régions continueront de fonctionner comme prévu, mais vous ne pourrez pas les mettre à jour. Pour réduire les risques, placez votre groupe de ressources et vos ressources dans la même région.
+Si la région du groupe de ressources est temporairement indisponible, vous ne pourrez pas mettre à jour les ressources du groupe, car les métadonnées ne seront pas disponibles. Les ressources des autres régions continueront de fonctionner comme prévu, mais vous ne pourrez pas les mettre à jour. Pour plus d’informations sur la conception d’applications fiables, consultez [Concevoir des applications Azure fiables](/azure/architecture/reliability/).
 
 ## <a name="resource-providers"></a>Fournisseurs de ressources
 

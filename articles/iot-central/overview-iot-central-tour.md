@@ -3,18 +3,18 @@ title: Visite guidée de l’interface utilisateur de Azure IoT Central | Micros
 description: En tant que générateur, familiarisez-vous avec les zones clés de l’interface utilisateur de Azure IoT Central que vous utilisez pour créer une solution IoT.
 author: dominicbetts
 ms.author: dobett
-ms.date: 01/24/2019
+ms.date: 05/31/2019
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 8a0621d0261bfbc7ab396abf837ee7b1123352d1
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 53306b2087a47f5a61fc2a228e2d1f527127f746
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65233446"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66476314"
 ---
 # <a name="take-a-tour-of-the-azure-iot-central-ui"></a>Visite guidée de l’interface utilisateur de Azure IoT Central
 
@@ -63,7 +63,9 @@ Vous pouvez choisir entre un thème clair ou un thème foncé pour l’interface
 
 ![tableau de bord](media/overview-iot-central-tour/homepage.png)
 
-Le tableau de bord est la première page que vous voyez lorsque vous vous connectez à votre application Azure IoT Central. En tant que créateur, vous pouvez personnaliser le tableau de bord pour d’autres utilisateurs de l’application en y ajoutant des vignettes. Pour plus d’informations, consultez le didacticiel [Personnaliser la vue d’opérateur de Azure IoT Central](tutorial-customize-operator.md). Les utilisateurs peuvent également [créer leurs propres tableaux de bord personnels](howto-personalize-dashboard.md).
+* Le tableau de bord est la première page que vous voyez lorsque vous vous connectez à votre application Azure IoT Central. En tant que créateur, vous pouvez personnaliser le tableau de bord pour d’autres utilisateurs de l’application en y ajoutant des vignettes. Pour plus d’informations, consultez le didacticiel [Personnaliser la vue d’opérateur de Azure IoT Central](tutorial-customize-operator.md).
+
+* En tant qu’opérateur, vous pouvez créer des tableaux de bord personnalisés et passer de ces tableaux vers le tableau de bord par défaut. Pour plus d’informations, consultez l’article sur les procédures [Créer et gérer des tableaux de bord personnels](howto-personalize-dashboard.md).
 
 ## <a name="device-explorer"></a>Explorateur d’appareils
 
@@ -96,19 +98,26 @@ La page Tâches vous permet d’effectuer des opérations de gestion d’apparei
 
 ![Page Modèles d’appareil](media/overview-iot-central-tour/templates.png)
 
-La page des modèles d’appareil est l’endroit où un générateur crée et gère les modèles d’appareil dans l’application. Pour plus d’informations, consultez le didacticiel [Définir un nouveau type d’appareil dans votre application Azure IoT Central](tutorial-define-device-type.md).
+La page des modèles d’appareil est l’endroit où un générateur crée et gère les modèles d’appareil dans l’application. Un modèle d’appareil spécifie les caractéristiques de celui-ci, notamment :
+
+- La télémétrie, l’état et les mesures d’événement.
+- Les paramètres et les propriétés.
+- Les commandes.
+- Les règles basées sur des événements ou des valeurs de télémétrie.
+
+Pour plus d’informations, consultez le didacticiel [Définir un nouveau type d’appareil dans votre application Azure IoT Central](tutorial-define-device-type.md).
 
 ## <a name="continuous-data-export"></a>Exportation de données continue
 
 ![Page Exportation de données continue](media/overview-iot-central-tour/export.png)
 
-La page d’exportation continue des données est l’endroit où un administrateur définit la façon d’exporter des données, comme les données de télémétrie, à partir de l’application. D’autres services peuvent stocker les données exportées ou les utiliser à des fins d’analyse. Pour en savoir plus, consultez l’article [Exporter vos données dans Azure IoT Central](howto-export-data.md).
+La page d’exportation continue des données est l’endroit où un administrateur définit la façon de diffuser en continu des données, comme les données de télémétrie, à partir de l’application. D’autres services peuvent stocker les données exportées ou les utiliser à des fins d’analyse. Pour en savoir plus, consultez l’article [Exporter vos données dans Azure IoT Central](howto-export-data.md).
 
 ## <a name="administration"></a>Administration
 
 ![Page d’administration](media/overview-iot-central-tour/administration.png)
 
-La page d’administration contient des liens vers les outils utilisés par un administrateur, comme la définition des utilisateurs et des rôles dans l’application. Pour plus d’informations, consultez l’article [Administrer votre application Azure IoT Central](howto-administer.md).
+La page d’administration contient des liens vers les outils utilisés par un administrateur, comme la définition des utilisateurs et des rôles dans l’application, ou la personnalisation de l’interface utilisateur. Pour plus d’informations, consultez l’article [Administrer votre application Azure IoT Central](howto-administer.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
