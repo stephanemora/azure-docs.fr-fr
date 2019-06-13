@@ -16,7 +16,7 @@ ms.date: 12/06/2018
 ms.author: bikang
 ms.openlocfilehash: d4fec5d8131d269d3df229360066452c37a92430
 ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60837485"
