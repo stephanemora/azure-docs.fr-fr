@@ -67,7 +67,7 @@ Le JSON suivant montre le schéma pour l’extension Intégrité de l’applicat
 | ---- | ---- | ---- 
 | apiVersion | `2018-10-01` | date |
 | publisher | `Microsoft.ManagedServices` | string |
-| Type | `ApplicationHealthLinux` (Linux), `ApplicationHealthWindows` (Windows) | string |
+| type | `ApplicationHealthLinux` (Linux), `ApplicationHealthWindows` (Windows) | string |
 | typeHandlerVersion | `1.0` | int |
 
 ### <a name="settings"></a>Paramètres
