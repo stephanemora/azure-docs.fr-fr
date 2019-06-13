@@ -17,12 +17,12 @@ ms.date: 06/04/2019
 ms.author: joflore
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f91ff65d0e11ed2e9f923f94c740314c9136d99
-ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
+ms.openlocfilehash: faabc65a78626c053aecfac81b560b4731e40b95
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66688686"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66729991"
 ---
 # <a name="what-is-a-device-identity"></a>Qu’est-ce qu’une identité d’appareil ?
 
@@ -155,5 +155,5 @@ En règle générale, vous devez utiliser :
 - Pour configurer :
    - Des appareils Windows 10 inscrits à Azure Active Directory, consultez [Guide pratique pour configurer des appareils Windows 10 inscrits à Azure Active Directory](../user-help/device-management-azuread-registered-devices-windows10-setup.md).
    - Des appareils hybrides joints à Azure Active Directory, consultez [Comment planifier l’implémentation de la jointure Azure Active Directory](azureadjoin-plan.md).
-   - Des appareils hybrides joints à Azure AD, consultez [Comment planifier l’implémentation de la jointure hybride Azure Active Directory](hybrid-azuread-join-plan.md).   
+   - Des appareils hybrides joints à Azure AD, consultez [Comment planifier l’implémentation de la jointure hybride Azure Active Directory](hybrid-azuread-join-plan.md).
 - Pour en savoir plus sur l’accès conditionnel basé sur les appareils, consultez [Configurer les stratégies d’accès conditionnel basé sur les appareils Azure Active Directory](../conditional-access/require-managed-devices.md).
