@@ -40,10 +40,10 @@ Permet de créer, de supprimer et de gérer les applications et les types d’ap
 | manifest | Permet d’obtenir le manifeste qui décrit un type d’application. |
 | provision | Permet d’approvisionner ou d’inscrire un type d’application Service Fabric auprès du cluster à l’aide du package .sfpkg dans le magasin externe ou du package d’application dans le magasin d’images. |
 | report-health | Permet d’envoyer un rapport d’intégrité sur l’application Service Fabric. |
-| Type | Permet d’obtenir la liste des types d’applications du cluster Service Fabric qui correspondent exactement au nom spécifié. |
+| type | Permet d’obtenir la liste des types d’applications du cluster Service Fabric qui correspondent exactement au nom spécifié. |
 | type-list | Permet d’obtenir la liste des types d’applications du cluster Service Fabric. |
 | unprovision | Permet de supprimer ou d’annuler l’inscription d’un type d’application Service Fabric dans le cluster. |
-| mettre à niveau | Commence la mise à niveau d’une application dans le cluster Service Fabric. |
+| upgrade | Commence la mise à niveau d’une application dans le cluster Service Fabric. |
 | upgrade-resume | Commence la mise à niveau d’une application dans le cluster Service Fabric. |
 | upgrade-rollback | Annule la mise à niveau en cours d’une application du cluster Service Fabric. |
 | upgrade-status | Permet d’obtenir les détails de la dernière mise à jour effectuée sur cette application. |
