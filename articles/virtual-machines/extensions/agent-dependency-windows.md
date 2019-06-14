@@ -81,7 +81,7 @@ Le code JSON suivant montre le schéma pour l’extension de l’agent de dépen
 | apiVersion | 2015-01-01 |
 | publisher | Microsoft.Azure.Monitoring.DependencyAgent |
 | type | DependencyAgentWindows |
-| typeHandlerVersion | 9,5 |
+| typeHandlerVersion | 9.5 |
 
 ## <a name="template-deployment"></a>Déploiement de modèle
 
