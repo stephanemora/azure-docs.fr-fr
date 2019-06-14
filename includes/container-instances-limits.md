@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 02/13/2019
 ms.author: danlep
 ms.openlocfilehash: f8821060b98ebfc954a6e59abad60350e6779b76
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66146241"
 ---
 | Ressource | Limite par défaut |
@@ -16,7 +16,7 @@ ms.locfileid: "66146241"
 | Groupes de conteneurs par [abonnement](../articles/billing-buy-sign-up-azure-subscription.md) | 100<sup>1</sup> |
 | Nombre de conteneurs par groupe de conteneurs | 60 |
 | Nombre de volumes par groupe de conteneurs | 20 |
-| Ports par adresse IP | 5. |
+| Ports par adresse IP | 5\. |
 | Taille de journal d’instance de conteneur - instance en cours d’exécution | 4 Mo |
 | Taille de journal d’instance de conteneur - instance arrêtée | 16 Ko ou 1 000 lignes |
 | Création de conteneurs par heure |300<sup>1</sup> |
