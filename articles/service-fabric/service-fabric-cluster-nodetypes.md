@@ -76,8 +76,8 @@ Les descriptions de propriété sont les suivantes :
 
 | **Name** | **Valeurs autorisées** | ** --- ** | **Conseils ou brève description** |
 | --- | --- | --- | --- |
-| Nom | string | --- | nom unique pour l’extension |
-| Type | « ServiceFabricLinuxNode » ou « ServiceFabricWindowsNode | --- | Identifie l’amorçage de système d’exploitation Service Fabric à |
+| name | string | --- | nom unique pour l’extension |
+| type | « ServiceFabricLinuxNode » ou « ServiceFabricWindowsNode | --- | Identifie l’amorçage de système d’exploitation Service Fabric à |
 | autoUpgradeMinorVersion | true ou false | --- | Activer la mise à niveau automatique de Versions mineures du Runtime de service Fabric |
 | publisher | Microsoft.Azure.ServiceFabric | --- | nom de l’éditeur d’extension Service Fabric |
 | clusterEndpont | string | --- | URI:port au point de terminaison de gestion |
