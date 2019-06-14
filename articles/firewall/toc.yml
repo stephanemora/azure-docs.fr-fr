@@ -1,6 +1,6 @@
 - name: Documentation sur le pare-feu Azure
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: "Qu’est-ce qu’un pare-feu Azure\_?"
       href: overview.md
@@ -39,6 +39,8 @@
   items:
     - name: Déployer avec Azure PowerShell
       href: deploy-ps.md
+    - name: Déployer à l’aide d’Azure CLI
+      href: deploy-cli.md
     - name: Déployer à l’aide d’un modèle
       href: deploy-template.md
     - name: Intégrer avec l’équilibreur de charge

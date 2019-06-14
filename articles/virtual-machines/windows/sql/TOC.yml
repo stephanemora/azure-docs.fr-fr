@@ -1,4 +1,4 @@
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: "Qu’est-ce qu’une machine virtuelle SQL\_Server\_?"
       href: virtual-machines-windows-sql-server-iaas-overview.md
@@ -34,6 +34,8 @@
           href: virtual-machines-windows-sql-automated-backup-v2.md
     - name: gestion
       items:
+        - name: Avec le portail Azure
+          href: virtual-machines-windows-sql-manage-portal.md
         - name: "Étendre la prise en charge pour SQL\_2008 et R2"
           href: virtual-machines-windows-sql-server-2008-eos-extend-support.md
         - name: Se connecter à une machine virtuelle
@@ -52,7 +54,7 @@
   items:
     - name: "Créer une machine virtuelle\_SQL"
       items:
-        - name: "Utiliser le portail\_"
+        - name: Utiliser le portail
           href: virtual-machines-windows-portal-sql-server-provision.md
         - name: Utilisation d'Azure PowerShell
           href: virtual-machines-windows-ps-sql-create.md

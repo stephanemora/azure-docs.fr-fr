@@ -1,14 +1,13 @@
 - name: Documentation Machine Learning Studio
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   expanded: true
   items:
     - name: Machine Learning Studio
       displayName: overview
       href: what-is-ml-studio.md
     - name: Comparer nos produits ML
-      href: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning
-      maintainContext: true
+      href: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure/machine-learning/studio/context/ml-context
 - name: Tutoriels
   items:
     - name: Créer votre première expérience
@@ -140,7 +139,7 @@
           href: create-endpoint.md
     - name: Consommer des modèles
       items:
-        - name: Vue d’ensemble
+        - name: Vue d'ensemble
           href: consume-web-services.md
         - name: Utiliser Excel
           href: consuming-from-excel.md

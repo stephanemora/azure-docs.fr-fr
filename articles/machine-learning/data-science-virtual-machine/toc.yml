@@ -1,7 +1,7 @@
 - name: Documentation sur la machine virtuelle de science des données
   href: index.yml
   items: null
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: "Qu’est-ce que la machine virtuelle de science des données\_?"
       href: overview.md
@@ -54,7 +54,7 @@
       href: use-geo-ai-dsvm.md
     - name: Assistance Entreprise
       items:
-        - name: Vue d’ensemble
+        - name: Vue d'ensemble
           href: dsvm-enterprise-overview.md
         - name: Mise à l'échelle
           href: dsvm-pools.md
@@ -65,8 +65,7 @@
 - name: Ressources
   items:
     - name: "Guide du développeur\_R"
-      href: /azure/architecture/data-guide/technology-choices/r-developers-guide
-      maintainContext: true
+      href: /azure/architecture/data-guide/technology-choices/r-developers-guide?context=azure/machine-learning/data-science-virtual-machine/context/ml-context
     - name: Blog
       href: 'https://blogs.technet.microsoft.com/machinelearning/tag/dsvm/'
     - name: Forum MSDN

@@ -8,6 +8,7 @@
     - name: Exemples de scénarios utilisateur
       href: text-analytics-user-scenarios.md
 - name: Démarrages rapides
+  expanded: true
   items:
     - name: API REST
       items:
@@ -23,7 +24,7 @@
           href: quickstarts/python.md
         - name: Ruby
           href: quickstarts/ruby.md
-    - name: 'Kit SDK '
+    - name: Kit SDK
       items:
         - name: 'C#'
           href: quickstarts/csharp.md
@@ -33,6 +34,8 @@
           href: quickstarts/go-sdk.md
         - name: Ruby
           href: quickstarts/ruby-sdk.md
+        - name: Node.js
+          href: quickstarts/nodejs-sdk.md
 - name: Tutoriels
   items:
     - name: Intégrer Power BI pour analyser les commentaires des clients
