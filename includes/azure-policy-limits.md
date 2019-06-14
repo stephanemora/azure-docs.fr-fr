@@ -5,21 +5,21 @@ services: azure-policy
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 05/30/2019
+ms.date: 06/05/2019
 ms.author: dacoulte
 ms.custom: include file
-ms.openlocfilehash: 7907504401f4b47aafe6032ea895d9647e6c303c
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: ea87e51e66985f860cd6d10595a32facde1dc639
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66420727"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67133469"
 ---
 Il existe un nombre maximal pour chaque type d'objet concernant Azure Policy. Une entrée _Scope_ (Étendue) fait référence soit à l’abonnement, soit au [groupe d’administration](../articles/governance/management-groups/overview.md).
 
 | Where | Quoi | Nombre maximal |
 |---|---|---|
-| Étendue | Définitions de stratégies | 250 |
+| Étendue | Définitions de stratégies | 500 |
 | Étendue | Définitions d’initiative | 100 |
 | Locataire | Définitions d’initiative | 1 000 |
 | Étendue | Affectations de stratégies et d'initiatives | 100 |
