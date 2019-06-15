@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: marossi
 ms.openlocfilehash: 8a8f669c33f40fb80dc826ec04203880dee74d82
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60829988"
 ---
 # <a name="logdownloader"></a>LogDownloader
 
 Téléchargez les fichiers journaux produits par le service Décision personnalisée Azure et générez les fichiers  *.gz* utilisés par l’expérimentation.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 - Python 3 : installé et sur votre chemin d’accès. Nous vous recommandons la version 64 bits pour gérer les fichiers volumineux.
 - Le référentiel *mwt/Microsoft-ds* : [Clonez le référentiel](https://github.com/Microsoft/mwt-ds).

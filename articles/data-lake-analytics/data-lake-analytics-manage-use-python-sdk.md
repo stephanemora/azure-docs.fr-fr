@@ -10,10 +10,10 @@ ms.assetid: d4213a19-4d0f-49c9-871c-9cd6ed7cf731
 ms.topic: conceptual
 ms.date: 06/08/2018
 ms.openlocfilehash: 82007c780a0c9ff3bb2e1a50a4826499f9df9c9f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60811710"
 ---
 # <a name="manage-azure-data-lake-analytics-using-python"></a>Gérer Azure Data Lake Analytics à l’aide de Python
@@ -24,8 +24,8 @@ Cet article explique comment gérer des comptes, des sources de données, des ut
 ## <a name="supported-python-versions"></a>Versions de Python prises en charge
 
 * Utilisez la version 64 bits de Python.
-* Vous pouvez utiliser la distribution Python standard, disponible dans les **[téléchargements Python.org](https://www.python.org/downloads/)**. 
-* De nombreux développeurs trouvent pratique d’utiliser la **[distribution Anaconda Python](https://www.anaconda.com/download/)**.  
+* Vous pouvez utiliser la distribution Python standard, disponible dans les **[téléchargements Python.org](https://www.python.org/downloads/)** . 
+* De nombreux développeurs trouvent pratique d’utiliser la **[distribution Anaconda Python](https://www.anaconda.com/download/)** .  
 * Cet article a été écrit à l’aide de Python version 3.6 à partir de la distribution Python standard
 
 ## <a name="install-azure-python-sdk"></a>Installer le Kit de développement logiciel (SDK) Python
@@ -93,7 +93,7 @@ import logging, getpass, pprint, uuid, time
 
 Exécutez ce script pour vérifier que les modules peuvent être importés.
 
-## <a name="authentication"></a>Authentification
+## <a name="authentication"></a>Authentication
 
 ### <a name="interactive-user-authentication-with-a-pop-up"></a>Authentification utilisateur interactif avec une fenêtre contextuelle
 

@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 9/24/2018
 ms.author: cherylmc
 ms.openlocfilehash: cb91c1364a91c101ecf8362acd7aab01440143fc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60458589"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64685277"
 ---
 # <a name="office-365-control-plane-in-virtual-wan"></a>Plan de contrôle Office 365 dans Virtual WAN
 
@@ -26,7 +26,7 @@ Les clients Virtual WAN équipés de certains appareils SDWAN peuvent configurer
 En utilisant cette fonctionnalité dans Virtual WAN, les clients peuvent maintenant spécifier les catégories de trafic Office 365 auxquels ils se fient pour le « breakout » Internet direct. Ce trafic O365 approuvé ignore les proxies et achemine directement le trafic du site de l’utilisateur vers le serveur POP Microsoft le plus proche. Cela permet d’éviter le trafic de retour et le renvoi d’appel en épingle, de proposer une expérience optimale à l’utilisateur et de diminuer les coûts liés au WAN. 
 
 ### <a name="what-are-the-office-365-traffic-categories"></a>Quelles sont les catégories de trafic Office 365 ?
-Les points de terminaison Office 365 représentent les sous-réseaux et les adresses réseau. Les points de terminaison peuvent être des URL, des adresses IP ou des plages IP. Les URL peuvent être un nom de domaine complet (FQDN) comme *account.office.net*, ou une URL générique comme **. office365.com*. Les points de terminaison sont répartis en trois catégories en fonction de leur niveau de gravité : **Optimiser**, **Autoriser** et **Par défaut**. Pour plus d’informations sur les catégories des points de terminaison, cliquez [ici](https://docs.microsoft.com/office365/enterprise/office-365-network-connectivity-principles#BKMK_Categories).
+Les points de terminaison Office 365 représentent les sous-réseaux et les adresses réseau. Les points de terminaison peuvent être des URL, des adresses IP ou des plages IP. Les URL peuvent être un nom de domaine complet (FQDN) comme *account.office.net*, ou une URL générique comme * *. office365.com*. Les points de terminaison sont répartis en trois catégories en fonction de leur niveau de gravité : **Optimiser**, **Autoriser** et **Par défaut**. Pour plus d’informations sur les catégories des points de terminaison, cliquez [ici](https://docs.microsoft.com/office365/enterprise/office-365-network-connectivity-principles#BKMK_Categories).
 
 ### <a name="which-office-365-traffic-category-is-recommended-by-microsoft-for-direct-internet-breakout"></a>Quelle catégorie de trafic Office 365 est recommandée par Microsoft pour le « breakout » Internet direct ?
 La catégorie **Optimiser** regroupe les points de terminaison réseau les plus critiques et est nécessaire pour contourner le saut SSL et inspecter les autres appareils de sécurité réseau. Elle doit fournir des sorties Internet directes proches des utilisateurs. Les points de terminaison de cette catégorie représentent les scénarios Office 365 les plus sensibles aux performances, à la latence et à la disponibilité du réseau. Cette catégorie comprend un petit ensemble d’URL clés (de l’ordre de 10 environ) et un ensemble défini de sous-réseaux IP dédiés aux charges de travail Office 365 principales comme Exchange Online, SharePoint Online, Skype Entreprise Online et Microsoft Teams. 

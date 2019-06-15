@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: b7583a0fda2fca0d8ff80879389b824a7b352a84
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66752892"
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>Charger des fichiers dans un compte Media Services à l’aide de REST  
@@ -40,7 +40,7 @@ Dans ce didacticiel, vous allez apprendre à charger un fichier et une autre op�
 > * Charger un fichier vers le stockage d’objets blob à l’aide de l’URL de chargement
 > * Créer des métadonnées dans l’élément multimédia pour le fichier multimédia que vous avez chargé
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 - Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) avant de commencer.
 - [Créez un compte Azure Media Services avec le portail Azure](media-services-portal-create-account.md).
@@ -100,7 +100,7 @@ Pour savoir comment configurer Postman pour ce didacticiel, consultez [Configure
 
 ## <a name="create-an-access-policy-with-write-permission"></a>Créer une stratégie d’accès avec autorisation d’écriture
 
-### <a name="overview"></a>Présentation 
+### <a name="overview"></a>Vue d'ensemble 
 
 >[!NOTE]
 >Un nombre limite de 1 000 000 a été défini pour les différentes stratégies AMS (par exemple, pour la stratégie de localisateur ou pour ContentKeyAuthorizationPolicy). Vous devez utiliser le même ID de stratégie si vous utilisez toujours les mêmes jours / autorisations d’accès, par exemple, les stratégies pour les localisateurs destinées à demeurer en place pendant une longue période (stratégies sans chargement). Pour plus d’informations, consultez [cet](media-services-dotnet-manage-entities.md#limit-access-policies) article.
@@ -118,7 +118,7 @@ Avant de télécharger des fichiers dans le stockage blob, définissez les droit
 
 ## <a name="create-an-asset"></a>Créer une ressource
 
-### <a name="overview"></a>Présentation
+### <a name="overview"></a>Vue d'ensemble
 
 Une [ressource](https://docs.microsoft.com/rest/api/media/operations/asset) est un conteneur pour plusieurs types ou ensembles d’objets dans Media Services, y compris des fichiers vidéo, audio, des images, des collections de miniatures, des pistes textuelles et des sous-titres. Dans l’API REST, la création d’une ressource nécessite d’envoyer une demande POST vers Media Services et de placer les informations de propriété concernant votre ressource dans le corps de la demande.
 
@@ -139,7 +139,7 @@ Dans cet exemple, vous allez créer un élément multimédia déchiffré.
 
 ## <a name="create-a-sas-locator-and-create-the-upload-url"></a>Créer un localisateur SAS et créer l’URL de chargement
 
-### <a name="overview"></a>Présentation
+### <a name="overview"></a>Vue d'ensemble
 
 Après avoir défini AccessPolicy et Locator, le fichier réel est téléchargé vers un conteneur de stockage d’objets blob Microsoft Azure à l’aide des API REST Azure Storage. Vous devez télécharger les fichiers en tant qu’objets blob de blocs. Les objets blob de pages ne sont pas pris en charge par Azure Media Services.  
 
@@ -170,7 +170,7 @@ Certaines considérations s’appliquent :
 
 ## <a name="upload-a-file-to-blob-storage-using-the-upload-url"></a>Charger un fichier vers le stockage d’objets blob à l’aide de l’URL de chargement
 
-### <a name="overview"></a>Présentation
+### <a name="overview"></a>Vue d'ensemble
 
 Maintenant que vous avez l’URL de chargement, vous devez écrire du code avec les API d’objet blob Azure directement pour charger votre fichier dans le conteneur SAS. Pour plus d’informations, consultez les articles suivants :
 

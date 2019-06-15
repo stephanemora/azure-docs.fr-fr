@@ -9,10 +9,10 @@ ms.date: 05/17/2018
 ms.author: tomfitz
 ms.custom: include file
 ms.openlocfilehash: ab55441650085f6ca89f05613fe74dd4ae3cba54
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66128784"
 ---
 1. Pour afficher les mot clés d’une ressource ou d’un groupe de ressources, recherchez les mots clés existants dans la vue d’ensemble. Si vous n’avez préalablement appliqué aucune balise, cette liste est vide.
@@ -33,7 +33,7 @@ ms.locfileid: "66128784"
    
 1. Pour supprimer un mot clé, sélectionnez l’icône de la Corbeille. Sélectionnez ensuite **Enregistrer**.
 
-     ![Supprimer le mot clé](./media/resource-manager-tag-resources/delete-tag.png)
+     ![Supprimer un mot clé](./media/resource-manager-tag-resources/delete-tag.png)
 
 
 Pour attribuer des balises en bloc à plusieurs ressources :
@@ -46,7 +46,7 @@ Pour attribuer des balises en bloc à plusieurs ressources :
 
      ![Attribuer des mots clés](./media/resource-manager-tag-resources/assign-tags.png)
 
-1. Après chaque nom et valeur, sélectionnez **+**. Lorsque vous avez terminé, sélectionnez **Attribuer**.
+1. Après chaque nom et valeur, sélectionnez **+** . Lorsque vous avez terminé, sélectionnez **Attribuer**.
 
      ![Sélectionner Attribuer](./media/resource-manager-tag-resources/select-assign.png)
 

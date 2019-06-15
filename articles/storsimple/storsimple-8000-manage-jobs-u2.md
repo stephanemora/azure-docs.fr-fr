@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 06/29/2017
 ms.author: alkohli
 ms.openlocfilehash: 462f8dafdffa7ee01e6ccf7945a1abfdff90db42
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60506132"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64720695"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-and-manage-jobs-update-3-and-later"></a>Utiliser le service StorSimple Device Manager pour afficher et gérer des travaux (Update 3 et versions ultérieures)
 
@@ -55,9 +55,9 @@ Cette page vous permet d’effectuer diverses actions liées aux tâches, à sav
 Pour afficher les détails d’une tâche, procédez comme suit.
 
 #### <a name="to-view-job-details"></a>Pour afficher les détails d’une tâche
-1. Accédez à votre service StorSimple Device Manager et cliquez sur **Travaux (jobs)**.
+1. Accédez à votre service StorSimple Device Manager et cliquez sur **Travaux (jobs)** .
 
-2. Dans le panneau **Travaux (jobs)**, affichez les travaux qui vous intéressent en exécutant une requête avec les filtres appropriés. Vous pouvez rechercher des tâches terminées, en cours d'exécution ou annulées.
+2. Dans le panneau **Travaux (jobs)** , affichez les travaux qui vous intéressent en exécutant une requête avec les filtres appropriés. Vous pouvez rechercher des tâches terminées, en cours d'exécution ou annulées.
 
     ![Panneau Tâches](./media/storsimple-8000-manage-jobs-u2/jobs1.png)
 

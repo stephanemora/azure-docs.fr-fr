@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
 ms.openlocfilehash: cebdff5ed233516683df3330e8fd3332ded664e5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60198169"
 ---
 # <a name="securing-data-stored-in-azure-data-lake-storage-gen1"></a>Sécurisation des données stockées dans Azure Data Lake Storage Gen1
@@ -29,11 +29,11 @@ La sécurisation des données dans Azure Data Lake Storage Gen1 se fait en trois
 
 Cet article explique comment utiliser le portail Azure pour effectuer les tâches ci-dessus. Pour obtenir des informations détaillées sur la manière dont Data Lake Storage Gen1 implémente la sécurité au niveau du compte et des données, consultez [Sécurité dans Azure Data Lake Storage Gen1](data-lake-store-security-overview.md). Pour des informations détaillées sur la façon dont les listes de contrôle d’accès sont implémentées dans Data Lake Storage Gen1, consultez [Vue d’ensemble du contrôle d’accès dans Data Lake Storage Gen1](data-lake-store-access-control.md).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
 * **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Un compte Data Lake Storage Gen1**. Pour savoir comment en créer un, consultez [Prise en main d’Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
+* **Un compte Data Lake Storage Gen1**. Pour savoir comment en créer un, voir [Prise en main d’Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md).
 
 ## <a name="create-security-groups-in-azure-active-directory"></a>Créer des groupes de sécurité dans Azure Active Directory
 Pour obtenir des instructions sur la création de groupes de sécurité AAD et l'ajout d'utilisateurs au groupe, consultez [Gestion des groupes de sécurité dans Azure Active Directory](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
@@ -55,11 +55,11 @@ Lorsque vous affectez des utilisateurs ou des groupes de sécurité aux comptes 
 
 1. Ouvrez un compte Data Lake Storage Gen1. Dans le volet gauche, cliquez sur **Toutes les ressources**, puis, dans le volet Toutes les ressources, cliquez sur le nom du compte auquel vous souhaitez affecter un utilisateur ou un groupe de sécurité.
 
-2. Dans le panneau de votre compte Data Lake Storage Gen1, cliquez sur **Contrôle d’accès (IAM)**. Le panneau par défaut répertorie les propriétaires de l’abonnement en tant que propriétaires.
+2. Dans le panneau de votre compte Data Lake Storage Gen1, cliquez sur **Contrôle d’accès (IAM)** . Le panneau par défaut répertorie les propriétaires de l’abonnement en tant que propriétaires.
    
     ![Affecter un groupe de sécurité à un compte Azure Data Lake Storage Gen1](./media/data-lake-store-secure-data/adl.select.user.icon1.png "Affecter un groupe de sécurité à un compte Azure Data Lake Storage Gen1")
 
-3. Dans le panneau **Contrôle d’accès (IAM)**, cliquez sur **Ajouter** pour ouvrir le panneau **Ajouter des autorisations**. Dans le panneau **Ajouter des autorisations**, sélectionnez un **rôle** pour l’utilisateur ou le groupe. Recherchez le groupe de sécurité créé précédemment dans Azure Active Directory et sélectionnez-le. Si la liste d’utilisateurs et de groupes est longue, utilisez la zone de texte **Sélectionner** pour filtrer sur le nom du groupe. 
+3. Dans le panneau **Contrôle d’accès (IAM)** , cliquez sur **Ajouter** pour ouvrir le panneau **Ajouter des autorisations**. Dans le panneau **Ajouter des autorisations**, sélectionnez un **rôle** pour l’utilisateur ou le groupe. Recherchez le groupe de sécurité créé précédemment dans Azure Active Directory et sélectionnez-le. Si la liste d’utilisateurs et de groupes est longue, utilisez la zone de texte **Sélectionner** pour filtrer sur le nom du groupe. 
    
     ![Ajouter un rôle pour l’utilisateur](./media/data-lake-store-secure-data/adl.add.user.1.png "Ajouter un rôle pour l’utilisateur")
    
@@ -127,10 +127,10 @@ Lorsque vous supprimez des groupes de sécurité de comptes Data Lake Storage Ge
 
 L’accès aux données n’est pas modifié et est toujours géré par les ACL d’accès,  exception faite des utilisateurs/groupes du rôle Propriétaires.  Les utilisateurs/groupes supprimés du rôle Propriétaires ne sont plus super utilisateurs et leur accès bascule sur les paramètres d’ACL d’accès. 
 
-1. Dans le panneau de votre compte Data Lake Storage Gen1, cliquez sur **Contrôle d’accès (IAM)**. 
+1. Dans le panneau de votre compte Data Lake Storage Gen1, cliquez sur **Contrôle d’accès (IAM)** . 
    
     ![Affecter un groupe de sécurité à un compte Data Lake Storage Gen1](./media/data-lake-store-secure-data/adl.select.user.icon.png "Affecter un groupe de sécurité à un compte Data Lake Storage Gen1")
-2. Dans le panneau **Contrôle d’accès (IAM)**, cliquez sur les groupes de sécurité à supprimer. Cliquez sur **Supprimer**.
+2. Dans le panneau **Contrôle d’accès (IAM)** , cliquez sur les groupes de sécurité à supprimer. Cliquez sur **Supprimer**.
    
     ![Groupe de sécurité supprimé](./media/data-lake-store-secure-data/adl.remove.group.png "Groupe de sécurité supprimé")
 

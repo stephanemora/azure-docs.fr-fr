@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: johndeu;
 ms.openlocfilehash: 10dbf7e8cf67ab721cf525d4a1e7594473592bd4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61459111"
 ---
 # <a name="signaling-timed-metadata-in-live-streaming"></a>Signalisation de métadonnées chronométrées dans une vidéo en flux continu 
@@ -115,7 +115,7 @@ La piste partiellement allouée DOIT être déclarée dans la zone de manifeste 
 
 La zone de vidéo (« moov ») suit la zone de manifeste du serveur en direct en tant que partie de l’en-tête de flux pour une piste partiellement allouée.
 
-La zone « moov » doit contenir une zone **TrackHeaderBox (« tkhd »)**, telle que définie dans la norme [ISO-14496-12] avec les contraintes suivantes :
+La zone « moov » doit contenir une zone **TrackHeaderBox (« tkhd »)** , telle que définie dans la norme [ISO-14496-12] avec les contraintes suivantes :
 
 | **Nom du champ** | **Type de champ**          | **Obligatoire ?** | **Description**                                                                                                |
 |----------------|-------------------------|---------------|----------------------------------------------------------------------------------------------------------------|
@@ -123,7 +123,7 @@ La zone « moov » doit contenir une zone **TrackHeaderBox (« tkhd »)**, t
 
 -------------------------------------
 
-La zone « moov » DOIT contenir un **HandlerBox (« hdlr »)**, tel que défini dans la norme [ISO-14496-12] avec les contraintes suivantes :
+La zone « moov » DOIT contenir un **HandlerBox (« hdlr »)** , tel que défini dans la norme [ISO-14496-12] avec les contraintes suivantes :
 
 | **Nom du champ** | **Type de champ**          | **Obligatoire ?** | **Description**   |
 |----------------|-------------------------|---------------|-------------------|
@@ -383,7 +383,7 @@ Les événements sont signalés dans la bande, dans la zone « emsg », pour l
 
 Les messages [SCTE-35] sont reçus dans un format binaire à l’aide du schéma **« urn:scte:scte35:2013a:bin »** pour la réception lisse et le type **« scte35 »** pour la réception RTMP. Pour faciliter la conversion d’une synchronisation [SCTE-35], qui est basée sur des horodatages de présentation de flux de transport MPEG-2 (PTS), un mappage entre PTS (pts_time + pts_adjustment de splice_time()) et la chronologie du média sont fournis par l’heure de présentation de l’événement (champ fragment_absolute_time pour la réception lisse et champ d’heure pour la réception RTMP). Le mappage est nécessaire, car la valeur PTS 33 bits change environ toutes les 26,5 heures.
 
-La réception de diffusion en continu lisse nécessite que la zone de données multimédias (« mdat ») contienne la valeur **splice_info_section()** définie dans le tableau 8-1 de [SCTE-35]. Pour la réception RTMP, l’attribut cue du message AMF est défini sur le Base64encoded **splice_info_section()**. Lorsque les messages ont le format décrit ci-dessus, ils sont envoyés aux clients HLS, Lisse et Dash conformément à la norme [SCTE-67].
+La réception de diffusion en continu lisse nécessite que la zone de données multimédias (« mdat ») contienne la valeur **splice_info_section()** définie dans le tableau 8-1 de [SCTE-35]. Pour la réception RTMP, l’attribut cue du message AMF est défini sur le Base64encoded **splice_info_section()** . Lorsque les messages ont le format décrit ci-dessus, ils sont envoyés aux clients HLS, Lisse et Dash conformément à la norme [SCTE-67].
 
 
 ## <a name="5-references"></a>5 Références

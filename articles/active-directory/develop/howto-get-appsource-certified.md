@@ -19,10 +19,10 @@ ms.reviewer: andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0b820068f7bd59941346c8d2a3e8ede15252d58b
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65540260"
 ---
 # <a name="how-to-get-appsource-certified-for-azure-active-directory"></a>Comment obtenir une certification AppSource pour Azure Active Directory
@@ -40,7 +40,7 @@ Si vous souhaitez en savoir plus sur la façon d’intégrer votre application �
 Une *application multilocataire* est une application qui accepte les connexions des utilisateurs de toutes les entreprises ou organisations qui disposent d’Azure AD sans qu’une instance, une configuration ou un déploiement distincts ne soient nécessaires. AppSource recommande que les applications implémentent une architecture mutualisée pour activer l’expérience d’essai gratuit *d’un seul clic*.
 
 Pour activer une architecture mutualisée sur votre application, suivez ces étapes :
-1. Définissez la propriété `Multi-Tenanted` sur `Yes` dans informations d’inscription de votre application au sein du [portail Azure](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps). Par défaut, les applications créées dans le portail Azure sont configurées comme étant *[à locataire unique](#single-tenant-applications)*.
+1. Définissez la propriété `Multi-Tenanted` sur `Yes` dans informations d’inscription de votre application au sein du [portail Azure](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps). Par défaut, les applications créées dans le portail Azure sont configurées comme étant *[à locataire unique](#single-tenant-applications)* .
 1. Mettez à jour votre code pour envoyer des demandes au point de terminaison `common`. Pour ce faire, mettez à jour le point de terminaison de `https://login.microsoftonline.com/{yourtenant}` à `https://login.microsoftonline.com/common*`.
 1. Pour certaines plateformes, comme ASP.NET, vous devez également mettre à jour votre code afin d’accepter plusieurs émetteurs.
 

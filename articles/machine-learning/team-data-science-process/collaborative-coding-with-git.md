@@ -11,10 +11,10 @@ ms.date: 11/28/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 551d0cd149c4d1555a40ccf0d7baeff97c6809c2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60336296"
 ---
 # <a name="collaborative-coding-with-git"></a>Développement collaboratif avec Git
@@ -64,15 +64,15 @@ Maintenant, supposons que vous apportiez des modifications à la branche *data\_
     git commit -m"added a R scripts"
     git push origin data_ingestion
 
-![5.](./media/collaborative-coding-with-git/5-sprint-push-to-branch.png)
+![5\.](./media/collaborative-coding-with-git/5-sprint-push-to-branch.png)
 
 ## 3. <a name='CreateapullrequestonVSTS-3'></a>Créer une demande de tirage sur Azure DevOps Services 
 
 Lorsque vous êtes prêt, après quelques validations et envois (push), à fusionner la branche actuelle avec la branche de base, vous pouvez soumettre une **demande de tirage (pull request)** sur Azure DevOps Services. 
 
-Dans la page principale de votre projet, cliquez sur **CODE**. Sélectionnez la branche à fusionner et le nom du dépôt Git avec lequel vous souhaitez fusionner la branche. Ensuite, cliquez sur **Demandes de tirage (Pull requests)**, puis cliquez sur **Nouvelle demande de tirage (Pull request)** pour créer une revue de demande de tirage avant que le travail de la branche ne soit fusionné avec sa branche de base.
+Dans la page principale de votre projet, cliquez sur **CODE**. Sélectionnez la branche à fusionner et le nom du dépôt Git avec lequel vous souhaitez fusionner la branche. Ensuite, cliquez sur **Demandes de tirage (Pull requests)** , puis cliquez sur **Nouvelle demande de tirage (Pull request)** pour créer une revue de demande de tirage avant que le travail de la branche ne soit fusionné avec sa branche de base.
 
-![6.](./media/collaborative-coding-with-git/6-spring-create-pull-request.png)
+![6\.](./media/collaborative-coding-with-git/6-spring-create-pull-request.png)
 
 Ajoutez une description pour la demande de tirage, ajoutez des réviseurs, puis envoyez la demande.
 

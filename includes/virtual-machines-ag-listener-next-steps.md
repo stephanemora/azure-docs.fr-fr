@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 27b09ea9cc7ce3cf2559304a26d0c04f3ea30b54
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66165459"
 ---
 Outre la connexion automatique des clients au réplica principal, un écouteur peut servir à rediriger des charges de travail en lecture seule vers des réplicas secondaires. Cette utilisation peut améliorer les performances et l’évolutivité de votre solution globale. Pour plus d’informations, voir [Use ReadIntent Routing with Azure Always On availability group listener (Utiliser le routage ReadIntent avec l’écouteur de groupe de disponibilité Azure AlwaysOn)](https://go.microsoft.com/fwlink/?LinkId=522515).

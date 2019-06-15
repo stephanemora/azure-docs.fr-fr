@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: ashishth
 ms.openlocfilehash: 7d9aafeb920eab7f6a87061a135bf2e464add436
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64697988"
 ---
 # <a name="apache-phoenix-in-hdinsight"></a>Apache Phoenix dans HDInsight
@@ -100,7 +100,7 @@ ALTER TABLE my_other_table SET TRANSACTIONAL=true;
 
 Un *« hotspotting du serveur de la région »* peut se produire lors de l’écriture d’enregistrements avec des clés séquentielles sur HBase. Bien que vous puissiez disposer de plusieurs serveurs de région dans votre cluster, vos écritures s’exécutent toutes dans un seul d’entre eux. Cette concentration génère la problématique du « hotspotting » au cours de laquelle un seul serveur gère la charge de travail des écritures, qui n’est donc pas distribuée entre toutes les instances disponibles. Dans la mesure où chaque région présente une taille maximale prédéfinie, une région atteignant sa taille limite est divisée en plusieurs régions de taille plus réduite. Le cas échéant, l’une de ces nouvelles régions stocke l’ensemble des nouveaux enregistrements, en devenant de fait le nouveau point d’accès.
 
-Pour pallier ce problème et atteindre de meilleures performances, divisez au préalable les tables de manière à ce que l’ensemble des serveurs de région soient utilisés de la même manière. Phoenix fournit des *tables « salted »*, qui ajoutent de manière transparente l’octet de « salting » à la clé de ligne d’une table particulière. La table est pré-fractionnée sur les limites de l’octet de « salting », ceci pour garantir une distribution égale de la charge entre les serveurs de région durant la phase initiale de la table. Cette approche distribue la charge de travail d’écriture entre tous les serveurs de région disponibles, améliorant de fait les performances d’écriture et de lecture. Pour « saler » une table, spécifiez la propriété de table `SALT_BUCKETS` une fois que la table est créée :
+Pour pallier ce problème et atteindre de meilleures performances, divisez au préalable les tables de manière à ce que l’ensemble des serveurs de région soient utilisés de la même manière. Phoenix fournit des *tables « salted »* , qui ajoutent de manière transparente l’octet de « salting » à la clé de ligne d’une table particulière. La table est pré-fractionnée sur les limites de l’octet de « salting », ceci pour garantir une distribution égale de la charge entre les serveurs de région durant la phase initiale de la table. Cette approche distribue la charge de travail d’écriture entre tous les serveurs de région disponibles, améliorant de fait les performances d’écriture et de lecture. Pour « saler » une table, spécifiez la propriété de table `SALT_BUCKETS` une fois que la table est créée :
 
 ```sql
 CREATE TABLE Saltedweblogs (

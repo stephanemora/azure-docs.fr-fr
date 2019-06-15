@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
 ms.openlocfilehash: 4d4c540e00794bfdf1df265457798cc13530c828
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61337786"
 ---
 # <a name="lambda-search-syntax"></a>Syntaxe d’une recherche lambda
 
-Chaque chaîne d’une requête de recherche *lambda* décrit un modèle de graphique. Une requête doit se composer au moins d’un nœud de démarrage qui permet d’indiquer le nœud de graphique à partir duquel commencer la traversée. Pour spécifier un nœud de démarrage, appelez la méthode *MAG.StartFrom()*, puis transmettez l’ID d’un ou de plusieurs nœuds ou un objet de requête qui spécifie les contraintes de recherche. La méthode *StartFrom()* possède trois surcharges. Toutes considèrent deux arguments, le second étant facultatif. Le premier argument peut être un entier long, une collection énumérable d’entiers longs ou une chaîne représentant un objet JSON et possédant la même sémantique que la recherche *json* :
+Chaque chaîne d’une requête de recherche *lambda* décrit un modèle de graphique. Une requête doit se composer au moins d’un nœud de démarrage qui permet d’indiquer le nœud de graphique à partir duquel commencer la traversée. Pour spécifier un nœud de démarrage, appelez la méthode *MAG.StartFrom()* , puis transmettez l’ID d’un ou de plusieurs nœuds ou un objet de requête qui spécifie les contraintes de recherche. La méthode *StartFrom()* possède trois surcharges. Toutes considèrent deux arguments, le second étant facultatif. Le premier argument peut être un entier long, une collection énumérable d’entiers longs ou une chaîne représentant un objet JSON et possédant la même sémantique que la recherche *json* :
 ```
 StartFrom(long cellid, IEnumerable<string> select = null)
 StartFrom(IEnumerable<long> cellid, IEnumerable<string> select = null)
@@ -33,13 +33,13 @@ FollowEdge(params string[] edgeTypes)
 > [!NOTE]
 > Si le type d’arête n’a pas d’importance, omettez simplement *FollowEdge()* entre deux nœuds et la requête parcourra toutes les arêtes possible entre ces deux nœuds.
 
-Vous pouvez spécifier les actions de traversée à effectuer sur un nœud via *VisitNode()*. En d’autres termes, vous pouvez déterminer s’il convient de s’arrêter sur un nœud, auquel cas le résultat correspondra au chemin d’accès actuel, ou de continuer à explorer le graphique.  Le type enum *Action* définit deux types d’actions : *Action.Return* et *Action.Continue*. Vous pouvez transmettre ce type de valeur enum directement à *VisitNode()* ou les combiner aux opérations au niveau du bit et à l’opérateur « & » (AND). Lorsque deux actions sont combinées, cela signifie que les deux actions seront effectuées. Remarque : n’utilisez pas les opérations au niveau du bit ou l’opérateur « | » sur les actions (OR). Ce comportement entraîne l’arrêt de la requête sans aucun résultat. Si vous ignorez *VisitNode()* entre deux appels *FollowEdge()*, l’exploration du graphique est effectuée sans condition lorsque la requête atteint un nœud.
+Vous pouvez spécifier les actions de traversée à effectuer sur un nœud via *VisitNode()* . En d’autres termes, vous pouvez déterminer s’il convient de s’arrêter sur un nœud, auquel cas le résultat correspondra au chemin d’accès actuel, ou de continuer à explorer le graphique.  Le type enum *Action* définit deux types d’actions : *Action.Return* et *Action.Continue*. Vous pouvez transmettre ce type de valeur enum directement à *VisitNode()* ou les combiner aux opérations au niveau du bit et à l’opérateur « & » (AND). Lorsque deux actions sont combinées, cela signifie que les deux actions seront effectuées. Remarque : n’utilisez pas les opérations au niveau du bit ou l’opérateur « | » sur les actions (OR). Ce comportement entraîne l’arrêt de la requête sans aucun résultat. Si vous ignorez *VisitNode()* entre deux appels *FollowEdge()* , l’exploration du graphique est effectuée sans condition lorsque la requête atteint un nœud.
 
 ```
 VisitNode(Action action, IEnumerable<string> select = null)
 ```
 
-Pour *VisitNode()*, vous pouvez également transmettre une expression lambda de type *Expression\<Func\<INode, Action\>\>*, qui considère *INode* et renvoie une action de traversée :
+Pour *VisitNode()* , vous pouvez également transmettre une expression lambda de type *Expression\<Func\<INode, Action\>\>* , qui considère *INode* et renvoie une action de traversée :
 
 ```
 VisitNode(Expression<Func<INode, Action>> action, IEnumerable<string> select = null)
@@ -65,11 +65,11 @@ Indique si un champ portant un nom donné existe dans le nœud actuel.
 
 ##### <a name="string-getstring-fieldname"></a>string get(string fieldName)
 
-Fonctionne comme *GetField\<string\>(fieldName)*. Toutefois, il n’évoque pas d’exception lorsque le champ est introuvable, il renvoie une chaîne vide ("") à la place.
+Fonctionne comme *GetField\<string\>(fieldName)* . Toutefois, il n’évoque pas d’exception lorsque le champ est introuvable, il renvoie une chaîne vide ("") à la place.
 
 ##### <a name="bool-hasstring-fieldname"></a>bool has(string fieldName)
 
-Indique si la propriété donnée existe dans le nœud actuel. Identique à *ContainsField(fieldName)*.
+Indique si la propriété donnée existe dans le nœud actuel. Identique à *ContainsField(fieldName)* .
 
 ##### <a name="bool-hasstring-fieldname-string-value"></a>bool has(string fieldName, string value)
 

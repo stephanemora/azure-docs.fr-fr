@@ -19,10 +19,10 @@ ms.reviewer: jesakowi, justhu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6fb4342e024d826c65ed33184aaf33012d09190a
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65545191"
 ---
 # <a name="permissions-and-consent-in-the-azure-active-directory-v10-endpoint"></a>Autorisations et consentement dans le point de terminaison Azure Active Directory v1.0
@@ -61,7 +61,7 @@ Les autorisations dans Azure AD ont plusieurs propriétés qui aident les utilis
 > (Get-AzureADServicePrincipal -filter "DisplayName eq 'Microsoft Graph'").AppRoles
 > ```
 
-| Nom de la propriété | Description  | Exemples |
+| Nom de la propriété | Description | Exemples |
 | --- | --- | --- |
 | `ID` | Valeur GUID qui identifie cette autorisation de façon unique. | 570282fd-fa5c-430d-a7fd-fc8dc98a9dca |
 | `IsEnabled` | Indique si cette autorisation est disponible à l’utilisation. | true |
@@ -69,7 +69,7 @@ Les autorisations dans Azure AD ont plusieurs propriétés qui aident les utilis
 | `AdminConsentDescription` | Description présentée aux administrateurs pendant leur expérience de consentement. | Autorise l’application à lire des e-mails dans des boîtes aux lettres utilisateur. |
 | `AdminConsentDisplayName` | Nom convivial présenté aux administrateurs pendant leur expérience de consentement. | Accéder en lecture aux e-mails utilisateur |
 | `UserConsentDescription` | Description présentée aux utilisateurs pendant une expérience de consentement. |  Autorise l’application à lire des e-mails dans votre boîte aux lettres. |
-| `UserConsentDisplayName` | Nom convivial présenté aux utilisateurs pendant une expérience de consentement. | Consultation de vos e-mails |
+| `UserConsentDisplayName` | Nom convivial présenté aux utilisateurs pendant une expérience de consentement. | Lire vos e-mails |
 | `Value` | Chaîne utilisée pour identifier l’autorisation pendant des flux d’autorisation OAuth 2.0. `Value` peut également être combinée avec la chaîne d’URI d’ID d’application pour former un nom d’autorisation complet. | `Mail.Read` |
 
 ## <a name="types-of-consent"></a>Types de consentement
@@ -106,7 +106,7 @@ Les applications dans Azure AD reposent sur un consentement pour obtenir l’acc
   - `Permission` correspond à l’action qu’un utilisateur peut effectuer sur ces données
   - `Modifier` est éventuellement utilisé pour décrire les spécialisations d’une autre autorisation
     
-    Exemple :
+    Par exemple :
   - Mail.Read : autorise les utilisateurs à lire des messages.
   - Mail.ReadWrite : autorise les utilisateurs à lire ou écrire des messages.
   - Mail.ReadWrite.All : autorise un administrateur ou utilisateur à accéder à tous les messages de l’organisation.

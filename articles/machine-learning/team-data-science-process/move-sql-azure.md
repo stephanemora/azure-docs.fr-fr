@@ -12,10 +12,10 @@ ms.date: 05/04/2018
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: d1634552522a3d1056f9af29386b6ae32754cae0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61429295"
 ---
 # <a name="move-data-to-an-azure-sql-database-for-azure-machine-learning"></a>Déplacement de données vers une base de données Azure SQL pour Azure Machine Learning
@@ -49,7 +49,7 @@ Les données de fichiers plats (au format CSV ou TSV) peuvent être déplacées
 ### <a name="bulk-insert-sql-query"></a> Requête SQL Bulk Insert
 Les étapes de la procédure à l'aide de la requête SQL Bulk Insert sont similaires à celles décrites dans les sections de déplacement des données à partir d'une source de fichier plat vers SQL Server sur une machine virtuelle Azure. Pour plus d’informations, consultez [Requête SQL Bulk Insert](move-sql-server-virtual-machine.md#insert-tables-bulkquery).
 
-## <a name="sql-on-prem-to-sazure-sql-database"></a> Déplacement de données à partir d’un serveur SQL Server local vers une base de données Azure SQL Database
+## <a name="sql-on-prem-to-sazure-sql-database"></a> Déplacement de données à partir d’un serveur SQL Server local vers une base de données Azure SQL
 Si la source de données est stockée dans un serveur SQL Server local, il existe différentes possibilités pour déplacer les données vers une base de données Azure SQL :
 
 1. [Exporter dans un fichier plat](#export-flat-file)

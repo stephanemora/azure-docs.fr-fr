@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 07/05/2018
 ms.author: kirpas
 ms.subservice: disks
-ms.openlocfilehash: bd863a8ddd9e2277b628673d2146efd8c458c319
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 81e6b5558ab90f154ebf121a558704b00b97444d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55979494"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64684323"
 ---
 # <a name="how-to-expand-the-os-drive-of-a-virtual-machine"></a>Extension du lecteur de système d’exploitation d’une machine virtuelle
 
@@ -38,7 +38,7 @@ Lorsque vous créez une machine virtuelle (VM) dans un groupe de ressources en d
 > 
 
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 
 ## <a name="resize-a-managed-disk"></a>Redimensionner un disque managé
@@ -136,7 +136,7 @@ Ouvrez votre Powershell ISE ou une fenêtre Powershell en mode administrateur et
 Voici le script complet de référence pour les disques managés et non managés :
 
 
-**Disques gérés**
+**Disques managés**
 
 ```Powershell
 Connect-AzAccount

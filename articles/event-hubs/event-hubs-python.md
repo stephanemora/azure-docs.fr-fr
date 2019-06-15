@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 11/26/2018
 ms.author: shvija
 ms.openlocfilehash: 88fdaec9e19c082a6fe981dc4d9a0e015335f1e2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60202970"
 ---
 # <a name="how-to-use-azure-event-hubs-from-a-python-application"></a>Comment utiliser Azure Event Hubs à partir d’une application Python
@@ -31,7 +31,7 @@ Cet article fournit des liens vers des articles qui vous montrent comment effect
 - [Recevoir des événements d’un hub d’événements](#receive-events-from-event-hubs)
 - Lire des données d'événement capturées à partir d'un stockage Azure. 
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 - Créez un hub d’événements en suivant l’un de ces guides de démarrage rapide : [Portail Azure](event-hubs-create.md), [Azure CLI](event-hubs-quickstart-cli.md), [Azure PowerShell](event-hubs-quickstart-powershell.md), [modèle Azure Resource Manager](event-hubs-resource-manager-namespace-event-hub.md). 
 - Python 3.4 ou ultérieur doit être installé sur votre ordinateur.
 

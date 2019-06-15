@@ -16,10 +16,10 @@ ms.date: 01/11/2019
 ms.author: byvinyal
 ms.custom: seodec18
 ms.openlocfilehash: a5d4d13d8e60cd7f273363a9bc385098e15cbb71
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60832564"
 ---
 # <a name="monitor-apps-in-azure-app-service"></a>Superviser les applications dans Azure App Service
@@ -53,7 +53,7 @@ Pour plus d’informations sur les quotas, limites et fonctionnalités spécifiq
 
 ### <a name="quota-enforcement"></a>Application de quotas
 
-Si une application dépasse le quota *Temps UC (court)*, *Temps UC (jour)* ou *Bande passante*, l’application est arrêtée jusqu’à la réinitialisation du quota. Pendant ce laps de temps, toutes les requêtes entrantes donnent lieu à une erreur HTTP 403.
+Si une application dépasse le quota *Temps UC (court)* , *Temps UC (jour)* ou *Bande passante*, l’application est arrêtée jusqu’à la réinitialisation du quota. Pendant ce laps de temps, toutes les requêtes entrantes donnent lieu à une erreur HTTP 403.
 
 ![Message d’erreur 403][http403]
 

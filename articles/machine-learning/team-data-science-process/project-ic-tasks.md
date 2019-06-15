@@ -11,10 +11,10 @@ ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 6a52907fa6c0e2483479031fbb3d1ad68a121d95
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61043305"
 ---
 # <a name="tasks-for-an-individual-contributor-in-the-team-data-science-process"></a>Tâches pour un contributeur individuel dans TDSP (Team Data Science Process)
@@ -45,7 +45,7 @@ Dans ce didacticiel, les noms des dépôts et des répertoires sont abrégés. C
 - **D5** : répertoire local cloné à partir de R5.
 
 
-## <a name="step-0-prerequisites"></a>Étape 0 : Conditions préalables
+## <a name="step-0-prerequisites"></a>Étape 0 : Prérequis
 
 Pour satisfaire aux prérequis, les tâches attribuées à votre responsable de groupe et décrites dans [Tâches du responsable de groupe pour une équipe de science des données](group-manager-tasks.md) doivent être effectuées. En résumé, avant de commencer les tâches du responsable d’équipe, les conditions suivantes doivent être remplies : 
 - Votre responsable de groupe a configuré le dépôt **GroupUtilities** (le cas échéant). 
@@ -94,7 +94,7 @@ Vérifiez la présence des trois dossiers sous votre répertoire de projet.
 
 Vérifiez la présence des trois dossiers sous votre répertoire de projet.
 
-![5.](./media/project-ic-tasks/project-ic-5-three-repo-cloned-to-ic-linux.png)
+![5\.](./media/project-ic-tasks/project-ic-5-three-repo-cloned-to-ic-linux.png)
 
 ## <a name="step-4-5-mount-azure-file-storage-to-your-dsvm-optional"></a>Étapes 4-5 : Monter un stockage de fichiers Azure sur votre instance DSVM (facultatif)
 

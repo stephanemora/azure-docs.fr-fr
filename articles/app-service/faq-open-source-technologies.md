@@ -17,10 +17,10 @@ ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
 ms.openlocfilehash: 7831e5e989835b2c9432dbd61a242584a7b6244d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61270203"
 ---
 # <a name="open-source-technologies-faqs-for-web-apps-in-azure"></a>FAQ sur les technologies open source pour Azure Web Apps
@@ -37,7 +37,7 @@ Pour activer la journalisation PHP :
 2. Dans le menu principal, sélectionnez **Console de débogage** > **CMD**.
 3. Sélectionnez le dossier **Site**.
 4. Sélectionnez le dossier **wwwroot**.
-5. Sélectionnez l’icône **+**, puis sélectionnez **Nouveau fichier**.
+5. Sélectionnez l’icône **+** , puis sélectionnez **Nouveau fichier**.
 6. Définissez le nom de fichier sur **.user.ini**.
 7. Sélectionnez l’icône du crayon en regard de **.user.ini**.
 8. Dans le fichier, ajoutez ce code : `log_errors=on`

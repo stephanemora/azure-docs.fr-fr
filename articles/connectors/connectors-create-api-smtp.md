@@ -12,17 +12,17 @@ ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
 ms.openlocfilehash: 78b1eb6272fa97ef392e97723454d29cf56bb4bf
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62106148"
 ---
 # <a name="send-email-from-your-smtp-account-with-azure-logic-apps"></a>Envoyer un e-mail à partir de votre compte SMTP avec Azure Logic Apps
 
 Avec Azure Logic Apps et le connecteur SMTP (Simple Mail Transfer Protocol), vous pouvez créer des tâches et des flux de travail automatisés qui envoient des e-mails à partir de votre compte SMTP. Vous pouvez également faire en sorte que des actions utilisent la sortie d’actions SMTP. Par exemple, lorsque votre SMTP envoie un e-mail, vous pouvez informer votre équipe dans Slack avec le connecteur Slack. Si vous débutez avec les applications logiques, consultez [Qu’est-ce qu’Azure Logic Apps ?](../logic-apps/logic-apps-overview.md)
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscrivez-vous pour bénéficier d’un compte Azure gratuit</a>. 
 
@@ -47,7 +47,7 @@ Avec Azure Logic Apps et le connecteur SMTP (Simple Mail Transfer Protocol), vou
 1. Sous la dernière étape où vous souhaitez ajouter une action SMTP, choisissez **Nouvelle étape**. 
 
    Pour ajouter une action entre des étapes, placez votre pointeur au-dessus de la flèche qui les sépare. 
-   Cliquez sur le signe plus (**+**) qui s’affiche, puis sélectionnez **Ajouter une action**.
+   Cliquez sur le signe plus ( **+** ) qui s’affiche, puis sélectionnez **Ajouter une action**.
 
 1. Dans la zone de recherche, entrez « smtp » comme filtre. Sous la liste des actions, sélectionnez l’action souhaitée.
 
@@ -55,12 +55,12 @@ Avec Azure Logic Apps et le connecteur SMTP (Simple Mail Transfer Protocol), vou
 
    | Propriété | Obligatoire | Description |
    |----------|----------|-------------|
-   | **Nom de connexion** | Oui | Un nom pour la connexion à votre serveur SMTP | 
-   | **Adresse du serveur SMTP** | Oui | L’adresse de votre serveur SMTP | 
-   | **Nom d’utilisateur** | Oui | Votre nom d'utilisateur pour votre compte SMTP | 
-   | **Mot de passe** | Oui | Votre mot de passe pour votre compte SMTP | 
-   | **Port du serveur SMTP** | Non  | Un port spécifique que vous souhaitez utiliser sur votre serveur SMTP | 
-   | **Activer le protocole SSL ?** | Non  | Activer ou désactiver le chiffrement SSL. | 
+   | **Nom de connexion** | OUI | Un nom pour la connexion à votre serveur SMTP | 
+   | **Adresse du serveur SMTP** | OUI | L’adresse de votre serveur SMTP | 
+   | **Nom d’utilisateur** | OUI | Votre nom d'utilisateur pour votre compte SMTP | 
+   | **Mot de passe** | OUI | Votre mot de passe pour votre compte SMTP | 
+   | **Port du serveur SMTP** | Non | Un port spécifique que vous souhaitez utiliser sur votre serveur SMTP | 
+   | **Activer le protocole SSL ?** | Non | Activer ou désactiver le chiffrement SSL. | 
    |||| 
 
 1. Fournissez les informations nécessaires pour l’action sélectionnée. 

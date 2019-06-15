@@ -17,10 +17,10 @@ ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fc82f69c8dee4cc8c45e9fcf7fbf6fa184ad72b6
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65783051"
 ---
 # <a name="wildcard-applications-in-the-azure-active-directory-application-proxy"></a>Applications génériques dans le proxy d’application Azure Active Directory 
@@ -53,7 +53,7 @@ Si vous avez d’autres applications avec différents paramètres de configurati
 La création d’une application générique repose sur le même [flux de publication d’application](application-proxy-add-on-premises-application.md) que celui de toutes les autres applications. La seule différence est que vous ajoutez un caractère générique dans les URL et éventuellement la configuration de l’authentification unique.
 
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 ### <a name="custom-domains"></a>Domaines personnalisés
 
@@ -169,7 +169,7 @@ La configuration implémente la structure suivante :
 
 ![AppId](./media/application-proxy-wildcard/05.png)
 
-| Couleur | Description  |
+| Couleur | Description |
 | ---   | ---         |
 | Bleu  | Applications explicitement publiées et visibles dans le portail Azure. |
 | Gris  | Applications accessibles via l’application parente. |

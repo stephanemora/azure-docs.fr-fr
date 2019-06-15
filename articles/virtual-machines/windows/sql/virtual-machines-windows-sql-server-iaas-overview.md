@@ -16,10 +16,10 @@ ms.date: 12/12/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 99c4f0f99af61196cf1a12f2f68a7d10d8b2e6c7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61477159"
 ---
 # <a name="what-is-sql-server-on-azure-virtual-machines-windows"></a>Qu’est-ce que SQL Server sur les machines virtuelles Azure ? (Windows)
@@ -74,7 +74,7 @@ Pour afficher les images de machines virtuelles Linux SQL Server disponibles, c
 ### <a id="BYOL"></a> BYOL (apportez votre propre licence)
 Vous pouvez également apporter votre propre licence (modèle BYOL). Dans ce scénario, vous payez uniquement pour la machine virtuelle sans frais supplémentaires pour la gestion de licences SQL Server.  Apporter votre propre licence peut être avantageux sur le long terme pour des charges de travail de production continue. Pour la configuration requise pour utiliser cette option, consultez [Tarification des machines virtuelles SQL Server Azure](virtual-machines-windows-sql-server-pricing-guidance.md#byol).
 
-Pour utiliser votre propre licence, vous pouvez soit convertir une machine virtuelle SQL avec paiement à l’utilisation, soit déployer une image avec le préfixe **{BYOL}**. Pour plus d’informations sur le passage du modèle de paiement à l’utilisation au modèle BYOL (apportez votre propre licence), consultez [Guide pratique pour modifier le modèle de licence d’une machine virtuelle SQL](virtual-machines-windows-sql-ahb.md). 
+Pour utiliser votre propre licence, vous pouvez soit convertir une machine virtuelle SQL avec paiement à l’utilisation, soit déployer une image avec le préfixe **{BYOL}** . Pour plus d’informations sur le passage du modèle de paiement à l’utilisation au modèle BYOL (apportez votre propre licence), consultez [Guide pratique pour modifier le modèle de licence d’une machine virtuelle SQL](virtual-machines-windows-sql-ahb.md). 
 
 | Version | Système d’exploitation | Édition |
 | --- | --- | --- |

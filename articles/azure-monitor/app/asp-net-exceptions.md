@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 09/19/2017
 ms.author: mbullwin
 ms.openlocfilehash: cb32069de295b883cdc6d3a9fa495b1bea719c39
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60691810"
 ---
 # <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>Diagnostiquez les exceptions dans vos applications web avec Application Insights
@@ -47,7 +47,7 @@ Ouvrez la fenêtre de recherche d’Application Insights dans Visual Studio et c
 
 Notez que vous pouvez filtrer le rapport pour qu’il affiche uniquement les exceptions.
 
-*Aucune exception ne s’affiche ? Consultez [Capture des exceptions](#exceptions)* 
+*Aucune exception ne s’affiche ? Consultez [Capture des exceptions](#exceptions)*
 
 Cliquez sur un rapport d’exception pour afficher sa trace de pile.
 Cliquez sur une référence de ligne dans l’arborescence des appels de procédure pour ouvrir le fichier de code approprié.
@@ -72,7 +72,7 @@ Vous pouvez consulter en un seul clic des exemples représentatifs pour chacun d
 
 Sur cette page, vous pouvez voir toutes les exceptions collectées pour votre application analysée.
 
-*Aucune exception ne s’affiche ? Consultez [Capture des exceptions](#exceptions)* 
+*Aucune exception ne s’affiche ? Consultez [Capture des exceptions](#exceptions)*
 
 
 ## <a name="custom-tracing-and-log-data"></a>Suivi personnalisé et données du journal
@@ -191,7 +191,7 @@ Mais si vous avez des redirections actives, ajoutez les lignes suivantes à la f
 ## <a name="mvc"></a>MVC
 À partir de la version 2.6 (bêta 3 et versions ultérieures) du Kit de développement logiciel (SDK) web d’Application Insights, Application Insights collecte automatiquement les exceptions non prises en charge qui sont levées dans les méthodes des contrôleurs MVC 5+. Si vous avez déjà ajouté un gestionnaire personnalisé pour suivre ces exceptions (comme dans les exemples suivants), vous pouvez le supprimer afin d’éviter un double suivi.
 
-Il existe un certain nombre de cas que les filtres d'exception ne peuvent pas gérer. Par exemple : 
+Il existe un certain nombre de cas que les filtres d'exception ne peuvent pas gérer. Par exemple :
 
 * Les exceptions lancées à partir des constructeurs de contrôleur.
 * Les exceptions lancées à partir des gestionnaires de messages.
@@ -283,7 +283,7 @@ Enregistrez AiHandleErrorAttribute en tant que filtre global dans FilterConfig.c
 ## <a name="web-api"></a>API Web
 À partir de la version 2.6 (bêta 3 et versions ultérieures) du Kit de développement logiciel (SDK) web d’Application Insights, Application Insights collecte automatiquement les exceptions non prises en charge qui sont levées dans les méthodes des contrôleurs pour WebAPI 2+. Si vous avez déjà ajouté un gestionnaire personnalisé pour suivre ces exceptions (comme dans les exemples suivants), vous pouvez le supprimer afin d’éviter un double suivi.
 
-Il existe un certain nombre de cas que les filtres d'exception ne peuvent pas gérer. Par exemple : 
+Il existe un certain nombre de cas que les filtres d'exception ne peuvent pas gérer. Par exemple :
 
 * Les exceptions lancées à partir des constructeurs de contrôleur.
 * Les exceptions lancées à partir des gestionnaires de messages.

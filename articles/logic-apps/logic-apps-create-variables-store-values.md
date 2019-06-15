@@ -11,10 +11,10 @@ ms.service: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.openlocfilehash: e525e5584e4835b0f2b73203c818c3f799b77cf5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61004491"
 ---
 # <a name="create-variables-for-saving-and-managing-values-in-azure-logic-apps"></a>Créer des variables pour l’enregistrement et la gestion de valeurs dans Azure Logic Apps
@@ -35,7 +35,7 @@ Les variables existent et sont globales uniquement au sein de l’instance d’a
 
 Si vous n’avez pas encore d’abonnement Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscrivez-vous pour bénéficier d’un compte Azure gratuit</a>. 
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre cet article, voici les éléments que vous avez besoin :
 
@@ -74,9 +74,9 @@ Vous pouvez créer une variable et déclarer son type de données et sa valeur i
 
    | Propriété | Obligatoire | Value |  Description |
    |----------|----------|-------|--------------|
-   | Name | Oui | <*variable-name*> | Nom de la variable à incrémenter | 
-   | Type | Oui | <*variable-type*> | Type de données de la variable. | 
-   | Value | Non  | <*start-value*> | Valeur initiale de votre variable. <p><p>**Conseil** : Bien que cette valeur soit facultative, nous vous recommandons de la définir afin de toujours connaître la valeur initiale de votre variable. | 
+   | Name | OUI | <*variable-name*> | Nom de la variable à incrémenter | 
+   | Type | OUI | <*variable-type*> | Type de données de la variable. | 
+   | Value | Non | <*start-value*> | Valeur initiale de votre variable. <p><p>**Conseil** : Bien que cette valeur soit facultative, nous vous recommandons de la définir afin de toujours connaître la valeur initiale de votre variable. | 
    ||||| 
 
    ![Initialiser la variable](./media/logic-apps-create-variables-store-values/initialize-variable.png)
@@ -182,7 +182,7 @@ Voici quelques exemples pour d’autres types de variables :
 Pour extraire ou référencer le contenu d’une variable, vous pouvez également utiliser la [fonction variables()](../logic-apps/workflow-definition-language-functions-reference.md#variables) dans le Concepteur d’application logique et l’éditeur en mode Code.
 Lorsque vous référencez une variable, utilisez le nom de celle-ci en tant que jeton, pas le nom de l’action qui est la façon habituelle de référencer les résultats d’une action. 
 
-Par exemple, cette expression obtient les éléments à partir de la variable tableau [créée précédemment dans cet article](#append-value) à l’aide de la **fonction variables()**. La fonction **string()** retourne le contenu de la variable sous forme de chaîne : `"1, 2, 3, red"`
+Par exemple, cette expression obtient les éléments à partir de la variable tableau [créée précédemment dans cet article](#append-value) à l’aide de la **fonction variables()** . La fonction **string()** retourne le contenu de la variable sous forme de chaîne : `"1, 2, 3, red"`
 
 ```json
 @{string(variables('myArrayVariable'))}
@@ -210,11 +210,11 @@ Pour augmenter, ou *incrément*, une variable d’une valeur constante, ajoutez 
 
    | Propriété | Obligatoire | Value |  Description |
    |----------|----------|-------|--------------|
-   | Name | Oui | <*variable-name*> | Nom de la variable à incrémenter | 
-   | Value | Non  | <*increment-value*> | Valeur utilisée pour incrémenter la variable. La valeur par défaut est 1. <p><p>**Conseil** : Bien que cette valeur soit facultative, nous vous recommandons de la définir afin de toujours connaître la valeur spécifique pour l’incrémentation de votre variable. | 
+   | Name | OUI | <*variable-name*> | Nom de la variable à incrémenter | 
+   | Value | Non | <*increment-value*> | Valeur utilisée pour incrémenter la variable. La valeur par défaut est 1. <p><p>**Conseil** : Bien que cette valeur soit facultative, nous vous recommandons de la définir afin de toujours connaître la valeur spécifique pour l’incrémentation de votre variable. | 
    |||| 
 
-   Par exemple :  
+   Par exemple : 
    
    ![Exemple de valeur d’incrément](./media/logic-apps-create-variables-store-values/increment-variable-action-information.png)
 
@@ -260,7 +260,7 @@ Des variables sont couramment utilisées pour compter le nombre d’exécutions 
 
    ![Ajouter une boucle « pour chaque »](./media/logic-apps-create-variables-store-values/add-loop.png)
 
-5. Dans la boucle, cliquez dans la zone **Select an output from previous steps (Sélectionner un résultat des étapes précédentes)**. Lorsque la liste de contenus dynamiques s’affiche, sélectionnez **Pièces jointes**. 
+5. Dans la boucle, cliquez dans la zone **Select an output from previous steps (Sélectionner un résultat des étapes précédentes)** . Lorsque la liste de contenus dynamiques s’affiche, sélectionnez **Pièces jointes**. 
 
    ![Sélectionner « Pièces jointes »](./media/logic-apps-create-variables-store-values/select-attachments.png)
 
@@ -330,8 +330,8 @@ Voici les propriétés disponibles pour l’action **Décrémenter une variable*
 
 | Propriété | Obligatoire | Value |  Description |
 |----------|----------|-------|--------------|
-| Name | Oui | <*variable-name*> | Nom de la variable à décrémenter | 
-| Value | Non  | <*increment-value*> | Valeur de la décrémentation de la variable. La valeur par défaut est 1. <p><p>**Conseil** : Bien que cette valeur soit facultative, nous vous recommandons de la définir afin de toujours connaître la valeur spécifique pour la décrémentation de votre variable. | 
+| Name | OUI | <*variable-name*> | Nom de la variable à décrémenter | 
+| Value | Non | <*increment-value*> | Valeur de la décrémentation de la variable. La valeur par défaut est 1. <p><p>**Conseil** : Bien que cette valeur soit facultative, nous vous recommandons de la définir afin de toujours connaître la valeur spécifique pour la décrémentation de votre variable. | 
 ||||| 
 
 Si vous passez du concepteur à l’éditeur en mode Code, voici comment l’action **Décrémenter une variable** s’affiche à l’intérieur de la définition de votre application logique, qui est au format JSON.
@@ -365,8 +365,8 @@ Voici les propriétés disponibles pour l’action **Définir une variable** :
 
 | Propriété | Obligatoire | Value |  Description | 
 |----------|----------|-------|--------------| 
-| Name | Oui | <*variable-name*> | Nom de la variable à modifier | 
-| Value | Oui | <*new-value*> | Valeur que vous souhaitez attribuer à la variable. Le type de données des deux doit être identique. | 
+| Name | OUI | <*variable-name*> | Nom de la variable à modifier | 
+| Value | OUI | <*new-value*> | Valeur que vous souhaitez attribuer à la variable. Le type de données des deux doit être identique. | 
 ||||| 
 
 > [!NOTE]
@@ -424,8 +424,8 @@ Voici les propriétés disponibles pour les actions **Ajouter à...**  :
 
 | Propriété | Obligatoire | Value |  Description | 
 |----------|----------|-------|--------------| 
-| Name | Oui | <*variable-name*> | Nom de la variable à modifier | 
-| Value | Oui | <*append-value*> | Valeur que vous souhaitez ajouter, qui peut être de tout type | 
+| Name | OUI | <*variable-name*> | Nom de la variable à modifier | 
+| Value | OUI | <*append-value*> | Valeur que vous souhaitez ajouter, qui peut être de tout type | 
 |||||  
 
 Si vous passez du concepteur à l’éditeur en mode Code, voici comment l’action **Ajouter à une variable tableau** s’affiche à l’intérieur de la définition de votre application logique, qui est au format JSON.

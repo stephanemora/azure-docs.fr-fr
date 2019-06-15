@@ -12,10 +12,10 @@ ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
 ms.openlocfilehash: ca2d28f3438fd166fa282488206662c95777bf3b
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62104729"
 ---
 # <a name="monitor-and-manage-your-yammer-account-by-using-azure-logic-apps"></a>Superviser et gérer votre compte Yammer à l’aide d’Azure Logic Apps
@@ -28,7 +28,7 @@ Avec Azure Logic Apps et le connecteur Yammer, vous pouvez créer des tâches et
 
 Vous pouvez utiliser des déclencheurs qui obtiennent des réponses de votre compte Yammer et mettent la sortie à la disposition d’autres actions. Vous pouvez utiliser des actions qui effectuent des tâches avec votre compte Yammer. Vous pouvez également faire en sorte que des actions utilisent la sortie d’actions Yammer. Par exemple, quand de nouveaux messages s’affichent dans des flux ou des groupes, vous pouvez partager ces messages avec le connecteur Slack. Si vous débutez avec les applications logiques, consultez [Qu’est-ce qu’Azure Logic Apps ?](../logic-apps/logic-apps-overview.md)
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscrivez-vous pour bénéficier d’un compte Azure gratuit</a>. 
 
@@ -60,7 +60,7 @@ Vous pouvez utiliser des déclencheurs qui obtiennent des réponses de votre com
        -ou-
 
      * Pour ajouter une action entre des étapes, placez votre pointeur au-dessus de la flèche qui les sépare. 
-     Cliquez sur le signe plus (**+**) qui s’affiche, puis sélectionnez **Ajouter une action**.
+     Cliquez sur le signe plus ( **+** ) qui s’affiche, puis sélectionnez **Ajouter une action**.
      
        Dans la zone de recherche, entrez « yammer » comme filtre. 
        Sous la liste des actions, sélectionnez l’action souhaitée.

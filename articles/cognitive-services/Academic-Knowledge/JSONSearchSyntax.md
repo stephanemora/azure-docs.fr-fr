@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
 ms.openlocfilehash: fddd2291fe7fbb46c57d31e9aebc7fc6244df971
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61336964"
 ---
 # <a name="json-search-syntax"></a>Syntaxe de recherche JSON
@@ -33,7 +33,7 @@ ms.locfileid: "61336964"
 }
 ```
 
-Les noms des nœuds d’un chemin d’accès de requête (_v0, v1, ..._) servent d’identificateurs de nœuds qui peuvent être référencés dans l’objet de requête ; les noms des arêtes (_e0, e1, ..._) du chemin d’accès représentent les types d’arêtes correspondantes. Nous pouvons utiliser un astérisque _*_ en tant que nœud ou nom d’arête (sauf pour le nœud de démarrage, qui doit être fourni) afin de déclarer qu’il n’existe aucune contrainte sur cet élément. Par exemple, un chemin d’accès de requête `/v0/*/v1/e1/*/` récupère les chemins d’accès à partir du graphique sans restreindre le type d’arête _(v0, v1)_. Pendant ce temps, la requête n’est associée à aucune contrainte sur la destination (le dernier nœud) du chemin d’accès.
+Les noms des nœuds d’un chemin d’accès de requête (_v0, v1, ..._ ) servent d’identificateurs de nœuds qui peuvent être référencés dans l’objet de requête ; les noms des arêtes (_e0, e1, ..._ ) du chemin d’accès représentent les types d’arêtes correspondantes. Nous pouvons utiliser un astérisque _*_ en tant que nœud ou nom d’arête (sauf pour le nœud de démarrage, qui doit être fourni) afin de déclarer qu’il n’existe aucune contrainte sur cet élément. Par exemple, un chemin d’accès de requête `/v0/*/v1/e1/*/` récupère les chemins d’accès à partir du graphique sans restreindre le type d’arête _(v0, v1)_ . Pendant ce temps, la requête n’est associée à aucune contrainte sur la destination (le dernier nœud) du chemin d’accès.
 
 Lorsqu’un chemin d’accès ne contient qu’un nœud, par exemple _v0_, la requête renvoie simplement toutes les entités qui respectent les contraintes. Un objet de contrainte appliqué au nœud de démarrage est appelé *Starting Query Object*, dont la spécification est la suivante.
 

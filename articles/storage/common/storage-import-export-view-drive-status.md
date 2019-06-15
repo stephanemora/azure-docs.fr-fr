@@ -9,10 +9,10 @@ ms.date: 05/17/2018
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: 225164fe00f70839446f8b74155cd3959f745a49
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61478021"
 ---
 # <a name="view-the-status-of-azure-importexport-jobs"></a>Voir l’état des tâches Azure Import/Export
@@ -51,7 +51,7 @@ Le tableau suivant décrit chacun des états par lesquels le disque d’une tâc
 | NeverReceived (Jamais reçu) | Le lecteur passe à l’état **NeverReceived** quand le colis associé à une tâche est arrivé, mais ne contient pas le lecteur. Un lecteur peut également passer à cet état si le colis n’est toujours pas arrivé au centre de données deux semaines après réception des informations d’expédition par le service. |
 | Transferring | Un lecteur passe à l’état **Transfert** quand le service commence à transférer les données du lecteur dans le Stockage Azure. |
 | Completed | Un lecteur passe à l’état **Effectué** quand le service a transféré toutes les données sans erreurs.
-| CompletedMoreInfo (Terminé avec des informations) | Un lecteur passe à l’état **CompletedMoreInfo** quand le service a rencontré des erreurs pendant la copie des données à partir du disque ou sur celui-ci. Les informations peuvent inclure des erreurs, des avertissements ou des messages d’informations sur le remplacement des blobs.
+| CompletedMoreInfo (Terminé avec des informations) | Un lecteur passe à l’état **CompletedMoreInfo** quand le service a rencontré des erreurs pendant la copie des données à partir du disque ou sur celui-ci. Les informations peuvent inclure des erreurs, des avertissements ou des messages d’informations sur le remplacement des objets blob.
 | ShippedBack (Renvoyé) | Un lecteur passe à l’état **ShippedBack** quand il a été réexpédié par le centre de données à l’adresse de retour. |
 
 Cette image à partir du portail Azure affiche l’état du lecteur d’un exemple de travail :
@@ -65,7 +65,7 @@ Le tableau suivant décrit les états associés aux défaillances de disque et l
 | NeverReceived (Jamais reçu) | Un lecteur marqué comme **NeverReceived** (parce qu’il n’a pas été reçu dans le cadre de l’expédition de la tâche) arrive dans un autre colis. | L’équipe des opérations passe le lecteur à l’état **Reçu**. |
 | N/A | Un lecteur qui n’est associé à aucune tâche arrive au centre de données dans le cadre d’une autre tâche. | Le lecteur est marqué comme disque supplémentaire et est renvoyé au client une fois effectuée la tâche associée au colis d’origine. |
 
-## <a name="time-to-process-job"></a>Temps de traitement du travail 
+## <a name="time-to-process-job"></a>Temps de traitement du travail
 La durée de traitement d’une tâche d’importation/exportation varie en fonction de plusieurs facteurs comme les suivants :
 
 -  Délai d’expédition

@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 12/20/2017
 ms.author: cshoe
 ms.openlocfilehash: f112bdf9eacf51852659ab49a5673b0c8bfb0e46
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61438106"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64511815"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Liaisons Microsoft Graph pour Azure Functions
 
@@ -674,7 +674,7 @@ Cette liaison nécessite les autorisations Azure AD suivantes :
 La liaison expose les types suivants de fonctions .NET :
 - byte[]
 - Stream
-- string
+- chaîne
 - Microsoft.Graph.DriveItem
 
 
@@ -822,7 +822,7 @@ Cette liaison nécessite les autorisations Azure AD suivantes :
 La liaison expose les types suivants de fonctions .NET :
 - byte[]
 - Stream
-- string
+- chaîne
 - Microsoft.Graph.DriveItem
 
 
@@ -972,7 +972,7 @@ Cette liaison nécessite les autorisations Azure AD suivantes :
 La liaison expose les types suivants de fonctions .NET :
 - Microsoft.Graph.Message
 - Newtonsoft.Json.Linq.JObject
-- string
+- chaîne
 - Types d’objets personnalisés (utilisant une liaison de modèle structurel)
 
 
@@ -1402,7 +1402,7 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
 ### <a name="webhook-output---usage"></a>Sortie de webhook - utilisation
 
 La liaison expose les types suivants de fonctions .NET :
-- string
+- chaîne
 - Microsoft.Graph.Subscription
 
 

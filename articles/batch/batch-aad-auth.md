@@ -16,10 +16,10 @@ ms.workload: big-compute
 ms.date: 04/18/2018
 ms.author: lahugh
 ms.openlocfilehash: 0ca22cfe99e77cd2ed3c5a966fb2412444103d71
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64922438"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Authentification de solutions de service Batch avec Active Directory
@@ -138,7 +138,7 @@ Suivez les étapes ci-dessous dans le portail Azure :
 Pour s’authentifier avec un principal de service, vous devez attribuer un rôle RBAC à votre application. Procédez comme suit :
 
 1. Dans le portail Azure, accédez au compte Batch utilisé par votre application.
-2. Dans le panneau **Paramètres** du compte Batch, sélectionnez **Contrôle d’accès (IAM)**.
+2. Dans le panneau **Paramètres** du compte Batch, sélectionnez **Contrôle d’accès (IAM)** .
 3. Cliquez sur l’onglet **Attributions de rôles**.
 4. Cliquez sur le bouton **Ajouter une attribution de rôle**. 
 5. Dans la liste déroulante **Rôle**, choisissez le rôle _Collaborateur_ ou _Lecteur_ pour votre application. Pour plus d’informations sur ces rôles, consultez [Prise en main du contrôle d’accès en fonction du rôle dans le portail Azure](../role-based-access-control/overview.md).  

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: dc871b29cdafa57d337f9be6cf01e76212f31b67
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66167086"
 ---
 ## <a name="migrate-iaas-resources-from-the-classic-deployment-model-to-azure-resource-manager"></a>Migrer des ressources IaaS depuis le modèle de déploiement classique vers Azure Resource Manager
@@ -107,7 +107,7 @@ Il n’existe pas de fenêtre de temps défini imposant un délai dans lequel vo
 
 Si vous constatez certains problèmes, vous pouvez toujours abandonner la migration et revenir au modèle de déploiement Classic. Une fois que vous revenez en arrière, Azure ouvre les opérations de plan de gestion sur les ressources, de manière à ce que vous puissiez reprendre les opérations normales sur ces machines virtuelles dans le modèle de déploiement classique.
 
-### <a name="abort"></a>Abandonner
+### <a name="abort"></a>Abandon
 Il s’agit d’une étape facultative si vous souhaitez annuler vos modifications, rétablir le modèle de déploiement classique et arrêter la migration. Cette opération supprime les métadonnées de Resource Manager (créées à l’étape de préparation) pour vos ressources. 
 
 ![Diagramme de l’étape d’abandon](../articles/virtual-machines/windows/media/migration-classic-resource-manager/behind-the-scenes-abort.png)
@@ -148,7 +148,7 @@ Les représentations des ressources du modèle de déploiement classique et de R
 | Configuration réseau sur une machine virtuelle |Interface réseau principale |La configuration réseau sur une machine virtuelle est représentée sous forme de ressource d’interface réseau principale après la migration. Dans le cas des machines virtuelles qui ne figurent pas dans un réseau virtuel, l’adresse IP interne change lors de la migration. |
 | Plusieurs interfaces réseau sur une machine virtuelle |Interfaces réseau |Si une machine virtuelle possède plusieurs interfaces réseau associées, chaque interface réseau devient une ressource de niveau supérieur dans le cadre de la migration, ainsi que toutes les propriétés. |
 | Jeux de points de terminaison soumis à l’équilibrage de charge |Équilibrage de charge |Dans le modèle de déploiement Classic, la plateforme a affecté un équilibreur de charge implicite à chaque service cloud. Pendant la migration, une ressource d’équilibreur de charge est créée, et le jeu de points de terminaison d’équilibrage de charge constitue les règles de l’équilibreur de charge. |
-| Règles NAT de trafic entrant |Règles NAT entrantes |Les points de terminaison d’entrée définis sur la machine virtuelle sont convertis en règles de traduction NAT (Network Access Translation) du trafic entrant sous l’équilibreur de charge lors de la migration. |
+| Règles NAT entrantes |Règles NAT entrantes |Les points de terminaison d’entrée définis sur la machine virtuelle sont convertis en règles de traduction NAT (Network Access Translation) du trafic entrant sous l’équilibreur de charge lors de la migration. |
 | Adresse IP virtuelle |Adresse IP publique avec nom DNS |L’adresse IP virtuelle devient une adresse IP publique et est associée à l’équilibreur de charge. Une adresse IP virtuelle ne peut faire l’objet d’une migration que si un point de terminaison d’entrée lui a été attribué. |
 | Réseau virtuel |Réseau virtuel |Le réseau virtuel fait l’objet d’une migration vers le modèle de déploiement Resource Manager avec toutes ses propriétés. Un nouveau groupe de ressources est créé avec le nom `-migrated`. |
 | IP réservées |Adresse IP publique avec méthode d’allocation statique |La migration des IP réservées associées à l’équilibreur de charge est effectuée en même temps que la migration du service cloud ou de la machine virtuelle. La migration d’adresses IP réservées non associées n’est pas prise en charge actuellement. |
