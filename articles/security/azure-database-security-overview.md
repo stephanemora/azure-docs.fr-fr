@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 10/30/2018
 ms.author: TomSh
 ms.openlocfilehash: 7e0e93c82279ec1a4fbecbbf27c7a1866286b2f8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60587604"
 ---
 # <a name="azure-database-security-overview"></a>Vue d’ensemble de la sécurité des bases de données Azure
@@ -74,7 +74,7 @@ Pour résoudre ce problème, SQL Server et SQL Database prennent en charge la fo
 
 Ce chiffrement transparent des données vous protège contre le risque d’activités malveillantes. Il assure le chiffrement et le déchiffrement en temps réel de la base de données, des sauvegardes associées et des fichiers journaux des transactions au repos, sans que cela nécessite de modifier l’application.  
 
-Le chiffrement transparent des données chiffre le stockage d’une base de données entière, à l’aide d’une clé symétrique appelée clé de chiffrement de base de données. Dans SQL Database, la clé de chiffrement de base de données est protégée par un certificat de serveur intégré. Le certificat de serveur intégré est unique pour chaque serveur de base de données SQL.
+Le chiffrement transparent des données chiffre le stockage d’une base de données entière, à l’aide d’une clé symétrique appelée clé de chiffrement de base de données. Dans SQL Database, la clé de chiffrement de base de données est protégée par un certificat de serveur intégré. Le certificat de serveur intégré est unique pour chaque serveur SQL Database.
 
 Si une base de données est dans une relation de géoredondance, elle est protégée par une clé différente sur chaque serveur. Si deux bases de données sont connectées au même serveur, elles partagent le même certificat intégré. Microsoft alterne automatiquement ces certificats au moins tous les 90 jours. 
 
@@ -181,7 +181,7 @@ Il existe deux méthodes d’audit :
 
 ### <a name="threat-detection"></a>Détection de menaces
 
-La [Protection avancée contre les menaces pour Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-advanced-threat-protection) détecte des activités suspectes indiquant des menaces de sécurité potentielles. Vous pouvez utiliser la détection des menaces pour répondre aux événements suspects se produisant dans la base de données, tels que des injections de code SQL. Cette méthode génère des alertes et permet d’utiliser l’audit Azure SQL Database pour analyser les événements suspects.
+[Advanced Threat Protection pour Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-advanced-threat-protection) détecte des activités suspectes indiquant des menaces de sécurité potentielles. Vous pouvez utiliser la détection des menaces pour répondre aux événements suspects se produisant dans la base de données, tels que des injections de code SQL. Cette méthode génère des alertes et permet d’utiliser l’audit Azure SQL Database pour analyser les événements suspects.
 
 ![Détection des menaces pour SQL Database et une application web, avec un attaquant externe et un utilisateur interne malveillant](./media/azure-databse-security-overview/azure-database-fig5.jpg)
 
@@ -229,7 +229,7 @@ La Place de marché Microsoft Azure rassemble en une seule plateforme les écosy
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Sécuriser votre base de données SQL Azure](https://docs.microsoft.com/azure/sql-database/sql-database-security-tutorial)
+- [Sécuriser votre base de données Azure SQL](https://docs.microsoft.com/azure/sql-database/sql-database-security-tutorial)
 - [Azure Security Center et service Azure SQL Database](https://docs.microsoft.com/azure/security-center/security-center-sql-database)
 - [Détection de menaces pour les bases de données SQL](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection)
 - [Améliorer les performances des bases de données SQL](https://docs.microsoft.com/azure/sql-database/sql-database-performance-tutorial)

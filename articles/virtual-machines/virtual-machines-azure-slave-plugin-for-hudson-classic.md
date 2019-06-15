@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
 ms.openlocfilehash: ef24e356c9ac8424fc519a3b16af5d37a20e706f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60444157"
 ---
 # <a name="how-to-use-the-azure-slave-plug-in-with-hudson-continuous-integration"></a>Utilisation du plug-in subordonné Azure avec la solution d'intégration continue Hudson
@@ -152,7 +152,7 @@ Dans cette section, vous allez créer un travail Hudson qui s'exécutera sur un 
 5. Dans la page de configuration du travail, sélectionnez **Restrict where this project can be run**(Limiter où ce projet peut être exécuté).
 6. Sélectionnez **Node and label menu** (Menu nœud et étiquette) et sélectionnez **linux** (nous avons spécifié cette étiquette lors de la création du modèle de machine virtuelle dans la section précédente).
 7. Dans la section **Build**, cliquez sur **Add build step** (Ajouter une étape de build) et sélectionnez **Execute shell** (Exécuter shell).
-8. Modifiez le script suivant, en remplaçant **{your github account name}**, **{your project name}** et **{your project directory}** par les valeurs appropriées et collez le script modifié dans la zone de texte qui s’affiche.
+8. Modifiez le script suivant, en remplaçant **{your github account name}** , **{your project name}** et **{your project directory}** par les valeurs appropriées et collez le script modifié dans la zone de texte qui s’affiche.
    
         # Clone from git repo
    

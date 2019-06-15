@@ -8,10 +8,10 @@ ms.topic: reference
 ms.date: 01/17/2019
 ms.author: spelluru
 ms.openlocfilehash: 401eb660d7e5ddc68bc7422ef9f2e600295d2aea
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60614906"
 ---
 # <a name="azure-event-grid-event-schema-for-blob-storage"></a>Schéma d’événements Azure Event Grid pour le stockage Blob
@@ -90,28 +90,28 @@ Un événement contient les données générales suivantes :
 
 | Propriété | Type | Description |
 | -------- | ---- | ----------- |
-| topic | string | Chemin d’accès complet à la source de l’événement. Ce champ n’est pas modifiable. Event Grid fournit cette valeur. |
-| subject | string | Chemin de l’objet de l’événement, défini par le serveur de publication. |
-| eventType | string | Un des types d’événements inscrits pour cette source d’événement. |
-| eventTime | string | L’heure à quelle l’événement est généré selon l’heure UTC du fournisseur. |
-| id | string | Identificateur unique de l’événement. |
-| data | objet | Données d’événement de stockage Blob. |
-| dataVersion | string | Version du schéma de l’objet de données. Le serveur de publication définit la version du schéma. |
-| metadataVersion | string | Version du schéma des métadonnées d’événement. Event Grid définit le schéma des propriétés de niveau supérieur. Event Grid fournit cette valeur. |
+| rubrique | chaîne | Chemin d’accès complet à la source de l’événement. Ce champ n’est pas modifiable. Event Grid fournit cette valeur. |
+| subject | chaîne | Chemin de l’objet de l’événement, défini par le serveur de publication. |
+| eventType | chaîne | Un des types d’événements inscrits pour cette source d’événement. |
+| eventTime | chaîne | L’heure à quelle l’événement est généré selon l’heure UTC du fournisseur. |
+| id | chaîne | Identificateur unique de l’événement. |
+| données | objet | Données d’événement de stockage Blob. |
+| dataVersion | chaîne | Version du schéma de l’objet de données. Le serveur de publication définit la version du schéma. |
+| metadataVersion | chaîne | Version du schéma des métadonnées d’événement. Event Grid définit le schéma des propriétés de niveau supérieur. Event Grid fournit cette valeur. |
 
 L’objet de données comporte les propriétés suivantes :
 
 | Propriété | Type | Description |
 | -------- | ---- | ----------- |
-| api | string | Opération qui a déclenché l’événement. |
-| clientRequestId | string | Valeur opaque générée par le client, avec une limite de caractères de 1 Ko. Lorsque vous activez la journalisation Storage Analytics, cette valeur est enregistrée dans les journaux d’activité d’analytique. |
-| requestId | string | Identificateur unique de la requête. À utiliser pour le dépannage de la requête. |
-| eTag | string | Valeur que vous pouvez utiliser pour effectuer des opérations de manière conditionnelle. |
-| contentType | string | Type de contenu spécifié pour l’objet blob. |
+| api | chaîne | Opération qui a déclenché l’événement. |
+| clientRequestId | chaîne | Valeur opaque générée par le client, avec une limite de caractères de 1 Ko. Lorsque vous activez la journalisation Storage Analytics, cette valeur est enregistrée dans les journaux d’activité d’analytique. |
+| requestId | chaîne | Identificateur unique de la requête. À utiliser pour le dépannage de la requête. |
+| etag | chaîne | Valeur que vous pouvez utiliser pour effectuer des opérations de manière conditionnelle. |
+| contentType | chaîne | Type de contenu spécifié pour l’objet blob. |
 | contentLength | integer | Taille de l’objet blob en octets. |
-| blobType | string | Type d’objet blob. Les valeurs valides sont « BlockBlob » ou « PageBlob ». |
-| url | string | Chemin de l’objet blob. |
-| sequencer | string | Valeur contrôlée par l’utilisateur que vous pouvez utiliser pour effectuer le suivi des requêtes. |
+| blobType | chaîne | Type d’objet blob. Les valeurs valides sont « BlockBlob » ou « PageBlob ». |
+| url | chaîne | Chemin de l’objet blob. |
+| sequencer | chaîne | Valeur contrôlée par l’utilisateur que vous pouvez utiliser pour effectuer le suivi des requêtes. |
 | storageDiagnostics | objet | Informations sur les diagnostics de stockage. |
  
 ## <a name="next-steps"></a>Étapes suivantes

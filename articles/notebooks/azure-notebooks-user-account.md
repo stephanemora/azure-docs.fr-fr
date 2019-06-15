@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 04/15/2019
 ms.author: kraigb
 ms.openlocfilehash: 311f4d612c9deab23e7537b0c53ff3932c312cd4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60632054"
 ---
 # <a name="your-user-account-for-azure-notebooks"></a>Votre compte d’utilisateur pour Azure Notebooks
@@ -43,7 +43,7 @@ En cas de doute, sélectionnez la commande de **création** dans l’invite du c
 ![Commande de création d’un compte Microsoft](media/accounts/create-new-microsoft-account.png)
 
 > [!Note]
-> Si vous tentez de créer un nouveau compte avec une adresse de messagerie qui a déjà un compte associé, vous pouvez voir le message, « vous ne pouvez pas inscrire ici avec un travail ou adresse e-mail scolaire. Utiliser une adresse e-mail personnelle comme Gmail ou Yahoo!, ou obtenez un nouvel e-mail Outlook. » Dans ce cas, essayez de vous connecter avec l’adresse de messagerie professionnelle sans créer un nouveau compte.
+> Si vous tentez de créer un compte avec une adresse e-mail déjà associée à un compte, le message « Vous ne pouvez pas vous connecter avec une adresse e-mail de compte professionnel ou scolaire. Utilisez une adresse e-mail personnelle comme Gmail ou Yahoo!, ou configurez une nouvelle adresse e-mail Outlook. » peut s’afficher. Dans ce cas, essayez de vous connecter avec l’adresse e-mail professionnelle sans créer de compte.
 
 Par défaut, l’accès à Azure Notebooks est bloqué pour les comptes enfant. Si vous tentez de vous connecter avec un compte enfant, l’erreur suivante s’affiche :
 

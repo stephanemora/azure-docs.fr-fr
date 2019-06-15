@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 01/19/2018
 ms.author: bwren
 ms.openlocfilehash: 06532369efb802606eb13a4b38a8579a3528f999
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60777015"
 ---
 # <a name="alert-management-solution-in-azure-log-analytics"></a>Solution Alert Management dans Azure Log Analytics
@@ -31,7 +31,7 @@ ms.locfileid: "60777015"
 
 La solution de gestion des alertes vous permet d’analyser toutes les alertes qui se produisent dans votre référentiel Log Analytics.  Ces alertes peuvent provenir de diverses sources, y compris celles [créées par Log Analytics](../../azure-monitor/platform/alerts-overview.md) ou [importées à partir de Nagios ou Zabbix](../../azure-monitor/learn/quick-collect-linux-computer.md). La solution importe également les alertes de tous les [groupes d’administration System Center Operations Manager connectés](../../azure-monitor/platform/om-agents.md).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 La solution fonctionnant avec tous les enregistrements dans le référentiel Log Analytics ayant le type **Alerte**, vous devez donc effectuer la configuration nécessaire pour collecter ces enregistrements.
 
 - Pour les alertes Log Analytics, [créez des règles d’alerte](../../azure-monitor/platform/alerts-overview.md) pour créer des enregistrements d’alerte directement dans le référentiel.
@@ -54,9 +54,9 @@ Le tableau suivant décrit les sources connectées qui sont prises en charge par
 
 | Source connectée | Support | Description |
 |:--- |:--- |:--- |
-| [Agents Windows](agent-windows.md) | Non  |Les agents Windows directs ne génèrent pas d’alertes.  Des alertes Log Analytics peuvent être créées à partir d’événements et de données de performances collectées à partir des agents Windows. |
-| [Agents Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) | Non  |Les agents Linux directs ne génèrent pas d’alertes.  Des alertes Log Analytics peuvent être créées à partir d’événements et de données de performances collectées à partir des agents Linux.  Les alertes Nagios et Zabbix sont collectées à partir de ces serveurs qui requièrent l’agent Linux. |
-| [Groupe d’administration de Microsoft System Center Operations Manager](../../azure-monitor/platform/om-agents.md) |Oui |Les alertes générées sur des agents Operations Manager sont remises au groupe d’administration, puis transférées à Log Analytics.<br><br>Une connexion directe entre des agents Operations Manager et Log Analytics n’est pas obligatoire. Les données des alertes sont transférées du groupe d’administration dans Log Analytics. |
+| [Agents Windows](agent-windows.md) | Non |Les agents Windows directs ne génèrent pas d’alertes.  Des alertes Log Analytics peuvent être créées à partir d’événements et de données de performances collectées à partir des agents Windows. |
+| [Agents Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) | Non |Les agents Linux directs ne génèrent pas d’alertes.  Des alertes Log Analytics peuvent être créées à partir d’événements et de données de performances collectées à partir des agents Linux.  Les alertes Nagios et Zabbix sont collectées à partir de ces serveurs qui requièrent l’agent Linux. |
+| [Groupe d’administration de Microsoft System Center Operations Manager](../../azure-monitor/platform/om-agents.md) |OUI |Les alertes générées sur des agents Operations Manager sont remises au groupe d’administration, puis transférées à Log Analytics.<br><br>Une connexion directe entre des agents Operations Manager et Log Analytics n’est pas obligatoire. Les données des alertes sont transférées du groupe d’administration dans Log Analytics. |
 
 
 ### <a name="collection-frequency"></a>Fréquence de collecte
@@ -113,7 +113,7 @@ Cette solution importe également les alertes de System Center Operations Manage
 ## <a name="sample-log-searches"></a>Exemples de recherches dans les journaux
 Le tableau suivant fournit des exemples de recherches dans les journaux pour les enregistrements d’alerte collectés par cette solution : 
 
-| Interroger | Description |
+| Requête | Description |
 |:---|:---|
 | Alerte &#124; où SourceSystem == « OpsManager » et AlertSeverity == « erreur » et TimeRaised > ago(24 h) |Alertes critiques déclenchées au cours des dernières 24 heures |
 | Alerte &#124; où AlertSeverity == « avertissement » et TimeRaised > ago(24 h) |Alertes d’avertissement déclenchées au cours des dernières 24 heures |

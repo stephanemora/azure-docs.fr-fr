@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/01/2018
 ms.author: spelluru
 ms.openlocfilehash: a9426c20ae23fd3dad4cdba25590ff2eac271896
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60311398"
 ---
 # <a name="add-owners-and-users-in-azure-devtest-labs"></a>Ajouter des propriétaires et des utilisateurs dans Azure DevTest Labs
@@ -40,20 +40,20 @@ Le tableau suivant décrit les actions pouvant être effectuées par les utilisa
 | **Actions que les utilisateurs dans ce rôle peuvent effectuer** | **Utilisateur de DevTest Labs** | **Propriétaire** | **Collaborateur** |
 | --- | --- | --- | --- |
 | **Tâches de laboratoire** | | | |
-| Ajouter des utilisateurs à un laboratoire |Non  |Oui |Non  |
-| Mettre à jour les paramètres de coût |Non  |OUI |Oui |
+| Ajouter des utilisateurs à un laboratoire |Non |OUI |Non |
+| Mettre à jour les paramètres de coût |Non |OUI |OUI |
 | **Tâches de base de machine virtuelle** | | | |
-| Ajouter et supprimer des images personnalisées |Non  |OUI |Oui |
-| Ajouter, mettre à jour et supprimer des formules |Oui |OUI |Oui |
-| Images Place de marché Azure de liste blanche |Non  |OUI |Oui |
+| Ajouter et supprimer des images personnalisées |Non |OUI |OUI |
+| Ajouter, mettre à jour et supprimer des formules |OUI |OUI |OUI |
+| Images Place de marché Azure de liste blanche |Non |OUI |OUI |
 | **Tâches de machine virtuelle** | | | |
-| Créer des machines virtuelles |Oui |OUI |Oui |
-| Démarrer, arrêter et supprimer des machines virtuelles |Seules les machines virtuelles créées par l’utilisateur |Oui |Oui |
-| Mettre à jour les stratégies de machine virtuelle |Non  |OUI |Oui |
-| Ajouter des disques de données à des machines virtuelles ou en supprimer de celles-ci |Seules les machines virtuelles créées par l’utilisateur |Oui |Oui |
+| Créer des machines virtuelles |OUI |OUI |OUI |
+| Démarrer, arrêter et supprimer des machines virtuelles |Seules les machines virtuelles créées par l’utilisateur |OUI |OUI |
+| Mettre à jour les stratégies de machine virtuelle |Non |OUI |OUI |
+| Ajouter des disques de données à des machines virtuelles ou en supprimer de celles-ci |Seules les machines virtuelles créées par l’utilisateur |OUI |OUI |
 | **Tâches d’artefact** | | | |
-| Ajouter et supprimer des référentiels d’artefact |Non  |OUI |Oui |
-| Appliquer des artefacts |Oui |OUI |Oui |
+| Ajouter et supprimer des référentiels d’artefact |Non |OUI |OUI |
+| Appliquer des artefacts |OUI |OUI |OUI |
 
 > [!NOTE]
 > Lorsqu’un utilisateur crée une machine virtuelle, le rôle **Propriétaire** de la machine virtuelle créée est automatiquement attribué à cet utilisateur.

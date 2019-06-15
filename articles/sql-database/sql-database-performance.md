@@ -6,17 +6,16 @@ ms.subservice: performance
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: WenJason
-ms.author: v-jay
+author: danimir
+ms.author: danil
 ms.reviewer: jrasnik, carlrab
-manager: digimobile
-origin.date: 01/25/2019
-ms.date: 02/25/2019
+manager: craigg
+ms.date: 01/25/2019
 ms.openlocfilehash: adbccd5f9cfd5ddd1912e304f800f3ebe04912c7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60584798"
 ---
 # <a name="monitor-and-improve-performance"></a>Surveiller et améliorer les performances
@@ -74,10 +73,10 @@ Azure SQL Database peut régler automatiquement les performances des bases de do
 
   ![tableau de bord des performances](./media/sql-database-query-performance/performance.png)
 
-Pour plus d’informations sur cette page, voir l’article **[How to use Query Performance Insight (Utilisation de Query Performance Insight)](sql-database-query-performance.md)**.
+Pour plus d’informations sur cette page, voir l’article **[How to use Query Performance Insight (Utilisation de Query Performance Insight)](sql-database-query-performance.md)** .
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-* [Guide des performances de base de données SQL Azure pour les bases de données uniques](sql-database-performance-guidance.md)
+* [Guide des performances Azure SQL Database pour les bases de données uniques](sql-database-performance-guidance.md)
 * [Quand utiliser un pool élastique ?](sql-database-elastic-pool-guidance.md)
 

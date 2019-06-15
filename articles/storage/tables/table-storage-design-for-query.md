@@ -9,10 +9,10 @@ ms.date: 04/23/2018
 ms.author: sngun
 ms.subservice: tables
 ms.openlocfilehash: 97373f6f0138d3ed8028ed4327b7e6cf90ad76a7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60325865"
 ---
 # <a name="design-for-querying"></a>Conception pour l'interrogation
@@ -41,8 +41,8 @@ Les exemples suivants supposent que le service de Table stocke les entités rela
 | **RowKey** (ID d’employé) |Chaîne |
 | **FirstName** |Chaîne |
 | **LastName** |Chaîne |
-| **Age** |Entier  |
-| **EmailAddress** |String |
+| **Age** |Entier |
+| **EmailAddress** |Chaîne |
 
 L’article [Vue d’ensemble du Stockage Table Azure](table-storage-overview.md) décrit certaines des principales fonctionnalités du service de Table Azure qui ont un impact direct sur la conception des requêtes. Il en résulte les conseils suivants, qui vous aideront à concevoir des requêtes de service de Table. Notez que la syntaxe de filtre utilisée dans les exemples ci-dessous provient de l’API REST du service de Table. Pour en savoir plus, consultez la rubrique [Interrogation d’entités](https://docs.microsoft.com/rest/api/storageservices/Query-Entities).  
 

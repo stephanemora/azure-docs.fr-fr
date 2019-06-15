@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/23/2017
 ms.author: subsarma
 ms.openlocfilehash: c2ef842fd62ef060f06536d66387c3facd0627b5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60640376"
 ---
 # <a name="use-dynamic-dns-to-register-hostnames-in-your-own-dns-server"></a>Utiliser un DNS dynamique pour inscrire les noms d’hôte sur votre propre serveur DNS
@@ -35,7 +35,7 @@ Les clients Windows joints à un domaine inscrivent leurs adresses IP auprès du
 ## <a name="linux-clients"></a>Clients Linux
 En général, les clients Linux ne s’inscrivent pas eux-mêmes auprès du serveur DNS au démarrage et présument que ce dernier le fait à leur place. Les serveurs DHCP d’Azure ne disposent pas des informations d’identification permettant de stocker des enregistrements sur votre serveur DNS. Vous pouvez utiliser un outil appelé `nsupdate`, qui est inclus dans le package Bind, pour envoyer des mises à jour DDNS. Comme le protocole DDNS est normalisé, vous pouvez utiliser `nsupdate` même quand vous n’utilisez pas Bind sur le serveur DNS.
 
-Vous pouvez utiliser les raccordements fournis par le client DHCP pour créer et gérer l’entrée du nom d’hôte sur le serveur DNS. Au cours du cycle DHCP, le client exécute les scripts dans */etc/dhcp/dhclient-exit-hooks.d/*. Vous pouvez utiliser les raccordements pour inscrire la nouvelle adresse IP à l’aide `nsupdate`. Par exemple : 
+Vous pouvez utiliser les raccordements fournis par le client DHCP pour créer et gérer l’entrée du nom d’hôte sur le serveur DNS. Au cours du cycle DHCP, le client exécute les scripts dans */etc/dhcp/dhclient-exit-hooks.d/* . Vous pouvez utiliser les raccordements pour inscrire la nouvelle adresse IP à l’aide `nsupdate`. Par exemple :
 
 ```bash
 #!/bin/sh

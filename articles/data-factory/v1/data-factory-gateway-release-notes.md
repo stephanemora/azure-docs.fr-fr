@@ -13,10 +13,10 @@ ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
 ms.openlocfilehash: 865bfdae199bca7ebee888be527db239d34511d1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60486462"
 ---
 # <a name="release-notes-for-data-management-gateway"></a>Notes de version pour la passerelle de gestion des données
@@ -42,27 +42,27 @@ Nous ne conservons plus les notes de publication ici. Pour obtenir les dernière
 ### <a name="enhancements-"></a>Améliorations
 - Vous pouvez ajouter des entrées DNS à la liste blanche Service Bus au lieu d’autoriser toutes les adresses IP Azure dans votre pare-feu (si nécessaire). Vous pouvez trouver l’entrée DNS concernée sur le portail Azure (Data Factory -> Créer et déployer > Passerelles > ServiceUrls (dans JSON))
 - Le connecteur HDFS prend désormais en charge le certificat public auto-signé en vous permettant d’ignorer la validation SSL.
-- Corrigé : problème lié à la passerelle en mode hors connexion pendant la mise à jour (en raison d’une différence d’heure)
+- Problème résolu : problème lié à la passerelle en mode hors connexion pendant la mise à jour (en raison d’une différence d’heure)
 
 
 ## <a name="2963132"></a>2.9.6313.2
 ### <a name="enhancements-"></a>Améliorations
 -   Vous pouvez ajouter des entrées DNS à la liste blanche Service Bus au lieu d’autoriser toutes les adresses IP Azure dans votre pare-feu (si nécessaire). Plus de détails ici.
 -   Vous pouvez maintenant copier les données vers ou à partir d’un seul objet blob de blocs jusqu’à 4,75 To. Il s’agit de la taille maximale prise en charge pour ces objets (la limite antérieure était de 195 Go).
--   Corrigé : problème de mémoire insuffisante lors de la décompression de plusieurs petits fichiers pendant l’activité de copie.
--   Corrigé : problème d’index hors plage lors de la copie de Document DB vers le système SQL Server local avec la fonctionnalité d’idempotence.
--   Corrigé : le script de nettoyage SQL ne fonctionne pas avec la version locale de SQL Server à partir de l’Assistant de copie.
--   Corrigé : le nom de colonne avec un espace à la fin ne fonctionne pas dans l’activité de copie.
+-   Problème résolu : problème de mémoire insuffisante lors de la décompression de plusieurs petits fichiers pendant l’activité de copie.
+-   Problème résolu : problème d’index hors plage lors de la copie de Document DB vers le système SQL Server local avec la fonctionnalité d’idempotence.
+-   Problème résolu : le script de nettoyage SQL ne fonctionne pas avec la version locale de SQL Server à partir de l’Assistant de copie.
+-   Problème résolu : le nom de colonne avec un espace à la fin ne fonctionne pas dans l’activité de copie.
 
 ## <a name="28662833"></a>2.8.66283.3
 ### <a name="enhancements-"></a>Améliorations
-- Corrigé : problème d’informations d’identification manquantes au redémarrage de l’ordinateur de la passerelle.
-- Corrigé : problème lié à l’inscription lors de la restauration de la passerelle à l’aide d’un fichier de sauvegarde.
+- Problème résolu : problème d’informations d’identification manquantes au redémarrage de l’ordinateur de la passerelle.
+- Problème résolu : problème lié à l’inscription lors de la restauration de la passerelle à l’aide d’un fichier de sauvegarde.
 
 
 ## <a name="2762401"></a>2.7.6240.1
 ### <a name="enhancements-"></a>Améliorations
-- Corrigé : lecture incorrecte d’une valeur null décimale à partir d’Oracle comme source.
+- Problème résolu : lecture incorrecte d’une valeur null décimale à partir d’Oracle comme source.
 
 ## <a name="2661922"></a>2.6.6192.2
 ### <a name="whats-new"></a>Nouveautés
@@ -103,7 +103,7 @@ Nous ne conservons plus les notes de publication ici. Pour obtenir les dernière
 *  Permet de paramétrer le proxy HTTP pour la passerelle à l’aide du Gestionnaire de configuration de passerelle. Si configurés, Azure Blob, Azure Table, Azure Data Lake et Document DB sont accessibles via le proxy HTTP.
 *  Prend en charge la gestion des en-têtes pour TextFormat lors de la copie des données depuis/vers un objet Blob Azure, Azure Data Lake Store, le système de fichiers local ou un système de fichiers HDFS local.
 *  Prend en charge la copie des données d’objets blob d’ajouts et de pages, ainsi que des objets blob de blocs déjà pris en charge.
-*  Introduit le nouvel état de passerelle **En ligne (limité)**, qui indique que la fonctionnalité principale de la passerelle fonctionne, à l’exception de la prise en charge de l’opération interactive pour l’assistant de copie.
+*  Introduit le nouvel état de passerelle **En ligne (limité)** , qui indique que la fonctionnalité principale de la passerelle fonctionne, à l’exception de la prise en charge de l’opération interactive pour l’assistant de copie.
 *  Améliore la robustesse de l’inscription de la passerelle avec la clé d’inscription.
 
 ## <a name="216040"></a>2.1.6040.

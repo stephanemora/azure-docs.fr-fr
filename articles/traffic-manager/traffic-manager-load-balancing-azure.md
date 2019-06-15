@@ -13,15 +13,15 @@ ms.workload: na
 ms.date: 10/27/2016
 ms.author: limichel
 ms.openlocfilehash: 906e1840f35ab14997c727551b893a0219eb78d8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60330520"
 ---
 # <a name="using-load-balancing-services-in-azure"></a>Utilisation des services d’équilibrage de charge dans Azure
 
-## <a name="introduction"></a>Présentation
+## <a name="introduction"></a>Introduction
 
 Microsoft Azure propose plusieurs services destinés à gérer la distribution et l’équilibrage de la charge du trafic réseau. Vous pouvez utiliser ces services individuellement ou combiner leurs méthodes selon vos besoins spécifiques, afin d’élaborer une solution optimale.
 
@@ -63,7 +63,7 @@ Le diagramme suivant illustre l’architecture de ce scénario :
 
 ## <a name="setting-up-the-load-balancing-stack"></a>Configuration de la pile d’équilibrage de charge
 
-### <a name="step-1-create-a-traffic-manager-profile"></a>Étape 1 : Créer un profil Traffic Manager
+### <a name="step-1-create-a-traffic-manager-profile"></a>Étape 1 : Créer un profil Traffic Manager
 
 1. Dans le portail Azure, cliquez sur **Créer une ressource** > **Mise en réseau** > **Profil Traffic Manager** > **Créer**.
 2. Entrez les informations de base suivantes :
@@ -78,7 +78,7 @@ Le diagramme suivant illustre l’architecture de ce scénario :
 
    ![Panneau Créer un profil Traffic Manager](./media/traffic-manager-load-balancing-azure/s1-create-tm-blade.png)
 
-### <a name="step-2-create-the-application-gateways"></a>Étape 2 : créer des passerelles Application Gateway
+### <a name="step-2-create-the-application-gateways"></a>Étape 2 : créer des passerelles Application Gateway
 
 1. Dans le volet de gauche du portail Azure, cliquez sur **Créer une ressource** > **Mise en réseau** > **Application Gateway**.
 2. Indiquez ensuite les informations de base suivantes sur la passerelle Application Gateway :
@@ -150,7 +150,7 @@ Dans ce scénario, Traffic Manager est connecté à des instances Application 
 
 4. Vous pouvez désormais tester votre configuration en y accédant avec le DNS de votre profil Traffic Manager (dans cet exemple : TrafficManagerScenario.trafficmanager.net). Vous pouvez renvoyer des demandes, mettre en service ou hors service les machines virtuelles et serveurs web créés dans différentes régions, puis modifier les paramètres du profil Traffic Manager pour tester votre configuration.
 
-### <a name="step-4-create-a-load-balancer"></a>Étape 4 : Créer un équilibrage de charge
+### <a name="step-4-create-a-load-balancer"></a>Étape 4 : Créer un équilibrage de charge
 
 Dans ce scénario, Load Balancer distribue les connexions de niveau web aux bases de données, au sein d’un cluster à haute disponibilité.
 
@@ -201,7 +201,7 @@ Pour en savoir plus sur la configuration d’un équilibrage de charge interne, 
 8. Sous **IP flottante**, sélectionnez **Désactivé** ou **Activé**.
 9. Cliquez sur **OK** pour créer la règle.
 
-### <a name="step-5-connect-web-tier-vms-to-the-load-balancer"></a>Étape 5 : connecter des machines virtuelles de niveau web à l’équilibreur de charge
+### <a name="step-5-connect-web-tier-vms-to-the-load-balancer"></a>Étape 5 : connecter des machines virtuelles de niveau web à l’équilibreur de charge
 
 Nous allons maintenant configurer l’adresse IP et le port frontal de l’équilibrage de charge dans les applications s’exécutant sur vos machines virtuelles de niveau web pour les connexions de base de données éventuelles. Cette configuration est propre aux applications qui s’exécutent sur ces machines virtuelles. Pour configurer l’adresse IP et le port de destination, consultez la documentation de l’application. Pour trouver l’adresse IP du serveur frontal, dans le portail Azure, accédez au pool d’adresses IP frontales dans le volet **Paramètres d’équilibrage de charge**.
 

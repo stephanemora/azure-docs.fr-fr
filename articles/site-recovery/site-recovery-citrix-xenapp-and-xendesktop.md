@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ponatara
 ms.openlocfilehash: 68f12bb7335da0a996aeadd752f59db0aa360a8e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61038193"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-citrix-xenapp-and-xendesktop-deployment"></a>Configurer la récupération d’urgence d’un déploiement Citrix XenApp et XenDesktop multiniveau
@@ -26,7 +26,7 @@ Une solution de récupération d’urgence satisfaisante doit autoriser la modé
 Ce document fournit des instructions pas à pas pour la création d’une solution de récupération d’urgence pour vos déploiements locaux de Citrix XenApp sur les plateformes Hyper-V et VMware vSphere. Il décrit également comment effectuer un test de basculement (exercice de récupération d’urgence) et un basculement non planifié vers Azure à l’aide de plans de récupération, ainsi que les configurations prises en charge et les prérequis.
 
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Avant de commencer, veillez à bien comprendre ce qui suit :
 
@@ -56,9 +56,9 @@ Pour les besoins de cet article, des déploiements de Citrix sur des machines vi
 
 **Scénario** | **Vers un site secondaire** | **Vers Azure**
 --- | --- | ---
-**Hyper-V** | Non compris | Oui
-**VMware** | Non compris | Oui
-**Serveur physique** | Non compris | Oui
+**Hyper-V** | Non compris | OUI
+**VMware** | Non compris | OUI
+**Serveur physique** | Non compris | OUI
 
 ### <a name="versions"></a>Versions
 Les clients peuvent déployer des composants XenApp en tant que machines virtuelles s’exécutant sur Hyper-V ou VMware ou en tant que serveurs physiques. Azure Site Recovery peut protéger des déploiements physiques et virtuels sur Azure.
@@ -90,7 +90,7 @@ Les composants suivants du déploiement Citrix XenApp doivent être protégés p
 
 **Réplication du serveur DNS Active Directory**
 
-Pour obtenir des instructions pour la réplication et la configuration d’un contrôleur de domaine dans Azure, consultez [Protéger Active Directory et DNS avec Azure Site Recovery](site-recovery-active-directory.md). 
+Pour obtenir des instructions pour la réplication et la configuration d’un contrôleur de domaine dans Azure, consultez [Protéger Active Directory et DNS avec Azure Site Recovery](site-recovery-active-directory.md).
 
 **Réplication du serveur SQL Database**
 

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/01/2018
 ms.author: spelluru
 ms.openlocfilehash: b4864673e25ba4f5a1f2e8629e0889863051bc07
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60553887"
 ---
 # <a name="get-started-with-relay-hybrid-connections-websockets-in-nodejs"></a>Bien démarrer avec les WebSockets de connexions hybrides Relay dans Node.js
@@ -35,7 +35,7 @@ Ce démarrage rapide comporte les étapes suivantes :
 4. Écrire une application de console (expéditeur) de client pour envoyer des messages.
 5. Exécuter les applications. 
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 - [Node.js](https://nodejs.org/en/).
 - Un abonnement Azure. Si vous n’en avez pas, [créez un compte gratuit](https://azure.microsoft.com/free/) avant de commencer.

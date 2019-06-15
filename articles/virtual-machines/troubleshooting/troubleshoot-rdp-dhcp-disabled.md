@@ -14,10 +14,10 @@ ms.workload: infrastructure
 ms.date: 11/13/2018
 ms.author: genli
 ms.openlocfilehash: daddb859c6bfc6309ef833c6c6c3ea43c70f1889
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60362286"
 ---
 #  <a name="cannot-rdp-to-azure-virtual-machines-because-the-dhcp-client-service-is-disabled"></a>Impossible d’établir une connexion RDP à des machines virtuelles Azure car le service client DHCP est désactivé
@@ -36,7 +36,7 @@ Vous ne pouvez pas établir une connexion RDP à une machine virtuelle dans Azur
 **Catégorie de tâche** : Aucun </br>
 **Niveau** : Error </br>
 **Mots clés** : Classique</br>
-**Utilisateur** : S.O. </br>
+**Utilisateur** : N/A </br>
 **Ordinateur** : myvm.cosotos.com</br>
 **Description** : Le service client DHCP se bloque au démarrage.</br>
 

@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 08/15/2018
 ms.author: erikre
 ms.openlocfilehash: d3db4166810da981ff0117536d8550a6b2203924
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60370983"
 ---
 # <a name="review-azure-resource-usage-using-the-rest-api"></a>Passer en revue l’utilisation des ressources Azure avec l’API REST
@@ -89,7 +89,7 @@ Configurez les paramètres du rapport dans le corps de la requête HTTP. Dans l�
 }
 ```
 
-L’attribut 
+L’attribut
 
 ## <a name="filtering-reports"></a>Filtrage des rapports
 

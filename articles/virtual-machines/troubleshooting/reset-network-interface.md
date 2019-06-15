@@ -13,10 +13,10 @@ ms.topic: troubleshooting
 ms.date: 11/16/2018
 ms.author: genli
 ms.openlocfilehash: 3a8e005f8678deef9fc4aebd2d620619fe6074bc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60307309"
 ---
 # <a name="how-to-reset-network-interface-for-azure-windows-vm"></a>Comment réinitialiser l’interface réseau pour une machine virtuelle Windows Azure 
@@ -79,7 +79,7 @@ Pour réinitialiser l’interface réseau, procédez comme suit :
 #### <a name="use-azure-portal"></a>Utiliser le portail Azure
 
 1.  Accédez au [portail Azure]( https://ms.portal.azure.com).
-2.  Sélectionnez **Machines virtuelles (Classic)**.
+2.  Sélectionnez **Machines virtuelles (Classic)** .
 3.  Sélectionnez la machine virtuelle concernée.
 4.  Sélectionnez **Adresses IP**.
 5.  Si l’**attribution d’adresse IP privée** n’est pas **Statique**, choisissez **Statique**.

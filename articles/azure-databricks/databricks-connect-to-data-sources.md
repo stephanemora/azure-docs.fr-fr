@@ -10,17 +10,17 @@ ms.topic: conceptual
 ms.date: 03/21/2018
 ms.author: mamccrea
 ms.openlocfilehash: f2b7136ec21416e31c2af658974577023a4494de
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60240344"
 ---
 # <a name="connect-to-data-sources-from-azure-databricks"></a>Se connecter à des sources de données à partir d’Azure Databricks
 
 Cet article contient des liens vers toutes les sources de données différentes dans Azure qui peuvent être connectées à Azure Databricks. Suivez les exemples de ces liens pour extraire des données à partir des sources de données Azure (par exemple, Stockage Blob Azure, Azure Event Hubs, etc.) dans un cluster Azure Databricks, puis exécutez des travaux analytiques sur ces données. 
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 * Vous devez disposer d’un espace de travail Azure Databricks et d’un cluster Spark. Suivez les instructions contenues dans [Démarrage rapide : Exécuter une tâche Spark sur Azure Databricks à l’aide du portail Azure](quickstart-create-databricks-workspace-portal.md).
 
@@ -28,7 +28,7 @@ Cet article contient des liens vers toutes les sources de données différentes 
 
 La liste suivante indique les sources de données dans Azure que vous pouvez utiliser avec Azure Databricks. Pour obtenir la liste complète des sources de données que vous pouvez utiliser avec Azure Databricks, consultez [Data sources for Azure Databricks](https://docs.azuredatabricks.net/spark/latest/data-sources/index.html) (Sources de données d’Azure Databricks).
 
-- [Azure SQL Database](https://docs.azuredatabricks.net/spark/latest/data-sources/sql-databases.html)
+- [Base de données Azure SQL](https://docs.azuredatabricks.net/spark/latest/data-sources/sql-databases.html)
 
     Cette rubrique fournit l’API DataFrame pour la connexion aux bases de données SQL à l’aide de JDBC, et indique comment contrôler le parallélisme des lectures via l’interface JDBC. Elle contient également des exemples détaillés d’utilisation de l’API Scala et des exemples Python et Spark SQL abrégés.
 - [Azure Data Lake Store](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html)

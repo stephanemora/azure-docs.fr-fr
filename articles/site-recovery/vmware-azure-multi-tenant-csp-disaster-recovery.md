@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
 ms.openlocfilehash: 77b64f09b7fd1429eb23c4407c729dfc0aafdf2b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60460981"
 ---
 # <a name="set-up-vmware-disaster-recovery-in-a-multi-tenancy-environment-with-the-cloud-solution-provider-csp-program"></a>Configurer la récupération d'urgence VMware dans un environnement multilocataire avec le programme du fournisseur de solutions cloud
@@ -52,7 +52,7 @@ Vous pouvez accéder à l’abonnement du locataire par le biais du tableau de b
 
 1. Dans la page **Clients**, cliquez sur le nom du compte locataire.
 2. Dans la page **Abonnements** du compte locataire, vous pouvez surveiller les abonnements de compte existants et en ajouter d’autres si nécessaire.
-3. Pour gérer les opérations de récupération d’urgence du locataire, sélectionnez **Toutes les ressources (portail Azure)**. Cela vous permet d’accéder aux abonnements Azure du locataire.
+3. Pour gérer les opérations de récupération d’urgence du locataire, sélectionnez **Toutes les ressources (portail Azure)** . Cela vous permet d’accéder aux abonnements Azure du locataire.
 
     ![Le lien Toutes les ressources](./media/vmware-azure-multi-tenant-csp-disaster-recovery/all-resources-select.png)  
 
@@ -76,7 +76,7 @@ Vous pouvez maintenant effectuer et gérer toutes les opérations Site Recovery 
     
     c) Une fois que vous avez créé un utilisateur, revenez au portail Azure. Dans la page **Abonnement**, sélectionnez l’abonnement approprié.
 
-    d) Sélectionnez **Contrôle d’accès (IAM)**, puis cliquez sur **Attributions de rôle**.
+    d) Sélectionnez **Contrôle d’accès (IAM)** , puis cliquez sur **Attributions de rôle**.
 
     (e) Cliquez sur **Ajouter une attribution de rôle** pour ajouter un utilisateur avec le niveau d’accès approprié. Les utilisateurs qui ont été créés via le portail CSP apparaissent sous l’onglet Attributions de rôle.
 

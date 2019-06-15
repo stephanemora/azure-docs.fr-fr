@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 12/14/2018
 ms.author: alinast
 ms.openlocfilehash: 35d12d0114f9677905c85a9df94ecd074e5f8f75
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60925870"
 ---
 # <a name="device-connectivity-and-telemetry-ingress"></a>Entrée de télémétrie et connectivité des appareils
@@ -69,10 +69,10 @@ Vous pouvez personnaliser le format et la charge utile du message de votre appar
 
 | Nom de la propriété | Valeur | Obligatoire | Description |
 |---|---|---|---|
-| **DigitalTwins-Telemetry** | 1.0 | Oui | Valeur constante qui identifie un message auprès du système. |
-| **DigitalTwins-SensorHardwareId** | `string(72)` | Oui | Identificateur unique du capteur envoyant le **Message**. Cette valeur doit correspondre à la propriété **HardwareId** d’un objet pour que le système puisse la traiter. Par exemple : `00FF0643BE88-CO2`. |
-| **CreationTimeUtc** | `string` | Non  | Chaîne de date au format [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) qui identifie l’heure d’échantillonnage de la charge utile. Par exemple : `2018-09-20T07:35:00.8587882-07:00`. |
-| **CorrelationId** | `string` | Non  | UUID qui peut être utilisé pour tracer les événements sur le système. Par exemple : `cec16751-ab27-405d-8fe6-c68e1412ce1f`.
+| **DigitalTwins-Telemetry** | 1.0 | OUI | Valeur constante qui identifie un message auprès du système. |
+| **DigitalTwins-SensorHardwareId** | `string(72)` | OUI | Identificateur unique du capteur envoyant le **Message**. Cette valeur doit correspondre à la propriété **HardwareId** d’un objet pour que le système puisse la traiter. Par exemple : `00FF0643BE88-CO2`. |
+| **CreationTimeUtc** | `string` | Non | Chaîne de date au format [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) qui identifie l’heure d’échantillonnage de la charge utile. Par exemple : `2018-09-20T07:35:00.8587882-07:00`. |
+| **CorrelationId** | `string` | Non | UUID qui peut être utilisé pour tracer les événements sur le système. Par exemple : `cec16751-ab27-405d-8fe6-c68e1412ce1f`.
 
 ### <a name="send-your-message-to-digital-twins"></a>Envoyer votre message à Digital Twins
 

@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 01/23/2019
 ms.author: diberry
 ms.openlocfilehash: 51c6a58567b35c9b8486d8634b0bed1af7218994
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60199069"
 ---
 # <a name="test-your-luis-app-in-the-luis-portal"></a>Tester votre application LUIS dans le portail LUIS
@@ -63,7 +63,7 @@ Vous inspectez les détails du résultat du test dans le panneau **Inspecter**.
 
 ## <a name="view-sentiment-results"></a>Afficher les résultats des sentiments
 
-Si **Analyse des sentiments** est configurée sur la page **[Publier](luis-how-to-publish-app.md#enable-sentiment-analysis)**, les résultats du test incluent le sentiment trouvé dans l’énoncé. 
+Si **Analyse des sentiments** est configurée sur la page **[Publier](luis-how-to-publish-app.md#enable-sentiment-analysis)** , les résultats du test incluent le sentiment trouvé dans l’énoncé. 
 
 ![Image du panneau Test avec l’analyse des sentiments](./media/luis-how-to-interactive-test/sentiment.png)
 
@@ -103,9 +103,9 @@ Utilisez la procédure suivante pour inclure le service [Vérification orthograp
 
 1. Dans le panneau **Test**, entrez un énoncé. Lorsque l’énoncé est prédit, sélectionnez **[Inspecter](#inspect-score)** sous l’énoncé entré. 
 
-2. Lorsque le panneau **Inspecter** s’affiche, sélectionnez **[Comparer avec la version publiée](#compare-with-published-version)**. 
+2. Lorsque le panneau **Inspecter** s’affiche, sélectionnez **[Comparer avec la version publiée](#compare-with-published-version)** . 
 
-3. Lorsque le panneau **Publié** s’ouvre, sélectionnez **[Paramètres supplémentaires](#additional-settings-in-test-panel)**.
+3. Lorsque le panneau **Publié** s’ouvre, sélectionnez **[Paramètres supplémentaires](#additional-settings-in-test-panel)** .
 
 4. Dans la boîte de dialogue contextuelle, entrez votre clé du service **Vérification orthographique Bing**. 
     ![Entrer la clé du service Vérification orthographique Bing](./media/luis-how-to-interactive-test/interactive-with-spell-check-service-key.png)

@@ -11,10 +11,10 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
 ms.openlocfilehash: 9d7729dce5419c5813de3c4dfce55c40098f5988
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60595242"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-the-azure-portal"></a>Déployer des modules Azure IoT Edge à partir du portail Azure
@@ -23,7 +23,7 @@ Une fois que vous avez créé des modules IoT Edge avec votre logique métier, v
 
 Cet article explique comment le portail Azure vous aide à créer un manifeste de déploiement et à étendre le déploiement à un appareil IoT Edge. Pour plus d’informations sur la création d’un déploiement ciblant plusieurs appareils en fonction de leurs balises partagées, consultez [Déployer et surveiller des modules IoT Edge à grande échelle](how-to-deploy-monitor.md).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 * Un [hub IoT](../iot-hub/iot-hub-create-through-portal.md) dans votre abonnement Azure.
 * Un [appareil IoT Edge](how-to-register-device-portal.md) avec le runtime IoT Edge installé.
@@ -55,7 +55,7 @@ Le portail Azure comprend un Assistant qui vous guide à travers la création du
 
 1. Sélectionnez le **Module IoT Edge**.
 
-1. Fournissez un nom pour le module, puis spécifiez l’image conteneur. Par exemple : 
+1. Fournissez un nom pour le module, puis spécifiez l’image conteneur. Par exemple :
 
    * **Nom** : tempSensor
    * **URI d’image** : mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0

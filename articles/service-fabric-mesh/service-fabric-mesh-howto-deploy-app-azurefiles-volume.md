@@ -16,10 +16,10 @@ ms.date: 11/21/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
 ms.openlocfilehash: fa078f17768d4885403f2f3e3d6b91251f0aaced
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60419371"
 ---
 # <a name="mount-an-azure-files-based-volume-in-a-service-fabric-mesh-application"></a>Monter un volume basé sur Azure Files dans une application Service Fabric Mesh 
@@ -28,7 +28,7 @@ Cet article décrit comment monter un volume basé sur Azure Files dans un servi
 
 Pour monter un volume dans un service, créez une ressource de volume dans votre application Service Fabric Mesh et référencez ce volume dans votre service.  Vous pouvez déclarer la ressource de volume et la référencer dans la ressource de service dans les [fichiers de ressources YAML](#declare-a-volume-resource-and-update-the-service-resource-yaml) ou le [modèle de déploiement basé sur JSON](#declare-a-volume-resource-and-update-the-service-resource-json). Avant de monter le volume, commencez par créer un compte de stockage Azure et un [partage de fichiers dans Azure Files](/azure/storage/files/storage-how-to-create-file-share).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre cet article, vous pouvez utiliser Azure Cloud Shell ou une installation locale d’Azure CLI. 
 

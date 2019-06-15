@@ -13,16 +13,16 @@ ms.topic: article
 ms.date: 12/02/2016
 ms.author: ghogen
 ms.openlocfilehash: f6f1a3a7f0a406e1dbb40f4bfc6a358da7ac68fa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60391167"
 ---
 # <a name="getting-started-with-azure-queue-storage-and-visual-studio-connected-services-webjob-projects"></a>Prise en main du stockage de files d'attente Azure et des services connectés Visual Studio (projets WebJob)
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 Cet article explique comment prendre en main Stockage File d’attente Azure dans un projet WebJob Visual Studio Azure après avoir créé ou référencé un compte de stockage Azure à l’aide de la boîte de dialogue **Ajouter des services connectés** de Visual Studio. Quand vous ajoutez un compte de stockage à un projet de tâche web à l’aide de la boîte de dialogue **Ajouter des services connectés** de Visual Studio, le package NuGet d’Azure Storage approprié est installé, les références .NET appropriées sont ajoutées au projet et les chaînes de connexion pour le compte de stockage sont mises à jour dans le fichier App.config.  
 
 Cet article fournit des exemples de code C# qui indiquent comment utiliser la version 1.x du Kit de développement logiciel (SDK) WebJobs Azure avec le service de stockage de files d’attente Azure.
@@ -216,7 +216,7 @@ public static void CreateQueueMessage(
 Le Kit de développement logiciel (SDK) sérialise automatiquement l’objet au format JSON. Un message de file d’attente est toujours créé, même si l’objet est null.
 
 ### <a name="create-multiple-messages-or-in-async-functions"></a>Création de plusieurs messages de file d’attente dans des fonctions asynchrones
-Pour créer plusieurs messages, affectez **ICollector<T>** ou **IAsyncCollector<T>**, comme type de paramètre pour la file d’attente de sortie, comme indiqué dans l’exemple suivant.
+Pour créer plusieurs messages, affectez **ICollector<T>** ou **IAsyncCollector<T>** , comme type de paramètre pour la file d’attente de sortie, comme indiqué dans l’exemple suivant.
 
 ```csharp
 public static void CreateQueueMessages(
@@ -342,7 +342,7 @@ Les messages dont le contenu provoque l'échec d'une fonction sont appelés *mes
 ### <a name="automatic-poison-message-handling"></a>Gestion automatique des messages incohérents
 Le Kit de développement logiciel (SDK) appelle une fonction jusqu’à cinq fois pour traiter un message de file d’attente. Si la cinquième tentative échoue, le message est déplacé vers une file d’attente de messages incohérents. Vous pouvez voir comment configurer le nombre maximal de nouvelles tentatives dans [Définition des options de configuration](#how-to-set-configuration-options).
 
-La file d'attente de messages incohérents se nomme *{nom_file_d'attente_d'origine}*-poison. Vous pouvez écrire une fonction pour traiter les messages de la file d’attente de messages incohérents en les consignant dans un journal ou en envoyant une notification signalant qu’une attention manuelle est nécessaire.
+La file d'attente de messages incohérents se nomme *{nom_file_d'attente_d'origine}* -poison. Vous pouvez écrire une fonction pour traiter les messages de la file d’attente de messages incohérents en les consignant dans un journal ou en envoyant une notification signalant qu’une attention manuelle est nécessaire.
 
 Dans l'exemple suivant, la fonction **CopyBlob** ne fonctionnera pas si un message de file d'attente contient le nom d'un objet blob qui n'existe pas. Quand cela se produit, le message est déplacé de la file d’attente copyblobqueue vers la file d’attente copyblobqueue-poison. Le **ProcessPoisonMessage** enregistre ensuite le message incohérent.
 
@@ -544,7 +544,7 @@ Dans le tableau de bord du Kit de développement logiciel (SDK) WebJobs, les 100
 
 ![Activer/désactiver la sortie](./media/vs-storage-webjobs-getting-started-queues/dashboardapplogs.png)
 
-Dans une tâche web continue, les journaux des applications apparaissent dans /data/jobs/continuous/*{nom_tâche_web*/job_log.txt dans le système de fichiers du site web.
+Dans une tâche web continue, les journaux des applications apparaissent dans /data/jobs/continuous/ *{nom_tâche_web*/job_log.txt dans le système de fichiers du site web.
 
         [09/26/2014 21:01:13 > 491e54: INFO] Console.Write - Hello world!
         [09/26/2014 21:01:13 > 491e54: ERR ] Console.Error - Hello world!

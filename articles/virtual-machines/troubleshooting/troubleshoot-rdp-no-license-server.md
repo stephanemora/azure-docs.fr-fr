@@ -14,10 +14,10 @@ ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: genli
 ms.openlocfilehash: 550b971602d1736e0ba3981a5b7ca546862ea034
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60318950"
 ---
 # <a name="remote-desktop-license-server-isnt-available-when-you-connect-to-an-azure-vm"></a>Le serveur de licences des services Bureau à distance n’est pas disponible lorsque vous vous connectez à une machine virtuelle Azure
@@ -63,7 +63,7 @@ Pour résoudre ce problème, [sauvegardez le disque du système d’exploitation
 
     Si vous ne pouvez pas vous connecter à la machine virtuelle à l’aide d’une session d’administration, vous pouvez utiliser la [console série de la machine virtuelle sur Azure](serial-console-windows.md) pour accéder à la machine virtuelle comme suit :
 
-    1. Accéder à la Console série en sélectionnant **Support & Troubleshooting (Support et dépannage)** > **Console série (préversion)**. Si la fonctionnalité est activée sur la machine virtuelle, vous pouvez connecter la machine virtuelle.
+    1. Accéder à la Console série en sélectionnant **Support & Troubleshooting (Support et dépannage)**  > **Console série (préversion)** . Si la fonctionnalité est activée sur la machine virtuelle, vous pouvez connecter la machine virtuelle.
 
     2. Créez un canal pour une instance CMD. Entrez **CMD** pour démarrer le canal et en obtenir le nom.
 

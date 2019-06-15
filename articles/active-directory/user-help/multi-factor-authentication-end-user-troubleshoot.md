@@ -14,10 +14,10 @@ ms.author: lizross
 ms.reviewer: kexia
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b74049833b055caa112c346b74798893f2c0febf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60476657"
 ---
 # <a name="get-help-with-two-step-verification"></a>Obtenir de l’aide pour la vérification en deux étapes
@@ -31,7 +31,7 @@ Microsoft propose la vérification en deux étapes, mais c’est votre organisat
 
 ## <a name="why-do-i-need-to-use-another-verification-method"></a>Pourquoi dois-je utiliser une autre méthode de vérification ?
 
-Plusieurs raisons peuvent expliquer la nécessité de changer de méthode de vérification. Par exemple : 
+Plusieurs raisons peuvent expliquer la nécessité de changer de méthode de vérification. Par exemple :
 
 - **Vous avez oublié votre téléphone ou votre appareil.** Vous laissez parfois votre téléphone à votre domicile, mais vous avez tout de même besoin de vous connecter au bureau. D’abord, vous devez essayer de vous connecter à l’aide d’une méthode qui ne nécessite pas l’usage de votre téléphone.
 

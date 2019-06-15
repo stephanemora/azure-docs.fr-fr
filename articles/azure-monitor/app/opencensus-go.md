@@ -10,17 +10,17 @@ ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: cdf01fbbcc8ef1f90b2e0f8973f59c46c5bf70f8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60577861"
 ---
 # <a name="collect-distributed-traces-from-go-preview"></a>Collecter les traces distribuées à partir de Go (préversion)
 
 Application Insights prend désormais en charge le suivi distribué des applications Go grâce à une intégration à [OpenCensus](https://opencensus.io) et à notre nouveau [redirecteur local](./opencensus-local-forwarder.md). Cet article vous guide étape par étape dans le processus de configuration d’OpenCensus for Go et d’obtention de vos données de trace dans Application Insights.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 - Vous avez besoin d’un abonnement Azure.
 - Go doit être installé, cet article utilise la version 1.11, [Téléchargement de Go](https://golang.org/dl/).
@@ -44,7 +44,7 @@ Vous devez tout d’abord créer une ressource Application Insights qui génère
 
     | Paramètres        | Valeur           | Description  |
    | ------------- |:-------------|:-----|
-   | **Name**      | Valeur globalement unique | Nom identifiant l’application que vous analysez |
+   | **Nom**      | Valeur globalement unique | Nom identifiant l’application que vous analysez |
    | **Type d’application** | Généralités | Type de l’application que vous analysez |
    | **Groupe de ressources**     | myResourceGroup      | Nom du nouveau groupe de ressources pour héberger les données Application Insights |
    | **Lieu** | USA Est | Choisissez un emplacement près de chez vous ou proche de l’endroit où votre application est hébergée |

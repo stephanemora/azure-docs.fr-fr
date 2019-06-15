@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 12/15/2017
 ms.author: cynthn
 ms.openlocfilehash: afd8e6b47fb86985acde062af1fb38ec3af4e902
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60711424"
 ---
 # <a name="install-and-configure-mongodb-on-a-windows-vm-in-azure"></a>Installation et configuration de MongoDB sur une machine virtuelle Windows dans Azure
 [MongoDB](https://www.mongodb.org) est une base de données NoSQL open-source qui offre des performances élevées. Cet article vous guide lors de l’installation et de la configuration de MongoDB sur une machine virtuelle Windows Server 2016 (VM) dans Azure. Vous pouvez également [installer MongoDB sur une machine virtuelle Linux dans Azure](../linux/install-mongodb.md).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 Avant d’installer et configurer MongoDB, vous devez créer une machine virtuelle et, dans l’idéal, ajouter un disque de données à celle-ci. Consultez les articles suivants pour créer une machine Virtuelle et ajouter un disque de données :
 
 * Création d’une machine virtuelle Windows Server à l’aide du [portail Azure](quick-create-portal.md) ou [d’Azure PowerShell](quick-create-powershell.md).
@@ -47,7 +47,7 @@ Pour commencer à installer et à configurer MongoDB, [connectez-vous à votre m
      
      ![Configuration des paramètres de sécurité Internet Explorer](./media/install-mongodb/configure-internet-explorer-security.png)
 4. Accédez à la page [MongoDB - Downloads](https://www.mongodb.com/downloads) (MongoDB - Téléchargements) (https://www.mongodb.com/downloads).
-5. Si nécessaire, sélectionnez l’édition **Community Server** et la dernière version stable mise à jour pour *Windows Server 2008 R2 64 bits et versions ultérieures*. Pour télécharger le programme d’installation, cliquez sur **TÉLÉCHARGER (msi)**.
+5. Si nécessaire, sélectionnez l’édition **Community Server** et la dernière version stable mise à jour pour *Windows Server 2008 R2 64 bits et versions ultérieures*. Pour télécharger le programme d’installation, cliquez sur **TÉLÉCHARGER (msi)** .
    
     ![Téléchargez le programme d’installation de MongoDB](./media/install-mongodb/download-mongodb.png)
    
