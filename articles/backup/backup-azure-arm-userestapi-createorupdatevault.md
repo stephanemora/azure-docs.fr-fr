@@ -11,10 +11,10 @@ ms.date: 08/21/2018
 ms.author: pullabhk
 ms.assetid: e54750b4-4518-4262-8f23-ca2f0c7c0439
 ms.openlocfilehash: 4f18b10ee3f4148badc8e53a9660c9f5c998aef7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60646705"
 ---
 # <a name="create-azure-recovery-services-vault-using-rest-api"></a>Créer des coffres Recovery Services à l’aide de l’API REST
@@ -46,8 +46,8 @@ Les définitions courantes suivantes permettent de générer un corps de demande
 
 |Nom  |Obligatoire  |Type  |Description  |
 |---------|---------|---------|---------|
-|etag     |         |   String      |  eTag facultatif       |
-|location     |  true       |String         |   Emplacement des ressources      |
+|etag     |         |   Chaîne      |  eTag facultatif       |
+|location     |  true       |Chaîne         |   Emplacement des ressources      |
 |properties     |         | [VaultProperties](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vaultproperties)        |  Propriétés du coffre       |
 |sku     |         |  [Sku](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#sku)       |    Identifie l’identificateur système unique de chaque ressource Azure.     |
 |tags     |         | Object        |     Balises de ressource    |

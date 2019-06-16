@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/18/2019
 ms.author: cynthn
 ms.openlocfilehash: b24435501ed1312e91ebec9b9c434971dbc94b55
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61402302"
 ---
 # <a name="create-a-vm-from-a-vhd-by-using-the-azure-portal"></a>Créer une machine virtuelle à partir d’un disque dur virtuel à l’aide du portail Azure
@@ -46,14 +46,14 @@ Créez une capture instantanée, puis créez un disque à partir de cette captur
 4. Dans le menu du haut, sélectionnez **Créer une capture instantanée**. 
 5. Entrez un **nom** pour la capture instantanée.
 6. Choisissez un **groupe de ressources** pour l’instantané. Vous pouvez utiliser un groupe de ressources existant ou en créer un.
-7. Comme **Type de compte**, choisissez le stockage **Standard (HDD)** ou **Premium (SSD)**.
+7. Comme **Type de compte**, choisissez le stockage **Standard (HDD)** ou **Premium (SSD)** .
 8. Quand vous avez terminé, sélectionnez **Créer** pour créer la capture instantanée.
 9. Une fois la capture instantanée créée, sélectionnez **Créer une ressource** dans le menu de gauche.
 10. Dans la zone de recherche, entrez **disque managé**, puis sélectionnez **Disques managés** dans la liste.
 11. Dans la page **Disques managés**, sélectionnez **Créer**.
 12. Donnez un **Nom** au disque.
 13. Choisissez un **groupe de ressources** pour le disque. Vous pouvez utiliser un groupe de ressources existant ou en créer un. Cette sélection est également utilisée comme groupe de ressources où vous créez la machine virtuelle à partir du disque.
-14. Pour **Type de compte**, choisissez le stockage **Standard (HDD)** ou **Premium (SSD)**.
+14. Pour **Type de compte**, choisissez le stockage **Standard (HDD)** ou **Premium (SSD)** .
 15. Dans **Type de source**, vérifiez que l’option **Capture instantanée** est sélectionnée.
 16. Dans la liste déroulante **Capture instantanée source**, sélectionnez l’instantané que vous souhaitez utiliser.
 17. Effectuez tout autre changement nécessaire, puis sélectionnez **Créer** pour créer le disque.

@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: alkohli
 ms.openlocfilehash: d727ed62f5a869f6eb67400281d2660607756abf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60637499"
 ---
 # <a name="compare-storsimple-with-azure-file-sync-and-data-box-edge-data-transfer-options"></a>Comparer StorSimple avec les options de transfert de données Azure File Sync et Data Box Edge 
@@ -26,7 +26,7 @@ Ce document fournit une vue d'ensemble des options disponibles pour le transfert
 
 |                           |StorSimple 8000   |Azure File Sync   |Data Box Edge           |
 |---------------------------|----------------------------------------|-------------------------------|-----------------------------------------|
-|Présentation         |Stockage et archivage hybrides hiérarchisés|Stockage sur serveur de fichiers général avec hiérarchisation cloud et synchronisation multisite.  |Solution de stockage pour prétraiter les données et les envoyer via réseau vers Azure.        |
+|Vue d'ensemble         |Stockage et archivage hybrides hiérarchisés|Stockage sur serveur de fichiers général avec hiérarchisation cloud et synchronisation multisite.  |Solution de stockage pour prétraiter les données et les envoyer via réseau vers Azure.        |
 |Scénarios        |Serveur de fichiers, archivage et cible de sauvegarde |Serveur de fichiers, archivage (multisite)   |Transfert de données, pré-traitement de données incluant inférence de Machine Learning, IoT, archivage    |
 |Computing en périphérie     |Non disponible |Non disponible |Prend en charge l’exécution de conteneurs à l’aide d’Azure IoT Edge    |
 |Facteur de forme      |Appareil physique   |Agent installé sur Windows Server |Appareil physique   |

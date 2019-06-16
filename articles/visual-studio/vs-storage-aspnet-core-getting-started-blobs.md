@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/07/2017
 ms.author: casoper
 ms.openlocfilehash: f8de7f7a263a087abb16ed48d05b2cae9834b4ad
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62110506"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-aspnet-core"></a>Prendre en main Stockage Blob Azure et les services connectés de Visual Studio (ASP.NET Core)
@@ -51,7 +51,7 @@ Cette section explique les étapes à effectuer pour configurer l’environnemen
 
     ![Capture d’écran de la boîte de dialogue Nouveau projet de Visual Studio](./media/vs-storage-aspnet-core-getting-started-blobs/new-project.png)
 
-1. Dans la boîte de dialogue **Nouvelle application web ASP.NET Core**, sélectionnez **.NET Core** > **ASP.NET Core 2.0** > **Application web (modèle-vue-contrôleur)**. Sélectionnez ensuite **OK**.
+1. Dans la boîte de dialogue **Nouvelle application web ASP.NET Core**, sélectionnez **.NET Core** > **ASP.NET Core 2.0** > **Application web (modèle-vue-contrôleur)** . Sélectionnez ensuite **OK**.
 
     ![Capture d’écran de la boîte de dialogue Nouvelle application web ASP.NET Core](./media/vs-storage-aspnet-core-getting-started-blobs/new-mvc.png)
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
 ms.openlocfilehash: 7806599c1a2f1396ff4b07d6f0538057654029d7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66157124"
 ---
 # <a name="integrate-azure-devtest-labs-into-your-azure-devops-continuous-integration-and-delivery-pipeline"></a>Intégrer Azure DevTest Labs à votre pipeline de livraison et d’intégration continue Azure DevOps
@@ -179,7 +179,7 @@ L’étape suivante consiste à créer, dans votre instance Azure DevTest Labs, 
 
    d. (Facultatif) Pour **Description**, entrez une description afin de faciliter la sélection de l’image appropriée ultérieurement.
 
-   e. Pour **Machine virtuelle du lab source - ID de la machine virtuelle du lab source**, si vous avez changé le nom par défaut de la variable d’environnement qui a été automatiquement renseignée avec l’ID de la machine virtuelle du lab par une tâche antérieure, modifiez-le ici. La valeur par défaut est **$(labVMId)**.
+   e. Pour **Machine virtuelle du lab source - ID de la machine virtuelle du lab source**, si vous avez changé le nom par défaut de la variable d’environnement qui a été automatiquement renseignée avec l’ID de la machine virtuelle du lab par une tâche antérieure, modifiez-le ici. La valeur par défaut est **$(labVMId)** .
 
    f. Pour **Variables de sortie - ID de l’image personnalisée**, indiquez l’ID de l’image qui vient d’être créée ; cet ID est nécessaire pour gérer ou supprimer l’image. Le nom par défaut de la variable d’environnement qui est automatiquement renseignée avec cet ID est défini dans la section **Variables de sortie**. Vous pouvez modifier la variable si nécessaire.
 
@@ -194,7 +194,7 @@ La dernière étape consiste à supprimer la machine virtuelle que vous avez dé
 
    a. Pour **Abonnement RM Azure**, sélectionnez une connexion dans la liste **Connexions au service Azure disponibles**, ou créez une connexion d’autorisations plus limitée à votre abonnement Azure. Pour plus d’informations, consultez [Point de terminaison de service Azure Resource Manager](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-rm).
  
-   b. Pour **ID de la machine virtuelle du lab**, si vous avez changé le nom par défaut de la variable d’environnement qui a été automatiquement renseignée avec l’ID de la machine virtuelle du lab par une tâche antérieure, modifiez-le ici. La valeur par défaut est **$(labVMId)**.
+   b. Pour **ID de la machine virtuelle du lab**, si vous avez changé le nom par défaut de la variable d’environnement qui a été automatiquement renseignée avec l’ID de la machine virtuelle du lab par une tâche antérieure, modifiez-le ici. La valeur par défaut est **$(labVMId)** .
 
 1. Entrez un nom pour le pipeline de mise en production, puis enregistrez-le.
 1. Créez une mise en production, sélectionnez la build la plus récente et déployez-la sur l’environnement unique dans le pipeline.

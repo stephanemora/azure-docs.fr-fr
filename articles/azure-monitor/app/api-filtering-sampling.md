@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 11/23/2016
 ms.author: mbullwin
 ms.openlocfilehash: 1b55a2b053b86d3260fdca201357445d2556c444
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60793962"
 ---
 # <a name="filtering-and-preprocessing-telemetry-in-the-application-insights-sdk"></a>Filtrage et pré-traitement de la télémétrie dans le Kit de développement logiciel (SDK) Application Insights
@@ -370,6 +370,6 @@ Quelle est la différence entre les processeurs de télémétrie et les initiali
 * [Kit de développement logiciel (SDK) JavaScript](https://github.com/Microsoft/ApplicationInsights-JS)
 
 ## <a name="next"></a>Étapes suivantes
-* [Recherche d’événements et de journaux](../../azure-monitor/app/diagnostic-search.md)
+* [Recherche d’événements et de journaux d’activité](../../azure-monitor/app/diagnostic-search.md)
 * [Échantillonnage](../../azure-monitor/app/sampling.md)
 * [Dépannage](../../azure-monitor/app/troubleshoot-faq.md)

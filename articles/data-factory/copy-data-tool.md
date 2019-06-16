@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 06/18/2018
 ms.author: yexu
 ms.openlocfilehash: 107687c785433f81870449d1445136b5148a4d2c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60787691"
 ---
 # <a name="copy-data-tool-in-azure-data-factory"></a>Outil Copier des données dans Azure Data Factory
@@ -78,7 +78,7 @@ La capture d’écran suivante montre une requête SQL permettant de filtrer les
 ![Filtrer les données d’une base de données](./media/copy-data-tool/filter-data-in-database.png)
 
 ### <a name="filter-data-in-an-azure-blob-folder"></a>Filtrer les données dans un dossier d’objets blob Azure
-Vous pouvez utiliser des variables dans le chemin d’accès au dossier pour copier des données à partir d’un dossier. Les variables prises en charge sont les suivantes : **{year}**, **{month}**, **{day}**, **{hour}** et **{minute}**. Exemple : inputfolder/{year}/{month}/{day}. 
+Vous pouvez utiliser des variables dans le chemin d’accès au dossier pour copier des données à partir d’un dossier. Les variables prises en charge sont les suivantes : **{year}** , **{month}** , **{day}** , **{hour}** et **{minute}** . Exemple : inputfolder/{year}/{month}/{day}. 
 
 Supposons que vos dossiers d’entrée présentent le format suivant : 
 
@@ -91,7 +91,7 @@ Supposons que vos dossiers d’entrée présentent le format suivant :
 
 Cliquez sur le bouton **Parcourir** à côté de **Fichier ou dossier**, accédez à l’un de ces dossiers (par exemple, 2016->03->01->02), puis cliquez sur **Choisir**. Vous devez voir 2016/03/01/02 dans la zone de texte. 
 
-Puis remplacez **2016** par **{year}**, **03** par **{month}**, **01** par **{day}** et **02** par **{hour}**, puis appuyez sur la touche de **tabulation**. Vous devez maintenant voir des listes déroulantes pour sélectionner le format de ces quatre variables :
+Puis remplacez **2016** par **{year}** , **03** par **{month}** , **01** par **{day}** et **02** par **{hour}** , puis appuyez sur la touche de **tabulation**. Vous devez maintenant voir des listes déroulantes pour sélectionner le format de ces quatre variables :
 
 ![Filtrer un fichier ou un dossier](./media/copy-data-tool/filter-file-or-folder.png)
 

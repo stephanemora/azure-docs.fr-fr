@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
 ms.openlocfilehash: 14090e21fb7c6ca07fe63220ffd1d44d483ac869
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61088171"
 ---
 # <a name="product-templates-in-azure-api-management"></a>Modèles Produit dans Gestion des API Azure
@@ -210,7 +210,7 @@ Gestion des API Azure vous offre la possibilité de personnaliser le contenu des
 |SubscriptionState|number|État de l’abonnement. Les états possibles sont :<br /><br /> -   `0 - suspended` : l’abonnement est bloqué et l’abonné ne peut appeler aucune API du produit.<br />-   `1 - active` : l’abonnement est actif.<br />-   `2 - expired` : l’abonnement a atteint sa date d’expiration et a été désactivé.<br />-   `3 - submitted` : la demande d’abonnement a été effectuée par le développeur, mais n’a pas encore été approuvée ou rejetée.<br />-   `4 - rejected` : la demande d’abonnement a été refusée par un administrateur.<br />-   `5 - cancelled` : l’abonnement a été annulé par le développeur ou l’administrateur.|  
 |limites|array|Cette propriété est déconseillée et ne doit pas être utilisée.|  
 |DelegatedSubscriptionEnabled|booléenne|Indique si la [délégation](https://azure.microsoft.com/documentation/articles/api-management-howto-setup-delegation/) est activée pour cet abonnement.|  
-|DelegatedSubscriptionUrl|string|Si la délégation est activée, indique l’URL de l’abonnement délégué.|  
+|DelegatedSubscriptionUrl|chaîne|Si la délégation est activée, indique l’URL de l’abonnement délégué.|  
 |IsAgreed|booléenne|Si le produit est associé à un contrat, indique si l’utilisateur actuel a accepté les termes du contrat.|  
 |Abonnements|Collection d’entités [Subscription summary](api-management-template-data-model-reference.md#SubscriptionSummary).|Abonnements au produit.|  
 |Apis|Collection d’entités [API](api-management-template-data-model-reference.md#API).|API dans ce produit.|  

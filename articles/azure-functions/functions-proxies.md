@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: alkarche
 ms.openlocfilehash: 2fbf29385b9a14cf5d4a9df621f0767a32079587
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61020983"
 ---
 # <a name="work-with-azure-functions-proxies"></a>Utilisation d’Azure Functions Proxies
@@ -96,7 +96,7 @@ Les paramètres de réponse peuvent être utilisés lors de la modification de l
 
 Vous pouvez également référencer les [paramètres de l’application définis pour la Function App](https://docs.microsoft.com/azure/azure-functions/functions-how-to-use-azure-function-app-settings) en mettant le nom du paramètre entre signes de pourcentage (%).
 
-Par exemple, dans une URL de serveur principal de *https://%ORDER_PROCESSING_HOST%/api/orders*, « %ORDER_PROCESSING_HOST% » sera remplacé par la valeur du paramètre ORDER_PROCESSING_HOST.
+Par exemple, dans une URL de serveur principal de *https://%ORDER_PROCESSING_HOST%/api/orders* , « %ORDER_PROCESSING_HOST% » sera remplacé par la valeur du paramètre ORDER_PROCESSING_HOST.
 
 > [!TIP] 
 > Utilisez des paramètres d’application pour les hôtes de serveur principal lorsque vous avez plusieurs déploiements ou environnements de test. De cette façon, vous avez l’assurance de toujours parler au backend adapté à cet environnement.

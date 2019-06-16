@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
 ms.openlocfilehash: 5d47b938560fb1bd15adfe1a1c2d35b7359d47a3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61339125"
 ---
 # <a name="graph-search-method"></a>Méthode Graph Search
@@ -32,7 +32,7 @@ https://westus.api.cognitive.microsoft.com/academic/v1.0/graph/search?
 
 Nom     | Valeur | Requis ?  | Description
 -----------|-----------|---------|--------
-**mode**       | Chaîne de texte | Oui | Nom du modèle que vous souhaitez utiliser. La valeur est *json* ou *lambda*.
+**mode**       | Chaîne de texte | OUI | Nom du modèle que vous souhaitez utiliser. La valeur est *json* ou *lambda*.
 
 La méthode de recherche de graphique doit être appelée par le biais d’une requête HTTP POST. La requête post doit inclure l’en-tête de type de contenu : **application/json**.
 

@@ -14,10 +14,10 @@ ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: ea0094624727ca1395a1276e7968ac1c74b750e7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60487280"
 ---
 # <a name="create-monitor-and-manage-azure-data-factories-using-azure-data-factory-net-sdk"></a>Créer, surveiller et gérer des fabriques de données Azure à l’aide du Kit de développement logiciel (SDK) Azure Data Factory .NET
@@ -113,7 +113,7 @@ L’activité de copie effectue le déplacement des données dans Azure Data Fac
 1. À l’aide de Visual Studio 2012/2013/2015, créez une application console C# .NET.
    1. Lancez **Visual Studio** 2012/2013/2015.
    2. Cliquez sur **Fichier**, pointez le curseur de la souris sur **Nouveau**, puis cliquez sur **Projet**.
-   3. Développez **Modèles**, puis sélectionnez **Visual C#**. Dans cette procédure pas à pas, vous utilisez C#, mais vous pouvez utiliser un autre langage .NET.
+   3. Développez **Modèles**, puis sélectionnez **Visual C#** . Dans cette procédure pas à pas, vous utilisez C#, mais vous pouvez utiliser un autre langage .NET.
    4. Sélectionnez **Application console** dans la liste des types de projet située sur la droite.
    5. Entrez **DataFactoryAPITestApp** dans le champ Nom.
    6. Sélectionnez **C:\ADFGetStarted** dans le champ Emplacement.
@@ -139,7 +139,7 @@ L’activité de copie effectue le déplacement des données dans Azure Data Fac
         </appSettings>
     </configuration>
     ```
-5. Dans le fichier App.Config, remplacez les valeurs de **&lt;ID d’Application&gt;**, **&lt;Mot de passe&gt;**, **&lt;ID d’abonnement&gt;**, et **&lt;ID client&gt;** par vos propres valeurs.
+5. Dans le fichier App.Config, remplacez les valeurs de **&lt;ID d’Application&gt;** , **&lt;Mot de passe&gt;** , **&lt;ID d’abonnement&gt;** , et **&lt;ID client&gt;** par vos propres valeurs.
 6. Ajoutez les instructions **using** ci-après dans le fichier **Program.cs** du projet.
 
     ```csharp
@@ -222,7 +222,7 @@ L’activité de copie effectue le déplacement des données dans Azure Data Fac
     ```
 9. Ajoutez à la méthode **Main** le code suivant, qui crée des **jeux de données d’entrée et de sortie**.
 
-    Le paramètre **FolderPath** de l’objet blob d’entrée a la valeur **adftutorial/**, où **adftutorial** est le nom du conteneur dans votre stockage des objets blob. Si ce conteneur n'existe pas dans votre stockage d'objets blob Azure, créez un conteneur nommé **adftutorial** et chargez un fichier texte sur celui-ci.
+    Le paramètre **FolderPath** de l’objet blob d’entrée a la valeur **adftutorial/** , où **adftutorial** est le nom du conteneur dans votre stockage des objets blob. Si ce conteneur n'existe pas dans votre stockage d'objets blob Azure, créez un conteneur nommé **adftutorial** et chargez un fichier texte sur celui-ci.
 
     Le paramètre FolderPath de l’objet blob de sortie est défini sur **adftutorial/apifactoryoutput/{Slice}** où la valeur **Slice** est calculée dynamiquement en fonction de la valeur de **SliceStart** (date/heure de début de chaque tranche).
 

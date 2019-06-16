@@ -11,10 +11,10 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
 ms.openlocfilehash: 69ba0a882c0e52e7c0d063b8f77e7a0fe22526a1
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62126358"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-portal"></a>Déployer et surveiller des modules IoT Edge à grande échelle à l’aide du portail Azure
@@ -109,7 +109,7 @@ Les métriques fournissent des nombres récapitulatifs des différents états qu
 
 1. Entrez une requête pour **Critères de la métrique**. La requête est basée sur les [propriétés signalées](module-edgeagent-edgehub.md#edgehub-reported-properties) du jumeau de module du hub IoT Edge. La métrique représente le nombre de lignes retournées par la requête.
 
-Par exemple : 
+Par exemple :
 
 ```sql
 SELECT deviceId FROM devices
@@ -126,7 +126,7 @@ Utilisez la propriété tags à partir de vos appareils pour cibler des appareil
 1. Entrez une **Condition cible** pour déterminer quels sont les appareils ciblés par ce déploiement. La condition est basée sur les balises de jumeau d’appareil ou sur les propriétés signalées du jumeau d’appareil et doit correspondre au format de l’expression. Par exemple, `tags.environment='test'` ou `properties.reported.devicemodel='4000x'`. 
 1. Sélectionnez **Suivant** pour passer à l’étape finale.
 
-### <a name="step-6-review-deployment"></a>Étape 6 : Vérifier le déploiement
+### <a name="step-6-review-deployment"></a>Étape 6 : Vérifier le déploiement
 
 Passez en revue les informations de votre déploiement, puis sélectionnez **Envoyer**.
 

@@ -16,10 +16,10 @@ ms.date: 07/24/2018
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: e2bd67ebb977a37c75631f16fbbf4c7dbd6bf250
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60782555"
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Gérer les ressources Batch avec Azure CLI
@@ -39,7 +39,7 @@ Vous pouvez également exécuter l’interface Azure CLI la plus récente dans [
 
 ## <a name="command-help"></a>Aide relative aux commandes
 
-Vous pouvez afficher le texte d’aide de toutes les commandes de l’interface de ligne de commande Azure en ajoutant `-h` à la commande. Ignorez les autres options. Par exemple : 
+Vous pouvez afficher le texte d’aide de toutes les commandes de l’interface de ligne de commande Azure en ajoutant `-h` à la commande. Ignorez les autres options. Par exemple :
 
 * Pour obtenir l’aide de la commande `az`, entrez : `az -h`
 * Pour obtenir la liste de toutes les commandes Batch dans l’interface de ligne de commande, utilisez : `az batch -h`
@@ -122,7 +122,7 @@ Consultez les [exemples de scripts de l’interface de ligne de commande](cli-sa
 
 ## <a name="json-files-for-resource-creation"></a>Fichiers JSON pour la création de ressources
 
-Lorsque vous créez des ressources Batch comme des pools et des travaux, vous pouvez spécifier un fichier JSON contenant la configuration de la nouvelle ressource au lieu de transmettre ses paramètres en tant qu’options de ligne de commande. Par exemple : 
+Lorsque vous créez des ressources Batch comme des pools et des travaux, vous pouvez spécifier un fichier JSON contenant la configuration de la nouvelle ressource au lieu de transmettre ses paramètres en tant qu’options de ligne de commande. Par exemple :
 
 ```azurecli
 az batch pool create my_batch_pool.json

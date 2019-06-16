@@ -2,20 +2,19 @@
 title: Orchestrations secondaires pour Fonctions durables - Azure
 description: Guide pratique pour appeler des orchestrations à partir d’orchestrations dans l’extension Fonctions durables pour Azure Functions.
 services: functions
-author: kashimiz
+author: ggailey777
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-origin.date: 12/07/2018
-ms.date: 12/25/2018
-ms.author: v-junlch
+ms.date: 12/07/2018
+ms.author: azfuncdf
 ms.openlocfilehash: 1ab9a5714a7ef24b51957bd48b1b67240cf13adb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60730240"
 ---
 # <a name="sub-orchestrations-in-durable-functions-azure-functions"></a>Orchestrations secondaires dans Fonctions durables (Azure Functions)
@@ -124,4 +123,3 @@ module.exports = df.orchestrator(function*(context) {
 
 > [!div class="nextstepaction"]
 > [Découvrez ce que représentent les hubs de tâches et comment les configurer](durable-functions-task-hubs.md)
-

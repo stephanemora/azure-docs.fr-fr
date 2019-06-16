@@ -9,14 +9,14 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
 ms.openlocfilehash: c64340491dba11870364610a6c2ff62e25c1328a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61001802"
 ---
 # <a name="how-to-connect-to-data-sources"></a>Connexion aux sources de données
-## <a name="introduction"></a>Présentation
+## <a name="introduction"></a>Introduction
 **Microsoft Azure Data Catalog** est un service cloud entièrement géré qui sert de système d'inscription et de détection des sources de données d'entreprise. En d'autres termes, **Microsoft Azure Data Catalog** vise essentiellement à aider les utilisateurs à détecter, comprendre et utiliser des sources de données et permet aux organisations de mieux exploiter leurs données. L’utilisation des données représente un aspect clé de ce scénario. Lorsqu’un utilisateur détecte une source de données et en comprend l’objet, l’étape suivante consiste à se connecter à la source de données pour pouvoir exploiter les données correspondantes.
 
 ## <a name="data-source-locations"></a>Emplacements des sources de données

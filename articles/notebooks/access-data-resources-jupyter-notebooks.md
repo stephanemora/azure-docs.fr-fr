@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
 ms.openlocfilehash: 14a4191612a5d42836ae4be3ff902ca47a6b06d4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60634337"
 ---
 # <a name="access-cloud-data-in-a-notebook"></a>Accéder aux données de cloud dans un notebook
@@ -53,7 +53,7 @@ if response.status_code == 200:
 
 Vous pouvez accéder aux bases de données SQL Server à l’aide des bibliothèques pyodbc ou pymssql.
 
-La page [Utilisation de Python pour interroger une base de données SQL Azure](https://docs.microsoft.com/azure/sql-database/sql-database-connect-query-python) vous fournit des instructions sur la création d’une base de données contenant des données AdventureWorks et montre comment interroger ces données. Le même code est illustré dans l’exemple de notebook pour cet article.
+La page [Utilisation de Python pour interroger une base de données Azure SQL](https://docs.microsoft.com/azure/sql-database/sql-database-connect-query-python) vous fournit des instructions sur la création d’une base de données contenant des données AdventureWorks et montre comment interroger ces données. Le même code est illustré dans l’exemple de notebook pour cet article.
 
 ## <a name="azure-storage"></a>Stockage Azure
 

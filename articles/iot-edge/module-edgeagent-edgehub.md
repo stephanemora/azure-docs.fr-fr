@@ -10,10 +10,10 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
 ms.openlocfilehash: b6eb0c5b0d52bba3d34c9853a73b1f3e07b112a7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61322703"
 ---
 # <a name="properties-of-the-iot-edge-agent-and-iot-edge-hub-module-twins"></a>Propriétés des jumeaux de module de l’agent IoT Edge et du hub IoT Edge
@@ -28,29 +28,29 @@ Le jumeau de module de l’agent IoT Edge est appelé `$edgeAgent` et coordonne 
 
 | Propriété | Description | Obligatoire |
 | -------- | ----------- | -------- |
-| schemaVersion | Doit être "1.0" | Oui |
-| runtime.type | Doit être "docker" | Oui |
-| runtime.settings.minDockerVersion | Définie sur la version Docker minimale requise par ce manifeste de déploiement | Oui |
-| runtime.settings.loggingOptions | JSON converti en chaînes et contenant les options de journalisation du conteneur d’agent IoT Edge. [Options de journalisation Docker](https://docs.docker.com/engine/admin/logging/overview/) | Non  |
-| runtime.settings.registryCredentials<br>.{registryId}.username | Nom d’utilisateur du registre de conteneurs. Pour Azure Container Registry, le nom d’utilisateur est généralement le nom du registre.<br><br> Les informations d’identification du registre sont nécessaires pour toutes les images de modules qui ne sont pas publiques. | Non  |
-| runtime.settings.registryCredentials<br>.{registryId}.password | Mot de passe du registre de conteneurs. | Non  |
-| runtime.settings.registryCredentials<br>.{registryId}.address | Adresse du registre de conteneurs. Pour Azure Container Registry, l’adresse est généralement *{nom du registre}.azurecr.io*. | Non  |  
-| systemModules.edgeAgent.type | Doit être "docker" | Oui |
-| systemModules.edgeAgent.settings.image | URI de l’image de l’agent IoT Edge. Actuellement, l’agent IoT Edge ne peut pas se mettre à jour lui-même. | Oui |
-| systemModules.edgeAgent.settings<br>.createOptions | JSON converti en chaînes et contenant les options de création du conteneur d’agent IoT Edge. [Options de création Docker](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate) | Non  |
+| schemaVersion | Doit être "1.0" | OUI |
+| runtime.type | Doit être "docker" | OUI |
+| runtime.settings.minDockerVersion | Définie sur la version Docker minimale requise par ce manifeste de déploiement | OUI |
+| runtime.settings.loggingOptions | JSON converti en chaînes et contenant les options de journalisation du conteneur d’agent IoT Edge. [Options de journalisation Docker](https://docs.docker.com/engine/admin/logging/overview/) | Non |
+| runtime.settings.registryCredentials<br>.{registryId}.username | Nom d’utilisateur du registre de conteneurs. Pour Azure Container Registry, le nom d’utilisateur est généralement le nom du registre.<br><br> Les informations d’identification du registre sont nécessaires pour toutes les images de modules qui ne sont pas publiques. | Non |
+| runtime.settings.registryCredentials<br>.{registryId}.password | Mot de passe du registre de conteneurs. | Non |
+| runtime.settings.registryCredentials<br>.{registryId}.address | Adresse du registre de conteneurs. Pour Azure Container Registry, l’adresse est généralement *{nom du registre}.azurecr.io*. | Non |  
+| systemModules.edgeAgent.type | Doit être "docker" | OUI |
+| systemModules.edgeAgent.settings.image | URI de l’image de l’agent IoT Edge. Actuellement, l’agent IoT Edge ne peut pas se mettre à jour lui-même. | OUI |
+| systemModules.edgeAgent.settings<br>.createOptions | JSON converti en chaînes et contenant les options de création du conteneur d’agent IoT Edge. [Options de création Docker](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate) | Non |
 | systemModules.edgeAgent.configuration.id | ID du déploiement ayant déployé ce module. | IoT Hub définit cette propriété quand le manifeste est appliqué à l’aide d’un déploiement. Ne fait pas partie d’un manifeste de déploiement. |
-| systemModules.edgeHub.type | Doit être "docker" | Oui |
-| systemModules.edgeHub.type | Doit être "running" | Oui |
-| systemModules.edgeHub.restartPolicy | Doit être "always" | Oui |
-| systemModules.edgeHub.settings.image | URI de l’image du hub IoT Edge. | Oui |
-| systemModules.edgeHub.settings<br>.createOptions | JSON converti en chaînes et contenant les options de création du conteneur du hub IoT Edge. [Options de création Docker](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate) | Non  |
+| systemModules.edgeHub.type | Doit être "docker" | OUI |
+| systemModules.edgeHub.type | Doit être "running" | OUI |
+| systemModules.edgeHub.restartPolicy | Doit être "always" | OUI |
+| systemModules.edgeHub.settings.image | URI de l’image du hub IoT Edge. | OUI |
+| systemModules.edgeHub.settings<br>.createOptions | JSON converti en chaînes et contenant les options de création du conteneur du hub IoT Edge. [Options de création Docker](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate) | Non |
 | systemModules.edgeHub.configuration.id | ID du déploiement ayant déployé ce module. | IoT Hub définit cette propriété quand le manifeste est appliqué à l’aide d’un déploiement. Ne fait pas partie d’un manifeste de déploiement. |
-| modules.{moduleId}.version | Chaîne définie par l’utilisateur représentant la version de ce module. | Oui |
-| modules.{moduleId}.type | Doit être "docker" | Oui |
-| modules.{moduleId}.status | {"running" \| "stopped"} | Oui |
-| modules.{moduleId}.restartPolicy | {"never" \| "on-failed" \| "on-unhealthy" \| "always"} | Oui |
-| modules.{moduleId}.settings.image | URI de l’image du module. | Oui |
-| modules.{moduleId}.settings.createOptions | Champ de chaîne JSON contenant les options de création du conteneur de module. [Options de création Docker](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate) | Non  |
+| modules.{moduleId}.version | Chaîne définie par l’utilisateur représentant la version de ce module. | OUI |
+| modules.{moduleId}.type | Doit être "docker" | OUI |
+| modules.{moduleId}.status | {"running" \| "stopped"} | OUI |
+| modules.{moduleId}.restartPolicy | {"never" \| "on-failed" \| "on-unhealthy" \| "always"} | OUI |
+| modules.{moduleId}.settings.image | URI de l’image du module. | OUI |
+| modules.{moduleId}.settings.createOptions | Champ de chaîne JSON contenant les options de création du conteneur de module. [Options de création Docker](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate) | Non |
 | modules.{moduleId}.configuration.id | ID du déploiement ayant déployé ce module. | IoT Hub définit cette propriété quand le manifeste est appliqué à l’aide d’un déploiement. Ne fait pas partie d’un manifeste de déploiement. |
 
 ## <a name="edgeagent-reported-properties"></a>Propriétés signalées pour EdgeAgent
@@ -100,9 +100,9 @@ Le jumeau de module du hub IoT Edge est appelé `$edgeHub` et coordonne les comm
 
 | Propriété | Description | Requise dans le manifeste de déploiement |
 | -------- | ----------- | -------- |
-| schemaVersion | Doit être "1.0" | Oui |
+| schemaVersion | Doit être "1.0" | OUI |
 | routes.{routeName} | Chaîne représentant la route d’un hub IoT Edge. | L’élément `routes` peut être présent mais vide. |
-| storeAndForwardConfiguration.timeToLiveSecs | Durée, en secondes, pendant laquelle le hub IoT Edge conserve les messages en cas de points de terminaison de routage déconnectés (par exemple, déconnectés d’IoT Hub ou d’un module local) | Oui |
+| storeAndForwardConfiguration.timeToLiveSecs | Durée, en secondes, pendant laquelle le hub IoT Edge conserve les messages en cas de points de terminaison de routage déconnectés (par exemple, déconnectés d’IoT Hub ou d’un module local) | OUI |
 
 ## <a name="edgehub-reported-properties"></a>Propriétés signalées pour EdgeHub
 

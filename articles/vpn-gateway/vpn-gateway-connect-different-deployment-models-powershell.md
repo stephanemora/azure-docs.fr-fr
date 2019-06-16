@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 10/17/2018
 ms.author: cherylmc
 ms.openlocfilehash: 2263996b84b17f7de9826c07eb28e4b7668cd915
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62095578"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-powershell"></a>Connecter des réseaux virtuels utilisant des modèles de déploiement différents à l’aide de PowerShell
@@ -44,7 +44,7 @@ Vous pouvez utiliser ces valeurs pour créer un environnement de test ou vous y 
 
 **Paramètres de réseau virtuel classique**
 
-Nom du réseau virtuel = ClassicVNet  <br>
+Nom du réseau virtuel = ClassicVNet <br>
 Emplacement = USA Ouest <br>
 Espaces d’adressage du réseau virtuel = 10.0.0.0/24 <br>
 Sous-réseau-1 = 10.0.0.0/27 <br>
@@ -54,7 +54,7 @@ Type de passerelle = DynamicRouting
 
 **Paramètres de réseau virtuel Resource Manager**
 
-Nom du réseau virtuel = RMVNet  <br>
+Nom du réseau virtuel = RMVNet <br>
 Groupe de ressources = RG1 <br>
 Espaces d’adressage IP du réseau virtuel = 192.168.0.0/16 <br>
 Sous-réseau-1 = 192.168.1.0/24 <br>

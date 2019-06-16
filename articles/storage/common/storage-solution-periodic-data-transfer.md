@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: alkohli
 ms.openlocfilehash: 8f106674c1b1ec90477c7c030dc55085fcf10656
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60729917"
 ---
 # <a name="solutions-for-periodic-data-transfer"></a>Solutions de transfert périodique de données
@@ -58,9 +58,9 @@ Le tableau suivant résume les différences entre les principales fonctionnalit�
 | Matériel                                      | Votre hyperviseur            | Fourni par Microsoft    | N/D                                                            |
 | Effort de configuration initial                          | Faible (< 30 minutes)            | Modéré (quelques heures) | Grand (plusieurs jours)                                                 |
 | Format de données                                   | Blob et Fichiers Azure   | Blob et Fichiers Azure | [Prend en charge plus de 70 connecteurs de données pour les formats et les magasins de données](https://docs.microsoft.com/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats)|
-| Prétraitement des données                           | Non                          | Oui, avec le computing en périphérie    | Oui                                                           |
-| Cache local<br>(pour stocker des données locales)    | Oui                        | Oui                      | Non                                                             |
-| Transfert à partir d’autres clouds                    | Non                          | Non                        | Oui                                                           |
+| Prétraitement des données                           | Non                         | Oui, avec le computing en périphérie    | OUI                                                           |
+| Cache local<br>(pour stocker des données locales)    | OUI                        | OUI                      | Non                                                            |
+| Transfert à partir d’autres clouds                    | Non                         | Non                       | OUI                                                           |
 | Tarifs                                       | [Tarification](https://azure.microsoft.com/pricing/details/storage/databox/gateway/)                    | [Tarification](https://azure.microsoft.com/pricing/details/storage/databox/edge/)                  | [Tarification](https://azure.microsoft.com/pricing/details/data-factory/)                                                       |
 
 ## <a name="next-steps"></a>Étapes suivantes

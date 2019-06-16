@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 05/15/2018
 ms.author: aljo
 ms.openlocfilehash: 0408010a49b8ec83aa02c74887139f663788ad80
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60881474"
 ---
 # <a name="view-logs-for-a-service-fabric-container-service"></a>Afficher les fichiers journaux d’activité d’un service de conteneurs Service Fabric
@@ -29,7 +29,7 @@ Les fichiers journaux d’activité de conteneurs sont accessibles via [Service 
 
 Les fichiers journaux d’activité de conteneurs sont hébergés sur le nœud de cluster sur lequel est exécutée l’instance du service de conteneurs. Par exemple, récupérez les journaux d’activité du conteneur web frontal de l’[exemple d’application Linux Voting](service-fabric-quickstart-containers-linux.md). Dans l’arborescence, développez **Cluster**>**Applications**>**VotingType**>**fabric:/Voting/azurevotefront**.  Ensuite, développez la partition (d1aa737e-f22a-e347-be16-eec90be24bc1, dans cet exemple) et vérifiez que le conteneur est exécuté sur le nœud de cluster *_lnxvm_0*.
 
-Dans l’arborescence, recherchez le package de code sur le nœud *_lnxvm_0*, en développant **Nœuds**>**_lnxvm_0**>**fabric:/Voting**>**azurevotfrontPkg**>**Packages de code**>**code**.  Ensuite, sélectionnez **Journaux d’activité de conteneur** afin d’afficher les fichiers journaux d’activité de conteneurs.
+Dans l’arborescence, recherchez le package de code sur le nœud *_lnxvm_0*, en développant **Nœuds**> **_lnxvm_0**>**fabric:/Voting**>**azurevotfrontPkg**>**Packages de code**>**code**.  Ensuite, sélectionnez **Journaux d’activité de conteneur** afin d’afficher les fichiers journaux d’activité de conteneurs.
 
 ![Plateforme Service Fabric][Image1]
 

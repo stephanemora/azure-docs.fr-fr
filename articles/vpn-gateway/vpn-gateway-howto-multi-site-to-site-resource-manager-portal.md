@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: cherylmc
 ms.openlocfilehash: 4b9f007e00d0912687b723bd4f7e747da893948d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60760460"
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection"></a>Ajouter une connexion de site à site à un réseau virtuel avec une connexion de passerelle VPN existante
@@ -63,7 +63,7 @@ Vérifiez les points suivants :
 5. Dans la page **Ajouter une connexion**, renseignez les champs suivants :
    
    * **Nom :** nom que vous voulez donner au site pour lequel vous créez la connexion.
-   * **Type de connexion :** sélectionnez **Site à site (IPsec)**.
+   * **Type de connexion :** sélectionnez **Site à site (IPsec)** .
      
      ![Page Ajouter une connexion](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/addconnectionblade.png "Page Ajouter une connexion")<br>
 

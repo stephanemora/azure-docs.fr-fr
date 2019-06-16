@@ -17,10 +17,10 @@ ms.date: 04/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9167a5ed72e6fec2ca03cc97d1d41dd6cd4aaba6
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62104565"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-secret-server-on-premises"></a>Didacticiel : Intégration d’Azure Active Directory à Secret Server (On-Premises)
@@ -35,7 +35,7 @@ L’intégration de Secret Server (On-Premises) avec Azure AD vous offre les ava
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour configurer l’intégration d’Azure AD avec Secret Server (On-Premises), vous avez besoin des éléments suivants :
 
@@ -61,7 +61,7 @@ Pour configurer l’intégration de Secret Server (On-Premises) avec Azure AD, v
 
 **Pour ajouter Secret Server (On-Premises) à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**. 
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**. 
 
     ![Bouton Azure Active Directory][1]
 
@@ -73,7 +73,7 @@ Pour configurer l’intégration de Secret Server (On-Premises) avec Azure AD, v
 
     ![Bouton Nouvelle application][3]
 
-1. Dans la zone de recherche, tapez **Secret Server (On-Premises)**, sélectionnez **Secret Server (On-Premises)** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
+1. Dans la zone de recherche, tapez **Secret Server (On-Premises)** , sélectionnez **Secret Server (On-Premises)** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
     ![Secret Server (On-Premises) dans la liste des résultats](./media/secretserver-on-premises-tutorial/tutorial_secretserver_addfromgallery.png)
 
@@ -97,7 +97,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 **Pour configurer l’authentification unique Azure AD avec Secret Server (On-Premises), procédez comme suit :**
 
-1. Dans le portail Azure, sur la page d’intégration de l’application **Secret Server (On-Premises)**, cliquez sur **Authentification unique**.
+1. Dans le portail Azure, sur la page d’intégration de l’application **Secret Server (On-Premises)** , cliquez sur **Authentification unique**.
 
     ![Lien Configurer l’authentification unique][4]
 
@@ -105,7 +105,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Boîte de dialogue Authentification unique](./media/secretserver-on-premises-tutorial/tutorial_secretserver_samlbase.png)
 
-1. Dans la section **Domaine et URL de Secret Server (On-Premises)**, suivez les étapes ci-dessous si vous souhaitez configurer l’application en mode initié par **IDP** :
+1. Dans la section **Domaine et URL de Secret Server (On-Premises)** , suivez les étapes ci-dessous si vous souhaitez configurer l’application en mode initié par **IDP** :
 
     ![Informations d’authentification unique dans Domaine et URL de Secret Server (On-Premises)](./media/secretserver-on-premises-tutorial/tutorial_secretserver_url.png)
 
@@ -137,11 +137,11 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Bouton Enregistrer de la page Configurer l’authentification unique](./media/secretserver-on-premises-tutorial/tutorial_general_400.png)
     
-1. Dans la section **Configuration de Secret Server (On-Premises)**, cliquez sur **Configurer Secret Server (On-Premises)** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez **l’URL de déconnexion, l’ID d’entité SAML et l’URL du service d’authentification unique SAML** à partir de la **section Référence rapide.**
+1. Dans la section **Configuration de Secret Server (On-Premises)** , cliquez sur **Configurer Secret Server (On-Premises)** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez **l’URL de déconnexion, l’ID d’entité SAML et l’URL du service d’authentification unique SAML** à partir de la **section Référence rapide.**
 
     ![Configuration de Secret Server (On-Premises)](./media/secretserver-on-premises-tutorial/tutorial_secretserver_configure.png)
 
-1. Pour configurer l’authentification unique côté **Secret Server (On-Premises)**, vous devez envoyer le **Certificat (Base64) téléchargé, l’URL de déconnexion, l’URL du service d’authentification unique SAML** et **l’ID d’entité SAML** à [l’équipe de support de Secret Server (On-Premises)](https://thycotic.force.com/support/s/). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+1. Pour configurer l’authentification unique côté **Secret Server (On-Premises)** , vous devez envoyer le **Certificat (Base64) téléchargé, l’URL de déconnexion, l’URL du service d’authentification unique SAML** et **l’ID d’entité SAML** à [l’équipe de support de Secret Server (On-Premises)](https://thycotic.force.com/support/s/). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
@@ -191,7 +191,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
     ![Affecter des utilisateurs][201]
 
-1. Dans la liste des applications, sélectionnez **Secret Server (On-Premises)**.
+1. Dans la liste des applications, sélectionnez **Secret Server (On-Premises)** .
 
     ![Le lien Secret Server (On-Premises) dans la liste des applications](./media/secretserver-on-premises-tutorial/tutorial_secretserver_app.png)
 

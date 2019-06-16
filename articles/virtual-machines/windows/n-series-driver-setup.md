@@ -16,10 +16,10 @@ ms.date: 09/24/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 5b6f0d79e773ac7b79c79e4be6206fe39928cd0a
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62127778"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-windows"></a>Installer les pilotes GPU NVIDIA sur les machines virtuelles de série N exécutant Windows 
@@ -50,7 +50,7 @@ Pour interroger l’état de l’appareil GPU, exécutez l’utilitaire de ligne
 
 1. Ouvrez une invite de commandes et apportez vos modifications dans le répertoire **C:\Program Files\NVIDIA Corporation\NVSMI**.
 
-2. Exécutez `nvidia-smi`. Si le pilote est installé, vous obtenez un résultat qui ressemble à celui indiqué. **GPU-Util** affiche **0 %**, sauf si vous exécutez actuellement une charge de travail GPU sur la machine virtuelle. La version de votre pilote et vos détails de GPU peuvent différer de ceux indiqués.
+2. Exécutez `nvidia-smi`. Si le pilote est installé, vous obtenez un résultat qui ressemble à celui indiqué. **GPU-Util** affiche **0 %** , sauf si vous exécutez actuellement une charge de travail GPU sur la machine virtuelle. La version de votre pilote et vos détails de GPU peuvent différer de ceux indiqués.
 
 ![État de l’appareil NVIDIA](./media/n-series-driver-setup/smi.png)  
 

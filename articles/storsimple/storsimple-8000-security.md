@@ -15,15 +15,15 @@ ms.workload: TBD
 ms.date: 05/18/2018
 ms.author: alkohli
 ms.openlocfilehash: 734b0cf9373ea98ab33c06b45ad53b46a3355dd6
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62117023"
 ---
 # <a name="storsimple-security-and-data-protection"></a>Sécurité et protection des données StorSimple
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
 La sécurité est une préoccupation majeure pour toute personne adoptant une nouvelle technologie, surtout lorsque cette technologie est utilisée avec des données confidentielles ou propriétaires. Lorsque vous évaluez différentes technologies, vous devez tenir compte des risques et des coûts relatifs à la protection des données. Microsoft Azure StorSimple fournit une solution de sécurité et de confidentialité pour la protection des données, afin de garantir :
 

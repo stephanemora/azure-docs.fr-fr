@@ -15,15 +15,15 @@ ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: bdf722ffa7a7c499ff256392886e0f229f27c7a5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66137082"
 ---
 # <a name="create-an-ase-by-using-an-azure-resource-manager-template"></a>Créer un ASE à l’aide d’un modèle Azure Resource Manager
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -69,12 +69,12 @@ New-AzResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-
 La création de l’ASE prend environ une heure. Ensuite, l’ASE apparaît sur le portail dans la liste des ASE pour l’abonnement qui a déclenché le déploiement.
 
 ## <a name="upload-and-configure-the-default-ssl-certificate"></a>Charger et configurer le certificat SSL « par défaut »
-Un certificat SSL doit être associé à l’ASE en tant que certificat SSL « par défaut » utilisé pour établir les connexions SSL aux applications. Si le suffixe DNS par défaut de l’ASE est *internal-contoso.com*, une connexion à https://some-random-app.internal-contoso.com nécessite un certificat SSL valide pour **.internal-contoso.com*. 
+Un certificat SSL doit être associé à l’ASE en tant que certificat SSL « par défaut » utilisé pour établir les connexions SSL aux applications. Si le suffixe DNS par défaut de l’ASE est *internal-contoso.com*, une connexion à https://some-random-app.internal-contoso.com nécessite un certificat SSL valide pour * *.internal-contoso.com*. 
 
 Pour disposer d’un certificat SSL valide, vous pouvez recourir à des autorités de certification internes, acheter un certificat à un émetteur externe, ou utiliser un certificat auto-signé. Quelle que soit la source du certificat SSL, les attributs de certificat suivants doivent être configurés correctement :
 
-* **Objet** : cet attribut doit être défini sur **.votre-domaine-racine-ici.com*.
-* **Autre nom de l’objet** : cet attribut doit inclure à la fois **.votre-domaine-racine-ici.com* et **.scm.votre-domaine-racine-ici.com*. Les connexions SSL au site SCM/Kudu associé à chaque application utilisent une adresse sous la forme *nom-de-votre-application.scm.votre-domaine-racine-ici.com*.
+* **Objet** : cet attribut doit être défini sur * *.votre-domaine-racine-ici.com*.
+* **Autre nom de l’objet** : cet attribut doit inclure à la fois * *.votre-domaine-racine-ici.com* et * *.scm.votre-domaine-racine-ici.com*. Les connexions SSL au site SCM/Kudu associé à chaque application utilisent une adresse sous la forme *nom-de-votre-application.scm.votre-domaine-racine-ici.com*.
 
 Une fois le certificat SSL valide obtenu, deux étapes préparatoires supplémentaires sont nécessaires. Convertissez/enregistrez le certificat SSL en tant que fichier de format .pfx. N’oubliez pas que le fichier .pfx doit inclure tous les certificats racines et intermédiaires. Sécurisez-le avec un mot de passe.
 
@@ -108,7 +108,7 @@ Une fois le certificat SSL généré et converti en chaîne codée en base64, ut
 Les paramètres figurant dans le fichier *azuredeploy.parameters.json* sont répertoriés ci-dessous :
 
 * *appServiceEnvironmentName* : nom de l'ILB ASE configuré.
-* *existingAseLocation* : chaîne de texte contenant la région Azure où l'ILB ASE a été déployé.  Exemple : « USA Centre Sud ».
+* *existingAseLocation* : chaîne de texte contenant la région Azure où l'ILB ASE a été déployé.  Par exemple :  « USA Centre Sud ».
 * *pfxBlobString* : représentation sous forme de chaîne codée en Base64 du fichier .pfx. Utilisez l’extrait de code présenté précédemment, et copiez la chaîne contenue dans « exportedcert.pfx.b64 ». Collez celle-ci en tant que valeur de l’attribut *pfxBlobString*.
 * *password* : mot de passe utilisé pour sécuriser le fichier .pfx.
 * *certificateThumbprint* : empreinte numérique du certificat. Si vous récupérez cette valeur à partir de Powershell (par exemple, *$certificate.Thumbprint* dans l’extrait de code précédent), vous pouvez utiliser la valeur telle quelle. Si vous copiez la valeur à partir de la boîte de dialogue du certificat Windows, n’oubliez pas de retirer les espaces superflus. La valeur *certificateThumbprint* doit se présenter sous la forme suivante : AF3143EB61D43F6727842115BB7F17BBCECAECAE.
@@ -154,7 +154,7 @@ New-AzResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-
 
 L’application de la modification prend environ 40 minutes par serveur frontal ASE. Par exemple, pour un ASE dimensionné par défaut utilisant deux serveurs frontaux, l’application du modèle prend environ une heure et vingt minutes. Lorsque le modèle est en cours d’exécution, l’ASE ne peut pas mettre à l’échelle.  
 
-Une fois l’exécution du modèle terminé, les applications sur l’ILB ASE est accessible via le protocole HTTPS. Les connexions sont sécurisées à l’aide du certificat SSL par défaut. Le certificat SSL par défaut est utilisé lorsque des applications sur l’ASE ILB sont adressée à l’aide d’une combinaison de leur nom et du nom d’hôte par défaut. Par exemple, https://mycustomapp.internal-contoso.com utilise le certificat SSL par défaut pour **.internal-contoso.com*.
+Une fois l’exécution du modèle terminé, les applications sur l’ILB ASE est accessible via le protocole HTTPS. Les connexions sont sécurisées à l’aide du certificat SSL par défaut. Le certificat SSL par défaut est utilisé lorsque des applications sur l’ASE ILB sont adressée à l’aide d’une combinaison de leur nom et du nom d’hôte par défaut. Par exemple, https://mycustomapp.internal-contoso.com utilise le certificat SSL par défaut pour * *.internal-contoso.com*.
 
 Cependant, comme pour les applications qui s’exécutent sur le service mutualisé public, les développeurs peuvent configurer des noms d’hôtes personnalisés pour des applications individuelles. Ils peuvent également configurer des liaisons de certificat SNI SSL uniques pour différentes applications.
 

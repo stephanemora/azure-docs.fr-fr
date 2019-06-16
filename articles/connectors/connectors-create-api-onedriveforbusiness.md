@@ -12,10 +12,10 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
 ms.openlocfilehash: 87a162338cc67a3f2d2fc425bbcbefe2976661e5
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62104916"
 ---
 # <a name="get-started-with-the-onedrive-for-business-connector"></a>Prise en main du connecteur OneDrive Entreprise
@@ -28,7 +28,7 @@ Pour créer des applications logiques avec OneDrive Entreprise, vous devez d’a
 
 | Propriété | Obligatoire | Description |
 | --- | --- | --- |
-| par jeton |Oui |Fournir des informations d’identification pour OneDrive Entreprise |
+| par jeton |OUI |Fournir des informations d’identification pour OneDrive Entreprise |
 
 Après avoir créé la connexion, vous pouvez l’utiliser pour exécuter les actions et écouter les déclencheurs décrits dans cet article.
 

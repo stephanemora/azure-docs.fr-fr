@@ -16,10 +16,10 @@ ms.date: 08/24/2018
 ms.author: lahugh
 ms.custom: ''
 ms.openlocfilehash: ed04774969f72f1d6037a350f019d81d812d73f6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60549663"
 ---
 # <a name="submit-a-large-number-of-tasks-to-a-batch-job"></a>Envoyer un grand nombre de tâches dans un travail Batch
@@ -65,7 +65,7 @@ L’ajout d’une collection de tâches volumineuse à un travail peut prendre u
 
 Les extraits de code C# suivants montrent les paramètres à configurer lorsque vous ajoutez un grand nombre de tâches à l’aide de l’API .NET Batch.
 
-Pour accroître le débit des tâches, augmentez la valeur de la propriété [MaxDegreeofParallelism](/dotnet/api/microsoft.azure.batch.batchclientparalleloptions.maxdegreeofparallelism) de [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient?view=azure-dotnet). Par exemple : 
+Pour accroître le débit des tâches, augmentez la valeur de la propriété [MaxDegreeofParallelism](/dotnet/api/microsoft.azure.batch.batchclientparalleloptions.maxdegreeofparallelism) de [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient?view=azure-dotnet). Par exemple :
 
 ```csharp
 BatchClientParallelOptions parallelOptions = new BatchClientParallelOptions()
@@ -75,7 +75,7 @@ BatchClientParallelOptions parallelOptions = new BatchClientParallelOptions()
 ...
 ```
 Ajoutez une collection de tâches au travail à l’aide de la surcharge appropriée de la méthode [AddTaskAsync](/dotnet/api/microsoft.azure.batch.cloudjob.addtaskasync?view=azure-dotnet) ou [AddTask](/dotnet/api/microsoft.azure.batch.cloudjob.addtask?view=azure-dotnet
-). Par exemple : 
+). Par exemple :
 
 ```csharp
 // Add a list of tasks as a collection
@@ -145,7 +145,7 @@ client = batch.BatchExtensionsClient(base_url=BATCH_ACCOUNT_URL, resource_group=
 ...
 ```
 
-Créez une collection de tâches à ajouter à un travail. Par exemple : 
+Créez une collection de tâches à ajouter à un travail. Par exemple :
 
 
 ```python

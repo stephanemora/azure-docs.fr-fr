@@ -17,10 +17,10 @@ ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 42bffdc1960a87c931e914896e8e36de45991bd4
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65784123"
 ---
 # <a name="problem-configuring-user-provisioning-to-an-azure-ad-gallery-application"></a>Problèmes lors de la configuration de l’approvisionnement des utilisateurs pour une application relevant de la galerie Azure AD
@@ -33,7 +33,7 @@ Vous devez toujours commencer par rechercher le didacticiel spécifique à la co
 
 Une fois que le service est configuré, la plupart des informations sur son fonctionnement peuvent être obtenues à deux emplacements :
 
--   **Journaux d’audit** : les journaux d’audit d’approvisionnement enregistrent toutes les opérations effectuées par le service d’approvisionnement, y compris l’interrogation d’Azure AD concernant les utilisateurs assignés qui se trouvent dans l’étendue de l’approvisionnement. Interrogez l’application cible concernant l’existence de ces utilisateurs en comparant les objets utilisateur du système. Puis, ajoutez, mettez à jour ou désactivez le compte d’utilisateur dans le système cible en fonction de cette comparaison. Les journaux d’audit d’approvisionnement sont accessibles dans le portail Azure, sous l’onglet **Azure Active Directory &gt; Applications Entreprise &gt; \[Nom de l’application\] &gt; Journaux d’audit**. Filtrez les journaux sur la catégorie **Approvisionnement de comptes** pour afficher uniquement les événements d’approvisionnement de cette application.
+-   **Journaux d’audit** : les journaux d’audit d’approvisionnement enregistrent toutes les opérations effectuées par le service d’approvisionnement, y compris l’interrogation d’Azure AD concernant les utilisateurs assignés qui se trouvent dans l’étendue de l’approvisionnement. Interrogez l’application cible concernant l’existence de ces utilisateurs en comparant les objets utilisateur du système. Puis, ajoutez, mettez à jour ou désactivez le compte d’utilisateur dans le système cible en fonction de cette comparaison. Les journaux d’audit d’approvisionnement sont accessibles dans le portail Azure, sous l’onglet **Azure Active Directory &gt; Applications Entreprise &gt;\[Nom de l’application\]&gt; Journaux d’audit**. Filtrez les journaux d’activité sur la catégorie **Approvisionnement des comptes** pour afficher uniquement les événements d’approvisionnement de cette application.
 
 -   **État de l’approvisionnement :** un résumé de la dernière exécution de l’approvisionnement pour une application donnée est disponible sous **Azure Active Directory &gt; Applications d’entreprise &gt;\[Nom de l’application\]&gt;Approvisionnement**, en bas de l’écran, sous les paramètres du service. Cette section affiche le nombre d’utilisateurs (et/ou groupes) en cours de synchronisation entre les deux systèmes et indique les erreurs éventuelles. Les erreurs sont détaillées dans les journaux d’audit. Notez que l’état de l’approvisionnement n’est renseigné que lorsqu’une synchronisation initiale complète a été effectuée entre Azure AD et l’application.
 

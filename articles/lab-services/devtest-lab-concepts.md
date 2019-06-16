@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 04/05/2018
 ms.author: spelluru
 ms.openlocfilehash: 08cae51da20b6093b284618de92c61aab4bf5b55
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65508381"
 ---
 # <a name="devtest-labs-concepts"></a>Concepts de DevTest Labs
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 La liste suivante présente les définitions et concepts principaux de DevTest Labs :
 
 ## <a name="labs"></a>Laboratoires

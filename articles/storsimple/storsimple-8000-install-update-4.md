@@ -15,15 +15,15 @@ ms.workload: TBD
 ms.date: 08/02/2017
 ms.author: alkohli
 ms.openlocfilehash: 5b48cbd1020cfd51fe989a9be33197f2735f21f4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60860376"
 ---
 # <a name="install-update-4-on-your-storsimple-device"></a>Installer Update 4 sur votre appareil StorSimple
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
 Ce didacticiel explique comment installer Update 4 sur un appareil StorSimple exécutant une version logicielle antérieure par le biais du portail Azure et à l’aide de la méthode du correctif logiciel. La méthode du correctif logiciel est utilisée quand une passerelle est configurée sur une interface réseau différente de DATA 0 de l’appareil StorSimple et que la mise à jour porte sur une version logicielle antérieure à Update 1.
 
@@ -45,7 +45,7 @@ Suivez la procédure ci-dessous pour mettre à jour votre appareil vers [Update�
 
 [!INCLUDE [storsimple-8000-install-update4-via-portal](../../includes/storsimple-8000-install-update4-via-portal.md)]
 
-Vérifiez que votre appareil exécute **StorSimple 8000 Series Update 4 (6.3.9600.17820)**. Le paramètre **Dernière date de mise à jour** doit également être modifié.
+Vérifiez que votre appareil exécute **StorSimple 8000 Series Update 4 (6.3.9600.17820)** . Le paramètre **Dernière date de mise à jour** doit également être modifié.
 
 * Vous verrez maintenant que les mises à jour en mode maintenance sont disponibles (ce message peut continuer à afficher jusqu’à 24 heures après l’installation des mises à jour). Les mises à jour en mode maintenance entraînent des temps d’arrêt de l’appareil et ne peuvent être appliquées que par le biais de l’interface Windows PowerShell de votre appareil.
 
@@ -85,7 +85,7 @@ En outre, vous devez peut-être installer les mises à jour du microprogramme de
 
 | Ordre | Ko | Description | Type de mise à jour | Durée d’installation | Installer dans le dossier|
 | --- | --- | --- | --- | --- | --- |
-| 3. |KB3121899 |Microprogramme de disque |Maintenance  <br></br>Interruption de service |~ 30 minutes | ThirdOrderUpdate |
+| 3. |KB3121899 |Microprogramme de disque |Maintenance <br></br>Interruption de service |~ 30 minutes | ThirdOrderUpdate |
 
 <br></br>
 

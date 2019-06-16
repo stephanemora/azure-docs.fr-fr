@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 11/17/2017
 ms.author: suhuruli
 ms.openlocfilehash: 84d1f52b5fb8f18d3578bad28930f74534b1409f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60947587"
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Configurer votre environnement de développement sur Mac OS X
@@ -31,7 +31,7 @@ ms.locfileid: "60947587"
 
 Vous pouvez générer des applications Azure Service Fabric pour qu’elles s’exécutent sur les clusters Linux à l’aide de Mac OS X. Ce document explique comment configurer votre Mac pour le développement.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 Azure Service Fabric n’est pas exécuté en mode natif sur Mac OS X. Pour exécuter un cluster Service Fabric local, une image de conteneur Docker préconfigurée est fournie. Avant de commencer, vous avez besoin des éléments suivants :
 
 * Au moins 4 Go de RAM.
@@ -202,7 +202,7 @@ Installez le [Kit de développement logiciel (SDK) .NET Core 2.0 pour Mac](htt
 
 Azure Service Fabric fournit un plug-in pour Eclipse Neon (ou une version ultérieure) pour l’environnement de développement intégré Java. Le plug-in simplifie le processus de création, de génération et de déploiement des services Java. Pour installer ou mettre à jour le plug-in Service Fabric pour Eclipse vers la dernière version, procédez comme [suit](service-fabric-get-started-eclipse.md#install-or-update-the-service-fabric-plug-in-in-eclipse). Les autres étapes de la [documentation de Service Fabric pour Eclipse](service-fabric-get-started-eclipse.md) sont également applicables : générer une application, ajouter un service à une application, désinstaller une application, etc.
 
-La dernière étape consiste à instancier le conteneur avec un chemin d’accès qui est partagé avec votre hôte. Le plug-in requiert ce type d’instanciation pour utiliser le conteneur Docker sur votre Mac. Par exemple : 
+La dernière étape consiste à instancier le conteneur avec un chemin d’accès qui est partagé avec votre hôte. Le plug-in requiert ce type d’instanciation pour utiliser le conteneur Docker sur votre Mac. Par exemple :
 
 ```bash
 docker run -itd -p 19080:19080 -v /Users/sayantan/work/workspaces/mySFWorkspace:/tmp/mySFWorkspace --name sfonebox microsoft/service-fabric-onebox

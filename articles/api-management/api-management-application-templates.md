@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
 ms.openlocfilehash: 732fdf3f9210a1484895e0b43e061b4bbc586b43
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60657894"
 ---
 # <a name="application-templates-in-azure-api-management"></a>Modèles Application dans Gestion des API Azure
@@ -83,7 +83,7 @@ Gestion des API Azure vous offre la possibilité de personnaliser le contenu des
 |--------------|----------|-----------------|  
 |`Paging`|Entité [Paging](api-management-template-data-model-reference.md#Paging).|Informations de pagination de la collection d’applications.|  
 |`Applications`|Collection d’entités [Application](api-management-template-data-model-reference.md#Application).|Applications visibles par l’utilisateur actuel.|  
-|`CategoryName`|string|Catégorie de l’application.|  
+|`CategoryName`|chaîne|Catégorie de l’application.|  
   
 ### <a name="sample-template-data"></a>Données d’un exemple de modèle  
   

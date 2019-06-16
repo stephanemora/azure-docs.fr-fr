@@ -11,10 +11,10 @@ ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
 ms.openlocfilehash: d89a701f1d4528e1f3dff08daf31873891778f07
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60751346"
 ---
 # <a name="data-science-for-beginners-video-1-the-5-questions-data-science-answers"></a>La science des données pour les débutants, vidéo 1 : Les cinq questions auxquelles répond la science des données
@@ -66,7 +66,7 @@ Cette famille d’algorithmes est appelée la classification double classe.
 
 Elle est utile pour toute question qui n’a que deux réponses possibles.
 
-Par exemple : 
+Par exemple :
 
 * Une défaillance de ce pneu se produira-t-elle dans les mille prochains kilomètres ? Oui ou non ?
 * Qu’est-ce qui attire le plus les clients : un coupon de 5 $ ou une remise de 25 % ?
@@ -116,7 +116,7 @@ Les exemples suivants sont des questions de clustering courantes :
 En comprenant comment les données sont organisées, vous pouvez mieux comprendre (et prédire) des événements et des comportements.  
 
 ## <a name="question-5-what-should-i-do-now-uses-reinforcement-learning-algorithms"></a>La question 5, Que dois-je faire maintenant ?, utilise des algorithmes d’apprentissage par renforcement
-La dernière question : que dois-je faire maintenant ? - utilise une famille d’algorithmes appelée apprentissage de renforcement.
+La dernière question : que dois-je faire maintenant ? \- utilise une famille d’algorithmes appelée apprentissage de renforcement.
 
 L’apprentissage par renforcement est inspiré de la manière dont le cerveau de rats et d’humains répond aux punitions et aux récompenses. Ces algorithmes apprennent sur la base de résultats pour décider de l’action suivante.
 

@@ -16,10 +16,10 @@ ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 039f8c9f114dfd3542fefa7b1a1eea8656cbb9c4
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65782965"
 ---
 # <a name="remove-personal-data-for-azure-active-directory-application-proxy"></a>Supprimer des données personnelles pour des proxy d’application Azure Active Directory  
@@ -60,9 +60,9 @@ Pour rechercher des données personnelles, recherchez UserID (ID utilisateur) da
 
 Pour rechercher des données personnelles consignées par une application qui utilise la délégation Kerberos contrainte, recherchez ces composants du type de nom d'utilisateur :
 
-- Nom d'utilisateur principal local
+- Nom d’utilisateur principal local
 - Partie correspondant au nom d’utilisateur dans le nom d’utilisateur principal
-- Partie correspondant au nom d'utilisateur dans le nom d'utilisateur principal local
+- Partie correspondant au nom d’utilisateur dans le nom d’utilisateur principal local
 - Nom de compte du gestionnaire des comptes de sécurité (SAM) local 
 
 

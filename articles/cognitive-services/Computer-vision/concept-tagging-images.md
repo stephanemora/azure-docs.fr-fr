@@ -8,15 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-origin.date: 02/08/2019
-ms.date: 02/27/2019
-ms.author: v-junlch
+ms.date: 02/08/2019
+ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: aeb03566a650fe46286d77913e0d36dcbb19f436
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60759671"
 ---
 # <a name="applying-content-tags-to-images"></a>Application de balises de contenu aux images
@@ -29,7 +28,7 @@ Après le chargement d’une image ou d’une URL d’image, les algorithmes de 
 
 Les réponses JSON suivantes illustrent ce que renvoie Vision par ordinateur au moment du balisage d’éléments visuels détectés dans l’image en exemple.
 
-![Maison bleu et jardin en façade ](./Images/house_yard.png).
+![Maison bleu et jardin en façade](./Images/house_yard.png).
 
 ```json
 {
@@ -87,4 +86,3 @@ Les réponses JSON suivantes illustrent ce que renvoie Vision par ordinateur au 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Découvrez les concepts de [classement d’images](concept-categorizing-images.md) et de [description des images](concept-describing-images.md).
-

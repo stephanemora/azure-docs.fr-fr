@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 10/10/2016
 ms.author: crdun
 ms.openlocfilehash: 4d56453eb05e88c3558b66250439d6211e8069fd
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62122572"
 ---
 # <a name="add-push-notifications-to-your-ios-app"></a>Ajout de notifications Push à votre application iOS
 
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
 Dans ce didacticiel, vous ajoutez des notifications Push au projet [Démarrage rapide d’iOS] pour qu’une notification Push soit envoyée chaque fois qu’un enregistrement est inséré.
 

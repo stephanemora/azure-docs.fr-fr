@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
 ms.openlocfilehash: 183a307159adb5dfdb248eb0cf4862462a626db6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60498744"
 ---
 # <a name="conference-instance-entity"></a>Entité Instance de conférence
@@ -24,9 +24,9 @@ ms.locfileid: "60498744"
 Nom    |Description                            |Type       | Opérations
 ------- | ------------------------------------- | --------- | ----------------------------
 ID      |L’ID d’entité                              |Int64      |Égal à
-CIN     |Nom normalisé de l’instance de conférence ({ConferenceSeriesNormalizedName} {ConferenceInstanceYear})        |String     |Égal à
-DCN     |Nom d’affichage de l’instance de conférence ({ConferenceSeriesName} : {ConferenceInstanceYear})       |String     |Aucun
-CIL     |Emplacement de l’instance de conférence    |String     |Equals,<br/>StartsWith
+CIN     |Nom normalisé de l’instance de conférence ({ConferenceSeriesNormalizedName} {ConferenceInstanceYear})        |Chaîne     |Égal à
+DCN     |Nom d’affichage de l’instance de conférence ({ConferenceSeriesName} : {ConferenceInstanceYear})       |Chaîne     |Aucun
+CIL     |Emplacement de l’instance de conférence    |Chaîne     |Equals,<br/>StartsWith
 CISD    |Date de début de l’instance de conférence  |Date       |Equals,<br/>IsBetween
 CIED    |Date de fin de l’instance de conférence    |Date       |Equals,<br/>IsBetween
 CIARD   |Date d’échéance pour l’inscription de l’abstract de l’instance de conférence  |Date       |Equals,<br/>IsBetween
@@ -35,7 +35,7 @@ CIFVD   |Date d’échéance pour la version finale de l’instance de conféren
 CINDD   |Date de notification de l’instance de conférence   |Date       |Equals,<br/>IsBetween
 CD.T    |Titre d’un événement d’instance de conférence   |Date       |Equals,<br/>IsBetween
 CD.D    |Date d’un événement d’instance de conférence    |Date       |Equals,<br/>IsBetween
-PCS.CN  |Nom de la série de conférences de l’instance |String     |Égal à
+PCS.CN  |Nom de la série de conférences de l’instance |Chaîne     |Égal à
 PCS.CId |ID de la série de conférences de l’instance |Int64    |Égal à
 CC      |Nombre total de citations de l’instance de conférence           |Int32      |Aucun  
 ECC     |Estimation du nombre total de citations de l’instance de conférence |Int32      |Aucun

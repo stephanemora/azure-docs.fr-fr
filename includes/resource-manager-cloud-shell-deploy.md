@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 01/30/2019
 ms.author: tomfitz
 ms.openlocfilehash: 7c081b3bc5f9e6273f680b24897f9aced4999afa
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66129026"
 ---
 ## <a name="deploy-template-from-cloud-shell"></a>Déployer le modèle à partir de Cloud Shell
@@ -19,11 +19,11 @@ Vous pouvez utiliser [Cloud Shell](../articles/cloud-shell/overview.md) pour dé
 
 1. Sélectionnez votre groupe de ressources Cloud Shell. Le modèle de nom est `cloud-shell-storage-<region>`.
 
-   ![Sélectionner un groupe de ressources](./media/resource-manager-cloud-shell-deploy/select-cs-resource-group.png)
+   ![Sélection du groupe de ressources](./media/resource-manager-cloud-shell-deploy/select-cs-resource-group.png)
 
 1. Sélectionnez le compte de stockage de votre Cloud Shell.
 
-   ![Sélectionner un compte de stockage](./media/resource-manager-cloud-shell-deploy/select-storage.png)
+   ![Sélectionner le compte de stockage](./media/resource-manager-cloud-shell-deploy/select-storage.png)
 
 1. Sélectionnez **Objets Blob**.
 
@@ -47,7 +47,7 @@ Vous pouvez utiliser [Cloud Shell](../articles/cloud-shell/overview.md) pour dé
 
 1. Recherchez et chargez votre modèle.
 
-   ![Charger un fichier](./media/resource-manager-cloud-shell-deploy/find-and-upload-template.png)
+   ![Charger le fichier](./media/resource-manager-cloud-shell-deploy/find-and-upload-template.png)
 
 1. Après le chargement, sélectionnez le modèle.
 
@@ -55,7 +55,7 @@ Vous pouvez utiliser [Cloud Shell](../articles/cloud-shell/overview.md) pour dé
 
 1. Copiez l’URL.
 
-   ![Copier l'URL](./media/resource-manager-cloud-shell-deploy/copy-url.png)
+   ![Copier l’URL](./media/resource-manager-cloud-shell-deploy/copy-url.png)
 
 1. Ouvrez l’invite de commandes.
 

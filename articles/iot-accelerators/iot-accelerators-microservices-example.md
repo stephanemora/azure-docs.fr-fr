@@ -8,10 +8,10 @@ services: iot-accelerators
 ms.date: 04/19/2018
 ms.topic: conceptual
 ms.openlocfilehash: 1552c54afe2195d58a032e9cc7bfa5aa70c844b1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61447622"
 ---
 # <a name="customize-and-redeploy-a-microservice"></a>Personnaliser et redéployer un microservice
@@ -29,12 +29,12 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Extraire la nouvelle image Docker
 > * Visualiser les modifications 
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
 >[!div class="checklist"]
-> * [Déployer l’accélérateur de solution de surveillance à distance localement](iot-accelerators-remote-monitoring-deploy-local.md)
+> * [Déployer l’accélérateur de solution de supervision à distance localement](iot-accelerators-remote-monitoring-deploy-local.md)
 > * [Un compte Docker](https://hub.docker.com/)
 > * [Postman](https://www.getpostman.com/) : nécessaire pour afficher la réponse de l’API
 

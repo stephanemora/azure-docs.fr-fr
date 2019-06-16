@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/09/2018
 ms.author: alkohli
 ms.openlocfilehash: eb1fe69a7fb99949ac95291c33e76c1a32bf5439
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60506531"
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-8000-series-devices"></a>Déployer le service StorSimple Device Manager pour les appareils de la gamme StorSimple 8000
@@ -127,7 +127,7 @@ La modification de la clé de chiffrement est un processus en 3 étapes :
 2. Utiliser Windows PowerShell pour StorSimple pour démarrer la modification de la clé de chiffrement des données du service.
 3. Si vous avez plusieurs périphériques StorSimple, mettez à jour la clé de chiffrement des données sur les autres périphériques.
 
-### <a name="step-1-use-windows-powershell-script-to-authorize-a-device-to-change-the-service-data-encryption-key"></a>Étape 1 : Utiliser un script Windows PowerShell pour autoriser un appareil à modifier la clé de chiffrement des données de service
+### <a name="step-1-use-windows-powershell-script-to-authorize-a-device-to-change-the-service-data-encryption-key"></a>Étape 1 : Utiliser un script Windows PowerShell pour autoriser un appareil à modifier la clé de chiffrement des données de service
 En règle générale, l’administrateur de l’appareil demande que l’administrateur du service autorise un appareil à modifier les clés de chiffrement des données du service. Ensuite, l’administrateur du service autorise l’appareil à modifier la clé.
 
 Cette étape est effectuée en utilisant le script basé sur Azure Resource Manager. L’administrateur de services fédérés peut sélectionner un appareil pouvant être autorisé. Après cela, l’appareil est autorisé à démarrer le processus de modification de la clé de chiffrement des données du service. 
@@ -143,7 +143,7 @@ Un appareil doit respecter les critères suivants avant d’être autorisé à d
 * Vous ne pouvez pas autoriser un appareil alors que la substitution de la clé de chiffrement des données du service est en cours.
 * Vous pouvez autoriser un appareil lorsque certains appareils inscrits auprès du service ont substitué le chiffrement tandis que d’autres ne l’ont pas fait. 
 
-### <a name="step-2-use-windows-powershell-for-storsimple-to-initiate-the-service-data-encryption-key-change"></a>Étape 2 : Utiliser Windows PowerShell pour StorSimple pour démarrer la modification de la clé de chiffrement des données du service
+### <a name="step-2-use-windows-powershell-for-storsimple-to-initiate-the-service-data-encryption-key-change"></a>Étape 2 : Utiliser Windows PowerShell pour StorSimple pour démarrer la modification de la clé de chiffrement des données du service
 Cette étape s’effectue dans l’interface Windows PowerShell pour StorSimple, sur l’appareil StorSimple autorisé.
 
 > [!NOTE]
@@ -154,7 +154,7 @@ Si vous utilisez la console série de l’appareil pour vous connecter à l’in
 
 #### <a name="to-initiate-the-service-data-encryption-key-change"></a>Pour démarrer la modification de la clé de chiffrement des données du service
 1. Sélectionnez Option 1 pour vous connecter avec un accès complet.
-2.  À l’invite de commandes, tapez :
+2. À l’invite de commandes, tapez :
    
      `Invoke-HcsmServiceDataEncryptionKeyChange`
 3. Une fois l’applet de commande terminée, vous obtenez une nouvelle clé de chiffrement des données du service. Copiez et enregistrez cette clé pour l’utiliser lors de l’étape 3 de cette procédure. Cette clé permet de mettre à jour tous les appareils restants inscrits auprès du service StorSimple Manager.
@@ -194,16 +194,16 @@ Seuls les appareils StorSimple exécutant Update 5.0 et des versions ultérieur
 | Analyser, télécharger et installer des mises à jour                                                                                             | OUI            |
 | Désactiver un appareil                                                                                                               | OUI            |
 | Supprimer un appareil                                                                                                                   | OUI            |
-| Créer, modifier et supprimer un conteneur de volumes                                                                                   | Non              |
-| Créer, modifier et supprimer un volume                                                                                             | Non              |
-| Créer, modifier et supprimer une stratégie de sauvegarde                                                                                      | Non              |
-| Exécuter une sauvegarde manuelle                                                                                                            | Non              |
+| Créer, modifier et supprimer un conteneur de volumes                                                                                   | Non             |
+| Créer, modifier et supprimer un volume                                                                                             | Non             |
+| Créer, modifier et supprimer une stratégie de sauvegarde                                                                                      | Non             |
+| Exécuter une sauvegarde manuelle                                                                                                            | Non             |
 | Exécuter une sauvegarde planifiée                                                                                                         | Non applicable |
-| Restaurer à partir d’un jeu de sauvegarde                                                                                                        | Non              |
+| Restaurer à partir d’un jeu de sauvegarde                                                                                                        | Non             |
 | Cloner vers un appareil exécutant Update 3.0 et versions ultérieures <br> L’appareil source exécute une version antérieure à Update 3.0.                                | OUI            |
-| Cloner vers un appareil exécutant des versions antérieures à Update 3.0                                                                          | Non              |
+| Cloner vers un appareil exécutant des versions antérieures à Update 3.0                                                                          | Non             |
 | Basculer en tant qu’appareil source <br> (à partir d’un appareil exécutant une version antérieure à Update 3.0 vers un appareil exécutant Update 3.0 et versions ultérieures)                                                               | OUI            |
-| Basculer en tant qu’appareil cible <br> (vers un appareil exécutant une version logicielle antérieure à Update 3.0)                                                                                   | Non              |
+| Basculer en tant qu’appareil cible <br> (vers un appareil exécutant une version logicielle antérieure à Update 3.0)                                                                                   | Non             |
 | Supprimer une alerte                                                                                                                  | OUI            |
 | Afficher les stratégies de sauvegarde, le catalogue de sauvegarde, les volumes, les conteneurs de volumes, les graphiques de surveillance, les travaux et les alertes créés dans le portail classique | OUI            |
 | Activer et désactiver des contrôleurs d’appareils                                                                                              | OUI            |

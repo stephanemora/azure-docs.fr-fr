@@ -26,7 +26,7 @@ sections:
         items:
           - title: Query Performance Insight
             href: /azure/sql-database/sql-database-query-performance
-            html: <p>Supervisez facilement l’utilisation des ressources dans votre base de données (unique ou mise en pool) Azure SQL à l’aide des fonctionnalités de supervision intégrées au portail Azure.</p>
+            html: <p>Supervisez facilement l’utilisation des ressources dans votre base de données Azure SQL (unique ou mise en pool) à l’aide des fonctionnalités de supervision intégrées au portail Azure.</p>
           - title: Azure SQL Analytics
             href: 'https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql?toc=/azure/sql-database/toc.json'
             html: '<p>Azure SQL Analytics vous permet de superviser facilement une flotte importante de bases de données, de pools élastiques et d’instances dans une même fenêtre.</p>'

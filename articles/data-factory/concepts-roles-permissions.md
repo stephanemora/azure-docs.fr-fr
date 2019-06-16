@@ -12,10 +12,10 @@ author: gauravmalhot
 ms.author: gamal
 manager: craigg
 ms.openlocfilehash: 19666eb668dd120c1705c6a62a8ba1abd2321026
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61261807"
 ---
 # <a name="roles-and-permissions-for-azure-data-factory"></a>Rôles et autorisations pour Azure Data Factory
@@ -57,7 +57,7 @@ Les autorisations pour les référentiels Azure et GitHub sont indépendantes de
 
 ### <a name="custom-scenarios-and-custom-roles"></a>Scénarios et rôles personnalisés
 
-Parfois, il peut se révéler utile d’accorder différents niveaux d’accès selon les utilisateurs de la fabrique de données. Par exemple : 
+Parfois, il peut se révéler utile d’accorder différents niveaux d’accès selon les utilisateurs de la fabrique de données. Par exemple :
 - Vous avez peut-être besoin d’un groupe dans lequel les utilisateurs disposent uniquement d’autorisations sur une fabrique de données spécifique.
 - Ou bien, vous avez peut-être besoin d’un groupe dans lequel les utilisateurs peuvent uniquement surveiller une ou plusieurs fabriques de données, mais pas les modifier.
 
@@ -78,7 +78,7 @@ Voici quelques exemples qui illustrent l’intérêt d’utiliser des rôles per
   Ce scénario nécessite deux attributions de rôles.
 
   1. Vous attribuez le rôle **Contributeur** au niveau de la fabrique de données.
-  2. Vous créez un rôle personnalisé avec l'autorisation **Microsoft.Resources/deployments/**. Vous attribuez ce rôle personnalisé à l’utilisateur au niveau du groupe de ressources.
+  2. Vous créez un rôle personnalisé avec l'autorisation **Microsoft.Resources/deployments/** . Vous attribuez ce rôle personnalisé à l’utilisateur au niveau du groupe de ressources.
 
 - Vous permettez à un utilisateur de mettre à jour une fabrique de données à partir de PowerShell ou du SDK, mais pas dans le portail Microsoft Azure.
 

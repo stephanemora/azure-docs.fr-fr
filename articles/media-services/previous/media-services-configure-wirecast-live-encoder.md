@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako;cenkdin;anilmur
 ms.openlocfilehash: d0da69601bfc6fd09c10b30d45195722781d87d6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61232094"
 ---
 # <a name="use-the-wirecast-encoder-to-send-a-single-bitrate-live-stream"></a>Utiliser l’encodeur Wirecast pour envoyer un flux en direct à débit binaire unique 
@@ -33,7 +33,7 @@ Cet article explique comment configurer l’encodeur en direct [Telestream Wirec
 
 Ce didacticiel montre comment gérer Azure Media Services (AMS) avec l’outil Azure Media Services Explorer (AMSE). Cet outil est uniquement compatible avec les PC Windows. Si vous êtes sous Mac ou Linux, utilisez le portail Azure pour créer des [canaux](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) et des [programmes](media-services-portal-creating-live-encoder-enabled-channel.md).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 * [Créer un compte Azure Media Services](media-services-portal-create-account.md)
 * Vérifiez qu’un point de terminaison de streaming est en cours d’exécution. Pour plus d’informations, consultez [Gestion des points de terminaison de diffusion en continu dans un compte Media Services](media-services-portal-manage-streaming-endpoints.md)
 * Installez la dernière version de l’outil [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer) .
@@ -88,13 +88,13 @@ Dans ce didacticiel, les paramètres de sortie ci-dessous sont utilisés. Le res
 
 ### <a name="configuration-steps"></a>Configuration
 1. Ouvrez l’application Telestream Wirecast sur votre ordinateur et configurez le streaming RTMP.
-2. Configurez la sortie en accédant à l’onglet **Sortie** et en sélectionnant **Paramètres de sortie...**.
+2. Configurez la sortie en accédant à l’onglet **Sortie** et en sélectionnant **Paramètres de sortie...** .
 
     Vérifiez que le champ **Destination de sortie** est défini sur **Serveur RTMP**.
 3. Cliquez sur **OK**.
 4. Sur la page de paramètres, définissez le champ **Destination** sur **Azure Media Services**.
 
-    Le profil d’encodage est prédéfini sur **Azure H.264 720 p 16:9 (1280 x 720)**. Pour personnaliser ces paramètres, sélectionnez l’icône en forme d’engrenage à droite de la liste déroulante, puis sélectionnez **Nouvelle prédéfinition**.
+    Le profil d’encodage est prédéfini sur **Azure H.264 720 p 16:9 (1280 x 720)** . Pour personnaliser ces paramètres, sélectionnez l’icône en forme d’engrenage à droite de la liste déroulante, puis sélectionnez **Nouvelle prédéfinition**.
 
     ![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast3.png)
 5. Configurez les présélections de l’encodeur.
@@ -163,7 +163,7 @@ Si vous recevez une erreur, vous devez réinitialiser le canal et ajuster les pa
    >[!NOTE]
    >La création d’un programme prend moins de temps que la création d’un canal.
        
-5. Une fois le programme en cours d’exécution, vérifiez que la lecture fonctionne. Pour ce faire, cliquez avec le bouton droit sur le programme, placez le pointeur sur **Lire le(s) programme(s)**, puis sélectionnez **avec Azure Media Player**.  
+5. Une fois le programme en cours d’exécution, vérifiez que la lecture fonctionne. Pour ce faire, cliquez avec le bouton droit sur le programme, placez le pointeur sur **Lire le(s) programme(s)** , puis sélectionnez **avec Azure Media Player**.  
 6. Après confirmation, cliquez à nouveau avec le bouton droit sur le programme et sélectionnez **Copier l’URL de sortie dans le Presse-papiers** (ou obtenez cette information à l’aide de l’option **Informations et paramètres du programme** du menu).
 
 Le flux est maintenant prêt à être incorporé dans un lecteur ou distribué à une audience pour un affichage en direct.  
