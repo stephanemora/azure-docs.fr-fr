@@ -10,17 +10,17 @@ ms.date: 12/09/2016
 ms.author: bburns
 ms.custom: mvc
 ms.openlocfilehash: 6a682c199b40035bfd44fc5611a7d44b49f7b3ab
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60712336"
 ---
 # <a name="deprecated-monitor-an-azure-container-service-cluster-with-datadog"></a>(DÉPRÉCIÉ) Superviser un cluster Azure Container Service avec DataDog
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 Cette procédure pas à pas suppose que vous avez [créé un cluster Kubernetes à l’aide d’Azure Container Service](container-service-kubernetes-walkthrough.md).
 
 Elle suppose également que vous avez installé l’outil `az` de l’interface Azure CLI et l’outil `kubectl`.

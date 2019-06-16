@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
 ms.openlocfilehash: f86931aad4eab697e4a0d2dfc47a6d4ff5bfc256
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61401176"
 ---
 # <a name="copy-data-from-impala-by-using-azure-data-factory-preview"></a>Copier des données d’Impala à l’aide d’Azure Data Factory (préversion)
@@ -44,18 +44,18 @@ Les propriétés suivantes sont prises en charge pour le service lié Impala.
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété de type doit être définie sur **Impala**. | Oui |
-| host | Adresse IP ou nom d’hôte du serveur Impala (c’est-à-dire, 192.168.222.160).  | Oui |
-| port | Port TCP utilisé par le serveur Impala pour écouter les connexions clientes. Valeur par défaut : 21050.  | Non  |
-| authenticationType | Type d’authentification à utiliser. <br/>Les valeurs autorisées sont **Anonymous**, **SASLUsername** et **UsernameAndPassword**. | Oui |
-| username | Nom d’utilisateur utilisé pour accéder au serveur Impala. La valeur par défaut est Anonymous si vous utilisez SASLUsername.  | Non  |
-| password | Mot de passe qui correspond au nom d’utilisateur si vous utilisez UsernameAndPassword. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Non  |
-| enableSsl | Indique si les connexions au serveur sont chiffrées à l’aide du protocole SSL. La valeur par défaut est **false**.  | Non  |
-| trustedCertPath | Chemin complet du fichier .pem qui contient les certificats d’autorité de certification approuvés utilisés pour vérifier le serveur quand vous vous connectez via SSL. Cette propriété ne peut être définie que quand vous utilisez SSL sur le runtime d’intégration auto-hébergé. Valeur par défaut : le fichier cacerts.pem installé avec le runtime d’intégration.  | Non  |
-| useSystemTrustStore | Indique s’il faut utiliser un certificat d’autorité de certification provenant du magasin de confiance du système ou d’un fichier PEM spécifié. La valeur par défaut est **false**.  | Non  |
-| allowHostNameCNMismatch | Indique si le nom du certificat SSL émis par l’autorité de certification doit correspondre au nom d’hôte du serveur si vous vous connectez via SSL. La valeur par défaut est **false**.  | Non  |
-| allowSelfSignedServerCert | Indique si les certificats auto-signés provenant du serveur sont autorisés ou non. La valeur par défaut est **false**.  | Non  |
-| connectVia | Le [runtime d’intégration](concepts-integration-runtime.md) à utiliser pour se connecter à la banque de données. Vous pouvez utiliser un runtime d’intégration auto-hébergé ou un runtime d’intégration Azure (si votre banque de données est accessible publiquement). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |Non  |
+| Type | La propriété de type doit être définie sur **Impala**. | OUI |
+| host | Adresse IP ou nom d’hôte du serveur Impala (c’est-à-dire, 192.168.222.160).  | OUI |
+| port | Port TCP utilisé par le serveur Impala pour écouter les connexions clientes. Valeur par défaut : 21050.  | Non |
+| authenticationType | Type d’authentification à utiliser. <br/>Les valeurs autorisées sont **Anonymous**, **SASLUsername** et **UsernameAndPassword**. | OUI |
+| username | Nom d’utilisateur utilisé pour accéder au serveur Impala. La valeur par défaut est Anonymous si vous utilisez SASLUsername.  | Non |
+| password | Mot de passe qui correspond au nom d’utilisateur si vous utilisez UsernameAndPassword. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Non |
+| enableSsl | Indique si les connexions au serveur sont chiffrées à l’aide du protocole SSL. La valeur par défaut est **false**.  | Non |
+| trustedCertPath | Chemin complet du fichier .pem qui contient les certificats d’autorité de certification approuvés utilisés pour vérifier le serveur quand vous vous connectez via SSL. Cette propriété ne peut être définie que quand vous utilisez SSL sur le runtime d’intégration auto-hébergé. Valeur par défaut : le fichier cacerts.pem installé avec le runtime d’intégration.  | Non |
+| useSystemTrustStore | Indique s’il faut utiliser un certificat d’autorité de certification provenant du magasin de confiance du système ou d’un fichier PEM spécifié. La valeur par défaut est **false**.  | Non |
+| allowHostNameCNMismatch | Indique si le nom du certificat SSL émis par l’autorité de certification doit correspondre au nom d’hôte du serveur si vous vous connectez via SSL. La valeur par défaut est **false**.  | Non |
+| allowSelfSignedServerCert | Indique si les certificats auto-signés provenant du serveur sont autorisés ou non. La valeur par défaut est **false**.  | Non |
+| connectVia | Le [runtime d’intégration](concepts-integration-runtime.md) à utiliser pour se connecter à la banque de données. Vous pouvez utiliser un runtime d’intégration auto-hébergé ou un runtime d’intégration Azure (si votre banque de données est accessible publiquement). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |Non |
 
 **Exemple :**
 
@@ -90,7 +90,7 @@ Pour copier des données d’Impala, affectez la valeur **ImpalaObject** à la p
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type du jeu de données doit être définie sur : **ImpalaObject** | Oui |
+| Type | La propriété type du jeu de données doit être définie sur : **ImpalaObject** | OUI |
 | tableName | Nom de la table. | Non (si « query » dans la source de l’activité est spécifié) |
 
 **Exemple**
@@ -119,7 +119,7 @@ Pour copier des données d’Impala, affectez la valeur **ImpalaSource** au type
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type de la source de l’activité de copie doit être définie sur **ImpalaSource**. | Oui |
+| Type | La propriété type de la source de l’activité de copie doit être définie sur **ImpalaSource**. | OUI |
 | query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple `"SELECT * FROM MyTable"`. | Non (si « tableName » est spécifié dans dataset) |
 
 **Exemple :**

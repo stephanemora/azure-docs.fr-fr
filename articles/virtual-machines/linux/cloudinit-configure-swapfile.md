@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
 ms.openlocfilehash: 626fd4739daf2506854c42f16ac986a361ebab38
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60729815"
 ---
 # <a name="use-cloud-init-to-configure-a-swapfile-on-a-linux-vm"></a>Utiliser cloud-init pour configurer un fichier d’échange sur une machine virtuelle Linux

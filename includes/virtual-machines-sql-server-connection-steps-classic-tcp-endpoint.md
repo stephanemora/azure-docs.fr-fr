@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: jroth
 ms.openlocfilehash: d4e8d99cd7c67136f359772664eb017c6207e6e4
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66165507"
 ---
 ### <a name="create-a-tcp-endpoint-for-the-virtual-machine"></a>Création d'un point de terminaison TCP pour la machine virtuelle
@@ -19,7 +19,7 @@ Pour accéder à SQL Server depuis Internet, la machine virtuelle doit avoir un
 > 
 > 
 
-1. Dans le portail Azure, sélectionnez **Machines virtuelles (classiques)**.
+1. Dans le portail Azure, sélectionnez **Machines virtuelles (classiques)** .
 2. Sélectionnez ensuite une machine virtuelle SQL Server.
 3. Sélectionnez **Points de terminaison**, puis cliquez sur le bouton **Ajouter** bouton en haut du panneau Points de terminaison.
    

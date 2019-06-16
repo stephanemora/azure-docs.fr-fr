@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/31/2018
 ms.author: cynthn
-ms.openlocfilehash: 92fee850b6ba013c759d3441219f1946a0faedb3
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: aa6e93ef7e403f1b230814b7afa20d2e8e68b71a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984128"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64718650"
 ---
 # <a name="virtual-machine-vcpu-quotas"></a>Quotas de processeurs virtuels pour les machines virtuelles
 
 Les quotas de processeurs virtuels pour les machines virtuelles et les groupes de machines virtuelles identiques sont organisés en deux niveaux pour chaque abonnement, dans chaque région. Le premier niveau est le total des processeurs virtuels régionaux. Le deuxième niveau se compose des cœurs des différentes familles de tailles de machine virtuelle, comme les processeurs virtuels de la série D. Chaque fois qu’une nouvelle machine virtuelle est déployée, le nombre de processeurs virtuels de cette machine virtuelle ne doit pas dépasser le quota de processeurs virtuels pour la famille de tailles de machine virtuelle ou le quota du total des processeurs virtuels régionaux. Si l’un de ces quotas est dépassé, le déploiement des machines virtuelles n’est pas autorisé. Il existe également un quota pour le nombre total de machines virtuelles dans la région. Pour plus d’informations sur chacun de ces quotas, consultez la section **Utilisation + quotas** de la page **Abonnement** dans le [portail Azure](https://portal.azure.com) ou interrogez les valeurs à l’aide de PowerShell.
 
- [!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)] 
+ [!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)] 
  
 ## <a name="check-usage"></a>Vérifier l’utilisation
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.openlocfilehash: 284d0e888b89d340088f770af22c026a861a4685
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60610723"
 ---
 # <a name="security-frame-configuration-management--mitigations"></a>Infrastructure de sécurité : gestion des configurations | Atténuation des risques 
@@ -286,7 +286,7 @@ this.Response.Headers["X-Content-Type-Options"] = "nosniff";
 | **Phase SDL**               | Créer |  
 | **Technologies applicables** | SQL Azure, OnPrem |
 | **Attributs**              | N/A, Version SQL - V12 |
-| **Informations de référence**              | [Vue d’ensemble des règles de pare-feu d’Azure SQL Database](https://azure.microsoft.com/documentation/articles/sql-database-firewall-configure/), [Configurer un pare-feu Windows pour accéder au moteur de base de données](https://msdn.microsoft.com/library/ms175043) |
+| **Informations de référence**              | [Vue d’ensemble des règles de pare-feu Azure SQL Database](https://azure.microsoft.com/documentation/articles/sql-database-firewall-configure/), [Configurer un pare-feu Windows pour accéder au moteur de base de données](https://msdn.microsoft.com/library/ms175043) |
 | **Étapes** | Les systèmes de pare-feu contribuent à empêcher les accès non autorisés aux ressources informatiques. Pour accéder à une instance du moteur de base de données SQL Server de l’autre côté d’un pare-feu, vous devez configurer le pare-feu sur l’ordinateur exécutant SQL Server de façon à autoriser cet accès. |
 
 ## <a id="cors-api"></a>S’assurer que seules les origines approuvées sont autorisées si le mécanisme CORS est activé sur API Web ASP.NET

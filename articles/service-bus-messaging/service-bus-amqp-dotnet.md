@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
 ms.openlocfilehash: 82301a17bb461b6d8733d5f046fe791ffbcf3ecb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60749255"
 ---
 # <a name="use-service-bus-from-net-with-amqp-10"></a>Utiliser Service Bus à partir de .NET avec AMQP 1.0
@@ -76,10 +76,10 @@ Pour faciliter l’interopérabilité avec les clients autres que .NET, utilisez
 | double |double |Valeur AMQP |
 | décimal |decimal128 |Valeur AMQP |
 | char |char |Valeur AMQP |
-| DateTime |timestamp |Valeur AMQP |
+| Datetime |timestamp |Valeur AMQP |
 | Guid |uuid |Valeur AMQP |
 | byte[] |binary |Valeur AMQP |
-| string |string |Valeur AMQP |
+| chaîne |chaîne |Valeur AMQP |
 | System.Collections.IList |list |Valeur AMQP : les éléments contenus dans la collection peuvent uniquement être ceux qui sont définis dans ce tableau. |
 | System.Array |array |Valeur AMQP : les éléments contenus dans la collection peuvent uniquement être ceux qui sont définis dans ce tableau. |
 | System.Collections.IDictionary |map |Valeur AMQP : les éléments contenus dans la collection peuvent uniquement être ceux qui sont définis dans ce tableau. Remarque : seules les clés de chaîne sont prises en charge. |

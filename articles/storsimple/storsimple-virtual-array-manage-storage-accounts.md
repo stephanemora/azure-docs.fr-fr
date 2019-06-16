@@ -15,15 +15,15 @@ ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.openlocfilehash: a992851deda0659509c0ee4ea5de76b19734f017
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62128836"
 ---
 # <a name="use-storsimple-device-manager-to-manage-storage-account-credentials-for-storsimple-virtual-array"></a>Utilisation de StorSimple Device Manager pour gérer les informations d’identification du compte de stockage pour StorSimple Virtual Array
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 La section **Configuration** du panneau du service StorSimple Device Manager de votre instance StorSimple Virtual Array présente les paramètres de service globaux pouvant être créés dans le service StorSimple Manager. Ces paramètres peuvent être appliqués à tous les appareils connectés au service et incluent les éléments suivants :
 
 * Informations d’identification du compte de stockage

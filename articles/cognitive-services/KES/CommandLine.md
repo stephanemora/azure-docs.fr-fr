@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/24/2016
 ms.author: paulhsu
 ms.openlocfilehash: 018552982a8ece3bbbaea2d60e2a6e64f681f822
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60815142"
 ---
 # <a name="command-line-interface"></a>Interface de ligne de commande
@@ -82,7 +82,7 @@ La commande **host_service** héberge une instance du service KES sur l’ordina
 | `<indexFile>`   | Chemin du fichier d’index binaire d’entrée           |
 | `--port <port>` | Numéro de port local.  Valeur par défaut : 8000 |
 
-Ces fichiers peuvent être spécifiés par des chemins de fichiers locaux ou des chemins URL vers des objets blob Azure.  Un service web est hébergé dans http://localhost:&lt;port&gt;/.  Consultez [API Web](WebAPI.md) pour une liste des opérations prises en charge.
+Ces fichiers peuvent être spécifiés par des chemins de fichiers locaux ou des chemins URL vers des objets blob Azure.  Un service web est hébergé dans http://localhost:&lt ;port&gt; /.  Consultez [API Web](WebAPI.md) pour une liste des opérations prises en charge.
 
 En dehors de l’environnement Azure, les services hébergés localement se limitent à des fichiers d’index pouvant aller jusqu’à 1 Mo, 10 requêtes par seconde et 1 000 appels au total.  Pour contourner ces limitations, exécutez la commande **host_service** dans une machine virtuelle Azure, ou déployez dans un service cloud Azure avec la commande **deploy_service**.
 

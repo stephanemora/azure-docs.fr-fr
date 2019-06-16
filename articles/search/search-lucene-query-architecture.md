@@ -11,10 +11,10 @@ ms.date: 05/02/2019
 ms.author: jlembicz
 ms.custom: seodec2018
 ms.openlocfilehash: bc183cb8ac2155b8dd31dc603d70506ad3d5e20a
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65797477"
 ---
 # <a name="how-full-text-search-works-in-azure-search"></a>Fonctionnement de la recherche en texte intégral dans la recherche Azure
@@ -281,7 +281,7 @@ Pour le champ **Description**, l’index est le suivant :
 | Nord | 2
 | mer | 1, 2, 3
 | sur | 2
-| le |2
+| sur |2
 | calme | 4
 | chambres  | 1, 3
 | isolé | 4
@@ -291,7 +291,7 @@ Pour le champ **Description**, l’index est le suivant :
 | to | 1
 | view | 1, 2, 3
 | marche | 1
-| avec | 3
+| par | 3
 
 
 **Termes de requête correspondant aux termes indexés**

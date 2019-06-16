@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 01/25/2019
 ms.author: chstone
 ms.openlocfilehash: 6d5d01dfbbcfda56818f5c38b06117a87e021445
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61291887"
 ---
 # <a name="example-model-the-adventureworks-inventory-database-for-azure-search"></a>Exemple : Modéliser la base de données d’inventaire AdventureWorks pour la Recherche Azure
@@ -43,7 +43,7 @@ La résolution de ce problème n’est pas aussi simple que de déplacer l’ind
 
 ## <a name="use-a-collection-data-type"></a>Utiliser un type de données Collection
 
-La « bonne approche » consiste à utiliser une fonctionnalité de schéma de recherche qui n’a pas de parallèle direct dans le modèle de base de données : **Collection(Edm.String)**. Un type de données Collection est utilisé quand vous avez une liste de chaînes individuelles plutôt qu’une très longue (et même) chaîne. Si vous avez des tags ou des mots clés, vous devez utiliser un type de données Collection pour ce champ.
+La « bonne approche » consiste à utiliser une fonctionnalité de schéma de recherche qui n’a pas de parallèle direct dans le modèle de base de données : **Collection(Edm.String)** . Un type de données Collection est utilisé quand vous avez une liste de chaînes individuelles plutôt qu’une très longue (et même) chaîne. Si vous avez des tags ou des mots clés, vous devez utiliser un type de données Collection pour ce champ.
 
 En définissant des champs d’index à valeurs multiples de **Collection(Edm.String)** pour « color » (couleur), « size » (taille) et « image », les informations auxiliaires sont conservées pour les facettes et le filtrage sans polluer l’index avec des entrées en double. De même, appliquez des fonctions d’agrégation aux champs Product numériques, en indexant **minListPrice** au lieu de chaque produit unique **listPrice**.
 

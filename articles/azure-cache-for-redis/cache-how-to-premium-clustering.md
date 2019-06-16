@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/13/2018
 ms.author: yegu
 ms.openlocfilehash: 602d77f3d4e8ed10c2c964462bc2dc21240cef5c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60541329"
 ---
 # <a name="how-to-configure-redis-clustering-for-a-premium-azure-cache-for-redis"></a>Comment configurer le clustering pour le niveau Premium de Cache Azure pour Redis

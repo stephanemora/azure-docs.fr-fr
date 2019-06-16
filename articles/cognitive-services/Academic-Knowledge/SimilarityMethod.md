@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/18/2017
 ms.author: alch
 ms.openlocfilehash: 7f692c08f8af322bf7e6ab576e2e6f516594a6c4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61336515"
 ---
 # <a name="similarity-method"></a>Méthode Similarity
@@ -31,8 +31,8 @@ https://westus.api.cognitive.microsoft.com/academic/v1.0/similarity?
 
 Paramètre        |Type de données      |Obligatoire | Description
 ----------|----------|----------|------------
-**s1**        |String   |Oui  |Chaîne* à comparer
-**s2**        |String   |Oui  |Chaîne* à comparer
+**s1**        |Chaîne   |OUI  |Chaîne* à comparer
+**s2**        |Chaîne   |OUI  |Chaîne* à comparer
 
 <sub> *La longueur maximale des chaînes à comparer est de 1 Mo. </sub>
 <br>

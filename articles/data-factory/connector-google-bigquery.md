@@ -3,21 +3,20 @@ title: Copier des données à partir de Google BigQuery avec Azure Data Factory 
 description: Découvrez comment utiliser l’activité de copie dans un pipeline de fabrique de données pour copier des données de Google BigQuery vers des banques de données réceptrices prises en charge.
 services: data-factory
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: linda33wj
+manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-origin.date: 12/07/2018
-ms.date: 04/22/2019
-ms.author: v-jay
+ms.date: 12/07/2018
+ms.author: jingwang
 ms.openlocfilehash: c9320c8d0cf512bc9145accc07ab4c79630a7c84
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60808889"
 ---
 # <a name="copy-data-from-google-bigquery-by-using-azure-data-factory"></a>Copier des données à partir de Google BigQuery avec Azure Data Factory
@@ -45,11 +44,11 @@ Les propriétés prises en charge pour le service lié Google BigQuery sont les 
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type doit être définie sur **GoogleBigQuery**. | Oui |
-| project | L’ID du projet BigQuery par défaut sur lequel exécuter la requête.  | Oui |
-| additionalProjects | Liste séparée par des virgules des ID de projets BigQuery publics accessibles.  | Non  |
-| requestGoogleDriveScope | Pour demander l’accès à Google Drive. Autoriser l’accès à Google Drive active la prise en charge des tables fédérées qui combinent les données BigQuery avec les données issues de Google Drive. La valeur par défaut est **false**.  | Non  |
-| authenticationType | Mécanisme d’authentification OAuth 2.0 utilisé pour l’authentification. ServiceAuthentication ne peut être utilisé que sur un runtime d’intégration auto-hébergé. <br/>Les valeurs autorisées sont **UserAuthentication** et **ServiceAuthentication**. Reportez-vous aux sections suivant ce tableau pour accéder à d’autres propriétés et à des exemples JSON sur ces types d’authentification. | Oui |
+| Type | La propriété type doit être définie sur **GoogleBigQuery**. | OUI |
+| project | L’ID du projet BigQuery par défaut sur lequel exécuter la requête.  | OUI |
+| additionalProjects | Liste séparée par des virgules des ID de projets BigQuery publics accessibles.  | Non |
+| requestGoogleDriveScope | Pour demander l’accès à Google Drive. Autoriser l’accès à Google Drive active la prise en charge des tables fédérées qui combinent les données BigQuery avec les données issues de Google Drive. La valeur par défaut est **false**.  | Non |
+| authenticationType | Mécanisme d’authentification OAuth 2.0 utilisé pour l’authentification. ServiceAuthentication ne peut être utilisé que sur un runtime d’intégration auto-hébergé. <br/>Les valeurs autorisées sont **UserAuthentication** et **ServiceAuthentication**. Reportez-vous aux sections suivant ce tableau pour accéder à d’autres propriétés et à des exemples JSON sur ces types d’authentification. | OUI |
 
 ### <a name="using-user-authentication"></a>Utiliser l’authentification utilisateur
 
@@ -57,9 +56,9 @@ Définissez la valeur de la propriété « authenticationType » sur **UserAut
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| clientId | ID de l’application utilisée pour générer le jeton d’actualisation. | Non  |
-| clientSecret | Secret de l’application utilisée pour générer le jeton d’actualisation. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Non  |
-| refreshToken | Le jeton d’actualisation obtenu de Google servant à autoriser l’accès à BigQuery. Découvrez comment en obtenir un en consultant [Obtention de jetons d’accès OAuth 2.0](https://developers.google.com/identity/protocols/OAuth2WebServer#obtainingaccesstokens) et [ce blog de communauté](https://jpd.ms/getting-your-bigquery-refresh-token-for-azure-datafactory-f884ff815a59). Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Non  |
+| clientId | ID de l’application utilisée pour générer le jeton d’actualisation. | Non |
+| clientSecret | Secret de l’application utilisée pour générer le jeton d’actualisation. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Non |
+| refreshToken | Le jeton d’actualisation obtenu de Google servant à autoriser l’accès à BigQuery. Découvrez comment en obtenir un en consultant [Obtention de jetons d’accès OAuth 2.0](https://developers.google.com/identity/protocols/OAuth2WebServer#obtainingaccesstokens) et [ce blog de communauté](https://jpd.ms/getting-your-bigquery-refresh-token-for-azure-datafactory-f884ff815a59). Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Non |
 
 **Exemple :**
 
@@ -93,10 +92,10 @@ Définissez la valeur de la propriété « authenticationType » sur **Service
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| email | ID d’e-mail du compte de service utilisé pour ServiceAuthentication. Il ne peut être utilisé que sur un runtime d’intégration auto-hébergé.  | Non  |
-| keyFilePath | Chemin complet du fichier de clé .p12 utilisé pour authentifier l’adresse e-mail du compte de service. | Non  |
-| trustedCertPath | Chemin complet du fichier .pem qui contient les certificats d’autorité de certification approuvés utilisés pour vérifier le serveur quand vous vous connectez via SSL. Cette propriété ne peut être définie que quand vous utilisez SSL sur le runtime d’intégration auto-hébergé. Valeur par défaut : le fichier cacerts.pem installé avec le runtime d’intégration.  | Non  |
-| useSystemTrustStore | Indique s’il faut utiliser un certificat d’autorité de certification provenant du magasin de confiance du système ou d’un fichier .pem spécifié. La valeur par défaut est **false**.  | Non  |
+| email | ID d’e-mail du compte de service utilisé pour ServiceAuthentication. Il ne peut être utilisé que sur un runtime d’intégration auto-hébergé.  | Non |
+| keyFilePath | Chemin complet du fichier de clé .p12 utilisé pour authentifier l’adresse e-mail du compte de service. | Non |
+| trustedCertPath | Chemin complet du fichier .pem qui contient les certificats d’autorité de certification approuvés utilisés pour vérifier le serveur quand vous vous connectez via SSL. Cette propriété ne peut être définie que quand vous utilisez SSL sur le runtime d’intégration auto-hébergé. Valeur par défaut : le fichier cacerts.pem installé avec le runtime d’intégration.  | Non |
+| useSystemTrustStore | Indique s’il faut utiliser un certificat d’autorité de certification provenant du magasin de confiance du système ou d’un fichier .pem spécifié. La valeur par défaut est **false**.  | Non |
 
 **Exemple :**
 
@@ -128,7 +127,7 @@ Pour copier des données à partir de Google BigQuery, définissez la propriét�
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type du jeu de données doit être définie sur : **GoogleBigQueryObject** | Oui |
+| Type | La propriété type du jeu de données doit être définie sur : **GoogleBigQueryObject** | OUI |
 | tableName | Nom de la table. | Non (si « query » dans la source de l’activité est spécifié) |
 
 **Exemple**
@@ -157,7 +156,7 @@ Pour copier des données à partir de Google BigQuery, définissez le type de so
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type de la source d’activité de copie doit être définie sur **GoogleBigQuerySource**. | Oui |
+| Type | La propriété type de la source d’activité de copie doit être définie sur **GoogleBigQuerySource**. | OUI |
 | query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple `"SELECT * FROM MyTable"`. | Non (si « tableName » est spécifié dans dataset) |
 
 **Exemple :**

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: sajagtap
 ms.openlocfilehash: 7e987c1249360b14fddf8af57c61fdd1a46ee6c5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60605321"
 ---
 # <a name="analyze-video-content-for-objectionable-material-in-c"></a>Analyser la présence de matériau répréhensible dans du contenu vidéo en C#
@@ -23,7 +23,7 @@ Cet article donne des informations et des exemples de code qui vous aideront à 
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer. 
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 - N’importe quelle édition de [Visual Studio 2015 ou 2017](https://www.visualstudio.com/downloads/)
 
 ## <a name="set-up-azure-resources"></a>Configurer les ressources Azure
@@ -120,7 +120,7 @@ private static readonly string CONTENT_MODERATOR_PRESET_FILE = "preset.json";
 
 Si vous souhaitez utiliser un fichier vidéo local (cas le plus simple), ajoutez-le au projet et entrez son chemin d’accès sous forme de valeur `INPUT_FILE` (chemins d’accès relatifs au répertoire d’exécution).
 
-Vous devrez également créer le fichier _preset.json_ dans le répertoire actif et l’utiliser pour spécifier un numéro de version. Par exemple : 
+Vous devrez également créer le fichier _preset.json_ dans le répertoire actif et l’utiliser pour spécifier un numéro de version. Par exemple :
 
 ```JSON
 {

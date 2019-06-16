@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: roiyz
 ms.openlocfilehash: 5adc86b161770f2502b6ef9cf5ec2189ec3d4f99
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60388673"
 ---
 # <a name="nvidia-gpu-driver-extension-for-windows"></a>Extension du pilote GPU NVIDIA pour Windows
@@ -29,7 +29,7 @@ Cette extension installe des pilotes GPU NVIDIA sur des machines virtuelles Wind
 
 Une extension est également disponible pour installer les pilotes GPU NVIDIA sur [des machines virtuelles de gamme N Linux](hpccompute-gpu-linux.md).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 ### <a name="operating-system"></a>Système d’exploitation
 
@@ -74,8 +74,8 @@ Le JSON suivant illustre le schéma pour l’extension.
 | Nom | Valeur/Exemple | Type de données |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
-| publisher | Microsoft.HpcCompute | string |
-| Type | NvidiaGpuDriverWindows | string |
+| publisher | Microsoft.HpcCompute | chaîne |
+| Type | NvidiaGpuDriverWindows | chaîne |
 | typeHandlerVersion | 1.2 | int |
 
 

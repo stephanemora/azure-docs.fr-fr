@@ -9,14 +9,14 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
 ms.openlocfilehash: df3220ddb80ebc329ed6b0024ca4eefd2bdfb321
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61002004"
 ---
 # <a name="save-searches-and-pin-data-assets-in-azure-data-catalog"></a>Enregistrer des recherches et épingler des ressources de données dans Azure Data Catalog
-## <a name="introduction"></a>Présentation
+## <a name="introduction"></a>Introduction
 Azure Data Catalog fournit des fonctionnalités de détection des sources de données. Vous pouvez rapidement rechercher et filtrer le catalogue pour localiser des sources de données et comprendre leur rôle respectif. Vous pouvez ainsi trouver plus facilement les données dont vous avez besoin pour le travail en cours.
 
 Mais qu’en est-il lorsque vous devez utiliser régulièrement les mêmes données ? Ou lorsque les utilisateurs mettent régulièrement à jour une même source de données du catalogue ? Dans de telles situations, le fait d’effectuer toujours les mêmes recherches peut représenter une perte de temps. C’est là que l’enregistrement des recherches et l’épinglage des ressources de données peuvent vous aider.

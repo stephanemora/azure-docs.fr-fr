@@ -12,10 +12,10 @@ ms.suite: integration
 ms.topic: article
 ms.date: 08/17/2018
 ms.openlocfilehash: 38bc1615c0849a33ddfa5790a66fc05d681ce339
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66167159"
 ---
 # <a name="secure-b2b-messages-with-certificates"></a>Sécuriser les messages B2B à l’aide de certificats
@@ -47,9 +47,9 @@ Pour utiliser un *certificat public* dans vos applications logiques avec fonctio
 
 3. Sous **Certificats**, choisissez **Ajouter**. Sous **Ajouter un certificat**, fournissez les détails de votre certificat. Une fois que vous avez terminé, sélectionnez **OK**.
 
-   | Propriété | Valeur | Description  | 
+   | Propriété | Valeur | Description | 
    |----------|-------|-------------|
-   | **Name** | <*certificate-name*> | Le nom de votre certificat, « publicCert » dans cet exemple | 
+   | **Nom** | <*certificate-name*> | Le nom de votre certificat, « publicCert » dans cet exemple | 
    | **Type de certificat** | Public | Le type de votre certificat |
    | **Certificate** | <*certificate-file-name*> | Pour trouver et sélectionner le fichier de certificat que vous souhaitez télécharger, cliquez sur l’icône de dossier en regard de la case **Certificat**. |
    ||||
@@ -86,9 +86,9 @@ Une fois que vous avez défini les propriétés dans les [contrats](logic-apps-e
 
 5. Sous **Certificats**, choisissez **Ajouter**. Sous **Ajouter un certificat**, fournissez les détails de votre certificat. Une fois que vous avez terminé, sélectionnez **OK**.
 
-   | Propriété | Valeur | Description  | 
+   | Propriété | Valeur | Description | 
    |----------|-------|-------------|
-   | **Name** | <*certificate-name*> | Le nom de votre certificat, « privateCert » dans cet exemple | 
+   | **Nom** | <*certificate-name*> | Le nom de votre certificat, « privateCert » dans cet exemple | 
    | **Type de certificat** | Privé | Le type de votre certificat |
    | **Certificate** | <*certificate-file-name*> | Pour trouver et sélectionner le fichier de certificat que vous souhaitez télécharger, cliquez sur l’icône de dossier en regard de la case **Certificat**. | 
    | **Groupe de ressources** | <*integration-account-resource-group*> | Le groupe de ressources de votre compte d’intégration, « MyResourceGroup » dans cet exemple | 

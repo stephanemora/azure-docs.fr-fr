@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
 ms.openlocfilehash: b6f93cc3c35ab18ecd50ccd6b3090985497baabf
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62122453"
 ---
 # <a name="how-to-use-ios-client-library-for-azure-mobile-apps"></a>Utilisation de la bibliothèque cliente iOS pour Azure Mobile Apps
@@ -565,7 +565,7 @@ Vous pouvez utiliser la bibliothèque d’authentification Active Directory (ADA
    * Remplacez **INSERT-AUTHORITY-HERE** par le nom du client dans lequel vous avez approvisionné votre application. Le format doit être https://login.microsoftonline.com/contoso.onmicrosoft.com. Cette valeur peut être copiée depuis l’onglet Domaine de votre Azure Active Directory dans le [Portail Azure].
    * Remplacez **INSERT-RESOURCE-ID-HERE** par l’ID client du serveur principal de votre application mobile. Vous pouvez obtenir l’ID client sur le portail, sous l’onglet **Avancé** du menu **Paramètres Azure Active Directory**.
    * Remplacez **INSERT-CLIENT-ID-HERE** par l’ID client que vous avez copié depuis l’application cliente native.
-   * Remplacez **INSERT-REDIRECT-URI-HERE** par le point de terminaison */.auth/login/done* de votre site, en utilisant le modèle HTTPS. Cette valeur doit être similaire à *https://contoso.azurewebsites.net/.auth/login/done*.
+   * Remplacez **INSERT-REDIRECT-URI-HERE** par le point de terminaison */.auth/login/done* de votre site, en utilisant le modèle HTTPS. Cette valeur doit être similaire à *https://contoso.azurewebsites.net/.auth/login/done* .
 
 **Objective-C**:
 

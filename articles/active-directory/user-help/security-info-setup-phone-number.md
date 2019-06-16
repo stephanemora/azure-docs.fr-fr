@@ -13,10 +13,10 @@ ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9c1620be30d8cdf3a592ab0fc118938783579689
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60474933"
 ---
 # <a name="set-up-security-info-preview-to-use-phone-calls"></a>Configurer les informations de sécurité (préversion) pour utiliser un appel téléphonique
@@ -86,11 +86,11 @@ Pour utiliser l'appel téléphonique comme méthode par défaut lorsque vous vou
 
     ![Lien Changer pour la méthode de connexion par défaut](media/security-info/securityinfo-myprofile-phonetext-defaultchange.png)
 
-2. Sélectionnez **Téléphone - Appeler (*_votre_numéro_de_téléphone_*)** dans la liste déroulante des méthodes disponibles, puis sélectionnez **Confirmer**.
+2. Sélectionnez **Téléphone - Appeler ( *_votre_numéro_de_téléphone_* )** dans la liste déroulante des méthodes disponibles, puis sélectionnez **Confirmer**.
 
     ![Choisir la méthode de connexion par défaut](media/security-info/securityinfo-myprofile-phonecall-changeddefault.png)
 
-    La méthode par défaut utilisée pour la connexion devient **Téléphone - Appeler (*_votre_numéro_de_téléphone_*)**.
+    La méthode par défaut utilisée pour la connexion devient **Téléphone - Appeler ( *_votre_numéro_de_téléphone_* )** .
 
 ## <a name="additional-security-info-methods"></a>Autres méthodes d'informations de sécurité
 Vous avez la possibilité de choisir la façon d’être contacté par votre organisation pour la vérification de votre identité, en fonction de ce que vous essayez de faire. Ces options sont les suivantes :

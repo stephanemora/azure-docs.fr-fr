@@ -13,10 +13,10 @@ ms.reviewer: mathoma
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: b9d6569504b5352c6187afe12d903c986019c517
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60646800"
 ---
 # <a name="replication-to-sql-database-single-and-pooled-databases"></a>Réplication des bases de données uniques et mises en pool SQL Database
@@ -107,7 +107,7 @@ Les options suivantes ne sont pas prises en charge pour les abonnements Azure SQ
 Créez une publication et un abonnement par émission de données. Pour plus d'informations, consultez les pages suivantes :
   
 - [Créer une publication](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
-- [Créer un abonnement par push](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/) en utilisant le nom du serveur Azure SQL Database en tant qu’abonné (par exemple **N'azuresqldbdns.database.windows.net'**) et le nom de la base de données Azure SQL comme base de données de destination (par exemple **AdventureWorks**).  
+- [Créer un abonnement par push](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/) en utilisant le nom du serveur Azure SQL Database en tant qu’abonné (par exemple **N'azuresqldbdns.database.windows.net'** ) et le nom de la base de données Azure SQL comme base de données de destination (par exemple **AdventureWorks**).  
 
 ## <a name="see-also"></a>Voir aussi  
 

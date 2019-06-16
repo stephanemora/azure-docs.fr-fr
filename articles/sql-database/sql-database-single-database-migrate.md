@@ -14,15 +14,15 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/11/2019
 ms.openlocfilehash: 1dd7d2fa413a6502dcd5c9db59e376c6586b5fea
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65790308"
 ---
 # <a name="sql-server-database-migration-to-azure-sql-database"></a>Migration de base de données SQL Server vers Azure SQL Database
 
-Cet article décrit les méthodes principales de migration d’une base de données SQL Server 2005 ou version ultérieure locale vers une base de données unique ou mise en pool dans Azure SQL Database. Pour plus d’informations sur la migration vers Managed Instance, consultez [Migration d’une instance SQL Server vers Azure SQL Database Managed Instance](sql-database-managed-instance-migrate.md). Pour obtenir des informations sur la migration à partir d’autres plateformes, consultez le [Guide de migration des bases de données Azure](https://datamigration.microsoft.com/).
+Cet article décrit les méthodes principales de migration d’une base de données SQL Server 2005 ou ultérieur locale vers une base de données unique ou mise en pool dans Azure SQL Database. Pour plus d’informations sur la migration vers Managed Instance, consultez [Migration d’une instance SQL Server vers Azure SQL Database Managed Instance](sql-database-managed-instance-migrate.md). Pour obtenir des informations sur la migration à partir d’autres plateformes, consultez le [Guide de migration des bases de données Azure](https://datamigration.microsoft.com/).
 
 ## <a name="migrate-to-a-single-database-or-a-pooled-database"></a>Migrer vers une base de données unique ou une base de données mise en pool
 
@@ -45,10 +45,10 @@ La liste suivante contient le workflow général pour la migration d’une base 
 2. Préparez les corrections nécessaires en tant que scripts Transact-SQL.
 3. Faites une copie cohérente de la base de données source en cours de migration ou interrompez les nouvelles transactions qui se produisent dans la base de données source pendant la migration. Les méthodes qui existent pour accomplir cette dernière option incluent la désactivation de la connectivité des clients ou la création d’un [instantané de base de données](https://msdn.microsoft.com/library/ms175876.aspx). Après la migration, vous pourrez peut-être utiliser la réplication transactionnelle pour mettre à jour les bases de données migrées avec les modifications qui se produisent après le point d’arrêt pour la migration. Consultez [Migration à l’aide de la migration transactionnelle](sql-database-single-database-migrate.md#method-2-use-transactional-replication).  
 4. Déployez les scripts Transact-SQL pour appliquer les correctifs à la copie de base de données.
-5. [Migrez](https://docs.microsoft.com/sql/dma/dma-migrateonpremsql) la copie de base de données vers une nouvelle base de données SQL Azure à l’aide de Data Migration Assistant.
+5. [Migrez](https://docs.microsoft.com/sql/dma/dma-migrateonpremsql) la copie de base de données vers une nouvelle base de données Azure SQL à l’aide de Data Migration Assistant.
 
 > [!NOTE]
-> Au lieu d’utiliser DMA, vous pouvez également utiliser un fichier BACPAC. Consultez [Importer un fichier BACPAC dans une nouvelle base de données Azure SQL Database](sql-database-import.md).
+> Au lieu d’utiliser DMA, vous pouvez également utiliser un fichier BACPAC. Consultez [Importer un fichier BACPAC dans une nouvelle base de données Azure SQL](sql-database-import.md).
 
 ### <a name="optimizing-data-transfer-performance-during-migration"></a>Optimisation des performances de transfert de données pendant la migration
 

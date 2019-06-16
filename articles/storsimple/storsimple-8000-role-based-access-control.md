@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 10/11/2017
 ms.author: alkohli
 ms.openlocfilehash: a79753a897a62e194a759c23a9c0acc45c5f36c1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66159099"
 ---
 # <a name="role-based-access-control-for-storsimple"></a>Contrôle d’accès en fonction du rôle pour StorSimple
@@ -165,7 +165,7 @@ AssignableScopes : {/subscriptions/<subscription_ID>/}
 
 Vous accordez l’accès à partir de la ressource, du groupe de ressources ou de l’abonnement qui correspond à l’étendue de l’attribution du rôle. Quand vous accordez un accès, gardez à l’esprit que l’enfant hérite de l’accès accordé au niveau du nœud parent. Pour plus d’informations, accédez à [Contrôle d’accès en fonction du rôle](../role-based-access-control/overview.md).
 
-1. Accédez à **Contrôle d’accès (IAM)**. Cliquez sur **+ Ajouter** dans le panneau Contrôle d’accès.
+1. Accédez à **Contrôle d’accès (IAM)** . Cliquez sur **+ Ajouter** dans le panneau Contrôle d’accès.
 
     ![Ajouter un accès au rôle RBAC](./media/storsimple-8000-role-based-access-control/rbac-add-role.png)
 

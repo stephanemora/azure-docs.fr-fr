@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
 ms.openlocfilehash: 6ae271fc464e2a5735ef95a428b3070066058ddc
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64696141"
 ---
 # <a name="use-hdinsight-tools-for-intellij-with-hortonworks-sandbox"></a>Utiliser HDInsight Tools pour IntelliJ avec Hortonworks Sandbox
@@ -22,7 +22,7 @@ Découvrez comment utiliser HDInsight Tools pour IntelliJ pour développer des a
 
 [IntelliJ IDEA](https://www.jetbrains.com/idea/) est un environnement de développement Java intégré (IDE) pour développer des logiciels. Après avoir développé et testé vos applications sur Hortonworks Sandbox, vous pouvez les déplacer vers [Azure HDInsight](apache-hadoop-introduction.md).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
@@ -49,7 +49,7 @@ Dans cette section, vous créez un exemple de projet Scala à l’aide d’Intel
 
 1. Ouvrez IntelliJ IDEA sur votre ordinateur. Dans la boîte de dialogue **New Project** (Nouveau projet), suivez ces étapes :
 
-   1. Sélectionnez **HDInsight** > **Spark sur HDInsight (Scala)**.
+   1. Sélectionnez **HDInsight** > **Spark sur HDInsight (Scala)** .
    2. Dans la liste des **outils de génération**, sélectionnez l’une des options suivantes, en fonction de vos besoins :
 
       * **Maven** : pour la prise en charge de l’assistant de création de projets Scala.
@@ -141,7 +141,7 @@ Pour envoyer un projet à un émulateur :
 1. Dans l’**Explorateur de projets**, cliquez avec le bouton droit sur le nom du projet et sélectionnez **Submit Spark Application to HDInsight** (Envoyer l’application Spark à HDInsight).
 2. Effectuez ensuite les tâches suivantes :
 
-    1. Dans la liste déroulante **Cluster Spark (Linux uniquement)**, sélectionnez votre Hortonworks Sandbox local.
+    1. Dans la liste déroulante **Cluster Spark (Linux uniquement)** , sélectionnez votre Hortonworks Sandbox local.
     2. Dans la zone **Nom de la classe principale**, sélectionnez ou entrez le nom de la classe principale. Pour ce didacticiel, il s’agit de **GroupByTest**.
 
 3. Sélectionnez **Envoyer**. Les journaux d’activité d’envoi de travaux sont affichés dans la fenêtre d’outil d’envoi Spark.

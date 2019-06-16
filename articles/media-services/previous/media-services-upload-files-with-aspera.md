@@ -15,15 +15,15 @@ ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: e522883da7fddad44741599107f2dbc4c99aace6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60826929"
 ---
 # <a name="upload-files-into-a-media-services-account-using-the-aspera-server-on-demand-service-on-azure"></a>Charger des fichiers dans un compte Media Services à l’aide du service Aspera Server On Demand dans Azure 
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
 **Aspera** est un logiciel de transfert de fichiers à haut débit. Le service **Aspera Server On Demand** pour Azure permet de charger et télécharger rapidement des fichiers volumineux directement dans un espace de stockage d’objets blob Azure. Pour plus d’informations sur **Aspera On Demand**, consultez le site [Aspera Cloud](http://cloud.asperasoft.com/). 
   
@@ -37,7 +37,7 @@ Vous trouverez un exemple qui montre comment utiliser les fonctions Azure avec A
 >Une limite est appliquée à la taille maximale des fichiers pris en charge pour le traitement dans les processeurs multimédias Azure Media Services. Consultez [cet](media-services-quotas-and-limitations.md) article pour en savoir plus sur les limites de taille des fichiers.
 >
 
-## <a name="prerequisites"></a>Conditions préalables 
+## <a name="prerequisites"></a>Prérequis 
 
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 

@@ -15,15 +15,15 @@ ms.workload: na
 ms.date: 06/28/2018
 ms.author: alkohli
 ms.openlocfilehash: 080f49ca1078858462264f229e9acfee6fad17d1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61387652"
 ---
 # <a name="use-the-new-authentication-for-your-storsimple"></a>Utiliser la nouvelle authentification pour votre StorSimple
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
 Le service StorSimple Device Manager s’exécute dans Microsoft Azure et se connecte à plusieurs StorSimple Virtual Arrays. Actuellement, le service Gestionnaire de périphériques StorSimple utilise un service de contrôle d’accès (ACS) pour authentifier le service sur votre appareil StorSimple. Ce mécanisme d’ACS sera bientôt mis hors service et remplacé par une authentification Azure Active Directory (AAD).
 

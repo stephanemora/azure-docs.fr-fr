@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.date: 04/14/2019
 ms.author: ramamill
 ms.openlocfilehash: 5f0578026e95378065fc68198434e347a87eb1fe
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62123912"
 ---
 # <a name="set-up-the-configuration-server-for-disaster-recovery-of-physical-servers-to-azure"></a>Configurer le serveur de configuration pour la récupération d’urgence de serveurs physiques sur Azure
 
 Cet article décrit comment configurer votre environnement local pour lancer la réplication des serveurs physiques exécutant Windows ou Linux dans Azure.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Cet article suppose que vous disposez déjà des éléments suivants :
 - Un coffre Recovery Services dans le [portail Azure](https://portal.azure.com "portail Azure").

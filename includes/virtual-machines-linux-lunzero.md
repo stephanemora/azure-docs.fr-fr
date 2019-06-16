@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 87dd3680aae3e87f78ab2dbe70c44b2008706747
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66172005"
 ---
 Lorsque vous ajoutez des disques de données à une machine virtuelle Linux, vous pouvez rencontrer des erreurs si un disque n’existe pas sur le LUN 0. Si vous ajoutez un disque manuellement à l’aide de la commande `azure vm disk attach-new` et que vous spécifiez un LUN (`--lun`) au lieu de laisser la plateforme Azure déterminer le LUN approprié, vérifiez qu’un disque existe déjà ou existera sur le LUN 0. 

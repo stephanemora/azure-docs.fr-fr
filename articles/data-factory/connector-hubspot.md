@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
 ms.openlocfilehash: 86c38818ee1632bf2d2f3fb1e1240954f3267887
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62123701"
 ---
 # <a name="copy-data-from-hubspot-using-azure-data-factory-preview"></a>Copier des données de HubSpot à l’aide d’Azure Data Factory (préversion)
@@ -44,14 +44,14 @@ Les propriétés prises en charge pour le service lié HubSpot sont les suivante
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type doit être définie sur : **Hubspot** | Oui |
-| clientId | L’ID client associé à votre application Hubspot.  | Oui |
-| clientSecret | La clé secrète client associée à votre application Hubspot. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui |
-| accessToken | Jeton d’accès obtenu lors de l’authentification initiale de votre intégration OAuth. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui |
-| refreshToken | Jeton d’actualisation obtenu lors de l’authentification initiale de votre intégration OAuth. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui |
-| useEncryptedEndpoints | Indique si les points de terminaison de la source de données sont chiffrés suivant le protocole HTTPS. La valeur par défaut est true.  | Non  |
-| useHostVerification | Indique si le nom d’hôte du certificat du serveur doit correspondre à celui du serveur en cas de connexion SSL. La valeur par défaut est true.  | Non  |
-| usePeerVerification | Indique s’il faut vérifier l’identité du serveur en cas de connexion SSL. La valeur par défaut est true.  | Non  |
+| type | La propriété type doit être définie sur : **Hubspot** | OUI |
+| clientId | L’ID client associé à votre application Hubspot.  | OUI |
+| clientSecret | La clé secrète client associée à votre application Hubspot. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | OUI |
+| accessToken | Jeton d’accès obtenu lors de l’authentification initiale de votre intégration OAuth. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | OUI |
+| refreshToken | Jeton d’actualisation obtenu lors de l’authentification initiale de votre intégration OAuth. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | OUI |
+| useEncryptedEndpoints | Indique si les points de terminaison de la source de données sont chiffrés suivant le protocole HTTPS. La valeur par défaut est true.  | Non |
+| useHostVerification | Indique si le nom d’hôte du certificat du serveur doit correspondre à celui du serveur en cas de connexion SSL. La valeur par défaut est true.  | Non |
+| usePeerVerification | Indique s’il faut vérifier l’identité du serveur en cas de connexion SSL. La valeur par défaut est true.  | Non |
 
 **Exemple :**
 
@@ -87,7 +87,7 @@ Pour copier des données depuis HubSpot, définissez la propriété type du jeu 
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type du jeu de données doit être définie sur : **HubspotObject** | Oui |
+| Type | La propriété type du jeu de données doit être définie sur : **HubspotObject** | OUI |
 | tableName | Nom de la table. | Non (si « query » dans la source de l’activité est spécifié) |
 
 **Exemple**
@@ -116,7 +116,7 @@ Pour copier des données depuis HubSpot, définissez le type de source dans l’
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type de la source d’activité de copie doit être définie sur : **HubspotSource** | Oui |
+| Type | La propriété type de la source d’activité de copie doit être définie sur : **HubspotSource** | OUI |
 | query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"SELECT * FROM Companies where Company_Id = xxx"`. | Non (si « tableName » est spécifié dans dataset) |
 
 **Exemple :**

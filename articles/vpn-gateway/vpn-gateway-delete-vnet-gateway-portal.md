@@ -3,16 +3,16 @@ title: 'Supprimer une passerelle de réseau virtuel : Portail Azure : Azure Re
 description: Supprimez une passerelle de réseau virtuel à l’aide du portail Azure dans le modèle de déploiement Gestionnaire des ressources.
 services: vpn-gateway
 documentationcenter: na
-author: WenJason
+author: cherylmc
 ms.service: vpn-gateway
-origin.date: 10/23/2018
-ms.date: 03/04/2019
-ms.author: v-jay
+ms.date: 10/23/2018
+ms.author: cherylmc
+ms.topic: conceptual
 ms.openlocfilehash: 387b4e982772f22453876e1ea8b9e7c4039601c4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60845685"
 ---
 # <a name="delete-a-virtual-network-gateway-using-the-portal"></a>Supprimer une passerelle de réseau virtuel à l’aide du portail
@@ -63,5 +63,3 @@ Si vous n’avez pas besoin de conserver de ressources dans le groupe de ressour
 1. Sous **Toutes les ressources**, recherchez le groupe de ressources et cliquez pour ouvrir le panneau.
 2. Cliquez sur **Supprimer**. Dans le panneau Supprimer, affichez les ressources affectées. Vérifiez que vous voulez supprimer toutes ces ressources. Si ce n'est pas le cas, utilisez les étapes disponibles sous Supprimer une passerelle VPN en haut de cet article.
 3. Pour continuer, saisissez le nom du groupe de ressources que vous souhaitez supprimer, puis cliquez sur **Supprimer**.
-
-<!--Update_Description: wording update-->

@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2017
 ms.author: victorh
 ms.openlocfilehash: df741b34e1268c547723af87401760197d395780
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61293827"
 ---
 # <a name="how-to-manage-dns-zones-in-azure-dns-using-the-azure-cli"></a>Gérer des zones DNS à l’aide de l’interface de ligne de commande Azure
@@ -32,7 +32,7 @@ Ce guide montre comment gérer vos zones DNS à l’aide de l’interface de lig
 
 Ce guide traite spécifiquement des zones DNS publiques. Pour plus d’informations sur l’utilisation d’Azure CLI pour gérer les zones privées dans Azure DNS, consultez [Bien démarrer avec Azure DNS Private Zones à l’aide d’Azure CLI](private-dns-getstarted-cli.md).
 
-## <a name="introduction"></a>Présentation
+## <a name="introduction"></a>Introduction
 
 [!INCLUDE [dns-create-zone-about](../../includes/dns-create-zone-about-include.md)]
 
@@ -86,7 +86,7 @@ az group create --name myresourcegroup --location "West US"
 
 ## <a name="getting-help"></a>Obtenir de l’aide
 
-Toutes les commandes Azure CLI liées à Azure DNS commencent par `az network dns`. Une aide est disponible pour chaque commande avec l’option `--help` (forme abrégée : `-h`).  Par exemple : 
+Toutes les commandes Azure CLI liées à Azure DNS commencent par `az network dns`. Une aide est disponible pour chaque commande avec l’option `--help` (forme abrégée : `-h`).  Par exemple :
 
 ```azurecli
 az network dns --help

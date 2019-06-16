@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: diberry
 ms.openlocfilehash: 9d54cff81f39f41b60800e9b33f3b4da1a735d85
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60196233"
 ---
 # <a name="plan-your-luis-app-with-subject-domain-intents-and-entities"></a>Planifier votre application LUIS avec le domaine du sujet ainsi que les intentions et les entités

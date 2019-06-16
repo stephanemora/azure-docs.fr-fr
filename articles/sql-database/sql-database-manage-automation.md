@@ -13,10 +13,10 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: e488e742fc49102f7c58d132a66bca2347ad575c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60702093"
 ---
 # <a name="managing-azure-sql-databases-using-azure-automation"></a>Gestion des bases de données Azure SQL à l’aide d’Azure Automation
@@ -40,9 +40,9 @@ Azure Automation a également la possibilité de communiquer directement avec le
 La [galerie de runbooks Azure Automation](https://azure.microsoft.com/blog/20../../introducing-the-azure-automation-runbook-gallery/) contient de nombreux runbooks d’équipe produit et de la communauté pour commencer à automatiser la gestion des bases de données Azure SQL, ainsi que d’autres services Azure et de systèmes tiers. La galerie de Runbooks inclut :
 
 - [Exécuter des requêtes SQL avec une base de données SQL Server](https://gallery.technet.microsoft.com/scriptcenter/How-to-use-a-SQL-Command-be77f9d2)
-- [Mise à l’échelle verticale (haut ou bas) d’une base de données SQL Azure selon un programme planifié](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-Database-e957354f)
+- [Mise à l’échelle verticale (haut ou bas) d’une base de données Azure SQL selon un programme planifié](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-Database-e957354f)
 - [Tronquer une table SQL si la base de données est proche de la taille maximale](https://gallery.technet.microsoft.com/scriptcenter/Azure-Automation-Your-SQL-30f8736b)
-- [Indexer les tables dans une base de données SQL Azure si elles sont très fragmentées](https://gallery.technet.microsoft.com/scriptcenter/Indexes-tables-in-an-Azure-73a2a8ea)
+- [Indexer les tables dans une base de données Azure SQL si elles sont très fragmentées](https://gallery.technet.microsoft.com/scriptcenter/Indexes-tables-in-an-Azure-73a2a8ea)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

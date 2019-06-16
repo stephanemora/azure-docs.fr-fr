@@ -14,10 +14,10 @@ ms.pm_owner: daviste;NumberByColors
 ms.reviewer: mbullwin
 ms.author: daviste
 ms.openlocfilehash: bda79520dd86cc14161f6f22cd24feb2e35849ab
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60372610"
 ---
 # <a name="user-retention-analysis-for-web-applications-with-application-insights"></a>Analyse de la rétention utilisateur des applications web avec Azure Application Insights

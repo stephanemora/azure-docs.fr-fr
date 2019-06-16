@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 12/11/2018
 ms.author: cherylmc
 ms.openlocfilehash: 74940f3b89237233acd575aa5df441163e00d178
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60845457"
 ---
 # <a name="configure-a-point-to-site-connection-by-using-certificate-authentication-classic"></a>Configurer une connexion point à site à l'aide d'une authentification par certificat (classique)
@@ -43,7 +43,7 @@ Vous utilisez une passerelle VPN point à site (P2S) pour créer une connexion s
 
 ![Diagramme point à site](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/point-to-site-connection-diagram.png)
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Les connexions d'authentification par certificat point à site requièrent les éléments suivants :
 
@@ -191,8 +191,8 @@ Vous pouvez utiliser le même package de configuration du client VPN sur chaque 
 
 2. Sur la page **Connexion VPN point à site**, sélectionnez le package de téléchargement correspondant au système d'exploitation client sur lequel il sera installé :
 
-   * Pour les clients 64 bits, sélectionnez **Client VPN (64 bits)**.
-   * Pour les clients 32 bits, sélectionnez **Client VPN (32 bits)**.
+   * Pour les clients 64 bits, sélectionnez **Client VPN (64 bits)** .
+   * Pour les clients 32 bits, sélectionnez **Client VPN (32 bits)** .
 
    ![Charger le package de configuration du client VPN](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/dlclient.png)
 

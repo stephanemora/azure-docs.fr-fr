@@ -9,17 +9,17 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.openlocfilehash: 916c4fae8eed9451080f92e97743876e89bd25ea
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64719751"
 ---
 # <a name="operationalize-ml-services-cluster-on-azure-hdinsight"></a>Rendre opérationnel un cluster ML Services sur Azure HDInsight
 
 Après avoir utilisé un cluster ML Services dans HDInsight pour effectuer votre modélisation de données, vous pouvez rendre opérationnel le modèle pour élaborer des prédictions. Cet article explique comment accomplir cette tâche.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 * **Un cluster ML Services sur HDInsight** : pour obtenir des instructions, consultez [Bien démarrer avec ML Services sur les clusters HDInsight](r-server-get-started.md).
 

@@ -13,10 +13,10 @@ ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e6f94ba30c06fc6975ab212c895cecefe5d383fa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60473904"
 ---
 # <a name="add-your-non-microsoft-accounts"></a>Ajouter vos comptes non-Microsoft
@@ -51,7 +51,7 @@ Ajoutez votre compte Google en activant la vérification en deux étapes, puis e
 
     Vous recevez un code QR que vous pouvez utiliser pour associer automatiquement votre compte à l’application Microsoft Authenticator. Ne fermez pas cette fenêtre.
 
-3. Ouvrez l’application Microsoft Authenticator, sélectionnez **Ajouter un compte** à partir de l’icône **Personnaliser et contrôler** dans le coin supérieur droit, puis sélectionnez **Autre compte (Google, Facebook, etc.)**.
+3. Ouvrez l’application Microsoft Authenticator, sélectionnez **Ajouter un compte** à partir de l’icône **Personnaliser et contrôler** dans le coin supérieur droit, puis sélectionnez **Autre compte (Google, Facebook, etc.)** .
 
 4. Utilisez l'appareil photo de votre appareil pour scanner le code QR de la page **Configurer Authentificator** de votre ordinateur.
 
@@ -90,7 +90,7 @@ Ajoutez votre compte Facebook en activant la vérification en deux étapes, puis
 
     Vous recevez un code QR que vous pouvez utiliser pour associer automatiquement votre compte à l’application Microsoft Authenticator. Ne fermez pas cette fenêtre.
 
-2. Ouvrez l’application Microsoft Authenticator, sélectionnez **Ajouter un compte** à partir de l’icône **Personnaliser et contrôler** dans le coin supérieur droit, puis sélectionnez **Autre compte (Google, Facebook, etc.)**.
+2. Ouvrez l’application Microsoft Authenticator, sélectionnez **Ajouter un compte** à partir de l’icône **Personnaliser et contrôler** dans le coin supérieur droit, puis sélectionnez **Autre compte (Google, Facebook, etc.)** .
 
 3. Utilisez l'appareil photo de votre appareil pour scanner le code QR de la page **Authentification à deux facteurs** de votre ordinateur.
 
@@ -131,7 +131,7 @@ Ajoutez votre compte GitHub en activant la vérification en deux étapes, puis e
 
     La page affiche alors un code QR. Ne fermez pas cette page.
 
-4. Ouvrez l’application Microsoft Authenticator, sélectionnez **Ajouter un compte** à partir de l’icône **Personnaliser et contrôler** dans le coin supérieur droit, sélectionnez **Autre compte (Google, Facebook, etc.)**, puis **Entrer ce code texte** à partir du texte situé en haut de la page.
+4. Ouvrez l’application Microsoft Authenticator, sélectionnez **Ajouter un compte** à partir de l’icône **Personnaliser et contrôler** dans le coin supérieur droit, sélectionnez **Autre compte (Google, Facebook, etc.)** , puis **Entrer ce code texte** à partir du texte situé en haut de la page.
 
     L’application Microsoft Authenticator n'est pas en mesure de scanner le code QR et vous devez donc l'entrer manuellement.
 
@@ -161,7 +161,7 @@ Ajoutez votre compte Amazon en activant la vérification en deux étapes, puis e
 
     La page affiche alors un code QR. Ne fermez pas cette page.
 
-5. Ouvrez l’application Microsoft Authenticator, sélectionnez **Ajouter un compte** à partir de l’icône **Personnaliser et contrôler** dans le coin supérieur droit, puis sélectionnez **Autre compte (Google, Facebook, etc.)**.
+5. Ouvrez l’application Microsoft Authenticator, sélectionnez **Ajouter un compte** à partir de l’icône **Personnaliser et contrôler** dans le coin supérieur droit, puis sélectionnez **Autre compte (Google, Facebook, etc.)** .
 
 6. Utilisez l'appareil photo de votre appareil pour scanner le code QR à partir de la page **Choisir comment recevoir les codes** de votre ordinateur.
 

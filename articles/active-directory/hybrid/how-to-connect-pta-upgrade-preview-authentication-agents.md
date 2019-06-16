@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 494ccc3b90b8c249ee935087dcf0f0b5264b02ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60386747"
 ---
 # <a name="azure-active-directory-pass-through-authentication-upgrade-preview-authentication-agents"></a>Authentification directe Azure Active Directory : Préversion de la mise à niveau des agents d'authentification
@@ -35,7 +35,7 @@ Cet article est destiné aux clients utilisant l’authentification directe Azur
 
 ## <a name="check-versions-of-your-authentication-agents"></a>Vérifiez les versions de vos agents d’authentification
 
-### <a name="step-1-check-where-your-authentication-agents-are-installed"></a>Étape 1 : vérifier l'emplacement d'installation de vos agents d'authentification
+### <a name="step-1-check-where-your-authentication-agents-are-installed"></a>Étape 1 : vérifier l'emplacement d'installation de vos agents d'authentification
 
 Suivez les étapes ci-après pour vérifier l’emplacement de l’installation de vos agents d’authentification :
 
@@ -46,7 +46,7 @@ Suivez les étapes ci-après pour vérifier l’emplacement de l’installation 
 
 ![Centre d’administration Azure Active Directory - panneau Authentification directe](./media/how-to-connect-pta-upgrade-preview-authentication-agents/pta8.png)
 
-### <a name="step-2-check-the-versions-of-your-authentication-agents"></a>Étape 2 : vérifier les versions de vos agents d'authentification
+### <a name="step-2-check-the-versions-of-your-authentication-agents"></a>Étape 2 : vérifier les versions de vos agents d'authentification
 
 Pour vérifier les versions de vos Agents d’authentification sur chaque serveur identifié à l’étape précédente, suivez ces instructions :
 

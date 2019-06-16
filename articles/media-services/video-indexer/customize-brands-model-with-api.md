@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 05/15/2019
 ms.author: anzaman
 ms.openlocfilehash: 8d0806bc0262cd45a49e4f97ea629683ac239aa8
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65799635"
 ---
 # <a name="customize-a-brands-model-with-the-video-indexer-api"></a>Personnaliser un modèle de marques avec l’API Video Indexer
@@ -37,13 +37,13 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
 
 [Consultez les paramètres requis et effectuez des tests à partir du portail des développeurs Video Indexer](https://api-portal.videoindexer.ai/docs/services/operations/operations/Create-Brand).
 
-### <a name="request-parameters"></a>Paramètres de requête
+### <a name="request-parameters"></a>Paramètres de la demande
 
-|**Name**|**Type**|**Obligatoire**|**Description**|
+|**Nom**|**Type**|**Obligatoire**|**Description**|
 |---|---|---|---|
-|location|string|Oui|La région Azure vers laquelle l’appel doit être routé. Pour plus d’informations, consultez [Régions Azure et Video Indexer](regions.md).|
-|accountId|string|Oui|GUID pour ce compte|
-|accessToken|string|Oui|Jeton d’accès (doit être du type [Jeton d’accès de compte](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) pour s’authentifier auprès de l’appel. Les jetons d’accès expirent au bout d’une heure.|
+|location|chaîne|OUI|La région Azure vers laquelle l’appel doit être routé. Pour plus d’informations, consultez [Régions Azure et Video Indexer](regions.md).|
+|accountId|chaîne|OUI|GUID pour ce compte|
+|accessToken|chaîne|OUI|Jeton d’accès (doit être du type [Jeton d’accès de compte](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) pour s’authentifier auprès de l’appel. Les jetons d’accès expirent au bout d’une heure.|
 
 ### <a name="request-body"></a>Corps de la demande
 
@@ -99,14 +99,14 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
 
 [Consultez les paramètres requis et effectuez des tests à partir du portail des développeurs Video Indexer](https://api-portal.videoindexer.ai/docs/services/operations/operations/Delete-Brand?).
 
-### <a name="request-parameters"></a>Paramètres de requête
+### <a name="request-parameters"></a>Paramètres de la demande
 
-|**Name**|**Type**|**Obligatoire**|**Description**|
+|**Nom**|**Type**|**Obligatoire**|**Description**|
 |---|---|---|---|
-|location|string|Oui|La région Azure vers laquelle l’appel doit être routé. Pour plus d’informations, consultez [Régions Azure et Video Indexer](regions.md).|
-|accountId|string|Oui|GUID pour ce compte|
-|id|integer|Oui|ID de la marque (généré lors de la création de la marque)|
-|accessToken|string|Oui|Jeton d’accès (doit être du type [Jeton d’accès de compte](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) pour s’authentifier auprès de l’appel. Les jetons d’accès expirent au bout d’une heure.|
+|location|chaîne|OUI|La région Azure vers laquelle l’appel doit être routé. Pour plus d’informations, consultez [Régions Azure et Video Indexer](regions.md).|
+|accountId|chaîne|OUI|GUID pour ce compte|
+|id|integer|OUI|ID de la marque (généré lors de la création de la marque)|
+|accessToken|chaîne|OUI|Jeton d’accès (doit être du type [Jeton d’accès de compte](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) pour s’authentifier auprès de l’appel. Les jetons d’accès expirent au bout d’une heure.|
 
 ### <a name="request-body"></a>Corps de la demande
 
@@ -128,14 +128,14 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
 
 [Consultez les paramètres requis et effectuez des tests à partir du portail des développeurs Video Indexer](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Brand?).
 
-### <a name="request-parameters"></a>Paramètres de requête
+### <a name="request-parameters"></a>Paramètres de la demande
 
-|**Name**|**Type**|**Obligatoire**|**Description**|
+|**Nom**|**Type**|**Obligatoire**|**Description**|
 |---|---|---|---|
-|location|string|Oui|La région Azure vers laquelle l’appel doit être routé. Pour plus d’informations, consultez [Régions Azure et Video Indexer](regions.md).|
-|accountId|string|Oui|GUID pour ce compte|
-|id|integer|Oui|ID de la marque (généré lors de la création de la marque)|
-|accessToken|string|Oui|Jeton d’accès (doit être du type [Jeton d’accès de compte](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) pour s’authentifier auprès de l’appel. Les jetons d’accès expirent au bout d’une heure.|
+|location|chaîne|OUI|La région Azure vers laquelle l’appel doit être routé. Pour plus d’informations, consultez [Régions Azure et Video Indexer](regions.md).|
+|accountId|chaîne|OUI|GUID pour ce compte|
+|id|integer|OUI|ID de la marque (généré lors de la création de la marque)|
+|accessToken|chaîne|OUI|Jeton d’accès (doit être du type [Jeton d’accès de compte](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) pour s’authentifier auprès de l’appel. Les jetons d’accès expirent au bout d’une heure.|
 
 ### <a name="request-body"></a>Corps de la demande
 
@@ -178,14 +178,14 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
 
 [Consultez les paramètres requis et effectuez des tests à partir du portail des développeurs Video Indexer](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Brand?).
 
-### <a name="request-parameters"></a>Paramètres de requête
+### <a name="request-parameters"></a>Paramètres de la demande
 
-|**Name**|**Type**|**Obligatoire**|**Description**|
+|**Nom**|**Type**|**Obligatoire**|**Description**|
 |---|---|---|---|
-|location|string|Oui|La région Azure vers laquelle l’appel doit être routé. Pour plus d’informations, consultez [Régions Azure et Video Indexer](regions.md).|
-|accountId|string|Oui|GUID pour ce compte|
-|id|integer|Oui|ID de la marque (généré lors de la création de la marque)|
-|accessToken|string|Oui|Jeton d’accès (doit être du type [Jeton d’accès de compte](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) pour s’authentifier auprès de l’appel. Les jetons d’accès expirent au bout d’une heure.|
+|location|chaîne|OUI|La région Azure vers laquelle l’appel doit être routé. Pour plus d’informations, consultez [Régions Azure et Video Indexer](regions.md).|
+|accountId|chaîne|OUI|GUID pour ce compte|
+|id|integer|OUI|ID de la marque (généré lors de la création de la marque)|
+|accessToken|chaîne|OUI|Jeton d’accès (doit être du type [Jeton d’accès de compte](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) pour s’authentifier auprès de l’appel. Les jetons d’accès expirent au bout d’une heure.|
 
 ### <a name="request-body"></a>Corps de la demande
 
@@ -241,13 +241,13 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
 
 [Consultez les paramètres requis et effectuez des tests à partir du portail des développeurs Video Indexer](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Brands?).
 
-### <a name="request-parameters"></a>Paramètres de requête
+### <a name="request-parameters"></a>Paramètres de la demande
 
-|**Name**|**Type**|**Obligatoire**|**Description**|
+|**Nom**|**Type**|**Obligatoire**|**Description**|
 |---|---|---|---|
-|location|string|Oui|La région Azure vers laquelle l’appel doit être routé. Pour plus d’informations, consultez [Régions Azure et Video Indexer](regions.md).|
-|accountId|string|Oui|GUID pour ce compte|
-|accessToken|string|Oui|Jeton d’accès (doit être du type [Jeton d’accès de compte](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) pour s’authentifier auprès de l’appel. Les jetons d’accès expirent au bout d’une heure.|
+|location|chaîne|OUI|La région Azure vers laquelle l’appel doit être routé. Pour plus d’informations, consultez [Régions Azure et Video Indexer](regions.md).|
+|accountId|chaîne|OUI|GUID pour ce compte|
+|accessToken|chaîne|OUI|Jeton d’accès (doit être du type [Jeton d’accès de compte](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) pour s’authentifier auprès de l’appel. Les jetons d’accès expirent au bout d’une heure.|
 
 ### <a name="request-body"></a>Corps de la demande
 
@@ -301,13 +301,13 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
 
 [Consultez les paramètres requis et effectuez des tests à partir du portail des développeurs Video Indexer](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Brands).
 
-### <a name="request-parameters"></a>Paramètres de requête
+### <a name="request-parameters"></a>Paramètres de la demande
 
-|**Name**|**Type**|**Obligatoire**|**Description**|
+|**Nom**|**Type**|**Obligatoire**|**Description**|
 |---|---|---|---|
-|location|string|Oui|La région Azure vers laquelle l’appel doit être routé. Pour plus d’informations, consultez [Régions Azure et Video Indexer](regions.md).|
-|accountId|string|Oui|GUID pour ce compte|
-|accessToken|string|Oui|Jeton d’accès (doit être du type [Jeton d’accès de compte](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) pour s’authentifier auprès de l’appel. Les jetons d’accès expirent au bout d’une heure.|
+|location|chaîne|OUI|La région Azure vers laquelle l’appel doit être routé. Pour plus d’informations, consultez [Régions Azure et Video Indexer](regions.md).|
+|accountId|chaîne|OUI|GUID pour ce compte|
+|accessToken|chaîne|OUI|Jeton d’accès (doit être du type [Jeton d’accès de compte](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) pour s’authentifier auprès de l’appel. Les jetons d’accès expirent au bout d’une heure.|
 
 ### <a name="request-body"></a>Corps de la demande
 
@@ -338,13 +338,13 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
 
 [Consultez les paramètres requis et effectuez des tests à partir du portail des développeurs Video Indexer](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Brands-Model-Settings?).
 
-### <a name="request-parameters"></a>Paramètres de requête
+### <a name="request-parameters"></a>Paramètres de la demande
 
-|**Name**|**Type**|**Obligatoire**|**Description**|
+|**Nom**|**Type**|**Obligatoire**|**Description**|
 |---|---|---|---|
-|location|string|Oui|La région Azure vers laquelle l’appel doit être routé. Pour plus d’informations, consultez [Régions Azure et Video Indexer](regions.md).|
-|accountId|string|Oui|GUID pour ce compte|
-|accessToken|string|Oui|Jeton d’accès (doit être du type [Jeton d’accès de compte](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) pour s’authentifier auprès de l’appel. Les jetons d’accès expirent au bout d’une heure.|
+|location|chaîne|OUI|La région Azure vers laquelle l’appel doit être routé. Pour plus d’informations, consultez [Régions Azure et Video Indexer](regions.md).|
+|accountId|chaîne|OUI|GUID pour ce compte|
+|accessToken|chaîne|OUI|Jeton d’accès (doit être du type [Jeton d’accès de compte](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) pour s’authentifier auprès de l’appel. Les jetons d’accès expirent au bout d’une heure.|
 
 ### <a name="request-body"></a>Corps de la demande
 

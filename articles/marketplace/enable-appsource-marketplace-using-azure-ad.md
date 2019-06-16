@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 09/12/2018
 ms.author: qianw211
 ms.openlocfilehash: 981d9427dc8407c7300f01c941e39ba9723d53a8
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64938081"
 ---
 # <a name="enable-an-appsource-and-marketplace-listing-by-using-azure-active-directory"></a>Activer une liste AppSource et Place de marché en utilisant Azure Active Directory
@@ -35,12 +35,12 @@ Aux différents [types d’offre et options de référencement](https://docs.mic
 | **Type d’offre**    | **Authentification unique Azure AD nécessaire ?**  |  |   |  |
 | :------------------- | :-------------------|:-------------------|:-------------------|:-------------------|
 |  | Me contacter | Version d’évaluation | Version d’évaluation | Transaction |
-| Machine virtuelle | N/A | Non  | Non  | Non  |
+| Machine virtuelle | N/A | Non | Non | Non |
 | Applications Azure ( modèle de solution)  | N/A | N/A | N/A | N/A |
-| Applications managées  | N/A | N/A | N/A | Non  |
-| SaaS  | Non  | OUI | OUI | Oui |
-| Containers  | N/A | N/A | N/A | Non  |
-| Services de conseil  | Non  | N/A | N/A | N/A |
+| Applications managées  | N/A | N/A | N/A | Non |
+| SaaS  | Non | OUI | OUI | OUI |
+| Containers  | N/A | N/A | N/A | Non |
+| Services de conseil  | Non | N/A | N/A | N/A |
 
 Pour plus d’informations sur les exigences techniques SaaS, consultez le [guide de publication de l’offre des applications SaaS](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide).
 

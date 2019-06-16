@@ -17,10 +17,10 @@ ms.author: mathoma
 ms.reviewer: jroth
 experimental_id: d51f3cc6-753b-4e
 ms.openlocfilehash: 51694ca085e131150217ffb3fbac9830980108cb
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62108419"
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure-classic-deployment"></a>Connexion à une machine virtuelle SQL Server dans Azure (déploiement classique)
@@ -30,7 +30,7 @@ ms.locfileid: "62108419"
 > 
 > 
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 Cette rubrique décrit comment se connecter à votre instance de SQL Server exécuté sur une machine virtuelle Azure. Elle aborde certains [scénarios de connectivité générale](#connection-scenarios) et fournit une [procédure détaillée pour configurer la connectivité à SQL Server dans une machine virtuelle Azure](#steps-for-configuring-sql-server-connectivity-in-an-azure-vm).
 
 > [!IMPORTANT] 
@@ -58,7 +58,7 @@ Dans ce scénario, vous pouvez vous connecter à l’aide de la machine virtuell
 ### <a name="connect-to-sql-server-over-the-internet"></a>Se connecter à SQL Server via Internet
 Si vous souhaitez vous connecter à votre moteur de base de données SQL Server à partir d’Internet, vous devez créer un point de terminaison de machine virtuelle pour les communications TCP entrantes. Dans cette étape de configuration Azure, le trafic du port TCP entrant est dirigé vers un port TCP accessible à la machine virtuelle.
 
-Pour vous connecter via Internet, vous devez utiliser le nom DNS de la machine virtuelle et le numéro de port du point de terminaison de la machine virtuelle (configuré plus loin dans cet article). Pour trouver le nom DNS, accédez au portail Azure, puis sélectionnez **Machines virtuelles (classiques)**. Sélectionnez ensuite votre machine virtuelle. Le **nom DNS** est indiqué dans la section **Vue d’ensemble**.
+Pour vous connecter via Internet, vous devez utiliser le nom DNS de la machine virtuelle et le numéro de port du point de terminaison de la machine virtuelle (configuré plus loin dans cet article). Pour trouver le nom DNS, accédez au portail Azure, puis sélectionnez **Machines virtuelles (classiques)** . Sélectionnez ensuite votre machine virtuelle. Le **nom DNS** est indiqué dans la section **Vue d’ensemble**.
 
 Prenons par exemple une machine virtuelle classique nommée **mysqlvm** avec comme nom DNS **mysqlvm7777.cloudapp.net** et un point de terminaison de machine virtuelle **57500**. En supposant que la connectivité est correctement configurée, vous pouvez utiliser la chaîne de connexion suivante pour accéder à la machine virtuelle à partir de n’importe où sur Internet :
 

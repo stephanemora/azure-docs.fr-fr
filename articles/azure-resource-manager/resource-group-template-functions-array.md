@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/8/2018
 ms.author: tomfitz
 ms.openlocfilehash: c80625fb36709f66319b4966e210785864f30d09
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66128696"
 ---
 # <a name="array-and-object-functions-for-azure-resource-manager-templates"></a>Fonctions de tableau et d’objet pour les modèles Azure Resource Manager
@@ -49,16 +49,16 @@ Pour obtenir un tableau de valeurs de chaîne délimitée par une valeur, consul
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="array"></a>tableau
+## <a name="array"></a>array
 `array(convertToArray)`
 
 Convertit la valeur en tableau.
 
 ### <a name="parameters"></a>parameters
 
-| Paramètre | Obligatoire | Type | Description  |
+| Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| convertToArray |Oui |entier, chaîne, tableau ou objet |Valeur à convertir en tableau. |
+| convertToArray |OUI |entier, chaîne, tableau ou objet |Valeur à convertir en tableau. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -134,9 +134,9 @@ Retourne la première valeur non null à partir des paramètres. Les chaînes vi
 
 ### <a name="parameters"></a>parameters
 
-| Paramètre | Requis | Type | Description  |
+| Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Oui |entier, chaîne, tableau ou objet |La première valeur dans laquelle rechercher des valeurs null. |
+| arg1 |OUI |entier, chaîne, tableau ou objet |La première valeur dans laquelle rechercher des valeurs null. |
 | arguments supplémentaires |Non |entier, chaîne, tableau ou objet |Valeurs supplémentaires dans lesquelles rechercher des valeurs null. |
 
 ### <a name="return-value"></a>Valeur de retour
@@ -195,7 +195,7 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 | Nom | type | Valeur |
 | ---- | ---- | ----- |
-| stringOutput | String | par défaut |
+| stringOutput | Chaîne | default |
 | intOutput | Int | 1 |
 | objectOutput | Object | {"first": "default"} |
 | arrayOutput | Tableau | [1] |
@@ -222,9 +222,9 @@ Combine plusieurs tableaux et retourne le tableau concaténé, ou combine plusie
 
 ### <a name="parameters"></a>parameters
 
-| Paramètre | Requis | Type | Description  |
+| Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Oui |tableau ou chaîne |Le premier tableau ou la première chaîne à concaténer. |
+| arg1 |OUI |tableau ou chaîne |Le premier tableau ou la première chaîne à concaténer. |
 | arguments supplémentaires |Non |tableau ou chaîne |Tableaux ou chaînes supplémentaires en ordre séquentiel pour la concaténation. |
 
 Cette fonction peut prendre n’importe quel nombre d’arguments et accepter à la fois des chaînes ou des tableaux pour les paramètres.
@@ -313,7 +313,7 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 | Nom | type | Valeur |
 | ---- | ---- | ----- |
-| concatOutput | String | prefix-5yj4yjf5mbg72 |
+| concatOutput | Chaîne | prefix-5yj4yjf5mbg72 |
 
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
 
@@ -329,17 +329,17 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 <a id="contains" />
 
-## <a name="contains"></a>contient
+## <a name="contains"></a>contains
 `contains(container, itemToFind)`
 
 Vérifie si un tableau contient une valeur, un objet contient une clé ou une chaîne contient une sous-chaîne. La comparaison de chaînes est sensible à la casse. Cependant, quand vous testez si un objet contient une clé, la comparaison n’est pas sensible à la casse.
 
 ### <a name="parameters"></a>parameters
 
-| Paramètre | Requis | Type | Description |
+| Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| conteneur |Oui |tableau, objet ou chaîne |La valeur qui contient la valeur à rechercher. |
-| itemToFind |Oui |chaîne ou entier |La valeur à trouver. |
+| conteneur |OUI |tableau, objet ou chaîne |La valeur qui contient la valeur à rechercher. |
+| itemToFind |OUI |chaîne ou entier |La valeur à trouver. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -400,7 +400,7 @@ Vérifie si un tableau contient une valeur, un objet contient une clé ou une ch
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| Name | type | Valeur |
+| Nom | type | Valeur |
 | ---- | ---- | ----- |
 | stringTrue | Bool | True |
 | stringFalse | Bool | False |
@@ -430,9 +430,9 @@ Crée un tableau à partir des paramètres.
 
 ### <a name="parameters"></a>parameters
 
-| Paramètre | Requis | Type | Description  |
+| Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Oui |Chaîne, entier, tableau ou objet |La première valeur dans le tableau. |
+| arg1 |OUI |Chaîne, entier, tableau ou objet |La première valeur dans le tableau. |
 | arguments supplémentaires |Non |Chaîne, entier, tableau ou objet |Valeurs supplémentaires dans le tableau. |
 
 ### <a name="return-value"></a>Valeur de retour
@@ -482,7 +482,7 @@ Tableau.
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| Name | type | Valeur |
+| Nom | type | Valeur |
 | ---- | ---- | ----- |
 | stringArray | Tableau | ["a", "b", "c"] |
 | intArray | Tableau | [1, 2, 3] |
@@ -503,7 +503,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 <a id="empty" />
 
-## <a name="empty"></a>vide
+## <a name="empty"></a>empty
 
 `empty(itemToTest)`
 
@@ -511,9 +511,9 @@ Détermine si un tableau, un objet ou une chaîne est vide.
 
 ### <a name="parameters"></a>parameters
 
-| Paramètre | Requis | Type | Description  |
+| Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| itemToTest |Oui |tableau, objet ou chaîne |Valeur à vérifier pour voir si elle est vide. |
+| itemToTest |OUI |tableau, objet ou chaîne |Valeur à vérifier pour voir si elle est vide. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -589,9 +589,9 @@ Retourne le premier élément du tableau ou le premier caractère de la chaîne.
 
 ### <a name="parameters"></a>parameters
 
-| Paramètre | Requis | Type | Description  |
+| Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Oui |tableau ou chaîne |La valeur permettant de récupérer le premier élément ou caractère. |
+| arg1 |OUI |tableau ou chaîne |La valeur permettant de récupérer le premier élément ou caractère. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -630,8 +630,8 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 | Nom | type | Valeur |
 | ---- | ---- | ----- |
-| arrayOutput | String | one |
-| stringOutput | String | O |
+| arrayOutput | Chaîne | one |
+| stringOutput | Chaîne | O |
 
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
 
@@ -654,10 +654,10 @@ Retourne un tableau ou un objet unique avec les éléments communs à partir des
 
 ### <a name="parameters"></a>parameters
 
-| Paramètre | Obligatoire | Type | Description  |
+| Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Oui |objet ou tableau |La première valeur à utiliser pour rechercher des éléments communs. |
-| arg2 |Oui |objet ou tableau |La seconde valeur à utiliser pour rechercher des éléments communs. |
+| arg1 |OUI |objet ou tableau |La première valeur à utiliser pour rechercher des éléments communs. |
+| arg2 |OUI |objet ou tableau |La seconde valeur à utiliser pour rechercher des éléments communs. |
 | arguments supplémentaires |Non |objet ou tableau |Les valeur supplémentaires à utiliser pour rechercher des éléments communs. |
 
 ### <a name="return-value"></a>Valeur de retour
@@ -731,9 +731,9 @@ Renvoie un objet JSON.
 
 ### <a name="parameters"></a>parameters
 
-| Paramètre | Requis | Type | Description  |
+| Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Oui |string |La valeur à convertir au format JSON. |
+| arg1 |OUI |chaîne |La valeur à convertir au format JSON. |
 
 
 ### <a name="return-value"></a>Valeur de retour
@@ -806,9 +806,9 @@ Retourne le dernier élément du tableau ou le dernier caractère de la chaîne.
 
 ### <a name="parameters"></a>parameters
 
-| Paramètre | Requis | Type | Description  |
+| Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Oui |tableau ou chaîne |La valeur permettant de récupérer le dernier élément ou caractère. |
+| arg1 |OUI |tableau ou chaîne |La valeur permettant de récupérer le dernier élément ou caractère. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -847,8 +847,8 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 | Nom | type | Valeur |
 | ---- | ---- | ----- |
-| arrayOutput | String | three |
-| stringOutput | String | e |
+| arrayOutput | Chaîne | three |
+| stringOutput | Chaîne | e |
 
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
 
@@ -871,9 +871,9 @@ Retourne le nombre d’éléments contenus dans un tableau ou les caractères da
 
 ### <a name="parameters"></a>parameters
 
-| Paramètre | Requis | Type | Description  |
+| Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Oui |tableau ou chaîne |Tableau à utiliser pour l’obtention du nombre d’éléments, ou chaîne à utiliser pour l’obtention du nombre de caractères. |
+| arg1 |OUI |tableau ou chaîne |Tableau à utiliser pour l’obtention du nombre d’éléments, ou chaîne à utiliser pour l’obtention du nombre de caractères. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -947,16 +947,16 @@ Pour plus d’informations sur l’utilisation de cette fonction avec un tableau
 
 <a id="max" />
 
-## <a name="max"></a>max.
+## <a name="max"></a>max
 `max(arg1)`
 
 Retourne la valeur minimale à partir d’un tableau d’entiers ou une liste séparée par des virgules d’entiers.
 
 ### <a name="parameters"></a>parameters
 
-| Paramètre | Obligatoire | Type | Description  |
+| Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Oui |tableau d’entiers ou liste séparée par des virgules d’entiers |Collection permettant d’obtenir la valeur maximale. |
+| arg1 |OUI |tableau d’entiers ou liste séparée par des virgules d’entiers |Collection permettant d’obtenir la valeur maximale. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -994,8 +994,8 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 | Nom | type | Valeur |
 | ---- | ---- | ----- |
-| arrayOutput | Int | 5. |
-| intOutput | Int | 5. |
+| arrayOutput | Int | 5\. |
+| intOutput | Int | 5\. |
 
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
 
@@ -1018,9 +1018,9 @@ Retourne la valeur minimale à partir d’un tableau d’entiers ou une liste s�
 
 ### <a name="parameters"></a>parameters
 
-| Paramètre | Requis | Type | Description  |
+| Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Oui |tableau d’entiers ou liste séparée par des virgules d’entiers |Collection permettant d’obtenir la valeur minimale. |
+| arg1 |OUI |tableau d’entiers ou liste séparée par des virgules d’entiers |Collection permettant d’obtenir la valeur minimale. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -1082,10 +1082,10 @@ Crée un tableau d’entiers à partir d’un entier de départ et contenant un 
 
 ### <a name="parameters"></a>parameters
 
-| Paramètre | Requis | Type | Description  |
+| Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| startingInteger |Oui |int |Premier entier du tableau. |
-| numberofElements |Oui |int |Nombre d’entiers dans le tableau. |
+| startingInteger |OUI |int |Premier entier du tableau. |
+| numberofElements |OUI |int |Nombre d’entiers dans le tableau. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -1139,17 +1139,17 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 <a id="skip" />
 
-## <a name="skip"></a>ignorer
+## <a name="skip"></a>skip
 `skip(originalValue, numberToSkip)`
 
 Retourne un tableau avec tous les éléments après le nombre spécifié dans le tableau, ou retourne une chaîne avec tous les caractères après le nombre spécifié dans la chaîne.
 
 ### <a name="parameters"></a>parameters
 
-| Paramètre | Obligatoire | Type | Description  |
+| Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| originalValue |Oui |tableau ou chaîne |Tableau ou chaîne à utiliser pour ignorer les caractères. |
-| numberToSkip |Oui |int |Nombre d’éléments ou de caractères à ignorer. Si cette valeur est inférieure ou égale à 0, tous les éléments ou caractères de la valeur sont renvoyés. Si elle est supérieure à la longueur du tableau ou de la chaîne, un tableau ou une chaîne vide est renvoyé. |
+| originalValue |OUI |tableau ou chaîne |Tableau ou chaîne à utiliser pour ignorer les caractères. |
+| numberToSkip |OUI |int |Nombre d’éléments ou de caractères à ignorer. Si cette valeur est inférieure ou égale à 0, tous les éléments ou caractères de la valeur sont renvoyés. Si elle est supérieure à la longueur du tableau ou de la chaîne, un tableau ou une chaîne vide est renvoyé. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -1204,7 +1204,7 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 | Nom | type | Valeur |
 | ---- | ---- | ----- |
 | arrayOutput | Tableau | ["three"] |
-| stringOutput | String | two three |
+| stringOutput | Chaîne | two three |
 
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
 
@@ -1227,10 +1227,10 @@ Retourne un tableau avec le nombre spécifié d’éléments à partir du début
 
 ### <a name="parameters"></a>parameters
 
-| Paramètre | Requis | Type | Description  |
+| Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| originalValue |Oui |tableau ou chaîne |Tableau ou chaîne à partir duquel les éléments sont tirés. |
-| numberToTake |Oui |int |Nombre d’éléments ou de caractères à prendre. Si cette valeur est inférieure ou égale à 0, une chaîne ou un tableau vide est renvoyé. Si elle est supérieure à la longueur du tableau ou de la chaîne donné(e), tous les éléments du tableau ou de chaîne sont renvoyés. |
+| originalValue |OUI |tableau ou chaîne |Tableau ou chaîne à partir duquel les éléments sont tirés. |
+| numberToTake |OUI |int |Nombre d’éléments ou de caractères à prendre. Si cette valeur est inférieure ou égale à 0, une chaîne ou un tableau vide est renvoyé. Si elle est supérieure à la longueur du tableau ou de la chaîne donné(e), tous les éléments du tableau ou de chaîne sont renvoyés. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -1285,7 +1285,7 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 | Nom | type | Valeur |
 | ---- | ---- | ----- |
 | arrayOutput | Tableau | ["one", "two"] |
-| stringOutput | String | le |
+| stringOutput | Chaîne | sur |
 
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
 
@@ -1308,10 +1308,10 @@ Retourne un tableau ou un objet unique avec tous les éléments communs à parti
 
 ### <a name="parameters"></a>parameters
 
-| Paramètre | Obligatoire | Type | Description  |
+| Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Oui |objet ou tableau |La première valeur à utiliser pour joindre des éléments. |
-| arg2 |Oui |objet ou tableau |La seconde valeur à utiliser pour joindre des éléments. |
+| arg1 |OUI |objet ou tableau |La première valeur à utiliser pour joindre des éléments. |
+| arg2 |OUI |objet ou tableau |La seconde valeur à utiliser pour joindre des éléments. |
 | arguments supplémentaires |Non |objet ou tableau |Valeurs supplémentaires à utiliser pour joindre des éléments. |
 
 ### <a name="return-value"></a>Valeur de retour

@@ -15,15 +15,15 @@ ms.workload: na
 ms.date: 12/05/2016
 ms.author: hkanna
 ms.openlocfilehash: e11d541f0450c0de4ba6d60f889fc7471b1fa1aa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60724318"
 ---
 # <a name="storsimple-as-a-backup-target-with-backup-exec"></a>StorSimple comme cible de sauvegarde avec Backup Exec
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
 Azure StorSimple est une solution de stockage cloud hybride de Microsoft. StorSimple s’attaque à la complexité de la croissance exponentielle des données en utilisant un compte de stockage Azure en tant qu’extension de la solution locale et en hiérarchisant automatiquement les données sur le stockage local et sur le stockage cloud.
 
@@ -233,7 +233,7 @@ Configurez votre solution en respectant les instructions dans les sections suiva
 -   StorSimple prend en charge les sauvegardes Backup Exec complètes et incrémentielles. Nous vous déconseillons d’utiliser les sauvegardes synthétiques et différentielles.
 -   Les fichiers de données de sauvegarde doivent uniquement contenir les données d’un travail spécifique. Par exemple, aucun ajout de supports n’est autorisé entre les différents travaux.
 -   Désactivez la vérification des travaux. Si nécessaire, la vérification doit être planifiée après le dernier travail de sauvegarde. Il est important de comprendre que ce travail a une incidence sur votre fenêtre de sauvegarde.
--   Sélectionnez **Storage (Stockage)** > **Your disk (Votre disque)** > **Details (Détails)** > **Properties (Propriétés)**. Désactivez **Pre-allocate disk space (Pré-allouer de l’espace disque)**.
+-   Sélectionnez **Storage (Stockage)**  > **Your disk (Votre disque)**  > **Details (Détails)**  > **Properties (Propriétés)** . Désactivez **Pre-allocate disk space (Pré-allouer de l’espace disque)** .
 
 Pour obtenir les paramètres et les meilleures pratiques de Backup Exec relatifs à l’implémentation de ces exigences, consultez [le site web Veritas](https://www.veritas.com).
 
@@ -267,11 +267,11 @@ Sur la base des hypothèses qui précèdent, créez un volume hiérarchisé Stor
 
 ### <a name="to-set-up-backup-exec-storage"></a>Pour configurer le stockage Backup Exec
 
-1.  Dans la console d’administration de Backup Exec, sélectionnez **Storage (Stockage)** > **Configure Storage (Configurer le stockage)** > **Disk-Based Storage (Stockage sur disque)** > **Next (Suivant)**.
+1.  Dans la console d’administration de Backup Exec, sélectionnez **Storage (Stockage)**  > **Configure Storage (Configurer le stockage)**  > **Disk-Based Storage (Stockage sur disque)**  > **Next (Suivant)** .
 
     ![Console d’administration de Backup Exec, page de configuration du stockage](./media/storsimple-configure-backup-target-using-backup-exec/image4.png)
 
-2.  Sélectionnez **Disk Storage (Stockage sur disque)**, puis sélectionnez **Next (Suivant)**.
+2.  Sélectionnez **Disk Storage (Stockage sur disque)** , puis sélectionnez **Next (Suivant)** .
 
     ![Console d’administration de Backup Exec, page de sélection du stockage](./media/storsimple-configure-backup-target-using-backup-exec/image5.png)
 
@@ -279,15 +279,15 @@ Sur la base des hypothèses qui précèdent, créez un volume hiérarchisé Stor
 
     ![Console d’administration de Backup Exec, page de saisie d’un nom et d’une description](./media/storsimple-configure-backup-target-using-backup-exec/image7.png)
 
-4.  Sélectionnez le disque sur lequel vous souhaitez créer le dispositif de stockage sur disque, puis sélectionnez **Next (Suivant)**.
+4.  Sélectionnez le disque sur lequel vous souhaitez créer le dispositif de stockage sur disque, puis sélectionnez **Next (Suivant)** .
 
     ![Console d’administration de Backup Exec, page de sélection du disque de stockage](./media/storsimple-configure-backup-target-using-backup-exec/image9.png)
 
-5.  Incrémentez le nombre d’opérations d’écriture à **16**, puis cliquez sur **Next (Suivant)**.
+5.  Incrémentez le nombre d’opérations d’écriture à **16**, puis cliquez sur **Next (Suivant)** .
 
     ![Console d’administration de Backup Exec, page des paramètres d’opérations d’écriture simultanées](./media/storsimple-configure-backup-target-using-backup-exec/image10.png)
 
-6.  Passez en revue les paramètres, puis sélectionnez **Finish (Terminer)**.
+6.  Passez en revue les paramètres, puis sélectionnez **Finish (Terminer)** .
 
     ![Console d’administration de Backup Exec, page récapitulative de configuration du stockage](./media/storsimple-configure-backup-target-using-backup-exec/image11.png)
 
@@ -323,26 +323,26 @@ La procédure ci-après repose sur l’hypothèse que Backup Exec et l’hôte c
 
 #### <a name="to-assign-storsimple-volumes-to-a-backup-exec-backup-job"></a>Pour affecter des volumes StorSimple à un travail de sauvegarde Backup Exec
 
-1.  Dans la console d’administration de Backup Exec, sélectionnez **Host (Hôte)** > **Backup (Sauvegarde)** > **Backup to Disk (Sauvegarde sur disque)**.
+1.  Dans la console d’administration de Backup Exec, sélectionnez **Host (Hôte)**  > **Backup (Sauvegarde)**  > **Backup to Disk (Sauvegarde sur disque)** .
 
     ![Console d’administration de Backup Exec, sélection de l’hôte, de la sauvegarde et de la sauvegarde sur disque](./media/storsimple-configure-backup-target-using-backup-exec/image14.png)
 
-2.  Dans la boîte de dialogue **Backup Definition Properties (Propriétés de définition de sauvegarde)**, sélectionnez **Edit (Modifier)** (sous **Backup (Sauvegarde)**).
+2.  Dans la boîte de dialogue **Backup Definition Properties (Propriétés de définition de sauvegarde)** , sélectionnez **Edit (Modifier)** (sous **Backup (Sauvegarde)** ).
 
     ![Console d’administration de Backup Exec, boîte de dialogue des propriétés de définition de sauvegarde](./media/storsimple-configure-backup-target-using-backup-exec/image15.png)
 
 3.  Configurez vos sauvegardes complètes et incrémentielles conformément à vos exigences en matière de RPO et de RTO et aux bonnes pratiques Veritas.
 
-4.  Dans la boîte de dialogue **Backup Options (Options de sauvegarde)**, sélectionnez **Storage (Stockage)**.
+4.  Dans la boîte de dialogue **Backup Options (Options de sauvegarde)** , sélectionnez **Storage (Stockage)** .
 
     ![Console d’administration de Backup Exec, boîte de dialogue des options de sauvegarde de stockage](./media/storsimple-configure-backup-target-using-backup-exec/image16.png)
 
 5.  Attribuez les volumes StorSimple correspondants à votre planification de sauvegarde.
 
     > [!NOTE]
-    > Les options **Compression (Compression)** et **Encryption type (Type de chiffrement)** sont définies sur **None (Aucun)**.
+    > Les options **Compression (Compression)** et **Encryption type (Type de chiffrement)** sont définies sur **None (Aucun)** .
 
-6.  Sous **Verify (Vérifier)**, cochez la case **Do not verify data for this job (Ne pas vérifier les données de ce travail)**. Cette option risque d’affecter la hiérarchisation StorSimple.
+6.  Sous **Verify (Vérifier)** , cochez la case **Do not verify data for this job (Ne pas vérifier les données de ce travail)** . Cette option risque d’affecter la hiérarchisation StorSimple.
 
     > [!NOTE]
     > La défragmentation, l’indexation et la vérification en arrière-plan ont une incidence négative sur la hiérarchisation StorSimple.
@@ -395,23 +395,23 @@ Le tableau suivant montre comment configurer des sauvegardes à exécuter sur le
 
 #### <a name="to-assign-storsimple-volumes-to-a-backup-exec-archive-and-duplication-job"></a>Pour attribuer des volumes StorSimple à un travail d’archivage et de duplication Backup Exec
 
-1.  Dans la console d’administration Backup Exec, cliquez avec le bouton droit sur le travail que vous souhaitez archiver sur un volume StorSimple, puis sélectionnez **Backup Definition Properties (Propriétés de définition de sauvegarde)** > **Edit (Modifier)**.
+1.  Dans la console d’administration Backup Exec, cliquez avec le bouton droit sur le travail que vous souhaitez archiver sur un volume StorSimple, puis sélectionnez **Backup Definition Properties (Propriétés de définition de sauvegarde)**  > **Edit (Modifier)** .
 
     ![Console d’administration de Backup Exec, onglet des propriétés de définition de sauvegarde](./media/storsimple-configure-backup-target-using-backup-exec/image19.png)
 
-2.  Sélectionnez **Add Stage (Ajouter une étape)** > **Duplicate to Disk (Dupliquer sur le disque)** > **Edit (Modifier)**.
+2.  Sélectionnez **Add Stage (Ajouter une étape)**  > **Duplicate to Disk (Dupliquer sur le disque)**  > **Edit (Modifier)** .
 
     ![Console d’administration de Backup Exec, ajouter une étape](./media/storsimple-configure-backup-target-using-backup-exec/image20.png)
 
-3.  Dans la boîte de dialogue **Duplicate Options (Options de duplication)**, sélectionnez les valeurs que vous souhaitez utiliser pour **Source** et **Schedule (Planification)**.
+3.  Dans la boîte de dialogue **Duplicate Options (Options de duplication)** , sélectionnez les valeurs que vous souhaitez utiliser pour **Source** et **Schedule (Planification)** .
 
     ![Console d’administration de Backup Exec, propriétés de définition de sauvegarde et options de duplication](./media/storsimple-configure-backup-target-using-backup-exec/image21.png)
 
-4.  Dans la liste déroulante **Storage (Stockage)**, sélectionnez le volume StorSimple sur lequel vous voulez que le travail d’archivage stocke les données.
+4.  Dans la liste déroulante **Storage (Stockage)** , sélectionnez le volume StorSimple sur lequel vous voulez que le travail d’archivage stocke les données.
 
     ![Console d’administration de Backup Exec, propriétés de définition de sauvegarde et options de duplication](./media/storsimple-configure-backup-target-using-backup-exec/image22.png)
 
-5.  Sélectionnez **Verify (Vérifier)**, puis cochez la case **Do not verify data for this job (Ne pas vérifier les données de ce travail)**.
+5.  Sélectionnez **Verify (Vérifier)** , puis cochez la case **Do not verify data for this job (Ne pas vérifier les données de ce travail)** .
 
     ![Console d’administration de Backup Exec, propriétés de définition de sauvegarde et options de duplication](./media/storsimple-configure-backup-target-using-backup-exec/image23.png)
 
@@ -419,7 +419,7 @@ Le tableau suivant montre comment configurer des sauvegardes à exécuter sur le
 
     ![Console d’administration de Backup Exec, propriétés de définition de sauvegarde et options de duplication](./media/storsimple-configure-backup-target-using-backup-exec/image24.png)
 
-7.  Dans la colonne **Backup (Sauvegarde)**, ajoutez une nouvelle étape. Pour la source, utilisez l’option **incrémentielle**. Pour la cible, choisissez un volume StorSimple sur lequel le travail de sauvegarde incrémentielle est archivé. Répétez les étapes 1 à 6.
+7.  Dans la colonne **Backup (Sauvegarde)** , ajoutez une nouvelle étape. Pour la source, utilisez l’option **incrémentielle**. Pour la cible, choisissez un volume StorSimple sur lequel le travail de sauvegarde incrémentielle est archivé. Répétez les étapes 1 à 6.
 
 ## <a name="storsimple-cloud-snapshots"></a>Captures instantanées cloud StorSimple
 

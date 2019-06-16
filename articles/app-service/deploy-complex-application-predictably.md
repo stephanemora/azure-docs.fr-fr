@@ -16,10 +16,10 @@ ms.date: 01/06/2016
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: e6d18222e15f62f12592362827b6dbc4a3d7dfbc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60766734"
 ---
 # <a name="provision-and-deploy-microservices-predictably-in-azure"></a>Mise en service et déploiement de microservices de manière prévisible dans Azure
@@ -193,7 +193,7 @@ Là encore, les ressources imbriquées doivent présenter une hiérarchie très 
 Le bouton **Déployer dans Azure** est très utile, mais il vous permet uniquement de déployer le modèle de groupe de ressources dans azuredeploy.json si vous avez déjà envoyé ce dernier à GitHub. Le Kit de développement logiciel (SDK) Microsoft Azure .NET fournit également des outils vous permettant de déployer un fichier de modèle JSON directement à partir de votre ordinateur local. Pour ce faire, procédez comme suit :
 
 1. Dans Visual Studio, cliquez sur **Fichier** > **Nouveau** > **Projet**.
-2. Cliquez sur **Visual C#** > **Cloud** > **Groupe de ressources Azure**, puis cliquez sur **OK**.
+2. Cliquez sur **Visual C#**  > **Cloud** > **Groupe de ressources Azure**, puis cliquez sur **OK**.
    
    ![](./media/app-service-deploy-complex-application-predictably/deploy-1-vsproject.png)
 3. Dans **Sélectionner un modèle Azure**, choisissez **Modèle vide** et cliquez sur **OK**.

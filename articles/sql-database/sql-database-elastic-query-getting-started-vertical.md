@@ -13,10 +13,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: 116a465a0ddc913e342e0ffcc1fb29f5bf969419
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60307442"
 ---
 # <a name="get-started-with-cross-database-queries-vertical-partitioning-preview"></a>Prise en main des requêtes de bases de données croisées (partitionnement vertical) (version préliminaire)
@@ -27,7 +27,7 @@ Les requêtes de bases de données élastiques (en préversion) pour Azure SQL D
 
 Pour plus d’informations sur la fonctionnalité de requête de base de données élastique, consultez l’article [Vue d’ensemble de la requête de base de données élastique Azure SQL Database](sql-database-elastic-query-overview.md).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 L’autorisation ALTER ANY EXTERNAL DATA SOURCE est requise. Cette autorisation est incluse dans l’autorisation ALTER DATABASE. Les autorisations ALTER ANY EXTERNAL DATA SOURCE sont nécessaires pour faire référence à la source de données sous-jacente.
 

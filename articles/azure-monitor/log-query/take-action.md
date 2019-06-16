@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 02/06/2019
 ms.author: magoedte
 ms.openlocfilehash: 9194d5fe6553607ac5a0bb4e133da97f53790984
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61424730"
 ---
 # <a name="take-action-with-an-automation-runbook-from-a-log-analytics-log-search-result"></a>Utilisation d’un runbook Automation sur un résultat de recherche dans les journaux Log Analytics
@@ -38,7 +38,7 @@ Pour agir sur un événement et lancer un runbook à partir des résultats de vo
 
 1. Dans le portail Azure, cliquez sur **Tous les services** et sélectionnez **Log Analytics**.  
 2. Sélectionnez votre espace de travail Log Analytics.
-3. Dans l’espace de travail, sélectionnez **Journaux d’activité (classiques)**.  
+3. Dans l’espace de travail, sélectionnez **Journaux d’activité (classiques)** .  
 4. Dans la page Recherche dans les journaux, effectuez une recherche dans les journaux.  
 5. À partir des résultats de la recherche dans les journaux, cliquez sur l’ellipse à gauche de l’un des champs, et dans le menu contextuel, sélectionnez **Agir sur**.<br><br> ![Sélectionner Agir à partir des résultats de recherche](./media/take-action/log-search-takeaction-menuoption.png) 
 6. Sélectionnez **Exécuter un runbook** et sélectionnez un runbook à exécuter.  Vous pouvez sélectionner n’importe quel runbook dans le compte Automation qui est lié à l’espace de travail Log Analytics.  Notez les points suivants :

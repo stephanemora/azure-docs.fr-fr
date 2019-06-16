@@ -13,10 +13,10 @@ ms.topic: reference
 ms.date: 10/09/2018
 ms.author: syclebsc
 ms.openlocfilehash: fbc5a149e59bff1897d3949185272e9ca664f989
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64717825"
 ---
 # <a name="azure-functions-f-developer-reference"></a>Informations de référence pour les développeurs F# sur Azure Functions
@@ -57,7 +57,7 @@ Il existe un fichier [host.json](functions-host-json.md) partagé que vous pouve
 Les extensions de liaison requises dans la [version 2.x](functions-versions.md) du runtime Functions sont définies dans le fichier `extensions.csproj`, les fichiers de bibliothèque proprement dits se trouvant dans le dossier `bin`. Quand vous développez localement, vous devez [inscrire les extensions de liaison](./functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles). Quand vous développez des fonctions dans le portail Azure, cet enregistrement est effectué pour vous.
 
 ## <a name="binding-to-arguments"></a>Liaison aux arguments
-Chaque liaison prend en charge un ensemble spécifique d’arguments, comme décrit en détail dans [Informations de référence pour les développeurs sur les déclencheurs et liaisons Azure Functions](functions-triggers-bindings.md). Par exemple, l’une des liaisons d’argument prises en charge par un déclencheur d’objet blob est un objet CLR traditionnel (POCO), qui peut être exprimé à l’aide d’un enregistrement F#. Par exemple : 
+Chaque liaison prend en charge un ensemble spécifique d’arguments, comme décrit en détail dans [Informations de référence pour les développeurs sur les déclencheurs et liaisons Azure Functions](functions-triggers-bindings.md). Par exemple, l’une des liaisons d’argument prises en charge par un déclencheur d’objet blob est un objet CLR traditionnel (POCO), qui peut être exprimé à l’aide d’un enregistrement F#. Par exemple :
 
 ```fsharp
 type Item = { Id: string }
@@ -71,7 +71,7 @@ Votre fonction Azure F# utilisera un ou plusieurs arguments. Quand nous parlons 
 
 Dans l’exemple ci-dessus, `blob` est un argument d’entrée, tandis que `output` est un argument de sortie. Notez que nous avons utilisé le type `byref<>` pour l’argument `output` (il n’est pas nécessaire d’ajouter l’annotation `[<Out>]`). L’utilisation d’un type `byref<>` permet à votre fonction de modifier l’enregistrement ou l’objet auxquels l’argument fait référence.
 
-Lorsqu’un enregistrement F# est utilisé comme type d’entrée, la définition d’enregistrement doit être indiquée par `[<CLIMutable>]` pour permettre à l’infrastructure Azure Functions de définir les champs de manière appropriée avant de transmettre l’enregistrement à votre fonction. En arrière-plan, `[<CLIMutable>]` génère des méthodes setter pour les propriétés d’enregistrement. Par exemple : 
+Lorsqu’un enregistrement F# est utilisé comme type d’entrée, la définition d’enregistrement doit être indiquée par `[<CLIMutable>]` pour permettre à l’infrastructure Azure Functions de définir les champs de manière appropriée avant de transmettre l’enregistrement à votre fonction. En arrière-plan, `[<CLIMutable>]` génère des méthodes setter pour les propriétés d’enregistrement. Par exemple :
 
 ```fsharp
 [<CLIMutable>]
@@ -83,7 +83,7 @@ let Run(req: TestObject, log: ILogger) =
     { req with Greeting = sprintf "Hello, %s" req.SenderName }
 ```
 
-Une classe F# est également utilisable pour les arguments d’entrée et de sortie. Pour une classe, les propriétés nécessitent généralement des méthodes getter et setter. Par exemple : 
+Une classe F# est également utilisable pour les arguments d’entrée et de sortie. Pour une classe, les propriétés nécessitent généralement des méthodes getter et setter. Par exemple :
 
 ```fsharp
 type Item() =
@@ -96,7 +96,7 @@ let Run(input: string, item: byref<Item>) =
 ```
 
 ## <a name="logging"></a>Journalisation
-Pour consigner la sortie dans vos [journaux d’activité de streaming](../app-service/troubleshoot-diagnostic-logs.md) en F#, votre fonction doit utiliser un argument de type [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger). Par souci de cohérence, nous vous recommandons de nommer cet argument `log`. Par exemple : 
+Pour consigner la sortie dans vos [journaux d’activité de streaming](../app-service/troubleshoot-diagnostic-logs.md) en F#, votre fonction doit utiliser un argument de type [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger). Par souci de cohérence, nous vous recommandons de nommer cet argument `log`. Par exemple :
 
 ```fsharp
 let Run(blob: string, output: byref<string>, log: ILogger) =
@@ -188,7 +188,7 @@ En outre, les assemblys ci-après ont une casse spécifique et peuvent être ré
 Si vous avez besoin de référencer un assembly privé, vous pouvez charger le fichier d’assembly dans un dossier `bin` relatif à votre fonction et le référencer à l’aide du nom de fichier (par exemple, `#r "MyAssembly.dll"`). Pour plus d’informations sur le téléchargement de fichiers vers votre conteneur de fonctions, consultez la section suivante sur la gestion des packages.
 
 ## <a name="editor-prelude"></a>Préambule destiné à l’éditeur
-Un éditeur prenant en charge F# Compiler Services ne reconnaît pas les espaces de noms et les assemblys automatiquement inclus par Azure Functions. Il peut donc être utile d’insérer un préambule conçu pour permettre à l’éditeur de localiser les assemblys que vous utilisez et d’ouvrir explicitement les espaces de noms. Par exemple : 
+Un éditeur prenant en charge F# Compiler Services ne reconnaît pas les espaces de noms et les assemblys automatiquement inclus par Azure Functions. Il peut donc être utile d’insérer un préambule conçu pour permettre à l’éditeur de localiser les assemblys que vous utilisez et d’ouvrir explicitement les espaces de noms. Par exemple :
 
 ```fsharp
 #if !COMPILED
@@ -264,7 +264,7 @@ let Run(timer: TimerInfo, log: ILogger) =
 ```
 
 ## <a name="reusing-fsx-code"></a>Réutilisation du code .fsx
-Vous pouvez utiliser le code d’autres fichiers `.fsx` au moyen d’une directive `#load`. Par exemple : 
+Vous pouvez utiliser le code d’autres fichiers `.fsx` au moyen d’une directive `#load`. Par exemple :
 
 `run.fsx`
 

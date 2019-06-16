@@ -15,14 +15,14 @@ ms.workload: iaas-sql-server
 ms.date: 01/31/2017
 ms.author: mikeray
 ms.openlocfilehash: 1b6660a1565b3c119cc1dec0823870c7dd5bd24f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61477142"
 ---
 # <a name="use-azure-storage-for-sql-server-backup-and-restore"></a>Utilisation du stockage Azure pour la sauvegarde et la restauration de SQL Server
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 À partir de SQL Server 2012 SP1 CU2, vous pouvez écrire des sauvegardes SQL Server directement dans le service de stockage d’objets blob Azure. Vous pouvez utiliser cette fonctionnalité pour les opérations de sauvegarde et de restauration à partir du service d’objets blob Azure avec une base de données SQL Server locale ou une base de données SQL Server sur une machine virtuelle Azure. La sauvegarde dans le cloud offre les avantages de la disponibilité, du stockage hors site géo-répliqué sans limite et de la facilité de migration des données vers et depuis le cloud. Vous pouvez émettre des instructions BACKUP ou RESTORE en utilisant Transact-SQL ou SMO.
 
 SQL Server 2016 introduit de nouvelles fonctionnalités ; Vous pouvez utiliser la [sauvegarde instantanée de fichier](https://msdn.microsoft.com/library/mt169363.aspx) pour effectuer des sauvegardes quasi instantanées et des restaurations extrêmement rapides.
@@ -51,14 +51,14 @@ Les composants Azure suivants sont utilisés pour les sauvegardes sur le service
 | --- | --- |
 | **Compte de stockage** |le compte de stockage est le point de départ de tous les services de stockage. Pour accéder au service BLOB Azure, commencez par créer un compte de stockage Azure. Pour plus d'informations sur le service BLOB Azure, consultez la page [Utilisation du service BLOB Azure](https://azure.microsoft.com/develop/net/how-to-guides/blob-storage/) |
 | **Conteneur** |Un conteneur fournit un regroupement contenant un nombre illimité d’objets blob. Pour écrire une sauvegarde SQL Server sur un service BLOB Azure, au moins un conteneur racine doit être créé. |
-| **Objet blob** |fichier de n'importe quel type et de n'importe quelle taille. Les objets blob sont adressables à l’aide du format d’URL suivant : **https:\\[compte stockage].blob.core.windows.net/[conteneur]/[blob]**. Pour plus d’informations sur les blobs, consultez [Présentation des objets blob de blocs et des objets blob de pages](https://msdn.microsoft.com/library/azure/ee691964.aspx) |
+| **Objet blob** |fichier de n'importe quel type et de n'importe quelle taille. Les objets blob sont adressables à l’aide du format d’URL suivant : **https:\\[compte stockage].blob.core.windows.net/[conteneur]/[blob]** . Pour plus d’informations sur les blobs, consultez [Présentation des objets blob de blocs et des objets blob de pages](https://msdn.microsoft.com/library/azure/ee691964.aspx) |
 
 ## <a name="sql-server-components"></a>Composants SQL Server
 Les composants SQL Server suivants sont utilisés pour les sauvegardes sur le service de stockage d’objets blob Azure.
 
 | Composant | Description |
 | --- | --- |
-| **URL** |une URL attribue un URI (Uniform Resource Identifier) à un fichier de sauvegarde unique. L’URL fournit l’emplacement et le nom du fichier de sauvegarde SQL Server. L’URL doit pointer vers un objet blob réel, pas juste un conteneur. Si l’objet blob n’existe pas, il est créé. Si un objet blob existant est indiqué, BACKUP échoue, sauf si l’option > WITH FORMAT est indiquée. Voici un exemple d’URL que vous pouvez spécifier dans la commande BACKUP : **http[s]://[comptestockage].blob.core.windows.net/[conteneur]/[NOMFICHIER.bak]**. HTTPS n’est pas requis, mais recommandé. |
+| **URL** |une URL attribue un URI (Uniform Resource Identifier) à un fichier de sauvegarde unique. L’URL fournit l’emplacement et le nom du fichier de sauvegarde SQL Server. L’URL doit pointer vers un objet blob réel, pas juste un conteneur. Si l’objet blob n’existe pas, il est créé. Si un objet blob existant est indiqué, BACKUP échoue, sauf si l’option > WITH FORMAT est indiquée. Voici un exemple d’URL que vous pouvez spécifier dans la commande BACKUP : **http[s]://[comptestockage].blob.core.windows.net/[conteneur]/[NOMFICHIER.bak]** . HTTPS n’est pas requis, mais recommandé. |
 | **Informations d'identification** |les informations requises pour se connecter au service BLOB Azure et pour s'y authentifier sont stockées sous la forme d'informations d'identification.  Vous devez créer des informations d'identification SQL Server afin que ce dernier écrive les sauvegardes sur un service BLOB Azure ou les restaure depuis celui-ci. Pour plus d’informations, consultez [Informations d’identification SQL Server](https://msdn.microsoft.com/library/ms189522.aspx). |
 
 > [!NOTE]

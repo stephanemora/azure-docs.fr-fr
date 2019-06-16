@@ -13,10 +13,10 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: 6c35d51c1029c0305c86cefd786e60b6547e0dee
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65799877"
 ---
 # <a name="load-data-from-csv-into-azure-sql-database-flat-files"></a>Charger des données d’un fichier CSV sur Azure SQL Database (fichiers plats)
@@ -25,7 +25,7 @@ Vous pouvez utiliser l’utilitaire de ligne de commande BCP pour importer des d
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-### <a name="prerequisites"></a>Conditions préalables
+### <a name="prerequisites"></a>Prérequis
 
 Pour accomplir les étapes décrites dans cet article, vous avez besoin de ce qui suit :
 

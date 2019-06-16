@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 4/27/2018
 ms.author: shhurst
 ms.openlocfilehash: 5aa5ea2a39a0fb9f969e965fed14063522197cda
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60303769"
 ---
 # <a name="handle-large-messages-with-chunking-in-azure-logic-apps"></a>Gérer les messages volumineux avec la segmentation dans Azure Logic Apps
@@ -57,7 +57,7 @@ Si un point de terminaison prend en charge la segmentation pour les télécharge
 
 En outre, si une action HTTP ne prend pas encore en charge la segmentation, vous devez également configurer la segmentation dans la propriété `runTimeConfiguration` de l’action. Vous pouvez définir cette propriété à l’intérieur de l’action, soit directement dans l’éditeur en mode Code comme décrit plus loin, soit dans le Concepteur Logic Apps comme décrit ci-après :
 
-1. Dans le coin supérieur droit de l’action HTTP, sélectionnez le bouton représentant des points de suspension (**...**), puis **Paramètres**.
+1. Dans le coin supérieur droit de l’action HTTP, sélectionnez le bouton représentant des points de suspension ( **...** ), puis **Paramètres**.
 
    ![Dans l’action, ouvrez le menu Paramètres](./media/logic-apps-handle-large-messages/http-settings.png)
 
@@ -119,16 +119,16 @@ Ces étapes décrivent le processus détaillé utilisé par Logic Apps pour char
 
    | Champ d’en-tête de la requête Logic Apps | Valeur | Type | Description |
    |---------------------------------|-------|------|-------------|
-   | **x-ms-transfer-mode** | segmenté | String | Indique que le contenu est chargé sous forme de segments |
-   | **x-ms-content-length** | <*content-length*> | Integer  | La taille, en octets, de l’intégralité du contenu avant segmentation |
+   | **x-ms-transfer-mode** | segmenté | Chaîne | Indique que le contenu est chargé sous forme de segments |
+   | **x-ms-content-length** | <*content-length*> | Entier | La taille, en octets, de l’intégralité du contenu avant segmentation |
    ||||
 
 2. Le point de terminaison répond avec le code d’état de réussite « 200 » et ces informations facultatives :
 
    | Champ d’en-tête de réponse de point de terminaison | Type | Obligatoire | Description |
    |--------------------------------|------|----------|-------------|
-   | **x-ms-chunk-size** | Integer  | Non  | La taille de segment suggérée en octets |
-   | **Location** | String | Non  | L’adresse URL vers laquelle envoyer les messages HTTP PATCH |
+   | **x-ms-chunk-size** | Entier | Non | La taille de segment suggérée en octets |
+   | **Lieu** | Chaîne | Non | L’adresse URL vers laquelle envoyer les messages HTTP PATCH |
    ||||
 
 3. Votre application logique crée et envoie des messages HTTP PATCH de suivi, chacun contenant les informations suivantes :
@@ -139,9 +139,9 @@ Ces étapes décrivent le processus détaillé utilisé par Logic Apps pour char
 
      | Champ d’en-tête de la requête Logic Apps | Valeur | Type | Description |
      |---------------------------------|-------|------|-------------|
-     | **Content-Range** | <*range*> | String | La plage d’octets pour le segment de contenu actuel, y compris la valeur de début, la valeur de fin et la taille totale du contenu, par exemple : « bytes=0-1023/10100 » |
-     | **Content-Type** | <*content-type*> | String | Le type de contenu segmenté |
-     | **Content-Length** | <*content-length*> | String | La longueur, en octets, du segment actuel |
+     | **Content-Range** | <*range*> | Chaîne | La plage d’octets pour le segment de contenu actuel, y compris la valeur de début, la valeur de fin et la taille totale du contenu, par exemple : « bytes=0-1023/10100 » |
+     | **Content-Type** | <*content-type*> | Chaîne | Le type de contenu segmenté |
+     | **Content-Length** | <*content-length*> | Chaîne | La longueur, en octets, du segment actuel |
      |||||
 
 4. Après chaque requête PATCH, le point de terminaison confirme la réception de chaque segment en renvoyant le code d’état « 200 ».

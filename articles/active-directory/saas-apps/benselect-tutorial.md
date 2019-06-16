@@ -16,10 +16,10 @@ ms.date: 06/23/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 699afd4703efc5e8f63bb13fe1dd753a0c72594d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60282653"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-benselect"></a>Didacticiel : Intégration d'Azure Active Directory à BenSelect
@@ -34,7 +34,7 @@ L’intégration de BenSelect à Azure AD vous offre les avantages suivants :
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour configurer l’intégration d’Azure AD à BenSelect, vous avez besoin des éléments suivants :
 
@@ -60,7 +60,7 @@ Pour configurer l’intégration de BenSelect à Azure AD, vous devez ajouter B
 
 **Pour ajouter BenSelect à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**. 
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**. 
 
     ![Active Directory][1]
 
@@ -118,7 +118,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     > [!NOTE] 
     > Cette valeur n’est pas la valeur réelle. Mettez à jour la valeur avec l’URL de réponse réelle. Pour obtenir cette valeur, contactez [l’équipe du support BenSelect](mailto:support@selerix.com).
  
-1. Dans la section **Certificat de signature SAML**, cliquez sur **Certificat (brut)**, puis enregistrez le fichier du certificat sur votre ordinateur.
+1. Dans la section **Certificat de signature SAML**, cliquez sur **Certificat (brut)** , puis enregistrez le fichier du certificat sur votre ordinateur.
 
     ![Configurer l'authentification unique](./media/benselect-tutorial/tutorial_benselect_certificate.png) 
 

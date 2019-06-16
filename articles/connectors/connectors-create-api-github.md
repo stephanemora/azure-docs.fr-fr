@@ -12,10 +12,10 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
 ms.openlocfilehash: 0d2ff9368bc244a5afd6fafc40cf476b90a80a52
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61462565"
 ---
 # <a name="connect-to-github"></a>Se connecter à GitHub
@@ -30,7 +30,7 @@ Pour utiliser le connecteur GitHub dans une application logique, commencez par c
 
 | Propriété | Obligatoire | Description | 
 | -------- | -------- | ----------- | 
-| par jeton | Oui | Indiquez vos informations d’identification GitHub. |
+| par jeton | OUI | Indiquez vos informations d’identification GitHub. |
 
 Après avoir créé la connexion, vous pouvez exécuter les actions et rechercher les déclencheurs décrits dans cet article.
 

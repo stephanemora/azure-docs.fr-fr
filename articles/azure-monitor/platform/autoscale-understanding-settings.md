@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 12/18/2017
 ms.author: ancav
-ms.component: autoscale
+ms.subservice: autoscale
 ms.openlocfilehash: 02840b8a909f46c37130bdb7162674c694a0ff96
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60787493"
 ---
 # <a name="understand-autoscale-settings"></a>Comprendre les paramètres de mise à l’échelle automatique
@@ -111,7 +111,7 @@ Pour illustrer le schéma du paramètre de mise à l’échelle automatique, le 
 | Règle | scaleAction | Action à entreprendre lors du déclenchement du paramètre metricTrigger de la règle. |
 | scaleAction | direction | « Increase » pour la montée en puissance, ou Decrease » pour la descente en puissance.|
 | scaleAction | value | Indique dans quelle mesure augmenter ou diminuer la capacité de la ressource. |
-| scaleAction | cooldown | Temps d’attente entre deux opérations de mise à l’échelle. Par exemple, si **cooldown = “PT10M”**, aucune tentative de mise à l’échelle automatique ne peut survenir dans les 10 minutes. Le cooldown permet la stabilisation des mesures après l’ajout ou la suppression d’instances. |
+| scaleAction | cooldown | Temps d’attente entre deux opérations de mise à l’échelle. Par exemple, si **cooldown = “PT10M”** , aucune tentative de mise à l’échelle automatique ne peut survenir dans les 10 minutes. Le cooldown permet la stabilisation des mesures après l’ajout ou la suppression d’instances. |
 
 ## <a name="autoscale-profiles"></a>Profils de mise à l’échelle automatique
 
@@ -290,13 +290,13 @@ La mise à l’échelle automatique utilise la séquence suivante pour choisir l
 
 ### <a name="how-does-autoscale-evaluate-multiple-rules"></a>Comment la mise à l’échelle automatique évalue plusieurs règles ?
 
-Dès que la mise à l’échelle automatique a déterminé le profil censé s’exécuter, elle évalue toutes les règles d’augmentation de la taille dans le profil (règles dans lesquelles **direction = “Increase”**).
+Dès que la mise à l’échelle automatique a déterminé le profil censé s’exécuter, elle évalue toutes les règles d’augmentation de la taille dans le profil (règles dans lesquelles **direction = “Increase”** ).
 
 Si une ou plusieurs règles d’augmentation de la taille des instances sont déclenchées, la mise à l’échelle automatique calcule la nouvelle capacité déterminée par **scaleAction** de chacune de ces règles. Elle augmente ensuite la taille des instances de manière à atteindre les capacités maximales pour garantir la disponibilité du service.
 
 Par exemple, choisissons un groupe de machines virtuelles avec une capacité actuelle de 10. Il existe deux règles de montée en puissance : une qui augmente la capacité de 10 %, et une autre qui augmente la capacité de 3 unités. La première règle entraînerait une nouvelle capacité de 11, et la deuxième règle une capacité de 13. Pour garantir la disponibilité du service, la mise à l’échelle automatique choisit l’action qui résulte dans la capacité maximale, par conséquent, la deuxième règle.
 
-Si aucune règle d’augmentation de la taille des instances n’est déclenchée, la mise à l’échelle automatique évalue toutes les règles de diminution de la taille des instances (règles dans lesquelles **direction = “Decrease”**). La mise à l’échelle automatique n’accepte une action de diminution de la taille des instances que si toutes les règles correspondantes sont déclenchées.
+Si aucune règle d’augmentation de la taille des instances n’est déclenchée, la mise à l’échelle automatique évalue toutes les règles de diminution de la taille des instances (règles dans lesquelles **direction = “Decrease”** ). La mise à l’échelle automatique n’accepte une action de diminution de la taille des instances que si toutes les règles correspondantes sont déclenchées.
 
 La mise à l’échelle automatique calcule la nouvelle capacité déterminée par **scaleAction** de chacune de ces règles. Elle choisit ensuite l’action de mise à l’échelle offrant le maximum de capacité pour garantir la disponibilité du service.
 
@@ -310,3 +310,4 @@ Pour en savoir plus sur la mise à l’échelle automatique, consultez les resso
 * [Meilleures pratiques pour la mise à l’échelle automatique d’Azure Insights](../../azure-monitor/platform/autoscale-best-practices.md)
 * [Utilisation d’actions de mise à l’échelle automatique pour envoyer des notifications d’alerte webhook et par courrier électronique](../../azure-monitor/platform/autoscale-webhook-email.md)
 * [Paramètres de mise à l’échelle automatique](https://msdn.microsoft.com/library/dn931953.aspx)
+

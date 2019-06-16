@@ -13,10 +13,10 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 10/30/2018
 ms.openlocfilehash: d4c5a2ca88f982626c8c2a8b37e4a7d6dfdbe599
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61485746"
 ---
 # <a name="run-ad-hoc-analytics-queries-across-multiple-azure-sql-databases"></a>Exécuter des requêtes d’analyse ad hoc sur plusieurs bases de données Azure SQL
@@ -96,7 +96,7 @@ Cet exercice ajoute le schéma (la source de données externe et les définition
 
     ![créer une source de données externe](media/saas-multitenantdb-adhoc-reporting/create-external-data-source.png)
 
-   Les tables externes qui font référence à des tables client sont définies avec **DISTRIBUTION = SHARDED(VenueId)**. Cela achemine une requête pour un *VenueId* particulier vers la base de données appropriée et améliore les performances pour de nombreux scénarios comme indiqué dans la section suivante.
+   Les tables externes qui font référence à des tables client sont définies avec **DISTRIBUTION = SHARDED(VenueId)** . Cela achemine une requête pour un *VenueId* particulier vers la base de données appropriée et améliore les performances pour de nombreux scénarios comme indiqué dans la section suivante.
 
     ![créer des tables externes](media/saas-multitenantdb-adhoc-reporting/external-tables.png)
 
@@ -119,7 +119,7 @@ Lors de l’inspection du plan d’exécution, passez la souris sur les icônes 
 1. Dans *SSMS*, ouvrez ...\\Learning Modules\\Operational Analytics\\Adhoc Reporting\\*Demo-AdhocReportingQueries.sql*.
 2. Assurez-vous que vous êtes connecté à la base de données **adhocreporting**.
 3. Sélectionnez le menu **Requête** et cliquez sur **Inclure le plan d’exécution réel**
-4. Mettez en surbrillance la requête *Quels lieux sont actuellement inscrits ?*, puis appuyez sur **F5**.
+4. Mettez en surbrillance la requête *Quels lieux sont actuellement inscrits ?* , puis appuyez sur **F5**.
 
    La requête renvoie la liste complète des lieux, montrant à quel point il est facile d’interroger l’ensemble des clients et de renvoyer des données provenant de chacun d’eux.
 
@@ -135,7 +135,7 @@ Lors de l’inspection du plan d’exécution, passez la souris sur les icônes 
 
    ![Joindre des données locales et distantes](media/saas-multitenantdb-adhoc-reporting/query2-plan.png)
 
-6. Sélectionnez à présent la requête *Quel jour y a-t-il eu le plus de tickets vendus ?*, puis appuyez sur **F5**.
+6. Sélectionnez à présent la requête *Quel jour y a-t-il eu le plus de tickets vendus ?* , puis appuyez sur **F5**.
 
    Cette requête effectue une opération de jointure et d’agrégation un peu plus complexe. Il est important de noter que la plupart du traitement est effectué à distance, et une fois encore, nous récupérons uniquement les lignes dont nous avons besoin, en renvoyant une seule ligne pour le cumul agrégé de ventes de tickets par jour pour chaque lieu.
 

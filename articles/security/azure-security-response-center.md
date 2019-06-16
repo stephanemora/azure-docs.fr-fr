@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/26/2018
 ms.author: barclayn
 ms.openlocfilehash: 117df5b1b1a80d9e0a39c6f0114f97a4dae5ceda
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60610950"
 ---
 # <a name="microsoft-security-response-center"></a>Centre de réponse aux problèmes de sécurité Microsoft
@@ -41,8 +41,8 @@ Le MSRC prend en charge la collaboration et les relations avec les chercheurs en
 
 Les programmes de primes Microsoft paient les chercheurs pour :
 
-- découvrir de nouvelles techniques d’exploitation, 
-- des idées défensives atténuant les nouvelles exploitations, 
+- découvrir de nouvelles techniques d’exploitation,
+- des idées défensives atténuant les nouvelles exploitations,
 - des vulnérabilités critiques dans les logiciels Cloud et locaux de Microsoft.
 
 ## <a name="next-steps"></a>Étapes suivantes

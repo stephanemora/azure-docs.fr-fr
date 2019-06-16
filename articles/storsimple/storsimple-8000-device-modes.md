@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/29/2017
 ms.author: alkohli
 ms.openlocfilehash: e55964beff48df6ce24d99c01975d39b662f1612
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60576087"
 ---
 # <a name="change-the-device-mode-on-your-storsimple-device"></a>Changement du mode de votre appareil StorSimple
@@ -122,7 +122,7 @@ Vous pouvez mettre l’appareil StorSimple en mode Maintenance (à partir du mod
 #### <a name="to-exit-maintenance-mode"></a>Pour quitter le mode Maintenance
 
 1. Connectez-vous à la console série de l’appareil. Vérifiez dans le message de bannière, que votre appareil est en mode Maintenance.
-2.  À l’invite de commandes, tapez :
+2. À l’invite de commandes, tapez :
    
     `Exit-HcsMaintenanceMode`
 3. Un message d’avertissement et un message de confirmation s’affichent. Tapez **O** pour quitter le mode Maintenance.

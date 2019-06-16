@@ -15,16 +15,16 @@ ms.workload: TBD
 ms.date: 12/1/2016
 ms.author: alkohli
 ms.openlocfilehash: 92671206a4171ca838423f55b526191ef30e5c35
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60630354"
 ---
 # <a name="use-the-web-ui-to-administer-your-storsimple-virtual-array"></a>Utiliser l'interface utilisateur web pour gérer votre StorSimple Virtual Array
 ![flux du processus d'installation](./media/storsimple-ova-web-ui-admin/manage4.png)
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 Les didacticiels de cet article s'appliquent à Microsoft Azure StorSimple Virtual Array (également appelé appareil virtuel StorSimple local) exécutant la version de mise à la disposition générale (mars 2016). Cet article décrit certains des flux de travail et certaines tâches de gestion complexes qui peuvent être effectués sur StorSimple Virtual Array. Vous pouvez gérer StorSimple Virtual Array à l’aide de l'interface utilisateur du service StorSimple Manager (également appelée interface utilisateur du portail) et de l'interface utilisateur web locale de l'appareil. Cet article se concentre sur les tâches que vous pouvez effectuer à l'aide de l'interface utilisateur web.
 
 Cet article inclut les didacticiels suivants :
@@ -84,7 +84,7 @@ Vous pouvez arrêter ou redémarrer votre appareil virtuel à l'aide de l'interf
 2. Au bas de la page, cliquez sur **Arrêt**.
    
     ![arrêter l'appareil 1](./media/storsimple-ova-web-ui-admin/image36.png)
-3. Un avertissement s’affiche indiquant qu’un arrêt de l’appareil va interrompre toutes les E/S qui étaient en cours, ce qui entraîne une interruption du service. Cliquez sur l’icône de coche  ![icône en forme de coche](./media/storsimple-ova-web-ui-admin/image3.png).
+3. Un avertissement s’affiche indiquant qu’un arrêt de l’appareil va interrompre toutes les E/S qui étaient en cours, ce qui entraîne une interruption du service. Cliquez sur l’icône de coche ![icône en forme de coche](./media/storsimple-ova-web-ui-admin/image3.png).
    
     ![avertissement d'arrêt de l'appareil](./media/storsimple-ova-web-ui-admin/image37.png)
    
@@ -99,7 +99,7 @@ Vous pouvez arrêter ou redémarrer votre appareil virtuel à l'aide de l'interf
 2. En bas de la page, cliquez sur **Redémarrer**.
    
     ![redémarrer l'appareil](./media/storsimple-ova-web-ui-admin/image36.png)
-3. Un avertissement s'affiche indiquant qu'un redémarrage de l'appareil va interrompre toutes les E/S qui étaient en cours, ce qui entraîne une interruption du service. Cliquez sur l’icône de coche  ![icône en forme de coche](./media/storsimple-ova-web-ui-admin/image3.png).
+3. Un avertissement s'affiche indiquant qu'un redémarrage de l'appareil va interrompre toutes les E/S qui étaient en cours, ce qui entraîne une interruption du service. Cliquez sur l’icône de coche ![icône en forme de coche](./media/storsimple-ova-web-ui-admin/image3.png).
    
     ![avertissement de redémarrage](./media/storsimple-ova-web-ui-admin/image37.png)
    

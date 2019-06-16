@@ -9,10 +9,10 @@ ms.topic: reference
 ms.date: 01/17/2019
 ms.author: babanisa
 ms.openlocfilehash: f44d2c1c5be6ac895b6f5ea9feca29c0f8ed09f3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60561759"
 ---
 # <a name="azure-event-grid-event-schema-for-service-bus"></a>Schéma des événements Azure Event Grid pour Service Bus
@@ -82,25 +82,25 @@ Un événement contient les données générales suivantes :
 
 | Propriété | Type | Description |
 | -------- | ---- | ----------- |
-| topic | string | Chemin d’accès complet à la source de l’événement. Ce champ n’est pas modifiable. Event Grid fournit cette valeur. |
-| subject | string | Chemin de l’objet de l’événement, défini par le serveur de publication. |
-| eventType | string | Un des types d’événements inscrits pour cette source d’événement. |
-| eventTime | string | L’heure à quelle l’événement est généré selon l’heure UTC du fournisseur. |
-| id | string | Identificateur unique de l’événement. |
-| data | objet | Données d’événement de stockage Blob. |
-| dataVersion | string | Version du schéma de l’objet de données. Le serveur de publication définit la version du schéma. |
-| metadataVersion | string | Version du schéma des métadonnées d’événement. Event Grid définit le schéma des propriétés de niveau supérieur. Event Grid fournit cette valeur. |
+| rubrique | chaîne | Chemin d’accès complet à la source de l’événement. Ce champ n’est pas modifiable. Event Grid fournit cette valeur. |
+| subject | chaîne | Chemin de l’objet de l’événement, défini par le serveur de publication. |
+| eventType | chaîne | Un des types d’événements inscrits pour cette source d’événement. |
+| eventTime | chaîne | L’heure à quelle l’événement est généré selon l’heure UTC du fournisseur. |
+| id | chaîne | Identificateur unique de l’événement. |
+| données | objet | Données d’événement de stockage Blob. |
+| dataVersion | chaîne | Version du schéma de l’objet de données. Le serveur de publication définit la version du schéma. |
+| metadataVersion | chaîne | Version du schéma des métadonnées d’événement. Event Grid définit le schéma des propriétés de niveau supérieur. Event Grid fournit cette valeur. |
 
 L’objet de données comporte les propriétés suivantes :
 
 | Propriété | Type | Description |
 | -------- | ---- | ----------- |
-| namespaceName | string | Espace de noms Service Bus dans lequel figure la ressource. |
-| requestUri | string | URI vers la file d’attente spécifique ou l’abonnement qui génère l’événement. |
-| entityType | string | Type d’entité Service Bus générant des événements (file d’attente ou abonnement). |
-| queueName | string | File d’attente contenant des messages actives en cas d’abonnement à une file d’attente. Valeur null si des rubriques / abonnements sont utilisés. |
-| topicName | string | Rubrique à laquelle appartient l’abonnement Service Bus contenant les messages actifs. Valeur null si une file d’attente est utilisée. |
-| subscriptionName | string | Abonnement Service Bus contenant les messages actifs. Valeur null si une file d’attente est utilisée. |
+| namespaceName | chaîne | Espace de noms Service Bus dans lequel figure la ressource. |
+| requestUri | chaîne | URI vers la file d’attente spécifique ou l’abonnement qui génère l’événement. |
+| entityType | chaîne | Type d’entité Service Bus générant des événements (file d’attente ou abonnement). |
+| queueName | chaîne | File d’attente contenant des messages actives en cas d’abonnement à une file d’attente. Valeur null si des rubriques / abonnements sont utilisés. |
+| topicName | chaîne | Rubrique à laquelle appartient l’abonnement Service Bus contenant les messages actifs. Valeur null si une file d’attente est utilisée. |
+| subscriptionName | chaîne | Abonnement Service Bus contenant les messages actifs. Valeur null si une file d’attente est utilisée. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

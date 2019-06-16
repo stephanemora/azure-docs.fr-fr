@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 03/25/2018
 ms.author: yushwang
 ms.openlocfilehash: d5e62bf1838c8f07068208019d28d7273c28bd63
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60457372"
 ---
 # <a name="configure-vpn-gateway-transit-for-virtual-network-peering"></a>Configurer le transit par passerelle VPN pour l’homologation de réseaux virtuels
@@ -61,7 +61,7 @@ Les comptes que vous utilisez pour créer une homologation de réseaux virtuels 
 |Réseau virtuel|Modèle de déploiement|Rôle|Autorisations|
 |---|---|---|---|
 |Hub-RM|Gestionnaire de ressources|[Contributeur de réseau](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write|
-| |Classique|[Contributeur de réseau classique](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|S.O.|
+| |Classique|[Contributeur de réseau classique](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|N/A|
 |Spoke-Classic|Gestionnaire de ressources|[Contributeur de réseau](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/peer|
 ||Classique|[Collaborateur de réseau classique](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|Microsoft.ClassicNetwork/virtualNetworks/peer|
 

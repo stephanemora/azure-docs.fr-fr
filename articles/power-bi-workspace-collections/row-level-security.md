@@ -9,10 +9,10 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.openlocfilehash: 2d0c8629e4abf9e27cd204b9a13b79808b177501
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64715203"
 ---
 # <a name="row-level-security-with-power-bi-workspace-collections"></a>Sécurité au niveau des lignes avec Collections d’espaces de travail Power BI
@@ -48,7 +48,7 @@ Voici quelques points à noter concernant ce schéma :
 
 * Toutes les mesures, comme **Total Sales**, sont stockées dans la table de faits **Sales**.
 * Il existe quatre tables de dimension connexes supplémentaires : **Item**, **Time**, **Store** et **District**.
-* Les flèches sur les lignes de relation indiquent de quelle façon les filtres peuvent circuler d’une table à l’autre. Par exemple, si un filtre est placé sur **Time[Date]**, dans le schéma actuel, il filtre uniquement sur les valeurs de la table **Sales**. Aucune autre table n’est affectée par ce filtre, car tous les flèches sur les lignes de relation pointent vers la table des ventes (et pas en direction opposée).
+* Les flèches sur les lignes de relation indiquent de quelle façon les filtres peuvent circuler d’une table à l’autre. Par exemple, si un filtre est placé sur **Time[Date]** , dans le schéma actuel, il filtre uniquement sur les valeurs de la table **Sales**. Aucune autre table n’est affectée par ce filtre, car tous les flèches sur les lignes de relation pointent vers la table des ventes (et pas en direction opposée).
 * La table **Région** indique qui est le directeur pour chaque région :
   
   ![Lignes de la table District](media/row-level-security/district-table-4.png)

@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: magoedte
 ms.openlocfilehash: 40e6d6ff6ea8748b525642e5507c80590b322b7a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60402540"
 ---
 # <a name="service-map-integration-with-system-center-operations-manager"></a>Intégration de Service Map avec System Center Operations Manager
@@ -26,7 +26,7 @@ La solution Service Map détecte automatiquement les composants d’application 
 
 Avec cette intégration entre Service Map et System Center Operations Manager, vous pouvez créer automatiquement des diagrammes d’application distribuée dans Operations Manager basés sur des cartes de dépendance dynamique dans Service Map.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 * Un groupe d’administration d’Operations Manager (2012 R2 ou version ultérieure) qui gère un ensemble de serveurs.
 * Un espace de travail Log Analytics avec la solution Service Map activée.
 * Un ensemble de serveurs (au moins un) gérés par Operations Manager et envoyant des données à Service Map. Les serveurs Windows et Linux sont pris en charge.

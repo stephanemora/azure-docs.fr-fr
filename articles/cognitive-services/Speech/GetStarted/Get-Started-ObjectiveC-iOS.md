@@ -12,10 +12,10 @@ ms.date: 09/18/2018
 ms.author: zhouwang
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 09b7e8961e59bd6fad49408c28e9ee9a4a209cae
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60515291"
 ---
 # <a name="quickstart-use-the-bing-speech-recognition-api-in-objective-c-on-ios"></a>Démarrage rapide : Utiliser l’API Reconnaissance vocale Bing en Objective-C sur iOS
@@ -26,7 +26,7 @@ Avec l’API Reconnaissance vocale, vous pouvez développer des applications iOS
 
 Cet article utilise un exemple d’application pour illustrer les principes fondamentaux de la prise en main de l’API Reconnaissance vocale pour développer une application iOS. Pour obtenir des informations de référence complètes sur l’API, consultez les [informations de référence sur la bibliothèque cliente du SDK Speech](https://cdn.rawgit.com/Microsoft/Cognitive-Speech-STT-iOS/master/com.Microsoft.SpeechSDK-1_0-for-iOS.docset/Contents/Resources/Documents/index.html).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 ### <a name="platform-requirements"></a>Plateforme requise
 

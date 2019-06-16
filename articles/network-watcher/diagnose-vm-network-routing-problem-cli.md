@@ -18,10 +18,10 @@ ms.date: 04/20/2018
 ms.author: kumud
 ms.custom: ''
 ms.openlocfilehash: 968b7dd703ba40f46a068deb1d8b7d2b32e0de2b
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64688211"
 ---
 # <a name="diagnose-a-virtual-machine-network-routing-problem---azure-cli"></a>Diagnostiquer un problème de routage réseau d’une machine virtuelle - Azure CLI
@@ -149,7 +149,7 @@ Toutefois, lorsque vous avez utilisé la commande `az network watcher show-next-
 },
 ```
 
-Comme vous pouvez le voir dans la sortie de la commande `az network watcher nic show-effective-route-table`, même s’il existe un itinéraire par défaut pour le préfixe 172.16.0.0/12, qui inclut l’adresse 172.31.0.100, **NextHopType** est défini sur **None (Aucun)**. Azure crée un itinéraire par défaut pour 172.16.0.0/12, mais ne spécifie pas de type de tronçon suivant tant qu’aucune raison ne motive cette spécification. Si, par exemple, vous avez ajouté la plage d’adresses 172.16.0.0/12 à l’espace d’adressage du réseau virtuel, Azure modifie **NextHopType** pour le définir sur **Réseau virtuel** pour l’itinéraire. Une vérification permet ensuite d’afficher **Réseau virtuel** en tant que **NextHopType**.
+Comme vous pouvez le voir dans la sortie de la commande `az network watcher nic show-effective-route-table`, même s’il existe un itinéraire par défaut pour le préfixe 172.16.0.0/12, qui inclut l’adresse 172.31.0.100, **NextHopType** est défini sur **None (Aucun)** . Azure crée un itinéraire par défaut pour 172.16.0.0/12, mais ne spécifie pas de type de tronçon suivant tant qu’aucune raison ne motive cette spécification. Si, par exemple, vous avez ajouté la plage d’adresses 172.16.0.0/12 à l’espace d’adressage du réseau virtuel, Azure modifie **NextHopType** pour le définir sur **Réseau virtuel** pour l’itinéraire. Une vérification permet ensuite d’afficher **Réseau virtuel** en tant que **NextHopType**.
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 

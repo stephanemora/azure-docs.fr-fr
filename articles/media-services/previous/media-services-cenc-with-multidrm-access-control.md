@@ -14,15 +14,15 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: willzhan;kilroyh;yanmf;juliako
 ms.openlocfilehash: 336552c142e504ae7296314512f00688e30d032e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61466476"
 ---
 # <a name="design-of-a-content-protection-system-with-access-control-using-azure-media-services"></a>Conception d’un système de protection du contenu avec contrôle d’accès à l’aide d’Azure Media Services 
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
 Il est assez complexe de concevoir et développer un sous-système de gestion des droits numériques (DRM) pour une solution OTT (Over-The-Top) ou de diffusion en continu en ligne. Les opérateurs/fournisseurs de vidéo en ligne ont l’habitude d’externaliser cette tâche à des fournisseurs de services DRM spécialisés. L’objectif de ce document est de présenter une conception et une implémentation de référence d’un sous-système DRM de bout en bout dans une solution OTT ou de diffusion en continu en ligne.
 
@@ -337,7 +337,7 @@ Pour inscrire et configurer l’application de pointeur dans Azure AD, suivez le
 
 3. Mettez à jour le fichier manifeste de l’application afin que la propriété groupMembershipClaims se voie attribuer la valeur « groupMembershipClaims » : « All ».
 
-4. Dans l’application Azure AD qui pointe vers l’application web du lecteur, dans la section **Autorisations pour d’autres applications**, ajoutez l’application de ressource ajoutée à l’étape 1. Sous **Autorisations déléguées**, sélectionnez **Accès [nom_ressource]**. Cette option donne à l’application web l’autorisation de créer des jetons d’accès pour accéder à l’application de ressource. Procédez ainsi à la fois pour la version locale et pour la version déployée de l’application web si vous effectuez un développement avec Visual Studio et une application web Azure.
+4. Dans l’application Azure AD qui pointe vers l’application web du lecteur, dans la section **Autorisations pour d’autres applications**, ajoutez l’application de ressource ajoutée à l’étape 1. Sous **Autorisations déléguées**, sélectionnez **Accès [nom_ressource]** . Cette option donne à l’application web l’autorisation de créer des jetons d’accès pour accéder à l’application de ressource. Procédez ainsi à la fois pour la version locale et pour la version déployée de l’application web si vous effectuez un développement avec Visual Studio et une application web Azure.
 
 Le jeton JWT émis par Azure AD est le jeton d’accès utilisé pour accéder à la ressource de pointeur.
 

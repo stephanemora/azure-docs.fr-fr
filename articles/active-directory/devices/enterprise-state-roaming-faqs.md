@@ -18,10 +18,10 @@ ms.date: 10/25/2018
 ms.author: joflore
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a77cf89b7697b7b6b08dead34339ae50dbba8518
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60296314"
 ---
 # <a name="settings-and-data-roaming-faq"></a>FAQ sur l’itinérance des paramètres et des données
@@ -76,7 +76,7 @@ Dans les versions Windows 10 publiées à partir de novembre 2015 inclus, Enterp
 Lorsque plusieurs comptes Azure AD regroupant différents locataires Azure AD se trouvent sur le même appareil, vous devez mettre à jour le registre de l’appareil afin de communiquer avec le service Azure Rights Management pour chaque locataire Azure AD.  
 
 1. Recherchez le GUID de chaque client Azure AD. Ouvrez le portail Azure et sélectionnez un client Azure AD. Le GUID du locataire se trouve dans la page Propriétés du locataire sélectionné (https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties), étiqueté **ID de répertoire**. 
-2. Dès que vous disposez du GUID, vous devez ajouter la clé de Registre **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\SettingSync\WinMSIPC\<tenant ID GUID>**.
+2. Dès que vous disposez du GUID, vous devez ajouter la clé de Registre **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\SettingSync\WinMSIPC\<tenant ID GUID>** .
    À partir de la clé **tenant ID GUID**, créez une nouvelle valeur de chaînes multiples (REG-MULTI-SZ) nommée **AllowedRMSServerUrls**. Pour ses données, spécifiez les URL de point de distribution de licence des autres clients Azure auxquels l’appareil accède.
 3. Vous trouverez les URL de point de distribution de licence en exécutant l’applet de commande **Get-AadrmConfiguration** dans le module AADRM. Si les valeurs des paramètres **LicensingIntranetDistributionPointUrl** et **LicensingExtranetDistributionPointUrl** sont différentes, spécifiez les deux valeurs. Si les valeurs sont les mêmes, ne spécifiez la valeur qu’une seule fois.
 

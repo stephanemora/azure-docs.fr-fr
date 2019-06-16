@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 03/18/2019
 ms.author: alkohli
 ms.openlocfilehash: 05673885336dbfb9a70843bd0ccc4e700091ad7e
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66161126"
 ---
 |     Code d'erreur     |      Description de l’erreur     |
@@ -35,8 +35,8 @@ ms.locfileid: "66161126"
 |    2007            | Impossible de se connecter au conteneur, car les autorisations de compte sont erronées ou obsolètes. Vérifiez votre accès.|
 |    2008            | Impossible d’ajouter de nouvelles données, car le conteneur est plein. Vérifiez les spécifications Azure relatives aux tailles de conteneur prises en charge en fonction du type. Par exemple, le service Azure Files prend uniquement en charge une taille de fichier maximale de 5 To.|
 |    2009            | Impossible de charger les données, car le conteneur associé au partage n’existe pas.|    
-|    2997            | Une erreur inattendue est survenue. Il s’agit d’une erreur temporaire qui se résoudra d’elle-même.|
-|    2998            | Une erreur inattendue est survenue. L’erreur peut se résoudre d’elle-même, mais si elle persiste pendant plus de 24 heures, contactez le Support Microsoft.|
+|    2997            | Une erreur inattendue s’est produite. Il s’agit d’une erreur temporaire qui se résoudra d’elle-même.|
+|    2998            | Une erreur inattendue s’est produite. L’erreur peut se résoudre d’elle-même, mais si elle persiste pendant plus de 24 heures, contactez le Support Microsoft.|
 |    16000           | Impossible de récupérer ce fichier.|
 |    16001           | Impossible de récupérer ce fichier, car il existe déjà sur votre système local.|
 |    16002           |Impossible d’actualiser ce fichier, car il n’est pas complètement chargé.|

@@ -16,10 +16,10 @@ ms.date: 01/15/2019
 ms.author: lahugh
 ms.custom: seodec18
 ms.openlocfilehash: 11028561cf6742cfd5e8c0c882de16ff35ebf0ef
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62118882"
 ---
 # <a name="manage-batch-resources-with-powershell-cmdlets"></a>Gérer les ressources Batch avec les applets de commande PowerShell
@@ -30,7 +30,7 @@ Pour obtenir une liste complète des applets de commande Batch et la syntaxe dé
 
 Cet article est basé sur les applets de commande du module Az Batch 1.0.0. Nous vous recommandons de mettre à jour vos modules Azure PowerShell fréquemment pour tirer parti des améliorations et des mises à jour de service.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 * [Installez and configurez le module Azure PowerShell](/powershell/azure/overview). Pour installer un module Azure Batch spécifique, comme un module en pré-mise en production, consultez [PowerShell Gallery](https://www.powershellgallery.com/packages/Az.Batch/1.0.0).
 
@@ -50,13 +50,13 @@ Cet article est basé sur les applets de commande du module Az Batch 1.0.0. Nou
 
 ### <a name="create-a-batch-account"></a>Création d’un compte Batch
 
-**New-AzBatchAccount** crée un compte Batch dans un groupe de ressources spécifié. Si vous ne disposez pas d’un groupe de ressources, créez-en un en exécutant l’applet de commande [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Spécifiez une des régions Azure dans le paramètre **Emplacement**, « USA Centre » par exemple. Par exemple : 
+**New-AzBatchAccount** crée un compte Batch dans un groupe de ressources spécifié. Si vous ne disposez pas d’un groupe de ressources, créez-en un en exécutant l’applet de commande [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Spécifiez une des régions Azure dans le paramètre **Emplacement**, « USA Centre » par exemple. Par exemple :
 
 ```powershell
 New-AzResourceGroup –Name MyBatchResourceGroup –Location "Central US"
 ```
 
-Ensuite, créez un compte Batch dans le groupe de ressources. Spécifiez un nom pour le compte dans <*nom_compte*>, puis l’emplacement et le nom de votre groupe de ressources. La procédure de création du compte Batch peut prendre un certain temps. Par exemple : 
+Ensuite, créez un compte Batch dans le groupe de ressources. Spécifiez un nom pour le compte dans <*nom_compte*>, puis l’emplacement et le nom de votre groupe de ressources. La procédure de création du compte Batch peut prendre un certain temps. Par exemple :
 
 ```powershell
 New-AzBatchAccount –AccountName <account_name> –Location "Central US" –ResourceGroupName <res_group_name>
@@ -90,7 +90,7 @@ New-AzBatchAccountKey -AccountName <account_name> -KeyType Primary
 
 ### <a name="delete-a-batch-account"></a>Suppression d’un compte Batch
 
-**Remove-AzBatchAccount** supprime un compte Batch. Par exemple : 
+**Remove-AzBatchAccount** supprime un compte Batch. Par exemple :
 
 ```powershell
 Remove-AzBatchAccount -AccountName <account_name>
@@ -175,7 +175,7 @@ Le paramètre **Id** prend uniquement en charge la recherche de l’identificate
 
 ### <a name="use-the-maxcount-parameter"></a>Utilisation du paramètre MaxCount
 
-Par défaut, chaque applet de commande retourne un maximum de 1 000 objets. Si vous atteignez cette limite, affinez votre filtration pour limiter le nombre d’objets retournés, ou définissez explicitement une utilisation maximale à l’aide du paramètre **MaxCount** . Par exemple : 
+Par défaut, chaque applet de commande retourne un maximum de 1 000 objets. Si vous atteignez cette limite, affinez votre filtration pour limiter le nombre d’objets retournés, ou définissez explicitement une utilisation maximale à l’aide du paramètre **MaxCount** . Par exemple :
 
 ```powershell
 Get-AzBatchTask -MaxCount 2500 -BatchContext $context

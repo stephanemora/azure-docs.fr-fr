@@ -16,15 +16,15 @@ ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 5308badf439254062a8aefca1840eb21bc234ace
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60580364"
 ---
 # <a name="change-the-storsimple-virtual-array-device-administrator-password-via-storsimple-device-manager"></a>Modifier le mot de passe administrateur de l’appareil StorSimple Virtual Array via StorSimple Device Manager
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
 Quand vous utilisez l’interface Windows PowerShell pour accéder au StorSimple Virtual Array, vous devez entrer un mot de passe administrateur pour l’appareil. Lorsque l'appareil StorSimple est d'abord configuré puis démarré, le mot de passe par défaut est *Password1*. Pour garantir la sécurité de vos données, le mot de passe par défaut expire dès votre première connexion et vous devez donc le modifier.
 

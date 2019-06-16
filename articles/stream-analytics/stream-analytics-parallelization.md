@@ -10,10 +10,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.openlocfilehash: 0b68819ba032d7655433aadd30fe2852941096ce
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61478876"
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Profiter de la parallélisation de requête dans Azure Stream Analytics
@@ -180,11 +180,11 @@ Lorsqu’une requête est partitionnée, les événements d’entrée sont trait
 Toutes les étapes non partitionnées ensemble peuvent être mises à l’échelle jusqu’à atteindre six unités SU par travail Stream Analytics. En outre, vous pouvez ajouter 6 unités de streaming pour chaque partition dans une étape partitionnée.
 Vous pouvez voir quelques **exemples** dans le tableau ci-dessous.
 
-| Interroger                                               | Nombre d’unités SU maximal pour le travail |
+| Requête                                               | Nombre d’unités SU maximal pour le travail |
 | --------------------------------------------------- | ------------------- |
-| <ul><li>La requête contient une étape.</li><li>L'étape n'est pas partitionnée.</li></ul> | 6. |
+| <ul><li>La requête contient une étape.</li><li>L'étape n'est pas partitionnée.</li></ul> | 6\. |
 | <ul><li>Le flux de données d’entrée est partitionné par 16.</li><li>La requête contient une étape.</li><li>L'étape est partitionnée.</li></ul> | 96 (6 * 16 partitions) |
-| <ul><li>La requête contient 2 étapes.</li><li>Aucune des étapes n'est partitionnée.</li></ul> | 6. |
+| <ul><li>La requête contient 2 étapes.</li><li>Aucune des étapes n'est partitionnée.</li></ul> | 6\. |
 | <ul><li>Le flux de données d'entrée est partitionné par 3.</li><li>La requête contient 2 étapes. L'étape d'entrée est partitionnée et la deuxième étape ne l'est pas.</li><li>L’instruction <strong>SELECT</strong> lit dans l’entrée partitionnée.</li></ul> | 24 (18 pour les étapes partitionnées + 6 pour les étapes non partitionnées) |
 
 ### <a name="examples-of-scaling"></a>Exemples de mise à l’échelle

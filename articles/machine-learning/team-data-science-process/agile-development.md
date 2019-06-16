@@ -11,10 +11,10 @@ ms.date: 11/28/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: adf713fc3f875168f99b302b0a9affef88e8414f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60327801"
 ---
 # <a name="agile-development-of-data-science-projects"></a>Développement Agile de projets de science des données
@@ -93,11 +93,11 @@ Les récits peuvent être ajoutés sous une caractéristique pour décrire les p
 
 Vous pouvez modifier les détails du récit, tels que son état, sa description, ses commentaires, sa planification et sa priorité, dans la fenêtre contextuelle.
 
-![5.](./media/agile-development/5-sprint-edit-story.png)
+![5\.](./media/agile-development/5-sprint-edit-story.png)
 
 Vous pouvez lier ce récit à un dépôt existant en cliquant sur **+ Ajouter un lien** sous **Développement**. 
 
-![6.](./media/agile-development/6-sprint-link-existing-branch.png)
+![6\.](./media/agile-development/6-sprint-link-existing-branch.png)
 
 
 ## 5. <a name='AddTaskunderstory-5'></a>Ajouter une tâche à un récit 

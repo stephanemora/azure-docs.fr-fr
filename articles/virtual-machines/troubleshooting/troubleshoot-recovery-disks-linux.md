@@ -14,10 +14,10 @@ ms.workload: infrastructure
 ms.date: 02/16/2017
 ms.author: genli
 ms.openlocfilehash: dfb85b0f9f1dda611c613cb296177cf28391adc0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60318848"
 ---
 # <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-with-the-azure-cli"></a>Résoudre les problèmes d’une machine virtuelle Linux en attachant le disque de système d’exploitation à une machine virtuelle de récupération avec Azure CLI
@@ -62,7 +62,7 @@ az vm show --resource-group myResourceGroup --name myVM \
     --query [storageProfile.osDisk.vhd.uri] --output tsv
 ```
 
-L’URI se présente ainsi : **https://mystorageaccount.blob.core.windows.net/vhds/myVM.vhd**.
+L’URI se présente ainsi : **https://mystorageaccount.blob.core.windows.net/vhds/myVM.vhd** .
 
 ## <a name="delete-existing-vm"></a>Supprimer une machine virtuelle existante
 Les disques durs virtuels et les machines virtuelles sont deux ressources distinctes dans Azure. Le disque dur virtuel est l’emplacement de stockage du système d’exploitation, des applications et des configurations. La machine virtuelle correspond à des métadonnées définissant la taille ou l’emplacement ; elle référence des ressources comme un disque dur virtuel ou une carte d’interface réseau virtuelle (NIC). Chaque disque dur virtuel associé à une machine virtuelle se voit attribuer un bail. Bien que l’association et la dissociation des disques de données puisse s’effectuer pendant l’exécution de la machine virtuelle, le disque du système d’exploitation ne peut pas être dissocié, sauf si la ressource de machine virtuelle est supprimée. Le bail continue à associer le disque du système d’exploitation à une machine virtuelle, même lorsque cette machine virtuelle se trouve dans un état d’arrêt ou de libération.

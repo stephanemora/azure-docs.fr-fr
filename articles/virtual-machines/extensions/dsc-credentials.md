@@ -16,18 +16,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: robreed
-ms.openlocfilehash: 6618906f7b1b063de18a4f8a418c1c2744ca1533
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 723d0cfe6e292c4b8013de4da55779a6c675d610
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55975782"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64705926"
 ---
 # <a name="pass-credentials-to-the-azure-dscextension-handler"></a>Transmission d’informations d’identification au gestionnaire DSCEextension Azure
 
 Cet article traite de l’extension de la Configuration d’état souhaité (DSC) pour Azure. Vous trouverez une vue d’ensemble du gestionnaire d’extensions DSC dans [Introduction du gestionnaire d’extensions de la Configuration d’état souhaité Azure](dsc-overview.md).
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="pass-in-credentials"></a>Transmettre des informations d’identification
 
@@ -61,7 +61,7 @@ configuration Main
 }
 ```
 
-Il est important d’inclure le **nœud localhost** dans le cadre de la configuration. Le gestionnaire d’extensions recherche plus particulièrement l’instruction du **nœud localhost**. Si cette instruction est manquante, les étapes suivantes ne fonctionnent pas. Il est également important d’inclure la conversion de typecast **[PsCredential]**. Ce type spécifique déclenche l’extension de chiffrement des informations d’identification.
+Il est important d’inclure le **nœud localhost** dans le cadre de la configuration. Le gestionnaire d’extensions recherche plus particulièrement l’instruction du **nœud localhost**. Si cette instruction est manquante, les étapes suivantes ne fonctionnent pas. Il est également important d’inclure la conversion de typecast **[PsCredential]** . Ce type spécifique déclenche l’extension de chiffrement des informations d’identification.
 
 Pour publier ce script sur le Stockage Blob Azure :
 
@@ -84,7 +84,7 @@ $vm | Update-AzVM
 
 L’exécution de ce code invite à entrer les informations d’identification. Une fois les informations d’identification fournies, elles sont brièvement stockées en mémoire. Lorsque les informations d’identification sont publiées à l’aide de l’applet de commande **Set-AzVMDscExtension**, elles sont transmises via le protocole HTTPS à la machine virtuelle. Dans la machine virtuelle, Azure stocke les informations d’identification chiffrées sur le disque à l’aide du certificat de machine virtuelle local. Les informations d’identification sont ensuite déchiffrées brièvement en mémoire, puis rechiffrées pour leur transmission à DSC.
 
-Ce processus diffère de [l’utilisation des configurations sécurisées sans le gestionnaire d’extensions](/powershell/dsc/securemof). L’environnement Azure permet de transmettre des données de configuration en toute sécurité via des certificats. Lors de l’utilisation du gestionnaire d’extensions DSC, il est inutile de fournir une entrée **$CertificatePath** ou **$CertificateID**/ **$Thumbprint** dans **ConfigurationData**.
+Ce processus diffère de [l’utilisation des configurations sécurisées sans le gestionnaire d’extensions](/powershell/dsc/securemof). L’environnement Azure permet de transmettre des données de configuration en toute sécurité via des certificats. Lors de l’utilisation du gestionnaire d’extensions DSC, il est inutile de fournir une entrée **$CertificatePath** ou **$CertificateID**/  **$Thumbprint** dans **ConfigurationData**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

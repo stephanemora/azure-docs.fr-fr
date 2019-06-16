@@ -10,10 +10,10 @@ ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
 ms.openlocfilehash: 94a385b7e41dd4a7664dc40418456b304ebef509
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65150014"
 ---
 # <a name="initiate-a-storage-account-failover-preview"></a>Lancer un basculement de compte de stockage (préversion)
@@ -27,7 +27,7 @@ Cet article explique comment effectuer un basculement de compte pour votre compt
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Avant de pouvoir effectuer un basculement de compte sur votre compte de stockage, assurez-vous d’avoir effectué les étapes suivantes :
 
@@ -55,7 +55,7 @@ Pour lancer un basculement de compte à partir du portail Azure, procédez comme
 
 3. Vérifiez que votre compte de stockage est configuré en tant que stockage géoredondant (GRS) ou stockage géographiquement redondant avec accès en lecture (RA-GRS). Si ce n’est pas le cas, sélectionnez **Configuration** sous **Paramètres** pour mettre à jour votre compte et le rendre géoredondant. 
 4. La propriété **Last Sync Time** (Heure de dernière de synchronisation) indique le décalage entre le secondaire et le primaire. **Last Sync Time** fournit une estimation de l’étendue de la perte de données que vous connaîtrez une fois le basculement terminé.
-5. Sélectionnez **Préparer un basculement (préversion)**. 
+5. Sélectionnez **Préparer un basculement (préversion)** . 
 6. Passez en revue la boîte de dialogue de confirmation. Lorsque vous êtes prêt, entrez **Oui** pour confirmer votre choix et lancer le basculement.
 
     ![Capture d’écran représentant la boîte de dialogue de confirmation d’un basculement de compte](media/storage-initiate-account-failover/portal-failover-confirm.png)

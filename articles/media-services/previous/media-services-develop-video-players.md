@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: b8d4ff3e833dcbe92802845796e3b826735b68ce
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61465641"
 ---
 # <a name="develop-video-player-applications"></a>Développement d’applications de lecteur vidéo
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 Azure Media Services fournit les outils dont vous avez besoin pour créer des applications de lecteur clientes riches et dynamiques pour la plupart des plateformes, notamment : appareils iOS, Android, Windows, Windows Phone, Xbox et décodeurs. Cette rubrique fournit également des liens vers les Kits de développement logiciel (SDK) et les infrastructures de lecteur que vous pouvez utiliser pour développer vos propres applications clientes afin d’utiliser la diffusion en continu de médias à partir d’Azure Media Services.
 
 >[!NOTE]

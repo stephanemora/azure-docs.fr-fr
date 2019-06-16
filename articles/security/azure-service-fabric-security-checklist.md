@@ -15,16 +15,16 @@ ms.workload: na
 ms.date: 01/16/2019
 ms.author: tomsh
 ms.openlocfilehash: 06a1903e5e27d748310c1b7846105b8069b73437
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60611537"
 ---
 # <a name="azure-service-fabric-security-checklist"></a>Liste de contrôle pour la sécurité Azure Service Fabric
 Cet article fournit une liste de contrôle facile à utiliser qui vous aide à sécuriser votre environnement Azure Service Fabric.
 
-## <a name="introduction"></a>Présentation
+## <a name="introduction"></a>Introduction
 Azure Service Fabric est une plateforme de systèmes distribués qui permet d’empaqueter, de déployer et de gérer facilement des microservices scalables et fiables. Service Fabric résout également les problèmes non négligeables du développement et de la gestion des applications cloud. Les développeurs et administrateurs sont en mesure d’éviter les problèmes d’infrastructure complexes et peuvent se concentrer sur l’implémentation de charges de travail stratégiques et exigeantes, évolutives, fiables et faciles à gérer.
 
 ## <a name="checklist"></a>Liste de contrôle

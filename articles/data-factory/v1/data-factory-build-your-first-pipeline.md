@@ -15,10 +15,10 @@ ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: d9d9e68b7e74ba7725e97162d01e1a35314fdd0f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60564582"
 ---
 # <a name="tutorial-build-your-first-pipeline-to-transform-data-using-hadoop-cluster"></a>Didacticiel : Générer votre premier pipeline pour transformer les données à l’aide du cluster Hadoop
@@ -80,7 +80,7 @@ adfgetstarted/partitioneddata/year=2016/month=3/000000_0
 
 Dans les échantillons de lignes ci-dessus, la première (avec 2016-01-01) est écrite dans le fichier 000000_0 dans le dossier month=1. De même, la deuxième est écrite dans le fichier du dossier month=2 et la troisième est écrite dans le fichier du dossier month=3.  
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
 1. **Un abonnement Azure** : si vous n’en avez pas, vous pouvez créer un compte en quelques minutes pour une évaluation gratuite. Consultez l’article [Évaluation gratuite](https://azure.microsoft.com/pricing/free-trial/) pour savoir comment obtenir un compte d’évaluation gratuite.

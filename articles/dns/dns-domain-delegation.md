@@ -2,16 +2,16 @@
 title: Présentation de la délégation DNS Azure
 description: Découvrez comment modifier la délégation de domaine et les serveurs de noms Azure DNS pour fournir l’hébergement d’un domaine.
 services: dns
-author: WenJason
+author: vhorne
 ms.service: dns
-origin.date: 2/19/2019
-ms.date: 03/04/2019
-ms.author: v-jay
+ms.date: 2/19/2019
+ms.author: victorh
+ms.topic: conceptual
 ms.openlocfilehash: 70c1c1ab0dd5d1998054cf0c68325022803dff06
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60563141"
 ---
 # <a name="delegation-of-dns-zones-with-azure-dns"></a>Délégation de zones DNS dans Azure DNS

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: kasinh
 ms.openlocfilehash: ef976667ec580ea75dd1b8566c7bdddf35eeb0fc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60647213"
 ---
 # <a name="back-up-an-exchange-server-to-azure-backup-with-system-center-2012-r2-dpm"></a>Sauvegarder un serveur Exchange dans Azure Backup avec System Center 2012 R2 DPM
@@ -26,7 +26,7 @@ Pour enregistrer correctement le serveur DPM sur Azure Backup, vous devez instal
 >
 >
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 Avant de continuer, vérifiez que toutes les [conditions préalables](backup-azure-dpm-introduction.md#prerequisites-and-limitations) à l’utilisation de Microsoft Azure Backup pour protéger les charges de travail ont bien été remplies. Vous devez au préalable :
 
 * Créer un coffre de sauvegarde sur le site Azure.
@@ -67,7 +67,7 @@ Pour installer l’agent de protection DPM sur le serveur Exchange, procédez co
     Après avoir sélectionné cette option, une vérification de la cohérence de sauvegarde s’exécutera sur le serveur DPM afin d’éviter le trafic d’E/S généré lors de l’exécution de la commande **eseutil** sur le serveur Exchange.
 
    > [!NOTE]
-   > Pour utiliser cette option, vous devez copier les fichiers Ese.dll et Eseutil.exe dans le répertoire C:\Program Files\Microsoft System Center 2012 R2\DPM\DPM\bin sur le serveur DPM. Dans le cas contraire, l’erreur suivante est déclenchée :   
+   > Pour utiliser cette option, vous devez copier les fichiers Ese.dll et Eseutil.exe dans le répertoire C:\Program Files\Microsoft System Center 2012 R2\DPM\DPM\bin sur le serveur DPM. Dans le cas contraire, l’erreur suivante est déclenchée :  
    > ![erreur eseutil](./media/backup-azure-backup-exchange-server/eseutil-error.png)
    >
    >
@@ -82,10 +82,10 @@ Pour installer l’agent de protection DPM sur le serveur Exchange, procédez co
 11. Vérifiez l’espace disque disponible, puis cliquez sur **Suivant**.
 12. Sélectionnez l’heure à laquelle le serveur DPM devra créer la réplication initiale, puis cliquez **Suivant**.
 13. Sélectionnez les options de vérification de cohérence, puis cliquez sur **Suivant**.
-14. Choisissez la base de données que vous souhaitez sauvegarder sur Azure, puis cliquez sur **Suivant**. Par exemple : 
+14. Choisissez la base de données que vous souhaitez sauvegarder sur Azure, puis cliquez sur **Suivant**. Par exemple :
 
     ![Spécifier les données de protection en ligne](./media/backup-azure-backup-exchange-server/specify-online-protection-data.png)
-15. Définissez la planification pour **Azure Backup**, puis cliquez sur **Suivant**. Par exemple : 
+15. Définissez la planification pour **Azure Backup**, puis cliquez sur **Suivant**. Par exemple :
 
     ![Spécifier la planification de sauvegarde en ligne](./media/backup-azure-backup-exchange-server/specify-online-backup-schedule.png)
 

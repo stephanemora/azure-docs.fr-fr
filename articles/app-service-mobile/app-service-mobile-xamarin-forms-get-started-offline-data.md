@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 10/04/2016
 ms.author: crdun
 ms.openlocfilehash: 506c59ca24aeafbac59b1508bb78142051302765
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62127877"
 ---
 # <a name="enable-offline-sync-for-your-xamarinforms-mobile-app"></a>Activer la synchronisation hors connexion pour votre application mobile Xamarin.Forms
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 Ce didacticiel présente la fonctionnalité de synchronisation hors connexion d’Azure Mobile Apps pour Xamarin.Forms. La synchronisation hors connexion permet aux utilisateurs finaux d’interagir avec une application mobile pour afficher, ajouter ou modifier des données, même lorsqu’il n’existe aucune connexion réseau. Les modifications sont stockées dans une base de données locale. Une fois l'appareil de nouveau en ligne, ces modifications sont synchronisées avec le service distant.
 
 Ce didacticiel est basé sur la solution de démarrage rapide de Xamarin.Forms pour les applications mobiles créées en suivant le didacticiel [Création d’une application Xamarin iO]. La solution de démarrage rapide de Xamarin.Forms contient le code de prise en charge de la synchronisation hors connexion, qui doit simplement être activé. Dans ce didacticiel, vous mettez à jour la solution de démarrage rapide pour activer les fonctionnalités hors connexion d’Azure Mobile Apps. Vous en découvrez également plus sur le code hors connexion spécifique dans l’application. Si vous n’utilisez pas la solution de démarrage rapide téléchargée, vous devez ajouter les packages d’extension d’accès aux données à votre projet. Pour plus d'informations sur les packages d'extension de serveur, consultez [Utiliser le kit SDK du serveur backend .NET pour Azure Mobile Apps][1].
@@ -34,7 +34,7 @@ Pour en savoir plus sur la fonctionnalité de synchronisation hors connexion, co
 ## <a name="enable-offline-sync-functionality-in-the-quickstart-solution"></a>Activer la fonctionnalité de synchronisation hors connexion dans la solution de démarrage rapide
 Le code de synchronisation hors connexion est inclus dans le projet à l’aide de directives de préprocesseur C#. Lorsque le symbole **OFFLINE\_SYNC\_ENABLED** est défini, ces chemins de code sont inclus dans la build. Pour les applications Windows, vous devez également installer la plateforme SQLite.
 
-1. Dans Visual Studio, cliquez sur la solution > **Gérer les packages NuGet pour la solution...**, puis recherchez et installez le package NuGet **Microsoft.Azure.Mobile.Client.SQLiteStore** pour tous les projets dans la solution.
+1. Dans Visual Studio, cliquez sur la solution > **Gérer les packages NuGet pour la solution...** , puis recherchez et installez le package NuGet **Microsoft.Azure.Mobile.Client.SQLiteStore** pour tous les projets dans la solution.
 2. Dans l’Explorateur de solutions, ouvrez le fichier TodoItemManager.cs du projet comportant **Portable** dans son nom (projet de bibliothèque de classes portables), puis supprimez les marques de commentaire de la directive de préprocesseur suivante :
 
         #define OFFLINE_SYNC_ENABLED
@@ -45,7 +45,7 @@ Le code de synchronisation hors connexion est inclus dans le projet à l’aide 
    * **Plateforme Windows universelle** : installez [SQLite pour plateforme Windows universelle][5].
 
      Bien que le démarrage rapide ne contienne pas un projet Windows universel, la plateforme Windows universelle est prise en charge par Xamarin.Forms.
-4. (Facultatif) Dans chaque projet d’application Windows, cliquez avec le bouton droit sur **Références** > **Ajouter une référence...**, développez le dossier **Windows** > **Extensions**.
+4. (Facultatif) Dans chaque projet d’application Windows, cliquez avec le bouton droit sur **Références** > **Ajouter une référence...** , développez le dossier **Windows** > **Extensions**.
     Activer le Kit de développement logiciel (SDK) **SQLite for Windows** approprié ainsi que le SDK **Visual C++ 2013 Runtime for Windows**.
     Les noms de SDK SQLite varient légèrement en fonction de la plateforme Windows utilisée.
 

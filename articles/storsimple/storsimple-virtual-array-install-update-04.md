@@ -15,15 +15,15 @@ ms.workload: TBD
 ms.date: 02/07/2017
 ms.author: alkohli
 ms.openlocfilehash: b67fcb82bdcc94d7faeceedb7420a869e6578cad
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61436389"
 ---
 # <a name="install-update-04-on-your-storsimple-virtual-array"></a>Installation d’Update 0.4 sur StorSimple Virtual Array
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
 Cet article décrit les étapes nécessaires pour installer Update 0.4 sur votre instance StorSimple Virtual Array à l’aide de l’interface utilisateur web locale et du portail Azure. Pour maintenir votre instance StorSimple Virtual Array à jour, vous devez appliquer des mises à jour ou des correctifs logiciels. 
 

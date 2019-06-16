@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 07/07/2017
 ms.author: jdial
 ms.openlocfilehash: f077080793ef595019667028188a2a98dcbd2c0c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60624460"
 ---
 # <a name="route-traffic-through-a-network-virtual-appliance"></a>Acheminer le trafic via une appliance virtuelle réseau

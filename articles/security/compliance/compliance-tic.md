@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 06/20/2018
 ms.author: dlap
 ms.openlocfilehash: bb186ab2700b147bee3a7dd81474409ccafb76fc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60608091"
 ---
 # <a name="trusted-internet-connections-guidance"></a>Recommandations relatives à l’initiative Trusted Internet Connections
@@ -151,7 +151,7 @@ Depuis mai 2018, les services qui prennent en charge le déploiement d’instan
 |de diffusion en continu                               |Disponibilité      |
 |--------------------------------------|------------------|
 |Azure SQL Database Managed Instance   | Préversion publique   |
-|Service Azure Kubernetes (AKS)        | Préversion publique   |
+|Azure Kubernetes Service (AKS)        | Préversion publique   |
 |Azure Service Fabric                  | GA               |
 |Gestion des API Azure                  | GA               |
 |Azure Active Directory                | GA               |
@@ -249,25 +249,25 @@ Vous pouvez aisément configurer l’accès pour Microsoft Azure, Office 365 et
 
 | Catégorie | Charge de travail | IaaS | PaaS dédié / Injection de réseau virtuel  | Points de terminaison de service  |
 |---------|---------|---------|---------|--------|
-| Calcul | Machines virtuelles Linux Azure | Oui | | |
-| Calcul | Machines virtuelles Windows Azure | Oui | | |
-| Calcul | Groupes identiques de machines virtuelles  | Oui | | |
+| Calcul | Machines virtuelles Linux Azure | OUI | | |
+| Calcul | Machines virtuelles Windows Azure | OUI | | |
+| Calcul | Groupes identiques de machines virtuelles | OUI | | |
 | Calcul | Azure Functions | | Environnement App Service | |
 | Web et mobile | Application web interne | | Environnement App Service| |
 | Web et mobile | Application mobile interne | | Environnement App Service | |
 | Web et mobile | Applications API | | Environnement App Service | |
-| Containers | Azure Container Service | | | Oui |
-| Containers | Azure Kubernetes Service (AKS) \* | | | Oui |
+| Containers | Azure Container Service | | | OUI |
+| Containers | Azure Kubernetes Service (AKS) \* | | | OUI |
 | Base de données | Azure SQL Database | | Azure SQL Database Managed Instance \* | Azure SQL |
-| Base de données | Azure Database pour MySQL | | | Oui |
-| Base de données | Azure Database pour PostgreSQL | | | Oui |
-| Base de données | Azure SQL Data Warehouse | | | Oui |
-| Base de données | Azure Cosmos DB | | | Oui |
-| Base de données | Cache Azure pour Redis | | Oui | |
-| Stockage | Stockage d'objets blob Azure | Oui | | |
-| Stockage | Azure Files | Oui | | |
-| Stockage | Stockage File d’attente Azure | Oui | | |
-| Stockage | Stockage de tables Azure | Oui | | |
-| Stockage | Stockage sur disque Azure | Oui | | |
+| Base de données | Azure Database pour MySQL | | | OUI |
+| Base de données | Azure Database pour PostgreSQL | | | OUI |
+| Base de données | Azure SQL Data Warehouse | | | OUI |
+| Base de données | Azure Cosmos DB | | | OUI |
+| Base de données | Cache Azure pour Redis | | OUI | |
+| Stockage | Stockage d'objets blob Azure | OUI | | |
+| Stockage | Azure Files | OUI | | |
+| Stockage | Stockage File d’attente Azure | OUI | | |
+| Stockage | Stockage de tables Azure | OUI | | |
+| Stockage | Stockage sur disque Azure | OUI | | |
 
 \* Préversion publique dans Azure Government, mai 2018.

@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
 ms.openlocfilehash: de2279d7f24400142f9d47ecf25378e7e4c47f9e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61474032"
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Planification de la migration des ressources IaaS d’Azure Classic vers Azure Resource Manager
@@ -108,7 +108,7 @@ Voici quelques-uns des problèmes rencontrés dans la majorité des migrations i
 
 - **Déploiements de rôles Web/de travail** : il n’est pas possible de migrer les services cloud contenant des rôles Web et de travail vers Azure Resource Manager. Les rôles Web/de travail doivent être retirés du réseau virtuel pour que la migration puisse démarrer.  Une solution classique consiste tout simplement à déplacer les instances de rôles Web/de travail vers un réseau virtuel Classic distinct, également lié à un circuit ExpressRoute, ou à migrer le code vers des App Services PaaS plus récents (cet aspect n’est pas abordé dans ce document). Dans le premier cas de redéploiement, créez un réseau virtuel Classic, déplacez/redéployez les rôles Web/de travail sur ce réseau virtuel, puis supprimez les déploiements du réseau virtuel déplacé. Aucune modification de code requise : La nouvelle fonctionnalité [d’homologation de réseau virtuel](../../virtual-network/virtual-network-peering-overview.md) peut être utilisée pour apparier le réseau virtuel Classic contenant les rôles Web/de travail et d’autres réseaux virtuels de la même région Azure, par exemple le réseau virtuel en cours de migration (**après la fin de la migration du réseau virtuel, car il n’est pas possible de migrer des réseaux virtuels homologués**), ce qui fournit les mêmes fonctionnalités sans perte de performances et sans pénalités du point de vue de la latence et de la bande passante. Grâce à l’ajout de [l’homologation de réseau virtuel](../../virtual-network/virtual-network-peering-overview.md), il est maintenant facile de corriger les déploiements de rôles Web/de travail, de sorte qu’ils ne bloquent pas la migration vers Azure Resource Manager.
 
-- **Quotas d’Azure Resource Manager** : les régions Azure disposent de quotas/limites distincts pour Classic et Azure Resource Manager. Bien qu’il n’y ait pas de nouveau matériel utilisé dans un scénario de migration *(on permute les machines virtuelles existantes de Classic vers Azure Resource Manager)*, les quotas d’Azure Resource Manager devront être mis en place avec une capacité suffisante pour que la migration puisse démarrer. Vous trouverez ci-dessous les principales limites dont nous avons constaté qu’elles posaient problème.  Ouvrez un ticket de support concernant les quotas pour relever les limites. 
+- **Quotas d’Azure Resource Manager** : les régions Azure disposent de quotas/limites distincts pour Classic et Azure Resource Manager. Bien qu’il n’y ait pas de nouveau matériel utilisé dans un scénario de migration *(on permute les machines virtuelles existantes de Classic vers Azure Resource Manager)* , les quotas d’Azure Resource Manager devront être mis en place avec une capacité suffisante pour que la migration puisse démarrer. Vous trouverez ci-dessous les principales limites dont nous avons constaté qu’elles posaient problème.  Ouvrez un ticket de support concernant les quotas pour relever les limites. 
 
     > [!NOTE]
     > Ces limites doivent être relevées dans la même région que votre environnement actuel à migrer.

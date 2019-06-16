@@ -13,10 +13,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: a9c857ab9e9a3cfc0d1314600b612c4e6293173d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60332311"
 ---
 # <a name="scale-out-databases-with-the-shard-map-manager"></a>Monter en charge les bases de données avec le Gestionnaire de cartes de partitions
@@ -58,7 +58,7 @@ L’infrastructure élastique prend en charge les types suivants en tant que cl�
 | long |long |
 | GUID |uuid |
 | byte[]  |byte[] |
-| datetime | timestamp |
+| Datetime | timestamp |
 | intervalle de temps | duration|
 | datetimeoffset |offsetdatetime |
 
@@ -75,12 +75,12 @@ Les **partitions** contiennent des **shardlets** (micro-partitions) et le mappag
 | 1 |Database_A |
 | 3 |Database_B |
 | 4 |Database_C |
-| 6. |Database_B |
+| 6\. |Database_B |
 | ... |... |
 
 ### <a name="range-shard-maps"></a>Cartes de partitions de plage
 
-Dans une **carte de partitions de plage**, la plage de clé est décrite par une paire **[valeur inférieure, valeur supérieure)**, où la *valeur inférieure* correspond à la clé minimale de la plage, tandis que la *valeur supérieure* correspond à la première valeur supérieure à la plage.
+Dans une **carte de partitions de plage**, la plage de clé est décrite par une paire **[valeur inférieure, valeur supérieure)** , où la *valeur inférieure* correspond à la clé minimale de la plage, tandis que la *valeur supérieure* correspond à la première valeur supérieure à la plage.
 
 Par exemple, **[0, 100)** inclut tous les entiers égaux ou supérieurs à 0 et inférieurs à 100. Notez que plusieurs plages peuvent pointer vers la même base de données et que les plages disjointes sont prises en charge (par exemple, [100,200) et [400,600) pointent vers la base de données C dans l’exemple suivant.)
 

@@ -16,15 +16,15 @@ ms.date: 06/05/2017
 ms.author: v-sharos
 ms.custom: ''
 ms.openlocfilehash: 46225e5a332e035e4d1cc256e71c4b5d8686fd47
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60845135"
 ---
 # <a name="use-storsimple-snapshot-manager-user-interface-to-manage-backup-jobs-and-backup-catalog"></a>Utiliser l’interface utilisateur StorSimple Snapshot Manager pour gérer les tâches de sauvegarde et le catalogue de sauvegarde
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 StorSimple Snapshot Manager présente une interface utilisateur intuitive qui vous permet de procéder à des sauvegardes et de les gérer. Ce didacticiel présente l’interface utilisateur, puis explique comment utiliser chacun des composants. Pour obtenir une description détaillée du Gestionnaire d'instantanés StorSimple, consultez [Qu'est-ce que le Gestionnaire d'instantanés StorSimple ?](storsimple-what-is-snapshot-manager.md)
 
 ### <a name="console-description"></a>Description de la console

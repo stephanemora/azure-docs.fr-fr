@@ -9,10 +9,10 @@ ms.date: 06/04/2018
 ms.author: vinagara
 ms.subservice: alerts
 ms.openlocfilehash: 9d734f74c4e12b369e46c15dcb9d01a8185dddd6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60431118"
 ---
 # <a name="extend-alerts-from-log-analytics-into-azure-alerts"></a>Étendre des alertes à partir de Log Analytics vers Azure Alerts
@@ -232,7 +232,7 @@ Voici les étapes de correction pour chaque erreur :
 
     Lorsque [Azure Policy](../../governance/policy/overview.md) est appliqué, il restreint toute nouvelle ressource dans un abonnement ou un groupe de ressources qui contient l’espace de travail Log Analytics (dans Operations Management Suite). Le système ne peut pas étendre les alertes à Azure et créer les groupes d’actions nécessaires.
     
-    Pour remédier à cela, modifiez la stratégie à l’origine de l’erreur *[RequestDisallowedByPolicy](../../azure-resource-manager/resource-manager-policy-requestdisallowedbypolicy-error.md)*, qui empêche la création de nouvelles ressources sur votre abonnement ou groupe de ressources contenant l’espace de travail. Vous pouvez effectuer cette opération à l’aide du portail Azure, de PowerShell, d’Azure CLI ou de l’API. Vous pouvez auditer des actions pour trouver la stratégie en rapport, qui provoque l’échec. Pour plus d’informations, consultez [l’affichage des journaux d’activité pour auditer les actions](../../azure-resource-manager/resource-group-audit.md). 
+    Pour remédier à cela, modifiez la stratégie à l’origine de l’erreur *[RequestDisallowedByPolicy](../../azure-resource-manager/resource-manager-policy-requestdisallowedbypolicy-error.md)* , qui empêche la création de nouvelles ressources sur votre abonnement ou groupe de ressources contenant l’espace de travail. Vous pouvez effectuer cette opération à l’aide du portail Azure, de PowerShell, d’Azure CLI ou de l’API. Vous pouvez auditer des actions pour trouver la stratégie en rapport, qui provoque l’échec. Pour plus d’informations, consultez [l’affichage des journaux d’activité pour auditer les actions](../../azure-resource-manager/resource-group-audit.md). 
     
     Lorsque vous corrigez cette erreur en procédant comme illustré dans l’article, Operations Management Suite étend vos alertes à Azure lors de l’exécution planifiée du jour suivant. Aucune autre action ou lancement de quoi que ce soit n’est nécessaire.
 

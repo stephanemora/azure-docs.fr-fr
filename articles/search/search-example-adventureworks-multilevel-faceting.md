@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: chstone
 ms.openlocfilehash: e17a91a35b69102e4e0ac6025559bbc32e71d8fb
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65024124"
 ---
 # <a name="example-multi-level-facets-in-azure-search"></a>Exemple : Facettes à plusieurs niveaux dans Recherche Azure
@@ -87,7 +87,7 @@ L'objet **catégories** peut maintenant être utilisé pour restituer une arbore
   ![filtre à facettes à plusieurs niveaux](./media/search-example-adventureworks/multi-level-facet.png "filtre à facettes à plusieurs niveaux")
 
  
-Chaque lien de l’arborescence doit appliquer le filtre connexe. Par exemple : 
+Chaque lien de l’arborescence doit appliquer le filtre connexe. Par exemple :
 
 + **taxonomy/any**`(x:x eq 'Accessories')` renvoie tous les documents de la branche Accessories
 + **taxonomy/any**`(x:x eq 'Accessories|Bike Racks')` renvoie uniquement les documents présentant une sous-catégorie de Bike Racks sous la branche Accessories.

@@ -10,10 +10,10 @@ ms.date: 01/16/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: e7dccc4a396d4cf8af1062057c4c3ce6efe978ed
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61074247"
 ---
 # <a name="connection-assets-in-azure-automation"></a>Ressources de connexion dans Azure Automation
@@ -114,7 +114,7 @@ Vous ajoutez une activité **Get-AutomationConnection** à un Runbook graphique 
 
 ![ajouter au canevas](media/automation-connections/connection-add-canvas.png)
 
-L’image suivante montre un exemple d’utilisation d’une connexion dans un Runbook graphique.  Voici le même exemple que le précédent pour s’authentifier à l’aide du compte d’identification avec un runbook textuel.  Cet exemple utilise les données **Valeurs constantes** définies pour l’activité **Get RunAs Connection (Obtenir la connexion d’identification)**, qui utilise un objet de connexion pour l’authentification.  Un [lien pipeline](automation-graphical-authoring-intro.md#links-and-workflow) est utilisé ici, car le jeu de paramètres ServicePrincipalCertificate attend un seul objet.
+L’image suivante montre un exemple d’utilisation d’une connexion dans un Runbook graphique.  Voici le même exemple que le précédent pour s’authentifier à l’aide du compte d’identification avec un runbook textuel.  Cet exemple utilise les données **Valeurs constantes** définies pour l’activité **Get RunAs Connection (Obtenir la connexion d’identification)** , qui utilise un objet de connexion pour l’authentification.  Un [lien pipeline](automation-graphical-authoring-intro.md#links-and-workflow) est utilisé ici, car le jeu de paramètres ServicePrincipalCertificate attend un seul objet.
 
 ![obtenir les connexions](media/automation-connections/automation-get-connection-object.png)
 

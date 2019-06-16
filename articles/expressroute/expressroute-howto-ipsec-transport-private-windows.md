@@ -9,10 +9,10 @@ ms.date: 10/17/2018
 ms.author: fabferri
 ms.custom: seodec18
 ms.openlocfilehash: d728980517988e2dc39be4e4b64d20157a1aef54
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60366925"
 ---
 # <a name="configure-ipsec-transport-mode-for-expressroute-private-peering"></a>Configurer le mode de transport IPsec pour l’appairage privé ExpressRoute
@@ -104,7 +104,7 @@ Assurez-vous de satisfaire les prérequis suivants :
 1. Pour créer un objet de stratégie de groupe lié à une unité d’organisation, ouvrez le composant logiciel enfichable Gestion des stratégies de groupe, puis recherchez l’unité d’organisation à laquelle l’objet de stratégie de groupe est lié. Dans l’exemple, l’unité d’organisation se nomme **IPSecOU**. 
 
    [![9]][9]
-2. Dans le composant logiciel enfichable Gestion des stratégies de groupe, sélectionnez l’unité d’organisation, puis cliquez dessus avec le bouton droit. Dans la liste déroulante, cliquez sur **Créer un objet GPO dans ce domaine, et le lier ici...**.
+2. Dans le composant logiciel enfichable Gestion des stratégies de groupe, sélectionnez l’unité d’organisation, puis cliquez dessus avec le bouton droit. Dans la liste déroulante, cliquez sur **Créer un objet GPO dans ce domaine, et le lier ici...** .
 
    [![10]][10]
 3. Attribuez un nom explicite à l’objet de stratégie de groupe de manière à pouvoir le localiser facilement quand vous en aurez besoin. Cliquez sur **OK** pour créer et lier l’objet de stratégie de groupe.
@@ -141,7 +141,7 @@ Pour appliquer l’objet de stratégie de groupe à l’unité d’organisation,
 6. Dans la page **Communiquer avec des ordinateurs qui ne prennent pas en charge IPSec**, sélectionnez **Ne pas autoriser les communications non sécurisées**, puis cliquez sur **Suivant**.
 
    [![20]][20]
-7. Dans la page **Trafic IP et sécurité**, sélectionnez **Personnalisé**, puis cliquez sur **Paramètres...**.
+7. Dans la page **Trafic IP et sécurité**, sélectionnez **Personnalisé**, puis cliquez sur **Paramètres...** .
 
    [![21]][21]
 8. Dans la page **Paramètres personnalisés de la méthode de sécurité**, sélectionnez **Chiffrement et intégrité des données (ESP) : SHA1, 3DES**. Cliquez ensuite sur **OK**.
@@ -252,7 +252,7 @@ Ajoutez à la stratégie IPsec la **liste de filtres IP** et **l’action de fil
 6. Sélectionnez l’action de filtrage que vous avez créée précédemment (**myEncryption**).
 
    [![46]][46]
-7. Windows prend en charge quatre types d’authentification distincts : Kerberos, certificats, NTLMv2 et clé prépartagée. Étant donné que nous utilisons des ordinateurs hôtes joints à un domaine, sélectionnez **Authentification Active Directory par défaut (protocole Kerberos v.5)**, puis cliquez sur **Suivant**.
+7. Windows prend en charge quatre types d’authentification distincts : Kerberos, certificats, NTLMv2 et clé prépartagée. Étant donné que nous utilisons des ordinateurs hôtes joints à un domaine, sélectionnez **Authentification Active Directory par défaut (protocole Kerberos v.5)** , puis cliquez sur **Suivant**.
 
    [![47]][47]
 8. La nouvelle stratégie crée la règle de sécurité **azure-onpremises-HTTP8080**. Cliquez sur **OK**.

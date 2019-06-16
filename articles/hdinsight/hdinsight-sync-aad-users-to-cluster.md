@@ -9,17 +9,17 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.openlocfilehash: 2be67c604bebbe9b4c4356e241d1480ca0778d4a
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64688543"
 ---
 # <a name="synchronize-azure-active-directory-users-to-an-hdinsight-cluster"></a>Synchroniser des utilisateurs Azure Active Directory vers un cluster HDInsight
 
 Les [clusters HDInsight avec le Pack Sécurité Entreprise (ESP) activé](hdinsight-domain-joined-introduction.md) peuvent utiliser l’authentification forte pour les utilisateurs d’Azure Active Directory (Azure AD), et également des stratégies de *contrôle d’accès en fonction du rôle* (RBAC). À mesure que vous ajoutez des utilisateurs et des groupes à Azure AD, vous pouvez synchroniser les utilisateurs qui ont besoin d’accéder à votre cluster.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Si ce n’est déjà fait, [créez un cluster HDInsight avec le Pack Sécurité Entreprise activé](hdinsight-domain-joined-configure.md).
 
@@ -45,7 +45,7 @@ Les groupes d’utilisateurs spécifiés pendant le processus de création de cl
 
 La méthode suivante utilise POST avec l’API REST Ambari. Pour plus d’informations, consultez [Gérer des clusters HDInsight à l’aide de l’API REST d’Apache Ambari](hdinsight-hadoop-manage-ambari-rest-api.md).
 
-1. [Connectez-vous à votre cluster avec SSH](hdinsight-hadoop-linux-use-ssh-unix.md). Dans le volet de vue d’ensemble de votre cluster dans le portail Azure, sélectionnez le bouton **Secure Shell (SSH)**.
+1. [Connectez-vous à votre cluster avec SSH](hdinsight-hadoop-linux-use-ssh-unix.md). Dans le volet de vue d’ensemble de votre cluster dans le portail Azure, sélectionnez le bouton **Secure Shell (SSH)** .
 
     ![Secure Shell (SSH)](./media/hdinsight-sync-aad-users-to-cluster/ssh.png)
 
@@ -127,7 +127,7 @@ La méthode suivante utilise POST avec l’API REST Ambari. Pour plus d’inform
 
 ## <a name="verify-the-newly-added-azure-ad-user"></a>Vérifier l’utilisateur Azure AD récemment ajouté
 
-Ouvrez [l’interface utilisateur web d’Apache Ambari](hdinsight-hadoop-manage-ambari.md) pour vérifier que le nouvel utilisateur Azure AD a été ajouté. Accédez à l’interface utilisateur web d’Ambari en naviguant jusqu’à **`https://<YOUR CLUSTER NAME>.azurehdinsight.net`**. Entrez le nom d’utilisateur et le mot de passe de l’administrateur de cluster.
+Ouvrez [l’interface utilisateur web d’Apache Ambari](hdinsight-hadoop-manage-ambari.md) pour vérifier que le nouvel utilisateur Azure AD a été ajouté. Accédez à l’interface utilisateur web d’Ambari en naviguant jusqu’à **`https://<YOUR CLUSTER NAME>.azurehdinsight.net`** . Entrez le nom d’utilisateur et le mot de passe de l’administrateur de cluster.
 
 1. Dans le tableau de bord Ambari, sélectionnez **Manage Ambari** (Gérer Ambari) sous le menu **admin**.
 

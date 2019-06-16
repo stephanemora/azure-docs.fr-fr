@@ -14,10 +14,10 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 35e9347039a7b9939ab4d2719f9738429dec168c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60824250"
 ---
 # <a name="invoke-stored-procedure-from-copy-activity-in-azure-data-factory"></a>Appeler une procédure stockée à partir d’une activité de copie dans Azure Data Factory
@@ -94,5 +94,5 @@ CREATE TYPE [dbo].[MarketingType] AS TABLE(
 ## <a name="next-steps"></a>Étapes suivantes
 Pour accéder à des exemples JSON complets, consultez les articles suivants sur les connecteurs : 
 
-- [Base de données SQL Azure](data-factory-azure-sql-connector.md)
+- [Azure SQL Database](data-factory-azure-sql-connector.md)
 - [SQL Server](data-factory-sqlserver-connector.md)

@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: chakdan
 ms.openlocfilehash: cb4e327e1c8c0a653cb94233f568b4847494c439
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60419434"
 ---
 # <a name="containerize-an-existing-net-app-for-service-fabric-mesh"></a>Conteneuriser une application .NET pour Service Fabric Mesh
@@ -25,7 +25,7 @@ Dans Visual Studio 2017, vous pouvez ajouter la prise en charge de la conteneur
 > [!NOTE]
 > Les projets .NET **Core** ne sont pas pris en charge.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 * Si vous n’avez pas d’abonnement Azure, vous pouvez créer un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 

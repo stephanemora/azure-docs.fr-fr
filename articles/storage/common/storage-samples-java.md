@@ -10,10 +10,10 @@ ms.date: 05/03/2019
 ms.author: mhopkins
 ms.subservice: common
 ms.openlocfilehash: 3d241f1905244d3a8039372262f84ba0fd25220d
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65209797"
 ---
 # <a name="azure-storage-samples-using-java"></a>Exemples de stockage Azure avec Java
@@ -25,7 +25,7 @@ Le tableau suivant fournit une vue d’ensemble de notre référentiel d’exemp
 <table style="font-size:90%"><thead><tr><th style="font-size:110%">Point de terminaison</th><th style="font-size:110%">Scénario</th><th style="font-size:110%">Exemple de code</th></tr></thead><tbody>
 <tr>
 <td rowspan="16"><b>Objet blob</b></td>
-<td>Ajouter un objet blob</td>
+<td>Append Blob</td>
 <td><a href="https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java">Getting Started with Azure Blob Service in Java (Prise en main du service Azure Blob en Java)</a></td>
 </tr>
 <tr>

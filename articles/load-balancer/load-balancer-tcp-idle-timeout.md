@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
 ms.openlocfilehash: 0c57eec4d739da13d98099a6b2f01fbf0ad0051c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60734596"
 ---
 # <a name="configure-tcp-idle-timeout-settings-for-azure-load-balancer"></a>Configuration des paramètres de délai d’inactivité et d’expiration TCP pour Azure Load Balancer
@@ -76,7 +76,7 @@ Pour récupérer votre configuration du délai d’inactivité, utilisez la comm
 
 ## <a name="set-the-tcp-timeout-on-a-load-balanced-endpoint-set"></a>Définir le délai d’expiration TCP sur un jeu de points de terminaison d’équilibrage de charge
 
-Si les points de terminaison font partie d'un jeu de points de terminaison d'équilibrage de charge, le délai d'expiration TCP doit être défini sur le jeu de points de terminaison d'équilibrage de charge. Par exemple : 
+Si les points de terminaison font partie d'un jeu de points de terminaison d'équilibrage de charge, le délai d'expiration TCP doit être défini sur le jeu de points de terminaison d'équilibrage de charge. Par exemple :
 
 ```powershell
 Set-AzureLoadBalancedEndpoint -ServiceName "MyService" -LBSetName "LBSet1" -Protocol tcp -LocalPort 80 -ProbeProtocolTCP -ProbePort 8080 -IdleTimeoutInMinutes 15

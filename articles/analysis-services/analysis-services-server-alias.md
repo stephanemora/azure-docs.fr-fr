@@ -9,15 +9,15 @@ ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 66e6b4713591f099769543a75dcddec34f3d2e2b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60534327"
 ---
 # <a name="alias-server-names"></a>Alias de noms de serveurs
 
-Grâce aux alias de noms de serveurs, les utilisateurs peuvent se connecter à votre serveur Azure Analysis Services avec un *alias* plus court que le nom du serveur. En cas de connexion à partir d’une application cliente, l’alias est spécifié comme point de terminaison suivant le format de protocole **link://**. Le point de terminaison retourne ensuite le nom réel du serveur pour permettre la connexion.
+Grâce aux alias de noms de serveurs, les utilisateurs peuvent se connecter à votre serveur Azure Analysis Services avec un *alias* plus court que le nom du serveur. En cas de connexion à partir d’une application cliente, l’alias est spécifié comme point de terminaison suivant le format de protocole **link://** . Le point de terminaison retourne ensuite le nom réel du serveur pour permettre la connexion.
 
 Les alias de noms de serveurs sont utiles pour :
 
@@ -30,7 +30,7 @@ Tout point de terminaison HTTP qui retourne un nom de serveur Azure Analysis Ser
 
 ![Alias au format link](media/analysis-services-alias/aas-alias-browser.png)
 
-En cas de connexion à partir d’un client, l’alias de nom de serveur est entré suivant le format de protocole **link://**. Par exemple, dans Power BI Desktop :
+En cas de connexion à partir d’un client, l’alias de nom de serveur est entré suivant le format de protocole **link://** . Par exemple, dans Power BI Desktop :
 
 ![Connexion Power BI Desktop](media/analysis-services-alias/aas-alias-connect-pbid.png)
 

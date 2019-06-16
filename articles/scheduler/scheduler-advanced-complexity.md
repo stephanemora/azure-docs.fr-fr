@@ -11,10 +11,10 @@ ms.assetid: 5c124986-9f29-4cbc-ad5a-c667b37fbe5a
 ms.topic: article
 ms.date: 11/14/2018
 ms.openlocfilehash: a413261d251c8dfc1de9209168ee8137b85009f1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60531827"
 ---
 # <a name="build-advanced-schedules-and-recurrences-for-jobs-in-azure-scheduler"></a>Créer des planifications et des périodicités avancées pour les travaux dans Azure Scheduler
@@ -65,13 +65,13 @@ Ce tableau fournit une vue d’ensemble des principaux éléments JSON que vous 
 
 | Élément | Obligatoire | Description | 
 |---------|----------|-------------|
-| **startTime** | Non  | Valeur de chaîne DateHeure au [format ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) qui spécifie quand le travail démarre la première fois dans une planification de base. <p>Pour les planifications complexes, le travail ne démarre pas avant **startTime**. | 
-| **recurrence** | Non  | Spécifie les règles de périodicité selon lesquelles le travail est exécuté. L’objet **recurrence** prend en charge les éléments suivants : **frequency**, **interval**, **schedule**, **count** et **endTime**. <p>Si vous définissez l’élément **recurrence**, vous devez également définir l’élément **frequency**. Les autres éléments **recurrence** sont facultatifs. |
+| **startTime** | Non | Valeur de chaîne DateHeure au [format ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) qui spécifie quand le travail démarre la première fois dans une planification de base. <p>Pour les planifications complexes, le travail ne démarre pas avant **startTime**. | 
+| **recurrence** | Non | Spécifie les règles de périodicité selon lesquelles le travail est exécuté. L’objet **recurrence** prend en charge les éléments suivants : **frequency**, **interval**, **schedule**, **count** et **endTime**. <p>Si vous définissez l’élément **recurrence**, vous devez également définir l’élément **frequency**. Les autres éléments **recurrence** sont facultatifs. |
 | **frequency** | Oui, si vous définissez **recurrence** | Unité de temps entre les occurrences. Les valeurs prises en charge sont : « Minute », « Hour », « Day », « Week », « Month » et « Year » | 
-| **interval** | Non  | Entier positif qui détermine le nombre d’unités de temps entre les occurrences, en fonction de l’élément **frequency**. <p>Par exemple, si **interval** a la valeur 10 et que **frequency** est défini sur « Week », le travail se répète toutes les 10 semaines. <p>Voici le plus grand nombre d’intervalles pour chaque fréquence : <p>- 18 mois <br>- 78 semaines <br>- 548 jours <br>- Pour les heures et les minutes, la plage est 1 <= <*interval*> <= 1 000. | 
-| **schedule** | Non  | Définit les changements de périodicité selon les minutes, heures, jours de la semaine et jours du mois spécifiés. | 
-| **count** | Non  | Entier positif qui spécifie le nombre de fois où le travail s’exécute avant de finir. <p>Par exemple, quand un travail quotidien a une valeur **count** égale à 7 et une date de début définie au lundi, le travail finit de s’exécuter le dimanche. Si la date de début est passée, la première exécution est calculée d’après l’heure de création. <p>Si la valeur **endTime** ou **count** n’est pas spécifiée, le travail s’exécute indéfiniment. Vous ne pouvez pas utiliser à la fois **count** et **endTime** dans le même travail, mais la règle qui finit en premier est appliquée. | 
-| **endTime** | Non  | Valeur de chaîne Date ou DateHeure au [format ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) qui spécifie quand le travail arrête de s’exécuter. Vous pouvez définir une valeur **endTime** qui se trouve dans le passé. <p>Si la valeur **endTime** ou **count** n’est pas spécifiée, le travail s’exécute indéfiniment. Vous ne pouvez pas utiliser à la fois **count** et **endTime** dans le même travail, mais la règle qui finit en premier est appliquée. |
+| **interval** | Non | Entier positif qui détermine le nombre d’unités de temps entre les occurrences, en fonction de l’élément **frequency**. <p>Par exemple, si **interval** a la valeur 10 et que **frequency** est défini sur « Week », le travail se répète toutes les 10 semaines. <p>Voici le plus grand nombre d’intervalles pour chaque fréquence : <p>- 18 mois <br>- 78 semaines <br>- 548 jours <br>- Pour les heures et les minutes, la plage est 1 <= <*interval*> <= 1 000. | 
+| **schedule** | Non | Définit les changements de périodicité selon les minutes, heures, jours de la semaine et jours du mois spécifiés. | 
+| **count** | Non | Entier positif qui spécifie le nombre de fois où le travail s’exécute avant de finir. <p>Par exemple, quand un travail quotidien a une valeur **count** égale à 7 et une date de début définie au lundi, le travail finit de s’exécuter le dimanche. Si la date de début est passée, la première exécution est calculée d’après l’heure de création. <p>Si la valeur **endTime** ou **count** n’est pas spécifiée, le travail s’exécute indéfiniment. Vous ne pouvez pas utiliser à la fois **count** et **endTime** dans le même travail, mais la règle qui finit en premier est appliquée. | 
+| **endTime** | Non | Valeur de chaîne Date ou DateHeure au [format ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) qui spécifie quand le travail arrête de s’exécuter. Vous pouvez définir une valeur **endTime** qui se trouve dans le passé. <p>Si la valeur **endTime** ou **count** n’est pas spécifiée, le travail s’exécute indéfiniment. Vous ne pouvez pas utiliser à la fois **count** et **endTime** dans le même travail, mais la règle qui finit en premier est appliquée. |
 |||| 
 
 Par exemple, ce schéma JSON décrit une planification et une périodicité de base pour un travail : 

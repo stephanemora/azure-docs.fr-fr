@@ -16,10 +16,10 @@ ms.date: 02/27/2017
 ms.author: lahugh
 ms.custom: seodec18
 ms.openlocfilehash: 085bfa582b676f34a02e4c1c5ae7e69c49e5cb4e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60550082"
 ---
 # <a name="use-visual-studio-project-templates-to-jump-start-batch-solutions"></a>Utiliser des modèles de projet Visual Studio pour lancer rapidement des solutions Batch
@@ -52,7 +52,7 @@ Comme indiqué dans le diagramme ci-dessous, un travail de calcul qui utilise ce
 
 ![Diagramme montrant comment le code client interagit avec le service Batch][diagram01]
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 Voici les composants requis pour utiliser les modèles Batch :
 
 * Un ordinateur où Visual Studio 2015 est installé. Les modèles Batch sont actuellement pris en charge seulement pour Visual Studio 2015.
@@ -89,7 +89,7 @@ Pour ajouter un gestionnaire de travaux à la solution que vous avez créée pr�
 
 1. Ouvrez votre solution existante dans Visual Studio.
 2. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur la solution et cliquez sur **Ajouter** > **Nouveau projet**.
-3. Sous **Visual C#**, cliquez sur **Cloud**, puis sur **Azure Batch Job Manager with Job Splitter** (Gestionnaire de travaux Azure Batch avec outil de fractionnement du travail).
+3. Sous **Visual C#** , cliquez sur **Cloud**, puis sur **Azure Batch Job Manager with Job Splitter** (Gestionnaire de travaux Azure Batch avec outil de fractionnement du travail).
 4. Entrez un nom décrivant votre application et identifiant ce projet en tant que le gestionnaire de travaux (par exemple, « GestionnaireTravauxLitware »).
 5. Cliquez sur **OK**pour créer le projet.
 6. Pour finir, générez le projet pour forcer Visual Studio à charger tous les packages NuGet référencés et vérifier que le projet est valide avant de commencer à le modifier.
@@ -258,7 +258,7 @@ Pour ajouter un processeur de tâches à la solution que vous avez créée préc
 
 1. Ouvrez votre solution existante dans Visual Studio.
 2. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur la solution, cliquez sur **Ajouter**, puis sur **Nouveau projet**.
-3. Sous **Visual C#**, cliquez sur **Cloud**, puis sur **Azure Batch Task Processor** (Processeur de tâches Azure Batch).
+3. Sous **Visual C#** , cliquez sur **Cloud**, puis sur **Azure Batch Task Processor** (Processeur de tâches Azure Batch).
 4. Entrez un nom décrivant votre application et identifiant ce projet en tant que le processeur de tâches (par exemple, « ProcesseurLitwareTask »).
 5. Cliquez sur **OK**pour créer le projet.
 6. Pour finir, générez le projet pour forcer Visual Studio à charger tous les packages NuGet référencés et vérifier que le projet est valide avant de commencer à le modifier.

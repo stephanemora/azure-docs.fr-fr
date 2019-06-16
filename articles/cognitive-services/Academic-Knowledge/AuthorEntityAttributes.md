@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
 ms.openlocfilehash: d4b33c06ab023023aadf403cf0ef0b08c2bafc5f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60609759"
 ---
 # <a name="author-entity"></a>Entité Auteur
@@ -23,11 +23,11 @@ ms.locfileid: "60609759"
 Nom    |Description                            |Type       | Opérations
 ------- | ------------------------------------- | --------- | ----------------------------
 ID      |L’ID d’entité                              |Int64      |Égal à
-AuN     |Nom de l’auteur normalisé                 |String     |Égal à
-DAuN    |Nom d’affichage de l’auteur                    |String     |Aucun
+AuN     |Nom de l’auteur normalisé                 |Chaîne     |Égal à
+DAuN    |Nom d’affichage de l’auteur                    |Chaîne     |Aucun
 CC      |Nombre total de citations de l’auteur            |Int32      |Aucun  
 ECC     |Estimation du nombre total de citations de l’auteur  |Int32      |Aucun
-E       |Métadonnées étendues (voir le tableau « Attributs de métadonnées étendues »)  |String     |Aucun  
+E       |Métadonnées étendues (voir le tableau « Attributs de métadonnées étendues »)  |Chaîne     |Aucun  
 
 
 ## <a name="extended-metadata-attributes"></a>Attributs de métadonnées étendues ##

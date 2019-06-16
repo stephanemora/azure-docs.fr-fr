@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: mbullwin
 ms.openlocfilehash: dfbaabd3d27804909334a7a370bcc89115e625c4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60900064"
 ---
 # <a name="using-search-in-application-insights"></a>Utilisation de la recherche dans Application Insights
@@ -112,7 +112,7 @@ Vous pouvez définir une durée, car les recherches sur les plages courtes sont 
 
 Recherchez des mots entiers, pas des sous-chaînes. Utilisez des guillemets pour délimiter les caractères spéciaux.
 
-| string | n’est *pas* trouvé par | mais ceux-ci la trouvent |
+| chaîne | n’est *pas* trouvé par | mais ceux-ci la trouvent |
 | --- | --- | --- |
 | HomeController.About |home<br/>contrôleur<br/>out | homecontroller<br/>about<br/>« homecontroller.about »|
 |États-Unis|Uni<br/>ted|états<br/>unis<br/>états ET unis<br/>« états-unis »

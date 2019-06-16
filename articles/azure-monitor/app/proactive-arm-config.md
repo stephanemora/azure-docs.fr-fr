@@ -14,10 +14,10 @@ ms.date: 02/07/2019
 ms.reviewer: mbullwin
 ms.author: harelbr
 ms.openlocfilehash: 3ab50c92543615488d9ced599df433bf7e1e4061
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61461559"
 ---
 # <a name="manage-application-insights-smart-detection-rules-using-azure-resource-manager-templates"></a>Gérer les règles de détection intelligente d’Application Insights à l’aide de modèles Azure Resource Manager
@@ -39,7 +39,7 @@ Pour une flexibilité maximale, chaque règle de détection intelligente peut ê
 ## <a name="examples"></a>Exemples
 
 Voici quelques exemples montrant comment configurer les paramètres des règles de détection intelligente à l’aide de modèles Azure Resource Manager.
-Tous les exemples font référence à une ressource Application Insights nommée _« myApplication »_, et à la « règle de détection intelligente de dépendance longue durée », qui est nommée en interne _« longdependencyduration »_.
+Tous les exemples font référence à une ressource Application Insights nommée _« myApplication »_ , et à la « règle de détection intelligente de dépendance longue durée », qui est nommée en interne _« longdependencyduration »_ .
 Assurez-vous de remplacer le nom de la ressource Application Insights et de spécifier le nom interne de règle de détection intelligente pertinente. Consultez le tableau ci-dessous pour obtenir la liste des noms Azure Resource Manager internes correspondants à chaque règle de détection intelligente.
 
 ### <a name="disable-a-smart-detection-rule"></a>Gérer des règles de détection intelligente

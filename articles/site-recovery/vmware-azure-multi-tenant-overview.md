@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
 ms.openlocfilehash: d227b8d038dd686bde9b031ca2c58adc7dd6d76b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60718065"
 ---
 # <a name="overview-of-multi-tenant-support-for-vmware-disaster-recovery-to-azure-with-csp"></a>Vue d’ensemble de la prise en charge de l’architecture multilocataire pour la reprise d’activité de VMware sur Azure avec CSP

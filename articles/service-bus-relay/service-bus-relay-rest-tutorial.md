@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/06/2018
 ms.author: spelluru
 ms.openlocfilehash: 4ed45e1ed18ad630831772997b1fc150882731bd
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62123397"
 ---
 # <a name="azure-wcf-relay-rest-tutorial"></a>Didacticiel Azure WCF Relay REST
@@ -35,7 +35,7 @@ Dans ce didacticiel, vous allez effectuer les étapes suivantes :
 > * Héberger et exécuter le service WCF basé sur REST
 > * Exécuter et tester le pipeline
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour effectuer ce didacticiel, vous avez besoin de ce qui suit :
 
@@ -56,7 +56,7 @@ La principale différence entre un contrat WCF et un contrat de type REST est 
 ### <a name="to-create-a-contract-with-an-interface"></a>Création d’un contrat avec une interface
 
 1. Ouvrez Visual Studio en tant qu’administrateur : cliquez avec le bouton droit sur le programme dans le menu **Démarrer**, puis cliquez sur **Exécuter en tant qu’administrateur**.
-2. Créez un projet d’application de console. Cliquez sur le menu **Fichier**, sélectionnez **Nouveau**, puis **Projet**. Dans la boîte de dialogue **Nouveau projet**, cliquez sur **Visual C#**, sélectionnez le modèle **Application console** et nommez-le **ImageListener**. Utilisez **l’emplacement** par défaut. Cliquez sur **OK** pour créer le projet.
+2. Créez un projet d’application de console. Cliquez sur le menu **Fichier**, sélectionnez **Nouveau**, puis **Projet**. Dans la boîte de dialogue **Nouveau projet**, cliquez sur **Visual C#** , sélectionnez le modèle **Application console** et nommez-le **ImageListener**. Utilisez **l’emplacement** par défaut. Cliquez sur **OK** pour créer le projet.
 3. Pour un projet C#, Visual Studio crée un fichier `Program.cs`. Cette classe contient une méthode `Main()` vide, requise pour créer correctement un projet d’application console.
 4. Ajoutez des références à Service Bus et **System.ServiceModel.dll** au projet en installant le package NuGet Service Bus. Ce package ajoute automatiquement des références aux bibliothèques Service Bus, ainsi qu’au WCF **System.ServiceModel**. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le projet **ImageListener**, puis cliquez sur **Gérer les packages NuGet**. Cliquez sur l’onglet **Parcourir**, puis recherchez `Microsoft Azure Service Bus`. Cliquez sur **Installer**et acceptez les conditions d’utilisation.
 5. Vous devez explicitement ajouter une référence à **System.ServiceModel.Web.dll** au projet :
@@ -157,7 +157,7 @@ La création d’un service WCF Relay de type REST nécessite la création au pr
 
 Comme pour les étapes précédentes, il y a très peu de différences entre l’implémentation d’un contrat de type REST et un contrat WCF Relay.
 
-### <a name="to-implement-a-rest-style-service-bus-contract"></a>Implémentation d’un contrat Service Bus de type REST 
+### <a name="to-implement-a-rest-style-service-bus-contract"></a>Implémentation d’un contrat Service Bus de type REST
 1. Créez une classe nommée **ImageService** directement après la définition de l’interface **IImageContract**. La classe **ImageService** implémente l’interface **IImageContract**.
    
     ```csharp
@@ -180,7 +180,7 @@ Comme pour les étapes précédentes, il y a très peu de différences entre l�
    
     Il s'agit d'une image que le service affiche dans le navigateur de réception. Cliquez avec le bouton droit sur votre projet, puis cliquez sur **Ajouter**. Cliquez ensuite sur **Élément existant**. Utilisez la boîte de dialogue **Ajouter un élément existant** pour accéder à un fichier .jpg approprié, puis cliquez sur **Ajouter**.
    
-    Lorsque vous ajoutez le fichier, assurez-vous que l’option **Tous les fichiers** est sélectionnée dans la liste déroulante en regard du champ **Nom de fichier :**. Le reste de ce didacticiel suppose que le nom de l'image est « image.jpg ». Si votre fichier est différent, vous devez renommer l’image ou modifier votre code pour compenser.
+    Lorsque vous ajoutez le fichier, assurez-vous que l’option **Tous les fichiers** est sélectionnée dans la liste déroulante en regard du champ **Nom de fichier :** . Le reste de ce didacticiel suppose que le nom de l'image est « image.jpg ». Si votre fichier est différent, vous devez renommer l’image ou modifier votre code pour compenser.
 4. Pour vous assurer que le service en cours d’exécution est capable de trouver le fichier image, cliquez avec le bouton droit sur le fichier image dans **l’Explorateur de solutions**, puis cliquez sur **Propriétés**. Dans le volet **Propriétés**, définissez la valeur **Copier dans le répertoire de sortie** sur **Copier si plus récent**.
 5. Ajoutez une référence à l’assembly **System.Drawing.dll** au projet et ajoutez également les instructions `using` associées suivantes.  
    

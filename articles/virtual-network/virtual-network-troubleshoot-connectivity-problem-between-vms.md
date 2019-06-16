@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 10/30/2018
 ms.author: genli
 ms.openlocfilehash: fc3d6ab1d7fdf05963d9ecd350deccd940a95b87
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61036304"
 ---
 # <a name="troubleshooting-connectivity-problems-between-azure-vms"></a>Résolution des problèmes de connectivité entre machines virtuelles Azure
@@ -93,7 +93,7 @@ Vous pouvez utiliser une des méthodes suivantes pour vérifier si une applicati
 
 Dans certains scénarios, la machine virtuelle est placée derrière une solution d’équilibrage de charge qui a une dépendance sur des ressources en dehors d’Azure. Dans ces scénarios, si vous rencontrez des problèmes de connexion intermittents, le problème peut être dû à [l’épuisement du port SNAT](../load-balancer/load-balancer-outbound-connections.md). Pour résoudre ce problème, créez une adresse IP virtuelle (ou ILPIP pour la version classique) pour chaque machine virtuelle qui se trouve derrière l’équilibrage de charge et est sécurisée avec un groupe de sécurité réseau ou des ACL. 
 
-### <a name="step-6-check-whether-traffic-is-blocked-by-acls-for-the-classic-vm"></a>Étape 6 : Vérifiez si le trafic est bloqué par des ACL pour la machine virtuelle classique
+### <a name="step-6-check-whether-traffic-is-blocked-by-acls-for-the-classic-vm"></a>Étape 6 : Vérifiez si le trafic est bloqué par des ACL pour la machine virtuelle classique
 
 Une liste ACL permet d’autoriser ou refuser le trafic de manière sélective pour un point de terminaison de machine virtuelle. Pour plus d’informations, consultez la page [Gestion de l’ACL sur un point de terminaison](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints#manage-the-acl-on-an-endpoint).
 

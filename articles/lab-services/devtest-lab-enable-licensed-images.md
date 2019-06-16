@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
 ms.openlocfilehash: 11b6553fe8aceef0d3d15977998dd870c275128a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61294253"
 ---
 # <a name="enable-a-licensed-image-in-your-lab-in-azure-devtest-labs"></a>Activer une image sous licence dans votre laboratoire Azure DevTest Labs

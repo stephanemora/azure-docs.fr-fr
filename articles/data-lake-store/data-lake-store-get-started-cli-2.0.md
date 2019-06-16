@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: twooley
 ms.openlocfilehash: 9431cc7fa12b86371ce6b2325aca8e13d264442e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60885340"
 ---
 # <a name="get-started-with-azure-data-lake-store-using-azure-cli"></a>Bien démarrer avec Azure Data Lake Store à l’aide d’Azure CLI
@@ -33,14 +33,14 @@ Découvrez comment utiliser Azure CLI pour créer un compte Azure Data Lake Stor
 L’interface de ligne de commande Azure (Azure CLI) est l’expérience de ligne de commande d’Azure pour gérer les ressources Azure. Elle peut être utilisée sur macOS, Linux et Windows. Pour plus d’informations, consultez [Présentation d’Azure CLI](https://docs.microsoft.com/cli/azure). Pour obtenir la liste complète des commandes et de la syntaxe, consultez la [Référence Azure Data Lake Storage Gen1 CLI](https://docs.microsoft.com/cli/azure/dls).
 
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 Avant de commencer cet article, vous devez disposer des éléments suivants :
 
 * **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 * **Azure CLI** - Voir [Installer Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) pour plus d’instructions.
 
-## <a name="authentication"></a>Authentification
+## <a name="authentication"></a>Authentication
 
 Pour l’authentification auprès de Data Lake Storage Gen1, cet article utilise une approche plus simple où vous vous connectez en tant qu’utilisateur final. Le niveau d’accès au compte et au système de fichiers Data Lake Storage Gen1 est alors régi par le niveau d’accès de l’utilisateur connecté. Cependant, il existe d’autres approches pour l’authentification sur Data Lake Storage Gen1, à savoir **l’authentification de l’utilisateur final** ou **l’authentification de service à service**. Pour obtenir des instructions et plus d’informations sur l’authentification, consultez [l’authentification de l’utilisateur final](data-lake-store-end-user-authenticate-using-active-directory.md) ou [l’authentification de service à service](data-lake-store-authenticate-using-active-directory.md).
 

@@ -11,17 +11,17 @@ ms.tgt_pltfrm: na
 ms.date: 11/02/2017
 ms.author: tomfitz
 ms.openlocfilehash: f27d30d4709fbf373c8458629d0c8c5af4333acf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61296933"
 ---
 # <a name="publish-a-service-catalog-application-through-azure-portal"></a>Publier une application du catalogue de services en utilisant le portail Azure
 
 Vous pouvez utiliser le portail Azure pour publier des [applications managées](overview.md) destinées aux membres de votre organisation. Par exemple, un service informatique peut publier des applications managées destinées à contrôler la conformité par rapport aux normes de l’organisation. Ces applications managées sont disponibles dans le catalogue de services, et non dans la Place de marché Azure.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Quand vous publiez une application managée, vous spécifiez une identité pour gérer les ressources. Nous vous recommandons de spécifier un groupe d’utilisateurs Azure Active Directory. Pour créer un groupe d’utilisateurs Azure Active Directory, consultez [Créer un groupe et ajouter des membres dans Azure Active Directory](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md). 
 

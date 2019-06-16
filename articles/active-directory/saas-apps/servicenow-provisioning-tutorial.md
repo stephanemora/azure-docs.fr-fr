@@ -17,10 +17,10 @@ ms.date: 01/26/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 19b3e4cc5ba4bc0173721947bd1e1a680ca7b3a3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60869830"
 ---
 # <a name="tutorial-configure-servicenow-for-automatic-user-provisioning-with-azure-active-directory"></a>Didacticiel : Configurer ServiceNow pour l’approvisionnement automatique d’utilisateurs avec Azure Active Directory
@@ -30,7 +30,7 @@ L’objectif de ce didacticiel est de vous montrer la procédure à suivre dans 
 > [!NOTE]
 > Ce didacticiel décrit un connecteur reposant sur le service d’attribution d’utilisateurs Azure AD. Pour découvrir les informations importantes sur ce que fait ce service, comment il fonctionne et consulter le forum aux questions, reportez-vous à l’article [Automatiser l’attribution et l’annulation de l’attribution des utilisateurs dans les applications SaaS avec Azure Active Directory](../manage-apps/user-provisioning.md).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour configurer l’intégration d’Azure AD à ServiceNow, vous avez besoin des éléments suivants :
 

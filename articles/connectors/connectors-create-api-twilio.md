@@ -12,17 +12,17 @@ ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
 ms.openlocfilehash: fab52236c701f10c8e8e23ac398362ca4583ea06
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62104899"
 ---
 # <a name="manage-messages-in-twilio-with-azure-logic-apps"></a>Gérer les messages dans Twilio avec Azure Logic Apps
 
 Avec Azure Logic Apps et le connecteur Twilio, vous pouvez créer des tâches et des flux de travail automatisés qui reçoivent, envoient et répertorient des messages dans Twilio, notamment des messages SMS, MMS et IP globaux. Vous pouvez utiliser des actions pour effectuer des tâches avec votre compte Twilio. Vous pouvez également faire en sorte que des actions utilisent le résultat d’actions Twilio. Par exemple, lorsqu’un nouveau message arrive, vous pouvez envoyer son contenu avec le connecteur Slack. Si vous débutez avec les applications logiques, consultez [Qu’est-ce qu’Azure Logic Apps ?](../logic-apps/logic-apps-overview.md)
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscrivez-vous pour bénéficier d’un compte Azure gratuit</a>. 
 
@@ -54,7 +54,7 @@ Avec Azure Logic Apps et le connecteur Twilio, vous pouvez créer des tâches et
        -ou-
 
      * Pour ajouter une action entre des étapes, placez votre pointeur au-dessus de la flèche qui les sépare. 
-     Cliquez sur le signe plus (**+**) qui s’affiche, puis sélectionnez **Ajouter une action**.
+     Cliquez sur le signe plus ( **+** ) qui s’affiche, puis sélectionnez **Ajouter une action**.
      
        Dans la zone de recherche, entrez «twilio » comme filtre. 
        Dans la liste des actions, sélectionnez l’action souhaitée.

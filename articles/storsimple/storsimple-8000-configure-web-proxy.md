@@ -15,15 +15,15 @@ ms.workload: na
 ms.date: 04/19/2017
 ms.author: alkohli
 ms.openlocfilehash: 956cf45eb9e246f2e1f917f2bf487ac14deba90e
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65204245"
 ---
 # <a name="configure-web-proxy-for-your-storsimple-device"></a>Configurer le proxy web pour votre appareil StorSimple
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
 Ce didacticiel explique comment utiliser Windows PowerShell for StorSimple afin de configurer et d’afficher les paramètres du proxy web pour votre appareil StorSimple. Les paramètres de proxy web sont utilisés par l’appareil StorSimple lors de la communication avec le cloud. Un serveur proxy web est utilisé pour ajouter une autre couche de sécurité, filtrer le contenu, mettre en cache les données afin d’alléger la bande passante voire faciliter l’analyse.
 
@@ -87,7 +87,7 @@ Vous pouvez également configurer les paramètres du proxy web via  les applets 
 
 #### <a name="to-configure-web-proxy-via-cmdlets"></a>Configuration du proxy web via les applets de commande
 1. Dans le menu de la console série, sélectionnez l’option 1, **Ouvrir une session avec un accès total**. Lorsque vous y êtes invité, fournissez le **mot de passe administrateur de l’appareil**. Le mot de passe par défaut est `Password1`.
-2.  À l’invite de commandes, tapez :
+2. À l’invite de commandes, tapez :
    
     `Set-HcsWebProxy -Authentication NTLM -ConnectionURI "<http://<IP address or FQDN of web proxy server>:<TCP port number>" -Username "<Username for web proxy server>"`
    
@@ -109,7 +109,7 @@ Procédez comme suit dans Windows PowerShell pour StorSimple afin d’activer le
 
 #### <a name="to-enable-web-proxy"></a>Activation du proxy web
 1. Dans le menu de la console série, sélectionnez l’option 1, **Ouvrir une session avec un accès total**. Lorsque vous y êtes invité, fournissez le **mot de passe administrateur de l’appareil**. Le mot de passe par défaut est `Password1`.
-2.  À l’invite de commandes, tapez :
+2. À l’invite de commandes, tapez :
    
     `Enable-HcsWebProxy`
    

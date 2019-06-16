@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: genli
 ms.openlocfilehash: 2f71dc2bcd5463f81ae286bbe3099124eb3fa539
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62107974"
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-classic-using-the-azure-classic-cli"></a>Configurer des adresses IP privées pour une machine virtuelle (Classic) à l’aide d’Azure Classic CLI
@@ -64,10 +64,10 @@ Pour créer une machine virtuelle nommée *DNS01* dans un nouveau service cloud 
         info:    OK
         info:    vm create command OK
    
-   * **-l (ou --location)**. Région Azure où la machine virtuelle sera créée. Pour notre scénario, *centralus*.
-   * **-n (ou--vm-name)**. Nom de la machine virtuelle à créer.
-   * **-w (ou --virtual-network-name)**. Nom du réseau virtuel où la machine virtuelle sera créée. 
-   * **-S (ou --static-ip)**. Adresse IP privée statique de la machine virtuelle.
+   * **-l (ou --location)** . Région Azure où la machine virtuelle sera créée. Pour notre scénario, *centralus*.
+   * **-n (ou--vm-name)** . Nom de la machine virtuelle à créer.
+   * **-w (ou --virtual-network-name)** . Nom du réseau virtuel où la machine virtuelle sera créée. 
+   * **-S (ou --static-ip)** . Adresse IP privée statique de la machine virtuelle.
    * **TestService**. Nom du service cloud dans lequel la machine virtuelle sera créée.
    * **bd507d3a70934695bc2128e3e5a255ba__RightImage-Windows-2012R2-x64-v14.2**. Image utilisée pour créer la machine virtuelle.
    * **adminuser**. Administrateur local pour la machine virtuelle Windows.

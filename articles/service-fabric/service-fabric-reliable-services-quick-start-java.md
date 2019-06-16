@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/02/2017
 ms.author: suhuruli
 ms.openlocfilehash: 6bf8c632a7513d018745bc74aa0a1db95a39af8b
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62130124"
 ---
 # <a name="get-started-with-reliable-services"></a>Prise en main de Reliable Services
@@ -234,7 +234,7 @@ Les opérations sur les tables de hachage fiables sont asynchrones. Ceci est dû
 Les opérations des tables de hachage fiables sont *transactionnelles*. Ainsi, vous pouvez conserver un état cohérent entre plusieurs tables de hachage fiables et opérations. Vous pouvez, par exemple, obtenir un élément de travail d’un Reliable Dictionary (dictionnaire fiable), effectuer une opération sur celui-ci et enregistrer le résultat dans une autre table de hachage fiable, le tout dans une transaction unique. Ces opérations sont traitées comme une seule opération atomique, ce qui garantit soit son succès total, soit son échec total. Si une erreur se produit une fois que vous avez retiré l’élément de la file d’attente, mais avant d’enregistrer le résultat, la transaction entière est annulée et l’élément reste dans la file d’attente à des fins de traitement.
 
 
-## <a name="build-the-application"></a>Création de l'application
+## <a name="build-the-application"></a>Créer l’application
 
 La génération de modèles automatique Yeoman inclut un script Gradle permettant de créer l’application et des scripts bash permettant le déploiement et la suppression de l’application. Pour exécuter l’application, commencez par créer l’application avec Gradle :
 

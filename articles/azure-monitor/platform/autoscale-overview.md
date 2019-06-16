@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: robb
-ms.component: autoscale
+ms.subservice: autoscale
 ms.openlocfilehash: 05f20aec536ebdb702caea37051a65af9bbc659f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60787580"
 ---
 # <a name="overview-of-autoscale-in-microsoft-azure-virtual-machines-cloud-services-and-web-apps"></a>Vue d’ensemble de la mise à l’échelle automatique sur les machines virtuelles Microsoft Azure, les services cloud et les applications web
@@ -102,7 +102,6 @@ Vous pouvez configurer la mise à l’échelle automatique via
 * [API REST Azure Monitor](https://msdn.microsoft.com/library/azure/dn931953.aspx)
 
 ## <a name="supported-services-for-autoscale"></a>Services pris en charge pour la mise à l’échelle automatique
-
 | de diffusion en continu | Schéma et documentation |
 | --- | --- |
 | Web Apps |[Mise à l’échelle des applications web](../../azure-monitor/platform/autoscale-get-started.md) |
@@ -121,3 +120,4 @@ Pour en savoir plus sur la mise à l’échelle automatique, utilisez les guides
 * [Utilisation d’actions de mise à l’échelle automatique pour envoyer des notifications d’alerte webhook et par courrier électronique](../../azure-monitor/platform/autoscale-webhook-email.md)
 * [Paramètres de mise à l’échelle automatique](https://msdn.microsoft.com/library/dn931953.aspx)
 * [Dépannage de la mise à l’échelle automatique avec des jeux de mise à l’échelle de machine virtuelle](../../virtual-machine-scale-sets/virtual-machine-scale-sets-troubleshoot.md)
+

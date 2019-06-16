@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 01/23/2019
 ms.author: diberry
 ms.openlocfilehash: 3fc14b821064719f39eb877aa2253f8084496a66
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65523492"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>Glossaire Language Understanding des termes et concepts courants
@@ -82,7 +82,7 @@ Voici un exemple de point de terminaison :
 
 |Paramètre de chaîne de requête|description|
 |--|--|
-|Région| [Région publiée](luis-reference-regions.md#publishing-regions) |
+|region| [Région publiée](luis-reference-regions.md#publishing-regions) |
 |appID | ID d’application LUIS |
 |subscriptionID | Clé de point de terminaison (d’abonnement) LUIS créée sur le portail Azure |
 |q | Énoncé |
@@ -177,7 +177,7 @@ Identique à la [clé programmatique](#programmatic-key), renommée Clé de cré
 
 ## <a name="subscription-key"></a>Clé d’abonnement
 
-La clé d’abonnement est la clé de **point de terminaison** associée au service LUIS [créé dans Azure](luis-how-to-azure-subscription.md). Il ne s’agit pas de la [clé de création](#programmatic-key). Si vous avez une clé de point de terminaison, vous devrez l’utiliser pour toutes les demandes du point de terminaison au lieu de la clé de création. Vous pouvez voir votre clé de point de terminaison actuelle au sein de l’URL du point de terminaison en bas de la [page **Keys and endpoints (Clés et points de terminaison)**](luis-how-to-azure-subscription.md) sur le site web [LUIS](luis-reference-regions.md). Il s’agit de la valeur de la paire nom/valeur **subscription-key**.
+La clé d’abonnement est la clé de **point de terminaison** associée au service LUIS [créé dans Azure](luis-how-to-azure-subscription.md). Il ne s’agit pas de la [clé de création](#programmatic-key). Si vous avez une clé de point de terminaison, vous devrez l’utiliser pour toutes les demandes du point de terminaison au lieu de la clé de création. Vous pouvez voir votre clé de point de terminaison actuelle au sein de l’URL du point de terminaison en bas de la [page **Keys and endpoints (Clés et points de terminaison)** ](luis-how-to-azure-subscription.md) sur le site web [LUIS](luis-reference-regions.md). Il s’agit de la valeur de la paire nom/valeur **subscription-key**.
 
 ## <a name="test"></a>Test
 

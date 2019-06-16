@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
 ms.openlocfilehash: 424453e70e5b62e408f408cd5ae8169cddb14dd7
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62121689"
 ---
 # <a name="azure-database-security-checklist"></a>Liste de contrôle de la sécurité des bases de données Azure
@@ -36,7 +36,7 @@ Il s’agit des actions suivantes :
 -   Audit de base de données SQL
 -   Détection de menaces pour les bases de données SQL
 
-## <a name="introduction"></a>Présentation
+## <a name="introduction"></a>Introduction
 Le cloud computing requiert de nouveaux modèles de sécurité avec lesquels de nombreux utilisateurs d’applications, administrateurs de bases de données et programmeurs ne sont pas familiarisés. Par conséquent, certaines organisations hésitent à implémenter une infrastructure de cloud pour la gestion des données en raison des risques de sécurité perçus. Pour une grande part toutefois, ces inquiétudes peuvent être calmées par une meilleure compréhension des fonctionnalités de sécurité intégrées dans Microsoft Azure et Microsoft Azure SQL Database.
 
 ## <a name="checklist"></a>Liste de contrôle

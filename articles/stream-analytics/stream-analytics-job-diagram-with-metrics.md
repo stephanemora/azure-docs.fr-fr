@@ -10,10 +10,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/01/2017
 ms.openlocfilehash: 4a6d359b27b9a2e52d71ed5f8547041645147605
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61479916"
 ---
 # <a name="data-driven-debugging-by-using-the-job-diagram"></a>Débogage piloté par les données à l’aide du diagramme de travail
@@ -30,7 +30,7 @@ Sélectionnez chaque étape de requête pour afficher la section correspondante 
 
 ![Diagramme de travail avec des mesures - travail de base](./media/stream-analytics-job-diagram-with-metrics/stream-analytics-job-diagram-with-metrics-portal-2.png)
 
-Pour afficher les partitions de l’entrée Azure Event Hubs, sélectionnez **...**. Un menu contextuel s’affiche. Vous pouvez également voir la fusion d’entrée.
+Pour afficher les partitions de l’entrée Azure Event Hubs, sélectionnez **...** . Un menu contextuel s’affiche. Vous pouvez également voir la fusion d’entrée.
 
 ![Diagramme de travail avec des mesures - étendre une partition](./media/stream-analytics-job-diagram-with-metrics/stream-analytics-job-diagram-with-metrics-portal-3.png)
 

@@ -12,10 +12,10 @@ ms.workload: na
 ms.date: 04/05/2018
 ms.author: lahugh
 ms.openlocfilehash: c527b0b10a2b9a351b242d0858fdbe64687970a7
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65595292"
 ---
 # <a name="monitor-and-debug-an-azure-batch-net-application-with-application-insights"></a>Surveiller et déboguer une application .NET Azure Batch avec Application Insights
@@ -30,8 +30,8 @@ Un exemple de solution C# avec du code pour accompagner cet article est disponib
 > Vous pouvez également configurer votre solution Batch pour afficher des données Application Insights, comme des compteurs de performances de machines virtuelles dans Batch Explorer. [Batch Explorer](https://github.com/Azure/BatchExplorer) est un outil client autonome gratuit, doté de nombreuses fonctionnalités aidant à créer, déboguer et surveiller les applications Azure Batch. Téléchargez un [package d’installation](https://azure.github.io/BatchExplorer/) pour Mac, Linux ou Windows. Consultez le [référentiel batch-insights](https://github.com/Azure/batch-insights) pour obtenir les étapes à suivre pour activer les données Application Insights dans Batch Explorer. 
 >
 
-## <a name="prerequisites"></a>Conditions préalables
-* [Visual Studio 2017 ou version ultérieure](https://www.visualstudio.com/vs)
+## <a name="prerequisites"></a>Prérequis
+* [Visual Studio 2017 ou version ultérieure](https://www.visualstudio.com/vs)
 
 * [Compte Batch et compte de stockage lié](batch-account-create-portal.md)
 
@@ -293,8 +293,8 @@ Pour créer un exemple de graphique :
 2. Mettez à jour les détails du graphique comme suit :
    * Dans **Type de graphique**, sélectionnez **Grille**.
    * Dans **Agrégation**, sélectionnez **Moyenne**.
-   * Dans **Group by (Grouper par)**, sélectionnez **NodeId (ID de nœud)**.
-   * Dans **Métriques**, sélectionnez **Personnalisé** > **Blob download in seconds (Téléchargement de blocs en secondes)**.
+   * Dans **Group by (Grouper par)** , sélectionnez **NodeId (ID de nœud)** .
+   * Dans **Métriques**, sélectionnez **Personnalisé** > **Blob download in seconds (Téléchargement de blocs en secondes)** .
    * Ajustez la **palette de couleurs** de l’affichage. 
 
 ![Temps de téléchargement des blobs par nœuds](./media/monitor-application-insights/blobdownloadtime.png)

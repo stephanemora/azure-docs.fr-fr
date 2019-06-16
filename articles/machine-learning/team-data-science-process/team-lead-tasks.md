@@ -11,10 +11,10 @@ ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 45be3d7f865c7b72ae62efbf99dbbb4594b1846f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60812069"
 ---
 # <a name="tasks-for-the-team-lead-in-the-team-data-science-process-team"></a>Tâches pour responsable d’équipe dans Team Data Science Process
@@ -62,7 +62,7 @@ Dans ce didacticiel, les noms spécifiés pour les dépôts et les répertoires 
 Dans tous les cas, les responsables d’équipe doivent indiquer aux membres de leur équipe les dépôts de modèles et d’utilitaires à utiliser lors de la configuration et du clonage des dépôts du projet et des dépôts d’utilitaires. Les coordinateurs de projet doivent suivre les instructions de la rubrique [Tâches du coordinateur de projet pour une équipe de science des données](project-lead-tasks.md) pour créer des dépôts de projet, que ce soit sous un ou plusieurs projets. 
 
 
-## <a name="0-prerequisites"></a>0. Conditions préalables
+## <a name="0-prerequisites"></a>0. Prérequis
 
 Pour satisfaire aux prérequis, les tâches attribuées à votre responsable de groupe et décrites dans [Tâches du responsable de groupe pour une équipe de science des données](group-manager-tasks.md) doivent être effectuées. Pour résumer, avant de commencer les tâches du responsable d’équipe, voici les conditions à remplir : 
 
@@ -100,13 +100,13 @@ Effectuez cette étape si vous utilisez Azure DevOps Services comme plateforme d
 
 - Si vous voyez une fenêtre contextuelle intitulée **Félicitations**, cliquez sur **Ajouter du code** (le bouton rouge). Sinon, cliquez sur **Code** (le bouton jaune). Vous êtes alors dirigé vers la page du dépôt Git de votre projet. 
 
-    ![5.](./media/team-lead-tasks/team-leads-5-team-project-home.png)
+    ![5\.](./media/team-lead-tasks/team-leads-5-team-project-home.png)
 
 ### <a name="create-the-myprojecttemplate-repository-r3-on-git"></a>Créer le dépôt MyProjectTemplate (R3) sur Git
 
 - Dans la page du dépôt Git de votre projet, cliquez sur la flèche vers le bas en regard du dépôt **MyTeam**, puis sélectionnez **Gérer les dépôts**.
 
-    ![6.](./media/team-lead-tasks/team-leads-6-rename-team-project-repo.png)
+    ![6\.](./media/team-lead-tasks/team-leads-6-rename-team-project-repo.png)
 
 - Sous l’onglet **Gestion de version** du panneau de configuration de votre projet, cliquez sur **MyTeam**, puis sélectionnez **Renommer le dépôt**. 
 

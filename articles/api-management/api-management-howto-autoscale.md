@@ -9,14 +9,13 @@ editor: ''
 ms.service: api-management
 ms.workload: integration
 ms.topic: article
-origin.date: 06/20/2018
-ms.date: 12/31/2018
-ms.author: v-yiso
+ms.date: 06/20/2018
+ms.author: apimpm
 ms.openlocfilehash: a01e50debf11daf2f1163a56726f5574f7e3e379
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62123465"
 ---
 # <a name="automatically-scale-an-azure-api-management-instance"></a>Mettre à l’échelle automatiquement une instance du service Gestion des API Azure  
@@ -25,7 +24,7 @@ Une instance du service Gestion des API Azure peut se mettre à l’échelle aut
 
 Cet article décrit le processus de configuration de la mise à l’échelle automatique et suggère une configuration optimale des règles de cette mise à l’échelle.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre les étapes décrites dans cet article, vous devez :
 

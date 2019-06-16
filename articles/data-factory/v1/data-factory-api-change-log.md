@@ -15,10 +15,10 @@ ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 863f3500c84eeab1c3dac19141cd334fc6961694
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60567246"
 ---
 # <a name="azure-data-factory---net-api-change-log"></a>Azure Data Factory : Journal des modifications de l’API .NET
@@ -165,7 +165,7 @@ Les classes suivantes ont été renommées. Les nouveaux noms des classes sont l
 | TableListResponse |[DatasetListResponse](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.datasetlistresponse.aspx) |
 | CreateOrUpdateWithRawJsonContentParameters |[DatasetCreateOrUpdateWithRawJsonContentParameters](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.datasetcreateorupdatewithrawjsoncontentparameters.aspx) |
 
-* Les méthodes **Liste** renvoient désormais des résultats paginés. Si la réponse contient une propriété **NextLink** non vide, l’application cliente doit continuer à récupérer la page suivante jusqu’à ce que toutes les pages soient renvoyées.  Voici un exemple : 
+* Les méthodes **Liste** renvoient désormais des résultats paginés. Si la réponse contient une propriété **NextLink** non vide, l’application cliente doit continuer à récupérer la page suivante jusqu’à ce que toutes les pages soient renvoyées.  Voici un exemple :
 
     ```csharp
     PipelineListResponse response = client.Pipelines.List("ResourceGroupName", "DataFactoryName");

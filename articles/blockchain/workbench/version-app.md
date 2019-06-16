@@ -11,10 +11,10 @@ ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
 ms.openlocfilehash: 63f18e3ee316b9791bb62bfcd20c07a30cbebb5e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60896860"
 ---
 # <a name="azure-blockchain-workbench-application-versioning"></a>Versions des applications Azure Blockchain Workbench
@@ -23,7 +23,7 @@ Vous pouvez créer et utiliser plusieurs versions d’une application Azure Bloc
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 * Un déploiement Blockchain Workbench. Pour plus de détails sur le déploiement, consultez [Azure Blockchain Workbench deployment](deploy.md) (Déploiement d’Azure Blockchain Workbench).
 * Une application blockchain déployée dans Blockchain Workbench. Voir [Créer une application blockchain dans Azure Blockchain Workbench](create-app.md)

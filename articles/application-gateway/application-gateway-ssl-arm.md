@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 01/25/2018
 ms.author: victorh
 ms.openlocfilehash: e49706c529ca7d2c99f2c50f8de27063dbcd4da9
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65202899"
 ---
 # <a name="create-an-application-gateway-with-ssl-termination-using-azure-powershell"></a>Créer une passerelle d’application avec un arrêt SSL à l’aide d’Azure PowerShell
@@ -25,7 +25,7 @@ Vous pouvez utiliser Azure PowerShell pour créer une [passerelle d’applicatio
 Dans cet article, vous apprendrez comment :
 
 > [!div class="checklist"]
-> * Création d’un certificat auto-signé
+> * Créer un certificat auto-signé
 > * Configurer un réseau
 > * Créer une passerelle d’application avec le certificat
 > * Créer un groupe de machines virtuelles identiques avec le pool backend par défaut
@@ -36,7 +36,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 Ce didacticiel requiert le module Azure PowerShell version 1.0.0 ou version ultérieure. Exécutez `Get-Module -ListAvailable Az` pour trouver la version. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-az-ps). Si vous exécutez PowerShell en local, vous devez également lancer `Connect-AzAccount` pour créer une connexion avec Azure.
 
-## <a name="create-a-self-signed-certificate"></a>Création d’un certificat auto-signé
+## <a name="create-a-self-signed-certificate"></a>Créer un certificat auto-signé
 
 Dans un environnement de production, vous devez importer un certificat valide signé par un fournisseur approuvé. Pour ce didacticiel, vous créez un certificat auto-signé à l’aide de [New-SelfSignedCertificate](https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate). Vous pouvez utiliser [Export-PfxCertificate](https://docs.microsoft.com/powershell/module/pkiclient/export-pfxcertificate) avec l’empreinte numérique qui a été retournée pour exporter un fichier pfx du certificat.
 
@@ -270,7 +270,7 @@ Pour accepter l’avertissement de sécurité si vous avez utilisé un certifica
 Dans ce tutoriel, vous avez appris à :
 
 > [!div class="checklist"]
-> * Création d’un certificat auto-signé
+> * Créer un certificat auto-signé
 > * Configurer un réseau
 > * Créer une passerelle d’application avec le certificat
 > * Créer un groupe de machines virtuelles identiques avec le pool principal par défaut

@@ -13,10 +13,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 12/04/2018
 ms.openlocfilehash: 446203b45744a95c32cd41d9ded26fd960ac8a22
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60585581"
 ---
 # <a name="elastic-database-tools-glossary"></a>Glossaire des outils de base de données élastique
@@ -29,7 +29,7 @@ Ces termes sont utilisés dans [Ajout d’une partition à l’aide des outils d
 
 **Base de données** : base de données Azure SQL. 
 
-**Routage dépendant des données** : fonctionnalité qui permet à une application de se connecter à une partition en fonction d’une clé de sharding spécifique. Consultez [Routage dépendant des données](sql-database-elastic-scale-data-dependent-routing.md). Comparer à la **[Multi-Shard Query](sql-database-elastic-scale-multishard-querying.md)**.
+**Routage dépendant des données** : fonctionnalité qui permet à une application de se connecter à une partition en fonction d’une clé de sharding spécifique. Consultez [Routage dépendant des données](sql-database-elastic-scale-data-dependent-routing.md). Comparer à la **[Multi-Shard Query](sql-database-elastic-scale-multishard-querying.md)** .
 
 **Carte de partitions globale** : mappage entre des clés de sharding et leurs partitions respectives au sein d’un **jeu de partitions**. La carte de partitions globale est stockée dans le **gestionnaire des cartes de partitions**. Comparer à la **carte de partitions locale**.
 

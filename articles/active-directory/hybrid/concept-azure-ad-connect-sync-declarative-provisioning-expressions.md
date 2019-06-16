@@ -4,23 +4,23 @@ description: Explique les expressions d’approvisionnement déclaratif.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: e3ea53c8-3801-4acf-a297-0fb9bb1bf11d
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-origin.date: 07/18/2017
-ms.date: 11/08/2018
-ms.component: hybrid
-ms.author: v-junlch
+ms.topic: conceptual
+ms.date: 07/18/2017
+ms.subservice: hybrid
+ms.author: billmath
+ms.collection: M365-identity-device-management
 ms.openlocfilehash: cdc7c9dba49bf37db1f039d43b0450c65884c74b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60245503"
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning-expressions"></a>Synchronisation d’Azure AD Connect : Comprendre les expressions d’approvisionnement déclaratif
@@ -33,13 +33,13 @@ Pour plus d’informations, consultez [Bienvenue dans la référence linguistiqu
 Les attributs sont fortement typés. Une fonction accepte uniquement les attributs de type correct. Elle respecte également la casse. Les noms des fonctions et les noms des attributs doivent avoir une casse appropriée, sinon une erreur est levée.
 
 ## <a name="language-definitions-and-identifiers"></a>Définitions linguistiques et identificateurs
-- Les fonctions ont un nom suivi d’arguments entre parenthèses : NomFonction(argument 1, argument N).
-- Les attributs sont identifiés par des crochets : [NomAttribut]
-- Les paramètres sont identifiés par des signes de pourcentage : %NomParamètre%
-- Les constantes de chaîne sont placées entre guillemets : Par exemple, "Contoso" (Remarque : vous devez utiliser des guillemets droits "" et non pas des guillemets courbes “”)
-- Les valeurs numériques sont exprimées sans guillemets et les valeurs attendues sont décimales. Les valeurs hexadécimales sont précédées de &H. Par exemple, 98052, &HFF
-- Les valeurs booléennes sont exprimées avec des constantes : True, False.
-- Les constantes intégrées et les littéraux sont exprimés uniquement par leur nom : NULL, CRLF, IgnoreThisFlow
+* Les fonctions ont un nom suivi d’arguments entre parenthèses : NomFonction(argument 1, argument N).
+* Les attributs sont identifiés par des crochets : [NomAttribut]
+* Les paramètres sont identifiés par des signes de pourcentage : %NomParamètre%
+* Les constantes de chaîne sont placées entre guillemets : Par exemple, "Contoso" (Remarque : vous devez utiliser des guillemets droits "" et non pas des guillemets courbes “”)
+* Les valeurs numériques sont exprimées sans guillemets et les valeurs attendues sont décimales. Les valeurs hexadécimales sont précédées de &H. Par exemple, 98052, &HFF
+* Les valeurs booléennes sont exprimées avec des constantes : True, False.
+* Les constantes intégrées et les littéraux sont exprimés uniquement par leur nom : NULL, CRLF, IgnoreThisFlow
 
 ### <a name="functions"></a>Fonctions
 L’approvisionnement déclaratif utilise de nombreuses fonctions pour permettre de transformer les valeurs d’attribut. Elles peuvent être imbriquées. Le résultat d’une fonction est alors transmis à une autre fonction.
@@ -62,43 +62,42 @@ Le connecteur Active Directory fournissait les paramètres suivants pour les rè
 | Forest.FQDN |Format FQDN du nom de forêt en cours d’importation, par exemple, fabrikam.com |
 | Forest.LDAP |Format LDAP du nom de forêt en cours d’importation, par exemple, DC=fabrikam,DC=com |
 
-Le système fournit le paramètre suivant, qui est utilisé pour obtenir l'identificateur du connecteur en cours d'exécution :   
+Le système fournit le paramètre suivant, qui est utilisé pour obtenir l'identificateur du connecteur en cours d'exécution :  
 `Connector.ID`
 
-Voici un exemple qui remplira le domaine d’attribut du métaverse avec le nom netbios du domaine où se trouve l’utilisateur :   
+Voici un exemple qui remplira le domaine d’attribut du métaverse avec le nom netbios du domaine où se trouve l’utilisateur :  
 `domain` <- `%Domain.Netbios%`
 
 ### <a name="operators"></a>Operators
 Vous pouvez utiliser les opérateurs suivants :
 
-- **Opérateurs de comparaison** : &lt;, &lt;=, &lt;&gt;, =, &gt;, &gt;=
-- **Mathématiques** : +, -, \*, -
-- **Chaîne** : &amp; (concaténation)
-- **Logiques** : &amp;&amp;amp;amp; (et), || (ou)
-- **Ordre d’évaluation**: ( )
+* **Opérateurs de comparaison** : &lt;, &lt;=, &lt;&gt;, =, &gt;, &gt;=
+* **Mathématiques** : +, -, \*, -
+* **Chaîne** : &amp; (concaténation)
+* **Logiques** : &&amp;amp;amp;amp; (et), || (ou)
+* **Ordre d’évaluation**: ( )
 
 Les opérateurs sont évalués de la gauche vers la droite et ont la même priorité d'évaluation. Par exemple, le \* (signe multiplicateur) n’est pas évalué avant - (soustraction). 2\*(5+3) n’est pas la même chose que 2\*5+3. Les parenthèses ( ) sont utilisées pour modifier l’ordre d’évaluation lorsqu’un ordre d’évaluation de la gauche vers la droite n’est pas approprié.
 
 ## <a name="multi-valued-attributes"></a>Attributs à valeurs multiples
 Les fonctions peuvent fonctionner sur des attributs à valeur unique et à valeurs multiples. Pour les attributs à valeurs multiples, la fonction fonctionne sur toutes les valeurs et applique la même fonction à chaque valeur.
 
-Par exemple,   
+Par exemple,  
 `Trim([proxyAddresses])` supprime les espaces de gauche à droite dans chaque valeur de l’attribut proxyAddress.  
 `Word([proxyAddresses],1,"@") & "@contoso.com"` Pour chaque valeur comportant un signe @-sign, remplacez le domaine par @contoso.com.  
 `IIF(InStr([proxyAddresses],"SIP:")=1,NULL,[proxyAddresses])` Recherchez l’adresse SIP et supprimez-la des valeurs.
 
 ## <a name="next-steps"></a>Étapes suivantes
-- En savoir plus sur le modèle de configuration dans [Comprendre l’approvisionnement déclaratif](concept-azure-ad-connect-sync-declarative-provisioning.md).
-- Apprendre comment l’approvisionnement déclaratif est utilisé out-of-box dans [Présentation de la configuration par défaut](concept-azure-ad-connect-sync-default-configuration.md).
-- Apprendre à effectuer une modification pratique à l’aide de l’approvisionnement déclaratif dans [Comment modifier la configuration par défaut](how-to-connect-sync-change-the-configuration.md).
+* En savoir plus sur le modèle de configuration dans [Comprendre l’approvisionnement déclaratif](concept-azure-ad-connect-sync-declarative-provisioning.md).
+* Apprendre comment l’approvisionnement déclaratif est utilisé out-of-box dans [Présentation de la configuration par défaut](concept-azure-ad-connect-sync-default-configuration.md).
+* Apprendre à effectuer une modification pratique à l’aide de l’approvisionnement déclaratif dans [Comment modifier la configuration par défaut](how-to-connect-sync-change-the-configuration.md).
 
 **Rubriques de présentation**
 
-- [Synchronisation Azure AD Connect : Comprendre et personnaliser la synchronisation](how-to-connect-sync-whatis.md)
-- [Intégration des identités locales dans Azure Active Directory](whatis-hybrid-identity.md)
+* [Synchronisation Azure AD Connect : Comprendre et personnaliser la synchronisation](how-to-connect-sync-whatis.md)
+* [Intégration des identités locales dans Azure Active Directory](whatis-hybrid-identity.md)
 
 **Rubriques de référence**
 
-- [Synchronisation Azure AD Connect : Référence des fonctions](reference-connect-sync-functions-reference.md)
-
+* [Synchronisation Azure AD Connect : Référence des fonctions](reference-connect-sync-functions-reference.md)
 

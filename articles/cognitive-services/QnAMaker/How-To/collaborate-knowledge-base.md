@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 01/14/2019
 ms.author: tulasim
 ms.openlocfilehash: ca754f197a46fc41b6f1b432611a2177ec0afafa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61374812"
 ---
 # <a name="collaborate-on-your-knowledge-base"></a>Collaborer sur votre base de connaissances
@@ -27,7 +27,7 @@ Effectuez les étapes suivantes pour partager votre service QnA Maker avec une q
 
     ![Liste des ressources QnA Maker](../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-resource-list.PNG)
 
-2. Accédez à l’onglet **Contrôle d’accès (IAM)**.
+2. Accédez à l’onglet **Contrôle d’accès (IAM)** .
 
     ![IAM pour QnA Maker](../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-iam.PNG)
 

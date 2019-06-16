@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 01/23/2019
 ms.author: jowargo
 ms.openlocfilehash: 31a22aabc7b0f1d51a673ef8642037103badcc02
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61457802"
 ---
 # <a name="routing-and-tag-expressions"></a>Routage et expressions de balise
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
 Les expressions de balise vous permettent de cibler des ensembles spécifiques d'appareils, ou plus précisément d'inscriptions, lors de l'envoi d'une notification push via Notification Hubs.
 
