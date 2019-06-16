@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: hrasheed
 ms.openlocfilehash: 3286ca3b9c85236ff322eb19324bc5ac7a904e22
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65605457"
 ---
 # <a name="use-the-azure-data-lake-tools-for-visual-studio-with-the-hortonworks-sandbox"></a>Utiliser Azure Data Lake Tools pour Visual Studio avec le Bac à sable (sandbox) Hortonworks
@@ -21,7 +21,7 @@ Azure Data Lake inclut des outils permettant de travailler avec des clusters Apa
 
 Hortonworks Sandbox permet de travailler avec Hadoop localement sur votre environnement de développement. Après avoir développé une solution, lorsque vous souhaitez la déployer à grande échelle, vous pouvez passer à un cluster HDInsight.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 * Le Bac à sable (sandbox) Hortonworks s’exécutant sur une machine virtuelle dans votre environnement de développement. Ce document a été écrit et testé avec le bac à sable s’exécutant sur Oracle VirtualBox. Pour plus d’informations sur le paramétrage du bac à sable, consultez [Get started with the Hortonworks sandbox](hadoop/apache-hadoop-emulator-get-started.md) (Prise en main du bac à sable Hortonworks) document.
 
@@ -101,7 +101,7 @@ Hive fournit un langage de requête de type SQL (HiveQL) pour le traitement des 
     > [!NOTE]  
     > Apache Tez est également le moteur par défaut lorsque vous utilisez des clusters HDInsight basés sur Linux. Il n’est pas le moteur par défaut pour HDInsight basé sur Windows. Pour l’utiliser dans cette configuration, vous devez ajouter la ligne `set hive.execution.engine = tez;` au début de votre requête Hive.
 
-    Utilisez le lien **Sortie de la tâche** pour afficher la sortie. En l’occurrence, il s’agit de 823, soit le nombre de lignes contenues dans la table sample_08. Vous pouvez afficher des informations de diagnostic sur la tâche à l’aide des liens **Journal de la tâche** et **Download YARN Log (Télécharger le journal YARN)**.
+    Utilisez le lien **Sortie de la tâche** pour afficher la sortie. En l’occurrence, il s’agit de 823, soit le nombre de lignes contenues dans la table sample_08. Vous pouvez afficher des informations de diagnostic sur la tâche à l’aide des liens **Journal de la tâche** et **Download YARN Log (Télécharger le journal YARN)** .
 
 4. Vous pouvez également exécuter des travaux Hive de façon interactive en définissant le champ **Lot** sur **Interactif**. Sélectionnez ensuite **Exécuter**.
 
@@ -120,7 +120,7 @@ Vous pouvez également créer un projet qui contient plusieurs scripts Hive. Uti
 
 1. Dans Visual Studio, sélectionnez **Fichier**, **Nouveau**, puis **Projet**.
 
-2. Dans la liste des projets, développez **Modèles**, **Azure Data Lake**, puis sélectionnez **HIVE (HDInsight)**. Dans la liste des modèles, sélectionnez **Hive Sample (Exemple Hive)**. Entrez un nom et un emplacement, puis sélectionnez **OK**.
+2. Dans la liste des projets, développez **Modèles**, **Azure Data Lake**, puis sélectionnez **HIVE (HDInsight)** . Dans la liste des modèles, sélectionnez **Hive Sample (Exemple Hive)** . Entrez un nom et un emplacement, puis sélectionnez **OK**.
 
     ![Capture d’écran de la fenêtre Nouveau projet avec Azure Data Lake, HIVE, Hive Sample (Exemple Hive) et OK en surbrillance](./media/hdinsight-hadoop-emulator-visual-studio/new-hive-project.png)
 
@@ -130,7 +130,7 @@ Le projet **Hive Sample (Exemple Hive)** contient deux scripts, **WebLogAnalysis
 
 Contrairement à Hive qui offre un langage de type SQL pour travailler avec des données structurées, Pig effectue des transformations sur les données. Pig fournit un langage (Pig Latin) permettant de développer un pipeline des transformations. Pour utiliser Pig avec le cluster local, procédez comme suit :
 
-1. Ouvrez Visual Studio et sélectionnez **Fichier**, **Nouveau**, puis **Projet**. Dans la liste des projets, développez **Modèles**, **Azure Data Lake**, puis sélectionnez **Pig (HDInsight)**. Dans la liste des modèles, sélectionnez **Pig Application (Application Pig)**. Entrez un nom et un emplacement, puis sélectionnez **OK**.
+1. Ouvrez Visual Studio et sélectionnez **Fichier**, **Nouveau**, puis **Projet**. Dans la liste des projets, développez **Modèles**, **Azure Data Lake**, puis sélectionnez **Pig (HDInsight)** . Dans la liste des modèles, sélectionnez **Pig Application (Application Pig)** . Entrez un nom et un emplacement, puis sélectionnez **OK**.
 
     ![Capture d’écran de la fenêtre Nouveau projet avec Azure Data Lake, Pig, Pig Application (Application Pig) et OK en surbrillance](./media/hdinsight-hadoop-emulator-visual-studio/new-pig.png)
 

@@ -12,10 +12,10 @@ ms.workload: na
 ms.date: 01/30/2019
 ms.author: tomfitz
 ms.openlocfilehash: bdba294e1ee776d90b93f715e930ec26765abb7f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66129166"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>Créer des groupes de ressources et des ressources au niveau de l’abonnement
@@ -213,7 +213,7 @@ L’exemple suivant crée un groupe de ressources, et déploie un compte de stoc
 
 ## <a name="create-policies"></a>Création des stratégies
 
-### <a name="assign-policy"></a>Assigner une stratégie
+### <a name="assign-policy"></a>Attribuer la stratégie
 
 L’exemple suivant assigne une définition de stratégie existante à l’abonnement. Si la stratégie utilise des paramètres, fournissez-les en tant qu’objet. Si la stratégie n’utilise pas de paramètres, utilisez l’objet vide par défaut.
 

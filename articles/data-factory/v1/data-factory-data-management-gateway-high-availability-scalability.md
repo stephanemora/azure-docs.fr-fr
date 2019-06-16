@@ -14,10 +14,10 @@ ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
 ms.openlocfilehash: 08e7341bfd1c384e41e6d3f1bd7810552899849a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60488636"
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>Passerelle de gestion des données - Haute disponibilité et scalabilité (préversion)
@@ -165,7 +165,7 @@ Voici la configuration requise pour le certificat TLS/SSL utilisé pour sécuris
 - Chaque nœud de runtime d’intégration doit approuver ce certificat, ainsi que l’ordinateur client qui exécute l’application du gestionnaire d’informations d’identification. 
   > [!NOTE]
   > L’application du gestionnaire d’informations d’identification est utilisée lors de la définition en toute sécurité des informations d’identification à partir de l’Assistant Copie / portail Azure. Et elle peut être déclenchée à partir de n’importe quel ordinateur appartenant au même réseau que le magasin de données local ou privé.
-- Les certificats utilisant des caractères génériques sont pris en charge. Si votre nom de domaine complet est **node1.domain.contoso.com**, vous pouvez utiliser ***.domain.contoso.com** comme nom du sujet du certificat.
+- Les certificats utilisant des caractères génériques sont pris en charge. Si votre nom de domaine complet est **node1.domain.contoso.com**, vous pouvez utiliser * **.domain.contoso.com** comme nom du sujet du certificat.
 - Les certificats SAN ne sont pas recommandés, car seul le dernier élément des Autres noms de l’objet sera utilisé et tous les autres seront ignorés en raison d’une limitation actuelle. Par exemple, si vous avez un certificat SAN dont les noms SAN sont **node1.domain.contoso.com** et **node2.domain.contoso.com**, vous ne pouvez utiliser ce certificat que sur l’ordinateur dont le FQDN est **node2.domain.contoso.com**.
 - Prise en charge de toutes les tailles de clé prises en charge par Windows Server 2012 R2 pour les certificats SSL.
 - Les certificat utilisant des clés CNG ne sont pas pris en charge.

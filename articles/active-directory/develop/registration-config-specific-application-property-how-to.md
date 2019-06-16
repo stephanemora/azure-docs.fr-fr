@@ -16,10 +16,10 @@ ms.date: 09/11/2018
 ms.author: ryanwi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a8b93f26080229e980b680c157f59db4edf33e7a
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65545484"
 ---
 # <a name="how-to-fill-out-specific-fields-for-a-custom-developed-application"></a>Guide pratique pour remplir les champs spécifiques d’une application personnalisée
@@ -42,7 +42,7 @@ Cet article décrit brièvement tous les champs disponibles dans le formulaire d
 | Champ            | Description                                                                              |
 |------------------|------------------------------------------------------------------------------------------|
 | Nom             | Le nom de l’application. Il doit être composé de quatre caractères minimum.                |
-| Type d'application | **Application web/API web** : une application qui représente une application web, une API web, ou les deux 
+| Type d’application | **Application web/API web** : une application qui représente une application web, une API web, ou les deux 
 | |**Native** : une application qui peut être installée sur l’appareil ou l’ordinateur d’un utilisateur           |
 | URL de connexion      | L’URL à laquelle les utilisateurs peuvent se connecter pour utiliser votre application.                                  |
 

@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 09/27/2018
 ms.author: danlep
 ms.openlocfilehash: 2cf64c7c4f99a57c4a4a6cf03e68e8af803ceca9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60787350"
 ---
 # <a name="best-practices-for-azure-container-registry"></a>Meilleures pratiques pour Azure Container Registry
@@ -50,7 +50,7 @@ contoso.azurecr.io/marketing/2017-fall/concertpromotions/campaign:218.42
 
 Bien qu’il soit possible de tester un type d’hôte spécifique, par exemple Azure Container Instances, vous souhaiterez probablement supprimer l’instance de conteneur une fois l’opération terminée. Mais vous trouverez peut-être également judicieux de conserver la collection d’images que vous avez transmise à Azure Container Registry. En plaçant votre registre dans son propre groupe de ressources, vous réduisez le risque de supprimer accidentellement la collection d’images dans le registre lorsque vous supprimez le groupe de ressources de l’instance de conteneur.
 
-## <a name="authentication"></a>Authentification
+## <a name="authentication"></a>Authentication
 
 Lorsque vous vous authentifiez avec Azure Container Registry, vous pouvez vous trouver dans deux cas de figure : une authentification individuelle et une authentification de service (ou « sans affichage »). Le tableau suivant fournit une brève vue d’ensemble de ces scénarios et décrit la méthode d’authentification recommandée pour chacun.
 
