@@ -9,10 +9,10 @@ ms.topic: reference
 ms.date: 11/29/2018
 ms.author: sngun
 ms.openlocfilehash: 9903339cbf0958893fb0d11a8c1b6ab7d156aae7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60626789"
 ---
 # <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>Kit de développement logiciel Python Azure Cosmos DB pour l’API SQL : Notes de publication et ressources
@@ -180,7 +180,7 @@ Le service rejette toute requête envoyée à Cosmos DB à l’aide d’un Kit S
 | 0.9.3-prelease |9 décembre 2014 |29 février 2016 |
 | 0.9.2-prelease |25 novembre 2014 |29 février 2016 |
 | 0.9.1-prelease |23 septembre 2014 |29 février 2016 |
-| 0.9.0-prelease |21.08.14 |29 février 2016 |
+| 0.9.0-prelease |21\.08.14 |29 février 2016 |
 
 ## <a name="faq"></a>Forum Aux Questions
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]

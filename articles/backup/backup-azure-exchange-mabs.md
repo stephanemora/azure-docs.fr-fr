@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.date: 03/24/2017
 ms.author: kasinh
 ms.openlocfilehash: 40541596b4da9e0590d497785afd7d6d7f4cbcb4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60641431"
 ---
 # <a name="back-up-an-exchange-server-to-azure-with-azure-backup-server"></a>Sauvegarder un serveur Exchange dans Azure avec le serveur de sauvegarde Azure
 Cet article explique comment configurer un serveur de sauvegarde Azure pour sauvegarder un serveur Microsoft Exchange dans une sauvegarde Microsoft Azure.  
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 Avant de continuer, assurez-vous que le serveur de sauvegarde Azure est [installé et prêt](backup-azure-microsoft-azure-backup.md).
 
 ## <a name="mabs-protection-agent"></a>Agent de protection du serveur de sauvegarde Azure
@@ -53,7 +53,7 @@ Pour installer l’agent de protection du serveur de sauvegarde Azure sur le se
     Une fois cette option sélectionnée, une vérification de la cohérence de sauvegarde s’exécute sur le serveur de sauvegarde Azure, afin d’éviter le trafic d’E/S généré lors de l’exécution de la commande **eseutil** sur le serveur Exchange.
 
    > [!NOTE]
-   > Pour utiliser cette option, vous devez copier les fichiers Ese.dll et Eseutil.exe dans le répertoire C:\Program Files\Microsoft Azure Backup\DPM\DPM\bin sur le serveur de sauvegarde Azure. Dans le cas contraire, l’erreur suivante est déclenchée :   
+   > Pour utiliser cette option, vous devez copier les fichiers Ese.dll et Eseutil.exe dans le répertoire C:\Program Files\Microsoft Azure Backup\DPM\DPM\bin sur le serveur de sauvegarde Azure. Dans le cas contraire, l’erreur suivante est déclenchée :  
    > ![erreur eseutil](./media/backup-azure-backup-exchange-server/eseutil-error.png)
    >
    >
@@ -68,10 +68,10 @@ Pour installer l’agent de protection du serveur de sauvegarde Azure sur le se
 11. Vérifiez l’espace disque disponible, puis cliquez sur **Suivant**.
 12. Sélectionnez l’heure à laquelle le serveur de sauvegarde Azure doit créer la réplication initiale, puis cliquez sur **Suivant**.
 13. Sélectionnez les options de vérification de cohérence, puis cliquez sur **Suivant**.
-14. Choisissez la base de données que vous souhaitez sauvegarder sur Azure, puis cliquez sur **Suivant**. Par exemple : 
+14. Choisissez la base de données que vous souhaitez sauvegarder sur Azure, puis cliquez sur **Suivant**. Par exemple :
 
     ![Spécifier les données de protection en ligne](./media/backup-azure-backup-exchange-server/specify-online-protection-data.png)
-15. Définissez la planification pour **Azure Backup**, puis cliquez sur **Suivant**. Par exemple : 
+15. Définissez la planification pour **Azure Backup**, puis cliquez sur **Suivant**. Par exemple :
 
     ![Spécifier la planification de sauvegarde en ligne](./media/backup-azure-backup-exchange-server/specify-online-backup-schedule.png)
 

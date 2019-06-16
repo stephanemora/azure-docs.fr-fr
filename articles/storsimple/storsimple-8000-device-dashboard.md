@@ -15,15 +15,15 @@ ms.workload: TBD
 ms.date: 07/03/2017
 ms.author: alkohli
 ms.openlocfilehash: 1d88af2c0739c30b2562bad7660015b890e8159c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60578220"
 ---
 # <a name="use-the-device-summary-in-storsimple-device-manager-service"></a>Utiliser le panneau de synthèse de l’appareil dans le service StorSimple Device Manager
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 Le panneau de synthèse de l’appareil StorSimple offre une vue d’ensemble des informations relatives à un appareil StorSimple spécifique, à la différence du panneau de synthèse du service, qui regroupe les informations concernant tous les appareils inclus dans votre solution Microsoft Azure StorSimple.
 
 Le panneau de synthèse de l’appareil fournit une vue récapitulative d’un appareil de la gamme StorSimple 8000 inscrit auprès d’une instance StorSimple Device Manager donnée, en mettant en évidence les problèmes qui nécessitent l’intervention d’un administrateur système. Ce didacticiel présente le panneau de synthèse des appareils, explique le contenu et la fonctionnalité et décrit les travaux que vous pouvez effectuer à partir de ce panneau.

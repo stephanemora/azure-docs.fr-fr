@@ -10,10 +10,10 @@ ms.date: 04/10/2019
 ms.author: lahugh
 ms.custom: seodec18
 ms.openlocfilehash: 2583e7e218e765e0d7745978582e19a5a4fe17ce
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60550199"
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>Créer un pool Azure Batch dans un réseau virtuel
@@ -24,7 +24,7 @@ Quand vous créez un pool Azure Batch, vous pouvez configurer le pool dans un so
 
 Un pool Azure Batch comporte des paramètres qui servent à autoriser les nœuds de calcul à communiquer entre eux, par exemple, pour exécuter des tâches multi-instances. Ces paramètres n’exigent pas de réseau virtuel distinct. En revanche, par défaut, les nœuds ne peuvent pas communiquer avec des machines virtuelles qui ne font pas partie du pool Batch, comme un serveur de licences ou un serveur de fichiers. Pour autoriser les nœuds de calcul du pool à communiquer en toute sécurité avec d’autres machines virtuelles, ou avec un réseau local, vous pouvez configurer le pool dans un sous-réseau d’un réseau virtuel Azure. 
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 * **Authentification**. Pour utiliser un réseau virtuel Azure, l’API du client Batch doit utiliser l’authentification Azure Active Directory (AD). La prise en charge d’Azure Batch pour Azure AD est documentée dans [Authentifier les solutions de service Batch avec Active Directory](batch-aad-auth.md). 
 
@@ -40,7 +40,7 @@ Un pool Azure Batch comporte des paramètres qui servent à autoriser les nœuds
 
 Lorsque vous avez créé votre réseau virtuel et lui avez attribué un sous-réseau, vous pouvez créer un pool Batch avec ce réseau virtuel. Suivez ces étapes pour créer un pool à partir du portail Azure : 
 
-1. Accédez à votre compte Batch dans le portail Azure. Ce compte doit relever du même abonnement et de la même région que le groupe de ressources contenant le réseau virtuel que vous envisagez d’utiliser. 
+1. Accédez à votre compte  Batch dans le portail Azure. Ce compte doit relever du même abonnement et de la même région que le groupe de ressources contenant le réseau virtuel que vous envisagez d’utiliser. 
 2. Dans la fenêtre **Paramètres** située à gauche, sélectionnez l’élément de menu **Pools**.
 3. Dans la fenêtre **Pools**, sélectionnez la commande **Ajouter**.
 4. Dans la fenêtre **Ajouter un pool**, sélectionnez l’option que vous souhaitez utiliser à partir de la liste déroulante **Type d’image**. 

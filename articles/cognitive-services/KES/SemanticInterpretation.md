@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
 ms.openlocfilehash: 26f8d885f8cf85ab849ba221392df206e492aac4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60814473"
 ---
 # <a name="semantic-interpretation"></a>Interprétation sémantique
@@ -41,7 +41,7 @@ Voici une liste des types de données actuellement pris en charge :
 |Int64|Entier signé 64 bits. -9.2e18 et 9.2e18|9876543210|
 |Double|Virgule flottante double précision. 1.7e+/-308 (15 chiffres)|123.456789<br/>1.23456789e2|
 |Guid|Identificateur global unique|"602DD052-CC47-4B23-A16A-26B52D30C05B"|
-|Interroger|Une expression de requête qui spécifie un sous-ensemble d’objets de données dans l’index|All()<br/>And(*q1*, *q2*)|
+|Requête|Une expression de requête qui spécifie un sous-ensemble d’objets de données dans l’index|All()<br/>And(*q1*, *q2*)|
 
 ## <a name="semantic-functions"></a>Fonctions sémantiques
 

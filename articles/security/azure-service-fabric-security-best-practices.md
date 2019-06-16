@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/16/2019
 ms.author: tomsh
 ms.openlocfilehash: 8bafc4a95ca9af4567ed70c190a72f3b351da47c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60611517"
 ---
 # <a name="azure-service-fabric-security-best-practices"></a>Bonnes pratiques pour la sécurité Azure Service Fabric
@@ -139,10 +139,10 @@ Le certificat SSL doit répondre aux prérequis suivants dans Azure :
 -   Le nom d’objet du certificat doit correspondre au nom de domaine servant à accéder à votre service cloud.
 
     - Obtenez un nom de domaine personnalisé à utiliser pour accéder à votre service cloud.
-    - Demandez un certificat à une autorité de certification avec un nom d’objet qui correspond au nom de domaine personnalisé de votre service. Par exemple, si votre nom de domaine personnalisé est __contoso__**.com**, le certificat fourni par votre autorité de certification doit avoir comme nom d’objet **.contoso.com** ou __www__**.contoso.com**.
+    - Demandez un certificat à une autorité de certification avec un nom d’objet qui correspond au nom de domaine personnalisé de votre service. Par exemple, si votre nom de domaine personnalisé est __contoso__ **.com**, le certificat fourni par votre autorité de certification doit avoir comme nom d’objet **.contoso.com** ou __www__ **.contoso.com**.
 
     >[!NOTE]
-    >Vous ne pouvez pas obtenir de certificat SSL auprès d’une autorité de certification pour le domaine __cloudapp__**.net**.
+    >Vous ne pouvez pas obtenir de certificat SSL auprès d’une autorité de certification pour le domaine __cloudapp__ **.net**.
 
 -   Le certificat doit utiliser au minimum un chiffrement à 2 048 bits.
 

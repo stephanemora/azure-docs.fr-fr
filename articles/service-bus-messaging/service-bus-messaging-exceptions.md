@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 09/21/2018
 ms.author: aschhab
 ms.openlocfilehash: b90e87310bf6dec505176b7f4d4cb9e15ac57c20
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60307775"
 ---
 # <a name="service-bus-messaging-exceptions"></a>Exceptions de la messagerie Service Bus
@@ -78,7 +78,7 @@ Ce message indique que la rubrique a dépassé sa limite de taille, dans ce cas 
 
 ### <a name="namespaces"></a>Espaces de noms
 
-En ce qui concerne les espaces de noms, [QuotaExceededException](/dotnet/api/microsoft.azure.servicebus.quotaexceededexception) peut indiquer qu’une application a dépassé le nombre maximal de connexions à un espace de noms. Par exemple : 
+En ce qui concerne les espaces de noms, [QuotaExceededException](/dotnet/api/microsoft.azure.servicebus.quotaexceededexception) peut indiquer qu’une application a dépassé le nombre maximal de connexions à un espace de noms. Par exemple :
 
 ```Output
 Microsoft.ServiceBus.Messaging.QuotaExceededException: ConnectionsQuotaExceeded for namespace xxx.

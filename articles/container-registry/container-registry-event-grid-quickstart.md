@@ -9,10 +9,10 @@ ms.date: 08/23/2018
 ms.author: danlep
 ms.custom: seodec18
 ms.openlocfilehash: f5c075942a29968ea57c684cd817e578df951989
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60427646"
 ---
 # <a name="quickstart-send-events-from-private-container-registry-to-event-grid"></a>Démarrage rapide : Envoyer des événements depuis le registre de conteneurs privé à Event Grid
@@ -207,7 +207,7 @@ La capture d’écran suivante montre l’exemple d’application avec les trois
 
 ![Navigateur web montrant l’exemple d’application avec des événements ImagePushed et ImageDeleted][sample-app-03]
 
-Félicitations ! Si vous voyez les événements `ImagePushed` et `ImageDeleted`, c’est que votre registre envoie des événements à Event Grid, qui à son tour transfère ces événements à votre point de terminaison d’application web.
+Félicitations ! Si vous voyez les événements `ImagePushed` et `ImageDeleted`, c’est que votre registre envoie des événements à Event Grid, qui à son tour transfère ces événements à votre point de terminaison d’application web.
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 

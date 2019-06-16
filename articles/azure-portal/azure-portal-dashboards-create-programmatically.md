@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 09/01/2017
 ms.author: kfollis
 ms.openlocfilehash: b24a0397a1365479907fedc6348caa54508dbbb0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60552204"
 ---
 # <a name="programmatically-create-azure-dashboards"></a>Créer par programmation des tableaux de bord Azure
@@ -26,7 +26,7 @@ Ce document vous guide tout au long des processus de création par programmation
 
 ![exemple de tableau de bord](./media/azure-portal-dashboards-create-programmatically/sample-dashboard.png)
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
 Les tableaux de bord partagés dans Azure sont des [ressources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) tout comme les machines virtuelles et les comptes de stockage.  Ainsi, vous pouvez les gérer par programmation via les [API REST Azure Resource Manager](/rest/api/), l’[interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure), les [commandes Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps) et de nombreuses fonctionnalités du [portail Azure](https://portal.azure.com) générées sur ces API pour faciliter la gestion des ressources.  
 

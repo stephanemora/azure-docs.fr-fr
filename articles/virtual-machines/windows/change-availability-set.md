@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2019
 ms.author: cynthn
-ms.openlocfilehash: 1935286d94b0d72a59fc5d478705e23a7f7425e9
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 59e28591bda0bada24929fe95fba248d333833e6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56236604"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64723361"
 ---
 # <a name="change-the-availability-set-for-a-windows-vm"></a>Modification du groupe à haute disponibilité pour une machine virtuelle Windows
 Les étapes suivantes décrivent comment modifier le groupe à haute disponibilité d’une machine virtuelle à l’aide d’Azure PowerShell. Une machine virtuelle ne peut être ajoutée à un groupe à haute disponibilité que lors de sa création. Pour modifier le groupe à haute disponibilité, vous devez supprimer, puis recréer la machine virtuelle. 
 
 Cet article a été testé pour la dernière fois le 12/02/2019 à l’aide d’[Azure Cloud Shell](https://shell.azure.com/powershell) et du [module Az PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps) version 1.2.0.
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="change-the-availability-set"></a>Changer le groupe à haute disponibilité 
 

@@ -13,10 +13,10 @@ ms.reviewer: jrasnik
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: d278fd6ed06b58db052154e632e565de36853e77
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60331432"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-sql-database"></a>Résoudre des problèmes de connexion à Azure SQL Database
@@ -83,7 +83,7 @@ Si l’application échoue de façon permanente à se connecter à Azure SQL Dat
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Rechercher dans la documentation de Microsoft Azure](https://azure.microsoft.com/search/documentation/)
-* [Affichage des dernières mises à jour du service de base de données SQL Azure](https://azure.microsoft.com/updates/?service=sql-database)
+* [Voir les dernières mises à jour du service Azure SQL Database](https://azure.microsoft.com/updates/?service=sql-database)
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 * [Vue d’ensemble du développement de base de données SQL](sql-database-develop-overview.md)

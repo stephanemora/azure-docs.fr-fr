@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 04/05/2019
 ms.author: bwren
 ms.openlocfilehash: 0e5b9b43e528b37fd994f9131f145abadb33c53b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61425932"
 ---
 # <a name="viewing-and-analyzing-log-data-in-azure-monitor"></a>Affichage et analyse de données de journal dans Azure Monitor
@@ -40,7 +40,7 @@ Log Analytics offre les fonctionnalités d'utilisation de requêtes de journal s
 ![Log Analytics](media/portals/log-analytics.png)
 
 ## <a name="resource-logs"></a>Journaux d’activité de ressources
-Log Analytics s’intègre à différentes ressources Azure, comme les machines virtuelles. Cela signifie que vous pouvez ouvrir Log Analytics directement via le menu de surveillance de la ressource, sans passer par Azure Monitor (en perdant alors le contexte de la ressource). L’option **Journaux** n’a pas encore été activée pour toutes les ressources Azure, mais elle commence à apparaître dans le menu du portail pour plusieurs types de ressource.
+Log Analytics s’intègre à différentes ressources Azure, comme les machines virtuelles. Cela signifie que vous pouvez ouvrir Log Analytics directement via le menu de surveillance de la ressource, sans passer par Azure Monitor (en perdant alors le contexte de la ressource). L’option **Journaux d’activité** n’a pas encore été activée pour toutes les ressources Azure, mais elle commence à apparaître dans le menu du portail pour plusieurs types de ressource.
 
 Lorsque Log Analytics est ouvert à partir d’une ressource spécifique, il est automatiquement étendu pour journaliser les enregistrements de cette ressource uniquement.   Si vous voulez écrire une requête incluant d’autres enregistrements, vous devrez l’ouvrir à partir du menu d’Azure Monitor.
 

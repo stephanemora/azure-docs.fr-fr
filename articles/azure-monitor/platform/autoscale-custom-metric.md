@@ -9,10 +9,10 @@ ms.date: 05/07/2017
 ms.author: ancav
 ms.subservice: autoscale
 ms.openlocfilehash: e6423f2ce3659fd3dd738dcc8a990261bc7bf60c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60334341"
 ---
 # <a name="get-started-with-auto-scale-by-custom-metric-in-azure"></a>Prise en main de la mise à l’échelle automatique par métrique personnalisée dans Azure

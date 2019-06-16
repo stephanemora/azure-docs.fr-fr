@@ -17,10 +17,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0e006111cce7f53ff87f1c6d60b2a5147da02e1e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60284942"
 ---
 # <a name="tutorial-get-data-using-the-azure-active-directory-reporting-api-with-certificates"></a>Tutoriel : Obtenir des données à l’aide de l’API de création de rapports Azure Active Directory avec des certificats
@@ -29,7 +29,7 @@ Les [API de création de rapports Azure Active Directory (Azure AD)](concept-rep
 
 Dans ce didacticiel, vous allez apprendre à utiliser un certificat de test pour accéder à l’API Graph MS pour générer des rapports. Nous vous recommandons de ne pas utiliser de certificats de test dans un environnement de production. 
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 1. Pour accéder aux données de connexion, vous devez disposer d'un locataire Azure Active Directory avec licence premium (P1/P2). Consultez [Bien démarrer avec Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) pour mettre à niveau votre édition d’Azure Active Directory. Notez que si vous ne disposiez d'aucune donnée d'activité avant la mise à niveau, quelques jours seront nécessaires pour que les données s'affichent dans les rapports après la mise à niveau vers une licence premium. 
 

@@ -5,14 +5,13 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-origin.date: 02/14/2019
-ms.date: 02/26/2019
-ms.author: v-junlch
+ms.date: 2/14/2019
+ms.author: victorh
 ms.openlocfilehash: abfe33ff679bef125d9bf5b78e1790a1a4c64863
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60832042"
 ---
 # <a name="create-application-gateway-custom-error-pages"></a>Créer des pages d’erreur personnalisées pour Application Gateway
@@ -35,6 +34,7 @@ Rien n’empêche de définir des pages d’erreur personnalisées au niveau glo
 - **Les deux** : la page d’erreur personnalisée définie au niveau de l’écouteur remplace celle définie au niveau global.
 
 Pour créer une page d’erreur personnalisée, vous devez disposer des éléments suivants :
+
 - le code d’état d’une réponse HTTP
 - l’emplacement correspondant de la page d’erreur 
 - un blob de Stockage Azure accessible publiquement pour cet emplacement
@@ -48,10 +48,10 @@ Après avoir spécifié une page d’erreur, la passerelle d’application la t�
 
 1. Accédez à la passerelle Application Gateway dans le portail et choisissez une passerelle d’application.
 
-    ![ag-overview](./media/custom-error/ag-overview.png)
+    ![ag-overview](media/custom-error/ag-overview.png)
 2. Cliquez sur **Écouteurs** et accédez à un écouteur spécifique sur lequel vous souhaitez spécifier une page d’erreur.
 
-    ![Écouteurs Application Gateway](./media/custom-error/ag-listener.png)
+    ![Écouteurs Application Gateway](media/custom-error/ag-listener.png)
 3. Configurez une page d’erreur personnalisée pour une erreur de pare-feu d’applications web 403 ou une page de maintenance 502 au niveau de l’écouteur.
 
     > [!NOTE]
@@ -59,7 +59,7 @@ Après avoir spécifié une page d’erreur, la passerelle d’application la t�
 
 4. Spécifiez une URL d’objet blob accessible publiquement pour un code d’état d’erreur donné, puis cliquez sur **Enregistrer**. La passerelle Application Gateway est maintenant configurée avec la page d’erreur personnalisée.
 
-   ![Codes d’erreur Application Gateway](./media/custom-error/ag-error-codes.png)
+   ![Codes d’erreur Application Gateway](media/custom-error/ag-error-codes.png)
 
 ## <a name="azure-powershell-configuration"></a>Configuration d’Azure PowerShell
 
@@ -76,5 +76,3 @@ Pour plus d'informations, consultez [Add-AzApplicationGatewayCustomError](https:
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur les diagnostics Application Gateway, voir [Intégrité du serveur principal, journaux de diagnostic et métriques pour la passerelle Application Gateway](application-gateway-diagnostics.md).
-
-<!-- Update_Description: wording update -->

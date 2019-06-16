@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: maheshb
 ms.openlocfilehash: bbad72b41a177bdbafd6cf98bfd2025190d98b16
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62128955"
 ---
 # <a name="configure-your-custom-autosuggest-experience"></a>Configurer votre expérience de Suggestion automatique personnalisée
@@ -36,7 +36,7 @@ Pour activer les suggestions Bing, placez le curseur **Automatic Bing suggestion
 
 ## <a name="add-your-own-suggestions"></a>Ajouter vos propres suggestions
 
-Pour ajouter vos propres suggestions de chaînes de requête, ajoutez-les à la liste qui se trouve sous **Suggestions définies par l’utilisateur**. Après avoir ajouté une suggestion à la liste, appuyez sur la touche Entrée ou cliquez sur l’icône **+**. Vous pouvez spécifier la suggestion dans n’importe quelle langue. Vous pouvez ajouter un maximum de 5 000 suggestions de chaînes de requête.
+Pour ajouter vos propres suggestions de chaînes de requête, ajoutez-les à la liste qui se trouve sous **Suggestions définies par l’utilisateur**. Après avoir ajouté une suggestion à la liste, appuyez sur la touche Entrée ou cliquez sur l’icône **+** . Vous pouvez spécifier la suggestion dans n’importe quelle langue. Vous pouvez ajouter un maximum de 5 000 suggestions de chaînes de requête.
 
 ## <a name="upload-suggestions"></a>Charger des suggestions
 
@@ -48,7 +48,7 @@ Pour supprimer une suggestion, cliquez sur l’icône de suppression en regard d
 
 ## <a name="block-suggestions"></a>Bloquer des suggestions
 
-Si vous incluez des suggestions Bing, vous pouvez ajouter une liste comprenant les chaînes de requête que Bing ne doit pas retourner. Pour ajouter une chaîne de requête à bloquer, cliquez sur **Show blocked suggestions** (Afficher les suggestions bloquées). Ajoutez la chaîne de requête à la liste, puis appuyez sur la touche Entrée ou cliquez sur l’icône **+**. Vous pouvez bloquer un maximum de 50 chaînes de requête.
+Si vous incluez des suggestions Bing, vous pouvez ajouter une liste comprenant les chaînes de requête que Bing ne doit pas retourner. Pour ajouter une chaîne de requête à bloquer, cliquez sur **Show blocked suggestions** (Afficher les suggestions bloquées). Ajoutez la chaîne de requête à la liste, puis appuyez sur la touche Entrée ou cliquez sur l’icône **+** . Vous pouvez bloquer un maximum de 50 chaînes de requête.
 
 
 

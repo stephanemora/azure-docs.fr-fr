@@ -15,10 +15,10 @@ ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 090a066afb24c4776f9844b8850264ffad842c59
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60350069"
 ---
 # <a name="azure-active-directory-connect-health-operations"></a>Opérations Azure Active Directory Connect Health
@@ -120,10 +120,10 @@ L’autorisation est accordée si un utilisateur final a accès au niveau Annuai
 
 ### <a name="allow-users-or-groups-access-to-azure-ad-connect-health"></a>Autoriser l’accès des utilisateurs ou des groupes à Azure AD Connect Health
 Les étapes suivantes montrent comment autoriser l’accès.
-#### <a name="step-1-select-the-appropriate-access-scope"></a>Étape 1 : Sélectionner l’étendue d’accès appropriée
+#### <a name="step-1-select-the-appropriate-access-scope"></a>Étape 1 : Sélectionner l’étendue d’accès appropriée
 Pour autoriser un accès utilisateur au niveau *toutes les instances de service* dans Azure AD Connect Health, ouvrez le panneau principal dans Azure AD Connect Health.<br>
 
-#### <a name="step-2-add-users-and-groups-and-assign-roles"></a>Étape 2 : Ajouter des utilisateurs et des groupes, et affecter des rôles
+#### <a name="step-2-add-users-and-groups-and-assign-roles"></a>Étape 2 : Ajouter des utilisateurs et des groupes, et affecter des rôles
 1. Dans la section **Configurer**, cliquez sur **Utilisateurs**.<br>
    ![Capture d’écran de la barre latérale de ressource d’Azure AD Connect Health](./media/how-to-connect-health-operations/startRBAC.png)
 2. Sélectionnez **Ajouter**.

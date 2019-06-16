@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.openlocfilehash: 021f18f588613817110539d408f9260fb9247895
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61449344"
 ---
 # <a name="integrate-the-remote-monitoring-solution-with-azure-data-lake-store"></a>Intégrer la solution de supervision à distance à Azure Data Lake Store
@@ -21,7 +21,7 @@ La solution de supervision à distance ne répond peut-être pas à tous vos bes
 
 Dans cette procédure, vous allez utiliser une tâche Azure Stream Analytics pour transmettre des données du hub IoT dans votre solution de supervision à distance à Azure Data Lake Store.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour réaliser cette procédure, vous avez besoin des éléments suivants :
 
@@ -103,7 +103,7 @@ Créez une tâche Azure Stream Analytics pour transmettre les données du hub Io
 
 1. Sélectionnez le compte Data Lake Store que vous avez créé dans les étapes précédentes et indiquez une structure de dossiers pour transmettre les données au magasin.
 
-1. Dans le champ Format de date, entrez **/streaming/{date}/{time}**. Laissez le format de date YYYY/MM/DD et le format d’heure HH par défaut.
+1. Dans le champ Format de date, entrez **/streaming/{date}/{time}** . Laissez le format de date YYYY/MM/DD et le format d’heure HH par défaut.
 
     ![Indiquer une structure de dossiers](./media/iot-accelerators-integrate-data-lake/stream-analytics-new-output.png)
 

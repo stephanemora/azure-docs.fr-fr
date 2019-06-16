@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/30/2019
 ms.author: spelluru
 ms.openlocfilehash: 34bc8263053cd4a701c16ee1832cf1b27340a345
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60695992"
 ---
 # <a name="create-and-manage-schedules-for-classroom-labs-in-azure-lab-services"></a>Créer et gérer des planifications pour laboratoires de classe dans Azure Lab Services 

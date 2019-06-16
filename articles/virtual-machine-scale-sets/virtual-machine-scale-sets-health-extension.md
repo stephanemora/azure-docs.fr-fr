@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 01/30/2019
 ms.author: manayar
 ms.openlocfilehash: d1cff1011e190e5fbb2874657cbdfbdc68bde0c0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60619822"
 ---
 # <a name="using-application-health-extension-with-virtual-machine-scale-sets"></a>Utilisation de l’extension Intégrité de l’application avec des groupes de machines virtuelles identiques
@@ -27,7 +27,7 @@ La surveillance de l’intégrité de votre application est un signal important 
 
 Cet article décrit comment utiliser l’extension Intégrité de l’application pour analyser le fonctionnement de vos applications déployées sur des groupes de machines virtuelles identiques.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 Cet article suppose de connaître :
 -   Les [extensions](../virtual-machines/extensions/overview.md) de machine virtuelle Azure
 -   La [modification](virtual-machine-scale-sets-upgrade-scale-set.md) des groupes de machines virtuelles identiques
@@ -66,17 +66,17 @@ Le JSON suivant montre le schéma pour l’extension Intégrité de l’applicat
 | Nom | Valeur/Exemple | Type de données
 | ---- | ---- | ---- 
 | apiVersion | `2018-10-01` | date |
-| publisher | `Microsoft.ManagedServices` | string |
-| type | `ApplicationHealthLinux` (Linux), `ApplicationHealthWindows` (Windows) | string |
+| publisher | `Microsoft.ManagedServices` | chaîne |
+| Type | `ApplicationHealthLinux` (Linux), `ApplicationHealthWindows` (Windows) | chaîne |
 | typeHandlerVersion | `1.0` | int |
 
 ### <a name="settings"></a>Paramètres
 
 | Nom | Valeur/Exemple | Type de données
 | ---- | ---- | ----
-| protocol | `http` ou `tcp` | string |
+| protocol | `http` ou `tcp` | chaîne |
 | port | Facultatif si le protocole est `http`, obligatoire si le protocole est `tcp` | int |
-| requestPath | Obligatoire si le protocole est `http`, non autorisé si le protocole est `tcp` | string |
+| requestPath | Obligatoire si le protocole est `http`, non autorisé si le protocole est `tcp` | chaîne |
 
 ## <a name="deploy-the-application-health-extension"></a>Déployer l’extension Intégrité de l’application
 Il existe plusieurs façons de déployer l’extension Intégrité de l’application sur vos groupes identiques, comme indiqué dans les exemples ci-dessous.

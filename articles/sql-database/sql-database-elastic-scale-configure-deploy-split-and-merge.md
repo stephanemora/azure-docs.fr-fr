@@ -13,10 +13,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 12/04/2018
 ms.openlocfilehash: 5aff7e93dcfaa5320be0d6f7d427abcdc88c69e4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60585506"
 ---
 # <a name="deploy-a-split-merge-service-to-move-data-between-sharded-databases"></a>Déployer un service de fractionnement et de fusion pour déplacer des données entre bases de données partitionnées
@@ -33,7 +33,7 @@ L’outil de fractionnement et de fusion vous permet de déplacer les données e
 
 Les fichiers sont placés dans un répertoire nommé **Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge.x.x.xxx.x** où *x.x.xxx.x* correspond au numéro de version. Recherchez les fichiers du service de fractionnement et de fusion dans le sous-répertoire **content\splitmerge\service** et les scripts PowerShell de fractionnement et de fusion (ainsi que les dll clientes nécessaires) dans le sous-répertoire **content\splitmerge\powershell**.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 1. Créez une base de données Azure SQL DB qui servira de base de données d’état du service de fractionnement/fusion. Accédez au [portail Azure](https://portal.azure.com). Créez une **base de données SQL**. Nommez la base de données et créez un administrateur ainsi qu’un mot de passe. Veillez à enregistrer le nom et le mot de passe pour une utilisation ultérieure.
 2. Vérifiez que votre serveur Azure SQL DB autorise les services Azure à s’y connecter. Dans le portail, dans **Paramètres du pare-feu**, vérifiez que le paramètre **Autoriser l’accès aux services Azure** a la valeur **Activé**. Cliquez sur l’icône « Enregistrer ».
 3. Créez un compte de Stockage Azure pour les sorties de diagnostics.
@@ -142,12 +142,12 @@ Si votre rôle de travail ne parvient pas à être en ligne, mais que votre rôl
    Server=myservername.database.windows.net; Database=mydatabasename;User ID=myuserID; Password=mypassword; Encrypt=True; Connection Timeout=30
    ```
 
-* Assurez-vous que le nom du serveur ne commence pas par **https://**.
+* Assurez-vous que le nom du serveur ne commence pas par **https://** .
 * Vérifiez que votre serveur Azure SQL DB autorise les services Azure à s’y connecter. Pour ce faire, ouvrez votre base de données dans le portail et vérifiez que le paramètre **Autoriser l’accès aux services Azure** est défini sur **Activé** **.
 
 ## <a name="test-the-service-deployment"></a>Tester le déploiement du service
 ### <a name="connect-with-a-web-browser"></a>Se connecter avec un navigateur Web
-Déterminez le point de terminaison web de votre service de fractionnement/fusion. Vous pouvez le trouver dans le portail en accédant à la **Vue d’ensemble** de votre service cloud et en effectuant une recherche dans la zone **URL du site** située sur la droite. Remplacez **http://** par **https://**, car les paramètres de sécurité par défaut désactivent le point de terminaison HTTP. Chargez la page correspondant à cette URL dans votre navigateur.
+Déterminez le point de terminaison web de votre service de fractionnement/fusion. Vous pouvez le trouver dans le portail en accédant à la **Vue d’ensemble** de votre service cloud et en effectuant une recherche dans la zone **URL du site** située sur la droite. Remplacez **http://** par **https://** , car les paramètres de sécurité par défaut désactivent le point de terminaison HTTP. Chargez la page correspondant à cette URL dans votre navigateur.
 
 ### <a name="test-with-powershell-scripts"></a>Effectuer des tests avec des scripts PowerShell
 Le déploiement et votre environnement peuvent être testés en exécutant les exemples de scripts PowerShell fournis.

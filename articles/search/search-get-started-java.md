@@ -10,10 +10,10 @@ ms.date: 08/26/2018
 ms.author: jjed
 ms.custom: seodec2018
 ms.openlocfilehash: d16f20e3c2dfa3d670006e44f0072a3871d41c3f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61289799"
 ---
 # <a name="get-started-with-azure-search-in-java"></a>Prise en main d'Azure Search dans Java
@@ -97,7 +97,7 @@ Toutes les modifications et instructions d'exécution ultérieures seront effect
    
     ![][6]
 3. Cliquez sur **Appliquer**.
-4. Sélectionnez **Window** > **Preferences** > **Server** > **Runtime Environments** > **Add..**.
+4. Sélectionnez **Window** > **Preferences** > **Server** > **Runtime Environments** > **Add..** .
 5. Développez Apache et sélectionnez la version du serveur Apache Tomcat que vous avez précédemment installée. Sur notre système, nous avons installé la version 8.
    
     ![][7]

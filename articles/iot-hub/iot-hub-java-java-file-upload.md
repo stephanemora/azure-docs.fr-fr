@@ -10,10 +10,10 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 06/28/2017
 ms.openlocfilehash: 3658b57d003ddc5429c6857f88044376fe1aaa93
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60399112"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>Charger des fichiers sur le cloud à partir d’un appareil avec IoT Hub
@@ -26,7 +26,7 @@ Ce didacticiel s’appuie sur le code du didacticiel [Envoyer des messages du cl
 
 * Utilisez les notifications de chargement de fichier IoT Hub pour déclencher le traitement du fichier dans votre serveur principal d’application.
 
-Les tutoriels [Envoyer des données de télémétrie à IoT Hub (Java)](quickstart-send-telemetry-java.md) et [Envoyer des messages cloud-à-appareil avec IoT Hub](iot-hub-java-java-c2d.md) présentent les fonctionnalités de base d’envoi de messages appareil-à-cloud et cloud-à-appareil d’IoT Hub. Le tutoriel [Configurer le routage des messages avec IoT Hub](tutorial-routing.md) décrit un moyen de stocker de façon fiable les messages appareil-à-cloud dans le stockage d’objets blob Azure. Toutefois, dans certains scénarios, vous ne pouvez pas facilement mapper les données que vos appareils envoient dans des messages appareil-à-cloud relativement petits et acceptés par IoT Hub. Par exemple : 
+Les tutoriels [Envoyer des données de télémétrie à IoT Hub (Java)](quickstart-send-telemetry-java.md) et [Envoyer des messages cloud-à-appareil avec IoT Hub](iot-hub-java-java-c2d.md) présentent les fonctionnalités de base d’envoi de messages appareil-à-cloud et cloud-à-appareil d’IoT Hub. Le tutoriel [Configurer le routage des messages avec IoT Hub](tutorial-routing.md) décrit un moyen de stocker de façon fiable les messages appareil-à-cloud dans le stockage d’objets blob Azure. Toutefois, dans certains scénarios, vous ne pouvez pas facilement mapper les données que vos appareils envoient dans des messages appareil-à-cloud relativement petits et acceptés par IoT Hub. Par exemple :
 
 * Fichiers volumineux qui contiennent des images
 * Videos

@@ -16,10 +16,10 @@ ms.date: 05/24/2018
 ms.author: lahugh
 ms.custom: ''
 ms.openlocfilehash: 1e9d039769e7fbcb9c2b7285aa727acd7322bcdf
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62127826"
 ---
 # <a name="use-an-azure-file-share-with-a-batch-pool"></a>Utiliser un partage de fichiers Azure avec un pool Batch
@@ -71,7 +71,7 @@ Pour simplifier l’opération de montage, si vous le souhaitez vous pouvez cons
 
    ```
 
-2. Montez le partage sur chaque nœud dans le cadre de chaque tâche à l’aide de `net use`. Par exemple, la ligne de commande de tâche suivante monte le partage de fichiers en tant que lecteur *S:*. Elle serait suivie d’une commande ou d’un script qui référence le partage. Des informations d’identification mises en cache sont utilisées dans l’appel à `net use`. Cette étape part du principe que vous utilisez pour les tâches la même identité d’utilisateur que celle utilisée dans la tâche de démarrage sur le pool, ce qui ne convient pas à tous les scénarios.
+2. Montez le partage sur chaque nœud dans le cadre de chaque tâche à l’aide de `net use`. Par exemple, la ligne de commande de tâche suivante monte le partage de fichiers en tant que lecteur *S:* . Elle serait suivie d’une commande ou d’un script qui référence le partage. Des informations d’identification mises en cache sont utilisées dans l’appel à `net use`. Cette étape part du principe que vous utilisez pour les tâches la même identité d’utilisateur que celle utilisée dans la tâche de démarrage sur le pool, ce qui ne convient pas à tous les scénarios.
 
    ```
    cmd /c "net use S: \\mystorageaccountname.file.core.windows.net\myfileshare" 

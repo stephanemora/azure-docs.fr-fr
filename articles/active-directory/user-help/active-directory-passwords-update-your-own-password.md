@@ -15,10 +15,10 @@ ms.author: lizross
 ms.custom: end-user
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d16b54df5b8392a294036978e0b917ecdb3ce1ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60862204"
 ---
 # <a name="reset-your-work-or-school-password"></a>Réinitialiser votre mot de passe professionnel ou scolaire
@@ -38,7 +38,7 @@ Vous n’avez peut-être pas accès à votre compte Azure Active Directory (Azur
 
 Suivez les étapes ci-dessous pour accéder à la fonction de réinitialisation de mot de passe en libre-service Azure AD (SSPR) et récupérer votre compte.
 
-1. Depuis une page de **Connexion** professionnelle ou scolaire, sélectionnez le lien **Vous ne pouvez pas accéder à votre compte ?**, puis sélectionnez **Compte professionnel ou scolaire**, ou accédez directement à la [page de réinitialisation de mot de passe](https://passwordreset.microsoftonline.com/).
+1. Depuis une page de **Connexion** professionnelle ou scolaire, sélectionnez le lien **Vous ne pouvez pas accéder à votre compte ?** , puis sélectionnez **Compte professionnel ou scolaire**, ou accédez directement à la [page de réinitialisation de mot de passe](https://passwordreset.microsoftonline.com/).
 
     ![Vous ne pouvez pas accéder à votre compte ?][Login]
 

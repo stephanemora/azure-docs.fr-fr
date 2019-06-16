@@ -16,10 +16,10 @@ ms.date: 07/12/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8199f106c234e216a0982dc9e51413ccf30ae93a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60268704"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jobscience"></a>Didacticiel : Intégration d’Azure Active Directory à Jobscience
@@ -60,7 +60,7 @@ Pour configurer l’intégration de Jobscience à Azure AD, vous devez ajouter J
 
 **Pour ajouter Jobscience à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**. 
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**. 
 
     ![Active Directory][1]
 
@@ -162,19 +162,19 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     
     a. Dans la zone de texte **Name** , tapez le nom de votre configuration.
 
-    b. Dans la zone de texte **Issuer (Émetteur)**, collez la valeur de **l’ID d’entité SAML** que vous avez copiée depuis le portail Azure.
+    b. Dans la zone de texte **Issuer (Émetteur)** , collez la valeur de **l’ID d’entité SAML** que vous avez copiée depuis le portail Azure.
 
     c. Dans la zone de texte **Entity ID** (ID identité), tapez `https://salesforce-jobscience.com`.
 
     d. Cliquez sur **Parcourir** pour charger votre certificat Azure AD.
 
-    e. Pour **SAML Identity Type (Type d’identité SAML)**, sélectionnez **Assertion contains the Federation ID from the User object (L’assertion contient l’ID de fédération de l’objet utilisateur)**.
+    e. Pour **SAML Identity Type (Type d’identité SAML)** , sélectionnez **Assertion contains the Federation ID from the User object (L’assertion contient l’ID de fédération de l’objet utilisateur)** .
 
     f. Pour **SAML Identity Location**, sélectionnez **Identity is in the NameIdentfier element of the Subject statement**.
 
-    g. Dans la zone de texte **Identity Provider Login URL (URL de connexion du fournisseur d’identité)**, collez la valeur **URL du service d’authentification unique SAML** que vous avez copiée à partir du portail Azure.
+    g. Dans la zone de texte **Identity Provider Login URL (URL de connexion du fournisseur d’identité)** , collez la valeur **URL du service d’authentification unique SAML** que vous avez copiée à partir du portail Azure.
 
-    h. Dans la zone de texte **Identity Provider Logout URL (URL de déconnexion du fournisseur d’identité)**, collez la valeur **URL de déconnexion** que vous avez copiée à partir du portail Azure.
+    h. Dans la zone de texte **Identity Provider Logout URL (URL de déconnexion du fournisseur d’identité)** , collez la valeur **URL de déconnexion** que vous avez copiée à partir du portail Azure.
 
     i. Cliquez sur **Enregistrer**.
 

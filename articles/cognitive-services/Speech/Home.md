@@ -12,10 +12,10 @@ ms.date: 09/18/2018
 ms.author: zhouwang
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: d2c7211831658a18e65e04aa753607f4eb22dac8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60515088"
 ---
 # <a name="what-is-bing-speech"></a>Quelle est la Reconnaissance vocale Bing ?
@@ -36,10 +36,10 @@ L’API de reconnaissance vocale Microsoft *transcrit* les flux audio en texte q
 
 | Cas d'utilisation | [API REST](GetStarted/GetStartedREST.md) | [Bibliothèques clientes](GetStarted/GetStartedClientLibraries.md) |
 |-----|-----|-----|
-| Convertir un énoncé bref, tel que des commandes (durée < 15 s), sans résultats intermédiaires | Oui | Oui |
-| Convertir un long énoncé (> 15 s) | Non  | Oui |
-| Diffuser en continu un énoncé avec les résultats intermédiaires souhaités | Non  | Oui |
-| Comprendre le texte converti à partir d’un énoncé à l’aide de LUIS | Non  | Oui |
+| Convertir un énoncé bref, tel que des commandes (durée < 15 s), sans résultats intermédiaires | OUI | OUI |
+| Convertir un long énoncé (> 15 s) | Non | OUI |
+| Diffuser en continu un énoncé avec les résultats intermédiaires souhaités | Non | OUI |
+| Comprendre le texte converti à partir d’un énoncé à l’aide de LUIS | Non | OUI |
 
 Quelle que soit l’approche choisie par les développeurs (API REST ou bibliothèques clientes), le service Microsoft Speech prend en charge les éléments suivants :
 

@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
 ms.openlocfilehash: b06fec8ab726f48e1937bae4cfbdbd9842788d0a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61480647"
 ---
 # <a name="performing-sentiment-analysis-by-using-azure-stream-analytics-and-azure-machine-learning"></a>Analyse des sentiments à l’aide d’Azure Stream Analytics et Azure Machine Learning
@@ -36,7 +36,7 @@ La figure suivante illustre cette configuration. Comme nous l’avons indiqué, 
 
 ![Vue d’ensemble de l’intégration de Machine Learning dans Stream Analytics](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-figure-1.png)  
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 Avant de commencer, veillez à disposer des éléments qui suivent :
 
 * Un abonnement Azure actif.
@@ -175,7 +175,7 @@ Dans cette section du didacticiel, vous allez définir une fonction dans le trav
 
 1. Assurez-vous que vous disposez de l’URL du service web et de la clé d’API téléchargée précédemment dans le classeur Excel.
 
-2. Accédez à votre panneau de travail > **Fonctions** > **+ Ajouter** > **AzureML**
+2. Accédez à votre panneau de travail > **Fonctions** >  **+ Ajouter** > **AzureML**
 
 3. Remplissez le panneau **fonction d’Azure Machine Learning** avec ces valeurs :
 

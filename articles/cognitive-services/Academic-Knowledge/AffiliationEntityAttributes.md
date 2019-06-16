@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
 ms.openlocfilehash: 82e6a5b66342e58e62da029d617cbd1d74c28149
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61340512"
 ---
 # <a name="affiliation-entity"></a>Entité Affiliation
@@ -24,8 +24,8 @@ ms.locfileid: "61340512"
 Nom    |Description                            |Type       | Opérations
 ------- | ------------------------------------- | --------- | ----------------------------
 ID      |L’ID d’entité                              |Int64      |Égal à
-AfN     |Nom normalisé de la collaboration        |String     |Égal à
-DAfN    |Nom d’affichage de la collaboration       |String     |Aucun
+AfN     |Nom normalisé de la collaboration        |Chaîne     |Égal à
+DAfN    |Nom d’affichage de la collaboration       |Chaîne     |Aucun
 CC      |Nombre total de citations de la collaboration           |Int32      |Aucun  
 ECC     |Estimation du nombre total de citations la collaboration |Int32      |Aucun
 

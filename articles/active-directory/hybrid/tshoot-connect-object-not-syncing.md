@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 931865803328189d89c0fbae15caa801c3f7f7c6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60455142"
 ---
 # <a name="troubleshoot-an-object-that-is-not-synchronizing-with-azure-active-directory"></a>Résoudre les problèmes de synchronisation d’un objet avec Azure Active Directory
@@ -75,7 +75,7 @@ La colonne **Status** (État) contient les informations les plus importantes et 
 
 | Statut | Commentaire |
 | --- | --- |
-| stopped- *  |L’exécution n’a pas pu se terminer. Cela peut se produire, par exemple, si le système distant est arrêté et ne peut pas être contacté. |
+| stopped- * |L’exécution n’a pas pu se terminer. Cela peut se produire, par exemple, si le système distant est arrêté et ne peut pas être contacté. |
 | stopped-error-limit |Il existe plus de 5 000 erreurs. L’exécution a été automatiquement arrêtée en raison du grand nombre d’erreurs. |
 | completed-\*-errors |L’exécution s’est terminée, mais il existe des erreurs (moins de 5 000) qui doivent être examinées. |
 | completed-\*-warnings |L’exécution s’est terminée, mais des données n’ont pas l’état attendu. Si vous avez des erreurs, ce message n’est, en général, qu’un symptôme. N’explorez pas les avertissements avant d’avoir résolu les erreurs. |
@@ -91,7 +91,7 @@ Commencez par sélectionner la chaîne d’erreur. (Dans l’image précédente,
 
 Cliquez avec le bouton droit dans la zone **Call Stack Information** (Informations de la pile des appels), choisissez **Select All** (Tout sélectionner), puis **Copy** (Copier). Copiez ensuite la pile et examinez l’erreur dans l’éditeur de votre choix, par exemple le Bloc-notes.
 
-Si l’erreur provient de **SyncRulesEngine**, les informations de la pile des appels affichent d’abord la liste de tous les attributs sur l’objet. Faites défiler vers le bas jusqu’à l’en-tête **InnerException =>**.  
+Si l’erreur provient de **SyncRulesEngine**, les informations de la pile des appels affichent d’abord la liste de tous les attributs sur l’objet. Faites défiler vers le bas jusqu’à l’en-tête **InnerException =>** .  
 
   ![Capture d’écran de Synchronization Service Manager, répertoriant les informations d’erreur sous le titre InnerException =>](./media/tshoot-connect-object-not-syncing/errorinnerexception.png)
   
@@ -142,7 +142,7 @@ Dans l’image précédente, vous pouvez également remarquer dans la colonne **
 
 Sous l’onglet **Lineage** (Lignage), vous pouvez accéder au métaverse en sélectionnant [**Metaverse Object Properties**](#mv-attributes) (Propriétés de l’objet métaverse).
 
-### <a name="preview"></a>VERSION PRÉLIMINAIRE
+### <a name="preview"></a>PRÉVERSION
 Le bouton **Preview** (Aperçu) se trouve en bas à gauche dans la fenêtre **Connector Space Object Properties** (Propriétés de l’objet espace connecteur). Sélectionnez ce bouton pour ouvrir la page **Preview** (Aperçu) dans laquelle vous pouvez synchroniser un objet. Cette page est utile si vous résolvez des problèmes liés aux règles de synchronisation personnalisée et que vous souhaitez voir l’effet d’une modification sur un seul objet. Vous pouvez sélectionner **Full sync** (Synchronisation complète) ou **Delta sync** (Synchronisation Delta). Vous pouvez également sélectionner **Generate Preview** (Générer l’aperçu), qui permet de conserver uniquement la modification en mémoire. Sinon, sélectionnez **Commit Preview** (Valider l’aperçu), qui met à jour le métaverse et implémente toutes les modifications dans les espaces connecteur cibles.  
 
 ![Capture d’écran de la page d’aperçu, avec l’option de démarrage de l’aperçu sélectionnée](./media/tshoot-connect-object-not-syncing/preview.png)  
@@ -171,7 +171,7 @@ Si l’objet se trouve dans l’espace Active Directory CS, mais pas dans le Mé
 
   ![Capture d’écran de l’éditeur de règles de synchronisation affichant une recherche de règles de synchronisation entrante](./media/tshoot-connect-object-not-syncing/syncrulessearch.png)
 
-Affichez chaque règle de la liste ci-dessus et vérifiez le paramètre **Scoping filter (Filtre d’étendue)**. Dans le filtre d’étendue qui suit, si **isCriticalSystemObject** a la valeur Null ou FALSE, ou s’il n’est pas défini, il se situe dans l’étendue.
+Affichez chaque règle de la liste ci-dessus et vérifiez le paramètre **Scoping filter (Filtre d’étendue)** . Dans le filtre d’étendue qui suit, si **isCriticalSystemObject** a la valeur Null ou FALSE, ou s’il n’est pas défini, il se situe dans l’étendue.
 
   ![Capture d’écran d’un filtre d’étendue dans une recherche de règles de synchronisation entrante](./media/tshoot-connect-object-not-syncing/scopingfilter.png)
 

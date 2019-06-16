@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/17/2018
 ms.author: saurse
 ms.openlocfilehash: b6f0ce1939b2a78ca191d2feb0140506d130b9b0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60648257"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Flux de travail de la sauvegarde hors connexion dans la sauvegarde Azure
@@ -43,7 +43,7 @@ Les charges de travail ou fonctionnalités de sauvegarde Azure suivantes prennen
 
 [!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
   > [!NOTE]
   > Les prérequis et le flux de travail suivants s’appliquent uniquement à une sauvegarde hors connexion des fichiers et dossiers à l’aide de [la dernière version de l’agent Microsoft Azure Recovery Services](https://aka.ms/azurebackup_agent). Pour effectuer des sauvegardes hors connexion pour des charges de travail à l’aide de System Center DPM ou du serveur de sauvegarde Azure, reportez-vous à [cet article](backup-azure-backup-server-import-export-.md). 

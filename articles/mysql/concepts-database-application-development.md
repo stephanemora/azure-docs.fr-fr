@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/28/2018
 ms.openlocfilehash: 946f7011c51b7c6844e023d03e01e4c2043d2578
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60615652"
 ---
 # <a name="application-development-overview-for-azure-database-for-mysql"></a>Vue d’ensemble du développement d’applications pour la base de données Azure pour MySQL 
@@ -33,7 +33,7 @@ Azure Database pour MySQL gère les ressources accessibles à un serveur selon d
 ## <a name="security"></a>Sécurité
 Azure Database pour MySQL fournit des ressources permettant de limiter l’accès, de protéger les données, de configurer les utilisateurs et les rôles et de surveiller les activités sur une base de données MySQL.
 
-## <a name="authentication"></a>Authentification
+## <a name="authentication"></a>Authentication
 Azure Database pour MySQL prend en charge l’authentification serveur des utilisateurs et des connexions.
 
 ## <a name="resiliency"></a>Résilience

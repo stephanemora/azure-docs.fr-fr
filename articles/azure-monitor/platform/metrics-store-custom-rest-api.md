@@ -1,18 +1,18 @@
 ---
 title: Envoyer les métriques personnalisées d’une ressource Azure à un magasin de métriques Azure Monitor à l’aide d’une API REST
 description: Envoyer les métriques personnalisées d’une ressource Azure à un magasin de métriques Azure Monitor à l’aide d’une API REST
-author: lingliw
+author: anirudhcavale
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 04/12/19
-ms.author: v-lingwu
+ms.date: 09/24/2018
+ms.author: ancav
 ms.subservice: metrics
 ms.openlocfilehash: aa842979bf86410e9dab97d6209f336eb6b02bd3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60253871"
 ---
 # <a name="send-custom-metrics-for-an-azure-resource-to-the-azure-monitor-metric-store-by-using-a-rest-api"></a>Envoyer les métriques personnalisées d’une ressource Azure à un magasin de métriques Azure Monitor à l’aide d’une API REST
@@ -39,7 +39,7 @@ Donnez à l’application créée à l’étape 1 (« Surveillance de l’édite
 Ouvrez une invite de commandes et exécutez la commande suivante :
 
 ```shell
-curl -X POST https://login.partner.microsoftonline.cn/<yourtenantid>/oauth2/token -F "grant_type=client_credentials" -F "client_id=<insert clientId from earlier step> " -F "client_secret=<insert client secret from earlier step>" -F "resource=https://monitoring.azure.com/"
+curl -X POST https://login.microsoftonline.com/<yourtenantid>/oauth2/token -F "grant_type=client_credentials" -F "client_id=<insert clientId from earlier step>" -F "client_secret=<insert client secret from earlier step>" -F "resource=https://monitoring.azure.com/"
 ```
 Enregistrez le jeton d’accès de la réponse.
 
@@ -77,7 +77,7 @@ Enregistrez le jeton d’accès de la réponse.
     } 
     ``` 
 
-2. Dans la fenêtre d’invite de commandes, publiez les données métriques : 
+1. Dans la fenêtre d’invite de commandes, publiez les données métriques : 
    - **azureRegion**. Doit correspondre à la région de déploiement de la ressource pour laquelle vous générez des métriques. 
    - **resourceID**.  ID de ressource de la ressource Azure pour laquelle vous suivez les métriques.  
    - **AccessToken**. Collez le jeton que vous avez acquis précédemment.
@@ -85,8 +85,8 @@ Enregistrez le jeton d’accès de la réponse.
      ```Shell 
      curl -X POST https://<azureRegion>.monitoring.azure.com/<resourceId>/metrics -H "Content-Type: application/json" -H "Authorization: Bearer <AccessToken>" -d @custommetric.json 
      ```
-3. Modifiez le timestamp et les valeurs dans le fichier JSON. 
-4. Répétez les deux étapes précédentes plusieurs fois afin d’obtenir des données pendant plusieurs minutes.
+1. Modifiez le timestamp et les valeurs dans le fichier JSON. 
+1. Répétez les deux étapes précédentes plusieurs fois afin d’obtenir des données pendant plusieurs minutes.
 
 ## <a name="troubleshooting"></a>Résolution de problèmes 
 Si vous recevez un message d’erreur lors du processus, tenez compte des informations de dépannage suivantes :
@@ -119,3 +119,4 @@ Si vous recevez un message d’erreur lors du processus, tenez compte des inform
  
 ## <a name="next-steps"></a>Étapes suivantes
 - En savoir plus sur les [métriques personnalisées](../../azure-monitor/platform/metrics-custom-overview.md).
+

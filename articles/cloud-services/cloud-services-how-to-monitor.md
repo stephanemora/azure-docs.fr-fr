@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/29/2018
 ms.author: jeconnoc
 ms.openlocfilehash: 844fef9a87c1db06c6415c59d4be26caf928382b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61432895"
 ---
 # <a name="introduction-to-cloud-service-monitoring"></a>Introduction à la surveillance des services cloud
@@ -60,7 +60,7 @@ Lorsque chaque rôle est créé, Visual Studio lui ajoute l’extension Diagnost
 
 Pour commencer, si vous ne disposez pas d'un compte de stockage **classique**, [créez-en un](../storage/common/storage-quickstart-create-account.md). Assurez-vous que le compte de stockage est créé avec le **modèle de déploiement classique** spécifié.
 
-Ensuite, accédez à la ressource **Compte de stockage (classique)**. Sélectionnez **Paramètres** > **Clés d’accès** et copiez la valeur de **Chaîne de connexion principale**. Vous avez besoin de cette valeur pour le service cloud. 
+Ensuite, accédez à la ressource **Compte de stockage (classique)** . Sélectionnez **Paramètres** > **Clés d’accès** et copiez la valeur de **Chaîne de connexion principale**. Vous avez besoin de cette valeur pour le service cloud. 
 
 Pour activer les diagnostics avancés, vous devez modifier deux fichiers de configuration, **ServiceDefinition.csdef** et **ServiceConfiguration.cscfg**.
 
