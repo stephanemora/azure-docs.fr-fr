@@ -10,10 +10,10 @@ ms.date: 02/04/2019
 ms.author: mhopkins
 ms.reviewer: seguler
 ms.openlocfilehash: f7cae5b3c7b0a7da6420674635ff9c3420a6436a
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65154417"
 ---
 # <a name="how-to-upload-download-and-list-blobs-using-the-client-library-for-java-v7"></a>Guide pratique pour charger, télécharger et lister des objets blob à l'aide de la bibliothèque de client pour Java v7
@@ -23,7 +23,7 @@ Dans ce guide pratique, vous allez apprendre à utiliser la bibliothèque de cli
 > [!TIP]
 > La dernière version de la bibliothèque de client pour Java du service Stockage Azure est la version 10. Si possible, Microsoft vous recommande d'utiliser la dernière version de la bibliothèque de client. Pour vous familiariser avec la version 10, reportez-vous à [Démarrage rapide : Charger, télécharger et lister des objets blob à l'aide du kit de développement logiciel (SDK) Stockage Java V10](storage-quickstart-blobs-java-v10.md).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 

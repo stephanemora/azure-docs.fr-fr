@@ -8,10 +8,10 @@ ms.topic: reference
 ms.date: 01/17/2019
 ms.author: spelluru
 ms.openlocfilehash: 9c0113687d27bf43375f298057129a5594ec0a06
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60561826"
 ---
 # <a name="azure-event-grid-event-schema-for-event-hubs"></a>Schéma des événements Azure Event Grid des hubs d’événements
@@ -59,28 +59,28 @@ Un événement contient les données générales suivantes :
 
 | Propriété | Type | Description |
 | -------- | ---- | ----------- |
-| topic | string | Chemin d’accès complet à la source de l’événement. Ce champ n’est pas modifiable. Event Grid fournit cette valeur. |
-| subject | string | Chemin de l’objet de l’événement, défini par le serveur de publication. |
-| eventType | string | Un des types d’événements inscrits pour cette source d’événement. |
-| eventTime | string | L’heure à quelle l’événement est généré selon l’heure UTC du fournisseur. |
-| id | string | Identificateur unique de l’événement. |
-| data | objet | Données d’événement de hub d’événement. |
-| dataVersion | string | Version du schéma de l’objet de données. Le serveur de publication définit la version du schéma. |
-| metadataVersion | string | Version du schéma des métadonnées d’événement. Event Grid définit le schéma des propriétés de niveau supérieur. Event Grid fournit cette valeur. |
+| rubrique | chaîne | Chemin d’accès complet à la source de l’événement. Ce champ n’est pas modifiable. Event Grid fournit cette valeur. |
+| subject | chaîne | Chemin de l’objet de l’événement, défini par le serveur de publication. |
+| eventType | chaîne | Un des types d’événements inscrits pour cette source d’événement. |
+| eventTime | chaîne | L’heure à quelle l’événement est généré selon l’heure UTC du fournisseur. |
+| id | chaîne | Identificateur unique de l’événement. |
+| données | objet | Données d’événement de hub d’événement. |
+| dataVersion | chaîne | Version du schéma de l’objet de données. Le serveur de publication définit la version du schéma. |
+| metadataVersion | chaîne | Version du schéma des métadonnées d’événement. Event Grid définit le schéma des propriétés de niveau supérieur. Event Grid fournit cette valeur. |
 
 L’objet de données comporte les propriétés suivantes :
 
 | Propriété | Type | Description |
 | -------- | ---- | ----------- |
-| fileUrl | string | Chemin du fichier de capture. |
-| fileType | string | Type du fichier de capture. |
-| partitionId | string | ID de partition. |
+| fileUrl | chaîne | Chemin du fichier de capture. |
+| fileType | chaîne | Type du fichier de capture. |
+| partitionId | chaîne | ID de partition. |
 | sizeInBytes | integer | Taille du fichier. |
 | eventCount | integer | Nombre d’événements dans le fichier. |
 | firstSequenceNumber | integer | Plus petit numéro de séquence de la file d’attente. |
 | lastSequenceNumber | integer | Dernier numéro de séquence de la file d’attente. |
-| firstEnqueueTime | string | Première heure de la file d’attente. |
-| lastEnqueueTime | string | Dernière heure de la file d’attente. |
+| firstEnqueueTime | chaîne | Première heure de la file d’attente. |
+| lastEnqueueTime | chaîne | Dernière heure de la file d’attente. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

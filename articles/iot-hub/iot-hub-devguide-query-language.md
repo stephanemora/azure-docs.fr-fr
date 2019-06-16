@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: rezas
 ms.openlocfilehash: e5387f1e44a55b0a30f8620b49d237ac1e1ec2b6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61442084"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>Langage de requête IoT Hub pour les jumeaux d’appareil et de module, les travaux et le routage des messages
@@ -336,7 +336,7 @@ Les conditions autorisées sont décrites dans la section [Expressions et condit
 
 ## <a name="select-clause"></a>Clause SELECT
 
-La clause **SELECT <select_list>**) est obligatoire. Elle spécifie les valeurs qui sont récupérées de la requête. Elle spécifie les valeurs JSON à utiliser pour générer de nouveaux objets JSON.
+La clause **SELECT <select_list>** ) est obligatoire. Elle spécifie les valeurs qui sont récupérées de la requête. Elle spécifie les valeurs JSON à utiliser pour générer de nouveaux objets JSON.
 Pour chaque élément du sous-ensemble filtré (et éventuellement groupé) du regroupement FROM, la phase de projection génère un nouvel objet JSON. Cet objet est construit avec les valeurs spécifiées dans la clause SELECT.
 
 La grammaire de la clause SELECT est la suivante :

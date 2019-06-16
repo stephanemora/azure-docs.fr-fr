@@ -13,10 +13,10 @@ ms.reviewer: jrasnik
 manager: craigg
 ms.date: 12/19/2018
 ms.openlocfilehash: 7f742b094575b78f453fb735b23cc5319a27fa7e
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65206651"
 ---
 # <a name="extended-events-in-sql-database"></a>Événement étendus dans la base de données SQL
@@ -35,11 +35,11 @@ Des informations complémentaires sur les événements étendus, pour Azure SQL 
 - [Démarrage rapide : Événement étendus dans SQL Server](https://msdn.microsoft.com/library/mt733217.aspx)
 - [Événements étendus](https://msdn.microsoft.com/library/bb630282.aspx)
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Cette rubrique part du principe que vous connaissez déjà les éléments suivants :
 
-- [Service Base de données SQL Azure](https://azure.microsoft.com/services/sql-database/)
+- [Service Azure SQL Database](https://azure.microsoft.com/services/sql-database/).
 - [Événements étendus](https://msdn.microsoft.com/library/bb630282.aspx) dans Microsoft SQL Server.
 
 - La majeure partie de notre documentation sur les événements étendus s’applique à SQL Server et au service Base de données SQL.
@@ -90,7 +90,7 @@ La fonctionnalité des événements étendus est prise en charge par plusieurs [
 | **sys.database_event_session_targets** |Renvoie une ligne pour chaque cible d’événement pour une session d’événements. |
 | **sys.database_event_sessions** |Renvoie une ligne pour chaque session d’événements dans la base de données SQL. |
 
-Dans Microsoft SQL Server, les noms des vues catalogue similaires contiennent *.server\_* au lieu de *.database\_*. Les noms suivent le modèle **sys.server_event_%**.
+Dans Microsoft SQL Server, les noms des vues catalogue similaires contiennent *.server\_* au lieu de *.database\_* . Les noms suivent le modèle **sys.server_event_%** .
 
 ## <a name="new-dynamic-management-views-dmvshttpsmsdnmicrosoftcomlibraryms188754aspx"></a>Nouvelles vues de gestion dynamique [(DMV)](https://msdn.microsoft.com/library/ms188754.aspx)
 

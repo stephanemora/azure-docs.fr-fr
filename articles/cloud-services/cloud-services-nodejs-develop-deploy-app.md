@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 08/17/2017
 ms.author: jeconnoc
 ms.openlocfilehash: e235af8ae35a6ff8e310bac802484e6c3d0f5397
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65506936"
 ---
 # <a name="build-and-deploy-a-nodejs-application-to-an-azure-cloud-service"></a>Création et déploiement d'une application Node.js dans Azure Cloud Services
@@ -36,7 +36,7 @@ Il s’agit d’une application « hello world » simple :
 
 ![Navigateur Web avec la page Web Hello World][A web browser displaying the Hello World web page]
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 > [!NOTE]
 > Ce didacticiel utilise Azure PowerShell, qui nécessite Windows.
 

@@ -12,10 +12,10 @@ author: sharonlo101
 ms.author: shlo
 manager: craigg
 ms.openlocfilehash: a5efe946000eb00e65d314ae53d7136761e2109d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60557220"
 ---
 # <a name="append-variable-activity-in-azure-data-factory"></a>Activité d’ajout de variable dans Azure Data Factory
@@ -26,7 +26,7 @@ Utilisez l’activité d’ajout de variable afin d’ajouter la valeur d’une 
 
 Propriété | Description | Obligatoire
 -------- | ----------- | --------
-Nom | Nom de l’activité dans le pipeline | Oui
+Nom | Nom de l’activité dans le pipeline | OUI
 description | Texte décrivant l’activité | no
 Type | Le type d’activité est AppendVariable | Oui
 value | Valeur littérale de chaîne ou d’objet d’expression utilisée pour ajouter à la variable spécifiée | Oui

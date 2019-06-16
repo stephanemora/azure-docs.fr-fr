@@ -3,8 +3,8 @@ title: Modifier les préfixes d’adresse IP d’une passerelle de réseau loca
 description: Cet article vous guide tout au long du processus de modification des préfixes d’adresse IP de la passerelle de votre réseau local à l’aide du portail Azure.
 services: vpn-gateway
 documentationcenter: na
-author: WenJason
-manager: digimobile
+author: cherylmc
+manager: timlt
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 06/19/2017
-ms.date: 12/10/2018
-ms.author: v-jay
+ms.date: 06/19/2017
+ms.author: cherylmc
 ms.openlocfilehash: 12f1f8bbcb103d0882059cadc12bc1a8b9d40bdb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60419586"
 ---
 # <a name="modify-local-network-gateway-settings-using-the-azure-portal"></a>Modifier les paramètres de la passerelle du réseau local à l’aide du portail Azure

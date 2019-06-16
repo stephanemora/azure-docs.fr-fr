@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/30/2018
 ms.author: magattus
 ms.openlocfilehash: f82675f1e93a5471f98c1778e9394f9eaec1a07b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60636805"
 ---
 # <a name="how-caching-works"></a>Comment la mise en cache fonctionne
@@ -126,7 +126,7 @@ Le tableau suivant décrit le comportement de mise en cache par défaut des prod
 
 |    | Microsoft : Livraison web générale | Verizon : Livraison web générale | Verizon : DSA | Akamai : Livraison web générale | Akamai : DSA | Akamai : Téléchargement de fichiers volumineux | Akamai : diffusion multimédia en continu générale ou VOD |
 |------------------------|--------|-------|------|--------|------|-------|--------|
-| **Honorer l’origine**       | Oui    | Oui   | Non    | Oui    | Non    | OUI   | Oui    |
+| **Honorer l’origine**       | OUI    | OUI   | Non   | OUI    | Non   | OUI   | OUI    |
 | **Durée de cache CDN** | 2 jours |7 jours | Aucun | 7 jours | Aucun | 1 jour | 1 an |
 
 **Honorer l’origine** : indique s’il faut honorer les en-têtes de la directive du cache pris en charge s’il y en a dans la réponse HTTP du serveur d’origine.

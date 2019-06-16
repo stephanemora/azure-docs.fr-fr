@@ -9,10 +9,10 @@ ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
 ms.openlocfilehash: fda1d3d626c91ba984f08b96c79ab6a2fd2ec74b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61477584"
 ---
 # <a name="repairing-an-import-job"></a>Réparation d’un travail d’importation
@@ -32,15 +32,15 @@ Les paramètres suivants peuvent être spécifiés pour **RepairImport** :
   
 |||  
 |-|-|  
-|**/r:**&lt;RepairFile\>|**Obligatoire.** Chemin d’accès au fichier de réparation, qui suit la progression de la réparation et vous permet de reprendre une réparation interrompue. Chaque disque ne doit avoir qu’un fichier de réparation. Quand vous lancez la réparation d’un lecteur donné, transmettez le chemin d’un fichier de réparation, qui n’existe pas encore. Pour reprendre une réparation interrompue, vous devez transmettre le nom d’un fichier de réparation existant. Le fichier de réparation correspondant au disque cible doit toujours être spécifié.|  
-|**/logdir:**&lt;LogDirectory\>|**Facultatif.** Répertoire contenant les journaux. Les fichiers journaux détaillés sont écrits dans ce répertoire. Si aucun répertoire de journaux n’est spécifié, le répertoire actif est utilisé comme répertoire de journaux.|  
-|**/d:**&lt;TargetDirectories\>|**Obligatoire.** Un ou plusieurs répertoires séparés par des points-virgules contenant les fichiers d’origine qui ont été importés. Le disque d’importation peut également être utilisé, mais il n’est pas obligatoire si d’autres emplacements de fichiers d’origine sont disponibles.|  
-|**/bk:**&lt;BitLockerKey\>|**Facultatif.** Vous devez spécifier la clé BitLocker si vous souhaitez que l’outil déverrouille un disque chiffré dans lequel les fichiers d’origine sont disponibles.|  
-|**/sn:**&lt;StorageAccountName\>|**Obligatoire.** Nom du compte de stockage du travail d’importation.|  
-|**/sk:**&lt;StorageAccountKey\>|**Obligatoire** si et seulement si un SAP de conteneur n’est pas spécifié. Clé du compte de stockage du travail d’importation.|  
-|**/csas:**&lt;ContainerSas\>|**Obligatoire** si et seulement si la clé du compte de stockage n’est pas spécifiée. SAP de conteneur pour accéder aux objets blob associés au travail d’importation.|  
-|**/CopyLogFile:**&lt;DriveCopyLogFile\>|**Obligatoire.** Chemin d’accès au fichier journal de copie du disque (journal détaillé ou d’erreurs). Le fichier est généré par le service Windows Azure Import/Export et peut être téléchargé à partir du stockage blob associé au travail. Le fichier journal de copie contient des informations sur les objets blob ou les fichiers en échec qui doivent être réparés.|  
-|**/PathMapFile:**&lt;DrivePathMapFile\>|**Facultatif.** Chemin d’accès à un fichier texte qui peut être utilisé pour résoudre les ambiguïtés si vous importez dans le même travail plusieurs fichiers portant le même nom. La première fois que l’outil est exécuté, il peut remplir ce fichier avec tous les noms ambigus. Les exécutions suivantes de l’outil utilisent ce fichier pour résoudre les ambiguïtés.|  
+|**/r:** &lt;RepairFile\>|**Obligatoire.** Chemin d’accès au fichier de réparation, qui suit la progression de la réparation et vous permet de reprendre une réparation interrompue. Chaque disque ne doit avoir qu’un fichier de réparation. Quand vous lancez la réparation d’un lecteur donné, transmettez le chemin d’un fichier de réparation, qui n’existe pas encore. Pour reprendre une réparation interrompue, vous devez transmettre le nom d’un fichier de réparation existant. Le fichier de réparation correspondant au disque cible doit toujours être spécifié.|  
+|**/logdir:** &lt;LogDirectory\>|**Facultatif.** Répertoire contenant les journaux. Les fichiers journaux détaillés sont écrits dans ce répertoire. Si aucun répertoire de journaux n’est spécifié, le répertoire actif est utilisé comme répertoire de journaux.|  
+|**/d:** &lt;TargetDirectories\>|**Obligatoire.** Un ou plusieurs répertoires séparés par des points-virgules contenant les fichiers d’origine qui ont été importés. Le disque d’importation peut également être utilisé, mais il n’est pas obligatoire si d’autres emplacements de fichiers d’origine sont disponibles.|  
+|**/bk:** &lt;BitLockerKey\>|**Facultatif.** Vous devez spécifier la clé BitLocker si vous souhaitez que l’outil déverrouille un disque chiffré dans lequel les fichiers d’origine sont disponibles.|  
+|**/sn:** &lt;StorageAccountName\>|**Obligatoire.** Nom du compte de stockage du travail d’importation.|  
+|**/sk:** &lt;StorageAccountKey\>|**Obligatoire** si et seulement si un SAP de conteneur n’est pas spécifié. Clé du compte de stockage du travail d’importation.|  
+|**/csas:** &lt;ContainerSas\>|**Obligatoire** si et seulement si la clé du compte de stockage n’est pas spécifiée. SAP de conteneur pour accéder aux objets blob associés au travail d’importation.|  
+|**/CopyLogFile:** &lt;DriveCopyLogFile\>|**Obligatoire.** Chemin d’accès au fichier journal de copie du disque (journal détaillé ou d’erreurs). Le fichier est généré par le service Windows Azure Import/Export et peut être téléchargé à partir du stockage blob associé au travail. Le fichier journal de copie contient des informations sur les objets blob ou les fichiers en échec qui doivent être réparés.|  
+|**/PathMapFile:** &lt;DrivePathMapFile\>|**Facultatif.** Chemin d’accès à un fichier texte qui peut être utilisé pour résoudre les ambiguïtés si vous importez dans le même travail plusieurs fichiers portant le même nom. La première fois que l’outil est exécuté, il peut remplir ce fichier avec tous les noms ambigus. Les exécutions suivantes de l’outil utilisent ce fichier pour résoudre les ambiguïtés.|  
   
 ## <a name="using-the-repairimport-command"></a>Utilisation de la commande RepairImport  
 Pour réparer des données d’importation en diffusant en continu les données sur le réseau, vous devez spécifier les répertoires qui contiennent les fichiers d’origine que vous importez à l’aide du paramètre `/d`. Vous devez également spécifier le fichier journal de copie que vous avez téléchargé à partir de votre compte de stockage. Une ligne de commande classique pour réparer un travail d’importation avec des échecs partiels est semblable à :  

@@ -2,17 +2,16 @@
 title: S’authentifier avec Azure Container Registry à partir d’Azure Container Instances
 description: Découvrez comment fournir un accès aux images de votre registre de conteneurs privé à partir d’Azure Container Instances à l’aide d’un principal de service Azure Active Directory.
 services: container-registry
-author: rockboyfor
+author: dlepow
 ms.service: container-registry
 ms.topic: article
-origin.date: 04/23/2018
-ms.date: 03/25/2019
-ms.author: v-yeche
+ms.date: 04/23/2018
+ms.author: danlep
 ms.openlocfilehash: 8a2d19a09233e510055e147fa1cf95dd4471768b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61333577"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-container-instances"></a>S’authentifier avec Azure Container Registry à partir d’Azure Container Instances
@@ -35,12 +34,12 @@ Les principaux de service doivent également être utilisés lorsque le registre
 
 Pour lancer un conteneur dans Azure Container Instances à l’aide d’un principal de service, spécifiez l’ID pour `--registry-username` et son mot de passe pour `--registry-password`.
 
-```azurecli
+```azurecli-interactive
 az container create \
     --resource-group myResourceGroup \
     --name mycontainer \
-    --image mycontainerregistry.azurecr.cn/myimage:v1 \
-    --registry-login-server mycontainerregistry.azurecr.cn \
+    --image mycontainerregistry.azurecr.io/myimage:v1 \
+    --registry-login-server mycontainerregistry.azurecr.io \
     --registry-username <service-principal-ID> \
     --registry-password <service-principal-password>
 ```

@@ -13,10 +13,10 @@ ms.author: glenga
 ms.reviewer: sunayv
 ms.custom: ''
 ms.openlocfilehash: 26f6502f63b39d3f1ecf8dfeb09c8df4daa63b68
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65786112"
 ---
 # <a name="call-a-function-from-powerapps"></a>Appeler une fonction dans PowerApps
@@ -41,7 +41,7 @@ Dans cette rubrique, vous allez apprendre à :
 
 [!INCLUDE [functions-openapi-note](../../includes/functions-openapi-note.md)]
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 + Un [compte PowerApps](https://docs.microsoft.com/powerapps/maker/signup-for-powerapps) actif avec les mêmes informations d’identification que votre compte Azure. 
 + Excel et le [fichier d’exemple Excel](https://procsi.blob.core.windows.net/docs/turbine-data.xlsx) que vous allez utiliser comme source de données pour votre application.
@@ -160,7 +160,7 @@ Maintenant que les sources de données sont disponibles dans l’application, aj
 
     ![Élément sélectionné](media/functions-powerapps-scenario/selected-item.png)
 
-1. Vous n’avez pas besoin de l’écran d’origine dans l’application. Dans le volet gauche, pointez sur **Écran1**, cliquez sur **...**, puis sur **Supprimer**.
+1. Vous n’avez pas besoin de l’écran d’origine dans l’application. Dans le volet gauche, pointez sur **Écran1**, cliquez sur **...** , puis sur **Supprimer**.
 
     ![Supprimer l’écran](media/functions-powerapps-scenario/delete-screen.png)
 

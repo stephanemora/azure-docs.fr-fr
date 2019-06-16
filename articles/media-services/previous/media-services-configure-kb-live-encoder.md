@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako;dbgeorge
 ms.openlocfilehash: 058a1f964eb14d89628c92cbadd80511b7a27bae
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61230495"
 ---
 # <a name="use-the-haivision-kb-live-encoder-to-send-a-single-bitrate-live-stream"></a>Utiliser l’encodeur Haivision KB pour envoyer un flux temps réel à débit binaire unique  
@@ -32,7 +32,7 @@ Cette rubrique explique comment configurer [l’encodeur en direct Haivision KB]
 
 Ce didacticiel montre comment gérer Azure Media Services (AMS) avec l’outil Azure Media Services Explorer (AMSE). Cet outil est uniquement compatible avec les PC Windows. Si vous êtes sous Mac ou Linux, utilisez le portail Azure pour créer des [canaux](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) et des [programmes](media-services-portal-creating-live-encoder-enabled-channel.md).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 *   Accès à un encodeur Haivision KB exécutant le logiciel v5.01 ou version ultérieure.
 * [Créer un compte Azure Media Services](media-services-portal-create-account.md)
 * Vérifiez qu’un point de terminaison de streaming est en cours d’exécution. Pour plus d’informations, consultez [Gestion des points de terminaison de diffusion en continu dans un compte Media Services](media-services-portal-manage-streaming-endpoints.md)
@@ -71,7 +71,7 @@ Audio :
 
 ## <a name="configuration-steps"></a>Configuration
 1.  Connectez-vous à l’interface utilisateur de Haivision KB.
-2.  Cliquez sur le bouton **Menu** dans le centre de contrôle de canal et sélectionnez **Add Channel (Ajouter un canal)**.  
+2.  Cliquez sur le bouton **Menu** dans le centre de contrôle de canal et sélectionnez **Add Channel (Ajouter un canal)** .  
     ![Capture d'écran du 14-08-2017 à 9.15.09](./media/media-services-configure-kb-live-encoder/step2.png)
 3.  Tapez le nom du canal (**Channel Name**) dans le champ Name et cliquez sur Next.  
     ![Capture d'écran du 14-08-2017 à 9.19.07](./media/media-services-configure-kb-live-encoder/step3.png)

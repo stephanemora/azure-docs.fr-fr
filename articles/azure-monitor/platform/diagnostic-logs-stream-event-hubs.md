@@ -9,10 +9,10 @@ ms.date: 07/25/2018
 ms.author: johnkem
 ms.subservice: ''
 ms.openlocfilehash: b5299af375646e7759d0770139df2cd6d7ce105c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60237697"
 ---
 # <a name="stream-azure-diagnostic-logs-to-an-event-hub"></a>Diffuser en continu les journaux de diagnostic Azure vers un hub d’événements
@@ -21,10 +21,10 @@ Les **[journaux de diagnostic Azure](diagnostic-logs-overview.md)** peuvent êtr
 ## <a name="what-you-can-do-with-diagnostics-logs-and-event-hubs"></a>Ce que vous pouvez faire avec les journaux de diagnostic et Event Hubs
 Voici quelques façons d’utiliser la fonctionnalité de diffusion en continu pour les journaux de diagnostic :
 
-* **Diffuser en continu les journaux vers des systèmes de journalisation et de télémétrie tiers** : vous pouvez diffuser tous vos journaux de diagnostic vers un hub d’événements unique pour envoyer les données de journal vers un outil analytique de journalisation ou STEM tiers.
+* **Diffuser en continu les journaux d’activité vers des systèmes de journalisation et de télémétrie tiers** : vous pouvez diffuser tous vos journaux de diagnostic vers un hub d’événements unique pour envoyer les données de journal d’activité vers un outil tiers SIEM ou Log Analytics.
 * **Afficher l’état d’intégrité du service en diffusant des données de chemin réactif vers Power BI** : en utilisant Event Hubs, Stream Analytics et Power BI, vous pouvez facilement transformer vos données de diagnostic en informations en temps réel sur vos services Azure. [Cette documentation vous explique comment configurer un client Event Hubs, traiter les données avec Stream Analytics et utiliser Power BI comme sortie](../../stream-analytics/stream-analytics-power-bi-dashboard.md). Voici quelques conseils pour la configuration des journaux de diagnostic :
 
-  * Un hub d’événements est automatiquement créé pour une catégorie de journaux de diagnostic lorsque vous activez l’option dans le portail ou par le biais de PowerShell. Sélectionnez le hub d’événements dans l’espace de noms dont le nom commence par **insights-**.
+  * Un hub d’événements est automatiquement créé pour une catégorie de journaux de diagnostic lorsque vous activez l’option dans le portail ou par le biais de PowerShell. Sélectionnez le hub d’événements dans l’espace de noms dont le nom commence par **insights-** .
   * Le code SQL suivant est un exemple de requête Stream Analytics que vous pouvez utiliser pour analyser toutes les données de journal dans une table Power BI :
 
     ```sql
@@ -184,7 +184,7 @@ Voici des exemples de données de sortie provenant d’Event Hubs :
 | records |Un tableau regroupant tous les événements de journal de cette charge utile. |
 | time |L’heure à laquelle l’événement s’est produit. |
 | category |La catégorie de journal associée à cet événement. |
-| ResourceId |L’ID de la ressource qui a généré cet événement. |
+| resourceId |L’ID de la ressource qui a généré cet événement. |
 | operationName |Nom de l’opération. |
 | level |facultatif. Indique le niveau de l’événement de journal. |
 | properties |Les propriétés de l’événement. |
@@ -197,7 +197,7 @@ Vous pouvez également diffuser en continu des journaux de diagnostic à partir 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Diffuser en continu des journaux Azure Active Directory avec Azure Monitor](../../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md)
+* [Diffuser en continu des journaux d’activité Azure Active Directory avec Azure Monitor](../../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md)
 * [En savoir plus sur les journaux de diagnostic Azure](diagnostic-logs-overview.md)
 * [Prise en main des hubs d’événements](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
 

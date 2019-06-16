@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: barclayn
 ms.openlocfilehash: d7d76458601b2afecafc1313e334215bf08b6545
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64713836"
 ---
 # <a name="manage-key-vault-using-the-azure-cli"></a>Gérer Key Vault à l’aide de l’interface de ligne de commande Azure 
@@ -39,7 +39,7 @@ Azure Key Vault est disponible dans la plupart des régions. Pour plus d’infor
 Pour une vue d'ensemble d'Azure Key Vault, consultez [Présentation d’Azure Key Vault](key-vault-whatis.md)
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour utiliser les commandes Azure CLI de cet article, vous devez disposer des éléments suivants :
 
@@ -147,7 +147,7 @@ Si vous avez une clé dans un fichier .pem, vous pouvez le télécharger dans Az
 az keyvault key import --vault-name "ContosoKeyVault" --name "ContosoFirstKey" --pem-file "./softkey.pem" --pem-password "hVFkk965BuUv" --protection software
 ```
 
-Vous pouvez maintenant référencer la clé que vous avez créée ou téléchargée dans Azure Key Vault à l’aide de son URI. Utilisez **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey** pour toujours obtenir la version actuelle. Utilisez https://[keyvault-name].vault.azure.net/keys/[keyname]/[key-unique-id] pour obtenir cette version spécifique. Par exemple : **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87**. 
+Vous pouvez maintenant référencer la clé que vous avez créée ou téléchargée dans Azure Key Vault à l’aide de son URI. Utilisez **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey** pour toujours obtenir la version actuelle. Utilisez https://[keyvault-name].vault.azure.net/keys/[keyname]/[key-unique-id] pour obtenir cette version spécifique. Par exemple : **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87** . 
 
 Ajoutez un secret au coffre, c'est-à-dire un mot de passe nommé SQLPassword avec la valeur « hVFkk965BuUv » dans Azure Key Vault. 
 
@@ -155,7 +155,7 @@ Ajoutez un secret au coffre, c'est-à-dire un mot de passe nommé SQLPassword av
 az keyvault secret set --vault-name "ContosoKeyVault" --name "SQLPassword" --value "hVFkk965BuUv "
 ```
 
-Faire référence à ce mot de passe à l’aide de son URI. Utilisez **https://ContosoVault.vault.azure.net/secrets/SQLPassword** pour toujours obtenir la version actuelle et https://[keyvault-name].vault.azure.net/secret/[secret-name]/[secret-unique-id] pour obtenir cette version spécifique. Par exemple : **https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d**.
+Faire référence à ce mot de passe à l’aide de son URI. Utilisez **https://ContosoVault.vault.azure.net/secrets/SQLPassword** pour toujours obtenir la version actuelle et https://[keyvault-name].vault.azure.net/secret/[secret-name]/[secret-unique-id] pour obtenir cette version spécifique. Par exemple : **https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d** .
 
 Importer un certificat dans le coffre en utilisant un fichier .pem ou .pfx.
 

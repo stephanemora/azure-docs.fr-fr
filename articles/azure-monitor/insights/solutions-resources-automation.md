@@ -15,10 +15,10 @@ ms.date: 05/24/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 1c9b13f44dae068597cb82a0aa803283ad5e67bc
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62110359"
 ---
 # <a name="adding-azure-automation-resources-to-a-management-solution-preview"></a>Ajout de ressources Azure Automation à une solution de gestion (préversion)
@@ -32,7 +32,7 @@ Les [solutions de gestion]( solutions.md) comprennent généralement des runbook
 > Les exemples dans cet article utilisent des paramètres et des variables obligatoires ou communs aux solutions de gestion. Ils sont décrits dans la rubrique [Conception et génération d’une solution de gestion dans Azure]( solutions-creating.md) 
 
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 Cet article suppose que vous êtes déjà familiarisé avec les informations suivantes.
 
 - Comment [créer une solution de gestion]( solutions-creating.md).
@@ -242,8 +242,8 @@ Les propriétés des planifications de travail sont décrites dans le tableau su
 
 | Propriété | Description |
 |:--- |:--- |
-| schedule name |Entité **name** unique portant le nom de la planification. |
-| runbook name  |Entité **name** unique portant le nom du runbook.  |
+| nom de la planification |Entité **name** unique portant le nom de la planification. |
+| nom du runbook  |Entité **name** unique portant le nom du runbook.  |
 
 
 
@@ -271,7 +271,7 @@ Les propriétés des ressources de variable sont décrites dans le tableau suiva
 |:--- |:--- |
 | description | Description facultative de la variable. |
 | isEncrypted | Spécifie si la variable doit être chiffrée. |
-| type | Cette propriété n’a actuellement aucun effet.  Le type de données de la variable sera déterminé par la valeur initiale. |
+| Type | Cette propriété n’a actuellement aucun effet.  Le type de données de la variable sera déterminé par la valeur initiale. |
 | value | Valeur de la variable. |
 
 > [!NOTE]
@@ -281,10 +281,10 @@ Si vous définissez la valeur initiale pour la variable, elle doit être configu
 
 | Type de données | Description | Exemples | Est résolu en |
 |:--|:--|:--|:--|
-| string   | Placer la valeur entre des guillemets doubles.  | "\"Hello world\"" | "Hello world" |
-| numérique  | Valeur numérique avec des guillemets simples.| "64" | 64 |
+| chaîne   | Placer la valeur entre des guillemets doubles.  | "\"Hello world\"" | "Hello world" |
+| numeric  | Valeur numérique avec des guillemets simples.| "64" | 64 |
 | booléenne  | **true** ou **false** entre guillemets.  Notez que cette valeur doit être en minuscules. | "true" | true |
-| datetime | Valeur de date sérialisée.<br>Vous pouvez utiliser la cmdlet ConvertTo-Json dans PowerShell pour générer cette valeur pour une date particulière.<br>Exemple : get-date "5/24/2017 13:14:57" \| ConvertTo-Json | "\\/Date(1495656897378)\\/" | 2017-05-24 13:14:57 |
+| Datetime | Valeur de date sérialisée.<br>Vous pouvez utiliser la cmdlet ConvertTo-Json dans PowerShell pour générer cette valeur pour une date particulière.<br>Exemple : get-date "5/24/2017 13:14:57" \| ConvertTo-Json | "\\/Date(1495656897378)\\/" | 2017-05-24 13:14:57 |
 
 ## <a name="modules"></a>Modules
 Votre solution de gestion ne doit pas nécessairement définir de [modules globaux](../../automation/automation-integration-modules.md) utilisés par vos runbooks, car ils sont toujours disponibles dans votre compte Automation.  Vous devez inclure une ressource pour tout module utilisé par vos runbooks.

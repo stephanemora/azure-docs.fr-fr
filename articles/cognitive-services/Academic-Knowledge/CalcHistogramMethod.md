@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
 ms.openlocfilehash: a228c5b90e47c9c24c5da70484a1a28f9a3054b1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60498829"
 ---
 # <a name="calchistogram-method"></a>Méthode CalcHistogram
@@ -30,14 +30,14 @@ https:// westus.api.cognitive.microsoft.com/academic/v1.0/calchistogram?
 
 ## <a name="request-parameters"></a>Paramètres de la requête
 
-Name  |Valeur | Requis ?  |Description
+Nom  |Valeur | Requis ?  |Description
 -----------|----------|--------|----------
-**expr**    |Chaîne de texte | Oui  |Expression de requête qui spécifie les entités sur lesquelles calculer les histogrammes.
-**model** |Chaîne de texte | Non  |Sélectionnez le nom du modèle que vous souhaitez interroger.  Actuellement, la valeur par défaut est définie sur *lastest* (plus récent).
-**attributes** | Chaîne de texte | Non <br>par défaut : | Liste délimitée par des virgules qui spécifie les valeurs d’attribut qui sont incluses dans la réponse. Les noms d’attribut sont sensibles à la casse.
-**count** |Number | Non <br>Valeur par défaut : 10 |Nombre de résultats à renvoyer.
-**offset**  |Number | Non <br>Valeur par défaut : 0 |Index du premier résultat à renvoyer.
-**timeout**  |Number | Non <br>Valeur par défaut : 1 000 |Délai d’expiration en millisecondes. Seules les interprétations récupérées avant la fin du délai d’expiration sont renvoyées.
+**expr**    |Chaîne de texte | OUI  |Expression de requête qui spécifie les entités sur lesquelles calculer les histogrammes.
+**model** |Chaîne de texte | Non |Sélectionnez le nom du modèle que vous souhaitez interroger.  Actuellement, la valeur par défaut est définie sur *lastest* (plus récent).
+**attributes** | Chaîne de texte | Non<br>par défaut : | Liste délimitée par des virgules qui spécifie les valeurs d’attribut qui sont incluses dans la réponse. Les noms d’attribut sont sensibles à la casse.
+**count** |Number | Non<br>Valeur par défaut : 10 |Nombre de résultats à renvoyer.
+**offset**  |Number | Non<br>Valeur par défaut : 0 |Index du premier résultat à renvoyer.
+**timeout**  |Number | Non<br>Valeur par défaut : 1 000 |Délai d’expiration en millisecondes. Seules les interprétations récupérées avant la fin du délai d’expiration sont renvoyées.
 
 ## <a name="response-json"></a>Réponse (JSON)
 
@@ -65,7 +65,7 @@ https:// westus.api.cognitive.microsoft.com/academic/v1.0/calchistogram?expr=And
 ```
 https:// westus.api.cognitive.microsoft.com/academic/v1.0/interpret?query=papers by jaime teevan after 2012
 ```
-<br>L’expression de la première interprétation renvoyée par l’API interpret est *And(Composite(AA.AuN=='jaime teevan'),Y>2012)*.
+<br>L’expression de la première interprétation renvoyée par l’API interpret est *And(Composite(AA.AuN=='jaime teevan'),Y>2012)* .
 <br>Cette valeur de l’expression est ensuite transmise à l’API **calchistogram**. Le paramètre *attributes=Y,F.FN* indique que les distributions des nombres de publications doivent se faire par année et par champ d’étude, par exemple :
 ```
 https:// westus.api.cognitive.microsoft.com/academic/v1.0/calchistogram?expr=And(Composite(AA.AuN=='jaime teevan'),Y>2012)&attributes=Y,F.FN&count=4

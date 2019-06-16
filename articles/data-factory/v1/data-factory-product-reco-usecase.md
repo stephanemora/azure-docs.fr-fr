@@ -14,10 +14,10 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 4a3d1c513bcfb6449ca73d873c0dd9831c6fe01d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60605705"
 ---
 # <a name="use-case---product-recommendations"></a>Cas d’utilisation - Recommandations de produits
@@ -48,7 +48,7 @@ Toutes les données sont combinées et chargées dans un système de recommandat
 
 ![diagramme de cas d'utilisation](./media/data-factory-product-reco-usecase/diagram-1.png)
 
-Des gigaoctets de fichiers journaux web bruts sont générés chaque jour sous forme de fichiers semi-structurés, à partir du site web du détaillant en ligne. Les fichiers journaux web bruts et les informations sur les clients et le catalogue de produits sont transmises régulièrement à un stockage d'objets blob Azure en utilisant le déplacement de données déployées globalement Data Factory comme service. Les fichiers journaux bruts de la journée sont partitionnés (par année et mois) dans le stockage d’objets blob pour un stockage à long terme.  [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) sert à partitionner les fichiers journaux bruts dans le magasin d’objets blob et à traiter les journaux ingérés à l’échelle à l’aide de scripts Hive et Pig. Les données de journal d’activité web partitionnées sont alors traitées pour extraire les entrées nécessaires pour un système de recommandation, afin de générer les recommandations de produits personnalisées.
+Des gigaoctets de fichiers journaux web bruts sont générés chaque jour sous forme de fichiers semi-structurés, à partir du site web du détaillant en ligne. Les fichiers journaux web bruts et les informations sur les clients et le catalogue de produits sont transmises régulièrement à un stockage d'objets blob Azure en utilisant le déplacement de données déployées globalement Data Factory comme service. Les fichiers journaux bruts de la journée sont partitionnés (par année et mois) dans le stockage d’objets blob pour un stockage à long terme.  [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) sert à partitionner les fichiers journaux bruts dans le magasin d’objets blob et à traiter les journaux d’activité ingérés à l’échelle à l’aide de scripts Hive et Pig. Les données de journal d’activité web partitionnées sont alors traitées pour extraire les entrées nécessaires pour un système de recommandation, afin de générer les recommandations de produits personnalisées.
 
 Le système de recommandation utilisé pour Machine Learning dans cet exemple est une plateforme de recommandation Machine Learning open source d’ [Apache Mahout](https://mahout.apache.org/).  N’importe quel modèle [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) ou modèle personnalisé peut être appliqué au scénario.  Le modèle Mahout sert à prédire la similarité entre des éléments présents sur le site web en fonction de modèles d'utilisation globaux, et à générer des recommandations personnalisées selon un utilisateur individuel.
 

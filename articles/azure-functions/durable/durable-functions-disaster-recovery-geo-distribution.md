@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
 ms.openlocfilehash: 1363dd3c620789b9f3c8ce1dbe0892ee61d66051
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60741341"
 ---
 # <a name="disaster-recovery-and-geo-distribution"></a>Récupération d’urgence et géo-distribution
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
 Dans Durable Functions, tous les états sont rendu persistants dans le stockage Azure. Un [hub de tâches](durable-functions-task-hubs.md) est un conteneur logique réservé aux ressources du stockage Azure qui sont utilisées pour les orchestrations. Les fonctions d’orchestrateur et d’activité peuvent interagir entre elles uniquement si elles appartiennent au même hub de tâches.
 Les scénarios décrits proposent des options de déploiement pour augmenter la disponibilité et réduire les temps d’arrêt lors des opérations de récupération d’urgence.

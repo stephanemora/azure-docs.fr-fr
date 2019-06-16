@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
 ms.openlocfilehash: c70e88a572bc261ad9d25f9a742b1987d0c19b44
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60656685"
 ---
 # <a name="issue-templates-in-azure-api-management"></a>Modèles Problème dans Gestion des API Azure
@@ -103,7 +103,7 @@ Gestion des API Azure vous offre la possibilité de personnaliser le contenu des
 |`Paging`|Entité [Paging](api-management-template-data-model-reference.md#Paging).|Informations de pagination de la collection d’applications.|  
 |`IsAuthenticated`|booléenne|Indique si l’utilisateur actuel est connecté au portail des développeurs.|  
 |`CanReportIssues`|booléenne|Indique si l’utilisateur actuel dispose des autorisations pour poser une question.|  
-|`Search`|string|Cette propriété est déconseillée et ne doit pas être utilisée.|  
+|`Search`|chaîne|Cette propriété est déconseillée et ne doit pas être utilisée.|  
   
 ### <a name="sample-template-data"></a>Données d’un exemple de modèle  
   

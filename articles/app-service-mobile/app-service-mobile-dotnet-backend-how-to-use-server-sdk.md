@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
 ms.openlocfilehash: 195a2dd88f443120f337ba441358389f0dc290f8
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62119510"
 ---
 # <a name="work-with-the-net-backend-server-sdk-for-azure-mobile-apps"></a>Utiliser le kit SDK du serveur backend .NET pour Azure Mobile Apps
@@ -51,21 +51,21 @@ Dans le panneau *Prise en main*, sous **Créer une table API**, sélectionnez **
 
 Installez la charge de travail Azure par le biais de Visual Studio Installer pour publier le projet Azure Mobile Apps à partir de Visual Studio. Une fois que vous avez installé le SDK, créez une application ASP.NET en procédant comme suit :
 
-1. Ouvrez la boîte de dialogue **Nouveau projet** (dans le menu **Fichier** > **Nouveau** > **Projet...**).
-2. Développez **Visual C#**, puis sélectionnez **Web**.
-3. Sélectionnez **Application Web ASP.NET (.NET Framework)**.
+1. Ouvrez la boîte de dialogue **Nouveau projet** (dans le menu **Fichier** > **Nouveau** > **Projet...** ).
+2. Développez **Visual C#** , puis sélectionnez **Web**.
+3. Sélectionnez **Application Web ASP.NET (.NET Framework)** .
 4. Renseignez le nom du projet. Cliquez ensuite sur **OK**.
 5. Sélectionnez **Application mobile Azure** dans la liste des modèles.
 6. Cliquez sur **OK** pour créer la solution.
-7. Cliquez avec le bouton droit sur le projet dans **l’Explorateur de solutions**, choisissez **Publier...**, puis **App Service** comme cible de publication.
+7. Cliquez avec le bouton droit sur le projet dans **l’Explorateur de solutions**, choisissez **Publier...** , puis **App Service** comme cible de publication.
 8. Suivez les invites pour procéder à l’authentification et à la sélection d’un backend Azure App Service nouveau ou existant comme cible de publication.
 
 ### <a name="create-a-net-backend-using-visual-studio-2015"></a>Créer un backend .NET à l’aide de Visual Studio 2015
 
 Pour créer un projet Azure Mobile Apps dans Visual Studio, installez le [Kit de développement logiciel (SDK) Azure pour .NET][4] (version 2.9.0 ou ultérieure). Une fois que vous avez installé le SDK, créez une application ASP.NET en procédant comme suit :
 
-1. Ouvrez la boîte de dialogue **Nouveau projet** (dans le menu **Fichier** > **Nouveau** > **Projet...**).
-2. Développez **Modèles** > **Visual C#**, puis sélectionnez **Web**.
+1. Ouvrez la boîte de dialogue **Nouveau projet** (dans le menu **Fichier** > **Nouveau** > **Projet...** ).
+2. Développez **Modèles** > **Visual C#** , puis sélectionnez **Web**.
 3. Sélectionnez **Application web ASP.NET**.
 4. Renseignez le nom du projet. Cliquez ensuite sur **OK**.
 5. Sous *Modèles ASP.NET 4.5.2*, sélectionnez **Application mobile Azure**. Activez la case à cocher **Hôte dans le cloud** afin de créer un backend mobile dans le cloud pour la publication de ce projet.
@@ -104,7 +104,7 @@ Pour activer des fonctionnalités spécifiques, vous devez appeler les méthodes
         .MapApiControllers()
         .ApplyTo(config);
 
-Le démarrage rapide du serveur à partir du portail Azure appelle **UseDefaultConfiguration()**. Cette configuration s’apparente à celle-ci :
+Le démarrage rapide du serveur à partir du portail Azure appelle **UseDefaultConfiguration()** . Cette configuration s’apparente à celle-ci :
 
         new MobileAppConfiguration()
             .AddMobileAppHomeController()             // from the Home package
@@ -166,7 +166,7 @@ Définissez un contrôleur de table pour exposer une table SQL aux clients mobil
 2. Configurer une référence de table dans la classe DbContext Mobile.
 3. Créer un contrôleur de table.
 
-Un objet de transfert de données (DTO) est un objet C# simple qui hérite de `EntityData`.  Par exemple : 
+Un objet de transfert de données (DTO) est un objet C# simple qui hérite de `EntityData`.  Par exemple :
 
     public class TodoItem : EntityData
     {
@@ -197,7 +197,7 @@ Le DTO est utilisé pour définir la table au sein de la base de données SQL.  
 
 Si vous avez installé le Kit de développement logiciel (SDK) Azure, vous pouvez maintenant créer un modèle de contrôleur de table comme suit :
 
-1. Cliquez avec le bouton droit sur le dossier Contrôleurs et sélectionnez **Ajouter** > **Contrôleur...**.
+1. Cliquez avec le bouton droit sur le dossier Contrôleurs et sélectionnez **Ajouter** > **Contrôleur...** .
 2. Sélectionnez l’option **Contrôleur de tables dans les applications mobiles Azure**, puis cliquez sur **Ajouter**.
 3. Dans la boîte de dialogue **Ajouter un contrôleur** :
    * Dans la liste déroulante **Classe de modèle** , sélectionnez votre nouveau DTO.

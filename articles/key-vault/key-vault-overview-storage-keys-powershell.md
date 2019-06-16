@@ -8,10 +8,10 @@ ms.author: mbaldwin
 manager: barbkess
 ms.date: 03/01/2019
 ms.openlocfilehash: 9b6089aa828b5667f100c1a8cbff3e69345e4512
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66150423"
 ---
 # <a name="azure-key-vault-managed-storage-account---powershell"></a>Compte de stockage managé Azure Key Vault - PowerShell
@@ -26,7 +26,7 @@ ms.locfileid: "66150423"
 
 Un [compte de stockage Azure](/azure/storage/storage-create-storage-account) utilise des informations d’identification qui se composent d’un nom de compte et d’une clé. La clé est générée automatiquement et sert plus de « mot de passe » que de clé de chiffrement. Key Vault peut gérer ces clés de compte de stockage en les stockant en tant que [secrets Key Vault](/azure/key-vault/about-keys-secrets-and-certificates#key-vault-secrets). 
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
 La fonctionnalité de compte de stockage Key Vault managé exécute plusieurs fonctions de gestion interne à votre place :
 
@@ -46,7 +46,7 @@ L’exemple suivant vous montre comment autoriser Key Vault à gérer vos clés 
 ## <a name="authorize-key-vault-to-access-to-your-storage-account"></a>Autoriser Key Vault à accéder à votre compte de stockage
 
 > [!IMPORTANT]
-> Un locataire Azure AD fournit à chaque application inscrite un **[principal de service](/azure/active-directory/develop/developer-glossary#service-principal-object)**, qui représente l’identité de l’application. L’ID d’application du principal de service est utilisé quand il reçoit l’autorisation d’accéder à d’autres ressources Azure, via le contrôle d’accès en fonction du rôle (RBAC). Key Vault étant une application Microsoft, elle est préinscrite dans tous les locataires Azure AD sous le même ID d’application dans chaque cloud Azure :
+> Un locataire Azure AD fournit à chaque application inscrite un **[principal de service](/azure/active-directory/develop/developer-glossary#service-principal-object)** , qui représente l’identité de l’application. L’ID d’application du principal de service est utilisé quand il reçoit l’autorisation d’accéder à d’autres ressources Azure, via le contrôle d’accès en fonction du rôle (RBAC). Key Vault étant une application Microsoft, elle est préinscrite dans tous les locataires Azure AD sous le même ID d’application dans chaque cloud Azure :
 > - Les locataires Azure AD dans le cloud Azure Government utilisent l’ID d’application `7e7c393b-45d0-48b1-a35e-2905ddf8183c`.
 > - Les locataires Azure AD dans le cloud public Azure et tous les autres utilisent l’ID d’application `cfa8b339-82a2-471a-a3c9-0fc0be7a4093`.
 
@@ -86,7 +86,7 @@ ObjectType         : ServicePrincipal
 CanDelegate        : False
 ```
 
-Si Key Vault a déjà été ajouté au rôle sur votre compte de stockage, vous recevrez un message d’erreur *« L'attribution de rôle existe déjà »*. erreur. Vous pouvez également vérifier l’attribution du rôle à la page « Contrôle d’accès (IAM) » du compte de stockage sur le portail Azure.  
+Si Key Vault a déjà été ajouté au rôle sur votre compte de stockage, vous recevrez un message d’erreur *« L'attribution de rôle existe déjà »* . erreur. Vous pouvez également vérifier l’attribution du rôle à la page « Contrôle d’accès (IAM) » du compte de stockage sur le portail Azure.  
 
 ## <a name="give-your-user-account-permission-to-managed-storage-accounts"></a>Autoriser votre compte d’utilisateur à accéder à des comptes de stockage managés
 

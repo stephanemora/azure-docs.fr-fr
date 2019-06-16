@@ -12,10 +12,10 @@ ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
 ms.openlocfilehash: 31357fa313cfa31c0f8a90c0f7722f627e4394d1
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62106165"
 ---
 # <a name="monitor-and-manage-trello-with-azure-logic-apps"></a>Surveiller et gérer Trello avec Azure Logic Apps
@@ -30,7 +30,7 @@ Avec Azure Logic Apps et le connecteur Trello, vous pouvez créer des tâches et
 
 Vous pouvez utiliser des déclencheurs qui obtiennent des réponses de votre compte Trello et mettent la sortie à la disposition d’autres actions. Vous pouvez utiliser des actions qui effectuent des tâches avec votre compte Trello. Vous pouvez également faire en sorte que des actions utilisent le résultat d’actions Trello. Par exemple, quand une nouvelle carte est ajoutée au tableau ou à la liste, vous pouvez envoyer des messages avec le connecteur Slack. Si vous débutez avec les applications logiques, consultez [Qu’est-ce qu’Azure Logic Apps ?](../logic-apps/logic-apps-overview.md)
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscrivez-vous pour bénéficier d’un compte Azure gratuit</a>. 
 
@@ -57,7 +57,7 @@ Vous pouvez utiliser des déclencheurs qui obtiennent des réponses de votre com
    Dans la liste des actions, sélectionnez l’action souhaitée.
 
    Pour ajouter une action entre des étapes, placez votre pointeur au-dessus de la flèche qui les sépare. 
-   Cliquez sur le signe plus (**+**) qui s’affiche, puis sélectionnez **Ajouter une action**.
+   Cliquez sur le signe plus ( **+** ) qui s’affiche, puis sélectionnez **Ajouter une action**.
 
 1. Si vous êtes invité à vous connecter à Trello, faites-le maintenant afin de pouvoir autoriser l’accès pour votre application logique et vous connecter.
 

@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 12/21/2018
 ms.author: ellacroi
 ms.openlocfilehash: c06a338ec041c83588c3ee5126795b8c445ef469
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64937982"
 ---
 # <a name="offer-listing-best-practices"></a>Bonnes pratiques pour le référencement des offres
@@ -28,7 +28,7 @@ Les tableaux dans cette section fournissent des suggestions pour créer et propo
 | Organisation de la vitrine | Bonne pratique |
 |:--- |:--- |  
 | Secteurs d’activité : services de conseil et applications AppSource uniquement | Sélectionnez des secteurs si votre offre répond à des besoins spécifiques à certains secteurs d’activité : <ul><li> Veillez à citer ces réponses aux besoins de secteurs spécifiques dans la description de votre offre.</li> </ul> **Remarque**: Le nombre maximal d’options varie selon le type d’offre qui est indiqué dans le [portail Cloud Partner](https://cloudpartner.azure.com/#insights). |
-| Categories | Sélectionnez les catégories qui correspondent le mieux à votre offre :<br> <ul> <li> Choisissez soigneusement ces catégories, car les utilisateurs s’en servent pour rechercher les applications les plus adaptées à leurs besoins. </li> <li> Assurez-vous d’expliquer dans la description comment votre offre peut répondre aux besoins propres au secteur en question. </li> </ul> **Remarque**: Le nombre maximal d’options varie selon le type d’offre qui est indiqué dans le [portail Cloud Partner](https://cloudpartner.azure.com/#insights). |
+| Catégories | Sélectionnez les catégories qui correspondent le mieux à votre offre :<br> <ul> <li> Choisissez soigneusement ces catégories, car les utilisateurs s’en servent pour rechercher les applications les plus adaptées à leurs besoins. </li> <li> Assurez-vous d’expliquer dans la description comment votre offre peut répondre aux besoins propres au secteur en question. </li> </ul> **Remarque**: Le nombre maximal d’options varie selon le type d’offre qui est indiqué dans le [portail Cloud Partner](https://cloudpartner.azure.com/#insights). |
 | Produits avec lesquels votre application fonctionne (3 max.) : Applications AppSource uniquement | Citez des produits supplémentaires et les technologies que votre solution utilise ou prolonge. Par exemple, Azure IoT Hub ou Azure Machine Learning. |
 | Mots clés de recherche (3 max.) | Les mots clés de recherche peuvent aider les utilisateurs professionnels à trouver votre offre quand ils effectuent une recherche : <ul> <li> Dans la Place de marché Microsoft Azure </li> <li> Sur AppSource </li> <li> À l’aide de moteurs de recherche </li> </ul> Pour que votre annonce apparaisse dans ces recherches, vous devez : <ul> <li> Identifier les trois principaux mots clés de recherche pour votre offre </li> <li> Incorporer les mots clés de recherche au résumé et à la description de l’offre </li> <li> Lister les mots clés de recherche ici </li> </ul> |
 

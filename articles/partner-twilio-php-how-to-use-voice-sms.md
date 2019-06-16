@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/25/2014
 ms.author: microsofthelp@twilio.com
 ms.openlocfilehash: a51cd589702320ecb55e6a2e3c5f0a6139e281fe
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60422353"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-php"></a>Utilisation de Twilio pour les fonctionnalités vocales et de SMS dans PHP
@@ -96,7 +96,7 @@ Une fois que vous avez installé la bibliothèque Twilio pour PHP, vous pouvez a
 
 Pour plus d’informations, consultez [https://github.com/twilio/twilio-php/blob/master/README.md][twilio_github_readme].
 
-## <a id="howto_make_call"></a>Guide pratique : passer un appel sortant
+## <a id="howto_make_call"></a>Procédure : passer un appel sortant
 Le code suivant montre comment passer un appel téléphonique à l'aide de la classe **Services_Twilio**. Il utilise également un site Twilio afin de renvoyer la réponse TwiML (Twilio Markup Language). Remplacez vos valeurs pour les numéros de téléphone **From** (De) et **To** (À), puis assurez-vous de vérifier le numéro de téléphone **From** de votre compte Twilio avant d'exécuter le code.
 
     // Include the Twilio PHP library.
@@ -142,7 +142,7 @@ Comme indiqué, ce code utilise un site Twilio afin de renvoyer la réponse TwiM
 
 * **Remarque**: pour résoudre les erreurs de validation de certificat SSL, consultez [http://readthedocs.org/docs/twilio-php/en/latest/usage/rest.html][ssl_validation] 
 
-## <a id="howto_send_sms"></a>Guide pratique : Envoi d’un SMS
+## <a id="howto_send_sms"></a>Procédure : Envoi d’un SMS
 La séquence suivante montre comment envoyer un SMS à l'aide de la classe **Services_Twilio**. Le numéro **From** est fourni par Twilio pour permettre aux comptes d'évaluation d'envoyer des SMS. Le numéro **To** doit être vérifié pour votre compte Twilio avant d'exécuter le code.
 
     // Include the Twilio PHP library.
@@ -173,7 +173,7 @@ La séquence suivante montre comment envoyer un SMS à l'aide de la classe **Ser
         echo 'Error: ' . $e->getMessage();
     }
 
-## <a id="howto_provide_twiml_responses"></a>Guide pratique : Envoyer des réponses TwiML à partir de votre propre site web
+## <a id="howto_provide_twiml_responses"></a>Procédure : Envoyer des réponses TwiML à partir de votre propre site web
 Lorsque votre application démarre un appel à l'API Twilio, Twilio envoie votre demande à une URL qui est censée renvoyer une réponse TwiML. L’exemple ci-dessus utilise l’URL [https://twimlets.com/message][twimlet_message_url] fournie par Twilio. TwiML est conçu pour être utilisé par Twilio, vous pouvez donc l'afficher dans votre navigateur. Par exemple, cliquez sur [https://twimlets.com/message][twimlet_message_url] pour voir un élément `<Response>` vide ; ou cliquez sur [https://twimlets.com/message?Message%5B0%5D=Hello%20World][twimlet_message_url_hello_world] pour voir un élément `<Response>` contenant un élément `<Say>`.)
 
 Au lieu de compter sur l'URL Twilio, vous pouvez créer votre propre site qui retourne des réponses HTTP. Vous pouvez créer le site dans n'importe quel langage renvoyant des réponses XML ; cette rubrique suppose que vous utilisez PHP pour créer le TwiML.
@@ -228,7 +228,7 @@ Une fois que votre page PHP est configurée pour envoyer des réponses TwiML, ut
 
 Pour plus d’informations sur l’utilisation de Twilio dans Azure avec PHP, consultez la page [Exécution d’un appel téléphonique à l’aide de Twilio dans une application PHP sur Azure][howto_phonecall_php].
 
-## <a id="AdditionalServices"></a>Guide pratique : Utiliser des services Twilio supplémentaires
+## <a id="AdditionalServices"></a>Procédure : Utiliser des services Twilio supplémentaires
 En plus des exemples présentés ici, Twilio offre des API Web que vous pouvez utiliser pour tirer profit d'autres fonctionnalités de Twilio à partir de votre application Azure. Pour plus d’informations, consultez la [documentation de l’API Twilio][twilio_api_documentation].
 
 ## <a id="NextSteps"></a>Étapes suivantes

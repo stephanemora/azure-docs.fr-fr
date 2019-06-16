@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b42a6b667a8708aeb2edeb0c80a5ab747b6c60a9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60246135"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Synchronisation d’Azure AD Connect : Présentation de la configuration par défaut
@@ -220,7 +220,7 @@ La précédence des règles de synchronisation est définie dans les groupes par
 ### <a name="putting-it-all-together"></a>Exemple complet
 Nous en savons maintenant assez sur les règles de synchronisation pour comprendre le fonctionnement de la configuration avec les différentes règles de synchronisation. Si vous regardez un utilisateur et les attributs qui sont partagés avec le métaverse, les règles sont appliquées dans l’ordre suivant :
 
-| Name | Commentaire |
+| Nom | Commentaire |
 |:--- |:--- |
 | Entrant depuis AD – User Join |Règle pour joindre les objets de l’espace de connecteur avec métaverse. |
 | Entrant depuis AD – Utilisateur AccountEnabled |Attributs requis pour la connexion à Azure AD et Office 365. Nous voulons ces attributs à partir du compte activé. |

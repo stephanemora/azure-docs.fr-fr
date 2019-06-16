@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
 ms.openlocfilehash: d2e628fb7fc502ef9ba81d20680d66f24fd7d138
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61339084"
 ---
 # <a name="evaluate-method"></a>Méthode Evaluate
@@ -32,12 +32,12 @@ https://westus.api.cognitive.microsoft.com/academic/v1.0/evaluate?
 
 Nom     | Valeur | Requis ?  | Description
 -----------|-----------|---------|--------
-**expr**       | Chaîne de texte | Oui | Expression de requête qui spécifie les entités à renvoyer.
-**model**      | Chaîne de texte | Non   | Nom du modèle que vous souhaitez interroger.  Actuellement, la valeur par défaut est définie sur *lastest* (plus récent).        
-**attributes** | Chaîne de texte | Non <br>par défaut : ID | Liste délimitée par des virgules qui spécifie les valeurs d’attribut qui sont incluses dans la réponse. Les noms d’attribut sont sensibles à la casse.
-**count**        | Number | Non <br>Valeur par défaut : 10 | Nombre de résultats à renvoyer.
-**offset**     | Number |   Non <br>Valeur par défaut : 0    | Index du premier résultat à renvoyer.
-**orderby** |   Chaîne de texte | Non <br>Par défaut : probabilité décroissante | Nom d’un attribut utilisé pour trier les entités. Si vous le souhaitez, vous pouvez indiquer un ordre croissant ou décroissant. Le format est : *name:asc* ou *name:desc*.
+**expr**       | Chaîne de texte | OUI | Expression de requête qui spécifie les entités à renvoyer.
+**model**      | Chaîne de texte | Non  | Nom du modèle que vous souhaitez interroger.  Actuellement, la valeur par défaut est définie sur *lastest* (plus récent).        
+**attributes** | Chaîne de texte | Non<br>par défaut : ID | Liste délimitée par des virgules qui spécifie les valeurs d’attribut qui sont incluses dans la réponse. Les noms d’attribut sont sensibles à la casse.
+**count**        | Number | Non<br>Valeur par défaut : 10 | Nombre de résultats à renvoyer.
+**offset**     | Number |   Non<br>Valeur par défaut : 0    | Index du premier résultat à renvoyer.
+**orderby** |   Chaîne de texte | Non<br>Par défaut : probabilité décroissante | Nom d’un attribut utilisé pour trier les entités. Si vous le souhaitez, vous pouvez indiquer un ordre croissant ou décroissant. Le format est : *name:asc* ou *name:desc*.
   
  <br>
 

@@ -11,10 +11,10 @@ ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: rkarlin
 ms.openlocfilehash: 7f23856363b337a361f329ed54e2152842faf26e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64705130"
 ---
 # <a name="what-are-power-bi-workspace-collections"></a>Qu’est-ce qu’une collection d’espaces de travail Power BI ?
@@ -60,7 +60,7 @@ Il est possible d’utiliser des jeux de données mis en cache.  Cependant, vous
 
 ## <a name="authentication-and-authorization-with-app-tokens"></a>Authentification et autorisation avec des jetons d’application
 
-**Une collection d’espaces de travail Microsoft Power BI** s’appuie sur votre application pour l’autorisation et l’authentification requises des utilisateurs. Vos utilisateurs finaux ne doivent pas nécessairement être des clients Azure Active Directory (Azure AD).  Au lieu de cela, votre application donne aux **collections d’espaces de travail Microsoft Power BI** l’autorisation d’afficher un rapport Power BI en utilisant des **jetons d’authentification d’application (jetons d’application)**.  Ces **jetons d’application** sont créés en fonction des besoins lorsque votre application veut afficher un rapport.
+**Une collection d’espaces de travail Microsoft Power BI** s’appuie sur votre application pour l’autorisation et l’authentification requises des utilisateurs. Vos utilisateurs finaux ne doivent pas nécessairement être des clients Azure Active Directory (Azure AD).  Au lieu de cela, votre application donne aux **collections d’espaces de travail Microsoft Power BI** l’autorisation d’afficher un rapport Power BI en utilisant des **jetons d’authentification d’application (jetons d’application)** .  Ces **jetons d’application** sont créés en fonction des besoins lorsque votre application veut afficher un rapport.
 
 ![Diagramme représentant l’utilisation des jetons d’application](media/what-are-power-bi-workspace-collections/app-tokens.png)
 

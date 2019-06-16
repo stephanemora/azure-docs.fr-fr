@@ -10,10 +10,10 @@ ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: ae732ab5c73dbec4a2aef6521b9edb490079112e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60740672"
 ---
 # <a name="graphical-authoring-in-azure-automation"></a>Création de graphiques dans Azure Automation
@@ -123,7 +123,7 @@ Lorsque vous spécifiez une valeur pour un paramètre, vous sélectionnez une so
 
 #### <a name="optional-additional-parameters"></a>Autres paramètres facultatifs
 
-Toutes les applets de commande peuvent fournir des paramètres supplémentaires. Il s'agit de paramètres communs PowerShell ou d'autres paramètres personnalisés. Une zone de texte dans laquelle vous pouvez fournir des paramètres en utilisant la syntaxe PowerShell s'affiche. Par exemple, pour utiliser le paramètre commun **Verbose**, vous devez spécifier **« -Verbose:$True »**.
+Toutes les applets de commande peuvent fournir des paramètres supplémentaires. Il s'agit de paramètres communs PowerShell ou d'autres paramètres personnalisés. Une zone de texte dans laquelle vous pouvez fournir des paramètres en utilisant la syntaxe PowerShell s'affiche. Par exemple, pour utiliser le paramètre commun **Verbose**, vous devez spécifier **« -Verbose:$True »** .
 
 ### <a name="retry-activity"></a>Nouvelles tentatives d’activité
 

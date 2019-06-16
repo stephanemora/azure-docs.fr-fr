@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/30/2018
 ms.author: estfan
 ms.openlocfilehash: 43ecdafac4f0a5cdc9e619537cdbe2a42ff7fe1b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60999488"
 ---
 # <a name="create-and-manage-integration-accounts-for-b2b-solutions-with-logic-apps"></a>Créer et gérer des comptes d’intégration pour des solutions B2B avec des applications logiques
@@ -54,12 +54,12 @@ Connectez-vous au <a href="https://portal.azure.com" target="_blank">portail Azu
 
    | Propriété | Obligatoire | Exemple de valeur | Description | 
    |----------|----------|---------------|-------------|
-   | Name | Oui | test-integration-account | Nom pour votre compte d’intégration. Pour cet exemple, utilisez le nom spécifié. | 
-   | Abonnement | Oui | <*Azure-subscription-name*> | Nom de l’abonnement Azure à utiliser. | 
-   | Groupe de ressources | Oui | test-integration-account-rg | Nom du [groupe de ressources Azure](../azure-resource-manager/resource-group-overview.md) utilisé pour organiser les ressources connexes. Pour cet exemple, créez un groupe de ressources portant le nom spécifié. | 
-   | Niveau de tarification | Oui | Gratuit | Niveau tarifaire que vous souhaitez utiliser. Pour cet exemple, sélectionnez **Gratuit** mais, pour plus d’informations, voir [Limites et configuration de Logic Apps](../logic-apps/logic-apps-limits-and-config.md) et [Tarification de Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/). | 
-   | Lieu | Oui | USA Ouest | Région dans laquelle stocker les informations sur votre compte d’intégration. Sélectionnez l’emplacement de votre application logique ou créez une application logique dans l’emplacement de votre compte d’intégration. | 
-   | Espace de travail Log Analytics | Non  | Off | Maintenez le paramètre de journalisation des diagnostics **Désactivé**. | 
+   | Name | OUI | test-integration-account | Nom pour votre compte d’intégration. Pour cet exemple, utilisez le nom spécifié. | 
+   | Abonnement | OUI | <*Azure-subscription-name*> | Nom de l’abonnement Azure à utiliser. | 
+   | Groupe de ressources | OUI | test-integration-account-rg | Nom du [groupe de ressources Azure](../azure-resource-manager/resource-group-overview.md) utilisé pour organiser les ressources connexes. Pour cet exemple, créez un groupe de ressources portant le nom spécifié. | 
+   | Niveau de tarification | OUI | Gratuit | Niveau tarifaire que vous souhaitez utiliser. Pour cet exemple, sélectionnez **Gratuit** mais, pour plus d’informations, voir [Limites et configuration de Logic Apps](../logic-apps/logic-apps-limits-and-config.md) et [Tarification de Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/). | 
+   | Lieu | OUI | USA Ouest | Région dans laquelle stocker les informations sur votre compte d’intégration. Sélectionnez l’emplacement de votre application logique ou créez une application logique dans l’emplacement de votre compte d’intégration. | 
+   | Espace de travail Log Analytics | Non | Off | Maintenez le paramètre de journalisation des diagnostics **Désactivé**. | 
    ||||| 
 
 4. Lorsque vous êtes prêt, sélectionnez **Épingler au tableau de bord**, puis **Créer**.
@@ -125,7 +125,7 @@ Pour lier votre application logique à un autre compte d’intégration, ou ne p
    },
    ```
 
-   Par exemple : 
+   Par exemple :
 
    ![Rechercher la définition de propriété « integrationAccount »](./media/logic-apps-enterprise-integration-create-integration-account/resource-explorer-delete-integration-account.png)
 

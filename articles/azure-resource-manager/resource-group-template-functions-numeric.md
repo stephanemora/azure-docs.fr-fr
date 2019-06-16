@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/08/2017
 ms.author: tomfitz
 ms.openlocfilehash: 5ed3a0a57dad61a5fe783790eba4cb89ce19c660
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66128651"
 ---
 # <a name="numeric-functions-for-azure-resource-manager-templates"></a>Fonctions numériques pour les modèles Azure Resource Manager
@@ -47,10 +47,10 @@ Retourne la somme des deux entiers fournis.
 
 ### <a name="parameters"></a>parameters
 
-| Paramètre | Requis | Type | Description  |
+| Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- | 
-|operand1 |Oui |int |Premier nombre à ajouter. |
-|operand2 |Oui |int |Deuxième nombre à ajouter. |
+|operand1 |OUI |int |Premier nombre à ajouter. |
+|operand2 |OUI |int |Deuxième nombre à ajouter. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -93,7 +93,7 @@ Dans [l’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/b
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| Name | type | Valeur |
+| Nom | type | Valeur |
 | ---- | ---- | ----- |
 | addResult | Int | 8 |
 
@@ -118,9 +118,9 @@ Retourne l’index d’une boucle d’itération.
 
 ### <a name="parameters"></a>parameters
 
-| Paramètre | Requis | Type | Description  |
+| Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| loopName | Non | string | Nom de la boucle pour l’obtention de l’itération. |
+| loopName | Non | chaîne | Nom de la boucle pour l’obtention de l’itération. |
 | Offset |Non |int |Le nombre à ajouter à la valeur d’itération de base zéro. |
 
 ### <a name="remarks"></a>Remarques
@@ -164,10 +164,10 @@ Retourne la division entière des deux entiers fournis.
 
 ### <a name="parameters"></a>parameters
 
-| Paramètre | Requis | Type | Description  |
+| Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| operand1 |Oui |int |Le nombre à diviser. |
-| operand2 |Oui |int |Le nombre utilisé pour diviser. Ne peut pas être 0. |
+| operand1 |OUI |int |Le nombre à diviser. |
+| operand2 |OUI |int |Le nombre utilisé pour diviser. Ne peut pas être 0. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -235,9 +235,9 @@ Convertit la valeur en nombre à virgule flottante. Vous utilisez uniquement cet
 
 ### <a name="parameters"></a>parameters
 
-| Paramètre | Requis | Type | Description  |
+| Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Oui |chaîne ou entier |Valeur à convertir en nombre à virgule flottante. |
+| arg1 |OUI |chaîne ou entier |Valeur à convertir en nombre à virgule flottante. |
 
 ### <a name="return-value"></a>Valeur de retour
 Nombre à virgule flottante.
@@ -269,9 +269,9 @@ Convertit la valeur spécifiée en entier.
 
 ### <a name="parameters"></a>parameters
 
-| Paramètre | Requis | Type | Description  |
+| Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| valueToConvert |Oui |chaîne ou entier |La valeur à convertir en entier. |
+| valueToConvert |OUI |chaîne ou entier |La valeur à convertir en entier. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -322,16 +322,16 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 <a id="max" />
 
-## <a name="max"></a>max.
+## <a name="max"></a>max
 `max (arg1)`
 
 Retourne la valeur minimale à partir d’un tableau d’entiers ou une liste séparée par des virgules d’entiers.
 
 ### <a name="parameters"></a>parameters
 
-| Paramètre | Obligatoire | Type | Description  |
+| Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Oui |tableau d’entiers ou liste séparée par des virgules d’entiers |Collection permettant d’obtenir la valeur maximale. |
+| arg1 |OUI |tableau d’entiers ou liste séparée par des virgules d’entiers |Collection permettant d’obtenir la valeur maximale. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -367,10 +367,10 @@ Entier représentant la valeur maximale de la collection.
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| Name | type | Valeur |
+| Nom | type | Valeur |
 | ---- | ---- | ----- |
-| arrayOutput | Int | 5. |
-| intOutput | Int | 5. |
+| arrayOutput | Int | 5\. |
+| intOutput | Int | 5\. |
 
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
 
@@ -393,9 +393,9 @@ Retourne la valeur minimale à partir d’un tableau d’entiers ou une liste s�
 
 ### <a name="parameters"></a>parameters
 
-| Paramètre | Requis | Type | Description  |
+| Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Oui |tableau d’entiers ou liste séparée par des virgules d’entiers |Collection permettant d’obtenir la valeur minimale. |
+| arg1 |OUI |tableau d’entiers ou liste séparée par des virgules d’entiers |Collection permettant d’obtenir la valeur minimale. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -457,10 +457,10 @@ Retourne le reste de la division entière des deux entiers fournis.
 
 ### <a name="parameters"></a>parameters
 
-| Paramètre | Requis | Type | Description  |
+| Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| operand1 |Oui |int |Le nombre à diviser. |
-| operand2 |Oui |int |Le nombre utilisé pour diviser, Ne peut pas être 0. |
+| operand1 |OUI |int |Le nombre à diviser. |
+| operand2 |OUI |int |Le nombre utilisé pour diviser, Ne peut pas être 0. |
 
 ### <a name="return-value"></a>Valeur de retour
 Entier représentant le reste.
@@ -527,10 +527,10 @@ Retourne la multiplication des deux entiers fournis.
 
 ### <a name="parameters"></a>parameters
 
-| Paramètre | Obligatoire | Type | Description  |
+| Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| operand1 |Oui |int |Premier nombre à multiplier. |
-| operand2 |Oui |int |Deuxième nombre à multiplier. |
+| operand1 |OUI |int |Premier nombre à multiplier. |
+| operand2 |OUI |int |Deuxième nombre à multiplier. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -598,10 +598,10 @@ Retourne la soustraction des deux entiers fournis.
 
 ### <a name="parameters"></a>parameters
 
-| Paramètre | Obligatoire | Type | Description  |
+| Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| operand1 |Oui |int |Le nombre auquel est appliquée la soustraction. |
-| operand2 |Oui |int |Le nombre qui est soustrait. |
+| operand1 |OUI |int |Le nombre auquel est appliquée la soustraction. |
+| operand2 |OUI |int |Le nombre qui est soustrait. |
 
 ### <a name="return-value"></a>Valeur de retour
 Entier représentant la multiplication.

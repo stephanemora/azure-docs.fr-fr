@@ -11,17 +11,17 @@ ms.topic: article
 ms.assetid: bb7d9432-b697-44db-aa88-bd16ddfad23f
 ms.date: 01/17/2019
 ms.openlocfilehash: 5ebdf45bec4e7cfceb75354af40c7a21c22c6eef
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60846135"
 ---
 # <a name="manage-artifact-metadata-in-integration-accounts-with-azure-logic-apps-and-enterprise-integration-pack"></a>Gérer des métadonnées d’artefact à partir de comptes d’intégration avec Azure Logic Apps et Enterprise Integration Pack
 
 Vous pouvez définir des métadonnées personnalisées pour les artefacts dans les comptes d’intégration et obtenir ces métadonnées pendant l’exécution pour votre application logique à utiliser. Par exemple, vous pouvez fournir des métadonnées pour les artefacts tels que des partenaires, des contrats, des schémas et des cartes ; tous stockent les métadonnées à l’aide de paires clé-valeur. 
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 * Un abonnement Azure. Si vous n’avez pas encore d’abonnement, vous pouvez <a href="https://azure.microsoft.com/free/" target="_blank">vous inscrire pour obtenir un compte Azure gratuitement</a>.
 
@@ -65,8 +65,8 @@ Vous pouvez définir des métadonnées personnalisées pour les artefacts dans l
 
    | Propriété | Obligatoire | Value | Description | 
    |----------|---------|-------|-------------| 
-   | **Type d’artefact** | Oui | **Schéma**, **Carte**, **Partenaire**, **Contrat** ou un type personnalisé | Le type souhaité pour l’artefact | 
-   | **Nom de l’artefact** | Oui | <*nom_artefact*> | Nom souhaité pour l’artefact | 
+   | **Type d’artefact** | OUI | **Schéma**, **Carte**, **Partenaire**, **Contrat** ou un type personnalisé | Le type souhaité pour l’artefact | 
+   | **Nom de l’artefact** | OUI | <*nom_artefact*> | Nom souhaité pour l’artefact | 
    ||| 
 
    Par exemple, supposons que vous voulez obtenir les métadonnées d’un artefact de partenaire commercial :
@@ -87,13 +87,13 @@ Vous pouvez définir des métadonnées personnalisées pour les artefacts dans l
 
       | Propriété | Obligatoire | Value | Description | 
       |----------|----------|-------|-------------| 
-      | **Méthode** | Oui | <*operation-to-run*> | Opération HTTP à exécuter sur l’artefact. Par exemple, cette action HTTP utilise la méthode **GET**. | 
-      | **URI** | Oui | <*metadata-location*> | Pour accéder à la valeur de métadonnées `routingUrl` à partir de l’artefact que vous avez récupéré, vous pouvez utiliser une expression ; par exemple : <p>`@{outputs('Integration_Account_Artifact_Lookup')['properties']['metadata']['routingUrl']}` | 
-      | **En-têtes** | Non  | <*header-values*> | Toute sortie d’en-tête du déclencheur que vous voulez passer dans l’action HTTP. Par exemple, pour passer la valeur de propriété `headers` du déclencheur, vous pouvez utiliser une expression ; par exemple : <p>`@triggeroutputs()['headers']` | 
-      | **Corps** | Non  | <*body-content*> | Tout autre contenu que vous voulez passer par le biais de la propriété `body` de l’action HTTP. Cet exemple passe les valeurs `properties` de l’artefact dans l’action HTTP : <p>1. Cliquez dans la propriété **Body** pour afficher la liste de contenu dynamique. Si aucune propriété ne s’affiche, choisissez **Afficher plus**. <br>2. Dans la liste de contenu dynamique, sous **Recherche d’artefact de compte d’intégration**, sélectionnez **Propriétés**. | 
+      | **Méthode** | OUI | <*operation-to-run*> | Opération HTTP à exécuter sur l’artefact. Par exemple, cette action HTTP utilise la méthode **GET**. | 
+      | **URI** | OUI | <*metadata-location*> | Pour accéder à la valeur de métadonnées `routingUrl` à partir de l’artefact que vous avez récupéré, vous pouvez utiliser une expression ; par exemple : <p>`@{outputs('Integration_Account_Artifact_Lookup')['properties']['metadata']['routingUrl']}` | 
+      | **En-têtes** | Non | <*header-values*> | Toute sortie d’en-tête du déclencheur que vous voulez passer dans l’action HTTP. Par exemple, pour passer la valeur de propriété `headers` du déclencheur, vous pouvez utiliser une expression ; par exemple : <p>`@triggeroutputs()['headers']` | 
+      | **Corps** | Non | <*body-content*> | Tout autre contenu que vous voulez passer par le biais de la propriété `body` de l’action HTTP. Cet exemple passe les valeurs `properties` de l’artefact dans l’action HTTP : <p>1. Cliquez dans la propriété **Body** pour afficher la liste de contenu dynamique. Si aucune propriété ne s’affiche, choisissez **Afficher plus**. <br>2. Dans la liste de contenu dynamique, sous **Recherche d’artefact de compte d’intégration**, sélectionnez **Propriétés**. | 
       |||| 
 
-      Par exemple : 
+      Par exemple :
 
       ![Spécifier des valeurs et des expressions pour l’action HTTP](media/logic-apps-enterprise-integration-metadata/add-http-action-values.png)
 

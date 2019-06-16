@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako;anilmur
 ms.openlocfilehash: c168182f0b34329ed3e72e90ce86456dfbe210ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61217193"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Comment effectuer une diffusion de vidéo en flux continu à l’aide d’Azure Media Services pour créer des flux à vitesses de transmission multiples.
@@ -26,7 +26,7 @@ ms.locfileid: "61217193"
 > [!NOTE]
 > À partir du 12 mai 2018, les canaux en direct ne prendront plus en charge le protocole de réception du flux de transport RTP/MPEG-2. Effectuez la migration à partir de RTP/MPEG-2 vers le protocole de réception RTMP ou MP4 fragmenté (Smooth Streaming).
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 Dans Azure Media Services (AMS), un **canal** représente un pipeline de traitement du contenu vidéo en flux continu. Un **canal** reçoit des flux d’entrée live de l’une des deux manières suivantes :
 
 * Un encodeur live local envoie un flux à débit unique vers le canal activé pour effectuer un encodage en direct avec Media Services dans l’un des formats suivants : RTMP ou Smooth Streaming (MP4 fragmenté). Le canal procède ensuite à l’encodage en temps réel du flux à débit unique entrant en flux vidéo multidébit (adaptatif). Lorsqu’il y est invité, Media Services fournit le flux aux clients.
@@ -70,9 +70,9 @@ Le tableau suivant montre comment les états du canal sont mappés au mode de fa
 | État du canal | Indicateurs de l’interface utilisateur du portail | Existe-t-il une facturation ? |
 | --- | --- | --- |
 | Démarrage en cours |Démarrage en cours |Aucun (état transitoire) |
-| Exécution en cours |Prêt (pas de programmes en cours d’exécution)<br/>ou<br/>Streaming (au moins un programme en cours d’exécution) |OUI |
+| Exécution en cours |Prêt (pas de programmes en cours d’exécution)<br/>or<br/>Streaming (au moins un programme en cours d’exécution) |OUI |
 | En cours d’arrêt |En cours d’arrêt |Aucun (état transitoire) |
-| Arrêté |Arrêté |Non  |
+| Arrêté |Arrêté |Non |
 
 ### <a name="automatic-shut-off-for-unused-channels"></a>Fermeture automatique des canaux inutilisés
 Depuis le 25 janvier 2016, Media Services a déployé une mise à jour qui ferme automatiquement un canal (avec encodage en temps réel activé) s’il reste non utilisé pendant une longue période. Cela s'applique aux canaux qui n’ont aucun programme actif et qui ont été laissés à l’état d’exécution sans un flux de contribution d’entrée pendant une période prolongée.
@@ -303,7 +303,7 @@ Si le paramètre Encodage en temps réel est activé, vous pouvez désormais obt
 État actuel d’un canal. Les valeurs possibles incluent :
 
 * **Arrêté**. C’est l’état initial du canal après sa création. Dans cet état, les propriétés du canal peuvent être mises à jour, mais le streaming n’est pas autorisé.
-* **Démarrage en cours**. Le canal est en cours de démarrage. Aucune mise à jour ni diffusion en continu n’est autorisée pendant cet état. Si une erreur se produit, le canal retourne à l’état Arrêté.
+* **Démarrage en cours**. Le canal est en cours de démarrage. Aucune mise à jour ni aucun streaming ne sont autorisés durant cet état. Si une erreur se produit, le canal retourne à l’état Arrêté.
 * **Exécution en cours**. Le canal est capable de traiter des flux dynamiques.
 * **En cours d’arrêt**. Le canal est en cours d’arrêt. Aucune mise à jour ni aucun streaming ne sont autorisés durant cet état.
 * **Suppression en cours**. Le canal est en cours de suppression. Aucune mise à jour ni aucun streaming ne sont autorisés durant cet état.
@@ -313,9 +313,9 @@ Le tableau suivant montre comment les états du canal sont mappés au mode de fa
 | État du canal | Indicateurs de l’interface utilisateur du portail | Facturation ? |
 | --- | --- | --- |
 | Démarrage en cours |Démarrage en cours |Aucun (état transitoire) |
-| Exécution en cours |Prêt (pas de programmes en cours d’exécution)<br/>ou<br/>Streaming (au moins un programme en cours d’exécution) |Oui |
+| Exécution en cours |Prêt (pas de programmes en cours d’exécution)<br/>or<br/>Streaming (au moins un programme en cours d’exécution) |OUI |
 | En cours d’arrêt |En cours d’arrêt |Aucun (état transitoire) |
-| Arrêté |Arrêté |Non  |
+| Arrêté |Arrêté |Non |
 
 > [!NOTE]
 > Actuellement, la moyenne de démarrage du canal est d'environ 2 minutes, mais parfois peut prendre jusqu'à 20 minutes. La réinitialisation du canal peut prendre jusqu’à 5 minutes.

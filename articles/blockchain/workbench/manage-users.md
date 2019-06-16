@@ -11,17 +11,17 @@ ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
 ms.openlocfilehash: 15babefda36ba37cf6df7820ac888668e4a502be
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65509919"
 ---
 # <a name="manage-users-in-azure-blockchain-workbench"></a>Gérer les utilisateurs dans Azure Blockchain Workbench
 
 Azure Blockchain Workbench intègre la gestion des utilisateurs dédiée aux individus et aux organisations qui font partie de votre consortium.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Un déploiement Blockchain Workbench est requis. Consultez [Azure Blockchain Workbench deployment](deploy.md) (Déploiement d’Azure Blockchain Workbench) pour plus de détails sur le déploiement.
 
@@ -79,7 +79,7 @@ Utilisez l’application Blockchain Workbench pour gérer les utilisateurs et le
 
     Le nombre de membres associés à l’application sélectionnée est répercuté dans la vignette des membres.
 
-    ![Sélectionner l'application](./media/manage-users/blockchain-workbench-select-application.png)
+    ![Sélectionner une application](./media/manage-users/blockchain-workbench-select-application.png)
 
 
 #### <a name="add-member-to-application"></a>Ajouter un membre à l’application

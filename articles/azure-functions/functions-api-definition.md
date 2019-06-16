@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alkarche
 ms.openlocfilehash: 6d11961f06a75341e633c7a8963e6b83ed37cf13
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61341636"
 ---
 # <a name="openapi-20-metadata-support-in-azure-functions-preview"></a>Prise en charge des métadonnées OpenAPI 2.0 dans Azure Functions (préversion)
@@ -36,7 +36,7 @@ Vous pouvez configurer tous les paramètres OpenAPI dans la page **Définition d
 > [!NOTE]
 > La fonctionnalité Définition de l’API de fonction n’est pas prise en charge pour le runtime bêta.
 
-Pour activer la génération d’une définition OpenAPI hébergée et d’une définition de démarrage rapide, définissez **Source de définition d’API** sur **Fonction (préversion)**. **L’URL externe** permet à votre fonction d’utiliser une définition OpenAPI qui est hébergée ailleurs.
+Pour activer la génération d’une définition OpenAPI hébergée et d’une définition de démarrage rapide, définissez **Source de définition d’API** sur **Fonction (préversion)** . **L’URL externe** permet à votre fonction d’utiliser une définition OpenAPI qui est hébergée ailleurs.
 
 ## <a name="generate-definition"></a>Générer une structure Swagger à partir des métadonnées de votre fonction
 Un modèle peut vous aider à commencer à écrire votre première définition OpenAPI. La fonctionnalité de modèle de définition crée une définition OpenAPI partielle à l’aide de toutes les métadonnées dans le fichier function.json, pour chacune de vos fonctions de déclencheur HTTP. Vous devrez renseigner plus d’informations sur votre API à partir de la [spécification OpenAPI](https://swagger.io/specification/), comme les modèles de requête et de réponse.

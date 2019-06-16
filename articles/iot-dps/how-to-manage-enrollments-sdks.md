@@ -9,19 +9,19 @@ ms.service: iot-dps
 services: iot-dps
 manager: arjmands
 ms.openlocfilehash: c73a40e46d86632732454ae16ea4f83e3ffa0281
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60627267"
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-device-provisioning-service-sdks"></a>Guide pratique pour gérer les inscriptions d’appareil avec les SDK du service de provisionnement des appareils Azure
 Une *inscription d’appareil* crée un enregistrement d’un appareil ou d’un groupe d’appareils susceptibles d’être inscrits au service de provisionnement des appareils à un moment donné. L’enregistrement contient la configuration initiale souhaitée pour le ou les appareils dans le cadre de cette inscription, y compris le hub IoT souhaité. Cet article explique comment gérer les inscriptions d’appareils pour votre service de provisionnement par programmation en utilisant les SDK du service de provisionnement des appareils Azure IoT.  Les SDK sont disponibles sur GitHub dans le même dépôt que les SDK Azure IoT.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 * Récupérez la chaîne de connexion à partir de votre instance du service Device Provisioning.
 * Récupérez des artefacts de sécurité des appareils pour le [mécanisme d’attestation](concepts-security.md#attestation-mechanism) utilisé :
-    * [**Module de plateforme sécurisée (TPM)**](/azure/iot-dps/concepts-security#trusted-platform-module) :
+    * [**Module de plateforme sécurisée (TPM)** ](/azure/iot-dps/concepts-security#trusted-platform-module) :
         * Inscription individuelle : ID d’inscription et paire de clés de type EK du module de plateforme sécurisée à partir d’un appareil physique ou du simulateur TPM.
         * Le groupe d’inscriptions ne s’applique pas à l’attestation TPM.
     * [**X.509**](/azure/iot-dps/concepts-security) :

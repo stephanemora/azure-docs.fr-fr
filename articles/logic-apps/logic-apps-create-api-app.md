@@ -11,10 +11,10 @@ ms.topic: article
 ms.assetid: bd229179-7199-4aab-bae0-1baf072c7659
 ms.date: 05/26/2017
 ms.openlocfilehash: 620ede672d71338abeff5198fd5f94e92dc193d0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60681827"
 ---
 # <a name="create-custom-apis-you-can-call-from-azure-logic-apps"></a>Créer des API personnalisées que vous pouvez appeler à partir d’Azure Logic Apps
@@ -175,8 +175,8 @@ Par exemple, pour vérifier périodiquement la présence de nouveaux fichiers da
 
 | La requête inclut `triggerState` ? | Réponse de l’API | 
 | -------------------------------- | -------------| 
-| Non  | Renvoyez un état HTTP `202 ACCEPTED` plus un en-tête `location` avec `triggerState` défini sur l’heure actuelle et l’intervalle `retry-after` sur 15 secondes. | 
-| Oui | Vérifiez la présence de fichiers ajoutés après le `DateTime` pour `triggerState` dans votre service. | 
+| Non | Renvoyez un état HTTP `202 ACCEPTED` plus un en-tête `location` avec `triggerState` défini sur l’heure actuelle et l’intervalle `retry-after` sur 15 secondes. | 
+| OUI | Vérifiez la présence de fichiers ajoutés après le `DateTime` pour `triggerState` dans votre service. | 
 ||| 
 
 | Nombre de fichiers trouvés | Réponse de l’API | 

@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 05/09/2016
 ms.author: markscu
 ms.openlocfilehash: 49824741facc8822a9417306794f1028fc180e16
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60555092"
 ---
 # <a name="create-matlab-distributed-computing-server-clusters-on-azure-vms"></a>Créer des clusters MATLAB Distributed Computing Server sur des machines virtuelles Azure
@@ -29,7 +29,7 @@ La plateforme [MATLAB](https://www.mathworks.com/products/matlab/) a été optim
 
 Grâce aux machines virtuelles Azure, vous pouvez créer des clusters MATLAB Distributed Computing Server disposant tous des mêmes mécanismes pour soumettre un travail parallèle en tant que clusters locaux, comme des travaux interactifs, des traitements par lots, des tâches indépendantes et des tâches de communication. L’utilisation conjointe d’Azure et de la plateforme MATLAB offre de nombreux avantages par rapport à l’approvisionnement et à l’utilisation des matériels locaux traditionnels : différentes tailles de machine virtuelle, création de clusters à la demande vous permettant de payer uniquement les ressources de calcul que vous utilisez, et possibilité de tester les modèles à grande échelle.  
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 * **Ordinateur client** : vous avez besoin d’un ordinateur client Windows pour communiquer avec Azure et le cluster MATLAB Distributed Computing Server après le déploiement.
 * **Azure PowerShell** : voir [Installation et configuration d’Azure PowerShell](/powershell/azure/overview) pour installer Azure PowerShell sur votre ordinateur client.
 * **Abonnement Azure** : si vous n’en avez pas, vous pouvez créer un [compte gratuit](https://azure.microsoft.com/free/) en quelques minutes. Pour les clusters de grande taille, envisagez de souscrire un abonnement de paiement à l’utilisation ou d’autres options d’achat.

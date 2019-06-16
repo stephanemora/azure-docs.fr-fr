@@ -16,10 +16,10 @@ ms.date: 08/08/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cbb94c28d56b0492fe3488d7c9e2e1257a8b9388
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60624350"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-safeconnect"></a>Didacticiel : Intégration d’Azure Active Directory avec SafeConnect
@@ -34,7 +34,7 @@ L’intégration de SafeConnect à Azure AD vous offre les avantages suivants :
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour configurer l’intégration de SafeConnect à Azure AD, vous avez besoin des éléments suivants :
 
@@ -60,7 +60,7 @@ Pour configurer l’intégration de SafeConnect à Azure AD, vous devez ajouter
 
 **Pour ajouter SafeConnect à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**. 
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**. 
 
     ![Bouton Azure Active Directory][1]
 

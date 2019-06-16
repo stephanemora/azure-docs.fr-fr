@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 09/18/2018
 ms.author: kumud
 ms.openlocfilehash: b1d2d04e74828323166810d93c52a60671bf71e8
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64710918"
 ---
 # <a name="create-change-or-delete-service-endpoint-policy-using-the-azure-portal"></a>Créer, changer ou supprimer une stratégie de point de terminaison de service à l’aide du portail Azure
@@ -40,7 +40,7 @@ Connectez-vous au portail Azure sur https://portal.azure.com.
 ## <a name="create-a-service-endpoint-policy"></a>Créer une stratégie de point de terminaison de service
 
 1. Sélectionnez **+ Créer une ressource** en haut à gauche du portail Azure.
-2. Dans le volet de recherche, tapez « Stratégie de point de terminaison de service », sélectionnez **Stratégie de point de terminaison de service (préversion)**, puis sélectionnez **Créer**.
+2. Dans le volet de recherche, tapez « Stratégie de point de terminaison de service », sélectionnez **Stratégie de point de terminaison de service (préversion)** , puis sélectionnez **Créer**.
 3. Entrez ou sélectionnez les informations suivantes dans **Informations de base** : 
 
    - Abonnement : sélectionnez votre abonnement pour la stratégie.    
@@ -73,7 +73,7 @@ Connectez-vous au portail Azure sur https://portal.azure.com.
  
 ## <a name="view-endpoint-policies"></a>Afficher des stratégies de points de terminaison 
 
-1. Dans la zone *Tous les services* du portail, commencez à taper *stratégies de point de terminaison de service*. Sélectionnez **Stratégies de point de terminaison de service (préversion)**.
+1. Dans la zone *Tous les services* du portail, commencez à taper *stratégies de point de terminaison de service*. Sélectionnez **Stratégies de point de terminaison de service (préversion)** .
 2. Sous **Abonnements**, sélectionnez votre abonnement et votre groupe de ressources, comme illustré dans l’image suivante.
 
    ![Afficher une stratégie](./media/virtual-network-service-endpoint-policies-portal/virtual-network-endpoint-policies-viewpolicies.PNG)

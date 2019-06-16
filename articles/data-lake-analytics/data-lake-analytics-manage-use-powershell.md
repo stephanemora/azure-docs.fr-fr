@@ -10,10 +10,10 @@ ms.assetid: ad14d53c-fed4-478d-ab4b-6d2e14ff2097
 ms.topic: conceptual
 ms.date: 06/29/2018
 ms.openlocfilehash: 4273828c9c2bdb75fcbc1de45da55c5a03dd615f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66156437"
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-powershell"></a>Gestion d'Azure Data Lake Analytics à l'aide d'Azure PowerShell
@@ -21,7 +21,7 @@ ms.locfileid: "66156437"
 
 Cet article décrit comment gérer des comptes Azure Data Lake Analytics, des sources de données, des utilisateurs et des travaux à l’aide d’Azure PowerShell.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -31,7 +31,7 @@ Pour utiliser PowerShell avec Data Lake Analytics, collectez les informations su
 * **Groupe de ressources** : nom du groupe de ressources Azure qui contient votre compte Data Lake Analytics.
 * **Nom du compte Data Lake Analytics** : nom de votre compte Data Lake Analytics.
 * **Nom du compte Data Lake Store par défaut** : Chaque compte Data Lake Analytics possède un compte Data Lake Store par défaut.
-* **Emplacement** : emplacement de votre compte Data Lake Analytics, comme « USA Est 2 » ou autres emplacements pris en charge.
+* **Emplacement** : emplacement de votre compte Data Lake Analytics, comme « USA Est 2 » ou autres emplacements pris en charge.
 
 Dans ce didacticiel, les extraits de code PowerShell utilisent ces variables pour stocker ces informations.
 
@@ -122,7 +122,7 @@ Test-AdlAnalyticsAccount -Name $adla
 Azure Data Lake Analytics prend actuellement en charge les sources de données suivantes :
 
 * [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md)
-* [Azure Storage](../storage/common/storage-introduction.md)
+* [Stockage Azure](../storage/common/storage-introduction.md)
 
 Chaque compte Data Lake Analytics possède un compte Data Lake Store par défaut. Le compte Data Lake Store par défaut est utilisé pour stocker les métadonnées du travail et les journaux d’audit du travail. 
 
@@ -245,7 +245,7 @@ Utilisez le `-Result` paramètre pour détecter si les travaux terminés se sont
 * Annulé
 * Échec
 * Aucun
-* Opération réussie
+* Succeeded
 
 ``` powershell
 # List Successful jobs.

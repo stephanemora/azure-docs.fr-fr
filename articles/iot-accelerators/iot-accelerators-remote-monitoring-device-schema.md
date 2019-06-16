@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 12/18/2018
 ms.topic: conceptual
 ms.openlocfilehash: 0f9669d491648ecc621aab27d0908dcc3dc84438
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65823323"
 ---
 # <a name="understand-the-device-model-schema"></a>Comprendre le schéma de modèle d’appareil
@@ -116,7 +116,7 @@ Le service de simulation exécute le fichier **chiller-01-state.js** toutes les 
 
 ## <a name="properties"></a>properties
 
-La section `Properties` du schéma définit les valeurs de propriété que l’appareil indique à la solution. Exemple :
+La section `Properties` du schéma définit les valeurs de propriété que l’appareil indique à la solution. Par exemple :
 
 ```json
 "Properties": {
@@ -163,11 +163,11 @@ Actuellement, vous ne pouvez utiliser que des schémas de message JSON. Les cham
 
 * Objet - sérialisé à l’aide de JSON
 * Binaire - sérialisé à l’aide de base64
-* Text
+* Texte
 * Boolean
-* Integer
+* Entier
 * Double
-* DateTime
+* Datetime
 
 Pour envoyer des messages de télémétrie à des intervalles différents, ajoutez plusieurs types de données de télémétrie au tableau `Telemetry`. L’exemple suivant envoie les données de température et d’humidité toutes les 10 secondes et l’état de la lumière toutes les minutes :
 

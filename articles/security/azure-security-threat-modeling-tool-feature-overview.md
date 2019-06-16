@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
 ms.openlocfilehash: 601f3bf05388406c8f96a7351f7fb3aa4de2650a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60588799"
 ---
 # <a name="threat-modeling-tool-feature-overview"></a>Vue d’ensemble de la fonctionnalité Outil de modélisation des menaces
@@ -107,7 +107,7 @@ Les propriétés de l’élément dépendent de l’élément que vous sélectio
 
 | Propriété d’élément                               | Détails      |
 | --------------------------------------- | ------------ |
-| **Name** | Utile pour nommer vos processus, magasins, interacteurs et flux afin qu’ils soient facilement reconnus. |
+| **Nom** | Utile pour nommer vos processus, magasins, interacteurs et flux afin qu’ils soient facilement reconnus. |
 | **Out of scope** (Hors de portée) | Si sélectionné, l’élément est extrait de la matrice de génération des menaces (non recommandé). |
 | **Reason for out of scope** (Raison de l’hors de portée) | Champ de justification pour informer les utilisateurs de la raison pour laquelle l’option Hors de portée a été sélectionnée. |
 

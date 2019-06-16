@@ -16,10 +16,10 @@ ms.date: 12/01/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 00c86562e0fdb4e6d62d44088b7aba08e45e22a4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60293232"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-with-azure-sdks"></a>Comment utiliser des identités managées pour ressources Azure sur une machine virtuelle Azure avec des kits de développement logiciel (SDK) Azure 
@@ -27,7 +27,7 @@ ms.locfileid: "60293232"
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]  
 Cet article fournit une liste d’exemples de kits de développement logiciel (SDK), qui illustrent l’utilisation de leur prise en charge respective du Kit de développement logiciel (SDK) pour des identités managées pour ressources Azure.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
@@ -36,7 +36,7 @@ Cet article fournit une liste d’exemples de kits de développement logiciel (S
 
 ## <a name="sdk-code-samples"></a>Exemples de code de kit de développement logiciel
 
-| Kit SDK              | Exemple de code |
+| Kit SDK             | Exemple de code |
 | --------------- | ----------- |
 | .NET            | [Déployer un modèle Azure Resource Manager à partir d’une machine virtuelle Windows en utilisant des identités managées pour ressources Azure](https://github.com/Azure-Samples/windowsvm-msi-arm-dotnet) |
 | .NET Core       | [Appeler des services Azure à partir d’une machine virtuelle Linux en utilisant des identités managées pour ressources Azure](https://github.com/Azure-Samples/linuxvm-msi-keyvault-arm-dotnet/) |

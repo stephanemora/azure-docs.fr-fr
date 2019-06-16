@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: cynthn
-ms.openlocfilehash: b1ad5aa074a7719dbe6000301c8cd04e6e1ad632
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: ee2fe91d915faf7e09dee004891edfc6bef38d6f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984543"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64685413"
 ---
 # <a name="upload-a-generalized-vhd-and-use-it-to-create-new-vms-in-azure"></a>Charger un disque dur virtuel généralisé et l’utiliser pour créer des machines virtuelles dans Azure
 
@@ -33,7 +33,7 @@ Pour un exemple de script, consultez [Exemple de script pour charger un disque d
 - Avant de télécharger un disque dur virtuel dans Azure, vous devez apprendre à [préparer un disque dur virtuel Windows à charger sur Azure](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 - Consultez [Planification de la migration vers la fonctionnalité Disques managés](on-prem-to-azure.md#plan-for-the-migration-to-managed-disks) avant de démarrer la migration vers la [fonctionnalité Disques managés](managed-disks-overview.md).
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 
 ## <a name="generalize-the-source-vm-by-using-sysprep"></a>Généraliser la machine virtuelle source en utilisant Sysprep
@@ -109,7 +109,7 @@ Vous pouvez également télécharger un disque dur virtuel sur votre compte de s
     Le service Import/Export permet de copier sur un compte de stockage Standard. Vous devez effectuer une copie d’un compte de stockage Standard vers un compte de stockage Premium à l’aide d’un outil comme AzCopy.
 
 > [!IMPORTANT]
-> Si vous utilisez AzCopy pour charger votre disque dur virtuel sur Azure, veillez à définir [**/BlobType:page**](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy#blobtypeblock--page--append) avant d’exécuter le script de chargement. Si la destination est un objet blob et que cette option n’est pas spécifiée, AzCopy crée par défaut un objet blob de blocs.
+> Si vous utilisez AzCopy pour charger votre disque dur virtuel sur Azure, veillez à définir [ **/BlobType:page**](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy#blobtypeblock--page--append) avant d’exécuter le script de chargement. Si la destination est un objet blob et que cette option n’est pas spécifiée, AzCopy crée par défaut un objet blob de blocs.
 > 
 > 
 

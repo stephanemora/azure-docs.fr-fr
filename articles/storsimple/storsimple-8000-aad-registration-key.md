@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/23/2018
 ms.author: alkohli
 ms.openlocfilehash: 01d36188c1684eae8303cb20ba0fd0c708ff91ba
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60309849"
 ---
 # <a name="use-the-new-authentication-for-your-storsimple"></a>Utiliser la nouvelle authentification pour votre StorSimple

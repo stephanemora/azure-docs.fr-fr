@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.openlocfilehash: d4b6c8289ae7c22521fc433c928f2b25a56c87ef
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64723576"
 ---
 # <a name="geofencing-geojson-data"></a>Données Geofencing GeoJSON
@@ -32,9 +32,9 @@ Les données de la limite géographique ou d’un ensemble de limites géographi
 
 | Nom | Type | Obligatoire  | Description |
 | :------------ |:------------: |:---------------:| :-----|
-| startTime | DateTime  | true | Date et heure de début de la période de validité. |
-| endTime   | DateTime  | true |  Date et heure de fin de la période de validité. |
-| recurrenceType | string | false |   Le type de périodicité de la période. La valeur peut être `Daily`, `Weekly`, `Monthly` ou `Yearly`. La valeur par défaut est `Daily`.|
+| startTime | Datetime  | true | Date et heure de début de la période de validité. |
+| endTime   | Datetime  | true |  Date et heure de fin de la période de validité. |
+| recurrenceType | chaîne | false |   Le type de périodicité de la période. La valeur peut être `Daily`, `Weekly`, `Monthly` ou `Yearly`. La valeur par défaut est `Daily`.|
 | businessDayOnly | Boolean | false |  Indiquer si les données sont uniquement valides pendant les jours ouvrés. La valeur par défaut est `false`.|
 
 

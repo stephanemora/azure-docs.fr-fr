@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
 ms.openlocfilehash: b679f1da0ada3e61fca79cdb985a43dc445877ce
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61338450"
 ---
 # <a name="interpret-method"></a>Méthode Interpret
@@ -31,12 +31,12 @@ Pour offrir une expérience interactive, vous pouvez appeler cette méthode de f
 
 Nom     | Valeur | Requis ?  | Description
 ---------|---------|---------|---------
-**query**    | Chaîne de texte | Oui | Requête saisie par l’utilisateur.  Si le paramètre complete est défini sur 1, la requête sera interprétée en tant que préfixe pour générer des suggestions de saisie semi-automatique pour la requête.        
-**model**    | Chaîne de texte | Non   | Nom du modèle que vous souhaitez interroger.  Actuellement, la valeur par défaut est définie sur *lastest* (plus récent).        
-**complete** | 0 ou 1 | Non <br>par défaut : 0  | 1 signifie que les suggestions de saisie semi-automatique sont générées en fonction des données de la grammaire et du graphique.         
-**count**    | Number | Non <br>par défaut :10 | Nombre maximal d’interprétations à renvoyer.         
-**offset**   | Number | Non <br>par défaut : 0  | Index de la première interprétation à renvoyer. Par exemple, *count=2&offset=0* renvoie les interprétations 0 et 1. *count=2&offset=2* renvoie les interprétations 2 et 3.       
-**timeout**  | Number | Non <br>par défaut : 1000 | Délai d’expiration en millisecondes. Seules les interprétations récupérées avant la fin du délai d’expiration sont renvoyées.
+**query**    | Chaîne de texte | OUI | Requête saisie par l’utilisateur.  Si le paramètre complete est défini sur 1, la requête sera interprétée en tant que préfixe pour générer des suggestions de saisie semi-automatique pour la requête.        
+**model**    | Chaîne de texte | Non  | Nom du modèle que vous souhaitez interroger.  Actuellement, la valeur par défaut est définie sur *lastest* (plus récent).        
+**complete** | 0 ou 1 | Non<br>par défaut : 0  | 1 signifie que les suggestions de saisie semi-automatique sont générées en fonction des données de la grammaire et du graphique.         
+**count**    | Number | Non<br>par défaut :10 | Nombre maximal d’interprétations à renvoyer.         
+**offset**   | Number | Non<br>par défaut : 0  | Index de la première interprétation à renvoyer. Par exemple, *count=2&offset=0* renvoie les interprétations 0 et 1. *count=2&offset=2* renvoie les interprétations 2 et 3.       
+**timeout**  | Number | Non<br>par défaut : 1000 | Délai d’expiration en millisecondes. Seules les interprétations récupérées avant la fin du délai d’expiration sont renvoyées.
 
 <br>
   

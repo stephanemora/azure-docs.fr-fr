@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: jroth
 ms.openlocfilehash: 8b919608dfc562d8db77619d5215a6828a53a4aa
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66165511"
 ---
 1. Une fois connecté à la machine virtuelle avec le Bureau à distance, recherchez **Configuration Manager** :
@@ -21,7 +21,7 @@ ms.locfileid: "66165511"
 
     ![Activer TCP](./media/virtual-machines-sql-server-connection-tcp-protocol/enable-tcp.png)
 
-1. Dans le volet de la console, cliquez sur **Services SQL Server**. Dans le volet d’informations, cliquez avec le bouton droit sur ***SQL Server (* nom de l’instance**) (l’instance par défaut est **SQL Server (MSSQLSERVER)**), puis cliquez sur **Redémarrer** pour arrêter et redémarrer l’instance de SQL Server.
+1. Dans le volet de la console, cliquez sur **Services SQL Server**. Dans le volet d’informations, cliquez avec le bouton droit sur ***SQL Server (* nom de l’instance**) (l’instance par défaut est **SQL Server (MSSQLSERVER)** ), puis cliquez sur **Redémarrer** pour arrêter et redémarrer l’instance de SQL Server.
 
     ![Redémarrer le moteur de base de données](./media/virtual-machines-sql-server-connection-tcp-protocol/restart-sql-server.png)
 

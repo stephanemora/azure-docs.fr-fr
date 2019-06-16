@@ -10,10 +10,10 @@ ms.reviewer: estfan, jonfan, LADocs
 ms.topic: article
 ms.date: 01/16/2019
 ms.openlocfilehash: c33b1d46ecf710f050fc998ce27f6448337c6b78
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60683611"
 ---
 # <a name="send-receive-and-batch-process-messages-in-azure-logic-apps"></a>Envoyer, recevoir et traiter par lots des messages dans Azure Logic Apps
@@ -30,7 +30,7 @@ Pour envoyer et traiter ensemble des messages sous la forme spécifique de group
 
 Assurez-vous que votre récepteur et votre expéditeur de lots partagent le même abonnement *et* la même région Azure. Si ce n’est pas le cas, vous ne pouvez pas sélectionner le récepteur de lots lorsque vous créez l’expéditeur de lots, car ils ne sont pas visibles entre eux.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre cet exemple, vous avez besoin de ce qui suit :
 
@@ -90,7 +90,7 @@ Avant de pouvoir envoyer des messages à un lot, ce lot doit d’abord exister e
 
    3. Sélectionnez cette action : **Envoyer un e-mail - <*fournisseur de messagerie*>**
 
-      Par exemple : 
+      Par exemple :
 
       ![Sélection de l’action « Envoyer un message électronique » pour votre fournisseur de messagerie](./media/logic-apps-batch-process-send-receive-messages/batch-receiver-send-email-action.png)
 

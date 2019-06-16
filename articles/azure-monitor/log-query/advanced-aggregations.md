@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
 ms.openlocfilehash: 56e87da0353a41504035a070d4c10bab0dda2279
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60551751"
 ---
 # <a name="advanced-aggregations-in-azure-monitor-log-queries"></a>Agrégations dans les requêtes de journal Azure Monitor | Microsoft Docs
@@ -39,7 +39,7 @@ Event
 | summarize makelist(EventID) by Computer
 ```
 
-|Computer|list_EventID|
+|Ordinateur|list_EventID|
 |---|---|
 | computer1 | [704,701,1501,1500,1085,704,704,701] |
 | computer2 | [326,105,302,301,300,102] |
@@ -56,7 +56,7 @@ Event
 | summarize makeset(EventID) by Computer
 ```
 
-|Computer|list_EventID|
+|Ordinateur|list_EventID|
 |---|---|
 | computer1 | [704,701,1501,1500,1085] |
 | computer2 | [326,105,302,301,300,102] |
@@ -73,7 +73,7 @@ Heartbeat
 | project Computer, Solutions
 ```
 
-| Computer | solutions | 
+| Ordinateur | solutions | 
 |--------------|----------------------|
 | computer1 | "security", "updates", "changeTracking" |
 | computer2 | "security", "updates" |
@@ -89,7 +89,7 @@ Heartbeat
 | mvexpand Solutions
 ```
 
-| Computer | solutions | 
+| Ordinateur | solutions | 
 |--------------|----------------------|
 | computer1 | "security" |
 | computer1 | "updates" |

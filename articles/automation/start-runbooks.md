@@ -10,10 +10,10 @@ ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: b065b611c923c4a28dc79c390ffb56ed97b316fd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60880183"
 ---
 # <a name="start-a-runbook-in-azure-automation"></a>Démarrer un Runbook dans Azure Automation
@@ -84,7 +84,7 @@ Le service web Azure Automation fournit des fonctionnalités spécifiques pour l
 
 ### <a name="named-values"></a>Valeurs nommées
 
-Si le paramètre est un type de données [object], vous pouvez utiliser le format JSON suivant pour lui envoyer une liste de valeurs nommées : *{Nom1:'Valeur1', Nom2:'Valeur2', Nom3:'Valeur3'}*. Ces valeurs doivent avoir des types simples. Le Runbook reçoit le paramètre comme [PSCustomObject](/dotnet/api/system.management.automation.pscustomobject) avec des propriétés correspondant à chaque valeur nommée.
+Si le paramètre est un type de données [object], vous pouvez utiliser le format JSON suivant pour lui envoyer une liste de valeurs nommées : *{Nom1:'Valeur1', Nom2:'Valeur2', Nom3:'Valeur3'}* . Ces valeurs doivent avoir des types simples. Le Runbook reçoit le paramètre comme [PSCustomObject](/dotnet/api/system.management.automation.pscustomobject) avec des propriétés correspondant à chaque valeur nommée.
 
 Considérez le Runbook de test suivant qui accepte un paramètre nommé user.
 
@@ -121,7 +121,7 @@ Smith
 
 ### <a name="arrays"></a>Tableaux
 
-Si le paramètre est un tableau comme [array] ou [string[]], vous pouvez utiliser le format JSON suivant pour lui envoyer une liste de valeurs : *[Valeur1, Valeur2, Valeur3]*. Ces valeurs doivent avoir des types simples.
+Si le paramètre est un tableau comme [array] ou [string[]], vous pouvez utiliser le format JSON suivant pour lui envoyer une liste de valeurs : *[Valeur1, Valeur2, Valeur3]* . Ces valeurs doivent avoir des types simples.
 
 Considérez le Runbook de test suivant qui accepte un paramètre nommé *user*.
 

@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 05/15/2019
 ms.author: juliako
 ms.openlocfilehash: 37aef7c0ae06aefc69b8a72a80c8ade3951e8b0d
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65799516"
 ---
 # <a name="manage-a-video-indexer-account-connected-to-azure"></a>Gérer un compte Video Indexer connecté à Azure
@@ -24,7 +24,7 @@ Cet article explique comment gérer un compte Video Indexer connecté à votre 
 > [!NOTE]
 > Vous devez être le propriétaire du compte Video Indexer pour pouvoir effectuer les ajustements de configuration de compte décrits dans cette rubrique.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Connectez votre compte Video Indexer à Azure, comme indiqué dans [Connecté à Azure](connect-to-azure.md). 
 
@@ -56,7 +56,7 @@ La page **Paramètres** vous permet de définir la mise à l’échelle automati
 
 La mise à l’échelle automatique ne se met pas en œuvre en dessous de 1 UR ni au-dessus de la limite par défaut du compte Media Services. Pour accroître la limite, créez une demande de service. Pour plus d’informations sur les quotas et les limitations et pour savoir comment ouvrir un ticket de support, consultez la rubrique [Quotas et limitations](../../media-services/previous/media-services-quotas-and-limitations.md).
 
-![Connexion](./media/manage-account-connected-to-azure/autoscale-reserved-units.png)
+![Inscription](./media/manage-account-connected-to-azure/autoscale-reserved-units.png)
 
 ## <a name="errors-and-warnings"></a>Erreurs et avertissements
 

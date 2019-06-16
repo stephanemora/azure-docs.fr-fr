@@ -9,22 +9,22 @@ ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: hrasheed
 ms.openlocfilehash: 5e384520c1b8d6cf5e3b182bbddf41a5f4f7f8f6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64707827"
 ---
 # <a name="debug-apache-spark-jobs-running-on-azure-hdinsight"></a>Déboguer des travaux Apache Spark en cours d’exécution sur Azure HDInsight
 
 Cet article explique comment suivre et déboguer des tâches [Apache Spark](https://spark.apache.org/) en cours d’exécution sur des clusters HDInsight avec l’interface utilisateur [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html), l’interface utilisateur Spark et le serveur d’historique Spark. Vous démarrez une tâche Spark à partir d’un bloc-notes disponible avec le cluster Spark, **Machine Learning : analyse prédictive des données d’inspections alimentaires à l’aide de MLLib**. Vous pouvez utiliser les étapes ci-dessous pour effectuer le suivi d’une application que vous avez envoyée avec une autre méthode, par exemple, **spark-submit**.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 Vous devez disposer des éléments suivants :
 
 * Un abonnement Azure. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * Un cluster Apache Spark sur HDInsight. Pour obtenir des instructions, consultez [Création de clusters Apache Spark dans Azure HDInsight](apache-spark-jupyter-spark-sql.md).
-* Vous devriez avoir démarré le notebook, **[Machine learning : analyse prédictive des données d’inspections alimentaires à l’aide de MLLib](apache-spark-machine-learning-mllib-ipython.md)**. Pour obtenir des instructions sur l’exécution de ce bloc-notes, suivez le lien.  
+* Vous devriez avoir démarré le notebook, **[Machine learning : analyse prédictive des données d’inspections alimentaires à l’aide de MLLib](apache-spark-machine-learning-mllib-ipython.md)** . Pour obtenir des instructions sur l’exécution de ce bloc-notes, suivez le lien.  
 
 ## <a name="track-an-application-in-the-yarn-ui"></a>Effectuer le suivi d’une application dans l’interface utilisateur YARN
 1. Lancez l’interface utilisateur YARN. Cliquez sur **Yarn** sous **Tableaux de bord du cluster**.

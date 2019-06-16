@@ -10,10 +10,10 @@ ms.date: 08/26/2016
 ms.author: saudas
 ms.custom: mvc
 ms.openlocfilehash: 3e4ba15fa1925ca40ad7760acbd14331fbdd1343
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61457332"
 ---
 # <a name="deprecated-enable-public-access-to-an-azure-container-service-application"></a>(DÉPRÉCIÉ) Autoriser l’accès public à une application Azure Container Service
@@ -40,7 +40,7 @@ Tout d’abord, il faut ouvrir le port désiré.
    | Nom |Nom descriptif de la sonde. |
    | Port |Port du conteneur à tester. |
    | path |(En mode HTTP) Le chemin relatif du site à la sonde. HTTPS non pris en charge. |
-   | Interval |Intervalle de temps entre les tentatives de la sonde, en secondes. |
+   | Intervalle |Intervalle de temps entre les tentatives de la sonde, en secondes. |
    | Seuil de défaillance sur le plan de l’intégrité |Nombre de tentatives consécutives effectuées par la sonde avant de considérer que le conteneur est défectueux. |
 6. De retour sur les propriétés de l’équilibrage de charge de l’agent, cliquez sur **Règles d’équilibrage de la charge**, puis sur **Ajouter**.
    

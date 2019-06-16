@@ -8,17 +8,17 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.openlocfilehash: 55257d441916971b505432247f28033d6222c3be
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60861203"
 ---
 # <a name="connect-to-azure-data-explorer-from-azure-databricks-by-using-python"></a>Se connecter à Azure Data Explorer à partir d’Azure Databricks en utilisant Python
 
 [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/what-is-azure-databricks) est une plateforme d’analytique basée sur Apache Spark, qui est optimisée pour la plateforme Microsoft Azure. Cet article vous montre comment utiliser une bibliothèque Python dans Azure Databricks pour accéder aux données d’Azure Data Explorer. Il existe plusieurs façons de s’authentifier auprès d’Azure Data Explorer, notamment une connexion d’appareil et une application Azure Active Directory (Azure AD).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 - [Créez un cluster et une base de données Azure Data Explorer](/azure/data-explorer/create-cluster-database-portal).
 - [Créez un espace de travail Azure Databricks](/azure/azure-databricks/quickstart-create-databricks-workspace-portal#create-an-azure-databricks-workspace). Sous **Service Azure Databricks**, dans la liste déroulante **Niveau tarifaire**, sélectionnez **Premium**. Ceci vous permet d’utiliser des secrets Azure Databricks pour stocker vos informations d’identification et les référencer dans des notebooks et des travaux.

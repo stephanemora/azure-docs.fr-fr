@@ -10,17 +10,17 @@ ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: stewu
 ms.openlocfilehash: feefcf4f9f4448ab2b36c415cb745fd98277eb28
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64939333"
 ---
 # <a name="performance-tuning-guidance-for-spark-on-hdinsight-and-azure-data-lake-storage-gen2"></a>Recommandations en matière d’optimisation des performances pour Spark sur HDInsight et Azure Data Lake Storage Gen2
 
 Lors du réglage des performances sur Spark, vous devez prendre en compte le nombre d’applications qui s’exécuteront sur votre cluster.  Par défaut, vous pouvez exécuter 4 applications simultanément sur votre cluster HDI (Remarque : le paramètre par défaut est susceptible de changer).  Vous pouvez décider d’utiliser moins d’applications, vous pouvez donc remplacer les paramètres par défaut et utiliser le cluster davantage pour ces applications.  
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 * **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Un compte Azure Data Lake Storage Gen2**. Pour obtenir les instructions de création de compte, consultez [Démarrage rapide : Créer un compte de stockage Azure Data Lake Storage Gen2](data-lake-storage-quickstart-create-account.md).

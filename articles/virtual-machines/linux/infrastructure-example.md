@@ -17,10 +17,10 @@ ms.date: 12/15/2017
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 00357641f51be703d2e5c52c5b9cc6187ce05ff6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60543079"
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-linux-vms"></a>Procédure pas à pas d’exemple d’infrastructure Azure pour les machines virtuelles Linux
@@ -55,8 +55,8 @@ Tous les éléments ci-dessus sont conformes aux conventions de dénomination :
 * Adventure Works Cycles utilise **[Charge de travail informatique]-[Emplacement]-[Ressources Azure]** comme préfixe
   * Pour cet exemple, « **azos** » (Azure On-line Store) est le nom de la charge de travail informatique et « **use** » (USA Est 2) est l’emplacement
 * Les réseaux virtuels utilisent AZOS-USE-VN<strong>[numéro]</strong>
-* Les groupes à haute disponibilité utilisent azos-use-as-**[rôle]**
-* Les noms de machine virtuelle utilisent azos-use-vm-**[nom de machine virtuelle]**
+* Les groupes à haute disponibilité utilisent azos-use-as- **[rôle]**
+* Les noms de machine virtuelle utilisent azos-use-vm- **[nom de machine virtuelle]**
 
 ## <a name="azure-subscriptions-and-accounts"></a>Abonnements et comptes Azure
 Adventure Works Cycles utilise son abonnement d’entreprise, nommé Adventure Works Enterprise Subscription, pour fournir des informations de facturation pour cette charge de travail informatique.

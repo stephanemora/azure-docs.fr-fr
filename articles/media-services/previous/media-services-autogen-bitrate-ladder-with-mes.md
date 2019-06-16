@@ -14,15 +14,15 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.openlocfilehash: bbaf4d490fcebb4cd741a9b83ffc5d7e85699755
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61224342"
 ---
 #  <a name="use-azure-media-encoder-standard-to-auto-generate-a-bitrate-ladder"></a>Utilisation d’Azure Media Encoder Standard pour générer automatiquement une échelle des vitesses de transmission  
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
 Cet article explique comment utiliser Media Encoder Standard (MES) pour générer automatiquement une échelle des vitesses de transmission (paires vitesse-résolution) basée sur la résolution d’entrée et la vitesse de transmission. La présélection générée automatiquement ne dépassera jamais la résolution d’entrée et la vitesse de transmission. Par exemple, si l’entrée est 720p à 3 Mbits/s, la sortie reste à 720p maximum et démarre à des vitesses inférieures à 3 Mbits/s.
 
@@ -180,8 +180,8 @@ Une source avec une hauteur de « 1080 » et une fréquence d’images de « 29.
 |2|720|1 280|3520|
 |3|540|960|2210|
 |4|360|640|1150|
-|5.|270|480|720|
-|6.|180|320|380|
+|5\.|270|480|720|
+|6\.|180|320|380|
 
 ### <a name="example-2"></a>Exemple 2
 Une source avec une hauteur de « 720 » et une fréquence d’images de « 23.970 » crée 5 couches vidéo :
@@ -192,7 +192,7 @@ Une source avec une hauteur de « 720 » et une fréquence d’images de « 23.9
 |2|540|960|1850|
 |3|360|640|960|
 |4|270|480|600|
-|5.|180|320|320|
+|5\.|180|320|320|
 
 ### <a name="example-3"></a>Exemple 3
 Une source avec une hauteur de « 360 » et une fréquence d’images de « 29.970 » crée 3 couches vidéo :

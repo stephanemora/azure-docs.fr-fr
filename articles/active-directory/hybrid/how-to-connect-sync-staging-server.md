@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 176b8509892ef16b631697a686471e7fa52bb380
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60381562"
 ---
 # <a name="azure-ad-connect-staging-server-and-disaster-recovery"></a>Azure AD Connect : Serveur de préproduction et reprise d’activité après sinistre
@@ -65,9 +65,9 @@ Si vous avez apporté des modifications personnalisées au serveur principal et 
 
 #### <a name="import-and-synchronize"></a>Importer et synchroniser
 1. Sélectionnez **Connecteurs**, puis sélectionnez le premier connecteur de type **Services de domaine Active Directory**. Cliquez sur **Exécuter**, sélectionnez **Importation intégrale**, puis **OK**. Répétez cette procédure pour tous les connecteurs de ce type.
-2. Sélectionnez le connecteur de type **Azure Active Directory (Microsoft)**. Cliquez sur **Exécuter**, sélectionnez **Importation intégrale**, puis **OK**.
+2. Sélectionnez le connecteur de type **Azure Active Directory (Microsoft)** . Cliquez sur **Exécuter**, sélectionnez **Importation intégrale**, puis **OK**.
 3. Vérifiez que l’onglet Connecteurs est toujours sélectionné. Pour chaque connecteur de type **Services de domaine Active Directory**, cliquez sur **Exécuter**, sélectionnez **Synchronisation Delta**, puis **OK**.
-4. Sélectionnez le connecteur de type **Azure Active Directory (Microsoft)**. Cliquez sur **Exécuter**, sélectionnez **Synchronisation Delta**, puis **OK**.
+4. Sélectionnez le connecteur de type **Azure Active Directory (Microsoft)** . Cliquez sur **Exécuter**, sélectionnez **Synchronisation Delta**, puis **OK**.
 
 Vous avez maintenant effectué une exportation intermédiaire vers Azure AD et Active Directory local (si vous utilisez un déploiement Exchange hybride). Les prochaines étapes vous permettront d’inspecter les changements avant de commencer effectivement l’exportation vers les répertoires.
 

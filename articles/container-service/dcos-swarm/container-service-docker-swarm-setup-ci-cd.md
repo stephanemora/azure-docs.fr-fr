@@ -10,10 +10,10 @@ ms.date: 12/08/2016
 ms.author: jucoriol
 ms.custom: mvc
 ms.openlocfilehash: f28ea3dd2837a241c538057bd118409d4f5b858a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60643580"
 ---
 # <a name="deprecated-full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-docker-swarm-using-azure-devops-services"></a>(DÉPRÉCIÉ) Pipeline CI/CD complet pour déployer une application à plusieurs conteneurs sur Azure Container Service, avec Docker Swarm par le biais d’Azure DevOps Services
@@ -41,7 +41,7 @@ Voici une brève explication de ces étapes :
 1. Docker Swarm sur le cluster extrait la dernière version des images. 
 1. La nouvelle version de l’application est déployée à l’aide de Docker Compose. 
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Avant de commencer ce didacticiel, vous devez effectuer les tâches suivantes :
 
@@ -180,7 +180,7 @@ Azure DevOps Services vous permet de [gérer les mises en production dans les di
 
 ### <a name="initial-release-setup"></a>Configuration de la mise en production initiale
 
-1. Pour créer un pipeline de mise en production, cliquez sur **Mises en production** > **+ Mise en production**.
+1. Pour créer un pipeline de mise en production, cliquez sur **Mises en production** >  **+ Mise en production**.
 
 1. Pour configurer la source de l’artefact, cliquez sur **Artefacts** > **Lier une source d’artefact**. Ici, liez ce nouveau pipeline de mise en production à la build que vous avez définie à l’étape précédente. Ainsi, le fichier docker-compose.yml devient disponible dans le processus de mise en production.
 

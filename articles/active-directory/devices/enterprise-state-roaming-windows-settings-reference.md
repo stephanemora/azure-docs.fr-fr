@@ -18,10 +18,10 @@ ms.date: 01/30/2019
 ms.author: joflore
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e6c80ee5d2a4d72be131c6a781cf793d1981e780
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60353258"
 ---
 # <a name="windows-10-roaming-settings-reference"></a>Référence des paramètres d’itinérance Windows 10
@@ -32,10 +32,10 @@ Consultez le tableau suivant pour obtenir un récapitulatif des périphériques 
 
 | Type de compte et fonctionnement | Bureau | Mobile |
 | --- | --- | --- |
-| Azure Active Directory : synchronisation |Oui |Non  |
-| Azure Active Directory : sauvegarde/restauration |Non  |Non  |
-| Compte Microsoft : synchronisation |Oui |Oui |
-| Compte Microsoft : sauvegarde/restauration |Non  |Oui |
+| Azure Active Directory : synchronisation |OUI |Non |
+| Azure Active Directory : sauvegarde/restauration |Non |Non |
+| Compte Microsoft : synchronisation |OUI |OUI |
+| Compte Microsoft : sauvegarde/restauration |Non |OUI |
 
 ## <a name="what-is-backup"></a>Qu’est-ce qu’une sauvegarde ?
 En règle générale, les paramètres Windows se synchronisent par défaut, cependant, certains paramètres sont simplement sauvegardés, notamment la liste des applications installées sur un périphérique. La sauvegarde est destinée uniquement aux appareils mobiles et n’est pas disponible pour les utilisateurs d’Enterprise State Roaming. La sauvegarde utilise un compte Microsoft et stocke les paramètres et données d’application dans OneDrive. Si, sur le périphérique , un utilisateur désactive la synchronisation avec l’application Settings, les données de l’application normalement synchronisées se transforment en simple sauvegarde. Les données de sauvegarde sont uniquement accessibles via l’opération de restauration lors de la première utilisation d’un nouvel appareil. Les sauvegardes peuvent être désactivées via les paramètres du périphérique et peuvent être gérées et supprimées via le compte OneDrive de l’utilisateur.

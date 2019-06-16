@@ -12,10 +12,10 @@ ms.date: 09/18/2018
 ms.author: zhouwang
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 5f3b70a2dd9816210ed61280be38504a3980d205
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60515336"
 ---
 # <a name="quickstart-use-the-bing-speech-recognition-api-in-c35-for-net-on-windows"></a>Démarrage rapide : Utiliser l'API Reconnaissance vocale Bing en C&#35; pour .NET sous Windows
@@ -47,7 +47,7 @@ L’API Microsoft Speech fait partie de Cognitive Services (anciennement Project
 >
 > * Utilisez votre clé d’abonnement. Avec l’exemple d'application de bureau C#, collez votre clé d’abonnement dans la zone de texte lors de l’exécution de l’exemple. Pour plus d’informations, consultez [Exécuter l’exemple d’application](#step-3-run-the-sample-application).
 
-## <a name="step-1-install-the-sample-application"></a>Étape 1 : Installation de l’exemple d’application
+## <a name="step-1-install-the-sample-application"></a>Étape 1 : Installation de l’exemple d’application
 
 1. Démarrez Visual Studio 2015 et sélectionnez **Fichier** > **Ouvrir** > **Projet/Solution**.
 
@@ -55,7 +55,7 @@ L’API Microsoft Speech fait partie de Cognitive Services (anciennement Project
 
 3. Double-cliquez pour ouvrir le fichier Visual Studio 2015 Solution (.sln) nommé SpeechToText-WPF-Samples.sln. La solution s’ouvre dans Visual Studio.
 
-## <a name="step-2-build-the-sample-application"></a>Étape 2 : Générer l’exemple d’application
+## <a name="step-2-build-the-sample-application"></a>Étape 2 : Générer l’exemple d’application
 
 1. Si vous souhaitez utiliser la *reconnaissance de l’intention*, vous devez d’abord vous inscrire au [service LUIS (Language Understanding Intelligent Service)](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/). Utilisez ensuite l’URL de point de terminaison de votre application LUIS pour définir la valeur de la clé `LuisEndpointUrl` dans le fichier app.config de l’application dans le dossier samples/SpeechRecognitionServiceExample. Pour plus d’informations sur l’URL de point de terminaison de l’application LUIS, consultez [Publish your app](../../luis/luis-get-started-create-app.md#publish-your-app) (Publier votre application).
 

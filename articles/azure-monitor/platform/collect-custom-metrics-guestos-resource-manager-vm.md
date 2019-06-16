@@ -9,10 +9,10 @@ ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
 ms.openlocfilehash: 5647802ff383ce046d108f25384df81bcbd08cd3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66129665"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-using-a-resource-manager-template-for-a-windows-virtual-machine"></a>Envoyer des métriques de système d’exploitation invité vers le magasin de métriques d’Azure Monitor à l’aide d’un modèle Resource Manager pour une machine virtuelle Windows
@@ -27,7 +27,7 @@ En les stockant dans cet emplacement, vous avez accès aux mêmes actions que ce
 
 Si vous découvrez les modèles Resource Manager, obtenez plus d’informations sur les [déploiements de modèle](../../azure-resource-manager/resource-group-overview.md), leur structure et leur syntaxe.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 - Votre abonnement doit être inscrit auprès de [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services).
 
@@ -35,7 +35,7 @@ Si vous découvrez les modèles Resource Manager, obtenez plus d’informations 
 
 
 ## <a name="set-up-azure-monitor-as-a-data-sink"></a>Configurer Azure Monitor en tant que récepteur de données
-L’extension Azure Diagnostics utilise une fonctionnalité appelée « récepteurs de données » pour acheminer les métriques et les journaux d’activité vers différents emplacements. Les étapes suivantes montrent comment utiliser un modèle Resource Manager et PowerShell pour déployer une machine virtuelle à l’aide du nouveau récepteur de données « Azure Monitor ».
+L’extension Diagnostics Azure utilise une fonctionnalité appelée « récepteurs de données » pour acheminer les métriques et les journaux vers différents emplacements. Les étapes suivantes montrent comment utiliser un modèle Resource Manager et PowerShell pour déployer une machine virtuelle à l’aide du nouveau récepteur de données « Azure Monitor ».
 
 ## <a name="author-resource-manager-template"></a>Créer un modèle Resource Manager
 Pour cet exemple, vous pouvez utiliser un exemple de modèle rendu public. Les modèles de démarrage se trouvent dans https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows.

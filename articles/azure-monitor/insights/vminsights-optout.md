@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 11/05/2018
 ms.author: magoedte
 ms.openlocfilehash: 0f35ea3e35277ee7f1afd8278a31f45ed20c6995
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65522115"
 ---
 # <a name="how-to-disable-monitoring-of-your-virtual-machines-with-azure-monitor-for-vms-preview"></a>Guide pratique pour désactiver la surveillance de vos machines virtuelles avec Azure Monitor pour machines virtuelles (préversion)
@@ -53,8 +53,8 @@ Les étapes suivantes décrivent comment supprimer complètement Azure Monitor p
 2. Dans le portail Azure, cliquez sur **Tous les services**. Dans la liste des ressources, tapez Log Analytics. Au fur et à mesure de la saisie, la liste est filtrée. Sélectionnez **Log Analytics**.
 3. Dans votre liste d’espaces de travail Log Analytics, sélectionnez celui que vous avez choisi lors de l’intégration d’Azure Monitor pour machines virtuelles.
 4. Dans le volet de gauche, sélectionnez **Solutions**.  
-5. Dans la liste des solutions, sélectionnez **InfrastructureInsights(nom de l’espace de travail)**, puis, dans la page **Vue d’ensemble** de la solution, cliquez sur **Supprimer**.  À l’invite de confirmation, cliquez sur **Yes**.  
-6. Dans la liste des solutions, sélectionnez **ServiceMap(nom de l’espace de travail)**, puis, dans la page **Vue d’ensemble** de la solution, cliquez sur **Supprimer**.  À l’invite de confirmation, cliquez sur **Yes**.  
+5. Dans la liste des solutions, sélectionnez **InfrastructureInsights(nom de l’espace de travail)** , puis, dans la page **Vue d’ensemble** de la solution, cliquez sur **Supprimer**.  À l’invite de confirmation, cliquez sur **Yes**.  
+6. Dans la liste des solutions, sélectionnez **ServiceMap(nom de l’espace de travail)** , puis, dans la page **Vue d’ensemble** de la solution, cliquez sur **Supprimer**.  À l’invite de confirmation, cliquez sur **Yes**.  
 
 Si avant d’intégrer Azure Monitor pour machines virtuelles, vous ne [collectiez pas les compteurs de performances activés](vminsights-enable-overview.md#performance-counters-enabled) pour les machines virtuelles Windows ou Linux dans votre espace de travail, vous devez désactiver ces règles selon les étapes décrites [ici](../platform/data-sources-performance-counters.md#configuring-performance-counters) pour Windows et Linux.
 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
 ms.openlocfilehash: 94d3599fe919cf648be7115be68002d2aa458ee3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60400641"
 ---
 # <a name="iot-hub-message-routing-query-syntax"></a>Syntaxe des requêtes pour le routage des messages IoT Hub
@@ -53,10 +53,10 @@ Les propriétés système permettent d’identifier le contenu et la source des 
 
 | Propriété | Type | Description |
 | -------- | ---- | ----------- |
-| contentType | string | L’utilisateur spécifie le type de contenu du message. Pour autoriser la requête sur le corps du message, cette valeur doit être définie sur application/JSON. |
-| contentEncoding | string | L’utilisateur spécifie le type d’encodage du message. Les valeurs autorisées sont UTF-8, UTF-16, UTF-32 si la valeur contentType est définie sur application/JSON. |
-| iothub-connection-device-id | string | Cette valeur est définie par IoT Hub et identifie l’ID de l’appareil. Pour interroger, utilisez `$connectionDeviceId`. |
-| iothub-enqueuedtime | string | Cette valeur est définie par IoT Hub et représente l’heure (UTC) réelle de la mise en file d’attente du message. Pour interroger, utilisez `enqueuedTime`. |
+| contentType | chaîne | L’utilisateur spécifie le type de contenu du message. Pour autoriser la requête sur le corps du message, cette valeur doit être définie sur application/JSON. |
+| contentEncoding | chaîne | L’utilisateur spécifie le type d’encodage du message. Les valeurs autorisées sont UTF-8, UTF-16, UTF-32 si la valeur contentType est définie sur application/JSON. |
+| iothub-connection-device-id | chaîne | Cette valeur est définie par IoT Hub et identifie l’ID de l’appareil. Pour interroger, utilisez `$connectionDeviceId`. |
+| iothub-enqueuedtime | chaîne | Cette valeur est définie par IoT Hub et représente l’heure (UTC) réelle de la mise en file d’attente du message. Pour interroger, utilisez `enqueuedTime`. |
 
 Comme expliqué dans l’article [Messages IoT Hub](iot-hub-devguide-messages-construct.md), il existe des propriétés système supplémentaires dans un message. En plus de **contentType**, **contentEncoding** et **enqueuedTime**, les propriétés **connectionDeviceId** et **connectionModuleId** peuvent également être interrogées.
 
@@ -66,7 +66,7 @@ Les propriétés de l’application sont des chaînes définies par l’utilisat
 
 ### <a name="query-expressions"></a>Expressions de requête
 
-Une requête sur les propriétés système d’un message doit avoir pour préfixe le symbole `$`. Les requêtes sur les propriétés de l’application sont accessibles par leur nom, dont le préfixe ne doit pas contenir de symbole `$`. Si le nom d’une propriété de l’application commence par `$`, IoT Hub recherche ce nom dans les propriétés système, où il est introuvable, puis le cherche dans les propriétés de l’application. Par exemple :  
+Une requête sur les propriétés système d’un message doit avoir pour préfixe le symbole `$`. Les requêtes sur les propriétés de l’application sont accessibles par leur nom, dont le préfixe ne doit pas contenir de symbole `$`. Si le nom d’une propriété de l’application commence par `$`, IoT Hub recherche ce nom dans les propriétés système, où il est introuvable, puis le cherche dans les propriétés de l’application. Par exemple : 
 
 Pour interroger la propriété système contentEncoding 
 

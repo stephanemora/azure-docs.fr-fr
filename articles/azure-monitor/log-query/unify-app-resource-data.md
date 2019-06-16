@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: magoedte
 ms.openlocfilehash: 3f3de81197b05d4f025a3fd8638cffe4b07cecad
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61424639"
 ---
 # <a name="unify-multiple-azure-monitor-application-insights-resources"></a>Unifier plusieurs ressources Application Insights Azure Monitor 
@@ -104,7 +104,7 @@ Le tableau suivant montre les différences entre les schémas Log Analytics et A
 | ApplicationTypeVersion | application_Version |
 | AvailabilityCount | itemCount |
 | AvailabilityDuration | duration |
-| AvailabilityMessage | Message |
+| AvailabilityMessage | message |
 | AvailabilityRunLocation | location |
 | AvailabilityTestId | id |
 | AvailabilityTestName | Nom |
@@ -112,7 +112,7 @@ Le tableau suivant montre les différences entre les schémas Log Analytics et A
 | Browser | client_browser |
 | City | client_city |
 | ClientIP | client_IP |
-| Computer | cloud_RoleInstance | 
+| Ordinateur | cloud_RoleInstance | 
 | Pays | client_CountryOrRegion | 
 | CustomEventCount | itemCount | 
 | CustomEventDimensions | customDimensions |
@@ -121,7 +121,7 @@ Le tableau suivant montre les différences entre les schémas Log Analytics et A
 | DeviceType | client_Type | 
 | ExceptionCount | itemCount | 
 | ExceptionHandledAt | handledAt |
-| ExceptionMessage | Message | 
+| ExceptionMessage | message | 
 | ExceptionType | Type |
 | OperationID | operation_id |
 | OperationName | operation_Name | 

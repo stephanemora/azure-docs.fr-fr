@@ -15,15 +15,15 @@ ms.workload: na
 ms.date: 07/12/2017
 ms.author: alkohli
 ms.openlocfilehash: b5490c4e79ee1458b498f539c0db2cc189fce7f7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60723304"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-administer-your-storsimple-device"></a>Utiliser le service StorSimple Device Manager pour gérer votre appareil StorSimple
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
 Cet article décrit l’interface du service StorSimple Device Manager, y compris la procédure pour s’y connecter et les options disponibles, et offre des liens vers les flux de travail spécifiques exécutables via cette interface utilisateur. Ce guide s’applique à la fois aux appareils physiques StorSimple et à StorSimple Cloud Appliance.
 

@@ -13,10 +13,10 @@ ms.topic: reference
 ms.date: 10/12/2017
 ms.author: glenga
 ms.openlocfilehash: 5b2b7f3cd6bfa219b794edc63d6bf8b2784b713c
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62120736"
 ---
 # <a name="azure-functions-developers-guide"></a>Guide de développement Azure Functions
@@ -48,9 +48,9 @@ La propriété `bindings` vous permet de configurer les liaisons et les déclenc
 
 | Propriété | Valeurs/types | Commentaires |
 | --- | --- | --- |
-| `type` |string |Type de liaison. Par exemple, `queueTrigger`. |
+| `type` |chaîne |Type de liaison. Par exemple, `queueTrigger`. |
 | `direction` |'in', 'out' |Indique si la liaison sert à recevoir des données dans la fonction ou à envoyer des données à partir de la fonction. |
-| `name` |string |Le nom utilisé pour les données liées dans la fonction. Pour C#, il s’agit d’un nom d'argument ; pour JavaScript, il s’agit de la clé dans une liste de clés/valeurs. |
+| `name` |chaîne |Le nom utilisé pour les données liées dans la fonction. Pour C#, il s’agit d’un nom d'argument ; pour JavaScript, il s’agit de la clé dans une liste de clés/valeurs. |
 
 ## <a name="function-app"></a>Conteneur de fonctions
 Une application de fonction fournit un contexte d’exécution dans Azure dans lequel vos fonctions s’exécutent. Un conteneur de fonctions est constitué d’une ou de plusieurs des fonctions individuelles qui sont gérées, déployées et mises à l’échelle ensemble. Toutes les fonctions d’un conteneur de fonctions partagent le même plan de tarification, le même déploiement continu et la même version du runtime. Considérez un conteneur de fonctions comme un moyen d’organiser et de gérer collectivement vos fonctions. 

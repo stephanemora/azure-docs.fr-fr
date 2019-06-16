@@ -14,15 +14,15 @@ ms.workload: infrastructure-services
 ms.date: 07/05/2018
 ms.author: rclaus
 ms.openlocfilehash: 74f47344afff630a8633b340ea4ce21db28db7ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60936551"
 ---
 # <a name="sap-hana-backup-based-on-storage-snapshots"></a>Sauvegarde SAP HANA à partir de captures instantanées de stockage
 
-## <a name="introduction"></a>Présentation
+## <a name="introduction"></a>Introduction
 
 Ce document fait partie d’une série d’articles connexes en trois parties dédiés à la sauvegarde SAP HANA. L’article [Backup guide for SAP HANA on Azure Virtual Machines](sap-hana-backup-guide.md) (Guide de sauvegarde pour SAP HANA sur les machines virtuelles Azure) fournit une vue d’ensemble et des informations sur la mise en route, et l’article [SAP HANA Azure Backup on file level](sap-hana-backup-file-level.md) (Sauvegarde SAP HANA sur Azure au niveau fichier) couvre l’option de sauvegarde à partir de fichiers.
 

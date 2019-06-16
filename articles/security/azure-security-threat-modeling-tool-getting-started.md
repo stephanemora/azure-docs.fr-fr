@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: jegeib
 ms.openlocfilehash: 6315e6d39a3b68854beb6563d075e3c79ca93a69
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60610754"
 ---
 # <a name="getting-started-with-the-threat-modeling-tool"></a>Bien démarrer avec l’outil de modélisation des menaces
@@ -79,14 +79,14 @@ Ils suivent le processus de développement de leur premier modèle de menaces.
 > - Ils envoient des commandes vers notre serveur Web, le cercle
 > - Le serveur Web consulte une base de données (deux lignes parallèles)
 
-Ce que Ricardo vient de montrer à Cristina est un DFD, abréviation de **[diagramme de flux de données](https://en.wikipedia.org/wiki/Data_flow_diagram)**. L’outil de modélisation des menaces permet aux utilisateurs de spécifier des limites d’approbation, indiqués par les lignes en pointillés rouges, pour indiquer où les différentes entités sont sous contrôle. Par exemple, les administrateurs informatiques requièrent un système Active Directory à des fins d’authentification, par conséquent, Active Directory est en dehors de leur contrôle.
+Ce que Ricardo vient de montrer à Cristina est un DFD, abréviation de **[diagramme de flux de données](https://en.wikipedia.org/wiki/Data_flow_diagram)** . L’outil de modélisation des menaces permet aux utilisateurs de spécifier des limites d’approbation, indiqués par les lignes en pointillés rouges, pour indiquer où les différentes entités sont sous contrôle. Par exemple, les administrateurs informatiques requièrent un système Active Directory à des fins d’authentification, par conséquent, Active Directory est en dehors de leur contrôle.
 
 > Cristina : Ça me paraît correct. Qu’en est-il des menaces ?
 > Ricardo : Je vais vous montrer.
 
 ## <a name="analyzing-threats"></a>Analyse des menaces
 
-Après avoir cliqué sur la vue d’analyse à partir de la sélection du menu icône (fichier avec la loupe), il est dirigé vers la liste des menaces générées trouvées par l’outil Threat Modeling Tool en fonction du modèle par défaut, qui utilise l’approche SDL appelée **[STRIDE (usurpation d’identité, falsification, répudiation, divulgation d’informations, déni de service et élévation de privilèges)](https://en.wikipedia.org/wiki/STRIDE_(security))**. L’idée est que le logiciel relève d’un jeu de menaces prévisibles, qui peut être trouvé à l’aide de ces 6 catégories.
+Après avoir cliqué sur la vue d’analyse à partir de la sélection du menu icône (fichier avec la loupe), il est dirigé vers la liste des menaces générées trouvées par l’outil Threat Modeling Tool en fonction du modèle par défaut, qui utilise l’approche SDL appelée **[STRIDE (usurpation d’identité, falsification, répudiation, divulgation d’informations, déni de service et élévation de privilèges)](https://en.wikipedia.org/wiki/STRIDE_(security))** . L’idée est que le logiciel relève d’un jeu de menaces prévisibles, qui peut être trouvé à l’aide de ces 6 catégories.
 
 Cette approche est similaire à la sécurisation de votre maison en vous assurant que chaque porte et fenêtre a un mécanisme de verrouillage en place avant d’ajouter un système d’alarme ou de pourchasser le voleur.
 

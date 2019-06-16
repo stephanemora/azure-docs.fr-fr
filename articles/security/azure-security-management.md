@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
 ms.openlocfilehash: 2d6d1d121e41b0446e7f63b9aa530df89697ef67
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60586721"
 ---
 # <a name="security-management-in-azure"></a>Gestion de la sécurité dans Azure
@@ -117,7 +117,7 @@ Une passerelle des services Bureau à distance désigne un service de proxy RDP 
 ## <a name="security-guidelines"></a>Conseils de sécurité
 En règle générale, la sécurisation des stations de travail d’administration pour le cloud s’apparente aux pratiques utilisées pour les stations de travail locales, comme la minimisation de la build et les autorisations restrictives. Certains aspects uniques de la gestion du cloud relèvent plutôt de la gestion d’entreprise à distance ou hors bande. Ces derniers incluent l’utilisation et l’audit des informations d’identification, de l’accès à distance sécurisé, ainsi que de la détection des menaces et des interventions associées.
 
-### <a name="authentication"></a>Authentification
+### <a name="authentication"></a>Authentication
 Vous pouvez vous servir des restrictions d’ouverture de session Azure dans l’optique de limiter les adresses IP sources pouvant accéder aux outils d’administration et aux demandes d’accès à l’audit. Pour permettre à Azure d’identifier les clients de gestion (stations de travail et/ou applications), vous pouvez configurer SMAPI (avec des outils clients tels que les applets de commande Windows PowerShell) et le portail Azure en vue d’exiger l’installation de certificats de gestion côté client en plus des certificats SSL. Il est vivement recommandé d’exiger l’application de l’authentification multifacteur pour tous les accès administrateur.
 
 Certaines applications ou certains services déployés dans Azure peuvent avoir leurs propres mécanismes d’authentification pour l’accès utilisateur ou administrateur, tandis que d’autres tirent pleinement avantage d’Azure AD. Selon que vous fédérez des informations d’identification par le biais des services de fédération Active Directory (AD FS), que vous utilisiez la synchronisation de répertoires ou que vous conserviez uniquement les comptes d’utilisateur dans le cloud, [Microsoft Identity Manager](https://technet.microsoft.com/library/mt218776.aspx) (qui fait partie d’Azure AD Premium) vous aide à gérer les cycles de vie d’identité entre les ressources.

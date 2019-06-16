@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/09/2018
 ms.author: apimpm
 ms.openlocfilehash: 1fbafcdab938a0f8653df48631d7733cc58a3668
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60656795"
 ---
 # <a name="page-templates-in-azure-api-management"></a>Modèles de page dans Gestion des API Azure
@@ -228,11 +228,11 @@ Gestion des API Azure vous offre la possibilité de personnaliser le contenu des
   
 |Propriété|Type|Description|  
 |--------------|----------|-----------------|  
-|referenceCode|string|Code généré si cette page s’est affichée à la suite d’une erreur interne.|  
-|errorCode|string|Code généré si cette page s’est affichée à la suite d’une erreur interne.|  
-|emailBody|string|Corps d’e-mail généré si cette page s’est affichée à la suite d’une erreur interne.|  
-|requestedUrl|string|URL demandée quand la page est introuvable.|  
-|referrerUrl|string|URL de point d’accès pointant vers l’URL demandée.|  
+|referenceCode|chaîne|Code généré si cette page s’est affichée à la suite d’une erreur interne.|  
+|errorCode|chaîne|Code généré si cette page s’est affichée à la suite d’une erreur interne.|  
+|emailBody|chaîne|Corps d’e-mail généré si cette page s’est affichée à la suite d’une erreur interne.|  
+|requestedUrl|chaîne|URL demandée quand la page est introuvable.|  
+|referrerUrl|chaîne|URL de point d’accès pointant vers l’URL demandée.|  
   
 ### <a name="sample-template-data"></a>Données d’un exemple de modèle  
   

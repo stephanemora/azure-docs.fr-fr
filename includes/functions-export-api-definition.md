@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 09/04/2018
 ms.author: glenga
 ms.openlocfilehash: 49ac1a7585ddf2a6500c7e9382880109c3f7f431
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66131719"
 ---
 ## <a name="export-an-api-definition"></a>Exporter une définition d’API
@@ -19,15 +19,15 @@ Vous disposez déjà d’une définition OpenAPI pour votre fonction. Il s’agi
 
 1. Dans le [Portail Azure](https://portal.azure.com), cliquez sur le nom de l’application de fonction (par exemple, **function-demo-energy**) > **Fonctionnalités de la plateforme** > **Définition de l’API**.
 
-    ![Définition de l'API](media/functions-export-api-definition/api-definition.png)
+    ![Définition de l’API](media/functions-export-api-definition/api-definition.png)
 
 1. Cliquez sur **Exporter vers PowerApps + Flow**.
 
-    ![Source de définition d'API](media/functions-export-api-definition/export-api-1.png)
+    ![Source de la définition de l’API](media/functions-export-api-definition/export-api-1.png)
 
 1. Dans le volet droit, utilisez les paramètres spécifiés dans le tableau.
 
-    |Paramètre|Description |
+    |Paramètre|Description|
     |--------|------------|
     |**Mode d’exportation**|Sélectionnez **Express** pour générer automatiquement l’API personnalisée. Quand vous sélectionnez l’option **Manuel**, la définition de l’API est exportée, mais vous devez ensuite l’importer dans PowerApps et Microsoft Flow manuellement. Pour plus d’informations, consultez [Exporter vers PowerApps et Microsoft Flow](../articles/azure-functions/app-service-export-api-to-powerapps-and-flow.md).|
     |**Environment**|Sélectionnez l’environnement dans lequel l’API personnalisée doit être enregistrée. Pour en savoir plus, consultez [Vue d’ensemble des environnements](https://powerapps.microsoft.com/tutorials/environments-overview/) ou [Vue d’ensemble des environnements (Microsoft Flow)](https://us.flow.microsoft.com/documentation/environments-overview-admin/).|

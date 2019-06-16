@@ -2,27 +2,26 @@
 title: Facilité de gestion et surveillance SQL Data Warehouse - Vue d’ensemble | Microsoft Docs
 description: Vue d’ensemble de la surveillance et de la facilité de gestion pour l’utilisation des ressources, l’activité de journal et de requête, les recommandations et la protection des données (sauvegarde et restauration).
 services: sql-data-warehouse
-author: WenJason
-manager: digimobile
+author: kevinvngo
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-origin.date: 08/27/2018
-ms.date: 04/01/2019
-ms.author: v-jay
+ms.date: 08/27/2018
+ms.author: kevin
 ms.reviewer: igorstan
 ms.openlocfilehash: e9fb06b8ba34566689f769ca9a69328eee37e3c1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60747572"
 ---
 # <a name="manageability-and-monitoring-with-azure-sql-data-warehouse"></a>Facilité de gestion et surveillance avec Azure SQL Data Warehouse
 
 Découvrez ce qui est disponible pour vous aider à gérer et à surveiller SQL Data Warehouse. Les articles suivants présentent différentes façons d’optimiser les performances et l’utilisation de votre entrepôt de données.
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
 * [En savoir plus sur la gestion du calcul et l’élasticité][manage compute]
 * [Découvrir les métriques et les journaux d’activité disponibles dans le portail Azure][resource utilization]

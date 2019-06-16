@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: aahi
 ms.openlocfilehash: 5575668f164b97142e7c4b2ddb2608c3173426a6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60499883"
 ---
 # <a name="bing-search-api-use-and-display-requirements"></a>Conditions d’utilisation et d’affichage de l’API Recherche Bing
@@ -24,7 +24,7 @@ Ces conditions d’utilisation et d’affichage s’appliquent à toute impléme
 - Recherche personnalisée Bing
 - Recherche d’entité Bing
 - Recherche d’images Bing
-- Recherche d’actualités Bing
+- Recherche Bing Actualités
 - Recherche de vidéos Bing
 - Recherche visuelle Bing
 - Recherche web Bing

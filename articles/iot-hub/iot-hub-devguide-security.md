@@ -9,10 +9,10 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.openlocfilehash: bb402a5a059fb6f2836bddbd951220271ca77ba3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60400596"
 ---
 # <a name="control-access-to-iot-hub"></a>Contrôler l’accès à IoT Hub
@@ -57,7 +57,7 @@ Par exemple, dans une solution IoT classique :
 > [!NOTE]
 > Pour plus d’informations, consultez la page [Autorisations](#iot-hub-permissions).
 
-## <a name="authentication"></a>Authentification
+## <a name="authentication"></a>Authentication
 
 Azure IoT Hub accorde l’accès aux points de terminaison en vérifiant un jeton par rapport aux stratégies d’accès partagé et aux informations d’identification de sécurité du registre des identités.
 
@@ -108,7 +108,7 @@ Lorsque vous utilisez SASL PLAIN avec AMQP, un client qui se connecte à un IoT 
 
 ## <a name="scope-iot-hub-level-credentials"></a>Étendue des informations d’identification au niveau du hub IoT
 
-Vous pouvez étendre les stratégies de sécurité au niveau du hub IoT en créant des jetons avec un URI de ressource restreint. Par exemple, le point de terminaison pour l’envoi de messages appareil-à-cloud est **/devices/{deviceId}/messages/events**. Vous pouvez également utiliser une stratégie d’accès partagé au niveau du hub IoT avec des autorisations **DeviceConnect** pour signer un jeton dont l’URI de ressource est **/devices/{deviceId}**. Cette approche crée un jeton utilisable uniquement pour envoyer des messages au nom de l’appareil **deviceId**.
+Vous pouvez étendre les stratégies de sécurité au niveau du hub IoT en créant des jetons avec un URI de ressource restreint. Par exemple, le point de terminaison pour l’envoi de messages appareil-à-cloud est **/devices/{deviceId}/messages/events**. Vous pouvez également utiliser une stratégie d’accès partagé au niveau du hub IoT avec des autorisations **DeviceConnect** pour signer un jeton dont l’URI de ressource est **/devices/{deviceId}** . Cette approche crée un jeton utilisable uniquement pour envoyer des messages au nom de l’appareil **deviceId**.
 
 Ce mécanisme similaire à la [Stratégie de publication Event Hubs](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-99ce67ab) vous permet d’implémenter des méthodes d’authentification personnalisées.
 

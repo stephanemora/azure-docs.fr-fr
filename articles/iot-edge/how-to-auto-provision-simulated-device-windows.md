@@ -10,10 +10,10 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
 ms.openlocfilehash: 01247dfc0046ef722d70fe48f7ab8ee63f685962
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65153570"
 ---
 # <a name="create-and-provision-a-simulated-tpm-edge-device-on-windows"></a>Créer et provisionner un appareil Edge avec TPM simulé sur Windows
@@ -27,7 +27,7 @@ Cet article montre comment tester le provisionnement automatique sur un appareil
 * Création d’une inscription individuelle pour l’appareil.
 * Installation du runtime IoT Edge et connexion de l’appareil à IoT Hub.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 * Une machine de développement Windows. Cet article utilise Windows 10.
 * Un hub IoT actif.

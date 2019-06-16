@@ -12,11 +12,11 @@ ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
 ms.openlocfilehash: 0c9cd513f4d5842d14077bb7470ebd18c7a46340
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60306727"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64511872"
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Liaisons de stockage Table Azure pour Azure Functions
 
@@ -791,7 +791,7 @@ La liaison de sortie de stockage de table prend en charge les scénarios suivant
 
 ## <a name="exceptions-and-return-codes"></a>Exceptions et codes de retour
 
-| Liaison | Référence |
+| Liaison | Informations de référence |
 |---|---|
 | Table | [Codes d’erreur de table](https://docs.microsoft.com/rest/api/storageservices/fileservices/table-service-error-codes) |
 | Objet blob, Table, File d’attente | [Codes d’erreur de stockage](https://docs.microsoft.com/rest/api/storageservices/fileservices/common-rest-api-error-codes) |

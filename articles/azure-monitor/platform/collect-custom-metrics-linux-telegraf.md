@@ -1,18 +1,18 @@
 ---
 title: Collecter des métriques personnalisées pour une machine virtuelle Linux avec l’agent InfluxData Telegraf
 description: Collecter des métriques personnalisées pour une machine virtuelle Linux avec l’agent InfluxData Telegraf
-author: lingliw
+author: anirudhcavale
 services: azure-monitor
 ms.service: azure-monitor
-ms.topic: howto
-ms.date: 01/21/19
-ms.author: v-lingwu
+ms.topic: conceptual
+ms.date: 09/24/2018
+ms.author: ancav
 ms.subservice: metrics
 ms.openlocfilehash: 14415b88cd6036642442ef9ae23e8dee301bb908
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60741553"
 ---
 # <a name="collect-custom-metrics-for-a-linux-vm-with-the-influxdata-telegraf-agent"></a>Collecter des métriques personnalisées pour une machine virtuelle Linux avec l’agent InfluxData Telegraf
@@ -47,7 +47,7 @@ Créez une machine virtuelle Linux :
 
     ![Taille de la machine virtuelle - Agent Telegraf](./media/collect-custom-metrics-linux-telegraf/vm-size.png)
 
-1. Dans la page  **Paramètres** , dans  **Réseau** > **Groupe de sécurité réseau** > **Sélectionner des ports d’entrée publics**, sélectionnez  **HTTP**  et  **SSH (22)**. Laissez les autres valeurs par défaut et sélectionnez  **OK**. 
+1. Dans la page  **Paramètres** , dans  **Réseau** > **Groupe de sécurité réseau** > **Sélectionner des ports d’entrée publics**, sélectionnez  **HTTP**  et  **SSH (22)** . Laissez les autres valeurs par défaut et sélectionnez  **OK**. 
 
 1. Dans la page récapitulative, sélectionnez  **Créer**  pour démarrer le déploiement de la machine virtuelle. 
 
@@ -132,5 +132,6 @@ Dès que vous n’en avez plus besoin, vous pouvez supprimer le groupe de ressou
 
 ## <a name="next-steps"></a>Étapes suivantes
 - En savoir plus sur les [métriques personnalisées](metrics-custom-overview.md).
+
 
 

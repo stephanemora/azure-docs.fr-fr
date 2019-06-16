@@ -10,10 +10,10 @@ ms.date: 07/13/2017
 ms.author: robb
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: c5fc2199de8623dd3a9f2bc5faf23c7c40d67d75
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64922824"
 ---
 # <a name="streaming-azure-diagnostics-data-in-the-hot-path-by-using-event-hubs"></a>Diffusion des données de Diagnostics Azure dans le chemin réactif à l’aide d’Event Hubs
@@ -34,7 +34,7 @@ Cet article vous montre la procédure complète de configuration de Diagnostics 
 * Comment afficher les données de flux Event Hubs
 * Comment résoudre les problèmes de connexion  
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 La réception par Event Hubs de données provenant de Diagnostics Azure est prise en charge dans Services cloud, Machines virtuelles, Virtual Machine Scale Sets et Service Fabric à partir du Kit de développement logiciel (SDK) 2.9 Azure, ainsi que dans les outils Azure correspondants pour Visual Studio.
 
 * Extension Diagnostics Azure 1.6 (ciblée par défaut par le[Kit de développement logiciel (SDK) Azure pour .NET 2.9 ou ultérieur](https://azure.microsoft.com/downloads/) )
@@ -45,7 +45,7 @@ La réception par Event Hubs de données provenant de Diagnostics Azure est pris
 * Espace de noms Event Hubs approvisionné tel que décrit dans l’article [Prise en main d’Event Hubs](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
 
 ## <a name="connect-azure-diagnostics-to-event-hubs-sink"></a>Connexion de Diagnostics Azure au récepteur Event Hubs
-Par défaut, Diagnostics Azure transmet toujours des journaux et des mesures à un compte Stockage Azure. Une application peut également envoyer des données vers Event Hubs en ajoutant une nouvelle section **Sinks** sous l’élément **PublicConfig** / **WadCfg** du fichier *.wadcfgx*. Dans Visual Studio, le fichier *.wadcfgx* est stocké dans l’emplacement suivant : **Cloud Service Project** > **Roles** > **(RoleName)** > **diagnostics.wadcfgx** fichier.
+Par défaut, Diagnostics Azure transmet toujours des journaux et des mesures à un compte Stockage Azure. Une application peut également envoyer des données vers Event Hubs en ajoutant une nouvelle section **Sinks** sous l’élément **PublicConfig** / **WadCfg** du fichier *.wadcfgx*. Dans Visual Studio, le fichier *.wadcfgx* est stocké dans l’emplacement suivant : **Cloud Service Project** > **Roles** >  **(RoleName)**  > **diagnostics.wadcfgx** fichier.
 
 ```xml
 <SinksConfig>
@@ -202,7 +202,7 @@ L’exemple suivant montre comment un développeur peut limiter le volume de don
 Dans cet exemple, le récepteur est appliqué aux journaux d’activité et filtré uniquement pour le suivi au niveau de l’erreur.
 
 ## <a name="deploy-and-update-a-cloud-services-application-and-diagnostics-config"></a>Déploiement et mise à jour d’une configuration de diagnostics et d’application de services cloud
-Visual Studio offre le moyen le plus facile de déployer l’application et de configurer le récepteur Event Hubs. Pour afficher et modifier le fichier, ouvrez le fichier *.wadcfgx* dans Visual Studio, modifiez-le, puis enregistrez-le. Le chemin d’accès est **Projet de service cloud** > **rôles** > **(RoleName)** > **diagnostics.wadcfgx**.  
+Visual Studio offre le moyen le plus facile de déployer l’application et de configurer le récepteur Event Hubs. Pour afficher et modifier le fichier, ouvrez le fichier *.wadcfgx* dans Visual Studio, modifiez-le, puis enregistrez-le. Le chemin d’accès est **Projet de service cloud** > **rôles** >  **(RoleName)**  > **diagnostics.wadcfgx**.  
 
 À ce stade, toutes les opérations de déploiement et de mise à jour du déploiement effectuées dans Visual Studio et dans Visual Studio Team System, de même que l’ensemble des commandes ou scripts basés sur MSBuild et qui utilisent la cible **/t:publish** incluent le fichier *.wadcfgx* dans le processus d’empaquetage. En outre, les déploiements et les mises à jour déploient le fichier vers Azure à l’aide de l’extension de l’agent Diagnostics Azure appropriée sur vos machines virtuelles.
 

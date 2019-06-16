@@ -4,15 +4,14 @@ description: Cet article fournit une vue d’ensemble de la prise en charge de s
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-origin.date: 01/17/2019
-ms.date: 04/16/2019
-ms.author: v-junlch
+ms.date: 1/17/2019
+ms.author: amsriva
 ms.topic: conceptual
 ms.openlocfilehash: 335545f86c9c23feefb6ac21ca9cc5c8fcb5e7fb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60715841"
 ---
 # <a name="application-gateway-multiple-site-hosting"></a>Hébergement de plusieurs sites Application Gateway
@@ -125,5 +124,3 @@ Aucune modification n’est requise dans la règle de routage. La règle de rout
 
 Après avoir étudié l’hébergement de sites multiples, accédez à [Créer une passerelle Application Gateway avec l’hébergement de sites multiples](tutorial-multiple-sites-powershell.md) pour créer une passerelle Application Gateway avec prise en charge de plusieurs applications web.
 
-
-<!-- Update_Description: update metedata properties -->

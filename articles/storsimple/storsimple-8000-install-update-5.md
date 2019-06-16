@@ -15,15 +15,15 @@ ms.workload: TBD
 ms.date: 11/13/2017
 ms.author: alkohli
 ms.openlocfilehash: d86e77ef0148c0fac3dfa31153364de153b094ef
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62126747"
 ---
 # <a name="install-update-5-on-your-storsimple-device"></a>Installer Update 5 sur votre appareil StorSimple
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
 Ce didacticiel explique comment installer Update 5 sur un appareil StorSimple exécutant une version logicielle antérieure par le biais du portail Azure et à l’aide de la méthode du correctif logiciel. La méthode du correctif logiciel est utilisée quand vous essayez d’installer Update 5 sur un appareil exécutant des versions antérieures à Update 3. La méthode du correctif logiciel est également utilisée quand une passerelle est configurée sur une interface réseau différente de DATA 0 de l’appareil StorSimple et que la mise à jour porte sur une version logicielle antérieure à Update 1.
 
@@ -99,7 +99,7 @@ En outre, vous devez peut-être installer les mises à jour du microprogramme de
 
 | Ordre | Ko | Description | Type de mise à jour | Durée d’installation | Installer dans le dossier|
 | --- | --- | --- | --- | --- | --- |
-| 3. |KB4037263 |Microprogramme de disque |Maintenance  <br></br>Interruption de service |~ 30 minutes | ThirdOrderUpdate |
+| 3. |KB4037263 |Microprogramme de disque |Maintenance <br></br>Interruption de service |~ 30 minutes | ThirdOrderUpdate |
 
 <br></br>
 
