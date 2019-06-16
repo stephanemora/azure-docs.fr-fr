@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
 ms.openlocfilehash: 9d74cd3bd466578c61f8f12bf9b6e862c046e9bc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61074825"
 ---
 # <a name="user-profile-templates-in-azure-api-management"></a>Modèles Profil utilisateur dans Gestion des API Azure
@@ -106,15 +106,15 @@ Gestion des API Azure vous offre la possibilité de personnaliser le contenu des
   
 |Propriété|Type|Description|  
 |--------------|----------|-----------------|  
-|`firstName`|string|Prénom de l’utilisateur actif.|  
-|`lastName`|string|Nom de l’utilisateur actif.|  
-|`companyName`|string|Nom de l’entreprise de l’utilisateur actif.|  
-|`addresserEmail`|string|Adresse e-mail de l’utilisateur actif.|  
-|`developersUsageStatisticsLink`|string|URL relative permettant d’afficher les données d’analyse relatives à l’utilisateur actif.|  
+|`firstName`|chaîne|Prénom de l’utilisateur actif.|  
+|`lastName`|chaîne|Nom de l’utilisateur actif.|  
+|`companyName`|chaîne|Nom de l’entreprise de l’utilisateur actif.|  
+|`addresserEmail`|chaîne|Adresse e-mail de l’utilisateur actif.|  
+|`developersUsageStatisticsLink`|chaîne|URL relative permettant d’afficher les données d’analyse relatives à l’utilisateur actif.|  
 |`subscriptions`|Collection d’entités [Abonnement](api-management-template-data-model-reference.md#Subscription).|Abonnements associés à l’utilisateur actif.|  
 |`applications`|Collection d’entités [Application](api-management-template-data-model-reference.md#Application).|Applications associées à l’utilisateur actif.|  
-|`changePasswordUrl`|string|URL relative permettant de modifier le mot de passe de l’utilisateur actif.|  
-|`changeNameOrEmailUrl`|string|URL relative permettant de modifier le nom et l’e-mail de l’utilisateur actif.|  
+|`changePasswordUrl`|chaîne|URL relative permettant de modifier le mot de passe de l’utilisateur actif.|  
+|`changeNameOrEmailUrl`|chaîne|URL relative permettant de modifier le nom et l’e-mail de l’utilisateur actif.|  
 |`canChangePassword`|booléenne|Indique si l’utilisateur actif peut changer son mot de passe.|  
 |`isSystemUser`|booléenne|Indique si l’utilisateur actif est membre de l’un des [groupes](api-management-key-concepts.md#groups) prédéfinis.|  
   
@@ -327,15 +327,15 @@ Gestion des API Azure vous offre la possibilité de personnaliser le contenu des
   
 |Propriété|Type|Description|  
 |--------------|----------|-----------------|  
-|`firstName`|string|Prénom de l’utilisateur actif.|  
-|`lastName`|string|Nom de l’utilisateur actif.|  
-|`companyName`|string|Nom de l’entreprise de l’utilisateur actif.|  
-|`addresserEmail`|string|Adresse e-mail de l’utilisateur actif.|  
-|`developersUsageStatisticsLink`|string|URL relative permettant d’afficher les données d’analyse relatives à l’utilisateur actif.|  
+|`firstName`|chaîne|Prénom de l’utilisateur actif.|  
+|`lastName`|chaîne|Nom de l’utilisateur actif.|  
+|`companyName`|chaîne|Nom de l’entreprise de l’utilisateur actif.|  
+|`addresserEmail`|chaîne|Adresse e-mail de l’utilisateur actif.|  
+|`developersUsageStatisticsLink`|chaîne|URL relative permettant d’afficher les données d’analyse relatives à l’utilisateur actif.|  
 |`subscriptions`|Collection d’entités [Abonnement](api-management-template-data-model-reference.md#Subscription).|Abonnements associés à l’utilisateur actif.|  
 |`applications`|Collection d’entités [Application](api-management-template-data-model-reference.md#Application).|Applications associées à l’utilisateur actif.|  
-|`changePasswordUrl`|string|URL relative permettant de modifier le mot de passe de l’utilisateur actif.|  
-|`changeNameOrEmailUrl`|string|URL relative permettant de modifier le nom et l’e-mail de l’utilisateur actif.|  
+|`changePasswordUrl`|chaîne|URL relative permettant de modifier le mot de passe de l’utilisateur actif.|  
+|`changeNameOrEmailUrl`|chaîne|URL relative permettant de modifier le nom et l’e-mail de l’utilisateur actif.|  
 |`canChangePassword`|booléenne|Indique si l’utilisateur actif peut changer son mot de passe.|  
 |`isSystemUser`|booléenne|Indique si l’utilisateur actif est membre de l’un des [groupes](api-management-key-concepts.md#groups) prédéfinis.|  
   
@@ -490,15 +490,15 @@ Gestion des API Azure vous offre la possibilité de personnaliser le contenu des
   
 |Propriété|Type|Description|  
 |--------------|----------|-----------------|  
-|`firstName`|string|Prénom de l’utilisateur actif.|  
-|`lastName`|string|Nom de l’utilisateur actif.|  
-|`companyName`|string|Nom de l’entreprise de l’utilisateur actif.|  
-|`addresserEmail`|string|Adresse e-mail de l’utilisateur actif.|  
-|`developersUsageStatisticsLink`|string|URL relative permettant d’afficher les données d’analyse relatives à l’utilisateur actif.|  
+|`firstName`|chaîne|Prénom de l’utilisateur actif.|  
+|`lastName`|chaîne|Nom de l’utilisateur actif.|  
+|`companyName`|chaîne|Nom de l’entreprise de l’utilisateur actif.|  
+|`addresserEmail`|chaîne|Adresse e-mail de l’utilisateur actif.|  
+|`developersUsageStatisticsLink`|chaîne|URL relative permettant d’afficher les données d’analyse relatives à l’utilisateur actif.|  
 |`subscriptions`|Collection d’entités [Abonnement](api-management-template-data-model-reference.md#Subscription).|Abonnements associés à l’utilisateur actif.|  
 |`applications`|Collection d’entités [Application](api-management-template-data-model-reference.md#Application).|Applications associées à l’utilisateur actif.|  
-|`changePasswordUrl`|string|URL relative permettant de modifier le mot de passe de l’utilisateur actif.|  
-|`changeNameOrEmailUrl`|string|URL relative permettant de modifier le nom et l’e-mail de l’utilisateur actif.|  
+|`changePasswordUrl`|chaîne|URL relative permettant de modifier le mot de passe de l’utilisateur actif.|  
+|`changeNameOrEmailUrl`|chaîne|URL relative permettant de modifier le nom et l’e-mail de l’utilisateur actif.|  
 |`canChangePassword`|booléenne|Indique si l’utilisateur actif peut changer son mot de passe.|  
 |`isSystemUser`|booléenne|Indique si l’utilisateur actif est membre de l’un des [groupes](api-management-key-concepts.md#groups) prédéfinis.|  
   

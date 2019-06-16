@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 11/13/2018
 ms.author: spelluru
 ms.openlocfilehash: e681652c13e521bd33524e247db65088f47a794c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60394901"
 ---
 # <a name="export-or-delete-personal-data-from-azure-devtest-labs"></a>Exporter ou supprimer des données personnelles à partir d’Azure DevTest Labs
@@ -39,10 +39,10 @@ DevTest Labs utilise l’adresse e-mail de l’utilisateur pour envoyer des noti
 ### <a name="user-object-id"></a>ID de l’objet utilisateur
 DevTest Labs utilise l’ID de l’objet utilisateur pour afficher les tendances de coût d’un mois à l’autre et des informations sur le coût par ressource pour les administrateurs de laboratoire. Cela leur permet d’effectuer le suivi des coûts et de gérer les seuils pour leur laboratoire. 
 
-**Tendance de coût estimé pour le mois calendaire actuel :**
+**Tendance de coût estimé pour le mois calendaire actuel :** 
 ![Tendance de coût estimé pour le mois calendaire actuel](./media/personal-data-delete-export/estimated-cost-trend-per-month.png)
 
-**Coût en cumul mensuel à ce jour estimé par ressource :**
+**Coût en cumul mensuel à ce jour estimé par ressource :** 
 ![Coût en cumul mensuel à ce jour estimé par ressource](./media/personal-data-delete-export/estimated-month-to-date-cost-by-resource.png)
 
 

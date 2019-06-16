@@ -10,11 +10,11 @@ ms.reviewer: divswa, LADocs
 ms.topic: article
 ms.date: 1/30/2018
 ms.openlocfilehash: 6b02954f9f89074c5eff7e3b7fad2bc6afb29540
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60430828"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64689778"
 ---
 # <a name="custom-connectors-in-logic-apps"></a>Connecteurs personnalisés dans Logic Apps
 

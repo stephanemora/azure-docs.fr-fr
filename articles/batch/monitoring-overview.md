@@ -12,10 +12,10 @@ ms.workload: na
 ms.date: 04/05/2018
 ms.author: lahugh
 ms.openlocfilehash: b0243b37f725fc977337b72998d610e9bda71a86
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62128853"
 ---
 # <a name="monitor-batch-solutions"></a>Solutions Monitor Batch
@@ -41,7 +41,7 @@ Surveillez chaque compte Batch à l’aide des fonctionnalités d’[Azure Monit
 
 ## <a name="batch-resource-monitoring"></a>Surveillance des ressources Batch
 
-Dans vos applications Batch, utilisez les API Batch pour surveiller ou interroger l’état de vos ressources, notamment les travaux, les tâches, les nœuds et les pools. Par exemple : 
+Dans vos applications Batch, utilisez les API Batch pour surveiller ou interroger l’état de vos ressources, notamment les travaux, les tâches, les nœuds et les pools. Par exemple :
 
 * [Compter les tâches et les nœuds de calcul par état](batch-get-resource-counts.md)
 * [Créer des requêtes pour répertorier les ressources Batch efficacement](batch-efficient-list-queries.md)

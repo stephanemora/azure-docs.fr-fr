@@ -9,10 +9,10 @@ ms.date: 10/24/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 35f987f26ce47c19e3d5eb1ca5d2bb32d0c7ad1b
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66170183"
 ---
 1. Sur le côté gauche de la page du portail, cliquez sur **+** et tapez « Passerelle de réseau virtuel » dans la barre de recherche. Dans **Résultats**, recherchez et cliquez sur **Passerelle de réseau virtuel**.
@@ -21,13 +21,13 @@ ms.locfileid: "66170183"
 
     ![Champs de la page Créer une passerelle de réseau virtuel](./media/vpn-gateway-add-gateway-portal-include/create-gateway.png "Nouvelle passerelle")
 
-   - **Nom** : Nommez votre passerelle. Cela ne revient pas au même que de nommer un sous-réseau de passerelle. Il s’agit du nom de l’objet de passerelle que vous créez.
+   - **Nom** : Nommez votre passerelle. Cela ne revient pas au même que de nommer un sous-réseau de passerelle. Il s’agit du nom de l’objet de passerelle que vous créez.
    - **Type de passerelle** : Sélectionnez **VPN**. Les passerelles VPN utilisent le type de passerelle de réseau virtuel **VPN**. 
    - **Type de VPN** : sélectionnez le type de VPN spécifié pour votre configuration. La plupart des configurations requièrent un type de VPN basé sur un itinéraire.
    - **SKU** : sélectionnez la référence de passerelle dans la liste déroulante. Les références répertoriées dans la liste déroulante dépendent du type de VPN que vous sélectionnez. Pour plus d’informations sur les références de passerelle, consultez [Références (SKU) de passerelle](../articles/vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsku).
 
      Sélectionnez uniquement **Activer le mode actif / actif** si vous créez une configuration de passerelle active/active. Sinon, ne sélectionnez pas ce paramètre.
-   - **Emplacement** : Vous devrez peut-être faire défiler l’affichage pour voir l’emplacement. Renseignez le champ **Emplacement** de manière à ce qu’il pointe vers l’emplacement où se trouve votre réseau virtuel. Par exemple, USA Ouest. Si l’emplacement ne pointe pas vers la région où se trouve votre réseau virtuel, quand vous sélectionnerez un réseau virtuel à l’étape suivante, il n’apparaîtra pas dans la liste déroulante.
+   - **Emplacement** : Vous devrez peut-être faire défiler l’affichage pour voir l’emplacement. Renseignez le champ **Emplacement** de manière à ce qu’il pointe vers l’emplacement où se trouve votre réseau virtuel. Par exemple, USA Ouest. Si l’emplacement ne pointe pas vers la région où se trouve votre réseau virtuel, quand vous sélectionnerez un réseau virtuel à l’étape suivante, il n’apparaîtra pas dans la liste déroulante.
    - **Réseau virtuel** : Choisissez le réseau virtuel auquel vous souhaitez ajouter cette passerelle. Cliquez sur **Réseau virtuel** pour ouvrir la page Choisir un réseau virtuel. Sélectionnez le réseau virtuel. Si vous ne voyez pas votre réseau virtuel, assurez-vous que le champ Emplacement pointe sur la région dans laquelle se trouve votre réseau virtuel.
    - **Plage d’adresses de sous-réseau de la passerelle** : Vous voyez ce paramètre uniquement si vous n’avez pas créé de sous-réseau de passerelle pour votre réseau virtuel. Si vous avez déjà créé un sous-réseau de passerelle valide, ce paramètre n’est pas affiché.
    - **Adresse IP publique** : Ce paramètre spécifie l’objet d’adresse IP publique associé à la passerelle VPN. L’adresse IP publique est attribuée dynamiquement à cet objet pendant la création de la passerelle VPN. Actuellement, la passerelle VPN prend uniquement en charge l’allocation d’adresses IP publiques *dynamiques*. Toutefois, cela ne signifie pas que l’adresse IP change après son affectation à votre passerelle VPN. L’adresse IP publique change uniquement lorsque la passerelle est supprimée, puis recréée. Elle n’est pas modifiée lors du redimensionnement, de la réinitialisation ou des autres opérations de maintenance/mise à niveau internes de votre passerelle VPN.

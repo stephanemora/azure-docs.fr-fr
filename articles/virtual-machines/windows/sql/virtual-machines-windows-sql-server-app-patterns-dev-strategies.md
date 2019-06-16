@@ -16,10 +16,10 @@ ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: ninarn
 ms.openlocfilehash: 51d572ac324d0bc875e7ed81879f2456eeea4fbb
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65506615"
 ---
 # <a name="application-patterns-and-development-strategies-for-sql-server-in-azure-virtual-machines"></a>Modèles d'application et stratégies de développement pour SQL Server dans les machines virtuelles Azure
@@ -36,7 +36,7 @@ Pour chaque modèle d’application, vous trouverez un scénario local, la solut
 
 **Réviseurs techniques :** Corey Sanders, Drew McDaniel, Narayan Annamalai, Nir Mashkowski, Sanjay Mishra, Silvano Coriani, Stefan Schackow, Tim Hickey, Tim Wieman et Xin Jin
 
-## <a name="introduction"></a>Présentation
+## <a name="introduction"></a>Introduction
 Vous pouvez développer de nombreux types d’applications multiniveaux en répartissant les composants des niveaux d’application sur différents ordinateurs ainsi que dans différents composants. Par exemple, vous pouvez placer l’application cliente et les composants de règles métier sur un ordinateur, les composants de niveau web frontal et d’accès aux données sur un deuxième ordinateur et un niveau de base de données principale sur un troisième ordinateur. Ce type de structure permet d’isoler les niveaux les uns des autres. Si vous modifiez la provenance des données, vous n’avez pas besoin de modifier l’application cliente ou web, mais seulement les composants de niveau d’accès aux données.
 
 Une application *multiniveau* type inclut la couche Présentation, la couche Métier et la couche Données :

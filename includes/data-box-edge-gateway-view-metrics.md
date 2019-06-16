@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 04/15/2019
 ms.author: alkohli
 ms.openlocfilehash: e02c0b86cd542b3ea12914e35a6577cf4e9b43d8
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66161351"
 ---
 Vous pouvez également voir les métriques pour superviser les performances de l’appareil et, dans certains cas, pour résoudre les problèmes liés à l’appareil.
@@ -29,12 +29,12 @@ Effectuez les étapes suivantes dans le portail Azure pour créer un graphique d
 
 3. Dans la liste déroulante, sélectionnez une métrique pour superviser votre appareil. Les métriques peuvent être des **métriques de capacité** ou des **métriques de transaction**. Les métriques de capacité sont liées à la capacité de l’appareil. Les métriques de transaction sont liées aux opérations de lecture et d’écriture dans Stockage Azure.
 
-    |Métriques de capacité                     |Description   |
+    |Métriques de capacité                     |Description  |
     |-------------------------------------|-------------|
     |**Capacité disponible**               | Fait référence à la taille des données qui peuvent être écrites sur l’appareil. En d’autres termes, il s’agit de la capacité qui peut être rendue disponible sur l’appareil. <br></br>Vous pouvez libérer la capacité de l’appareil en supprimant la copie locale des fichiers dont il existe une copie sur l’appareil ainsi que sur le cloud.        |
     |**Capacité totale**                   | Fait référence au nombre total d’octets sur l’appareil disponibles pour l’écriture de données. On parle également de taille totale du cache local. <br></br> Vous pouvez désormais augmenter la capacité d’un appareil virtuel existant en ajoutant un disque de données. Ajoutez un disque de données par le biais de la gestion de l’hyperviseur pour la machine virtuelle, puis redémarrez celle-ci. Le pool de stockage local de l’appareil de passerelle se développe de manière à accueillir le disque de données nouvellement ajouté. <br></br>Pour plus d’informations, consultez [Ajouter un disque dur pour la machine virtuelle Hyper-V](https://www.youtube.com/watch?v=EWdqUw9tTe4). |
     
-    |Métriques de transaction              | Description          |
+    |Métriques de transaction              | Description         |
     |-------------------------------------|---------|
     |**Octets cloud chargés (appareil)**    | Somme de tous les octets chargés sur tous les partages de votre appareil        |
     |**Octets cloud chargés (partage)**     | Octets chargés par partage. Il peut s’agir des ordinateurs suivants : <br></br> Moyenne, à savoir (somme de tous les octets chargés par partage/nombre de partages)  <br></br>Maximum, à savoir le nombre maximal d’octets chargés à partir d’un partage <br></br>Minimum, à savoir le nombre minimal d’octets chargés à partir d’un partage      |
@@ -65,4 +65,4 @@ Effectuez les étapes suivantes dans le portail Azure pour créer un graphique d
 
 8. Pour exporter les données du graphique dans une feuille de calcul Excel ou obtenir un lien vers le graphique en vue de le partager, sélectionnez l’option de partage dans la barre de commandes.
 
-    ![Exporter les données](media/data-box-edge-gateway-view-metrics/view-metrics-8.png)
+    ![Exporter des données](media/data-box-edge-gateway-view-metrics/view-metrics-8.png)

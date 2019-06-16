@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh; v-gedod
 ms.openlocfilehash: 45f7adab684b7b6097328a42abb60c8d58c1acc2
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65796790"
 ---
 # <a name="sending-and-using-bing-local-business-search-api-queries-and-responses"></a>Envoyer et utiliser les requêtes et les réponses de l’API Recherche d’entreprises locales Bing
@@ -22,7 +22,7 @@ Vous pouvez obtenir des résultats locaux de l’API Recherche d’entreprises l
 
 ## <a name="creating-a-request"></a>Créer une demande
 
-Pour envoyer une demande à l’API Recherche d’entreprises locales Bing, ajoutez un critère de recherche au paramètre `q=` avant de l’intégrer au point de terminaison API et d’inclure l’en-tête `Ocp-Apim-Subscription-Key`. Exemple :
+Pour envoyer une demande à l’API Recherche d’entreprises locales Bing, ajoutez un critère de recherche au paramètre `q=` avant de l’intégrer au point de terminaison API et d’inclure l’en-tête `Ocp-Apim-Subscription-Key`. Par exemple :
 
 `https://api.cognitive.microsoft.com/bing/localbusinesses/v7.0/search?q=restaurant+in+Bellevue`
 
@@ -54,11 +54,11 @@ Les réponses JSON de l’API Recherche d’entreprises locales Bing contiennent
 Les résultats JSON retournés par l’API comportent les attributs suivants :
 
 * _type
-* adresse
+* address
 * entityPresentationInfo
 * zone géographique
 * id
-* name
+* Nom
 * routeablePoint
 * telephone
 * url

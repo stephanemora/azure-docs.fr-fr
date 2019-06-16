@@ -17,10 +17,10 @@ ms.date: 06/23/2017
 ms.author: genli
 ms.custom: ''
 ms.openlocfilehash: e26ec4d268b9bd8852ef8cd2c522995902e15923
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62108008"
 ---
 # <a name="configure-a-virtual-network-classic-using-a-network-configuration-file"></a>Configurer un réseau virtuel (Classic) à l’aide d’un fichier config réseau
@@ -63,7 +63,7 @@ Un fichier de configuration réseau est un fichier XML (quand vous utilisez Pow
 - Remplacent les paramètres réseau existants de votre abonnement : soyez donc très vigilant lors de vos modifications. Par exemple, servez-vous des exemples de fichier config réseau qui suivent. Supposons que le fichier d’origine contienne deux instances **VirtualNetworkSite** et que vous l’avez modifié comme indiqué dans les exemples. Lorsque vous importez le fichier, Azure supprime le réseau virtuel de l’instance **VirtualNetworkSite** que vous avez supprimée dans le fichier. Ce scénario simplifié suppose qu’aucune ressource ne se trouve dans le réseau virtuel, car dans le cas contraire, le réseau virtuel ne pourrait pas être supprimé, et l’importation échouerait.
 
 > [!IMPORTANT]
-> Azure considère tout sous-réseau qui comprend des éléments déployés comme étant **« en cours d'utilisation »**. Une fois le sous-réseau utilisé, il ne peut pas être modifié. Avant toute modification des informations de sous-réseau dans un fichier config réseau, déplacez tout ce que vous avez déployé sur le sous-réseau vers un autre sous-réseau qui n’est pas en cours de modification. Consultez [Déplacer une machine virtuelle ou une instance de rôle vers un autre sous-réseau](virtual-networks-move-vm-role-to-subnet.md) pour en savoir plus.
+> Azure considère tout sous-réseau qui comprend des éléments déployés comme étant **« en cours d'utilisation »** . Une fois le sous-réseau utilisé, il ne peut pas être modifié. Avant toute modification des informations de sous-réseau dans un fichier config réseau, déplacez tout ce que vous avez déployé sur le sous-réseau vers un autre sous-réseau qui n’est pas en cours de modification. Consultez [Déplacer une machine virtuelle ou une instance de rôle vers un autre sous-réseau](virtual-networks-move-vm-role-to-subnet.md) pour en savoir plus.
 
 ### <a name="example-xml-for-use-with-powershell"></a>Exemple de code XML pour une utilisation avec PowerShell
 

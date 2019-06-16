@@ -12,10 +12,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 48b81d508711f35a75efe1c93fe0a5556c5bb960
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65784458"
 ---
 # <a name="what-is-azure-ad-connect"></a>Qu’est-ce qu’Azure AD Connect ?
@@ -55,7 +55,7 @@ Azure AD Connect Health pour AD FS prend en charge AD FS 2.0 sur Windows Server 
 
 Avantages clés et bonnes pratiques :
 
-|Principaux avantages|Meilleures pratiques|
+|Principaux avantages|Bonnes pratiques|
 |-----|-----|
 |Sécurité améliorée|[Tendances de verrouillage extranet](how-to-connect-health-adfs.md#usage-analytics-for-ad-fs)</br>[Rapport sur les échecs de connexions](how-to-connect-health-adfs-risky-ip.md)</br>[Conformité aux réglementations relatives à la confidentialité](reference-connect-health-user-privacy.md)|
 |Obtention d’alertes pour tous les [problèmes critiques liés au système ADFS](how-to-connect-health-alert-catalog.md#alerts-for-active-directory-federation-services)|Configuration et disponibilité de serveur</br>[Performances et connectivité](how-to-connect-health-adfs.md#performance-monitoring-for-ad-fs)</br>Maintenance régulière|
@@ -64,7 +64,7 @@ Avantages clés et bonnes pratiques :
 |Meilleure expérience utilisateur|Présentation sous forme de tableaux de bord du Portail Azure</br>[Alertes par e-mail](how-to-connect-health-adfs.md#alerts-for-ad-fs)|
 
 
-## <a name="license-requirements-for-using-azure-ad-connect"></a>Licence requise pour l’utilisation d’Azure AD Connect
+## <a name="license-requirements-for-using-azure-ad-connect"></a>Licences requises pour Azure AD Connect
 
 [!INCLUDE [active-directory-free-license.md](../../../includes/active-directory-free-license.md)]
 

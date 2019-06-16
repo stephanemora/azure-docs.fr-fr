@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 09/05/2017
 ms.author: tomfitz
 ms.openlocfilehash: 6591a75577670f5bb50c1275af7e51e9b8328d50
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66128689"
 ---
 # <a name="comparison-functions-for-azure-resource-manager-templates"></a>Fonctions de comparaison pour les modèles Azure Resource Manager
@@ -40,10 +40,10 @@ Vérifie si deux valeurs sont égales.
 
 ### <a name="parameters"></a>parameters
 
-| Paramètre | Requis | Type | Description  |
+| Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Oui |entier, chaîne, tableau ou objet |Première valeur dont l’égalité est à vérifier. |
-| arg2 |Oui |entier, chaîne, tableau ou objet |Deuxième valeur dont l’égalité est à vérifier. |
+| arg1 |OUI |entier, chaîne, tableau ou objet |Première valeur dont l’égalité est à vérifier. |
+| arg2 |OUI |entier, chaîne, tableau ou objet |Deuxième valeur dont l’égalité est à vérifier. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -135,7 +135,7 @@ La fonction equals est souvent utilisée avec l’élément `condition` pour tes
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| Name | type | Valeur |
+| Nom | type | Valeur |
 | ---- | ---- | ----- |
 | checkInts | Bool | True |
 | checkStrings | Bool | True |
@@ -196,10 +196,10 @@ Vérifie si la première valeur est supérieure à la deuxième valeur.
 
 ### <a name="parameters"></a>parameters
 
-| Paramètre | Requis | Type | Description  |
+| Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Oui |entier ou chaîne |Première valeur pour la comparaison « supérieur à ». |
-| arg2 |Oui |entier ou chaîne |Seconde valeur pour la comparaison « supérieur à ». |
+| arg1 |OUI |entier ou chaîne |Première valeur pour la comparaison « supérieur à ». |
+| arg2 |OUI |entier ou chaîne |Seconde valeur pour la comparaison « supérieur à ». |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -248,7 +248,7 @@ Retourne **True** si la première valeur est supérieure à la seconde ; sinon,
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| Name | type | Valeur |
+| Nom | type | Valeur |
 | ---- | ---- | ----- |
 | checkInts | Bool | False |
 | checkStrings | Bool | True |
@@ -272,10 +272,10 @@ Vérifie si la première valeur est supérieure ou égale à la deuxième valeur
 
 ### <a name="parameters"></a>parameters
 
-| Paramètre | Requis | Type | Description  |
+| Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Oui |entier ou chaîne |Première valeur pour la comparaison « supérieur ou égal à ». |
-| arg2 |Oui |entier ou chaîne |Seconde valeur pour la comparaison « supérieur ou égal à ». |
+| arg1 |OUI |entier ou chaîne |Première valeur pour la comparaison « supérieur ou égal à ». |
+| arg2 |OUI |entier ou chaîne |Seconde valeur pour la comparaison « supérieur ou égal à ». |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -324,7 +324,7 @@ Retourne **True** si la première valeur est supérieure ou égale à la seconde
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| Name | type | Valeur |
+| Nom | type | Valeur |
 | ---- | ---- | ----- |
 | checkInts | Bool | False |
 | checkStrings | Bool | True |
@@ -341,17 +341,17 @@ Pour déployer cet exemple de modèle avec PowerShell, utilisez :
 New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/greaterorequals.json 
 ```
 
-## <a name="less"></a>moins
+## <a name="less"></a>less
 `less(arg1, arg2)`
 
 Vérifie si la première valeur est inférieure à la deuxième valeur.
 
 ### <a name="parameters"></a>parameters
 
-| Paramètre | Requis | Type | Description  |
+| Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Oui |entier ou chaîne |Première valeur pour la comparaison « inférieur à ». |
-| arg2 |Oui |entier ou chaîne |Deuxième valeur pour la comparaison « inférieur à ». |
+| arg1 |OUI |entier ou chaîne |Première valeur pour la comparaison « inférieur à ». |
+| arg2 |OUI |entier ou chaîne |Deuxième valeur pour la comparaison « inférieur à ». |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -424,10 +424,10 @@ Vérifie si la première valeur est inférieure ou égale à la deuxième valeur
 
 ### <a name="parameters"></a>parameters
 
-| Paramètre | Requis | Type | Description  |
+| Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Oui |entier ou chaîne |Première valeur pour la comparaison « inférieur à ». |
-| arg2 |Oui |entier ou chaîne |Première valeur pour la comparaison « inférieur ou égal à ». |
+| arg1 |OUI |entier ou chaîne |Première valeur pour la comparaison « inférieur à ». |
+| arg2 |OUI |entier ou chaîne |Première valeur pour la comparaison « inférieur ou égal à ». |
 
 ### <a name="return-value"></a>Valeur de retour
 

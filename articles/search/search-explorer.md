@@ -10,10 +10,10 @@ ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 392699182859a090c13304f63d28a78b95a65ec7
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65024018"
 ---
 # <a name="search-explorer-for-querying-data-in-azure-search"></a>Utiliser l'explorateur pour interroger les données Recherche Azure 
@@ -70,7 +70,7 @@ Ajoutez **$count** pour obtenir le nombre de correspondances trouvées dans un i
 
 ### <a name="example-4---restrict-fields-in-search-results"></a>Exemple 4 : restreindre les champs dans les résultats de la recherche
 
-Ajoutez **$select** pour limiter les résultats aux champs explicitement nommés et disposer d'une sortie plus lisible dans l'**Explorateur de recherche**. Pour conserver la chaîne de recherche et **$count = true**, faites précéder les arguments de **&**. 
+Ajoutez **$select** pour limiter les résultats aux champs explicitement nommés et disposer d'une sortie plus lisible dans l'**Explorateur de recherche**. Pour conserver la chaîne de recherche et **$count = true**, faites précéder les arguments de **&** . 
 
    ```Input
    search=seattle condo&$select=listingId,beds,baths,description,street,city,price&$count=true

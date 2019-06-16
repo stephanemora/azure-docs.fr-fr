@@ -14,11 +14,11 @@ ms.workload: na
 ms.date: 06/15/2018
 ms.author: tomfitz
 ms.openlocfilehash: 2330197b4512dfdd72de3529145103b644594e25
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60252090"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64711225"
 ---
 # <a name="microsoftcommoninfobox-ui-element"></a>Élément d’interface utilisateur Microsoft.Common.InfoBox
 Contrôle qui ajoute une zone d’information. La zone contient du texte important ou des avertissements qui aident les utilisateurs à comprendre les valeurs qu’ils fournissent. Elle peut également comporter un lien vers une URI proposant des informations supplémentaires.

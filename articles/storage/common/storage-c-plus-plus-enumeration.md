@@ -10,10 +10,10 @@ ms.author: mhopkins
 ms.reviewer: dineshm
 ms.subservice: common
 ms.openlocfilehash: edf50b97ff25a67b41bad266df9236145f288409
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65146879"
 ---
 # <a name="list-azure-storage-resources-in-c"></a>Listage des ressources Azure Storage en C++
@@ -35,7 +35,7 @@ La bibliothèque cliente Storage propose diverses méthodes pour lister ou inter
 Chacune de ces méthodes est présentée en utilisant différentes surcharges qui varient en fonction des scénarios.
 
 ## <a name="asynchronous-versus-synchronous"></a>Opérations asynchrones/synchrones
-Sachant que la bibliothèque cliente de stockage pour C++ s’appuie sur la [bibliothèque REST C++](https://github.com/Microsoft/cpprestsdk), par nature, les opérations asynchrones sont prises en charge en utilisant [pplx::task](https://microsoft.github.io/cpprestsdk/classpplx_1_1task.html). Par exemple : 
+Sachant que la bibliothèque cliente de stockage pour C++ s’appuie sur la [bibliothèque REST C++](https://github.com/Microsoft/cpprestsdk), par nature, les opérations asynchrones sont prises en charge en utilisant [pplx::task](https://microsoft.github.io/cpprestsdk/classpplx_1_1task.html). Par exemple :
 
 ```cpp
 pplx::task<list_blob_item_segment> list_blobs_segmented_async(continuation_token& token) const;
