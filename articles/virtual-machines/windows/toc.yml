@@ -1,6 +1,6 @@
 - name: Documentation sur les machines virtuelles Windows
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: À propos des Machines virtuelles
       href: overview.md
@@ -82,10 +82,10 @@
           items:
             - name: Optimiser les performances
               href: storage-performance.md
-        - name: Optimisé pour le GPU
-          displayName: NV NVv2 NC NCv2 NCv3 ND
-          href: sizes-gpu.md
+        - name: Calcul accéléré
           items:
+            - name: Optimisé pour le GPU
+              href: sizes-gpu.md
             - name: Configuration des pilotes GPU
               href: n-series-driver-setup.md
         - name: Calcul haute performance
@@ -249,7 +249,7 @@
       items:
         - name: Images partagées
           items:
-            - name: Vue d’ensemble
+            - name: Vue d'ensemble
               href: shared-image-galleries.md
             - name: PowerShell
               href: shared-images.md
@@ -265,7 +265,7 @@
               href: troubleshooting-shared-images.md
         - name: Générateur d’images (préversion)
           items:
-            - name: Vue d’ensemble
+            - name: Vue d'ensemble
               href: ../linux/image-builder-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
             - name: Utiliser l’interface de ligne de commande 2.0
               href: image-builder.md

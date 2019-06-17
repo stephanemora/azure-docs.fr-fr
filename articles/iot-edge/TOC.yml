@@ -51,6 +51,22 @@
           href: tutorial-deploy-custom-vision.md
         - name: Stocker des données localement avec SQL
           href: tutorial-store-data-sql-server.md
+    - name: 4. Exemple complet de machine learning en périphérie
+      items:
+        - name: Introduction
+          href: tutorial-machine-learning-edge-01-intro.md
+        - name: Configurer la machine de développement et les services Azure
+          href: tutorial-machine-learning-edge-02-prepare-environment.md
+        - name: Générer des données d’appareil simulées
+          href: tutorial-machine-learning-edge-03-generate-data.md
+        - name: Entraîner et déployer un modèle Azure Machine Learning
+          href: tutorial-machine-learning-edge-04-train-model.md
+        - name: Configurer une passerelle transparente
+          href: tutorial-machine-learning-edge-05-configure-edge-device.md
+        - name: Créer et déployer des modules IoT Edge
+          href: tutorial-machine-learning-edge-06-custom-modules.md
+        - name: Envoyer des données à IoT Hub via une passerelle transparente
+          href: tutorial-machine-learning-edge-07-send-data-to-hub.md
 - name: Concepts
   items:
     - name: Runtime IoT Edge
@@ -149,6 +165,8 @@
       items:
         - name: Configurer une passerelle transparente
           href: how-to-create-transparent-gateway.md
+        - name: Authentifier un appareil en aval
+          href: how-to-authenticate-downstream-device.md
         - name: Connecter un appareil en aval
           href: how-to-connect-downstream-device.md
         - name: Passerelle de protocole Modbus

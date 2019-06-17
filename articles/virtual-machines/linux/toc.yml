@@ -85,9 +85,10 @@
           items:
             - name: Optimiser les performances
               href: storage-performance.md
-        - name: Optimisé pour le GPU
-          href: sizes-gpu.md
+        - name: Calcul accéléré
           items:
+            - name: Optimisé pour le GPU
+              href: sizes-gpu.md
             - name: Configuration des pilotes GPU
               href: n-series-driver-setup.md
         - name: Calcul haute performance

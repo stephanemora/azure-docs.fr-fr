@@ -1,6 +1,6 @@
 - name: Documentation Service Fabric
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: Qu’est-ce que Service Fabric ?
       href: service-fabric-overview.md
@@ -517,6 +517,8 @@
               href: service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md
             - name: Configurer un cluster Linux sur Windows
               href: service-fabric-local-linux-cluster-windows.md
+            - name: Déployer une application .NET Core sur un cluster Linux distant à partir de VS
+              href: service-fabric-how-to-publish-linux-app-vs.md
         - name: Travailler dans un environnement de développement Linux/Eclipse
           items:
             - name: Prise en main du plug-in Eclipse pour le développement Java
@@ -842,8 +844,8 @@
       href: 'https://azure.microsoft.com/pricing/details/service-fabric/'
     - name: Calculatrice de prix
       href: 'https://azure.microsoft.com/pricing/calculator/'
-    - name: Guides de résolution des problèmes
-      href: 'https://github.com/Azure/Service-Fabric-Troubleshooting-Guides'
+    - name: Notes de publication
+      href: release-notes.md
     - name: Exemple de code
       href: 'https://aka.ms/servicefabricsamples'
     - name: Options de support
@@ -852,5 +854,7 @@
       href: service-fabric-versions.md
     - name: Mises à jour de service
       href: 'https://azure.microsoft.com/updates/?product=service-fabric'
+    - name: Guides de résolution des problèmes
+      href: 'https://github.com/Azure/Service-Fabric-Troubleshooting-Guides'
     - name: Videos
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=service-fabric'

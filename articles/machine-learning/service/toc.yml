@@ -79,8 +79,7 @@
           displayName: 'Basic Sample, training, classification, sample 5'
           href: ui-sample-classification-predict-churn.md
     - name: Azure Open Datasets
-      href: 'https://docs.microsoft.com/azure/open-datasets/samples'
-      maintainContext: true
+      href: /azure/open-datasets/samples?context=azure/machine-learning/service/context/ml-context
 - name: Concepts
   items:
     - name: Espace de travail
@@ -98,7 +97,7 @@
     - name: Gestion de modèles (MLOps)
       displayName: 'deploy, deployment, mlops, operationalize, operationalization'
       href: concept-model-management-and-deployment.md
-    - name: Pipelines ML réutilisables
+    - name: Pipelines ML
       href: concept-ml-pipelines.md
     - name: Interprétabilité de modèles
       displayName: explainability
@@ -119,6 +118,8 @@
           href: how-to-enable-virtual-network.md
         - name: Sécuriser des services web avec SSL
           href: how-to-secure-web-service.md
+        - name: Régénération des clés d'accès de stockage
+          href: how-to-change-storage-access-key.md
 - name: Guides pratiques
   items:
     - name: Gestion des espaces de travail
@@ -177,10 +178,12 @@
           href: how-to-set-up-training-targets.md
         - name: Créer des estimateurs dans l’entraînement
           href: how-to-train-ml-models.md
-        - name: Utiliser PyTorch
-          href: how-to-train-pytorch.md
         - name: Utiliser TensorFlow
           href: how-to-train-tensorflow.md
+        - name: Utiliser Keras
+          href: how-to-train-keras.md
+        - name: Utiliser PyTorch
+          href: how-to-train-pytorch.md
         - name: Optimiser les hyperparamètres
           displayName: parameter
           href: how-to-tune-hyperparameters.md
@@ -191,6 +194,9 @@
           href: how-to-manage-runs.md
         - name: Journaliser les métriques pour les exécutions d’entraînement
           href: how-to-track-experiments.md
+        - name: Suivre des expériences avec MLflow
+          displayName: 'log, monitor, metrics'
+          href: how-to-use-mlflow.md
     - name: Automatiser l’apprentissage automatique
       displayName: 'automl, auto ml'
       items:
@@ -215,8 +221,9 @@
         - name: FPGA
           href: how-to-deploy-fpga-web-service.md
         - name: IoT Edge
-          href: ../../iot-edge/tutorial-deploy-machine-learning.md
-          maintainContext: true
+          href: /azure/iot-edge/tutorial-deploy-machine-learning?context=azure/machine-learning/service/context/ml-context
+        - name: Image Docker personnalisée
+          href: how-to-deploy-custom-docker-image.md
         - name: Résolution des problèmes
           href: how-to-troubleshoot-deployment.md
     - name: Utiliser des services web
@@ -241,8 +248,7 @@
           href: how-to-create-your-first-pipeline.md
         - name: CI/CD de workflows ML avec Azure Pipelines
           displayName: 'continuous, integration, delivery'
-          href: /azure/devops/pipelines/targets/azure-machine-learning
-          mainContext: true
+          href: /azure/devops/pipelines/targets/azure-machine-learning?context=azure/machine-learning/service/context/ml-context
     - name: Gérer les quotas de ressources
       displayName: limits
       href: how-to-manage-quotas.md
@@ -366,8 +372,7 @@
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-machine-learning'
     - name: Comparer nos produits ML
-      href: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning
-      maintainContext: true
+      href: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure/machine-learning/service/context/ml-context
     - name: Qu’est devenu Workbench
       displayName: desktop ui Workbench upgrade update transfer
       href: overview-what-happened-to-workbench.md

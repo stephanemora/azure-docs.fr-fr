@@ -1,7 +1,7 @@
 - name: Documentation sur RBAC pour les ressources Azure
   href: index.yml
   items: null
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: "Qu’est-ce que RBAC\_?"
       href: overview.md
@@ -54,11 +54,13 @@
           href: deny-assignments.md
         - name: Portail
           href: deny-assignments-portal.md
+        - name: PowerShell
+          href: deny-assignments-powershell.md
         - name: API REST
           href: deny-assignments-rest.md
     - name: Rôles personnalisés
       items:
-        - name: Vue d’ensemble
+        - name: Vue d'ensemble
           href: custom-roles.md
         - name: PowerShell
           href: custom-roles-powershell.md

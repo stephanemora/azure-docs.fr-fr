@@ -83,22 +83,26 @@
           href: sql-database-design-first-database.md
         - name: "Concevoir une base de données avec\_.NET"
           href: sql-database-design-first-database-csharp.md
-    - name: Migrer vers SQL Database
+    - name: Base de données singleton
       items:
         - name: Migrer vers une base de données unique/mise en pool avec DMS
           href: ../dms/tutorial-sql-server-to-azure-sql.md?toc=/azure/sql-database/toc.json
-        - name: Migrer vers une instance managée avec DMS
+        - name: Implémenter une base de données géo-distribuée
+          href: sql-database-implement-geo-distributed-database.md
+        - name: Configurer Azure SQL Data Sync
+          href: sql-database-get-started-sql-data-sync.md
+    - name: Instance gérée
+      items:
+        - name: Effectuer une migration en ligne avec DMS
           href: ../dms/tutorial-sql-server-to-managed-instance.md?toc=/azure/sql-database/toc.json
+        - name: Configurer la réplication transactionnelle
+          href: replication-with-sql-database-managed-instance.md
     - name: Sécurité dans SQL Database
       items:
         - name: Sécurité des bases de données uniques et mises en pool
           href: sql-database-security-tutorial.md
         - name: Sécurité de l’instance gérée
           href: sql-database-managed-instance-aad-security-tutorial.md
-    - name: Implémenter une base de données géo-distribuée
-      href: sql-database-implement-geo-distributed-database.md
-    - name: Configurer Azure SQL Data Sync
-      href: sql-database-get-started-sql-data-sync.md
     - name: Machine Learning Services
       items:
         - name: Créer un modèle prédictif en R
@@ -500,8 +504,6 @@
           href: sql-database-managed-instance-find-management-endpoint-ip-address.md
         - name: Vérifier la protection de pare-feu intégrée
           href: sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md
-        - name: Réplication transactionnelle
-          href: replication-with-sql-database-managed-instance.md
         - name: Configurer la détection des menaces
           href: sql-database-managed-instance-threat-detection.md
         - name: Connecter des applications

@@ -1,6 +1,6 @@
 - name: Documentation Database Migration Service
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: "Qu’est-ce que Database Migration Service (DMS)\_?"
       href: dms-overview.md
@@ -42,8 +42,10 @@
       href: howto-sql-server-to-azure-sql-mi-powershell.md
     - name: Surveiller l’activité de migration
       href: how-to-monitor-migration-activity.md
-    - name: Migrer des packages SSIS vers Azure
+    - name: Faire migrer des packages SSIS vers Azure SQL Database
       href: how-to-migrate-ssis-packages.md
+    - name: Faire migrer des packages SSIS vers une instance managée d’Azure SQL Database
+      href: how-to-migrate-ssis-packages-managed-instance.md
 - name: Ressources
   items:
     - name: État du scénario de migration d’une base de données

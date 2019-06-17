@@ -205,7 +205,7 @@
           href: iot-accelerators-device-simulation-advanced-device.md
         - name: Visualiser des données de télémétrie avec Azure Time Series Insights
           href: iot-accelerators-device-simulation-time-series-insights.md
-        - name: Sérialiser des données de télémétrie à l’aide de Protbuf
+        - name: Sérialiser la télémétrie à l’aide de Protobuf
           href: iot-accelerators-device-simulation-protobuf.md
         - name: Déployer une image Docker personnalisée
           href: iot-accelerators-device-simulation-deploy-image.md

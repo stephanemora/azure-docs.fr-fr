@@ -49,6 +49,8 @@
           href: data-box-gateway-troubleshoot.md
     - name: Notes de publication
       items:
+        - name: 1905 - À jour
+          href: data-box-gateway-1905-release-notes.md
         - name: Disponibilité générale
           href: data-box-gateway-release-notes.md
 - name: Data Box Edge
@@ -109,6 +111,8 @@
           href: data-box-edge-return-device.md
     - name: Notes de publication
       items:
+        - name: 1905 - À jour
+          href: data-box-gateway-1905-release-notes.md
         - name: Disponibilité générale
           href: data-box-gateway-release-notes.md
 - name: Ressources

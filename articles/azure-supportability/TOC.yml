@@ -6,6 +6,11 @@
   href: create-manage-support-requests-using-access-control.md
 - name: Demandes d’augmentation de quota
   href: resource-manager-core-quotas-request.md
+  items:
+    - name: Augmentation de la limite des processeurs virtuels de séries de machines virtuelles
+      href: per-vm-quota-requests.md
+    - name: Augmentation de la limite totale régionale des processeurs virtuels
+      href: regional-quota-requests.md
 - name: Résolution des problèmes d’abonnement de région ou de référence SKU
   href: sku-series-unavailable.md
 - name: Informations de référence

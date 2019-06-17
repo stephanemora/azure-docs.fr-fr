@@ -59,7 +59,7 @@
       href: Face-API-How-to-Topics/HowtoIdentifyFacesinImage.md
     - name: Ajouter des visages
       href: Face-API-How-to-Topics/how-to-add-faces.md
-    - name: Utiliser HeadPose pour faire pivoter un rectangle
+    - name: Utiliser l’attribut HeadPose
       href: Face-API-How-to-Topics/how-to-use-headpose.md
     - name: Spécifier un modèle de reconnaissance faciale
       href: Face-API-How-to-Topics/specify-recognition-model.md

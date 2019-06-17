@@ -83,6 +83,10 @@
           href: plan-sso-deployment.md
     - name: Portails d’utilisateurs finaux
       href: end-user-experiences.md
+    - name: Authentification SSO en un clic
+      items:
+        - name: Qu’est-ce que l’authentification SSO en un clic
+          href: one-click-sso-tutorial.md
 - name: Guides pratiques
   items:
     - name: Ajouter une application cloud

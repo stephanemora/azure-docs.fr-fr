@@ -54,8 +54,14 @@
               href: azure-security-disk-encryption-overview.md
             - name: Démarrages rapides
               items:
-                - name: Chiffrer une machine virtuelle - Azure PowerShell
-                  href: quick-encrypt-vm-powershell.md
+                - name: Chiffrer une machine virtuelle Linux avec Azure CLI
+                  href: azure-disk-encryption-linux-cli-quickstart.md
+                - name: Chiffrer une machine virtuelle Linux avec Azure PowerShell
+                  href: azure-disk-encryption-linux-powershell-quickstart.md
+                - name: Chiffrer une machine virtuelle Windows avec Azure CLI
+                  href: azure-disk-encryption-windows-cli-quickstart.md
+                - name: Chiffrer une machine virtuelle Windows avec Azure PowerShell
+                  href: azure-disk-encryption-windows-powershell-quickstart.md
             - name: Azure Disk Encryption
               items:
                 - name: Configuration requise pour le chiffrement de disque

@@ -16,7 +16,7 @@ metadata:
   ms.date: 08/14/2018
   ms.author: joflore
 abstract:
-  description: "Apprenez à maîtriser l’équilibre entre sécurité et productivité en configurant l’accès conditionnel dans Azure AD. Les stratégies d’accès conditionnel permettent de factoriser la manière dont vos applications cloud sont accessibles dans vos décisions d’accès. Par exemple, vous pouvez traiter dans vos décisions d’accès les questions suivantes\_:<ul><li>Quel est l’emplacement réseau de l’utilisateur\_?</li><li>La tentative d’accès provient-elle d’un appareil géré\_?</li><li>À partir de quelle application cliente la tentative de connexion a-t-elle été lancée\_?</li><li>Une tentative d’accès a-t-elle été effectuée à partir d’une connexion à risque\_?</li></ul>Les ressources suivantes permettent une prise en main rapide."
+  description: "Découvrez comment maîtriser l’équilibre entre sécurité et productivité en configurant l’accès conditionnel dans Azure\_AD. À l’aide des stratégies d’accès conditionnel, vous pouvez factoriser le mode d’accès à vos applications cloud dans vos décisions d’accès. Par exemple, vous pouvez traiter dans vos décisions d’accès les questions suivantes\_:<ul><li>Quel est l’emplacement réseau de l’utilisateur\_?</li><li>La tentative d’accès provient-elle d’un appareil géré\_?</li><li>À partir de quelle application cliente la tentative de connexion a-t-elle été lancée\_?</li><li>Une tentative d’accès a-t-elle été effectuée à partir d’une connexion à risque\_?</li></ul>Les ressources suivantes permettent une prise en main rapide."
   aside:
     image:
       alt: null

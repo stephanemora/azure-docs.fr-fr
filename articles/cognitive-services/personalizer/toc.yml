@@ -43,6 +43,8 @@
         - name: Évaluation hors connexion
           href: concepts-offline-evaluation.md
           displayName: 'learning policy, Counterfactual, features'
+    - name: Scalabilité et performance
+      href: concepts-scalability-performance.md
 - name: Guides pratiques
   items:
     - name: Créer et configurer Personalizer

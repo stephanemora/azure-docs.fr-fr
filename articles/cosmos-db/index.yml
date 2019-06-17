@@ -48,16 +48,31 @@ sections:
             image:
               src: media/index/mongodb-api.svg
             title: API d’Azure Cosmos DB pour MongoDB
-          - href: /azure/cosmos-db/table-introduction/
-            html: <p>Utilisez l’API Table si vous migrez des données du Stockage Table Azure vers l’offre de table premium d’Azure Cosmos DB.</p>
-            image:
-              src: media/index/table-api.svg
-            title: API de table
           - href: /azure/cosmos-db/cassandra-introduction/
             html: <p>Utilisez l’API Cassandra si vous migrez des données de Cassandra vers le service entièrement administré d’Azure Cosmos DB.</p>
             image:
               src: media/index/cassandra-api.png
             title: API Cassandra
+          - href: /azure/cosmos-db/table-introduction/
+            html: <p>Utilisez l’API Table si vous migrez des données du Stockage Table Azure vers l’offre de table premium d’Azure Cosmos DB.</p>
+            image:
+              src: media/index/table-api.svg
+            title: API de table
+          - href: /azure/cosmos-db/spark-api-introduction/
+            html: <p>Utilisez la prise en charge intégrée d’Apache Spark pour exécuter des analyses sur les données stockées dans un compte Azure Cosmos. </p>
+            image:
+              src: media/index/spark-logo.png
+            title: Analytique intégrée à Apache Spark
+          - href: /azure/cosmos-db/change-feed/
+            html: <p>Effectuez des analyses en temps réel avec prise en charge du flux de modification en lisant la liste triée des documents d’un conteneur Azure Cosmos DB dans l’ordre dans lequel ils ont été modifiés. </p>
+            image:
+              src: media/index/change-feed-logo.png
+            title: Modifier le flux
+          - href: /azure/cosmos-db/etcd-api-introduction/
+            html: <p> L’API Etcd vous permet d’utiliser Azure Cosmos DB en tant que magasin back-end pour Azure Kubernetes.</p>
+            image:
+              src: media/index/etcd-logo.png
+            title: API Etcd
   - title: "Démarrages en 5\_minutes"
     items:
       - type: paragraph

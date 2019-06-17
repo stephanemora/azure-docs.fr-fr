@@ -89,12 +89,20 @@
           href: concepts-business-continuity.md
         - name: Sauvegarde et restauration
           href: concepts-backup.md
-    - name: Surveiller
+    - name: Surveiller et régler
       items:
-        - name: Surveiller
+        - name: Surveiller et régler
           href: concepts-monitoring.md
-        - name: Journaux d’activité du serveur
+        - name: Journaux des requêtes lentes
           href: concepts-server-logs.md
+        - name: Journaux d’audit
+          href: concepts-audit-logs.md
+        - name: Magasin de requêtes
+          href: concepts-query-store.md
+        - name: Query Performance Insight
+          href: concepts-query-performance-insight.md
+        - name: Recommandations sur les performances
+          href: concepts-performance-recommendations.md
     - name: Développement
       items:
         - name: Compatibilité des pilotes et des outils
@@ -165,10 +173,16 @@
           href: howto-auto-grow-storage-portal.md
     - name: Accéder aux journaux d’activité du serveur
       items:
-        - name: Portail Azure
-          href: howto-configure-server-logs-in-portal.md
-        - name: Azure CLI
-          href: howto-configure-server-logs-in-cli.md
+        - name: Journaux des requêtes lentes
+          items:
+            - name: Portail Azure
+              href: howto-configure-server-logs-in-portal.md
+            - name: Azure CLI
+              href: howto-configure-server-logs-in-cli.md
+        - name: Journaux d’audit
+          items:
+            - name: Portail Azure
+              href: howto-configure-audit-logs-portal.md
     - name: Surveiller
       items:
         - name: Créer des alertes sur les mesures

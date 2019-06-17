@@ -30,7 +30,7 @@ sections:
   - title: "Démarrages rapides en\_5\_minutes"
     items:
       - type: paragraph
-        text: Découvrez comment configurer des stratégies en matière de risque à la connexion pour les scénarios d’accès courants.
+        text: Découvrez comment configurer les stratégies d’accès conditionnel de connexion à risque pour les scénarios d’accès courants.
       - type: list
         style: icon48
         items:
