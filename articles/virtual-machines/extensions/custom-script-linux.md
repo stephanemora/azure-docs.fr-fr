@@ -111,7 +111,7 @@ Ces éléments doivent être traités comme des données sensibles et spécifié
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.Compute.Extensions | string |
-| Type | CustomScript | string |
+| type | CustomScript | string |
 | typeHandlerVersion | 2.0 | int |
 | fileUris (p. ex.) | https://github.com/MyProject/Archive/MyPythonScript.py | array |
 | commandToExecute (p. ex.) | python MyPythonScript.py <my-param1> | string |
