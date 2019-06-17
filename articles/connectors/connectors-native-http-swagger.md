@@ -12,10 +12,10 @@ tags: connectors
 ms.topic: article
 ms.date: 07/18/2016
 ms.openlocfilehash: 9408b66f74391b080ef46c758b07850b2ae8de57
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60448624"
 ---
 # <a name="call-rest-endpoints-with-http--swagger-connector-in-azure-logic-apps"></a>Appeler des points de terminaison REST avec le connecteur HTTP + Swagger dans Azure Logic Apps
@@ -72,14 +72,14 @@ Voici les étapes pour créer, configurer et stocker des documents swagger dans 
 Vous trouverez ci-dessous les détails des déclencheurs et des actions que ce connecteur HTTP + Swagger prend en charge.
 
 ## <a name="http--swagger-triggers"></a>Déclencheurs HTTP + Swagger
-Un déclencheur est un événement qui peut être utilisé pour lancer le flux de travail défini dans une application logique.  Le connecteur HTTP + Swagger a un déclencheur. [En savoir plus sur les déclencheurs](../connectors/apis-list.md).
+Un déclencheur est un événement qui peut être utilisé pour lancer le flux de travail défini dans une application logique. Le connecteur HTTP + Swagger a un déclencheur. [En savoir plus sur les déclencheurs](../connectors/apis-list.md).
 
 | Déclencheur | Description |
 | --- | --- |
 | HTTP + Swagger |Exécuter un appel HTTP et obtenir le contenu de la réponse |
 
 ## <a name="http--swagger-actions"></a>Actions HTTP + Swagger
-Une action est une opération effectuée par le flux de travail défini dans une application logique.  Le connecteur HTTP + Swagger a une action possible. [En savoir plus sur les actions](../connectors/apis-list.md).
+Une action est une opération effectuée par le flux de travail défini dans une application logique. Le connecteur HTTP + Swagger a une action possible. [En savoir plus sur les actions](../connectors/apis-list.md).
 
 | Action | Description |
 | --- | --- |
@@ -98,7 +98,7 @@ Un astérisque (*) signifie un champ obligatoire.
 | URI* |URI |URI de la requête HTTP. |
 | headers |headers |Un objet JSON d’en-têtes HTTP à inclure. |
 | body |body |Le texte de la requête HTTP. |
-| Authentification |Authentification |Authentification à utiliser pour la requête. Pour plus d’informations, consultez la page [Connecteur HTTP](connectors-native-http.md#authentication). |
+| Authentication |Authentification |Authentification à utiliser pour la requête. Pour plus d’informations, consultez la page [Connecteur HTTP](connectors-native-http.md#authentication). |
 
 **Détails des résultats**
 

@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: bwren
 ms.openlocfilehash: fb637197139001c67a4cfa773f897e6701dc1e9c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61425132"
 ---
 # <a name="splunk-to-azure-monitor-log-query"></a>De Splunk à la requête de journal Azure Monitor
@@ -33,7 +33,7 @@ Le tableau suivant compare les concepts et les structures de données de Splunk 
  | Unité de déploiement  | cluster |  cluster |  Azure Monitor autorise les requêtes entre clusters arbitraires. Ce n’est pas le cas de Splunk. |
  | Caches de données |  compartiments  |  Stratégies de rétention et mise en cache |  Contrôle la période et le niveau de mise en cache des données. Ce paramètre a un impact direct sur les performances des requêtes et le coût du déploiement. |
  | Partition logique des données  |  index  |  database  |  Permet une séparation logique des données. Les deux implémentations autorisent les unions et les jointures entre ces partitions. |
- | Métadonnées d’événement structurées | S.O. | table |  Splunk n’a pas le concept exposé au langage de recherche de métadonnées d’événement. Les journaux d’activité Azure Monitor disposent du concept de table comportant des colonnes. Chaque instance d’événement est mappée à une ligne. |
+ | Métadonnées d’événement structurées | N/A | table |  Splunk n’a pas le concept exposé au langage de recherche de métadonnées d’événement. Les journaux d’activité Azure Monitor disposent du concept de table comportant des colonnes. Chaque instance d’événement est mappée à une ligne. |
  | Enregistrement de données | événement | ligne |  Changement de terminologie uniquement. |
  | Attribut d’enregistrement de données | field |  colonne |  Dans Azure Monitor, elle est prédéfinie dans le cadre de la structure de la table. Dans Splunk, chaque événement possède son propre ensemble de champs. |
  | Types | type de données |  type de données |  Les types de données Azure Monitor sont plus explicites, car ils sont définis sur les colonnes. Les deux ont la possibilité d’utiliser dynamiquement des types de données et un ensemble de types de données à peu près équivalent, notamment la prise en charge JSON. |
@@ -55,7 +55,7 @@ Le tableau suivant spécifie les équivalences entre les fonctions Azure Monitor
 | substr | substring() | (1)<br>Notez également que Splunk utilise des index de base un. Azure Monitor note des index de base zéro. |
 | tolower |  tolower() | (1) |
 | toupper | toupper() | (1) |
-| match | matches regex |   (2)  |
+| match | matches regex |  (2)  |
 | regex | matches regex | Dans Splunk, `regex` est un opérateur. Dans Azure Monitor, il s’agit d’un opérateur relationnel. |
 | searchmatch | == | Dans Splunk, `searchmatch` permet de rechercher la chaîne exacte.
 | random | rand()<br>rand(n) | La fonction de Splunk retourne un nombre compris entre zéro et 2<sup>31</sup>-1. La fonction Azure Monitor retourne un nombre compris entre 0,0 et 1,0 ou, si un paramètre est fourni, entre 0 et n-1.

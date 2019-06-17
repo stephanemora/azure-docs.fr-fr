@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: shlo
 ms.openlocfilehash: 4f0662a71ee14af3c2c1aafee210641fc8b51f1b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60768656"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Activité de recherche dans Azure Data Factory
@@ -70,7 +70,7 @@ firstRowOnly | Indique s’il faut retourner uniquement la première ligne ou to
 
 Le résultat de la recherche est retourné dans la section `output` du résultat de l’exécution d’activité.
 
-* **Quand `firstRowOnly` a la valeur `true` (par défaut)**, le format de la sortie se présente comme dans le code suivant. Le résultat de la recherche se trouve dans une clé `firstRow` fixe. Pour utiliser le résultat dans une activité suivante, utilisez le modèle `@{activity('MyLookupActivity').output.firstRow.TableName}`.
+* **Quand `firstRowOnly` a la valeur `true` (par défaut)** , le format de la sortie se présente comme dans le code suivant. Le résultat de la recherche se trouve dans une clé `firstRow` fixe. Pour utiliser le résultat dans une activité suivante, utilisez le modèle `@{activity('MyLookupActivity').output.firstRow.TableName}`.
 
     ```json
     {
@@ -82,7 +82,7 @@ Le résultat de la recherche est retourné dans la section `output` du résultat
     }
     ```
 
-* **Quand `firstRowOnly` a la valeur `false`**, le format de la sortie se présente comme dans le code suivant. Un champ `count` indique le nombre d’enregistrements qui sont retournés. Les valeurs détaillées sont affichées sous un tableau `value` fixe. Dans ce cas, l’activité Lookup est suivie d’une [activité Foreach](control-flow-for-each-activity.md). Vous passez le tableau `value` au champ `items` de l’activité ForEach en utilisant le modèle `@activity('MyLookupActivity').output.value`. Pour accéder aux éléments du tableau `value`, utilisez la syntaxe suivante : `@{activity('lookupActivity').output.value[zero based index].propertyname}`. Par exemple `@{activity('lookupActivity').output.value[0].tablename}`.
+* **Quand `firstRowOnly` a la valeur `false`** , le format de la sortie se présente comme dans le code suivant. Un champ `count` indique le nombre d’enregistrements qui sont retournés. Les valeurs détaillées sont affichées sous un tableau `value` fixe. Dans ce cas, l’activité Lookup est suivie d’une [activité Foreach](control-flow-for-each-activity.md). Vous passez le tableau `value` au champ `items` de l’activité ForEach en utilisant le modèle `@activity('MyLookupActivity').output.value`. Pour accéder aux éléments du tableau `value`, utilisez la syntaxe suivante : `@{activity('lookupActivity').output.value[zero based index].propertyname}`. Par exemple `@{activity('lookupActivity').output.value[0].tablename}`.
 
     ```json
     {

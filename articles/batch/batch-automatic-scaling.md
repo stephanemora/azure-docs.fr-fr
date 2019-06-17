@@ -16,10 +16,10 @@ ms.date: 06/20/2017
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: fdc2cd8f2218d50aa49d6b4eab2800eb6c92d9c9
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62118109"
 ---
 # <a name="create-an-automatic-scaling-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Mettre automatiquement à l’échelle les nœuds de calcul dans un pool Azure Batch
@@ -126,7 +126,7 @@ Ces types sont pris en charge dans une formule :
 * double
 * doubleVec
 * doubleVecList
-* string
+* chaîne
 * timestamp : structure composée qui inclut les éléments suivants :
 
   * year
@@ -195,10 +195,10 @@ Les **fonctions** prédéfinies disponibles pour la définition d’une formule 
 | std(doubleVecList) |double |Retourne l’écart type de l’échantillon des valeurs dans l’élément doubleVecList. |
 | stop() | |Arrête l’évaluation de l’expression de mise à l’échelle automatique. |
 | sum(doubleVecList) |double |Retourne la somme de tous les composants de l’élément doubleVecList. |
-| time(string dateTime="") | timestamp |Retourne l’horodatage de l’heure actuelle si aucun paramètre n’est transmis, ou l’horodatage de la chaîne dateTime dans le cas contraire. Les formats dateTime pris en charge sont W3C-DTF et RFC 1123. |
+| time(string dateTime="") |timestamp |Retourne l’horodatage de l’heure actuelle si aucun paramètre n’est transmis, ou l’horodatage de la chaîne dateTime dans le cas contraire. Les formats dateTime pris en charge sont W3C-DTF et RFC 1123. |
 | val(doubleVec v, double i) |double |Retourne la valeur de l’élément qui est à l’emplacement i du vecteur v avec un index de départ de zéro. |
 
-Certaines des fonctions décrites dans le tableau précédent peuvent accepter une liste en tant qu’argument. La liste séparée par des virgules se compose de n’importe quelle combinaison d’éléments *double* et *doubleVec*. Par exemple : 
+Certaines des fonctions décrites dans le tableau précédent peuvent accepter une liste en tant qu’argument. La liste séparée par des virgules se compose de n’importe quelle combinaison d’éléments *double* et *doubleVec*. Par exemple :
 
 `doubleVecList := ( (double | doubleVec)+(, (double | doubleVec) )* )?`
 
@@ -217,7 +217,7 @@ $CPUPercent.GetSample(TimeInterval_Minute * 5)
 | GetSamplePeriod() |Retourne la période des échantillons considérés dans un jeu de données d’échantillon historiques. |
 | Count() |Renvoie le nombre total d’échantillons dans l’historique des métriques. |
 | HistoryBeginTime() |Retourne l’horodateur du plus ancien échantillon de données disponible pour la métrique. |
-| GetSamplePercent() |Retourne le pourcentage d’échantillons disponibles pour un intervalle de temps donné. Par exemple : <br/><br/>`doubleVec GetSamplePercent( (timestamp or timeinterval) startTime [, (timestamp or timeinterval) endTime] )`<br/><br/>Comme la méthode `GetSample` échoue si le pourcentage d’échantillons retourné est inférieur au `samplePercent` spécifié, vous pouvez utiliser la méthode `GetSamplePercent` pour procéder d’abord à une vérification. Vous pouvez ensuite effectuer une autre action si des échantillons insuffisants sont présents, sans arrêter l’évaluation de la mise à l’échelle automatique. |
+| GetSamplePercent() |Retourne le pourcentage d’échantillons disponibles pour un intervalle de temps donné. Par exemple :<br/><br/>`doubleVec GetSamplePercent( (timestamp or timeinterval) startTime [, (timestamp or timeinterval) endTime] )`<br/><br/>Comme la méthode `GetSample` échoue si le pourcentage d’échantillons retourné est inférieur au `samplePercent` spécifié, vous pouvez utiliser la méthode `GetSamplePercent` pour procéder d’abord à une vérification. Vous pouvez ensuite effectuer une autre action si des échantillons insuffisants sont présents, sans arrêter l’évaluation de la mise à l’échelle automatique. |
 
 ### <a name="samples-sample-percentage-and-the-getsample-method"></a>Échantillons, pourcentage d’échantillonnage et méthode *GetSample()*
 La principale opération d’une formule de mise à l’échelle automatique vise à obtenir des données métriques des tâches et des ressources, puis à ajuster la taille du pool en fonction de ces données. Par conséquent, il est important de comprendre clairement comment les formules de mise à l’échelle automatique interagissent avec les données de mesures (échantillons).
@@ -242,7 +242,7 @@ Pour ce faire, utilisez `GetSample(interval look-back start, interval look-back 
 $runningTasksSample = $RunningTasks.GetSample(1 * TimeInterval_Minute, 6 * TimeInterval_Minute);
 ```
 
-Lorsque Batch évalue la ligne ci-dessus, il retourne une plage d’exemples sous la forme d’un vecteur de valeurs. Par exemple : 
+Lorsque Batch évalue la ligne ci-dessus, il retourne une plage d’exemples sous la forme d’un vecteur de valeurs. Par exemple :
 
 ```
 $runningTasksSample=[1,1,1,1,1,1,1,1,1,1];
@@ -398,7 +398,7 @@ L’intervalle doit être compris entre cinq minutes et 168 heures. Si un inte
 
 ## <a name="enable-autoscaling-on-an-existing-pool"></a>Activer la mise à l’échelle automatique sur un pool existant
 
-Chaque SDK Batch fournit un moyen d’activer la mise à l’échelle automatique. Par exemple : 
+Chaque SDK Batch fournit un moyen d’activer la mise à l’échelle automatique. Par exemple :
 
 * [BatchClient.PoolOperations.EnableAutoScaleAsync][net_enableautoscaleasync] (Batch .NET)
 * [Activer la mise à l’échelle automatique sur un pool][rest_enableautoscale] (API REST)

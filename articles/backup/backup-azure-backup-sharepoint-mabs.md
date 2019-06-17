@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 6/8/2018
 ms.author: kasinh
 ms.openlocfilehash: 7fa68e11ccac69db9335e589f5048264df9d0a47
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60645328"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure"></a>Sauvegarder une batterie de serveurs SharePoint dans Azure
@@ -23,12 +23,12 @@ Sauvegarde Azure pour DPM prend en charge les scénarios suivants :
 
 | Charge de travail | Version | Déploiement de SharePoint | Protection et récupération |
 | --- | --- | --- | --- |
-| SharePoint |SharePoint 2016, SharePoint 2013, SharePoint 2010, SharePoint 2007, SharePoint 3.0 |SharePoint déployé comme un serveur physique ou une machine virtuelle Hyper-V/VMware  <br> -------------- <br>  SQL AlwaysOn | Options de protection de la récupération de la batterie de serveurs SharePoint : batterie de serveurs de récupération, base de données, fichier ou élément de liste à partir de points de récupération de disque.  Récupération d’une batterie de serveurs et d’une base de données à partir de points de récupération Azure. |
+| SharePoint |SharePoint 2016, SharePoint 2013, SharePoint 2010, SharePoint 2007, SharePoint 3.0 |SharePoint déployé comme un serveur physique ou une machine virtuelle Hyper-V/VMware <br> -------------- <br> SQL AlwaysOn | Options de protection de la récupération de la batterie de serveurs SharePoint : batterie de serveurs de récupération, base de données, fichier ou élément de liste à partir de points de récupération de disque.  Récupération d’une batterie de serveurs et d’une base de données à partir de points de récupération Azure. |
 
 ## <a name="before-you-start"></a>Avant de commencer
 Quelques points doivent être confirmés avant de sauvegarder une batterie de serveurs SharePoint sur Azure.
 
-### <a name="prerequisites"></a>Conditions préalables
+### <a name="prerequisites"></a>Prérequis
 Avant de commencer, assurez-vous d’avoir [installé et préparé le serveur de sauvegarde Azure](backup-azure-microsoft-azure-backup.md) pour la protection des charges de travail.
 
 ### <a name="protection-agent"></a>Agent de protection
@@ -225,11 +225,11 @@ Dans l’exemple ci-dessous, *l’élément de récupération SharePoint* a ét�
 5. À ce stade, suivez les étapes de récupération mentionnées précédemment dans cet article pour la récupération d’une base de données de contenu SharePoint à partir du disque.
 
 ## <a name="faqs"></a>FAQ
-Q : Puis-je restaurer un élément SharePoint à l'emplacement d'origine si SharePoint est configuré à l'aide de SQL AlwaysOn (avec protection sur disque) ?<br>
-R : Oui, l'élément peut être restauré sur le site SharePoint d'origine.
+Q : Puis-je restaurer un élément SharePoint à l'emplacement d'origine si SharePoint est configuré à l'aide de SQL AlwaysOn (avec protection sur disque) ?<br>
+R : Oui, l'élément peut être restauré sur le site SharePoint d'origine.
 
-Q : Puis-je restaurer une base de données SharePoint à l'emplacement d'origine si SharePoint est configuré à l'aide de SQL AlwaysOn ?<br>
-R : Comme les bases de données SharePoint sont configurées dans SQL AlwaysOn, elles ne peuvent être modifiées que si le groupe de disponibilité est supprimé. Par conséquent, le serveur de sauvegarde Azure ne peut pas restaurer la base de données à l’emplacement d’origine. Vous pouvez récupérer une base de données SQL Server sur une autre instance SQL Server.
+Q : Puis-je restaurer une base de données SharePoint à l'emplacement d'origine si SharePoint est configuré à l'aide de SQL AlwaysOn ?<br>
+R : Comme les bases de données SharePoint sont configurées dans SQL AlwaysOn, elles ne peuvent être modifiées que si le groupe de disponibilité est supprimé. Par conséquent, le serveur de sauvegarde Azure ne peut pas restaurer la base de données à l’emplacement d’origine. Vous pouvez récupérer une base de données SQL Server sur une autre instance SQL Server.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

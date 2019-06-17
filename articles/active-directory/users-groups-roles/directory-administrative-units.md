@@ -16,10 +16,10 @@ ms.reviewer: elkuzmen
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 77f1a6e5b1e8191c1497e437cc26e1caf1255ba7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60472364"
 ---
 # <a name="administrative-units-management-in-azure-active-directory-public-preview"></a>Gestion des unités administratives dans Azure Active Directory (préversion publique)
@@ -33,7 +33,7 @@ Cela est utile dans les organisations disposant de divisions indépendantes, par
 >
 
 
-Du point de vue de l'administrateur central, une unité administrative est un objet de répertoire qui peut être créé et rempli par des ressources. **Dans cette version préliminaire, ces ressources peuvent être uniquement des utilisateurs.**  Une fois créée et remplie, l'unité administrative peut être utilisée comme un cadre permettant de limiter l’autorisation accordée aux ressources contenues dans l’unité administrative.
+Du point de vue de l'administrateur central, une unité administrative est un objet de répertoire qui peut être créé et rempli par des ressources. **Dans cette version préliminaire, ces ressources peuvent être uniquement des utilisateurs.** Une fois créée et remplie, l'unité administrative peut être utilisée comme un cadre permettant de limiter l’autorisation accordée aux ressources contenues dans l’unité administrative.
 
 ## <a name="managing-administrative-units"></a>Gestion des unités administratives
 Dans cette version préliminaire, vous pouvez créer et gérer des unités administratives à l'aide du module Azure Active Directory pour les cmdlets Windows PowerShell. Pour en savoir plus sur la façon de procéder, voir [Utilisation des unités administratives](https://docs.microsoft.com/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0).

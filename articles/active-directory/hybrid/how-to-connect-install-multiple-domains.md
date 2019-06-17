@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9e822906a072ec8244c7108e98289482adebb5a7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60245122"
 ---
 # <a name="multiple-domain-support-for-federating-with-azure-ad"></a>Prise en charge de plusieurs domaines pour la fédération avec Azure AD
@@ -137,7 +137,7 @@ Et IssuerUri sur le nouveau domaine a été défini sur https://bmfabrikam.com/a
 ## <a name="support-for-subdomains"></a>Prise en charge des sous-domaines
 Lorsque vous ajoutez un sous-domaine, en raison de la façon dont Azure AD a géré les domaines, il héritera des paramètres du parent.  Donc, IssuerUri doit correspondre aux parents.
 
-Donc, supposons que j’ai bmcontoso.com et que j’ajoute ensuite corp.bmcontoso.com.  IssuerUri pour un nouvel utilisateur à partir de corp.bmcontoso.com doit être définir sur **http://bmcontoso.com/adfs/services/trust.**  Toutefois, la règle standard implémentée ci-dessus pour Azure AD génère un jeton avec un émetteur en tant que **http://corp.bmcontoso.com/adfs/services/trust.**  ce qui ne correspondra pas à la valeur requise du domaine et l’authentification échouera.
+Donc, supposons que j’ai bmcontoso.com et que j’ajoute ensuite corp.bmcontoso.com.  IssuerUri pour un nouvel utilisateur à partir de corp.bmcontoso.com doit être définir sur **http://bmcontoso.com/adfs/services/trust.**  Toutefois, la règle standard implémentée ci-dessus pour Azure AD génère un jeton avec un émetteur en tant que **http://corp.bmcontoso.com/adfs/services/trust.** ce qui ne correspondra pas à la valeur requise du domaine et l’authentification échouera.
 
 ### <a name="how-to-enable-support-for-subdomains"></a>Activation de la prise en charge des sous-domaines
 Pour contourner ce problème, l’approbation de la partie de confiance AD FS de Microsoft Online doit être mise à jour.  Pour cela, vous devez configurer une règle de revendication personnalisée afin qu’elle retire tous les sous-domaines du suffixe UPN de l’utilisateur pendant la construction de la valeur Issuer.

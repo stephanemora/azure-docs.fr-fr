@@ -16,10 +16,10 @@ ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mikeray
 ms.openlocfilehash: 0e6a52ea2fdd05546a4da9f8cd1165b41ed27944
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62097690"
 ---
 # <a name="configure-an-ilb-listener-for-always-on-availability-groups-in-azure"></a>Configurer un écouteur à équilibrage de charge interne pour des groupes de disponibilité Always On dans Azure
@@ -29,7 +29,7 @@ ms.locfileid: "62097690"
 >
 >
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
 > [!IMPORTANT]
 > Azure a deux modèles de déploiement différents pour créer et utiliser des ressources : [Azure Resource Manager et classique](../../../azure-resource-manager/resource-manager-deployment-model.md). Cet article traite de l’utilisation du modèle de déploiement classique. Pour la plupart des nouveaux déploiements, nous recommandons d’utiliser le modèle Resource Manager.
@@ -105,7 +105,7 @@ Créez un point de terminaison avec équilibrage de charge pour chaque machine v
             Get-AzureVM -ServiceName $ServiceName -Name $node | Add-AzureEndpoint -Name "ListenerEndpoint" -LBSetName "ListenerEndpointLB" -Protocol tcp -LocalPort 1433 -PublicPort 1433 -ProbePort 59999 -ProbeProtocol tcp -ProbeIntervalInSeconds 10 -InternalLoadBalancerName $ILBName -DirectServerReturn $true | Update-AzureVM
         }
 
-13. Après avoir défini les variables, copiez le script de l'éditeur de texte dans votre session PowerShell pour l'exécuter. Si l'invite affiche **>>**, appuyez de nouveau sur Entrée pour vous assurer que le script s'exécute.
+13. Après avoir défini les variables, copiez le script de l'éditeur de texte dans votre session PowerShell pour l'exécuter. Si l'invite affiche **>>** , appuyez de nouveau sur Entrée pour vous assurer que le script s'exécute.
 
 ## <a name="verify-that-kb2854082-is-installed-if-necessary"></a>Vérifiez que KB2854082 est installé le cas échéant
 [!INCLUDE [kb2854082](../../../../includes/virtual-machines-ag-listener-kb2854082.md)]
@@ -151,7 +151,7 @@ Créez l’écouteur de groupe de disponibilité en deux étapes. Tout d’abord
 
         cluster res $IPResourceName /priv enabledhcp=0 address=$ILBIP probeport=59999  subnetmask=255.255.255.255
 
-3. Une fois les variables définies, ouvrez une fenêtre Windows PowerShell avec élévation de privilèges, puis collez le script de l'éditeur de texte dans votre session Azure PowerShell pour l'exécuter. Si l'invite affiche **>>**, appuyez de nouveau sur Entrée pour vous assurer que le script s'exécute.
+3. Une fois les variables définies, ouvrez une fenêtre Windows PowerShell avec élévation de privilèges, puis collez le script de l'éditeur de texte dans votre session Azure PowerShell pour l'exécuter. Si l'invite affiche **>>** , appuyez de nouveau sur Entrée pour vous assurer que le script s'exécute.
 
 4. Répétez les étapes précédentes pour chaque machine virtuelle.  
     Ce script configure la ressource Adresse IP avec l'adresse IP du service cloud et définit d'autres paramètres, tels que le port de la sonde. Lorsque la ressource d'adresse IP est mise en ligne, elle peut ensuite répondre à l'interrogation sur le port de la sonde du point de terminaison à équilibrage de charge créé précédemment.

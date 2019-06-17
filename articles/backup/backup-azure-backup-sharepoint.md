@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: kasinh
 ms.openlocfilehash: 7e8043badbc0accd38ad618a7d455729ab6606b2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60644333"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure"></a>Sauvegarder une batterie de serveurs SharePoint dans Azure
@@ -23,12 +23,12 @@ Sauvegarde Azure pour DPM prend en charge les scénarios suivants :
 
 | Charge de travail | Version | Déploiement de SharePoint | Type de déploiement de DPM | DPM - System Center 2012 R2 | Protection et récupération |
 | --- | --- | --- | --- | --- | --- |
-| SharePoint |SharePoint 2013, SharePoint 2010, SharePoint 2007, SharePoint 3.0 |SharePoint déployé comme un serveur physique ou une machine virtuelle Hyper-V/VMware  <br> -------------- <br>  SQL AlwaysOn |Serveur physique ou machine virtuelle Hyper-V locale |Prend en charge la sauvegarde vers Azure à partir du correctif cumulatif 5 |Options de protection de la récupération de la batterie de serveurs SharePoint : batterie de serveurs de récupération, base de données, fichier ou élément de liste à partir de points de récupération de disque.  Récupération d’une batterie de serveurs et d’une base de données à partir de points de récupération Azure. |
+| SharePoint |SharePoint 2013, SharePoint 2010, SharePoint 2007, SharePoint 3.0 |SharePoint déployé comme un serveur physique ou une machine virtuelle Hyper-V/VMware <br> -------------- <br> SQL AlwaysOn |Serveur physique ou machine virtuelle Hyper-V locale |Prend en charge la sauvegarde vers Azure à partir du correctif cumulatif 5 |Options de protection de la récupération de la batterie de serveurs SharePoint : batterie de serveurs de récupération, base de données, fichier ou élément de liste à partir de points de récupération de disque.  Récupération d’une batterie de serveurs et d’une base de données à partir de points de récupération Azure. |
 
 ## <a name="before-you-start"></a>Avant de commencer
 Quelques points doivent être confirmés avant de sauvegarder une batterie de serveurs SharePoint sur Azure.
 
-### <a name="prerequisites"></a>Conditions préalables
+### <a name="prerequisites"></a>Prérequis
 Avant de continuer, vérifiez que toutes les [conditions préalables](backup-azure-dpm-introduction.md#prerequisites-and-limitations) à l’utilisation de Microsoft Azure Backup pour protéger les charges de travail ont été remplies. Certaines tâches liées aux conditions préalables incluent : créer un coffre de sauvegarde, télécharger les informations d’identification du coffre, installer l’Agent Azure Backup et inscrire le serveur DPM/Azure Backup Server auprès du coffre.
 
 ### <a name="dpm-agent"></a>Agent DPM

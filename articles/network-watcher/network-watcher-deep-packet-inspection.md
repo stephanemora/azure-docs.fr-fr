@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
 ms.openlocfilehash: 7f3fc69bbfd881a26ceb25705852558b66c60153
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64716908"
 ---
 # <a name="packet-inspection-with-azure-network-watcher"></a>Inspection de paquets avec Azure Network Watcher
@@ -95,7 +95,7 @@ Identifier les types de trafic, les points de terminaison et les ports utilisés
 
 ### <a name="step-1"></a>Étape 1
 
-Dans la même capture que celle du scénario précédent, cliquez sur **Statistiques** > **IPv4 Statistics (Statistiques IPv4)** > **Destinations and Ports (Destinations et ports)**.
+Dans la même capture que celle du scénario précédent, cliquez sur **Statistiques** > **IPv4 Statistics (Statistiques IPv4)**  > **Destinations and Ports (Destinations et ports)** .
 
 ![fenêtre de capture de paquets][4]
 

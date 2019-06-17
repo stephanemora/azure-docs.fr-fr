@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/19/2017
 ms.author: alkohli
 ms.openlocfilehash: 5e461f340e1c58f64c6d645a1e47cfd811bc4de5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60505969"
 ---
 # <a name="manage-your-storsimple-device-controllers"></a>Gestion de vos contrôleurs d’appareil StorSimple
@@ -124,37 +124,37 @@ Pour rétablir les paramètres d’usine de votre appareil Microsoft Azure Sto
 ## <a name="questions-and-answers-about-managing-device-controllers"></a>Questions et réponses sur la gestion des contrôleurs d’appareil
 Dans cette section, vous trouverez des réponses à certaines questions fréquemment posées, relatives à la gestion des contrôleurs d’appareil StorSimple.
 
-**Q.**  Que se passe-t-il si les deux contrôleurs de mon appareil sont activés et en bon état de fonctionnement, et que je redémarre ou arrête le contrôleur actif ?
+**Q.** Que se passe-t-il si les deux contrôleurs de mon appareil sont activés et en bon état de fonctionnement, et que je redémarre ou arrête le contrôleur actif ?
 
 **A.** Si les deux contrôleurs de votre appareil sont activés et en bon état de fonctionnement, vous êtes invité à confirmer l’opération. Vous pouvez choisir de :
 
 * **Redémarrer le contrôleur actif** : un message vous avertit que le redémarrage d’un contrôleur actif entraîne un basculement de l’appareil vers le contrôleur passif. Le contrôleur redémarre.
 * **Arrêter un contrôleur actif** : un message vous avertit que l’arrêt d’un contrôleur actif entraîne une coupure du service. Vous devez également appuyer sur le bouton d’alimentation de l’appareil pour activer le contrôleur.
 
-**Q.**  Que se passe-t-il si le contrôleur passif de mon appareil est indisponible ou désactivé, et que je redémarre ou arrête le contrôleur actif ?
+**Q.** Que se passe-t-il si le contrôleur passif de mon appareil est indisponible ou désactivé, et que je redémarre ou arrête le contrôleur actif ?
 
-**A.**  Si le contrôleur passif de votre appareil est indisponible ou désactivé, et que vous choisissez de :
+**A.** Si le contrôleur passif de votre appareil est indisponible ou désactivé, et que vous choisissez de :
 
 * **Redémarrer le contrôleur actif** : un message vous avertit que la poursuite de l’opération entraînera une interruption temporaire du service, et vous êtes invité à confirmer l’opération.
 * **Arrêter un contrôleur actif** : un message vous avertit que la poursuite de l’opération entraînera une coupure du service. Vous devez également appuyer sur le bouton d’alimentation de l’un ou des deux contrôleurs pour activer l’appareil. Vous êtes invité à confirmer l’opération.
 
-**Q.**  À quel moment le redémarrage ou l’arrêt du contrôleur échoue-t-il ?
+**Q.** À quel moment le redémarrage ou l’arrêt du contrôleur échoue-t-il ?
 
-**A.**  Le redémarrage ou l’arrêt d’un contrôleur peut échouer si :
+**A.** Le redémarrage ou l’arrêt d’un contrôleur peut échouer si :
 
 * Une mise à jour de l’appareil est en cours.
 * Le redémarrage d’un contrôleur est déjà en cours.
 * L’arrêt d’un contrôleur est déjà en cours.
 
-**Q.**  Comment pouvez-vous déterminer si un contrôleur a été redémarré ou arrêté ?
+**Q.** Comment pouvez-vous déterminer si un contrôleur a été redémarré ou arrêté ?
 
 **A.** Vous pouvez vérifier l’état du contrôleur dans le panneau Contrôleur. L’état du contrôleur indique si un contrôleur est en cours de redémarrage ou d’arrêt. De plus, le panneau **Alertes** contient une alerte d’information vous indiquant si le contrôleur est redémarré ou arrêté. Les opérations de redémarrage et d’arrêt du contrôleur sont également enregistrées dans les journaux d’activité. Pour plus d’informations sur les journaux d’activité, consultez [Afficher les journaux d’activité](storsimple-8000-service-dashboard.md#view-the-activity-logs).
 
 **Q.** Le basculement du contrôleur a-t-il un impact sur les E/S ?
 
-**A.**  Les connexions TCP entre les initiateurs et le contrôleur actif sont réinitialisées à la suite du basculement du contrôleur, mais elles seront rétablies lorsque le contrôleur passif effectuera l’opération. Une interruption temporaire (moins de 30 secondes) peut survenir dans l’activité d’E/S entre les initiateurs et l’appareil au cours de cette opération.
+**A.** Les connexions TCP entre les initiateurs et le contrôleur actif sont réinitialisées à la suite du basculement du contrôleur, mais elles seront rétablies lorsque le contrôleur passif effectuera l’opération. Une interruption temporaire (moins de 30 secondes) peut survenir dans l’activité d’E/S entre les initiateurs et l’appareil au cours de cette opération.
 
-**Q.**  Comment puis-je remettre mon contrôleur en service une fois qu’il a été arrêté et supprimé ?
+**Q.** Comment puis-je remettre mon contrôleur en service une fois qu’il a été arrêté et supprimé ?
 
 **A.** Pour remettre en service un contrôleur, vous devez l’insérer dans le châssis, comme décrit dans [Remplacement d’un module de contrôleur sur votre appareil StorSimple](storsimple-8000-controller-replacement.md).
 

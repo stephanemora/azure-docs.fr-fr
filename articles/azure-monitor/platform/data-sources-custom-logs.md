@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: bwren
 ms.openlocfilehash: c80736dcd8be0c7ff3aae850aaaf9659f47daf36
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60996346"
 ---
 # <a name="custom-logs-in-azure-monitor"></a>Journaux d’activité personnalisés dans Azure Monitor
@@ -29,7 +29,7 @@ Les fichiers journaux à collecter doivent correspondre aux critères suivants.
 
 - Le journal doit comporter une seule entrée par ligne ou utiliser un horodatage correspondant à l’un des formats suivants au début de chaque entrée.
 
-    AAAA-MM-JJ HH:MM:SS <br>M/J/AAAA HH:MM:SS AM/PM<br>Mois JJ, AAAA HH:MM:SS<br />aaMMjj HH:mm:ss<br />jjMMaa HH:mm:ss<br />MMM j hh:mm:ss<br />jj/MMM/aaaa:HH:mm:ss zzz<br />aaaa-MM-jjTHH:mm:ssK
+    AAAA-MM-JJ HH:MM:SS<br>M/J/AAAA HH:MM:SS AM/PM<br>Mois JJ, AAAA HH:MM:SS<br />aaMMjj HH:mm:ss<br />jjMMaa HH:mm:ss<br />MMM j hh:mm:ss<br />jj/MMM/aaaa:HH:mm:ss zzz<br />aaaa-MM-jjTHH:mm:ssK
 
 - Le fichier journal ne doit pas autoriser les journalisations circulaires ni la rotation des journaux, où de nouvelles entrées sont consignées.
 - Le fichier journal doit utiliser l’encodage ASCII ou UTF-8.  Les autres formats, par exemple UTF-16, ne sont pas pris en charge.
@@ -134,7 +134,7 @@ Les enregistrements de journal personnalisé sont caractérisés par le nom du j
 | Propriété | Description |
 |:--- |:--- |
 | TimeGenerated |Date et heure auxquelles l’enregistrement a été collecté par Azure Monitor.  Si le journal utilise un délimiteur basé sur l’heure, il s’agit de l’heure collectée à partir de l’entrée. |
-| SourceSystem |Type d’agent auprès duquel l’enregistrement a été collecté. <br> Ops Manager : Agent Windows. Connexion directe ou System Center Operations Manager <br>  Linux – Tous les agents Linux |
+| SourceSystem |Type d’agent auprès duquel l’enregistrement a été collecté. <br> Ops Manager : Agent Windows. Connexion directe ou System Center Operations Manager <br> Linux – Tous les agents Linux |
 | RawData |Texte complet de l’entrée collectée. Vous souhaiterez probablement [analyser ces données dans des propriétés individuelles](../log-query/parse-text.md). |
 | ManagementGroupName |Nom du groupe d’administration pour les agents System Center Operations Manage  Pour les autres agents, il s’agit d’AOI-\<workspace ID\> |
 

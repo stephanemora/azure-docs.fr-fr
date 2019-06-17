@@ -9,10 +9,10 @@ ms.date: 04/04/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 19ad4e39ca4e402c37b2cfa69c7c306b6e5a2766
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66170068"
 ---
 1. Accédez à la page de votre passerelle de réseau virtuel et ouvrez-la. Vous pouvez y accéder de plusieurs manières. Vous pouvez accéder à la passerelle VNet1GW en accédant à **TestVNet1 -> Vue d’ensemble -> Appareils connectés -> VNet1GW**.
@@ -22,7 +22,7 @@ ms.locfileid: "66170068"
 3. Sur la page **Ajouter une connexion**, configurez les valeurs de votre connexion.
 
    - **Nom :** Nommez votre connexion.
-   - **Type de connexion :** Sélectionnez **Site à site (IPsec)**.
+   - **Type de connexion :** Sélectionnez **Site à site (IPsec)** .
    - **Passerelle de réseau virtuel :** La valeur est fixe, car vous vous connectez à partir de cette passerelle.
    - **Passerelle de réseau local :** Cliquez sur **Choisir une passerelle de réseau local**, puis sélectionnez la passerelle de réseau local à utiliser.
    - **Clé partagée** : la valeur doit correspondre à celle que vous utilisez pour votre périphérique VPN local. Dans cet exemple, nous avons utilisé « abc123 », mais vous pouvez (et devriez) utiliser une valeur plus complexe. L’important, c’est que la valeur que vous spécifiez ici doit être identique à celle spécifiée lors de la configuration de votre périphérique VPN.

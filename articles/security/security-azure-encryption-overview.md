@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 09/20/2018
 ms.author: barclayn
 ms.openlocfilehash: 272cc843ab90eade06525f665d3cf2decf74a26f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60444514"
 ---
 # <a name="azure-encryption-overview"></a>Vue d’ensemble du chiffrement Azure
@@ -39,7 +39,7 @@ Azure prend en charge plusieurs modèles de chiffrement, notamment le chiffremen
 
 ### <a name="client-side-encryption"></a>chiffrement côté client
 
-Le chiffrement côté client est effectué en dehors d’Azure.  Il inclut :
+Le chiffrement côté client est effectué en dehors d’Azure. Il inclut :
 
 - Les données chiffrées par une application qui s’exécute dans le centre de données du client ou par une application de service.
 - Les données sont déjà chiffrées lorsqu’elles sont reçues par Azure.

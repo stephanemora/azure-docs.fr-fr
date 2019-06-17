@@ -16,16 +16,16 @@ ms.date: 01/11/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 7c6f0a6371b38f0271237db0f7d80b831ecc145c
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62127138"
 ---
 # <a name="deploy-storsimple-virtual-array---prepare-the-azure-portal"></a>Déploiement de StorSimple Virtual Array - Préparation du portail Azure
 
 ![](./media/storsimple-virtual-array-deploy1-portal-prep/getstarted4.png)
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
 Il s’agit du premier article de la série de didacticiels sur le déploiement nécessaire pour déployer complètement votre tableau virtuel en tant que serveur de fichiers ou serveur iSCSI à l’aide du modèle Resource Manager. Cet article décrit la préparation nécessaire pour créer et configurer votre service StorSimple Device Manager avant la configuration d'un tableau virtuel. Cet article contient également des liens vers une liste de vérification de la configuration du déploiement ainsi que la configuration requise.
 
@@ -44,7 +44,7 @@ Consultez les articles suivants dans l'ordre indiqué pour déployer votre insta
 | --- | --- | --- | --- |
 | 1. |**Configuration du portail Azure** |Créez et configurez votre service StorSimple Device Manager avant de configurer une instance StorSimple Virtual Array. |[Préparation du portail](storsimple-virtual-array-deploy1-portal-prep.md) |
 | 2. |**Configuration du tableau virtuel** |Pour Hyper-V, configurez et connectez-vous à une instance StorSimple Virtual Array sur un système hôte exécutant Hyper-V sur Windows Server 2012 R2, Windows Server 2012 ou Windows Server 2008 R2. <br></br> <br></br> Pour VMware, provisionnez et connectez-vous à une instance StorSimple Virtual Array sur un système hôte exécutant VMware ESXi 5.0, 5.5, 6.0 ou 6.5.<br></br> |[Configurer un tableau virtuel dans Hyper-V](storsimple-virtual-array-deploy2-provision-hyperv.md) <br></br> <br></br> [Configuration d’un tableau virtuel dans VMware](storsimple-virtual-array-deploy2-provision-vmware.md) |
-| 3. |**Configuration du tableau virtuel** |Pour votre serveur de fichiers, effectuez la configuration initiale, inscrivez votre serveur de fichiers StorSimple, puis finalisez la configuration de l’appareil. Vous pouvez ensuite configurer les partages SMB. <br></br> <br></br>  Pour votre serveur iSCSI, effectuez la configuration initiale, inscrivez votre serveur iSCSI StorSimple, puis finalisez la configuration de l’appareil. Vous pouvez ensuite configurer les volumes iSCSI. |[Configuration d’un tableau virtuel comme serveur de fichiers](storsimple-virtual-array-deploy3-fs-setup.md)<br></br> <br></br>[Configuration d’un tableau virtuel comme serveur iSCSI](storsimple-virtual-array-deploy3-iscsi-setup.md) |
+| 3. |**Configuration du tableau virtuel** |Pour votre serveur de fichiers, effectuez la configuration initiale, inscrivez votre serveur de fichiers StorSimple, puis finalisez la configuration de l’appareil. Vous pouvez ensuite configurer les partages SMB. <br></br> <br></br> Pour votre serveur iSCSI, effectuez la configuration initiale, inscrivez votre serveur iSCSI StorSimple, puis finalisez la configuration de l’appareil. Vous pouvez ensuite configurer les volumes iSCSI. |[Configuration d’un tableau virtuel comme serveur de fichiers](storsimple-virtual-array-deploy3-fs-setup.md)<br></br> <br></br>[Configuration d’un tableau virtuel comme serveur iSCSI](storsimple-virtual-array-deploy3-iscsi-setup.md) |
 
 Vous pouvez maintenant commencer à configurer le portail Azure.
 
@@ -55,7 +55,7 @@ La liste de contrôle de la configuration présente les informations dont vous a
 * Téléchargez la [liste de vérification de la configuration du serveur de fichiers StorSimple Virtual Array](https://download.microsoft.com/download/E/E/6/EE690BB0-B442-4B84-8165-4731EE727ACF/MicrosoftAzureStorSimpleVirtualArrayFileServerConfigurationChecklist.pdf).
 * Téléchargez la [liste de vérification de la configuration du serveur iSCSI StorSimple Virtual Array](https://download.microsoft.com/download/E/E/6/EE690BB0-B442-4B84-8165-4731EE727ACF/MicrosoftAzureStorSimpleVirtualArrayiSCSIServerConfigurationChecklist.pdf).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Vous trouverez ici les conditions préalables à la configuration de votre service StorSimple Device Manager, de votre instance StorSimple Virtual Array et du réseau de votre centre de données.
 

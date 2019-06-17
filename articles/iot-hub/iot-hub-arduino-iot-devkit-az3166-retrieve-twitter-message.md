@@ -10,10 +10,10 @@ ms.tgt_pltfrm: arduino
 ms.date: 03/07/2018
 ms.author: liydu
 ms.openlocfilehash: dc4ff35ff04680e8635d54c25212c8ae639ae472
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60779742"
 ---
 # <a name="shake-shake-for-a-tweet----retrieve-a-twitter-message-with-azure-functions"></a>Secouez, secouez pour récupérer un tweet - Récupérez un message Twitter avec Azure Functions
@@ -88,7 +88,7 @@ Utilisez `Ctrl+P` (macOS: `Cmd+P`) pour exécuter `task cloud-deploy` et commenc
 
 Ensuite, générez et chargez le code de l’appareil.
 
-### <a name="windows"></a> Windows
+### <a name="windows"></a>Windows
 
 1. Utilisez `Ctrl+P` pour exécuter `task device-upload`.
 
@@ -208,4 +208,4 @@ Si vous rencontrez d’autres problèmes, consultez le [FAQ sur le DevKit IoT](h
 
 Vous avez appris à connecter un appareil DevKit à votre accélérateur de solution de supervision à distance Azure IoT et à récupérer un tweet ; nous vous suggérons à présent les étapes suivantes :
 
-* [Vue d’ensemble des accélérateurs de solution de surveillance à distance Azure IoT](https://docs.microsoft.com/azure/iot-suite/)
+* [Vue d’ensemble des accélérateurs de solution de supervision à distance Azure IoT](https://docs.microsoft.com/azure/iot-suite/)

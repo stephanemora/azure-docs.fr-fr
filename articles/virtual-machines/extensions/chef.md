@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 09/21/2018
 ms.author: roiyz
 ms.openlocfilehash: 6bd3ea4e664523fe8014be40c51d573ed5158ecf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60800267"
 ---
 # <a name="chef-vm-extension-for-linux-and-windows"></a>Extension de machine virtuelle Chef pour Linux et Windows
 
 Chef Software fournit une plateforme d’automatisation DevOps pour Linux et Windows qui permet la gestion de configurations de serveurs virtuels et physiques. L’extension de machine virtuelle Chef est une extension qui active Chef sur des machines virtuelles.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 ### <a name="operating-system"></a>Système d’exploitation
 
@@ -71,8 +71,8 @@ Le JSON suivant illustre le schéma de l’extension de machine virtuelle Chef. 
 | Nom | Valeur/Exemple | Type de données
 | ---- | ---- | ---- 
 | apiVersion | `2017-12-01` | chaîne (date) |
-| publisher | `Chef.Bootstrap.WindowsAzure` | string |
-| Type | `LinuxChefClient` (Linux), `ChefClient` (Windows) | string |
+| publisher | `Chef.Bootstrap.WindowsAzure` | chaîne |
+| Type | `LinuxChefClient` (Linux), `ChefClient` (Windows) | chaîne |
 | typeHandlerVersion | `1210.12` | chaîne (double) |
 
 ### <a name="settings"></a>Paramètres
@@ -80,14 +80,14 @@ Le JSON suivant illustre le schéma de l’extension de machine virtuelle Chef. 
 | Nom | Valeur/Exemple | Type de données | Requis ?
 | ---- | ---- | ---- | ----
 | settings/bootstrap_options/chef_server_url | `https://api.chef.io/organizations/myorg` | chaîne (url) | O |
-| settings/bootstrap_options/validation_client_name | `myorg-validator` | string | O |
-| settings/runlist | `recipe[mycookbook::default]` | string | O |
+| settings/bootstrap_options/validation_client_name | `myorg-validator` | chaîne | O |
+| settings/runlist | `recipe[mycookbook::default]` | chaîne | O |
 
 ### <a name="protected-settings"></a>Paramètres protégés
 
 | Nom | Exemples | Type de données | Requis ?
 | ---- | ---- | ---- | ---- |
-| protectedSettings/validation_key | `-----BEGIN RSA PRIVATE KEY-----\nKEYDATA\n-----END RSA PRIVATE KEY-----` | string | O |
+| protectedSettings/validation_key | `-----BEGIN RSA PRIVATE KEY-----\nKEYDATA\n-----END RSA PRIVATE KEY-----` | chaîne | O |
 
 <!--
 ### Linux-specific settings

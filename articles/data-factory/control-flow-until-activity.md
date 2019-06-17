@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 ms.openlocfilehash: 5a053ab213390a12c5d2051a802a1fa98279c344
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66155176"
 ---
 # <a name="until-activity-in-azure-data-factory"></a>Activité Until dans Azure Data Factory
@@ -52,13 +52,13 @@ L’activité Until fournit les mêmes fonctionnalités qu’une structure de bo
 
 ## <a name="type-properties"></a>Propriétés type
 
-Propriété | Description | Valeurs autorisées | Requis
+Propriété | Description | Valeurs autorisées | Obligatoire
 -------- | ----------- | -------------- | --------
-name | Nom de l’activité `Until`. | String | Oui
-type | Doit être défini sur **Until**. | String | Oui
-expression | Expression qui doit retourner true ou false | Expression.  | Oui
+Nom | Nom de l’activité `Until`. | Chaîne | OUI
+Type | Doit être défini sur **Until**. | Chaîne | OUI
+expression | Expression qui doit retourner true ou false | Expression.  | OUI
 timeout | La boucle do-until expire à la fin du délai d’attente spécifié ici. | Chaîne. `d.hh:mm:ss` (ou) `hh:mm:ss`. La valeur par défaut est de 7 jours. La valeur maximale est : 90 jours. | Non
-Activités | Ensemble d’activités qui sont exécutées jusqu’à ce que l’expression retourne `true`. | Tableau des activités. |  Oui
+Activités | Ensemble d’activités qui sont exécutées jusqu’à ce que l’expression retourne `true`. | Tableau des activités. |  OUI
 
 ## <a name="example-1"></a>Exemple 1
 

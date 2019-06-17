@@ -18,10 +18,10 @@ ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: dbc21922be66c793e76882cbd145f19681684252
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66143267"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
@@ -227,7 +227,7 @@ Pour plus d'informations sur les limites de l'équilibreur de charge, consultez 
 
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Vous avez déjà configuré un cluster WSFC à utiliser pour une instance SAP ASCS/SCS à l’aide du **partage de fichiers**, comme illustré dans ce diagramme.
 

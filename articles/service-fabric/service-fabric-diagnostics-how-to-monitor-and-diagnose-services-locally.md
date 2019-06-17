@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 02/25/2019
 ms.author: srrengar
 ms.openlocfilehash: 31c559c1ab314b7e1f29bd96f74d6d82cfcc0420
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60392827"
 ---
 # <a name="monitor-and-diagnose-services-in-a-local-machine-development-setup"></a>Surveillance et diagnostic des services dans une configuration de développement d’ordinateur local
@@ -33,9 +33,9 @@ L’analyse, la détection, le diagnostic et la résolution des problèmes perme
 ## <a name="event-tracing-for-windows"></a>Suivi d’événements pour Windows
 [Suivi d'événements pour Windows](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) (ETW) est la technologie recommandée pour le suivi des messages dans Service Fabric. Voici quelques avantages liés à l’utilisation d’ETW :
 
-* **ETW est rapide.**  Il a été créé en tant que technologie de suivi avec un impact minimal sur le temps d’exécution du code.
+* **ETW est rapide.** Il a été créé en tant que technologie de suivi avec un impact minimal sur le temps d’exécution du code.
 * **Le suivi ETW fonctionne parfaitement dans des environnements de développement local ainsi que dans les configurations de cluster réel.** Cela signifie que vous n’êtes pas obligé de réécrire votre code de suivi quand vous êtes prêt à déployer votre code dans un cluster réel.
-* **Le code système de Service Fabric utilise également ETW pour le suivi interne.**  Vous pouvez ainsi afficher les traces de votre application entrelacées avec celles du système Service Fabric. Vous pouvez également comprendre plus facilement les séquences et les relations entre votre code d’application et les événements du système sous-jacent.
+* **Le code système de Service Fabric utilise également ETW pour le suivi interne.** Vous pouvez ainsi afficher les traces de votre application entrelacées avec celles du système Service Fabric. Vous pouvez également comprendre plus facilement les séquences et les relations entre votre code d’application et les événements du système sous-jacent.
 * **Les outils Visual Studio de Service Fabric prennent en charge l'affichage des événements ETW.** Les événements ETW apparaissent dans l’affichage des événements de diagnostic de Visual Studio une fois que Visual Studio est correctement configuré avec Service Fabric. 
 
 ## <a name="view-service-fabric-system-events-in-visual-studio"></a>Afficher les événements système de Service Fabric dans Visual Studio

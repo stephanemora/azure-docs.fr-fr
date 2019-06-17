@@ -1,6 +1,6 @@
 ---
 title: Indexation de recherche pour requêtes de recherche effectuées dans une langue autre que l’anglais - Recherche Azure
-description: " Azure Search prend en charge 56 langages, tirant parti des analyseurs de langue de la technologie Lucene et Natural Language Processing de Microsoft."
+description: Azure Search prend en charge 56 langages, tirant parti des analyseurs de langue de la technologie Lucene et Natural Language Processing de Microsoft.
 author: yahnoosh
 manager: jlembicz
 services: search
@@ -10,10 +10,10 @@ ms.date: 05/02/2019
 ms.author: jlembicz
 ms.custom: seodec2018
 ms.openlocfilehash: cc9f271c1c79f34ba62fa22d6ce4fd6bf16738f1
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65025264"
 ---
 # <a name="create-an-index-for-documents-in-multiple-languages-in-azure-search"></a>Création d’un index de documents dans plusieurs langues dans Azure Search

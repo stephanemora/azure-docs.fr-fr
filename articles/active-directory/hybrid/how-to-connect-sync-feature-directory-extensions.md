@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ff0fd4d01eab739b79685c1de67cb8fe28873961
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60347988"
 ---
 # <a name="azure-ad-connect-sync-directory-extensions"></a>Synchronisation d’Azure AD Connect : Extensions d’annuaire
@@ -35,7 +35,7 @@ Vous pouvez configurer les attributs supplémentaires à synchroniser dans le ch
 
 ![Assistant d’extension de schéma](./media/how-to-connect-sync-feature-directory-extensions/extension2.png)  
 
- L’installation affiche les attributs suivants, qui sont des candidats valides :
+L’installation affiche les attributs suivants, qui sont des candidats valides :
 
 * Types d’utilisateur et d’objet de groupe
 * Attributs à valeur unique : Chaîne, booléen, entier, binaire
@@ -62,7 +62,7 @@ Ces attributs sont désormais disponibles par le biais de l’API Azure AD Graph
 Vous avez également la possibilité d’interroger les attributs par le biais de l’API Microsoft Graph, en utilisant [l’explorateur Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer#).
 
 >[!NOTE]
-> Vous devez demander que les attributs soient renvoyés. Sélectionnez explicitement les attributs comme suit : https://graph.microsoft.com/beta/users/abbie.spencer@fabrikamonline.com?$select=extension_9d98ed114c4840d298fad781915f27e4_employeeID,extension_9d98ed114c4840d298fad781915f27e4_division. 
+> Vous devez demander que les attributs soient renvoyés. Sélectionnez explicitement les attributs comme suit : https://graph.microsoft.com/beta/users/abbie.spencer@fabrikamonline.com? $select=extension_9d98ed114c4840d298fad781915f27e4_employeeID,extension_9d98ed114c4840d298fad781915f27e4_division. 
 >
 > Pour plus d’informations, consultez [Microsoft Graph : Utiliser des paramètres de requête](https://developer.microsoft.com/graph/docs/concepts/query_parameters#select-parameter).
 

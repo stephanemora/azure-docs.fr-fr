@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeconnoc
 ms.openlocfilehash: 59bfa83ab3432adb7a4df5112367f87014a0b292
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60405985"
 ---
 # <a name="how-to-configure-and-run-startup-tasks-for-a-cloud-service"></a>Comment configurer et exécuter des tâches de démarrage pour un service cloud
@@ -100,9 +100,9 @@ Vous trouverez ci-dessous une description des attributs de l’élément **Task*
 **executionContext** - spécifie le niveau de privilège pour la tâche de démarrage. Le niveau de privilège peut être limité ou élevé :
 
 * **limited**  
-   : la tâche de démarrage s’exécute avec les mêmes privilèges que le rôle. Quand l’attribut **executionContext** de l’élément [Runtime] est également **limited**, les privilèges utilisateur sont utilisés.
+  : la tâche de démarrage s’exécute avec les mêmes privilèges que le rôle. Quand l’attribut **executionContext** de l’élément [Runtime] est également **limited**, les privilèges utilisateur sont utilisés.
 * **elevated**  
-   : la tâche de démarrage s’exécute avec des privilèges d’administrateur. Les tâches de démarrage peuvent ainsi installer des programmes, apporter des modifications à la configuration IIS, modifier le Registre et effectuer d’autres tâches d’administration, sans augmenter le niveau de privilège du rôle.  
+  : la tâche de démarrage s’exécute avec des privilèges d’administrateur. Les tâches de démarrage peuvent ainsi installer des programmes, apporter des modifications à la configuration IIS, modifier le Registre et effectuer d’autres tâches d’administration, sans augmenter le niveau de privilège du rôle.  
 
 > [!NOTE]
 > Le niveau de privilège d’une tâche de démarrage n’a pas besoin d’être le même que celui du rôle.
@@ -121,9 +121,9 @@ Vous trouverez ci-dessous une description des attributs de l’élément **Task*
   
     Pour vous assurer que votre fichier de commandes se termine par un **errorlevel** égal à zéro, exécutez la commande `EXIT /B 0` à la fin du processus de votre fichier de commandes.
 * **background**  
-   sont exécutées de façon asynchrone, en parallèle du démarrage du rôle.
+  sont exécutées de façon asynchrone, en parallèle du démarrage du rôle.
 * **foreground**  
-   sont exécutées de façon asynchrone, en parallèle du démarrage du rôle. La principale différence entre une tâche **foreground** et une tâche **background** est que la tâche **foreground** empêche le recyclage ou l’arrêt du rôle tant qu’elle n’est pas terminée. Les tâches **background** n’ont pas cette restriction.
+  sont exécutées de façon asynchrone, en parallèle du démarrage du rôle. La principale différence entre une tâche **foreground** et une tâche **background** est que la tâche **foreground** empêche le recyclage ou l’arrêt du rôle tant qu’elle n’est pas terminée. Les tâches **background** n’ont pas cette restriction.
 
 ## <a name="environment-variables"></a>Variables d’environnement
 Les variables d’environnement permettent de passer les informations à une tâche de démarrage. Par exemple, vous pouvez indiquer le chemin vers un objet blob qui contient un programme à installer ou les numéros de port que votre rôle va utiliser ou des paramètres pour contrôler les fonctionnalités de votre tâche de démarrage.
