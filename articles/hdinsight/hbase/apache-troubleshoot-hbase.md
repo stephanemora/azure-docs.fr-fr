@@ -8,10 +8,10 @@ ms.custom: hdinsightactive, seodec18
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.openlocfilehash: 6ba17a3839390ed5fe503a6fe57b63d8fb119138
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64713502"
 ---
 # <a name="troubleshoot-apache-hbase-by-using-azure-hdinsight"></a>Résolution de problèmes Apache HBase à l’aide d’Azure HDInsight
@@ -219,7 +219,7 @@ Pour vous connecter avec Apache Phoenix, vous devez fournir l’adresse IP d’
    ```
 
    > [!Note] 
-   > Vous pouvez obtenir l’adresse IP du nœud ZooKeeper actif à partir de l’interface utilisateur d’Ambari. Accédez à **HBase** > **Quick Links** > **ZK\* (Active)** > **Zookeeper Info** (HBase > Liens rapides > ZK (acitf) > Infos ZooKeeper). 
+   > Vous pouvez obtenir l’adresse IP du nœud ZooKeeper actif à partir de l’interface utilisateur d’Ambari. Accédez à **HBase** > **Quick Links** > **ZK\* (Active)**  > **Zookeeper Info** (HBase > Liens rapides > ZK (acitf) > Infos ZooKeeper). 
 
 3. Si l’utilitaire sqlline.py se connecte à Phoenix et n’expire pas, exécutez la commande suivante pour valider la disponibilité et l’intégrité de Phoenix :
 
@@ -277,7 +277,7 @@ Dans les journaux d’activité des serveurs régionaux, essayez d’identifier 
 
 Vérifiez la pile des appels et essayez de déterminer quel dossier pourrait être responsable du problème (par exemple le dossier de journaux WAL ou le dossier .tmp). Ensuite, dans Cloud Explorer ou à l’aide de commandes HDFS, tentez de localiser le fichier posant problème. En règle générale, il s’agit d’un fichier \*-renamePending.json. (Le fichier \*-renamePending.json est un fichier journal utilisé pour implémenter l’opération de renommage atomique au niveau du pilote WASB. En raison des bogues de cette implémentation, ces fichiers peuvent rester après le blocage du processus, etc.) Forcez la suppression de ce fichier soit dans Cloud Explorer, soit à l’aide de commandes HDFS. 
 
-Dans certains cas, cet emplacement contient également un fichier temporaire nommé *$$$. $$$*. Vous devez utiliser la commande HDFS `ls` pour voir ce fichier ; vous ne pouvez pas le voir dans Cloud Explorer. Pour supprimer ce fichier, utilisez la commande HDFS `hdfs dfs -rm /\<path>\/\$\$\$.\$\$\$`.  
+Dans certains cas, cet emplacement contient également un fichier temporaire nommé *$$$. $$$* . Vous devez utiliser la commande HDFS `ls` pour voir ce fichier ; vous ne pouvez pas le voir dans Cloud Explorer. Pour supprimer ce fichier, utilisez la commande HDFS `hdfs dfs -rm /\<path>\/\$\$\$.\$\$\$`.  
 
 Après avoir exécuté ces commandes, HMaster devrait démarrer immédiatement. 
 

@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 08/08/2018
 ms.author: cynthn
 ms.openlocfilehash: 7fa903f65a6c7d244ff424eae4a0def258b50bbc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60803262"
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>Créer un groupe identique de machines virtuelles qui utilise les zones de disponibilité
@@ -45,7 +45,7 @@ Lorsque vous déployez un groupe identique, vous avez également la possibilité
 
 ### <a name="zone-balancing"></a>Équilibrage des zones
 
-Enfin, pour les groupes identiques déployés sur plusieurs zones, vous avez également la possibilité de choisir « best effort zone balance» (meilleur équilibre des zones) ou « strict zone balance » (équilibre des zones strict). Un groupe identique est considéré comme « équilibré » si le nombre de machines virtuelles de chaque zone est égal à celui de toutes les autres zones du groupe identique, à une machine virtuelle près. Par exemple : 
+Enfin, pour les groupes identiques déployés sur plusieurs zones, vous avez également la possibilité de choisir « best effort zone balance» (meilleur équilibre des zones) ou « strict zone balance » (équilibre des zones strict). Un groupe identique est considéré comme « équilibré » si le nombre de machines virtuelles de chaque zone est égal à celui de toutes les autres zones du groupe identique, à une machine virtuelle près. Par exemple :
 
 - Un groupe identique composé de 2 machines virtuelles dans la zone 1, de 3 machines virtuelles dans la zone 2 et de 3 machines virtuelles dans la zone 3 est considéré comme étant équilibré. Une seule de ces zones présente un nombre de machines virtuelles différent, et ce nombre n’est inférieur que de 1 à celui des autres zones. 
 - Un groupe identique composé d’1 machine virtuelle dans la zone 1, de 3 machines virtuelles dans la zone 2 et de 3 machines virtuelles dans la zone 3 est considéré comme non équilibré. En effet, la zone 1 comporte 2 machines virtuelles de moins que les zones 2 et 3.

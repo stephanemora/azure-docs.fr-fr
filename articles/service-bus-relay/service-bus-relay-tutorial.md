@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/01/2018
 ms.author: spelluru
 ms.openlocfilehash: db73363a05734db5d7e3375a5755a807eb7ce2a5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60790043"
 ---
 # <a name="expose-an-on-premises-wcf-rest-service-to-external-client-by-using-azure-wcf-relay"></a>Exposer un service WCF REST local sur un client externe en utilisant Azure WCF Relay
@@ -43,7 +43,7 @@ Dans ce didacticiel, vous allez effectuer les étapes suivantes :
 > * Implémentation du client WCF
 > * Exécutez les applications. 
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour effectuer ce didacticiel, vous avez besoin de ce qui suit :
 
@@ -68,7 +68,7 @@ Le contrat de service spécifie les opérations (terminologie du service web pou
 
 3. Installez le package NuGet Service Bus. Ce package ajoute automatiquement des références aux bibliothèques Service Bus, ainsi qu’au **System.ServiceModel** de WCF. [System.ServiceModel](https://msdn.microsoft.com/library/system.servicemodel.aspx) est l’espace de noms qui vous permet d’accéder par programme aux fonctionnalités WCF de base. Service Bus utilise la plupart des objets et attributs de WCF pour définir des contrats de service.
 
-    Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le projet, puis cliquez sur **Gérer les packages NuGet...**. Cliquez sur l’onglet **Parcourir**, puis recherchez **WindowsAzure.ServiceBus**. Vérifiez que le nom du projet est spécifié dans la zone **Version(s)**. Cliquez sur **Installer**et acceptez les conditions d’utilisation.
+    Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le projet, puis cliquez sur **Gérer les packages NuGet...** . Cliquez sur l’onglet **Parcourir**, puis recherchez **WindowsAzure.ServiceBus**. Vérifiez que le nom du projet est spécifié dans la zone **Version(s)** . Cliquez sur **Installer**et acceptez les conditions d’utilisation.
 
     ![Package Service Bus][3]
 4. Dans l’Explorateur de solutions, double-cliquez sur le fichier Program.cs pour l’ouvrir dans l’éditeur, si celui-ci n’est pas déjà ouvert.

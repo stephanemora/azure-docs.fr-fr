@@ -5,19 +5,23 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: include
-ms.date: 03/18/2019
+ms.date: 06/07/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: a89a5d753eaa241b11eb4c7eed9500c9715d405d
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 9d8482fdf8e914801fb77e2ab1712145fa3ccea0
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66150787"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67077490"
 ---
 ### <a name="what-is-the-difference-between-an-azure-virtual-network-gateway-vpn-gateway-and-an-azure-virtual-wan-vpngateway"></a>Quelle est la différence entre une passerelle de réseau virtuel Azure (passerelle VPN) et une passerelle VPN Azure WAN virtuel ?
 
 WAN virtuel fournit une connectivité de site à site à grande échelle et est conçu pour le débit, l’évolutivité et la facilité d’utilisation. La fonctionnalité de connectivité de point à site et ExpressRoute est actuellement en préversion. Les appareils de branche CPE sont automatiquement provisionnés et connectés à Azure Virtual WAN. Ces périphériques sont disponibles à partir d’un écosystème croissant des partenaires SD-WAN et VPN. Consultez la [liste des partenaires préférés](https://go.microsoft.com/fwlink/p/?linkid=2019615).
+
+### <a name="what-is-a-branch-connection-to-azure-virtual-wan"></a>Qu’est-ce qu’une connexion de branche à Azure Virtual WAN ?
+
+Une connexion d’un appareil de branche à Azure Virtual WAN, composée de deux tunnels IPsec actif/actif.
 
 ### <a name="which-device-providers-virtual-wan-partners-are-supported-at-launch-time"></a>Quels fournisseurs d’appareils (partenaires WAN virtuel) sont pris en charge au moment du lancement ?
 
@@ -45,7 +49,7 @@ Oui, WAN virtuel introduit de nouvelles ressources de Resource Manager. Pour plu
 
 ### <a name="how-many-vpn-devices-can-connect-to-a-single-hub"></a>Combien d’appareils VPN peuvent se connecter à un même concentrateur ?
 
-Chaque hub virtuel prend en charge jusqu’à 1 000 connexions. Chaque connexion se compose de 2 tunnels qui se trouvent dans une configuration actif-actif. Les tunnels se terminent par une passerelle VPN de Hub virtuel Azure.
+Chaque hub virtuel prend en charge jusqu’à 1000 connexions. Chaque connexion se compose de 2 tunnels qui se trouvent dans une configuration actif-actif. Les tunnels se terminent par une passerelle VPN de Hub virtuel Azure.
 
 ### <a name="can-the-on-premises-vpn-device-connect-to-multiple-hubs"></a>L’appareil VPN local peut-il se connecter à plusieurs hubs ?
 
@@ -105,7 +109,7 @@ Oui.
 
 ### <a name="how-is-virtual-wan-different-from-the-existing-azure-virtual-network-gateway"></a>En quoi le WAN virtuel est-il différent de la passerelle de réseau virtuel Azure existante ?
 
-Le VPN de la passerelle de réseau virtuel est limité à 30 tunnels. Pour les connexions, vous devez utiliser un WAN virtuel pour le VPN à grande échelle. Vous pouvez connecter jusqu’à 1 000 connexions de branche avec 2 Gbits/s dans le hub pour la totalité des régions, à l’exception de la région Centre-Ouest. Pour la région Centre-Ouest, 20 Gbits/s sont disponibles. A l’avenir, nous déploierons également 20 Gbits/s dans les autres régions. Une connexion est un tunnel actif-actif entre l’appareil VPN local et le hub virtuel. Vous pouvez disposer d’un hub par région, ce qui signifie que vous pouvez connecter plus de 1 000 branches au niveau des hubs.
+Le VPN de la passerelle de réseau virtuel est limité à 30 tunnels. Pour les connexions, vous devez utiliser un WAN virtuel pour le VPN à grande échelle. Vous pouvez connecter jusqu’à 1000 connexions de branche avec 2 Gbits/s dans le hub pour la totalité des régions, à l’exception de la région Centre-Ouest. Pour la région Centre-Ouest, 20 Gbits/s sont disponibles. A l’avenir, nous déploierons également 20 Gbits/s dans les autres régions. Une connexion est un tunnel actif-actif entre l’appareil VPN local et le hub virtuel. Vous pouvez disposer d’un hub par région, ce qui signifie que vous pouvez connecter plus de 1000 branches parmi tous les hubs.
 
 ### <a name="how-is-virtual-wan-supporting-sd-wan-devices"></a>Comment Virtual WAN prend en charge les appareils SD-WAN ?
 
@@ -118,6 +122,14 @@ Non, ce WAN ne nécessite pas ExpressRoute à partir de chaque site. Il utilise 
 ### <a name="is-there-a-network-throughput-limit-when-using-azure-virtual-wan"></a>Existe-t-il une limite de débit réseau lors de l’utilisation du WAN virtuel Azure ?
 
 Le nombre de branches est limité à 1 000 connexions par hub/région et à un total de 2 Gbits/s dans le hub. La seule exception est la région USA Centre-Ouest, qui dispose d’un total de 20 Gbits/s. A l’avenir, nous déploierons également 20 Gbits/s dans les autres régions.
+
+### <a name="how-many-vpn-connections-does-a-virtual-wan-hub-support"></a>Quel est le nombre de connexions VPN prises en charge par un hub Virtual WAN ?
+
+Un hub Azure Virtual WAN peut prendre en charge jusqu’à 1000 connexions S2S et 10 000 connexions P2S simultanément.
+
+### <a name="what-is-the-total-vpn-throughput-of-a-vpn-tunnel-and-a-connection"></a>Quel est le débit VPN total d’un tunnel VPN et d’une connexion ?
+
+Le débit VPN total maximal d’un concentrateur est de 20 Gbit/s, en fonction de l’unité d’échelle choisie. Le débit est partagé par toutes les connexions existantes.
 
 ### <a name="does-virtual-wan-allow-the-on-premises-device-to-utilize-multiple-isps-in-parallel-or-is-it-always-a-single-vpn-tunnel"></a>Le WAN virtuel autorise-t-il l’appareil en local à utiliser plusieurs ISP en parallèle, ou faut-il toujours un tunnel VPN unique ?
 

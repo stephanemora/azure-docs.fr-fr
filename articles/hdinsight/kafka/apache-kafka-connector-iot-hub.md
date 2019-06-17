@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.openlocfilehash: 420800e718c8f98bfd3d5d7383829d5aa5472828
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64698160"
 ---
 # <a name="use-apache-kafka-on-hdinsight-with-azure-iot-hub"></a>Utiliser Apache Kafka sur HDInsight avec Azure IoT Hub
@@ -29,7 +29,7 @@ Le diagramme suivant illustre le flux de données entre Azure IoT Hub et Kafka s
 
 Pour plus d’informations sur l’API Connect, consultez [https://kafka.apache.org/documentation/#connect](https://kafka.apache.org/documentation/#connect).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
@@ -167,7 +167,7 @@ Pour récupérer les informations d’IoT Hub utilisées par le connecteur, proc
 
 1. Obtenez le point de terminaison compatible Event Hub et le nom du point de terminaison compatible Event Hub pour votre IoT Hub. Pour obtenir ces informations, utilisez l’une des méthodes suivantes :
 
-   * __À partir du [portail Microsoft Azure](https://portal.azure.com/)__, procédez comme suit :
+   * __À partir du [portail Microsoft Azure](https://portal.azure.com/)__ , procédez comme suit :
 
      1. Accédez à votre IoT Hub, puis sélectionnez __Points de terminaison__.
      2. À partir de __Points de terminaison intégrés__, sélectionnez __Événements__.
@@ -180,7 +180,7 @@ Pour récupérer les informations d’IoT Hub utilisées par le connecteur, proc
         > [!IMPORTANT]  
         > La valeur de point de terminaison en provenance du portail peut contenir du texte superflu qui n’est pas utile dans cet exemple. Extrayez le texte qui correspond à ce modèle `sb://<randomnamespace>.servicebus.windows.net/`.
 
-   * __À partir d’[Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)__, utilisez la commande suivante :
+   * __À partir d’[Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)__ , utilisez la commande suivante :
 
        ```azure-cli
        az iot hub show --name myhubname --query "{EventHubCompatibleName:properties.eventHubEndpoints.events.path,EventHubCompatibleEndpoint:properties.eventHubEndpoints.events.endpoint,Partitions:properties.eventHubEndpoints.events.partitionCount}"
@@ -196,13 +196,13 @@ Pour récupérer les informations d’IoT Hub utilisées par le connecteur, proc
 
 2. Procurez-vous la __stratégie d’accès partagé__ et la __clé__. Pour cet exemple, utilisez la clé de __service__. Pour obtenir ces informations, utilisez l’une des méthodes suivantes :
 
-    * __À partir du [portail Microsoft Azure](https://portal.azure.com/)__, procédez comme suit :
+    * __À partir du [portail Microsoft Azure](https://portal.azure.com/)__ , procédez comme suit :
 
         1. Sélectionnez __Stratégies d’accès partagé__, puis __service__.
         2. Copiez la valeur __Clé primaire__.
         3. Copiez la valeur __Clé primaire de la chaîne de connexion__.
 
-    * __À partir d’[Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)__, utilisez la commande suivante :
+    * __À partir d’[Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)__ , utilisez la commande suivante :
 
         1. Pour obtenir la valeur de la clé primaire, utilisez la commande suivante :
 

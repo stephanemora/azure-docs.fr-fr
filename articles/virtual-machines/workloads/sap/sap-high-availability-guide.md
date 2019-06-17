@@ -18,19 +18,19 @@ ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: eb7919c6f4ff1b3cf2480333273a98f2cca9a223
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65204933"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver"></a>Haute disponibilité des machines virtuelles Azure pour SAP NetWeaver
 
-[1928533]:https://launchpad.support.sap.com/#/notes/1928533
-[1999351]:https://launchpad.support.sap.com/#/notes/1999351
-[2015553]:https://launchpad.support.sap.com/#/notes/2015553
-[2178632]:https://launchpad.support.sap.com/#/notes/2178632
-[2243692]:https://launchpad.support.sap.com/#/notes/2243692
+[1928533]: https://launchpad.support.sap.com/#/notes/1928533
+[1999351]: https://launchpad.support.sap.com/#/notes/1999351
+[2015553]: https://launchpad.support.sap.com/#/notes/2015553
+[2178632]: https://launchpad.support.sap.com/#/notes/2178632
+[2243692]: https://launchpad.support.sap.com/#/notes/2243692
 
 [sap-installation-guides]:http://service.sap.com/instguides
 
@@ -399,9 +399,9 @@ Les modèles à trois niveaux dans Azure Resource Manager prennent également en
 Voici où vous pouvez obtenir des modèles Azure Resource Manager pour l’exemple de scénario décrit dans cet article :
 
 * [Image de Place de marché Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image)  
-* [Image de Place de marché Azure au moyen de disques gérés](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image-md)  
+* [Image de Place de marché Azure au moyen de la fonctionnalité Disques managés](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image-md)  
 * [Image personnalisée](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-user-image)
-* [Image personnalisée à l’aide de disques gérés](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-user-image-md)
+* [Image personnalisée à l’aide de la fonctionnalité Disques managés](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-user-image-md)
 
 Pour préparer l’infrastructure du modèle d’architecture n°1 :
 
@@ -492,9 +492,9 @@ Vous pouvez utiliser ce modèle Azure Resource Manager pour SAP afin de simplifi
 Voici où vous pouvez obtenir des modèles Azure Resource Manager pour ce scénario de déploiement :
 
 * [Image de Place de marché Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image-converged)  
-* [Image de Place de marché Azure au moyen de disques gérés](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image-converged-md)  
+* [Image de Place de marché Azure au moyen de la fonctionnalité Disques managés](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image-converged-md)  
 * [Image personnalisée](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-user-image-converged)
-* [Image personnalisée à l’aide de disques gérés](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-user-image-converged-md)
+* [Image personnalisée à l’aide de la fonctionnalité Disques managés](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-user-image-converged-md)
 
 
 ### <a name="prepare-the-infrastructure-for-architectural-template-3"></a>Préparer l’infrastructure du modèle d’architecture n°3
@@ -520,7 +520,7 @@ Pour définir le modèle multi-SID ASCS/SCS, dans le [modèle multi-SID ASCS/SCS
   - **Type de pile**. Sélectionnez le type de pile du système SAP. Selon le type de pile, Azure Load Balancer a une adresse IP privée (ABAP ou Java uniquement) ou deux adresses IP privées (ABAP + Java) par système SAP.
   -  **Type de système d’exploitation**. Sélectionnez le système d’exploitation des machines virtuelles.
   -  **Nombre de systèmes SAP**. Sélectionnez le nombre de systèmes SAP que vous souhaitez installer dans ce cluster.
-  -  **Disponibilité du système**. Sélectionnez la haute disponibilité **(HA)**.
+  -  **Disponibilité du système**. Sélectionnez la haute disponibilité **(HA)** .
   -  **Nom d’utilisateur et mot de passe d’administrateur**. Créez un nouvel utilisateur pouvant être utilisé pour ouvrir une session sur la machine.
   -  **Sous-réseau nouveau ou existant**. Déterminez s’il faut créer un réseau virtuel et un sous-réseau, ou utiliser un sous-réseau existant. Si vous disposez déjà d’un réseau virtuel connecté à votre réseau local, sélectionnez **existant**.
   -  **ID du sous-réseau**. Si vous voulez déployer la machine virtuelle dans un réseau virtuel existant où vous avez défini un sous-réseau auquel la machine virtuelle doit être attribuée, nommez l’ID de ce sous-réseau spécifique. L’ID se présente généralement comme suit : /subscriptions/<*id_abonnement*>/resourceGroups/<*nom_groupe_ressources*>/providers/Microsoft.Network/virtualNetworks/<*nom_réseau_virtuel*>/subnets/<*nom_sous-réseau*>
@@ -558,7 +558,7 @@ Pour définir le modèle multi-SID de bases de données, dans le [modèle multi-
   * **HANA**. L’équilibrage de charge utilisera les ports 35015 et 35017. Veillez à installer SAP HANA avec l’instance numéro **50**.
   L’équilibrage de charge utilise le port de sondage 62550.
 - **Taille du système SAP**. Définissez le nombre de SAP fournis par le nouveau système. Si vous ne savez pas combien de SAP sont requis par le système, demandez à votre partenaire technologique SAP ou un intégrateur système.
-- **Disponibilité du système**. Sélectionnez la haute disponibilité **(HA)**.
+- **Disponibilité du système**. Sélectionnez la haute disponibilité **(HA)** .
 - **Nom d’utilisateur et mot de passe d’administrateur**. Créez un nouvel utilisateur pouvant être utilisé pour ouvrir une session sur la machine.
 - **ID du sous-réseau**. Entrez l’ID du sous-réseau que vous avez utilisé lors du déploiement du modèle ASCS/SCS ou l’ID du sous-réseau créé dans le cadre du déploiement du modèle ASCS/SCS.
 
@@ -571,7 +571,7 @@ Pour définir le modèle multi-SID des serveurs d’application, dans le [modèl
   -  **ID du système SAP**. Entrez l’ID du système SAP que vous souhaitez installer. Cet ID sera utilisé comme préfixe pour les ressources déployées.
   -  **Type de système d’exploitation**. Sélectionnez le système d’exploitation des machines virtuelles.
   -  **Taille du système SAP**. Le nombre de SAP fournis par le nouveau système. Si vous ne savez pas combien de SAP sont requis par le système, demandez à votre partenaire technologique SAP ou un intégrateur système.
-  -  **Disponibilité du système**. Sélectionnez la haute disponibilité **(HA)**.
+  -  **Disponibilité du système**. Sélectionnez la haute disponibilité **(HA)** .
   -  **Nom d’utilisateur et mot de passe d’administrateur**. Créez un nouvel utilisateur pouvant être utilisé pour ouvrir une session sur la machine.
   -  **ID du sous-réseau**. Entrez l’ID du sous-réseau que vous avez utilisé lors du déploiement du modèle ASCS/SCS ou l’ID du sous-réseau créé dans le cadre du déploiement du modèle ASCS/SCS.
 
@@ -901,7 +901,7 @@ La configuration d’un témoin de partage de fichiers de cluster implique les t
 
    _**Figure 30 :** Attribuer les autorisations sur le partage pour l’objet nom de cluster_
 
-   Assurez-vous que les autorisations incluent la possibilité de modifier des données du partage pour l’objet nom de cluster (dans notre exemple, **pr1-ascs-vir$**).
+   Assurez-vous que les autorisations incluent la possibilité de modifier des données du partage pour l’objet nom de cluster (dans notre exemple, **pr1-ascs-vir$** ).
 
 3. Pour ajouter l’objet nom de cluster à la liste, sélectionnez **Ajouter**. Modifiez le filtre de manière à rechercher les objets ordinateurs, en plus de ceux indiqués dans la figure 31.
 
@@ -1133,7 +1133,7 @@ L’installation de SAP avec une instance ASCS/SCS à haute disponibilité impli
 1. Dans le Gestionnaire DNS Windows, créez une entrée DNS pour le nom d’hôte virtuel de l’instance ASC/SCS.
 
    > [!IMPORTANT]
-   > L’adresse IP que vous affectez au nom d’hôte virtuel de l’instance ASC/SCS doit être identique à celle que vous avez affectée à l’équilibrage de charge Azure Load Balancer (**<*SID*>-lb-ascs**).  
+   > L’adresse IP que vous affectez au nom d’hôte virtuel de l’instance ASC/SCS doit être identique à celle que vous avez affectée à l’équilibrage de charge Azure Load Balancer ( **<*SID*>-lb-ascs**).  
    >
    >
 
@@ -1269,7 +1269,7 @@ Pour ajouter un port de sondage :
    }
    ```
 
-   Après avoir mis en ligne le rôle de cluster **SAP <*SID*>**, vérifiez que **ProbePort** est défini sur la nouvelle valeur.
+   Après avoir mis en ligne le rôle de cluster **SAP <*SID*>** , vérifiez que **ProbePort** est défini sur la nouvelle valeur.
 
    ```powershell
    $SAPSID = "PR1"     # SAP <SID>
@@ -1335,7 +1335,7 @@ Le groupe de clusters **SAP PR1**s’exécute sur le nœud de cluster A, par exe
 
 _**Figure 61 :** Gestionnaire du cluster de basculement : Le groupe de cluster SAP <*SID*> s’exécute sur le nœud de cluster A_
 
-Dans l’outil de configuration et de gestion de SIOS DataKeeper, vous pouvez constater que les données du disque partagé sont répliquées de manière synchrone à partir du lecteur du volume source S sur le nœud de cluster A vers le lecteur du volume cible S sur le nœud de cluster B. Par exemple, il est répliqué de **pr1-ascs-0 [10.0.0.40]** vers **pr1-ascs-1 [10.0.0.41]**.
+Dans l’outil de configuration et de gestion de SIOS DataKeeper, vous pouvez constater que les données du disque partagé sont répliquées de manière synchrone à partir du lecteur du volume source S sur le nœud de cluster A vers le lecteur du volume cible S sur le nœud de cluster B. Par exemple, il est répliqué de **pr1-ascs-0 [10.0.0.40]** vers **pr1-ascs-1 [10.0.0.41]** .
 
 ![Figure 62 : Dans SIOS DataKeeper, répliquer le volume local du nœud de cluster A sur le nœud de cluster B][sap-ha-guide-figure-5001]
 
@@ -1364,7 +1364,7 @@ _**Figure 62 :** Dans SIOS DataKeeper, répliquer le volume local du nœud de 
 
    _**Figure 63** : Dans le Gestionnaire du cluster de basculement, le groupe de cluster SAP <*SID*> s’exécute sur le nœud de cluster B_
 
-   Le disque partagé est maintenant monté sur le nœud de cluster B. SIOS DataKeeper réplique les données du lecteur du volume source S sur le nœud de cluster B vers le lecteur du volume cible sur le nœud de cluster A. Par exemple, il est répliqué de **pr1-ascs-1 [10.0.0.41]** vers **pr1-ascs-0 [10.0.0.40]**.
+   Le disque partagé est maintenant monté sur le nœud de cluster B. SIOS DataKeeper réplique les données du lecteur du volume source S sur le nœud de cluster B vers le lecteur du volume cible sur le nœud de cluster A. Par exemple, il est répliqué de **pr1-ascs-1 [10.0.0.41]** vers **pr1-ascs-0 [10.0.0.40]** .
 
    ![Figure 64 : SIOS DataKeeper réplique le volume local du nœud de cluster B sur le nœud de cluster A][sap-ha-guide-figure-5003]
 

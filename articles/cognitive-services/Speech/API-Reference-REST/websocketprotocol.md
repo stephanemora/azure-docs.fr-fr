@@ -12,10 +12,10 @@ ms.date: 09/18/2018
 ms.author: zhouwang
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: d6601f57d87b518b2061df64174818432b822755
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60515318"
 ---
 # <a name="bing-speech-websocket-protocol"></a>Protocole WebSocket pour la reconnaissance vocale Bing
@@ -69,7 +69,7 @@ L’en-tête *Authorization* doit contenir un jeton d’accès JWT (JSON Web Tok
 
 Pour plus d’informations sur la façon de s’abonner et d’obtenir des clés API permettant de récupérer des jetons d’accès JWT valides, consultez la page [Abonnement à Cognitive Services](https://azure.microsoft.com/try/cognitive-services/).
 
-La clé API est transmise au service de jetons. Par exemple : 
+La clé API est transmise au service de jetons. Par exemple :
 
 ``` HTTP
 POST https://api.cognitive.microsoft.com/sts/v1.0/issueToken
@@ -82,7 +82,7 @@ Les informations d’en-tête suivantes sont requises pour l’accès au moyen d
 |----|----|----|
 | Ocp-Apim-Subscription-Key | ASCII | Votre clé d’abonnement |
 
-Le service de jetons renvoie le jeton d’accès JWT sous la forme `text/plain`. Ensuite, le jeton JWT est passé en tant que `Base64 access_token` au processus de négociation sous la forme d’un en-tête *Authorization* préfixé avec la chaîne `Bearer`. Par exemple : 
+Le service de jetons renvoie le jeton d’accès JWT sous la forme `text/plain`. Ensuite, le jeton JWT est passé en tant que `Base64 access_token` au processus de négociation sous la forme d’un en-tête *Authorization* préfixé avec la chaîne `Bearer`. Par exemple :
 
 `Authorization: Bearer [Base64 access_token]`
 
@@ -174,7 +174,7 @@ Les clients *doivent* envoyer un message `speech.config` dès qu’ils ont étab
 
 | Champ | Description |
 |----|----|
-| Encodage des messages WebSocket | Text |
+| Encodage des messages WebSocket | Texte |
 | body | Charge utile sous la forme d’une structure JSON |
 
 #### <a name="required-message-headers"></a>En-têtes de message requis
@@ -307,7 +307,7 @@ Les clients doivent accuser réception de la fin d’un tour en envoyant un mess
 
 | Champ | Description |
 | ------------- | ---------------- |
-| Encodage des messages WebSocket | Text |
+| Encodage des messages WebSocket | Texte |
 | path | `telemetry` |
 | X-Timestamp | Horodatage de l’horloge UTC cliente au format ISO 8601 |
 | Content-Type | `application/json` |
@@ -329,7 +329,7 @@ Le message `speech.startDetected` indique que le service Speech a détecté un �
 
 | Champ | Description |
 | ------------- | ---------------- |
-| Encodage des messages WebSocket | Text |
+| Encodage des messages WebSocket | Texte |
 | path | `speech.startDetected` |
 | Content-Type | application/json; charset=utf-8 |
 | body | Structure JSON qui contient des informations sur les conditions dans lesquelles le début de l’énoncé a été détecté. Le champ *Offset* de cette structure spécifie le décalage (en unités de 100 nanosecondes) avec lequel l’énoncé a été détecté par rapport au début du flux audio. |
@@ -354,7 +354,7 @@ Pendant la reconnaissance vocale, le service Speech génère régulièrement des
 
 | Champ | Description |
 | ------------- | ---------------- |
-| Encodage des messages WebSocket | Text |
+| Encodage des messages WebSocket | Texte |
 | path | `speech.hypothesis` |
 | X-RequestId | UUID au format « sans tirets » |
 | Content-Type | application/json |
@@ -386,7 +386,7 @@ Quand le service Speech détermine qu’il possède suffisamment d’information
 
 | Champ | Description |
 | ------------- | ---------------- |
-| Encodage des messages WebSocket | Text |
+| Encodage des messages WebSocket | Texte |
 | path | `speech.phrase` |
 | Content-Type | application/json |
 | body | Structure JSON de l’expression de reconnaissance vocale |
@@ -414,7 +414,7 @@ Le message `speech.endDetected` spécifie que l’application cliente doit arrê
 
 | Champ | Description |
 | ------------- | ---------------- |
-| Encodage des messages WebSocket | Text |
+| Encodage des messages WebSocket | Texte |
 | path | `speech.endDetected` |
 | body | Structure JSON qui contient le décalage avec lequel la fin de l’énoncé a été détectée. Le décalage est représenté en unités de 100 nanosecondes par rapport au début du contenu audio utilisé pour la reconnaissance. |
 | Content-Type | application/json; charset=utf-8 |
@@ -439,7 +439,7 @@ Le message `turn.start` signale le début d’un tour du point de vue du service
 
 | Champ | Description |
 | ------------- | ---------------- |
-| Encodage des messages WebSocket | Text |
+| Encodage des messages WebSocket | Texte |
 | path | `turn.start` |
 | Content-Type | application/json; charset=utf-8 |
 | body | Structure JSON |
@@ -466,7 +466,7 @@ Le message `turn.end` signale la fin d’un tour du point de vue du service. Le 
 
 | Champ | Description |
 | ------------- | ---------------- |
-| Encodage des messages WebSocket | Text |
+| Encodage des messages WebSocket | Texte |
 | path | `turn.end` |
 | body | Aucun |
 
@@ -514,7 +514,7 @@ La métrique `Connection` spécifie des détails sur les tentatives de connexion
 | Terminer | Heure à laquelle le client a reçu la notification selon laquelle la connexion a été établie ou, en cas d’erreur, heure de son rejet, refus ou échec | Obligatoire |
 | Error | Description de l’erreur qui s’est produite, le cas échéant. Si la connexion a réussi, les clients doivent omettre ce champ. La longueur maximale de ce champ est de 50 caractères. | Obligatoire pour les cas d’erreur, omis sinon |
 
-La description de l’erreur ne doit pas dépasser 50 caractères et doit idéalement être une des valeurs répertoriées dans le tableau suivant. Si la condition d’erreur ne correspond pas à une des valeurs suivantes, les clients peuvent utiliser une description succincte de la condition d’erreur en recourant à la [technique du camel case](https://en.wikipedia.org/wiki/Camel_case) sans espace blanc. L’envoi d’un message de *télémétrie* supposant une connexion au service, seules les conditions d’erreur passagères ou temporaires peuvent être signalées dans ce message.** Les conditions d’erreur qui empêchent *définitivement* un client d’établir une connexion au service l’empêche d’envoyer un message au service, y compris les messages de *télémétrie*.
+La description de l’erreur ne doit pas dépasser 50 caractères et doit idéalement être une des valeurs répertoriées dans le tableau suivant. Si la condition d’erreur ne correspond pas à une des valeurs suivantes, les clients peuvent utiliser une description succincte de la condition d’erreur en recourant à la [technique du camel case](https://en.wikipedia.org/wiki/Camel_case) sans espace blanc. L’envoi d’un message de *télémétrie* supposant une connexion au service, seules les conditions d’erreur passagères ou temporaires peuvent être signalées dans ce message. Les conditions d’erreur qui empêchent *définitivement* un client d’établir une connexion au service l’empêche d’envoyer un message au service, y compris les messages de *télémétrie*.
 
 | Error | Usage |
 | ----- | ----- |
@@ -637,7 +637,7 @@ Si le service Speech détecte des violations de protocole émanant d’un client
 
 #### <a name="incorrect-message-format"></a>Format de message incorrect
 
-Si un client envoie au service un message texte ou binaire qui n’est pas encodé au format approprié indiqué dans cette spécification, le service ferme la connexion avec un code d’état *1007 (données de charge utile non valides)*.
+Si un client envoie au service un message texte ou binaire qui n’est pas encodé au format approprié indiqué dans cette spécification, le service ferme la connexion avec un code d’état *1007 (données de charge utile non valides)* .
 
 Le service retourne ce code d’état pour diverses raisons, comme indiqué dans les exemples suivants :
 
@@ -655,19 +655,19 @@ Le service retourne ce code d’état pour diverses raisons, comme indiqué dans
 
 #### <a name="missing-or-empty-headers"></a>En-têtes manquants ou vides
 
-Si un client envoie un message qui n’a pas les en-têtes requis *X-RequestId* ou *Path*, le service ferme la connexion avec un code d’état *1002 (erreur de protocole)*. Le message est « En-tête manquant/vide. {nom de l’en-tête}. »
+Si un client envoie un message qui n’a pas les en-têtes requis *X-RequestId* ou *Path*, le service ferme la connexion avec un code d’état *1002 (erreur de protocole)* . Le message est « En-tête manquant/vide. {nom de l’en-tête}. »
 
 #### <a name="requestid-values"></a>Valeurs d’identificateur de demande
 
-Si un client envoie un message qui spécifie un en-tête *X-RequestId* avec un format incorrect, le service ferme la connexion et retourne un état *1002 (erreur de protocole)*. Le message est « Demande non valide. La valeur de l’en-tête X-RequestId n’a pas été spécifiée dans un format d’UUID dépourvu de tirets. »
+Si un client envoie un message qui spécifie un en-tête *X-RequestId* avec un format incorrect, le service ferme la connexion et retourne un état *1002 (erreur de protocole)* . Le message est « Demande non valide. La valeur de l’en-tête X-RequestId n’a pas été spécifiée dans un format d’UUID dépourvu de tirets. »
 
 #### <a name="audio-encoding-errors"></a>Erreurs d’encodage audio
 
-Si un client envoie un bloc audio qui lance un tour et que l’encodage ou le format audio n’est pas conforme à la spécification requise, le service ferme la connexion et retourne un code d’état *1007 (données de charge utile non valides)*. Le message indique la source de l’erreur d’encodage du format.
+Si un client envoie un bloc audio qui lance un tour et que l’encodage ou le format audio n’est pas conforme à la spécification requise, le service ferme la connexion et retourne un code d’état *1007 (données de charge utile non valides)* . Le message indique la source de l’erreur d’encodage du format.
 
 #### <a name="requestid-reuse"></a>Réutilisation de l’identificateur de demande
 
-Après la fin d’un tour, si un client envoie un message qui réutilise l’identificateur de demande associé à ce tour, le service ferme la connexion et retourne un code d’état *1002 (erreur de protocole)*. Le message est « Demande non valide. La réutilisation des identificateurs de demande n’est pas autorisée. »
+Après la fin d’un tour, si un client envoie un message qui réutilise l’identificateur de demande associé à ce tour, le service ferme la connexion et retourne un code d’état *1002 (erreur de protocole)* . Le message est « Demande non valide. La réutilisation des identificateurs de demande n’est pas autorisée. »
 
 ## <a name="connection-failure-telemetry"></a>Données de télémétrie sur les échecs de connexion
 

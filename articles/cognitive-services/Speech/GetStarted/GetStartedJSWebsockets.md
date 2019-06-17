@@ -12,10 +12,10 @@ ms.date: 09/18/2018
 ms.author: zhouwang
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 17901ad40a48e9ee8d1a8b872b04ad52b75b3a52
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60515211"
 ---
 # <a name="get-started-with-the-speech-recognition-api-in-javascript"></a>Bien démarrer avec l’API Reconnaissance vocale en JavaScript
@@ -24,7 +24,7 @@ ms.locfileid: "60515211"
 
 Vous pouvez développer des applications qui convertissent du contenu vocal en texte à l’aide de l’API Reconnaissance vocale. La bibliothèque cliente JavaScript utilise le [protocole WebSocket du service Speech](../API-Reference-REST/websocketprotocol.md), qui vous permet de communiquer et de recevoir un texte transcrit simultanément. Cet article vous aide à commencer avec l’API Reconnaissance vocale en JavaScript.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 ### <a name="subscribe-to-the-speech-recognition-api-and-get-a-free-trial-subscription-key"></a>S’abonner à l’API Reconnaissance vocale et obtenir une clé d’abonnement d’essai
 

@@ -16,10 +16,10 @@ ms.date: 04/19/2018
 ms.author: mahender
 ms.custom: seodec18
 ms.openlocfilehash: 51a2ac93fd2d863855c820ba147418c5397c2a89
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60851537"
 ---
 # <a name="how-to-configure-your-app-service-application-to-use-twitter-login"></a>Comment configurer votre application App Service de manière à utiliser la connexion via Twitter
@@ -35,7 +35,7 @@ Pour effectuer la procédure décrite dans cette rubrique, vous devez disposer d
 3. Entrez le **Nom** et une **Description** pour votre nouvelle application. Collez l’**URL** de votre application en guise de **Site web**. Ensuite, pour l’**URL de rappel**, collez l’**URL de rappel** que vous avez copiée précédemment. Il s’agit de la passerelle de votre application Mobile App suivie du chemin */.auth/login/twitter/callback*. Par exemple, `https://contoso.azurewebsites.net/.auth/login/twitter/callback`. Assurez-vous d'utiliser le schéma HTTPS.
 4. Au bas de la page, lisez et acceptez les termes du contrat. Ensuite, cliquez sur **Create your Twitter application**. Cette opération inscrit l'application et affiche les détails de la demande.
 5. Cliquez sur l’onglet **Paramètres**, activez l’option **Autoriser la connexion à Twitter via cette application**, puis cliquez sur **Mettre à jour les paramètres**.
-6. Sélectionnez l’onglet **Keys and Access Tokens** . Prenez note des valeurs de Clé de consommateur (clé API) et de **Secret de consommateur (clé secrète API)**.
+6. Sélectionnez l’onglet **Keys and Access Tokens** . Prenez note des valeurs de **Clé de consommateur (clé API)** et de **Secret de consommateur (clé secrète API)** .
    
    > [!NOTE]
    > La clé secrète consommateur est une information d'identification de sécurité importante. Ne partagez pas cette clé secrète avec quiconque et ne la distribuez pas avec votre application.

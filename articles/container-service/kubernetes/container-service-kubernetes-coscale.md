@@ -10,10 +10,10 @@ ms.date: 05/22/2017
 ms.author: saudas
 ms.custom: mvc
 ms.openlocfilehash: 895346447e33926dcaa5ca09302f35c9d6636ed9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60713039"
 ---
 # <a name="deprecated-monitor-an-azure-container-service-kubernetes-cluster-with-coscale"></a>(DÉCONSEILLÉ) Surveiller un cluster Kubernetes Azure Container Service avec CoScale
@@ -32,7 +32,7 @@ CoScale est une plateforme de surveillance qui collecte les mesures et les évé
 Comme indiqué dans cet article, vous pouvez installer des agents sur un cluster Kubernetes pour exécuter CoScale en tant que solution SaaS. Si vous souhaitez conserver vos données sur site, CoScale est également disponible pour une installation locale.
 
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Vous devez d’abord [créer un compte CoScale](https://web.archive.org/web/20170507123133/ https://www.coscale.com/free-trial).
 

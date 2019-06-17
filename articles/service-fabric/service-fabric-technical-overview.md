@@ -15,19 +15,19 @@ ms.workload: NA
 ms.date: 09/17/2018
 ms.author: masnider
 ms.openlocfilehash: 085d5e560eec090ab76c263f8f93140786f2d734
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60543204"
 ---
 # <a name="service-fabric-terminology-overview"></a>Présentation de la terminologie Service Fabric
 Azure Service Fabric est une plateforme de systèmes distribués qui permet d’empaqueter, de déployer et de gérer facilement des microservices scalables et fiables.  Vous pouvez [héberger des clusters Service Fabric n'importe où](service-fabric-deploy-anywhere.md) : dans Azure, dans un centre de données local ou auprès de n'importe quel fournisseur de services cloud.  Service Fabric est l’orchestrateur qui alimente [Azure Service Fabric Mesh](/azure/service-fabric-mesh). Vous pouvez utiliser n’importe quelle infrastructure pour écrire vos services, et choisir l’emplacement où exécuter l’application parmi plusieurs options d’environnement. Cet article décrit en détail la terminologie utilisée dans Service Fabric pour que vous compreniez les termes utilisés dans la documentation.
 
 ## <a name="infrastructure-concepts"></a>Concepts d’infrastructure
-**Cluster**: groupe de machines virtuelles ou physiques connectées au réseau et au sein duquel vos microservices sont déployés et gérés.  Les clusters peuvent être mis à l’échelle pour des milliers de machines.
+**Cluster** : groupe de machines virtuelles ou physiques connectées au réseau et au sein duquel vos microservices sont déployés et gérés.  Les clusters peuvent être mis à l’échelle pour des milliers de machines.
 
-**Nœud** : Une machine ou une machine virtuelle faisant partie d’un cluster est appelée un *nœud*. Un nom (chaîne) est affecté à chaque nœud. Les nœuds présentent des caractéristiques, telles que des propriétés de placement. Chaque machine ou machine virtuelle a un service Windows à démarrage automatique, `FabricHost.exe`, qui commence à s’exécuter dès le démarrage, puis démarre deux exécutables : `Fabric.exe` et `FabricGateway.exe`. Ces deux exécutables constituent le nœud. Pour les scénarios de test, vous pouvez héberger plusieurs nœuds sur une seule et même machine ou sur une seule et même machine virtuelle en exécutant plusieurs instances de `Fabric.exe` et `FabricGateway.exe`.
+**Nœud** : machine ou machine virtuelle faisant partie d'un cluster. Un nom (chaîne) est affecté à chaque nœud. Les nœuds présentent des caractéristiques, telles que des propriétés de placement. Chaque machine ou machine virtuelle a un service Windows à démarrage automatique, `FabricHost.exe`, qui commence à s’exécuter dès le démarrage, puis démarre deux exécutables : `Fabric.exe` et `FabricGateway.exe`. Ces deux exécutables constituent le nœud. Pour les scénarios de test, vous pouvez héberger plusieurs nœuds sur une seule et même machine ou sur une seule et même machine virtuelle en exécutant plusieurs instances de `Fabric.exe` et `FabricGateway.exe`.
 
 ## <a name="application-and-service-concepts"></a>Concepts de l’application et du service
 
@@ -41,7 +41,7 @@ Azure Service Fabric est une plateforme de systèmes distribués qui permet d’
 
 **Service** : un service dans une application représente un microservice et exécute une fonction complète et autonome. Chaque service se compose d’un ou plusieurs packages de code qui décrivent tout ce qui est nécessaire pour exécuter l’image conteneur associée au package de code.  Le nombre de services dans une application peut être augmenté ou diminué.
 
-**Réseau** : une ressource réseau crée un réseau privé pour vos applications et est indépendante des applications ou services qui peuvent y faire référence. Plusieurs services de différentes applications peuvent faire partie d’un même réseau. Les réseaux sont des ressources pouvant être déployées qui sont référencées par les applications.
+**Réseau** : une ressource réseau crée un réseau privé pour vos applications et est indépendante des applications ou services qui peuvent y faire référence. Plusieurs services de différentes applications peuvent faire partie d’un même réseau. Les réseaux sont des ressources pouvant être déployées qui sont référencées par les applications.
 
 **Package de code** : les packages de code décrivent tout ce qui est nécessaire pour exécuter l’image conteneur associée au package de code, notamment :
 

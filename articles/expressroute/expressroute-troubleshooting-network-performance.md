@@ -9,14 +9,14 @@ ms.date: 12/20/2017
 ms.author: jonor
 ms.custom: seodec18
 ms.openlocfilehash: 9ec310ffaa9d2bb297abde9341bf7b6c2dc763b4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60883256"
 ---
 # <a name="troubleshooting-network-performance"></a>Résolution des problèmes de performances réseau
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 Azure met à votre disposition des moyens stables et rapides pour vous connecter à Azure à partir de votre réseau local. Les méthodes telles que le VPN de site à site et ExpressRoute sont couramment utilisées par les clients de grande et petite tailles pour exécuter leurs activités dans Azure. Mais que se passe-t-il quand les performances ne sont pas à la hauteur de vos attentes ou expériences passées ? Ce document peut vous aider à standardiser la façon de tester et de planifier votre environnement.
 
 Ce document vous montre comment tester la latence réseau et la bande passante entre deux hôtes de façon aisée et cohérente. Il fournit également des conseils sur la façon d’examiner le réseau Azure et d’isoler les points problématiques. Le script PowerShell et les outils présentés nécessitent deux hôtes sur le réseau (à chaque extrémité de la liaison testée). L’un des hôtes doit être doté de Windows Server ou Windows Desktop, l’autre peut être doté de Windows ou de Linux. 
@@ -160,7 +160,7 @@ Configuration des tests :
  - Un circuit ExpressRoute Premium 10 Gbits/s à l’emplacement identifié avec l’appairage privé activé.
  - Un réseau virtuel Azure doté d’une passerelle UltraPerformance dans la région spécifiée.
  - Une machine virtuelle DS5v2 exécutant Windows Server 2016 sur le réseau virtuel. La machine virtuelle n’a pas été jointe à un domaine et a été générée à partir de l’image Azure par défaut (sans optimisation ou personnalisation) à l’aide de la boîte à outils AzureCT installée.
- - Tous les tests ont été effectués à l’aide de la commande Get-LinkPerformance de la boîte à outils AzureCT, à raison d’un test de charge de 5 minutes pour chacune des six séries de tests. Par exemple : 
+ - Tous les tests ont été effectués à l’aide de la commande Get-LinkPerformance de la boîte à outils AzureCT, à raison d’un test de charge de 5 minutes pour chacune des six séries de tests. Par exemple :
 
     ```powershell
     Get-LinkPerformance -RemoteHost 10.0.0.1 -TestSeconds 300
@@ -181,19 +181,19 @@ Configuration des tests :
 |-|-|-|-|-|-|
 |ExpressRoute<br/>Lieu|Azure<br/>Région|Distance<br/>estimée (km)|Latence|1 Session<br/>Bande passante|Maximale<br/>Bande passante|
 | Seattle | USA Ouest 2        |    191 km |   5 ms | 262,0 Mbits/s |  3,74 Gbits/s |
-| Seattle | USA Ouest          |  1.094 km |  18 ms |  82,3 Mbits/s |  3,70 Gbits/s |
-| Seattle | USA Centre       |  2.357 km |  40 ms |  38,8 Mbits/s |  2,55 Gbits/s |
-| Seattle | USA Centre Sud |  2.877 km |  51 ms |  30,6 Mbits/s |  2,49 Gbits/s |
-| Seattle | USA Centre Nord |  2.792 km |  55 ms |  27,7 Mbits/s |  2,19 Gbits/s |
-| Seattle | USA Est 2        |  3.769 km |  73 ms |  21,3 Mbits/s |  1,79 Gbit/s |
-| Seattle | USA Est          |  3.699 km |  74 ms |  21,1 Mbits/s |  1,78 Gbit/s |
-| Seattle | Japon Est       |  7.705 km | 106 ms |  14,6 Mbits/s |  1,22 Gbit/s |
-| Seattle | Sud du Royaume-Uni         |  7.708 km | 146 ms |  10,6 Mbits/s |   896 Mbits/s |
-| Seattle | Europe Ouest      |  7.834 km | 153 ms |  10,2 Mbits/s |   761 Mbits/s |
-| Seattle | Australie Est   | 12.484 km | 165 ms |   9,4 Mbits/s |   794 Mbits/s |
-| Seattle | Asie Sud-Est   | 12.989 km | 170 ms |   9,2 Mbits/s |   756 Mbits/s |
-| Seattle | Brésil Sud *   | 10.930 km | 189 ms |   8,2 Mbits/s |   699 Mbits/s |
-| Seattle | Inde Sud      | 12.918 km | 202 ms |   7,7 Mbits/s |   634 Mbits/s |
+| Seattle | USA Ouest          |  1\.094 km |  18 ms |  82,3 Mbits/s |  3,70 Gbits/s |
+| Seattle | USA Centre       |  2\.357 km |  40 ms |  38,8 Mbits/s |  2,55 Gbits/s |
+| Seattle | USA Centre Sud |  2\.877 km |  51 ms |  30,6 Mbits/s |  2,49 Gbits/s |
+| Seattle | USA Centre Nord |  2\.792 km |  55 ms |  27,7 Mbits/s |  2,19 Gbits/s |
+| Seattle | USA Est 2        |  3\.769 km |  73 ms |  21,3 Mbits/s |  1,79 Gbit/s |
+| Seattle | USA Est          |  3\.699 km |  74 ms |  21,1 Mbits/s |  1,78 Gbit/s |
+| Seattle | Japon Est       |  7\.705 km | 106 ms |  14,6 Mbits/s |  1,22 Gbit/s |
+| Seattle | Sud du Royaume-Uni         |  7\.708 km | 146 ms |  10,6 Mbits/s |   896 Mbits/s |
+| Seattle | Europe Ouest      |  7\.834 km | 153 ms |  10,2 Mbits/s |   761 Mbits/s |
+| Seattle | Australie Est   | 12\.484 km | 165 ms |   9,4 Mbits/s |   794 Mbits/s |
+| Seattle | Asie Sud-Est   | 12\.989 km | 170 ms |   9,2 Mbits/s |   756 Mbits/s |
+| Seattle | Brésil Sud *   | 10\.930 km | 189 ms |   8,2 Mbits/s |   699 Mbits/s |
+| Seattle | Inde Sud      | 12\.918 km | 202 ms |   7,7 Mbits/s |   634 Mbits/s |
 
 \* La latence au Brésil est un bon exemple où la distance à vol d’oiseau diffère considérablement de la distance en fibre optique. Alors que la latence devrait normalement se situer aux alentours de 160 ms, elle s’élève à 189 ms. Cette différence par rapport à mes attentes pourrait indiquer un problème réseau quelque part, mais très probablement que la fibre optique en direction du Brésil n’emprunte pas une ligne droite, ce qui se traduit par un supplément de 1 000 km environ sur l’itinéraire entre Seattle et le Brésil.
 

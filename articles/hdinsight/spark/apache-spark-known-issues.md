@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: hrasheed
 ms.openlocfilehash: 51a0ee6f2d928d79e60ca9976d7651c70867a41f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64717594"
 ---
 # <a name="known-issues-for-apache-spark-cluster-on-hdinsight"></a>Problèmes connus du cluster Apache Spark sur Azure HDInsight
@@ -26,7 +26,7 @@ Lorsqu’[Apache Livy](https://livy.incubator.apache.org/) est redémarré (à p
 
 Pour contourner ce problème, suivez la procédure ci-dessous :
 
-1. SSH dans le nœud principal. Pour en savoir plus, voir [Utilisation de SSH avec HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
+1. SSH dans le nœud principal. Pour plus d’informations, consultez [Utiliser SSH avec HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 2. Exécutez la commande suivante pour rechercher l’ID d’application des tâches interactives démarrées via Livy. 
    
@@ -67,7 +67,7 @@ Les clusters HDInsight Spark ne prennent pas en charge le connecteur Spark-Phoen
 
 **Atténuation :**
 
-Vous devez plutôt utiliser le connecteur Spark-HBase. Pour savoir comment procéder, consultez [How to use Spark-HBase connector](https://web.archive.org/web/20190112153146/https://blogs.msdn.microsoft.com/azuredatalake/2016/07/25/hdinsight-how-to-use-spark-hbase-connector/).
+Vous devez plutôt utiliser le connecteur Spark-HBase. Pour savoir comment procéder, consultez [How to use Spark-HBase connector](https://web.archive.org/web/20190112153146/ https://blogs.msdn.microsoft.com/azuredatalake/2016/07/25/hdinsight-how-to-use-spark-hbase-connector/).
 
 ## <a name="issues-related-to-jupyter-notebooks"></a>Problèmes liés aux notebooks Jupyter
 Voici certains problèmes connus liés aux notebooks Jupyter.
@@ -80,7 +80,7 @@ Vous pouvez obtenir une erreur **`Error loading notebook`** lorsque vous tentez 
 
 **Atténuation :**
 
-Si vous obtenez cette erreur, cela ne signifie pas que vos données sont endommagées ou perdues.  Vos blocs-notes sont toujours sur le disque, sous `/var/lib/jupyter`et vous pouvez exécuter SSH dans le cluster pour y accéder. Pour en savoir plus, voir [Utilisation de SSH avec HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
+Si vous obtenez cette erreur, cela ne signifie pas que vos données sont endommagées ou perdues.  Vos blocs-notes sont toujours sur le disque, sous `/var/lib/jupyter`et vous pouvez exécuter SSH dans le cluster pour y accéder. Pour plus d’informations, consultez [Utiliser SSH avec HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 Une fois connecté au cluster à l’aide de SSH, vous pouvez copier les blocs-notes depuis le cluster vers votre ordinateur local (à l’aide de SCP ou WinSCP) pour en faire une sauvegarde afin d’éviter la perte de toutes les données importantes dans le bloc-notes. Vous pouvez ensuite créer un tunnel SSH dans votre nœud principal sur le port 8001, afin d’accéder à Jupyter sans avoir à passer par la passerelle.  À partir de là, vous pouvez effacer la sortie de votre bloc-notes et l’enregistrer de nouveau pour réduire au maximum la taille du bloc-notes.
 
