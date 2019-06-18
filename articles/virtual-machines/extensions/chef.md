@@ -70,16 +70,16 @@ Le JSON suivant illustre le schéma de l’extension de machine virtuelle Chef. 
 
 | Nom | Valeur/Exemple | Type de données
 | ---- | ---- | ---- 
-| apiVersion | `2017-12-01` | chaîne (date) |
+| apiVersion | `2017-12-01` | string (date) |
 | publisher | `Chef.Bootstrap.WindowsAzure` | chaîne |
-| Type | `LinuxChefClient` (Linux), `ChefClient` (Windows) | chaîne |
-| typeHandlerVersion | `1210.12` | chaîne (double) |
+| type | `LinuxChefClient` (Linux), `ChefClient` (Windows) | chaîne |
+| typeHandlerVersion | `1210.12` | string (double) |
 
 ### <a name="settings"></a>Paramètres
 
 | Nom | Valeur/Exemple | Type de données | Requis ?
 | ---- | ---- | ---- | ----
-| settings/bootstrap_options/chef_server_url | `https://api.chef.io/organizations/myorg` | chaîne (url) | O |
+| settings/bootstrap_options/chef_server_url | `https://api.chef.io/organizations/myorg` | string (url) | O |
 | settings/bootstrap_options/validation_client_name | `myorg-validator` | chaîne | O |
 | settings/runlist | `recipe[mycookbook::default]` | chaîne | O |
 
