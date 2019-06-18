@@ -105,7 +105,7 @@ Pour configurer l’authentification unique Azure AD avec Percolate, procédez c
 
     ![Informations d’authentification unique dans Domaine et URL Percolate](common/preintegrated.png)
 
-5. Pour configurer l’application en mode lancée par le fournisseur de services, sélectionnez **Définir des URL supplémentaires** puis, dans la zone **URL de connexion**, entrez **https://percolate.com/app/login** :
+5. Pour configurer l’application en mode lancée par le fournisseur de services, sélectionnez **Définir des URL supplémentaires** puis, dans la zone **URL de connexion**, entrez **https://percolate.com/app/login** :
 
    ![Informations d’authentification unique dans Domaine et URL Percolate](common/metadata-upload-additional-signon.png)
 6. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML** , sélectionnez l’icône **Copier** pour copier l’**URL des métadonnées de fédération d’application**. Enregistrez cette URL.

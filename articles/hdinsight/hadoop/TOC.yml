@@ -2,23 +2,14 @@
   href: /azure/hdinsight
 - name: Vue d'ensemble
   items:
-    - name: À propos d’Apache Hadoop sur HDInsight
+    - name: "Qu’est-ce qu’Apache Hadoop dans HDInsight\_?"
       href: apache-hadoop-introduction.md
-      maintainContext: true
-    - name: Architecture Apache Hadoop dans HDInsight
-      href: ../hdinsight-hadoop-architecture.md
-      maintainContext: true
-    - name: Composants Apache Hadoop sur HDInsight
-      href: ../hdinsight-component-versioning.md
-      maintainContext: true
-    - name: HDInsight 4.0
-      href: ../hdinsight-version-release.md
       maintainContext: true
 - name: Démarrages rapides
   items:
     - name: "Créer un cluster Apache Hadoop\_- Portail"
       href: apache-hadoop-linux-create-cluster-get-started-portal.md
-    - name: "Créer un cluster Apache Hadoop\_- Modèle Resource Manager"
+    - name: "Créer un cluster Apache Hadoop\_- Modèle"
       displayName: 'resource manager template, arm template, resource manager group'
       href: apache-hadoop-linux-tutorial-get-started.md
 - name: Tutoriels
@@ -45,6 +36,15 @@
       maintainContext: true
 - name: Concepts
   items:
+    - name: HDInsight 4.0
+      href: ../hdinsight-version-release.md
+      maintainContext: true
+    - name: Architecture Apache Hadoop dans HDInsight
+      href: ../hdinsight-hadoop-architecture.md
+      maintainContext: true
+    - name: Composants Apache Hadoop dans HDInsight
+      href: ../hdinsight-component-versioning.md
+      maintainContext: true
     - name: Planification de la capacité des clusters
       href: ../hdinsight-capacity-planning.md
       maintainContext: true
@@ -471,9 +471,6 @@
   items:
     - name: Clusters Windows
       items:
-        - name: Migrer des clusters Windows vers des clusters Linux
-          href: ../hdinsight-migrate-from-windows-to-linux.md
-          maintainContext: true
         - name: Migrer des solutions .NET vers des clusters Linux
           href: ../hdinsight-hadoop-migrate-dotnet-to-linux.md
           maintainContext: true
