@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/31/2019
+ms.date: 06/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0411e1ab76d010eae26142d681dc157a1eb776a8
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: bec4cb17f2d25cd00ef115a78736c95eaf26d95f
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66481935"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66752448"
 ---
 # <a name="tutorial-integrate-otsuka-shokai-with-azure-active-directory"></a>Didacticiel : Intégrer Otsuka Shokai à Azure Active Directory
 
@@ -79,14 +79,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-1. Sur la page **Configurer l’authentification unique avec SAML**, effectuez les étapes suivantes :
-
-    a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://<SUBDOMAIN>.otsuka-shokai.co.jp/S000000100`
-
-    b. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://<SUBDOMAIN>.otsuka-shokai.co.jp/ResponseOffice365`
-
-    > [!NOTE]
-    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur et l’URL de réponse réels. Pour obtenir ces valeurs, contactez l’[équipe du support technique Otsuka Shokai](mailto:Tatsuya.Satoh@otsuka-shokai.co.jp). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
+1. Dans la page **Configurer l’authentification unique avec SAML**, l’application est préconfigurée et les URL nécessaires sont déjà préremplies avec Azure. L’utilisateur doit enregistrer la configuration en cliquant sur le bouton **Enregistrer**.
 
 1. Votre application Otsuka Shokai s’attend à recevoir les assertions SAML dans un format spécifique. Vous devez donc ajouter des mappages d’attributs personnalisés à votre configuration d’attributs de jetons SAML. La capture d’écran suivante montre la liste des attributs par défaut, où  **nameidentifier** est mappé à **user.userprincipalname**. L’application Otsuka Shokai s’attend à ce que  **nameidentifier** soit mappé à  **user.objectid**. Vous devez donc modifier le mappage d’attribut en cliquant sur l’icône  **Modifier** .
 
@@ -139,7 +132,7 @@ Dans cette section, vous allez créer un utilisateur de test appelé B. Simon da
 1. Sélectionnez **Nouvel utilisateur** dans la partie supérieure de l’écran.
 1. Dans les propriétés **Utilisateur**, effectuez les étapes suivantes :
    1. Dans le champ **Nom**, entrez `B. Simon`.  
-   1. Dans le champ **Nom de l’utilisateur**, entrez username@companydomain.extension. Par exemple : `BrittaSimon@contoso.com`.
+   1. Dans le champ **Nom de l’utilisateur**, entrez username@companydomain.extension. Par exemple : `B.Simon@contoso.com`.
    1. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
    1. Cliquez sur **Créer**.
 
@@ -163,7 +156,7 @@ Dans cette section, vous allez autoriser B. Simon à utiliser l’authentificati
 
 ### <a name="create-otsuka-shokai-test-user"></a>Créer un utilisateur de test Otsuka Shokai
 
-Dans cette section, vous créez un utilisateur appelé Britta Simon dans Otsuka Shokai. Contactez l’ [équipe du support technique Otsuka Shokai](mailto:Tatsuya.Satoh@otsuka-shokai.co.jp) pour ajouter les utilisateurs à la plateforme Otsuka Shokai. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
+Dans cette section, vous créez un utilisateur appelé B.Simon dans Otsuka Shokai. Contactez l’ [équipe du support technique Otsuka Shokai](mailto:Tatsuya.Satoh@otsuka-shokai.co.jp) pour ajouter les utilisateurs à la plateforme Otsuka Shokai. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
 ### <a name="test-sso"></a>Tester l’authentification unique (SSO)
 

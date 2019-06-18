@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ae4b57d86461526b285e77aa408373b5d7f5aedf
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 600d6b9f1eb8d8073e1658dd5b8196a3d8137e42
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66513378"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66733713"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>Didacticiel : Configurer la jointure hybride Azure Active Directory pour des domaines fédérés
 
@@ -71,7 +71,7 @@ L’accès des appareils aux ressources Microsoft suivantes depuis le réseau de
 
 À compter de Windows 10 1803, en cas d’échec de la jonction Azure AD hybride instantanée pour un environnement fédéré utilisant AD FS, nous utilisons Azure AD Connect pour synchroniser l’objet ordinateur dans Azure AD, qui sera ensuite utilisé pour terminer l’inscription de l’appareil à une jonction Azure AD hybride. Vérifiez qu’Azure AD Connect a synchronisé les objets ordinateurs des appareils qui deviendront hybrides et joints à Azure AD. Si les objets ordinateurs appartiennent à des unités d’organisation (UO), celles-ci doivent être également configurées du point de vue de la synchronisation dans Azure AD Connect. Pour en savoir plus sur la façon de synchroniser des objets ordinateur à l’aide d’Azure AD Connect, consultez l’article [Configurer le filtrage à l’aide d’Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-configure-filtering#organizational-unitbased-filtering).
 
-Si votre organisation a besoin d’un accès à Internet via un proxy sortant, Microsoft recommande d’[implémenter la détection automatique de proxy web (WPAD)](https://docs.microsoft.com/previous-versions/tn-archive/cc995261(v%3dtechnet.10)) pour permettre aux ordinateurs Windows 10 de s’inscrire dans Azure AD. Si vous rencontrez des problèmes pour configurer et gérer WPAD, accédez à [résolution des problèmes de détection automatique](https://docs.microsoft.com/previous-versions/tn-archive/cc302643(v=technet.10). 
+Si votre organisation a besoin d’un accès à Internet via un proxy sortant, Microsoft recommande d’[implémenter la détection automatique de proxy web (WPAD)](https://docs.microsoft.com/previous-versions/tn-archive/cc995261(v%3dtechnet.10)) pour permettre aux ordinateurs Windows 10 de s’inscrire dans Azure AD. Si vous rencontrez des problèmes pour configurer et gérer WPAD, accédez à la [résolution des problèmes de détection automatique](https://docs.microsoft.com/previous-versions/tn-archive/cc302643(v=technet.10)). 
 
 Si vous n’utilisez pas WPAD et que vous devez configurer les paramètres du proxy sur votre ordinateur, vous pouvez le faire, à compter de Windows 10 1709, en [configurant les paramètres WinHTTP à l’aide d’un objet de stratégie de groupe (GPO)](https://blogs.technet.microsoft.com/netgeeks/2018/06/19/winhttp-proxy-settings-deployed-by-gpo/).
 
@@ -151,7 +151,7 @@ Pour terminer la jonction Azure AD Hybride de vos appareils Windows de bas nivea
 
 Vous devez également activer **Autoriser les mises à jour de la barre d’état via le script** dans la zone Intranet local de l’utilisateur.
 
-### <a name="install-microsoft-workplace-join-for-windows-down-level-computers"></a>Installer Microsoft Workplace Join pour les ordinateurs Windows de bas niveau
+### <a name="install-microsoft-workplace-join-for-windows-down-level-computers"></a>Installer des ordinateurs de bas niveau Workplace Join for Windows
 
 Pour inscrire des ordinateurs Windows de bas niveau, les organisations doivent installer [Microsoft Workplace Join pour les ordinateurs non-Windows 10](https://www.microsoft.com/download/details.aspx?id=53554) à partir du Centre de téléchargement Microsoft.
 
@@ -165,7 +165,7 @@ Pour vérifier l’état de l’inscription d’un appareil dans votre locataire
 
 Lorsque vous utilisez l’applet de commande **Get-MSolDevice** pour vérifier les détails du service :
 
-- Un objet dont l’**id d’appareil** correspond à l’ID présent sur le client Windows doit exister.
+- Un objet dont l’**ID d’appareil** correspond à l’ID défini sur le client Windows doit exister.
 - La valeur de **DeviceTrustType** doit être **Domain Joined**. C’est l’équivalent de l’état **Joint à une version hybride d’Azure AD** dans la page Appareils du portail Azure AD.
 - La valeur de **Enabled** doit être **True** et celle de **DeviceTrustLevel** doit être **Managed** pour les appareils qui sont utilisés dans l’accès conditionnel.
 

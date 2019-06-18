@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: efa653ecf306f5ac5eefaddd61d98e81f919876d
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 6f9daeb5e0de9c53f16efff46e02015acfa7c521
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66513301"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734605"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Didacticiel : Configurer la jointure hybride Azure Active Directory pour des domaines managés
 
@@ -65,7 +65,7 @@ L’accès des appareils aux ressources Microsoft suivantes depuis le réseau de
 - `https://device.login.microsoftonline.com`
 - [https://autologon.microsoftazuread-sso.com](`https://autologon.microsoftazuread-sso.com`) (Si vous utilisez ou prévoyez d’utiliser l’authentification unique fluide)
 
-Si votre organisation a besoin d’un accès à Internet via un proxy sortant, Microsoft recommande d’[implémenter la détection automatique de proxy web (WPAD)](https://docs.microsoft.com/previous-versions/tn-archive/cc995261(v%3dtechnet.10)) pour permettre aux ordinateurs Windows 10 de s’inscrire dans Azure AD. Si vous rencontrez des problèmes pour configurer et gérer WPAD, accédez à [résolution des problèmes de détection automatique](https://docs.microsoft.com/previous-versions/tn-archive/cc302643(v=technet.10). 
+Si votre organisation a besoin d’un accès à Internet via un proxy sortant, Microsoft recommande d’[implémenter la détection automatique de proxy web (WPAD)](https://docs.microsoft.com/previous-versions/tn-archive/cc995261(v%3dtechnet.10)) pour permettre aux ordinateurs Windows 10 de s’inscrire dans Azure AD. Si vous rencontrez des problèmes pour configurer et gérer WPAD, accédez à la [résolution des problèmes de détection automatique](https://docs.microsoft.com/previous-versions/tn-archive/cc302643(v=technet.10)). 
 
 Si vous n’utilisez pas WPAD et que vous devez configurer les paramètres du proxy sur votre ordinateur, vous pouvez le faire, à compter de Windows 10 1709, en [configurant les paramètres WinHTTP à l’aide d’un objet de stratégie de groupe (GPO)](https://blogs.technet.microsoft.com/netgeeks/2018/06/19/winhttp-proxy-settings-deployed-by-gpo/).
 
@@ -144,7 +144,7 @@ Vous devez également activer **Autoriser les mises à jour de la barre d’éta
 
 Pour réussir la jonction Azure AD hybride de vos appareils Windows de bas niveau, dans un domaine managé qui utilise la [synchronisation de hachage de mot de passe (PHS)](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-phs) ou l’[authentification directe (PTA)](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta) comme méthode d’authentification des services cloud Azure AD, vous devez également [configurer l’authentification unique fluide](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso-quick-start#step-2-enable-the-feature).
 
-### <a name="install-microsoft-workplace-join-for-windows-down-level-computers"></a>Installer Microsoft Workplace Join pour les ordinateurs Windows de bas niveau
+### <a name="install-microsoft-workplace-join-for-windows-down-level-computers"></a>Installer des ordinateurs de bas niveau Workplace Join for Windows
 
 Pour inscrire des ordinateurs Windows de bas niveau, les organisations doivent installer [Microsoft Workplace Join pour les ordinateurs non-Windows 10](https://www.microsoft.com/download/details.aspx?id=53554) à partir du Centre de téléchargement Microsoft.
 
@@ -158,7 +158,7 @@ Pour vérifier l’état de l’inscription d’un appareil dans votre locataire
 
 Lorsque vous utilisez l’applet de commande **Get-MSolDevice** pour vérifier les détails du service :
 
-- Un objet dont l’**identité d’appareil** correspond à l’identité définie sur le client Windows doit exister.
+- Un objet dont l’**ID d’appareil** correspond à l’ID défini sur le client Windows doit exister.
 - La valeur de **DeviceTrustType** doit être **Domain Joined**. C’est l’équivalent de l’état **Joint à une version hybride d’Azure AD** dans la page Appareils du portail Azure AD.
 - La valeur de **Enabled** doit être **True** et celle de **DeviceTrustLevel** doit être **Managed** pour les appareils qui sont utilisés dans l’accès conditionnel.
 

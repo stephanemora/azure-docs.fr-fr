@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 01/26/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: fba54fa1d2ca6675b41728b460a07515b05758f8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 921505e7f470d337d9e9e491c6db79930d487eb5
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66169510"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754385"
 ---
 # <a name="tutorial-monitor-and-update-a-linux-virtual-machine-in-azure"></a>Didacticiel : Superviser et mettre à jour une machine virtuelle Linux dans Azure
 
@@ -117,7 +117,7 @@ az vm boot-diagnostics get-boot-log --resource-group myResourceGroupMonitor --na
 Une machine virtuelle Linux a un hôte dédié dans Azure qui interagit avec elle. Les métriques sont automatiquement collectées pour l’hôte et peuvent être visualisées dans le portail Azure comme suit :
 
 1. Dans le portail Azure, sélectionnez **Groupes de ressources**, choisissez **myResourceGroupMonitor** puis sélectionnez **myVM** dans la liste des ressources.
-1. Pour voir comment la machine virtuelle hôte fonctionne, sélectionnez **Métriques** dans la fenêtre de la machine virtuelle, puis sélectionnez une des métriques de l’*[hôte]* sous **Métriques disponibles**.
+1. Pour voir comment la machine virtuelle hôte fonctionne, sélectionnez **Métriques** dans la fenêtre de la machine virtuelle, puis sélectionnez une des métriques de l’ *[hôte]* sous **Métriques disponibles**.
 
     ![Afficher les métriques de l’hôte](./media/tutorial-monitoring/monitor-host-metrics.png)
 
@@ -147,7 +147,7 @@ Vous pouvez créer des alertes en fonction de métriques de performances spécif
 L’exemple suivant crée une alerte pour l’utilisation moyenne de l’UC.
 
 1. Dans le portail Azure, cliquez sur **Groupes de ressources**, sélectionnez **myResourceGroupMonitor** puis sélectionnez **myVM** dans la liste des ressources.
-2. Sélectionnez **Alertes (classique)**, puis choisissez **Ajouter une alerte métrique (classique)** en haut de la fenêtre d’alerte.
+2. Sélectionnez **Alertes (classique)** , puis choisissez **Ajouter une alerte métrique (classique)** en haut de la fenêtre d’alerte.
 3. Spécifiez un **Nom** pour votre alerte, comme *myAlertRule*
 4. Pour déclencher une alerte quand le pourcentage d’UC dépasse 1,0 pendant cinq minutes, laissez toutes les autres valeurs par défaut sélectionnées.
 5. Si vous le souhaitez, cochez la case *Envoyer un e-mail aux propriétaires, aux contributeurs et aux lecteurs* pour envoyer la notification par e-mail. L’action par défaut est de présenter une notification dans le portail.
@@ -201,28 +201,27 @@ Une fois la **gestion des mises à jour** activée, l’écran **Gestion des mis
 
 Pour installer les mises à jour, planifiez un déploiement qui suit votre fenêtre de planification et de maintenance des versions. Vous pouvez choisir les types de mises à jour à inclure dans le déploiement. Par exemple, vous pouvez inclure des mises à jour critiques ou de sécurité et exclure des correctifs cumulatifs.
 
-Pour planifier un nouveau déploiement de mises à jour pour la machine virtuelle, sélectionnez **Planifier le déploiement de la mise à jour** en haut de l’écran **Gestion des mises à jour**. Dans l’écran **Nouveau déploiement de mises à jour**, spécifiez les informations suivantes :
+Planifier un nouveau déploiement de mises à jour pour la machine virtuelle en cliquant sur **Planifier le déploiement de la mise à jour** en haut de l’écran **Gestion des mises à jour**. Dans l’écran **Nouveau déploiement de mises à jour**, spécifiez les informations suivantes :
 
-* **Nom** : spécifiez un nom unique pour identifier le déploiement de mises à jour.
-* **Classification de mise à jour** : sélectionnez les types de logiciels que le déploiement de mises à jour incluait dans le déploiement. Les types de classification sont les suivants :
-  * Mises à jour critiques et de sécurité
-  * Autres mises à jour
-* **Updates to Exclude** (Mises à jour à exclure) : vous pouvez fournir une liste de noms de package qui doivent être ignorés pendant le déploiement de la mise à jour. Les noms de package acceptent les caractères génériques (par exemple, \*noyau\*).
+Pour créer un déploiement de mises à jour, sélectionnez **Planifier le déploiement de la mise à jour**. La page **Nouveau déploiement de mises à jour** s’ouvre. Entrez les valeurs des propriétés décrites dans le tableau suivant, puis cliquez sur **Créer** :
 
-  ![Écran Paramètres de planification des mises à jour](./media/tutorial-monitoring/manage-updates-exclude-linux.png)
+| Propriété | Description |
+| --- | --- |
+| Nom |Nom unique identifiant le déploiement de mises à jour. |
+|Système d’exploitation| Linux ou Windows|
+| Groupes à mettre à jour |Pour des machines Azure, définissez une requête basée sur une combinaison de l’abonnement, des groupes de ressources, des emplacements et des étiquettes pour créer un groupe dynamique de machines virtuelles Azure à inclure dans votre déploiement. </br></br>Pour les machines non-Azure, sélectionnez une recherche existante enregistrée pour sélectionner un groupe de machines non-Azure à inclure dans le déploiement. </br></br>Pour plus d’informations, consultez [Groupes dynamiques](../../automation/automation-update-management.md#using-dynamic-groups)|
+| Ordinateurs à mettre à jour |Sélectionnez une recherche enregistrée, un groupe importé ou choisissez un ordinateur dans la liste déroulante, puis sélectionnez des ordinateurs individuels. Si vous choisissez **Machines**, l’état de préparation de la machine est indiqué dans la colonne **PRÉPARATION À LA MISE À JOUR DE L’AGENT**.</br> Pour en savoir plus sur les différentes méthodes de création de groupes d’ordinateurs dans les journaux Azure Monitor, consultez [Groupes d’ordinateurs dans les journaux Azure Monitor](../../azure-monitor/platform/computer-groups.md). |
+|Classifications des mises à jour|Sélectionnez toutes les classifications des mises à jour dont vous avez besoin.|
+|Inclure/exclure des mises à jour|La page **Inclure/Exclure** s’ouvre. Les mises à jour à inclure ou à exclure sont sous des onglets distincts. Pour plus d’informations sur la façon dont l’inclusion est gérée, consultez [Comportement d’inclusion](../../automation/automation-update-management.md#inclusion-behavior) |
+|Paramètres de planification|Sélectionnez l’heure de début, puis la périodicité.|
+| Préscripts + postscripts|Sélectionnez les scripts à exécuter avant et après votre déploiement|
+| Fenêtre de maintenance |Nombre de minutes défini pour les mises à jour. La valeur ne peut pas être inférieure à 30 minutes ni supérieure à 6 heures |
+| Contrôle du redémarrage| Détermine la façon dont doivent être gérés les redémarrages. Options disponibles :</br>Redémarrer si nécessaire (par défaut)</br>Toujours redémarrer</br>Ne jamais redémarrer</br>Redémarrer uniquement : les mises à jour ne sont pas installées|
 
-* **Paramètres de planification** : vous pouvez accepter la date et l’heure par défaut, qui est de 30 minutes après l’heure actuelle, ou spécifier un moment différent.
-  Vous pouvez également spécifier si le déploiement se produit une seule fois ou configurer une planification périodique. Pour définir une planification périodique, sélectionnez l’option Périodique sous Périodicité.
-
-  ![Écran Paramètres de planification des mises à jour](./media/tutorial-monitoring/manage-updates-schedule-linux.png)
-
-* **Fenêtre de maintenance (en minutes)**  : spécifiez la période de temps pendant laquelle le déploiement des mises à jour doit se produire. Cela permet de garantir que les modifications sont effectuées pendant les fenêtres de maintenance que vous avez définies.
+Vous pouvez également créer des déploiements de mises à jour par programmation. Pour savoir comment créer un déploiement de mises à jour avec l’API REST, consultez [Configurations des mises à jour logicielles - Créer](/rest/api/automation/softwareupdateconfigurations/create). Vous pouvez également utiliser un exemple de runbook fourni pour créer un déploiement de mises à jour hebdomadaires. Pour en savoir plus sur ce runbook, consultez [Créer un déploiement de mises à jour hebdomadaires pour une ou plusieurs machines virtuelles dans un groupe de ressources](https://gallery.technet.microsoft.com/scriptcenter/Create-a-weekly-update-2ad359a1).
 
 Une fois que vous avez terminé la configuration de la planification, cliquez sur le bouton **Créer**. Vous revenez ensuite au tableau de bord des états.
 Notez que le tableau **Planifié** montre la planification de déploiement que vous avez créée.
-
-> [!WARNING]
-> Pour les mises à jour nécessitant un redémarrage, la machine virtuelle est automatiquement redémarrée.
 
 ### <a name="view-results-of-an-update-deployment"></a>Afficher les résultats d’un déploiement de mises à jour
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 04/12/2019
 ms.author: erhopf
-ms.openlocfilehash: 29fcbd058651c428b488f5ce1c767105cb7921a6
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.openlocfilehash: 6cf3ab6480900aa763598120e6ff7e308f5044e1
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59580984"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66743217"
 ---
 # <a name="swagger-documentation"></a>Documentation Swagger
 
@@ -26,7 +26,7 @@ Les services Speech offre une spécification Swagger pour interagir avec quelque
 
 ## <a name="generating-code-from-the-swagger-specification"></a>Génération de code à partir de la spécification Swagger
 
-La [spécification Swager](https://cris.ai/swagger/ui/index) comporte des options qui vous permettent de tester rapidement divers parcours. En revanche, il est parfois souhaitable de générer du code pour tous les parcours, en créant une bibliothèque unique d’appels sur laquelle vous pouvez baser les futures solutions. Intéressons-nous au processus permettant de générer une bibliothèque Python.
+La [spécification Swagger](https://cris.ai/swagger/ui/index) comporte des options qui vous permettent de tester rapidement divers parcours. En revanche, il est parfois souhaitable de générer du code pour tous les parcours, en créant une bibliothèque unique d’appels sur laquelle vous pouvez baser les futures solutions. Intéressons-nous au processus permettant de générer une bibliothèque Python.
 
 Vous avez besoin de définir Swagger sur la même région que celle de votre abonnement aux services Speech. Vous pouvez vérifier votre région dans le portail Azure sous votre ressource Services Speech. Pour obtenir la liste complète des régions prises en charge, consultez [Régions](regions.md).
 

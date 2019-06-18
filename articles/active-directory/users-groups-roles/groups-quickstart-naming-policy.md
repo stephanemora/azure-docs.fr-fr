@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a0e600204479bc54a590df6bf1bbcd634eaac7fc
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: b17ef24d753041934f68f3daee950aaa0bec46ba
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65605645"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734738"
 ---
 # <a name="quickstart-naming-policy-for-groups-in-azure-active-directory"></a>Démarrage rapide : Stratégie d’affectation de noms pour les groupes dans Azure Active Directory
 
@@ -31,12 +31,12 @@ Dans le cadre de ce démarrage rapide, vous allez configurer une stratégie d’
 
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="configure-the-group-naming-policy-for-a-tenant-using-azure-portal-preview"></a>Configurer la stratégie de noms de groupes d'un locataire à l'aide du portail Azure (préversion)
+## <a name="configure-the-group-naming-policy-for-a-tenant-using-azure-portal"></a>Configurer la stratégie de nommage de groupes d’un locataire à l’aide du portail Azure
 
 1. Se connecter au [centre d’administration Azure AD](https://aad.portal.azure.com) avec un compte administrateur d’utilisateurs.
 1. Sélectionnez **Groupes**, puis **Stratégie d'attribution de noms** pour ouvrir la page Stratégie d'attribution de noms.
 
-    ![Ouvrez la page Stratégie d'attribution de noms dans le Centre d'administration](./media/groups-naming-policy/policy-preview.png)
+    ![Ouvrez la page Stratégie d'attribution de noms dans le Centre d'administration](./media/groups-naming-policy/policy.png)
 
 ### <a name="view-or-edit-the-prefix-suffix-naming-policy"></a>Afficher ou modifier la stratégie d'attribution de suffixes/préfixes
 
@@ -49,7 +49,7 @@ Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https:/
 
 1. Sur la page **Stratégie d'attribution de noms**, sélectionnez **Mots bloqués**.
 
-    ![Modifier et charger la liste de mots bloqués pour la stratégie d'attribution de noms](./media/groups-naming-policy/blockedwords-preview.png)
+    ![Modifier et charger la liste de mots bloqués pour la stratégie d'attribution de noms](./media/groups-naming-policy/blockedwords.png)
 
 1. Affichez ou modifiez la liste actuelle des mots bloqués personnalisés en sélectionnant **Télécharger**.
 1. Chargez la nouvelle liste de mots bloqués personnalisés en sélectionnant l'icône de fichier.
@@ -59,7 +59,7 @@ Vous avez terminé. Vous avez défini votre stratégie d’affectation de noms e
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-### <a name="remove-the-naming-policy-using-azure-portal-preview"></a>Supprimer la stratégie d'attribution de noms à l'aide du portail Azure (préversion)
+### <a name="remove-the-naming-policy-using-azure-portal"></a>Supprimer la stratégie de nommage à l’aide du portail Azure
 
 1. Sur la page **Stratégie d'attribution de noms**, sélectionnez **Supprimer une stratégie**.
 1. Une fois la suppression confirmée, la stratégie d'attribution de noms est supprimée, de même que toutes les stratégies d'attribution de suffixes/préfixes et tous les mots bloqués personnalisés.

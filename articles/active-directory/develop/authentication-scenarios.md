@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda, sureshja, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c0be7a8b756ee3d1d71b15e10797176e50037a47
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: b35d2e21de3da184496da53fdf46d865fdfdf5c7
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65540148"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734480"
 ---
 # <a name="what-is-authentication"></a>Qu’est-ce que l’authentification ?
 
@@ -85,14 +85,11 @@ Le diagramme suivant illustre un flux de provisionnement simplifié piloté par 
 
 Dans ce flux d’approvisionnement :
 
-|   |   |
-|---|---|
-| 1 | Un utilisateur issu du locataire B tente de se connecter avec l’application |
-| 2 | Les informations d’identification de l’utilisateur sont acquises et vérifiées |
-| 3 | L’utilisateur est invité à donner son consentement pour que l’application accède au locataire B |
-| 4 | La plateforme d’identités Microsoft utilise l’objet d’application dans A en tant que blueprint pour créer un principal de service dans le locataire B |
-| 5. | L’utilisateur reçoit le jeton demandé |
-|   |   |
+1. Un utilisateur du locataire B tente de se connecter avec l’application, le point de terminaison d’autorisation demande un jeton pour l’application.
+1. Les informations d’identification de l’utilisateur sont acquises et vérifiées à des fins d’authentification.
+1. L’utilisateur est invité à donner son consentement pour que l’application accède au locataire B.
+1. La plateforme d’identités Microsoft utilise l’objet d’application dans le locataire A en tant que blueprint pour créer un principal de service dans le locataire B.
+1. L’utilisateur reçoit le jeton demandé
 
 Vous pouvez répéter ce processus autant de fois que vous le souhaitez pour les autres locataires (C, D, etc.). Le locataire A conserve le blueprint pour l’application (objet d’application). Les utilisateurs et les administrateurs de tous les autres locataires où l’application a obtenu le consentement gardent le contrôle sur les actions de l’application grâce à l’objet du principal de service correspondant dans chaque locataire. Pour plus d’informations, consultez [Objets d’application et de principal de service dans la plateforme d’identités Microsoft](app-objects-and-service-principals.md).
 

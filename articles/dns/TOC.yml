@@ -1,9 +1,11 @@
 - name: Documentation DNS
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: "Présentation d’Azure\_DNS"
       href: dns-overview.md
+    - name: "Qu’est-ce qu’Azure Private DNS\_?"
+      href: private-dns-overview.md
 - name: Démarrages rapides
   expanded: true
   items:
@@ -20,7 +22,7 @@
     - name: Créer des enregistrements DNS personnalisés pour une application web
       href: dns-web-sites-custom-domain.md
     - name: Créer une zone DNS privée et un enregistrement
-      href: private-dns-getstarted-powershell.md
+      href: private-dns-portal.md
     - name: Enregistrements d’alias pour Traffic Manager
       href: tutorial-alias-tm.md
     - name: Enregistrements d’alias pour les adresses IP publiques
@@ -33,6 +35,12 @@
       href: cli-samples.md
 - name: Concepts
   items:
+    - name: DNS privé
+      items:
+        - name: Questions fréquentes (FAQ) - DNS privé
+          href: dns-faq-private.md
+        - name: Scénarios de DNS privé
+          href: private-dns-scenarios.md
     - name: Zones et enregistrements
       href: dns-zones-records.md
     - name: Enregistrements d’alias
@@ -41,10 +49,6 @@
       href: dns-domain-delegation.md
     - name: Forum Aux Questions
       href: dns-faq.md
-    - name: Utilisation de zones DNS privées
-      href: private-dns-overview.md
-    - name: Scénarios de DNS privé
-      href: private-dns-scenarios.md
     - name: Métriques et alertes DNS
       href: dns-alerts-metrics.md
     - name: DNS inversé
@@ -53,8 +57,12 @@
       href: ../networking/disaster-recovery-dns-traffic-manager.md
 - name: Procédures
   items:
-    - name: Créer une zone DNS privée et un enregistrement - Azure CLI
-      href: private-dns-getstarted-cli.md
+    - name: DNS privé
+      items:
+        - name: Créer une zone privée - CLI
+          href: private-dns-getstarted-cli.md
+        - name: Créer une zone privée - PowerShell
+          href: private-dns-getstarted-powershell.md
     - name: Enregistrements d’alias pour les applications web à équilibrage de charge
       href: dns-alias-appservice.md
     - name: Gestion des zones DNS

@@ -8,22 +8,22 @@ ms.topic: include
 ms.date: 01/28/2019
 ms.author: juliako
 ms.custom: include file
-ms.openlocfilehash: 8439da94c770bee313a1ae1d1da5df30683cd2ad
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: db431d7815cfcc006563bd6da438154ef77ae6e2
+ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66155708"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66814706"
 ---
 ## <a name="cli-shell"></a>Interpréteur de commandes CLI
 
 Il est recommandé d’utiliser [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest) pour exécuter des commandes CLI. **Cloud Shell** est un interpréteur de commandes interactif et gratuit que vous pouvez utiliser pour effectuer les étapes mentionnées dans cet article. Il contient des outils Azure courants préinstallés et configurés pour être utilisés avec votre compte. Il vous donne la possibilité de choisir l’expérience d’interpréteur de commandes la plus adaptée à votre façon de travailler. Les utilisateurs Linux peuvent choisir une expérience Bash, et les utilisateurs Windows l’option PowerShell.
 
-Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, vous devez exécuter Azure CLI version 2.0 ou une version ultérieure pour poursuivre la procédure décrite dans cet article. Exécutez `az --version` pour trouver la version. Si vous devez effectuer une installation ou une mise à niveau, consultez [Installer Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). 
+Vous pouvez également installer l’interface CLI localement. Consultez [Installer Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) pour obtenir des instructions pour votre plateforme.
 
-### <a name="login"></a>Connexion
+### <a name="sign-in"></a>Se connecter
 
-Pour commencer à utiliser l’interpréteur de commandes CLI (dans le cloud ou localement), exécutez `az login` pour créer une connexion avec Azure.
+L’utilisation d’une installation locale de l’interface CLI exige une connexion à Azure. Cette étape n’est pas obligatoire pour Azure Cloud Shell. Connectez-vous avec la commande `az login`.
 
 Si l’interface CLI peut ouvrir votre navigateur par défaut, elle le fera et chargera une page de connexion par la même occasion. Sinon, vous devez ouvrir une page de navigateur et suivre les instructions sur la ligne de commande pour entrer un code d’autorisation après avoir accédé à https://aka.ms/devicelogin dans votre navigateur.
 

@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 05/28/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 6f571342b02084ceb8d67fbb889e030194663489
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: 5b05755502ad5836a21080a122d2e1721825f10c
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66493852"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734688"
 ---
 # <a name="create-and-use-an-internal-load-balancer-app-service-environment"></a>Créer et utiliser un environnement App Service Environment avec équilibreur de charge interne 
 
@@ -109,7 +109,7 @@ Pour configurer votre DNS :
 
 - créez une zone pour *&lt;nom ASE&gt;.appserviceenvironment.net*
 - créez un enregistrement A dans cette zone qui pointe * vers l’adresse IP ILB 
-- créez une zone dans le scm nommé *&lt;nom ASE&gt;.appserviceenvironment.net*
+- créez une zone dans le scm nommé *&lt;nom ASE&gt;.scm.appserviceenvironment.net*
 - créez un enregistrement A dans la zone scm qui pointe vers l’adresse IP ILB
 
 ## <a name="publish-with-an-ilb-ase"></a>Publier avec un ASE ILB

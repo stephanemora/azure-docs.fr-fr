@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: overview
 ms.date: 4/30/2019
 ms.author: victorh
-ms.openlocfilehash: cdf2a1a730be657b41c7a4b2daf2f178661394b4
-ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
+ms.openlocfilehash: 2a494b924107baeabbcf412af7e1bbdb1db0f753
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64947104"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66752008"
 ---
 # <a name="whats-new-in-azure-application-gateway"></a>Nouveautés d’Azure Application Gateway
 
@@ -27,6 +27,7 @@ Azure Application Gateway est mis à jour en continu. Pour vous informer des dé
 
 |Fonctionnalité  |Description  |Date de l’ajout  |
 |---------|---------|---------|
+|Règles personnalisées WAF |Application Gateway WAF_v2 prend désormais en charge la création de règles personnalisées. Consultez [Règles personnalisées Application Gateway](custom-waf-rules-overview.md). |Juin 2019 |
 |Mise à disposition générale des fonctions de mise à l’échelle automatique, de redondance de zone et de prise en charge des adresses IP virtuelles statiques |Mise à disposition générale de la SKU version 2, qui améliore les performances et prend en charge la mise à l’échelle automatique, la redondance de zone et la prise en charge des adresses IP virtuelles statiques, ainsi que Key Vault et la réécriture des en-tête. Consultez la [documentation relative à la mise à l’échelle automatique de Application Gateway](application-gateway-autoscaling-zone-redundant.md). |Avril 2019 |
 |Intégration dans Key Vault |Application Gateway prend désormais en charge l’intégration dans Key Vault (dans la préversion publique) des certificats de serveur associés à des écouteurs activés via HTTPS. Consultez la section relative à [l’arrêt de SSL avec des certificats Key Vault](key-vault-certs.md). |Avril 2019 |
 |Opérations de réécriture et CRUD sur les en-têtes     |Vous pouvez désormais réécrire les en-têtes HTTP. Consultez le [tutoriel : Créer une passerelle d’application et réécrire des en-têtes HTTP](tutorial-http-header-rewrite-powershell.md) pour plus d’informations.|Décembre 2018|

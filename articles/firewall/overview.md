@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.date: 6/5/2019
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: b1763e7c24ea75a698c3718ab5e205dcc3e0c8c4
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: 4b33174b20cdf42e29cdb5b4786122513d2c6080
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66495800"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66753735"
 ---
 # <a name="what-is-azure-firewall"></a>Qu’est-ce qu’un pare-feu Azure ?
 
@@ -62,7 +62,7 @@ Toutes les adresses IP du trafic réseau virtuel sortant sont traduites en adres
 
 ### <a name="inbound-dnat-support"></a>Prise en charge du trafic DNAT entrant
 
-Le trafic réseau entrant vers votre adresse IP publique de pare-feu est traduit (Destination Network Address Translation ou DNAT) et filtré selon les adresses IP privées sur vos réseaux virtuels. 
+Le trafic réseau entrant vers votre adresse IP publique de pare-feu est traduit (Destination Network Address Translation ou DNAT) et filtré selon les adresses IP privées sur vos réseaux virtuels.
 
 ### <a name="azure-monitor-logging"></a>Journalisation d’Azure Monitor
 
@@ -82,8 +82,7 @@ Les règles de filtrage réseau pour les protocoles autres que TCP/UDP (par exem
 |Plage de ports dans les règles de réseau et d’application|Les ports sont limités à 64 000, car les ports élevés sont réservés aux sondes d’intégrité et à la gestion. |Nous travaillons actuellement à l’assouplissement de cette limitation.|
 |Les alertes Threat intelligence peuvent être masquées|Les règles de réseau avec la destination 80/443 pour le filtrage sortant masque les alertes intelligentes de menaces lorsqu’elles sont configurées pour en mode alerte uniquement.|Créez un filtrage sortant pour 80/443 à l’aide de règles d’application. Ou modifiez le mode d’intelligence contre les menaces pour **alerter et rejeter**.|
 |Le Pare-feu Azure utilise Azure DNS uniquement pour la résolution de noms|Le Pare-feu Azure résout les noms de domaine complets uniquement à l’aide d’Azure DNS. Un serveur DNS personnalisé n’est pas pris en charge. Il n’y a aucun impact sur la résolution DNS dans les autres sous-réseaux.|Nous travaillons actuellement à l’assouplissement de cette limitation.|
-|Le Pare-feu Azure SNAT/DNAT ne fonctionne pas pour les destinations IP privées|La prise en charge du Pare-feu Azure SNAT/DNAT est limitée à la sortie/l’entrée Internet. Actuellement, SNAT/DNAT ne fonctionne pas pour les destinations IP privées. Par exemple, spoke-à-spoke.|Ce problème est en cours d’examen.
-
+|Le Pare-feu Azure SNAT/DNAT ne fonctionne pas pour les destinations IP privées|La prise en charge du Pare-feu Azure SNAT/DNAT est limitée à la sortie/l’entrée Internet. Actuellement, SNAT/DNAT ne fonctionne pas pour les destinations IP privées. Par exemple, spoke-à-spoke.|Ce point figure dans la feuille de route d’une prochaine mise à jour.
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Tutoriel : Déployer et configurer un pare-feu Azure à l’aide du portail Azure](tutorial-firewall-deploy-portal.md)
