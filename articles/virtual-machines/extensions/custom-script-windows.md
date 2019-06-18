@@ -108,7 +108,7 @@ Ces éléments doivent être traités comme des données sensibles et spécifié
 | publisher | Microsoft.Compute | string |
 | type | CustomScriptExtension | string |
 | typeHandlerVersion | 1.9 | int |
-| fileUris (p. ex.) | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1 | tableau |
+| fileUris (p. ex.) | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1 | array |
 | timestamp (p. ex.) | 123456789 | Entier 32 bits |
 | commandToExecute (p. ex.) | powershell -ExecutionPolicy Unrestricted -File configure-music-app.ps1 | string |
 | storageAccountName (p. ex.) | examplestorageacct | string |
