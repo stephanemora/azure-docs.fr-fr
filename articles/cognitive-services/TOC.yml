@@ -15,6 +15,8 @@
       href: cognitive-services-apis-create-account.md
     - name: Authentication
       href: authentication.md
+    - name: Journalisation de diagnostic
+      href: diagnostic-logging.md
 - name: Ressources
   items:
     - name: Feuille de route Azure
