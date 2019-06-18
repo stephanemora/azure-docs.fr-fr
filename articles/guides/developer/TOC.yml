@@ -1,4 +1,4 @@
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: Guide du développeur
       href: azure-developer-guide.md
@@ -12,7 +12,7 @@
       items:
         - name: Linux
           href: 'https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal'
-        - name: ' Windows'
+        - name: Windows
           href: 'https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal'
     - name: Sans serveur
       href: 'https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function'
@@ -38,7 +38,7 @@
       items:
         - name: Linux
           href: 'https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm'
-        - name: ' Windows'
+        - name: Windows
           href: 'https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm'
     - name: Créer une fonction connectée à Azure
       href: 'https://docs.microsoft.com/azure/azure-functions/functions-create-an-azure-connected-function'
@@ -83,7 +83,7 @@
     - name: Planification
       items:
         - name: Architectures d’applications web
-          href: 'https://docs.microsoft.com/azure/architecture/reference-architectures/managed-web-app/'
+          href: 'https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/basic-web-app'
         - name: Architectures de machines virtuelles
           href: 'https://docs.microsoft.com/azure/architecture/reference-architectures/virtual-machines-windows/'
         - name: Se connecter à des réseaux locaux
