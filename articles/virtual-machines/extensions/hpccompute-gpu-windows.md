@@ -75,7 +75,7 @@ Le JSON suivant illustre le schéma pour l’extension.
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.HpcCompute | string |
-| type | NvidiaGpuDriverWindows | string |
+| Type | NvidiaGpuDriverWindows | string |
 | typeHandlerVersion | 1.2 | int |
 
 
