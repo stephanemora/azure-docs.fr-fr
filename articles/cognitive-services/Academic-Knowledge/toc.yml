@@ -1,5 +1,5 @@
 - name: Documentation Connaissances universitaires
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: En savoir plus sur l’API Connaissances universitaires
       href: Home.md

@@ -5,14 +5,14 @@ metadata:
   title: "Documentation Azure Time Series Insights\_- Guides de démarrage rapide, tutoriels, informations de référence sur les API\_| Microsoft\_Docs"
   description: 'Découvrez comment exécuter des analyses Azure IoT dans le cloud avec le traitement des événements entièrement géré. Analysez en temps réel des données d’applications, de capteurs, d’appareils et plus encore.'
   services: time-series-insights
-  author: anshan
+  author: deepakpalled
   manager: cshankar
   ms.service: time-series-insights
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 06/03/2019
-  ms.author: anshan
+  ms.author: dpalled
 abstract:
   description: "Bienvenue dans Azure Time Series Insights. Azure Time Series Insights fournit de puissants outils de télémétrie et d’exploration des données pour vous aider à améliorer l’analyse opérationnelle. Cette documentation décrit le service, comment commencer à utiliser ses nombreuses fonctionnalités, le SDK client et les puissantes API Time Series Insights. Les informations sont présentées pour deux versions\_: une qui est déjà en disponibilité générale (Time Series Insights GA) et une mise à jour majeure du service qui est en préversion (Time Series Insights Preview)."
   aside:
