@@ -136,7 +136,7 @@ Le JSON suivant illustre le schéma pour l’extension d’agent Log Analytics. 
 | ---- | ---- |
 | apiVersion | 2018-06-01 |
 | publisher | Microsoft.EnterpriseCloud.Monitoring |
-| Type | OmsAgentForLinux |
+| type | OmsAgentForLinux |
 | typeHandlerVersion | 1.7 |
 | workspaceId (par exemple) | 6f680a37-00c6-41c7-a93f-1437e3462574 |
 | workspaceKey (par exemple) | z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI+rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ== |
