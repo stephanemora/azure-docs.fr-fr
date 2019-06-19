@@ -70,14 +70,17 @@
     - name: Fonctionnalités du système d’exploitation
       href: operating-system-functionality.md
     - name: Sécurité
-      href: overview-security.md
       items:
+        - name: Recommandations
+          href: security-recommendations.md
         - name: Authentification et autorisation
           href: overview-authentication-authorization.md
         - name: Système d’exploitation et mise à jour corrective du runtime
           href: overview-patch-os-runtime.md
         - name: Attributs de sécurité
           href: app-service-security-attributes.md
+        - name: Présentation de la sécurité
+          href: overview-security.md
     - name: Fonctionnalités réseau
       href: networking-features.md
     - name: Adresses IP entrantes et sortantes
