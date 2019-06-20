@@ -20,8 +20,6 @@
   items:
     - name: Exécuter des requêtes sur un cluster Apache Spark
       href: apache-spark-load-data-run-query.md
-    - name: Utiliser VSCode pour exécuter des requêtes Apache Spark
-      href: ../hdinsight-for-vscode.md
     - name: Utiliser IntelliJ pour exécuter des requêtes Apache Spark
       href: apache-spark-intellij-tool-plugin.md
     - name: Analyser des données avec des outils décisionnels
@@ -32,6 +30,8 @@
       href: apache-spark-ipython-notebook-machine-learning.md
     - name: Créer une application Apache Spark dans IntelliJ
       href: apache-spark-create-standalone-application.md
+    - name: Utiliser VSCode pour exécuter des requêtes Apache Spark
+      href: ../hdinsight-for-vscode.md
     - name: Superviser la disponibilité de cluster avec les journaux Azure Monitor et Ambari
       href: ../hdinsight-cluster-availability.md
 - name: Exemples

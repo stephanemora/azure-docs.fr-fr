@@ -45,10 +45,12 @@
       href: search-semi-structured-data.md
     - name: Enrichir avec l’intelligence artificielle (recherche cognitive)
       items:
-        - name: REST
-          href: cognitive-search-tutorial-blob.md
         - name: 'C#'
           href: cognitive-search-tutorial-blob-dotnet.md
+        - name: REST
+          href: cognitive-search-tutorial-blob.md
+        - name: Python
+          href: cognitive-search-tutorial-blob-python.md
 - name: Exemples
   items:
     - name: "Exemples de code\_Azure"

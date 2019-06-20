@@ -1,6 +1,6 @@
 - name: Documentations Azure Blueprints
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: Vue d’ensemble d’Azure Blueprint
       displayName: 'templates, policy, definition, assignment, rbac'
@@ -29,7 +29,7 @@
       href: ./samples/index.md
     - name: "ISO\_27001 - Services partagés"
       items:
-        - name: Vue d’ensemble
+        - name: Vue d'ensemble
           displayName: 'standards, iso, 27001, shared services'
           href: ./samples/iso27001-shared/index.md
         - name: Correspondance des contrôles
@@ -40,7 +40,7 @@
           href: ./samples/iso27001-shared/deploy.md
     - name: ISO 27001 - Charge de travail ASE/SQL
       items:
-        - name: Vue d’ensemble
+        - name: Vue d'ensemble
           displayName: 'standards, iso, 27001, shared services'
           href: ./samples/iso27001-ase-sql-workload/index.md
         - name: Correspondance des contrôles
@@ -49,6 +49,11 @@
         - name: Étapes de déploiement
           displayName: 'standards, iso, 27001'
           href: ./samples/iso27001-ase-sql-workload/deploy.md
+    - name: ROYAUME-UNI OFFICIELLE
+      items:
+        - name: Correspondance des contrôles
+          displayName: 'standards, uk official'
+          href: ./samples/ukofficial/control-mapping.md
 - name: Concepts
   items:
     - name: Cycle de vie d’un blueprint
