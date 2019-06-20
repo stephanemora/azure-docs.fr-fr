@@ -104,7 +104,7 @@ La spécification des paramètres n’est pas nécessaire. La valeur par défaut
 | `CommitMode`     | Enum  | Détermine si les objets doivent être validés par lot ou uniquement à la fin. Modes inclus : default, transactional, partialBatch.  |  transactional       |
 | `MaxParallelism` | Int   | Cette valeur détermine le nombre maximal de threads sur lesquels exécuter des commandes de traitement en parallèle. Elle s’aligne sur la propriété MaxParallelism qui peut être définie dans la [commande de séquence](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/sequence-command-tmsl) TMSL ou par d’autres méthodes.       | 10        |
 | `RetryCount`     | Int   | Indique le nombre de tentatives de l’opération avant échec.      |     0    |
-| `Objects`        | Tableau | Tableau d’objets à traiter. Chaque objet inclut « table » lors du traitement de la table entière, ou « table » et « partition » lors du traitement d’une partition. Si aucun objet n’est spécifié, l’ensemble du modèle est actualisé. |   Traitement de l’ensemble du modèle      |
+| `Objects`        | Array | Tableau d’objets à traiter. Chaque objet inclut « table » lors du traitement de la table entière, ou « table » et « partition » lors du traitement d’une partition. Si aucun objet n’est spécifié, l’ensemble du modèle est actualisé. |   Traitement de l’ensemble du modèle      |
 
 CommitMode équivaut à partialBatch. Il est utilisé lors du chargement initial de jeux de données volumineux qui peuvent prendre des heures. Si l’opération d’actualisation échoue après la validation correcte d’un ou plusieurs lots, les lots validés restent validés (la validation n’est pas annulée).
 
