@@ -16,17 +16,17 @@ ms.date: 03/27/2019
 ms.author: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8f7e2fabc86374f7fe055303d056ae8e00f33389
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65964374"
 ---
 # <a name="tutorial-configure-pingboard-for-automatic-user-provisioning"></a>Didacticiel : Configurer Pingboard pour le provisionnement automatique d’utilisateurs
 
 L’objectif de ce tutoriel est de vous montrer les étapes à suivre pour activer et désactiver le provisionnement automatique de comptes d’utilisateur à partir d’Azure Active Directory (Azure AD) vers Pingboard.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 

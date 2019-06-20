@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 54a1bc9ce04cf10575b26cda7861c1dd458dc831
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66156123"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177112"
 ---
 #### <a name="to-create-a-new-service"></a>Création d’un service
 
@@ -19,7 +19,7 @@ ms.locfileid: "66156123"
 
     ![Créer StorSimple Device Manager](./media/storsimple-8000-create-new-service/createssdevman1.png)
 
-    Recherchez _StorSimple physique_. Sélectionnez **Série d’appareils physiques StorSimple** et cliquez dessus, puis cliquez sur **Créer**. Autrement, dans le portail Azure, cliquez sur **+**, puis sous **Stockage**, cliquez sur **Série d’appareils physiques StorSimple**.
+    Recherchez _StorSimple physique_. Sélectionnez **Série d’appareils physiques StorSimple** et cliquez dessus, puis cliquez sur **Créer**. Autrement, dans le portail Azure, cliquez sur **+** , puis sous **Stockage**, cliquez sur **Série d’appareils physiques StorSimple**.
 
     ![Créer StorSimple Device Manager](./media/storsimple-8000-create-new-service/createssdevman11.png)
 

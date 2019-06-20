@@ -8,21 +8,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: a1b816656e019a214e8c0dc72b79575c49d99e68
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.openlocfilehash: 62c9dcc039c68b0b6c8b8bf29ed9f13f88936723
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64719607"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059526"
 ---
 # <a name="enable-heap-dumps-for-apache-hadoop-services-on-linux-based-hdinsight"></a>Activer les dumps de tas pour les services Apache Hadoop sur HDInsight sur Linux
 
 [!INCLUDE [heapdump-selector](../../includes/hdinsight-selector-heap-dump.md)]
 
 Les dumps de tas contiennent un instantané de la mémoire de l’application, y compris des valeurs des variables au moment de la création du dump. Ils sont donc utiles pour diagnostiquer les problèmes qui se produisent au moment de l’exécution.
-
-> [!IMPORTANT]  
-> Les étapes décrites dans ce document fonctionnent uniquement avec les clusters HDInsight sur Linux. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="whichServices"></a>Services
 
@@ -95,7 +92,7 @@ Pour modifier la configuration d’un service, procédez comme suit :
 
     ![Image du site web Ambari avec l’onglet des configurations HDFS sélectionné](./media/hdinsight-hadoop-heap-dump-linux/serviceconfig.png)
 
-3. À l’aide de l’entrée **Filtre...**, entrez **opts**. Seuls les éléments contenant ce texte s’affichent.
+3. À l’aide de l’entrée **Filtre...** , entrez **opts**. Seuls les éléments contenant ce texte s’affichent.
 
     ![Liste de filtrage](./media/hdinsight-hadoop-heap-dump-linux/filter.png)
 

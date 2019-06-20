@@ -14,13 +14,13 @@ ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: absha
 ms.openlocfilehash: bb99689409ddff311e556250083b99842bc59927
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65963511"
 ---
-# <a name="network-performance-monitor-solution-performance-monitoring"></a>Solution Network Performance Monitor : Surveillance des performances
+# <a name="network-performance-monitor-solution-performance-monitoring"></a>Solution Network Performance Monitor : Analyse des performances
 
 La fonctionnalité Analyseur de performances de [Network Performance Monitor](network-performance-monitor.md) vous permet de surveiller la connectivité réseau entre les différents points de votre réseau. Vous pouvez surveiller les déploiements cloud et les emplacements locaux, plusieurs centres de données ainsi que les filiales et les applications/microservices multiniveaux stratégiques. Avec l’Analyseur de performances, vous pouvez détecter les problèmes réseau avant que vos utilisateurs ne se plaignent. Ses principaux avantages vous permettent de : 
 
@@ -31,7 +31,7 @@ La fonctionnalité Analyseur de performances de [Network Performance Monitor](ne
 - Surveiller l’intégrité du réseau sans SNMP.
 
 
-![Analyseur de performances réseau](media/network-performance-monitor-performance-monitor/npm-performance-monitor.png)
+![Network Performance Monitor](media/network-performance-monitor-performance-monitor/npm-performance-monitor.png)
 
 ## <a name="configuration"></a>Configuration
 Pour ouvrir la configuration de Network Performance Monitor, ouvrez la [solution Network Performance Monitor](network-performance-monitor.md) et sélectionnez **Configurer**.
@@ -135,4 +135,4 @@ Dans l’image suivante, la cause racine des zones à problème dans la section 
 ![Carte topologique avec les propriétés du nœud sélectionnées](media/network-performance-monitor-performance-monitor/topology-dashboard-root-cause.png) 
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Rechercher dans les journaux](../../azure-monitor/log-query/log-query-overview.md) pour afficher des enregistrements de données détaillées sur les performances réseau.
+[Rechercher dans les journaux d’activité](../../azure-monitor/log-query/log-query-overview.md) pour afficher des enregistrements de données détaillées sur les performances réseau.

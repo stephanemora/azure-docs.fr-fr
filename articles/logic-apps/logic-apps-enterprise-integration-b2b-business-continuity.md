@@ -11,10 +11,10 @@ ms.topic: article
 ms.assetid: cf44af18-1fe5-41d5-9e06-cc57a968207c
 ms.date: 04/10/2017
 ms.openlocfilehash: ac29ef7f0599cc41924ba1a5a00e46b0292e7e9b
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65967746"
 ---
 # <a name="cross-region-disaster-recovery-for-b2b-integration-accounts-in-azure-logic-apps"></a>Reprise d’activité entre des régions pour des comptes d’intégration B2B dans Azure Logic Apps
@@ -76,7 +76,7 @@ Pour revenir à une région primaire lorsqu’elle est de nouveau disponible, pr
 
 4. Vérifiez que l’application logique créée dans la région secondaire pour extraire l’état d’exécution de la région primaire est activée.
 
-## <a name="x12"></a>X12 
+## <a name="x12"></a>X 12 
 
 La continuité des activités pour les documents EDI X12 documents repose sur les numéros de contrôle :
 
@@ -112,7 +112,7 @@ Pour activer la récupération d’urgence pour les messages entrants, sélectio
 
 6. Lancez une recherche sur **X12** et sélectionnez **X12 - Ajouter ou mettre à jour des numéros de contrôle**.   
 
-   ![Ajouter ou mettre à jour des numéros de contrôle](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn5.png)
+   ![Ajoutez ou mettez à jour les numéros de contrôle](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn5.png)
 
 7. Pour connecter une action à un compte d’intégration d’une région secondaire, sélectionnez **Modifier la connexion** > **Ajouter une nouvelle connexion** pour obtenir la liste des comptes d’intégration disponibles. Entrez un nom de connexion, sélectionnez votre *compte d’intégration de la région secondaire* dans la liste et cliquez sur **Créer**. 
 

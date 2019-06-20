@@ -9,11 +9,11 @@ ms.date: 05/06/2019
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: 56545b02c35d68455497c93582073c73d6c75da5
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66114661"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67176735"
 ---
 Pour créer un compte de stockage à usage général v2 dans le portail Azure, procédez comme suit :
 

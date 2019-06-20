@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: clemensv
 ms.openlocfilehash: bbcf38ab54632144920b729f433c222f426d96dc
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66111538"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177291"
 ---
 1. Connectez-vous au [portail Azure][Azure portal].
 2. Dans le menu de gauche, sélectionnez **+ Créer une ressource**. Ensuite, sélectionnez **Intégration** > **Relais**. Si **Relais** ne s’affiche pas dans la liste, sélectionnez **Afficher tout** dans l’angle supérieur droit. 

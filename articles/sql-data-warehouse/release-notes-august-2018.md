@@ -11,10 +11,10 @@ ms.date: 08/13/2018
 ms.author: anjangsh
 ms.reviewer: jrasnick
 ms.openlocfilehash: f0840e9b91c81b8a99e8c736c3c5db082c92fe76
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65912212"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-august-2018"></a>Nouveautés dans Azure SQL Data Warehouse Août 2018
@@ -30,7 +30,7 @@ Vous pouvez explorer chaque catégorie pour afficher les suggestions pour l’al
 
 ## <a name="bug-fixes"></a>Résolution des bogues
 
-| Intitulé | Description  |
+| Intitulé | Description |
 |:---|:---|
 | **Échecs de requêtes potentiels lorsque le nombre de fragments dépasse la limite maximale autorisée** |Lorsque la limite maximale d’1 million de fragments de fichier a été dépassée, une exception non prise en charge a contraint le moteur SQL à vider la base de données et toutes les requêtes ont échoué. Ce correctif a permis de résoudre le problème en gérant de manière appropriée l’exception et en retournant une erreur sans provoquer l’échec des requêtes. |
 | **Augmentation de la valeur ExternalMoveReadersPerNode par défaut pour améliorer les performances de chargement** |Ce problème est survenu suite à une erreur de synchronisation de la propriété ExternalMoveReadersPerNode avec le paramètre de structure de service. Cette régression a entraîné une dégradation des performances de chargement de deuxième génération. Le correctif rétablit les performances de chargement de deuxième génération avec des paramètres de conception optimisés.|

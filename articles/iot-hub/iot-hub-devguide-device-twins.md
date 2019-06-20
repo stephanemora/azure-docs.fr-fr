@@ -7,13 +7,13 @@ ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 01/29/2018
-ms.openlocfilehash: 883e81572218e39d84ad8793423b02468d49d00a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.date: 06/10/2019
+ms.openlocfilehash: fbc68b551db1f68fe253a833ad26c88de1b92f30
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61321155"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67055373"
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Comprendre et utiliser les jumeaux d’appareil IoT Hub
 
@@ -56,7 +56,7 @@ Un jumeau d’appareil est un document JSON incluant les éléments suivants :
 
 * **Propriétés souhaitées**. Utilisées en même temps que les propriétés signalées pour synchroniser une configuration ou une condition d’appareil. Le serveur principal de solution peut définir les propriétés souhaitées, et l’application d’appareil peut les lire. L’application d’appareil peut également recevoir des notifications sur les changements des propriétés souhaitées.
 
-* **Propriétés signalées (Reported)**. Utilisées en même temps que les propriétés souhaitées pour synchroniser une configuration ou une condition d’appareil. L’application d’appareil peut définir les propriétés signalées, et le serveur principal de solution peut les lire et les interroger.
+* **Propriétés signalées (Reported)** . Utilisées en même temps que les propriétés souhaitées pour synchroniser une configuration ou une condition d’appareil. L’application d’appareil peut définir les propriétés signalées, et le serveur principal de solution peut les lire et les interroger.
 
 * **Propriétés d’identité des appareils**. La racine du document JSON du jumeau d’appareil contient les propriétés en lecture seule de l’identité d’appareil correspondante stockées dans le [registre des identités](iot-hub-devguide-identity-registry.md).
 
@@ -119,7 +119,7 @@ Dans l’exemple précédent, le jumeau d’appareil contient une propriété `b
 
 ### <a name="desired-property-example"></a>Exemple de propriété souhaitée
 
-Dans l’exemple précédent, les propriétés souhaitées et signalées du jumeau d’appareil `telemetryConfig` sont utilisées par le serveur principal d’application et l’application d’appareil pour synchroniser la configuration de la télémétrie pour cet appareil. Par exemple : 
+Dans l’exemple précédent, les propriétés souhaitées et signalées du jumeau d’appareil `telemetryConfig` sont utilisées par le serveur principal d’application et l’application d’appareil pour synchroniser la configuration de la télémétrie pour cet appareil. Par exemple :
 
 1. Le serveur principal de solution définit la propriété souhaitée avec la valeur de configuration souhaitée. Voici la partie du document contenant la propriété souhaitée (Desired) définie :
 
@@ -233,9 +233,9 @@ L’application d’appareil opère sur le jumeau d’appareil en utilisant les 
 
 * **Récupérer le jumeau d’appareil**. Cette opération renvoie le contenu du document du jumeau d’appareil, à savoir les Tags (Balises) et les propriétés système souhaitées (Desired) et signalées (Reported), pour l’appareil actuellement connecté.
 
-* **Mettre à jour partiellement les propriétés signalées (Reported)**. Cette opération permet la mise à jour partielle des propriétés signalées de l’appareil actuellement connecté. Cette opération utilise le même format de mise à jour JSON que le serveur principal de solution utilise pour une mise à jour partielle des propriétés souhaitées.
+* **Mettre à jour partiellement les propriétés signalées (Reported)** . Cette opération permet la mise à jour partielle des propriétés signalées de l’appareil actuellement connecté. Cette opération utilise le même format de mise à jour JSON que le serveur principal de solution utilise pour une mise à jour partielle des propriétés souhaitées.
 
-* **Observer les propriétés souhaitées (Desired)**. L’appareil actuellement connecté peut choisir d’être informé des mises à jour des propriétés souhaitées au moment où elles se produisent. L’appareil reçoit la forme de mise à jour (remplacement partiel ou complet) exécutée par le serveur principal de la solution.
+* **Observer les propriétés souhaitées (Desired)** . L’appareil actuellement connecté peut choisir d’être informé des mises à jour des propriétés souhaitées au moment où elles se produisent. L’appareil reçoit la forme de mise à jour (remplacement partiel ou complet) exécutée par le serveur principal de la solution.
 
 Toutes les opérations précédentes nécessitent l’autorisation **DeviceConnect**, comme défini dans [Contrôler l’accès à IoT Hub](iot-hub-devguide-security.md).
 
@@ -285,7 +285,7 @@ IoT Hub rejette en générant une erreur toute opération susceptible d’augmen
 
 IoT Hub tient à jour l’horodateur de la dernière mise à jour de chaque objet JSON dans les propriétés souhaitées et signalées du jumeau d’appareil. Les horodateurs sont exprimés en UTC et codés au format [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) `YYYY-MM-DDTHH:MM:SS.mmmZ`.
 
-Par exemple : 
+Par exemple :
 
 ```json
 {

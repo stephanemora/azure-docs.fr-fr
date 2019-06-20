@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/28/2017
-ms.openlocfilehash: 30d52f1ac6a68a3202de59a0b4cab8edfb7ed042
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.openlocfilehash: 28f154c4bd8bb1675eac509bd9d6dab9bb6af026
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64701092"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67066229"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-debug-apache-spark-applications-remotely-in-hdinsight-through-vpn"></a>Utiliser Azure Toolkit for IntelliJ pour déboguer des applications Apache Spark à distance dans HDInsight via VPN
 
@@ -27,7 +27,7 @@ Cet article fournit des instructions pas à pas sur l’utilisation d’HDInsigh
 1. Créer une application Scala dans IntelliJ IDEA, puis la configurer pour le débogage à distance.
 1. Exécuter et déboguer l’application.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 * **Un abonnement Azure**. Pour plus d’informations, consultez [Get a free trial of Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/) (Obtenir un essai gratuit d’Azure).
 * **Un cluster Apache Spark dans HDInsight**. Pour obtenir des instructions, consultez [Création de clusters Apache Spark dans Azure HDInsight](apache-spark-jupyter-spark-sql.md).
 * **SDK Oracle Java**. Vous pouvez l’installer à partir du [site web Oracle](https://aka.ms/azure-jdks).
@@ -85,7 +85,7 @@ Nous vous recommandons également de créer dans Azure HDInsight un cluster Apac
 
     ![Sélectionner le nouveau modèle de projet dans IntelliJ IDEA](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/create-hdi-scala-app.png)
 
-    a. Sélectionnez **HDInsight** > **Spark sur HDInsight (Scala)**.
+    a. Sélectionnez **HDInsight** > **Spark sur HDInsight (Scala)** .
 
     b. Sélectionnez **Suivant**.
 1. Dans la boîte de dialogue **Nouveau projet**, effectuez les opérations suivantes, puis sélectionnez **Terminer** :
@@ -94,7 +94,7 @@ Nous vous recommandons également de créer dans Azure HDInsight un cluster Apac
 
     - Dans la liste déroulante **Kit de développement logiciel (SDK) de projet**, sélectionnez **Java 1.8** pour le cluster Spark 2.x ou **Java 1.7** pour le cluster Spark 1.x.
 
-    - Dans la liste déroulante **Version Spark**, l’Assistant de création de projets Scala intègre la version correcte pour le SDK Spark et le SDK Scala. Si la version du cluster spark est antérieure à la version 2.0, sélectionnez **Spark 1.x**. Sinon, sélectionnez **Spark 2.x**. La version utilisée dans cet exemple est **Spark 2.0.2 (Scala 2.11.8)**.
+    - Dans la liste déroulante **Version Spark**, l’Assistant de création de projets Scala intègre la version correcte pour le SDK Spark et le SDK Scala. Si la version du cluster spark est antérieure à la version 2.0, sélectionnez **Spark 1.x**. Sinon, sélectionnez **Spark 2.x**. La version utilisée dans cet exemple est **Spark 2.0.2 (Scala 2.11.8)** .
   
    ![Sélectionner le SDK et la version Spark du projet](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/hdi-scala-project-details.png)
   
@@ -102,7 +102,7 @@ Nous vous recommandons également de créer dans Azure HDInsight un cluster Apac
 
     a. Dans le menu **Fichier**, sélectionnez **Structure de projet**.
 
-    b. Dans la boîte de dialogue **Structure de projet**, sélectionnez **Artefacts** pour afficher l’artefact créé par défaut. Vous pouvez également créer votre propre artefact en sélectionnant le signe plus (**+**).
+    b. Dans la boîte de dialogue **Structure de projet**, sélectionnez **Artefacts** pour afficher l’artefact créé par défaut. Vous pouvez également créer votre propre artefact en sélectionnant le signe plus ( **+** ).
 
    ![Créer un fichier jar](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/default-artifact.png)
 
@@ -111,7 +111,7 @@ Nous vous recommandons également de créer dans Azure HDInsight un cluster Apac
 
     a. Cliquez avec le bouton droit sur le nom du projet dans l’arborescence du projet, puis sélectionnez **Open Module Settings**(Ouvrir les paramètres du module). 
 
-    b. Dans la boîte de dialogue **Project Structure** (Structure de projet), sélectionnez **Libraries** (Bibliothèques), sélectionnez le symbole (**+**), puis sélectionnez **From Maven**(À partir de Maven).
+    b. Dans la boîte de dialogue **Project Structure** (Structure de projet), sélectionnez **Libraries** (Bibliothèques), sélectionnez le symbole ( **+** ), puis sélectionnez **From Maven**(À partir de Maven).
 
     ![Ajouter une bibliothèque](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/add-library.png)
 
@@ -241,7 +241,7 @@ Nous vous recommandons également de créer dans Azure HDInsight un cluster Apac
 1. Quand l’exécution du programme atteint le point d’arrêt, un onglet **Debugger** (Débogueur) apparaît dans le volet inférieur.
 
     ![Afficher l’onglet Debugger (Débogueur)](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/debug-add-watch.png)
-1. Pour ajouter un espion, sélectionnez l’icône (**+**).
+1. Pour ajouter un espion, sélectionnez l’icône ( **+** ).
 
     ![Sélectionner l’icône +](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/debug-add-watch-variable.png)
 
@@ -276,8 +276,7 @@ Nous vous recommandons également de créer dans Azure HDInsight un cluster Apac
 
 ### <a name="tools-and-extensions"></a>Outils et extensions
 * [Utiliser Azure Toolkit for IntelliJ afin de créer des applications Apache Spark pour un cluster HDInsight](apache-spark-intellij-tool-plugin.md)
-* [Utiliser Azure Toolkit for IntelliJ pour déboguer des applications Apache Spark à distance par SSH](apache-spark-intellij-tool-debug-remotely-through-ssh.md)
-* [Utiliser HDInsight Tools pour IntelliJ avec Hortonworks Sandbox](../hadoop/hdinsight-tools-for-intellij-with-hortonworks-sandbox.md)
+* [Utiliser Azure Toolkit for IntelliJ pour déboguer des applications Apache Spark à distance via SSH](apache-spark-intellij-tool-debug-remotely-through-ssh.md)
 * [Utiliser HDInsight Tools dans Azure Toolkit for Eclipse pour créer des applications Apache Spark](../hdinsight-apache-spark-eclipse-tool-plugin.md)
 * [Utiliser des blocs-notes Apache Zeppelin avec un cluster Apache Spark sur HDInsight](apache-spark-zeppelin-notebook.md)
 * [Noyaux accessibles à Jupyter Notebook dans un cluster Apache Spark pour HDInsight](apache-spark-jupyter-notebook-kernels.md)

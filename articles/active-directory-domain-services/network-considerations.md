@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 05/22/2010
 ms.author: mstephen
 ms.openlocfilehash: 1f21d71bba01eb4bec24dbb558a126ecbbd78bbf
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66246943"
 ---
 # <a name="networking-considerations-for-azure-ad-domain-services"></a>Considérations relatives à la mise en réseau pour les services de domaine Azure AD
@@ -138,7 +138,7 @@ Vous pouvez connecter un réseau virtuel basé sur Resource Manager au réseau v
 
 <br>
 
-## <a name="related-content"></a>Contenu associé
+## <a name="related-content"></a>Contenu connexe
 * [Homologation de réseaux virtuels Azure](../virtual-network/virtual-network-peering-overview.md)
 * [Configurer une connexion de réseau virtuel à réseau virtuel pour le modèle de déploiement classique](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)
 * [Groupes de sécurité réseau Azure](../virtual-network/security-overview.md)

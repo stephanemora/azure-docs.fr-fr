@@ -2,21 +2,20 @@
 title: Vérifier les paramètres d’Azure Traffic Manager
 description: Cet article vous aide à vérifier les paramètres de Traffic Manager.
 services: traffic-manager
-author: rockboyfor
+author: asudbring
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 03/16/2017
-ms.date: 02/18/2019
-ms.author: v-yeche
-ms.openlocfilehash: 1e954e3c4ebba245d91cfb84ab583b314150e5b2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.date: 03/16/2017
+ms.author: allensu
+ms.openlocfilehash: 19ef08a40d0a84aecb070e71bbb8c9b6a88ae059
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60771615"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67070937"
 ---
 # <a name="verify-traffic-manager-settings"></a>Vérifier les paramètres Traffic Manager
 
@@ -36,7 +35,7 @@ Les exemples suivants vous aideront à tester votre profil Traffic Manager.
 2. Entrez `ipconfig /flushdns` pour vider le cache de résolution DNS.
 3. Saisissez `nslookup <your Traffic Manager domain name>`. Par exemple, la commande suivante vérifie le nom de domaine doté du préfixe *myapp.contoso*
 
-        nslookup myapp.contoso.trafficmanager.cn
+        nslookup myapp.contoso.trafficmanager.net
 
     Les résultats contiennent généralement les informations suivantes :
 
@@ -72,5 +71,3 @@ Sinon, différents services de recherche et d’obtention de DNS sont disponible
 * [À propos des méthodes de routage du trafic de Traffic Manager](traffic-manager-routing-methods.md)
 * [Considérations sur les performances de Traffic Manager](traffic-manager-performance-considerations.md)
 * [Résolution des problèmes liés à l’état Détérioré de Traffic Manager](traffic-manager-troubleshooting-degraded.md)
-
-<!-- Update_Description: update meta properties -->

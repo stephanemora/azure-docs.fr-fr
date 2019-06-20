@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 1/10/2019
 ms.author: aahi
 ms.openlocfilehash: d15058126f43fff328acfc563ffd081164a69a90
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66384985"
 ---
 # <a name="language-and-region-support-for-the-bing-news-search-api"></a>Langages et régions pris en charge par l’API Recherche d’actualités Bing
@@ -31,7 +31,7 @@ Pour le point de terminaison `/news/search`, le tableau suivant répertorie les 
 
 Pour obtenir la liste des codes pays/régions que vous pouvez spécifier dans le paramètre de requête `cc`, consultez [Codes pays](#countrycodes).  
 
-|Pays/région|Langue|Code du marché|  
+|Pays/région|Langage|Code du marché|  
 |---------------------|--------------|-----------------|
 |Danemark|Danois|da-DK|
 |Autriche|Allemand|de-AT|
@@ -80,7 +80,7 @@ Pour le point de terminaison `/news`, le tableau suivant répertorie les valeurs
 
 Pour obtenir la liste des codes pays/régions que vous pouvez spécifier dans le paramètre de requête `cc`, consultez [Codes pays](#countrycodes).  
 
-|Pays/région|Langue|Code du marché|  
+|Pays/région|Langage|Code du marché|  
 |---------------------|--------------|-----------------|
 |Danemark|Danois|da-DK|
 |Allemagne|Allemand|de-DE|
@@ -103,7 +103,7 @@ Pour le point de terminaison `/news/trendingtopics`, le tableau suivant réperto
 
 Pour obtenir la liste des codes pays/régions que vous pouvez spécifier dans le paramètre de requête `cc`, consultez [Codes pays](#countrycodes).  
 
-|Pays/région|Langue|Code du marché|  
+|Pays/région|Langage|Code du marché|  
 |---------------------|--------------|-----------------|
 |Allemagne|Allemand|de-DE|
 |Australie|Anglais|en-AU|

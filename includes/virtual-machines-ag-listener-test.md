@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: d579e7a4fd83c1a0ce335e0b2357dcbafb217398
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66165372"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177008"
 ---
 Au cours de cette étape, vous allez tester l’écouteur de groupe de disponibilité à l’aide d’une application cliente s’exécutant sur le même réseau.
 
