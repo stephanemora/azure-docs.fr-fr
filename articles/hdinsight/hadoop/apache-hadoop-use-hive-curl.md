@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: e020cbc9c18db2142ee7f52cdac22a3518683fce
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.openlocfilehash: 82e08a8eeeb86d407be61c299656abe79a6f90f4
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64695820"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67078346"
 ---
 # <a name="run-apache-hive-queries-with-apache-hadoop-in-hdinsight-using-rest"></a>Exécuter des requêtes Apache Hive avec Apache Hadoop dans HDInsight à l’aide de REST
 
@@ -21,12 +21,9 @@ ms.locfileid: "64695820"
 
 Découvrez comment utiliser l’API REST WebHCat pour exécuter des requêtes Apache Hive avec Apache Hadoop sur un cluster Azure HDInsight.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 * Un cluster Hadoop Linux sur HDInsight version 3.4 ou ultérieure.
-
-  > [!IMPORTANT]  
-  > Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * Client REST. Ce document utilise des exemples Windows PowerShell et [Curl](https://curl.haxx.se/).
 
@@ -141,7 +138,7 @@ Ce document utilise également Windows PowerShell et [Jq](https://stedolan.githu
 
    * `ROW FORMAT` : formatage des données. Les champs de chaque journal sont séparés par un espace.
    * `STORED AS TEXTFILE LOCATION` : emplacement de stockage des données (répertoire example/data) stockées sous forme de texte.
-   * `SELECT` : sélectionne toutes les lignes dont la colonne **t4** contient la valeur **[ERROR]**. Cette instruction renvoie la valeur **3**, car trois lignes contiennent cette valeur.
+   * `SELECT` : sélectionne toutes les lignes dont la colonne **t4** contient la valeur **[ERROR]** . Cette instruction renvoie la valeur **3**, car trois lignes contiennent cette valeur.
 
      > [!NOTE]  
      > Notez que les espaces entre les instructions HiveQL sont remplacés par le caractère `+` lorsqu'ils sont utilisés avec Curl. Les valeurs citées qui contiennent un espace, tel que le séparateur, ne doivent pas être remplacées par `+`.

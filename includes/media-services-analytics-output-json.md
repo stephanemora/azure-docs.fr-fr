@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: juliako
 ms.openlocfilehash: 065cb4daa9501ee658d364dad43b9e03798e4083
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66160955"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177477"
 ---
 Le travail génère un fichier de sortie JSON qui contient des métadonnées sur les visages détectés et suivis. Les métadonnées incluent des coordonnées indiquant l’emplacement des visages, mais aussi un numéro d’identification pour chaque visage, indiquant le suivi de cette personne. Les numéros d’identification des visages peuvent être réinitialisés dans des cas où le visage filmé de face sort de l’image ou si un élément vient se superposer ; certaines personnes peuvent ainsi se voir attribuer plusieurs identifiants.
 

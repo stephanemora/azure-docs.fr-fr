@@ -11,10 +11,10 @@ ms.service: cost-management
 manager: benshy
 ms.custom: seodec18
 ms.openlocfilehash: 247d959abadc92d70bdd60555a090986743e9322
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66002071"
 ---
 # <a name="connect-a-google-cloud-platform-account"></a>Connecter un compte Google Cloud Platform
@@ -63,7 +63,7 @@ Pour collecter les informations sur les actifs et l’utilisation, Cloudyn a bes
 
 1. Ouvrez le portail Cloudyn à partir du portail Azure ou accédez à [https://azure.cloudyn.com](https://azure.cloudyn.com/) et connectez-vous.
 2. Cliquez sur **Paramètres** (symbole de roue dentée), puis sélectionnez **Comptes cloud**.
-3. Dans **Gestion de comptes**, sélectionnez l’onglet **Comptes Google**, puis cliquez sur **Ajouter un nouveau +**.
+3. Dans **Gestion de comptes**, sélectionnez l’onglet **Comptes Google**, puis cliquez sur **Ajouter un nouveau +** .
 4. Dans **Nom du compte Google**, entrez l’adresse de messagerie du compte de facturation, puis cliquez sur **Suivant**.
 5. Dans la boîte de dialogue d’authentification de Google, sélectionnez ou entrez un compte Google, puis choisissez d’**AUTORISER** cloudyn.com à accéder à votre compte.
 6. Ajoutez les informations de projet que vous avez notées précédemment. Il s’agit de l’**ID du projet**, du **Nom du projet**, du **Nom du compartiment de facturation**, et du préfixe de rapport du **Fichier de facturation**. Cliquez ensuite sur **Enregistrer**.  

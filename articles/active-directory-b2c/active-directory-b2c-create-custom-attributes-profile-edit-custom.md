@@ -11,10 +11,10 @@ ms.date: 08/04/2017
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: ab7231c214060d17927e2509bee1687e2c9c87a3
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66507574"
 ---
 # <a name="azure-active-directory-b2c-use-custom-attributes-in-a-custom-profile-edit-policy"></a>Azure Active Directory B2C : Utiliser des attributs personnalisés dans une stratégie personnalisée de modification de profil
@@ -23,7 +23,7 @@ ms.locfileid: "66507574"
 
 Dans cet article, vous allez créer un attribut personnalisé dans votre annuaire Azure Active Directory (Azure AD) B2C. Vous allez utiliser ce nouvel attribut comme revendication personnalisée dans le parcours de l’utilisateur pour modifier des profils.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Suivez les étapes de l’article [Azure Active Directory B2C : bien démarrer avec les stratégies personnalisées](active-directory-b2c-get-started-custom.md).
 
@@ -294,7 +294,7 @@ Le jeton d’ID renvoyé à votre application inclut la nouvelle propriété d�
    extension_<app-guid>_ActivationStatus via Graph API.
    ```
 
-## <a name="reference"></a>Référence
+## <a name="reference"></a>Informations de référence
 
 Pour plus d’informations sur les propriétés d’extension, consultez l’article [Extensions de schéma d’annuaire | Concepts de l’API Graph](/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-directory-schema-extensions).
 

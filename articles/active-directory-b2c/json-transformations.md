@@ -11,10 +11,10 @@ ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: 9a026d205d3ab855ecbb51048e7464df6fb4a094
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66510747"
 ---
 # <a name="json-claims-transformations"></a>Transformations de revendications JSON
@@ -29,9 +29,9 @@ Obtient un élément spécifié à partir de données JSON.
 
 | Item | TransformationClaimType | Type de données | Notes |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputJson | string | ClaimTypes qui sont utilisés par la transformation de revendication pour obtenir l’élément. |
-| InputParameter | claimToExtract | string | Nom de l’élément JSON à extraire. |
-| OutputClaim | extractedClaim | string | ClaimType généré après l’appel de cette transformation de revendication, la valeur de l’élément spécifiée dans le paramètre d’entrée _claimToExtract_. |
+| InputClaim | inputJson | chaîne | ClaimTypes qui sont utilisés par la transformation de revendication pour obtenir l’élément. |
+| InputParameter | claimToExtract | chaîne | Nom de l’élément JSON à extraire. |
+| OutputClaim | extractedClaim | chaîne | ClaimType généré après l’appel de cette transformation de revendication, la valeur de l’élément spécifiée dans le paramètre d’entrée _claimToExtract_. |
 
 Dans l’exemple suivant, la transformation de revendication a extrait l’élément `emailAddress` à partir des données JSON : `{"emailAddress": "someone@example.com", "displayName": "Someone"}`
 
@@ -65,11 +65,11 @@ Obtenir une liste d’éléments spécifiés à partir de données Json.
 
 | Item | TransformationClaimType | Type de données | Notes |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | jsonSourceClaim | string | ClaimTypes utilisés par la transformation de revendication pour obtenir les revendications. |
+| InputClaim | jsonSourceClaim | chaîne | ClaimTypes utilisés par la transformation de revendication pour obtenir les revendications. |
 | InputParameter | errorOnMissingClaims | booléenne | Spécifie s’il faut lever une erreur si l’une des revendications est manquante. |
-| InputParameter | includeEmptyClaims | string | Spécifiez s’il faut inclure les revendications vides. |
-| InputParameter | jsonSourceKeyName | string | Nom de clé d’élément |
-| InputParameter | jsonSourceValueName | string | Nom de valeur d’élément |
+| InputParameter | includeEmptyClaims | chaîne | Spécifiez s’il faut inclure les revendications vides. |
+| InputParameter | jsonSourceKeyName | chaîne | Nom de clé d’élément |
+| InputParameter | jsonSourceValueName | chaîne | Nom de valeur d’élément |
 | OutputClaim | Collection | string, int, boolean et datetime |Liste de revendications à extraire. Le nom de la revendication doit être égal à celui spécifié dans la revendication d’entrée _jsonSourceClaim_. |
 
 Dans l’exemple suivant, la transformation de revendication extrait les revendications suivantes : email (string), displayName (string), membershipNum (int), active (boolean) et birthdate (datetime) à partir des données JSON.
@@ -119,8 +119,8 @@ Obtient un élément numérique (long) spécifié à partir de données JSON.
 
 | Item | TransformationClaimType | Type de données | Notes |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputJson | string | ClaimTypes utilisés par la transformation de revendication pour obtenir les revendications. |
-| InputParameter | claimToExtract | string | Nom de l’élément JSON à extraire. |
+| InputClaim | inputJson | chaîne | ClaimTypes utilisés par la transformation de revendication pour obtenir les revendications. |
+| InputParameter | claimToExtract | chaîne | Nom de l’élément JSON à extraire. |
 | OutputClaim | extractedClaim | long | ClaimType généré après l’appel de cette ClaimsTransformation, la valeur de l’élément spécifiée dans les paramètres d’entrée _claimToExtract_. |
 
 Dans l’exemple suivant, la transformation de revendication extrait l’élément `id` à partir des données JSON.
@@ -162,8 +162,8 @@ Obtient le premier élément à partir d’un tableau de données JSON.
 
 | Item | TransformationClaimType | Type de données | Notes |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputJsonClaim | string | ClaimTypes qui sont utilisés par la transformation de revendication pour obtenir l’élément à partir du tableau JSON. |
-| OutputClaim | extractedClaim | string | ClaimType généré après l’appel de cette ClaimsTransformation, le premier élément du tableau JSON. |
+| InputClaim | inputJsonClaim | chaîne | ClaimTypes qui sont utilisés par la transformation de revendication pour obtenir l’élément à partir du tableau JSON. |
+| OutputClaim | extractedClaim | chaîne | ClaimType généré après l’appel de cette ClaimsTransformation, le premier élément du tableau JSON. |
 
 Dans l’exemple suivant, la transformation de revendication extrait le premier élément (adresse e-mail) à partir du tableau JSON `["someone@example.com", "Someone", 6353399]`.
 
@@ -191,8 +191,8 @@ Convertit des données XML au format JSON.
 
 | Item | TransformationClaimType | Type de données | Notes |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | xml | string | ClaimTypes qui sont utilisés par la transformation de revendication pour convertir les données XML au format JSON. |
-| OutputClaim | json | string | ClaimType généré après l’appel de cette ClaimsTransformation, les données au format JSON. |
+| InputClaim | Xml | chaîne | ClaimTypes qui sont utilisés par la transformation de revendication pour convertir les données XML au format JSON. |
+| OutputClaim | json | chaîne | ClaimType généré après l’appel de cette ClaimsTransformation, les données au format JSON. |
 
 ```XML
 <ClaimsTransformation Id="ConvertXmlToJson" TransformationMethod="XmlStringToJsonString">

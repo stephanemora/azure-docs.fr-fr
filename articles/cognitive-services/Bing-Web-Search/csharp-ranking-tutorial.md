@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 05/08/2017
 ms.author: bking
 ms.openlocfilehash: 6afaa2f497fa1a23d083c3ddd76359a49105732d
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66384839"
 ---
 # <a name="build-a-console-app-search-client-in-c"></a>Générer un client de recherche d’application console en C#
@@ -27,7 +27,7 @@ Ce tutoriel montre comment :
 - Effectuer une requête simple auprès de l’API Recherche web Bing
 - Afficher les résultats de la requête dans un ordre de classement
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre le tutoriel, vous avez besoin des éléments suivants :
 

@@ -11,10 +11,10 @@ ms.date: 08/04/2017
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: fe7dd90bdec816ee433310a803d85c57f4892f8c
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66508712"
 ---
 # <a name="accessing-usage-reports-in-azure-ad-b2c-via-the-reporting-api"></a>Accès aux rapports d’utilisation dans Azure AD B2C via l’API de création de rapports
@@ -28,7 +28,7 @@ Azure Active Directory B2C (Azure AD B2C) fournit une authentification basée su
 Cet article se concentre sur les rapports liés à l’activité de facturation, qui est basée sur le nombre d’utilisateurs, les authentifications facturables basées sur la connexion et les authentifications multifacteurs.
 
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 Avant de commencer, vous devez effectuer les étapes décrites dans [Prérequis pour accéder aux API de création de rapports d’Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-reporting-api-getting-started/). Créez une application, obtenez une clé secrète pour celle-ci et accordez-lui des autorisations d’accès aux rapports de votre client Azure AD B2C. Des exemples *Script Bash* et *Script Python* sont également fournis ici. 
 
 ## <a name="powershell-script"></a>Script PowerShell

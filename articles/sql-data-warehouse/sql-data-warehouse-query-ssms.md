@@ -11,10 +11,10 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.openlocfilehash: 64ea7c175b733f974eba6c081ee2c98814cbcda2
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65873716"
 ---
 # <a name="connect-to-sql-data-warehouse-with-sql-server-management-studio-ssms"></a>Se connecter à SQL Data Warehouse à l’aide de SQL Server Management Studio (SSMS)
@@ -29,7 +29,7 @@ ms.locfileid: "65873716"
 
 Utilisez SQL Server Management Studio (SSMS) pour vous connecter à une base de données SQL Azure Warehouse et l’interroger. 
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 Pour utiliser ce didacticiel, vous avez besoin des éléments suivants :
 
 * Un entrepôt de données SQL existant. Pour en créer un, consultez la page [Créer un entrepôt de données SQL][Create a SQL Data Warehouse].

@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 1c3996c3f40da496af0cd795d0873864667a1f19
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66160286"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177068"
 ---
 ## <a name="use-the-azure-portal"></a>Utilisation du portail Azure
 1. Sélectionnez la machine virtuelle que vous souhaitez redéployer, puis sélectionnez le bouton *Redéployer* dans le panneau *Paramètres*. Si besoin, faites défiler la page vers le bas pour voir la section **Support et dépannage** qui contient le bouton « Redéployer », comme dans l’exemple suivant :

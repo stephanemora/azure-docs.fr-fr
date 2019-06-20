@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/04/2018
 ms.author: szark
 ms.openlocfilehash: 89dbdeb02e603602155b3b8b04294aaa757b6b11
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66241451"
 ---
 # <a name="prepare-a-centos-based-virtual-machine-for-azure"></a>Préparation d'une machine virtuelle CentOS pour Azure
@@ -30,7 +30,7 @@ Apprenez à créer et à télécharger un disque dur virtuel (VHD) Azure conte
 * [Préparation d’une machine virtuelle CentOS 7.0+ pour Azure](#centos-70)
 
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Cet article suppose que vous avez déjà installé un système d'exploitation CentOS (ou une distribution dérivée similaire) de Linux dans un disque dur virtuel. Il existe de multiples outils dédiés à la création de fichiers .vhd, comme la solution de virtualisation Hyper-V. Pour obtenir des instructions, consultez la page [Installation du rôle Hyper-V et configuration d'une machine virtuelle](https://technet.microsoft.com/library/hh846766.aspx).
 

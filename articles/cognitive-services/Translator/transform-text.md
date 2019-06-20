@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-pawal
 ms.openlocfilehash: 4d024fd30a77c011bab4f120c4ef3614aac09998
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66389686"
 ---
 # <a name="how-to-use-the-transformtext-method"></a>Guide pratique pour utiliser la méthode TransformText
@@ -31,7 +31,7 @@ La méthode est un service RESTful qui utilise GET via HTTP. Elle prend en charg
 | Paramètre | Description |
 |:---|:---|
 | En-tête d’autorisation. | **Requis** En-tête HTTP utilisé pour identifier l’application. Utiliser la clé : « Autorisation » et la valeur : « Porteur » + «» + jeton d’accès. Pour plus d’informations, allez ici.|
-| langage | **Requis** Chaîne représentant le code de la langue. Ce paramètre prend en charge uniquement l’anglais avec **en** comme nom de langue.|
+| Langage | **Requis** Chaîne représentant le code de la langue. Ce paramètre prend en charge uniquement l’anglais avec **en** comme nom de langue.|
 | category | **Facultatif** Chaîne contenant la catégorie ou le domaine de la traduction. Ce paramètre prend en charge uniquement l’option par défaut **general**.|
 | sentence | **Requis** Phrase que vous souhaitez corriger. |
 

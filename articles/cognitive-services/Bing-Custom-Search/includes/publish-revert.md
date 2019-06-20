@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: 7987e8a7a9db06608f663b6ae414788ba8330f65
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66124992"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177394"
 ---
 ## <a name="publish-or-revert"></a>Publier ou annuler
 Les modifications que vous apportez à une instance Recherche personnalisée sont effectuées dans l’onglet **Configuration** pour que vous puissiez valider vos modifications. Lorsque vos modifications sont terminées et que vous êtes prêt à les publier, cliquez sur **Publish** (Publier). Les modifications n’apparaissent sur vos points de terminaison de production qu’après leur publication.

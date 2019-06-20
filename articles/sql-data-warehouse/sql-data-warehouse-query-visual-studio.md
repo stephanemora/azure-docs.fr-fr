@@ -11,10 +11,10 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.openlocfilehash: 6aa707d3c63b7ead6db94f84ebd9214302cc7367
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65873727"
 ---
 # <a name="connect-to-sql-data-warehouse-with-visual-studio-and-ssdt"></a>Se connecter à SQL Data Warehouse avec Visual Studio et SSDT
@@ -29,7 +29,7 @@ ms.locfileid: "65873727"
 
 Utilisez Visual Studio pour interroger Azure SQL Data Warehouse en seulement quelques minutes. Cette méthode utilise l’extension de SQL Server Data Tools (SSDT) dans Visual Studio. 
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 Pour utiliser ce didacticiel, vous avez besoin des éléments suivants :
 
 * Un entrepôt de données SQL existant. Pour en créer un, consultez la page [Créer un entrepôt de données SQL][Create a SQL Data Warehouse].
@@ -40,7 +40,7 @@ Pour utiliser ce didacticiel, vous avez besoin des éléments suivants :
 1. Ouvrir Visual Studio 2013 ou 2015
 2. Ouvrez l’Explorateur d’objets SQL Server. Pour ce faire, sélectionnez **Affichage** > **Explorateur d’objets SQL Server**.
    
-    ![Explorateur d'objets SQL Server][1]
+    ![Explorateur d’objets SQL Server][1]
 3. Cliquez sur l’icône **Ajouter SQL Server** .
    
     ![Ajouter SQL Server][2]

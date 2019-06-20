@@ -9,11 +9,11 @@ ms.date: 04/04/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 19ad4e39ca4e402c37b2cfa69c7c306b6e5a2766
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66170068"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67176916"
 ---
 1. Accédez à la page de votre passerelle de réseau virtuel et ouvrez-la. Vous pouvez y accéder de plusieurs manières. Vous pouvez accéder à la passerelle VNet1GW en accédant à **TestVNet1 -> Vue d’ensemble -> Appareils connectés -> VNet1GW**.
 2. Sur la page de VNet1GW, cliquez sur **Connexions**. En haut du panneau Connexions, cliquez sur **+ Ajouter** pour ouvrir la page **Ajouter une connexion**.

@@ -10,11 +10,11 @@ ms.date: 05/17/2018
 ms.author: tdykstra
 ms.custom: include file
 ms.openlocfilehash: f8733ef907b8f31ace7ea72f705ba1b37d1adece
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66132385"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67176853"
 ---
 ### <a name="azure-storage-sdk-version-in-functions-1x"></a>Version du kit SDK Stockage Azure dans Functions 1.x
 

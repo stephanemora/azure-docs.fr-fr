@@ -6,14 +6,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 12/31/2018
+ms.date: 06/06/2019
 ms.author: alinast
-ms.openlocfilehash: e93811a56f934a95dde45633c4fb64312b3696df
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 478fe1859dd9067e8097df0384657793602c1378
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60924803"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071454"
 ---
 # <a name="egress-and-endpoints"></a>Sortie et points de terminaison
 
@@ -49,14 +49,14 @@ Les événements sont envoyés par des objets IoT (tels que les appareils et cap
 
 | Attribut | Type | Description |
 | --- | --- | --- |
-| id | string | Identificateur unique de l’événement. |
-| subject | string | Chemin de l’objet de l’événement, défini par le serveur de publication. |
-| data | objet | Données d’événement spécifiques au fournisseur de ressources. |
-| eventType | string | Un des types d’événements inscrits pour cette source d’événement. |
-| eventTime | string | L’heure à quelle l’événement est généré selon l’heure UTC du fournisseur. |
-| dataVersion | string | Version du schéma de l’objet de données. Le serveur de publication définit la version du schéma. |
-| metadataVersion | string | Version du schéma des métadonnées d’événement. Event Grid définit le schéma des propriétés de niveau supérieur. Event Grid fournit cette valeur. |
-| topic | string | Chemin d’accès complet à la source de l’événement. Ce champ n’est pas modifiable. Event Grid fournit cette valeur. |
+| id | chaîne | Identificateur unique de l’événement. |
+| subject | chaîne | Chemin de l’objet de l’événement, défini par le serveur de publication. |
+| données | objet | Données d’événement spécifiques au fournisseur de ressources. |
+| eventType | chaîne | Un des types d’événements inscrits pour cette source d’événement. |
+| eventTime | chaîne | L’heure à quelle l’événement est généré selon l’heure UTC du fournisseur. |
+| dataVersion | chaîne | Version du schéma de l’objet de données. Le serveur de publication définit la version du schéma. |
+| metadataVersion | chaîne | Version du schéma des métadonnées d’événement. Event Grid définit le schéma des propriétés de niveau supérieur. Event Grid fournit cette valeur. |
+| rubrique | chaîne | Chemin d’accès complet à la source de l’événement. Ce champ n’est pas modifiable. Event Grid fournit cette valeur. |
 
 Pour plus d’informations sur le schéma d’événement Event Grid :
 

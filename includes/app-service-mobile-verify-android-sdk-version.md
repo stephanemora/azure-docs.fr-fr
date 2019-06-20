@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 08/23/2018
 ms.author: crdun
 ms.openlocfilehash: 46cfb27b8bde95990d13ec4bca4e96f25cfe9dc5
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66141254"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177578"
 ---
 En raison des développements en cours, la version du Kit de développement logiciel (SDK) Android installée dans Android Studio peut être différente de celle du code. Le Kit de développement logiciel (SDK) Android utilisé dans ce didacticiel correspond à la version 26, dernière version disponible au moment de la rédaction de ce document. Le numéro de version peut augmenter à mesure que de nouvelles versions du Kit de développement logiciel (SDK) apparaissent. Nous vous recommandons d’utiliser la dernière version disponible.
 
@@ -20,9 +20,9 @@ Deux symptômes permettent d'identifier des versions différentes :
 
 Dans ce cas, la version du Kit de développement logiciel (SDK) Android installée dans Android Studio peut différer de celle du Kit de développement logiciel (SDK) cible du projet téléchargé. Pour vérifier la version, apportez les modifications suivantes :
 
-1. Dans Android Studio, cliquez sur **Outils** > **Android** > **Gestionnaire de Kit de développement (SDK)**. Si vous n'avez pas installé la dernière version de la plateforme de Kit de développement logiciel (SDK), cliquez pour l'installer. Prenez note du numéro de la version.
+1. Dans Android Studio, cliquez sur **Outils** > **Android** > **Gestionnaire de Kit de développement (SDK)** . Si vous n'avez pas installé la dernière version de la plateforme de Kit de développement logiciel (SDK), cliquez pour l'installer. Prenez note du numéro de la version.
 
-2. Dans l’onglet **Explorateur de projets**, sous **Scripts Gradle**, ouvrez le fichier **build.gradle (Module: app)**. Vérifiez que les versions **compileSdkVersion** et **targetSdkVersion** sont définies sur la dernière version installée du Kit de développement logiciel (SDK). `build.gradle` peut se présenter comme suit :
+2. Dans l’onglet **Explorateur de projets**, sous **Scripts Gradle**, ouvrez le fichier **build.gradle (Module: app)** . Vérifiez que les versions **compileSdkVersion** et **targetSdkVersion** sont définies sur la dernière version installée du Kit de développement logiciel (SDK). `build.gradle` peut se présenter comme suit :
 
     ```gradle
     android {

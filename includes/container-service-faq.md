@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: danlep
 ms.openlocfilehash: f903828285b0d4fdc8fbd932fa7c85056e937481
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66148843"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177620"
 ---
 # <a name="deprecated-container-service-frequently-asked-questions"></a>(DÉPRÉCIÉ) Questions fréquentes (FAQ) sur Container Service
 
@@ -99,7 +99,7 @@ Vous pouvez retrouver la chaîne de connexion dans le portail Azure ou à l’ai
 
 4. Dans la page **Résumé**, sous **Sorties**, plusieurs liens de cluster s’affichent. **SSHMaster0** fournit une chaîne de connexion SSH au premier maître dans votre cluster de service du conteneur. 
 
-Comme indiqué précédemment, vous pouvez également utiliser des outils Azure pour rechercher le nom de domaine complet (FQDN) du maître. Établissez une connexion SSH au maître à l’aide du nom de domaine complet (FQDN) du maître et du nom d’utilisateur que vous avez spécifié lors de la création du cluster. Exemple :
+Comme indiqué précédemment, vous pouvez également utiliser des outils Azure pour rechercher le nom de domaine complet (FQDN) du maître. Établissez une connexion SSH au maître à l’aide du nom de domaine complet (FQDN) du maître et du nom d’utilisateur que vous avez spécifié lors de la création du cluster. Par exemple :
 
 ```bash
 ssh userName@masterFQDN –A –p 22 

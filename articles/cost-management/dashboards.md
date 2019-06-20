@@ -11,10 +11,10 @@ ms.service: cost-management
 manager: vitavor
 ms.custom: seodec18
 ms.openlocfilehash: b83368b913bf1303b49e3a56e3a15248af222cbe
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66002065"
 ---
 # <a name="view-key-cost-metrics-with-dashboards"></a>Afficher les métriques de coût clés dans des tableaux de bord
@@ -42,9 +42,9 @@ Pour commencer rapidement avec un tableau de bord personnalisé, vous pouvez dup
 
 Pour créer un tableau de bord personnalisé :
 
-1. Dans la page d’accueil, cliquez sur **Ajouter nouveau +**. La page My Dashboard (Mon tableau de bord) s’affiche.  
+1. Dans la page d’accueil, cliquez sur **Ajouter nouveau +** . La page My Dashboard (Mon tableau de bord) s’affiche.  
     ![Ma page de tableau de bord pour ajouter de nouveaux rapports](./media/dashboards/my-dashboard.png)
-2. Cliquez sur **Add New Report (Ajouter un nouveau rapport)**. La zone Add Report (Ajouter un rapport) s’affiche.
+2. Cliquez sur **Add New Report (Ajouter un nouveau rapport)** . La zone Add Report (Ajouter un rapport) s’affiche.
 3. Sélectionnez le rapport que vous souhaitez ajouter au widget de tableau de bord. Le widget est ajouté au tableau de bord.
 4. Répétez les étapes précédentes jusqu’à ce que le tableau de bord soit complet.
 5. Pour modifier le nom du tableau de bord, cliquez dessus dans la page d’accueil Dashboard (Tableau de bord), puis tapez le nouveau nom.
@@ -53,25 +53,25 @@ Pour créer un tableau de bord personnalisé :
 
 Tout comme pour la création de tableaux de bord personnalisés, vous ne pouvez pas modifier les tableaux de bord prédéfinis inclus dans Cloudyn. Pour modifier un rapport de tableau de bord personnalisé :
 
-1. Dans le tableau de bord, recherchez le rapport que vous souhaitez modifier, puis cliquez sur **Edit (Modifier)**. Le rapport s’affiche.
-2. Apportez les modifications que vous souhaitez au rapport, puis cliquez sur **Save (Enregistrer)**. Le rapport est mis à jour et reflète vos modifications.
+1. Dans le tableau de bord, recherchez le rapport que vous souhaitez modifier, puis cliquez sur **Edit (Modifier)** . Le rapport s’affiche.
+2. Apportez les modifications que vous souhaitez au rapport, puis cliquez sur **Save (Enregistrer)** . Le rapport est mis à jour et reflète vos modifications.
 
 ## <a name="share-a-custom-dashboard"></a>Partager un tableau de bord personnalisé
 
-Vous pouvez partager un tableau de bord personnalisé avec _Public_ ou _My Entity (Mon entité)_. Lorsque vous partagez le tableau de bord avec Public, tous les utilisateurs peuvent l’afficher. Lorsque vous partagez le tableau de bord avec My Entity (Mon entité), seuls les utilisateurs ayant accès à l’entité actuelle peuvent l’afficher. Les étapes permettant de partager un tableau de bord personnalisé avec Public et My Entity (Mon entité) sont similaires.
+Vous pouvez partager un tableau de bord personnalisé avec _Public_ ou _My Entity (Mon entité)_ . Lorsque vous partagez le tableau de bord avec Public, tous les utilisateurs peuvent l’afficher. Lorsque vous partagez le tableau de bord avec My Entity (Mon entité), seuls les utilisateurs ayant accès à l’entité actuelle peuvent l’afficher. Les étapes permettant de partager un tableau de bord personnalisé avec Public et My Entity (Mon entité) sont similaires.
 
 Pour partager un tableau de bord personnalisé avec Public :
 
-1. Dans un tableau de bord, cliquez sur **Dashboard Settings (Paramètres du tableau de bord)**. La zone Dashboard Settings (Paramètres du tableau de bord) s’affiche.  
+1. Dans un tableau de bord, cliquez sur **Dashboard Settings (Paramètres du tableau de bord)** . La zone Dashboard Settings (Paramètres du tableau de bord) s’affiche.  
     ![Paramètres d’un tableau de bord personnalisé](./media/dashboards/dashboard-options.png)
 2. Dans la zone Dashboard Settings (Paramètres du tableau de bord), cliquez sur le symbole de flèche, puis sur **Public**. La boîte de dialogue de confirmation Public Dashboard (Tableau de bord public) s’affiche.
-3. Cliquez sur **Yes (Oui)**. Le tableau de bord est désormais disponible pour d’autres utilisateurs.
+3. Cliquez sur **Yes (Oui)** . Le tableau de bord est désormais disponible pour d’autres utilisateurs.
 
 ## <a name="delete-a-custom-dashboard-report"></a>Supprimer un rapport de tableau de bord personnalisé
 
 Vous pouvez supprimer un rapport personnalisé du tableau de bord. La suppression du rapport du tableau de bord n’a pas pour effet de le supprimer de la liste des rapports. Elle ne supprime le rapport que du tableau de bord.
 
-Pour supprimer un composant de tableau de bord, sur le composant, cliquez sur **Delete (Supprimer)**. Cliquer sur **Delete (Supprimer)** a pour effet de supprimer immédiatement le composant du tableau de bord.
+Pour supprimer un composant de tableau de bord, sur le composant, cliquez sur **Delete (Supprimer)** . Cliquer sur **Delete (Supprimer)** a pour effet de supprimer immédiatement le composant du tableau de bord.
 
 ## <a name="share-a-dashboard-enterprise"></a>Partager un tableau de bord (Enterprise)
 
@@ -79,15 +79,15 @@ Vous pouvez partager des tableaux de bord personnalisés avec tous les utilisate
 
 Pour partager un tableau de bord avec tous les utilisateurs, y compris des sous-entités :
 
-1. Dans la page d’accueil Dashboard (Tableau de bord), cliquez sur **Edit (Modifier)**.
-2. Cliquez sur **Share (Partager)**, puis sélectionnez **Public**.
+1. Dans la page d’accueil Dashboard (Tableau de bord), cliquez sur **Edit (Modifier)** .
+2. Cliquez sur **Share (Partager)** , puis sélectionnez **Public**.
 3. La boîte de dialogue de confirmation Global Public Dashboard (Tableau de bord public global) s’affiche.
 4. Cliquez sur **Yes (Oui)** pour définir le tableau de bord en tant que tableau de bord public global.
 
 Pour partager un tableau de bord avec tous les utilisateurs d’une entité actuelle :
 
-1. Dans la page d’accueil Dashboard (Tableau de bord), cliquez sur **Edit (Modifier)**.
-2. Cliquez sur **Share (Partager)**, puis sélectionnez **My Entity (Mon entité)**.
+1. Dans la page d’accueil Dashboard (Tableau de bord), cliquez sur **Edit (Modifier)** .
+2. Cliquez sur **Share (Partager)** , puis sélectionnez **My Entity (Mon entité)** .
 3. Cliquez sur **Yes (Oui)** pour définir le tableau de bord en tant que tableau de bord public.
 
 ## <a name="duplicate-a-custom-dashboard"></a>Dupliquer un tableau de bord personnalisé
@@ -98,7 +98,7 @@ Vous pouvez dupliquer uniquement des tableaux de bord personnalisés. Vous ne po
 
 Pour dupliquer (cloner) un tableau de bord personnalisé :
 
-1. Dans le tableau de bord que vous souhaitez dupliquer, cliquez sur **Save As (Enregistrer sous)**. Un nouveau tableau de bord s’ouvre, portant les mêmes nom et numéro.
+1. Dans le tableau de bord que vous souhaitez dupliquer, cliquez sur **Save As (Enregistrer sous)** . Un nouveau tableau de bord s’ouvre, portant les mêmes nom et numéro.
 2. Renommez le tableau de bord dupliqué et modifiez-le à votre guise.
 
 -Ou-

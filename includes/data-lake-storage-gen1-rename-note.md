@@ -9,11 +9,11 @@ ms.date: 06/22/2018
 ms.author: twooley
 ms.custom: include file
 ms.openlocfilehash: f5c395bd03fab2613a28aa35c9975ec71ffa34eb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66161366"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177526"
 ---
 > [!NOTE]
 > Azure Data Lake Storage Gen2 est maintenant en disponibilité générale. Nous vous recommandons de commencer à l’utiliser dès aujourd'hui. Pour plus d’informations, consultez la page du [produit](https://aka.ms/adlsgen2-product).

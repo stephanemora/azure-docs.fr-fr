@@ -9,10 +9,10 @@ ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: ef6def9f03a880d9fc8d649fe226caf597ba0ad5
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65991824"
 ---
 # <a name="manage-registered-servers-with-azure-file-sync"></a>Gérer des serveurs inscrits avec Azure File Sync
@@ -25,7 +25,7 @@ L’article suivant décrit comment inscrire un serveur au service de synchronis
 ## <a name="registerunregister-a-server-with-storage-sync-service"></a>Inscrire/désinscrire un serveur au service de synchronisation de stockage
 L’inscription d’un serveur à Azure File Sync établit une relation d’approbation entre Windows Server et Azure. Cette relation peut ensuite être utilisée pour créer des *points de terminaison de serveur* sur le serveur, qui représentent des dossiers spécifiques qui doivent être synchronisés avec un partage de fichiers Azure (également appelé un *point de terminaison de cloud*). 
 
-### <a name="prerequisites"></a>Conditions préalables
+### <a name="prerequisites"></a>Prérequis
 Pour inscrire un serveur à un service de synchronisation de stockage, vous devez d’abord préparer votre serveur avec les prérequis nécessaires :
 
 * Votre appareil doit exécuter une version prise en charge de Windows Server. Pour plus d’informations, consultez [Configuration requise et interopérabilité d’Azure File Sync](storage-sync-files-planning.md#azure-file-sync-system-requirements-and-interoperability).

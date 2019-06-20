@@ -17,10 +17,10 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a9a0e595d2120d3cdccd42c502a83de9d5ed3ff4
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65963178"
 ---
 # <a name="known-issues-and-resolutions-with-scim-20-protocol-compliance-of-the-azure-ad-user-provisioning-service"></a>Problèmes et solutions connus relatifs à la conformité au protocole SCIM 2.0 du service de provisionnement des utilisateurs Azure AD
@@ -38,10 +38,10 @@ Cet article décrit les problèmes actuels et passés concernant le respect du s
 
 | **Problèmes de conformité à SCIM 2.0** |  **Résolution ?** | **Date du correctif**  |  
 |---|---|---|
-| Azure AD nécessite que « /scim » soit à la racine de l’URL du point de terminaison SCIM de l’application  | Oui  |  18 décembre 2018 | 
-| Les attributs d’extension utilisent la notation point « . » avant les noms d’attribut, et non pas la notation deux-points « : » |  Oui  | 18 décembre 2018  | 
-|  Les demandes de correctif pour les attributs multivaleurs contiennent une syntaxe de filtre de chemin d’accès non valide | Oui  |  18 décembre 2018  | 
-|  Les demandes de création de groupe contiennent une URI de schéma non valide | Oui  |  18 décembre 2018  |  
+| Azure AD nécessite que « /scim » soit à la racine de l’URL du point de terminaison SCIM de l’application  | OUI  |  18 décembre 2018 | 
+| Les attributs d’extension utilisent la notation point « . » avant les noms d’attribut, et non pas la notation deux-points « : » |  OUI  | 18 décembre 2018  | 
+|  Les demandes de correctif pour les attributs multivaleurs contiennent une syntaxe de filtre de chemin d’accès non valide | OUI  |  18 décembre 2018  | 
+|  Les demandes de création de groupe contiennent une URI de schéma non valide | OUI  |  18 décembre 2018  |  
 
 ## <a name="were-the-services-fixes-described-automatically-applied-to-my-pre-existing-scim-app"></a>Les corrections de services décrites ont-elles été automatiquement appliquées à mon application SCIM préexistante ?
 

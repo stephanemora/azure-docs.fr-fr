@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: rimman
 ms.openlocfilehash: 6ccb9afb528edf67b29c781217ca1de97b81e017
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65969204"
 ---
 # <a name="secure-access-to-data-in-azure-cosmos-db"></a>Sécuriser l’accès aux données dans Azure Cosmos DB
@@ -178,7 +178,7 @@ DocumentClient userClient = new DocumentClient(new Uri(endpointUrl), permList);
 Pour ajouter l’accès en lecture aux comptes Azure Cosmos DB à votre compte d’utilisateur, demandez à un propriétaire d’abonnement d’effectuer les étapes suivantes dans le portail Azure.
 
 1. Ouvrez le portail Azure, puis sélectionnez votre compte Azure Cosmos DB.
-2. Cliquez sur l’onglet **Contrôle d’accès (IAM)**, puis cliquez sur **+ Ajouter une attribution de rôle**.
+2. Cliquez sur l’onglet **Contrôle d’accès (IAM)** , puis cliquez sur **+ Ajouter une attribution de rôle**.
 3. Dans le volet **Ajouter une attribution de rôle**, dans la zone **Rôle**, sélectionnez **Rôle de lecteur de compte Cosmos DB**.
 4. Dans la zone **Attribuer l’accès à**, sélectionnez **Utilisateur, groupe ou application Azure AD**.
 5. Dans votre annuaire, sélectionnez l’utilisateur, le groupe ou l’application qui doit recevoir l’accès.  Dans l’annuaire, vous pouvez rechercher des noms d’affichage, des adresses e-mail et des identificateurs d’objet.

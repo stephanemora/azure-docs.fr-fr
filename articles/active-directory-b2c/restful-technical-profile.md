@@ -11,10 +11,10 @@ ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: 21a2ea861df96a057db0ec13eacd0906ed51fff1
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66512738"
 ---
 # <a name="define-a-restful-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Définir un profil technique RESTful dans une stratégie personnalisée Azure Active Directory B2C
@@ -33,7 +33,7 @@ Votre stratégie peut envoyer des revendications d’entrée à votre API REST. 
 - **Profil technique de validation** : un profil technique de validation appelle le service RESTful. Le profil technique de validation valide les données fournies par l’utilisateur avant la poursuite du parcours de celui-ci. Avec le profil technique de validation, un message d’erreur est affiché sur une page déclarée automatiquement, et retourné dans des revendications de sortie.
 - **Échange de revendications** : un appel est effectué au service RESTful via une étape d’orchestration. Dans ce scénario, il n’existe pas d’interface utilisateur pour afficher le message d’erreur. Si votre API REST retourne une erreur, l’utilisateur est redirigé vers l’application de la partie de confiance avec le message d’erreur.
 
-## <a name="protocol"></a>Protocol
+## <a name="protocol"></a>Protocole
 
 L’attribut **Name** de l’élément **Protocol** doit être défini sur `Proprietary`. L’attribut **handler** doit contenir le nom qualifié complet d’Assembly de gestionnaire de protocole utilisé par Azure AD B2C : `Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`.
 
@@ -85,8 +85,8 @@ Le profil technique retourne également des revendications, qui ne sont pas reto
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| ServiceUrl | Oui | URL du point de terminaison de l’API REST. | 
-| AuthenticationType | Oui | Type de l’authentification effectuée par le fournisseur de revendications RESTful. Valeurs possibles : `None`, `Basic` ou `ClientCertificate`. La valeur `None` indique que l’API REST n’est pas anonyme. La valeur `Basic` indique que l’API REST est sécurisée avec une authentification HTTP de base. Seuls des utilisateurs vérifiés, notamment Azure AD B2C, peuvent accéder à votre API. La valeur `ClientCertificate` (recommandée) indique que l’API REST restreint l’accès à l’aide d’une authentification de certificat client. Seuls des services disposant des certificats appropriés, par exemple, Azure AD B2C, peuvent accéder à votre service. | 
+| ServiceUrl | OUI | URL du point de terminaison de l’API REST. | 
+| AuthenticationType | OUI | Type de l’authentification effectuée par le fournisseur de revendications RESTful. Valeurs possibles : `None`, `Basic` ou `ClientCertificate`. La valeur `None` indique que l’API REST n’est pas anonyme. La valeur `Basic` indique que l’API REST est sécurisée avec une authentification HTTP de base. Seuls des utilisateurs vérifiés, notamment Azure AD B2C, peuvent accéder à votre API. La valeur `ClientCertificate` (recommandée) indique que l’API REST restreint l’accès à l’aide d’une authentification de certificat client. Seuls des services disposant des certificats appropriés, par exemple, Azure AD B2C, peuvent accéder à votre service. | 
 | SendClaimsIn | Non | Spécifie la façon dont les revendications d’entrée sont envoyées au fournisseur de revendications RESTful. Valeurs possibles : `Body` (par défaut), `Form`, `Header`, ou `QueryString`. La valeur `Body` est la revendication d’entrée envoyée dans le corps de la demande au format JSON. Le valeur `Form` est la revendication d’entrée envoyée dans le corps de la demande, dans un format de valeurs de clé séparées par des perluètes (&). La valeur `Header` est la revendication d’entrée envoyée dans l’en-tête de la demande. La valeur `QueryString` est la revendication d’entrée envoyée dans la chaîne de requête de la demande. | 
 | ClaimsFormat | Non | Spécifie le format des revendications de sortie. Valeurs possibles : `Body` (par défaut), `Form`, `Header`, ou `QueryString`. La valeur `Body` est la revendication de sortie envoyée dans le corps de la demande au format JSON. Le valeur `Form` est la revendication de sortie envoyée dans le corps de la demande, dans un format de valeurs de clé séparées par des perluètes (&). La valeur `Header` est la revendication de sortie envoyée dans l’en-tête de la demande. La valeur `QueryString` est la revendication de sortie envoyée dans la chaîne de requête de la demande. | 
 | DebugMode | Non | Exécute le profil technique en mode débogage. En mode débogage, l’API REST peut retourner plus d’informations. Consultez la section sur le retour de message d’erreur. | 
@@ -111,8 +111,8 @@ Si le type d’authentification est défini sur `Basic`, l’élément **Cryptog
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| BasicAuthenticationUsername | Oui | Nom d’utilisateur utilisé pour l’authentification. | 
-| BasicAuthenticationPassword | Oui | Mot de passe utilisé pour l’authentification. |
+| BasicAuthenticationUsername | OUI | Nom d’utilisateur utilisé pour l’authentification. | 
+| BasicAuthenticationPassword | OUI | Mot de passe utilisé pour l’authentification. |
 
 L’exemple suivant montre un profil technique avec une authentification de base :
 
@@ -136,7 +136,7 @@ Si le type d’authentification est défini sur `ClientCertificate`, l’éléme
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| ClientCertificate | Oui | Certificat X509 (jeu de clés RSA) à utiliser pour l’authentification. | 
+| ClientCertificate | OUI | Certificat X509 (jeu de clés RSA) à utiliser pour l’authentification. | 
 
 ```XML
 <TechnicalProfile Id="REST-API-SignUp">
@@ -159,11 +159,11 @@ Il se peut que votre API REST doive retourner un message d’erreur tel que « 
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| version | Oui | 1.0.0 | 
-| status | Oui | 409 | 
+| version | OUI | 1.0.0 | 
+| status | OUI | 409 | 
 | code | Non | Code d’erreur provenant du fournisseur de point de terminaison RESTful, affiché quand `DebugMode` est activé. | 
 | requestId | Non | Identificateur de demande provenant du fournisseur de point de terminaison RESTful, affiché quand `DebugMode` est activé. | 
-| userMessage | Oui | Message d’erreur affiché à l’utilisateur. | 
+| userMessage | OUI | Message d’erreur affiché à l’utilisateur. | 
 | developerMessage | Non | Description détaillée du problème et de la manière de le corriger, affiché quand `DebugMode` est activé. | 
 | moreInfo | Non | URI pointant vers des informations supplémentaires, affiché quand `DebugMode` est activé. | 
 

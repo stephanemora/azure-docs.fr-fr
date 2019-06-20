@@ -2,7 +2,7 @@
 title: Activer la journalisation des diagnostics dans Azure Traffic Manager
 description: Découvrez comment activer la journalisation des diagnostics pour votre profil Traffic Manager et accéder aux fichiers journaux créés par la suite.
 services: traffic-manager
-author: KumudD
+author: asudbring
 manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
@@ -10,13 +10,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/25/2019
-ms.author: kumud
-ms.openlocfilehash: a7d6893c42028790ec565961f2a2cb54035aefa1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.author: allensu
+ms.openlocfilehash: b2ebeb41e69b7edfd43c38cc3b828069a1b3401a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60204051"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071241"
 ---
 # <a name="enable-diagnostic-logging-in-azure-traffic-manager"></a>Activer la journalisation des diagnostics dans Azure Traffic Manager
 
@@ -72,8 +72,8 @@ Le tableau suivant inclut le schéma des journaux d’activité propre à la res
 |||||
 |----|----|---|---|
 |**Nom du champ**|**Type de champ**|**Définition**|**Exemple**|
-|EndpointName|String|Nom du point de terminaison Traffic Manager dont l’état d’intégrité est en cours d’enregistrement.|*myPrimaryEndpoint*|
-|Statut|String|État d’intégrité du point de terminaison Traffic Manager qui a été sondé. L’état peut être **Up** (sain) ou **Down** (non opérationnel).|**Haut**|
+|EndpointName|Chaîne|Nom du point de terminaison Traffic Manager dont l’état d’intégrité est en cours d’enregistrement.|*myPrimaryEndpoint*|
+|Statut|Chaîne|État d’intégrité du point de terminaison Traffic Manager qui a été sondé. L’état peut être **Up** (sain) ou **Down** (non opérationnel).|**Haut**|
 |||||
 
 ## <a name="next-steps"></a>Étapes suivantes

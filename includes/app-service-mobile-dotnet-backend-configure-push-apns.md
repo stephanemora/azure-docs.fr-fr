@@ -5,13 +5,13 @@ ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
 ms.openlocfilehash: 83a0adf98298225b52d3b4fdfa2ca861ebb70bb9
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66140688"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177749"
 ---
-**Serveur principal .NET (C#)**:
+**Serveur principal .NET (C#)** :
   
 1. Dans Visual Studio, cliquez avec le bouton droit sur le projet de serveur, puis cliquez sur **Gérer les packages NuGet**, recherchez `Microsoft.Azure.NotificationHubs` et cliquez sur **Installer**. Cette opération installe la bibliothèque Notification Hubs pour l’envoi de notifications à partir de votre serveur principal.
 2. Dans le projet Visual Studio du serveur principal, ouvrez **Contrôleurs** > **TodoItemController.cs**. Au début du fichier, ajoutez l’instruction `using` suivante :

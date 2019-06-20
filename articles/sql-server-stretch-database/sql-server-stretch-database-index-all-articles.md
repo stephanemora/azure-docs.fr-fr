@@ -14,10 +14,10 @@ ms.author: blazem
 ms.reviewer: jroth
 manager: jroth
 ms.openlocfilehash: 81f1ac3280381ef08a1daf1fa4e041227a07aeaf
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66003024"
 ---
 # <a name="all-topics-for-azure-sql-server-stretch-database-service"></a>Toutes les rubriques pour le service Azure SQL Server Stretch Database
@@ -32,14 +32,14 @@ Cette rubrique répertorie toutes les rubriques qui s’appliquent directement a
 | 4 |[Commencez par exécuter l’Assistant Activer la base de données pour Stretch](sql-server-stretch-database-wizard.md) |Découvrez comment configurer une base de données pour Stretch Database en exécutant l’Assistant Activer la base de données pour Stretch. |
 
 ## <a name="enable"></a>Activer
-| &nbsp; | Intitulé | Description  |
+| &nbsp; | Intitulé | Description |
 | ---:|:--- |:--- |
-| 5. |[Activer Stretch Database pour une base de données](sql-server-stretch-database-enable-database.md) |Découvrez comment configurer une base de données pour Stretch Database. |
-| 6. |[Activer Stretch Database pour une table](sql-server-stretch-database-enable-table.md) |Découvrez comment configurer une table pour Stretch Database. |
+| 5\. |[Activer Stretch Database pour une base de données](sql-server-stretch-database-enable-database.md) |Découvrez comment configurer une base de données pour Stretch Database. |
+| 6\. |[Activer Stretch Database pour une table](sql-server-stretch-database-enable-table.md) |Découvrez comment configurer une table pour Stretch Database. |
 | 7 |[Sélection des lignes à migrer à l’aide d’une fonction de filtre (Stretch Database)](sql-server-stretch-database-predicate-function.md) |Découvrez comment sélectionner les lignes à migrer à l’aide d’une fonction de filtre. |
 
 ## <a name="manage"></a>gérer
-| &nbsp; | Intitulé | Description  |
+| &nbsp; | Intitulé | Description |
 | ---:|:--- |:--- |
 | 8 |[Désactiver Stretch Database et récupérer des données distantes](sql-server-stretch-database-disable.md) |Découvrez comment désactiver Stretch Database pour une table et éventuellement récupérer des données distantes. |
 | 9 |[Gérer et dépanner Stretch Database](sql-server-stretch-database-manage.md) |Découvrez comment gérer et dépanner Stretch Database |
@@ -47,13 +47,13 @@ Cette rubrique répertorie toutes les rubriques qui s’appliquent directement a
 | 11 |[Suspension et reprise de la migration des données (Stretch Database)](sql-server-stretch-database-pause.md) |Découvrez comment suspendre ou reprendre la migration des données vers Azure. |
 
 ## <a name="security"></a>Sécurité
-| &nbsp; | Intitulé | Description  |
+| &nbsp; | Intitulé | Description |
 | ---:|:--- |:--- |
 | 12 |[Activer le chiffrement transparent des données (TDE) pour Stretch Database sur Azure](sql-server-stretch-database-encryption-tde.md) |Activer le chiffrement transparent des données (TDE) pour SQL Server Stretch Database sur Azure |
 | 13 |[Activer le chiffrement transparent des données (TDE) pour Stretch Database sur Azure (Transact-SQL)](sql-server-stretch-database-tde-tsql.md) |Activer le chiffrement transparent des données (TDE) pour SQL Server Stretch Database sur Azure TSQL |
 
 ## <a name="backup-and-recovery"></a>Sauvegarde et récupération
-| &nbsp; | Intitulé | Description  |
+| &nbsp; | Intitulé | Description |
 | ---:|:--- |:--- |
 | 14 |[Sauvegarder des bases de données Stretch](sql-server-stretch-database-backup.md) |Découvrez comment sauvegarder des bases de données Stretch. |
 | 15 |[Restaurer des bases de données Stretch](sql-server-stretch-database-restore.md) |Découvrez comment restaurer des bases de données Stretch. |

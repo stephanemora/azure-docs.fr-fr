@@ -11,10 +11,10 @@ ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: 3c728660f1a77c02f1e4b5fdeb467a7dbba4e36a
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66512661"
 ---
 # <a name="define-a-self-asserted-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Définir un profil technique autodéclaré dans une stratégie personnalisée Azure Active Directory B2C
@@ -23,7 +23,7 @@ ms.locfileid: "66512661"
 
 Toutes les interactions dans Azure Active Directory (Azure AD) B2C où une saisie de l’utilisateur est attendue sont des profils techniques autodéclarés. Par exemple, une page d’inscription, une page de connexion ou une page de réinitialisation du mot de passe.
 
-## <a name="protocol"></a>Protocol
+## <a name="protocol"></a>Protocole
 
 L’attribut **Name** de l’élément **Protocol** doit être défini sur `Proprietary`. L’attribut **handler** doit contenir le nom qualifié complet de l’assembly de gestionnaire de protocole utilisé par Azure AD B2C pour l’autodéclaration : `Web.TPEngine.Providers.SelfAssertedAttributeProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`
 
@@ -132,7 +132,7 @@ Vous pouvez également appeler un profil technique d’API REST avec votre logiq
 | setting.showContinueButton | Non | Affiche le bouton Continuer. Les valeurs possibles sont `true` (par défaut) ou `false` |
 | setting.showCancelButton | Non | Affiche le bouton Annuler. Les valeurs possibles sont `true` (par défaut) ou `false` |
 | setting.operatingMode | Non | Pour une page de connexion, cette propriété contrôle le comportement du champ username, tel que la validation de l’entrée et les messages d’erreur. Valeurs attendues : `Username` ou `Email`. |
-| ContentDefinitionReferenceId | Oui | Identificateur de la [définition de contenu](contentdefinitions.md) associée à ce profil technique. |
+| ContentDefinitionReferenceId | OUI | Identificateur de la [définition de contenu](contentdefinitions.md) associée à ce profil technique. |
 | EnforceEmailVerification | Non | Pour l’inscription ou la modification du profil, applique la vérification par e-mail. Valeurs possibles : `true` (par défaut) ou `false`. | 
 | setting.showSignupLink | Non | Affiche le bouton d’inscription. Les valeurs possibles sont `true` (par défaut) ou `false` |
 | setting.retryLimit | Non | Contrôle le nombre de fois qu’un utilisateur peut essayer de fournir les données qui sont vérifiées par rapport à un profil technique de validation. Par exemple, un utilisateur tente de s’inscrire avec un compte qui existe déjà, et continue à essayer jusqu’à ce que la limite soit atteinte.

@@ -11,10 +11,10 @@ ms.date: 09/25/2017
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: e07a3fee2cc6c588dee608a68415b554e6fc77f3
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66507585"
 ---
 # <a name="secure-your-restful-services-by-using-http-basic-authentication"></a>Sécuriser vos services RESTful à l’aide de l’authentification de base HTTP
@@ -27,7 +27,7 @@ Dans cet article, vous ajoutez l’authentification HTTP de base à votre servic
 
 Pour plus d’informations, consultez [Authentification de base dans l’API web ASP.NET](https://docs.microsoft.com/aspnet/web-api/overview/security/basic-authentication).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Effectuez les étapes de l’article [Procédure pas à pas : intégration des échanges de revendications de l’API REST dans votre parcours utilisateur Azure Active Directory B2C comme validation d’une entrée de l’utilisateur](active-directory-b2c-custom-rest-api-netfw.md).
 
@@ -314,7 +314,7 @@ Une fois que votre service RESTful est protégé par l’ID client (nom d’util
 
 6. Chargez le fichier *TrustFrameworkExtensions.xml*, puis vérifiez que sa validation réussit.
 
-## <a name="step-6-test-the-custom-policy-by-using-run-now"></a>Étape 6 : Tester la stratégie personnalisée en utilisant Exécuter maintenant
+## <a name="step-6-test-the-custom-policy-by-using-run-now"></a>Étape 6 : Tester la stratégie personnalisée en utilisant Exécuter maintenant
 
 1. Ouvrez **Paramètres Azure AD B2C**, puis sélectionnez **Infrastructure d’expérience d’identité**.
 

@@ -15,19 +15,19 @@ ms.topic: article
 ms.date: 09/24/2018
 ms.author: panarasi
 ms.openlocfilehash: 2945cefc18a378b31700104049f1a14a1f320136
-ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66019782"
 ---
 # <a name="add-authentication-to-your-xamarin-forms-app"></a>Ajouter l’authentification à votre application Xamarin Forms
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 Cette rubrique montre comment authentifier les utilisateurs d'une application App Service Mobile App à partir de votre application cliente. Dans ce didacticiel, vous allez ajouter l’authentification au projet de démarrage rapide Xamarin Forms à l’aide d’un fournisseur d’identité pris en charge par App Service. Une fois l’utilisateur authentifié et autorisé par votre application Mobile App, la valeur de l’ID utilisateur s’affiche ; vous pouvez alors accéder aux données de table limitées.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 Pour obtenir les meilleurs résultats avec ce didacticiel, nous vous recommandons de commencer par suivre le didacticiel [Créer une application Xamarin.Forms][1]. Après avoir terminé ce didacticiel, vous disposerez d’un projet Xamarin Forms qui est une application TodoList multiplateforme.
 
 Si vous n’utilisez pas le projet de serveur du démarrage rapide téléchargé, vous devez ajouter le package d’extension d’authentification à votre projet. Pour plus d'informations sur les packages d'extension de serveur, consultez [Fonctionnement avec le Kit de développement logiciel (SDK) du serveur principal .NET pour Azure Mobile Apps][2].
@@ -345,7 +345,7 @@ Maintenant que vous avez terminé ce didacticiel sur l'authentification de base,
 
 * [Ajouter des notifications Push à votre application Android](app-service-mobile-xamarin-forms-get-started-push.md)
 
-   Apprenez à ajouter la prise en charge des notifications Push à votre application et à configurer le serveur principal d’applications mobiles pour utiliser Azure Notification Hubs afin d’envoyer des notifications Push.
+  Apprenez à ajouter la prise en charge des notifications Push à votre application et à configurer le serveur principal d’applications mobiles pour utiliser Azure Notification Hubs afin d’envoyer des notifications Push.
 * [Activer la synchronisation hors connexion pour votre application](app-service-mobile-xamarin-forms-get-started-offline-data.md)
 
   Apprenez à ajouter une prise en charge hors connexion à votre application à l’aide d’un serveur principal Mobile App. La synchronisation hors connexion permet aux utilisateurs finaux d’interagir avec une application mobile pour afficher, ajouter ou modifier des données, même lorsqu’il n’existe aucune connexion réseau.

@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.openlocfilehash: 5d20adc11e0d679e12fd060e719593a50180db8e
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65834872"
 ---
 # <a name="use-time-series-insights-to-visualize-telemetry-sent-from-the-device-simulation-solution-accelerator"></a>Time Series Insights permet de visualiser la télémétrie envoyée par l’accélérateur de solution Simulation d’appareil
 
 L’accélérateur de solution Simulation d’appareil vous permet de générer une télémétrie à partir d’appareils simulés pour tester vos solutions IoT. Ce guide vous montre comment visualiser et analyser la télémétrie simulée à l’aide d’un environnement Time Series Insights.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre les étapes décrites dans ce guide, vous avez besoin d’un abonnement Azure actif. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 

@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 08/15/2018
 ms.topic: conceptual
 ms.openlocfilehash: 7cbab38db859935c9f4490d79a131d6c9a7e302b
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66427572"
 ---
 # <a name="deploy-a-new-simulated-device"></a>Déployer un nouvel appareil simulé
@@ -35,7 +35,7 @@ Pour effectuer les étapes décrites dans ce guide pratique, vous avez besoin d�
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour effectuer les procédures de ce guide, vous avez besoin des éléments suivants :
 

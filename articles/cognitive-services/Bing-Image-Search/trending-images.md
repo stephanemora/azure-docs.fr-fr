@@ -13,10 +13,10 @@ ms.date: 03/04/2019
 ms.author: scottwhi
 ms.custom: seodec2018
 ms.openlocfilehash: 2936b94d7ba791b1a4e5a9b95aca3ca3ecdb5904
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66383429"
 ---
 # <a name="get-trending-images-from-the-web"></a>Obtenir des images populaires à partir du web

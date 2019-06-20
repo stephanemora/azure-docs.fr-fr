@@ -11,10 +11,10 @@ ms.date: 11/09/2018
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: ed57a9fa3b041961ce220e8f10d9aed5e7bef60e
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66511920"
 ---
 # <a name="user-flow-versions-in-azure-active-directory-b2c"></a>Versions de flux utilisateur dans Azure Active Directory B2C
@@ -30,12 +30,12 @@ Les nouveaux flux utilisateur sont ajoutés sous forme de nouvelles versions. L�
 
 | Flux utilisateur | Recommandé | Description |
 | --------- | ----------- | ----------- |
-| Réinitialisation de mot de passe | Oui | Permet à un utilisateur de choisir un nouveau mot de passe après la vérification de son adresse e-mail. À l’aide de ce flux utilisateur, vous pouvez configurer les éléments suivants : <ul><li>[Authentification multifacteur](active-directory-b2c-reference-mfa.md)</li><li>Paramètres de conformité de jeton</li><li>[Exigences en termes de « complexité » du mot de passe](active-directory-b2c-reference-password-complexity.md)</li></ul> |
-| Modification de profil | Oui | Permet à un utilisateur de configurer ses attributs utilisateur. À l’aide de ce flux utilisateur, vous pouvez configurer les éléments suivants : <ul><li>[Durée de vie du jeton](active-directory-b2c-reference-tokens.md)</li><li>Paramètres de conformité de jeton</li><li>Comportement de la session</li></ul> |
+| Réinitialisation de mot de passe | OUI | Permet à un utilisateur de choisir un nouveau mot de passe après la vérification de son adresse e-mail. À l’aide de ce flux utilisateur, vous pouvez configurer les éléments suivants : <ul><li>[Authentification multifacteur](active-directory-b2c-reference-mfa.md)</li><li>Paramètres de conformité de jeton</li><li>[Exigences en termes de « complexité » du mot de passe](active-directory-b2c-reference-password-complexity.md)</li></ul> |
+| Modification de profil | OUI | Permet à un utilisateur de configurer ses attributs utilisateur. À l’aide de ce flux utilisateur, vous pouvez configurer les éléments suivants : <ul><li>[Durée de vie du jeton](active-directory-b2c-reference-tokens.md)</li><li>Paramètres de conformité de jeton</li><li>Comportement de la session</li></ul> |
 | Propriétaire de la ressource | Non | Permet à un utilisateur avec un compte local de se connecter directement à des applications natives (aucun navigateur n’est requis). À l’aide de ce flux utilisateur, vous pouvez configurer les éléments suivants : <ul><li>[Durée de vie du jeton](active-directory-b2c-reference-tokens.md)</li><li>Paramètres de conformité de jeton</li></ul> |
 | Se connecter | Non | Permet à un utilisateur de se connecter à son compte. À l’aide de ce flux utilisateur, vous pouvez configurer les éléments suivants : <ul><li>[Authentification multifacteur](active-directory-b2c-reference-mfa.md)</li><li>[Durée de vie du jeton](active-directory-b2c-reference-tokens.md)</li><li>Paramètres de conformité de jeton</li><li>Comportement de la session</li><li>Bloquer la connexion</li><li>Forcer la réinitialisation du mot de passe</li><li>Maintenir la connexion</ul><br>Vous ne pouvez pas personnaliser l’interface utilisateur avec ce flux utilisateur. |
 | Inscription | Non | Permet à un utilisateur de créer un compte. À l’aide de ce flux utilisateur, vous pouvez configurer les éléments suivants : <ul><li>[Authentification multifacteur](active-directory-b2c-reference-mfa.md)</li><li>[Durée de vie du jeton](active-directory-b2c-reference-tokens.md)</li><li>Paramètres de conformité de jeton</li><li>Comportement de la session</li><li>[Exigences en termes de « complexité » du mot de passe](active-directory-b2c-reference-password-complexity.md)</li></ul> |
-| Inscription et connexion | Oui | Permet à un utilisateur de créer un compte ou de se connecter à son compte. À l’aide de ce flux utilisateur, vous pouvez configurer les éléments suivants : <ul><li>[Authentification multifacteur](active-directory-b2c-reference-mfa.md)</li><li>[Durée de vie du jeton](active-directory-b2c-reference-tokens.md)</li><li>Paramètres de conformité de jeton</li><li>Comportement de la session</li><li>[Exigences en termes de « complexité » du mot de passe](active-directory-b2c-reference-password-complexity.md)</li></ul>|
+| Inscription et connexion | OUI | Permet à un utilisateur de créer un compte ou de se connecter à son compte. À l’aide de ce flux utilisateur, vous pouvez configurer les éléments suivants : <ul><li>[Authentification multifacteur](active-directory-b2c-reference-mfa.md)</li><li>[Durée de vie du jeton](active-directory-b2c-reference-tokens.md)</li><li>Paramètres de conformité de jeton</li><li>Comportement de la session</li><li>[Exigences en termes de « complexité » du mot de passe](active-directory-b2c-reference-password-complexity.md)</li></ul>|
 
 ## <a name="v2"></a>V2
 

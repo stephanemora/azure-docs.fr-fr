@@ -9,11 +9,11 @@ ms.date: 10/21/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 5642533fe1015e88c3b27e83139bfd26cb0b1a53
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66157389"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67176931"
 ---
 1. Dans le [portail](http://portal.azure.com), accédez au réseau virtuel Resource Manager pour lequel vous souhaitez créer une passerelle de réseau virtuel.
 2. Dans la section **Paramètres** de la page de votre réseau virtuel, cliquez sur **Sous-réseaux** pour développer la page **Sous-réseaux**.

@@ -9,11 +9,11 @@ ms.date: 05/05/2019
 ms.author: glenga
 ms.custom: include file
 ms.openlocfilehash: 2bfca370e8e89d98f700c8c5adfd29129e810d9b
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66131580"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67176828"
 ---
 1. Cliquez sur le bouton **Créer une ressource** en haut à gauche du portail Azure, puis sélectionnez **Calcul** > **Application de fonction**.
 
@@ -28,7 +28,7 @@ ms.locfileid: "66131580"
     | **Nom de l’application** | Nom globalement unique | Nom qui identifie votre nouvelle Function App. Les caractères valides sont `a-z`, `0-9` et `-`.  | 
     | **Abonnement** | Votre abonnement | Abonnement sous lequel est créée cette nouvelle application de fonction. | 
     | **[Groupe de ressources](../articles/azure-resource-manager/resource-group-overview.md)** |  myResourceGroup | Nom du nouveau groupe de ressources dans lequel créer votre Function App. |
-    | **SE** |  Windows | L’hébergement serverless sur Linux est actuellement en préversion. Pour plus d’informations, consultez [cet article concernant ces considérations](https://aka.ms/funclinux).|
+    | **SE** | Windows | L’hébergement serverless sur Linux est actuellement en préversion. Pour plus d’informations, consultez [cet article concernant ces considérations](https://aka.ms/funclinux).|
     | **[Plan d’hébergement](../articles/azure-functions/functions-scale.md)** | Plan de consommation | Plan d’hébergement qui définit la façon dont les ressources sont allouées à votre Function App. Dans la valeur par défaut **Plan de consommation**, les ressources sont ajoutées dynamiquement comme requis par vos fonctions. Avec cet hébergement [serverless](https://azure.microsoft.com/overview/serverless-computing/), vous payez uniquement pour la durée d’exécution de vos fonctions. Si vous exécutez dans un plan App Service, vous devez gérer la [mise à l’échelle de votre application de fonction](../articles/azure-functions/functions-scale.md).  |
     | **Lieu** | Europe Ouest | Choisissez une [région](https://azure.microsoft.com/regions/) près de chez vous ou près d’autres services auxquels ont accès vos fonctions. |
     | **Pile d’exécution** | Langage préféré | Choisissez un runtime qui prend en charge votre langage de programmation de fonction favori. Choisissez **.NET** pour les fonctions C# et F#. |

@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: c44b39effdc6d8fcdc144915ec7b51489e3798cd
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66145859"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177028"
 ---
 Il est important de sécuriser votre machine virtuelle (VM) pour les applications que vous exécutez. La sécurisation des machines virtuelles peut comprendre plusieurs services et fonctionnalités Azure qui garantissent un accès sécurisé à vos machines virtuelles et le stockage sécurisé des données. Cet article donne des informations vous permettant de sécuriser votre machine virtuelle et vos applications.
 

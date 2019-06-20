@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 8861396db6f6b680ddb55ce020e5579dc25b118e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66165435"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177016"
 ---
 Il est important de savoir qu’il existe deux manières de configurer un écouteur de groupe de disponibilité dans Azure. Ces méthodes diffèrent dans le type d’équilibrage de charge Azure que vous utilisez lorsque vous créez l’écouteur. Le tableau suivant décrit ces différences :
 

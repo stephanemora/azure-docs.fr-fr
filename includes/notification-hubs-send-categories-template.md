@@ -9,17 +9,17 @@ ms.date: 03/30/2018
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: f0ff729084d194ff2e05e89eadc45782f775b1c5
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66156749"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177308"
 ---
 Dans cette section, vous envoyez les dernières nouvelles sous forme de notifications modèles avec balises à partir de l’application console .NET. 
 
 1. Dans Visual Studio, créez une application console Visual C# : a. Dans le menu, sélectionnez **Fichier** > **Nouveau** > **Projet**.
-    b. Développez **Visual C#**, puis sélectionnez **Bureau Windows**. 
-    c. Dans la liste des modèles, sélectionnez **Application console (.NET Framework)**. 
+    b. Développez **Visual C#** , puis sélectionnez **Bureau Windows**. 
+    c. Dans la liste des modèles, sélectionnez **Application console (.NET Framework)** . 
     d. Entrez un **nom** pour l’application. 
     e. Sélectionnez un **dossier** pour l’application.
     f. Cliquez sur **OK** pour créer le projet. 

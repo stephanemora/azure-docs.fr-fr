@@ -11,10 +11,10 @@ ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: a06447aaa6579052285e7e2cd93bf40183ed173f
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66512583"
 ---
 # <a name="string-claims-transformations"></a>Transformations de revendications de chaînes
@@ -29,9 +29,9 @@ Compare deux revendications et lève une exception si elles ne sont pas égales 
 
 | Item | TransformationClaimType | Type de données | Notes |
 | ---- | ----------------------- | --------- | ----- |
-| inputClaim | inputClaim1 | string | Type de la première revendication qui doit être comparée. |
-| inputClaim | inputClaim2 | string | Type de la deuxième revendication qui doit être comparée. |
-| InputParameter | stringComparison | string | comparaison de chaînes, une des valeurs suivantes : Ordinal, OrdinalIgnoreCase. |
+| inputClaim | inputClaim1 | chaîne | Type de la première revendication qui doit être comparée. |
+| inputClaim | inputClaim2 | chaîne | Type de la deuxième revendication qui doit être comparée. |
+| InputParameter | stringComparison | chaîne | comparaison de chaînes, une des valeurs suivantes : Ordinal, OrdinalIgnoreCase. |
 
 La transformation de revendication **AssertStringClaimsAreEqual** est toujours exécutée à partir d’un [profil technique de validation](validation-technical-profile.md) appelé par un [profil technique autodéclaré](self-asserted-technical-profile.md). Les métadonnées de profil technique autodéclaré **UserMessageIfClaimsTransformationStringsAreNotEqual** contrôlent le message d’erreur présenté à l’utilisateur.
 
@@ -90,9 +90,9 @@ Modifie la casse de la revendication fournie (minuscules ou majuscules) en fonct
 
 | Item | TransformationClaimType | Type de données | Notes |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputClaim1 | string | ClaimType à modifier. |
-| InputParameter | toCase | string | L’une des valeurs suivantes : `LOWER` ou `UPPER`. |
-| OutputClaim | outputClaim | string | ClaimType généré après que cette transformation de revendication a été appelée. |
+| InputClaim | inputClaim1 | chaîne | ClaimType à modifier. |
+| InputParameter | toCase | chaîne | L’une des valeurs suivantes : `LOWER` ou `UPPER`. |
+| OutputClaim | outputClaim | chaîne | ClaimType généré après que cette transformation de revendication a été appelée. |
 
 Utilisez cette transformation de revendication pour mettre un ClaimType en majuscules ou en minuscules.  
 
@@ -125,8 +125,8 @@ Crée une revendication de chaîne à partir du paramètre d’entrée fourni da
 
 | Item | TransformationClaimType | Type de données | Notes |
 |----- | ----------------------- | --------- | ----- |
-| InputParameter | value | string | Chaîne à définir |
-| OutputClaim | createdClaim | string | ClaimType généré après que cette transformation de revendication a été appelée, avec la valeur spécifiée dans le paramètre d’entrée. |
+| InputParameter | value | chaîne | Chaîne à définir |
+| OutputClaim | createdClaim | chaîne | ClaimType généré après que cette transformation de revendication a été appelée, avec la valeur spécifiée dans le paramètre d’entrée. |
 
 Utilisez cette transformation de revendication pour définir une chaîne de valeur ClaimType.
 
@@ -154,9 +154,9 @@ Détermine si une revendication de chaîne est égale à une autre. Le résultat
 
 | Item | TransformationClaimType | Type de données | Notes |
 | ---- | ----------------------- | --------- | ----- |
-| inputClaim | inputClaim1 | string | Premier type de revendication à comparer. |
-| inputClaim | inputClaim2 | string | Deuxième type de revendication à comparer. |
-| InputParameter | operator | string | Valeurs possibles : `EQUAL` ou `NOT EQUAL`. |
+| inputClaim | inputClaim1 | chaîne | Premier type de revendication à comparer. |
+| inputClaim | inputClaim2 | chaîne | Deuxième type de revendication à comparer. |
+| InputParameter | operator | chaîne | Valeurs possibles : `EQUAL` ou `NOT EQUAL`. |
 | InputParameter | ignoreCase | booléenne | Spécifie si cette comparaison doit ignorer la casse des chaînes comparées. |
 | OutputClaim | outputClaim | booléenne | ClaimType généré après que cette transformation de revendication a été appelée. |
 
@@ -195,9 +195,9 @@ Détermine si une valeur de revendication est égale à la valeur du paramètre 
 
 | Item | TransformationClaimType | Type de données | Notes |
 | ---- | ----------------------- | --------- | ----- |
-| inputClaim | inputClaim1 | string | Type de la revendication à comparer. |
-| InputParameter | operator | string | Valeurs possibles : `EQUAL` ou `NOT EQUAL`. |
-| InputParameter | compareTo | string | comparaison de chaînes, une des valeurs suivantes : Ordinal, OrdinalIgnoreCase. |
+| inputClaim | inputClaim1 | chaîne | Type de la revendication à comparer. |
+| InputParameter | operator | chaîne | Valeurs possibles : `EQUAL` ou `NOT EQUAL`. |
+| InputParameter | compareTo | chaîne | comparaison de chaînes, une des valeurs suivantes : Ordinal, OrdinalIgnoreCase. |
 | InputParameter | ignoreCase | booléenne | Spécifie si cette comparaison doit ignorer la casse des chaînes comparées. |
 | OutputClaim | outputClaim | booléenne | ClaimType généré après que cette transformation de revendication a été appelée. |
 
@@ -235,12 +235,12 @@ Crée une chaîne aléatoire à l’aide du générateur de nombres aléatoires.
 
 | Item | TransformationClaimType | Type de données | Notes |
 | ---- | ----------------------- | --------- | ----- |
-| InputParameter | randomGeneratorType | string | Spécifie la valeur aléatoire à générer, `GUID` (ID global unique) ou `INTEGER` (nombre). |
-| InputParameter | stringFormat | string | [Facultatif] Mettre en forme la valeur aléatoire. |
+| InputParameter | randomGeneratorType | chaîne | Spécifie la valeur aléatoire à générer, `GUID` (ID global unique) ou `INTEGER` (nombre). |
+| InputParameter | stringFormat | chaîne | [Facultatif] Mettre en forme la valeur aléatoire. |
 | InputParameter | base64 | booléenne | [Facultatif] Convertir la valeur aléatoire en base64. Si la mise en forme de la chaîne est appliquée, la valeur après la mise en forme de la chaîne est encodée en base64. |
 | InputParameter | maximumNumber | int | [Facultatif] Pour randomGeneratorType `INTEGER` uniquement. Spécifiez le nombre maximal. |
 | InputParameter | seed  | int | [Facultatif] Pour randomGeneratorType `INTEGER` uniquement. Spécifiez la valeur de départ pour la valeur aléatoire. Remarque : la même valeur de départ génère la même séquence de nombres aléatoires. |
-| OutputClaim | outputClaim | string | ClaimType généré après que cette transformation de revendication a été appelée. Valeur aléatoire. |
+| OutputClaim | outputClaim | chaîne | ClaimType généré après que cette transformation de revendication a été appelée. Valeur aléatoire. |
 
 L’exemple suivant génère un ID unique global. Cette transformation de revendication permet de créer l’UPN (nom d’utilisateur principal) aléatoire.
 
@@ -294,9 +294,9 @@ Met en forme une revendication en fonction de la chaîne de format fournie. Cett
 
 | Item | TransformationClaimType | Type de données | Notes |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputClaim |string |ClaimType qui agit en tant que paramètre {0} de format de chaîne. |
-| InputParameter | stringFormat | string | Format de chaîne, y compris le paramètre {0}. |
-| OutputClaim | outputClaim | string | ClaimType généré après que cette transformation de revendication a été appelée. |
+| InputClaim | inputClaim |chaîne |ClaimType qui agit en tant que paramètre {0} de format de chaîne. |
+| InputParameter | stringFormat | chaîne | Format de chaîne, y compris le paramètre {0}. |
+| OutputClaim | outputClaim | chaîne | ClaimType généré après que cette transformation de revendication a été appelée. |
 
 Utilisez cette transformation de revendication pour mettre en forme une chaîne avec un paramètre {0}. L’exemple suivant crée un **userPrincipalName**. Tous les profils techniques de fournisseurs d’identité sociale, tels que `Facebook-OAUTH` appellent **CreateUserPrincipalName** pour générer un **userPrincipalName**.   
 
@@ -329,10 +329,10 @@ Met en forme deux revendications en fonction de la chaîne de format fournie. Ce
 
 | Item | TransformationClaimType | Type de données | Notes |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputClaim |string | ClaimType qui agit en tant que paramètre {0} de format de chaîne. |
-| InputClaim | inputClaim | string | ClaimType qui agit en tant que paramètre {1} de format de chaîne. |
-| InputParameter | stringFormat | string | Format de chaîne, y compris les paramètres {0} et {1}. |
-| OutputClaim | outputClaim | string | ClaimType généré après que cette transformation de revendication a été appelée. |
+| InputClaim | inputClaim |chaîne | ClaimType qui agit en tant que paramètre {0} de format de chaîne. |
+| InputClaim | inputClaim | chaîne | ClaimType qui agit en tant que paramètre {1} de format de chaîne. |
+| InputParameter | stringFormat | chaîne | Format de chaîne, y compris les paramètres {0} et {1}. |
+| OutputClaim | outputClaim | chaîne | ClaimType généré après que cette transformation de revendication a été appelée. |
 
 Utilisez cette transformation de revendication pour mettre en forme une chaîne avec deux paramètres, {0} et {1}. L’exemple suivant crée un **displayName** au format spécifié :
 
@@ -367,8 +367,8 @@ Recherche un élément dans une collection de revendications **Restriction**.
 
 | Item | TransformationClaimType | Type de données | Notes |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | mapFromClaim | string | Revendication qui contient le texte à rechercher dans les revendications **restrictionValueClaim** avec la collection **Restriction**.  |
-| OutputClaim | restrictionValueClaim | string | Revendication qui contient la collection **Restriction**. Une fois la transformation de revendications appelée, la valeur de cette revendication contient la valeur de l’élément sélectionné. |
+| InputClaim | mapFromClaim | chaîne | Revendication qui contient le texte à rechercher dans les revendications **restrictionValueClaim** avec la collection **Restriction**.  |
+| OutputClaim | restrictionValueClaim | chaîne | Revendication qui contient la collection **Restriction**. Une fois la transformation de revendications appelée, la valeur de cette revendication contient la valeur de l’élément sélectionné. |
 
 L’exemple suivant recherche la description de message d’erreur en fonction de la clé de l’erreur. La revendication **responseMsg** contient une collection de messages d’erreur à présenter à l’utilisateur final ou à envoyer à la partie de confiance.
 
@@ -410,10 +410,10 @@ Recherche une valeur de revendication dans une liste de valeurs en fonction de l
 
 | Item | TransformationClaimType | Type de données | Notes |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputParameterId | string | Revendication qui contient la valeur de recherche |
-| InputParameter | |string | Collection d’inputParameters. |
+| InputClaim | inputParameterId | chaîne | Revendication qui contient la valeur de recherche |
+| InputParameter | |chaîne | Collection d’inputParameters. |
 | InputParameter | errorOnFailedLookup | booléenne | Contrôle si une erreur est retournée en l’absence de correspondance. |
-| OutputClaim | inputParameterId | string | ClaimType généré après que cette transformation de revendication a été appelée. Valeur de l’ID correspondant. |
+| OutputClaim | inputParameterId | chaîne | ClaimType généré après que cette transformation de revendication a été appelée. Valeur de l’ID correspondant. |
 
 L’exemple suivant recherche le nom de domaine dans l’une des collections inputParameters. La transformation de revendication recherche le nom de domaine dans l’identificateur et retourne sa valeur (un ID d’application).
 
@@ -452,7 +452,7 @@ Nettoie la valeur d’une revendication donnée.
 
 | Item | TransformationClaimType | Type de données | Notes |
 | ---- | ----------------------- | --------- | ----- |
-| OutputClaim | claim_to_null | string | Revendication dont la valeur doit être NULL. |
+| OutputClaim | claim_to_null | chaîne | Revendication dont la valeur doit être NULL. |
 
 Utilisez cette transformation de revendication pour supprimer des données inutiles dans le jeu de propriétés de revendications. Le cookie de session sera alors plus petit. L’exemple suivant supprime la valeur du type de revendication `TermsOfService`.
 
@@ -475,8 +475,8 @@ Obtient la partie domaine d’une adresse e-mail.
 
 | Item | TransformationClaimType | Type de données | Notes |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | emailAddress | string | ClaimType qui contient l’adresse e-mail. |
-| OutputClaim | domaine | string | ClaimType généré après que cette transformation de revendication a été appelée (le domaine). |
+| InputClaim | emailAddress | chaîne | ClaimType qui contient l’adresse e-mail. |
+| OutputClaim | domaine | chaîne | ClaimType généré après que cette transformation de revendication a été appelée (le domaine). |
 
 Utilisez cette transformation de revendication pour analyser le nom de domaine de l’utilisateur après le symbole @. Cela peut être utile lors de la suppression des informations d’identification personnelle (PII) dans les données d’audit. La transformation de revendication suivante montre comment analyser le nom de domaine d’une revendication **e-mail**.
 
@@ -504,13 +504,13 @@ Vérifie qu’une revendication de chaîne et un paramètre d’entrée `matchTo
 
 | Item | TransformationClaimType | Type de données | Notes |
 | ---- | ----------------------- | --------- | ----- |
-| inputClaim | inputClaim | string | Type de revendication à comparer. |
-| InputParameter | matchTo | string | Chaîne à comparer à `inputClaim`. |
-| InputParameter | stringComparison | string | Valeurs possibles : `Ordinal` ou `OrdinalIgnoreCase`. |
-| InputParameter | stringMatchMsg | string | Première valeur à définir si les chaînes sont égales. |
-| InputParameter | stringMatchMsgCode | string | Deuxième valeur à définir si les chaînes sont égales. |
-| OutputClaim | outputClaim1 | string | Si les chaînes sont égales, cette revendication de sortie contient la valeur du paramètre d’entrée `stringMatchMsg`. |
-| OutputClaim | outputClaim2 | string | Si les chaînes sont égales, cette revendication de sortie contient la valeur du paramètre d’entrée `stringMatchMsgCode`. |
+| inputClaim | inputClaim | chaîne | Type de revendication à comparer. |
+| InputParameter | matchTo | chaîne | Chaîne à comparer à `inputClaim`. |
+| InputParameter | stringComparison | chaîne | Valeurs possibles : `Ordinal` ou `OrdinalIgnoreCase`. |
+| InputParameter | stringMatchMsg | chaîne | Première valeur à définir si les chaînes sont égales. |
+| InputParameter | stringMatchMsgCode | chaîne | Deuxième valeur à définir si les chaînes sont égales. |
+| OutputClaim | outputClaim1 | chaîne | Si les chaînes sont égales, cette revendication de sortie contient la valeur du paramètre d’entrée `stringMatchMsg`. |
+| OutputClaim | outputClaim2 | chaîne | Si les chaînes sont égales, cette revendication de sortie contient la valeur du paramètre d’entrée `stringMatchMsgCode`. |
 | OutputClaim | stringCompareResultClaim | booléenne | Type de revendication de la sortie de résultat de comparaison, qui doit être défini sur `true` ou `false` en fonction du résultat de la comparaison. |
 
 Vous pouvez utiliser cette transformation de revendication pour vérifier si une revendication est égale à la valeur que vous avez spécifiée. Par exemple, la transformation de revendication suivante vérifie si la valeur de la revendication **termsOfUseConsentVersion** est égale à `v1`. Si c’est le cas, elle remplace la valeur par `v2`. 
@@ -553,11 +553,11 @@ Vérifie qu’une revendication de chaîne et un paramètre d’entrée `matchTo
 
 | Item | TransformationClaimType | Type de données | Notes |
 | ---- | ----------------------- | --------- | ----- |
-| inputClaim | claimToMatch | string | Type de revendication à comparer. |
-| InputParameter | matchTo | string | Chaîne à comparer à inputClaim. |
-| InputParameter | stringComparison | string | Valeurs possibles : `Ordinal` ou `OrdinalIgnoreCase`. |
-| InputParameter | outputClaimIfMatched | string | Valeur à définir si les chaînes sont égales. |
-| OutputClaim | outputClaim | string | Si les chaînes sont égales, cette revendication de sortie contient la valeur du paramètre d’entrée `outputClaimIfMatched`. Ou null, si les chaînes ne sont pas mises en correspondance. |
+| inputClaim | claimToMatch | chaîne | Type de revendication à comparer. |
+| InputParameter | matchTo | chaîne | Chaîne à comparer à inputClaim. |
+| InputParameter | stringComparison | chaîne | Valeurs possibles : `Ordinal` ou `OrdinalIgnoreCase`. |
+| InputParameter | outputClaimIfMatched | chaîne | Valeur à définir si les chaînes sont égales. |
+| OutputClaim | outputClaim | chaîne | Si les chaînes sont égales, cette revendication de sortie contient la valeur du paramètre d’entrée `outputClaimIfMatched`. Ou null, si les chaînes ne sont pas mises en correspondance. |
 | OutputClaim | stringCompareResultClaim | booléenne | Type de revendication de la sortie de résultat de comparaison, qui doit être défini sur `true` ou `false` en fonction du résultat de la comparaison. |
 
 Par exemple, la transformation de revendication suivante vérifie si la valeur de la revendication **ageGroup** est égale à `Minor`. Si c’est le cas, elle retourne la valeur `B2C_V1_90001`. 

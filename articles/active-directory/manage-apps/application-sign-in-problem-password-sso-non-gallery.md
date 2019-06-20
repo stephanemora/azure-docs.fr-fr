@@ -17,10 +17,10 @@ ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d95703166c3e1ed8034ea8c0d813c54759603fce
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65825049"
 ---
 # <a name="problems-signing-in-to-an-azure-ad-gallery-application-configured-for-password-single-sign-on"></a>Problèmes de connexion à une application de la galerie Azure AD configurée pour l’authentification unique par mot de passe

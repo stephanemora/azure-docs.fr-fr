@@ -16,10 +16,10 @@ ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
 ms.openlocfilehash: d4f7cfab8291fcb6d0160035b9e421a8d47b2396
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66255182"
 ---
 # <a name="application-insights-telemetry-in-visual-studio-codelens"></a>Données de télémétrie Application Insights dans Visual Studio CodeLens

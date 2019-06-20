@@ -11,10 +11,10 @@ ms.date: 09/30/2017
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: b3b896b2c423f2f9155ddb7803e59e719bd027cf
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66510717"
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-of-user-input"></a>Intégrer les échanges de revendications de l’API REST dans votre parcours utilisateur Azure Active Directory B2C comme validation d’une entrée de l’utilisateur
@@ -23,7 +23,7 @@ ms.locfileid: "66510717"
 
 Avec l’infrastructure d’expérience d’identité, sur laquelle repose Azure Active Directory B2C (Azure AD B2C), vous pouvez intégrer une API RESTful à un parcours utilisateur. Dans cette procédure pas à pas, vous allez étudier la façon dont Azure AD B2C interagit avec les services RESTful de .NET Framework (API web).
 
-## <a name="introduction"></a>Présentation
+## <a name="introduction"></a>Introduction
 Avec Azure AD B2C, vous pouvez ajouter votre propre logique métier à un parcours utilisateur en appelant votre service RESTful. L’infrastructure d’expérience d’identité envoie des données au service RESTful dans une collection *Revendications d’entrée* et reçoit des données de RESTful dans une collection *Revendications de sortie*. Avec l’intégration de service RESTful, vous pouvez :
 
 * **Valider les données d’entrée utilisateur** : cette action empêche que les données mal formées soient rendues persistantes dans Azure AD. Si la valeur de l’utilisateur n’est pas valide, votre service RESTful retourne un message d’erreur qui demande à l’utilisateur de fournir une entrée. Par exemple, vous pouvez vérifier que l’adresse e-mail fournie par l’utilisateur existe dans la base de données de clients.
@@ -53,7 +53,7 @@ Vue d’ensemble :
 * Renvoyer un numéro de fidélité
 * Ajouter le numéro de fidélité à un jeton web JSON (JWT)
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 Suivez les étapes décrites dans [Bien démarrer avec les stratégies personnalisées](active-directory-b2c-get-started-custom.md).
 
 ## <a name="step-1-create-an-aspnet-web-api"></a>Étape 1 : Créer une API web ASP.NET
@@ -297,7 +297,7 @@ Recherchez le nœud `<ClaimsProviders>`, puis ajoutez l’extrait de code XML su
 </ClaimsProvider>
 ```
 
-## <a name="step-6-add-the-loyaltynumber-claim-to-your-relying-party-policy-file-so-the-claim-is-sent-to-your-application"></a>Étape 6 : Ajouter la revendication `loyaltyNumber` à votre fichier de stratégie de partie de confiance pour que la revendication soit envoyée à votre application
+## <a name="step-6-add-the-loyaltynumber-claim-to-your-relying-party-policy-file-so-the-claim-is-sent-to-your-application"></a>Étape 6 : Ajouter la revendication `loyaltyNumber` à votre fichier de stratégie de partie de confiance pour que la revendication soit envoyée à votre application
 Ouvrez votre fichier de partie de confiance *SignUpOrSignIn.xml* et modifiez l’élément TechnicalProfile Id="PolicyProfile" en y ajoutant ceci : `<OutputClaim ClaimTypeReferenceId="loyaltyNumber" />`.
 
 Une fois que vous avez ajouté la nouvelle revendication, le code de partie de confiance ressemble à ceci :

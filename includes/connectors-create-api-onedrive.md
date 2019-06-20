@@ -5,13 +5,13 @@ ms.topic: include
 ms.date: 11/03/2016
 ms.author: estfan
 ms.openlocfilehash: 7cfce34cb2d6002dba5ec570bf859ec47e894c65
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66149738"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177319"
 ---
-#### <a name="prerequisites"></a>Conditions préalables
+#### <a name="prerequisites"></a>Prérequis
 * Un compte Azure (que vous pouvez [créer gratuitement)](https://azure.microsoft.com/free)
 * Un compte [OneDrive](https://www.microsoft.com/store/apps/onedrive/9wzdncrfj1p3) 
 

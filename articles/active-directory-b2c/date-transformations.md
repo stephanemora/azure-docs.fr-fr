@@ -11,10 +11,10 @@ ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: ad4c6c78556f98e2905b3583910e498055257c36
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66511124"
 ---
 # <a name="date-claims-transformations"></a>Transformations de revendications Date
@@ -29,8 +29,8 @@ Vérifie qu’une revendication de date et d’heure (type de données string) e
 
 | Item | TransformationClaimType | Type de données | Notes |
 | ---- | ----------------------- | --------- | ----- |
-| inputClaim | leftOperand | string | Type de la première revendication, qui doit être postérieure à la deuxième revendication. |
-| inputClaim | rightOperand | string | Type de la deuxième revendication, qui doit être antérieure à la première revendication. |
+| inputClaim | leftOperand | chaîne | Type de la première revendication, qui doit être postérieure à la deuxième revendication. |
+| inputClaim | rightOperand | chaîne | Type de la deuxième revendication, qui doit être antérieure à la première revendication. |
 | InputParameter | AssertIfEqualTo | booléenne | Spécifie si cette assertion doit passer si l’opérande gauche est égal à l’opérande droit. |
 | InputParameter | AssertIfRightOperandIsNotPresent | booléenne | Spécifie si cette assertion doit passer si l’opérande droit est manquante. |
 | InputParameter | TreatAsEqualIfWithinMillseconds | int | Spécifie le nombre de millisecondes autorisées entre les deux dates pour considérer les heures comme égales (par exemple, pour tenir compte du décalage d’horloge). |
@@ -143,7 +143,7 @@ Détermine si un dateTime est postérieur, antérieur ou égal à un autre. Le r
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | firstDateTime | dateTime | La première valeur dateTime à comparer, pour voir si elle est antérieure ou postérieure à la deuxième valeur dateTime. Une valeur null lève une exception. |
 | InputClaim | secondDateTime | dateTime | La deuxième valeur dateTime à comparer, pour voir si elle est antérieure ou postérieure à la première valeur dateTime. La valeur NULL est considérée comme la valeur datetTime actuelle. |
-| InputParameter | operator | string | Une des valeurs suivantes : identique, plus tard ou antérieur. |
+| InputParameter | operator | chaîne | Une des valeurs suivantes : identique, plus tard ou antérieur. |
 | InputParameter | timeSpanInSeconds | int | Ajoute l’intervalle de temps au premier dateTime. |
 | OutputClaim | result | booléenne | ClaimType généré après l’appel de cette ClaimsTransformation. |
 

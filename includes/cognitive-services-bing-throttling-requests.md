@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: nitinme
 ms.openlocfilehash: 1d8340054ace25a0cdc36eef9c3d5b4238a6f99b
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66124674"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177347"
 ---
 Le service et votre type d’abonnement déterminent le nombre de requêtes par seconde (RPS) que vous pouvez formuler. Assurez-vous que votre application inclut la logique permettant de respecter votre quota. Si la limite RPS est atteinte ou dépassée, la requête échoue et un code d’état HTTP 429 est renvoyé. La réponse inclut l’en-tête `Retry-After`, qui indique le délai d’attente que vous devez respecter avant d’envoyer une autre requête.
 

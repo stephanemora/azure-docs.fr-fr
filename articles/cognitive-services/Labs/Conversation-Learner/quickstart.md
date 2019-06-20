@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 04/30/2018
 ms.author: nitinme
 ms.openlocfilehash: cc071d59a387c8ae4982eacbce6812526f447788
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66388763"
 ---
 # <a name="create-a-conversation-learner-model-using-nodejs"></a>Guide pratique pour créer un modèle Conversation Learner avec Node.js
@@ -27,7 +27,7 @@ Conversation Learner simplifie la création de bots. Il permet un flux de travai
 
 Project Conversation Learner se compose d’un kit de développement logiciel (SDK) que vous ajoutez à votre bot et d’un service cloud auquel le kit de développement logiciel (SDK) accède pour la Machine Learning.  Actuellement, l’accès au service cloud Project Conversation Learner nécessite une invitation.  Si vous n’avez pas encore été invité, [demandez une invitation](https://aka.ms/conversation-learner-request-invite).  Si vous n’avez pas reçu d’invitation, vous ne pourrez pas accéder à l’API cloud.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 - Node 8.5.0 ou version ultérieure et npm 5.3.0 ou version ultérieure. Installer à partir de [https://nodejs.org](https://nodejs.org).
   

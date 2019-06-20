@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 1/27/2019
 ms.author: v-mohabe
 ms.openlocfilehash: b18267b1443b257a575bf2e1199b9f8fa8c419fc
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65966814"
 ---
 # <a name="protect-app-service-with-azure-security-center"></a>Protéger App Service avec Azure Security Center
@@ -32,7 +32,7 @@ Azure Security Center peut générer des évaluations et des suggestions sur vos
 
 Security Center profite de l’échelle du cloud pour détecter les attaques dirigées contre vos applications App Service et se concentrer sur les attaques émergentes, lorsque les pirates sont en phase de reconnaissance et analysent les vulnérabilités de multiples sites web hébergés sur Azure. Security Center se sert d’analyses et de modèles d’apprentissage pour couvrir toutes les interfaces permettant aux clients d’interagir avec leurs applications, que ce soit via le protocole HTTP ou des méthodes de gestion. De plus, en tant que service principal dans Azure, Security Center occupe également dans une position privilégiée pour proposer des analyses de sécurité basées sur l’hôte, couvrant des nœuds de calcul sous-jacents pour ce PaaS, ce qui permet à Security Center de détecter les attaques dirigées contre des applications web qui ont déjà été exploitées.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour surveiller et sécuriser votre App Service, vous devez disposer d’un plan App Service associé à des machines dédiées. Il s’agit des plans suivants : De base, Standard, Premium, Isolé ou Linux. Azure Security Center ne prend pas en charge les plans Gratuit, Partagé ou Consommation. Pour plus d’informations, voir [Plans App Service](https://azure.microsoft.com/pricing/details/app-service/plans/).
 

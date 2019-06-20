@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: 6dd1dd0ce2395e2b06d80385ffd299835a280526
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 377ad49ae3a5ae0f61cd0fd93b68dd817d617397
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60614042"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67050823"
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>Prise en charge cloud-init pour les machines virtuelles dans Azure
 Cet article décrit la prise en charge existante pour [cloud-init](https://cloudinit.readthedocs.io) destinée à la configuration d’une machine virtuelle ou de groupes de machines virtuelles identiques au moment de l’approvisionnement dans Azure. Ces scripts cloud-init s’exécutent au premier démarrage une fois que les ressources ont été approvisionnées par Azure.  
@@ -79,7 +79,7 @@ L’exemple suivant crée une machine virtuelle nommée *centos74* et des clés 
 az vm create \
   --resource-group myResourceGroup \
   --name centos74 \
-  --image OpenLogic:CentOS:7-CI:latest \
+  --image OpenLogic:CentOS-CI:7-CI:latest \
   --custom-data cloud-init.txt \
   --generate-ssh-keys 
 ```

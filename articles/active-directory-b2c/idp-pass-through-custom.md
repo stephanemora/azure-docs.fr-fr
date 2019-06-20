@@ -11,10 +11,10 @@ ms.date: 02/19/2019
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: d9420398c012b8da18e3b035cb845db6ce8c942d
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66511066"
 ---
 # <a name="pass-an-access-token-through-a-custom-policy-to-your-application-in-azure-active-directory-b2c"></a>Passer un jeton d’accès par le biais d’une stratégie personnalisée à une application dans Azure Active Directory B2C
@@ -25,7 +25,7 @@ Une [stratégie personnalisée](active-directory-b2c-get-started-custom.md) dans
 
 Azure AD B2C prend en charge la transmission du jeton d'accès des fournisseurs d'identité [OAuth 2.0](active-directory-b2c-reference-oauth-code.md) et [OpenID Connect](active-directory-b2c-reference-oidc.md). Pour tous les autres fournisseurs d’identité, la revendication est retournée vide.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 - Votre stratégie personnalisée est configurée avec un fournisseur d’identité OAuth 2.0 ou Open ID Connect.
 

@@ -5,11 +5,11 @@ ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
 ms.openlocfilehash: 852a3b00e8513f9ce68c5aae54c974505d0c9af6
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66140146"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177561"
 ---
 1. Sur votre Mac, démarrez **Trousseau d’accès**. Dans la barre de navigation gauche, sous **Catégorie**, ouvrez **Mes certificats**. Recherchez le certificat SSL que vous avez téléchargé à la section précédente, puis affichez son contenu. Sélectionnez uniquement le certificat (sans la clé privée). Puis [exportez-le](https://support.apple.com/kb/PH20122?locale=en_US).
 2. Dans le [portail Azure](https://portal.azure.com/), sélectionnez **Parcourir tout** > **App Services**. Puis sélectionnez votre serveur principal Mobile Apps. 

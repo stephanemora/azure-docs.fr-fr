@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 05/08/2019
 ms.author: wolfma
 ms.openlocfilehash: 0d0ebe57c26f5cc5b42fb449ffb10b444a03f734
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66145384"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177352"
 ---
 Région| Point de terminaison de service de jetons
 -|-
@@ -26,7 +26,7 @@ Centre de la Corée | `https://koreacentral.api.cognitive.microsoft.com/sts/v1.0
 USA Centre Nord | `https://northcentralus.api.cognitive.microsoft.com/sts/v1.0/issueToken`
 Europe Nord | `https://northeurope.api.cognitive.microsoft.com/sts/v1.0/issueToken`
 USA Centre Sud | `https://southcentralus.api.cognitive.microsoft.com/sts/v1.0/issueToken`
-Asie du Sud-Est | `https://southeastasia.api.cognitive.microsoft.com/sts/v1.0/issueToken`
+Asie Sud-Est | `https://southeastasia.api.cognitive.microsoft.com/sts/v1.0/issueToken`
 Sud du Royaume-Uni | `https://uksouth.api.cognitive.microsoft.com/sts/v1.0/issueToken`
 Europe de l'Ouest | `https://westeurope.api.cognitive.microsoft.com/sts/v1.0/issueToken`
 USA Ouest | `https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken`

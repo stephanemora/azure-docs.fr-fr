@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/03/2016
 ms.author: cephalin
 ms.openlocfilehash: 79fb8517ec6880e8a3eae0e74275567a24644b87
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66132549"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67176866"
 ---
 ## <a name="deployment-customization"></a>Personnalisation du déploiement
 

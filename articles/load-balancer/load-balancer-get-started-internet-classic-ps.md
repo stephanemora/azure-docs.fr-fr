@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: genli
 ms.openlocfilehash: 54ef8782620a387d60454023d0e446279e467a99
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60517004"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "64730332"
 ---
 # <a name="get-started-creating-an-internet-facing-load-balancer-classic-in-powershell"></a>Création d'un équilibreur de charge accessible sur Internet (classique) dans PowerShell
 

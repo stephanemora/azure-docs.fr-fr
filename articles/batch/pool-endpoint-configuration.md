@@ -8,12 +8,12 @@ ms.service: batch
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: lahugh
-ms.openlocfilehash: a6c2c343b13b77048c772cb1e5c2ba06cf8add50
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 9b6b28b9f55623fbdff6ab80c889141c8815600f
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60616855"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071532"
 ---
 # <a name="configure-or-disable-remote-access-to-compute-nodes-in-an-azure-batch-pool"></a>Configurer ou désactiver l’accès à distance aux nœuds de calcul dans un pool Azure Batch
 
@@ -27,7 +27,7 @@ La configuration de point de terminaison se compose d’un ou plusieurs [pools d
 Chaque configuration de pool NAT inclut les [règles d’un ou plusieurs groupes de sécurité réseau (NSG)](/rest/api/batchservice/pool/add#networksecuritygrouprule). Chaque règle NSG autorise ou refuse certains trafics réseau au point de terminaison. Vous pouvez choisir d’autoriser ou de refuser tout le trafic, le trafic identifié par une [balise de service](../virtual-network/security-overview.md#service-tags) (par exemple, « Internet »), ou le trafic provenant d’adresses IP ou de sous-réseaux spécifiques.
 
 ### <a name="considerations"></a>Considérations
-* La configuration de point de terminaison de pool fait partie de la [configuration réseau](/rest/api/batchservice/pool/add#NetworkConfiguration) du pool. La configuration réseau peut éventuellement inclure des paramètres permettant de joindre le pool à un [réseau virtuel Azure](batch-virtual-network.md). Si vous configurez le pool dans un réseau virtuel, vous pouvez créer des règles NSG qui utilisent des paramètres d’adresse dans le réseau virtuel.
+* La configuration de point de terminaison de pool fait partie de la [configuration réseau](/rest/api/batchservice/pool/add#networkconfiguration) du pool. La configuration réseau peut éventuellement inclure des paramètres permettant de joindre le pool à un [réseau virtuel Azure](batch-virtual-network.md). Si vous configurez le pool dans un réseau virtuel, vous pouvez créer des règles NSG qui utilisent des paramètres d’adresse dans le réseau virtuel.
 * Vous pouvez configurer plusieurs règles NSG lorsque vous configurez un pool NAT. Les règles sont vérifiées dans l’ordre de priorité. Une fois qu’une règle s’applique, plus aucune correspondance de règle n’est testée.
 
 

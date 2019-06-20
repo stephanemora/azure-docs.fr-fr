@@ -13,10 +13,10 @@ ms.author: mimart
 ms.reviewer: arvindh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bd84b44c89c856036640757b7760d7c10bd36173
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65824841"
 ---
 # <a name="configure-the-way-end-users-consent-to-an-application-in-azure-active-directory"></a>Configurer le consentement de l'utilisateur final pour une application dans Azure Active Directory
@@ -24,7 +24,7 @@ Découvrez comment configurer la manière dont les utilisateurs accordent leur c
 
 Pour plus d’informations sur le consentement des applications, consultez [Infrastructure de consentement d’Azure Active Directory](../develop/consent-framework.md).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 L’octroi du consentement de l’administrateur vous oblige à vous connecter en tant qu’administrateur général, administrateur d’application ou administrateur d’application cloud.
 
@@ -36,7 +36,7 @@ Pour accorder le consentement de l’administrateur à une application d’entre
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) en tant qu’administrateur général, administrateur d’application ou administrateur d’application cloud.
 2. Cliquez sur **All services** (Tous les services) en haut du menu de navigation de gauche. Le panneau **Extension Azure Active Directory** apparaît.
-3. Dans la zone de recherche de filtre, tapez **« Azure Active Directory »**, puis sélectionnez l’élément **Azure Active Directory**.
+3. Dans la zone de recherche de filtre, tapez **« Azure Active Directory »** , puis sélectionnez l’élément **Azure Active Directory**.
 4. Dans le menu de navigation, cliquez sur **Applications d’entreprise**.
 5. Cliquez sur **Grant Admin Consent** (Accorder un consentement d’administrateur). Vous serez invité à vous connecter pour administrer l’application.
 6. Connectez-vous avec un compte disposant des autorisations d’accorder le consentement de l’administrateur pour l’application. 

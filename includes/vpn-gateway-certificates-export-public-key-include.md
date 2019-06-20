@@ -9,11 +9,11 @@ ms.date: 02/13/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: afd4836229c60ebef1536d4fa1ca4206a492e56d
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66150321"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67176939"
 ---
 Après avoir créé un certificat racine autosigné, exportez le fichier .cer de clé publique du certificat racine (et non celui de la clé privée). Vous chargerez ce fichier plus tard sur Azure. Les étapes suivantes vous aideront à exporter le fichier .cer pour votre certificat racine auto-signé :
 
@@ -26,7 +26,7 @@ Après avoir créé un certificat racine autosigné, exportez le fichier .cer de
 3. Sélectionnez **Non, ne pas exporter la clé privée**, puis cliquez sur **Suivant**.
 
    ![N’exportez pas la clé privée](./media/vpn-gateway-certificates-export-public-key-include/notprivatekey.png)
-4. Sur la page **Format de fichier d’exportation**, sélectionnez **Codé à base 64 X.509 (.cer).**, puis cliquez sur **Suivant**.
+4. Sur la page **Format de fichier d’exportation**, sélectionnez **Codé à base 64 X.509 (.cer).** , puis cliquez sur **Suivant**.
 
    ![Encodage en base 64](./media/vpn-gateway-certificates-export-public-key-include/base64.png)
 5. Dans **Fichier à exporter**, cliquez sur **Parcourir** pour accéder à l’emplacement vers lequel vous souhaitez exporter le certificat. Pour la zone **Nom de fichier**, nommez le fichier de certificat. Cliquez ensuite sur **Suivant**.
@@ -34,7 +34,7 @@ Après avoir créé un certificat racine autosigné, exportez le fichier .cer de
    ![Parcourir](./media/vpn-gateway-certificates-export-public-key-include/browse.png)
 6. Cliquez sur **Terminer** pour exporter le certificat.
 
-   ![Terminer](./media/vpn-gateway-certificates-export-public-key-include/finish.png)
+   ![Finish](./media/vpn-gateway-certificates-export-public-key-include/finish.png)
 7. Votre certificat est correctement exporté.
 
    ![Succès](./media/vpn-gateway-certificates-export-public-key-include/success.png)

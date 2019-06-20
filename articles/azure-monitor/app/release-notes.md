@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 05/17/2017
 ms.author: mbullwin
 ms.openlocfilehash: ad8aa9f5e37ab4d3df730cbb58fec0994bcbd509
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66255962"
 ---
 # <a name="sdk-release-notes---application-insights"></a>Notes de publication du Kit de développement logiciel (SDK) : Application Insights

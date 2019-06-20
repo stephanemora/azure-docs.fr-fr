@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
 ms.openlocfilehash: 8b96c38d5bb24a267ad0203083e485d1780f28c8
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66241476"
 ---
 # <a name="create-a-non-interactive-authentication-net-hdinsight-application"></a>Créer une application .NET HDInsight d’authentification non interactive
@@ -24,7 +24,7 @@ Vous pouvez exécuter votre application Microsoft .NET Azure HDInsight sous l’
 * L’ID client d’application Azure Active Directory (Azure AD). Voir [Créer une application Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) et la rubrique [Obtenir un ID d’application](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
 * La clé secrète de l’application Azure AD. Voir la rubrique sur [l’obtention de la clé d’authentification de l’application](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 * Un cluster HDInsight. Voir le [didacticiel de prise en main](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster).
 
 ## <a name="assign-a-role-to-the-azure-ad-application"></a>Affecter un rôle à l’application Azure AD

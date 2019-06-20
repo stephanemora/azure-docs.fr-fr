@@ -5,11 +5,11 @@ ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
 ms.openlocfilehash: d1dcd7895025ea608e5f6c4db5e0967817934f2a
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66141197"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177576"
 ---
 Utilisez la procédure ci-dessous correspondant à votre type de projet de serveur principal &mdash; [serveur principal .NET](#dotnet) ou [serveur principal Node.js](#nodejs).
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 49c836f5e9189104ba77e8f3d865f4db199c4060
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66002977"
 ---
 # <a name="inserting-ads-on-the-client-side"></a>Insertion de publicités du côté client
@@ -160,7 +160,7 @@ Les publicités non linéaires sont également spécifiées dans un élément `<
     </Creative>
 ```
 
-L’élément **<NonLinearAds>** peut contenir un ou plusieurs éléments **<NonLinear>**, chacun d’eux pouvant décrire une publicité non linéaire. L’élément <**NonLinear**> spécifie la ressource de la publicité non linéaire. La ressource peut être une <**StaticResource**>, une <**IFrameResource**> ou une <**HTMLResource**>. \<**StaticResource**&gt; décrit une ressource non HTML et définit un attribut creativeType qui indique le mode d’affichage de la ressource :
+L’élément **<NonLinearAds>** peut contenir un ou plusieurs éléments **<NonLinear>** , chacun d’eux pouvant décrire une publicité non linéaire. L’élément <**NonLinear**> spécifie la ressource de la publicité non linéaire. La ressource peut être une <**StaticResource**>, une <**IFrameResource**> ou une <**HTMLResource**>. \<**StaticResource**&gt; décrit une ressource non HTML et définit un attribut creativeType qui indique le mode d’affichage de la ressource :
 
 Image/gif, image/jpeg, image/png : la ressource est affichée dans une balise HTML <**img**>.
 

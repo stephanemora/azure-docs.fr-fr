@@ -11,10 +11,10 @@ ms.date: 09/20/2018
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: 72d01d6927ee421d01a831244acf65c44a084354
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66508661"
 ---
 # <a name="set-up-sign-in-for-multi-tenant-azure-active-directory-using-custom-policies-in-azure-active-directory-b2c"></a>Configurer une connexion pour un service Azure Active Directory mutualisé à l’aide de stratégies personnalisées dans Azure Active Directory B2C
@@ -26,7 +26,7 @@ Cet article explique comment autoriser la connexion d’utilisateurs à l’aide
 >[!NOTE]
 >`Contoso.com` est utilisé pour le locataire Azure AD de l’organisation et `fabrikamb2c.onmicrosoft.com` est utilisé comme locataire Azure AD B2C dans les instructions suivantes.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Suivez les étapes de l’article [Prise en main des stratégies personnalisées dans Azure Active Directory B2C](active-directory-b2c-get-started-custom.md).
 

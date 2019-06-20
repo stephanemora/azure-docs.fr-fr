@@ -6,15 +6,15 @@ services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
-ms.topic: article
+ms.topic: quickstart
 ms.date: 11/01/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: d0760f89eb98955f7ebb503ce59f904192635f7a
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.openlocfilehash: 827c94472d3778da338c662691363919f96d4813
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65796890"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67051546"
 ---
 # <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-using-nodejs"></a>Démarrage rapide : Envoyer une requête à l’API Recherche d’entreprises locales Bing avec Node.js
 
@@ -22,7 +22,7 @@ Utilisez ce démarrage rapide pour commencer à envoyer des demandes à l’API 
 
 Cet exemple d’application récupère des données de réponse locales auprès de l’API pour la requête de recherche `hotel in Bellevue`.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 * La dernière version de [Node.js](https://nodejs.org/en/download/).
 

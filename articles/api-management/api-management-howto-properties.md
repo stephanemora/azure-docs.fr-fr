@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/25/2018
 ms.author: apimpm
 ms.openlocfilehash: 9e1b1953520c5502668fbbae70a37a140253b035
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66241690"
 ---
 # <a name="how-to-use-named-values-in-azure-api-management-policies"></a>Guide pratique pour utiliser des valeurs nommées dans les stratégies Gestion des API Azure
@@ -27,8 +27,8 @@ Chaque instance du service Gestion des API possède une collection de propriét�
 
 | Attribut | Type | Description |
 | --- | --- | --- |
-| `Display name` |string |Chaîne alphanumérique utilisée pour référencer la propriété dans les stratégies. |
-| `Value`        |string |Valeur de la propriété. Elle ne peut pas être vide ni se composer uniquement d’espaces blancs. |
+| `Display name` |chaîne |Chaîne alphanumérique utilisée pour référencer la propriété dans les stratégies. |
+| `Value`        |chaîne |Valeur de la propriété. Elle ne peut pas être vide ni se composer uniquement d’espaces blancs. |
 | `Secret`       |booléenne|Détermine si la valeur est un secret et doit être chiffrée.|
 | `Tags`         |tableau de chaînes |Balises facultatives qui, lorsqu’elles sont fournies, peuvent être utilisées pour filtrer la liste de propriétés. |
 
@@ -36,7 +36,7 @@ Chaque instance du service Gestion des API possède une collection de propriét�
 
 Les valeurs de propriété peuvent contenir des chaînes littérales et des [expressions de stratégie](/azure/api-management/api-management-policy-expressions). Par exemple, la valeur de `ExpressionProperty` est une expression de stratégie qui retourne une chaîne contenant la date et l’heure actuelles. La propriété `ContosoHeaderValue` est marquée en tant que secret. Sa valeur ne s’affiche donc pas.
 
-| Nom | Valeur | Secret | Tags |
+| Nom | Valeur | Secret | Balises |
 | --- | --- | --- | --- |
 | ContosoHeader |TrackingId |False |Contoso |
 | ContosoHeaderValue |•••••••••••••••••••••• |True |Contoso |

@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 01/27/2019
 ms.author: cynthn
 ms.openlocfilehash: ac400c86af8236ff5d67b8b6fbf99f6f4b1d36c9
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66158240"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177036"
 ---
 Vous pouvez tirer parti de nombreuses possibilités d’analyser vos machines virtuelles en collectant, affichant et analysant les données de diagnostic et de journal. Pour [analyser](../articles/azure-monitor/overview.md) simplement votre machine virtuelle, vous pouvez utiliser l’écran Vue d’ensemble de la machine virtuelle sur le portail Azure. Vous pouvez utiliser des [extensions](../articles/virtual-machines/windows/extensions-features.md) pour configurer des diagnostics sur vos machines virtuelles afin de collecter des données de mesure supplémentaires. Vous pouvez également utiliser des options d’analyse plus avancées, telles que [Application Insights](../articles/azure-monitor/app/app-insights-overview.md) et [Log Analytics](../articles/azure-monitor/log-query/log-query-overview.md).
 

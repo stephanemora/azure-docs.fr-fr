@@ -9,17 +9,17 @@ ms.topic: article
 ms.date: 05/30/2019
 ms.author: raynew
 ms.openlocfilehash: a02a2be7fb3ed942b1359949e18ba7d3dee824ae
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66399969"
 ---
 # <a name="fail-over-vms-and-physical-servers"></a>Basculer des machines virtuelles et des serveurs physiques 
 
 Cet article explique comment basculer des machines virtuelles et des serveurs physiques protégés par Site Recovery.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 1. Avant de procéder à un basculement, effectuez un [test de basculement](site-recovery-test-failover-to-azure.md) pour vous vérifier que tout fonctionne comme prévu.
 1. Avant le basculement, [préparez le réseau](site-recovery-network-design.md) au niveau de l’emplacement cible.  
 

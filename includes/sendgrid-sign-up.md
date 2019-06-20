@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/25/2018
 ms.author: erikre
 ms.openlocfilehash: 96c4da8465a87fee4c00bfc6177515c94910704a
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66121373"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67176740"
 ---
 Les clients Azure peuvent débloquer 25 000 courriers électroniques gratuits chaque mois. Ces 25 000 courriers électroniques mensuels gratuits vous donnent accès aux rapports avancés, aux analyses et à [toutes les API][all APIs] (Web, SMTP, Event, Parse, etc.). Pour plus d’informations sur les services supplémentaires proposés par SendGrid, visitez la page [Solutions SendGrid][SendGrid Solutions].
 
@@ -53,7 +53,7 @@ Les clients Azure peuvent débloquer 25 000 courriers électroniques gratuits 
 ### <a name="to-find-your-sendgrid-api-key"></a>Pour trouver votre clé API SendGrid
 1. Cliquez sur **Gérer**.
 
-    ![gérer][manage]
+    ![gestion][manage]
 2. Dans votre tableau de bord SendGrid, sélectionnez **Paramètres**, puis **Clés API** dans le menu de gauche.
 
     ![api-keys][api-keys]
@@ -74,7 +74,7 @@ Les clients Azure peuvent débloquer 25 000 courriers électroniques gratuits 
 
 Pour gérer les paramètres de remise des courriers électroniques, cliquez sur le bouton **Manage** . Cette action vous redirige vers le tableau de bord SendGrid.
 
-![gérer][manage]
+![gestion][manage]
 
 Pour plus d’informations sur l’envoi d’e-mails via SendGrid, consultez [Vue d’ensemble des API d’e-mail][Email API Overview].
 

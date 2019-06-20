@@ -7,16 +7,16 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: article
+ms.topic: quickstart
 ms.date: 02/13/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 20236dd2b5d2e21ca0490065ca6f26101dee3244
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.openlocfilehash: 0386482d7b46eb93c867b019abbf02231de1ddfe
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65792311"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67051977"
 ---
 # <a name="how-to-use-the-qna-maker-rest-api-with-python"></a>Guide pratique pour utiliser l’API REST QnA Maker avec Python
 <a name="HOLTop"></a>
@@ -40,7 +40,7 @@ Cet article explique comment utiliser l’[API QnA Maker Microsoft](../Overview/
 
 [!INCLUDE [Code is available in Azure-Samples GitHub repo](../../../../includes/cognitive-services-qnamaker-python-repo-note.md)]
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour exécuter ce code, vous devez disposer de [Python 3.x](https://www.python.org/downloads/).
 

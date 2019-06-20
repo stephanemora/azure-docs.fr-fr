@@ -19,10 +19,10 @@ ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b71585c178efbc30892cf95c5c2149818f0dcb3c
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65764582"
 ---
 # <a name="azure-active-directory-authentication-libraries"></a>Bibliothèques d’authentification d’Azure Active Directory
@@ -53,7 +53,7 @@ La bibliothèque d’authentification Azure Active Directory v1.0 (ADAL, Azure 
 
 ## <a name="microsoft-supported-server-libraries"></a>Bibliothèques serveur prises en charge par Microsoft
 
-| Plateforme | Bibliothèque | Téléchargement | Code source | Exemple | Référence
+| Plateforme | Bibliothèque | Téléchargement | Code source | Exemple | Informations de référence
 | --- | --- | --- | --- | --- | --- |
 | .NET |OWIN pour Azure AD|[NuGet](https://www.nuget.org/packages/Microsoft.Owin.Security.ActiveDirectory/) |[GitHub](https://github.com/aspnet/AspNetKatana/tree/dev/src/Microsoft.Owin.Security.ActiveDirectory) |[Application MVC](https://docs.microsoft.com/azure/active-directory/active-directory-devquickstarts-webapp-dotnet) | |
 | .NET |OWIN pour OpenIDConnect |[NuGet](https://www.nuget.org/packages/Microsoft.Owin.Security.OpenIdConnect) |[GitHub](https://github.com/aspnet/AspNetKatana/tree/dev/src/Microsoft.Owin.Security.OpenIdConnect) |[Application web](https://github.com/AzureADSamples/WebApp-OpenIDConnect-DotNet) | |

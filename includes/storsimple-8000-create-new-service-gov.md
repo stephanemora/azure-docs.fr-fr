@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 6939553206fe223d8166368d2963f03b32d2629e
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66118216"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177117"
 ---
 #### <a name="to-create-a-new-service"></a>Création d’un service
 1. Utilisez les informations d’identification de votre compte Microsoft pour vous connecter au [portail Microsoft Azure Government](https://portal.azure.us/).

@@ -11,10 +11,10 @@ ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: 98453daeb34d093b49cdcc636f68c3d7ae017126
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66512438"
 ---
 # <a name="stringcollection-claims-transformations"></a>Transformations de revendications StringCollection
@@ -29,7 +29,7 @@ Ajoute une revendication de chaîne à une nouvelle revendication stringCollecti
 
 | Item | TransformationClaimType | Type de données | Notes |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | item | string | ClaimType à ajouter à la revendication de sortie. |
+| InputClaim | item | chaîne | ClaimType à ajouter à la revendication de sortie. |
 | InputClaim | collection | stringCollection | [Facultatif] Si spécifié, la transformation de revendication copie les éléments de cette collection et ajoute l’élément à la fin de la revendication de collection de sortie. |
 | OutputClaim | collection | stringCollection | ClaimTypes qui sont générés après l’appel de cette ClaimsTransformation. |
 
@@ -64,7 +64,7 @@ Ajoute un paramètre de chaîne à une nouvelle revendication stringCollection.
 | Item | TransformationClaimType | Type de données | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | collection | stringCollection | [Facultatif] Si spécifié, la transformation de revendication copie les éléments de cette collection et ajoute l’élément à la fin de la revendication de collection de sortie. |
-| InputParameter | item | string | Valeur à ajouter à la revendication de sortie. |
+| InputParameter | item | chaîne | Valeur à ajouter à la revendication de sortie. |
 | OutputClaim | collection | stringCollection | ClaimTypes qui sont générés après l’appel de cette ClaimsTransformation. |
 
 Utilisez cette transformation de revendication pour ajouter une valeur de chaîne à un objet stringCollection nouveau ou existant. L’exemple suivant ajoute une adresse e-mail constante (admin@contoso.com) à la revendication **otherMails**. 
@@ -99,7 +99,7 @@ Obtient le premier élément de la collection de chaînes fournie.
 | Item | TransformationClaimType | Type de données | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | collection | stringCollection | ClaimTypes qui sont utilisés par la transformation de revendication pour obtenir l’élément. |
-| OutputClaim | extractedItem | string | ClaimTypes générés après l’appel de cette ClaimsTransformation. Premier élément de la collection. |
+| OutputClaim | extractedItem | chaîne | ClaimTypes générés après l’appel de cette ClaimsTransformation. Premier élément de la collection. |
 
 L’exemple suivant lit la revendication **otherMails** et retourne le premier élément dans la revendication **e-mail**. 
 

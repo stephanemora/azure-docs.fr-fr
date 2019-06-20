@@ -16,17 +16,17 @@ ms.date: 03/27/2019
 ms.author: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9540cf882af6b11f0e8624e477ad336f6d5d9ad3
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65963683"
 ---
 # <a name="tutorial-configure-lucidchart-for-automatic-user-provisioning"></a>Didacticiel : Configurer LucidChart pour l’approvisionnement automatique d’utilisateurs
 
 L’objectif de ce didacticiel est de vous montrer la procédure à suivre dans LucidChart et Azure AD pour approvisionner et retirer automatiquement des comptes utilisateur Azure AD sur LucidChart. 
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
@@ -67,7 +67,7 @@ Cette section vous guide afin de connecter votre instance Azure AD à votre com
 
     ![Approvisionnement de LucidChart](./media/lucidchart-provisioning-tutorial/LucidChart1.png)
 
-5. Dans la section **Informations d’identification de l’administrateur**, entrez le **Jeton secret** généré par votre compte LucidChart (vous pouvez rechercher le jeton sous votre compte : **Team (Équipe)** > **App Integration (Intégration de l’application)** > **SCIM**).
+5. Dans la section **Informations d’identification de l’administrateur**, entrez le **Jeton secret** généré par votre compte LucidChart (vous pouvez rechercher le jeton sous votre compte : **Team (Équipe)**  > **App Integration (Intégration de l’application)**  > **SCIM**).
 
     ![Approvisionnement de LucidChart](./media/lucidchart-provisioning-tutorial/LucidChart2.png)
 

@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: mstephen
 ms.openlocfilehash: 17bb8eb910990e0e9da65491f8dd7361398479a5
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66246463"
 ---
 # <a name="how-to-decide-if-azure-ad-domain-services-is-right-for-your-use-case"></a>Comment déterminer si les services de domaine Azure AD sont adaptés à votre cas d’utilisation ?
@@ -134,7 +134,7 @@ Vous disposez peut-être de cas d’utilisation de déploiement où vous avez be
 
 Nous avons publié des [Recommandations en matière de déploiement de Windows Server Active Directory sur des machines virtuelles Windows Azure](/windows-server/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100) pour faciliter les installations personnalisées.
 
-## <a name="related-content"></a>Contenu associé
+## <a name="related-content"></a>Contenu connexe
 
 * [Fonctionnalités - Services de domaine Azure AD](active-directory-ds-features.md)
 * [Scénarios de déploiement - Services de domaine Azure AD](scenarios.md)

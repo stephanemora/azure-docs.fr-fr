@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: spelluru
 ms.openlocfilehash: b8cf4217ca6c80be998b92e71c3ba29c4f68bce2
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66111519"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177312"
 ---
 ## <a name="webapi-project"></a>Projet WebAPI
 1. Dans Visual Studio, ouvrez le projet **AppBackend** que vous avez créé dans le didacticiel **Notification des utilisateurs**.

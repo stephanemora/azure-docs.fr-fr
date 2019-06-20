@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 11/27/2018
 ms.author: mayg
 ms.openlocfilehash: 66b9342f1a67c4c9d35fda447a297cc64d048c1e
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66480296"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-iis-based-web-application"></a>Configurer la reprise d’activité pour une application web multiniveau basée sur IIS
@@ -26,7 +26,7 @@ Une bonne solution de récupération d’urgence prend en charge la modélisatio
 
 Cet article explique comment protéger une application web qui s’appuie sur Internet Information Services (IIS) à l’aide d’[Azure Site Recovery](site-recovery-overview.md). Il décrit les recommandations à suivre pour répliquer une application web IIS à trois niveaux vers Azure, il indique également comment effectuer un test de récupération d’urgence et basculer l’application vers Azure.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Avant de commencer, assurez-vous que vous savez accomplir les tâches suivantes :
 
@@ -60,10 +60,10 @@ Pour les exemples de cet article, nous utilisons des machines virtuelles VMware 
 
 Scénario | Vers un site secondaire | Vers Azure
 --- | --- | ---
-Hyper-V | Oui | Oui
-VMware | Oui | Oui
-Serveur physique | Non | Oui
-Azure|N/D|Oui
+Hyper-V | OUI | OUI
+VMware | OUI | OUI
+Serveur physique | Non | OUI
+Azure|N/D|OUI
 
 ## <a name="replicate-virtual-machines"></a>Répliquer des machines virtuelles
 

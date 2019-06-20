@@ -5,14 +5,14 @@ ms.service: iot-central
 services: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 02/15/2019
+ms.date: 06/09/2019
 ms.topic: conceptual
-ms.openlocfilehash: 322be1e13662d92a3cb0a805a9ccaacd05928f7d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 16d7691d59e0805c7f8cf565a599ca5e6a78a7cf
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60886762"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67053050"
 ---
 # <a name="visualize-and-analyze-your-azure-iot-central-data-in-a-power-bi-dashboard"></a>Visualiser et analyser des données Azure IoT Central dans un tableau de bord Power BI
 
@@ -31,7 +31,7 @@ Cette solution configure le pipeline qui prend les données du compte Stockage B
 
 ## <a name="get-the-power-bi-solution-for-azure-iot-centralhttpsakamsiotcentralpowerbisolutiontemplate-from-microsoft-appsource"></a>Obtenez la [solution Power BI pour Azure IoT Central](https://aka.ms/iotcentralpowerbisolutiontemplate) à partir de Microsoft AppSource.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 Voici les prérequis pour configurer la solution :
 - l’accès à un abonnement Azure ;
 - des données exportées de votre application IoT Central avec [l’exportation de données continue](howto-export-data.md) (il est recommandé d’activer les mesures, les appareils et les flux de modèles d’appareils pour tirer le meilleur parti possible du tableau de bord Power BI) ;

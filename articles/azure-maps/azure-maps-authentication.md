@@ -10,10 +10,10 @@ services: azure-maps
 manager: philmea
 ms.custom: mvc
 ms.openlocfilehash: 22aba19e16e4349a5b495b307c9906f7ded5a636
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66393672"
 ---
 # <a name="authentication-with-azure-maps"></a>Authentification avec Azure Maps

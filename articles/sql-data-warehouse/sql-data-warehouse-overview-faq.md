@@ -11,10 +11,10 @@ ms.date: 04/17/2018
 ms.author: martinle
 ms.reviewer: igorstan
 ms.openlocfilehash: 4679a3bb1935e9f3e2bc90c9bc9ef1247b7ecb30
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66515870"
 ---
 # <a name="sql-data-warehouse-frequently-asked-questions"></a>Foire aux questions SQL Data Warehouse
@@ -82,21 +82,21 @@ Q : Quels pilotes clients prenez-vous en charge ?
 
 R. La prise en charge des pilotes pour DW est détaillée sur la page [Chaînes de connexion].
 
-Q : Quels sont les formats de fichiers pris en charge par PolyBase avec SQL Data Warehouse ?
+Q : Quels sont les formats de fichiers pris en charge par PolyBase avec SQL Data Warehouse ?
 
-R : Orc, RC, Parquet et le texte plat délimité
+R : Orc, RC, Parquet et le texte plat délimité
 
-Q : À quoi puis-je me connecter à partir de SQL DW à l’aide de PolyBase ? 
+Q : À quoi puis-je me connecter à partir de SQL DW à l’aide de PolyBase ? 
 
-R : [Azure Data Lake Store] et [Azure Storage Blobs]
+R : [Azure Data Lake Store] et [Azure Storage Blobs]
 
-Q : Les automates à pile sont-ils possibles lors de la connexion à Azure Storage Blobs ou à  ADLS ? 
+Q : Les automates à pile sont-ils possibles lors de la connexion à Azure Storage Blobs ou à  ADLS ? 
 
-R : Non, SQL DW PolyBase interagit uniquement avec les composants de stockage. 
+R : Non, SQL DW PolyBase interagit uniquement avec les composants de stockage. 
 
-Q : Puis-je me connecter à HDI ?
+Q : Puis-je me connecter à HDI ?
 
-R : HDI peut utiliser ADLS ou WASB comme couche HDFS. Si vous avez l’un des deux comme couche HDFS, vous pouvez charger ces données dans SQL DW. Toutefois, vous ne peut pas générer d’automate à pile vers l’instance HDI. 
+R : HDI peut utiliser ADLS ou WASB comme couche HDFS. Si vous avez l’un des deux comme couche HDFS, vous pouvez charger ces données dans SQL DW. Toutefois, vous ne peut pas générer d’automate à pile vers l’instance HDI. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur SQL Data Warehouse dans son ensemble, consultez notre page [Vue d'ensemble].

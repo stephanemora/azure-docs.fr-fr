@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 28aab15dc67e051190e8d4e35e92240a56fe54a6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66165463"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177011"
 ---
 Ensuite, si des serveurs du cluster exécutent Windows Server 2008 R2 ou Windows Server 2012, vous devez vérifier que le correctif logiciel [KB2854082](https://support.microsoft.com/kb/2854082) est installé sur chacun des serveurs locaux ou des machines virtuelles Azure qui font partie du cluster. Ce correctif logiciel doit également être installé sur tout serveur ou une machine virtuelle faisant partie du cluster, mais pas du groupe de disponibilité.
 

@@ -11,10 +11,10 @@ ms.date: 10/12/2018
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: 0c2f9a2a3d431e2948c7d50541b576b23c3ece6a
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66507536"
 ---
 # <a name="track-user-behavior-in-azure-active-directory-b2c-using-application-insights"></a>Suivre le comportement des utilisateurs dans Azure Active Directory B2C à l’aide d’Application Insights
@@ -36,7 +36,7 @@ Un profil technique utilise ce fournisseur pour définir un événement à parti
 
 Application Insights peut unifier les événements en utilisant un ID de corrélation pour enregistrer une session utilisateur. Application Insights rend la session et les événements disponibles en quelques secondes et présente de nombreux outils d’analyse, d’exportation et de visualisation.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Suivez les étapes décrites dans [Bien démarrer avec les stratégies personnalisées dans Azure Active Directory B2C](active-directory-b2c-get-started-custom.md). Cet article part du principe que vous utilisez le pack de démarrage de stratégie personnalisée. Cependant, le pack de démarrage n’est pas obligatoire.
 

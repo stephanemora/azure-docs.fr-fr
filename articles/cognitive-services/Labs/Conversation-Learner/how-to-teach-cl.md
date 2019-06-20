@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 04/30/2018
 ms.author: nitinme
 ms.openlocfilehash: 9e5e6594a74219a22d67af18827bfe2b7cbd0fb8
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66385274"
 ---
 # <a name="how-to-teach-with-conversation-learner"></a>Formation avec Conversation Learner 
@@ -54,7 +54,7 @@ Correspondance exacte des mots dans l’énoncé actuel de l’utilisateur actue
 Mots similaires dans l’énoncé actuel de l’utilisateur | 3 | 
 Actions du système avant la fois précédente | 4 |
 Entités présentes les fois précédentes | 4 | 
-Énoncés précédents de l’utilisateur | 5. | 
+Énoncés précédents de l’utilisateur | 5\. | 
 
 > [!NOTE]
 > La sélection d’action ne prend pas le contenu des actions du système (texte, contenu de carte, ou bien nom ou comportement d’API), mais uniquement l’identité de l’action du système.  Par conséquent, la modification du contenu d’une action ne modifiera pas le comportement du modèle de sélection d’action.

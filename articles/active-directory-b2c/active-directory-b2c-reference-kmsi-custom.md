@@ -11,10 +11,10 @@ ms.date: 12/03/2018
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: 0ae6f19ea9a04aa6b2547fa031dbb09d03b887c3
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66509422"
 ---
 # <a name="enable-keep-me-signed-in-kmsi-in-azure-active-directory-b2c"></a>Activer la fonctionnalité « Maintenir la connexion » dans Azure Active Directory B2C
@@ -27,7 +27,7 @@ Vous ne devez pas activer cette option sur les ordinateurs publics.
 
 ![Activer le maintien de la connexion](./media/active-directory-b2c-reference-kmsi-custom/kmsi.PNG)
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Un locataire Azure AD B2C configuré pour permettre l’inscription et la connexion des comptes locaux. Si vous n’avez pas de locataire, vous pouvez en créer un en suivant les étapes décrites du [Tutoriel : Créer un locataire Azure Active Directory B2C](tutorial-create-tenant.md).
 

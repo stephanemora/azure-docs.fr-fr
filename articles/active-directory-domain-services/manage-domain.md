@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: ergreenl
 ms.openlocfilehash: 31221b17059bb7754e24ce1139e8cb2ec22cf7a7
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66245863"
 ---
 # <a name="administer-an-azure-active-directory-domain-services-managed-domain"></a>Administrer un domaine géré par les services de domaine Azure Active Directory
@@ -119,7 +119,7 @@ Vous pouvez à présent utiliser les outils d’administration AD Windows Server
 
 <br>
 
-## <a name="related-content"></a>Contenu associé
+## <a name="related-content"></a>Contenu connexe
 * [Services de domaine Azure AD : guide de mise en route](create-instance.md)
 * [Joindre une machine virtuelle Windows Server à un domaine géré par les services de domaine Azure AD](active-directory-ds-admin-guide-join-windows-vm.md)
 * [Déployer les Outils d’administration de serveur distant](https://technet.microsoft.com/library/hh831501.aspx)

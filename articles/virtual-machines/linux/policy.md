@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 08/02/2017
 ms.author: kasing
 ms.openlocfilehash: 92aa81281c8b0a6accdcc7b76afefe4fef0488ef
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65966187"
 ---
 # <a name="apply-policies-to-linux-vms-with-azure-resource-manager"></a>Appliquer des stratégies aux machines virtuelles Linux avec Azure Resource Manager

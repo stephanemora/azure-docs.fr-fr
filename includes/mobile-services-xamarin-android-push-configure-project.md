@@ -5,13 +5,13 @@ ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
 ms.openlocfilehash: 69dc0e1c14bc88cdbf0aa48700f95058ba759cc0
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66140246"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177569"
 ---
-1. Dans la vue Solution (ou dans l’**Explorateur de solutions** dans Visual Studio), cliquez avec le bouton droit sur le dossier **Components**, cliquez sur **Get More Components...**, recherchez le composant **Google Cloud Messaging Client**, puis ajoutez-le au projet.
+1. Dans la vue Solution (ou dans l’**Explorateur de solutions** dans Visual Studio), cliquez avec le bouton droit sur le dossier **Components**, cliquez sur **Get More Components...** , recherchez le composant **Google Cloud Messaging Client**, puis ajoutez-le au projet.
 2. Ouvrez le fichier projet ToDoActivity.css et ajoutez l'instruction using suivante à la classe :
 
     ```csharp

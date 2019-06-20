@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: robinsh
 ms.openlocfilehash: 9d5d5bdc569fec1df20c7729285cc462d5af4ffb
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65873232"
 ---
 # <a name="get-started-with-device-twins-netnet"></a>Bien démarrer avec les jumeaux d’appareils (.NET/.NET)
@@ -56,7 +56,7 @@ Dans cette section, vous créez une application console (utilisant C#) qui ajout
    
     ![Nouveau projet Visual C# Bureau classique Windows](./media/iot-hub-csharp-csharp-twin-getstarted/createnetapp.png)
 
-2. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le projet **AddTagsAndQuery**, puis cliquez sur **Gérer les packages NuGet...**.
+2. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le projet **AddTagsAndQuery**, puis cliquez sur **Gérer les packages NuGet...** .
 
 3. Dans la fenêtre **Gestionnaire de Package NuGet**, sélectionnez **Parcourir**, puis recherchez **Microsoft.Azure.Devices**. Sélectionnez **Installer** pour installer le package **Microsoft.Azure.Devices**, puis acceptez les conditions d’utilisation. Cette procédure lance le téléchargement et l’installation et ajoute une référence au [package Azure IoT Service SDK NuGet](https://www.nuget.org/packages/Microsoft.Azure.Devices/) et ses dépendances.
    

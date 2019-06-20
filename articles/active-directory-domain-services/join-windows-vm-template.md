@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: mstephen
 ms.openlocfilehash: e4ca613059e10755056616b964cc500625fef187
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66245953"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-a-managed-domain-using-a-resource-manager-template"></a>Joindre une machine virtuelle Windows Server à un domaine géré à l’aide d’un modèle Resource Manager
@@ -99,7 +99,7 @@ Pour joindre une machine virtuelle Windows Server existante à un domaine géré
 Une fois le déploiement terminé, les machines virtuelles Windows spécifiées sont jointes au domaine géré.
 
 
-## <a name="related-content"></a>Contenu associé
+## <a name="related-content"></a>Contenu connexe
 * [Vue d’ensemble d’Azure PowerShell](/powershell/azure/overview)
 * [Modèle de démarrage rapide Azure - Jonction de domaine d’une nouvelle machine virtuelle](https://azure.microsoft.com/resources/templates/201-vm-domain-join/)
 * [Modèle de démarrage rapide Azure - Jonction de domaine de machines virtuelles existantes](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/)

@@ -17,10 +17,10 @@ ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9b6f069489738e9dceeee350a36aa2b45715a314
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65825029"
 ---
 # <a name="how-to-deploy-the-access-panel-extension-for-internet-explorer-using-group-policy"></a>Déploiement de l’extension Volet d’accès pour Internet Explorer à l’aide de la stratégie de groupe
@@ -30,7 +30,7 @@ Il est recommandé que les administrateurs automatisent le déploiement de cette
 
 L’extension Volet d’accès est également disponible pour [Chrome](https://go.microsoft.com/fwLink/?LinkID=311859) et [Firefox](https://go.microsoft.com/fwLink/?LinkID=626998) qui ne requièrent pas d’autorisations d’administrateur pour l’installation.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 * Vous avez configuré les [services de domaine Active Directory](https://msdn.microsoft.com/library/aa362244%28v=vs.85%29.aspx)et vous avez joint les ordinateurs de vos utilisateurs à votre domaine.
 * Vous devez disposer de l’autorisation « Modifier les paramètres » pour modifier l’objet de stratégie de groupe (GPO). Par défaut, les membres des groupes de sécurité suivants ont cette autorisation : administrateurs de domaine, administrateurs d’entreprise et propriétaires de créateur de stratégie de groupe. [En savoir plus.](https://technet.microsoft.com/library/cc781991%28v=ws.10%29.aspx)
 
@@ -104,7 +104,7 @@ Outre l’exécution du programme d’installation, toutes les extensions pour I
    * `User Configuration/Policies/Administrative Templates/Windows Components/Internet Explorer/Security Features/Add-on Management`
 2. Cliquez avec le bouton droit sur **Liste des modules complémentaires**, puis sélectionnez **Modifier**.
     ![Modifiez la liste des modules complémentaires.](./media/deploy-access-panel-browser-extension/edit-add-on-list.png)
-3. Dans la fenêtre **Liste des modules complémentaires**, sélectionnez **Activé**. Ensuite, sous la section **Options** cliquez sur **Afficher...**.
+3. Dans la fenêtre **Liste des modules complémentaires**, sélectionnez **Activé**. Ensuite, sous la section **Options** cliquez sur **Afficher...** .
    
     ![Cliquez sur Activer, puis sur Afficher...](./media/deploy-access-panel-browser-extension/edit-add-on-list-window.png)
 4. Dans la fenêtre **Afficher le contenu** , procédez comme suit :

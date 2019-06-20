@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: milanga;juliako;johndeu
 ms.openlocfilehash: ceaf4d3db71d99c3e87157f9847312fdf4000026
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65991785"
 ---
 # <a name="media-analytics-on-the-media-services-platform"></a>Media Analytics sur la plateforme Media Services 
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 Les organisations sont de plus en plus nombreuses à privilégier les supports vidéo pour former leurs employés, susciter l’intérêt de leurs clients et présenter leurs activités commerciales. Le cloud computing offre un moyen de stocker, diffuser et accéder à ces fichiers multimédias volumineux. Mais lorsque la bibliothèque de contenu vidéo d’une société augmente, elle nécessite des moyens tout aussi efficaces d’extraire des analyses du contenu. 
 
 Pour répondre à ce besoin croissant, Azure Media Services propose Azure Media Analytics. Media Analytics est une collection de composants visuels et vocaux qui aident les organisations et les entreprises à extraire des connaissances exploitables de leurs fichiers vidéo. Reposant sur les principaux composants de la plateforme Azure Media Services, Media Analytics est à même de traiter les données multimédias à l’échelle souhaitée.
@@ -64,7 +64,7 @@ Cette section répertorie tous les processeurs multimédia Media Analytics et mo
 
 ### <a name="mp-names"></a>Noms MP
 * Azure Media Indexer 2 Preview
-* Indexeur multimédia Azure
+* Azure Media Indexer
 * Détecteur de visage Azure Media
 * Détecteur de mouvement Azure Media
 * Miniatures vidéo Azure Media

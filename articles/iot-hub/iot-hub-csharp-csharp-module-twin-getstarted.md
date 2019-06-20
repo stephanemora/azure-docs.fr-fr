@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: menchi
 ms.openlocfilehash: 5421423441d03a7375feea2ca0dfe289993145ee
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65873218"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-net-back-end-and-net-device"></a>Bien démarrer avec le jumeau de module et l’identité de module IoT Hub en utilisant un backend .NET et un appareil .NET
@@ -52,7 +52,7 @@ Votre IoT Hub est maintenant créé et vous connaissez le nom d’hôte et la ch
 
 Dans cette section, vous allez créer sur votre appareil simulé une application de console .NET qui met à jour les propriétés déclarées du jumeau de module.
 
-1. **Créez un projet Visual Studio :** Dans Visual Studio, ajoutez un projet Visual C# Bureau classique Windows à la solution existante en utilisant le modèle de projet **Application console (.NET Framework)**. Assurez-vous que la version du .NET Framework est définie sur 4.6.1 ou supérieur. Nommez le projet **UpdateModuleTwinReportedProperties**.
+1. **Créez un projet Visual Studio :** Dans Visual Studio, ajoutez un projet Visual C# Bureau classique Windows à la solution existante en utilisant le modèle de projet **Application console (.NET Framework)** . Assurez-vous que la version du .NET Framework est définie sur 4.6.1 ou supérieur. Nommez le projet **UpdateModuleTwinReportedProperties**.
 
     ![Créer un projet Visual Studio](./media/iot-hub-csharp-csharp-module-twin-getstarted/update-twins-csharp1.png)
 

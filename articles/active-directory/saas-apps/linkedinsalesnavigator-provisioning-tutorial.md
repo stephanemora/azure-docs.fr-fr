@@ -16,17 +16,17 @@ ms.date: 03/28/2019
 ms.author: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8977e6bb8b665705af7183ff0cdcfae22a19c759
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65965947"
 ---
 # <a name="tutorial-configure-linkedin-sales-navigator-for-automatic-user-provisioning"></a>Didacticiel : Configurer LinkedIn Sales Navigator pour l’approvisionnement automatique d’utilisateurs
 
 L’objectif de ce didacticiel est de vous montrer les étapes à effectuer dans LinkedIn Sales Navigator et Azure AD pour approvisionner et déprovisionner automatiquement des comptes d’utilisateur d’Azure AD vers LinkedIn Sales Navigator.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 

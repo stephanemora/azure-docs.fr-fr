@@ -9,11 +9,11 @@ ms.date: 05/17/2018
 ms.author: tomfitz
 ms.custom: include file
 ms.openlocfilehash: ab55441650085f6ca89f05613fe74dd4ae3cba54
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66128784"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177449"
 ---
 1. Pour afficher les mot clés d’une ressource ou d’un groupe de ressources, recherchez les mots clés existants dans la vue d’ensemble. Si vous n’avez préalablement appliqué aucune balise, cette liste est vide.
    

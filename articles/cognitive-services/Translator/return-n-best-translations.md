@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-pawal
 ms.openlocfilehash: 27138fc82515983bb07df845e1204fe04dff915a
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66389671"
 ---
 # <a name="how-to-return-n-best-translations"></a>Comment renvoyer les n meilleures traductions

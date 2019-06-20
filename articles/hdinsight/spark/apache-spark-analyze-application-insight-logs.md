@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/09/2018
-ms.openlocfilehash: 45cbb26eb74dd78bf46a6b148a32a7762bb31fbc
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.openlocfilehash: 730ecd306bf33709ed5d9fa334b64f7cd7a482dc
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64696871"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67066488"
 ---
 # <a name="analyze-application-insights-telemetry-logs-with-apache-spark-on-hdinsight"></a>Analyser les journaux d’activité de télémétrie Application Insights avec Apache Spark sur HDInsight
 
@@ -21,14 +21,11 @@ Apprenez à utiliser [Apache Spark](https://spark.apache.org/) sur HDInsight pou
 
 [Visual Studio Application Insights](../../azure-monitor/app/app-insights-overview.md) est un service d’analyse qui surveille vos applications web. Vous pouvez exporter les données de télémétrie générées par Application Insights vers Stockage Azure. Une fois les données dans Stockage Azure, vous pouvez utiliser HDInsight pour les analyser.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 * Une application configurée pour utiliser Application Insights.
 
 * Maîtrise de la création d’un cluster HDInsight sous Linux. Pour plus d’informations, voir [Créer Apache Spark sur HDInsight](apache-spark-jupyter-spark-sql.md).
-
-  > [!IMPORTANT]  
-  > Les étapes décrites dans ce document nécessitent un cluster HDInsight utilisant Linux. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * Un navigateur Web.
 

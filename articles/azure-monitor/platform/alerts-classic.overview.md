@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/19/2018
 ms.author: robb
 ms.openlocfilehash: 96183e22f0aeafc681a782e7d3d8bd29a6ec9617
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65914707"
 ---
 # <a name="what-are-classic-alerts-in-microsoft-azure"></a>Que sont les alertes classiques dans Microsoft Azure ?
@@ -32,7 +32,7 @@ Vous pouvez afficher des alertes classiques uniquement sur l’écran utilisateu
 
 La nouvelle expérience utilisateur pour les alertes présente les avantages suivants par rapport à celle des alertes classiques :
 -   **Meilleur système de notification** : toutes les alertes plus récentes utilisent des groupes d’actions, qui sont des groupes nommés de notifications et d’actions qui peuvent être réutilisés dans plusieurs alertes. Les alertes métriques classiques et les alertes Log Analytics plus anciennes n’utilisent pas de groupes d’actions.
--   **Une expérience de création unifiée** : la création de toutes les alertes pour les métriques, les journaux et le journal d’activité dans Azure Monitor, Log Analytics et Application Insights se fait à partir d’un même emplacement.
+-   **Une expérience de création unifiée** : la création de toutes les alertes pour les métriques, les journaux d’activité et le journal d’activité dans Azure Monitor, Log Analytics et Application Insights se fait à partir d’un même emplacement.
 -   **Affichage des alertes Log Analytics déclenchées dans le portail Azure** : à présent, vous pouvez également afficher les alertes Log Analytics déclenchées dans votre abonnement. Auparavant, elles se trouvaient dans un portail distinct.
 -   **Séparation des alertes déclenchées et des règles d’alerte** : les règles d’alerte (c’est-à-dire la définition des conditions qui déclenchent des alertes) et les alertes déclenchées (c’est-à-dire les instances d’activation de règles d’alerte) sont différenciées de manière à afficher de façon distincte les opérations et la configuration.
 -   **Un flux de travail amélioré** : la nouvelle expérience de création Alertes guide l’utilisateur tout au long du processus de configuration d’une règle d’alerte, ce qui facilite la découverte des éléments appropriés aux alertes.
@@ -44,7 +44,7 @@ Les alertes de métrique plus récentes présentent les avantages suivants par r
 -   **Contrôle renforcé des conditions des métriques** : vous pouvez définir des règles d’alerte plus riches. Les alertes plus récentes prennent en charge la surveillance des valeurs maximales, minimales, moyennes et totales des métriques.
 -   **Monitoring combiné de plusieurs métriques** : vous pouvez surveiller plusieurs métriques (actuellement jusqu’à deux) avec une seule règle. Une alerte est déclenchée si les deux métriques violent leurs seuils respectifs durant la période spécifiée.
 -   **Meilleur système de notification** : toutes les nouvelles alertes utilisent des [groupes d’actions](../../azure-monitor/platform/action-groups.md), à savoir des groupes nommés de notifications et d’actions qui peuvent être réutilisés dans plusieurs alertes.  Les alertes métriques classiques et les alertes Log Analytics plus anciennes n’utilisent pas de groupes d’actions. 
--   **Métriques issues des journaux** (préversion publique) : il est maintenant possible d’extraire les données des journaux destinées à Log Analytics, de les convertir en métriques Azure Monitor et de définir des alertes comme pour les autres métriques. Consultez la section [Taxonomie des alertes (classiques)](alerts-classic.overview.md) pour découvrir la terminologie spécifique aux alertes classiques. 
+-   **Métriques issues des journaux d’activité** (préversion publique) : il est maintenant possible d’extraire les données des journaux destinées à Log Analytics, de les convertir en métriques Azure Monitor et de définir des alertes comme pour les autres métriques. Consultez la section [Taxonomie des alertes (classiques)](alerts-classic.overview.md) pour découvrir la terminologie spécifique aux alertes classiques. 
 
 
 ## <a name="classic-alerts-on-azure-monitor-data"></a>Alertes classiques pour des données Azure Monitor

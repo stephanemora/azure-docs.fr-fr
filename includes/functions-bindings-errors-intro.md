@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 09/04/2018
 ms.author: glenga
 ms.openlocfilehash: c1784111cd2fc2c93b67510f310b9e513cf2b86e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66132481"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67176858"
 ---
 Les [déclencheurs et les liaisons](../articles/azure-functions/functions-triggers-bindings.md) Azure Functions communiquent avec divers services Azure. Lors de l’intégration avec ces services, vous pouvez des erreurs qui proviennent des API des services Azure sous-jacents peuvent être déclenchées. Des erreurs peuvent également se produire lorsque vous tentez de communiquer avec d’autres services à partir de votre code de fonction à l’aide des bibliothèques REST ou clientes. Pour éviter la perte de données et garantir un comportement correct de vos fonctions, il est important de gérer les erreurs provenant de chaque source.
 

@@ -11,10 +11,10 @@ ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: 8b8bbe540d9e296b0f6a0c11a62d3b861e0115d3
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66507443"
 ---
 # <a name="define-an-azure-active-directory-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Définir un profil technique Azure Active Directory dans une stratégie personnalisée Azure Active Directory B2C
@@ -23,7 +23,7 @@ ms.locfileid: "66507443"
 
 Azure Active Directory (Azure AD) B2C fournit un support pour gestion des utilisateurs Azure Active Directory. Cet article décrit les caractéristiques d’un profil technique permettant d’interagir avec un fournisseur de revendications qui prend en charge ce protocole normalisé.
 
-## <a name="protocol"></a>Protocol
+## <a name="protocol"></a>Protocole
 
 L’attribut **Name** de l’élément **Protocol** doit être défini sur `Proprietary`. L’attribut **handler** doit contenir le nom complet de l’assembly du gestionnaire de protocole`Web.TPEngine.Providers.AzureActiveDirectoryProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`.
 
@@ -254,12 +254,12 @@ Le profil technique suivant supprime un compte d’utilisateur social en utilisa
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| Opération | Oui | Opération à effectuer. Valeurs possibles : `Read`, `Write`, `DeleteClaims` ou `DeleteClaimsPrincipal`. | 
+| Opération | OUI | Opération à effectuer. Valeurs possibles : `Read`, `Write`, `DeleteClaims` ou `DeleteClaimsPrincipal`. | 
 | RaiseErrorIfClaimsPrincipalDoesNotExist | Non | Génère une erreur si l’objet utilisateur n’existe pas dans le répertoire. Valeurs possibles : `true` ou `false`. | 
 | UserMessageIfClaimsPrincipalDoesNotExist | Non | Si une erreur doit être déclenchée (voir la description de l’attribut RaiseErrorIfClaimsPrincipalDoesNotExist), spécifiez le message à afficher à l’utilisateur si l’objet utilisateur n’existe pas. La valeur peut être [localisée](localization.md).| 
 | RaiseErrorIfClaimsPrincipalAlreadyExists | Non | Génère une erreur si l’objet utilisateur existe déjà. Valeurs possibles : `true` ou `false`.| 
 | UserMessageIfClaimsPrincipalAlreadyExists | Non | Si une erreur doit être déclenchée (voir la description de l’attribut RaiseErrorIfClaimsPrincipalAlreadyExists), spécifiez le message à afficher à l’utilisateur si l’objet utilisateur existe déjà. La valeur peut être [localisée](localization.md).| 
-| ApplicationObjectId | Non | Identificateur d’objet d’application pour les attributs d’extension. Valeur : ObjectId d'une application. Pour plus d’informations, voir [Utiliser des attributs personnalisés dans une stratégie personnalisée de modification de profil](active-directory-b2c-create-custom-attributes-profile-edit-custom.md). | 
+| ApplicationObjectId | Non | Identificateur d’objet d’application pour les attributs d’extension. Valeur : ObjectId d'une application. Pour plus d’informations, voir [Utiliser des attributs personnalisés dans une stratégie personnalisée de modification de profil](active-directory-b2c-create-custom-attributes-profile-edit-custom.md). | 
 | ClientId | Non | Identificateur client pour accéder au locataire en tant que tiers. Pour plus d’informations, voir [Utiliser des attributs personnalisés dans une stratégie personnalisée de modification de profil](active-directory-b2c-create-custom-attributes-profile-edit-custom.md). | 
 
 

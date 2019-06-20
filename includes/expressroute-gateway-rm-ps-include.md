@@ -9,11 +9,11 @@ ms.date: 02/21/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 922ac7eb6cb9676af65700a6a2fe7fbae35a0dc5
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66158750"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177596"
 ---
 Les étapes de cette tâche utilisent un réseau virtuel basé sur les valeurs figurant dans la liste de référence de configuration suivante. Les noms et paramètres supplémentaires sont également présentés dans cette liste. Nous n’utilisons pas cette liste directement dans la procédure, mais nous ajoutons des variables en fonction des valeurs dans cette liste. Vous pouvez copier la liste et l’utiliser en tant que référence, en remplaçant les valeurs par les vôtres.
 

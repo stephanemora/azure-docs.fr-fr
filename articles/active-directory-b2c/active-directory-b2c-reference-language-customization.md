@@ -11,10 +11,10 @@ ms.date: 11/30/2018
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: 48633b195df997f0e9a8f06bd4f5c553ca620e98
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66509393"
 ---
 # <a name="language-customization-in-azure-active-directory-b2c"></a>Personnalisation de la langue dans Azure Active Directory B2C
@@ -179,7 +179,7 @@ Chrome et Firefox nécessitent la langue qui a été définie. S’il s’agit d
 
 ### <a name="supported-languages"></a>Langues prises en charge
 
-| Langue              | Code de langue |
+| Langage              | Code de langue |
 |-----------------------|---------------|
 | Bangla                | bn            |
 | Tchèque                 | cs            |

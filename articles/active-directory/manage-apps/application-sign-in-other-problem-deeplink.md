@@ -17,10 +17,10 @@ ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 44825f32a13db0a221252c042dc9f23ec43a9c8f
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65825425"
 ---
 # <a name="problems-signing-in-to-an-application-using-a-deeplink"></a>Problèmes de connexion à une application à l’aide d’un lien profond
@@ -251,7 +251,7 @@ Pour affecter un ou plusieurs utilisateurs directement à une application, proc�
 
 11. Pointez sur **l’utilisateur** dans la liste pour afficher une **case à cocher**. Pour ajouter votre utilisateur à la liste **Sélectionné**, cochez la case en regard de la photo de profil ou du logo de l’utilisateur.
 
-12. **Facultatif** : Si vous souhaitez **ajouter plusieurs utilisateurs**, entrez un autre **nom complet** ou une autre **adresse de messagerie** dans la zone de recherche **Rechercher par nom ou adresse de messagerie**, puis cochez la case pour ajouter cet utilisateur à la liste **Sélectionné**.
+12. **Facultatif :** Si vous souhaitez **ajouter plusieurs utilisateurs**, entrez un autre **nom complet** ou une autre **adresse de messagerie** dans la zone de recherche **Rechercher par nom ou adresse de messagerie**, puis cochez la case pour ajouter cet utilisateur à la liste **Sélectionné**.
 
 13. Après avoir sélectionné les utilisateurs, cliquez sur le bouton **Sélectionner** pour les ajouter à la liste des utilisateurs et des groupes à affecter à l’application.
 

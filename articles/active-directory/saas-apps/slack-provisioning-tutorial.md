@@ -16,17 +16,17 @@ ms.date: 03/27/2019
 ms.author: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 036112027fcf210f0ac2ff1e631c8b0bd4b5e9ef
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65964397"
 ---
 # <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>Tutoriel : Configurer Slack pour l’attribution automatique d’utilisateurs
 
 L’objectif de ce didacticiel est de vous montrer les étapes à effectuer dans Slack et Azure AD pour approvisionner et retirer automatiquement des comptes utilisateur d’Azure AD vers Slack.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
@@ -116,7 +116,7 @@ Pour plus d’informations sur la lecture des journaux d’activité d’approvi
 
   * Les caractères non anglais, les espaces et les majuscules sont pris en charge. 
   
-  * Les signes de ponctuation autorisés sont notamment les points, traits de soulignement, traits d’union, apostrophes, crochets (par exemple, **( [ { } ] )**) et séparateurs (par exemple, **, / ;**).
+  * Les signes de ponctuation autorisés sont notamment les points, traits de soulignement, traits d’union, apostrophes, crochets (par exemple, **( [ { } ] )** ) et séparateurs (par exemple, **, / ;** ).
   
   * La mise à jour n’est effectuée que si ces deux paramètres sont configurés dans l’espace de travail/organisation de Slack : **Profile syncing is enabled** (La synchronisation des profils est activée) et **Users cannot change their display name** (Les utilisateurs ne peuvent pas changer leur nom d’affichage).
   

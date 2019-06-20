@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
 ms.openlocfilehash: 0acac29ee49bc94c195d0e13e55fff3a735ad36b
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65859811"
 ---
 # <a name="install-custom-apache-hadoop-applications-on-azure-hdinsight"></a>Installer des applications Apache Hadoop personnalisées sur Azure HDInsight
@@ -27,7 +27,7 @@ Autres articles associés :
 * [Publier des applications HDInsight](hdinsight-apps-publish-applications.md) : découvrez comment publier vos applications HDInsight personnalisées sur la Place de marché Azure.
 * [MSDN : Installer une application HDInsight](https://msdn.microsoft.com/library/mt706515.aspx) : découvrez comment définir les applications HDInsight.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 Pour installer des applications HDInsight sur un cluster HDInsight existant, vous devez disposer d’un cluster HDInsight. Pour en créer un, consultez [Créer des clusters](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster). Vous pouvez également installer des applications HDInsight lorsque vous créez un cluster HDInsight.
 
 ## <a name="install-hdinsight-applications"></a>Install custom HDInsight applications

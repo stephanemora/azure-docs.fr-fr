@@ -16,16 +16,16 @@ ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c97729cf7d88ebdeefb44c83eb571bb6d7ebd0ed
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65825598"
 ---
 # <a name="working-with-claims-aware-apps-in-application-proxy"></a>Utilisation d’applications prenant en charge les revendications dans le proxy d’application
 [Les applications prenant en charge les revendications](https://msdn.microsoft.com/library/windows/desktop/bb736227.aspx) effectuent une redirection vers le service d’émission de jeton de sécurité (STS). Le service d’émission de jeton de sécurité demande des informations d’identification à l’utilisateur en échange d’un jeton, puis redirige l’utilisateur vers l’application. Il existe plusieurs façons d’activer le proxy d’application pour utiliser ces redirections. Utilisez cet article pour configurer votre déploiement pour les applications prenant en charge les revendications. 
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 Vérifiez que le service d’émission de jeton de sécurité vers lequel l’application prenant en charge les revendications effectue la redirection est disponible en dehors de votre réseau local. Vous pouvez rendre le service d’émission de jeton de sécurité disponible en l’exposant par le biais d’un proxy ou en autorisant les connexions externes. 
 
 ## <a name="publish-your-application"></a>Publication de votre application
@@ -42,7 +42,7 @@ Vous pouvez configurer AD FS pour les applications prenant en charge les revend
 
 Si toutes les URL internes de vos applications sont des noms de domaines complets (FQDN), alors vous pouvez configurer des [domaines personnalisés](application-proxy-configure-custom-domain.md) pour vos applications. Utilisez ces domaines personnalisés pour créer des URL externes identiques aux URL internes. Lorsque vos URL externes correspondent à vos URL internes, les redirections STS fonctionnent que vos utilisateurs soient locaux ou à distance. 
 
-### <a name="option-2-ws-federation"></a>Option 2 : WS-Federation
+### <a name="option-2-ws-federation"></a>Option 2 : Un certificat de fournisseur d'identité WS-Federation
 
 1. Ouvrez Gestion AD FS.
 2. Accédez à **Approbations de la partie de confiance**, cliquez avec le bouton droit sur l’application que vous publiez avec le proxy d’application, puis choisissez **Propriétés**.  

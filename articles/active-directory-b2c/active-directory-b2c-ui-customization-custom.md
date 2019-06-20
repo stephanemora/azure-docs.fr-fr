@@ -11,10 +11,10 @@ ms.date: 12/18/2018
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: c3c97e786e2147f043a63b90b886e01eb5944cb4
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66507673"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Personnaliser l’interface utilisateur de votre application à l’aide d’une stratégie personnalisée dans Azure Active Directory B2C
@@ -23,7 +23,7 @@ ms.locfileid: "66507673"
 
 Après avoir suivi cet article, vous disposerez d’une stratégie personnalisée d’inscription et de connexion avec votre marque et votre apparence. Avec Azure Active Directory B2C (Azure AD B2C), vous contrôlerez presque entièrement le contenu HTML et CSS présenté aux utilisateurs. Lorsque vous utilisez une stratégie personnalisée, vous configurez la personnalisation de l’interface utilisateur dans le code XML au lieu d’utiliser des contrôles dans le portail Azure. 
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Suivez les étapes décrites dans [Bien démarrer avec les stratégies personnalisées dans Azure Active Directory B2C](active-directory-b2c-get-started-custom.md). Vous devez disposer d’une stratégie personnalisée fonctionnelle pour l’inscription et la connexion avec des comptes locaux.
 
@@ -157,7 +157,7 @@ Pour configurer la personnalisation de l’interface utilisateur, copiez l’él
 2. Sélectionnez la stratégie personnalisée que vous avez téléchargée, puis cliquez sur le bouton **Exécuter maintenant**.
 3. Vous devriez pouvoir vous inscrire avec une adresse e-mail.
 
-## <a name="reference"></a>Référence
+## <a name="reference"></a>Informations de référence
 
 Vous trouverez ici des exemples de modèles pour la personnalisation de l’interface utilisateur :
 

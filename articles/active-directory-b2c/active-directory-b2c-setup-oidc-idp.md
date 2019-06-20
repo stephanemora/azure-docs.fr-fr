@@ -11,10 +11,10 @@ ms.date: 11/30/2018
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: 774716aeb28ca5d9563f38272a59c8e675a11e4b
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66508393"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-openid-connect-using-azure-active-directory-b2c"></a>Configurer l’inscription et la connexion avec OpenID Connect à l’aide d’Azure Active Directory B2C

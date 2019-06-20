@@ -13,17 +13,17 @@ ms.author: mimart
 ms.reviewer: kasimpso
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3dd98aa974f2adcd363c04c10b7a10cef6ca8ce7
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65824537"
 ---
 # <a name="hide-applications-from-end-users-in-azure-active-directory"></a>Masquer les applications aux utilisateurs finaux dans Azure Active Directory
 
 Instructions pour masquer les applications du panneau MyApps ou du Lanceur Office 365 à l’utilisateur final. Lorsqu’une application est masquée, les utilisateurs ont toujours les autorisations à celle-ci. 
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Les privilèges d’administrateur d’application sont nécessaires pour masquer une application du panneau MyApps et du Lanceur Office 365.
 
@@ -39,7 +39,7 @@ Suivez ces étapes pour masquer une application dans le panneau MyApps et dans l
 4.  Sous **Type d’Application**, sélectionnez **Applications d’entreprise** si cette option n’est pas encore sélectionnée.
 5.  Recherchez l’application que vous souhaitez masquer, puis cliquez dessus.  La vue d’ensemble de l’application apparaît.
 6.  Cliquez sur **Propriétés**. 
-7.  À la question **Visible par les utilisateurs ?**, cliquez sur **Non**.
+7.  À la question **Visible par les utilisateurs ?** , cliquez sur **Non**.
 8.  Cliquez sur **Enregistrer**.
 
 

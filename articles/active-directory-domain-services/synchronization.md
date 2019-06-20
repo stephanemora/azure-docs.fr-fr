@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: mstephen
 ms.openlocfilehash: 295a991e610e76971413a2abdba1e2fcc5f9eba6
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66246688"
 ---
 # <a name="synchronization-in-an-azure-ad-domain-services-managed-domain"></a>Synchronisation sur un domaine géré par les services de domaine Azure Active Directory
@@ -125,7 +125,7 @@ Les hachages de mot de passe compatibles NTLM et Kerberos sont toujours stockés
 ## <a name="objects-that-are-not-synchronized-to-your-azure-ad-tenant-from-your-managed-domain"></a>Objets qui ne sont pas synchronisés avec votre client Azure AD à partir de votre domaine géré
 Comme décrit dans une section précédente de cet article, il n’existe aucune synchronisation de votre domaine géré vers votre client Azure AD. Vous pouvez choisir de [créer une unité d’organisation (OU) personnalisée](create-ou.md) dans votre domaine géré. En outre, vous pouvez créer d’autres unités d’organisation, utilisateurs, groupes ou comptes de service au sein de ces unités d’organisation personnalisées. Les objets créés dans les unités d’organisation personnalisées sont de nouveau synchronisés avec votre client Azure AD. Ces objets sont disponibles uniquement dans votre domaine géré. Par conséquent, ces objets ne sont pas visibles à l’aide des applets de commande PowerShell d’Azure AD, l’API Graph d’Azure AD ou l’interface utilisateur de gestion d’Azure AD.
 
-## <a name="related-content"></a>Contenu associé
+## <a name="related-content"></a>Contenu connexe
 * [Fonctionnalités - Services de domaine Azure AD](active-directory-ds-features.md)
 * [Scénarios de déploiement - Services de domaine Azure AD](scenarios.md)
 * [Considérations relatives à la mise en réseau pour les services de domaine Azure AD](network-considerations.md)

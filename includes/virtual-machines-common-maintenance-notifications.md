@@ -9,11 +9,11 @@ ms.date: 07/02/2018
 ms.author: shants
 ms.custom: include file
 ms.openlocfilehash: 50a215175d7305834a64b7e0cfbc153431b10b7c
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66116970"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177042"
 ---
 ## <a name="view-vms-scheduled-for-maintenance-in-the-portal"></a>Afficher les machines virtuelles sur lesquelles une maintenance est planifiée dans le portail
 
@@ -31,7 +31,7 @@ Vous pouvez utiliser le portail Azure et rechercher les machines virtuelles sur 
 
    **Maintenance** : Affiche l’état de maintenance de la machine virtuelle. Les valeurs potentielles sont les suivantes :
       
-      | Valeur | Description  |
+      | Valeur | Description |
       |-------|-------------|
       | Démarrer maintenant | La machine virtuelle étant dans la fenêtre de maintenance libre-service, vous pouvez lancer la maintenance vous-même. Consultez la procédure ci-dessous pour démarrer la maintenance sur votre machine virtuelle. | 
       | Planifiée | Une maintenance est planifiée sur la machine virtuelle, mais aucune option de lancement ne vous est proposée. Pour déterminer la fenêtre de maintenance, sélectionnez la fenêtre Maintenance - Planifiée dans cet affichage ou cliquez sur la machine virtuelle. | 

@@ -11,10 +11,10 @@ ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: d82785a0f833afb6a9c675fc7022ed19e96c7fc0
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66511316"
 ---
 # <a name="contentdefinitions"></a>ContentDefinitions
@@ -63,7 +63,7 @@ L’élément **ContentDefinitionParameter** contient l’attribut suivant :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| Id | Oui | Un identificateur de définition de contenu. La valeur est l’une de celles spécifiées dans la section **ID de définition de contenu** plus loin dans cette page. |
+| ID | OUI | Un identificateur de définition de contenu. La valeur est l’une de celles spécifiées dans la section **ID de définition de contenu** plus loin dans cette page. |
 
 L’élément **ContentDefinition** contient les éléments suivants :
 
@@ -101,8 +101,8 @@ L’élément **LocalizedResourcesReferences** contient les attributs suivants 
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| Langue | Oui | Chaîne contenant une langue prise en charge pour la stratégie conformément à la spécification RFC 5646 - Tags pour l’identification des langues. |
-| LocalizedResourcesReferenceId | Oui | Identificateur de l’élément **LocalizedResources**. |
+| Langage | OUI | Chaîne contenant une langue prise en charge pour la stratégie conformément à la spécification RFC 5646 - Tags pour l’identification des langues. |
+| LocalizedResourcesReferenceId | OUI | Identificateur de l’élément **LocalizedResources**. |
 
 L’exemple suivant montre une définition de contenu d’inscription ou de connexion :
 

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: sngun
 ms.openlocfilehash: a53a62a7bc7a5c7f8d9bdabdf411588fdf7bd5e7
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66257069"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>Utiliser le flux de modification Azure Cosmos DB pour visualiser l’Analytique données en temps réel
@@ -53,7 +53,7 @@ Le diagramme ci-après illustre le flux de données et les composants impliqués
 
 7. **Power BI :** Power BI permet de visualiser les données envoyées par Azure Stream Analytics. Vous pouvez générer un tableau de bord afin de visualiser l’évolution des métriques en temps réel.  
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 * Microsoft .NET Framework 4.7.1 ou une version ultérieure
 
@@ -208,7 +208,7 @@ Azure Stream Analytics est un service cloud entièrement géré pour le traiteme
 
 5. Réaccédez à la page du travail Stream Analytics, puis sélectionnez **Sorties**.  
 
-6. Sélectionnez **+ ajouter**. Ensuite, sélectionnez **Power BI** dans le menu déroulant.  
+6. Sélectionnez **Ajouter**. Ensuite, sélectionnez **Power BI** dans le menu déroulant.  
 
 7. Pour créer une sortie Power BI afin de visualiser le prix moyen, procédez comme suit :
 

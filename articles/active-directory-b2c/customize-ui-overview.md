@@ -11,17 +11,17 @@ ms.date: 02/07/2019
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: 6c9109cf4d6d67d3d8001a9de1d54e24622a9286
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66511171"
 ---
 # <a name="about-user-interface-customization-in-azure-active-directory-b2c"></a>À propos de la personnalisation de l’interface utilisateur dans Azure Active Directory B2C
 
 La possibilité de personnaliser l’interface utilisateur présentée par Azure Active Directory (Azure AD) B2C à vos applications est importante pour offrir une expérience fluide à votre client. Ces expériences incluent la modification du profil, l’inscription, la connexion et la réinitialisation du mot de passe. Cet article fournit des informations pour vous aider à personnaliser l’interface utilisateur de vos applications.
 
-Vous personnalisez l’interface utilisateur de votre application de différentes manières en fonction de vos besoins relatifs à ces expériences. Exemple :
+Vous personnalisez l’interface utilisateur de votre application de différentes manières en fonction de vos besoins relatifs à ces expériences. Par exemple :
 
 - Si vous utilisez des [flux d’utilisateur](active-directory-b2c-reference-policies.md) pour fournir des expériences de modification de profil, de réinitialisation du mot de passe, d’inscription ou de connexion dans votre application, vous utilisez le [portail Azure pour personnaliser l’interface utilisateur](tutorial-customize-ui.md).
 - Si vous utilisez un flux utilisateur v2, vous pouvez utiliser un [modèle de disposition de page](#page-layout-templates) pour modifier l’apparence de vos pages de flux utilisateur sans davantage de personnalisation. Par exemple, vous pouvez appliquer un thème Bleu océan ou Gris ardoise à toutes les pages dans votre flux utilisateur.

@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: cynthn
 ms.openlocfilehash: aac0a3ab14cc2543fe3b60f4c52e14e3cb0ee743
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65991708"
 ---
 # <a name="time-sync-for-windows-vms-in-azure"></a>Synchronisation de l’heure pour les machines virtuelles Windows dans Azure
@@ -33,7 +33,7 @@ Azure est soutenu par une infrastructure exécutant Windows Server 2016. Windows
 >
 > Pour plus d’informations, consultez la rubrique [Précision de l’heure sur Windows Server 2016](https://docs.microsoft.com/windows-server/networking/windows-time-service/accurate-time). 
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
 La précision de l’horloge de l’ordinateur est évaluée en fonction de la proximité de l’horloge de l’ordinateur par rapport à la norme de temps universel coordonné (UTC). L’heure UTC est définie par l’exemple multinational des horloges atomiques précises qui ne peuvent être décalées que d’une seconde en 300 ans. Toutefois, la lecture directe de l’heure UTC requiert du matériel spécialisé. Au lieu de cela, les serveurs de temps sont synchronisés à l’heure UTC et sont accessibles depuis d’autres ordinateurs dans un souci d’évolutivité et de fiabilité. Chaque ordinateur possède un service de synchronisation d’heure en cours d’exécution qui sait quels serveurs de temps utiliser et vérifie régulièrement si l’horloge de l’ordinateur doit être corrigée, et ajuste l’heure si nécessaire. 
 

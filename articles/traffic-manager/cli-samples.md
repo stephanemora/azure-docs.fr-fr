@@ -3,7 +3,7 @@ title: Exemples d’interfaces de ligne de commande Azure pour Traffic Manager |
 description: Exemples d’interface de ligne de commande Azure
 services: virtual-network
 documentationcenter: virtual-network
-author: KumudD
+author: asudbring
 manager: twooley
 ms.service: virtual-network
 ms.devlang: na
@@ -11,13 +11,13 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 10/23/2018
-ms.author: kumud
-ms.openlocfilehash: 6bff7bc2b8bfc5ef280c5782945fbc7932f800f8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.author: allensu
+ms.openlocfilehash: fb195f7e4df2fa40562141199ad68dd8b29f97bb
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60560144"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67066848"
 ---
 # <a name="azure-cli-samples-for-traffic-manager"></a>Exemples d’interfaces de ligne de commande Azure pour Traffic Manager
 

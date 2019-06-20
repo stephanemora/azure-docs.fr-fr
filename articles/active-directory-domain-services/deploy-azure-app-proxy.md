@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 05/14/2019
 ms.author: mstephen
 ms.openlocfilehash: 202d33c95742f951b57e68f491f139aef068767c
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66246178"
 ---
 # <a name="deploy-azure-ad-application-proxy-on-an-azure-ad-domain-services-managed-domain"></a>Déployer le proxy d'application sur un domaine managé par les Azure Active Directory Domain Services
@@ -128,7 +128,7 @@ Set-ADComputer contoso100-resource.contoso100.com -PrincipalsAllowedToDelegateTo
 Si vous avez déployé plusieurs connecteurs de proxy d’application sur votre domaine managé, vous devez configurer la KCD basée sur la ressource pour chacune de ces instances du connecteur.
 
 
-## <a name="related-content"></a>Contenu associé
+## <a name="related-content"></a>Contenu connexe
 * [Services de domaine Azure AD : guide de mise en route](create-instance.md)
 * [Configurer la délégation Kerberos contrainte sur un domaine managé](deploy-kcd.md)
 * [Présentation de la délégation Kerberos contrainte](https://technet.microsoft.com/library/jj553400.aspx)

@@ -9,10 +9,10 @@ ms.date: 01/14/2019
 ms.topic: conceptual
 manager: philmea
 ms.openlocfilehash: 086c7d303fd199090de3be77b2456c4ebcd053a8
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66726934"
 ---
 # <a name="manage-iot-central-from-azure-powershell"></a>Gérer IoT Central à partir d’Azure PowerShell
@@ -21,7 +21,7 @@ ms.locfileid: "66726934"
 
 Au lieu de créer et de gérer des applications IoT Central à partir de la page [Application Manager](https://aka.ms/iotcentral) d’IoT Central, vous pouvez utiliser [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) pour gérer vos applications.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
@@ -45,7 +45,7 @@ Install-Module Az.IotCentral
 
 ## <a name="create-an-application"></a>Création d'une application
 
-Utilisez l’applet de commande [New-AzIotCentralApp](https://docs.microsoft.com/powershell/module/az.iotcentral/New-AzIotCentralApp) pour créer une application IoT Central dans votre abonnement Azure. Exemple :
+Utilisez l’applet de commande [New-AzIotCentralApp](https://docs.microsoft.com/powershell/module/az.iotcentral/New-AzIotCentralApp) pour créer une application IoT Central dans votre abonnement Azure. Par exemple :
 
 ```powershell
 # Create a resource group for the IoT Central application
@@ -97,7 +97,7 @@ Set-AzIotCentralApp -Name "myiotcentralapp" `
 
 ## <a name="remove-an-application"></a>Supprimer une application
 
-Utilisez l’applet de commande [Remove-AzIotCentralApp](https://docs.microsoft.com/powershell/module/az.iotcentral/Remove-AzIotCentralApp) pour supprimer les métadonnées d’une application IoT Central. Exemple :
+Utilisez l’applet de commande [Remove-AzIotCentralApp](https://docs.microsoft.com/powershell/module/az.iotcentral/Remove-AzIotCentralApp) pour supprimer les métadonnées d’une application IoT Central. Par exemple :
 
 ```powershell
 Remove-AzIotCentralApp -ResourceGroupName "MyIoTCentralResourceGroup" `

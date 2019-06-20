@@ -9,11 +9,11 @@ ms.date: 12/28/2018
 ms.author: adgera
 ms.custom: include file
 ms.openlocfilehash: e81b8fb06240d566e46ca0b45a0910e014dee329
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66119022"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177697"
 ---
 Le contrôle d’accès en fonction du rôle est une stratégie de sécurité basée sur l’héritage permettant de gérer les accès, les autorisations et les rôles. Les rôles descendants héritent des autorisations des rôles parents. Les autorisations peuvent également être attribuées sans être héritées d’un rôle parent. Elle peuvent aussi être attribuées pour personnaliser un rôle, si besoin.
 

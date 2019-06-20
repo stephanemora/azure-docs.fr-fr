@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: c10482029e6cfce7063d205161fed54030919c48
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66159689"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177121"
 ---
 #### <a name="to-stop-and-start-a-cloud-appliance"></a>Pour arrêter et démarrer une appliance cloud
 
@@ -24,7 +24,7 @@ ms.locfileid: "66159689"
 
     ![Machine virtuelle StorSimple Cloud Appliance](./media/storsimple-8000-stop-restart-cloud-appliance/sca-stop-restart3.png)
 
-4. Lorsque vous arrêtez une machine virtuelle, celle-ci est désallouée. Lorsque de l’arrêt de l’appliance cloud, son état est **Désallocation**. Une fois l’appliance cloud arrêtée, son état devient **Arrêté (désalloué)**.
+4. Lorsque vous arrêtez une machine virtuelle, celle-ci est désallouée. Lorsque de l’arrêt de l’appliance cloud, son état est **Désallocation**. Une fois l’appliance cloud arrêtée, son état devient **Arrêté (désalloué)** .
 
     ![Machine virtuelle StorSimple Cloud Appliance](./media/storsimple-8000-stop-restart-cloud-appliance/sca-stop-restart4.png)
 

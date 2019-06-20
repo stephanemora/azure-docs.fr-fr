@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 05/15/2019
 ms.author: aahi
 ms.openlocfilehash: 18b124ca7f6f270488fa8e010d2b1c0404f8e9e2
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66384774"
 ---
 # <a name="language-and-region-support-for-the-bing-web-search-api"></a>Langages et régions pris en charge par l’API Recherche Web Bing
@@ -68,7 +68,7 @@ Vous pouvez également indiquer le marché à l’aide du paramètre de requête
 
 ## <a name="markets"></a>Marchés
 
-|Pays/région|Langue|Code du marché|
+|Pays/région|Langage|Code du marché|
 |-------|--------|-----------|
 |Argentine|Espagnol|es-AR|
 |Australie|Anglais|en-AU|

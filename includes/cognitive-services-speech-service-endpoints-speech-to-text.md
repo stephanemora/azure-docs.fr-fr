@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 05/08/2019
 ms.author: wolfma
 ms.openlocfilehash: 6b64d8ea32e0c99c6f9468b84ea02c377c7441f5
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66146021"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177354"
 ---
 | Région | Point de terminaison |
 |--------|----------|
@@ -26,7 +26,7 @@ ms.locfileid: "66146021"
 | USA Centre Nord | `https://northcentralus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1` |
 | Europe Nord | `https://northeurope.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1` |
 | USA Centre Sud | `https://southcentralus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1` |
-| Asie du Sud-Est | `https://southeastasia.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1` |
+| Asie Sud-Est | `https://southeastasia.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1` |
 | Sud du Royaume-Uni | `https://uksouth.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1` |
 | Europe de l'Ouest | `https://westeurope.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1` |
 | USA Ouest | `https://westus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1` |

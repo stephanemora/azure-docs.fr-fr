@@ -7,17 +7,17 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/08/2018
 ms.openlocfilehash: eea8a919665a773c48ac3e138c19a54160f41b2e
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66160373"
 ---
 # <a name="azure-database-for-mysql-migration-partners"></a>Partenaires de migration Azure Database pour MySQL
 Pour prendre en charge votre solution Azure Database pour MySQL à grande échelle, vous pouvez choisir parmi un large éventail d’outils et de partenaires leaders. Cet article met en évidence les partenaires de Microsoft qui proposent des solutions de migration prenant en charge Azure Database pour MySQL.
 
 ## <a name="migration-partners"></a>Partenaires de migration
-| Partenaire | Description  | Liens | Videos |
+| Partenaire | Description | Liens | Videos |
 | --- | --- | --- | --- |
 | ![SNP Technologies][1] |**SNP Technologies**<br>SNP Technologies est un fournisseur de services cloud uniquement qui développe des solutions sécurisées et fiables pour les entreprises du futur. Il a pour principe la création de valeur ajoutée pour les sociétés. De l’idée à l’exécution, SNP Technologies partage un but commun avec ses clients, à savoir transformer leur investissement en avantage.|[Site web][snp_website]<br>[Twitter][snp_twitter]<br>[Contact][snp_contact] | |
 | ![DB Best Technologies, LLC][2] |**DB Best Technologies, LLC**<br>DB Best permet à ses clients de tirer le meilleur parti d’un service de base de données Azure administré. Cette entreprise propose plusieurs manières de bien démarrer, notamment [Future-State Architectural Design](https://na01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.dbbest.com%2Fservices%2Ffuture-state-architectural-design%2F&data=02%7C01%7Cjtoland%40microsoft.com%7C7311aa2024894a80eff208d5cfd45696%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636643433261194557&sdata=SCr3kseFvcU7mI1%2FZt7K2elXAqLY%2FyL6AO944QiWoLg%3D&reserved=0) (Conception architecturale Future-State), [Data Management Optimization for Microsoft Data Platform](https://www.dbbest.com/services/data-management-optimization-for-microsoft-data-platform/) (Optimisation de la gestion des données pour Microsoft Data Platform), [Microsoft Azure Deployment Planning Services](https://www.dbbest.com/services/microsoft-azure-deployment-planning-services) (Services de planification de déploiement Microsoft Azure) et [Azure Data Platform Readiness Training](https://www.dbbest.com/services/azure-data-platform-readiness-training) (Formation de préparation Azure Data Platform).|[Site web][dbbest_website]<br>[Twitter][dbbest_twitter]<br>[YouTube][dbbest_youtube]<br>[Contact][dbbest_contact] | |

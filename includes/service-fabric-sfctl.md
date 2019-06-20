@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/25/2018
 ms.author: ryanwi
 ms.openlocfilehash: 6612c0b25789b8c19a99b8f23892c42930e26169
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66159912"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177475"
 ---
 > [!IMPORTANT]
 > Deux utilitaires CLI sont utilisés pour interagir avec Service Fabric. [Azure CLI](/cli/azure/get-started-with-azure-cli?view=azure-cli-latest) est utilisé pour gérer les ressources Azure, comme un cluster Service Fabric hébergé par Azure. [Service Fabric CLI](/azure/service-fabric/service-fabric-cli) est utilisé pour se connecter directement au cluster Service Fabric (peu importe où il est hébergé) et gérer le cluster, les applications et les services. 

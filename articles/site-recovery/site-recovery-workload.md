@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: raynew
 ms.openlocfilehash: 8f4e78f7e16f775a852b4c8172d1fa9fd70ec341
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66417839"
 ---
 # <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>Quelles charges de travail pouvez-vous protéger avec Azure Site Recovery ?
@@ -103,9 +103,9 @@ RDS active l’infrastructure de bureau virtuel (VDI), les bureaux basés sur se
 
 | **RDS** |**Réplication de machines virtuelles Azure dans Azure** | **Réplication de machines virtuelles Hyper-V vers un site secondaire** | **Réplication de machines virtuelles Hyper-V dans Azure** | **Réplication de machines virtuelles VMware vers un site secondaire** | **Réplication de machines virtuelles VMware dans Azure** | **Réplication de serveurs physiques vers un site secondaire** | **Répliquer des serveurs physiques dans Azure** |
 |---| --- | --- | --- | --- | --- | --- | --- |
-| **Bureau virtuel en pool (non géré)** |Non|Oui |Non |Oui |Non |Oui |Non |
-| **Bureau virtuel en pool (géré et sans UPD)** |Non|Oui |Non |Oui |Non |Oui |Non |
-| **Applications à distance et sessions de bureau (sans UPD)** |Oui|OUI |OUI |OUI |OUI |OUI |Oui |
+| **Bureau virtuel en pool (non géré)** |Non|OUI |Non |OUI |Non |OUI |Non |
+| **Bureau virtuel en pool (géré et sans UPD)** |Non|OUI |Non |OUI |Non |OUI |Non |
+| **Applications à distance et sessions de bureau (sans UPD)** |OUI|OUI |OUI |OUI |OUI |OUI |OUI |
 
 [Configurez la récupération d’urgence de RDS à l’aide d’Azure Site Recovery](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-disaster-recovery-with-azure).
 

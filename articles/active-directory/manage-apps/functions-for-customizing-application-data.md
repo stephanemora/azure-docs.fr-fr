@@ -15,10 +15,10 @@ ms.date: 01/21/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ec1994169891d5256436ac4de741339c865bb268
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65824640"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Écriture d’expressions pour les mappages d’attributs dans Azure Active Directory
@@ -29,22 +29,22 @@ La syntaxe des expressions pour les mappages d’attributs rappelle celle des fo
 
 * L’expression entière doit être définie en termes de fonctions, qui sont constituées d’un nom suivi d’arguments entre parenthèses : <br>
   *FunctionName(`<<argument 1>>`,`<<argument N>>`)*
-* Vous pouvez imbriquer des fonctions dans d’autres. Exemple : <br> *FunctionOne(FunctionTwo(`<<argument1>>`))*
+* Vous pouvez imbriquer des fonctions dans d’autres. Par exemple : <br> *FunctionOne(FunctionTwo(`<<argument1>>`))*
 * Vous pouvez passer trois différents types d’arguments dans des fonctions :
   
   1. Des attributs, qui doivent être placés entre crochets. Par exemple : [nom_attribut]
-  2. Des constantes de chaîne, qui doivent être placées entre des guillemets doubles. Exemple : « États-Unis »
-  3. D’autres fonctions. Exemple : FunctionOne(`<<argument1>>`, FunctionTwo(`<<argument2>>`))
-* Pour les constantes de chaîne, si vous avez besoin d’une barre oblique inverse (\) ou d’un guillemet (") dans la chaîne, vous devez le faire précéder du symbole de barre oblique inverse (\). Exemple : « Nom de l’entreprise : \\"Contoso"\\ »
+  2. Des constantes de chaîne, qui doivent être placées entre des guillemets doubles. Par exemple :  « États-Unis »
+  3. D’autres fonctions. Par exemple :  FunctionOne(`<<argument1>>`, FunctionTwo(`<<argument2>>`))
+* Pour les constantes de chaîne, si vous avez besoin d’une barre oblique inverse (\) ou d’un guillemet (") dans la chaîne, vous devez le faire précéder du symbole de barre oblique inverse (\). Par exemple :  « Nom de l’entreprise : \\"Contoso"\\ »
 
 ## <a name="list-of-functions"></a>Liste des fonctions
 [Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; [NormalizeDiacritics](#normalizediacritics) [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SelectUniqueValue](#selectuniquevalue)&nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [Split](#split)&nbsp;&nbsp;&nbsp;&nbsp;[StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)&nbsp;&nbsp;&nbsp;&nbsp; [ToLower](#tolower)&nbsp;&nbsp;&nbsp;&nbsp; [ToUpper](#toupper)
 
 - - -
 ### <a name="append"></a>Append
-**Fonction :**<br>  Append(source, suffixe)
+**Fonction :**<br> Append(source, suffixe)
 
-**Description :**<br>  prend une valeur de chaîne source et ajoute le suffixe à la fin de celle-ci.
+**Description :**<br> prend une valeur de chaîne source et ajoute le suffixe à la fin de celle-ci.
 
 **Paramètres :**<br> 
 
@@ -55,9 +55,9 @@ La syntaxe des expressions pour les mappages d’attributs rappelle celle des fo
 
 - - -
 ### <a name="formatdatetime"></a>FormatDateTime
-**Fonction :**<br>  FormatDateTime(source, inputFormat, outputFormat)
+**Fonction :**<br> FormatDateTime(source, inputFormat, outputFormat)
 
-**Description :**<br>  prend une chaîne de date dans un format et la convertit dans un autre format.
+**Description :**<br> prend une chaîne de date dans un format et la convertit dans un autre format.
 
 **Paramètres :**<br> 
 
@@ -69,7 +69,7 @@ La syntaxe des expressions pour les mappages d’attributs rappelle celle des fo
 
 - - -
 ### <a name="join"></a>Join
-**Fonction :**<br>  Join(séparateur, source1, source2, …)
+**Fonction :**<br> Join(séparateur, source1, source2, …)
 
 **Description :**<br> Join() est similaire à Append(), mais elle peut combiner plusieurs valeurs de chaîne **sources** dans une même chaîne et chaque valeur sera séparée par une chaîne de **séparation**.
 
@@ -84,9 +84,9 @@ Si l’une des valeurs sources est un attribut à valeurs multiples, toutes les 
 
 - - -
 ### <a name="mid"></a>Mid
-**Fonction :**<br>  Mid(source, début, longueur)
+**Fonction :**<br> Mid(source, début, longueur)
 
-**Description :**<br>  retourne une sous-chaîne de la valeur source. Une sous-chaîne est une chaîne qui ne contient que certains des caractères de la chaîne source.
+**Description :**<br> retourne une sous-chaîne de la valeur source. Une sous-chaîne est une chaîne qui ne contient que certains des caractères de la chaîne source.
 
 **Paramètres :**<br> 
 
@@ -109,8 +109,8 @@ Si l’une des valeurs sources est un attribut à valeurs multiples, toutes les 
 | **source** |Obligatoire |Chaîne | Généralement un attribut de nom ou de prénom. |
 
 - - -
-### <a name="not"></a>Ne convient pas
-**Fonction :**<br>  Not(source)
+### <a name="not"></a>not
+**Fonction :**<br> Not(source)
 
 **Description :**<br> inverse la valeur booléenne de la **source**. Si la valeur **source** est « *True* », cette fonction retourne «*False* ». Sinon, elle retourne «*True*».
 
@@ -121,11 +121,11 @@ Si l’une des valeurs sources est un attribut à valeurs multiples, toutes les 
 | **source** |Obligatoire |Chaîne de type Boolean |Les valeurs **sources** attendues sont « True » ou « False ». |
 
 - - -
-### <a name="replace"></a>Remplacer
+### <a name="replace"></a>Replace
 **Fonction :**<br> Remplacer (source, oldValue, regexPattern, regexGroupName, replacementValue, replacementAttributeName, template)
 
 **Description :**<br>
- Remplace les valeurs dans une chaîne. Elle fonctionne différemment selon les paramètres fournis :
+Remplace les valeurs dans une chaîne. Elle fonctionne différemment selon les paramètres fournis :
 
 * Quand **oldValue** et **replacementValue** sont fournis :
   
@@ -181,10 +181,10 @@ Si l’une des valeurs sources est un attribut à valeurs multiples, toutes les 
 
 | Nom | Requis / Répétition | Type | Notes |
 | --- | --- | --- | --- |
-| **[appRoleAssignments]** |Obligatoire |Chaîne |Objet **[appRoleAssignments]**. |
+| **[appRoleAssignments]** |Obligatoire |Chaîne |Objet **[appRoleAssignments]** . |
 
 - - -
-### <a name="split"></a>Fractionner
+### <a name="split"></a>Split
 **Fonction :**<br> Split (source, délimiteur)
 
 **Description :**<br> Fractionne une chaîne en un tableau de multi-valeur, en utilisant le caractère délimiteur spécifié.
@@ -198,9 +198,9 @@ Si l’une des valeurs sources est un attribut à valeurs multiples, toutes les 
 
 - - -
 ### <a name="stripspaces"></a>StripSpaces
-**Fonction :**<br>  StripSpaces(source)
+**Fonction :**<br> StripSpaces(source)
 
-**Description :**<br>  supprime tous les caractères d’espacement (" ") de la chaîne source.
+**Description :**<br> supprime tous les caractères d’espacement (" ") de la chaîne source.
 
 **Paramètres :**<br> 
 
@@ -210,7 +210,7 @@ Si l’une des valeurs sources est un attribut à valeurs multiples, toutes les 
 
 - - -
 ### <a name="switch"></a>Switch
-**Fonction :**<br>  Switch(source, defaultValue, key1, value1, key2, value2, …)
+**Fonction :**<br> Switch(source, defaultValue, key1, value1, key2, value2, …)
 
 **Description :**<br> quand la valeur **source** correspond à une **clé**, retourne la **valeur** de cette **clé**. Si la valeur **source** ne correspond à aucune clé, retourne **defaultValue**.  Les paramètres **key** et **value** doivent toujours être fournis par paires. La fonction attend toujours un nombre pair de paramètres.
 
@@ -252,7 +252,7 @@ Si l’une des valeurs sources est un attribut à valeurs multiples, toutes les 
 ## <a name="examples"></a>Exemples
 ### <a name="strip-known-domain-name"></a>Supprimer un nom de domaine connu
 Vous devez supprimer un nom de domaine connu de l’adresse de messagerie d’un utilisateur pour obtenir un nom d’utilisateur. <br>
- Par exemple, si le domaine est « contoso.com », vous pouvez utiliser l’expression suivante :
+Par exemple, si le domaine est « contoso.com », vous pouvez utiliser l’expression suivante :
 
 **Expression :** <br>
 `Replace([mail], "@contoso.com", , ,"", ,)`
@@ -309,7 +309,7 @@ Split([extensionAttribute5], ",")
 
 ### <a name="output-date-as-a-string-in-a-certain-format"></a>Sortir une date sous la forme d’une chaîne dans un certain format
 Vous souhaitez envoyer des dates à une application SaaS dans un format donné. <br>
- Par exemple, vous souhaitez mettre en forme des dates pour ServiceNow.
+Par exemple, vous souhaitez mettre en forme des dates pour ServiceNow.
 
 **Expression :** <br>
 
@@ -323,7 +323,7 @@ Vous souhaitez envoyer des dates à une application SaaS dans un format donné. 
 ### <a name="replace-a-value-based-on-predefined-set-of-options"></a>Remplacer une valeur en fonction d’un ensemble d’options prédéfini
 
 Vous devez définir le fuseau horaire de l’utilisateur en fonction du code d’état stocké dans Azure AD. <br>
- Si le code d’état ne correspond à aucune des options prédéfinies, utilisez la valeur par défaut « Australia/Sydney ».
+Si le code d’état ne correspond à aucune des options prédéfinies, utilisez la valeur par défaut « Australia/Sydney ».
 
 **Expression :** <br>
 `Switch([state], "Australia/Sydney", "NSW", "Australia/Sydney","QLD", "Australia/Brisbane", "SA", "Australia/Adelaide")`

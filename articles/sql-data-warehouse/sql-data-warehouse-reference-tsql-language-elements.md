@@ -11,10 +11,10 @@ ms.date: 06/13/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.openlocfilehash: 95c5b592d5ca46aed5f7123ff2b3eb688c5c0caf
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65873497"
 ---
 # <a name="t-sql-language-elements-supported-in-azure-sql-data-warehouse"></a>Éléments de langage T-SQL pris en charge dans Azure SQL Data Warehouse
@@ -24,8 +24,8 @@ Liens vers la documentation des éléments de langage T-SQL pris en charge dans 
 * [conventions de syntaxe](/sql/t-sql/language-elements/transact-sql-syntax-conventions-transact-sql)
 * [Règles d'affectation des noms aux objets](https://msdn.microsoft.com/library/ms175874.aspx)
 * [mots-clés réservés](https://msdn.microsoft.com/library/ms189822.aspx)
-* [collations](https://msdn.microsoft.com/library/ff848763.aspx)
-* [comments](https://msdn.microsoft.com/library/ms181627.aspx)
+* [classements](https://msdn.microsoft.com/library/ff848763.aspx)
+* [commentaires](https://msdn.microsoft.com/library/ms181627.aspx)
 * [constantes](https://msdn.microsoft.com/library/ms179899.aspx)
 * [types de données](https://msdn.microsoft.com/library/ms187752.aspx)
 * [EXECUTE](https://msdn.microsoft.com/library/ms188332.aspx)

@@ -9,17 +9,17 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.openlocfilehash: 8fc66d70b840578bff086519a7b39e5f389a3de3
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66479621"
 ---
 # <a name="how-to-globally-distribute-reads-using-azure-cosmos-dbs-api-for-mongodb"></a>Comment distribuer à l’échelle mondiale des lectures par l’intermédiaire de l’API Azure Cosmos DB pour MongoDB
 
 Cet article explique comment distribuer à l’échelle mondiale des opérations de lecture à l’aide des paramètres de [préférence de lecture MongoDB](https://docs.mongodb.com/manual/core/read-preference/) avec l’API Azure Cosmos DB pour MongoDB.
 
-## <a name="prerequisites"></a>Conditions préalables 
+## <a name="prerequisites"></a>Prérequis 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer. 
 [!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
 

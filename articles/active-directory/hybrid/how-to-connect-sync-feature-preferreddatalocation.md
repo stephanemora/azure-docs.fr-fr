@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 927987237b51a47d0c8b7c66054842b0a7ff09a7
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66473023"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Synchronisation Azure Active Directory Connect : Configurer un emplacement de données par défaut pour les ressources Office 365
@@ -182,7 +182,7 @@ La règle de synchronisation du trafic sortant permet de transmettre la valeur d
 
 ![Capture d’écran de la Créer une règle de synchronisation de trafic sortant](./media/how-to-connect-sync-feature-preferreddatalocation/preferreddatalocation-step5.png)
 
-## <a name="step-6-run-full-synchronization-cycle"></a>Étape 6 : Exécuter un cycle de synchronisation complète
+## <a name="step-6-run-full-synchronization-cycle"></a>Étape 6 : Exécuter un cycle de synchronisation complète
 En règle générale, un cycle de synchronisation complet est nécessaire. Ceci est dû au fait que vous avez ajouté de nouveaux attributs aux schémas Active Directory et du connecteur Azure AD, et introduit des règles de synchronisation personnalisées. Vérifiez les modifications avant de les exporter vers Azure AD. Vous pouvez procéder comme suit pour vérifier les modifications tandis que vous exécutez manuellement les étapes d’un cycle de synchronisation complet.
 
 1. Exécutez une **Importation intégrale** sur le connecteur Active Directory local :

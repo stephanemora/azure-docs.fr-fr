@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/20/2019
 ms.author: mstephen
 ms.openlocfilehash: fab680e8e26584e6beeaf4bdb205c721e1b0b91e
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66246958"
 ---
 # <a name="notification-settings-in-azure-ad-domain-services"></a>Paramètres de notification dans Azure AD Domain Services
@@ -80,7 +80,7 @@ Vous pouvez ajouter jusqu’à cinq adresses pour les notifications Azure AD Dom
 
 ## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
 
-#### <a name="i-received-an-email-notification-for-an-alert-but-when-i-logged-on-to-the-azure-portal-there-was-no-alert-what-happened"></a>J’ai reçu une notification par e-mail pour une alerte, mais lorsque j’ai ouvert une session, le portail Azure ne contenait pas d’alerte. Que s'est-il passé ?
+#### <a name="i-received-an-email-notification-for-an-alert-but-when-i-logged-on-to-the-azure-portal-there-was-no-alert-what-happened"></a>J’ai reçu une notification par e-mail pour une alerte, mais lorsque j’ai ouvert une session, le portail Azure ne contenait pas d’alerte. Que s’est-il passé ?
 
 Si une alerte est résolue, elle disparaît du portail Azure. La raison la plus probable est qu’une autre personne qui reçoit ces notifications par e-mail a résolu l’alerte sur votre domaine managé, ou bien elle a été résolue automatiquement par Azure AD Domain Services.
 

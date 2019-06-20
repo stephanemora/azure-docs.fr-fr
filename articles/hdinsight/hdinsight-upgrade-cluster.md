@@ -7,12 +7,12 @@ ms.author: omidm
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/04/2017
-ms.openlocfilehash: b5048266fe17bc16fba8228f7cc17d0ee9f3bc0b
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.openlocfilehash: 4d391c095495a3d0e34a2111d7b4564e6f4f2b8d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64714785"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071989"
 ---
 # <a name="upgrade-hdinsight-cluster-to-a-newer-version"></a>Mettre à niveau le cluster HDInsight
 Pour tirer parti des dernières fonctionnalités proposées par HDInsight, nous vous recommandons de mettre à niveau les clusters HDInsight vers la version la plus récente. Suivez les instructions ci-dessous pour mettre à niveau vos clusters HDInsight.
@@ -27,9 +27,8 @@ Le workflow pour mettre à niveau un cluster HDInsight est le suivant :
 
 1. Lisez chaque section de ce document pour comprendre les modifications qui peuvent être nécessaires lors de la mise à jour de votre cluster HDInsight.
 2. Créez un cluster comme environnement de test ou d’assurance qualité. Pour plus d’informations sur la création d’un cluster, consultez [Création de clusters Hadoop basés sur Linux dans HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
-3. Copiez les travaux, sources de données et récepteurs existants dans le nouvel environnement. Pour plus d’informations, consultez la section [Copier des données dans l’environnement de test](hdinsight-migrate-from-windows-to-linux.md#copy-data-to-the-test-environment).
+3. Copiez les travaux, sources de données et récepteurs existants dans le nouvel environnement.
 4. Effectuez des tests de validation pour vérifier que vos tâches fonctionnent comme prévu sur le nouveau cluster.
-
 
 Une fois que vous avez vérifié que tout fonctionne comme prévu, planifiez un temps d’arrêt pour la migration. Pendant ce temps d’arrêt, effectuez les actions suivantes :
 

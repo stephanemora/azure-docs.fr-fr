@@ -6,15 +6,15 @@ services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
-ms.topic: article
+ms.topic: quickstart
 ms.date: 04/26/2019
 ms.author: rosh, v-gedod
-ms.openlocfilehash: 39ec68beaa1550b955c4605947896b48bd6565ed
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
-ms.translationtype: MT
+ms.openlocfilehash: ad00076c9cb5ef1c3d21677adabbb167b05a6228
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65884653"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67051618"
 ---
 # <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-in-c"></a>Démarrage rapide : Envoyer une requête à l'API Recherche d'entreprises locales Bing en C#
 
@@ -22,9 +22,9 @@ Utilisez ce démarrage rapide pour commencer à envoyer des demandes à l’API 
 
 Cet exemple d’application récupère des données de réponse locales auprès de l’API pour la requête de recherche `hotel in Bellevue`.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
-* N’importe quelle édition de [Visual Studio 2019](https://www.visualstudio.com/downloads/).
+* N’importe quelle édition de [Visual Studio 2019](https://www.visualstudio.com/downloads/).
 * Si vous utilisez Linux/MacOS, cette application peut être exécutée à l’aide de [Mono](https://www.mono-project.com/).
 
 Vous devez disposer d’un [compte d’API Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) avec les API Recherche Bing. [L’essai gratuit](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) est suffisant pour suivre ce guide de démarrage rapide.  Consultez également [Tarification Cognitive Services - API Recherche Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).

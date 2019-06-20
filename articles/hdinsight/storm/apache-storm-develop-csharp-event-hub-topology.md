@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: b02945197b20c7fe704d0f8cfa9201a5b9cbc292
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.openlocfilehash: 7f4db76fe2a302dd5acce01b456ef3b676b187c6
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64690942"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67078280"
 ---
 # <a name="process-events-from-azure-event-hubs-with-apache-storm-on-hdinsight-c"></a>Traiter des événements issus d’Azure Event Hubs avec Apache Storm sur HDInsight (C#)
 
@@ -38,7 +38,7 @@ Le package NuGet Microsoft.SCP.Net.SDK que vous utilisez pour votre projet doit 
 > [!IMPORTANT]  
 > L’exemple inclus dans ce document attend un cluster HDInsight 3.5 ou 3.6.
 >
-> Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
+> Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. 
 
 Les topologies C# doivent également cibler la version 4.5 de .NET.
 
@@ -105,7 +105,7 @@ topologyBuilder.SetJavaBolt(
 
 Vous pouvez télécharger une version complète du projet créé dans ce didacticiel à partir de [GitHub](https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub). Toutefois, vous devrez tout de même fournir des paramètres de configuration en suivant les étapes de ce didacticiel.
 
-### <a name="prerequisites"></a>Conditions préalables
+### <a name="prerequisites"></a>Prérequis
 
 * Un cluster [Apache Storm sur HDInsight version 3.5 ou 3.6](apache-storm-tutorial-get-started-linux.md).
 
@@ -184,7 +184,7 @@ Event Hubs est la source de données pour cet exemple. Utilisez les informations
 
     ![Capture d’écran de l’Explorateur de solutions, avec l’option Envoyer à Storm sur HDInsight mise en surbrillance](./media/apache-storm-develop-csharp-event-hub-topology/submittostorm.png)
 
-2. Dans la boîte de dialogue **Envoyer la topologie**, sélectionnez votre **cluster Storm**. Développez **Configurations supplémentaires**, sélectionnez **Chemins d’accès aux fichiers Java**, sélectionnez **...**, puis choisissez le répertoire qui contient le fichier JAR que vous avez téléchargé précédemment. Pour finir, cliquez sur **Envoyer**.
+2. Dans la boîte de dialogue **Envoyer la topologie**, sélectionnez votre **cluster Storm**. Développez **Configurations supplémentaires**, sélectionnez **Chemins d’accès aux fichiers Java**, sélectionnez **...** , puis choisissez le répertoire qui contient le fichier JAR que vous avez téléchargé précédemment. Pour finir, cliquez sur **Envoyer**.
 
     ![Capture d’écran de la boîte de dialogue Envoyer la topologie](./media/apache-storm-develop-csharp-event-hub-topology/submit.png)
 
@@ -194,7 +194,7 @@ Event Hubs est la source de données pour cet exemple. Utilisez les informations
 
 4. Dans **l’Explorateur de solutions**, cliquez avec le bouton droit de la souris sur le projet **EventHubWriter** et sélectionnez **Envoyer à Storm sur HDInsight**.
 
-5. Dans la boîte de dialogue **Envoyer la topologie**, sélectionnez votre **cluster Storm**. Développez **Configurations supplémentaires**, sélectionnez **Chemins d’accès aux fichiers Java**, sélectionnez **...**, puis choisissez le répertoire qui contient le fichier JAR que vous avez téléchargé précédemment. Pour finir, cliquez sur **Envoyer**.
+5. Dans la boîte de dialogue **Envoyer la topologie**, sélectionnez votre **cluster Storm**. Développez **Configurations supplémentaires**, sélectionnez **Chemins d’accès aux fichiers Java**, sélectionnez **...** , puis choisissez le répertoire qui contient le fichier JAR que vous avez téléchargé précédemment. Pour finir, cliquez sur **Envoyer**.
 
 6. Une fois la topologie envoyée, actualisez la liste des topologies dans la **Visionneuse de topologies Storm** pour vérifier que les deux topologies sont en cours d’exécution sur le cluster.
 

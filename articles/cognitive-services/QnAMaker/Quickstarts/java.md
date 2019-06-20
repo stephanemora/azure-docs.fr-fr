@@ -7,16 +7,16 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: article
+ms.topic: quickstart
 ms.date: 02/13/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 4b3c51898e26be5c502dbe4575daadf8694ff3d1
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.openlocfilehash: f2803edf3f6a989f9b33543de9eb33f30ad2bfa8
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65791479"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071979"
 ---
 # <a name="how-to-use-the-qna-maker-rest-api-with-java"></a>Guide pratique pour utiliser l’API REST QnA Maker avec Java 
 <a name="HOLTop"></a>
@@ -40,7 +40,7 @@ Cet article explique comment utiliser [l’API QnA Maker Microsoft](../Overview/
 
 [!INCLUDE [Code is available in Azure-Samples GitHub repo](../../../../includes/cognitive-services-qnamaker-java-repo-note.md)]
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour compiler et exécuter ce code, vous devez disposer de [JDK 7 ou 8](https://aka.ms/azure-jdks). Vous pouvez utiliser un IDE Java si vous le souhaitez, mais un éditeur de texte est suffisant.
 

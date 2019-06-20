@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: nitinme
 ms.openlocfilehash: fccc036a5e0422508f7ebc3370a4b5faa5176dc2
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66124768"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177391"
 ---
 Bing prend en charge la mise en surbrillance des correspondances qui marque les termes de requête (ou d’autres termes que Bing estime pertinents) dans les chaînes d’affichage de certaines des réponses. Par exemple, les champs `name`, `displayUrl` et `snippet` d’une page web peuvent marquer les termes de requête.
 
@@ -23,7 +23,7 @@ Bing vous offre la possibilité d’utiliser des caractères Unicode ou des bali
   
 Si `textDecorations` est **true**, Bing peut inclure les marqueurs suivants dans les chaînes d’affichage des réponses. S’il n’existe aucun équivalent HTML, la cellule de la table HTML est vide.
 
-|Unicode|HTML|Description 
+|Unicode|HTML|Description
 |-|-|-
 |U+E000|\<b&gt;|Marque le début du terme de requête (mise en surbrillance des correspondances)
 |U+E001|\</b&gt;|Marque la fin du terme de requête

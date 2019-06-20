@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 03/14/2019
+ms.date: 05/18/2019
 ms.author: mbullwin
-ms.openlocfilehash: 614f9a44f7c699be38906ac00e12f523490ce112
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 2703c97dc78983ef294b3aa50f7ace879c96f66d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60900481"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67061236"
 ---
 # <a name="explore-java-trace-logs-in-application-insights"></a>Exploration du suivi des journaux d’activité Java dans Application Insights
 Si vous utilisez Logback ou Log4J (v1.2 ou v2.0) pour le suivi, vous pouvez faire en sorte que vos journaux d’activité de suivi soient envoyés automatiquement à Application Insights, où vous pouvez les explorer et effectuer des recherches.

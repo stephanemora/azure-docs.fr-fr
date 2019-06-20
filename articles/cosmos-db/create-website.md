@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: sngun
 ms.openlocfilehash: 93cdea453050df8899abf9233991715ae237bcd4
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66257236"
 ---
 # <a name="deploy-azure-cosmos-db-and-azure-app-service-web-apps-using-an-azure-resource-manager-template"></a>Déployer Azure Cosmos DB et Azure App Service Web Apps avec un modèle Azure Resource Manager
@@ -25,7 +25,7 @@ Après avoir terminé ce didacticiel, vous serez en mesure de répondre aux ques
 
 <a id="Prerequisites"></a>
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 > [!TIP]
 > Ce didacticiel ne suppose pas d’être familiarisé avec les modèles Azure Resource Manager ou JSON, sauf si vous envisagez de modifier les modèles référencés ou les options de déploiement.
 > 
@@ -115,7 +115,7 @@ Nous allons maintenant déployer notre deuxième modèle.  Ce modèle vous montr
 <a name="NextSteps"></a>
 
 ## <a name="next-steps"></a>Étapes suivantes
-Félicitations ! Vous avez déployé Azure Cosmos DB, une application web App Service et un exemple d’application web avec les modèles Azure Resource Manager.
+Félicitations ! Vous avez déployé Azure Cosmos DB, une application web App Service et un exemple d’application web avec les modèles Azure Resource Manager.
 
 * Pour en savoir plus sur Azure Cosmos DB, cliquez [ici](https://azure.microsoft.com/services/cosmos-db/).
 * Pour en savoir plus sur les applications web Azure App Service, cliquez [ici](https://go.microsoft.com/fwlink/?LinkId=325362).

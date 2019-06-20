@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 40757c80878ef5a06d3368d4c20f65ebfa11e47b
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.openlocfilehash: 299e8990d9211eadc33a7e3348ba0364adfafb92
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64708243"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67078169"
 ---
 # <a name="get-started-with-apache-storm-on-hdinsight-using-the-storm-starter-examples"></a>Prise en main d’Apache Storm sur HDInsight à l’aide des exemples storm-starter
 
@@ -22,16 +22,13 @@ Découvrez comment utiliser [Apache Storm](https://storm.apache.org/) dans HDIns
 
 Apache Storm est un système de calcul en temps réel, évolutif, distribué, à tolérance de panne, qui permet de traiter des flux de données. Avec Storm sur Azure HDInsight, vous pouvez créer un cluster Storm basé sur le cloud qui effectue l’analyse de données volumineuses en temps réel.
 
-> [!IMPORTANT]  
-> Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
-
 ## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
 * **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-* **Des connaissances en SSH et SCP**. Pour en savoir plus, voir [Utilisation de SSH avec HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
+* **Des connaissances en SSH et SCP**. Pour plus d’informations, consultez [Utiliser SSH avec HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="create-an-apache-storm-cluster"></a>Créer un cluster Apache Storm
 
@@ -49,7 +46,7 @@ Utilisez les étapes suivantes pour créer un Storm sur un cluster HDInsight :
     * **Abonnement**: Sélectionnez l’abonnement à utiliser.
     * **Nom d’utilisateur de connexion au cluster** et **Mot de passe de connexion au cluster** : informations de connexion permettant d’accéder au cluster par le biais du protocole HTTPS. Vous utilisez ces informations d’identification pour accéder aux services tels que l’interface utilisateur Ambari Web ou l’API REST.
     * **Nom d’utilisateur SSH (Secure Shell)**  : Information de connexion permettant d’accéder au cluster suivant le protocole SSH. Par défaut, le mot de passe est le même que le mot de passe de connexion de cluster.
-    * **Groupe de ressources** : Groupe de ressources dans lequel le cluster sera créé.
+    * **Groupe de ressources** : Groupe de ressources dans lequel le cluster sera créé.
     * **Emplacement** : Région Azure dans laquelle le cluster sera créé.
 
    ![Sélectionnez un abonnement](./media/apache-storm-tutorial-get-started-linux/hdinsight-basic-configuration.png)

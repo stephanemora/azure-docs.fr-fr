@@ -9,11 +9,11 @@ ms.date: 06/08/2018
 ms.author: cephalin
 ms.custom: include file
 ms.openlocfilehash: 8709956adee06e4e783ac5a7b317b2c4dec43e73
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66137109"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177535"
 ---
 ## <a name="what-happens-to-my-app-during-deployment"></a>Que se passe-t-il au niveau de mon application pendant le déploiement ?
 

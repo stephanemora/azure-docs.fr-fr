@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 05/13/2019
 ms.author: mstephen
 ms.openlocfilehash: 287aea990664cf01caf83e1871acf69e48210226
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66246163"
 ---
 # <a name="configure-kerberos-constrained-delegation-kcd-on-a-managed-domain"></a>Configurer la délégation Kerberos contrainte (KCD) sur un domaine managé
@@ -79,6 +79,6 @@ Set-ADUser backendsvc -PrincipalsAllowedToDelegateToAccount $ImpersonatingAccoun
 > Le compte d’ordinateur de l’API web backend et le compte de service doivent se trouver dans une unité d’organisation personnalisée où vous disposez d’autorisations pour configurer la délégation Kerberos contrainte basée sur les ressources. Vous ne pouvez pas configurer la délégation Kerberos contrainte basée sur les ressources pour un compte d’ordinateur dans le conteneur intégré « Ordinateurs du contrôleur de domaine AAD », ou pour les comptes d’utilisateurs dans le conteneur intégré « Utilisateurs du contrôleur de domaine AAD ». Par conséquent, vous ne pouvez pas utiliser de comptes d’utilisateur synchronisés à partir d’Azure AD pour configurer la délégation Kerberos contrainte basée sur les ressources.
 >
 
-## <a name="related-content"></a>Contenu associé
+## <a name="related-content"></a>Contenu connexe
 * [Services de domaine Azure AD : guide de mise en route](create-instance.md)
 * [Présentation de la délégation Kerberos contrainte](https://technet.microsoft.com/library/jj553400.aspx)

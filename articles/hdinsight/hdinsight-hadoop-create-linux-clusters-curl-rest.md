@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/02/2018
 ms.author: hrasheed
-ms.openlocfilehash: acf121c2954b3f324682578dd3ab2b4d8b1f63f2
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.openlocfilehash: d771d91feaba942b88a0ddb68f0d997fad4a981e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64707339"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059419"
 ---
 # <a name="create-apache-hadoop-clusters-using-the-azure-rest-api"></a>Créer des clusters Apache Hadoop à l’aide de l’API REST Azure
 
@@ -22,9 +22,6 @@ ms.locfileid: "64707339"
 Découvrez comment créer des clusters HDInsight l’aide d’un modèle Azure Resource Manager et de l’API REST Azure.
 
 L’API REST Azure vous permet d’effectuer des opérations de gestion sur les services hébergés sur la plateforme Azure, y compris la création de nouvelles ressources, telles que des clusters HDInsight.
-
-> [!IMPORTANT]  
-> Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 > [!NOTE]  
 > Les étapes décrites dans ce document se servent de l’utilitaire [curl (https://curl.haxx.se/)](https://curl.haxx.se/) pour communiquer avec l’API REST Azure.
@@ -215,7 +212,7 @@ Cet exemple est utilisé dans les étapes de ce document. Remplacez les *valeurs
 >
 > Pour plus d’informations sur les tailles de nœud et les coûts associés, consultez [Tarification HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-## <a name="log-in-to-your-azure-subscription"></a>Connexion à votre abonnement Azure
+## <a name="sign-in-to-your-azure-subscription"></a>Connectez-vous à votre abonnement Azure :
 
 Suivez la procédure décrite dans [Bien démarrer avec Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) et connectez-vous à votre abonnement en utilisant la commande `az login`.
 

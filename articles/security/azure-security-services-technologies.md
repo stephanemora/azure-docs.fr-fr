@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 1/29/2019
 ms.author: barclayn
 ms.openlocfilehash: 9c100bd6815e003d49efcdca65b16d7efa35ac34
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66234251"
 ---
 # <a name="security-services-and-technologies-available-on-azure"></a>Services et technologies de sécurité disponibles sur Azure
@@ -34,7 +34,7 @@ Au fil du temps, cette liste sera modifiée et développée, tout comme Azure. V
 |--------|--------|
 |[Azure&nbsp;Security&nbsp;Center](../security-center/security-center-intro.md)| Solution de protection des charges de travail cloud qui fournit une gestion de la sécurité et une protection avancée contre les menaces sur l’ensemble des charges de travail cloud hybrides.|
 |[Azure Key Vault](../key-vault/key-vault-overview.md)| Magasin de secrets sécurisé pour les mots de passe, les chaînes de connexion et d’autres informations dont vous avez besoin pour que vos applications continuent de fonctionner. |
-|[Journaux Azure Monitor](../log-analytics/log-analytics-overview.md)|Service de surveillance qui collecte des données de télémétrie et d’autres données, et qui fournit un langage de requête et un moteur analytique permettant d’obtenir des insights sur le fonctionnement de vos applications et de vos ressources. Peut être utilisé seul ou avec d’autres services, comme Security Center. |
+|[Journaux d’activité Azure Monitor](../log-analytics/log-analytics-overview.md)|Service de surveillance qui collecte des données de télémétrie et d’autres données, et qui fournit un langage de requête et un moteur analytique permettant d’obtenir des insights sur le fonctionnement de vos applications et de vos ressources. Peut être utilisé seul ou avec d’autres services, comme Security Center. |
 |[Dev/Test Labs Azure](../devtest-lab/devtest-lab-overview.md)|Service permettant aux développeurs et aux testeurs de créer rapidement des environnements dans Azure, tout en réduisant le temps perdu et les coûts.  |
 
 <!---|[Azure&nbsp;Disk&nbsp;Encryption](azure-security-disk-encryption-overview.md)| THIS WILL GO TO THE NEW OVERVIEW TOPIC MEGHAN STEWART IS WRITING|--->

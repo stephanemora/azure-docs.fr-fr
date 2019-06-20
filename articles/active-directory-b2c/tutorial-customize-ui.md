@@ -11,10 +11,10 @@ ms.date: 02/01/2019
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: 4c0fdbee2c5108dd3203217cb721576703b3faca
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66512079"
 ---
 # <a name="tutorial-customize-the-interface-of-user-experiences-in-azure-active-directory-b2c"></a>Didacticiel : Personnaliser l'interface des expériences utilisateur dans Azure Active Directory B2C
@@ -30,7 +30,7 @@ Dans cet article, vous apprendrez comment :
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 [Créez un flux d'utilisateurs](tutorial-create-user-flows.md) pour permettre aux utilisateurs de s'inscrire et de se connecter à votre application.
 

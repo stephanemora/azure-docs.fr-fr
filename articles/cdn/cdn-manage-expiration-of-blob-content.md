@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 02/1/2018
 ms.author: mazha
-ms.openlocfilehash: a6dcd57591dcc6aa09ae2cb62f4b6dfe964c979f
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
-ms.translationtype: MT
+ms.openlocfilehash: 89f821398f2bccf19a8be090de0e8788090670fb
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65191141"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080831"
 ---
 # <a name="manage-expiration-of-azure-blob-storage-in-azure-cdn"></a>Gérer l’expiration du stockage Blob Azure dans Azure CDN
 > [!div class="op_single_selector"]
@@ -92,7 +92,7 @@ La méthode recommandée pour définir l’en-tête `Cache-Control` d’un objet
 
 [Azure PowerShell](/powershell/azure/overview) est l’un des moyens les plus rapides et puissants de gérer vos services Azure. Utilisez l’applet de commande `Get-AzStorageBlob` pour obtenir une référence à l’objet BLOB, puis définissez la propriété `.ICloudBlob.Properties.CacheControl`. 
 
-Par exemple : 
+Par exemple :
 
 ```powershell
 # Create a storage context
@@ -114,9 +114,9 @@ $blob.ICloudBlob.SetProperties()
 >
 
 ## <a name="setting-cache-control-headers-by-using-net"></a>Définition d’en-têtes Cache-Control à l’aide de .NET
-Pour spécifier l’en-tête `Cache-Control` d’un objet blob à l’aide de code .NET, utilisez la [bibliothèque cliente Stockage Azure pour .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md) pour définir la propriété [CloudBlob.Properties.CacheControl](/dotnet/api/microsoft.azure.storage.blob.blobproperties.cachecontrol#Microsoft_WindowsAzure_Storage_Blob_BlobProperties_CacheControl).
+Pour spécifier l’en-tête `Cache-Control` d’un objet blob à l’aide de code .NET, utilisez la [bibliothèque cliente Stockage Azure pour .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md) pour définir la propriété [CloudBlob.Properties.CacheControl](/dotnet/api/microsoft.azure.storage.blob.blobproperties.cachecontrol).
 
-Par exemple : 
+Par exemple :
 
 ```csharp
 class Program
@@ -151,7 +151,7 @@ class Program
 
 ## <a name="setting-cache-control-headers-by-using-other-methods"></a>Définition d’en-têtes Cache-Control à l’aide d’autres méthodes
 
-### <a name="azure-storage-explorer"></a>Azure Storage Explorer
+### <a name="azure-storage-explorer"></a>Explorateur de stockage Azure
 Avec l’[Explorateur Stockage Microsoft Azure](https://azure.microsoft.com/features/storage-explorer/), vous pouvez afficher et modifier vos ressources de stockage blob, y compris les propriétés telles que *CacheControl*. 
 
 Pour mettre à jour la propriété *CacheControl* d’un objet blob avec l’Explorateur Stockage Azure :

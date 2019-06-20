@@ -9,11 +9,11 @@ ms.date: 02/27/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 0a81d8c97b916fd15e7be5fde05e9ea25ba1151d
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66150865"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67176965"
 ---
 Un concentrateur contient la passerelle. Une fois le hub créé, vous serez facturé, même si vous n’y joignez aucun site. Il faut 30 minutes pour créer le hub et la passerelle.
 

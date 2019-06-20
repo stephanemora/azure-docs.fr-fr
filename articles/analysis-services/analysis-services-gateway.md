@@ -8,19 +8,19 @@ ms.topic: conceptual
 ms.date: 04/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b35977061b7e5806d15f4b7b0087fcafa4f291ef
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.openlocfilehash: 190394481f17310784f87c9e2f642eeea0b2597f
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65141152"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67062242"
 ---
 # <a name="connecting-to-on-premises-data-sources-with-on-premises-data-gateway"></a>Connexion aux sources de données locales avec la passerelle de données locale
 La passerelle de données locale assure un transfert de données sécurisé entre des sources de données locales et vos serveurs Azure Analysis Services dans le cloud. Pouvant être utilisée avec plusieurs serveurs Azure Analysis Services dans la même région, la dernière version de la passerelle fonctionne également avec Azure Logic Apps, Power BI, Power Apps et Microsoft Flow. Vous pouvez associer plusieurs services dans le même abonnement et la même région avec une passerelle unique. 
 
 La première configuration de la passerelle se déroule en quatre étapes :
 
-- **Télécharger et exécuter le programme d’installation** - Cette étape installe un service de passerelle sur un ordinateur de votre organisation. Vous vous connectez également à Azure à l’aide d’un compte du Azure AD de votre [locataire](/previous-versions/azure/azure-services/jj573650(v=azure.100)#BKMK_WhatIsAnAzureADTenant). Les comptes Azure B2B (invité) ne sont pas pris en charge.
+- **Télécharger et exécuter le programme d’installation** - Cette étape installe un service de passerelle sur un ordinateur de votre organisation. Vous vous connectez également à Azure à l’aide d’un compte du Azure AD de votre [locataire](/previous-versions/azure/azure-services/jj573650(v=azure.100)#what-is-an-azure-ad-tenant). Les comptes Azure B2B (invité) ne sont pas pris en charge.
 
 - **Inscrire votre passerelle** - Lors de cette étape, vous spécifiez un nom et une clé de récupération pour votre passerelle et vous sélectionnez une région, pour l’inscription de votre passerelle auprès du service cloud de passerelle. Votre ressource de passerelle peut être inscrite dans n’importe quelle région, mais nous vous recommandons de l’inscrire dans la même région que vos serveurs Analysis Services. 
 
@@ -94,10 +94,10 @@ Il n’existe actuellement aucun emplacement unique où les administrateurs loca
 ### <a name="general"></a>Généralités
 
 **Q** : Ai-je besoin d’une passerelle pour les sources de données dans le cloud, par exemple Azure SQL Database ? <br/>
-**R** : Non. Une passerelle est uniquement nécessaire pour une connexion à des sources de données locales.
+**R** :  Non. Une passerelle est uniquement nécessaire pour une connexion à des sources de données locales.
 
 **Q** : La passerelle doit-elle être installée sur le même ordinateur que la source de données ? <br/>
-**R** : Non. La passerelle doit juste être en mesure de se connecter au serveur, en général sur le même réseau.
+**R** :  Non. La passerelle doit juste être en mesure de se connecter au serveur, en général sur le même réseau.
 
 <a name="why-azure-work-school-account"></a>
 
@@ -118,7 +118,7 @@ Vous pouvez utiliser l’application tierce Azure Speed Test pour mesurer votre 
 **R** : Les résultats sont envoyés via Azure Service Bus.
 
 **Q** : Existe-t-il des connexions entrantes vers la passerelle à partir du cloud ? <br/>
-**R** : Non. La passerelle utilise des connexions sortantes vers Azure Service Bus.
+**R** :  Non. La passerelle utilise des connexions sortantes vers Azure Service Bus.
 
 **Q** : Que se passe-t-il si je bloque les connexions sortantes ? Que dois-je ouvrir ? <br/>
 **R** : Vérifiez les ports et les hôtes que la passerelle utilise.
@@ -127,7 +127,7 @@ Vous pouvez utiliser l’application tierce Azure Speed Test pour mesurer votre 
 **R** : Dans Services, la passerelle se nomme « service de passerelle de données locale ».
 
 **Q** : Le service Windows de passerelle peut-il s’exécuter avec un compte Azure Active Directory ? <br/>
-**R** : Non. Le service Windows doit avoir un compte Windows valide. Par défaut, le service sera exécuté avec le SID du service, NT SERVICE\PBIEgwService.
+**R** :  Non. Le service Windows doit avoir un compte Windows valide. Par défaut, le service sera exécuté avec le SID du service, NT SERVICE\PBIEgwService.
 
 **Q** : Comment effectuer une prise de contrôle de passerelle ? <br/>
 **R** : Pour effectuer une prise de contrôle de passerelle (en exécutant la commande Configurer/Modifier sous Panneau de configuration > Programmes), vous devez être un propriétaire de la ressource de passerelle dans Azure et posséder la clé de récupération. Les propriétaires de ressources de passerelle peuvent être configurés dans Access Control.
@@ -164,7 +164,7 @@ Beaucoup de problèmes peuvent survenir si la version de la passerelle est obsol
 
 Cette erreur peut apparaître si vous essayez d’installer la passerelle sur un contrôleur de domaine qui n’est pas pris en charge. Veillez à déployer la passerelle sur un ordinateur qui n’est pas un contrôleur de domaine.
 
-## <a name="logs"></a>Journaux
+## <a name="logs"></a>Journaux d’activité
 
 Les fichiers journaux constituent une ressource importante lors du dépannage.
 

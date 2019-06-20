@@ -3,20 +3,21 @@ title: Configurer la méthode de routage du trafic en tourniquet par pondératio
 description: Cet article explique comment équilibrer le trafic à l’aide d’une méthode en tourniquet dans Traffic Manager.
 services: traffic-manager
 documentationcenter: ''
-author: kumudd
+author: asudbring
+manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2017
-ms.author: kumud
-ms.openlocfilehash: ef39c09d4fc411937fdd6f4b5b5aec491efd0c5f
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.author: allensu
+ms.openlocfilehash: 4ca43bf958606a71911bf5d35f31e4fe0b342601
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62113285"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071269"
 ---
 # <a name="configure-the-weighted-traffic-routing-method-in-traffic-manager"></a>Configurer la méthode de routage du trafic par pondération dans Traffic Manager
 
@@ -34,7 +35,7 @@ Il est courant d'utiliser un ensemble de points de terminaison identiques, compr
     1. Pour les **paramètres de la méthode de routage de trafic**, vérifiez que la méthode de routage du trafic est **pondérée**. Si ce n’est pas le cas, cliquez sur **Pondérée** dans la liste déroulante.
     2. Définissez l’option **Paramètres de surveillance des points de terminaison** de manière identique pour tous les points de terminaison de ce profil comme suit :
         1. Sélectionnez le **protocole** approprié et spécifiez le numéro du **port**. 
-        2. Pour **Chemin d’accès**, entrez une barre oblique */*. Pour surveiller les points de terminaison, vous devez indiquer un chemin et un nom de fichier. Une barre oblique (« / ») est une entrée valide pour le chemin d’accès relatif. Elle implique que le fichier se trouve dans le répertoire racine (par défaut).
+        2. Pour **Chemin d’accès**, entrez une barre oblique */* . Pour surveiller les points de terminaison, vous devez indiquer un chemin et un nom de fichier. Une barre oblique (« / ») est une entrée valide pour le chemin d’accès relatif. Elle implique que le fichier se trouve dans le répertoire racine (par défaut).
         3. En haut de la page, cliquez sur **Enregistrer**.
 5. Testez les modifications dans votre configuration comme suit :
     1.  Dans la barre de recherche du portail, recherchez le nom du profil Traffic Manager et cliquez sur le profil Traffic Manager dans les résultats affichés.

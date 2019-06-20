@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: f84fe995e65d2b67aaaf4ff9acc4a6a44ce607dc
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66155843"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177103"
 ---
 > [!NOTE]
 > Lorsque vous modifiez la configuration RBS de l’adaptateur StorSimple pour SharePoint, vous devez être connecté avec un compte utilisateur appartenant au groupe Domain Admins. En outre, vous devez accéder à la page de configuration à partir d’un navigateur s’exécutant sur le même hôte que l’Administration centrale.

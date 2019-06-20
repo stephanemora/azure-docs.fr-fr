@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/24/2019
 ms.author: hrasheed
 ms.openlocfilehash: 51270f1fd7a662cdfd747bd0bfaf9ff03dd438a2
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66257918"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-azure-powershell"></a>Créer des clusters basés sur Linux dans HDInsight à l’aide d’Azure PowerShell
@@ -21,7 +21,7 @@ ms.locfileid: "66257918"
 
 Azure PowerShell est un environnement puissant de création de scripts vous permettant de contrôler et d’automatiser le déploiement et la gestion de vos charges de travail dans Microsoft Azure. Ce document fournit des informations sur la création d’un cluster HDInsight basé sur Linux à l’aide d’Azure PowerShell. Il inclut également un exemple de script.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

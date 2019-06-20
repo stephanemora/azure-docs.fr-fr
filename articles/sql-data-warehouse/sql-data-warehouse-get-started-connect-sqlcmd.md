@@ -11,10 +11,10 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.openlocfilehash: 72760c5123703a664695c1be4d286a38e96ecc3f
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65873318"
 ---
 # <a name="connect-to-sql-data-warehouse-with-sqlcmd"></a>Se connecter à SQL Data Warehouse avec sqlcmd
@@ -62,7 +62,7 @@ C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -G -I
 > 
 > 
 
-## <a name="2-query"></a>2. Interroger
+## <a name="2-query"></a>2. Requête
 Une fois la connexion établie, vous pouvez envoyer des instructions Transact-SQL prises en charge à l’instance.  Dans cet exemple, les requêtes sont soumises en mode interactif.
 
 ```sql

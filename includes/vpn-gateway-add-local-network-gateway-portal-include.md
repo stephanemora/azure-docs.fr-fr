@@ -9,11 +9,11 @@ ms.date: 12/19/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 03a4005da7794a989166f914e4ba4d03f93ae8b9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66170155"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67176919"
 ---
 1. Dans le portail, cliquez sur **+Créer une ressource**.
 2. Dans la zone de recherche, tapez **passerelle de réseau local**, puis appuyez sur **Entrée** pour lancer la recherche. Une liste de résultats apparaîtra. Cliquez sur **Passerelle de réseau local**, puis cliquez sur le bouton **Créer** pour ouvrir la page **Créer une passerelle de réseau local**.

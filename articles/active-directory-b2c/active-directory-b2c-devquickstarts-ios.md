@@ -11,10 +11,10 @@ ms.date: 11/30/2018
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: 1f7c864102a4985aa1b2c66e12b42cbe3bc19bca
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66510097"
 ---
 # <a name="azure-ad-b2c-sign-in-using-an-ios-application"></a>Azure AD B2C : Se connecter à l’aide d’une application iOS
