@@ -58,7 +58,7 @@ Convertit la valeur en tableau.
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| convertToArray |OUI |entier, chaîne, tableau ou objet |Valeur à convertir en tableau. |
+| convertToArray |OUI |int, string, array ou object |Valeur à convertir en tableau. |
 
 ### <a name="return-value"></a>Valeur de retour
 
