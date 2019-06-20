@@ -1,6 +1,6 @@
 ---
 title: À propos d'ExpressRoute Direct | Microsoft Docs
-description: Cette page fournit une vue d’ensemble de Direct d’ExpressRoute
+description: Cette page propose une vue d’ensemble d’ExpressRoute Direct.
 services: expressroute
 author: jaredr80
 ms.service: expressroute
@@ -9,10 +9,10 @@ ms.date: 02/25/2019
 ms.author: jaredro
 ms.custom: seodec18
 ms.openlocfilehash: fb9dc5116ba23d57c7f2fe543e734759e8bbcc7b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60367629"
 ---
 # <a name="about-expressroute-direct"></a>À propose de ExpressRoute Direct
@@ -25,9 +25,9 @@ Les principales fonctionnalités offertes par ExpressRoute Direct sont les suiva
 * Isolation physique pour les secteurs qui sont réglementés, pour lesquels la connectivité isolée et dédiée est obligatoire, notamment : banque, secteur public et commerce de détail
 * Contrôle précis de la distribution du circuit en fonction de l’unité commerciale
 
-## <a name="onboard-to-expressroute-direct"></a>Intégrer à ExpressRoute directe
+## <a name="onboard-to-expressroute-direct"></a>Intégration à ExpressRoute Direct
 
-Avant d’utiliser ExpressRoute Direct, vous devez d’abord inscrire votre abonnement. Envoyez pour cela un e-mail à <ExpressRouteDirect@microsoft.com> avec votre ID d’abonnement et les informations suivantes :
+Vous devez commencer par inscrire votre abonnement pour pouvoir utiliser ExpressRoute Direct. Envoyez pour cela un e-mail à <ExpressRouteDirect@microsoft.com> avec votre ID d’abonnement et les informations suivantes :
 
 * Scénarios que vous souhaitez réaliser avec **ExpressRoute Direct**
 * Préférences d’emplacement : consultez l’article [Partenaires et emplacements d’homologation](expressroute-locations-providers.md) pour obtenir la liste complète de tous les emplacements

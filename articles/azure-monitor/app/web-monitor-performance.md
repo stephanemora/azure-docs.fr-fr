@@ -14,10 +14,10 @@ ms.date: 05/10/2018
 ms.reviewer: sdash
 ms.author: mbullwin
 ms.openlocfilehash: d7b8037f50fc4877fe233925f3e922648169f73b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60373084"
 ---
 # <a name="monitor-performance-in-web-applications"></a>Analyse des performances dans les applications web
@@ -103,7 +103,7 @@ Définissez la ressource avant les autres propriétés. Ne choisissez pas les re
 
 Veillez à noter les unités dans lesquelles vous êtes invité à entrer la valeur seuil.
 
-*Je ne vois pas apparaître le bouton Ajouter une alerte.*  - S’agit-il d’un compte de groupe auquel vous avez accès en lecture uniquement ? Consultez l’administrateur de ce compte.
+*Je ne vois pas apparaître le bouton Ajouter une alerte.* - S’agit-il d’un compte de groupe auquel vous avez accès en lecture uniquement ? Consultez l’administrateur de ce compte.
 
 ## <a name="diagnosis"></a>Problèmes de diagnostic
 Voici quelques conseils pour identifier et diagnostiquer les problèmes de performances :
@@ -112,7 +112,7 @@ Voici quelques conseils pour identifier et diagnostiquer les problèmes de perfo
 * Comparez le nombre de demandes avec les autres métriques afin de savoir si ces défaillances ou réponses lentes sont liées à la charge du site Web.
 * [Insérez et recherchez des instructions de trace][diagnostic] dans votre code pour vous aider à identifier les problèmes.
 * Surveillez votre application Web en cours avec le [Flux de métriques temps réel][livestream].
-* Capturer l’état de votre application .NET avec [débogueur de capture instantanée][snapshot].
+* Capturez l’état de votre application .Net avec le [Débogueur de capture instantanée][snapshot].
 
 ## <a name="find-and-fix-performance-bottlenecks-with-performance-investigation-experience"></a>Rechercher et corriger les goulots d’étranglement avec une expérience analyse de performances
 

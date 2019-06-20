@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 3/01/2019
 ms.author: pullabhk
 ms.openlocfilehash: 22ada6f9bb614bdc3698c58c6aa8ec3dd5def868
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60240060"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Récupérer des fichiers à partir d’une sauvegarde de machine virtuelle Azure
@@ -67,16 +67,16 @@ Pour restaurer des fichiers ou dossiers à partir du point de récupération, ac
 
     - download.microsoft.com
     - URL Recovery Services (le nom de zone géographique fait référence à la région où réside le coffre Recovery Services.)
-        - https :\//pod01-rec2.geo-name.backup.windowsazure.com (Azure pour les zones géographiques publiques)
-        - https :\//pod01-rec2.geo-name.backup.windowsazure.cn (pour Azure-Chine)
-        - https :\//pod01-rec2.geo-name.backup.windowsazure.us (pour Azure US Government)
-        - https :\//pod01-rec2.geo-name.backup.windowsazure.de (pour Azure Allemagne)
+        - https:\//pod01-rec2.geo-name.backup.windowsazure.com (pour les zones géographiques publiques Azure)
+        - https:\//pod01-rec2.geo-name.backup.windowsazure.cn (pour Azure Chine)
+        - https:\//pod01-rec2.geo-name.backup.windowsazure.us (pour Azure US Government)
+        - https:\//pod01-rec2.geo-name.backup.windowsazure.de (pour Azure Allemagne)
     - port sortant 3260
 
 > [!Note]
 > 
-> * Le nom de fichier de script téléchargé aura le **géo-name** doivent être remplis dans l’URL. Pour, par exemple : Le nom de script téléchargé commence par \'VMname\'\_\'geoname\'_\'GUID\', telles que ContosoVM_wcus_12345678...<br><br>
-> * L’URL serait « https :\//pod01-rec2.wcus.backup.windowsazure.com »
+> * Le nom de fichier de script téléchargé a le **nom de zone géographique** devant être rempli dans l’URL. Par exemple : Le nom de script téléchargé commence par \'nomMachineVirtuelle\'\_\'NomZoneGéographique\'_\'GUID\', par exemple ContosoVM_wcus_12345678...<br><br>
+> * L’URL est alors « https:\//pod01-rec2.wcus.backup.windowsazure.com »
 
 
    Pour Linux, le script requiert les composants « open-iscsi » et « lshw » pour vous connecter au point de récupération. Si les composants n’existent pas sur l’ordinateur depuis lequel le script est exécuté, le script demande l’autorisation d’installer les composants. Autorisez l’installation des composants nécessaires.
@@ -207,8 +207,8 @@ Sur Linux, le système d’exploitation de l’ordinateur utilisé pour restaure
 | openSUSE | 42.2 et versions ultérieures |
 
 > [!Note]
-> Nous avons trouvé certains problèmes dans le script de récupération de fichier en cours d’exécution sur des ordinateurs avec le système d’exploitation de SLES 12 SP4. Examen avec l’équipe SLES.
-> Actuellement, en cours d’exécution, le script de récupération de fichier travaille sur les machines avec les versions de SLES 12 SP2 et SP3 du système d’exploitation.
+> Nous avons détecté certains problèmes lors de l’exécution du script de récupération de fichier sur des ordinateurs équipés du système d’exploitation SLES 12 SP4. L’équipe SLES est en train d’étudier le problème.
+> Actuellement, l’exécution du script de récupération de fichier fonctionne sur des ordinateurs équipés des versions de système d’exploitation SLES 12 SP2 et SP3.
 >
 
 Le script requiert également les composants Python et bash pour exécuter et établir une connexion sécurisée avec le point de récupération.
@@ -235,38 +235,38 @@ Si vous rencontrez des problèmes lors de la récupération de fichiers à parti
 
 ## <a name="security"></a>Sécurité
 
-Cette section décrit les diverses mesures de sécurité nécessaire pour l’implémentation de la récupération de fichier à partir de sauvegardes de machine virtuelle Azure, telles que les utilisateurs soient informés des aspects de sécurité de la fonctionnalité.
+Cette section décrit les diverses mesures de sécurité nécessaires pour l’implémentation de la récupération de fichier à partir de sauvegardes de machine virtuelle Azure, par exemple informer les utilisateurs des aspects de sécurité de la fonctionnalité.
 
 ### <a name="feature-flow"></a>Flux de fonctionnalité
 
-Cette fonctionnalité a été conçue pour accéder aux données de machine virtuelle sans avoir besoin de restaurer la machine virtuelle ou machine virtuelle entière des disques et dans la procédure minimale. Accès aux données de la machine virtuelle est fourni par un script (qui monte le volume de récupération lors de l’exécuter comme indiqué ci-dessous) et par conséquent, elle constitue la pierre angulaire de toutes les implémentations de sécurité
+Cette fonctionnalité a été conçue pour accéder aux données de machine virtuelle en un minimum d’étapes, sans avoir besoin de restaurer la machine virtuelle entière ni les disques de machine virtuelle. L’accès aux données de la machine virtuelle est fourni par un script (qui monte le volume de récupération lors de l’exécution tel qu’indiqué ci-dessous) et par conséquent constitue la pierre angulaire de toutes les implémentations de sécurité.
 
   ![Flux de fonctionnalité de sécurité](./media/backup-azure-restore-files-from-vm/vm-security-feature-flow.png)
 
-### <a name="security-implementations"></a>Implémentations de sécurité
+### <a name="security-implementations"></a>Implémentations de la sécurité
 
-#### <a name="select-recovery-point-who-can-generate-script"></a>Sélectionnez le point de récupération (qui peut générer un script)
+#### <a name="select-recovery-point-who-can-generate-script"></a>Sélectionner le point de récupération (quel utilisateur peut générer un script)
 
-Le script fournit l’accès aux données de la machine virtuelle, il convient de réglementer qui peut la générer en premier lieu. Un doit se connecter au portail Azure et doit être [RBAC autorisée](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) pour être en mesure de générer le script.
+Comme le script fournit l’accès aux données de la machine virtuelle, il convient de réglementer qui peut le générer en premier lieu. Un utilisateur doit se connecter au portail Azure et doit avoir des [autorisations de contrôle d’accès en fonction du rôle (RBAC)](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) pour être en mesure de générer le script.
 
-Récupération de fichier doit le même niveau d’autorisation en fonction des besoins de la restauration de disques et de restauration de la machine virtuelle. En d’autres termes, seuls les utilisateurs autorisés permettre visualiser les données de la machine virtuelle peut générer le script.
+La récupération de fichier doit avoir le même niveau d’autorisation que pour la restauration des disques et des machines virtuelles. En d’autres termes, seuls les utilisateurs autorisés peuvent visualiser les données de la machine virtuelle et générer le script.
 
-Le script généré est signé avec un certificat officiel de Microsoft pour le service sauvegarde Azure. Toute tentative de falsification avec le script signifie que la signature est rompue et toute tentative pour exécuter le script est mis en surbrillance comme un risque potentiel par le système d’exploitation.
+Le script généré est signé avec un certificat officiel de Microsoft pour le service Sauvegarde Azure. En cas de tentative de falsification du script, la signature est rompue et toute tentative pour exécuter le script est considérée comme un risque potentiel par le système d’exploitation.
 
-#### <a name="mount-recovery-volume-who-can-run-script"></a>Volume de récupération de montage (qui peut s’exécuter script)
+#### <a name="mount-recovery-volume-who-can-run-script"></a>Volume de récupération de montage (quel utilisateur peut exécuter le script)
 
-Seul l’administrateur peut exécuter le script et doit l’exécuter en mode élevé. Le script exécute un ensemble prégénéré des étapes uniquement et n’accepte pas d’entrée à partir de n’importe quelle source externe.
+Seul l’administrateur peut exécuter le script et doit l’exécuter en mode élevé. Le script exécute uniquement un ensemble prégénéré d’étapes et n’accepte pas d’entrée de sources externes.
 
-Pour exécuter le script, une nécessite un mot de passe qui est uniquement visibles par l’utilisateur autorisé au moment de la génération du script dans le portail Azure ou PowerShell/CLI. Il s’agit pour vous assurer que l’utilisateur autorisé qui télécharge le script est également chargé d’exécuter le script.
+Pour exécuter le script, l’utilisateur a besoin d’un mot de passe qui est uniquement visible par l’utilisateur autorisé au moment de la génération du script dans le portail Azure ou PowerShell/CLI. Cela permet de s’assurer que l’utilisateur autorisé qui télécharge le script est également chargé d’exécuter le script.
 
-#### <a name="browse-files-and-folders"></a>Parcourir les fichiers et dossiers
+#### <a name="browse-files-and-folders"></a>Parcourir des fichiers et dossiers
 
-Pour parcourir les fichiers et dossiers, le script utilise l’initiateur iSCSI sur l’ordinateur et vous connecter au point de récupération qui est configuré en tant qu’une cible iSCSI. Ici, on peut supposer les scénarios où l'on veut imiter/usurpation d’identité soit/tous les composants.
+Pour parcourir des fichiers et dossiers, le script utilise l’initiateur iSCSI de l’ordinateur et se connecte au point de récupération qui est configuré en tant que cible iSCSI. Ici, on peut penser à des scénarios où l’on veut imiter/usurper l’identité d’un ou de tous les composants.
 
-Nous utilisons le mécanisme d’authentification CHAP mutuels afin que chaque composant s’authentifie à l’autre. Cela signifie qu’il est extrêmement difficile pour un initiateur factice pour se connecter à la cible iSCSI et une cible de fausse à être connecté à l’ordinateur où le script est exécuté.
+Nous utilisons le mécanisme d’authentification CHAP mutuelle afin que les composants s’authentifient les uns les autres. Cela signifie qu’il est extrêmement difficile pour un initiateur factice de se connecter à la cible iSCSI et à une fausse cible de se connecter à l’ordinateur où le script est exécuté.
 
-Le flux de données entre le service de récupération et de l’ordinateur est protégé par la création d’un tunnel SSL sécurisé sur TCP ([TLS 1.2 doit être pris en charge](#system-requirements) sur l’ordinateur où le script est exécuté)
+Le flux de données entre le service de récupération et l’ordinateur est protégé par la création d’un tunnel SSL sécurisé sur TCP ([TLS 1.2 doit être pris en charge](#system-requirements) sur l’ordinateur où le script est exécuté)
 
-N’importe quel fichier contrôle liste accès (ACL) présents dans le parent/sauvegardé une machine virtuelle sont également conservés dans le système de fichiers monté.
+Les fichiers de liste de contrôle d’accès (ACL) présents dans la machine virtuelle parente/sauvegardée sont également conservés dans le système de fichiers monté.
 
-Le script donne accès en lecture seule à un point de récupération et n’est valide pendant 12 heures seulement. Si l’utilisateur souhaite supprimer l’accès précédemment, puis connectez-vous à Azure Portal/PowerShell/CLI et effectuer le **démonter les disques** pour ce point de récupération particulier. Le script est invalidé immédiatement.
+Le script donne accès en lecture seule à un point de récupération et n’est valide que pendant 12 heures. Si l’utilisateur souhaite supprimer l’accès plus tôt, il se connecte au portail Azure/PowerShell/CLI et effectue le **démontage des disques** pour ce point de récupération particulier. Le script est invalidé immédiatement.

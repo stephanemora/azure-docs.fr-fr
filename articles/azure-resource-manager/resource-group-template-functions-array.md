@@ -136,8 +136,8 @@ Retourne la première valeur non null à partir des paramètres. Les chaînes vi
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |OUI |entier, chaîne, tableau ou objet |La première valeur dans laquelle rechercher des valeurs null. |
-| arguments supplémentaires |Non |entier, chaîne, tableau ou objet |Valeurs supplémentaires dans lesquelles rechercher des valeurs null. |
+| arg1 |OUI |int, string, array ou object |La première valeur dans laquelle rechercher des valeurs null. |
+| arguments supplémentaires |Non |int, string, array ou object |Valeurs supplémentaires dans lesquelles rechercher des valeurs null. |
 
 ### <a name="return-value"></a>Valeur de retour
 

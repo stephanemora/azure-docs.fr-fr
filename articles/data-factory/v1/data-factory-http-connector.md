@@ -13,15 +13,15 @@ ms.date: 05/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: f7e070788d2fc11addcafc30d9f232f194f44782
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60318476"
 ---
 # <a name="move-data-from-an-http-source-by-using-azure-data-factory"></a>Déplacer des données à partir d’une source HTTP à l’aide d’Azure Data Factory
 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
 > * [Version 1](data-factory-http-connector.md)
 > * [Version 2 (version actuelle)](../connector-http.md)
 
@@ -53,12 +53,12 @@ Le tableau suivant décrit les éléments JSON qui sont propres au service lié 
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
-| type | La propriété **type** doit être définie sur **Http**. | Oui |
-| url | URL de base du serveur web. | Oui |
-| authenticationType | Spécifie le type d’authentification. Les valeurs autorisées sont : **Anonyme**, **De base**, **Digest**, **Windows** et **ClientCertificate**. <br><br> Consultez les sections plus loin dans cet article pour accéder à d’autres propriétés et à des exemples JSON relatifs à ces types d’authentification. | Oui |
-| enableServerCertificateValidation | Spécifie si la validation du certificat SSL du serveur doit être activée si la source est un serveur web HTTPS. Quand votre serveur HTTPS utilise un certificat auto-signé, définissez cette propriété sur **false**. | Non <br /> (la valeur par défaut est **true**) |
+| Type | La propriété **type** doit être définie sur **Http**. | OUI |
+| url | URL de base du serveur web. | OUI |
+| authenticationType | Spécifie le type d’authentification. Les valeurs autorisées sont : **Anonyme**, **De base**, **Digest**, **Windows** et **ClientCertificate**. <br><br> Consultez les sections plus loin dans cet article pour accéder à d’autres propriétés et à des exemples JSON relatifs à ces types d’authentification. | OUI |
+| enableServerCertificateValidation | Spécifie si la validation du certificat SSL du serveur doit être activée si la source est un serveur web HTTPS. Quand votre serveur HTTPS utilise un certificat auto-signé, définissez cette propriété sur **false**. | Non<br /> (la valeur par défaut est **true**) |
 | gatewayName | Nom de l’instance de passerelle de gestion des données à utiliser pour se connecter à une source HTTP locale. | Oui, dans le cas de copie de données à partir d’une source HTTP locale |
-| encryptedCredential | Informations d’identification chiffrées pour accéder au point de terminaison HTTP. La valeur est générée automatiquement quand vous configurez les informations d’authentification dans l’Assistant de copie ou la boîte de dialogue **ClickOnce**. | Non <br /> (s’applique uniquement pour la copie de données à partir d’un serveur HTTP local) |
+| Encryptedcredential | Informations d’identification chiffrées pour accéder au point de terminaison HTTP. La valeur est générée automatiquement quand vous configurez les informations d’authentification dans l’Assistant de copie ou la boîte de dialogue **ClickOnce**. | Non<br /> (s’applique uniquement pour la copie de données à partir d’un serveur HTTP local) |
 
 Pour plus d’informations sur la définition des informations d’identification pour une source de données de connecteur HTTP local, consultez [Déplacement de données entre des sources locales et le cloud à l’aide de la passerelle de gestion des données](data-factory-move-data-between-onprem-and-cloud.md).
 
@@ -68,8 +68,8 @@ Définissez la valeur **authenticationType** sur **De base**, **Digest** ou **Wi
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
-| username | Nom d’utilisateur à utiliser pour accéder au point de terminaison HTTP. | Oui |
-| password | Mot de passe de l’utilisateur (**username**). | Oui |
+| username | Nom d’utilisateur à utiliser pour accéder au point de terminaison HTTP. | OUI |
+| password | Mot de passe de l’utilisateur (**username**). | OUI |
 
 **Exemple : Utilisation de l’authentification De base, Digest ou Windows**
 
@@ -98,7 +98,7 @@ Pour utiliser l’authentification de base, définissez **authenticationType** s
 | --- | --- | --- |
 | embeddedCertData | Contenu encodé en Base64 des données binaires du fichier PFX. | Spécifiez **embeddedCertData** ou **certThumbprint** |
 | certThumbprint | Empreinte du certificat qui a été installé dans le magasin de certificats de votre ordinateur de passerelle. S’applique uniquement pour la copie de données à partir d’une source HTTP locale. | Spécifiez **embeddedCertData** ou **certThumbprint** |
-| password | Mot de passe associé au certificat. | Non  |
+| password | Mot de passe associé au certificat. | Non |
 
 Si vous utilisez **certThumbprint** pour l’authentification et que le certificat est installé dans le magasin personnel de l’ordinateur local, accordez des autorisations de lecture au service de passerelle :
 
@@ -160,13 +160,13 @@ La section **typeProperties** est différente pour chaque type de jeu de donnée
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété **type** du jeu de données doit être définie sur **Http**. | Oui |
-| relativeUrl | URL relative de la ressource qui contient les données. Quand le chemin n’est pas spécifié, seule l’URL indiquée dans la définition du service lié est utilisée. <br><br> Pour construire une URL dynamique, vous pouvez utiliser les [variables système et fonctions Data Factory](data-factory-functions-variables.md). Exemple : **relativeUrl**: **$$Text.Format('/my/report?month={0:yyyy}-{0:MM}&fmt=csv', SliceStart)** . | Non  |
-| requestMethod | Méthode HTTP. Les valeurs autorisées sont **GET** et **POST**. | Non  <br />(la valeur par défaut est **GET**) |
-| additionalHeaders | En-têtes de requête HTTP supplémentaires. | Non  |
-| requestBody | Corps de la requête HTTP. | Non  |
-| format | Si vous souhaitez *récupérer les données d’un point de terminaison HTTP en l’état*, sans les analyser, ignorez le paramètre de **format**. <br><br> Si vous voulez analyser le contenu de la réponse HTTP pendant la copie, les types de formats suivants sont pris en charge : **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** et **ParquetFormat**. Pour plus d’informations, consultez [Format Texte](data-factory-supported-file-and-compression-formats.md#text-format), [Format JSON](data-factory-supported-file-and-compression-formats.md#json-format), [Format Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [Format Orc](data-factory-supported-file-and-compression-formats.md#orc-format) et [Format Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format). |Non  |
-| compression | Spécifiez le type et le niveau de compression pour les données. Types pris en charge : **GZip**, **Deflate**, **BZip2** et **ZipDeflate**. Niveaux pris en charge : **Optimal** et **Fastest**. Pour plus d’informations, consultez [Formats de fichiers et de compression pris en charge dans Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Non  |
+| Type | La propriété **type** du jeu de données doit être définie sur **Http**. | OUI |
+| relativeUrl | URL relative de la ressource qui contient les données. Quand le chemin n’est pas spécifié, seule l’URL indiquée dans la définition du service lié est utilisée. <br><br> Pour construire une URL dynamique, vous pouvez utiliser les [variables système et fonctions Data Factory](data-factory-functions-variables.md). Exemple : **relativeUrl**: **$$Text.Format('/my/report?month={0:yyyy}-{0:MM}&fmt=csv', SliceStart)** . | Non |
+| requestMethod | Méthode HTTP. Les valeurs autorisées sont **GET** et **POST**. | Non <br />(la valeur par défaut est **GET**) |
+| additionalHeaders | En-têtes de requête HTTP supplémentaires. | Non |
+| RequestBody | Corps de la requête HTTP. | Non |
+| format | Si vous souhaitez *récupérer les données d’un point de terminaison HTTP en l’état*, sans les analyser, ignorez le paramètre de **format**. <br><br> Si vous voulez analyser le contenu de la réponse HTTP pendant la copie, les types de formats suivants sont pris en charge : **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** et **ParquetFormat**. Pour plus d’informations, consultez [Format Texte](data-factory-supported-file-and-compression-formats.md#text-format), [Format JSON](data-factory-supported-file-and-compression-formats.md#json-format), [Format Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [Format Orc](data-factory-supported-file-and-compression-formats.md#orc-format) et [Format Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format). |Non |
+| compression | Spécifiez le type et le niveau de compression pour les données. Types pris en charge : **GZip**, **Deflate**, **BZip2** et **ZipDeflate**. Niveaux pris en charge : **Optimal** et **Fastest**. Pour plus d’informations, consultez [Formats de fichiers et de compression pris en charge dans Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Non |
 
 **Exemple : Utilisation de la méthode GET (par défaut)**
 
@@ -223,7 +223,7 @@ Actuellement, quand la source de l’activité de copie est de type **HttpSource
 
 | Propriété | Description | Obligatoire |
 | -------- | ----------- | -------- |
-| httpRequestTimeout | Délai d’expiration (valeur **TimeSpan**) pour l’obtention d’une réponse par la requête HTTP. Il s’agit du délai d’expiration pour l’obtention d’une réponse, et non du délai d’expiration pour la lecture des données de la réponse. | Non <br />(Valeur par défaut : **00:01:40**) |
+| httpRequestTimeout | Délai d’expiration (valeur **TimeSpan**) pour l’obtention d’une réponse par la requête HTTP. Il s’agit du délai d’expiration pour l’obtention d’une réponse, et non du délai d’expiration pour la lecture des données de la réponse. | Non<br />(Valeur par défaut : **00:01:40**) |
 
 ## <a name="supported-file-and-compression-formats"></a>Formats de fichier et de compression pris en charge
 

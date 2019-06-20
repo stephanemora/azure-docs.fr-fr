@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: victorh
 ms.openlocfilehash: 01c1768f60da98206f0dfd041745428256f545fc
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "58861877"
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-classic-by-using-powershell"></a>Créer une sonde personnalisée pour Azure Application Gateway (classique) en utilisant PowerShell
@@ -152,7 +152,7 @@ Les paramètres de configuration sont :
 |---|---|
 |**Nom** |Nom de référence de la sonde personnalisée. |
 | **Protocole** | Protocole utilisé (les valeurs possibles sont HTTP ou HTTPS).|
-| **Hôte** et **Chemin** | Chemin complet de l’URL qui est appelé par la passerelle d’application pour déterminer l’intégrité de l’instance. Par exemple, si vous avez un site Web http :\//contoso.com/, puis la sonde personnalisée peut être configuré pour « http :\//contoso.com/path/custompath.htm « contrôles de sonde une réponse HTTP réussie.|
+| **Hôte** et **Chemin** | Chemin complet de l’URL qui est appelé par la passerelle d’application pour déterminer l’intégrité de l’instance. Par exemple : avec un site web http:\//contoso.com/, la sonde personnalisée peut être configurée pour « http:\//contoso.com/path/custompath.htm » afin que les contrôles de sonde renvoient une réponse HTTP réussie.|
 | **Intervalle** | Configure les vérifications d’intervalle de sonde en secondes.|
 | **Délai d'expiration** | Définit le délai d’expiration d’un contrôle de réponse HTTP.|
 | **Seuil de défaillance sur le plan de l’intégrité** | Le nombre d’échecs de réponses HTTP nécessaires pour marquer l’instance de serveur principal comme *défectueuse*.|

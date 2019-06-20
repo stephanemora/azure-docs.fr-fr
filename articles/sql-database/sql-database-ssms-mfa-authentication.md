@@ -1,5 +1,5 @@
 ---
-title: À l’aide de l’authentification multifacteur AAD avec la base de données SQL Azure et Azure SQL Data Warehouse | Microsoft Docs
+title: Utilisation de l’authentification AAD multifacteur avec Azure SQL Database et Azure SQL Data Warehouse | Microsoft Docs
 description: Azure SQL Database et Azure SQL Data Warehouse prennent en charge les connexions depuis SQL Server Management Studio (SSMS) à l’aide de l’authentification universelle Active Directory.
 services: sql-database
 ms.service: sql-database
@@ -13,33 +13,33 @@ ms.reviewer: vanto
 manager: craigg
 ms.date: 10/08/2018
 ms.openlocfilehash: ccb78e201b90dfc27f52523348e76da57087bcc8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60614173"
 ---
-# <a name="using-multi-factor-aad-authentication-with-azure-sql-database-and-azure-sql-data-warehouse-ssms-support-for-mfa"></a>À l’aide de l’authentification multifacteur AAD avec la base de données SQL Azure et Azure SQL Data Warehouse (prise en charge SSMS pour MFA)
-Azure SQL Database et Azure SQL Data Warehouse prennent en charge les connexions à partir de SQL Server Management Studio (SSMS) à l’aide de *l’authentification universelle Active Directory*. Cet article décrit les différences entre les différentes options d’authentification et également les limitations associées à l’utilisation de l’authentification universelle. 
+# <a name="using-multi-factor-aad-authentication-with-azure-sql-database-and-azure-sql-data-warehouse-ssms-support-for-mfa"></a>Utilisation de l’authentification AAD multifacteur avec Azure SQL Database et Azure SQL Data Warehouse (prise en charge de SSMS pour MFA)
+Azure SQL Database et Azure SQL Data Warehouse prennent en charge les connexions à partir de SQL Server Management Studio (SSMS) à l’aide de *l’authentification universelle Active Directory*. Cet article décrit les différences entre les différentes options d’authentification, ainsi que les limitations associées à l’utilisation de l’authentification universelle. 
 
 **Télécharger la dernière version de SSMS** : sur l’ordinateur client, téléchargez la dernière version de SSMS à partir de la page [Télécharger SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx). 
 
 
-Pour toutes les fonctionnalités abordées dans cet article, utilisez au moins juillet 2017, version 17.2.  La boîte de dialogue de connexion plus récent, doit ressembler à l’image suivante :
+Pour toutes les fonctionnalités abordées dans cet article, utilisez au minimum la version 17.2 (juillet 2017).  La boîte de dialogue de connexion la plus récente doit ressembler à l’image suivante :
  
   ![1mfa-universal-connect](./media/sql-database-ssms-mfa-auth/1mfa-universal-connect.png "Renseigne le champ Nom d'utilisateur.")  
 
 ## <a name="the-five-authentication-options"></a>Les cinq options d’authentification  
 
-Authentification universelle Active Directory prend en charge les deux méthodes d’authentification non interactive :
-    - `Active Directory - Password` Authentification
-    - `Active Directory - Integrated` Authentification
+L’authentification universelle Active Directory prend en charge les deux méthodes d’authentification non interactives :
+    - l’authentification `Active Directory - Password`
+    - l’authentification `Active Directory - Integrated`
 
-Il existe deux d’authentification non interactives modèles également, ce qui peut être utilisé dans de nombreuses applications (ADO.NET, JDCB, ODC, etc.). Ces deux méthodes génèrent jamais des boîtes de dialogue contextuelles : 
+Il existe deux méthodes d’authentification non interactives, qui peuvent être utilisées dans de nombreuses applications (ADO.NET, JDBC, ODBC, etc.). Ces deux méthodes n’entraînent jamais l’affichage de boîtes de dialogue contextuelles : 
 - `Active Directory - Password` 
 - `Active Directory - Integrated` 
 
-La méthode interactive est autrement également prend en charge Azure multi-factor authentication (MFA) est : 
+La méthode interactive qui prend également en charge Azure Multi-Factor Authentication (MFA) est la suivante : 
 - `Active Directory - Universal with MFA` 
 
 
@@ -54,7 +54,7 @@ Pour les étapes de configuration, consultez [Configuration de l’authentificat
    ![mfa-tenant-ssms](./media/sql-database-ssms-mfa-auth/mfa-tenant-ssms.png)   
 
 ### <a name="azure-ad-business-to-business-support"></a>Prise en charge d’Azure AD B2B   
-Les utilisateurs Azure AD pris en charge pour les scénarios d’Azure AD B2B en tant qu’utilisateurs invités (consulter [Qu’est-ce qu’Azure AD B2B Collaboration ?](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md)) ne peuvent se connecter à SQL Database et SQL Data Warehouse qu’en tant que membres d’un groupe créé dans Azure AD et mappé manuellement à l’aide de l’instruction Transact-SQL `CREATE USER` dans une base de données spécifique. Par exemple, si `steve@gmail.com` est invité à Azure AD `contosotest` (avec le domaine Azure AD `contosotest.onmicrosoft.com`), un groupe Azure AD, tel que `usergroup`, doit être créé dans l’annuaire Azure AD qui contient le membre `steve@gmail.com`. Ensuite, ce groupe doit être créé pour une base de données spécifique (autrement dit, MyDatabase) par l’administrateur Azure AD SQL ou Azure AD DBO en exécutant un Transact-SQL `CREATE USER [usergroup] FROM EXTERNAL PROVIDER` instruction. Une fois l’utilisateur de base de données créé, l’utilisateur `steve@gmail.com` peut se connecter `MyDatabase` à l’aide de l’option d’authentification SSMS `Active Directory – Universal with MFA support`. Par défaut, le groupe d’utilisateurs bénéficie uniquement de l’autorisation de connexion et de tout accès aux données accordé de façon habituelle. Remarquez que l’utilisateur `steve@gmail.com` en tant qu’utilisateur invité doit cocher la case et ajouter le nom de domaine AD `contosotest.onmicrosoft.com` à la boîte de dialogue **Propriété de connexion** SSMS. L’option **Nom du domaine AD ou ID de locataire** est uniquement prise en charge pour les options Authentification universelle avec prise en charge de MFA ; dans le cas contraire, elle est grisée.
+Les utilisateurs Azure AD pris en charge pour les scénarios d’Azure AD B2B en tant qu’utilisateurs invités (consulter [Qu’est-ce qu’Azure AD B2B Collaboration ?](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md)) ne peuvent se connecter à SQL Database et SQL Data Warehouse qu’en tant que membres d’un groupe créé dans Azure AD et mappé manuellement à l’aide de l’instruction Transact-SQL `CREATE USER` dans une base de données spécifique. Par exemple, si `steve@gmail.com` est invité à Azure AD `contosotest` (avec le domaine Azure AD `contosotest.onmicrosoft.com`), un groupe Azure AD, tel que `usergroup`, doit être créé dans l’annuaire Azure AD qui contient le membre `steve@gmail.com`. Ensuite, l’administrateur Azure AD SQL ou le propriétaire de la base de données Azure AD doit créer ce groupe pour une base de données spécifique (MyDatabase) en exécutant une instruction Transact-SQL `CREATE USER [usergroup] FROM EXTERNAL PROVIDER`. Une fois l’utilisateur de base de données créé, l’utilisateur `steve@gmail.com` peut se connecter `MyDatabase` à l’aide de l’option d’authentification SSMS `Active Directory – Universal with MFA support`. Par défaut, le groupe d’utilisateurs bénéficie uniquement de l’autorisation de connexion et de tout accès aux données accordé de façon habituelle. Remarquez que l’utilisateur `steve@gmail.com` en tant qu’utilisateur invité doit cocher la case et ajouter le nom de domaine AD `contosotest.onmicrosoft.com` à la boîte de dialogue **Propriété de connexion** SSMS. L’option **Nom du domaine AD ou ID de locataire** est uniquement prise en charge pour les options Authentification universelle avec prise en charge de MFA ; dans le cas contraire, elle est grisée.
 
 ## <a name="universal-authentication-limitations-for-sql-database-and-sql-data-warehouse"></a>Limites de l’authentification universelle pour la base de données SQL et SQL Data Warehouse
 - SSMS et SqlPackage.exe sont les seuls outils activés pour MFA par le biais de l’authentification universelle Active Directory.
@@ -74,7 +74,7 @@ Les utilisateurs Azure AD pris en charge pour les scénarios d’Azure AD B2B en
 - [Configurer et gérer l’authentification Azure Active Directory avec SQL Database ou SQL Data Warehouse](sql-database-aad-authentication-configure.md)  
 - [Microsoft SQL Server Data-Tier Application Framework (17.0.0 GA)](https://www.microsoft.com/download/details.aspx?id=55088)  
 - [SQLPackage.exe](https://docs.microsoft.com/sql/tools/sqlpackage)  
-- [Importer un fichier BACPAC dans une nouvelle base de données SQL Azure](../sql-database/sql-database-import.md)  
-- [Exporter une base de données SQL Azure dans un fichier BACPAC](../sql-database/sql-database-export.md)  
+- [Importer un fichier BACPAC dans une nouvelle base de données Azure SQL](../sql-database/sql-database-import.md)  
+- [Exporter une base de données Azure SQL dans un fichier BACPAC](../sql-database/sql-database-export.md)  
 - Interface C# [Interface IUniversalAuthProvider](https://msdn.microsoft.com/library/microsoft.sqlserver.dac.iuniversalauthprovider.aspx)  
 - Quand vous utilisez l’authentification **Active Directory - Authentification universelle avec prise en charge de MFA**, le suivi ADAL est disponible à compter de [SSMS 17.3](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms). Le suivi ADAL étant désactivé par défaut, vous pouvez l’activer comme suit : dans le menu **Outils**, choisissez **Options**, puis sous **Services Azure**, choisissez **Cloud Azure** et **Niveau de trace dans la fenêtre Sortie ADAL**, et activez **Sortie** dans le menu **Affichage**. Les suivis sont disponibles dans la fenêtre de sortie quand vous sélectionnez l’option **Azure Active Directory**.  

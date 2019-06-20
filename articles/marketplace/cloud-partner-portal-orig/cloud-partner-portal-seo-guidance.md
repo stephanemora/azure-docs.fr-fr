@@ -1,5 +1,5 @@
 ---
-title: Guide des moteurs de recherche de la place de marché Azure
+title: Conseils relatifs au SEO sur la Place de marché Azure
 description: Fournit des conseils pour optimiser l’optimisation du référencement auprès d’un moteur de recherche.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
@@ -8,20 +8,20 @@ ms.topic: conceptual
 ms.date: 04/09/2019
 ms.author: pabutler
 ms.openlocfilehash: f5b956ed1197e3898c9536bda3a93a41e8ee35c0
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64935147"
 ---
-# <a name="azure-marketplace-seo-guidance"></a>Guide des moteurs de recherche de la place de marché Azure
+# <a name="azure-marketplace-seo-guidance"></a>Conseils relatifs au SEO sur la Place de marché Azure
 
-Cet article explique comment optimiser la détectabilité de votre offre via la fonctionnalité de recherche dans les [place de marché Azure](https://azuremarketplace.microsoft.com) et [AppSource](https://appsource.microsoft.com). 
+Cet article explique comment optimiser la détectabilité de votre offre via la fonctionnalité de recherche dans la [Place de marché Azure](https://azuremarketplace.microsoft.com) et [AppSource](https://appsource.microsoft.com). 
 
 
 ## <a name="general-explanation-of-algorithm"></a>Présentation générale de l’algorithme
 
-Utilisent des places de marché Microsoft Azure Search pour tirer parti des fonctionnalités de recherche du site. L’algorithme est basé sur la fréquence des termes-la fréquence inverse dans le document ([TF/IDF](https://en.wikipedia.org/wiki/Tf–idf)). L’analyseur Lucene [standard](https://lucene.apache.org/core/) est utilisé.
+Les Places de marché Microsoft utilisent Recherche Azure pour exploiter les fonctionnalités de recherche du site. L’algorithme est basé sur la fréquence des termes-la fréquence inverse dans le document ([TF/IDF](https://en.wikipedia.org/wiki/Tf–idf)). L’analyseur Lucene [standard](https://lucene.apache.org/core/) est utilisé.
 
 En règle générale, tout le texte des champs, des catégories et des secteurs d’activité est inclus dans la pondération de la pertinence. Les termes spécialisés qui sont rarement utilisés par les applications, mais fréquemment employés dans votre application produisent un score plus élevé lors de la recherche. Par conséquent, des termes comme « VM » offrent peu d’avantages, tandis que « Recherche Azure » est un terme beaucoup plus spécialisé.
 Voici les champs les plus importants à prendre en compte.

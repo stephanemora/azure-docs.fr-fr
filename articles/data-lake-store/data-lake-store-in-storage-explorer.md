@@ -1,7 +1,7 @@
 ---
 title: Gérer les ressources Azure Data Lake Storage Gen1 dans l’Explorateur Stockage Azure
 description: Découvrez comment accéder aux données et ressources Azure Data Lake Storage Gen1 et les gérer dans l’Explorateur Stockage Azure.
-Keywords: Azure Data Lake Store, Azure Storage Explorer
+Keywords: Azure Data Lake Store, Explorateur Stockage Azure
 services: Data Lake Store
 documentationcenter: ''
 author: jejiang
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/05/2018
 ms.author: jejiang
 ms.openlocfilehash: 18ef1f182611a9c8fbf24cd08026633f5449bbe9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60613537"
 ---
 # <a name="manage-azure-data-lake-storage-gen1-resources-by-using-storage-explorer"></a>Gérer les ressources Azure Data Lake Storage Gen1 en utilisant l’Explorateur Stockage
@@ -27,7 +27,7 @@ ms.locfileid: "60613537"
 
 Autre avantage : vous n’avez pas besoin de posséder une autorisation d’abonnement pour gérer les données Data Lake Storage Gen1. Dans l’Explorateur Stockage, vous pouvez joindre le chemin d’accès Data Lake Storage Gen1 au nœud **Local and Attached** (Local et attaché) tant qu’un utilisateur l’autorise.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 Pour effectuer les étapes indiquées dans cet article, vous avez besoin des éléments requis suivants :
 
 *   Un abonnement Azure. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial).

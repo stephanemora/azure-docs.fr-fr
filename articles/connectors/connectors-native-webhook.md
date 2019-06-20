@@ -12,10 +12,10 @@ ms.topic: article
 tags: connectors
 ms.date: 07/21/2016
 ms.openlocfilehash: c3047000843e054e71ec1a80313118a25e7c4905
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60447195"
 ---
 # <a name="create-event-based-workflows-or-actions-by-using-webhooks-and-azure-logic-apps"></a>Créer des actions ou des workflows basés sur les événements avec des Webhooks et Azure Logic Apps
@@ -29,7 +29,7 @@ En savoir plus sur la [création d’API personnalisées qui prennent en charge 
 
 ## <a name="use-the-webhook-trigger"></a>Utilisation du déclencheur webhook
 
-Un [*déclencheur*](../connectors/apis-list.md) est un événement qui démarre un flux de travail d’application logique. Le déclencheur webhook est basée sur les événements qui ne dépend pas d’interrogation pour les nouveaux éléments. Lorsque vous enregistrez votre application logique avec un déclencheur de webhook, ou lorsque vous modifiez votre application logique de désactivé à activé, le déclencheur de webhook *s’abonne* vers le service spécifié ou d’un point de terminaison en inscrivant un *URL de rappel* avec ce service ou d’un point de terminaison. Le déclencheur utilise ensuite cette URL pour exécuter l’application logique en fonction des besoins. Comme le [déclencheur de requête](connectors-native-reqres.md), l’application logique se déclenche immédiatement lorsque se produit l’événement attendu. Le déclencheur *annule l’abonnement* si vous supprimez le déclencheur et que vous enregistrez votre application logique, ou lorsque vous modifiez votre application logique à partir d’activé à désactivé.
+Un [*déclencheur*](../connectors/apis-list.md) est un événement qui démarre un flux de travail d’application logique. Le déclencheur de webhook est basé sur un événement et ne repose pas sur l’interrogation de nouveaux éléments. Lorsque vous enregistrez votre application logique avec un déclencheur de webhook, ou lorsque vous modifiez votre application logique en la faisant passer du statut Désactivée au statut Activée, le déclencheur de webhook *s’abonne* au service ou point de terminaison spécifié en inscrivant une *URL de rappel* avec ce service ou point de terminaison. Le déclencheur utilise ensuite cette URL pour exécuter l’application logique en fonction des besoins. Comme le [déclencheur de requête](connectors-native-reqres.md), l’application logique se déclenche immédiatement lorsque l’événement attendu se produit. Le déclencheur *annule l’abonnement* si vous supprimez le déclencheur et que vous enregistrez votre application logique, ou lorsque vous modifiez votre application logique en la faisant passer du statut Activée au statut Désactivée.
 
 Voici un exemple de configuration d’un déclencheur HTTP dans le concepteur d’application logique. Ces étapes supposent que vous avez déjà déployé ou que vous accédez à une API qui suit [le modèle d’abonnement et de résiliation d’abonnement au webhook dans les applications logiques](../logic-apps/logic-apps-create-api-app.md#webhook-triggers). 
 
@@ -48,13 +48,13 @@ Voici un exemple de configuration d’un déclencheur HTTP dans le concepteur d�
 
 ## <a name="use-the-webhook-action"></a>Utilisation de l’action webhook
 
-Un [ *action* ](../connectors/apis-list.md) est une opération qui est définie et l’exécution par flux de travail de votre application logique. Quand une application logique s’exécute une action de webhook, cette action *s’abonne* vers le service spécifié ou d’un point de terminaison en inscrivant un *URL de rappel* avec ce service ou d’un point de terminaison. Puis l’action de webhook attend que l’URL avant de l’application logique reprend l’exécution d’appels de service. Annule l’abonnement de l’application logique à partir du service ou d’un point de terminaison dans ce cas : 
+Une [*action*](../connectors/apis-list.md) est une opération qui est définie et exécutée par le workflow de votre application logique. Quand une application logique exécute une action de webhook, cette action *s’abonne* au service ou point de terminaison spécifié en inscrivant une *URL de rappel* à ce service ou point de terminaison. Ensuite, l’action de webhook attend que ce service appelle l’URL avant que l’application logique reprenne son exécution. L’application logique annule l’abonnement au service ou point de terminaison dans les cas suivants : 
 
-* Lorsque l’action de webhook est terminée avec succès
-* Si l’exécution de l’application logique est annulée en attendant une réponse
-* Avant de la logique d’application arrive à expiration
+* Lorsque l’action de webhook s’est terminée avec succès.
+* Si l’exécution de l’application logique est annulée en attendant une réponse.
+* Avant que la logique d’application arrive à expiration.
 
-Par exemple, le [ **envoyer un e-mail d’approbation** ](connectors-create-api-office365-outlook.md) action est un exemple d’action de webhook qui suit ce modèle. Vous pouvez étendre ce modèle à n’importe quel service à l’aide de l’action webhook. 
+Par exemple, l’action [**Envoyer un e-mail d’approbation**](connectors-create-api-office365-outlook.md) est un exemple d’action de webhook qui suit ce modèle. Vous pouvez étendre ce modèle à n’importe quel service à l’aide de l’action webhook. 
 
 Voici un exemple de configuration d’une action webhook dans le concepteur d’application logique. Ces étapes supposent que vous avez déjà déployé ou que vous accédez à une API qui suit [le modèle d’abonnement et de résiliation d’abonnement au webhook utilisé dans les applications logiques](../logic-apps/logic-apps-create-api-app.md#webhook-actions). 
 
