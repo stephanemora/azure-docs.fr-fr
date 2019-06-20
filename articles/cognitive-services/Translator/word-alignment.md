@@ -12,10 +12,10 @@ ms.date: 06/04/2019
 ms.author: v-pawal
 ms.custom: seodec18
 ms.openlocfilehash: 040d122810529daafcebc2e66f2fa7b2730a6a0d
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66514664"
 ---
 # <a name="how-to-receive-word-alignment-information"></a>Guide pratique pour recevoir des informations concernant l’alignement des mots
@@ -26,7 +26,7 @@ Pour recevoir des informations d’alignement, utilisez la méthode de traductio
 ## <a name="alignment-information-format"></a>Format des informations d’alignement
 L’alignement est retourné en tant que valeur de chaîne au format suivant pour chaque mot de la source. Les informations pour chaque mot sont séparées par un espace, y compris pour les langues non séparées par des espaces (scripts) comme le chinois :
 
-[[SourceTextStartIndex]: [SourceTextEndIndex]–[TgtTextStartIndex]:[TgtTextEndIndex]] *
+[[SourceTextStartIndex]:[SourceTextEndIndex]–[TgtTextStartIndex]:[TgtTextEndIndex]] *
 
 Exemple de chaîne d’alignement : « 0:0-7:10 1:2-11:20 3:4-0:3 3:4-4:6 5:5-21:21 ».
 

@@ -11,10 +11,10 @@ ms.date: 09/25/2017
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: b007aa4619effbd34e4e969e4ce7b58f3b0c4cf6
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66510541"
 ---
 # <a name="secure-your-restful-service-by-using-client-certificates"></a>Sécuriser votre service RESTful à l’aide de certificats clients
@@ -33,7 +33,7 @@ Cet article explique comment :
 * Télécharger le certificat sur les clés de stratégie de Azure AD B2C
 * Configurer votre stratégie personnalisée pour utiliser le certificat client
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 * Suivre les étapes dans l’article [Intégrer les échanges de revendications de l’API REST](active-directory-b2c-custom-rest-api-netfw.md).
 * Obtenir un certificat valide (fichier .pfx avec une clé privée).
 
@@ -151,7 +151,7 @@ Pour prendre en charge l’authentification par certificat client dans votre str
    >[!NOTE]
    >Si vous recevez le message d’erreur *Le nom n’est pas valide, fournissez un nom valide*, cela signifie qu’Azure AD B2C a pu appeler votre service RESTful pendant qu’il présentait le certificat client. L’étape suivante consiste à valider le certificat.
 
-## <a name="step-6-add-certificate-validation"></a>Étape 6 : Ajouter une validation de certificat
+## <a name="step-6-add-certificate-validation"></a>Étape 6 : Ajouter une validation de certificat
 Le certificat client envoyé par Azure AD B2C à votre service RESTful ne fait pas l’objet d’une validation de la part de la plateforme Azure App Service, hormis vérifier si le certificat existe. La validation de ce certificat est la responsabilité de l'application Web. 
 
 Dans cette section, vous ajoutez un exemple de code ASP.NET qui valide les propriétés du certificat pour l’authentification.

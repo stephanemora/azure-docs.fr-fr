@@ -10,7 +10,7 @@
       href: tenant-setup-azure-active-directory.md
     - name: 2. Créer des principaux de service et des attributions de rôles avec PowerShell
       href: create-service-principal-role-powershell.md
-    - name: 3. Créer un pool d’hôtes avec la Place de marché Azure
+    - name: 3. Créer un pool d’hôtes en utilisant la Place de marché Azure
       href: create-host-pools-azure-marketplace.md
     - name: 4. Gérer les groupes d’applications
       href: manage-app-groups.md

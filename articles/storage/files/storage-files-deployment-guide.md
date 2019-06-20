@@ -9,10 +9,10 @@ ms.date: 05/22/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 416040d91da2f6346027f738de507777f804fd1f
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66237728"
 ---
 # <a name="how-to-deploy-azure-files"></a>Comment déployer Azure Files
@@ -20,7 +20,7 @@ ms.locfileid: "66237728"
 
 Avant de suivre les étapes décrites dans cet article, nous recommandons vivement de lire l’article [Planification d’un déploiement d’Azure Files](storage-files-planning.md).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 Cet article suppose que vous avez déjà accompli les étapes suivantes :
 
 - Créé un compte de stockage Azure avec les options de chiffrement et de résilience, et dans la région de votre choix. Pour obtenir des instructions pas à pas concernant la création d’un compte de stockage, voir [Créer un compte de stockage](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
