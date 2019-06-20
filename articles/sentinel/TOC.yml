@@ -1,6 +1,6 @@
 - name: Documentation Azure Sentinel (préversion)
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   href: overview.md
 - name: Démarrages rapides
   expanded: true
@@ -40,6 +40,8 @@
               href: connect-azure-atp.md
             - name: Connecter Azure Security Center
               href: connect-azure-security-center.md
+            - name: Connecter le serveur de noms de domaine
+              href: connect-dns.md
             - name: Connecter un pare-feu d’application web Microsoft
               href: connect-microsoft-waf.md
             - name: Connecter le Pare-feu Windows

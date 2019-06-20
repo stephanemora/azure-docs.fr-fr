@@ -6,12 +6,12 @@ description: Découvrez comment créer et gérer des applications performantes �
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: bc052b749724a76df3df3572913f4bcbc146df17
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: dffb0fc1ca08cb0b1ab73448c987d648bc8aead7
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66497061"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67191031"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -773,6 +773,12 @@ Automatiser des tâches Azure à l’aide de scripts avec PowerShell </a>
                                             <a href="/azure/frontdoor/">
                                                 <img src="media/index/frontdoor.svg" alt="" />
                                                 <p>Azure Front Door Service</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/bastion/">
+                                                <img src="media/index/web_connect.svg" alt="" />
+                                                <p>Azure Bastion</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -2027,7 +2033,7 @@ Automatiser des tâches Azure à l’aide de scripts avec PowerShell </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Service Azure Kubernetes (AKS)</h3>
+                                                    <h3>Azure Kubernetes Service (AKS)</h3>
                                                     <p>Simplifiez le déploiement, la gestion et les opérations de Kubernetes</p>
                                                 </div>
                                             </div>
@@ -2414,6 +2420,25 @@ Automatiser des tâches Azure à l’aide de scripts avec PowerShell </a>
                                                 <div class="cardText">
                                                     <h3>Azure Front Door Service</h3>
                                                     <p>Point d’entrée évolutif et sécurisé pour distribuer des applications web globales</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+<li>
+                                <a href="/azure/bastion/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/web_connect.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Bastion</h3>
+                                                    <p>Connectivité transparente et sécurisée à des machines virtuelles grâce au protocole SSL via le portail Azure sans une adresse IP publique</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3059,7 +3084,7 @@ Automatiser des tâches Azure à l’aide de scripts avec PowerShell </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Service Azure Kubernetes (AKS)</h3>
+                                                    <h3>Azure Kubernetes Service (AKS)</h3>
                                                     <p>Simplifiez le déploiement, la gestion et les opérations de Kubernetes</p>
                                                 </div>
                                             </div>
