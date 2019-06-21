@@ -25,7 +25,7 @@ Les fonctions suivantes sont prises en charge :
 - [parameters](#parameters)
 - [resourceGroup](#resourcegroup)
 - [resourceGroups](#resourcegroups)
-- [abonnement](#subscription)
+- [subscription](#subscription)
 
 ## <a name="artifacts"></a>Artefacts
 
@@ -109,11 +109,11 @@ Quelques exemples de récupération de données à partir de la _myTemplateArtif
 
 | Expression | Type | Valeur |
 |:---|:---|:---|
-|`[artifacts("myTemplateArtifact").outputs.myArray]` | Tableau | \["first", "second"\] |
-|`[artifacts("myTemplateArtifact").outputs.myArray[0]]` | Chaîne | « première » |
-|`[artifacts("myTemplateArtifact").outputs.myString]` | Chaîne | « Mon valeur chaîne » |
+|`[artifacts("myTemplateArtifact").outputs.myArray]` | Array | \["first", "second"\] |
+|`[artifacts("myTemplateArtifact").outputs.myArray[0]]` | String | "first" |
+|`[artifacts("myTemplateArtifact").outputs.myString]` | String | "my string value" |
 |`[artifacts("myTemplateArtifact").outputs.myObject]` | Object | { "myproperty": "my value", "anotherProperty": true } |
-|`[artifacts("myTemplateArtifact").outputs.myObject.myProperty]` | Chaîne | « Mon valeur » |
+|`[artifacts("myTemplateArtifact").outputs.myObject.myProperty]` | String | "my value" |
 |`[artifacts("myTemplateArtifact").outputs.myObject.anotherProperty]` | Bool | True |
 
 ## <a name="concat"></a>concat
@@ -151,7 +151,7 @@ Retourne une valeur de paramètre de plan. Le nom de paramètre spécifié doit 
 
 | Paramètre | Obligatoire | Type | Description  |
 |:--- |:--- |:--- |:--- |
-| nom_paramètre |Oui |string |Nom du paramètre à retourner. |
+| parameterName |Oui |string |Nom du paramètre à retourner. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -324,7 +324,7 @@ Utilisez ensuite le `resourceGroups()` (fonction) à partir du contexte d’un a
 }
 ```
 
-## <a name="subscription"></a>abonnement
+## <a name="subscription"></a>subscription
 
 `subscription()`
 
