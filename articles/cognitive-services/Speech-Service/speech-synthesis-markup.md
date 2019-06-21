@@ -1,5 +1,5 @@
 ---
-title: Speech Synthesis Markup Language (SSML) - Services de reconnaissance vocale
+title: Langage de balisage de synthèse vocale (SSML) - Services Speech
 titleSuffix: Azure Cognitive Services
 description: Utilisation du langage de balisage de synthèse vocale pour contrôler la prononciation et la prosodie dans la synthèse vocale.
 services: cognitive-services
@@ -12,10 +12,10 @@ ms.date: 12/13/2018
 ms.author: erhopf
 ms.custom: seodec18
 ms.openlocfilehash: 9871e0106ee6caf11c5a1e24459fbd2044f5f3d7
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65021437"
 ---
 # <a name="speech-synthesis-markup-language-ssml"></a>SSML (Speech Synthesis Markup Language)
@@ -26,23 +26,23 @@ Pour obtenir la liste complète des langues, paramètres régionaux et voix (neu
 
 Les sections suivantes fournissent des exemples pour les tâches de synthèse vocale courantes.
 
-## <a name="adjust-speaking-style-for-neural-voices"></a>Ajuster le style d’élocution de voix neuronaux
+## <a name="adjust-speaking-style-for-neural-voices"></a>Ajuster le style d’élocution pour les voix neuronales
 
-Vous pouvez utiliser SSML pour ajuster le style d’élocution lorsque l’un des voix NEURONALES.
+Vous pouvez utiliser SSML pour ajuster le style d’élocution lorsque vous utilisez une des voix neuronales.
 
-Par défaut, le service de synthèse vocale synthétise le texte dans un style neutre. Les voix NEURONALES étendent SSML avec un `<mstts:express-as>` élément qui convertit le texte pour la synthèse vocale dans parlant différents styles. Actuellement, les balises de style sont uniquement pris en charge avec ces voix :
+Par défaut, le service de synthèse vocale synthétise le texte dans un style neutre. Les voix neuronales étendent SSML avec un élément `<mstts:express-as>` qui convertit le texte pour la synthèse vocale dans différents styles d’élocution. Actuellement, les balises de style sont uniquement prises en charge avec ces voix :
 
 * `en-US-JessaNeural` 
 * `zh-CN-XiaoxiaoNeural`.
 
-À propos des modifications de style peuvent être appliquées au niveau de la phrase. Les styles varient selon la voix. Si un type de style n’est pas pris en charge, le service renvoie la synthèse vocale comme style par défaut neutre.
+Les modifications de style d’élocution peuvent être appliquées au niveau de la phrase. Les styles varient selon la voix. Si un type de style n’est pas pris en charge, le service renvoie la synthèse vocale avec le style neutre par défaut.
 
 | Voix | Style | Description | 
 |-----------|-----------------|----------|
-| `en-US-JessaNeural` | type=`cheerful` | Exprime une émotion est positif et heureux |
-| | type=`empathy` | Exprime une idée des soins et la compréhension |
-| `zh-CN-XiaoxiaoNeural` | type=`newscast` | Exprime un ton formel, similaire à des émissions d’informations. |
-| | type=`sentiment ` | Transmet un message ne le touchant ou un article |
+| `en-US-JessaNeural` | type=`cheerful` | Exprime une émotion positive et heureuse |
+| | type=`empathy` | Exprime une de la compassion et de la compréhension |
+| `zh-CN-XiaoxiaoNeural` | type=`newscast` | Exprime un ton formel, similaire aux journaux télévisés |
+| | type=`sentiment ` | Transmet un message ou récit touchant |
 
 ```xml
 <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="en-US">
@@ -62,7 +62,7 @@ Par défaut, le service de synthèse vocale synthétise le texte dans un style n
 
 ## <a name="change-speaking-rate"></a>Modifier le débit
 
-En parlant de taux applicable à voix standard au niveau de la phrase ou word. Tandis que le débit vocal applicable uniquement aux neurones voix au niveau de la phrase.
+La cadence d’élocution peut s’appliquer aux voix standard au niveau de la phrase ou du mot. Cependant, la cadence d’élocution ne s’applique aux voix neuronales qu’au niveau de la phrase.
 
 ```xml
 <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
@@ -82,7 +82,7 @@ En parlant de taux applicable à voix standard au niveau de la phrase ou word. T
 
 ## <a name="change-volume"></a>Modifier le volume
 
-Modifications de volume peuvent être appliquées à voix standard au niveau de la phrase ou word. Tandis que le volume modifications peuvent uniquement être appliquées à une voix NEURONALE au niveau de la phrase.
+Les modifications de volume peuvent s’appliquer aux voix standard au niveau de la phrase ou du mot. Cependant, les modifications de volume ne s’appliquent aux voix neuronales qu’au niveau de la phrase.
 
 ```xml
 <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
@@ -94,7 +94,7 @@ Modifications de volume peuvent être appliquées à voix standard au niveau de 
 
 ## <a name="change-pitch"></a>Modifier la tonalité
 
-Modifications de tonalité peuvent être appliquées à voix standard au niveau de la phrase ou word. Tandis que la tonalité modifications peuvent uniquement être appliquées à une voix NEURONALE au niveau de la phrase.
+Les modifications de ton peuvent s’appliquer aux voix standard au niveau de la phrase ou du mot. Cependant, les modifications de ton ne s’appliquent aux voix neuronales qu’au niveau de la phrase.
 
 ```xml
 <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
@@ -106,7 +106,7 @@ Modifications de tonalité peuvent être appliquées à voix standard au niveau 
 ## <a name="change-pitch-contour"></a>Modifier le contour intonatif
 
 > [!IMPORTANT]
-> Modifications de contour de tonalité ne sont pas prises en charge avec voix neuronal.
+> Les modifications de contour de ton ne sont pas prises en charge avec les voix neuronales.
 
 ```xml
 <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'>

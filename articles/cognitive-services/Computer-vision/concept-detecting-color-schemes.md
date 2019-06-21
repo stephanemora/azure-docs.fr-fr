@@ -12,10 +12,10 @@ ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: ff7af2204f9e05a1ba4ef800c63c3ad462242350
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60368563"
 ---
 # <a name="detect-color-schemes-in-images"></a>Détecter les jeux de couleurs dans les images
@@ -30,7 +30,7 @@ La Vision par ordinateur retourne également une valeur booléenne qui indique s
 
 L’exemple suivant illustre la réponse JSON retournée par Vision par ordinateur lors de la détection du jeu de couleurs de l’image d’exemple. Dans ce cas, l’exemple d’image n’est pas en noir et blanc, mais les couleurs de premier plan et d’arrière-plan dominantes sont le noir, tandis que les couleurs dominantes de l’image dans son ensemble sont le noir et le blanc.
 
-![Mountain extérieur au coucher du soleil, avec la silhouette d’une personne](./Images/mountain_vista.png)
+![Montagne en extérieur au coucher du soleil, avec la silhouette d’une personne](./Images/mountain_vista.png)
 
 ```json
 {
@@ -76,7 +76,7 @@ Le tableau suivant présente l’évaluation en noir et blanc de la Vision par o
 | Image | Noir et blanc ? |
 |-------|----------------|
 |![Image noir et blanc représentant des immeubles de Manhattan](./Images/bw_buildings.png) | true |
-|![Maison bleu et jardin en façade ](./Images/house_yard.png) | false |
+|![Maison bleu et jardin en façade](./Images/house_yard.png) | false |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
 ms.openlocfilehash: e77cd2290981de62ba7fce7f04174cd0c5ec2af3
-ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/13/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65072180"
 ---
 # <a name="dimension-prebuilt-entity-for-a-luis-app"></a>Entité prédéfinie dimension pour une application LUIS
@@ -28,7 +28,7 @@ L’entité dimension est gérée à partir du dépôt GitHub [Recognizers-text]
 
 ## <a name="resolution-for-dimension-entity"></a>Résolution pour l’entité dimension
 
-### <a name="api-version-2x"></a>Version de l’API 2.x
+### <a name="api-version-2x"></a>API version 2.x
 
 L’exemple suivant montre la résolution de l’entité **builtin.dimension**.
 
@@ -60,9 +60,9 @@ L’exemple suivant montre la résolution de l’entité **builtin.dimension**.
 }
 ```
 
-### <a name="preview-api-version-3x"></a>Version d’évaluation API 3.x
+### <a name="preview-api-version-3x"></a>API 3.x en préversion
 
-Le code JSON suivant est avec la `verbose` paramètre défini sur `false`:
+Le code JSON suivant a le paramètre `verbose` défini sur `false` :
 
 ```json
 {
@@ -87,7 +87,7 @@ Le code JSON suivant est avec la `verbose` paramètre défini sur `false`:
 }
 ```
 
-Le code JSON suivant est avec la `verbose` paramètre défini sur `true`:
+Le code JSON suivant a le paramètre `verbose` défini sur `true` :
 
 ```json
 {

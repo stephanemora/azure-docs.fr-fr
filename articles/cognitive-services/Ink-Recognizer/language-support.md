@@ -1,7 +1,7 @@
 ---
-title: Prise en charge de langue et région pour l’API de module de reconnaissance de l’encre
+title: Langues et régions prises en charge pour l’API Ink Recognizer
 titleSuffix: Azure Cognitive Services
-description: Une liste de langages naturels pris en charge par l’API de module de reconnaissance de l’encre.
+description: Liste des langages naturels pris en charge par l’API Ink Recognizer.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: aahi
 ms.openlocfilehash: 98962182da86fceb0b6fcc8540422f93bc0058f5
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65026298"
 ---
-# <a name="language-and-region-support-for-the-ink-recognizer-api"></a>Prise en charge de langue et région pour l’API de module de reconnaissance de l’encre
+# <a name="language-and-region-support-for-the-ink-recognizer-api"></a>Langues et régions prises en charge pour l’API Ink Recognizer
 
-Cet article explique quelles langues sont prises en charge pour l’API de module de reconnaissance de l’encre. Contenu de l’encre numérique écrit dans les langues suivantes peut être interprété et traité par l’API.
+Cet article explique quelles langues sont prises en charge pour l’API d’Ink Recognizer. Le contenu d’encre numérique écrit dans les langues suivantes peut être interprété et traité par l’API.
 
 ## <a name="supported-languages"></a>Langues prises en charge
 
@@ -31,7 +31,7 @@ Cet article explique quelles langues sont prises en charge pour l’API de modul
 | Bosniaque (latin)                            | `bs-Latn-BA`    |
 | Catalan                                    |     `ca-ES`     |
 | Chinois (simplifié, Chine)                |     `zh-CN`     |
-| Chinois (Traditionnel, Taïwan)              |     `zh-TW`     |
+| Chinois (traditionnel, Taïwan)              |     `zh-TW`     |
 | Croate (Croatie)                         |     `hr-HR`     |
 | Tchèque                                      |     `cs-CZ`     |
 | Danois                                     |     `da-DK`     |
@@ -73,7 +73,7 @@ Cet article explique quelles langues sont prises en charge pour l’API de modul
 | Serbe (cyrillique, Bosnie-Herzégovine) |  `sr-Cyrl-BA`   |
 | Serbe (cyrillique, Monténégro)             |  `sr-Cyrl-ME`   |
 | Serbe (cyrillique, Serbie)                 |  `sr-Cyrl-RS`   |
-| Serbe (Latin, Bosnie-Herzégovine)    |  `sr-Latn-BA`   |
+| Serbe (latin, Bosnie-Herzégovine)    |  `sr-Latn-BA`   |
 | Serbe (latin, Monténégro)                |  `sr-Latn-ME`   |
 | Serbe (latin, Serbie)                    |  `sr-Latn-RS`   |
 | Setswana (Afrique du Sud)                    |     `tn-ZA`     |
@@ -91,5 +91,5 @@ Cet article explique quelles langues sont prises en charge pour l’API de modul
 
 ## <a name="see-also"></a>Voir aussi
 
-* [Qu’est l’API de module de reconnaissance de l’encre ?](overview.md)
-* [Envoi des traits d’encre numérique à l’API de module de reconnaissance de l’encre](concepts/send-ink-data.md)
+* [Qu’est-ce que l’API Ink Recognizer ?](overview.md)
+* [Envoi de traits d’encre numérique à l’API de Ink Recognizer](concepts/send-ink-data.md)

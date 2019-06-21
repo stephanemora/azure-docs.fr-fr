@@ -8,15 +8,15 @@ ms.service: container-service
 ms.date: 05/06/2019
 ms.author: iainfou
 ms.openlocfilehash: b149ba2bccb4bfb6f459b177096afcccbbfc3051
-ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66742783"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Créer et configurer un cluster Azure Kubernetes Service (AKS) pour utiliser des nœuds virtuels à l’aide de l’interface de ligne de commande Azure
 
-Pour mettre à l’échelle rapidement des charges de travail d’application dans un cluster Azure Kubernetes Service (AKS), vous pouvez utiliser des nœuds virtuels. Les nœuds virtuels assurent un provisionnement rapide des pods et sont facturés à la seconde d’exécution. Il n’est pas nécessaire d’attendre que le gestionnaire de mise à l’échelle automatique du cluster Kubernetes déploie des nœuds de calcul de machine virtuelle pour exécuter les pods supplémentaires. Les nœuds virtuels sont uniquement pris en charge avec les nœuds et les blocs de Linux.
+Pour mettre à l’échelle rapidement des charges de travail d’application dans un cluster Azure Kubernetes Service (AKS), vous pouvez utiliser des nœuds virtuels. Les nœuds virtuels assurent un provisionnement rapide des pods et sont facturés à la seconde d’exécution. Il n’est pas nécessaire d’attendre que le gestionnaire de mise à l’échelle automatique du cluster Kubernetes déploie des nœuds de calcul de machine virtuelle pour exécuter les pods supplémentaires. Les nœuds virtuels sont uniquement pris en charge avec les nœuds et pods Linux.
 
 Cet article explique comment créer et configurer les ressources de réseau virtuel et un cluster AKS, puis activer des nœuds virtuels.
 
@@ -46,30 +46,30 @@ az provider register --namespace Microsoft.ContainerInstance
 
 ## <a name="regional-availability"></a>Disponibilité régionale
 
-Les régions suivantes sont prises en charge pour les déploiements de nœud virtuel :
+Les régions suivantes sont prises en charge pour les déploiements de nœuds virtuels :
 
-* Est de l’Australie (australiaeast)
+* Australie Est (australiaeast)
 * Centre des États-Unis (centralus)
 * USA Est (eastus)
-* Est des États-Unis 2 (eastus2)
-* Est du Japon (japaneast)
+* USA Est 2 (eastus2)
+* Japon Est (japaneast)
 * Europe Nord (Europe du Nord)
-* Asie du Sud-est (southeastasia)
-* Ouest des États-Unis (westcentralus)
+* Asie Sud-Est (southeastasia)
+* USA Centre-Ouest (westcentralus)
 * Europe Ouest (Europe occidentale)
 * USA Ouest (ouest des USA)
 * USA Ouest 2 (westus2)
 
 ## <a name="known-limitations"></a>Limites connues
-Fonctionnalité de nœuds virtuel dépend fortement de jeu de fonctionnalités de ACI. Les scénarios suivants ne sont pas encore pris en charge avec les nœuds virtuels
+Le fonctionnement des nœuds virtuel dépend fortement de l’ensemble de fonctionnalités d’ACI. Les scénarios suivants ne sont pas encore pris en charge avec les nœuds virtuels
 
-* À l’aide de principal du service pour extraire des images ACR. [Solution de contournement](https://github.com/virtual-kubelet/virtual-kubelet/blob/master/providers/azure/README.md#Private-registry) consiste à utiliser [secrets Kubernetes](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/#create-a-secret-by-providing-credentials-on-the-command-line)
-* [Limitations du réseau virtuel](../container-instances/container-instances-vnet.md) , y compris l’homologation, les stratégies de réseau Kubernetes et le trafic sortant vers internet avec les groupes de sécurité réseau.
-* Conteneurs Init
+* Utilisation du principal du service pour extraire des images ACR. Une [solution de contournement](https://github.com/virtual-kubelet/virtual-kubelet/blob/master/providers/azure/README.md#Private-registry) consiste à utiliser les [Secrets Kubernetes](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/#create-a-secret-by-providing-credentials-on-the-command-line)
+* [Limitations du réseau virtuel](../container-instances/container-instances-vnet.md), dont l’homologation de réseaux virtuels, les stratégies réseau Kubernetes et le trafic sortant vers Internet avec les groupes de sécurité réseau.
+* Initialiser les conteneurs
 * [Alias d’hôte](https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/)
-* [Arguments](../container-instances/container-instances-exec.md#restrictions) pour exec dans ACI
-* [Les Daemonsets](concepts-clusters-workloads.md#statefulsets-and-daemonsets) ne déploiera pas de pods dans le nœud virtuel
-* [Les nœuds de Windows Server (actuellement en version préliminaire dans ACS)](windows-container-cli.md) ne sont pas pris en charge en même temps que les nœuds virtuels. Vous pouvez utiliser des nœuds virtuels pour planifier les conteneurs Windows Server sans la nécessité pour les nœuds de Windows Server dans un cluster AKS.
+* [Arguments](../container-instances/container-instances-exec.md#restrictions) pour exécution dans ACI
+* [Daemonsets](concepts-clusters-workloads.md#statefulsets-and-daemonsets) ne déploiera pas de pods dans le nœud virtuel
+* [Les nœuds Windows Server (actuellement en version préliminaire dans AKS)](windows-container-cli.md) ne sont pas pris en charge aux côtés des nœuds virtuels. Vous pouvez utiliser des nœuds virtuels pour planifier des conteneurs Windows Server sans avoir besoin de nœuds Windows Server dans un cluster AKS.
 
 ## <a name="launch-azure-cloud-shell"></a>Lancement d’Azure Cloud Shell
 
@@ -265,7 +265,7 @@ aci-helloworld-9b55975f-bnmfl   1/1       Running   0          4m        10.241.
 Le pod reçoit une adresse IP interne du sous-réseau de réseau virtuel Azure délégué de façon à être utilisé avec des nœuds virtuels.
 
 > [!NOTE]
-> Si vous utilisez des images stockées dans Azure Container Registry, [configurez et utilisez un secret Kubernetes][acr-aks-secrets]. Une limitation actuelle de nœuds virtuels est que vous ne pouvez pas utiliser Azure intégrée authentification de principal du service Active Directory. Si vous n'utilisez pas de secret, les pods planifiés sur les nœuds virtuels ne parviennent pas à démarrer et renvoient l'erreur `HTTP response status code 400 error code "InaccessibleImage"`.
+> Si vous utilisez des images stockées dans Azure Container Registry, [configurez et utilisez un secret Kubernetes][acr-aks-secrets]. Compte tenu des limitations imposées pour les nœuds virtuels, vous ne pouvez pas utiliser l'authentification de principal de service Azure AD intégrée. Si vous n'utilisez pas de secret, les pods planifiés sur les nœuds virtuels ne parviennent pas à démarrer et renvoient l'erreur `HTTP response status code 400 error code "InaccessibleImage"`.
 
 ## <a name="test-the-virtual-node-pod"></a>Tester le pod de nœud virtuel
 
@@ -305,13 +305,13 @@ Fermez la session de terminal sur votre pod de test avec `exit`. Une fois la ses
 
 Si vous ne souhaitez plus utiliser des nœuds virtuels, vous pouvez les désactiver à l’aide de la commande [az aks disable-addons][az aks disable-addons]. 
 
-Tout d’abord, supprimez le pod helloworld en cours d’exécution sur le nœud virtuel :
+Tout d’abord, supprimez le pod helloworld qui s’exécute sur le nœud virtuel :
 
 ```azurecli-interactive
 kubectl delete -f virtual-node.yaml
 ```
 
-La commande suivante désactive les nœuds virtuels Linux :
+L’exemple de commande suivant désactive les nœuds virtuels Linux :
 
 ```azurecli-interactive
 az aks disable-addons --resource-group myResourceGroup --name myAKSCluster --addons virtual-node
@@ -353,8 +353,8 @@ Les nœuds virtuels constituent souvent l’un des composants d’une solution d
 
 - [Utiliser l’autoscaler de pods élastique Kubernetes][aks-hpa]
 - [Utiliser l’autoscaler de cluster Kubernetes][aks-cluster-autoscaler]
-- [Consultez l’exemple de mise à l’échelle pour des nœuds virtuels][virtual-node-autoscale]
-- [En savoir plus sur Virtual Kubelet bibliothèque open source][virtual-kubelet-repo]
+- [Consultez l’exemple de mise à l’échelle automatique pour les nœuds virtuels][virtual-node-autoscale]
+- [En savoir plus sur la bibliothèque open source de Virtual Kubelet][virtual-kubelet-repo]
 
 <!-- LINKS - external -->
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get

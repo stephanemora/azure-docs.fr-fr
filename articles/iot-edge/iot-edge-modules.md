@@ -10,15 +10,15 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
 ms.openlocfilehash: 65cac484a9395aca47a38e2ba430b80c868267f5
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65152667"
 ---
 # <a name="understand-azure-iot-edge-modules"></a>Présentation des modules Azure IoT Edge
 
-Azure IoT Edge vous permet de déployer et de gérer la logique métier sur la périphérie sous la forme de *modules*. Les modules Azure IoT Edge sont la plus petite unité de calcul gérée par IoT Edge. Ils peuvent contenir des services Azure (par exemple Azure Stream Analytics) ou votre propre code spécifique à la solution. Pour comprendre comment les modules sont développés, déployés et gérés, il est utile de considérer les quatre éléments conceptuels d’un module :
+Azure IoT Edge vous permet de déployer et de gérer la logique métier sur la périphérie sous la forme de *modules*. Les modules Azure IoT Edge sont la plus petite unité de calcul gérée par IoT Edge. Ils peuvent contenir des services Azure (par exemple Azure Stream Analytics) ou votre propre code spécifique à la solution. Pour comprendre comment les modules sont développés, déployés et gérés, considérez les quatre éléments d’un module :
 
 * Une **image de module** est un package contenant le logiciel qui définit un module.
 * Une **instance de module** est l’unité de calcul spécifique exécutant l’image de module sur un appareil IoT Edge. L’instance de module est démarrée par le runtime IoT Edge.
@@ -69,7 +69,7 @@ Twin twin = await client.GetTwinAsync(); 
 
 ## <a name="offline-capabilities"></a>Fonctionnalités hors ligne
 
-Modules Azure IoT Edge peuvent fonctionner en mode hors connexion indéfiniment après la synchronisation avec IoT Hub au moins une fois. Appareils IoT Edge peuvent également étendre cette fonctionnalité hors connexion avec d’autres appareils IoT. Pour plus d’informations, consultez [Introduction aux fonctionnalités hors connexion étendues pour les appareils, modules et appareils enfants IoT Edge](offline-capabilities.md).
+Les modules Azure IoT Edge peuvent fonctionner en mode hors connexion indéfiniment après la première synchronisation avec IoT Hub. Les appareils IoT Edge peuvent également étendre cette fonctionnalité hors connexion avec d’autres appareils IoT. Pour plus d’informations, consultez [Introduction aux fonctionnalités hors connexion étendues pour les appareils, modules et appareils enfants IoT Edge](offline-capabilities.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
  - [Comprendre les conditions requises et les outils de développement de modules IoT Edge](module-development.md)

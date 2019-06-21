@@ -15,17 +15,17 @@ ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
 ms.openlocfilehash: a1dafb8e4c16a59bfed51016ce9ccb0ec3eb7d6c
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66754751"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Azure Event Hubs - Géorécupération d’urgence 
 
 Si tout un centre de données ou une région Azure complète (si aucune [zone de disponibilité](../availability-zones/az-overview.md) n’est utilisée) connaît un temps d’arrêt, il est essentiel que le traitement des données puisse continuer dans les autres régions ou centres de données. Pour cette raison, la *géorécupération d’urgence* et la *géoréplication* sont des fonctionnalités importantes pour les entreprises. Azure Event Hubs prend en charge la géorécupération d’urgence et la géoréplication au niveau de l’espace de noms. 
 
-La fonctionnalité de récupération d’urgence est globalement disponible pour Standard des Hubs d’événements et de référence (SKU) dédié. Veuillez noter que vous pouvez uniquement les espaces de noms géopaire sur le même niveau de référence (SKU). Par exemple, si vous avez un espace de noms dans un cluster qui est disponible uniquement dans notre référence (SKU) dédié, il peut uniquement être associé un espace de noms dans un autre cluster. 
+La fonctionnalité de géorécupération d’urgence est disponible de manière globale pour la référence SKU standard dédiée d’Event Hubs. Veuillez noter que vous pouvez uniquement apparier des espaces de noms sur le même niveau de référence (SKU). Par exemple, si vous avez un espace de noms dans un cluster qui est disponible uniquement dans notre référence SKU dédiée, il peut uniquement être associé à un espace de noms dans un autre cluster. 
 
 ## <a name="outages-and-disasters"></a>Pannes et sinistres
 

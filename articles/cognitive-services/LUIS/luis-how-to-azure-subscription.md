@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 03/01/2019
 ms.author: diberry
 ms.openlocfilehash: 7315c80ad74eae07e41577fb2ac13742002e729e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60198578"
 ---
 # <a name="using-subscription-keys-with-your-luis-app"></a>Utilisation des clés d’abonnement avec votre application LUIS
@@ -31,7 +31,7 @@ Pour des tests et des prototypes uniquement, utilisez le niveau gratuit (F0). Po
 
 ## <a name="create-prediction-endpoint-runtime-resource-in-the-azure-portal"></a>Créer la ressource de runtime de point de terminaison de prédiction dans le portail Azure
 
-En savoir plus avec le [générer une application](get-started-portal-build-app.md) Guide de démarrage rapide.
+En savoir plus avec le guide de démarrage rapide [Générer une application](get-started-portal-build-app.md).
 
 <a name="programmatic-key" ></a>
 <a name="authoring-key" ></a>
@@ -49,7 +49,7 @@ En savoir plus avec le [générer une application](get-started-portal-build-app.
 
 ## <a name="assign-resource-key-to-luis-app-in-luis-portal"></a>Affecter une clé de ressource à l’application LUIS dans le portail LUIS
 
-En savoir plus avec le [déploiement](get-started-portal-deploy-app.md) Guide de démarrage rapide.
+En savoir plus avec le guide de démarrage rapide [Déploiement](get-started-portal-deploy-app.md).
 
 <!-- content moved to luis-reference-regions.md, need replacement links-->
 <a name="regions-and-keys"></a>
@@ -90,7 +90,7 @@ Les intentions et leurs scores sont également inclus dans les journaux d’acti
 ```
 
 ### <a name="enable-bing-spell-checker"></a>Activer le vérificateur orthographique Bing 
-Dans les paramètres d’URL de point de terminaison (**Endpoint url settings**), le bouton bascule **Bing spell checker** (Vérificateur orthographique Bing) permet à LUIS de corriger les mots mal orthographiés avant la prédiction. Créez une **[clé de Vérification orthographique Bing](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api)**. 
+Dans les paramètres d’URL de point de terminaison (**Endpoint url settings**), le bouton bascule **Bing spell checker** (Vérificateur orthographique Bing) permet à LUIS de corriger les mots mal orthographiés avant la prédiction. Créez une **[clé de Vérification orthographique Bing](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api)** . 
 
 Ajoutez le paramètre de chaîne de requête **spellCheck=true** et **bing-spell-check-subscription-key={VOTRE_CLÉ_BING}** . Remplacez `{YOUR_BING_KEY_HERE}` par le clé de votre vérificateur orthographique Bing.
 

@@ -11,10 +11,10 @@ ms.date: 05/13/2019
 ms.author: erhopf
 ms.custom: seodec18
 ms.openlocfilehash: 0883b8e5ae2eab39fca6434141d6591432ad341e
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65595711"
 ---
 # <a name="natural-language-support-for-azure-cognitive-services"></a>Prise en charge du langage naturel pour Azure Cognitive Services
@@ -33,12 +33,12 @@ Les langues principales suivantes sont prises en charge dans Azure Cognitive Ser
 * Allemand
 * Italien
 * Japonais
-* Korean¹
+* Coréen¹
 * Portugais
 * Espagnol
 
 > [!NOTE]
-> LUIS ¹ et Video Indexer : Reconnaissance vocale ne sont pas pris en charge.
+> ¹ LUIS et Video Indexer : Reconnaissance vocale ne sont pas pris en charge.
 
 ## <a name="additional-language-availability-by-service"></a>Disponibilité de langues supplémentaires par service
 
@@ -61,7 +61,7 @@ Ces tableaux indiquent la disponibilité des langues par catégorie de service, 
 | [Speech Service : reconnaissance vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/supported-languages#text-to-speech) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_minus_sign: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_minus_sign: | :heavy_check_mark: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_minus_sign: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_minus_sign: | :heavy_check_mark: |
 | [Speech Service : Traduction vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/supported-languages#speech-translation) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_minus_sign: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 
-### <a name="language"></a>Langue
+### <a name="language"></a>Langage
 
 | | Arabe | Bulgare | Catalan | Croate | Tchèque | Danois | Néerlandais | Estonien | Finnois | Grec | Hindi | Hongrois | Islandais | Indonésien | Letton | Lituanien | Malais | Norvégien | Polonais | Roumain | Russe | Serbe | Slovaque | Slovène | Suédois | Tamoul | Thaï | Turc | Ukrainien | Vietnamien |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|

@@ -1,6 +1,6 @@
 ---
-title: Installation de Windows Azure du centre de sécurité pour l’agent IoT préversion | Microsoft Docs
-description: Découvrez comment installer Azure Security Center pour l’agent IoT sur les appareils Windows 32 bits ou 64 bits.
+title: Installation Windows d’Azure Security Center pour IoT (préversion) | Microsoft Docs
+description: Découvrez comment installer l’agent Azure Security Center pour IoT sur les appareils Windows 32 bits ou 64 bits.
 services: asc-for-iot
 ms.service: ascforiot
 documentationcenter: na
@@ -15,19 +15,19 @@ ms.workload: na
 ms.date: 03/19/2019
 ms.author: mlottner
 ms.openlocfilehash: 64fc576885bb9d9c3c46aafd808db65d2f8ff77f
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65200615"
 ---
-# <a name="deploy-an-azure-security-center-for-iot-c-based-security-agent-for-windows"></a>Déployer un centre de sécurité Azure pour IoT C#-en fonction de l’agent de sécurité pour Windows
+# <a name="deploy-an-azure-security-center-for-iot-c-based-security-agent-for-windows"></a>Déployer l’agent de sécurité Azure Security Center pour IoT basé sur C# pour Windows
 
 > [!IMPORTANT]
 > Azure Security Center pour IoT est disponible en préversion publique.
 > Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Ce guide explique comment installer Azure Security Center (ASC) pour IoT C#-en fonction de l’agent de sécurité sur Windows.
+Ce guide explique comment installer l’agent de sécurité Azure Security Center (ASC) pour IoT basé sur C# sur Windows.
 
 Dans ce guide, vous apprendrez comment : 
 > [!div class="checklist"]
@@ -36,11 +36,11 @@ Dans ce guide, vous apprendrez comment :
 > * Désinstaller l’agent
 > * Résolution des problèmes 
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour d’autres plateformes et versions de l’agent, consultez [Choisir l’agent de sécurité adéquat](how-to-deploy-agent.md).
 
-1. Droits d’administrateur local sur l’ordinateur que vous souhaitez installer sur. 
+1. Les droits d’administrateur locaux sur l’ordinateur sur lequel vous souhaitez installer. 
 
 1. [Créez un module de sécurité](quickstart-create-security-twin.md) pour l’appareil.
 
@@ -48,7 +48,7 @@ Pour d’autres plateformes et versions de l’agent, consultez [Choisir l’age
 
 Pour installer l’agent de sécurité, procédez comme suit :
 
-1. Pour installer l’ASC pour IoT Windows C# agent sur l’appareil, téléchargez la version la plus récente sur votre ordinateur à partir de l’ASC pour IoT [référentiel GitHub](https://github.com/Azure/Azure-IoT-Security-Agent-CS).
+1. Pour installer l’agent ASC pour IoT Windows C# sur l’appareil, téléchargez la version la plus récente sur votre machine à partir du [dépôt GitHub](https://github.com/Azure/Azure-IoT-Security-Agent-CS) d’ASC pour IoT.
 
 2. Extrayez le contenu du package et accédez au dossier /Install.
 
@@ -61,7 +61,7 @@ Pour installer l’agent de sécurité, procédez comme suit :
     .\InstallSecurityAgent.ps1 -Install -aui <authentication identity> -aum <authentication method> -f <file path> -hn <host name> -di <device id> -cl <certificate location kind>
     ```
     
-    Par exemple : 
+    Par exemple :
     
     ```
     .\InstallSecurityAgent.ps1 -Install -aui Device -aum SymmetricKey -f c:\Temp\Key.txt -hn MyIotHub.azure-devices.net -di Mydevice1 -cl store
@@ -104,7 +104,7 @@ Si l’agent ne parvient pas à démarrer, activez la journalisation (qui est *d
 
 Pour activer la journalisation :
 
-1. Ouvrez le fichier de configuration (General.config) pour le modifier à l’aide d’un éditeur de fichier standard.
+1. Ouvrez le fichier de configuration (General.config) dans l’éditeur de fichier de votre choix.
 
 1. Modifiez les valeurs suivantes :
 

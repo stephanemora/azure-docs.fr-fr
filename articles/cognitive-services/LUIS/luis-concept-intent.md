@@ -1,7 +1,7 @@
 ---
 title: Intentions
 titleSuffix: Language Understanding - Azure Cognitive Services
-description: Une intention unique représente une tâche ou l’action que l’utilisateur souhaite effectuer. Il s’agit d’une finalité ou d’un objectif exprimé dans l’énoncé d’un utilisateur. Définissez un ensemble d’intentions qui correspondent aux actions que les utilisateurs souhaitent effectuer dans votre application.
+description: Une intention unique représente une tâche ou une action que l’utilisateur souhaite effectuer. Il s’agit d’une finalité ou d’un objectif exprimé dans l’énoncé d’un utilisateur. Définissez un ensemble d’intentions qui correspondent aux actions que les utilisateurs souhaitent effectuer dans votre application.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: diberry
 ms.openlocfilehash: e635a11cb99d11befc40703d9f5d2abec8559632
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60813458"
 ---
 # <a name="concepts-about-intents-in-your-luis-app"></a>Concepts relatifs aux intentions dans votre application LUIS
@@ -31,7 +31,7 @@ Intentions de l’application de voyage   |   Exemples d’énoncés   |
  BulletinMétéo | « Quel temps fait-il à Boston ? » <br/> « Montre-moi les prévisions pour ce week-end » |
  Aucun         | « Trouve-moi une recette de cookies »<br>« Les Lakers ont-ils gagné ? » |
 
-Toutes les applications sont fournis avec l’intention prédéfinie, «[aucun](#none-intent-is-fallback-for-app)», qui est l’intention de secours. 
+Toutes les applications s’accompagnent de l’intention prédéfinie « [None](#none-intent-is-fallback-for-app) », qui correspond à l’intention de secours. 
 
 ## <a name="prebuilt-domains-provide-intents"></a>Intentions fournies par les domaines prédéfinis
 En plus des intentions que vous définissez, vous pouvez utiliser les intentions prédéfinies d’un des domaines prédéfinis. Pour savoir comment personnaliser les intentions d’un domaine prédéfini dans une application, voir [Utiliser les domaines prédéfinis dans les applications LUIS](luis-how-to-use-prebuilt-domains.md).
@@ -59,7 +59,7 @@ Les [domaines prédéfinis](luis-how-to-use-prebuilt-domains.md) comportent des 
 
 ## <a name="none-intent"></a>Intention None
 
-Le **aucun** intention est importante pour chaque application et ne devrait pas avoir zéro énoncés.
+L’intention **Aucun** est importante pour chaque application et ne devrait pas n’avoir aucun énoncé.
 
 ### <a name="none-intent-is-fallback-for-app"></a>Intention None de secours pour l’application
 L’intention **None** est une intention de secours fourre-tout. Elle sert à montrer à LUIS des expressions qui ne sont pas importantes dans le domaine d’application (sujet). L’intention **None** doit comporter entre 10 et 20 % du nombre total d’énoncés de l’application. Ne laissez pas l’intention None vide. 
@@ -83,9 +83,9 @@ Si vous souhaitez identifier les intentions négatives et positives, par exemple
 
 ## <a name="intents-and-patterns"></a>Intentions et les modèles
 
-Si vous avez des énoncés d’exemple, qui peuvent être définis en partie ou entière comme une expression régulière, envisagez d’utiliser le [entité d’expression régulière](luis-concept-entity-types.md#regular-expression-entity) apparié à un [modèle](luis-concept-patterns.md). 
+Si vous avez des exemples d’énoncé, qui peuvent être définis en partie ou intégralement sous la forme d’une expression régulière, envisagez d’utiliser [l’entité d’expression régulière](luis-concept-entity-types.md#regular-expression-entity) appariée à un [modèle](luis-concept-patterns.md). 
 
-À l’aide d’une entité de l’expression régulière de garantit l’extraction de données afin que le modèle est mis en correspondance. Les critères spéciaux garantit qu'une intention exacte est retournée. 
+L’utilisation d’une entité de l’expression régulière garantit l’extraction de données, de sorte que le modèle est mis en correspondance. Les critères spéciaux garantissent qu'une intention exacte est renvoyée. 
 
 ## <a name="intent-balance"></a>Équilibre des intentions
 Les intentions du domaine d’application doivent avoir un équilibre entre les énoncés sur chaque objectif. Évitez d’avoir une intention avec 10 énoncés et une autre avec 500 énoncés. Ce n’est pas équilibré. Si vous vous trouvez dans cette situation, vérifiez l’intention comportant 500 énoncés pour voir si la majeure partie d’entre eux peut être réorganisée en un [modèle](luis-concept-patterns.md). 

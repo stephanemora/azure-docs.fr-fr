@@ -14,14 +14,14 @@ ms.topic: article
 ms.date: 05/07/2019
 ms.author: spelluru
 ms.openlocfilehash: 6f283ce007e96547e01a01a3753ddcb60574bfc3
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65412798"
 ---
 # <a name="manage-lab-accounts-in-azure-lab-services"></a>Gérer des comptes de laboratoire dans Azure Lab Services 
-Dans Azure Lab Services, un compte de laboratoire est un conteneur pour les types de laboratoire gérés tels que des laboratoires de salle de classe. Un administrateur configure un compte de laboratoire avec Azure Lab Services et fournit l’accès à tous les propriétaires de laboratoire qui peuvent alors créer des laboratoires dans leur compte. Cet article explique comment créer un compte de laboratoire, voir tous les comptes de laboratoire et supprimer un compte de laboratoire.
+Dans Azure Lab Services, un compte de laboratoire est un conteneur pour les types de laboratoires gérés tels que les laboratoires de classe. Un administrateur configure un compte de laboratoire avec Azure Lab Services et fournit l’accès à tous les propriétaires de laboratoire qui peuvent alors créer des laboratoires dans leur compte. Cet article explique comment créer un compte de laboratoire, voir tous les comptes de laboratoire et supprimer un compte de laboratoire.
 
 ## <a name="create-a-lab-account"></a>Créer un compte de laboratoire
 Les étapes suivantes montrent comment utiliser le portail Azure pour créer un compte de laboratoire avec Azure Lab Services. 
@@ -38,9 +38,9 @@ Les étapes suivantes montrent comment utiliser le portail Azure pour créer un 
     2. Sélectionnez **l’abonnement Azure** dans lequel vous souhaitez créer le compte de laboratoire.
     3. Pour **Groupe de ressources**, sélectionnez **Créer** et entrez un nom pour le groupe de ressources.
     4. Pour **Emplacement**, sélectionnez la région ou l’emplacement où créer le compte de laboratoire. 
-    5. Sélectionnez un **Galerie d’images partagé** ou créez-en un. Vous pouvez enregistrer le modèle de machine virtuelle dans la galerie d’images partagé pour pouvoir être réutilisée par d’autres utilisateurs. Pour plus d’informations sur les galeries d’images partagé, consultez [utiliser une galerie d’images partagé dans Azure Lab Services](how-to-use-shared-image-gallery.md).
+    5. Sélectionnez une **galerie d’images partagées** ou créez-en une. Vous pouvez enregistrer le modèle de machine virtuelle dans la galerie d’images partagées pour que d’autres utilisateurs puissent la réutiliser. Pour plus d’informations sur les galeries d’images partagées, consultez [Utiliser une galerie d’images partagées dans Azure Lab Services](how-to-use-shared-image-gallery.md).
     6. Dans **Appairer un réseau virtuel**, sélectionnez un réseau pair virtuel pour le réseau de laboratoire. Les laboratoires créés dans ce compte sont connectés au réseau virtuel sélectionné et ont accès aux ressources situées sur celui-ci. 
-    7. Spécifiez un **plage d’adresses** pour les machines virtuelles dans le laboratoire. La plage d’adresses doit être dans la notation inter-domain routing (CIDR) (exemple : 10.20.0.0/23). Les machines virtuelles dans le laboratoire sera créées dans cette plage d’adresses. Pour plus d’informations, consultez [spécifier une plage d’adresses pour les machines virtuelles dans le laboratoire](how-to-configure-lab-accounts.md#specify-an-address-range-for-vms-in-the-lab).    
+    7. Spécifiez une **plage d’adresses** pour les machines virtuelles du laboratoire. La plage d’adresses doit être mentionnée dans la notation CIDR (Classless Inter-Domain Routing), par exemple : 10.20.0.0/23). Les machines virtuelles du laboratoire seront créées dans cette plage d’adresses. Pour plus d’informations, consultez [Spécifier une plage d’adresses pour les machines virtuelles du laboratoire](how-to-configure-lab-accounts.md#specify-an-address-range-for-vms-in-the-lab).    
     8. Dans le champ **Autoriser le créateur du lab à choisir l’emplacement du lab**, indiquez si vous souhaitez que les créateurs de laboratoire soient en mesure de sélectionner un emplacement pour le laboratoire. Par défaut, l’option est désactivée. Lorsqu’elle est désactivée, les créateurs de laboratoire ne peuvent pas spécifier un emplacement pour le laboratoire qu’ils créent. Les laboratoires sont créés dans l’emplacement géographique le plus proche du compte de laboratoire. Lorsqu’elle est activée, un créateur de laboratoire peut sélectionner un emplacement au moment de créer le laboratoire.      
     9. Sélectionnez **Créer**. 
 
@@ -98,4 +98,4 @@ Suivez les instructions de la section précédente, qui permettent d’afficher 
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Consultez l’article suivant : [Comment configurer des comptes de laboratoire](how-to-configure-lab-accounts.md).
+Consultez l’article suivant : [Configurer des comptes lab](how-to-configure-lab-accounts.md).

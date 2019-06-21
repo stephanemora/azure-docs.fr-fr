@@ -1,5 +1,5 @@
 ---
-title: Exporter ou supprimer des données de l’utilisateur - Content Moderator
+title: Exporter ou supprimer vos données - Content Moderator
 titlesuffix: Azure Cognitive Services
 description: Découvrez comment exporter ou supprimer vos données dans Content Moderator.
 services: cognitive-services
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: pafarley
 ms.openlocfilehash: 1cd70bee22e56e2580b322b93e0f121261d97a94
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60699179"
 ---
 # <a name="export-or-delete-user-data-in-content-moderator"></a>Exporter ou supprimer vos données dans Content Moderator
@@ -27,10 +27,10 @@ Pour plus d’informations sur la façon d’exporter et supprimer des données 
 
 | Données | Opération d’exportation | Opération de suppression |
 | ---- | ---------------- | ---------------- |
-| Informations sur le compte (Clés d’abonnement) | S.O. | Supprimer via le portail Azure (Abonnements Azure). Vous pouvez également utiliser le bouton **Supprimer l’équipe** dans la page des paramètres d’équipe de [l’interface utilisateur de révision](https://contentmoderator.cognitive.microsoft.com/). |
+| Informations sur le compte (Clés d’abonnement) | N/A | Supprimer via le portail Azure (Abonnements Azure). Vous pouvez également utiliser le bouton **Supprimer l’équipe** dans la page des paramètres d’équipe de [l’interface utilisateur de révision](https://contentmoderator.cognitive.microsoft.com/). |
 | Images pour la mise en correspondance personnalisée | Appelez [l’API Obtenir les ID d’image](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f676). Les images sont stockées dans un format de hachage propriétaire unidirectionnel, et il n’existe aucun moyen d’extraire les images réelles. | Appelez [l’API Supprimer toutes les images](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f686). Vous pouvez également supprimer la ressource Content Moderator via le portail Azure. |
 | Conditions pour la mise en correspondance personnalisée | Appelez [l’API Obtenir toutes les conditions](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67e). | Appelez [l’API Supprimer toutes les conditions](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67d). Vous pouvez également supprimer la ressource Content Moderator via le portail Azure. |
-| Balises | S.O. | Utilisez l’icône **Supprimer** disponible pour chaque balise dans la page des paramètres de balise de l’interface utilisateur de révision. Vous pouvez également utiliser le bouton **Supprimer l’équipe** dans la page des paramètres d’équipe de [l’interface utilisateur de révision](https://contentmoderator.cognitive.microsoft.com/). |
+| Balises | N/A | Utilisez l’icône **Supprimer** disponible pour chaque balise dans la page des paramètres de balise de l’interface utilisateur de révision. Vous pouvez également utiliser le bouton **Supprimer l’équipe** dans la page des paramètres d’équipe de [l’interface utilisateur de révision](https://contentmoderator.cognitive.microsoft.com/). |
 | Révisions | Appelez [l’API Obtenir la révision](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c2). | Utiliser le bouton **Supprimer l’équipe** dans la page des paramètres d’équipe de [l’interface utilisateur de révision](https://contentmoderator.cognitive.microsoft.com/).
-| Utilisateurs | S.O. | Utiliser l’icône **Supprimer** disponible pour chaque utilisateur dans la page des paramètres d’équipe de l’[interface utilisateur de révision](https://contentmoderator.cognitive.microsoft.com/). Vous pouvez également utiliser le bouton **Supprimer l’équipe** dans la page des paramètres d’équipe de [l’interface utilisateur de révision](https://contentmoderator.cognitive.microsoft.com/). |
+| Utilisateurs | N/A | Utiliser l’icône **Supprimer** disponible pour chaque utilisateur dans la page des paramètres d’équipe de l’[interface utilisateur de révision](https://contentmoderator.cognitive.microsoft.com/). Vous pouvez également utiliser le bouton **Supprimer l’équipe** dans la page des paramètres d’équipe de [l’interface utilisateur de révision](https://contentmoderator.cognitive.microsoft.com/). |
 

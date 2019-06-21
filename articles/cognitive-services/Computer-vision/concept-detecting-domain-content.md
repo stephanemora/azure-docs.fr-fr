@@ -12,10 +12,10 @@ ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: e4b64e00f71768a8821c83a73b019f77089e1b3a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60368071"
 ---
 # <a name="detect-domain-specific-content"></a>Détecter le contenu spécifique à un domaine
@@ -30,7 +30,7 @@ Vous pouvez analyser une image à l'aide du modèle spécifique au domaine chois
 
 Voici un exemple de réponse JSON renvoyé par l'API **models/celebrities/analyze** pour l'image donnée :
 
-![Satya Nadella permanent, souriant](./images/satya.jpeg)
+![Satya Nadella debout, souriant](./images/satya.jpeg)
 
 ```json
 {

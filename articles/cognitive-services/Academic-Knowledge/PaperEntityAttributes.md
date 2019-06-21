@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/31/2017
 ms.author: alch
 ms.openlocfilehash: 92844b5faf691b67617c9f3424a1322aa05429bb
-ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64875737"
 ---
 # <a name="paper-entity"></a>Entité Article
@@ -26,7 +26,7 @@ Nom    |Description                                        |Type       | Opérat
 ------- | ------------------------------------------------- | --------- | ----------------------------
 ID      |L’ID d’entité                                          |Int64      |Égal à
 Ti      |Titre du papier                                        |Chaîne     |Equals,<br/>StartsWith
-L       |Code de langue de papier séparées par «\@\@\@»          |Chaîne     |Égal à
+L       |Code langue de l’article séparé par « \@\@\@ »          |Chaîne     |Égal à
 O       |Année de l’article                                         |Int32      |Equals,<br/>IsBetween
 D       |Date de l’article                                         |Date       |Equals,<br/>IsBetween
 CC      |Nombre de citations                                     |Int32      |Aucun  

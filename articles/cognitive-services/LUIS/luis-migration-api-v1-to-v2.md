@@ -1,7 +1,7 @@
 ---
 title: Migration de l’API v1 vers v2
 titleSuffix: Azure Cognitive Services
-description: Le point de terminaison version 1 et la création d’API reconnaissance vocale sont déconseillés. Utilisez ce guide pour comprendre comment migrer vers la version 2 des API de point de terminaison et de création.
+description: Les API de point de terminaison et de création Language Understanding de version 1 sont dépréciées. Utilisez ce guide pour comprendre comment migrer vers la version 2 des API de point de terminaison et de création.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -12,17 +12,17 @@ ms.topic: article
 ms.date: 04/02/2019
 ms.author: diberry
 ms.openlocfilehash: a4e176552fcbab9d54da696439c7e46750be3944
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65522360"
 ---
 # <a name="api-v1-to-v2-migration-guide-for-luis-apps"></a>Guide de migration d’API v1 vers v2 pour les applications LUIS
 Les API de [point de terminaison](https://aka.ms/v1-endpoint-api-docs) et de [création](https://aka.ms/v1-authoring-api-docs) de version 1 sont dépréciées. Utilisez ce guide pour comprendre comment migrer vers la version 2 des API de [point de terminaison](https://go.microsoft.com/fwlink/?linkid=2092356) et de [création](https://go.microsoft.com/fwlink/?linkid=2092087). 
 
 ## <a name="new-azure-regions"></a>Nouvelles régions Azure
-LUIS fournit de nouvelles [régions](https://aka.ms/LUIS-regions) pour les API LUIS. LUIS fournit un autre portail pour les groupes de régions. L’application doit être créée dans la région que vous vous attendez à interroger. Les applications ne migrent pas automatiquement vers d’autres régions. Vous exportez l’application à partir d’une région, puis vous l’importez dans une autre pour qu’elle soit disponible dans une nouvelle région.
+LUIS fournit de nouvelles [régions](https://aka.ms/LUIS-regions) pour les API LUIS. LUIS fournit un autre portail Web pour les groupes de régions. L’application doit être créée dans la région que vous vous attendez à interroger. Les applications ne migrent pas automatiquement vers d’autres régions. Vous exportez l’application à partir d’une région, puis vous l’importez dans une autre pour qu’elle soit disponible dans une nouvelle région.
 
 ## <a name="authoring-route-changes"></a>Création de modifications d’itinéraires
 L’itinéraire de création d’API passe de l’utilisation de l’itinéraire **prog** à l’utilisation de l’itinéraire **api**.
@@ -35,7 +35,7 @@ L’itinéraire de création d’API passe de l’utilisation de l’itinéraire
 
 
 ## <a name="endpoint-route-changes"></a>Modifications de l’itinéraire de point de terminaison
-Le point de terminaison API possède les nouveaux paramètres de chaîne de requête ainsi qu’une réponse différente. Si l’indicateur verbose est true, toutes les intentions, quel que soit le score, sont retournées dans un tableau nommé Intentions, outre le topScoringIntent.
+L’API du point de terminaison a de nouveaux paramètres de chaîne de requête, ainsi qu’une autre réponse. Si l’indicateur verbose est true, toutes les intentions, quel que soit le score, sont retournées dans un tableau nommé Intentions, outre le topScoringIntent.
 
 | version | OBTENIR un itinéraire |
 |--|--|
@@ -112,7 +112,7 @@ Les API de la clé du point de terminaison de l’abonnement sont déconseillée
 |1|/luis/v1.0/prog/subscriptions|
 |1|/luis/v1.0/prog/subscriptions/{subscriptionKey}|
 
-Les [clés de point de terminaison](luis-how-to-azure-subscription.md) Azure sont générées sur le Portail Azure. Vous affectez la clé à une application LUIS à la page **[Publier](luis-how-to-azure-subscription.md)**. Vous n’avez pas besoin de connaître la valeur de clé réelle. LUIS utilise le nom de l’abonnement pour effectuer l’affectation. 
+Les [clés de point de terminaison](luis-how-to-azure-subscription.md) Azure sont générées sur le Portail Azure. Vous affectez la clé à une application LUIS à la page **[Publier](luis-how-to-azure-subscription.md)** . Vous n’avez pas besoin de connaître la valeur de clé réelle. LUIS utilise le nom de l’abonnement pour effectuer l’affectation. 
 
 ## <a name="new-versioning-route"></a>Nouvel itinéraire de contrôle de version
 Le modèle v2 est maintenant contenu dans une [version](luis-how-to-manage-versions.md). Un nom de version a 10 caractères dans l’itinéraire. La version par défaut est « 0.1 ».

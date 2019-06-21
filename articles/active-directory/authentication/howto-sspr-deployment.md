@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9c254ef3a71e95b33df2a779c728d47fff3c3759
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65190369"
 ---
 # <a name="how-to-successfully-roll-out-self-service-password-reset"></a>Comment réussir le lancement de la réinitialisation de mot de passe en libre-service
@@ -34,7 +34,7 @@ Pour garantir le déploiement sans problèmes de la fonctionnalité de réinitia
       * Réinitialisation : https://aka.ms/sspr
 
    > [!WARNING]
-   > Utilisation de la case à cocher « utilisateur doit changer mot de passe à la prochaine ouverture de session » dans les outils d’administration Active Directory sur site telles que les utilisateurs Active Directory et les ordinateurs ou le centre d’administration d’Active Directory n’est pas prise en charge. Lorsque vous modifiez un mot de passe en local ne vérifie pas cette option. 
+   > L’utilisation de la case à cocher « L’utilisateur doit changer mot de passe à la prochaine ouverture de session » dans les outils d’administration d’Active Directory locaux, comme Active Directory Users and Computers ou le Centre d’administration d’Active Directory n’est pas prise en charge. Lorsque vous modifiez un mot de passe local, ne cochez pas cette option. 
 
 1. Formez vos utilisateurs.
    * Les sections suivantes de ce document comprennent les exemples de communication, les portails de mot de passe, l’application d’inscription, et le remplissage de données d’authentification.
@@ -53,7 +53,7 @@ De nombreux clients estiment qu’une campagne par courrier électronique inclua
 * **Chevalets de table SSPR** : cartes que vous pouvez placer dans la salle à manger, les salles de conférence, ou dans les bureaux pour encourager vos utilisateurs à effectuer l’inscription.
 * **Autocollants SSPR** : modèles de vignette que vous pouvez personnaliser et imprimer pour les coller sur les ordinateurs portables, les écrans, les claviers ou les téléphones portables pour se rappeler comment accéder à SSPR.
 
-![Exemples de messagerie SSPR pour le déploiement vers les utilisateurs][Email]
+![Exemples d’e-mail SSPR pour le déploiement auprès des utilisateurs][Email]
 
 ## <a name="create-your-own-password-portal"></a>Création de votre propre portail de mot de passe
 

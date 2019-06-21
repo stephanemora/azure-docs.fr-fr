@@ -14,10 +14,10 @@ ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
 ms.openlocfilehash: 263316028e7b35a1a515322dddc4ee867011dcac
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65604106"
 ---
 # <a name="application-insights-cohorts"></a>Cohortes Application Insights
@@ -123,13 +123,13 @@ Les deux cohortes précédentes ont été définies à l’aide de zones de list
     | where client_CountryOrRegion == "United Kingdom"
     ```
 
-3. Sélectionnez **Run Query** (Exécuter la requête). Si vous ne voyez pas les ID utilisateur apparaissent dans la table, remplacez par un pays/région où votre application a des utilisateurs.
+3. Sélectionnez **Run Query** (Exécuter la requête). Si vous ne voyez pas d’ID d’utilisateurs dans le tableau, passez à un pays/une région où votre application a des utilisateurs.
 
 4. Enregistrez la cohorte et attribuez-lui un nom.
 
 ## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
 
-_J’ai défini une cohorte d’utilisateurs à partir d’un certain pays/région. Lorsque je compare cette cohorte dans l’outil utilisateurs à la définition d’un filtre sur le pays/région, je vois des résultats différents. Pourquoi ?_
+_J’ai défini une cohorte d’utilisateurs d’un pays/d’une région. Lorsque je la compare dans l’outil Utilisateurs à la définition d’un filtre sur ce pays/cette région, j’obtiens des résultats différents. Pourquoi ?_
 
 Les cohortes et les filtres sont différents. Supposons que vous ayez une cohorte d’utilisateurs du Royaume-Uni (définie comme dans l’exemple précédent) et que vous compariez ses résultats à ceux obtenus avec le filtre « Country or region = United Kingdom » (Pays ou région = Royaume-Uni).
 

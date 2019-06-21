@@ -1,7 +1,7 @@
 ---
-title: Reconnaissance vocale appareils SDK à puce Roobo Audio Dev Kit v1 - Services de reconnaissance vocale
+title: Kit de développement du SDK Roobo Smart Audio v1 pour Speech Devices - Services Speech
 titleSuffix: Azure Cognitive Services
-description: Conditions préalables et les instructions de mise en route avec le SDK d’appareils vocale, Kit de développement Audio Smart Roobo v1.
+description: Composants requis et instructions pour bien démarrer avec le kit de développement logiciel (SDK) Speech Devices, Roobo Smart Audio Dev Kit v1.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
 ms.openlocfilehash: 7c1a13a44d9db8ed029ce798f0bb34944a1a65a7
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65409050"
 ---
-# <a name="device-roobo-smart-audio-dev-kit"></a>Appareil : Kit de développement Audio à puce Roobo
+# <a name="device-roobo-smart-audio-dev-kit"></a>Appareil : Kit de développement puce Roobo Smart Audio
 
-Cet article fournit des informations spécifiques sur l’appareil le Kit de développement Roobo Smart Audio.
+Cet article fournit des informations spécifiques sur l’appareil le kit de développement de Roobo Smart Audio.
 
 ## <a name="set-up-the-development-kit"></a>Installer le kit de développement
 
@@ -29,7 +29,7 @@ Cet article fournit des informations spécifiques sur l’appareil le Kit de dé
 
 1. Alimentez le kit de développement à l'aide d'un câble micro USB pour connecter le port d'alimentation à un PC ou à un adaptateur secteur. Un voyant vert s'allume sous le tableau supérieur.
 
-1. Pour contrôler le kit de développement, connectez le port de débogage sur un ordinateur à l’aide d’un deuxième câble micro USB. Pour des communications fiables, un câble de qualité doit être utilisé.
+1. Pour contrôler le kit de développement, connectez le port de débogage à un ordinateur à l'aide d'un second câble micro USB. Pour des communications fiables, un câble de qualité doit être utilisé.
 
 1. Orientez votre kit de développement pour la configuration circulaire ou linéaire.
 
@@ -40,7 +40,7 @@ Cet article fournit des informations spécifiques sur l’appareil le Kit de dé
 
     ![Orientation linéaire du kit de développement](media/speech-devices-sdk/qsg-2.png)
 
-1. Installer les certificats et définissez les autorisations du périphérique audio. Tapez les commandes ci-après dans une fenêtre d’invite de commandes :
+1. Installez les certificats et définissez les autorisations du périphérique audio. Tapez les commandes ci-après dans une fenêtre d’invite de commandes :
 
    ```powershell
    adb push C:\SDSDK\Android-Sample-Release\scripts\roobo_setup.sh /data/
@@ -54,23 +54,23 @@ Cet article fournit des informations spécifiques sur l’appareil le Kit de dé
     > [!NOTE]
     > Ces commandes utilisent Android Debug Bridge, `adb.exe`, compris dans l’installation d’Android Studio. Cet outil figure dans le répertoire C:\Users\[nom de l’utilisateur]\AppData\Local\Android\Sdk\platform-tools. Vous pouvez ajouter ce répertoire à votre chemin d’accès pour que l’invocation de l’outil `adb` soit plus pratique. Dans le cas contraire, vous devez spécifier le chemin d’accès complet à votre installation d’adb.exe dans chaque commande qui invoque `adb`.
     >
-    > Si vous voyez une erreur `no devices/emulators found` puis vérifiez votre câble USB est connecté et qu’il est un câble de haute qualité. Vous pouvez utiliser `adb devices` pour vérifier que votre ordinateur peut communiquer avec le kit de développement car il renverra une liste d'appareils.
+    > Si vous rencontrez une erreur `no devices/emulators found`, vérifiez que votre câble USB est bien connecté et qu'il s'agit d'un câble de qualité. Vous pouvez utiliser `adb devices` pour vérifier que votre ordinateur peut communiquer avec le kit de développement car il renverra une liste d'appareils.
     >
     > [!TIP]
     > Désactivez le micro et le haut-parleur de votre PC pour vous assurer que vous travaillez avec les micros du kit de développement. De cette façon, vous n’activerez pas l’appareil par accident à cause du son du PC.
 
-1. Si vous souhaitez raccorder un haut-parleur au kit de développement, vous pouvez le connecter à la sortie de la ligne audio. Vous devez choisir un présentateur de bonne qualité avec un bouchon analogique 3,5 mm.
+1. Si vous souhaitez raccorder un haut-parleur au kit de développement, vous pouvez le connecter à la sortie de la ligne audio. Vous devez choisir un haut-parleur de bonne qualité avec une prise analogique 3,5 mm.
 
     ![Audio Vysor](media/speech-devices-sdk/qsg-14.png)
 
 ## <a name="development-information"></a>Informations sur le développement
 
-Pour plus d’informations développement, consultez le [guide de développement Roobo](http://dwn.roo.bo/server_upload/ddk/ROOBO%20Dev%20Kit-User%20Guide.pdf).
+Pour plus d’informations sur le développement, consultez le [guide de développement de Roobo](http://dwn.roo.bo/server_upload/ddk/ROOBO%20Dev%20Kit-User%20Guide.pdf).
 
-## <a name="audio"></a>Fichier audio
+## <a name="audio"></a>Audio
 
-Roobo fournit un outil qui capture toutes les données audio en mémoire flash. Cet outil peut vous aider à résoudre les problèmes audio. Une version de cet outil est fournie avec chaque configuration de kit de développement. Sur le [Roobo site](https://ddk.roobo.com/), sélectionnez votre appareil, puis le **Roobo outils** lien en bas de la page.
+Roobo fournit un outil qui capture toutes les données audio en mémoire flash. Cet outil peut vous aider à résoudre les problèmes audio. Une version de cet outil est fournie avec chaque configuration de kit de développement. Sur le [site Roobo](https://ddk.roobo.com/), sélectionnez votre appareil, puis sélectionnez le lien **ROOBO Tools** (Outils Roobo) au bas de la page.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Exécutez l’application exemple Android](speech-devices-sdk-android-quickstart.md)
+* [Exécuter l’application exemple Android](speech-devices-sdk-android-quickstart.md)

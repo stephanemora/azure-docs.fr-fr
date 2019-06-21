@@ -1,6 +1,6 @@
 ---
-title: Créer une VM Linux avec le Générateur d’images Azure (version préliminaire)
-description: Créer une machine virtuelle Linux avec le Générateur d’images Azure.
+title: Créer une machine virtuelle Linux avec le générateur d’images Azure (préversion)
+description: Créez une machine virtuelle Linux avec le générateur d’images Azure.
 author: cynthn
 ms.author: cynthn
 ms.date: 05/02/2019
@@ -8,24 +8,24 @@ ms.topic: article
 ms.service: virtual-machines-linux
 manager: jeconnoc
 ms.openlocfilehash: 854645af95d780053d94668921e41ac189bbbfb7
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65159509"
 ---
-# <a name="preview-create-a-linux-vm-with-azure-image-builder"></a>Aperçu : Créer une machine virtuelle Linux avec le Générateur d’images Azure
+# <a name="preview-create-a-linux-vm-with-azure-image-builder"></a>Aperçu : Créer une machine virtuelle Linux avec le générateur d’images Azure
 
-Cet article vous montre comment vous pouvez créer une image Linux personnalisée à l’aide du Générateur d’images Azure et Azure CLI. L’exemple de cet article utilise trois différents [personnalisateurs](image-builder-json.md#properties-customize) pour la personnalisation de l’image :
+Cet article vous montre comment vous pouvez créer une image Linux personnalisée à l’aide du Générateur d’images Azure et de l’interface de ligne de commande Azure. L’exemple de cet article utilise trois différents [personnalisateurs](image-builder-json.md#properties-customize) pour la personnalisation de l’image :
 
-- Interpréteur de commandes (ScriptUri) - téléchargements et exécute un [script shell](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/customizeScript.sh).
-- Interpréteur de commandes (inline) - exécute les commandes spécifiques. Dans cet exemple, les commandes inline incluent la création d’un répertoire et de la mise à jour le système d’exploitation.
-- Fichier - copies un [fichier à partir de GitHub](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/exampleArtifacts/buildArtifacts/index.html) dans un répertoire sur la machine virtuelle.
+- Shell (ScriptUri) - télécharge et exécute un [script shell](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/customizeScript.sh).
+- Shell (inline) - exécute des commandes spécifiques. Dans cet exemple, les commandes inline incluent la création d’un répertoire et la mise à jour du système d’exploitation.
+- Fichier - copie un [fichier de GitHub](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/exampleArtifacts/buildArtifacts/index.html) dans un répertoire sur la machine virtuelle.
 
-Pour configurer l’image, nous allons utiliser un exemple de modèle .json. Le fichier .json que nous utilisons est ici : [helloImageTemplateLinux.json](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/0_Creating_a_Custom_Linux_Managed_Image/helloImageTemplateLinux.json). 
+Pour configurer l’image, nous allons utiliser un exemple de modèle .json. Le fichier .json que nous utilisons est : [helloImageTemplateLinux.json](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/0_Creating_a_Custom_Linux_Managed_Image/helloImageTemplateLinux.json). 
 
 > [!IMPORTANT]
-> Générateur d’images Azure est actuellement en version préliminaire publique.
+> Le Générateur d’images Azure est actuellement en version préliminaire publique.
 > Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="register-the-features"></a>Inscrire les fonctionnalités
@@ -35,13 +35,13 @@ Pour utiliser le Générateur d’images Azure durant la phase préliminaire, vo
 az feature register --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview
 ```
 
-Vérifiez l’état de l’inscription de fonctionnalité.
+Vérifiez l’état d’inscription de la fonctionnalité.
 
 ```azurecli-interactive
 az feature show --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview | grep state
 ```
 
-Vérifier votre inscription.
+Vérifiez votre inscription.
 
 ```azurecli-interactive
 az provider show -n Microsoft.VirtualMachineImages | grep registrationState
@@ -49,7 +49,7 @@ az provider show -n Microsoft.VirtualMachineImages | grep registrationState
 az provider show -n Microsoft.Storage | grep registrationState
 ```
 
-Si elles ne dites pas inscrit, exécutez la commande suivante :
+Si elle n’est pas inscrite, exécutez la commande suivante :
 
 ```azurecli-interactive
 az provider register -n Microsoft.VirtualMachineImages
@@ -59,7 +59,7 @@ az provider register -n Microsoft.Storage
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
-Nous allons utiliser certains éléments d’information à plusieurs reprises, donc nous allons créer des variables pour stocker ces informations.
+Nous allons utiliser certains éléments d’information à plusieurs reprises, donc nous allons créer des variables pour les stocker.
 
 
 ```azurecli-interactive
@@ -73,7 +73,7 @@ imageName=myBuilderImage
 runOutputName=aibLinux
 ```
 
-Créer une variable pour votre ID d’abonnement. Vous pouvez obtenir à l’aide de cette `az account show | grep id`.
+Créez une variable pour votre ID d’abonnement. Vous pouvez l’obtenir avec `az account show | grep id`.
 
 ```azurecli-interactive
 subscriptionID=<Your subscription ID>
@@ -86,7 +86,7 @@ az group create -n $imageResourceGroup -l $location
 ```
 
 
-Accorder l’autorisation d’Image Builder pour créer des ressources dans ce groupe de ressources. Le `--assignee` valeur est l’ID d’inscription d’application pour le service de générateur d’images. 
+Accordez au Générateur d’images l’autorisation de créer des ressources dans ce groupe de ressources. La valeur `--assignee` est l’ID d’inscription de l’application pour le service Générateur d’images. 
 
 ```azurecli-interactive
 az role assignment create \
@@ -95,9 +95,9 @@ az role assignment create \
     --scope /subscriptions/$subscriptionID/resourceGroups/$imageResourceGroup
 ```
 
-## <a name="download-the-json-example"></a>Téléchargez l’exemple .json
+## <a name="download-the-json-example"></a>Télécharger l’exemple de fichier .json
 
-Télécharger l’exemple de fichier .json et configurez-le avec les variables que vous avez créé.
+Téléchargez l’exemple de fichier .json et configurez-le avec les variables que vous avez créées.
 
 ```azurecli-interactive
 curl https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/0_Creating_a_Custom_Linux_Managed_Image/helloImageTemplateLinux.json -o helloImageTemplateLinux.json
@@ -110,7 +110,7 @@ sed -i -e "s/<runOutputName>/$runOutputName/g" helloImageTemplateLinux.json
 ```
 
 ## <a name="create-the-image"></a>Création de l’image
-Envoyer la configuration de l’image pour le service de générateur d’images de machine virtuelle
+Envoyer la configuration de l’image au service Générateur d’images de votre machine virtuelle
 
 ```azurecli-interactive
 az resource create \
@@ -121,7 +121,7 @@ az resource create \
     -n helloImageTemplateLinux01
 ```
 
-Démarrer la génération de l’image.
+Démarrez la génération de l’image.
 
 ```azurecli-interactive
 az resource invoke-action \
@@ -131,12 +131,12 @@ az resource invoke-action \
      --action Run 
 ```
 
-Attendez que la build est terminée. Cela peut prendre environ 15 minutes.
+Attendez que la compilation soit terminée. Cela peut durer environ 15 minutes.
 
 
 ## <a name="create-the-vm"></a>Création de la machine virtuelle
 
-Créer la machine virtuelle à l’aide de l’image que vous avez créé.
+Créez la machine virtuelle avec l’image que vous avez créée.
 
 ```azurecli-interactive
 az vm create \
@@ -148,13 +148,13 @@ az vm create \
   --generate-ssh-keys
 ```
 
-Obtenir l’adresse IP à partir de la sortie de la création de la machine virtuelle et l’utiliser SSH à la machine virtuelle.
+Obtenez l’adresse IP à partir de la sortie de la création de la machine virtuelle et utilisez-la pour établir une connexion SSH à la machine virtuelle.
 
 ```azurecli-interactive
 ssh azureuser@<pubIp>
 ```
 
-Vous devez voir que l’image a été personnalisé avec un Message de la journée dès que votre connexion SSH est établie !
+Vous devriez voir que l’image a été personnalisée avec un Message du jour dès que votre connexion SSH est établie !
 
 ```console
 
@@ -165,17 +165,17 @@ Vous devez voir que l’image a été personnalisé avec un Message de la journ�
 *******************************************************
 ```
 
-Type `exit` lorsque vous avez terminé pour fermer la connexion SSH.
+Saisissez `exit` lorsque vous avez fini pour fermer la connexion SSH.
 
 ## <a name="check-the-source"></a>Vérification de la source
 
-Dans le modèle de générateur d’Image, dans les « propriétés », vous verrez l’image source, la personnalisation créez un script s’exécute, et où elle est distribuée.
+Dans le modèle de Générateur d’images, dans les « Propriétés », vous verrez l’image source, le script de personnalisation qu’il exécute, et où elle est distribuée.
 
 ```azurecli-interactive
 cat helloImageTemplateLinux.json
 ```
 
-Pour plus d’informations sur ce fichier .json, consultez [référence du modèle Générateur d’Image](image-builder-json.md)
+Pour plus d’informations sur ce fichier .json, consultez la [référence du modèle Générateur d’Images](image-builder-json.md)
 
 ## <a name="clean-up"></a>Nettoyer
 
@@ -193,4 +193,4 @@ az group delete -n $imageResourceGroup
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour en savoir plus sur les composants du fichier .json utilisé dans cet article, consultez [référence du modèle Générateur d’images](image-builder-json.md).
+Pour en savoir plus sur les composants du fichier .json utilisé dans cet article, consultez la [référence du modèle Générateur d’images](image-builder-json.md).

@@ -12,10 +12,10 @@ ms.date: 03/21/2019
 ms.author: tulasim
 ms.custom: seodec18
 ms.openlocfilehash: 496f7c75e6633089d4ca88a9e3cd7c76ee415780
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64922410"
 ---
 # <a name="language-support-for-qna-maker"></a>Prise en charge linguistique pour QnA Maker
@@ -35,26 +35,26 @@ QnA Maker prend en charge l’extraction de questions/réponses dans n’import
 
 ## <a name="primary-language-detection"></a>Détection de la langue principale
 
-La langue principale utilisée pour la détection est définie pour la ressource de QnA Maker et toutes les bases de connaissances créés sur cette ressource, lorsque le premier document ou l’URL est ajouté à la première base de connaissances. La langue ne peut pas être modifiée. 
+La langue principale utilisée pour la détection est définie pour la ressource QnA Maker et toutes les bases de connaissances créées sur cette ressource, lors de l’ajout du premier document ou de la première URL à la première base de connaissances. La langue ne peut pas être modifiée. 
 
-Si l’utilisateur prévoit de prendre en charge plusieurs langues, dont ils ont besoin d’avoir une nouvelle ressource de QnA Maker pour chaque langue. Découvrez comment [créer une base de connaissances en langage QnA Maker](../how-to/language-knowledge-base.md).  
+Si l’utilisateur prévoit de prendre en charge plusieurs langues, il doit avoir une nouvelle ressource QnA Maker pour chaque langue. Découvrez comment [créer une base de connaissances QnA Maker basée sur la langue](../how-to/language-knowledge-base.md).  
 
-Vérifiez que la langue principale en procédant comme suit :
+Vérifiez la langue principale en procédant comme suit :
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).  
-1. Recherchez et sélectionnez la ressource de recherche Azure créée dans le cadre de votre ressource QnA Maker. Le nom de ressource de recherche Azure commence avec le même nom que la ressource de QnA Maker et auront le type **service de recherche**. 
-1. À partir de la **vue d’ensemble** page de la ressource de recherche, sélectionnez **index**. 
+1. Recherchez et sélectionnez la ressource de recherche Azure créée dans le cadre de votre ressource QnA Maker. Le nom de la ressource de recherche Azure commence avec le même nom que la ressource QnA Maker et aura le type **Service de recherche**. 
+1. À partir de la page **Vue d’ensemble** de la ressource de recherche, sélectionnez **Index**. 
 1. Sélectionnez l’index **testkb**.
-1. Sélectionnez le **champs** onglet. 
-1. Afficher le **analyseur** colonne pour le **questions** et **réponse** champs. 
+1. Sélectionnez l’onglet **Champs**. 
+1. Observez la colonne **Analyseur** pour les champs **Questions** et **Réponse**. 
 
 
 ## <a name="query-matching-and-relevance"></a>Correspondance et pertinence des requêtes
 QnA Maker dépend des [analyseurs de langue](https://docs.microsoft.com/rest/api/searchservice/language-support) de la recherche Azure pour fournir des résultats. Des fonctionnalités spéciales générant un nouveau classement sont disponibles pour les langues en-* afin d’améliorer la pertinence.
 
-Même si les fonctionnalités de Recherche Azure sont à égalité pour les langues prises en charge, QnA Maker possède un outil de classement supplémentaire qui se trouve au-dessus des résultats de recherche Azure. Dans ce modèle thématiques, nous utilisons certaines fonctionnalités de word et sémantiques spéciales dans fr-*, qui ne sont pas encore disponibles pour d’autres langages. Nous ne pas rendre ces fonctionnalités disponibles, qu’elles font partie du fonctionnement interne de thématiques de QnA Maker. 
+Même si les fonctionnalités de Recherche Azure sont à égalité pour les langues prises en charge, QnA Maker possède un outil de classement supplémentaire qui se trouve au-dessus des résultats de recherche Azure. Dans ce modèle d’outil de classement, nous utilisons une sémantique spéciale et des fonctionnalités basées sur des mots en en-*, qui ne sont pas encore disponibles pour d’autres langues. Nous ne mettons pas ces fonctionnalités à disposition, car elles font partie du fonctionnement interne de l’outil de classement QnA Maker. 
 
-QnA Maker [détecte automatiquement la langue de la base de connaissances](#primary-language-detection) lors de la création et définit l’analyseur en conséquence. Vous pouvez créer des bases de connaissances dans les langues suivantes. 
+QnA Maker [détecte automatiquement la langue de la base de connaissances](#primary-language-detection) lors de la création et définit l’analyseur en conséquence. Vous pouvez créer des bases de connaissances dans les langues suivantes. 
 
 |Langues prises en charge|
 |-----|

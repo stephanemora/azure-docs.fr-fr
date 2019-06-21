@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: anzaman;cherylmc
 ms.openlocfilehash: 556589aa7a0a577b9b1a010cf4811922ebc6de52
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60837808"
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-cli"></a>Créer et modifier un circuit ExpressRoute à l’aide de l’interface de ligne de commande
@@ -56,7 +56,7 @@ az account set --subscription "<subscription ID>"
 
 ### <a name="2-get-the-list-of-supported-providers-locations-and-bandwidths"></a>2. Récupérer la liste des fournisseurs, des emplacements et des bandes passantes pris en charge
 
-Avant de créer un circuit ExpressRoute, vous avez besoin d’une liste des fournisseurs de services, des emplacements et des options de bande passante pris en charge. La commande CLI `az network express-route list-service-providers` retourne cette information, vous allez utiliser dans les étapes ultérieures :
+Avant de créer un circuit ExpressRoute, vous avez besoin d’une liste des fournisseurs de services, des emplacements et des options de bande passante pris en charge. La commande d’interface CLI `az network express-route list-service-providers` retourne ces informations que vous utilisez dans les étapes ultérieures :
 
 ```azurecli-interactive
 az network express-route list-service-providers
@@ -154,7 +154,7 @@ La réponse contient la clé de service.
 
 ### <a name="4-list-all-expressroute-circuits"></a>4. Répertorier tous les circuits ExpressRoute
 
-Pour obtenir une liste de tous les circuits ExpressRoute que vous avez créé, exécutez le `az network express-route list` commande. Vous pouvez récupérer ces informations à tout moment à l’aide de cette commande. Pour répertorier tous les circuits, effectuez l’appel sans paramètres.
+Pour obtenir la liste de tous les circuits ExpressRoute que vous avez créés, exécutez la commande `az network express-route list`. Vous pouvez récupérer ces informations à tout moment à l’aide de cette commande. Pour répertorier tous les circuits, effectuez l’appel sans paramètres.
 
 ```azurecli-interactive
 az network express-route list

@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 02/08/2019
 ms.author: diberry
 ms.openlocfilehash: 31d8f54cb05bdbba7fe05249527db3dd50385087
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66123543"
 ---
 # <a name="use-microsoft-azure-traffic-manager-to-manage-endpoint-quota-across-keys"></a>Utiliser Microsoft Azure Traffic Manager pour gérer le quota de points de terminaison entre les clés
@@ -37,7 +37,7 @@ Les sections suivantes utilisent les [cmdlets PowerShell Traffic Manager](https:
 ## <a name="create-azure-resource-group-with-powershell"></a>Créer un groupe de ressources Azure avec PowerShell
 Avant de créer les ressources Azure, créez le groupe de ressources qui les contiendra. Nommez-le `luis-traffic-manager` et utilisez la région `West US`. La région du groupe de ressources stocke des métadonnées sur le groupe. Si vos ressources se trouvent dans une autre région, cela ne les ralentira pas. 
 
-Créer le groupe de ressources avec **[New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup)** applet de commande :
+Créez un groupe de ressources avec l'applet de commande **[New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup)** :
 
 ```powerShell
 New-AzResourceGroup -Name luis-traffic-manager -Location "West US"
@@ -68,7 +68,7 @@ Les sections suivantes créent deux profils enfants, l’un pour la clé LUIS Es
 ### <a name="create-the-east-us-traffic-manager-profile-with-powershell"></a>Créer le profil Traffic Manager USA Est avec PowerShell
 Pour créer le profil Traffic Manager USA Est, il y a plusieurs étapes à suivre : créer le profil, ajouter le point de terminaison et définir le point de terminaison. Un profil Traffic Manager peut comporter plusieurs points de terminaison, mais tous ont le même chemin de validation. Les URL des points de terminaison LUIS sont différentes pour les abonnements Est et Ouest en raison de la région et de la clé de point de terminaison ; chaque point de terminaison LUIS doit donc être unique dans le profil. 
 
-1. Créer un profil avec **[New-AzTrafficManagerProfile](https://docs.microsoft.com/powershell/module/az.trafficmanager/new-aztrafficmanagerprofile)** applet de commande
+1. Créer le profil avec l'applet de commande **[New-AzTrafficManagerProfile](https://docs.microsoft.com/powershell/module/az.trafficmanager/new-aztrafficmanagerprofile)**
 
     Utilisez la cmdlet suivante pour créer le profil. Veillez à modifier `appIdLuis` et `subscriptionKeyLuis`. La clé d’abonnement correspond à la clé LUIS USA Est. Si le chemin d’accès n’est pas correct, y compris la clé de point de terminaison et l’ID de l’application LUIS, l’interrogation de Traffic Manager a le statut `degraded`, car Traffic Manager ne parvient pas à demander le point de terminaison LUIS. Vérifiez que la valeur de `q` est `traffic-manager-east` afin de pouvoir la voir dans les journaux d’activité du point de terminaison LUIS.
 
@@ -90,7 +90,7 @@ Pour créer le profil Traffic Manager USA Est, il y a plusieurs étapes à suiv
     
     En cas de succès, la demande ne reçoit aucune réponse.
 
-2. Ajouter le point de terminaison est des États-Unis avec **[Add-AzTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/az.trafficmanager/add-aztrafficmanagerendpointconfig)** applet de commande
+2. Ajouter le point de terminaison USA Est avec l'applet de commande **[Add-AzTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/az.trafficmanager/add-aztrafficmanagerendpointconfig)**
 
     ```powerShell
     Add-AzTrafficManagerEndpointConfig -EndpointName luis-east-endpoint -TrafficManagerProfile $eastprofile -Type ExternalEndpoints -Target eastus.api.cognitive.microsoft.com -EndpointLocation "eastus" -EndpointStatus Enabled
@@ -125,7 +125,7 @@ Pour créer le profil Traffic Manager USA Est, il y a plusieurs étapes à suiv
     Endpoints                        : {luis-east-endpoint}
     ```
 
-3. Définir le point de terminaison est des États-Unis avec **[Set-AzTrafficManagerProfile](https://docs.microsoft.com/powershell/module/az.trafficmanager/set-aztrafficmanagerprofile)** applet de commande
+3. Définir le point de terminaison USA Est avec l'applet de commande **[Set-AzTrafficManagerProfile](https://docs.microsoft.com/powershell/module/az.trafficmanager/set-aztrafficmanagerprofile)**
 
     ```powerShell
     Set-AzTrafficManagerProfile -TrafficManagerProfile $eastprofile
@@ -136,7 +136,7 @@ Pour créer le profil Traffic Manager USA Est, il y a plusieurs étapes à suiv
 ### <a name="create-the-west-us-traffic-manager-profile-with-powershell"></a>Créer le profil Traffic Manager USA Ouest avec PowerShell
 Pour créer le profil Traffic Manager USA Ouest, suivez les mêmes étapes : créer le profil, ajouter le point de terminaison et définir le point de terminaison.
 
-1. Créer un profil avec **[New-AzTrafficManagerProfile](https://docs.microsoft.com/powershell/module/az.TrafficManager/New-azTrafficManagerProfile)** applet de commande
+1. Créer le profil avec l'applet de commande **[New-AzTrafficManagerProfile](https://docs.microsoft.com/powershell/module/az.TrafficManager/New-azTrafficManagerProfile)**
 
     Utilisez la cmdlet suivante pour créer le profil. Veillez à modifier `appIdLuis` et `subscriptionKeyLuis`. La clé d’abonnement correspond à la clé LUIS USA Est. Si le chemin d’accès n’est pas correct, y compris la clé de point de terminaison et l’ID de l’application LUIS, l’interrogation de Traffic Manager a le statut `degraded`, car Traffic Manager ne parvient pas à demander le point de terminaison LUIS. Vérifiez que la valeur de `q` est `traffic-manager-west` afin de pouvoir la voir dans les journaux d’activité du point de terminaison LUIS.
 
@@ -158,7 +158,7 @@ Pour créer le profil Traffic Manager USA Ouest, suivez les mêmes étapes : cr�
     
     En cas de succès, la demande ne reçoit aucune réponse.
 
-2. Ajouter le point de terminaison de l’ouest des États-Unis avec **[Add-AzTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/az.TrafficManager/Add-azTrafficManagerEndpointConfig)** applet de commande
+2. Ajouter le point de terminaison USA Ouest avec l'applet de commande **[Add-AzTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/az.TrafficManager/Add-azTrafficManagerEndpointConfig)**
 
     ```powerShell
     Add-AzTrafficManagerEndpointConfig -EndpointName luis-west-endpoint -TrafficManagerProfile $westprofile -Type ExternalEndpoints -Target westus.api.cognitive.microsoft.com -EndpointLocation "westus" -EndpointStatus Enabled
@@ -194,7 +194,7 @@ Pour créer le profil Traffic Manager USA Ouest, suivez les mêmes étapes : cr�
     Endpoints                        : {luis-west-endpoint}
     ```
 
-3. Définir le point de terminaison de l’ouest des États-Unis avec **[Set-AzTrafficManagerProfile](https://docs.microsoft.com/powershell/module/az.TrafficManager/Set-azTrafficManagerProfile)** applet de commande
+3. Définir le point de terminaison USA Ouest avec l'applet de commande **[Set-AzTrafficManagerProfile](https://docs.microsoft.com/powershell/module/az.TrafficManager/Set-azTrafficManagerProfile)**
 
     ```powerShell
     Set-AzTrafficManagerProfile -TrafficManagerProfile $westprofile
@@ -205,7 +205,7 @@ Pour créer le profil Traffic Manager USA Ouest, suivez les mêmes étapes : cr�
 ### <a name="create-parent-traffic-manager-profile"></a>Créer un profil Traffic Manager parent
 Créez le profil Traffic Manager parent et liez les deux profils Traffic Manager enfants au parent.
 
-1. Créer un profil parent avec **[New-AzTrafficManagerProfile](https://docs.microsoft.com/powershell/module/az.TrafficManager/New-azTrafficManagerProfile)** applet de commande
+1. Créer le profil parent avec l'applet de commande **[New-AzTrafficManagerProfile](https://docs.microsoft.com/powershell/module/az.TrafficManager/New-azTrafficManagerProfile)**
 
     ```powerShell
     $parentprofile = New-AzTrafficManagerProfile -Name luis-profile-parent -ResourceGroupName luis-traffic-manager -TrafficRoutingMethod Performance -RelativeDnsName luis-dns-parent -Ttl 30 -MonitorProtocol HTTPS -MonitorPort 443 -MonitorPath "/"
@@ -225,7 +225,7 @@ Créez le profil Traffic Manager parent et liez les deux profils Traffic Manager
 
     En cas de succès, la demande ne reçoit aucune réponse.
 
-2. Ajouter le profil enfant est des États-Unis à parent avec **[Add-AzTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/az.TrafficManager/Add-azTrafficManagerEndpointConfig)** et **NestedEndpoints** type
+2. Ajouter le profil enfant USA Est au parent avec **[Add-AzTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/az.TrafficManager/Add-azTrafficManagerEndpointConfig)** et le type **NestedEndpoints**
 
     ```powerShell
     Add-AzTrafficManagerEndpointConfig -EndpointName child-endpoint-useast -TrafficManagerProfile $parentprofile -Type NestedEndpoints -TargetResourceId $eastprofile.Id -EndpointStatus Enabled -EndpointLocation "eastus" -MinChildEndpoints 1
@@ -262,7 +262,7 @@ Créez le profil Traffic Manager parent et liez les deux profils Traffic Manager
     Endpoints                        : {child-endpoint-useast}
     ```
 
-3. Ajouter un profil enfant de l’ouest des États-Unis à parent avec **[Add-AzTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/az.TrafficManager/Add-azTrafficManagerEndpointConfig)** applet de commande et **NestedEndpoints** type
+3. Ajouter le profil enfant USA Ouest au parent avec l'applet de commande **[Add-AzTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/az.TrafficManager/Add-azTrafficManagerEndpointConfig)** et le type **NestedEndpoints**
 
     ```powerShell
     Add-AzTrafficManagerEndpointConfig -EndpointName child-endpoint-uswest -TrafficManagerProfile $parentprofile -Type NestedEndpoints -TargetResourceId $westprofile.Id -EndpointStatus Enabled -EndpointLocation "westus" -MinChildEndpoints 1
@@ -299,7 +299,7 @@ Créez le profil Traffic Manager parent et liez les deux profils Traffic Manager
     Endpoints                        : {child-endpoint-useast, child-endpoint-uswest}
     ```
 
-4. Définir des points de terminaison avec **[Set-AzTrafficManagerProfile](https://docs.microsoft.com/powershell/module/az.TrafficManager/Set-azTrafficManagerProfile)** applet de commande 
+4. Définir des points de terminaison avec l'applet de commande **[Set-AzTrafficManagerProfile](https://docs.microsoft.com/powershell/module/az.TrafficManager/Set-azTrafficManagerProfile)** 
 
     ```powerShell
     Set-AzTrafficManagerProfile -TrafficManagerProfile $parentprofile
@@ -308,7 +308,7 @@ Créez le profil Traffic Manager parent et liez les deux profils Traffic Manager
     En cas de succès, la réponse sera la même qu’à l’étape 3.
 
 ### <a name="powershell-variables"></a>Variables PowerShell
-Dans les sections précédentes, trois variables PowerShell ont été créées : `$eastprofile`, `$westprofile` et `$parentprofile`. Elles sont utilisées vers la fin de la configuration de Traffic Manager. Si vous choisissez de ne pas créer les variables, avez oublié d’ou votre fenêtre PowerShell arrive à expiration, vous pouvez utiliser l’applet de commande PowerShell,  **[Get-AzTrafficManagerProfile](https://docs.microsoft.com/powershell/module/az.TrafficManager/Get-azTrafficManagerProfile)**, pour obtenir le profil à nouveau et assignez-la à un variable. 
+Dans les sections précédentes, trois variables PowerShell ont été créées : `$eastprofile`, `$westprofile` et `$parentprofile`. Elles sont utilisées vers la fin de la configuration de Traffic Manager. Si vous choisissez de ne pas créer les variables, si vous avez oublié de le faire ou si la fenêtre PowerShell expire, vous pouvez utiliser la cmdlet PowerShell **[Get-AzTrafficManagerProfile](https://docs.microsoft.com/powershell/module/az.TrafficManager/Get-azTrafficManagerProfile)** pour récupérer le profil et l’affecter à une variable. 
 
 Remplacez les éléments figurant entre crochets, `<>`, par les valeurs correctes de chacun des trois profils dont vous avez besoin. 
 
