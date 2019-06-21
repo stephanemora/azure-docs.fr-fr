@@ -11,10 +11,10 @@ ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: 80b8969ba657506705db2b1a3bbc5b389d0a992c
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66512450"
 ---
 # <a name="about-technical-profiles-in-azure-active-directory-b2c-custom-policies"></a>À propos des profils techniques dans les stratégies personnalisées d’Azure Active Directory B2C
@@ -49,7 +49,7 @@ Tous les types de profils techniques partagent le même concept. Vous pouvez env
  
 1. **InputClaimsTransformation** : les revendications d’entrée de chaque [transformation des revendications](claimstransformations.md) d’entrée sont récupérées dans le conteneur de revendications. Une fois l’exécution terminée, les revendications de sortie sont replacées dans le conteneur de revendications. Les revendications de sortie d’une transformation des revendications d’entrée peuvent être des revendications d’entrée d’une transformation de revendications d’entrée ultérieure.
 2. **InputClaims** : les revendications sont récupérées auprès du conteneur de revendications et sont utilisées pour le profil technique. Par exemple, un [profil technique autodéclaré](self-asserted-technical-profile.md) utilise les revendications d’entrée pour préremplir les revendications de sortie fournies par l’utilisateur. Un profil technique d’API REST utilise les revendications d’entrée pour envoyer les paramètres d’entrée au point de terminaison de l’API REST. Azure Active Directory utilise la revendication d’entrée comme identificateur unique pour lire, mettre à jour ou supprimer un compte.
-3. **Exécution du profil technique** : le profil technique échange les revendications avec le tiers configuré. Exemple :
+3. **Exécution du profil technique** : le profil technique échange les revendications avec le tiers configuré. Par exemple :
     - Redirigez l’utilisateur vers le fournisseur d’identité pour finaliser la connexion. Une fois connecté, l’utilisateur revient et l’exécution du profil technique se poursuit.
     - Appelez une API REST tout en envoyant les paramètres en tant que InputClaims et récupérant les informations en tant que OutputClaims.
     - Créez ou mettez à jour le compte d’utilisateur.
