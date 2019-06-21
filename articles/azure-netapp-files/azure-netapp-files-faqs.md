@@ -1,6 +1,6 @@
 ---
-title: Questions fréquentes sur les fichiers NetApp Azure | Microsoft Docs
-description: Réponses aux questions fréquentes sur Azure Files de NetApp.
+title: Questions fréquentes (FAQ) sur NetApp Files | Microsoft Docs
+description: Réponses aux questions fréquemment posées sur Azure NetApp Files.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -15,184 +15,184 @@ ms.topic: conceptual
 ms.date: 05/14/2019
 ms.author: b-juche
 ms.openlocfilehash: 6f1ca3398678b59a81e5c22b51b36a1f5505d4c2
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65806385"
 ---
-# <a name="faqs-about-azure-netapp-files"></a>Questions fréquentes sur les fichiers NetApp Azure
+# <a name="faqs-about-azure-netapp-files"></a>Questions fréquentes (FAQ) sur Azure NetApp Files
 
-Cet article répond aux questions fréquemment posées (FAQ) sur Azure Files de NetApp. 
+Cet article contient les réponses à certaines questions fréquemment posées sur Azure NetApp Files. 
 
 ## <a name="networking-faqs"></a>FAQ sur la mise en réseau
 
-### <a name="does-the-nfs-data-path-go-over-the-internet"></a>Le chemin d’accès de données NFS passe par Internet ?  
+### <a name="does-the-nfs-data-path-go-over-the-internet"></a>Le chemin d’accès de données NFS passe-t-il par Internet ?  
 
-Non. Le chemin d’accès de données NFS ne passe pas par Internet. Azure Files de NetApp est un service natif Azure qui est déployé dans le réseau virtuel de Azure (VNet) dans lequel le service est disponible. Fichiers NetApp Azure utilise un sous-réseau de délégué et configure une interface réseau directement sur le réseau virtuel. 
+Non. Le chemin d’accès de données NFS ne passe pas par Internet. Azure NetApp Files est un service natif Azure qui est déployé dans le réseau virtuel Azure (VNet) dans lequel le service est disponible. Azure NetApp Files utilise un sous-réseau délégué et configure une interface réseau directement sur le réseau virtuel. 
 
-Consultez [les instructions pour les fichiers de NetApp Azure réseau planification](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-network-topologies) pour plus d’informations.  
+Voir [Consignes pour planifier un réseau Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-network-topologies) pour plus de détails.  
 
-### <a name="can-i-connect-a-vnet-that-i-already-created-to-the-azure-netapp-files-service"></a>Puis-je connecter un réseau virtuel que j’ai déjà créé pour le service de fichiers NetApp de Azure ?
+### <a name="can-i-connect-a-vnet-that-i-already-created-to-the-azure-netapp-files-service"></a>Puis-je connecter un réseau virtuel que j’ai déjà créé pour le service Azure NetApp Files ?
 
-Oui, vous pouvez connecter des réseaux virtuels que vous avez créé pour le service. 
+Oui, vous pouvez connecter des réseaux virtuels que vous avez créés pour le service. 
 
-Consultez [les instructions pour les fichiers de NetApp Azure réseau planification](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-network-topologies) pour plus d’informations.  
+Voir [Consignes pour planifier un réseau Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-network-topologies) pour plus de détails.  
 
-### <a name="can-i-mount-an-nfs-volume-of-azure-netapp-files-using-dns-fqdn-name"></a>Puis-je monter un volume NFS de fichiers NetApp de Azure à l’aide du nom FQDN de DNS ?
+### <a name="can-i-mount-an-nfs-volume-of-azure-netapp-files-using-dns-fqdn-name"></a>Puis-je monter un volume NFS d’Azure NetApp Files avec le nom FQDN du DNS ?
 
-Oui, vous pouvez, si vous créez les entrées DNS requises. Les fichiers NetApp Azure fournit l’adresse IP de service pour le volume configuré. 
+Oui, vous pouvez le faire si vous créez les entrées DNS requises. Azure NetApp Files fournit l’adresse IP de service pour le volume configuré. 
 
 > [!NOTE] 
-> Les fichiers NetApp Azure peuvent déployer des adresses IP supplémentaires pour le service en fonction des besoins.  Les entrées DNS peut-être être mis à jour régulièrement.
+> Azure NetApp Files peut déployer des adresses IP supplémentaires pour le service en fonction des besoins.  Les entrées DNS peuvent avoir à être mises à jour régulièrement.
 
 ## <a name="security-faqs"></a>Forum aux questions sur la sécurité
 
-### <a name="can-the-network-traffic-between-the-azure-vm-and-the-storage-be-encrypted"></a>Le trafic réseau entre la machine virtuelle Azure et le stockage peut être chiffré ?
+### <a name="can-the-network-traffic-between-the-azure-vm-and-the-storage-be-encrypted"></a>Le trafic réseau entre la machine virtuelle Azure et le stockage peut-il être chiffré ?
 
-Le trafic de données (le trafic à partir du client NFSv3 ou smbv3 fournis par les volumes de fichiers NetApp de Azure) n’est pas chiffré. Toutefois, le trafic à partir d’une machine virtuelle Azure (en cours d’exécution un client SMB ou NFS) vers Azure Files de NetApp est aussi sécurisé que tout autre trafic Azure-VM-VM. Ce trafic est local pour le réseau de centre de données Azure. 
+Le trafic de données (le trafic à partir du client NFSv3 ou SMBv3 fourni par les volumes Azure NetApp Files) n’est pas chiffré. Toutefois, le trafic à partir d’une machine virtuelle Azure (exécutant un client SMB ou NFS) vers Azure NetApp Files est aussi sécurisé que tout autre trafic entre machines virtuelles Azure. Ce trafic est local pour le réseau du centre de données Azure. 
 
-### <a name="can-the-storage-be-encrypted-at-rest"></a>Le stockage peut être chiffré au repos ?
+### <a name="can-the-storage-be-encrypted-at-rest"></a>Le stockage peut-il être chiffré au repos ?
 
-Tous les volumes de fichiers NetApp de Azure sont chiffrées à l’aide de la norme FIPS 140-2 standard. Toutes les clés sont gérées par le service de fichiers NetApp de Azure. 
+Tous les volumes Azure NetApp Files sont chiffrés en suivant la norme FIPS 140-2. Toutes les clés sont gérées par le service Azure NetApp Files. 
 
-### <a name="how-are-encryption-keys-managed"></a>La gestion des clés de chiffrement ? 
+### <a name="how-are-encryption-keys-managed"></a>Comment les clés de chiffrement sont-elles gérées ? 
 
-Gestion de clés pour les fichiers de NetApp Azure est gérée par le service.  Actuellement, les clés gérées par l’utilisateur (apportez votre propre clés) ne sont pas prises en charge.
+La gestion des clés pour Azure NetApp Files est assurée par le service.  Actuellement, les clés gérées par l’utilisateur (Bring Your Own Key (BYOK)) ne sont pas prises en charge.
 
 ### <a name="can-i-configure-the-nfs-export-policy-rules-to-control-access-to-the-azure-netapp-files-service-mount-target"></a>Puis-je configurer les règles de stratégie d’exportation NFS pour contrôler l’accès à la cible de montage du service Azure NetApp Files ?
 
 
-Oui, vous pouvez configurer jusqu'à cinq règles dans une seule stratégie d’exportation NFS.
+Oui, vous pouvez configurer jusqu'à cinq règles dans une même stratégie d’exportation NFS.
 
-### <a name="does-azure-netapp-files-support-network-security-groups"></a>Fichiers de NetApp Azure prend en charge les groupes de sécurité réseau ?
+### <a name="does-azure-netapp-files-support-network-security-groups"></a>Azure NetApp Files prend-il en charge les groupes de sécurité réseau ?
 
-Non, actuellement vous ne pouvez pas appliquer des groupes de sécurité réseau au sous-réseau délégué de fichiers NetApp de Azure ou les interfaces réseau créés par le service.
+Non, actuellement vous ne pouvez pas appliquer de Groupes de sécurité réseau au sous-réseau délégué d’Azure NetApp Files ou aux interfaces réseau créées par le service.
 
 ### <a name="can-i-use-azure-iam-with-azure-netapp-files"></a>Puis-je utiliser Azure IAM avec Azure NetApp Files ?
 
-Oui, les fichiers NetApp Azure prend en charge les fonctionnalités RBAC avec Azure IAM.
+Oui, Azure NetApp Files prend en charge les fonctionnalités RBAC avec Azure IAM.
 
-## <a name="performance-faqs"></a>Forum aux questions de performances
+## <a name="performance-faqs"></a>Questions fréquentes relatives aux performances
 
-### <a name="what-should-i-do-to-optimize-or-tune-azure-netapp-files-performance"></a>Que dois-je faire pour optimiser ou régler les performances de fichiers NetApp de Azure ?
+### <a name="what-should-i-do-to-optimize-or-tune-azure-netapp-files-performance"></a>Que puis-je faire pour optimiser ou ajuster les performances d’Azure NetApp Files ?
 
-Vous pouvez effectuer les actions suivantes par les exigences de performances : 
-- Assurez-vous que la taille de la Machine virtuelle est en conséquence.
-- Activer la mise en réseau accélérée pour la machine virtuelle.
-- Sélectionnez le niveau de service souhaité et la taille pour le pool de capacité.
-- Créer un volume avec la taille de quota de votre choix pour la capacité et les performances.
+Vous pouvez effectuer les actions suivantes en fonction de vos exigences en matière de performances : 
+- Assurez-vous que la taille de la machine virtuelle est adaptée.
+- Activez la mise en réseau accélérée pour la machine virtuelle.
+- Sélectionnez un niveau de service et une taille adaptés pour le pool de capacité.
+- Créez un volume avec la taille de quota de votre choix pour la capacité et les performances.
 
-### <a name="how-do-i-convert-throughput-based-service-levels-of-azure-netapp-files-to-iops"></a>Comment convertir des niveaux de service en fonction du débit d’Azure Files de NetApp e/s ?
+### <a name="how-do-i-convert-throughput-based-service-levels-of-azure-netapp-files-to-iops"></a>Comment convertir les niveaux de service basés sur le débit d’Azure NetApp Files en IOPS ?
 
-Vous pouvez convertir Mo/s pour les e/s à l’aide de la formule suivante :  
+Vous pouvez convertir les Mo/s en IOPS à l’aide de la formule suivante :  
 
 `IOPS = (MBps Throughput / KB per IO) * 1024`
 
 ### <a name="how-do-i-change-the-service-level-of-a-volume"></a>Comment modifier le niveau de service d’un volume ?
 
-Modification du niveau de service d’un volume n’est pas pris en charge actuellement.
+La modification du niveau de service d’un volume n’est pas prise en charge actuellement.
 
-### <a name="how-do-i-monitor-azure-netapp-files-performance"></a>Comment surveiller les performances des fichiers de NetApp Azure ?
+### <a name="how-do-i-monitor-azure-netapp-files-performance"></a>Comment surveiller les performances d’Azure NetApp Files ?
 
-Fichiers NetApp Azure fournit des métriques de performances de volume. Vous pouvez également utiliser Azure Monitor pour surveiller les métriques de l’utilisation pour Azure Files de NetApp.  Consultez [métriques pour Azure Files de NetApp](azure-netapp-files-metrics.md) pour obtenir la liste de mesures de performances pour Azure Files de NetApp.
+Azure NetApp Files fournit des métriques de performance des volumes. Vous pouvez également utiliser Azure Monitor pour surveiller les métriques d’utilisation pour Azure NetApp Files.  Consultez [Métriques pour Azure NetApp Files](azure-netapp-files-metrics.md) pour obtenir la liste des métriques de performance pour Azure NetApp Files.
 
-## <a name="nfs-faqs"></a>Forum aux questions sur NFS
+## <a name="nfs-faqs"></a>Questions fréquentes sur NFS
 
-### <a name="i-want-to-have-a-volume-mounted-automatically-when-an-azure-vm-is-started-or-rebooted--how-do-i-configure-my-host-for-persistent-nfs-volumes"></a>Je souhaite disposer d’un volume monté automatiquement lorsqu’une machine virtuelle Azure est démarrée ou redémarrée.  Comment configurer mon hôte pour les volumes NFS persistants ?
+### <a name="i-want-to-have-a-volume-mounted-automatically-when-an-azure-vm-is-started-or-rebooted--how-do-i-configure-my-host-for-persistent-nfs-volumes"></a>Je veux monter un volume automatiquement lorsqu’une machine virtuelle Azure est démarrée ou redémarrée.  Comment configurer mon hôte pour les volumes NFS persistants ?
 
-Pour un volume NFS automatiquement monté au moment du démarrage de la machine virtuelle ou d’un redémarrage, ajoutez une entrée à la `/etc/fstab` fichier sur l’hôte. 
+Pour qu’un volume NFS soit monté automatiquement au moment du démarrage ou du redémarrage de la machine virtuelle, ajoutez une entrée au fichier `/etc/fstab` sur l’hôte. 
 
 Par exemple : `$ANFIP:/$FILEPATH      /$MOUNTPOINT    nfs bg,rw,hard,noatime,nolock,rsize=65536,wsize=65536,vers=3,tcp,_netdev 0 0`
 
 - $ANFIP  
-    L’adresse IP du volume Azure Files de NetApp trouvé dans le volet de propriétés de volume
+    L’adresse IP du volume Azure NetApp Files se trouvant dans le volet Propriétés de volume
 - $FILEPATH  
-    Le chemin d’exportation du volume de fichiers NetApp de Azure
+    Le chemin d’exportation du volume Azure NetApp Files
 - $MOUNTPOINT  
     Le répertoire créé sur l’hôte Linux utilisé pour monter l’exportation NFS
 
-### <a name="why-does-the-df-command-on-nfs-client-not-show-the-provisioned-volume-size"></a>Pourquoi la commande DF sur le client NFS pas ne pas afficher la taille du volume approvisionné ?
+### <a name="why-does-the-df-command-on-nfs-client-not-show-the-provisioned-volume-size"></a>Pourquoi la commande DF sur le client NFS n’affiche-t-elle pas la taille du volume approvisionné ?
 
-La taille du volume signalée dans DF est la taille maximale que peut atteindre le volume de fichiers NetApp de Azure. La taille du volume Azure Files de NetApp dans commande DF n’est pas de quota ou de la taille du volume.  Vous pouvez obtenir la taille du volume Azure Files de NetApp ou le quota par le biais du portail Azure ou l’API.
+La taille du volume signalée dans DF est la taille maximale que peut atteindre le volume Azure NetApp Files. La taille du volume Azure NetApp Files dans la commande DF ne représente pas le quota ou la taille du volume.  Vous pouvez obtenir la taille du volume Azure NetApp Files ou son quota par le biais du portail Azure ou de l’API.
 
-### <a name="what-nfs-version-does-azure-netapp-files-support"></a>Quelle version NFS Azure NetApp Files prend en charge ?
+### <a name="what-nfs-version-does-azure-netapp-files-support"></a>Quelle version de NFS Azure NetApp Files prend-il en charge ?
 
-Les fichiers NetApp Azure prend actuellement en charge NFSv3.
+Azure NetApp Files prend actuellement en charge NFSv3.
 
-### <a name="how-do-i-enable-root-squashing"></a>Comment activer la racine débogage ?
+### <a name="how-do-i-enable-root-squashing"></a>Comment activer le root squash ?
 
-Débogage de racine n’est actuellement pas pris en charge.
+Le root squash n’est actuellement pas pris en charge.
 
-## <a name="smb-faqs"></a>Forum aux questions sur SMB
+## <a name="smb-faqs"></a>Questions fréquentes sur SMB
 
-### <a name="does-azure-netapp-files-support-azure-active-directory"></a>Fichiers de NetApp Azure prend en charge Azure Active Directory ?
+### <a name="does-azure-netapp-files-support-azure-active-directory"></a>Est-ce qu’Azure NetApp Files prend en charge Azure Active Directory ?
 
-Non, il est actuellement pas pris en charge.  Les fichiers NetApp Azure prend en charge Active Directory Domain Services (apportez votre propre AD), qui peut utiliser des contrôleurs de domaine Active Directory existants avec Azure Files de NetApp. Contrôleurs de domaine peuvent résider dans Azure en tant que machines virtuelles ou en local via ExpressRoute.
+Non, cela n’est actuellement pas prise en charge.  Azure NetApp Files prend en charge Active Directory Domain Services (Bring Your Own AD), qui peut utiliser des contrôleurs de domaine Active Directory existants avec Azure NetApp Files. Les contrôleurs de domaine peuvent résider dans Azure en tant que machines virtuelles ou en local via ExpressRoute.
 
-### <a name="is-an-active-directory-connection-required-for-smb-access"></a>Est une connexion Active Directory requise pour un accès SMB ? 
+### <a name="is-an-active-directory-connection-required-for-smb-access"></a>Est-ce qu’une connexion Active Directory est requise pour l’accès à SMB ? 
 
-Oui, vous devez créer une connexion Active Directory avant de déployer un volume SMB. Les contrôleurs de domaine spécifié doit être accessibles par le sous-réseau délégué d’Azure Files de NetApp pour une connexion réussie.  Consultez [créer un volume SMB](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes#create-an-smb-volume) pour plus d’informations. 
+Oui, vous devez créer une connexion Active Directory avant de déployer un volume SMB. Les contrôleurs de domaine spécifiés doivent être accessibles par le sous-réseau délégué d’Azure NetApp Files pour une connexion réussie.  Consultez [Créer un volume SMB](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes#create-an-smb-volume) pour plus d’informations. 
 
-### <a name="how-many-active-directory-connections-are-supported"></a>Le nombre de connexions Active Directory est pris en charge ?
+### <a name="how-many-active-directory-connections-are-supported"></a>Combien de connexions Active Directory sont prises en charge ?
 
-Les fichiers NetApp Azure prend actuellement en charge une seule connexion Active Directory par abonnement. En outre, la connexion Active Directory est spécifique à un seul compte NetApp ; Il n’est pas partagé entre les comptes. 
+Azure NetApp Files prend actuellement en charge une seule connexion Active Directory par abonnement. En outre, la connexion Active Directory est spécifique à un seul compte NetApp ; elle n’est pas partagée entre les comptes. 
 
-### <a name="what-versions-of-windows-ad-are-supported"></a>Quelles versions de Windows Active Directory sont pris en charge ?
+### <a name="what-versions-of-windows-ad-are-supported"></a>Quelles versions de Windows Active Directory sont-elles prises en charge ?
 
-Fichiers NetApp Azure prend en charge la version 2016 de 2008r2SP1 de Windows Server des Services de domaine Active Directory.
+Azure NetApp Files prend en charge la version 2008r2SP1-2016 de Windows Server pour Active Directory Domain Services.
 
-## <a name="capacity-management-faqs"></a>FAQ sur la gestion de la capacité
+## <a name="capacity-management-faqs"></a>Questions fréquentes (FAQ) sur la gestion de la capacité
 
-### <a name="how-do-i-monitor-usage-for-capacity-pool-and-volume-of-azure-netapp-files"></a>Comment surveiller l’utilisation de pool de capacité et le volume de fichiers NetApp de Azure ? 
+### <a name="how-do-i-monitor-usage-for-capacity-pool-and-volume-of-azure-netapp-files"></a>Comment surveiller l’utilisation du pool de capacité et du volume Azure NetApp Files ? 
 
-Fichiers NetApp Azure fournit des métriques de capacité pool et le volume d’utilisation. Vous pouvez également utiliser Azure Monitor pour surveiller l’utilisation de fichiers NetApp de Azure. Consultez [métriques pour Azure Files de NetApp](azure-netapp-files-metrics.md) pour plus d’informations. 
+Azure NetApp Files fournit des métriques de pool de capacité et de volume d’utilisation. Vous pouvez également utiliser Azure Monitor pour surveiller l’utilisation d’Azure NetApp Files. Consultez [Métriques pour Azure NetApp Files](azure-netapp-files-metrics.md) pour plus d’informations. 
 
-### <a name="can-i-manage-azure-netapp-files-through-azure-storage-explorer"></a>Puis-je gérer Azure Files de NetApp via l’Explorateur de stockage Azure ?
+### <a name="can-i-manage-azure-netapp-files-through-azure-storage-explorer"></a>Puis-je gérer Azure NetApp Files via l’Explorateur Stockage Azure ?
 
-Non. Les fichiers NetApp Azure n’est pas prise en charge par l’Explorateur de stockage Azure.
+Non. Azure NetApp Files n’est pas pris en charge par l’Explorateur Stockage Azure.
 
-## <a name="data-migration-and-protection-faqs"></a>FAQ de migration et la protection des données
+## <a name="data-migration-and-protection-faqs"></a>Questions fréquentes sur la migration et la protection des données
 
-### <a name="how-do-i-migrate-data-to-azure-netapp-files"></a>Comment migrer des données dans des fichiers de NetApp Azure ?
-Azure Files de NetApp fournit les volumes NFS et SMB.  Vous pouvez utiliser n’importe quel outil de copie basée sur le fichier pour migrer des données au service. 
+### <a name="how-do-i-migrate-data-to-azure-netapp-files"></a>Comment migrer des données vers Azure NetApp Files ?
+Azure NetApp Files fournit les volumes NFS et SMB.  Vous pouvez utiliser n’importe quel outil de copie basé sur le fichier pour migrer des données vers le service. 
 
-NetApp offre une solution SaaS, [synchronisation du Cloud NetApp](https://cloud.netapp.com/cloud-sync-service).  La solution vous permet de répliquer NFS ou le partage des données SMB pour les exportations NFS de fichiers NetApp Azure ou SMB. 
+NetApp offre une solution SaaS, [NetApp Cloud Sync](https://cloud.netapp.com/cloud-sync-service).  La solution vous permet de répliquer les données NFS ou SMB dans des exportations NFS ou partages SMB d’Azure NetApp Files. 
 
-Vous pouvez également utiliser un large éventail d’outils gratuits pour copier des données. Pour NFS, vous pouvez utiliser les outils de charges de travail, tel que [rsync](https://rsync.samba.org/examples.html) pour copier et synchroniser les données sources dans un volume Azure Files de NetApp. Pour SMB, vous pouvez utiliser des charges de travail [robocopy](https://docs.microsoft.com/windows-server/administration/windows-commands/robocopy) de la même manière.  Ces outils peuvent également répliquer les autorisations de fichier ou dossier. 
+Vous pouvez également utiliser un large éventail d’outils gratuits pour copier les données. Pour NFS, vous pouvez utiliser des outils de charge de travail, comme [rsync](https://rsync.samba.org/examples.html) pour copier et synchroniser les données source dans un volume Azure NetApp Files. Pour SMB, vous pouvez utiliser des charges de travail [robocopy](https://docs.microsoft.com/windows-server/administration/windows-commands/robocopy) de la même manière.  Ces outils peuvent également répliquer les autorisations de fichier ou de dossier. 
 
-La configuration requise pour la migration de données en local vers Azure Files de NetApp est les suivantes : 
+La configuration requise pour la migration de données en local vers Azure NetApp Files est la suivante : 
 
-- Vérifiez que les fichiers NetApp Azure est disponible dans la région Azure cible.
-- Valider la connectivité réseau entre la source et l’adresse IP de volume Azure Files de NetApp cible. Transfert de données entre sur site et le service de fichiers NetApp de Azure est pris en charge via ExpressRoute.
-- Créer la cible de volume Azure Files de NetApp.
-- Transférer les données de la source vers le volume cible à l’aide de votre outil de copie de fichier par défaut.
+- Vérifiez qu’Azure NetApp Files est disponible dans la région Azure cible.
+- Validez la connectivité réseau entre la source et l’adresse IP du volume Azure NetApp Files cible. Le transfert de données entre la machine locale et le service Azure NetApp Files est pris en charge via ExpressRoute.
+- Créez le volume Azure NetApp Files cible.
+- Transférez les données de la source vers le volume cible à l’aide de votre outil de copie de fichiers par défaut.
 
-### <a name="how-do-i-create-a-copy-of-an-azure-netapp-files-volume-in-another-azure-region"></a>Comment créer une copie d’un volume Azure Files de NetApp dans une autre région Azure ?
+### <a name="how-do-i-create-a-copy-of-an-azure-netapp-files-volume-in-another-azure-region"></a>Comment créer une copie d’un volume Azure NetApp Files dans une autre région Azure ?
     
-Azure Files de NetApp fournit les volumes NFS et SMB.  N’importe quel outil de copie en fonction du fichier peut être utilisé pour répliquer des données entre des régions Azure. 
+Azure NetApp Files fournit les volumes NFS et SMB.  N’importe quel outil de copie basé sur le fichier peut être utilisé pour répliquer des données entre régions Azure. 
 
-NetApp offre une solution SaaS basé, [synchronisation du Cloud NetApp](https://cloud.netapp.com/cloud-sync-service).  La solution vous permet de répliquer NFS ou le partage des données SMB pour les exportations NFS de fichiers NetApp Azure ou SMB. 
+NetApp offre une solution SaaS, [NetApp Cloud Sync](https://cloud.netapp.com/cloud-sync-service).  La solution vous permet de répliquer les données NFS ou SMB dans des exportations NFS ou partages SMB d’Azure NetApp Files. 
 
-Vous pouvez également utiliser un large éventail d’outils gratuits pour copier des données. Pour NFS, vous pouvez utiliser les outils de charges de travail, tel que [rsync](https://rsync.samba.org/examples.html) pour copier et synchroniser les données sources dans un volume Azure Files de NetApp. Pour SMB, vous pouvez utiliser des charges de travail [robocopy](https://docs.microsoft.com/windows-server/administration/windows-commands/robocopy) de la même manière.  Ces outils peuvent également répliquer les autorisations de fichier ou dossier. 
+Vous pouvez également utiliser un large éventail d’outils gratuits pour copier les données. Pour NFS, vous pouvez utiliser des outils de charge de travail, comme [rsync](https://rsync.samba.org/examples.html) pour copier et synchroniser les données source dans un volume Azure NetApp Files. Pour SMB, vous pouvez utiliser des charges de travail [robocopy](https://docs.microsoft.com/windows-server/administration/windows-commands/robocopy) de la même manière.  Ces outils peuvent également répliquer les autorisations de fichier ou de dossier. 
 
-La configuration requise pour la réplication d’un volume Azure Files de NetApp vers une autre région Azure est les suivantes : 
-- Vérifiez que les fichiers NetApp Azure est disponible dans la région Azure cible.
-- Valider la connectivité réseau entre des réseaux virtuels dans chaque région. Actuellement, l’homologation globale entre réseaux virtuels n’est pas pris en charge.  Vous pouvez établir la connectivité entre réseaux virtuels en le liant à un circuit ExpressRoute ou à l’aide d’une connexion S2S VPN. 
-- Créer la cible de volume Azure Files de NetApp.
-- Transférer les données de la source vers le volume cible à l’aide de votre outil de copie de fichier par défaut.
+La configuration requise pour la réplication d’un volume Azure NetApp Files vers une autre région Azure est la suivante : 
+- Vérifiez qu’Azure NetApp Files est disponible dans la région Azure cible.
+- Validez la connectivité réseau entre les réseaux virtuels dans chaque région. Actuellement, l’homologation globale entre réseaux virtuels n’est pas prise en charge.  Vous pouvez établir la connectivité entre réseaux virtuels en les liant à un circuit ExpressRoute ou à l’aide d’une connexion S2S VPN. 
+- Créez le volume Azure NetApp Files cible.
+- Transférez les données de la source vers le volume cible à l’aide de votre outil de copie de fichiers par défaut.
 
-### <a name="is-migration-with-azure-data-box-supported"></a>Est la migration avec Azure Data Box est pris en charge ?
+### <a name="is-migration-with-azure-data-box-supported"></a>Est-ce que la migration avec Azure Data Box est prise en charge ?
 
-Non. Azure Data Box ne prend pas en charge les fichiers de NetApp Azure actuellement. 
+Non. Azure Data Box ne prend pas en charge Azure NetApp Files actuellement. 
 
-### <a name="is-migration-with-azure-importexport-service-supported"></a>Est la migration avec le service Azure Import/Export pris en charge ?
+### <a name="is-migration-with-azure-importexport-service-supported"></a>Est-ce que la migration avec le service Azure Import/Export est prise en charge ?
 
-Non. Service Azure Import/Export ne prend pas en charge les fichiers de NetApp Azure actuellement.
+Non. Le service Azure Import/Export ne prend pas en charge Azure NetApp Files actuellement.
 
 ## <a name="next-steps"></a>Étapes suivantes  
 
-- [Forum aux questions sur Microsoft Azure ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-faqs)
-- [FAQ sur le réseau virtuel Microsoft Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq)
+- [Questions fréquentes (FAQ) sur Microsoft Azure ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-faqs)
+- [Questions fréquentes (FAQ) sur les réseaux virtuels Microsoft Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq)
 - [Création d’une demande de support Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)
 - [Azure Data Box](https://docs.microsoft.com/azure/databox-family/)
