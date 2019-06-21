@@ -118,8 +118,8 @@
           href: ephemeral-os-disks.md
     - name: Mise en réseau
       href: network-overview.md
-    - name: Applications de mise à l’échelle automatique
-      href: autoscale.md
+    - name: Groupes identiques
+      href: ../../virtual-machine-scale-sets/overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     - name: Automatisation de l’infrastructure
       href: infrastructure-automation.md
     - name: Sécurité et stratégie

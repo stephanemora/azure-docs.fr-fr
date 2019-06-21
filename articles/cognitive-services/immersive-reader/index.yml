@@ -1,0 +1,62 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentation du lecteur immersif
+metadata:
+  title: "Documentation du lecteur immersif\_- Guides de démarrage rapide, tutoriels, informations de référence sur l’API\_- Azure Cognitive Services\_| Microsoft Docs"
+  description: Découvrez comment utiliser le lecteur immersif dans votre application.
+  services: cognitive-services
+  author: metanMSFT
+  manager: nitinme
+  ms.service: cognitive-services
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 06/20/2019
+  ms.author: metanMSFT
+abstract:
+  description: 'Le lecteur immersif est un outil qui permet d’implémenter des techniques éprouvées pour améliorer la compréhension dans le cadre de l’apprentissage de la lecture, l’apprentissage d’une langue et pour les personnes avec des difficultés d’apprentissage. Vous pouvez utiliser le lecteur immersif dans votre application web à l’aide du SDK du lecteur immersif.'
+sections:
+  - items:
+      - type: list
+        style: cards
+        className: cardsM
+        columns: 3
+        items:
+          - href: /azure/cognitive-services/immersive-reader/overview
+            html: <p>En savoir plus sur le lecteur immersif et son intégration dans vos applications</p>
+            image:
+              src: ../media/index/i_overview.svg
+            title: "Qu’est-ce que le lecteur immersif\_?"
+          - href: /azure/cognitive-services/immersive-reader/reference
+            html: <p>En savoir plus sur le SDK Javascript du lecteur immersif</p>
+            image:
+              src: ../media/index/i_overview.svg
+            title: Utiliser le SDK du lecteur immersif
+  - title: "Démarrages en 5\_minutes"
+    items:
+      - type: paragraph
+        text: "Prise en main du lecteur immersif\_:"
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: media/index/logo_csharp.svg
+            text: 'C&#35;'
+            alt: 'Logo C#'
+            href: quickstart
+  - title: Didacticiels pas à pas
+    items:
+      - type: paragraph
+        text: "Découvrez comment développer des applications avec le lecteur immersif\_:"
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="tutorial.md">Lancer le lecteur immersif à l’aide de Node.js</a>
+  - title: Informations de référence
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Kits SDK
+            html: <p><a href="reference.md">Javascript</a></p>

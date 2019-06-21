@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 9871e0106ee6caf11c5a1e24459fbd2044f5f3d7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a748250a25c483f61489351943e8ef29a5d5edbe
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65021437"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165068"
 ---
 # <a name="speech-synthesis-markup-language-ssml"></a>SSML (Speech Synthesis Markup Language)
 
@@ -42,7 +42,7 @@ Les modifications de style d’élocution peuvent être appliquées au niveau de
 | `en-US-JessaNeural` | type=`cheerful` | Exprime une émotion positive et heureuse |
 | | type=`empathy` | Exprime une de la compassion et de la compréhension |
 | `zh-CN-XiaoxiaoNeural` | type=`newscast` | Exprime un ton formel, similaire aux journaux télévisés |
-| | type=`sentiment ` | Transmet un message ou récit touchant |
+| | type=`sentiment` | Transmet un message ou récit touchant |
 
 ```xml
 <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="en-US">

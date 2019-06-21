@@ -1,6 +1,6 @@
 - name: Documentation Azure Resource Graph
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: Vue d’ensemble d’Azure Resource Graph
       displayName: 'Resource Manager, query language, rbac, permissions'
@@ -33,6 +33,9 @@
     - name: Utiliser de grands jeux de données
       displayName: 'page, first, skip, token'
       href: ./concepts/work-with-data.md
+    - name: Instructions pour les requêtes limitées
+      displayName: 'pagination, batching, throttling, parallel'
+      href: ./concepts/guidance-for-throttled-requests.md
 - name: Guides pratiques
   items:
     - name: Obtenir les changements des ressources
