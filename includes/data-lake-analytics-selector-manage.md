@@ -9,11 +9,11 @@ ms.topic: include
 ms.date: 05/24/2018
 ms.custom: include file
 ms.openlocfilehash: 3d5f07ee5262832097bf2b178f3be2fa79d5a5a1
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66156432"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177527"
 ---
 > [!div class="op_single_selector"]
 > * [Portail Azure](../articles/data-lake-analytics/data-lake-analytics-manage-use-portal.md)

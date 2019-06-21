@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 12/07/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: eddafdc651eb2cd0fbdf400f7f7e933a91021faf
-ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
+ms.openlocfilehash: 9d9e30bb8b31939b14d347369bbe88e23fcec49c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66808155"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67050531"
 ---
 # <a name="create-queries-to-list-batch-resources-efficiently"></a>Créer des requêtes pour répertorier les ressources Batch efficacement
 
@@ -89,7 +89,7 @@ La chaîne expand réduit le nombre d’appels d’API nécessaires pour obtenir
 * Cet exemple de chaîne expand spécifie que les informations statistiques doivent être retournées pour chaque élément de la liste : `stats`.
 
 > [!NOTE]
-> Lors de la construction de l’un des trois types de chaînes de requête (filter, select et expand), vous devez vous assurer que les noms de propriété et la casse correspondent à ceux de leurs homologues de l’API REST. Par exemple, lorsque vous utilisez la classe [CloudTask](/dotnet/api/microsoft.azure.batch.cloudtask#Microsoft_Azure_Batch_CloudTask) .NET, vous devez spécifier **état** et non **État** même si la propriété .NET est [CloudTask.State](/dotnet/api/microsoft.azure.batch.cloudtask.state#Microsoft_Azure_Batch_CloudTask_State). Consultez les tableaux ci-dessous pour connaître les mappages de propriété entre les API .NET et REST.
+> Lors de la construction de l’un des trois types de chaînes de requête (filter, select et expand), vous devez vous assurer que les noms de propriété et la casse correspondent à ceux de leurs homologues de l’API REST. Par exemple, lorsque vous utilisez la classe [CloudTask](/dotnet/api/microsoft.azure.batch.cloudtask) .NET, vous devez spécifier **état** et non **État** même si la propriété .NET est [CloudTask.State](/dotnet/api/microsoft.azure.batch.cloudtask.state#Microsoft_Azure_Batch_CloudTask_State). Consultez les tableaux ci-dessous pour connaître les mappages de propriété entre les API .NET et REST.
 > 
 > 
 

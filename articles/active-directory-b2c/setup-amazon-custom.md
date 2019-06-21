@@ -11,10 +11,10 @@ ms.date: 10/05/2018
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: 1fcac4bcfb5cd37ddf8b351514c8f4f1622367c6
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66512581"
 ---
 # <a name="set-up-sign-in-with-an-amazon-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configurer la connexion avec un compte Amazon à l’aide de stratégies personnalisées dans Azure Active Directory B2C
@@ -23,7 +23,7 @@ ms.locfileid: "66512581"
 
 Cet article explique comment autoriser la connexion d’utilisateurs à partir d’un compte Amazon à l’aide de [stratégies personnalisées](active-directory-b2c-overview-custom.md) dans Azure Active Directory (Azure AD) B2C.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 - Suivez les étapes décrites dans [Bien démarrer avec les stratégies personnalisées dans Azure Active Directory B2C](active-directory-b2c-get-started-custom.md).
 - Si vous n’avez pas de compte Amazon, créez-en un à l’adresse [https://www.amazon.com/](https://www.amazon.com/).

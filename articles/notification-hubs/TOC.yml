@@ -34,10 +34,6 @@
               href: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
             - name: Notifications Push pour des utilisateurs spécifiques
               href: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
-    - name: Baidu
-      items:
-        - name: Notifications Push avec le push cloud Baidu
-          href: notification-hubs-baidu-china-android-notifications-get-started.md
     - name: iOS
       items:
         - name: Notifications Push sur les applications iOS
@@ -143,6 +139,8 @@
       href: notification-hubs-push-notification-http2-token-authentification.md
     - name: Résoudre les problèmes de notifications rejetées
       href: notification-hubs-push-notification-fixer.md
+    - name: Notifications Push avec le push cloud Baidu
+      href: notification-hubs-baidu-china-android-notifications-get-started.md
 - name: Informations de référence
   items:
     - name: .NET

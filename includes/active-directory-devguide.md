@@ -15,11 +15,11 @@ ms.date: 10/04/2018
 ms.author: celested
 ms.custom: include file
 ms.openlocfilehash: 841d682365321c15ebc9ae6e835890f9678f1676
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66119755"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177673"
 ---
 > [!NOTE]
 > Cet article fait partie de la [documentation Plateforme d’identité Microsoft (Azure Active Directory pour développeurs)](../articles/active-directory/develop/index.yml).

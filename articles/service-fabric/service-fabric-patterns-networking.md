@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/19/2018
 ms.author: aljo
-ms.openlocfilehash: d5aa09f3ff899766e6eb6d1784e4417f7b48eac0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 456eac4a8d3a6cb8cbaca13ad4e4f3b2ae0309bc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66110271"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67125594"
 ---
 # <a name="service-fabric-networking-patterns"></a>Modèles de mise en réseau de Service Fabric
 Vous pouvez intégrer votre cluster Azure Service Fabric avec d’autres fonctionnalités de mise en réseau Azure. Dans cet article, nous vous expliquons comment créer des clusters qui utilisent les fonctionnalités suivantes :
@@ -268,7 +268,7 @@ Vous pouvez également consulter un [exemple qui n’est pas propre à Service F
                     ],
     ```
 
-7. Dans la ressource `Microsoft.ServiceFabric/clusters`, remplacez `managementEndpoint` par le nom de domaine complet du DNS de l’adresse IP statique. Si vous utilisez un cluster sécurisé, veillez à remplacer *http://* par *https://*. (Notez que cette étape s’applique uniquement aux clusters Service Fabric. Si vous utilisez un groupe de machines virtuelles identiques, ignorez cette étape.)
+7. Dans la ressource `Microsoft.ServiceFabric/clusters`, remplacez `managementEndpoint` par le nom de domaine complet du DNS de l’adresse IP statique. Si vous utilisez un cluster sécurisé, veillez à remplacer *http://* par *https://* . (Notez que cette étape s’applique uniquement aux clusters Service Fabric. Si vous utilisez un groupe de machines virtuelles identiques, ignorez cette étape.)
 
     ```json
                     "fabricSettings": [],
@@ -370,7 +370,7 @@ Ce scénario remplace l’équilibreur de charge externe dans le modèle Service
                     ],
     ```
 
-6. Dans la ressource `Microsoft.ServiceFabric/clusters`, modifiez `managementEndpoint` pour qu’il pointe vers l’adresse de l’équilibreur de charge interne. Si vous utilisez un cluster sécurisé, veillez à remplacer *http://* par *https://*. (Notez que cette étape s’applique uniquement aux clusters Service Fabric. Si vous utilisez un groupe de machines virtuelles identiques, ignorez cette étape.)
+6. Dans la ressource `Microsoft.ServiceFabric/clusters`, modifiez `managementEndpoint` pour qu’il pointe vers l’adresse de l’équilibreur de charge interne. Si vous utilisez un cluster sécurisé, veillez à remplacer *http://* par *https://* . (Notez que cette étape s’applique uniquement aux clusters Service Fabric. Si vous utilisez un groupe de machines virtuelles identiques, ignorez cette étape.)
 
     ```json
                     "fabricSettings": [],
@@ -606,10 +606,7 @@ Dans un cluster à deux types de nœuds, l’un des types de nœuds est sur l’
 Après le déploiement, deux équilibreurs de charge apparaissent dans le groupe de ressources. Si vous parcourez les équilibreurs de charge, vous voyez l’adresse IP publique et les points de terminaison de gestion (ports 19000 et 19080) affectés à l’adresse IP publique. L’adresse IP interne statique et le point de terminaison d’application (port 80) affectés à l’équilibreur de charge interne apparaissent également. Les deux équilibreurs de charge utilisent le même pool back-end de groupe de machines virtuelles identiques.
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Créer un cluster](service-fabric-cluster-creation-via-arm.md) ternalLB.json
-    ```
+[Créer un cluster](service-fabric-cluster-creation-via-arm.md)
 
 Après le déploiement, deux équilibreurs de charge apparaissent dans le groupe de ressources. Si vous parcourez les équilibreurs de charge, vous voyez l’adresse IP publique et les points de terminaison de gestion (ports 19000 et 19080) affectés à l’adresse IP publique. L’adresse IP interne statique et le point de terminaison d’application (port 80) affectés à l’équilibreur de charge interne apparaissent également. Les deux équilibreurs de charge utilisent le même pool back-end de groupe de machines virtuelles identiques.
 
-## <a name="next-steps"></a>Étapes suivantes
-[Créer un cluster](service-fabric-cluster-creation-via-arm.md)

@@ -7,16 +7,16 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: article
+ms.topic: quickstart
 ms.date: 02/13/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 76be371547bcb9daf0e10b62df62df5065cd6465
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.openlocfilehash: 38ed3b2e4b103e63d88b9ba3d250aa8c0b6bb9bf
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65791458"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67072031"
 ---
 # <a name="how-to-use-the-qna-maker-rest-api-with-go"></a>Guide pratique pour utiliser l’API REST QnA Maker avec Go 
 <a name="HOLTop"></a>
@@ -38,7 +38,7 @@ Cet article explique comment utiliser l’[API QnA Maker Microsoft](../Overview/
 - [Obtenir l'ensemble actuel d'altérations de mots qui ne respectent pas la casse](#GetAlterations)
 - [Remplacer l'ensemble actuel d'altérations de mots qui ne respectent pas la casse](#PutAlterations)
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour exécuter ce code, vous avez besoin de [Go 1.10.1](https://golang.org/dl/).
 
