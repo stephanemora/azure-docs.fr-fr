@@ -33,7 +33,7 @@ Pour obtenir des valeurs de ressources, de groupes de ressources ou d’abonneme
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="deployment"></a>déploiement
+## <a name="deployment"></a>deployment
 `deployment()`
 
 Renvoie des informations sur l’opération de déploiement actuelle.
@@ -167,7 +167,7 @@ Retourne une valeur de paramètre. Le nom de paramètre spécifié doit être d�
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| nom_paramètre |OUI |chaîne |Nom du paramètre à retourner. |
+| parameterName |OUI |string |Nom du paramètre à retourner. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -254,11 +254,11 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 | Nom | type | Valeur |
 | ---- | ---- | ----- |
-| stringOutput | Chaîne | option 1 |
+| stringOutput | String | option 1 |
 | intOutput | Int | 1 |
 | objectOutput | Object | {"one": "a", "two": "b"} |
-| arrayOutput | Tableau | [1, 2, 3] |
-| crossOutput | Chaîne | option 1 |
+| arrayOutput | Array | [1, 2, 3] |
+| crossOutput | String | option 1 |
 
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
 
@@ -283,7 +283,7 @@ Retourne la valeur de la variable. Le nom de variable spécifié doit être déf
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| variableName |OUI |Chaîne |Nom de la variable à retourner. |
+| variableName |OUI |String |Nom de la variable à retourner. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -357,9 +357,9 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 | Nom | type | Valeur |
 | ---- | ---- | ----- |
-| exampleOutput1 | Chaîne | myVariable |
-| exampleOutput2 | Tableau | [1, 2, 3, 4] |
-| exampleOutput3 | Chaîne | myVariable |
+| exampleOutput1 | String | myVariable |
+| exampleOutput2 | Array | [1, 2, 3, 4] |
+| exampleOutput3 | String | myVariable |
 | exampleOutput4 |  Object | {"property1": "value1", "property2": "value2"} |
 
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
