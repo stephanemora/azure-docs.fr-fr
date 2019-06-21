@@ -66,11 +66,11 @@ L’activité IfCondition fournit les mêmes fonctionnalités qu’une instructi
 
 Propriété | Description | Valeurs autorisées | Obligatoire
 -------- | ----------- | -------------- | --------
-Nom | Nom de l’activité de condition « if ». | Chaîne | OUI
-Type | Doit avoir la valeur **IfCondition** | Chaîne | OUI
+name | Nom de l’activité de condition « if ». | String | OUI
+type | Doit avoir la valeur **IfCondition** | String | OUI
 expression | Expression qui doit retourner true ou false | Expression avec un résultat de type booléen | OUI
-ifTrueActivities | Ensemble d’activités qui sont exécutées quand l’expression retourne `true`. | Tableau | OUI
-ifFalseActivities | Ensemble d’activités qui sont exécutées quand l’expression retourne `false`. | Tableau | OUI
+ifTrueActivities | Ensemble d’activités qui sont exécutées quand l’expression retourne `true`. | Array | OUI
+ifFalseActivities | Ensemble d’activités qui sont exécutées quand l’expression retourne `false`. | Array | OUI
 
 ## <a name="example"></a>Exemples
 Le pipeline dans cet exemple copie les données depuis un dossier d’entrée vers un dossier de sortie. Le dossier de sortie est déterminé par la valeur du paramètre de pipeline routeSelection. Si la valeur de routeSelection est true, les données sont copiées vers outputPath1. Par contre, si la valeur de routeSelection est false, les données sont copiées vers outputPath2. 
