@@ -52,10 +52,10 @@ Les déclencheurs ont les éléments principaux suivants, bien que certains soie
 
 | Valeur | Type | Description  | 
 |-------|------|-------------| 
-| <*trigger-name*> | Chaîne | Nom du déclencheur | 
-| <*trigger-type*> | Chaîne | Type de déclencheur, tel que « Http » ou « ApiConnection » | 
+| <*trigger-name*> | String | Nom du déclencheur | 
+| <*trigger-type*> | String | Type de déclencheur, tel que « Http » ou « ApiConnection » | 
 | <*trigger-inputs*> | Objet JSON | Entrées qui définissent le comportement du déclencheur | 
-| <*time-unit*> | Chaîne | Unité de temps qui décrit la fréquence d’activation du déclencheur : « Second », « Minute », « Hour », « Day", », « Week », « Month » | 
+| <*time-unit*> | String | Unité de temps qui décrit la fréquence d’activation du déclencheur : "Second", "Minute", "Hour", "Day", "Week", "Month" | 
 | <*number-of-time-units*> | Integer | Valeur qui spécifie la fréquence d’activation du déclencheur, qui correspond au nombre d’unités de temps à attendre avant que le déclencheur soit activé à nouveau <p>Les intervalles minimaux et maximaux sont les suivants : <p>- Mois : 1-16 mois </br>Jour : 1-500 jours </br>- Heure : 1-12 000 heures </br>- Minute : 1-72 000 minutes </br>- Seconde : 1-9 999 999 secondes<p>Par exemple, si l’intervalle est défini sur 6 et la fréquence sur « Month », la périodicité est tous les six mois. | 
 |||| 
 
