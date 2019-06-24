@@ -16,10 +16,10 @@ ms.date: 11/27/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4917720af2396b68ccd36cc0410c9acbbba2d9b2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60304590"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-virtual-machine-scale-sets-using-powershell"></a>Configurer des identités managées pour ressources Azure sur un groupe de machines virtuelles identiques en utilisant PowerShell
@@ -34,9 +34,9 @@ Cet article explique comment effectuer les opérations d’identités managées 
 
 [!INCLUDE [az-powershell-update](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
-- Si vous n’êtes pas familiarisé avec les identités managées pour ressources Azure, consultez la [section Vue d’ensemble](overview.md). **Veillez à lire la [différence entre les identités managées affectées par le système et celles affectées par l’utilisateur](overview.md#how-does-it-work)**.
+- Si vous n’êtes pas familiarisé avec les identités managées pour ressources Azure, consultez la [section Vue d’ensemble](overview.md). **Veillez à lire la [différence entre les identités managées affectées par le système et celles affectées par l’utilisateur](overview.md#how-does-it-work)** .
 - Si vous n’avez pas encore de compte Azure, [inscrivez-vous à un essai gratuit](https://azure.microsoft.com/free/) avant de continuer.
 - Pour effectuer les opérations de gestion dans cet article, votre compte doit disposer de ces affectations de contrôle d'accès basé sur les rôles Azure :
 
@@ -56,13 +56,13 @@ Dans cette section, vous allez découvrir comment activer et supprimer une ident
 
 Pour créer un groupe de machines virtuelles identiques avec l’identité managée affectée par le système activée :
 
-1. Reportez-vous à *exemple 1* dans le [New-AzVmssConfig](/powershell/module/az.compute/new-azvmssconfig) article de référence d’applet de commande pour créer une échelle de machine virtuelle est définie avec une identité gérée attribué par le système.  Ajoutez le paramètre `-IdentityType SystemAssigned` à la cmdlet `New-AzVmssConfig` :
+1. Pour créer un groupe de machines virtuelles identiques avec une identité managée affectée par le système, voir l’*Exemple 1* dans l’article de référence sur l’applet de commande [New-AzVmssConfig](/powershell/module/az.compute/new-azvmssconfig).  Ajoutez le paramètre `-IdentityType SystemAssigned` à la cmdlet `New-AzVmssConfig` :
 
     ```powershell
     $VMSS = New-AzVmssConfig -Location $Loc -SkuCapacity 2 -SkuName "Standard_A0" -UpgradePolicyMode "Automatic" -NetworkInterfaceConfiguration $NetCfg -IdentityType SystemAssigned`
     ```
 > [!NOTE]
-> Vous pouvez éventuellement déployer les identités gérées pour les ressources Azure VM extension identiques, mais il sera bientôt déconseillé. Nous vous recommandons d’utiliser le point de terminaison Azure Instance Metadata identité pour l’authentification. Pour plus d’informations, consultez [cesser d’utiliser l’extension de machine virtuelle et commencer à utiliser le point de terminaison IMDS de Azure pour l’authentification](howto-migrate-vm-extension.md).
+> Vous pouvez éventuellement approvisionner des identités managées pour l’extension de groupe de machines virtuelles identiques de ressources Azure, mais ceci sera bientôt déconseillé. Nous vous recommandons d’utiliser le point de terminaison d’identité Azure Instance Metadata pour l’authentification. Pour plus d’informations, consultez [Procédure d’arrêt à l’aide de la machine virtuelle managed extension des identités et commencer à utiliser le Service de métadonnées Instance Azure](howto-migrate-vm-extension.md).
 
 
 ## <a name="enable-system-assigned-managed-identity-on-an-existing-azure-virtual-machine-scale-set"></a>Activer une identité managée affectée par le système sur un groupe de machines virtuelles identiques Azure existant
@@ -82,7 +82,7 @@ Si vous devez activer une identité managée affectée par le système sur un gr
    ```
 
 > [!NOTE]
-> Vous pouvez éventuellement déployer les identités gérées pour les ressources Azure VM extension identiques, mais il sera bientôt déconseillé. Nous vous recommandons d’utiliser le point de terminaison Azure Instance Metadata identité pour l’authentification. Pour plus d’informations, consultez [migrer à partir de l’extension de machine virtuelle vers le point de terminaison IMDS de Azure pour l’authentification](howto-migrate-vm-extension.md).
+> Vous pouvez éventuellement approvisionner des identités managées pour l’extension de groupe de machines virtuelles identiques de ressources Azure, mais ceci sera bientôt déconseillé. Nous vous recommandons d’utiliser le point de terminaison d’identité Azure Instance Metadata pour l’authentification. Pour plus d’informations, consultez [Migrer à partir de l’extension de machine virtuelle vers le point de terminaison IMDS de Azure pour l’authentification](howto-migrate-vm-extension.md).
 
 ### <a name="disable-the-system-assigned-managed-identity-from-an-azure-virtual-machine-scale-set"></a>Désactiver l’identité managée affectée par le système d’un groupe de machines virtuelles identiques Azure
 

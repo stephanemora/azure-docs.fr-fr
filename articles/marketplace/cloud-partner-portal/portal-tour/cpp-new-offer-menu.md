@@ -1,6 +1,6 @@
 ---
-title: Nouveau menu offre pour Azure Marketplace
-description: Vue d’ensemble de la nouvelle offre un menu dans le portail Microsoft Cloud Partner pour Azure Marketplace.
+title: Menu Nouvelle offre pour la Place de marché Azure
+description: Vue d'ensemble du menu Nouvelle offre sur le Portail Cloud Partner pour la Place de marché Azure.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/12/2018
 ms.author: pabutler
 ms.openlocfilehash: 8ec1a6a6ec77838ec75666d219d90739bf74517b
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64943266"
 ---
 # <a name="new-offer-menu"></a>Menu Nouvelle offre

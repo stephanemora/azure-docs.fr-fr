@@ -1,6 +1,6 @@
 ---
-title: Stream des journaux Azure Active Directory dans les journaux d’Azure Monitor | Microsoft Docs
-description: Découvrez comment intégrer des journaux Azure Active Directory avec les journaux d’Azure Monitor
+title: Diffuser en continu les journaux d’activité Azure Active Directory vers les journaux d’activité Azure Monitor | Microsoft Docs
+description: Découvrez comment intégrer des journaux d’activité Azure Active Directory aux journaux d’activité Azure Monitor
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -18,13 +18,13 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 213fb6e73ae2fc4314320d0e3e593632d8eb7f85
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60437307"
 ---
-# <a name="integrate-azure-ad-logs-with-azure-monitor-logs"></a>Intégrer des journaux Azure AD avec les journaux d’Azure Monitor
+# <a name="integrate-azure-ad-logs-with-azure-monitor-logs"></a>Intégrer des journaux d’activité Azure AD aux journaux d’activité Azure Monitor
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -45,13 +45,13 @@ Cet article explique comment intégrer des journaux d’activité Azure Active D
 Vous pouvez acheminer les journaux d’activité d’audit et authentifier des journaux d’activité vers les journaux d’activité Azure Monitor en vue d’une analyse ultérieure. 
 
 * **Journaux d’audit**: Le [rapport d’activité des journaux d’audit](concept-audit-logs.md) vous permet de consulter l’historique de toutes les tâches effectuées dans votre locataire.
-* **Journaux de connexion** : Le [rapport d’activité de connexion](concept-sign-ins.md) vous permet d’identifier qui a effectué les tâches consignées dans les journaux d’audit.
+* **Journaux d’activité de connexion** : Le [rapport d’activité de connexion](concept-sign-ins.md) vous permet d’identifier qui a effectué les tâches consignées dans les journaux d’audit.
 
 > [!NOTE]
 > Les journaux d’activité d’audit et de connexions associés à B2C ne sont pas pris en charge pour le moment.
 >
 
-## <a name="prerequisites"></a>Conditions préalables 
+## <a name="prerequisites"></a>Prérequis 
 
 Pour utiliser cette fonctionnalité, vous avez besoin des éléments suivants :
 
@@ -82,5 +82,5 @@ Pour utiliser cette fonctionnalité, vous avez besoin des éléments suivants :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Analyser les journaux d’activité Azure AD avec les journaux Azure Monitor](howto-analyze-activity-logs-log-analytics.md)
-* [Installer et utiliser les affichages Log Analytics pour Azure Active Directory](howto-install-use-log-analytics-views.md)
+* [Analyser les journaux d’activité Azure AD avec les journaux d’activité Azure Monitor](howto-analyze-activity-logs-log-analytics.md)
+* [Installer et utiliser les vues Log Analytics pour Azure Active Directory](howto-install-use-log-analytics-views.md)

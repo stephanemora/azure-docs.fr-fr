@@ -11,17 +11,17 @@ ms.topic: article
 ms.date: 04/23/2019
 tags: connectors
 ms.openlocfilehash: 882bae14678d8bfff15b35c63c666a20aeee3d1d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64720045"
 ---
 # <a name="monitor-receive-and-send-events-with-azure-event-hubs-and-azure-logic-apps"></a>Surveillez, recevez et envoyez des événements avec Azure Event Hubs et Azure Logic Apps
 
-Cet article explique comment vous pouvez surveiller et gérer les événements envoyés à [Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md) depuis une application logique à l’aide du connecteur Azure Event Hubs. De cette façon, vous pouvez créer des applications logiques qui automatisent les tâches et les flux de travail pour vérifier, envoyer et recevoir des événements à partir de votre hub d’événements. Pour des informations techniques spécifiques du connecteur, consultez la [référence de connecteur Azure Event Hubs](https://docs.microsoft.com/connectors/eventhubs/)</a>.
+Cet article explique comment vous pouvez surveiller et gérer les événements envoyés à [Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md) depuis une application logique à l’aide du connecteur Azure Event Hubs. De cette façon, vous pouvez créer des applications logiques qui automatisent les tâches et les flux de travail pour vérifier, envoyer et recevoir des événements à partir de votre hub d’événements. Pour obtenir des informations techniques spécifiques aux connecteurs, consultez la [documentation de référence du connecteur Azure Event Hubs](https://docs.microsoft.com/connectors/eventhubs/)</a>.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, [inscrivez-vous pour bénéficier d’un compte Azure gratuit](https://azure.microsoft.com/free/). 
 
@@ -40,7 +40,7 @@ Pour que votre application logique accède à votre hub d’événements, vérif
 
 1. Accédez à votre *espace de noms* Event Hubs, et non à un hub d’événements spécifique. 
 
-1. Dans le menu de l’espace de noms, sous **paramètres**, sélectionnez **stratégies d’accès partagé**. Sous **Revendications**, vérifiez que vous disposez des autorisations **Gérer** pour cet espace de noms.
+1. Dans le menu de l’espace de noms, sous **Paramètres**, sélectionnez **Stratégies d’accès partagé**. Sous **Revendications**, vérifiez que vous disposez des autorisations **Gérer** pour cet espace de noms.
 
    ![Gérer les autorisations pour votre espace de noms Event Hubs](./media/connectors-create-api-azure-event-hubs/event-hubs-namespace.png)
 
@@ -59,7 +59,7 @@ Pour que votre application logique accède à votre hub d’événements, vérif
 
 <a name="add-trigger"></a>
 
-## <a name="add-event-hubs-trigger"></a>Ajouter le déclencheur Event Hubs
+## <a name="add-event-hubs-trigger"></a>Ajouter un déclencheur Event Hubs
 
 Dans Azure Logic Apps, chaque application logique doit démarrer avec un [déclencheur](../logic-apps/logic-apps-overview.md#logic-app-concepts), qui s’active lorsqu’un événement spécifique se produit ou lorsqu’une condition particulière est remplie. Chaque fois que le déclencheur s’active, le moteur Logic Apps crée une instance d’application logique et lance l’exécution du flux de travail de votre application.
 
@@ -67,42 +67,42 @@ Cet exemple montre comment vous pouvez démarrer un flux de travail d’applicat
 
 1. Dans le portail Azure ou Visual Studio, créez une application logique vide, qui ouvre le Concepteur d'applications logiques. Cet exemple utilise le portail Azure.
 
-1. Dans la zone de recherche, entrez « hubs d’événements » en tant que filtre. Dans la liste des déclencheurs, sélectionnez ce déclencheur : **Lorsque les événements sont disponibles dans le concentrateur d’événements - Event Hubs**
+1. Dans la zone de recherche, entrez « hubs d’événements » en tant que filtre. Dans la liste des déclencheurs, sélectionnez ce déclencheur : **When events are available in Event Hub (Lorsque les événements sont disponibles dans un hub Event Hubs) - Event Hubs**
 
    ![Sélectionner le déclencheur](./media/connectors-create-api-azure-event-hubs/find-event-hubs-trigger.png)
 
 1. Si vous êtes invité à entrer les informations de connexion, [créez votre connexion Event Hubs maintenant](#create-connection). 
 
-1. Dans le déclencheur, fournissent des informations sur le Hub d’événements que vous souhaitez surveiller. Pour plus de propriétés, ouvrez le **ajouter un nouveau paramètre** liste. Sélection d’un paramètre ajoute cette propriété à la carte de déclencheur.
+1. Dans le déclencheur, fournissez des informations sur l’Event Hub que vous souhaitez surveiller. Pour plus de propriétés, ouvrez la liste **Ajouter un nouveau paramètre**. La sélection d'un paramètre ajoute cette propriété à la carte de déclencheur.
 
    ![Propriétés de déclencheur](./media/connectors-create-api-azure-event-hubs/event-hubs-trigger.png)
 
    | Propriété | Obligatoire | Description |
    |----------|----------|-------------|
-   | **Nom de l’Event Hub** | Oui | Le nom pour le concentrateur d’événements que vous souhaitez surveiller |
-   | **Type de contenu** | Non  | Type de contenu de l’événement. Par défaut, il s’agit de `application/octet-stream`. |
-   | **Nom du groupe de consommateurs** | Non  | Le [nom pour le groupe de consommateurs Event Hub](../event-hubs/event-hubs-features.md#consumer-groups) à utiliser pour la lecture des événements. Si ce champ n’est pas spécifié, le groupe de consommateurs par défaut est utilisé. |
-   | **Nombre d’événements maximum** | Non  | Le nombre maximal d’événements. Le déclencheur retourne entre 1 et le nombre d’événements spécifié par cette propriété. |
-   | **Intervalle** | Oui | Un entier positif qui décrit la fréquence à laquelle le flux de travail s’exécute en fonction de la fréquence |
-   | **Fréquence** | Oui | L’unité de temps pour la récurrence |
+   | **Nom de l’Event Hub** | OUI | Nom du hub Event Hubs que vous souhaitez surveiller |
+   | **Type de contenu** | Non | Type de contenu de l’événement. Par défaut, il s’agit de `application/octet-stream`. |
+   | **Nom du groupe de consommateurs** | Non | [Nom du groupe de consommateurs Event Hub](../event-hubs/event-hubs-features.md#consumer-groups) pour la lecture d’événements. Si ce champ n’est pas spécifié, le groupe de consommateurs par défaut est utilisé. |
+   | **Nombre d’événements maximum** | Non | Nombre maximal d’événements. Le déclencheur retourne entre 1 et le nombre d’événements spécifié par cette propriété. |
+   | **Intervalle** | OUI | Nombre entier positif qui décrit la fréquence à laquelle le flux de travail s’exécute en fonction de la fréquence |
+   | **Fréquence** | OUI | Unité de temps à utiliser pour la récurrence |
    ||||
 
    **Propriétés supplémentaires**
 
    | Propriété | Obligatoire | Description |
    |----------|----------|-------------|
-   | **Schéma de contenu** | Non  | Le schéma JSON de contenu pour les événements lire à partir du Hub d’événements. Par exemple, si vous spécifiez le schéma de contenu, vous pouvez déclencher l’application logique pour les seuls événements qui correspondent au schéma. |
-   | **Clé de partition minimum** | Non  | Entrez l’ID de [partition](../event-hubs/event-hubs-features.md#partitions) minimum à lire. Par défaut, toutes les partitions sont lues. |
-   | **Clé de partition maximale** | Non  | Entrez l’ID de [partition](../event-hubs/event-hubs-features.md#partitions) maximum à lire. Par défaut, toutes les partitions sont lues. |
-   | **Fuseau horaire** | Non  | S’applique uniquement lorsque vous spécifiez une heure de début, car ce déclencheur n’accepte pas de décalage UTC. Sélectionnez le fuseau horaire à appliquer. <p>Pour plus d’informations, consultez [créer et exécuter des tâches récurrentes et des flux de travail avec Azure Logic Apps](../connectors/connectors-native-recurrence.md). |
-   | **Heure de début** | Non  | Fournissez une heure de début au format suivant : <p>AAAA-MM-JJThh:mm:ss si vous sélectionnez un fuseau horaire<p>-ou-<p>AAAA-MM-JJThh:mm:ssZ si vous ne sélectionnez pas de fuseau horaire<p>Pour plus d’informations, consultez [créer et exécuter des tâches récurrentes et des flux de travail avec Azure Logic Apps](../connectors/connectors-native-recurrence.md). |
+   | **Schéma du contenu** | Non | Schéma du contenu au format JSON pour les événements qui sont lus à partir de l’Event Hub. Par exemple, si vous spécifiez le schéma de contenu, vous pouvez déclencher l'application logique uniquement pour les événements qui correspondent au schéma. |
+   | **Clé de partition minimum** | Non | Entrez l’ID de [partition](../event-hubs/event-hubs-features.md#partitions) minimum à lire. Par défaut, toutes les partitions sont lues. |
+   | **Clé de partition maximum** | Non | Entrez l’ID de [partition](../event-hubs/event-hubs-features.md#partitions) maximum à lire. Par défaut, toutes les partitions sont lues. |
+   | **Fuseau horaire** | Non | S’applique uniquement quand vous spécifiez une heure de début, car ce déclencheur n’accepte pas le décalage UTC. Sélectionnez le fuseau horaire à appliquer. <p>Pour plus d’informations, consultez [Créer et exécuter des tâches et des workflows récurrents avec Azure Logic Apps](../connectors/connectors-native-recurrence.md). |
+   | **Heure de début** | Non | Fournissez une heure de début au format suivant : <p>AAAA-MM-JJThh:mm:ss si vous sélectionnez un fuseau horaire<p>-ou-<p>AAAA-MM-JJThh:mm:ssZ si vous ne sélectionnez pas de fuseau horaire<p>Pour plus d’informations, consultez [Créer et exécuter des tâches et des workflows récurrents avec Azure Logic Apps](../connectors/connectors-native-recurrence.md). |
    ||||
 
 1. Une fois terminé, dans la barre d’outils du concepteur, choisissez **Enregistrer**.
 
 1. Continuez maintenant à ajouter une ou plusieurs actions à votre application logique pour les tâches à effectuer avec les résultats du déclencheur. 
 
-   Par exemple, pour filtrer les événements selon une valeur spécifique, comme une catégorie, vous pouvez ajouter une condition afin que la **envoyer des événements - Event Hubs** action envoie uniquement les événements qui répondent à votre condition. 
+   Par exemple, pour filtrer les événements basés sur une valeur spécifique, telle qu'une catégorie, vous pouvez ajouter une condition pour que l'action **Envoyer un événement - Event Hubs** envoie uniquement les événements qui répondent à votre condition. 
 
 > [!NOTE]
 > Tous les déclencheurs Event Hub sont des déclencheurs *d’interrogation longue*, ce qui signifie que lorsqu’un déclencheur est activé, il traite tous les événements, puis attend 30 secondes le temps qu’un plus grand nombre d’événements s’affichent dans votre hub d’événements.
@@ -117,33 +117,33 @@ Dans Azure Logic Apps, une [action](../logic-apps/logic-apps-overview.md#logic-a
 
 1. Dans le portail Azure ou Visual Studio, ouvrez votre application logique dans le Concepteur d’applications logiques. Cet exemple utilise le portail Azure.
 
-1. Sous le déclencheur ou l’action, choisissez **nouvelle étape**.
+1. Sous le déclencheur ou l’action, choisissez **Nouvelle étape**.
 
    Pour ajouter une action entre des étapes, déplacez votre souris sur la flèche de connexion. 
-   Cliquez sur le signe plus (**+**) qui s’affiche, puis sélectionnez **Ajouter une action**.
+   Cliquez sur le signe plus ( **+** ) qui s’affiche, puis sélectionnez **Ajouter une action**.
 
 1. Dans la zone de recherche, entrez « hubs d’événements » en tant que filtre.
-Dans la liste d’actions, sélectionnez cette action : **Envoyer des événements - Event Hubs**
+Dans la liste des actions, sélectionnez cette action : **Envoyer un événement - Event Hubs**
 
-   ![Sélectionnez l’action « Envoyer des événements »](./media/connectors-create-api-azure-event-hubs/find-event-hubs-action.png)
+   ![Sélectionner l’action « Envoyer un événement »](./media/connectors-create-api-azure-event-hubs/find-event-hubs-action.png)
 
 1. Si vous êtes invité à entrer les informations de connexion, [créez votre connexion Event Hubs maintenant](#create-connection). 
 
-1. Dans l’action, fournissent des informations sur les événements que vous souhaitez envoyer. Pour plus de propriétés, ouvrez le **ajouter un nouveau paramètre** liste. Sélection d’un paramètre ajoute cette propriété sur la carte de l’action.
+1. Dans l'action, fournissez des informations sur les événements que vous souhaitez envoyer. Pour plus de propriétés, ouvrez la liste **Ajouter un nouveau paramètre**. La sélection d'un paramètre ajoute cette propriété à la carte action.
 
    ![Sélectionnez le nom du hub d’événements et fournissez le contenu de l’événement](./media/connectors-create-api-azure-event-hubs/event-hubs-send-event-action.png)
 
    | Propriété | Obligatoire | Description |
    |----------|----------|-------------|
-   | **Nom de l’Event Hub** | Oui | Le concentrateur d’événements dans lequel vous souhaitez envoyer l’événement |
-   | **Contenu** | Non  | Le contenu pour l’événement que vous souhaitez envoyer |
-   | **Propriétés** | Non  | Les valeurs et les propriétés de l’application à envoyer |
-   | **Clé de partition** | Non  | Le [partition](../event-hubs/event-hubs-features.md#partitions) ID à laquelle envoyer l’événement |
+   | **Nom de l’Event Hub** | OUI | Event Hub où vous voulez envoyer l’événement |
+   | **Contenu** | Non | Le contenu pour l’événement que vous souhaitez envoyer |
+   | **Propriétés** | Non | Les valeurs et les propriétés de l’application à envoyer |
+   | **Clé de partition** | Non | ID [partition](../event-hubs/event-hubs-features.md#partitions) auquel envoyer l’événement |
    ||||
 
-   Par exemple, vous pouvez envoyer la sortie à partir de votre déclencheur Event Hubs vers un autre concentrateur d’événements :
+   Par exemple, vous pouvez envoyer la sortie de votre déclencheur Event Hubs à un autre Event Hub :
 
-   ![Exemple d’événement d’envoi](./media/connectors-create-api-azure-event-hubs/event-hubs-send-event-action-example.png)
+   ![Envoyer un exemple d’événement](./media/connectors-create-api-azure-event-hubs/event-hubs-send-event-action-example.png)
 
 1. Une fois terminé, dans la barre d’outils du concepteur, choisissez **Enregistrer**.
 
@@ -157,11 +157,11 @@ Dans la liste d’actions, sélectionnez cette action : **Envoyer des événeme
 
    | Propriété | Obligatoire | Value | Description |
    |----------|----------|-------|-------------|
-   | **Nom de connexion** | Oui | <*connection-name*> | Nom à créer pour votre connexion |
-   | **Event Hubs Namespace** | Oui | <*event-hubs-namespace*> | Sélectionnez l’espace de noms Event Hubs que vous souhaitez utiliser. |
+   | **Nom de connexion** | OUI | <*connection-name*> | Nom à créer pour votre connexion |
+   | **Espace de noms Event Hubs** | OUI | <*event-hubs-namespace*> | Sélectionnez l’espace de noms Event Hubs que vous souhaitez utiliser. |
    |||||  
 
-   Par exemple : 
+   Par exemple :
 
    ![Créer une connexion de hub d’événements](./media/connectors-create-api-azure-event-hubs/create-event-hubs-connection-1.png)
 
@@ -176,7 +176,7 @@ Dans la liste d’actions, sélectionnez cette action : **Envoyer des événeme
 
 ## <a name="connector-reference"></a>Référence de connecteur
 
-Pour plus d’informations techniques, telles que des déclencheurs, actions et limites, comme décrit par OpenAPI du connecteur (anciennement Swagger), consultez le [page de référence du connecteur](/connectors/eventhubs/).
+Pour plus d’informations techniques, notamment sur les déclencheurs, les actions et les limites, comme décrit dans le fichier OpenAPI (anciennement Swagger) du connecteur, consultez la [page de référence du connecteur](/connectors/eventhubs/).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
