@@ -212,7 +212,7 @@
 - name: Informations de référence
   items:
     - name: Référence de modèle
-      href: subtoc/toc.yml
+      href: /azure/templates/
     - name: Fonctions des modèles de gestionnaire des ressources Azure
       items:
         - name: Toutes les fonctions
