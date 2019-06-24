@@ -12,10 +12,10 @@ ms.date: 03/15/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: dd0467479960df30b1d44aeaef7ed0ed0d6c2a87
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60253180"
 ---
 # <a name="operationalize-spark-built-machine-learning-models"></a>Faire fonctionner les modèles Machine Learning créés avec Spark
@@ -32,7 +32,7 @@ Le notebook Jupyter [pySpark-machine-learning-data-science-spark-model-consumpti
 Pour modifier le notebook Jupyter pour Spark 1.6 afin de l’utiliser avec un cluster HDInsight Spark 2.0, remplacez le fichier de code Python par [ce fichier](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/Python/Spark2.0_ConsumeRFCV_NYCReg.py). Ce code montre comment utiliser les modèles créés dans Spark 2.0.
 
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 1. Vous avez besoin d’un compte Azure et d’un cluster HDInsight Spark 1.6 (ou Spark 2.0) pour effectuer cette procédure pas à pas. Pour obtenir des instructions sur la façon de satisfaire à ces exigences, voir [Vue d’ensemble de la science des données à l’aide de Spark sur Azure HDInsight](spark-overview.md). Cette rubrique contient également une description des données NYC 2013 Taxi utilisées ici, et des instructions sur l’exécution de code à partir d’un bloc-notes Jupyter sur le cluster Spark. 
 2. Vous devez également créer les modèles Machine Learning à noter ici en appliquant la procédure de la rubrique [Exploration et modélisation des données avec Spark](spark-data-exploration-modeling.md) pour le cluster Spark 1.6 ou les notebooks Spark 2.0. 
@@ -43,7 +43,7 @@ Pour modifier le notebook Jupyter pour Spark 1.6 afin de l’utiliser avec un cl
 ## <a name="setup-storage-locations-libraries-and-the-preset-spark-context"></a>Configuration : emplacements de stockage, bibliothèques et contexte Spark prédéfini
 Spark peut lire et écrire dans un objet blob Stockage Azure (également appelé WASB). Donc, vos données stockées dedans sont exploitables par Spark et les résultats peuvent être stockés à nouveau dans WASB.
 
-Pour enregistrer les modèles ou les fichiers dans WASB, le chemin d’accès doit être correctement spécifié. Le conteneur par défaut associé au cluster Spark peut être référencé à l’aide d’un chemin commençant par : *« wasb// »*. L’exemple de code suivant spécifie l’emplacement des données à lire et le chemin d’accès au répertoire de stockage dans lequel la sortie du modèle est enregistrée. 
+Pour enregistrer les modèles ou les fichiers dans WASB, le chemin d’accès doit être correctement spécifié. Le conteneur par défaut associé au cluster Spark peut être référencé à l’aide d’un chemin commençant par : *« wasb// »* . L’exemple de code suivant spécifie l’emplacement des données à lire et le chemin d’accès au répertoire de stockage dans lequel la sortie du modèle est enregistrée. 
 
 ### <a name="set-directory-paths-for-storage-locations-in-wasb"></a>Définir les chemins d’accès aux emplacements de stockage dans WASB
 Les modèles sont enregistrés dans : wasb:///user/remoteuser/NYCTaxi/Models. Si ce chemin d’accès n’est pas défini correctement, les modèles ne sont pas chargés en vue de leur notation.
@@ -112,7 +112,7 @@ Les noyaux PySpark fournis avec les blocs-notes Jupyter comprennent un contexte 
 Le noyau PySpark fournit certaines « commandes magiques » prédéfinies, qui sont des commandes spéciales que vous pouvez appeler avec %%. Deux de ces commandes sont utilisées dans ces exemples de code.
 
 * **%%local** Indique que le code des lignes suivantes est exécuté localement. Le code doit être du code Python valide.
-* **%%sql -o \<variable name>** 
+* **%%sql -o \<nom de variable>** 
 * Exécute une requête Hive sur sqlContext. Si le paramètre -o est passé, le résultat de la requête est conservé dans le contexte Python %%local en tant que tableau de données Pandas.
 
 Pour plus d’informations sur les noyaux pour blocs-notes Jupyter et sur les « commandes magiques » qu’ils fournissent, voir [Noyaux disponibles pour les blocs-notes Jupyter avec les clusters HDInsight Spark Linux sur HDInsight](../../hdinsight/spark/apache-spark-jupyter-notebook-kernels.md).
@@ -526,7 +526,7 @@ BoostedTreeRegressionFileLoc: GradientBoostingTreeRegression_2016-05-0317_23_56.
 ## <a name="consume-spark-models-through-a-web-interface"></a>Utiliser les modèles Spark via une interface web
 Spark fournit un mécanisme permettant de soumettre à distance des travaux par lots ou des requêtes interactives via une interface REST dotée d’un composant appelé Livy. Par défaut, Livy est activé sur votre cluster HDInsight Spark. Pour plus d'informations sur Livy, consultez la page [Envoi de travaux Spark à distance à l’aide de Livy](../../hdinsight/spark/apache-spark-livy-rest-interface.md). 
 
-Vous pouvez utiliser Livy pour envoyer à distance un travail qui note un fichier stocké dans un objet blob Azure, puis consigne les résultats dans un autre objet blob. Pour ce faire, téléchargez le script Python à partir de   
+Vous pouvez utiliser Livy pour envoyer à distance un travail qui note un fichier stocké dans un objet blob Azure, puis consigne les résultats dans un autre objet blob. Pour ce faire, téléchargez le script Python à partir de  
 [Github](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/Spark/Python/ConsumeGBNYCReg.py) dans l’objet blob du cluster Spark. Vous pouvez utiliser un outil tel que l’**Explorateur de stockage Microsoft Azure** ou **AzCopy** pour copier le script dans l’objet blob de cluster. Dans le cas présent, nous avons chargé le script ***wasb:///example/python/ConsumeGBNYCReg.py***.   
 
 > [!NOTE]
