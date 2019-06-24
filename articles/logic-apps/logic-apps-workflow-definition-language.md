@@ -78,9 +78,9 @@ Voici la structure générale d’une définition de sortie :
 
 | Attribut | Obligatoire | Type | Description  |
 |-----------|----------|------|-------------|
-| <*key-name*> | Oui | Chaîne | Nom de la clé de la valeur renvoyée pour la sortie |
+| <*key-name*> | Oui | String | Nom de la clé de la valeur renvoyée pour la sortie |
 | <*key-type*> | Oui | int, float, string, securestring, bool, array, objet JSON | Type de la valeur renvoyée pour la sortie |
-| <*key-value*> | Oui | Identique à <*type de clé*> | Valeur renvoyée pour la sortie |
+| <*key-value*> | Oui | Identique à <*key-type*> | Valeur renvoyée pour la sortie |
 |||||
 
 Pour obtenir la sortie à partir d’un exécution de workflow, passez en revue l’historique des exécutions de votre application logique et les détails dans le portail Azure ou utilisez le [API REST de Workflow](https://docs.microsoft.com/rest/api/logic/workflows). Vous pouvez également transmettre la sortie à des systèmes externes, par exemple Power BI, afin de créer des tableaux de bord.
