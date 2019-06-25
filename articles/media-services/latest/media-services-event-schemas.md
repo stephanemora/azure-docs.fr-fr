@@ -458,7 +458,7 @@ L’objet de données comporte les propriétés suivantes :
 | trackName | string | Nom de la piste. |
 | bitrate | integer | Débit binaire de la piste. |
 | timestamp | string | Timestamp du bloc de données supprimé. |
-| échelle de temps | string | Échelle de temps du timestamp. |
+| timescale | string | Échelle de temps du timestamp. |
 | resultCode | string | Motif de suppression du bloc de données. **FragmentDrop_OverlapTimestamp** ou **FragmentDrop_NonIncreasingTimestamp**. |
 
 ### <a name="liveeventincomingstreamreceived"></a>LiveEventIncomingStreamReceived
@@ -501,7 +501,7 @@ L’objet de données comporte les propriétés suivantes :
 | encoderIp | string  | Adresse IP de l’encodeur. |
 | encoderPort | string | Port de l’encodeur dont provient ce flux. |
 | timestamp | string | Premier timestamp du bloc de données reçu. |
-| échelle de temps | string | Échelle de temps dans laquelle le timestamp est représenté. |
+| timescale | string | Échelle de temps dans laquelle le timestamp est représenté. |
 
 ### <a name="liveeventincomingstreamsoutofsync"></a>LiveEventIncomingStreamsOutOfSync
 
@@ -573,7 +573,7 @@ L’objet de données comporte les propriétés suivantes :
 | firstDuration | string | Durée du bloc de données avec le premier timestamp. |
 | secondTimestamp | string  | Timestamp reçu pour une autre piste/un autre niveau de qualité de type vidéo. |
 | secondDuration | string | Durée du bloc de données avec un deuxième timestamp. |
-| échelle de temps | string | Échelle de temps des timestamps et de la durée.|
+| timescale | string | Échelle de temps des timestamps et de la durée.|
 
 ### <a name="liveeventingestheartbeat"></a>LiveEventIngestHeartbeat
 
@@ -616,7 +616,7 @@ L’objet de données comporte les propriétés suivantes :
 | bitrate | integer | Débit binaire de la piste. |
 | incomingBitrate | integer | Débit binaire calculé et basé sur des blocs de données provenant de l’encodeur. |
 | lastTimestamp | string | Timestamp le plus récent reçu pour une piste dans les 20 dernières secondes. |
-| échelle de temps | string | Échelle de temps dans laquelle les timestamps sont exprimés. |
+| timescale | string | Échelle de temps dans laquelle les timestamps sont exprimés. |
 | overlapCount | integer | Nombre de blocs de données avec des timestamps qui se chevauchent au cours des 20 dernières secondes. |
 | discontinuityCount | integer | Nombre de discontinuités observées dans les dernières 20 secondes. |
 | nonIncreasingCount | integer | Nombre de blocs de données présentant des timestamps passés dans les dernières 20 secondes. |
@@ -661,7 +661,7 @@ L’objet de données comporte les propriétés suivantes :
 | previousTimestamp | string | Timestamp du fragment précédent. |
 | newTimestamp | string | Timestamp du fragment actuel. |
 | discontinuityGap | string | Écart entre les deux timestamps ci-dessus. |
-| échelle de temps | string | Échelle de temps dans laquelle les écarts de timestamp et de discontinuité sont représentés. |
+| timescale | string | Échelle de temps dans laquelle les écarts de timestamp et de discontinuité sont représentés. |
 
 ### <a name="common-event-properties"></a>Propriétés d’événements courantes
 
@@ -669,7 +669,7 @@ Un événement contient les données générales suivantes :
 
 | Propriété | Type | Description |
 | -------- | ---- | ----------- |
-| rubrique | string | Rubrique EventGrid. Cette propriété comporte l’ID de ressource pour le compte Media Services. |
+| topic | string | Rubrique EventGrid. Cette propriété comporte l’ID de ressource pour le compte Media Services. |
 | subject | string | Chemin d’accès à la ressource pour le canal Media Services sous le compte Media Services. La concaténation de la rubrique et de l’objet indique l’ID de ressource pour le travail. |
 | eventType | string | Un des types d’événements inscrits pour cette source d’événement. Par exemple, « Microsoft.Media.JobStateChange ». |
 | eventTime | string | L’heure à quelle l’événement est généré selon l’heure UTC du fournisseur. |
