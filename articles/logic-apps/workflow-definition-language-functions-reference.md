@@ -93,7 +93,7 @@ Les fonctions de chaîne sont uniquement utilisables sur des chaînes.
 | [substring](../logic-apps/workflow-definition-language-functions-reference.md#substring) | Renvoyer les caractères d’une chaîne, en commençant à partir de la position spécifiée. |
 | [toLower](../logic-apps/workflow-definition-language-functions-reference.md#toLower) | Retourne une chaîne en minuscules. |
 | [toUpper](../logic-apps/workflow-definition-language-functions-reference.md#toUpper) | Retourne une chaîne en majuscules. |
-| [découper](../logic-apps/workflow-definition-language-functions-reference.md#trim) | Supprime les espaces blancs de début et de fin d’une chaîne et retourne la chaîne mise à jour. |
+| [trim](../logic-apps/workflow-definition-language-functions-reference.md#trim) | Supprime les espaces blancs de début et de fin d’une chaîne et retourne la chaîne mise à jour. |
 |||
 
 <a name="collection-functions"></a>
@@ -126,15 +126,15 @@ Pour obtenir des informations complètes sur chaque fonction, consultez la [list
 
 | Fonction de comparaison logique | Tâche |
 | --------------------------- | ---- |
-| [et](../logic-apps/workflow-definition-language-functions-reference.md#and) | Vérifie si toutes les expressions sont vraies. |
+| [and](../logic-apps/workflow-definition-language-functions-reference.md#and) | Vérifie si toutes les expressions sont vraies. |
 | [equals](../logic-apps/workflow-definition-language-functions-reference.md#equals) | Vérifier si les deux valeurs sont équivalentes. |
 | [greater](../logic-apps/workflow-definition-language-functions-reference.md#greater) | Vérifie si la première valeur est supérieure à la seconde. |
 | [greaterOrEquals](../logic-apps/workflow-definition-language-functions-reference.md#greaterOrEquals) | Vérifie si la première valeur est supérieure ou égale à la seconde. |
-| [si](../logic-apps/workflow-definition-language-functions-reference.md#if) | Vérifie si une expression est vraie ou fausse. En fonction du résultat, retourne une valeur spécifiée. |
+| [if](../logic-apps/workflow-definition-language-functions-reference.md#if) | Vérifie si une expression est vraie ou fausse. En fonction du résultat, retourne une valeur spécifiée. |
 | [less](../logic-apps/workflow-definition-language-functions-reference.md#less) | Vérifie si la première valeur est inférieure à la seconde. |
 | [lessOrEquals](../logic-apps/workflow-definition-language-functions-reference.md#lessOrEquals) | Vérifie si la première valeur est inférieure ou égale à la seconde. |
-| [non](../logic-apps/workflow-definition-language-functions-reference.md#not) | Vérifie si une expression est fausse. |
-| [ou Gestionnaire de configuration](../logic-apps/workflow-definition-language-functions-reference.md#or) | Vérifie si au moins une expression est vraie. |
+| [not](../logic-apps/workflow-definition-language-functions-reference.md#not) | Vérifie si une expression est fausse. |
+| [or](../logic-apps/workflow-definition-language-functions-reference.md#or) | Vérifie si au moins une expression est vraie. |
 |||
 
 <a name="conversion-functions"></a>
