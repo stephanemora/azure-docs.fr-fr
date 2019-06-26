@@ -171,7 +171,7 @@ Les unités de débit sont achetées à l’avance et facturées à l’heure. U
 
 ### <a name="partitions"></a>Partitions
 
-Les partitions vous permet une mise à l’échelle de votre traitement en aval. En raison du modèle de consommateur partitionné qui offre des concentrateurs d’événements avec des partitions, vous pouvez faire évoluer lors du traitement de vos événements simultanément. Un concentrateur d’événements peut avoir jusqu'à 32 partitions.
+Les partitions vous permettent une mise à l’échelle de votre traitement en aval. En raison du modèle de consommateur partitionné qui offre des concentrateurs d’événements avec des partitions, vous pouvez faire évoluer lors du traitement de vos événements simultanément. Un concentrateur d’événements peut avoir jusqu'à 32 partitions.
 
 Nous vous recommandons d’équilibrer les partitions et les unités de débit de 1:1 pour obtenir un dimensionnement optimal. Une partition unique a une garantie entrant et sortant de jusqu'à 1 unité de débit. Même si vous êtes en mesure d’atteindre un débit plus élevé sur une partition, la performance n’est pas garanti. C’est pourquoi nous vous recommandons fortement de que le nombre de partitions dans un concentrateur d’événements soit supérieur ou égal au nombre d’unités de débit.
 
