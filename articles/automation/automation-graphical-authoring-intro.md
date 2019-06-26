@@ -142,7 +142,7 @@ La condition de nouvelle tentative peut utiliser une variable appelée $RetryDat
 | Propriété | Description |
 |:--- |:--- |
 | NumberOfAttempts |Nombre d’exécutions de l’activité. |
-| Sortie |Sortie de la dernière exécution de l’activité. |
+| Output |Sortie de la dernière exécution de l’activité. |
 | TotalDuration |Délai écoulé depuis la première exécution de l’activité. |
 | StartedAt |Heure au format UTC à laquelle l’activité a été exécutée pour la première fois. |
 
@@ -324,10 +324,10 @@ Chaque paramètre d'entrée est défini par les propriétés figurant dans le ta
 
 | Propriété | Description |
 |:--- |:--- |
-| Nom |Nom unique du paramètre. Il ne peut contenir que des caractères alphanumériques et ne peut pas contenir d'espace. |
+| Name |Nom unique du paramètre. Il ne peut contenir que des caractères alphanumériques et ne peut pas contenir d'espace. |
 | Description |Description facultative du paramètre d'entrée. |
-| type |Type de données attendu pour la valeur de paramètre. Le portail Azure fournit un contrôle approprié pour le type de données de chaque paramètre lorsque vous êtes invité à indiquer une entrée. |
-| Obligatoire |Spécifie si une valeur doit être fournie pour le paramètre. Le Runbook ne peut pas être démarré si vous ne fournissez pas une valeur pour chaque paramètre obligatoire pour lequel aucune valeur par défaut n'est définie. |
+| Type |Type de données attendu pour la valeur de paramètre. Le portail Azure fournit un contrôle approprié pour le type de données de chaque paramètre lorsque vous êtes invité à indiquer une entrée. |
+| Mandatory |Spécifie si une valeur doit être fournie pour le paramètre. Le Runbook ne peut pas être démarré si vous ne fournissez pas une valeur pour chaque paramètre obligatoire pour lequel aucune valeur par défaut n'est définie. |
 | Valeur par défaut |Spécifie quelle valeur est utilisée pour le paramètre si aucune n'est pas fournie. Cela peut être Null ou une valeur spécifique. |
 
 ### <a name="runbook-output"></a>Sortie de Runbook
