@@ -123,7 +123,7 @@ Les propriétés des ressources de planification sont décrites dans le tableau 
 
 | Nom de l'élément | Obligatoire | Description |
 |:--|:--|:--|
-| Activé       | Oui | Spécifie si l’alerte est activée lors de sa création. |
+| enabled       | Oui | Spécifie si l’alerte est activée lors de sa création. |
 | interval      | Oui | La fréquence d’exécution de la requête (en minutes). |
 | queryTimeSpan | Oui | Durée sur laquelle les résultats sont évalués (en minutes). |
 
@@ -176,10 +176,10 @@ Les propriétés des ressources d’action d’alerte sont décrites dans les ta
 
 | Nom de l'élément | Obligatoire | Description |
 |:--|:--|:--|
-| Type | Oui | Type de l’action.  **Alert** pour les actions d’alerte. |
-| Nom | Oui | Nom d’affichage de l’alerte.  Il s’agit du nom qui s’affiche dans la console pour la règle d’alerte. |
-| Description | Non  | La description facultative de l’alerte. |
-| Severity | Oui | La gravité de l’enregistrement d’alerte selon les valeurs suivantes :<br><br> **critical**<br>**warning**<br>**informational**
+| type | Oui | Type de l’action.  **Alert** pour les actions d’alerte. |
+| name | Oui | Nom d’affichage de l’alerte.  Il s’agit du nom qui s’affiche dans la console pour la règle d’alerte. |
+| description | Non  | La description facultative de l’alerte. |
+| severity | Oui | La gravité de l’enregistrement d’alerte selon les valeurs suivantes :<br><br> **critical**<br>**warning**<br>**informational**
 
 
 #### <a name="threshold"></a>Seuil
