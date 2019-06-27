@@ -70,9 +70,9 @@ Le tableau suivant décrit les attributs d’un paramètre.
 
 | Attribut | Description |
 |:--- |:--- |
-| Type |Type de données pour le paramètre. Le contrôle de saisie affiché pour l’utilisateur dépend du type de données.<br><br>Valeur booléenne : zone de liste déroulante<br>Chaîne : zone de texte<br>Entier : zone de texte<br>securestring : champ de mot de passe<br> |
+| type |Type de données pour le paramètre. Le contrôle de saisie affiché pour l’utilisateur dépend du type de données.<br><br>Valeur booléenne : zone de liste déroulante<br>Chaîne : zone de texte<br>Entier : zone de texte<br>securestring : champ de mot de passe<br> |
 | category |Catégorie du paramètre facultative.  Les paramètres de la même catégorie sont regroupés. |
-| contrôle |Fonctionnalité supplémentaire pour les paramètres de type chaîne.<br><br>datetime : le contrôle Datetime est affiché.<br>guid : la valeur Guid est générée automatiquement et le paramètre n’est pas affiché. |
+| control |Fonctionnalité supplémentaire pour les paramètres de type chaîne.<br><br>datetime : le contrôle Datetime est affiché.<br>guid : la valeur Guid est générée automatiquement et le paramètre n’est pas affiché. |
 | description |Description du paramètre facultative.  Affichée dans une bulle d’informations en regard du paramètre. |
 
 ### <a name="standard-parameters"></a>Paramètres standard
@@ -224,7 +224,7 @@ L’entité **plan** de la ressource de solution possède les propriétés indiq
 
 | Propriété | Description |
 |:--- |:--- |
-| Nom |Nom de la solution. |
+| name |Nom de la solution. |
 | version |Version de la solution, telle que déterminée par l’auteur. |
 | product |Chaîne unique pour identifier la solution. |
 | publisher |Éditeur de la solution. |
