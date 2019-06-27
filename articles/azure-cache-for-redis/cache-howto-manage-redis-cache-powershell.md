@@ -127,17 +127,17 @@ Le tableau suivant contient les propriétés et les descriptions pour les param�
 
 | Paramètre | Description | Default |
 | --- | --- | --- |
-| Nom |Nom du cache | |
-| Lieu |Emplacement du cache | |
+| Name |Nom du cache | |
+| Location |Emplacement du cache | |
 | ResourceGroupName |Nom du groupe de ressources dans lequel créer le cache | |
-| Taille |Taille du cache. Les valeurs autorisées sont : P1, P2, P3, P4, C0, C1, C2, C3, C4, C5, C6, 250 Mo, 1 Go, 2,5 Go, 6 Go, 13 Go, 26 Go, 53 Go |1 Go |
-| Nombre de partitions |Le nombre de partitions à créer lors de la création d'un cache premium avec le clustering activé. Les valeurs autorisées sont : 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | |
+| Size |Taille du cache. Les valeurs autorisées sont : P1, P2, P3, P4, C0, C1, C2, C3, C4, C5, C6, 250 Mo, 1 Go, 2,5 Go, 6 Go, 13 Go, 26 Go, 53 Go |1 Go |
+| ShardCount |Le nombre de partitions à créer lors de la création d'un cache premium avec le clustering activé. Les valeurs autorisées sont : 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | |
 | SKU |Spécifie la référence du cache. Les valeurs autorisées sont : De base, Standard, Premium |standard |
 | RedisConfiguration |Spécifie les paramètres de configuration de Redis. Pour plus d’informations sur chaque paramètre, consultez le tableau [Propriétés RedisConfiguration](#redisconfiguration-properties) suivant. | |
-| enableNonSslPort |Indique si le port non SSL est activé. |False |
+| EnableNonSslPort |Indique si le port non SSL est activé. |False |
 | MaxMemoryPolicy |Ce paramètre est obsolète. Utilisez RedisConfiguration à la place. | |
 | StaticIP |Lorsque vous hébergez votre cache dans un réseau virtuel, spécifie une adresse IP unique dans le sous-réseau pour le cache. Si elle est omise, une adresse IP est choisie pour vous dans le sous-réseau. | |
-| Sous-réseau |Lorsque vous hébergez votre cache dans un réseau virtuel, spécifie le nom du sous-réseau dans lequel déployer le cache. | |
+| Subnet |Lorsque vous hébergez votre cache dans un réseau virtuel, spécifie le nom du sous-réseau dans lequel déployer le cache. | |
 | VirtualNetwork |Lorsque vous hébergez votre cache dans un réseau virtuel, spécifie l’ID de ressource du réseau virtuel dans lequel déployer le cache. | |
 | KeyType |Spécifie la clé d'accès à régénérer lors du renouvellement des clés d'accès. Les valeurs autorisées sont : Principal, Secondaire | |
 
