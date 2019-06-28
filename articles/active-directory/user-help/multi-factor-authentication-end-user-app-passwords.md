@@ -1,6 +1,6 @@
 ---
-title: Comment gérer les mots de passe - Azure Active Directory | Microsoft Docs
-description: En savoir plus sur les mots de passe d’application et ce qu’ils sont utilisés pour en ce qui concerne la vérification en deux étapes.
+title: Gestion des mots de passe d’application – Azure Active Directory | Microsoft Docs
+description: Découvrez les mots de passe d’application et le rôle de ces derniers dans le cadre de la vérification en deux étapes.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -15,10 +15,10 @@ ms.author: lizross
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c6790fa1cbb10999a751b31bcb27db2edcb67b4a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60334953"
 ---
 # <a name="manage-app-passwords-for-two-step-verification"></a>Gérer les mots de passe d’application pour la vérification en deux étapes
@@ -40,7 +40,7 @@ Lorsque vous utilisez des mots de passe d’application, gardez à l’esprit le
 
 Vous recevez un mot de passe d’application lors de votre inscription initiale au processus de vérification en deux étapes. Si vous avez besoin de mots de passe supplémentaires, vous pouvez en créer d’autres en fonction de la manière dont vous utilisez la vérification en deux étapes :
 
-- **Vous utilisez la vérification en deux étapes avec votre compte professionnel ou scolaire et le portail MyApps.** Créer et supprimer vos mots de passe en suivant les instructions dans la créer et supprimer des mots de passe à l’aide de la section du portail MyApps de cet article. Pour plus d’informations sur le portail MyApps et la manière de l’utiliser, consultez [Qu’est-ce que le portail MyApps dans Azure Active Directory ?](active-directory-saas-access-panel-introduction.md).
+- **Vous utilisez la vérification en deux étapes avec votre compte professionnel ou scolaire et le portail MyApps.** Créez et supprimez vos mots de passe d’application en suivant les instructions fournies dans la section Créer et supprimer des mots de passe d’application à l’aide du portail MyApps de cet article. Pour plus d’informations sur le portail MyApps et la manière de l’utiliser, consultez [Qu’est-ce que le portail MyApps dans Azure Active Directory ?](active-directory-saas-access-panel-introduction.md).
 
 - **Vous utilisez la vérification en deux étapes avec votre compte professionnel ou scolaire et le portail Office 365.** Créez et supprimez vos mots de passe d’application en suivant les instructions de la section [Créer et supprimer des mots de passe d’application à l’aide du Portail Office 365](#create-and-delete-app-passwords-using-the-office-365-portal) de cet article.
 
@@ -89,7 +89,7 @@ Si vous utilisez la vérification en deux étapes avec votre compte professionne
 
 1. Connectez-vous à votre compte professionnel ou scolaire.
 
-2. Accédez à [ https://portal.office.com ](https://portal.office.com), sélectionnez le **paramètres** icône dans le coin supérieur droit de la **portail Office 365** page, puis développez **renforcer la sécurité vérification**.
+2. Accédez à [https://portal.office.com](https://portal.office.com), sélectionnez l’icône **Paramètres** dans l’angle supérieur droit de la page du **Portail Office 365**, puis développez la zone **Vérification de sécurité supplémentaire**.
 
     ![Portail Office sur lequel la zone Vérification de sécurité supplémentaire est développée](media/security-info/security-info-o365password.png)
 
@@ -105,7 +105,7 @@ Si vous utilisez la vérification en deux étapes avec votre compte professionne
 
 1. Connectez-vous à votre compte professionnel ou scolaire.
 
-2. Accédez à [ https://portal.office.com ](https://portal.office.com), sélectionnez le **paramètres** icône dans le coin supérieur droit de la **portail Office 365** page, puis sélectionnez **renforcer la sécurité vérification**.
+2. Accédez à [https://portal.office.com](https://portal.office.com), sélectionnez l’icône **Paramètres** dans l’angle supérieur droit de la page du **Portail Office 365**, puis sélectionnez **Vérification de sécurité supplémentaire**.
 
 3. Sélectionnez le texte **Create and manage app passwords** (Créer et gérer des mots de passe d’application) pour ouvrir la page **Mots de passe d’application**.
 

@@ -18,10 +18,10 @@ ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
 ms.openlocfilehash: 586f37ff972a6102da351794365f719a185857fc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60502227"
 ---
 # <a name="languages-supported-on-the-data-science-virtual-machine"></a>Langages pris en charge sur la machine virtuelle DSVM 
@@ -222,7 +222,7 @@ L’emplacement Julia par défaut est un environnement général lisible par tou
 Ouvrez le terminal et exécutez simplement `julia`. 
 * Utilisation dans un IDE
 
-Utilisez `Juno` l’IDE Julia installé sur la machine virtuelle DSVM et disponible comme un raccourci du menu Application.
+Utilisez `Juno`, l’IDE Julia installé sur la machine virtuelle DSVM et disponible en tant que raccourci dans le menu Application.
 
 * Utilisation dans Jupyter
 

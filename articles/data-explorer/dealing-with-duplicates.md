@@ -1,6 +1,6 @@
 ---
-title: Gérer les données en double dans l’Explorateur de données Azure
-description: Cette rubrique vous montrera différentes approches pour traiter des données en double lorsque vous utilisez l’Explorateur de données Azure.
+title: Traiter des données en double dans Azure Data Explorer
+description: Cette rubrique décrit différentes approches du traitement des données en double en lien avec l’utilisation d’Azure Data Explorer.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
@@ -8,13 +8,13 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 12/19/2018
 ms.openlocfilehash: 8f55b6dfb7b5bc9eda675aca4ed80a66b8a25a7f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60445768"
 ---
-# <a name="handle-duplicate-data-in-azure-data-explorer"></a>Gérer les données en double dans l’Explorateur de données Azure
+# <a name="handle-duplicate-data-in-azure-data-explorer"></a>Traiter des données en double dans Azure Data Explorer
 
 Les appareils qui envoient des données dans le cloud gèrent un cache local des données. Selon la taille des données, le cache local peut stocker des données pendant plusieurs jours ou même plusieurs mois. Vous souhaitez protéger vos bases de données analytiques des appareils défectueux qui renvoient les données mises en cache et entraînent une duplication des données dans la base de données analytique. Cette rubrique décrit les bonnes pratiques pour la gestion des données en double pour ces types de scénarios.
 

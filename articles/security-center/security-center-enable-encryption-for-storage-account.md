@@ -1,5 +1,5 @@
 ---
-title: Chiffrement pour le compte de stockage Azure dans Azure Security Center | Microsoft Docs
+title: Chiffrement du compte de stockage Azure dans Azure Security Center | Microsoft Docs
 description: Ce document vous montre comment implémenter la recommandation d’Azure Security Center **Activation du chiffrement pour le compte de stockage Azure**.
 services: security-center
 documentationcenter: na
@@ -15,15 +15,15 @@ ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
 ms.openlocfilehash: cadf375b541900600be82e76673637ff01a8ad96
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64696070"
 ---
-# <a name="encryption-for-azure-storage-account-in-azure-security-center"></a>Chiffrement pour le compte de stockage Azure dans Azure Security Center
+# <a name="encryption-for-azure-storage-account-in-azure-security-center"></a>Chiffrement du compte de stockage Azure dans Azure Security Center
 
-Chiffrement du stockage Azure pour les données au repos est activé par défaut pour tous les comptes de stockage Azure. Stockage Azure chiffre les données lorsqu’il est écrit dans le stockage Azure et les déchiffre avant récupération. Pour plus d’informations, consultez [chiffrement de stockage Azure pour les données au repos](../storage/common/storage-service-encryption.md).
+La fonctionnalité de chiffrement du service Stockage Azure est activée par défaut sur tous les comptes de stockage Azure pour les données au repos. Le service Stockage Azure chiffre les données au moment de leur écriture sur le stockage Azure et les déchiffre avant leur récupération. Pour plus d'informations, consultez [Fonctionnalité de chiffrement du service Stockage Azure pour les données au repos](../storage/common/storage-service-encryption.md).
 
 Pour plus d’informations sur le Centre de sécurité, consultez les rubriques suivantes :
 
