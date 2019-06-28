@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
 ms.openlocfilehash: e7577dcf4859b1192121fe0406d0efb63a9f5990
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65148632"
 ---
 # <a name="datetimev2-prebuilt-entity-for-a-luis-app"></a>Entité prédéfinie datetimeV2 pour une application LUIS
@@ -82,7 +82,7 @@ Chaque élément du tableau `values` peut comprendre les champs suivants :
 |Nom de la propriété|Description de la propriété|
 |--|--|
 |timex|Heure, date ou plage de dates exprimées au format TIMEX qui suit la [norme ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) et les attributs TIMEX3 pour l’annotation à l’aide du langage TimeML. Cette annotation est décrite dans les [recommandations TIMEX](http://www.timeml.org/tempeval2/tempeval2-trial/guidelines/timex3guidelines-072009.pdf).|
-|Type|Le sous-type, ce qui peut être un des éléments suivants : `datetime`, `date`, `time`, `daterange`, `timerange`, `datetimerange`, `duration`, `set`.|
+|Type|Sous-type, à savoir l’un des éléments suivants : `datetime`, `date`, `time`, `daterange`, `timerange`, `datetimerange`, `duration` ou `set`.|
 |value|**Facultatif.** Objet datetime au format aaaa:MM:jj (date), HH:mm:ss (heure), aaaa:MM:dd HH:mm:ss (dateheure). Si `type` est `duration`, la valeur est le nombre de secondes (durée). <br/> Utilisé uniquement si `type` est `datetime`, `date`, `time` ou une durée.|
 
 ## <a name="valid-date-values"></a>Valeurs de date valides
@@ -206,15 +206,15 @@ L’exemple suivant montre comment LUIS utilise **datetimev2** pour résoudre l�
   ]
 ```
 
-## <a name="preview-api-version-3x"></a>Version d’évaluation API 3.x
+## <a name="preview-api-version-3x"></a>API 3.x en préversion
 
-Réponse DatetimeV2 JSON a changé dans l’API V3. 
+La réponse JSON DatetimeV2 a changé dans l’API v3. 
 
-Modifications de l’API V2 :
-* `datetimeV2.timex.type` propriété n’est plus renvoyée, car elle est retournée au niveau du parent, `datetimev2.type`. 
-* Le `datetimeV2.timex` propriété a été renommée en `datetimeV2.value`.
+Changements par rapport à l’API V2 :
+* La propriété `datetimeV2.timex.type` n’est plus renvoyée, car elle est retournée au niveau du parent, `datetimev2.type`. 
+* La propriété `datetimeV2.timex` a été renommée en `datetimeV2.value`.
 
-Pour l’énoncé, `8am on may 2nd 2017`, la version V3 de DatetimeV2 est :
+Pour l’énoncé, `8am on may 2nd 2017` la version v3 de DatetimeV2 est la suivante :
 
 ```JSON
 {
@@ -244,7 +244,7 @@ Pour l’énoncé, `8am on may 2nd 2017`, la version V3 de DatetimeV2 est :
 }
 ```
 
-Le code JSON suivant est avec la `verbose` paramètre défini sur `false`:
+Le code JSON suivant a le paramètre `verbose` défini sur `false` :
 
 ```json
 {

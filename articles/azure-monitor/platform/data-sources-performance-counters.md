@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: magoedte
 ms.openlocfilehash: 76f4061af816c59e644db99913193ed6fcf24d18
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65205751"
 ---
 # <a name="windows-and-linux-performance-data-sources-in-azure-monitor"></a>Sources de données de performance Windows et Linux dans Azure Monitor
@@ -60,7 +60,7 @@ Suivez cette procédure pour ajouter un nouveau compteur de performances Linux �
 
 1. Par défaut, toutes les modifications de configuration sont automatiquement transmises à l’ensemble des agents.  Pour les agents Linux, un fichier de configuration est envoyé au collecteur de données Fluentd.  Si vous souhaitez modifier ce fichier manuellement sur chaque agent Linux, désélectionnez la case *Appliquer la configuration ci-dessous à mes machines Linux* et suivez les instructions ci-dessous.
 2. Tapez le nom du compteur dans la zone de texte, au format *objet(instance)\compteur*.  Lorsque vous commencez à taper, la liste des compteurs correspondants s’affiche.  Vous pouvez soit choisir un compteur dans cette liste, soit taper le nom de votre choix.  
-3. Cliquez sur **+**, ou appuyez sur **Entrée** pour ajouter le compteur à la liste des autres compteurs de l’objet.
+3. Cliquez sur **+** , ou appuyez sur **Entrée** pour ajouter le compteur à la liste des autres compteurs de l’objet.
 4. Tous les compteurs d’un objet utilisent le même **Intervalle d’échantillonnage**.  La valeur par défaut est 10 secondes.  Vous pouvez configurer jusqu’à 1 800 secondes (30 minutes) si vous souhaitez réduire l’espace de stockage requis pour les données de performances collectées.
 5. Après avoir ajouté les compteurs souhaités, cliquez sur le bouton **Enregistrer** en haut de l’écran pour enregistrer la configuration.
 
@@ -96,11 +96,11 @@ Le tableau suivant répertorie les objets et compteurs que vous pouvez indiquer 
 | Logical Disk | % Free Space |
 | Logical Disk | % Used Inodes |
 | Logical Disk | % Used Space |
-| Logical Disk | Nb d’octets de lecture de disque/s  |
-| Logical Disk | Nb d’opérations de lectures de disque/s  |
+| Logical Disk | Nb d’octets de lecture de disque/s |
+| Logical Disk | Nb d’opérations de lectures de disque/s |
 | Logical Disk | Disk Transfers/sec |
-| Logical Disk |  Nb d’octets d’écriture de disque/s |
-| Logical Disk |  Nb d’opération d’écriture de disque/s |
+| Logical Disk | Nb d’octets d’écriture de disque/s |
+| Logical Disk | Nb d’opération d’écriture de disque/s |
 | Logical Disk | Free Megabytes |
 | Logical Disk | Logical Disk Bytes/sec |
 | Mémoire | % Available Memory |
@@ -189,13 +189,13 @@ Les enregistrements de performances sont de type **Perf** et leurs propriétés 
 
 | Propriété | Description |
 |:--- |:--- |
-| Computer |Ordinateur sur lequel l’événement a été collecté. |
+| Ordinateur |Ordinateur sur lequel l’événement a été collecté. |
 | CounterName |Nom du compteur de performances. |
 | CounterPath |Chemin d’accès complet du compteur au format \\\\\<ordinateur>\\objet(instance)\\. |
 | CounterValue |Valeur numérique du compteur. |
 | InstanceName |Nom de l’instance de l’événement.  Vide si aucune instance. |
 | ObjectName |Nom de l’objet de performance. |
-| SourceSystem |Type d’agent sur lequel les données ont été collectées. <br><br>Ops Manager – Agent Windows, connexion directe ou SCOM <br>  Linux – Tous les agents Linux  <br>  AzureStorage – Diagnostics Azure |
+| SourceSystem |Type d’agent sur lequel les données ont été collectées. <br><br>Ops Manager – Agent Windows, connexion directe ou SCOM <br> Linux – Tous les agents Linux  <br> AzureStorage – Diagnostics Azure |
 | TimeGenerated |Date et heure d’échantillonnage des données. |
 
 ## <a name="sizing-estimates"></a>Tailles estimées
@@ -206,15 +206,15 @@ Les enregistrements de performances sont de type **Perf** et leurs propriétés 
 ## <a name="log-queries-with-performance-records"></a>Requêtes de journal avec des enregistrements de performances
 Le tableau suivant fournit plusieurs exemples de requêtes qui extraient des enregistrements de performances.
 
-| Interroger | Description |
+| Requête | Description |
 |:--- |:--- |
 | Perf |Toutes les données de performances |
 | Perf &#124; où l’ordinateur == « MyComputer » |Toutes les données de performances d’un ordinateur particulier |
 | Perf &#124; où CounterName == « longueur de la file d’attente de disque actuelle » |Toutes les données de performances d’un compteur particulier |
-| Performances &#124; où ObjectName == « Processor » and CounterName == « % temps processeur » et InstanceName == « _Total » &#124; résumer AVGCPU = AVG (countervalue) par ordinateur |Utilisation moyenne du processeur entre tous les ordinateurs |
-| Perf &#124; where CounterName == "% Processor Time" &#124; summarize AggregatedValue = max(CounterValue) by Computer |Utilisation maximale du processeur entre tous les ordinateurs |
-| Performances &#124; où ObjectName == « LogicalDisk » and CounterName == « Longueur de file d’attente de disque actuelle » et l’ordinateur == « MyComputerName » &#124; summarize AggregatedValue = AVG (countervalue) par InstanceName |Longueur actuelle moyenne de file d’attente du disque pour toutes les instances d’un ordinateur donné |
-| Perf &#124; where CounterName == "Disk Transfers/sec" &#124; summarize AggregatedValue = percentile(CounterValue, 95) by Computer |95e centile de transferts disque/s entre tous les ordinateurs |
+| Perf &#124; où ObjectName == « Processeur », CounterName == « % du temps processeur » et InstanceName == « _Total » &#124; résumer AVGCPU = avg(CounterValue) par ordinateur |Utilisation moyenne du processeur entre tous les ordinateurs |
+| Perf &#124; où CounterName == « % du temps processeur » &#124; résumer AggregatedValue = max(CounterValue) par ordinateur |Utilisation maximale du processeur entre tous les ordinateurs |
+| Perf &#124; où ObjectName == « LogicalDisk », CounterName == « Longueur de la file d’attente de disque actuelle » et l’ordinateur == « MyComputerName » &#124; résumer AggregatedValue = avg(CounterValue) par InstanceName |Longueur actuelle moyenne de file d’attente du disque pour toutes les instances d’un ordinateur donné |
+| Perf &#124; où CounterName == « Transferts disque/s » &#124; résumer AggregatedValue = centile(CounterValue, 95) par ordinateur |95e centile de transferts disque/s entre tous les ordinateurs |
 | Perf &#124; où CounterName == « % du temps processeur » et InstanceName == « _Total » &#124; résumer AggregatedValue = avg(CounterValue) par emplacement (TimeGenerated, 1 h), ordinateur |Moyenne horaire d’utilisation du processeur sur tous les ordinateurs |
 | Perf &#124; où l’ordinateur == « MyComputer », CounterName startswith_cs « % » et InstanceName == « _Total » &#124; résumer AggregatedValue = centile(CounterValue, 70) par emplacement (TimeGenerated, 1 h), CounterName | 70e centile horaire de chaque compteur de pourcentage pour un ordinateur particulier |
 | Perf &#124; où CounterName == « % du temps processeur », InstanceName == « _Total » et l’ordinateur == « MyComputer » &#124; résumer [« min(CounterValue) »] = min(CounterValue), [« avg(CounterValue) »] = avg(CounterValue), [« percentile75(CounterValue) »] = centile (CounterValue, 75), [« max(CounterValue) »] = max(CounterValue) par emplacement (TimeGenerated, 1 h), ordinateur |Moyenne horaire, minimum, maximum et 75e centile d’utilisation du processeur pour un ordinateur spécifique |

@@ -9,10 +9,10 @@ ms.date: 04/03/2019
 ms.topic: conceptual
 manager: philmea
 ms.openlocfilehash: 43fe0047022173cc20f58688920fa95b95cc6c22
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65473535"
 ---
 # <a name="as-a-csp-create-and-manage-an-azure-iot-central-application-on-behalf-of-your-customer"></a>En tant que fournisseur de solutions cloud, créer et gérer une application Azure IoT Central pour le compte de votre client 
@@ -25,7 +25,7 @@ Pour commencer, connectez-vous à votre compte sur le portail des partenaires Mi
 
 ![Microsoft Partner Center, vue Client](media/howto-create-application-csp/image1.png)
 
-Azure IoT Central apparaît en tant que service pouvant être administré. Sélectionnez le lien Azure IoT Central sur la page pour créer de nouvelles applications ou gérer des applications existantes pour ce client.
+Azure IoT Central apparaît en tant que service pouvant être administré. Sélectionnez le lien Azure IoT Central sur la page pour créer des applications ou pour gérer des applications existantes pour ce client.
 
 ![Azure IoT Central disponible pour la gestion](media/howto-create-application-csp/image2.png)
 
@@ -33,7 +33,7 @@ Vous êtes dirigé vers la page Gestionnaire d’applications d’Azure IoT Cent
 
 ![Gestionnaire de création pour les fournisseurs de services cloud](media/howto-create-application-csp/image3.png)
 
-Pour créer une application Azure IoT Central, sélectionnez le **nouvelle Application** vignette. Ceci charge la page de création d’application. Vous devez renseigner tous les champs de cette page, puis choisir **Créer**. Vous pouvez trouver plus d’informations sur chacun des champs ci-dessous.
+Pour créer une application Azure IoT Central, sélectionnez la vignette **Nouvelle application**. Ceci charge la page de création d’application. Vous devez renseigner tous les champs de cette page, puis choisir **Créer**. Vous pouvez trouver plus d’informations sur chacun des champs ci-dessous.
 
 ![Page Créer une application pour les fournisseurs de solutions cloud](media/howto-create-application-csp/image4.png)
 
@@ -43,11 +43,11 @@ Pour créer une application Azure IoT Central, sélectionnez le **nouvelle Appli
 
 En tant que fournisseur de solutions cloud, vous ne pouvez créer que des applications avec paiement au fur et à mesure. Pour faire une démonstration d’Azure IoT Central à votre client, vous pouvez créer une application d’essai à part. Pour plus d’informations sur les applications d’essai et les applications avec paiement au fur et à mesure, voir la [page des tarifs d’Azure IoT Central ](https://azure.microsoft.com/pricing/details/iot-central/).
 
-## <a name="application-name"></a>Nom de l'application
+## <a name="application-name"></a>Nom de l’application
 
 Le nom de votre application est affiché sur la page **Gestionnaire d’application** et dans chaque application Azure IoT Central. Vous pouvez choisir n’importe quel nom pour votre application Azure IoT Central. Choisissez un nom évocateur pour vous et les autres personnes de votre organisation.
 
-## <a name="application-url"></a>URL de l'application
+## <a name="application-url"></a>URL de l’application
 
 L’URL de l’application est le lien vers votre application. Vous pouvez enregistrer un signet vers cette URL dans votre navigateur ou le partager avec d’autres utilisateurs.
 
@@ -84,7 +84,7 @@ Vous pouvez voir les régions dans lesquelles Azure IoT Central est disponible d
 
 Vous pouvez choisir un des modèles d’application disponibles pour votre nouvelle application Azure IoT Central. Un modèle d’application peut contenir des éléments prédéfinis, comme des modèles d’appareil et des tableaux de bord pour vous aider à démarrer.
 
-| Modèle d’application | Description  |
+| Modèle d’application | Description |
 | -------------------- | ----------- |
 | Application personnalisée   | Crée une application vide, que vous pouvez remplir avec vos propres modèles d’appareil et vos propres appareils. |
 | Exemple Contoso       | Crée une application qui inclut un modèle d’appareil pour un appareil connecté simple. Utilisez ce modèle pour commencer à explorer Azure IoT Central. |

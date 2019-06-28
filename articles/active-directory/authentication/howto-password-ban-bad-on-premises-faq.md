@@ -1,5 +1,5 @@
 ---
-title: Protection de mot de passe Azure AD FAQ - Azure Active Directory local
+title: FAQ sur la protection par mot de passe Azure AD en local - Azure Active Directory
 description: FAQ sur la protection par mot de passe Azure AD en local
 services: active-directory
 ms.service: active-directory
@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3bd117b79c2d103225e8f1f29b63eb6ae341031d
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64917656"
 ---
 # <a name="azure-ad-password-protection-on-premises---frequently-asked-questions"></a>Protection par mot de passe Azure AD en local - Questions fréquentes (FAQ)
@@ -36,13 +36,13 @@ Non. La protection par mot de passe Azure AD en local est prise en charge unique
 
 Non pris en charge. Une fois déployée et activée, la protection par mot de passe Azure AD ne fait pas de distinction : tous les utilisateurs reçoivent les mêmes avantages en matière de protection.
 
-**Q : Quelle est la différence entre une modification de mot de passe et un mot de passe défini (ou réinitialiser) ?**
+**Q : Quelle est la différence entre une modification de mot de passe et une définition (ou réinitialisation) de mot de passe ?**
 
-Une modification de mot de passe est lorsqu’un utilisateur choisit un nouveau mot de passe après prouvant qu’ils ont connaissance de l’ancien mot de passe. Il s’agit par exemple, que se passe-t-il lorsqu’un utilisateur se connecte à Windows et est invité à choisir un nouveau mot de passe.
+Une modification de mot de passe survient lorsqu’un utilisateur choisit un nouveau mot de passe après avoir prouvé qu’il a connaissance de l’ancien mot de passe. Par exemple, lorsqu’un utilisateur se connecte à Windows et est invité à choisir un nouveau mot de passe.
 
-Un ensemble de mot de passe (parfois appelé une réinitialisation de mot de passe) est lorsqu’un administrateur remplace le mot de passe sur un compte avec un nouveau mot de passe, par exemple à l’aide de l’outil de gestion Active Directory Users and Computers. Cette opération requiert un niveau élevé de privilèges (généralement des administrateurs de domaine), et la personne qui effectue l’opération généralement n’a pas connaissance de l’ancien mot de passe. Scénarios de support technique est souvent le cas, par exemple lorsque aider un utilisateur qui a oublié son mot de passe. Vous verrez également de mot de passe défini des événements lorsqu’un nouveau compte d’utilisateur est créé pour la première fois avec un mot de passe.
+Une définition de mot de passe (parfois appelée une réinitialisation de mot de passe) survient lorsqu’un administrateur remplace le mot de passe d’un compte par un nouveau mot de passe, par exemple à l’aide de l’outil de gestion Utilisateurs et ordinateurs Active Directory. Cette opération requiert un niveau élevé de privilèges (généralement, administrateur de domaine), et la personne qui effectue l’opération n’a généralement pas connaissance de l’ancien mot de passe. C’est souvent le cas dans les scénarios de support technique (par exemple, lorsque vous aidez un utilisateur qui a oublié son mot de passe). Vous rencontrez également des situations de définition de mot de passe lorsqu’un compte d’utilisateur est créé pour la première fois avec un mot de passe.
 
-La stratégie de validation de mot de passe comporte les mêmes indépendamment de si une modification de mot de passe ou un ensemble est effectuée. Le service Agent de mot de passe Azure AD DC de Protection consigne différents événements afin de vous informer si une modification de mot de passe ou l’opération ensembliste a été effectuée.  Consultez [Protection de mot de passe Azure AD analyse et la journalisation](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-ban-bad-on-premises-monitor).
+Le comportement de la stratégie de validation de mot de passe est toujours identique, qu’il s’agisse d’une modification de mot de passe ou d’une définition de mot de passe. Le service d’agent du contrôleur de domaine pour la protection par mot de passe Azure AD consigne différents événements afin de vous informer en cas de modification ou de définition de mot de passe.  Voir [Supervision et journalisation dans la protection par mot de passe Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-ban-bad-on-premises-monitor).
 
 **Q : L’installation de la protection par mot de passe Azure AD simultanément avec d’autres produits basés sur le filtrage par mot de passe est-elle prise en charge ?**
 
@@ -82,9 +82,9 @@ Non. Le serveur proxy étant sans état, n’importe quel serveur proxy en parti
 
 Oui. Azure AD Connect et le service proxy de la protection par mot de passe Azure AD n’entrent jamais en conflit directement.
 
-**Q : Dans quel ordre doivent les agents de contrôleur de domaine et les proxys d’être installés et inscrit ?**
+**Q : Dans quel ordre faut-il installer et inscrire les agents de contrôleur de domaine et les proxys ?**
 
-N’importe quel ordre d’installation de l’agent Proxy, installation de l’agent contrôleur de domaine, l’inscription de forêt et l’inscription du Proxy est prise en charge.
+L’ordre n’a aucune importance pour l’installation de l’agent de proxy, l’installation de l’agent du contrôleur de domaine, l’inscription de la forêt et l’inscription du proxy.
 
 **Q : Dois-je me préoccuper des performances obtenues sur mes contrôleurs de domaine avant de déployer cette fonctionnalité ?**
 
@@ -110,15 +110,15 @@ En résumé, le déploiement du service d’agent contrôleur de domaine de la p
 
 Non.
 
-**Q : Pourquoi Azure toujours rejette les mots de passe faibles même si j’ai configuré la stratégie pour être en mode Audit ?**
+**Q : Pourquoi Azure refuse-t-il toujours les mots de passe faibles, même si j’ai configuré la stratégie en mode Audit ?**
 
-Mode d’audit est uniquement pris en charge dans l’environnement Active Directory local. Azure est implicitement toujours en mode « appliquer » lorsqu’il évalue les mots de passe.
+Le mode Audit est uniquement pris en charge dans l’environnement Active Directory local. Azure est implicitement toujours en mode « appliquer » lorsqu’il évalue les mots de passe.
 
 ## <a name="additional-content"></a>Contenu supplémentaire
 
 Les liens suivants ne font pas partie de la documentation de base se rapportant à la protection par mot de passe Azure AD, mais peuvent être une source utile d’informations supplémentaires sur cette fonctionnalité.
 
-[Protection de mot de passe Azure AD est désormais disponible !](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-Password-Protection-is-now-generally-available/ba-p/377487)
+[Protection par mot de passe Azure AD désormais disponible au grand public !](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-Password-Protection-is-now-generally-available/ba-p/377487)
 
 [Guide de protection contre le hameçonnage par e-mail – Partie 15 : Implémenter le service de la protection par mot de passe de Microsoft Azure AD (en local également !)](https://blogs.technet.microsoft.com/cloudready/2018/10/14/email-phishing-protection-guide-part-15-implement-the-microsoft-azure-ad-password-protection-service-for-on-premises-too/)
 

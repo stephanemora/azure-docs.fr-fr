@@ -1,6 +1,6 @@
 ---
-title: Connecter Microsoft web application firewall data vers Azure Sentinel Preview | Microsoft Docs
-description: Découvrez comment connecter les données de Microsoft web application firewall à Azure Sentinel.
+title: Connecter des données de pare-feu d’applications web Microsoft à Azure Sentinel en préversion | Microsoft Docs
+description: Découvrez comment connecter des données de pare-feu d’applications web Microsoft à Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -15,41 +15,41 @@ ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
 ms.openlocfilehash: 99c553145f0a600826e48bec437449f278b74fbf
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65205648"
 ---
-# <a name="connect-data-from-microsoft-web-application-firewall"></a>Connectez des données à partir de pare-feu d’applications web Microsoft
+# <a name="connect-data-from-microsoft-web-application-firewall"></a>Connecter des données de pare-feu d’application web Microsoft
 
 > [!IMPORTANT]
 > Azure Sentinel est actuellement disponible en préversion publique.
 > Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Vous pouvez diffuser des journaux de pare-feu d’applications de la passerelle d’Application Azure Microsoft web (WAF). Ce pare-feu d’applications Web protège vos applications contre les vulnérabilités web courantes telles que l’injection SQL et les scripts intersites et vous permet de personnaliser les règles pour réduire les faux positifs. Suivez ces instructions pour diffuser vos journaux de pare-feu d’applications Web de Microsoft dans Azure Sentinel.
+Vous pouvez diffuser en continu des journaux de pare-feu d’applications web (WAF) Microsoft d’Azure Application Gateway. Ce pare-feu d’applications web (WAF) protège vos applications contre les vulnérabilités web courantes telles que l’injection SQL et les scripts intersites, et vous permet de personnaliser les règles afin de réduire le nombre de faux positifs. Suivez ces instructions pour diffuser en continu vos journaux de pare-feu d’applications web Microsoft dans Azure Sentinel.
 
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
-- Une ressource de passerelle d’application existante
+- Une ressource Application Gateway existante
 
-## <a name="connect-to-microsoft-web-application-firewall"></a>Se connecter au pare-feu d’applications web Microsoft
+## <a name="connect-to-microsoft-web-application-firewall"></a>Se connecter à un pare-feu d’applications web Microsoft
 
-Si vous avez déjà le pare-feu d’applications web de Microsoft, assurez-vous que vous disposez d’une ressource de passerelle existante.
-Une fois que votre pare-feu d’applications web Microsoft est déployé et l’obtention de données, les données d’alerte peuvent facilement être diffusé en continu dans Azure Sentinel.
+Si vous disposez déjà d’un pare-feu d’applications web Microsoft, assurez-vous que vous disposez d’une ressource de passerelle existante.
+Lorsque votre pare-feu d’applications web Microsoft est déployé et obtient des données, les données d’alerte peuvent facilement être diffusées en continu dans Azure Sentinel.
     
-1. Dans le portail Azure Sentinel, sélectionnez **connecteurs de données**.
-1. Dans la page de connecteurs de données, sélectionnez le **WAF** vignette.
-1. Accédez à [ressource Application Gateway](https://ms.portal.azure.com/#blade/HubsExtension/BrowseAllResourcesBlade/resourceType/Microsoft.Network%2FapplicationGateways) et choisissez votre WAF.
-    1. Sélectionnez **les paramètres de Diagnostic**.
-    1. Sélectionnez **+ ajouter un paramètre de diagnostic** sous la table.
-    1. Dans le **les paramètres de Diagnostic** page, tapez un **nom** et sélectionnez **envoyer à Log Analytique**.
-    1. Sous **espace de travail Log Analytique** sélectionnez l’espace de travail Azure Sentinel.
-    1. Sélectionnez les types de journaux que vous souhaitez analyser. Nous vous recommandons : ApplicationGatewayAccessLog et ApplicationGatewayFirewallLog.
-1. Pour utiliser le schéma pertinent dans Analytique de journal pour les alertes de Microsoft web application firewall, recherchez **AzureDiagnostics**.
+1. Dans le portail Azure Sentinel, sélectionnez **Connecteurs de données**.
+1. Dans la page des connecteurs de données, sélectionnez la vignette **WAF**.
+1. Accédez à la [ressource Application Gateway](https://ms.portal.azure.com/#blade/HubsExtension/BrowseAllResourcesBlade/resourceType/Microsoft.Network%2FapplicationGateways)  et choisissez votre WAF.
+    1. Sélectionnez  **Paramètres de diagnostic**.
+    1. Sélectionnez  **+ Ajouter un paramètre de diagnostic** sous la table.
+    1. Dans la page  **Paramètres de diagnostic**, saisissez un  **nom** et sélectionnez  **Envoyer à Log Analytics**.
+    1. Sous **Espace de travail Log Analytics**, sélectionnez l’espace de travail Azure Sentinel.
+    1. Sélectionnez les types de journaux que vous souhaitez analyser. Recommandé : ApplicationGatewayAccessLog and ApplicationGatewayFirewallLog.
+1. Pour utiliser le schéma pertinent dans Log Analytics pour les alertes de pare-feu d’applications web Microsoft, recherchez **AzureDiagnostics**.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans ce document, vous avez appris à connecter des pare-feu d’applications web Microsoft à Azure Sentinel. Pour en savoir plus sur Azure Sentinel, voir les articles suivants :
-- Découvrez comment [obtenez une visibilité sur vos données et les menaces potentielles](quickstart-get-visibility.md).
-- Prise en main [détecter des menaces avec Azure Sentinel](tutorial-detect-threats.md).
+Dans ce document, vous avez appris à connecter le pare-feu d’applications web Microsoft à Azure Sentinel. Pour en savoir plus sur Azure Sentinel, voir les articles suivants :
+- Découvrez comment [obtenir une visibilité sur vos données et les menaces potentielles](quickstart-get-visibility.md).
+- Prise en main de la [détection des menaces avec Azure Sentinel](tutorial-detect-threats.md).

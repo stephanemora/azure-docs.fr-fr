@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: philmea
 ms.openlocfilehash: a20662c2fc9b416fefce89a6ebe706307ee71bb7
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65236469"
 ---
 # <a name="prepare-and-upload-images-to-your-azure-iot-central-application"></a>Préparer et charger des images dans votre application Azure IoT Central
@@ -30,13 +30,13 @@ Pour effectuer les étapes de cet article, vous avez besoin des éléments suiva
 
 Vous pouvez ajouter des images personnalisées aux emplacements suivants dans une application Azure IoT Central :
 
-* Le **mes applications** page
+* La page **Mes applications**
 
     ![Image sur la page Gestionnaire d’application](media/howto-prepare-images/applicationmanager.png)
 
-* Le tableau de bord d’application
+* Le tableau de bord de l’application
 
-    ![Image sur le tableau de bord applications](media/howto-prepare-images/homepage.png)
+    ![Image sur le tableau de bord de l’application](media/howto-prepare-images/homepage.png)
 
 * Un modèle d’appareil
 
@@ -70,29 +70,29 @@ Les sections suivantes décrivent comment charger les images dans les différent
 
 ### <a name="application-manager"></a>Gestionnaire d’application
 
-Pour charger une image à utiliser sur le **mes applications** page, accédez à la **paramètres d’Application** page dans le **Administration** section. Vous devez être administrateur pour effectuer cette tâche :
+Pour charger une image à utiliser sur la page **Mes applications**, accédez à la page **Paramètres de l’application** dans la section **Administration**. Vous devez être administrateur pour effectuer cette tâche :
 
 ![Charger une image d’application](media/howto-prepare-images/uploadapplicationmanager.png)
 
-Sélectionnez le **Image d’Application** vignette pour charger une image (268 x 160 px) à partir de votre ordinateur local.
+Sélectionnez la vignette **Image d’application** pour charger une image (268 x 160 px) à partir de votre ordinateur local.
 
 ### <a name="application-dashboard"></a>Tableau de bord de l’application
 
-Pour télécharger une image du tableau de bord d’application, accédez à la **tableau de bord** page de votre application, puis sélectionnez **modifier**. Vous devez être concepteur pour effectuer cette tâche :
+Pour charger une image sur le tableau de bord de l’application, accédez à la page **Tableau de bord** de votre application, puis sélectionnez **Modifier**. Vous devez être concepteur pour effectuer cette tâche :
 
-![Télécharger l’image du tableau de bord](media/howto-prepare-images/uploadhomepage.png)
+![Charger une image de tableau de bord](media/howto-prepare-images/uploadhomepage.png)
 
-Sous **configurer une Image**, sélectionnez le **Image** vignette pour charger une image à partir de votre ordinateur local. La vignette de plus petite taille est de 200 x 200 px ; les vignettes plus grandes peuvent être des multiples carrés ou rectangulaires de petites vignettes. Par exemple, 200 x 400 px, 400 x 200 px ou 400 x 400 px.
+Sous **Configurer une image**, sélectionnez la vignette **Image** pour charger une image préparée partir de votre ordinateur local. La vignette de plus petite taille est de 200 x 200 px ; les vignettes plus grandes peuvent être des multiples carrés ou rectangulaires de petites vignettes. Par exemple, 200 x 400 px, 400 x 200 px ou 400 x 400 px.
 
-**Enregistrez** l’image chargée. Vous pouvez la redimensionner en mode édition. Sélectionnez **fait** issue.
+**Enregistrez** l’image chargée. Vous pouvez la redimensionner en mode édition. Lorsque vous avez terminé, sélectionnez **Terminé**.
 
-### <a name="device-template"></a>Modèle d'appareil
+### <a name="device-template"></a>Modèle d’appareil
 
 Pour charger une image sur un modèle d’appareil, accédez à **Device Templates** et choisissez le modèle d’appareil. Vous devez être concepteur pour effectuer cette tâche :
 
 ![Charger une image de modèle d’appareil](media/howto-prepare-images/uploaddevicetemplate.png)
 
-Sélectionnez la vignette d’image pour charger une image (64 x 64 px) à partir de votre ordinateur local.
+Sélectionnez la vignette de l’image pour charger une image (64 x 64 px) à partir de votre ordinateur local.
 
 ### <a name="device-dashboard"></a>Page du tableau de bord d’un appareil
 
@@ -100,24 +100,24 @@ Pour charger une image sur un tableau de bord d’appareil, accédez à **Device
 
 ![Charger une image de tableau de bord d’appareil](media/howto-prepare-images/uploaddevicedashboard.png)
 
-Sous **configurer une Image**, sélectionnez le **Image** vignette, puis choisissez le fichier à télécharger à partir de votre ordinateur local. La vignette de plus petite taille est de 200 x 200 px ; les vignettes plus grandes peuvent être des multiples carrés ou rectangulaires de petites vignettes. Par exemple, 200 x 400 px, 400 x 200 px ou 400 x 400 px.
+Sous **Configurer une image**, sélectionnez la vignette **Image**, puis sélectionnez le fichier à charger à partir de votre ordinateur local. La vignette de plus petite taille est de 200 x 200 px ; les vignettes plus grandes peuvent être des multiples carrés ou rectangulaires de petites vignettes. Par exemple, 200 x 400 px, 400 x 200 px ou 400 x 400 px.
 
-**Enregistrez** l’image chargée. Vous pouvez la redimensionner et la repositionner en mode édition. Sélectionnez **fait** issue.
+**Enregistrez** l’image chargée. Vous pouvez la redimensionner et la repositionner en mode édition. Lorsque vous avez terminé, sélectionnez **Terminé**.
 
 ### <a name="device-set-dashboard"></a>Tableau de bord d’un ensemble d’appareils
 
-Pour charger une image sur un tableau de bord d’ensemble d’appareils, accédez à **Explorateur d’appareils** et choisissez l’ensemble d’appareils, puis un appareil. Puis choisissez le **tableau de bord** page et sélectionnez **modifier**:
+Pour charger une image sur un tableau de bord d’ensemble d’appareils, accédez à **Explorateur d’appareils** et choisissez l’ensemble d’appareils, puis un appareil. Choisissez ensuite la page **Tableau de bord** et sélectionnez **Modifier** :
 
 ![Charger une image de tableau de bord d’ensemble d’appareils](media/howto-prepare-images/uploaddevicesetdashboard.png)
 
-Sous **configurer une Image**, sélectionnez le **Image** vignette pour charger une image à partir de votre ordinateur local. La vignette de plus petite taille est de 200 x 200 px ; les vignettes plus grandes peuvent être des multiples carrés ou rectangulaires de petites vignettes. Par exemple, 200 x 400 px, 400 x 200 px ou 400 x 400 px.
+Sous **Configurer une image**, sélectionnez la vignette **Image** pour charger une image préparée partir de votre ordinateur local. La vignette de plus petite taille est de 200 x 200 px ; les vignettes plus grandes peuvent être des multiples carrés ou rectangulaires de petites vignettes. Par exemple, 200 x 400 px, 400 x 200 px ou 400 x 400 px.
 
-**Enregistrez** l’image chargée. Vous pouvez la redimensionner et la repositionner en mode édition. Sélectionnez **fait** issue.
+**Enregistrez** l’image chargée. Vous pouvez la redimensionner et la repositionner en mode édition. Lorsque vous avez terminé, sélectionnez **Terminé**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Maintenant que vous avez appris à préparer et charger des images dans votre application Azure IoT Central, voici les étapes suggérées :
+Maintenant que vous avez appris à préparer et à charger des images dans votre application Azure IoT Central, voici les étapes suivantes suggérées :
 
-* [Personnaliser l’interface utilisateur Azure IoT Central](./howto-customize-ui.md)
-* [Configurer le tableau de bord d’application](./howto-configure-homepage.md)
+* [Personnaliser l’interface utilisateur d’Azure IoT Central](./howto-customize-ui.md)
+* [Configurer le tableau de bord de l’application](./howto-configure-homepage.md)
 * [Gérer les appareils dans votre application Azure IoT Central](howto-manage-devices.md)

@@ -10,10 +10,10 @@ ms.assetid: 5366d852-e7d6-44cf-a88c-e9f52f15f7df
 ms.topic: conceptual
 ms.date: 10/13/2016
 ms.openlocfilehash: 73314c5864e3036d102deee2792021345b80bf2e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60687761"
 ---
 # <a name="use-the-vertex-execution-view-in-data-lake-tools-for-visual-studio"></a>Utilisation de la vue d’exécution du vertex dans Azure Data Lake Tools pour Visual Studio
@@ -40,12 +40,12 @@ Le volet central supérieur affiche **l’état d’exécution de tous les verte
 
 Le volet central inférieur affiche des informations sur chaque vertex :
 * Nom du processus : Le nom de l’instance de vertex. Il est composé de différentes parties de StageName|VertexName|VertexRunInstance. Par exemple, le vertex SV7_Split[62].v1 représente la seconde instance en cours d’exécution (.v1, index commençant à 0) du vertex numéro 62 de l’étape SV7_Split.
-* Total des données lues/écrites : Les données ont été lues/écrites par ce vertex.
-* État/quitter l’état : État final du vertex terminé.
-* Code/Type d’échec de la sortie : Erreur lors de l’échec du vertex.
-* Raison de la création : Pourquoi le vertex a été créé.
+* Total des données lues/écrites : données qui ont été lues/écrites par ce vertex.
+* État/Statut de sortie : état final du vertex terminé.
+* Code de sortie/Type d’échec : erreur en cas d’échec du vertex.
+* Raison de la création : pourquoi le vertex a été créé.
 * Latence de la ressource/latence du processus/latence de la file d’attente PN : délai pendant lequel le vertex attend des ressources, délai de traitement des données et temps de présence dans la file d’attente.
-* GUID du processus/créateur : GUID pour le vertex en cours d’exécution actuel ou de son créateur.
+* GUID du processus/créateur : GUID du vertex en cours d’exécution ou de son créateur.
 * Version : la énième instance du vertex en cours d’exécution (le système peut planifier de nouvelles instances d’un vertex pour plusieurs raisons, par exemple en cas de basculement, de redondance du calcul, etc..)
 * Heure de création de la version.
 * Heure de début de création du processus/Heure de mise en file d’attente du processus/Heure de début du processus/Heure de fin du processus : début du processus de création du vertex ; début du processus de mise en file d’attente du vertex ; début du processus d’un certain vertex ; fin d’un certain vertex.

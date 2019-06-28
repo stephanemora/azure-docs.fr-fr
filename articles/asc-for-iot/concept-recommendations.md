@@ -1,6 +1,6 @@
 ---
-title: Comprendre Azure Security Center pour la version préliminaire des recommandations de sécurité IoT | Microsoft Docs
-description: En savoir plus sur le concept des recommandations de sécurité et comment elles sont utilisées dans Azure Security Center pour IoT.
+title: Comprendre les recommandations de sécurité Azure Security Center pour l’IoT (préversion) | Microsoft Docs
+description: Découvrez le concept de recommandations de sécurité et la manière dont elles sont utilisées dans Azure Security Center pour l’IoT.
 services: asc-for-iot
 ms.service: ascforiot
 documentationcenter: na
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/24/2019
 ms.author: mlottner
 ms.openlocfilehash: 122a1585abf43d1aedc7f329cd7e41a6228f8c3e
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65200667"
 ---
 # <a name="security-recommendations"></a>Recommandations de sécurité
@@ -27,41 +27,41 @@ ms.locfileid: "65200667"
 > Azure Security Center pour IoT est disponible en préversion publique.
 > Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Azure Security Center (ASC) pour IoT analyse vos ressources Azure et les appareils IoT et fournit des recommandations de sécurité pour réduire la surface d’attaque. Recommandations de sécurité sont exploitables et visent à aider les clients de se conformer aux meilleures pratiques de sécurité.
+Azure Security Center (ASC) pour l’IoT analyse les ressources Azure et les appareils IoT et propose des recommandations de sécurité actionnables visant à réduire la surface d’attaque et à aider les clients à se conformer aux meilleures pratiques de sécurité.
 
-Dans cet article, vous trouverez une liste de recommandations qui peut être déclenché sur votre IoT Hub et/ou des appareils IoT.
+Vous trouverez dans cet article la liste des recommandations qui peuvent être déclenchées sur un hub IoT ou des appareils IoT.
 
 ## <a name="recommendations-for-iot-devices"></a>Recommandations pour les appareils IoT
 
-Recommandations de périphérique offrent des analyses et des suggestions pour améliorer la posture de sécurité de périphérique. 
+Les recommandations portant sur les appareils offrent des insights et des suggestions d’amélioration de la posture de sécurité des appareils. 
 
 | Severity | Nom                                                      | source de données | Description                                                                                                                                                                                           |
 |----------|-----------------------------------------------------------|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Moyenne   | Ouvrir des Ports sur l’appareil                                      | Agent       | Un point de terminaison d'écoute a été trouvé sur l'appareil                                                                                                                                                          |
-| Moyenne   | Stratégie de pare-feu permissifs trouvé dans une chaînes de. | Agent       | Autorisé trouvée (e) de stratégie de pare-feu. Stratégie de pare-feu doit refuser tout le trafic par défaut et définir des règles pour permettre la communication nécessaire à l’appareil.                               |
-| Moyenne   | Règle de pare-feu permissifs dans la chaîne d’entrée a été trouvé     | Agent       | Une règle dans le pare-feu a été trouvée qui contient un modèle permissif pour un large éventail d’adresses IP ou des ports.                                                                                    |
-| Moyenne   | Règle de pare-feu permissifs dans la chaîne de sortie a été trouvé    | Agent       | Une règle dans le pare-feu a été trouvée qui contient un modèle permissif pour un large éventail d’adresses IP ou des ports.                                                                                   |
-| Moyenne   | Validation de ligne de base système l’opération a échoué.           | Agent       | N’est pas conforme avec [benchmarks CIS Linux](https://www.cisecurity.org/cis-benchmarks/)                                                                                                         |
+| Moyenne   | Ports ouverts sur l’appareil                                      | Agent       | Un point de terminaison d’écoute a été trouvé sur l’appareil.                                                                                                                                                          |
+| Moyenne   | Stratégie de pare-feu permissive détectée dans l’une des chaînes | Agent       | Une stratégie de pare-feu autorisée a été trouvée (ENTRÉE/SORTIE). Une stratégie de pare-feu doit par défaut refuser tout le trafic et définir des règles pour autoriser la communication nécessaire à l’appareil.                               |
+| Moyenne   | Règle de pare-feu permissive détectée dans la chaîne d’entrée     | Agent       | Une règle contenant un modèle permissif pour un large éventail d’adresses IP ou de ports a été trouvée dans le pare-feu.                                                                                    |
+| Moyenne   | Règle de pare-feu permissive détectée dans la chaîne de sortie    | Agent       | Une règle contenant un modèle permissif pour un large éventail d’adresses IP ou de ports a été trouvée dans le pare-feu.                                                                                   |
+| Moyenne   | Échec de l’opération de validation du système par rapport à la référence           | Agent       | L’appareil n’est pas conforme aux [benchmarks CIS Linux](https://www.cisecurity.org/cis-benchmarks/).                                                                                                         |
 
-### <a name="operational-recommendations-for-iot-devices"></a>Recommandations opérationnelles concernant les appareils IoT
+### <a name="operational-recommendations-for-iot-devices"></a>Recommandations opérationnelles pour les appareils IoT
 
-Recommandations opérationnelles offrent des analyses et des suggestions pour améliorer la configuration de l’agent de sécurité.
+Les recommandations opérationnelles offrent des insights et des suggestions d’amélioration de la configuration de l’agent de sécurité.
 
 | Severity | Nom                                    | source de données | Description                                                                       |
 |----------|-----------------------------------------|-------------|-----------------------------------------------------------------------------------|
-| Faible      | L’agent envoie des messages inutilisés          | Agent       | au moins 10 % des messages de sécurité ont été inférieure à 4 Ko au cours des dernières 24 heures.  |
-| Faible      | Configuration de représentations de sécurité non optimale | Agent       | Configuration de représentations de sécurité n’est pas optimale.                                        |
-| Faible      | Conflit de configuration de représentations de sécurité    | Agent       | Conflits ont été identifiés dans la configuration de représentations de sécurité.                           |
+| Faible      | L’agent envoie des messages inutilisés          | Agent       | Au moins 10 % des messages de sécurité étaient inférieurs à 4 Ko au cours des dernières 24 heures.  |
+| Faible      | Configuration du jumeau de sécurité non optimale | Agent       | La configuration du jumeau de sécurité n’est pas optimale.                                        |
+| Faible      | Conflit de configuration du jumeau de sécurité    | Agent       | Des conflits ont été identifiés dans la configuration du jumeau de sécurité.                           |
 
 
 ## <a name="recommendations-for-iot-hub"></a>Recommandations pour IoT Hub
 
-Les alertes de recommandation fournissent un aperçu et les suggestions d’actions à améliorer la sécurité de votre environnement.  
+Les alertes de recommandation offrent des insights et des suggestions d’actions visant à améliorer la posture de sécurité de l’environnement.  
 
 | Severity | Nom                                                     | source de données | Description                                                                                                                                                                                                             |
 |----------|----------------------------------------------------------|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Élevé     | Informations d’identification d’authentification identique utilisées par plusieurs périphériques | IoT Hub     | Informations d’identification de l’authentification de IoT Hub sont utilisées par plusieurs appareils. Cela peut indiquer un appareil illégitime empruntant l’identité d’un appareil légitime. Utilisation des informations d’identification en double augmente le risque d’emprunt d’identité de l’appareil par un acteur malveillant. |
-| Moyenne   | Stratégie de filtre IP par défaut doit être refuser                  | IoT Hub     | Configuration du filtre IP doit avoir des règles définies pour le trafic autorisé et doivent par défaut, refuser tout autre trafic par défaut.                                                                                                     |
-| Moyenne   | Règle de filtre IP inclut des grandes plages IP                   | IoT Hub     | Une plage d’IP source règle Autoriser IP filtre est trop grande. Règles trop permissifs peuvent exposer votre IoT hub pour les personnes malveillantes.                                                                                       |
-| Faible      | Activer les journaux de diagnostic dans IoT Hub                       | IoT Hub     | Activez les journaux d’activité et conservez-les pendant jusqu’à un an. Rétention des journaux vous permet de recréer les pistes d’activité pour à des fins d’investigation lorsqu’un incident de sécurité se produit ou votre réseau est compromis.                                       |
+| Élevé     | Informations d’authentification identiques utilisées par plusieurs appareils | IoT Hub     | Des informations d’authentification IoT Hub sont utilisées par plusieurs appareils, ce qui peut indiquer qu’un appareil illégitime usurpe l’identité d’un appareil légitime. Les doublons d’informations d’identification augmentent le risque d’emprunt d’identité de l’appareil par un acteur malveillant. |
+| Moyenne   | La stratégie de filtre IP par défaut devrait être de refuser                  | IoT Hub     | La configuration du filtre IP devrait comporter des règles concernant le trafic autorisé et, par défaut, refuser le reste du trafic.                                                                                                     |
+| Moyenne   | Grande plage d’adresses IP dans une règle de filtre IP                   | IoT Hub     | La plage d’adresses IP source d’une des règles de filtre IP Autoriser est trop grande. Des règles trop permissives risquent d’exposer le hub IoT à des personnes malveillantes.                                                                                       |
+| Faible      | Activer les journaux de diagnostic dans IoT Hub                       | IoT Hub     | Activez les journaux d’activité et conservez-les pendant jusqu’à un an. Le fait de conserver les journaux permet de recréer les pistes d’activités à des fins d’investigation en cas d’incident de sécurité ou de compromission du réseau.                                       |
 |

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: zarhoads
 ms.openlocfilehash: 2070c79a6ce0627280b1793e412002783f385cc0
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65074040"
 ---
 # <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>Options de mise à l’échelle des applications dans AKS (Azure Kubernetes Service)
@@ -51,13 +51,13 @@ Vous devrez peut-être ajuster ces valeurs de ralentissement. Les valeurs de ral
 
 ## <a name="cluster-autoscaler"></a>Autoscaler de cluster
 
-Pour répondre aux demandes changeantes du pod, Kubernetes a un autoscaler de cluster (actuellement en version préliminaire dans ACS) qui s’ajuste le nombre de nœuds en fonction des ressources de calcul demandé dans le pool de nœud. Par défaut, l’autoscaler de cluster vérifie le serveur d’API toutes les 10 secondes à la recherche de toute modification à apporter au nombre de nœuds. Si l’autoscaler de cluster détermine qu’une modification est nécessaire, le nombre de nœuds de votre cluster AKS est augmenté ou diminué en conséquence. L’autoscaler de cluster fonctionne avec les clusters AKS activés pour RBAC qui exécutent Kubernetes 1.10.x ou une version ultérieure.
+Pour répondre aux demandes changeantes de pods, Kubernetes propose un autoscaler de cluster (actuellement en préversion dans AKS) qui ajuste le nombre de nœuds en fonction des ressources de calcul demandées dans le pool de nœuds. Par défaut, l’autoscaler de cluster vérifie le serveur d’API toutes les 10 secondes à la recherche de toute modification à apporter au nombre de nœuds. Si l’autoscaler de cluster détermine qu’une modification est nécessaire, le nombre de nœuds de votre cluster AKS est augmenté ou diminué en conséquence. L’autoscaler de cluster fonctionne avec les clusters AKS activés pour RBAC qui exécutent Kubernetes 1.10.x ou une version ultérieure.
 
 ![Autoscaler de cluster Kubernetes](media/concepts-scale/cluster-autoscaler.png)
 
 L’autoscaler de cluster est généralement utilisé parallèlement à l’autoscaler de pods élastique. Lorsqu’ils sont combinés, l’autoscaler de pods élastique augmente ou diminue le nombre de pods en fonction de l’exigence des applications, tandis que l’autoscaler de cluster ajuste à proportion le nombre de nœuds nécessaires pour exécuter ces pods supplémentaires.
 
-Cluster autoscaler doit uniquement être testé en version préliminaire sur les clusters AKS avec un pool de nœud unique.
+L’autoscaler de cluster ne doit être testé qu’en préversion sur les clusters AKS avec un pool de nœuds unique.
 
 Pour vous familiariser avec l’autoscaler de cluster dans AKS, consultez [Autoscaler de cluster sur AKS][aks-cluster-autoscaler].
 
@@ -83,7 +83,7 @@ Pour faire évoluer rapidement votre cluster AKS, vous pouvez intégrer Azure Co
 
 ![Mise à l'échelle rapide de Kubernetes sur ACI](media/concepts-scale/burst-scaling.png)
 
-ACI vous permet de déployer rapidement des instances de conteneur sans la surcharge d’une infrastructure supplémentaire. Lorsque vous vous connectez à AKS, ACI devient une extension logique et sécurisée de votre cluster AKS. Le composant Virtual Kubelet est installé dans votre cluster AKS qui présente ACI comme un nœud Kubernetes virtuel. Kubernetes peut alors planifier les pods s’exécutant en tant qu’instances ACI via des nœuds virtuels, et non en tant que pods sur des nœuds de machine virtuelle, directement dans votre cluster AKS. Les nœuds virtuels sont actuellement en version préliminaire dans ACS.
+ACI vous permet de déployer rapidement des instances de conteneur sans la surcharge d’une infrastructure supplémentaire. Lorsque vous vous connectez à AKS, ACI devient une extension logique et sécurisée de votre cluster AKS. Le composant Virtual Kubelet est installé dans votre cluster AKS qui présente ACI comme un nœud Kubernetes virtuel. Kubernetes peut alors planifier les pods s’exécutant en tant qu’instances ACI via des nœuds virtuels, et non en tant que pods sur des nœuds de machine virtuelle, directement dans votre cluster AKS. Les nœuds virtuels sont actuellement en préversion dans AKS.
 
 Votre application n’a besoin d’aucune modification pour utiliser les nœuds virtuels. Les déploiements peuvent mettre à l’échelle dans AKS et ACI, et sans aucun délai car l’autoscaler de cluster déploie les nouveaux nœuds dans votre cluster AKS.
 

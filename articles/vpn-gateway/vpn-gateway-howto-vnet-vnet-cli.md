@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: cherylmc
 ms.openlocfilehash: e18f37b31b7f0a49717e174d8a20d56388ad4808
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60411788"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>Configurer une connexion de passerelle VPN de réseau virtuel à réseau virtuel à l’aide d’Azure CLI
@@ -299,7 +299,7 @@ Lors de la création de connexions supplémentaires, il est important de s’ass
 
 ### <a name="TestVNet5"></a>Étape 7 : créez et configurez TestVNet5
 
-Cette étape doit être effectuée dans le cadre du nouvel abonnement, Abonnement 5. Cette partie peut être effectuée par l’administrateur dans une organisation différente qui possède l’abonnement. Pour basculer entre les abonnements, utilisez `az account list --all` pour répertorier les abonnements disponibles à votre compte, puis utilisez `az account set --subscription <subscriptionID>` pour basculer vers l’abonnement que vous souhaitez utiliser.
+Cette étape doit être effectuée dans le cadre du nouvel abonnement, Abonnement 5. Cette partie peut être effectuée par l’administrateur dans une organisation différente qui possède l’abonnement. Pour basculer entre les abonnements, utilisez `az account list --all` pour répertorier les abonnements disponibles pour votre compte, puis `az account set --subscription <subscriptionID>` pour basculer vers l’abonnement que vous souhaitez utiliser.
 
 1. Assurez-vous d’être connecté à Abonnement 5, puis créez un groupe de ressources.
 
@@ -338,7 +338,7 @@ Cette étape doit être effectuée dans le cadre du nouvel abonnement, Abonnemen
 
 ### <a name="connections5"></a>Étape 8 : créez les connexions
 
-Étant donné que les passerelles se trouvent dans différents abonnements, cette étape est divisée en deux sessions CLI notées **[Abonnement 1]** et **[Abonnement 5]**. Pour basculer entre les abonnements, utilisez `az account list --all` pour répertorier les abonnements disponibles à votre compte, puis utilisez `az account set --subscription <subscriptionID>` pour basculer vers l’abonnement que vous souhaitez utiliser.
+Étant donné que les passerelles se trouvent dans différents abonnements, cette étape est divisée en deux sessions CLI notées **[Abonnement 1]** et **[Abonnement 5]** . Pour basculer entre les abonnements, utilisez `az account list --all` pour répertorier les abonnements disponibles pour votre compte, puis `az account set --subscription <subscriptionID>` pour basculer vers l’abonnement que vous souhaitez utiliser.
 
 1. **[Abonnement 1]** Ouvrez une session et connectez-vous à Abonnement 1. Exécutez la commande suivante pour obtenir le nom et l’ID de la passerelle à partir de la sortie :
 

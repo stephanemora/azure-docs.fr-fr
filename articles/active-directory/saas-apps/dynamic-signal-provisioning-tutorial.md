@@ -1,6 +1,6 @@
 ---
-title: 'Didacticiel : Configurer Dynamic Signal pour l’approvisionnement automatique avec Azure Active Directory | Microsoft Docs'
-description: Découvrez comment configurer Azure Active Directory pour approvisionner et retirer automatiquement des comptes d’utilisateur à Dynamic Signal.
+title: 'Didacticiel : Configurer Dynamic Signal pour l’approvisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs'
+description: Découvrez comment configurer Azure Active Directory pour approvisionner et déprovisionner automatiquement des comptes d’utilisateur sur Dynamic Signal.
 services: active-directory
 documentationcenter: ''
 author: zchia
@@ -16,36 +16,36 @@ ms.topic: article
 ms.date: 05/07/2019
 ms.author: zchia
 ms.openlocfilehash: f79bc083105f997b08f7cfa6f8e08a8f4f455455
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65470535"
 ---
-# <a name="tutorial-configure-dynamic-signal-for-automatic-user-provisioning"></a>Didacticiel : Configurer Dynamic Signal pour l’approvisionnement automatique
+# <a name="tutorial-configure-dynamic-signal-for-automatic-user-provisioning"></a>Didacticiel : Configurer Dynamic Signal pour l’approvisionnement automatique d’utilisateurs
 
-L’objectif de ce didacticiel est de présenter les étapes à effectuer dans Dynamic Signal et Azure Active Directory (Azure AD) pour configurer Azure AD pour approvisionner et retirer automatiquement les utilisateurs et/ou groupes à Dynamic Signal.
+L’objectif de ce didacticiel est de présenter les étapes à effectuer dans Dynamic Signal et Azure Active Directory (Azure AD) afin de configurer Azure AD pour l’approvisionnement et le déprovisionnement automatiques d’utilisateurs et/ou de groupes sur Dynamic Signal.
 
 > [!NOTE]
 > Ce didacticiel décrit un connecteur reposant sur le service d’attribution d’utilisateurs Azure AD. Pour découvrir les informations importantes sur ce que fait ce service, comment il fonctionne et consulter le forum aux questions, reportez-vous à l’article [Automatiser l’attribution et l’annulation de l’attribution des utilisateurs dans les applications SaaS avec Azure Active Directory](../manage-apps/user-provisioning.md).
 >
-> Ce connecteur est actuellement en préversion publique. Pour plus d’informations sur les conditions d’utilisation Microsoft Azure générales pour les fonctionnalités en version préliminaire, consultez [conditions d’utilisation supplémentaires pour les versions préliminaires de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Ce connecteur est actuellement en préversion publique. Pour plus d’informations sur les conditions d’utilisation de Microsoft Azure générales relatives aux fonctionnalités d’évaluation, consultez [Conditions d’utilisation supplémentaires des préversions Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Le scénario décrit dans ce tutoriel part du principe que vous disposez des prérequis suivants :
 
 * un locataire Azure AD ;
-* [Un locataire Dynamic Signal](https://dynamicsignal.com/)
-* Un compte d’utilisateur dans Dynamic Signal avec des autorisations d’administrateur.
+* [un locataire Dynamic Signal](https://dynamicsignal.com/) ;
+* Un compte d’utilisateur Dynamic Signal ayant des autorisations d’administrateur.
 
-## <a name="add-dynamic-signal-from-the-gallery"></a>Ajouter Dynamic Signal dans la galerie
+## <a name="add-dynamic-signal-from-the-gallery"></a>Ajouter Dynamic Signal à partir de la galerie
 
-Avant de configurer Dynamic Signal pour l’approvisionnement avec Azure AD automatique d’utilisateurs, vous devez ajouter Dynamic Signal à partir de la galerie d’applications Azure AD à votre liste d’applications SaaS gérées.
+Avant de configurer Dynamic Signal pour l’approvisionnement automatique d’utilisateurs avec Azure AD, vous devez ajouter Dynamic Signal à partir de la galerie d’applications Azure AD à votre liste d’applications SaaS managées.
 
-**Pour ajouter Dynamic Signal à partir de la galerie d’applications Azure AD, procédez comme suit :**
+**Pour ajouter Dynamic Signal à partir de la galerie d’applications Azure AD, procédez comme suit :**
 
-1. Dans le  **[Azure portal](https://portal.azure.com)**, dans le volet de navigation de gauche, sélectionnez **Azure Active Directory**.
+1. Dans le panneau de navigation gauche du **[portail Azure](https://portal.azure.com)** , sélectionnez **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -53,38 +53,38 @@ Avant de configurer Dynamic Signal pour l’approvisionnement avec Azure AD auto
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
-3. Pour ajouter une nouvelle application, sélectionnez le **nouvelle application** bouton en haut du volet.
+3. Pour ajouter une nouvelle application, cliquez sur le bouton **Nouvelle application** en haut du volet.
 
     ![Bouton Nouvelle application](common/add-new-app.png)
 
-4. Dans la zone de recherche, entrez **Dynamic Signal**, sélectionnez **Dynamic Signal** dans le volet de résultats, puis cliquez sur le **ajouter** pour ajouter l’application.
+4. Dans la zone de recherche, entrez **Dynamic Signal**, sélectionnez **Dynamic Signal** dans le panneau de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
     ![Dynamic Signal dans la liste des résultats](common/search-new-app.png)
 
-## <a name="assigning-users-to-dynamic-signal"></a>Affectation d’utilisateurs à Dynamic Signal
+## <a name="assigning-users-to-dynamic-signal"></a>Attribution d’utilisateurs à Dynamic Signal
 
-Azure Active Directory utilise un concept appelé *affectations* pour déterminer quels utilisateurs devant recevoir l’accès aux applications sélectionnées. Dans le contexte de l’approvisionnement automatique, seuls les utilisateurs et/ou les groupes qui ont été assignés à une application dans Azure AD sont synchronisés.
+Azure Active Directory utilise un concept appelé *attributions* pour déterminer les utilisateurs devant recevoir l’accès aux applications sélectionnées. Dans le cadre de l’approvisionnement automatique d’utilisateurs, seuls les utilisateurs ou les groupes auxquels une application dans Azure AD a été attribuée sont synchronisés.
 
-Avant de configurer et activer l’approvisionnement automatique d’utilisateurs, vous devez décider quels utilisateurs et/ou groupes dans Azure AD ont besoin d’accéder à Dynamic Signal. Une fois choisi, vous pouvez affecter ces utilisateurs et/ou groupes à Dynamic Signal, en suivant les instructions fournies ici :
+Avant de configurer et d’activer l’approvisionnement automatique d’utilisateurs, vous devez déterminer les utilisateurs ou groupes Azure AD devant accéder à Dynamic Signal. Une fois que vous avez choisi, vous pouvez attribuer ces utilisateurs ou groupes à Dynamic Signal en suivant les instructions fournies ici :
 
 * [Affecter un utilisateur ou un groupe à une application d’entreprise](../manage-apps/assign-user-or-group-access-portal.md)
 
-### <a name="important-tips-for-assigning-users-to-dynamic-signal"></a>Conseils importants pour l’affectation d’utilisateurs à Dynamic Signal
+### <a name="important-tips-for-assigning-users-to-dynamic-signal"></a>Conseils importants pour l’attribution d’utilisateurs à Dynamic Signal
 
-* Il est recommandé qu’un seul utilisateur Azure AD est affecté à Dynamic Signal à tester la configuration du provisionnement automatique d’utilisateurs. Les autres utilisateurs et/ou groupes peuvent être affectés ultérieurement.
+* Il est recommandé de n’attribuer qu’un seul utilisateur Azure AD à Dynamic Signal afin de tester la configuration de l’approvisionnement automatique d’utilisateurs. Les autres utilisateurs et/ou groupes peuvent être affectés ultérieurement.
 
-* Quand vous assignez un utilisateur à Dynamic Signal, vous devez sélectionner un rôle spécifique à l’application valide (si disponible) dans la boîte de dialogue d’attribution. Les utilisateurs dont le rôle est **Accès par défaut** sont exclus de l’approvisionnement.
+* Lorsque vous attribuez un utilisateur à Dynamic Signal, vous devez sélectionner un rôle valide propre à l’application (si disponible) dans la boîte de dialogue d’affectation. Les utilisateurs dont le rôle est **Accès par défaut** sont exclus de l’approvisionnement.
 
-## <a name="configuring-automatic-user-provisioning-to-dynamic-signal"></a>Configuration de l’approvisionnement automatique d’utilisateurs à Dynamic Signal 
+## <a name="configuring-automatic-user-provisioning-to-dynamic-signal"></a>Configuration de l’approvisionnement automatique d’utilisateurs dans Dynamic Signal 
 
-Cette section vous guide tout au long des étapes de configuration du service d’approvisionnement de AD Azure pour créer, mettre à jour et désactiver des utilisateurs et/ou groupes dans Dynamic Signal basé sur utilisateur et/ou les affectations de groupe dans Azure AD.
+Cette section vous guide tout au long des étapes de configuration du service d’approvisionnement d’Azure AD pour créer, mettre à jour et désactiver des utilisateurs ou des groupes dans Dynamic Signal en fonction des affectations d’utilisateurs ou de groupes dans Azure AD.
 
 > [!TIP]
-> Vous pouvez également choisir d’activer basée sur SAML SSO pour Dynamic Signal en suivant les instructions fournies dans le [didacticiel l’authentification unique de le Dynamic Signal](dynamicsignal-tutorial.md). L’authentification unique peut être configurée indépendamment de l’attribution automatique d’utilisateurs, bien que ces deux fonctionnalités se complètent.
+> Vous pouvez également choisir d’activer l’authentification unique basée sur SAML pour Dynamic Signal en suivant les instructions fournies dans le [didacticiel sur l’authentification unique Dynamic Signal](dynamicsignal-tutorial.md). L’authentification unique peut être configurée indépendamment de l’attribution automatique d’utilisateurs, bien que ces deux fonctionnalités se complètent.
 
-### <a name="to-configure-automatic-user-provisioning-for-dynamic-signal-in-azure-ad"></a>Pour configurer l’approvisionnement automatique pour Dynamic Signal dans Azure AD :
+### <a name="to-configure-automatic-user-provisioning-for-dynamic-signal-in-azure-ad"></a>Pour configurer l’approvisionnement automatique d’utilisateurs pour Dynamic Signal dans Azure AD :
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise**, puis sélectionnez **toutes les applications**.
+1. Connectez-vous au [Portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
@@ -94,25 +94,25 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
 3. Sélectionnez l’onglet **Approvisionnement**.
 
-    ![Onglet Configuration](common/provisioning.png)
+    ![Onglet Approvisionnement](common/provisioning.png)
 
 4. Définissez le **Mode d’approvisionnement** sur **Automatique**.
 
-    ![Onglet Configuration](common/provisioning-automatic.png)
+    ![Onglet Approvisionnement](common/provisioning-automatic.png)
 
-5. Sous le **informations d’identification administrateur** section, entrée le **URL de locataire** et **jeton Secret** du compte de votre Dynamic Signal comme décrit à l’étape 6.
+5. Dans la section **Admin Credentials** (Informations d’identification d’administrateur), entrez les valeurs **Tenant URL** (URL de locataire) et **Secret Token** (Jeton secret) de votre compte Dynamic Signal, comme cela est décrit à l’étape 6.
 
-6. Dans la console d’administration Dynamic Signal, accédez à **Admin > Avancé > API**.
+6. Dans la console d’administration de Dynamic Signal, accédez à **Admin > Advanced > API** (Admin > Avancé > API).
 
     ![Configuration de Dynamic Signal](./media/dynamic-signal-provisioning-tutorial/secret-token-1.png)
 
-    Copie le **URL de l’API SCIM** à **URL de locataire**. Cliquez sur **générer un nouveau jeton** pour générer un **le jeton du porteur** et copiez la valeur à **jeton Secret**.
+    Copiez **l’URL de l’API SCIM** dans **Tenant URL** (URL de locataire). Cliquez sur **Générer un nouveau jeton** pour générer un **jeton du porteur**, puis copiez la valeur dans **Secret Token** (Jeton secret).
 
     ![Configuration de Dynamic Signal](./media/dynamic-signal-provisioning-tutorial/secret-token-2.png)
 
-7. Après avoir renseigné les champs indiqués à l’étape 5, cliquez sur **tester la connexion** pour vérifier qu’Azure AD peut se connecter à Dynamic Signal. Si la connexion échoue, vérifiez que votre compte de Dynamic Signal dispose des autorisations d’administrateur et réessayez.
+7. Après avoir renseigné les champs indiqués à l’étape 5, cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à Dynamic Signal. Si la connexion échoue, vérifiez que votre compte Dynamic Signal dispose d’autorisations d’administrateur et réessayez.
 
-    ![Jeton et l’URL de locataire](common/provisioning-testconnection-tenanturltoken.png)
+    ![URL de locataire + Jeton](common/provisioning-testconnection-tenanturltoken.png)
 
 8. Dans le champ **E-mail de notification**, entrez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur d’approvisionnement, puis cochez la case **Envoyer une notification par e-mail en cas de défaillance**.
 
@@ -120,36 +120,36 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
 9. Cliquez sur **Enregistrer**.
 
-10. Sous le **mappages** section, sélectionnez **synchroniser les utilisateurs Azure Active Directory à Dynamic Signal**.
+10. Dans la section **Mappages**, sélectionnez **Synchronize Azure Active Directory Users to Dynamic Signal** (Synchroniser les utilisateurs Azure Active Directory avec Dynamic Signal).
 
-    ![Mappages utilisateur Dynamic Signal](media/dynamic-signal-provisioning-tutorial/user-mappings.png)
+    ![Mappages d’utilisateurs Dynamic Signal](media/dynamic-signal-provisioning-tutorial/user-mappings.png)
 
-11. Passez en revue les attributs utilisateur qui sont synchronisés à partir d’Azure AD à Dynamic Signal dans le **mappage d’attributs** section. Les attributs sélectionnés en tant que **correspondance** propriétés sont utilisées pour faire correspondre les comptes d’utilisateur dans Dynamic Signal pour les opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
+11. Dans la section **Mappages des attributs**, passez en revue les attributs d’utilisateur qui sont synchronisés entre Azure AD et Dynamic Signal. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour faire correspondre les comptes d’utilisateur dans Dynamic Signal pour les opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
 
     ![Attributs d’utilisateur Dynamic Signal](media/dynamic-signal-provisioning-tutorial/user-mapping-attributes.png)
 
 12. Pour configurer des filtres d’étendue, reportez-vous aux instructions suivantes fournies dans [Approvisionnement d’applications basé sur les attributs avec filtres d’étendue](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
-13. Pour activer l’approvisionnement de service pour Dynamic Signal Azure AD, modifiez le **état d’approvisionnement** à **sur** dans le **paramètres** section.
+13. Afin d’activer le service d’approvisionnement Azure AD pour Dynamic Signal, modifiez le paramètre **État d’approvisionnement** sur **Activé** dans la section **Paramètres**.
 
-    ![État de l’approvisionnement activé](common/provisioning-toggle-on.png)
+    ![État d’approvisionnement activé](common/provisioning-toggle-on.png)
 
-14. Définir les utilisateurs et/ou groupes que vous aimeriez approvisionner sur Dynamic Signal, en choisissant les valeurs souhaitées dans **étendue** dans le **paramètres** section.
+14. Définissez les utilisateurs ou groupes que vous aimeriez approvisionner sur Dynamic Signal en choisissant les valeurs souhaitées dans **Étendue** dans la section **Paramètres**.
 
     ![Étendue de l’approvisionnement](common/provisioning-scope.png)
 
 15. Lorsque vous êtes prêt à effectuer l’approvisionnement, cliquez sur **Enregistrer**.
 
-    ![Configuration de l’enregistrement de l’approvisionnement](common/provisioning-configuration-save.png)
+    ![Enregistrement de la configuration de l’approvisionnement](common/provisioning-configuration-save.png)
 
-Cette opération démarre la synchronisation initiale de tous les utilisateurs et/ou groupes définis dans **Étendue** dans la section **Paramètres**. La synchronisation initiale prend plus de temps que les synchronisations suivantes, qui se produisent toutes les 40 minutes environ tant que le service de provisionnement Azure AD est en cours d’exécution. Vous pouvez utiliser la **détails de la synchronisation** section pour surveiller la progression et suivre les liens vers des rapports d’activité, qui décrit toutes les actions effectuées par le service sur Dynamic Signal de provisionnement Azure AD d’approvisionnement.
+Cette opération démarre la synchronisation initiale de tous les utilisateurs et/ou groupes définis dans **Étendue** dans la section **Paramètres**. La synchronisation initiale prend plus de temps que les synchronisations suivantes, qui se produisent toutes les 40 minutes environ tant que le service de provisionnement Azure AD est en cours d’exécution. Vous pouvez utiliser la section **Détails de synchronisation** pour surveiller la progression et les liens vers les rapports d’activité d’approvisionnement, qui décrivent toutes les actions effectuées par le service d’approvisionnement Azure AD sur Dynamic Signal.
 
 Pour plus d’informations sur la lecture des journaux d’activité d’approvisionnement Azure AD, consultez [Création de rapports sur l’approvisionnement automatique de comptes d’utilisateur](../manage-apps/check-status-user-account-provisioning.md).
 
 ## <a name="connector-limitations"></a>Limitations du connecteur
 
-* Dynamic Signal ne prend pas en charge les suppressions utilisateur permanente à partir d’Azure AD. Pour supprimer définitivement un utilisateur Dynamic Signal, l’opération doit être effectuée via la console d’administration Dynamic Signal l’interface utilisateur. 
-* Dynamic Signal ne prend pas en charge les groupes.
+* Dynamic Signal ne prend pas en charge les suppressions d’utilisateur permanentes à partir d’Azure AD. Pour supprimer définitivement un utilisateur dans Dynamic Signal, vous devez procéder via l’interface utilisateur de la console d’administration de Dynamic Signal. 
+* Pour le moment, Dynamic Signal ne prend pas en charge les groupes.
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

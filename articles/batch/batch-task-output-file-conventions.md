@@ -16,10 +16,10 @@ ms.date: 11/14/2018
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: d4e16ca40e8026861d492f950396d6aa39d4c445
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65791554"
 ---
 # <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net"></a>Conserver le résultat d’un travail et d’une tâche dans Azure Storage avec la bibliothèque File Conventions Batch pour .NET
@@ -59,7 +59,7 @@ Pour conserver les données de sortie dans Azure Storage à l’aide de la bibli
 
 1. Accédez à votre compte Batch dans le portail Azure.
 1. Sous **Paramètres**, sélectionnez **Compte Storage**.
-1. Si vous n’avez pas déjà associé de compte Storage à votre compte Batch, cliquez sur **Compte Storage (aucun)**.
+1. Si vous n’avez pas déjà associé de compte Storage à votre compte Batch, cliquez sur **Compte Storage (aucun)** .
 1. Sélectionnez un compte Storage pour votre abonnement dans la liste. Pour de meilleures performances, utilisez un compte Azure Storage qui se trouve dans la même région que le compte Batch où les tâches sont exécutées.
 
 ## <a name="persist-output-data"></a>Conserver les données de sortie
@@ -115,7 +115,7 @@ Le paramètre `kind` de la méthode [TaskOutputStorage](/dotnet/api/microsoft.az
 Ces types de sortie vous permettent de spécifier le type de sortie à répertorier lorsque vous interrogez ultérieurement Batch pour connaître les sorties conservées d’une tâche donnée. En d’autres termes, lorsque vous répertoriez les sorties d’une tâche, vous pouvez filtrer la liste sur l’un des types de sortie. Par exemple, « Donnez-moi un *aperçu* de la tâche *109* ». Vous trouverez plus d'informations sur les listes de sorties et leur récupération à la section Récupérer la sortie plus loin dans l'article.
 
 > [!TIP]
-> Le type de sortie détermine également où un fichier particulier s’affiche dans le portail Azure : Les fichiers classés *TaskOutput* apparaissent dans **Task output files** (Fichiers de sortie de tâche), et les fichiers *TaskLog* s’affichent dans **Journaux de la tâche**.
+> Le type de sortie détermine également où un fichier particulier s’affiche dans le portail Azure : Les fichiers classés *TaskOutput* apparaissent dans **Task output files** (Fichiers de sortie de tâche), et les fichiers *TaskLog* s’affichent dans **Journaux d’activité de la tâche**.
 
 ### <a name="store-job-outputs"></a>Stocker les sorties des travaux
 

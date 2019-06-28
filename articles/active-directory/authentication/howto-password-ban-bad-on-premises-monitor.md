@@ -1,5 +1,5 @@
 ---
-title: Surveillance et la journalisation dans la Protection de mot de passe Azure AD - Azure Active Directory
+title: Surveillance et journalisation de protection par mot de passe dans Azure AD – Azure Active Directory
 description: Comprendre la supervision et la journalisation dans la protection par mot de passe Azure AD
 services: active-directory
 ms.service: active-directory
@@ -12,17 +12,17 @@ manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a029135da79d1a0b24b2941873a0fe3187ac9f7c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60414798"
 ---
 # <a name="azure-ad-password-protection-monitoring-and-logging"></a>Supervision et journalisation dans la protection par mot de passe Azure AD
 
 Après le déploiement de la protection par mot de passe Azure AD, la supervision et la génération de rapports sont des tâches essentielles. Cet article détaillé vous aide à comprendre plusieurs techniques de supervision, notamment en vous expliquant où chaque service journalise les informations et en vous montrant comment créer des rapports sur l’utilisation de la protection par mot de passe Azure AD.
 
-Analyse et rapports sont effectuées par les messages de journal des événements ou en exécutant les applets de commande PowerShell. Les contrôleur de domaine agent proxy services et à la fois enregistrer les messages de journal des événements. Toutes les applets de commande PowerShell décrites ci-dessous sont disponibles uniquement sur le serveur proxy (voir le module PowerShell de AzureADPasswordProtection). Le logiciel de l’agent du contrôleur de domaine n’installe pas un module PowerShell.
+La surveillance et la création de rapports sont effectuées soit par des messages du journal des événements, soit en exécutant des cmdlets PowerShell. L'agent DC et les services proxy consignent tous deux les messages du journal des événements. Toutes les cmdlets PowerShell décrites ci-dessous sont uniquement disponibles sur le serveur proxy (voir le module AzureADPasswordProtection PowerShell). Le logiciel de l'agent DC n'installe pas de module PowerShell.
 
 ## <a name="dc-agent-event-logging"></a>Journalisation des événements de l’agent de contrôleur de domaine (DC)
 
@@ -314,7 +314,7 @@ Le journal texte est désactivé par défaut. Un redémarrage du service Proxy e
 
 Les applets de commande PowerShell qui connaissent un changement d’état (par exemple, Register-AzureADPasswordProtectionProxy) consignent normalement un événement de résultat dans le journal des opérations.
 
-En outre, la plupart des applets de commande PowerShell de Protection de mot de passe Azure AD s’écrire dans un journal de texte qui se trouve sous :
+De plus, la plupart des applets de commande PowerShell de la protection par mot de passe Azure AD consignent un événement dans un journal texte sous :
 
 `%ProgramFiles%\Azure AD Password Protection Proxy\Logs`
 

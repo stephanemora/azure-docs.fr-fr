@@ -13,15 +13,15 @@ ms.date: 05/11/2019
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: 2afcf2066238414cd08e32901ffccf2a44718b6d
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/13/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65551760"
 ---
-# <a name="assets"></a>Ressources
+# <a name="assets"></a>Éléments multimédias
 
-Dans Azure Media Services, un [Asset](https://docs.microsoft.com/rest/api/media/assets) contient des informations sur les fichiers numériques stockées dans stockage Azure (y compris vidéo, audio, images, collections de miniatures, pistes textuelles et fichiers de sous-titres). 
+Dans Azure Media Services, un [actif](https://docs.microsoft.com/rest/api/media/assets) contient des informations sur les fichiers numériques stockés dans Stockage Azure (notamment des données vidéo, des données audio, des images, des collections de miniatures, des pistes de texte et des fichiers de sous-titres). 
 
 Un actif multimédia est mappé à un conteneur d’objets blob dans le [compte Stockage Azure](storage-account-concept.md) et les fichiers contenus dans l’actif multimédia sont stockés sous forme d’objets blob de blocs dans ce conteneur. Media Services prend en charge les niveaux d’objets blob quand le compte utilise le stockage v2 universel (GPv2). Avec GPv2, vous pouvez déplacer les fichiers vers un [stockage Froid ou Archive](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers). Le stockage **Archive** est approprié pour archiver les fichiers sources quand ils ne sont plus nécessaires (par exemple une fois qu’ils ont été encodés).
 
@@ -29,10 +29,10 @@ Le niveau de stockage **Archive** est recommandé uniquement pour les fichiers s
 
 ## <a name="upload-digital-files-into-assets"></a>Charger des fichiers numériques dans des actifs multimédias
 
-Une fois les fichiers numériques sont téléchargés dans le stockage et associés à une ressource, elles peuvent servir dans les Services de support de codage, diffusion en continu, l’analyse des flux de travail contenu. L’un des workflows Media Services courants consiste à charger, à encoder et à diffuser en continu un fichier. Cette section décrit les étapes générales.
+Une fois les fichiers numériques chargés dans le stockage et associés à un actif, ils peuvent être utilisés dans des workflows Media Services d’encodage, de diffusion et d’analyse de contenu. L’un des workflows Media Services courants consiste à charger, à encoder et à diffuser en continu un fichier. Cette section décrit les étapes générales.
 
 > [!TIP]
-> Passez en revue avant de commencer à développer, [développement avec Media Services v3 API](media-services-apis-overview.md) (inclut des informations sur l’accès aux API, les conventions d’affectation de noms, etc.).
+> Avant de commencer à développer, consultez [Développement avec les API Media Services v3](media-services-apis-overview.md) (informations sur l’accès aux API, les conventions de nommage, etc.)
 
 1. Utilisez l’API Media Services v3 pour créer un actif multimédia « d’entrée ». Cette opération crée un conteneur dans le compte de stockage associé à votre compte Media Services. L’API retourne le nom du conteneur (par exemple, `"container": "asset-b8d8b68a-2d7f-4d8c-81bb-8c7bbbe67ee4"`).
    
@@ -95,7 +95,7 @@ Consultez [Filtrage, tri et pagination des entités Media Services](entities-ove
 
 Pour protéger vos éléments au repos, les ressources doivent être chiffrées par le chiffrement côté stockage. Le tableau suivant montre comment le chiffrement côté stockage fonctionne dans Media Services :
 
-|Option de chiffrement|Description |Media Services v2|Media Services v3|
+|Option de chiffrement|Description|Media Services v2|Media Services v3|
 |---|---|---|---|
 |Chiffrement du stockage de Media Services|Chiffrement AES-256, clé gérée par Media Services|Pris en charge<sup>(1)</sup>|Non pris en charge<sup>(2)</sup>|
 |[Storage Service Encryption pour les données au repos](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)|Chiffrement côté serveur proposé par le stockage Azure, clé gérée par Azure ou par un client|Pris en charge|Pris en charge|

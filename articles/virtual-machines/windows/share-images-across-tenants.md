@@ -1,6 +1,6 @@
 ---
-title: Partager des images de la galerie sur les locataires dans Azure | Microsoft Docs
-description: Découvrez comment partager des images de machine virtuelle entre les clients Azure à l’aide des galeries d’images partagé.
+title: Partager des images de la bibliothèque entre locataires dans Azure | Microsoft Docs
+description: Découvrez comment partager des images de machine virtuelle entre des locataires Azure avec des bibliothèques d’images partagées.
 services: virtual-machines-windows
 author: cynthn
 manager: jeconnoc
@@ -11,21 +11,21 @@ ms.topic: article
 ms.date: 04/05/2019
 ms.author: cynthn
 ms.openlocfilehash: 56c0e906203a010a1356beae4b6e5d66e34cfc2b
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65159839"
 ---
-# <a name="share-gallery-vm-images-across-azure-tenants"></a>Partager des images de machine virtuelle de la galerie sur les clients Azure
+# <a name="share-gallery-vm-images-across-azure-tenants"></a>Partager des images de machine virtuelle de la bibliothèque entre locataires Azure
 
 [!INCLUDE [virtual-machines-share-images-across-tenants](../../../includes/virtual-machines-share-images-across-tenants.md)]
 
 
-## <a name="create-a-vm-using-powershell"></a>Créer une machine virtuelle à l’aide de PowerShell
+## <a name="create-a-vm-using-powershell"></a>Créer une machine virtuelle avec PowerShell
 
 
-Journal dans les deux clients à l’aide de l’ID d’application, ID de secret et le client. 
+Ouvrez une session sur les deux clients avec l’ID d’application, le secret et l’ID de locataire. 
 
 ```azurepowershell-interactive
 $applicationId = '<App ID>'
@@ -38,7 +38,7 @@ Connect-AzAccount -ServicePrincipal -Credential $cred  -Tenant "<Tenant 1 ID>"
 Connect-AzAccount -ServicePrincipal -Credential $cred -Tenant "<Tenant 2 ID>"
 ```
 
-Créer la machine virtuelle dans le groupe de ressources qui a l’autorisation sur l’inscription d’application. Remplacez les informations contenues dans cet exemple par les vôtres.
+Créez la machine virtuelle dans le groupe de ressources disposant de l’autorisation d’inscription d’applications. Remplacez les informations de cet exemple par les vôtres.
 
 ```azurepowershell-interactive
 $resourceGroup = "myResourceGroup"
@@ -57,4 +57,4 @@ New-AzVm `
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Vous pouvez également créer une image partagée des ressources de galerie à l’aide de la [Azure portal](shared-images-portal.md).
+Il est également possible de créer des ressources de bibliothèque d’images partagées sur le [Portail Azure](shared-images-portal.md).

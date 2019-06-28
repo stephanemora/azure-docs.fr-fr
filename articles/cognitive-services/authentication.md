@@ -1,5 +1,5 @@
 ---
-title: Authentification
+title: Authentication
 titleSuffix: Cognitive Services - Azure
 description: 'Pour authentifier une requête auprès d’une ressource Azure Cognitive Services, trois options s’offrent à vous : une clé d’abonnement, un jeton du porteur ou un abonnement multiservice. Cet article décrit chaque méthode et explique comment adresser une requête.'
 services: cognitive-services
@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: erhopf
 ms.openlocfilehash: 90bc2bf4c207f3bb2727d76c2e6b4fd5597539b1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60336766"
 ---
 # <a name="authenticate-requests-to-azure-cognitive-services"></a>Authentifier des requêtes auprès d’Azure Cognitive Services
@@ -24,11 +24,11 @@ Chaque requête adressée à un service Azure Cognitive Services doit inclure un
 * [Authentification avec une clé d’abonnement multiservice](#authenticate-with-a-multi-service-subscription-key)
 * [Authentification avec un jeton](#authenticate-with-an-authentication-token)
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour adresser une requête, vous devez disposer d’un compte Azure et d’un abonnement Azure Cognitive Services. Si vous avez déjà un compte, passez à la section suivante. Si vous n’avez pas de compte, ce guide va vous aider à en créer un en quelques minutes : [Créer un compte Cognitive Services pour Azure](cognitive-services-apis-create-account.md).
 
-Vous pouvez obtenir votre clé d’abonnement à partir de la [Azure portal](cognitive-services-apis-create-account.md#access-your-resource) après avoir créé votre compte, ou activer un [version d’évaluation gratuite](https://azure.microsoft.com/try/cognitive-services/my-apis).
+Pour obtenir votre clé d’abonnement, rendez-vous sur le [Portail Azure](cognitive-services-apis-create-account.md#access-your-resource) après avoir créé votre compte ou activé un [essai gratuit](https://azure.microsoft.com/try/cognitive-services/my-apis).
  
 ## <a name="authentication-headers"></a>En-têtes d’authentification
 

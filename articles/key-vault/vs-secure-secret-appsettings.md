@@ -10,15 +10,15 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: cawa
 ms.openlocfilehash: 9763a14e84d88be1d6f09fb9f16b6b7c9eeffd2d
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65506420"
 ---
 # <a name="securely-save-secret-application-settings-for-a-web-application"></a>Enregistrement en toute sécurité des paramètres d’application de secret d’une application web
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 Cet article décrit comment enregistrer en toute sécurité des paramètres de configuration d’application de secret pour des applications Azure.
 
 Tous les paramètres de configuration d’application web sont généralement enregistrés dans des fichiers de configuration tels que Web.config. Cette pratique entraîne l’archivage des paramètres de secret tels que les informations d’identification de cloud dans des systèmes de contrôle de code source publics, par exemple GitHub. Il peut toutefois être difficile de suivre les meilleures pratiques de sécurité en raison de la surcharge requise pour modifier le code source et pour reconfigurer des paramètres de développement.
@@ -50,7 +50,7 @@ Si vous développez un projet et si vous devez partager le code source en toute 
     ![Ajouter un secret Key Vault](./media/vs-secure-secret-appsettings/add-keyvault-secret.png)
 
     > [!NOTE] 
-    > Avant de V15.6 de 2017 Visual Studio, nous avons utilisé vous recommandons d’installer l’extension d’authentification des Services Azure pour Visual Studio. Mais il est déconseillé maintenant, car la fonctionnalité est intégrée à Visual Studio. Par conséquent, si vous êtes sur une version antérieure de visual Studio 2017, nous vous suggérons de mettre à jour vers au moins Visual Studio 2017 15.6 ou version supérieure afin que vous pouvez utiliser cette fonctionnalité en mode natif et le coffre de clés d’accès à partir de l’aide de l’identité de connexion dans Visual Studio lui-même.
+    > Avant Visual Studio 2017 V15.6, nous recommandions d’installer l’extension Azure Services Authentication pour Visual Studio. Elle toutefois est déconseillée maintenant, car la fonctionnalité est intégrée à Visual Studio. Par conséquent, si vous utilisez une version antérieure de Visual Studio 2017, nous vous suggérons de mettre à jour vers, au minimum, Visual Studio 2017 15.6 ou version supérieure pour pouvoir utiliser cette fonctionnalité en mode natif et accéder au coffre de clés à partir de l’identité de connexion Visual Studio.
     >
  
 4. Ajoutez les packages NuGet suivants à votre projet :

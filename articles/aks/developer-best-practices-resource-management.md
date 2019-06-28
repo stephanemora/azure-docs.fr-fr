@@ -7,11 +7,11 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: zarhoads
-ms.openlocfilehash: aebade14f3a8a1095925d17325ce99b78031dc32
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
-ms.translationtype: MT
+ms.openlocfilehash: 69f60036bd718264174bf1befe832305e250e77c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65073946"
 ---
 # <a name="best-practices-for-application-developers-to-manage-resources-in-azure-kubernetes-service-aks"></a>Bonnes pratiques relatives à la gestion des ressources dans Azure Kubernetes Services (AKS) pour le développeur d’applications
@@ -74,6 +74,8 @@ Avec Azure Dev Spaces, vous développez, déboguez et testez les applications di
 
 Ce processus de développement et de test intégré à Dev Spaces évite de recourir à des environnements de test locaux tels que [minikube][minikube]. Au lieu de cela, vous développez et testez votre application sur un cluster AKS. Ce cluster peut être sécurisé et isolé, comme indiqué dans la section précédente sur l’utilisation d’espaces de noms pour isoler logiquement un cluster. Votre développement ayant été entièrement réalisé sur un cluster AKS réel, vous pouvez déployer en toute confiance vos applications quand celles-ci sont prêtes à passer en production.
 
+Le service Azure Dev Spaces est destiné à être utilisé avec les applications qui s’exécutent sur les nœuds et pods Linux.
+
 ## <a name="use-the-visual-studio-code-extension-for-kubernetes"></a>Utiliser l’extension Visual Studio Code pour Kubernetes
 
 **Guide sur les bonnes pratiques** : installez et utilisez l’extension VS Code pour Kubernetes quand vous écrivez des manifestes YAML. Vous pouvez également utiliser l’extension en tant que solution de déploiement intégrée, ce qui peut être utile pour les propriétaires d’applications qui interagissent rarement avec le cluster AKS.
@@ -84,9 +86,11 @@ L’[extension Visual Studio Code pour Kubernetes] [ vscode-kubernetes] vous per
 
 ## <a name="regularly-check-for-application-issues-with-kube-advisor"></a>Rechercher régulièrement les problèmes liés à l’application avec kube-advisor
 
-**Meilleures pratiques** -exécuter régulièrement la dernière version de `kube-advisor` outil open source pour détecter les problèmes dans votre cluster. Si vous appliquez des quotas de ressources sur un cluster AKS existant, exécutez d’abord `kube-advisor` pour rechercher les pods dont les demandes et limites de ressources ne sont pas définies.
+**Guide de bonne pratique** : exécutez régulièrement la dernière version de l’outil open source `kube-advisor` pour détecter les problèmes dans votre cluster. Si vous appliquez des quotas de ressources sur un cluster AKS existant, exécutez d’abord `kube-advisor` pour rechercher les pods dont les demandes et limites de ressources ne sont pas définies.
 
-Le [kube-conseiller] [ kube-advisor] outil est un projet open source AKS associé qui analyse un cluster Kubernetes et les rapports sur les problèmes qu’il trouve. Une vérification utile consiste à identifier les pods dépourvus de demandes et de limites de ressources.
+L’outil [kube-advisor][kube-advisor] est un projet open source AKS associé qui analyse un cluster Kubernetes et signale les problèmes trouvés. Une vérification utile consiste à identifier les pods dépourvus de demandes et de limites de ressources.
+
+L’outil kube-advisor peut rendre compte des limites et demandes de ressources manquant dans PodSpecs pour les applications Windows et Linux, mais l’outil kube-advisor proprement dit doit être planifié sur un pod Linux. Vous pouvez planifier un pod pour qu’il s’exécute sur un pool de nœuds avec un système d’exploitation spécifique à l’aide d’un [sélecteur de nœud][k8s-node-selector] dans la configuration du pod.
 
 Dans un cluster AKS qui héberge plusieurs applications et équipes de développement, il peut être difficile de suivre les pods sans ces demandes et limites de ressources. Une bonne pratique consiste à exécuter régulièrement `kube-advisor` sur vos clusters AKS.
 
@@ -110,3 +114,4 @@ Pour implémenter quelques-unes de ces bonnes pratiques, consultez les articles 
 [dev-spaces]: ../dev-spaces/get-started-netcore.md
 [operator-best-practices-isolation]: operator-best-practices-cluster-isolation.md
 [resource-quotas]: operator-best-practices-scheduler.md#enforce-resource-quotas
+[k8s-node-selector]: concepts-clusters-workloads.md#node-selectors

@@ -1,6 +1,6 @@
 ---
-title: Utiliser le Générateur d’images Azure avec une galerie d’images pour les machines virtuelles Linux (version préliminaire)
-description: Créer des images Linux avec le Générateur d’images Azure et de la galerie d’images partagé.
+title: Utiliser le Générateur d’images Azure avec une galerie d’images pour machines virtuelles Linux (préversion)
+description: Créez des images Linux avec le Générateur d’images Azure et la galerie d’images partagées.
 author: cynthn
 ms.author: cynthn
 ms.date: 04/20/2019
@@ -8,39 +8,39 @@ ms.topic: article
 ms.service: virtual-machines-linux
 manager: jeconnoc
 ms.openlocfilehash: d29fa8700cb1f530cfe85f0bdf6852d75ec1613e
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65508168"
 ---
-# <a name="preview-create-a-linux-image-and-distribute-it-to-a-shared-image-gallery"></a>Aperçu : Créer une image Linux et les distribuer à une galerie d’images partagé 
+# <a name="preview-create-a-linux-image-and-distribute-it-to-a-shared-image-gallery"></a>Aperçu : Créer une image Linux et la distribuer à une galerie d’images partagées 
 
-Cet article vous montre comment vous pouvez utiliser le Générateur d’images Azure pour créer une version de l’image dans un [Galerie d’images partagé](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries), puis distribuer l’image dans le monde entier.
+Cet article explique comment utiliser le Générateur d’images Azure pour créer une version d’une image dans une [galerie d’images partagées](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries), puis distribuer l’image dans le monde entier.
 
 
-Pour configurer l’image, nous allons utiliser un exemple de modèle .json. Le fichier .json que nous utilisons est ici : [helloImageTemplateforSIG.json](https://github.com/danielsollondon/azvmimagebuilder/blob/master/quickquickstarts/1_Creating_a_Custom_Linux_Shared_Image_Gallery_Image/helloImageTemplateforSIG.json). 
+Pour configurer l’image, nous allons utiliser un exemple de modèle .json. Le fichier en question se trouve à l’emplacement [helloImageTemplateforSIG.json](https://github.com/danielsollondon/azvmimagebuilder/blob/master/quickquickstarts/1_Creating_a_Custom_Linux_Shared_Image_Gallery_Image/helloImageTemplateforSIG.json). 
 
-Pour distribuer l’image à une galerie d’images partagé, le modèle utilise [sharedImage](image-builder-json.md#distribute-sharedimage) comme valeur pour le `distribute` section du modèle.
+Pour distribuer l’image à une galerie d’images partagées, le modèle utilise [sharedImage](image-builder-json.md#distribute-sharedimage) comme valeur de la section `distribute` du modèle.
 
 > [!IMPORTANT]
-> Générateur d’images Azure est actuellement en version préliminaire publique.
+> Le Générateur d’images Azure est actuellement en préversion publique.
 > Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="register-the-features"></a>Inscrire les fonctionnalités
-Pour utiliser le Générateur d’images Azure durant la phase préliminaire, vous devez inscrire la nouvelle fonctionnalité.
+Pour utiliser le Générateur d’images Azure pendant la préversion, vous devez inscrire la nouvelle fonctionnalité.
 
 ```azurecli-interactive
 az feature register --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview
 ```
 
-Vérifiez l’état de l’inscription de fonctionnalité.
+Vérifiez l’état d’inscription de la fonctionnalité.
 
 ```azurecli-interactive
 az feature show --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview | grep state
 ```
 
-Vérifier votre inscription.
+Vérifiez votre inscription.
 
 ```azurecli-interactive
 az provider show -n Microsoft.VirtualMachineImages | grep registrationState
@@ -48,7 +48,7 @@ az provider show -n Microsoft.VirtualMachineImages | grep registrationState
 az provider show -n Microsoft.Storage | grep registrationState
 ```
 
-Si elles ne dites pas inscrit, exécutez la commande suivante :
+Si elle n’est pas inscrite, exécutez la commande suivante :
 
 ```azurecli-interactive
 az provider register -n Microsoft.VirtualMachineImages
@@ -56,11 +56,11 @@ az provider register -n Microsoft.VirtualMachineImages
 az provider register -n Microsoft.Storage
 ```
 
-## <a name="set-variables-and-permissions"></a>Définition des variables et les autorisations 
+## <a name="set-variables-and-permissions"></a>Définir des variables et des autorisations 
 
-Nous allons utiliser certains éléments d’information à plusieurs reprises, donc nous allons créer des variables pour stocker ces informations.
+Nous allons utiliser certains éléments d’information à plusieurs reprises, donc nous allons créer des variables pour les stocker.
 
-Pour la version préliminaire, Générateur d’images est uniquement en charge la création d’images personnalisées dans le même groupe de ressources comme image source managé. Mettre à jour le nom du groupe de ressources dans cet exemple pour être le même groupe de ressources que votre image managée source.
+Dans la préversion, le Générateur d’images ne prend en charge la création d’images personnalisées que dans le même groupe de ressources que l’image managée source. Remplacez le nom du groupe de ressources de cet exemple par celui de votre image managée source.
 
 ```azurecli-interactive
 # Resource group name - we are using ibLinuxGalleryRG in this example
@@ -77,7 +77,7 @@ imageDefName=myIbImageDef
 runOutputName=aibLinuxSIG
 ```
 
-Créer une variable pour votre ID d’abonnement. Vous pouvez obtenir à l’aide de cette `az account show | grep id`.
+Créez une variable pour votre ID d’abonnement. Vous pouvez l’obtenir avec `az account show | grep id`.
 
 ```azurecli-interactive
 subscriptionID=<Subscription ID>
@@ -90,7 +90,7 @@ az group create -n $sigResourceGroup -l $location
 ```
 
 
-Accorder l’autorisation de générateur d’images Azure pour créer des ressources dans ce groupe de ressources. Le `--assignee` valeur est l’ID d’inscription d’application pour le service de générateur d’images. 
+Accordez au Générateur d’images Azure l’autorisation de créer des ressources dans ce groupe de ressources. La valeur `--assignee` est l’ID d’inscription d’application du service Générateur d’images. 
 
 ```azurecli-interactive
 az role assignment create \
@@ -103,9 +103,9 @@ az role assignment create \
 
 
 
-## <a name="create-an-image-definition-and-gallery"></a>Créer une définition de l’image et de la galerie
+## <a name="create-an-image-definition-and-gallery"></a>Créer une définition d’image et une galerie
 
-Créer une galerie d’images. 
+Créez une galerie d’images. 
 
 ```azurecli-interactive
 az sig create \
@@ -113,7 +113,7 @@ az sig create \
     --gallery-name $sigName
 ```
 
-Créer une définition de l’image.
+Créez une définition d’image.
 
 ```azurecli-interactive
 az sig image-definition create \
@@ -127,9 +127,9 @@ az sig image-definition create \
 ```
 
 
-## <a name="download-and-configure-the-json"></a>Télécharger et configurer le .json
+## <a name="download-and-configure-the-json"></a>Télécharger et configurer le fichier .json
 
-Télécharger le modèle .json et configurez-le avec vos variables.
+Téléchargez le modèle .json et configurez-le avec vos variables.
 
 ```azurecli-interactive
 curl https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/1_Creating_a_Custom_Linux_Shared_Image_Gallery_Image/helloImageTemplateforSIG.json -o helloImageTemplateforSIG.json
@@ -144,9 +144,9 @@ sed -i -e "s/<runOutputName>/$runOutputName/g" helloImageTemplateforSIG.json
 
 ## <a name="create-the-image-version"></a>Créer la version de l’image
 
-La section suivante crée la version de l’image dans la galerie. 
+Cette section a pour objectif de créer la version de l’image dans la galerie. 
 
-Envoyer la configuration de l’image pour le service de générateur d’images Azure.
+Envoyez la configuration de l’image au service Générateur d’images Azure.
 
 ```azurecli-interactive
 az resource create \
@@ -157,7 +157,7 @@ az resource create \
     -n helloImageTemplateforSIG01
 ```
 
-Démarrer la génération de l’image.
+Lancez la génération de l’image.
 
 ```azurecli-interactive
 az resource invoke-action \
@@ -167,12 +167,12 @@ az resource invoke-action \
      --action Run 
 ```
 
-Création de l’image et la réplique sur les deux régions peuvent prendre un certain temps. Attendre la fin de cette partie avant de passer à la création d’une machine virtuelle.
+La création de l’image et sa réplication dans les deux régions peuvent prendre un certain temps. Attendez la fin de cette partie pour passer à la création d’une machine virtuelle.
 
 
 ## <a name="create-the-vm"></a>Création de la machine virtuelle
 
-Créer une machine virtuelle à partir de la version de l’image qui a été créée par le Générateur d’images Azure.
+Créez une machine virtuelle à partir de la version de l’image créée par le Générateur d’images Azure.
 
 ```azurecli-interactive
 az vm create \
@@ -190,7 +190,7 @@ Connectez-vous avec SSH à la machine virtuelle.
 ssh aibuser@<publicIpAddress>
 ```
 
-Vous devez voir l’image a été personnalisé avec un *Message de la journée* dès que votre connexion SSH est établie !
+L’image est personnalisée avec un *Message du jour* dès que la connexion SSH est établie.
 
 ```console
 *******************************************************
@@ -202,14 +202,14 @@ Vous devez voir l’image a été personnalisé avec un *Message de la journée*
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Si vous souhaitez maintenant essayer de ré-personnalisation de la version de l’image pour créer une nouvelle version de la même image, ignorez les étapes et passez à [utilisez Azure Image Builder pour créer une autre version de l’image](image-builder-gallery-update-image-version.md).
+Si vous souhaitez maintenant essayer de personnaliser à nouveau la version de l’image pour créer une nouvelle version de la même image, ignorez les étapes suivantes et passez à [Utiliser le Générateur d’images Azure pour créer une autre version de l’image](image-builder-gallery-update-image-version.md).
 
 
-Cette opération supprimera l’image qui a été créé, ainsi que tous les autres fichiers de ressources. Assurez-vous que vous avez terminé avec ce déploiement avant de supprimer les ressources.
+L’image créée ainsi que tous les autres fichiers de ressources seront ainsi supprimés. Terminez ce déploiement avant de supprimer les ressources.
 
-Lors de la suppression des ressources de galerie d’images, vous devez supprimer toutes les versions de l’image avant de pouvoir supprimer la définition de l’image utilisée pour les créer. Pour supprimer une galerie, vous devez d’abord avoir supprimé toutes les définitions de l’image dans la galerie.
+En ce qui concerne la suppression des ressources de la galerie d’images, il faut bien supprimer toutes les versions de l’image pour pouvoir supprimer la définition de l’image utilisée pour les créer. Supprimer une galerie implique de supprimer au préalable toutes les définitions de l’image qu’elle comporte.
 
-Supprimer le modèle de générateur d’image.
+Supprimez le modèle du Générateur d’images.
 
 ```azurecli-interactive
 az resource delete \
@@ -218,7 +218,7 @@ az resource delete \
     -n helloImageTemplateforSIG01
 ```
 
-Obtenir la version de l’image créée par le Générateur d’images, il commence toujours par `0.`, puis supprimez la version de l’image
+Récupérez la version de l’image créée par le Générateur d’images, qui commence toujours par `0.`, puis supprimez la version de l’image
 
 ```azurecli-interactive
 sigDefImgVersion=$(az sig image-version list \
@@ -235,7 +235,7 @@ az sig image-version delete \
 ```   
 
 
-Supprimer la définition de l’image.
+Supprimez la définition de l’image.
 
 ```azurecli-interactive
 az sig image-definition delete \
@@ -245,7 +245,7 @@ az sig image-definition delete \
    --subscription $subscriptionID
 ```
 
-Supprimer la galerie.
+Supprimez la galerie.
 
 ```azurecli-interactive
 az sig delete -r $sigName -g $sigResourceGroup
@@ -259,4 +259,4 @@ az group delete -n $sigResourceGroup -y
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-En savoir plus sur [galeries d’images Azure Shared](shared-image-galleries.md).
+En savoir plus sur les [galeries d’images partagées Azure](shared-image-galleries.md).

@@ -9,10 +9,10 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 12/16/2016
 ms.openlocfilehash: 611439802c200b30586b73b82d0a4bbbc857e114
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65606714"
 ---
 # <a name="resolve-data-skew-problems-by-using-azure-data-lake-tools-for-visual-studio"></a>Résolution de problèmes d'asymétrie des données à l’aide d'Azure Data Lake Tools pour Visual Studio
@@ -28,27 +28,27 @@ Dans notre scénario, les données sont distribuées de manière inégale entre 
 
 Azure Data Lake Tools pour Visual Studio peut aider à détecter un éventuel problème d'asymétrie des données dans votre tâche. En cas de problème, les solutions présentées dans cette section peuvent vous aider à les résoudre.
 
-## <a name="solution-1-improve-table-partitioning"></a>Solution 1 : Améliorer le partitionnement de table
+## <a name="solution-1-improve-table-partitioning"></a>Solution 1 : Améliorer le partitionnement des tables
 
-### <a name="option-1-filter-the-skewed-key-value-in-advance"></a>Option 1 : Filtrer la valeur de clé asymétrique à l’avance
+### <a name="option-1-filter-the-skewed-key-value-in-advance"></a>Option 1 : Filtrer la valeur de clé décalée à l’avance
 
 Si cela n’affecte pas votre logique métier, vous pouvez filtrer les valeurs plus fréquentes à l’avance. Par exemple, si la colonne GUID comprend un grand nombre de 000-000-000, vous n'agrégerez pas cette valeur. Avant l’agrégation, vous pouvez écrire “WHERE GUID != “000-000-000”” pour filtrer la valeur la plus fréquente.
 
-### <a name="option-2-pick-a-different-partition-or-distribution-key"></a>Option 2 : Choisir une autre clé de partition ou de distribution
+### <a name="option-2-pick-a-different-partition-or-distribution-key"></a>Option 2 : Sélectionner une clé de distribution ou de partition différente
 
-Dans l’exemple précédent, si vous souhaitez uniquement vérifier la charge de travail fiscaux partout dans le pays/région, vous pouvez améliorer la distribution des données en sélectionnant le numéro d’ID comme clé. La sélection d'une clé de distribution ou partition différente permet parfois de distribuer les données de façon plus uniforme, mais vous devez vous assurer que cela n’affecte pas votre logique métier. Par exemple, pour calculer la somme des taxes pour chaque état, vous pouvez désigner _l'état_ comme clé de partition. Si vous continuez à rencontrer ce problème, essayez d’utiliser l’option 3.
+Dans l’exemple précédent, si vous souhaitez uniquement vérifier la charge de travail des contrôles fiscaux partout dans le pays/la région, vous pouvez améliorer la distribution des données en sélectionnant le numéro d’ID comme clé. La sélection d'une clé de distribution ou partition différente permet parfois de distribuer les données de façon plus uniforme, mais vous devez vous assurer que cela n’affecte pas votre logique métier. Par exemple, pour calculer la somme des taxes pour chaque état, vous pouvez désigner _l'état_ comme clé de partition. Si vous continuez à rencontrer ce problème, essayez d’utiliser l’option 3.
 
-### <a name="option-3-add-more-partition-or-distribution-keys"></a>Option 3 : Ajouter plus de clés de partition ou de distribution
+### <a name="option-3-add-more-partition-or-distribution-keys"></a>Option 3 : Ajouter plus de clés de distribution ou de partition
 
 Au lieu d’utiliser uniquement _l'état_ comme clé de partition, vous pouvez utiliser plusieurs clés pour le partitionnement. Par exemple, vous pouvez envisager le _code postal_ comme clé de partition supplémentaire pour réduire la taille des partitions de données et répartir les données de manière plus homogène.
 
-### <a name="option-4-use-round-robin-distribution"></a>Option 4 : Utiliser la distribution de tourniquet (round-robin)
+### <a name="option-4-use-round-robin-distribution"></a>Option 4 : Utiliser la distribution par tourniquet (round robin)
 
-Si vous ne trouvez pas de clé appropriée pour la partition et la distribution, vous pouvez essayer d’utiliser la distribution par tourniquet (round robin). La distribution par tourniquet (round robin) traite toutes les lignes de manière égale et les place au hasard dans des compartiments correspondants. Les données sont distribuées de façon égale, mais perdent les informations relatives à la localité, ce qui peut aussi réduire les performances de travail pour certaines opérations. De plus, si vous effectuez malgré tout une agrégation pour la clé décalée, le problème d'asymétrie des données persistera. Pour en savoir plus sur la distribution de tourniquet (round-robin), consultez la section de Distributions de Table U-SQL dans [CREATE TABLE (U-SQL) : Création d’une Table avec schéma](/u-sql/ddl/tables/create/managed/create-table-u-sql-creating-a-table-with-schema#dis_sch).
+Si vous ne trouvez pas de clé appropriée pour la partition et la distribution, vous pouvez essayer d’utiliser la distribution par tourniquet (round robin). La distribution par tourniquet (round robin) traite toutes les lignes de manière égale et les place au hasard dans des compartiments correspondants. Les données sont distribuées de façon égale, mais perdent les informations relatives à la localité, ce qui peut aussi réduire les performances de travail pour certaines opérations. De plus, si vous effectuez malgré tout une agrégation pour la clé décalée, le problème d'asymétrie des données persistera. Pour en savoir plus sur la distribution par tourniquet (round robin), consultez la section Distribution de table U-SQL dans [CREATE TABLE (SQL-U) : Création d’une table avec un schéma](/u-sql/ddl/tables/create/managed/create-table-u-sql-creating-a-table-with-schema#dis_sch).
 
-## <a name="solution-2-improve-the-query-plan"></a>Solution 2 : Améliorer le plan de requête
+## <a name="solution-2-improve-the-query-plan"></a>Solution 2 : Améliorer le plan de requête
 
-### <a name="option-1-use-the-create-statistics-statement"></a>Option 1 : Utilisez l’instruction CREATE STATISTICS
+### <a name="option-1-use-the-create-statistics-statement"></a>Option 1 : Utiliser l’instruction CREATE STATISTICS
 
 U-SQL fournit l’instruction CREATE STATISTICS dans des tables. Cette instruction donne plus d’informations à l’optimiseur de requête sur les caractéristiques des données, notamment la distribution de la valeur, qui sont stockées dans une table. Pour la plupart des requêtes, l’optimiseur de requête génère déjà les statistiques nécessaires pour un plan de requête de haute qualité. Parfois, vous devrez peut-être améliorer les performances des requêtes en créant des statistiques supplémentaires avec CREATE STATISTICS ou en modifiant la conception des requêtes. Pour plus d’informations, consultez la page [CREATE STATISTICS (SQL-U)](/u-sql/ddl/statistics/create-statistics).
 
@@ -97,7 +97,7 @@ Exemple de code :
                 ON @Sessions.Query == @Campaigns.Query
         ;   
 
-### <a name="option-3-use-rowcount"></a>Option 3 : Utilisation du nombre de lignes  
+### <a name="option-3-use-rowcount"></a>Option 3 : Utiliser ROWCOUNT  
 Outre SKEWFACTOR, pour les cas de jonction de clés de décalage spécifiques, vous pouvez déterminer l’optimiseur en ajoutant un indicateur ROWCOUNT dans l’instruction U-SQL avant la jointure si vous savez que l’autre ensemble de lignes jointes est peu volumineux. De cette manière, l'optimiseur peut choisir une stratégie de diffusion conjointe pour améliorer les performances. N’oubliez pas que ROWCOUNT ne résout pas le problème d'asymétrie des données, mais peut proposer une aide supplémentaire.
 
     OPTION(ROWCOUNT = n)
@@ -122,11 +122,11 @@ Exemple de code :
                 INNER JOIN @Small ON Sessions.Client == @Small.Client
                 ;
 
-## <a name="solution-3-improve-the-user-defined-reducer-and-combiner"></a>Solution 3 : Améliorer le réducteur défini par l’utilisateur et un combinateur
+## <a name="solution-3-improve-the-user-defined-reducer-and-combiner"></a>Solution 3 : Améliorer le réducteur et le combinateur définis par l’utilisateur
 
 Parfois, vous écrivez l’opérateur défini par l’utilisateur pour gérer une logique de processus complexe, et un combinateur et un réducteur bien écrits peuvent, dans certains cas, réduire les problèmes d'asymétrie des données.
 
-### <a name="option-1-use-a-recursive-reducer-if-possible"></a>Option 1 : Utiliser un réducteur récursif si possible
+### <a name="option-1-use-a-recursive-reducer-if-possible"></a>Option 1 : Utiliser un réducteur récursif si possible
 
 Par défaut, le réducteur défini par l’utilisateur s’exécute en mode non récursif, ce qui signifie que le travail de réduction pour une clé est distribué dans un seul vertex. Mais, si vos données sont asymétriques, les ensembles de données volumineux peuvent être traités dans un seul vertex et cette exécution peut prendre un certain temps.
 
@@ -150,7 +150,7 @@ Exemple de code :
         }
     }
 
-### <a name="option-2-use-row-level-combiner-mode-if-possible"></a>Option 2 : Utiliser le mode de COMBINATEUR au niveau des lignes, si possible
+### <a name="option-2-use-row-level-combiner-mode-if-possible"></a>Option 2 : Utiliser le mode de combinateur au niveau des lignes si possible
 
 À l’instar de l’indicateur ROWCOUNT pour les cas de jonction de clés de décalage spécifiques, le mode de combinateur essaie de distribuer les ensembles de valeurs de clés de décalage dans plusieurs vertex pour que le travail puisse être exécuté simultanément. Le mode de combinateur ne permet pas de résoudre le problème d'asymétrie des données, mais peut être utile pour traiter les ensembles de valeurs de clés de décalage volumineux.
 
@@ -167,11 +167,11 @@ Attributs du mode de combinateur :
 
 - [SqlUserDefinedCombiner(Mode=CombinerMode.Full)]: Every output row potentially depends on all the input rows from left and right with the same key value.
 
-- SqlUserDefinedCombiner(Mode=CombinerMode.Left): Chaque ligne de sortie dépend d’une seule ligne d’entrée de gauche (et potentiellement de toutes les lignes de droite avec la même valeur de clé).
+- SqlUserDefinedCombiner(Mode=CombinerMode.Left) : chaque ligne de sortie dépend d’une seule ligne d’entrée de gauche (et potentiellement de toutes les lignes de droite avec la même valeur de clé).
 
-- qlUserDefinedCombiner(Mode=CombinerMode.Right): Chaque ligne de sortie dépend d’une seule ligne d’entrée de droite (et potentiellement de toutes les lignes de gauche avec la même valeur de clé).
+- qlUserDefinedCombiner(Mode=CombinerMode.Right) : chaque ligne de sortie dépend d’une seule ligne d’entrée de droite (et potentiellement de toutes les lignes de gauche avec la même valeur de clé).
 
-- SqlUserDefinedCombiner(Mode=CombinerMode.Inner): Chaque ligne de sortie dépend d’une seule ligne d’entrée de gauche et droite avec la même valeur.
+- SqlUserDefinedCombiner(Mode=CombinerMode.Inner) : chaque ligne de sortie dépend d’une seule ligne d’entrée de gauche et droite avec la même valeur.
 
 Exemple de code :
 

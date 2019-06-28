@@ -1,7 +1,7 @@
 ---
 title: Cibles de calcul distantes ML automatisées
 titleSuffix: Azure Machine Learning service
-description: Découvrez comment créer des modèles à l’aide d’apprentissage automatique sur une cible de calcul à distance Azure Machine Learning avec le service Azure Machine Learning
+description: Découvrez comment créer des modèles avec le Machine Learning automatisé sur une cible de calcul distante Azure Machine Learning avec Azure Machine Learning service
 services: machine-learning
 author: nacharya1
 ms.author: nilesha
@@ -13,25 +13,25 @@ ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
 ms.openlocfilehash: 6a18bdf3a2a1ccd60ff20d21ebd99f4f6e15e38f
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/13/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65551336"
 ---
 # <a name="train-models-with-automated-machine-learning-in-the-cloud"></a>Entraîner des modèles avec le machine learning automatisé dans le cloud
 
 Dans Azure Machine Learning, vous effectuez l'apprentissage de votre modèle sur différents types de ressources de calcul que vous gérez. La cible de calcul peut être un ordinateur local ou dans le cloud.
 
-Vous pouvez facilement monter en puissance ou montée en charge votre expérience d’apprentissage en ajoutant des cibles de calcul, telles que Azure Machine Learning Compute (AmlCompute). AmlCompute est une infrastructure de calcul gérée qui vous permet de créer facilement un seul ou plusieurs nœuds de calcul.
+Vous pouvez facilement faire monter en puissance/en charge votre expérience de Machine Learning. Pour cela, il vous suffit d’ajouter des cibles de calcul, par exemple Capacité de calcul Machine Learning (AmlCompute). AmlCompute est une infrastructure de capacité de calcul managée qui vous permet de créer facilement une capacité de calcul à un ou plusieurs nœuds.
 
-Dans cet article, vous allez apprendre à créer un modèle à l’aide de ML automatisé avec AmlCompute.
+Dans cet article, vous allez découvrir comment créer un modèle avec le Machine Learning automatisé avec AmlCompute.
 
 ## <a name="how-does-remote-differ-from-local"></a>En quoi l’entraînement à distance diffère-t-il de l’entraînement local ?
 
-Le tutoriel « [Entraîner un modèle de classification avec le machine learning automatisé](tutorial-auto-train-models.md) » vous explique comment utiliser un ordinateur local pour entraîner un modèle avec le machine learning automatisé.  Le workflow lors de l’entraînement local s’applique également aux cibles distantes. Cependant, avec le calcul distant, les itérations des expériences de machine learning automatisé sont exécutées de façon asynchrone. Cette fonctionnalité vous permet d’annuler une itération particulière, de suivre l’état de l’exécution et de continuer à travailler sur d’autres cellules dans le notebook Jupyter. Pour effectuer l’apprentissage à distance, vous créez tout d’abord une cible de calcul à distance tels que AmlCompute. Ensuite, vous configurez la ressource distante et vous y envoyez votre code.
+Le tutoriel « [Entraîner un modèle de classification avec le machine learning automatisé](tutorial-auto-train-models.md) » vous explique comment utiliser un ordinateur local pour entraîner un modèle avec le machine learning automatisé.  Le workflow lors de l’entraînement local s’applique également aux cibles distantes. Cependant, avec le calcul distant, les itérations des expériences de machine learning automatisé sont exécutées de façon asynchrone. Cette fonctionnalité vous permet d’annuler une itération particulière, de suivre l’état de l’exécution et de continuer à travailler sur d’autres cellules dans le notebook Jupyter. Pour effectuer l’entraînement à distance, vous créez d’abord une cible de calcul distante, comme AmlCompute. Ensuite, vous configurez la ressource distante et vous y envoyez votre code.
 
-Cet article explique les étapes supplémentaires nécessaires pour exécuter une expérience de ML automatisée sur une cible de AmlCompute à distance. L’objet d’espace de travail, `ws`, du tutoriel est utilisé ici dans tout le code.
+Cet article décrit les étapes supplémentaires nécessaires pour exécuter une expérience de ML automatisé sur une cible AmlCompute distante. L’objet d’espace de travail, `ws`, du tutoriel est utilisé ici dans tout le code.
 
 ```python
 ws = Workspace.from_config()
@@ -39,9 +39,9 @@ ws = Workspace.from_config()
 
 ## <a name="create-resource"></a>Créer une ressource
 
-Créez le serveur cible AmlCompute dans votre espace de travail (`ws`) s’il n’existe pas déjà.  
+Créez la cible AmlCompute dans votre espace de travail (`ws`) si elle n’existe pas encore.  
 
-**Durée estimée** : La création de la cible de AmlCompute prend environ 5 minutes.
+**Durée estimée** : La création de la cible AmlCompute prend environ 5 minutes.
 
 ```python
 from azureml.core.compute import AmlCompute
@@ -62,7 +62,7 @@ compute_target.wait_for_completion(show_output = True, min_node_count = None, ti
 
 Vous pouvez maintenant utiliser l’objet `compute_target` comme cible de calcul distante.
 
-Restrictions de nom de cluster sont les suivantes :
+Voici les restrictions concernant le nom du cluster :
 + Il ne doit pas compter plus de 64 caractères.  
 + Il ne doit pas inclure les caractères suivants : `\` ~ ! @ # $ % ^ & * ( ) = + _ [ ] { } \\\\ | ; : \' \\" , < > / ?.`
 
@@ -215,10 +215,10 @@ Recherchez les journaux d’activité sur la DSVM sous `/tmp/azureml_run/{iterat
 
 La récupération des données d’explication de modèle vous permet de voir des informations détaillées sur les modèles, de façon à rendre plus transparent ce qui se passe sur le back-end. Dans cet exemple, vous exécutez des explications de modèle uniquement pour le modèle le plus adapté. Si vous exécutiez cette opération pour tous les modèles dans le pipeline, cela entraînerait un temps d’exécution considérable. Les informations d’explication de modèle incluent les éléments suivants :
 
-* shap_values : Les informations d’explication générées par lib de photos.
+* shap_values : Les informations d’explication générées par la bibliothèque shap.
 * expected_values : la valeur attendue du modèle appliqué au jeu de données X_train.
-* overall_summary : Valeurs d’importance de fonctionnalité de niveau modèle triés par ordre décroissant.
-* overall_imp : Les noms des fonctionnalités triées dans le même ordre qu’overall_summary.
+* overall_summary : Les valeurs d’importance des caractéristiques au niveau du modèle triées par ordre décroissant.
+* overall_imp : Le nom des fonctionnalités triées dans le même ordre que dans overall_summary.
 * per_class_summary : les valeurs d’importance des caractéristiques au niveau des classes triées par ordre décroissant. Disponible uniquement pour le cas de classification.
 * per_class_imp : le nom des fonctionnalités triées dans le même ordre que dans per_class_summary. Disponible uniquement pour le cas de classification.
 
@@ -256,7 +256,7 @@ Vous pouvez également visualiser l’importance des caractéristiques depuis l�
 
 ## <a name="example"></a>Exemples
 
-Le [how-to-use-azureml/automated-machine-learning/remote-amlcompute/auto-ml-remote-amlcompute.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/remote-amlcompute/auto-ml-remote-amlcompute.ipynb) bloc-notes montre les concepts de cet article. 
+Le notebook [how-to-use-azureml/automated-machine-learning/remote-amlcompute/auto-ml-remote-amlcompute.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/remote-amlcompute/auto-ml-remote-amlcompute.ipynb) illustre les concepts présentés dans cet article. 
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

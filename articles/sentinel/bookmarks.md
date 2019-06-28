@@ -1,6 +1,6 @@
 ---
-title: Suivi des données lors de la recherche dans la préversion de Sentinel Azure à l’aide de signets de chasse | Microsoft Docs
-description: Cet article décrit comment utiliser les signets de chasse Sentinel Azure pour effectuer le suivi des données.
+title: Suivi des données lors du repérage dans la préversion d’Azure Sentinel à l’aide de signets de repérage | Microsoft Docs
+description: Cet article décrit comment utiliser les signets de repérage d’Azure Sentinel pour effectuer le suivi des données.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -16,87 +16,87 @@ ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
 ms.openlocfilehash: b1a438b9645dbb37d852eb0092355850d816872d
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65207472"
 ---
-# <a name="keep-track-of-data-during-hunting"></a>Suivi des données au cours de chasse
+# <a name="keep-track-of-data-during-hunting"></a>Suivi des données lors du repérage
 
 > [!IMPORTANT]
 > Azure Sentinel est actuellement disponible en préversion publique.
 > Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
  
-Chasse aux menaces nécessite généralement la vérification des montagnes de données de journal de rechercher des preuves de comportements malveillants. Pendant ce processus, enquêteurs trouve les événements qu’ils souhaitent n’oubliez pas, réexaminer et analyser dans le cadre de la validation des hypothèses potentiels et comprendre l’intégralité d’une compromission.
-Signets de chasse vous y aider, en conservant les requêtes que vous avez exécuté dans Analytique de journal, ainsi que les résultats de requête que vous jugez pertinentes. Vous pouvez également enregistrer vos observations contextuelles et référencer vos découvertes en ajoutant des balises et les notes de publication. Données signet sont visibles par vous et vos collègues pour faciliter la collaboration.   
+Le repérage des menaces nécessite généralement la vérification de montagnes de données de journal à la recherche de preuves de comportements malveillants. Pendant ce processus, les enquêteurs détectent des événements qu’ils souhaitent mémoriser, réexaminer et analyser afin de valider des hypothèses potentielles et de comprendre d’une compromission dans sa globalité.
+Les signets de repérage vous y aident, en conservant les requêtes que vous avez exécutées dans Log Analytics, ainsi que les résultats de requête que vous jugez pertinents. Vous pouvez également enregistrer vos observations contextuelles et référencer vos découvertes en ajoutant des balises et des notes. Les données avec signet sont visibles par vous et vos collègues pour faciliter la collaboration.   
 
-Vous pouvez revenir consulter vos données marqué d’un signet à tout moment sur le **signet** onglet de la **chasse** page. Vous pouvez utiliser le filtrage et rechercher des options pour trouver rapidement des données spécifiques pour votre examen en cours. Vous pouvez également afficher vos données avec signet directement dans le **HuntingBookmark** table dans le journal Analytique. Cela vous permet de filtrer, résumer et joindre des données avec signet avec d’autres sources de données, ce qui facilite rechercher la confirmation de la preuve.
+Vous pouvez revenir consulter vos données avec signet à tout moment dans l’onglet **Signet** de la page **Repérage**. Vous pouvez utiliser les options de filtrage et de recherche pour trouver rapidement des données spécifiques dans le cadre de l’examen en cours. Vous pouvez également afficher vos données avec signet directement dans la table **HuntingBookmark** de Log Analytics. Cela vous permet de filtrer les données avec signet, les synthétiser et les joindre à d’autres sources de données, ce qui facilite la recherche de preuves pour la confirmation.
 
-Vous pouvez également visualiser vos données marqué d’un signet, en cliquant sur **examiner**. Cette opération lance l’expérience d’investigation dans lequel vous pouvez afficher, rechercher et communiquer visuellement vos résultats à l’aide d’un diagramme d’entité-graphique interactif et la chronologie.
+Vous pouvez également visualiser vos données avec signet en cliquant sur **Examiner**. Cette opération lance l’expérience d’examen dans laquelle vous pouvez afficher, examiner et communiquer visuellement vos résultats à l’aide d’un diagramme d’entité-graphique interactif et d’une chronologie.
 
 
-## <a name="run-a-log-analytics-query-from-azure-sentinel"></a>Exécuter une requête Analytique de journal à partir d’Azure Sentinel
+## <a name="run-a-log-analytics-query-from-azure-sentinel"></a>Exécuter une requête Log Analytics à partir d’Azure Sentinel
 
-1. Dans le portail Azure Sentinel, cliquez sur **chasse** pour exécuter des requêtes pour le comportement suspect et anormal.
+1. Dans le portail Azure Sentinel, cliquez sur **Repérage** pour exécuter des requêtes liées à un comportement suspect et anormal.
 
-1. Pour exécuter une campagne de chasse, sélectionnez une des requêtes de recherche et sur la révision de gauche, les résultats. 
+1. Pour exécuter une campagne de repérage, sélectionnez une des requêtes de repérage et examinez les résultats à gauche. 
 
-1. Cliquez sur **afficher les résultats de la requête** dans la requête de chasse **détails** page pour afficher la requête génère Analytique de journal. Voici un exemple de ce que vous voyez si vous avez exécuté une requête d’attaque de bruteforce SSH personnalisée.
+1. Cliquez sur **View query results (Afficher les résultats de la requête)** sur la page **Détails** de la requête de repérage pour consulter les résultats de la requête dans Log Analytics. Voici un exemple de ce que vous voyez si vous avez exécuté une requête d’attaque par force brute SSH personnalisée.
   
    ![afficher les résultats](./media/bookmarks/ssh-bruteforce-example.png)
 
 ## <a name="add-a-bookmark"></a>Ajouter un signet
 
-1. Dans la liste de résultats de requête Analytique de journal, développez la ligne contenant les informations qui vous intéressent.
+1. Dans la liste des résultats de requête de Log Analytics, développez la ligne contenant les informations qui vous intéressent.
 
-4. Sélectionnez les points de suspension (...) à la fin de la ligne, puis **ajouter des signets de chasse**.
-5. Sur la droite, dans le **détails** page, mettre à jour le nom et ajouter des balises et les notes de publication pour vous aider à identifier ce qui était intéressant à propos de l’élément.
-6. Cliquez sur **enregistrer** pour valider vos modifications. Toutes les données de signet est partagée avec d’autres enquêteurs et est une première étape vers une expérience d’investigation collaborative.
+4. Cliquez sur les points de suspension (...) à la fin de la ligne, puis sélectionnez **Add hunting bookmarks (Ajouter des signets de repérage)** .
+5. À droite, sur la page **Détails**, mettez à jour le nom et ajouter des balises et des notes pour identifier facilement les informations intéressantes à propos de l’élément.
+6. Cliquez sur **Enregistrer** pour valider les modifications. Toutes les données avec signet sont partagées avec d’autres enquêteurs et constituent une première étape vers une expérience d’examen collaborative.
 
    ![afficher les résultats](./media/bookmarks/add-bookmark-la.png)
 
  
 > [!NOTE]
-> Vous pouvez également utiliser des signets avec des requêtes Analytique de journal arbitraires lancées à partir de la page de journaux d’Analytique de journal de Azure Sentinel, ou les requêtes créées sur le passage à la page d’Analytique de journal et ouvert à partir de la page de chasse. Vous ne serez pas en mesure d’ajouter un signet, si vous lancez l’Analytique de journal à partir en dehors d’Azure Sentinel. 
+> Vous pouvez également utiliser des signets avec des requêtes Log Analytics arbitraires lancées à partir de la page de journaux Log Analytics d’Azure Sentinel, ou avec des requêtes créées à la volée sur la page de Log Analytics et ouvertes à partir de la page Repérage. Vous ne serez pas en mesure d’ajouter un signet si vous lancez Log Analytics hors d’Azure Sentinel. 
 
-## <a name="view-and-update-bookmarks"></a>Affichage et mise à jour des signets 
+## <a name="view-and-update-bookmarks"></a>Afficher et mettre à jour des signets 
 
-1. Dans le portail Azure Sentinel, cliquez sur **chasse**. 
-2. Cliquez sur le **signets** onglet au milieu de la page pour afficher la liste de signets.
-3. Utilisez les options de zone ou un filtre de recherche pour trouver un signet spécifique.
-4. Sélectionnez des signets individuels dans la grille ci-dessous pour afficher les détails de signet dans le volet de détails de droite.
-5. Pour mettre à jour les balises et les notes de publication, cliquez sur les zones de texte modifiable et cliquez sur **enregistrer** pour conserver vos modifications.
+1. Dans le portail Azure Sentinel, cliquez sur **Repérage**. 
+2. Cliquez sur l’onglet **Signets** au milieu de la page pour afficher la liste des signets.
+3. Utilisez les options de filtre ou de la zone de recherche pour trouver un signet spécifique.
+4. Sélectionnez des signets individuels dans la grille située au-dessous pour afficher les détails de ce signet dans le volet de détails de droite.
+5. Pour mettre à jour les balises et les notes, cliquez sur les zones de texte modifiables, puis sur **Enregistrer** pour conserver les modifications.
 
    ![afficher les résultats](./media/bookmarks/view-update-bookmarks.png)
 
-## <a name="view-bookmarked-data-in-log-analytics"></a>Afficher les données de signet dans le journal Analytique 
+## <a name="view-bookmarked-data-in-log-analytics"></a>Afficher les données avec signet dans Log Analytics 
 
-Il existe plusieurs options pour afficher vos données avec signet dans le journal Analytique. 
+Il existe plusieurs options pour afficher vos données avec signet dans Log Analytics. 
 
-Le moyen le plus simple pour afficher les requêtes de signet, les résultats ou historique est en sélectionnant le signet voulu dans la **signets** table et utilisez les liens fournis dans le volet de détails. Les options sont les suivantes : 
-- Cliquez sur **afficher la requête** pour afficher la requête source dans le journal Analytique.  
-- Cliquez sur **afficher l’historique de signet** pour voir tous vos favoris les métadonnées, notamment : qui a effectué la mise à jour, les valeurs mises à jour et l’heure de la mise à jour. 
+Le moyen le plus simple pour afficher les requêtes de signet, les résultats ou l’historique consiste à sélectionner le signet voulu dans la table **Signets** et à utiliser les liens fournis dans le volet de détails. Options disponibles : 
+- Cliquez sur **Afficher la requête** pour afficher la requête source dans Log Analytics.  
+- Cliquez sur **View bookmark history (Afficher l’historique du signet)** pour voir toutes les métadonnées du signet, notamment l’auteur de la mise à jour, les valeurs mises à jour et l’heure de la mise à jour. 
 
-- Vous pouvez également afficher les données brutes de signet pour tous les signets en cliquant sur **signet journaux** au-dessus de la grille de signet. Cette vue montre tous vos signets dans la table de signet de chasse avec des métadonnées associées. Vous pouvez utiliser des requêtes KQL pour filtrer jusqu'à la dernière version du signet spécifique que vous recherchez.  
+- Vous pouvez également afficher les données avec signet brutes pour tous les signets en cliquant sur **Bookmark logs (Journaux de signets)** au-dessus de la grille des signets. Cette vue affiche tous vos signets dans la table de signets de repérage, avec les métadonnées associées. Vous pouvez utiliser des requêtes KQL pour filtrer jusqu’à la dernière version du signet spécifique que vous recherchez.  
 
 
 > [!NOTE]
-> Il peut y avoir un délai important (exprimé en minutes) entre la création d’un signet et lorsqu’il est affiché dans le **HuntingBookmark** table. Il est recommandé de créer vos signets tout d’abord, puis analysez-les une fois que les données sont reçues. 
+> Il peut y avoir un délai important (mesuré en minutes) entre la création d’un signet et le moment où il apparaît dans la table **HuntingBookmark**. Il est recommandé de créer d’abord vos signets, puis de les analyser une fois les données ingérées. 
 
 ## <a name="delete-a-bookmark"></a>Supprimer un signet
-Si vous souhaitez supprimer un signet effectuez les étapes suivantes : 
-1.  Ouvrez th **signet de chasse** onglet. 
+Si vous souhaitez supprimer un signet, procédez comme suit : 
+1.  Ouvrez l’onglet **Hunting bookmark (Signet de repérage)** . 
 2.  Sélectionnez le signet cible.
-3.  Sélectionnez les points de suspension (...) à la fin de la ligne et sélectionnez **signet de suppression**.
+3.  Cliquez sur les points de suspension (...) à la fin de la ligne, puis sélectionnez **Supprimer le signet**.
     
-La suppression du signet supprime le signet dans la liste dans le **signet** onglet.  L’Analytique de journal « HuntingBookmark » table continuera à contenir des entrées de signet précédent, mais la dernière entrée changera la **SoftDelete** valeur est true, ce qui vous permet de filtrer les anciens signets.  Suppression d’un signet ne supprime pas toutes les entités à partir de l’expérience d’investigation qui sont associés aux autres alertes ou les signets. 
+La suppression du signet supprime le signet de la liste dans l’onglet **Signet**.  La table « HuntingBookmark » de Log Analytics contient toujours les précédentes entrées de signet, mais la valeur de la dernière entrée pour **SoftDelete** devient true, ce qui vous permet d’exclure les anciens signets.  La suppression d’un signet ne supprime pas les entités de l’expérience d’examen qui sont associées à d’autres alertes ou signets. 
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans cet article, vous avez appris comment exécuter une investigation de chasse à l’aide de signets dans Azure Sentinel. Pour en savoir plus sur Azure Sentinel, voir les articles suivants :
+Dans cet article, vous avez appris à exécuter un examen de repérage à l’aide de signets dans Azure Sentinel. Pour en savoir plus sur Azure Sentinel, voir les articles suivants :
 
 
-- [Recherche de façon proactive les menaces](hunting.md)
-- [Utiliser des blocs-notes pour lancer des campagnes de chasse automatisés](notebooks.md)
+- [Proactively hunt for threats](hunting.md) (Rechercher des menaces de façon proactive)
+- [Use notebooks to run automated hunting campaigns](notebooks.md) (Utiliser des blocs-notes pour exécuter des campagnes de repérage automatisées)

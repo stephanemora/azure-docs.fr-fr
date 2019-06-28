@@ -9,11 +9,11 @@ ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: e5acb8e0f8805da7f14bbce58b4bfd2acdc24f23
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66166323"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177719"
 ---
 # <a name="secure-your-internet-of-things-iot-deployment"></a>Sécuriser votre déploiement Internet des objets
 
@@ -113,4 +113,4 @@ Les données reçues par Azure IoT Hub peuvent être utilisées par une variét�
 
 ## <a name="conclusion"></a>Conclusion
 
-Cet article fournit une vue d’ensemble des détails au niveau de l’implémentation pour concevoir et déployer une infrastructure IoT à l’aide d’Azure IoT. La configuration de chaque composant afin qu’il soit sécurisé est essentielle pour sécuriser l’infrastructure IoT dans son ensemble. Les choix de conception disponibles dans Azure IoT offrent un certain degré de souplesse et de choix. Toutefois, chaque choix peut avoir des implications en matière de sécurité. Nous vous recommandons d’évaluer chacun de ces choix à l’aide d’une évaluation des risques et du coût.
+Cet article fournit une vue d’ensemble des détails au niveau de l’implémentation pour concevoir et déployer une infrastructure IoT à l’aide d’Azure IoT. La configuration de chaque composant afin qu’il soit sécurisé est essentielle pour sécuriser l’infrastructure IoT dans son ensemble. Les choix de conception disponibles dans Azure IoT offrent un certain degré de souplesse et de choix. Toutefois, chaque choix peuvent avoir des implications en matière de sécurité. Nous vous recommandons d’évaluer chacun de ces choix à l’aide d’une évaluation des risques et du coût.

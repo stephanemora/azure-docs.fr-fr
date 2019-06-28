@@ -1,5 +1,5 @@
 ---
-title: Notes de publication Insights de vendeur
+title: Notes de publication de Seller Insights
 description: Fournit des informations sur les modifications apportées à la fonctionnalité Seller Insights.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
@@ -8,32 +8,32 @@ ms.topic: conceptual
 ms.date: 3/3/2019
 ms.author: pabutler
 ms.openlocfilehash: c6e9e4fe672c7e171ed4b1cd60655f9e71a562e6
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64943120"
 ---
 # <a name="seller-insights-release-notes"></a>Notes de publication de Seller Insights 
 
-(Date de publication : Le 1 mars 2019)
+(Date de publication : 1er mars 2019)
 
 Cet article fournit des informations sur les modifications apportées à la fonctionnalité Seller Insights dans le [portail Microsoft Cloud Partner](https://cloudpartner.azure.com/#insights).
 
-## <a name="release-highlights-for-march-1-2019"></a>Met en évidence de version pour le 1 mars 2019
+## <a name="release-highlights-for-march-1-2019"></a>Présentation de la nouvelle version au 1er mars 2019
 
-* *Tendance de client* ajouté au résumé
-* *Meilleurs cinq clients* résumé refléter tous les abonnements Azure a un client
-* *Normalisée des tendances d’utilisation et les tendances de commandes Active* sur Résumé rattaché *commandes mensuelles en un clin de œil*
+* *Tendance de client* ajoutée au résumé
+* *5 meilleurs clients* du résumé reflétant tous les abonnements Azure d’un client
+* *Tendance d’utilisation normalisée et tendance de commandes actives* du résumé rattachées aux *commandes mensuelles en un coup d’œil*
 * *Rapport de rapprochement des paiements* mis à jour
-* *Meilleurs cinq clients* sur paiement refléter tous les abonnements Azure a un client
+* *5 meilleurs clients* pour le paiement reflétant tous les abonnements Azure d’un client
 * *Rapport d’utilisation* mis à jour avec l’ID de client
-* *Ancienneté du client* sur les commandes et utilisation reflète tous les abonnements Azure a un client
+* *Ancienneté du client* sur les commandes et l’utilisation reflétant tous les abonnements Azure d’un client
 
 
-(Date de publication : Le 28 juillet 2018)
+(Date de publication : 28 juillet 2018)
 
-## <a name="release-highlights-for-july-28-2018"></a>Met en évidence de version pour le 28 juillet 2018
+## <a name="release-highlights-for-july-28-2018"></a>Présentation de la nouvelle version au 28 juillet 2018
 
 
 -   L’option *Estimation du prix* donne au client une estimation du coût et des frais de change associés.

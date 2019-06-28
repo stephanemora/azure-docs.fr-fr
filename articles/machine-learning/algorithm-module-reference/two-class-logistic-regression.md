@@ -1,7 +1,7 @@
 ---
-title: 'Régression logistique à deux classes : Référence de module'
+title: 'Régression logistique à deux classes : informations de référence sur les modules'
 titleSuffix: Azure Machine Learning service
-description: Découvrez comment utiliser le module Two-Class Logistic Regression dans le service Azure Machine Learning pour créer un modèle de régression logistique qui peut être utilisé pour prédire les résultats de deux (et uniquement deux).
+description: Découvrez comment utiliser le module de régression logistique à deux classes dans le service Azure Machine Learning pour créer un modèle de régression logistique qui peut être utilisé pour prédire seulement deux résultats.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,81 +11,81 @@ ms.author: zhanxia
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
 ms.openlocfilehash: aacaf6c64ef77d0e694f97e3675060eca33794ed
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65029249"
 ---
 # <a name="two-class-logistic-regression-module"></a>Module de régression logistique à deux classes
 
-Cet article décrit un module de l’interface visuelle (version préliminaire) pour le service Azure Machine Learning.
+Cet article décrit un module de l’interface visuelle (préversion) du service Azure Machine Learning.
 
-Utilisez ce module pour créer un modèle de régression logistique qui peut être utilisé pour prédire les résultats de deux (et uniquement deux). 
+Utilisez ce module pour créer un modèle de régression logistique qui peut être utilisé pour prédire seulement deux résultats. 
 
-La régression logistique est une technique statistique connue utilisée pour modéliser les nombreux types de problèmes. Cet algorithme est un *apprentissage supervisé* méthode ;  Par conséquent, vous devez fournir un jeu de données qui contient déjà les résultats pour former le modèle.  
+La régression logistique est une technique statistique connue utilisée pour modéliser de nombreux types de problèmes. Cet algorithme est une méthode d’*apprentissage supervisé*. Par conséquent, vous devez fournir un jeu de données qui contient déjà les résultats pour former le modèle.  
 
 ### <a name="about-logistic-regression"></a>À propos de la régression logistique  
 
-La régression logistique est une méthode bien connue dans les statistiques qui sont utilisés pour prédire la probabilité d’un résultat et est particulièrement populaire pour les tâches de classification. L’algorithme prédit la probabilité d’occurrence d’un événement en ajustant les données à une fonction logistique.
+La régression logistique est une méthode bien connue en statistiques qui sert à déterminer la probabilité d’un résultat et est particulièrement populaire pour les tâches de classification. L’algorithme prédit la probabilité d’occurrence d’un événement en ajustant les données à une fonction logistique.
   
-Dans ce module, l’algorithme de classification est optimisé pour les variables dichotomiques ou binaire. Si vous avez besoin de classifier plusieurs résultats, utilisez le [Multiclass Logistic Regression](./multiclass-logistic-regression.md) module.
+Dans ce module, l’algorithme de classification est optimisé pour les variables dichotomiques ou binaires. Si vous avez besoin de classer plusieurs résultats, utilisez le module de [régression logistique multiclasse](./multiclass-logistic-regression.md).
 
 ##  <a name="how-to-configure"></a>Comment configurer  
 
-Pour former ce modèle, vous devez fournir un jeu de données qui contient une colonne d’étiquette ou une classe. Étant donné que ce module est destiné aux problèmes de deux classes, la colonne étiquette ou une classe doit contenir exactement deux valeurs. 
+Pour entraîner ce modèle, vous devez fournir un jeu de données qui contient une colonne d’étiquette ou de classe. Étant donné que ce module est destiné aux problèmes à deux classes, la colonne d’étiquette ou de classe doit contenir exactement deux valeurs. 
 
-Par exemple, la colonne d’étiquette peut être [voté] avec les valeurs possibles de « Oui » ou « Non ». Ou bien, il peut être [risque de crédit], avec les valeurs possibles de « Élevé » ou « Faible ». 
+Par exemple, la colonne d’étiquette peut être [Voté], avec les valeurs possibles « Oui » ou « Non ». Ou bien, elle peut être [Risque de crédit], avec les valeurs possibles « Élevé » ou « Faible ». 
   
-1.  Ajouter le **Two-Class Logistic Regression** module à votre expérience.  
+1.  Ajouter le module de **régression logistique à deux classes** à votre expérience.  
   
-2.  Spécifiez comment vous souhaitez que le modèle formé, en définissant le **créer un mode d’entraînement** option.  
+2.  Spécifiez le mode d’apprentissage du modèle en définissant l’option **Create trainer mode** (Créer un mode d’apprentissage).  
   
-    -   **L’unique paramètre**: Si vous savez comment vous souhaitez configurer le modèle, vous pouvez fournir un ensemble spécifique de valeurs comme arguments.  
+    -   **Single Parameter** (Paramètre unique) : si vous savez comment vous voulez configurer le modèle, vous pouvez fournir un ensemble spécifique de valeurs en tant qu’arguments.  
   
-3.  Pour **tolérance d’optimisation**, spécifiez une valeur de seuil à utiliser lors de l’optimisation du modèle. Si l’amélioration entre les itérations tombe au-dessous du seuil spécifié, l’algorithme est considérée comme ont convergé sur une solution, et cesse de formation.  
+3.  Pour la **tolérance d’optimisation**, spécifiez une valeur de seuil à utiliser lors de l’optimisation du modèle. Si l’amélioration entre les itérations tombe au-dessous du seuil spécifié, on considère que l’algorithme a convergé vers une solution, et l’entraînement cesse.  
   
-4.  Pour **poids de régularisation L1** et **poids de régularisation L2**, tapez une valeur à utiliser pour les paramètres de régularisation L1 et L2. Une valeur non nulle est recommandée pour les deux.  
+4.  Pour la **pondération de régularisation L1** et la **pondération de régularisation L2**, saisissez une valeur à utiliser pour les paramètres de régularisation L1 et L2. Une valeur non nulle est recommandée pour les deux.  
   
-     *La régularisation* est une méthode pour empêcher le surajustement en pénaliser quant modèles avec des valeurs de coefficient extrêmes. La régularisation fonctionne en ajoutant la pénalité associée aux valeurs de coefficient à l’erreur de l’hypothèse. Par conséquent, un modèle précis avec des valeurs de coefficient extrêmes est pénalisé plus, mais un modèle moins précis avec des valeurs plus conservatrices est moins pénalisé.  
+     La *régularisation* est une méthode qui sert à empêcher le surajustement en pénalisant les modèles avec des valeurs de coefficient extrêmes. La régularisation fonctionne en ajoutant la pénalité associée aux valeurs de coefficient à l’erreur de l’hypothèse. Par conséquent, un modèle précis avec des valeurs de coefficient extrêmes est plus pénalisé, mais un modèle moins précis avec des valeurs plus conservatrices est moins pénalisé.  
   
-     Régularisations L1 et L2 ont différents effets et utilise.  
+     Les régularisations L1 et L2 ont différents effets et cas d’utilisation.  
   
-    -   L1 peut être appliqué aux modèles épars, ce qui est utile lorsque vous travaillez avec des données de grande dimension.  
+    -   La régularisation L1 peut être appliquée aux modèles dispersés, ce qui est utile lorsque vous travaillez avec des données de grande dimension.  
   
-    -   En revanche, la régularisation L2 est préférable pour les données qui ne sont pas éparses.  
+    -   En revanche, la régularisation L2 est préférable pour les données qui ne sont pas dispersées.  
   
-     Cet algorithme prend en charge une combinaison de valeurs de régularisation L1 et L2 : autrement dit, si <code>x = L1</code> et <code>y = L2</code>, puis <code>ax + by = c</code> définit le délai linéaire des termes du contrat de régularisation.  
+     Cet algorithme prend en charge une combinaison linéaire de valeurs de régularisation L1 et L2 : autrement dit, si <code>x = L1</code> et <code>y = L2</code>, <code>ax + by = c</code> définit l’étendue linéaire des termes du contrat de régularisation.  
   
     > [!NOTE]
-    >  Vous souhaitez en savoir plus sur la régularisation L1 et L2 ? L’article suivant fournit une description de la régularisation L1 et L2 sont différents et comment elles affectent l’ajustement du modèle, avec des exemples de code pour la régression logistique et de modèles de réseau neuronal :  [Régularisations L1 et L2 pour l’apprentissage](https://msdn.microsoft.com/magazine/dn904675.aspx)  
+    >  Vous souhaitez en savoir plus sur la régularisation L1 et L2 ? L’article suivant explore les différences entre les régularisations L1 et L2 et comment elles influent sur l’ajustement du modèle, avec des exemples de code pour les modèles de régression logistique et de réseau neuronal :  [Régularisations L1 et L2 pour l’apprentissage automatique](https://msdn.microsoft.com/magazine/dn904675.aspx)  
     >
-    > Différentes combinaisons de linéaire des termes L1 et L2 ont été imaginés pour les modèles de régression logistique : par exemple, [élastique régularisation nette](https://wikipedia.org/wiki/Elastic_net_regularization). Nous vous suggérons de que vous référencez ces combinaisons pour définir une combinaison linéaire est efficace dans votre modèle.
+    > Différentes combinaisons linéaires de termes L1 et L2 ont été imaginées pour les modèles de régression logistique : par exemple, [régularisation de réseau élastique](https://wikipedia.org/wiki/Elastic_net_regularization). Nous vous suggérons de faire référence à ces combinaisons pour définir une combinaison linéaire est efficace dans votre modèle.
       
-5.  Pour **taille de la mémoire pour L-BFGS**, spécifiez la quantité de mémoire à utiliser pour *L-BFGS* optimisation.  
+5.  Pour la **taille de la mémoire pour L-BFGS**, spécifiez la quantité de mémoire à utiliser pour l’optimisation *L-BFGS*.  
   
-     L-BFGS est l’acronyme de « limited memory Broyden-Fletcher-Goldfarb-Shanno ». Il est un algorithme d’optimisation qui est souvent utilisé pour l’estimation des paramètres. Ce paramètre indique le nombre de positions passées et de gradients à stocker pour le calcul de l’étape suivante.  
+     L-BFGS est l’acronyme de « limited memory Broyden-Fletcher-Goldfarb-Shanno ». Il s’agit d’un algorithme d’optimisation souvent utilisé pour l’estimation des paramètres. Ce paramètre indique le nombre de positions passées et de gradients à stocker pour le calcul de l’étape suivante.  
   
-     Ce paramètre d’optimisation limite la quantité de mémoire qui est utilisée pour calculer l’étape suivante et la direction. Lorsque vous spécifiez moins de mémoire, l’apprentissage est plus rapide mais moins précis.  
+     Ce paramètre d’optimisation limite la quantité de mémoire utilisée pour calculer l’étape suivante et la direction. Lorsque vous spécifiez moins de mémoire, l’apprentissage est plus rapide mais moins précis.  
   
-6.  Pour **valeur initiale de nombre aléatoire**, tapez une valeur entière. Définition d’une valeur de départ est important si vous souhaitez que les résultats puissent être reproductible sur plusieurs exécutions de la même expérience.  
+6.  Pour la **valeur initiale aléatoire**, saisissez une valeur entière. Il est important de définir une valeur de départ si vous souhaitez obtenir des résultats reproductibles sur plusieurs exécutions de la même expérience.  
   
   
-8. Ajouter un jeu de données avec balises à l’expérience et deux de la [modules de formation](module-reference.md).  
+8. Ajoutez un jeu de données avec balises à l’expérience, puis connectez l’un des [modules de formation](module-reference.md).  
   
-    -   Si vous définissez **créer un mode d’entraînement** à **seul paramètre**, utilisez le [former le modèle](./train-model.md) module.  
+    -   Si vous définissez **Create trainer mode** (Créer un mode d’apprentissage) sur **Single Parameter** (Paramètre unique), utilisez le module [Train Model](./train-model.md) (Entraîner le modèle).  
   
 9. Exécutez l’expérience.  
   
 ## <a name="results"></a>Résultats
 
-Une fois la formation terminée :
+Une fois l’apprentissage terminé :
 
-+ Pour afficher un résumé des paramètres du modèle, ainsi que les poids de fonctionnalité tirées de formation, cliquez sur la sortie de [former le modèle](./train-model.md) et sélectionnez **visualiser**.   
++ Pour afficher un résumé des paramètres du modèle avec les pondérations de caractéristiques tirées de l’apprentissage, cliquez avec le bouton droit sur la sortie du module [Train Model](./train-model.md) (Entraîner le modèle), puis sélectionnez **Visualiser**.   
   
-+ Pour effectuer des prévisions sur de nouvelles données, utilisez le modèle formé et les nouvelles données en tant qu’entrée pour le [noter le modèle](./score-model.md) module. 
++ Pour effectuer des prévisions sur de nouvelles données, utilisez le modèle entraîné et les nouvelles données en tant qu’entrée pour le module de [notation de modèle](./score-model.md). 
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez le [ensemble de modules disponibles](module-reference.md) au service Azure Machine Learning. 
+Consultez [l’ensemble des modules disponibles](module-reference.md) pour le service Azure Machine Learning. 

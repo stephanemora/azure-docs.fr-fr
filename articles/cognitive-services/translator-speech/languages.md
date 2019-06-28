@@ -12,10 +12,10 @@ ms.date: 3/5/2018
 ms.author: v-jansko
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 513fd93f148a8a133901a5dbb60722fbc4a7d9e7
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64866249"
 ---
 # <a name="languages-supported-by-the-translator-speech-api"></a>Langues prises en charge par l’API de traduction de conversation Translator Speech
@@ -27,7 +27,7 @@ Les langues prises en charge pour la traduction vocale sont les suivantes. Si le
 | Langue de synthèse vocale    |
 |:----------- |
 | Arabe (standard moderne)      |
-| Portugais (Brésil)     |
+| Portugais brésilien     |
 | Chinois (mandarin)      |
 | Anglais      |
 | Anglais      |

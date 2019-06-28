@@ -16,13 +16,13 @@ ms.date: 02/20/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6ecbac8af86c3c2c76b7710eb61f71481b86291b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66112485"
 ---
-# <a name="configure-managed-identities-for-azure-resources-on-an-azure-virtual-machine-scale-using-a-template"></a>Configurer des identités gérées pour les ressources Azure à l’échelle de machine virtuelle Azure à l’aide d’un modèle
+# <a name="configure-managed-identities-for-azure-resources-on-an-azure-virtual-machine-scale-using-a-template"></a>Configurer des identités managées pour ressources Azure sur un groupe de machines virtuelles identiques Azure en utilisant un modèle
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
@@ -32,9 +32,9 @@ Dans cet article, vous allez découvrir comment effectuer les opérations d’id
 - Activer et désactiver l’identité managée affectée par le système sur un groupe de machines virtuelles identiques Azure
 - Ajouter et supprimer une identité managée affectée par l’utilisateur sur un groupe de machines virtuelles identiques Azure
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
-- Si vous n’êtes pas familiarisé avec les identités managées pour ressources Azure, consultez la [section Vue d’ensemble](overview.md). **Veillez à consulter la [différence entre les identités managées affectées par le système et celles affectées par l’utilisateur](overview.md#how-does-it-work)**.
+- Si vous n’êtes pas familiarisé avec les identités managées pour ressources Azure, consultez la [section Vue d’ensemble](overview.md). **Veillez à consulter la [différence entre les identités managées affectées par le système et celles affectées par l’utilisateur](overview.md#how-does-it-work)** .
 - Si vous n’avez pas encore de compte Azure, [inscrivez-vous à un essai gratuit](https://azure.microsoft.com/free/) avant de continuer.
 - Pour effectuer les opérations de gestion dans cet article, votre compte doit disposer de ces affectations de contrôle d'accès basé sur les rôles Azure :
 
@@ -49,7 +49,7 @@ Dans cet article, vous allez découvrir comment effectuer les opérations d’id
 
 Comme pour le portail Azure et le script, les modèles [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) offrent la possibilité de déployer des ressources nouvelles ou modifiées définies par un groupe de ressources Azure. Plusieurs options sont disponibles pour la modification du modèle et le déploiement, à la fois localement et sur le portail, y compris :
 
-   - À l’aide un [modèle personnalisé à partir de la place de marché Azure](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template), qui vous permet de créer un modèle à partir de zéro, ou à partir d’un commun existant ou [modèle de démarrage rapide](https://azure.microsoft.com/documentation/templates/).
+   - Utiliser un [modèle personnalisé à partir de Place de marché Azure](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template), lequel vous permet de créer un modèle à partir de zéro, ou à partir d’un modèle commun existant ou d’un [modèle de démarrage rapide](https://azure.microsoft.com/documentation/templates/).
    - Dériver à partir d’un groupe de ressources existant, en exportant un modèle à partir du [déploiement d’origine](../../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates), ou à partir de l’[état actuel du déploiement](../../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates).
    - Utilisation d’un [éditeur local JSON (VS Code, par exemple)](../../azure-resource-manager/resource-manager-create-first-template.md), puis téléchargement/déploiement à l’aide de PowerShell ou Azure CLI.
    - Utilisez le [projet de groupe de ressources Azure](../../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) de Visual Studio pour créer et déployer un modèle.  
@@ -60,7 +60,7 @@ Quelle que soit l’option choisie, la syntaxe de modèle est identique lors du 
 
 Dans cette section, vous allez activer et désactiver l’identité managée affectée par le système en utilisant un modèle Azure Resource Manager.
 
-### <a name="enable-system-assigned-managed-identity-during-creation-the-creation-of-a-virtual-machines-scale-set-or-an-existing-virtual-machine-scale-set"></a>Activer attribué par le système identité gérée lors de la création de la création d’un ensemble d’échelle de machines virtuelles ou un jeu de mise à l’échelle de machine virtuelle existant
+### <a name="enable-system-assigned-managed-identity-during-creation-the-creation-of-a-virtual-machines-scale-set-or-an-existing-virtual-machine-scale-set"></a>Activer une identité managée affectée par le système pendant la création d’un groupe de machines virtuelles identiques ou dans un groupe de machines virtuelles identiques existant
 
 1. Si vous vous connectez à Azure localement ou via le portail Azure, utilisez un compte associé à l’abonnement Azure qui contient le groupe de machines virtuelles identiques.
 2. Pour activer l’identité managée affectée par le système, chargez le modèle dans un éditeur, recherchez la ressource `Microsoft.Compute/virtualMachinesScaleSets` qui vous intéresse dans la section des ressources, puis ajoutez la propriété `identity` au même niveau que la propriété `"type": "Microsoft.Compute/virtualMachinesScaleSets"`. Utilisez la syntaxe suivante :
@@ -72,7 +72,7 @@ Dans cette section, vous allez activer et désactiver l’identité managée aff
    ```
 
 > [!NOTE]
-> Vous pouvez éventuellement déployer les identités gérées pour les ressources Azure machine virtuelle identique extension en le spécifiant dans la `extensionProfile` élément du modèle. Cette étape est facultative, car vous pouvez également utiliser le point de terminaison d’identité IMDS (Instance Metadata Service) Azure pour récupérer des jetons.  Pour plus d’informations, consultez [migrer vers IMDS Azure pour l’authentification à partir de l’extension de machine virtuelle](howto-migrate-vm-extension.md).
+> Vous pouvez éventuellement approvisionner des identités managées pour l’extension de groupe de machines virtuelles identiques de ressources Azure en le spécifiant dans l’élément `extensionProfile` du modèle. Cette étape est facultative, car vous pouvez également utiliser le point de terminaison d’identité IMDS (Instance Metadata Service) Azure pour récupérer des jetons.  Pour plus d’informations, consultez [migrer à partir de l’extension de machine virtuelle vers le point de terminaison IMDS d’Azure pour l’authentification](howto-migrate-vm-extension.md).
 
 
 4. Lorsque vous avez terminé, les sections suivantes doivent être ajoutées à la section de ressources de votre modèle et doivent ressembler à ceci :
@@ -196,7 +196,7 @@ Dans cette section, vous allez affecter une identité managée affectée par l�
    }
    ``` 
 > [!NOTE]
-> Vous pouvez éventuellement déployer les identités gérées pour les ressources Azure machine virtuelle identique extension en le spécifiant dans la `extensionProfile` élément du modèle. Cette étape est facultative, car vous pouvez également utiliser le point de terminaison d’identité IMDS (Instance Metadata Service) Azure pour récupérer des jetons.  Pour plus d’informations, consultez [migrer vers IMDS Azure pour l’authentification à partir de l’extension de machine virtuelle](howto-migrate-vm-extension.md).
+> Vous pouvez éventuellement approvisionner des identités managées pour l’extension de groupe de machines virtuelles identiques de ressources Azure en le spécifiant dans l’élément `extensionProfile` du modèle. Cette étape est facultative, car vous pouvez également utiliser le point de terminaison d’identité IMDS (Instance Metadata Service) Azure pour récupérer des jetons.  Pour plus d’informations, consultez [migrer à partir de l’extension de machine virtuelle vers le point de terminaison IMDS d’Azure pour l’authentification](howto-migrate-vm-extension.md).
 
 3. Quand vous avez terminé, votre modèle doit ressembler au suivant :
    

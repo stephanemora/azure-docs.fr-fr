@@ -17,10 +17,10 @@ ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
 ms.openlocfilehash: a758cce85645e72bfd9434a69393133d3da6b57d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60591597"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Configurer une instance de cluster de basculement SQL Server sur des machines virtuelles Azure
@@ -74,7 +74,7 @@ Vous devez avoir une compréhension opérationnelle des technologies suivantes 
 - [Technologies de cluster Windows](https://docs.microsoft.com/windows-server/failover-clustering/failover-clustering-overview)
 - [Instances de cluster de basculement SQL Server](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server).
 
-Une différence importante est que sur un cluster de basculement invité de machine virtuelle Azure IaaS, nous vous recommandons une seule carte réseau par serveur (nœud de cluster) et un seul sous-réseau. Les réseaux Azure intègrent une redondance physique, ce qui rend inutiles les cartes réseau et les sous-réseaux supplémentaires sur un cluster invité de machine virtuelle IaaS Azure. Même si le rapport de validation de cluster émet un avertissement stipulant que les nœuds sont uniquement accessibles sur un seul réseau, vous pouvez ignorer ce dernier en toute sécurité sur les clusters de basculement invités de machine virtuelle IaaS Azure. 
+Une différence très importante est que sur un cluster de basculement invité de machine virtuelle IaaS Azure, nous vous recommandons d’utiliser une seule carte réseau par serveur (nœud de cluster) et un seul sous-réseau. Les réseaux Azure intègrent une redondance physique, ce qui rend inutiles les cartes réseau et les sous-réseaux supplémentaires sur un cluster invité de machine virtuelle IaaS Azure. Même si le rapport de validation de cluster émet un avertissement stipulant que les nœuds sont uniquement accessibles sur un seul réseau, vous pouvez ignorer ce dernier en toute sécurité sur les clusters de basculement invités de machine virtuelle IaaS Azure. 
 
 De plus, vous devez également avoir une compréhension générale des technologies suivantes :
 
@@ -238,7 +238,7 @@ Validez le cluster dans l’interface utilisateur ou avec PowerShell.
 Pour valider le cluster avec l’interface utilisateur, effectuez les étapes suivantes à partir d’une des machines virtuelles.
 
 1. Dans le **Gestionnaire de serveur**, cliquez sur **Outils**, puis cliquez sur **Gestionnaire du cluster de basculement**.
-1. Dans le **Gestionnaire du cluster de basculement**, cliquez sur **Action**, puis cliquez sur **Valider la configuration...**.
+1. Dans le **Gestionnaire du cluster de basculement**, cliquez sur **Action**, puis cliquez sur **Valider la configuration...** .
 1. Cliquez sur **Suivant**.
 1. Sous **Sélectionner des serveurs ou un cluster**, entrez le nom des deux machines virtuelles.
 1. Sous **Options de test**, choisissez **Exécuter uniquement les tests que je sélectionne**. Cliquez sur **Suivant**.
@@ -371,7 +371,7 @@ Pour créer l’équilibrage de charge :
    - **Sous-réseau** : Le même sous-réseau que les machines virtuelles.
    - **Adresse IP privée** : La même adresse IP que celle attribuée à la ressource réseau de cluster FCI SQL Server.
    - **Abonnement** : Votre abonnement Azure.
-   - **Groupe de ressources** : Utilisez le même groupe de ressources que celui de vos machines virtuelles.
+   - **Groupe de ressources** : Utilisez le même groupe de ressources que celui de vos machines virtuelles.
    - **Emplacement** : Utilisez le même emplacement Azure que celui de vos machines virtuelles.
    Consultez l’illustration suivante :
 
@@ -399,7 +399,7 @@ Pour créer l’équilibrage de charge :
 
    - **Nom** : Nom de la sonde d’intégrité.
    - **Protocole** : TCP.
-   - **Port** : La valeur est le port que vous avez créé dans le pare-feu pour la sonde d’intégrité dans [cette étape](#ports). Dans cet article, l’exemple utilise le port TCP `59999`.
+   - **Port** : Définissez le port que vous avez créé dans le pare-feu pour la sonde d’intégrité dans [cette étape](#ports). Dans cet article, l’exemple utilise le port TCP `59999`.
    - **Intervalle** : 5 secondes.
    - **Seuil de défaillance sur le plan de l’intégrité** : 2 défaillances consécutives.
 
@@ -416,7 +416,7 @@ Pour créer l’équilibrage de charge :
    - **Nom** : Nom des règles d’équilibrage de charge.
    - **Adresse IP du serveur frontal** : Utilisez l’adresse IP de la ressource réseau de cluster FCI SQL Server.
    - **Port** : Défini pour le port TCP FCI SQL Server. Le port d’instance par défaut est 1433.
-   - **Port principal** : Cette valeur utilise le même port que la valeur **Port** lorsque vous activez **Adresse IP flottante (retour direct du serveur)**.
+   - **Port principal** : Cette valeur utilise le même port que la valeur **Port** lorsque vous activez **Adresse IP flottante (retour direct du serveur)** .
    - **Pool principal** : Utilisez le nom du pool back-end que vous avez configuré précédemment.
    - **Sonde d’intégrité** : Utilisez la sonde d’intégrité que vous avez configurée précédemment.
    - **Persistance de session** : Aucune.
@@ -425,7 +425,7 @@ Pour créer l’équilibrage de charge :
 
 1. Cliquez sur **OK**.
 
-## <a name="step-6-configure-cluster-for-probe"></a>Étape 6 : Configurer le cluster pour la sonde
+## <a name="step-6-configure-cluster-for-probe"></a>Étape 6 : Configurer le cluster pour la sonde
 
 Définissez le paramètre de port de sonde de cluster dans PowerShell.
 

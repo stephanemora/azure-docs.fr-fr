@@ -17,10 +17,10 @@ ms.date: 02/25/2019
 ms.author: msangapu
 ms.custom: seodec18
 ms.openlocfilehash: 18d10afc9132c81c2dcfbb1aa17ded81a21336ca
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65780043"
 ---
 # <a name="ssh-support-for-azure-app-service-on-linux"></a>Prise en charge SSH pour Azure App Service sur Linux
@@ -39,7 +39,7 @@ Vous pouvez également vous connecter au conteneur directement à partir de votr
 
 ## <a name="use-ssh-support-with-custom-docker-images"></a>Utiliser la prise en charge SSH avec des images Docker personnalisées
 
-Consultez [configurer SSH dans un conteneur personnalisé](configure-custom-container.md#enable-ssh).
+Consultez [Configurer SSH dans un conteneur personnalisé](configure-custom-container.md#enable-ssh).
 
 ## <a name="open-ssh-session-from-remote-shell"></a>Ouvrir une session SSH à partir d’un interpréteur de commandes à distance
 
@@ -51,7 +51,7 @@ Consultez [configurer SSH dans un conteneur personnalisé](configure-custom-cont
 
 Pour commencer, vous devez installer [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest). Pour voir comment il fonctionne sans installer Azure CLI, ouvrez [Azure Cloud Shell](../../cloud-shell/overview.md). 
 
-Ouvrez une connexion à distance vers votre application à l’aide de la commande [az webapp remote-connection create](/cli/azure/ext/webapp/webapp/remote-connection?view=azure-cli-latest#ext-webapp-az-webapp-remote-connection-create). Spécifiez  _\<id d’abonnement >_,  _\<-nom du groupe >_ et \__ < nom_application > pour votre application.
+Ouvrez une connexion à distance vers votre application à l’aide de la commande [az webapp remote-connection create](/cli/azure/ext/webapp/webapp/remote-connection?view=azure-cli-latest#ext-webapp-az-webapp-remote-connection-create). Spécifiez _\<id-abonnement>_ , _\<nom-groupe>_ et \_nom-application>_ pour votre application.
 
 ```azurecli-interactive
 az webapp create-remote-connection --subscription <subscription-id> --resource-group <resource-group-name> -n <app-name> &

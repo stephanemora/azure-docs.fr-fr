@@ -16,10 +16,10 @@ ms.date: 11/10/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9c61313190615c2f30a7d37202bc0f9bcf14d800
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66112881"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-azure-cli"></a>Configurer des identités managées pour ressources Azure sur une machine virtuelle Azure en utilisant Azure CLI
@@ -33,9 +33,9 @@ Cet article explique comment effectuer les opérations suivantes d’identités 
 - Activer et désactiver l’identité managée affectée par le système sur une machine virtuelle Azure
 - Ajouter et supprimer une identité managée affectée par l’utilisateur sur une machine virtuelle Azure
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
-- Si vous n’êtes pas familiarisé avec les identités managées pour ressources Azure, consultez la [section Vue d’ensemble](overview.md). **Veillez à consulter la [différence entre les identités managées affectées par le système et celles affectées par l’utilisateur](overview.md#how-does-it-work)**.
+- Si vous n’êtes pas familiarisé avec les identités managées pour ressources Azure, consultez la [section Vue d’ensemble](overview.md). **Veillez à consulter la [différence entre les identités managées affectées par le système et celles affectées par l’utilisateur](overview.md#how-does-it-work)** .
 - Si vous n’avez pas encore de compte Azure, [inscrivez-vous à un essai gratuit](https://azure.microsoft.com/free/) avant de continuer.
 - Pour exécuter les exemples de script d’Azure CLI, vous disposez de trois options :
     - Utilisez [Azure Cloud Shell](../../cloud-shell/overview.md) à partir du portail Azure (voir section suivante).
@@ -108,9 +108,9 @@ Si vous disposez d’une machine virtuelle qui n’a plus besoin d’identité a
 az vm update -n myVM -g myResourceGroup --set identity.type="none"
 ```
 > [!NOTE]
-> Si vous avez configuré l’identité gérée pour les ressources Azure VM extension (déconseillé), vous devez supprimer à l’aide de [delete de az vm extension](https://docs.microsoft.com/cli/azure/vm/). Pour plus d’informations, consultez [migrer vers IMDS Azure pour l’authentification à partir de l’extension de machine virtuelle](howto-migrate-vm-extension.md).
+> Si vous avez approvisionné l’identité managée pour l’extension de machine virtuelle de ressources Azure (déconseillé), vous devez la supprimer à l’aide de [az vm extension delete](https://docs.microsoft.com/cli/azure/vm/). Pour plus d’informations, consultez [migrer à partir de l’extension de machine virtuelle vers le point de terminaison IMDS d’Azure pour l’authentification](howto-migrate-vm-extension.md).
 
-## <a name="user-assigned-managed-identity"></a>Identité managée affectée par l'utilisateur
+## <a name="user-assigned-managed-identity"></a>Identité managée affectée par l’utilisateur
 
 Dans cette section, vous allez découvrir comment ajouter et supprimer une identité managée affectée par l’utilisateur sur une machine virtuelle Azure en utilisant Azure CLI.
 
@@ -131,7 +131,7 @@ Pour affecter une identité managée affectée par l’utilisateur à une machin
    ```azurecli-interactive
    az identity create -g myResourceGroup -n myUserAssignedIdentity
    ```
-   La réponse contient les détails de l’identité managée affectée par l’utilisateur qui a été créée, comme dans l’exemple suivant. La valeur d’ID de ressource affectée à l’identité gérée affectée à l’utilisateur est utilisée dans l’étape suivante.
+   La réponse contient les détails de l’identité managée affectée par l’utilisateur qui a été créée, comme dans l’exemple suivant. La valeur d’ID de ressource attribuée à l’identité managée affectée par l’utilisateur est utilisée à l’étape suivante.
 
    ```json
    {

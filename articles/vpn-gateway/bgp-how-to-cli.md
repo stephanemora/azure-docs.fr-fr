@@ -1,5 +1,5 @@
 ---
-title: 'Configurer BGP sur une passerelle VPN Azure : Resource Manager et CLI | Microsoft Docs'
+title: 'Configurer le protocole BGP pour une passerelle VPN Azure : Azure Resource Manager et CLI | Microsoft Docs'
 description: Cet article vous guide dans la configuration de BGP avec une passerelle VPN Azure à l’aide d’Azure Resource Manager et de CLI.
 services: vpn-gateway
 documentationcenter: na
@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 09/25/2018
 ms.author: yushwang
 ms.openlocfilehash: 51402196c8429797b644357822a1e3c08982b384
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65209501"
 ---
 # <a name="how-to-configure-bgp-on-an-azure-vpn-gateway-by-using-cli"></a>Configurer BGP sur une passerelle VPN Azure à l’aide de CLI
@@ -66,7 +66,7 @@ az group create --name TestBGPRG1 --location eastus
 
 #### <a name="3-create-testvnet1"></a>3. Créer TestVNet1
 
-L’exemple suivant crée un réseau virtuel nommé TestVNet1 et trois sous-réseaux : GatewaySubnet, FrontEnd et BackEnd. Lorsque vous remplacez les valeurs, pensez à toujours nommer votre sous-réseau de passerelle GatewaySubnet. Si vous le nommez autrement, la création de votre passerelle échoue.
+L’exemple suivant permet de créer un réseau virtuel nommé TestVNet1 et trois sous-réseaux : GatewaySubnet, FrontEnd et BackEnd. Lorsque vous remplacez les valeurs, pensez à toujours nommer votre sous-réseau de passerelle GatewaySubnet. Si vous le nommez autrement, la création de votre passerelle échoue.
 
 La première commande crée l’espace d’adressage de serveur frontal et le sous-réseau frontal. La deuxième commande crée un espace d’adressage supplémentaire pour le sous-réseau principal. Les troisième et quatrième commandes créent le sous-réseau principal et GatewaySubnet.
 
@@ -80,7 +80,7 @@ az network vnet subnet create --vnet-name TestVNet1 -n BackEnd -g TestBGPRG1 --a
 az network vnet subnet create --vnet-name TestVNet1 -n GatewaySubnet -g TestBGPRG1 --address-prefix 10.12.255.0/27 
 ```
 
-### <a name="step-2-create-the-vpn-gateway-for-testvnet1-with-bgp-parameters"></a>Étape 2 : Créer la passerelle VPN pour TestVNet1 avec les paramètres BGP
+### <a name="step-2-create-the-vpn-gateway-for-testvnet1-with-bgp-parameters"></a>Étape 2 : créer la passerelle VPN de TestVNet1 avec les paramètres BGP
 
 #### <a name="1-create-the-public-ip-address"></a>1. Créer une adresse IP publique
 
@@ -126,12 +126,12 @@ Pour établir une connexion intersite, vous devez créer une passerelle de rése
 ![BGP pour une connexion intersite](./media/vpn-gateway-bgp-resource-manager-ps/bgp-crossprem.png)
 
 
-### <a name="step-1-create-and-configure-the-local-network-gateway"></a>Étape 1 : Créer et configurer la passerelle de réseau local
+### <a name="step-1-create-and-configure-the-local-network-gateway"></a>Étape 1 : créer et configurer la passerelle de réseau local
 
 Cet exercice continue à générer la configuration représentée dans le diagramme. Veillez à remplacer les valeurs par celles que vous souhaitez utiliser pour votre configuration. Lorsque vous travaillez avec des passerelles de réseau local, gardez à l’esprit ce qui suit :
 
 * La passerelle de réseau local peut se trouver dans les mêmes emplacement et groupe de ressources que la passerelle VPN, ou son emplacement et son groupe de ressources peuvent être différents. Cet exemple montre les passerelles dans différents groupes de ressources situés dans différents emplacements.
-* Le préfixe minimum à déclarer pour la passerelle de réseau local est l’adresse IP hôte de votre homologue BGP sur votre périphérique VPN. Dans ce cas, il est un /32 préfixe de 10.51.255.254/32.
+* Le préfixe minimum à déclarer pour la passerelle de réseau local est l’adresse IP hôte de votre homologue BGP sur votre périphérique VPN. Dans ce cas, c’est un préfixe /32 de 10.51.255.254/32.
 * À titre de rappel, vous devez utiliser différents numéros de système autonome BGP entre vos réseaux locaux et le réseau virtuel Azure. S’ils sont identiques, vous devez modifier l’ASN de votre réseau si votre périphérique VPN local utilise déjà cet ASN pour se connecter à d’autres voisins BGP.
 
 Avant de continuer, assurez-vous d’avoir terminé la section [Activer BGP pour la passerelle VPN](#enablebgp) de cet exercice et d’être toujours connecté à Subscription 1. Notez que dans cet exemple, vous créez un nouveau groupe de ressources. Remarquez également les deux paramètres supplémentaires pour la passerelle de réseau local : `Asn` et `BgpPeerAddress`.
@@ -142,7 +142,7 @@ az group create -n TestBGPRG5 -l eastus2 
 az network local-gateway create --gateway-ip-address 23.99.221.164 -n Site5 -g TestBGPRG5 --local-address-prefixes 10.51.255.254/32 --asn 65050 --bgp-peering-address 10.51.255.254
 ```
 
-### <a name="step-2-connect-the-vnet-gateway-and-local-network-gateway"></a>Étape 2 : Connecter la passerelle de réseau virtuel et de la passerelle de réseau local
+### <a name="step-2-connect-the-vnet-gateway-and-local-network-gateway"></a>Étape 2 : connecter la passerelle de réseau virtuel et la passerelle de réseau local
 
 Dans cette étape, vous allez créer la connexion entre TestVNet1 et Site5. Vous devez spécifier le paramètre `--enable-bgp` pour activer BGP sur cette connexion. 
 
@@ -219,13 +219,13 @@ Cette section ajoute une connexion de réseau virtuel à réseau virtuel avec le
 
 Les instructions suivantes sont la suite des étapes des précédentes sections. Pour créer et configurer TestVNet1 et la passerelle VPN avec le protocole BGP, vous devez terminer la section [Activer BGP pour la passerelle VPN](#enablebgp).
 
-### <a name="step-1-create-testvnet2-and-the-vpn-gateway"></a>Étape 1 : Créer TestVNet2 et la passerelle VPN
+### <a name="step-1-create-testvnet2-and-the-vpn-gateway"></a>Étape 1 : créer TestVNet2 et la passerelle VPN
 
 Il est important de s’assurer que l’espace d’adressage IP du nouveau réseau virtuel, TestVNet2, n’empiète sur aucune de vos plages de réseau virtuel.
 
 Dans cet exemple, les réseaux virtuels appartiennent au même abonnement. Vous pouvez configurer les connexions de réseau virtuel à réseau virtuel entre différents abonnements. Pour en savoir plus, consultez [Configurer une connexion de réseau virtuel à réseau virtuel](vpn-gateway-howto-vnet-vnet-cli.md). Assurez-vous d’ajouter `-EnableBgp $True` lors de la création des connexions pour activer BGP.
 
-#### <a name="1-create-a-new-resource-group"></a>1. Créer un groupe de ressources
+#### <a name="1-create-a-new-resource-group"></a>1. Création d’un groupe de ressources
 
 ```azurecli
 az group create -n TestBGPRG2 -l westus
@@ -261,7 +261,7 @@ Créez la passerelle de réseau virtuel pour TestVNet2. Vous devez substituer la
 az network vnet-gateway create -n VNet2GW -l westus --public-ip-address GWPubIP2 -g TestBGPRG2 --vnet TestVNet2 --gateway-type Vpn --sku Standard --vpn-type RouteBased --asn 65020 --no-wait
 ```
 
-### <a name="step-2-connect-the-testvnet1-and-testvnet2-gateways"></a>Étape 2 : Connecter les passerelles TestVNet1 et TestVNet2
+### <a name="step-2-connect-the-testvnet1-and-testvnet2-gateways"></a>Étape 2 : connecter les passerelles TestVNet1 et TestVNet2
 
 Dans cette étape, vous allez créer la connexion entre TestVNet1 et Site5. Pour activer BGP sur cette connexion, vous devez spécifier le paramètre `--enable-bgp`.
 

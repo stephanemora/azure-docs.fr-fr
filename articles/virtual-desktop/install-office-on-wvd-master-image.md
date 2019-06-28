@@ -1,6 +1,6 @@
 ---
-title: Installez Office sur une image de disque dur virtuel principale - Azure
-description: Comment installer et personnaliser Office sur une image d’aperçu maître bureau virtuel Windows Azure.
+title: Installer Office sur une image VHD principale – Azure
+description: Guide pratique pour installer et personnaliser Office sur une image principale Windows Virtual Desktop en préversion dans Azure.
 services: virtual-desktop
 author: ChJenk
 ms.service: virtual-desktop
@@ -8,54 +8,54 @@ ms.topic: how-to
 ms.date: 05/02/2019
 ms.author: v-chjenk
 ms.openlocfilehash: cb9edbb508ddd993dcefbf69eb06b4f0d4156485
-ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66742545"
 ---
 # <a name="install-office-on-a-master-vhd-image"></a>Installer Office sur une image VHD principale
 
-Cet article vous indique comment installer Office 365 ProPlus, OneDrive et autres applications sur une image de disque dur virtuel (VHD) maître pour les télécharger dans Azure. Si les utilisateurs doivent accéder à la ligne de certaine applications métier (LOB), nous vous recommandons de que les installer après avoir effectué les instructions fournies dans cet article.
+Cet article explique comment installer Office 365 ProPlus, OneDrive et d’autres applications courantes sur une image principale de disque dur virtuel (VHD) en vue d’un chargement sur Azure. Si vos utilisateurs ont besoin d’accéder à certaines applications métier, nous vous recommandons de les installer à la fin des instructions de cet article.
 
-Cet article suppose que vous avez déjà créé une machine virtuelle (VM). Dans le cas contraire, consultez [préparer et personnaliser une image de disque dur virtuel principale](set-up-customize-master-image.md#create-a-vm)
+Cet article suppose d’avoir déjà créé une machine virtuelle. Sinon, voir [Préparer et personnaliser une image VHD principale](set-up-customize-master-image.md#create-a-vm).
 
-Cet article suppose également que vous avez un accès élevé sur la machine virtuelle, si elle est approvisionnée dans Azure ou le Gestionnaire Hyper-V. Dans le cas contraire, consultez [élever l’accès pour gérer tous les groupes de gestion et d’abonnement Azure](https://docs.microsoft.com/azure/role-based-access-control/elevate-access-global-admin).
+Cet article suppose également d’avoir élevé l’accès à la machine virtuelle, qu’elle soit approvisionnée dans Azure ou avec Hyper-V Manager. Sinon, voir [Élever l’accès pour gérer tous les groupes d’abonnements et d’administration Azure](https://docs.microsoft.com/azure/role-based-access-control/elevate-access-global-admin).
 
 >[!NOTE]
->Ces instructions concernent une configuration de bureau virtuel Windows Preview spécifique qui peut être utilisée avec des processus existants de votre organisation.
+>Ces instructions concernent une configuration propre à la préversion de Windows Virtual Desktop, que vous pouvez utiliser avec les processus actuels de votre organisation.
 
-## <a name="install-office-in-shared-computer-activation-mode"></a>Installer Office en mode de l’activation d’ordinateur partagé
+## <a name="install-office-in-shared-computer-activation-mode"></a>Installer Office en mode activation d’ordinateurs partagés
 
-Activation de l’ordinateur partagé vous permet de pour déployer Office 365 ProPlus sur un ordinateur de votre organisation qui est accessible par plusieurs utilisateurs. Pour plus d’informations sur l’activation d’ordinateurs partagés, consultez [vue d’ensemble de l’activation d’ordinateurs partagés pour Office 365 ProPlus](https://docs.microsoft.com/DeployOffice/overview-of-shared-computer-activation-for-office-365-proplus).
+L’activation d’ordinateurs partagés permet de déployer Office 365 ProPlus sur un ordinateur professionnel accessible par plusieurs utilisateurs. Pour plus d’informations sur l’activation d’ordinateurs partagés, voir [Vue d’ensemble de l’activation d’ordinateurs partagés pour Office 365 ProPlus](https://docs.microsoft.com/DeployOffice/overview-of-shared-computer-activation-for-office-365-proplus).
 
-Utilisez le [outil déploiement d’Office](https://www.microsoft.com/download/details.aspx?id=49117) pour installer Office. Sessions multiples de Windows 10 entreprise prend uniquement en charge les versions suivantes d’Office :
+Utilisez [l’outil Déploiement d’Office](https://www.microsoft.com/download/details.aspx?id=49117) pour installer Office. Windows 10 Entreprise multisession prend uniquement en charge les versions suivantes d’Office :
 - Office 365 ProPlus
-- Office 365 entreprise qui est fourni avec un abonnement Microsoft 365 entreprise
+- Office 365 Business fourni avec un abonnement Microsoft 365 Business
 
-L’outil de déploiement Office nécessite un fichier XML de configuration. Pour personnaliser l’exemple suivant, consultez le [les Options de Configuration pour l’outil de déploiement Office](https://docs.microsoft.com/deployoffice/configuration-options-for-the-office-2016-deployment-tool).
+L’outil Déploiement d’Office exige un fichier XML de configuration. Pour personnaliser l’exemple suivant, voir [Options de configuration de l’outil Déploiement d’Office](https://docs.microsoft.com/deployoffice/configuration-options-for-the-office-2016-deployment-tool).
 
-Cet exemple de configuration XML, nous vous proposons effectuera les opérations suivantes :
+L’exemple de fichier XML de configuration fourni effectue les opérations suivantes :
 
-- Installer Office à partir du canal d’initiés et fournir des mises à jour à partir du canal initiés lorsqu’elles sont exécutées.
-- Utilisez le x64 architecture.
-- Désactiver les mises à jour automatiques.
-- Installez Visio et le projet.
-- Supprimer toutes les installations existantes de Microsoft Office et migrer leurs paramètres.
-- Activer l’activation d’ordinateurs partagés.
-
->[!NOTE]
->Fonctionnalité de recherche de gabarit dans Visio ne fonctionne pas dans un bureau virtuel Windows lors de la configuration de la version préliminaire.
-
-Voici ce que cet exemple de configuration XML ne se passe :
-
-- Installer Skype for Business
-- Installez OneDrive en mode par utilisateur. Pour plus d’informations, consultez [OneDrive d’installer dans le mode par ordinateur](#install-onedrive-in-per-machine-mode).
+- installer Office à partir d’Insiders Channel et délivrer des mises à jour issues d’Insiders Channel lorsqu’elles sont exécutées ;
+- utiliser l’architecture x64 ;
+- désactiver les mises à jour automatiques ;
+- installer Visio et Project ;
+- supprimer toutes les installations existantes d’Office et migrer leurs paramètres ;
+- activer l’activation d’ordinateurs partagés.
 
 >[!NOTE]
->Activation de l’ordinateur partagé peut être configurée via les objets de stratégie de groupe (GPO) ou les paramètres du Registre. L’objet de stratégie de groupe se trouve dans **Configuration ordinateur\\stratégies\\modèles d’administration\\(ordinateur) de Microsoft Office 2016\\paramètres de gestion des licences**
+>La fonctionnalité de recherche de gabarit de Visio ne fonctionne pas dans Windows Virtual Desktop lors de la configuration en préversion.
 
-L’outil de déploiement Office contient setup.exe. Pour installer Office, exécutez la commande suivante dans une ligne de commande :
+Cet exemple de fichier XML de configuration n’effectue pas les opérations suivantes :
+
+- installer Skype Entreprise ;
+- installer OneDrive en mode utilisateur par utilisateur. Pour plus d’informations, voir [Installer OneDrive en mode ordinateur par ordinateur](#install-onedrive-in-per-machine-mode).
+
+>[!NOTE]
+>L’activation d’ordinateurs partagés peut être configurée par le biais d’objets de stratégie de groupe (GPO) ou des paramètres du Registre. Le GPO se trouve dans **Configuration d’ordinateur\\Stratégies\\Modèles d’administration\\Microsoft Office 2016 (ordinateur)\\Paramètres de gestion des licences**.
+
+L’outil Déploiement d’Office contient setup.exe. Pour installer Office, exécutez la commande suivante en ligne de commande :
 
 ```batch
 Setup.exe /configure configuration.xml
@@ -63,7 +63,7 @@ Setup.exe /configure configuration.xml
 
 #### <a name="sample-configurationxml"></a>Exemple de fichier configuration.xml
 
-L’exemple XML suivant installe la version d’initiés.
+L’exemple de fichier XML suivant installe la version Insiders.
 
 ```xml
 <Configuration>
@@ -101,9 +101,9 @@ L’exemple XML suivant installe la version d’initiés.
 ```
 
 >[!NOTE]
->L’équipe Office recommande d’utiliser installer 64 bits pour le **OfficeClientEdition** paramètre.
+>L’équipe Office recommande d’utiliser l’installation 64 bits pour le paramètre **OfficeClientEdition**.
 
-Après avoir installé Office, vous pouvez mettre à jour le comportement de Office par défaut. Exécutez les commandes suivantes individuellement ou dans un fichier de commandes pour mettre à jour le comportement.
+Après avoir installé Office, vous pouvez mettre à jour le comportement d’Office par défaut. Exécutez les commandes suivantes une par une ou dans un fichier de commandes pour mettre à jour le comportement.
 
 ```batch
 rem Mount the default user registry hive
@@ -124,56 +124,56 @@ reg add HKLM\SOFTWARE\Policies\Microsoft\office\16.0\common\officeupdate /v hide
 reg add HKLM\SOFTWARE\Policies\Microsoft\office\16.0\common\officeupdate /v hideenabledisableupdates /t REG_DWORD /d 1 /f
 ```
 
-## <a name="install-onedrive-in-per-machine-mode"></a>Installer OneDrive dans le mode par ordinateur
+## <a name="install-onedrive-in-per-machine-mode"></a>Installer OneDrive en mode ordinateur par ordinateur
 
-OneDrive est normalement installée par utilisateur. Dans cet environnement, il doit être installé par ordinateur.
+OneDrive s’installe normalement utilisateur par utilisateur. Dans cet environnement, il doit être installé ordinateur par ordinateur.
 
-Voici comment installer OneDrive dans le mode par ordinateur :
+Voici la marche à suivre pour installer OneDrive en mode ordinateur par ordinateur :
 
-1. Commencez par créer un emplacement pour le programme d’installation de OneDrive à l’étape. Un dossier de disque local ou [\\\\unc] (file://unc) se trouve bien.
+1. Commencez par créer un emplacement pour le programme d’installation de OneDrive. Un dossier de disque local ou [\\\\unc](file://unc) conviendra.
 
-2. Téléchargez OneDriveSetup.exe vers votre emplacement intermédiaire avec ce lien : <https://aka.ms/OneDriveWVD-Installer>
+2. Téléchargez OneDriveSetup.exe dans votre emplacement intermédiaire avec ce lien : <https://aka.ms/OneDriveWVD-Installer>.
 
-3. Si vous avez installé office avec OneDrive en omettant  **\<ExcludeApp ID = « OneDrive » /\>** , désinstaller les installations par utilisateur de OneDrive existantes à partir d’une invite de commandes avec élévation de privilèges en exécutant la commande suivante commande :
+3. Si vous avez installé Office avec OneDrive en omettant **\<ExcludeApp ID="OneDrive" /\>** , désinstallez les installations utilisateur par utilisateur existantes de OneDrive dans une invite de commandes avec élévation de privilèges en exécutant la commande suivante :
     
     ```batch
     "[staged location]\OneDriveSetup.exe" /uninstall
     ```
 
-4. Exécutez cette commande à partir d’une invite de commandes avec élévation de privilèges pour définir le **AllUsersInstall** valeur de Registre :
+4. Exécutez cette commande dans une invite de commandes avec élévation de privilèges pour définir la valeur de Registre **AllUsersInstall** :
 
     ```batch
     REG ADD "HKLM\Software\Microsoft\OneDrive" /v "AllUsersInstall" /t REG_DWORD /d 1 /reg:64
     ```
 
-5. Exécutez cette commande pour installer OneDrive dans le mode par ordinateur :
+5. Exécutez cette commande pour installer OneDrive en mode ordinateur par ordinateur :
 
     ```batch
     Run "[staged location]\OneDriveSetup.exe" /allusers
     ```
 
-6. Exécutez cette commande pour configurer OneDrive pour démarrer lors de la connexion pour tous les utilisateurs :
+6. Exécutez cette commande pour configurer OneDrive de sorte qu’il se lance à la connexion pour tous les utilisateurs :
 
     ```batch
     REG ADD "HKLM\Software\Microsoft\Windows\CurrentVersion\Run" /v OneDrive /t REG_SZ /d "C:\Program Files (x86)\Microsoft OneDrive\OneDrive.exe /background" /f
     ```
 
-7. Activer **configurer en mode silencieux de compte d’utilisateur** en exécutant la commande suivante.
+7. Activez **Configurer le compte d’utilisateur en mode silencieux** en exécutant la commande suivante.
 
     ```batch
     REG ADD "HKLM\SOFTWARE\Policies\Microsoft\OneDrive" /v "SilentAccountConfig" /t REG_DWORD /d 1 /f
     ```
 
-8. Rediriger, puis déplacer Windows connu les dossiers dans OneDrive en exécutant la commande suivante.
+8. Redirigez et déplacez les dossiers Windows connus dans OneDrive en exécutant la commande suivante.
 
     ```batch
     REG ADD "HKLM\SOFTWARE\Policies\Microsoft\OneDrive" /v "KFMSilentOptIn" /t REG_SZ /d "<your-AzureAdTenantId>" /f
     ```
 
-## <a name="teams-and-skype"></a>Équipes et Skype
+## <a name="teams-and-skype"></a>Teams et Skype
 
-Bureau virtuel Windows ne prend pas en charge Skype pour entreprises et les équipes.
+Windows Virtual Desktop ne prend pas en charge Skype Entreprise et Teams.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Maintenant que vous avez ajouté à Office à l’image, vous pouvez continuer à personnaliser votre image de disque dur virtuel principal. Consultez [préparer et personnaliser une image de disque dur virtuel principale](set-up-customize-master-image.md).
+Maintenant que vous avez ajouté à Office à l’image, vous pouvez continuer à personnaliser votre image VHD principale. Voir [Préparer et personnaliser une image de disque dur virtuel principale](set-up-customize-master-image.md).

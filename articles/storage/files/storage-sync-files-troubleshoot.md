@@ -9,10 +9,10 @@ ms.date: 01/31/2019
 ms.author: jeffpatt
 ms.subservice: files
 ms.openlocfilehash: 26055727e308f8c05aece31746434d7e9a0a5abd
-ms.sourcegitcommit: 9e8dfa1169a55c3c8af93a6c5f4e0dace4de48b2
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/13/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65555947"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Résoudre les problèmes de synchronisation de fichiers Azure
@@ -95,7 +95,7 @@ Les rôles intégrés suivants ont les autorisations Microsoft nécessaires :
 
 Pour déterminer si votre rôle de compte d’utilisateur a les autorisations nécessaires :  
 1. Dans le portail Azure, sélectionnez **Groupes de ressources**.
-2. Sélectionnez le groupe de ressources dans lequel se trouve le compte de stockage, puis sélectionnez **Contrôle d’accès (IAM)**.
+2. Sélectionnez le groupe de ressources dans lequel se trouve le compte de stockage, puis sélectionnez **Contrôle d’accès (IAM)** .
 3. Sélectionnez l’onglet **Attributions de rôles**.
 4. Sélectionnez le **Rôle** (par exemple, Propriétaire ou Contributeur) pour votre compte d’utilisateur.
 5. Dans la liste **Fournisseur de ressources**, sélectionnez **Autorisation Microsoft**. 
@@ -105,7 +105,7 @@ Pour déterminer si votre rôle de compte d’utilisateur a les autorisations n�
 <a id="server-endpoint-createjobfailed"></a>**La création du point de terminaison de serveur échoue, avec cette erreur : « MgmtServerJobFailed » (Code d'erreur : -2134375898)**  
 Ce problème se produit si le chemin du point de terminaison de serveur se trouve sur le volume système et que la hiérarchisation cloud est activée. La hiérarchisation cloud n’est pas prise en charge sur le volume système. Pour créer un point de terminaison de serveur sur le volume système, désactivez la hiérarchisation cloud quand vous créez le point de terminaison de serveur.
 
-<a id="server-endpoint-deletejobexpired"></a>**La suppression du point de terminaison de serveur échoue, avec cette erreur : « MgmtServerJobExpired »**                
+<a id="server-endpoint-deletejobexpired"></a>**La suppression du point de terminaison de serveur échoue, avec cette erreur : « MgmtServerJobExpired »**                 
 Ce problème se produit si le serveur est hors connexion ou n’a pas de connectivité réseau. Si le serveur n’est plus disponible, désinscrivez le serveur dans le portail pour supprimer les points de terminaison de serveur. Pour supprimer les points de terminaison de serveur, suivez les étapes décrites dans [Désinscrire un serveur dans Azure File Sync](storage-sync-files-server-registration.md#unregister-the-server-with-storage-sync-service).
 
 <a id="server-endpoint-provisioningfailed"></a>**Impossible d’ouvrir la page de propriétés du point de terminaison serveur ou de mettre à jour de la stratégie de hiérarchisation du cloud**  
@@ -250,7 +250,7 @@ Pour afficher ces erreurs, exécutez le script PowerShell **FileSyncErrorsReport
 | 0x80c80018 | -2134376424 | ECS_E_SYNC_FILE_IN_USE | Un fichier ne peut pas être synchronisé, car il est en cours d’utilisation. Le fichier sera synchronisé lorsqu’il ne sera plus en cours d’utilisation. | Aucune action requise. Azure File Sync crée une capture instantanée VSS temporaire une fois par jour sur le serveur pour synchroniser les fichiers qui ont des descripteurs ouverts. |
 | 0x80c8031d | -2134375651 | ECS_E_CONCURRENCY_CHECK_FAILED | Un fichier a changé, mais la modification n’a pas encore été détectée par la synchronisation. La synchronisation sera rétablie une fois cette modification détectée. | Aucune action requise. |
 | 0x80c8603e | -2134351810 | ECS_E_AZURE_STORAGE_SHARE_SIZE_LIMIT_REACHED | Le fichier ne peut pas être synchronisé parce que la limite de partage de fichiers Azure est atteinte. | Pour résoudre ce problème, voir la section [Vous avez atteint la limite de stockage du partage de fichiers Azure](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#-2134351810) dans le guide de dépannage. |
-| 0x80070005 | -2147024891 | E_ACCESSDENIED | Cette erreur peut se produire pour les raisons suivantes : fichier est chiffré par une solution non pris en charge (par exemple, de fichiers EFS NTFS), de fichier a une suppression en attente d’état ou de fichier se trouve sur un dossier de réplication en lecture seule DFS-R | Si le fichier est chiffré par une solution non pris en charge, déchiffrer le fichier et utiliser une solution de chiffrement pris en charge. Pour obtenir la liste des solutions prises en charge, voir la section [Solutions de chiffrement](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#encryption-solutions) du guide de planification. Si le fichier est dans un état d’attente de suppression, il sera supprimé après fermeture de tous les descripteurs de fichiers ouverts. Si le fichier se trouve sur un dossier de réplication en lecture seule DFS-R, synchronisation de fichiers Azure ne prend pas en charge les points de terminaison de serveur sur les dossiers en lecture seule de la réplication DFS-R. Consultez [guide de planification](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#distributed-file-system-dfs) pour plus d’informations.
+| 0x80070005 | -2147024891 | E_ACCESSDENIED | Cette erreur peut se produire pour les raisons suivantes : le fichier est chiffré par une solution non prise en charge (par exemple, NTFS EFS), le fichier est en attente de suppression ou le fichier se trouve dans un dossier de réplication en lecture seule DFS-R. | Si le fichier est chiffré par une solution non prise en charge, déchiffrez-le et utilisez une solution de chiffrement prise en charge. Pour obtenir la liste des solutions prises en charge, voir la section [Solutions de chiffrement](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#encryption-solutions) du guide de planification. Si le fichier est dans un état d’attente de suppression, il sera supprimé après fermeture de tous les descripteurs de fichiers ouverts. Si le fichier se trouve dans un dossier de réplication en lecture seule DFS-R, Azure Files Sync ne prend pas en charge les points de terminaison de serveur sur les dossiers en lecture seule de réplication DFS-R. Consultez le [guide de planification](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#distributed-file-system-dfs) pour plus d’informations.
 | 0x20 | 32 | ERROR_SHARING_VIOLATION | Un fichier ne peut pas être synchronisé, car il est en cours d’utilisation. Le fichier sera synchronisé lorsqu’il ne sera plus en cours d’utilisation. | Aucune action requise. |
 | 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | Un fichier a été modifié pendant la synchronisation, par conséquent, il doit être synchronisé à nouveau. | Aucune action requise. |
 
@@ -261,7 +261,7 @@ Le tableau ci-dessous contient tous les caractères unicode qu’Azure File Sync
 
 | Jeu de caractères | Nombre de caractères |
 |---------------|-----------------|
-| <ul><li>0x0000009D (osc commande de système d’exploitation)</li><li>0x00000090 (dcs chaîne de commande d’appareils)</li><li>0x0000008F (ss3 remplacement unique trois)</li><li>0x00000081 (préréglage haut octet)</li><li>0x0000007F (suppr Supprimer)</li><li>0x0000008D (ri interligne inversé)</li></ul> | 6. |
+| <ul><li>0x0000009D (osc commande de système d’exploitation)</li><li>0x00000090 (dcs chaîne de commande d’appareils)</li><li>0x0000008F (ss3 remplacement unique trois)</li><li>0x00000081 (préréglage haut octet)</li><li>0x0000007F (suppr Supprimer)</li><li>0x0000008D (ri interligne inversé)</li></ul> | 6\. |
 | 0x0000FDD0 - 0x0000FDEF (formulaire de présentation arabe-a) | 32 |
 | 0x0000FFF0 - 0x0000FFFF (caractères spéciaux) | 16 |
 | <ul><li>0x0001FFFE - 0x0001FFFF = 2 (type non caractère)</li><li>0x0002FFFE - 0x0002FFFF = 2 (type non caractère)</li><li>0x0003FFFE - 0x0003FFFF = 2 (type non caractère)</li><li>0x0004FFFE - 0x0004FFFF = 2 (type non caractère)</li><li>0x0005FFFE - 0x0005FFFF = 2 (type non caractère)</li><li>0x0006FFFE - 0x0006FFFF = 2 (type non caractère)</li><li>0x0007FFFE - 0x0007FFFF = 2 (type non caractère)</li><li>0x0008FFFE - 0x0008FFFF = 2 (type non caractère)</li><li>0x0009FFFE - 0x0009FFFF = 2 (type non caractère)</li><li>0x000AFFFE - 0x000AFFFF = 2 (type non caractère)</li><li>0x000BFFFE - 0x000BFFFF = 2 (type non caractère)</li><li>0x000CFFFE - 0x000CFFFF = 2 (type non caractère)</li><li>0x000DFFFE - 0x000DFFFF = 2 (type non caractère)</li><li>0x000EFFFE - 0x000EFFFF = 2 (non défini)</li><li>0x000FFFFE - 0x000FFFFF = 2 (zone d’utilisation privée supplémentaire)</li></ul> | 30 |
@@ -286,7 +286,7 @@ Les sessions de synchronisation peuvent échouer pour diverses raisons, comme la
 | **HRESULT** | 0x80072ee7 |
 | **HRESULT (décimal)** | -2147012889 | 
 | **Chaîne d’erreur** | WININET_E_NAME_NOT_RESOLVED |
-| **Correction requise** | Oui |
+| **Correction requise** | OUI |
 
 [!INCLUDE [storage-sync-files-bad-connection](../../../includes/storage-sync-files-bad-connection.md)]
 
@@ -301,7 +301,7 @@ Les sessions de synchronisation peuvent échouer pour diverses raisons, comme la
 
 Aucune action n’est requise; le serveur essayera à nouveau. Si cette erreur persiste pendant plus de quelques heures, créez une demande de support.
 
-<a id="-2134364043"></a>**La synchronisation est bloquée jusqu'à ce que la détection de modification terminée après la restauration**  
+<a id="-2134364043"></a>**La synchronisation est bloquée jusqu’à ce que la détection des modifications soit terminée après la restauration**  
 
 | | |
 |-|-|
@@ -310,7 +310,7 @@ Aucune action n’est requise; le serveur essayera à nouveau. Si cette erreur p
 | **Chaîne d’erreur** | ECS_E_SYNC_BLOCKED_ON_CHANGE_DETECTION_POST_RESTORE |
 | **Correction requise** | Non |
 
-Aucune action n’est requise. Quand un fichier ou partagez (point de terminaison cloud) est restaurée à l’aide de la sauvegarde Azure, la synchronisation est bloquée jusqu'à ce que la détection de modification terminée sur le partage de fichiers Azure. Détection des modifications s’exécute immédiatement une fois la restauration est terminée et la durée est basée sur le nombre de fichiers dans le partage de fichiers.
+Aucune action n’est requise. Quand un fichier ou un partage de fichiers (point de terminaison cloud) est restauré à l’aide de la Sauvegarde Azure, la synchronisation est bloquée jusqu’à ce que la détection des modifications soit terminée sur le partage de fichiers Azure. La détection des modifications s’exécute immédiatement une fois la restauration terminée, et sa durée dépend du nombre de fichiers contenus dans le partage de fichiers.
 
 <a id="-2134364065"></a>**La synchronisation ne peut pas accéder au partage de fichiers Azure spécifié dans le point de terminaison de cloud.**  
 
@@ -319,7 +319,7 @@ Aucune action n’est requise. Quand un fichier ou partagez (point de terminaiso
 | **HRESULT** | 0x80c8305f |
 | **HRESULT (décimal)** | -2134364065 |
 | **Chaîne d’erreur** | ECS_E_CANNOT_ACCESS_EXTERNAL_STORAGE_ACCOUNT |
-| **Correction requise** | Oui |
+| **Correction requise** | OUI |
 
 Cette erreur se produit parce que l’agent Azure File Sync ne peut pas accéder au partage de fichiers Azure, ce qui peut être dû au fait que le partage de fichiers Azure ou le compte de stockage qui l’héberge n’existent plus. Vous pouvez résoudre cette erreur en passant par les étapes suivantes :
 
@@ -335,7 +335,7 @@ Cette erreur se produit parce que l’agent Azure File Sync ne peut pas accéder
 | **HRESULT** | 0x80C83060 |
 | **HRESULT (décimal)** | -2134364064 |
 | **Chaîne d’erreur** | ECS_E_STORAGE_ACCOUNT_NAME_UNRESOLVED |
-| **Correction requise** | Oui |
+| **Correction requise** | OUI |
 
 1. Vérifiez que vous pouvez résoudre le nom DNS de stockage à partir du serveur.
 
@@ -352,7 +352,7 @@ Cette erreur se produit parce que l’agent Azure File Sync ne peut pas accéder
 | **HRESULT** | 0x8e5e044e |
 | **HRESULT (décimal)** | -1906441138 |
 | **Chaîne d’erreur** | JET_errWriteConflict |
-| **Correction requise** | Oui |
+| **Correction requise** | OUI |
 
 Cette erreur se produit lorsqu’il existe un problème avec la base de données interne utilisée par Azure File Sync. Lorsque ce problème se produit créez une demande de support et nous vous contacterons pour vous aider à résoudre ce problème.
 
@@ -363,7 +363,7 @@ Cette erreur se produit lorsqu’il existe un problème avec la base de données
 | **HRESULT** | 0x80C8306B |
 | **HRESULT (décimal)** | -2134364053 |
 | **Chaîne d’erreur** | ECS_E_AGENT_VERSION_BLOCKED |
-| **Correction requise** | Oui |
+| **Correction requise** | OUI |
 
 Cette erreur se produit si la version de l’agent Azure File Sync installé sur le serveur n’est pas prise en charge. Pour résoudre ce problème, [mettez à niveau]( https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#upgrade-paths) l’agent avec une [version prise en charge]( https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#supported-versions).
 
@@ -374,7 +374,7 @@ Cette erreur se produit si la version de l’agent Azure File Sync installé sur
 | **HRESULT** | 0x80c8603e |
 | **HRESULT (décimal)** | -2134351810 |
 | **Chaîne d’erreur** | ECS_E_AZURE_STORAGE_SHARE_SIZE_LIMIT_REACHED |
-| **Correction requise** | Oui |
+| **Correction requise** | OUI |
 
 Cette erreur se produit lorsque la limite de stockage de partage de fichiers Azure a été atteinte, ce qui peut se produire si un quota est appliqué pour un partage de fichiers Azure ou si l’utilisation dépasse les limites d’un partage de fichiers Azure. Pour plus d’informations, consultez les [limites actuelles pour un partage de fichiers Azure](storage-files-scale-targets.md).
 
@@ -400,7 +400,7 @@ Si le partage est plein et si un quota n’est pas défini, il est possible de c
 | **HRESULT** | 0x80c86030 |
 | **HRESULT (décimal)** | -2134351824 |
 | **Chaîne d’erreur** | ECS_E_AZURE_FILE_SHARE_NOT_FOUND |
-| **Correction requise** | Oui |
+| **Correction requise** | OUI |
 
 Cette erreur se produit lorsque le partage de fichiers Azure n’est pas accessible. Pour résoudre des problèmes :
 
@@ -416,7 +416,7 @@ Si le partage de fichiers Azure a été supprimé, vous devez créer un nouveau 
 | **HRESULT** | 0x80C83076 |
 | **HRESULT (décimal)** | -2134364042 |
 | **Chaîne d’erreur** | ECS_E_SYNC_BLOCKED_ON_SUSPENDED_SUBSCRIPTION |
-| **Correction requise** | Oui |
+| **Correction requise** | OUI |
 
 Cette erreur se produit lorsque l’abonnement Azure est suspendu. La synchronisation est réactivée lors de la restauration de l’abonnement Azure. Consultez [Pourquoi mon abonnement Azure est-il désactivé et comment puis-je le réactiver ?](../../billing/billing-subscription-become-disable.md) pour plus d’informations.
 
@@ -427,7 +427,7 @@ Cette erreur se produit lorsque l’abonnement Azure est suspendu. La synchronis
 | **HRESULT** | 0x80c8306c |
 | **HRESULT (décimal)** | -2134364052 |
 | **Chaîne d’erreur** | ECS_E_MGMT_STORAGEACLSNOTSUPPORTED |
-| **Correction requise** | Oui |
+| **Correction requise** | OUI |
 
 Cette erreur se produit lorsque le partage de fichiers Azure est inaccessible en raison d’un pare-feu de compte de stockage ou parce que le compte de stockage appartient à un réseau virtuel. Azure File Sync ne prend pas encore en charge cette fonctionnalité. Pour résoudre des problèmes :
 
@@ -459,7 +459,7 @@ Si cette erreur persiste pendant plusieurs heures, créez une demande de support
 | **HRESULT** | 0x800b0109 |
 | **HRESULT (décimal)** | -2146762487 |
 | **Chaîne d’erreur** | CERT_E_UNTRUSTEDROOT |
-| **Correction requise** | Oui |
+| **Correction requise** | OUI |
 
 Cette erreur peut se produire si votre organisation utilise un proxy de terminaison SSL ou si une entité malveillante intercepte le trafic entre votre serveur et le service Azure File Sync. Si vous êtes certain que cela est prévu (car votre organisation utilise un certificat proxy de terminaison SSL), vous pouvez ignorer la vérification de certificat avec un remplacement du registre.
 
@@ -484,7 +484,7 @@ En définissant cette valeur de Registre, l’agent Azure File Sync accepte n’
 | **HRESULT** | 0x80072ee2 |
 | **HRESULT (décimal)** | -2147012894 |
 | **Chaîne d’erreur** | WININET_E_TIMEOUT |
-| **Correction requise** | Oui |
+| **Correction requise** | OUI |
 
 [!INCLUDE [storage-sync-files-bad-connection](../../../includes/storage-sync-files-bad-connection.md)]
 
@@ -495,7 +495,7 @@ En définissant cette valeur de Registre, l’agent Azure File Sync accepte n’
 | **HRESULT** | 0x80c80300 |
 | **HRESULT (décimal)** | -2134375680 |
 | **Chaîne d’erreur** | ECS_E_SERVER_CREDENTIAL_NEEDED |
-| **Correction requise** | Oui |
+| **Correction requise** | OUI |
 
 Cette erreur peut avoir les explications suivantes :
 
@@ -522,12 +522,12 @@ Si l’heure du serveur est correcte, effectuez les étapes suivantes pour réso
 | **HRESULT** | 0x8e5e0211 |
 | **HRESULT (décimal)** | -1906441711 |
 | **Chaîne d’erreur** | JET_errLogDiskFull |
-| **Correction requise** | Oui |
+| **Correction requise** | OUI |
 | | |
 | **HRESULT** | 0x80c8031a |
 | **HRESULT (décimal)** | -2134375654 |
 | **Chaîne d’erreur** | ECS_E_NOT_ENOUGH_LOCAL_STORAGE |
-| **Correction requise** | Oui |
+| **Correction requise** | OUI |
 
 Cette erreur se produit parce que le volume est saturé. Cette erreur se produit souvent parce que les fichiers situés à l’extérieur du point de terminaison de serveur occupent de l’espace sur le volume. Libérer de l’espace sur le volume en ajoutant des points de terminaison serveur supplémentaires, déplacer les fichiers vers un autre volume ou augmenter la taille du volume sur lequel se trouve le point d’extrémité du serveur.
 
@@ -551,17 +551,17 @@ Cette erreur se produit parce qu’il y a des changements sur le partage de fich
 | **HRESULT** | 0x80c8023b |
 | **HRESULT (décimal)** | -2134364145 |
 | **Chaîne d’erreur** | ECS_E_SYNC_METADATA_KNOWLEDGE_SOFT_LIMIT_REACHED |
-| **Correction requise** | Oui |
+| **Correction requise** | OUI |
 | | |
 | **HRESULT** | 0x80c8021c |
 | **HRESULT (décimal)** | -2134375908 |
 | **Chaîne d’erreur** | ECS_E_SYNC_METADATA_KNOWLEDGE_LIMIT_REACHED |
-| **Correction requise** | Oui |
+| **Correction requise** | OUI |
 | | |
 | **HRESULT** | 0x80c80253 |
 | **HRESULT (décimal)** | -2134375853 |
 | **Chaîne d’erreur** | ECS_E_TOO_MANY_PER_ITEM_ERRORS |
-| **Correction requise** | Oui |
+| **Correction requise** | OUI |
 
 Dans les cas où il y a beaucoup d’erreurs de synchronisation par fichier, les sessions de synchronisation peuvent commencer à échouer. <!-- To troubleshoot this state, see [Troubleshooting per file/directory sync errors]().-->
 
@@ -575,7 +575,7 @@ Dans les cas où il y a beaucoup d’erreurs de synchronisation par fichier, les
 | **HRESULT** | 0x80c80019 |
 | **HRESULT (décimal)** | -2134376423 |
 | **Chaîne d’erreur** | ECS_E_SYNC_INVALID_PATH |
-| **Correction requise** | Oui |
+| **Correction requise** | OUI |
 
 Vérifiez que le chemin d’accès existe, qu’il se trouve sur un volume NTFS local et n’est pas un point d’analyse ou un point de terminaison de serveur existant.
 
@@ -586,7 +586,7 @@ Vérifiez que le chemin d’accès existe, qu’il se trouve sur un volume NTFS 
 | **HRESULT** | 0x80C80277 |
 | **HRESULT (décimal)** | -2134375817 |
 | **Chaîne d’erreur** | ECS_E_INCOMPATIBLE_FILTER_VERSION |
-| **Correction requise** | Oui |
+| **Correction requise** | OUI |
 
 Cette erreur se produit parce que la version du pilote de filtre de hiérarchisation cloud (StorageSync.sys) chargée n’est pas compatible avec l’Agent de synchronisation de stockage (FileSyncSvc). Si l’agent Azure File Sync a été mis à niveau, redémarrez le serveur pour achever l’installation. Si l’erreur persiste, désinstallez l’agent, redémarrez le serveur, puis réinstallez l’agent Azure File Sync.
 
@@ -737,7 +737,7 @@ if ($fileShare -eq $null) {
 1. Cliquez sur l'onglet **Affectations de rôles** pour accéder à la liste des utilisations et applications (*principaux de service*) ayant accès à votre compte de stockage.
 1. Vérifiez que **Hybrid File Sync Service** apparaît dans la liste avec le rôle **Lecteur et Accès aux données**. 
 
-    ![Une capture d’écran du principal du service de Service de synchronisation de fichiers hybride dans l’onglet de contrôle d’accès du compte de stockage](media/storage-sync-files-troubleshoot/file-share-inaccessible-3.png)
+    ![Capture d’écran du principal de service Hybrid File Sync Service dans l’onglet Contrôle d’accès du compte de stockage](media/storage-sync-files-troubleshoot/file-share-inaccessible-3.png)
 
     Si le **service Hybrid File Sync** n’apparaît pas dans la liste, effectuez les étapes suivantes :
 
@@ -788,7 +788,7 @@ Il existe deux classes principales de défaillances pouvant se produire par le b
     - *Inaccessibilité du partage de fichiers Azure*. Cet échec se produit généralement lorsque vous supprimez un partage de fichiers Azure qui est toujours un point de terminaison de cloud d’un groupe de synchronisation.
     - *Inaccessibilité d’un compte de stockage*. Cet échec se produit généralement lorsque vous supprimez un compte de stockage comportant un partage de fichiers Azure qui est un point de terminaison cloud d’un groupe de synchronisation. 
 - Défaillances de serveur 
-  - *Défaut de chargement du filtre du système de fichiers Azure File Sync (StorageSync.sys)*. Pour répondre aux requêtes de hiérarchisation/de rappel, il est nécessaire que le filtre du système de fichiers Azure File Sync soit chargé. Ce défaut de chargement peut s’expliquer de différentes manières. La raison la plus courante est le déchargement manuel par un administrateur. Le filtre du système de fichiers Azure File Sync doit être chargé à tout moment pour qu’un bon fonctionnement d’Azure File Sync soit garanti.
+  - *Défaut de chargement du filtre du système de fichiers Azure File Sync (StorageSync.sys)* . Pour répondre aux requêtes de hiérarchisation/de rappel, il est nécessaire que le filtre du système de fichiers Azure File Sync soit chargé. Ce défaut de chargement peut s’expliquer de différentes manières. La raison la plus courante est le déchargement manuel par un administrateur. Le filtre du système de fichiers Azure File Sync doit être chargé à tout moment pour qu’un bon fonctionnement d’Azure File Sync soit garanti.
   - *Défaut, corruption ou endommagement de point d’analyse*. Un point d’analyse est une structure de données spécifique d’un fichier qui est composée de deux parties distinctes :
     1. Une balise d’analyse, qui indique au système d’exploitation que le filtre du système de fichiers Azure File Sync (StorageSync.sys) doit éventuellement effectuer une action sur les E/S du fichier. 
     2. Les données d’analyse, qui indiquent au filtre du système de fichiers l’URI du fichier sur le point de terminaison associé du cloud (le partage de fichiers Azure). 

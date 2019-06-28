@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: mbullwin
 ms.openlocfilehash: 71e70962a8c55d397b6261571cfef4a126d3e8b4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60899367"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Exporter la télémétrie depuis Application Insights
@@ -33,13 +33,13 @@ Avant de configurer l’exportation continue, d’autres options doivent être p
 
 Une fois que l’exportation continue a copié vos données vers l’espace de stockage (où elles peuvent rester aussi longtemps que vous le souhaitez), elles restent disponibles dans Application Insights pendant la [période de rétention](../../azure-monitor/app/data-retention-privacy.md) habituelle.
 
-## <a name="continuous-export-advanced-storage-configuration"></a>Configuration de stockage avancées l’exportation continue
+## <a name="continuous-export-advanced-storage-configuration"></a>Configuration de stockage avancée de l’exportation continue
 
-Exportation continue **ne prend pas en charge** les fonctionnalités/configurations du stockage Azure suivantes :
+L’exportation continue **ne prend pas en charge** les fonctionnalités/configurations de stockage Azure suivantes :
 
-* Utilisation de [pare-feu de réseau virtuel/Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-network-security) conjointement avec le stockage Blob Azure.
+* [Pare-feu de réseau virtuel/Stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-network-security) utilisés conjointement avec le Stockage Blob Azure.
 
-* [Stockage immuable](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage) pour stockage Blob Azure.
+* [Stockage immuable](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage) pour le Stockage Blob Azure.
 
 * [Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction).
 
@@ -128,7 +128,7 @@ Les durées sont exprimées en nombre de cycles, où 10 000 cycles = 1 ms. Par e
 [Référence de modèle de données détaillé pour les valeurs et types de propriétés.](export-data-model.md)
 
 ## <a name="processing-the-data"></a>Traitement des données
-À petite échelle, vous pouvez écrire du code pour décomposer vos données, les lire dans une feuille de calcul et ainsi de suite. Par exemple : 
+À petite échelle, vous pouvez écrire du code pour décomposer vos données, les lire dans une feuille de calcul et ainsi de suite. Par exemple :
 
     private IEnumerable<T> DeserializeMany<T>(string folderName)
     {
@@ -150,7 +150,7 @@ Les durées sont exprimées en nombre de cycles, où 10 000 cycles = 1 ms. Par e
 Pour un exemple de code plus long, consultez [Utilisation d’un rôle de travail][exportasa].
 
 ## <a name="delete"></a>Supprimer les anciennes données
-Vous êtes chargé de gérer votre capacité de stockage et de supprimer les anciennes données si nécessaire.
+C’est à vous de gérer votre capacité de stockage et de supprimer les anciennes données si nécessaire.
 
 ## <a name="if-you-regenerate-your-storage-key"></a>Si vous régénérez votre clé de stockage...
 Si vous modifiez la clé de votre stockage, l’exportation continue cesse de fonctionner. Vous voyez alors une notification dans votre compte Azure.
@@ -187,7 +187,7 @@ L’exportation continue redémarre.
 * *Combien d’objets blob devrais-je voir dans le stockage ?*
 
   * Pour chaque type de données que vous avez choisi d'exporter un objet blob est créé toutes les minutes (si les données sont disponibles).
-  * En outre, pour les applications avec un trafic élevé, des unités de partition supplémentaires sont allouées. Dans ce cas, chaque unité crée un objet blob toutes les minutes.
+  * En outre, pour les applications avec un trafic élevé, des unités de partition supplémentaires sont allouées. Dans ce cas, chaque unité crée un objet blob par minute.
 * *J’ai régénéré la clé de mon espace de stockage ou modifié le nom du conteneur et l’exportation ne fonctionne plus.*
 
     Modifiez l’exportation et ouvrez le panneau de destination d’exportation. Conservez le même stockage que celui sélectionné auparavant, puis cliquez sur OK pour confirmer. L’exportation redémarre. Si la modification a eu lieu dans les derniers jours, vous ne perdrez pas de données.

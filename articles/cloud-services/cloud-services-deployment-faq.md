@@ -16,13 +16,13 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 08d74f866fe28a4c424ba504795b4a22f09785ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60337321"
 ---
-# <a name="deployment-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problèmes de déploiement pour Azure Cloud Services : Forum Aux Questions (FAQ)
+# <a name="deployment-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problèmes de déploiement pour les services cloud Azure : Forum Aux Questions (FAQ)
 
 Cet article comprend des questions fréquentes sur les problèmes de déploiement pour [Microsoft Azure Cloud Services](https://azure.microsoft.com/services/cloud-services). Vous pouvez également consulter la page [Taille de services cloud](cloud-services-sizes-specs.md) pour obtenir des informations sur la taille.
 
@@ -33,22 +33,22 @@ Si un service cloud est déployé à chaque emplacement, l’ensemble du service
 
 Des échecs d’allocation se produisent quand le cluster dans lequel se situe votre service cloud n’a pas suffisamment de ressources de calcul physiques pour satisfaire votre demande de déploiement.
 
-Pour atténuer ces échecs d’allocation, consultez [Échec d’allocation de Service Cloud : Solutions](cloud-services-allocation-failures.md#solutions).
+Pour savoir comment limiter les effets de ces échecs d’allocation, consultez [Échec d’allocation d’un service cloud : solutions](cloud-services-allocation-failures.md#solutions)
 
 ## <a name="why-does-scaling-up-or-scaling-out-a-cloud-service-deployment-sometimes-result-in-allocation-failure"></a>Pourquoi une montée en puissance ou une augmentation de la taille des instances dans le déploiement d’un service cloud génère-t-elle parfois un échec d’allocation ?
 Quand un service cloud est déployé, il est généralement épinglé à un cluster spécifique. Autrement dit, quand un service cloud existant fait l’objet d’une montée en puissance/augmentation de la taille des instances, les nouvelles instances doivent être allouées au même cluster. Si le cluster est proche de sa capacité maximale ou que la taille/type de machine virtuelle souhaité n’est pas disponible, la demande peut échouer.
 
-Pour atténuer ces échecs d’allocation, consultez [Échec d’allocation de Service Cloud : Solutions](cloud-services-allocation-failures.md#solutions).
+Pour savoir comment limiter les effets de ces échecs d’allocation, consultez [Échec d’allocation d’un service cloud : solutions](cloud-services-allocation-failures.md#solutions)
 
 ## <a name="why-does-deploying-a-cloud-service-into-an-affinity-group-sometimes-result-in-allocation-failure"></a>Pourquoi le déploiement d’un service cloud dans un groupe d’affinités provoque-t-il parfois un échec d’allocation ?
 Un nouveau déploiement dans un service cloud vide peut être alloué par l’infrastructure d’un cluster de cette région, sauf si le service cloud est épinglé à un groupe d’affinités. Des déploiements vers le même groupe d'affinités seront tentés sur le même cluster. Si le cluster est presque plein, la demande peut échouer.
 
-Pour atténuer ces échecs d’allocation, consultez [Échec d’allocation de Service Cloud : Solutions](cloud-services-allocation-failures.md#solutions).
+Pour savoir comment limiter les effets de ces échecs d’allocation, consultez [Échec d’allocation d’un service cloud : solutions](cloud-services-allocation-failures.md#solutions)
 
 ## <a name="why-does-changing-vm-size-or-adding-a-new-vm-to-an-existing-cloud-service-sometimes-result-in-allocation-failure"></a>Pourquoi le fait de modifier la taille des machines virtuelles ou d’ajouter une nouvelle machine virtuelle à un service cloud existant occasionne-t-il parfois un échec d’allocation ?
 Les clusters d’un centre de données peuvent présenter différentes configurations de types de machines (par exemple, série A, série Av2, série D, série Dv2, série G, série H, etc.). Mais les clusters n’ont pas nécessairement besoin d’être tous dotés de tous les types de machines virtuelles. Par exemple, si vous essayez d’ajouter une machine virtuelle de série D à un service cloud qui est déjà déployé dans un cluster constitué uniquement de machines de série A, vous rencontrerez un échec d’allocation. Il en est de même si vous essayez de modifier la taille des références de machines virtuelles (par exemple, en passant d’une série A à une série D).
 
-Pour atténuer ces échecs d’allocation, consultez [Échec d’allocation de Service Cloud : Solutions](cloud-services-allocation-failures.md#solutions).
+Pour savoir comment limiter les effets de ces échecs d’allocation, consultez [Échec d’allocation d’un service cloud : solutions](cloud-services-allocation-failures.md#solutions)
 
 Pour vérifier les tailles disponibles dans votre région, consultez [Microsoft Azure : Disponibilité des produits par région](https://azure.microsoft.com/regions/services).
 

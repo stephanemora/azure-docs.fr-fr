@@ -16,18 +16,18 @@ ms.topic: article
 ms.date: 04/26/2018
 ms.author: manayar
 ms.openlocfilehash: 2415d0dc2b9a2c4229d9910b42eb8ec9309ac7a7
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64869113"
 ---
 # <a name="add-a-custom-image-to-an-azure-scale-set-template"></a>Ajout d’une image personnalisée à un modèle de groupe identique Azure
 
-Cet article explique comment modifier le [modèle de base identiques](virtual-machine-scale-sets-mvss-start.md) pour déployer à partir de l’image personnalisée.
+Cet article montre comment modifier le [modèle de groupe identique de base](virtual-machine-scale-sets-mvss-start.md) afin de déployer avec une image personnalisée.
 
 ## <a name="change-the-template-definition"></a>Modifier la définition du modèle
-Dans un [article précédent](virtual-machine-scale-sets-mvss-start.md) nous avions créé un modèle de groupe identique de base. Maintenant nous utiliser ce modèle antérieures et modifiez-le pour créer un modèle qui déploie un groupe identique à partir d’une image personnalisée.  
+Dans un [article précédent](virtual-machine-scale-sets-mvss-start.md), nous avions créé un modèle de groupe identique de base. Nous allons maintenant utiliser ce modèle antérieur et le modifier pour créer un modèle qui déploie un groupe identique à partir d’une image personnalisée.  
 
 ### <a name="creating-a-managed-disk-image"></a>Création d’une image de disque géré
 

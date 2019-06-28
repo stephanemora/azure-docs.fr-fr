@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: sajagtap
 ms.openlocfilehash: 9f1df23d1f0f24787bb9267064ffd647eda2cb74
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60699271"
 ---
 # <a name="learn-image-moderation-concepts"></a>Familiarisez-vous avec les concepts de modération d'image
@@ -66,7 +66,7 @@ Exemple d’extrait :
 
 ## <a name="detecting-faces"></a>Détection des visages
 
-Détection de visages permet de détecter les données personnelles, telles que des visages dans les images. Vous détectez les visages potentiels et le nombre de visages potentiels dans chaque image.
+La détection des visages permet de détecter des données personnelles dans les images, par exemple les visages. Vous détectez les visages potentiels et le nombre de visages potentiels dans chaque image.
 
 Les réponses incluent ces informations :
 

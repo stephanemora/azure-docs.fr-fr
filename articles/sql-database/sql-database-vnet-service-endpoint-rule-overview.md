@@ -13,10 +13,10 @@ ms.reviewer: vanto, genemi
 manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: 8c33cd7fe702f46f9c88643895b96445a9aa6a78
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60331414"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-database-servers"></a>Utiliser des points de terminaison de service de réseau virtuel et des règles pour les serveurs de base de données
@@ -172,11 +172,11 @@ Stockage Azure a implémenté la même fonctionnalité qui vous permet de limite
 
 La technologie PolyBase est couramment utilisée pour charger des données dans Azure SQL Data Warehouse à partir de comptes Stockage Azure. Si le compte Stockage Azure à partir duquel vous chargez des données limite l’accès à un ensemble de sous-réseaux de réseau virtuel, la connectivité entre PolyBase et le compte sera interrompue. Pour autoriser les scénarios d’importation et d’exportation PolyBase dans lesquels Azure SQL Data Warehouse se connecte de manière sécurisée à Stockage Azure au réseau virtuel, suivez les étapes indiquées ci-dessous :
 
-#### <a name="prerequisites"></a>Conditions préalables
+#### <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Le module PowerShell Azure Resource Manager est toujours pris en charge par Azure SQL Database, mais tous les développements futurs sont pour le module Az.Sql. Pour ces applets de commande, consultez [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Les arguments pour les commandes dans le module Az et dans les modules AzureRm sont sensiblement identiques.
+> Le module PowerShell Azure Resource Manager est toujours pris en charge par Azure SQL Database, mais tous les développements futurs sont destinés au module Az.Sql. Pour ces cmdlets, consultez [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Les arguments des commandes dans le module Az et dans les modules AzureRm sont sensiblement identiques.
 
 1.  Installez Azure PowerShell en vous aidant de ce [guide](https://docs.microsoft.com/powershell/azure/install-az-ps).
 2.  Si vous disposez d’un compte de stockage d’objets blob ou v1 universel, vous devez commencer par le mettre à niveau avec un compte v2 universel en vous aidant de ce [guide](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
@@ -197,7 +197,7 @@ La technologie PolyBase est couramment utilisée pour charger des données dans 
    > - Si vous disposez d’un compte de stockage d’objets blob ou v1 universel, vous devez **d’abord le mettre à niveau avec v2** en vous aidant de ce [guide](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
    > - Pour examiner les problèmes connus liés à Azure Data Lake Storage Gen2, consultez ce [guide](https://docs.microsoft.com/azure/storage/data-lake-storage/known-issues).
     
-1. Sous votre compte de stockage, accédez à **Contrôle d’accès (IAM)**, puis cliquez sur **Ajouter une attribution de rôle**. Affecter **contributeur aux données stockage Blob** rôle RBAC à votre serveur de base de données SQL.
+1. Sous votre compte de stockage, accédez à **Contrôle d’accès (IAM)** , puis cliquez sur **Ajouter une attribution de rôle**. Attribuez le rôle RBAC **Contributeur aux données Blob de stockage** à votre serveur SQL Database.
 
    > [!NOTE] 
    > Seuls les membres dotés du privilège Propriétaire peuvent effectuer cette étape. Pour découvrir les divers rôles intégrés pour les ressources Azure, consultez ce [guide](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
@@ -277,7 +277,7 @@ Cette section montre comment vous pouvez utiliser le [portail Azure][http-azure-
 
 ## <a name="powershell-alternative"></a>Alternative PowerShell
 
-Un script PowerShell peut également créer des règles de réseau virtuel. L’applet de commande essentielle **New-AzSqlServerVirtualNetworkRule**. Si cette option vous intéresse, consultez [Utiliser PowerShell pour créer un point de terminaison de service de réseau virtuel et une règle pour Azure SQL Database][sql-db-vnet-service-endpoint-rule-powershell-md-52d].
+Un script PowerShell peut également créer des règles de réseau virtuel. Avec l’applet de commande essentielle **New-AzSqlServerVirtualNetworkRule**. Si cette option vous intéresse, consultez [Utiliser PowerShell pour créer un point de terminaison de service de réseau virtuel et une règle pour Azure SQL Database][sql-db-vnet-service-endpoint-rule-powershell-md-52d].
 
 ## <a name="rest-api-alternative"></a>API REST de remplacement
 
@@ -285,7 +285,7 @@ En interne, les applets de commande PowerShell pour les actions de réseau virtu
 
 - [Règles de réseau virtuel : opérations][rest-api-virtual-network-rules-operations-862r]
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Vous devez déjà disposer d’un sous-réseau étiqueté avec le *nom de type* de point de terminaison de service de réseau virtuel particulier approprié pour Azure SQL Database.
 
@@ -335,7 +335,7 @@ Vous devez déjà disposer d’un sous-réseau étiqueté avec le *nom de type* 
 ## <a name="related-articles"></a>Articles connexes
 
 - [Points de terminaison de service de réseau virtuel Azure][vm-virtual-network-service-endpoints-overview-649d]
-- [Règles de pare-feu au niveau du serveur et de la base de données d’Azure SQL Database][sql-db-firewall-rules-config-715d]
+- [Règles de pare-feu au niveau du serveur et de la base de données Azure SQL Database][sql-db-firewall-rules-config-715d]
 
 La fonctionnalité de règle de réseau virtuel pour Azure SQL Database est disponible depuis fin septembre 2017.
 

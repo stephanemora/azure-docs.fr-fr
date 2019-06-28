@@ -15,15 +15,15 @@ ms.date: 04/11/2018
 ms.author: msangapu
 ms.custom: seodec18
 ms.openlocfilehash: 38e0983830c540082a915332aa4158d2af84567b
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65408913"
 ---
 # <a name="configure-php-in-azure-app-service"></a>Configurer PHP dans Azure App Service
 
-## <a name="introduction"></a>Présentation
+## <a name="introduction"></a>Introduction
 
 Ce guide vous explique comment configurer le runtime PHP intégré pour les applications web, back-ends mobiles et applications API dans [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714), fournir un runtime PHP personnalisé et activer des extensions. Pour utiliser App Service, souscrivez à la [version d’évaluation gratuite]. Pour tirer le meilleur parti de ce guide, commencez par créer une application PHP dans App Service.
 
@@ -35,11 +35,11 @@ Les versions PHP 7.0 et PHP 7.2 sont également disponibles, mais ne sont pas ac
 
 ### <a name="azure-portal"></a>Portail Azure
 
-1. Accédez à votre application dans le [Azure portal](https://portal.azure.com) et faites défiler vers le **Configuration** page.
+1. Accédez à votre application dans le [Portail Azure](https://portal.azure.com) et faites défiler jusqu’à la page **Configuration**.
 
-2. À partir de **Configuration**, sélectionnez **paramètres généraux** et choisissez la nouvelle version PHP.
+2. Dans **Configuration**, sélectionnez **Paramètres généraux** et choisissez la nouvelle version PHP.
 
-3. Cliquez sur le **enregistrer** bouton en haut de la **paramètres généraux** panneau.
+3. Cliquez sur le bouton **Enregistrer** en haut du panneau **Paramètres généraux**.
 
 ### <a name="azure-powershell-windows"></a>Azure PowerShell (Windows)
 
@@ -128,10 +128,10 @@ Comme indiqué dans la section précédente, la méthode idéale pour afficher l
 1. Ajoutez un répertoire `bin` au répertoire racine.
 2. Placez les fichiers `.dll` dans le répertoire `bin` (par exemple, `php_xdebug.dll`). Assurez-vous que les extensions sont compatibles avec la version par défaut de PHP ainsi qu'avec VC9 et NTS (Non-Thread Safe).
 3. Déployez votre application.
-4. Accédez à votre application dans le portail Azure, puis cliquez sur le **Configuration** situé sous **paramètres** section.
-5. À partir de la **Configuration** panneau, sélectionnez **paramètres de l’Application**.
-6. Dans le **paramètres d’Application** section, cliquez sur **+ nouveau paramètre d’application** et créer un **PHP_EXTENSIONS** clé. La valeur de cette clé est un chemin d’accès relatif à la racine du site web : **bin\your-ext-file**.
-7. Cliquez sur le **mise à jour** bouton en bas, puis cliquez sur **enregistrer** au-dessus de la **paramètres d’Application** onglet.
+4. Accédez à votre application dans le Portail Azure, puis cliquez sur le bouton **Configuration** situé sous la section **Paramètres**.
+5. Dans le panneau **Configuration**, sélectionnez **Paramètres de l’application**.
+6. Dans la section **Paramètres de l’application**, cliquez sur **+ Nouveau paramètre d’application** et créez une clé **PHP_EXTENSIONS**. La valeur de cette clé est un chemin d’accès relatif à la racine du site web : **bin\your-ext-file**.
+7. Cliquez sur le bouton **Mettre à jour** situé en bas, puis cliquez sur **Enregistrer** au-dessus de l’onglet **Paramètres de l’application**.
 
 Les extensions Zend sont également prises en charge à l’aide d’une clé **PHP_ZENDEXTENSIONS**. Pour activer plusieurs extensions, insérez une liste de fichiers `.dll` séparés par des virgules pour la valeur de paramètre d’application.
 
@@ -144,10 +144,10 @@ Au lieu du runtime PHP par défaut, App Service peut utiliser un runtime PHP que
 3. Vous pouvez éventuellement ajouter des extensions à votre runtime PHP et les activer dans le fichier `php.ini` .
 4. Ajoutez un répertoire `bin` à votre répertoire racine, puis placez-y le répertoire contenant votre runtime PHP (par exemple, `bin\php`).
 5. Déployez votre application.
-6. Accédez à votre application dans le portail Azure, puis cliquez sur le **Configuration** panneau.
-8. À partir de la **Configuration** panneau, sélectionnez **les mappages de chemin d’accès**. 
-9. Cliquez sur **+ nouveau gestionnaire** et ajoutez `*.php` au champ Extension et ajouter le chemin d’accès à la `php-cgi.exe` exécutable dans **processeur de Script**. Si vous placez votre runtime PHP dans le répertoire `bin` situé à la racine de votre application, le chemin est `D:\home\site\wwwroot\bin\php\php-cgi.exe`.
-10. En bas, cliquez sur **mise à jour** pour terminer d’ajouter le mappage de gestionnaire.
+6. Accédez à votre application dans le Portail Azure, puis cliquez sur le panneau **Configuration**.
+8. Dans le panneau **Configuration**, sélectionnez **Mappages de chemin d’accès**. 
+9. Cliquez sur **+ Nouveau gestionnaire**, ajoutez `*.php` au champ Extension et ajoutez le chemin d’accès à l’exécutable `php-cgi.exe` dans **Processeur de script**. Si vous placez votre runtime PHP dans le répertoire `bin` situé à la racine de votre application, le chemin est `D:\home\site\wwwroot\bin\php\php-cgi.exe`.
+10. Cliquez sur **Mettre à jour** situé en bas pour terminer d’ajouter du mappage de gestionnaire.
 11. Cliquez sur **Enregistrer** pour enregistrer les modifications.
 
 <a name="composer" />

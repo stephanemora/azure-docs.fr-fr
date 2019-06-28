@@ -11,10 +11,10 @@ ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
 ms.openlocfilehash: eab45948b5f931377396d93d93e8955ba0f3e767
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65792855"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Tutoriel : Créer et gérer des budgets Azure
@@ -27,7 +27,7 @@ Les budgets sont automatiquement réinitialisés à la fin d’une période (men
 
 Les exemples de ce tutoriel expliquent comment créer et modifier un budget pour un abonnement Azure Contrat Entreprise (EA).
 
-Regardez la [la création d’un budget pour surveiller vos dépenses avec Azure Cost Management](https://www.youtube.com/watch?v=ExIVG_Gr45A) vidéo pour voir comment vous pouvez créer des budgets dans Azure pour surveiller les dépenses.
+Regardez la vidéo de [création d’un budget pour surveiller vos dépenses avec Azure Cost Management](https://www.youtube.com/watch?v=ExIVG_Gr45A) pour voir comment vous pouvez créer des budgets dans Azure pour surveiller les dépenses.
 
 
 Ce tutoriel vous montre comment effectuer les opérations suivantes :
@@ -36,13 +36,13 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Créez un budget dans le portail Azure
 > * Modifier un budget
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Les budgets sont pris en charge pour divers types de comptes Azure. Pour accéder à la liste complète des types de comptes pris en charge, consultez [Comprendre les données Cost Management](understand-cost-mgt-data.md). Pour afficher les budgets, vous devez au minimum disposer d'un accès en lecture à votre compte Azure.
 
  Dans le cadre des abonnements Azure EA, vous devez disposer d'un accès en lecture pour afficher les budgets. Pour créer et gérer des budgets, vous devez disposer d’une autorisation de contributeur. Vous pouvez créer des budgets individuels pour les abonnements EA et les groupes de ressources. En revanche, il n’est pas possible d’en créer pour les comptes de facturation EA.
 
-Les autorisations Azure suivantes ou les étendues, sont pris en charge par abonnement pour les budgets par utilisateur et groupe. Pour plus d’informations sur les étendues, consultez [Comprendre et utiliser les étendues](understand-work-scopes.md).
+Les autorisations, ou étendues, Azure suivantes sont prises en charge par abonnement aux budgets par utilisateur et par groupe. Pour plus d’informations sur les étendues, consultez [Comprendre et utiliser les étendues](understand-work-scopes.md).
 
 - Propriétaire : peut créer, modifier ou supprimer des budgets pour un abonnement.
 - Contributeur et Contributeur Cost Management : peut créer, modifier ou supprimer ses propres budgets. Peut modifier le montant des budgets créés par d’autres utilisateurs.
@@ -56,9 +56,9 @@ Pour plus d’informations sur l’affectation d’une autorisation d’accès a
 
 ## <a name="create-a-budget-in-the-azure-portal"></a>Créez un budget dans le portail Azure
 
-Vous pouvez créer un budget d’abonnement Azure pour un mois, un trimestre ou un an. Votre contenu de navigation dans le portail Azure détermine si vous créez un budget pour un abonnement ou pour un groupe d’administration.
+Vous pouvez créer un budget d’abonnement Azure pour un mois, un trimestre ou un an. Votre navigation dans le Portail Azure détermine si vous créez un budget pour un abonnement ou pour un groupe d’administration.
 
-Pour créer ou afficher un budget, ouvrez l’étendue souhaitée dans le portail Azure et sélectionnez **Budgets** dans le menu. Par exemple, accédez à **abonnements**, sélectionnez un abonnement à partir de la liste, puis **Budgets** dans le menu. Utilisez le **étendue** pilule pour basculer vers une portée différente, comme un groupe d’administration, dans les Budgets. Pour plus d’informations sur les étendues, consultez [Comprendre et utiliser les étendues](understand-work-scopes.md).
+Pour créer ou afficher un budget, ouvrez l’étendue souhaitée dans le Portail Azure et sélectionnez **Budgets** dans le menu. Par exemple, accédez à **Abonnements**, sélectionnez un abonnement dans la liste, puis sélectionnez **Budgets** dans le menu. Utilisez la pastille **Étendue** pour basculer vers une autre étendue, un groupe d’administration par exemple, dans Budgets. Pour plus d’informations sur les étendues, consultez [Comprendre et utiliser les étendues](understand-work-scopes.md).
 
 Une fois des budgets créés, ils affichent une vue simple de vos dépenses actuelles par rapport à ces budgets.
 
@@ -68,7 +68,7 @@ Cliquez sur **Add**.
 
 Dans la fenêtre **Créer un budget**, entrez un nom de budget et un montant de budget. Choisissez ensuite une période mensuelle, trimestrielle ou annuelle. Ensuite, sélectionnez une date de fin. Les budgets nécessitent au moins un seuil de coût (% du budget) et une adresse e-mail correspondante. Si vous le souhaitez, vous pouvez inclure jusqu’à cinq seuils et cinq adresses e-mail dans un seul budget. Lorsqu’un seuil de budget est atteint, des notifications par e-mail sont normalement reçues en moins de huit heures. Pour plus d'informations sur les notifications, consultez [Utiliser les alertes de coût](cost-mgt-alerts-monitor-usage-spending.md).
 
-Si vous avez un abonnement de paiement à l’utilisation, MSDN ou Visual Studio, votre période de facturation peut ne pas être alignée sur le mois calendaire. Pour ces types d’abonnements et groupes de ressources, vous pouvez créer un budget qui est aligné pour votre période de facturation ou pour les mois calendaires. Pour créer un budget aligné sur votre période de facturation, sélectionnez une période de réinitialisation du mois de facturation, facturation trimestre ou année de facturation. Pour créer un budget aligné pour le mois calendaire, sélectionnez une période de réinitialisation de mensuelle, trimestrielle ou annuelle.
+Si vous avez un abonnement de paiement à l’utilisation, MSDN ou Visual Studio, votre période de facturation peut ne pas être alignée sur le mois calendaire. Pour ces types d’abonnements et groupes de ressources, vous pouvez créer un budget aligné sur votre période de facturation ou sur les mois calendaires. Pour créer un budget aligné sur votre période de facturation, sélectionnez une période de réinitialisation : Mois de facturation, Trimestre de facturation ou Année de facturation. Pour créer un budget aligné sur le mois calendaire, sélectionnez une période de réinitialisation : mensuelle, trimestrielle ou annuelle.
 
 Voici un exemple de création de budget mensuel de 4 500 $. Une alerte par e-mail est générée quand 90 % du budget est atteint.
 
@@ -92,28 +92,28 @@ Selon le niveau d’accès dont vous disposez, vous pouvez modifier un budget po
 
 ![Exemple de modification de plusieurs propriétés du budget](./media/tutorial-acm-create-budgets/edit-budget.png)
 
-## <a name="trigger-an-action-group"></a>Un groupe d’actions de déclencheur
+## <a name="trigger-an-action-group"></a>Déclencher un groupe d’actions
 
-Lorsque vous créez ou modifiez un budget pour un abonnement ou un groupe de ressources, vous pouvez le configurer pour appeler un groupe d’actions. Le groupe d’actions peut effectuer diverses actions différentes quand votre budget de seuil est atteint. Pour plus d’informations sur les groupes d’actions, consultez [créer et gérer des groupes d’actions dans le portail Azure](../azure-monitor/platform/action-groups.md). Pour plus d’informations sur l’utilisation d’une automatisation basée sur le budget avec des groupes d’actions, consultez [gérer les coûts des budgets Azure](../billing/billing-cost-management-budget-scenario.md).
+Lorsque vous créez ou modifiez un budget pour l’étendue d’un abonnement ou d’un groupe de ressources, vous pouvez le configurer pour qu’il appelle un groupe d’actions. Le groupe d’actions peut effectuer diverses actions lorsque votre seuil budgétaire est atteint. Pour plus d’informations sur les groupes d’actions, consultez [Créer et gérer des groupes d’actions dans le Portail Azure](../azure-monitor/platform/action-groups.md). Pour plus d’informations sur l’utilisation d’une automatisation basée sur le budget avec des groupes d’actions, consultez [Gérer les coûts avec Azure Budgets](../billing/billing-cost-management-budget-scenario.md).
 
-Pour créer ou mettre à jour des groupes d’actions, cliquez sur **gérer des groupes d’actions** pendant que vous créez ou modifiez un budget.
+Pour créer ou mettre à jour des groupes d’actions, cliquez sur **Gérer les groupes d’actions** pendant la création ou la modification d’un budget.
 
-![Exemple de création d’un budget pour afficher les groupes d’actions de gestion](./media/tutorial-acm-create-budgets/manage-action-groups01.png)
+![Exemple de création d’un budget pour afficher Gérer les groupes d’actions](./media/tutorial-acm-create-budgets/manage-action-groups01.png)
 
-Ensuite, cliquez sur **ajouter un groupe d’action** et créer le groupe d’actions.
+Cliquez ensuite sur **Ajouter un groupe d’actions** et créez le groupe d’actions.
 
 
-![Image de la zone de groupe d’action Ajouter](./media/tutorial-acm-create-budgets/manage-action-groups02.png)
+![Image de la zone Ajouter un groupe d’actions](./media/tutorial-acm-create-budgets/manage-action-groups02.png)
 
-Après l’action de groupe est créé, fermez la boîte pour revenir à votre budget.
+Lorsque le groupe d’actions est créé, fermez la zone pour revenir à votre budget.
 
-Configurer votre budget pour utiliser votre groupe d’actions lorsqu’un seuil individuel est remplie. Jusqu'à cinq des seuils différents sont pris en charge.
+Configurez votre budget pour qu’il utilise votre groupe d’actions lorsqu’un seuil individuel est atteint. Jusqu’à cinq seuils différents sont pris en charge.
 
-![Exemple illustrant la sélection de groupe d’action pour une condition d’alerte](./media/tutorial-acm-create-budgets/manage-action-groups03.png)
+![Exemple montrant la sélection de groupe d’actions pour une condition d’alerte](./media/tutorial-acm-create-budgets/manage-action-groups03.png)
 
-L’exemple suivant montre les seuils budgétaires définies sur 50 %, 75 % et 100 %. Chacun est configuré pour déclencher les actions spécifiées dans le groupe d’actions désigné.
+L’exemple suivant montre des seuils budgétaires définis sur 50 %, 75 % et 100 %. Chacun est configuré pour déclencher les actions spécifiées dans le groupe d’actions désigné.
 
-![Exemple illustrant les conditions d’alerte configurées avec différents groupes d’actions et le type d’actions](./media/tutorial-acm-create-budgets/manage-action-groups04.png)
+![Exemple montrant des conditions d’alerte configurées avec divers groupes d’actions et le type d’actions](./media/tutorial-acm-create-budgets/manage-action-groups04.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

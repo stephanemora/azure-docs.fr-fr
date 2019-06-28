@@ -1,6 +1,6 @@
 ---
-title: VMware Solution Azure par CloudSimple - composants VMware de cloud privé
-description: Décrit comment les composants VMware sont installés sur le cloud privé
+title: Solution Azure VMware par CloudSimple – Composants VMware de cloud privé
+description: Explique comment les composants VMware sont installés sur le cloud privé.
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 04/30/2019
@@ -9,113 +9,113 @@ ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 5e6548a5a04e32b374a8a9c29d2ca5f89fd65c78
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65160184"
 ---
-# <a name="private-cloud-vmware-components"></a>Composants de VMware de cloud privé
+# <a name="private-cloud-vmware-components"></a>Composants VMware de cloud privé
 
-Un cloud privé est une pile VMware isolée (hôtes ESXi vCenter, vSAN et NSX) environnement géré par un serveur vCenter dans un domaine de gestion.  Le service CloudSimple vous permet de déployer VMware en mode natif sur l’infrastructure Azure de métal nu dans les emplacements Azure.  Clouds privés sont intégrées avec le reste du Cloud Azure.  Un cloud privé est déployé avec les composants de pile VMware suivants :
+Un cloud privé est un environnement isolé de la pile VMware (hôtes ESXi, vCenter, vSAN et NSX) géré par un serveur vCenter dans un domaine de gestion.  Le service CloudSimple permet de déployer VMware en mode natif sur une infrastructure nue Azure dans des emplacements Azure.  Les clouds privés sont intégrés au reste d’Azure Cloud.  Ils sont déployés avec plusieurs composants de la pile VMware :
 
-* **VMware ESXi -** hyperviseur sur Azure des nœuds dédiés
-* **VMware vCenter -** Appliance pour la gestion centralisée de l’environnement de cloud privé vSphere
-* **VMware vSAN -** solution d’infrastructure Hyper-convergée
-* **Centre de données VMware NSX -** la virtualisation et les logiciels de sécurité réseau  
+* **VMware ESXi –** Hyperviseur sur des nœuds dédiés Azure
+* **VMware vCenter –** Appliance de gestion centralisée d’un environnement vSphere de cloud privé
+* **VMware vSAN –** Solution d’infrastructure hyperconvergée
+* **Centre de données VMware NSX –** Logiciel de sécurité et de virtualisation de réseau  
 
 ## <a name="vmware-component-versions"></a>Versions des composants VMware
 
-Une pile de VMware de cloud privé est déployée avec la version du logiciel suivant.
+Une pile VMware de cloud privé se déploie avec la version logicielle suivante.
 
 | Composant | Version | Version sous licence |
 |-----------|---------|------------------|
-| ESXi | 6.7U1 | Enterprise ainsi que |
+| ESXi | 6.7U1 | Enterprise Plus |
 | vCenter | 6.7U1 | vCenter Standard |
 | vSAN | 6.7 | Entreprise |
 | Centre de données NSX | 2.3 | Avancé |
 
 ## <a name="esxi"></a>ESXi
 
-VMware ESXi est installé sur les nœuds CloudSimple achetées lorsque vous créez un cloud privé.  ESXi fournit l’hyperviseur pour déployer des machines virtuelles de charge de travail (VM).  Nœuds fournissent une infrastructure Hyper-convergée (de calcul et de stockage) sur votre cloud privé.  Les nœuds sont une partie du cluster vSphere sur le cloud privé.  Chaque nœud possède quatre interfaces de réseaux physiques connectés à underlay réseau.  Deux interfaces réseau physiques sont utilisées pour créer un **vSphere distribuée basculer (VDS)** sur vCenter et deux sont utilisés pour créer un **gérés NSX distribuée commutateur virtuel (VDS-N)**.  Interfaces réseau sont configurés en mode actif-actif pour la haute disponibilité.
+VMware ESXi est installé sur les nœuds CloudSimple achetés lors de la création d’un cloud privé.  ESXi fournit l’hyperviseur permettant de déployer des machines virtuelles de charge de travail.  Les nœuds offrent une infrastructure hyperconvergée (calcul et stockage) sur le cloud privé.  Ils font partie du cluster vSphere sur le cloud privé.  Chaque nœud possède quatre interfaces de réseaux physiques connectées au réseau sous-jacent.  Deux sont utilisées pour créer un **commutateur réparti vSphere (VDS)** sur vCenter et deux pour créer un **commutateur réparti virtuel géré par NSX (N-VDS)** .  Les interfaces réseau sont configurées en mode actif-actif pour la haute disponibilité.
 
 En savoir plus sur VMware ESXi
 
-## <a name="vcenter-server-appliance"></a>appliance de serveur vCenter
+## <a name="vcenter-server-appliance"></a>Appliance serveur vCenter
 
-appliance de serveur vCenter (VCSA) fournit les fonctions d’authentification, la gestion et d’orchestration pour la VMware Solution par CloudSimple. VCSA avec embedded Platform Services Controller (PSC) est déployé lorsque vous créez votre cloud privé.  VCSA est déployé sur le cluster vSphere qui est créé lorsque vous déployez votre cloud privé.  Chaque cloud privé a son propre VCSA.  Expansion d’un cloud privé ajoute les nœuds à le VCSA sur le cloud privé.
+L’appliance serveur vCenter (VCSA) fournit les fonctions d’authentification, de gestion et d’orchestration de la solution VMware par CloudSimple. L’appliance VCSA avec le Platform Services Controller (PSC) intégré est déployée lors de la création du cloud privé,  sur le cluster vSphere créé au moment du déploiement du cloud privé.  Chaque cloud privé a sa propre appliance VCSA.  L’expansion d’un cloud privé ajoute les nœuds à l’appliance VCSA sur le cloud privé.
 
-### <a name="vcenter-single-sign-on"></a>vCenter l’authentification unique
+### <a name="vcenter-single-sign-on"></a>Authentification unique vCenter
 
-Contrôleur de Services de plateforme intégré sur VCSA est associé un **vCenter Single Sign-On domaine**.  Le nom de domaine est **cloudsimple.local**.  Un utilisateur par défaut **CloudOwner@cloudsimple.com** est créé pour vous permettre d’accéder à vCenter.  Vous pouvez ajouter à votre annuaire local/Azure active directory [sources d’identité pour vCenter](https://docs.azure.cloudsimple.com/set-vcenter-identity/).
+Le Platform Services Controller intégré sur VCSA est associé à un **domaine d’authentification unique vCenter**  dont le nom est **cloudsimple.local**.  Un utilisateur par défaut **CloudOwner@cloudsimple.com** est créé pour vous permettre d’accéder à vCenter.  Vous pouvez ajouter des [sources d’identité pour vCenter](https://docs.azure.cloudsimple.com/set-vcenter-identity/) locales/Azure Active Directory.
 
-## <a name="vsan-storage"></a>stockage réseau vSAN
+## <a name="vsan-storage"></a>Stockage vSAN
 
-Clouds privés sont créés avec le stockage entièrement configuré exclusivement flash vSAN, local pour le cluster.  Nombre minimal de trois nœuds de la même référence SKU est requis pour créer un cluster vSphere avec magasin de données vSAN.  Déduplication et compression sont activés par défaut sur la banque de données vSAN.  Deux groupes de disques sont créés sur chaque nœud du cluster vSphere. Chaque groupe de disque contient un disque de cache et trois disques de capacité.
+Les clouds privés sont créés avec un stockage vSAN 100 % flash entièrement configuré, en local pour le cluster.  Il faut au minimum trois nœuds de la même référence SKU pour créer un cluster vSphere avec magasin de données vSAN.  La déduplication et la compression sont activées par défaut sur la banque de données vSAN.  Deux groupes de disques sont créés sur chaque nœud du cluster vSphere. Chacun contient un disque de cache et trois disques de capacité.
 
-Une stratégie de stockage vSAN par défaut est créée sur le cluster vSphere et appliquée à la banque de données vSAN.  Cette stratégie détermine comment les objets de stockage de machine virtuelle sont mis en service et alloués au sein de la banque de données pour garantir le niveau de service requis.  La stratégie de stockage définit la **échecs à tolérer (FTT)** et le **méthode de tolérance de panne**.  Vous pouvez créer des stratégies de stockage et les appliquer aux machines virtuelles. Pour conserver le contrat SLA, capacité de rechange de 25 % doit être conservée sur la banque de données vSAN.  
+Une stratégie de stockage vSAN par défaut est créée sur le cluster vSphere et appliquée au magasin de données vSAN.  Elle détermine la manière dont les objets de stockage de machine virtuelle sont approvisionnés et alloués dans le magasin de données pour garantir le niveau de service requis.  La stratégie de stockage définit le **nombre de pannes tolérées** et la **méthode de tolérance aux pannes**.  Il est possible de créer des stratégies de stockage et de les appliquer aux machines virtuelles. Pour remplir le contrat SLA, une capacité supplémentaire de 25 % est nécessaire sur le magasin de données vSAN.  
 
-### <a name="default-vsan-storage-policy"></a>Stratégie de stockage par défaut vSAN
+### <a name="default-vsan-storage-policy"></a>Stratégie de stockage vSAN par défaut
 
-Tableau ci-dessous présente la valeur par défaut des paramètres de stratégie de stockage vSAN.
+Le tableau ci-dessous présente les paramètres de stratégie de stockage vSAN par défaut.
 
-| Nombre de nœuds de Cluster de vSphere | FTT | Méthode de tolérance de panne |
+| Nombre de nœuds du cluster vSphere | Nombre de pannes tolérées | Méthode de tolérance aux pannes |
 |------------------------------------|-----|--------------------------|
-| 3 et 4 nœuds | 1 | RAID 1 (mise en miroir) : crée des 2 copies |
-| 5 à 16 nœuds | 2 | RAID 1 (mise en miroir) : crée des 3 copies |
+| 3 ou 4 nœuds | 1 | RAID-1 (mise en miroir) : crée deux copies |
+| Entre 5 et 16 nœuds | 2 | RAID-1 (mise en miroir) : crée trois copies |
 
 ## <a name="nsx-data-center"></a>Centre de données NSX
 
-Centre de données NSX fournit la virtualisation de réseau, de segmentation micro et de fonctionnalités de sécurité réseau sur votre cloud privé.  Vous pouvez configurer tous les services pris en charge par le centre de données NSX sur votre cloud privé via NSX.  Lorsque vous créez un cloud privé, les composants NSX suivants sont installés et configurés.
+Le centre de données NSX offre des fonctionnalités de virtualisation de réseau, de microsegmentation et de sécurité réseau sur le cloud privé.  Tous les services pris en charge par le centre de données NSX sont configurables sur le cloud privé avec NSX.  Lors de la création d’un cloud privé, les composants NSX suivants sont installés et configurés.
 
-* NSXT Manager
-* Zones de transport
-* Hôte et le profil de liaison montante Edge
-* Commutateur logique pour le Transport Edge et Ext2 Ext1
-* Pool d’adresses IP pour le nœud de Transport d’ESXi
-* Pool d’adresses IP pour le nœud de Transport Edge
-* Nœuds de périmètre
-* Règle de DRS affinity pour le contrôleur et les machines virtuelles Edge
+* NSX Manager
+* Zone de transport
+* Profil de liaison montante hôte et périphérie
+* Commutateur logique pour le transport Edge, Ext1 et Ext2
+* Pool d’adresses IP pour le nœud de transport ESXi
+* Pool d’adresses IP pour le nœud de transport Edge
+* Nœuds de périphérie
+* Règle anti-affinité DRS pour le contrôleur et les machines virtuelles Edge
 * Routeur de niveau 0
-* Activer BGP sur Tier0 routeur
+* Protocole BGP sur le routeur de niveau 0
 
-## <a name="vsphere-cluster"></a>cluster de vSphere
+## <a name="vsphere-cluster"></a>Cluster vSphere
 
-Hôtes ESXi sont configurés en tant que cluster pour garantir une haute disponibilité du cloud privé.  Lorsque vous créez un cloud privé, les composants de gestion de vSphere sont déployés sur le premier cluster.  Un pool de ressources est créé pour les composants de gestion et toutes les machines virtuelles de gestion sont déployés dans ce pool de ressources. Le premier cluster ne peut pas être supprimé pour réduire le cloud privé.  vSphere cluster offre une haute disponibilité pour les machines virtuelles à l’aide de **vSphere haute disponibilité**.  Échecs à tolérer sont basées sur le nombre de nœuds disponibles dans le cluster.  Vous pouvez utiliser la formule ```Number of nodes = 2N+1``` où ```N``` est le nombre d’échecs à tolérer.
+Les hôtes ESXi sont configurés en tant que cluster pour garantir la haute disponibilité du cloud privé.  Lors de la création d’un cloud privé, les composants de gestion de vSphere sont déployés sur le premier cluster.  Une liste des ressources est créée pour les composants de gestion, dans laquelle toutes les machines virtuelles de gestion sont déployées. Il n’est pas possible de supprimer le premier cluster pour réduire le cloud privé.  Le cluster vSphere assure la haute disponibilité des machines virtuelles avec **vSphere HA**.  Le nombre de pannes tolérées dépend du nombre de nœuds disponibles dans le cluster.  Vous pouvez utiliser la formule ```Number of nodes = 2N+1```, où ```N``` est le nombre de pannes à tolérer.
 
-### <a name="vsphere-cluster-limits"></a>limites de cluster vSphere
+### <a name="vsphere-cluster-limits"></a>Limites du cluster vSphere
 
 | Ressource | Limite |
 |----------|-------|
-| Nombre minimal de nœuds pour créer un cloud privé (premier cluster vSphere) | 3 |
-| Nombre maximal de nœuds dans un vSphere Cluster sur un cloud privé | 16 |
+| Nombre minimal de nœuds pour la création d’un cloud privé (premier cluster vSphere) | 3 |
+| Nombre maximal de nœuds dans un cluster vSphere sur un cloud privé | 16 |
 | Nombre maximal de nœuds dans un cloud privé | 64 |
-| Nombre maximal de vSphere Clusters dans un cloud privé | 21 |
-| Nombre minimal de nœuds sur un Cluster de vSphere nouveau | 3 |
+| Nombre maximal de clusters vSphere dans un cloud privé | 21 |
+| Nombre minimal de nœuds sur un nouveau cluster vSphere | 3 |
 
 ## <a name="vmware-infrastructure-maintenance"></a>Maintenance de l’infrastructure VMware
 
-Il est parfois nécessaire apporter des modifications à la configuration de l’infrastructure VMware. Actuellement, ces intervalles peuvent se produire à tous les mois 1-2, mais la fréquence est censée refuser au fil du temps. Ce type de maintenance généralement faire sans interrompre la consommation des services CloudSimple normale. Pendant un intervalle de maintenance de VMware, les services suivants continuent à fonctionner sans aucun impact :
+Il est parfois nécessaire d’apporter des modifications à la configuration de l’infrastructure VMware. La fréquence, actuellement mensuelle ou bimestrielle, devrait diminuer au fil du temps. Ce type de maintenance est généralement possible sans interruption de la consommation des services CloudSimple. Pendant un intervalle de maintenance VMware, les services suivants continuent de fonctionner sans aucun impact :
 
-* Applications et le plan de gestion de VMware
-* accès au vCenter
-* Mise en réseau et stockage
+* Applications et plan de gestion VMware
+* Accès vCenter
+* Tout ce qui concerne les réseaux et le stockage
 * Tout le trafic Azure
 
 ## <a name="updates-and-upgrades"></a>Mises à jour et mises à niveau
 
-CloudSimple est responsable de la gestion du cycle de vie des logiciels de VMware (ESXi vCenter, PSC et NSX) dans le cloud privé.
+CloudSimple est responsable de la gestion du cycle de vie des logiciels VMware (ESXi vCenter, PSC et NSX) dans le cloud privé.
 
-Mises à jour logicielles incluent :
+Il existe plusieurs mises à jour de logiciels :
 
-* **Correctifs**. Correctifs de sécurité ou correctifs de bogues publiés par VMware.
+* **Correctifs**. Mises à jour de sécurité ou correctifs de bogues publiés par VMware.
 * **Mises à jour**. Changement de version mineure d’un composant de la pile VMware.
 * **Mises à niveau**. Changement de version majeure d’un composant de la pile VMware.
 
-CloudSimple teste un correctif de sécurité critique dès qu’il est disponible à partir de VMware. Par le contrat SLA, CloudSimple déploie le correctif de sécurité pour les environnements de cloud privé au sein d’une semaine.
+CloudSimple teste les mises à jour de sécurité critiques dès qu’elles sont mises à disposition par VMware. Conformément au contrat SLA, CloudSimple déploie le correctif de sécurité dans les environnements de cloud privé sous une semaine.
 
-CloudSimple fournit des mises à jour de maintenance de tous les trimestres pour des composants logiciels VMware. Lorsqu’une nouvelle version majeure du logiciel de VMware est disponible, CloudSimple fonctionne avec les clients pour coordonner une fenêtre de maintenance appropriée pour la mise à niveau.  
+CloudSimple propose des mises à jour de maintenance trimestrielles des composants logiciels VMware. Lorsqu’une nouvelle version majeure d’un logiciel de VMware est disponible, CloudSimple se coordonne avec les clients pour trouver une fenêtre de maintenance adaptée à la mise à niveau.  
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Mises à jour et maintenance de CloudSimple](cloudsimple-maintenance-updates.md)
+* [Maintenance et mises à jour CloudSimple](cloudsimple-maintenance-updates.md)

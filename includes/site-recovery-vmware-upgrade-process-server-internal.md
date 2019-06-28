@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 04/28/2010
 ms.author: raynew
 ms.openlocfilehash: 83e9e584967f780532ce9b3c51bf3f41a963eabf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66170007"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177593"
 ---
 1. Connectez-vous au serveur de traitement en tant qu’administrateur.
 2. Téléchargez la dernière version du [programme d’installation unifié](https://aka.ms/unifiedinstaller).

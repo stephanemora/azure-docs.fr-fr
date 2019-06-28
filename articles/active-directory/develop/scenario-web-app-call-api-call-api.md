@@ -1,6 +1,6 @@
 ---
-title: Application Web par appels web API (appeler une API web) - plateforme d’identité Microsoft
-description: Découvrez comment créer une application Web qui appelle web API (en appelant une API web)
+title: Application web qui appelle des API web (appel d’une API web) - Plateforme d’identité Microsoft
+description: Apprendre à générer une application web qui appelle des API web (appel d’une API web)
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -16,19 +16,19 @@ ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: dd44dda06b2f6fc48538f2fb74c0bf8e04d0362b
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65074634"
 ---
-# <a name="web-app-that-calls-web-apis---call-a-web-api"></a>Application Web qui appelle des API - web appeler une API web
+# <a name="web-app-that-calls-web-apis---call-a-web-api"></a>Application web qui appelle des API web - Appeler une API web
 
 Maintenant que vous avez un jeton, vous pouvez appeler une API web protégée.
 
 ## <a name="aspnet-core"></a>ASP.NET Core
 
-Voici un code simplifié de l’action de la `HomeController`. Ce code obtient un jeton pour appeler Microsoft Graph. Ce code de temps a été ajouté, montrant comment appeler Microsoft Graph comme une API REST.
+Voici un code simplifié de l’action de `HomeController`. Ce code obtient un jeton pour appeler Microsoft Graph. Ce code de temps a été ajouté, montrant comment appeler Microsoft Graph comme une API REST.
 
 ```CSharp
 public async Task<IActionResult> Profile()
@@ -74,7 +74,7 @@ public async Task<IActionResult> Profile()
 > [!NOTE]
 > Vous pouvez utiliser le même principe pour appeler une API web.
 >
-> Plus Azure web API fournissent un kit SDK qui simplifie l’appel d’elle. C’est également le cas de Microsoft Graph. Dans le prochain article, vous allez apprendre où trouver un didacticiel illustrant ces aspects.
+> La plupart des API web fournissent un Kit de développement logiciel (SDK) qui simplifie leur appel. C’est également le cas de Microsoft Graph. Dans l’article suivant, vous découvrirez où rechercher un didacticiel illustrant ces aspects.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

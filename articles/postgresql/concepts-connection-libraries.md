@@ -1,19 +1,19 @@
 ---
-title: Bibliothèques de connexions de base de données Azure pour PostgreSQL - serveur unique
-description: Cet article décrit plusieurs bibliothèques et pilotes que les développeurs peuvent utiliser quand codent des applications pour vous connecter et interroger la base de données Azure pour PostgreSQL - serveur unique.
+title: Bibliothèques de connexions d’Azure Database pour PostgreSQL - Serveur unique
+description: Cet article décrit plusieurs bibliothèques et pilotes que les développeurs peuvent utiliser lorsqu’ils codent des applications pour se connecter à une Azure Database pour PostgreSQL - Serveur unique et l’interroger.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: 85110126f9bdec225b1644860814cd89832132a1
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65073592"
 ---
-# <a name="connection-libraries-for-azure-database-for-postgresql---single-server"></a>Bibliothèques de connexions de base de données Azure pour PostgreSQL - serveur unique
+# <a name="connection-libraries-for-azure-database-for-postgresql---single-server"></a>Bibliothèques de connexions d’Azure Database pour PostgreSQL - Serveur unique
 Cet article liste les bibliothèques et les pilotes qui sont à la disposition des développeurs pour développer des applications qui se connectent à Azure Database pour PostgreSQL et l’interrogent.
 
 ## <a name="client-interfaces"></a>Interfaces client

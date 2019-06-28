@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 03/05/2019
 ms.author: cshoe
 ms.openlocfilehash: 421e0db48f045c5cbce52a0641902e6d2a11276e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66132458"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67176859"
 ---
 ## <a name="trigger"></a>Déclencheur
 
@@ -400,7 +400,7 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
 
 Le déclencheur Event Hubs fournit plusieurs [propriétés de métadonnées](../articles/azure-functions/./functions-bindings-expressions-patterns.md). Ces propriétés peuvent être utilisées dans les expressions de liaison dans d’autres liaisons ou en tant que paramètres dans votre code. Ce sont les propriétés de la classe [EventData](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventdata).
 
-|Propriété|Type|Description|
+|Propriété|type|Description|
 |--------|----|-----------|
 |`PartitionContext`|[PartitionContext](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.partitioncontext)|L’instance `PartitionContext`.|
 |`EnqueuedTimeUtc`|`DateTime`|Le temps de file d’attente en UTC.|
@@ -418,7 +418,7 @@ Le fichier [host.json](../articles/azure-functions/functions-host-json.md#eventh
 
 [!INCLUDE [functions-host-json-event-hubs](../articles/azure-functions/../../includes/functions-host-json-event-hubs.md)]
 
-## <a name="output"></a>Sortie
+## <a name="output"></a>Output
 
 Utilisez la liaison de sortie Event Hubs pour écrire des événements dans un flux d’événements du hub d’événements. Vous devez disposer de l’autorisation d’envoi à un hub d’événements pour y écrire les événements.
 

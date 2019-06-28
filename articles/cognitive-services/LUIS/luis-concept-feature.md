@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: diberry
 ms.openlocfilehash: 7889f223b607912fd88c798b31ec028f97dfbbd6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60812923"
 ---
 # <a name="phrase-list-features-in-your-luis-app"></a>Caractéristiques de liste d’expressions dans votre application LUIS
@@ -93,7 +93,7 @@ Même si une liste d’expressions et des entités de liste peuvent affecter des
 ### <a name="use-a-phrase-list"></a>Utiliser une liste d’expressions
 Avec une liste d’expressions, LUIS peut toujours prendre en compte le contexte et généraliser afin d’identifier les éléments qui sont similaires, mais pas une correspondance exacte, à des éléments d’une liste. Si votre application LUIS doit être en mesure de généraliser et d’identifier les nouveaux éléments dans une catégorie, utilisez une liste d’expressions. 
 
-Lorsque vous souhaitez être en mesure de reconnaître les nouvelles instances d’une entité, comme un planificateur de réunion qui doit reconnaître les noms de nouveaux contacts, ou une application d’inventaire qui doit reconnaître les nouveaux produits, utilisez un autre type de machine a appris une entité telle qu’une entité simple. Créez ensuite une liste d’expressions de mots et d’expressions qui permet à LUIS de rechercher d’autres mots similaires à l’entité. Cette liste guide LUIS afin qu’il reconnaisse des exemples de l’entité en ajoutant une précision supplémentaire à la valeur de ces mots. 
+Si vous souhaitez pouvoir reconnaître les nouvelles instances d’une entité, (par exemple, pour un planificateur de réunions qui doit reconnaître les noms de nouveaux contacts ou une application d’inventaire qui doit reconnaître de nouveaux produits), utilisez un autre type d’entité apprise automatiquement, comme une entité simple. Créez ensuite une liste d’expressions de mots et d’expressions qui permet à LUIS de rechercher d’autres mots similaires à l’entité. Cette liste guide LUIS afin qu’il reconnaisse des exemples de l’entité en ajoutant une précision supplémentaire à la valeur de ces mots. 
 
 Les listes d’expression sont comme du vocabulaire spécifique à un domaine qui permet d’améliorer la qualité de compréhension des intentions et des entités. Une utilisation courante d’une liste d’expressions s’applique aux noms propres comme les noms de villes. Un nom de ville peut contenir plusieurs mots avec des traits d’union ou des apostrophes.
  

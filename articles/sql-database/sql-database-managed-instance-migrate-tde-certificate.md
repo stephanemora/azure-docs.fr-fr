@@ -13,10 +13,10 @@ ms.reviewer: carlrab, jovanpop
 manager: craigg
 ms.date: 04/25/2019
 ms.openlocfilehash: f54950ab96664b17aab056b468db0644216e8654
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64706100"
 ---
 # <a name="migrate-certificate-of-tde-protected-database-to-azure-sql-database-managed-instance"></a>Migrer le certificat d’une base de données protégée par TDE vers Azure SQL Database Managed Instance
@@ -31,20 +31,20 @@ Lorsque vous migrez une base de données protégée par [Transparent Data Encryp
 Pour prendre connaissance d’une autre possibilité de migration fluide d’une base de données protégée par TDE et du certificat correspondant à l’aide d’un service géré, consultez [Migrer SQL Server vers Azure SQL Database Managed Instance à l’aide de DMS](../dms/tutorial-sql-server-to-managed-instance.md).
 
 > [!IMPORTANT]
-> Un certificat migré permet de restaurer uniquement la base de données protégée par TDE. Peu après la restauration est effectuée, le certificat migré obtient remplacé par un protecteur différents, géré par le service de certificat ou clé asymétrique du coffre de clés, selon le type de chiffrement transparent des données que vous définissez sur l’instance.
+> Un certificat migré permet de restaurer uniquement la base de données protégée par TDE. Peu de temps après la restauration, le certificat migré est remplacé par un autre protecteur, soit un certificat géré par le service, soit une clé asymétrique du coffre de clés, en fonction du type de chiffrement transparent des données défini sur l’instance.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Le module PowerShell Azure Resource Manager est toujours pris en charge par Azure SQL Database, mais tous les développements futurs sont pour le module Az.Sql. Pour ces applets de commande, consultez [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Les arguments pour les commandes dans le module Az et dans les modules AzureRm sont sensiblement identiques.
+> Le module PowerShell Azure Resource Manager est toujours pris en charge par Azure SQL Database, mais tous les développements futurs sont destinés au module Az.Sql. Pour ces cmdlets, consultez [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Les arguments des commandes dans le module Az et dans les modules AzureRm sont sensiblement identiques.
 
 Pour effectuer les étapes indiquées dans cet article, vous avez besoin des éléments requis suivants :
 
 - L’outil en ligne de commande [Pvk2pfx](https://docs.microsoft.com/windows-hardware/drivers/devtest/pvk2pfx) installé sur le serveur local ou un autre ordinateur avec accès au certificat exporté dans un fichier. Cet outil fait partie du kit [Enterprise Windows Driver Kit](https://docs.microsoft.com/windows-hardware/drivers/download-the-wdk), un environnement de ligne de commande autonome.
 - [Windows PowerShell](https://docs.microsoft.com/powershell/scripting/setup/installing-windows-powershell) version 5.0 ou supérieure installé.
 - Module Azure PowerShell [installé et mis à jour](https://docs.microsoft.com/powershell/azure/install-az-ps).
-- [Module de Az.Sql](https://www.powershellgallery.com/packages/Az.Sql).
+- [Module Az.Sql](https://www.powershellgallery.com/packages/Az.Sql).
   Exécutez les commandes suivantes dans PowerShell pour installer/mettre à jour le module PowerShell :
 
    ```powershell

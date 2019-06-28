@@ -1,6 +1,6 @@
 ---
-title: Protégé par les API Web - vue d’ensemble | Azure
-description: Découvrez comment créer un site web protégé API (vue d’ensemble).
+title: Vue d’ensemble de l’API web protégée | Azure
+description: Découvrez comment créer une API web protégée (vue d’ensemble).
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -16,23 +16,23 @@ ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c5bc0075e6604bd1f94531040f2e4a0628e70667
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65074889"
 ---
 # <a name="scenario-protected-web-api"></a>Scénario : API web protégée
 
-Dans ce scénario, nous allons vous montrer comment vous pouvez exposer une API web et comment vous pouvez le protéger afin que seuls les utilisateurs authentifiés permettre accéder à l’API. Vous souhaitez autoriser les utilisateurs authentifiés avec à la fois travail et comptes scolaires ou des comptes personnels Microsoft personnels à utiliser votre API web.
+Dans ce scénario, nous allons vous montrer comment exposer une API web et comment la protéger afin que seuls les utilisateurs authentifiés puissent y accéder. Vous souhaiterez autoriser les utilisateurs authentifiés disposant à la fois de comptes professionnels et scolaires ou de comptes personnels Microsoft à utiliser votre API web.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [Pre-requisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
 ## <a name="specifics"></a>Spécificités
 
-Voici certaines caractéristiques que vous devez savoir pour protéger les API web :
+Voici certaines caractéristiques que vous devez connaître pour protéger les API web :
 
 - L’inscription de votre application doit exposer au moins une étendue. La version de jeton acceptée par votre API web dépend de l’audience de connexion.
 - La configuration du code pour l’API web doit valider le jeton qui est utilisé lors de l’appel de l’API web.

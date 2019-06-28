@@ -1,6 +1,6 @@
 ---
-title: Méthodes d’authentification pour Azure Security Center pour la version préliminaire IoT | Microsoft Docs
-description: Découvrez les différentes méthodes d’authentification disponibles lors de l’utilisation d’Azure Security Center pour le service IoT.
+title: Méthodes d'authentification d’Azure Security Center pour l’IoT (préversion) | Microsoft Docs
+description: Découvrez les différentes méthodes d’authentification disponibles avec le service Azure Security Center pour l’IoT.
 services: asc-for-iot
 ms.service: ascforiot
 documentationcenter: na
@@ -15,76 +15,76 @@ ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
 ms.openlocfilehash: 634d1aedfaf868766e3c1bf97373b9c310885835
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65198386"
 ---
-# <a name="security-agent-authentication-methods"></a>Méthodes d’authentification de l’agent de sécurité 
+# <a name="security-agent-authentication-methods"></a>Méthodes d'authentification de l’agent de sécurité 
 
 > [!IMPORTANT]
 > Azure Security Center pour IoT est disponible en préversion publique.
 > Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Cet article explique les différentes méthodes d’authentification que vous pouvez utiliser avec l’agent AzureIoTSecurity pour s’authentifier auprès du IoT Hub.
+Cet article décrit les différentes méthodes d’authentification utilisables avec l’agent AzureIoTSecurity pour s’authentifier auprès d’IoT Hub.
 
-Pour chaque périphérique intégré à Azure Security Center (ASC) pour IoT dans IoT Hub, un module de sécurité est nécessaire. Pour authentifier l’appareil, ASC pour IoT permettre utiliser une des deux méthodes. Choisissez la méthode qui convient le mieux à votre solution IoT existante. 
+Un module de sécurité est nécessaire pour chaque appareil intégré à Azure Security Center (ASC) pour l’IoT dans IoT Hub. Pour authentifier l’appareil, ASC pour l’IoT peut appliquer deux méthodes. Choisissez la plus adaptée à votre solution IoT actuelle. 
 
 > [!div class="checklist"]
-> * Option de Module de sécurité
-> * Option de l’appareil
+> * Option Module de sécurité
+> * Option Appareil
 
 ## <a name="authentication-methods"></a>Méthodes d’authentification
 
-Les deux méthodes pour l’agent AzureIoTSecurity effectuer l’authentification :
+Il existe deux méthodes permettant à l’agent AzureIoTSecurity d’effectuer l’authentification :
 
- - **Module** mode d’authentification<br>
-   Le Module est authentifié indépendamment de la représentation d’appareil.
-   Utilisez ce type d’authentification si vous souhaitez que l’agent de sécurité à utiliser une méthode d’authentification dédié via le module de sécurité (clé symétrique uniquement).
+ - Mode d'authentification **Module**<br>
+   Le Module est authentifié indépendamment du jumeau d’appareil.
+   Utilisez ce type d’authentification si vous souhaitez que l’agent de sécurité utilise une méthode d’authentification dédiée par le biais du module de sécurité (clé symétrique uniquement).
         
- - **APPAREIL** mode d’authentification<br>
-    Dans cette méthode, l’agent de sécurité authentifie tout d’abord avec l’identité d’appareil. Après l’authentification initiale, l’ASC pour l’agent IoT effectue un **REST** appeler à IoT Hub à l’aide de l’API REST avec les données d’authentification de l’appareil. L’ASC pour l’agent IoT demande ensuite la méthode d’authentification de module de sécurité et les données à partir du IoT Hub. Dans la dernière étape, l’ASC pour l’agent IoT effectue une authentification par rapport à l’ASC pour le module IoT.
+ - Mode d'authentification **Appareil**<br>
+    Dans cette méthode, l’agent de sécurité s’authentifie tout d’abord avec l’identité d’appareil. Après l’authentification initiale, l’agent ASC pour l’IoT effectue un appel **REST** à IoT Hub avec l’API REST et les données d’authentification de l’appareil. L’agent ASC pour l’IoT demande ensuite à IoT Hub la méthode d’authentification du module de sécurité et les données. Dans la dernière étape, l’agent ASC pour l’IoT effectue une authentification vis-à-vis du module ASC pour l’IoT.
     
-    Utilisez ce type d’authentification si vous souhaitez que l’agent de sécurité pour réutiliser une méthode d’authentification appareil existant (auto-signé certificat ou clé symétrique). 
+    Utilisez ce type d’authentification si vous souhaitez que l’agent de sécurité réutilise une méthode d’authentification d’appareil existante (certificat auto-signé ou clé symétrique). 
 
-Consultez [paramètres d’installation de l’agent de sécurité](#security-agent-installation-parameters) pour apprendre à configurer.
+Pour connaître la configuration, voir [Paramètres d’installation de l’agent de sécurité](#security-agent-installation-parameters).
                                 
 ## <a name="authentication-methods-known-limitations"></a>Limitations connues des méthodes d’authentification
 
-- **Module** mode d’authentification prend uniquement en charge l’authentification par clé symétrique.
-- Certificat d’autorité de certification n’est pas pris en charge par **appareil** mode d’authentification.  
+- Le mode d’authentification **Module** ne gère que l’authentification par clé symétrique.
+- Le certificat signé par l’autorité de certification n’est pas pris en charge par le mode d’authentification **Appareil**.  
 
 ## <a name="security-agent-installation-parameters"></a>Paramètres d’installation de l’agent de sécurité
 
-Lorsque [déploiement d’un agent de sécurité](how-to-deploy-agent.md), détails de l’authentification doivent être fournis en tant qu’arguments.
-Ces arguments sont documentées dans le tableau suivant.
+Lors du [déploiement d’un agent de sécurité](how-to-deploy-agent.md), les informations d’authentification doivent être indiquées comme arguments,
+documentés dans le tableau suivant.
 
 
 |Paramètre|Description|Options|
 |---------|---------------|---------------|
-|**identity**|mode d'authentification| **Module** ou **appareil**|
+|**identity**|mode d'authentification| **Module** ou **Device**|
 |**type**|Type d'authentification|**SymmetricKey** ou **SelfSignedCertificate**|
 |**filePath**|Chemin d’accès complet absolu du fichier contenant le certificat ou la clé symétrique| |
-|**gatewayHostname**|Nom de domaine complet de l’IoT Hub|Exemple : ContosoIotHub.azure-devices.net|
+|**gatewayHostname**|FQDN du hub IoT|Exemple : ContosoIotHub.azure-devices.net|
 |**deviceId**|ID de périphérique|Exemple : MyDevice1|
-|**certificateLocationKind**|Emplacement de stockage de certificat|**LocalFile** ou **Store**|
+|**certificateLocationKind**|Emplacement de stockage des certificats|**LocalFile** ou **Store**|
 
 
-Lorsque vous utilisez le script de l’agent de sécurité installation, la configuration suivante est effectuée automatiquement.
+Si vous utilisez le script d’installation de l’agent de sécurité, la configuration suivante est effectuée automatiquement.
 
-Pour modifier manuellement l’authentification de l’agent de sécurité, modifiez le fichier de configuration. 
+Pour changer manuellement l’authentification de l’agent de sécurité, modifiez le fichier de configuration. 
 
-## <a name="change-authentication-method-after-deployment"></a>Modifier la méthode d’authentification après le déploiement
+## <a name="change-authentication-method-after-deployment"></a>Changer de méthode d’authentification après le déploiement
 
-Lorsque vous déployez un agent de sécurité avec un script d’installation, un fichier de configuration est automatiquement créé.
+Si l’agent de sécurité est déployé avec un script d’installation, un fichier de configuration est automatiquement créé.
 
-Pour modifier les méthodes d’authentification après le déploiement, la modification manuelle du fichier de configuration est requise.
+Pour changer de méthode d’authentification après le déploiement, il faut modifier manuellement ce fichier.
 
 
-### <a name="c-based-security-agent"></a>C#-en fonction de l’agent de sécurité
+### <a name="c-based-security-agent"></a>Agent de sécurité C#
 
-Modifier _Authentication.config_ avec les paramètres suivants :
+Modifiez _Authentication.config_ avec les paramètres suivants :
 
 ```xml
 <Authentication>
@@ -97,9 +97,9 @@ Modifier _Authentication.config_ avec les paramètres suivants :
 </Authentication>
 ```
 
-### <a name="c-based-security-agent"></a>Agent de sécurité basée sur C
+### <a name="c-based-security-agent"></a>Agent de sécurité C
 
-Modifier _LocalConfiguration.json_ avec les paramètres suivants :
+Modifiez _LocalConfiguration.json_ avec les paramètres suivants :
 
 ```json
 "Authentication" : {
@@ -113,5 +113,5 @@ Modifier _LocalConfiguration.json_ avec les paramètres suivants :
 
 ## <a name="see-also"></a>Voir aussi
 - [Vue d’ensemble des agents de sécurité](security-agent-architecture.md)
-- [Déploiement de l’agent de sécurité](how-to-deploy-agent.md)
-- [Accéder aux données de sécurité brute](how-to-security-data-access.md)
+- [Déployer un agent de sécurité](how-to-deploy-agent.md)
+- [Accéder aux données de sécurité brutes](how-to-security-data-access.md)

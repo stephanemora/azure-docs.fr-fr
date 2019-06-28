@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 02/21/2019
 ms.author: alkohli
 ms.openlocfilehash: 8c87e14071b3bb40421ab655c172df739570e295
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66161242"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177518"
 ---
 Les mises en garde suivantes s’appliquent pour les déplacements des données dans Azure.
 

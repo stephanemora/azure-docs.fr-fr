@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: ellacroi
 ms.openlocfilehash: 225ed171599e3f822fc869c97a1c7d91f9107b1d
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65779805"
 ---
 # <a name="preferred-solutions-in-azure-marketplace-and-appsource"></a>Solutions préférées dans la place de marché Azure et AppSource
 
-Une solution préférée de Microsoft est une application cloud sélectionnée pour sa qualité, son niveau de performance et la possibilité de répondre aux besoins des clients dans un segment vertical ou un domaine fonctionnel précis. Une équipe d’experts de Microsoft valide les solutions de partenaires avec des fonctionnalités et des compétences éprouvées spécifiques. Ces solutions sont proposées dans notre vitrines de place de marché cloud, place de marché Azure et AppSource, ainsi que dans le portail Azure. Solutions préférées sur AppSource peuvent être découverts par secteur. Solutions préférées sur place de marché Azure et le portail Azure peuvent être découverts dans différentes catégories de solution horizontale.
+Une solution préférée de Microsoft est une application cloud sélectionnée pour sa qualité, son niveau de performance et la possibilité de répondre aux besoins des clients dans un segment vertical ou un domaine fonctionnel précis. Une équipe d’experts de Microsoft valide les solutions de partenaires avec des compétences et fonctionnalités éprouvées spécifiques. Ces solutions sont présentées dans les vitrines de notre place de marché dans le cloud, Place de marché Azure et AppSource, ainsi que dans le Portail Azure. Des solutions recommandées sur AppSource peuvent être découvertes par secteur. Des solutions recommandées sur Place de marché Azure et le Portail Azure peuvent être découvertes dans différentes catégories de solutions horizontales.

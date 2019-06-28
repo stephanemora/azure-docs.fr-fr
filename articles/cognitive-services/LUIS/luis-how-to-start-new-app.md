@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
 ms.openlocfilehash: 9d650a17ddfac6461341e50c4693e4522d9628b3
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65148193"
 ---
 # <a name="create-a-new-luis-app-in-the-luis-portal"></a>Créer une application LUIS dans le portail LUIS
@@ -56,30 +56,30 @@ Vous pouvez créer une application avec les API de création de deux manières 
     > [!NOTE]
     > La culture ne peut pas être modifiée une fois que l’application est créée. 
 
-## <a name="import-an-app-from-file"></a>Importer une application à partir du fichier
+## <a name="import-an-app-from-file"></a>Importer une application à partir d’un fichier
 
 1. Sur la page **Mes applications**, sélectionnez **Import new app** (Importer une nouvelle application).
-1. Dans la boîte de dialogue contextuelle, sélectionnez un fichier JSON d’application valide, puis **fait**.
+1. Dans la boîte de dialogue contextuelle, sélectionnez un fichier JSON d’application valide, puis sélectionnez **Effectué**.
 
 ### <a name="import-errors"></a>Erreurs d’importation
 
-Erreurs possibles sont : 
+Plusieurs erreurs sont possibles : 
 
-* Une application portant ce nom existe déjà. Importer à nouveau l’application, puis définissez le **nom facultatif** vers un nouveau nom. 
+* Il existe déjà une application portant ce nom. Importez à nouveau l’application, puis définissez un autre **Nom facultatif**. 
 
-## <a name="export-app-for-backup"></a>Exporter l’application pour la sauvegarde
+## <a name="export-app-for-backup"></a>Exporter une application à des fins de sauvegarde
 
-1. Sur **mes applications** page, sélectionnez **exporter**.
-1. Sélectionnez **exporter au format JSON**. Votre navigateur télécharge la version active de l’application.
+1. Sur la page **Mes applications**, sélectionnez **Exporter**.
+1. Sélectionnez **Exporter au format JSON**. Votre navigateur télécharge la version active de l’application.
 1. Ajoutez ce fichier à votre système de sauvegarde pour archiver le modèle.
 
-## <a name="export-app-for-containers"></a>Exporter app pour conteneurs
+## <a name="export-app-for-containers"></a>Exporter une application pour les conteneurs
 
-1. Sur **mes applications** page, sélectionnez **exporter**.
-1. Sélectionnez **exporter en tant que conteneur** puis sélectionnez quel emplacement publié (production ou phase) que vous voulez exporter.
-1. Utiliser ce fichier avec votre [conteneur de LUIS](luis-container-howto.md). 
+1. Sur la page **Mes applications**, sélectionnez **Exporter**.
+1. Sélectionnez **Exporter en tant que conteneur**, puis sélectionnez l’emplacement publié (de production ou de préproduction) à exporter.
+1. Utilisez ce fichier avec votre [conteneur LUIS](luis-container-howto.md). 
 
-    Si vous êtes intéressé par exportation un formé, mais ne pas encore publié de modèle à utiliser avec le conteneur de LUIS, accédez à la **Versions** page et d’exportation à partir de là. 
+    Si vous souhaitez exporter un modèle entraîné, mais pas encore publié, pour l’utiliser avec le conteneur LUIS, faites-le sur la page **Versions**. 
 
 ## <a name="delete-app"></a>Supprimer l’application
 

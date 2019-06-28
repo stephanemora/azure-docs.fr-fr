@@ -13,10 +13,10 @@ ms.author: mimart
 ms.reviewer: luleon
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 702eb5008c60764cd84e2787a8e2c2818d3f9268
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65780934"
 ---
 # <a name="assign-a-user-or-group-to-an-enterprise-app-in-azure-active-directory"></a>Affecter un utilisateur ou un groupe à une application d’entreprise dans Azure Active Directory
@@ -33,15 +33,15 @@ Pour affecter un utilisateur ou un groupe à une application d’entreprise, vou
 1. Connectez-vous au [portail Azure](https://portal.azure.com) en utilisant un compte d’administrateur général pour le répertoire.
 1. Sélectionnez **Tous les services**, entrez Azure Active Directory dans la zone de texte, puis sélectionnez **Entrée**.
 1. Sélectionnez **Applications d’entreprise**.
-1. Sur le **applications d’entreprise - toutes les applications** volet, vous voyez une liste des applications que vous pouvez gérer. Sélectionnez une application.
-1. Sur le ***appname*** volet (autrement dit, le volet avec le nom de l’application sélectionnée dans le titre), sélectionnez **Users & Groups**.
-1. Sur le ***appname*** **-groupes d’utilisateurs et** volet, sélectionnez **ajouter un utilisateur**.
-1. Sur le **ajouter une attribution** volet, sélectionnez **utilisateurs et groupes**.
+1. Dans le volet **Applications d’entreprise - Toutes les applications**, vous voyez la liste des applications que vous pouvez gérer. Sélectionnez une application.
+1. Dans le volet ***NomApplication*** (autrement dit, le volet portant le nom de l’application sélectionnée), choisissez **Utilisateurs et groupes**.
+1. Dans le volet ***NomApplication***  **- Utilisateurs et groupes**, sélectionnez **Ajouter un utilisateur**.
+1. Dans le volet **Ajouter une attribution**, sélectionnez **Utilisateurs et groupes**.
 
     ![Affecter un utilisateur ou un groupe à l’application](./media/assign-user-or-group-access-portal/assign-users.png)
-1. Sur le **utilisateurs et groupes** volet, sélectionnez un ou plusieurs utilisateurs ou groupes dans la liste, puis le **sélectionnez** bouton en bas du volet.
-1. Sur le **ajouter une attribution** volet, sélectionnez **rôle**. Ensuite, dans le **sélectionner un rôle** , sélectionnez un rôle à appliquer pour les utilisateurs ou groupes sélectionnés, puis sélectionnez **OK** en bas du volet.
-1. Sur le **ajouter une attribution** volet, sélectionnez le **affecter** bouton en bas du volet. Les utilisateurs ou les groupes ont les autorisations définies par le rôle sélectionné pour cette application d’entreprise.
+1. Dans le volet **Utilisateurs et groupes**, sélectionnez un ou plusieurs utilisateurs ou groupes dans la liste, puis cliquez sur le bouton **Sélectionner** en bas du volet.
+1. Dans le volet **Ajouter une attribution**, sélectionnez **Rôle**. Ensuite, dans le volet **Sélectionner un rôle**, choisissez un rôle à appliquer aux utilisateurs ou groupes sélectionnés, puis cliquez sur **OK** en bas du volet.
+1. Dans le volet **Ajouter une affectation**, sélectionnez le bouton **Affecter** en bas du volet. Les utilisateurs ou les groupes ont les autorisations définies par le rôle sélectionné pour cette application d’entreprise.
 
 ## <a name="allow-all-users-to-access-an-app---portal"></a>Autoriser tous les utilisateurs à accéder à une application - portail
 Pour autoriser tous les utilisateurs à accéder à une application :
@@ -51,12 +51,12 @@ Pour autoriser tous les utilisateurs à accéder à une application :
 1. Sélectionnez **Applications d’entreprise**.
 1. Dans le volet **Applications d’entreprise**, sélectionnez **Toutes les applications**. Cette action répertorie les applications que vous pouvez gérer.
 1. Dans le volet **Applications d’entreprise - Toutes les applications**, sélectionnez une application.
-1. Sur le ***appname*** volet, sélectionnez **propriétés**.
-1. Sur le  ***appname* -propriétés** volet, définissez le **affectation utilisateur requise ?** à **non**. 
+1. Dans le volet ***NomApplication***, sélectionnez **Propriétés**.
+1. Dans le volet ***NomApplication* - Propriétés**, définissez le paramètre **Affectation utilisateur requise ?** sur **Non**. 
 
 L’option **Affectation utilisateur requise ?**  :
 
-- N’affecte pas si une application s’affiche dans le volet d’accès application ou non. Pour montrer l’application dans le volet d’accès, vous devez affecter un utilisateur ou un groupe approprié à l’application.
+- N’a pas d’impact sur l’apparition ou non d’une application dans le volet Accès à l’application. Pour montrer l’application dans le volet d’accès, vous devez affecter un utilisateur ou un groupe approprié à l’application.
 - Fonctionne seulement avec les applications cloud qui sont configurées pour l’authentification unique SAML et avec les applications locales configurées avec le proxy d’application. Consultez [Authentification unique pour les applications](what-is-single-sign-on.md).
 - Nécessite que les utilisateurs donnent leur consentement à une application. Un administrateur peut accorder un consentement pour tous les utilisateurs.  Consultez [Configurer le consentement de l’utilisateur final pour une application](configure-user-consent.md).
 

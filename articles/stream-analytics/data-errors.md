@@ -1,6 +1,6 @@
 ---
-title: Erreurs de données de journal de diagnostic Stream Analytique Azure
-description: Cet article explique les différentes d’entrée et les erreurs de données de sortie qui peuvent se produire lors de l’utilisation d’Azure Stream Analytique.
+title: Erreurs de données des journaux de diagnostic Azure Stream Analytics
+description: Cet article explique les différentes erreurs de données d’entrée et de sortie qui peuvent se produire lors de l’utilisation d’Azure Stream Analytics.
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
@@ -8,21 +8,21 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/09/2019
 ms.openlocfilehash: b00eb12092838746f4bfe16f00eac55df9224b09
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65607227"
 ---
-# <a name="azure-stream-analytics-data-errors"></a>Erreurs de données Azure Stream Analytique
+# <a name="azure-stream-analytics-data-errors"></a>Erreurs de données Azure Stream Analytics
 
-Lorsqu’il existe une incohérence dans les données qui sont traitées par un travail Azure Stream Analytique, Analytique de Stream envoie un événement d’erreur de données pour les journaux de diagnostic. Analytique de Stream écrit des informations détaillées et des événements de l’exemple, dans ses journaux de diagnostic lorsque des erreurs de données se produisent. Un résumé de ces informations est également fourni via les notifications du portail pour certaines erreurs.
+Lorsqu’il existe une incohérence dans les données traitées par un travail Azure Stream Analytics, ce programme envoie un événement d’erreur de données aux journaux de diagnostic. Stream Analytics écrit des informations détaillées et des exemples d’événements dans ses journaux de diagnostic lorsque des erreurs de données se produisent. Un résumé de ces informations est également fourni via les notifications du portail pour certaines erreurs.
 
-Cet article décrit les différents types d’erreurs, les causes et les détails du journal de diagnostic pour les erreurs de données d’entrée et de sortie.
+Cet article décrit les différents types d’erreurs, leurs causes et les détails des journaux de diagnostic pour les erreurs de données d’entrée et de sortie.
 
 ## <a name="diagnostic-log-schema"></a>Schéma des journaux de diagnostic
 
-Consultez [résoudre les problèmes d’Azure Stream Analytique à l’aide des journaux de diagnostic](stream-analytics-job-diagnostic-logs.md#diagnostics-logs-schema) pour afficher le schéma pour les journaux de diagnostic. Le code JSON suivant est un exemple de valeur pour le **propriétés** champ d’un journal de diagnostic pour une erreur de données.
+Pour connaître le schéma des journaux de diagnostic, consultez la section [Résoudre les problèmes liés à Azure Stream Analytics à l’aide des journaux de diagnostic](stream-analytics-job-diagnostic-logs.md#diagnostics-logs-schema). Le code JSON suivant est un exemple de valeur pour le champ **Propriétés** d’un journal de diagnostic en cas d’erreur de données.
 
 ```json
 {
@@ -42,11 +42,11 @@ Consultez [résoudre les problèmes d’Azure Stream Analytique à l’aide des 
 
 ### <a name="inputdeserializererrorinvalidcompressiontype"></a>InputDeserializerError.InvalidCompressionType
 
-* Cause : Le type de compression d’entrée sélectionné ne correspond pas les données.
-* Notification du portail fournie : Oui
-* Niveau de journal de diagnostic : Avertissement
+* Cause : Le type de compression d’entrée sélectionné ne correspond pas aux données.
+* Notification de portail fournie : OUI
+* Niveau du journal de diagnostic : Avertissement
 * Détails des journaux
-   * Entrez l’identificateur de message. Pour le concentrateur d’événements, l’identificateur est le PartitionId, le décalage et le numéro de séquence.
+   * Identificateur de message d’entrée. Pour Event Hub, l’identificateur est l’ID de partition, le décalage et le numéro de séquence.
 
 **Message d’erreur**
 
@@ -56,12 +56,12 @@ Consultez [résoudre les problèmes d’Azure Stream Analytique à l’aide des 
 
 ### <a name="inputdeserializererrorinvalidheader"></a>InputDeserializerError.InvalidHeader
 
-* Cause : L’en-tête de données d’entrée n’est pas valide. Par exemple, un fichier CSV comporte des colonnes avec des noms dupliqués.
-* Notification du portail fournie : Oui
-* Niveau de journal de diagnostic : Avertissement
+* Cause : L’en-tête de données d’entrée n’est pas valide. Par exemple, un fichier CSV comporte des colonnes avec des noms en double.
+* Notification de portail fournie : OUI
+* Niveau du journal de diagnostic : Avertissement
 * Détails des journaux
-   * Entrez l’identificateur de message. 
-   * Charge utile réelle jusqu'à quelques kilo-octets.
+   * Identificateur de message d’entrée. 
+   * Charge utile réelle jusqu’à quelques kilo-octets.
 
 **Message d’erreur**
 
@@ -71,13 +71,13 @@ Consultez [résoudre les problèmes d’Azure Stream Analytique à l’aide des 
 
 ### <a name="inputdeserializererrormissingcolumns"></a>InputDeserializerError.MissingColumns
 
-* Cause : Les colonnes d’entrée définis avec CREATE TABLE ou par le biais TIMESTAMP BY n’existe pas.
-* Notification du portail fournie : Oui
-* Niveau de journal de diagnostic : Avertissement
+* Cause : Les colonnes d’entrée définies avec CREATE TABLE ou par le biais TIMESTAMP BY n’existent pas.
+* Notification de portail fournie : OUI
+* Niveau du journal de diagnostic : Avertissement
 * Détails des journaux
-   * Entrez l’identificateur de message. 
-   * Noms des colonnes qui sont manquants. 
-   * Charge utile réelle jusqu'à (quelques kilo-octets).
+   * Identificateur de message d’entrée. 
+   * Noms des colonnes manquantes. 
+   * Charge utile réelle jusqu’à quelques kilo-octets.
 
 **Messages d’erreur**
 
@@ -91,12 +91,12 @@ Consultez [résoudre les problèmes d’Azure Stream Analytique à l’aide des 
 
 ### <a name="inputdeserializererrortypeconversionerror"></a>InputDeserializerError.TypeConversionError
 
-* Cause : Impossible de convertir l’entrée pour le type spécifié dans l’instruction CREATE TABLE.
-* Notification du portail fournie : Oui
-* Niveau de journal de diagnostic : Avertissement
+* Cause : Impossible de convertir l’entrée selon le type spécifié dans l’instruction CREATE TABLE.
+* Notification de portail fournie : OUI
+* Niveau du journal de diagnostic : Avertissement
 * Détails des journaux
-   * Entrez l’identificateur de message. 
-   * Nom de la colonne et le type attendu.
+   * Identificateur de message d’entrée. 
+   * Nom de la colonne et type attendu.
 
 **Messages d’erreur**
 
@@ -110,12 +110,12 @@ Consultez [résoudre les problèmes d’Azure Stream Analytique à l’aide des 
 
 ### <a name="inputdeserializererrorinvaliddata"></a>InputDeserializerError.InvalidData
 
-* Cause : Données d’entrée ne sont pas dans le bon format. Par exemple, l’entrée n’est pas un JSON valide.
-* Notification du portail fournie : Oui
-* Niveau de journal de diagnostic : Avertissement
+* Cause : Les données d’entrée ne sont pas au bon format. Par exemple, l’entrée n’est pas un JSON valide.
+* Notification de portail fournie : OUI
+* Niveau du journal de diagnostic : Avertissement
 * Détails des journaux
-   * Entrez l’identificateur de message. 
-   * Charge utile réelle jusqu'à quelques kilo-octets.
+   * Identificateur de message d’entrée. 
+   * Charge utile réelle jusqu’à quelques kilo-octets.
 
 **Messages d’erreur**
 
@@ -129,13 +129,13 @@ Consultez [résoudre les problèmes d’Azure Stream Analytique à l’aide des 
 
 ### <a name="invalidinputtimestamp"></a>InvalidInputTimeStamp
 
-* Cause : La valeur de l’expression TIMESTAMP BY ne peut pas être convertie en datetime.
-* Notification du portail fournie : Oui
-* Niveau de journal de diagnostic : Avertissement
+* Cause : La valeur de l’expression TIMESTAMP BY ne peut pas être convertie en DateHeure.
+* Notification de portail fournie : OUI
+* Niveau du journal de diagnostic : Avertissement
 * Détails des journaux
-   * Entrez l’identificateur de message. 
+   * Identificateur de message d’entrée. 
    * Message d’erreur. 
-   * Charge utile réelle jusqu'à quelques kilo-octets.
+   * Charge utile réelle jusqu’à quelques kilo-octets.
 
 **Message d’erreur**
 
@@ -146,10 +146,10 @@ Consultez [résoudre les problèmes d’Azure Stream Analytique à l’aide des 
 ### <a name="invalidinputtimestampkey"></a>InvalidInputTimeStampKey
 
 * Cause : La valeur de TIMESTAMP BY OVER timestampColumn est NULL.
-* Notification du portail fournie : Oui
-* Niveau de journal de diagnostic : Avertissement
+* Notification de portail fournie : OUI
+* Niveau du journal de diagnostic : Avertissement
 * Détails des journaux
-   * La charge utile réelle jusqu'à quelques kilo-octets.
+   * Charge utile réelle jusqu’à quelques kilo-octets.
 
 **Message d’erreur**
 
@@ -159,12 +159,12 @@ Consultez [résoudre les problèmes d’Azure Stream Analytique à l’aide des 
 
 ### <a name="lateinputevent"></a>LateInputEvent
 
-* Cause : La différence entre l’heure de l’application et l’heure d’arrivée est supérieure à tolérance d’arrivée tardive.
-* Notification du portail fournie : Non
-* Niveau de journal de diagnostic : Information
+* Cause : La différence entre l’heure de l’application et l’heure d’arrivée est supérieure à la fenêtre de tolérance d’arrivée tardive.
+* Notification de portail fournie : Non
+* Niveau du journal de diagnostic : Information
 * Détails des journaux
-   * Heure de l’application et l’heure d’arrivée. 
-   * Charge utile réelle jusqu'à quelques kilo-octets.
+   * Heure de l’application et heure d’arrivée. 
+   * Charge utile réelle jusqu’à quelques kilo-octets.
 
 **Message d’erreur**
 
@@ -174,12 +174,12 @@ Consultez [résoudre les problèmes d’Azure Stream Analytique à l’aide des 
 
 ### <a name="earlyinputevent"></a>EarlyInputEvent
 
-* Cause : La différence entre l’heure de l’Application et l’heure d’arrivée est supérieure à 5 minutes.
-* Notification du portail fournie : Non
-* Niveau de journal de diagnostic : Information
+* Cause : La différence entre l’heure de l’application et l’heure d’arrivée est supérieure à 5 minutes.
+* Notification de portail fournie : Non
+* Niveau du journal de diagnostic : Information
 * Détails des journaux
-   * Heure de l’application et l’heure d’arrivée. 
-   * Charge utile réelle jusqu'à quelques kilo-octets.
+   * Heure de l’application et heure d’arrivée. 
+   * Charge utile réelle jusqu’à quelques kilo-octets.
 
 **Message d’erreur**
 
@@ -189,11 +189,11 @@ Consultez [résoudre les problèmes d’Azure Stream Analytique à l’aide des 
 
 ### <a name="outoforderevent"></a>OutOfOrderEvent
 
-* Cause : Événement est considéré comme en désordre en fonction de la fenêtre de tolérance de désordre définie.
-* Notification du portail fournie : Non
-* Niveau de journal de diagnostic : Information
+* Cause : L’événement est considéré comme en désordre en raison de la fenêtre de tolérance de désordre définie.
+* Notification de portail fournie : Non
+* Niveau du journal de diagnostic : Information
 * Détails des journaux
-   * Charge utile réelle jusqu'à quelques kilo-octets.
+   * Charge utile réelle jusqu’à quelques kilo-octets.
 
 **Message d’erreur**
 
@@ -205,11 +205,11 @@ Consultez [résoudre les problèmes d’Azure Stream Analytique à l’aide des 
 
 ### <a name="outputdataconversionerrorrequiredcolumnmissing"></a>OutputDataConversionError.RequiredColumnMissing
 
-* Cause : La colonne obligatoire pour la sortie n’existe pas. Par exemple, une colonne définie comme Azure Table PartitionKey does't existe.
-* Notification du portail fournie : Oui
-* Niveau de journal de diagnostic : Avertissement
+* Cause : La colonne obligatoire pour la sortie n’existe pas. Par exemple, une colonne définie comme clé de partition de table Azure n’existe pas.
+* Notification de portail fournie : OUI
+* Niveau du journal de diagnostic : Avertissement
 * Détails des journaux
-   * Nom de la colonne et l’identificateur d’enregistrement ou partie de l’enregistrement.
+   * Nom de la colonne, et identificateur d’enregistrement ou partie de l’enregistrement.
 
 **Message d’erreur**
 
@@ -219,11 +219,11 @@ Consultez [résoudre les problèmes d’Azure Stream Analytique à l’aide des 
 
 ### <a name="outputdataconversionerrorcolumnnameinvalid"></a>OutputDataConversionError.ColumnNameInvalid
 
-* Cause : La valeur de colonne ne sont pas conformes avec la sortie. Par exemple, le nom de colonne n’est pas une colonne de table Azure valide.
-* Notification du portail fournie : Oui
-* Niveau de journal de diagnostic : Avertissement
+* Cause : La valeur de colonne n’est pas conforme à la sortie. Par exemple, le nom de colonne n’est pas une colonne de table Azure valide.
+* Notification de portail fournie : OUI
+* Niveau du journal de diagnostic : Avertissement
 * Détails des journaux
-   * Nom de la colonne et identificateur d’enregistrement ou partie de l’enregistrement.
+   * Nom de la colonne, et identificateur d’enregistrement ou partie de l’enregistrement.
 
 **Message d’erreur**
 
@@ -233,9 +233,9 @@ Consultez [résoudre les problèmes d’Azure Stream Analytique à l’aide des 
 
 ### <a name="outputdataconversionerrortypeconversionerror"></a>OutputDataConversionError.TypeConversionError
 
-* Cause : Une colonne ne peut pas être convertie en un type valide dans la sortie. Par exemple, la valeur de colonne est incompatible avec les contraintes ou type défini dans la table SQL.
-* Notification du portail fournie : Oui
-* Niveau de journal de diagnostic : Avertissement
+* Cause : Une colonne ne peut pas être convertie en un type valide dans la sortie. Par exemple, la valeur de colonne est incompatible avec les contraintes ou le type définis dans la table SQL.
+* Notification de portail fournie : OUI
+* Niveau du journal de diagnostic : Avertissement
 * Détails des journaux
    * Nom de la colonne.
    * Identificateur d’enregistrement ou partie de l’enregistrement.
@@ -248,9 +248,9 @@ Consultez [résoudre les problèmes d’Azure Stream Analytique à l’aide des 
 
 ### <a name="outputdataconversionerrorrecordexceededsizelimit"></a>OutputDataConversionError.RecordExceededSizeLimit
 
-* Cause : La valeur du message est supérieure à la taille de sortie pris en charge. Par exemple, un enregistrement est supérieur à 1 Mo pour une sortie de concentrateur d’événements.
-* Notification du portail fournie : Oui
-* Niveau de journal de diagnostic : Avertissement
+* Cause : La valeur du message est supérieure à la taille de sortie prise en charge. Par exemple, un enregistrement fait plus de 1 Mo pour une sortie Event Hub.
+* Notification de portail fournie : OUI
+* Niveau du journal de diagnostic : Avertissement
 * Détails des journaux
    * Identificateur d’enregistrement ou partie de l’enregistrement.
 
@@ -262,9 +262,9 @@ Consultez [résoudre les problèmes d’Azure Stream Analytique à l’aide des 
 
 ### <a name="outputdataconversionerrorduplicatekey"></a>OutputDataConversionError.DuplicateKey
 
-* Cause : Un enregistrement contient déjà une colonne avec le même nom qu’une colonne système. Par exemple, la sortie CosmosDB avec une colonne nommée ID lors de la colonne d’ID est à une autre colonne.
-* Notification du portail fournie : Oui
-* Niveau de journal de diagnostic : Avertissement
+* Cause : Un enregistrement contient déjà une colonne portant le même nom qu’une colonne système. Par exemple, la sortie CosmosDB avec une colonne nommée ID lorsque la colonne d’ID est une autre colonne.
+* Notification de portail fournie : OUI
+* Niveau du journal de diagnostic : Avertissement
 * Détails des journaux
    * Nom de la colonne.
    * Identificateur d’enregistrement ou partie de l’enregistrement.
@@ -275,6 +275,6 @@ Consultez [résoudre les problèmes d’Azure Stream Analytique à l’aide des 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Résoudre les problèmes d’Azure Stream Analytique à l’aide des journaux de diagnostic](stream-analytics-job-diagnostic-logs.md)
+* [Résoudre les problèmes liés à Azure Stream Analytics à l’aide des journaux de diagnostic](stream-analytics-job-diagnostic-logs.md)
 
-* [Comprendre comment surveiller les requêtes et surveillance des travaux d’Analytique de Stream](stream-analytics-monitoring.md)
+* [Présentation de la surveillance des tâches Stream Analytics et des requêtes](stream-analytics-monitoring.md)

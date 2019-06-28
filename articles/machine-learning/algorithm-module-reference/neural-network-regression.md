@@ -1,7 +1,7 @@
 ---
-title: 'Régression de réseau neuronal : Référence de module'
+title: 'Régression de réseau neuronal : Informations de référence sur les modules'
 titleSuffix: Azure Machine Learning service
-description: Découvrez comment utiliser le module de régression de réseau neuronal dans le service Azure Machine Learning pour créer un modèle de régression à l’aide d’un algorithme de réseau neuronal personnalisable...
+description: Découvrez comment utiliser le module Régression de réseau neuronal dans Azure Machine Learning service pour créer un modèle de régression à l’aide d’un algorithme de réseau neuronal personnalisable.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,92 +11,92 @@ ms.author: zhanxia
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
 ms.openlocfilehash: bc6a7505ab09e929e5add61eea687f871aedf242
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65029309"
 ---
-# <a name="neural-network-regression-module"></a>Module de régression de réseau neuronal
+# <a name="neural-network-regression-module"></a>Module Régression de réseau neuronal
 
 *Crée un modèle de régression à l’aide d’un algorithme de réseau neuronal*  
   
- Catégorie : L’apprentissage automatique / d’initialiser le modèle / régression
+ Catégorie : Machine Learning / Initialiser le modèle / Régression
   
 ## <a name="module-overview"></a>Vue d’ensemble du module  
 
-Cet article décrit un module de l’interface visuelle (version préliminaire) pour le service Azure Machine Learning.
+Cet article décrit un module de l’interface visuelle (préversion) d’Azure Machine Learning service.
 
 Utilisez ce module pour créer un modèle de régression à l’aide d’un algorithme de réseau neuronal personnalisable.
   
- Bien que les réseaux neuronaux sont largement connues pour une utilisation dans l’apprentissage profond et la modélisation des problèmes complexes telles que la reconnaissance d’image, ils sont facilement adaptables aux problèmes de régression. N’importe quelle classe de modèles statistiques peut être appelée réseau neuronal si elles utilisent les pondérations adaptatives et peuvent se rapprocher de fonctions non linéaires de leurs entrées. Par conséquent, régression de réseau neuronal est adaptée aux problèmes où un modèle de régression plus traditionnel ne rentrent pas une solution.
+ Bien que les réseaux neuronaux soient largement connus pour une utilisation dans le Deep Learning et la modélisation de problèmes complexes tels que la reconnaissance d’image, ils s’adaptent facilement aux problèmes de régression. Une classe de modèles statistiques peut être appelée un réseau neuronal si elle utilise des pondérations adaptatives et est en mesure d’estimer des fonctions non linéaires de leurs entrées. La régression de réseau neuronal convient ainsi aux problèmes pour lesquels un modèle de régression plus traditionnel ne parvient pas à trouver de solution.
   
- Régression de réseau neuronal est une méthode d’apprentissage supervisé et nécessite donc un *balisés dataset*, qui inclut une colonne d’étiquette. Car un modèle de régression prédit une valeur numérique, la colonne d’étiquette doit être un type de données numériques.  
+ La régression de réseau neuronal est une méthode d’apprentissage supervisée. Ainsi, elle nécessite un *jeu de données avec balises*, qui inclut une colonne d’étiquette. Dans la mesure où un modèle de régression prédit une valeur numérique, la colonne d’étiquette doit être un type de données numériques.  
   
- Vous pouvez former le modèle en fournissant le modèle et le jeu de données avec balises en tant qu’entrée [former le modèle](./train-model.md). Le modèle formé peut ensuite être utilisé pour prédire des valeurs pour les nouveaux exemples d’entrée.  
+ Vous pouvez effectuer l’apprentissage du modèle en fournissant un jeu de données avec balises et le modèle en tant qu’entrée pour [Train Model](./train-model.md) (Entraîner le modèle). Le modèle formé peut ensuite être utilisé pour prédire des valeurs pour les nouveaux exemples d’entrées.  
   
 ## <a name="configure-neural-network-regression"></a>Configurer la régression de réseau neuronal 
 
-Réseaux neuronaux peuvent être largement personnalisés. Cette section décrit comment créer un modèle à l’aide de deux méthodes :
+Les réseaux neuronaux peuvent être hautement personnalisés. Cette section décrit la création d’un modèle selon deux méthodes :
   
 + [Créer un modèle de réseau neuronal à l’aide de l’architecture par défaut](#bkmk_DefaultArchitecture)  
   
-    Si vous acceptez l’architecture de réseau neuronal par défaut, utilisez le **propriétés** volet pour définir les paramètres qui contrôlent le comportement du réseau neuronal, telles que le nombre de nœuds dans la couche masquée, le taux d’apprentissage et la normalisation.
+    Si vous acceptez l’architecture de réseau neuronal par défaut, utilisez le volet **Propriétés** pour définir les paramètres qui contrôlent le comportement du réseau neuronal, comme le nombre de nœuds dans la couche masquée, le taux d’apprentissage et la normalisation.
 
-    Commencez ici si vous ne connaissez pas les réseaux neuronaux. Le module prend en charge les nombreuses personnalisations, ainsi que le réglage de modèles, sans une connaissance approfondie des réseaux neuronaux. 
+    Commencez ici si vous ne connaissez pas encore les réseaux neuronaux. Le module prend en charge de nombreuses personnalisations, ainsi que le réglage de modèle, sans une connaissance approfondie des réseaux neuronaux. 
 
 + Définir une architecture personnalisée pour un réseau neuronal 
 
-    Utilisez cette option si vous souhaitez ajouter des couches masquées supplémentaires ou personnaliser entièrement les fonctions d’architecture, ses connexions et l’activation de réseau.
+    Utilisez cette option si vous souhaitez ajouter des couches masquées supplémentaires ou personnaliser entièrement l’architecture du réseau, ses connexions et fonctions d’activation.
     
-    Cette option est recommandée si vous êtes déjà familiarisé avec les réseaux neuronaux. Vous utilisez le langage Net # pour définir l’architecture de réseau.  
+    Cette option est recommandée si vous connaissez déjà les réseaux neuronaux. Vous utilisez le langage Net# pour définir l’architecture réseau.  
 
 ##  <a name="bkmk_DefaultArchitecture"></a> Créer un modèle de réseau neuronal à l’aide de l’architecture par défaut
   
-1.  Ajouter le **Neural Network Regression** module à votre expérience dans l’interface. Vous trouverez ce module sous **Machine Learning**, **initialiser**, dans le **régression** catégorie. 
+1.  Ajoutez le module **Régression de réseau neuronal** à votre expérience dans l’interface. Vous le trouverez sous **Machine Learning**, **Initialiser**, dans la catégorie **Régression**. 
   
-2. Indiquer comment vous souhaitez que le modèle formé, en définissant le **créer un mode d’entraînement** option.  
+2. Indiquez le mode d’apprentissage du modèle en définissant l’option **Create trainer mode** (Créer un mode d’apprentissage).  
   
-    -   **L’unique paramètre**: Choisissez cette option si vous savez déjà comment vous souhaitez configurer le modèle.  
+    -   **Single Parameter** (Paramètre unique) : choisissez cette option si vous savez déjà comment vous souhaitez configurer le modèle.  
 
-3.  Dans **masqué de spécification de la couche**, sélectionnez **entièrement connectée cas**. Cette option crée un modèle à l’aide de l’architecture de réseau neuronal par défaut, ayant pour un modèle de régression de réseau neuronal, ces attributs :  
+3.  Dans **Hidden layer specification** (Spécification de couche masquée), sélectionnez **Fully connected case** (Cas entièrement connecté). Cette option crée un modèle à l’aide de l’architecture réseau neuronal par défaut qui, pour un modèle de régression de réseau neuronal, comporte les attributs suivants :  
   
-    + Le réseau a exactement une seule couche cachée.
-    + La couche de sortie est entièrement connectée à la couche masquée et la couche masquée est entièrement connectée à la couche d’entrée.
-    + Le nombre de nœuds dans la couche masquée peut être défini par l’utilisateur (valeur par défaut est 100).  
+    + Le réseau a exactement une seule couche masquée.
+    + La couche de sortie est entièrement connectée à la couche masquée, et la couche masquée est entièrement connectée à la couche d’entrée.
+    + Le nombre de nœuds dans la couche masquée peut être défini par l’utilisateur (valeur par défaut de 100).  
   
-    Étant donné que le nombre de nœuds dans la couche d’entrée est déterminé par le nombre de fonctionnalités dans les données d’apprentissage, dans un modèle de régression il peut y avoir qu’un seul nœud dans la couche de sortie.  
+    Étant donné que le nombre de nœuds dans la couche d’entrée est déterminé par le nombre de fonctionnalités dans les données d’apprentissage, un modèle de régression ne peut comporter qu’un seul nœud dans la couche de sortie.  
   
-4. Pour **nombre de nœuds masqués**, tapez le nombre de nœuds masqués. La valeur par défaut est une seule couche cachée avec 100 nœuds. (Cette option n’est pas disponible si vous définissez une architecture personnalisée à l’aide de Net #.)
+4. Pour **Number of hidden nodes** (Nombre de nœuds masqués), saisissez le nombre de nœuds masqués. La valeur par défaut est une couche masquée avec 100 nœuds. (Cette option n’est pas disponible si vous définissez une architecture personnalisée à l’aide de Net#.)
   
-5.  Pour **taux d’apprentissage**, tapez une valeur qui définit l’opération effectuée à chaque itération, avant correction. Une valeur supérieure pour le taux d’apprentissage peut amener le modèle à converger plus rapidement, mais il peut dépasser les minima locaux.
+5.  Pour **Learning rate** (Taux d’apprentissage), saisissez une valeur qui définit l’étape effectuée à chaque itération, avant correction. Avec une valeur de taux d’apprentissage supérieure, le modèle convergera peut-être plus rapidement, mais cette valeur peut dépasser les minima locaux.
 
-6.  Pour **nombre d’itérations d’apprentissage**, spécifiez le nombre maximal de fois où l’algorithme traite les cas d’apprentissage.
+6.  Pour **Number of learning iterations** (Nombre d’itérations d’apprentissage), spécifiez le nombre maximal de fois où l’algorithme traite les cas d’apprentissage.
 
-7.  Pour ** l’apprentissage initial pondère le diamètre, tapez une valeur qui détermine les pondérations des nœuds au début du processus d’apprentissage.
+7.  Pour **The initial learning weights diameter** (Le diamètre initial des pondérations d’apprentissage), saisissez une valeur qui détermine les pondérations de nœud au début du processus d’apprentissage.
 
-8.  Pour **l’inertie**, tapez une valeur à appliquer au cours de formation en tant qu’un poids sur les nœuds des itérations précédentes.
+8.  Pour **The momentum** (La dynamique), saisissez une valeur à appliquer pendant l’apprentissage sous forme de pondération sur les nœuds des itérations précédentes.
 
-10. Sélectionnez l’option **exemples de lecture aléatoire**, pour modifier l’ordre des cas entre les itérations. Si vous désélectionnez cette option, cas sont traités dans le même ordre chaque fois que vous exécutez l’expérience.
+10. Sélectionnez l’option **Shuffle examples** (Exemples de lecture aléatoire) pour modifier l’ordre des cas entre les itérations. Si vous désélectionnez cette option, les cas sont traités exactement dans le même ordre chaque fois que vous exécutez l’expérience.
   
-11. Pour **valeur initiale de nombre aléatoire**, vous pouvez éventuellement taper une valeur à utiliser comme valeur initiale. En spécifiant une valeur initiale valeur est utile lorsque vous souhaitez garantir la répétabilité entre les exécutions de la même expérience.
+11. Pour **Valeur de départ numérique aléatoire**, vous pouvez éventuellement saisir une valeur initiale à utiliser. La spécification d’une valeur initiale est utile lorsque vous souhaitez garantir la répétabilité entre les exécutions de la même expérience.
   
-13. Connecter un jeu de données de formation et l’autre de la [modules de formation](module-reference.md): 
+13. Connectez un jeu de données d’apprentissage à l’un des [modules de formation](module-reference.md) : 
   
-    -   Si vous définissez **créer un mode d’entraînement** à **seul paramètre**, utilisez [former le modèle](./train-model.md).  
+    -   Si vous définissez **Create trainer mode** (Créer un mode d’apprentissage) sur **Single Parameter** (Paramètre unique), utilisez [Train Model](./train-model.md) (Entraîner le modèle).  
   
    
 14. Exécutez l’expérience.  
 
 ## <a name="results"></a>Résultats
 
-Une fois la formation terminée :
+Une fois la formation terminée :
 
-+ Pour afficher un résumé des paramètres du modèle, ainsi que la fonctionnalité de poids tirées de formation et d’autres paramètres du réseau neuronal, avec le bouton droit la sortie de [former le modèle](./train-model.md), puis sélectionnez **visualiser**.  
++ Pour afficher un résumé des paramètres du modèle avec les pondérations de caractéristiques tirées de la formation et d’autres paramètres du réseau neuronal, cliquez avec le bouton droit sur la sortie du module [Train Model](./train-model.md) (Entraîner le modèle), puis sélectionnez **Visualiser**.  
 
-+ Pour enregistrer un instantané du modèle formé, cliquez sur le **ajouté pour l’apprentissage modèle** de sortie et sélectionnez **enregistrer en tant que modèle formé**. Ce modèle n’est pas mis à jour lors des exécutions consécutives de la même expérience.
++ Pour enregistrer un instantané du modèle formé, cliquez avec le bouton droit sur la sortie du **modèle formé** et sélectionnez **Save As Trained Model** (Enregistrer en tant que modèle formé). Ce modèle n’est pas mis à jour lors des exécutions consécutives de la même expérience.
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez le [ensemble de modules disponibles](module-reference.md) au service Azure Machine Learning. 
+Consultez l’[ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning service. 

@@ -9,10 +9,10 @@ ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
 ms.openlocfilehash: cdffbfd11a0f1c7d99818fa00f550965774b9b31
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65190064"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Questions fréquentes (FAQ) sur Azure Files
@@ -145,7 +145,7 @@ Cet article répond à des questions courantes sur les fonctionnalités d’Azur
 
 * <a id="afs-os-support"></a>
   **Puis-je utiliser Azure File Sync avec Windows Server 2008 R2, Linux ou mon périphérique de stockage NAS (Network-Attached Storage) ?**  
-    Actuellement, Azure File Sync prend en charge uniquement Windows Server 2019, Windows Server 2016 et Windows Server 2012 R2. À ce stade, nous n’avons pas d’autres plans à partager, mais nous sommes ouverts à l’idée de prendre en charge des plateformes supplémentaires en fonction de la demande des clients. Indiquez-nous les plateformes que vous souhaiteriez voir prises en charge sur le [forum UserVoice consacré à Azure Files](https://feedback.azure.com/forums/217298-storage/category/180670-files).
+    À l’heure actuelle, Azure File Sync prend uniquement en charge Windows Server 2019, Windows Server 2016 et Windows Server 2012 R2. À ce stade, nous n’avons pas d’autres plans à partager, mais nous sommes ouverts à l’idée de prendre en charge des plateformes supplémentaires en fonction de la demande des clients. Indiquez-nous les plateformes que vous souhaiteriez voir prises en charge sur le [forum UserVoice consacré à Azure Files](https://feedback.azure.com/forums/217298-storage/category/180670-files).
 
 * <a id="afs-tiered-files-out-of-endpoint"></a>
   **Pourquoi les fichiers hiérarchisés existent-ils en dehors de l’espace de noms du point de terminaison du serveur ?**  
@@ -222,7 +222,7 @@ Cet article répond à des questions courantes sur les fonctionnalités d’Azur
 * <a id="encryption-at-rest"></a>
 **Comment puis-je m’assurer que mon partage de fichiers Azure est chiffré au repos ?**  
 
-    Oui. Pour plus d’informations, consultez [Azure Storage Service Encryption](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+    Oui. Pour plus d’informations, voir [Azure Storage Service Encryption](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
 * <a id="access-via-browser"></a>
 **Comment donner accès à un fichier spécifique à l’aide d’un navigateur web ?**  
@@ -247,9 +247,9 @@ Cet article répond à des questions courantes sur les fonctionnalités d’Azur
 ## <a name="on-premises-access"></a>Accès local
 
 * <a id="port-445-blocked"></a>
-**Mon fournisseur de services Internet ou l’IT bloque le Port 445 est défectueux Azure Files de montage. Que dois-je faire ?**
+**Mon fournisseur de services Internet ou mon service informatique bloque le port 445, ce qui provoque l’échec du montage Azure Files. Que dois-je faire ?**
 
-    Vous pouvez en savoir plus sur [différentes manières de solution de contournement bloqué le port 445 ici](https://docs.microsoft.com/azure/storage/files/storage-troubleshoot-windows-file-connection-problems#cause-1-port-445-is-blocked). Azure Files autorise uniquement les connexions à l’aide de SMB 3.0 (avec prise en charge du cryptage) à partir d’en dehors de la région ou le centre de données. Protocole SMB 3.0 a introduit de nombreuses fonctionnalités de sécurité, notamment le chiffrement du canal qui est très sûr d’utiliser via internet. Toutefois, il est possible que le port 445 a été bloqué en raison d’une des raisons historiques de vulnérabilités associées à des versions inférieures de SMB. Dans la solution idéale, le port doit être bloqué pour que pour le trafic SMB 1.0 et SMB 1.0 doit être désactivée sur tous les clients.
+    Découvrez [différents moyens de contourner le blocage du port 445](https://docs.microsoft.com/azure/storage/files/storage-troubleshoot-windows-file-connection-problems#cause-1-port-445-is-blocked). Azure Files autorise seulement les connexions SMB 3.0 (avec prise en charge du cryptage) non issues de la région ou du centre de données. Le protocole SMB 3.0 a introduit de nombreuses fonctionnalités de sécurité, notamment le chiffrement du canal, particulièrement sécurisé sur Internet. Toutefois, il est possible que le port 445 ait été bloqué pour des raisons historiques de vulnérabilités trouvées dans des versions antérieures de SMB. Idéalement, le port ne devrait être bloqué que pour le trafic SMB 1.0, qui devrait être désactivé sur tous les clients.
 
 * <a id="expressroute-not-required"></a>
 **Dois-je utiliser Azure ExpressRoute pour me connecter à Azure Files ou pour utiliser Azure File Sync localement ?**  
@@ -360,7 +360,7 @@ Cet article répond à des questions courantes sur les fonctionnalités d’Azur
     Non. La taille maximale d’un partage de fichiers Azure est de 5 To. Actuellement, il s’agit d’une limite inconditionnelle que nous ne pouvons pas ajuster. Nous travaillons sur une solution permettant d’augmenter la taille de partage à 100 To, mais nous ne sommes pas en mesure de vous indiquer quand elle sera disponible pour l’instant.
 
 * <a id="open-handles-quota"></a>
-**Combien de clients peuvent accéder simultanément au même fichier ?**   
+**Combien de clients peuvent accéder simultanément au même fichier ?**    
     Il existe un quota de 2 000 handles ouverts sur un seul fichier. Quand vous avez 2 000 handles ouverts, un message d’erreur s’affiche pour signaler que le quota est atteint.
 
 * <a id="zip-slow-performance"></a>

@@ -12,10 +12,10 @@ ms.date: 01/23/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 6adc5dfa740d440e78bf2f276447c4585503d7c0
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65606469"
 ---
 # <a name="heading"></a>Traitement des données d’une machine virtuelle SQL Server sur Azure
@@ -87,7 +87,7 @@ Voici une petite présentation des données de latitude/longitude issue du site 
 * Le signe indique si nous nous trouvons au nord, au sud, à l’est ou à l’ouest.
 * Un chiffre des centaines différent de zéro indique que nous utilisons la longitude, et non la latitude.
 * Le chiffre des dizaines équivaut à environ 1 000 kilomètres. Il nous fournit des informations utiles sur le continent ou l’océan dans lequel nous nous trouvons.
-* Le chiffre des unités (un degré décimal) équivaut à 111 kilomètres maximum (60 milles marins, soit environ 69 milles terrestres). Il peut nous à peu près grande superficie ou il s’agit de pays/région.
+* Le chiffre des unités (un degré décimal) équivaut à 111 kilomètres maximum (60 milles marins, soit environ 69 milles terrestres). Il nous permet de déterminer approximativement le département de grande superficie ou le pays/la région dans lequel nous sommes.
 * La première décimale équivaut à 11,1 km maximum : elle permet de distinguer la position d’une grande ville de celle d’une autre grande localité voisine.
 * La deuxième décimale équivaut à 1,1 km maximum : elle permet de différencier un village du suivant.
 * La troisième décimale équivaut à 110 m maximum : elle permet d’identifier un domaine agricole ou un campus universitaire de grande taille.

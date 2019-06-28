@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 04/07/2019
 ms.author: diberry
 ms.openlocfilehash: ba0db22437961a33b0b415ec7cb60ad3df12821c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60195848"
 ---
 # <a name="train-your-active-version-of-the-luis-app"></a>Entraîner votre version active de l’application LUIS 
@@ -44,9 +44,9 @@ Pour démarrer le processus itératif dans le [portail LUIS](https://www.luis.ai
 >[!NOTE]
 >Si vous avez une ou plusieurs intentions dans votre application, qui ne contiennent pas d’exemple d’énoncé, vous ne pouvez pas former votre application. Ajoutez des énoncés pour tous vos intentions. Pour plus d’informations, voir [Ajouter des exemples d’énoncés](luis-how-to-add-example-utterances.md).
 
-## <a name="training-date-and-time"></a>Heure et date de formation
+## <a name="training-date-and-time"></a>Date et heure de l’apprentissage
 
-Date de la formation et l’heure est GMT + 2. 
+L’heure de l’apprentissage est GMT+2. 
 
 ## <a name="train-with-all-data"></a>Entraîner avec toutes les données
 

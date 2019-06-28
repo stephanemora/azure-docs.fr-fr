@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 3/25/2019
 ms.author: rohink
 ms.openlocfilehash: e0f3de95cfd4a18294e5e8e2adcf3b52a7487dbb
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65411355"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Résolution de noms des ressources dans les réseaux virtuels Azure
@@ -74,7 +74,7 @@ La résolution de noms fournie par Azure présente les avantages suivants :
 * Les noms d’hôte doivent être compatibles avec DNS. Les noms doivent comporter uniquement les caractères 0-9, a-z et « - », et ils ne peuvent pas commencer ou se terminer par « - ».
 * Le trafic de requêtes DNS est limité pour chaque machine virtuelle. Cette limitation ne devrait pas avoir d’incidence sur la plupart des applications. Si la limitation de requêtes est respectée, assurez-vous que la mise en cache côté client est activée. Pour plus d’informations, consultez [Configuration du client DNS](#dns-client-configuration).
 * Seules les machines virtuelles des 180 premiers services cloud sont inscrites pour chaque réseau virtuel dans un modèle de déploiement classique. Cette limite ne s’applique pas aux réseaux virtuels d’Azure Resource Manager.
-* L’adresse IP de DNS Azure est 168.63.129.16. Ceci est une adresse IP statique et ne change pas.
+* Adresse IP d’Azure DNS : 168.63.129.16. Il s’agit d’une adresse IP statique qui ne change pas.
 
 ## <a name="dns-client-configuration"></a>Configuration du client DNS
 
@@ -88,15 +88,15 @@ Le client DNS Windows par défaut comprend un cache DNS intégré. Certaines dis
 
 Il existe plusieurs packages de mise en cache DNS différents (par exemple, dnsmasq). Voici les étapes nécessaires à l’installation de dnsmasq sur les distributions les plus courantes :
 
-* **Ubuntu (utilise resolvconf)**:
+* **Ubuntu (utilise resolvconf)** :
   * Installez le package dnsmasq avec `sudo apt-get install dnsmasq`.
-* **SUSE (utilise netconf)**:
+* **SUSE (utilise netconf)** :
   * Installez le package dnsmasq avec `sudo zypper install dnsmasq`.
   * Activez le service dnsmasq avec `systemctl enable dnsmasq.service`. 
   * Démarrez le service dnsmasq avec `systemctl start dnsmasq.service`. 
   * Modifiez **/etc/sysconfig/network/config** et remplacez *NETCONFIG_DNS_FORWARDER=""* par *dnsmasq*.
   * Mettez à jour resolv.conf avec `netconfig update` pour définir le cache en tant que programme de résolution DNS local.
-* **CentOS (utilise NetworkManager)**:
+* **CentOS (utilise NetworkManager)** :
   * Installez le package dnsmasq avec `sudo yum install dnsmasq`.
   * Activez le service dnsmasq avec `systemctl enable dnsmasq.service`.
   * Démarrez le service dnsmasq avec `systemctl start dnsmasq.service`.
@@ -129,7 +129,7 @@ Le fichier resolv.conf est généralement généré automatiquement et ne doit p
 * **SUSE** (utilise netconf) :
   1. Ajoutez *timeout:1 attempts:5* au paramètre **NETCONFIG_DNS_RESOLVER_OPTIONS=""** dans **/etc/sysconfig/network/config**.
   2. Exécutez `netconfig update` pour effectuer la mise à jour.
-* **CentOS** (utilise NetworkManager) :
+* **CentOS (utilise NetworkManager)** :
   1. Ajoutez *echo "options timeout:1 attempts:5"* à **/etc/NetworkManager/dispatcher.d/11-dhclient**.
   2. Mettez à jour avec `service network restart`.
 
@@ -154,11 +154,11 @@ Le transfert DNS permet aussi la résolution DNS entre réseaux virtuels et perm
 
 ![Diagramme des requêtes DNS entre les deux réseaux virtuels](./media/virtual-networks-name-resolution-for-vms-and-role-instances/inter-vnet-dns.png)
 
-Lorsque vous utilisez la résolution de noms fournie par Azure, le protocole DHCP d’Azure fournit un suffixe DNS interne (**.internal.cloudapp.net**) à chaque machine virtuelle. Ce suffixe permet d’effectuer la résolution des noms d’hôte, car les enregistrements de noms d’hôte se trouvent dans la zone **internal.cloudapp.net**. Quand vous utilisez votre propre solution de résolution de noms, ce suffixe n’est pas fourni aux machines virtuelles, car il interfère avec d’autres architectures DNS (comme dans les scénarios avec jointure de domaine). Au lieu de cela, Azure fournit un espace réservé non fonctionnel (*reddog.microsoft.com*).
+Lorsque vous utilisez la résolution de noms fournie par Azure, le protocole DHCP d’Azure fournit un suffixe DNS interne ( **.internal.cloudapp.net**) à chaque machine virtuelle. Ce suffixe permet d’effectuer la résolution des noms d’hôte, car les enregistrements de noms d’hôte se trouvent dans la zone **internal.cloudapp.net**. Quand vous utilisez votre propre solution de résolution de noms, ce suffixe n’est pas fourni aux machines virtuelles, car il interfère avec d’autres architectures DNS (comme dans les scénarios avec jointure de domaine). Au lieu de cela, Azure fournit un espace réservé non fonctionnel (*reddog.microsoft.com*).
 
 Si nécessaire, vous pouvez déterminer le suffixe DNS interne à l’aide de PowerShell ou de l’API :
 
-* Pour les réseaux virtuels dans les modèles de déploiement Azure Resource Manager, le suffixe est disponible via le [API REST d’interface réseau](https://docs.microsoft.com/rest/api/virtualnetwork/networkinterfaces), le [Get-AzNetworkInterface](/powershell/module/az.network/get-aznetworkinterface) applet de commande PowerShell et le [ AZ réseau nic afficher](/cli/azure/network/nic#az-network-nic-show) commande CLI Azure.
+* Pour les réseaux virtuels des modèles de déploiement Azure Resource Manager, le suffixe est disponible via [l’API REST d’interface réseau](https://docs.microsoft.com/rest/api/virtualnetwork/networkinterfaces), la cmdlet PowerShell [Get-AzNetworkInterface](/powershell/module/az.network/get-aznetworkinterface) et la commande [az network nic show](/cli/azure/network/nic#az-network-nic-show) Azure CLI.
 * Dans les modèles de déploiement classiques, le suffixe est disponible via l’appel de [l’API Get Deployment](https://msdn.microsoft.com/library/azure/ee460804.aspx) ou l’applet de commande [Get-AzureVM -Debug](/powershell/module/servicemanagement/azure/get-azurevm).
 
 Si la redirection des requêtes vers Azure ne suffit pas, vous devez fournir votre propre solution DNS. Votre solution DNS doit :
@@ -173,7 +173,7 @@ Si la redirection des requêtes vers Azure ne suffit pas, vous devez fournir vot
 > 
 > 
 
-### <a name="web-apps"></a>Applications web
+### <a name="web-apps"></a>les applications web
 Supposons que vous ayez besoin d’effectuer la résolution des noms entre votre application web créée à l’aide d’App Service, et liée à un réseau virtuel, et les machines virtuelles du même réseau virtuel. Après avoir configuré un serveur DNS personnalisé comprenant un redirecteur DNS qui transfère les requêtes vers Azure (adresse IP virtuelle : 168.63.129.16), procédez aux étapes suivantes :
 1. Activez l’intégration de réseau virtuel pour votre application web, si ce n’est pas déjà fait, comme décrit dans [Intégrer une application à un réseau virtuel Azure](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 2. Dans le portail Azure, pour le plan App Service qui héberge l’application web, sélectionnez **Synchroniser le réseau** sous **Mise en réseau**, **Intégration du réseau virtuel**.

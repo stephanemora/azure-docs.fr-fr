@@ -1,6 +1,6 @@
 ---
-title: Azure Security Center pour le guide d’investigation appareil IoT Preview | Microsoft Docs
-description: Cette procédure traitant explique comment utiliser Azure Security Center pour IoT pour examiner un appareil IoT suspect à l’aide d’Analytique de journal.
+title: Guide d’enquête des appareils Azure Security Center pour l’IoT (préversion) | Microsoft Docs
+description: Ce guide pratique explique comment utiliser Azure Security Center pour l’IoT afin d’examiner un appareil IoT suspect avec Log Analytics.
 services: asc-for-iot
 ms.service: ascforiot
 documentationcenter: na
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/18/2019
 ms.author: mlottner
 ms.openlocfilehash: 15e65c155a98ae12c156587735d34a16ed2c9109
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65192653"
 ---
 # <a name="investigate-a-suspicious-iot-device"></a>Examiner un appareil IoT suspect
@@ -27,23 +27,23 @@ ms.locfileid: "65192653"
 > Azure Security Center pour IoT est disponible en préversion publique.
 > Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Azure Security Center (ASC) pour les preuves, ainsi que les alertes de service IoT fournissent des indications clair lorsque les appareils IoT sont suspectés d’implication dans les activités suspectes ou lorsque les indications existent qu’un appareil est compromis. 
+Les alertes et les preuves d’Azure Security Center (ASC) pour l’IoT donnent des indications claires quant à la possibilité qu’un appareil IoT soit compromis ou impliqué dans des activités suspectes. 
 
-Dans ce guide, utilisez les suggestions d’investigation fournies pour aider à déterminer les risques potentiels pour votre organisation, choisissez comment corriger et découvrir des meilleurs moyens d’éviter des attaques similaires à l’avenir.  
+Dans ce guide, utilisez les suggestions d’enquête fournies afin de déterminer les risques potentiels pour votre organisation, de choisir le mode de correction adéquat et de vous prémunir au mieux contre des attaques similaires.  
 
 > [!div class="checklist"]
 > * Rechercher les données de votre appareil
 > * Effectuer l’examen à l’aide de requêtes kql
 
 
-## <a name="how-can-i-access-my-data"></a>Comment puis-je accéder à mes données ?
+## <a name="how-can-i-access-my-data"></a>Accéder à ses données
 
 Par défaut, ASC pour IoT stocke vos recommandations et alertes de sécurité dans votre espace de travail Log Analytics. Vous pouvez également choisir de stocker vos données de sécurité brutes.
 
 Pour rechercher l’espace de travail Log Analytics abritant les données :
 
 1. Ouvrez votre hub IoT. 
-1. Sous **sécurité**, cliquez sur **vue d’ensemble**, puis sélectionnez **paramètres**.
+1. Sous **Sécurité**, cliquez sur **Vue d’ensemble**, puis sélectionnez **Paramètres**.
 1. Changez les détails de la configuration de votre espace de travail Log Analytics. 
 1. Cliquez sur **Enregistrer**. 
 
@@ -55,9 +55,9 @@ Une fois la configuration effectuée, procédez comme suit pour accéder aux don
 
 ## <a name="investigation-steps-for-suspicious-iot-devices"></a>Étapes de l’examen des appareils IoT suspects
 
-Pour accéder aux informations et les données brutes sur vos appareils IoT, accédez à votre espace de travail Analytique de journal [accéder à vos données](#how-can-i-access-my-data).
+Rendez-vous dans votre espace de travail Log Analytics [pour accéder aux données](#how-can-i-access-my-data) brutes et aux insights de vos appareils IoT.
 
-Vérifiez et recherchez les données d’appareil pour les informations suivantes et les activités à l’aide de requêtes kql suivantes.
+Examinez les données des appareils et recherchez les informations et les activités suivantes à l’aide des requêtes kql ci-dessous.
 
 ### <a name="related-alerts"></a>Alertes associées
 
@@ -71,7 +71,7 @@ Pour savoir si d’autres alertes ont été déclenchées à peu près au même 
   | project TimeGenerated, AlertName, AlertSeverity, Description, ExtendedProperties
   ~~~
 
-### <a name="users-with-access"></a>Utilisateurs avec accès
+### <a name="users-with-access"></a>Utilisateurs disposant d’un accès
 
 Pour savoir quels utilisateurs ont accès à un appareil spécifique, utilisez la requête kql suivante : 
 
@@ -90,11 +90,11 @@ Pour savoir quels utilisateurs ont accès à un appareil spécifique, utilisez l
   ~~~
 Ces données répondent aux questions suivantes : 
   1. Quels sont les utilisateurs ayant accès à l’appareil ?
-  2. Est-ce que les utilisateurs avec accès ont les niveaux d’autorisation comme prévu ? 
+  2. Les utilisateurs disposant d’un accès ont-ils les niveaux d’autorisation attendus ? 
 
 ### <a name="open-ports"></a>Ouvrir les ports
 
-Pour savoir quels ports dans l’appareil sont actuellement en cours d’utilisation ou a été utilisés, utilisez la requête kql suivante : 
+Pour savoir quels ports de l’appareil sont en cours d’utilisation ou ont été utilisés, exécutez la requête kql suivante : 
 
   ~~~
   let device = "YOUR_DEVICE_ID";
@@ -116,12 +116,12 @@ Pour savoir quels ports dans l’appareil sont actuellement en cours d’utilisa
 
     Use this data to discover:
   1. Quels sont les sockets d’écoute actifs sur l’appareil ?
-  2. L’écoute des sockets qui sont actuellement actives doivent être autorisés ?
-  3. Existe-t-il des toutes les adresses à distance suspectes connectés à l’appareil ?
+  2. Les sockets d’écoute actuellement actifs sont-ils censés être autorisés ?
+  3. Y a-t-il des adresses distantes suspectes connectées à l’appareil ?
 
 ### <a name="user-logins"></a>Connexions utilisateur
 
-Pour en savoir plus les utilisateurs connectés à l’appareil utilisent la requête kql suivante : 
+Pour savoir quels utilisateurs se sont connectés à l’appareil, utilisez la requête kql suivante : 
  
   ~~~
   let device = "YOUR_DEVICE_ID";
@@ -147,12 +147,12 @@ Pour en savoir plus les utilisateurs connectés à l’appareil utilisent la req
 
     Use the query results to discover:
   1. Quels sont les utilisateurs qui se sont connectés à l’appareil ?
-  2. Les utilisateurs connectés, sont-ils censés se connecter ?
+  2. Les utilisateurs qui se sont connectés sont-ils censés le faire ?
   3. Ces utilisateurs se sont-ils connectés à partir d’adresses IP attendues ou inattendues ?
   
-### <a name="process-list"></a>Liste des processus
+### <a name="process-list"></a>Liste de processus
 
-Pour savoir si la liste de processus est comme prévu, utilisez la requête kql suivante : 
+Pour savoir si la liste de processus est conforme à ce qui est attendu, utilisez la requête kql suivante : 
 
   ~~~
   let device = "YOUR_DEVICE_ID";

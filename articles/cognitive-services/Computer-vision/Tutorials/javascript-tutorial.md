@@ -12,49 +12,49 @@ ms.date: 04/30/2019
 ms.author: kefre
 ms.custom: seodec18
 ms.openlocfilehash: 91af70406590ab8e65a5d4a4b53835e9e4d4ed2a
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65231665"
 ---
-# <a name="use-computer-vision-features-with-the-rest-api-and-javascript"></a>Utiliser les fonctionnalités de vision par ordinateur avec l’API REST et le JavaScript
+# <a name="use-computer-vision-features-with-the-rest-api-and-javascript"></a>Utiliser les fonctionnalités de Vision par ordinateur avec l’API REST et JavaScript
 
-Ce guide présente les fonctionnalités de l’API REST de Azure Cognitive Services Computer Vision.
+Ce guide montre les fonctionnalités de l’API REST Vision par ordinateur Azure Cognitive Services.
 
 Explorez une application JavaScript qui utilise l’API REST Vision par ordinateur pour effectuer une reconnaissance optique des caractères (OCR), créer des miniatures avec un rognage intelligent ainsi que détecter, classer, baliser et décrire des fonctionnalités visuelles, dont des visages, dans une image. Cet exemple vous permet d’envoyer une URL d’image à des fins d’analyse ou de traitement. Vous pouvez utiliser cet exemple open source comme modèle pour générer votre propre application JavaScript utilisant l’API REST Vision par ordinateur.
 
-L’application de formulaire JavaScript a déjà été écrite, mais sans fonctionnalité Vision par ordinateur. Dans ce guide, vous ajoutez le code spécifique à l’API de REST de vision par ordinateur pour terminer la fonctionnalité d’application.
+L’application de formulaire JavaScript a déjà été écrite, mais sans fonctionnalité Vision par ordinateur. Dans ce guide, vous allez ajouter du code propre à l’API REST Vision par ordinateur pour compléter les fonctionnalités de l’application.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 ### <a name="platform-requirements"></a>Plateforme requise
 
-Vous pouvez suivre les étapes décrites dans ce guide à l’aide d’un simple éditeur de texte.
+Pour suivre les étapes décrites dans ce guide, vous pouvez utiliser un simple éditeur de texte.
 
 ### <a name="subscribe-to-computer-vision-api-and-get-a-subscription-key"></a>S’abonner à l’API Vision par ordinateur et obtenir une clé d’abonnement
 
-Avant de créer l’exemple, vous devez vous abonner à l’API Vision par ordinateur qui fait partie d’Azure Cognitive Services. Pour plus d’informations sur l’abonnement et la gestion des clés, consultez [Abonnements](https://azure.microsoft.com/try/cognitive-services/). Les clés primaires et secondaires sont valides à utiliser dans ce guide.
+Avant de créer l’exemple, vous devez vous abonner à l’API Vision par ordinateur qui fait partie d’Azure Cognitive Services. Pour plus d’informations sur l’abonnement et la gestion des clés, consultez [Abonnements](https://azure.microsoft.com/try/cognitive-services/). La clé primaire et la clé secondaire peuvent toutes deux être utilisées dans ce guide.
 
-## <a name="acquire-incomplete-tutorial-project"></a>Acquérir le projet du didacticiel incomplète
+## <a name="acquire-incomplete-tutorial-project"></a>Acquérir le projet du tutoriel incomplet
 
 ### <a name="download-the-project"></a>Téléchargez le projet
 
 Clonez le [tutoriel Vision par ordinateur JavaScript Cognitive Services](https://github.com/Azure-Samples/cognitive-services-javascript-computer-vision-tutorial) ou téléchargez le fichier .zip et extrayez-le dans un répertoire vide.
 
-Si vous préférez utiliser le projet terminé avec tous les code du didacticiel ajouté, vous pouvez utiliser les fichiers dans le **terminé** dossier.
+Si vous préférez utiliser le projet terminé, qui comporte tout le code du tutoriel, vous pouvez utiliser les fichiers du dossier **Completed**.
 
-## <a name="add-tutorial-code-to-the-project"></a>Ajoutez le code du didacticiel au projet
+## <a name="add-tutorial-code-to-the-project"></a>Ajouter le code du tutoriel au projet
 
-L’application JavaScript est configurée avec six fichiers .html, un pour chaque fonctionnalité. Chaque fichier montre une fonction différente de vision par ordinateur (analyse, reconnaissance optique de caractères, etc.). Les six sections n’ayant pas interdépendances, vous pouvez ajouter le code du didacticiel à un seul fichier, tous les six fichiers ou uniquement quelques fichiers. Vous pouvez également ajouter le code du tutoriel aux fichiers dans n’importe quel ordre.
+L’application JavaScript est configurée avec six fichiers .html, un pour chaque fonctionnalité. Chaque fichier illustre une fonction différente de la Vision par ordinateur (analyse, OCR, etc.). Les six sections ne comportant pas d’interdépendances, vous pouvez ajouter le code du tutoriel à un fichier, aux six fichiers ou seulement à une partie d’entre eux. Vous pouvez également ajouter le code du tutoriel aux fichiers dans n’importe quel ordre.
 
 ### <a name="analyze-an-image"></a>Analyser une image
 
-La fonctionnalité d’analyse de vision par ordinateur analyse une image pour des milliers d’objets reconnaissables, les choses de la vie, vivants et actions. Une fois l’analyse terminée, la fonctionnalité retourne un objet JSON qui décrit l’image avec des balises descriptives, une analyse des couleurs, des légendes et bien plus encore.
+La fonctionnalité Analyser de la Vision par ordinateur scanne une image pour détecter plusieurs milliers d’objets, d’êtres vivants, de paysages et d’actions reconnaissables. Une fois l’analyse terminée, la fonctionnalité retourne un objet JSON qui décrit l’image avec des balises descriptives, une analyse des couleurs, des légendes et bien plus encore.
 
-Pour terminer la fonctionnalité d’analyse de l’application, procédez comme suit :
+Pour compléter la fonctionnalité Analyser de l’application, suivez les étapes ci-dessous :
 
-#### <a name="add-the-event-handler-code-for-the-analyze-button"></a>Ajoutez le code de gestionnaire d’événements pour le bouton analyze
+#### <a name="add-the-event-handler-code-for-the-analyze-button"></a>Ajouter le code du gestionnaire d’événements du bouton analyze (analyser)
 
 Ouvrez le fichier **analyze.html** dans un éditeur de texte et recherchez la fonction **analyzeButtonClick** près du bas du fichier.
 
@@ -150,7 +150,7 @@ function AnalyzeImage(sourceImageUrl, responseTextArea, captionSpan) {
 }
 ```
 
-#### <a name="run-the-analyze-function"></a>Exécuter la fonction analyser
+#### <a name="run-the-analyze-function"></a>Exécuter la fonction analyze (analyser)
 
 Enregistrez le fichier **analyze.html** et ouvrez-le dans un navigateur web. Placez votre clé d’abonnement dans le champ **Clé d’abonnement** et vérifiez que vous utilisez la région correcte dans **Subscription Region** (Région d’abonnement). Entrez une URL vers une image à analyser, puis cliquez sur le bouton **Analyze Image** (Analyser l’image) pour analyser une image et voir le résultat.
 
@@ -158,9 +158,9 @@ Enregistrez le fichier **analyze.html** et ouvrez-le dans un navigateur web. Pla
 
 La fonctionnalité Élément géographique de Vision par ordinateur analyse une image pour détecter des éléments géographiques naturels et construits par l’homme, tels que des montagnes ou des bâtiments célèbres. Une fois l’analyse terminée, la fonctionnalité retourne un objet JSON qui identifie les éléments géographiques trouvés dans l’image.
 
-Pour terminer la fonction de l’élément géographique de l’application, procédez comme suit :
+Pour compléter la fonctionnalité Élément géographique de l’application, suivez les étapes ci-dessous :
 
-#### <a name="add-the-event-handler-code-for-the-landmark-button"></a>Ajoutez le code de gestionnaire d’événements pour le bouton d’éléments géographiques
+#### <a name="add-the-event-handler-code-for-the-landmark-button"></a>Ajouter le code du gestionnaire d’événements du bouton landmark (élément géographique)
 
 Ouvrez le fichier **landmark.html** dans un éditeur de texte et recherchez la fonction **landmarkButtonClick** près du bas du fichier.
 
@@ -255,7 +255,7 @@ function IdentifyLandmarks(sourceImageUrl, responseTextArea, captionSpan) {
 }
 ```
 
-#### <a name="run-the-landmark-function"></a>Exécuter la fonction d’éléments géographiques
+#### <a name="run-the-landmark-function"></a>Exécuter la fonction landmark (élément géographique)
 
 Enregistrez le fichier **landmark.html** et ouvrez-le dans un navigateur web. Placez votre clé d’abonnement dans le champ **Clé d’abonnement** et vérifiez que vous utilisez la région correcte dans **Subscription Region** (Région d’abonnement). Entrez une URL vers une image à analyser, puis cliquez sur le bouton **Analyze Image** (Analyser l’image) pour analyser une image et voir le résultat.
 
@@ -263,9 +263,9 @@ Enregistrez le fichier **landmark.html** et ouvrez-le dans un navigateur web. Pl
 
 La fonctionnalité Célébrités de Vision par ordinateur analyse une image pour détecter des personnes célèbres. Une fois l’analyse terminée, la fonctionnalité retourne un objet JSON qui identifie les célébrités trouvées dans l’image.
 
-Pour terminer la fonction de célébrités de l’application, procédez comme suit :
+Pour compléter la fonctionnalité Célébrités de l’application, suivez les étapes ci-dessous :
 
-#### <a name="add-the-event-handler-code-for-the-celebrities-button"></a>Ajoutez le code de gestionnaire d’événements pour le bouton de célébrités
+#### <a name="add-the-event-handler-code-for-the-celebrities-button"></a>Ajouter le code du gestionnaire d’événements du bouton celebrities (célébrités)
 
 Ouvrez le fichier **celebrities.html** dans un éditeur de texte et recherchez la fonction **celebritiesButtonClick** près du bas du fichier.
 
@@ -356,7 +356,7 @@ function IdentifyCelebrities(sourceImageUrl, responseTextArea, captionSpan) {
 }
 ```
 
-#### <a name="run-the-celebrities-function"></a>Exécuter la fonction de célébrités
+#### <a name="run-the-celebrities-function"></a>Exécuter la fonction celebrities (célébrités)
 
 Enregistrez le fichier **celebrities.html** et ouvrez-le dans un navigateur web. Placez votre clé d’abonnement dans le champ **Clé d’abonnement** et vérifiez que vous utilisez la région correcte dans **Subscription Region** (Région d’abonnement). Entrez une URL vers une image à analyser, puis cliquez sur le bouton **Analyze Image** (Analyser l’image) pour analyser une image et voir le résultat.
 
@@ -364,9 +364,9 @@ Enregistrez le fichier **celebrities.html** et ouvrez-le dans un navigateur web.
 
 La fonctionnalité Miniature de Vision par ordinateur génère une miniature à partir d’une image. À l’aide de la fonctionnalité **Rognage intelligent**, la fonctionnalité Miniature va identifier la zone d’intérêt dans une image et centrer la miniature sur cette zone pour générer des images miniatures plus agréables d’un point de vue esthétique.
 
-Pour terminer la fonction de la miniature de l’application, procédez comme suit :
+Pour compléter la fonctionnalité Miniature de l’application, suivez les étapes ci-dessous :
 
-#### <a name="add-the-event-handler-code-for-the-thumbnail-button"></a>Ajoutez le code de gestionnaire d’événements pour le bouton de miniature
+#### <a name="add-the-event-handler-code-for-the-thumbnail-button"></a>Ajouter le code du gestionnaire d’événements du bouton thumbnail (miniature)
 
 Ouvrez le fichier **thumbnail.html** dans un éditeur de texte et recherchez la fonction **thumbnailButtonClick** près du bas du fichier.
 
@@ -475,7 +475,7 @@ function getThumbnail (sourceImageUrl, smartCropping, imageElement, responseText
 }
 ```
 
-#### <a name="run-the-thumbnail-function"></a>Exécuter la fonction miniature
+#### <a name="run-the-thumbnail-function"></a>Exécuter la fonction thumbnail (miniature)
 
 Enregistrez le fichier **thumbnail.html** et ouvrez-le dans un navigateur web. Placez votre clé d’abonnement dans le champ **Clé d’abonnement** et vérifiez que vous utilisez la région correcte dans **Subscription Region** (Région d’abonnement). Entrez une URL vers une image à analyser, puis cliquez sur le bouton **Generate Thumbnails** (Générer des miniatures) pour analyser une image et voir le résultat.
 
@@ -483,9 +483,9 @@ Enregistrez le fichier **thumbnail.html** et ouvrez-le dans un navigateur web. P
 
 La fonctionnalité Reconnaissance optique des caractères (OCR) de Vision par ordinateur analyse une image de texte imprimé. Une fois l’analyse terminée, la fonctionnalité retourne un objet JSON qui contient le texte et l’emplacement du texte dans l’image.
 
-Pour terminer la fonctionnalité de reconnaissance optique de caractères de l’application, procédez comme suit :
+Pour compléter la fonctionnalité OCR de l’application, suivez les étapes ci-dessous :
 
-### <a name="add-the-event-handler-code-for-the-ocr-button"></a>Ajoutez le code de gestionnaire d’événements pour le bouton de la reconnaissance optique de caractères
+### <a name="add-the-event-handler-code-for-the-ocr-button"></a>Ajouter le code du gestionnaire d’événements du bouton OCR
 
 Ouvrez le fichier **ocr.html** dans un éditeur de texte et recherchez la fonction **ocrButtonClick** près du bas du fichier.
 
@@ -568,7 +568,7 @@ function ReadOcrImage(sourceImageUrl, responseTextArea) {
 }
 ```
 
-#### <a name="run-the-ocr-function"></a>Exécuter la fonction de la reconnaissance optique de caractères
+#### <a name="run-the-ocr-function"></a>Exécuter la fonction OCR
 
 Enregistrez le fichier **ocr.html** et ouvrez-le dans un navigateur web. Placez votre clé d’abonnement dans le champ **Clé d’abonnement** et vérifiez que vous utilisez la région correcte dans **Subscription Region** (Région d’abonnement). Entrez une URL vers une image de texte à lire, puis cliquez sur le bouton **Read Image** (Lire l’image) pour analyser une image et voir le résultat.
 
@@ -576,9 +576,9 @@ Enregistrez le fichier **ocr.html** et ouvrez-le dans un navigateur web. Placez 
 
 La fonctionnalité Reconnaissance de l’écriture manuscrite de Vision par ordinateur analyse une image de texte manuscrit. Une fois l’analyse terminée, la fonctionnalité retourne un objet JSON qui contient le texte et l’emplacement du texte dans l’image.
 
-Pour terminer la fonctionnalité de reconnaissance de l’écriture de l’application, procédez comme suit :
+Pour compléter la fonctionnalité Reconnaissance de l’écriture manuscrite de l’application, suivez les étapes ci-dessous :
 
-#### <a name="add-the-event-handler-code-for-the-handwriting-button"></a>Ajoutez le code de gestionnaire d’événements pour le bouton de l’écriture manuscrite
+#### <a name="add-the-event-handler-code-for-the-handwriting-button"></a>Ajouter le code du gestionnaire d’événements du bouton handwriting (écriture manuscrite)
 
 Ouvrez le fichier **handwriting.html** dans un éditeur de texte et recherchez la fonction **handwritingButtonClick** près du bas du fichier.
 
@@ -727,12 +727,12 @@ function ReadHandwrittenImage(sourceImageUrl, responseTextArea) {
 }
 ```
 
-#### <a name="run-the-handwriting-function"></a>Exécuter la fonction de l’écriture manuscrite
+#### <a name="run-the-handwriting-function"></a>Exécuter la fonction handwriting (écriture manuscrite)
 
 Enregistrez le fichier **handwriting.html** et ouvrez-le dans un navigateur web. Placez votre clé d’abonnement dans le champ **Clé d’abonnement** et vérifiez que vous utilisez la région correcte dans **Subscription Region** (Région d’abonnement). Entrez une URL vers une image de texte à lire, puis cliquez sur le bouton **Read Image** (Lire l’image) pour analyser une image et voir le résultat.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce guide, vous avez utilisé l’API REST de vision par ordinateur avec JavaScript pour tester la plupart des fonctionnalités d’analyse d’image disponibles. Ensuite, consultez la documentation de référence pour en savoir que plus sur les API impliqués.
+Dans ce guide, vous avez utilisé l’API REST Vision par ordinateur avec JavaScript pour tester la plupart des fonctionnalités d’analyse d’image disponibles. Pour plus d’informations sur les API impliquées, voir la documentation de référence.
 
-- [REST API vision par ordinateur](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa)
+- [API REST Vision par ordinateur](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa)

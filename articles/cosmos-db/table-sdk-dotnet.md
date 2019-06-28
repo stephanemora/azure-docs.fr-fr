@@ -9,10 +9,10 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 08/17/2018
 ms.openlocfilehash: db7cc556525ab57f14984232bf1797764865fca3
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65606262"
 ---
 # <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>API .NET Table Azure Cosmos DB : Téléchargement et notes de publication
@@ -33,7 +33,7 @@ ms.locfileid: "65606262"
 |**Infrastructure actuellement prise en charge**|[Microsoft .NET Framework 4.5.1](https://www.microsoft.com/en-us/download/details.aspx?id=40779)|
 
 > [!IMPORTANT]
-> Le SDK .NET Framework [Microsoft.Azure.CosmosDB.Table](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) est en cours de maintenance mode et il seront bientôt déconseillés. Mettez à niveau vers la nouvelle bibliothèque .NET Standard [Microsoft.Azure.Cosmos.Table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table) pour continuer à bénéficier des dernières fonctionnalités prises en charge par l’API de Table.
+> Le kit de développement logiciel (SDK) .NET Framework [Microsoft.Azure.CosmosDB.Table](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) est en mode maintenance et sera bientôt déprécié. Mettez à niveau vers la nouvelle bibliothèque .NET Standard [Microsoft.Azure.Cosmos.Table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table) pour continuer à bénéficier des dernières fonctionnalités prises en charge par l’API Table.
 
 > Si vous avez créé un compte d’API Table dans la préversion, créez un [nouveau compte d’API Table](create-table-dotnet.md#create-a-database-account) pour utiliser les Kits de développement logiciels (SDK) mis à la disposition générale pour l’API Table.
 >
@@ -77,22 +77,22 @@ ms.locfileid: "65606262"
 
 Microsoft envoie une notification au moins **12 mois** avant le retrait d’un Kit de développement logiciel (SDK) pour faciliter la transition vers une version plus récente/prise en charge.
 
-Le `Microsoft.Azure.CosmosDB.Table` bibliothèque est actuellement disponible pour .NET Framework uniquement et est en mode maintenance et sera bientôt déconseillée. Nouvelles fonctionnalités et les fonctionnalités et les optimisations sont uniquement ajoutées à la bibliothèque .NET Standard [Microsoft.Azure.Cosmos.Table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table), comme ce il est recommandé de mettre à niveau vers [Microsoft.Azure.Cosmos.Table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table).
+La bibliothèque `Microsoft.Azure.CosmosDB.Table` n’est actuellement disponible que pour .NET Framework. Elle est en mode de maintenance et sera bientôt déconseillée. Les nouvelles fonctionnalités et optimisations sont uniquement ajoutées à la bibliothèque .NET Standard [Microsoft.Azure.Cosmos.Table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table). Il est donc recommandé de mettre à niveau vers [Microsoft.Azure.Cosmos.Table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table).
 
-Le [windowsazure.Storage-PremiumTable](https://www.nuget.org/packages/WindowsAzure.Storage-PremiumTable/0.1.0-preview) version préliminaire du package a été déconseillé. Le kit de développement logiciel (SDK) WindowsAzure.Storage-PremiumTable sera retiré le 15 novembre 15, 2018 ; à compter de cette date, les requêtes envoyées au kit de développement logiciel (SDK) ne seront plus autorisées. 
+Le package de préversion [WindowsAzure.Storage-PremiumTable](https://www.nuget.org/packages/WindowsAzure.Storage-PremiumTable/0.1.0-preview) a été déconseillé. Le kit de développement logiciel (SDK) WindowsAzure.Storage-PremiumTable sera retiré le 15 novembre 15, 2018 ; à compter de cette date, les requêtes envoyées au kit de développement logiciel (SDK) ne seront plus autorisées. 
 
 Toute requête envoyée à Azure Cosmos DB à l’aide d’un Kit de développement logiciel (SDK) supprimé est rejetée par le service.
 <br/>
 
-| Version | Date de mise en production | Date de suppression |
+| Version | Date de lancement | Date de suppression |
 | --- | --- | --- |
-| [2.1.0](#2.1.0) |22 janvier 2019|01 avril 2020 |
-| [2.0.0](#2.0.0) |26 septembre 2018|01 mars 2020 |
-| [1.1.3](#1.1.3) |17 juillet 2018|01 décembre 2019 |
-| [1.1.1](#1.1.1) |26 mars 2018|01 décembre 2019 |
-| [1.1.0](#1.1.0) |21 février 2018|01 décembre 2019 |
-| [1.0.0](#1.0.0) |15 novembre 2017|15 novembre 2019 |
-| 0.9.0 - préversion |11 novembre 2017 |11 novembre 2019 |
+| [2.1.0](#2.1.0) |22 janvier 2019|01 avril 2020 |
+| [2.0.0](#2.0.0) |26 septembre 2018|01 mars 2020 |
+| [1.1.3](#1.1.3) |17 juillet 2018|01 décembre 2019 |
+| [1.1.1](#1.1.1) |26 mars 2018|01 décembre 2019 |
+| [1.1.0](#1.1.0) |21 février 2018|01 décembre 2019 |
+| [1.0.0](#1.0.0) |15 novembre 2017|15 novembre 2019 |
+| 0.9.0 - préversion |11 novembre 2017 |11 novembre 2019 |
 
 ## <a name="troubleshooting"></a>Résolution de problèmes
 

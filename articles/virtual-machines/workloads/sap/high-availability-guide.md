@@ -17,10 +17,10 @@ ms.date: 01/24/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 226986fb7c41c19b58f0163414628ad08ddeda15
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65409968"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms"></a>Haute disponibilité pour SAP NetWeaver sur des machines virtuelles Azure
@@ -54,21 +54,21 @@ ms.locfileid: "65409968"
 [1882376]:https://launchpad.support.sap.com/#/notes/1882376
 [1909114]:https://launchpad.support.sap.com/#/notes/1909114
 [1922555]:https://launchpad.support.sap.com/#/notes/1922555
-[1928533]:https://launchpad.support.sap.com/#/notes/1928533
+[1928533]: https://launchpad.support.sap.com/#/notes/1928533
 [1941500]:https://launchpad.support.sap.com/#/notes/1941500
 [1956005]:https://launchpad.support.sap.com/#/notes/1956005
 [1973241]:https://launchpad.support.sap.com/#/notes/1973241
 [1984787]:https://launchpad.support.sap.com/#/notes/1984787
-[1999351]:https://launchpad.support.sap.com/#/notes/1999351
+[1999351]: https://launchpad.support.sap.com/#/notes/1999351
 [2002167]:https://launchpad.support.sap.com/#/notes/2002167
-[2015553]:https://launchpad.support.sap.com/#/notes/2015553
+[2015553]: https://launchpad.support.sap.com/#/notes/2015553
 [2039619]:https://launchpad.support.sap.com/#/notes/2039619
 [2121797]:https://launchpad.support.sap.com/#/notes/2121797
 [2134316]:https://launchpad.support.sap.com/#/notes/2134316
-[2178632]:https://launchpad.support.sap.com/#/notes/2178632
+[2178632]: https://launchpad.support.sap.com/#/notes/2178632
 [2191498]:https://launchpad.support.sap.com/#/notes/2191498
 [2233094]:https://launchpad.support.sap.com/#/notes/2233094
-[2243692]:https://launchpad.support.sap.com/#/notes/2243692
+[2243692]: https://launchpad.support.sap.com/#/notes/2243692
 
 [sap-installation-guides]:http://service.sap.com/instguides
 
@@ -365,7 +365,7 @@ ms.locfileid: "65409968"
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
 [resource-group-overview]:../../../../../azure-resource-manager/resource-group-overview.md
 [resource-groups-networking]:../../../networking/networking-overview.md
-[sap-pam]:https://support.sap.com/pam (Tableau de disponibilité des produits SAP)
+[sap-pam]: https://support.sap.com/pam (Tableau de disponibilité des produits SAP)
 [sap-templates-2-tier-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-marketplace-image%2Fazuredeploy.json
 [sap-templates-2-tier-os-disk]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-user-disk%2Fazuredeploy.json
 [sap-templates-2-tier-user-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-user-image%2Fazuredeploy.json
@@ -796,7 +796,7 @@ Pour définir le modèle multi-SID ASCS/SCS, dans le [modèle multi-SID ASCS/SCS
   - **Type de pile**. Sélectionnez le type de pile du système SAP. Selon le type de pile, Azure Load Balancer a une adresse IP privée (ABAP ou Java uniquement) ou deux adresses IP privées (ABAP + Java) par système SAP.
   -  **Type de système d’exploitation**. Sélectionnez le système d’exploitation des machines virtuelles.
   -  **Nombre de systèmes SAP**. Sélectionnez le nombre de systèmes SAP que vous souhaitez installer dans ce cluster.
-  -  **Disponibilité du système**. Sélectionnez la haute disponibilité **(HA)**.
+  -  **Disponibilité du système**. Sélectionnez la haute disponibilité **(HA)** .
   -  **Nom d’utilisateur et mot de passe d’administrateur**. Créez un nouvel utilisateur pouvant être utilisé pour ouvrir une session sur la machine.
   -  **Sous-réseau nouveau ou existant**. Déterminez s’il faut créer un réseau virtuel et un sous-réseau, ou utiliser un sous-réseau existant. Si vous disposez déjà d’un réseau virtuel connecté à votre réseau local, sélectionnez **existant**.
   -  **ID du sous-réseau**. Si vous voulez déployer la machine virtuelle dans un réseau virtuel existant où vous avez défini un sous-réseau auquel la machine virtuelle doit être attribuée, nommez l’ID de ce sous-réseau spécifique. L’ID se présente généralement comme suit : /subscriptions/<*id_abonnement*>/resourceGroups/<*nom_groupe_ressources*>/providers/Microsoft.Network/virtualNetworks/<*nom_réseau_virtuel*>/subnets/<*nom_sous-réseau*>
@@ -834,7 +834,7 @@ Pour configurer multi-SID de base de données, dans le [modèle multi-SID de bas
   * **HANA**. L’équilibrage de charge utilisera les ports 35015 et 35017. Veillez à installer SAP HANA avec l’instance numéro **50**.
   L’équilibrage de charge utilise le port de sondage 62550.
 - **Taille du système SAP**. Définissez le nombre de SAP fournis par le nouveau système. Si vous ne savez pas combien de SAP sont requis par le système, demandez à votre partenaire technologique SAP ou un intégrateur système.
-- **Disponibilité du système**. Sélectionnez la haute disponibilité **(HA)**.
+- **Disponibilité du système**. Sélectionnez la haute disponibilité **(HA)** .
 - **Nom d’utilisateur et mot de passe d’administrateur**. Créez un nouvel utilisateur pouvant être utilisé pour ouvrir une session sur la machine.
 - **ID du sous-réseau**. Entrez l’ID du sous-réseau que vous avez utilisé lors du déploiement du modèle ASCS/SCS ou l’ID du sous-réseau créé dans le cadre du déploiement du modèle ASCS/SCS.
 
@@ -847,7 +847,7 @@ Pour définir le modèle multi-SID de serveurs d’applications, dans le [modèl
   -  **ID du système SAP**. Entrez l’ID du système SAP que vous souhaitez installer. Cet ID sera utilisé comme préfixe pour les ressources déployées.
   -  **Type de système d’exploitation**. Sélectionnez le système d’exploitation des machines virtuelles.
   -  **Taille du système SAP**. Le nombre de SAP fournis par le nouveau système. Si vous ne savez pas combien de SAP sont requis par le système, demandez à votre partenaire technologique SAP ou un intégrateur système.
-  -  **Disponibilité du système**. Sélectionnez la haute disponibilité **(HA)**.
+  -  **Disponibilité du système**. Sélectionnez la haute disponibilité **(HA)** .
   -  **Nom d’utilisateur et mot de passe d’administrateur**. Créez un nouvel utilisateur pouvant être utilisé pour ouvrir une session sur la machine.
   -  **ID du sous-réseau**. Entrez l’ID du sous-réseau que vous avez utilisé lors du déploiement du modèle ASCS/SCS ou l’ID du sous-réseau créé dans le cadre du déploiement du modèle ASCS/SCS.
 
@@ -1177,7 +1177,7 @@ La configuration d’un témoin de partage de fichiers de cluster implique les t
 
    _**Figure 30 :** Attribuer les autorisations sur le partage pour l’objet nom de cluster_
 
-   Assurez-vous que les autorisations incluent la possibilité de modifier des données du partage pour l’objet nom de cluster (dans notre exemple, **pr1-ascs-vir$**).
+   Assurez-vous que les autorisations incluent la possibilité de modifier des données du partage pour l’objet nom de cluster (dans notre exemple, **pr1-ascs-vir$** ).
 
 3. Pour ajouter l’objet nom de cluster à la liste, sélectionnez **Ajouter**. Modifiez le filtre de manière à rechercher les objets ordinateurs, en plus de ceux indiqués dans la figure 31.
 
@@ -1229,7 +1229,7 @@ La configuration d’un témoin de partage de fichiers de cluster implique les t
 
    _**Figure 38 :** Confirmation de la reconfiguration du cluster_
 
-Après avoir installé le cluster de basculement Windows avec succès, des modifications doivent être apportées à certains seuils pour adapter la détection de basculement aux conditions dans Azure. Les paramètres à changer sont documentés dans ce billet de blog : [ https://techcommunity.microsoft.com/t5/Failover-Clustering/Tuning-Failover-Cluster-Network-Thresholds/ba-p/371834 ](https://techcommunity.microsoft.com/t5/Failover-Clustering/Tuning-Failover-Cluster-Network-Thresholds/ba-p/371834). En supposant que les deux machines virtuelles qui génèrent la configuration du cluster Windows pour ASCS/SCS se trouvent sur le même sous-réseau, les paramètres suivants doivent être modifiés avec ces valeurs :  
+Après avoir installé le cluster de basculement Windows avec succès, des modifications doivent être apportées à certains seuils pour adapter la détection de basculement aux conditions dans Azure. Les paramètres à modifier sont décrits dans ce blog : [https://techcommunity.microsoft.com/t5/Failover-Clustering/Tuning-Failover-Cluster-Network-Thresholds/ba-p/371834](https://techcommunity.microsoft.com/t5/Failover-Clustering/Tuning-Failover-Cluster-Network-Thresholds/ba-p/371834). En supposant que les deux machines virtuelles qui génèrent la configuration du cluster Windows pour ASCS/SCS se trouvent sur le même sous-réseau, les paramètres suivants doivent être modifiés avec ces valeurs :  
 - SameSubNetDelay = 2000  
 - SameSubNetThreshold = 15  
 - RoutingHistoryLength = 30  
@@ -1410,7 +1410,7 @@ L’installation de SAP avec une instance ASCS/SCS à haute disponibilité impli
 1. Dans le Gestionnaire DNS Windows, créez une entrée DNS pour le nom d’hôte virtuel de l’instance ASC/SCS.
 
    > [!IMPORTANT]
-   > L’adresse IP que vous affectez au nom d’hôte virtuel de l’instance ASC/SCS doit être identique à celle que vous avez affectée à l’équilibrage de charge Azure Load Balancer (**<*SID*>-lb-ascs**).  
+   > L’adresse IP que vous affectez au nom d’hôte virtuel de l’instance ASC/SCS doit être identique à celle que vous avez affectée à l’équilibrage de charge Azure Load Balancer ( **<*SID*>-lb-ascs**).  
    >
    >
 
@@ -1546,7 +1546,7 @@ Pour ajouter un port de sondage :
    }
    ```
 
-   Après avoir mis en ligne le rôle de cluster **SAP <*SID*>**, vérifiez que **ProbePort** est défini sur la nouvelle valeur.
+   Après avoir mis en ligne le rôle de cluster **SAP <*SID*>** , vérifiez que **ProbePort** est défini sur la nouvelle valeur.
 
    ```PowerShell
    $SAPSID = "PR1"     # SAP <SID>
@@ -1612,7 +1612,7 @@ Le groupe de clusters **SAP PR1**s’exécute sur le nœud de cluster A, par exe
 
 _**Figure 61 :** Gestionnaire du cluster de basculement : Le groupe de cluster SAP <*SID*> s’exécute sur le nœud de cluster A_
 
-Dans l’outil de configuration et de gestion de SIOS DataKeeper, vous pouvez constater que les données du disque partagé sont répliquées de manière synchrone à partir du lecteur du volume source S sur le nœud de cluster A vers le lecteur du volume cible S sur le nœud de cluster B. Par exemple, il est répliqué de **pr1-ascs-0 [10.0.0.40]** vers **pr1-ascs-1 [10.0.0.41]**.
+Dans l’outil de configuration et de gestion de SIOS DataKeeper, vous pouvez constater que les données du disque partagé sont répliquées de manière synchrone à partir du lecteur du volume source S sur le nœud de cluster A vers le lecteur du volume cible S sur le nœud de cluster B. Par exemple, il est répliqué de **pr1-ascs-0 [10.0.0.40]** vers **pr1-ascs-1 [10.0.0.41]** .
 
 ![Figure 62 : Dans SIOS DataKeeper, répliquer le volume local du nœud de cluster A sur le nœud de cluster B][sap-ha-guide-figure-5001]
 
@@ -1641,7 +1641,7 @@ _**Figure 62 :** Dans SIOS DataKeeper, répliquer le volume local du nœud de 
 
    _**Figure 63** : Dans le Gestionnaire du cluster de basculement, le groupe de cluster SAP <*SID*> s’exécute sur le nœud de cluster B_
 
-   Le disque partagé est maintenant monté sur le nœud de cluster B. SIOS DataKeeper réplique les données du lecteur du volume source S sur le nœud de cluster B vers le lecteur du volume cible sur le nœud de cluster A. Par exemple, il est répliqué de **pr1-ascs-1 [10.0.0.41]** vers **pr1-ascs-0 [10.0.0.40]**.
+   Le disque partagé est maintenant monté sur le nœud de cluster B. SIOS DataKeeper réplique les données du lecteur du volume source S sur le nœud de cluster B vers le lecteur du volume cible sur le nœud de cluster A. Par exemple, il est répliqué de **pr1-ascs-1 [10.0.0.41]** vers **pr1-ascs-0 [10.0.0.40]** .
 
    ![Figure 64 : SIOS DataKeeper réplique le volume local du nœud de cluster B sur le nœud de cluster A][sap-ha-guide-figure-5003]
 

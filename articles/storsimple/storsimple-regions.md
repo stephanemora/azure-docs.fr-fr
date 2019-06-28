@@ -15,15 +15,15 @@ ms.workload: na
 ms.date: 11/16/2017
 ms.author: alkohli
 ms.openlocfilehash: e290feb278a1cddf1cfecfcb66458d8290ec122a
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64943590"
 ---
 # <a name="available-regions-for-your-storsimple"></a>Régions disponibles pour votre appareil StorSimple
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
 Les centres de données Azure fonctionnent dans différentes zones géographiques du monde pour répondre aux besoins de performances, aux obligations et aux préférences des clients pour ce qui est de l’emplacement des données. Une zone géographique Azure est une zone définie du monde contenant au moins une région Azure. Une région Azure est une zone géographique contenant un ou plusieurs centres de données.
 
@@ -32,7 +32,7 @@ Le choix d’une région Azure est très important. Il est influencé par des fa
 Pour la solution StorSimple, le choix de la région est particulièrement déterminé par les facteurs suivants :
 
 - Régions dans lesquelles le service StorSimple Device Manager est disponible.
-- Les pays/régions où le StorSimple physique, cloud ou appareil virtuel est disponible.
+- Pays/régions où l’appareil physique, cloud ou virtuel StorSimple est disponible.
 - Régions où les comptes de stockage qui stockent les données StorSimple doivent se trouver pour des performances optimales.
 
 Ce didacticiel décrit la disponibilité des régions pour le service StorSimple Device Manager, ainsi que les appareils physiques locaux et cloud. Les informations contenues dans cet article s’appliquent aux appareils des gammes StorSimple 8000 et 1200.
@@ -61,11 +61,11 @@ Si vous utilisez StorSimple Cloud Appliance, nous recommandons que le service et
 
 ## <a name="availability-of-storsimple-device"></a>Disponibilité de l’appareil StorSimple
 
-Selon le modèle, les appareils StorSimple peuvent être disponibles dans différentes zones géographiques ou pays/régions.
+Selon le modèle, les appareils StorSimple peuvent être disponibles dans des zones géographiques ou des pays/régions différent(e)s.
 
 ### <a name="storsimple-physical-device-models-81008600"></a>Appareil physique StorSimple (modèles 8100/8600)
 
-Si vous utilisez un StorSimple 8100 ou 8600 appareil physique, l’appareil est disponible dans les pays/régions suivantes.
+Si vous utilisez un appareils physique StorSimple 8100 ou 8600, il est disponible dans les pays/régions suivant(e)s.
 
 | #  | Pays/région        | #  | Pays/région     | #  | Pays/région      | #  | Pays/région             |
 |----|-----------------------|----|--------------------|----|---------------------|----|----------------------------|
@@ -73,8 +73,8 @@ Si vous utilisez un StorSimple 8100 ou 8600 appareil physique, l’appareil est 
 | 2  | Autriche               | 17 | Hongrie            | 32 | Nigeria             | 47 | Corée du Sud                |
 | 3  | Bahreïn               | 18 | Islande            | 33 | Norvège              | 48 | Espagne                      |
 | 4  | Belgique               | 19 | Inde              | 34 | Pérou                | 49 | Sri Lanka                  |
-| 5.  | Brésil                | 20 | Indonésie          | 35 | Philippines         | 50 | Suède                     |
-| 6.  | Canada                | 21 | Irlande            | 36 | Pologne              | 51 | Suisse                |
+| 5\.  | Brésil                | 20 | Indonésie          | 35 | Philippines         | 50 | Suède                     |
+| 6\.  | Canada                | 21 | Irlande            | 36 | Pologne              | 51 | Suisse                |
 | 7  | Chili                 | 22 | Israël             | 37 | Portugal            | 52 | Taïwan                     |
 | 8  | Colombie              | 23 | Italie              | 38 | Porto Rico         | 53 | Thaïlande                   |
 | 9  | République tchèque        | 24 | Japon              | 39 | Qatar               | 54 | Turquie                     |
@@ -85,12 +85,12 @@ Si vous utilisez un StorSimple 8100 ou 8600 appareil physique, l’appareil est 
 | 14 | Allemagne               | 29 | Mexique             | 44 | Slovaquie            | 59 | Vietnam                    |
 | 15 | Grèce                | 30 | Pays-bas        | 45 | Slovénie            | 60 | Croatie                    |
 
-Cette liste change à mesure que les pays/régions plus sont ajoutées. Pour obtenir la liste actualisée des zones géographiques, accédez à l’annexe sur les conditions des groupes de stockage dans les [conditions du produit](https://www.microsoft.com/en-us/licensing/product-licensing/products).
+Cette liste évolue au fur et à mesure que de nouveaux pays/régions sont ajouté(e)s. Pour obtenir la liste actualisée des zones géographiques, accédez à l’annexe sur les conditions des groupes de stockage dans les [conditions du produit](https://www.microsoft.com/en-us/licensing/product-licensing/products).
 
 Microsoft peut livrer le matériel physique et fournir des pièces matérielles de rechange pour StorSimple dans les zones géographiques indiquées dans la liste précédente.
 
 > [!IMPORTANT]
-> Ne placez pas d’appareil physique StorSimple dans une région où StorSimple n’est pas pris en charge. Microsoft ne sera pas en mesure d’expédier des pièces de rechange pour les pays/régions où StorSimple n’est pas pris en charge.
+> Ne placez pas d’appareil physique StorSimple dans une région où StorSimple n’est pas pris en charge. Microsoft ne pourra pas être en mesure d’expédier des pièces de rechange dans les pays/régions où StorSimple n’est pas pris en charge.
 
 ### <a name="storsimple-cloud-appliance-models-80108020"></a>StorSimple Cloud Appliance (modèles 8010/8020)
 

@@ -13,10 +13,10 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 5/10/2019
 ms.openlocfilehash: 5d769e2198b714d611b3004e11ccc624d4c6acdf
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65546451"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>Niveaux de service du modèle d’achat DTU
@@ -45,7 +45,7 @@ Le choix d’un niveau de service dépend principalement des exigences de contin
 |||||
 
 > [!NOTE]
-> Vous pouvez obtenir une base de données SQL Azure gratuit au niveau de service de base en conjonction avec un compte Azure gratuit pour Explorer Azure. Pour plus d’informations, rendez-vous sur la page [Créer une base de données cloud managée avec votre compte gratuit Azure](https://azure.microsoft.com/free/services/sql-database/).
+> Vous pouvez obtenir une base de données Azure SQL Database gratuite au niveau de service De base avec un compte Azure gratuit pour explorer Azure. Pour plus d’informations, rendez-vous sur la page [Créer une base de données cloud managée avec votre compte gratuit Azure](https://azure.microsoft.com/free/services/sql-database/).
 
 ## <a name="single-database-dtu-and-storage-limits"></a>Limites de stockage et unités DTU d’une base de données unique
 
@@ -54,7 +54,7 @@ Les tailles de calcul sont exprimées en unités de transaction de base de donn�
 ||De base|standard|Premium|
 | :-- | --: | --: | --: |
 | Taille de stockage maximale | 2 Go | 1 To | 4 To  |
-| DTU maximales | 5. | 3000 | 4000 | 
+| DTU maximales | 5\. | 3000 | 4000 | 
 |||||
 
 > [!IMPORTANT]
@@ -66,7 +66,7 @@ Les tailles de calcul sont exprimées en unités de transaction de base de donn�
 | :-- | --: | --: | --: |
 | Taille de stockage maximale par base de données  | 2 Go | 1 To | 1 To |
 | Taille de stockage maximale par pool | 156 Go | 4 To | 4 To |
-| Nombre maximal d’eDTU par base de données | 5. | 3000 | 4000 |
+| Nombre maximal d’eDTU par base de données | 5\. | 3000 | 4000 |
 | eDTU maximales par pool | 1 600 | 3000 | 4000 |
 | Nombre maximal de bases de données par pool | 500  | 500 | 100 |
 |||||
@@ -124,7 +124,7 @@ Les transactions sont sélectionnées de manière aléatoire à partir d’une d
 | --- | --- |
 | Read Lite |35 |
 | Read Medium |20 |
-| Read Heavy |5. |
+| Read Heavy |5\. |
 | Update Lite |20 |
 | Update Heavy |3 |
 | Insert Lite |3 |

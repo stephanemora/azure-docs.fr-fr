@@ -17,10 +17,10 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2019
 ms.author: sedusch
 ms.openlocfilehash: 44f99ed1af65eb1e487295c11077fd558ce4285c
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65142967"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications"></a>Haute disponibilité pour SAP NetWeaver sur les machines virtuelles Azure sur SUSE Linux Enterprise Server pour les applications SAP
@@ -29,15 +29,15 @@ ms.locfileid: "65142967"
 [deployment-guide]:deployment-guide.md
 [planning-guide]:planning-guide.md
 
-[2205917]:https://launchpad.support.sap.com/#/notes/2205917
-[1944799]:https://launchpad.support.sap.com/#/notes/1944799
-[1928533]:https://launchpad.support.sap.com/#/notes/1928533
-[2015553]:https://launchpad.support.sap.com/#/notes/2015553
-[2178632]:https://launchpad.support.sap.com/#/notes/2178632
-[2191498]:https://launchpad.support.sap.com/#/notes/2191498
-[2243692]:https://launchpad.support.sap.com/#/notes/2243692
-[1984787]:https://launchpad.support.sap.com/#/notes/1984787
-[1999351]:https://launchpad.support.sap.com/#/notes/1999351
+[2205917]: https://launchpad.support.sap.com/#/notes/2205917
+[1944799]: https://launchpad.support.sap.com/#/notes/1944799
+[1928533]: https://launchpad.support.sap.com/#/notes/1928533
+[2015553]: https://launchpad.support.sap.com/#/notes/2015553
+[2178632]: https://launchpad.support.sap.com/#/notes/2178632
+[2191498]: https://launchpad.support.sap.com/#/notes/2191498
+[2243692]: https://launchpad.support.sap.com/#/notes/2243692
+[1984787]: https://launchpad.support.sap.com/#/notes/1984787
+[1999351]: https://launchpad.support.sap.com/#/notes/1999351
 [1410736]:https://launchpad.support.sap.com/#/notes/1410736
 
 [sap-swcenter]:https://support.sap.com/en/my-support/software-downloads.html
@@ -79,7 +79,7 @@ Commencez par lire les notes et publications SAP suivantes
 * [Guides sur les meilleures pratiques pour SUSE SAP HA][suse-ha-guide] Les guides contiennent toutes les informations nécessaires pour configurer la réplication locale des systèmes Netweaver HP et SAP HANA. Utilisez ces guides comme planning de référence. Ils fournissent des informations beaucoup plus détaillées.
 * [Notes de publication de SUSE High Availability Extension 12 SP3][suse-ha-12sp3-relnotes]
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
 Pour obtenir une haute disponibilité, SAP NetWeaver nécessite un serveur NFS. Le serveur NFS est configuré dans un cluster distinct et peut être utilisé par plusieurs systèmes SAP.
 
@@ -88,7 +88,7 @@ Pour obtenir une haute disponibilité, SAP NetWeaver nécessite un serveur NFS. 
 Le serveur NFS, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS et la base de données SAP HANA utilisent un nom d’hôte virtuel et des adresses IP virtuelles. Sur Azure, un équilibreur de charge est nécessaire pour utiliser une adresse IP virtuelle. La liste suivante illustre la configuration de l’équilibreur de charge des instances (A)SCS et ERS.
 
 > [!IMPORTANT]
-> Le clustering multi-SID de SAP ASC/ERS avec SUSE Linux comme système d’exploitation invité des machines virtuelles Azure est **ne pas pris en charge**. Clustering multi-SID décrit l’installation de plusieurs instances SAP ASCS/ERS avec des SID différents dans un même cluster Pacemaker
+> Le clustering multi-SID de SAP ASC/ERS avec SUSE Linux comme système d’exploitation invité des machines virtuelles Azure n’est **PAS pris en charge**. Le clustering multi-SID décrit l’installation de plusieurs instances de SAP ASCS/ERS avec des SID différents dans un cluster Pacemaker
 
 ### <a name="ascs"></a>(A)SCS
 
@@ -137,8 +137,8 @@ La Place de marché Azure contient une image de SUSE Linux Enterprise Server fo
 
 Vous pouvez utiliser l’un des modèles de démarrage rapide disponibles sur GitHub pour déployer toutes les ressources nécessaires. Le modèle déploie les machines virtuelles, l’équilibrage de charge, le groupe à haute disponibilité, etc. Suivez ces étapes pour déployer le modèle :
 
-1. Ouvrez le [modèle ASCS/SCS Multi SID] [ template-multisid-xscs] ou [modèle convergé] [ template-converged] sur le portail Azure. 
-   Le modèle ASCS/SCS crée uniquement les règles d’équilibrage de charge pour le SAP NetWeaver ASCS/SCS et les instances ERS (Linux uniquement), tandis que le modèle convergé crée également les règles d’équilibrage de charge pour une base de données (par exemple Microsoft SQL Server ou SAP HANA). Si vous prévoyez d’installer un système SAP NetWeaver et que vous souhaitez également installer la base de données sur les mêmes machines, utilisez le [modèle convergé][template-converged].
+1. Ouvrez le [modèle ASCS/SCS Multi SID][template-multisid-xscs] ou le [modèle convergé][template-converged] sur le Portail Azure. 
+   Le modèle ASCS/SCS crée uniquement les règles d’équilibrage de charge pour les instances de SAP NetWeaver ASCS/SCS et ERS (Linux uniquement), tandis que le modèle convergé crée également les règles d’équilibrage de charge pour une base de données (par exemple Microsoft SQL Server ou SAP HANA). Si vous prévoyez d’installer un système SAP NetWeaver et que vous souhaitez également installer la base de données sur les mêmes machines, utilisez le [modèle convergé][template-converged].
 1. Entrez les paramètres suivants
    1. Préfixe de ressource (modèle ASCS/SCS Multi SID uniquement)  
       Entrez le préfixe à utiliser. Cette valeur sera utilisée comme préfixe pour les ressources déployées.
@@ -157,7 +157,7 @@ Vous pouvez utiliser l’un des modèles de démarrage rapide disponibles sur Gi
    9. Nom d’utilisateur et mot de passe d’administrateur  
       Un utilisateur pouvant être utilisé pour ouvrir une session sur la machine est créé.
    10. ID de sous-réseau  
-   Si vous voulez déployer la machine virtuelle dans un réseau virtuel existant où vous avez défini un sous-réseau auquel la machine virtuelle doit être attribuée, nommez l’ID de ce sous-réseau spécifique. L’ID se présente généralement comme suit : /subscriptions/**&lt;ID_abonnement&gt;**/resourceGroups/**&lt;nom_groupe_ressources&gt;**/providers/Microsoft.Network/virtualNetworks/**&lt;nom_réseau_virtuel&gt;**/subnets/**&lt;nom_sous_réseau&gt;**
+   Si vous voulez déployer la machine virtuelle dans un réseau virtuel existant où vous avez défini un sous-réseau auquel la machine virtuelle doit être attribuée, nommez l’ID de ce sous-réseau spécifique. L’ID se présente généralement comme suit : /subscriptions/ **&lt;ID_abonnement&gt;** /resourceGroups/ **&lt;nom_groupe_ressources&gt;** /providers/Microsoft.Network/virtualNetworks/ **&lt;nom_réseau_virtuel&gt;** /subnets/ **&lt;nom_sous_réseau&gt;**
 
 ### <a name="deploy-linux-manually-via-azure-portal"></a>Déployer manuellement Linux via le portail Azure
 
@@ -168,11 +168,11 @@ Vous devez tout d’abord créer les machines virtuelles pour ce cluster NFS. Pa
 1. Créer un groupe à haute disponibilité  
    Définir un domaine de mise à jour maximal
 1. Créer la machine virtuelle 1  
-   Utiliser au minimum SLES4SAP 12 SP1 (dans cet exemple, nous utiliserons l’image SLES4SAP 12 SP1 https://portal.azure.com/#create/SUSE.SUSELinuxEnterpriseServerforSAPApplications12SP1PremiumImage-ARM)  
+   Utiliser au minimum SLES4SAP 12 SP1 (dans cet exemple, nous utiliserons l’image SLES4SAP 12 SP1 https://portal.azure.com/#create/SUSE.SUSELinuxEnterpriseServerforSAPApplications12SP1PremiumImage-ARM )  
    SLES For SAP Applications 12 SP1 est utilisé  
    Sélectionner le groupe à haute disponibilité créé précédemment  
 1. Créer la machine virtuelle 2  
-   Utiliser au minimum SLES4SAP 12 SP1 (dans cet exemple, nous utiliserons l’image SLES4SAP 12 SP1 https://portal.azure.com/#create/SUSE.SUSELinuxEnterpriseServerforSAPApplications12SP1PremiumImage-ARM)  
+   Utiliser au minimum SLES4SAP 12 SP1 (dans cet exemple, nous utiliserons l’image SLES4SAP 12 SP1 https://portal.azure.com/#create/SUSE.SUSELinuxEnterpriseServerforSAPApplications12SP1PremiumImage-ARM )  
    SLES For SAP Applications 12 SP1 est utilisé  
    Sélectionner le groupe à haute disponibilité créé précédemment  
 1. Ajouter au moins un disque de données sur les deux machines virtuelles  
@@ -206,7 +206,7 @@ Vous devez tout d’abord créer les machines virtuelles pour ce cluster NFS. Pa
          * Répéter les étapes ci-dessus pour créer une sonde d’intégrité pour l’instance ERS (par exemple **62102** et **nw1-aers-hp**)
    1. Règles d’équilibrage de charge
       1. TCP 32**00** pour l’instance ASCS
-         1. Ouvrir l’équilibrage de charge, sélectionnez les règles d’équilibrage de charge et cliquez sur Ajouter
+         1. Ouvrir l’équilibreur de charge, sélectionner les règles d’équilibrage de charge et cliquer sur Ajouter
          1. Entrer le nom de la nouvelle règle d’équilibrage de charge (par exemple **nw1-lb-3200**)
          1. Sélectionner l’adresse IP du serveur frontal, le pool principal et la sonde d’intégrité créés précédemment (par exemple **nw1-ascs-frontend**)
          1. Conserver le protocole **TCP** et indiquer le port **3200**
@@ -219,7 +219,7 @@ Vous devez tout d’abord créer les machines virtuelles pour ce cluster NFS. Pa
          * Répéter les étapes ci-dessus pour les ports 33**02**, 5**02**13, 5**02**14, 5**02**16 et TCP pour les instances ASCS ERS
 
 > [!IMPORTANT]
-> N’activez pas les horodatages TCP sur des machines virtuelles Azure placé derrière un équilibreur de charge Azure. L’activation TCP horodatages entraîne les sondes d’intégrité à échouer. Définissez le paramètre **net.ipv4.tcp_timestamps** à **0**. Pour plus d’informations, consultez [sondes d’intégrité d’équilibreur de charge](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview).
+> N’activez pas les timestamps TCP sur des machines virtuelles Azure placées derrière Azure Load Balancer. L’activation des timestamps TCP entraîne l’échec des sondes d’intégrité. Définissez le paramètre **net.ipv4.tcp_timestamps** sur **0**. Pour plus d’informations, consultez [Sondes d’intégrité Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview).
 
 ### <a name="create-pacemaker-cluster"></a>Créer le cluster Pacemaker
 
@@ -536,7 +536,7 @@ Les éléments suivants sont précédés de **[A]** (applicable à tous les nœu
 
 1. **[1]** Créer les ressources de cluster SAP
 
-Si vous utilisez l’architecture de serveur 1 de file d’attente (ENSA1), définissez les ressources comme suit :
+Si vous utilisez l’architecture de serveur de file d’attente 1 (ENSA1), définissez les ressources comme suit :
 
    <pre><code>sudo crm configure property maintenance-mode="true"
    
@@ -564,8 +564,8 @@ Si vous utilisez l’architecture de serveur 1 de file d’attente (ENSA1), déf
    sudo crm configure property maintenance-mode="false"
    </code></pre>
 
-  SAP a introduit la prise en charge pour le serveur de file d’attente 2, y compris la réplication, à compter de SAP NW 7.52. À compter de ABAP plateforme 1809, serveur de file d’attente 2 est installé par défaut. Consultez SAP note [2630416](https://launchpad.support.sap.com/#/notes/2630416) pour la prise en charge du serveur 2 de file d’attente.
-Si vous utilisez l’architecture de serveur 2 de file d’attente ([ENSA2](https://help.sap.com/viewer/cff8531bc1d9416d91bb6781e628d4e0/1709%20001/en-US/6d655c383abf4c129b0e5c8683e7ecd8.html)), définissez les ressources comme suit :
+  SAP a introduit la prise en charge du serveur de file d’attente 2, y compris la réplication, avec SAP NW 7.52. À partir de la plateforme ABAP 1809, le serveur de file d’attente 2 est installé par défaut. Consultez la note SAP [2630416](https://launchpad.support.sap.com/#/notes/2630416) pour plus d’informations sur la prise en charge du serveur de file d’attente 2.
+Si vous utilisez l’architecture de serveur de file d’attente 2 ([ENSA2](https://help.sap.com/viewer/cff8531bc1d9416d91bb6781e628d4e0/1709%20001/en-US/6d655c383abf4c129b0e5c8683e7ecd8.html)), définissez les ressources comme suit :
 
 <pre><code>sudo crm configure property maintenance-mode="true"
    
@@ -591,7 +591,7 @@ Si vous utilisez l’architecture de serveur 2 de file d’attente ([ENSA2](http
    sudo crm configure property maintenance-mode="false"
    </code></pre>
 
-  Si vous êtes la mise à niveau à partir d’une version antérieure et le basculement vers le serveur de file d’attente 2, consultez SAP note [2641019](https://launchpad.support.sap.com/#/notes/2641019). 
+  Si vous effectuez une mise à niveau à partir d’une version antérieure et que vous passez au serveur de file d’attente 2, consultez la note SAP [2641019](https://launchpad.support.sap.com/#/notes/2641019). 
 
    Vérifiez que l’état du cluster est OK et que toutes les ressources sont démarrées. Le nœud sur lequel les ressources s’exécutent n’a aucune importance.
 
@@ -996,7 +996,7 @@ Les tests suivants sont une copie des cas de test dans les guides des meilleures
         rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
    </code></pre>
 
-   Créer un verrou d’empilement, par exemple, en modifiant un utilisateur dans la transaction su01. Exécutez les commandes suivantes en tant que \<sapsid>adm sur le nœud où l’instance ASCS est en cours d’exécution. Les commandes arrêteront l’instance ASCS et la redémarreront. Si vous utilisez l’architecture de serveur 1 de file d’attente, le verrou de la file d’attente est censé être perdu dans ce test. Si vous utilisez l’architecture de serveur 2 de file d’attente, la file d’attente est conservée. 
+   Créer un verrou d’empilement, par exemple, en modifiant un utilisateur dans la transaction su01. Exécutez les commandes suivantes en tant que \<sapsid>adm sur le nœud où l’instance ASCS est en cours d’exécution. Les commandes arrêteront l’instance ASCS et la redémarreront. Si vous utilisez l’architecture de serveur de file d’attente 1, le verrou d’empilement est censé être perdu dans ce test. Si vous utilisez l’architecture de serveur de file d’attente 2, la mise en file d’attente est conservée. 
 
    <pre><code>nw1-cl-1:nw1adm 54> sapcontrol -nr 00 -function StopWait 600 2
    </code></pre>

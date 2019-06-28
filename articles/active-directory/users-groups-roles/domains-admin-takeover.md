@@ -1,5 +1,5 @@
 ---
-title: Prise en charge de l’administrateur d’un répertoire non géré - Azure Active Directory | Microsoft Docs
+title: Prise de contrôle administrateur d’un annuaire non géré Azure Active Directory | Microsoft Docs
 description: Comment prendre le contrôle d’un nom de domaine DNS dans un annuaire non géré (locataire fantôme) dans Azure Active Directory.
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.reviewer: elkuzmen
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b32ef37c6d61c88a18acd5ddc80cc6154369ca29
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65780534"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Prendre le contrôle d’un annuaire non géré en tant qu’administrateur dans Azure Active Directory
@@ -37,13 +37,13 @@ Lors du processus de prise de contrôle par l’administrateur, vous pouvez prou
 
 Certains produits qui incluent SharePoint et OneDrive, comme Office 365, ne permettent pas la prise de contrôle externe. Si c’est votre scénario, ou si vous êtes administrateur et que vous voulez prendre le contrôle d’un locataire non géré ou « fantôme » créé par des utilisateurs ayant utilisé l’inscription en libre-service, vous pouvez le faire avec une prise de contrôle par administrateur interne.
 
-1. Créer un contexte utilisateur dans le client non géré via une inscription pour Power BI. Par commodité pour l’exemple, cette procédure suppose que cette voie est choisie.
+1. Créez un contexte utilisateur dans le locataire non géré via une inscription auprès de Power BI. Par commodité pour l’exemple, cette procédure suppose que cette voie est choisie.
 
 2. Ouvrez le [site Power BI](https://powerbi.com) et sélectionnez **Démarrer gratuitement**. Entrez un compte d’utilisateur qui utilise le nom de domaine pour l’organisation ; par exemple, `admin@fourthcoffee.xyz`. Une fois que vous avez entré le code de vérification, vous recevez le code de confirmation dans votre messagerie.
 
 3. Dans l’e-mail de confirmation de Power BI, sélectionnez **Oui, c’est bien moi**.
 
-4. Se connecter à la [centre d’administration Microsoft 365](https://admin.microsoft.com) avec le compte d’utilisateur Power BI. Vous recevez un message qui vous indique de **devenir l’administrateur** du nom de domaine qui a été déjà vérifié dans le locataire non géré. Sélectionnez **Oui, je veux être l’administrateur**.
+4. Connectez-vous au [centre d’administration Microsoft 365](https://admin.microsoft.com) avec le compte d’utilisateur Power BI. Vous recevez un message qui vous indique de **devenir l’administrateur** du nom de domaine qui a été déjà vérifié dans le locataire non géré. Sélectionnez **Oui, je veux être l’administrateur**.
   
    ![Première capture d’écran pour Devenir l’administrateur](./media/domains-admin-takeover/become-admin-first.png)
   
@@ -58,22 +58,22 @@ Une fois les étapes précédentes terminées, vous êtes l’administrateur gé
 ### <a name="adding-the-domain-name-to-a-managed-tenant-in-azure-ad"></a>Ajout du nom de domaine à un locataire géré dans Azure AD
 
 1. Ouvrez le [centre d’administration Microsoft 365](https://admin.microsoft.com).
-2. Sélectionnez **utilisateurs** onglet et créer un nouveau compte d’utilisateur avec un nom tel que *utilisateur\@fourthcoffeexyz.onmicrosoft.com* qui n’utilise pas le nom de domaine personnalisé. 
+2. Sélectionnez l’onglet **Utilisateurs** et créez un compte d’utilisateur avec un nom comme *user\@fourthcoffeexyz.onmicrosoft.com* qui n’utilise pas le nom de domaine personnalisé. 
 3. Vérifiez que le compte d’utilisateur dispose des privilèges d’administrateur général pour le locataire Azure AD.
-4. Ouvrez **domaines** dans le centre d’administration Microsoft 365, sélectionnez le nom de domaine et sélectionnez **supprimer**. 
+4. Ouvrez l’onglet **Domaines** dans le centre d’administration Microsoft 365, sélectionnez le nom de domaine, puis sélectionnez **Supprimer**. 
   
    ![Supprimer le nom de domaine d’Office 365](./media/domains-admin-takeover/remove-domain-from-o365.png)
   
-5. Si vous avez des utilisateurs ou des groupes dans Office 365 qui référencent le nom de domaine supprimés, ils doivent être renommés pour le domaine onmicrosoft.com. Si vous forcez la suppression du nom de domaine, tous les utilisateurs sont automatiquement renommés, dans cet exemple pour *utilisateur\@fourthcoffeexyz.onmicrosoft.com*.
+5. Si vous avez des utilisateurs ou des groupes dans Office 365 qui référencent le nom de domaine supprimés, ils doivent être renommés pour le domaine onmicrosoft.com. Si vous forcez la suppression du nom de domaine, tous les utilisateurs sont automatiquement renommés, dans cet exemple en *user\@fourthcoffeexyz.onmicrosoft.com*.
   
 6. Connectez-vous au [Centre d’administration d’Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) avec un compte d’administrateur général pour le locataire Azure AD.
   
 7. Sélectionnez **Noms de domaine personnalisés**, puis ajoutez le nom de domaine. Vous devrez entrer les enregistrements TXT DNS pour confirmer la propriété du nom de domaine. 
   
-   ![domaine vérifié comme ajoutées à Azure AD](./media/domains-admin-takeover/add-domain-to-azure-ad.png)
+   ![domaine vérifié comme ajouté à Azure AD](./media/domains-admin-takeover/add-domain-to-azure-ad.png)
   
 > [!NOTE]
-> Les utilisateurs du service Power BI ou Azure Rights Management qui ont des licences affectées dans le locataire Office 365 doivent enregistrer leurs tableaux de bord si le nom de domaine est supprimé. Ils doivent se connecter avec un nom d’utilisateur comme *utilisateur\@fourthcoffeexyz.onmicrosoft.com* plutôt que *utilisateur\@fourthcoffee.xyz*.
+> Les utilisateurs du service Power BI ou Azure Rights Management qui ont des licences affectées dans le locataire Office 365 doivent enregistrer leurs tableaux de bord si le nom de domaine est supprimé. Ils doivent se connecter avec un nom d’utilisateur comme *user\@fourthcoffeexyz.onmicrosoft.com* plutôt que *user\@fourthcoffee.xyz*.
 
 ## <a name="external-admin-takeover"></a>Prise de contrôle par administrateur externe
 
@@ -153,7 +153,7 @@ Applet de commande | Usage
     Get-MsolDomainVerificationDns –DomainName contoso.com –Mode DnsTxtRecord
    ```
 
-4. Copiez la valeur (le test) qui est renvoyée depuis cette commande. Exemple :
+4. Copiez la valeur (le test) qui est renvoyée depuis cette commande. Par exemple :
    ```powershell
     MS=32DD01B82C05D27151EA9AE93C5890787F0E65D9
    ```
@@ -164,7 +164,7 @@ Applet de commande | Usage
     Confirm-MsolEmailVerifiedDomain -DomainName *your_domain_name*
    ```
   
-   Exemple :
+   Par exemple :
   
    ```powershell
     Confirm-MsolEmailVerifiedDomain -DomainName contoso.com

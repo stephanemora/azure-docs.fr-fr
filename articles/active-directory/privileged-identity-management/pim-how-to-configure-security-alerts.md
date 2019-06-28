@@ -1,5 +1,5 @@
 ---
-title: Configurer des alertes de sécurité pour les rôles Azure AD dans PIM - Azure Active Directory | Microsoft Docs
+title: Configurer des alertes de sécurité pour les rôles Azure AD dans PIM – Azure Active Directory | Microsoft Docs
 description: Découvrez comment configurer des alertes de sécurité pour les rôles Azure AD dans Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -15,21 +15,21 @@ ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ce0d99fb283be8cbeba6f8a7954ff49161a2d511
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60288540"
 ---
 # <a name="configure-security-alerts-for-azure-ad-roles-in-pim"></a>Configurer des alertes de sécurité pour les rôles Azure AD dans PIM
 
-Azure Active Directory (Azure AD) Privileged Identity Management (PIM) génère des alertes en cas d’une activité suspecte ou non fiable dans votre environnement. Lorsqu’une alerte est déclenchée, elle s’affiche sur le tableau de bord PIM. Sélectionnez l’alerte pour obtenir un rapport qui répertorie les utilisateurs ou les rôles à l’origine de son déclenchement.
+Azure Active Directory (Azure AD) Privileged Identity Management (PIM) génère des alertes en cas d’activité suspecte ou non fiable dans votre environnement. Lorsqu’une alerte est déclenchée, elle s’affiche sur le tableau de bord PIM. Sélectionnez l’alerte pour obtenir un rapport qui répertorie les utilisateurs ou les rôles à l’origine de son déclenchement.
 
 ![Alertes de sécurité PIM - capture d’écran](./media/pim-how-to-configure-security-alerts/pim-directory-alerts.png)
 
 ## <a name="security-alerts"></a>Alertes de sécurité
 
-Cette section répertorie toutes les alertes de sécurité pour les rôles d’Azure AD, ainsi que comment la corriger et d’éviter. Le terme Gravité revêt les significations suivantes :
+Cette section répertorie toutes les alertes de sécurité pour les rôles Azure AD, et explique comment les corriger et les éviter. Le terme Gravité revêt les significations suivantes :
 
 * **Haute** : nécessite une action immédiate, car il s’agit d’une violation de stratégie.
 * **Moyenne** : ne nécessite pas d’action immédiate, mais signale une violation potentielle de la stratégie.
@@ -107,7 +107,7 @@ Cette section répertorie toutes les alertes de sécurité pour les rôles d’A
 | **Pourquoi reçois-je cette alerte ?** | Plusieurs activations au même rôle privilégié par le même utilisateur sont le signe d’une attaque. |
 | **Procédure de résolution** | Passez en revue les utilisateurs de la liste et vérifiez que la [durée d’activation](pim-how-to-change-default-settings.md) de leur rôle privilégié est suffisante pour qu’ils puissent effectuer leurs tâches. |
 | **Prévention** | Vérifiez que la [durée d’activation](pim-how-to-change-default-settings.md) des rôles privilégiés est suffisante pour que les utilisateurs puissent effectuer leurs tâches.</br>[Exigez l’authentification multifacteur (MFA)](pim-how-to-change-default-settings.md) pour les rôles privilégiés qui ont des comptes partagés par plusieurs administrateurs. |
-| **Action d´atténuation dans le portail** | S.O. |
+| **Action d´atténuation dans le portail** | N/A |
 | **Déclencheur** | Se déclenche si un utilisateur active le même rôle privilégié plusieurs fois pendant une période spécifiée. Vous pouvez configurer la période et le nombre d’activations. |
 | **Période de renouvellement d'activation** | Ce paramètre spécifie la période, en jours, heures, minutes et secondes, que vous souhaitez utiliser pour effectuer le suivi des renouvellements suspects. |
 | **Nombre de renouvellements de l’activation** | Ce paramètre spécifie le nombre d’activations, de 2 à 100, qui vous semblent devoir déclencher une alerte, dans l’intervalle de temps que vous avez choisi. Vous pouvez modifier ce paramètre en déplaçant le curseur ou en tapant un nombre dans la zone de texte. |
@@ -130,4 +130,4 @@ Vous pouvez personnaliser certaines alertes de sécurité dans PIM selon votre e
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Configurer les paramètres de rôle Azure AD dans PIM](pim-how-to-change-default-settings.md)
+- [Configurer des paramètres de rôles Azure AD dans PIM](pim-how-to-change-default-settings.md)

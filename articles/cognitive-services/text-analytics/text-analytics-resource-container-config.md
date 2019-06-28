@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: diberry
 ms.openlocfilehash: 1333aefc145e95223624f42a28ec0bb31ab70065
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60828120"
 ---
 # <a name="configure-text-analytics-docker-containers"></a>Configurer les conteneurs Docker Analyse de texte
@@ -31,11 +31,11 @@ Analyse de texte fournit pour chaque conteneur une infrastructure de configurati
 
 ## <a name="apikey-configuration-setting"></a>Paramètre de configuration ApiKey
 
-Le paramètre `ApiKey` spécifie la clé de ressource Azure utilisée pour effectuer le suivi des informations de facturation pour le conteneur. Vous devez spécifier une valeur pour la clé API et la valeur doit être une clé valide pour le _Cognitive Services_ ressource spécifiée pour le [ `Billing` ](#billing-configuration-setting) paramètre de configuration.
+Le paramètre `ApiKey` spécifie la clé de ressource Azure utilisée pour effectuer le suivi des informations de facturation pour le conteneur. Vous devez donner une valeur à ApiKey, qui doit être une clé valide pour la ressource _Cognitive Services_ spécifiée dans le paramètre de configuration [`Billing`](#billing-configuration-setting).
 
 Vous trouverez ce paramètre à l’emplacement suivant :
 
-* Portail Azure : **COGNITIVE Services** gestion des ressources, sous **clés**
+* Portail Azure : gestion des ressources **Cognitive Services**, sous **Clés**
 
 ## <a name="applicationinsights-setting"></a>Paramètre ApplicationInsights
 
@@ -43,17 +43,17 @@ Vous trouverez ce paramètre à l’emplacement suivant :
 
 ## <a name="billing-configuration-setting"></a>Paramètre de configuration Billing
 
-Le `Billing` paramètre spécifie l’URI de point de terminaison de la _Cognitive Services_ ressources sur Azure permet de contrôler les informations de facturation pour le conteneur. Vous devez spécifier une valeur pour ce paramètre de configuration, et la valeur doit être un point de terminaison valide URI pour un __Cognitive Services_ ressources sur Azure. La conteneur crée des rapports sur l'utilisation toutes les 10 à 15 minutes.
+Le paramètre `Billing` permet de spécifier l’URI de point de terminaison de la ressource _Cognitive Services_ sur Azure servant à effectuer l’analyse des informations de facturation du conteneur. Vous devez donner une valeur à ce paramètre de configuration, qui doit être un URI de point de terminaison valide pour une ressource _Cognitive Services_ sur Azure. Le conteneur crée des rapports sur l’utilisation toutes les 10 à 15 minutes.
 
 Vous trouverez ce paramètre à l’emplacement suivant :
 
-* Portail Azure : **COGNITIVE Services** vue d’ensemble, étiqueté `Endpoint`
+* Portail Azure : Vue d’ensemble **Cognitive Services**, étiquetée `Endpoint`
 
-Vous devez ajouter le `text/analytics/v2.0` routage vers l’URI de point de terminaison, comme indiqué dans l’exemple BILLING_ENDPOINT_URI suivant.
+Vous devez ajouter le routage `text/analytics/v2.0` à l’URI de point de terminaison, comme dans l’exemple BILLING_ENDPOINT_URI suivant.
 
 |Obligatoire| Nom | Type de données | Description |
 |--|------|-----------|-------------|
-|Oui| `Billing` | Chaîne | URI du point de terminaison de facturation<br><br>Exemple :<br>`Billing=https://westus.api.cognitive.microsoft.com/text/analytics/v2.1` |
+|OUI| `Billing` | Chaîne | URI du point de terminaison de facturation<br><br>Exemple :<br>`Billing=https://westus.api.cognitive.microsoft.com/text/analytics/v2.1` |
 
 ## <a name="eula-setting"></a>Paramètre Eula
 
@@ -91,22 +91,22 @@ Les exemples suivants utilisent les paramètres de configuration pour illustrer 
 * **Caractère de continuation de ligne** : les commandes docker dans les sections suivantes utilisent la barre oblique inverse, `\`, comme caractère de continuation de ligne. Remplacez-la ou supprimez-la en fonction des exigences de votre système d’exploitation hôte. 
 * **Ordre des arguments** : Ne changez pas l’ordre des arguments, sauf si vous avez une connaissance approfondie des conteneurs docker.
 
-Vous devez ajouter le `text/analytics/v2.0` routage vers l’URI de point de terminaison, comme indiqué dans l’exemple BILLING_ENDPOINT_URI suivant.
+Vous devez ajouter le routage `text/analytics/v2.0` à l’URI de point de terminaison, comme dans l’exemple BILLING_ENDPOINT_URI suivant.
 
 Remplacez {_argument_name_} par vos propres valeurs :
 
 | Placeholder | Valeur | Format ou exemple |
 |-------------|-------|---|
-|{BILLING_KEY} | La clé de point de terminaison de la `Cognitive Services` ressource disponible sur Azure `Cognitive Services` page clés. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
-|{BILLING_ENDPOINT_URI} | La valeur de point de terminaison de facturation est disponible sur Azure `Cognitive Services` page Vue d’ensemble.|`https://westus.api.cognitive.microsoft.com/text/analytics/v2.1`|
+|{BILLING_KEY} | Clé de point de terminaison de la ressource `Cognitive Services` disponible sur la page Clés Azure `Cognitive Services`. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
+|{BILLING_ENDPOINT_URI} | La valeur de point de terminaison de facturation est disponible sur la page Vue d’ensemble Azure `Cognitive Services`.|`https://westus.api.cognitive.microsoft.com/text/analytics/v2.1`|
 
 > [!IMPORTANT]
 > Vous devez spécifier les options `Eula`, `Billing` et `ApiKey` pour exécuter le conteneur, sinon il ne démarrera pas.  Pour plus d'informations, consultez [Facturation](how-tos/text-analytics-how-to-install-containers.md#billing).
-> La valeur de clé API est la **clé** à partir d’Azure `Cognitive Services` page clés de ressources. 
+> La valeur ApiKey est la **Clé** de la page Clés des ressources Azure `Cognitive Services`. 
 
-## <a name="key-phrase-extraction-container-docker-examples"></a>Exemples de phrases clés d’extraction conteneur docker
+## <a name="key-phrase-extraction-container-docker-examples"></a>Exemples Docker de conteneurs Extraction de phrases clés
 
-Les exemples suivants de docker sont pour le conteneur de l’extraction de phrases clés. 
+Les exemples Docker suivants s’appliquent au conteneur Extraction de phrases clés. 
 
 ### <a name="basic-example"></a>Exemple de base 
 

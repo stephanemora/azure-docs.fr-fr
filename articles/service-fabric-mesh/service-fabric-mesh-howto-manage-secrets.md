@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: chackdan
 ms.openlocfilehash: 251611e814f890e3cebf0fda2d33ab548a8ff213
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65506445"
 ---
 # <a name="manage-service-fabric-mesh-application-secrets"></a>Gérer les secrets d’application Service Fabric Mesh
@@ -24,14 +24,14 @@ Un secret d’application Mesh comprend :
 * Une ou plusieurs ressources **Secrets/Valeurs** qui sont stockées dans le conteneur de ressources **Secrets**. Chaque ressource **Secrets/Valeurs** se distingue par son numéro de version. Vous ne pouvez pas modifier la version d’une ressource **Secrets/Valeurs**. Vous pouvez seulement ajouter une nouvelle version.
 
 La gestion des secrets comprend les étapes suivantes :
-1. Déclarer une maille **Secrets** ressource dans un fichier YAML de modèle de ressource Azure ou JSON à l’aide d’inlinedValue type et les définitions contentType SecretsStoreRef.
-2. Déclarer la maille **Secrets/valeurs** ressources dans un fichier YAML de modèle de ressource Azure ou JSON qui seront stockées dans le **Secrets** ressource (à l’étape 1).
+1. Déclarer une ressource **Secrets** Mesh dans un fichier YAML ou JSON de modèle de ressource Azure à l’aide des définitions inlinedValue kind et SecretsStoreRef contentType.
+2. Déclarer les ressources **Secrets/Valeurs** Mesh dans un fichier YAML ou JSON de modèle de ressource Azure, qui seront stockées dans la ressource **Secrets** (à l’étape 1).
 3. Modifier l’application Mesh pour référencer les valeurs de secret Mesh
 4. Déployer ou effectuer une mise à niveau propagée de l’application Mesh pour consommer les valeurs de secret
 5. Utiliser les commandes « az » de l’interface CLI Azure pour la gestion du cycle de vie du service Banque d’informations sécurisé
 
 ## <a name="declare-a-mesh-secrets-resource"></a>Déclarer une ressource Secrets Mesh
-Une ressource de Secrets de maillage est déclarée dans un fichier YAML à l’aide de la définition de type inlinedValue ou un JSON de modèle de ressource Azure. La ressource Secrets Mesh prend en charge les secrets provenant du service Banque d’informations sécurisé. 
+Une ressource Secrets Mesh est déclarée dans un fichier YAML ou JSON de modèle de ressource Azure à l’aide de la définition inlinedValue kind. La ressource Secrets Mesh prend en charge les secrets provenant du service Banque d’informations sécurisé. 
 >
 Voici un exemple montrant comment déclarer des ressources Secrets Mesh dans un fichier JSON :
 
@@ -206,7 +206,7 @@ az mesh deployment create –-<template-file> or --<template-uri>
 ```
 Passez soit **template-file** soit **template-uri** (mais pas les deux).
 
-Exemple :
+Par exemple :
 - az mesh deployment create --c:\MyMeshTemplates\SecretTemplate1.txt
 - az mesh deployment create -- https://www.fabrikam.com/MyMeshTemplates/SecretTemplate1.txt
 

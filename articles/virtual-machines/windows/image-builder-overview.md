@@ -1,6 +1,6 @@
 ---
-title: En savoir plus sur Image Builder pour Windows Machines virtuelles Azure (version préliminaire)
-description: En savoir plus sur le Générateur d’images Azure.
+title: En savoir plus sur le Générateur d’images Azure pour les Machines virtuelles Windows (préversion)
+description: Découvrez le Générateur d’images Azure.
 author: cynthn
 ms.author: cynthn
 ms.date: 05/02/2019
@@ -8,10 +8,10 @@ ms.topic: article
 ms.service: virtual-machines-windows
 manager: jeconnoc
 ms.openlocfilehash: 1c3bade6425455c1bbe81987e52d170d46317ae4
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65160394"
 ---
 # <a name="preview-azure-image-builder-overview"></a>Aperçu : Vue d’ensemble du Générateur d’images Azure

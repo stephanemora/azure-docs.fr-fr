@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: pafarley
 ms.openlocfilehash: 35f83832b0ceb7507b39095e9cc974d82a480c69
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60606941"
 ---
 # <a name="how-to-improve-your-classifier"></a>Comment améliorer votre classifieur
@@ -39,7 +39,7 @@ Pour corriger ce problème, suivez les instructions ci-après afin d’effectuer
 
 ## <a name="data-quantity"></a>Quantité de données
 
-Le nombre d’images d’entraînement est le facteur le plus important. Nous vous recommandons d’utiliser des images au moins 50 par étiquette comme point de départ. Avec moins d’images, il existe un risque plus élevé de surajustement. Et même si vos chiffres de performance suggèrent une bonne qualité, votre modèle aura peut-être du mal avec des données réelles. 
+Le nombre d’images d’entraînement est le facteur le plus important. Nous recommandons d’utiliser au moins 50 images par étiquette pour commencer. Avec moins d’images, il existe un risque plus élevé de surajustement. Et même si vos chiffres de performance suggèrent une bonne qualité, votre modèle aura peut-être du mal avec des données réelles. 
 
 ## <a name="data-balance"></a>Équilibre des données
 
@@ -73,7 +73,7 @@ Pour corriger ce problème, incluez des images très diverses pour garantir une 
 
     ![Exemples d’images (style)](./media/getting-started-improving-your-classifier/style.png)
 
-## <a name="negative-images"></a>Images négatif
+## <a name="negative-images"></a>Images négatives
 
 À un moment donné dans votre projet, il peut être nécessaire d’ajouter des _exemples négatifs_ pour rendre votre classifieur plus précis. Les exemples négatifs sont ceux qui ne correspondent à aucune des autres balises. Quand vous chargez ces images, appliquez l’étiquette spéciale **Negative** (Négatif) à celles-ci.
 

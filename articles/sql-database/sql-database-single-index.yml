@@ -75,7 +75,7 @@ sections:
           - html: '(Préversion) Nouvelles fonctionnalités de langage Transact-SQL, notamment <a href="https://docs.microsoft.com/sql/t-sql/functions/approx-count-distinct-transact-sql?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017">l’agrégat APPROX_COUNT_DISTINCT</a> et l’<a href="https://docs.microsoft.com/sql/relational-databases/import-export/examples-of-bulk-access-to-data-in-azure-blob-storage?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017">importation en bloc à partir d’Azure Blob Storage</a>.'
           - html: '(Préversion) Nouvelle <a href="https://docs.microsoft.com/sql/t-sql/statements/create-columnstore-index-transact-sql?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017#online--on--off">build</a> SQL Server 2019 Online et reconstruction des opérations d’index columstore en cluster.'
           - html: "(Préversion) Nouveau <a href=\"https://docs.microsoft.com/azure/sql-database/sql-database-machine-learning-services-overview\">Machine Learning Services (avec\_R) dans Azure SQL Database</a>."
-          - html: '(Version préliminaire) Nouvelle <a href="https://docs.microsoft.com/azure/sql-database/sql-database-serverless">niveau de calcul sans serveur</a> fournit le calcul automatique-mise à l’échelle et les factures par seconde pour le calcul utilisé.'
+          - html: '(Préversion) Nouveau <a href="https://docs.microsoft.com/azure/sql-database/sql-database-serverless">niveau de calcul serverless</a> fournissant la mise à l’échelle automatique du calcul et les factures par seconde pour le calcul utilisé.'
   - title: Démarrages rapides en cinq minutes
     items:
       - type: paragraph

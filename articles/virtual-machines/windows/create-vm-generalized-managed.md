@@ -15,20 +15,20 @@ ms.topic: article
 ms.date: 09/17/2018
 ms.author: cynthn
 ms.openlocfilehash: 57fbab4194f6cd232e1462ecea9a07d104c6cb51
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65205733"
 ---
 # <a name="create-a-vm-from-a-managed-image"></a>Créer une machine virtuelle à partir d’une image gérée
 
 Vous pouvez créer plusieurs machines virtuelles à partir d’une image de machine virtuelle managée Azure à l’aide de PowerShell ou du portail Azure. Une image de machine virtuelle managée contient les informations nécessaires pour créer une machine virtuelle, y compris le disque du système d’exploitation et les disques de données. Les disques durs virtuels qui composent l’image, dont les disques du système d’exploitation et les disques de données, sont stockés en tant que disques managés. 
 
-Avant de créer une nouvelle machine virtuelle, vous devrez [créer une image de machine virtuelle managée](capture-image-resource.md) à utiliser comme image source et d’accorder un accès en lecture sur l’image à n’importe quel utilisateur qui doit avoir accès à l’image. 
+Avant de créer une machine virtuelle, vous devez [créer une image de machine virtuelle managée](capture-image-resource.md) à utiliser comme image source et accorder un accès en lecture sur l’image aux utilisateurs qui doivent avoir accès à l’image. 
 
 
-## <a name="use-the-portal"></a>Utiliser le portail 
+## <a name="use-the-portal"></a>Utiliser le portail
 
 1. Ouvrez le [portail Azure](https://portal.azure.com).
 2. Dans le menu de gauche, sélectionnez **Toutes les ressources**. Vous pouvez trier les ressources par **Type** pour rechercher facilement vos images.

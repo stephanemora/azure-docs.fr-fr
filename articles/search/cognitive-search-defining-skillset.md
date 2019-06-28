@@ -11,15 +11,15 @@ ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
 ms.openlocfilehash: 010880304c5011bd5a767650aa0ae6b6103bdde2
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65540855"
 ---
 # <a name="how-to-create-a-skillset-in-an-enrichment-pipeline"></a>Création d’un jeu de compétences dans un pipeline d’enrichissement
 
-La recherche cognitive extrait et enrichit les données pour qu’elles puissent faire l’objet de recherches dans Recherche Azure. Nous appelons les étapes d’extraction et d’enrichissement *compétences cognitives*. Elles sont combinées en un *jeu de compétences* référencé pendant l’indexation. Compétences peut utiliser [compétences intégrés](cognitive-search-predefined-skills.md) ou compétences personnalisées (voir [exemple : créer une compétence personnalisée](cognitive-search-create-custom-skill-example.md) pour plus d’informations).
+La recherche cognitive extrait et enrichit les données pour qu’elles puissent faire l’objet de recherches dans Recherche Azure. Nous appelons les étapes d’extraction et d’enrichissement *compétences cognitives*. Elles sont combinées en un *jeu de compétences* référencé pendant l’indexation. Un ensemble de compétences peut utiliser des [compétences prédéfinies](cognitive-search-predefined-skills.md) ou des compétences personnalisées. Pour plus d’informations, consultez [Example: create a custom skill](cognitive-search-create-custom-skill-example.md) (Exemple : créer une compétence personnalisée).
 
 Dans cet article, vous allez découvrir comment créer un pipeline d’enrichissement pour les compétences que vous souhaitez utiliser. Un jeu de compétences est attaché à un [indexeur](search-indexer-overview.md) Recherche Azure. Une partie de la conception du pipeline, traitée dans cet article, constitue le jeu de compétences proprement dit. 
 
@@ -138,11 +138,11 @@ Lorsque vous créez un jeu de compétences, vous pouvez en indiquer une descript
 }
 ```
 
-L’élément suivant du jeu de compétences est un tableau de compétences. Vous pouvez penser chaque compétence comme étant une primitive d’enrichissement. Chaque compétence effectue une petite tâche dans ce pipeline d’enrichissement. Chacune d’elles accepte une entrée (ou un ensemble d’entrées) et retourne des sorties. Les sections suivantes vous concentrer sur la façon de spécifier les compétences intégrés et personnalisés, le chaînage de compétences via des références d’entrée et de sortie. Les entrées peuvent provenir de données sources ou d’une autre compétence. Les sorties peuvent être mappées à un champ dans un index de recherche ou utilisées en tant qu’entrée pour une compétence en aval.
+L’élément suivant du jeu de compétences est un tableau de compétences. Vous pouvez penser chaque compétence comme étant une primitive d’enrichissement. Chaque compétence effectue une petite tâche dans ce pipeline d’enrichissement. Chacune d’elles accepte une entrée (ou un ensemble d’entrées) et retourne des sorties. Les sections suivantes sont consacrées à la spécification des compétences prédéfinies et personnalisées, chaînant ainsi les compétences ensemble via des références d’entrée et de sortie. Les entrées peuvent provenir de données sources ou d’une autre compétence. Les sorties peuvent être mappées à un champ dans un index de recherche ou utilisées en tant qu’entrée pour une compétence en aval.
 
-## <a name="add-built-in-skills"></a>Ajouter de nouvelles compétences intégrés
+## <a name="add-built-in-skills"></a>Ajouter des compétences prédéfinies
 
-Jetons un œil à la compétence première, qui est intégrée [compétence de reconnaissance d’entité](cognitive-search-skill-entity-recognition.md):
+Examinons la première compétence, qui est la [compétence de reconnaissance d’entité](cognitive-search-skill-entity-recognition.md) prédéfinie :
 
 ```json
     {
@@ -165,15 +165,15 @@ Jetons un œil à la compétence première, qui est intégrée [compétence de r
     }
 ```
 
-* A chaque compétence intégré `odata.type`, `input`, et `output` propriétés. Les propriétés propres à une compétence fournissent des informations supplémentaires applicables à cette compétence. Pour la reconnaissance d’entité, `categories` est une entité parmi un ensemble fixe de types d’entité que le modèle préformé peut reconnaître.
+* Chaque compétence prédéfinie dispose des propriétés `odata.type`, `input` et `output`. Les propriétés propres à une compétence fournissent des informations supplémentaires applicables à cette compétence. Pour la reconnaissance d’entité, `categories` est une entité parmi un ensemble fixe de types d’entité que le modèle préformé peut reconnaître.
 
-* Chaque compétence doit posséder un ```"context"```. Le contexte représente le niveau auquel les opérations ont lieu. Dans la qualification ci-dessus, le contexte est l’ensemble du document, ce qui signifie que la compétence de reconnaissance d’entité est appelée une fois par document. Les sorties sont également générées à ce niveau. Plus spécifiquement, les ```"organizations"``` sont générées en tant que membre de ```"/document"```. Dans les compétences en aval, vous pouvez faire référence à ces informations qui viennent d’être créées sous la forme ```"/document/organizations"```.  Si le champ ```"context"``` n’est pas défini explicitement, le contexte par défaut est le document.
+* Chaque compétence doit posséder un ```"context"```. Le contexte représente le niveau auquel les opérations ont lieu. Dans la compétence ci-dessus, le contexte représente l’ensemble du document, ce qui implique que la compétence de reconnaissance d’entité est appelée une fois par document. Les sorties sont également générées à ce niveau. Plus spécifiquement, les ```"organizations"``` sont générées en tant que membre de ```"/document"```. Dans les compétences en aval, vous pouvez faire référence à ces informations qui viennent d’être créées sous la forme ```"/document/organizations"```.  Si le champ ```"context"``` n’est pas défini explicitement, le contexte par défaut est le document.
 
-* La compétence possède une entrée appelée « texte », avec une entrée source définie sur ```"/document/content"```. La qualification (reconnaissance d’entité) fonctionne sur le *contenu* champ de chaque document, qui est un champ standard créé par l’indexeur d’objets blob Azure. 
+* La compétence possède une entrée appelée « texte », avec une entrée source définie sur ```"/document/content"```. La compétence (reconnaissance d’entité) fonctionne sur le champ *contenu* de chaque document. Il s’agit d’un champ standard créé par l’indexeur des objets blob Azure. 
 
 * La compétence possède une sortie appelée ```"organizations"```. Les sorties existent uniquement pendant le traitement. Pour chaîner cette sortie à l’entrée d’une compétence en aval, référencez la sortie en tant que ```"/document/organizations"```.
 
-* Pour un document particulier, la valeur de ```"/document/organizations"``` est un tableau des organisations extraites du texte. Exemple :
+* Pour un document particulier, la valeur de ```"/document/organizations"``` est un tableau des organisations extraites du texte. Par exemple :
 
   ```json
   ["Microsoft", "LinkedIn"]
@@ -237,7 +237,7 @@ La sortie, dans ce cas une description de société, est générée pour chaque 
 
 ## <a name="add-structure"></a>Ajouter une structure
 
-Le jeu de compétences génère des informations structurées à partir de données non structurées. Prenons l'exemple suivant :
+Le jeu de compétences génère des informations structurées à partir de données non structurées. Considérez l'exemple suivant :
 
 *« In its fourth quarter, Microsoft logged $1.1 billion in revenue from LinkedIn, the social networking company it bought last year. The acquisition enables Microsoft to combine LinkedIn capabilities with its CRM and Office capabilities. Stockholders are excited with the progress so far. »*
 
@@ -245,13 +245,13 @@ Un résultat probable serait une structure générée semblable à l’illustrat
 
 ![Exemple de structure de sortie](media/cognitive-search-defining-skillset/enriched-doc.png "Exemple de structure de sortie")
 
-Jusqu'à présent, cette structure a été interne uniquement, uniquement en mémoire et utilisée uniquement dans les index de recherche Azure. L’ajout d’un magasin de la base de connaissances vous donne un moyen d’enregistrer les enrichissements mis en forme pour une utilisation en dehors de la recherche.
+Jusqu’à présent, cette structure est interne uniquement, en mémoire seulement et utilisée uniquement dans les index Recherche Azure. L’ajout d’une base de connaissances vous permet d’enregistrer les enrichissements mis en forme pour une utilisation hors de la recherche.
 
-## <a name="add-a-knowledge-store"></a>Ajouter un magasin de la base de connaissances
+## <a name="add-a-knowledge-store"></a>Ajouter une base de connaissances
 
-[Magasin de la base de connaissances](knowledge-store-concept-intro.md) est une fonctionnalité préliminaire dans Azure Search pour l’enregistrement de votre document enrichie. Un magasin de base de connaissances que vous créez, soutenu par un compte de stockage Azure est le référentiel où vos données enrichies accède. 
+La [base de connaissances](knowledge-store-concept-intro.md) est une fonctionnalité d’évaluation de Recherche Azure destinée à l’enregistrement de vos documents enrichis. La base de connaissances que vous créez à l’aide d’un compte de stockage Azure est le référentiel dans lequel vos données enrichies résident. 
 
-Une définition de la banque de connaissances est ajoutée à un compétences. Pour obtenir une description de l’ensemble du processus, consultez [la prise en main avec le magasin de la base de connaissances](knowledge-store-howto.md).
+Une définition de la base de connaissances est ajoutée à un ensemble de compétences. Pour obtenir une procédure pas à pas de l’ensemble du processus, consultez [Prise en main de la base de connaissances](knowledge-store-howto.md).
 
 ```json
 "knowledgeStore": {
@@ -273,7 +273,7 @@ Une définition de la banque de connaissances est ajoutée à un compétences. P
 }
 ```
 
-Vous pouvez choisir d’enregistrer les documents enrichies en tant que tables avec des relations hiérarchiques conservées ou en tant que documents JSON dans le stockage blob. Sortie à partir des compétences dans les compétences dont dispose peut provenir comme entrée pour la projection. Si vous cherchez pour projeter les données dans un spécifique à mettre en forme, la mise à jour [compétence de modélisateur](cognitive-search-skill-shaper.md) maintenant de modèle que vous pouvez utiliser des types complexes. 
+Vous pouvez choisir d’enregistrer les documents enrichis sous forme de tables avec des relations hiérarchiques conservées ou sous forme de documents JSON dans le stockage blob. Toute sortie à partir des compétences de l’ensemble de compétences peut servir de source d’entrée de la projection. Si vous cherchez à projeter les données dans une forme spécifique, la [compétence de modélisateur](cognitive-search-skill-shaper.md) mise à jour peut maintenant modéliser les types complexes que vous utilisez. 
 
 <a name="next-step"></a>
 

@@ -1,16 +1,16 @@
 ---
 title: Créer un mappage de flux de données Azure Data Factory
-description: Comment créer un Azure Data Factory mappage de flux de données
+description: Comment créer un mappage de flux de données Azure Data Factory
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.openlocfilehash: 366ed60534544ebbf889e2f72fe703f9b821f871
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65235651"
 ---
 # <a name="create-azure-data-factory-data-flow"></a>Créer un flux de données Azure Data Factory
@@ -19,7 +19,7 @@ ms.locfileid: "65235651"
 
 Le mappage de flux de données ADF permet de transformer des données à grande échelle sans aucun codage. Vous pouvez concevoir une tâche de transformation de données dans le concepteur de flux de données en créant une série de transformations. Commencez par un certain nombre de transformations sources, suivies par des étapes de transformation de données. Ensuite, réalisez votre flux de données avec un récepteur qui servira de destination à vos résultats.
 
-Commencez en créant d’abord une nouvelle fabrique de données V2 à partir du portail Azure. Ensuite, cliquez sur la vignette « Créer et surveiller » pour lancer l’interface utilisateur de Data Factory.
+Commencez par créer une fabrique de données v2 sur le portail Azure. Ensuite, cliquez sur la vignette « Créer et surveiller » pour lancer l’interface utilisateur de Data Factory.
 
 ![Options de flux de données](media/data-flow/v2portal.png "Créer un flux de données")
 
@@ -35,10 +35,10 @@ Il vous est demandé d’entrer les informations d’identification de votre com
 
 ## <a name="create-new-data-flow"></a>Créer un flux de données
 
-Utilisation de la ressource créer « signe » situé dans l’UI ADF pour créer des flux de données.
+Utilisez le bouton « signe plus » Créer une ressource de l’interface utilisateur ADF pour créer des flux de données.
 
 ![Options de flux de données](media/data-flow/newresource.png "Nouvelle ressource")
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Commencer à générer votre transformation des données avec un [transformation source](data-flow-source.md).
+Créez votre transformation des données avec une [transformation source](data-flow-source.md).

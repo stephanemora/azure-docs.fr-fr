@@ -11,22 +11,22 @@ ms.topic: article
 ms.custom: mvc
 ms.date: 05/07/2019
 ms.openlocfilehash: 6a36770ff623e35c56a972a482e24ebb24849051
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65467419"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>Gérer des applications logiques avec Visual Studio
 
-Bien que vous pouvez créer, modifier, gérer et déployer des applications logiques dans le [Azure portal](https://portal.azure.com), vous pouvez également utiliser Visual Studio lorsque vous souhaitez ajouter vos applications logiques pour le contrôle de code source, publier des versions différentes et créer [Azure Le Gestionnaire de ressources](../azure-resource-manager/resource-group-overview.md) modèles pour différents environnements de déploiement. Avec Visual Studio Cloud Explorer, vous pouvez rechercher et gérer vos applications logiques, ainsi que d’autres ressources Azure. Par exemple, vous pouvez ouvrir, télécharger, modifier, exécuter, désactiver et activer des applications logiques déjà déployées dans le portail Azure ou encore en afficher l’historique des exécutions. Si vous ne savez pas utiliser Azure Logic Apps dans Visual Studio, apprenez à [créer des applications logiques avec Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
+Même si vous pouvez créer, modifier, gérer et déployer des applications logiques dans le [portail Azure](https://portal.azure.com), vous pouvez aussi utiliser Visual Studio pour ajouter vos applications logiques au contrôle de code source, publier des versions différentes et créer des modèles [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) pour plusieurs environnements de déploiement. Avec Visual Studio Cloud Explorer, vous pouvez rechercher et gérer vos applications logiques, ainsi que d’autres ressources Azure. Par exemple, vous pouvez ouvrir, télécharger, modifier, exécuter, désactiver et activer des applications logiques déjà déployées dans le portail Azure ou encore en afficher l’historique des exécutions. Si vous ne savez pas utiliser Azure Logic Apps dans Visual Studio, apprenez à [créer des applications logiques avec Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
 
 > [!IMPORTANT]
 > Le déploiement ou la publication d’une application logique à partir de Visual Studio remplace la version de cette application dans le portail Azure. Par conséquent, si vous apportez dans le portail Azure des modifications que vous souhaitez conserver, veillez à [actualiser l’application logique dans Visual Studio](#refresh) à partir du portail Azure avant son prochain déploiement ou sa prochaine publication à partir de Visual Studio.
 
 <a name="requirements"></a>
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, [inscrivez-vous pour bénéficier d’un compte Azure gratuit](https://azure.microsoft.com/free/).
 
@@ -36,12 +36,12 @@ Bien que vous pouvez créer, modifier, gérer et déployer des applications logi
   Ce démarrage rapide utilise Visual Studio Community 2017, qui est gratuit.
 
     > [!IMPORTANT]
-    > Quand vous installez Visual Studio 2019 ou 2017, veillez à sélectionner la charge de travail **Développement Azure**. Pour Visual Studio 2019, Cloud Explorer peut ouvrir le Concepteur d’application logique dans le portail Azure, mais ne peut pas encore ouvrir le Concepteur d’application logique intégré. Pour plus d’informations, consultez [gérer les ressources associées à vos comptes Azure dans Visual Studio Cloud Explorer](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view).
+    > Quand vous installez Visual Studio 2019 ou 2017, veillez à sélectionner la charge de travail **Développement Azure**. Pour Visual Studio 2019, Cloud Explorer peut ouvrir le Concepteur d’application logique dans le portail Azure, mais ne peut pas encore ouvrir le Concepteur d’application logique intégré. Pour plus d’informations, voir [Gérer les ressources associées à vos comptes Azure dans Visual Studio Cloud Explorer](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view).
 
-    Pour installer Cloud Explorer pour Visual Studio 2015, [télécharger Cloud Explorer à partir de Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=MicrosoftCloudExplorer.CloudExplorerforVisualStudio2015). 
-    Pour plus d’informations, consultez [gérer les ressources associées à vos comptes Azure dans Visual Studio Cloud Explorer (2015)](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view=vs-2015).
+    Pour installer Cloud Explorer pour Visual Studio 2015, [téléchargez Cloud Explorer à partir de Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=MicrosoftCloudExplorer.CloudExplorerforVisualStudio2015). 
+    Pour plus d’informations, voir [Gérer les ressources associées à vos comptes Azure dans Visual Studio Cloud Explorer (2015)](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view=vs-2015).
 
-  * [Kit de développement logiciel Azure (2.9.1 ou version ultérieure)](https://azure.microsoft.com/downloads/) 
+  * [Azure SDK (2.9.1 ou version ultérieure)](https://azure.microsoft.com/downloads/) 
 
   * [Azure PowerShell](https://github.com/Azure/azure-powershell#installation)
 
@@ -69,7 +69,7 @@ Dans Visual Studio, vous pouvez trouver toutes les applications logiques associ�
 
 1. Ouvrez Visual Studio. Dans le menu **Affichage**, sélectionnez **Cloud Explorer**.
 
-1. Dans Cloud Explorer, choisissez **Gestion de compte**. Sélectionnez l’abonnement Azure associé à vos applications logiques, puis choisissez **Appliquer**. Par exemple : 
+1. Dans Cloud Explorer, choisissez **Gestion de compte**. Sélectionnez l’abonnement Azure associé à vos applications logiques, puis choisissez **Appliquer**. Par exemple :
 
    ![Choisir « Gestion de compte »](./media/manage-logic-apps-with-visual-studio/account-management-select-Azure-subscription.png)
 
@@ -106,7 +106,7 @@ Vous pouvez télécharger des applications logiques à partir du [portail Azure]
 1. Dans Visual Studio, ouvrez Cloud Explorer, puis recherchez et sélectionnez l’application logique à télécharger à partir d’Azure.
 
    > [!NOTE]
-   > Pour Visual Studio 2019, Cloud Explorer peut ouvrir le Concepteur d’application logique dans le portail Azure, mais encore Impossible d’ouvrir le Concepteur d’application logique intégré pour le téléchargement de votre application logique.
+   > Pour Visual Studio 2019, Cloud Explorer peut ouvrir le Concepteur d’application logique dans le portail Azure, mais ne peut pas encore ouvrir le Concepteur d’application logique intégré pour télécharger votre application logique.
 
 2. Dans le menu contextuel de l’application, sélectionnez **Ouvrir avec l’éditeur d’application logique**.
 
@@ -155,14 +155,14 @@ Pour vérifier l’état des exécutions d’application logique et résoudre le
 
    ![Ouvrir l’historique des exécutions](./media/manage-logic-apps-with-visual-studio/view-run-history.png)
 
-1. Pour afficher les détails d’une exécution spécifique, double-cliquez dessus. Par exemple : 
+1. Pour afficher les détails d’une exécution spécifique, double-cliquez dessus. Par exemple :
 
    ![Historique des exécutions détaillé](./media/manage-logic-apps-with-visual-studio/view-run-history-details.png)
   
    > [!TIP]
    > Pour trier la table par propriété, choisissez l’en-tête de colonne de cette propriété. 
 
-1. Développez les étapes dont vous voulez examiner les entrées et sorties. Par exemple : 
+1. Développez les étapes dont vous voulez examiner les entrées et sorties. Par exemple :
 
    ![Afficher les entrées et sorties de chaque étape](./media/manage-logic-apps-with-visual-studio/run-inputs-outputs.png)
 
@@ -195,7 +195,7 @@ Lorsque vous ouvrez votre projet d’application logique dans le Concepteur d’
 
 * Renommez le fichier .json de l’application logique. Le cache de l’abonnement varie selon le nom de fichier.
 
-* Pour supprimer les abonnements sélectionnés précédemment pour *tous les* logic apps dans votre solution, supprimez le dossier Paramètres Visual Studio de caché (.vs) dans le répertoire de votre solution. Cet emplacement stocke vos informations d’abonnement.
+* Pour supprimer les abonnements précédemment sélectionnés pour *toutes* les applications logiques dans votre solution, supprimez le dossier de paramètres Visual Studio masqué (.vs) dans le répertoire de votre solution. Cet emplacement stocke vos informations d’abonnement.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

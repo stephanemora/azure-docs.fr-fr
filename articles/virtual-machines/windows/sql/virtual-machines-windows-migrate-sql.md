@@ -17,10 +17,10 @@ ms.date: 08/18/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 8e5a7bfc243fc8c797ffc66b2130756567ddc0fb
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65795775"
 ---
 # <a name="migrate-a-sql-server-database-to-sql-server-in-an-azure-vm"></a>Migrer une base de données SQL Server vers SQL Server dans une machine virtuelle Azure
@@ -31,7 +31,7 @@ Il existe plusieurs méthodes permettant de migrer une base de données utilisat
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-both-include.md)]
 
   > [!NOTE]
-  > SQL Server 2008 et SQL Server 2008 R2 sont approchent de la [fin de leur cycle de vie de prise en charge](https://www.microsoft.com/sql-server/sql-server-2008) pour les instances locales. Pour étendre la prise en charge, vous pouvez migrer votre instance de SQL Server vers une machine virtuelle Azure, ou acheter étendu des mises à jour sécurité pour le conserver en local. Pour plus d’informations, consultez [étendre la prise en charge pour SQL Server 2008 et 2008 R2 avec Azure](virtual-machines-windows-sql-server-2008-eos-extend-support.md)
+  > SQL Server 2008 et SQL Server 2008 R2 se rapprochent de la [fin de leur cycle de vie de prise en charge](https://www.microsoft.com/sql-server/sql-server-2008) pour les instances locales. Pour étendre la prise en charge, vous pouvez migrer votre instance SQL Server vers une machine virtuelle Azure ou acheter des mises à jour de sécurité étendues pour la conserver en local. Pour plus d’informations, consultez [Étendre la prise en charge de SQL Server 2008 et SQL Server 2008 R2 avec Azure](virtual-machines-windows-sql-server-2008-eos-extend-support.md)
 
 ## <a name="what-are-the-primary-migration-methods"></a>Quelles sont les principales méthodes de migration ?
 Les méthodes de migration principales consistent à :

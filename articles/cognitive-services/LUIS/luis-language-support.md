@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: diberry
 ms.openlocfilehash: 8f067bc005c4de9ddc87ed598b1717f8fbb29a6a
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65072377"
 ---
 # <a name="language-and-region-support-for-luis"></a>Prise en charge de la région et de la langue pour LUIS
@@ -53,7 +53,7 @@ La prise en charge linguistique varie pour les [entités prédéfinies](luis-ref
 
  - Dans la culture `zh-cn`, LUIS attend le jeu de caractères chinois simplifié plutôt que le jeu de caractères chinois traditionnel.
  - Les noms des intentions, les entités, les fonctionnalités et les expressions régulières peuvent être en caractères chinois ou romans.
- - Consultez le [référence des domaines prédéfinis](luis-reference-prebuilt-domains.md) pour plus d’informations sur lequel des domaines prédéfinis sont pris en charge dans le `zh-cn` culture.
+ - Pour plus d’informations sur les domaines prédéfinis pris en charge dans la culture `zh-cn`, voir la [référence des domaines prédéfinis](luis-reference-prebuilt-domains.md).
 <!--- When writing regular expressions in Chinese, do not insert whitespace between Chinese characters.-->
 
 ### <a name="japanese-support-notes"></a>*Notes pour la prise en charge du japonais
@@ -95,16 +95,16 @@ Pour effectuer l’apprentissage machine, LUIS décompose l’énoncé en [jeton
 |Espagnol (es-ES)|✔||||
 |Espagnol (es-MX)|✔||||
 
-### <a name="custom-tokenizer-versions"></a>Versions du Générateur de jetons personnalisés
+### <a name="custom-tokenizer-versions"></a>Versions personnalisées du générateur de jetons
 
-Les cultures suivantes ont des versions du Générateur de jetons personnalisé :
+Les cultures suivantes ont des versions personnalisées du générateur de jetons :
 
 |Culture|Version|Objectif|
 |--|--|--|
-|Allemand<br>`de-de`|1.0.0|Crée des jetons mots en les fractionnant à l’aide d’un ordinateur basé sur un apprentissage Générateur de jetons qui tente de se décomposer des mots composés en leurs composants uniques.<br>Si un utilisateur entre `Ich fahre einen krankenwagen` comme énoncé, elle est activée `Ich fahre einen kranken wagen`. Ce qui permet le marquage de `kranken` et `wagen` indépendamment en tant que différentes entités.|
-|Allemand<br>`de-de`|1.0.2|Crée des jetons en les fractionnant sur les espaces de mots.<br> Si un utilisateur entre `Ich fahre einen krankenwagen` comme énoncé, il reste un jeton unique. Par conséquent `krankenwagen` est marquée comme une seule entité. |
+|Allemand<br>`de-de`|1.0.0|Segmente les mots composés en composants simples à l’aide d’un générateur de jetons de type Machine Learning.<br>L’énoncé `Ich fahre einen krankenwagen` est transformé en `Ich fahre einen kranken wagen`. Permet de marquer indépendamment `kranken` et `wagen` comme des entités différentes.|
+|Allemand<br>`de-de`|1.0.2|Segmente les mots en les fractionnant sur les espaces.<br> L’énoncé `Ich fahre einen krankenwagen` reste un jeton unique. `krankenwagen` est donc marqué comme une seule entité. |
 
-### <a name="migrating-between-tokenizer-versions"></a>Migration entre les versions du Générateur de jetons
+### <a name="migrating-between-tokenizer-versions"></a>Changer de version du générateur de jetons
 <!--
 Your first choice is to change the tokenizer version in the app file, then import the version. This action changes how the utterances are tokenized but allows you to keep the same app ID. 
 
@@ -207,6 +207,6 @@ Tokenizer JSON for version 1.0.1. Notice the property value for  `tokenizerVersi
 ```
 -->
 
-Création de jetons se produit au niveau de l’application. Il n’existe aucune prise en charge pour la création de jetons de niveau de version. 
+La segmentation du texte en unités lexicales se produit au niveau de l’application. La tokenisation au niveau de la version n’est pas prise en charge. 
 
-[Importez le fichier comme nouvelle application](luis-how-to-start-new-app.md#import-an-app-from-file), au lieu d’une version. Cette action signifie la nouvelle application a un ID d’application différents, mais utilise la version du Générateur de jetons spécifiée dans le fichier. 
+[Importez le fichier comme une nouvelle application](luis-how-to-start-new-app.md#import-an-app-from-file), au lieu d’une version, pour que l’application ait un autre ID, mais utilise la version du générateur de jetons spécifiée dans le fichier. 

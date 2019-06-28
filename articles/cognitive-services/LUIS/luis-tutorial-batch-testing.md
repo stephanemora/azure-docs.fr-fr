@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 03/29/2019
 ms.author: diberry
 ms.openlocfilehash: af04ca19961abcfc7ee218824a4a1a804f7ad79c
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65146156"
 ---
 # <a name="tutorial-batch-test-data-sets"></a>Didacticiel : Tester des jeux de données par lot
@@ -28,7 +28,7 @@ Exigences des tests de lots :
 
 * 1 000 énoncés maximum par test. 
 * Pas de doublons. 
-* Types d’entité autorisées : seules les entités apprises usinées de composites et simple. Les tests de lots ne sont utiles que pour les entités et les intentions apprises automatiquement.
+* Types d’entités autorisés : seules les entités apprises automatiquement de type simple et composite. Les tests de lots ne sont utiles que pour les entités et les intentions apprises automatiquement.
 
 Si vous utilisez une application autre que ce tutoriel, *n’utilisez pas* les exemples d’énoncés déjà ajoutés à une intention. 
 
@@ -55,7 +55,7 @@ Procédez comme suit :
 
 2. Importez le code JSON dans une nouvelle application.
 
-3. À partir de la section **Manage (Gérer)**, sous l’onglet **Versions**, clonez la version et nommez-la `batchtest`. Le clonage est un excellent moyen de manipuler diverses fonctionnalités de LUIS sans affecter la version d’origine. Étant donné que le nom de la version est utilisé dans le cadre de la route d’URL, il ne peut pas contenir de caractères qui ne sont pas valides dans une URL. 
+3. À partir de la section **Manage (Gérer)** , sous l’onglet **Versions**, clonez la version et nommez-la `batchtest`. Le clonage est un excellent moyen de manipuler diverses fonctionnalités de LUIS sans affecter la version d’origine. Étant donné que le nom de la version est utilisé dans le cadre de la route d’URL, il ne peut pas contenir de caractères qui ne sont pas valides dans une URL. 
 
 4. Effectuez l’apprentissage de l’application.
 
@@ -95,7 +95,7 @@ Procédez comme suit :
 
 ## <a name="review-batch-results"></a>Passer en revue les résultats du test par lot
 
-Le graphique de lot présente quatre quadrants de résultats. À droite du graphique se trouve un filtre. Par défaut, il est défini sur la première intention de la liste. Le filtre contient tous les intentions et entités uniquement simples et composites. Lorsque vous sélectionnez un point ou une [section du graphique](luis-concept-batch-test.md#batch-test-results), le ou les énoncés associés s’affichent sous le graphique. 
+Le graphique de lot présente quatre quadrants de résultats. À droite du graphique se trouve un filtre. Par défaut, il est défini sur la première intention de la liste. Il contient toutes les intentions et seulement les entités simples et composites. Lorsque vous sélectionnez un point ou une [section du graphique](luis-concept-batch-test.md#batch-test-results), le ou les énoncés associés s’affichent sous le graphique. 
 
 Au passage de la souris sur le graphique, la roulette permet d’agrandir ou de réduire l’affichage du graphique, ce qui est utile en présence de nombreux points très rapprochés. 
 
@@ -169,7 +169,7 @@ Pour vérifier que les énoncés du test de lot sont correctement prédits, rée
 
 ## <a name="create-batch-file-with-entities"></a>Créer un fichier de lot avec des entités 
 
-Les entités doivent être étiquetées dans le fichier JSON de lot pour pouvoir être vérifiées dans le test de lot. Les entités machine a appris sont utilisées : les entités simples et composites. N’ajoutez pas d’autres types d’entités, car elles sont toujours trouvées, soit par expression régulière, soit par correspondance de texte explicite.
+Les entités doivent être étiquetées dans le fichier JSON de lot pour pouvoir être vérifiées dans le test de lot. Seules les entités apprises automatiquement sont utilisées : simples et composites. N’ajoutez pas d’autres types d’entités, car elles sont toujours trouvées, soit par expression régulière, soit par correspondance de texte explicite.
 
 Les variations du nombre total de mots ([tokens](luis-glossary.md#token)) dans les entités peuvent avoir un impact sur la qualité des prédictions. Veillez à ce que les données d’apprentissage fournies à l’intention avec des énoncés étiquetés présentent des longueurs variables d’entité. 
 
@@ -205,11 +205,11 @@ La valeur d’une entité **Job**, fournie dans les énoncés de test, est gén�
 
 ## <a name="review-entity-batch-results"></a>Vérifier les résultats du lot d’entités
 
-Le graphique s’ouvre sur toutes les intentions correctement prédites. Défiler vers le bas dans le filtre de droite pour trouver les prédictions d’entité avec des erreurs. 
+Le graphique s’ouvre sur toutes les intentions correctement prédites. Faites défiler le filtre de droite pour trouver les prédictions d’entités erronées. 
 
 1. Sélectionnez l’entité **Job** dans le filtre.
 
-    ![Prédictions d’entité erreur dans le filtre](./media/luis-tutorial-batch-testing/hr-entities-filter-errors.png)
+    ![Prédictions d’entités erronées dans le filtre](./media/luis-tutorial-batch-testing/hr-entities-filter-errors.png)
 
     Le graphique affiche maintenant les prédictions d’entités. 
 

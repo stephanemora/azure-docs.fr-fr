@@ -15,15 +15,15 @@ ms.workload: NA
 ms.date: 04/24/2019
 ms.author: pepogors
 ms.openlocfilehash: 051d6b1129724ce4e8a67bde4e56ebe61cd832f3
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65231371"
 ---
 # <a name="azure-service-fabric-application-and-cluster-best-practices"></a>Bonnes pratiques relatives aux applications et aux clusters Azure Service Fabric
 
-Pour gérer des clusters et des applications Azure Service Fabric avec succès, il existe des opérations que nous vous recommandons vivement de que procéder pour optimiser la fiabilité de votre environnement de production ; Veuillez effectuer les opérations définies dans ce document et sélectionnez une de nos [modèles de Cluster Azure exemples Service Fabric](https://github.com/Azure-Samples/service-fabric-cluster-templates) pour commencer à concevoir votre solution de production ou de modifier votre modèle existant pour incorporer ces pratiques.
+Pour la gestion de vos clusters et de vos applications Azure Service Fabric, il est fortement recommandé d’effectuer certaines opérations dans le but d’optimiser la fiabilité de votre environnement de production. Effectuez les opérations décrites dans ce document, puis sélectionnez l’un de nos [exemples de modèles de clusters Azure Service Fabric](https://github.com/Azure-Samples/service-fabric-cluster-templates) pour concevoir votre solution de production ou modifier votre modèle existant afin d’incorporer ces pratiques.
 
 ## <a name="security"></a>Sécurité 
 
@@ -48,7 +48,7 @@ Pour gérer des clusters et des applications Azure Service Fabric avec succès, 
 
 ## <a name="application-design"></a>Conception des applications
 
-* [Meilleures pratiques pour la conception de l’application](service-fabric-best-practices-applications.md)
+* [Bonnes pratiques relatives à la conception des applications](service-fabric-best-practices-applications.md)
 
 ## <a name="checklist"></a>Liste de contrôle
 

@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 02/07/2019
 ms.custom: seodec18
 ms.openlocfilehash: e06313cf83768421bedc6c7baddd30c2ef2e4846
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65789423"
 ---
 # <a name="azure-stream-analytics-custom-blob-output-partitioning"></a>Partitionnement personnalisé de sortie BLOB dans Azure Stream Analytics
@@ -26,7 +26,7 @@ Des champs ou attributs d’entrée personnalisés améliorent en aval le traite
 
 ### <a name="partition-key-options"></a>Options de clé de partition
 
-La clé de partition ou le nom de colonne utilisés pour partitionner des données d’entrée peuvent contenir des caractères alphanumériques avec des traits d’union, des traits de soulignement et des espaces. Il n’est pas possible d’utiliser des champs imbriqués en tant que clé de partition, sauf conjointement avec des alias. La clé de partition doit être nvarchar (max).
+La clé de partition ou le nom de colonne utilisés pour partitionner des données d’entrée peuvent contenir des caractères alphanumériques avec des traits d’union, des traits de soulignement et des espaces. Il n’est pas possible d’utiliser des champs imbriqués en tant que clé de partition, sauf conjointement avec des alias. La clé de partition doit être NVARCHAR(MAX).
 
 ### <a name="example"></a>Exemples
 
@@ -72,7 +72,7 @@ Avec les modèles de chemin DateTime personnalisés, vous pouvez spécifier un f
 
 Les jetons de spécificateur de format suivants peuvent être utilisés individuellement ou en combinaison pour créer des formats DateTime personnalisés :
 
-|Spécificateur de format   |Description    |Résultats pour l’exemple date/heure 2018-01-02T10:06:08|
+|Spécificateur de format   |Description   |Résultats pour l’exemple date/heure 2018-01-02T10:06:08|
 |----------|-----------|------------|
 |{datetime:yyyy}|Année sous la forme d’un nombre à quatre chiffres|2018|
 |{datetime:MM}|Mois de 01 à 12|01|
@@ -81,7 +81,7 @@ Les jetons de spécificateur de format suivants peuvent être utilisés individu
 |{datetime:d}|Jour de 1 à 31|2|
 |{datetime:HH}|Heure au format 24 heures, de 00 à 23|10|
 |{datetime:mm}|Minutes de 00 à 24|06|
-|{datetime:m}|Minutes de 0 à 24|6.|
+|{datetime:m}|Minutes de 0 à 24|6\.|
 |{datetime:ss}|Secondes de 00 à 60|08|
 
 Si vous ne souhaitez pas utiliser des modèles DateTime personnalisés, vous pouvez ajouter le jeton {date} et/ou {time} au préfixe de chemin. Vous obtenez ainsi une liste déroulante contenant les formats DateTime prédéfinis.

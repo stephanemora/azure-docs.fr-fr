@@ -1,6 +1,6 @@
 ---
-title: Web API que les appels autres API web (acquérir un jeton pour l’application) - plateforme d’identité Microsoft
-description: Découvrez comment générer une API que les appels d’autres web API (l’acquisition d’un jeton pour l’application) web.
+title: API web qui appelle d’autres API web (acquisition d’un jeton pour l’application) - Plateforme d’identités Microsoft
+description: Découvrez comment générer une API web qui appelle d’autres API web (acquisition d’un jeton pour l’application).
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -16,19 +16,19 @@ ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 986e2e0f8a481d61dc870af2548290658b44d2d3
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65231099"
 ---
-# <a name="web-api-that-calls-web-apis---acquire-a-token-for-the-app"></a>API Web qui appelle des API - web acquérir un jeton pour l’application
+# <a name="web-api-that-calls-web-apis---acquire-a-token-for-the-app"></a>API web qui appelle d’autres API web - Acquisition d’un jeton pour l’application
 
-Une fois que vous avez créé une application cliente d’objet, l’utiliser pour acquérir un jeton que vous pouvez utiliser pour appeler une API web.
+Une fois que vous avez généré l’objet d’application cliente, utilisez-le pour acquérir un jeton qui vous servira à appeler une API web.
 
-## <a name="code-in-the-controller"></a>Dans le contrôleur de code
+## <a name="code-in-the-controller"></a>Code dans le contrôleur
 
-Voici un exemple de code qui sera appelée dans les actions des contrôleurs d’API, en appelant une API en aval (nommée todolist).
+Voici un exemple du code qui sera appelé dans les actions des contrôleurs d’API, en appelant une API en aval (nommée todolist).
 
 ```CSharp
 private async Task GetTodoList(bool isAppStarting)
@@ -49,9 +49,9 @@ private async Task GetTodoList(bool isAppStarting)
 }
 ```
 
-`BuildConfidentialClient()` est similaire à ce que vous avez vu dans l’article [API Web qui appelle des API - configuration de l’application web](scenario-web-api-call-api-app-configuration.md). `BuildConfidentialClient()` instancie `IConfidentialClientApplication` avec un cache qui contient uniquement les informations pour un seul compte. Le compte est fourni par le `GetAccountIdentifier` (méthode).
+`BuildConfidentialClient()` ressemble à ce que vous avez vu dans l’article [API web qui appelle des API - configuration de l’application](scenario-web-api-call-api-app-configuration.md). `BuildConfidentialClient()` instancie `IConfidentialClientApplication` avec un cache qui contient uniquement les informations d’un seul compte. Le compte est fourni par la méthode `GetAccountIdentifier`.
 
-Le `GetAccountIdentifier` méthode utilise les revendications associées à l’identité de l’utilisateur pour lequel l’API web a reçu le jeton JWT :
+La méthode `GetAccountIdentifier` utilise les revendications associées à l’identité de l’utilisateur pour lequel l’API web a reçu le jeton JWT :
 
 ```CSharp
 public static string GetMsalAccountId(this ClaimsPrincipal claimsPrincipal)
@@ -72,4 +72,4 @@ public static string GetMsalAccountId(this ClaimsPrincipal claimsPrincipal)
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Appeler une API web](scenario-web-api-call-api-call-api.md)
+> [Appel d’une API web](scenario-web-api-call-api-call-api.md)

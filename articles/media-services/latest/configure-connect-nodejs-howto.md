@@ -1,6 +1,6 @@
 ---
-title: Se connecter à Azure Media Services v3 API - Node.js
-description: Découvrez comment vous connecter à Media Services v3 API avec Node.js.
+title: Se connecter à l’API Azure Media Services v3 – Node.js
+description: Apprenez à vous connecter à l’API Media Services v3 avec Node.js.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,25 +14,25 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: juliako
 ms.openlocfilehash: 40880a2c28ce28a671930ef8837082247e61e24b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60733128"
 ---
-# <a name="connect-to-media-services-v3-api---nodejs"></a>Se connecter à l’API de Media Services v3 - Node.js
+# <a name="connect-to-media-services-v3-api---nodejs"></a>Se connecter à l’API Media Services v3 – Node.js
 
-Cet article vous montre comment se connecter à la node.js de v3 Azure Media Services SDK à l’aide de la connexion du principal du service dans la méthode.
+Cet article explique comment se connecter au kit de développement logiciel (SDK) Node.js Azure Media Services v3 suivant la méthode de connexion au principal du service.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 - Installez [Node.js](https://nodejs.org/en/download/).
-- [Créer un compte Media Services](create-account-cli-how-to.md). Veillez à mémoriser le nom de groupe de ressources et le nom du compte Media Services.
+- [Créer un compte Media Services](create-account-cli-how-to.md). Veillez à mémoriser le nom du groupe de ressources et celui du compte Media Services.
 
-## <a name="create-packagejson"></a>Créer package.json
+## <a name="create-packagejson"></a>Créer un fichier package.json
 
-1. Créez un fichier package.json à l’aide de votre éditeur favori.
-1. Ouvrez le fichier et collez le code suivant :
+1. Créez un fichier package.json dans votre éditeur favori.
+1. Ouvrez le fichier et collez-y le code suivant :
 
 ```json
 {
@@ -53,11 +53,11 @@ Les packages suivants doivent être spécifiés :
 
 |Package|Description|
 |---|---|
-|`azure-arm-mediaservices`|Azure Media Services SDK. <br/>Pour vous assurer que vous utilisez le dernier package Azure Media Services, vérifiez [NPM install azure-arm-mediaservices](https://www.npmjs.com/package/azure-arm-mediaservices/).|
-|`azure-storage`|Kit de développement logiciel de stockage. Utilisé lors du téléchargement des fichiers dans les ressources.|
-|`ms-rest-azure`| Utilisé pour la connexion.|
+|`azure-arm-mediaservices`|Kit SDK Azure Media Services. <br/>Pour vérifier que vous utilisez le dernier package Azure Media Services, exécutez [NPM install azure-arm-mediaservices](https://www.npmjs.com/package/azure-arm-mediaservices/).|
+|`azure-storage`|Kit SDK Stockage servant à charger des fichiers dans les ressources.|
+|`ms-rest-azure`| Package servant à se connecter.|
 
-Vous pouvez exécuter la commande suivante pour vous assurer que vous utilisez le dernier package :
+Vous pouvez exécuter la commande suivante pour vérifier que vous utilisez le dernier package :
 
 ```
 npm install azure-arm-mediaservices
@@ -65,9 +65,9 @@ npm install azure-arm-mediaservices
 
 ## <a name="connect-to-nodejs-client"></a>Se connecter à un client Node.js
 
-1. Créez un fichier .js à l’aide de votre éditeur favori.
+1. Créez un fichier .js dans votre éditeur favori.
 1. Ouvrez le fichier et collez-y le code suivant.
-1. Définissez les valeurs dans la section « Configuration de point de terminaison » aux valeurs que vous avez obtenus [accéder aux API](access-api-cli-how-to.md).
+1. Remplacez les valeurs de la section « endpoint config » par celles que vous avez obtenues dans [Accéder aux API](access-api-cli-how-to.md).
 
 ```js
 'use strict';
@@ -113,7 +113,7 @@ msRestAzure.loginWithServicePrincipalSecret(aadClientId, aadSecret, aadTenantId,
 
 ## <a name="run-your-app"></a>Exécutez l'application.
 
-Ouvrez une invite de commandes. Accédez au répertoire de l’exemple et exécutez les commandes suivantes :
+Ouvrez une invite de commandes. Accédez au répertoire de l’exemple et exécutez les commandes suivantes :
 
 ```
 npm install 

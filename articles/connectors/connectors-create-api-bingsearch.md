@@ -1,5 +1,5 @@
 ---
-title: Se connecter à la recherche Bing - Azure Logic Apps
+title: Se connecter à la Recherche Bing – Azure Logic Apps
 description: Rechercher des actualités avec les API REST de la recherche Bing et Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 05/21/2018
 tags: connectors
 ms.openlocfilehash: 7146e59eabf9e30fa263f957f1c546414ad0fe26
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60952606"
 ---
 # <a name="find-news-with-bing-search-and-azure-logic-apps"></a>Rechercher des actualités avec la recherche Bing et Azure Logic Apps
@@ -26,7 +26,7 @@ Par exemple, vous pouvez rechercher des éléments d’actualités en fonction d
 Si vous n’avez pas d’abonnement Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscrivez-vous pour bénéficier d’un compte Azure gratuit</a>. Si vous débutez avec les applications logiques, consultez [Qu’est-ce qu’Azure Logic Apps ?](../logic-apps/logic-apps-overview.md) et [Démarrage rapide : Créer votre première application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 Pour obtenir des informations techniques spécifiques aux connecteurs, consultez la <a href="https://docs.microsoft.com/connectors/bingsearch/" target="blank">référence du connecteur de recherche Bing</a>.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 * Un [compte Cognitive Services](../cognitive-services/cognitive-services-apis-create-account.md)
 
@@ -44,7 +44,7 @@ Dans Azure Logic Apps, chaque application logique doit démarrer avec un [décle
 
 2. Dans la zone de recherche, entrez « recherche Bing » comme filtre. Dans la liste des déclencheurs, sélectionnez le déclencheur souhaité.
 
-   Cet exemple utilise ce déclencheur : **Recherche de Bing - sur le nouvel article de news**
+   Cet exemple utilise ce déclencheur : **Bing Search – On new news article**.
 
    ![Rechercher le déclencheur de recherche Bing](./media/connectors-create-api-bing-search/add-trigger.png)
 
@@ -55,14 +55,14 @@ Ou bien, si votre connexion existe déjà, fournissez les informations nécessai
 
    | Propriété | Obligatoire | Value | Description |
    |----------|----------|-------|-------------|
-   | Search Query | Oui | <*search-words*> | Entrez les mots clés de recherche à utiliser. |
-   | Market | Oui | <*locale*> | Les paramètres régionaux de recherche. La valeur par défaut est « en-US », mais vous pouvez sélectionner une autre valeur. |
-   | Safe Search | Oui | <*search-level*> | Le niveau de filtre d’exclusion du contenu pour adultes. La valeur par défaut est « Modéré », mais vous pouvez sélectionner un autre niveau. |
-   | Count | Non  | <*results-count*> | Retourne le nombre spécifié de résultats. La valeur par défaut est 20, mais vous pouvez spécifier une autre valeur. Le nombre réel de résultats retournés peut être inférieur au nombre spécifié. |
-   | Offset | Non  | <*skip-value*> | Le nombre de résultats à ignorer avant de retourner les résultats |
+   | Requête de recherche | OUI | <*search-words*> | Entrez les mots clés de recherche à utiliser. |
+   | Marché | OUI | <*locale*> | Les paramètres régionaux de recherche. La valeur par défaut est « en-US », mais vous pouvez sélectionner une autre valeur. |
+   | Recherche sécurisée | OUI | <*search-level*> | Le niveau de filtre d’exclusion du contenu pour adultes. La valeur par défaut est « Modéré », mais vous pouvez sélectionner un autre niveau. |
+   | Nombre | Non | <*results-count*> | Retourne le nombre spécifié de résultats. La valeur par défaut est 20, mais vous pouvez spécifier une autre valeur. Le nombre réel de résultats retournés peut être inférieur au nombre spécifié. |
+   | Offset | Non | <*skip-value*> | Le nombre de résultats à ignorer avant de retourner les résultats |
    |||||
 
-   Par exemple : 
+   Par exemple :
 
    ![Configurer le déclencheur](./media/connectors-create-api-bing-search/bing-search-trigger.png)
 
@@ -84,19 +84,19 @@ Dans Azure Logic Apps, une [action](../logic-apps/logic-apps-overview.md#logic-a
 
    Cet exemple utilise ce déclencheur :
 
-   **Recherche de Bing - sur le nouvel article de news**
+   **Bing Search – On new news article**.
 
    ![Ajouter une action](./media/connectors-create-api-bing-search/add-action.png)
 
    Pour ajouter une action entre des étapes, déplacez votre souris sur la flèche de connexion. 
-   Cliquez sur le signe plus (**+**) qui s’affiche, puis choisissez **Ajouter une action**.
+   Cliquez sur le signe plus ( **+** ) qui s’affiche, puis choisissez **Ajouter une action**.
 
 3. Dans la zone de recherche, entrez « recherche Bing » comme filtre.
 Dans la liste des actions, sélectionnez l’action souhaitée.
 
    Cet exemple utilise cette action :
 
-   **Recherche Bing - actualités de liste par requête**
+   **Bing Search – List news by query**.
 
    ![Rechercher l’action de recherche Bing](./media/connectors-create-api-bing-search/bing-search-select-action.png)
 
@@ -106,11 +106,11 @@ Dans la liste des actions, sélectionnez l’action souhaitée.
 
    | Propriété | Obligatoire | Value | Description |
    |----------|----------|-------|-------------|
-   | Search Query | Oui | <*search-expression*> | Entrez une expression pour interroger les résultats du déclencheur. Vous pouvez sélectionner à partir des champs dans la liste de contenu dynamique, ou créer une expression avec le Générateur d’expressions. |
-   | Market | Oui | <*locale*> | Les paramètres régionaux de recherche. La valeur par défaut est « en-US », mais vous pouvez sélectionner une autre valeur. |
-   | Safe Search | Oui | <*search-level*> | Le niveau de filtre d’exclusion du contenu pour adultes. La valeur par défaut est « Modéré », mais vous pouvez sélectionner un autre niveau. |
-   | Count | Non  | <*results-count*> | Retourne le nombre spécifié de résultats. La valeur par défaut est 20, mais vous pouvez spécifier une autre valeur. Le nombre réel de résultats retournés peut être inférieur au nombre spécifié. |
-   | Offset | Non  | <*skip-value*> | Le nombre de résultats à ignorer avant de retourner les résultats |
+   | Requête de recherche | OUI | <*search-expression*> | Entrez une expression pour interroger les résultats du déclencheur. Vous pouvez sélectionner à partir des champs dans la liste de contenu dynamique, ou créer une expression avec le Générateur d’expressions. |
+   | Marché | OUI | <*locale*> | Les paramètres régionaux de recherche. La valeur par défaut est « en-US », mais vous pouvez sélectionner une autre valeur. |
+   | Recherche sécurisée | OUI | <*search-level*> | Le niveau de filtre d’exclusion du contenu pour adultes. La valeur par défaut est « Modéré », mais vous pouvez sélectionner un autre niveau. |
+   | Nombre | Non | <*results-count*> | Retourne le nombre spécifié de résultats. La valeur par défaut est 20, mais vous pouvez spécifier une autre valeur. Le nombre réel de résultats retournés peut être inférieur au nombre spécifié. |
+   | Offset | Non | <*skip-value*> | Le nombre de résultats à ignorer avant de retourner les résultats |
    |||||
 
    Par exemple, supposez que vous souhaitez obtenir les résultats dont le nom de la catégorie inclut le mot « tech » (technique).
@@ -122,7 +122,7 @@ Dans la liste des actions, sélectionnez l’action souhaitée.
 
       Vous pouvez à présent démarrer la création de votre expression.
 
-   2. Dans la liste de fonctions, sélectionnez la fonction **contains()**, qui apparaît dans la zone d’expression. Cliquez sur **Contenu dynamique** afin que la liste de champs s’affiche de nouveau, mais assurez-vous que le curseur reste à l’intérieur des parenthèses.
+   2. Dans la liste de fonctions, sélectionnez la fonction **contains()** , qui apparaît dans la zone d’expression. Cliquez sur **Contenu dynamique** afin que la liste de champs s’affiche de nouveau, mais assurez-vous que le curseur reste à l’intérieur des parenthèses.
 
       ![Sélectionner une fonction](./media/connectors-create-api-bing-search/expression-select-function.png)
 
@@ -153,12 +153,12 @@ Dans la liste des actions, sélectionnez l’action souhaitée.
 
    | Propriété | Obligatoire | Value | Description |
    |----------|----------|-------|-------------|
-   | Nom de connexion | Oui | <*connection-name*> | Nom à créer pour votre connexion |
-   | Version de l'API | Oui | <*API-version*> | Par défaut, la version de l’API Recherche Bing est définie sur la version actuelle. Vous pouvez sélectionner une version antérieure si nécessaire. |
-   | Clé de l’API | Oui | <*API-key*> | Clé API Recherche Bing obtenue précédemment. Si vous n’avez pas de clé, procurez-vous votre [clé API maintenant](https://azure.microsoft.com/try/cognitive-services/?api=bing-news-search-api). |  
+   | Nom de connexion | OUI | <*connection-name*> | Nom à créer pour votre connexion |
+   | Version de l'API | OUI | <*API-version*> | Par défaut, la version de l’API Recherche Bing est définie sur la version actuelle. Vous pouvez sélectionner une version antérieure si nécessaire. |
+   | Clé de l’API | OUI | <*API-key*> | Clé API Recherche Bing obtenue précédemment. Si vous n’avez pas de clé, procurez-vous votre [clé API maintenant](https://azure.microsoft.com/try/cognitive-services/?api=bing-news-search-api). |  
    |||||  
 
-   Par exemple : 
+   Par exemple :
 
    ![Créer une connexion](./media/connectors-create-api-bing-search/bing-search-create-connection.png)
 
@@ -166,7 +166,7 @@ Dans la liste des actions, sélectionnez l’action souhaitée.
 
 ## <a name="connector-reference"></a>Référence de connecteur
 
-Pour plus d’informations techniques, telles que des déclencheurs, actions et limites, comme décrit par OpenAPI du connecteur (anciennement Swagger), consultez le [page de référence du connecteur](/connectors/bingsearch/).
+Pour plus d’informations techniques, notamment sur les déclencheurs, les actions et les limites, comme le décrit le fichier OpenAPI (anciennement Swagger) du connecteur, voir la [page de référence du connecteur](/connectors/bingsearch/).
 
 ## <a name="get-support"></a>Obtenir de l’aide
 

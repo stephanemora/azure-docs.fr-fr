@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: jeconnoc
 ms.openlocfilehash: 3082ca34f2bcb71dd7aa02b4539899997374cfc0
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65595167"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Prise en main des services cloud Azure et d'ASP.NET
@@ -46,12 +46,12 @@ Ce didacticiel indique comment exécuter le composant frontal et le composant pr
 * télécharger des fichiers et les stocker dans le service Blob Azure ;
 * utiliser le service de File d'attente Azure pour la communication entre tiers.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 Pour utiliser ce didacticiel, vous devez maîtriser les [concepts de base des services cloud Azure](cloud-services-choose-me.md) et la terminologie afférente, par exemple les *rôles web* et *rôles de travail*.  Vous devez également savoir utiliser les projets [ASP.NET MVC](https://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started) ou [Web Forms](https://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview) dans Visual Studio. L’exemple d’application utilise MVC, mais une grande part du didacticiel concerne également Web Forms.
 
 Vous pouvez exécuter l’application localement sans abonnement Azure, mais il vous en faut un pour déployer l’application dans le cloud. Si vous n’avez pas de compte, vous pouvez [activer les avantages de votre abonnement MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A55E3C668) ou [demander une évaluation gratuite](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A55E3C668).
 
-Les instructions du didacticiel fonctionnent avec un des produits suivants :
+Les instructions du didacticiel sont valables pour les produits suivants :
 
 * Visual Studio 2013
 * Visual Studio 2015
@@ -236,7 +236,7 @@ Les chaînes de connexion au compte de stockage Azure pour le projet de rôle w
 2. Cliquez sur l'onglet **Paramètres** . Dans la liste déroulante **Configuration du service**, sélectionnez **Cloud**.
 
     ![Cloud configuration](./media/cloud-services-dotnet-get-started/sccloud.png)
-3. Sélectionnez l’entrée **StorageConnectionString**. Un bouton représentant des points de suspension (**...**) apparaît à l’extrémité droite de la ligne. Cliquez dessus pour ouvrir la boîte de dialogue **Créer une chaîne de connexion de compte de stockage**.
+3. Sélectionnez l’entrée **StorageConnectionString**. Un bouton représentant des points de suspension ( **...** ) apparaît à l’extrémité droite de la ligne. Cliquez dessus pour ouvrir la boîte de dialogue **Créer une chaîne de connexion de compte de stockage**.
 
     ![Open Connection String Create box](./media/cloud-services-dotnet-get-started/opencscreate.png)
 4. Dans la boîte de dialogue **Créer une chaîne de connexion de compte de stockage**, cliquez sur **Votre abonnement**, choisissez le compte de stockage que vous avez créé précédemment, puis cliquez sur **OK**. Si vous n'êtes pas déjà connecté, vous êtes invité à entrer vos informations d'identification de compte Azure.
@@ -381,7 +381,7 @@ Dans cette section, vous allez configurer les chaînes de connexion Azure Storag
 3. Dans le projet ContosoAdsCloudService, cliquez avec le bouton droit sur ContosoAdsWeb sous **Rôles**, puis cliquez sur **Propriétés**.
 
     ![Role properties](./media/cloud-services-dotnet-get-started/roleproperties.png)
-4. Dans la fenêtre des propriétés **ContosAdsWeb [Rôle]**, cliquez sur l’onglet **Paramètres**, puis sur **Ajouter un paramètre**.
+4. Dans la fenêtre des propriétés **ContosAdsWeb [Rôle]** , cliquez sur l’onglet **Paramètres**, puis sur **Ajouter un paramètre**.
 
     Laissez **Configuration du service** sur **Toutes les configurations**.
 5. Ajoutez un paramètre nommé *StorageConnectionString*. Définissez **Type** sur *ConnectionString* et **Value** sur *UseDevelopmentStorage=true*.
@@ -392,8 +392,8 @@ Dans cette section, vous allez configurer les chaînes de connexion Azure Storag
 8. Toujours dans la fenêtre des propriétés **ContosoAdsWorker [Rôle]** , ajoutez une chaîne de connexion :
 
    * Nom : ContosoAdsDbConnectionString
-   * Tapez : String
-   * Valeur : collez la même chaîne de connexion que celle utilisée pour le projet de rôle web. (L’exemple suivant concerne Visual Studio 2013. N’oubliez pas de modifier la source de données si vous copiez cet exemple et utilisez Visual Studio 2015 ou version ultérieure.)
+   * Tapez : Chaîne
+   * Valeur : collez la même chaîne de connexion que celle utilisée pour le projet de rôle web. (L’exemple suivant concerne Visual Studio 2013. N’oubliez pas de modifier la source de données si vous copiez cet exemple et utilisez Visual Studio 2015 ou version ultérieure.)
 
        ```
        Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;

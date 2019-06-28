@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 12/08/2017
 ms.author: atsenthi
 ms.openlocfilehash: a95baeb60ddff38e2aa1e36e7728c012d9d44930
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65540718"
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>Vous voulez en savoir plus sur Service Fabric ?
@@ -30,7 +30,7 @@ Les articles [Terminologie Service Fabric](service-fabric-technical-overview.md)
 ### <a name="design-time-application-type-service-type-application-package-and-manifest-service-package-and-manifest"></a>Au moment du design : type d’application, type de service, package et manifeste d’application, package et manifeste de service
 Un type d’application est le nom/la version affectés à un ensemble de types de service. Cela est défini dans un fichier *ApplicationManifest.xml* qui est incorporé dans un répertoire de package d’application. Le package d’application est ensuite copié dans le magasin d’images du cluster Service Fabric. Vous pouvez ensuite créer une application nommée à partir de ce type d’application et l’exécuter au sein du cluster. 
 
-Un type de service est le nom/la version affectés aux packages de code, aux packages de données et aux packages de configuration d’un service. Cela est défini dans un fichier ApplicationManifest.xml qui est incorporé dans un répertoire de package d’application. Ce répertoire est ensuite référencé par le fichier *ApplicationManifest.xml* du package d’application. Au sein du cluster, après avoir créé une application nommée, vous pouvez créer un service nommé à partir d’un des types de service du type d’application. Un type de service est décrit par son fichier *ServiceManifest.xml*. Le type de service est composé de code exécutable et les paramètres de configuration de service, qui sont chargés au moment de l’exécution, et les données statiques qui sont consommées par le service.
+Un type de service est le nom/la version affectés aux packages de code, aux packages de données et aux packages de configuration d’un service. Cela est défini dans un fichier ApplicationManifest.xml qui est incorporé dans un répertoire de package d’application. Ce répertoire est ensuite référencé par le fichier *ApplicationManifest.xml* du package d’application. Au sein du cluster, après avoir créé une application nommée, vous pouvez créer un service nommé à partir d’un des types de service du type d’application. Un type de service est décrit par son fichier *ServiceManifest.xml*. Ce type de service comprend les paramètres de configuration du service et le code exécutable, qui sont chargés lors de l’exécution, ainsi que les données statiques qui sont consommées par le service.
 
 ![Types d’application service Fabric et types de service][cluster-imagestore-apptypes]
 
@@ -65,7 +65,7 @@ Dans une partition, les services nommés sans état ont des instances tandis que
 ## <a name="stateless-and-stateful-microservices-for-service-fabric"></a>Microservices avec et sans état pour Service Fabric
 Service Fabric permet de créer des applications composées de microservices ou de conteneurs. Les microservices sans état (tels que les passerelles de protocole et les proxys web) ne conservent pas un état mutable en dehors d’une demande du service et de sa réponse. Les rôles de travail Azure Cloud Services sont un exemple de service sans état. Les microservices avec état (tels que les comptes d’utilisateur, les bases de données, les appareils, les paniers d’achat et les files d’attente) conservent un état mutable faisant autorité au-delà de la demande et la réponse. Actuellement, les applications Internet sont constituées d’une combinaison de microservices avec et sans état. 
 
-Singularité de Service Fabric est axé sur la création de services avec état, soit avec le [intégrées dans les modèles de programmation](service-fabric-choose-framework.md) ou avec les services avec état en conteneur. Les [scénarios d’application](service-fabric-application-scenarios.md) décrivent les scénarios dans lesquels les services avec état sont utilisés.
+La principale différence avec Service Fabric est sa préférence marquée pour la création de services avec état, que ce soit avec les [modèles de programmation intégrés](service-fabric-choose-framework.md) ou avec des services avec état conteneurisés. Les [scénarios d’application](service-fabric-application-scenarios.md) décrivent les scénarios dans lesquels les services avec état sont utilisés.
 
 Pourquoi utiliser des microservices avec état et sans état ? Voici les deux principales raisons :
 
@@ -119,7 +119,7 @@ Un [cluster Service Fabric](service-fabric-deploy-anywhere.md) est un groupe de 
 Les clusters Service Fabric peuvent être créés sur des machines virtuelles ou physiques exécutant Windows Server ou Linux. Vous pouvez ainsi déployer et exécuter des applications Service Fabric dans n’importe quel environnement dans lequel des ordinateurs Windows Server ou Linux sont interconnectés, que ce soit en local, sur Microsoft Azure ou via un fournisseur cloud.
 
 ### <a name="clusters-on-azure"></a>Clusters sur Azure
-L’exécution de clusters Service Fabric dans Azure permet d’intégrer d’autres fonctionnalités et services Azure qui rendent l’exploitation et la gestion du cluster plus simple et plus fiable. Comme un cluster est une ressource Azure Resource Manager, vous pouvez modéliser des clusters comme n’importe quelle autre ressource dans Azure. En outre, le Gestionnaire des ressources facilite la gestion de toutes les ressources utilisées par le cluster comme une seule unité. Clusters sur Azure sont intégrés à Azure diagnostics et journaux Azure Monitor. Les types de nœuds de cluster sont des [groupes de machines virtuelles identiques](/azure/virtual-machine-scale-sets/index) : la fonctionnalité de mise à l’échelle automatique est donc intégrée.
+L’exécution de clusters Service Fabric dans Azure permet d’intégrer d’autres fonctionnalités et services Azure qui rendent l’exploitation et la gestion du cluster plus simple et plus fiable. Comme un cluster est une ressource Azure Resource Manager, vous pouvez modéliser des clusters comme n’importe quelle autre ressource dans Azure. En outre, le Gestionnaire des ressources facilite la gestion de toutes les ressources utilisées par le cluster comme une seule unité. Les clusters dans Azure sont intégrés aux journaux Diagnostics Azure et Log Analytics. Les types de nœuds de cluster sont des [groupes de machines virtuelles identiques](/azure/virtual-machine-scale-sets/index) : la fonctionnalité de mise à l’échelle automatique est donc intégrée.
 
 Vous pouvez créer un cluster dans Azure via le [portail Azure](service-fabric-cluster-creation-via-portal.md), à partir d’un [modèle](service-fabric-cluster-creation-via-arm.md) ou à partir de [Visual Studio](service-fabric-cluster-creation-via-visual-studio.md).
 
@@ -165,7 +165,7 @@ La création de rapports peut être effectuée à partir des éléments suivants
 * Les agents de surveillance internes qui s’exécutent sur les nœuds Service Fabric, mais qui ne sont pas implémentés en tant que services de Service Fabric.
 * Les agents de surveillance externes qui sondent la ressource à partir de l’extérieur du cluster Service Fabric (par exemple, un service de surveillance de type Gomez).
 
-Sans configuration préalable, les composants Service Fabric signalent l'intégrité de toutes les entités du cluster. Les [rapports d’intégrité du système](service-fabric-understand-and-troubleshoot-with-system-health-reports.md) procurent une visibilité sur les fonctionnalités du cluster et des applications, et signalent les problèmes d’intégrité. Pour les applications et services, les rapports d’intégrité du système vérifient que les entités sont implémentées et qu’elles se comportent correctement du point de vue du runtime Service Fabric. Les rapports ne fournissent tout l’intégrité de la logique métier du service et détecter les processus qui ont cessé de répondre. Pour ajouter des informations de contrôle d’intégrité spécifiques à la logique de votre service, [mettez en œuvre la création de rapports d’intégrité personnalisée](service-fabric-report-health.md) dans vos services.
+Sans configuration préalable, les composants Service Fabric signalent l'intégrité de toutes les entités du cluster. Les [rapports d’intégrité du système](service-fabric-understand-and-troubleshoot-with-system-health-reports.md) procurent une visibilité sur les fonctionnalités du cluster et des applications, et signalent les problèmes d’intégrité. Pour les applications et services, les rapports d’intégrité du système vérifient que les entités sont implémentées et qu’elles se comportent correctement du point de vue du runtime Service Fabric. Les rapports ne fournissent aucune information sur l’intégrité de la logique métier du service ni sur la détection des processus qui ont cessé de répondre. Pour ajouter des informations de contrôle d’intégrité spécifiques à la logique de votre service, [mettez en œuvre la création de rapports d’intégrité personnalisée](service-fabric-report-health.md) dans vos services.
 
 Service Fabric offre plusieurs façons d’[afficher des rapports d’intégrité](service-fabric-view-entities-aggregated-health.md) qui sont regroupées dans le magasin d’intégrité :
 * [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) ou autres outils de visualisation.

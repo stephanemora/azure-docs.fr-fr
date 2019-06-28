@@ -12,10 +12,10 @@ ms.date: 01/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 578f7a01c22bd5aafd4e4ac08c9f5ab78e340a34
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65606513"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>Processus TDSP (Team Data Science Process) en action : utilisation de SQL Server
@@ -376,7 +376,7 @@ De la même façon, nous pouvons vérifier la relation entre **rate\_code** et *
 ![Diagramme #8][8]
 
 ### <a name="sub-sampling-the-data-in-sql"></a>Sous-échantillonnage des données dans SQL
-Quand vous préparez les données pour la création de modèles dans [Azure Machine Learning Studio](https://studio.azureml.net), vous pouvez soit utiliser la **requête SQL directement dans le module Importer les données**, soit stocker les données générées et échantillonnées dans une nouvelle table que vous pouvez utiliser dans le module [Importer les données][import-data] à l’aide d’une simple requête **SELECT * FROM <nouveau\_nom\_de\_votre_table>**.
+Quand vous préparez les données pour la création de modèles dans [Azure Machine Learning Studio](https://studio.azureml.net), vous pouvez soit utiliser la **requête SQL directement dans le module Importer les données**, soit stocker les données générées et échantillonnées dans une nouvelle table que vous pouvez utiliser dans le module [Importer les données][import-data] à l’aide d’une simple requête **SELECT * FROM <nouveau\_nom\_de\_votre_table>** .
 
 Dans cette section, nous allons créer une table destinée à contenir les données échantillonnées et générées. Un exemple de requête SQL directe pour la création de modèles est fourni à la section [Exploration des données et conception de fonctionnalités dans SQL Server](#dbexplore) .
 
@@ -515,7 +515,7 @@ Cet exemple transforme un champ numérique continu en plages de catégories pré
     cursor.commit()
 
 #### <a name="feature-engineering-extract-location-features-from-decimal-latitudelongitude"></a>Conception de fonctionnalités : Extraire des fonctionnalités d’emplacement des valeurs décimales de latitude/longitude
-Cet exemple décompose la représentation décimale d’un champ de latitude et/ou de longitude en plusieurs champs de la région de granularité différente, par exemple, pays/région, ville, ville, bloc, etc. Notez que les nouveaux champs géographiques ne sont pas mappés sur des emplacements réels. Pour plus d’informations sur le mappage des emplacements associés à un géocode, consultez l’article consacré aux [Services REST de Bing Cartes](https://msdn.microsoft.com/library/ff701710.aspx).
+Cet exemple décompose la représentation décimale d’un champ de latitude ou de longitude en plusieurs champs d’emplacement de différentes granularités, tels que pays/région, ville, bloc, etc. Notez que les nouveaux champs géographiques ne sont pas mappés sur des emplacements réels. Pour plus d’informations sur le mappage des emplacements associés à un géocode, consultez l’article consacré aux [Services REST de Bing Cartes](https://msdn.microsoft.com/library/ff701710.aspx).
 
     nyctaxi_one_percent_insert_col = '''
         ALTER TABLE nyctaxi_one_percent

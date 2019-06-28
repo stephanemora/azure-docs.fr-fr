@@ -12,10 +12,10 @@ ms.date: 09/18/2018
 ms.author: zhouwang
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: ead4026ecec4878c69bc21a9ebc989eaf3d69a13
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60515132"
 ---
 # <a name="quickstart-use-the-bing-speech-recognition-rest-api"></a>Démarrage rapide : Utiliser l’API REST de reconnaissance vocale Bing
@@ -67,7 +67,7 @@ Quelques exemples d’URI de service sont répertoriés dans le tableau suivant.
 | Mode de reconnaissance  | Langage | Format de sortie | URI de service |
 |---|---|---|---|
 | `interactive` | pt-br | Default | https:\//speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=pt-BR |
-| `conversation` | en-US | Détaillé | https :\//speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US & format = détaillées |
+| `conversation` | en-US | Détaillé | https:\//speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US&format=detailed |
 | `dictation` | fr-FR | Simple | https:\//speech.platform.bing.com/speech/recognition/dictation/cognitiveservices/v1?language=fr-FR&format=simple |
 
 > [!NOTE]

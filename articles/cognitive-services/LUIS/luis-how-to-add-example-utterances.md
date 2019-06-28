@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: diberry
 ms.openlocfilehash: badf351f8336e501b3ee1c035fcb389a570750c0
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65072849"
 ---
 # <a name="add-an-entity-to-example-utterances"></a>Ajouter une entité à des exemples d’énoncés 
@@ -38,7 +38,7 @@ Dans la procédure suivante, vous allez créer et marquer une entité personnali
 Are there any SQL server jobs?
 ```
 
-1. Sélectionnez `SQL server` dans l’énoncé pour l’étiqueter comme entité simple. Dans la zone de liste déroulante d’entité qui s’affiche, vous pouvez sélectionner une entité existante ou ajouter une entité. Pour ajouter une nouvelle entité, tapez son nom `Job` dans la zone de texte, puis sélectionnez **créer entité**.
+1. Sélectionnez `SQL server` dans l’énoncé pour l’étiqueter comme entité simple. Dans la zone de liste déroulante d’entité qui s’affiche, vous pouvez sélectionner une entité existante ou ajouter une entité. Pour ajouter une nouvelle entité, tapez son nom `Job` dans la zone de texte, puis sélectionnez **Créer une entité**.
 
     ![Capture d’écran de saisie du nom de l’entité](./media/luis-how-to-add-example-utterances/create-simple-entity.png)
 
@@ -53,11 +53,11 @@ Are there any SQL server jobs?
 
 ## <a name="add-a-list-entity"></a>Ajouter une entité de liste
 
-Liste les entités représentent un ensemble de correspondances de texte exact des mots associés dans votre système. 
+Les entités de liste représentent un ensemble de correspondances textuelles exactes de mots associés dans le système. 
 
 Pour la liste des services d’une entreprise, vous pouvez avoir des valeurs normalisées : `Accounting` et `Human Resources`. Chaque nom normalisé a des synonymes. Pour un service, ces synonymes peuvent inclure des acronymes ou numéros de service. Lorsque vous créez l’entité, vous n’êtes pas obligé de connaître toutes les valeurs. Vous pouvez en ajouter après avoir examiné les énoncés d’utilisateurs réels avec des synonymes.
 
-1. Dans un énoncé exemple sur le **intentions** , sélectionnez l’ou les mots que vous souhaitez dans la nouvelle liste. Lorsque la liste déroulante entité s’affiche, entrez le nom de la nouvelle entité de liste dans la zone de texte supérieur, puis sélectionnez **créer entité**.   
+1. Dans l’un des exemples d’énoncés de la page **Intention**, sélectionnez le mot ou l’expression devant figurer dans la nouvelle liste. Lorsque la liste déroulante des entités s’affiche, entrez le nom de la nouvelle entité de liste dans la zone de texte du haut, puis sélectionnez **Créer une entité**.   
 
 1. Dans la zone contextuelle **What type of entity do you want to create?** , nommez l’entité et sélectionnez **List** comme type. Ajoutez des synonymes de cet élément de liste, puis sélectionnez **Done**. 
 
@@ -69,13 +69,13 @@ Pour la liste des services d’une entreprise, vous pouvez avoir des valeurs nor
 
 Les entités composites sont créées à partir d’**entités** existantes dans une entité parente. 
 
-En supposant que l’énoncé, `Does John Smith work in Seattle?`, un énoncé composite peut retourner des informations d’entité du nom employé `John Smith`et l’emplacement `Seattle` dans une entité composite. Les entités enfants doivent déjà exister dans l’application et être marquées dans l’énoncé exemple avant de créer l’entité composite.
+Prenons l’énoncé `Does John Smith work in Seattle?` : un énoncé composite peut retourner les informations nom de l’employé `John Smith` et emplacement `Seattle` dans une entité composite. Il faut que les entités enfants existent déjà dans l’application et soient marquées dans l’exemple d’énoncé pour pouvoir créer l’entité composite.
 
-1. Afin d’encapsuler les entités enfants dans une entité composite, sélectionnez le **premier** étiqueté entité (la plus à gauche) dans l’énoncé de l’entité composite. Une liste déroulante s’affiche pour indiquer les options associées à cette sélection.
+1. Pour encapsuler les différentes entités dans une entité composite, sélectionnez la **première** entité étiquetée (la plus à gauche) de l’énoncé concerné. Une liste déroulante affiche les choix possibles pour cette sélection.
 
-1. Sélectionnez **encapsuler dans une entité composite** dans la liste déroulante. 
+1. Sélectionnez **Encapsuler dans une entité composite** dans la liste déroulante. 
 
-1. Sélectionnez le dernier mot de l’entité composite (le plus à droite). Notez qu’une ligne verte suit l’entité composite. Cela est l’indicateur visuel pour une entité composite et doit être sous tous les mots dans l’entité composite à partir de l’entité la plus à gauche enfant à l’entité enfant de la plus à droite.
+1. Sélectionnez le dernier mot de l’entité composite (le plus à droite). Notez qu’une ligne verte suit l’entité composite. Il s’agit de l’indicateur visuel d’une entité composite, qui doit apparaître sous tous les mots qu’elle comporte, de l’entité enfant la plus à gauche à la plus à droite.
 
 1. Entrez le nom de l’entité composite dans la liste déroulante.
 
@@ -89,11 +89,11 @@ En supposant que l’énoncé, `Does John Smith work in Seattle?`, un énoncé c
 
     ![Capture d’écran de la page de détails d’intentions, avec entité composite](./media/luis-how-to-add-example-utterances/hr-create-composite-4.png)
 
-## <a name="add-entitys-role-to-utterance"></a>Ajouter le rôle de l’entité à énoncé
+## <a name="add-entitys-role-to-utterance"></a>Ajouter le rôle d’une entité à un énoncé
 
-Un rôle est un sous-type nommé d’une entité, déterminé par le contexte de l’énoncé. Vous pouvez marquer une entité dans un énoncé en tant que l’entité, ou sélectionner un rôle au sein de cette entité. Toute entité peut avoir des rôles, y compris les entités personnalisées qui font la machine a appris (entités simples et entités composites), ne sont pas machine a appris (des entités prédéfinies, entités de l’expression régulière, les entités de liste). 
+Un rôle est un sous-type nommé d’entité, déterminé par le contexte de l’énoncé. Il est possible marquer l’une des entités d’un énoncé comme entité, ou de sélectionner un rôle dans cette entité. Toutes les entités peuvent avoir un rôle, même les entités personnalisées apprises automatiquement (entités simples et entités composites) ou non (entités prédéfinies, entités de type expression régulière et entités de liste). 
 
-En savoir plus [comment marquer un énoncé avec des rôles de l’entité](tutorial-entity-roles.md) à partir d’un didacticiel. 
+Découvrez dans un tutoriel pratique [comment marquer un énoncé avec des rôles d’entités](tutorial-entity-roles.md). 
 
 ## <a name="entity-status-predictions"></a>Prédictions de l’état de l’entité
 
@@ -107,7 +107,7 @@ Sélectionnez les mots soulignés en rouge dans l’énoncé.
 
 En cas incohérence de prédiction, la zone de l’entité affiche un point d’exclamation rouge en regard de l’**état de l’entité**. Pour voir les différences entre les entités étiquetées et les entités prévues, sélectionnez **État de l’entité** et sélectionnez l’élément à droite.
 
-![Sélection d’état de capture d’écran de l’entité](./media/luis-how-to-add-example-utterances/entity-prediction-error-correction.png)
+![Capture d’écran de sélection de l’état de l’entité](./media/luis-how-to-add-example-utterances/entity-prediction-error-correction.png)
 
 La ligne rouge peut apparaître dans les situations suivantes :
 

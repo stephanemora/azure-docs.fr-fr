@@ -12,30 +12,30 @@ ms.date: 05/10/2019
 ms.author: tulasim
 ms.custom: seodec18
 ms.openlocfilehash: 5d410e1015b751743c171adabda1d5bcbe68b491
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65540997"
 ---
 # <a name="add-chit-chat-to-a-knowledge-base"></a>Ajouter des échanges de conversation à une base de connaissances
 
 L’ajout d’échanges de conversation à votre bot rend ses conversations plus naturelles et engageantes. La fonctionnalité d’échanges de conversation de QnA Maker vous permet d’ajouter facilement un ensemble prédéfini d’échanges de conversation dans votre base de connaissances. Cela peut constituer un point de départ pour la personnalité de votre bot, et vous permettra d’économiser le temps et les efforts qui seraient nécessaires à leur écriture à partir de zéro.  
 
-Ce jeu de données a des scénarios de 100 de conversation instantanée chit dans la voix de plusieurs personnes, tels que Professional, convivial et Witty. Choisissez la personnalité qui se rapproche le plus de la voix de votre bot. Quand il fait face à une requête de l’utilisateur, QnA Maker tente de la faire correspondre au QnA d’échanges de conversation connu le plus proche.  
+Ce jeu de données compte environ 100 scénarios d’échanges de conversation avec la voix de plusieurs personnes : le professionnel, l’ami et le comique. Choisissez la personnalité qui se rapproche le plus de la voix de votre bot. Quand il fait face à une requête de l’utilisateur, QnA Maker tente de la faire correspondre au QnA d’échanges de conversation connu le plus proche.  
 
-Sont des exemples de l’autres personnalités ci-dessous. Vous pouvez voir tous les la personnalité [jeux de données](https://github.com/Microsoft/BotBuilder-PersonalityChat/tree/master/CSharp/Datasets) ainsi que les détails des personnalités.
+Voici quelques exemples des différentes personnalités. Vous pouvez voir tous les [jeux de données](https://github.com/Microsoft/BotBuilder-PersonalityChat/tree/master/CSharp/Datasets) de la personnalité, ainsi que les détails des personnalités.
 
-Pour la requête de l’utilisateur de `When is your birthday?`, chaque personnalité a une réponse de style :
+Pour la requête utilisateur de `When is your birthday?`, chaque personnalité a une réponse qui lui est propre :
 
 <!-- added quotes so acrolinx doesn't score these sentences -->
 |Personnalité|Exemples|
 |--|--|
-|Professionnel|Âge ne s’applique pas vraiment à moi.|
-|Convivial|Je n’ai réellement un âge.|
-|Beau|Je suis libre d’âge.|
-|Soins|Je n’ai pas d’âge.|
-|Enthousiaste|Je suis un bot, je ne dois donc un âge.|
+|Professionnel|L’âge ne me concerne pas réellement.|
+|Convivial|Je n’ai pas vraiment d’âge.|
+|Comique|Je n’ai pas d’âge.|
+|Attentif|Je n’ai pas d’âge.|
+|Enthousiaste|Je suis un bot, donc je n’ai pas d’âge.|
 ||
 
 > [!NOTE]
@@ -56,12 +56,12 @@ Quand vous modifierez votre base de connaissances, vous verrez une nouvelle sour
 
 ![Modifier les QnA d’échanges de conversation](../media/qnamaker-how-to-chit-chat/edit-chit-chat.png)
 
-Pour afficher les métadonnées, sélectionnez **Options d’affichage** dans la barre d’outils, puis sélectionnez **affichent les métadonnées**.
+Pour afficher les métadonnées, sélectionnez **Options d’affichage** dans la barre d’outils, puis sélectionnez **Afficher les métadonnées**.
 
 ## <a name="add-additional-chit-chat-questions-and-answers"></a>Ajouter des questions et réponses d’échanges de conversation supplémentaires
 Vous pouvez ajouter de nouveaux QnA d’échanges de conversation qui ne figurent pas dans le jeu prédéfini. Veillez à ne pas dupliquer une paire de QnA déjà couverte dans le jeu d’échanges de conversation. Quand vous ajoutez un nouveau QnA d’échanges de conversation, il est ajouté à votre source **éditoriale**. Pour être sûr que la fonctionnalité de classement comprend qu’il s’agit d’échanges de conversation, ajoutez la paire clé/valeur de métadonnées « Editorial: chit-chat », comme indiqué dans l’image suivante :
    
-![! [Ajouter chit-conversation aide] (.. / media/qnamaker-how-to-chit-chat/add-new-chit-chat.png)](../media/qnamaker-how-to-chit-chat/add-new-chit-chat.png#lightbox)
+![![Add chit-chat QnAs](../media/qnamaker-how-to-chit-chat/add-new-chit-chat.png)](../media/qnamaker-how-to-chit-chat/add-new-chit-chat.png#lightbox)
 
 ## <a name="delete-chit-chat-from-an-existing-kb"></a>Supprimer des échanges de conversation d’une base de connaissances existante
 Sélectionnez votre base de connaissances et accédez à la page **Settings** (Paramètres). Votre source d’échanges de conversation spécifique est listée en tant que fichier, avec le nom de la personnalité sélectionnée. Vous pouvez supprimer ce fichier en tant que fichier source.

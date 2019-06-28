@@ -16,17 +16,17 @@ ms.workload: infrastructure
 ms.date: 05/07/2019
 ms.author: cynthn
 ms.openlocfilehash: c0ec2616d8bdcf3cfd6d649f12e9bfceea33690a
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65467743"
 ---
 # <a name="how-to-use-packer-to-create-linux-virtual-machine-images-in-azure"></a>Comment utiliser Packer pour créer des images de machines virtuelles Linux dans Azure
 Chaque machine virtuelle dans Azure est créée à partir d’une image qui définit la distribution Linux et la version du système d’exploitation. Les images peuvent inclure des configurations et des applications pré-installées. La Place de marché Microsoft Azure fournit de nombreuses images internes et de tiers pour les distributions et environnements d’application les plus courants. Vous pouvez également créer vos propres images personnalisées selon vos besoins. Cet article explique comment utiliser l’outil open source [Packer](https://www.packer.io/) pour définir et générer des images personnalisées dans Azure.
 
 > [!NOTE]
-> Azure propose désormais un service, le Générateur d’images Azure (version préliminaire), pour définir et créer vos propres images personnalisées. Générateur d’images Azure repose sur Packer, donc vous pouvez même utiliser vos scripts de fournisseur Packer shell existants avec lui. Pour vous familiariser avec le Générateur d’images Azure, consultez [créer une VM Linux avec Azure Image Builder](image-builder.md).
+> Azure propose désormais un service, le générateur d’images Azure (préversion), pour définir et créer vos propres images personnalisées. Le générateur d’images Azure repose sur Packer. Vous pouvez donc même utiliser vos scripts d’approvisionnement de shell Packer existants. Pour vous familiariser avec le générateur d’images Azure, voir [Créer une machine virtuelle Linux avec le générateur d’images Azure](image-builder.md).
 
 
 ## <a name="create-azure-resource-group"></a>Créer un groupe de ressources Azure
@@ -235,4 +235,4 @@ Vous pouvez maintenant ouvrir un navigateur web et entrer `http://publicIpAddres
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Vous pouvez également utiliser les scripts existants du fournisseur Packer avec [Générateur d’images Azure](image-builder.md).
+Vous pouvez également utiliser les scripts d’approvisionnement Packer existants avec le [générateur d’images Azure](image-builder.md).

@@ -7,16 +7,16 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 04/09/2018
 ms.openlocfilehash: 017266fd28fb31b4509957560a042abf74314453
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61458844"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-firewall-rules-by-using-the-azure-portal"></a>Créer et gérer des règles de pare-feu Azure Database pour MySQL à l’aide du Portail Azure
-Règles de pare-feu de niveau serveur peuvent être utilisées pour gérer l’accès à une base de données Azure pour MySQL Server à partir d’une adresse IP spécifiée ou une plage d’adresses IP. 
+Les règles de pare-feu au niveau du serveur peuvent être utilisées pour gérer l'accès à un serveur Azure Database pour MySQL à partir d'une adresse IP ou d'une plage d'adresses IP spécifiée. 
 
-Les règles de réseau virtuel peuvent également être utilisés pour sécuriser l’accès à votre serveur. En savoir plus sur [création et gestion de réseau virtuel de points de terminaison et des règles à l’aide du portail Azure service](howto-manage-vnet-using-portal.md).
+Des règles de réseau virtuel (VNet) peuvent également être utilisées pour sécuriser l'accès à votre serveur. Découvrez comment [créer et gérer des règles et des points de terminaison de service de réseau virtuel à l'aide du portail Azure](howto-manage-vnet-using-portal.md).
 
 ## <a name="create-a-server-level-firewall-rule-in-the-azure-portal"></a>Créer une règle de pare-feu au niveau du serveur dans le portail Azure
 
@@ -59,5 +59,5 @@ Répétez les étapes pour gérer les règles de pare-feu.
 
 ## <a name="next-steps"></a>Étapes suivantes
 - De même, vous pouvez utiliser un script pour [créer et gérer des règles de pare-feu Azure Database pour MySQL à l’aide d’Azure CLI](howto-manage-firewall-using-cli.md).
-- Sécuriser davantage l’accès à votre serveur par [création et gestion de réseau virtuel de points de terminaison et des règles à l’aide du portail Azure service](howto-manage-vnet-using-portal.md).
-- Pour vous aider à se connecter à un serveur Azure Database pour MySQL, consultez [bibliothèques de connexions de base de données Azure pour MySQL](./concepts-connection-libraries.md).
+- Pour sécuriser davantage l'accès à votre serveur, [créez et gérez des règles et des points de terminaison de service de réseau virtuel à l'aide du portail Azure](howto-manage-vnet-using-portal.md).
+- Pour vous aider à vous connecter à un serveur Azure Database pour MySQL, consultez la rubrique [Bibliothèques de connexions pour Azure Database pour MySQL](./concepts-connection-libraries.md).

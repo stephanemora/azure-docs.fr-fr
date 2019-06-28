@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: eeb2af6283e5c9d8a41e74152a94b85efdae1866
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60243503"
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Synchronisation d’Azure AD Connect : Configurer le filtrage
@@ -99,12 +99,12 @@ Configuration de filtrage basé sur un domaine se compose des étapes suivantes�
 3. [Appliquer et vérifier les modifications](#apply-and-verify-changes)
 
 ### <a name="select-the-domains-to-be-synchronized"></a>Sélectionner les domaines à synchroniser
-Il existe deux façons pour sélectionner les domaines à synchroniser :
-    - L’utilisation du Service de synchronisation
-    - À l’aide de l’Assistant Azure AD Connect.
+Il existe 2 méthodes pour sélectionner les domaines à synchroniser :
+    - Utiliser le service de synchronisation
+    - Utiliser l’Assistant Azure AD Connect
 
 
-#### <a name="select-the-domains-to-be-synchronized-using-the-synchronization-service"></a>Sélectionnez les domaines à synchroniser à l’aide du Service de synchronisation
+#### <a name="select-the-domains-to-be-synchronized-using-the-synchronization-service"></a>Sélectionner les domaines à synchroniser à l’aide du service de synchronisation
 Pour définir le filtre de domaine, procédez comme suit :
 
 1. Connectez-vous au serveur qui exécute Azure AD Connect Sync en utilisant un compte membre du groupe de sécurité **ADSyncAdmins** .
@@ -119,15 +119,15 @@ Pour définir le filtre de domaine, procédez comme suit :
 6. Quand vous avez terminé, fermez la boîte de dialogue **Propriétés** en cliquant sur **OK**. Si vous avez supprimé des domaines de la forêt, un message contextuel vous indique qu’un domaine a été supprimé et que la configuration va être nettoyée.
 7. Continuez à ajuster les profils d'exécution.
 
-#### <a name="select-the-domains-to-be-synchronized-using-the-azure-ad-connect-wizard"></a>Sélectionnez les domaines à synchroniser à l’aide de l’Assistant Azure AD Connect
+#### <a name="select-the-domains-to-be-synchronized-using-the-azure-ad-connect-wizard"></a>Sélectionner les domaines à synchroniser à l’aide de l’Assistant Azure AD Connect
 Pour définir le filtre de domaine, procédez comme suit :
 
-1.  Démarrer l’Assistant Azure AD Connect
+1.  Lancez l’Assistant Azure AD Connect.
 2.  Cliquez sur **Configurer**.
-3.  Sélectionnez **personnaliser les Options de synchronisation** et cliquez sur **suivant**.
+3.  Sélectionnez **Personnaliser les options de synchronisation**, puis cliquez sur **Suivant**.
 4.  Entrez vos informations d’identification Azure AD.
-5.  Sur le **répertoires connectés** écran, cliquez sur **suivant**.
-6.  Sur le **page filtrage domaine et unité organisationnelle** cliquez sur **Actualiser**.  Nouveaux domaines malades apparaissent maintenant et domaines supprimés disparaît.
+5.  Dans l’écran **Répertoires connectés**, cliquez sur **Suivant**.
+6.  Dans la page **Filtrage par domaine ou unité d’organisation**, cliquez sur **Actualiser**.  Les nouveaux domaines vont apparaître, tandis que les domaines supprimés vont disparaître.
    ![Partitions](./media/how-to-connect-sync-configure-filtering/update2.png)  
 
 ### <a name="update-the-run-profiles"></a>Mettre à jour les profils d’exécution
@@ -216,9 +216,9 @@ Le filtrage entrant utilise la configuration par défaut dans laquelle l’attri
 
 Dans le cadre du filtrage entrant, vous utilisez les possibilités de **l’étendue** pour déterminer les objets à synchroniser ou non. C’est à ce stade que vous réalisez des ajustements en fonction des besoins particuliers de votre organisation. Le module d’étendue dispose d’un **groupe** et d’une **clause** pour déterminer les cas dans lesquels une règle de synchronisation figure dans l’étendue. Un groupe contient une ou plusieurs clauses. Il existe un « AND » logique entre plusieurs clauses, et un « OR » logique entre plusieurs groupes.
 
-Intéressons-nous à un exemple :   
+Intéressons-nous à un exemple :  
 ![Portée](./media/how-to-connect-sync-configure-filtering/scope.png)  
-Voici la lecture qu’il faut en faire **(service = Informatique) OU (service = Ventes et c = US)**.
+Voici la lecture qu’il faut en faire **(service = Informatique) OU (service = Ventes et c = US)** .
 
 Dans les exemples et étapes ci-après, vous vous servez de l’objet utilisateur en guise d’exemple, mais vous pouvez l’utiliser pour tous les types d’objets.
 
@@ -278,7 +278,7 @@ Dans cet exemple, vous modifiez le filtrage afin que seuls les utilisateurs dont
 4. Selon la version de Connect que vous utilisez, trouvez la règle nommée **Out to AAD – User Join** ou **Out to AAD - User Join SOAInAD**, puis cliquez sur **Modifier**.
 5. Dans la fenêtre contextuelle, sélectionnez **Oui** pour créer une copie de la règle.
 6. Sur la page **Description**, redéfinissez la zone **Précédence** sur une valeur inutilisée, telle que 50.
-7. Dans la barre de navigation gauche, cliquez sur **Filtre d’étendue**, puis cliquez sur **Ajouter une clause**. Dans la zone **Attribut**, sélectionnez **mail**. Dans la zone **Opérateur**, sélectionnez **ENDSWITH**. Dans **valeur**, type  **\@contoso.com**, puis cliquez sur **ajouter une clause**. Dans la zone **Attribut**, sélectionnez **userPrincipalName**. Dans la zone **Opérateur**, sélectionnez **ENDSWITH**. Dans **valeur**, type  **\@contoso.com**.
+7. Dans la barre de navigation gauche, cliquez sur **Filtre d’étendue**, puis cliquez sur **Ajouter une clause**. Dans la zone **Attribut**, sélectionnez **mail**. Dans la zone **Opérateur**, sélectionnez **ENDSWITH**. Dans **valeur**, tapez  **\@contoso.com**, puis cliquez sur **Ajouter une clause**. Dans la zone **Attribut**, sélectionnez **userPrincipalName**. Dans la zone **Opérateur**, sélectionnez **ENDSWITH**. Dans **valeur**, tapez  **\@contoso.com**.
 8. Cliquez sur **Enregistrer**.
 9. Pour terminer la configuration, vous devez exécuter une **synchronisation complète**. Poursuivez votre lecture de la section [Appliquer et vérifier les modifications](#apply-and-verify-changes).
 

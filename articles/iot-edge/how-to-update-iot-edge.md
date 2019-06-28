@@ -11,15 +11,15 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
 ms.openlocfilehash: a3b6327b9e05b039696cc1743fc2d16c5e945e26
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65152635"
 ---
 # <a name="update-the-iot-edge-security-daemon-and-runtime"></a>Mettre à jour le runtime et le démon de sécurité IoT Edge
 
-Comme le service IoT Edge de nouvelles versions, vous allez mettre à jour vos appareils IoT Edge pour les dernières fonctionnalités et améliorations de sécurité. Cet article fournit des informations sur la façon de mettre à jour vos appareils IoT Edge quand une nouvelle version est disponible. 
+Chaque fois que le service IoT Edge publiera de nouvelles versions, vous pourrez mettre à jour vos appareils IoT Edge pour obtenir les dernières fonctionnalités et améliorations de la sécurité. Cet article fournit des informations sur la façon de mettre à jour vos appareils IoT Edge quand une nouvelle version est disponible. 
 
 Deux composants d’un appareil IoT Edge doivent être mis à jour si vous souhaitez passer à une version plus récente. Le premier est le démon de sécurité qui s’exécute sur l’appareil et démarre les modules du runtime au démarrage de l’appareil. Le démon de sécurité ne peut être mis à jour qu’à partir de l’appareil lui-même. Le second composant est le runtime, constitué des modules de l’agent IoT Edge et du hub IoT Edge. Selon la façon dont vous structurez votre déploiement, le runtime peut être mis à jour à partir de l’appareil ou à distance. 
 
@@ -30,7 +30,7 @@ Pour rechercher la dernière version d’Azure IoT Edge, consultez [Versions d�
 >* Vous n’avez pas mis à niveau votre appareil vers Windows build 17763. La version 1.0.5 d’IoT Edge ne prend pas en charge les builds Windows antérieures à 17763.
 >* Vous exécutez des modules Java ou Node.js sur votre appareil Windows. Ignorez la version 1.0.5 même si vous avez mis à jour votre appareil Windows vers la dernière build. 
 >
->Pour plus d’informations sur la version 1.0.5 d’IoT Edge, voir les [notes de publication 1.0.5](https://github.com/Azure/azure-iotedge/releases/tag/1.0.5). Pour plus d’informations sur la façon d’empêcher vos outils de développement à partir de la mise à jour vers la dernière version, consultez [le blog des développeurs IoT](https://devblogs.microsoft.com/iotdev/).
+>Pour plus d’informations sur la version 1.0.5 d’IoT Edge, voir les [notes de publication 1.0.5](https://github.com/Azure/azure-iotedge/releases/tag/1.0.5). Pour savoir comment empêcher la mise à jour de vos outils de développement, voir le [blog du développeur IoT](https://devblogs.microsoft.com/iotdev/).
 
 
 ## <a name="update-the-security-daemon"></a>Mettre à jour le démon de sécurité
@@ -56,9 +56,9 @@ Sur les appareils Windows, utilisez le script PowerShell pour mettre à jour le 
 . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Update-IoTEdge -ContainerOs <Windows or Linux>
 ```
 
-Exécutant la commande de mise à jour-IoTEdge supprime le démon de sécurité à partir de votre appareil, ainsi que les deux images de conteneur du runtime. Le fichier config.yaml est conservé sur le périphérique, ainsi que les données à partir du moteur de conteneur Moby (si vous utilisez des conteneurs de Windows). En conservant les moyens d’informations de configuration que vous n’êtes pas obligé de fournir la chaîne de connexion ou les informations de Service Device Provisioning pour votre appareil à nouveau pendant le processus de mise à jour. 
+La commande Update-IoTEdge supprime le démon de sécurité de l’appareil, ainsi que les deux images conteneur du runtime. Le fichier config.yaml est conservé sur l’appareil, de même que les données du moteur de conteneur Moby (dans le cas de conteneurs Windows). Le fait de conserver les informations de configuration évite d’avoir à indiquer de nouveau la chaîne de connexion ou le service Device Provisioning de votre appareil lors du processus de mise à jour. 
 
-Si vous souhaitez installer une version spécifique du démon de sécurité, téléchargez le fichier de Microsoft-Azure-IoTEdge.cab approprié à partir de [IoT Edge libère](https://github.com/Azure/azure-iotedge/releases). Utilisez ensuite le paramètre `-OfflineInstallationPath` pour pointer vers l’emplacement du fichier. Pour plus d’informations, voir [Installation hors connexion](how-to-install-iot-edge-windows.md#offline-installation).
+Si vous voulez installer une certaine version du démon de sécurité, téléchargez le fichier Microsoft-Azure-IoTEdge.cab correspondant dans les [versions d’IoT Edge](https://github.com/Azure/azure-iotedge/releases). Utilisez ensuite le paramètre `-OfflineInstallationPath` pour pointer vers l’emplacement du fichier. Pour plus d’informations, voir [Installation hors connexion](how-to-install-iot-edge-windows.md#offline-installation).
 
 ## <a name="update-the-runtime-containers"></a>Mettre à jour les conteneurs du runtime
 
@@ -96,7 +96,7 @@ Si vous utilisez des étiquettes spécifiques dans votre déploiement (par exemp
 
 Dans le portail Azure, les images de déploiement de runtime sont déclarées dans la section **Configurer les paramètres avancés du runtime Edge**. 
 
-![Configurer les paramètres du runtime edge avancés](./media/how-to-update-iot-edge/configure-runtime.png)
+![Configurer les paramètres avancés du runtime Edge](./media/how-to-update-iot-edge/configure-runtime.png)
 
 Dans un manifeste de déploiement JSON, mettez à jour les images de modules dans la section **systemModules**. 
 

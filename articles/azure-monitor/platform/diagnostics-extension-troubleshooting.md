@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: robb
 ms.openlocfilehash: 99ac4ffc288773e52183d371ef2c20f6153bc0f3
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65471778"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Résolution des problèmes de diagnostics Azure
@@ -28,7 +28,7 @@ Cet article contient des informations de dépannage pour Diagnostics Azure. Pour
 ## <a name="logartifact-paths"></a>Chemins d’accès des journaux/artefacts
 Voici les chemins d’accès de quelques journaux d’activité et artefacts importants. Nous nous référons à ces informations dans le reste du document.
 
-### <a name="azure-cloud-services"></a>Azure Cloud Services
+### <a name="azure-cloud-services"></a>Services cloud Azure
 | Artefact | path |
 | --- | --- |
 | **Fichier de configuration de Diagnostics Azure** | %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version>\Config.txt |
@@ -81,7 +81,7 @@ S’il n’existe aucune donnée pour cette métrique en particulier, vérifiez 
 Si la configuration est correctement définie, mais que vous ne voyez toujours pas les données métriques, reportez-vous aux indications suivantes. Elles vous aideront à résoudre les problèmes rencontrés.
 
 
-## <a name="azure-diagnostics-is-not-starting"></a>Azure Diagnostics ne démarre pas
+## <a name="azure-diagnostics-is-not-starting"></a>Diagnostics Azure ne démarre pas
 Pour savoir pourquoi Diagnostics Azure ne démarre pas, voir les journaux **DiagnosticsPluginLauncher.log** et **DiagnosticsPlugin.log** dont nous avons fourni le chemin d’accès précédemment.
 
 Si ces journaux d’activité indiquent `Monitoring Agent not reporting success after launch`, cela signifie que le lancement de MonAgentHost.exe a échoué. Consultez ces journaux d’activité à l’emplacement indiqué pour `MonAgentHost log file` dans la section précédente.
@@ -104,15 +104,15 @@ Le plus souvent, quand aucune donnée d’événement ne s’affiche, le problè
 
 Solution : corrigez la configuration du plug-in Diagnostics et réinstallez-le.
 
-Si le compte de stockage est correctement configuré un accès à distance à l’ordinateur et vérifiez que *DiagnosticsPlugin.exe* et *MonAgentCore.exe* sont en cours d’exécution. Dans le cas contraire, suivez les étapes décrites dans la section [Diagnostics Azure ne démarre pas](#azure-diagnostics-is-not-starting).
+Si le compte de stockage est configuré correctement, accédez à distance à la machine, puis vérifiez que les fichiers *DiagnosticsPlugin.exe* et *MonAgentCore.exe* sont bien en cours d’exécution. Dans le cas contraire, suivez les étapes décrites dans la section [Diagnostics Azure ne démarre pas](#azure-diagnostics-is-not-starting).
 
 Si ces processus sont en cours d’exécution, reportez-vous à la section [La capture des données intervient-elle en local ?](#is-data-getting-captured-locally), puis suivez les instructions fournies.
 
-Si cela ne résout pas le problème, essayez de :
+Si cela ne résout pas le problème, essayez les manipulations suivantes :
 
 1. Désinstaller l’agent
 2. Supprimer le répertoire C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics
-3. Réinstallez l’agent
+3. Réinstaller l’agent
 
 
 ### <a name="part-of-the-data-is-missing"></a>Une partie des données est manquante
@@ -167,7 +167,7 @@ Les tables de stockage Azure qui contiennent les événements ETW utilisent le 
             tableName = "WAD" + eventDestination;
 ```
 
-Voici un exemple : 
+Voici un exemple :
 
 ```XML
         <EtwEventSourceProviderConfiguration provider="prov1">
@@ -230,9 +230,9 @@ Pour le rôle de service cloud, si vous sélectionnez la configuration à partir
 ### <a name="azure-diagnostics-plugin-exit-codes"></a>Codes de sortie du plug-in Diagnostics Azure
 Le plug-in renvoie les codes de sortie suivants :
 
-| Code de sortie | Description  |
+| Code de sortie | Description |
 | --- | --- |
-| 0 |Réussite. |
+| 0 |Vous avez réussi ! |
 | -1 |Erreur générique. |
 | -2 |Impossible de charger le fichier rcf.<p>Cette erreur interne ne doit se produire que si le lanceur du plug-in d’agent invité est appelé manuellement et de manière incorrecte sur la machine virtuelle. |
 | -3 |Impossible de charger le fichier de configuration Diagnostics.<p><p>Solution : Cette erreur se produit lorsqu’un fichier de configuration ne passe pas l’étape de la validation du schéma. La solution consiste à fournir un fichier de configuration qui est conforme au schéma. |

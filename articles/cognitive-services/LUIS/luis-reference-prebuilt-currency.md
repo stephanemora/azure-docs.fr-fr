@@ -1,5 +1,5 @@
 ---
-title: Entité prédéfinis de devise
+title: Entité prédéfinie currency
 titleSuffix: Azure
 description: Cet article contient des informations sur l’entité prédéfinie currency dans Language Understanding (LUIS).
 services: cognitive-services
@@ -12,21 +12,21 @@ ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
 ms.openlocfilehash: 7e882a66ae5a090e1fd3a0850ff35281dc4e692d
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65072020"
 ---
 # <a name="currency-prebuilt-entity-for-a-luis-app"></a>Entité prédéfinie currency pour une application LUIS
-L’entité de devise prédéfinis détecte la devise dans de nombreux dénominations et pays/régions, quelle que soit la culture d’application LUIS. Étant donné que cette entité est déjà formée, vous n’avez pas besoin d’ajouter d’exemples d’énoncés contenant des devises aux intentions de l’application. L’entité currency est prise en charge dans de [nombreuses cultures](luis-reference-prebuilt-entities.md). 
+L’entité prédéfinie currency détecte la devise dans de nombreuses dénominations et de nombreux pays/régions, indépendamment de la culture de l’application LUIS. Étant donné que cette entité est déjà formée, vous n’avez pas besoin d’ajouter d’exemples d’énoncés contenant des devises aux intentions de l’application. L’entité currency est prise en charge dans de [nombreuses cultures](luis-reference-prebuilt-entities.md). 
 
 ## <a name="types-of-currency"></a>Types d’entités currency
 L’entité currency est gérée à partir du dépôt GitHub [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml#L26)
 
 ## <a name="resolution-for-currency-entity"></a>Résolution pour l’entité currency
 
-### <a name="api-version-2x"></a>Version de l’API 2.x
+### <a name="api-version-2x"></a>API version 2.x
 
 L’exemple suivant montre la résolution de l’entité **builtin.currency**.
 
@@ -64,9 +64,9 @@ L’exemple suivant montre la résolution de l’entité **builtin.currency**.
 
 
 
-### <a name="preview-api-version-3x"></a>Version d’évaluation API 3.x
+### <a name="preview-api-version-3x"></a>API 3.x en préversion
 
-Le code JSON suivant est avec la `verbose` paramètre défini sur `false`:
+Le code JSON suivant a le paramètre `verbose` défini sur `false` :
 
 ```json
 {
@@ -91,7 +91,7 @@ Le code JSON suivant est avec la `verbose` paramètre défini sur `false`:
 }
 ```
 
-Le code JSON suivant est avec la `verbose` paramètre défini sur `true`:
+Le code JSON suivant a le paramètre `verbose` défini sur `true` :
 
 ```json
 {

@@ -1,6 +1,6 @@
 ---
 title: Dépannage Azure Blockchain Workbench
-description: Comment dépanner une application Azure Blockchain Workbench.
+description: Guide de dépannage d’une application Azure Blockchain Workbench.
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
@@ -11,10 +11,10 @@ ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
 ms.openlocfilehash: b0263761a4aaf663b16584fbf9caa11bb124d5c4
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65510086"
 ---
 # <a name="azure-blockchain-workbench-troubleshooting"></a>Dépannage Azure Blockchain Workbench
@@ -39,7 +39,7 @@ git clone https://github.com/Azure-Samples/blockchain.git
 ## <a name="run-the-script"></a>Exécutez le script
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install.md)]
 
-Exécutez le script `collectBlockchainWorkbenchTroubleshooting.ps1` pour collecter des journaux d’activité et créer un fichier ZIP contenant un dossier des données de dépannage. Par exemple : 
+Exécutez le script `collectBlockchainWorkbenchTroubleshooting.ps1` pour collecter des journaux d’activité et créer un fichier ZIP contenant un dossier des données de dépannage. Par exemple :
 
 ``` powershell
 collectBlockchainWorkbenchTroubleshooting.ps1 -SubscriptionID "<subscription_id>" -ResourceGroupName "workbench-resource-group-name"
@@ -48,13 +48,13 @@ Le script accepte les paramètres suivants :
 
 | Paramètre  | Description | Obligatoire |
 |---------|---------|----|
-| SubscriptionID | ID d’abonnement associé à la création ou l’emplacement de l’ensemble des ressources. | Oui |
-| ResourceGroupName | Nom du groupe de ressources Azure dans lequel a été déployé Blockchain Workbench. | Oui |
-| OutputDirectory | Chemin d’accès utilisé pour la création du fichier ZIP de sortie. S’il n’est pas spécifié, il est défini par défaut sur le répertoire actuel. | Non  |
-| LookbackHours | Nombre d’heures à utiliser lors de l’extraction des données de télémétrie. La valeur par défaut est de 24 heures. La valeur maximale est de 90 heures. | Non  |
-| OmsSubscriptionId | L’ID d’abonnement dans lequel les journaux de Azure Monitor est déployé. Transmettre uniquement ce paramètre si les journaux Azure Monitor pour le réseau de blockchain est déployé en dehors du groupe de ressources de Blockchain Workbench.| Non  |
-| OmsResourceGroup |Le groupe de ressources dans lequel les journaux de Azure Monitor est déployé. Transmettre uniquement ce paramètre si les journaux Azure Monitor pour le réseau de blockchain est déployé en dehors du groupe de ressources de Blockchain Workbench.| Non  |
-| OmsWorkspaceName | Nom de l’espace de travail Log Analytics. Transmettre uniquement ce paramètre si les journaux Azure Monitor pour le réseau de blockchain est déployé en dehors du groupe de ressources de Blockchain Workbench | Non  |
+| SubscriptionID | ID d’abonnement associé à la création ou l’emplacement de l’ensemble des ressources. | OUI |
+| ResourceGroupName | Nom du groupe de ressources Azure dans lequel a été déployé Blockchain Workbench. | OUI |
+| OutputDirectory | Chemin d’accès utilisé pour la création du fichier ZIP de sortie. S’il n’est pas spécifié, il est défini par défaut sur le répertoire actuel. | Non |
+| LookbackHours | Nombre d’heures à utiliser lors de l’extraction des données de télémétrie. La valeur par défaut est de 24 heures. La valeur maximale est de 90 heures. | Non |
+| OmsSubscriptionId | ID de l’abonnement dans lequel les journaux Azure Monitor sont déployés. Transmettez ce paramètre uniquement si les journaux Azure Monitor associés au réseau blockchain sont déployés à l’extérieur du groupe de ressources Blockchain Workbench.| Non |
+| OmsResourceGroup |Groupe de ressources dans lequel les journaux Azure Monitor sont déployés. Transmettez ce paramètre uniquement si les journaux Azure Monitor associés au réseau blockchain sont déployés à l’extérieur du groupe de ressources Blockchain Workbench.| Non |
+| OmsWorkspaceName | Nom de l’espace de travail Log Analytics. Transmettez ce paramètre uniquement si les journaux Azure Monitor associés au réseau blockchain sont déployés à l’extérieur du groupe de ressources Blockchain Workbench | Non |
 
 ## <a name="what-is-collected"></a>Quels sont les éléments collectés ?
 

@@ -15,10 +15,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: db68ad2a29dcaa53d219b679b9e0f24a50a6f576
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60286588"
 ---
 # <a name="how-to-troubleshoot-sign-in-errors-using-azure-active-directory-reports"></a>Activation Résoudre les erreurs de connexion avec les rapports Azure Active Directory
@@ -37,17 +37,17 @@ En outre, le rapport des connexions peut également vous aider à résoudre les 
 Ce dont vous avez besoin :
 
 * Un locataire Azure AD avec une licence Premium (P1/P2). Consultez [Bien démarrer avec Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) pour mettre à niveau votre édition d’Azure Active Directory.
-* Un utilisateur, qui est dans le **administrateur général**, **administrateur de sécurité**, **lecteur sécurité**, ou **lecteur de rapport** rôle pour le locataire. De plus, tout utilisateur peut accéder à ses propres connexions. 
+* Un utilisateur dans le rôle **Administrateur général**, **Administrateur de la sécurité**, **Lecteur Sécurité** ou **Lecteur de rapport** pour le locataire. De plus, tout utilisateur peut accéder à ses propres connexions. 
 
 ## <a name="troubleshoot-sign-in-errors-using-the-sign-ins-report"></a>Résoudre les erreurs de connexion avec le rapport des connexions
 
 1. Accédez au [portail Azure](https://portal.azure.com) et sélectionnez votre annuaire.
 2. Sélectionnez **Azure Active Directory**, puis **Connexions** dans la section **Supervision**. 
-3. Utilisez les filtres fournis pour trouver l’échec, en utilisant le nom d’utilisateur, l’identificateur d’objet, le nom de l’application ou la date. En outre, sélectionnez **échec** à partir de la **état** liste déroulante pour afficher uniquement les connexions en échec. 
+3. Utilisez les filtres fournis pour trouver l’échec, en utilisant le nom d’utilisateur, l’identificateur d’objet, le nom de l’application ou la date. Sélectionnez aussi **Échec** dans la liste déroulante **État** pour afficher seulement les connexions en échec. 
 
     ![Filtrer les résultats](./media/howto-troubleshoot-sign-in-errors/filters.png)
         
-4. Identifier les échecs connectez-vous à examiner. Sélectionnez-la pour ouvrir la fenêtre des détails supplémentaires avec plus d’informations sur la connexion à ayant échouée. Prenez note du **Code d’erreur de connexion** et de la **Raison de l’échec**. 
+4. Identifiez la connexion en échec que vous voulez examiner. Sélectionnez-la pour ouvrir la fenêtre contenant des informations détaillées sur la connexion en échec. Prenez note du **Code d’erreur de connexion** et de la **Raison de l’échec**. 
 
     ![Sélectionner un enregistrement](./media/howto-troubleshoot-sign-in-errors/sign-in-failures.png)
         
@@ -55,7 +55,7 @@ Ce dont vous avez besoin :
 
     ![Résolution des problèmes et support](./media/howto-troubleshoot-sign-in-errors/troubleshooting-and-support.png)
 
-6. La raison de l’échec décrit l’erreur. Par exemple, dans le scénario ci-dessus, la raison de l’échec est **nom d’utilisateur non valide ou mot de passe ou nom d’utilisateur non valide en local ou mot de passe**. La solution consiste simplement à se reconnecter avec le nom d’utilisateur et le mot de passe corrects.
+6. La raison de l’échec décrit l’erreur. Par exemple, dans le scénario ci-dessus, la raison de l’échec est **Nom d’utilisateur ou mot de passe non valide, ou Nom d’utilisateur ou mot de passe local non valide**. La solution consiste simplement à se reconnecter avec le nom d’utilisateur et le mot de passe corrects.
 
 7. Vous pouvez obtenir des informations supplémentaires, notamment des idées pour remédier au problème, en recherchant le code d’erreur, **50126** dans cet exemple, dans les [informations de référence sur les codes d’erreur des connexions](reference-sign-ins-error-codes.md). 
 

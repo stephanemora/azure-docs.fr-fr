@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 12/01/2018
 ms.author: victorh
 ms.openlocfilehash: e0fbec8b22993345114d8d6642e42095191d0b37
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66115683"
 ---
 # <a name="deploy-azure-firewall-using-a-template"></a>Déployer un pare-feu Azure à l’aide d’un modèle
@@ -59,7 +59,7 @@ Pour en savoir plus sur la syntaxe JSON et les propriétés d’un pare-feu dans
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Lorsque vous n’en avez plus besoin, vous pouvez supprimer le groupe de ressources, pare-feu et toutes les ressources associées en exécutant la [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) commande PowerShell. Pour supprimer un groupe de ressources nommé *MyResourceGroup*, exécutez : 
+Quand vous n’en avez plus besoin, vous pouvez supprimer le groupe de ressources, le pare-feu et toutes les ressources associées en exécutant la commande PowerShell [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup). Pour supprimer un groupe de ressources nommé *MyResourceGroup*, exécutez : 
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name MyResourceGroup

@@ -1,6 +1,6 @@
 ---
-title: Utilisation de projections dans un magasin de base de connaissances (version préliminaire) - recherche Azure
-description: Enregistrer et mettre en forme vos données enrichies du pipeline d’indexation intelligence artificielle pour une utilisation dans les scénarios de recherche
+title: Utilisation de projections dans une base de connaissances (préversion) - Recherche Azure
+description: Enregistrer et mettre en forme vos données enrichies du pipeline d’indexation d’IA à utiliser dans des scénarios autres que de recherche
 manager: eladz
 author: vkurpad
 services: search
@@ -11,72 +11,72 @@ ms.date: 05/02/2019
 ms.author: vikurpad
 ms.custom: seomay2019
 ms.openlocfilehash: f1c7278909557dc92f86c5dfc1f190fddf33f607
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65540804"
 ---
-# <a name="working-with-projections-in-a-knowledge-store-in-azure-search"></a>Utilisation de projections dans un magasin de base de connaissances dans recherche Azure
+# <a name="working-with-projections-in-a-knowledge-store-in-azure-search"></a>Utilisation de projections dans une base de connaissances dans Recherche Azure
 
 > [!Note]
-> Magasin de base de connaissances est en version préliminaire et les a pas été conçu pour la production. Le [API REST version 2019-05-06-Preview](search-api-preview.md) fournit cette fonctionnalité. Il n’existe aucune prise en charge du SDK .NET pour l’instant.
+> La base de connaissances est en préversion et n’a pas été conçue pour la production. L’[API REST version 2019-05-06-Preview](search-api-preview.md) fournit cette fonctionnalité. Il n’y a pas de prise en charge de .NET SDK pour l’instant.
 >
 
-Recherche Azure permet l’enrichissement de contenu via des compétences cognitives d’intelligence artificielle et de compétences personnalisées en tant que partie de l’indexation. Enrichissements de structurer vos documents et facilitent la recherche plus efficace. Dans de nombreux cas, les documents enrichis sont utiles pour les scénarios de recherche, par exemple pour l’exploration de données de base de connaissances.
+Recherche Azure permet l’enrichissement de contenu via des compétences cognitives d’IA et des compétences personnalisées dans le cadre de l’indexation. Les enrichissements renforcent la structure de vos documents et rendent la recherche plus efficace. Dans de nombreux cas, les documents enrichis sont utiles pour des scénarios autres que de recherche, pour l’exploration de connaissances par exemple.
 
-Les projections, un composant de [store de la base de connaissances](knowledge-store-concept-intro.md), sont des vues de documents enrichis qui peuvent être enregistrés dans le stockage physique pour à des fins d’exploration de données de base de connaissances. Une projection vous permet de « projet » vos données dans une forme qui s’aligne avec vos besoins, en conservant les relations afin que les outils tels que Power BI peuvent lire les données sans aucun effort supplémentaire. 
+Les projections, un composant de la [base de connaissances](knowledge-store-concept-intro.md), sont des vues de documents enrichis qui peuvent être enregistrés dans un stockage physique à des fins d’exploration de connaissances. Une projection vous permet de « projeter » vos données dans une forme qui répond à vos besoins, en conservant les relations afin que les outils tels que Power BI puissent lire les données sans effort supplémentaire. 
 
-Projections peuvent être sous forme de tableau avec les données stockées dans des lignes et colonnes dans le stockage Table Azure, ou les objets JSON stockés dans le stockage Blob Azure. Vous pouvez définir plusieurs projections de vos données comme il est en cours enrichie. Cela est utile lorsque vous souhaitez que les mêmes données mises en forme différemment pour les cas d’une utilisation individuelle. 
+Les projections peuvent être tabulaires, avec des données stockées dans des lignes et des colonnes dans le stockage Table Azure, ou des objets JSON stockés dans le stockage Blob Azure. Vous pouvez définir plusieurs projections de vos données pendant leur enrichissement. Cela est utile lorsque vous souhaitez que les mêmes données soient mises en forme différemment pour des cas d’utilisation individuels. 
 
-Le magasin de la base de connaissances prend en charge deux types de projections :
+La base de connaissances prend en charge deux types de projections :
 
-+ **Tables** : Pour les données qui constitue la meilleure représentation en tant que lignes et colonnes, projections de table permettent de définir une forme schématisée ou une projection dans le stockage Table. 
++ **Tables** : Pour les données qui sont mieux représentées sous forme de lignes et de colonnes, les projections de table vous permettent de définir une forme schématisée ou une projection dans le stockage Table. 
 
-+ **Objets**: Lorsque vous avez besoin d’une représentation JSON de vos données et l’enrichissement, les projections de l’objet sont enregistrées en tant qu’objets BLOB.
++ **Objets** : Lorsque vous avez besoin d’une représentation JSON de vos données et enrichissements, les projections d’objet sont enregistrées comme des objets Blob.
 
-Pour voir des projections définies dans le contexte, parcourez [la prise en main avec le magasin de la base de connaissances](knowledge-store-howto.md)
+Pour voir des projections définies dans le contexte, parcourez [Prise en main de la Base de connaissances](knowledge-store-howto.md)
 
-## <a name="projection-groups"></a>Groupes de projection
+## <a name="projection-groups"></a>Groupes de projections
 
-Dans certains cas, vous devrez vos données enrichies dans différentes formes pour répondre à différents objectifs de projet. Le magasin de la base de connaissances vous permet de définir plusieurs groupes de projections. Groupes de projection ont les principales caractéristiques de l’exclusivité mutuelle et parenté suivantes.
+Dans certains cas, vous devrez projeter vos données enrichies dans différentes formes pour répondre à différents objectifs. La base de connaissances vous permet de définir plusieurs groupes de projections. Les groupes de projection disposent des principales caractéristiques d’exclusivité mutuelle et de parenté suivantes.
 
-### <a name="mutually-exclusivity"></a>Exclusivité mutuellement
+### <a name="mutually-exclusivity"></a>Exclusivité mutuelle
 
-Tout le contenu projeté dans un seul groupe est indépendant des données projetées dans d’autres groupes de projection. Cela implique que vous pouvez avoir les mêmes données mises en forme différemment, mais répété dans chaque groupe de projection. 
+Tout le contenu projeté dans un même groupe est indépendant des données projetées dans d’autres groupes de projections. Les mêmes données peuvent ainsi être mises en forme différemment, mais répétées dans chaque groupe de projections. 
 
-Une seule contrainte appliquée dans les groupes de projection est l’exclusivité mutuelle de types de projection avec un groupe de projection. Vous pouvez uniquement définir des projections de table ou de projections d’objet dans un groupe unique. Si vous souhaitez que les tables et les objets, définir un groupe de projection pour les tables et un deuxième groupe de projection pour les objets.
+Une contrainte appliquée dans les groupes de projection réside dans l’exclusivité mutuelle de types de projections avec un groupe de projections. Vous pouvez uniquement définir des projections de table ou de projections d’objet dans un même groupe. Si vous souhaitez des tables et des objets, définissez un groupe de projections pour les tables et un deuxième groupe de projections pour les objets.
 
 ### <a name="relatedness"></a>Parenté
 
-Tout le contenu projeté dans un groupe de projection unique conserve les relations au sein des données. Les relations sont basées sur une clé générée, et chaque nœud enfant conserve une référence au nœud parent. Relations ne couvrent pas les groupes de projection et les tables ou les objets créés dans un groupe de projection n’ont aucune relation aux données générées dans d’autres groupes de projection.
+Tout le contenu projeté dans un même groupe de projections conserve les relations entre les données. Les relations sont basées sur une clé générée, et chaque nœud enfant conserve une référence au nœud parent. Les relations ne couvrent pas des groupes de projections, et des tables ou des objets créés dans un groupe de projections n’ont aucune relation avec les données générées dans d’autres groupes de projections.
 
-## <a name="input-shaping"></a>Entrée mise en forme
-Obtention de vos données dans la bonne forme ou la structure est l’utilisation des clés effectif, qu’il s’agisse de tables ou objets. La possibilité de mettre en forme ou une structure de vos données en fonction de la manière dont vous souhaitez accéder et l’utiliser est une fonctionnalité clé exposée en tant que le **modélisateur** compétence dans les compétences dont dispose.  
+## <a name="input-shaping"></a>Mise en forme d’entrée
+Disposer de vos données dans la bonne forme ou structure est essentiel pour les utiliser efficacement, qu’il s’agisse de tables ou d’objets. La possibilité de mettre en forme ou de structurer vos données selon la méthode d’accès et d’utilisation souhaitées est une fonctionnalité clé présentée comme la compétence de **modélisateur** de l’ensemble de compétences.  
 
-Projections sont plus faciles à définir lorsque vous avez un objet dans l’arborescence d’enrichissement qui correspondent au schéma de la projection. La mise à jour [compétence de modélisateur](cognitive-search-skill-shaper.md) vous permet de composer un objet à partir de différents nœuds de l’arborescence d’enrichissement et les parents sous un nouveau nœud. Le **modélisateur** compétence vous permet de définir des types complexes avec des objets imbriqués.
+Les projections sont plus simples à définir lorsque vous avez un objet dans l’arborescence d’enrichissement qui correspond au schéma de la projection. La [compétence de modélisateur](cognitive-search-skill-shaper.md) mise à jour vous permet de composer un objet à partir de différents nœuds de l’arborescence d’enrichissement et de les apparenter sous un nouveau nœud. La compétence de **modélisateur** vous permet de définir des types complexes avec des objets imbriqués.
 
-Lorsque vous avez une nouvelle forme définie qui contienne tous les éléments que vous avez besoin pour projeter des, vous pouvez maintenant utiliser cette forme comme source pour vos projections ou en tant qu’entrée à une autre compétence.
+Lorsqu’une nouvelle forme définie contient tous les éléments que vous devez projeter, vous pouvez maintenant utiliser cette forme comme source pour vos projections ou comme entrée d’une autre compétence.
 
 ## <a name="table-projections"></a>Projections de table
 
-Car il permet d’importer facilement, nous vous recommandons de projections de table pour l’exploration de données avec Power BI. En outre, les projections de table autoriser pour la modification de la cardinalité entre la relation de table. 
+Leur importation étant plus simple, nous vous recommandons les projections de table pour l’exploration des données avec Power BI. Les projections de table permettent également de modifier la cardinalité entre la relation de table. 
 
-Vous pouvez projeter un document unique dans votre index en plusieurs tables, en conservant les relations. Lors de la projection à plusieurs tables, la forme complète est projetée dans chaque table, sauf si un nœud enfant est la source d’une autre table dans le même groupe.
+Vous pouvez projeter un document de votre index dans plusieurs tables, en conservant les relations. Lors de la projection dans plusieurs tables, la forme complète est projetée dans chaque table, sauf si un nœud enfant est la source d’une autre table du même groupe.
 
 ### <a name="defining-a-table-projection"></a>Définition d’une projection de table
 
-Lorsque vous définissez une projection de la table dans le `knowledgeStore` élément de vos compétences, commencez par mapper un nœud dans l’arborescence d’enrichissement pour la source de table. En général, ce nœud est le résultat d’une **modélisateur** compétences que vous avez ajouté à la liste des compétences pour produire une forme spécifique dont vous avez besoin pour projeter dans des tables. Le nœud que vous choisissez de projet peut être découpé au projet en plusieurs tables. La définition de tables est une liste de tables que vous souhaitez de projet. 
+Lorsque vous définissez une projection de la table dans l’élément `knowledgeStore` de votre ensemble de compétences, commencez par mapper un nœud dans l’arborescence d’enrichissement avec la source de table. Ce nœud est généralement la sortie d’une compétence de **modélisateur** que vous avez ajoutée à la liste des compétences pour produire une forme spécifique dont vous avez besoin pour projeter dans des tables. Le nœud que vous choisissez de projeter peut être divisé pour être projeté dans plusieurs tables. La définition de tables est une liste de tables que vous souhaitez projeter. 
 
-Chaque table requiert trois propriétés :
+Chaque table requiert trois propriétés :
 
-+ TableName : Le nom de la table dans le stockage Azure.
++ tableName : Nom de la table dans le Stockage Azure.
 
-+ generatedKeyName: Le nom de colonne de la clé qui identifie de façon unique cette ligne.
++ generatedKeyName : Nom de colonne de la clé qui identifie de façon unique cette ligne.
 
-+ source : Le nœud de l’arborescence d’enrichissement serez-vous votre enrichissements de. Cela est généralement le résultat d’une mise en forme, mais peut être le résultat d’une des compétences.
++ source : Nœud de l’arborescence d’enrichissement, source de vos enrichissements. Il s’agit généralement de la sortie d’un modélisateur, mais peut également être la sortie d’une des compétences.
 
-Voici un exemple des projections de la table.
+Voici un exemple des projections de table.
 
 ```json
 {
@@ -108,15 +108,15 @@ Voici un exemple des projections de la table.
     }
 }
 ```
-Comme illustré dans cet exemple, les expressions clés et les entités sont modélisées dans différentes tables et contient une référence au parent (%{maintable/}) pour chaque ligne. 
+Comme illustré dans cet exemple, les expressions et entités clés sont modélisées dans différentes tables et contiennent une référence au parent (MainTable) pour chaque ligne. 
 
-L’illustration suivante est une référence à l’exercice jurisprudence dans [la prise en main avec le magasin de la base de connaissances](knowledge-store-howto.md). Dans un scénario où un cas a plusieurs avis parallèles, et chaque avis est enrichie en identifiant les entités qu’il contient, vous pouvez modéliser les projections, comme illustré ici.
+L’illustration suivante est une référence à l’exercice Caselaw dans [Prise en main de la Base de connaissances](knowledge-store-howto.md). Dans un scénario où un cas inclut plusieurs opinions, et où chaque opinion est enrichie en identifiant les entités qu’il contient, vous pouvez modéliser les projections comme illustré ici.
 
-![Entités et relations dans les tables](media/knowledge-store-projection-overview/TableRelationships.png "modéliser les relations dans les projections de table")
+![Entités et relations dans des tables](media/knowledge-store-projection-overview/TableRelationships.png "Modélisation de relations dans des projections de table")
 
-## <a name="object-projections"></a>Projections de l’objet
+## <a name="object-projections"></a>Projections d’objet
 
-Projections de l’objet sont des représentations sous forme de JSON de l’arborescence d’enrichissement peuvent provenir de n’importe quel nœud. Dans de nombreux cas, le même **modélisateur** compétences, ce qui crée une projection de la table peuvent être utilisé pour générer une projection de l’objet. 
+Les projections d’objet sont des représentations JSON de l’arborescence d’enrichissement pouvant provenir de n’importe quel nœud. Dans de nombreux cas, la même compétence de **modélisateur** que celle qui crée une projection de table peut être utilisée pour générer une projection d’objet. 
 
 ```json
 {
@@ -151,29 +151,29 @@ Projections de l’objet sont des représentations sous forme de JSON de l’arb
 }
 ```
 
-La génération d’une projection d’objet nécessite quelques attributs spécifiques à un objet :
+La génération d’une projection d’objet nécessite quelques attributs spécifiques à un objet :
 
-+ storageContainer : Le conteneur dans lequel les objets doit être enregistrés
-+ source : Le chemin d’accès au nœud de l’arborescence d’enrichissement est la racine de la projection
-+ Clé : Un chemin d’accès qui représente une clé unique pour l’objet à stocker. Il sera utilisé pour créer le nom de l’objet blob dans le conteneur.
++ storageContainer : Conteneur dans lequel les objets seront enregistrés
++ source : Chemin d’accès au nœud de l’arborescence d’enrichissement qui est la racine de la projection
++ key : Chemin d’accès qui représente une clé unique pour l’objet à stocker. Il sera utilisé pour créer le nom de l’objet blob dans le conteneur.
 
 ## <a name="projection-lifecycle"></a>Cycle de vie de projection
 
-Vos projections ont un cycle de vie qui est lié à la source de données dans votre source de données. Comme vos données sont mis à jour et réindexées, vos projections sont mis à jour avec les résultats de l’enrichissement vérifié que vos projections sont cohérentes avec les données dans votre source de données. Les projections héritent de la stratégie de suppression que vous avez configuré pour votre index. 
+Vos projections ont un cycle de vie qui est lié à la source de données dans votre source de données. Lorsque vos données sont mises à jour et réindexées, vos projections sont mises à jour avec les résultats des enrichissements en s’assurant que vos projections sont cohérentes avec les données dans votre source de données. Les projections héritent de la stratégie de suppression que vous avez configurée pour votre index. 
 
 ## <a name="using-projections"></a>Utilisation de projections
 
-Après l’exécution de l’indexeur, vous pouvez lire les données projetées dans les conteneurs ou les tables que vous avez spécifié par le biais des projections. 
+Après l’exécution de l’indexeur, vous pouvez lire les données projetées dans les conteneurs ou les tables que vous avez spécifiés par le biais de projections. 
 
-Pour l’analytique, exploration dans Power BI est aussi simple qu’affecter le stockage Table Azure comme source de données. Vous pouvez très facilement créer un ensemble de visualisations sur vos données en exploitant les relations au sein.
+Pour l’analyse, l’exploration dans Power BI est aussi simple que de définir le stockage Table Azure comme la source de données. Vous pouvez très facilement créer un ensemble de visualisations sur vos données en utilisant les relations incluses.
 
-Vous pouvez également, si vous avez besoin d’utiliser les données enrichies dans un pipeline de science des données, vous pourriez [charger les données d’objets BLOB dans une trame de données Pandas](../machine-learning/team-data-science-process/explore-data-blob.md).
+Si vous devez utiliser les données enrichies dans un pipeline de science des données, vous pouvez également [charger les données d’objets Blob dans un dataframe Pandas](../machine-learning/team-data-science-process/explore-data-blob.md).
 
-Enfin, si vous avez besoin d’exporter des données à partir du magasin de la base de connaissances, Azure Data Factory a des connecteurs pour exporter les données et il arrivent dans la base de données de votre choix. 
+Enfin, si vous devez exporter vos données de la base de connaissances, Azure Data Factory comprend des connecteurs pour exporter les données et les placer dans la base de données de votre choix. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Comme prochaine étape, créez votre premier magasin de base de connaissances à l’aide des instructions et des exemples de données.
+À l’étape suivante, créez votre première base de connaissances à l’aide d’exemples de données et d’instructions.
 
 > [!div class="nextstepaction"]
-> [Comment créer un magasin de la base de connaissances](knowledge-store-howto.md).
+> [Comment créer une base de connaissances](knowledge-store-howto.md).

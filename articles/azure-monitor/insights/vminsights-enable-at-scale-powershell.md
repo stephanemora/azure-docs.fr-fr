@@ -1,6 +1,6 @@
 ---
-title: Activer Azure Monitor pour les machines virtuelles (version préliminaire) à l’aide du modèle d’Azure PowerShell ou Resource Manager | Microsoft Docs
-description: Cet article décrit comment activer des Azure Monitor pour les machines virtuelles pour un ou plusieurs machines virtuelles ou des machines virtuelles identiques à l’aide de modèles Azure PowerShell ou Azure Resource Manager.
+title: Activer Azure Monitor pour machines virtuelles (préversion) à l’aide du modèle Azure PowerShell ou Resource Manager | Microsoft Docs
+description: Cet article décrit l’activation d’Azure Monitor pour machines virtuelles sur une ou plusieurs machines virtuelles (ou sur un ou plusieurs groupes de machines virtuelles identiques) à l’aide des modèles Azure PowerShell ou Azure Resource Manager.
 services: azure-monitor
 documentationcenter: ''
 author: mgoedtel
@@ -14,21 +14,21 @@ ms.workload: infrastructure-services
 ms.date: 05/09/2019
 ms.author: magoedte
 ms.openlocfilehash: a22bc88fb066d9b845f7fdf1592e2194a03915bc
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65524129"
 ---
-# <a name="enable-azure-monitor-for-vms-preview-using-azure-powershell-or-resource-manager-template"></a>Activer Azure Monitor pour les machines virtuelles (version préliminaire) à l’aide d’Azure PowerShell ou Resource Manager modèle
+# <a name="enable-azure-monitor-for-vms-preview-using-azure-powershell-or-resource-manager-template"></a>Activer Azure Monitor pour machines virtuelles (préversion) à l’aide du modèle Azure PowerShell ou Resource Manager
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Cet article explique comment activer Azure Monitor pour les machines virtuelles (version préliminaire) pour les machines virtuelles ou des machines virtuelles identiques à l’aide de modèles Azure PowerShell ou Azure Resource Manager. À la fin de ce processus que vous avez correctement commencée analyse toutes vos machines virtuelles et découvrez si les rencontrez des problèmes de performances et disponibilité. 
+Cet article explique l’activation d’Azure Monitor pour machines virtuelles sur des machines virtuelles (ou des groupes de machines virtuelles identiques) à l’aide des modèles Azure PowerShell ou Azure Resource Manager. À la fin de ce processus, vous aurez commencé à analyser toutes vos machines virtuelles et saurez reconnaître les problèmes de performances ou de disponibilité. 
 
 ## <a name="set-up-a-log-analytics-workspace"></a>Configurer un espace de travail Log Analytics 
 
-Si vous n’avez pas un espace de travail Analytique de journal, créez-le en passant en revue les méthodes qui sont suggérés dans la [conditions préalables](vminsights-enable-overview.md#log-analytics) section avant de continuer avec les étapes pour le configurer afin de terminer le déploiement d’Azure Monitor pour Machines virtuelles à l’aide de la méthode de modèle Azure Resource Manager.
+Si vous n’avez pas d’espace de travail Log Analytics, créez-le selon les méthodes suggérées dans les [prérequis](vminsights-enable-overview.md#log-analytics) avant de poursuivre avec les étapes de configuration et de terminer le déploiement d’Azure Monitor pour machines virtuelles à l’aide de la méthode de modèle Azure Resource Manager.
 
 ### <a name="enable-performance-counters"></a>Activer les compteurs de performance
 
@@ -141,11 +141,11 @@ Le changement de configuration peut prendre quelques minutes. Lorsqu’il est te
 provisioningState       : Succeeded
 ```
 
-## <a name="enable-with-azure-resource-manager-template"></a>Activer avec le modèle Azure Resource Manager
-Nous avons créé des exemples de modèles Azure Resource Manager pour l’intégration de vos machines virtuelles et les machines virtuelles identiques. Ces modèles incluent des scénarios pour activer l’analyse sur une ressource existante et pour la création d’une ressource ayant l’analyse est activée.
+## <a name="enable-with-azure-resource-manager-template"></a>Activer avec un modèle Azure Resource Manager
+Nous avons créé des exemples de modèles Azure Resource Manager pour l’intégration de vos machines virtuelles et groupes de machines virtuelles identiques. Ces modèles incluent des scénarios pour activer la surveillance sur une ressource existante et pour créer une ressource où la surveillance est activée.
 
 >[!NOTE]
->Le modèle doit être déployé dans le même groupe de ressources que la ressource à intégrer.
+>Le modèle doit être déployé dans le même groupe de ressources que la ressource.
 
 Si vous n’êtes pas familiarisé avec le déploiement de ressources à l’aide d’un modèle, consultez les rubriques suivantes :
 * [Déployer des ressources à l’aide de modèles Resource Manager et d’Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md)
@@ -155,22 +155,22 @@ Si vous avez choisi d’utiliser Azure CLI, vous devez d’abord l’installer e
 
 ### <a name="download-templates"></a>Télécharger des modèles
 
-Les modèles Azure Resource Manager sont fournis dans un fichier d’archive (.zip) que vous pouvez [télécharger](https://aka.ms/VmInsightsARMTemplates) à partir de notre référentiel GitHub. Contenu du fichier inclure des dossiers représentant chaque scénario de déploiement avec un fichier de modèle et ses paramètres. Avant d’exécuter, modifier le fichier de paramètres et spécifiez les valeurs requises. Ne modifiez pas le fichier de modèle, sauf si vous devez personnaliser pour prendre en charge vos besoins spécifiques. Une fois que vous avez modifié le fichier de paramètres vous pouvez déployer à l’aide des méthodes suivantes, décrites plus loin dans cet article. 
+Les modèles Azure Resource Manager sont fournis dans un fichier d’archive (.zip) que vous pouvez [télécharger](https://aka.ms/VmInsightsARMTemplates) à partir de notre référentiel GitHub. Le fichier contient des dossiers représentant chaque scénario de déploiement, avec un fichier de modèle et un fichier de paramètres. Avant de l’exécuter, modifiez le fichier de paramètres et spécifiez les valeurs requises. Ne modifiez pas le fichier de modèle, sauf si vous devez le personnaliser pour prendre en charge des besoins spécifiques. Une fois que vous avez modifié le fichier de paramètres, vous pouvez le déployer à l’aide des méthodes suivantes, décrites plus loin dans cet article. 
 
 Le fichier de téléchargement contient les modèles suivants pour différents scénarios :
 
-- **ExistingVmOnboarding** modèle permet à Azure Monitor pour les machines virtuelles si les ordinateurs virtuels existe déjà.
-- **NewVmOnboarding** modèle crée une machine virtuelle et permet à Azure Monitor pour surveiller les machines virtuelles.
-- **ExistingVmssOnboarding** modèle permet à Azure Monitor pour les machines virtuelles si le machines virtuelles identiques déjà existe.
-- **NewVmssOnboarding** modèle crée une échelle de machine virtuelle définit et permet à Azure Monitor pour les machines virtuelles pour les analyser.
-- **ConfigureWorksapce*** modèle configure votre espace de travail Analytique de journal pour prendre en charge d’Azure Monitor pour les machines virtuelles en activant les solutions et la collection de compteurs de performance de système d’exploitation Linux et Windows.
+- Le modèle **ExistingVmOnboarding** active Azure Monitor pour machines virtuelles si les machines virtuelles existent déjà.
+- Le modèle **NewVmOnboarding** crée une machine virtuelle et active Azure Monitor pour machines virtuelles à des fins de surveillance.
+- Le modèle **ExistingVmssOnboarding** active Azure Monitor pour machines virtuelles si le groupe de machines virtuelles identiques existe déjà.
+- Le modèle **NewVmssOnboarding** crée un groupe de machines virtuelles identiques et active Azure Monitor pour machines virtuelles à des fins de surveillance.
+- Le modèle **ConfigureWorksapce*** configure votre espace de travail Log Analytics pour prendre en charge Azure Monitor pour machines virtuelles en activant les solutions et la collection de compteurs de performances du système d’exploitation Linux et Windows.
 
 >[!NOTE]
->Si les machines virtuelles identiques ont été déjà présentes et la stratégie de mise à niveau est définie sur **manuel**, Azure Monitor pour les machines virtuelles ne seront pas activée pour les instances par défaut après l’exécution le **ExistingVmssOnboarding** Modèle de gestionnaire de ressources Azure. Vous devez manuellement mettre à niveau les instances.
+>Si les groupes de machines virtuelles identiques étaient déjà présents et que la stratégie de mise à niveau est **manuelle**, Azure Monitor pour machines virtuelles n’est pas activé pour les instances par défaut après l’exécution du modèle Resource Manager **ExistingVmssOnboarding**. Vous devez mettre à niveau les instances manuellement.
 
 ### <a name="deploy-using-azure-powershell"></a>Déployer avec Azure PowerShell
 
-L’étape suivante permet la surveillance à l’aide d’Azure PowerShell.
+L’étape suivante active la surveillance à l’aide d’Azure PowerShell.
 
 ```powershell
 New-AzResourceGroupDeployment -Name OnboardCluster -ResourceGroupName <ResourceGroupName> -TemplateFile <Template.json> -TemplateParameterFile <Parameters.json>
@@ -182,7 +182,7 @@ provisioningState       : Succeeded
 ```
 ### <a name="deploy-using-azure-cli"></a>Déployer à l’aide d’Azure CLI
 
-L’étape suivante permet la surveillance à l’aide d’Azure CLI.   
+L’étape suivante active la surveillance à l’aide d’Azure CLI.   
 
 ```azurecli
 az login
@@ -200,7 +200,7 @@ provisioningState       : Succeeded
 
 Si vous souhaitez activer Azure Monitor pour machines virtuelles pour plusieurs machines virtuelles ou des groupes de machines virtuelles identiques, vous pouvez utiliser le script PowerShell [Install-VMInsights.ps1](https://www.powershellgallery.com/packages/Install-VMInsights/1.0), disponible dans Azure PowerShell Gallery. Ce script effectue une itération dans chaque machine virtuelle et groupe de machines virtuelles identiques de votre abonnement, au sein du groupe de ressources à portée spécifié par *ResourceGroup*, ou dans une seule machine virtuelle ou un seul groupe de machines virtuelles identiques spécifié par *Name*. Pour chaque machine virtuelle ou groupe de machines virtuelles identiques, le script vérifie si l’extension de machine virtuelle est déjà installée. Si l’extension de machine virtuelle n’est pas installée, le script tente de la réinstaller. Si l’extension de machine virtuelle est installée, le script installe les extensions de machine virtuelle Log Analytics Agent et Dependency Agent.
 
-Ce script nécessite le module Azure PowerShell Az version 1.0.0 ou une version ultérieure. Exécutez `Get-Module -ListAvailable Az` pour trouver la version. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps). Si vous exécutez PowerShell en local, vous devez également exécuter `Connect-AzAccount` pour créer une connexion avec Azure.
+Ce script requiert le module Azure PowerShell Az version 1.0.0 ou ultérieure. Exécutez `Get-Module -ListAvailable Az` pour trouver la version. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps). Si vous exécutez PowerShell en local, vous devez également exécuter `Connect-AzAccount` pour créer une connexion avec Azure.
 
 Pour obtenir une liste des détails de l’argument du script et un exemple d’utilisation, exécutez `Get-Help`.
 
@@ -355,4 +355,4 @@ Failed: (0)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Maintenant que l’analyse est activée pour vos machines virtuelles, ces informations sont disponibles pour l’analyse avec Azure Monitor pour les machines virtuelles. Pour savoir comment utiliser la fonctionnalité de contrôle de l’intégrité, consultez [Comprendre l’intégrité de vos machines virtuelles Azure grâce à Azure Monitor pour machines virtuelles](vminsights-health.md). Pour afficher les dépendances des applications détectées, consultez [Utilisation de la fonctionnalité Map d’Azure Monitor pour machines virtuelles dans le but de comprendre les composants d’application](vminsights-maps.md). Pour identifier les goulots d’étranglement et les performances d’utilisation globale avec vos machines virtuelles, consultez l’article indiquant comment [afficher les performances avec Azure Monitor pour les machines virtuelles](vminsights-performance.md). Pour visualiser les dépendances d’application découvertes, consultez l’article expliquant comment [afficher la fonctionnalité Map d’Azure Monitor pour les machines virtuelles](vminsights-maps.md).
+Une fois la surveillance activée pour vos machines virtuelles, ces informations peuvent être analysées par Azure Monitor pour machines virtuelles. Pour savoir comment utiliser la fonctionnalité de contrôle de l’intégrité, consultez [Comprendre l’intégrité de vos machines virtuelles Azure grâce à Azure Monitor pour machines virtuelles](vminsights-health.md). Pour afficher les dépendances des applications détectées, consultez [Utilisation de la fonctionnalité Map d’Azure Monitor pour machines virtuelles dans le but de comprendre les composants d’application](vminsights-maps.md). Pour identifier les goulots d’étranglement et les performances d’utilisation globale avec vos machines virtuelles, consultez l’article indiquant comment [afficher les performances avec Azure Monitor pour les machines virtuelles](vminsights-performance.md). Pour visualiser les dépendances d’application découvertes, consultez l’article expliquant comment [afficher la fonctionnalité Map d’Azure Monitor pour les machines virtuelles](vminsights-maps.md).

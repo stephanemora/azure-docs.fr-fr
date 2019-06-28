@@ -16,14 +16,14 @@ ms.date: 05/22/2017
 ms.author: lahugh
 ms.custom: seodec18
 ms.openlocfilehash: bd5c16d755ef9b71f36b3d499838b12e6099ba6d
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65595384"
 ---
 > [!NOTE] 
-> Comptes d’utilisateur décrits dans cet article sont différentes des utilisateurs comptes utilisés pour le protocole RDP (Remote Desktop) ou Secure Shell (SSH), pour des raisons de sécurité. 
+> Pour des raisons de sécurité, les comptes d’utilisateur décrits dans cet article sont différents des comptes d’utilisateur utilisés pour le protocole RDP (Remote Desktop) ou le protocole SSH (Secure Shell). 
 >
 > Pour vous connecter à un nœud qui exécute une configuration de machine virtuelle Linux via le protocole SSH, consultez [Installer et configurer le Bureau à distance pour effectuer une connexion à une machine virtuelle Linux dans Azure](../virtual-machines/virtual-machines-linux-use-remote-desktop.md). Pour vous connecter à des nœuds exécutant Windows via RDP, consultez [Connexion à une machine virtuelle Azure exécutant Windows](../virtual-machines/windows/connect-logon.md).<br /><br />
 > Pour vous connecter à un nœud qui exécute la configuration du service cloud via RDP, consultez [Activer une connexion Bureau à distance pour un rôle dans Azure Cloud Services](../cloud-services/cloud-services-role-enable-remote-desktop-new-portal.md).

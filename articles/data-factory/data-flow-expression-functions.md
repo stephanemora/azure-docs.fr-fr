@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/15/2019
-ms.openlocfilehash: 35a056fbe01633dd93bd71ac2af16cba8a21344a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6181c3cff18322ee589ee3506310a5bc7f21e6e7
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65235721"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165910"
 ---
 # <a name="data-transformation-expressions-in-mapping-data-flow"></a>Expressions de transformation de données dans le flux de données de mappage 
 
@@ -117,7 +117,7 @@ Concatène un nombre variable de chaînes. Identique à l’opérateur + avec de
 ### <code>concatWS</code>
 <code><b>concatWS(<i>&lt;separator&gt;</i> : string, <i>&lt;this&gt;</i> : string, <i>&lt;that&gt;</i> : string, ...) => string</b></code><br/><br/>
 Concatène un nombre variable de chaînes avec un séparateur. Le premier paramètre est le séparateur * ``concatWS(' ', 'Awesome', 'Cool', 'Product') -> 'Awesome Cool Product'``
-* ``concatWS(' ' , addrLine1, addrLine2, city, state, zip) -> ``
+* ``concatWS(' ' , addrLine1, addrLine2, city, state, zip) ->``
 * ``concatWS(',' , toString(order_total), toString(order_discount))``
 *********************************
 ### <code>cos</code>
@@ -699,12 +699,12 @@ Obtient la somme agrégée de valeurs distinctes appartenant à une colonne num�
 ### <code>sumDistinctIf</code>
 <code><b>sumDistinctIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number) => number</b></code><br/><br/>
 Selon certains critères, obtient la somme agrégée d’une colonne numérique. La condition peut être basée sur n’importe quelle colonne * ``sumDistinctIf(state == 'CA' && commission < 10000, sales) -> value``
-* ``sumDistinctIf(true, sales) -> SUM(sales) ``
+* ``sumDistinctIf(true, sales) -> SUM(sales)``
 *********************************
 ### <code>sumIf</code>
 <code><b>sumIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number) => number</b></code><br/><br/>
 Selon certains critères, obtient la somme agrégée d’une colonne numérique. La condition peut être basée sur n’importe quelle colonne * ``sumIf(state == 'CA' && commission < 10000, sales) -> value``
-* ``sumIf(true, sales) -> SUM(sales) ``
+* ``sumIf(true, sales) -> SUM(sales)``
 *********************************
 ### <code>tan</code>
 <code><b>tan(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>

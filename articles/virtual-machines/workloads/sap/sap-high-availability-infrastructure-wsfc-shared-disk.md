@@ -18,10 +18,10 @@ ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: ae3d1b36b89bb1bce1ff384bfa12a1bf643614fd
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65408770"
 ---
 # <a name="prepare-the-azure-infrastructure-for-sap-ha-by-using-a-windows-failover-cluster-and-shared-disk-for-sap-ascsscs"></a>Préparer l’infrastructure Azure pour la haute disponibilité SAP à l’aide d’un cluster de basculement Windows et d’un disque partagé pour SAP ASCS/SCS
@@ -165,7 +165,7 @@ ms.locfileid: "65408770"
 
 Cet article décrit les étapes à suivre pour préparer l’infrastructure Azure à l’installation et à la configuration d’un système SAP à haute disponibilité sur un cluster de basculement Windows en utilisant un *disque partagé de cluster* en tant qu’option de clustering d’une instance ASCS SAP.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Avant de commencer l’installation, consultez cet article :
 
@@ -179,9 +179,9 @@ Les modèles à trois niveaux dans Azure Resource Manager prennent également en
 Voici où vous pouvez obtenir des modèles Azure Resource Manager pour l’exemple de scénario décrit dans cet article :
 
 * [Image de Place de marché Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image)  
-* [Image de Place de marché Azure à l’aide d’Azure Managed Disks](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image-md)  
+* [Image de Place de marché Azure à l’aide d’Azure Disques managés](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image-md)  
 * [Image personnalisée](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-user-image)
-* [Image personnalisée à l’aide de Managed Disks](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-user-image-md)
+* [Image personnalisée à l’aide de la fonctionnalité Disques managés](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-user-image-md)
 
 Pour préparer l’infrastructure du modèle d’architecture n°1 :
 
@@ -272,9 +272,9 @@ Vous pouvez utiliser ce modèle Azure Resource Manager pour SAP afin de simplifi
 Voici où vous pouvez obtenir des modèles Azure Resource Manager pour ce scénario de déploiement :
 
 * [Image de Place de marché Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image-converged)  
-* [Image de Place de marché Azure à l’aide de Managed Disks](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image-converged-md)  
+* [Image de Place de marché Azure à l’aide de la fonctionnalité Disques managés](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image-converged-md)  
 * [Image personnalisée](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-user-image-converged)
-* [Image personnalisée à l’aide de Managed Disks](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-user-image-converged-md)
+* [Image personnalisée à l’aide de la fonctionnalité Disques managés](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-user-image-converged-md)
 
 
 ## <a name="prepare-the-infrastructure-for-architectural-template-3"></a>Préparer l’infrastructure du modèle d’architecture n°3
@@ -301,7 +301,7 @@ Pour définir le modèle multi-SID ASCS/SCS, dans le [modèle multi-SID ASCS/SCS
 - **Type de pile** : Sélectionnez le type de pile du système SAP. Selon le type de pile, Azure Load Balancer a une adresse IP privée (ABAP ou Java uniquement) ou deux adresses IP privées (ABAP + Java) par système SAP.
 - **Type de système d’exploitation** : Sélectionnez le système d’exploitation des machines virtuelles.
 - **Nombre de systèmes SAP** : Sélectionnez le nombre de systèmes SAP que vous souhaitez installer dans ce cluster.
-- **Disponibilité du système** : Sélectionnez la haute disponibilité **(HA)**.
+- **Disponibilité du système** : Sélectionnez la haute disponibilité **(HA)** .
 - **Nom d’utilisateur et mot de passe administrateur** : Créez un nouvel utilisateur pouvant être utilisé pour ouvrir une session sur la machine.
 - **Sous-réseau nouveau ou existant** : Déterminez si un réseau virtuel et un sous-réseau doivent être créés ou si un sous-réseau existant doit être utilisé. Si vous disposez déjà d’un réseau virtuel connecté à votre réseau local, sélectionnez **existant**.
 - **ID du sous-réseau** : Si vous voulez déployer la machine virtuelle dans un réseau virtuel existant où vous avez défini un sous-réseau auquel la machine virtuelle doit être attribuée, nommez l’ID de ce sous-réseau spécifique. L'ID ressemble généralement à ceci :
@@ -342,7 +342,7 @@ Pour définir le modèle multi-SID de bases de données, dans le [modèle multi-
   * **HANA** : L’équilibreur de charge utilise les ports 35015 et 35017. Veillez à installer SAP HANA avec l’instance numéro **50**.
   L’équilibreur de charge utilise le port de sondage 62550.
 - **Taille du système SAP** : Définissez le nombre de SAP fournis par le nouveau système. Si vous ne savez pas combien de SAP sont requis par le système, demandez à votre partenaire technologique SAP ou un intégrateur système.
-- **Disponibilité du système** : Sélectionnez la haute disponibilité **(HA)**.
+- **Disponibilité du système** : Sélectionnez la haute disponibilité **(HA)** .
 - **Nom d’utilisateur et mot de passe administrateur** : Créez un nouvel utilisateur pouvant être utilisé pour ouvrir une session sur la machine.
 - **ID du sous-réseau** : Entrez l’ID du sous-réseau que vous avez utilisé lors du déploiement du modèle ASCS/SCS ou l’ID du sous-réseau créé dans le cadre du déploiement du modèle ASCS/SCS.
 
@@ -355,7 +355,7 @@ Pour définir le modèle multi-SID des serveurs d’application, dans le [modèl
   -  **ID du système SAP** : Entrez l'ID du système SAP que vous souhaitez installer. Cet ID est utilisé comme préfixe pour les ressources déployées.
   -  **Type de système d’exploitation** : Sélectionnez le système d’exploitation des machines virtuelles.
   -  **Taille du système SAP** : Le nombre de SAP fournis par le nouveau système. Si vous ne savez pas combien de SAP sont requis par le système, demandez à votre partenaire technologique SAP ou un intégrateur système.
-  -  **Disponibilité du système** : Sélectionnez la haute disponibilité **(HA)**.
+  -  **Disponibilité du système** : Sélectionnez la haute disponibilité **(HA)** .
   -  **Nom d’utilisateur et mot de passe administrateur** : Créez un nouvel utilisateur pouvant être utilisé pour ouvrir une session sur la machine.
   -  **ID du sous-réseau** : Entrez l’ID du sous-réseau que vous avez utilisé lors du déploiement du modèle ASCS/SCS ou l’ID du sous-réseau créé dans le cadre du déploiement du modèle ASCS/SCS.
 
