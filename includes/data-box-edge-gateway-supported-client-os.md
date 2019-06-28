@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 03/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 674ca630aa41d930ad7d7cfebccbe9b44351b68c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66161028"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177508"
 ---
 Voici la liste des systèmes d’exploitation pris en charge pour les clients ou hôtes connectés à votre appareil. Ces versions de système d’exploitation ont été testées en interne.
 
