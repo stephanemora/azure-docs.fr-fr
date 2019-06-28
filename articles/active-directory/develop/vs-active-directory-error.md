@@ -14,25 +14,25 @@ ms.author: ghogen
 ms.custom: aaddev, vs-azure
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a6f151251d76965cf1bc86216eac15a08f1adbc6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60296790"
 ---
 # <a name="diagnosing-errors-with-the-azure-active-directory-connected-service"></a>Diagnostic d’erreurs avec le service connecté Azure Active Directory
 
 Lors de la détection du code d'authentification précédent, le serveur de connexion Azure Active Director a détecté un type d’authentification incompatible.
 
-Afin de détecter correctement le code d’authentification précédent dans un projet, le projet doit être généré.  Si vous voyez cette erreur et que vous n’avez pas un code d’authentification précédent dans votre projet, régénérez et réessayez.
+Afin de détecter correctement le code d’authentification précédent dans un projet, le projet doit être généré.  Si vous rencontrez cette erreur et qu'aucun code d'authentification précédent n'est disponible dans votre projet, régénérez et réessayez.
 
 ## <a name="project-types"></a>Types de projet
 
-Le service connecté vérifie le type de projet que vous développez afin de pouvoir y injecter la logique d’authentification appropriée. S’il existe un contrôleur qui dérive de `ApiController` dans le projet, le projet est considéré comme un projet WebAPI. S’il existe uniquement des contrôleurs qui dérivent de `MVC.Controller` dans le projet, ce dernier est considéré comme un projet MVC. Le service connecté ne prend en charge aucun autre type de projet.
+Le service connecté vérifie le type de projet que vous développez afin de pouvoir y injecter la logique d’authentification appropriée. S'il existe un contrôleur qui dérive de `ApiController` dans le projet, ce dernier est considéré comme un projet WebAPI. S’il existe uniquement des contrôleurs qui dérivent de `MVC.Controller` dans le projet, ce dernier est considéré comme un projet MVC. Le service connecté ne prend en charge aucun autre type de projet.
 
 ## <a name="compatible-authentication-code"></a>Code d’authentification compatible
 
-Le service connecté vérifie également les paramètres d’authentification qui ont été précédemment configurés ou sont compatibles avec le service. Si tous les paramètres sont présents, il est considéré comme un cas réentrant et le service connecté s’ouvre pour afficher les paramètres.  Si seuls certains paramètres sont présents, il est considéré comme un cas d’erreur.
+Le service connecté vérifie également les paramètres d’authentification qui ont été précédemment configurés ou sont compatibles avec le service. Si tous les paramètres sont présents, il est considéré comme un cas réentrant et le service connecté s'ouvre en affichant les paramètres.  Si seuls certains paramètres sont présents, il est considéré comme une erreur.
 
 Dans un projet MVC, le service connecté vérifie les paramètres suivants, qui résultent de l'utilisation précédente du service :
 
@@ -41,7 +41,7 @@ Dans un projet MVC, le service connecté vérifie les paramètres suivants, qui 
     <add key="ida:AADInstance" value="" />
     <add key="ida:PostLogoutRedirectUri" value="" />
 
-En outre, le service connecté vérifie les paramètres suivants dans un projet d’API Web, qui résultent de l’utilisation précédente du service :
+En outre, le service connecté vérifie les paramètres suivants dans un projet Web API, ceux-ci résultant de l'utilisation précédente du service :
 
     <add key="ida:ClientId" value="" />
     <add key="ida:Tenant" value="" />

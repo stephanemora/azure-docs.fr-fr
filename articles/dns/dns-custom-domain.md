@@ -8,17 +8,17 @@ ms.topic: article
 ms.date: 1/18/2019
 ms.author: victorh
 ms.openlocfilehash: 5c098c6c22b079d586c0bd808df9af4a737c17a8
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62096236"
 ---
 # <a name="use-azure-dns-to-provide-custom-domain-settings-for-an-azure-service"></a>Utiliser DNS Azure pour fournir des paramètres de domaine personnalisé pour un service Azure
 
-DNS Azure fournit un DNS pour un domaine personnalisé, pour toutes vos ressources Azure prenant en charge les domaines personnalisés ou ayant un nom de domaine complet (FQDN). Vous avez une application web Azure et vous souhaitez que vos utilisateurs y accèdent à l’aide d’est un exemple utilisant contoso.com ou www\.contoso.com en tant que nom de domaine complet. Cet article vous guide tout au long de la configuration de votre service Azure avec DNS Azure pour l’utilisation de domaines personnalisés.
+DNS Azure fournit un DNS pour un domaine personnalisé, pour toutes vos ressources Azure prenant en charge les domaines personnalisés ou ayant un nom de domaine complet (FQDN). C'est le cas, par exemple, si vous disposez d'une application web Azure et souhaitez que vos utilisateurs y accèdent en utilisant soit contoso.com ou www\.contoso.com comme nom de domaine complet. Cet article vous guide tout au long de la configuration de votre service Azure avec DNS Azure pour l’utilisation de domaines personnalisés.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour pouvoir utiliser DNS Azure pour votre domaine personnalisé, vous devez tout d’abord déléguer votre domaine à DNS d’Azure. Pour obtenir des instructions sur la façon de configurer vos serveurs de noms pour la délégation, voir [Délégation de domaine à Azure DNS](./dns-delegate-domain-azure-dns.md). Une fois votre domaine délégué à votre zone DNS Azure, vous êtes en mesure de configurer les enregistrements DNS nécessaires.
 
@@ -54,7 +54,7 @@ Sur le panneau **Ajouter un nom d’hôte**, dans le champ de texte **nom d’h�
 
 ## <a name="public-ip-address"></a>Adresse IP publique
 
-Pour configurer un domaine personnalisé pour les services qui utilisent une adresse IP publique adresse des ressources telles que la passerelle d’Application, équilibrage de charge, Service Cloud, machines virtuelles Resource Manager et machines virtuelles classiques, un enregistrement A est utilisé.
+Pour configurer un domaine personnalisé pour des services qui utilisent une ressource d'adresse IP publique, comme Application Gateway, Load Balancer, le service cloud, les machines virtuelles Resource Manager et Classic, un enregistrement A est utilisé.
 
 Accédez à **Mise en réseau** > **Adresse IP publique**, sélectionnez la ressource d’adresse IP publique, puis cliquez sur **Configuration**. Notez l’adresse IP affichée.
 

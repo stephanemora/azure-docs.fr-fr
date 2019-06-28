@@ -1,6 +1,6 @@
 ---
-title: Journaux de requête Azure Monitor pour surveiller les clusters Azure HDInsight
-description: Découvrez comment exécuter des requêtes sur les journaux Azure Monitor pour surveiller les travaux en cours d’exécution dans un cluster HDInsight.
+title: Interroger les journaux Azure Monitor pour surveiller les clusters Azure HDInsight
+description: Apprenez à interroger les journaux Azure Monitor pour surveiller les travaux exécutés dans un cluster HDInsight.
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,15 +9,15 @@ ms.topic: conceptual
 ms.date: 11/05/2018
 ms.author: hrasheed
 ms.openlocfilehash: cbaaed3fff99778bfab1feeacdab02bf8245a85a
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64714711"
 ---
-# <a name="query-azure-monitor-logs-to-monitor-hdinsight-clusters"></a>Journaux de requête Azure Monitor pour surveiller des clusters HDInsight
+# <a name="query-azure-monitor-logs-to-monitor-hdinsight-clusters"></a>Interroger les journaux Azure Monitor pour surveiller les clusters HDInsight
 
-Découvrez des scénarios de base sur l’utilisation des journaux Azure Monitor pour surveiller les clusters Azure HDInsight :
+Découvrez des scénarios de base sur l'utilisation des journaux Azure Monitor pour surveiller les clusters Azure HDInsight :
 
 * [Analyser les métriques du cluster HDInsight](#analyze-hdinsight-cluster-metrics)
 * [Rechercher des messages de journal spécifiques](#search-for-specific-log-messages)
@@ -25,9 +25,9 @@ Découvrez des scénarios de base sur l’utilisation des journaux Azure Monitor
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
-* Vous devez avoir configuré un cluster HDInsight pour utiliser des journaux Azure Monitor et ajouté les journaux d’Azure Monitor spécifiques au cluster HDInsight surveillance des solutions à l’espace de travail. Pour obtenir des instructions, consultez [utiliser Azure Monitor enregistre avec des clusters HDInsight](hdinsight-hadoop-oms-log-analytics-tutorial.md).
+* Vous devez avoir configuré un cluster HDInsight pour utiliser les journaux Azure Monitor, et ajouté les solutions de supervision des journaux Azure Monitor propres au cluster HDInsight à l'espace de travail. Pour obtenir des instructions, consultez [Utiliser les journaux Azure Monitor avec des clusters HDInsight](hdinsight-hadoop-oms-log-analytics-tutorial.md).
 
 ## <a name="analyze-hdinsight-cluster-metrics"></a>Analyser les métriques du cluster HDInsight
 
@@ -35,7 +35,7 @@ Découvrez comment rechercher des métriques spécifiques pour votre cluster HDI
 
 1. Ouvrez l’espace de travail Log Analytics qui est associé à votre cluster HDInsight à partir du portail Azure.
 2. Sélectionnez la vignette **Recherche dans les journaux**.
-3. Tapez la requête suivante dans la zone de recherche pour rechercher toutes les mesures pour toutes les mesures disponibles pour tous les clusters HDInsight configurés pour utiliser les journaux d’Azure Monitor, puis sélectionnez **exécuter**.
+3. Saisissez la requête suivante dans la zone de recherche afin de rechercher toutes les mesures disponibles dans tous les clusters HDInsight configurés pour utiliser les journaux Azure Monitor, puis sélectionnez **EXÉCUTER**.
 
         search *
 
@@ -68,7 +68,7 @@ Découvrez comment rechercher des messages d’erreur pendant une fenêtre de te
 
 1. Ouvrez l’espace de travail Log Analytics qui est associé à votre cluster HDInsight à partir du portail Azure.
 2. Sélectionnez la vignette **Recherche dans les journaux**.
-3. Type de ce qui suit une requête pour rechercher tous les messages d’erreur pour tous les clusters HDInsight configurés pour utiliser les journaux d’Azure Monitor, puis sélectionnez **exécuter**. 
+3. Saisissez la requête suivante afin de rechercher tous les messages d'erreur dans tous les clusters HDInsight configurés pour utiliser les journaux Azure Monitor, puis sélectionnez **EXÉCUTER**. 
 
          search "Error"
 
@@ -77,7 +77,7 @@ Découvrez comment rechercher des messages d’erreur pendant une fenêtre de te
     ![Rechercher tous les résultats d’erreur](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-all-errors-output.png "Rechercher tous les résultats d’erreur")
 
 4. Dans le volet de gauche, sous la catégorie **Type**, sélectionnez un type d’erreur à approfondir, puis cliquez sur **Appliquer**.  Notez que les résultats sont affinés pour n’afficher que l’erreur du type que vous avez sélectionné.
-5. Vous pouvez approfondir cette liste d’erreurs spécifiques en utilisant les options disponibles dans le volet gauche. Par exemple : 
+5. Vous pouvez approfondir cette liste d’erreurs spécifiques en utilisant les options disponibles dans le volet gauche. Par exemple :
 
     - Pour afficher les messages d’erreur d’un nœud de travail spécifique :
 
@@ -118,11 +118,11 @@ Pour modifier ou supprimer une alerte existante :
 3. Sélectionnez l’alerte à modifier ou à supprimer.
 4. Vous disposez des options suivantes : **Enregistrer**, **Ignorer**, **Désactiver** et **Supprimer**.
 
-    ![Modification de suppression d’une alerte de journaux HDInsight Azure Monitor](media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-edit-alert.png)
+    ![HDInsight, journaux Azure Monitor, alerte, supprimer, modifier](media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-edit-alert.png)
 
 Pour plus d'informations, consultez [Créer, afficher et gérer des alertes de métrique à l'aide d'Azure Monitor](../azure-monitor/platform/alerts-metric.md).
 
 ## <a name="see-also"></a>Voir aussi
 
-* [Créer des vues personnalisées à l’aide du Concepteur de vues dans Azure Monitor](../azure-monitor/platform/view-designer.md)
-* [Créer, afficher et gérer les alertes de métriques avec Azure Monitor](../azure-monitor/platform/alerts-metric.md)
+* [Créer des vues personnalisées à l'aide du Concepteur de vues d'Azure Monitor](../azure-monitor/platform/view-designer.md)
+* [Créer, afficher et gérer des alertes de métrique à l'aide d'Azure Monitor](../azure-monitor/platform/alerts-metric.md)

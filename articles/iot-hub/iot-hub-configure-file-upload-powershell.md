@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: robinsh
 ms.openlocfilehash: c8fc0393e0961b46fbb8031d735f27e9ad785031
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60318439"
 ---
 # <a name="configure-iot-hub-file-uploads-using-powershell"></a>Configurer les chargements de fichiers IoT Hub à l’aide de Powershell
@@ -29,7 +29,7 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
 * [Cmdlets Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
 
-* Un IoT Hub Azure. Si vous n’avez pas un IoT hub, vous pouvez utiliser la [applet de commande New-AzIoTHub](https://docs.microsoft.com/powershell/module/az.iothub/new-aziothub) pour créer un ou utiliser le portail pour [créer un IoT hub](iot-hub-create-through-portal.md).
+* Un IoT Hub Azure. Si vous n’avez pas de IoT Hub, vous pouvez utiliser [la cmdlet New-AzIoTHub](https://docs.microsoft.com/powershell/module/az.iothub/new-aziothub) afin d’en créer un ou utiliser le portail pour [créer un IoT Hub](iot-hub-create-through-portal.md).
 
 * Un compte de stockage Azure. Si vous n’avez pas de compte de stockage Azure, vous pouvez utiliser [les cmdlets PowerShell de stockage Azure](https://docs.microsoft.com/powershell/module/az.storage/) afin d’en créer un ou utiliser le portail pour [créer un compte de stockage](../storage/common/storage-create-storage-account.md).
 
@@ -37,7 +37,7 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
 Vous connecter à votre compte Azure et sélectionner votre abonnement.
 
-1. À l’invite de PowerShell, exécutez le **Connect-AzAccount** applet de commande :
+1. À l’invite PowerShell, exécutez la cmdlet **Connect-AzAccount** :
 
     ```powershell
     Connect-AzAccount

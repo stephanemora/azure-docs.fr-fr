@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: shlo
 ms.openlocfilehash: e96e462709ab0c715c831bd10c628869d5c617fe
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60319229"
 ---
 # <a name="alert-and-monitor-data-factories-using-azure-monitor"></a>Déclencher des alertes et surveiller les fabriques de données avec Azure Monitor
@@ -40,11 +40,11 @@ Vous pouvez utiliser un compte de stockage ou un espace de noms Event Hub qui ne
 ### <a name="diagnostic-settings"></a>Paramètres de diagnostic
 Les journaux de diagnostic pour les ressources non liées au calcul sont configurés à l’aide des paramètres de diagnostic. Les paramètres de diagnostic dans le cas d’un contrôle de ressource sont les suivants :
 
-* Où les journaux de diagnostic sont envoyés (compte de stockage, concentrateurs d’événements ou journaux Azure Monitor).
+* Emplacement de destination des journaux de diagnostic (Compte de stockage, Event Hubs ou journaux d’activité Azure Monitor).
 * Les catégories de journal qui sont envoyées
 * La durée pendant laquelle chaque catégorie de journal doit être conservée dans un compte de stockage
 * Une durée de rétention de zéro jour signifie que les journaux d’activité sont conservés indéfiniment. La valeur peut également être n’importe quel nombre de jours, compris entre 1 et 2147483647.
-* Si les stratégies de rétention sont définies, mais le stockage des journaux dans un compte de stockage est désactivée (par exemple, les concentrateurs d’événements ou Azure Monitor journaux options sont sélectionnées), les stratégies de rétention n’ont aucun effet.
+* Si des stratégies de rétention sont définies, mais que le stockage des journaux d’activité dans un compte de stockage est désactivé (par exemple si seules les options Event Hubs ou Journaux d'activité Azure Monitor sont sélectionnées), les stratégies de rétention n’ont aucun effet.
 * Les stratégies de rétention sont appliquées sur une base quotidienne. Donc, à la fin d’une journée (UTC), les journaux d’activité de la journée qui est désormais au-delà de la stratégie de rétention sont supprimés. Par exemple, si vous aviez une stratégie de rétention d’une journée, au début de la journée d’aujourd’hui les journaux d’activité d’avant-hier seront supprimés.
 
 ### <a name="enable-diagnostic-logs-via-rest-apis"></a>Activer les journaux de diagnostic via les API REST
@@ -108,11 +108,11 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 | storageAccountId |Chaîne | ID de ressource du compte de stockage dans lequel vous voulez ajouter les journaux de diagnostic. |
 | serviceBusRuleId |Chaîne | ID de règle Service Bus de l’espace de noms Service Bus dans lequel vous voulez que des concentrateurs d’événements soient créés pour la diffusion en continu des journaux de diagnostic. L’ID de règle a le format suivant : « {ID de ressource Service Bus}/authorizationrules/{nom de la clé} ».|
 | workspaceId | Type complexe | Tableau de fragments de temps de métrique et leurs stratégies de rétention. Actuellement, cette propriété est vide. |
-|metrics| Valeurs de paramètre de l’exécution de pipeline à passer au pipeline appelé| Objet JSON mappant des noms de paramètres à des valeurs d’arguments. |
-| logs d’activité| Type complexe| Nom d’une catégorie de journal de diagnostic pour un type de ressource. Pour obtenir la liste des catégories de journal de diagnostic pour une ressource, commencez par effectuer une opération d’obtention (GET) des paramètres de diagnostic. |
+|Mesures| Valeurs de paramètre de l’exécution de pipeline à passer au pipeline appelé| Objet JSON mappant des noms de paramètres à des valeurs d’arguments. |
+| journaux d’activité| Type complexe| Nom d’une catégorie de journal de diagnostic pour un type de ressource. Pour obtenir la liste des catégories de journal de diagnostic pour une ressource, commencez par effectuer une opération d’obtention (GET) des paramètres de diagnostic. |
 | category| Chaîne| Tableau de catégories de journal et leurs stratégies de rétention. |
 | timeGrain | Chaîne | Granularité des métriques capturées au format de durée ISO 8601. Elle doit être de PT1M (une minute).|
-| enabled| Booléen | Indique si la collection de cette métrique ou catégorie de journal est activée pour cette ressource.|
+| Activé| Boolean | Indique si la collection de cette métrique ou catégorie de journal est activée pour cette ressource.|
 | retentionPolicy| Type complexe| Décrit la stratégie de rétention pour une métrique ou une catégorie de journal. Utilisé pour l’option de compte de stockage uniquement.|
 | days| Int| Nombre de jours durant lesquels les métriques ou les journaux d’activité sont conservés. La valeur 0 indique que les journaux d’activité sont conservés indéfiniment. Utilisé pour l’option de compte de stockage uniquement. |
 
@@ -232,7 +232,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 ```
 [Plus d’informations ici](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings)
 
-## <a name="schema-of-logs--events"></a>Schéma des journaux et des événements
+## <a name="schema-of-logs--events"></a>Schéma des journaux d’activité et des événements
 
 ### <a name="activity-run-logs-attributes"></a>Attributs des journaux d’activité d’exécution d’activité
 
@@ -280,7 +280,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 | time | Chaîne | Heure de l’événement dans l’intervalle de temps, au format UTC `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
 |activityRunId| Chaîne| ID de l’exécution d’activité | `3a171e1f-b36e-4b80-8a54-5625394f4354` |
 |pipelineRunId| Chaîne| ID de l’exécution de pipeline | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
-|ResourceId| Chaîne | ID de ressource associé pour la ressource de fabrique de données | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
+|resourceId| Chaîne | ID de ressource associé pour la ressource de fabrique de données | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
 |category| Chaîne | Catégorie de journaux de diagnostic. Attribuez à cette propriété la valeur « ActivityRuns » | `ActivityRuns` |
 |level| Chaîne | Niveau des journaux de diagnostic. Attribuez à cette propriété la valeur « Informational » | `Informational` |
 |operationName| Chaîne |Nom de l’activité avec état. Si l’état est la pulsation de début, il s’agit de `MyActivity -`. Si l’état est la pulsation de fin, il s’agit de `MyActivity - Succeeded` avec l’état final | `MyActivity - Succeeded` |
@@ -325,7 +325,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 | correlationId |Chaîne | ID unique pour le suivi d’une demande particulière de bout en bout | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
 | time | Chaîne | Heure de l’événement dans l’intervalle de temps, au format UTC `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
 |runId| Chaîne| ID de l’exécution de pipeline | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
-|ResourceId| Chaîne | ID de ressource associé pour la ressource de fabrique de données | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
+|resourceId| Chaîne | ID de ressource associé pour la ressource de fabrique de données | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
 |category| Chaîne | Catégorie de journaux de diagnostic. Attribuez à cette propriété la valeur « PipelineRuns » | `PipelineRuns` |
 |level| Chaîne | Niveau des journaux de diagnostic. Attribuez à cette propriété la valeur « Informational » | `Informational` |
 |operationName| Chaîne |Nom du pipeline avec état. « Pipeline - Succeeded » avec état final quand l’exécution de pipeline arrive à son terme| `MyPipeline - Succeeded` |
@@ -369,7 +369,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 | correlationId |Chaîne | ID unique pour le suivi d’une demande particulière de bout en bout | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
 | time | Chaîne | Heure de l’événement dans l’intervalle de temps, au format UTC `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
 |triggerId| Chaîne| ID de l’exécution du déclencheur | `08587023010602533858661257311` |
-|ResourceId| Chaîne | ID de ressource associé pour la ressource de fabrique de données | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
+|resourceId| Chaîne | ID de ressource associé pour la ressource de fabrique de données | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
 |category| Chaîne | Catégorie de journaux de diagnostic. Attribuez à cette propriété la valeur « PipelineRuns » | `PipelineRuns` |
 |level| Chaîne | Niveau des journaux de diagnostic. Attribuez à cette propriété la valeur « Informational » | `Informational` |
 |operationName| Chaîne |Nom du déclencheur avec état final s’il a été déclenché avec succès. "MyTrigger - Succeeded" si la pulsation a abouti| `MyTrigger - Succeeded` |
@@ -379,7 +379,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 |start| Chaîne | Début d’activation du déclencheur dans l’intervalle de temps, au format UTC | `2017-06-26T20:55:29.5007959Z`|
 |status| Chaîne | État final indiquant si le déclencheur a été activé avec succès (Succeeded ou Failed) | `Succeeded`|
 
-## <a name="metrics"></a>metrics
+## <a name="metrics"></a>Mesures
 
 Azure Monitor vous permet d’utiliser la télémétrie pour surveiller les performances et l’intégrité de vos charges de travail sur Azure. Les mesures (aussi appelées compteurs de performances) émises par la plupart des ressources Azure sont le type de données de télémétrie Azure plus important. Azure Monitor propose plusieurs façons de configurer et d’utiliser ces mesures pour l’analyse et le dépannage.
 

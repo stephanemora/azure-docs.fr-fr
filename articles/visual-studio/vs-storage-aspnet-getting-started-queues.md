@@ -13,23 +13,23 @@ ms.topic: conceptual
 ms.date: 12/23/2016
 ms.author: ghogen
 ms.openlocfilehash: 3f3a649308449a8ba4e1dbaebd4db4afbf731c5b
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62110483"
 ---
 # <a name="get-started-with-azure-queue-storage-and-visual-studio-connected-services-aspnet"></a>Prise en main du Stockage File d’attente Azure et des services connectés de Visual Studio (ASP.NET)
 
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
 Le stockage de files d’attente Azure fournit une messagerie cloud entre les composants d’application. Lors de la conception d'applications pour la mise à l'échelle, des composants d'application sont souvent découplés, de sorte qu'ils peuvent être mis à l'échelle indépendamment. Le stockage de files d’attente offre une messagerie asynchrone pour la communication entre les composants d’application, qu’ils soient exécutés dans le cloud, sur le bureau, sur un serveur local ou sur un appareil mobile. Le stockage de files d’attente prend également en charge la gestion des tâches asynchrones et la création des flux de travail de processus.
 
 Ce didacticiel montre comment écrire du code ASP.NET pour des scénarios courants en utilisant des entités de stockage de file d’attente Azure. Ces scénarios incluent des tâches courantes telles que la création d’une file d’attente Azure, l'ajout, la modification, la lecture et la suppression de messages de file d’attente.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
 * [Compte Azure Storage](../storage/common/storage-quickstart-create-account.md)
@@ -137,7 +137,7 @@ Les étapes suivantes montrent comment créer une file d'attente :
     <li>@Html.ActionLink("Create queue", "CreateQueue", "Queues")</li>
     ```
 
-1. Exécutez l’application, puis sélectionnez **Create queue** pour afficher des résultats similaires à la capture d’écran suivante :
+1. Exécutez l’application, puis sélectionnez **Créer une file d’attente** pour afficher des résultats similaires à la capture d’écran suivante :
   
     ![Créer la file d’attente](./media/vs-storage-aspnet-getting-started-queues/create-queue-results.png)
 
@@ -226,7 +226,7 @@ Une fois que vous avez [créé une file d’attente](#create-a-queue), vous pouv
     <li>@Html.ActionLink("Add message", "AddMessage", "Queues")</li>
     ```
 
-1. Exécutez l’application, puis sélectionnez **Ajouter message** pour afficher des résultats similaires à la capture d’écran suivante :
+1. Exécutez l’application, puis sélectionnez **Ajouter un message** pour afficher des résultats similaires à la capture d’écran suivante :
   
     ![Ajouter un message](./media/vs-storage-aspnet-getting-started-queues/add-message-results.png)
 
@@ -278,7 +278,7 @@ Cette section illustre comment lire rapidement un message mis en file d’attent
     CloudQueueMessage message = queue.PeekMessage();
     ```
 
-1. Mettez à jour l'objet **ViewBag** avec deux valeurs : le nom de la file d’attente et le message qui été lu. Le **CloudQueueMessage** objet expose deux propriétés pour obtenir la valeur de l’objet : **CloudQueueMessage.AsBytes** et **CloudQueueMessage.AsString**. **AsString** (utilisé dans cet exemple) retourne une chaîne, tandis que **AsBytes** retourne un tableau d’octets.
+1. Mettez à jour l'objet **ViewBag** avec deux valeurs : le nom de la file d’attente et le message qui été lu. L’objet **CloudQueueMessage** expose deux propriétés pour obtenir la valeur de l’objet : **CloudQueueMessage.AsBytes** et **CloudQueueMessage.AsString**. **AsString** (utilisé dans cet exemple) retourne une chaîne, tandis que **AsBytes** retourne un tableau d’octets.
 
     ```csharp
     ViewBag.QueueName = queue.Name; 
@@ -312,7 +312,7 @@ Cette section illustre comment lire rapidement un message mis en file d’attent
     <li>@Html.ActionLink("Peek message", "PeekMessage", "Queues")</li>
     ```
 
-1. Exécutez l’application, puis sélectionnez **lire furtivement un message** pour afficher des résultats similaires à la capture d’écran suivante :
+1. Exécutez l’application, puis sélectionnez **Lire furtivement un message** pour afficher des résultats similaires à la capture d’écran suivante :
   
     ![Lire furtivement un message](./media/vs-storage-aspnet-getting-started-queues/peek-message-results.png)
 
@@ -403,7 +403,7 @@ Dans cette section, vous allez apprendre à lire et à supprimer un message d’
     <li>@Html.ActionLink("Read/Delete message", "ReadMessage", "Queues")</li>
     ```
 
-1. Exécutez l’application, puis sélectionnez **en lecture et supprimer un message** pour afficher des résultats similaires à la capture d’écran suivante :
+1. Exécutez l’application, puis sélectionnez **Lire et supprimer un message** pour afficher des résultats similaires à la capture d’écran suivante :
   
     ![Lire et supprimer un message](./media/vs-storage-aspnet-getting-started-queues/read-message-results.png)
 
@@ -490,7 +490,7 @@ Cette section montre comment obtenir la longueur de la file d’attente (nombre 
     <li>@Html.ActionLink("Get queue length", "GetQueueLength", "Queues")</li>
     ```
 
-1. Exécutez l’application, puis sélectionnez **obtenir la longueur de file d’attente** pour afficher des résultats similaires à la capture d’écran suivante :
+1. Exécutez l’application, puis sélectionnez **Obtention de la longueur de la file d’attente** pour afficher des résultats similaires à la capture d’écran suivante :
   
     ![Obtention de la longueur de la file d'attente](./media/vs-storage-aspnet-getting-started-queues/get-queue-length-results.png)
 
@@ -570,7 +570,7 @@ Cette section montre comment supprimer une file d’attente.
     <li>@Html.ActionLink("Delete queue", "DeleteQueue", "Queues")</li>
     ```
 
-1. Exécutez l’application, puis sélectionnez **obtenir la longueur de file d’attente** pour afficher des résultats similaires à la capture d’écran suivante :
+1. Exécutez l’application, puis sélectionnez **Obtention de la longueur de la file d’attente** pour afficher des résultats similaires à la capture d’écran suivante :
   
     ![Supprimer une file d'attente](./media/vs-storage-aspnet-getting-started-queues/delete-queue-results.png)
 

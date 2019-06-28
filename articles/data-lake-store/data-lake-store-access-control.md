@@ -60,7 +60,7 @@ Les autorisations sur un objet de système de fichiers sont **Lecture**, **Écri
 | 7            | `RWX`        | Lecture + Écriture + Exécution |
 | 5\.            | `R-X`        | Lecture + Exécution         |
 | 4            | `R--`        | Lire                   |
-| 0            | `---`        | | Aucune autorisation         |
+| 0            | `---`        | Aucune autorisation         |
 
 
 ### <a name="permissions-do-not-inherit"></a>Les autorisations ne se transmettent pas en héritage

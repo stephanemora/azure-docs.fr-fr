@@ -12,10 +12,10 @@ ms.date: 03/15/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
 ms.openlocfilehash: e2f0f1e7ac8f510c4ff5be7933c55278fef74694
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60715524"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace"></a>Guide technique du modèle de solution Cortana Intelligence pour la maintenance prédictive dans l’industrie aérospatiale
@@ -39,7 +39,7 @@ Les objectifs de cet article sont les suivants :
 > 
 > 
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 ![Architecture de maintenance prédictive](./media/cortana-analytics-technical-guide-predictive-maintenance/predictive-maintenance-architecture.png)
 
 Le déploiement de la solution active les services Azure dans Cortana Analytics Suite (notamment Event Hub, Stream Analytics, HDInsight, Data Factory et Machine Learning). Le schéma d’architecture illustre la manière dont est construit le modèle de solution de maintenance prédictive pour le secteur aérospatial. Vous pouvez passer en revue ces services dans le portail Azure en cliquant dessus dans le schéma du modèle de solution créé avec le déploiement de la solution (à l’exception de HDInsight, qui est provisionné à la demande quand les activités de pipeline connexes doivent être exécutées avant d’être supprimées dans la foulée).
@@ -173,7 +173,7 @@ Au cours des étapes suivantes, nous allons vous expliquer comment connecter le 
    
    * Une fois qu’**Azure SQL Database** apparaît en vert sur votre schéma de modèle de solution, cliquez dessus, puis cliquez sur **Ouvrir**.
    * La page du portail Azure s’affiche dans un nouvel onglet/fenêtre de navigateur. Cliquez sur **« Groupes de ressources »** dans le volet gauche.
-   * Sélectionnez l’abonnement que vous utilisez pour le déploiement de la solution, puis sélectionnez **« NomVotreSolution\_GroupeRessources »**.
+   * Sélectionnez l’abonnement que vous utilisez pour le déploiement de la solution, puis sélectionnez **« NomVotreSolution\_GroupeRessources »** .
    * Dans le nouveau panneau contextuel, cliquez sur ![l’icône SQL](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-sql.png) pour accéder à votre base de données. Le nom de votre base de données apparaît en regard de cette icône (par exemple, **pmaintenancedb**) et le **nom du serveur de base de données** est listé sous la propriété du nom de serveur et doit être du type **NomVotreSolution.database.windows.net**.
    * Les **nom d’utilisateur** et **mot de passe** de votre base de données sont identiques aux nom d’utilisateur et mot de passe précédemment enregistrés au moment du déploiement de la solution.
 2. Mettre à jour la source de données du fichier de rapport de chemin à froid avec Power BI Desktop.
@@ -181,7 +181,7 @@ Au cours des étapes suivantes, nous allons vous expliquer comment connecter le 
    * Dans le dossier où vous avez téléchargé et décompressé le fichier Generator, double-cliquez sur le fichier **PowerBI\\PredictiveMaintenanceAerospace.pbix**. Si des messages d’avertissement s’affichent lorsque vous ouvrez le fichier, ignorez-les simplement. En haut du fichier, cliquez sur **Modifier les requêtes**.
      
      ![Modifier les requêtes](./media/cortana-analytics-technical-guide-predictive-maintenance/edit-queries.png)
-   * Deux tables apparaissent : **RemainingUsefulLife** et **PMResult**. Sélectionnez la première table, puis cliquez sur ![Icône de paramètres de requête](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-query-settings.png) à côté de **'Source'**, sous **'ÉTAPES APPLIQUÉES'** sur le panneau **’Paramètres de requête’** à droite. Ignorer les messages d’avertissement qui s’affichent.
+   * Deux tables apparaissent : **RemainingUsefulLife** et **PMResult**. Sélectionnez la première table, puis cliquez sur ![Icône de paramètres de requête](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-query-settings.png) à côté de **'Source'** , sous **'ÉTAPES APPLIQUÉES'** sur le panneau **’Paramètres de requête’** à droite. Ignorer les messages d’avertissement qui s’affichent.
    * Dans la fenêtre contextuelle, remplacez **Serveur** et **Base de données** par vos propres noms de serveur et de base de données, puis cliquez sur **OK**. Pour le nom du serveur, veillez à spécifier le port 1433 (**NomVotreSolution.database.windows.net, 1433**). Laissez le champ de base de données en tant que **pmaintenancedb**. Ignorez les messages d’avertissement qui s’affichent à l’écran.
    * Dans la fenêtre contextuelle suivante, deux options s’affichent dans le volet gauche (**Windows** et **Base de données**). Cliquez sur **Base de données** et renseignez vos **Nom d’utilisateur** et **Mot de passe** (il s’agit des nom d’utilisateur et mot de passe que vous avez entrés au moment du déploiement de la solution et de la création de la base de données Azure SQL). Dans ***Sélectionnez le niveau auquel appliquer ces paramètres***, cochez l’option du niveau de base de données. Cliquez ensuite sur **Se connecter**.
    * Cliquez sur la deuxième table **PMResult**, puis cliquez sur ![l’icône de navigation](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-navigation.png) à côté de **'Source'** sous **'ÉTAPES APPLIQUÉES'** sur le panneau **Paramètres de requête** de droite, et mettez à jour les noms de serveur et de base de données comme lors des étapes ci-dessus, puis cliquez sur OK.
@@ -195,7 +195,7 @@ Au cours des étapes suivantes, nous allons vous expliquer comment connecter le 
      <br/>
      ![Affichage final](./media/cortana-analytics-technical-guide-predictive-maintenance/final-view.png)
      <br/>
-   * Pour planifier l’actualisation des données, pointez votre souris sur le **PredictiveMaintenanceAerospace** jeu de données, cliquez sur ![icône des points de suspension](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-elipsis.png) , puis **planifier l’actualisation**.
+   * Pour planifier l'actualisation des données, pointez votre souris sur le jeu de données **PredictiveMaintenanceAerospace**, puis cliquez sur les ![points de suspension](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-elipsis.png) et sur **Planifier l'actualisation**.
      <br/>
      **Remarque :** Si vous voyez un message d’avertissement, cliquez sur **Modifier les informations d’identification** et vérifiez que vos informations d’identification de base de données sont les mêmes que celles décrites à l’étape 1.
      <br/>

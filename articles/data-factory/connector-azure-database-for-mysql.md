@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 04/19/2019
 ms.author: jingwang
 ms.openlocfilehash: 4c388f012cd52f0adea93ae62cc31832488fca74
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60387908"
 ---
 # <a name="copy-data-from-azure-database-for-mysql-using-azure-data-factory"></a>Copier des données à partir d’Azure Database pour MySQL avec Azure Data Factory
@@ -41,16 +41,16 @@ Les propriétés suivantes sont prises en charge par le service lié Azure Datab
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type doit être définie sur : **AzureMySql** | Oui |
-| connectionString | Spécifiez les informations nécessaires pour vous connecter à l’instance d’Azure Database pour MySQL. <br/>Marquez ce champ comme SecureString pour le stocker de façon sécurisée dans Data Factory. Vous pouvez également définir un mot de passe dans Azure Key Vault et extraire la configuration `password` de la chaîne de connexion. Pour plus d’informations, reportez-vous aux exemples suivants et à l’article [Stocker des informations d’identification dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui |
-| connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Vous pouvez utiliser runtime d’intégration Azure ou un runtime d’intégration auto-hébergé (si votre banque de données se trouve dans un réseau privé). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |Non  |
+| type | La propriété type doit être définie sur : **AzureMySql** | OUI |
+| connectionString | Spécifiez les informations nécessaires pour vous connecter à l’instance d’Azure Database pour MySQL. <br/>Marquez ce champ comme SecureString pour le stocker de façon sécurisée dans Data Factory. Vous pouvez également définir un mot de passe dans Azure Key Vault et extraire la configuration `password` de la chaîne de connexion. Pour plus d’informations, reportez-vous aux exemples suivants et à l’article [Stocker des informations d’identification dans Azure Key Vault](store-credentials-in-key-vault.md). | OUI |
+| connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Vous pouvez utiliser runtime d’intégration Azure ou un runtime d’intégration auto-hébergé (si votre banque de données se trouve dans un réseau privé). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |Non |
 
 Une chaîne de connexion par défaut typique est `Server=<server>.mysql.database.azure.com;Port=<port>;Database=<database>;UID=<username>;PWD=<password>`. Plus de propriétés que vous pouvez définir pour votre cas :
 
 | Propriété | Description | Options | Obligatoire |
 |:--- |:--- |:--- |:--- |
-| SSLMode | Cette option spécifie si le pilote utilise le chiffrement SSL et la vérification lors de la connexion à MySQL. Par exemple, `SSLMode=<0/1/2/3/4>`| DISABLED (0) / PREFERRED (1) **(par défaut)** / REQUIRED (2) / VERIFY_CA (3) / VERIFY_IDENTITY (4) | Non  |
-| UseSystemTrustStore | Cette option indique s’il faut utiliser un certificat d’autorité de certification provenant du magasin de confiance du système ou d’un fichier PEM spécifié. Par exemple, `UseSystemTrustStore=<0/1>;`| Enabled (1) / Disabled (0) **(par défaut)** | Non  |
+| SSLMode | Cette option spécifie si le pilote utilise le chiffrement SSL et la vérification lors de la connexion à MySQL. Par exemple, `SSLMode=<0/1/2/3/4>`| DISABLED (0) / PREFERRED (1) **(par défaut)** / REQUIRED (2) / VERIFY_CA (3) / VERIFY_IDENTITY (4) | Non |
+| UseSystemTrustStore | Cette option indique s’il faut utiliser un certificat d’autorité de certification provenant du magasin de confiance du système ou d’un fichier PEM spécifié. Par exemple, `UseSystemTrustStore=<0/1>;`| Enabled (1) / Disabled (0) **(par défaut)** | Non |
 
 **Exemple :**
 
@@ -110,7 +110,7 @@ Pour copier des données à partir d’Azure Database pour MySQL, définissez la
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type du jeu de données doit être définie sur : **AzureMySqlTable** | Oui |
+| Type | La propriété type du jeu de données doit être définie sur : **AzureMySqlTable** | OUI |
 | tableName | Nom de la table dans la base de données MySQL. | Non (si « query » dans la source de l’activité est spécifié) |
 
 **Exemple**
@@ -141,9 +141,9 @@ Pour copier des données à partir d’Azure Database pour MySQL, définissez le
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type de la source d’activité de copie doit être définie sur : **AzureMySqlSource** | Oui |
+| Type | La propriété type de la source d’activité de copie doit être définie sur : **AzureMySqlSource** | OUI |
 | query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"SELECT * FROM MyTable"`. | Non (si « tableName » est spécifié dans dataset) |
-| queryCommandTimeout | Temps d’attente avant l’expiration de la demande de requête. Valeur par défaut est 120 minutes (02 : 00:00) | Non  |
+| queryCommandTimeout | Temps d’attente avant l’expiration de la demande de requête. La valeur par défaut est de 120 minutes (02:00:00) | Non |
 
 **Exemple :**
 

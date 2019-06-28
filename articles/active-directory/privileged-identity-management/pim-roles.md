@@ -1,5 +1,5 @@
 ---
-title: Vous ne pouvez pas gérer dans PIM - Azure Active Directory de rôles | Microsoft Docs
+title: Rôles ne pouvant pas être gérés dans PIM - Azure Active Directory | Microsoft Docs
 description: Décrit les rôles que vous ne pouvez pas gérer dans Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -15,15 +15,15 @@ ms.author: rolyon
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: aa5fb632ee5fd9c18bde7443e81fe2ef6e5335e4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60437271"
 ---
 # <a name="roles-you-cannot-manage-in-pim"></a>Rôles que vous ne pouvez pas gérer dans PIM
 
-Azure Active Directory (Azure AD) Privileged Identity Management (PIM) vous permet de gérer tous [rôles Azure AD](../users-groups-roles/directory-assign-admin-roles.md) et tous les [rôles de ressources Azure](../../role-based-access-control/built-in-roles.md). Ces rôles comprennent également les rôles personnalisés qui sont associés à vos groupes d’administration, abonnements, groupes de ressources et ressources. Toutefois, il y a quelques rôles que vous ne pouvez pas gérer dans PIM. Cet article décrit les rôles concernés.
+Azure Active Directory (Azure AD) Identity Management (PIM) vous permet de gérer tous les [rôles Azure AD](../users-groups-roles/directory-assign-admin-roles.md) et tous les [rôles de ressources Azure](../../role-based-access-control/built-in-roles.md). Ces rôles comprennent également les rôles personnalisés qui sont associés à vos groupes d’administration, abonnements, groupes de ressources et ressources. Toutefois, il y a quelques rôles que vous ne pouvez pas gérer dans PIM. Cet article décrit les rôles concernés.
 
 ## <a name="classic-subscription-administrator-roles"></a>Rôles d’administrateur d’abonnements classique
 

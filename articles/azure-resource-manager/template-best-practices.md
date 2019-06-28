@@ -12,10 +12,10 @@ ms.workload: na
 ms.date: 03/05/2019
 ms.author: tomfitz
 ms.openlocfilehash: bcc529b02505359e6e4e320d4991a082797c5261
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60389574"
 ---
 # <a name="azure-resource-manager-template-best-practices"></a>Meilleures pratiques relatives aux modèles Azure Resource Manager
@@ -42,7 +42,7 @@ Vous pouvez dépasser certaines limites de modèle en utilisant un modèle imbri
 
 ## <a name="resource-group"></a>Groupe de ressources
 
-Lorsque vous déployez des ressources à un groupe de ressources, le groupe de ressources stocke des métadonnées sur les ressources. Les métadonnées sont stockées dans l’emplacement du groupe de ressources.
+Lorsque vous déployez des ressources dans un groupe de ressources, celui-ci stocke des métadonnées relatives aux ressources. Les métadonnées sont stockées à l'emplacement du groupe de ressources.
 
 Si la région du groupe de ressources est temporairement indisponible, vous ne pourrez pas mettre à jour les ressources du groupe, car les métadonnées ne seront pas disponibles. Les ressources des autres régions continueront de fonctionner comme prévu, mais vous ne pourrez pas les mettre à jour. Pour réduire les risques, placez votre groupe de ressources et vos ressources dans la même région.
 

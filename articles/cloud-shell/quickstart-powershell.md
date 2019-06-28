@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/18/2018
 ms.author: damaerte
 ms.openlocfilehash: 1fc9883e0ea35c384c3bfc83e76b8eded48cbcba
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60199509"
 ---
 # <a name="quickstart-for-powershell-in-azure-cloud-shell"></a>Démarrage rapide de PowerShell dans Azure Cloud Shell
@@ -267,7 +267,7 @@ Pour vous authentifier auprès des serveurs ou machines virtuelles à l’aide d
 
 ### <a name="using-ssh"></a>Utilisation de SSH
 
-Suivez les instructions [ici](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-powershell) pour créer une nouvelle configuration de machine virtuelle à l’aide des applets de commande Azure PowerShell.
+Suivez les instructions fournies [ici](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-powershell) pour créer une configuration de machine virtuelle à l'aide de cmdlets Azure PowerShell.
 Avant d’appeler `New-AzVM` pour lancer le déploiement, ajoutez la clé publique SSH à la configuration de machine virtuelle.
 La machine virtuelle créée contient la clé publique à l’emplacement `~\.ssh\authorized_keys` ; vous pouvez ainsi ouvrir une session SSH sur la machine virtuelle sans recourir à des informations d’identification.
 

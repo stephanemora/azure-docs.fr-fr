@@ -9,10 +9,10 @@ ms.date: 12/06/2018
 ms.author: cherylmc
 ms.custom: seodec18
 ms.openlocfilehash: ccee0f0c01119ebbfb5ba9c5980ee006a555a399
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60367606"
 ---
 # <a name="router-configuration-samples-to-set-up-and-manage-nat"></a>Exemples de configuration de routeur pour configurer et gérer des NAT
@@ -214,7 +214,7 @@ Commandes NAT :
        }
 
 ### <a name="5-configure-bgp-to-advertise-selective-prefixes-in-each-direction"></a>5. Configuration de BGP pour publier les préfixes sélectifs dans chaque direction
-Reportez-vous aux exemples [exemples de configuration de routage](expressroute-config-samples-routing.md) page.
+Consultez les exemples de la page [Exemples de configuration de routage ](expressroute-config-samples-routing.md).
 
 ### <a name="6-create-policies"></a>6. Création des stratégies
     routing-options {

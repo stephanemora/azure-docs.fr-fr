@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/20/2016
 ms.author: jeconnoc
 ms.openlocfilehash: f597bc760a3f3825416912642ee66a53dfb91696
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60336862"
 ---
 # <a name="trace-the-flow-of-a-cloud-services-application-with-azure-diagnostics"></a>Assurer le suivi du flux dans une application Cloud Services avec Diagnostics Azure
@@ -27,7 +27,7 @@ Le suivi est un moyen de surveiller l’exécution de votre application pendant 
 ## <a name="use-trace-statements-and-trace-switches"></a>Utilisez les instructions et commutateurs de suivi
 Mettez en œuvre le suivi dans votre application Cloud Services en ajoutant [DiagnosticMonitorTraceListener](/previous-versions/azure/reference/ee758610(v=azure.100)) à la configuration d’application et en lançant des appels vers System.Diagnostics.Trace ou vers System.Diagnostics.Debug dans votre code d’application. Utilisez le fichier de configuration *app.config* pour les rôles de travail et le fichier *web.config* pour les rôles web. Lorsque vous créez un nouveau service hébergé à l’aide d’un modèle Visual Studio, Diagnostics Azure est automatiquement ajouté au projet et DiagnosticMonitorTraceListener est ajouté au fichier de configuration approprié pour les rôles que vous ajoutez.
 
-Pour plus d’informations sur le placement des instructions de trace, consultez [Comment : Ajouter des instructions de traçage au Code d’Application](/dotnet/framework/debug-trace-profile/how-to-add-trace-statements-to-application-code).
+Pour plus d’informations sur le placement des instructions de suivi, consultez [Comment : Ajoutez des instructions de traçage au code d’application](/dotnet/framework/debug-trace-profile/how-to-add-trace-statements-to-application-code).
 
 En plaçant des [Commutateurs de suivi](/dotnet/framework/debug-trace-profile/trace-switches) dans votre code, vous pouvez contrôler le traçage et son importance. Vous pouvez ainsi surveiller l’état de votre application dans un environnement de production, ce qui est particulièrement important dans une application qui utilise plusieurs composants s’exécutant sur plusieurs ordinateurs. Pour plus d’informations, consultez [Procédure : Configurer des commutateurs de Trace](/dotnet/framework/debug-trace-profile/how-to-create-initialize-and-configure-trace-switches).
 
@@ -69,11 +69,11 @@ Pour plus d’informations sur les écouteurs, consultez [Suivi des écouteurs](
 Une fois les opérations destinées à ajouter l’écouteur terminées, vous pouvez ajouter des instructions de suivi à votre code.
 
 ### <a name="to-add-trace-statement-to-your-code"></a>Pour ajouter des instructions de suivi à votre code
-1. Ouvrez un fichier source pour votre application. Par exemple, le \<RoleName > fichier .cs pour le rôle de travail ou un rôle web.
+1. Ouvrez un fichier source pour votre application. Par exemple, le fichier \<RoleName>.cs pour le rôle de travail ou le rôle web.
 2. Ajoutez le code suivant à l’aide d’une instruction s’il n’a pas été encore ajouté :
     ```
         using System.Diagnostics;
     ```
-3. Ajoutez les instructions de suivi à l’endroit où vous souhaitez capturer des informations sur l’état de votre application. Vous pouvez utiliser différentes méthodes pour mettre en forme la sortie de l’instruction de suivi. Pour plus d’informations, consultez [Procédure : Ajouter des instructions de traçage au Code d’Application](/dotnet/framework/debug-trace-profile/how-to-add-trace-statements-to-application-code).
+3. Ajoutez les instructions de suivi à l’endroit où vous souhaitez capturer des informations sur l’état de votre application. Vous pouvez utiliser différentes méthodes pour mettre en forme la sortie de l’instruction de suivi. Pour plus d’informations, consultez [Procédure : Ajoutez des instructions de traçage au code d’application](/dotnet/framework/debug-trace-profile/how-to-add-trace-statements-to-application-code).
 4. Enregistrez le fichier source.
 

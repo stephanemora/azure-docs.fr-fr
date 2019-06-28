@@ -11,24 +11,24 @@ ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: ghogen
 ms.openlocfilehash: 154eaa577ea66056c301db9516b425931b81d24d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64730427"
 ---
 # <a name="add-key-vault-to-your-web-application-by-using-visual-studio-connected-services"></a>Ajouter Key Vault à votre application web à l’aide des Services connectés Visual Studio
 
-Dans ce tutoriel, vous allez voir comment ajouter facilement tout ce dont vous avez besoin pour utiliser Azure Key Vault en vue de gérer les secrets de vos projets web dans Visual Studio, que vous utilisiez ASP.NET Core ou tout type de projet ASP.NET. À l’aide de la fonctionnalité Services connectés dans Visual Studio, vous pouvez avoir Visual Studio ajoute automatiquement tous les packages NuGet et les paramètres de configuration que vous devez vous connecter à Key Vault dans Azure. 
+Dans ce tutoriel, vous allez voir comment ajouter facilement tout ce dont vous avez besoin pour utiliser Azure Key Vault en vue de gérer les secrets de vos projets web dans Visual Studio, que vous utilisiez ASP.NET Core ou tout type de projet ASP.NET. Quand vous utilisez la fonctionnalité Services connectés de Visual Studio, Visual Studio peut ajouter automatiquement tous les packages NuGet et les paramètres de configuration dont vous avez besoin pour vous connecter à Key Vault dans Azure. 
 
 Pour plus d’informations sur les changements qu’apportent les Services connectés à votre projet pour l’activation de Key Vault, consultez [Key Vault Connected Service - What happened to my ASP.NET 4.7.1 project](#how-your-aspnet-framework-project-is-modified) ou [Key Vault Connected Service - What happened to my ASP.NET Core project](#how-your-aspnet-core-project-is-modified).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 - **Un abonnement Azure**. Si vous n’en possédez pas, vous pouvez vous inscrire pour créer dès aujourd’hui un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/).
-- **Visual Studio 2019** ou **Visual Studio 2017 version 15.7** avec la **développement Web** charge de travail installée. [Téléchargez-le maintenant](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
-- Pour ASP.NET (pas cœur) avec Visual Studio 2017, vous devez le .NET Framework 4.7.1 ou version ultérieure à des outils de développement, qui ne sont pas installés par défaut. Pour les installer, lancez Visual Studio Installer, choisissez **Modifier**, puis choisissez des **Composants individuels**. Ensuite, sur la droite, développez **Développement web ASP.NET**, puis choisissez **Outils de développement .NET Framework 4.7.1**.
-- ASP.NET 4.7.1 ou version ultérieure, ou ouvrez un projet web ASP.NET Core 2.0.
+- **Visual Studio 2019** ou **Visual Studio 2017 version 15.7** avec installation de la charge de travail **Développement web**. [Téléchargez-le maintenant](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
+- Pour ASP.NET (et non pour ASP.NET Core) avec Visual Studio 2017, vous avez besoin des outils de développement .NET Framework 4.7.1 ou version ultérieure, qui ne sont pas installés par défaut. Pour les installer, lancez Visual Studio Installer, choisissez **Modifier**, puis choisissez des **Composants individuels**. Ensuite, sur la droite, développez **Développement web ASP.NET**, puis choisissez **Outils de développement .NET Framework 4.7.1**.
+- Un projet web ASP.NET 4.7.1 ou version ultérieure ou ASP.NET Core 2.0 s’ouvre.
 
 ## <a name="add-key-vault-support-to-your-project"></a>Ajouter la prise en charge Key Vault à votre projet
 
@@ -48,7 +48,7 @@ Pour plus d’informations sur les changements qu’apportent les Services conne
 
    ![Renommer le coffre de clés et choisir un groupe de ressources](media/vs-key-vault-add-connected-service/KeyVaultConnectedService-Edit.PNG)
 
-1. Sélectionnez un groupe de ressources existant, ou choisissez de créer un nouveau avec un nom unique généré automatiquement.  Si vous souhaitez créer un groupe et lui attribuer un nom différent, vous pouvez utiliser le [portail Azure](https://portal.azure.com), puis fermer la page et redémarrer pour recharger la liste des groupes de ressources.
+1. Sélectionnez un groupe de ressources existant, ou créez-en un avec un nom unique généré automatiquement.  Si vous souhaitez créer un groupe et lui attribuer un nom différent, vous pouvez utiliser le [portail Azure](https://portal.azure.com), puis fermer la page et redémarrer pour recharger la liste des groupes de ressources.
 1. Choisissez la région dans laquelle créer le coffre de clés. Si votre application web est hébergée dans Azure, choisissez la région qui héberge l’application web pour des performances optimales.
 1. Sélectionnez un modèle de tarification. Pour plus d’informations, consultez [Tarification Key Vault](https://azure.microsoft.com/pricing/details/key-vault/).
 1. Choisissez OK pour accepter les options de configuration.
@@ -107,8 +107,8 @@ Maintenant, vous pouvez accéder à vos secrets dans le code. Les étapes suivan
     }
    ```
 
-3. Ouvrez ensuite le fichier de About.cshtml.cs et écrire le code suivant :
-   1. Inclure une référence à Microsoft.Extensions.Configuration par cette instruction using :
+3. Ouvrez ensuite le fichier About.cshtml.cs et écrivez le code suivant :
+   1. Incluez une référence à Microsoft.Extensions.Configuration à l’aide de cette instruction :
 
        ```csharp
        using Microsoft.Extensions.Configuration
@@ -123,7 +123,7 @@ Maintenant, vous pouvez accéder à vos secrets dans le code. Les étapes suivan
        }
        ```
 
-   1. Mettez à jour la méthode OnGet. Mettre à jour la valeur d’espace réservé indiquée ici avec le nom de secret que vous avez créé dans les commandes ci-dessus.
+   1. Mettez à jour la méthode OnGet. Mettez à jour la valeur d’espace réservé indiquée ici avec le nom de secret que vous avez créé dans les commandes ci-dessus.
 
        ```csharp
        public void OnGet()
@@ -133,7 +133,7 @@ Maintenant, vous pouvez accéder à vos secrets dans le code. Les étapes suivan
        }
        ```
 
-Exécutez l’application localement en accédant à la page About. Vous devez voir votre valeur secrète récupérée.
+Exécutez l’application localement en accédant à la page About. La valeur de votre secret doit avoir été récupérée.
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
@@ -141,17 +141,17 @@ Lorsqu’il n’est plus nécessaire, supprimez le groupe de ressources. Cette o
 
 1. Entrez le nom de votre groupe de ressources dans la zone Recherche en haut du portail. Lorsque vous voyez le groupe de ressources utilisé dans ce Démarrage rapide dans les résultats de recherche, sélectionnez-le.
 2. Sélectionnez **Supprimer le groupe de ressources**.
-3. Dans le champ **TYPE THE RESOURCE GROUP NAME: (TAPER LE NOM DU GROUPE DE RESSOURCES :)**, tapez le nom du groupe de ressources et sélectionnez **Supprimer**.
+3. Dans le champ **TYPE THE RESOURCE GROUP NAME: (TAPER LE NOM DU GROUPE DE RESSOURCES :)** , tapez le nom du groupe de ressources et sélectionnez **Supprimer**.
 
-## <a name="how-your-aspnet-core-project-is-modified"></a>Comment votre projet ASP.NET Core est modifié
+## <a name="how-your-aspnet-core-project-is-modified"></a>Modifications apportées à votre projet ASP.NET Core
 
-Cette section identifie les modifications exactes apportées à un projet ASP.NET lors de l’ajout du coffre de clés de service à l’aide de Visual Studio connecté.
+Cette section identifie les changements exacts apportés à un projet ASP.NET lors de l’ajout du Service connecté Key Vault avec Visual Studio.
 
 ### <a name="added-references"></a>Références ajoutées
 
 Affecte les références .NET du fichier projet et les références de package NuGet.
 
-| Type | Référence |
+| Type | Informations de référence |
 | --- | --- |
 | NuGet | Microsoft.AspNetCore.AzureKeyVault.HostingStartup |
 
@@ -179,15 +179,15 @@ Affecte les références .NET du fichier projet et les références de package N
 - Création d’un groupe de ressources (ou utilisation d’un groupe existant).
 - Création d’un coffre de clés dans le groupe de ressources spécifié.
 
-## <a name="how-your-aspnet-framework-project-is-modified"></a>Comment votre projet de l’infrastructure ASP.NET est modifié
+## <a name="how-your-aspnet-framework-project-is-modified"></a>Modifications apportées à votre projet ASP.NET Framework
 
-Cette section identifie les modifications exactes apportées à un projet ASP.NET lors de l’ajout du coffre de clés de service à l’aide de Visual Studio connecté.
+Cette section identifie les changements exacts apportés à un projet ASP.NET lors de l’ajout du Service connecté Key Vault avec Visual Studio.
 
 ### <a name="added-references"></a>Références ajoutées
 
 Affecte les références .NET du fichier projet et `packages.config` (références NuGet).
 
-| Type | Référence |
+| Type | Informations de référence |
 | --- | --- |
 | .NET ; NuGet | Microsoft.Azure.KeyVault |
 | .NET ; NuGet | Microsoft.Azure.KeyVault.WebKey |

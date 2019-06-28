@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cda1b1c2a484f3aa627b8b9cf486528d13f27be8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60415995"
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-ios"></a>Authentification par certificat Azure Active Directory sur iOS
@@ -35,16 +35,16 @@ Cette fonctionnalité est disponible en version préliminaire dans les plans Off
 
 | Applications | Support |
 | --- | --- |
-| Application Azure Information Protection |![Case à cocher ce qui signifie la prise en charge pour cette application][1] |
-| Portail d’entreprise Intune |![Case à cocher ce qui signifie la prise en charge pour cette application][1] |
-| Microsoft Teams |![Case à cocher ce qui signifie la prise en charge pour cette application][1] |
-| OneNote |![Case à cocher ce qui signifie la prise en charge pour cette application][1] |
-| OneDrive |![Case à cocher ce qui signifie la prise en charge pour cette application][1] |
-| Outlook |![Case à cocher ce qui signifie la prise en charge pour cette application][1] |
-| Power BI |![Case à cocher ce qui signifie la prise en charge pour cette application][1] |
-| Skype Entreprise |![Case à cocher ce qui signifie la prise en charge pour cette application][1] |
-| Word / Excel / PowerPoint |![Case à cocher ce qui signifie la prise en charge pour cette application][1] |
-| Yammer |![Case à cocher ce qui signifie la prise en charge pour cette application][1] |
+| Application Azure Information Protection |![La coche indique la prise en charge de cette application][1] |
+| Portail d’entreprise Intune |![La coche indique la prise en charge de cette application][1] |
+| Microsoft Teams |![La coche indique la prise en charge de cette application][1] |
+| OneNote |![La coche indique la prise en charge de cette application][1] |
+| OneDrive |![La coche indique la prise en charge de cette application][1] |
+| Outlook |![La coche indique la prise en charge de cette application][1] |
+| Power BI |![La coche indique la prise en charge de cette application][1] |
+| Skype Entreprise |![La coche indique la prise en charge de cette application][1] |
+| Word / Excel / PowerPoint |![La coche indique la prise en charge de cette application][1] |
+| Yammer |![La coche indique la prise en charge de cette application][1] |
 
 ## <a name="requirements"></a>Configuration requise
 

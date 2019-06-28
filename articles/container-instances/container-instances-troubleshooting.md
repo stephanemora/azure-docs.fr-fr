@@ -10,25 +10,25 @@ ms.date: 04/25/2019
 ms.author: danlep
 ms.custom: mvc
 ms.openlocfilehash: 9dc3e19f9429a6055a799f3f013c732538fa370d
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65070863"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Résoudre les problèmes courants dans Azure Container Instances
 
-Cet article explique comment résoudre les problèmes courants de gestion ou de déploiement de conteneurs dans Azure Container Instances. Voir aussi [Forum aux questions](container-instances-faq.md).
+Cet article explique comment résoudre les problèmes courants de gestion ou de déploiement de conteneurs dans Azure Container Instances. Consultez également le [Forum aux questions](container-instances-faq.md).
 
 ## <a name="naming-conventions"></a>Conventions d’affectation de noms
 
 Lorsque vous définissez la spécification du conteneur, certains paramètres requièrent le respect des restrictions en matière d’affectation de noms. Le tableau suivant indique les exigences spécifiques des propriétés du groupe de conteneurs. Pour plus d’informations sur les conventions d’affectation de noms Azure, consultez [Conventions d’affectation de noms][azure-name-restrictions] dans Azure Architecture Center.
 
-| `Scope` | Longueur | Casse | Caractères valides | Modèle suggéré | Exemples |
+| Étendue | Longueur | Casse | Caractères valides | Modèle suggéré | Exemples |
 | --- | --- | --- | --- | --- | --- |
 | Nom du groupe de conteneurs | 1-64 |Insensible à la casse |Caractères alphanumériques et traits d’union n’importe où sauf en première ou dernière position |`<name>-<role>-CG<number>` |`web-batch-CG1` |
 | Nom du conteneur | 1-64 |Insensible à la casse |Caractères alphanumériques et traits d’union n’importe où sauf en première ou dernière position |`<name>-<role>-CG<number>` |`web-batch-CG1` |
-| Ports du conteneur | Entre 1 et 65 535 |Entier  |Entier compris entre 1 et 65 535 |`<port-number>` |`443` |
+| Ports du conteneur | Entre 1 et 65 535 |Entier |Entier compris entre 1 et 65 535 |`<port-number>` |`443` |
 | Étiquette du nom DNS | 5 à 63 |Insensible à la casse |Caractères alphanumériques et traits d’union n’importe où sauf en première ou dernière position |`<name>` |`frontend-site1` |
 | Variable d’environnement | 1-63 |Insensible à la casse |Caractères alphanumériques et trait de soulignement (_) n’importe où sauf en première ou dernière position |`<name>` |`MY_VARIABLE` |
 | Nom du volume | 5 à 63 |Insensible à la casse |Lettres minuscules, chiffres et traits d’union n’importe où sauf en première ou dernière position. Ne peut pas contenir deux traits d’union consécutifs. |`<name>` |`batch-output-volume` |
@@ -46,7 +46,7 @@ Si l’image spécifiée n’est pas prise en charge par Azure Container Instanc
 }
 ```
 
-Cette erreur se produit généralement lorsque les images de déploiement Windows qui reposent sur canal semi-annuel version 1709 ou 1803, qui ne sont pas pris en charge. Pour les images de Windows prises en charge dans Azure Container Instances, consultez [Forum aux questions](container-instances-faq.md#what-windows-base-os-images-are-supported).
+Cette erreur se produit généralement lors du déploiement d'images Windows basées sur les versions 1709 ou 1803 du canal semi-annuel, qui ne sont pas prises en charge. Pour les images Windows prises en charge dans Azure Container Instances, consultez le [Forum aux questions](container-instances-faq.md#what-windows-base-os-images-are-supported).
 
 ## <a name="unable-to-pull-image"></a>Impossible d’extraire l’image
 
@@ -89,7 +89,7 @@ Des événements tels que les suivants sont alors affichés dans la sortie de [a
 
 Les groupes de conteneurs sont définis par défaut sur la [stratégie de redémarrage](container-instances-restart-policy.md) **Toujours**, de sorte que les conteneurs du groupe de conteneurs redémarrent toujours après avoir été exécutés. Vous devrez peut-être définir ce paramètre sur **OnFailure** ou **Jamais** si vous envisagez d’exécuter des conteneurs basés sur des tâches. Si vous spécifiez **OnFailure** et constatez encore des redémarrages continus, il peut y avoir un problème avec l’application ou le script exécutés dans votre conteneur.
 
-Lors de l’exécution de groupes de conteneurs sans processus au long cours, vous pouvez observer de multiples arrêts et redémarrages avec des images telles que Ubuntu ou Alpine. La connexion via [EXEC](container-instances-exec.md) ne va pas fonctionner car le conteneur n’a aucun processus pour le maintenir actif. Pour résoudre ce problème, incluent une commande de démarrage comme suit avec votre déploiement de groupe de conteneurs à conserver le conteneur en cours d’exécution.
+Lors de l’exécution de groupes de conteneurs sans processus au long cours, vous pouvez observer de multiples arrêts et redémarrages avec des images telles que Ubuntu ou Alpine. La connexion via [EXEC](container-instances-exec.md) ne va pas fonctionner car le conteneur n’a aucun processus pour le maintenir actif. Pour résoudre ce problème, ajoutez une commande de démarrage (voir exemple ci-dessous) au déploiement de votre groupe de conteneurs pour que le conteneur continue à s'exécuter.
 
 ```azurecli-interactive
 ## Deploying a Linux container
@@ -172,12 +172,12 @@ Pour que l’image conserve une petite taille, faites en sorte que l’image fin
 
 Il existe une autre façon de réduire l’impact de l’extraction de l’image sur le temps de démarrage de votre conteneur. Elle consiste à héberger l’image du conteneur dans [Azure Container Registry](/azure/container-registry/) dans la région où vous envisagez de déployer Azure Container Instances. Cette opération raccourcit le chemin réseau que l’image conteneur doit parcourir, réduisant considérablement le temps de téléchargement.
 
-### <a name="cached-images"></a>Mise en cache d’images
+### <a name="cached-images"></a>Images mises en cache
 
-Azure Container Instances utilise un mécanisme de mise en cache pour aider aux temps de démarrage de conteneur de vitesse pour les images créées commun [images de base Windows](container-instances-faq.md#what-windows-base-os-images-are-supported), y compris `nanoserver:1809`, `servercore:ltsc2019`, et `servercore:1809`. Couramment utilisés comme images Linux `ubuntu:1604` et `alpine:3.6` sont également mis en cache. Pour obtenir une liste actualisée des images mises en cache et les balises, utilisez le [liste mise en cache des Images] [ list-cached-images] API.
+Azure Container Instances utilise un mécanisme de mise en cache afin d'accélérer le démarrage des conteneurs pour les images générées à partir d'[images Windows](container-instances-faq.md#what-windows-base-os-images-are-supported) courantes, notamment `nanoserver:1809`, `servercore:ltsc2019` et `servercore:1809`. Les images Linux couramment utilisées, telles que `ubuntu:1604` et `alpine:3.6`, sont également mises en cache. Pour obtenir une liste à jour des images et balises mises en cache, utilisez l'API [Liste des images mises en cache][list-cached-images].
 
 > [!NOTE]
-> Utilisation d’images de Windows Server 2019 dans Azure Container Instances est disponible en version préliminaire.
+> L’utilisation d’images basées sur Windows Server 2019 dans Azure Container Instances est disponible en version préliminaire.
 
 ### <a name="windows-containers-slow-network-readiness"></a>Disponibilité lente du réseau des conteneurs Windows
 
@@ -206,7 +206,7 @@ Azure Container Instances ne prend pas en charge le mappage de ports, contrairem
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Découvrez comment [récupérer les journaux de conteneur et les événements](container-instances-get-logs.md) pour aider à déboguer vos conteneurs.
+Apprenez à [récupérer les journaux d'activité et les événements de conteneur](container-instances-get-logs.md) pour vous aider à déboguer vos conteneurs.
 
 <!-- LINKS - External -->
 [azure-name-restrictions]: https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions

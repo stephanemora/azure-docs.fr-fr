@@ -1,5 +1,5 @@
 ---
-title: Se connecter au serveur FTP - Azure Logic Apps
+title: Se connecter à un serveur FTP - Azure Logic Apps
 description: Créer, surveiller et gérer des fichiers sur un serveur FTP avec Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 10/15/2018
 tags: connectors
 ms.openlocfilehash: e5aeaa707c7a839483484c524e982204d6fe055c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60408553"
 ---
 # <a name="create-monitor-and-manage-ftp-files-by-using-azure-logic-apps"></a>Créer, superviser et gérer des fichiers FTP avec Azure Logic Apps
@@ -30,11 +30,11 @@ Vous pouvez utiliser des déclencheurs qui obtiennent des réponses de votre ser
 
 ## <a name="limits"></a>limites
 
-* Actions FTP prend en charge uniquement les fichiers qui sont *50 Mo ou plus petit* , sauf si vous utilisez [segmentation du message](../logic-apps/logic-apps-handle-large-messages.md), ce qui vous permettent de dépasser cette limite. Actuellement, les déclencheurs FTP ne prend en charge de segmentation.
+* Les actions FTP prennent uniquement en charge les fichiers de *50 Mo ou moins*, sauf si vous utilisez la [segmentation du message](../logic-apps/logic-apps-handle-large-messages.md), ce qui vous permet de dépasser cette limite. Actuellement, les déclencheurs FTP ne prennent pas en charge la segmentation.
 
-* Le connecteur FTP prend en charge uniquement explicite FTP sur SSL (FTPS) et n’est pas compatible avec le protocole FTPS implicite.
+* Le connecteur FTP ne prend en charge que FTPS (FTP sur SSL en mode explicite) ; il n’est pas compatible avec le protocole FTPS implicite.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscrivez-vous pour bénéficier d’un compte Azure gratuit</a>. 
 
@@ -61,7 +61,7 @@ Vous pouvez utiliser des déclencheurs qui obtiennent des réponses de votre ser
    Dans la liste des actions, sélectionnez l’action souhaitée.
 
    Pour ajouter une action entre des étapes, placez votre pointeur au-dessus de la flèche qui les sépare. 
-   Cliquez sur le signe plus (**+**) qui s’affiche, puis sélectionnez **Ajouter une action**.
+   Cliquez sur le signe plus ( **+** ) qui s’affiche, puis sélectionnez **Ajouter une action**.
 
 1. Fournissez les informations nécessaires pour votre connexion, puis choisissez **Créer**.
 
@@ -69,7 +69,7 @@ Vous pouvez utiliser des déclencheurs qui obtiennent des réponses de votre ser
 
 Quand il demande le contenu du fichier, le déclencheur n’obtient pas les fichiers supérieurs à 50 Mo. Pour obtenir des fichiers supérieurs à 50 Mo, suivez ce modèle :
 
-* Utilisez un déclencheur qui retourne des propriétés de fichier comme **Quand un fichier est ajouté ou modifié (propriétés uniquement)**.
+* Utilisez un déclencheur qui retourne des propriétés de fichier comme **Quand un fichier est ajouté ou modifié (propriétés uniquement)** .
 
 * Suivez le déclencheur avec une action qui lit le fichier complet comme **Obtenir le contenu d’un fichier à l’aide du chemin** et faites en sorte que l’action utilise la [segmentation de messages](../logic-apps/logic-apps-handle-large-messages.md).
 
@@ -83,9 +83,9 @@ Ce déclencheur démarre un flux de travail d’application logique quand il dé
 
 **Exemple en entreprise** : vous pouvez utiliser ce déclencheur pour superviser l’apparition dans un dossier FTP de nouveaux fichiers qui décrivent les commandes des clients. Vous pouvez ensuite utiliser une action FTP comme **Obtenir le contenu du fichier** pour pouvoir récupérer le contenu de la commande à des fins de traitement, et stocker cette commande dans une base de données de commandes.
 
-Lors de la demande le contenu du fichier, déclencheurs Impossible d’obtenir les fichiers supérieurs à 50 Mo. Pour obtenir des fichiers supérieurs à 50 Mo, suivez ce modèle : 
+Lorsqu'ils demandent le contenu du fichier, les déclencheurs n’obtiennent pas les fichiers supérieurs à 50 Mo. Pour obtenir des fichiers supérieurs à 50 Mo, suivez ce modèle : 
 
-* Utilisez un déclencheur qui retourne des propriétés de fichier comme **Quand un fichier est ajouté ou modifié (propriétés uniquement)**.
+* Utilisez un déclencheur qui retourne des propriétés de fichier comme **Quand un fichier est ajouté ou modifié (propriétés uniquement)** .
 
 * Suivez le déclencheur avec une action qui lit le fichier complet comme **Obtenir le contenu d’un fichier à l’aide du chemin** et faites en sorte que l’action utilise la [segmentation de messages](../logic-apps/logic-apps-handle-large-messages.md).
 
@@ -106,7 +106,7 @@ Voici un exemple illustrant ce déclencheur : **Lors de l’ajout ou de la modi
 
    ![Création d’une connexion serveur FTP](./media/connectors-create-api-ftp/create-ftp-connection-trigger.png)  
 
-1. En regard de la zone **Dossier**, sélectionnez l’icône de dossier pour faire apparaître une liste. Afin de trouver le dossier que vous souhaitez superviser pour les fichiers nouveaux ou modifiés, sélectionnez le chevron droit (**>**), accédez à ce dossier et sélectionnez-le.
+1. En regard de la zone **Dossier**, sélectionnez l’icône de dossier pour faire apparaître une liste. Afin de trouver le dossier que vous souhaitez superviser pour les fichiers nouveaux ou modifiés, sélectionnez le chevron droit ( **>** ), accédez à ce dossier et sélectionnez-le.
 
    ![Recherche et sélection du dossier à superviser](./media/connectors-create-api-ftp/select-folder.png)  
 
@@ -122,9 +122,9 @@ Voici un exemple illustrant ce déclencheur : **Lors de l’ajout ou de la modi
 
 Cette action obtient le contenu d’un fichier sur un serveur FTP quand ce fichier est ajouté ou mis à jour. Par exemple, vous pouvez ajouter le déclencheur de l’exemple précédent, et une action qui obtient le contenu du fichier après l’ajout ou la modification de celui-ci. 
 
-Lors de la demande le contenu du fichier, déclencheurs Impossible d’obtenir les fichiers supérieurs à 50 Mo. Pour obtenir des fichiers supérieurs à 50 Mo, suivez ce modèle : 
+Lorsqu'ils demandent le contenu du fichier, les déclencheurs n’obtiennent pas les fichiers supérieurs à 50 Mo. Pour obtenir des fichiers supérieurs à 50 Mo, suivez ce modèle : 
 
-* Utilisez un déclencheur qui retourne des propriétés de fichier comme **Quand un fichier est ajouté ou modifié (propriétés uniquement)**.
+* Utilisez un déclencheur qui retourne des propriétés de fichier comme **Quand un fichier est ajouté ou modifié (propriétés uniquement)** .
 
 * Suivez le déclencheur avec une action qui lit le fichier complet comme **Obtenir le contenu d’un fichier à l’aide du chemin** et faites en sorte que l’action utilise la [segmentation de messages](../logic-apps/logic-apps-handle-large-messages.md).
 
@@ -152,7 +152,7 @@ Voici un exemple illustrant cette action : **Get content**
 
 ## <a name="connector-reference"></a>Référence de connecteur
 
-Pour obtenir des détails techniques sur les déclencheurs, actions et limites, qui sont décrits par OpenAPI du connecteur (anciennement Swagger) description, consultez le [page de référence du connecteur](/connectors/ftpconnector/).
+Pour obtenir des détails techniques sur les déclencheurs, les actions et les limites, qui sont décrits par la description OpenAPI du connecteur (anciennement Swagger), consultez la [page de référence du connecteur](/connectors/ftpconnector/).
 
 ## <a name="get-support"></a>Obtenir de l’aide
 

@@ -16,10 +16,10 @@ ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 58ca814551d8c7d309328f236052e1d07ac6f035
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60469126"
 ---
 # <a name="delegate-app-administrator-roles-in-azure-active-directory"></a>Déléguer des rôles d’administrateur d’application dans Azure Active Directory
@@ -58,7 +58,7 @@ Quand un utilisateur inscrit une application, il est automatiquement ajouté en 
 
 ## <a name="delegate-app-ownership"></a>Déléguer l’appartenance des applications
 
-Propriétaires de l’application et application d’inscription peuvent chacun gérer uniquement les applications ou les inscriptions dont ils sont propriétaires. Par exemple, lorsque vous ajoutez un propriétaire pour l’application Salesforce, celui-ci peut gérer l’accès à Salesforce et sa configuration, à l’exclusion de toute autre application. Une application peut avoir plusieurs propriétaires, et un utilisateur peut être le propriétaire de plusieurs applications.
+Les propriétaires d'applications et d'inscriptions d'applications ne peuvent gérer que les applications ou inscriptions d'applications dont ils ont la propriété. Par exemple, lorsque vous ajoutez un propriétaire pour l’application Salesforce, celui-ci peut gérer l’accès à Salesforce et sa configuration, à l’exclusion de toute autre application. Une application peut avoir plusieurs propriétaires, et un utilisateur peut être le propriétaire de plusieurs applications.
 
 Le propriétaire d’une application peut :
 

@@ -19,10 +19,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 021e13dafcc659337d4096a068e224312e69db1b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60353629"
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>Gérer et personnaliser Active Directory Federation Services à l’aide d’Azure AD Connect
@@ -32,7 +32,7 @@ Cet article décrit comment gérer et personnaliser Active Directory Federation 
 |:--- |:--- |
 | **Gérer AD FS** | |
 | [Réparation de l’approbation](#repairthetrust) |Réparation de l’approbation de fédération avec Office 365. |
-| [Fédérer avec Azure AD à l’aide des ID de connexion alternatif](#alternateid) | Configurer la fédération à l’aide d’un ID de connexion de substitution  |
+| [Fédérer avec Azure AD à l’aide d’un ID de connexion de substitution](#alternateid) | Configurer la fédération à l’aide d’un ID de connexion de substitution  |
 | [Ajout d’un serveur AD FS](#addadfsserver) |Extension d’une batterie de serveurs AD FS à l’aide d’un serveur AD FS supplémentaire. |
 | [Ajouter un serveur de proxy d’application web AD FS](#addwapserver) |Extension d’une batterie de serveurs AD FS à l’aide d’un serveur de proxy d’application web. |
 | [Ajout d’un domaine fédéré](#addfeddomain) |Ajout d’un domaine fédéré. |

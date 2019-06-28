@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 04/10/2018
 ms.author: bwren
 ms.openlocfilehash: bee64909c7f3b295691ef1cb1840424aa7e3fe49
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60345904"
 ---
 # <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>Créer et gérer des règles d’alerte dans Log Analytics avec l’API REST
@@ -25,7 +25,7 @@ L’API REST d’alerte Log Analytics vous permet de créer et de gérer des ale
 
 L’API REST de recherche Log Analytics est un service RESTful qui est accessible par le biais de l’API REST Azure Resource Manager. Ce document présente des exemples montrant comment accéder à l’API à partir d’une ligne de commande PowerShell en utilisant [ARMClient](https://github.com/projectkudu/ARMClient), outil en ligne de commande open source qui simplifie l’appel de l’API Azure Resource Manager. L'utilisation d’ARMClient et de PowerShell est une des nombreuses options vous permettant d’accéder à l'API de recherche Log Analytics. Grâce à ces outils, vous pouvez utiliser l’API Azure Resource Manager RESTful pour effectuer des appels vers les espaces de travail Log Analytics et exécuter en leur sein des commandes de recherche. L'API produira pour vous des résultats de recherche au format JSON, qui vous permet d'utiliser ces résultats, par programme, de différentes manières.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 Actuellement, les alertes peuvent être créées uniquement avec une recherche enregistrée dans Log Analytics.  Vous pouvez consulter l’ [API REST de recherche de journal](../../azure-monitor/log-query/log-query-overview.md) pour plus d’informations.
 
 ## <a name="schedules"></a>Planifications
@@ -34,7 +34,7 @@ Les propriétés des planifications sont décrites dans le tableau suivant.
 
 | Propriété | Description |
 |:--- |:--- |
-| Interval |Fréquence à laquelle la recherche est exécutée. Exprimée en minutes. |
+| Intervalle |Fréquence à laquelle la recherche est exécutée. Exprimée en minutes. |
 | QueryTimeSpan |Intervalle de temps pendant lequel les critères sont évalués. Doit être égal ou supérieur à Interval. Exprimée en minutes. |
 | Version |Version de l’API utilisée.  Actuellement, cette propriété doit toujours être définie sur 1. |
 
@@ -101,7 +101,7 @@ Toutes les actions des planifications sont décrites dans le tableau suivant.  D
 ### <a name="retrieving-actions"></a>Récupération des actions
 
 > [!NOTE]
-> À compter du 14 mai 2018, toutes les alertes dans une instance de cloud public Azure de l’espace de travail Analytique de journal seront automatiquement étendues à Azure. Un utilisateur peut volontairement étendre des alertes à Azure avant le 14 mai 2018. Pour plus d’informations, consultez [Étendre des alertes à partir de Log Analytics vers Azure Alerts](../../azure-monitor/platform/alerts-extend.md). Pour les utilisateurs qui étendent des alertes à Azure, les actions sont désormais contrôlées dans les groupes d’actions Azure. Lorsqu’un espace de travail et ses alertes sont étendus à Azure, vous pouvez récupérer ou ajouter des actions à l’aide de [l’API Groupes d’action](https://docs.microsoft.com/rest/api/monitor/actiongroups).
+> Depuis le 14 mai 2018, toutes les alertes d’une instance de cloud public Azure d’un espace de travail Log Analytics sont automatiquement étendues à Azure. Un utilisateur peut volontairement étendre des alertes à Azure avant le 14 mai 2018. Pour plus d’informations, consultez [Étendre des alertes à partir de Log Analytics vers Azure Alerts](../../azure-monitor/platform/alerts-extend.md). Pour les utilisateurs qui étendent des alertes à Azure, les actions sont désormais contrôlées dans les groupes d’actions Azure. Lorsqu’un espace de travail et ses alertes sont étendus à Azure, vous pouvez récupérer ou ajouter des actions à l’aide de [l’API Groupes d’action](https://docs.microsoft.com/rest/api/monitor/actiongroups).
 
 Utilisez la méthode Get pour récupérer toutes les actions d’une planification.
 
@@ -124,7 +124,7 @@ Le format de demande pour la création d’une action variant selon le type d’
 ### <a name="deleting-actions"></a>Suppression des actions
 
 > [!NOTE]
-> À compter du 14 mai 2018, toutes les alertes dans une instance de cloud public Azure de l’espace de travail Analytique de journal seront automatiquement étendues à Azure. Un utilisateur peut volontairement étendre des alertes à Azure avant le 14 mai 2018. Pour plus d’informations, consultez [Étendre des alertes à partir de Log Analytics vers Azure Alerts](../../azure-monitor/platform/alerts-extend.md). Pour les utilisateurs qui étendent des alertes à Azure, les actions sont désormais contrôlées dans les groupes d’actions Azure. Lorsqu’un espace de travail et ses alertes sont étendus à Azure, vous pouvez récupérer ou ajouter des actions à l’aide de [l’API Groupes d’action](https://docs.microsoft.com/rest/api/monitor/actiongroups).
+> Depuis le 14 mai 2018, toutes les alertes d’une instance de cloud public Azure d’un espace de travail Log Analytics sont automatiquement étendues à Azure. Un utilisateur peut volontairement étendre des alertes à Azure avant le 14 mai 2018. Pour plus d’informations, consultez [Étendre des alertes à partir de Log Analytics vers Azure Alerts](../../azure-monitor/platform/alerts-extend.md). Pour les utilisateurs qui étendent des alertes à Azure, les actions sont désormais contrôlées dans les groupes d’actions Azure. Lorsqu’un espace de travail et ses alertes sont étendus à Azure, vous pouvez récupérer ou ajouter des actions à l’aide de [l’API Groupes d’action](https://docs.microsoft.com/rest/api/monitor/actiongroups).
 
 Utilisez la méthode Delete avec l’ID d’action pour supprimer une action.
 
@@ -145,7 +145,7 @@ Une planification doit avoir une, et une seule, action d’alerte.  Les actions 
 | Actions Webhook | Envoyer (push) des données à partir d’alertes au service voulu au format JSON |Non obligatoire si les alertes sont étendues à Azure|
 
 > [!NOTE]
-> À compter du 14 mai 2018, toutes les alertes dans une instance de cloud public Azure de l’espace de travail Analytique de journal seront automatiquement étendues à Azure. Un utilisateur peut volontairement étendre des alertes à Azure avant le 14 mai 2018. Pour plus d’informations, consultez [Étendre des alertes à partir de Log Analytics vers Azure Alerts](../../azure-monitor/platform/alerts-extend.md).
+> Depuis le 14 mai 2018, toutes les alertes d’une instance de cloud public Azure d’un espace de travail Log Analytics sont automatiquement étendues à Azure. Un utilisateur peut volontairement étendre des alertes à Azure avant le 14 mai 2018. Pour plus d’informations, consultez [Étendre des alertes à partir de Log Analytics vers Azure Alerts](../../azure-monitor/platform/alerts-extend.md).
 
 #### <a name="thresholds"></a>Seuils
 Une action d’alerte ne doit avoir qu’un seul seuil.  Quand les résultats d’une recherche enregistrée correspondent au seuil dans une action associée à cette recherche, tous les autres processus dans cette action sont exécutés.  En outre, une action peut ne contenir qu’un seuil et être ainsi utilisable avec d’autres types d’actions ne comportant pas de seuils.
@@ -154,7 +154,7 @@ Les propriétés des seuils sont décrites dans le tableau suivant.
 
 | Propriété | Description |
 |:--- |:--- |
-| `Operator` |Opérateur de comparaison de seuil. <br> gt = supérieur à <br>  lt = inférieur à |
+| `Operator` |Opérateur de comparaison de seuil. <br> gt = supérieur à <br> lt = inférieur à |
 | `Value` |Valeur du seuil. |
 
 Par exemple, considérez une requête d’événement avec Interval défini sur 15 minutes, QueryTimeSpan sur 30 minutes et Threshold sur une valeur supérieure à 10. Dans ce cas, la requête est exécutée toutes les 15 minutes et une alerte se déclenche si la requête renvoie 10 événements créés en l’espace de 30 minutes.
@@ -316,7 +316,7 @@ Utilisez la méthode Put avec un ID d’action existant pour modifier un groupe 
     armclient put /subscriptions/{Subscription ID}/resourceGroups/{Resource Group Name}/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myAzNsaction?api-version=2015-03-20 $AzNsJson
 
 ##### <a name="customize-webhook-payload-for-action-group"></a>Personnaliser la charge utile du Webhook pour le groupe d’actions
-Par défaut, le Webhook envoyé via le groupe d’actions pour Log Analytics a une structure fixe. Néanmoins, vous pouvez personnaliser la charge utile JSON à l’aide de variables spécifiques prises en charge, pour répondre aux exigences du point de terminaison du Webhook. Pour plus d’informations, consultez [Actions webhook pour les règles d’alerte de journal](../../azure-monitor/platform/alerts-log-webhook.md). 
+Par défaut, le Webhook envoyé via le groupe d’actions pour l’analytique des journaux d’activité a une structure fixe. Néanmoins, vous pouvez personnaliser la charge utile JSON à l’aide de variables spécifiques prises en charge, pour répondre aux exigences du point de terminaison du Webhook. Pour plus d’informations, consultez [Actions webhook pour les règles d’alerte de journal](../../azure-monitor/platform/alerts-log-webhook.md). 
 
 Les informations sur le Webhook personnalisé doivent être envoyées avec les informations sur ActionGroup ; elles seront appliquées à tous les URI Webhook spécifiés dans le groupe d’actions, comme dans l’exemple ci-dessous.
 
@@ -354,14 +354,14 @@ Utilisez la méthode Put avec un ID d’action existant pour modifier un groupe 
 Les notifications par courrier électronique envoient un e-mail à un ou plusieurs destinataires.  Leurs propriétés sont décrites dans le tableau suivant.
 
 > [!NOTE]
-> À compter du 14 mai 2018, toutes les alertes dans une instance de cloud public Azure de l’espace de travail Analytique de journal seront automatiquement étendues à Azure. Un utilisateur peut volontairement étendre des alertes à Azure avant le 14 mai 2018. Pour plus d’informations, consultez [Étendre des alertes à partir de Log Analytics vers Azure Alerts](../../azure-monitor/platform/alerts-extend.md). Pour les utilisateurs qui étendent les alertes à Azure, les actions comme les notifications par e-mail sont désormais contrôlées dans les groupes d’actions Azure. Lorsqu’un espace de travail et ses alertes sont étendus à Azure, vous pouvez récupérer ou ajouter des actions à l’aide de [l’API Groupes d’action](https://docs.microsoft.com/rest/api/monitor/actiongroups).
+> Depuis le 14 mai 2018, toutes les alertes d’une instance de cloud public Azure d’un espace de travail Log Analytics sont automatiquement étendues à Azure. Un utilisateur peut volontairement étendre des alertes à Azure avant le 14 mai 2018. Pour plus d’informations, consultez [Étendre des alertes à partir de Log Analytics vers Azure Alerts](../../azure-monitor/platform/alerts-extend.md). Pour les utilisateurs qui étendent les alertes à Azure, les actions comme les notifications par e-mail sont désormais contrôlées dans les groupes d’actions Azure. Lorsqu’un espace de travail et ses alertes sont étendus à Azure, vous pouvez récupérer ou ajouter des actions à l’aide de [l’API Groupes d’action](https://docs.microsoft.com/rest/api/monitor/actiongroups).
    
 
 | Propriété | Description |
 |:--- |:--- |
 | Recipients |Liste d’adresses de messagerie. |
-| Subject |Objet de l’e-mail. |
-| Attachment |Les pièces jointes n’étant pas actuellement prises en charge, cette propriété est toujours définie sur « None ». |
+| Objet |Objet de l’e-mail. |
+| Pièce jointe |Les pièces jointes n’étant pas actuellement prises en charge, cette propriété est toujours définie sur « None ». |
 
 Voici un exemple de réponse pour une action de notification par courrier électronique comportant un seuil.  
 
@@ -398,7 +398,7 @@ Utilisez la méthode Put avec un ID d’action existant pour modifier une action
 Les corrections démarrent un runbook dans Azure Automation qui essaie de corriger le problème identifié par l’alerte.  Vous devez créer un webhook pour le runbook utilisé dans une action de correction, puis spécifier l’URI dans la propriété WebhookUri.  Quand vous créez cette action à l’aide du portail Azure, un webhook est automatiquement créé pour le runbook.
 
 > [!NOTE]
-> À compter du 14 mai 2018, toutes les alertes dans une instance de cloud public Azure de l’espace de travail Analytique de journal seront automatiquement étendues à Azure. Un utilisateur peut volontairement étendre des alertes à Azure avant le 14 mai 2018. Pour plus d’informations, consultez [Étendre des alertes à partir de Log Analytics vers Azure Alerts](../../azure-monitor/platform/alerts-extend.md). Pour les utilisateurs qui étendent les alertes à Azure, les actions comme les corrections sont désormais contrôlées dans les groupes d’actions Azure. Lorsqu’un espace de travail et ses alertes sont étendus à Azure, vous pouvez récupérer ou ajouter des actions à l’aide de [l’API Groupes d’action](https://docs.microsoft.com/rest/api/monitor/actiongroups).
+> Depuis le 14 mai 2018, toutes les alertes d’une instance de cloud public Azure d’un espace de travail Log Analytics sont automatiquement étendues à Azure. Un utilisateur peut volontairement étendre des alertes à Azure avant le 14 mai 2018. Pour plus d’informations, consultez [Étendre des alertes à partir de Log Analytics vers Azure Alerts](../../azure-monitor/platform/alerts-extend.md). Pour les utilisateurs qui étendent les alertes à Azure, les actions comme les corrections sont désormais contrôlées dans les groupes d’actions Azure. Lorsqu’un espace de travail et ses alertes sont étendus à Azure, vous pouvez récupérer ou ajouter des actions à l’aide de [l’API Groupes d’action](https://docs.microsoft.com/rest/api/monitor/actiongroups).
 
 Les propriétés des corrections sont décrites dans le tableau suivant.
 
@@ -457,7 +457,7 @@ Voici un exemple complet pour créer une alerte par courrier électronique.  Cet
 Les actions de webhook démarrent un processus en appelant une URL et, éventuellement, en fournissant une charge utile à envoyer.  Elles sont similaires aux actions correctives, à la différence qu’elles sont destinées à des webhooks qui peuvent appeler des processus autres que des runbooks Azure Automation.  En outre, elles permettent de fournir une charge utile à remettre au processus distant.
 
 > [!NOTE]
-> À compter du 14 mai 2018, toutes les alertes dans une instance de cloud public Azure de l’espace de travail Analytique de journal seront automatiquement étendues à Azure. Un utilisateur peut volontairement étendre des alertes à Azure avant le 14 mai 2018. Pour plus d’informations, consultez [Étendre des alertes à partir de Log Analytics vers Azure Alerts](../../azure-monitor/platform/alerts-extend.md). Pour les utilisateurs qui étendent les alertes à Azure, les actions comme les Webhooks sont désormais contrôlées dans les groupes d’actions Azure. Lorsqu’un espace de travail et ses alertes sont étendus à Azure, vous pouvez récupérer ou ajouter des actions à l’aide de [l’API Groupes d’action](https://docs.microsoft.com/rest/api/monitor/actiongroups).
+> Depuis le 14 mai 2018, toutes les alertes d’une instance de cloud public Azure d’un espace de travail Log Analytics sont automatiquement étendues à Azure. Un utilisateur peut volontairement étendre des alertes à Azure avant le 14 mai 2018. Pour plus d’informations, consultez [Étendre des alertes à partir de Log Analytics vers Azure Alerts](../../azure-monitor/platform/alerts-extend.md). Pour les utilisateurs qui étendent les alertes à Azure, les actions comme les Webhooks sont désormais contrôlées dans les groupes d’actions Azure. Lorsqu’un espace de travail et ses alertes sont étendus à Azure, vous pouvez récupérer ou ajouter des actions à l’aide de [l’API Groupes d’action](https://docs.microsoft.com/rest/api/monitor/actiongroups).
 
 
 Les actions de webhook n’ont pas de seuil ; en revanche, elles doivent être ajoutées à une planification qui a une action d’alerte comportant un seuil.  

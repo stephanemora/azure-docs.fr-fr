@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 05/30/2018
 ms.author: kumud
 ms.openlocfilehash: 465d44ea823c99afbb4f25541d64770c114ba7e2
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64730509"
 ---
 # <a name="diagnose-a-virtual-machine-routing-problem"></a>Diagnostiquer un problème de routage sur une machine virtuelle
@@ -56,9 +56,9 @@ Même si dans les étapes précédentes, les itinéraires effectifs ont été af
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Vous pouvez exécuter les commandes qui suivent dans [Azure Cloud Shell](https://shell.azure.com/powershell), ou en exécutant PowerShell à partir de votre ordinateur. Azure Cloud Shell est un interpréteur de commandes interactif gratuit. Il contient des outils Azure courants préinstallés et configurés pour être utilisés avec votre compte. Si vous exécutez PowerShell à partir de votre ordinateur, vous devez le module Azure PowerShell, version 1.0.0 ou une version ultérieure. Exécutez `Get-Module -ListAvailable Az` sur votre ordinateur pour trouver la version installée. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-Az-ps). Si vous exécutez PowerShell localement, vous devez aussi exécuter `Connect-AzAccount` pour vous connecter à Azure avec un compte disposant des [autorisations nécessaires](virtual-network-network-interface.md#permissions).
+Vous pouvez exécuter les commandes qui suivent dans [Azure Cloud Shell](https://shell.azure.com/powershell), ou en exécutant PowerShell à partir de votre ordinateur. Azure Cloud Shell est un interpréteur de commandes interactif gratuit. Il contient des outils Azure courants préinstallés et configurés pour être utilisés avec votre compte. Si vous exécutez PowerShell sur votre ordinateur, vous devez utiliser le module Azure PowerShell version 1.0.0 ou ultérieure. Exécutez `Get-Module -ListAvailable Az` sur votre ordinateur pour trouver la version installée. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-Az-ps). Si vous exécutez PowerShell localement, vous devez aussi exécuter `Connect-AzAccount` pour vous connecter à Azure avec un compte disposant des [autorisations nécessaires](virtual-network-network-interface.md#permissions).
 
-Obtenir les itinéraires effectifs pour une interface réseau avec [Get-AzEffectiveRouteTable](/powershell/module/az.network/get-azeffectiveroutetable). L’exemple suivant récupère les itinéraires effectifs d’une interface réseau nommée *myVMVMNic*, qui se trouve dans un groupe de ressources appelé *myResourceGroup* :
+Obtenez les itinéraires effectifs d’une interface réseau avec [Get-AzEffectiveRouteTable](/powershell/module/az.network/get-azeffectiveroutetable). L’exemple suivant récupère les itinéraires effectifs d’une interface réseau nommée *myVMVMNic*, qui se trouve dans un groupe de ressources appelé *myResourceGroup* :
 
 ```azurepowershell-interactive
 Get-AzEffectiveRouteTable `

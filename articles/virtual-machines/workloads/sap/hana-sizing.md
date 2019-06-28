@@ -15,11 +15,11 @@ ms.date: 09/04/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 7d403c284eefc1351aabb632977832f2bf11757a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60477120"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64715832"
 ---
 # <a name="sizing"></a>Dimensionnement
 
@@ -27,7 +27,7 @@ Le redimensionnement de la grande instance HANA n’est pas différent du redime
 
 - [Note de support SAP #1793345 - Sizing for SAP Suite on HANA](https://launchpad.support.sap.com/#/notes/1793345) (Dimensionnement de SAP Suite sur HANA)
 - [Note de support SAP #1872170 - Suite on HANA and S/4 HANA sizing report](https://launchpad.support.sap.com/#/notes/1872170) (Rapport de dimensionnement de Suite sur HANA et S/4 HANA)
-- [Note SAP #2121330 - FAQ : SAP BW sur HANA rapport de redimensionnement](https://launchpad.support.sap.com/#/notes/2121330)
+- [Note de support SAP 2121330 - FAQ : SAP BW on HANA Sizing Report (rapport de redimensionnement SAP BW sur HANA)](https://launchpad.support.sap.com/#/notes/2121330)
 - [Remarque SAP n° 1736976 - Rapport de redimensionnement de BW sur HANA](https://launchpad.support.sap.com/#/notes/1736976)
 - [Remarque SAP n°2296290 - Nouveau rapport de redimensionnement de BW sur HANA](https://launchpad.support.sap.com/#/notes/2296290)
 

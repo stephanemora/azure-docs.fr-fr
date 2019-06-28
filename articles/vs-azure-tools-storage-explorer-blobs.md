@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/18/2016
 ms.author: cawa
 ms.openlocfilehash: f46467871a5ae0147b5dc60881bda4175eabac56
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60458393"
 ---
 # <a name="manage-azure-blob-storage-resources-with-storage-explorer"></a>Gérer les ressources de Stockage Blob Azure avec l’Explorateur Stockage
@@ -30,7 +30,7 @@ Vous pouvez utiliser le stockage d'objets blob pour exposer les données publiqu
 Pour pouvoir suivre les étapes de cet article, vous devrez :
 
 * [Télécharger et installer l’Explorateur Stockage](https://www.storageexplorer.com)
-* [Se connecter à un service ou un compte de stockage Azure](vs-azure-tools-storage-manage-with-storage-explorer.md#connect-to-a-storage-account-or-service)
+* [Vous connecter à un service ou un compte de stockage Azure](vs-azure-tools-storage-manage-with-storage-explorer.md#connect-to-a-storage-account-or-service)
 
 ## <a name="create-a-blob-container"></a>Création d’un conteneur d’objets blob
 Tous les objets blob doivent résider dans un conteneur d’objets blob, c’est-à-dire un simple regroupement logique d’objets blob. Un compte peut contenir un nombre illimité de conteneurs, et chaque conteneur peut stocker un nombre illimité d’objets blob.
@@ -172,7 +172,7 @@ Les étapes suivantes expliquent comment gérer les objets blob (et les dossiers
      1. Dans la barre d’outils du volet principal, sélectionnez **Télécharger**, puis **Télécharger des fichiers** dans le menu contextuel.
 
         ![Télécharger des fichiers - Menu][15]
-     2. Dans la boîte de dialogue **Télécharger des fichiers**, sélectionnez le bouton des points de suspension (**…**) situé sur le côté droit de la zone **Fichiers** pour sélectionner les fichiers que vous souhaitez charger.
+     2. Dans la boîte de dialogue **Télécharger des fichiers**, sélectionnez le bouton des points de suspension ( **…** ) situé sur le côté droit de la zone **Fichiers** pour sélectionner les fichiers que vous souhaitez charger.
 
         ![Télécharger des fichiers - Options][16]
      3. Spécifiez le **Type d’objet blob**. Pour plus d’informations, voir [Créer le conteneur et définir des autorisations](storage/blobs/storage-quickstart-blobs-dotnet.md#upload-blobs-to-the-container).
@@ -183,7 +183,7 @@ Les étapes suivantes expliquent comment gérer les objets blob (et les dossiers
      1. Dans la barre d’outils du volet principal, sélectionnez **Télécharger**, puis **Télécharger un dossier** dans le menu contextuel.
 
         ![Télécharger un dossier - Menu][17]
-     2. Dans la boîte de dialogue **Télécharger un dossier**, sélectionnez le bouton des points de suspension (**…**) situé sur le côté droit de la zone **Dossier** pour sélectionner le dossier que vous souhaitez charger.
+     2. Dans la boîte de dialogue **Télécharger un dossier**, sélectionnez le bouton des points de suspension ( **…** ) situé sur le côté droit de la zone **Dossier** pour sélectionner le dossier que vous souhaitez charger.
 
         ![Télécharger un dossier - Options][18]
      3. Spécifiez le **Type d’objet blob**. Pour plus d’informations, voir [Créer le conteneur et définir des autorisations](storage/blobs/storage-quickstart-blobs-dotnet.md#upload-blobs-to-the-container).

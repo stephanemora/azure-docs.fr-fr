@@ -13,10 +13,10 @@ ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3e5d1546c658631911f25c43e94275f00c7a5140
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60474593"
 ---
 # <a name="set-up-security-info-preview-to-use-security-questions"></a>Configurer les informations de sécurité (préversion) pour utiliser les questions de sécurité
@@ -36,7 +36,7 @@ Si vous utilisez des questions de sécurité, nous vous recommandons de les util
 > 
 > Si vous ne voyez pas l’option des questions de sécurité, il est possible que votre organisation ne vous autorise pas à l’utiliser comme moyen de vérification. Si tel est le cas, vous devez choisir une autre méthode, ou contacter votre administrateur pour obtenir de l’aide.
 > 
-> Comptes d’administrateur ne sont pas autorisés à utiliser les Questions de sécurité comme un mot de passe réinitialisé (méthode). Si vous êtes connecté sous un compte de niveau administrateur, vous ne verrez pas ces options.
+> Les comptes administrateur ne sont pas autorisés à utiliser les questions de sécurité comme méthode de réinitialisation de mot de passe. Si vous êtes connecté avec un compte de niveau administrateur, vous ne verrez pas ces options.
 
 ### <a name="to-set-up-your-security-questions"></a>Pour configurer vos questions de sécurité
 

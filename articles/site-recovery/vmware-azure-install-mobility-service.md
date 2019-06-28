@@ -1,21 +1,21 @@
 ---
-title: Préparer les machines sources pour installer le Service de mobilité via l’installation push pour la récupération d’urgence des machines virtuelles VMware et des serveurs physiques vers Azure | Microsoft Docs
-description: Découvrez comment préparer votre serveur pour installer l’agent de mobilité via l’installation push pour la récupération d’urgence des machines virtuelles VMware et des serveurs physiques vers Azure à l’aide du service Azure Site Recovery.
+title: Préparer les machines sources à une installation Push de Mobility Service pour la reprise d’activité de machines virtuelles VMware et serveurs physiques sur Azure | Microsoft Docs
+description: Découvrez comment préparer votre serveur à une installation Push de l'agent de mobilité pour la reprise d’activité de machines virtuelles VMware et serveurs physiques sur Azure à l’aide du service Azure Site Recovery.
 author: Rajeswari-Mamilla
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
 ms.openlocfilehash: 628be573d03d42ec62a358071074facfe228852d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60318167"
 ---
-# <a name="prepare-source-machine-for-push-installation-of-mobility-agent"></a>Préparer l’ordinateur source pour l’installation push de l’agent de mobilité
+# <a name="prepare-source-machine-for-push-installation-of-mobility-agent"></a>Préparer la machine source pour l’installation Push de l’agent de mobilité
 
-Lorsque vous configurez la reprise d’activité des serveurs physiques et des machines virtuelles VMware à l'aide d'[Azure Site Recovery](site-recovery-overview.md), vous installez le [service Mobilité de Site Recovery](vmware-physical-mobility-service-overview.md) sur l'ensemble des serveurs physiques et des machines virtuelles VMware locaux.  Le service Mobilité enregistre les écritures de données sur la machine et les transmet au serveur de traitement Site Recovery.
+Lorsque vous configurez la récupération d’urgence sur des serveurs physiques et des machines virtuelles VMware avec [Azure Site Recovery](site-recovery-overview.md), vous installez le [service Mobilité de Site Recovery](vmware-physical-mobility-service-overview.md) sur l’ensemble des serveurs physiques et des machines virtuelles VMware locaux.  Le service Mobilité enregistre les écritures de données sur la machine et les transmet au serveur de traitement Site Recovery.
 
 ## <a name="install-on-windows-machine"></a>Installer sur un ordinateur Windows
 
@@ -27,7 +27,7 @@ Sur chaque ordinateur Windows que vous souhaitez protéger, procédez ainsi :
     - Sous la clé de Registre HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System, ajoutez un nouveau DWORD : **LocalAccountTokenFilterPolicy**. Définissez la valeur sur **1**.
     -  Pour exécuter cette action à l’invite de commandes, exécutez la commande suivante :  
    `REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d
-3. Sur le Pare-feu Windows de l’ordinateur à protéger, sélectionnez **Autoriser une application ou une fonctionnalité à franchir le pare-feu**. Activez **Partage de fichiers et d’imprimantes** et **Windows Management Instrumentation (WMI)**. Pour les ordinateurs qui appartiennent à un domaine, vous pouvez configurer les paramètres de pare-feu avec un objet de stratégie de groupe.
+3. Sur le Pare-feu Windows de l’ordinateur à protéger, sélectionnez **Autoriser une application ou une fonctionnalité à franchir le pare-feu**. Activez **Partage de fichiers et d’imprimantes** et **Windows Management Instrumentation (WMI)** . Pour les ordinateurs qui appartiennent à un domaine, vous pouvez configurer les paramètres de pare-feu avec un objet de stratégie de groupe.
 
    ![Paramètres du pare-feu](./media/vmware-azure-install-mobility-service/mobility1.png)
 

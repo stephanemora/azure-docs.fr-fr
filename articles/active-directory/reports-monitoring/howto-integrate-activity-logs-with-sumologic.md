@@ -1,6 +1,6 @@
 ---
-title: Stream des journaux Azure Active Directory à SumoLogic à l’aide d’Azure Monitor | Microsoft Docs
-description: Découvrez comment intégrer des journaux Azure Active Directory à SumoLogic à l’aide d’Azure Monitor
+title: Diffuser en continu les journaux d’activité Azure Active Directory vers SumoLogic à l’aide d’Azure Monitor | Microsoft Docs
+description: Découvrez comment intégrer des journaux d’activité Azure Active Directory avec SumoLogic à l’aide d’Azure Monitor.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -18,17 +18,17 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7ccf9cd550b3848be841f193f4ab8a6094cf671d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60437851"
 ---
-# <a name="integrate-azure-active-directory-logs-with-sumologic-using-azure-monitor"></a>Intégrer des journaux Azure Active Directory à SumoLogic à l’aide d’Azure Monitor
+# <a name="integrate-azure-active-directory-logs-with-sumologic-using-azure-monitor"></a>Intégrer des journaux d’activité Azure Active Directory avec SumoLogic à l’aide d’Azure Monitor
 
 Cet article explique comment intégrer des journaux d’activité Azure Active Directory (Azure AD) avec SumoLogic à l’aide d’Azure Monitor. Vous commencez pas router les journaux d’activité vers un hub d’événements Azure, puis vous intégrez ce hub d’événements avec SumoLogic.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour utiliser cette fonctionnalité, vous avez besoin des éléments suivants :
 * Un hub d’événements Azure contenant les journaux d’activité d’Azure AD. Découvrez comment [diffuser en continu vos journaux d’activité sur un hub d’événements](quickstart-azure-monitor-stream-logs-to-event-hub.md). 

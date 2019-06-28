@@ -1,5 +1,5 @@
 ---
-title: Bien démarrer avec l’authentification basée sur certificat - Azure Active Directory
+title: Bien démarrer avec l’authentification par certificat - Azure Active Directory
 description: Découvrez comment configurer l’authentification par certificat dans votre environnement
 services: active-directory
 ms.service: active-directory
@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f57d4615fc80df6c5df9ba295288ad71ae12fa23
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60359073"
 ---
 # <a name="get-started-with-certificate-based-authentication-in-azure-active-directory"></a>Bien démarrer avec l’authentification par certificat dans Azure Active Directory
@@ -44,7 +44,7 @@ Pour configurer l’authentification basée sur les certificats, les conditions 
 - Votre appareil client doit avoir accès à au moins une autorité de certification qui émet des certificats clients.
 - Un certificat client pour l’authentification du client doit avoir été émis pour votre client.
 
-## <a name="step-1-select-your-device-platform"></a>Étape 1 : Sélectionner la plateforme de votre appareil
+## <a name="step-1-select-your-device-platform"></a>Étape 1 : Sélectionner la plateforme de votre appareil
 
 Dans un premier temps, pour la plateforme d’appareil qui vous intéresse, vous devez passer en revue les éléments suivants :
 
@@ -56,7 +56,7 @@ Les informations connexes existent pour les plateformes d’appareils suivantes�
 - [Android](active-directory-certificate-based-authentication-android.md)
 - [iOS](active-directory-certificate-based-authentication-ios.md)
 
-## <a name="step-2-configure-the-certificate-authorities"></a>Étape 2 : Configurer les autorités de certification
+## <a name="step-2-configure-the-certificate-authorities"></a>Étape 2 : Configurer les autorités de certification
 
 Pour configurer vos autorités de certification dans Azure Active Directory, pour chaque autorité de certification, vous devez télécharger les éléments suivants :
 
@@ -162,7 +162,7 @@ Les étapes suivantes décrivent le processus de mise à jour et d’invalidatio
 
 La date que vous définissez doit être dans le futur. Si la date n’est pas dans le futur, la propriété **StsRefreshTokensValidFrom** n’est pas définie. Si la date est dans le futur, la propriété **StsRefreshTokensValidFrom** est définie sur l’heure actuelle (et non la date indiquée par la commande Set-MsolUser).
 
-## <a name="step-4-test-your-configuration"></a>Étape 4 : Tester votre configuration
+## <a name="step-4-test-your-configuration"></a>Étape 4 : Tester votre configuration
 
 ### <a name="testing-your-certificate"></a>Test de votre certificat
 

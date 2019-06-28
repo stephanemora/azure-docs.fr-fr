@@ -17,10 +17,10 @@ ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
 ms.openlocfilehash: e7b67905c96495382536555b87772e4eefada250
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60502320"
 ---
 # <a name="provision-a-linux-centos-data-science-virtual-machine-on-azure"></a>Provisionner une instance Data Science Virtual Machine Linux CentOS dans Azure
@@ -61,7 +61,7 @@ Cette image de machine virtuelle de science des données ne génère pas de frai
 ## <a name="other-versions-of-the-data-science-virtual-machine"></a>Autres versions de la machine virtuelle pour la science des données
 Une image [Ubuntu](dsvm-ubuntu-intro.md) est également disponible avec la plupart des mêmes outils que l’image CentOS et des infrastructures d’apprentissage approfondi. Une image [Windows](provision-vm.md) est également disponible.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 Avant de pouvoir créer une machine virtuelle de science des données Linux, vous devez disposer des éléments suivants :
 
 * **Un abonnement Azure** : Pour en obtenir un, consultez la page [Obtenir une version d’évaluation gratuite d’Azure](https://azure.microsoft.com/free/).
@@ -154,7 +154,7 @@ Python 3.5 est installé dans */anaconda/envs/py35/bin*.
 
 Pour appeler la session interactive Python, tapez **python** dans l’interpréteur de commandes. Si vous travaillez sur une interface graphique ou que vous avez le programme d’installation du transfert X11, vous pouvez taper **pycharm** pour lancer l’IDE Python PyCharm.
 
-Pour installer des bibliothèques Python supplémentaires, vous devez exécuter la commande ```conda``` ou ```pip``` sous sudo et fournir le chemin d’accès complet du Gestionnaire de package Python (conda ou pip) pour installer l’environnement Python correct. Par exemple : 
+Pour installer des bibliothèques Python supplémentaires, vous devez exécuter la commande ```conda``` ou ```pip``` sous sudo et fournir le chemin d’accès complet du Gestionnaire de package Python (conda ou pip) pour installer l’environnement Python correct. Par exemple :
 
     sudo /anaconda/bin/pip install <package> #pip for Python 2.7
     sudo /anaconda/envs/py35/bin/pip install <package> #pip for Python 3.5
@@ -198,7 +198,7 @@ Avant toute exécution dans le contexte Spark (dans Microsoft R Server), vous de
     chown hadoop:hadoop ~hadoop/.ssh/authorized_keys
     systemctl start hadoop-namenode hadoop-datanode hadoop-yarn
 
-Vous pouvez arrêter la Hadoop lorsque vous n’en avez besoin en exécutant des services liés ```systemctl stop hadoop-namenode hadoop-datanode hadoop-yarn``` un exemple montrant comment développer et tester MRS dans un contexte Spark distant (qui est l’instance Spark autonome sur la DSVM) est fourni et disponible dans le `/dsvm/samples/MRS` répertoire. 
+Vous pouvez arrêter les services liés à Hadoop lorsque vous n'en avez pas besoin en exécutant ```systemctl stop hadoop-namenode hadoop-datanode hadoop-yarn```. Vous trouverez dans le répertoire `/dsvm/samples/MRS` un exemple montrant comment développer et tester MRS dans un contexte Spark distant (l'instance Spark autonome sur la DSVM). 
 
 ### <a name="ides-and-editors"></a>IDE et éditeurs
 Vous avez le choix entre plusieurs éditeurs de code, notamment vi/VIM, Emacs, gEdit, PyCharm, RStudio, Eclipse et IntelliJ. gEdit, Eclipse, IntelliJ, RStudio et PyCharm sont des éditeurs graphiques dont l’utilisation nécessite que vous soyez connecté à un bureau graphique. Des raccourcis de menu d’applications et bureau pour permettent de lancer ces éditeurs.

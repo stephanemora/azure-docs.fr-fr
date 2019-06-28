@@ -8,10 +8,10 @@ ms.date: 02/13/2019
 ms.author: robb
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: 8a287f118c126967d2cf8cad77a434cfecc098eb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60236244"
 ---
 # <a name="what-is-azure-diagnostics-extension"></a>Présentation de l’extension Diagnostics Azure
@@ -30,7 +30,7 @@ L’extension Diagnostics Azure peut collecter les types de données suivants :
 | Journaux d’événements Windows |Informations envoyées au système de journalisation des événements Windows |
 | Journaux d’activité .NET EventSource |Événements d’écriture de code à l'aide de la classe .NET [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) |
 | Journaux d’activité IIS |Informations au sujet des sites Web IIS |
-| [Journaux ETW basés sur les manifestes](https://docs.microsoft.com/windows/desktop/etw/about-event-tracing) |Événements de suivi d’événements pour Windows générés par n’importe quel processus.(1) |
+| [Journaux d’activité ETW basés sur les manifestes](https://docs.microsoft.com/windows/desktop/etw/about-event-tracing) |Événements de suivi d’événements pour Windows générés par n’importe quel processus.(1) |
 | Vidages sur incident (journaux d’activité) |Informations sur l’état du processus si une application se bloque |
 | Journaux d’activité d’erreurs personnalisés |Journaux d’activité créés par votre application ou service |
 | Journaux d’activité d’infrastructure Azure Diagnostic |Informations sur Diagnostics Azure lui-même |
@@ -52,7 +52,7 @@ Vous avez aussi la possibilité d’envoyer vos données vers la base de donnée
 Pour en savoir plus sur la manière de configurer ce récepteur, consultez la [documentation sur le schéma des diagnostics Azure.](diagnostics-extension-schema-1dot3.md)
 
 ## <a name="costs"></a>Coûts
-Chacune des options ci-dessus peut-être entraîner une baisse des coûts. Veillez à effectuer des recherches pour éviter d’avoir des effets inattendus.  Application Insights, concentrateur d’événements, et le stockage Azure ont des coûts distincts liés à l’ingestion et l’heure stockée. En particulier, le stockage Azure conserve toutes les données indéfiniment vous pouvez donc purger les données plus anciennes après un certain laps de temps à réduire vos coûts.    
+Chacune des options ci-dessus peut être facturée. Renseignez-vous pour ne pas avoir à faire face à des factures inattendues.  Application Insights, Event Hub et Stockage Azure génèrent des coûts distincts associés à l’ingestion et au temps stocké. Plus particulièrement, Stockage Azure conserve les données indéfiniment, et vous devrez supprimer les anciennes données après un certain temps pour réduire vos coûts.    
 
 ## <a name="versioning-and-configuration-schema"></a>Contrôle de version et schéma de configuration
 Consultez [Versions et historique des schémas de configuration de l’extension Diagnostics Azure](diagnostics-extension-schema.md).
@@ -68,7 +68,7 @@ Choisissez le service sur lequel vous voulez collecter des diagnostics et utilis
 
 Pour des rubriques plus avancées, voir
 
-* [Utilisation des diagnostics avec Application Insights pour Cloud Services](../../azure-monitor/app/cloudservices.md)
+* [Utilisation de Diagnostics Azure avec Application Insights pour Cloud Services](../../azure-monitor/app/cloudservices.md)
 * [Assurer le suivi du flux dans une application Cloud Services avec les diagnostics Azure](../../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md)
 * [Utilisation de PowerShell pour configurer les diagnostics sur Cloud Services](../../virtual-machines/extensions/diagnostics-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 

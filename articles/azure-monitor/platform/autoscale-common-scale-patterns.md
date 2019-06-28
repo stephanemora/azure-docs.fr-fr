@@ -9,10 +9,10 @@ ms.date: 05/07/2017
 ms.author: ancav
 ms.subservice: autoscale
 ms.openlocfilehash: 8356a8c8c31a043197485b4913b4a67d7d719778
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60534220"
 ---
 # <a name="overview-of-common-autoscale-patterns"></a>Vue d’ensemble des modèles courants de mise à l’échelle automatique
@@ -54,7 +54,7 @@ Vous avez une application web (/VMSS/rôle de service cloud) et
 
 ## <a name="scale-based-on-custom-metric"></a>Mise à l’échelle en fonction de métriques personnalisées
 
-Vous avez un serveur web frontal et un niveau d’API qui communique avec le serveur principal.
+Vous avez un site web frontal et un niveau d’API qui communique avec le serveur principal.
 
 - Vous souhaitez mettre à l'échelle le niveau de l'API en fonction d'événements personnalisés dans le front-end (exemple : vous souhaitez mettre à l'échelle votre processus de paiement en fonction du nombre d'articles contenus dans le panier d'achat).
 

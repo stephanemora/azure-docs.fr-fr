@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: raynew
 ms.openlocfilehash: 8df587db7655e2aafd876d80581f3296c8c99fbf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60201543"
 ---
 # <a name="dependency-visualization"></a>Visualisation de dépendance
@@ -26,7 +26,7 @@ La visualisation des dépendances dans Azure Migrate permet de créer des groupe
 
 ## <a name="how-does-it-work"></a>Comment cela fonctionne-t-il ?
 
-Azure Migrate utilise le [Service Map](../operations-management-suite/operations-management-suite-service-map.md) solution dans [Azure Monitor enregistre](../log-analytics/log-analytics-overview.md) pour la visualisation des dépendances.
+Azure Migrate utilise la solution [Service Map](../operations-management-suite/operations-management-suite-service-map.md) dans [Journaux d’activité Azure Monitor](../log-analytics/log-analytics-overview.md) pour la visualisation des dépendances.
 - Pour tirer parti de la visualisation des dépendances, vous pouvez associer un espace de travail Log Analytics, nouveau ou existant, à un projet Azure Migrate.
 - Vous ne pouvez créer ou attacher un espace de travail que dans l’abonnement où le projet de migration est créé.
 - Pour attacher un espace de travail Log Analytics à un projet, accédez à la section **Bases** de la page **Vue d’ensemble**, puis cliquez sur **Requiert une configuration**

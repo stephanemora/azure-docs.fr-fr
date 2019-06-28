@@ -9,15 +9,15 @@ ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: rezas
 ms.openlocfilehash: 672b06dda41edb18cbf31352188b0fdd2a155782
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60401055"
 ---
 # <a name="iot-hub-device-streams-preview"></a>Flux d'appareils IoT Hub (préversion)
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 Les *flux d’appareils* Azure IoT Hub facilitent la création de tunnels TCP bidirectionnels sécurisés pour divers scénarios de communication cloud-à-appareil. Un flux d'appareil est régi par un *point de terminaison de streaming* IoT Hub qui fait office de proxy entre votre appareil et les points terminaison de service. Illustrée dans le diagramme ci-dessous, cette configuration est particulièrement utile quand les appareils sont situés derrière un pare-feu réseau ou à l’intérieur d’un réseau privé. Dès lors, les flux d’appareils IoT Hub permettent aux clients d'accéder aux appareils IoT de manière sécurisée via un pare-feu, sans devoir trop ouvrir les ports de pare-feu de réseau entrants ou sortants.
 
 ![Texte de remplacement](./media/iot-hub-device-streams-overview/iot-hub-device-streams-overview.png "Vue d’ensemble des flux d’appareils IoT Hub")
@@ -117,24 +117,24 @@ az iot hub devicestream show --name <YourIoTHubName>
 
 ## <a name="troubleshoot-via-device-streams-activity-logs"></a>Détecter un problème via les journaux d’activité des flux d’appareils
 
-Vous pouvez configurer les journaux Azure Monitor pour collecter le journal d’activité de flux de l’appareil dans votre IoT Hub. Ce journal peut s'avérer particulièrement utile à des fins de résolution des problèmes.
+Vous pouvez configurer les journaux d’activité Azure Monitor de manière à collecter le journal d’activité des flux d’appareils dans votre hub IoT. Ce journal peut s'avérer particulièrement utile à des fins de résolution des problèmes.
 
-Suivez les étapes ci-dessous pour configurer les journaux Azure Monitor pour les activités de flux de données des périphériques de votre concentrateur IoT :
+Pour configurer les journaux d’activité Azure Monitor pour les activités de flux d’appareils de votre hub IoT, procédez comme suit :
 
 1. Accédez à l'onglet *Paramètres de diagnostic* dans votre hub IoT, puis cliquez sur le lien *Activer les diagnostics*.
 
    ![Texte de remplacement](./media/iot-hub-device-streams-overview/device-streams-diagnostics-settings.PNG "Activation des journaux de diagnostic")
 
 
-2. Entrez un nom pour vos paramètres de diagnostic, puis sélectionnez l'option *Envoyer à Log Analytics*. Vous serez guidé pour choisir une ressource d’espace de travail Analytique de journal existante ou créez-en un. Dans la liste, cochez également *DeviceStreams*.
+2. Entrez un nom pour vos paramètres de diagnostic, puis sélectionnez l'option *Envoyer à Log Analytics*. Vous serez invité à sélectionner une ressource d’espace de travail Log Analytics existante ou à en créer une. Dans la liste, cochez également *DeviceStreams*.
 
-    ![Texte de remplacement](./media/iot-hub-device-streams-overview/device-streams-diagnostics.PNG "Activer les journaux des flux d'appareils")
+    ![Texte de remplacement](./media/iot-hub-device-streams-overview/device-streams-diagnostics.PNG "Activer les journaux d’activité des flux d’appareils")
 
 3. Vous pouvez maintenant accéder à vos journaux de flux d’appareils sous l’onglet *Journaux d’activité* de votre portail IoT Hub. Les journaux d’activité des flux d’appareils apparaissent dans la table `AzureDiagnostics` et ont `Category=DeviceStreams`.
 
     <p>
 Comme indiqué ci-dessous, l’identité de l’appareil cible ainsi que le résultat de l’opération sont également disponibles dans les journaux d’activité.
-    ![Texte de remplacement](./media/iot-hub-device-streams-overview/device-streams-log-analytics.PNG "Accéder aux journaux des flux d'appareils")
+    ![Texte de remplacement](./media/iot-hub-device-streams-overview/device-streams-log-analytics.PNG "Accéder aux journaux d’activité des flux d’appareils")
 
 
 ## <a name="regional-availability"></a>Disponibilité régionale
@@ -153,7 +153,7 @@ Deux côtés de chaque flux (côté appareil et côté service) utilisent le SDK
 ## <a name="iot-hub-device-stream-samples"></a>Exemples de flux d'appareils IoT Hub
 
 Nous avons publié deux [exemples de démarrage rapide](/azure/iot-hub) illustrant l’utilisation des flux d’appareils par les applications.
-* Le *echo* exemple illustre l’utilisation par programmation de flux de l’appareil (en appelant directement l’API du SDK).
+* L’exemple *écho* illustre l’utilisation programmatique des flux d’appareils (en appelant directement les API du SDK).
 * L’exemple *proxy local* illustre le tunneling du trafic d’application client/serveur du commerce (par exemple, SSH, RDP ou web) via les flux d’appareils.
 
 Ces exemples sont traités plus en détail ci-dessous.
@@ -161,7 +161,7 @@ Ces exemples sont traités plus en détail ci-dessous.
 ### <a name="echo-sample"></a>Exemple écho
 L’exemple écho illustre l’utilisation programmatique des flux d’appareils pour envoyer et recevoir des octets entre les applications de service et d’appareil. Utilisez les liens ci-dessous pour accéder aux guides de démarrage rapide. Notez que vous pouvez utiliser des programmes de service et d’appareil dans différents langages, par exemple un programme d’appareil C peut fonctionner avec un programme de service C#.
 
-| Kit SDK     | Programme de service                                          | Programme d'appareil                                           |
+| Kit SDK    | Programme de service                                          | Programme d'appareil                                           |
 |--------|----------------------------------------------------------|----------------------------------------------------------|
 | C#     | [Lien](quickstart-device-streams-echo-csharp.md) | [Lien](quickstart-device-streams-echo-csharp.md) |
 | Node.js | [Lien](quickstart-device-streams-echo-nodejs.md) | -                                                        |
@@ -195,7 +195,7 @@ La configuration s’appuie sur deux programmes de *proxy local* illustrés dans
 
 Utilisez les liens ci-dessous pour obtenir des instructions sur l'exécution de programmes de proxy local dans le langage de votre choix. Comme pour l’[exemple écho](#echo-sample), vous pouvez exécuter des programmes de proxy local d’appareil et de service dans différents langages, car ils sont pleinement interopérables.
 
-| Kit SDK     | Proxy local de service                                       | Proxy local d'appareil                                |
+| Kit SDK    | Proxy local de service                                       | Proxy local d'appareil                                |
 |--------|-----------------------------------------------------------|---------------------------------------------------|
 | C#     | [Lien](quickstart-device-streams-proxy-csharp.md)  | [Lien](quickstart-device-streams-proxy-csharp.md) |
 | NodeJS | [Lien](quickstart-device-streams-proxy-nodejs.md)         | -                                                 |

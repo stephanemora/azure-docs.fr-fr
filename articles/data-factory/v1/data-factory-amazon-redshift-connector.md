@@ -14,14 +14,14 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: dc72ec9bf2e7e7c5c77685368167357a0108f2d3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60335423"
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Déplacer des données depuis Amazon Redshift à l’aide d’Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
 > * [Version 1](data-factory-amazon-redshift-connector.md)
 > * [Version 2 (version actuelle)](../connector-amazon-redshift.md)
 
@@ -35,7 +35,7 @@ Actuellement, Data Factory prend uniquement en charge le déplacement de donnée
 > [!TIP]
 > Pour obtenir de meilleures performances lors de la copie de grandes quantités de données d’Amazon Redshift, utilisez le mécanisme Redshift intégré **UNLOAD** via Amazon Simple Storage Service (Amazon S3). Pour plus d’informations, consultez la section [Utiliser UNLOAD pour copier des données à partir d’Amazon Redshift](#use-unload-to-copy-data-from-amazon-redshift).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 * Si vous déplacez des données vers un magasin de données local, vous devez installer la [passerelle de gestion des données](data-factory-data-management-gateway.md) sur une machine locale. Accordez l’accès d’une passerelle au cluster Amazon Redshift à l’aide de l’adresse IP de l’ordinateur local. Pour obtenir des instructions, consultez la rubrique relative à l’[autorisation d’accès au cluster](https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html).
 * Pour déplacer des données vers une banque de données Azure, procédez de la manière décrite dans [calcul de l’adresse IP et des plages SQL utilisés par les centres de données Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653).
 
@@ -62,12 +62,12 @@ Le tableau suivant décrit les éléments JSON spécifiques du service lié Amaz
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
-| **type** |Cette propriété doit être définie sur **AmazonRedshift**. |Oui |
-| **server** |Nom d’hôte ou adresse IP du serveur Amazon Redshift. |Oui |
+| **type** |Cette propriété doit être définie sur **AmazonRedshift**. |OUI |
+| **server** |Nom d’hôte ou adresse IP du serveur Amazon Redshift. |OUI |
 | **port** |Le numéro du port TCP utilisé par le serveur Amazon Redshift pour écouter les connexions clientes. |Non (valeur par défaut : 5439) |
-| **database** |Nom de la base de données Amazon Redshift. |Oui |
-| **nom d’utilisateur** |Nom de l’utilisateur ayant accès à la base de données. |Oui |
-| **mot de passe** |Mot de passe du compte d’utilisateur. |Oui |
+| **database** |Nom de la base de données Amazon Redshift. |OUI |
+| **nom d’utilisateur** |Nom de l’utilisateur ayant accès à la base de données. |OUI |
+| **mot de passe** |Mot de passe du compte d’utilisateur. |OUI |
 
 ## <a name="dataset-properties"></a>Propriétés du jeu de données
 
@@ -88,7 +88,7 @@ Pour une activité de copie, quand une source est de type **AmazonRedshiftSource
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
 | **query** | Utilise la requête personnalisée pour lire les données. |Non (si la propriété **tableName** d’un jeu de données est spécifié) |
-| **redshiftUnloadSettings** | Contient le groupe de propriétés lors de l’utilisation de la commande Redshift **UNLOAD**. | Non  |
+| **redshiftUnloadSettings** | Contient le groupe de propriétés lors de l’utilisation de la commande Redshift **UNLOAD**. | Non |
 | **s3LinkedServiceName** | Amazon S3 à utiliser en tant que magasin temporaire. Le service lié est spécifié au moyen d’un nom Azure Data Factory de type **AwsAccessKey**. | Obligatoire lorsque vous utilisez la propriété **redshiftUnloadSettings** |
 | **bucketName** | Indique le compartiment Amazon S3 à utiliser pour stocker les données intermédiaires. Si cette propriété n’est pas fournie, l’activité de copie génère automatiquement un compartiment. | Obligatoire lorsque vous utilisez la propriété **redshiftUnloadSettings** |
 
@@ -336,12 +336,12 @@ Les mappages suivants sont utilisés lorsque l’activité de copie convertit le
 | DÉCIMAL |Decimal |
 | REAL |Single |
 | DOUBLE PRECISION |Double |
-| BOOLEAN |String |
-| CHAR |String |
-| VARCHAR |String |
+| BOOLEAN |Chaîne |
+| CHAR |Chaîne |
+| VARCHAR |Chaîne |
 | DATE |Datetime |
 | TIMESTAMP |Datetime |
-| TEXTE |String |
+| TEXTE |Chaîne |
 
 ## <a name="map-source-to-sink-columns"></a>Mapper les colonnes source aux colonnes du récepteur
 Pour savoir comment mapper des colonnes du jeu de données source à des colonnes du jeu de données récepteur, consultez [Mappage des colonnes d’un jeu de données dans Azure Data Factory](data-factory-map-columns.md).

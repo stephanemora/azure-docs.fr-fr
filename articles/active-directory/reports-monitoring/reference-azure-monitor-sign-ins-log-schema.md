@@ -1,6 +1,6 @@
 ---
-title: Schéma de journal de connexion Azure Active Directory dans Azure Monitor | Microsoft Docs
-description: Décrire l’authentification Azure AD dans le schéma de journal pour une utilisation dans Azure Monitor
+title: Schéma des journaux de connexion Azure Active Directory dans Azure Monitor | Microsoft Docs
+description: Décrire le schéma des journaux de connexion Azure AD pour une utilisation dans Azure Monitor
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -18,13 +18,13 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a8ac6c56dca100ea9836158f46881c4eb12213e1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60285198"
 ---
-# <a name="interpret-the-azure-ad-sign-in-logs-schema-in-azure-monitor"></a>Interpréter le schéma des journaux de connexion Azure AD dans Azure Monitor
+# <a name="interpret-the-azure-ad-sign-in-logs-schema-in-azure-monitor"></a>Interpréter le schéma des journaux de connexion Azure Active Directory dans Azure Monitor
 
 Cet article décrit le schéma de journal de connexion Azure Active Directory (Azure AD) dans Azure Monitor. La plupart des informations liées aux connexions sont fournies sous l’attribut *Propriétés* de l’objet `records`.
 

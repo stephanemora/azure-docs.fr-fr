@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 709fb3be37850be37d6378652921ce26f4ff15fe
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60242225"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Authentification unique transparente Azure Active Directory : Questions fréquentes (FAQ)
@@ -45,16 +45,16 @@ Vous trouverez ci-dessous une liste non exhaustive des applications qui envoient
 
 | Nom de l’application | URL d’application à utiliser |
 | -- | -- |
-| Panneau d’accès | https :\//myapps.microsoft.com/contoso.com |
-| Outlook sur le Web | https :\//outlook.office365.com/contoso.com |
-| Portails Office 365 | https :\//portal.office.com?domain_hint=contoso.com, https :\//www.office.com?domain_hint=contoso.com |
+| Panneau d’accès | https:\//myapps.microsoft.com/contoso.com |
+| Outlook sur le Web | https:\//outlook.office365.com/contoso.com |
+| Portails Office 365 | https:\//portal.office.com?domain_hint=contoso.com, https:\//www.office.com?domain_hint=contoso.com |
 
-En outre, les utilisateurs obtiennent une expérience d’authentification en mode silencieux si une application envoie des demandes de connexion aux points de terminaison d’Azure AD configurés en tant que clients - autrement dit, https :\//login.microsoftonline.com/contoso.com/ <... > ou https :\//login.microsoftonline.com/ < tenant_ID > / <... > : au lieu de point de terminaison de la commune d’Azure AD - autrement dit, https :\//login.microsoftonline.com/common/ <... >. Vous trouverez ci-dessous une liste non exhaustive d’applications qui rendent ces types de requêtes de connexion.
+En outre, les utilisateurs bénéficient d'une expérience de connexion silencieuse si une application envoie des demandes de connexion à des points de terminaison d'Azure AD configurés en tant que locataires (https:\//login.microsoftonline.com/contoso.com/<..> ou https:\//login.microsoftonline.com/<ID_locataire>/<..>) au lieu du point de terminaison commun d'Azure AD, à savoir https:\//login.microsoftonline.com/common/<...>. Vous trouverez ci-dessous une liste non exhaustive d’applications qui rendent ces types de requêtes de connexion.
 
 | Nom de l’application | URL d’application à utiliser |
 | -- | -- |
-| SharePoint Online | https :\//contoso.sharepoint.com |
-| Portail Azure | https :\//portal.azure.com/contoso.com |
+| SharePoint Online | https:\//contoso.sharepoint.com |
+| Portail Azure | https:\//portal.azure.com/contoso.com |
 
 Dans les tables ci-dessus, remplacez « contoso.com » par votre nom de domaine pour obtenir les URL d’application de votre abonné.
 

@@ -16,17 +16,17 @@ ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
 ms.openlocfilehash: 9a93786759941def4cf8677509b1b2565cac5090
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60325423"
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Glossaire Microsoft Azure : Dictionnaire de la terminologie cloud sur la plateforme Azure
 
 Le glossaire Microsoft Azure est un petit dictionnaire de la terminologie des technologies cloud pour la plateforme Azure. Voir aussi :
 
-* [Microsoft Azure et Amazon Web Services](https://azure.microsoft.com/campaigns/azure-vs-aws/mapping/) -définitions des services Azure et leurs équivalents AWS.<!-- I propose to link to https://azure.microsoft.com/services/ instead of this -->
+* [Microsoft Azure et Amazon Web Services](https://azure.microsoft.com/campaigns/azure-vs-aws/mapping/) - Définitions des services Azure et de leurs équivalents AWS.<!-- I propose to link to https://azure.microsoft.com/services/ instead of this -->
 * [Termes de cloud computing](https://azure.microsoft.com/overview/cloud-computing-dictionary/) - Termes généraux liés aux technologies cloud.
 
 ## <a name="account"></a>account
@@ -147,7 +147,7 @@ Une ressource qui implémente des comportements ou des fonctionnalités facilita
 Voir [À propos des extensions et des fonctionnalités des machines virtuelles (Windows)](virtual-machines/windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) ou [À propos des extensions et des fonctionnalités des machines virtuelles (Linux)](virtual-machines/linux/extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="vnet"></a>Réseau virtuel
-Un réseau qui assure la connectivité entre vos ressources Azure, isolé de tous les autres locataires Azure. Un [passerelle VPN Azure](vpn-gateway/vpn-gateway-about-vpngateways.md) vous permet d’établir des connexions entre réseaux virtuels et entre un réseau virtuel et un réseau local. Vous pouvez contrôler complètement les blocs d’adresses IP, les paramètres DNS, les stratégies de sécurité et les tables de routage au sein d’un réseau virtuel.  
+Un réseau qui assure la connectivité entre vos ressources Azure, isolé de tous les autres locataires Azure. Une [passerelle VPN Azure](vpn-gateway/vpn-gateway-about-vpngateways.md) vous permet d'établir des connexions entre des réseaux virtuels, et entre un réseau virtuel et un réseau local. Vous pouvez contrôler complètement les blocs d’adresses IP, les paramètres DNS, les stratégies de sécurité et les tables de routage au sein d’un réseau virtuel.  
 Voir [Présentation du réseau virtuel](virtual-network/virtual-networks-overview.md)  
 
 ## <a name="web-app"></a>Application web

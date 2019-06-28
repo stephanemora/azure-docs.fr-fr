@@ -15,10 +15,10 @@ ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: genli
 ms.openlocfilehash: d636d5f31e78828a518882091af29b25f7219304
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60362235"
 ---
 # <a name="troubleshoot-linux-vm-device-name-changes"></a>Résoudre les problèmes liés aux modifications des noms de périphérique de machine virtuelle Linux
@@ -46,7 +46,7 @@ La plupart des distributions fournissent les paramètres `fstab` **nofail** ou *
 
 Quand l’agent Linux Azure est installé sur une machine virtuelle, il utilise des règles Udev pour construire un ensemble de liens symboliques sous le chemin /dev/disk/azure. Les applications et les scripts utilisent des règles Udev pour identifier les disques attachés à la machine virtuelle, ainsi que le type de disque et les numéros d’unités logiques de disque.
 
-Si vous avez déjà modifié votre fstab de sorte que votre machine virtuelle ne démarre pas et vous ne pouvez pas SSH à votre machine virtuelle, vous pouvez utiliser la [Console série de machine virtuelle](./serial-console-linux.md) entrer [mode mono-utilisateur](./serial-console-grub-single-user-mode.md) et modifier votre fstab.
+Si vous avez déjà modifié votre fichier FSTAB de telle sorte que votre machine virtuelle ne démarre pas et que vous n'êtes pas en mesure d'établir une connexion SSH avec elle, vous pouvez utiliser la [console série de machine virtuelle](./serial-console-linux.md) pour passer en [mode mono-utilisateur](./serial-console-grub-single-user-mode.md) et modifier votre fichier FSTAB.
 
 ### <a name="identify-disk-luns"></a>Identifier les numéros d’unité logique des disques
 
@@ -152,8 +152,8 @@ Pour obtenir les dernières règles de stockage Azure, exécutez les commandes s
 
 Pour plus d’informations, consultez les articles suivants :
 
-- [Ubuntu : À l’aide d’UUID](https://help.ubuntu.com/community/UsingUUID)
-- [Red Hat : Affectation de noms persistants](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Storage_Administration_Guide/persistent_naming.html)
-- [Linux : Comment les UUID peuvent vous aider ?](https://www.linux.com/news/what-uuids-can-do-you)
-- [UDev : Introduction à la gestion des appareils dans un système Linux moderne](https://www.linux.com/news/udev-introduction-device-management-modern-linux-system)
+- [Ubuntu : Utilisation des UUID](https://help.ubuntu.com/community/UsingUUID)
+- [Red Hat : Attribution de noms persistants](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Storage_Administration_Guide/persistent_naming.html)
+- [Linux : Ce que les UUID peuvent faire pour vous](https://www.linux.com/news/what-uuids-can-do-you)
+- [Udev : Présentation de la gestion des périphériques dans les systèmes Linux modernes](https://www.linux.com/news/udev-introduction-device-management-modern-linux-system)
 

@@ -14,10 +14,10 @@ ms.workload: infrastructure
 ms.date: 10/08/2018
 ms.author: genli
 ms.openlocfilehash: e828a8fc4211a0f0c4b53a9e18fa1c2fb6f6916b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60593217"
 ---
 # <a name="windows-shows-critical-service-failed-on-blue-screen-when-booting-an-azure-vm"></a>Windows affiche « CRITICAL SERVICE FAILED » sur écran bleu lors du démarrage d’une machine virtuelle Azure
@@ -106,7 +106,7 @@ Pour activer les journaux d’activité de vidage et la console série, exécute
 
 ### <a name="optional-analyze-the-dump-logs-in-dump-crash-mode"></a>Facultatif : Analyser les journaux d’activité de vidage en mode Vidage sur incident
 
-Pour analyser les journaux de vidage vous-même, procédez comme suit :
+Pour analyser vous-même les journaux d’activité de vidage, procédez comme suit :
 
 1. Attachez le disque du système d’exploitation à une machine virtuelle de récupération.
 2. Sur le disque du système d’exploitation que vous avez attaché, accédez à **\windows\system32\config**. Copiez tous les fichiers en tant que sauvegarde pour le cas où une restauration serait requise.

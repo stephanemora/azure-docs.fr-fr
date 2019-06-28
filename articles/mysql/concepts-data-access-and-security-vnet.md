@@ -8,10 +8,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/20/2018
 ms.openlocfilehash: 3a7eaacc4c234ec7d1d3d88455bd423256a07e90
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60614863"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mysql"></a>Utiliser des points de terminaison de service de réseau virtuel et des règles pour Azure Database pour MySQL
@@ -108,7 +108,7 @@ Vous avez la possibilité d’utiliser le [contrôle d’accès en fonction du r
 
 Pour Azure Database pour MySQL, la fonctionnalité de règle de réseau virtuel présente les limitations suivantes :
 
-- Une application web peut être mappée à une adresse IP privée dans un sous-réseau/réseau virtuel. Même si les points de terminaison de service sont activés à partir du réseau virtuel/sous-réseau donné, les connexions entre l’application web et le serveur présenteront une source IP publique Azure, et non une source de sous-réseau/réseau virtuel. Pour activer la connectivité à partir d’une application Web vers un serveur qui a des règles de pare-feu de réseau virtuel, vous devez les services Azure est autorisé pour accéder au serveur sur le serveur.
+- Une application web peut être mappée à une adresse IP privée dans un sous-réseau/réseau virtuel. Même si les points de terminaison de service sont activés à partir du réseau virtuel/sous-réseau donné, les connexions entre l’application web et le serveur présenteront une source IP publique Azure, et non une source de sous-réseau/réseau virtuel. Pour activer la connectivité à partir d’une application web vers un serveur disposant de règles de pare-feu de réseau virtuel, vous devez activer le paramètre Autoriser l’accès des services Azure au serveur.
 
 - Dans le pare-feu pour votre serveur Azure Database pour MySQL, chaque règle de réseau virtuel fait référence à un sous-réseau. Tous ces sous-réseaux référencés doivent être hébergés dans la même région géographique qui héberge Azure Database pour MySQL.
 

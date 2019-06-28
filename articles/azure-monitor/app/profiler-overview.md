@@ -13,10 +13,10 @@ ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
 ms.openlocfilehash: c07b325f3de6cd2cf3aaa436736786d2cdc42881
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60306304"
 ---
 # <a name="profile-production-applications-in-azure-with-application-insights"></a>Profiler des applications de production dans Azure avec Application Insights
@@ -30,7 +30,7 @@ Profiler fonctionne avec les applications .NET déployées sur les services Azur
 * [Azure Cloud Services](profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Service Fabric](profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
 * [Machines virtuelles Azure et Virtual Machine Scale Sets](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
-* [**Version préliminaire** ASP.NET Core Azure Linux Web Apps](profiler-aspnetcore-linux.md?toc=/azure/azure-monitor/toc.json) 
+* [**PRÉVERSION** Applications web ASP.NET Core Azure Linux](profiler-aspnetcore-linux.md?toc=/azure/azure-monitor/toc.json) 
 
 Si vous avez activé Profiler et que vous ne voyez pas les traces, consultez notre [Guide de résolution des problèmes](profiler-troubleshooting.md?toc=/azure/azure-monitor/toc.json).
 
@@ -75,7 +75,7 @@ Si **clr!ThePreStub** prend beaucoup de temps pour traiter une demande, la deman
 
 ### <a id="ngencold"></a>Code de chargement ([COLD])
 
-Si le nom de la méthode contient **[COLD]**, par exemple, **mscorlib.ni![COLD]System.Reflection.CustomAttribute.IsDefined**, le runtime du .NET Framework exécute pour la première fois du code qui n’utilise pas d’[optimisation guidée par profil](/cpp/build/profile-guided-optimizations). Pour chaque méthode, il doit s’afficher au maximum une fois pendant le processus.
+Si le nom de la méthode contient **[COLD]** , par exemple, **mscorlib.ni![COLD]System.Reflection.CustomAttribute.IsDefined**, le runtime du .NET Framework exécute pour la première fois du code qui n’utilise pas d’[optimisation guidée par profil](/cpp/build/profile-guided-optimizations). Pour chaque méthode, il doit s’afficher au maximum une fois pendant le processus.
 
 Si le chargement du code prend beaucoup de temps pour une demande, la demande est la première à exécuter la partie non optimisée de la méthode. Vous pouvez envisager d’utiliser un processus de mise en route qui exécute cette partie du code avant que vos utilisateurs y accèdent.
 
@@ -95,9 +95,9 @@ Une méthode comme **SqlCommand.Execute** indique que le code attend la fin d’
 
 **BLOCKED_TIME** indique que le code attend qu’une autre ressource soit disponible. Il peut, par exemple, attendre un objet de synchronisation, la disponibilité d’un thread ou la fin d’une requête.
 
-### <a name="unmanaged-async"></a>Asynchrone non géré
+### <a name="unmanaged-async"></a>Asynchrone non managé
 
-.NET framework émet des événements ETW et transmet l’ID d’activité entre les threads afin que les appels asynchrones peuvent être suivis sur des threads. Code non managé (code natif) et des styles plus anciennes du code asynchrone ne comportent pas ces événements et l’ID d’activité, donc le profileur ne peut pas déterminer quel thread et fonctions qui sont exécutent sur le thread. Cela est étiqueté « Async non managé » dans la pile des appels. Si vous téléchargez le fichier ETW, vous pourrez peut-être utiliser [PerfView](https://github.com/Microsoft/perfview/blob/master/documentation/Downloading.md) pour obtenir plus d’informations sur ce qui se passe.
+.NET Framework émet des événements ETW et transmet les ID d’activité entre les threads pour permettre le suivi des appels asynchrones. Le code non managé (code natif) et les styles de code asynchrone plus anciens ne détectent ni ces événements ni les ID d'activité et dès lors, le profileur n'est pas en mesure de déterminer le thread ou les fonctions en cours d'exécution sur ce thread. Cela est indiqué par « Asynchrone non managé » dans la pile des appels. En téléchargeant le fichier ETW, vous devriez pouvoir utiliser [PerfView](https://github.com/Microsoft/perfview/blob/master/documentation/Downloading.md) pour obtenir plus d’informations sur ce qui se passe.
 
 ### <a id="cpu"></a>Temps processeur
 

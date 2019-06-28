@@ -17,10 +17,10 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: aedf06c5a5e225f0cafb81b17923d6c742da69eb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60506150"
 ---
 # <a name="detailed-ssh-troubleshooting-steps-for-issues-connecting-to-a-linux-vm-in-azure"></a>Étapes détaillées supplémentaires de résolution des problèmes SSH pour la connexion à une machine virtuelle Linux dans Azure
@@ -40,7 +40,7 @@ Les étapes suivantes vous aident à isoler la source du problème et à déterm
 
 2. Sélectionnez **Paramètres** pour examiner les points de terminaison, les adresses IP, les groupes de sécurité réseau et les autres paramètres.
 
-   La machine virtuelle doit avoir un point de terminaison défini pour le trafic SSH que vous pouvez consulter sous **Points de terminaison** ou **[Groupe de sécurité réseau](../../virtual-network/security-overview.md)**. Les points de terminaison pour les machines virtuelles créées à l’aide de Resource Manager sont stockés dans un groupe de sécurité réseau. Vérifiez que les règles ont été appliquées au groupe de sécurité réseau et qu’elles sont référencées dans le sous-réseau.
+   La machine virtuelle doit avoir un point de terminaison défini pour le trafic SSH que vous pouvez consulter sous **Points de terminaison** ou **[Groupe de sécurité réseau](../../virtual-network/security-overview.md)** . Les points de terminaison pour les machines virtuelles créées à l’aide de Resource Manager sont stockés dans un groupe de sécurité réseau. Vérifiez que les règles ont été appliquées au groupe de sécurité réseau et qu’elles sont référencées dans le sous-réseau.
 
 Pour vérifier la connectivité réseau, contrôlez les points de terminaison configurés et déterminez si vous pouvez vous connecter à la machine virtuelle par le biais d’un autre protocole, comme HTTP ou un autre service.
 
@@ -55,7 +55,7 @@ Le client SSH sur votre ordinateur n’a peut-être pas pu se connecter au servi
 * [Groupes de sécurité réseau](#source-4-network-security-groups)
 * [Machine virtuelle Linux Azure](#source-5-linux-based-azure-virtual-machine)
 
-## <a name="source-1-ssh-client-computer"></a>Source 1 : Ordinateur client SSH
+## <a name="source-1-ssh-client-computer"></a>Source 1 : Ordinateur client SSH
 Pour vérifier que votre ordinateur n’est pas la source du problème, vérifiez qu’il peut établir des connexions SSH avec un autre ordinateur Linux local.
 
 ![Diagramme qui indique les composants de l’ordinateur client SSH](./media/detailed-troubleshoot-ssh-connection/ssh-tshoot2.png)
@@ -76,8 +76,8 @@ Si vous utilisez l’authentification par certificat, vérifiez que vous avez ce
 * Chmod 600 ~/.ssh/id_rsa (ou tout autre fichier contenant vos clés privées)
 * Chmod 644 ~/.ssh/known_hosts (contient les hôtes auxquels vous vous êtes connecté via SSH)
 
-## <a name="source-2-organization-edge-device"></a>Source 2 : Appareil du périmètre de l’organisation
-Pour vous assurer que votre appareil de périmètre de l’organisation n’est pas la cause du problème, vérifiez qu’un ordinateur directement connecté à Internet peut établir des connexions SSH à votre machine virtuelle Azure. Si vous accédez à la machine virtuelle via un VPN de site à site ou une connexion Azure ExpressRoute, passez à [Source 4 : Groupes de sécurité réseau](#nsg).
+## <a name="source-2-organization-edge-device"></a>Source 2 : Appareil du périmètre de l’organisation
+Pour vous assurer que votre appareil de périmètre de l’organisation n’est pas la cause du problème, vérifiez qu’un ordinateur directement connecté à Internet peut établir des connexions SSH à votre machine virtuelle Azure. Si vous accédez à la machine virtuelle par le biais d'un VPN site à site ou d'une connexion Azure ExpressRoute, passez à [Source 4 : Groupes de sécurité réseau](#nsg).
 
 ![Diagramme qui met en évidence un appareil du périmètre de l’organisation](./media/detailed-troubleshoot-ssh-connection/ssh-tshoot3.png)
 
@@ -91,9 +91,9 @@ Si vous pouvez créer une connexion SSH avec un ordinateur directement connecté
 
 Contactez votre administrateur réseau pour corriger les paramètres de vos appareils du périmètre de l’organisation pour permettre le trafic SSH avec Internet.
 
-## <a name="source-3-cloud-service-endpoint-and-acl"></a>Source 3 : Point de terminaison de service cloud et de l’ACL
+## <a name="source-3-cloud-service-endpoint-and-acl"></a>Source 3 : Point de terminaison de service cloud et liste de contrôle d'accès
 > [!NOTE]
-> Cette source ne s’applique qu’aux machines virtuelles créées à l’aide du modèle de déploiement Classic. Pour les machines virtuelles qui ont été créés à l’aide de Resource Manager, passez à [source 4 : Groupes de sécurité réseau](#nsg).
+> Cette source ne s’applique qu’aux machines virtuelles créées à l’aide du modèle de déploiement Classic. Pour les machines virtuelles créées à l'aide de Resource Manager, passez à [Source 4 : Groupes de sécurité réseau](#nsg).
 
 Pour vous assurer que le point de terminaison du service cloud et la liste de contrôle d’accès ne sont pas la cause du problème, vérifiez qu’une autre machine virtuelle Azure dans le même réseau virtuel peut se connecter avec SSH.
 
@@ -104,19 +104,19 @@ Si le réseau virtuel ne contient pas une autre machine virtuelle, vous pouvez f
 Si vous pouvez créer une connexion SSH avec une machine virtuelle dans le même réseau virtuel, vérifiez les éléments suivants :
 
 * **la configuration du point de terminaison pour le trafic SSH sur la machine virtuelle cible ;** le port TCP privé du point de terminaison doit correspondre au port TCP écouté par le service SSH de la machine virtuelle. (Par défaut, il s’agit du port 22.) Vérifiez le numéro de port TCP SSH dans le portail Azure en sélectionnant **Machines virtuelles** > *Nom de la machine virtuelle* > **Paramètres** > **Points de terminaison**.
-* **La liste de contrôle d’accès du point de terminaison du trafic SSH sur la machine virtuelle cible.**  Une liste de contrôle d’accès vous permet de spécifier le trafic Internet entrant autorisé ou interdit, en fonction de l’adresse IP source. Une mauvaise configuration des listes de contrôle d’accès peut empêcher le trafic SSH entrant d’accéder au point de terminaison. Consultez vos listes de contrôle d’accès et vérifiez que le trafic entrant provenant des adresses IP publiques de votre proxy ou d’un autre serveur de périmètre est autorisé. Pour plus d'informations, consultez [À propos des listes de contrôle d'accès (ACL) réseau](../../virtual-network/virtual-networks-acl.md).
+* **La liste de contrôle d’accès du point de terminaison du trafic SSH sur la machine virtuelle cible.** Une liste de contrôle d’accès vous permet de spécifier le trafic Internet entrant autorisé ou interdit, en fonction de l’adresse IP source. Une mauvaise configuration des listes de contrôle d’accès peut empêcher le trafic SSH entrant d’accéder au point de terminaison. Consultez vos listes de contrôle d’accès et vérifiez que le trafic entrant provenant des adresses IP publiques de votre proxy ou d’un autre serveur de périmètre est autorisé. Pour plus d'informations, consultez [À propos des listes de contrôle d'accès (ACL) réseau](../../virtual-network/virtual-networks-acl.md).
 
 Pour vérifier que le point de terminaison n’est pas la source du problème, supprimez le point de terminaison actuel, créez-en un autre et spécifiez le nom SSH (port TCP 22 comme port public et privé). Pour plus d’informations, consultez [Configuration des points de terminaison sur une machine virtuelle dans Azure](../windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 <a id="nsg"></a>
 
-## <a name="source-4-network-security-groups"></a>Source 4 : Groupes de sécurité réseau
+## <a name="source-4-network-security-groups"></a>Source 4 : Groupes de sécurité réseau
 Les groupes de sécurité réseau vous permettent de mieux contrôler le trafic entrant et sortant autorisé. Vous pouvez créer des règles qui s’étendent aux sous-réseaux et aux services cloud d’un réseau virtuel Azure. Vérifiez les règles de votre groupe de sécurité réseau pour vous assurer que le trafic SSH vers et depuis Internet est autorisé.
 Pour plus d'informations, consultez [À propos des groupes de sécurité réseau](../../virtual-network/security-overview.md).
 
 Vous pouvez également utiliser Vérification IP pour valider la configuration NSG. Pour plus d’informations, consultez [Vue d’ensemble de la surveillance réseau Azure](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview). 
 
-## <a name="source-5-linux-based-azure-virtual-machine"></a>Source 5 : Machine virtuelle Azure Linux
+## <a name="source-5-linux-based-azure-virtual-machine"></a>Source 5 : Machine virtuelle Azure Linux
 La dernière source des problèmes possibles est la machine virtuelle Azure elle-même.
 
 ![Diagramme qui met en évidence une machine virtuelle Azure Linux](./media/detailed-troubleshoot-ssh-connection/ssh-tshoot5.png)

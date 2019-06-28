@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: milanga;cenkdin;juliako
 ms.openlocfilehash: c688169dc21304f234aead7196f377a3fa5fd633
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60407307"
 ---
 # <a name="update-media-services-after-rolling-storage-access-keys"></a>Mettre à jour Media Services après la substitution de clés d’accès de stockage 
@@ -44,7 +44,7 @@ Media Services dépend d'une clé de stockage qui lui est fournie. Plus précis�
 ## <a name="steps-to-rotate-storage-keys"></a>Étapes de régénération des clés de stockage 
  
  1. Modifiez la clé primaire du compte de stockage par le biais de l’applet de commande Powershell ou du portail [Azure](https://portal.azure.com/).
- 2. Appelez l’applet de commande Sync-AzMediaServiceStorageKeys avec les paramètres appropriés pour forcer le compte multimédia à assimiler les clés de compte de stockage
+ 2. Appelez la cmdlet Sync-AzMediaServiceStorageKeys avec les paramètres appropriés pour forcer le compte multimédia à utiliser les clés de compte de stockage.
  
     L’exemple suivant montre comment synchroniser des clés avec des comptes de stockage.
   
@@ -52,7 +52,7 @@ Media Services dépend d'une clé de stockage qui lui est fournie. Plus précis�
   
  3. Attendez environ une heure. Vérifiez que les scénarios de streaming fonctionnent.
  4. Modifiez la clé secondaire du compte de stockage par le biais de l’applet de commande Powershell ou du portail Azure.
- 5. Appelez powershell AzMediaServiceStorageKeys de synchronisation avec les paramètres appropriés pour forcer le compte multimédia à assimiler les nouvelles clés de compte de stockage. 
+ 5. Appelez la cmdlet Sync-AzMediaServiceStorageKeys avec les paramètres appropriés pour forcer le compte multimédia à utiliser de nouvelles clés de compte de stockage. 
  6. Attendez environ une heure. Vérifiez que les scénarios de streaming fonctionnent.
  
 ### <a name="a-powershell-cmdlet-example"></a>Exemple d’applet de commande PowerShell 

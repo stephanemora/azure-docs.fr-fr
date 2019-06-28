@@ -1,6 +1,6 @@
 ---
-title: Configurer la gestion des prospects marketo | Place de marché Azure
-description: Configurer la gestion des prospects pour Marketo pour les clients de la place de marché Azure.
+title: Configurer la gestion des prospects dans Marketo | Place de marché Azure
+description: Configurez la gestion des prospects dans Marketo pour les clients de la place de marché Azure.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
 ms.service: marketplace
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: pabutler
 ms.openlocfilehash: d749a92a1837bad053dc586477bfc27fc65299fa
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64935212"
 ---
 # <a name="configure-lead-management-in-marketo"></a>Configurer la gestion des prospects dans Marketo

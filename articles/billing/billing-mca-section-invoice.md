@@ -1,6 +1,6 @@
 ---
 title: Créer des sections sur votre facture pour organiser vos coûts - Azure | Microsoft Docs
-description: Apprenez à organiser vos coûts avec les sections de facture.
+description: Découvrez comment organiser les coûts avec des sections de facture.
 services: ''
 author: amberbhargava
 manager: amberb
@@ -12,21 +12,21 @@ ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
 ms.openlocfilehash: 21d6c1671c57341d785c002f360c05cc5c610657
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60371611"
 ---
 # <a name="create-sections-on-your-invoice-to-organize-your-costs"></a>Créer des sections sur votre facture pour organiser vos coûts
 
-Créer des sections sur votre facture pour organiser vos coûts par un département, environnement de développement, ou selon les besoins de votre organisation. Ensuite autoriser d’autres utilisateurs à créer des abonnements Azure pour la section. Les frais d’utilisation ou les achats pour les abonnements reflètent sur la section de la facture. Afficher le total des frais pour la section sur votre facture, dans le portail Azure, ou les afficher dans l’analyse des coûts Azure. Pour plus d’informations, consultez [afficher les transactions en sections de facture](billing-mca-understand-your-bill.md#view-transactions-by-invoice-sections).
+Créez des sections dans votre facture pour organiser les coûts par département, par environnement de développement ou en fonction des besoins de votre organisation. Autorisez ensuite d’autres utilisateurs à créer des abonnements Azure pour la section. Tous les frais d’utilisation ou les achats liés aux abonnements sont ensuite repris dans la section de la facture. Consultez le total des frais pour la section sur votre facture dans le portail Azure ou dans l’analyse des coûts Azure. Pour plus d’informations, consultez [Voir les transactions par section de facture](billing-mca-understand-your-bill.md#view-transactions-by-invoice-sections).
 
-Cet article s’applique à un compte de facturation d’un contrat de client de Microsoft. [Vérifiez si vous avez accès à un contrat de client Microsoft](#check-access-to-a-microsoft-customer-agreement).
+Cet article s’applique à un compte de facturation associé à un Contrat client Microsoft. [Vérifiez que vous avez accès à un Contrat client Microsoft](#check-access-to-a-microsoft-customer-agreement).
 
 ## <a name="create-an-invoice-section-in-the-azure-portal"></a>Créer une section de facture dans le portail Azure
 
-Pour créer une section de facture, vous devez être un **propriétaire de profil de facturation** ou un **facturation contributeur du profil**. Pour plus d’informations, consultez [gérer les sections de facture pour le profil de facturation](billing-understand-mca-roles.md#manage-invoice-sections-for-billing-profile).
+Pour créer une section de facture, vous devez être **propriétaire de profil de facturation** ou **contributeur de profil de facturation**. Pour plus d’informations, consultez [Gérer les sections de facture associées au profil de facturation](billing-understand-mca-roles.md#manage-invoice-sections-for-billing-profile).
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 
@@ -34,28 +34,28 @@ Pour créer une section de facture, vous devez être un **propriétaire de profi
 
    ![Capture d’écran montrant la recherche dans le portail Azure](./media/billing-mca-section-invoice/billing-search-cost-management-billing.png)
 
-3. Sélectionnez **sections de facture** dans le volet gauche. Selon votre accès, vous devrez peut-être sélectionner un profil de facturation ou d’un compte de facturation, puis sélectionnez **sections de facture**.
+3. Sélectionnez **Sections de facture** dans le volet de gauche. Selon votre accès, vous devrez peut-être sélectionner un compte ou profil de facturation, puis sélectionner **Sections de facture**.
 
    ![Capture d’écran montrant la recherche dans le portail Azure](./media/billing-mca-section-invoice/billing-mca-list-invoice-sections.png)
 
 4. En haut de la page, sélectionnez **Ajouter**.
 
-5. Entrez le nom de la section de la facture.
+5. Entrez le nom de la section de facture.
 
-   ![Capture d’écran montrant la page de création de section de facture](./media/billing-mca-section-invoice/mca-create-invoice-section.png)
+   ![Capture d’écran montrant la page de création de la section de facture](./media/billing-mca-section-invoice/mca-create-invoice-section.png)
 
-6. Sélectionnez un profil de facturation. Tout frais d’utilisation ou des achats de la section facture mentionnera sur la facture de facturation du profil.
+6. Sélectionnez un profil de facturation. Tous les frais d’utilisation ou les achats liés à la section de facture seront repris dans la facture du profil de facturation.
 
 7. Sélectionnez **Créer**.
 
-## <a name="check-access-to-a-microsoft-customer-agreement"></a>Vérifiez l’accès à un contrat de client de Microsoft
+## <a name="check-access-to-a-microsoft-customer-agreement"></a>Vérifier l’accès à un Contrat client Microsoft
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Créer un nouvel abonnement Azure pour le contrat de client de Microsoft](billing-mca-create-subscription.md)
-- [Autoriser d’autres utilisateurs à créer un abonnement Azure](billing-mca-create-subscription.md#give-others-permission-to-create-azure-subscriptions)
-- [Obtenir la propriété de facturation des abonnements Azure auprès d’utilisateurs dans d’autres comptes de facturation](billing-mca-request-billing-ownership.md)
+- [Créer un abonnement Azure associé dans le cadre de votre Contrat client Microsoft](billing-mca-create-subscription.md)
+- [Autoriser d’autres utilisateurs à créer des abonnements Azure](billing-mca-create-subscription.md#give-others-permission-to-create-azure-subscriptions)
+- [Obtenir la propriété de facturation des abonnements des utilisateurs d’autres comptes de facturation](billing-mca-request-billing-ownership.md)
 
 ## <a name="need-help-contact-support"></a>Vous avez besoin d’aide ? Contacter le support technique
 

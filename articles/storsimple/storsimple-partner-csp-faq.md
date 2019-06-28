@@ -15,16 +15,16 @@ ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
 ms.openlocfilehash: 4750ba55c08ebac244e7515cae4e998155a79599
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60628867"
 ---
 # <a name="storsimple-for-cloud-solutions-provider-program-frequently-asked-questions"></a>StorSimple pour le programme des fournisseurs de solutions cloud : Forum Aux Questions (FAQ)
 
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 Vous trouverez ci-dessous une suite de questions-réponses sur les problématiques que vous pouvez rencontrer en tant que partenaire StorSimple, lorsque vous déployez ou gérez une instance StorSimple Virtual Array dans le portail Azure.
 
 Les questions/réponses sont organisées en plusieurs catégories :
@@ -50,7 +50,7 @@ Oui. Le modèle est un programme de remise en gros, à l’instar d’autres ser
 Il s’agit des références disponibles avec les services StorSimple autonomes. 
 
 ### <a name="is-there-any-difference-between-the-storsimple-directly-purchased-from-microsoft-under-ea-and-storsimple-as-a-part-of-csp"></a>Existe-t-il une différence entre le service StorSimple acheté directement auprès de Microsoft, par le biais du Contrat Entreprise, et StorSimple dans le cadre du programme des fournisseurs de solutions cloud ?
- Non. Dans le cadre du programme des fournisseurs de solutions cloud, les clients peuvent également acheter d’autres services proposés par le partenaire, en parallèle de StorSimple Virtual Array (SVA), sous une seule facture. Notez toutefois que pour se doter de l’appareil physique StorSimple gamme 8000, les clients doivent opter pour le Contrat Entreprise. 
+Non. Dans le cadre du programme des fournisseurs de solutions cloud, les clients peuvent également acheter d’autres services proposés par le partenaire, en parallèle de StorSimple Virtual Array (SVA), sous une seule facture. Notez toutefois que pour se doter de l’appareil physique StorSimple gamme 8000, les clients doivent opter pour le Contrat Entreprise. 
 
 ### <a name="in-which-markets-is-storsimple-available-for-csp-at-launch"></a>Dans quels marchés puis-je trouver StorSimple disponible au lancement pour le programme des fournisseurs de solutions cloud ?
 StorSimple Virtual Array pour le programme des fournisseurs de solutions cloud est disponible dans tous les marchés dans lesquels StorSimple est disponible à ce jour. Pour plus d’informations, accédez à la [liste des régions dans lesquelles StorSimple est disponible](https://azure.microsoft.com/regions/services/).
@@ -63,7 +63,7 @@ Il existe plusieurs solutions :
 - Ils peuvent également découvrir de nouveaux modèles d’entreprise, en fournissant des services gérés.
 
 ### <a name="what-are-the-incentives-available-for-storsimple-csp-partners-do-i-qualify-for-any-csp-program-incentives"></a>Quelles sont les primes disponibles pour les partenaires du programme des fournisseurs de solutions cloud StorSimple ? Suis-je éligible à une prime du programme des fournisseurs de solutions cloud ?
-Pour plus d’informations sur les primes, accédez à [prime du programme CSP](https://partner.microsoft.com/en-US/cloud-solution-provider/program-details).
+Pour plus d'informations sur les primes, accédez à la [page descriptive des primes du programme des fournisseurs de solutions cloud](https://partner.microsoft.com/en-US/cloud-solution-provider/program-details).
 
 
 ## <a name="deploy-and-manage-storsimple-as-a-partner"></a>Déployer et gérer StorSimple en tant que partenaire

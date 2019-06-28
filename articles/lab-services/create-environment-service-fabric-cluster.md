@@ -1,6 +1,6 @@
 ---
-title: Créer un environnement avec un cluster Service Fabric dans Azure DevTest Labs | Microsoft Docs
-description: Découvrez comment créer un environnement avec un cluster Service Fabric autonome et démarrer et arrêter le cluster à l’aide de planifications.
+title: Créer un environnement avec un cluster Service Fabric dans Azure DevTest Labs | Microsoft Docs
+description: Découvrez comment créer un environnement avec un cluster Service Fabric autonome et comment démarrer et arrêter ce cluster à l’aide de planifications.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: EMaher
@@ -15,120 +15,120 @@ ms.topic: article
 ms.date: 03/01/2019
 ms.author: enewman
 ms.openlocfilehash: 9848f197800c391285c4065685b910685f0ac64b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60312077"
 ---
-# <a name="create-an-environment-with-self-contained-service-fabric-cluster-in-azure-devtest-labs"></a>Créer un environnement avec un cluster autonome Service Fabric dans Azure DevTest Labs
-Cet article fournit des informations sur la façon de créer un environnement avec un cluster Service Fabric autonome dans Azure DevTest Labs. 
+# <a name="create-an-environment-with-self-contained-service-fabric-cluster-in-azure-devtest-labs"></a>Créer un environnement avec un cluster Service Fabric autonome dans Azure DevTest Labs
+Cet article fournit des informations sur la création d’un environnement avec un cluster Service Fabric autonome dans Azure DevTest Labs. 
 
 ## <a name="overview"></a>Vue d'ensemble
-DevTest Labs peuvent créer des environnements de test autonome tel que défini par les modèles Azure Resource Manager. Ces environnements contiennent les deux ressources IaaS, comme les machines virtuelles et les ressources PaaS, comme Service Fabric. DevTest Labs vous permet de gérer les machines virtuelles dans un environnement en fournissant des commandes permettant de contrôler les machines virtuelles. Ces commandes vous permettent de démarrer ou arrêter une machine virtuelle sur une planification. De même, DevTest Labs peut également vous aider à gérer des clusters Service Fabric dans un environnement. Vous pouvez démarrer ou arrêter un cluster Service Fabric dans un environnement manuellement ou via une planification.
+DevTest Labs peut créer des environnements de test autonomes tels que définis par les modèles Azure Resource Manager. Ces environnements contiennent les deux ressources IaaS, comme les machines virtuelles et les ressources PaaS, comme Service Fabric. DevTest Labs vous permet de gérer des machines virtuelles dans un environnement avec des commandes permettant de contrôler ces machines virtuelles. Ces commandes vous permettent de démarrer ou d’arrêter une machine virtuelle en fonction d’une planification. De même, DevTest Labs peut aussi vous aider à gérer les clusters Service Fabric dans un environnement. Vous pouvez démarrer ou arrêter un cluster Service Fabric dans un environnement manuellement ou via une planification.
 
 ## <a name="create-a-service-fabric-cluster"></a>Créer un cluster Service Fabric
-Clusters service Fabric sont créés à l’aide d’environnements dans DevTest Labs. Chaque environnement est définie par un modèle Azure Resource Manager dans un référentiel Git. Le [référentiel Git public](https://github.com/Azure/azure-devtestlab/tree/master/Environments/) pour dev/test contient le modèle Resource Manager pour créer un cluster Service Fabric dans le [service Fabric-Cluster](https://github.com/Azure/azure-devtestlab/tree/master/Environments/ServiceFabric-LabCluster) dossier. 
+Les clusters Service Fabric sont créés à l’aide des environnements dans DevTest Labs. Chaque environnement est défini par un modèle Azure Resource Manager dans un référentiel Git. Le [référentiel Git public](https://github.com/Azure/azure-devtestlab/tree/master/Environments/) de DevTest Labs contient le modèle Resource Manager permettant de créer un cluster Service Fabric dans le dossier [ServiceFabric-Cluster](https://github.com/Azure/azure-devtestlab/tree/master/Environments/ServiceFabric-LabCluster). 
 
-1. Commencez par créer un laboratoire dans Azure DevTest Labs à l’aide des instructions dans l’article suivant : [Créer un laboratoire](devtest-lab-create-lab.md). Notez que le **des environnements publics** option est **sur** par défaut. 
-2. Vérifiez que le fournisseur de Service Fabric est inscrit pour votre abonnement en suivant ces étapes :
-    1. Sélectionnez **abonnements** sur le menu de navigation gauche, puis sélectionnez votre **abonnement**
-    2. Sur le **abonnement** page, sélectionnez **fournisseurs de ressources** dans le **paramètres** section dans le menu de gauche. 
-    3. Si **Microsoft.ServiecFabric** n’est pas inscrit, sélectionnez **inscrire**. 
+1. Commencez par créer un labo dans Azure DevTest Labs à l’aide des instructions de l’article suivant : [Créez un labo](devtest-lab-create-lab.md). Notez que l’option **Environnements publics** est **activée** par défaut. 
+2. Vérifiez que le fournisseur Service Fabric est inscrit pour votre abonnement en procédant comme suit :
+    1. Sélectionnez **Abonnements** dans le menu de navigation de gauche, puis sélectionnez votre **abonnement**
+    2. Dans la page **Abonnement**, sélectionnez **Fournisseurs de ressources** dans la section **Paramètres** du menu de gauche. 
+    3. Si **Microsoft.ServiceFabric** n’est pas inscrit, sélectionnez **Inscrire**. 
 3. Dans la page **DevTest Lab** pour votre labo, sélectionnez **+ Ajouter** dans la barre d’outils. 
     
-    ![Ajouter un bouton sur la barre d’outils](./media/create-environment-service-fabric-cluster/add-button.png)
-3. Sur le **choisir une base** page, sélectionnez **Cluster Service Fabric Lab** dans la liste. 
+    ![Ajouter un bouton à la barre d’outils](./media/create-environment-service-fabric-cluster/add-button.png)
+3. Dans la page **Choisir une base**, sélectionnez **Cluster Service Fabric Lab** dans la liste. 
 
-    ![Sélectionnez le Cluster Service Fabric Lab dans la liste](./media/create-environment-service-fabric-cluster/select-service-fabric-cluster.png)
-4. Sur le **configurer les paramètres** , effectuez les étapes suivantes : 
-    1. Spécifiez un **nom** pour votre cluster **environnement**. Il s’agit du nom du groupe de ressources dans Azure dans lequel le cluster Service Fabric va être créé. 
-    2. Sélectionnez le **système d’exploitation (se)** pour les machines virtuelles de cluster. La valeur par défaut est : **Windows**.
-    3. Spécifiez un nom pour le **administrateur** pour le cluster. 
-    4. Spécifiez un **mot de passe** pour l’administrateur. 
-    5. Pour le **certificat**, entrez vos informations de certificat sous forme de chaîne codée en Base64. Pour créer un certificat, procédez comme suit :
-        1. Téléchargez le **ClusterCertificate.ps1 de créer** de fichiers à partir de la [référentiel Git](https://github.com/Azure/azure-devtestlab/tree/master/Environments/ServiceFabric-LabCluster). Vous pouvez également cloner le référentiel sur votre ordinateur. 
+    ![Sélectionnez Cluster Service Fabric Lab dans la liste](./media/create-environment-service-fabric-cluster/select-service-fabric-cluster.png)
+4. Dans la page **Configurer les paramètres**, effectuez les étapes suivantes : 
+    1. Spécifiez le **nom** de votre **environnement** de cluster. Il s’agit du nom du groupe de ressources dans Azure dans lequel le cluster Service Fabric va être créé. 
+    2. Sélectionnez le **système d’exploitation** des machines virtuelles du cluster. La valeur par défaut est : **Windows**.
+    3. Spécifiez le nom de l’**administrateur** du cluster. 
+    4. Spécifiez le **mot de passe** de l’administrateur. 
+    5. Pour le **certificat**, entrez vos informations de certificat sous forme de chaîne codée en Base64. Pour créer un fichier de certificat, procédez comme suit :
+        1. Téléchargez le fichier **Create-ClusterCertificate.ps1** dans le [référentiel Git](https://github.com/Azure/azure-devtestlab/tree/master/Environments/ServiceFabric-LabCluster). Vous pouvez également cloner le référentiel sur votre ordinateur. 
         2. Lancez **PowerShell**. 
-        3. Exécutez le **ps1** fichier à l’aide de la commande `.\Create-ClusterCertificate.ps1`. Vous consultez un fichier texte ouvert dans le bloc-notes avec les informations que nécessaires pour remplir les champs de certificat sur cette page. . 
-    6. Entrez le **mot de passe pour le certificat**.
-    7. Spécifiez le **empreinte** pour votre certificat.
-    8. Sélectionnez **ajouter** sur le **configurer les paramètres** page. 
+        3. Exécutez le fichier **ps1** à l’aide de la commande `.\Create-ClusterCertificate.ps1`. Vous voyez alors un fichier texte ouvert dans le Bloc-notes, avec les informations dont vous avez besoin pour remplir les champs du certificat sur cette page. . 
+    6. Entrez le **mot de passe** du certificat.
+    7. Spécifiez l’**empreinte numérique** de votre certificat.
+    8. Sélectionnez **Ajouter** dans la page **Configurer les paramètres**. 
 
-        ![Configurer les paramètres de cluster](./media/create-environment-service-fabric-cluster/configure-settings.png)
-5. Une fois que le cluster est créé, vous consultez un groupe de ressources portant le nom de l’environnement que vous avez fourni à l’étape précédente. Lorsque vous développez, vous consultez le cluster Service Fabric qu’il contient. Si l’état du groupe de ressources est bloqué au niveau **création**, sélectionnez **Actualiser** sur la barre d’outils. Le **cluster Service Fabric** environment crée un cluster à 5 nœuds 1-nodetype sur Linux ou Windows.
+        ![Configurer les paramètres du cluster](./media/create-environment-service-fabric-cluster/configure-settings.png)
+5. Une fois le cluster créé, vous voyez un groupe de ressources portant le nom de l’environnement que vous avez fourni à l’étape précédente. Lorsque vous le développez, vous voyez le cluster Service Fabric qu’il contient. Si l’état du groupe de ressources est bloqué au niveau **Création**, sélectionnez **Actualiser** dans la barre d’outils. L’environnement de **cluster Service Fabric** crée un cluster à 5 nœuds 1-nodetype sur Linux ou Windows.
 
-    Dans l’exemple suivant, **mysfabricclusterrg** est le nom du groupe de ressources qui est créé spécifiquement pour le cluster Service Fabric. Il est important de noter que les environnements lab sont autonomes dans le groupe de ressources dans lequel ils sont créés. Cela signifie que le modèle qui définit l’environnement, qui peut accéder uniquement aux ressources au sein du groupe de ressources nouvellement créé ou [des réseaux virtuels configurés pour être utilisés par le laboratoire](devtest-lab-configure-vnet.md). Cet exemple ci-dessus crée toutes les ressources requises dans le même groupe de ressources.
+    Dans l’exemple suivant, **mysfabricclusterrg** est le nom du groupe de ressources qui est créé spécifiquement pour le cluster Service Fabric. Il est important de noter que les environnements lab sont autonomes dans le groupe de ressources dans lequel ils sont créés. Cela signifie que le modèle qui définit l’environnement peut accéder uniquement aux ressources au sein du groupe de ressources nouvellement créé ou [des réseaux virtuels configurés pour être utilisés par le labo](devtest-lab-configure-vnet.md). Cet exemple crée toutes les ressources requises dans le même groupe de ressources.
 
     ![Cluster créé](./media/create-environment-service-fabric-cluster/cluster-created.png)
 
 ## <a name="start-or-stop-the-cluster"></a>Démarrer ou arrêter le cluster
-Vous pouvez démarrer ou arrêter le cluster à partir de la page dev/Test Lab lui-même ou de la page de Cluster Service Fabric fourni par dev/test. 
+Vous pouvez démarrer ou arrêter le cluster à partir de la page DevTest Lab ou de la page du cluster Service Fabric fourni par DevTest Labs. 
 
-### <a name="from-the-devtest-lab-page"></a>À partir de la page de dev/Test Lab
-Vous pouvez démarrer ou arrêter le cluster sur la page de dev/Test Lab pour votre laboratoire. 
+### <a name="from-the-devtest-lab-page"></a>À partir de la page DevTest Lab
+Vous pouvez démarrer ou arrêter le cluster sur la page DevTest Lab de votre labo. 
 
-1. Sélectionnez **points de suspension (...)**  pour le cluster Service Fabric, comme illustré dans l’image suivante : 
+1. Sélectionnez les **points de suspension (...)** pour le cluster Service Fabric, comme illustré dans l’image suivante : 
 
-    ![Démarrer et arrêter des commandes pour le cluster](./media/create-environment-service-fabric-cluster/start-stop-on-devtest-lab-page.png)
+    ![Commandes de démarrage et d’arrêt pour le cluster](./media/create-environment-service-fabric-cluster/start-stop-on-devtest-lab-page.png)
 
-2. Vous voyez deux commandes dans le menu contextuel pour **Démarrer** et **arrêter** le cluster. La commande start démarre tous les nœuds dans un cluster. La commande stop arrête tous les nœuds dans un cluster. Une fois un cluster est arrêté, le cluster Service Fabric reste dans un état prêt, mais aucun nœud n’est disponibles jusqu'à ce que la commande de démarrage est réémise sur le cluster dans le laboratoire.
+2. Le menu contextuel propose deux commandes pour **démarrer** et **arrêter** le cluster. La commande de démarrage démarre tous les nœuds dans un cluster. La commande d’arrêt arrête démarre tous les nœuds dans un cluster. Une fois un cluster arrêté, le cluster Service Fabric reste prêt, mais aucun nœud n’est disponible jusqu’à ce que la commande de démarrage soit réémise sur le cluster dans le labo.
 
-    Il existe quelques points à noter lorsque vous utilisez un cluster Service Fabric dans un environnement de test. Il peut prendre un certain temps pour le cluster Service Fabric rafraîchir entièrement une fois que les nœuds ont été redémarrés. Pour conserver les données à partir de l’arrêt du démarrage, les données doivent être sauvegardées sur un disque managé est attaché à la machine virtuelle. Il existe des conséquences sur les performances lors de l’utilisation d’un disque géré connecté, il est donc recommandé pour les environnements de test uniquement. Si le disque utilisé pour le stockage de données n’est pas sauvegardé, données sont perdues lors de la commande d’arrêt est émise sur le cluster.
+    Il existe quelques points à tenir en tête lorsque vous utilisez un cluster Service Fabric dans un environnement de test. Il peut s’écouler un certain temps avant que le cluster Service Fabric ne soit totalement actualisé une fois que les nœuds ont été redémarrés. Pour conserver les données entre l’arrêt et le démarrage, les données doivent être sauvegardées sur un disque managé attaché à la machine virtuelle. L’utilisation d’un disque managé connecté a des conséquences sur les performances et il est donc recommandé pour les environnements de test uniquement. Si le disque utilisé pour le stockage de données n’est pas sauvegardé, les données sont perdues lorsque la commande d’arrêt est émise sur le cluster.
 
-### <a name="from-the-service-fabric-cluster-page"></a>À partir de la page de Cluster Service Fabric 
-Une autre méthode consiste à démarrer ou arrêter le cluster. 
+### <a name="from-the-service-fabric-cluster-page"></a>Depuis la page du cluster Service Fabric 
+Il existe une autre méthode pour démarrer ou arrêter le cluster. 
 
-1. Dans l’arborescence sur la page de dev/Test Lab, sélectionnez votre cluster Service Fabric. 
+1. Dans l’arborescence de la page DevTest Lab, sélectionnez votre cluster Service Fabric. 
 
-    ![Sélectionnez votre cluster](./media/create-environment-service-fabric-cluster/select-cluster.png)
+    ![Sélectionner votre cluster](./media/create-environment-service-fabric-cluster/select-cluster.png)
 
-2. Sur le **Cluster Service Fabric** page pour le cluster, vous consultez les commandes sur la barre d’outils pour démarrer ou arrêter le cluster. 
+2. Dans la page **Cluster Service Fabric** de votre cluster, vous voyez les commandes sur la barre d’outils pour démarrer ou arrêter le cluster. 
 
-    ![Démarrer ou arrêter des commandes dans la page de Cluster Service Fabric](./media/create-environment-service-fabric-cluster/start-stop-on-cluster-page.png)
+    ![Commandes de démarrage et d’arrêt sur la page de cluster Service Fabric](./media/create-environment-service-fabric-cluster/start-stop-on-cluster-page.png)
 
-## <a name="configure-auto-startup-and-auto-shutdown-schedule"></a>Configurer le démarrage automatique et planification d’arrêt automatique
-Clusters service Fabric peuvent également être démarrés ou arrêtés selon une planification. Cette expérience est similaire à l’expérience des machines virtuelles dans un laboratoire. Pour réaliser des économies, par défaut, chaque cluster créé automatiquement dans un laboratoire s’est arrêtée au moment défini par le laboratoire [stratégie d’arrêt](devtest-lab-get-started-with-lab-policies.md#set-auto-shutdown). Vous pouvez remplacer en spécifiant si le cluster doit être arrêté ou en spécifiant le temps que le cluster est arrêté. 
+## <a name="configure-auto-startup-and-auto-shutdown-schedule"></a>Configurer le démarrage automatique et l’arrêt automatique
+Les clusters Service Fabric peuvent également être démarrés ou arrêtés en fonction d’une planification. Cette expérience est similaire à l’expérience des machines virtuelles dans un labo. Pour réaliser des économies, par défaut, chaque cluster créé automatiquement dans un labo s’arrête automatiquement au moment défini par la [stratégie d’arrêt](devtest-lab-get-started-with-lab-policies.md#set-auto-shutdown) du labo. Vous pouvez remplacer cette configuration en spécifiant si le cluster doit être arrêté ou en spécifiant l’heure à laquelle le cluster est arrêté. 
 
-![Planifications existantes pour le démarrage automatique et d’arrêt automatique](./media/create-environment-service-fabric-cluster/existing-schedules.png)
+![Planifications existantes pour le démarrage automatique et l’arrêt automatique](./media/create-environment-service-fabric-cluster/existing-schedules.png)
 
-### <a name="opt-in-to-the-auto-start-schedule"></a>S’abonner à la planification du démarrage automatique
-Pour vous abonner à la planification de démarrage, procédez comme suit :
+### <a name="opt-in-to-the-auto-start-schedule"></a>Accepter la planification du démarrage automatique
+Pour accepter la planification de démarrage, procédez comme suit :
 
-1. Sélectionnez **démarrage automatique** sur le menu de gauche
-2. Sélectionnez **sur** pour **autoriser ce cluster service fabric est planifié pour le démarrage automatique**. Cette page est activée uniquement si le propriétaire de laboratoire a autorisé les utilisateurs de démarrer automatiquement leurs ordinateurs virtuels ou les clusters Service Fabric.
+1. Sélectionnez **Démarrage automatique** dans le menu de gauche.
+2. Sélectionnez **Activé** pour **Autoriser la planification du démarrage automatique pour ce cluster Service Fabric**. Cette page est activée uniquement si le propriétaire du labo a autorisé les utilisateurs à démarrer automatiquement leurs machines virtuelles ou leurs clusters Service Fabric.
 3. Sélectionnez **Enregistrer** dans la barre d’outils. 
 
-    ![Page en étoile automatiques](./media/create-environment-service-fabric-cluster/set-auto-start-settings.png)
+    ![Page de démarrage automatique](./media/create-environment-service-fabric-cluster/set-auto-start-settings.png)
 
 ### <a name="configure-auto-shutdown-settings"></a>Configurer les paramètres d’arrêt automatique 
 Pour modifier les paramètres d’arrêt, procédez comme suit :
 
-1. Sélectionnez **arrêt automatique** sur le menu de gauche. 
-2. Dans cette page, vous pouvez refuser l’arrêt automatique en sélectionnant **hors** pour **activé**. 
-3. Si vous avez sélectionné **sur** pour **activé**, procédez comme suit :
-    1. Spécifiez le **temps** d’arrêt.
-    2. Spécifiez le **fuseau horaire** pour le moment. 
-    3. Spécifiez si vous souhaitez dev/test pour envoyer **notifications** avant l’arrêt automatique. 
-    4. Si vous avez sélectionné **Oui** pour l’option de notification, spécifiez la **URL du Webhook** et/ou **adresse de messagerie** pour envoyer des notifications. 
+1. Sélectionnez **Arrêt automatique** dans le menu de gauche. 
+2. Sur cette page, vous pouvez refuser l’arrêt automatique en sélectionnant **Désactivé** pour **Activé**. 
+3. Si vous avez sélectionné **Activé** pour **Activé**, procédez comme suit :
+    1. Spécifiez l’**heure** de l’arrêt.
+    2. Spécifiez le **fuseau horaire** de l’heure. 
+    3. Spécifiez si vous souhaitez que DevTest Labs vous envoie des **notifications** avant l’arrêt automatique. 
+    4. Si vous avez sélectionné **Oui** pour l’option de notification, spécifiez l’**URL du Webhook** et/ou l’**adresse e-mail** à laquelle envoyer les notifications. 
     5. Sélectionnez **Enregistrer** dans la barre d’outils.
 
-        ![Auto arrêter de page](./media/create-environment-service-fabric-cluster/auto-shutdown-settings.png)
+        ![Page de l’arrêt automatique](./media/create-environment-service-fabric-cluster/auto-shutdown-settings.png)
 
-## <a name="to-view-nodes-in-the-service-fabric-cluster"></a>Pour afficher les nœuds du cluster Service Fabric
-La page du cluster Service Fabric que vous avez vu précédemment dans la procédure est spécifique à la page de dev/test. Il ne vous montre les nœuds du cluster. Pour afficher plus d’informations sur le cluster, procédez comme suit :
+## <a name="to-view-nodes-in-the-service-fabric-cluster"></a>Pour voir les nœuds dans le cluster Service Fabric
+La page du cluster Service Fabric que vous avez vue précédemment dans la procédure est spécifique à la page DevTest Labs. Elle ne vous montre pas les nœuds du cluster. Pour voir plus d’informations sur le cluster, procédez comme suit :
 
-1. Sur le **dev/Test Lab** page pour votre laboratoire, sélectionnez le **groupe de ressources** dans l’arborescence dans le **mes machines virtuelles** section.
+1. Sur la page **DevTest Lab** de votre labo, sélectionnez le **groupe de ressources** dans l’arborescence dans la section **Mes machines virtuelles**.
 
     ![Sélection du groupe de ressources](./media/create-environment-service-fabric-cluster/select-resource-group.png)
-2. Sur le **groupe de ressources** page, vous voyez toutes les ressources du groupe de ressources dans une liste. Sélectionnez votre **cluster Service Fabric** dans la liste. 
+2. Pour voir toutes les ressources d’un groupe de ressources sous forme de liste, utilisez la page **Groupe de ressources**. Sélectionnez votre **cluster Service Fabric** dans la liste. 
 
     ![Sélectionnez votre cluster dans la liste](./media/create-environment-service-fabric-cluster/select-cluster-resource-group-page.png)
-3. Vous voyez la **Cluster Service Fabric** page de votre cluster. Il s’agit de la page qui fournit le Service Fabric. Affiche toutes les informations sur les clusters de nœuds, les types de nœuds, etc.
+3. Vous voyez la page **Cluster Service Fabric** de votre cluster. Il s’agit de la page fournie par Service Fabric. Elle contient toutes les informations sur les clusters, comme les nœuds, les types de nœuds, etc.
 
-    ![Page d’accueil de Cluster service Fabric](./media/create-environment-service-fabric-cluster/service-fabric-cluster-page.png)
+    ![Page d’accueil du cluster Service Fabric](./media/create-environment-service-fabric-cluster/service-fabric-cluster-page.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
-Consultez les articles suivants pour plus d’informations sur les environnements : 
+Pour obtenir des instructions détaillées sur les environnements, consultez les articles suivants : 
 
 - [Créer des environnements de plusieurs machines virtuelles et des ressources PaaS avec les modèles Azure Resource Manager](devtest-lab-create-environment-from-arm.md)
 - [Configurer et utiliser des environnements publics dans Azure DevTest Labs](devtest-lab-configure-use-public-environments.md)

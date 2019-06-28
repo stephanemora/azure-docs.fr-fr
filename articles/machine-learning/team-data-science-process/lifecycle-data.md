@@ -12,10 +12,10 @@ ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: e29f36897dd52fcb09456768a799209a385d74fe
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60303515"
 ---
 # <a name="data-acquisition-and-understanding-stage-of-the-team-data-science-process"></a>Acquisition de données et phase de présentation du processus Team Data science Process
@@ -68,7 +68,7 @@ Voici les livrables de cette phase :
 
    * [Rapport de qualité des données](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/DataSummaryReport.md) : ce rapport contient des synthèses de données, les relations entre chaque attribut et cible, le classement des variables, etc. L’outil [IDEAR](https://github.com/Azure/Azure-TDSP-Utilities/blob/master/DataScienceUtilities/DataReport-Utils) fourni dans le cadre du processus TDSP permet de générer rapidement ce rapport sur n’importe quel jeu de données tabulaire tel qu’un fichier CSV ou une table relationnelle. 
    * **Architecture de la solution** : il peut s’agir d’un diagramme ou d’une description de votre pipeline de données que vous utilisez pour exécuter une évaluation ou des prédictions sur de nouvelles données une fois que vous avez créé un modèle. Elle contient également le pipeline avec lequel former le modèle en fonction des nouvelles données. Stockez le document dans le répertoire [Project](https://github.com/Azure/Azure-TDSP-ProjectTemplate/tree/master/Docs/Project) quand vous utilisez le modèle de structure de répertoire TDSP.
-   * **Décision de point de contrôle** : Avant de commencer, ingénierie de toutes les fonctionnalités et de création de modèles, vous pouvez réévaluer le projet pour déterminer si la valeur attendue est suffisante pour continuer la poursuite il. Vous pouvez, par exemple, être en mesure de continuer, avoir besoin de collecter des données supplémentaires ou abandonner le projet s’il n’existe pas de données permettant de répondre à la question.
+   * **Décision de point de contrôle** : avant de procéder à l’ingénierie des caractéristiques et à la modélisation complètes, vous pouvez réévaluer le projet afin de déterminer si cela vaut la peine de le poursuivre. Vous pouvez, par exemple, être en mesure de continuer, avoir besoin de collecter des données supplémentaires ou abandonner le projet s’il n’existe pas de données permettant de répondre à la question.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

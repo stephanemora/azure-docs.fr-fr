@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 04/24/2018
 ms.author: aljo
 ms.openlocfilehash: bf28ddf7facbc742a107f67f3d7e81eca5a5c950
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60394266"
 ---
 # <a name="deploy-a-service-fabric-cluster-that-uses-certificate-common-name-instead-of-thumbprint"></a>Déployer un cluster Service Fabric utilisant un nom commun de certificat au lieu d’une empreinte
@@ -217,6 +217,6 @@ New-AzResourceGroupDeployment -ResourceGroupName $groupname -TemplateParameterFi
 * Simplifiez la gestion des certificats en apprenant à [modifier un cluster pour qu’il passe de l’utilisation d’une empreinte de certificat à l’utilisation d’un nom commun](service-fabric-cluster-change-cert-thumbprint-to-cn.md).
 
 [image1]: .\media\service-fabric-cluster-change-cert-thumbprint-to-cn\PortalViewTemplates.png
-ic-cluster-change-cert-thumbprint-to-cn.md))
+IC-cluster-change-CERT-Thumbprint-to-CN.MD))
 
 [image1]: .\media\service-fabric-cluster-change-cert-thumbprint-to-cn\PortalViewTemplates.png

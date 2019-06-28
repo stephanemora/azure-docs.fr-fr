@@ -1,6 +1,6 @@
 ---
-title: Gérer les coûts AWS et utilisation dans Azure Cost Management
-description: Cet article vous aide à comprendre comment utiliser des budgets et analyse des coûts dans Cost Management pour gérer vos coûts AWS et votre utilisation.
+title: Gérer le coût et l’utilisation d’AWS dans Azure Cost Management
+description: Cet article explique comment utiliser les fonctionnalités d’analyse des budgets et des coûts dans Cost Management pour gérer le coût et votre utilisation d’AWS.
 services: cost-management
 keywords: ''
 author: bandersmsft
@@ -11,148 +11,148 @@ ms.service: cost-management
 manager: ormaoz
 ms.custom: ''
 ms.openlocfilehash: 007b6c409dde248a4dde7a15fd16b543add234bc
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64870311"
 ---
-# <a name="manage-aws-costs-and-usage-in-azure"></a>Gérer les coûts AWS et l’utilisation dans Azure
+# <a name="manage-aws-costs-and-usage-in-azure"></a>Gérer le coût et l’utilisation d’AWS dans Azure
 
-Une fois que vous avez configuré et configuré l’intégration de rapport de coût de AWS et d’utilisation pour Azure Cost Management, vous êtes prêt à commencer à gérer vos coûts AWS et votre utilisation. Cet article vous aide à comprendre comment utiliser des budgets et analyse des coûts dans Cost Management pour gérer vos coûts AWS et votre utilisation.
+Après avoir configuré l’intégration du rapport sur le coût et l’utilisation d’AWS pour Azure Cost Management, vous pouvez gérer votre coût et utilisation d’AWS. Cet article explique comment utiliser les fonctionnalités d’analyse des budgets et des coûts dans Cost Management pour gérer le coût et votre utilisation d’AWS.
 
-Si vous n’avez pas déjà configuré l’intégration, consultez [définir installer et configurer l’intégration de rapports d’utilisation de AWS](aws-integration-set-up-configure.md).
+Si vous n’avez pas déjà configuré l’intégration, consultez [Configurer l’intégration du rapport d’utilisation d’AWS](aws-integration-set-up-configure.md).
 
-_Avant de commencer_: Si vous n’êtes pas familiarisé avec l’analyse des coûts, consultez le [Explorer et analyser les coûts avec analyse des coûts](quick-acm-cost-analysis.md) Guide de démarrage rapide. Et, si vous n’êtes pas familiarisé avec les budgets dans Azure, consultez le [créer et gérer des budgets Azure](tutorial-acm-create-budgets.md) didacticiel.
+_Avant de commencer_ : Si vous n’êtes pas familiarisé avec l’analyse des coûts, consultez le guide de démarrage rapide [Explorer et analyser les coûts avec l’analyse du coût](quick-acm-cost-analysis.md). Enfin, si vous n’êtes pas familiarisé avec les budgets dans Azure, consultez le didacticiel [Créer et gérer des budgets Azure](tutorial-acm-create-budgets.md).
 
-## <a name="view-aws-costs-in-cost-analysis"></a>Afficher les coûts AWS dans l’analyse des coûts
+## <a name="view-aws-costs-in-cost-analysis"></a>Afficher les coûts d’AWS dans l’analyse du coût
 
-Aux coûts AWS sont disponibles dans l’analyse des coûts dans les étendues suivantes :
+Aux coûts d’AWS sont disponibles dans les portées suivantes de la fonctionnalité Analyse du coût :
 
-- Comptes AWS lié sous un groupe d’administration
-- Coûts du compte AWS lié
-- Coûts du compte AWS consolidés
+- Comptes AWS liés sous un groupe d’administration
+- Coûts de compte AWS lié
+- Coûts de compte AWS consolidés
 
-Les sections suivantes décrivent comment utiliser les étendues que vous voyez des données d’utilisation et de coût pour chacun d'entre eux.
+Les sections suivantes décrivent comment utiliser les portées pour afficher chaque donnée d’utilisation et de coût.
 
-### <a name="view-aws-linked-accounts-under-a-management-group"></a>Afficher les comptes AWS lié sous un groupe d’administration
+### <a name="view-aws-linked-accounts-under-a-management-group"></a>Afficher les comptes AWS liés sous un groupe d’administration
 
-Affichage des coûts à l’aide de l’étendue de groupe d’administration est la seule façon d’afficher les coûts agrégées en provenance de différents abonnements et comptes liés. À l’aide d’un groupe d’administration fournit une vue du cloud.
+L’affichage des coûts à l’aide de la portée de groupe d’administration est la seule méthode possible pour afficher les coûts agrégées en provenance de différents abonnements et comptes liés. L’utilisation d’un groupe d’administration fournit une vue du cloud.
 
-Dans l’analyse des coûts, ouvrir le sélecteur de portée, puis sélectionnez le groupe d’administration qui contient vos comptes AWS lié. Voici un exemple d’image dans le portail Azure :
+Dans Analyse du coût, ouvrez le sélecteur de portée, puis sélectionnez le groupe d’administration qui contient vos comptes AWS liés. Voici une capture d’écran d’exemple dans le portail Microsoft Azure :
 
-![Exemple de la vue étendue Select](./media/aws-integration-manage/select-scope01.png)
-
-
-
-Voici un exemple indiquant le coût de groupe d’administration analyse du coût, regroupé par fournisseur (Azure et AWS).
-
-![Exemple illustrant les coûts d’Azure et AWS pour l’analyse des coûts dans un trimestre](./media/aws-integration-manage/cost-analysis-aws-azure.png)
-
-### <a name="view-aws-linked-account-costs"></a>Afficher les coûts de compte AWS lié
-
-Pour afficher les coûts de compte AWS lien, ouvrir le sélecteur de portée et sélectionnez le AWS compte lié. Notez que les comptes liés sont associés à un groupe d’administration, tel que défini dans le connecteur AWS.
-
-Voici un exemple que présente la sélection d’AWS lié étendue du compte.
-
-![Exemple de la vue étendue Select](./media/aws-integration-manage/select-scope02.png)
+![Exemple de la vue Sélectionner la portée](./media/aws-integration-manage/select-scope01.png)
 
 
 
-### <a name="view-aws-consolidated-account-costs"></a>Vue AWS consolidé les coûts de compte
+Voici un exemple indiquant le coût de groupe d’administration dans Analyse du coût, classé par fournisseur (Azure et AWS).
 
-Pour afficher les AWS compte consolidé compte consolidé les coûts, ouvrir le sélecteur de portée et sélectionnez le AWS. Voici un exemple qui présente la sélection d’AWS consolidés étendue du compte.
+![Exemple illustrant les coûts d’Azure et d’AWS pour un trimestre dans Analyse du coût](./media/aws-integration-manage/cost-analysis-aws-azure.png)
 
-![Exemple de la vue étendue Select](./media/aws-integration-manage/select-scope03.png)
+### <a name="view-aws-linked-account-costs"></a>Afficher les coûts d’un compte AWS lié
+
+Pour afficher les coûts d’un compte AWS lié, ouvrez le sélecteur de portée et sélectionnez le compte AWS lié. Notez que les comptes liés sont associés à un groupe d’administration, tel que défini dans le connecteur AWS.
+
+Voici un exemple qui présente la sélection d’une portée d’un compte AWS lié.
+
+![Exemple de la vue Sélectionner la portée](./media/aws-integration-manage/select-scope02.png)
 
 
 
-Cette étendue fournit qu'une vue agrégée de toutes les AWS lié comptes associés au compte AWS consolidés. Voici un exemple illustrant les coûts pour AWS consolidés compte, regroupée par nom de service.
+### <a name="view-aws-consolidated-account-costs"></a>Afficher les coûts d’un compte AWS consolidé
 
-![Exemple illustrant AWS consolidé les coûts dans l’analyse des coûts](./media/aws-integration-manage/cost-analysis-aws-consolidated.png)
+Pour afficher les coûts d’un compte AWS consolidé, ouvrez le sélecteur de portée, puis sélectionnez le compte AWS consolidé. Voici un exemple qui présente la sélection d’une portée d’un compte AWS consolidés.
+
+![Exemple de la vue Sélectionner la portée](./media/aws-integration-manage/select-scope03.png)
+
+
+
+Cette portée présente une vue agrégée de tous les comptes AWS liés associés au compte AWS consolidé. Voici un exemple illustrant les coûts d’un compte AWS consolidé, classés par nom de service.
+
+![Exemple illustrant les coûts d’un compte AWS consolidé dans Analyse du coût](./media/aws-integration-manage/cost-analysis-aws-consolidated.png)
 
 ### <a name="dimensions-available-for-filtering-and-grouping"></a>Dimensions disponibles pour le filtrage et regroupement
 
-Le tableau suivant décrit les dimensions permettent de regrouper et filtrer par dans l’analyse des coûts.
+Le tableau suivant décrit les dimensions disponibles pour le regroupement et le filtrage par analyse de coût.
 
-| Dimension | En-tête d’Amazon CUR | Étendues | Commentaires |
+| Dimension | En-tête Amazon CUR | Portées | Commentaires |
 | --- | --- | --- | --- |
-| Zone de disponibilité | lineitem/AvailabilityZone | Tous |   |
+| Zone de disponibilité | élémentdeligne/ZoneDisponibilité | Tous |   |
 | Lieu | produit/région | Tous |   |
 | Compteur |   | Tous |   |
-| Catégorie du compteur | lineItem/ProductCode | Tous |   |
-| Sous-catégorie du compteur | lineitem/UsageType | Tous |   |
-| Opération | lineItem/Operation | Tous |   |
-| Ressource | lineItem/ResourceId | Tous |   |
-| Type de ressource | product/instanceType | Tous | Si le produit/instanceType est null, lineItem/UsageType est utilisé. |
-| ResourceGuid | N/A | Tous | GUID de compteur Azure. |
-| Nom du service | produit/ProductName | Tous | Si le produit/ProductName est null, lineItem/ProductCode est utilisé. |
+| Catégorie du compteur | élémentdeligne/CodeProduit | Tous |   |
+| Sous-catégorie du compteur | élémentdeligne/TypeUtilisation | Tous |   |
+| Opération | élémentdeligne/Opération | Tous |   |
+| Ressource | élémentdeligne/IDRessource | Tous |   |
+| Type de ressource | produit/TypeInstance | Tous | Si le champ produit/TypeInstance a la valeur NULL, alors le champ élémentdeligne/TypeUtilisation est utilisé. |
+| GUIDRessource | N/A | Tous | GUID de compteur Azure. |
+| Nom du service | produit/NomProduit | Tous | Si le champ produit/NomProduit est NULL, élémentdeligne/CodeProduit est utilisé. |
 | Niveau de service |   |   |   |
-| Identifiant d’abonnement | lineItem/UsageAccountId | Groupe de compte et la gestion consolidé |   |
-| Nom d’abonnement | N/A | Groupe de compte et la gestion consolidé | Noms de compte sont collectées à l’aide de l’API d’organisation de AWS. |
-| Tag | resourceTags/\* | Tous | Le _utilisateur :_ préfixe est supprimé à partir de balises de défini par l’utilisateur pour autoriser les balises entre clouds. Le _aws :_ préfixe est laissé intact. |
-| ID de compte de facturation | bill/PayerAccountId | Groupe d’administration |   |
-| Nom du compte de facturation | N/A | Groupe d’administration | Noms de compte sont collectées à l’aide de l’API d’organisation de AWS. |
+| Identifiant d’abonnement | élémentdeligne/IDCompteUtilisation | Compte consolidé et groupe d’administration |   |
+| Nom d’abonnement | N/A | Compte consolidé et groupe d’administration | Les noms des comptes sont collectés à l’aide de l’API Organisation AWS. |
+| Tag | BalisesRessources/\* | Tous | Le préfixe _utilisateur:_ est supprimé des balises définies par l’utilisateur pour autoriser les balises dans le cloud. Le préfixe _aws :_ est n’est pas supprimé. |
+| ID de compte de facturation | facture/IDComptePayeur | Groupe d’administration |   |
+| Nom du compte de facturation | N/A | Groupe d’administration | Les noms des comptes sont collectés à l’aide de l’API Organisation AWS. |
 | Fournisseur | N/A | Groupe d’administration | AWS ou Azure. |
 
-## <a name="set-budgets-on-aws-scopes"></a>Ensemble des budgets sur les étendues d’AWS
+## <a name="set-budgets-on-aws-scopes"></a>Définir des budgets sur des portées AWS
 
-Utiliser les budgets pour gérer de manière proactive les coûts et le lecteur de responsabilité de votre organisation. Budgets sont définies sur le compte AWS consolidés et AWS étendues de compte lié. Voici un exemple de budgets d’un compte AWS consolidés indiqué dans la gestion des coûts :
+Utilisez des budgets pour gérer les coûts de manière proactive et responsabiliser les équipes au sein de votre organisation. Les budgets sont définis sur les portées des comptes AWS consolidés et liés. Voici un exemple de budgets d’un compte AWS consolidé affiché dans Cost Management :
 
-![Exemple illustrant les budgets pour AWS consolidés compte](./media/aws-integration-manage/budgets-aws-consolidated-account01.png)
+![Exemple présentant des budgets pour un compte AWS consolidé](./media/aws-integration-manage/budgets-aws-consolidated-account01.png)
 
 ## <a name="aws-data-collection-process"></a>Processus de collecte de données AWS
 
-Après avoir configuré le connecteur AWS, collecte de données et les processus de découverte démarrent. Il peut prendre plusieurs heures pour collecter toutes les données d’utilisation. La durée dépend :
+Lorsque vous avez configuré le connecteur AWS, les processus de collecte et de découverte des données démarrent. La collecte des données d’utilisation peut prendre quelques heures. La durée dépend :
 
-- Le temps nécessaire pour traiter les fichiers CUR qui se trouvent dans le compartiment AWS S3.
-- Le temps nécessaire pour créer le compte AWS consolidé et des étendues de compte AWS lié.
-- L’heure et la fréquence de AWS écrivez les fichiers de rapport d’utilisation et de coût dans le compartiment S3
+- Du temps requis pour traiter les fichiers CUR qui se trouvent dans le compartiment AWS S3.
+- Du temps requis pour créer le compte AWS consolidé et les portées de comptes AWS liés.
+- Du temps et de et de la fréquence des écritures des fichiers de rapports de coût et d’utilisation d’AWS dans le compartiment S3
 
-## <a name="aws-integration-pricing"></a>Tarification de l’intégration de AWS
+## <a name="aws-integration-pricing"></a>Tarification de l’intégration d’AWS
 
-Chaque connecteur AWS obtient 90 jours d’essai gratuits. La version préliminaire publique, il est gratuit.
+Chaque connecteur AWS obtient 90 jours d’essai gratuits. Pendant la préversion, aucun frais ne s’applique.
 
-Le tarif est de 1 % des coûts mensuels AWS. Chaque mois vous sont facturés en fonction de vos coûts facturés le mois précédent.
+Le prix catalogue est de 1 % des coûts mensuels d’AWS. Chaque mois, vous êtes facturé en fonction de vos coûts facturés le mois précédent.
 
-Accéder aux API de AWS peut entraîner des frais supplémentaires.
+L’accès aux API d’AWS peut entraîner des coûts supplémentaires.
 
-## <a name="aws-integration-limitations"></a>Limitations de l’intégration de AWS
+## <a name="aws-integration-limitations"></a>Limitations de l’intégration d’AWS
 
-- Cost Management ne prend pas en charge les rapports de coût qui contiennent plusieurs types de devise. Un message d’erreur s’affiche si vous sélectionnez une étendue qui a plusieurs devises.
-- Connecteurs de cloud ne prennent pas en charge AWS GovCloud (US), AWS Gov ou en Chine AWS.
-- Gestion des coûts montre AWS _les coûts d’utilisation_ uniquement. Taxe, prise en charge, les remboursements, RI, crédits ou autres types de frais ne sont pas encore pris en charge.
+- Cost Management ne prend pas en charge les rapports de coût qui contiennent plusieurs types de devise. Un message d’erreur s’affiche si vous sélectionnez une portée qui a plusieurs devises.
+- Les connecteurs cloud ne prennent pas en charge AWS GovCloud (US), AWS Gov ou AWS China.
+- Cost Management affiche uniquement les _coûts d’utilisation_ d’AWS. Les impôts/taxes, remboursements, réassurances, crédits et autres types de frais ne sont pas pris en charge pour le moment.
 
-## <a name="troubleshooting-aws-integration"></a>Résolution des problèmes d’intégration de AWS
+## <a name="troubleshooting-aws-integration"></a>Résolution des problèmes d’intégration d’AWS
 
 Utilisez les informations de dépannage suivantes pour résoudre les problèmes courants.
 
-### <a name="no-permission-to-aws-linked-accounts"></a>Aucune autorisation de comptes AWS liés
+### <a name="no-permission-to-aws-linked-accounts"></a>Absence d’autorisation de comptes AWS liés
 
-Il existe deux façons d’obtenir les autorisations d’accès aux coûts de comptes AWS lié :
+Il existe deux façons d’obtenir les autorisations d’accès aux coûts de comptes AWS liés :
 
-- Accédez au groupe d’administration qui contient les comptes AWS lié.
-- Demandez à une personne de vous accorder l’autorisation au compte AWS lié.
+- Obtenir l’accès au groupe d’administration qui contient les comptes AWS liés.
+- Demandez à une personne de vous accorder l’autorisation d’accès à un compte AWS lié.
 
-Par défaut, le créateur du connecteur AWS est le propriétaire de tous les objets que le connecteur créé. Notamment, le AWS compte consolidé et l’AWS compte lié.
+Par défaut, le créateur du connecteur AWS est le propriétaire de tous les objets créés par ce connecteur. Notamment le compte AWS consolidé et le compte AWS lié.
 
-### <a name="collection-failed-with-assumerole"></a>Échoué avec AssumeRole de collection
+### <a name="collection-failed-with-assumerole"></a>Échec de la collecte avec l’erreur AssumeRole
 
-Cette erreur signifie que la gestion des coûts est impossible d’appeler l’API de AssumeRole AWS. Ce problème peut se produire en raison d’un problème avec la définition de rôle. Vérifiez que les conditions suivantes sont remplies :
+Cette erreur signifie que Cost Management ne peut pas appeler l’API AssumeRole AWS. Ce problème peut se produire en raison d’un problème avec la définition de rôle. Vérifiez que les conditions suivantes sont remplies :
 
-- L’ID externe est identique à celui de la définition de rôle et de la définition du connecteur.
-- Le type de rôle est défini sur **AWS un autre compte appartenant à vous-même ou à des tiers 3e.**
-- Le **MFA nécessitent** choix est désactivé.
+- L’ID externe est identique à celui de la définition de rôle et de la définition de connecteur.
+- Le type de rôle est défini sur **un autre compte AWS qui vous appartient ou appartient à un tiers.**
+- La case à cocher **MFA requise** est décochée.
 - Le compte AWS approuvé dans le rôle AWS est _432263259397_.
 
-### <a name="collection-failed-with-access-denied"></a>Collection a échoué avec l’accès refusé
+### <a name="collection-failed-with-access-denied"></a>Échec de la collecte avec l’erreur Accès refusé
 
-Ce message d’erreur signifie que Cost Management ne peut pas accéder aux fichiers CUR stockés dans le compartiment Amazon S3. Assurez-vous que la stratégie AWS JSON attachée au rôle ressemble à l’exemple indiqué au bas de la [créer un rôle et une stratégie dans AWS](aws-integration-set-up-configure.md#create-a-role-and-policy-in-aws) section.
+Ce message d’erreur signifie que Cost Management ne peut pas accéder aux fichiers CUR stockés dans le compartiment Amazon S3. Assurez-vous que la stratégie JSON AWS jointe au rôle ressemble à l’exemple indiqué au bas de la section [Créer un rôle et une stratégie dans AWS](aws-integration-set-up-configure.md#create-a-role-and-policy-in-aws).
 
-### <a name="connector-error-with-failedtofindreport"></a>Erreur de connecteur avec FailedToFindReport
+### <a name="connector-error-with-failedtofindreport"></a>Erreur de connecteur renvoyant FailedToFindReport
 
-Cette erreur indique que Cost Management ne peut pas trouver le rapport de coût et d’utilisation qui a été défini dans le connecteur. Assurez-vous qu’il n’est pas supprimé et que la stratégie AWS JSON attachée au rôle ressemble à l’exemple indiqué au bas de la [créer un rôle et une stratégie dans AWS](aws-integration-set-up-configure.md#create-a-role-and-policy-in-aws) section.
+Cette erreur indique que Cost Management ne peut pas trouver le rapport de coût et d’utilisation qui a été défini dans le connecteur. Assurez-vous qu’il n’est pas supprimé et que la stratégie JSON AWS liée au rôle ressemble à l’exemple indiqué au bas de la section [Créer un rôle et une stratégie dans AWS](aws-integration-set-up-configure.md#create-a-role-and-policy-in-aws).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Si vous n’avez pas déjà configuré votre environnement Azure avec des groupes d’administration, consultez [configuration des groupes d’administration initiale](../governance/management-groups/index.md#initial-setup-of-management-groups).
+- Si vous n’avez pas déjà configuré votre environnement Azure avec des groupes d’administration, veuillez consulter la section [Configuration initiale des groupes d’administration](../governance/management-groups/index.md#initial-setup-of-management-groups).

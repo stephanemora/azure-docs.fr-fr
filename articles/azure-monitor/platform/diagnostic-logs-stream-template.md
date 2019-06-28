@@ -9,14 +9,14 @@ ms.date: 3/26/2018
 ms.author: johnkem
 ms.subservice: ''
 ms.openlocfilehash: 7edce5175a1dda66abf3316cb8f0eb33e9f64ef7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60236032"
 ---
 # <a name="automatically-enable-diagnostic-settings-at-resource-creation-using-a-resource-manager-template"></a>Activer automatiquement les paramètres de diagnostic lors de la création de ressources à l’aide d’un modèle Resource Manager
-Dans cet article, nous vous expliquons comment utiliser un [modèle Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) pour configurer les paramètres de diagnostic d’une ressource lors de sa création. Cela vous permet de démarrer automatiquement la diffusion en continu de vos journaux de Diagnostic et les mesures vers Event Hubs, leur archivage dans un compte de stockage ou leur envoi à un espace de travail Analytique de journal lorsqu’une ressource est créée.
+Dans cet article, nous vous expliquons comment utiliser un [modèle Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) pour configurer les paramètres de diagnostic d’une ressource lors de sa création. Cela vous permet de démarrer automatiquement la diffusion en continu de vos journaux de diagnostic et des mesures vers Event Hubs, leur archivage dans un compte de stockage ou leur envoi à un espace de travail Log Analytics lorsqu’une ressource est créée.
 
 > [!WARNING]
 > À compter du 1er novembre 2018, le format des données de journal dans le compte de stockage deviendra JSON Lines. [Consultez cet article pour en savoir plus sur les conséquences liées à ce changement et pour découvrir comment mettre à jour vos outils pour qu’ils gèrent ce nouveau format.](./../../azure-monitor/platform/diagnostic-logs-append-blobs.md) 
@@ -40,7 +40,7 @@ Ci-dessous, nous vous donnons un exemple de modèle de fichier JSON que vous dev
 ## <a name="non-compute-resource-template"></a>Modèle de ressource non liée au calcul
 Pour les ressources non liées au calcul, vous devrez effectuer les deux opérations suivantes :
 
-1. Ajouter des paramètres à l’objet blob de paramètres concernant le nom de compte de stockage, un ID de règle d’autorisation event hubs et/ou un ID d’espace de travail Analytique de journal (activation de l’archivage des journaux de Diagnostic dans un compte de stockage, la diffusion en continu des journaux vers Event Hubs et/ou de l’envoi de journaux à Azure Monitor).
+1. Ajouter des paramètres à l’objet blob de paramètres concernant le nom du compte de stockage, l’ID de règle d’autorisation Event Hubs et/ou l’ID d’espace de travail Log Analytics (activation de l’archivage des journaux de diagnostic dans un compte de stockage, du streaming des journaux d’activité vers Event Hubs et/ou de l’envoi de journaux d’activité à Azure Monitor).
    
     ```json
     "settingName": {

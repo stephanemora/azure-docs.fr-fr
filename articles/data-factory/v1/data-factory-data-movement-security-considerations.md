@@ -13,10 +13,10 @@ ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
 ms.openlocfilehash: 083770c24a6c8939f8d1ff9f0efd5d18aff9dcb0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60487032"
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory - Considérations de sécurité relatives au déplacement des données
@@ -24,7 +24,7 @@ ms.locfileid: "60487032"
 > [!NOTE]
 > Cet article s’applique à la version 1 de Data Factory. Si vous utilisez la version actuelle du service Data Factory, consultez [Considérations de sécurité relatives au déplacement des données dans Azure Data Factory](../data-movement-security-considerations.md).
 
-## <a name="introduction"></a>Présentation
+## <a name="introduction"></a>Introduction
 Cet article décrit l’infrastructure de sécurité de base qu’utilisent les services de déplacement des données dans Azure Data Factory pour sécuriser vos données. Les ressources de gestion d’Azure Data Factory reposent sur l’infrastructure de sécurité Azure et utilisent toutes les mesures de sécurité proposées par Azure.
 
 Dans une solution Data Factory, vous créez un ou plusieurs [pipelines](data-factory-create-pipelines.md) de données. Un pipeline constitue un regroupement logique d’activités qui exécutent ensemble une tâche. Ces pipelines se trouvent dans la région où la fabrique de données a été créée. 
@@ -95,7 +95,7 @@ Les informations d’identification associées à vos banques de données locale
 - À l’aide de **texte brut** (moins sécurisé) via HTTPS depuis le portail Azure ou l’Assistant de copie. Les informations d’identification sont transmises en texte brut à la passerelle locale.
 - À l’aide de la **bibliothèque de chiffrement JavaScript depuis l’Assistant de copie**.
 - À l’aide de **l’application Gestionnaire des informations d’identification ClickOnce**. L’application ClickOnce s’exécute sur l’ordinateur local ayant accès à la passerelle et définit les informations d’identification pour la banque de données. Cette option et l’option suivante sont les plus sécurisées. L’application Gestionnaire des informations d’identification utilise par défaut le port 8050 de l’ordinateur hébergeant la passerelle pour établir une communication sécurisée.  
-- Utilisez [New-AzDataFactoryEncryptValue](/powershell/module/az.datafactory/New-azDataFactoryEncryptValue) applet de commande PowerShell pour chiffrer les informations d’identification. L'applet de commande utilise le certificat qui a servi à configurer la passerelle pour chiffrer les informations d'identification. Vous pouvez utiliser les informations d’identification chiffrées retournées par cette applet de commande et l’ajouter à **EncryptedCredential** élément de la **connectionString** dans le fichier JSON que vous utilisez avec le [ Nouvelle AzDataFactoryLinkedService](/powershell/module/az.datafactory/new-azdatafactorylinkedservice) applet de commande ou dans l’extrait de code JSON dans Data Factory Editor dans le portail. Cette option et l’application ClickOnce sont les options les plus sécurisées. 
+- Utilisez la cmdlet PowerShell [New-AzureRmDataFactoryEncryptValue](/powershell/module/az.datafactory/New-azDataFactoryEncryptValue) pour chiffrer les informations d’identification. L'applet de commande utilise le certificat qui a servi à configurer la passerelle pour chiffrer les informations d'identification. Vous pouvez utiliser les informations d’identification chiffrées retournées par cette cmdlet et les ajouter à l’élément **EncryptedCredential** de la **chaîne de connexion** dans le fichier JSON que vous utilisez avec la cmdlet [New-AzDataFactoryLinkedService](/powershell/module/az.datafactory/new-azdatafactorylinkedservice) ou dans l’extrait de code JSON de Data Factory Editor dans le portail. Cette option et l’application ClickOnce sont les options les plus sécurisées. 
 
 #### <a name="javascript-cryptography-library-based-encryption"></a>Chiffrement à partir de la bibliothèque de chiffrement JavaScript
 Vous pouvez chiffrer les informations d’identification des banques de données à l’aide de la [bibliothèque de chiffrement JavaScript](https://www.microsoft.com/download/details.aspx?id=52439) depuis [l’Assistant de copie](data-factory-copy-wizard.md). Lorsque vous sélectionnez cette option, l’Assistant de copie récupère la clé publique de la passerelle et l’utilise pour chiffrer les informations d’identification des banques de données. Les informations d’identification sont déchiffrées par l’ordinateur de la passerelle et protégées par l’API de protection des données Windows [(DPAPI)](https://msdn.microsoft.com/library/ms995355.aspx).
@@ -174,7 +174,7 @@ Pour certaines banques de données hébergées dans le cloud, vous devez autoris
 
 Les banques de données cloud suivantes requièrent l’autorisation de l’adresse IP de l’ordinateur de passerelle. Il est possible que certaines de ces banques de données ne requièrent pas par défaut l’autorisation des adresses IP. 
 
-- [Base de données SQL Azure](../../sql-database/sql-database-firewall-configure.md) 
+- [Azure SQL Database](../../sql-database/sql-database-firewall-configure.md) 
 - [Azure SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md)
 - [Azure Data Lake Store](../../data-lake-store/data-lake-store-secure-data.md#set-ip-address-range-for-data-access)
 - [Azure Cosmos DB](../../cosmos-db/firewall-support.md)

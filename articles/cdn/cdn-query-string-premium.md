@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/11/2018
 ms.author: magattus
 ms.openlocfilehash: 2f0a361d53489e22ccc8e41406e5b86b423ea2f6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60324805"
 ---
 # <a name="control-azure-cdn-caching-behavior-with-query-strings---premium-tier"></a>Contrôler le comportement de mise en cache du CDN Azure avec des chaînes de requête - niveau premium
@@ -37,14 +37,14 @@ Avec Azure Content Delivery Network (CDN), vous pouvez contrôler la manière do
 
 Trois modes de chaîne de requête sont disponibles :
 
-- **standard-cache**: Mode par défaut. Dans ce mode, le nœud POP (point de présence) du CDN transmet les chaînes de requête, du demandeur au serveur d’origine de la première requête et met en cache la ressource. Toutes les requêtes suivantes pour la ressource, qui sont traitées à partir du serveur POP, ignorent les chaînes de requête jusqu’à l’arrivée à expiration de la ressource mise en cache.
+- **standard-cache** : Mode par défaut. Dans ce mode, le nœud POP (point de présence) du CDN transmet les chaînes de requête, du demandeur au serveur d’origine de la première requête et met en cache la ressource. Toutes les requêtes suivantes pour la ressource, qui sont traitées à partir du serveur POP, ignorent les chaînes de requête jusqu’à l’arrivée à expiration de la ressource mise en cache.
 
     >[!IMPORTANT] 
     > Si l’autorisation de jeton est activée pour n’importe quel chemin d’accès sur ce compte, le mode de cache standard est le seul mode qui peut être utilisé. 
 
-- **no-cache**: Dans ce mode, les demandes avec des chaînes de requête ne sont pas mis en cache au niveau du nœud POP du CDN. Le nœud POP récupère la ressource directement à partir du serveur d’origine et le transmet au demandeur avec chaque requête.
+- **no-cache** : dans ce mode, les requêtes avec des chaînes de requête ne sont pas mises en cache au niveau du nœud POP CDN. Le nœud POP récupère la ressource directement à partir du serveur d’origine et le transmet au demandeur avec chaque requête.
 
-- **cache unique**: dans ce mode, chaque demande contenant une URL unique, y compris la chaîne de requête, est traitée comme une ressource unique avec son propre cache. Par exemple, la réponse du serveur d’origine à une requête pour example.ashx?q=test1 est mise en cache au niveau du nœud POP et retournée pour les caches suivants avec la même chaîne de requête. Une requête pour example.ashx?q=test2 est mise en cache en tant que ressource distincte avec son propre paramètre de durée de vie.
+- **unique-cache** : dans ce mode, chaque demande contenant une URL unique, y compris la chaîne de requête, est traitée comme une ressource unique avec son propre cache. Par exemple, la réponse du serveur d’origine à une requête pour example.ashx?q=test1 est mise en cache au niveau du nœud POP et retournée pour les caches suivants avec la même chaîne de requête. Une requête pour example.ashx?q=test2 est mise en cache en tant que ressource distincte avec son propre paramètre de durée de vie.
    
     >[!IMPORTANT] 
     > N’utilisez pas ce mode lorsque la chaîne de requête contient des paramètres qui varient à chaque requête, par exemple un ID de session ou un nom d’utilisateur, car cela entraînerait un faible taux d’accès au cache.

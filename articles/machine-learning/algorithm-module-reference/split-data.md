@@ -1,7 +1,7 @@
 ---
-title: 'Fractionner les données : Référence de module'
+title: 'Fractionner les données : Informations de référence sur les modules'
 titleSuffix: Azure Machine Learning service
-description: Découvrez comment utiliser le module fractionner les données dans le service Azure Machine Learning pour diviser un jeu de données en deux ensembles distincts.
+description: Découvrez comment utiliser le module Fractionner les données dans le service Azure Machine Learning pour diviser un jeu de données en deux jeux distincts.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,98 +11,98 @@ ms.author: zhanxia
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
 ms.openlocfilehash: a7395280ed9a2e9dcb94a081f0b3bf10a28da719
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65029399"
 ---
-# <a name="split-data-module"></a>Module fractionner les données
+# <a name="split-data-module"></a>Module Fractionner les données
 
-Cet article décrit un module de l’interface visuelle (version préliminaire) pour le service Azure Machine Learning.
+Cet article décrit un module de l’interface visuelle (préversion) pour le service Azure Machine Learning.
 
 Utilisez ce module pour diviser un jeu de données en deux jeux distincts.
 
-Ce module est particulièrement utile lorsque vous avez besoin de séparer les données dans l’apprentissage et jeux de test. Vous pouvez personnaliser la façon dont les données sont également divisées. Certaines options de prise en charge la randomisation du format de données ; d’autres sont adaptées pour un type de données ou un type de modèle.
+Ce module est particulièrement utile quand vous devez séparer des données en jeux de formation et de test. Vous pouvez également personnaliser la façon dont les données sont divisées. Certaines options prennent en charge la randomisation des données, d'autres sont adaptées à un certain type de données ou type de modèle.
 
 ## <a name="how-to-configure"></a>Comment configurer
 
 > [!TIP]
-> Vous devez effectuer les opérations suivantes avant de choisir le mode de fractionnement, de lire toutes les options pour déterminer le type de fractionnement.
-> Si vous modifiez le mode de fractionnement, toutes les autres options pu être réinitialisées.
+> Avant de choisir le mode de fractionnement, prenez connaissance de toutes les options afin de déterminer le type de fractionnement adapté à vos besoins.
+> Si vous modifiez le mode de fractionnement, toutes les autres options peuvent être réinitialisées.
 
-1. Ajouter le **fractionner les données** module à votre expérience dans l’interface. Vous trouverez ce module sous **Transformation des données**, dans le **Sample and Split** catégorie.
+1. Ajoutez le module **Fractionner les données** à votre expérience dans l’interface. Ce module est disponible sous **Transformation des données**, dans la catégorie **Échantillonner et fractionner**.
 
-2. **Mode de fractionnement**: Choisissez un des modes suivants, selon le type de données que vous avez et la façon dont vous souhaitez diviser. Chaque mode de fractionnement a différentes options. Cliquez sur les rubriques suivantes pour obtenir des instructions détaillées et des exemples. 
+2. **Mode de fractionnement** : Choisissez l'un des modes suivants, selon le type de données dont vous disposez et la manière dont vous souhaitez les diviser. Chaque mode de fractionnement s'accompagne de différentes options. Cliquez sur les rubriques suivantes pour obtenir des instructions détaillées et des exemples. 
 
-    - **Fractionner les lignes**: Utilisez cette option si vous souhaitez simplement diviser les données en deux parties. Vous pouvez spécifier le pourcentage de données à placer dans chaque division, mais par défaut, les données sont divisées 50 / 50.
+    - **Fractionner les lignes** : Utilisez cette option pour diviser simplement les données en deux parties. Vous pouvez spécifier le pourcentage de données de chaque fractionnement, mais par défaut, les données sont divisées à 50/50.
 
-        Vous pouvez également rendre aléatoire la sélection de lignes dans chaque groupe et utiliser l’échantillonnage stratifié. Dans l’échantillonnage stratifié, vous devez sélectionner une seule colonne de données pour laquelle vous souhaitez que les valeurs sont répartis équitablement sur les jeux de données de deux résultats.  
+        Vous pouvez également rendre aléatoire la sélection des lignes de chaque groupe et utiliser l’échantillonnage stratifié. Dans l’échantillonnage stratifié, vous devez sélectionner une seule colonne de données pour laquelle vous souhaitez que les valeurs soient équitablement réparties entre les deux jeux de données de résultats.  
 
-    - **Fractionnement d’Expression régulière** choisissez cette option lorsque vous souhaitez diviser votre jeu de données en testant une colonne unique pour une valeur.
+    - **Fractionnement Expression régulière** Choisissez cette option si vous souhaitez diviser votre jeu de données en testant une seule colonne pour une valeur.
 
-        Par exemple, si vous analysez les sentiments, vous pouvez vérifier la présence d’un nom de produit spécifique dans un champ de texte et puis diviser le jeu de données en lignes avec le nom du produit cible et celles sans.
+        Par exemple, si vous analysez des sentiments, vous pouvez vérifier la présence d’un nom de produit spécifique dans un champ de texte, puis diviser le jeu de données en lignes avec et sans le nom du produit cible.
 
-    - **Fractionnement de l’Expression relative**:  Utilisez cette option lorsque vous souhaitez appliquer une condition à une colonne numérique. Le nombre peut être un champ de date/heure, un âge contenant de colonne ou montants en dollars ou même un pourcentage. Par exemple, vous souhaiterez peut-être diviser votre jeu de données selon le coût des éléments, groupes de personnes par tranches d’âge ou de données séparées par une date de calendrier.
+    - **Fractionnement Expression relative** :  Utilisez cette option si vous souhaitez appliquer une condition à une colonne numérique. Le nombre peut correspondre à un champ de date/heure, une colonne contenant un âge ou des montants en dollars, voire un pourcentage. Par exemple, vous souhaiterez peut-être diviser votre jeu de données en fonction du prix des éléments, grouper des personnes par tranches d'âge ou séparer les données par date.
 
 ### <a name="split-rows"></a>Fractionner les lignes
-1.  Ajouter le [fractionner les données](./split-data.md) module à votre expérience dans l’interface et connectez le jeu de données que vous souhaitez fractionner.
+1.  Ajoutez le module [Fractionner les données](./split-data.md) à votre expérience dans l’interface et connectez le jeu de données que vous souhaitez fractionner.
   
-2.  Pour **mode de fractionnement**, choisissez **fractionner les lignes**. 
+2.  Pour **Mode de fractionnement**, sélectionnez **Lignes fractionnées**. 
 
-3.  **Fraction de lignes dans le premier jeu de données de sortie**. Utilisez cette option pour déterminer combien de lignes sont placées dans la première sortie (gauche). Toutes les autres lignes passera dans la deuxième sortie (droite).
+3.  **Fraction de lignes dans le premier jeu de données de sortie**. Utilisez cette option pour déterminer le nombre de lignes de la première sortie (à gauche). Toutes les autres lignes rejoindront la deuxième sortie (à droite).
 
-    Le rapport représente le pourcentage de lignes envoyées au premier jeu de données de sortie, vous devez taper un nombre décimal entre 0 et 1.
+    Le rapport représente le pourcentage de lignes envoyées au premier jeu de données de sortie, et vous devez entrer un nombre décimal compris entre 0 et 1.
      
-     Par exemple, si vous tapez 0,75 comme valeur, le jeu de données est fractionné à l’aide d’un taux de 75 : 25, avec 75 % de lignes envoyées au premier jeu de données de sortie et 25 % au deuxième jeu de données de sortie.
+     Par exemple, si vous entrez 0,75 en tant que valeur, le jeu de données est fractionné selon un taux de 75:25, 75 % des lignes rejoignent le premier jeu de données de sortie et 25 %, le second.
   
-4. Sélectionnez le **fractionnement aléatoire** option si vous souhaitez rendre aléatoire de sélection de données dans les deux groupes. Il s’agit de l’option par défaut lors de la création de jeux de données apprentissage et de test.
+4. Sélectionnez l'option **Fractionnement aléatoire** si vous souhaitez rendre aléatoire la sélection de données dans les deux groupes. Cette option est recommandée lors de la création de jeux de données de formation et de test.
 
-5.  **Valeur de départ aléatoire**: Tapez une valeur entière non négative pour initialiser la séquence pseudo-aléatoire d’instances à utiliser. Cette valeur de départ par défaut est utilisée dans tous les modules qui génèrent des nombres aléatoires. 
+5.  **Valeur de départ aléatoire** : Entrez une valeur entière positive pour initialiser la séquence pseudoaléatoire d’instances à utiliser. Cette valeur de départ par défaut est utilisée dans tous les modules qui génèrent des nombres aléatoires. 
 
-     En spécifiant une valeur de départ rend les résultats généralement reproductibles. Si vous devez répéter les résultats d’une opération de fractionnement, vous devez spécifier une valeur initiale pour le Générateur de nombres aléatoires. Sinon, la valeur initiale aléatoire est définie par défaut sur 0, ce qui signifie que la valeur de départ initiale est obtenue à partir de l’horloge système. Par conséquent, la distribution des données peut être légèrement différente chaque fois que vous effectuez un fractionnement. 
+     Spécifier une valeur de départ rend les résultats généralement reproductibles. Pour répéter les résultats d’une opération de fractionnement, vous devez spécifier une valeur de départ pour le générateur de nombres aléatoires. Sinon, la valeur de départ aléatoire est définie sur 0 par défaut, ce qui signifie qu’elle est obtenue à partir de l’horloge système. Dès lors, la répartition des données peut légèrement varier chaque fois que vous effectuez un fractionnement. 
 
-6. **Fractionnement stratifié**: Définissez cette option sur **True** afin de garantir que les jeux de données de sortie de deux contiennent un échantillon représentatif des valeurs dans le *colonne de couches* ou *colonne clé de stratification*. 
+6. **Fractionnement stratifié** : Définissez cette option sur **True** pour vous assurer que les deux jeux de données de sortie contiennent un échantillon représentatif des valeurs dans la *colonne de strate* ou la *colonne clé de stratification*. 
 
-    Avec un échantillonnage stratifié, les données sont divisées telles que chaque jeu de données de sortie obtient à peu près le même pourcentage de chaque valeur cible. Par exemple, vous pourrez vous assurer que votre apprentissage et jeux de test sont à peu près équilibrées en ce qui concerne le résultat ou eu égard ot une autre colonne, telles que le sexe.
+    Avec un échantillonnage stratifié, les données sont divisées de manière à ce que chaque jeu de données de sortie obtienne approximativement le même pourcentage de chaque valeur cible. Par exemple, vous souhaiterez peut-être que vos jeux de formation et de test soient globalement équilibrés en termes de résultat ou autres, comme le sexe.
 
 7. Exécutez l’expérience.
 
 
-## <a name="regular-expression-split"></a>Fractionnement de l’expression régulière
+## <a name="regular-expression-split"></a>Fractionnement d’expression régulière
 
-1.  Ajouter le [fractionner les données](./split-data.md) module à votre expérience et vous connecter en tant qu’entrée pour le jeu de données que vous souhaitez fractionner.  
+1.  Ajoutez le module [Fractionner les données](./split-data.md) à votre expérience et connectez-le en tant qu’entrée au jeu de données que vous souhaitez fractionner.  
   
-2.  Pour **mode de fractionnement**, sélectionnez **fractionnement de l’expression régulière**.
+2.  Pour **Mode de fractionnement**, sélectionnez **Fractionnement Expression régulière**.
 
-3. Dans le **expression régulière** , tapez une expression régulière valide. 
+3. Dans la zone **Expression régulière**, entrez une expression régulière valide. 
   
    L’expression régulière doit respecter la syntaxe d’expression régulière Python.
 
 
 4. Exécutez l’expérience.
 
-    En fonction de l’expression régulière que vous fournissez, le jeu de données est divisé en deux ensembles de lignes : lignes avec des valeurs qui correspondent à l’expression et toutes les lignes restantes. 
+    En fonction de l’expression régulière entrée, le jeu de données est divisé en deux ensembles de lignes : les lignes avec des valeurs correspondant à l’expression et les autres. 
 
-## <a name="relative-expression-split"></a>Fractionnement de l’expression relative.
+## <a name="relative-expression-split"></a>Fractionnement Expression relative
 
-1. Ajouter le [fractionner les données](./split-data.md) module à votre expérience et vous connecter en tant qu’entrée pour le jeu de données que vous souhaitez fractionner.
+1. Ajoutez le module [Fractionner les données](./split-data.md) à votre expérience et connectez-le en tant qu’entrée au jeu de données que vous souhaitez fractionner.
   
-2. Pour **mode de fractionnement**, sélectionnez **fractionnement de l’expression relative**.
+2. Pour **Mode de fractionnement**, sélectionnez **Fractionnement Expression relative**.
   
-3. Dans le **expression relationnelle** zone de texte, tapez une expression qui effectue une opération de comparaison, sur une seule colonne :
+3. Dans la zone de texte **Expression relationnelle**, entrez une expression permettant une opération de comparaison, sur une même colonne :
 
 
  - Colonne numérique :
-    - La colonne contient des nombres de n’importe quel type de données numériques, y compris les types de données de date/heure.
+    - La colonne contient des nombres de n’importe quel type de données numérique, y compris les types de données date/heure.
 
     - L’expression peut faire référence à un nom de colonne.
 
-    - Utilisez le caractère esperluette (&) pour l’opération AND et utilisez la barre verticale (|) pour l’opération.
+    - Utilisez une esperluette (&) pour l’opération AND et une barre verticale (|) pour l’opération OR.
 
     - Les opérateurs suivants sont pris en charge : `<`, `>`, `<=`, `>=`, `==`, `!=`
 
-    - Vous ne pouvez pas regrouper les opérations à l’aide de `(` et `)`.
+    - Vous ne pouvez pas regrouper les opérations en utilisant `(` et `)`.
 
  - Colonne de chaîne : 
     - Les opérateurs suivants sont pris en charge : `==`, `!=`
@@ -111,8 +111,8 @@ Ce module est particulièrement utile lorsque vous avez besoin de séparer les d
 
 4. Exécutez l’expérience.
 
-    L’expression divise le jeu de données en deux ensembles de lignes : lignes avec des valeurs qui remplissent la condition et toutes les lignes restantes.
+    L’expression divise le jeu de données en deux ensembles de lignes : les lignes avec des valeurs correspondant à la condition, et les autres.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez le [ensemble de modules disponibles](module-reference.md) au service Azure Machine Learning. 
+Consultez l’[ensemble de modules disponibles](module-reference.md) pour Azure Machine Learning service. 

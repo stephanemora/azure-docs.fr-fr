@@ -10,10 +10,10 @@ ms.author: mbullwin
 ms.reviewer: Dale.Koetke
 ms.subservice: ''
 ms.openlocfilehash: 7117e7287f601b306893cb02dc5d7599d7c6224d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60453769"
 ---
 # <a name="monitoring-usage-and-estimated-costs-in-azure-monitor"></a>Surveiller l’utilisation et l’estimation des coûts dans Azure Monitor
@@ -102,14 +102,14 @@ L’estimation des coûts montre les effets de ces modifications.
 
 ## <a name="moving-to-the-new-pricing-model"></a>Transition vers le nouveau modèle de tarification
 
-Si vous avez décidé d’adopter le nouveau modèle de tarification pour un abonnement donné, accédez à chaque ressource Application Insights, ouvrez le **l’utilisation et estimation des coûts** et veillez à ce qu’il figure dans le niveau tarifaire de base et accédez à chaque Analytique de journal espace de travail, ouvrez le **niveau tarifaire** page et remplacez le **par Go (2018)** niveau tarifaire. 
+Si vous avez décidé d’adopter le nouveau modèle de tarification pour un abonnement donné, accédez à chaque ressource Application Insights, ouvrez **Utilisation et estimation des coûts** et veillez à ce que le niveau tarifaire de base figure. Ensuite, accédez à chaque espace de travail Log Analytics, ouvrez la page **Niveau tarifaire** et remplacez le niveau tarifaire **par Go (2018)** . 
 
 > [!NOTE]
-> L’exigence que toutes les ressources Application Insights et les espaces de travail Analytique de journal dans un abonnement donné adoptent le modèle de tarification plus récent a été supprimé, ce qui permet une plus grande flexibilité et facilitent la configuration. 
+> L’exigence qui faisait que toutes les ressources Application Insights et tous les espaces de travail Log Analytics d’un abonnement donné devaient adopter le dernier modèle de tarification a été supprimée, ce qui assure une plus grande flexibilité et simplifie la configuration. 
 
 ## <a name="automate-moving-to-the-new-pricing-model"></a>Automatisation de la transition vers le nouveau modèle de tarification
 
-Comme indiqué ci-dessus, le n’est plus nécessaire de déplacer toutes les ressources de surveillance dans un abonnement vers le nouveau modèle tarifaire en même temps et donc le ``migratetonewpricingmodel`` action n’aura plus aucun effet. Vous pouvez maintenant passer ressources Application Insights et des espaces de travail Analytique de journal séparément dans les niveaux tarifaires plus récente.  
+Comme indiqué ci-dessus, il n’est plus nécessaire de déplacer toutes les ressources de surveillance dans un abonnement vers le nouveau modèle tarifaire en même temps et l’action ``migratetonewpricingmodel`` n’a donc plus aucun effet. Vous pouvez maintenant déplacer les ressources Application Insights et les espaces de travail Log Analytics séparément vers les niveaux tarifaires les plus récents.  
 
-Automatisation de cette modification est documenté pour Application Insights à l’aide de [Set-AzureRmApplicationInsightsPricingPlan](https://docs.microsoft.com/powershell/module/azurerm.applicationinsights/set-azurermapplicationinsightspricingplan) avec ``-PricingPlan "Basic"`` et à l’aide de l’Analytique de journal [Set-AzureRmOperationalInsightsWorkspace](https://docs.microsoft.com/powershell/module/AzureRM.OperationalInsights/Set-AzureRmOperationalInsightsWorkspace) avec ``-sku "PerGB2018"``. 
+L’automatisation de cette modification est documenté pour Application Insights à l’aide de [Set-AzureRmApplicationInsightsPricingPlan](https://docs.microsoft.com/powershell/module/azurerm.applicationinsights/set-azurermapplicationinsightspricingplan) avec ``-PricingPlan "Basic"`` et à pour Log Analytics à l’aide de [Set-AzureRmOperationalInsightsWorkspace](https://docs.microsoft.com/powershell/module/AzureRM.OperationalInsights/Set-AzureRmOperationalInsightsWorkspace) avec ``-sku "PerGB2018"``. 
 

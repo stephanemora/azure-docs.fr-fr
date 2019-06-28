@@ -1,5 +1,5 @@
 ---
-title: Résoudre les problèmes de codes d’erreur pour l’extension NPS Azure MFA - Azure Active Directory
+title: Résolution des codes d’erreur liés à l’extension NPS pour Azure MFA | Azure Active Directory
 description: Obtenir de l’aide pour résoudre les problèmes liés à l’extension NPS pour Azure Multi-Factor Authentication
 services: multi-factor-authentication
 ms.service: active-directory
@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f80ecf02a7e517300c41e84986659a66cfa11c90
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60414934"
 ---
 # <a name="resolve-error-messages-from-the-nps-extension-for-azure-multi-factor-authentication"></a>Résoudre les messages d’erreur liés à l’extension NPS pour Azure Multi-Factor Authentication
@@ -26,7 +26,7 @@ Si vous rencontrez des erreurs au niveau de l’extension NPS pour Azure Multi-F
 
 | Code d'erreur | Étapes de dépannage |
 | ---------- | --------------------- |
-| **CONTACT_SUPPORT** | [Contactez le support technique](#contact-microsoft-support) et mentionnez la liste des étapes de collecte des journaux. Fournissez autant d’informations que possible sur ce qui s’est produit avant l’erreur, y compris l’ID de locataire et le nom d’utilisateur principal. |
+| **CONTACT_SUPPORT** | [Contactez le support technique](#contact-microsoft-support) et mentionnez la liste des étapes de collecte des journaux d’activité. Fournissez autant d’informations que possible sur ce qui s’est produit avant l’erreur, y compris l’ID de locataire et le nom d’utilisateur principal. |
 | **CLIENT_CERT_INSTALL_ERROR** | Il peut y avoir un problème avec la façon dont le certificat client a été installé ou associé à votre locataire. Suivez les instructions de [Résolution des problèmes liés à l’extension NPS pour MFA](howto-mfa-nps-extension.md#troubleshooting) pour explorer les problèmes de certificat client. |
 | **ESTS_TOKEN_ERROR** | Suivez les instructions de [Résolution des problèmes liés à l’extension NPS pour MFA](howto-mfa-nps-extension.md#troubleshooting) pour explorer les problèmes de certificat client et de jeton ADAL. |
 | **HTTPS_COMMUNICATION_ERROR** | Le serveur NPS ne reçoit pas les réponses d’Azure MFA. Vérifiez que vos pare-feu sont ouverts en mode bidirectionnel et qu’ils autorisent le trafic vers et depuis https://adnotifications.windowsazure.com |

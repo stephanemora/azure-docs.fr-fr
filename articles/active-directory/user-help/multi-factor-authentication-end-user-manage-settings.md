@@ -15,10 +15,10 @@ ms.date: 05/23/2017
 ms.author: lizross
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 433c2d712ca4867a5ec59f86c333511070b6d507
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60334464"
 ---
 # <a name="manage-your-settings-for-two-step-verification"></a>Gérer les paramètres de la vérification en deux étapes
@@ -50,7 +50,7 @@ Si cliquer sur ce lien n’a pas d’effet, vous pouvez également accéder à l
     ![Vérification](./media/multi-factor-authentication-end-user-manage-settings/proofup.png)
 
 ## <a name="i-want-to-change-my-phone-number-or-add-a-secondary-number"></a>Je souhaite modifier mon numéro de téléphone ou ajouter un numéro secondaire
-Il est important de configurer un numéro de téléphone d’authentification secondaire.  Étant donné que votre numéro de téléphone principal et votre application mobile se trouvent probablement sur le même téléphone, le numéro de téléphone secondaire est le moyen le plus rapide, vous serez en mesure de revenir à votre compte si votre téléphone est perdu ou volé.
+Il est important de configurer un numéro de téléphone d’authentification secondaire.  Étant donné que vous utilisez probablement le même téléphone pour votre numéro de téléphone principal et votre application mobile, le numéro de téléphone secondaire est le moyen le plus rapide dont vous disposez pour revenir à votre compte en cas de perte ou de vol de votre téléphone.
 
 > [!NOTE]
 > Si vous n’avez pas accès à votre numéro de téléphone principal et que vous avez besoin d’aide pour accéder à votre compte, consultez l’article [Difficultés avec la vérification en deux étapes](multi-factor-authentication-end-user-troubleshoot.md) pour obtenir de l’aide.  

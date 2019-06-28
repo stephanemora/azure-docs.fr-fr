@@ -14,10 +14,10 @@ ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
 ms.openlocfilehash: d96d75f4f2623476f7af4e6eea930c1f2c503e3a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60306949"
 ---
 # <a name="how-to-reset-local-linux-password-on-azure-vms"></a>Réinitialiser votre mot de passe Linux local sur les machines virtuelles Azure
@@ -106,4 +106,4 @@ Vous ne pouvez pas vous connecter à la machine virtuelle, et vous recevez un me
 
 * [Résoudre les problèmes de machine virtuelle Azure en attachant le disque du système d’exploitation à une autre machine virtuelle Azure](https://social.technet.microsoft.com/wiki/contents/articles/18710.troubleshoot-azure-vm-by-attaching-os-disk-to-another-azure-vm.aspx)
 
-* [Azure CLI : Comment supprimer et redéployer une machine virtuelle à partir du disque dur virtuel](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/azure-cli-how-to-delete-and-re-deploy-a-vm-from-vhd/)
+* [Azure CLI : guide pratique pour supprimer et redéployer une machine virtuelle à partir d’un disque dur virtuel](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/azure-cli-how-to-delete-and-re-deploy-a-vm-from-vhd/)

@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/22/2018
 ms.openlocfilehash: b932ad3148bb1f5ddd229c2674f8a20bbfe1afa8
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61458564"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-vnet-service-endpoints-and-vnet-rules-by-using-the-azure-portal"></a>Création et gestion de point de terminaison de service de réseau virtuel et de règles de réseau virtuel Azure Database pour MySQL à l’aide du portail Azure
@@ -24,10 +24,10 @@ Les règles et points de terminaison de service de réseau virtuel étendent l�
 
 1. Dans la page du serveur MySQL, sous le titre Paramètres, cliquez sur **Sécurité des connexions** pour ouvrir le volet Sécurité des connexions pour Azure Database pour MySQL. 
 
-2. Assurez-vous que l’autoriser l’accès au contrôle des services Azure est définie sur **OFF**.
+2. Vérifiez que le contrôle Autoriser l’accès aux services Azure est défini sur **DÉSACTIVÉ**.
 
 > [!Important]
-> Si vous laissez le contrôle de la valeur ON, votre serveur de base de données Azure MySQL accepte les communications à partir de n’importe quel sous-réseau. En termes de sécurité, le fait de laisser le contrôle ACTIVÉ peut avoir pour effet de multiplier excessivement les accès. La fonctionnalité de point de terminaison de service de réseau virtuel Microsoft Azure, conjointement avec la fonctionnalité de règle de réseau virtuel de base de données Azure pour MySQL, peut ensemble réduire votre surface d’exposition de sécurité.
+> Si vous maintenez le contrôle ACTIVÉ, votre serveur Azure MySQL Database acceptera les communications à partir de n’importe quel sous-réseau. En termes de sécurité, le fait de laisser le contrôle ACTIVÉ peut avoir pour effet de multiplier excessivement les accès. La fonctionnalité de points de terminaison de service de réseau virtuel Microsoft Azure, associée à la fonctionnalité de règle de réseau virtuel de Azure Database pour MySQL, peuvent ensemble réduire votre surface d’exposition de sécurité.
 
 3. Cliquez ensuite sur **+ Ajout d’un réseau virtuel existant**. Si vous ne disposez d’aucun réseau virtuel, vous pouvez en créer un en cliquant sur **+ Créer un nouveau réseau virtuel**. Consultez [Démarrage rapide : Créer un réseau virtuel au moyen du portail Azure](../virtual-network/quick-create-portal.md)
 

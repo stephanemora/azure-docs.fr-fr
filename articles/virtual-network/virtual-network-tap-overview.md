@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 04/14/2019
 ms.author: kaanan
 ms.openlocfilehash: ff5c8c4d3f6a0c87afae67404a5a39d4fe3757d9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60593185"
 ---
 # <a name="virtual-network-tap"></a>TAP de réseau virtuel
@@ -27,7 +27,7 @@ ms.locfileid: "60593185"
 Le TAP (point d’accès terminal) de réseau virtuel Azure vous permet de diffuser en continu votre trafic réseau de machine virtuelle vers un collecteur de paquets réseau ou un outil analytique. Le collecteur ou l’outil analytique est fourni par une [appliance virtuelle réseau](https://azure.microsoft.com/solutions/network-appliances/) partenaire. Pour obtenir la liste des solutions de partenaires qui fonctionnent avec un TAP de réseau virtuel, consultez les [solutions de partenaires](#virtual-network-tap-partner-solutions).
 
 > [!IMPORTANT]
-> Réseau virtuel TAP est actuellement en version préliminaire dans toutes les régions Azure. Pour utiliser un TAP de réseau virtuel, vous devez vous inscrire dans la version préliminaire en envoyant un e-mail à <azurevnettap@microsoft.com> avec votre ID d’abonnement. Vous recevrez un e-mail une fois votre abonnement inscrit. Vous ne pouvez pas utiliser la fonctionnalité tant que vous n’avez pas reçu l’e-mail de confirmation. Cette préversion est fournie sans contrat de niveau de service et ne doit pas être utilisée pour les charges de travail de production. Certaines fonctionnalités peuvent ne pas être prises en charge, disposer de capacités limitées ou ne pas être disponibles dans tous les emplacements Azure. Consultez le [conditions d’utilisation supplémentaires pour les versions préliminaires de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) pour plus d’informations.
+> Un TAP de réseau virtuel est actuellement en préversion dans toutes les régions Azure. Pour utiliser un TAP de réseau virtuel, vous devez vous inscrire à la préversion en envoyant un e-mail à  <azurevnettap@microsoft.com> avec votre ID d’abonnement. Vous recevrez un e-mail une fois votre abonnement inscrit. Vous ne pouvez pas utiliser la fonctionnalité tant que vous n’avez pas reçu l’e-mail de confirmation. Cette préversion est fournie sans contrat de niveau de service et ne doit pas être utilisée pour les charges de travail de production. Certaines fonctionnalités peuvent ne pas être prises en charge, disposer de capacités limitées ou ne pas être disponibles dans tous les emplacements Azure. Pour plus d'informations, consultez les  [Conditions d’utilisation supplémentaires des préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) .
 
 ## <a name="virtual-network-tap-partner-solutions"></a>Solutions de partenaires pour le TAP de réseau virtuel
 
@@ -40,7 +40,7 @@ Le TAP (point d’accès terminal) de réseau virtuel Azure vous permet de diffu
 
 ### <a name="security-analytics-networkapplication-performance-management"></a>Analytique de la sécurité, gestion des performances des applications/du réseau
 
-- [Sécurité éveillée](https://awakesecurity.com/technology-partners/microsoft-azure/)
+- [Awake Security](https://awakesecurity.com/technology-partners/microsoft-azure/)
 - [Cisco Stealthwatch Cloud](https://blogs.cisco.com/security/cisco-stealthwatch-cloud-and-microsoft-azure-reliable-cloud-infrastructure-meets-comprehensive-cloud-security)
 - [Darktrace](https://www.darktrace.com/en/azure/)
 - [ExtraHop Reveal(x)](https://www.extrahop.com/company/tech-partners/microsoft/)
@@ -55,9 +55,9 @@ L’image suivante illustre le fonctionnement d’un TAP de réseau virtuel. Vou
 
 ![Fonctionnement d’un TAP de réseau virtuel](./media/virtual-network-tap/architecture.png)
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
-Avant de créer un TAP de réseau virtuel, vous devez avoir reçu un e-mail de confirmation qui vous sont inscrits dans la version préliminaire et une ou plusieurs machines virtuelles créées à l’aide [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) modèle de déploiement et d’un partenaire solution pour agréger le drainage de trafic entrant dans la même région azure. Si vous n’avez pas de solution de partenaire dans votre réseau virtuel, consultez les [solutions de partenaires](#virtual-network-tap-partner-solutions) pour en déployer une. Vous pouvez utiliser la même ressource TAP de réseau virtuel pour agréger le trafic de plusieurs interfaces réseau dans le même abonnement ou des abonnements différents. Si les interfaces réseau supervisées sont dans des abonnements différents, les abonnements doivent être associés au même locataire Azure Active Directory. Par ailleurs, les interfaces réseau supervisées et le point de terminaison de destination pour l’agrégation du trafic TAP peuvent être dans des réseaux virtuels appairés dans la même région. Si vous utilisez ce modèle de déploiement, vérifiez que [le peering de réseaux virtuels](virtual-network-peering-overview.md) est activé avant de configurer le TAP de réseau virtuel.
+Avant de créer un TAP de réseau virtuel, vous devez avoir reçu un e-mail de confirmation indiquant que vous êtes inscrit à la préversion, et disposer d'une ou plusieurs machines virtuelles créées à l’aide d’un modèle de déploiement [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) et d'une solution partenaire pour agréger le trafic TAP dans la même région Azure. Si vous n’avez pas de solution de partenaire dans votre réseau virtuel, consultez les [solutions de partenaires](#virtual-network-tap-partner-solutions) pour en déployer une. Vous pouvez utiliser la même ressource TAP de réseau virtuel pour agréger le trafic de plusieurs interfaces réseau dans le même abonnement ou des abonnements différents. Si les interfaces réseau supervisées sont dans des abonnements différents, les abonnements doivent être associés au même locataire Azure Active Directory. Par ailleurs, les interfaces réseau supervisées et le point de terminaison de destination pour l’agrégation du trafic TAP peuvent être dans des réseaux virtuels appairés dans la même région. Si vous utilisez ce modèle de déploiement, vérifiez que [le peering de réseaux virtuels](virtual-network-peering-overview.md) est activé avant de configurer le TAP de réseau virtuel.
 
 ## <a name="permissions"></a>Autorisations
 

@@ -15,10 +15,10 @@ ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 651dc4efa653e7a4eb77f153280579ffd87fe8f7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60289994"
 ---
 # <a name="start-using-pim"></a>Commencer à utiliser PIM
@@ -27,7 +27,7 @@ Avec Azure Active Directory (Azure AD) Privileged Identity Management (PIM), vou
 
 Cet article décrit comment activer et bien démarrer avec PIM.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour utiliser PIM, vous devez disposer d’une des licences suivantes :
 
@@ -38,7 +38,7 @@ Pour plus d’informations, consultez [Licences requises pour utiliser PIM](subs
 
 ## <a name="first-person-to-use-pim"></a>Première personne à utiliser PIM
 
-Si vous êtes la première personne à utiliser PIM dans votre annuaire, les rôles [Administrateur de sécurité](../users-groups-roles/directory-assign-admin-roles.md#security-administrator) et [Administrateur de rôle privilégié](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) vous sont automatiquement attribués pour cet annuaire. Seuls les administrateurs de rôle privilégié peuvent gérer les attributions de rôle de Azure AD d’utilisateurs. En outre, vous pouvez choisir d’exécuter l’[Assistant Sécurité](pim-security-wizard.md) qui vous guide dans l’expérience de découverte et d’attribution initiale.
+Si vous êtes la première personne à utiliser PIM dans votre annuaire, les rôles [Administrateur de sécurité](../users-groups-roles/directory-assign-admin-roles.md#security-administrator) et [Administrateur de rôle privilégié](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) vous sont automatiquement attribués pour cet annuaire. Seuls les administrateurs de rôle privilégié peuvent gérer les attributions de rôles des utilisateurs Azure AD. En outre, vous pouvez choisir d’exécuter l’[Assistant Sécurité](pim-security-wizard.md) qui vous guide dans l’expérience de découverte et d’attribution initiale.
 
 ## <a name="enable-pim"></a>Activer PIM
 
@@ -108,7 +108,7 @@ Une fois PIM configuré, vous pouvez effectuer vos tâches de gestion des identi
 | **Mes demandes** | Affiche toutes vos requêtes en attente pour activer les attributions de rôles éligibles. |
 | **Approuver des requêtes** | Affiche la liste des demandes d’activation des rôles éligibles par utilisateur dans votre annuaire, dont l’approbation vous revient. |
 | **Révision d’accès** | Répertorie les révisions d’accès que vous devez terminer, que vous les effectuiez pour vous-même ou pour quelqu’un d’autre. |
-| **Rôles Azure AD** | Affiche un tableau de bord et les paramètres de rôle privilégié aux administrateurs de gérer les attributions de rôles Azure AD. Ce tableau de bord est désactivée pour toute personnes n’étant pas un administrateur de rôle privilégié. Ces utilisateurs ont accès à un tableau de bord spécial intitulé Mon affichage. Le tableau de bord Mon affichage présente uniquement des informations sur l’utilisateur qui accède au tableau de bord (et non sur l’ensemble du locataire). |
+| **Rôles Azure AD** | Affiche un tableau de bord et des paramètres pour les administrateurs de rôle privilégié qui doivent gérer les attributions de rôles Azure AD. Ce tableau de bord est désactivée pour toute personnes n’étant pas un administrateur de rôle privilégié. Ces utilisateurs ont accès à un tableau de bord spécial intitulé Mon affichage. Le tableau de bord Mon affichage présente uniquement des informations sur l’utilisateur qui accède au tableau de bord (et non sur l’ensemble du locataire). |
 | **Ressources Azure** | Affiche un tableau de bord et des paramètres pour les administrateurs de rôle privilégié qui doivent gérer les attributions de rôles de ressources Azure. Ce tableau de bord est désactivée pour toute personnes n’étant pas un administrateur de rôle privilégié. Ces utilisateurs ont accès à un tableau de bord spécial intitulé Mon affichage. Le tableau de bord Mon affichage présente uniquement des informations sur l’utilisateur qui accède au tableau de bord (et non sur l’ensemble du locataire). |
 
 ## <a name="add-a-pim-tile-to-the-dashboard"></a>Ajouter une vignette PIM au tableau de bord

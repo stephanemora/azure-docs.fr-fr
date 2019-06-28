@@ -14,14 +14,14 @@ ms.date: 07/18/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: aac1ed82a01477b081f4bc146f199eba87d97859
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60309172"
 ---
 # <a name="move-data-from-salesforce-by-using-azure-data-factory"></a>Déplacer des données depuis Salesforce à l’aide d’Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
 > * [Version 1](data-factory-salesforce-connector.md)
 > * [Version 2 (version actuelle)](../connector-salesforce.md)
 
@@ -35,7 +35,7 @@ Pour l’instant, Data Factory permet uniquement de déplacer des données de Sa
 ## <a name="supported-versions"></a>Versions prises en charge
 Ce connecteur prend en charge les éditions suivantes de Salesforce : Developer Edition, Professional Edition, Enterprise Edition et Unlimited Edition. Et il prend en charge la copie de production Salesforce, bac à sable (sandbox) et domaine personnalisé.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 * L’autorisation d’API doit être activée. Consultez l’article [How do I enable API access in Salesforce by permission set?](https://www.data2crm.com/migration/faqs/enable-api-access-salesforce-permission-set/)
 * Pour copier des données depuis Salesforce vers des magasins de données locaux, la passerelle de gestion des données version 2.0 doit être au moins installée dans votre environnement local.
 
@@ -69,11 +69,11 @@ Le tableau suivant décrit les éléments JSON spécifiques au service lié Sale
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
-| type |La propriété type doit être définie sur : **Salesforce**. |Oui |
-| environmentUrl | Spécifiez l’URL de l’instance Salesforce. <br><br> -La valeur par défaut est « https :\//login.salesforce.com ». <br> - Pour copier des données du bac à sable, spécifiez « https://test.salesforce.com ». <br> - Pour copier des données du domaine personnalisé, spécifiez, par exemple : « https://[domain].my.salesforce.com ». |Non |
-| username |Spécifiez un nom d’utilisateur pour le compte d’utilisateur. |Oui |
-| password |Spécifiez le mot de passe du compte d’utilisateur. |Oui |
-| securityToken |Spécifiez le jeton de sécurité du compte d’utilisateur. Consultez l’article [Get security token](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) (Obtenir un jeton de sécurité) pour obtenir des instructions sur la réinitialisation et l’obtention d’un jeton de sécurité. Pour en savoir plus sur les jetons de sécurité, consultez l’article [Security and the API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm)(Sécurité et API). |Oui |
+| type |La propriété type doit être définie sur : **Salesforce**. |OUI |
+| environmentUrl | Spécifiez l’URL de l’instance Salesforce. <br><br> - L'URL par défaut est « https:\//login.salesforce.com ». <br> - Pour copier des données du bac à sable, spécifiez « https://test.salesforce.com  ». <br> - Pour copier des données du domaine personnalisé, spécifiez, par exemple : « https://[domain].my.salesforce.com ». |Non |
+| username |Spécifiez un nom d’utilisateur pour le compte d’utilisateur. |OUI |
+| password |Spécifiez le mot de passe du compte d’utilisateur. |OUI |
+| securityToken |Spécifiez le jeton de sécurité du compte d’utilisateur. Consultez l’article [Get security token](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) (Obtenir un jeton de sécurité) pour obtenir des instructions sur la réinitialisation et l’obtention d’un jeton de sécurité. Pour en savoir plus sur les jetons de sécurité, consultez l’article [Security and the API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm)(Sécurité et API). |OUI |
 
 ## <a name="dataset-properties"></a>Propriétés du jeu de données
 Pour obtenir une liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article [Création de jeux de données](data-factory-create-datasets.md) . Les sections comme la structure, la disponibilité et la stratégie d’un jeu de données JSON sont similaires pour tous les types de jeux de données (SQL Azure, Azure Blob, Azure Table, etc.).
@@ -286,25 +286,25 @@ Pour obtenir la liste des propriétés prises en charge par RelationalSource, vo
 
 | Type Salesforce | Type basé sur .NET |
 | --- | --- |
-| Auto Number |String |
-| Checkbox |Boolean |
-| Currency |Decimal |
-| Date |DateTime |
-| Date/Time |DateTime |
-| Email |String |
-| Id |String |
-| Lookup Relationship |String |
-| Multi-Select Picklist |String |
+| Numérotation automatique |Chaîne |
+| Case à cocher |Boolean |
+| Devise |Decimal |
+| Date |Datetime |
+| Date/Heure |Datetime |
+| Email |Chaîne |
+| ID |Chaîne |
+| Relation de recherche |Chaîne |
+| Liste déroulante à sélection multiple |Chaîne |
 | Number |Decimal |
-| Percent |Decimal |
-| Phone |String |
-| Picklist |String |
-| Text |String |
-| Text Area |String |
-| Text Area (Long) |String |
-| Text Area (Rich) |String |
-| Text (Encrypted) |String |
-| URL |String |
+| Pourcentage |Decimal |
+| Téléphone |Chaîne |
+| Liste déroulante |Chaîne |
+| Texte |Chaîne |
+| Zone de texte |Chaîne |
+| Zone de texte (long) |Chaîne |
+| Zone de texte (enrichi) |Chaîne |
+| Texte (chiffré) |Chaîne |
+| URL |Chaîne |
 
 > [!NOTE]
 > Pour savoir comment mapper des colonnes d’un jeu de données source sur des colonnes d’un jeu de données récepteur, consultez [Mappage de colonnes des jeux de données dans Azure Data Factory](data-factory-map-columns.md).

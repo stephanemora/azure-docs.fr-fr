@@ -17,15 +17,15 @@ ms.date: 06/01/2017
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 3b3bb206286629a68c14b6444f3f88ffa0af50dd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60583086"
 ---
 # <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>Utilisation du stockage Premium Azure avec SQL Server sur des machines virtuelles
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
 Les [disques SSD Premium Azure](../disks-types.md) représentent la nouvelle génération de stockage en offrant une faible latence et un débit d'E/S élevé. Il est particulièrement adapté aux principales charges de travail E/S intensives telles que SQL Server sur [des machines virtuelles](https://azure.microsoft.com/services/virtual-machines/)IaaS.
 
@@ -140,7 +140,7 @@ Pour chaque disque, procédez comme suit :
 Get-AzureVM -ServiceName <servicename> -Name <vmname> | Get-AzureDataDisk
 ```
 
-1. Notez le DiskName et le numéro d’unité logique.
+1. Notez le nom du disque et le LUN.
 
     ![DisknameAndLUN][2]
 1. Bureau à distance dans la machine virtuelle. Accédez ensuite à **Gestion de l’ordinateur** | **Gestionnaire de périphériques** | **Lecteurs de disque**. Examinez les propriétés de chacun  des « disques virtuels Microsoft ».
@@ -682,7 +682,7 @@ $destcloudsvc = "danNewSvcAms"
 New-AzureService $destcloudsvc -Location $location
 ```
 
-#### <a name="step-2-increase-the-permitted-failures-on-resources-optional"></a>Étape 2 : Augmenter les niveau des échecs autorisés sur les ressources \<facultatif >
+#### <a name="step-2-increase-the-permitted-failures-on-resources-optional"></a>Étape 2 : Augmenter le niveau des échecs autorisés sur les ressources \<Facultatif>
 
 Sur certaines ressources appartenant à votre groupe de disponibilité Always On, il existe des limites concernant le nombre d’erreurs qui peuvent se produire dans une période où le service de cluster tente de redémarrer le groupe de ressources. Il est recommandé d'augmenter cette valeur au cours de cette procédure car si vous n'effectuez pas manuellement les basculements en arrêtant les machines, vous risquez de vous rapprocher de cette limite.
 
@@ -692,7 +692,7 @@ Il est prudent de doubler la tolérance de défaillance ; pour cela, ouvrez le 
 
 Modifiez le nombre maximal d'échecs à 6.
 
-#### <a name="step-3-addition-ip-address-resource-for-cluster-group-optional"></a>Étape 3 : Ressource d’adresse IP Ajout pour le groupe de clusters \<facultatif >
+#### <a name="step-3-addition-ip-address-resource-for-cluster-group-optional"></a>Étape 3 : Ajouter une ressource d’adresse IP au groupe de clusters \<Facultatif>
 
 Si vous n'avez qu'une seule adresse IP pour le groupe de clusters et qu'elle est alignée sur le sous-réseau cloud, prenez garde car si vous mettez hors ligne accidentellement tous les nœuds de cluster du cloud sur ce réseau, la ressource IP du cluster et le nom du réseau cluster ne pourront pas être mis en ligne. Dans ce cas, cela empêche les mises à jour des autres ressources de cluster.
 
@@ -750,7 +750,7 @@ Get-ClusterResource $ListenerName| Set-ClusterParameter -Name "HostRecordTTL" 12
 
 ##### <a name="client-application-settings"></a>Paramètres de l’application cliente
 
-Si votre application cliente SQL prend en charge .NET 4.5 SQLClient, vous pouvez utiliser « MULTISUBNETFAILOVER = TRUE' mot clé. Il est recommandé de l'appliquer car il accélère la connexion au groupe de disponibilité AlwaysOn SQL pendant le basculement. Il énumère toutes les adresses IP associées à l’écouteur Always On en parallèle et effectue une tentative de reconnexion TCP plus rapide lors d’un basculement.
+Si votre application cliente SQL prend en charge .NET 4.5 SQLClient, vous pouvez utiliser le mot clé 'MULTISUBNETFAILOVER = TRUE'. Il est recommandé de l'appliquer car il accélère la connexion au groupe de disponibilité AlwaysOn SQL pendant le basculement. Il énumère toutes les adresses IP associées à l’écouteur Always On en parallèle et effectue une tentative de reconnexion TCP plus rapide lors d’un basculement.
 
 Pour plus d'informations sur les paramètres précédents, consultez la rubrique [Mot clé MultiSubnetFailover et fonctionnalités associées](https://msdn.microsoft.com/library/hh213080.aspx#MultiSubnetFailover). Consultez également [Prise en charge SqlClient pour la haute disponibilité et récupération d’urgence](https://msdn.microsoft.com/library/hh205662\(v=vs.110\).aspx).
 
@@ -1223,7 +1223,7 @@ Get-AzureVM –ServiceName $destcloudsvc –Name $vmNameToMigrate  | Add-AzureEn
 
 #### <a name="step-23-test-failover"></a>Étape 23 : Test de basculement
 
-Vous devriez maintenant laisser le nœud migré se synchroniser avec le nœud Always On local, le placer en mode de réplication synchrone et attendre qu’il soit synchronisé. Puis basculement en local vers le premier nœud migré, c'est-à-dire l’AFP. Une fois l'opération réussie, changez le dernier nœud migré en AFP.
+Vous devriez maintenant laisser le nœud migré se synchroniser avec le nœud Always On local, le placer en mode de réplication synchrone et attendre qu’il soit synchronisé. Effectuez ensuite un basculement du nœud local vers le premier nœud migré, c'est-à-dire l'AFP. Une fois l'opération réussie, changez le dernier nœud migré en AFP.
 
 Vous devez tester les basculements entre tous les nœuds de test et effectuer des tests CHAOS pour vous assurer que les basculements se sont déroulés comme prévu et en temps opportun.
 

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
 ms.openlocfilehash: f4558c6fdb1e5e4f0ffb7a4b4fdb1ab62eb4cfa9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60332945"
 ---
 # <a name="remediate-security-configurations-in-azure-security-center"></a>Corriger les configurations de sécurité dans Azure Security Center
@@ -84,7 +84,7 @@ Dans cet exemple, nous allons examiner la recommandation de correction de l’in
    ![Espaces de travail répertoriés][4]
 
 5. Sélectionnez un espace de travail.  
-   Une requête de recherche de journaux Azure Monitor filtrée sur l’espace de travail avec l’incohérence des configurations de sécurité s’ouvre.
+   Une requête de recherche de journaux d’activité Azure Monitor filtrée sur l’espace de travail avec l’incohérence des configurations de sécurité s’ouvre.
 
    ![Espace de travail avec vulnérabilité de système d’exploitation][5]
 

@@ -1,6 +1,6 @@
 ---
-title: Interpréter le schéma de journal d’audit Azure Active Directory dans Azure Monitor | Microsoft Docs
-description: Décrire le schéma de journal d’audit Azure AD pour une utilisation dans Azure Monitor
+title: Interpréter le schéma des journaux d’audit Azure Active Directory dans Azure Monitor | Microsoft Docs
+description: Décrire le schéma de journal d’audit Azure AD pour une utilisation dans Azure Monitor
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d9f58b213e50a021651f35112a48d8f74ae59571
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60437071"
 ---
 # <a name="interpret-the-azure-ad-audit-logs-schema-in-azure-monitor-preview"></a>Interpréter le schéma des journaux d’audit Azure Active Directory dans Azure Monitor (préversion)
@@ -178,6 +178,6 @@ Cet article décrit le schéma de journal d’audit Azure Active Directory (Azur
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Interpréter le schéma des journaux de connexion dans Azure Monitor](reference-azure-monitor-sign-ins-log-schema.md)
+* [Interpréter le schéma des journaux d’activité de connexion dans Azure Monitor](reference-azure-monitor-sign-ins-log-schema.md)
 * [Journaux de diagnostics Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)
 * [Questions fréquentes et problèmes connus](concept-activity-logs-azure-monitor.md#frequently-asked-questions)

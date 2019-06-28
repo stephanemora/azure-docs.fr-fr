@@ -1,6 +1,6 @@
 ---
 title: Rapports personnalisés de Verizon | Microsoft Docs
-description: 'Vous pouvez afficher des modèles d’utilisation pour votre CDN en utilisant les rapports suivants : La bande passante, les données transférées, accès, les États du Cache, taux, données IPV4/IPV6 transférées d’accès au Cache.'
+description: "Vous pouvez afficher les modèles d'utilisation de votre CDN via les rapports suivants : bande passante, données transférées, accès, états du cache, correspondance dans le cache, données IPV4/IPV6 transférées."
 services: cdn
 documentationcenter: ''
 author: mdgattuso
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/11/2017
 ms.author: magattus
 ms.openlocfilehash: 75a1fb4beb4025dc3ec63d29944331d07be35d8a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60323573"
 ---
 # <a name="custom-reports-from-verizon"></a>Rapports personnalisés de Verizon
@@ -47,15 +47,15 @@ Générez un rapport personnalisé en définissant les options de rapport suivan
 
 - Métriques : Les options suivantes sont prises en charge :
 
-   - Accès : Indique le nombre total de requêtes qui sont dirigées vers un edge CNAME sur lequel la fonctionnalité de création de rapports personnalisés est activée. Cette mesure n’inclut pas le code d’état retourné au client.
+   - Accès indique le nombre total de demandes adressées à un Edge CNAME sur lequel la fonctionnalité de création de rapports personnalisés est activée. Cette mesure n’inclut pas le code d’état retourné au client.
 
-   - Données transférées : Indique la quantité totale de données transférées depuis les serveurs edge aux clients HTTP (par exemple, les navigateurs web) pour les requêtes qui sont dirigées vers un edge CNAME sur lequel la fonctionnalité de création de rapports personnalisés est activée. La quantité de données transférées est calculée en ajoutant des en-têtes de réponse HTTP au corps de la réponse. Par conséquent, la quantité des données transférées pour chaque composant est supérieure à sa taille de fichier réelle.
+   - Données transférées : indique la quantité totale de données transférées des serveurs Edge vers des clients HTTP (par exemple, des navigateurs web) pour des demandes dirigées vers un Edge CNAME sur lequel la fonctionnalité de création de rapports personnalisés est activée. La quantité de données transférées est calculée en ajoutant des en-têtes de réponse HTTP au corps de la réponse. Par conséquent, la quantité des données transférées pour chaque composant est supérieure à sa taille de fichier réelle.
 
-- Regroupements : Détermine le type de statistiques affichées sous le graphique à barres. Les options suivantes sont prises en charge :
+- Regroupements : détermine le type des statistiques affichées sous le graphique à barres. Les options suivantes sont prises en charge :
 
-   - Codes de réponse HTTP : Organise les statistiques par code de réponse HTTP (par exemple, 200, 403, etc.) retourné au client. 
+   - Codes de réponse HTTP : organise les statistiques par code de réponse HTTP (par exemple, 200, 403, etc.) retourné au client. 
 
-   - État du cache : Organise les statistiques par état du cache.
+   - État du cache : organise les statistiques par état du cache.
 
 
 Pour définir la plage de dates pour le rapport, vous pouvez sélectionner dans la liste déroulante une plage de dates prédéfinie, telle que **Aujourd’hui** ou **Semaine**, ou sélectionner **Personnalisée**, puis entrer manuellement une plage de dates en cliquant sur les icônes du calendrier. 

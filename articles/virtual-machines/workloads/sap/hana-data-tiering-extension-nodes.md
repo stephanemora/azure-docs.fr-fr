@@ -15,16 +15,16 @@ ms.date: 09/04/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: b5868aaf29d6b57ea608763840a08f1991a982e8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60628589"
 ---
 # <a name="use-sap-hana-data-tiering-and-extension-nodes"></a>Utiliser une hiérarchisation des données et des nœuds d’extension SAP HANA
 
 SAP prend en charge un modèle de hiérarchisation des données pour SAP BW pour différentes versions SAP NetWeaver et pour SAP BW/4HANA. Pour plus d’informations sur le modèle de hiérarchisation des données, consultez le document SAP [SAP BW/4HANA et SAP BW sur HANA avec nœuds d’extension SAP HANA](https://www.sap.com/documents/2017/05/ac051285-bc7c-0010-82c7-eda71af511fa.html#).
-La grande instance HANA vous permet d’utiliser la configuration de l’option 1 des nœuds d’extension SAP HANA, comme détaillé dans la FAQ et les documents de blog SAP. Option 2 configurations peuvent être configurées avec les HANA grande Instance références SKU suivantes : S72m, S192, S192m, S384 et S384m. 
+La grande instance HANA vous permet d’utiliser la configuration de l’option 1 des nœuds d’extension SAP HANA, comme détaillé dans la FAQ et les documents de blog SAP. Les configurations de l'option 2 peuvent être définies avec les références SKU de grandes instances HANA suivantes : S72m, S192, S192m, S384 et S384m. 
 
 Les avantages ne sont pas forcément visibles immédiatement lorsque l’on parcourt la documentation. Toutefois, en examinant les instructions portant sur le redimensionnement de SAP, vous pouvez trouver un avantage à utiliser les nœuds d’extension SAP HANA avec l’option 1 et l’option 2. Voici quelques exemples :
 

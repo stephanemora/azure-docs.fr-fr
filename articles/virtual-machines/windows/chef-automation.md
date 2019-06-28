@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/30/2017
 ms.author: diviso
 ms.openlocfilehash: 9cb7172fb529d8f0cd8650db7c06a78176ef342d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64729556"
 ---
 # <a name="automating-azure-virtual-machine-deployment-with-chef"></a>Automatisation du déploiement de machine virtuelle Azure avec Chef
@@ -177,7 +177,7 @@ knife[:azure_publish_settings_file] = "yourfilename.publishsettings"
 Ensuite, [téléchargez et installez](https://downloads.chef.io/chef-workstation/) Chef Workstation.
 Installez Chef Workstation à l’emplacement par défaut. Cette installation peut prendre quelques minutes.
 
-Sur le Bureau, « CW PowerShell » apparaît, ce qui correspond à un environnement chargé avec l’outil dont vous avez besoin pour interagir avec les produits Chef. PowerShell CW disposition nouvelles commandes ad hoc, tels que `chef-run` ainsi que Chef interfaces CLI des commandes, telles que `chef`. Déterminez votre version installée de Chef Worstation et des outils Chef avec la commande `chef -v`. Vous pouvez également vérifier votre version de Chef Workstation en sélectionnant « About Chef Workstation » dans l’application éponyme.
+Sur le Bureau, « CW PowerShell » apparaît, ce qui correspond à un environnement chargé avec l’outil dont vous avez besoin pour interagir avec les produits Chef. CW PowerShell rend disponibles de nouvelles commandes ad-hoc, comme `chef-run` ainsi que les commandes d'interface CLI traditionnelles de Chef, comme `chef`. Déterminez votre version installée de Chef Worstation et des outils Chef avec la commande `chef -v`. Vous pouvez également vérifier votre version de Chef Workstation en sélectionnant « About Chef Workstation » dans l’application éponyme.
 
 La commande `chef --version` doit retourner quelque chose comme :
 
@@ -192,7 +192,7 @@ Chef Workstation: 0.2.29
 ```
 
 > [!NOTE]
-> L’ordre du chemin d’accès est important !  Si vos chemins opscode ne sont pas dans l’ordre adéquat, cela créera des problèmes.
+> L’ordre du chemin d’accès est important ! Si vos chemins opscode ne sont pas dans l’ordre adéquat, cela créera des problèmes.
 >
 
 Redémarrez votre station de travail avant de continuer.

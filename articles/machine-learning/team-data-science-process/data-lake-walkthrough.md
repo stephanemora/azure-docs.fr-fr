@@ -12,10 +12,10 @@ ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: cc37109eda2690b4407f9cd0c92851b7c0e3f915
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60399960"
 ---
 # <a name="scalable-data-science-with-azure-data-lake-an-end-to-end-walkthrough"></a>Science des données évolutive avec Azure Data Lake : procédure complète
@@ -84,7 +84,7 @@ Créez un compte ADLA à partir du [portail Azure](https://portal.azure.com). Po
 ### <a name="create-an-azure-blob-storage-account"></a>Créer un compte de stockage d’objets blob Azure
 Créez votre compte de stockage d’objets blob Azure à partir du [portail Azure](https://portal.azure.com). Pour en savoir plus, consultez la section Créer un compte de stockage de l’article [À propos des comptes de stockage Azure](../../storage/common/storage-create-storage-account.md).
 
- ![5.](./media/data-lake-walkthrough/5-Create-Azure-Blob.PNG)
+ ![5\.](./media/data-lake-walkthrough/5-Create-Azure-Blob.PNG)
 
 ### <a name="set-up-an-azure-machine-learning-studio-account"></a>Configurer un compte Azure Machine Learning Studio
 Inscrivez-vous/Connectez-vous à Azure Machine Learning Studio à partir de la page [Azure Machine Learning Studio](https://azure.microsoft.com/services/machine-learning/). Cliquez sur le bouton **Commencer dès maintenant** , puis choisissez un « espace de travail gratuit » ou un « espace de travail standard ». Vous pouvez maintenant créer des expériences dans Azure Machine Learning Studio.
@@ -92,7 +92,7 @@ Inscrivez-vous/Connectez-vous à Azure Machine Learning Studio à partir de la p
 ### <a name="install-azure-data-lake-tools-recommended"></a>Installer les outils Azure Data Lake [Recommandé]
 Installez les outils Azure Data Lake pour votre version de Visual Studio sur la page [Outils Azure Data Lake pour Visual Studio](https://www.microsoft.com/download/details.aspx?id=49504).
 
- ![6.](./media/data-lake-walkthrough/6-install-ADL-tools-VS.PNG)
+ ![6\.](./media/data-lake-walkthrough/6-install-ADL-tools-VS.PNG)
 
 Une fois l’installation terminée, ouvrez Visual Studio. L’onglet Data Lake doit apparaître dans le menu supérieur. Vos ressources Azure doivent apparaître dans le volet gauche, lorsque vous vous connectez à votre compte Azure.
 
@@ -148,7 +148,7 @@ Pour exécuter U-SQL, ouvrez Visual Studio, cliquez sur **Fichier--> Nouveau--> 
 
 ### <a name="ingest"></a>Ingestion de données : données lues à partir d’un objet blob public
 
-L’emplacement des données dans l’objet blob Azure est référencé en tant que **wasb://container\_nom\@blob\_stockage\_compte\_name.blob.core.windows.net/blob_name**et peuvent être extraites à l’aide de **extractors.csv ()**. Remplacez par votre propre nom de conteneur et le nom de compte de stockage dans les scripts suivants pour le conteneur\_nom\@blob\_stockage\_compte\_nom dans l’adresse wasb. Étant donné que les noms de fichiers sont au même format, il est possible d’utiliser **voyage\_données\_\{\*\}.csv** pour lire tous les fichiers de course 12.
+L’emplacement des données dans l’objet blob Azure, auquel il est fait référence sous la forme **wasb://container\_name\@blob\_storage\_account\_name.blob.core.windows.net/blob_name**, peut être extrait à l’aide de **Extractors.Csv()** . Remplacez vos propres noms de conteneur et de compte de stockage dans les scripts suivants pour container\_name\@blob\_storage\_account\_name dans l’adresse wasb. Les noms de fichiers étant au même format, il est possibile d'utiliser **trip\_data\_\{\*\}.csv** pour lire les 12 fichiers de course.
 
     ///Read in Trip data
     @trip0 =
@@ -171,7 +171,7 @@ L’emplacement des données dans l’objet blob Azure est référencé en tant 
     FROM "wasb://container_name@blob_storage_account_name.blob.core.windows.net/nyctaxitrip/trip_data_{*}.csv"
     USING Extractors.Csv();
 
-Dans la mesure où la première ligne comporte des en-têtes, vous devez les supprimer et modifier les types de colonne afin de les adapter. Vous pouvez enregistrer les données traitées dans Azure Data Lake Storage à l’aide **swebhdfs://data_lake_storage_name.azuredatalakestorage.net/folder_name/file_name**_ ou à l’aide de compte de stockage Blob Azure **wasb : / / container_name\@blob_storage_account_name.blob.core.windows.net/blob_name**.
+Dans la mesure où la première ligne comporte des en-têtes, vous devez les supprimer et modifier les types de colonne afin de les adapter. Vous pouvez enregistrer les données traitées dans Azure Data Lake Storage à l’aide de **swebhdfs://nom_data_lake_storage.azuredatalakestorage.net/nom_dossier/nom_fichier** ou dans un compte de stockage Blob Azure à l’aide de **wasb://container_name\@blob_storage_account_name.blob.core.windows.net/blob_name**.
 
     // change data types
     @trip =

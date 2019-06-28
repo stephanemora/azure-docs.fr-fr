@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 11/27/2018
 ms.author: sutalasi
 ms.openlocfilehash: 78bd077b5491b093510b9c55bf7b5a42ee9cb578
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60362354"
 ---
 # <a name="set-up-disaster-recovery-of-hyper-v-vms-to-a-secondary-site-by-using-powershell-resource-manager"></a>Configurer la reprise d’activité de machines virtuelles Hyper-V sur un site secondaire à l’aide de PowerShell (Resource Manager)
@@ -21,7 +21,7 @@ Cet article montre comment automatiser les étapes de la réplication des machin
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 - Examinez [l’architecture et les composants du scénario](hyper-v-vmm-architecture.md).
 - Vérifiez les [exigences de prise en charge](site-recovery-support-matrix-to-sec-site.md) pour tous les composants.
@@ -77,7 +77,7 @@ Assurez-vous qu’Azure PowerShell est prêt à l’emploi :
 
         $vault = New-AzRecoveryServicesVault -Name #vaultname -ResourceGroupName #ResourceGroupName -Location #location
    
-    Vous pouvez récupérer l’objet de coffre après sa création à l’aide de l’applet de commande Get-AzRecoveryServicesVault.
+    Vous pouvez récupérer l’objet de coffre après sa création à l’aide de la cmdlet Get-AzRecoveryServicesVault.
 
 ## <a name="set-the-vault-context"></a>Définir le contexte du coffre
 1. Récupérez un coffre existant.

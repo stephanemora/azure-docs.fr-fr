@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 10/29/2018
 ms.author: terrylan
 ms.openlocfilehash: 2aabe3d1fa8a6034c2dab38c8d6fa6da4b00ac1b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60444263"
 ---
 # <a name="azure-network-security-overview"></a>Vue d’ensemble de la sécurité du réseau Azure
@@ -324,7 +324,7 @@ Microsoft offre une protection DDoS **De base** dans le cadre de la plateforme A
 * **Optimisation adaptative :** Le profilage intelligent du trafic étudie le trafic de votre application au fil du temps pour sélectionner et mettre à jour le profil le plus adapté pour votre service. Le profil s’ajuste en fonction des modifications du trafic au fil du temps. Protection des couches 3 à 7 : Offre une protection DDoS de pile complète, quand elle est utilisée avec un pare-feu d’application web.
 * **Échelle de prévention étendue :** Plus de 60 types d’attaques différents peuvent être contrées, avec une protection globale contre les attaques DDoS les plus connues.
 * **Métriques des attaques :** Des métriques récapitulatives de chaque attaque sont accessibles via Azure Monitor.
-* **Alerte d’attaque :** Vous pouvez configurer des alertes pour le début et la fin d’une attaque, ainsi que pendant qu’elle se produit, avec des métriques d’attaque intégrées. Les alertes s’intègrent à vos logiciels opérationnels tels que les journaux Microsoft Azure Monitor, Splunk, stockage Azure, E-mail et le portail Azure.
+* **Alerte d’attaque :** Vous pouvez configurer des alertes pour le début et la fin d’une attaque, ainsi que pendant qu’elle se produit, avec des métriques d’attaque intégrées. Les alertes s’intègrent à vos logiciels opérationnels, comme les journaux d’activité Microsoft Azure Monitor, Splunk, Stockage Azure, votre messagerie électronique et le portail Azure.
 * **Maîtrise des coûts :**  Si vous documentez les attaques DDoS, vous bénéficiez en retour de crédits pour les services de scale-out d’application et de transfert de données.
 * **DDoS Rapid Response** : les clients du service Protection DDoS standard peuvent désormais contacter l’équipe du service Rapid Response pendant une attaque active. Le service DRR peut aider en enquêtant sur l’attaque, en personnalisant les atténuations des risques pendant une attaque et en publiant une analyse de cette dernière.
 
@@ -401,4 +401,4 @@ La journalisation au niveau du réseau est un élément clé de tout scénario d
 Vous pouvez également utiliser [Microsoft Power BI](https://powerbi.microsoft.com/what-is-power-bi/), un puissant outil de visualisation de données, pour afficher et analyser ces journaux d’activité.
 En savoir plus :
 
-* [Journaux d’analyse Azure pour les groupes de sécurité réseau (NSG)](../virtual-network/virtual-network-nsg-manage-log.md)
+* [Journaux d’activité Azure Monitor pour les groupes de sécurité réseau (NSG)](../virtual-network/virtual-network-nsg-manage-log.md)

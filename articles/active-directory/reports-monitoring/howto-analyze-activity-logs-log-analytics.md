@@ -1,6 +1,6 @@
 ---
-title: Analyser les journaux d’activité Azure Active Directory à l’aide des journaux Azure Monitor | Microsoft Docs
-description: Découvrez comment analyser les journaux d’activité Azure Active Directory à l’aide des journaux Azure Monitor
+title: Analyser les journaux d'activité Azure Active Directory à l'aide des journaux Azure Monitor | Microsoft Docs
+description: Apprenez à analyser les journaux d'activité Azure Active Directory à l'aide des journaux Azure Monitor
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -18,13 +18,13 @@ ms.author: priyamo
 ms.reviewer: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1651bb2898a2bd1e3e0c3fbbce77dc4106d76e7a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60438181"
 ---
-# <a name="analyze-azure-ad-activity-logs-with-azure-monitor-logs"></a>Analyser Azure AD des journaux d’activité avec les journaux d’Azure Monitor
+# <a name="analyze-azure-ad-activity-logs-with-azure-monitor-logs"></a>Analyser les journaux d'activité Azure AD à l'aide des journaux Azure Monitor
 
 Après avoir [intégré les journaux d’activité Azure AD aux journaux d’activité Azure Monitor](howto-integrate-activity-logs-with-log-analytics.md), vous pouvez exploiter la puissance des journaux d’activité Azure Monitor pour obtenir des insights sur votre environnement. Vous pouvez également installer les [vues Log Analytics pour les journaux d’activité Azure AD](howto-install-use-log-analytics-views.md). Vous avez ainsi accès à différents rapports prédéfinis qui affichent des événements d’audit et de connexion qui se produisent dans votre environnement.
 
@@ -32,7 +32,7 @@ Cet article vous montre comment analyser les journaux d’activité Azure AD dan
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="prerequisites"></a>Conditions préalables 
+## <a name="prerequisites"></a>Prérequis 
 
 Pour suivre l’article, vous devez préalablement :
 
@@ -55,7 +55,7 @@ Les journaux d’activité sont envoyés (push) dans les tableaux **AuditLogs** 
 1. Dans la vue de la requête par défaut, de la section précédente, sélectionnez **Schéma** et développez l’espace de travail. 
 
 2. Développez la section **Gestion des journaux**, puis développez **AuditLogs** ou **SignInLogs** pour afficher le schéma des journaux.
-    ![Journaux d’audit](./media/howto-analyze-activity-logs-log-analytics/auditlogschema.png) ![Journaux de connexion](./media/howto-analyze-activity-logs-log-analytics/signinlogschema.png)
+    ![Journaux d’audit](./media/howto-analyze-activity-logs-log-analytics/auditlogschema.png)![Journaux d’activité de connexion](./media/howto-analyze-activity-logs-log-analytics/signinlogschema.png)
 
 ## <a name="query-the-azure-ad-activity-logs"></a>Exécuter des requêtes sur les journaux d’activité Azure AD
 
@@ -107,6 +107,6 @@ Découvrez comment [installer et utiliser les vues Log Analytics pour les journa
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Bien démarrer avec les requêtes de journal Azure Monitor](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries)
+* [Bien démarrer avec les requêtes de journal d’activité Azure Monitor](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries)
 * [Créer et gérer des groupes d’alertes dans le portail Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups)
-* [Installer et utiliser les affichages Log Analytics pour Azure Active Directory](howto-install-use-log-analytics-views.md)
+* [Installer et utiliser les vues Log Analytics pour Azure Active Directory](howto-install-use-log-analytics-views.md)

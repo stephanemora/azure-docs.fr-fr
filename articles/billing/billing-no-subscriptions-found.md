@@ -17,10 +17,10 @@ ms.date: 05/11/2018
 ms.author: banders
 ms.custom: seodec18
 ms.openlocfilehash: 094d79026a55e651a1f67a5047dff20c769c359a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60371227"
 ---
 # <a name="no-subscriptions-found-sign-in-error-for-azure-portal-or-azure-account-center"></a>Erreur Aucun abonnement trouvé pour le portail Azure ou le Centre des comptes Azure
@@ -56,4 +56,4 @@ Vérifiez que le compte utilisé correspond à l’administrateur du compte. Pou
 
 ## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Contactez-nous.
 
-Si vous avez des questions ou besoin d’aide, [créer une demande de support](https://go.microsoft.com/fwlink/?linkid=2083458).
+Si vous avez des questions ou besoin d'aide, [créez une demande de support](https://go.microsoft.com/fwlink/?linkid=2083458).

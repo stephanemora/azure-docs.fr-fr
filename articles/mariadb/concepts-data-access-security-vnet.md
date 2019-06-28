@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.openlocfilehash: 5a4e6819eeff2a2c8efaf3807c38cc06f7c35002
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60332825"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mariadb"></a>Utiliser des règles et des points de terminaison de service de réseau virtuel pour Azure Database for MariaDB
@@ -106,7 +106,7 @@ Vous avez la possibilité d’utiliser le [contrôle d’accès en fonction du r
 
 Pour Azure Database for MariaDB, la fonctionnalité de règle de réseau virtuel présente les limitations suivantes :
 
-- Une application web peut être mappée à une adresse IP privée dans un sous-réseau/réseau virtuel. Même si les points de terminaison de service sont activés à partir du réseau virtuel/sous-réseau donné, les connexions entre l’application web et le serveur présenteront une source IP publique Azure, et non une source de sous-réseau/réseau virtuel. Pour activer la connectivité à partir d’une application Web vers un serveur qui a des règles de pare-feu de réseau virtuel, vous devez les services Azure est autorisé pour accéder au serveur sur le serveur.
+- Une application web peut être mappée à une adresse IP privée dans un sous-réseau/réseau virtuel. Même si les points de terminaison de service sont activés à partir du réseau virtuel/sous-réseau donné, les connexions entre l’application web et le serveur présenteront une source IP publique Azure, et non une source de sous-réseau/réseau virtuel. Pour activer la connectivité à partir d’une application web vers un serveur disposant de règles de pare-feu de réseau virtuel, vous devez activer le paramètre Autoriser l’accès des services Azure au serveur.
 
 - Dans le pare-feu pour votre serveur Azure Database for MariaDB, chaque règle de réseau virtuel fait référence à un sous-réseau. Tous ces sous-réseaux référencés doivent être hébergés dans la même région géographique qui héberge Azure Database for MariaDB.
 

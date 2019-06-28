@@ -9,10 +9,10 @@ ms.date: 02/21/2019
 ms.author: charwen
 ms.custom: seodec18
 ms.openlocfilehash: 4a1f9556413df7ad8954171d2b446419d3bc2975
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60366564"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-using-powershell"></a>Configurer ExpressRoute des connexions coexistantes de site à site en utilisant PowerShell
@@ -88,7 +88,7 @@ Cette procédure vous guide dans la création d’un réseau virtuel et de conne
 1. Connectez-vous et sélectionnez votre abonnement.
 
    [!INCLUDE [sign in](../../includes/expressroute-cloud-shell-connect.md)]
-2. Définir les variables.
+2. Définissez les variables.
 
    ```azurepowershell-interactive
    $location = "Central US"
@@ -220,7 +220,7 @@ Les cmdlets que vous utilisez pour cette configuration peuvent être légèremen
 
 ## <a name="to-add-point-to-site-configuration-to-the-vpn-gateway"></a>Pour ajouter une configuration point à site à la passerelle VPN
 
-Vous pouvez suivre les étapes ci-dessous pour ajouter une configuration point à site à votre passerelle VPN dans une configuration de coexistence. Pour télécharger le certificat racine VPN, vous devez installer PowerShell localement sur votre ordinateur, ou utiliser le portail Azure.
+Vous pouvez suivre les étapes ci-dessous pour ajouter une configuration point à site à votre passerelle VPN dans une configuration de coexistence. Pour télécharger le certificat racine du VPN, vous devez installer PowerShell localement sur votre ordinateur ou utiliser le Portail Azure.
 
 1. Ajoutez le pool d’adresses des clients VPN.
 
@@ -228,7 +228,7 @@ Vous pouvez suivre les étapes ci-dessous pour ajouter une configuration point �
    $azureVpn = Get-AzVirtualNetworkGateway -Name "VPNGateway" -ResourceGroupName $resgrp.ResourceGroupName
    Set-AzVirtualNetworkGatewayVpnClientConfig -VirtualNetworkGateway $azureVpn -VpnClientAddressPool "10.251.251.0/24"
    ```
-2. Téléchargez le certificat racine VPN dans Azure pour votre passerelle VPN. Dans cet exemple, il est supposé que le certificat racine est stocké dans l’ordinateur local où les applets de commande PowerShell suivantes sont exécutées et que vous exécutez PowerShell en local. Vous pouvez également télécharger le certificat à l’aide du portail Azure.
+2. Téléchargez le certificat racine VPN dans Azure pour votre passerelle VPN. Dans cet exemple, nous supposons que le certificat racine est stocké dans l'ordinateur local où sont exécutées les applets de commande PowerShell suivantes et que vous exécutez PowerShell localement. Vous pouvez également télécharger le certificat à l’aide du Portail Azure.
 
    ```powershell
    $p2sCertFullName = "RootErVpnCoexP2S.cer" 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.openlocfilehash: e8f3cf3889b3f79e930630ff0e768a0c4875eec6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60611688"
 ---
 # <a name="security-frame-session-management"></a>Infrastructure de sécurité : Gestion des sessions
@@ -290,7 +290,7 @@ Le code ci-après présente la configuration appropriée :
 ```
 
 ### <a name="example"></a>Exemples
-Au même moment, Html.AntiForgeryToken() fournit au visiteur un cookie appelé __RequestVerificationToken, présentant la même valeur que la valeur masquée aléatoire indiquée ci-dessus. Ensuite, pour valider une publication de formulaire entrante, ajoutez le filtre [ValidateAntiForgeryToken] à la méthode d’action cible. Par exemple : 
+Au même moment, Html.AntiForgeryToken() fournit au visiteur un cookie appelé __RequestVerificationToken, présentant la même valeur que la valeur masquée aléatoire indiquée ci-dessus. Ensuite, pour valider une publication de formulaire entrante, ajoutez le filtre [ValidateAntiForgeryToken] à la méthode d’action cible. Par exemple :
 ```
 [ValidateAntiForgeryToken]
 public ViewResult SubmitUpdate()
@@ -304,7 +304,7 @@ Un filtre d’autorisation qui vérifie les éléments suivants :
 * Ce cookie et ces valeurs `Request.Form` correspondent. Si tout va bien, la demande s’exécute normalement. Dans le cas contraire, un échec d’autorisation survient avec le message « Un jeton anti-contrefaçon requis n’a pas été fourni ou n’est pas valide ». 
 
 ### <a name="example"></a>Exemples
-Anti-CSRF et AJAX : Le jeton de formulaire peut être un problème pour les demandes AJAX, car une requête AJAX peut envoyer des données JSON, pas les données de formulaire HTML. L’une des solutions consiste à envoyer les jetons dans un en-tête HTTP personnalisé. Le code ci-après utilise la syntaxe Razor pour générer les jetons, puis ajoute les jetons à une demande AJAX. 
+Anti-CSRF et AJAX : le jeton de formulaire peut se révéler problématique pour les requêtes AJAX, car une requête AJAX risque d’envoyer des données JSON, et non des données de formulaire HTML. L’une des solutions consiste à envoyer les jetons dans un en-tête HTTP personnalisé. Le code ci-après utilise la syntaxe Razor pour générer les jetons, puis ajoute les jetons à une demande AJAX. 
 ```csharp
 <script>
     @functions{
@@ -377,7 +377,7 @@ void Page_Init (object sender, EventArgs e) {
 | **Technologies applicables** | Générique |
 | **Attributs**              | N/A  |
 | **Informations de référence**              | [HttpSessionState.Timeout Property (Propriété HttpSessionState.Timeout)](https://msdn.microsoft.com/library/system.web.sessionstate.httpsessionstate.timeout(v=vs.110).aspx) |
-| **Étapes** | Délai d’expiration de session représente l’événement qui se produisent lorsqu’un utilisateur n’exécute aucune action sur un site web pendant un intervalle (défini par le serveur web). Côté serveur, cet événement redéfinit l’état de la session utilisateur comme non valide (par exemple, « plus utilisé ») et demande au serveur web de détruire la session (en supprimant toutes les données qu’elle contient). L’exemple de code ci-après définit l’attribut d’expiration de session sur 15 minutes dans le fichier web.config.|
+| **Étapes** | Un événement d’expiration de session survient lorsqu’un utilisateur n’exécute aucune action sur un site web au cours d’un intervalle de temps donné (défini par le serveur web). Côté serveur, cet événement redéfinit l’état de la session utilisateur comme non valide (par exemple, « plus utilisé ») et demande au serveur web de détruire la session (en supprimant toutes les données qu’elle contient). L’exemple de code ci-après définit l’attribut d’expiration de session sur 15 minutes dans le fichier web.config.|
 
 ### <a name="example"></a>Exemples
 ```XML 
@@ -396,7 +396,7 @@ void Page_Init (object sender, EventArgs e) {
 | **Phase SDL**               | Créer |  
 | **Technologies applicables** | Web Forms |
 | **Attributs**              | N/A  |
-| **Informations de référence**              | [Élément de Forms pour authentication (schéma des paramètres ASP.NET)](https://msdn.microsoft.com/library/1d3t3c61(v=vs.100).aspx) |
+| **Informations de référence**              | [Élément Forms pour l'authentification (schéma des paramètres ASP.NET)](https://msdn.microsoft.com/library/1d3t3c61(v=vs.100).aspx) |
 | **Étapes** | Définissez le délai d’expiration du cookie du ticket d’authentification par formulaire sur 15 minutes.|
 
 ### <a name="example"></a>Exemples
@@ -467,7 +467,7 @@ Set-ADFSRelyingPartyTrust -TargetName “<RelyingPartyWebApp>” -ClaimsProvider
 | **Technologies applicables** | MVC5, MVC6 |
 | **Attributs**              | N/A  |
 | **Informations de référence**              | [Preventing Cross-Site Request Forgery (CSRF) Attacks in ASP.NET Web API (Prévenir les attaques de falsification de requête intersites (CSRF, Cross Site Request Forgery) dans les API Web ASP.NET)](https://www.asp.net/web-api/overview/security/preventing-cross-site-request-forgery-csrf-attacks) |
-| **Étapes** | Anti-CSRF et AJAX : Le jeton de formulaire peut être un problème pour les demandes AJAX, car une requête AJAX peut envoyer des données JSON, pas les données de formulaire HTML. L’une des solutions consiste à envoyer les jetons dans un en-tête HTTP personnalisé. Le code ci-après utilise la syntaxe Razor pour générer les jetons, puis ajoute les jetons à une demande AJAX. |
+| **Étapes** | Anti-CSRF et AJAX : le jeton de formulaire peut se révéler problématique pour les requêtes AJAX, car une requête AJAX risque d’envoyer des données JSON, et non des données de formulaire HTML. L’une des solutions consiste à envoyer les jetons dans un en-tête HTTP personnalisé. Le code ci-après utilise la syntaxe Razor pour générer les jetons, puis ajoute les jetons à une demande AJAX. |
 
 ### <a name="example"></a>Exemples
 ```Javascript
@@ -534,7 +534,7 @@ Le résultat de l’exemple ci-dessus devrait ressembler à ceci :
 ```
 
 ### <a name="example"></a>Exemples
-Au même moment, Html.AntiForgeryToken() fournit au visiteur un cookie appelé __RequestVerificationToken, présentant la même valeur que la valeur masquée aléatoire indiquée ci-dessus. Ensuite, pour valider une publication de formulaire entrante, ajoutez le filtre [ValidateAntiForgeryToken] à la méthode d’action cible. Par exemple : 
+Au même moment, Html.AntiForgeryToken() fournit au visiteur un cookie appelé __RequestVerificationToken, présentant la même valeur que la valeur masquée aléatoire indiquée ci-dessus. Ensuite, pour valider une publication de formulaire entrante, ajoutez le filtre [ValidateAntiForgeryToken] à la méthode d’action cible. Par exemple :
 ```
 [ValidateAntiForgeryToken]
 public ViewResult SubmitUpdate()

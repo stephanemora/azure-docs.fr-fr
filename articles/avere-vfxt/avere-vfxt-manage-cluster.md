@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: v-erkell
 ms.openlocfilehash: be9205fdf7fec0661d7382ed0d1bedf47487b15e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60409736"
 ---
 # <a name="manage-the-avere-vfxt-cluster"></a>Gérer le cluster Avere vFXT
@@ -98,7 +98,7 @@ Indiquez les valeurs suivantes :
 * Nom du groupe de ressources pour le cluster, mais aussi pour les ressources réseau et de stockage si elles ne sont pas les mêmes que le cluster
 * Emplacement du cluster
 * Réseau et sous-réseau du cluster 
-* Rôle d’accès de nœud de cluster (utiliser le rôle intégré [Avere opérateur](../role-based-access-control/built-in-roles.md#avere-operator))
+* Rôle d'accès aux nœuds du cluster (utiliser le rôle intégré [Opérateur Avere](../role-based-access-control/built-in-roles.md#avere-operator))
 * Adresse IP de gestion et mot de passe d’administration du cluster 
 * Nombre de nœuds à ajouter (1, 2 ou 3)
 * Type d’instance et taille du cache pour chaque nœud 
@@ -187,7 +187,7 @@ Pour détruire définitivement des instances de nœud, supprimez-les dans le por
 
 ### <a name="delete-additional-cluster-resources-from-the-azure-portal"></a>Supprimer des ressources de cluster supplémentaires à partir du portail Azure
 
-Si vous avez créé des ressources supplémentaires spécifiquement pour le cluster vFXT, vous souhaiterez peut-être les supprimer en même temps que la destruction du cluster. Ne détruisez pas les éléments qui contiennent des données dont vous avez besoin, ou tous les éléments qui sont partagés avec d’autres projets.
+Si vous avez créé des ressources supplémentaires spécifiquement pour le cluster vFXT, vous souhaiterez peut-être les supprimer en même temps que la destruction du cluster. Ne détruisez pas les éléments contenant des données dont vous avez encore besoin, ni les éléments partagés avec d'autres projets.
 
 Outre la suppression des nœuds du cluster, vous pouvez supprimer ces composants : 
 

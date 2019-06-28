@@ -18,26 +18,26 @@ ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 392b7a08d9422658c5620f60e9c1caca074bc85e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60452675"
 ---
 # <a name="faqs-and-known-issues-with-identity-protection-refreshed-in-azure-active-directory"></a>FAQ et problèmes connus liés à Identity Protection (version actualisée) dans Azure Active Directory
 
 
-## <a name="dismiss-user-risk-known-issues"></a>Faire disparaître les problèmes connus risque de l’utilisateur
+## <a name="dismiss-user-risk-known-issues"></a>Faire disparaître les problèmes connus liés aux risques de l’utilisateur
 
 **Ignorer le risque lié à l’utilisateur** dans la version classique d’Identity Protection définit l’acteur dans l’historique des risques utilisateur d’Identity Protection (version actualisée) sur **Azure AD**.
 
 
-**Ignorer le risque lié à l’utilisateur** dans Identity Protection (version actualisée) définit l’acteur dans l’historique des risques utilisateur d’Identity Protection (version actualisée) sur le **\<nom de l’administrateur avec un lien hypertexte pointant vers le panneau de l’utilisateur\>**.
+**Ignorer le risque lié à l’utilisateur** dans Identity Protection (version actualisée) définit l’acteur dans l’historique des risques utilisateur d’Identity Protection (version actualisée) sur le **\<nom de l’administrateur avec un lien hypertexte pointant vers le panneau de l’utilisateur\>** .
 
 Un problème connu provoque actuellement des latences dans le flux de rejet du risque utilisateur. Si vous disposez d'une « Stratégie de risque utilisateur », celle-ci cessera de s'appliquer aux utilisateurs ignorés quelques minutes après un clic sur « Ignorer le risque lié à l'utilisateur ». Cela dit, des retards d'actualisation de l'« état de risque » des utilisateurs ignorés ont été identifiés. Pour contourner ce problème, actualisez la page au niveau du navigateur afin d'afficher le dernier « État de risque » de l'utilisateur.
 
 
-## <a name="risky-users-report-known-issues"></a>Les utilisateurs à risque signalent des problèmes connus
+## <a name="risky-users-report-known-issues"></a>Les utilisateurs à risque signalent les problèmes connus
 
 Les requêtes sur le champ **Nom d’utilisateur** respectent la casse, alors que les requêtes sur le champ **Nom** ne sont pas sensibles à la casse.
 
@@ -46,7 +46,7 @@ Désactivez **Show dates as** (Afficher les dates en tant que) pour masquer la c
 **Ignorer tous les événements** dans la version classique d’Identity Protection définit l’état des événements à risque sur **Closed (resolved)** (Fermé (résolu)).
 
 
-## <a name="risky-sign-ins-report-known-issues"></a>Connexions risquées signalent des problèmes connus
+## <a name="risky-sign-ins-report-known-issues"></a>Problèmes connus du rapport sur les connexions à risque
 
 **Résoudre** sur un événement à risque définit l’état sur **Users passed MFA driven by risk-based policy** (Les utilisateurs ont passé la MFA pilotée par une stratégie basée sur les risques).
 
@@ -76,7 +76,7 @@ Le mappage de géolocalisation IP est un défi à l’échelle du secteur. Si vo
 
 **Confirmer comme étant sécurisée** (sur une connexion) : informe Azure AD Identity Protection que la connexion a été effectuée par le propriétaire de l’identité et n’indique pas de compromis.
 
-- Lors de la réception de ces commentaires, nous définissons le risque de connexion (et non de l’utilisateur) à l’état **Sécurité confirmée** et le niveau de risques sur **-**.
+- Lors de la réception de ces commentaires, nous définissons le risque de connexion (et non de l’utilisateur) à l’état **Sécurité confirmée** et le niveau de risques sur **-** .
 
 - Nous fournissons également les informations à nos systèmes de Machine Learning dans le but d’améliorations futures de l’évaluation des risques.
 

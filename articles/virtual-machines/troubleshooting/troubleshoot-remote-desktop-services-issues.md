@@ -14,10 +14,10 @@ ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: genli
 ms.openlocfilehash: 5458a02c09a3600875c7300b27c5a87a735b2f1b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60318879"
 ---
 # <a name="remote-desktop-services-isnt-starting-on-an-azure-vm"></a>Les Services Bureau à distance ne démarrent pas sur une machine virtuelle Azure
@@ -44,7 +44,7 @@ Lorsque vous essayez de vous connecter à une machine virtuelle, vous rencontrez
     **Catégorie de tâche** : Aucun</br>
     **Niveau** :         Error</br>
     **Mots clés** :      Classique</br>
-    **Utilisateur** :          S.O.</br>
+    **Utilisateur** :          N/A</br>
     **Ordinateur** :      vm.contoso.com</br>
     **Description** : Le service Services Bureau à distance s’est bloqué au démarrage. 
 
@@ -57,8 +57,8 @@ Lorsque vous essayez de vous connecter à une machine virtuelle, vous rencontrez
 Ce problème se produit, car les Services Bureau à distance ne s’exécutent pas sur la machine virtuelle. La cause peut varier selon les scénarios suivants : 
 
 - Le service TermService est défini sur **Désactivé**. 
-- Le service Terminal Server se bloque ou ne répond ne pas. 
-- Le Terminal Server ne démarre pas de raison d’à une configuration incorrecte.
+- Le service TermService est en bloqué ou suspendu. 
+- Le service TermService ne démarre pas raison d’une configuration incorrecte.
 
 ## <a name="solution"></a>Solution
 

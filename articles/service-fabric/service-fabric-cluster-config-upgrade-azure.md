@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/09/2018
 ms.author: dekapur
 ms.openlocfilehash: 77b9b20f99f00ef87c4907c2890cb3a21d20ec75
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62096264"
 ---
 # <a name="upgrade-the-configuration-of-a-cluster-in-azure"></a>Mettre à niveau la configuration d’un cluster dans Azure 
@@ -26,7 +26,7 @@ ms.locfileid: "62096264"
 Cet article décrit comment personnaliser les différents paramètres de structure pour votre cluster Service Fabric. Pour des clusters hébergés dans Azure, vous pouvez personnaliser les paramètres via le [portail Azure](https://portal.azure.com) ou en utilisant un modèle Azure Resource Manager.
 
 > [!NOTE]
-> Pas tous les paramètres sont disponibles dans le portail, et il est un [meilleures pratiques pour le personnaliser à l’aide d’un modèle Azure Resource Manager](https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code); Portail concerne uniquement de Service Fabric Dev\Test scénario.
+> Certains paramètres ne sont pas disponibles dans le portail, et c'est une [bonne pratique de le personnaliser en utilisant un modèle Azure Resource Manager](https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code) ; le portail est réservé aux scénarios Service Fabric Dev\Test.
 > 
 
 
@@ -36,7 +36,7 @@ Cet article décrit comment personnaliser les différents paramètres de structu
 Les clusters Azure peuvent être configurés via le modèle Resource Manager JSON. Pour en savoir plus sur les différents paramètres, consultez [Paramètres de configuration pour les clusters](service-fabric-cluster-fabric-settings.md). À titre d’exemple, la procédure ci-dessous montre comment ajouter un nouveau paramètre *MaxDiskQuotaInMB* dans la section *Diagnostics* à l’aide d’Azure Resource Explorer.
 
 1. Accédez à https://resources.azure.com
-2. Accédez à votre abonnement en développant **subscriptions** -> **\<Votre abonnement >** -> **resourceGroups** -> **\<Votre groupe de ressources >** -> **providers** -> **Microsoft.ServiceFabric** -> **clusters** -> **\<Nom de votre cluster >**
+2. Accédez à votre abonnement en développant **subscriptions** ->  **\<Votre abonnement >**  -> **resourceGroups** ->  **\<Votre groupe de ressources >**  -> **providers** -> **Microsoft.ServiceFabric** -> **clusters** ->  **\<Nom de votre cluster >**
 3. Dans l’angle supérieur droit, sélectionnez **Lecture/écriture**.
 4. Sélectionnez **Modifier**, mettez à jour l’élément JSON `fabricSettings` et ajoutez un nouvel élément :
 
@@ -57,7 +57,7 @@ Vous pouvez également personnaliser des paramètres de cluster de l’une des m
 - Utiliser le [portail Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template) pour exporter et mettre à jour le modèle Resource Manager.
 - Utiliser [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-powershell) pour exporter et mettre à jour le modèle Resource Manager.
 - Utiliser le [Azure CLI](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-cli) pour exporter et mettre à jour le modèle Resource Manager.
-- Utiliser Azure PowerShell [Set-AzServiceFabricSetting](https://docs.microsoft.com/powershell/module/az.servicefabric/Set-azServiceFabricSetting) et [Remove-AzServiceFabricSetting](https://docs.microsoft.com/powershell/module/az.servicefabric/Remove-azServiceFabricSetting) commandes pour modifier le paramètre directement.
+- Utiliser les commandes Azure PowerShell [Set-AzServiceFabricSetting](https://docs.microsoft.com/powershell/module/az.servicefabric/Set-azServiceFabricSetting) et [Remove-AzServiceFabricSetting](https://docs.microsoft.com/powershell/module/az.servicefabric/Remove-azServiceFabricSetting) pour modifier le paramètre directement.
 - Utiliser les commandes de [paramétrage de cluster az sf](https://docs.microsoft.com/cli/azure/sf/cluster/setting) d’Azure CLI pour modifier le paramètre directement.
 
 ## <a name="next-steps"></a>Étapes suivantes

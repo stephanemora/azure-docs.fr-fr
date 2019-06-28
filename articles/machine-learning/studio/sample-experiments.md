@@ -1,5 +1,5 @@
 ---
-title: Kickstart vos expériences à partir d’exemples
+title: Démarrer rapidement vos expériences avec des exemples
 titleSuffix: Azure Machine Learning Studio
 description: Découvrez comment utiliser les exemples d’expérience de machine learning pour créer des expériences avec Azure AI Gallery et Azure Machine Learning Studio.
 services: machine-learning
@@ -11,10 +11,10 @@ ms.author: amlstudiodocs
 ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/05/2018
 ms.openlocfilehash: f88323069ed23f4a038ffa4a030b1c4d4541ec42
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61460383"
 ---
 # <a name="create-azure-machine-learning-studio-experiments-from-working-examples-in-azure-ai-gallery"></a>Créer des expériences Azure Machine Learning Studio à partir des exemples de travail dans la galerie AI Azure
@@ -41,7 +41,7 @@ Pour parcourir toutes les expériences :
 3. Vous y trouverez des expériences qui répondent à vos besoins de différentes façons :
    * **Sélectionnez des filtres à gauche.** Par exemple, pour parcourir les expériences utilisant un algorithme de détection d’anomalie PCA : sous **Catégories**, cliquez sur **Tester**. Ensuite, sous **Algorithmes utilisés**, cliquez sur **Afficher tout** et choisissez **Détection d’anomalie PCA** dans la boîte de dialogue. Vous devrez peut-être faire défiler le voir.<br></br>
      ![Sélectionner des filtres](./media/sample-experiments/choose-an-algorithm.png)
-   * **Utilisez la zone de recherche.**  Par exemple, pour rechercher les expériences partagées par Microsoft sur la reconnaissance de chiffres et qui utilisent un algorithme de machine à vecteurs de support à deux classes, entrez « reconnaissance de chiffres » dans la zone de recherche. Ensuite, sélectionnez les filtres **Experiment** (Expérience), **Microsoft content only** (Contenu Microsoft uniquement) et **Two-Class Support Vector Machine** (Machine à vecteurs de support à deux classes) :<br></br>
+   * **Utilisez la zone de recherche.** Par exemple, pour rechercher les expériences partagées par Microsoft sur la reconnaissance de chiffres et qui utilisent un algorithme de machine à vecteurs de support à deux classes, entrez « reconnaissance de chiffres » dans la zone de recherche. Ensuite, sélectionnez les filtres **Experiment** (Expérience), **Microsoft content only** (Contenu Microsoft uniquement) et **Two-Class Support Vector Machine** (Machine à vecteurs de support à deux classes) :<br></br>
      ![Utiliser la zone de recherche](./media/sample-experiments/search-for-experiments.png)
 4. Cliquez sur une expérience pour en savoir plus à propos de celle-ci.
 5. Pour exécuter et/ou modifier l’expérience, cliquez sur **Ouvrir dans Studio** sur la page de l’expérience. <br></br>

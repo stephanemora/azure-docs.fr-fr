@@ -16,15 +16,15 @@ ms.date: 03/27/2019
 ms.author: kfollis
 ms.custom: accessibility
 ms.openlocfilehash: 1595d744fbfda47a9db9ff27de09cd53c6f73ece
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60551150"
 ---
 # <a name="supported-devices"></a>Appareils pris en charge
 
-Le [Azure portal](https://portal.azure.com) est une console web et s’exécute dans le navigateur de tous les ordinateurs de bureau modernes et les tablettes. Si vous avez besoin gérer les ressources Azure à partir d’un appareil mobile, essayez le [application mobile Azure](https://azure.microsoft.com/features/azure-portal/mobile-app/). Il est disponible pour iOS et Android.
+Le [portail Azure](https://portal.azure.com) est une console web qui s'exécute dans le navigateur de tous les ordinateurs de bureau et tablettes modernes. Si vous devez gérer des ressources Azure à partir d'un appareil mobile, essayez [Azure mobile app](https://azure.microsoft.com/features/azure-portal/mobile-app/). Cette application est disponible sous iOS et Android.
 
 ## <a name="recommended-browsers"></a>Navigateurs recommandés
 

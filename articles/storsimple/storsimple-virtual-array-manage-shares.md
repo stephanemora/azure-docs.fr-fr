@@ -15,15 +15,15 @@ ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
 ms.openlocfilehash: 82a6cdb6c9a39a0d196049a7ba662681ea06b36a
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62116864"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-shares-on-the-storsimple-virtual-array"></a>Utiliser le service StorSimple Device Manager pour gérer des partages sur l’instance StorSimple Virtual Array
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
 Ce didacticiel explique comment utiliser le service StorSimple Device Manager pour créer et gérer des partages sur votre instance StorSimple Virtual Array.
 
@@ -33,8 +33,8 @@ Le service StorSimple Device Manager est une extension dans le portail Azure 
 
 Les partages StorSimple peuvent être les suivants :
 
-* **Attaché localement**: Données de ces partages demeurent sur le tableau à tout moment et ne débordent pas sur le cloud.
-* **Hiérarchisé**: Données de ces partages peuvent déborder sur le cloud. Lorsque vous créez un partage à plusieurs niveaux, environ 10 % de l’espace est configuré au niveau local et 90 % dans le cloud. Par exemple, si vous avez configuré un partage de 1 To, 100 Go résident dans l’espace local et 900 Go sont utilisés dans le cloud lorsque les données sont stockées en niveaux. Cela implique que si vous n’avez plus d’espace local sur l’appareil, vous ne pouvez pas configurer un partage à plusieurs niveaux (car les 10 % requis sur l’espace local ne seront pas disponibles).
+* **Épinglé localement** : les données de ces partages demeurent à tout moment sur le tableau ; elles ne débordent pas sur le cloud.
+* **Hiérarchisé** : les données de ces partages peuvent déborder sur le cloud. Lorsque vous créez un partage à plusieurs niveaux, environ 10 % de l’espace est configuré au niveau local et 90 % dans le cloud. Par exemple, si vous avez configuré un partage de 1 To, 100 Go résident dans l’espace local et 900 Go sont utilisés dans le cloud lorsque les données sont stockées en niveaux. Cela implique que si vous n’avez plus d’espace local sur l’appareil, vous ne pouvez pas configurer un partage à plusieurs niveaux (car les 10 % requis sur l’espace local ne seront pas disponibles).
 
 ### <a name="provisioned-capacity"></a>Capacité allouée
 
@@ -88,7 +88,7 @@ Suivez les instructions de ce didacticiel pour effectuer les tâches suivantes 
 
    4. Dans le champ **Capacité**, spécifiez la taille du partage. Un partage hiérarchisé doit être compris entre 500 Go et 20 To, tandis qu’un partage attaché doit être compris entre 50 Go et 2 To.
 
-   5. Dans le champ **Affecter une autorisation d’accès total par défaut**, attribuez les autorisations à l’utilisateur ou au groupe qui doivent accéder à ce partage. Spécifiez le nom de l’utilisateur ou du groupe d’utilisateurs au format _john@contoso.com_. Nous vous recommandons d'utiliser un groupe d'utilisateurs (plutôt qu'un seul utilisateur) lorsque vous accordez des privilèges d'administrateur pour accéder à ces partages. Après avoir attribué les autorisations à cet emplacement, vous pouvez utiliser l’Explorateur de fichiers par la suite pour modifier ces autorisations.
+   5. Dans le champ **Affecter une autorisation d’accès total par défaut**, attribuez les autorisations à l’utilisateur ou au groupe qui doivent accéder à ce partage. Spécifiez le nom de l’utilisateur ou du groupe d’utilisateurs au format _john@contoso.com_ . Nous vous recommandons d'utiliser un groupe d'utilisateurs (plutôt qu'un seul utilisateur) lorsque vous accordez des privilèges d'administrateur pour accéder à ces partages. Après avoir attribué les autorisations à cet emplacement, vous pouvez utiliser l’Explorateur de fichiers par la suite pour modifier ces autorisations.
 3. Lorsque vous avez terminé de configurer votre partage, cliquez sur **Créer**. Un partage est créé avec les paramètres spécifiés ; une notification s’affiche. Par défaut, la sauvegarde est activée pour le partage.
 4. Pour vérifier que le partage a été créé, accédez au panneau **Partages**. Le partage devrait y apparaître.
    

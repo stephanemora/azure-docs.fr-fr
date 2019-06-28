@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 03/22/2019
 ms.author: magoedte
 ms.openlocfilehash: 41ea6222689516f224fc23ce6a658d17f7f81866
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60240853"
 ---
 # <a name="syslog-data-sources-in-azure-monitor"></a>Sources de données Syslog dans Azure Monitor
@@ -32,7 +32,7 @@ Syslog est un protocole de journalisation d’événements commun à Linux. Les 
 
 Les fonctionnalités suivantes sont prises en charge avec le collecteur Syslog :
 
-* Kern
+* kern
 * user
 * mail
 * daemon
@@ -46,7 +46,7 @@ Les fonctionnalités suivantes sont prises en charge avec le collecteur Syslog 
 * ftp
 * local0-local7
 
-Pour toute autre installation [configurer une source de données de journaux personnalisés](data-sources-custom-logs.md) dans Azure Monitor.
+Pour toute autre fonctionnalité, [configurez une source de données Journaux d'activité personnalisés](data-sources-custom-logs.md) dans Azure Monitor.
  
 ## <a name="configuring-syslog"></a>Configuration de Syslog
 L’agent Log Analytics pour Linux collecte uniquement les événements avec les installations et les niveaux de gravité spécifiés dans sa configuration. Vous pouvez configurer Syslog avec le portail Azure ou en gérant les fichiers de configuration sur vos agents Linux.
@@ -54,7 +54,7 @@ L’agent Log Analytics pour Linux collecte uniquement les événements avec les
 ### <a name="configure-syslog-in-the-azure-portal"></a>Configurer Syslog dans le portail Azure
 Configurez Syslog à partir du [menu Données dans Paramètres avancés](agent-data-sources.md#configuring-data-sources). Cette configuration est remise au fichier de configuration sur chaque agent Linux.
 
-Vous pouvez ajouter une nouvelle installation en tapant son nom et en cliquant sur **+**. Pour chaque installation, seuls les messages avec les niveaux de gravité sélectionnés seront collectés.  Vérifiez les niveaux de gravité de l’installation que vous souhaitez collecter. Vous ne pouvez pas fournir de critères supplémentaires pour filtrer les messages.
+Vous pouvez ajouter une nouvelle installation en tapant son nom et en cliquant sur **+** . Pour chaque installation, seuls les messages avec les niveaux de gravité sélectionnés seront collectés.  Vérifiez les niveaux de gravité de l’installation que vous souhaitez collecter. Vous ne pouvez pas fournir de critères supplémentaires pour filtrer les messages.
 
 ![Configurer les messages Syslog](media/data-sources-syslog/configure.png)
 
@@ -203,7 +203,7 @@ Les enregistrements Syslog sont de type **Syslog** et leurs propriétés sont d�
 
 | Propriété | Description |
 |:--- |:--- |
-| Computer |Ordinateur sur lequel l’événement a été collecté. |
+| Ordinateur |Ordinateur sur lequel l’événement a été collecté. |
 | Facility |Définit la partie du système qui a généré le message. |
 | HostIP |Adresse IP du système qui envoie le message. |
 | HostName |Nom du système qui envoie le message. |
@@ -215,7 +215,7 @@ Les enregistrements Syslog sont de type **Syslog** et leurs propriétés sont d�
 ## <a name="log-queries-with-syslog-records"></a>Requêtes de journaux avec des enregistrements Syslog
 Le tableau suivant fournit plusieurs exemples de requêtes de journaux qui extraient des enregistrements Syslog.
 
-| Interroger | Description |
+| Requête | Description |
 |:--- |:--- |
 | syslog |Tous les Syslog. |
 | Syslog &#124; where SeverityLevel == "error" |Tous les enregistrements Syslog avec le niveau de gravité Erreur. |

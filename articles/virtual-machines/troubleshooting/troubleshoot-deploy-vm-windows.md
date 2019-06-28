@@ -1,6 +1,6 @@
 ---
 title: Résolution des problèmes de déploiement de la machine virtuelle Windows dans Azure | Microsoft Docs
-description: Problèmes de déploiement Windows machine virtuelle dans le modèle de déploiement Azure Resource Manager.
+description: Résolution des problèmes de déploiement de la machine virtuelle Windows dans le modèle de déploiement Azure Resource Manager.
 services: virtual-machines-windows
 documentationcenter: ''
 author: genlin
@@ -16,10 +16,10 @@ ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
 ms.openlocfilehash: 5752731f08a7dc9ae8661e698aef9655837c6220
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60593262"
 ---
 # <a name="troubleshoot-deploying-windows-virtual-machine-issues-in-azure"></a>Résolution des problèmes de déploiement de la machine virtuelle Windows dans Azure
@@ -65,7 +65,7 @@ Contrat Entreprise :
 
 Pour plus d’informations, consultez les ressources suivantes :
 
- - [Vue d’ensemble de Azure Hybrid Use Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/)
+ - [Présentation d’Azure Hybrid Use Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/)
 
  - [FAQ téléchargeable](https://download.microsoft.com/download/4/2/1/4211AC94-D607-4A45-B472-4B30EDF437DE/Windows_Server_Azure_Hybrid_Use_FAQ_EN_US.pdf)
 

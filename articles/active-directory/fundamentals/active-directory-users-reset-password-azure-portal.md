@@ -15,10 +15,10 @@ ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4db6554e86cef61f2fc8e7a466919d2ce723f0e5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60248027"
 ---
 # <a name="reset-a-users-password-using-azure-active-directory"></a>Réinitialiser le mot de passe d’un utilisateur à l’aide d’Azure Active Directory
@@ -33,7 +33,7 @@ En tant qu’administrateur, vous pouvez réinitialiser le mot de passe d’un u
 
 ## <a name="to-reset-a-password"></a>Pour réinitialiser un mot de passe
 
-1. Se connecter à la [portail](https://portal.azure.com/) en tant qu’un administrateur de l’utilisateur, ou un administrateur de mot de passe. Pour obtenir plus d’informations sur les rôles disponibles, consultez l’article [Attribution de rôles d’administrateur dans Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md#available-roles).
+1. Connectez-vous au [portail Azure](https://portal.azure.com/) en tant qu’administrateur d’utilisateurs ou administrateur de mots de passe. Pour obtenir plus d’informations sur les rôles disponibles, consultez l’article [Attribution de rôles d’administrateur dans Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md#available-roles).
 
 2. Sélectionnez **Azure Active Directory**, sélectionnez **Utilisateurs**, recherchez et sélectionnez l’utilisateur qui a besoin de la réinitialisation, puis sélectionnez **Réinitialiser le mot de passe**.
 

@@ -13,10 +13,10 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 12/18/2018
 ms.openlocfilehash: 758cb47760f4a15e262a4d682089ac7d9fee64e8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60326276"
 ---
 # <a name="general-guidance-for-working-with-wingtip-tickets-sample-saas-apps"></a>Conseils généraux pour utiliser des exemples d'applications Wingtip Tickets SaaS
@@ -79,7 +79,7 @@ Utilisez [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ss
 
 Au départ, le déploiement a des locataires et des serveurs SQL Database de catalogue auxquels se connecter. Les noms de serveurs dépendent du modèle de client de base de données (voir ci-dessous pour plus les détails). 
 
-   - **Application autonome :** serveurs pour chaque client (ex. serveur *contosoconcerthall-&lt;Utilisateur&gt;*) et *catalog-sa-&lt;Utilisateur&gt;*
+   - **Application autonome :** serveurs pour chaque client (ex. serveur *contosoconcerthall-&lt;Utilisateur&gt;* ) et *catalog-sa-&lt;Utilisateur&gt;*
    - **Base de données par client :** serveurs *tenants1-dpt-&lt;Utilisateur&gt;* et *catalog-dpt-&lt;Utilisateur&gt;*
    - **Base de données mutualisée :** serveurs *tenants1-mt-&lt;Utilisateur&gt;* et *catalog-mt-&lt;Utilisateur&gt;*
 
@@ -94,7 +94,7 @@ Pour garantir une connexion de démonstration réussie, tous serveurs ont une [r
 
    ![catalog server](media/saas-tenancy-wingtip-app-guidance-tips/connect.png)
 
-3. Les informations d’identification de démonstration sont : Connexion = *développeur*, mot de passe = *P\@ssword1*
+3. Les informations d’identification de démonstration sont : Connexion = *developer*, Mot de passe = *P\@ssword1*
 
     L'image ci-dessous montre l'ouverture d'une session pour le modèle *Base de données par client*. 
     ![Connexion](media/saas-tenancy-wingtip-app-guidance-tips/tenants1-connect.png)

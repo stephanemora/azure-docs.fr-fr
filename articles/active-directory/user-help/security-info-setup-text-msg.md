@@ -1,5 +1,5 @@
 ---
-title: Configurer les informations de sécurité (version préliminaire) pour utiliser la messagerie texte - Azure Active Directory | Microsoft Docs
+title: Configurer les informations de sécurité (préversion) pour utiliser la messagerie texte - Azure Active Directory | Microsoft Docs
 description: Procédure de configuration de vos informations de sécurité pour vérifier votre identité à l’aide de la messagerie texte et de votre appareil mobile.
 services: active-directory
 author: eross-msft
@@ -13,10 +13,10 @@ ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ea9e4ae21ecc6538b33aed1566c10ddcd22b86c7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60482257"
 ---
 # <a name="set-up-security-info-preview-to-use-text-messaging"></a>Configurer les informations de sécurité (préversion) pour utiliser la messagerie texte
@@ -86,11 +86,11 @@ Pour utiliser la messagerie texte comme méthode par défaut lorsque vous vous c
 
     ![Lien Changer pour la méthode de connexion par défaut](media/security-info/securityinfo-myprofile-phonetext-defaultchange.png)
 
-2. Sélectionnez **Téléphone - texte (*_votre_numéro_de_téléphone_*)** dans la liste déroulante des méthodes disponibles, puis sélectionnez **Confirmer**.
+2. Sélectionnez **Téléphone - texte ( *_votre_numéro_de_téléphone_* )** dans la liste déroulante des méthodes disponibles, puis sélectionnez **Confirmer**.
 
     ![Choisir la méthode de connexion par défaut](media/security-info/securityinfo-myprofile-phonetext-changeddefault.png)
 
-    La méthode par défaut utilisée pour la connexion devient **Téléphone - texte (*_votre_numéro_de_téléphone_*)**.
+    La méthode par défaut utilisée pour la connexion devient **Téléphone - texte ( *_votre_numéro_de_téléphone_* )** .
 
 ## <a name="additional-security-info-methods"></a>Autres méthodes d’informations de sécurité
 Vous avez la possibilité de choisir la façon d’être contacté par votre organisation pour la vérification de votre identité, en fonction de ce que vous essayez de faire. Ces options sont les suivantes :

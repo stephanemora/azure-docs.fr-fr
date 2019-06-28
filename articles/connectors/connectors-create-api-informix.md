@@ -12,10 +12,10 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
 ms.openlocfilehash: 6004c02f190bbfcf374b3b5d2a5c478f0e52c961
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60690908"
 ---
 # <a name="get-started-with-the-informix-connector"></a>Prise en main du connecteur Informix
@@ -181,7 +181,7 @@ Vous pouvez créer une action d’application logique pour ajouter une ligne dan
     ![](./media/connectors-create-api-informix/InformixconnectorInsertRowOutputs.png)
 
 ## <a name="fetch-one-row-using-select"></a>Extraire une ligne à l’aide de l’instruction SELECT
-Vous pouvez créer une action d’application logique pour extraire une ligne dans une table Informix. Cette action indique au connecteur de traiter une instruction SELECT WHERE Informix, telle que `SELECT FROM AREA WHERE AREAID = '99999'`.
+Vous pouvez créer une action d’application logique pour récupérer une ligne dans une table Informix. Cette action indique au connecteur de traiter une instruction SELECT WHERE Informix, telle que `SELECT FROM AREA WHERE AREAID = '99999'`.
 
 ### <a name="create-a-logic-app"></a>Créer une application logique
 1. Dans le **Panneau de démarrage Azure**, sélectionnez **+** (signe plus), **Web + mobile**, puis **Application logique**.

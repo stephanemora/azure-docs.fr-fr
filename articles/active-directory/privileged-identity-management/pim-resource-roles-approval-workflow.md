@@ -1,5 +1,5 @@
 ---
-title: Approuver ou refuser les demandes pour les rôles de ressources Azure dans PIM - Azure Active Directory | Microsoft Docs
+title: Approuver ou rejeter les requêtes de rôles de ressources Azure dans PIM - Azure Active Directory | Microsoft Docs
 description: Découvrez comment approuver ou rejeter les demandes de rôles de ressources Azure dans Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -16,15 +16,15 @@ ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1f645b7077ef43dc7eb4d70261b6b601b5e4af1b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60288472"
 ---
 # <a name="approve-or-deny-requests-for-azure-resource-roles-in-pim"></a>Approuver ou rejeter les demandes de rôles de ressources Azure dans PIM
 
-Avec Azure Active Directory (Azure AD) Privileged Identity Management (PIM), vous pouvez configurer des rôles pour exiger une approbation pour l’activation et choisir un ou plusieurs utilisateurs ou groupes comme approbateurs délégués. Les approbateurs délégués ont 24 heures pour approuver les demandes. Si une demande n’est pas approuvée sous 24 heures, l’utilisateur éligible doit soumettre une nouvelle demande. Le délai d'approbation de 24 heures n’est pas configurable.
+Avec Azure Active Directory (Azure AD) Privileged Identity Management (PIM), vous pouvez configurer des rôles afin d’exiger une approbation pour les activations. Vous pouvez également choisir un ou plusieurs utilisateurs ou groupes en tant qu’approbateurs délégués. Les approbateurs délégués ont 24 heures pour approuver les demandes. Si une demande n’est pas approuvée sous 24 heures, l’utilisateur éligible doit soumettre une nouvelle demande. Le délai d'approbation de 24 heures n’est pas configurable.
 
 Suivez les étapes décrites dans cet article pour approuver ou refuser des demandes de rôles de ressources Azure.
 
@@ -84,4 +84,4 @@ Voici quelques informations sur les notifications de flux de travail :
 
 - [Étendre ou renouveler des rôles de ressources Azure dans PIM](pim-resource-roles-renew-extend.md)
 - [Notifications par e-mail dans PIM](pim-email-notifications.md)
-- [Approuver ou refuser les demandes pour les rôles d’Azure AD dans PIM](azure-ad-pim-approval-workflow.md)
+- [Approuver ou rejeter les requêtes de rôles Azure AD dans PIM](azure-ad-pim-approval-workflow.md)

@@ -11,10 +11,10 @@ ms.date: 08/29/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ms.openlocfilehash: ebbcbcc3d0934800980b7d8e00895b11ff2747b7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60310418"
 ---
 # <a name="restoring-azure-sql-data-warehouse"></a>Restauration d’un entrepôt de données Azure SQL 
@@ -30,15 +30,15 @@ Dans cet article, vous allez découvrir comment effectuer les opérations suivan
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-**Vérifiez votre capacité de DTU.**  Chaque SQL Data Warehouse est hébergé par un serveur SQL (par exemple, myserver.database.windows.net) qui dispose d’un quota DTU par défaut.  Avant de pouvoir restaurer un entrepôt de données SQL, vérifiez que le quota DTU restant sur le serveur SQL est suffisant pour la base de données en cours de restauration. Pour savoir comment calculer la capacité DTU nécessaire ou pour demander davantage de capacité DTU, consultez la rubrique [Demander une modification du quota DTU][Request a DTU quota change].
+**Vérifiez votre capacité de DTU.** Chaque SQL Data Warehouse est hébergé par un serveur SQL (par exemple, myserver.database.windows.net) qui dispose d’un quota DTU par défaut.  Avant de pouvoir restaurer un entrepôt de données SQL, vérifiez que le quota DTU restant sur le serveur SQL est suffisant pour la base de données en cours de restauration. Pour savoir comment calculer la capacité DTU nécessaire ou pour demander davantage de capacité DTU, consultez la rubrique [Demander une modification du quota DTU][Request a DTU quota change].
 
 ## <a name="restore-through-powershell"></a>Effectuer une restauration par le biais de PowerShell
 
 ## <a name="install-powershell"></a>Installer PowerShell
-Pour utiliser Azure PowerShell avec SQL Data Warehouse, vous devez installer Azure PowerShell.  Vous pouvez vérifier votre version en exécutant **Get-Module - ListAvailable-nom Az**. Pour plus d’informations sur l’installation de la dernière version, consultez la page [Installation et configuration d’Azure PowerShell][How to install and configure Azure PowerShell].
+Pour utiliser Azure PowerShell avec SQL Data Warehouse, vous devez installer Azure PowerShell.  Vous pouvez vérifier la version en exécutant **Get-Module -ListAvailable -Name Az**. Pour plus d’informations sur l’installation de la dernière version, consultez la page [Installation et configuration d’Azure PowerShell][How to install and configure Azure PowerShell].
 
 ## <a name="restore-an-active-or-paused-database-using-powershell"></a>Restaurer une base de données active ou interrompue à l’aide de PowerShell
-Pour restaurer une base de données à partir d’un point de restauration, utilisez la [restauration-AzSqlDatabase] [ Restore-AzSqlDatabase] applet de commande PowerShell.
+Pour restaurer une base de données à partir d’un point de restauration, utilisez l’applet de commande PowerShell [Restore-AzSqlDatabase][Restore-AzSqlDatabase].
 
 1. Ouvrez Windows PowerShell.
 
@@ -94,7 +94,7 @@ $RestoredDatabase.status
 >
 
 ## <a name="copy-your-data-warehouse-with-user-defined-restore-points-using-powershell"></a>Copier votre entrepôt de données avec des points de restauration définis par l’utilisateur à l’aide de PowerShell
-Pour restaurer une base de données à partir d’un point de restauration défini par l’utilisateur, utilisez la [restauration-AzSqlDatabase] [ Restore-AzSqlDatabase] applet de commande PowerShell.
+Pour restaurer une base de données à partir d’un point de restauration défini par l’utilisateur, utilisez l’applet de commande PowerShell [Restore-AzSqlDatabase][Restore-AzSqlDatabase].
 
 1. Ouvrez Windows PowerShell.
 2. Connectez-vous à votre compte Azure et répertoriez tous les abonnements associés à votre compte.
@@ -142,7 +142,7 @@ $RestoredDatabase.status
 ```
 
 ## <a name="restore-a-deleted-database-using-powershell"></a>Restaurer une base de données supprimée à l’aide de PowerShell
-Pour restaurer une base de données supprimée, utilisez le [restauration-AzSqlDatabase] [ Restore-AzSqlDatabase] applet de commande.
+Pour restaurer une base de données supprimée, utilisez l’applet de commande [Restore-AzSqlDatabase][Restore-AzSqlDatabase].
 
 1. Ouvrez Windows PowerShell.
 2. Connectez-vous à votre compte Azure et répertoriez tous les abonnements associés à votre compte.
@@ -177,7 +177,7 @@ $RestoredDatabase.status
 >
 
 ## <a name="restore-from-an-azure-geographical-region-using-powershell"></a>Restaurer à partir d’une région géographique Azure à l’aide de PowerShell
-Pour récupérer une base de données, utilisez le [restauration-AzSqlDatabase] [ Restore-AzSqlDatabase] applet de commande.
+Pour récupérer une base de données, utilisez la cmdlet [Restore-AzSqlDatabase][Restore-AzSqlDatabase].
 
 > [!NOTE]
 > Vous pouvez effectuer une géorestauration vers Gen2 ! Pour ce faire, spécifiez une valeur ServiceObjectiveName Gen2 (par exemple, DW1000**c**) comme paramètre facultatif.

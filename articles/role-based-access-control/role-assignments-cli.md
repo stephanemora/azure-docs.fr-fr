@@ -15,17 +15,17 @@ ms.date: 04/17/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 1cc3d3eca4063a8120851a9d3de1a85292eacb11
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60344561"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-azure-cli"></a>Gérer l’accès aux ressources Azure à l’aide du contrôle RBAC et d’Azure CLI
 
 Le [contrôle d’accès en fonction du rôle (RBAC)](overview.md) vous permet de gérer l’accès aux ressources Azure. Cet article décrit comment gérer l’accès des utilisateurs, groupes et applications à l’aide du contrôle d’accès en fonction du rôle et d’Azure CLI.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour gérer les accès, il vous faudra l’un des éléments suivants :
 
@@ -89,9 +89,9 @@ az role definition list --custom-role-only false --output json | jq '.[] | {"rol
 ...
 ```
 
-## <a name="list-a-role-definition"></a>Liste d’une définition de rôle
+## <a name="list-a-role-definition"></a>Lister les définitions de rôle
 
-Pour répertorier une définition de rôle, utilisez [liste des définitions de rôle az](/cli/azure/role/definition#az-role-definition-list):
+Pour lister une définition de rôle, utilisez [az role definition list](/cli/azure/role/definition#az-role-definition-list) :
 
 ```azurecli
 az role definition list --name <role_name>
@@ -137,7 +137,7 @@ az role definition list --name "Contributor"
 
 ### <a name="list-actions-of-a-role"></a>Répertorier les actions d'un rôle
 
-L’exemple suivant répertorie uniquement les *actions* et *notActions* de la *contributeur* rôle :
+L’exemple suivant liste simplement les *actions* et les *notActions* du rôle *Contributeur* :
 
 ```azurecli
 az role definition list --name "Contributor" --output json | jq '.[] | {"actions":.permissions[0].actions, "notActions":.permissions[0].notActions}'
@@ -156,7 +156,7 @@ az role definition list --name "Contributor" --output json | jq '.[] | {"actions
 }
 ```
 
-L’exemple suivant répertorie uniquement les actions de la *collaborateur de Machine virtuelle* rôle :
+L’exemple suivant liste simplement les actions du rôle *Contributeur de machine virtuelle* :
 
 ```azurecli
 az role definition list --name "Virtual Machine Contributor" --output json | jq '.[] | .permissions[0].actions'
@@ -194,7 +194,7 @@ az role assignment list --assignee <assignee>
 
 Par défaut, seules sont affichées les attributions étendues à un abonnement. Pour afficher les attributions étendues par ressource ou groupe, utilisez `--all`.
 
-L’exemple suivant répertorie les attributions de rôles qui sont affectées directement à la *patlong\@contoso.com* utilisateur :
+L’exemple suivant liste les attributions de rôles octroyées directement à l’utilisateur *patlong\@contoso.com* :
 
 ```azurecli
 az role assignment list --all --assignee patlong@contoso.com --output json | jq '.[] | {"principalName":.principalName, "roleDefinitionName":.roleDefinitionName, "scope":.scope}'
@@ -221,7 +221,7 @@ Pour lister les attributions de rôles qui existent pour un groupe de ressources
 az role assignment list --resource-group <resource_group>
 ```
 
-L’exemple suivant répertorie les attributions de rôle pour le *pharma-sales* groupe de ressources :
+L’exemple suivant liste les attributions de rôles du groupe de ressources *pharma-sales* :
 
 ```azurecli
 az role assignment list --resource-group pharma-sales --output json | jq '.[] | {"roleDefinitionName":.roleDefinitionName, "scope":.scope}'
@@ -252,32 +252,32 @@ Pour créer une attribution de rôle pour un utilisateur dans l’étendue du gr
 az role assignment create --role <role_name_or_id> --assignee <assignee> --resource-group <resource_group>
 ```
 
-L’exemple suivant affecte la *collaborateur de Machine virtuelle* rôle *patlong\@contoso.com* utilisateur à la *pharma-sales* étendue de groupe de ressources :
+L’exemple suivant attribue le rôle *Contributeur de machine virtuelle* à l’utilisateur *patlong\@contoso.com* dans l’étendue du groupe de ressources *pharma-sales* :
 
 ```azurecli
 az role assignment create --role "Virtual Machine Contributor" --assignee patlong@contoso.com --resource-group pharma-sales
 ```
 
-### <a name="create-a-role-assignment-using-the-unique-role-id"></a>Créer une attribution de rôle à l’aide de l’ID unique de rôle
+### <a name="create-a-role-assignment-using-the-unique-role-id"></a>Créer une affectation de rôle à l’aide de l’ID unique de rôle
 
-Il existe plusieurs fois quand un nom de rôle peut changer, par exemple :
+Un nom de rôle peut changer dans certaines circonstances, par exemple :
 
-- Vous utilisez vos propres rôles personnalisés et vous décidez de modifier le nom.
-- Vous utilisez un rôle d’aperçu a **(version préliminaire)** dans le nom. Lorsque le rôle est publié, le rôle est renommé.
+- Vous utilisez vos propres rôles personnalisés et vous décidez d’en modifier le nom.
+- Vous utilisez un rôle en préversion dont le nom contient **(préversion)** . Lorsque le rôle est publié, le rôle est renommé.
 
 > [!IMPORTANT]
-> Une version d’évaluation est fournie sans contrat de niveau de service, et il n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
+> La préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail en production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
 > Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Même si un rôle est renommé, l’ID de rôle ne change pas. Si vous utilisez des scripts ou l’automatisation pour créer vos attributions de rôles, il est recommandé d’utiliser l’ID de rôle unique au lieu du nom de rôle. Par conséquent, si un rôle est renommé, vos scripts sont plus susceptibles de fonctionner.
+Même si un rôle est renommé, l’ID de rôle ne change pas. Si vous utilisez des scripts ou une automatisation pour créer vos attributions de rôles, il est recommandé d’utiliser l’ID de rôle unique au lieu du nom de rôle. Par conséquent, si un rôle est renommé, vos scripts sont plus susceptibles de fonctionner.
 
-Pour créer une attribution de rôle à l’aide de l’ID de rôle unique au lieu du nom de rôle, utilisez [créer d’attribution de rôle az](/cli/azure/role/assignment#az-role-assignment-create).
+Pour créer une attribution de rôle à l’aide de l’ID de rôle unique au lieu du nom de rôle, utilisez [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create).
 
 ```azurecli
 az role assignment create --role <role_id> --assignee <assignee> --resource-group <resource_group>
 ```
 
-L’exemple suivant affecte la [collaborateur de Machine virtuelle](built-in-roles.md#virtual-machine-contributor) rôle *patlong\@contoso.com* utilisateur à la *pharma-sales* étendue de groupe de ressources. Pour obtenir l’ID unique de rôle, vous pouvez utiliser [liste des définitions de rôle az](/cli/azure/role/definition#az-role-definition-list) ou consultez [rôles intégrés pour les ressources Azure](built-in-roles.md).
+L’exemple suivant attribue le rôle [Contributeur de machine virtuelle](built-in-roles.md#virtual-machine-contributor) à l’utilisateur *patlong\@contoso.com* dans l’étendue du groupe de ressources *pharma-sales*. Pour obtenir l’ID unique de rôle, vous pouvez utiliser [az role definition list](/cli/azure/role/definition#az-role-definition-list) ou consulter la liste des [rôles intégrés pour les ressources Azure](built-in-roles.md).
 
 ```azurecli
 az role assignment create --role 9980e02c-c2be-4d73-94e8-173b1dc7cf3c --assignee patlong@contoso.com --resource-group pharma-sales
@@ -311,7 +311,7 @@ Pour créer un rôle pour une application, utilisez [az role assignment create](
 az role assignment create --role <role_name_or_id> --assignee-object-id <assignee_object_id> --resource-group <resource_group> --scope </subscriptions/subscription_id>
 ```
 
-L’exemple suivant affecte la *collaborateur de Machine virtuelle* rôle à une application avec l’ID d’objet 44444444-4444-4444-4444-444444444444 à la *pharma-sales* groupe de ressources. Pour obtenir l’ID d’objet de l’application, vous pouvez utiliser [az ad app list](/cli/azure/ad/app#az-ad-app-list) ou [az ad app show](/cli/azure/ad/app#az-ad-app-show).
+L’exemple suivant attribue le rôle *Contributeur de machine virtuelle* à une application associée à l’ID d’objet 44444444-4444-4444-4444-444444444444 dans l’étendue du groupe de ressources *pharma-sales*. Pour obtenir l’ID d’objet de l’application, vous pouvez utiliser [az ad app list](/cli/azure/ad/app#az-ad-app-list) ou [az ad app show](/cli/azure/ad/app#az-ad-app-show).
 
 ```azurecli
 az role assignment create --role "Virtual Machine Contributor" --assignee-object-id 44444444-4444-4444-4444-444444444444 --resource-group pharma-sales
@@ -325,7 +325,7 @@ Dans le contrôle d’accès en fonction du rôle, vous supprimez une attributio
 az role assignment delete --assignee <assignee> --role <role_name_or_id> --resource-group <resource_group>
 ```
 
-L’exemple suivant supprime le *collaborateur de Machine virtuelle* attribution de rôle à partir de la *patlong\@contoso.com* utilisateur sur le *pharma-sales* groupe de ressources :
+L’exemple suivant retire l’attribution de rôle *Collaborateur de machine virtuelle* à l’utilisateur *patlong\@contoso.com* dans le groupe de ressources *pharma-sales* :
 
 ```azurecli
 az role assignment delete --assignee patlong@contoso.com --role "Virtual Machine Contributor" --resource-group pharma-sales

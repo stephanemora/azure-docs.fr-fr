@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/29/2018
 ms.author: pepogors
 ms.openlocfilehash: 7f60371fb533526ef5bdb154d0c08dface9c0d1f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60393949"
 ---
 # <a name="develop-java-service-fabric-applications-with-visual-studio-code"></a>Développer des applications Service Fabric en Java avec Visual Studio Code
@@ -49,7 +49,7 @@ Ouvrez Visual Studio Code.  Cliquez sur l’icône Explorer dans la **barre d’
 
 ![Application Voting en Java dans l’espace de travail](./media/service-fabric-develop-java-applications-with-vs-code/java-voting-application.png)
 
-## <a name="build-the-application"></a>Création de l'application
+## <a name="build-the-application"></a>Créer l’application
 
 1. Appuyez sur (Ctrl+Maj+p) pour ouvrir la **Palette de commandes** dans VS Code.
 2. Recherchez puis sélectionnez la commande **Service Fabric : Générer une application**. La sortie de la génération est envoyée au terminal intégré.
@@ -62,7 +62,7 @@ Une fois que vous avez généré l’application, vous pouvez la déployer sur l
 > [!IMPORTANT]
 > Le déploiement d’applications Java sur le cluster local n’est pas pris en charge sur les machines Windows.
 
-1. Dans la **Palette de commandes**, sélectionnez la commande **Service Fabric : Déployer l’application (Localhost)**. La sortie du processus d’installation est envoyée au terminal intégré.
+1. Dans la **Palette de commandes**, sélectionnez la commande **Service Fabric : Déployer l’application (Localhost)** . La sortie du processus d’installation est envoyée au terminal intégré.
 
    ![Commande Déployer une application dans VS Code](./media/service-fabric-develop-java-applications-with-vs-code/sf-deploy-application.png)
 
@@ -74,7 +74,7 @@ Une fois que vous avez généré l’application, vous pouvez la déployer sur l
 
    ![Application Voting dans le navigateur](./media/service-fabric-develop-java-applications-with-vs-code/voting-sample-in-browser.png)
 
-5. Pour supprimer l’application à partir du cluster, sélectionnez le **Service Fabric : Supprimer Application** commande à partir de la **Palette de commandes**. La sortie du processus de désinstallation est envoyée au terminal intégré. Vous pouvez utiliser Service Fabric Explorer pour vérifier que l’application a été supprimée du cluster local.
+5. Pour supprimer l'application du cluster, sélectionnez la commande **Service Fabric : Supprimer l'application** à partir de la **Palette de commandes**. La sortie du processus de désinstallation est envoyée au terminal intégré. Vous pouvez utiliser Service Fabric Explorer pour vérifier que l’application a été supprimée du cluster local.
 
 ## <a name="debug-the-application"></a>Déboguer l’application
 Quand vous déboguez une application dans VS Code, celle-ci doit être en cours d’exécution sur un cluster local. Vous pouvez ajouter des points d’arrêt au code.
@@ -105,7 +105,7 @@ Commentez la commande sur la ligne 6 (utilisez « # ») et ajoutez la commande s
 
    ![Configuration de débogage pour le fichier launch.json](./media/service-fabric-develop-java-applications-with-vs-code/launch-json-java.png)
 
-4. Déployer l’application sur le cluster local à l’aide de la **Service Fabric : Déployer l’Application (Localhost)** commande. Vérifiez que l’application est en cours d’exécution dans Service Fabric Explorer. Votre application est maintenant prête à être déboguée.
+4. Déployez l'application sur le cluster local à l'aide de la commande **Service Fabric : Déployer une application (localhost)** . Vérifiez que l’application est en cours d’exécution dans Service Fabric Explorer. Votre application est maintenant prête à être déboguée.
 
 Pour définir un point d’arrêt, effectuez les étapes suivantes :
 
@@ -127,7 +127,7 @@ Pour définir un point d’arrêt, effectuez les étapes suivantes :
    
    ![Se déconnecter du débogueur](./media/service-fabric-develop-java-applications-with-vs-code/debug-bar-disconnect.png)
        
-5. Lorsque vous avez terminé le débogage, vous pouvez utiliser la commande **Service Fabric : Supprimer Application** commande pour supprimer l’application de vote à partir de votre cluster local. 
+5. Lorsque vous avez terminé le débogage, vous pouvez utiliser la commande **Service Fabric : Supprimer l'application** pour supprimer l'application Voting de votre cluster local. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

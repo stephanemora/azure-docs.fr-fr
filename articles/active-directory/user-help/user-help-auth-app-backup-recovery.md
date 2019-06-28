@@ -13,10 +13,10 @@ ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9634e2578ea256d1dec71389f676ee53627e6272
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60474169"
 ---
 # <a name="backup-and-recover-account-credentials-with-the-microsoft-authenticator-app"></a>Sauvegarder et récupérer des informations d’authentification de compte avec l’application Microsoft Authenticator
@@ -72,7 +72,7 @@ Pour des comptes Microsoft personnels, vous pouvez prouver votre identité en sa
 
     ![Application Microsoft Authenticator, affichant les comptes disponibles avec leurs menus déroulants associés](./media/user-help-auth-app-backup-recovery/backup-and-recovery-arrow.png)
 
-2.  Sélectionnez **Sign in to recover (Se connecter pour récupérer)**, saisissez votre mot de passe, puis confirmez votre adresse e-mail ou votre numéro de téléphone comme vérification complémentaire.
+2.  Sélectionnez **Sign in to recover (Se connecter pour récupérer)** , saisissez votre mot de passe, puis confirmez votre adresse e-mail ou votre numéro de téléphone comme vérification complémentaire.
 
     ![Application Microsoft Authenticator vous permettant de saisir vos informations de connexion](./media/user-help-auth-app-backup-recovery/backup-and-recovery-sign-in.png)
 
@@ -100,11 +100,11 @@ Plusieurs raisons peuvent expliquer le fait que votre sauvegarde ne soit pas dis
 -   **Comptes Microsoft Authenticator existants.** Si vous avez déjà créé des comptes dans l’application Microsoft Authenticator, elle ne pourra pas récupérer vos comptes sauvegardés. Bloquer la récupération permet d’éviter que les détails de votre compte ne soient remplacés par des informations obsolètes. Dans ce cas, vous devez supprimer les informations d’identification des comptes existants créés dans votre application Authenticator pour pouvoir récupérer votre sauvegarde.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Maintenant que vous avez sauvegardé et récupéré les informations d’identification de votre compte sur votre nouvel appareil, vous pouvez continuer d’utiliser l’application Microsoft Authenticator pour vérifier votre identité. Pour plus d’informations, consultez [se connecter à vos comptes à l’aide de l’application Microsoft Authenticator](user-help-sign-in.md).
+Maintenant que vous avez sauvegardé et récupéré les informations d’identification de votre compte sur votre nouvel appareil, vous pouvez continuer d’utiliser l’application Microsoft Authenticator pour vérifier votre identité. Pour plus d’informations, consultez [Vous connecter à vos comptes à l’aide de l’application Microsoft Authenticator](user-help-sign-in.md).
 
 ## <a name="related-topics"></a>Rubriques connexes
 
-- [Qu’est l’application Microsoft Authenticator ?](user-help-auth-app-overview.md)
+- [Qu’est-ce que l’application Microsoft Authenticator ?](user-help-auth-app-overview.md)
 
 - [Forum aux questions sur l’application Microsoft Authenticator](user-help-auth-app-faq.md)
 

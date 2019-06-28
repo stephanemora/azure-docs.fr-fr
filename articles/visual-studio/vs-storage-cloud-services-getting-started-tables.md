@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
 ms.openlocfilehash: cec8ab9d678ff559176580fa8eccc261f449f4c5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60361975"
 ---
 # <a name="getting-started-with-azure-table-storage-and-visual-studio-connected-services-cloud-services-projects"></a>Prendre en main le stockage de tables Azure et les services connectés de Visual Studio (projets services cloud)
@@ -29,7 +29,7 @@ Le service de stockage de tables Azure vous permet de stocker de grandes quantit
 
 Pour commencer, vous devez créer une table dans votre compte de stockage. Nous vous montrerons comment créer une table Azure dans le code et effectuer des opérations de base sur les tables et les entités, comme l’ajout, la modification et la lecture d’entités de table. Les exemples sont écrits en code C\# et utilisent la [bibliothèque cliente Stockage Microsoft Azure pour .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).
 
-**REMARQUE :** Certaines des API qui effectuent des appels vers le stockage Azure sont asynchrones. Pour plus d’informations, consultez l’article [Programmation asynchrone avec Async et Await](https://msdn.microsoft.com/library/hh191443.aspx) . Le code ci-dessous suppose que les méthodes de programmation asynchrone sont utilisées.
+**REMARQUE :** parmi les API qui appellent le stockage Azure, certaines sont asynchrones. Pour plus d’informations, consultez l’article [Programmation asynchrone avec Async et Await](https://msdn.microsoft.com/library/hh191443.aspx) . Le code ci-dessous suppose que les méthodes de programmation asynchrone sont utilisées.
 
 * Pour plus d’informations sur la manipulation des tables par programme, consultez la page [Prise en main du stockage de tables Azure à l’aide de .NET](../storage/storage-dotnet-how-to-use-tables.md) .
 * Pour des informations générales sur Azure Storage, consultez la [documentation relative au stockage](https://azure.microsoft.com/documentation/services/storage/) .

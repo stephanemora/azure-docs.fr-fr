@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: kumud
 ms.openlocfilehash: 235a82c6bba4165790c370c2641ee6cd41f10840
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64700480"
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Créer, modifier ou supprimer un réseau virtuel
@@ -122,7 +122,7 @@ Pour ajouter ou supprimer une plage d’adresses :
 3. Sous **PARAMÈTRES**, sélectionnez **Espace d'adressage**.
 4. Choisissez l'une des options suivantes :
     - **Ajouter une plage d’adresses** : entrez la nouvelle plage d’adresses. La plage d’adresses ne peut pas chevaucher une plage d’adresses existante définie pour le réseau virtuel.
-    - **Supprimer une plage d’adresses** : à droite de la plage d’adresses à supprimer, sélectionnez **...**, puis **Supprimer**. S’il existe déjà un sous-réseau dans la plage d’adresses, vous ne pouvez pas supprimer la plage. Avant de supprimer une plage d’adresses, vous devez supprimer tous les sous-réseaux (et toutes les ressources des sous-réseaux) existant dans celle-ci.
+    - **Supprimer une plage d’adresses** : à droite de la plage d’adresses à supprimer, sélectionnez **...** , puis **Supprimer**. S’il existe déjà un sous-réseau dans la plage d’adresses, vous ne pouvez pas supprimer la plage. Avant de supprimer une plage d’adresses, vous devez supprimer tous les sous-réseaux (et toutes les ressources des sous-réseaux) existant dans celle-ci.
 5. Sélectionnez **Enregistrer**.
 
 **Commandes**

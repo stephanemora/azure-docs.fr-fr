@@ -15,13 +15,13 @@ ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
 ms.openlocfilehash: ed3d89bc15f960947a48ac4364bd14f3fdf50cc2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60505564"
 ---
-# <a name="enable-or-disable-a-firewall-rule-on-an-azure-vm-guest-os"></a>Activer ou désactiver une règle de pare-feu sur un système d’exploitation invité de Azure VM
+# <a name="enable-or-disable-a-firewall-rule-on-an-azure-vm-guest-os"></a>Activer ou désactiver une règle de pare-feu sur un système d’exploitation invité d’une machine virtuelle Azure
 
 Cet article fournit une référence pour résoudre une situation dans laquelle vous pensez que le pare-feu du système d’exploitation invité filtre le trafic partiel sur une machine virtuelle. Cela peut être utile pour les raisons suivantes :
 
@@ -107,7 +107,7 @@ Si la machine virtuelle est en ligne et accessible sur une autre machine virtuel
     
         Ensuite, remplacez **Active=FALSE** par **Active=TRUE** dans la chaîne :
 
-        **v2.22 | Action = Autoriser | Active = TRUE | Dir = In | Protocole = 6 | Profil = Domain | Profil privé de = | Profil = Public | LPort = 3389 | App=%SystemRoot%\System32\Svchost.exe| SVC = termservice | Nom =\@FirewallAPI.dll,-28775 | DESC =\@FirewallAPI.dll,-28756 | EmbedCtxt =\@FirewallAPI.dll,-28752 |**
+        **v2.22|Action=Allow|Active=TRUE|Dir=In|Protocol=6|Profile=Domain|Profile=Private|Profile=Public|LPort=3389|App=%SystemRoot%\system32\svchost.exe|Svc=termservice|Name=\@FirewallAPI.dll,-28775|Desc=\@FirewallAPI.dll,-28756|EmbedCtxt=\@FirewallAPI.dll,-28752|**
     
     * Pour désactiver une règle, ouvrez la valeur de Registre suivante :
     
@@ -115,7 +115,7 @@ Si la machine virtuelle est en ligne et accessible sur une autre machine virtuel
 
         Puis remplacez **Active=TRUE** par **Active=FALSE**:
         
-        **v2.22 | Action = Autoriser | Active = FALSE | Dir = In | Protocole = 6 | Profil = Domain | Profil privé de = | Profil = Public | LPort = 3389 | App=%SystemRoot%\System32\Svchost.exe| SVC = termservice | Nom =\@FirewallAPI.dll,-28775 | DESC =\@FirewallAPI.dll,-28756 | EmbedCtxt =\@FirewallAPI.dll,-28752 |**
+        **v2.22|Action=Allow|Active=FALSE|Dir=In|Protocol=6|Profile=Domain|Profile=Private|Profile=Public|LPort=3389|App=%SystemRoot%\system32\svchost.exe|Svc=termservice|Name=\@FirewallAPI.dll,-28775|Desc=\@FirewallAPI.dll,-28756|EmbedCtxt=\@FirewallAPI.dll,-28752|**
 
 3.  Redémarrez la machine virtuelle pour appliquer les changements.
 
@@ -154,7 +154,7 @@ Avant de suivre ces étapes, prenez un instantané du disque système de la mach
         
         Puis remplacez **Active=FALSE** par **Active=True**.
         
-        **v2.22 | Action = Autoriser | Active = TRUE | Dir = In | Protocole = 6 | Profil = Domain | Profil privé de = | Profil = Public | LPort = 3389 | App=%SystemRoot%\System32\Svchost.exe| SVC = termservice | Nom =\@FirewallAPI.dll,-28775 | DESC =\@FirewallAPI.dll,-28756 | EmbedCtxt =\@FirewallAPI.dll,-28752 |**
+        **v2.22|Action=Allow|Active=TRUE|Dir=In|Protocol=6|Profile=Domain|Profile=Private|Profile=Public|LPort=3389|App=%SystemRoot%\system32\svchost.exe|Svc=termservice|Name=\@FirewallAPI.dll,-28775|Desc=\@FirewallAPI.dll,-28756|EmbedCtxt=\@FirewallAPI.dll,-28752|**
 
     3.  Pour désactiver une règle, ouvrez la clé de Registre suivante :
 
@@ -162,7 +162,7 @@ Avant de suivre ces étapes, prenez un instantané du disque système de la mach
 
         Puis remplacez **Active=True** par **Active=FALSE**.
         
-        **v2.22 | Action = Autoriser | Active = FALSE | Dir = In | Protocole = 6 | Profil = Domain | Profil privé de = | Profil = Public | LPort = 3389 | App=%SystemRoot%\System32\Svchost.exe| SVC = termservice | Nom =\@FirewallAPI.dll,-28775 | DESC =\@FirewallAPI.dll,-28756 | EmbedCtxt =\@FirewallAPI.dll,-28752 |**
+        **v2.22|Action=Allow|Active=FALSE|Dir=In|Protocol=6|Profile=Domain|Profile=Private|Profile=Public|LPort=3389|App=%SystemRoot%\system32\svchost.exe|Svc=termservice|Name=\@FirewallAPI.dll,-28775|Desc=\@FirewallAPI.dll,-28756|EmbedCtxt=\@FirewallAPI.dll,-28752|**
 
 9.  Mettez en surbrillance  **BROKENSYSTEM**, puis sélectionnez  **Fichier** > **Décharger Hive**  à partir du menu.
 

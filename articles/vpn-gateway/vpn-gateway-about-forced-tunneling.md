@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 08/01/2017
 ms.author: cherylmc
 ms.openlocfilehash: 0955d95ebfd9e1f72ed1da577bf3520a70b71624
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60506011"
 ---
 # <a name="configure-forced-tunneling-using-the-classic-deployment-model"></a>Configuration du tunneling forcé à l’aide du modèle de déploiement classique
@@ -28,7 +28,7 @@ Le tunneling forcé vous permet de rediriger ou de « forcer » tout le trafic I
 
 [!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
-Cet article vous guide dans la configuration du tunneling forcé pour les réseaux virtuels créés à l’aide du modèle de déploiement Classic. Le tunneling forcé peut être configuré à l’aide de PowerShell, et non pas dans le portail. Si vous souhaitez configurer le tunneling forcé pour le modèle de déploiement Resource Manager, sélectionnez l’article de Resource Manager à partir de la liste déroulante suivante :
+Cet article vous guide dans la configuration du tunneling forcé pour les réseaux virtuels créés à l’aide du modèle de déploiement Classic. Le tunneling forcé peut être configuré à l’aide de PowerShell, et non pas dans le portail. Si vous souhaitez configurer le tunneling forcé pour le modèle de déploiement de Resource Manager, sélectionnez l’article Resource Manager dans la liste déroulante suivante :
 
 > [!div class="op_single_selector"]
 > * [PowerShell - Classique](vpn-gateway-about-forced-tunneling.md)

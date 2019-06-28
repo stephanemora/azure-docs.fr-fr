@@ -15,10 +15,10 @@ ms.topic: troubleshooting
 ms.date: 9/20/2018
 ms.author: anandh
 ms.openlocfilehash: c2089f9f6267f318dafe641a6a5b22e7e87427ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60308117"
 ---
 # <a name="performance-diagnostics-for-azure-virtual-machines"></a>Diagnostics de performances pour les machines virtuelles Azure
@@ -143,10 +143,10 @@ Vous pouvez afficher les informations de compte de stockage en utilisant le bout
 ### <a name="how-do-i-share-this-data-with-microsoft-customer-support"></a>Comment partager ces données avec le support technique de Microsoft ? 
 Il existe plusieurs façons de partager le rapport de diagnostics avec Microsoft.
 
-**Option 1 :** Partager automatiquement le dernier rapport  
+**Option 1 :** partager automatiquement le dernier rapport  
 Quand vous ouvrez un ticket de support auprès de Microsoft, il est important de partager le rapport de diagnostics de performances. Si vous avez choisi de partager ces informations avec Microsoft pendant que vous exécutez les diagnostics (en cochant la case **I agree to share diagnostics information with Microsoft** [J’accepte de partager des informations de diagnostic avec Microsoft]), Microsoft pourra accéder au rapport à partir de votre compte de stockage à l’aide d’un lien SAP vers le fichier zip de sortie pendant 30 jours à partir de la date d’exécution. Seul le dernier rapport est disponible pour l’ingénieur du support. 
 
-**Option 2 :** Générer une Signature d’accès partagé pour le fichier compressé de rapport de diagnostics  
+**Option 2 :** générer une signature d’accès partagé pour le fichier compressé du rapport de diagnostics  
 Vous pouvez partager un lien vers le fichier compressé des rapports à l’aide de signatures d’accès partagé. Pour ce faire, procédez comme suit : 
 1.  Dans le portail Azure, accédez au compte de stockage dans lequel sont stockées les données de diagnostic.
 1.  Sélectionnez **Objets blob** sous la section **Service Blob**. 
@@ -156,7 +156,7 @@ Vous pouvez partager un lien vers le fichier compressé des rapports à l’aide
 1.  Cliquez sur **Générer un jeton et une URL SAP d’objet blob**.
 1.  Copiez **l’URL SAP d’objet blob** et partagez-la avec l’ingénieur du support. 
 
-**Option 3 :** Télécharger le rapport à partir du compte de stockage
+**Option 3** : télécharger le rapport à partir du compte de stockage
 
 Vous pouvez également localiser le fichier compressé du rapport de diagnostics de performances à l’aide des étapes 1 à 4 de l’option 2. Choisissez de télécharger le fichier, puis partagez-le par e-mail, ou demandez les instructions pour charger le fichier à l’ingénieur du support.  
 

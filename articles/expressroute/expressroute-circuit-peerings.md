@@ -9,10 +9,10 @@ ms.date: 04/24/2019
 ms.author: mialdrid
 ms.custom: seodec18
 ms.openlocfilehash: c4290473a7c1edce02d74a4a787c62ccf0d9c052
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64924307"
 ---
 # <a name="expressroute-circuits-and-peering"></a>Circuits ExpressRoute et peering
@@ -22,7 +22,7 @@ Les circuits ExpressRoute vous permettent de connecter votre infrastructure loca
 ![](./media/expressroute-circuit-peerings/expressroute-basic.png)
 
 > [!IMPORTANT]
-> L’homologation publique Azure a été déconseillée et n’est pas disponible pour les nouveaux circuits ExpressRoute. Nouveaux circuits prend en charge l’homologation Microsoft et l’homologation privée.  
+> Le peering public Azure a été déconseillé, et il n’est pas disponible pour les nouveaux circuits ExpressRoute. Les nouveaux circuits prennent en charge le peering Microsoft et le peering privé.  
 >
 
 ## <a name="circuits"></a>Circuits ExpressRoute
@@ -62,7 +62,7 @@ Pour plus d’informations sur les services pris en charge, les coûts et les d�
 ### <a name="publicpeering"></a>Peering public Azure (déprécié pour les nouveaux circuits)
 
 > [!Note]
-> L’homologation publique Azure a 1 adresse IP NAT sont associée à chaque session BGP. Pour plus de 2 adresses IP NAT, déplacer vers l’appairage Microsoft. L’homologation Microsoft vous permet de configurer vos propres allocations NAT, ainsi que pour utiliser des filtres de routage pour les publications de préfixe sélectif. Pour plus d’informations, consultez [déplacer vers l’appairage Microsoft](https://docs.microsoft.com/azure/expressroute/how-to-move-peering).
+> Le peering public Azure possède une adresse IP NAT associée à chaque session BGP. Pour plus de deux adresses IP NAT, optez pour le peering Microsoft. Le peering Microsoft vous permet de configurer vos propres répartitions NAT, ainsi que d'utiliser des filtres de routage pour des publications de préfixe sélectif. Pour plus d’informations, consultez [Passer au peering Microsoft](https://docs.microsoft.com/azure/expressroute/how-to-move-peering).
 >
 
 Les services tels qu’Azure Storage, les bases de données SQL et Sites web sont proposés sur des adresses IP publiques. En privé, vous pouvez vous connecter à des services hébergés sur des adresses IP publiques (y compris les adresses IP virtuelles de vos services cloud) via le domaine de routage d’homologation publique. Vous pouvez connecter le domaine d’homologation publique à votre zone DMZ et vous connecter à tous les services Azure sur leurs adresses IP publiques à partir de votre réseau étendu, sans avoir à vous connecter via Internet.
@@ -84,7 +84,7 @@ Le tableau suivant compare les trois types de peering :
 | **Exigences en matière de numéros AS** |Numéros AS publics et privés Vous devez être propriétaire du numéro AS public si vous choisissez d’en utiliser un. |Numéros AS publics et privés Cependant, vous devez prouver la propriété des adresses IP publiques. |Numéros AS publics et privés Cependant, vous devez prouver la propriété des adresses IP publiques. |
 | **Protocoles IP pris en charge**| IPv4 |  IPv4, IPv6 | IPv4 |
 | **Adresses IP de l’interface de routage** |RFC1918 et adresses IP publiques |Adresses IP publiques enregistrées auprès de vous dans les registres de routage. |Adresses IP publiques enregistrées auprès de vous dans les registres de routage. |
-| **Prise en charge du hachage MD5** |Oui |OUI |Oui |
+| **Prise en charge du hachage MD5** |OUI |OUI |OUI |
 
 Vous pouvez activer un ou plusieurs domaines de routage dans le cadre de votre circuit ExpressRoute. Vous pouvez choisir de placer tous les domaines de routage sur le même VPN si vous souhaitez les combiner dans un domaine de routage unique. Vous pouvez également les placer dans différents domaines de routage comme indiqué dans le schéma. Nous vous recommandons de connecter l’homologation privée directement à votre réseau principal, et les homologations publiques et Microsoft à votre zone DMZ.
 

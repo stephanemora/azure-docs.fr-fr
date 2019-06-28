@@ -13,10 +13,10 @@ ms.reviewer: vanto, carlrab
 manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: abb4a43176026fca5a80409ade13af1f8f96d9f1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60390482"
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql"></a>Configurer et gérer l’authentification Azure Active Directory avec SQL
@@ -30,7 +30,7 @@ Cet article montre comment créer et renseigner Azure AD, puis comment utiliser 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Le module PowerShell Azure Resource Manager est toujours pris en charge par Azure SQL Database, mais tous les développements futurs sont pour le module Az.Sql. Pour ces applets de commande, consultez [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Les arguments pour les commandes dans le module Az et dans les modules AzureRm sont sensiblement identiques.
+> Le module PowerShell Azure Resource Manager est toujours pris en charge par Azure SQL Database, mais tous les développements futurs sont destinés au module Az.Sql. Pour ces cmdlets, consultez [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Les arguments des commandes dans le module Az et dans les modules AzureRm sont sensiblement identiques.
 
 ## <a name="create-and-populate-an-azure-ad"></a>Créer et renseigner un répertoire Azure AD
 
@@ -352,7 +352,7 @@ Utilisez cette méthode lors de la connexion avec un nom principal Azure AD à l
 Utilisez cette méthode pour vous authentifier auprès de SQL DB/DW avec Azure AD pour les utilisateurs Azure AD fédérés ou natifs. Un utilisateur natif est un utilisateur créé explicitement dans Azure AD et authentifié avec un nom d’utilisateur et un mot de passe, tandis qu’un utilisateur fédéré est un utilisateur Windows dont le domaine est fédéré avec Azure AD. Cette dernière méthode (via utilisateur et mot de passe) peut être utilisée quand un utilisateur souhaite se servir de ses informations d’identification Windows mais que son ordinateur local n’est pas joint au domaine (par exemple, à l’aide d’un accès à distance). Dans ce cas, un utilisateur Windows peut indiquer son compte de domaine et mot de passe et peut s’authentifier auprès de SQL DB/DW à l’aide d’informations d’identification fédérées.
 
 1. Démarrez Management Studio ou Data Tools et, dans la boîte de dialogue **Se connecter au serveur** (ou **Se connecter au moteur de base de données**), dans la zone **Authentification**, sélectionnez **Active Directory - Authentification par mot de passe**.
-2. Dans le **nom d’utilisateur** , tapez votre nom d’utilisateur Azure Active Directory dans le format **nom d’utilisateur\@domaine.com**. Il doit s’agir d’un compte Azure Active Directory ou d’un compte de domaine fédéré avec Azure Active Directory.
+2. Dans la zone **Nom d’utilisateur** tapez votre nom d’utilisateur Azure Active Directory au format **nom_utilisateur\@domaine.com**. Il doit s’agir d’un compte Azure Active Directory ou d’un compte de domaine fédéré avec Azure Active Directory.
 3. Dans la zone **Mot de passe** , tapez votre mot de passe utilisateur pour le compte Azure Active Directory ou le compte de domaine fédéré.
 
     ![Sélectionner l’authentification par mot de passe AD][12]

@@ -14,10 +14,10 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 518e3fa842c5283dc20a6111773bd55451f026b6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60486848"
 ---
 # <a name="azure-data-factory---frequently-asked-questions"></a>Azure Data Factory - Forum aux Questions
@@ -173,12 +173,12 @@ Vous pouvez réexécuter une tranche de l'une des manières suivantes :
 
 * Utilisez l’application Surveiller et gérer pour réexécuter une fenêtre d’activité ou une tranche. Pour obtenir des instructions, consultez [Réexécuter les fenêtres d’activité sélectionnées](data-factory-monitor-manage-app.md#perform-batch-actions) .   
 * Cliquez sur **Exécuter** dans la barre de commandes du panneau **TRANCHE DE DONNÉES** de la tranche, dans le portail Azure.
-* Exécutez **Set-AzDataFactorySliceStatus** applet de commande avec l’état la valeur **en attente** pour la tranche.   
+* Exécutez l’applet de commande **Set-AzRmDataFactorySliceStatus** en ayant affecté la valeur **En attente** à l’état de la tranche.   
 
     ```powershell
     Set-AzDataFactorySliceStatus -Status Waiting -ResourceGroupName $ResourceGroup -DataFactoryName $df -TableName $table -StartDateTime "02/26/2015 19:00:00" -EndDateTime "02/26/2015 20:00:00"
     ```
-  Consultez [Set-AzDataFactorySliceStatus] [ set-azure-datafactory-slice-status] pour plus d’informations sur l’applet de commande.
+  Consultez [Set-AzDataFactorySliceStatus][set-azure-datafactory-slice-status] pour plus d’informations sur l’applet de commande.
 
 ### <a name="how-long-did-it-take-to-process-a-slice"></a>Combien de temps dure le traitement d'une tranche ?
 Utilisez l’Explorateur de fenêtres d’activité dans l’application Surveiller et gérer pour connaître la durée du traitement d’une tranche de données. Pour plus d’informations, consultez [Explorateur de fenêtres d’activité](data-factory-monitor-manage-app.md#activity-window-explorer) .
@@ -193,7 +193,7 @@ Vous pouvez également faire ce qui suit dans le portail Azure :
 6. Une valeur doit apparaître dans le champ **DURÉE** . Il s’agit du temps nécessaire pour traiter la tranche.   
 
 ### <a name="how-to-stop-a-running-slice"></a>Comment arrêter une tranche en cours d'exécution ?
-Si vous devez arrêter l’exécution du pipeline, vous pouvez utiliser [Suspend-AzDataFactoryPipeline](/powershell/module/az.datafactory/suspend-azdatafactorypipeline) applet de commande. Actuellement, l'interruption du pipeline n'arrête pas les exécutions de tranche en cours. Une fois que les exécutions en cours sont terminées, aucune tranche supplémentaire n'est récupérée.
+Si vous devez arrêter l’exécution du pipeline, vous pouvez utiliser l’applet de commande [Suspend-AzDataFactoryPipeline](/powershell/module/az.datafactory/suspend-azdatafactorypipeline) . Actuellement, l'interruption du pipeline n'arrête pas les exécutions de tranche en cours. Une fois que les exécutions en cours sont terminées, aucune tranche supplémentaire n'est récupérée.
 
 Si vous voulez vraiment arrêter immédiatement toutes les exécutions, le seul moyen est de supprimer le pipeline et de le recréer. Si vous choisissez de supprimer le pipeline, il est INUTILE de supprimer les tables et les services liés qu'il utilise.
 

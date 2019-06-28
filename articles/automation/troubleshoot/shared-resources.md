@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: automation
 manager: carmonm
 ms.openlocfilehash: 66165a196c8b934df948f1d88b09a5859d3e792f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60401474"
 ---
 # <a name="troubleshoot-errors-with-shared-resources"></a>Résoudre des erreurs en lien avec des ressources partagées
@@ -39,11 +39,11 @@ Pour résoudre ce problème, vous devez supprimer le module bloqué dans l’ét
 Remove-AzureRmAutomationModule -Name ModuleName -ResourceGroupName ExampleResourceGroup -AutomationAccountName ExampleAutomationAccount -Force
 ```
 
-### <a name="update-azure-modules-importing"></a>Scénario : Les modules AzureRM sont bloqués à l’importation après avoir essayé les mettre à jour
+### <a name="update-azure-modules-importing"></a>Scénario : L'importation des modules AzureRM est bloquée après une tentative de mise à jour de ceux-ci
 
 #### <a name="issue"></a>Problème
 
-Il reste une bannière avec le message suivant dans votre compte après avoir essayé de mettre à jour vos modules AzureRM :
+Une bannière contenant le message suivant reste dans votre compte après la tentative de mise à jour de vos modules AzureRM :
 
 ```error
 Azure modules are being updated
@@ -51,11 +51,11 @@ Azure modules are being updated
 
 #### <a name="cause"></a>Cause :
 
-Il existe un problème connu avec la mise à jour les modules AzureRM dans un compte Automation qui se trouve dans un groupe de ressources avec un nom numérique qui commence par 0.
+Un problème a été identifié lors de la mise à jour des modules AzureRM dans un compte Automation appartenant à un groupe de ressources dont le nom numérique commence par 0.
 
 #### <a name="resolution"></a>Résolution :
 
-Pour mettre à jour vos modules Azure dans votre compte Automation, il doit être dans un groupe de ressources qui a un nom d’alphanumériques. Groupes de ressources avec des noms numériques commençant par 0 ne peuvent pas mettre à jour les modules AzureRM pour l’instant.
+Pour mettre à jour vos modules Azure dans votre compte Automation, celui-ci doit appartenir à un groupe de ressources portant un nom alphanumérique. Pour le moment, les groupes de ressources dont les noms numériques commencent par 0 ne peuvent pas mettre à jour les modules AzureRM.
 
 ### <a name="module-fails-to-import"></a>Scénario : Le module ne parvient pas à terminer l’importation ou il est impossible d’exécuter des cmdlets après l’importation
 
@@ -95,7 +95,7 @@ Lors de l’utilisation du script `Update-AzureModule.ps1`, le paramètre par d�
 Il n’est pas courant que tous les modules AzureRM soient requis dans le même compte Automation. Il est recommandé de n’importer que les modules AzureRM dont vous avez besoin.
 
 > [!NOTE]
-> Éviter d’importer le module **AzureRM**. L’importation des modules **AzureRM** entraîne l’importation de tous les modules **AzureRM.\***, ce qui est déconseillé.
+> Éviter d’importer le module **AzureRM**. L’importation des modules **AzureRM** entraîne l’importation de tous les modules **AzureRM.\*** , ce qui est déconseillé.
 
 Si le processus de mise à jour est suspendu, vous devez ajouter le paramètre `SimultaneousModuleImportJobCount` au script `Update-AzureModules.ps1` et fournir une valeur inférieure à la valeur par défaut qui est 10. Si vous implémentez cette logique, il est recommandé de commencer avec une valeur de 3 ou 5. `SimultaneousModuleImportJobCount` est un paramètre du runbook système `Update-AutomationAzureModulesForAccount` qui est utilisé pour mettre à jour les modules Azure. Ce changement allonge la durée du processus, mais il a plus de chances d’aboutir. L’exemple suivant montre le paramètre et où le mettre dans le runbook :
 
@@ -138,11 +138,11 @@ Pour créer ou mettre à jour d’un compte d’identification, vous devez dispo
 
 Si le problème est dû à un verrou, vérifiez que le verrou peut être supprimé. Accédez ensuite à la ressource verrouillée, cliquez sur le verrou, puis choisissez **Supprimer** pour supprimer le verrou.
 
-### <a name="iphelper"></a>Scénario : Vous recevez l’erreur « Impossible de trouver un point d’entrée nommée « GetPerAdapterInfo » dans la DLL 'iplpapi.dll' » lorsque l’exécution d’un runbook.
+### <a name="iphelper"></a>Scénario : Vous recevez l'erreur « Impossible de trouver le point d'entrée 'GetPerAdapterInfo' dans la DLL 'iplpapi.dll' » lors de l'exécution d'un runbook.
 
 #### <a name="issue"></a>Problème
 
-Lors de l’exécution d’un runbook, vous recevez l’exception suivante :
+Lors de l'exécution d'un runbook, vous recevez l'exception suivante :
 
 ```error
 Unable to find an entry point named 'GetPerAdapterInfo' in DLL 'iplpapi.dll'
@@ -150,11 +150,11 @@ Unable to find an entry point named 'GetPerAdapterInfo' in DLL 'iplpapi.dll'
 
 #### <a name="cause"></a>Cause :
 
-Cette erreur est probablement dû à une configuration incorrecte [compte d’identification](../manage-runas-account.md).
+Cette erreur est probablement due à un [Compte d'identification](../manage-runas-account.md) mal configuré.
 
 #### <a name="resolution"></a>Résolution :
 
-Assurez-vous que votre [compte d’identification](../manage-runas-account.md) est correctement configuré. Une fois qu’il est correctement configuré, vérifiez que vous avez le code approprié dans votre runbook auprès d’Azure. L’exemple suivant montre un extrait de code pour s’authentifier sur Azure dans un runbook à l’aide d’un compte d’identification.
+Assurez-vous que votre [Compte d'identification](../manage-runas-account.md) est correctement configuré. Une fois celui-ci correctement configuré, vérifiez que votre runbook contient le code approprié pour vous authentifier auprès d'Azure. L'exemple suivant montre un extrait de code permettant de s'authentifier auprès d'Azure dans un runbook à l'aide d'un Compte d'identification.
 
 ```powershell
 $connection = Get-AutomationConnection -Name AzureRunAsConnection

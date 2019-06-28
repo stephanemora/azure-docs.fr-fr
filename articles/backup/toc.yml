@@ -144,8 +144,6 @@
           items:
             - name: Gérer les sauvegardes de machines virtuelles Azure
               href: backup-azure-manage-vms.md
-            - name: Surveiller des alertes pour les sauvegardes de machines virtuelles Azure
-              href: backup-azure-monitor-vms.md
         - name: Restaurer des machines virtuelles Azure
           items:
             - name: Restaurer des machines virtuelles Azure dans le portail
@@ -266,7 +264,7 @@
   items:
     - name: .NET
       href: /dotnet/api/microsoft.azure.management.recoveryservices.backup
-    - name: Azure CLI
+    - name: D’Azure CLI
       href: /cli/azure/backup?view=azure-cli-latest
     - name: PowerShell
       href: /powershell/module/az.recoveryservices

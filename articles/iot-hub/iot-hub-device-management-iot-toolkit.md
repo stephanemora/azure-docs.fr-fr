@@ -5,15 +5,13 @@ author: formulahendry
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.tgt_pltfrm: arduino
-origin.date: 01/04/2019
-ms.date: 04/29/2019
-ms.author: v-yiso
+ms.date: 01/04/2019
+ms.author: junhan
 ms.openlocfilehash: 03df2ceb2df4d857e48f1790703a1d87647e43d0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60401168"
 ---
 # <a name="use-azure-iot-tools-for-visual-studio-code-for-azure-iot-hub-device-management"></a>Utiliser Azure IoT Tools pour Visual Studio Code pour la gestion des appareils Azure IoT Hub
@@ -24,8 +22,8 @@ ms.locfileid: "60401168"
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-| Option de gestion          | Tâche                                                                                                                            |
-|----------------------------|---------------------------------------------------------------------------------------------------------------------------------|
+| Option de gestion          | Tâche                    |
+|----------------------------|--------------------------------|
 | Méthodes directes             | Faites agir un appareil comme commençant/arrêtant d’envoyer des messages ou comme redémarrant l’appareil.                                        |
 | Lire le jumeau d’appareil           | Obtenez l’état signalé d’un appareil. Par exemple, l’appareil signale que le voyant clignote maintenant.                                    |
 | Mettre à jour le jumeau d’appareil         | Mettez un appareil dans certains états, par exemple en réglant un voyant sur le vert ou en définissant l’intervalle d’envoi de télémétrie sur 30 minutes.         |
@@ -50,15 +48,19 @@ Exécuter Azure IoT Tools pour Visual Studio Code avec diverses options de gesti
 * Un abonnement Azure actif.
 * Une instance Azure IoT Hub associée à votre abonnement.
 * [Visual Studio Code](https://code.visualstudio.com/)
-* [Azure IoT Tools pour VS Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) ou [ouvrir ce lien dans Visual Studio Code](vscode:extension/vsciot-vscode.azure-iot-tools).
+* [Azure IoT Tools pour VS Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) ou [ouvrez ce lien dans Visual Studio Code](vscode:extension/vsciot-vscode.azure-iot-tools).
 
 ## <a name="sign-in-to-access-your-iot-hub"></a>Se connecter pour accéder à votre hub ioT
 
 1. En mode **Explorateur** dans Visual Studio Code, développez la section **Appareils Azure IoT Hub** dans le coin inférieur gauche.
-1. Cliquez sur **Sélectionner IoT Hub** dans le menu contextuel.
-1. Une fenêtre contextuelle s’affiche en bas à droite pour vous permettre de vous connecter à Azure pour la première fois.
-1. Une fois que vous êtes connecté, votre liste d’abonnements Azure s’affiche. Sélectionnez Abonnement Azure et IoT Hub.
-1. La liste des appareils apparaît quelques secondes plus tard sous l’onglet **Appareils Azure IoT Hub**.
+
+2. Cliquez sur **Sélectionner IoT Hub** dans le menu contextuel.
+
+3. Une fenêtre contextuelle s’affiche en bas à droite pour vous permettre de vous connecter à Azure pour la première fois.
+
+4. Une fois que vous êtes connecté, votre liste d’abonnements Azure s’affiche. Sélectionnez Abonnement Azure et IoT Hub.
+
+5. La liste des appareils apparaît quelques secondes plus tard sous l’onglet **Appareils Azure IoT Hub**.
 
    > [!Note]
    > Vous pouvez également effectuer la configuration en choisissant **Définir la chaîne de connexion IoT Hub**. Entrez la chaîne de connexion IoT Hub à laquelle se connecte votre appareil IoT dans la fenêtre contextuelle.
@@ -66,26 +68,33 @@ Exécuter Azure IoT Tools pour Visual Studio Code avec diverses options de gesti
 ## <a name="direct-methods"></a>Méthodes directes
 
 1. Cliquez avec le bouton droit sur votre appareil et sélectionnez **Appeler une méthode directe**. 
-1. Entrez le nom de la méthode et la charge utile dans la zone d’entrée.
+
+2. Entrez le nom de la méthode et la charge utile dans la zone d’entrée.
+
 3. Les résultats seront affichés dans la vue **SORTIE** > **Azure IoT Hub Toolkit**.
 
 ## <a name="read-device-twin"></a>Lire le jumeau d’appareil
 
 1. Cliquez avec le bouton droit sur votre appareil et sélectionnez **Modifier le jumeau d’appareil**. 
-1. Un fichier **azure-iot-device-twin.json** s’ouvre avec le contenu du jumeau d’appareil.
+
+2. Un fichier **azure-iot-device-twin.json** s’ouvre avec le contenu du jumeau d’appareil.
 
 ## <a name="update-device-twin"></a>Mettre à jour le jumeau d’appareil
 
 1. Modifiez les **étiquettes** ou le champ **properties.desired**.
-1. Cliquez avec le bouton droit sur le fichier **azure-iot-device-twin.json**.
-1. Sélectionnez **Mettre à jour le jumeau d’appareil** pour mettre à jour le jumeau d’appareil.
+
+2. Cliquez avec le bouton droit sur le fichier **azure-iot-device-twin.json**.
+
+3. Sélectionnez **Mettre à jour le jumeau d’appareil** pour mettre à jour le jumeau d’appareil.
 
 ## <a name="send-cloud-to-device-messages"></a>Envoi de messages cloud vers appareil
 
 Pour envoyer un message à partir de votre instance IoT Hub sur votre appareil, procédez comme suit :
  
 1. Cliquez avec le bouton droit sur votre appareil et sélectionnez **Envoyer un message cloud-à-appareil**. 
-1. Entrez le message dans la zone de saisie.
+
+2. Entrez le message dans la zone de saisie.
+
 3. Les résultats seront affichés dans la vue **SORTIE** > **Azure IoT Hub Toolkit**.
 
 ## <a name="next-steps"></a>Étapes suivantes

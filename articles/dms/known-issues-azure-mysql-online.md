@@ -12,10 +12,10 @@ ms.custom: mvc
 ms.topic: article
 ms.date: 03/12/2019
 ms.openlocfilehash: 0641545c10d7f59cb1874659eae9c7e7bf65932e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60532264"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-db-for-mysql"></a>Problèmes connus/limitations de migration dans le cadre des migrations en ligne vers Azure DB pour MySQL
@@ -30,7 +30,7 @@ Les sections suivantes décrivent les problèmes connus et limitations associés
 - Migration vers une même version. La migration de MySQL 5.6 vers Azure Database pour MySQL 5.7 n’est pas prise en charge.
 - Activez la journalisation binaire dans my.ini (Windows) ou my.cnf (Unix).
     - Pour Server_id, spécifiez un nombre supérieur ou égal à 1, par exemple, Server_id=1 (uniquement pour MySQL 5.6).
-    - Définissez log-bin = \<chemin d’accès > (uniquement pour MySQL 5.6)
+    - Définissez log-bin = \<path> (uniquement pour MySQL 5.6).
     - Définissez binlog_format = row.
     - Expire_logs_days = 5 (recommandé, uniquement pour MySQL 5.6)
 - L’utilisateur doit avoir le rôle ReplicationAdmin.
@@ -60,7 +60,7 @@ Les sections suivantes décrivent les problèmes connus et limitations associés
     ```
 
 ## <a name="datatype-limitations"></a>Limitations relatives au type de données
-- **Limitation** : S’il existe un type de données JSON dans la base de données MySQL, migration échoue pendant la synchronisation continue.
+- **Limitation** : si la base de données MySQL source inclut un type de données JSON, la migration échouera lors de la synchronisation continue.
 
     **Solution de contournement** : modifiez le type de données JSON dans la base de données MySQL source en choisissant le texte moyen ou le texte long.
 
@@ -80,7 +80,7 @@ Les colonnes LOB (Large Object) peuvent devenir volumineuses. Pour MySQL, les ty
     SELECT max(length(description)) as LEN from catalog;
     ```
 
-    **Solution de contournement** : Si vous disposez d’objet métier qui est supérieure à 32 Ko, contactez l’équipe d’ingénierie à [poser de Migrations de base de données Azure](mailto:AskAzureDatabaseMigrations@service.microsoft.com). 
+    **Solution de contournement** : si vous disposez d'un objet LOB de plus de 32 Ko, contactez l'équipe d'ingénierie en cliquant ici : [Demander à l'équipe de migration de base de données Azure](mailto:AskAzureDatabaseMigrations@service.microsoft.com). 
 
 ## <a name="other-limitations"></a>Autres limitations
 - Une chaîne de mot de passe précédée d’une accolade ouvrante et suivie d’une accolade fermante {  } n’est pas prise en charge. Cette limitation s’applique à la connexion à la base de données MySQL source et à la base de données cible dans Azure Database pour MySQL.

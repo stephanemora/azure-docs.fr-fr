@@ -15,15 +15,15 @@ ms.workload: na
 ms.date: 05/03/2017
 ms.author: alkohli
 ms.openlocfilehash: 079a2f153f257040d1899a33c9e255d633e526ad
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60576382"
 ---
 # <a name="failover-and-disaster-recovery-for-your-storsimple-8000-series-device"></a>Basculement et récupération d’urgence pour votre appareil de la gamme StorSimple 8000
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
 Cet article décrit la fonctionnalité de basculement d’appareil pour les appareils de la gamme StorSimple 8000 et comment cette fonctionnalité peut être utilisée pour récupérer les appareils StorSimple si un incident se produit. StorSimple utilise le basculement d’appareil pour migrer des données d’un appareil source dans le centre de données vers un autre appareil cible. Les instructions de cet article s’appliquent aux appareils physiques de gamme StorSimple 8000 et aux appliances cloud exécutant des versions logicielles Update 3 et versions ultérieures.
 
@@ -50,8 +50,8 @@ Sur un appareil de la gamme StorSimple 8000, les stratégies de sauvegarde sont
 
 Supposons qu’il existe deux stratégies de sauvegarde, *defaultPol* et *customPol* :
 
-* *defaultPol*: Un seul volume, *vol1*, s’exécute quotidienne à 10 h 30.
-* *customPol*: Quatre volumes, *vol1*, *vol2*, *vol3*, *vol4*, s’exécute quotidienne à 10:00 PM.
+* *defaultPol* : un seul volume, *vol1*, s’exécute tous les jours à 22h30.
+* *customPol* : quatre volumes, *vol1*, *vol2*, *vol3* et *vol4*, s’exécutent tous les jours à 22h00.
 
 Dans ce cas, StorSimple donne la priorité pour des raisons de cohérence en cas d’incident et utilise *customPol*, car elle a plus de volumes. La sauvegarde la plus récente de cette stratégie est utilisée pour restaurer les données. Pour plus d’informations sur la façon de créer et gérer des stratégies de sauvegarde, accédez à [Use the StorSimple Device Manager service in Azure portal to manage backup policies](storsimple-8000-manage-backup-policies-u2.md) (Utiliser le service StorSimple Device Manager dans le portail Azure pour gérer les stratégies de sauvegarde).
 

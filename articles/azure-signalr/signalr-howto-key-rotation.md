@@ -1,5 +1,5 @@
 ---
-title: Comment effectuer une rotation de clé d’accès pour le Service Azure SignalR
+title: Comment faire pivoter les clés d’accès pour Azure SignalR Service ?
 description: Clarification des raisons pour lesquelles le client doit régulièrement changer les clés d’accès et description de la procédure à suivre dans l’interface utilisateur du portail Azure et dans Azure CLI.
 author: sffamily
 ms.service: signalr
@@ -7,13 +7,13 @@ ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: zhshang
 ms.openlocfilehash: 15b0ff0bbb96e5fa96d81cfa265e83abf749cf85
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60688885"
 ---
-# <a name="how-to-rotate-access-key-for-azure-signalr-service"></a>Comment effectuer une rotation de clé d’accès pour le Service Azure SignalR
+# <a name="how-to-rotate-access-key-for-azure-signalr-service"></a>Comment faire pivoter les clés d’accès pour Azure SignalR Service ?
 
 Chaque instance Azure SignalR Service a une paire de clés d’accès appelées clé primaire et clé secondaire. Ces clés servent à authentifier les clients SignalR au moment des demandes au service. Les clés sont associées à l’URL du point de terminaison de l’instance. Protégez vos clés et changez-les régulièrement. Vous disposez de deux clés d’accès, ce qui signifie que vous pouvez maintenir des connexions à l’aide d’une clé pendant que vous regénérez l’autre clé.
 

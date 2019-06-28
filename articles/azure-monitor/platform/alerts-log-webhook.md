@@ -1,6 +1,6 @@
 ---
 title: Actions webhook pour les alertes de journal dans Alertes Azure
-description: Cet article décrit comment à une règle d’alerte de journal à l’aide de journal analytique espace de travail ou application insights, transmet les données en tant que webhook HTTP et les détails des différentes personnalisations possibles.
+description: Cet article comment une règle d’alerte de journal utilisant un espace de travail Log Analytics ou des informations d’application envoie des données en tant que webhook HTTP et des détails sur les différentes personnalisations possibles.
 author: msvijayn
 services: monitoring
 ms.service: azure-monitor
@@ -9,17 +9,17 @@ ms.date: 05/01/2018
 ms.author: vinagara
 ms.subservice: alerts
 ms.openlocfilehash: 809c98c1e2e51ae51d7fe03f2165a5d9eecb05cc
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64681816"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Actions webhook pour les règles d’alerte de journal
 Quand une [alerte de journal est créée dans Azure](alerts-log.md), vous avez l’option de la [configuration à l’aide de groupes d’actions](action-groups.md) pour exécuter une ou plusieurs actions.  Cet article décrit les différentes actions webhook disponibles et les détails de la configuration du webhook personnalisé basé sur JSON.
 
 > [!NOTE]
-> Vous pouvez également utiliser le [schéma alerte commun](https://aka.ms/commonAlertSchemaDocs), qui offre l’avantage de générer un seul extensible et unifiée charge utile et alerte toutes les alertes des services dans Azure Monitor, pour les intégrations de votre webhook. [En savoir plus sur les définitions de schéma alerte courants.](https://aka.ms/commonAlertSchemaDefinitions)
+> Vous pouvez également utiliser le [schéma d’alerte commun](https://aka.ms/commonAlertSchemaDocs), qui offre l’avantage de générer une seule charge utile d’alerte extensible et unifiée sur tous les services d’alerte dans Azure Monitor, pour les intégrations de votre webhook. [Plus d’informations sur les définitions de schéma d’alerte commun.](https://aka.ms/commonAlertSchemaDefinitions)
 
 ## <a name="webhook-actions"></a>Actions de webhook
 
@@ -56,7 +56,7 @@ Les webhooks incluent une URL et une charge utile au format JSON qui correspond 
 | Identifiant d’abonnement |#subscriptionid |ID de l’abonnement Azure utilisé avec Application Insights. 
 
 > [!NOTE]
-> LinkToSearchResults passe des paramètres comme SearchQuery, Search Interval StartTime et Search Interval End Time dans l’URL au portail Azure pour les afficher dans la section Analytics. Portail Azure a l’URI de la taille limite d’environ 2 000 caractères et sera *pas* ouvrir le lien fourni dans les alertes, si les valeurs de paramètres dépassent la limite de ladite. Les utilisateurs peuvent entrer manuellement des détails pour afficher les résultats dans le portail Analytics ou utiliser [l’API REST Application Insights Analytics](https://dev.applicationinsights.io/documentation/Using-the-API) ou [l’API REST Log Analytics](/rest/api/loganalytics/) pour récupérer les résultats par programmation. 
+> LinkToSearchResults passe des paramètres comme SearchQuery, Search Interval StartTime et Search Interval End Time dans l’URL au portail Azure pour les afficher dans la section Analytics. Le portail Azure limite la taille des URI à environ 2000 caractères et n’ouvre *pas* le lien fourni dans les alertes si les valeurs des paramètres dépassent ladite limite. Les utilisateurs peuvent entrer manuellement des détails pour afficher les résultats dans le portail Analytics ou utiliser [l’API REST Application Insights Analytics](https://dev.applicationinsights.io/documentation/Using-the-API) ou [l’API REST Log Analytics](/rest/api/loganalytics/) pour récupérer les résultats par programmation. 
 
 Par exemple, vous pouvez spécifier la charge utile personnalisée suivante qui inclut un paramètre unique appelé *text*.  Le service appelé par ce webhook s’attendrait à recevoir ce paramètre.
 
@@ -120,7 +120,7 @@ Voici un exemple de charge utile pour une action standard webhook *sans utiliser
  ```
 
 > [!NOTE]
-> Valeur du champ gravité peut changer si vous avez [basculé votre préférence de l’API](alerts-log-api-switch.md) pour les alertes de journal sur le journal Analytique.
+> La valeur du champ de gravité peut changer si vous avez [modifié votre préférence API](alerts-log-api-switch.md) pour les alertes de journal sur Log Analytics.
 
 
 #### <a name="log-alert-for-azure-application-insights"></a>Alerte de journal pour Azure Application Insights
@@ -204,5 +204,5 @@ Voici un exemple de charge utile pour une action de webhook personnalisée pour 
 - Comprendre la [gestion des alertes de journal dans Azure](alerts-log.md)
 - Créer et gérer des [groupes d’actions dans Azure](action-groups.md)
 - En savoir plus sur [Application Insights](../../azure-monitor/app/analytics.md)
-- En savoir plus sur [enregistrer des requêtes](../log-query/log-query-overview.md). 
+- En savoir plus sur [les requêtes dans les journaux](../log-query/log-query-overview.md). 
 

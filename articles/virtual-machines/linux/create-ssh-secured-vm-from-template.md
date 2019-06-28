@@ -17,32 +17,32 @@ ms.date: 03/22/2019
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 334f69390e4506c6db76c1814f8ec8f1e4417ee9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60327998"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-with-azure-resource-manager-templates"></a>Comment créer une machine virtuelle Linux avec des modèles Azure Resource Manager
 
-Découvrez comment créer une machine virtuelle de Linux (VM) à l’aide d’un modèle Azure Resource Manager et l’interface CLI à partir d’Azure Cloud shell. Pour créer une machine virtuelle de Windows, consultez [créer une machine virtuelle de Windows à partir d’un modèle Resource Manager](../windows/ps-template.md).
+Apprenez à créer une machine virtuelle Linux en utilisant un modèle Azure Resource Manager et Azure CLI à partir d'Azure Cloud Shell. Pour créer une machine virtuelle Windows, consultez [Créer une machine virtuelle Windows à partir d'un modèle Resource Manager](../windows/ps-template.md).
 
 ## <a name="templates-overview"></a>Vue d’ensemble des modèles
 
-Les modèles Azure Resource Manager sont des fichiers JSON qui définissent l’infrastructure et la configuration de votre solution Azure. Un modèle vous permet de déployer votre solution à plusieurs reprises tout au long de son cycle de vie pour avoir la garantie que vos ressources présentent un état cohérent lors de leur déploiement. Pour en savoir plus sur le format du modèle et la manière de le construire, consultez [Guide de démarrage rapide : Créer et déployer des modèles Azure Resource Manager à l’aide du portail Azure](../../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md). Pour afficher la syntaxe JSON pour les types de ressources, voir [Définir des ressources dans les modèles Azure Resource Manager](/azure/templates/microsoft.compute/allversions).
+Les modèles Azure Resource Manager sont des fichiers JSON qui définissent l’infrastructure et la configuration de votre solution Azure. Un modèle vous permet de déployer votre solution à plusieurs reprises tout au long de son cycle de vie pour avoir la garantie que vos ressources présentent un état cohérent lors de leur déploiement. Pour en savoir plus sur le format du modèle et sa construction, consultez [Démarrage rapide : Créer et déployer des modèles Azure Resource Manager à l’aide du portail Azure](../../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md). Pour afficher la syntaxe JSON pour les types de ressources, voir [Définir des ressources dans les modèles Azure Resource Manager](/azure/templates/microsoft.compute/allversions).
 
 ## <a name="create-a-virtual-machine"></a>Création d'une machine virtuelle
 
-Création d’une machine virtuelle Azure généralement comprend deux étapes :
+La création d'une machine virtuelle Azure s'effectue généralement en deux étapes :
 
 1. Créez un groupe de ressources. Un groupe de ressources Azure est un conteneur logique dans lequel les ressources Azure sont déployées et gérées. Un groupe de ressources doit être créé avant les machines virtuelles.
 1. Création d’une machine virtuelle
 
-L’exemple suivant crée une machine virtuelle à partir d’un [de modèle Azure Quickstart](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json). Seule l’authentification SSH est autorisée pour ce déploiement. À l’invite, renseignez la valeur de votre propre clé publique SSH, telle que le contenu de *~/.ssh/id_rsa.pub*. Si vous devez créer une paire de clés SSH, voir [Comment créer et utiliser une paire de clés SSH pour des machines virtuelles Linux dans Azure](mac-create-ssh-keys.md). Voici une copie du modèle :
+L'exemple suivant crée une machine virtuelle à partir d'un [modèle de démarrage rapide Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json). Seule l'authentification SSH est autorisée pour ce déploiement. À l’invite, renseignez la valeur de votre propre clé publique SSH, telle que le contenu de *~/.ssh/id_rsa.pub*. Si vous devez créer une paire de clés SSH, voir [Comment créer et utiliser une paire de clés SSH pour des machines virtuelles Linux dans Azure](mac-create-ssh-keys.md). Voici une copie du modèle :
 
 [!code-json[create-linux-vm](~/quickstart-templates/101-vm-sshkey/azuredeploy.json)]
 
-Pour exécuter le script CLI, sélectionnez **essayez-le** pour ouvrir Azure Cloud shell. Pour coller le script, avec le bouton droit de l’interpréteur de commandes, puis sélectionnez **collez**:
+Pour exécuter le script CLI, sélectionnez **Essayer** afin d'ouvrir Azure Cloud Shell. Pour coller le script, cliquez avec le bouton droit dans l'interpréteur de commandes, puis sélectionnez **Coller** :
 
 ```azurecli-interactive
 echo "Enter the Resource Group name:" &&
@@ -60,15 +60,15 @@ az group deployment create --resource-group $resourceGroupName --template-uri ht
 az vm show --resource-group $resourceGroupName --name "$projectName-vm" --show-details --query publicIps --output tsv
 ```
 
-La dernière commande d’Azure CLI affiche l’adresse IP publique de la machine virtuelle qui vient d’être créée. Vous avez besoin de l’adresse IP publique pour vous connecter à la machine virtuelle. Consultez la section suivante de cet article.
+La dernière commande Azure CLI affiche l'adresse IP publique de la machine virtuelle qui vient d'être créée. Vous devez disposer de l'adresse IP publique pour vous connecter à la machine virtuelle. Consultez la section suivante de cet article.
 
 Dans l’exemple précédent, vous avez spécifié un modèle stocké dans GitHub. Vous pouvez également télécharger ou créer un modèle, et spécifier le chemin d’accès local avec le paramètre `--template-file`.
 
 Voici quelques ressources supplémentaires :
 
 - Pour savoir comment développer des modèles Resource Manager, consultez la [documentation Azure Resource Manager](/azure/azure-resource-manager/).
-- Pour connaître les schémas de la machine virtuelle Azure, consultez [référence de modèle Azure](/azure/templates/microsoft.compute/allversions).
-- Pour voir des exemples de modèles de machine virtuelle plus, consultez [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Compute&pageNumber=1&sort=Popular).
+- Pour examiner les schémas des machines virtuelles Azure, consultez [Informations de référence sur les modèles Azure](/azure/templates/microsoft.compute/allversions).
+- Pour accéder à d'autres exemples de modèles de machine virtuelle, consultez [Modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Compute&pageNumber=1&sort=Popular).
 
 ## <a name="connect-to-virtual-machine"></a>Connexion à la machine virtuelle
 
@@ -80,7 +80,7 @@ ssh <adminUsername>@<ipAddress>
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans cet exemple, vous avez créé une machine virtuelle Linux de base. Pour d’autres modèles Resource Manager qui incluent des infrastructures d’application ou de créer des environnements plus complexes, parcourir le [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Compute&pageNumber=1&sort=Popular).
+Dans cet exemple, vous avez créé une machine virtuelle Linux de base. Pour accéder à d'autres modèles Resource Manager qui incluent des infrastructures d'applications ou créent des environnements plus complexes, parcourez les [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Compute&pageNumber=1&sort=Popular).
 
 Pour en savoir plus sur la création de modèles, consultez la syntaxe et les propriétés JSON des types de ressource que vous avez déployés :
 

@@ -1,7 +1,7 @@
 ---
-title: Exemple de script CLI Azure - points de terminaison de réseau virtuel IPv6 configurer (version préliminaire)
+title: Exemple de script Azure CLI - Configurer des points de terminaison de réseau virtuel IPv6 (préversion)
 titlesuffix: Azure Virtual Network
-description: Activer les points de terminaison IPv6 à l’aide d’Azure CLI dans Azure Virtual Network
+description: Activer les points de terminaison IPv6 à l’aide d’Azure CLI dans un réseau virtuel Azure
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -13,22 +13,22 @@ ms.workload: infrastructure-services
 ms.date: 04/23/2019
 ms.author: kumud
 ms.openlocfilehash: a1c8f151a4c6459064d92ff2efb44fa8b74f8fc1
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/24/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "63761465"
 ---
-# <a name="configure-ipv6-endpoints-in-virtual-network-script-sample-preview"></a>Configurer des points de terminaison IPv6 dans l’exemple de script de réseau virtuel (version préliminaire)
+# <a name="configure-ipv6-endpoints-in-virtual-network-script-sample-preview"></a>Exemple de script de configuration de points de terminaison IPv6 dans un réseau virtuel (préversion)
 
-Cet article vous montre comment déployer une application de double pile (IPv4 + IPv6) dans Azure, qui inclut un réseau virtuel de pile double avec un sous-réseau de pile double, un équilibreur de charge avec les configurations frontales double (IPv4 + IPv6), les machines virtuelles avec des cartes réseau qui ont une configuration IP double, règles de groupe de sécurité réseau double et deux adresses IP publiques.
+Cet article explique comment déployer dans Azure une application double pile (IPv4 + IPv6) incluant un réseau virtuel double pile avec un sous-réseau double pile, un équilibreur de charge avec des configurations frontales doubles (IPv4 + IPv6), des machines virtuelles dont les cartes réseau ont une configuration double IP, des règles de Groupe de sécurité réseau doubles et des adresses IP publiques doubles.
 
 Vous pouvez exécuter le script à partir d’Azure [Cloud Shell](https://shell.azure.com/bash) ou à partir d’une installation Azure CLI locale. Si vous utilisez l’interface CLI localement, ce script nécessite que vous exécutiez la version 2.0.28 ou une version ultérieure. Pour trouver la version installée, exécutez `az --version`. Si vous devez effectuer une installation ou une mise à niveau, consultez [Installer Azure CLI](/cli/azure/install-azure-cli). Si vous exécutez la CLI localement, vous devez également exécuter `az login` pour créer une connexion avec Azure.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Conditions préalables
-Pour utiliser l’adresse IPv6 pour la fonctionnalité de réseau virtuel Azure, vous devez configurer votre abonnement à une seule fois comme suit :
+## <a name="prerequisites"></a>Prérequis
+Pour utiliser la fonctionnalité IPv6 pour un réseau virtuel Azure, vous devez configurer votre abonnement une seule fois comme suit :
 
 ```azurecli
 az feature register --name AllowIPv6VirtualNetwork --namespace Microsoft.Network

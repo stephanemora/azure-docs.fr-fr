@@ -15,10 +15,10 @@ ms.workload: required
 ms.date: 11/13/2018
 ms.author: v-jamebr
 ms.openlocfilehash: 7f1b6f955dd3f59f6c17403b536cf99d666aab08
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60392992"
 ---
 # <a name="set-up-and-configure-reverse-proxy-in-azure-service-fabric"></a>Installer et configurer un proxy inverse dans Azure Service Fabric
@@ -334,7 +334,7 @@ Par exemple, vous pouvez spécifier la valeur de **DefaultHttpRequestTimeout** p
 
 Pour plus d’informations sur la mise à jour des paramètres de structure pour des clusters Azure, voir [Personnaliser les paramètres de cluster à l’aide de modèles Resource Manager](service-fabric-cluster-config-upgrade-azure.md). Pour des clusters autonomes, voir [Personnaliser les paramètres de cluster pour les clusters autonomes](service-fabric-cluster-config-upgrade-windows-server.md). 
 
-Plusieurs paramètres de structure sont utilisés pour aider à établir une communication sécurisée entre un proxy inverse et des services. Pour obtenir des informations détaillées sur ces paramètres, consultez [se connecter à un service sécurisé avec le proxy inverse](service-fabric-reverseproxy-configure-secure-communication.md).
+Plusieurs paramètres de structure sont utilisés pour aider à établir une communication sécurisée entre un proxy inverse et des services. Pour obtenir des informations détaillées sur ces paramètres, consultez [Se connecter à un service sécurisé avec le proxy inverse](service-fabric-reverseproxy-configure-secure-communication.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Configurer le transfert vers un service HTTP sécurisé avec le proxy inverse](service-fabric-reverseproxy-configure-secure-communication.md)

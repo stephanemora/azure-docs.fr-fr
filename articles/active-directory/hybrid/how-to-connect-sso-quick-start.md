@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 06566ab81b6af847a7eb174731105b7f43a7197f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60242718"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Authentification unique transparente Azure Active Directory : Démarrage rapide
@@ -31,7 +31,7 @@ L’authentification unique transparente (Seamless SSO) Azure Active Directory (
 
 Pour déployer l’authentification unique transparente, procédez comme suit.
 
-## <a name="step-1-check-the-prerequisites"></a>Étape 1 : Vérifier les prérequis
+## <a name="step-1-check-the-prerequisites"></a>Étape 1 : Vérifier les prérequis
 
 Vérifiez que les prérequis suivants sont remplis :
 
@@ -55,7 +55,7 @@ Vérifiez que les prérequis suivants sont remplis :
 
 * **Utiliser les dernières versions de clients Office 365** : Pour obtenir une utilisation de l’authentification unique sans assistance avec les clients Office 365 (Outlook, Word, Excel, etc.), vos utilisateurs doivent utiliser la version 16.0.8730.xxxx ou une version ultérieure.
 
-## <a name="step-2-enable-the-feature"></a>Étape 2 : Activer la fonctionnalité
+## <a name="step-2-enable-the-feature"></a>Étape 2 : Activer la fonctionnalité
 
 Activez Seamless SSO via [Azure AD Connect](whatis-hybrid-identity.md).
 
@@ -93,10 +93,10 @@ Suivez ces instructions pour vérifier que vous avez activé l’authentificatio
 ![Portail Azure : Volet Azure AD Connect](./media/how-to-connect-sso-quick-start/sso10.png)
 
 >[!IMPORTANT]
-> L’authentification unique transparente crée un compte d’ordinateur nommé `AZUREADSSOACC` dans votre Active Directory (AD) dans chaque forêt Active Directory sur site. Le `AZUREADSSOACC` compte d’ordinateur doit être fortement protégé pour des raisons de sécurité. Seuls les administrateurs de domaine doit être en mesure de gérer le compte d’ordinateur. Vérifiez que la délégation Kerberos sur le compte d’ordinateur est désactivée et qu’aucun autre compte dans Active Directory ne dispose des autorisations de délégation le `AZUREADSSOACC` compte d’ordinateur. Store le compte d’ordinateur dans une unité d’organisation (UO) où ils sont protégés contre les suppressions accidentelles et seuls les administrateurs de domaine ont accès.
+> L’authentification unique fluide crée un compte d’ordinateur nommé `AZUREADSSOACC` sur votre instance Active Directory (AD) locale, dans chaque forêt AD. Pour des raisons de sécurité, le compte d’ordinateur `AZUREADSSOACC` doit être fortement protégé. Seuls des administrateurs de domaine doivent être en mesure de gérer le compte d’ordinateur. Vérifiez que la délégation Kerberos sur le compte d’ordinateur est désactivée et qu’aucun autre compte dans Active Directory ne dispose d’autorisations de délégation sur le compte d’ordinateur `AZUREADSSOACC`. Stockez le compte d’ordinateur dans une unité d’organisation (UO) où il sera protégé contre les suppressions accidentelles et à laquelle seuls des administrateurs de domaine ont accès.
 
 >[!NOTE]
-> Si vous utilisez des architectures Pass-the-Hash et réduction des risques de vol d’informations d’identification dans votre environnement local, apporter les modifications nécessaires pour vous assurer que le `AZUREADSSOACC` compte d’ordinateur ne s’arrête pas dans le conteneur de mise en quarantaine. 
+> Si vous utilisez des architectures de type « Pass-The-Hash » et Atténuation des vols d'informations d'identification dans votre environnement local, apportez les changements qui conviennent pour veiller à ce que le compte d'ordinateur `AZUREADSSOACC` ne se retrouve pas dans le conteneur Quarantaine. 
 
 ## <a name="step-3-roll-out-the-feature"></a>Étape 3 : Déployer la fonctionnalité
 
@@ -124,7 +124,7 @@ Il y a deux façons de modifier les paramètres de la zone Intranet des utilisat
 
 1. Ouvrez l’outil Éditeur de gestion des stratégies de groupe.
 2. Modifiez la stratégie de groupe qui est appliquée à certains ou à l’ensemble de vos utilisateurs. Cette exemple utilise la **stratégie de domaine par défaut**.
-3. Accédez à **Configuration utilisateur** > **stratégie** > **modèles d’administration** > **Windows Composants** > **Internet Explorer** > **le panneau de configuration Internet** > **Page sécurité**. Puis sélectionnez **Liste des attributions de sites aux zones**.
+3. Accédez à **Configuration utilisateur** > **Stratégie** > **Modèles d'administration** > **Composants Windows** > **Internet Explorer** > **Panneau de configuration Internet** > **Page Sécurité**. Puis sélectionnez **Liste des attributions de sites aux zones**.
     ![Authentification unique](./media/how-to-connect-sso-quick-start/sso6.png)
 4. Activez la stratégie, puis entrez les valeurs suivantes dans la boîte de dialogue :
    - **Nom de la valeur** : URL Azure AD vers laquelle les tickets Kerberos sont transférés.
@@ -144,7 +144,7 @@ Il y a deux façons de modifier les paramètres de la zone Intranet des utilisat
 
     ![Authentification unique](./media/how-to-connect-sso-quick-start/sso7.png)
 
-6. Accédez à **Configuration utilisateur** > **modèles d’administration** **stratégie** > ** > **les composants Windows**  >  **Internet Explorer** > **le panneau de configuration Internet** > **Page sécurité**  >   **Zone intranet**. Puis sélectionnez **Autoriser les mises à jour de la barre d’état via le script**.
+6. Accédez à **Configuration utilisateur** > **Modèles d’administration** **Policy** > **> **Composants Windows** > **Internet Explorer** > **Panneau de configuration Internet** > **Page Sécurité** > **Zone intranet**. Puis sélectionnez **Autoriser les mises à jour de la barre d’état via le script**.
 
     ![Authentification unique](./media/how-to-connect-sso-quick-start/sso11.png)
 
@@ -199,7 +199,7 @@ L’utilisation des extensions de stratégie de groupe Active Directory tierces 
 
 L’authentification unique transparente ne fonctionne pas en mode de navigation privée sur Firefox et Microsoft Edge. Par ailleurs, il ne fonctionne pas sur Internet Explorer si le navigateur en cours d’utilisation est en mode Protection améliorée.
 
-## <a name="step-4-test-the-feature"></a>Étape 4 : Tester la fonctionnalité
+## <a name="step-4-test-the-feature"></a>Étape 4 : Tester la fonctionnalité
 
 Pour tester la fonctionnalité d’un utilisateur spécifique, assurez-vous que toutes les conditions suivantes sont en place :
   - L’utilisateur se connecte à un appareil d’entreprise.
@@ -214,7 +214,7 @@ Pour tester le scénario dans lequel l’utilisateur n’a pas à entrer le nom 
    - Connectez-vous à `https://myapps.microsoft.com/contoso.onmicrosoft.com` dans une nouvelle session de navigateur privée. Remplacez *contoso* par le nom de votre locataire.
    - Connectez-vous à `https://myapps.microsoft.com/contoso.com` dans une nouvelle session de navigateur privée. Remplacez *contoso.com* par un domaine vérifié (pas un domaine fédéré) dans votre locataire.
 
-## <a name="step-5-roll-over-keys"></a>Étape 5 : Substituer les clés
+## <a name="step-5-roll-over-keys"></a>Étape 5 : Substituer les clés
 
 À l’étape 2, Azure AD Connect crée des comptes d’ordinateurs (représentant Azure AD) dans toutes les forêts Azure Directory sur lesquelles vous avez activé l’authentification unique transparente. Pour en savoir plus, consultez [Authentification unique transparente Azure Active Directory : immersion technique](how-to-connect-sso-how-it-works.md).
 

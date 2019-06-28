@@ -15,10 +15,10 @@ ms.date: 09/04/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: c177dbad1145dee6eda3202d8076997cc7673dfc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60477798"
 ---
 #  <a name="what-is-sap-hana-on-azure-large-instances"></a>Qu’est-ce que SAP HANA sur Azure (grandes instances) ?
@@ -27,9 +27,9 @@ SAP HANA sur Azure (grandes instances) est une solution Azure unique. En plus de
 
 L’isolation du client dans le tampon d’infrastructure s’effectue dans le cadre des abonnés, de la manière suivante :
 
-- **Réseau** : Locataire assigné à un isolement des clients au sein de la pile d’infrastructure via des réseaux virtuels par client. Un locataire est assigné à un seul client. Un client peut avoir plusieurs locataires. L’isolation réseau des abonnés interdit la communication réseau entre les abonnés au niveau du tampon d’infrastructure, même si les abonnés appartiennent au même client.
-- **Composants de stockage**: Isolation via des machines virtuelles auxquelles des volumes de stockage qui leur sont. Les volumes de stockage ne peuvent être assignés qu’à une seule machine virtuelle de stockage. Une machine virtuelle de stockage est assignée exclusivement à un seul locataire dans la pile d’infrastructure certifiée SAP HANA TDI. Par conséquent, les volumes de stockage assignés à une machine virtuelle de stockage sont accessibles dans un seul abonné associé. Et ils ne sont pas visibles entre les différents abonnés déployés.
-- **Serveur ou hôte**: Un serveur ou une unité de l’hôte n’est pas partagée entre les clients ou locataires. Un serveur ou un hôte déployé pour un client constitue une unité de calcul nue atomique qui est assignée à un seul locataire. *Aucun* partitionnement matériel ou logiciel utilisé ne peut vous conduire à partager un hôte ou un serveur avec un autre client. Les volumes de stockage qui sont assignés à la machine virtuelle de stockage du locataire spécifique sont montés sur ce type de serveur. Une ou plusieurs unités de serveur de différentes références SKU peuvent être exclusivement assignées à un seul locataire.
+- **Réseau** : isolation des clients au sein de la pile d’infrastructures au travers de réseaux virtuels par abonné assigné à un client. Un locataire est assigné à un seul client. Un client peut avoir plusieurs locataires. L’isolation réseau des abonnés interdit la communication réseau entre les abonnés au niveau du tampon d’infrastructure, même si les abonnés appartiennent au même client.
+- **Composants de stockage** : isolation par le biais de machines virtuelles de stockage auxquelles des volumes de stockage sont assignés. Les volumes de stockage ne peuvent être assignés qu’à une seule machine virtuelle de stockage. Une machine virtuelle de stockage est assignée exclusivement à un seul locataire dans la pile d’infrastructure certifiée SAP HANA TDI. Par conséquent, les volumes de stockage assignés à une machine virtuelle de stockage sont accessibles dans un seul abonné associé. Et ils ne sont pas visibles entre les différents abonnés déployés.
+- **Serveur ou hôte** : une unité de serveur ou hôte n’est pas partagée entre les clients ou les abonnés. Un serveur ou un hôte déployé pour un client constitue une unité de calcul nue atomique qui est assignée à un seul locataire. *Aucun* partitionnement matériel ou logiciel utilisé ne peut vous conduire à partager un hôte ou un serveur avec un autre client. Les volumes de stockage qui sont assignés à la machine virtuelle de stockage du locataire spécifique sont montés sur ce type de serveur. Une ou plusieurs unités de serveur de différentes références SKU peuvent être exclusivement assignées à un seul locataire.
 - Au sein d’une solution SAP HANA sur le tampon d’infrastructure Azure (grandes instances), plusieurs abonnés différents sont déployés et isolés les uns par rapport aux autres, au travers des concepts d’abonné sur les niveaux de mise en réseau, de stockage et de calcul. 
 
 

@@ -10,14 +10,14 @@ ms.date: 03/20/2019
 ms.topic: article
 ms.service: media-services
 ms.openlocfilehash: 373ce1d10af87603b1bdd6339c94891187c35d8c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60332650"
 ---
 # <a name="recommended-on-premises-encoders"></a>Encodeurs locaux recommandés
-Lorsque vous êtes en diffusion continue avec Azure Media Services, vous pouvez spécifier la manière dont vous souhaitez que votre canal reçoive le flux d’entrée. Si vous choisissez d’utiliser un encodeur local on avec un canal d’encodage live, votre encodeur doit transmettre un flux à débit unique de haute qualité en tant que sortie. Si vous choisissez d’utiliser un encodeur local on avec un canal de transmission, votre encodeur doit transmettre un flux multidébit en tant que sortie avec toutes les qualités de sortie souhaité. Pour plus d’informations, consultez [un streaming en direct avec des encodeurs locaux](media-services-live-streaming-with-onprem-encoders.md).
+Lorsque vous êtes en diffusion continue avec Azure Media Services, vous pouvez spécifier la manière dont vous souhaitez que votre canal reçoive le flux d’entrée. Si vous choisissez d’utiliser un encodeur local avec un canal d’encodage live, votre encodeur doit transmettre un flux à débit unique de haute qualité en tant que sortie. Si vous choisissez d’utiliser un encodeur local avec un canal de transmission directe, votre encodeur doit transmettre un flux à multidébit en tant que sortie, avec toutes les qualités de sortie souhaitées. Pour plus d’informations, consultez [Vidéo en flux continu avec des encodeurs locaux](media-services-live-streaming-with-onprem-encoders.md).
 
 Azure Media Services recommande l’utilisation d’un des encodeurs live suivants, qui possèdent une sortie RTMP :
 - Adobe Flash Media Live Encoder 3.2
@@ -44,8 +44,8 @@ Azure Media Services recommande l’utilisation d’un des encodeurs live suivan
 > [!NOTE]
 > Un encodeur live peut envoyer un flux unique à un canal de transmission directe, mais cette configuration n’est pas recommandée, car elle n’offre pas de streaming à débit adaptatif au client.
 
-## <a name="how-to-become-an-on-premises-encoder-partner"></a>Comment devenir un partenaire d’encodeur sur site
-Comme un Azure Media Services sur le partenaire d’encodeur local, Media Services promeut votre produit en recommandant votre encodeur aux clients d’entreprise. Pour devenir un partenaire d’encodeur sur site, vous devez vérifier la compatibilité de votre encodeur on avec Media Services. Pour ce faire, effectuez les vérifications suivantes :
+## <a name="how-to-become-an-on-premises-encoder-partner"></a>Comment devenir un partenaire d’encodeur local
+En tant que partenaire d’encodeur local d’Azure Media Services, Media Services promeut votre produit en recommandant votre encodeur aux clients d’entreprise. Pour devenir un partenaire d’encodeur local, vous devez vérifier la compatibilité de votre encodeur local avec Media Services. Pour ce faire, effectuez les vérifications suivantes :
 
 Vérification du canal de transmission directe
 1. Créez ou visitez votre compte Azure Media Services

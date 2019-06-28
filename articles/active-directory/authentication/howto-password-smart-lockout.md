@@ -1,5 +1,5 @@
 ---
-title: Verrouillage - Azure Active Directory d’intelligent de prévention contre les attaques par force brute à l’aide d’Azure AD
+title: Prévention des attaques par force brute avec le verrouillage intelligent Azure AD - Azure Active Directory
 description: Le verrouillage intelligent d’Azure Active Directory permet de protéger votre organisation contre les attaques par force brute visant à deviner vos mots de passe.
 services: active-directory
 ms.service: active-directory
@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5c81a9f3891130f1c6fc2f1a665d7065fb983227
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60358116"
 ---
 # <a name="azure-active-directory-smart-lockout"></a>Verrouillage intelligent Azure Active Directory
@@ -55,7 +55,7 @@ Utilisez les instructions suivantes pour vérifier les stratégies de verrouilla
 3. Accédez à **Configuration de l’ordinateur** > **Stratégies** > **Paramètres Windows** > **Paramètres de sécurité** > **Stratégies de compte** > **Stratégie de verrouillage de compte**.
 4. Vérifiez vos valeurs de **Seuil de verrouillage de compte** et **Réinitialiser le compteur de verrouillage de compte après**.
 
-![Modifier la stratégie de verrouillage de compte Active Directory en local](./media/howto-password-smart-lockout/active-directory-on-premises-account-lockout-policy.png)
+![Modifier la stratégie de verrouillage des comptes locaux Active Directory](./media/howto-password-smart-lockout/active-directory-on-premises-account-lockout-policy.png)
 
 ## <a name="manage-azure-ad-smart-lockout-values"></a>Gérer les valeurs du verrouillage intelligent Azure AD
 
@@ -72,9 +72,9 @@ Pour vérifier ou modifier les valeurs de verrouillage intelligent de votre orga
 
 ![Personnaliser la stratégie de verrouillage intelligent Azure AD dans le portail Azure](./media/howto-password-smart-lockout/azure-active-directory-custom-smart-lockout-policy.png)
 
-## <a name="how-to-determine-if-the-smart-lockout-feature-is-working-or-not"></a>Comment déterminer si la fonctionnalité verrouillage intelligent fonctionne ou non
+## <a name="how-to-determine-if-the-smart-lockout-feature-is-working-or-not"></a>Vérifier le bon fonctionnement de la fonctionnalité Verrouillage intelligent
 
-Lorsque le seuil de verrouillage intelligent est déclenché, vous obtiendrez le message suivant pendant que le compte est verrouillé :
+Lorsque le seuil de verrouillage intelligent est déclenché, le message suivant s'affiche en cas de verrouillage du compte :
 
 **Votre compte est verrouillé de façon temporaire afin d'éviter toute utilisation non autorisée. Réessayez plus tard. Si le problème persiste, contactez votre administrateur.**
 

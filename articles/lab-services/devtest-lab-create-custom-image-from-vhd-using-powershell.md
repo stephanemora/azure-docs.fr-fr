@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/05/2018
 ms.author: spelluru
 ms.openlocfilehash: c1cdb64e4c8c99eeca4cc66c0d0ad2b755144917
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60201941"
 ---
 # <a name="create-a-custom-image-from-a-vhd-file-using-powershell"></a>Créer une image personnalisée à partir d’un fichier de disque dur virtuel avec PowerShell
@@ -35,20 +35,20 @@ ms.locfileid: "60201941"
 
 La procédure suivante décrit comment créer une image personnalisée à partir d’un fichier de disque dur virtuel avec PowerShell :
 
-1. À l’invite de PowerShell, connectez-vous à votre compte Azure avec l’appel suivant à la **Connect-AzAccount** applet de commande.
+1. À l’invite PowerShell, connectez-vous à votre compte Azure avec l’appel suivant à l’applet de commande **Connect-AzAccount**.
 
     ```powershell
     Connect-AzAccount
     ```
 
-1.  Sélectionnez l’abonnement Azure souhaité en appelant le **sélectionnez-AzSubscription** applet de commande. Remplacez l’espace suivant réservé à la variable **$subscriptionId** par un ID d’abonnement Azure valide.
+1.  Sélectionnez l’abonnement Azure souhaité en appelant l’applet de commande **Select-AzSubscription**. Remplacez l’espace suivant réservé à la variable **$subscriptionId** par un ID d’abonnement Azure valide.
 
     ```powershell
     $subscriptionId = '<Specify your subscription ID here>'
     Select-AzSubscription -SubscriptionId $subscriptionId
     ```
 
-1.  Obtenir l’objet de laboratoire en appelant le **Get-AzResource** applet de commande. Remplacez les espaces suivants réservés aux variables **$labRg** et **$labName** par les valeurs appropriées pour votre environnement.
+1.  Récupérez l’objet de laboratoire en appelant l’applet de commande **Get-AzResource**. Remplacez les espaces suivants réservés aux variables **$labRg** et **$labName** par les valeurs appropriées pour votre environnement.
 
     ```powershell
     $labRg = '<Specify your lab resource group name here>'
@@ -69,7 +69,7 @@ La procédure suivante décrit comment créer une image personnalisée à partir
     $vhdUri = '<Specify the VHD URI here>'
     ```
 
-1.  Créer l’image personnalisée à l’aide de la **New-AzResourceGroupDeployment** applet de commande. Remplacez les espaces suivants réservés aux variables **$customImageName** et **$customImageDescription** par des noms significatifs pour votre environnement.
+1.  Créez l’image personnalisée avec l’applet de commande **New-AzResourceGroupDeployment**. Remplacez les espaces suivants réservés aux variables **$customImageName** et **$customImageDescription** par des noms significatifs pour votre environnement.
 
     ```powershell
     $customImageName = '<Specify the custom image name>'

@@ -15,10 +15,10 @@ ms.reviewer: krbain
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: be7094db14f53af939ded2313823bf2749e59a46
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60248298"
 ---
 # <a name="what-is-group-based-licensing-in-azure-active-directory"></a>À quoi correspondent les licences basées sur les groupes dans Azure Active Directory ?
@@ -49,7 +49,7 @@ Voici les principales fonctionnalités de la gestion des licences par groupe :
 
 - Tous les services de cloud computing Microsoft nécessitant des licences au niveau des utilisateurs sont pris en charge. Cette prise en charge comprend tous les produits Office 365, Enterprise Mobility + Security et Dynamics 365.
 
-- Gestion des licences par groupe sont actuellement disponible uniquement via le [Azure portal](https://portal.azure.com). Si vous utilisez principalement autres portails de gestion pour la gestion des utilisateurs et groupe, tel que le [centre d’administration Microsoft 365](https://admin.microsoft.com), vous pouvez continuer à le faire. Vous devez toutefois utiliser le portail Azure pour gérer les licences au niveau du groupe.
+- Pour le moment, les licences basées sur les groupes sont uniquement accessibles via le [portail Azure](https://portal.azure.com). Si vous utilisez principalement d'autres portails pour la gestion des utilisateurs et des groupes, comme le [Centre d'administration Microsoft 365](https://admin.microsoft.com), vous pouvez continuer à le faire. Vous devez toutefois utiliser le portail Azure pour gérer les licences au niveau du groupe.
 
 - Azure AD gère automatiquement les modifications de licences qui résultent de modifications de l’appartenance aux groupes. En règle générale, les modifications de licence sont effectives quelques minutes après une modification d’appartenance.
 

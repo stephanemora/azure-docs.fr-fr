@@ -1,5 +1,5 @@
 ---
-title: Comprendre l’utilisation de réservations Azure pour l’abonnement de paiement à l’utilisation | Microsoft Docs
+title: Comprendre l’utilisation de réservations Azure pour un abonnement avec paiement à l’utilisation | Microsoft Docs
 description: Découvrez comment analyser votre utilisation pour comprendre l’application de la réservation Azure à votre abonnement avec paiement à l’utilisation.
 services: billing
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/13/2019
 ms.author: banders
 ms.openlocfilehash: 14bd7b61038bf938f7d370eaf6e16d71b5da43ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60370354"
 ---
 # <a name="understand-azure-reservation-usage-for-your-pay-as-you-go-subscription"></a>Comprendre l’utilisation d’une réservation Azure pour votre abonnement avec paiement à l’utilisation
@@ -44,7 +44,7 @@ La partie matérielle de la machine virtuelle est traitée, car la machine virtu
 
 ### <a name="statement-section-of-csv-file-for-vms"></a>Section des relevés du fichier CSV pour les machines virtuelles
 
-Cette section de votre fichier CSV montre l’utilisation totale de votre réservation. Appliquez le filtre au champ **Sous-catégorie de compteur** contenant **Réservation-**. Vous devez voir quelque chose de similaire à la capture d’écran suivante :
+Cette section de votre fichier CSV montre l’utilisation totale de votre réservation. Appliquez le filtre au champ **Sous-catégorie de compteur** contenant **Réservation-** . Vous devez voir quelque chose de similaire à la capture d’écran suivante :
 
 ![Capture d’écran des détails et des frais d’utilisation d’une réservation après filtrage](./media/billing-understand-reserved-instance-usage/billing-payg-reserved-instance-csv-statements.png)
 

@@ -13,10 +13,10 @@ ms.reviewer: jrasnik
 manager: craigg
 ms.date: 12/19/2018
 ms.openlocfilehash: bb493fc0a9d3a9173ef4faf17b3cdd4e3781a557
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60331024"
 ---
 # <a name="ring-buffer-target-code-for-extended-events-in-sql-database"></a>Code cible de la mémoire tampon en anneau pour les événements étendus dans SQL Database
@@ -30,7 +30,7 @@ Cette rubrique présente un exemple de code Transact-SQL qui :
 1. Crée une table contenant des données pour la démonstration.
 2. Crée une session pour un événement étendu existant, à savoir **sqlserver.sql_statement_starting**.
    
-   * L’événement est limité aux instructions SQL qui contiennent une chaîne Update particulière : **statement LIKE '%UPDATE tabEmployee%'**.
+   * L’événement est limité aux instructions SQL qui contiennent une chaîne Update particulière : **statement LIKE '%UPDATE tabEmployee%'** .
    * Choisit d’envoyer la sortie de l’événement vers une cible de type mémoire tampon en anneau, à savoir **package0.ring_buffer**.
 3. Démarre la session d’événement.
 4. Émet un ensemble d’instructions SQL UPDATE simples.
@@ -41,7 +41,7 @@ Cette rubrique présente un exemple de code Transact-SQL qui :
 7. Supprime la cible de la mémoire tampon en anneau pour libérer ses ressources.
 8. Supprime la session d’événement et la table de démonstration.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 * Un compte et un abonnement Azure. Vous pouvez vous inscrire à un [essai gratuit](https://azure.microsoft.com/pricing/free-trial/).
 * Une base de données dans laquelle vous pouvez créer une table.
@@ -55,7 +55,7 @@ Cette rubrique présente un exemple de code Transact-SQL qui :
 
 ## <a name="code-sample"></a>Exemple de code
 
-Après quelques modifications mineures, vous pouvez exécuter l’exemple suivant de code de mémoire tampon en anneau sur Azure SQL Database ou Microsoft SQL Server. La différence se limite à la présence du nœud « _database » dans le nom de certaines vues de gestion dynamique (DMV) utilisées dans la clause FROM à l’étape 5. Par exemple : 
+Après quelques modifications mineures, vous pouvez exécuter l’exemple suivant de code de mémoire tampon en anneau sur Azure SQL Database ou Microsoft SQL Server. La différence se limite à la présence du nœud « _database » dans le nom de certaines vues de gestion dynamique (DMV) utilisées dans la clause FROM à l’étape 5. Par exemple :
 
 * sys.dm_xe<strong>_database</strong>_session_targets
 * sys.dm_xe_session_targets
@@ -223,7 +223,7 @@ Pour afficher les résultats, nous avons cliqué sur la cellule sous l’en-têt
 
 Puis, dans le volet de résultats, nous avons cliqué sur la cellule sous l’en-tête de colonne **target_data_XML**. Ce clic a créé un autre onglet Fichier dans ssms.exe pour afficher (au format XML) le contenu de la cellule de résultat.
 
-La sortie est présentée dans le bloc suivant. Elle semble longue, mais ne comprend que deux  **\<événement >** éléments.
+La sortie est présentée dans le bloc suivant. Elle semble longue, mais ne comprend que deux éléments **\<event>** .
 
 &nbsp;
 

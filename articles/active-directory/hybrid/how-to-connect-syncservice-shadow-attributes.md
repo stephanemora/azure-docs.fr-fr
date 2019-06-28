@@ -12,16 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 07/13/2017
-ms.date: 04/09/2019
+ms.date: 07/13/2017
 ms.subservice: hybrid
-ms.author: v-junlch
+ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 10a4078f49abbdf431f42c6cde7cf882112e5848
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60384701"
 ---
 # <a name="azure-ad-connect-sync-service-shadow-attributes"></a>Attributs de clichés instantanés du service de synchronisation Azure AD Connect
@@ -43,7 +42,7 @@ Un utilisateur possède les valeurs d’attribut suivantes dans un domaine non v
 | --- | --- |
 | userPrincipalName local | lee.sperry@fabrikam.com |
 | shadowUserPrincipalName dans Azure AD | lee.sperry@fabrikam.com |
-| userPrincipalName dans Azure AD | lee.sperry@fabrikam.partner.onmschina.cn |
+| userPrincipalName dans Azure AD | lee.sperry@fabrikam.onmicrosoft.com |
 
 L’attribut userPrincipalName est la valeur que vous voyez lors de l’utilisation de PowerShell.
 
@@ -59,7 +58,7 @@ Pour un utilisateur de boîte aux lettres, en local ou dans Exchange Online, seu
 | proxyAddresses local | SMTP:abbie.spencer@fabrikamonline.com</br>smtp:abbie.spencer@fabrikam.com</br>smtp:abbie@fabrikamonline.com |
 | proxyAddresses dans Exchange Online | SMTP:abbie.spencer@fabrikamonline.com</br>smtp:abbie@fabrikamonline.com</br>SIP:abbie.spencer@fabrikamonline.com |
 
-Dans ce cas **smtp:abbie.spencer\@fabrikam.com** a été supprimée, car ce domaine n’a pas été vérifié. Mais Exchange a également ajouté **SIP:abbie.spencer\@fabrikamonline.com**. Fabrikam n’a pas utilisé Lync/Skype en local, mais Azure AD et Exchange Online s’y préparent.
+Dans ce cas **smtp:abbie.spencer\@fabrikam.com** a été supprimé, car ce domaine n’a pas été vérifié. Mais Exchange a également ajouté **SIP:abbie.spencer\@fabrikamonline.com**. Fabrikam n’a pas utilisé Lync/Skype en local, mais Azure AD et Exchange Online s’y préparent.
 
 Cette logique pour proxyAddresses est appelée **ProxyCalc**. ProxyCalc est appelé à chaque modification d’un utilisateur lorsque :
 
@@ -78,5 +77,3 @@ Les attributs de clichés instantanés sont également utilisés lorsque des val
 ## <a name="see-also"></a>Voir aussi
 * [Synchronisation d’Azure AD Connect](how-to-connect-sync-whatis.md)
 * [Intégration de vos identités locales avec Azure Active Directory](whatis-hybrid-identity.md).
-
-<!-- Update_Description: wording update -->

@@ -18,10 +18,10 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: gokuma
 ms.openlocfilehash: f30c241feced3031d9ed9791c27c6bb1e1e99efb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60365981"
 ---
 # <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>Dix choses que vous pouvez effectuer sur la machine virtuelle Science des données de Windows
@@ -265,7 +265,7 @@ Pour télécharger du code à partir d’un référentiel GitHub, utilisez la co
 
     git clone https://github.com/Azure/DataScienceVM.git
 
-Dans Visual Studio, vous pouvez effectuer la même opération de clonage. La capture d’écran suivante montre comment accéder aux outils Git et GitHub dans Visual Studio.
+Dans Visual Studio, vous pouvez effectuer la même opération de clonage. La capture d’écran suivante indique comment accéder aux outils Git et GitHub dans Visual Studio.
 
 ![Capture d’écran de Visual Studio avec la connexion GitHub affichée](./media/vm-do-ten-things/VSGit.PNG)
 
@@ -403,7 +403,7 @@ Si vos données se trouvent dans Stockage Blob Azure, vous pouvez les lire direc
 
 ![Capture d’écran de la boîte de dialogue Ajouter une source de données](./media/vm-do-ten-things/Link_Blob_to_ADLA_v2.PNG)
 
-Dans Visual Studio, vous pouvez lire les données à partir d’un stockage d’objets blob, effectuer certaines manipulations de données et extractions de paramètres et envoyer les données résultantes vers Azure Data Lake ou un stockage d’objets blob Azure. Lorsque vous référencez les données Stockage Blob, utilisez **wasb://**. Lorsque vous référencez les données d’Azure Data Lake, utilisez **swbhdfs://**.
+Dans Visual Studio, vous pouvez lire les données à partir d’un stockage d’objets blob, effectuer certaines manipulations de données et extractions de paramètres et envoyer les données résultantes vers Azure Data Lake ou un stockage d’objets blob Azure. Lorsque vous référencez les données Stockage Blob, utilisez **wasb://** . Lorsque vous référencez les données d’Azure Data Lake, utilisez **swbhdfs://** .
 
 ![Capture d’écran de la requête avec l’entrée WASB en surbrillance](./media/vm-do-ten-things/USQL_Read_Blob_v2.PNG)
 

@@ -1,6 +1,6 @@
 ---
-title: Vue d’ensemble de nœuds pour la Solution VMware par CloudSimple - Azure
-description: Découvrez les concepts et les nœuds CloudSimple.
+title: Vue d'ensemble des nœuds pour la solution VMware de CloudSimple - Azure
+description: Découvrez les nœuds et concepts CloudSimple.
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 04/10/2019
@@ -9,53 +9,53 @@ ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: b3c8fca1dd93f379860cc3b084fbb14d4a0c6380
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/26/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64577359"
 ---
-# <a name="cloudsimple-nodes-overview"></a>Vue d’ensemble de nœuds CloudSimple
+# <a name="cloudsimple-nodes-overview"></a>Vue d'ensemble des nœuds CloudSimple
 
 Un nœud est :
 
-* Un système nu dédié calcul hôte où VMware ESXi hyperviseur est installé  
-* Une unité de calcul que vous pouvez acheter ou de réserve pour créer des nuages privés  
-* Disponible à l’achat ou réserver dans une région où le service CloudSimple est disponible
+* Un hôte de calcul complet dédié sur lequel l'hyperviseur VMware ESXi est installé  
+* Une unité de calcul que vous pouvez acheter ou réserver pour créer des clouds privés  
+* Disponible à l'achat ou à la réservation dans une région où le service CloudSimple est disponible
 
-Les nœuds sont des blocs de construction d’un cloud privé.  Pour créer un cloud privé, vous avez besoin d’un minimum de trois nœuds de la même référence SKU.  Pour développer un cloud privé, ajouter des nœuds supplémentaires.  Vous pouvez ajouter des nœuds à un cluster existant. Ou bien, vous pouvez créer un nouveau cluster en achetant des nœuds dans le portail Azure et leur association avec le service CloudSimple.  Tous les nœuds achetés sont visibles sous le service CloudSimple.  Vous créez un cloud privé à partir des nœuds sur le portail CloudSimple achetées.
+Les nœuds sont les blocs de construction d'un cloud privé.  Pour créer un cloud privé, il vous faut au moins trois nœuds de la même référence SKU.  Pour développer un cloud privé, ajoutez-y des nœuds.  Vous pouvez ajouter des nœuds à un cluster existant. Vous pouvez également créer un nouveau cluster en achetant des nœuds sur le portail Azure et en les associant au service CloudSimple.  Tous les nœuds achetés sont visibles sous le service CloudSimple.  Vous créez un cloud privé à partir des nœuds achetés sur le portail CloudSimple.
 
-## <a name="purchased-nodes"></a>Nœuds achetées
+## <a name="purchased-nodes"></a>Nœuds achetés
 
-Nœuds achetées fournissent une capacité paiement à l’utilisation. Nœuds d’achat vous permet de rapidement mettre à l’échelle votre cluster VMware à la demande. Vous pouvez ajouter des nœuds en fonction des besoins, ou supprimer un nœud acheté à l’échelle votre cluster VMware. Nœuds achetées sont facturés sur une base mensuelle et facturés à l’abonnement dans lequel elles sont achetées :
+Les nœuds achetés peuvent faire l'objet d'un paiement à l'utilisation. L'achat de nœuds vous permet de procéder rapidement et à la demande à une mise à l'échelle de votre cluster VMware. Si nécessaire, vous pouvez ajouter des nœuds, ou supprimer un nœud acheté pour faire descendre en puissance votre cluster VMware. Les nœuds achetés sont facturés sur une base mensuelle et imputés à l'abonnement avec lequel ils sont achetés :
 
-* Si vous payez par carte de crédit pour votre abonnement Azure, il se peut que la carte est facturée immédiatement.
-* Si vous êtes facturé par facture, les frais s’affichent sur votre prochaine facture.
+* Si vous payez votre abonnement Azure par carte de crédit, celle-ci est immédiatement débitée.
+* Si vous réglez sur facture, les frais sont portés sur votre facture suivante.
 
-## <a name="vmware-solution-by-cloudsimple-nodes-sku"></a>Solution de VMware par nœuds CloudSimple référence (SKU)
+## <a name="vmware-solution-by-cloudsimple-nodes-sku"></a>Références SKU de nœuds pour solution VMware de CloudSimple
 
-Les types de nœuds suivants sont disponibles pour l’achat ou de la réservation.
+Les types de nœuds suivants sont disponibles à l'achat ou à la réservation.
 
-| SKU | CS28 - nœud | CS36 - Node |
+| SKU | CS28 - Nœud | CS36 - Nœud |
 |-----|-------------|-------------|
-| UC | 2x2.2 GHz, 28 cœurs (56 HT) | 2x2.3 GHz, 36 cœurs (72 HT) |
+| UC | 2 x 2,2 GHz, 28 cœurs (56 HT) | 2 x 2,3 GHz, 36 cœurs (72 HT) |
 | RAM | 256 Go | 512 Go |
-| Cache disque |  1,6 To NVMe | 3.2-To NVMe |
-| Capacité disque | 5.625 To bruts | 11,25 To bruts |
+| Disque de cache |  NVMe de 1,6 To | NVMe de 3,2 To |
+| Capacité de disque | 5,625 To de données brutes | 11,25 To de données brutes |
 | Type de stockage | Flash | Flash |
 
 ## <a name="limits"></a>limites
 
-Les limites de nœud suivantes s’appliquent à des clouds privés.
+Les limites de nœud suivantes s'appliquent aux clouds privés.
 
 | Ressource | Limite |
 |----------|-------|
-| Nombre minimal de nœuds pour créer un cloud privé | 3 |
-| Nombre maximal de nœuds dans un Cluster sur un cloud privé | 16 |
+| Nombre minimal de nœuds pour la création d'un cloud privé | 3 |
+| Nombre maximal de nœuds dans un cluster sur un cloud privé | 16 |
 | Nombre maximal de nœuds dans un cloud privé | 64 |
-| Nombre minimal de nœuds sur un nouveau Cluster | 3 |
+| Nombre minimal de nœuds sur un nouveau cluster | 3 |
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Découvrez comment [acheter des nœuds](create-nodes.md)
-* En savoir plus sur [Cloud privé](cloudsimple-private-cloud.md)
+* Apprenez à [Acheter des nœuds](create-nodes.md)
+* Découvrez-en plus sur le [Cloud privé](cloudsimple-private-cloud.md)

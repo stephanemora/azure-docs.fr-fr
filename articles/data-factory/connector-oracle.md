@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: jingwang
 ms.openlocfilehash: 3fa7612b9e4cd8a714e60879229bd0d39349494f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60405934"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Copier des données depuis/vers Oracle à l’aide d’Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
 > * [Version 1](v1/data-factory-onprem-oracle-connector.md)
 > * [Version actuelle](connector-oracle.md)
 
@@ -41,7 +41,7 @@ Plus précisément, ce connecteur Oracle prend en charge les versions suivantes 
 > [!Note]
 > Le serveur proxy Oracle n’est pas pris en charge.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour copier des données depuis et vers une base de données Oracle qui n’est pas accessible publiquement, vous devez configurer un runtime d’intégration auto-hébergé. Pour plus d’informations sur le runtime d’intégration, consultez l’article relatif au [runtime d’intégration auto-hébergé](create-self-hosted-integration-runtime.md). Le runtime d’intégration intègre un pilote Oracle. Par conséquent, vous n’avez pas besoin d’installer manuellement un pilote pour copier des données depuis et vers Oracle.
 
@@ -57,16 +57,16 @@ Les propriétés prises en charge pour le service lié Oracle sont les suivantes
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type doit être définie sur **Oracle**. | Oui |
-| connectionString | Spécifie les informations requises pour se connecter à l’instance Oracle Database. <br/>Marquez ce champ comme SecureString pour le stocker de façon sécurisée dans Data Factory. Vous pouvez également définir un mot de passe dans Azure Key Vault et extraire la configuration `password` de la chaîne de connexion. Pour plus d'informations, reportez-vous aux exemples suivants et à l'article [Stocker des informations d'identification dans Azure Key Vault](store-credentials-in-key-vault.md). <br><br>**Type de connexion pris en charge** : Vous pouvez utiliser le **SID Oracle** ou le **nom du service Oracle** pour identifier votre base de données :<br>- Si vous utilisez le SID : `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>- Si vous utilisez le nom du service : `Host=<host>;Port=<port>;ServiceName=<servicename>;User Id=<username>;Password=<password>;` | Oui |
-| connectVia | Le [runtime d’intégration](concepts-integration-runtime.md) à utiliser pour se connecter à la banque de données. Vous pouvez utiliser un runtime d’intégration auto-hébergé ou un runtime d’intégration Azure (si votre banque de données est accessible publiquement). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |Non  |
+| Type | La propriété type doit être définie sur **Oracle**. | OUI |
+| connectionString | Spécifie les informations requises pour se connecter à l’instance Oracle Database. <br/>Marquez ce champ comme SecureString pour le stocker de façon sécurisée dans Data Factory. Vous pouvez également définir un mot de passe dans Azure Key Vault et extraire la configuration `password` de la chaîne de connexion. Pour plus d'informations, reportez-vous aux exemples suivants et à l'article [Stocker des informations d'identification dans Azure Key Vault](store-credentials-in-key-vault.md). <br><br>**Type de connexion pris en charge** : Vous pouvez utiliser le **SID Oracle** ou le **nom du service Oracle** pour identifier votre base de données :<br>- Si vous utilisez le SID : `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>- Si vous utilisez le nom du service : `Host=<host>;Port=<port>;ServiceName=<servicename>;User Id=<username>;Password=<password>;` | OUI |
+| connectVia | Le [runtime d’intégration](concepts-integration-runtime.md) à utiliser pour se connecter à la banque de données. Vous pouvez utiliser un runtime d’intégration auto-hébergé ou un runtime d’intégration Azure (si votre banque de données est accessible publiquement). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |Non |
 
 >[!TIP]
 >Si vous rencontrez le message d’erreur indiquant « ORA-01025: UPI parameter out of range » et que votre version d’Oracle est 8i, ajoutez `WireProtocolMode=1` à votre chaîne de connexion, puis réessayez.
 
 **Pour activer le chiffrement sur la connexion Oracle**, deux options s’offrent à vous :
 
-1.  Pour utiliser le **chiffrement 3DES (Triple-DES) et AES (Advanced Encryption Standard)**, du côté du serveur Oracle, accédez à Oracle Advanced Security (OAS) et configurez les paramètres de chiffrement. Consultez les détails [ici](https://docs.oracle.com/cd/E11882_01/network.112/e40393/asointro.htm#i1008759). Le connecteur Oracle ADF négocie automatiquement la méthode de chiffrement pour utiliser celle que vous configurez dans OAS lors de l’établissement de connexion à Oracle.
+1.  Pour utiliser le **chiffrement 3DES (Triple-DES) et AES (Advanced Encryption Standard)** , du côté du serveur Oracle, accédez à Oracle Advanced Security (OAS) et configurez les paramètres de chiffrement. Consultez les détails [ici](https://docs.oracle.com/cd/E11882_01/network.112/e40393/asointro.htm#i1008759). Le connecteur Oracle ADF négocie automatiquement la méthode de chiffrement pour utiliser celle que vous configurez dans OAS lors de l’établissement de connexion à Oracle.
 
 2.  Pour utiliser **SSL**, suivez les étapes ci-dessous :
 
@@ -96,7 +96,7 @@ Les propriétés prises en charge pour le service lié Oracle sont les suivantes
         openssl pkcs12 -in [Path to the file created in the previous step] -out [Path and name of TrustStore] -passout pass:[Keystore PWD] -nokeys -export
         ```
 
-        **Exemple :** crée un fichier truststore de PKCS12 nommé MyTrustStoreFile avec un mot de passe
+        **Exemple :** crée un fichier truststore PKCS12 nommé MyTrustStoreFile avec un mot de passe
 
         ```
         openssl pkcs12 -in cert.txt -out MyTrustStoreFile -passout pass:ThePWD -nokeys -export  
@@ -162,8 +162,8 @@ Pour copier des données depuis et vers Oracle, affectez la valeur **OracleTable
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type du jeu de données doit être définie sur **OracleTable**. | Oui |
-| tableName |Nom de la table dans la base de données Oracle à laquelle le service lié fait référence. | Oui |
+| Type | La propriété type du jeu de données doit être définie sur **OracleTable**. | OUI |
+| tableName |Nom de la table dans la base de données Oracle à laquelle le service lié fait référence. | OUI |
 
 **Exemple :**
 
@@ -194,8 +194,8 @@ Pour copier des données d’Oracle, définissez le type de source dans l’acti
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type de la source d’activité de copie doit être définie sur **OracleSource**. | Oui |
-| oracleReaderQuery | Utiliser la requête SQL personnalisée pour lire les données. Par exemple `"SELECT * FROM MyTable"`. | Non  |
+| Type | La propriété type de la source d’activité de copie doit être définie sur **OracleSource**. | OUI |
+| oracleReaderQuery | Utiliser la requête SQL personnalisée pour lire les données. Par exemple `"SELECT * FROM MyTable"`. | Non |
 
 Si vous ne spécifiez pas « oracleReaderQuery », les colonnes définies dans la section « structure » du jeu de données sont utilisées pour construire une requête (`select column1, column2 from mytable`) à exécuter sur la base de données Oracle. Si la définition du jeu de données ne possède pas de « structure », toutes les colonnes de la table sont sélectionnées.
 
@@ -237,10 +237,10 @@ Pour copier des données vers Oracle, définissez **OracleSink** comme type de r
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété de type du récepteur d’activité de copie doit être définie sur **OracleSink**. | Oui |
+| Type | La propriété de type du récepteur d’activité de copie doit être définie sur **OracleSink**. | OUI |
 | writeBatchSize | Insère des données dans la table SQL lorsque la taille du tampon atteint writeBatchSize<br/>Valeurs autorisées : integer (nombre de lignes). |Non (valeur par défaut : 10 000) |
-| writeBatchTimeout | Temps d’attente pour que l’opération d’insertion de lot soit terminée avant d’expirer.<br/>Valeurs autorisées : timespan. Exemple : 00:30:00 (30 minutes). | Non  |
-| preCopyScript | Spécifiez une requête SQL pour l’activité de copie à exécuter avant l’écriture de données dans Oracle à chaque exécution. Vous pouvez utiliser cette propriété pour nettoyer des données préchargées. | Non  |
+| writeBatchTimeout | Temps d’attente pour que l’opération d’insertion de lot soit terminée avant d’expirer.<br/>Valeurs autorisées : timespan. Exemple : 00:30:00 (30 minutes). | Non |
+| preCopyScript | Spécifiez une requête SQL pour l’activité de copie à exécuter avant l’écriture de données dans Oracle à chaque exécution. Vous pouvez utiliser cette propriété pour nettoyer des données préchargées. | Non |
 
 **Exemple :**
 
@@ -281,25 +281,25 @@ Lorsque vous copiez des données depuis et vers Oracle, les mappages suivants so
 |:--- |:--- |
 | BFILE |Byte[] |
 | BLOB |Byte[]<br/>(seulement pris en charge sur Oracle 10g et les versions ultérieures) |
-| CHAR |String |
-| CLOB |String |
+| CHAR |Chaîne |
+| CLOB |Chaîne |
 | DATE |Datetime |
 | FLOAT |Décimale, chaîne (si précision > 28) |
 | INTEGER |Décimale, chaîne (si précision > 28) |
-| LONG |String |
+| LONG |Chaîne |
 | LONG RAW |Byte[] |
-| NCHAR |String |
-| NCLOB |String |
+| NCHAR |Chaîne |
+| NCLOB |Chaîne |
 | NUMBER |Décimale, chaîne (si précision > 28) |
-| NVARCHAR2 |String |
+| NVARCHAR2 |Chaîne |
 | RAW |Byte[] |
-| ROWID |String |
+| ROWID |Chaîne |
 | TIMESTAMP |Datetime |
-| TIMESTAMP WITH LOCAL TIME ZONE |String |
-| TIMESTAMP WITH TIME ZONE |String |
+| TIMESTAMP WITH LOCAL TIME ZONE |Chaîne |
+| TIMESTAMP WITH TIME ZONE |Chaîne |
 | UNSIGNED INTEGER |NUMBER |
-| VARCHAR2 |String |
-| XML |String |
+| VARCHAR2 |Chaîne |
+| XML |Chaîne |
 
 > [!NOTE]
 > Les types de données INTERVAL YEAR TO MONTH et INTERVAL DAY TO SECOND ne sont pas pris en charge.

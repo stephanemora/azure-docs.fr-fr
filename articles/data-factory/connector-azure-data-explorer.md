@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: orspodek
 ms.openlocfilehash: f501257903f3b7c621512f06d1c8c7109e22db1e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60394504"
 ---
 # <a name="copy-data-to-or-from-azure-data-explorer-using-azure-data-factory"></a>Copier des données depuis/vers Azure Data Explorer à l’aide d’Azure Data Factory
@@ -29,7 +29,7 @@ Cet article décrit comment utiliser l’activité de copie dans Azure Data Fa
 Vous pouvez copier des données à partir de tout magasin de données source pris en charge vers Azure Data Explorer. Vous pouvez également copier des données à partir d’Azure Data Explorer vers tout magasin de données récepteur pris en charge. Pour obtenir la liste des banques de données prises en charge en tant que sources ou récepteurs par l’activité de copie, consultez le tableau [banques de données prises en charge](copy-activity-overview.md).
 
 >[!NOTE]
->Copie des données vers/depuis Azure Explorateur de données depuis/vers sur le magasin de données de site à l’aide du Runtime d’intégration auto-hébergé est pris en charge depuis la version 3,14.
+>La copie de données vers/depuis Azure Data Explorer depuis/vers un magasin de données local à l’aide d’un runtime d’intégration auto-hébergé est prise en charge depuis la version 3.14.
 
 Le connecteur Azure Data Explorer vous permet d’effectuer les opérations suivantes :
 
@@ -40,7 +40,7 @@ Le connecteur Azure Data Explorer vous permet d’effectuer les opérations suiv
 ## <a name="getting-started"></a>Prise en main
 
 >[!TIP]
->Pour obtenir une description de l’utilisation du connecteur de l’Explorateur de données Azure, consultez [copier des données vers/à partir de l’Explorateur de données Azure à l’aide d’Azure Data Factory](../data-explorer/data-factory-load-data.md).
+>Pour obtenir une description de l’utilisation du connecteur d’Azure Data Explorer, consultez [Copier des données vers/à partir d’Azure Data Explorer à l’aide d’Azure Data Factory](../data-explorer/data-factory-load-data.md).
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -48,7 +48,7 @@ Les sections suivantes fournissent des informations détaillées sur les propri�
 
 ## <a name="linked-service-properties"></a>Propriétés du service lié
 
-Le connecteur de l’Explorateur de données Azure utilise l’authentification de principal du service. Suivez ces étapes pour obtenir un principal de service et accorder des autorisations :
+Le connecteur d’Azure Data Explorer utilise l’authentification du principal du service. Suivez ces étapes pour obtenir un principal de service et accorder des autorisations :
 
 1. Inscrivez une entité d’application dans Azure Active Directory (Azure AD) en suivant les instructions de la section [Inscrire votre application à un locataire Azure AD](../storage/common/storage-auth-aad-app.md#register-your-application-with-an-azure-ad-tenant). Prenez note des valeurs suivantes, qui vous permettent de définir le service lié :
 
@@ -56,24 +56,24 @@ Le connecteur de l’Explorateur de données Azure utilise l’authentification 
     - Clé de l'application
     - ID client
 
-2. Accorder l’autorisation appropriée au service principal dans l’Explorateur de données Azure. Reportez-vous à [autorisations de base de données de gérer Azure Data Explorer](../data-explorer/manage-database-permissions.md) avec des informations détaillées sur les rôles et autorisations mais aussi procédure pas à pas sur la gestion des autorisations. En règle générale, vous devez
+2. Accordez l’autorisation nécessaire au principal de service dans Azure Data Explorer. Consultez [Gérer les autorisations de base de données d’Azure Data Explorer](../data-explorer/manage-database-permissions.md) pour obtenir des informations détaillées sur les rôles et les autorisations, mais aussi sur la procédure pas à pas de gestion des autorisations. En règle générale, vous devez :
 
-    - **En tant que source**, accordez au moins **Observateur de base de données** rôle à votre base de données.
-    - **En tant que récepteur**, accordez au moins **évolutif de base de données** rôle à votre base de données.
+    - **En tant que source**, accorder au moins le rôle **Observateur de base de données** à votre base de données.
+    - **En tant que récepteur**, accorder au moins le rôle **Ingéreur de base de données** à votre base de données.
 
 >[!NOTE]
->Lorsque vous utilisez ADF UI pour créer, les opérations d’énumération des bases de données sur le service lié ou répertoriant les tables sur le jeu de données peuvent nécessiter plus élevée privilégié d’une autorisation pour le principal du service. Vous pouvez également entrer manuellement le nom de la base de données et le nom de la table. Copier l’activité s’exécute tant que le principal du service est accordé avec l’autorisation appropriée pour lire/écrire des données.
+>Lorsque vous utilisez l’interface ADF pour la création, les opérations d’énumération des bases de données sur le service lié ou répertoriant les tables sur le jeu de données peuvent nécessiter des autorisations plus élevées pour le principal du service. Vous pouvez également choisir d’entrer manuellement le nom de la base de données et le nom de la table. L’exécution de la copie d’activité fonctionne tant que le principal du service dispose de l’autorisation appropriée pour lire/écrire des données.
 
 Les propriétés suivantes sont prises en charge pour le service lié Azure Data Explorer :
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété **type** doit être définie sur **AzureDataExplorer**. | Oui |
-| endpoint | URL de point de terminaison du cluster Azure Data Explorer, avec le format `https://<clusterName>.<regionName>.kusto.windows.net`. | Oui |
-| database | Nom de base de données. | Oui |
-| tenant | Spécifiez les informations de locataire (nom de domaine ou ID de locataire) dans lesquels se trouve votre application. C’est ce que vous savez normalement en tant que «**ID d’autorité**» dans [chaîne de connexion Kusto](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). Récupérez-les en pointant la souris dans l’angle supérieur droit du portail Azure. | Oui |
-| servicePrincipalId | Spécifiez l’ID client de l’application. C’est ce que vous savez normalement en tant que «**ID de client d’application AAD**» dans [chaîne de connexion Kusto](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). | Oui |
-| servicePrincipalKey | Spécifiez la clé de l’application. C’est ce que vous savez normalement en tant que «**clé d’application AAD**» dans [chaîne de connexion Kusto](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). Marquez ce champ en tant que **SecureString** afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui |
+| Type | La propriété **type** doit être définie sur **AzureDataExplorer**. | OUI |
+| endpoint | URL de point de terminaison du cluster Azure Data Explorer, avec le format `https://<clusterName>.<regionName>.kusto.windows.net`. | OUI |
+| database | Nom de base de données. | OUI |
+| locataire | Spécifiez les informations de locataire (nom de domaine ou ID de locataire) dans lesquels se trouve votre application. C’est ce que vous connaissez normalement sous le nom « **ID d’autorité** » dans la [chaîne de connexion Kusto](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). Récupérez-les en pointant la souris dans l’angle supérieur droit du portail Azure. | OUI |
+| servicePrincipalId | Spécifiez l’ID client de l’application. C’est ce que vous connaissez normalement sous le nom « **ID d’application cliente AAD** » dans la [chaîne de connexion Kusto](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). | OUI |
+| servicePrincipalKey | Spécifiez la clé de l’application. C’est ce que vous connaissez normalement sous le nom « **Clé d’application AAD** » dans la [chaîne de connexion Kusto](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). Marquez ce champ en tant que **SecureString** afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | OUI |
 
 **Exemple de Propriétés du service lié :**
 
@@ -106,7 +106,7 @@ Les propriétés prises en charge sont les suivantes :
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété **type** doit être définie sur **AzureDataExplorerTable**. | Oui |
+| Type | La propriété **type** doit être définie sur **AzureDataExplorerTable**. | OUI |
 | table | Nom de la table dans la base à laquelle le service lié fait référence. | Oui pour le récepteur, Non pour la source |
 
 **Exemple de propriétés du jeu de données**
@@ -137,12 +137,12 @@ Pour copier des données à partir d’Azure Data Explorer, définissez la propr
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété **type** de la source d’activité de copie doit être définie sur : **AzureDataExplorerSource** | Oui |
-| query | Requête en lecture seule au [format KQL](/azure/kusto/query/). Utilisez la requête KQL personnalisée en tant que référence. | Oui |
-| queryTimeout | Temps d’attente avant l’expiration de la demande de requête. La valeur par défaut est 10 minutes (00:10:00) et la valeur maximale autorisée 1 heure (01:00:00). | Non  |
+| Type | La propriété **type** de la source d’activité de copie doit être définie sur : **AzureDataExplorerSource** | OUI |
+| query | Requête en lecture seule au [format KQL](/azure/kusto/query/). Utilisez la requête KQL personnalisée en tant que référence. | OUI |
+| queryTimeout | Temps d’attente avant l’expiration de la demande de requête. La valeur par défaut est 10 minutes (00:10:00) et la valeur maximale autorisée 1 heure (01:00:00). | Non |
 
 >[!NOTE]
->Source de l’Explorateur de données Azure par défaut a une taille limite de 500 000 enregistrements ou 64 Mo. Pour récupérer tous les enregistrements sans troncation, vous pouvez spécifier `set notruncation;` au début de votre requête. Reportez-vous à [limites de requête](https://docs.microsoft.com/azure/kusto/concepts/querylimits) sur plus de détails.
+>La source par défaut d’Azure Data Explorer a une taille limite de 500 000 enregistrements ou 64 Mo. Pour récupérer tous les enregistrements sans troncation, vous pouvez spécifier `set notruncation;` au début de votre requête. Consultez [limites de requête](https://docs.microsoft.com/azure/kusto/concepts/querylimits) pour plus de détails.
 
 **Exemple :**
 
@@ -183,8 +183,8 @@ Pour copier des données vers Azure Data Explorer, définissez la propriété ty
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété **type** du récepteur d’activité de copie doit être définie sur : **AzureDataExplorerSink** | Oui |
-| ingestionMappingName | Nom d’un créé au préalable **[mappage](/azure/kusto/management/mappings#csv-mapping)** sur une table Kusto. Pour mapper les colonnes de la source à l’Explorateur de données Azure - qui s’applique aux **[tous pris en charge magasins/formats de source de](copy-activity-overview.md#supported-data-stores-and-formats)** notamment CSV/JSON/Avro met en forme etc., vous pouvez utiliser l’activité de copie [colonne mappage](copy-activity-schema-and-type-mapping.md) (implicitement par nom ou explicitement configurés) et/ou les mappages de l’Explorateur de données Azure. | Non  |
+| Type | La propriété **type** du récepteur d’activité de copie doit être définie sur : **AzureDataExplorerSink** | OUI |
+| ingestionMappingName | Nom d’un **[mappage](/azure/kusto/management/mappings#csv-mapping)** créé au préalable sur une table Kusto. Pour mapper les colonnes de la source et Azure Data Explorer, ce qui s’applique à **[tous les magasins/formats de source pris en charge](copy-activity-overview.md#supported-data-stores-and-formats)** , notamment les formats CSV/JSON/Avro etc., vous pouvez utiliser l’activité de copie [mappage des colonnes](copy-activity-schema-and-type-mapping.md) (implicitement par nom ou explicitement configurée) et/ou les mappages d’Azure Data Explorer. | Non |
 
 **Exemple :**
 
@@ -222,4 +222,4 @@ Pour copier des données vers Azure Data Explorer, définissez la propriété ty
 
 * Pour obtenir la liste des banques de données prises en charge en tant que sources et récepteurs par l’activité de copie dans Azure Data Factory, consultez le tableau [banques de données prises en charge](copy-activity-overview.md#supported-data-stores-and-formats).
 
-* En savoir plus sur [copier des données à partir d’Azure Data Factory à l’Explorateur de données Azure](/azure/data-explorer/data-factory-load-data).
+* Pour plus d’informations, consultez [Copier des données d’Azure Data Factory vers Azure Data Explorer](/azure/data-explorer/data-factory-load-data).

@@ -14,14 +14,14 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 7ad328eec7e16b5368b78a0dfccbf5c09adb5c13
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60567229"
 ---
 # <a name="push-data-to-an-azure-search-index-by-using-azure-data-factory"></a>Envoyer des données à un index Recherche Azure à l’aide d’Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
 > * [Version 1](data-factory-azure-search-connector.md)
 > * [Version 2 (version actuelle)](../connector-azure-search.md)
 
@@ -58,9 +58,9 @@ Le tableau suivant décrit les éléments JSON propres au service lié Recherche
 
 | Propriété | Description | Obligatoire |
 | -------- | ----------- | -------- |
-| type | La propriété type doit être définie sur : **AzureSearch**. | Oui |
-| url | URL du service Recherche Azure. | Oui |
-| key | Clé d’administration du service Recherche Azure. | Oui |
+| type | La propriété type doit être définie sur : **AzureSearch**. | OUI |
+| URL | URL du service Recherche Azure. | OUI |
+| key | Clé d’administration du service Recherche Azure. | OUI |
 
 ## <a name="dataset-properties"></a>Propriétés du jeu de données
 
@@ -68,8 +68,8 @@ Pour obtenir une liste complète des sections et propriétés disponibles pour l
 
 | Propriété | Description | Obligatoire |
 | -------- | ----------- | -------- |
-| type | La propriété de type doit être définie sur **AzureSearchIndex**.| Oui |
-| indexName | Nom de l’index Recherche Azure. Data Factory ne crée pas l’index. L’index doit exister dans Recherche Azure. | Oui |
+| Type | La propriété de type doit être définie sur **AzureSearchIndex**.| OUI |
+| indexName | Nom de l’index Recherche Azure. Data Factory ne crée pas l’index. L’index doit exister dans Recherche Azure. | OUI |
 
 
 ## <a name="copy-activity-properties"></a>Propriétés de l’activité de copie
@@ -79,8 +79,8 @@ Pour l’activité de copie, quand la source est de type **AzureSearchIndexSink*
 
 | Propriété | Description | Valeurs autorisées | Obligatoire |
 | -------- | ----------- | -------------- | -------- |
-| WriteBehavior | Indique s’il convient de procéder à une fusion ou à un remplacement lorsqu’un document existe déjà dans l’index. Voir la [propriété WriteBehavior](#writebehavior-property).| Merge (par défaut)<br/>Télécharger| Non  |
-| WriteBatchSize | Charge des données dans l’index Recherche Azure lorsque la taille du tampon atteint writeBatchSize. Pour plus d’informations, voir la [propriété WriteBatchSize](#writebatchsize-property). | 1 à 1 000. Valeur par défaut : 1 000. | Non  |
+| WriteBehavior | Indique s’il convient de procéder à une fusion ou à un remplacement lorsqu’un document existe déjà dans l’index. Voir la [propriété WriteBehavior](#writebehavior-property).| Merge (par défaut)<br/>Télécharger| Non |
+| writeBatchSize | Charge des données dans l’index Recherche Azure lorsque la taille du tampon atteint writeBatchSize. Pour plus d’informations, voir la [propriété WriteBatchSize](#writebatchsize-property). | 1 à 1 000. Valeur par défaut : 1 000. | Non |
 
 ### <a name="writebehavior-property"></a>Propriété WriteBehavior
 AzureSearchSink effectue une opération d’upsert lors de l’écriture des données. En d’autres termes, lorsque vous écrivez un document, si la clé du document existe déjà dans l’index Recherche Azure, Recherche Azure met à jour le document existant au lieu de lever une exception de conflit.
@@ -100,13 +100,13 @@ Le tableau suivant indique si un type de données Recherche Azure est pris en c
 
 | Type de données Recherche Azure | Pris en charge dans le récepteur de l’index Recherche Azure |
 | ---------------------- | ------------------------------ |
-| String | O |
+| Chaîne | O |
 | Int32 | O |
 | Int64 | O |
 | Double | O |
 | Boolean | O |
 | DataTimeOffset | O |
-| String Array | N |
+| Tableau de chaînes | N |
 | GeographyPoint | N |
 
 ## <a name="json-example-copy-data-from-on-premises-sql-server-to-azure-search-index"></a>Exemple JSON : copier des données d’un serveur SQL Server local vers un index Recherche Azure

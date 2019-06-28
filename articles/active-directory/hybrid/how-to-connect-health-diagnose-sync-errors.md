@@ -15,10 +15,10 @@ ms.date: 05/11/2018
 ms.author: zhiweiw
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fbdeef7c591221756ad206bf2f3dd78ac3d26c4f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60349979"
 ---
 # <a name="diagnose-and-remediate-duplicated-attribute-sync-errors"></a>Diagnostiquer et corriger les erreurs de synchronisation d’attribut en double
@@ -33,7 +33,7 @@ Pour plus d’informations sur Azure AD, consultez [Synchronisation des identit�
 
 ## <a name="problems"></a>Problèmes
 ### <a name="a-common-scenario"></a>Un scénario courant
-Quand des erreurs de synchronisation de **QuarantinedAttributeValueMustBeUnique** et de **AttributeValueMustBeUnique** se produisent, il est courant de voir un conflit de**UserPrincipalName** ou de **Proxy Addresses** dans Azure AD. Vous pouvez résoudre les erreurs de synchronisation en mettant à jour l’objet source en conflit à partir du côté local. L’erreur de synchronisation sera résolue après la synchronisation suivante. Par exemple, cette image indique que deux utilisateurs rencontrent un conflit de leur nom d’utilisateur principal (**UserPrincipalName**). Les deux sont **Joe.J\@contoso.com**. Les objets en conflit sont mis en quarantaine dans Azure AD.
+Quand des erreurs de synchronisation de **QuarantinedAttributeValueMustBeUnique** et de **AttributeValueMustBeUnique** se produisent, il est courant de voir un conflit de**UserPrincipalName** ou de **Proxy Addresses** dans Azure AD. Vous pouvez résoudre les erreurs de synchronisation en mettant à jour l’objet source en conflit à partir du côté local. L’erreur de synchronisation sera résolue après la synchronisation suivante. Par exemple, cette image indique que deux utilisateurs rencontrent un conflit de leur nom d’utilisateur principal (**UserPrincipalName**). Tous deux possèdent le nom **Joe.J\@contoso.com**. Les objets en conflit sont mis en quarantaine dans Azure AD.
 
 ![Scénario courant de diagnostic d’erreur de synchronisation](./media/how-to-connect-health-diagnose-sync-errors/IIdFixCommonCase.png)
 

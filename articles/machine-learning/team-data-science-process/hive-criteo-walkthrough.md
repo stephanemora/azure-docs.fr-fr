@@ -12,10 +12,10 @@ ms.date: 11/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: ac627907e3f595ef59edc606f34fd27353e4c577
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60305700"
 ---
 # <a name="the-team-data-science-process-in-action---using-an-azure-hdinsight-hadoop-cluster-on-a-1-tb-dataset"></a>Processus TDSP (Team Data Science Process) en action : utilisation d’un cluster Hadoop Azure HDInsight sur un jeu de données de 1 To
@@ -52,7 +52,7 @@ Cette procédure pas à pas aborde deux exemples de problèmes de prédiction :
 1. **Classification binaire** : prédit si un utilisateur a cliqué ou non sur une annonce :
 
    * Classe 0 : Aucun clic
-   * Classe 1 : Cliquez sur 
+   * Classe 1 : Cliquez sur
 2. **Régression** : prédit la probabilité d’un clic effectué sur une annonce à partir de fonctionnalités utilisateur.
 
 ## <a name="setup"></a>Configuration d’un cluster Hadoop HDInsight pour la science des données
@@ -285,7 +285,7 @@ Cela génère le résultat suivant :
 La combinaison LATERAL VIEW - explode dans Hive permet de générer une sortie similaire à SQL au lieu de la liste habituelle. Notez que dans ce tableau, la première colonne correspond au centre de l’emplacement et le second à la fréquence de l’emplacement.
 
 ### <a name="approximate-percentiles-of-some-numeric-variables-in-the-train-dataset"></a>Les centiles approximatifs de certaines variables numériques dans le groupe de données de formation
-Le calcul de centiles approximatifs avec des variables numériques est également intéressant. Le « percentile\_approx» natif de Hive le fait pour nous. [sample&amp;#95;hive&amp;#95;criteo&amp;#95;approximate&amp;#95;percentiles.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_approximate_percentiles.hql) contient :
+Le calcul de centiles approximatifs avec des variables numériques est également intéressant. Le « percentile\_approx» natif de Hive le fait pour nous. [sample&#95;hive&#95;criteo&#95;approximate&#95;percentiles.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_approximate_percentiles.hql) contient :
 
         SELECT MIN(Col2) AS Col2_min, PERCENTILE_APPROX(Col2, 0.1) AS Col2_01, PERCENTILE_APPROX(Col2, 0.3) AS Col2_03, PERCENTILE_APPROX(Col2, 0.5) AS Col2_median, PERCENTILE_APPROX(Col2, 0.8) AS Col2_08, MAX(Col2) AS Col2_max FROM criteo.criteo_train;
 
@@ -308,7 +308,7 @@ Cela donne :
 
 Notez que Col15 possède des valeurs uniques 19M ! L’utilisation des techniques naïves, telles que « l’encodage à chaud » pour encoder des variables catégorielles de grande dimension, est tout bonnement impossible. Une technique puissante et robuste appelée [Apprentissage à l’aide de compteurs](https://blogs.technet.com/b/machinelearning/archive/2015/02/17/big-learning-made-easy-with-counts.aspx) est notamment expliquée et présentée pour résoudre ce problème de manière efficace.
 
-Enfin, examinez le nombre de valeurs uniques pour d’autres colonnes catégorielles. [sample&amp;#95;hive&amp;#95;criteo&amp;#95;unique&amp;#95;values&amp;#95;multiple&amp;#95;categoricals.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_unique_values_multiple_categoricals.hql) contient :
+Enfin, examinez le nombre de valeurs uniques pour d’autres colonnes catégorielles. [sample&#95;hive&#95;criteo&#95;unique&#95;values&#95;multiple&#95;categoricals.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_unique_values_multiple_categoricals.hql) contient :
 
         SELECT COUNT(DISTINCT(Col16)), COUNT(DISTINCT(Col17)),
         COUNT(DISTINCT(Col18), COUNT(DISTINCT(Col19), COUNT(DISTINCT(Col20))
@@ -417,7 +417,7 @@ Pour créer des tables de comptage sur les données numériques, utilisez les do
 Notre processus de création de modèles dans Azure Machine Learning se déroule comme suit :
 
 1. [Récupération des données des tables Hive dans Azure Machine Learning](#step1)
-2. [Création de l’expérience : nettoyer les données et une fonctionnalité des tables de comptage](#step2)
+2. [Création de l’expérience : nettoyage des données et caractérisation des tables de comptage](#step2)
 3. [Création, formation et notation du modèle](#step3)
 4. [Évaluation du modèle](#step4)
 5. [Publication du modèle comme service web](#step5)
@@ -451,7 +451,7 @@ Cliquez avec le bouton droit sur le port de sortie du module **Importer des donn
 
 Pour sélectionner le groupe de données enregistré et l’utiliser dans une expérience d’apprentissage automatique, recherchez les groupes de données à l’aide de la zone **Recherche** visible dans l’illustration ci-dessous. Puis tapez simplement une partie du nom attribué au groupe de données pour accéder à celui-ci et faites-le glisser sur le panneau principal. En le déposant sur le panneau principal, ce groupe de données est sélectionné pour être utilisé dans la modélisation de l’apprentissage automatique.
 
-![Faites glisser de jeu de données sur le panneau principal](./media/hive-criteo-walkthrough/cl5tpGw.png)
+![Faites glisser l’ensemble de données sur le panneau principal](./media/hive-criteo-walkthrough/cl5tpGw.png)
 
 > [!NOTE]
 > Réalisez cette opération pour les groupes de données de formation et de test. En outre, n'oubliez pas d'utiliser le nom de la base de données et les noms de tables attribués à cet effet. Les valeurs de la capture d’écran sont utilisées à simple titre d’illustration.\**

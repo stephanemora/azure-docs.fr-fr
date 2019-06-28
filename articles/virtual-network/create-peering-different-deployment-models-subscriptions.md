@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: kumud;anavin
 ms.openlocfilehash: 2cdf136a01678f7fb2e594b325cd78e8e0240c70
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64683414"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-and-subscriptions"></a>Créer une homologation de réseaux virtuels Azure - Modèles de déploiement et abonnements différents
@@ -71,7 +71,7 @@ Ce didacticiel utilise des comptes différents pour chaque abonnement. Si vous u
     - **Emplacement** : *USA Est*
 
 14. Dans le champ **Rechercher des ressources** située en haut du portail, tapez *myVnetB*. Quand la mention **myVnetB** apparaît dans les résultats de recherche, cliquez dessus. Un panneau apparaît pour le réseau virtuel **myVnetB**.
-15. Dans le panneau **myVnetB** qui s’affiche, cliquez sur **Propriétés** dans la liste verticale des options sur le côté gauche du panneau. Copiez l’**ID de ressource**, qui vous servira lors d’une étape ultérieure. L’ID de ressource est similaire à l’exemple suivant : `/subscriptions/<Subscription ID>/resourceGroups/myResourceGroupB/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB`
+15. Dans le panneau **myVnetB** qui s’affiche, cliquez sur **Propriétés** dans la liste verticale des options sur le côté gauche du panneau. Copiez l’**ID de ressource**, qui vous servira lors d’une étape ultérieure. L’ID de la ressource ressemble à celui de l’exemple qui suit : `/subscriptions/<Subscription ID>/resourceGroups/myResourceGroupB/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB`
 16. Effectuez les étapes 5 à 9 pour myVnetB, en entrant **UserA** à l’étape 8.
 17. Déconnectez-vous du portail en tant que UserB, puis connectez-vous en tant que UserA.
 18. Dans le champ **Rechercher des ressources** située en haut du portail, tapez *myVnetA*. Quand la mention **myVnetA** apparaît dans les résultats de recherche, cliquez dessus. Un panneau apparaît pour le réseau virtuel **myVnet**.
@@ -180,7 +180,7 @@ Ce didacticiel utilise des comptes différents pour chaque abonnement. Si vous u
 
 Ce didacticiel utilise des comptes différents pour chaque abonnement. Si vous utilisez un compte qui a des autorisations pour les deux abonnements, vous pouvez utiliser le même compte pour toutes les étapes, ignorer les étapes de déconnexion d’Azure et supprimer les lignes de script qui créent les affectations de rôle utilisateur. Remplacez UserA@azure.com et UserB@azure.com dans tous les scripts suivants par les noms d’utilisateurs que vous utilisez pour UserA et UserB. 
 
-1. Installez la dernière version de la commande PowerShell [Azure](https://www.powershellgallery.com/packages/Azure) et [Az](https://www.powershellgallery.com/packages/Az) modules. Si vous débutez dans l’utilisation d’Azure PowerShell, voir [Vue d’ensemble d’Azure PowerShell](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json).
+1. Installez la dernière version des modules PowerShell [Azure](https://www.powershellgallery.com/packages/Azure) et [Az](https://www.powershellgallery.com/packages/Az). Si vous débutez dans l’utilisation d’Azure PowerShell, voir [Vue d’ensemble d’Azure PowerShell](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json).
 2. Démarrez une session PowerShell.
 3. Dans PowerShell, connectez-vous à l’abonnement de UserB en tant que UserB en entrant la commande `Add-AzureAccount`. Le compte auquel vous vous connectez doit avoir les autorisations nécessaires pour créer une homologation de réseaux virtuels. Pour obtenir une liste d’autorisations, consultez [Autorisations d’homologation de réseau virtuel](virtual-network-manage-peering.md#permissions).
 4. Pour créer un réseau virtuel (classique) avec PowerShell, vous devez créer un fichier de configuration réseau ou en modifier un existant. Pour découvrir [comment exporter, mettre à jour et importer des fichiers de configuration réseau, consultez cet article](virtual-networks-using-network-configuration-file.md). Le fichier doit inclure l’élément **VirtualNetworkSite** suivant pour le réseau virtuel utilisé dans ce didacticiel :

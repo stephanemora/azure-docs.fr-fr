@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 07/02/2017
 ms.author: aljo
 ms.openlocfilehash: bfac14c598b405a398cad916787aa3312589bfd1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60393568"
 ---
 # <a name="package-and-deploy-an-existing-executable-to-service-fabric"></a>Empaqueter et déployer un fichier exécutable existant sur Service Fabric
@@ -73,7 +73,7 @@ Le processus d’empaquetage manuel d’un exécutable invité est basé sur les
 -->
 
 ### <a name="create-the-package-directory-structure"></a>Création de la structure de répertoires du package
-Commencez par créer la structure de répertoire, comme décrit dans [empaqueter une application Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-package-apps).
+Vous pouvez commencer par créer la structure de répertoires, comme décrit dans [Empaqueter une application Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-package-apps).
 
 ### <a name="add-the-applications-code-and-configuration-files"></a>Ajout des fichiers de code et de configuration de l’application
 Après avoir créé la structure de répertoires, vous pouvez ajouter les fichiers de code et de configuration de l’application dans les répertoires code et config. Vous pouvez également créer d’autres répertoires ou sous-répertoires dans les répertoires code ou config.

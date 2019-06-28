@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: jingwang
 ms.openlocfilehash: 6a7e0a27d3cda4193a04467d541f851a9e57fa46
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60548790"
 ---
 # <a name="load-data-into-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Charger des données dans Azure SQL Data Warehouse à l’aide d’Azure Data Factory
@@ -26,22 +26,22 @@ La prise en main d’Azure SQL Data Warehouse est désormais plus facile lorsque
 
 Azure Data Factory offre les avantages suivants pour le chargement des données dans Azure SQL Data Warehouse :
 
-* **Facilité de configuration** : Un Assistant intuitif en 5 étapes sans script nécessaire.
-* **Prise en charge de magasin de données riches**: Prise en charge intégrée d’un ensemble complet d’en local et magasins de données basée sur le cloud. Pour une liste détaillée, consultez le tableau [Banques de données prises en charge](copy-activity-overview.md#supported-data-stores-and-formats).
-* **Sécurité et conformité**: Données sont transférées via HTTPS ou ExpressRoute. La présence globale du service garantit que vos données ne quittent jamais les limites géographiques.
-* **Des performances inégalées à l’aide de PolyBase**: Polybase est le moyen le plus efficace pour déplacer des données dans Azure SQL Data Warehouse. Utilisez la fonction blob intermédiaire pour atteindre des vitesses de charge élevées pour tous les types de magasins de données, y compris le stockage Blob Azure et Data Lake Store. (Polybase prend en charge le stockage Blob Azure et Azure Data Lake Store par défaut.) Pour plus d’informations, consultez [Performances de l’activité de copie](copy-activity-performance.md).
+* **Facilité de configuration** : assistant intuitif en 5 étapes. Aucun script nécessaire.
+* **Prise en charge étendue du magasin de données** : prise en charge intégrée d’un ensemble complet de magasins de données locaux et informatiques. Pour une liste détaillée, consultez le tableau [Banques de données prises en charge](copy-activity-overview.md#supported-data-stores-and-formats).
+* **Sécurité et conformité** : les données sont transférées via HTTPS ou ExpressRoute. La présence globale du service garantit que vos données ne quittent jamais les limites géographiques.
+* **Performances sans précédent à l’aide de PolyBase** : PolyBase est le moyen le plus efficace de déplacer des données dans Azure SQL Data Warehouse. Utilisez la fonction blob intermédiaire pour atteindre des vitesses de charge élevées pour tous les types de magasins de données, y compris le stockage Blob Azure et Data Lake Store. (Polybase prend en charge le stockage Blob Azure et Azure Data Lake Store par défaut.) Pour plus d’informations, consultez [Performances de l’activité de copie](copy-activity-performance.md).
 
 Cet article explique comment utiliser l’outil de copie de données Data Factory pour _charger des données d’Azure SQL Database dans Azure SQL Data Warehouse_. Vous pouvez procéder de même pour copier des données à partir d’autres types de magasins de données.
 
 > [!NOTE]
 > Pour plus d’informations, consultez [Copier des données depuis/vers Azure SQL Data Warehouse à l’aide d’Azure Data Factory](connector-azure-sql-data-warehouse.md).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 * Abonnement Azure : Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
-* Azure SQL Data Warehouse : L’entrepôt de données conserve les données copiées à partir de la base de données SQL. Si vous n’avez pas d’entrepôt de données Azure SQL Data Warehouse, consultez les instructions dans [Créer un entrepôt de données SQL](../sql-data-warehouse/sql-data-warehouse-get-started-tutorial.md).
-* Azure SQL Database : Ce didacticiel copie les données à partir d’une base de données SQL Azure avec des exemples de données Adventure Works LT. Vous pouvez créer une base de données SQL en suivant les instructions dans [Création d’une base de données Azure SQL](../sql-database/sql-database-get-started-portal.md). 
-* Compte Azure Storage : Le stockage Azure est utilisé en tant que le _intermédiaire_ blob dans l’opération de copie en bloc. Si vous ne possédez pas de compte de stockage Azure, consultez les instructions dans [Créer un compte de stockage](../storage/common/storage-quickstart-create-account.md).
+* Azure SQL Data Warehouse : l'entrepôt de données conserve les données copiées à partir de SQL Database. Si vous n’avez pas d’entrepôt de données Azure SQL Data Warehouse, consultez les instructions dans [Créer un entrepôt de données SQL](../sql-data-warehouse/sql-data-warehouse-get-started-tutorial.md).
+* Azure SQL Database : ce tutoriel copie les données à partir d’une base de données SQL avec l’exemple de données Adventure Works LT. Vous pouvez créer une base de données SQL en suivant les instructions dans [Création d’une base de données Azure SQL](../sql-database/sql-database-get-started-portal.md). 
+* Compte Azure Storage : Stockage Azure est utilisé comme objet blob _intermédiaire_ dans l’opération de copie en bloc. Si vous ne possédez pas de compte de stockage Azure, consultez les instructions dans [Créer un compte de stockage](../storage/common/storage-quickstart-create-account.md).
 
 ## <a name="create-a-data-factory"></a>Créer une fabrique de données
 
@@ -53,7 +53,7 @@ Cet article explique comment utiliser l’outil de copie de données Data Factor
       
    ![Page Nouvelle fabrique de données](./media/load-azure-sql-data-warehouse/new-azure-data-factory.png)
  
-    * **Nom** : Entrez un nom global unique pour votre fabrique de données Azure. Si l’erreur « Le nom de fabrique de données \"LoadSQLDWDemo\" n’est pas disponible » apparaît, saisissez un autre nom pour la fabrique de données. Par exemple, utilisez le nom _**votrenom**_**ADFTutorialDataFactory**. Essayez à nouveau de créer la fabrique de données. Pour savoir comment nommer les artefacts Data Factory, voir [Data Factory - Règles d’affectation des noms](naming-rules.md).
+    * **Nom** : Entrez un nom global unique pour votre fabrique de données Azure. Si l’erreur « Le nom de fabrique de données \"LoadSQLDWDemo\" n’est pas disponible » apparaît, saisissez un autre nom pour la fabrique de données. Par exemple, utilisez le nom _**votrenom**_ **ADFTutorialDataFactory**. Essayez à nouveau de créer la fabrique de données. Pour savoir comment nommer les artefacts Data Factory, voir [Data Factory - Règles d’affectation des noms](naming-rules.md).
     * **Abonnement**: Sélectionnez l’abonnement Azure dans lequel créer la fabrique de données. 
     * **Groupe de ressources** : Sélectionnez un groupe de ressources existant dans la liste déroulante ou sélectionnez l’option **Créer** et entrez le nom d’un groupe de ressources. Pour plus d’informations sur les groupes de ressources, consultez [Utilisation des groupes de ressources pour gérer vos ressources Azure](../azure-resource-manager/resource-group-overview.md).  
     * **Version** : Sélectionnez **V2**.
@@ -85,7 +85,7 @@ Cet article explique comment utiliser l’outil de copie de données Data Factor
 
     ![Sélectionner Azure SQL DB](./media/load-azure-sql-data-warehouse/select-azure-sql-db-source.png)
 
-    c. Dans le **nouveau Service lié** page, sélectionnez votre nom de serveur et le nom de la base de données dans la liste déroulante et spécifiez le nom d’utilisateur et le mot de passe. Cliquez sur **Tester la connexion** pour vérifier les paramètres, puis sélectionnez **Terminer**.
+    c. Dans la page **Nouveau service lié**, sélectionnez le nom de votre serveur et le nom de votre base de données dans la liste déroulante, puis spécifiez le nom d’utilisateur et le mot de passe. Cliquez sur **Tester la connexion** pour vérifier les paramètres, puis sélectionnez **Terminer**.
    
     ![Configurer Azure SQL DB](./media/load-azure-sql-data-warehouse/configure-azure-sql-db.png)
 
@@ -107,7 +107,7 @@ Cet article explique comment utiliser l’outil de copie de données Data Factor
 
     ![Sélectionner Azure SQL DW](./media/load-azure-sql-data-warehouse/select-azure-sql-dw-sink.png)
 
-    c. Dans le **nouveau Service lié** page, sélectionnez votre nom de serveur et le nom de la base de données dans la liste déroulante et spécifiez le nom d’utilisateur et le mot de passe. Cliquez sur **Tester la connexion** pour vérifier les paramètres, puis sélectionnez **Terminer**.
+    c. Dans la page **Nouveau service lié**, sélectionnez le nom de votre serveur et le nom de votre base de données dans la liste déroulante, puis spécifiez le nom d’utilisateur et le mot de passe. Cliquez sur **Tester la connexion** pour vérifier les paramètres, puis sélectionnez **Terminer**.
    
     ![Configurer Azure SQL DW](./media/load-azure-sql-data-warehouse/configure-azure-sql-dw.png)
 

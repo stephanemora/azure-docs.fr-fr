@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 02/22/2019
 ms.author: aljo
 ms.openlocfilehash: bb99e5984f91edb0cf40f3bdc485624b9ec59833
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60506737"
 ---
 # <a name="working-with-reliable-collections"></a>Utilisation des collections fiables
@@ -207,7 +207,7 @@ En outre, le code de service est mis à niveau à raison d’un domaine de mise 
 
 > [!WARNING]
 > Si vous pouvez modifier le schéma d’une clé, vous devez vous assurer de la stabilité du code de hachage et des algorithmes d’égalisation de votre clé. Si vous modifiez le mode de fonctionnement de l’un de ces algorithmes, vous ne pourrez plus jamais rechercher la clé dans le dictionnaire fiable.
-> Chaînes .NET utilisable comme une clé, mais utilisez la chaîne elle-même en tant que la clé, n’utilisez pas le résultat de String.GetHashCode comme clé.
+> Les chaînes .NET peuvent être utilisées comme clés, mais utilisez la chaîne elle-même en tant que clé et n’utilisez pas le résultat de String.GetHashCode comme clé.
 
 Vous pouvez également effectuer ce que l'on appelle communément une mise à niveau en deux phases. Dans le cadre d'une mise à niveau en deux phases, vous mettez à niveau votre service de la V1 vers la V2 : la V2 contient le code capable de prendre en charge les nouvelles modifications du schéma, mais ce code ne s’exécute pas. Lorsque le code V2 lit les données de la V1, il agit sur ces dernières et écrit les données V1. Ensuite, une fois la mise à niveau effectuée sur tous les domaines de mise à niveau, vous pouvez d’une certaine manière signaler aux instances V2 en cours d’exécution que la mise à niveau est terminée (pour ce faire, vous pouvez déployer une mise à niveau de la configuration ; c’est précisément cette opération qui en fait une mise à niveau en deux phases). À présent, les instances V2 peuvent lire les données de V1, les convertir en données V2, les exploiter et les écrire en tant que données V2. Lorsque d’autres instances lisent les données V2, elles n’ont pas besoin de les convertir. Elles les exploitent simplement et écrivent des données V2.
 
