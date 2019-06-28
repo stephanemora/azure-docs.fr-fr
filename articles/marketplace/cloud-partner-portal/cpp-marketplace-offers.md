@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: pabutler
 ms.openlocfilehash: 2d440adc5111db11486d1fc606abbda0ffae9595
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64942535"
 ---
 # <a name="azure-and-appsource-marketplace-offers"></a>Offres des places de marché Azure et AppSource
@@ -49,11 +49,11 @@ Le tableau suivant répertorie les types d’offre actuels pris en charge par le
 | [Service de conseil](./consulting-services/cloud-partner-portal-consulting-services-publishing-offer.md) | Les deux | Les consultants agréés Microsoft peuvent annoncer leurs services spécifiques à un domaine sur la Place de marché Microsoft Azure ou AppSource.  Leur expertise aide les clients à évaluer leurs problèmes et à créer et à déployer des solutions adaptées à leurs objectifs métier.  |
 | [Conteneur](./containers/cpp-containers-offer.md)  | Azure | La solution est une image conteneur Docker provisionnée en tant que service Kubernetes ou instances Azure Container. |
 | [Dynamics 365 Business Central](../cloud-partner-portal-orig/cpp-business-central-offer.md) | AppSource | Package qui étend ce système ERP (Enterprise Resource Planning) et de gestion d’entreprise. |
-| [Dynamics 365 for Customer Engagement](./dyn365ce/cpp-customer-engagement-offer.md) | AppSource | Un package qui étend ce client système de gestion (CRM) de ressources, via ses ventes, service, service de projet et les modules de service de champ  |
-| [Dynamics 365 for Finance and Operations](../cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md) | AppSource | Un package qui étend ce planning (ERP) avancée du service qui prend en charge des ressources d’entreprise finance, opérations, fabrication et la gestion de la chaîne logistique |
+| [Dynamics 365 for Customer Engagement](./dyn365ce/cpp-customer-engagement-offer.md) | AppSource | Package qui étend ce système CRM (Customer Resource Management), par le biais de ses modules de ventes, de service, de service de projet et de service sur le terrain  |
+| [Dynamics 365 for Finance and Operations](../cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md) | AppSource | Package qui étend ce service ERP (Enterprise Resource Planning) qui gère les aspects avancés de la finance, des opérations, de la fabrication et de la gestion de la chaîne logistique |
 | [Module IoT Edge](./iot-edge-module/cpp-offer-process-parts.md) | Azure | Conteneur compatible Docker qui s’exécute sur un appareil IoT Edge.  Il contient de petits modules de calculs qui utilisent une combinaison de code personnalisé, d’autres services Azure et de services tiers. |
-| [Application Power BI](./power-bi/cpp-power-bi-offer.md) | AppSource | Une application Power BI utilisées par les packages de contenu Power BI personnalisable, y compris les jeux de données, des rapports et tableaux de bord |
-| [Application SaaS](./saas-app/cpp-saas-offer.md) | Azure | Solution est un abonnement de software-as-a-service, géré par le serveur de publication, les utilisateurs se connectent via une interface personnalisée qui utilise Azure Active Directory. |
+| [Application Power BI](./power-bi/cpp-power-bi-offer.md) | AppSource | Application Power BI utilisée regroupant le contenu Power BI personnalisable, notamment les jeux de données, les rapports et les tableaux de bord |
+| [Application SaaS](./saas-app/cpp-saas-offer.md) | Azure | La solution est un abonnement SaaS, gérée par l’éditeur, à laquelle les utilisateurs se connectent via une interface personnalisée qui utilise Azure Active Directory. |
 | [Machine virtuelle](./virtual-machine/cpp-virtual-machine-offer.md)  | Azure  | La solution est contenue dans une seule machine virtuelle déployée sur l’abonnement du client.  |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |   |   |
 
@@ -62,4 +62,4 @@ Pour plus d’informations, consultez [Guide de publication par type d’offre](
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Vous allez découvrir les opérations générales que vous pouvez effectuer sur les offres place de marché et leurs attributs techniques courants et les ressources dans l’article [gestion des offres](./manage-offers/cpp-manage-offers.md).
+Vous allez découvrir, dans l’article [Gérer les offres](./manage-offers/cpp-manage-offers.md), les opérations générales que vous pouvez effectuer sur les offres de place de marché et leurs ressources et attributs techniques communs.

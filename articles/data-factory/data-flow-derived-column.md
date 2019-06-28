@@ -1,19 +1,19 @@
 ---
-title: Azure Data Factory mappage de flux de données dérivée de Transformation de colonne
-description: Comment transformer des données à grande échelle avec Azure Data Factory mappage des données de flux de Transformation de colonne dérivée
+title: Transformation de colonne dérivée du flux de données de mappage d’Azure Data Factory
+description: Comment transformer des données à l’échelle avec la transformation de colonne dérivée du flux de données de mappage d’Azure Data Factory
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/08/2018
 ms.openlocfilehash: 6568e5ebf356bb0e6b4ac8ff6059cd093f8da821
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64917578"
 ---
-# <a name="mapping-data-flow-derived-column-transformation"></a>Mappage de flux de données dérivée de transformation de colonne
+# <a name="mapping-data-flow-derived-column-transformation"></a>Transformation de colonne dérivée du flux de données de mappage
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
@@ -29,10 +29,10 @@ La zone de texte Expression ouvre le Générateur d’expressions où vous pouve
 
 ## <a name="column-patterns"></a>Modèles de colonne
 
-Si vos noms de colonnes sont des variables à partir de vos sources, vous pouvez souhaiter créer des transformations à l’intérieur de la colonne dérivée à l’aide du modèle de colonne au lieu d’utiliser les colonnes nommées. Consultez le [une dérive du schéma](concepts-data-flow-schema-drift.md) article pour plus d’informations.
+Si vos noms de colonnes varient en fonction de vos sources, vous souhaiterez peut-être créer des transformations à l’intérieur de la colonne dérivée à l’aide de modèles de colonne au lieu d’utiliser des colonnes nommées. Consultez l’article [Dérive de schéma](concepts-data-flow-schema-drift.md) pour plus d’informations.
 
-![modèle de colonne](media/data-flow/columnpattern.png "modèle de colonne")
+![modèle de colonne](media/data-flow/columnpattern.png "Modèles de colonne")
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-En savoir plus sur la [langage d’expression de fabrique de données pour les transformations](https://aka.ms/dataflowexpressions) et [Générateur d’expressions](concepts-data-flow-expression-builder.md)
+En savoir plus sur le [langage d’expression de Data Factory pour les transformations](https://aka.ms/dataflowexpressions) et le [Générateur d’expressions](concepts-data-flow-expression-builder.md)

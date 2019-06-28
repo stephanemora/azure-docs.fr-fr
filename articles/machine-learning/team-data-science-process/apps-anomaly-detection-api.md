@@ -12,18 +12,18 @@ ms.date: 06/05/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=alokkirpal, previous-ms.author=alok
 ms.openlocfilehash: 16f13cd4ad580ea2f163fe87b5924c1462890972
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64926184"
 ---
 # <a name="machine-learning-anomaly-detection-api"></a>API de détection des anomalies Machine Learning
 
 > [!NOTE]
-> Cet élément est en cours de maintenance. Nous vous encourageons à utiliser le [service d’API de détecteur d’anomalies](https://azure.microsoft.com/services/cognitive-services/anomaly-detector/) alimentées par des algorithmes galerie de Machine Learning sous Azure Cognitive Services pour détecter les anomalies à partir de l’entreprise, opérationnelle et les métriques IoT.
+> Cet élément est en cours de maintenance. Nous vous encourageons à utiliser le [service d’API de détecteur d’anomalies](https://azure.microsoft.com/services/cognitive-services/anomaly-detector/) alimenté par des algorithmes de Machine Learning sous Azure Cognitive Services pour détecter les anomalies à partir de métriques d’entreprise, opérationnelles et IoT.
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 L’[API de détection des anomalies](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2) est un exemple d’API généré avec Microsoft Azure Machine Learning. Elle détecte des anomalies dans les données de séries chronologiques présentant des valeurs numériques qui sont réparties uniformément dans le temps.
 
 Cette API peut détecter les types suivants de schémas anormaux dans les données de séries chronologiques :
@@ -181,7 +181,7 @@ L’API exécute tous les détecteurs sur vos données de séries chronologiques
 | --- | --- |
 | Temps |Horodatages issus des données brutes ou des données agrégées (et/ou) imputées si l’imputation des données agrégées (et/ou) manquantes est appliquée. |
 | OriginalData |Valeurs issues des données brutes ou des données agrégées (et/ou) imputées si l’imputation des données agrégées (et/ou) manquantes est appliquée. |
-| ProcessedData |Soit :  <ul><li>série chronologique ajustée de façon saisonnière si un caractère saisonnier important a été détectée et si l’option deseason est sélectionnée ;</li><li>série chronologique redressée et ajustée de façon saisonnière si un caractère saisonnier important a été détectée et si l’option deseasontrend est sélectionnée ;</li><li>autrement, identique à OriginalData.</li> |
+| ProcessedData |Soit : <ul><li>série chronologique ajustée de façon saisonnière si un caractère saisonnier important a été détectée et si l’option deseason est sélectionnée ;</li><li>série chronologique redressée et ajustée de façon saisonnière si un caractère saisonnier important a été détectée et si l’option deseasontrend est sélectionnée ;</li><li>autrement, identique à OriginalData.</li> |
 | TSpike |Indicateur binaire signalant si un pic est détecté par le détecteur TSpike |
 | ZSpike |Indicateur binaire signalant si un pic est détecté par le détecteur ZSpike |
 | BiLevelChangeScore |Nombre flottant représentant le résultat d’anomalies pour un changement de niveau |

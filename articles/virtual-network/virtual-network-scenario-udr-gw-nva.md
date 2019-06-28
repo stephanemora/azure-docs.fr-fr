@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2016
 ms.author: kumud
 ms.openlocfilehash: 1bdc485dfb352144e8a8d0fb75965cbb78288e2c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64575593"
 ---
 # <a name="virtual-appliance-scenario"></a>Scénario d’appliance virtuelle
@@ -30,14 +30,14 @@ Pour les clients Azure volumineux, il faut souvent fournir une application à de
 * Tout le trafic envoyé au serveur d’applications doit transiter par une appliance virtuelle de pare-feu. Cette appliance virtuelle sera utilisée pour accéder au serveur principal depuis le réseau local via une passerelle VPN.
 * Les administrateurs doivent pouvoir gérer les appliances virtuelles de pare-feu à partir de leurs ordinateurs locaux, en utilisant une troisième appliance virtuelle de pare-feu exclusivement à des fins de gestion.
 
-Il s’agit d’un scénario de réseau (également knowns en tant que zone DMZ) périmètre standard avec une zone DMZ et un réseau protégé. Ce scénario peut être construite dans Azure à l’aide de groupes de sécurité réseau, les appliances virtuelles de pare-feu ou une combinaison des deux. Le tableau ci-dessous présente certains avantages et inconvénients des groupes de sécurité réseau et appliances virtuelles de pare-feu.
+Il s’agit d’un scénario de réseau de périmètre standard (également nommé DMZ) avec une zone DMZ et un réseau protégé. Ce scénario peut être mis en œuvre dans Azure à l’aide de groupes de sécurité réseau, d’appliances virtuelles de pare-feu ou d’une combinaison des deux. Le tableau ci-dessous présente certains avantages et inconvénients des groupes de sécurité réseau et appliances virtuelles de pare-feu.
 
 |  | Avantages | Inconvénients |
 | --- | --- | --- |
-| Groupe de sécurité réseau |Aucun coût. <br/>Intégré dans Azure RBAC. <br/>Règles peuvent être créées dans les modèles Azure Resource Manager. |Complexité variable dans les environnements de grande taille. |
+| Groupe de sécurité réseau |Aucun coût. <br/>Intégré dans Azure RBAC. <br/>Il est possible de créer des règles dans les modèles Azure Resource Manager. |Complexité variable dans les environnements de grande taille. |
 | Pare-feu |Contrôle total sur le plan des données. <br/>Gestion centralisée via la console du pare-feu. |Coût de l’appliance de pare-feu. <br/>Non intégré dans Azure RBAC. |
 
-La solution ci-dessous utilise des appliances virtuelles de pare-feu pour implémenter un réseau de périmètre (DMZ) / protégé le scénario de réseau.
+La solution ci-dessous utilise des appliances virtuelles de pare-feu pour implémenter un scénario de réseau de périmètre (DMZ)/réseau protégé.
 
 ## <a name="considerations"></a>Considérations
 Vous pouvez déployer l’environnement décrit ci-dessus dans Azure à l’aide de différentes fonctionnalités disponibles aujourd’hui, comme suit.
@@ -46,7 +46,7 @@ Vous pouvez déployer l’environnement décrit ci-dessus dans Azure à l’aide
 * **Appliance virtuelle**. Plusieurs partenaires fournissent des appliances virtuelles dans Azure Marketplace, utilisables pour les trois pare-feu décrits ci-dessus. 
 * **Itinéraires définis par l’utilisateur**. Les tables peuvent contenir des itinéraires définis par l’utilisateur, utilisés par la mise en réseau Azure pour contrôler le flux de paquets dans un réseau virtuel. Ces tables d’itinéraires peuvent être appliquées à des sous-réseaux. L’une des fonctionnalités les plus récentes d’Azure consiste à appliquer une table d’itinéraires au sous-réseau GatewaySubnet, pour transférer tout le trafic entrant dans le réseau virtuel Azure entre la connexion hybride et une appliance virtuelle.
 * **Transfert IP**. Par défaut, le moteur de mise en réseau Azure ne transfère les paquets aux cartes réseau que si l’adresse IP de destination des paquets correspond à l’adresse IP de la carte réseau. Par conséquent, si un itinéraire défini par l’utilisateur détermine qu’un paquet doit être envoyé à une appliance virtuelle donnée, le moteur de mise en réseau Azure supprime ce paquet. Pour vérifier que le paquet est envoyé à une machine virtuelle (dans ce cas, une appliance virtuelle) qui n’est pas la destination réelle du paquet, vous devez activer le transfert IP pour l’appliance virtuelle.
-* **Groupes de sécurité réseau (NSG)**. L’exemple ci-dessous ne fait pas l’utilisation de groupes de sécurité réseau, mais vous pouvez utiliser des NSG appliqués aux sous-réseaux ou des cartes réseau dans cette solution pour filtrer le trafic vers et depuis ces sous-réseaux et cartes réseau.
+* **Groupes de sécurité réseau (NSG)** . L’exemple ci-dessous ne fait pas l’utilisation de groupes de sécurité réseau, mais vous pouvez utiliser des NSG appliqués aux sous-réseaux ou des cartes réseau dans cette solution pour filtrer le trafic vers et depuis ces sous-réseaux et cartes réseau.
 
 ![Connectivité IPv6](./media/virtual-network-scenario-udr-gw-nva/figure01.png)
 
@@ -134,19 +134,19 @@ Comme décrit ci-dessus, le transfert IP ne garantit que l’envoi des paquets �
 ### <a name="opfw"></a>OPFW
 OPFW représente un appareil local contenant les règles suivantes :
 
-* **itinéraire**: Tout le trafic vers 10.0.0.0/16 (**azurevnet**) doit être envoyé via le tunnel **ONPREMAZURE**.
-* **Stratégie** : Autoriser tout le trafic bidirectionnel entre **port2** et **ONPREMAZURE**.
+* **Itinéraire** : tout le trafic vers 10.0.0.0/16 (**azurevnet**) doit être envoyé via le tunnel **ONPREMAZURE**.
+* **Stratégie** : autoriser tout le trafic bidirectionnel entre **port2** et **ONPREMAZURE**.
 
 ### <a name="azf1"></a>AZF1
 AZF1 représente une appliance virtuelle Azure contenant les règles suivantes :
 
-* **Stratégie** : Autoriser tout le trafic bidirectionnel entre **port1** et **port2**.
+* **Stratégie** : autoriser tout le trafic bidirectionnel entre **port1** et **port2**.
 
 ### <a name="azf2"></a>AZF2
 AZF2 représente une appliance virtuelle Azure contenant les règles suivantes :
 
-* **itinéraire**: Tout le trafic vers 10.0.0.0/16 (**onpremvnet**) doit être envoyé à la passerelle Azure l’adresse IP (par exemple, 10.0.0.1) via **port1**.
-* **Stratégie** : Autoriser tout le trafic bidirectionnel entre **port1** et **port2**.
+* **Itinéraire** : tout le trafic vers 10.0.0.0/16 (**onpremvnet**) doit être envoyé à l’adresse IP de la passerelle Azure (par exemple, 10.0.0.1) via **port1**.
+* **Stratégie** : autoriser tout le trafic bidirectionnel entre **port1** et **port2**.
 
 ## <a name="network-security-groups-nsgs"></a>Groupes de sécurité réseau (NSG)
 Dans ce scénario, les groupes de sécurité réseau ne sont pas utilisés. Toutefois, vous pouvez appliquer des groupes de sécurité réseau à chaque sous-réseau pour limiter les trafics entrant et sortant. Par exemple, vous pouvez appliquer les règles de groupe de sécurité réseau suivantes au sous-réseau FW externe.
@@ -167,5 +167,5 @@ Pour déployer ce scénario, suivez la procédure générale suivante.
 2. Si vous souhaitez déployer un réseau virtuel pour imiter le réseau local, approvisionnez les ressources qui font partie de **ONPREMRG**.
 3. Approvisionnez les ressources qui font partie de **AZURERG**.
 4. Approvisionnez le tunnel reliant **onpremvnet** à **azurevnet**.
-5. Une fois que toutes les ressources sont approvisionnées, connectez-vous à **onpremvm2** et la commande ping 10.0.3.101 pour tester la connectivité entre **onpremsn2** et **azsn3**.
+5. Une fois toutes les ressources approvisionnées, connectez-vous sur **onpremvm2** et envoyez la commande ping 10.0.3.101 pour tester la connectivité entre **onpremsn2** et **azsn3**.
 

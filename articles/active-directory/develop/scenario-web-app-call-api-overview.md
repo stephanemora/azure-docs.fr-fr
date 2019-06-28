@@ -1,6 +1,6 @@
 ---
-title: Application Web par appels web API (vue d’ensemble) - plateforme d’identité Microsoft
-description: Découvrez comment créer une application web par appels web API (vue d’ensemble)
+title: Application web qui appelle des API web (vue d’ensemble) - Plateforme d’identités Microsoft
+description: Apprenez à générer une application web qui appelle des API web (vue d’ensemble)
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -16,47 +16,47 @@ ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ce45f11a697b72ebdd0fe01166a70e7b47aa8e9f
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65076299"
 ---
-# <a name="scenario-web-app-that-calls-web-apis"></a>Scénario : Application Web appelle des API web
+# <a name="scenario-web-app-that-calls-web-apis"></a>Scénario : Application web qui appelle des API web
 
-Découvrez comment créer une application web d’ouverture de session des utilisateurs sur la plateforme Microsoft identity et qui appelle des API web part de l’utilisateur connecté.
+Découvrez comment générer une application web qui connecte des utilisateurs à la Plateforme d’identités Microsoft et qui appelle des API web au nom de l’utilisateur connecté.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [Pre-requisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
-Ce scénario suppose que vous avez parcouru le scénario suivant :
+Ce scénario repose sur l’hypothèse que vous avez parcouru le scénario suivant :
 
 > [!div class="nextstepaction"]
-> [Application Web que les utilisateurs se connecte](scenario-web-app-sign-user-overview.md)
+> [Application web qui connecte les utilisateurs](scenario-web-app-sign-user-overview.md)
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
-Vous ajoutez l’authentification à votre application Web, qui peuvent se connecter par conséquent, les utilisateurs et appelle une API web part de l’utilisateur connecté.
+Vous ajoutez une authentification à votre application web, qui peut ainsi connecter des utilisateurs et qui appelle une API web au nom de l’utilisateur connecté.
 
-![Application Web appelle des API web](./media/scenario-webapp/web-app.svg)
+![Application web qui appelle des API web](./media/scenario-webapp/web-app.svg)
 
-Les applications Web qui appelle des API web :
+Les applications web qui appellent des API web :
 
-- Sont des applications de client confidentiel.
-- C’est pourquoi ils avez inscrit un secret (application de mot de passe ou certificat) avec Azure AD. Ce secret est passé lors de l’appel à Azure AD pour obtenir un jeton
+- sont des applications clientes confidentielles ;
+- ont donc inscrit un secret (mot de passe ou certificat d’application) auprès d’Azure AD. Ce secret est transmis lors de l’appel à Azure AD pour permettre l’obtention d’un jeton.
 
 ## <a name="specifics"></a>Spécificités
 
 > [!NOTE]
-> Ajout de connexion à une application Web n’utilise pas les bibliothèques MSAL car il s’agit sur la protection de l’application Web. Protection de bibliothèques est obtenue en bibliothèques nommés intergiciel (middleware). C’était l’objet du scénario précédent [connexion, les utilisateurs à une application Web](scenario-web-app-sign-user-overview.md)
+> L’ajout d’une fonctionnalité de connexion à une application web n’utilise pas les bibliothèques d’authentification Microsoft (MSAL), car cette opération implique de protéger l’application web. La protection des applications est assurée par des bibliothèques appelées intergiciels. Cette tâche est décrite dans le scénario précédent, [Application web qui connecte les utilisateurs](scenario-web-app-sign-user-overview.md).
 >
-> Lors de l’appel d’API web à partir d’une application Web, vous devez obtenir des jetons d’accès pour ces API web. Vous pouvez utiliser des bibliothèques MSAL pour acquérir ces jetons.
+> Lorsque vous appelez des API web à partir d’une application web, vous devez obtenir des jetons d’accès pour ces API. Vous pouvez acquérir ces jetons à l’aide des bibliothèques MSAL.
 
-Par conséquent, l’expérience de bout en bout des développeurs pour ce scénario présente des aspects spécifiques en tant que :
+L’expérience de bout en bout des développeurs dans le cadre de ce scénario présente donc certaines spécificités :
 
-- Lors de la [inscription d’Application](scenario-web-app-call-api-app-registration.md), vous devez fournir un, ou plusieurs (si vous déployez votre application à plusieurs emplacements) répondent URI, secrets, ou les certificats doivent être partagée avec Azure AD.
-- Le [configuration de l’Application](scenario-web-app-call-api-app-configuration.md) doit fournir des informations d’identification de client comme partagée avec Azure AD lors de l’inscription de l’application
+- Lors de [l’inscription d’application](scenario-web-app-call-api-app-registration.md), vous devez fournir un ou plusieurs (si vous déployez votre application à différents emplacements) URI de réponse, secrets ou certificats qui doivent être partagés avec Azure AD.
+- La [configuration de l’application](scenario-web-app-call-api-app-configuration.md) doit fournir les informations d’identification de client qui ont été partagées avec Azure AD lors de l’inscription d’application.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

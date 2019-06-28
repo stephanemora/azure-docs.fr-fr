@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
 ms.openlocfilehash: f96171e1c75676a185edf4a1901ef65b7181135a
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64720998"
 ---
 # <a name="analyze-apache-hadoop-logs"></a>Analyser les journaux d’activité Apache Hadoop
@@ -32,7 +32,7 @@ Lorsque vous créez un cluster HDInsight, six tables sont automatiquement créé
 * ambariserverlog
 * ambariagentlog
 
-Les noms de fichiers de table sont **u\<ClusterName > Jjmoiaaaaàhhmmsssss\<TableName >**.
+Les noms de fichiers de table sont établis comme suit : **u\<NomCluster>JJMAAAAatHHMMSSsss\<NomTable>** .
 
 Ces tables contiennent les champs suivants :
 
@@ -89,7 +89,7 @@ Vous pouvez maintenant utiliser Excel pour filtrer et trier en fonction de vos b
 3. Dans **Cloud Explorer**, sélectionnez **Types de ressources**.  L’autre option disponible est **Groupes de ressources**.
 4. Développez **Comptes de stockage**, le compte de stockage par défaut pour votre cluster, puis **Tables**.
 5. Double-cliquez sur **hadoopservicelog**.
-6. Ajoutez un filtre. Par exemple : 
+6. Ajoutez un filtre. Par exemple :
    
         TraceLevel eq 'ERROR'
    

@@ -1,6 +1,6 @@
 ---
-title: Afficher un aperçu des API REST pour Azure Search 2019-05-06-Preview - recherche Azure
-description: Azure Search Service REST API Version 2019-05-06-Preview comprend des fonctionnalités expérimentales telles que le magasin de la base de connaissances et les clés de chiffrement gérées par le client.
+title: Afficher un aperçu de l’API REST pour Azure Search 2019-05-06-Preview – Recherche Azure
+description: L’API REST du service Recherche Azure, version 2019-05-06-Preview, comprend des fonctionnalités expérimentales, par exemple, la base de connaissances et les clés de chiffrement gérées par le client.
 services: search
 author: HeidiSteen
 manager: cgronlun
@@ -13,32 +13,32 @@ ms.date: 05/02/2019
 ms.author: HeidiSteen
 ms.custom: seodec2018
 ms.openlocfilehash: 5374ff896613dd8f8563a2054be8a92103e63fbb
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65523900"
 ---
-# <a name="azure-search-service-rest-api-version-2019-05-06-preview"></a>Version de l’api REST de Service de recherche Azure 2019-05-06-Preview
+# <a name="azure-search-service-rest-api-version-2019-05-06-preview"></a>API REST du service Recherche Azure, version 2019-05-06-Preview
 Cet article décrit la version `api-version=2019-05-06-Preview` de l’API REST du service Recherche Azure, qui offre des fonctionnalités expérimentales pas encore mises à la disposition générale.
 
 > [!NOTE]
 > Les fonctionnalités en préversion sont disponibles pour le test et l’expérimentation en vue de recueillir des commentaires, elles sont susceptibles de changer. Nous vous conseillons vivement d’utiliser des API en version préliminaire dans les applications de production.
 
 
-## <a name="new-in-2019-05-06-preview"></a>Nouveautés de 2019-05-06-Preview
+## <a name="new-in-2019-05-06-preview"></a>Nouveauté de 2019-05-06-Preview
 
-[**Magasin de la base de connaissances** ](knowledge-store-concept-intro.md) est une nouvelle destination d’un pipeline d’enrichissement par intelligence artificielle. En plus d’un index, vous pouvez maintenant conserver les structures de données remplis créés lors de l’indexation dans le stockage Azure. Vous contrôlez les structures physiques de vos données via les éléments de compétences, y compris la façon dont les données sont mises en forme, si les données sont stockées dans le stockage de Table ou de stockage d’objets Blob, et s’il existe plusieurs vues.
+[**Base de connaissances**](knowledge-store-concept-intro.md) est une nouvelle destination d’un pipeline d’enrichissement par intelligence artificielle. En plus d’un index, vous pouvez maintenant conserver des structures de données remplis créées lors de l’indexation dans le stockage Azure. Vous contrôlez les structures physiques de vos données via les éléments dans un ensemble de compétences, y compris la façon dont les données sont mises en forme, si elles sont stockées dans le stockage de table ou un stockage Blob, et s’il existe plusieurs vues.
 
-[**Clés de chiffrement gérées par le client** ](search-security-manage-encryption-keys.md) pour le chiffrement au repos côté service est également une nouvelle fonctionnalité préliminaire. Outre l’intégrés chiffrement au repos géré par Microsoft, vous pouvez appliquer une couche supplémentaire d’où vous êtes l’unique propriétaire des clés de chiffrement.
+[**Clés de chiffrement gérées par le client**](search-security-manage-encryption-keys.md) pour le chiffrement au repos côté service est également une nouvelle fonctionnalité d’évaluation. Outre le chiffrement au repos intégré géré par Microsoft, vous pouvez appliquer une couche supplémentaire de chiffrement lorsque vous êtes l’unique propriétaire des clés.
 
 ## <a name="other-preview-features"></a>Autres fonctionnalités en préversion
 
 Les fonctionnalités annoncées dans les préversions antérieures sont toujours en préversion publique. Si vous appelez une API avec une api-version d’une préversion antérieure, vous pouvez continuer à utiliser cette version ou basculer sur `2019-05-06-Preview` sans aucun effet sur le comportement attendu.
 
 + Le [paramètre de requête moreLike This](search-more-like-this.md) permet de rechercher des documents correspondant à un document spécifique. Cette fonctionnalité existait dans les préversions antérieures. 
-* [Indexation des objets blob CSV](search-howto-index-csv-blobs.md) crée un document par ligne, par opposition à un document par l’objet blob de texte.
-* [Prise en charge de l’API MongoDB pour les indexeurs de Cosmos DB](search-howto-index-cosmosdb.md) est en version préliminaire.
+* L’[indexation des objets blob CSV](search-howto-index-csv-blobs.md) crée un document par ligne, par opposition à un document par l’objet blob de texte.
+* La [prise en charge de l’API MongoDB pour les indexeurs Cosmos DB](search-howto-index-cosmosdb.md) est en préversion.
 
 
 ## <a name="how-to-call-a-preview-api"></a>Comment appeler une API en préversion
@@ -53,7 +53,7 @@ Le service Azure Search est disponible dans plusieurs versions. Pour plus d’in
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Passez en revue la documentation de référence API REST de Service de recherche Azure. Si vous rencontrez des problèmes, nous demander de l’aide sur [StackOverflow](https://stackoverflow.com/) ou [contactez le support technique](https://azure.microsoft.com/support/community/?product=search).
+Consultez la documentation de référence relative à l’API REST du service Recherche Azure. Si vous rencontrez des problèmes, sollicitez notre aide sur [StackOverflow](https://stackoverflow.com/) ou [contactez le support](https://azure.microsoft.com/support/community/?product=search).
 
 > [!div class="nextstepaction"]
-> [Référence de l’API REST du service de recherche](https://docs.microsoft.com/rest/api/searchservice/)
+> [Référence de l’API REST du service Recherche](https://docs.microsoft.com/rest/api/searchservice/)

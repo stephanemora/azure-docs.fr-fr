@@ -1,7 +1,7 @@
 ---
-title: 'Arbre de décision optimisé à deux classes : Référence de module'
+title: 'Arbre de décision optimisé à deux classes : Informations de référence sur les modules'
 titleSuffix: Azure Machine Learning service
-description: Découvrez comment utiliser le module Two-Class Boosted Decision Tree dans le service Azure Machine Learning pour créer un modèle machine learning qui est basé sur l’algorithme d’arbres de décision optimisé.
+description: Découvrez comment utiliser le module Arbre de décision optimisé à deux classes dans Azure Machine Learning service pour créer un modèle Machine Learning basé sur l’algorithme d’arbres de décision optimisés.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,69 +11,69 @@ ms.author: zhanxia
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
 ms.openlocfilehash: 09ea530cac5bdbd62208f134177e5ceaccb545e2
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65027944"
 ---
-# <a name="two-class-boosted-decision-tree-module"></a>Module de Two-Class Boosted Decision Tree
+# <a name="two-class-boosted-decision-tree-module"></a>Arbre de décision optimisé à deux classes
 
-Cet article décrit un module de l’interface visuelle (version préliminaire) pour le service Azure Machine Learning.
+Cet article décrit un module de l’interface visuelle (préversion) d’Azure Machine Learning service.
 
-Utilisez ce module pour créer un modèle d’apprentissage qui est basé sur l’algorithme d’arbres de décision optimisé. 
+Ce module vous permet de créer un modèle Machine Learning reposant sur l’algorithme d’arbres de décision optimisés. 
 
-Un arbre de décision optimisé est un méthode dans laquelle l’arborescence de la deuxième corrige les erreurs de la première arborescence, d’apprentissage d’ensemble de l’arborescence de la troisième corrige les erreurs des arborescences de première et deuxième et ainsi de suite.  Prédictions sont basées sur l’ensemble entier d’arbres ensemble qui effectue la prédiction.
+Un arbre de décision optimisé est une méthode d’apprentissage d’ensemble dans laquelle le second arbre corrige les erreurs du premier arbre, le troisième arbre corrige les erreurs du premier et du deuxième arbres, et ainsi de suite.  Les prédictions sont effectuées par l’ensemble d’arbres complet.
   
-En règle générale, lorsque correctement configuré, arbres de décision sont les méthodes les plus simples obtenir des performances optimales sur un large éventail de tâches d’apprentissage automatique. Toutefois, ils sont également des apprenants plus gourmandes en mémoire, et l’implémentation actuelle conserve tout en mémoire. Par conséquent, un modèle d’arbre de décision augmentés peut-être pas en mesure de traiter des jeux de données volumineux certains apprenants.
+En règle générale, lorsque les arbres de décision sont correctement configurés, ils représentent le moyen le plus simple d’obtenir des performances optimales sur un large éventail de tâches Machine Learning. Toutefois, ils constituent également l’un des apprentissages qui utilisent le plus de mémoire, et l’implémentation actuelle conserve toutes les données en mémoire. Par conséquent, un modèle d’arbre de décision optimisé n’est pas toujours en mesure de traiter des jeux de données volumineux qui peuvent être gérés par certains apprentissages linéaires.
 
 ## <a name="how-to-configure"></a>Comment configurer
 
-Ce module crée un modèle de classification formé. Étant donné que la classification est une méthode d’apprentissage supervisé, pour former le modèle, vous devez un *balisés dataset* qui inclut une colonne d’étiquette avec une valeur pour toutes les lignes.
+Ce module crée un modèle de classification non entraîné. Étant donné que la classification est une méthode d’apprentissage supervisée, pour effectuer l’apprentissage du modèle, vous devez disposer d’un *jeu de données balisé* qui inclut une colonne d’étiquette avec une valeur pour toutes les lignes.
 
-Vous pouvez former ce type de modèle à l’aide [former le modèle](././train-model.md). 
+Vous pouvez effectuer l’apprentissage de ce type de modèle à l’aide de l’article [Entraîner le modèle](././train-model.md). 
 
-1.  Dans Azure Machine Learning, ajouter le **Boosted Decision Tree** module à votre expérience.
+1.  Dans Azure Machine Learning, ajoutez le module **Arbre de décision optimisé** à votre expérience.
   
-2.  Spécifiez comment vous souhaitez que le modèle formé, en définissant le **créer un mode d’entraînement** option.
+2.  Spécifiez le mode d’apprentissage du modèle en définissant l’option **Create trainer mode** (Créer un mode d’apprentissage).
   
-    + **L’unique paramètre**: Si vous savez comment vous souhaitez configurer le modèle, vous pouvez fournir un ensemble spécifique de valeurs comme arguments.
+    + **Single Parameter** (Paramètre unique) : si vous savez comment vous voulez configurer le modèle, vous pouvez fournir un ensemble spécifique de valeurs en tant qu’arguments.
   
   
-3.  Pour **nombre maximal de feuilles par arbre**, indiquer le nombre maximal de nœuds terminaux (feuilles) qui peuvent être créés dans n’importe quel arbre.
+3.  Dans le champ **Maximum number of leaves per tree** (Nombre maximal de nœuds terminaux par arbre), indiquez le nombre maximal de nœuds terminaux qui peuvent être créés dans un arbre quelconque.
   
-     En augmentant cette valeur, vous potentiellement augmentez la taille de l’arborescence et obtenez une meilleure précision, au risque d’un surajustement et temps d’apprentissage.
+     En augmentant cette valeur, vous augmentez potentiellement la taille de l’arbre et vous bénéficiez d’un surcroît de précision, au risque d’un surajustement et d’un temps d’apprentissage plus long.
   
-4.  Pour **nombre minimal d’échantillons par nœud terminal**, indiquer le nombre de cas requis pour créer un nœud terminal (feuille) dans une arborescence.  
+4.  Dans le champ **Minimum number of samples per leaf node** (Nombre minimal d’échantillons par nœud terminal), indiquez le nombre de cas requis pour la création d’un nœud terminal dans un arbre.  
   
-     En augmentant cette valeur, vous augmentez le seuil pour la création de nouvelles règles. Par exemple, la valeur par défaut de 1, même un seul cas peut entraîner une nouvelle règle à créer. Si vous augmentez la valeur à 5, les données d’apprentissage doivent contenir au moins cinq cas qui remplissent les mêmes conditions.
+     En augmentant cette valeur, vous augmentez le seuil pour la création de règles. Par exemple, avec la valeur par défaut de 1, un seul cas suffit à entraîner la création d’une règle. Si vous définissez la valeur de ce champ sur 5, les données d’apprentissage doivent contenir au moins cinq cas remplissant les mêmes conditions.
   
-5.  Pour **taux d’apprentissage**, tapez un nombre compris entre 0 et 1 qui définit la taille d’étape lors de l’apprentissage.  
+5.  Dans le champ **Taux d’apprentissage**, saisissez un nombre compris entre 0 et 1 qui définit la taille de pas lors de l’apprentissage.  
   
-     Le taux d’apprentissage détermine rapidement ou lentement l’apprenant converge vers la solution optimale. Si la taille d’étape est trop volumineuse, vous pouvez dépassement la solution optimale. Si la taille d’étape est trop petite, formation prend plus de temps à converger sur la meilleure solution.
+     Le taux d’apprentissage détermine la vitesse à laquelle l’apprentissage converge vers la solution optimale. Si la taille de pas est trop élevée, vous risquez de passer à côté de la solution optimale. Si la taille de pas est trop faible, l’apprentissage nécessite plus de temps pour converger vers la meilleure solution.
   
-6.  Pour **nombre d’arbres construits**, indique le nombre total d’arbres de décision à créer dans l’ensemble. En créant plusieurs arbres de décision, vous pouvez obtenir une meilleure couverture, mais les temps d’apprentissage augmente.
+6.  Dans le champ **Number of trees constructed** (Nombre d’arbres construits), indiquez le nombre total d’arbres de décision à créer dans l’ensemble. En créant plusieurs arbres de décision, vous pouvez obtenir une meilleure couverture, mais cette opération augmente la durée d’apprentissage.
   
-     Cette valeur contrôle également le nombre d’arbres affichés lorsque vous examinez le modèle formé. Si vous souhaitez afficher ou imprimer une arborescence unique, définissez la valeur sur 1. Toutefois, lorsque vous procédez ainsi, qu’un seul arbre est généré (l’arborescence avec le jeu de paramètres initial) et aucune itération n’est effectuée.
+     Cette valeur contrôle également le nombre d’arbres affichés lorsque vous examinez le modèle entraîné. Si vous souhaitez visualiser ou imprimer un arbre unique, définissez la valeur sur 1. Toutefois, lorsque vous procédez ainsi, un seul arbre est généré (l’arbre avec le jeu de paramètres initial), et aucune autre itération n’est effectuée.
   
-7.  Pour **valeur initiale de nombre aléatoire**, vous pouvez éventuellement taper un entier non négatif à utiliser comme la valeur de départ aléatoire. En spécifiant une valeur initiale garantit la reproductibilité entre les exécutions qui ont les mêmes données et paramètres.  
+7.  Dans le champ **Random number seed** (Valeur de départ aléatoire), saisissez si vous le souhaitez un entier non négatif à utiliser comme valeur initiale aléatoire. La spécification d’une valeur de départ garantit la reproductibilité entre les exécutions qui présentent les mêmes données et paramètres.  
   
-     La valeur de départ aléatoire est définie par défaut sur 0, ce qui signifie que la valeur de départ initiale est obtenue à partir de l’horloge système.  Les exécutions consécutives à l’aide d’une valeur de départ aléatoire peuvent avoir des résultats différents.
+     La valeur de départ aléatoire est définie par défaut sur 0, ce qui signifie qu’elle est obtenue à partir de l’horloge système.  Les exécutions successives qui utilisent une valeur de départ aléatoire peuvent avoir des résultats différents.
   
 
-9. Apprentissage du modèle.
+9. Effectuez l’apprentissage du modèle.
   
-    + Si vous définissez **créer un mode d’entraînement** à **seul paramètre**, connectez un jeu de données avec balises et la [former le modèle](./train-model.md) module.  
+    + Si vous définissez **Create trainer mode** (Créer un mode d’apprentissage) sur **Single Parameter** (Paramètre unique), connectez un jeu de données balisé au module [Entraîner le modèle](./train-model.md).  
   
    
 ## <a name="results"></a>Résultats
 
-Après l’apprentissage du modèle est terminée, cliquez sur la sortie de [former le modèle](./train-model.md) pour afficher les résultats :
+Une fois l’apprentissage du modèle effectué, cliquez avec le bouton droit sur la sortie du module [Entraîner le modèle](./train-model.md) pour visualiser les résultats :
 
-+ Pour afficher l’arborescence qui a été créé sur chaque itération, sélectionnez **visualiser**. 
-+ Pour Explorer les divisions et afficher les règles pour chaque nœud, cliquez sur chacune d’elles.
++ Pour afficher l’arbre qui a été créé sur chaque itération, sélectionnez **Visualiser**. 
++ Pour descendre dans la hiérarchie des fractionnements et afficher les règles de chaque nœud, cliquez sur chaque arbre.
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez le [ensemble de modules disponibles](module-reference.md) au service Azure Machine Learning. 
+Consultez les [modules disponibles](module-reference.md) pour Azure Machine Learning service. 

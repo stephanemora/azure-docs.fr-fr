@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/15/2018
 ms.openlocfilehash: 95a1055df283765b24322f6f8efe3efcb9b19022
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64707980"
 ---
 # <a name="set-up-apache-hbase-cluster-replication-in-azure-virtual-networks"></a>Configurer la réplication de cluster Apache HBase dans les réseaux virtuels Azure
@@ -38,7 +38,7 @@ Cas d’utilisation de la réplication HBase pour deux réseaux virtuels :
 
 Vous pouvez répliquer des clusters à l’aide de scripts [d’action de script](../hdinsight-hadoop-customize-cluster-linux.md) disponibles dans [GitHub](https://github.com/Azure/hbase-utils/tree/master/replication).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 Avant de commencer ce didacticiel, vous devez disposer d’un abonnement Azure. Consultez [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 ## <a name="set-up-the-environments"></a>Configurer les environnements
@@ -105,7 +105,7 @@ Dans la dernière section, le modèle crée une machine virtuelle Ubuntu dans ch
 Pour installer Bind, vous devez rechercher l’adresse IP publique des deux machines virtuelles DNS.
 
 1. Ouvrez le [portail Azure](https://portal.azure.com).
-2. Ouvrez la machine virtuelle DNS en sélectionnant **Groupes de ressources > [nom du groupe de ressources] > [vnet1DNS]**.  Le nom du groupe de ressources est celui que vous créez dans la dernière procédure. Les noms des machines virtuelles DNS par défaut sont *vnet1DNS* et *vnet2NDS*.
+2. Ouvrez la machine virtuelle DNS en sélectionnant **Groupes de ressources > [nom du groupe de ressources] > [vnet1DNS]** .  Le nom du groupe de ressources est celui que vous créez dans la dernière procédure. Les noms des machines virtuelles DNS par défaut sont *vnet1DNS* et *vnet2NDS*.
 3. Sélectionnez **Propriétés** pour ouvrir la page des propriétés du réseau virtuel.
 4. Notez l’**adresse IP publique** et vérifiez l’**adresse IP privée**.  L’adresse IP privée doit être **10.1.0.4** pour vnet1DNS et **10.2.0.4** pour vnet2DNS.  
 5. Remplacez les serveurs DNS des deux réseaux virtuels par les serveurs DNS par défaut (fournis par Azure) pour autoriser l’accès entrant et sortant afin de télécharger les packages visant à installer Bind dans les étapes suivantes.
@@ -135,7 +135,7 @@ Pour installer Bind, procédez comme suit :
     sudo apt-get install bind9 -y
     ```
 
-3. Configurer Bind afin de transférer les demandes de résolution de nom à votre serveur DNS sur site. Pour ce faire, utilisez le texte suivant comme contenu du fichier `/etc/bind/named.conf.options` :
+3. Configurez Bind afin de transférer les demandes de résolution de noms à votre serveur DNS local. Pour ce faire, utilisez le texte suivant comme contenu du fichier `/etc/bind/named.conf.options` :
 
     ```
     acl goodclients {
@@ -288,7 +288,7 @@ Les étapes suivantes décrivent comment appeler le script d’action de script 
 5. Sélectionnez ou saisissez les informations suivantes :
 
    1. **Nom** : entrez **Activer la réplication**.
-   2. **URL du script Bash** : Entrez **https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh**.
+   2. **URL du script Bash** : Entrez **https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh** .
    3. **Principal** : assurez-vous que cette option est sélectionnée. Supprimez les autres types de nœuds.
    4. **Paramètres** : les paramètres d'exemple suivants activent la réplication pour toutes les tables existantes, puis copient toutes les données du cluster source vers le cluster de destination :
 

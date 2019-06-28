@@ -11,10 +11,10 @@ ms.date: 05/02/2019
 ms.author: magottei
 ms.custom: seodec2018
 ms.openlocfilehash: 256a38320c9b3ca826ee9c12ac0a437957f988e2
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65539282"
 ---
 # <a name="troubleshooting-common-indexer-issues-in-azure-search"></a>Résoudre les problèmes courants des indexeurs dans la Recherche Azure
@@ -42,7 +42,7 @@ Vous pouvez vérifier que le pare-feu est activé sur le [portal](https://docs.m
 
 `nslookup <service name>.search.windows.net`
 
-Les exceptions ne fonctionnent pas pour [recherche cognitive](cognitive-search-concept-intro.md). La seule solution de contournement consiste à désactiver le pare-feu.
+Les exceptions ne fonctionnent pas pour la [recherche cognitive](cognitive-search-concept-intro.md). La seule solution de contournement consiste à désactiver le pare-feu.
 
 ### <a name="cosmos-db"></a>Cosmos DB
 
@@ -71,7 +71,7 @@ api-key: [admin key]
 
 L’indexeur d’objets blob [recherche et extrait du texte dans les objets blob d’un conteneur](search-howto-indexing-azure-blob-storage.md#how-azure-search-indexes-blobs). L’extraction de texte peut poser les problèmes suivants :
 
-* Le document ne contient que des images numérisées. Les objets blob PDF comportant du contenu non textuel, comme des images numérisées (JPG), ne produisent pas de résultats dans un pipeline d’indexation blob standard. Si vous avez du contenu d’image avec des éléments de texte, vous pouvez utiliser [recherche cognitive](cognitive-search-concept-image-scenarios.md) pour rechercher et extraire le texte.
+* Le document ne contient que des images numérisées. Les objets blob PDF comportant du contenu non textuel, comme des images numérisées (JPG), ne produisent pas de résultats dans un pipeline d’indexation blob standard. Si vous avez du contenu d’image comportant des éléments textuels, vous pouvez utiliser la [recherche cognitive](cognitive-search-concept-image-scenarios.md) pour rechercher et extraire le texte.
 * L’indexeur d’objets blob est configuré pour indexer uniquement les métadonnées. Pour extraire le contenu, il doit être configuré de façon à [extraire à la fois le contenu et les métadonnées](search-howto-indexing-azure-blob-storage.md#controlling-which-parts-of-the-blob-are-indexed) :
 
 ```
@@ -94,5 +94,5 @@ Les indexeurs recherchent des documents dans une [source de données](https://do
 * Le document n’a pas été indexé. Consultez le portail pour une exécution réussie de l’indexeur.
 * Le document a été mis à jour après l’exécution de l’indexeur. Si votre indexeur suit une [planification](https://docs.microsoft.com/rest/api/searchservice/create-indexer#indexer-schedule), il s’exécutera à nouveau et trouvera le document.
 * La [requête](https://docs.microsoft.com/rest/api/searchservice/create-data-source#request-body-syntax) spécifiée dans la source de données exclut le document. Les indexeurs ne peuvent pas indexer de documents qui ne font pas partie de la source de données.
-* [Mappages de champs](https://docs.microsoft.com/rest/api/searchservice/create-indexer#fieldmappings) ou [recherche cognitive](https://docs.microsoft.com/azure/search/cognitive-search-concept-intro) ont été modifiés le document et il semble différent que prévu.
+* Des [mappages de champs](https://docs.microsoft.com/rest/api/searchservice/create-indexer#fieldmappings) ou la [recherche cognitive](https://docs.microsoft.com/azure/search/cognitive-search-concept-intro) ont modifié le document, qui n’a pas l’aspect prévu.
 * Utilisez [l’API Recherche de document](https://docs.microsoft.com/rest/api/searchservice/lookup-document) pour trouver votre document.

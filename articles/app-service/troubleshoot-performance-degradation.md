@@ -18,10 +18,10 @@ ms.date: 08/03/2016
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 2d17991854f13f889c4e8c3a8c6f18e933655546
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62128447"
 ---
 # <a name="troubleshoot-slow-app-performance-issues-in-azure-app-service"></a>Résoudre les problèmes de baisse de performances d’une application dans Azure App Service
@@ -136,7 +136,7 @@ Pour accéder aux diagnostics App Service, accédez à votre application App Ser
 #### <a name="use-the-kudu-debug-console"></a>Utilisation de la console de débogage Kudu
 App Service est fourni avec une console de débogage que vous pouvez utiliser pour déboguer, explorer et charger des fichiers, ainsi que des points de terminaison JSON pour obtenir des informations sur votre environnement. Il s’agit de la *console Kudu* ou du *tableau de bord SCM* pour votre application.
 
-Vous pouvez accéder à ce tableau de bord avec le lien **https://&lt;Your app name>.scm.azurewebsites.net/**.
+Vous pouvez accéder à ce tableau de bord avec le lien **https://&lt;Your app name>.scm.azurewebsites.net/** .
 
 Kudu fournit, entre autres, les éléments suivants :
 

@@ -1,6 +1,6 @@
 ---
-title: Détection des anomalies de série chronologique et prévision dans l’Explorateur de données Azure
-description: Découvrez comment analyser les données chronologiques pour la détection des anomalies et les prévisions à l’aide de l’Explorateur de données Azure.
+title: Détection et prévision des anomalies de série chronologique dans Azure Data Explorer
+description: Découvrez comment analyser des données de séries chronologiques pour la détection et la prévision des anomalies à l’aide d’Azure Data Explorer.
 author: orspod
 ms.author: orspodek
 ms.reviewer: jasonh
@@ -8,28 +8,28 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.openlocfilehash: f40350129a12c7865051bcae80b74b6f9c069179
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65233524"
 ---
-# <a name="anomaly-detection-and-forecasting-in-azure-data-explorer"></a>Détection d’anomalies et les prévisions dans l’Explorateur de données Azure
+# <a name="anomaly-detection-and-forecasting-in-azure-data-explorer"></a>Détection et prévision des anomalies dans Azure Data Explorer
 
-Explorateur de données Azure effectue la collection en cours de données de télémétrie à partir des services cloud ou d’appareils IoT. Ces données sont analysées pour différents insights comme la surveillance de l’intégrité du service, processus de production physiques, les tendances d’utilisation et prévision de charge. L’analyse est effectuée sur les séries chronologiques des mesures sélectionnées pour localiser un modèle de l’écart de la mesure par rapport à son modèle de ligne de base normale standard. Explorateur de données Azure contient la prise en charge native pour la création, la manipulation et l’analyse de plusieurs séries chronologiques. Il peut créer et analyser des milliers de série chronologique en quelques secondes, l’activation de quasiment en temps réel surveillance des solutions et des flux de travail.
+Azure Data Explorer effectue une collecte continue de données de télémétrie à partir de services cloud ou d’appareils IoT. Ces données sont analysées afin d’extraire diverses informations, par exemple, en lien avec la surveillance de l’intégrité de services, des processus de production physiques, des tendances d’utilisation et des prévisions de charge. L’analyse est effectuée sur des séries chronologiques de métriques sélectionnées pour détecter des écarts de métriques par rapport au modèle de référence classique. Azure Data Explorer prend en charge en mode natif la création, la manipulation et l’analyse de multiples séries chronologiques. Il peut créer et analyser des milliers de séries chronologiques en quelques secondes, ce qui permet de mettre en place des solutions de supervision en temps quasi réel et d’autres workflows.
 
-Cet article décrit en détail l’Explorateur de données Azure temps série de détection et de prévision fonctionnalités des anomalies. Les fonctions de série de temps applicable sont basées sur un modèle de décomposition connu robuste, où chaque série chronologique d’origine est décomposé en tendances saisonnières, et certains composants subsistant. Anomalies sont détectées par les valeurs hors norme sur le composant résiduel, tandis que la prévision s’effectue en extrapolant les saisonniers et composants de tendance. L’implémentation de l’Explorateur de données Azure améliore considérablement le modèle de décomposition de base par la détection de saisonnalité automatique, l’analyse des valeurs hors norme robuste et implémentation vectorisée manuscrite pour traiter des milliers de série chronologique en quelques secondes.
+Cet article décrit en détail les fonctionnalités de détection et de prévision des anomalies de série chronologique Azure Data Explorer. Les fonctions de série chronologique applicables sont basées sur un modèle de décomposition connu robuste, dans lequel chaque série chronologique d’origine est décomposée en composants résiduels, de tendances et saisonnières. Les anomalies sont détectées par les valeurs hors norme sur le composant résiduel, tandis que la prévision est réalisée en extrapolant les composants de tendances et saisonnières. L’implémentation d’Azure Data Explorer améliore considérablement le modèle de décomposition de base grâce à la détection de saisonnalité automatique, l’analyse des valeurs hors norme robustes et l’implémentation vectorisée pour traiter des milliers de séries chronologiques en quelques secondes.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
-Lecture [temps d’analyse de série dans l’Explorateur de données Azure](/azure/data-explorer/time-series-analysis) pour une vue d’ensemble des fonctionnalités de série de temps.
+Lisez [Analyse des séries chronologiques dans Azure Data Explorer](/azure/data-explorer/time-series-analysis) pour obtenir une vue d’ensemble des fonctionnalités de séries chronologiques.
 
 ## <a name="time-series-decomposition-model"></a>Modèle de décomposition de série chronologique
 
-Une implémentation native Explorateur de données Azure pour la prédiction de série chronologique et de détection d’anomalie utilise un modèle de décomposition bien connu. Ce modèle est appliqué à la série chronologique de mesures prévus au manifeste périodiques et comportement de tendance, telles que le trafic de service, les pulsations de composant et IoT des mesures périodiques pour prévoir les futures valeurs métriques et détecter celles anormales. L’hypothèse de ce processus de régression qui est autre que précédemment connu saisonniers et le comportement de tendance, le temps série distribuée de manière aléatoire. Vous pouvez ensuite prévoir les futures valeurs des métriques à partir de la saison et composants de tendance, collectivement nommés de la ligne de base et ignorer la partie résiduelle. Vous pouvez également détecter des valeurs anormales basés sur l’analyse des valeurs hors norme en utilisant uniquement la partie qui sont restée.
-Pour créer un modèle de décomposition, utilisez la fonction [ `series_decompose()` ](/azure/kusto/query/series-decomposefunction). Le `series_decompose()` fonction prend un ensemble de séries chronologiques et automatiquement décompose chaque série chronologique pour son saisonniers, tendance, résiduel et les composants de base. 
+L’implémentation native Azure Data Explorer pour la prédiction de séries chronologiques et la détection d’anomalies utilise un modèle de décomposition bien connu. Ce modèle s’applique aux séries chronologiques de métriques devant présenter un comportement tendance et périodique, telles que le trafic de service, les pulsations du composant et les mesures périodiques IoT pour prévoir les futures valeurs de métrique et détecter les anomalies. L’hypothèse de ce processus de régression est que, en dehors du comportement tendance et saisonnier précédent, la série chronologique est distribuée de manière aléatoire. Vous pouvez ensuite prévoir les futures valeurs de métriques à l’aide des composants de tendance et saisonniers, collectivement nommés ligne de base, et ignorer la partie résiduelle. Vous pouvez également détecter des valeurs anormales grâce à l’analyse des valeurs hors norme en utilisant uniquement la partie résiduelle.
+Pour créer un modèle de décomposition, utilisez la fonction [`series_decompose()`](/azure/kusto/query/series-decomposefunction). La fonction `series_decompose()` prend un ensemble de séries chronologiques et décompose automatiquement chaque série chronologique en composants saisonniers, de tendance, résiduels et de ligne de base. 
 
-Par exemple, vous pouvez décomposer le trafic d’un service web interne à l’aide de la requête suivante :
+Par exemple, vous pouvez décomposer le trafic d’un service web interne à l’aide de la requête suivante :
 
 ```kusto
 let min_t = datetime(2017-01-05);
@@ -42,19 +42,19 @@ demo_make_series2
 | render timechart with(title='Web app. traffic of a month, decomposition', ysplit=panels)
 ```
 
-![Décomposition de série temporelle](media/anomaly-detection/series-decompose-timechart.png)
+![Décomposition de série chronologique](media/anomaly-detection/series-decompose-timechart.png)
 
 * La série chronologique d’origine est étiquetée **num** (en rouge). 
-* Le processus commence par la détection automatique de la saisonnalité en utilisant la fonction [ `series_periods_detect()` ](/azure/kusto/query/series-periods-detectfunction) et extrait le **saisonniers** modèle (en violet).
-* Le modèle saisonnier est soustraite de la série chronologique d’origine et une régression linéaire est exécutée à l’aide de la fonction [ `series_fit_line()` ](/azure/kusto/query/series-fit-linefunction) pour trouver la **tendance** composant (en bleu clair).
-* La fonction soustrait la tendance et le reste est le **résiduel** composant (en vert).
-* Enfin, la fonction ajoute les saisonniers et des tendances de composants afin de générer le **baseline** (en bleu).
+* Le processus commence par la détection automatique de la saisonnalité en utilisant la fonction [`series_periods_detect()`](/azure/kusto/query/series-periods-detectfunction) et extrait le modèle **saisonnier** (en violet).
+* Le modèle saisonnier est soustrait de la série chronologique d’origine, et une régression linéaire est exécutée à l’aide de la fonction [`series_fit_line()`](/azure/kusto/query/series-fit-linefunction) pour trouver le composant **trend** (en bleu clair).
+* La fonction soustrait le composant trend et le reste devient le composant **residual** (en vert).
+* Enfin, la fonction ajoute les composants saisonniers et de tendance afin de générer la **ligne de base** (en bleu).
 
 ## <a name="time-series-anomaly-detection"></a>Détection des anomalies de série chronologique
 
-La fonction [ `series_decompose_anomalies()` ](/azure/kusto/query/series-decompose-anomaliesfunction) recherche des points anormales sur un ensemble de séries chronologiques. Cette fonction appelle `series_decompose()` pour générer le modèle de décomposition, puis exécute [ `series_outliers()` ](/azure/kusto/query/series-outliersfunction) sur le composant résiduel. `series_outliers()` calcule les scores d’anomalie pour chaque point du composant qui sont resté à l’aide du test de Tukey frontière de sécurité. Les scores d’anomalie au-dessus 1.5 ou en dessous -1,5 indiquent une augmentation des anomalies douce ou refuser respectivement. Les scores d’anomalie au-dessus 3.0 ou en dessous -3,0 indiquent une anomalie forte. 
+La fonction [`series_decompose_anomalies()`](/azure/kusto/query/series-decompose-anomaliesfunction) recherche des points anormaux sur un ensemble de séries chronologiques. Cette fonction appelle `series_decompose()` pour générer le modèle de décomposition, puis exécute [`series_outliers()`](/azure/kusto/query/series-outliersfunction) sur le composant résiduel. `series_outliers()` calcule les scores d’anomalies pour chaque point du composant résiduel à l’aide du test des étendues de Tukey. Les scores d’anomalies au-dessus de 1.5 ou en dessous de -1.5 indiquent respectivement une augmentation ou une baisse modérée des anomalies. Les scores d’anomalies au-dessus de 3.0 ou en dessous de -3.0 indiquent une anomalie forte. 
 
-La requête suivante permet de détecter les anomalies dans le trafic du service web interne :
+La requête suivante permet de détecter les anomalies dans le trafic du service web interne :
 
 ```kusto
 let min_t = datetime(2017-01-05);
@@ -70,14 +70,14 @@ demo_make_series2
 ![Détection des anomalies de série chronologique](media/anomaly-detection/series-anomaly-detection.png)
 
 * La série chronologique d’origine (en rouge). 
-* La ligne de base (saisonniers + tendance) composant (en bleu).
-* Les points anormales (en violet) en haut de la série chronologique d’origine. Les points anormales écartent sensiblement les valeurs de base attendu.
+* Le composant (saisonnier + de tendance) de la ligne de base (en bleu).
+* Les points anormaux (en violet) en haut de la série chronologique d’origine. Les points anormaux s’écartent sensiblement des valeurs de base attendues.
 
 ## <a name="time-series-forecasting"></a>Prévision de séries chronologiques
 
-La fonction [ `series_decompose_forecast()` ](/azure/kusto/query/series-decompose-forecastfunction) prédit des valeurs futures d’un ensemble de séries chronologiques. Cette fonction appelle `series_decompose()` pour générer la décomposition de modèle, puis, pour chaque série chronologique, extrapole le composant de ligne de base dans le futur.
+La fonction [`series_decompose_forecast()`](/azure/kusto/query/series-decompose-forecastfunction) prédit les valeurs futures d’un ensemble de séries chronologiques. Cette fonction appelle `series_decompose()` pour générer le modèle de décomposition, puis, pour chaque série chronologique, extrapole le composant de ligne de base dans le futur.
 
-La requête suivante permet de prédire le trafic du service web de la semaine suivante :
+La requête suivante permet de prédire le trafic du service web de la semaine suivante :
 
 ```kusto
 let min_t = datetime(2017-01-05);
@@ -93,14 +93,14 @@ demo_make_series2
 
 ![Prévision de séries chronologiques](media/anomaly-detection/series-forecasting.png)
 
-* Métrique d’origine (en rouge). Les valeurs futures sont manquants et 0, la valeur par défaut.
-* Extrapolez le composant de ligne de base (en bleu) pour prédire des valeurs de la semaine prochaine.
+* Métrique d’origine (en rouge). Les valeurs futures sont manquantes et définies sur 0, la valeur par défaut.
+* Extrapolez le composant de ligne de base (en bleu) pour prédire les valeurs de la semaine prochaine.
 
 ## <a name="scalability"></a>Extensibilité
 
-Syntaxe de langage de requête Explorateur de données Azure permet un seul appel à traiter plusieurs séries chronologiques. Son implémentation optimisée unique permet pour accélérer les performances, ce qui est essentiel pour la détection d’anomalie efficace et lors de l’analyse des milliers de compteurs dans des scénarios en temps réel quasi de prévision.
+La syntaxe du langage de requête Azure Data Explorer permet de traiter plusieurs séries chronologiques en un seul appel. Son implémentation optimisée unique permet d’accélérer les performances, ce qui est essentiel pour une prévision et une détection des anomalies efficaces lors de la surveillance de milliers de compteurs dans des scénarios en quasi-temps réel.
 
-La requête suivante montre le traitement des trois séries chronologiques simultanément :
+La requête suivante montre le traitement simultané de trois séries chronologiques :
 
 ```kusto
 let min_t = datetime(2017-01-05);
@@ -115,12 +115,12 @@ demo_make_series2
 | render timechart with(title='Web app. traffic of a month, forecasting the next week for 3 time series')
 ```
 
-![Évolutivité de série heure](media/anomaly-detection/series-scalability.png)
+![Extensibilité des séries chronologiques](media/anomaly-detection/series-scalability.png)
 
 ## <a name="summary"></a>Résumé
 
-Ce document décrit en détail des fonctions natives de l’Explorateur de données Azure pour la détection des anomalies de série chronologique et prévision. Chaque série chronologique d’origine est décomposé en composantes saisonnières, de tendance et résiduel pour détecter des anomalies et/ou de prévision. Ces fonctionnalités peuvent être utilisées pour près des scénarios d’analyse en temps réel, telles que la détection des erreurs, la maintenance prédictive et à la demande et de prévision de charge.
+Ce document décrit en détail les fonctionnalités natives de détection et de prévision des anomalies de série chronologique Azure Data Explorer. Chaque série chronologique d’origine est décomposée en composants saisonniers, de tendance et résiduels pour la détection des anomalies et/ou la prévision. Ces fonctionnalités peuvent être utilisées pour des scénarios de surveillance en quasi-temps réel, tels que la détection des erreurs, la maintenance prédictive et la prévision de charge à la demande.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-En savoir plus sur [d’apprentissage fonctionnalités](/azure/data-explorer/machine-learning-clustering) dans l’Explorateur de données Azure.
+Découvrez les [fonctionnalités d’apprentissage automatique](/azure/data-explorer/machine-learning-clustering) dans Azure Data Explorer.

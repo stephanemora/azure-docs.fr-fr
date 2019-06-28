@@ -12,10 +12,10 @@ ms.date: 05/02/2019
 ms.author: wolfma
 ms.custom: seodec18
 ms.openlocfilehash: d8330ff663a7adc2f1cae3ed6bdf1cec2fa972c5
-ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66808460"
 ---
 # <a name="ship-an-application"></a>Délivrer une application
@@ -28,7 +28,7 @@ Selon la plateforme, il existe différentes dépendances pour exécuter votre ap
 
 Le kit de développement logiciel (SDK) Speech de Cognitive Services est testé sur Windows 10 et Windows Server 2016.
 
-Le Cognitive Speech SDK Services requiert la [Microsoft Visual C++ Redistributable pour Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) sur le système. Vous pouvez télécharger le programme d’installation de la dernière version du `Microsoft Visual C++ Redistributable for Visual Studio 2019` ici :
+Le kit de développement logiciel (SDK) Speech de Cognitive Services nécessite que [Microsoft Visual C++ Redistributable pour Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) soit installé sur le système. Vous pouvez télécharger le programme d’installation de la dernière version du `Microsoft Visual C++ Redistributable for Visual Studio 2019` ici :
 
 - [Win32](https://aka.ms/vs/16/release/vc_redist.x86.exe)
 - [x64](https://aka.ms/vs/16/release/vc_redist.x64.exe)
@@ -45,11 +45,11 @@ Les fichiers du kit de développement logiciel (SDK) Speech requis peuvent être
 | `Microsoft.CognitiveServices.Speech.csharp.dll` | Requis pour le déploiement managé
 
 >[!NOTE]
-> Depuis la version 1.3.0 le fichier `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` (fourni dans les versions précédentes) n’est plus nécessaire. La fonctionnalité est désormais intégrée dans le Kit de développement logiciel de base.
+> Depuis la version 1.3.0, le fichier `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` (fourni dans les versions précédentes) n’est plus nécessaire. La fonctionnalité est désormais intégrée dans le kit SDK principal.
 
 ## <a name="linux"></a>Linux
 
-Le Speech SDK prend en charge les distributions Ubuntu 16.04, Ubuntu 18.04 et Debian 9.
+Le SDK Speech prend actuellement en charge les distributions Ubuntu 16.04, Ubuntu 18.04 et Debian 9.
 Pour une application native, vous devez fournir la bibliothèque du SDK Speech, `libMicrosoft.CognitiveServices.Speech.core.so`.
 Veillez à sélectionner la version (x86, x64) correspondant à votre application. En fonction de la version de Linux, vous devrez peut-être également inclure les dépendances suivantes :
 
@@ -64,7 +64,7 @@ sudo apt-get update
 sudo apt-get install libssl1.0.0 libasound2
 ```
 
-Sur Debian 9 installer ces packages :
+Sur Debian 9, installez ces packages :
 
 ```sh
 sudo apt-get update

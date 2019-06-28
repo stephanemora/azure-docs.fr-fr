@@ -8,10 +8,10 @@ ms.date: 5/15/2019
 ms.author: victorh
 ms.topic: conceptual
 ms.openlocfilehash: 5ddcdeca41e2f21fa27db25f7e0721c7ef87e491
-ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65620277"
 ---
 # <a name="web-application-firewall-request-size-limits-and-exclusion-lists"></a>Limites de la taille des demandes adressées au pare-feu d’application web et listes d’exclusions
@@ -24,10 +24,10 @@ Le pare-feu d’applications web (WAF) Azure Application Gateway fournit une pro
 
 Le pare-feu d’applications web vous permet de configurer des limites maximale et minimale de la taille des demandes. Les configurations de limites à deux tailles suivantes sont disponibles :
 
-- Le champ de taille de corps de requête maximale est spécifié en kilo-octets et contrôles charge globale limite de taille de demande à l’exclusion de n’importe quel fichier. La valeur de ce champ peut varier de 1 Ko à 128 Ko. La valeur par défaut pour la taille du corps de la demande est de 128 Ko.
+- Le champ de la taille maximale du corps de la requête est spécifié en kilo-octets et contrôle la limite globale de la taille de la requête à l’exclusion de tout chargement de fichier. La valeur de ce champ peut varier de 1 Ko à 128 Ko. La valeur par défaut pour la taille du corps de la demande est de 128 Ko.
 - Le champ de la limite de chargement de fichier est spécifié en Mo et régit la taille maximale autorisée pour la limite de chargement de fichier. La valeur de ce champ peut être comprise entre 1 Mo et 500 Mo pour les grandes instances SKU et 100 Mo pour les instances SKU intermédiaires. La valeur par défaut pour la limite de chargement de fichier est de 100 Mo.
 
-Le WAF offre également un bouton configurable qui permet d’activer ou de désactiver l’inspection du corps de la demande. Par défaut, l’inspection du corps de la demande est activée. Si l’inspection du corps de la demande est désactivée, WAF n’évalue pas le contenu du corps du message HTTP. Dans ce cas, le WAF continue d’appliquer ses règles sur les en-têtes, les cookies et les URI. Si l’inspection du corps de la demande est désactivée, le champ de la taille maximale du corps de la demande n’est pas applicable et ne peut pas être défini. La désactivation de l’inspection du corps de la demande permet l’envoi au WAF de messages dont la taille est supérieure à 128 Ko, mais le corps du message n’est pas inspecté.
+Le WAF offre également un bouton configurable qui permet d’activer ou de désactiver l’inspection du corps de la demande. Par défaut, l’inspection du corps de la demande est activée. Si l’inspection du corps de la requête est désactivée, le WAF n’évalue pas le contenu du corps du message HTTP. Dans ce cas, le WAF continue d’appliquer ses règles sur les en-têtes, les cookies et les URI. Si l’inspection du corps de la demande est désactivée, le champ de la taille maximale du corps de la demande n’est pas applicable et ne peut pas être défini. La désactivation de l’inspection du corps de la demande permet l’envoi au WAF de messages dont la taille est supérieure à 128 Ko, mais le corps du message n’est pas inspecté.
 
 ## <a name="waf-exclusion-lists"></a>Listes d’exclusions du WAF
 
@@ -39,7 +39,7 @@ Les attributs suivants peuvent être ajoutés aux listes d’exclusion :
 
 * En-têtes de demande
 * Cookies de requête
-* Demander le nom d’attribut (args)
+* Demander le nom d’attribut (arguments)
 
    * Données de plusieurs parties de formulaire
    * XML
@@ -54,7 +54,7 @@ Voici les opérateurs de critères de correspondance pris en charge :
 - **Commence par** : cet opérateur correspond à tous les champs qui commencent par la valeur de sélecteur spécifiée.
 - **Se termine par** :  cet opérateur correspond à tous les champs de demande qui se terminent par la valeur de sélecteur spécifiée.
 - **Contient** : cet opérateur correspond à tous les champs de demande qui se contiennent la valeur de sélecteur spécifiée.
-- **Est égal à un**: Cet opérateur correspond à tous les champs de demande. * sera la valeur du sélecteur.
+- **Est égal à** : Cet opérateur correspond à tous les champs de la requête. * sera la valeur du sélecteur.
 
 Dans tous les cas, la correspondance respecte la casse, et les expressions régulières ne sont pas autorisées en guise de sélecteurs.
 
@@ -62,15 +62,15 @@ Dans tous les cas, la correspondance respecte la casse, et les expressions régu
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Les exemples suivants illustrent l’utilisation des exclusions.
+Les exemples suivants montrent comment utiliser les exclusions.
 
 ### <a name="example-1"></a>Exemple 1
 
-Dans cet exemple, que vous souhaitez exclure de l’en-tête user-agent. L’en-tête de demande de l’agent utilisateur contient une chaîne de caractéristique qui permet aux pairs de protocole réseau identifier le type d’application, système d’exploitation, éditeur de logiciels ou version du logiciel de l’agent utilisateur de logiciels demandeur. Pour plus d’informations, consultez [Agent utilisateur](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/User-Agent).
+Dans cet exemple, vous souhaitez exclure l’en-tête user-agent. Cet en-tête de requête contient une chaîne caractéristique qui permet aux pairs de protocole réseau d’identifier le type d’application, le système d’exploitation, l’éditeur de logiciels ou la version du logiciel de l’agent utilisateur de logiciels demandeur. Pour plus d’informations, consultez la section [Agent utilisateur](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/User-Agent).
 
-Il peut y avoir un nombre quelconque de raisons de désactiver l’évaluation de cet en-tête. Il peut être une chaîne qui le WAF voit et supposer qu’il est malveillant. Par exemple, l’attaque SQL classique « x = x » dans une chaîne. Dans certains cas, il peut s’agir du trafic légitime. Par conséquent, vous devrez peut-être exclure cet en-tête de version d’évaluation de WAF.
+Il peut y avoir plusieurs raisons de désactiver l’évaluation de cet en-tête. Le WAF peut voir une chaîne et la considérer comme malveillante. Par exemple, l’attaque SQL classique « x = x » dans une chaîne. Dans certains cas, il peut s’agir de trafic légitime. Par conséquent, vous devrez peut-être exclure cet en-tête de l’évaluation par le WAF.
 
-L’applet de commande Azure PowerShell suivant permet d’exclure l’en-tête user-agent d’évaluation :
+La cmdlet Azure PowerShell suivante permet d’exclure l’en-tête user-agent de l’évaluation :
 
 ```azurepowershell
 $exclusion1 = New-AzApplicationGatewayFirewallExclusionConfig `
@@ -81,9 +81,9 @@ $exclusion1 = New-AzApplicationGatewayFirewallExclusionConfig `
 
 ### <a name="example-2"></a>Exemple 2
 
-Cet exemple exclut la valeur dans le *utilisateur* paramètre qui est transmis dans la demande via l’URL. Par exemple, qu'il est courant dans votre environnement pour le champ utilisateur contienne une chaîne le WAF vues en tant que contenu malveillant, elle le bloque.  Vous pouvez exclure le paramètre utilisateur dans ce cas, afin que le pare-feu WAF n’évalue pas quoi que ce soit dans le champ.
+Cet exemple exclut la valeur du paramètre *utilisateur* qui est transmis dans la requête via l’URL. Par exemple, imaginons qu’il est courant dans votre environnement que le champ utilisateur contienne une chaîne que le WAF considère comme contenu malveillant, et donc que celle-ci soit bloquée.  Vous pouvez exclure le paramètre utilisateur dans ce cas, afin que le WAF n’évalue rien qui appartienne à ce champ.
 
-L’applet de commande Azure PowerShell suivant exclut le paramètre de l’utilisateur à partir de la version d’évaluation :
+La cmdlet Azure PowerShell suivante permet d’exclure le paramètre utilisateur de l’évaluation :
 
 ```azurepowershell
 $exclusion2 = New-AzApplicationGatewayFirewallExclusionConfig `
@@ -91,7 +91,7 @@ $exclusion2 = New-AzApplicationGatewayFirewallExclusionConfig `
    -SelectorMatchOperator "Equals" `
    -Selector "user"
 ```
-Par conséquent, si l’URL **http://www.contoso.com/?user=fdafdasfda** est passée pour le pare-feu d’applications Web, il n’évalue pas la chaîne **fdafdasfda**.
+Par conséquent, si l’URL **http://www.contoso.com/?user=fdafdasfda** passe sur le WAF, celui-ci n’évaluera pas la chaîne **fdafdasfda**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

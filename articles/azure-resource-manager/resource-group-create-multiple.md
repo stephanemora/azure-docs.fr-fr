@@ -2,35 +2,60 @@
 title: Déploiement de plusieurs instances de ressources Azure | Microsoft Docs
 description: Utilisez l’opération de copie et les tableaux dans un modèle Azure Resource Manager pour effectuer une itération à plusieurs reprises lors du déploiement de ressources.
 services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
-editor: ''
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 05/01/2019
+ms.date: 06/06/2019
 ms.author: tomfitz
-ms.openlocfilehash: 05b68fde30587967f65ee362344eea9a258f89a7
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
-ms.translationtype: MT
+ms.openlocfilehash: 99fd4215de4dd118558acc008fcfa6490ea0093d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205974"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66807368"
 ---
-# <a name="deploy-more-than-one-instance-of-a-resource-or-property-in-azure-resource-manager-templates"></a>Déployer plusieurs instances d’une ressource ou d’une propriété dans des modèles Azure Resource Manager
+# <a name="resource-property-or-variable-iteration-in-azure-resource-manager-templates"></a>Itération de variable, de propriété ou de ressource dans les modèles Azure Resource Manager
 
-Cet article explique comment créer plusieurs instances d’une ressource par itérations dans un modèle Azure Resource Manager. Si vous devez spécifier si une ressource est déployée, consultez la page relative à l’[élément Condition](resource-group-authoring-templates.md#condition).
+Cet article explique comment créer plusieurs instances d’une ressource, d’une variable ou d’une propriété dans votre modèle Azure Resource Manager. Pour créer plusieurs instances, ajoutez l’objet `copy` à votre modèle.
 
-Pour un didacticiel, consultez [Tutoriel : créer plusieurs instances de ressources à l’aide de modèles Resource Manager](./resource-manager-tutorial-create-multiple-instances.md).
+Lorsqu’il est utilisé avec une ressource, l’objet de la copie a le format suivant :
 
+```json
+"copy": {
+    "name": "<name-of-loop>",
+    "count": <number-of-iterations>,
+    "mode": "serial" <or> "parallel",
+    "batchSize": <number-to-deploy-serially>
+}
+```
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+Lorsqu’il est utilisé avec une variable ou une propriété, l’objet de la copie a le format suivant :
+
+```json
+"copy": [
+  {
+      "name": "<name-of-loop>",
+      "count": <number-of-iterations>,
+      "input": <values-for-the-property-or-variable>
+  }
+]
+```
+
+Les deux formats sont décrits de façon plus détaillée dans cet article. Pour un didacticiel, consultez [Tutoriel : créer plusieurs instances de ressources à l’aide de modèles Resource Manager](./resource-manager-tutorial-create-multiple-instances.md).
+
+Si vous devez spécifier si une ressource est déployée, consultez la page relative à l’[élément Condition](resource-group-authoring-templates.md#condition).
+
+## <a name="copy-limits"></a>Limites de copie
+
+Pour spécifier le nombre d’itérations, vous devez fournir une valeur pour la propriété count. Le nombre ne peut pas dépasser 800.
+
+Le nombre ne peut pas être négatif. Si vous déployez un modèle avec la version **2019-05-10** ou une version ultérieure de l’API REST, vous pouvez définir le nombre à zéro. Les versions antérieures de l’API REST ne prennent pas en charge le nombre zéro. Actuellement, Azure CLI et PowerShell ne prennent pas en charge le nombre zéro, mais cette option sera ajoutée dans une version ultérieure.
+
+Les limites pour le nombre sont les mêmes, qu’il soit utilisé pour une ressource, une variable ou une propriété.
 
 ## <a name="resource-iteration"></a>Itération de ressource
 
-Quand vous devez décider au cours du déploiement s’il faut créer une ou plusieurs instances d’une ressource, ajoutez un élément `copy` au type de ressource. Dans l’élément copy, vous indiquez le nombre d’itérations et un nom pour cette boucle. La valeur count doit être un entier positif inférieur ou égal à 800. 
+Quand vous devez décider au cours du déploiement s’il faut créer une ou plusieurs instances d’une ressource, ajoutez un élément `copy` au type de ressource. Dans l’élément copy, indiquez le nombre d’itérations et un nom pour cette boucle.
 
 La ressource à créer plusieurs fois est au format suivant :
 
@@ -71,7 +96,7 @@ Crée les noms suivants :
 * storage1
 * storage2.
 
-Pour décaler la valeur d’index, vous pouvez transmettre une valeur dans la fonction copyIndex(). Le nombre d’itérations à effectuer est toujours spécifié dans l’élément copy, mais la valeur de copyIndex est décalée en fonction de la valeur spécifiée. Si bien que l’exemple suivant :
+Pour décaler la valeur d’index, vous pouvez transmettre une valeur dans la fonction copyIndex(). Le nombre d’itérations est toujours spécifié dans l’élément copy, mais la valeur de copyIndex est décalée en fonction de la valeur spécifiée. Si bien que l’exemple suivant :
 
 ```json
 "name": "[concat('storage', copyIndex(1))]",
@@ -149,14 +174,14 @@ Par exemple, pour déployer en série des comptes de stockage deux à la fois, u
 
 La propriété mode accepte également **parallel**, qui est la valeur par défaut.
 
-Pour plus d’informations sur l’utilisation de la copie avec les modèles imbriqués, consultez [à l’aide de la copie](resource-group-linked-templates.md#using-copy).
+Pour plus d’informations sur l’utilisation de l’élément copy avec les modèles imbriqués, consultez [Utilisation de l’élément copy](resource-group-linked-templates.md#using-copy).
 
 ## <a name="property-iteration"></a>Itération de propriété
 
 Pour créer plusieurs valeurs pour une propriété sur une ressource, ajoutez un tableau `copy` dans l’élément properties. Ce tableau contient des objets possédant tous les propriétés suivantes :
 
 * name : nom de la propriété pour laquelle plusieurs valeurs seront créées
-* count : nombre de valeurs à créer. La valeur count doit être un entier positif inférieur ou égal à 800.
+* count : nombre de valeurs à créer.
 * input : objet contenant les valeurs à assigner à la propriété  
 
 L’exemple suivant montre comment appliquer `copy` à la propriété dataDisks sur une machine virtuelle :
@@ -277,7 +302,7 @@ Vous pouvez utiliser des itérations de ressource et de propriété ensemble. R�
 
 Pour créer plusieurs instances d’une variable, utilisez la propriété `copy` dans la section des variables. Vous créez un tableau d’éléments construits à partir de la valeur de la propriété `input`. Vous pouvez utiliser la propriété `copy` au sein d’une variable, ou au niveau supérieur de la section des variables. Lorsque vous utilisez `copyIndex` à l’intérieur d’une itération de variable, vous devez fournir le nom de l’itération.
 
-Pour obtenir un exemple simple de création d’un tableau de valeurs de chaîne, consultez [copier le modèle de tableau](https://github.com/bmoore-msft/AzureRM-Samples/blob/master/copy-array/azuredeploy.json).
+Pour obtenir un exemple simple de création d’un tableau de valeurs de chaîne, consultez [Copier le modèle de tableau](https://github.com/bmoore-msft/AzureRM-Samples/blob/master/copy-array/azuredeploy.json).
 
 L’exemple suivant montre plusieurs façons différentes de créer des variables de tableau avec des éléments construits dynamiquement. Il montre comment utiliser la copie à l’intérieur d’une variable pour créer des tableaux d’objets et de chaînes. Il montre également comment utiliser la copie au niveau supérieur pour créer des tableaux d’objets, de chaînes et d’entiers.
 
@@ -353,7 +378,7 @@ L’exemple suivant montre plusieurs façons différentes de créer des variable
 }
 ```
 
-Le type de variable qui est créé dépend de l’objet d’entrée. Par exemple, la variable nommée **top-niveau--tableau d’objets** dans l’exemple précédent retourne :
+Le type de variable créé dépend de l’objet d’entrée. Par exemple, la variable nommée **top-level-object-array** dans l’exemple précédent retourne :
 
 ```json
 [
@@ -385,7 +410,7 @@ Le type de variable qui est créé dépend de l’objet d’entrée. Par exemple
 ]
 ```
 
-Et la variable nommée **top-niveau--tableau de chaînes** retourne :
+Et la variable nommée **top-level-string-array** retourne :
 
 ```json
 [

@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 05/15/2019
 ms.author: juliako
 ms.openlocfilehash: 33493f1bdff6071737aad4bfb8c7d0e5e22896db
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65799841"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Créer un compte Video Indexer connecté à Azure
@@ -23,7 +23,7 @@ Lorsque vous créez un compte Video Indexer, vous pouvez choisir un compte d’
 
 Cet article explique comment créer un compte Video Indexer connecté à un abonnement Azure et un compte Azure Media Services. Cette rubrique indique les étapes permettant de se connecter à Azure via le flux automatique (par défaut). Elle explique également comment se connecter à Azure manuellement (option avancée).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 * Un abonnement Azure.
 
@@ -61,7 +61,7 @@ Recherchez **Microsoft.Media** et **Microsoft.EventGrid**. S’il n’a pas l’
 
 1. Accédez au site web [Video Indexer](https://www.videoindexer.ai/) et connectez-vous.
 
-2. Cliquez sur le **créer le nouveau compte** bouton :
+2. Cliquez sur le bouton **Créer un compte** :
 
     ![Connexion à Azure](./media/create-account/connect-to-azure.png)
 
@@ -91,7 +91,7 @@ Recherchez **Microsoft.Media** et **Microsoft.EventGrid**. S’il n’a pas l’
 
     ![Nouveau compte](./media/create-account/new-account.png)
 
-7. Accédez à votre nouveau compte
+7. Accéder à votre nouveau compte
 
 ## <a name="connect-to-azure-manually-advanced-option"></a>Se connecter à Azure manuellement (option avancée)
 
@@ -104,7 +104,7 @@ En cas d’échec de la connexion à Azure, vous pouvez tenter de résoudre le p
 
 1. Utilisez le portail [Azure](https://portal.azure.com/) pour créer un compte Azure Media Services tel que décrit dans [Création d’un compte](../previous/media-services-portal-create-account.md).
 
-    Lorsque vous créez un compte de stockage pour votre compte Media Services, sélectionnez **StorageV2** pour le type de compte et **géo-redondant (GRS)** pour les champs de la réplication.
+    Lorsque vous créez un compte de stockage pour votre compte Media Services, sélectionnez **StorageV2** en tant que type de compte et **Stockage géo-redondant (GRS)** dans le champ Réplication.
 
     ![nouveau compte AMS](./media/create-account/create-ams-account1.png)
 
@@ -137,7 +137,7 @@ Dans la boîte de dialogue **Connecter Video Indexer à un abonnement Azure** de
 
 Dans la boîte de dialogue, indiquez les informations suivantes :
 
-|Paramètre|Description |
+|Paramètre|Description|
 |---|---|
 |Région du compte Video Indexer|Nom de la région du compte Video Indexer. Pour améliorer les performances et réduire les coûts, il est fortement recommandé de spécifier le nom de la région où se trouvent la ressource Azure Media Services et le compte de stockage Azure. |
 |Locataire Azure Active Directory (AAD)|Nom du locataire Azure AD, par exemple contoso.onmicrosoft.com. Les informations relatives au locataire peuvent être récupérées à partir du portail Azure. Placez votre curseur sur le nom de l’utilisateur connecté, en haut à droite. Le nom est indiqué à droite du **domaine**.|
@@ -145,7 +145,7 @@ Dans la boîte de dialogue, indiquez les informations suivantes :
 |Nom du groupe de ressources Azure Media Services|Nom du groupe de ressources dans lequel vous avez créé le compte Media Services.|
 |Nom de la ressource de service multimédia|Nom du compte Azure Media Services que vous avez créé dans la section précédente.|
 |ID de l'application|ID d’application Azure AD (avec des autorisations pour le compte Media Services spécifié) que vous avez créé dans la section précédente.|
-|Clé de l'application|Clé de l’application Azure AD que vous avez créée dans la section précédente. |
+|Clé de l’application|Clé de l’application Azure AD que vous avez créée dans la section précédente. |
 
 ## <a name="considerations"></a>Considérations
 

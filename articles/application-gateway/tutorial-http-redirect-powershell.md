@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2018
 ms.author: victorh
 ms.openlocfilehash: 60603bb4d2d29a9e2f0c4fe10130f56db93bfb92
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65202806"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-azure-powershell"></a>Créer une passerelle d’application avec redirection de HTTP vers HTTPS à l’aide d’Azure PowerShell
@@ -25,7 +25,7 @@ Vous pouvez utiliser Azure PowerShell pour créer une [passerelle d’applicatio
 Dans cet article, vous apprendrez comment :
 
 > [!div class="checklist"]
-> * Création d’un certificat auto-signé
+> * Créer un certificat auto-signé
 > * Configurer un réseau
 > * Créer une passerelle d’application avec le certificat
 > * Ajouter un écouteur et une règle de redirection
@@ -37,7 +37,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 Ce didacticiel requiert le module Azure PowerShell version 1.0.0 ou version ultérieure. Exécutez `Get-Module -ListAvailable Az` pour trouver la version. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-az-ps). Pour exécuter les commandes de ce didacticiel, vous devez également exécuter `Connect-AzAccount` pour créer une connexion avec Azure.
 
-## <a name="create-a-self-signed-certificate"></a>Création d’un certificat auto-signé
+## <a name="create-a-self-signed-certificate"></a>Créer un certificat auto-signé
 
 Dans un environnement de production, vous devez importer un certificat valide signé par un fournisseur approuvé. Pour ce didacticiel, vous créez un certificat auto-signé à l’aide de [New-SelfSignedCertificate](https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate). Vous pouvez utiliser [Export-PfxCertificate](https://docs.microsoft.com/powershell/module/pkiclient/export-pfxcertificate) avec l’empreinte numérique qui a été retournée pour exporter un fichier pfx du certificat.
 
@@ -103,7 +103,7 @@ $pip = New-AzPublicIpAddress `
 
 ### <a name="create-the-ip-configurations-and-frontend-port"></a>Créer les configurations IP et le port frontal
 
-Associez *myAGSubnet* créé précédemment à la passerelle d’application à l’aide de [New-AzApplicationGatewayIPConfiguration](/powershell/module/az.network/new-azapplicationgatewayipconfiguration). Affectez *myAGPublicIPAddress* à la passerelle d’application à l’aide de [New-AzApplicationGatewayFrontendIPConfig](/powershell/module/az.network/new-azapplicationgatewayfrontendipconfig). Vous pourrez alors créer le port HTTPS à l’aide [New-AzApplicationGatewayFrontendPort](/powershell/module/az.network/new-azapplicationgatewayfrontendport).
+Associez *myAGSubnet* créé précédemment à la passerelle d’application à l’aide de [New-AzApplicationGatewayIPConfiguration](/powershell/module/az.network/new-azapplicationgatewayipconfiguration). Affectez *myAGPublicIPAddress* à la passerelle d’application à l’aide de [New-AzApplicationGatewayFrontendIPConfig](/powershell/module/az.network/new-azapplicationgatewayfrontendipconfig). Et vous pouvez créer le port HTTPS à l’aide de [New-AzApplicationGatewayFrontendPort](/powershell/module/az.network/new-azapplicationgatewayfrontendport).
 
 ```powershell
 $vnet = Get-AzVirtualNetwork `
@@ -140,7 +140,7 @@ $poolSettings = New-AzApplicationGatewayBackendHttpSettings `
 
 Un écouteur est requis pour permettre à la passerelle d’application d’acheminer le trafic de manière appropriée vers le pool principal. Dans cet exemple, vous créez un écouteur de base qui écoute le trafic vers l’URL racine. 
 
-Créer un objet de certificat à l’aide [New-AzApplicationGatewaySslCertificate](/powershell/module/az.network/new-azapplicationgatewaysslcertificate) , puis créez un écouteur nommé *appGatewayHttpListener* à l’aide de [ Nouvelle AzApplicationGatewayHttpListener](/powershell/module/az.network/new-azapplicationgatewayhttplistener) avec la configuration frontale, le port frontal et le certificat que vous avez créé précédemment. Une règle est requise pour que l’écouteur sache quel pool principal utiliser pour le trafic entrant. Créez une règle de base nommée *rule1* à l’aide de [New-AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule).
+Créer un objet de certificat à l’aide de [New-AzApplicationGatewaySslCertificate](/powershell/module/az.network/new-azapplicationgatewaysslcertificate), puis créez un écouteur nommé *appGatewayHttpListener* à l’aide de [ New-AzApplicationGatewayHttpListener](/powershell/module/az.network/new-azapplicationgatewayhttplistener) avec la configuration de serveur frontal, le port frontal et le certificat que vous avez créés précédemment. Une règle est requise pour que l’écouteur sache quel pool principal utiliser pour le trafic entrant. Créez une règle de base nommée *rule1* à l’aide de [New-AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule).
 
 ```powershell
 $pwd = ConvertTo-SecureString `
@@ -193,7 +193,7 @@ $appgw = New-AzApplicationGateway `
 
 ### <a name="add-the-http-port"></a>Ajouter le port HTTP
 
-Ajouter le port HTTP pour la passerelle d’application à l’aide [Add-AzApplicationGatewayFrontendPort](/powershell/module/az.network/add-azapplicationgatewayfrontendport).
+Ajoutez le port HTTP à la passerelle d’application à l’aide de l’applet de commande [Add-AzApplicationGatewayFrontendPort](/powershell/module/az.network/add-azapplicationgatewayfrontendport).
 
 ```powershell
 $appgw = Get-AzApplicationGateway `
@@ -207,7 +207,7 @@ Add-AzApplicationGatewayFrontendPort `
 
 ### <a name="add-the-http-listener"></a>Ajouter l’écouteur HTTP
 
-Ajoutez l’écouteur HTTP nommé *myListener* à la passerelle d’application à l’aide [Add-AzApplicationGatewayHttpListener](/powershell/module/az.network/add-azapplicationgatewayhttplistener).
+Ajoutez l’écouteur HTTP nommé *myListener* à la passerelle d’application à l’aide de l’applet de commande [Add-AzApplicationGatewayHttpListener](/powershell/module/az.network/add-azapplicationgatewayhttplistener).
 
 ```powershell
 $fipconfig = Get-AzApplicationGatewayFrontendIPConfig `
@@ -226,7 +226,7 @@ Add-AzApplicationGatewayHttpListener `
 
 ### <a name="add-the-redirection-configuration"></a>Ajouter la configuration de redirection
 
-Ajouter le protocole HTTP pour la configuration de la redirection de HTTPS pour la passerelle d’application à l’aide [Add-AzApplicationGatewayRedirectConfiguration](/powershell/module/az.network/add-azapplicationgatewayredirectconfiguration).
+Ajoutez la configuration de redirection de HTTP vers HTTPS à la passerelle d’application à l’aide de l’applet de commande [Add-AzApplicationGatewayRedirectConfiguration](/powershell/module/az.network/add-azapplicationgatewayredirectconfiguration).
 
 ```powershell
 $defaultListener = Get-AzApplicationGatewayHttpListener `
@@ -242,7 +242,7 @@ Add-AzApplicationGatewayRedirectConfiguration -Name httpToHttps `
 
 ### <a name="add-the-routing-rule"></a>Ajouter la règle de routage
 
-Ajouter la règle de routage avec la configuration de redirection à la passerelle d’application à l’aide [Add-AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/add-azapplicationgatewayrequestroutingrule).
+Ajoutez la règle de routage avec la configuration de redirection à la passerelle d’application à l’aide de l’applet de commande [Add-AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/add-azapplicationgatewayrequestroutingrule).
 
 ```powershell
 $myListener = Get-AzApplicationGatewayHttpListener `
@@ -340,7 +340,7 @@ Pour accepter l’avertissement de sécurité si vous avez utilisé un certifica
 Dans ce tutoriel, vous avez appris à :
 
 > [!div class="checklist"]
-> * Création d’un certificat auto-signé
+> * Créer un certificat auto-signé
 > * Configurer un réseau
 > * Créer une passerelle d’application avec le certificat
 > * Ajouter un écouteur et une règle de redirection

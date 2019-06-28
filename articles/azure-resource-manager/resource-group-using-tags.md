@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: tomfitz
 ms.openlocfilehash: 0ee1cc9673d5e4fbd71706af74e82f6520d42b6d
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64868777"
 ---
 # <a name="use-tags-to-organize-your-azure-resources"></a>Organisation des ressources Azure à l'aide d'étiquettes
@@ -113,7 +113,7 @@ $r.Tags.Add("Status", "Approved")
 Set-AzResource -Tag $r.Tags -ResourceId $r.ResourceId -Force
 ```
 
-Pour appliquer toutes les balises à partir d’un groupe de ressources à ses ressources, et *pas conserver les balises existantes sur les ressources*, utilisez le script suivant :
+Pour appliquer toutes les étiquettes d’un groupe de ressources à ses ressources *sans conserver les étiquettes existantes*, utilisez le script suivant :
 
 ```azurepowershell-interactive
 $groups = Get-AzResourceGroup
@@ -123,7 +123,7 @@ foreach ($g in $groups)
 }
 ```
 
-Pour appliquer toutes les balises à partir d’un groupe de ressources à ses ressources, et *conserver les balises existantes sur les ressources qui ne sont pas des doublons*, utilisez le script suivant :
+Pour appliquer toutes les étiquettes d’un groupe de ressources à ses ressources et *conserver les étiquettes existantes sur les ressources qui ne sont pas des doublons*, utilisez le script suivant :
 
 ```azurepowershell-interactive
 $group = Get-AzResourceGroup "examplegroup"
@@ -220,7 +220,7 @@ rt=$(echo $jsonrtag | tr -d '"{},' | sed 's/: /=/g')
 az resource tag --tags $rt Project=Redesign -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks"
 ```
 
-Pour appliquer toutes les balises à partir d’un groupe de ressources à ses ressources, et *pas conserver les balises existantes sur les ressources*, utilisez le script suivant :
+Pour appliquer toutes les étiquettes d’un groupe de ressources à ses ressources *sans conserver les étiquettes existantes*, utilisez le script suivant :
 
 ```azurecli
 groups=$(az group list --query [].name --output tsv)
@@ -236,7 +236,7 @@ do
 done
 ```
 
-Pour appliquer toutes les balises à partir d’un groupe de ressources à ses ressources, et *conserver les balises existantes sur les ressources*, utilisez le script suivant :
+Pour appliquer toutes les étiquettes d’un groupe de ressources à ses ressources et *conserver les étiquettes existantes*, utilisez le script suivant :
 
 ```azurecli
 groups=$(az group list --query [].name --output tsv)

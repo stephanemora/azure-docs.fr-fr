@@ -9,10 +9,10 @@ ms.date: 05/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 63b64df457af5b7d3d2bd5901f73d89ccd3c913a
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65506968"
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>Actualisation asynchrone avec l’API REST
@@ -98,13 +98,13 @@ Le corps doit ressembler à ceci :
 
 La spécification des paramètres n’est pas nécessaire. La valeur par défaut est appliquée.
 
-| Nom             | type  | Description   |Default  |
+| Nom             | type  | Description  |Default  |
 |------------------|-------|--------------|---------|
 | `Type`           | Enum  | Type de traitement à effectuer. Les types sont alignés sur les types de [commande d’actualisation](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/refresh-command-tmsl) TMSL : full, clearValues, calculate, dataOnly, automatic et defragment. Le type add n’est pas pris en charge.      |   automatique      |
 | `CommitMode`     | Enum  | Détermine si les objets doivent être validés par lot ou uniquement à la fin. Modes inclus : default, transactional, partialBatch.  |  transactional       |
 | `MaxParallelism` | Int   | Cette valeur détermine le nombre maximal de threads sur lesquels exécuter des commandes de traitement en parallèle. Elle s’aligne sur la propriété MaxParallelism qui peut être définie dans la [commande de séquence](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/sequence-command-tmsl) TMSL ou par d’autres méthodes.       | 10        |
 | `RetryCount`     | Int   | Indique le nombre de tentatives de l’opération avant échec.      |     0    |
-| `Objects`        | Array | Tableau d’objets à traiter. Chaque objet inclut « table » lors du traitement de la table entière, ou « table » et « partition » lors du traitement d’une partition. Si aucun objet n’est spécifié, l’ensemble du modèle est actualisé. |   Traitement de l’ensemble du modèle      |
+| `Objects`        | Tableau | Tableau d’objets à traiter. Chaque objet inclut « table » lors du traitement de la table entière, ou « table » et « partition » lors du traitement d’une partition. Si aucun objet n’est spécifié, l’ensemble du modèle est actualisé. |   Traitement de l’ensemble du modèle      |
 
 CommitMode équivaut à partialBatch. Il est utilisé lors du chargement initial de jeux de données volumineux qui peuvent prendre des heures. Si l’opération d’actualisation échoue après la validation correcte d’un ou plusieurs lots, les lots validés restent validés (la validation n’est pas annulée).
 
@@ -201,13 +201,13 @@ Voici un exemple de code C# pour vous aider à démarrer, [RestApiSample sur Gi
 1.  Clonez ou téléchargez le référentiel. Ouvrez la solution RestApiSample.
 2.  Recherchez la ligne **client.BaseAddress = ...** et indiquez votre [URL de base](#base-url).
 
-L’exemple de code utilise [principal du service](#service-principal) l’authentification.
+L’exemple de code utilise l’authentification d’un [principal de service](#service-principal).
 
 ### <a name="service-principal"></a>Principal du service
 
 Consultez [Créer un principal du service – Portail Azure](../active-directory/develop/howto-create-service-principal-portal.md) et [Ajouter un principal du service au rôle d’administrateur du serveur](analysis-services-addservprinc-admins.md) pour plus d’informations sur la configuration du principal du service et l’attribution des autorisations nécessaires dans Azure AS. Après cette procédure, suivez les étapes complémentaires suivantes :
 
-1.  Dans l’exemple de code, recherchez **string authority = …**, puis remplacez **common** par l’ID client de votre organisation.
+1.  Dans l’exemple de code, recherchez **string authority = …** , puis remplacez **common** par l’ID client de votre organisation.
 2.  Ajoutez ou enlevez des marques de commentaire pour que la classe ClientCredential soit utilisée pour instancier l’objet d’informations d’identification. Vérifiez que les valeurs \<ID de l’application> et \<clé de l’application> valeurs sont accessibles de manière sécurisée, ou utilisez l’authentification par certificat pour les principaux de service.
 3.  Exécutez l’exemple.
 

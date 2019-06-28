@@ -9,10 +9,10 @@ ms.date: 05/24/2019
 ms.author: jingwang
 ms.custom: include file
 ms.openlocfilehash: 2b250f9f722bb1992d72b0555207a64dbc2dd972
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66271553"
 ---
 | Catégorie | Banque de données |
@@ -26,7 +26,7 @@ ms.locfileid: "66271553"
 | &nbsp; |[Azure Database pour MySQL](../articles/data-factory/connector-azure-database-for-mysql.md) |
 | &nbsp; |[Base de données Azure pour PostgreSQL](../articles/data-factory/connector-azure-database-for-postgresql.md) |
 | &nbsp; |[Azure Files](../articles/data-factory/connector-azure-file-storage.md) |
-| &nbsp; |[Base de données SQL Azure](../articles/data-factory/connector-azure-sql-database.md) |
+| &nbsp; |[Azure SQL Database](../articles/data-factory/connector-azure-sql-database.md) |
 | &nbsp; |[Azure SQL Database Managed Instance](../articles/data-factory/connector-azure-sql-database-managed-insance.md) |
 | &nbsp; |[Azure SQL Data Warehouse](../articles/data-factory/connector-azure-sql-data-warehouse.md) |
 | &nbsp; |[Stockage Table Azure](../articles/data-factory/connector-azure-table-storage.md) |
@@ -50,7 +50,7 @@ ms.locfileid: "66271553"
 | &nbsp; |[SAP Business Warehouse Open Hub](../articles/data-factory/connector-sap-business-warehouse-open-hub.md) |
 | &nbsp; |[SAP Business Warehouse via MDX](../articles/data-factory/connector-sap-business-warehouse.md) |
 | &nbsp; |[SAP HANA](../articles/data-factory/connector-sap-hana.md) |
-| &nbsp; |[Table SAP](../articles/data-factory/connector-sap-table.md) |
+| &nbsp; |[SAP Table](../articles/data-factory/connector-sap-table.md) |
 | &nbsp; |[Spark](../articles/data-factory/connector-spark.md) |
 | &nbsp; |[SQL Server](../articles/data-factory/connector-sql-server.md) |
 | &nbsp; |[Sybase](../articles/data-factory/connector-sybase.md) |

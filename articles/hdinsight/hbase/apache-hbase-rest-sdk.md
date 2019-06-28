@@ -9,15 +9,15 @@ ms.topic: conceptual
 ms.date: 12/13/2017
 ms.author: ashishth
 ms.openlocfilehash: 707869880c5df619def2d707264b59e22e03c521
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64720300"
 ---
 # <a name="use-the-net-sdk-for-apache-hbase"></a>Utiliser le SDK .NET pour Apache HBase
 
-[Apache HBase](apache-hbase-overview.md) fournit deux principales options pour travailler avec vos données : [Requêtes Apache Hive et les appels aux API RESTful de HBase](apache-hbase-tutorial-get-started-linux.md). Vous pouvez travailler directement avec l’API REST à l’aide de la commande `curl` ou d’un utilitaire similaire.
+[Apache HBase](apache-hbase-overview.md) offre deux choix principaux pour travailler avec vos données : [les requêtes Apache Hive et les appels à l’API RESTful de HBase](apache-hbase-tutorial-get-started-linux.md). Vous pouvez travailler directement avec l’API REST à l’aide de la commande `curl` ou d’un utilitaire similaire.
 
 Pour les applications C# et .NET, la [bibliothèque de client Microsoft HBase REST pour .NET](https://www.nuget.org/packages/Microsoft.HBase.Client/) fournit une bibliothèque de client sur l’API REST HBase.
 

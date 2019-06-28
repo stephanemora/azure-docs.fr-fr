@@ -1,20 +1,20 @@
 ---
-title: Limitations dans Azure Database pour PostgreSQL - serveur unique
-description: Cet article décrit les limitations dans Azure Database pour PostgreSQL - serveur unique, comme le nombre de connexions et les options de moteur de stockage.
+title: Limitations dans Azure Database pour PostgreSQL - Serveur unique
+description: Cet article décrit les limitations dans Azure Database pour PostgreSQL - Serveur unique, telles que le nombre de connexions et les options du moteur de stockage.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 06/05/2019
 ms.openlocfilehash: 3e1597def26c09378d3917ad2d49163ef17732f8
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66732858"
 ---
-# <a name="limitations-in-azure-database-for-postgresql---single-server"></a>Limitations dans Azure Database pour PostgreSQL - serveur unique
-Les sections suivantes décrivent les limites fonctionnelles et les limites de capacités du service de base de données. Si vous souhaitez en savoir plus sur les niveaux de ressources (calcul, mémoire, stockage), consultez le [niveaux tarifaires](concepts-pricing-tiers.md) article.
+# <a name="limitations-in-azure-database-for-postgresql---single-server"></a>Limitations dans Azure Database pour PostgreSQL - Serveur unique
+Les sections suivantes décrivent les limites fonctionnelles et les limites de capacités du service de base de données. Si vous souhaitez en savoir plus sur les niveaux de ressources (calcul, mémoire, stockage), consultez l'article [Niveaux de tarification](concepts-pricing-tiers.md).
 
 
 ## <a name="maximum-connections"></a>Nombre maximal de connexions

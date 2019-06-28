@@ -1,7 +1,7 @@
 ---
-title: 'Former le modèle de Clustering : Référence de module'
+title: 'Entraîner un modèle de clustering : informations de référence sur les modules'
 titleSuffix: Azure Machine Learning service
-description: Découvrez comment utiliser le module former le modèle de Clustering dans le service Azure Machine Learning pour l’apprentissage des modèles de clustering.
+description: Découvrez comment utiliser le module Train Clustering Model (Entraîner un modèle de clustering) dans le service Azure Machine Learning pour entraîner les modèles de clustering.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,54 +11,54 @@ ms.author: zhanxia
 ms.date: 05/06/2019
 ROBOTS: NOINDEX
 ms.openlocfilehash: 41cdec1d7f1c3932b17da6f9b1de518071f3f542
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65028079"
 ---
-# <a name="train-clustering-model"></a>Former le modèle de Clustering
+# <a name="train-clustering-model"></a>Entraîner un modèle de clustering
 
-Cet article décrit un module de l’interface visuelle (version préliminaire) pour le service Azure Machine Learning.
+Cet article décrit un module de l’interface visuelle (préversion) du service Azure Machine Learning.
 
-Utilisez ce module pour former un modèle de clustering.
+Utilisez ce module pour entraîner un modèle de clustering.
 
-Le module prend un modèle de clustering non formé que vous avez déjà configuré à l’aide de la [Clustering K-Means](k-means-clustering.md) module et effectue l’apprentissage du modèle à l’aide d’un jeu de données étiqueté ou sans étiquette. Le module crée à la fois un modèle formé que vous pouvez utiliser pour la prédiction et un ensemble d’affectations de cluster pour chaque cas dans les données d’apprentissage.
+Le module prend un modèle de clustering non entraîné que vous avez déjà configuré à l’aide du module [Clustering k-moyennes](k-means-clustering.md) et l’entraîne à l’aide d’un jeu de données étiqueté ou sans étiquette. Le module crée à la fois un modèle entraîné que vous pouvez utiliser à des fins de prédiction et un ensemble d’affectations de cluster pour chaque cas dans les données d’apprentissage.
 
 > [!NOTE]
-> Être un clustering ne peut pas de modèle formé à l’aide du [former le modèle](train-model.md) module, qui est le module générique pour l’apprentissage des modèles d’apprentissage automatique. C’est parce que [former le modèle](train-model.md) fonctionne uniquement avec les algorithmes d’apprentissage supervisé. K-means et autres algorithmes de clusters permettent un apprentissage non supervisé, ce qui signifie que l’algorithme puisse apprendre des données sans étiquette.  
+> Il est impossible d’entraîner un modèle de clustering à l’aide du module [Train Model](train-model.md) (Entraîner le modèle), qui est le module générique pour l’entraînement des modèles d’apprentissage automatique. Cela est dû au fait que le module [Train Model](train-model.md) (Entraîner le modèle) fonctionne uniquement avec les algorithmes d’apprentissage supervisé. L’algorithme de clustering k-moyennes et les autres algorithmes de clustering permettent un apprentissage non supervisé, ce qui signifie que l’algorithme peut apprendre à partir de données sans étiquette.  
   
-## <a name="how-to-use-train-clustering-model"></a>L’utilisation de former le modèle de Clustering  
+## <a name="how-to-use-train-clustering-model"></a>Entraînement d’un modèle de clustering  
   
-1.  Ajouter le **Train Clustering Model** module à votre expérience dans Studio. Vous pouvez rechercher le module sous **Modules Machine Learning**, dans le **Train** catégorie.  
+1.  Ajoutez le module **Train Clustering Model** (Entraîner un modèle de clustering) à votre expérience dans Studio. Vous trouverez ce module sous **Modules Machine Learning**, dans la catégorie **Entraîner**.  
   
-2. Ajouter le [Clustering K-Means](k-means-clustering.md) module ou un autre module personnalisé qui crée un clustering compatible de modèle et définissez les paramètres du modèle de clustering.  
+2. Ajouter le module [Clustering k-moyennes](k-means-clustering.md) ou un autre module personnalisé qui crée un modèle de clustering compatible, puis définissez les paramètres du modèle de clustering.  
     
-3.  Joindre un jeu de données de formation à l’entrée droite de **Train Clustering Model**.
+3.  Joignez un jeu de données d’entraînement à l’entrée à droite du module **Train Clustering Model** (Entraîner un modèle de clustering).
   
-5.  Dans **jeu de colonnes**, sélectionnez les colonnes du jeu de données à utiliser lors de la création de clusters. Veillez à sélectionner les colonnes qui constituent de bonnes fonctionnalités : par exemple, évitez d’utiliser les ID ou d’autres colonnes qui ont des valeurs uniques ou de colonnes qui ont les mêmes valeurs.
+5.  Dans **Jeu de colonnes**, sélectionnez les colonnes du jeu de données à utiliser lors de la création de clusters. Veillez à sélectionner les colonnes qui constituent de bonnes fonctionnalités : par exemple, évitez d’utiliser les ID ou d’autres colonnes qui ont des valeurs uniques ou des colonnes qui ont toutes les mêmes valeurs.
 
-    Si une étiquette est disponible, vous pouvez utiliser comme une fonctionnalité ou les ignorer.  
+    Si une étiquette est disponible, vous pouvez l’utiliser comme une fonctionnalité ou l’ignorer.  
   
-6. Sélectionnez l’option **recherchez Append ou décochez pour résultat uniquement**, si vous souhaitez exporter les données d’apprentissage avec la nouvelle étiquette de cluster.
+6. Sélectionnez l’option **Check for Append or Uncheck for Result Only** (Cocher pour ajouter ou décocher pour les résultats uniquement), si vous souhaitez exporter les données d’apprentissage avec la nouvelle étiquette de cluster.
 
     Si vous désélectionnez cette option, seuls les affectations de cluster sont générées. 
 
-7. Exécutez l’expérience, ou cliquez sur le **Train Clustering Model** module et sélectionnez **exécuter les éléments sélectionnés**.  
+7. Exécutez l’expérience, ou cliquez sur le module **Train Clustering Model** (Entraîner un modèle de clustering) et sélectionnez **Exécuter la sélection**.  
   
 ### <a name="results"></a>Résultats
 
-Une fois la formation terminée :
+Une fois l’apprentissage terminé :
 
 
-+  Pour afficher les valeurs dans le jeu de données, cliquez sur le module, sélectionnez **entraîner des jeux de données**, puis cliquez sur **visualiser**.
++  Pour afficher les valeurs dans le jeu de données, cliquez sur le module avec le bouton droit de la souris, sélectionnez **Result datasets** (Jeux de données de résultats), puis cliquez sur **Visualiser**.
 
-+ Pour enregistrer le modèle formé pour une réutilisation ultérieure, cliquez sur le module, sélectionnez **ajouté pour l’apprentissage modèle**, puis cliquez sur **enregistrer en tant que modèle formé**.
++ Pour enregistrer le modèle entraîné en vue d’une réutilisation ultérieure, cliquez sur le module, sélectionnez **Modèle formé**, puis cliquez sur **Save As Trained Model** (Enregistrer en tant que modèle formé).
 
-+ Pour générer des scores à partir du modèle, utilisez [affecter les données aux Clusters](assign-data-to-clusters.md).
++ Pour générer des scores à partir du modèle, utilisez l’option [Attribuer des données à des clusters](assign-data-to-clusters.md).
 
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez le [ensemble de modules disponibles](module-reference.md) au service Azure Machine Learning. 
+Consultez [l’ensemble des modules disponibles](module-reference.md) pour le service Azure Machine Learning. 

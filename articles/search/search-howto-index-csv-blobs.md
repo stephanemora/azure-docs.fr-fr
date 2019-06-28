@@ -11,16 +11,16 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
 ms.openlocfilehash: e7d959e77d27fb04b18f402e4056d4dea1607039
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65522881"
 ---
 # <a name="indexing-csv-blobs-with-azure-search-blob-indexer"></a>Indexation d’objets blob CSV avec l’indexeur d’objets blob Azure Search
 
 > [!Note]
-> delimitedText mode d’analyse est en version préliminaire et les a pas été conçu pour la production. Le [API REST version 2019-05-06-Preview](search-api-preview.md) fournit cette fonctionnalité. Il n’existe aucune prise en charge du SDK .NET pour l’instant.
+> Le mode d’analyse delimitedText est en préversion et n’a pas été conçue pour la production. L’[API REST version 2019-05-06-Preview](search-api-preview.md) fournit cette fonctionnalité. Il n’y a pas de prise en charge de .NET SDK pour l’instant.
 >
 
 Par défaut, l’ [indexeur d’objets blob Azure Search](search-howto-indexing-azure-blob-storage.md) analyse les objets blob de texte délimité comme un bloc de texte unique. Toutefois, avec des objets blob contenant des données CSV, vous souhaitez généralement traiter chaque ligne dans l’objet blob comme un document distinct. Par exemple, vous pouvez analyser le texte délimité suivant dans deux documents contenant chacun les champs « id », « datePublished » et « tags » : 
@@ -29,13 +29,13 @@ Par défaut, l’ [indexeur d’objets blob Azure Search](search-howto-indexing-
     1, 2016-01-12, "azure-search,azure,cloud" 
     2, 2016-07-07, "cloud,mobile" 
 
-Dans cet article, vous allez apprendre à analyser des objets BLOB CSV avec un paramètre indexerby d’objets blob Azure Search les `delimitedText` mode d’analyse. 
+Dans cet article, vous découvrirez comment analyser les objets blob CSV avec un indexeur d’objets blob Recherche Azure en définissant le mode d’analyse `delimitedText`. 
 
 > [!NOTE]
-> Suivez les recommandations de configuration d’indexeur de [l’indexation un-à-plusieurs](search-howto-index-one-to-many-blobs.md) pour générer plusieurs documents de recherche à partir d’un objet blob Azure.
+> Suivez les recommandations de configuration de l’indexeur dans [Indexation un-à-plusieurs](search-howto-index-one-to-many-blobs.md) pour générer plusieurs documents de recherche à partir d’un objet blob Azure.
 
 ## <a name="setting-up-csv-indexing"></a>Configuration de l’indexation CSV
-Pour indexer des objets BLOB CSV, créer ou mettre à jour une définition d’indexeur avec la `delimitedText` mode d’analyse sur un [créer un indexeur](https://docs.microsoft.com/rest/api/searchservice/create-indexer) demande :
+Pour indexer des objets blob CSV, créez ou mettez à jour une définition d’indexeur avec le mode d’analyse `delimitedText` sur une demande [Créer un indexeur](https://docs.microsoft.com/rest/api/searchservice/create-indexer) :
 
     {
       "name" : "my-csv-indexer",
@@ -48,7 +48,7 @@ Si les objets blob ne contiennent pas de ligne d’en-tête initiale, les en-tê
 
     "parameters" : { "configuration" : { "parsingMode" : "delimitedText", "delimitedTextHeaders" : "id,datePublished,tags" } } 
 
-Vous pouvez personnaliser le caractère délimiteur à l’aide du paramètre de configuration `delimitedTextDelimiter`. Exemple :
+Vous pouvez personnaliser le caractère délimiteur à l’aide du paramètre de configuration `delimitedTextDelimiter`. Par exemple :
 
     "parameters" : { "configuration" : { "parsingMode" : "delimitedText", "delimitedTextDelimiter" : "|" } }
 

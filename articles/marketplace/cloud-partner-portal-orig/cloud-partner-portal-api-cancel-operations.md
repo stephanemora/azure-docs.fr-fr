@@ -1,6 +1,6 @@
 ---
-title: Annuler l’opération API | Place de marché Azure
-description: 'Annulez des opérations. '
+title: API Annuler une opération | Place de marché Azure
+description: Annulez des opérations.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
@@ -8,10 +8,10 @@ ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pabutler
 ms.openlocfilehash: 70ffd13be4ba934b423e3bb5344eea0a9c36886c
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64935559"
 ---
 # <a name="cancel-operation"></a>Annuler une opération 
@@ -25,7 +25,7 @@ Vous pouvez fournir une liste d’adresses e-mail séparées par des virgules av
 <a name="uri-parameters"></a>Paramètres URI
 --------------
 
-|  **Name**    |      **Description**                                  |    **Type de données**  |
+|  **Nom**    |      **Description**                                  |    **Type de données**  |
 | ------------ |     ----------------                                  |     -----------   |
 | publisherId  |  Identificateur du serveur de publication, par exemple `contoso`         |   Chaîne          |
 | offerId      |  Identificateur de l’offre                                     |   Chaîne          |
@@ -36,7 +36,7 @@ Vous pouvez fournir une liste d’adresses e-mail séparées par des virgules av
 <a name="header"></a>En-tête
 ------
 
-|  **Name**              |  **Valeur**         |
+|  **Nom**              |  **Valeur**         |
 |  ---------             |  ----------        |
 |  Content-Type          |  application/json  |
 |  Authorization         |  Porteur de VOTRE JETON |
@@ -58,7 +58,7 @@ Vous pouvez fournir une liste d’adresses e-mail séparées par des virgules av
 
 ### <a name="request-body-properties"></a>Propriétés du corps de la requête
 
-|  **Name**                |  **Description**                                               |
+|  **Nom**                |  **Description**                                               |
 |  --------                |  ---------------                                               |
 |  e-mails de notification     | Liste d’ID d’e-mail séparés par des virgules pour informer de la progression de l’opération de publication. |
 |  |  |
@@ -71,7 +71,7 @@ Vous pouvez fournir une liste d’adresses e-mail séparées par des virgules av
 
 ### <a name="response-header"></a>En-tête de réponse
 
-|  **Name**             |    **Valeur**                       |
+|  **Nom**             |    **Valeur**                       |
 |  ---------            |    ----------                      |
 | Operation-Location    | URL qui peut être interrogée pour déterminer l’état actuel de l’opération. |
 |  |  |

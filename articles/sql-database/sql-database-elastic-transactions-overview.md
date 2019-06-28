@@ -13,10 +13,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: 7fc945a00360e4eea4a5cf1e3962da2390d3bfeb
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65506847"
 ---
 # <a name="distributed-transactions-across-cloud-databases"></a>Transactions distribuées entre bases de données cloud
@@ -128,15 +128,15 @@ Notez que le programme d'installation pour .NET 4.6.1 peut nécessiter plus de 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Le module PowerShell Azure Resource Manager est toujours pris en charge par Azure SQL Database, mais tous les développements futurs sont pour le module Az.Sql. Pour ces applets de commande, consultez [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Les arguments pour les commandes dans le module Az et dans les modules AzureRm sont sensiblement identiques.
+> Le module PowerShell Azure Resource Manager est toujours pris en charge par Azure SQL Database, mais tous les développements futurs sont destinés au module Az.Sql. Pour ces cmdlets, consultez [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Les arguments des commandes dans le module Az et dans les modules AzureRm sont sensiblement identiques.
 
 Les transactions de base de données élastique sont prises en charge sur différents serveurs SQL Database dans Azure SQL Database. Lorsque les transactions franchissent les limites du serveur SQL Database, les serveurs participants doivent d’abord entrer dans une relation de communication mutuelle. Une fois la relation de communication établie, n’importe quelle base de données de n’importe lequel des deux serveurs peut participer à des transactions élastiques avec des bases de données de l'autre serveur. Lorsque les transactions couvrent plus de deux serveurs SQL Database, une relation de communication doit être mise en place pour toutes les paires de serveurs SQL Database.
 
 Pour gérer les relations de communication entre serveurs pour les transactions de bases de données élastiques, utilisez les applets de commande PowerShell suivants :
 
-* **New-AzSqlServerCommunicationLink**: Utilisez cette applet de commande pour créer une nouvelle relation de communication entre deux serveurs SQL Database dans Azure SQL Database. La relation est symétrique, ce qui signifie que chacun des deux serveurs peut initier des transactions avec l'autre serveur.
-* **Get-AzSqlServerCommunicationLink**: Utilisez ce cmdlet pour extraire les relations de communication existantes et leurs propriétés.
-* **Remove-AzSqlServerCommunicationLink**: Utilisez ce cmdlet pour supprimer une relation de communication existante. 
+* **New-AzSqlServerCommunicationLink** : Utilisez cette applet de commande pour créer une nouvelle relation de communication entre deux serveurs SQL Database dans Azure SQL Database. La relation est symétrique, ce qui signifie que chacun des deux serveurs peut initier des transactions avec l'autre serveur.
+* **Get-AzSqlServerCommunicationLink** : Utilisez ce cmdlet pour extraire les relations de communication existantes et leurs propriétés.
+* **Remove-AzSqlServerCommunicationLink** : Utilisez ce cmdlet pour supprimer une relation de communication existante. 
 
 ## <a name="monitoring-transaction-status"></a>Surveillance de l’état de transaction
 

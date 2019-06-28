@@ -1,6 +1,6 @@
 ---
 title: 'Azure AD Connect : Présentation du module PowerShell ADConnectivityTool | Microsoft Docs'
-description: Ce document présente le nouveau module PowerShell de ADConnectivity et comment elle peut être utilisée pour résoudre les problèmes.
+description: Ce document présente le nouveau module PowerShell ADConnectivity et explique comment il peut vous aider à résoudre les problèmes.
 services: active-directory
 author: billmath
 manager: daveba
@@ -12,17 +12,17 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cd5340cd8c802df4ffbe0207b5401d2fee4e207e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64571117"
 ---
-# <a name="troubleshoot-azure-ad-connectivity-with-the-adconnectivitytool-powershell-module"></a>Résoudre les problèmes de connectivité d’Azure AD avec le module PowerShell de ADConnectivityTool
+# <a name="troubleshoot-azure-ad-connectivity-with-the-adconnectivitytool-powershell-module"></a>Résoudre les problèmes de connectivité Azure AD avec le module PowerShell ADConnectivityTool
 
 L’outil ADConnectivity est un module PowerShell utilisé dans l’une des situations suivantes :
 
-- Lors de l’installation lorsqu’un problème de connectivité réseau empêche la validation réussie de l’annuaire Active Directory informations d’identification de l’utilisateur dans l’Assistant.
+- Pendant l’installation quand un problème de connectivité réseau empêche la validation des informations d’identification Active Directory fournies par l’utilisateur dans l’Assistant.
 - Après l’installation par un utilisateur qui appelle les fonctions à partir d’une session PowerShell.
 
 L’outil se trouve à l’emplacement suivant : **C:\Program Files\Microsoft Azure Active Directory Connect\Tools\ ADConnectivityTool.psm1** 
@@ -47,7 +47,7 @@ Par exemple, quand nous tentons d’ajouter un annuaire sur l’écran **Connexi
 
 En fait, Azure AD Connect appelle la fonction `Start-NetworkConnectivityDiagnosisTools` en arrière-plan.  Cette fonction est appelée quand la validation des informations d’identification échoue en raison d’un problème de connectivité réseau.
 
-Pour finir, un fichier journal détaillé est généré chaque fois que l’outil est appelé à partir de l’Assistant. Le journal se trouve dans **C:\ProgramData\AADConnect\ADConnectivityTool-\<date >-\<temps > .log**
+Pour finir, un fichier journal détaillé est généré chaque fois que l’outil est appelé à partir de l’Assistant. Le journal se trouve dans **C:\ProgramData\AADConnect\ADConnectivityTool-\<date>-\<heure>.log**
 
 ## <a name="adconnectivitytools-post-installation"></a>ADConnectivityTools après l’installation
 Après l’installation d’Azure AD Connect, toutes les fonctions du module PowerShell ADConnectivityTools peuvent être utilisées.  

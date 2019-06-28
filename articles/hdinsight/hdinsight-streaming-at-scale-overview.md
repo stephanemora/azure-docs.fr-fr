@@ -8,15 +8,15 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.openlocfilehash: e2b6cbabc9a0c727c9eb0232bd55048493b29128
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64696924"
 ---
 # <a name="streaming-at-scale-in-hdinsight"></a>Diffusion en continu à l’échelle dans HDInsight
 
-Solutions big data en temps réel agissent sur les données qui sont en mouvement. En général, ces données sont le plus précieuses au moment de leur arrivée. Si le flux de données entrant devient plus grand que ce qui peut être traité à ce moment-là, vous devrez peut-être limiter les ressources. En guise d’alternative, un cluster HDInsight peut monter en puissance pour répondre aux besoins de votre solution de streaming en ajoutant des nœuds à la demande.
+Les solutions Big Data en temps réel agissent sur des données qui sont en mouvement. En général, ces données sont le plus précieuses au moment de leur arrivée. Si le flux de données entrant devient plus grand que ce qui peut être traité à ce moment-là, vous devrez peut-être limiter les ressources. En guise d’alternative, un cluster HDInsight peut monter en puissance pour répondre aux besoins de votre solution de streaming en ajoutant des nœuds à la demande.
 
 
 Dans une application de streaming, une ou plusieurs sources de données génèrent des événements (parfois plusieurs millions par seconde) qui doivent être ingérés rapidement sans supprimer aucune information utile. Les événements entrants sont traités avec la *mise en mémoire tampon du flux*, également appelée *mise en file d’attente des événements*, par un service comme [Apache Kafka](kafka/apache-kafka-introduction.md) ou [Event Hubs](https://azure.microsoft.com/services/event-hubs/). Après avoir collecté les événements, vous pouvez analyser les données à l’aide d’un système d’analytique en temps réel dans la couche de *traitement du flux*, tel que [Apache Storm](storm/apache-storm-overview.md) ou [Apache Spark Streaming](spark/apache-spark-streaming-overview.md). Les données traitées peuvent être stockées dans des systèmes de stockage à long terme, comme [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), et affichées en temps réel sur un tableau de bord de décisionnel, tel que [Power BI](https://powerbi.microsoft.com), Tableau ou une page web personnalisée.

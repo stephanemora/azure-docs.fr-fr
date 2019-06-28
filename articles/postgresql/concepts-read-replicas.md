@@ -1,24 +1,24 @@
 ---
-title: Réplicas en lecture dans Azure Database pour PostgreSQL - serveur unique
-description: Cet article décrit la fonctionnalité de réplica en lecture dans Azure Database pour PostgreSQL - serveur unique.
+title: Réplicas en lecture dans Azure Database pour PostgreSQL - Serveur unique
+description: Cet article décrit la fonctionnalité de réplica en lecture dans Azure Database pour PostgreSQL, avec un serveur unique.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 06/05/2019
 ms.openlocfilehash: 75a3c8a9912fe9ace70e411983996167da755128
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66734650"
 ---
-# <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Réplicas en lecture dans Azure Database pour PostgreSQL - serveur unique
+# <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Réplicas en lecture dans Azure Database pour PostgreSQL - Serveur unique
 
-La fonctionnalité de réplica en lecture vous permet de répliquer les données d’un serveur Azure Database pour PostgreSQL sur un serveur en lecture seule. Vous pouvez répliquer à partir du serveur maître à jusqu'à cinq réplicas. Les réplicas sont mis à jour de manière asynchrone à l’aide de la technologie de réplication native du moteur PostgreSQL.
+La fonctionnalité de réplica en lecture vous permet de répliquer les données d’un serveur Azure Database pour PostgreSQL sur un serveur en lecture seule. Vous pouvez effectuer la réplication à partir du serveur maître vers cinq réplicas au maximum. Les réplicas sont mis à jour de manière asynchrone à l’aide de la technologie de réplication native du moteur PostgreSQL.
 
 > [!IMPORTANT]
-> Vous pouvez créer un réplica en lecture dans la même région que votre serveur principal, ou dans n’importe quelle autre région Azure de votre choix. La réplication entre les régions est actuellement en version préliminaire publique.
+> Vous pouvez créer un réplica en lecture dans la même région que votre serveur principal, ou dans n’importe quelle autre région Azure de votre choix. La réplication entre plusieurs régions est actuellement disponible en préversion publique.
 
 Les réplicas sont de nouveaux serveurs que vous gérez de manière similaire aux serveurs Azure Database pour PostgreSQL classiques. Pour chaque réplica en lecture, vous êtes facturé en fonction de la capacité de calcul provisionnée dans les vCores et du stockage provisionné en Go/mois.
 
@@ -33,14 +33,14 @@ Dans la mesure où les réplicas sont en lecture seule, ils ne réduisent pas di
 
 La fonctionnalité de réplica en lecture utilise la réplication asynchrone PostgreSQL. La fonctionnalité n’est pas destinée aux scénarios de réplication synchrone. Il y aura un délai mesurable entre le maître et le réplica. Les données du réplica finissent par devenir cohérentes avec les données du serveur maître. Utilisez cette fonctionnalité pour les charges de travail pouvant s’adapter à ce délai.
 
-Les réplicas en lecture peuvent améliorer votre plan de récupération d’urgence. Vous devez d’abord avoir un réplica dans une autre région Azure à partir du maître. En l’absence d’un incident de région, vous pouvez arrêter la réplication vers ce réplica et rediriger votre charge de travail vers elle. Arrêt de la réplication permet au réplica commencer à accepter les écritures, ainsi que lit. En savoir plus, consultez le [arrêter la réplication](#stop-replication) section. 
+Les réplicas en lecture peuvent améliorer votre plan de récupération d’urgence. Tout d’abord, vous devez disposer d’un réplica se trouvant dans une région Azure différente de celle du maître. En cas d’incident de région, vous pouvez arrêter la réplication vers ce réplica et rediriger votre charge de travail vers elle. Si vous arrêtez la réplication, cela signifie que le réplica va commencer à accepter les écritures et les lectures. Découvrez plus d’informations dans la section relative à [l’arrêt de la réplication](#stop-replication). 
 
 ## <a name="create-a-replica"></a>Créer un réplica
 Le serveur maître doit comporter le paramètre `azure.replication_support` avec la valeur **REPLICA**. Quand vous changez ce paramètre, un redémarrage du serveur est nécessaire pour que la modification soit prise en compte. (Le paramètre `azure.replication_support` s’applique uniquement aux niveaux à usage général et à mémoire optimisée).
 
 Quand vous démarrez le workflow de création de réplica, un serveur Azure Database pour PostgreSQL vide est créé. Le nouveau serveur est rempli avec les données qui se trouvaient sur le serveur maître. Le temps de création dépend de la quantité de données présentes sur le serveur maître et du temps écoulé depuis la dernière sauvegarde complète hebdomadaire. Le temps nécessaire peut aller de quelques minutes à plusieurs heures.
 
-Chaque réplica est activé pour le stockage [la croissance automatique](concepts-pricing-tiers.md#storage-auto-grow). La fonctionnalité de croissance automatique permet au réplica de suivre les données répliquées sur elle et empêcher une interruption dans la réplication a provoqué par des erreurs de stockage.
+Chaque réplica est activé pour la [croissance automatique](concepts-pricing-tiers.md#storage-auto-grow) du stockage. La fonctionnalité de croissance automatique permet au réplica de suivre les données qui sont répliquées sur lui et d’empêcher toute interruption à cause d’une erreur de saturation du stockage.
 
 La fonctionnalité de réplica en lecture utilise la réplication physique PostgreSQL, et non la réplication logique. Le streaming de réplication à l’aide des slots de réplication est le mode de fonctionnement par défaut. Quand cela est nécessaire, la copie des journaux de transaction permet de rattraper le retard.
 
@@ -51,7 +51,7 @@ Quand vous créez un réplica, il n’hérite pas des règles de pare-feu ni du 
 
 Le réplica hérite du compte Administrateur du serveur maître. Tous les comptes d’utilisateur sur le serveur maître sont répliqués sur les réplicas en lecture. Vous pouvez uniquement vous connecter à un réplica en lecture à l’aide des comptes d’utilisateur disponibles sur le serveur maître.
 
-Vous pouvez vous connecter au réplica à l’aide de son nom d’hôte et d’un compte d’utilisateur valide, comme vous le faites sur un serveur Azure Database pour PostgreSQL classique. Pour un serveur nommé **mon réplica** avec le nom d’utilisateur administrateur **myadmin**, vous pouvez vous connecter au réplica à l’aide de psql :
+Vous pouvez vous connecter au réplica à l’aide de son nom d’hôte et d’un compte d’utilisateur valide, comme vous le faites sur un serveur Azure Database pour PostgreSQL classique. Pour un serveur nommé **myreplica**, à l’aide du nom d’utilisateur administrateur **myadmin**, vous pouvez vous connecter au réplica via psql :
 
 ```
 psql -h myreplica.postgres.database.azure.com -U myadmin@myreplica -d postgres
@@ -60,11 +60,11 @@ psql -h myreplica.postgres.database.azure.com -U myadmin@myreplica -d postgres
 À l’invite, entrez le mot de passe du compte d’utilisateur.
 
 ## <a name="monitor-replication"></a>Superviser la réplication
-Azure Database pour PostgreSQL fournit deux mesures de surveillance de la réplication. Les deux mesures sont **Nb max. de décalage entre les réplicas** et **réplica Lag**. Pour savoir comment afficher ces mesures, consultez la **surveiller un réplica** section de la [lire l’article sur les procédures de réplica](howto-read-replicas-portal.md).
+Azure Database pour PostgreSQL fournit deux métriques de surveillance de la réplication, à savoir **Retard maximum entre réplicas** et **Retard du réplica**. Pour savoir comment afficher ces métriques, consultez la section **Superviser un réplica** section [Créer et gérer des réplicas en lecture dans Azure Database pour PostgreSQL - serveur unique à partir du Portail Azure](howto-read-replicas-portal.md).
 
-Le **Nb max. de décalage entre les réplicas** métrique affiche le décalage en octets entre le maître et le réplica de la plupart-en retard. Cette métrique est disponible sur le serveur maître uniquement.
+La métrique **Retard maximum entre réplicas** représente le retard entre le master et le réplica le plus en retard, en octets. Cette métrique est disponible sur le serveur maître uniquement.
 
-Le **réplica Lag** métrique affiche l’heure dans la mesure où le dernier relus transaction. S’il n’existe aucune transaction sur votre serveur maître, la métrique reflète ce retard. Cette mesure est disponible pour les serveurs de réplication uniquement. Décalage de réplica est calculée à partir de la `pg_stat_wal_receiver` vue :
+La métrique **Retard du réplica** indique le temps écoulé depuis la dernière transaction réexécutée. S’il n’existe aucune transaction sur votre serveur maître, la métrique reflète ce retard. Cette métrique est disponible pour les serveurs réplicas uniquement. Le retard du réplica est calculé à partir de la vue `pg_stat_wal_receiver` :
 
 ```SQL
 EXTRACT (EPOCH FROM now() - pg_last_xact_replay_timestamp());
@@ -98,7 +98,7 @@ Vous pouvez arrêter la réplication entre un serveur maître et un réplica. L�
 > Le serveur autonome ne peut pas être retransformé en réplica.
 > Avant d’arrêter la réplication sur un réplica en lecture, vérifiez que celui-ci contient toutes les données nécessaires.
 
-Lorsque vous arrêtez la réplication, le réplica perd tous les liens avec son maître précédente et d’autres réplicas. Il n’existe aucun basculement automatique entre un maître et un réplica. 
+Lorsque vous arrêtez la réplication, le réplica perd tous les liens avec son maître précédent et d’autres réplicas. Il n’existe aucun basculement automatique entre un maître et un réplica. 
 
 Découvrez comment [arrêter la réplication sur un réplica](howto-read-replicas-portal.md).
 
@@ -107,7 +107,7 @@ Découvrez comment [arrêter la réplication sur un réplica](howto-read-replica
 
 Cette section résume les considérations relatives à la fonctionnalité de réplica en lecture.
 
-### <a name="prerequisites"></a>Conditions préalables
+### <a name="prerequisites"></a>Prérequis
 Avant de créer un réplica en lecture, vous devez affecter au paramètre `azure.replication_support` la valeur **REPLICA** sur le serveur maître. Quand vous changez ce paramètre, un redémarrage du serveur est nécessaire pour que la modification soit prise en compte. Le paramètre `azure.replication_support` s’applique uniquement aux niveaux à usage général et à mémoire optimisée.
 
 ### <a name="new-replicas"></a>Nouveaux réplicas

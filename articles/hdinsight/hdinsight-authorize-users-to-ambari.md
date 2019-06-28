@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.date: 09/26/2017
 ms.author: maxluk
 ms.openlocfilehash: 69ae1bd05b64912b3d53ca88b468a72a90ff5a74
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64718311"
 ---
 # <a name="authorize-users-for-apache-ambari-views"></a>Autoriser les utilisateurs à accéder à Apache Ambari Views
 
 Les [clusters HDInsight avec le Pack Sécurité Entreprise (PSE) activé](./domain-joined/apache-domain-joined-introduction.md) offrent des fonctionnalités d’entreprise, notamment l’authentification par le biais d’Azure Active Directory. Vous pouvez synchroniser [de nouveaux utilisateurs](hdinsight-sync-aad-users-to-cluster.md) ajoutés aux groupes Azure AD qui ont accès au cluster, permettant ainsi à ces utilisateurs d’effectuer certaines actions. L’utilisation d’utilisateurs, de groupes et d’autorisations dans [Apache Ambari](https://ambari.apache.org/) est prise en charge à la fois pour les clusters HDInsight Pack Sécurité Entreprise et pour les clusters HDInsight standard.
 
-Les utilisateurs Active Directory connectez-vous aux nœuds du cluster à l’aide de leurs informations d’identification de domaine. Ils ont également la possibilité d’utiliser ces identifiants pour authentifier les interactions du cluster auprès d’autres points de terminaison approuvés, comme [Hue](https://gethue.com/), Ambari Views, ODBC, JDBC, PowerShell et les API REST.
+Les utilisateurs Active Directory peuvent se connecter aux nœuds de cluster à l’aide de leurs informations d’identification de domaine. Ils ont également la possibilité d’utiliser ces identifiants pour authentifier les interactions du cluster auprès d’autres points de terminaison approuvés, comme [Hue](https://gethue.com/), Ambari Views, ODBC, JDBC, PowerShell et les API REST.
 
 > [!WARNING]  
 > Ne modifiez pas le mot de passe pour l’agent de surveillance Ambari (hdinsightwatchdog) sur votre cluster HDInsight basé sur Linux. La modification du mot de passe élimine la possibilité d’utiliser les actions de script ou d’effectuer des opérations de mise à l’échelle sur votre cluster.
@@ -28,7 +28,7 @@ Si ce n’est déjà fait, suivez [ces instructions](./domain-joined/apache-doma
 
 ## <a name="access-the-ambari-management-page"></a>Accéder à la page de gestion Ambari
 
-Pour ouvrir la **page de gestion Ambari** sur [l’interface utilisateur web d’Apache Ambari](hdinsight-hadoop-manage-ambari.md), accédez à **`https://<YOUR CLUSTER NAME>.azurehdinsight.net`**. Entrez le nom d’utilisateur de l’administrateur du cluster et le mot de passe que vous avez défini lors de la création du cluster. Ensuite, sur le tableau de bord Ambari, sélectionnez **Gérer Ambari** sous le menu **admin** :
+Pour ouvrir la **page de gestion Ambari** sur [l’interface utilisateur web d’Apache Ambari](hdinsight-hadoop-manage-ambari.md), accédez à **`https://<YOUR CLUSTER NAME>.azurehdinsight.net`** . Entrez le nom d’utilisateur de l’administrateur du cluster et le mot de passe que vous avez défini lors de la création du cluster. Ensuite, sur le tableau de bord Ambari, sélectionnez **Gérer Ambari** sous le menu **admin** :
 
 ![Gérer Ambari](./media/hdinsight-authorize-users-to-ambari/manage-ambari.png)
 

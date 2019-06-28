@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 05/15/2019
 ms.author: juliako
 ms.openlocfilehash: e92086ca18887b9b2c2362e97d855c33834b83bb
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65799216"
 ---
 # <a name="upload-and-index-your-videos"></a>Charger et indexer vos vidéos  
@@ -23,7 +23,7 @@ Lorsque vous chargez des vidéos avec l’API Video Indexer, vous disposez des d
 
 * charger votre vidéo à partir d’une URL (par défaut),
 * Envoyer le fichier vidéo sous forme de tableau d’octets dans le corps de la demande,
-* Utiliser l’élément multimédia Azure Media Services existant en fournissant la [ID de la ressource](https://docs.microsoft.com/azure/media-services/latest/assets-concept) (pris en charge dans les comptes payants uniquement).
+* Utilisez la ressource Azure Media Services existante en fournissant l’[ID de la ressource](https://docs.microsoft.com/azure/media-services/latest/assets-concept) (pris en charge dans les comptes payants uniquement).
 
 L’article montre comment utiliser l’API [Charger une vidéo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) pour charger et indexer vos vidéos selon une URL. L’exemple de code dans l’article inclut le code commenté qui montre comment charger le tableau d’octets. <br/>L’article aborde également certains des paramètres que vous pouvez définir sur l’API pour en modifier le processus et la sortie.
 
@@ -32,13 +32,13 @@ Une fois votre vidéo chargée, Video Indexer peut éventuellement l’encoder (
 ## <a name="uploading-considerations"></a>Éléments à prendre en compte pour le chargement
 
 - Lors du chargement de votre vidéo à partir de l’URL (par défaut), le point de terminaison doit être sécurisé avec TLS 1.2 (ou version ultérieure)
-- La taille de téléchargement avec l’option d’URL est limitée à 30 Go
-- La longueur d’URL de la demande est limitée à 2048 caractères
+- La taille du chargement avec l’option URL est limitée à 30 Go
+- La longueur des URL de requête est limitée à 2048 caractères
 - La taille du chargement avec l’option Tableau d'octets est limitée à 2 Go
 - L’option Tableau d’octets expire après 30 minutes
 - L’URL fournie dans le paramètre `videoURL` doit être encodée
-- L’indexation des éléments multimédias Media Services a la même restriction que l’indexation à partir d’URL
-- Video Indexer a une limite de durée maximale de 4 heures pour un seul fichier
+- L’indexation des ressources Media Services a la même restriction que l’indexation à partir d’URL
+- Video Indexer a une limite de temps maximale de 4 heures pour un seul fichier
 
 > [!Tip]
 > Il est recommandé d’utiliser la version 4.6.2 du .NET Framework. ou une version ultérieure, car les anciens .NET Framework ne sont pas définis par défaut sur TLS 1.2.
@@ -58,19 +58,19 @@ Ce paramètre vous permet de spécifier un ID qui sera associé à la vidéo. L�
 URL qui est utilisée pour notifier le client (à l’aide d’une requête POST) sur les événements suivants :
 
 - Changement de l’état d’indexation : 
-    - Propriétés :    
+    - Propriétés :    
     
-        |Nom|Description |
+        |Nom|Description|
         |---|---|
-        |id|ID de la vidéo|
+        |id|L’ID de la vidéo|
         |state|État de la vidéo|  
     - Exemple : https://test.com/notifyme?projectName=MyProject&id=1234abcd&state=Processed
 - Personne identifiée dans la vidéo :
   - properties
     
-      |Nom|Description |
+      |Nom|Description|
       |---|---|
-      |id| ID de la vidéo|
+      |id| L’ID de la vidéo|
       |faceId|ID de visage qui apparaît dans l’index de la vidéo|
       |knownPersonId|ID de la personne qui est unique au sein d’un modèle de visage|
       |personName|Nom de la personne|
@@ -284,11 +284,11 @@ public class AccountContractSlim
 
 Les codes d’état répertoriés dans le tableau suivant peuvent être renvoyés par l’opération de chargement (Upload).
 
-|Code d’état|ErrorType (dans le corps de la réponse)|Description |
+|Code d’état|ErrorType (dans le corps de la réponse)|Description|
 |---|---|---|
 |400|VIDEO_ALREADY_IN_PROGRESS|La même vidéo est déjà en cours de traitement dans le compte en question.|
 |400|VIDEO_ALREADY_FAILED|La même vidéo n’a pas pu être traitée dans le compte en question moins de 2 heures auparavant. Les clients API doivent attendre au moins 2 heures avant de recharger une vidéo.|
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Examinez la sortie Azure Video Indexer produite par API](video-indexer-output-json-v2.md)
+[Examiner la sortie d’Azure Video Indexer générée par l’API](video-indexer-output-json-v2.md)

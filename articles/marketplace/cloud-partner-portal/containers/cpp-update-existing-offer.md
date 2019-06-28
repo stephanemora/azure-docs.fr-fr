@@ -1,5 +1,5 @@
 ---
-title: Mettre à jour une offre existante de conteneurs Azure | Place de marché Azure
+title: Mettre à jour une offre de conteneur Azure existante | Place de marché Azure
 description: Guide pratique pour mettre à jour une offre de conteneur existante sur la Place de marché Azure.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 11/01/2018
 ms.author: pabutler
 ms.openlocfilehash: 0e0db961dec69880eff6ef640e9210af6fcbc978
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64942592"
 ---
 # <a name="update-an-existing-container-offer"></a>Mettre à jour une offre de conteneur existante

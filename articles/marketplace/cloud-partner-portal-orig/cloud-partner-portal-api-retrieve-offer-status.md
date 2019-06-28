@@ -8,10 +8,10 @@ ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pabutler
 ms.openlocfilehash: 26ee8b5b1879c505f8200671558fe065ace068a3
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64935455"
 ---
 <a name="retrieve-offer-status"></a>Récupérer l’état de l’offre 
@@ -24,7 +24,7 @@ Récupère l’état actuel de l’offre.
 <a name="uri-parameters"></a>Paramètres URI
 --------------
 
-|  **Name**       |   **Description**                            |  **Type de données** |
+|  **Nom**       |   **Description**                            |  **Type de données** |
 |  -------------  |  ------------------------------------------  |  ------------  |
 |  publisherId    | Identificateur du serveur de publication, par exemple `Contoso`  |     Chaîne     |
 |  offerId        | GUID qui identifie de façon unique l’offre      |     Chaîne     |
@@ -122,17 +122,17 @@ Récupère l’état actuel de l’offre.
 
 ### <a name="response-body-properties"></a>Propriétés du corps de réponse
 
-|  **Name**             |    **Description**                                                                             |
+|  **Nom**             |    **Description**                                                                             |
 | --------------------  |   -------------------------------------------------------------------------------------------- |
 |  status               | État de l’offre. Pour la liste des valeurs possibles, consultez [État de l’offre](#offer-status) ci-dessous. |
-|   Cloud vers appareil             | Tableau des messages associés à l’offre                                                    |
+|  Cloud vers appareil             | Tableau des messages associés à l’offre                                                    |
 |  steps                | Tableau des étapes par lesquelles l’offre passe au cours de la publication d’une offre                      |
 |  estimatedTimeFrame   | Estimation du temps qui serait nécessaire pour effectuer cette étape, dans un format convivial                       |
 |  id                   | Identificateur de l’étape                                                                         |
 |  stepName             | Nom de l’étape                                                                               |
 |  description          | Description de l’étape                                                                        |
 |  status               | État de l’étape. Pour la liste des valeurs possibles, consultez [État de l’étape](#step-status) ci-dessous.    |
-|   Cloud vers appareil             | Tableau de messages liés à l’étape                                                          |
+|  Cloud vers appareil             | Tableau de messages liés à l’étape                                                          |
 |  processPercentage    | Pourcentage d’achèvement de l’étape                                                              |
 |  previewLinks         | *Actuellement non implémenté*                                                                    |
 |  liveLinks            | *Actuellement non implémenté*                                                                    |
@@ -152,7 +152,7 @@ Récupère l’état actuel de l’offre.
 
 ### <a name="offer-status"></a>État de l’offre
 
-|  **Name**                    |    **Description**                                       |
+|  **Nom**                    |    **Description**                                       |
 |  --------------------------  |  ------------------------------------------------------  |
 |  NeverPublished              | L’offre n’a jamais été publiée.                          |
 |  NotStarted                  | L’offre est nouvelle et n’a pas démarré.                            |
@@ -166,7 +166,7 @@ Récupère l’état actuel de l’offre.
 
 ### <a name="step-status"></a>État de l’étape
 
-|  **Name**                    |    **Description**                           |
+|  **Nom**                    |    **Description**                           |
 |  -------------------------   |  ------------------------------------------  |
 |  NotStarted                  | L’étape n’a pas démarré.                        |
 |  InProgress                  | L’étape est en cours d’exécution.                             |

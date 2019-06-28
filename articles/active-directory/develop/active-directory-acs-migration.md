@@ -18,17 +18,17 @@ ms.author: ryanwi
 ms.reviewer: jlu, annaba, hirsin
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 84a8c2954473401a9e57cba045907c60862ed61f
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65546235"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>Activation Effectuer une migration à partir d’Azure Access Control Service
 
 Microsoft Azure Access Control Service (ACS), un service d’Azure Active Directory (Azure AD), sera mis hors-service le 7 novembre 2018. Les applications et services qui utilisent actuellement Access Control Service doivent être entièrement migrés vers un autre mécanisme d’authentification d’ici-là. Cet article fournit des recommandations aux clients actuels qui prévoient de ne plus utiliser Access Control Service. Si vous n’utilisez pas Access Control Service, aucune action n’est requise de votre part.
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
 Access Control Service est un service d’authentification de cloud qui permet d’authentifier les utilisateurs et de les autoriser à accéder à vos applications et services web. Il permet également de sortir de votre code, de nombreuses fonctionnalités d’authentification et d’autorisation. Access Control Service est principalement utilisé par les développeurs et architectes de clients Microsoft .NET, d’applications web ASP.NET et des services web WCF (Windows Communication Foundation).
 
@@ -148,12 +148,12 @@ Chaque service cloud Microsoft qui accepte les jetons émis par Access Control S
 
 ### <a name="sharepoint-customers"></a>Clients SharePoint
 
-SharePoint 2013, 2016, et les clients SharePoint Online ont utilisé longtemps ACS à des fins d’authentification dans le cloud, sur site et les scénarios hybrides. Certaines fonctionnalités et certains cas d’usage de SharePoint seront affectés par la mise hors service d’ACS, d’autres non. Le tableau ci-dessous résume les conseils de migration pour les fonctionnalités de SharePoint les plus utilisées parmi celles qui exploitent ACS :
+Les clients SharePoint 2013, 2016 et SharePoint Online utilisent depuis longtemps ACS à des fins d’authentification dans des scénarios cloud, locaux et hybrides. Certaines fonctionnalités et certains cas d’usage de SharePoint seront affectés par la mise hors service d’ACS, d’autres non. Le tableau ci-dessous résume les conseils de migration pour les fonctionnalités de SharePoint les plus utilisées parmi celles qui exploitent ACS :
 
 | Fonctionnalité | Assistance |
 | ------- | -------- |
-| Authentification des utilisateurs à partir d’Azure AD | Avant, Azure AD ne prenait pas en charge les jetons SAML 1.1 requis par SharePoint pour l’authentification, et ACS était utilisé comme un intermédiaire assurant la compatibilité de SharePoint avec les formats de jetons Azure AD. Maintenant, vous pouvez [connecter directement SharePoint à Azure AD à l’aide de la galerie d’applications Azure AD SharePoint sur site application](https://docs.microsoft.com/azure/active-directory/saas-apps/sharepoint-on-premises-tutorial). |
-| [Authentification des applications et l’authentification de serveur à serveur dans SharePoint en local](https://technet.microsoft.com/library/jj219571(v=office.16).aspx) | Non affecté par la mise hors service d’ACS ; aucune modification n’est nécessaire. | 
+| Authentification des utilisateurs à partir d’Azure AD | Avant, Azure AD ne prenait pas en charge les jetons SAML 1.1 requis par SharePoint pour l’authentification, et ACS était utilisé comme un intermédiaire assurant la compatibilité de SharePoint avec les formats de jetons Azure AD. Désormais, vous pouvez [connecter SharePoint directement à Azure AD à l’aide de l’application SharePoint sur site Galerie d’applications Azure AD](https://docs.microsoft.com/azure/active-directory/saas-apps/sharepoint-on-premises-tutorial). |
+| [Authentification des applications et authentification de serveur à serveur dans SharePoint en local](https://technet.microsoft.com/library/jj219571(v=office.16).aspx) | Non affecté par la mise hors service d’ACS ; aucune modification n’est nécessaire. | 
 | [Autorisation peu fiable pour les compléments SharePoint (fournisseur et SharePoint hébergés)](https://docs.microsoft.com/sharepoint/dev/sp-add-ins/three-authorization-systems-for-sharepoint-add-ins) | Non affecté par la mise hors service d’ACS ; aucune modification n’est nécessaire. |
 | [Recherche hybride cloud SharePoint](https://blogs.msdn.microsoft.com/spses/2015/09/15/cloud-hybrid-search-service-application/) | Non affecté par la mise hors service d’ACS ; aucune modification n’est nécessaire. |
 
@@ -199,13 +199,13 @@ De manière générale, *Azure Active Directory est probablement le meilleur cho
 | Comptes Facebook, Google, Yahoo | Pris en charge | Aucune prise en charge |
 | **Protocoles et compatibilité des SDK** | | |
 | WIF | Pris en charge | Pris en charge, mais les instructions disponibles sont limitées |
-| WS-Federation | Pris en charge | Pris en charge |
+| Un certificat de fournisseur d'identité WS-Federation | Pris en charge | Pris en charge |
 | OAuth 2.0 | Pris en charge pour Draft 13 | Pris en charge pour RFC 6749, la spécification la plus récente |
 | WS-Trust | Pris en charge | Non pris en charge |
 | **Formats de jeton** | | |
 | JWT | Pris en charge dans la version bêta | Pris en charge |
-| SAML 1.1 | Pris en charge | VERSION PRÉLIMINAIRE |
-| SAML 2.0 | Pris en charge | Pris en charge |
+| SAML 1.1 | Pris en charge | PRÉVERSION |
+| SAML 2.0 | Pris en charge | Pris en charge |
 | SWT | Pris en charge | Non pris en charge |
 | **Personnalisations** | | |
 | Interface utilisateur de sélection de compte/découverte de domaine d’accueil personnalisable | Code téléchargeable pouvant être incorporé dans des applications | Non pris en charge |
@@ -250,13 +250,13 @@ Le tableau suivant compare les fonctionnalités d’Access Control Service qui s
 | Comptes Facebook, Google, Yahoo | Pris en charge | Facebook et Google pris en charge en mode natif, Yahoo pris en charge par le biais de la fédération OpenID Connect à l’aide de stratégies personnalisées |
 | **Protocoles et compatibilité des SDK** | | |
 | Windows Identity Foundation (WIF) | Pris en charge | Non pris en charge |
-| WS-Federation | Pris en charge | Non pris en charge |
+| Un certificat de fournisseur d'identité WS-Federation | Pris en charge | Non pris en charge |
 | OAuth 2.0 | Pris en charge pour Draft 13 | Pris en charge pour RFC 6749, la spécification la plus récente |
 | WS-Trust | Pris en charge | Non pris en charge |
 | **Formats de jeton** | | |
 | JWT | Pris en charge dans la version bêta | Pris en charge |
 | SAML 1.1 | Pris en charge | Non pris en charge |
-| SAML 2.0 | Pris en charge | Non pris en charge |
+| SAML 2.0 | Pris en charge | Non pris en charge |
 | SWT | Pris en charge | Non pris en charge |
 | **Personnalisations** | | |
 | Interface utilisateur de sélection de compte/découverte de domaine d’accueil personnalisable | Code téléchargeable pouvant être incorporé dans des applications | Interface utilisateur entièrement personnalisable par le biais de feuilles de style CSS personnalisées |
@@ -286,7 +286,7 @@ Dans ce cas, il peut être préférable de migrer votre application web vers un 
 |     |     | 
 | --- | --- |
 | ![Auth0](./media/active-directory-acs-migration/rsz_auth0.png) | [Auth0](https://auth0.com/acs) est un service d’identité cloud souple qui a formulé des [conseils généraux pour la migration des clients d’Access Control Service](https://auth0.com/acs) et prend en charge presque toutes les fonctionnalités d’Access Control Service. |
-| ![Ping](./media/active-directory-acs-migration/rsz_ping.png) | [Ping Identity](https://www.pingidentity.com) propose deux solutions similaires à Access Control Service. PingOne est un service d’identité cloud qui prend en charge la plupart des mêmes fonctionnalités que les services ACS, et PingFederate est un similaire sur le produit d’identité local qui offre davantage de flexibilité. Pour plus d’informations sur l’utilisation de ces produits, consultez les [Conseils concernant la mise hors service d’Access Control Service de Ping](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html). |
+| ![Ping](./media/active-directory-acs-migration/rsz_ping.png) | [Ping Identity](https://www.pingidentity.com) propose deux solutions similaires à Access Control Service. PingOne est un service d’identité cloud qui prend en charge la plupart des fonctionnalités d’Access Control Service, et PingFederate est un produit d’identité locale similaire qui offre davantage de souplesse. Pour plus d’informations sur l’utilisation de ces produits, consultez les [Conseils concernant la mise hors service d’Access Control Service de Ping](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html). |
 
 Notre objectif en utilisant Ping Identity et Auth0 est de vous assurer que tous les clients d’Access Control Service ont un chemin de migration pour leurs applications et services, qui réduise le volume de travail requis pour abandonner Access Control Service.
 
@@ -324,7 +324,7 @@ Mais vous pouvez aussi l’utiliser pour l’authentification de serveur à serv
 | Inscription de service web | Créer une partie de confiance dans le portail de gestion Access Control Service | Créer une application Web Azure Active Directory dans le portail Azure |
 | Inscription de client | Créer une identité de service dans le portail de gestion d’Access Control Service | Créer une autre application Azure Active Directory dans le portail Azure |
 | Protocole utilisé |- Protocole OAuth WRAP<br />- Octroi des informations d’identification de client OAuth 2.0 Draft 13 | Octroi des informations d’identification du client OAuth 2.0 |
-| Méthodes d'authentification client |- Mot de passe simple<br />- Jeton SWT signé<br />- Jeton SAML émis par un fournisseur d’identité fédéré |- Mot de passe simple<br />- Jeton JWT signé |
+| Méthodes d’authentification du client |- Mot de passe simple<br />- Jeton SWT signé<br />- Jeton SAML émis par un fournisseur d’identité fédéré |- Mot de passe simple<br />- Jeton JWT signé |
 | Formats de jetons |- JWT<br />- SAML 1.1<br />- SAML 2.0<br />- SWT<br /> | JWT uniquement |
 | Transformation de jeton |- Ajout de revendications personnalisées<br />- Logique if-then simple d’émission de revendications | Ajouter des revendications personnalisées | 
 | Automatisation des tâches de gestion et de configuration | Prise en charge par le service de gestion Access Control Service | Prise en charge par le biais de l’API Graph d’Azure Active Directory et Microsoft Graph |
@@ -348,7 +348,7 @@ Dans ces cas, vous pouvez envisager de migrer votre application web vers un autr
 |     |     | 
 | --- | --- |
 | ![Auth0](./media/active-directory-acs-migration/rsz_auth0.png) | [Auth0](https://auth0.com/acs) est un service d’identité cloud souple qui a formulé des [conseils généraux pour la migration des clients d’Access Control Service](https://auth0.com/acs) et prend en charge presque toutes les fonctionnalités d’Access Control Service. |
-| ![Ping](./media/active-directory-acs-migration/rsz_ping.png) | [Ping Identity](https://www.pingidentity.com) propose deux solutions similaires à Access Control Service. PingOne est un service d’identité cloud qui prend en charge la plupart des mêmes fonctionnalités que les services ACS, et PingFederate est un similaire sur le produit d’identité local qui offre davantage de flexibilité. Pour plus d’informations sur l’utilisation de ces produits, consultez les [Conseils concernant la mise hors service d’Access Control Service de Ping](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html). |
+| ![Ping](./media/active-directory-acs-migration/rsz_ping.png) | [Ping Identity](https://www.pingidentity.com) propose deux solutions similaires à Access Control Service. PingOne est un service d’identité cloud qui prend en charge la plupart des fonctionnalités d’Access Control Service, et PingFederate est un produit d’identité locale similaire qui offre davantage de souplesse. Pour plus d’informations sur l’utilisation de ces produits, consultez les [Conseils concernant la mise hors service d’Access Control Service de Ping](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html). |
 
 Notre objectif en utilisant Ping Identity et Auth0 est de vous assurer que tous les clients d’Access Control Service ont un chemin de migration pour leurs applications et services, qui réduise le volume de travail requis pour abandonner Access Control Service.
 

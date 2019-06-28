@@ -1,7 +1,7 @@
 ---
-title: 'Régression : Prédire le prix'
+title: 'Régression : Prédire le prix'
 titleSuffix: Azure Machine Learning service
-description: Découvrez comment générer un modèle machine learning pour prédire les prix d’un véhicule automobile sans écrire une seule ligne de code.
+description: Découvrez comment créer un modèle Machine Learning pour prédire le prix d’un véhicule automobile sans écrire une seule ligne de code.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,70 +11,70 @@ ms.author: zhanxia
 ms.reviewer: sgilley
 ms.date: 05/10/2019
 ms.openlocfilehash: 9dfa4b62f5cb79a5716f6f29651e85d0f8a3a409
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65787857"
 ---
-# <a name="sample-1---regression-predict-price"></a>Exemple 1 : régression : Prédire le prix
+# <a name="sample-1---regression-predict-price"></a>Exemple 1 - Régression : Prédire le prix
 
-Découvrez comment créer un modèle de régression d’apprentissage sans écrire une seule ligne de code à l’aide de l’interface visuelle.
+Découvrez comment créer un modèle de régression Machine Learning sans écrire une seule ligne de code à l’aide de l’interface visuelle.
 
-Expérience trains un **régresseur de forêt de décision** pour prédire une voiture de prix basé sur des fonctionnalités techniques, telles que la marque, de modèle, de puissance et de taille. Étant donné que nous essayons de répondre à la question « Combien ? » Il s’agit d’un problème de régression. Toutefois, vous pouvez appliquer les mêmes étapes fondamentales dans cette expérience pour s’attaquer à n’importe quel type de problème d’apprentissage automatique qu’il s’agisse de régression, la classification, clustering et ainsi de suite.
+Cette expérience permet d’entraîner un **régresseur de forêt de décision** pour prédire le prix d’une voiture en fonction d’aspects techniques, tels que la marque, le modèle, la puissance et la taille. Étant donné que nous essayons de répondre à la question « Combien ? », il s’agit d’un problème de régression. Toutefois, vous pouvez appliquer les mêmes étapes fondamentales dans cette expérience pour faire face à n’importe quel type de problème d’apprentissage automatique : régression, classification, clustering, etc.
 
-Les étapes fondamentales d’un modèle d’apprentissage formation sont :
+Les étapes fondamentales d’un modèle Machine Learning sont les suivantes :
 
 1. Obtenir les données
-1. Prétraiter les données
+1. Prétraitement des données
 1. Formation du modèle
 1. Évaluer le modèle
 
-Voici le graphique terminé, final de l’expérience que nous allons travailler. Nous vous fournirons le raisonnement pour tous les modules afin de prendre des décisions similaires sur votre propre.
+Voici le graphique final de l’expérience sur lequel nous allons travailler. Nous vous fournirons le raisonnement pour tous les modules afin de prendre des décisions similaires concernant le vôtre.
 
 ![Graphique de l’expérience](media/ui-sample-regression-predict-automobile-price-basic/overall-graph.png)
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 
-4. Sélectionnez le **Open** bouton de l’expérience de l’exemple 1 :
+4. Sélectionnez le bouton **Ouvrir** pour accéder à l’exemple de l’expérience 1 :
 
-    ![Ouvrez l’expérience](media/ui-sample-regression-predict-automobile-price-basic/open-sample1.png)
+    ![Ouvrir l’expérience](media/ui-sample-regression-predict-automobile-price-basic/open-sample1.png)
 
 ## <a name="get-the-data"></a>Obtenir les données
 
-Dans cette expérience, nous utilisons le **données de prix des véhicules automobiles (brutes)** jeu de données à partir du référentiel d’apprentissage automatique UCI. Le jeu de données contient 26 colonnes qui contiennent des informations sur les véhicules automobiles, y compris la marque, modèle, prix, véhicule fonctionnalités (telles que le nombre de cylindres), MPG et un score de risque d’assurance. L’objectif de cette expérience est de prédire le prix de la voiture.
+Dans cette expérience, nous utilisons le jeu de données **Données sur le prix des véhicules automobiles (brutes)** du référentiel Machine Learning UCI. Ce jeu de données contient 26 colonnes avec des informations sur les véhicules automobiles, y compris la marque, le modèle, le prix, les fonctionnalités (telles que le nombre de cylindres), la consommation de carburant et un score de risque d’assurance. L’objectif de cette expérience est de prédire le prix d’un véhicule automobile.
 
-## <a name="pre-process-the-data"></a>Prétraiter les données
+## <a name="pre-process-the-data"></a>Prétraitement des données
 
-Les tâches de préparation de données principale incluent le nettoyage des données, intégration, transformation, la réduction et discrétisation ou quantification. Dans l’interface visuelle, vous pouvez trouver des modules pour effectuer ces opérations et autres données des tâches de traitement dans le **Transformation des données** groupe dans le volet gauche.
+Les principales tâches de préparation des données incluent leur nettoyage, intégration, transformation, réduction et discrétisation ou quantification. Dans l’interface visuelle, vous pouvez trouver des modules qui effectuent ces opérations, ainsi que d’autres tâches de prétraitement des données dans le groupe **Transformation des données** du volet gauche.
 
-Nous utilisons le **Select Columns in Dataset** module pour exclure les pertes normalisées qui ont de nombreuses valeurs manquantes. Nous utilisons ensuite **Clean Missing Data** pour supprimer les lignes qui ont des valeurs manquantes. Cela permet de créer un ensemble de nettoyage de données d’apprentissage.
+Nous utilisons le module **Sélectionner des colonnes dans le jeu de données** pour exclure les pertes normalisées qui ont de nombreuses valeurs manquantes. Nous utilisons ensuite le module **Nettoyage des données manquantes** pour supprimer les lignes qui ont des valeurs manquantes. Cela permet de créer un jeu de données d’apprentissage propre.
 
 ![Prétraitement des données](./media/ui-sample-regression-predict-automobile-price-basic/data-processing.png)
 
 ## <a name="train-the-model"></a>Formation du modèle
 
-Problèmes machine learning varient. Tâches d’apprentissage automatique courants incluent la classification, le clustering, la régression et les systèmes de recommandation, chacun d’eux peut nécessiter un algorithme différent. Votre choix de l’algorithme dépend souvent de la configuration requise du cas d’usage. Une fois que vous sélectionnez un algorithme, vous devez ajuster ses paramètres pour former un modèle plus précis. Vous devez ensuite évaluer tous les modèles en fonction des métriques telles que la précision, intelligibilité et d’efficacité.
+Les problèmes d’apprentissage automatique varient. Les tâches d’apprentissage automatique courantes incluent la classification, le clustering, la régression et les systèmes de recommandation, chacun d’eux pouvant nécessiter un algorithme différent. Votre choix de l’algorithme dépend souvent de la configuration requise pour le cas d’usage. Après avoir sélectionné un algorithme, vous devez ajuster ses paramètres pour effectuer l’apprentissage d’un modèle plus précis. Vous devez ensuite évaluer tous les modèles en fonction des métriques telles que la précision, l’intelligibilité et l’efficacité.
 
-Étant donné que l’objectif de cette expérience est de prédire le prix des voitures, et étant donné que la colonne d’étiquette (prix) contient des nombres réels, un modèle de régression est un bon choix. Considérant que le nombre de fonctionnalités est relativement faible (inférieure à 100), et ces fonctionnalités ne sont pas éparses, la limite de décision est susceptible d’être non linéaire. Nous utilisons **Decision Forest Regression** pour cette expérience.
+Étant donné que l’objectif de cette expérience est de prédire le prix des voitures, et puisque la colonne d’étiquette (prix) contient des nombres réels, le fait d’opter pour un modèle de régression est judicieux. Si l’on considère que le nombre de fonctionnalités est relativement bas (inférieur à 100), et que celles-ci ne sont pas éparpillées, la limite de décision est susceptible d’être non linéaire. Nous utilisons le module **Régression de forêt d’arbres de décision** pour cette expérience.
 
-Nous utilisons le **fractionner les données** module à diviser de façon aléatoire les données d’entrée afin que le dataset d’apprentissage contient 70 % des données d’origine et le jeu de données de test contient 30 % des données d’origine.
+Nous utilisons le module **Fractionner les données** pour diviser de façon aléatoire les données d’entrée, afin que le jeu de données d’apprentissage contienne 70 % des données d’origine et que le jeu de données de test contienne 30 % des données d’origine.
 
-## <a name="test-evaluate-and-compare"></a>Tester, évaluer et comparer
+## <a name="test-evaluate-and-compare"></a>Test, évaluation et comparaison
 
- Nous fractionner le jeu de données et utiliser différents jeux de données pour former et tester le modèle pour effectuer l’évaluation du modèle plus objectives.
+ Nous fractionnons le jeu de données et utilisons différents jeux de données pour former et tester le modèle, afin d’évaluer le modèle de manière plus objective.
 
-Une fois que le modèle est formé, nous utilisons le **noter le modèle** et **évaluer le modèle** modules pour générer des résultats prévus et d’évaluer les modèles.
+Une fois que le modèle est formé, nous utilisons les modules **Noter le modèle** et **Évaluer le modèle** pour générer des résultats de prédiction et évaluer les modèles.
 
-**Noter le modèle** génère des prédictions pour le jeu de données de test à l’aide du modèle formé. Pour vérifier le résultat, sélectionnez le port de sortie **noter le modèle** , puis sélectionnez **visualiser**.
+Le module **Noter le modèle** génère des prédictions pour le jeu de données de test à l’aide du modèle formé. Pour vérifier le résultat, sélectionnez le port de sortie du module **Noter le modèle**, puis cliquez sur **Visualiser**.
 
-![Résultat de notation](./media/ui-sample-regression-predict-automobile-price-basic/score-result.png)
+![Résultat de la notation](./media/ui-sample-regression-predict-automobile-price-basic/score-result.png)
 
-Nous passons ensuite les scores pour le **évaluer le modèle** module pour générer des mesures d’évaluation. Pour vérifier le résultat, sélectionnez le port de sortie le **évaluer le modèle** , puis sélectionnez **visualiser**.
+Nous transmettons ensuite les notes au module **Évaluer le modèle**, afin de générer des métriques d’évaluation. Pour vérifier le résultat, sélectionnez le port de sortie du module **Noter le modèle**, puis cliquez sur **Visualiser**.
 
-![Évaluer les résultats](./media/ui-sample-regression-predict-automobile-price-basic/evaluate-result.png)
+![Évaluer le résultat](./media/ui-sample-regression-predict-automobile-price-basic/evaluate-result.png)
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
@@ -82,9 +82,9 @@ Nous passons ensuite les scores pour le **évaluer le modèle** module pour gén
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Explorez les autres exemples disponibles pour l’interface visuelle :
+Explorez les autres exemples disponibles pour l’interface visuelle :
 
-- [Exemple 2 - régression : Comparer des algorithmes pour la prédiction de prix des véhicules automobiles](ui-sample-regression-predict-automobile-price-compare-algorithms.md)
-- [Exemple 3 - Classification : Prédire le risque de crédit](ui-sample-classification-predict-credit-risk-basic.md)
-- [Exemple 4 : Classification : Prédire le risque de crédit (coût sensible)](ui-sample-classification-predict-credit-risk-cost-sensitive.md)
-- [Exemple 5 - Classification : Prédire l’évolution](ui-sample-classification-predict-churn.md)
+- [Exemple 2 - Régression : comparer des algorithmes pour prédire le prix de véhicules automobiles](ui-sample-regression-predict-automobile-price-compare-algorithms.md)
+- [Exemple 3 - Classification : prédire le risque de crédit](ui-sample-classification-predict-credit-risk-basic.md)
+- [Exemple 4 - Classification : prédire le risque de crédit (sensible au coût)](ui-sample-classification-predict-credit-risk-cost-sensitive.md)
+- [Exemple 5 - Classification : prédire l’évolution](ui-sample-classification-predict-churn.md)

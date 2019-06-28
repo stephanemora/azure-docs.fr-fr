@@ -5,16 +5,16 @@ ms.topic: include
 ms.date: 6/5/2019
 ms.author: victorh
 ms.openlocfilehash: 592e1973344b231693077f8286a41dfd67a8d188
-ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66689104"
 ---
-| Ressource | Limite par défaut/maximale | Remarque |
+| Ressource | Limite maximale/par défaut | Remarque |
 | --- | --- | --- |
 | Azure Application Gateway |1 000 par abonnement | |
-| Configurations IP frontales |2 |1 publique et 1 privée |
+| Configuration d’adresses IP frontales |2 |1 publique et 1 privée |
 | Ports frontaux |100<sup>1</sup> | |
 | Pool d'adresses principales |100<sup>1</sup> | |
 | Serveurs principaux par pool |1,200 | |
@@ -23,20 +23,20 @@ ms.locfileid: "66689104"
 | Paramètres HTTP du serveur principal |100<sup>1</sup> | |
 | Instances par passerelle |32 | |
 | Certificats SSL |100<sup>1</sup> |1 par écouteur HTTP |
-| Taille maximale du certificat SSL |V1 RÉFÉRENCE SKU - 10 KO<br>V2 RÉFÉRENCE SKU - 25 KO| |
+| Taille maximale du certificat SSL |RÉFÉRENCE SKU V1 : 10 Ko<br>RÉFÉRENCE SKU V2 : 25 Ko| |
 | Certificats d’authentification |100 | |
 | Certificats racines approuvés |100 | |
-| Délai d’expiration de requête minimale |1 seconde | |
-| Délai d’expiration de la demande maximale |24 heures | |
+| Délai minimum d’expiration de la demande |1 seconde | |
+| Délai maximum d’expiration de la demande |24 heures | |
 | Nombre de sites |100<sup>1</sup> |1 par écouteur HTTP |
 | Mappages d’URL par écouteur |1 | |
 | Nombre maximal de règles basées sur le chemin par mappage d’URL|100||
 | Configurations de redirection |100<sup>1</sup>| |
-| Connexions WebSocket simultanées |Passerelles moyenne 20 Ko<br> Passerelles volumineux 50k| |
+| Connexions WebSocket simultanées |Passerelles moyenne 20 Ko<br> Passerelles volumineuses 50 Ko| |
 | Longueur maximale d’URL|8 000||
-| Taille de téléchargement de fichier maximale, Standard |2 Go | |
-| Taille de téléchargement maximale WAF |Passerelles WAF moyenne, 100 Mo<br>Passerelles WAF volumineux, 500 Mo| |
-| Limite de taille du corps de WAF, sans les fichiers|128 Ko||
-|Règles personnalisées maximales WAF|100||
+| Taille de téléchargement maximale Standard |2 Go | |
+| Taille de téléchargement maximale WAF |Passerelles WAF moyennes, 100 Mo<br>Grandes passerelles WAF, 500 Mo| |
+| Limite de taille de corps de WAF, sans les fichiers|128 Ko||
+|Règles personnalisées WAF maximales|100||
 
-<sup>1</sup> en cas de références avec WAF activé, nous vous recommandons de limiter le nombre de ressources à 40 pour des performances optimales.
+<sup>1</sup> En cas de références SKU avec WAF activé, nous vous recommandons de limiter le nombre de ressources à 40 pour des performances optimales.

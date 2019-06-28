@@ -78,7 +78,7 @@ Voici la structure générale d’une définition de sortie :
 
 | Attribut | Obligatoire | Type | Description |
 |-----------|----------|------|-------------|
-| <*key-name*> | OUI | Chaîne | Nom de la clé de la valeur renvoyée pour la sortie |
+| <*key-name*> | OUI | String | Nom de la clé de la valeur renvoyée pour la sortie |
 | <*key-type*> | OUI | int, float, string, securestring, bool, array, objet JSON | Type de la valeur renvoyée pour la sortie |
 | <*key-value*> | OUI | Identique à <*key-type*> | Valeur renvoyée pour la sortie |
 |||||
@@ -145,11 +145,11 @@ Dans l’attribut `staticResults`, définissez une sortie `outputs` et `status` 
 
 | Attribut | Obligatoire | Type | Description |
 |-----------|----------|------|-------------|
-| <*static-result-definition-name*> | OUI | Chaîne | Nom de la définition de résultat statique qu’une définition d’action peut référencer via un objet `runtimeConfiguration.staticResult`. Pour plus d’informations, consultez [Paramètres de configuration d’exécution](../logic-apps/logic-apps-workflow-actions-triggers.md#runtime-config-options). <p>Vous pouvez utiliser n’importe quel nom unique. Par défaut, ce nom unique est ajouté avec un nombre, qui est incrémenté si nécessaire. |
+| <*static-result-definition-name*> | OUI | String | Nom de la définition de résultat statique qu’une définition d’action peut référencer via un objet `runtimeConfiguration.staticResult`. Pour plus d’informations, consultez [Paramètres de configuration d’exécution](../logic-apps/logic-apps-workflow-actions-triggers.md#runtime-config-options). <p>Vous pouvez utiliser n’importe quel nom unique. Par défaut, ce nom unique est ajouté avec un nombre, qui est incrémenté si nécessaire. |
 | <*output-attributes-and-values-returned*> | OUI | Varie | Les configurations requises pour ces attributs varient selon différentes conditions. Par exemple, lorsque l’attribut `status` est `Succeeded`, l’attribut `outputs` inclut les attributs et les valeurs renvoyées comme sorties fictives par l’action. Si l’attribut `status` est `Failed`, l’attribut `outputs` inclut l’attribut `errors`, qui est un tableau avec un ou plusieurs objets `message` avec des informations erronées. |
 | <*header-values*> | Non | JSON | Toute valeur renvoyée par l’action |
-| <*status-code-returned*> | OUI | Chaîne | Code d’état retourné par l’action |
-| <*action-status*> | OUI | Chaîne | État de l’action, par exemple, `Succeeded` ou `Failed` |
+| <*status-code-returned*> | OUI | String | Code d’état retourné par l’action |
+| <*action-status*> | OUI | String | État de l’action, par exemple, `Succeeded` ou `Failed` |
 |||||
 
 Par exemple, dans la définition de l’action HTTP, l’attribut `runtimeConfiguration.staticResult.name` fait référence à `HTTP0` dans l’attribut `staticResults`, où les sorties fictives de l’action sont définies. L’attribut `runtimeConfiguration.staticResult.staticResultOptions` spécifie le paramètre du résultat statique `Enabled` sur l’action HTTP.

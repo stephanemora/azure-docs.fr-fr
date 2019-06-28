@@ -14,17 +14,17 @@ ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a1aa99e7e71ad78a62c1a9da303b2ecc8347ebeb
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65783844"
 ---
 # <a name="azure-active-directory-application-proxy-and-tableau"></a>Proxy d’application Azure Active Directory et Tableau 
 
 Proxy d’application Azure Active Directory et Tableau se sont associés afin de vous permettre d’utiliser facilement Proxy d’application pour fournir un accès à distance à votre déploiement Tableau. Cet article explique comment configurer ce scénario.  
 
-## <a name="prerequisites"></a>Conditions préalables 
+## <a name="prerequisites"></a>Prérequis 
 
 Le scénario décrit dans cet article suppose ce qui suit :
 
@@ -50,13 +50,13 @@ Pour :
 **Pour publier votre application** : 
 
 
-1. Se connecter à la [portail](https://portal.azure.com) en tant qu’application administrateur. 
+1. Connectez-vous au [Portail Microsoft Azure](https://portal.azure.com) en tant qu’administrateur d’application. 
 
 2. Sélectionnez **Azure Active Directory > Applications d’entreprise**. 
 
 3. Sélectionnez **Ajouter** en haut du panneau. 
 
-4. Sélectionnez **On-premises application (Application locale)**. 
+4. Sélectionnez **On-premises application (Application locale)** . 
 
 5. Saisissez les informations concernant votre nouvelle application dans les champs requis. Suivez les conseils ci-dessous pour les paramètres : 
 
@@ -66,7 +66,7 @@ Pour :
 
 6. Sélectionnez **Ajouter** en haut du panneau. Votre application est ajoutée et le menu de démarrage rapide s’ouvre. 
 
-7. Dans le menu de démarrage rapide, sélectionnez **Assign a user for testing (Attribuer un utilisateur à des fins de test)**, et ajoutez au moins un utilisateur à l’application. Vérifiez que ce compte de test a accès à l’application locale. 
+7. Dans le menu de démarrage rapide, sélectionnez **Assign a user for testing (Attribuer un utilisateur à des fins de test)** , et ajoutez au moins un utilisateur à l’application. Vérifiez que ce compte de test a accès à l’application locale. 
 
 8. Sélectionnez **Affecter** pour enregistrer l’affectation de l’utilisateur de test. 
 

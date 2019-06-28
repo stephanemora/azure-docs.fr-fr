@@ -1,5 +1,5 @@
 ---
-title: Azure offre un Module IoT Edge présentation de la publication | Place de marché Azure
+title: Vue d’ensemble de la publication d’une offre de module Azure IoT Edge | Place de marché Azure
 description: Vue d’ensemble du processus de publication d’une offre de module Azure IoT Edge offre sur la Place de marché Microsoft Azure.
 services: Azure, Marketplace, Cloud Partner Portal
 author: dan-wesley
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: pabutler
 ms.openlocfilehash: 319031ec99d449ea5866bb5234cc617145954173
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64942609"
 ---
 # <a name="iot-edge-module-offer-publishing-overview"></a>Vue d’ensemble de la publication d’une offre de module Azure IoT Edge

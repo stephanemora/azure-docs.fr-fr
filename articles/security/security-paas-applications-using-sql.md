@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 09/28/2018
 ms.author: terrylan
 ms.openlocfilehash: 057ec69db300c3ec95cbc63bd5056a78c24d5660
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65601665"
 ---
 # <a name="best-practices-for-securing-paas-databases-in-azure"></a>Bonnes pratiques pour la sécurisation des bases de données PaaS dans Azure
@@ -38,7 +38,7 @@ Des bases de données Azure SQL peuvent être configurées pour utiliser l'un de
 
 - **L’authentification Azure Active Directory** utilise des identités gérées par Azure Active Directory et est prise en charge pour les domaines managés et intégrés. Pour utiliser l’authentification Azure Active Directory, vous devez créer un autre administrateur de serveur appelé « administrateur Azure AD », autorisé à gérer les groupes et utilisateurs Active Directory Azure. Cet administrateur peut également effectuer toutes les opérations d’un administrateur de serveur ordinaire.
 
-[L’authentification Azure Active Directory](../active-directory/develop/authentication-scenarios.md) est un mécanisme servant à se connecter aux services Azure SQL Database et SQL Data Warehouse à l’aide d’identités dans Azure Active Directory (Azure AD). Azure AD fournit une alternative à l’authentification SQL Server. Vous pouvez donc arrêter la prolifération des identités d’utilisateur sur les serveurs de base de données. L’authentification Azure AD vous permet de gérer de manière centralisée les identités des utilisateurs de base de données et d’autres services Microsoft dans un emplacement centralisé. La gestion centralisée des ID fournit un emplacement unique pour gérer les utilisateurs de la base de données et simplifie la gestion des autorisations.  
+[L’authentification Azure Active Directory](../active-directory/develop/authentication-scenarios.md) est un mécanisme servant à se connecter à Azure SQL Database et SQL Data Warehouse à l’aide d’identités dans Azure Active Directory (Azure AD). Azure AD fournit une alternative à l’authentification SQL Server. Vous pouvez donc arrêter la prolifération des identités d’utilisateur sur les serveurs de base de données. L’authentification Azure AD vous permet de gérer de manière centralisée les identités des utilisateurs de base de données et d’autres services Microsoft dans un emplacement centralisé. La gestion centralisée des ID fournit un emplacement unique pour gérer les utilisateurs de la base de données et simplifie la gestion des autorisations.  
 
 ### <a name="benefits-of-using-azure-ad-instead-of-sql-authentication"></a>Avantages de l’utilisation de l’authentification Azure AD plutôt que l’authentification SQL
 - Permet une rotation du mot de passe dans un emplacement unique.
@@ -78,7 +78,7 @@ Azure SQL gère les problèmes clés liés à TDE. Comme avec TDE, une attention
 
 Azure SQL fournit un chiffrement pour les colonnes par le biais d’[Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine). Cela permet de restreindre l’accès des colonnes sensibles aux applications autorisées. Ce chiffrement limite les requêtes SQL pour les colonnes chiffrées aux valeurs basées sur l’égalité.
 
-Le chiffrement au niveau de l’application doit également être utilisé pour des données sélectionnées. Problèmes de souveraineté de données peuvent être atténués en chiffrant les données avec une clé qui est conservée dans le pays/la région correcte. Cela empêche même tout problème dû à un transfert de données accidentel, car il est impossible de déchiffrer les données sans la clé, en supposant qu’un algorithme fort soit utilisé (par exemple, AES 256).
+Le chiffrement au niveau de l’application doit également être utilisé pour des données sélectionnées. Les problèmes de souveraineté de données peuvent être atténués par le chiffrement des données avec une clé conservée dans le pays/la région qui convient. Cela empêche même tout problème dû à un transfert de données accidentel, car il est impossible de déchiffrer les données sans la clé, en supposant qu’un algorithme fort soit utilisé (par exemple, AES 256).
 
 Vous pouvez prendre des précautions supplémentaires pour sécuriser la base de données, comme la conception d’un système sécurisé, le chiffrement de ressources confidentielles et la création d’un pare-feu autour des serveurs de base de données.
 

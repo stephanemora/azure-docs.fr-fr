@@ -16,10 +16,10 @@ ms.date: 09/11/2018
 ms.author: mimart
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 38a9ef04389318d3588649117c930ff6efa3fe4e
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65784476"
 ---
 # <a name="problem-adding-a-non-gallery-application"></a>Problème d’ajout d’une application hors galerie
@@ -96,7 +96,7 @@ Consultez les descriptions suivantes pour plus d’informations sur les notifica
 
 - **UPN** : utilisateur qui a effectué l’opération
 
-  *  Exemple – **tperkins\@f128.info**
+  *  Example : **tperkins\@f128.info**
 
 - **ID de locataire** : ID unique du locataire dont l’utilisateur ayant effectué l’opération était membre
 
@@ -122,7 +122,7 @@ Consultez les descriptions suivantes pour plus d’informations sur les notifica
 
 - **Détails** : description détaillée de ce qui s’est produit suite à l’opération
 
-  *  Exemple – **url interne `https://bing.com/` n’est pas valide car elle est déjà en cours d’utilisation**
+  *  Exemple : **L’URL interne `https://bing.com/` n’est pas valide car elle est déjà en cours d’utilisation**
 
 - **Erreur de copie** : cliquez sur l **’icône de copie** à droite de la zone de texte **Erreur de copie** pour copier tous les détails de la notification afin de les partager avec le support technique ou du groupe de produits 
 - ingénierie

@@ -18,10 +18,10 @@ ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: e1c6b1d55a4fbc673980908a981a9a96c869bee9
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65409611"
 ---
 # <a name="prepare-azure-infrastructure-for-sap-high-availability-by-using-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances"></a>Préparation d’infrastructure Azure pour la haute disponibilité SAP à l’aide de cluster de basculement Windows et de partage de fichiers pour une instance SAP ASCS/SCS
@@ -214,7 +214,7 @@ Ce document décrit les étapes de préparation d’infrastructure Azure nécess
 
 Avant de commencer l’installation, consultez l’article suivant :
 
-* [Guide d'architecture : Instances de cluster SAP ASCS/SCS sur un cluster de basculement Windows à l’aide du partage de fichiers][sap-high-availability-guide-wsfc-file-share]
+* [Guide d'architecture : Mettre en cluster des instances SAP ASCS/SCS sur un cluster de basculement Windows à l’aide d’un partage de fichiers][sap-high-availability-guide-wsfc-file-share]
 
 
 ## <a name="host-names-and-ip-addresses"></a>Noms d’hôtes et adresses IP
@@ -227,13 +227,13 @@ Avant de commencer l’installation, consultez l’article suivant :
 | Nom réseau du cluster SAP PR1 ASCS |pr1-ascs | 10.0.6.7 | n/a |
 
 
-**Tableau 1**: Cluster ASCS/SCS
+**Tableau 1** : Cluster ASCS/SCS
 
 | SID \<SAP> | Numéro de l’instance SAP ASCS/SCS |
 | --- | --- |
 | PR1 | 00 |
 
-**Tableau 2**: Détails de l’instance SAP ASCS/SCS
+**Tableau 2** : Détails de l’instance SAP ASCS/SCS
 
 
 | Rôle du nom d’hôte virtuel | Nom d’hôte virtuel | Adresse IP statique | Groupe à haute disponibilité |
@@ -244,7 +244,7 @@ Avant de commencer l’installation, consultez l’article suivant :
 | Nom réseau du cluster | sofs-cl | 10.0.6.13 | n/a |
 | Nom d’hôte global SAP | sapglobal | Utiliser les adresses IP de tous les nœuds de cluster | n/a |
 
-**Tableau 3**: Cluster de serveur de fichiers avec montée en puissance
+**Tableau 3** : Cluster de serveurs de fichiers avec montée en puissance parallèle
 
 
 ## <a name="deploy-vms-for-an-sap-ascsscs-cluster-a-database-management-system-dbms-cluster-and-sap-application-server-instances"></a>Déployer des machines virtuelles pour un cluster SAP ASCS/SCS, un cluster de système de gestion de base de données (SGBD) et des instances de serveur d’applications SAP
@@ -323,9 +323,9 @@ Le modèle Azure Resource Manager permettant de déployer le serveur de fichiers
 
 Nous vous recommandons d’utiliser la fonctionnalité Disques managés.
 
-![Figure 1 : Écran de l’interface utilisateur pour le modèle de Scale-Out File Server Resource Manager avec des disques gérés][sap-ha-guide-figure-8010]
+![Figure 1 : Écran de l’interface utilisateur pour le modèle Resource Manager de serveur de fichiers avec montée en puissance parallèle avec disques managés][sap-ha-guide-figure-8010]
 
-_**Figure 1**: Écran de l’interface utilisateur pour le modèle de Scale-Out File Server Resource Manager avec des disques gérés_
+_**Figure 1** : Écran de l’interface utilisateur pour le modèle Resource Manager de serveur de fichiers avec montée en puissance parallèle avec disques managés_
 
 Dans le modèle, procédez comme suit :
 1. Dans la zone **Nombre de machines virtuelles**, entrez le nombre minimal **2**.
@@ -337,21 +337,21 @@ Dans le modèle, procédez comme suit :
 
 Le modèle Azure Resource Manager permettant de déployer le serveur de fichiers avec montée en puissance parallèle avec des espaces de stockage direct et des disques non gérés Azure est disponible sur [GitHub][arm-sofs-s2d-non-managed-disks].
 
-![Figure 2 : Écran de l’interface utilisateur pour le modèle de Scale-Out File Server Azure Resource Manager sans disques gérés][sap-ha-guide-figure-8011]
+![Figure 2 : Écran de l’interface utilisateur pour le modèle Azure Resource Manager de serveur de fichiers avec montée en puissance parallèle sans disques managés][sap-ha-guide-figure-8011]
 
-_**Figure 2**: Écran de l’interface utilisateur pour le modèle de Scale-Out File Server Azure Resource Manager sans disques gérés_
+_**Figure 2** : Écran de l’interface utilisateur pour le modèle Azure Resource Manager de serveur de fichiers avec montée en puissance parallèle sans disques managés_
 
 Dans la zone **Type de compte de stockage**, sélectionnez **Stockage Premium**. Les autres paramètres sont les identiques aux paramètres des disques managés.
 
-## <a name="adjust-cluster-timeout-settings"></a>Ajuster les paramètres de délai d’expiration de cluster
+## <a name="adjust-cluster-timeout-settings"></a>Ajustez les paramètres liés au délai d’expiration du cluster
 
-Après l’installation du cluster de serveur de fichiers avec montée en puissance de Windows, adapter les seuils de délai d’attente pour la détection de basculement aux conditions dans Azure. Les paramètres à changer sont documentés dans : [Tuning Failover Cluster Network Thresholds (Réglage des seuils réseau de cluster de basculement)][tuning-failover-cluster-network-thresholds]. En supposant que vos machines virtuelles en cluster se trouvent dans le même sous-réseau, modifiez les paramètres suivants à ces valeurs :
+Après avoir installé le cluster de serveurs de fichiers avec montée en puissance parallèle avec succès, adaptez les seuils de délai d’expiration pour la détection de basculement aux conditions dans Azure. Les paramètres à changer sont documentés dans : [Tuning Failover Cluster Network Thresholds (Réglage des seuils réseau de cluster de basculement)][tuning-failover-cluster-network-thresholds]. En supposant que vos machines virtuelles en cluster se trouvent dans le même sous-réseau, modifiez les paramètres suivants par ces valeurs :
 
 - SameSubNetDelay = 2000
 - SameSubNetThreshold = 15
 - RoutingHistoryLength = 30
 
-Ces paramètres ont été testés auprès de clients et offrent un bon compromis. Ils sont suffisamment résilients, mais elles fournissent également rapidement un basculement suffisamment dans les conditions d’erreur réelles ou l’échec de la machine virtuelle.
+Ces paramètres ont été testés auprès de clients et offrent un bon compromis. Ils sont suffisamment résilients, mais assurent également un basculement assez rapide dans des conditions d’erreur réelles ou en cas de problème sur une machine virtuelle.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

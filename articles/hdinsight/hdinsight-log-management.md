@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: hrasheed
 ms.openlocfilehash: b42eb51b510423ffc0d15ee3a646bca3d4392f7f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64686858"
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>Gérer les journaux d’activité pour un cluster HDInsight
@@ -42,7 +42,7 @@ Les informations de cluster suivantes sont utiles pour collecter des information
 * État du cluster, y compris les détails de la dernière modification d’état
 * Type et nombre d’instances HDInsight spécifiés pour les nœuds maître, principaux et de tâche
 
-Vous pouvez obtenir la plupart de ces informations de niveau supérieur à l’aide du portail Azure.  Vous pouvez également utiliser [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) pour obtenir des informations sur votre cluster HDInsight :
+Vous pouvez obtenir la plupart de ces informations de niveau supérieur à l’aide du portail Azure.  Vous pouvez aussi utiliser [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) pour obtenir des informations sur votre ou vos clusters HDInsight :
 
 ```azurecli
     az hdinsight list --resource-group <ResourceGroup>
@@ -75,7 +75,7 @@ Un cluster HDInsight classique s’appuie sur plusieurs services et packages log
 
 ### <a name="view-cluster-configuration-settings-with-the-ambari-ui"></a>Vérifier les paramètres de configuration du cluster avec l’interface utilisateur Ambari
 
-Apache Ambari simplifie la gestion, la configuration et le monitoring d’un cluster HDInsight en fournissant une interface utilisateur web et une API REST. Ambari est inclus sur les clusters HDInsight sous Linux. Sélectionnez le **tableau de bord de Cluster** volet sur la page HDInsight du portail Azure pour ouvrir le **tableaux de bord de Cluster** page de lien.  Sélectionnez ensuite le volet **Tableau de bord du cluster HDInsight** pour ouvrir l’interface utilisateur Ambari.  Vous êtes invité à entrer les informations d’identification utilisées pour vous connecter au cluster.
+Apache Ambari simplifie la gestion, la configuration et le monitoring d’un cluster HDInsight en fournissant une interface utilisateur web et une API REST. Ambari est inclus sur les clusters HDInsight sous Linux. Sélectionnez le volet **Tableau de bord du cluster** sur la page HDInsight du portail Azure pour ouvrir la page de liens **Tableaux de bord du cluster**.  Sélectionnez ensuite le volet **Tableau de bord du cluster HDInsight** pour ouvrir l’interface utilisateur Ambari.  Vous êtes invité à entrer les informations d’identification utilisées pour vous connecter au cluster.
 
 Pour ouvrir une liste de vues du service, sélectionnez **Vues Ambari** sur la page du portail Azure pour HDInsight.  Cette liste varie selon les bibliothèques que vous avez installées.  Elle peut contenir par exemple YARN Queue Manager, Hive View et Tez View.  Sélectionnez le lien d’un service pour afficher des informations sur la configuration et le service.  La page **Pile et version** de l’interface utilisateur Ambari fournit des informations sur la configuration des services du cluster et sur l’historique de version des services. Pour accéder à cette section de l’interface utilisateur Ambari, sélectionnez le menu **Admin**, puis **Piles et versions**.  Sélectionnez l’onglet **Versions** pour afficher des informations sur la version du service.
 
@@ -97,7 +97,7 @@ L’étape suivante examine les fichiers journaux d’exécution des travaux des
 
 ### <a name="access-the-hadoop-log-files"></a>Accéder aux fichiers journaux Hadoop
 
-HDInsight stocke ses fichiers journaux dans le système de fichiers du cluster et dans le stockage Azure. Vous pouvez examiner les fichiers journaux dans le cluster en ouvrant un [SSH](hdinsight-hadoop-linux-use-ssh-unix.md) connexion au cluster et la navigation sur le système de fichiers, ou à l’aide du portail de l’état YARN Hadoop sur le serveur de nœud principal distant. Vous pouvez examiner les fichiers journaux dans le stockage Azure à l’aide d’outils qui peuvent parcourir et télécharger des données à partir du stockage Azure. Sont des exemples [AzCopy](../storage/common/storage-use-azcopy.md), [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer)et l’Explorateur de serveurs Visual Studio. Vous pouvez également utiliser PowerShell et les bibliothèques de client de stockage Azure ou les Kits de développement logiciel Azure .NET pour accéder aux données dans le stockage blob Azure.
+HDInsight stocke ses fichiers journaux dans le système de fichiers du cluster et dans le stockage Azure. Vous pouvez examiner les fichiers journaux dans le cluster en ouvrant une connexion [SSH](hdinsight-hadoop-linux-use-ssh-unix.md) au cluster et en parcourant le système de fichiers, ou à l’aide du portail Hadoop YARN Status sur le serveur du nœud principal distant. Vous pouvez examiner les fichiers journaux dans le stockage Azure à l’aide d’outils qui peuvent parcourir et télécharger des données à partir du stockage Azure. [AZCopy](../storage/common/storage-use-azcopy.md), [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer) et l’Explorateur de serveurs Visual Studio en sont des exemples. Vous pouvez également utiliser PowerShell et les bibliothèques de client de stockage Azure ou les Kits de développement logiciel Azure .NET pour accéder aux données dans le stockage blob Azure.
 
 Hadoop exécute les travaux en tant que *tentatives de tâches* sur différents nœuds du cluster. HDInsight peut initier des tentatives de tâches spéculatives, en arrêtant les tentatives de tâches qui ne se terminent. Cela génère une activité importante qui est journalisée dans le contrôleur, stderr et les fichiers journaux syslog à la volée. De plus, plusieurs tentatives de tâches sont exécutées simultanément, mais un fichier journal peut uniquement afficher des résultats de façon linéaire.
 
@@ -166,7 +166,7 @@ Pour contrôler la taille et le nombre des fichiers journaux conservés, défini
 
 ### <a name="other-log-management-techniques"></a>Autres techniques de gestion des journaux
 
-Pour éviter de manquer d’espace disque, vous pouvez utiliser des outils du système d’exploitation, tel que [logrotate](https://linux.die.net/man/8/logrotate) pour gérer des fichiers journaux. Vous pouvez configurer `logrotate` pour s’exécuter sur une base quotidienne, en compressant les fichiers journaux et en supprimant les anciens. Votre approche dépend de vos besoins, tels que la durée pendant laquelle conserver les fichiers journaux sur les nœuds locaux.  
+Pour éviter de manquer d’espace disque, vous pouvez utiliser des outils du système d’exploitation, comme [ logrotate](https://linux.die.net/man/8/logrotate) pour gérer les fichiers journaux. Vous pouvez configurer `logrotate` pour s’exécuter sur une base quotidienne, en compressant les fichiers journaux et en supprimant les anciens. Votre approche dépend de vos besoins, tels que la durée pendant laquelle conserver les fichiers journaux sur les nœuds locaux.  
 
 Vous pouvez également vérifier si la journalisation DEBUG est activée pour un ou plusieurs services, ce qui augmente considérablement la taille de sortie des journaux.  
 
@@ -175,5 +175,5 @@ Pour collecter les journaux d’activité de tous les nœuds dans un seul emplac
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Pratique de journalisation et monitoring pour HDInsight](https://msdn.microsoft.com/library/dn749790.aspx)
-* [Journaux des applications de Apache Hadoop YARN d’accès dans HDInsight basé sur Linux](hdinsight-hadoop-access-yarn-app-logs-linux.md)
+* [Accéder aux journaux des applications Apache Hadoop YARN dans la version Linux de HDInsight](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 * [Comment contrôler la taille des fichiers journaux pour différents composants Apache Hadoop](https://community.hortonworks.com/articles/8882/how-to-control-size-of-log-files-for-various-hdp-c.html)

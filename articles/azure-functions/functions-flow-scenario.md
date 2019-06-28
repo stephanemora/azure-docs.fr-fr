@@ -13,10 +13,10 @@ ms.author: glenga
 ms.reviewer: sunayv
 ms.custom: ''
 ms.openlocfilehash: d3e777b5611dec382dc4eaaac5ec1594abcdab31
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65787685"
 ---
 # <a name="call-a-function-from-microsoft-flow"></a>Appeler une fonction à partir de Microsoft Flow
@@ -38,7 +38,7 @@ Dans cette rubrique, vous allez apprendre à :
 
 [!INCLUDE [functions-openapi-note](../../includes/functions-openapi-note.md)]
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 + Un [compte Microsoft Flow](https://flow.microsoft.com/documentation/sign-up-sign-in/) actif avec les mêmes informations d’identification que votre compte Azure. 
 + SharePoint, que vous utilisez comme source de données pour ce flux. Inscrivez-vous à un [essai gratuit d’Office 365](https://signup.microsoft.com/Signup?OfferId=467eab54-127b-42d3-b046-3844b860bebf&dl=O365_BUSINESS_PREMIUM&ali=1) si vous n’avez pas encore SharePoint.
@@ -51,9 +51,9 @@ Vous commencez par créer une liste à utiliser comme source de données pour le
 |-----------------|---------------------|------------------------------------------|
 | **Titre**           | Ligne de texte unique | Nom de l’éolienne                      |
 | **Dernier entretien** | Date                |                                          |
-| **Production max.**       | Nombre              | Débit de l’éolienne, en kWh            |
-| **Entretien nécessaire** | Oui/non              |                                          |
-| **Effort estimé** | Nombre              | Durée estimée de la réparation, en heures |
+| **Production max.**       | Number              | Débit de l’éolienne, en kWh            |
+| **Entretien nécessaire** | Oui/Non              |                                          |
+| **Effort estimé** | Number              | Durée estimée de la réparation, en heures |
 
 1. Dans votre site SharePoint, cliquez ou appuyez sur **Nouveau**, puis sur **Liste**.
 
@@ -134,7 +134,7 @@ Dans un premier temps, vous créez un flux entièrement (sans modèle) et ajoute
 
     ![Ajouter une condition](media/functions-flow-scenario/add-condition.png)
 
-    Microsoft Flow ajoute deux branches au flux : **Dans l’affirmative** et **si aucun**. Vous ajoutez des étapes à une ou aux deux branches après avoir défini la condition à vérifier.
+    Microsoft Flow ajoute deux branches au flux : **Si Oui** et **Si Non**. Vous ajoutez des étapes à une ou aux deux branches après avoir défini la condition à vérifier.
 
     ![Branches de la condition](media/functions-flow-scenario/condition-branches.png)
 
@@ -231,7 +231,7 @@ Le flux étant complet, vous ajoutez une ligne à la liste SharePoint pour voir 
     | **Titre**           | Éolienne 60 |
     | **Dernier entretien** | 08/04/2017 |
     | **Production max.**       | 2 500 |
-    | **Entretien nécessaire** | Oui |
+    | **Entretien nécessaire** | OUI |
     | **Effort estimé** | 10 |
 
 3. Cliquez sur **Done**.
@@ -246,7 +246,7 @@ Le flux étant complet, vous ajoutez une ligne à la liste SharePoint pour voir 
 
 5. Sous **Historique d’exécution**, cliquez sur l’exécution de flux.
 
-    ![Histor. exéc.](media/functions-flow-scenario/run-history.png)
+    ![Historique d’exécution](media/functions-flow-scenario/run-history.png)
 
     Si l’exécution a réussi, vous pouvez consulter les opérations de flux à la page suivante. Si l’exécution a échoué pour une raison quelconque, la page suivante fournit des informations de dépannage.
 

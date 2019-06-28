@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/11/2019
 ms.openlocfilehash: 19d77d4aa49008232a01cd3ac2761a796505a35c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64711999"
 ---
 # <a name="overview-of-apache-spark-streaming"></a>Vue d’ensemble d’Apache Spark Streaming
@@ -145,7 +145,7 @@ stream.foreachRDD { rdd =>
 ssc.start()
 ```
 
-Attendez environ 30 secondes après le démarrage de l’application ci-dessus.  Ensuite, vous pouvez interroger la trame de données régulièrement afin de vérifier l’ensemble actuel de valeurs présentes dans le lot, par exemple à l’aide de cette requête SQL :
+Attendez environ 30 secondes après le démarrage de l’application ci-dessus.  Vous pouvez ensuite interroger la trame de données régulièrement, afin de vérifier l’ensemble actuel de valeurs présentes dans le lot, par exemple à l’aide de cette requête SQL :
 
 ```sql
 %%sql
@@ -228,8 +228,8 @@ Après la première minute, 12 entrées sont obtenues, à savoir 6 entrées de c
 | 2 | 1497316299158
 | 3 | 1497316304178
 | 4 | 1497316309204
-| 5. | 1497316314224
-| 6. | 1497316319243
+| 5\. | 1497316314224
+| 6\. | 1497316319243
 | 7 | 1497316324260
 | 8 | 1497316329278
 | 9 | 1497316334293

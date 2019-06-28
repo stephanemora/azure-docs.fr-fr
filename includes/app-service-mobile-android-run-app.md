@@ -5,19 +5,19 @@ ms.topic: include
 ms.date: 05/09/2019
 ms.author: crdun
 ms.openlocfilehash: 63c54f8af91b6b4a76ba49d5e6fc7b3cda9f5b98
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66240316"
 ---
 1. Ouvrez le projet avec **Android Studio**, en utilisant **Importer un projet (Eclipse ADT, Gradle, etc.)** . Assurez-vous d’éviter toute erreur JDK avec ce choix d’importation.
 
-2. Ouvrez le fichier `ToDoActivity.java` dans ce dossier - ZUMOAPPNAME/application/src/main/java/com/exemple/zumoappname. Le nom de l’application est `ZUMOAPPNAME`.
+2. Ouvrez le fichier `ToDoActivity.java` dans le dossier ZUMOAPPNAME/app/src/main/java/com/example/zumoappname. Le nom de l’application est `ZUMOAPPNAME`.
 
-3. Accédez à la [Azure portal](https://portal.azure.com/) et accédez à l’application mobile que vous avez créé. Sur le `Overview` panneau, recherchez l’URL qui est le point de terminaison public pour votre application mobile. Exemple - sitename pour mon nom de l’application « test123 » sera https://test123.azurewebsites.net.
+3. Ouvrez le [Portail Microsoft Azure](https://portal.azure.com/), puis accédez à l’application mobile que vous avez créée. Sur le panneau `Overview`, recherchez l’URL qui correspond au point de terminaison public de votre application mobile. Exemple : la valeur sitename relative au nom de l’application « test123 » est https://test123.azurewebsites.net.
 
-4. Dans `onCreate()` (méthode), remplacez `ZUMOAPPURL` paramètre avec le point de terminaison public ci-dessus.
+4. Dans la méthode `onCreate()`, remplacez le paramètre `ZUMOAPPURL` par le point de terminaison public ci-dessus.
     
     `new MobileServiceClient("ZUMOAPPURL", this).withFilter(new ProgressFilter());` 
     
@@ -28,4 +28,4 @@ ms.locfileid: "66240316"
 5. Appuyez sur le bouton **Exécuter l’application** pour générer le projet et démarrer l’application dans le simulateur Android.
 
 4. Dans l’application, tapez un texte explicite, comme *Suivre le didacticiel* , puis cliquez sur l’icône Ajouter. Cette action envoie une requête POST au serveur principal Azure déployé précédemment. Le backend insère les données de la requête dans la table SQL TodoItem et renvoie des informations sur les éléments récemment stockés à l’application mobile. L’application mobile affiche ces données dans la liste.
-    ![Guide de démarrage rapide Android](./media/app-service-mobile-android-quickstart/mobile-quickstart-startup-android.png)
+    ![Démarrage rapide d’Android](./media/app-service-mobile-android-quickstart/mobile-quickstart-startup-android.png)

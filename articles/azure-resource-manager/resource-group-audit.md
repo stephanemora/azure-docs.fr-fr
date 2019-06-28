@@ -1,16 +1,16 @@
 ---
 title: Afficher les journaux d’activité Azure pour surveiller les ressources | Microsoft Docs
-description: Utilisez les journaux d’activité pour passer en revue les actions et les erreurs des utilisateurs. Montre le portail Azure PowerShell, Azure CLI et REST.
+description: Utilisez les journaux d’activité pour passer en revue les actions et les erreurs des utilisateurs. Affiche le Portail Microsoft Azure, PowerShell, l’interface de ligne de commande Azure et REST.
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 05/13/2019
 ms.author: tomfitz
 ms.openlocfilehash: 7ff45be4eea5c6e8ab83093847164ede0e94579a
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65606571"
 ---
 # <a name="view-activity-logs-to-monitor-actions-on-resources"></a>Afficher les journaux d’activité pour surveiller les actions sur les ressources
@@ -23,7 +23,7 @@ Les journaux d’activité vous permettent de déterminer :
 * L’état de l’opération
 * Les valeurs d’autres propriétés qui peuvent vous aider à effectuer des recherches sur l’opération
 
-Le journal d’activité contient toutes les opérations d’écriture (PUT, POST, DELETE) pour vos ressources. Il n'inclut pas les opérations de lecture (GET). Pour obtenir la liste des actions de ressource, consultez [Opérations du fournisseur de ressources Azure Resource Manager](../role-based-access-control/resource-provider-operations.md). Vous pouvez utiliser les journaux d’activité pour rechercher une erreur lors de la résolution de problèmes ou pour surveiller la manière dont un utilisateur de votre organisation modifie une ressource.
+Le journal d’activité contient toutes les opérations d’écriture (PUT, POST, DELETE) de vos ressources. Il n'inclut pas les opérations de lecture (GET). Pour obtenir la liste des actions de ressource, consultez [Opérations du fournisseur de ressources Azure Resource Manager](../role-based-access-control/resource-provider-operations.md). Vous pouvez utiliser les journaux d’activité pour rechercher une erreur lors de la résolution de problèmes ou pour surveiller la manière dont un utilisateur de votre organisation modifie une ressource.
 
 Les journaux d’activité sont conservés pendant 90 jours. Vous pouvez interroger n'importe quelle plage de dates, à condition que la date de début ne remonte pas à plus de 90 jours.
 
@@ -39,19 +39,19 @@ Vous pouvez récupérer des informations dans les journaux d’activité par le 
 
     ![Sélectionner un journal d’activité](./media/resource-group-audit/select-activity-log.png)
 
-1. Un résumé des opérations récentes s'affiche. Un ensemble de filtres par défaut est appliqué aux opérations. Notez que les informations sur le résumé incluent la personne qui a démarré l’action et l’heure d’exécution.
+1. Un résumé des opérations récentes s'affiche. Un ensemble de filtres par défaut est appliqué aux opérations. Notez que les informations sur le résumé incluent la personne qui a démarré l’action ainsi que le moment d’exécution de celle-ci.
 
     ![Afficher le résumé des opérations récentes](./media/resource-group-audit/audit-summary.png)
 
-1. Pour exécuter rapidement un ensemble prédéfini de filtres, sélectionnez **informations rapides**.
+1. Pour exécuter rapidement un ensemble de filtres prédéfini, sélectionnez **Quick Insights**.
 
-    ![Sélectionnez informations rapides](./media/resource-group-audit/select-quick-insights.png)
+    ![Sélectionner Quick Insights](./media/resource-group-audit/select-quick-insights.png)
 
-1. Sélectionnez l'une des options. Par exemple, sélectionnez **déploiement ayant échoué** pour afficher les erreurs à partir des déploiements.
+1. Sélectionnez l'une des options. Par exemple, sélectionnez **Déploiements ayant échoué** pour afficher les erreurs des déploiements.
 
-    ![Sélectionnez déploiements ayant échoué](./media/resource-group-audit/select-failed-deployments.png)
+    ![Sélectionner les déploiements ayant échoué](./media/resource-group-audit/select-failed-deployments.png)
 
-1. Notez que les filtres ont été modifiés pour se concentrer sur les erreurs de déploiement dans les dernières 24 heures. Seules les opérations qui correspondent aux filtres sont affichées.
+1. Notez que les filtres ont été modifiés pour se concentrer sur les erreurs de déploiement des dernières 24 heures. Seules les opérations qui correspondent aux filtres sont affichées.
 
     ![Filtres de vue](./media/resource-group-audit/view-filters.png)
 
@@ -71,19 +71,19 @@ Vous pouvez récupérer des informations dans les journaux d’activité par le 
 
     ![Afficher le filtre sur le tableau de bord](./media/resource-group-audit/show-dashboard.png)
 
-1. À partir du portail, vous pouvez afficher les modifications apportées à une ressource. Accédez à la valeur par défaut à afficher dans le moniteur, sélectionnez une opération qui impliquait la modification d’une ressource.
+1. Dans le portail, vous pouvez afficher les modifications apportées à une ressource. Revenez à l’affichage par défaut dans Monitor, puis sélectionnez une opération qui impliquait la modification d’une ressource.
 
     ![Sélectionner une opération](./media/resource-group-audit/select-operation.png)
 
-1. Sélectionnez **historique (version préliminaire) des modifications** et choisissez une des opérations disponibles.
+1. Sélectionnez **Historique des modifications (préversion)** et choisissez une des opérations disponibles.
 
-    ![Sélectionnez l’historique des modifications](./media/resource-group-audit/select-change-history.png)
+    ![Sélectionner l’historique des modifications](./media/resource-group-audit/select-change-history.png)
 
 1. Les modifications apportées à la ressource sont affichées.
 
     ![Afficher les modifications](./media/resource-group-audit/show-changes.png)
 
-Pour en savoir plus sur l’historique des modifications, consultez [obtenir les modifications des ressources](../governance/resource-graph/how-to/get-resource-changes.md).
+Pour en savoir plus sur l’historique des modifications, consultez [Obtenir les modifications des ressources](../governance/resource-graph/how-to/get-resource-changes.md).
 
 ## <a name="powershell"></a>PowerShell
 
@@ -107,7 +107,7 @@ Vous pouvez également utiliser les fonctions de date pour spécifier la plage d
 Get-AzLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-14)
 ```
 
-Vous pouvez rechercher les actions effectuées par un utilisateur particulier.
+Vous pouvez rechercher les actions exécutées par un utilisateur spécifique.
 
 ```azurepowershell-interactive
 Get-AzLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-14) -Caller someone@contoso.com
@@ -137,7 +137,7 @@ En fonction de l’heure de début que vous spécifiez, les commandes précéden
 Get-AzLog -ResourceGroup ExampleGroup | Where-Object {$_.OperationName.value -eq "Microsoft.Resources/deployments/write"}
 ```
 
-Vous pouvez utiliser le graphique des ressources pour afficher l’historique des modifications pour une ressource. Pour plus d’informations, consultez [obtenir les modifications des ressources](../governance/resource-graph/how-to/get-resource-changes.md).
+Vous pouvez utiliser Resource Graph pour afficher l’historique des modifications d’une ressource. Pour plus d’informations, consultez [Obtenir les modifications des ressources](../governance/resource-graph/how-to/get-resource-changes.md).
 
 ## <a name="azure-cli"></a>Azure CLI
 
@@ -183,7 +183,7 @@ En fonction de l’heure de début que vous spécifiez, les commandes précéden
 az monitor activity-log list -g ExampleGroup --offset 1d --query "[?operationName.value=='Microsoft.Storage/storageAccounts/write']"
 ```
 
-Vous pouvez utiliser le graphique des ressources pour afficher l’historique des modifications pour une ressource. Pour plus d’informations, consultez [obtenir les modifications des ressources](../governance/resource-graph/how-to/get-resource-changes.md).
+Vous pouvez utiliser Resource Graph pour afficher l’historique des modifications d’une ressource. Pour plus d’informations, consultez [Obtenir les modifications des ressources](../governance/resource-graph/how-to/get-resource-changes.md).
 
 ## <a name="rest-api"></a>API REST
 

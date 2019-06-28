@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 05/07/2019
 ms.author: juliako
 ms.openlocfilehash: 7b2691f543cf38a56eefb1e8521169aeccbf3221
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65409279"
 ---
 # <a name="clouds-and-regions-in-which-azure-media-services-v3-exists"></a>Clouds et régions dans lesquels Azure Media Services v3 existe
@@ -26,16 +26,16 @@ Azure Media Services v3 est disponible via le manifeste Azure Resource Manager d
 
 | Fonctionnalité|Régions Azure à l'échelle internationale | Azure Government|Azure Germany|Azure China 21Vianet|
 | --- | --- | --- | --- | --- |
-| [Azure EventGrid](reacting-to-media-services-events.md) | Disponible | Indisponible | Indisponible | Indisponible |
-| [VideoAnalyzerPreset](analyzing-video-audio-files-concept.md) |  Disponible | Indisponible | Indisponible | Indisponible |
-| [AudioAnalyzerPreset](analyzing-video-audio-files-concept.md) |  Disponible | Indisponible | Indisponible | Indisponible |
+| [Azure EventGrid](reacting-to-media-services-events.md) | Disponible | Non disponible | Non disponible | Non disponible |
+| [VideoAnalyzerPreset](analyzing-video-audio-files-concept.md) |  Disponible | Non disponible | Non disponible | Non disponible |
+| [AudioAnalyzerPreset](analyzing-video-audio-files-concept.md) |  Disponible | Non disponible | Non disponible | Non disponible |
 | [StandardEncoderPreset](encoding-concept.md) | Disponible | Disponible | Disponible | Disponible |
 | [LiveEvents](live-streaming-overview.md) | Disponible | Disponible | Disponible | Disponible |
 | [StreamingEndpoints](streaming-endpoint-concept.md) | Disponible | Disponible | Disponible | Disponible |
 
 ## <a name="regionsgeographieslocations"></a>Régions/zones géographiques/emplacements
 
-[Régions dans lequel le service Azure Media Services est déployé](https://azure.microsoft.com/global-infrastructure/services/?products=media-services)
+[Régions dans lesquelles le service Azure Media Services est déployé](https://azure.microsoft.com/global-infrastructure/services/?products=media-services)
 
 ### <a name="region-code-name"></a>Nom de code de la région 
 
@@ -64,7 +64,7 @@ Par exemple, pour la région Azure West US 2 (USA Ouest 2) affichée ci-dessou
 
 Il est important de connaître les points de terminaison suivants lors de la connexion à des comptes Media Services à partir de différents clouds Azure nationaux.
 
-### <a name="global-azure"></a>Azure international
+### <a name="global-azure"></a>Azure global
 
 |Points de terminaison ||
 | --- | --- | 

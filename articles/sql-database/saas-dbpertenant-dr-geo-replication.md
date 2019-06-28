@@ -13,10 +13,10 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: b6f0d25f621768f79e8262f38617152e91692a23
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62129844"
 ---
 # <a name="disaster-recovery-for-a-multi-tenant-saas-application-using-database-geo-replication"></a>Récupération d’urgence d’une application SaaS multi-locataire à l’aide de la géoréplication de bases de données
@@ -90,9 +90,9 @@ Ensuite, lors d’une étape distincte de rapatriement, vous basculez les bases 
 ## <a name="review-the-healthy-state-of-the-application"></a>Examiner l’état d’intégrité de l’application
 
 Avant de lancer le processus de récupération, examinez l’état d’intégrité normale de l’application.
-1. Dans votre navigateur web, ouvrez le hub d’événements Wingtip Tickets (http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net, remplacez &lt;user&gt; par la valeur d’utilisateur de votre déploiement).
+1. Dans votre navigateur web, ouvrez le hub d’événements Wingtip Tickets (http://events.wingtip-dpt.&lt ;user&gt;.trafficmanager.net, remplacez &lt; user&gt; par la valeur d’utilisateur de votre déploiement).
     * Faites défiler la page vers le bas et notez le nom et l’emplacement du serveur de catalogue dans le pied de page. L’emplacement correspond à la région dans laquelle vous avez déployé l’application.
-    *CONSEIL : placez le pointeur de la souris sur l’emplacement pour agrandir l’affichage.*
+    *CONSEIL : placez le pointeur de la souris sur l’emplacement pour agrandir l’affichage.* 
     ![État intègre d’Event Hub dans la région d’origine](media/saas-dbpertenant-dr-geo-replication/events-hub-original-region.png)
 
 2. Cliquez sur le locataire Contoso Concert Hall et ouvrez sa page d’événement.
@@ -106,7 +106,7 @@ Avant de lancer le processus de récupération, examinez l’état d’intégrit
 Cette tâche vous permet de démarrer un processus de synchronisation de la configuration des serveurs, des pools élastiques et des bases de données dans le catalogue du locataire. Le processus maintient ces informations à jour dans le catalogue.  Le processus fonctionne avec le catalogue actif, que ce soit dans la région d’origine ou dans la région de récupération. Les informations de configuration sont utilisées dans le cadre du processus de récupération pour vérifier que l’environnement de récupération est cohérent avec l’environnement d’origine, puis lors du rapatriement pour vérifier que la région d’origine est cohérente avec les modifications apportées dans l’environnement de récupération. Le catalogue permet également d’assurer le suivi de l’état de récupération des ressources de locataire.
 
 > [!IMPORTANT]
-> Par souci de simplicité, le processus de synchronisation et d’autres processus longs de récupération et de rapatriement sont implémentés dans ces didacticiels en tant que travaux PowerShell locaux ou les sessions qui s’exécutent sous votre connexion de l’utilisateur client. Les jetons d’authentification émis lors de la connexion expireront après quelques heures, puis les travaux échoueront. Dans un scénario de production, les processus longs doivent être implémentés comme des services Azure fiables et exécutés sous un principal de service. Consultez [Utiliser Azure PowerShell pour créer un principal du service avec un certificat](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal).
+> Par souci de simplicité, le processus de synchronisation et les autres processus longs de récupération et de rapatriement sont implémentés dans ces didacticiels sous la forme de sessions ou de travaux PowerShell locaux qui s’exécutent sous votre ID d’utilisateur client. Les jetons d’authentification émis lors de la connexion expireront après quelques heures, puis les travaux échoueront. Dans un scénario de production, les processus longs doivent être implémentés comme des services Azure fiables et exécutés sous un principal de service. Consultez [Utiliser Azure PowerShell pour créer un principal du service avec un certificat](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal).
 
 1. Dans l’_ISE PowerShell_, ouvrez le fichier ...\Learning Modules\UserConfig.psm1. Remplacez `<resourcegroup>` et `<user>` sur les lignes 10 et 11 par la valeur utilisée lors du déploiement de l’application.  Enregistrez le fichier.
 
@@ -207,7 +207,7 @@ Pendant que le point de terminaison de l’application est désactivé dans Traf
  
      ![Hub d’événements hors connexion](media/saas-dbpertenant-dr-geo-replication/events-hub-offlinemode.png) 
 
-   * Si vous ouvrez directement la page des événements d’un locataire hors connexion, elle affiche une notification indiquant que le locataire est hors connexion. Par exemple, si Contoso Concert Hall est hors connexion, essayez d’ouvrir http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net/contosoconcerthall ![Page Contoso hors connexion](media/saas-dbpertenant-dr-geo-replication/dr-in-progress-offline-contosoconcerthall.png) 
+   * Si vous ouvrez directement la page des événements d’un locataire hors connexion, elle affiche une notification indiquant que le locataire est hors connexion. Par exemple, si Contoso Concert Hall est hors connexion, essayez d’ouvrir http://events.wingtip-dpt.&lt ;user&gt;.trafficmanager.net/contosoconcerthall ![ Page Contoso hors connexion](media/saas-dbpertenant-dr-geo-replication/dr-in-progress-offline-contosoconcerthall.png) 
 
 ### <a name="provision-a-new-tenant-in-the-recovery-region"></a>Approvisionner un nouveau locataire dans la région de récupération
 Même avant le basculement de toutes les bases de données de locataire, vous pouvez approvisionner de nouveaux locataires dans la région de récupération.  
@@ -256,7 +256,7 @@ Dans cette tâche, vous mettez à jour l’une des bases de données de locatair
 2. Dans l’*ISE PowerShell*, dans le script ...\Learning Modules\Business Continuity and Disaster Recovery\DR-FailoverToReplica\Demo-FailoverToReplica.ps1, configurez la valeur suivante :
     * **$DemoScenario = 5** pour supprimer un événement d’un locataire dans la région de récupération.
 3. Appuyez sur **F5** pour exécuter le script.
-4. Actualisez la page d’événements Concert Contoso Hall (http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net/contosoconcerthall - substitute &lt;utilisateur&gt; avec la valeur d’utilisateur de votre déploiement) et notez que le dernier événement a été supprimé.
+4. Actualisez la page d’événements Concert Contoso Hall (http://events.wingtip-dpt.&lt ;user&gt;.trafficmanager.net/contosoconcerthall - substitute &lt; utilisateur&gt; avec la valeur d’utilisateur de votre déploiement) et notez que le dernier événement a été supprimé.
 
 ## <a name="repatriate-the-application-to-its-original-production-region"></a>Rapatrier l’application dans sa région de production d’origine
 
@@ -289,7 +289,7 @@ Considérons à présent que la panne est résolue et que vous exécutez le scri
     * Appuyez sur **F5** pour exécuter le script de récupération dans une nouvelle fenêtre PowerShell.  Le rapatriement prend plusieurs minutes, et vous pouvez le surveiller dans la fenêtre PowerShell.
     ![Processus de rapatriement](media/saas-dbpertenant-dr-geo-replication/repatriation-process.png)
 
-4. Pendant l’exécution du script, actualisez la page du hub d’événements (http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net)
+4. Pendant l’exécution du script, actualisez la page du hub d’événements (http://events.wingtip-dpt.&lt ;user&gt;.trafficmanager.net)
     * Remarquez que tous les locataires sont en ligne et accessibles pendant ce processus.
 
 5. Une fois le rapatriement terminé, actualisez le hub d’événements et ouvrez la page d’événements de Hawthorn Hall. Notez que cette base de données a été rapatriée vers la région d’origine.

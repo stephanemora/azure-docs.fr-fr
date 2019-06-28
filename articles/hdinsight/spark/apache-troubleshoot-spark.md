@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
 ms.openlocfilehash: a4dc7293c00097c7a5752e29bf7c9a203cbb31a5
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64721150"
 ---
 # <a name="troubleshoot-apache-spark-by-using-azure-hdinsight"></a>Résolution de problèmes Apache Spark à l’aide d’Azure HDInsight
@@ -22,7 +22,7 @@ Découvrez les principaux problèmes rencontrés lors de l’utilisation de char
 
 ### <a name="resolution-steps"></a>Étapes de résolution
 
-Les valeurs de configuration Spark peuvent être paramétrées aide à éviter l’exception OutofMemoryError application Apache Spark. Les étapes suivantes montrent des valeurs de configuration de Spark par défaut dans Azure HDInsight : 
+Les valeurs de configuration Spark peuvent être paramétrées afin d’éviter l’exception OutofMemoryError de l’application Apache Spark. Les étapes suivantes montrent des valeurs de configuration Spark par défaut dans Azure HDInsight : 
 
 1. Dans la liste de clusters, sélectionnez **Spark2**.
 
@@ -84,7 +84,7 @@ Ces modifications s’appliquent à l’ensemble du cluster, mais elles peuvent 
 
 ### <a name="additional-reading"></a>Documentation supplémentaire
 
-[Apache Spark job submission on HDInsight clusters](https://web.archive.org/web/20190112152841/ https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/) (Envoi de travaux Spark sur des clusters HDInsight)
+[Apache Spark job submission on HDInsight clusters](https://web.archive.org/web/20190112152841/https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/) (Envoi de travaux Spark sur des clusters HDInsight)
 
 ## <a name="how-do-i-configure-an-apache-spark-application-by-using-a-jupyter-notebook-on-clusters"></a>Comment configurer une application Apache Spark sur des clusters via un bloc-notes Jupyter ?
 
@@ -98,7 +98,7 @@ Ces modifications s’appliquent à l’ensemble du cluster, mais elles peuvent 
 
 ### <a name="additional-reading"></a>Documentation supplémentaire
 
-[Apache Spark job submission on HDInsight clusters](https://web.archive.org/web/20190112152841/ https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/) (Envoi de travaux Spark sur des clusters HDInsight)
+[Apache Spark job submission on HDInsight clusters](https://web.archive.org/web/20190112152841/https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/) (Envoi de travaux Spark sur des clusters HDInsight)
 
 
 ## <a name="how-do-i-configure-an-apache-spark-application-by-using-apache-livy-on-clusters"></a>Comment configurer une application Apache Spark sur des clusters via Apache Livy ?
@@ -115,7 +115,7 @@ Ces modifications s’appliquent à l’ensemble du cluster, mais elles peuvent 
 
 ### <a name="additional-reading"></a>Documentation supplémentaire
 
-[Apache Spark job submission on HDInsight clusters](https://web.archive.org/web/20190112152841/ https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/) (Envoi de travaux Spark sur des clusters HDInsight)
+[Apache Spark job submission on HDInsight clusters](https://web.archive.org/web/20190112152841/https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/) (Envoi de travaux Spark sur des clusters HDInsight)
 
 ## <a name="how-do-i-configure-an-apache-spark-application-by-using-spark-submit-on-clusters"></a>Comment configurer une application Apache Spark sur des clusters via spark-submit ?
 
@@ -131,7 +131,7 @@ Ces modifications s’appliquent à l’ensemble du cluster, mais elles peuvent 
 
 ### <a name="additional-reading"></a>Documentation supplémentaire
 
-[Apache Spark job submission on HDInsight clusters](https://web.archive.org/web/20190112152841/ https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/) (Envoi de travaux Spark sur des clusters HDInsight)
+[Apache Spark job submission on HDInsight clusters](https://web.archive.org/web/20190112152841/https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/) (Envoi de travaux Spark sur des clusters HDInsight)
 
 
 ## <a name="what-causes-an-apache-spark-application-outofmemoryerror-exception"></a>À quoi est dû l’échec d’une application Apache Spark avec l’exception OutofMemoryError ?
@@ -216,7 +216,7 @@ La cause la plus probable de cette exception est que le segment de mémoire allo
 ### <a name="additional-reading"></a>Documentation supplémentaire
 
 - [Apache Spark memory management overview](https://spark.apache.org/docs/latest/tuning.html#memory-management-overview) (Vue d’ensemble de la gestion de la mémoire dans Spark)
-- [Debug an Apache Spark application on an HDInsight cluster](https://web.archive.org/web/20190112152909/ https://blogs.msdn.microsoft.com/azuredatalake/2016/12/19/spark-debugging-101/) (Déboguer une application Spark sur un cluster HDInsight)
+- [Debug an Apache Spark application on an HDInsight cluster](https://web.archive.org/web/20190112152909/https://blogs.msdn.microsoft.com/azuredatalake/2016/12/19/spark-debugging-101/) (Déboguer une application Spark sur un cluster HDInsight)
 
 
 ### <a name="see-also"></a>Voir aussi

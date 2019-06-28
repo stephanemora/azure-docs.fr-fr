@@ -1,5 +1,5 @@
 ---
-title: Créer des ressources techniques d’image de conteneurs Azure | Place de marché Azure
+title: Créer des ressources techniques d’image conteneur Azure | Place de marché Azure
 description: Créer les ressources techniques pour un conteneur Azure.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: pabutler
 ms.openlocfilehash: c639389fdd0d4624152fcdfa4432be09a18a97bc
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65794337"
 ---
 # <a name="prepare-your-container-technical-assets"></a>Préparer vos ressources techniques de conteneur
@@ -45,7 +45,7 @@ En outre, nous vous recommandons d’ajouter les outils suivants à votre enviro
 
 -   [Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)
 -   [Visual Studio Code](https://code.visualstudio.com/)
-    *   Poste : [Outils Azure Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
+    *   Extension : [Outils Azure Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
     *   Extension : [Beautify](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)
     *   Extension : [Prettify JSON](https://marketplace.visualstudio.com/items?itemName=mohsen1.prettify-json)
 
@@ -55,8 +55,8 @@ Nous vous suggérons également d’examiner les outils disponibles sur la page 
 
 Consultez les liens suivants pour plus d’informations :
 
-* [Tutoriel : Créer une image de conteneur pour le déploiement sur Azure Container Instances](https://docs.microsoft.com/azure/container-instances/container-instances-tutorial-prepare-app)
-* [Tutoriel : Générer et déployer des images de conteneur dans le cloud avec les tâches de Registre de conteneur Azure](https://docs.microsoft.com/azure/container-registry/container-registry-tutorial-quick-task)
+* [Tutoriel : Créer une image conteneur à déployer sur Azure Container Instances](https://docs.microsoft.com/azure/container-instances/container-instances-tutorial-prepare-app)
+* [Tutoriel : Générer et déployer des images conteneurs dans le cloud avec Azure Container Registry Tasks](https://docs.microsoft.com/azure/container-registry/container-registry-tutorial-quick-task)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

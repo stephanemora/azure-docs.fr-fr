@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: bwren
 ms.openlocfilehash: 5843ee11a615a2780e9fea2d89f7b18fb45706d8
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65604360"
 ---
 # <a name="collect-iis-logs-in-azure-monitor"></a>Collecter des journaux d’activité IIS dans Azure Monitor
@@ -51,7 +51,7 @@ Les enregistrements de journal IIS sont de type **W3CIISLog** et leurs propriét
 | csUriStem |Cible de la requête, par exemple une page web. |
 | csUriQuery |Requête, le cas échéant, que le client tentait d'effectuer. |
 | ManagementGroupName |Nom du groupe d’administration pour les agents Operations Manager.  Pour les autres agents, il s’agit d’AOI-\<workspace ID\> |
-| RemoteIPCountry |Pays/région de l’adresse IP du client. |
+| RemoteIPCountry |Pays/région associés à l’adresse IP du client. |
 | RemoteIPLatitude |Latitude de l'adresse IP du client. |
 | RemoteIPLongitude |Longitude de l'adresse IP du client. |
 | scStatus |Code d'état HTTP. |
@@ -72,7 +72,7 @@ Le tableau suivant fournit plusieurs exemples de requêtes de journaux qui extra
 | W3CIISLog |Tous les enregistrements de journaux IIS. |
 | W3CIISLog &#124; où scStatus==500 |Tous les enregistrements de journaux IIS dont l’état renvoyé est 500. |
 | W3CIISLog &#124; résumer count() par cIP |Nombre d’entrées de journaux IIS par adresse IP du client. |
-| W3CIISLog &#124; where csHost=="www\.contoso.com" &#124; summarize count() by csUriStem |Entrées de journal de nombre d’IIS par URL pour l’hôte www\.contoso.com. |
+| W3CIISLog &#124; where csHost=="www\.contoso.com" &#124; summarize count() by csUriStem |Nombre d’entrées de journaux IIS par URL pour l’hôte www\.contoso.com. |
 | W3CIISLog &#124; résumer sum(csBytes) par ordinateur &#124; prendre 500000 |Nombre total d'octets reçus par chaque ordinateur IIS. |
 
 ## <a name="next-steps"></a>Étapes suivantes

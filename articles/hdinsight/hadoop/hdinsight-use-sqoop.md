@@ -8,25 +8,25 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/12/2019
 ms.openlocfilehash: 6764d8d812789c9f54fa59e10b2a3e416e583a9c
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62129397"
 ---
 # <a name="use-apache-sqoop-with-hadoop-in-hdinsight"></a>Utiliser Apache Sqoop avec Hadoop dans HDInsight
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
 
-Découvrez comment utiliser Apache Sqoop dans HDInsight pour importer et exporter des données entre un cluster HDInsight et une base de données SQL Azure.
+Découvrez comment utiliser Apache Sqoop dans HDInsight pour importer et exporter des données entre un cluster HDInsight et une base de données Azure SQL.
 
-Bien que Apache Hadoop est un choix naturel pour le traitement des données non structurées et semi-structurées, telles que les journaux et les fichiers, il peut également être nécessaire de traiter les données structurées stockées dans les bases de données relationnelles.
+Bien qu’Apache Hadoop soit un choix naturel pour traiter des données non structurées et semi-structurées, comme des journaux et des fichiers, il peut également être nécessaire de traiter des données structurées stockées dans des bases de données relationnelles.
 
-[Apache Sqoop](https://sqoop.apache.org/docs/1.99.7/user.html) est un outil conçu pour transférer des données entre des clusters Hadoop et des bases de données relationnelles. Vous pouvez l’utiliser pour importer dans un système de fichiers distribués Hadoop (HDFS) des données depuis un système de gestion de base de données relationnelle (SGBDR), tel que SQ Server, MySQL ou Oracle, transformer ces données dans Hadoop avec MapReduce ou Apache Hive, et exporter à nouveau les données dans un SGBDR. Dans cet article, vous utilisez une base de données SQL Server pour votre base de données relationnelle.
+[Apache Sqoop](https://sqoop.apache.org/docs/1.99.7/user.html) est un outil conçu pour transférer des données entre des clusters Hadoop et des bases de données relationnelles. Vous pouvez l’utiliser pour importer dans un système de fichiers distribués Hadoop (HDFS) des données depuis un système de gestion de base de données relationnelle (SGBDR), tel que SQ Server, MySQL ou Oracle, transformer ces données dans Hadoop avec MapReduce ou Apache Hive, et exporter à nouveau les données dans un SGBDR. Dans cet article, vous allez utiliser une base de données SQL Server comme base de données relationnelle.
 
 > [!IMPORTANT]  
-> Cet article définit un environnement de test pour effectuer le transfert de données. Puis, vous choisissez une méthode de transfert de données pour cet environnement à partir d’une des méthodes dans la section [des tâches Sqoop exécuter](#run-sqoop-jobs), plus loin.
+> Cet article configure un environnement de test pour effectuer le transfert de données. Vous choisissez ensuite une méthode de transfert de données pour cet environnement à partir d’une des méthodes de la section [Exécuter des tâches Sqoop](#run-sqoop-jobs).
 
-Pour des versions Sqoop prises en charge sur des clusters HDInsight, consultez [quelles sont les nouveautés dans les versions de cluster fournies par HDInsight ?](../hdinsight-component-versioning.md)
+Pour obtenir la liste des versions de Sqoop prises en charge par les clusters HDInsight, consultez [Quels sont les composants et versions Hadoop disponibles avec HDInsight ?](../hdinsight-component-versioning.md)
 
 ## <a name="understand-the-scenario"></a>Présentation du scénario
 
@@ -41,26 +41,26 @@ Le cluster HDInsight inclut des exemples de données. Vous utilisez les deux él
 ...
 ```
 
-* Une table Hive nommée `hivesampletable`, qui fait référence au fichier de données situé à `/hive/warehouse/hivesampletable`. Cette table contient des données relatives aux appareils mobiles.
+* Une table Hive nommée `hivesampletable`, qui référence le fichier de données qui se trouve dans `/hive/warehouse/hivesampletable`. Cette table contient des données relatives aux appareils mobiles.
   
   | Champ | Type de données |
   | --- | --- |
-  | clientid |string |
-  | querytime |string |
-  | market |string |
-  | deviceplatform |string |
-  | devicemake |string |
-  | devicemodel |string |
-  | state |string |
-  | country |string |
+  | clientid |chaîne |
+  | querytime |chaîne |
+  | market |chaîne |
+  | deviceplatform |chaîne |
+  | devicemake |chaîne |
+  | devicemodel |chaîne |
+  | state |chaîne |
+  | country |chaîne |
   | querydwelltime |double |
   | sessionid |bigint |
   | sessionpagevieworder |bigint |
 
-Dans cet article, vous utilisez ces deux jeux de données pour tester l’importation Sqoop et exporter.
+Dans cet article, vous utilisez ces deux jeux de données pour tester l’importation et l’exportation Sqoop.
 
-## <a name="create-cluster-and-sql-database"></a>Configuration d’environnement de test
-Le cluster, de base de données SQL et d’autres objets sont créés via le portail Azure à l’aide d’un modèle Azure Resource Manager. Le modèle se trouve dans [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-with-sql-database/). Le modèle Resource Manager appelle un package bacpac pour déployer les schémas de table vers une base de données SQL.  Le package bacpac est situé dans le conteneur d’objets blob public https://hditutorialdata.blob.core.windows.net/usesqoop/SqoopTutorial-2016-2-23-11-2.bacpac. Si vous souhaitez utiliser un conteneur privé pour stocker les fichiers bacpac, appliquez les valeurs suivantes au modèle :
+## <a name="create-cluster-and-sql-database"></a>Configurer un environnement de test
+Le cluster, la base de données SQL et d’autres objets sont créés via le portail Azure en utilisant un modèle Azure Resource Manager. Le modèle se trouve dans les [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-with-sql-database/). Le modèle Resource Manager appelle un package bacpac pour déployer les schémas de table sur une base de données SQL.  Le package bacpac est situé dans le conteneur d’objets blob public https://hditutorialdata.blob.core.windows.net/usesqoop/SqoopTutorial-2016-2-23-11-2.bacpac. Si vous souhaitez utiliser un conteneur privé pour stocker les fichiers bacpac, appliquez les valeurs suivantes au modèle :
 
 ```json
 "storageKeyType": "Primary",
@@ -78,22 +78,22 @@ Le cluster, de base de données SQL et d’autres objets sont créés via le por
 
     |Champ |Valeur |
     |---|---|
-    |Abonnement |Dans la liste déroulante, sélectionnez votre abonnement Azure.|
+    |Abonnement |Sélectionnez votre abonnement Azure dans la liste déroulante.|
     |Groupe de ressources |Sélectionnez votre groupe de ressources dans la liste déroulante, ou créez-en un|
     |Lieu |Sélectionnez une région dans la liste déroulante.|
-    |Nom du cluster |Entrez un nom pour le cluster Hadoop. Utilisez uniquement des lettres minuscules.|
-    |Nom d’utilisateur de connexion au cluster |Conserver la valeur par défaut `admin`.|
+    |Nom du cluster |Entrez un nom pour le cluster Hadoop. Utilisez seulement des lettres minuscules.|
+    |Nom d’utilisateur de connexion au cluster |Conservez la valeur préremplie `admin`.|
     |Mot de passe de connexion au cluster |Entrez un mot de passe.|
-    |Nom d’utilisateur SSH |Conserver la valeur par défaut `sshuser`.|
-    |SSH mot de passe |Entrez un mot de passe.|
-    |Connexion d’administrateur SQL |Conserver la valeur par défaut `sqluser`.|
-    |Mot de passe administrateur SQL |Entrez un mot de passe.|
-    |_artifacts emplacement | Utilisez la valeur par défaut, sauf si vous souhaitez utiliser votre propre fichier bacpac dans un autre emplacement.|
-    |Jeton SAP d’emplacement _artifacts |Laisser vide.|
-    |Nom de fichier Bacpac |Utilisez la valeur par défaut, sauf si vous souhaitez utiliser votre propre fichier bacpac.|
+    |Nom d’utilisateur SSH |Conservez la valeur préremplie `sshuser`.|
+    |Mot de passe SSH |Entrez un mot de passe.|
+    |Nom de connexion de l’administrateur SQL |Conservez la valeur préremplie `sqluser`.|
+    |Mot de passe de l’administrateur SQL |Entrez un mot de passe.|
+    |Emplacement des artefacts | Utilisez la valeur par défaut, sauf si vous voulez utiliser votre propre fichier bacpac dans un emplacement différent.|
+    |Jeton SAS de l’emplacement des artefacts |Laisser vide.|
+    |Nom du fichier Bacpac |Utilisez la valeur par défaut, sauf si vous voulez utiliser votre propre fichier bacpac.|
     |Lieu |Utilisez la valeur par défaut.|
 
-    Le nom de serveur SQL Azure sera `<ClusterName>dbserver`. Le nom de la base de données sera `<ClusterName>db`. Le nom de compte de stockage par défaut sera `e6qhezrh2pdqu`.
+    Le nom due serveur Azure SQL sera `<ClusterName>dbserver`. Le nom de la base de données sera `<ClusterName>db`. Le nom du compte de stockage par défaut sera `e6qhezrh2pdqu`.
 
 3. **J’accepte les termes et conditions mentionnés ci-dessus**.
 

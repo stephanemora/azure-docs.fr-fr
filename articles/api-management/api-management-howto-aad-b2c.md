@@ -14,15 +14,15 @@ ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
 ms.openlocfilehash: 644cc2a4175043b523d53b39f17483c6f3acfe96
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64696728"
 ---
 # <a name="how-to-authorize-developer-accounts-by-using-azure-active-directory-b2c-in-azure-api-management"></a>Comment autoriser des comptes de développeurs avec Azure Active Directory B2C dans Gestion des API Azure
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
 Azure Active Directory B2C est une solution de gestion des identités de cloud pour applications web et mobiles grand public. Vous pouvez l’utiliser pour gérer l’accès au portail des développeurs. Ce guide explique comment configurer votre service Gestion des API requis pour l’intégration avec Azure Active Directory B2C. Pour plus d’informations sur l’activation de l’accès au portail des développeurs à l’aide d’Active Directory Azure classique, consultez [Comment autoriser des comptes de développeurs avec Azure Active Directory].
 
@@ -38,7 +38,7 @@ Azure Active Directory B2C est une solution de gestion des identités de cloud 
    > [!NOTE]
    > Si vous n’avez pas encore créé d’instance de service Gestion des API, consultez la page [Création d’une instance de service Gestion des API][Create an API Management service instance] dans le didacticiel [Prise en main de Gestion des API Azure][Get started with Azure API Management].
 
-2. Sous **identités**. Cliquez sur **+Ajouter** dans la partie supérieure.
+2. Sous **Identités**. Cliquez sur **+Ajouter** dans la partie supérieure.
 
    Le volet **Ajouter le fournisseur d’identité** s’affiche à droite. Choisissez **Azure Active Directory B2C**.
     
@@ -76,9 +76,9 @@ Azure Active Directory B2C est une solution de gestion des identités de cloud 
 
 11. Revenez au volet **Ajouter un fournisseur d’identité** dans Gestion des API et collez la clé dans la zone de texte **Secret client**.
     
-12. Spécifiez le nom de domaine du locataire Azure Active Directory B2C dans **locataire de connexion**.
+12. Spécifiez le nom de domaine du client Azure Active Directory B2C dans **Locataire de connexion**.
 
-13. Le **autorité** champ vous permettre de contrôler l’URL de connexion Azure AD B2C à utiliser. Définissez la valeur sur **< your_b2c_tenant_name >. b2clogin.com**.
+13. Le champ **Autorité** vous permet de contrôler l’URL de connexion à Azure AD B2C à utiliser. Définissez la valeur sur **< votre nom_de_locataire_b2c>.b2clogin.com**.
 
 14. Spécifiez la **stratégie d’inscription** et la **stratégie de connexion** à partir des stratégies du locataire B2C. Si vous le souhaitez, vous pouvez également fournir la **Stratégie de modification du profil** et la **Stratégie de réinitialisation du mot de passe**.
 

@@ -1,6 +1,6 @@
 ---
-title: API Web qui appelle des API (appel API) - plateforme d’identité Microsoft web
-description: Découvrez comment créer une web API qui appelle en aval des API web (en appelant une API web).
+title: API web appelant des API web (API d’appel) - plateforme d’identités Microsoft
+description: Apprenez à créer une API web qui appelle des API web en aval (appel d’une API web).
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -16,19 +16,19 @@ ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1cd093cc68a21558dc326221eeaa8c034c24f1c2
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65074724"
 ---
-# <a name="web-api-that-calls-web-apis---call-an-api"></a>API Web qui appelle des API - web appeler une API
+# <a name="web-api-that-calls-web-apis---call-an-api"></a>API web qui appelle des API web- Appeler une API
 
-Une fois que vous avez un jeton, vous pouvez appeler une API web protégée. Pour cela, à partir du contrôleur de votre web ASP.NET/ASP.NET Core API.
+Une fois que vous avez un jeton, vous pouvez appeler une API web protégée. Cela est effectué depuis le contrôleur de votre API web ASP.NET/ASP.NET Core.
 
-## <a name="controller-code"></a>Code du contrôleur
+## <a name="controller-code"></a>Code de contrôle
 
-Voici la continuation de l’exemple de code présenté dans [appels d’API web protégées web API - obtenant un jeton](scenario-web-api-call-api-acquire-token.md), appelé dans les actions de contrôleurs d’API, appeler une API en aval (nommée todolist).
+Voici la continuation de l’exemple de code présenté dans [API web protégées appellent des API web - obtention d’un jeton](scenario-web-api-call-api-acquire-token.md), appelé dans les actions des contrôleurs d’API, appelant une API en aval (nommée todolist).
 
 Une fois que vous avez acquis le jeton, utilisez-le comme un jeton du porteur pour appeler l’API en aval.
 

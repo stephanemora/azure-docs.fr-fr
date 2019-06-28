@@ -10,10 +10,10 @@ ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 10/01/2018
 ms.openlocfilehash: 10a6e5c33f6a3c23d98e6eb3380de0d6dc6ac216
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65544483"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Installer une passerelle de données locale pour Azure Logic Apps
@@ -26,13 +26,13 @@ Vous pouvez utiliser la même installation de passerelle pour d’autres service
 
 La passerelle prend en charge [des connecteurs locaux](../connectors/apis-list.md#on-premises-connectors) dans Azure Logic Apps pour les sources de données suivantes :
 
-*   BizTalk Server 2016
+*   BizTalk Server 2016
 *   Système de fichiers
 *   IBM DB2  
 *   IBM Informix
 *   IBM MQ
 *   MySQL
-*   Base de données Oracle
+*   Oracle Database
 *   PostgreSQL
 *   Serveur d’applications SAP 
 *   Serveur de messagerie SAP
@@ -49,7 +49,7 @@ Pour plus d’informations sur l’utilisation de la passerelle avec d’autres 
 
 <a name="requirements"></a>
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 * Un [compte professionnel ou scolaire](../active-directory/fundamentals/sign-up-organization.md) avec un [abonnement Azure](https://docs.microsoft.com/azure/architecture/cloud-adoption/governance/resource-consistency/azure-resource-access) 
 
@@ -234,11 +234,11 @@ Le pare-feu peut également bloquer des connexions qu’Azure Service Bus tente 
 
 ## <a name="configure-ports"></a>Configuration des ports
 
-La passerelle crée une connexion sortante vers [Azure Service Bus](https://azure.microsoft.com/services/service-bus/) et communique sur des ports sortants : TCP 443 (par défaut), 5671, 5672 et 9350 à 9354. La passerelle ne nécessite pas de ports entrants. Pour en savoir plus, voir [Solutions Azure Service Bus et hybrides](../service-bus-messaging/service-bus-messaging-overview.md).
+La passerelle crée une connexion sortante vers [Azure Service Bus](https://azure.microsoft.com/services/service-bus/) et communique sur les ports de sortie suivants : TCP 443 (par défaut), 5671, 5672 et 9350 à 9354. La passerelle ne nécessite pas de ports entrants. Pour en savoir plus, voir [Solutions Azure Service Bus et hybrides](../service-bus-messaging/service-bus-messaging-overview.md).
 
 La passerelle utilise ces noms de domaine complets :
 
-| Noms de domaine | Ports sortants | Description  | 
+| Noms de domaine | Ports sortants | Description | 
 | ------------ | -------------- | ----------- | 
 | *.analysis.windows.net | 443 | HTTPS | 
 | *.core.windows.net | 443 | HTTPS | 
@@ -430,7 +430,7 @@ Voici les emplacements où vous trouverez divers journaux d’activité :
 Pour rechercher les journaux des événements de la passerelle, procédez comme suit :
 
 1. Sur l’ordinateur doté de l’installation de passerelle, ouvrez l’**Observateur d’événements**. 
-2. Développez l’**Observateur d’événements (Local)** > **Journaux des applications et des services**. 
+2. Développez l’**Observateur d’événements (Local)**  > **Journaux des applications et des services**. 
 3. Sélectionnez **Service de passerelle de données locale**.
 
    ![Afficher les journaux d’événements pour la passerelle](./media/logic-apps-gateway-install/event-viewer.png)
@@ -485,7 +485,7 @@ Pour déterminer la durée d’une requête, procédez comme suit :
 
    2. Pour rechercher une requête, recherchez un type d’activité, par exemple : 
 
-      | Type d’activité | Description  | 
+      | Type d’activité | Description | 
       |---------------|-------------| 
       | MGEQ | Requêtes qui s’exécutent sur ADO.NET. | 
       | MGEO | Requêtes qui s’exécutent sur OLEDB. | 

@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2018
 ms.author: magoedte
 ms.openlocfilehash: 420ba9d74532095c2d028fef8f549d532e5dfa05
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65522205"
 ---
 # <a name="azure-monitor-for-vms-preview-frequently-asked-questions"></a>Questions fréquentes (FAQ) sur Azure Monitor pour machines virtuelles (préversion)
@@ -25,18 +25,18 @@ Si vos machines virtuelles sont déjà connectées à un espace de travail Log A
 
 Lors de l’intégration, nous configurons des compteurs de performance de l’espace de travail pour que toutes les machines virtuelles puissent commencer à collecter ces données afin de les afficher et de les analyser dans Azure Monitor pour machines virtuelles.  En conséquence, les données de performance de toutes les machines virtuelles connectées à l’espace de travail sélectionné s’affichent.  Les fonctionnalités Intégrité (Health) et Mappage (Map) ne sont activées que pour les machines virtuelles que vous avez choisi d’intégrer.
 
-Pour plus d’informations sur les performances, les compteurs sont activés, reportez-vous à notre [activer la vue d’ensemble](vminsights-enable-overview.md#performance-counters-enabled) article.
+Pour en savoir plus sur les compteurs de performances activés, consultez notre article de [présentation de l’activation](vminsights-enable-overview.md#performance-counters-enabled).
 
 ## <a name="can-i-onboard-to-a-new-workspace"></a>Puis-je intégrer un nouvel espace de travail ? 
 Si vos machines virtuelles ne sont pas actuellement connectées à un espace de travail Log Analytics existant, vous devez créer un nouvel espace de travail pour stocker vos données. La création d’un nouvel espace de travail par défaut se fait automatiquement lorsque vous configurez une seule machine virtuelle Azure pour Azure Monitor pour machines virtuelles via le portail Azure.
 
-Si vous choisissez d’utiliser la méthode basée sur un script, ces étapes sont décrites dans le [activer Azure Monitor pour les machines virtuelles (version préliminaire) à l’aide d’Azure PowerShell ou Resource Manager modèle](vminsights-enable-at-scale-powershell.md) article. 
+Si vous choisissez d’utiliser la méthode basée sur un script, ces étapes sont décrites dans l’article [Enable Azure Monitor for VMs (preview) using Azure PowerShell or Resource Manager template](vminsights-enable-at-scale-powershell.md) (Activer Azure Monitor pour machines virtuelles (préversion) à l’aide d’un modèle Azure PowerShell ou Resource Manager). 
 
 ## <a name="what-do-i-do-if-my-vm-is-already-reporting-to-an-existing-workspace"></a>Que dois-je faire si ma machine virtuelle envoie déjà des rapports à un espace de travail existant ?
 Si vous collectez déjà des données à partir de vos machines virtuelles, il se peut que vous l’ayez déjà configuré de façon à ce que les rapports des données soient transmis à un espace de travail Log Analytics existant.  Si cet espace de travail se trouve dans l’une des régions que nous prenons en charge, vous pouvez y activer Azure Monitor pour machines virtuelles.  Si l’espace de travail que vous utilisez déjà ne se trouve pas dans l’une des régions que nous prenons en charge, vous ne pouvez effectuer l’intégration à Azure Monitor pour machines virtuelles pour l’instant.  Nous mettons tout en œuvre pour prendre en charge de nouvelles régions.
 
 >[!NOTE]
->Nous configurons les compteurs de performance de l’espace de travail qui concerne toutes les machines virtuelles liées à l’espace de travail, que vous ayez choisi ou non de les intégrer à Azure Monitor pour machines virtuelles. Pour en savoir plus sur la configuration des compteurs de performance de l’espace de travail, consultez notre [documentation](../../azure-monitor/platform/data-sources-performance-counters.md). Pour plus d’informations sur les compteurs configuré pour Azure Monitor pour les machines virtuelles, reportez-vous à notre [activer Azure Monitor pour les machines virtuelles](vminsights-enable-overview.md#performance-counters-enabled) article.  
+>Nous configurons les compteurs de performance de l’espace de travail qui concerne toutes les machines virtuelles liées à l’espace de travail, que vous ayez choisi ou non de les intégrer à Azure Monitor pour machines virtuelles. Pour en savoir plus sur la configuration des compteurs de performance de l’espace de travail, consultez notre [documentation](../../azure-monitor/platform/data-sources-performance-counters.md). Pour en savoir plus sur les compteurs configurés d’Azure Monitor pour machines virtuelles, consultez notre article sur [l’activation d’Azure Monitor pour machines virtuelles](vminsights-enable-overview.md#performance-counters-enabled).  
 
 ## <a name="why-did-my-vm-fail-to-onboard"></a>Pourquoi l’intégration de ma machine virtuelle a-t-elle échoué ?
 Voici les étapes effectuées lors de l’intégration d’une machine virtuelle Azure depuis le portail Azure :
@@ -100,7 +100,7 @@ La fonctionnalité de mappage d’Azure Monitor pour machines virtuelles est bas
 * Les machines virtuelles supervisées font maintenant partie du nœud du groupe de clients, et le graphique en secteurs montre la répartition entre les machines virtuelles supervisées et non supervisées dans ce groupe.  Il permet également de filtrer la liste des machines lorsque le groupe est développé.
 * Les machines virtuelles supervisées font désormais partie des nœuds du groupe de ports du serveur, et le graphique en secteurs montre la répartition entre les machines supervisées et non supervisées dans ce groupe.  Il permet également de filtrer la liste des machines lorsque le groupe est développé.
 * Le style de mappage a été mis à jour pour assurer une meilleure cohérence avec le mappage des applications (App Map) dans les insights des applications (Application insights).
-* Les panneaux de côté ont été mis à jour et n’ont pas de l’ensemble complet d’intégration qui étaient pris en charge dans Service Map - Update Management, le suivi des modifications, la sécurité et Service Desk. 
+* Les panneaux latéraux ont été mis à jour, mais ne disposent pas de l’ensemble d’intégrations complet pris en charge dans Service Map : Update Management, Change Tracking, Security et Service Desk. 
 * L’option de sélection des groupes et des machines à mapper a été mise à jour et prend désormais en charge les abonnements, les groupes de ressources, les groupes de machines virtuelles identiques Azure et les services cloud.
 * Vous ne pouvez pas créer de nouveaux groupes de machines Service Map dans la fonctionnalité de mappage d’Azure Monitor pour machines virtuelles.  
 
@@ -126,11 +126,11 @@ Bien que nous ayons apporté des améliorations au mappage pour la gestion de co
 
 La page d’aperçu d’une machine virtuelle Azure affiche des graphiques basés sur la mesure de l’activité de l’hôte dans la machine virtuelle hôte.  Dans le cas du graphique du réseau sur l’aperçu de la machine virtuelle Azure, seul le trafic réseau qui sera facturé est affiché.  Le trafic entre réseaux virtuels n’est pas compris.  Les données et les graphiques présentés dans Azure Monitor pour les machines virtuelles sont basés sur les données de la machine virtuelle invitée et le graphique du réseau affiche tout le trafic TCP/IP entrant et sortant vers cette machine virtuelle, y compris le trafic entre réseaux virtuels.
 
-## <a name="how-is-response-time-measured-for-data-stored-in-vmconnection-and-displayed-in-the-connection-panel-and-workbooks"></a>Comment est mesuré les temps de réponse pour les données stockées dans VMConnection et affichées dans le panneau de connexion et les classeurs ?
+## <a name="how-is-response-time-measured-for-data-stored-in-vmconnection-and-displayed-in-the-connection-panel-and-workbooks"></a>Comment le temps de réponse des données stockées dans VMConnection est -il mesuré et affiché dans le volet de connexion et dans les classeurs ?
 
-Temps de réponse est une approximation. Dans la mesure où nous ne pas instrumenter le code de l’application, nous ne savons pas vraiment le démarrage d’une demande et lorsque la réponse arrive. Au lieu de cela, nous observons les données envoyées sur une connexion, puis de revenir sur cette connexion de données. Notre agent effectue le suivi de ces envoie et reçoit et tente de les jumeler : reçoit une séquence d’envois, suivi d’une séquence d’est interprétée comme une paire requête/réponse. La synchronisation entre ces opérations est le temps de réponse. Elle inclut la latence du réseau et le temps de traitement serveur.
+Ce temps de réponse est une approximation. Comme nous n’instrumentons pas le code de l’application, nous ne savons pas réellement à quel moment une requête débute et quand la réponse nous parvient. Au lieu de cela, nous observons les données envoyées sur une connexion, puis celles qui sont renvoyées sur cette connexion. Notre agent effectue le suivi de ces envois et réceptions et tente de les associer : une séquence d’envois suivie d’une séquence de réceptions est interprétée comme une paire requête/réponse. Le délai entre ces opérations correspond au temps de réponse. Il inclut la latence du réseau et le temps de traitement par le serveur.
 
-Cette approximation fonctionne bien pour les protocoles qui sont en fonction de demande/réponse : une seule demande est envoyée sur la connexion, et une seule réponse arrive. Cela est le cas pour HTTP (S) (sans traitement « pipeline »), mais non satisfaites pour d’autres protocoles.
+Cette approximation fonctionne bien pour les protocoles basés sur les paires requête/réponse : une seule requête est émise sur la connexion, et une seule réponse nous parvient. Cela se produit pour le protocole HTTP(S) (sans traitement « pipeline »), mais non pour les autres.
 
 ## <a name="are-their-limitations-if-i-am-on-the-log-analytics-free-pricing-plan"></a>Existe-t-il des limites avec l'utilisation du plan tarifaire Gratuit de Log Analytics ?
 Si vous avez configuré Azure Monitor avec un espace de travail Log Analytics en utilisant le niveau tarifaire *Gratuit*, la fonctionnalité de mappage d’Azure Monitor pour machines virtuelles ne prend en charge que cinq machines connectées à l’espace de travail. Ainsi, si cinq machines virtuelles sont connectées à un espace de travail gratuit et que vous déconnectez l'une d'elle, puis connectez une nouvelle machine virtuelle, la nouvelle machine virtuelle n'est ni surveillée ni reflétée sur la page dédiée aux mappages.  
@@ -138,4 +138,4 @@ Si vous avez configuré Azure Monitor avec un espace de travail Log Analytics en
 Dans ce cas, l'option **Essayer maintenant** apparaîtra lorsque vous ouvrirez la machine virtuelle et sélectionnerez **Insights (préversion)** dans le volet de gauche, même après son installation sur la machine virtuelle.  Mais aucune option ne vous est proposée, contrairement à ce qui aurait eu lieu si cette machine virtuelle n'avait pas été intégrée à Azure Monitor pour machines virtuelles. 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Révision [activer Azure Monitor pour les machines virtuelles](vminsights-enable-overview.md) pour comprendre les exigences et des méthodes pour activer la surveillance de vos machines virtuelles.
+Pour découvrir les exigences et les méthodes relatives à l’activation de la supervision de vos machines virtuelles, consultez l’article [Activer Azure Monitor pour une vue d’ensemble de machines virtuelles (version préliminaire)](vminsights-enable-overview.md).

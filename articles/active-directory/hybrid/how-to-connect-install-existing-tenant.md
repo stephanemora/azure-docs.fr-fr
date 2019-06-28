@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1495c14ae4c588661452aa3696019da00be47548
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64571376"
 ---
 # <a name="azure-ad-connect-when-you-have-an-existent-tenant"></a>Azure AD Connect : Quand vous avez un locataire existant
@@ -34,7 +34,7 @@ Vous pouvez gérer certains utilisateurs en local et d’autres dans le cloud. U
 Si vous avez commencé à gérer des utilisateurs dans Azure AD qui se trouvent également dans un répertoire AD local et que vous souhaitez ultérieurement utiliser Connect, il existe des considérations supplémentaires que vous devez prendre en compte.
 
 ## <a name="sync-with-existing-users-in-azure-ad"></a>Synchroniser avec les utilisateurs existants dans Azure AD
-Lorsque vous installez Azure AD Connect et démarrez la synchronisation, le service de synchronisation Azure AD (dans Azure AD) effectue une vérification de chaque nouvel objet et essaie de trouver un objet existant correspondant. Il existe trois attributs utilisés pour ce processus : **userPrincipalName**, **proxyAddresses** et **sourceAnchor**/**immutableID**. Une correspondance avec **userPrincipalName** et avec **proxyAddresses** est appelée une **correspondance souple**. Une correspondance avec **sourceAnchor** est appelée une **correspondance exacte**. Pour l’attribut **proxyAddresses**, seule la valeur avec **SMTP :**, c’est-à-dire l’adresse e-mail principale, est utilisée pour l’évaluation.
+Lorsque vous installez Azure AD Connect et démarrez la synchronisation, le service de synchronisation Azure AD (dans Azure AD) effectue une vérification de chaque nouvel objet et essaie de trouver un objet existant correspondant. Il existe trois attributs utilisés pour ce processus : **userPrincipalName**, **proxyAddresses** et **sourceAnchor**/**immutableID**. Une correspondance avec **userPrincipalName** et avec **proxyAddresses** est appelée une **correspondance souple**. Une correspondance avec **sourceAnchor** est appelée une **correspondance exacte**. Pour l’attribut **proxyAddresses**, seule la valeur avec **SMTP :** , c’est-à-dire l’adresse e-mail principale, est utilisée pour l’évaluation.
 
 La correspondance est évaluée uniquement pour les nouveaux objets provenant de Connect. Si vous modifiez un objet existant afin qu’il corresponde à l’un de ces attributs, une erreur s’affiche à la place.
 
@@ -59,12 +59,12 @@ Pour une nouvelle installation de Connect, il n’existe aucune différence prat
 ### <a name="other-objects-than-users"></a>Objets autres que des utilisateurs
 Pour les groupes et les contacts activés pour le courrier, vous pouvez établir une correspondance souple en fonction de proxyAddresses. La correspondance exacte n’est pas applicable dans la mesure où vous pouvez seulement mettre à jour sourceAnchor/immutableID (à l’aide de PowerShell) sur les utilisateurs uniquement. Pour les groupes qui ne sont pas activés pour le courrier, il n’existe actuellement aucune prise en charge pour la correspondance souple ou la correspondance exacte.
 
-### <a name="admin-role-considerations"></a>Considérations de rôle d’administrateur
-Pour empêcher les utilisateurs non approuvés en local à partir de la mise en correspondance avec un utilisateur de cloud qui a un rôle d’administrateur, Azure AD Connect ne correspondre pas les objets d’utilisateur locaux des objets qui ont un rôle d’administrateur. Il s’agit par défaut. Pour contourner ce problème, vous pouvez procédez comme suit :
+### <a name="admin-role-considerations"></a>Considérations relatives au rôle d’administrateur
+Pour empêcher les utilisateurs locaux non approuvés d’établir une correspondance avec un utilisateur cloud qui a un rôle d’administrateur, Azure AD Connect ne met pas en correspondance des objets utilisateur locaux avec des objets qui ont un rôle d’administrateur. Il s’agit du comportement par défaut. Pour contourner ce comportement, vous pouvez procéder comme suit :
 
-1.  Supprimer les rôles d’annuaire à partir de l’objet utilisateur dans le cloud uniquement
-2.  Déclencher une synchronisation
-3.  Ajoutez éventuellement les rôles d’annuaire vers l’objet utilisateur dans le cloud une fois que la mise en correspondance s’est produite.
+1.  Supprimez les rôles d’annuaire de l’objet utilisateur cloud uniquement
+2.  Déclenchez une synchronisation
+3.  Rétablissez éventuellement les rôles d’annuaire dans l’objet utilisateur cloud une fois que la mise en correspondance s’est produite.
 
 
 

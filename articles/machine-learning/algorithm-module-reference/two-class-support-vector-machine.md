@@ -1,7 +1,7 @@
 ---
-title: 'Machine à vecteurs de Support à deux classes : Référence de module'
+title: 'Machine à vecteurs de support à deux classes : Informations de référence sur les modules'
 titleSuffix: Azure Machine Learning service
-description: Découvrez comment utiliser le **Two-Class Support Vector Machine** module dans le service Azure Machine Learning pour créer un modèle qui est basé sur l’algorithme de machine de vecteur de prise en charge.
+description: Découvrez comment utiliser le module **Two-Class Support Vector Machine** (Machine à vecteurs de support à deux classes) dans Azure Machine Learning service pour créer un modèle basé sur l’algorithme de machine à vecteurs de support.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,74 +11,74 @@ ms.author: zhanxia
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
 ms.openlocfilehash: 2f076dd3a5b1ceb9e24548652a71fda5b9aa48b7
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65027929"
 ---
-# <a name="two-class-support-vector-machine-module"></a>Module de Two-Class Support Vector Machine
+# <a name="two-class-support-vector-machine-module"></a>Module Two-Class Support Vector Machine (Machine à vecteurs de support à deux classes)
 
-Cet article décrit un module de l’interface visuelle (version préliminaire) pour le service Azure Machine Learning.
+Cet article décrit un module de l’interface visuelle (préversion) d’Azure Machine Learning service.
 
-Utilisez ce module pour créer un modèle qui est basé sur l’algorithme de machine de vecteur de prise en charge. 
+Utilisez ce module pour créer un modèle basé sur l’algorithme de machine à vecteurs de support. 
 
-Machines à vecteurs de support (SVM) sont une classe bien connue des méthodes d’apprentissage supervisé. Cette implémentation particulière est adaptée à la prédiction des deux résultats possibles, en fonction des variables continues ou catégorielles.
+Les machines à vecteurs de support (SVM, support vector machines) représentent une classe bien étudiée de méthodes d’apprentissage supervisées. Cette implémentation particulière est adaptée à la prédiction de deux résultats possibles en fonction de variables continues ou catégorielles.
 
-Après avoir défini les paramètres de modèle, former le modèle en utilisant les modules de formation et en fournissant un *balisés dataset* qui inclut une colonne d’étiquette ou résultat.
+Après avoir défini les paramètres de modèle, effectuez l’apprentissage du modèle en utilisant les modules de formation et en fournissant un *jeu de données avec balises* qui inclut une colonne d’étiquettes ou de résultats.
 
-## <a name="about-support-vector-machines"></a>Sur les machines à vecteurs de support
+## <a name="about-support-vector-machines"></a>À propos des machines à vecteurs de support
 
-Machines à vecteurs de support sont parmi les premiers des algorithmes d’apprentissage automatique et des modèles SVM ont été utilisés dans de nombreuses applications, à partir de la récupération des informations à la classification de texte et image. SVM peuvent être utilisés pour les tâches de classification et de régression.
+Les machines à vecteurs de support font partie des premiers algorithmes d’apprentissage automatique, et les modèles SVM ont été utilisés dans de nombreuses applications, de la récupération d’informations à la classification de texte et d’images. Les SVM peuvent être utilisées pour les tâches de classification et de régression.
 
-Ce modèle SVM est un modèle d’apprentissage supervisé qui requiert des données étiquetées. Dans le processus d’apprentissage, l’algorithme analyse les données d’entrée et reconnaît des motifs dans un espace multidimensionnel fonctionnalité appelée la *hyperplan*.  Tous les exemples d’entrée sont représentées sous forme de points dans cet espace et sont mappés aux catégories de sorte que les catégories sont divisées en largeur et effacer un écart possible de sortie.
+Ce modèle de SVM est un modèle d’apprentissage supervisé qui requiert des données étiquetées. Dans le cadre du processus d’apprentissage, l’algorithme analyse les données d’entrée et reconnaît des modèles dans un espace de caractéristiques multidimensionnel appelé *hyperplan*.  Tous les exemples d’entrée sont représentés sous forme de points dans cet espace et sont mappés aux catégories de sortie de sorte que les catégories soient séparées par un écart aussi large et clair que possible.
 
-Pour la prédiction, l’algorithme SVM affecte les nouveaux exemples dans une catégorie ou l’autre, en les mappant dans le même espace. 
+Pour la prédiction, l’algorithme SVM attribue les nouveaux exemples dans une catégorie ou dans l’autre en les mappant au même espace. 
 
 ## <a name="how-to-configure"></a>Comment configurer 
 
-Pour ce type de modèle, il est recommandé de normaliser le jeu de données avant de l’utiliser pour former le classifieur.
+Pour ce type de modèle, il est recommandé de normaliser le jeu de données avant de l’utiliser pour effectuer l’apprentissage du classifieur.
   
-1.  Ajouter le **Two-Class Support Vector Machine** module à votre expérience.  
+1.  Ajoutez le module **Two-Class Support Vector Machine** (Machine à vecteurs de support à deux classes) à votre expérience.  
   
-2.  Spécifiez comment vous souhaitez que le modèle formé, en définissant le **créer un mode d’entraînement** option.  
+2.  Spécifiez la méthode d’apprentissage que vous souhaitez appliquer au modèle en configurant l’option **Create trainer mode** (Créer un mode d’apprentissage).  
   
-    -   **L’unique paramètre**: Si vous savez comment vous souhaitez configurer le modèle, vous pouvez fournir un ensemble spécifique de valeurs comme arguments.  
+    -   **Single Parameter** (Paramètre unique) : si vous savez comment vous voulez configurer le modèle, vous pouvez fournir un ensemble spécifique de valeurs en tant qu’arguments.  
 
-3.  Pour **nombre d’itérations**, tapez un nombre qui indique le nombre d’itérations utilisées lors de la génération du modèle.  
+3.  Pour **Nombre d’itérations**, tapez un nombre indiquant le nombre d’itérations utilisées lors de la génération du modèle.  
   
-     Ce paramètre peut être utilisé pour contrôler le compromis entre la vitesse de formation et de précision.  
+     Ce paramètre peut être utilisé pour contrôler le compromis entre la précision et la vitesse de formation.  
   
-4.  Pour **Lambda**, tapez une valeur à utiliser en tant que le poids de régularisation L1.  
+4.  Pour **Lambda**, tapez une valeur à utiliser en tant que poids de la régularisation L1.  
   
-     Ce coefficient de régularisation permet de paramétrer le modèle. Plus grandes valeurs pénalisent les modèles plus complexes.  
+     Ce coefficient de régularisation permet d’ajuster le modèle. Des valeurs plus élevées pénalisent les modèles plus complexes.  
   
-5.  Sélectionnez l’option **normaliser les fonctionnalités**, si vous souhaitez normaliser les fonctionnalités avant l’apprentissage.
+5.  Sélectionnez l’option **Normalize features** (Normaliser les caractéristiques) si vous souhaitez normaliser les caractéristiques avant la formation.
   
-     Si vous appliquez la normalisation, avant l’apprentissage, les points de données sont centrés à la moyenne et mis à l’échelle pour avoir une unité d’écart.
+     Si vous appliquez la normalisation, avant l’apprentissage, les points de données sont centrés sur la moyenne et mis à l’échelle de façon à présenter une unité d’écart type.
   
-6.  Sélectionnez l’option **projet à la sphère d’unité**pour normaliser les coefficients.
+6.  Sélectionnez l’option **Project to the unit sphere** (Projeter sur la sphère d’unité) pour normaliser les coefficients.
   
-     Projection de valeurs à l’espace de l’unité signifie que, avant l’apprentissage, des points de données sont centrées sur 0 et mis à l’échelle pour avoir une unité d’écart.
+     La projection des valeurs vers un espace d’unité signifie qu’avant l’apprentissage, les points de données sont centrés sur 0 et mis à l’échelle de façon à présenter une unité d’écart type.
   
-7.  Dans **valeur initiale de nombre aléatoire**, tapez une valeur entière à utiliser comme une valeur de départ si vous souhaitez garantir la reproductibilité entre les exécutions.  Sinon, une valeur de l’horloge système est utilisée comme valeur initiale, ce qui peut entraîner des résultats légèrement différents entre les exécutions.
+7.  Sous **Random number seed** (Valeur de départ aléatoire), tapez une valeur entière à utiliser comme valeur de départ si vous souhaitez garantir la reproductibilité entre les exécutions.  Sinon, une valeur d’horloge système est utilisée comme valeur de départ, ce qui peut entraîner des résultats légèrement différents entre les exécutions.
   
-9. Connecter un jeu de données étiquetée et l’autre de la [modules de formation](module-reference.md):
+9. Connectez un jeu de données étiqueté et l’un des [modules de formation](module-reference.md) :
   
-    -   Si vous définissez **créer un mode d’entraînement** à **seul paramètre**, utilisez le [former le modèle](train-model.md) module.
+    -   Si vous définissez **Create trainer mode** (Créer un mode d’apprentissage) sur **Single Parameter** (Paramètre unique), utilisez le module [Train Model](train-model.md) (Entraîner le modèle).
   
 
 10. Exécutez l’expérience.
 
 ## <a name="results"></a>Résultats
 
-Une fois la formation terminée :
+Une fois la formation terminée :
 
-+ Pour afficher un résumé des paramètres du modèle, ainsi que les poids de fonctionnalité tirées de formation, cliquez sur la sortie de [former le modèle](./train-model.md), puis sélectionnez **visualiser**.
++ Pour afficher un résumé des paramètres du modèle avec les pondérations de caractéristiques tirées de la formation, cliquez avec le bouton droit sur la sortie du module [Train Model](./train-model.md) (Entraîner le modèle), puis sélectionnez **Visualiser**.
 
-+ Pour utiliser les modèles formés pour élaborer des prédictions, connectez le modèle formé à la [noter le modèle](score-model.md) module.
++ Pour utiliser les modèles formés afin d’effectuer des prédictions, connectez le modèle formé au module [Score Model](score-model.md) (Noter le modèle).
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez le [ensemble de modules disponibles](module-reference.md) au service Azure Machine Learning. 
+Consultez [l’ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning service. 

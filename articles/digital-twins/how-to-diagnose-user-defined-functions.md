@@ -9,43 +9,43 @@ ms.topic: conceptual
 ms.date: 06/05/2019
 ms.author: stefanmsft
 ms.custom: seodec18
-ms.openlocfilehash: 455e78c63960103f5facae764aff3d2b3b2a590d
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
-ms.translationtype: MT
+ms.openlocfilehash: 4d772b8cad64f138d93d91e87f6e6364c5a5d602
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66735202"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66808892"
 ---
 # <a name="how-to-debug-user-defined-functions-in-azure-digital-twins"></a>Guide pratique pour utiliser des fonctions de débogage définies par l’utilisateur dans Azure Digital Twins
 
-Cet article résume comment diagnostiquer et déboguer des fonctions définies par l’utilisateur dans Azure des représentations numériques. Il décrit ensuite certains des scénarios plus courants rencontrés lors de leur débogage.
+Cet article explique brièvement comment diagnostiquer et déboguer des fonctions définies par l’utilisateur dans in Azure Digital Twins. Il décrit ensuite certains des scénarios plus courants rencontrés lors de leur débogage.
 
 >[!TIP]
 > Consultez [Guide pratique pour configurer la supervision et la journalisation](./how-to-configure-monitoring.md) pour en savoir plus sur la configuration des outils de débogage dans Azure Digital Twins à l’aide des journaux d’activité, des journaux de diagnostic et d’Azure Monitor.
 
 ## <a name="debug-issues"></a>Résoudre les problèmes
 
-Savoir comment diagnostiquer les problèmes au sein de représentations numériques Azure vous permet analyser les problèmes, identifier la cause des problèmes et leur fournir les solutions appropriées.
+Savoir comment diagnostiquer les problèmes au sein d'Azure Digital Twins vous permet d'analyser efficacement les problèmes, d'en identifier les causes et d’y apporter des solutions appropriées.
 
-Une variété de journalisation, analytique et outils de diagnostic sont fournis à cette fin.
+Une variété d'outils de journalisation, d'analyse et de diagnostic sont fournis à cette fin.
 
 ### <a name="enable-logging-for-your-instance"></a>Activer la journalisation pour votre instance
 
-Azure Digital Twins prend en charge de solides fonctionnalités de journalisation, de supervision et d’analytique. Les développeurs de solutions peuvent utiliser des journaux Azure Monitor, les journaux de diagnostic, les journaux d’activité et les autres services pour prendre en charge les besoins d’analyse complexes d’une application IoT. Vous pouvez combiner les options de journalisation afin d’interroger ou d’afficher des enregistrements entre plusieurs services et de fournir une couverture de journalisation précise pour de nombreux services.
+Azure Digital Twins prend en charge de solides fonctionnalités de journalisation, de supervision et d’analytique. Les développeurs de solutions peuvent utiliser les journaux Azure Monitor, les journaux de diagnostic, les journaux d’activité et d’autres services pour prendre en charge les besoins de supervision complexes d’une application IoT. Vous pouvez combiner les options de journalisation afin d’interroger ou d’afficher des enregistrements entre plusieurs services et de fournir une couverture de journalisation précise pour de nombreux services.
 
-* Pour la configuration de journalisation spécifique aux représentations numériques d’Azure, consultez [comment configurer la surveillance et journalisation](./how-to-configure-monitoring.md).
-* Consultez le le [Azure Monitor](../azure-monitor/overview.md) vue d’ensemble pour en savoir plus sur les paramètres de journaux puissant activées via Azure Monitor.
-* Consultez l’article [collecter et consommer des données de journal à partir de vos ressources Azure](../azure-monitor/platform/diagnostic-logs-overview.md) pour la configuration des paramètres de journal de diagnostic dans Azure des représentations numériques via le portail Azure, Azure CLI ou PowerShell.
+* Pour la configuration de journalisation spécifique à Azure Digital Twins, consultez [Guide pratique pour configurer la supervision et la journalisation](./how-to-configure-monitoring.md).
+* Consultez la vue d’ensemble [Azure Monitor](../azure-monitor/overview.md) pour en savoir plus sur les puissants paramètres de journalisation activés via Azure Monitor.
+* Pour savoir comment configurer les paramètres du journal de diagnostic dans Azure Digital Twins via le portail Azure, Azure CLI ou PowerShell, consultez l’article [Collecter et utiliser des données de journaux à partir de vos ressources Azure](../azure-monitor/platform/diagnostic-logs-overview.md).
 
-Une fois configuré, vous serez en mesure de sélectionner toutes les catégories de journaux, mesures et utiliser des espaces de travail analytique de journal Azure Monitor puissants pour prendre en charge vos efforts de débogage.
+Une fois la configuration terminée, vous pourrez sélectionner toutes les catégories de journaux, de métriques, et utiliser les puissants espaces de travail Log Analytics d'Azure Monitor pour soutenir vos efforts de débogage.
 
 ### <a name="trace-sensor-telemetry"></a>Tracer les données de télémétrie des capteurs
 
-Pour suivre la télémétrie du capteur, vérifiez que les paramètres de diagnostic sont activés pour votre instance Azure Digital Twins. Ensuite, assurez-vous que toutes les catégories de journaux souhaitées sont sélectionnées. Enfin, vérifiez que les journaux de votre choix sont envoyés aux journaux d’Azure Monitor.
+Pour suivre la télémétrie du capteur, vérifiez que les paramètres de diagnostic sont activés pour votre instance Azure Digital Twins. Ensuite, assurez-vous que toutes les catégories de journaux souhaitées sont sélectionnées. Enfin, vérifiez que les journaux d’activité souhaités sont envoyés aux journaux Azure Monitor.
 
 Pour faire correspondre un message de télémétrie de capteur à ses journaux d’activité respectifs, vous pouvez spécifier un ID de corrélation sur les données d’événement envoyées. Pour ce faire, définissez la propriété `x-ms-client-request-id` sur un GUID.
 
-Après l’envoi des données de télémétrie, ouvrez analytique de journal pour rechercher des journaux à l’aide de l’ensemble des ID de corrélation :
+Après avoir envoyé les données de télémétrie, ouvrez Log Analytics pour rechercher les journaux d’activité à l’aide de l’ID de corrélation défini :
 
 ```Kusto
 AzureDiagnostics
@@ -56,7 +56,7 @@ AzureDiagnostics
 | --- | --- |
 | YOUR_CORRELATION_IDENTIFIER | ID de corrélation qui a été spécifié dans les données d’événement |
 
-Si vous activez la journalisation pour votre fonction définie par l’utilisateur, ces journaux apparaissent dans votre instance d’analytique de journal avec la catégorie `UserDefinedFunction`. Pour les récupérer, entrez la condition de requête suivante dans l’analytique de journal :
+Si vous activez la journalisation pour votre fonction définie par l’utilisateur, les journaux d’activité correspondants apparaissent dans votre instance Log Analytics avec la catégorie `UserDefinedFunction`. Pour les récupérer, entrez la condition de requête suivante dans Log Analytics :
 
 ```Kusto
 AzureDiagnostics
@@ -209,4 +209,4 @@ Si vous activez les paramètres de diagnostic, vous pouvez rencontrer ces except
 
 - Découvrez comment activer la [supervision et les journaux d’activité](./how-to-configure-monitoring.md) dans Azure Digital Twins.
 
-- Lecture la [journal de la vue d’ensemble de l’activité Azure](../azure-monitor/platform/activity-logs-overview.md) article pour les options de journalisation Azure supplémentaires.
+- Lisez l’article [Vue d’ensemble du journal d’activité Azure](../azure-monitor/platform/activity-logs-overview.md) pour découvrir d’autres options de journalisation Azure.

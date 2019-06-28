@@ -13,10 +13,10 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/08/2019
 ms.openlocfilehash: c8d5df0f83a7ae37b9f06a5e255e9809288b6d67
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64917037"
 ---
 # <a name="transactional-replication-with-single-pooled-and-instance-databases-in-azure-sql-database"></a>Réplication transactionnelle avec des bases de données uniques, mises en pool, et d’instance dans Azure SQL Database
@@ -30,7 +30,7 @@ La réplication transactionnelle est utile dans les scénarios suivants :
 - Maintenir plusieurs bases de données distribuées dans un état synchronisé.
 - Migrer des bases de données d’un serveur SQL Server ou d’une instance Managed Instance vers une autre base de données en publiant les modifications en continu.
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
 Les composants clés de la réplication transactionnelle sont présentés dans l’image suivante :  
 
@@ -52,37 +52,37 @@ L’**Abonné** est une instance ou un serveur qui reçoit les changements appor
 
 | Rôle | Bases de données uniques et mises en pool | Bases de données d’instance |
 | :----| :------------- | :--------------- |
-| **Publisher** | Non  | Oui | 
-| **Serveur de distribution** | Non  | Oui|
-| **Abonné de type pull** | Non  | Oui|
-| **Abonné de type push**| Oui | Oui|
+| **Publisher** | Non | OUI | 
+| **Serveur de distribution** | Non | OUI|
+| **Abonné de type pull** | Non | OUI|
+| **Abonné de type push**| OUI | OUI|
 | &nbsp; | &nbsp; | &nbsp; |
 
   >[!NOTE]
-  > Un abonnement par extraction n’est pas pris en charge lorsque le serveur de distribution est une base de données d’Instance et l’abonné n’est pas. 
+  > Un abonnement par extraction n’est pas pris en charge lorsque le serveur de distribution est une base de données d’instance et que l’abonné ne l’est pas. 
 
 Il existe différents [types de réplications](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication) :
 
 
 | Réplication | Bases de données uniques et mises en pool | Bases de données d’instance|
 | :----| :------------- | :--------------- |
-| [**Transactionnelle**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) | Oui (uniquement en tant qu’Abonné) | Oui | 
-| [**Capture instantanée**](https://docs.microsoft.com/sql/relational-databases/replication/snapshot-replication) | Oui (uniquement en tant qu’Abonné) | Oui|
-| [**Réplication de fusion**](https://docs.microsoft.com/sql/relational-databases/replication/merge/merge-replication) | Non  | Non |
-| [**Pair à pair**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/peer-to-peer-transactional-replication) | Non  | Non |
-| **Unidirectionnelle** | Oui | Oui|
-| [**Bidirectionnelle**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/bidirectional-transactional-replication) | Non  | Oui|
-| [**Abonnements pouvant être mis à jour**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/updatable-subscriptions-for-transactional-replication) | Non  | Non |
+| [**Transactionnelle**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) | Oui (uniquement en tant qu’Abonné) | OUI | 
+| [**Capture instantanée**](https://docs.microsoft.com/sql/relational-databases/replication/snapshot-replication) | Oui (uniquement en tant qu’Abonné) | OUI|
+| [**Réplication de fusion**](https://docs.microsoft.com/sql/relational-databases/replication/merge/merge-replication) | Non | Non|
+| [**Pair à pair**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/peer-to-peer-transactional-replication) | Non | Non|
+| **Unidirectionnelle** | OUI | OUI|
+| [**Bidirectionnelle**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/bidirectional-transactional-replication) | Non | OUI|
+| [**Abonnements pouvant être mis à jour**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/updatable-subscriptions-for-transactional-replication) | Non | Non|
 | &nbsp; | &nbsp; | &nbsp; |
 
   >[!NOTE]
   > - Si vous configurez la réplication avec une version antérieure, les erreurs suivantes peuvent se produire : MSSQL_REPL20084 (le processus n’a pas pu se connecter à l’abonné) et MSSQL_REPL40532 (impossible d’ouvrir le serveur \<nom> demandé par la connexion. La connexion a échoué).
   > - Pour bénéficier de toutes les fonctionnalités d’Azure SQL Database, vous devez utiliser les dernières versions de [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) et de [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).
   
-  ### <a name="supportability-matrix-for-instance-databases-and-on-premises-systems"></a>Matrice de prise en charge pour les systèmes de l’Instance de bases de données et en local
-  La matrice de prise en charge de réplication par exemple les bases de données est identique à celui de SQL Server en local. 
+  ### <a name="supportability-matrix-for-instance-databases-and-on-premises-systems"></a>Matrice de prise en charge pour les systèmes d’instance de bases de données et en local
+  La matrice de prise en charge de réplication pour les bases de données d’instance est identique à celle de SQL Server en local. 
   
-  | **Publisher**   | **Serveur de distribution** | **abonné** |
+  | **Publisher**   | **Serveur de distribution** | **Abonné** |
 | :------------   | :-------------- | :------------- |
 | SQL Server 2017 | SQL Server 2017 | SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 |
 | SQL Server 2016 | SQL Server 2017 <br/> SQL Server 2016 | SQL Server 2017 <br/>SQL Server 2016 <br/> SQL Server 2014 <br/> SQL Server 2012 |
@@ -95,11 +95,11 @@ Il existe différents [types de réplications](https://docs.microsoft.com/sql/re
 
 - La connectivité doit utiliser l’authentification SQL entre les participants de la réplication. 
 - Un partage de compte de stockage Azure pour le répertoire de travail utilisé par la réplication. 
-- Le port 445 (TCP sortant) doit être ouvert dans les règles de sécurité du sous-réseau Managed Instance pour accéder au partage de fichiers Azure. 
+- Le port 445 (TCP sortant) doit être ouvert dans les règles de sécurité du sous-réseau de l’instance managée pour accéder au partage de fichiers Azure. 
 - Le port 1433 (TCP sortant) doit être ouvert si les serveurs de publication/distribution se trouvent sur une instance Managed Instance et que l’Abonné est local.
 
   >[!NOTE]
-  > Vous pouvez rencontrer l’erreur 53 lors de la connexion à un fichier de stockage Azure si le port de groupe de sécurité réseau sortante 445 est bloqué lorsque le serveur de distribution est une base de données d’instance et l’abonné est en local. [Mettre à jour le réseau virtuel du groupe de sécurité réseau](/azure/storage/files/storage-troubleshoot-windows-file-connection-problems) pour résoudre ce problème. 
+  > Vous pouvez rencontrer l’erreur 53 lors de la connexion à un fichier de stockage Azure si le port 445 du groupe de sécurité réseau sortant (NSG) est bloqué lorsque le distributeur est une base de données d’instances et que l’abonné est en local. Pour résoudre ce problème, [mettez à jour le NSG vNet](/azure/storage/files/storage-troubleshoot-windows-file-connection-problems). 
 
 ### <a name="compare-data-sync-with-transactional-replication"></a>Comparaison entre synchronisation des données et réplication transactionnelle
 
@@ -135,7 +135,7 @@ Le serveur de publication et le serveur de distribution sont configurés sur deu
 
 ![Base de données SQL Azure en tant qu’Abonné](media/replication-with-sql-database-managed-instance/03-azure-sql-db-subscriber.png)
  
-Dans cette configuration, une base de données Azure SQL (base de données unique, mise en pool et d’instance) est un abonné. Cette configuration prend en charge la migration de données locales vers Azure. Si un abonné se trouve sur une base de données unique ou mise en pool, il doit être en mode transmission de type push.  
+Dans cette configuration, une Azure SQL Database (base de données unique, mise en pool et d’instance) est un abonné. Cette configuration prend en charge la migration de données locales vers Azure. Si un abonné se trouve sur une base de données unique ou mise en pool, il doit être en mode transmission de type push.  
 
 
 ## <a name="next-steps"></a>Étapes suivantes

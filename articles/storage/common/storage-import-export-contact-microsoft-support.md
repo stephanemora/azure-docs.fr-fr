@@ -9,10 +9,10 @@ ms.date: 03/29/2018
 ms.author: alkohli;
 ms.subservice: common
 ms.openlocfilehash: 42c8c9c89a69224b222aabe8e929d800d22162ce
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65604223"
 ---
 # <a name="open-a-support-ticket-for-an-importexport-job"></a>Ouvrir un ticket de support pour un travail Import/Export
@@ -22,7 +22,7 @@ Si vous rencontrez des problèmes avec votre service Import/Export, vous pouvez 
 * Création d’une demande de support
 * Gestion du cycle de vie d’une demande de support à partir du portail
 
-## <a name="create-a-support-request"></a>Créer une demande de support
+## <a name="create-a-support-request"></a>Création d’une demande de support
 
 Procédez comme suit pour créer une demande de support.
 
@@ -58,7 +58,7 @@ Procédez comme suit pour créer une demande de support.
 4. Dans le panneau **Nouvelle demande de support**, cliquez sur **3 Informations de contact**. Dans le panneau **Informations de contact**, procédez comme suit :
 
    1. Dans la section **Options de contact**, fournissez votre méthode de contact préférée (téléphone ou e-mail) et votre langue. Le temps de réponse est automatiquement sélectionné en fonction de votre plan d’abonnement.
-   2. Dans les informations de Contact, indiquez votre nom de messagerie, contactez facultatif, pays/région. Cochez la case **Enregistrer les modifications de contact pour les futures demandes de support**.
+   2. Dans la section Informations de contact, fournissez votre nom, votre adresse e-mail, un contact secondaire (facultatif) et votre pays/région. Cochez la case **Enregistrer les modifications de contact pour les futures demandes de support**.
    3. Cliquez sur **Créer**.
    
        ![Informations de contact](./media/storage-import-export-contact-microsoft-support/import-export-support7.png)   

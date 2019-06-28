@@ -10,10 +10,10 @@ ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: a0eefe38fdffd04bb95826f960771bd6430ea687
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65024774"
 ---
 # <a name="import-data-wizard-for-azure-search"></a>Assistant Importation de données pour Recherche Azure
@@ -27,7 +27,7 @@ Le portail Azure propose, sur le tableau de bord Azure Search, un Assistant **Im
 
 L’Assistant ne peut pas se connecter à un index prédéfini ou exécuter un indexeur existant, mais dans l’Assistant, vous pouvez configurer un nouvel index ou indexeur pour prendre en charge la structure et les comportements dont vous avez besoin.
 
-Vous découvrez Azure Search ? Parcourez le [Guide de démarrage rapide : Importer, indexer et interroger à l’aide des outils du portail](search-get-started-portal.md) d’essayer l’importation et l’indexation à l’aide de **importer des données** et le jeu de données d’exemple immobilier intégrés.
+Vous découvrez Azure Search ? Parcourez le [Guide de démarrage rapide : Importez, indexez et interrogez à l’aide des outils du portail](search-get-started-portal.md) pour essayer l’importation et l’indexation à l’aide de **l’Importation de données** et de l’exemple de jeu de données en immobilier prédéfini.
 
 ## <a name="start-importing-data"></a>Commencer l’importation de données
 
@@ -77,17 +77,17 @@ L’Assistant **Importation de données** crée un objet de source de données p
 * [Stockage Blob Azure](search-howto-indexing-azure-blob-storage.md)
 * [Stockage Table Azure](cognitive-search-concept-intro.md) (non pris en charge pour les pipelines de [recherche cognitive](search-howto-indexing-azure-tables.md).
 
-Vous pouvez uniquement importer à partir d’une seule table, une vue de base de données ou une structure de données équivalent, mais la structure peut inclure des sous-structures hiérarchiques ou imbriquées. Pour plus d’informations, consultez [comment modéliser des types complexes](search-howto-complex-data-types.md).
+Vous ne pouvez importer des données qu’à partir d’une seule table, d’une vue de base de données ou d’une structure de données équivalente, mais la structure peut inclure des sous-structures hiérarchiques ou imbriquées. Pour plus d’informations, consultez [How to model complex types](search-howto-complex-data-types.md) (Modélisation des types complexes).
 
-Vous devez créer cette structure de données avant d’exécuter l’Assistant, et il doit contenir le contenu. N’exécutez pas le **importer des données** Assistant sur une source de données vide.
+Vous devez créer cette structure de données avant d’exécuter l’Assistant qui doit contenir des données. N’exécutez pas **l’Assistant Importation de données** sur une source de données vide.
 
 |  Sélection | Description |
 | ---------- | ----------- |
 | **Source de données existante** |Si des indexeurs sont déjà définis dans votre service de recherche, vous pouvez sélectionner une définition de source de données existante pour une autre importation. Dans Recherche Azure, les objets de source de données sont uniquement utilisés par les indexeurs. Vous pouvez créer un objet de source de données programmatiquement ou par le biais de l’Assistant **Importation de données**.|
-| **Exemples**| Recherche Azure héberge une gratuit globale Azure SQL database que vous pouvez utiliser pour en savoir plus sur les demandes de requête et de l’importation dans Azure Search. Consultez [Démarrage rapide : Importer, indexer et interroger à l’aide des outils du portail](search-get-started-portal.md) pour une procédure pas à pas. |
-| **Base de données SQL Azure** |Le nom du service, les informations d’identification d’un utilisateur de base de données avec autorisation de lecture, ainsi que le nom de la base de données peuvent être spécifiés sur la page ou par le biais d’une chaîne de connexion ADO.NET. Choisissez l’option de chaîne de connexion permettant d’afficher ou de personnaliser les propriétés. <br/><br/>La table ou la vue qui fournit l’ensemble de lignes doit être spécifiée sur la page. Cette option s’affiche une fois que la connexion aboutit : vous pouvez alors faire votre choix dans une liste déroulante. |
+| **Exemples**| Recherche Azure héberge une base de données Azure SQL globale gratuite que vous pouvez utiliser pour découvrir l’importation et les demandes de requête dans Recherche Azure. Consultez [Démarrage rapide : Importer, indexer et interroger à l’aide des outils du portail](search-get-started-portal.md) pour une procédure pas à pas. |
+| **Azure SQL Database** |Le nom du service, les informations d’identification d’un utilisateur de base de données avec autorisation de lecture, ainsi que le nom de la base de données peuvent être spécifiés sur la page ou par le biais d’une chaîne de connexion ADO.NET. Choisissez l’option de chaîne de connexion permettant d’afficher ou de personnaliser les propriétés. <br/><br/>La table ou la vue qui fournit l’ensemble de lignes doit être spécifiée sur la page. Cette option s’affiche une fois que la connexion aboutit : vous pouvez alors faire votre choix dans une liste déroulante. |
 | **SQL Server dans les machines virtuelles Azure** |Spécifiez un nom de service complet, un ID d’utilisateur et un mot de passe, ainsi qu’une base de données pour la chaîne de connexion. Afin d’utiliser cette source de données, vous devez avoir préalablement installé un certificat dans le magasin local pour chiffrer la connexion. Pour obtenir des instructions, reportez-vous à [Connexion de machines virtuelles SQL à Recherche Azure](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md). <br/><br/>La table ou la vue qui fournit l’ensemble de lignes doit être spécifiée sur la page. Cette option s’affiche une fois que la connexion aboutit : vous pouvez alors faire votre choix dans une liste déroulante. |
-| **Cosmos DB** |La configuration requise inclut le compte, la base de données et la collection. Tous les documents de la collection seront inclus dans l’index. Vous pouvez définir une requête pour aplatir ou filtrer l’ensemble de lignes, ou laisser la requête vide. Une requête n’est pas nécessaire dans cet Assistant.|
+| **Cosmos DB** |La configuration requise inclut le compte, la base de données et la collection. Tous les documents de la collection seront inclus dans l’index. Vous pouvez définir une requête pour aplatir ou filtrer l’ensemble de lignes, ou laisser la requête vide. Aucune requête n’est nécessaire dans cet Assistant.|
 | **Stockage Blob Azure** |La configuration requise inclut le compte de stockage et un conteneur. Si les noms d’objets blob suivent une convention d’affectation de noms virtuelle à des fins de regroupement, vous pouvez indiquer la partie de répertoire virtuel du nom comme dossier sous le conteneur. Consultez la page [Indexation de Stockage Blob](search-howto-indexing-azure-blob-storage.md) pour plus d’informations. |
 | **Stockage de tables Azure** |La configuration requise inclut le compte de stockage et un nom de table. Vous pouvez également spécifier une requête pour extraire un sous-ensemble des tables. Consultez la page [Indexation de Stockage Table](search-howto-indexing-azure-tables.md) pour plus d’informations. |
 
@@ -128,7 +128,7 @@ Pour un index fonctionnel, assurez-vous que les éléments suivants sont bien d�
 ## <a name="next-steps"></a>Étapes suivantes
 Suivez ces liens pour en savoir plus sur les indexeurs :
 
-* [Indexation d’Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
+* [Connexion d’Azure SQL Database à Recherche Azure avec des indexeurs](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 * [Indexation d’Azure Cosmos DB](search-howto-index-cosmosdb.md)
 * [Indexation de Stockage Blob](search-howto-indexing-azure-blob-storage.md)
 * [Indexation de Stockage Table](search-howto-indexing-azure-tables.md)

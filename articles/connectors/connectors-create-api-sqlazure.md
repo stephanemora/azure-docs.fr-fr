@@ -12,10 +12,10 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
 ms.openlocfilehash: 998fcba50636cd92b14bdbe1633c2548e84a6bfc
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64696421"
 ---
 # <a name="connect-to-sql-server-or-azure-sql-database-from-azure-logic-apps"></a>Se connecter à SQL Server ou Azure SQL Database depuis Azure Logic Apps
@@ -26,7 +26,7 @@ Vous pouvez créer des applications logiques qui s’exécutent lorsqu’elles s
 
 Si vous n’avez pas d’abonnement Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscrivez-vous pour bénéficier d’un compte Azure gratuit</a>. Si vous débutez avec les applications logiques, consultez [Qu’est-ce qu’Azure Logic Apps ?](../logic-apps/logic-apps-overview.md) et [Démarrage rapide : Créer votre première application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md). Pour obtenir des informations techniques spécifiques aux connecteurs, consultez la <a href="https://docs.microsoft.com/connectors/sql/" target="blank">référence du connecteur SQL Server</a>.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 * L’application logique où vous devez avoir accès à votre base de données SQL. Pour démarrer votre application logique avec un déclencheur SQL, vous avez besoin d’une [application logique vide](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
 
@@ -56,7 +56,7 @@ Dans Azure Logic Apps, chaque application logique doit démarrer avec un [décle
 
 2. Dans la zone de recherche, saisissez le filtre « sql server ». Dans la liste des déclencheurs, sélectionnez le déclencheur SQL souhaité. 
 
-   Pour cet exemple, sélectionnez ce déclencheur : **SQL Server - quand un élément est créé.**
+   Dans cet exemple, sélectionnez ce déclencheur : **SQL Server - Lorsqu’un élément est créé**
 
    ![Sélectionner le déclencheur « SQL Server - Lorsqu'un élément est créé »](./media/connectors-create-api-sqlazure/sql-server-trigger.png)
 
@@ -90,11 +90,11 @@ Dans Azure Logic Apps, une [action](../logic-apps/logic-apps-overview.md#logic-a
    ![Choisissez « Nouvelle étape », « Ajouter une action ».](./media/connectors-create-api-sqlazure/add-action.png)
    
    Pour ajouter une action entre des étapes, déplacez votre souris sur la flèche de connexion. 
-   Cliquez sur le signe plus (**+**) qui s’affiche, puis choisissez **Ajouter une action**.
+   Cliquez sur le signe plus ( **+** ) qui s’affiche, puis choisissez **Ajouter une action**.
 
 2. Dans la zone de recherche, saisissez le filtre « sql server ». Dans la liste des actions, sélectionnez les actions SQL souhaitées. 
 
-   Pour cet exemple, sélectionnez cette action, qui obtient un seul enregistrement : **SQL Server - obtenir une ligne**
+   Dans cet exemple, sélectionnez cette action, qui obtient un enregistrement unique : **SQL Server - Obtenir une ligne**
 
    ![Entrez « sql server », sélectionnez « SQL Server - Obtenir une ligne ».](./media/connectors-create-api-sqlazure/select-sql-get-row.png) 
 
@@ -118,16 +118,16 @@ Dans Azure Logic Apps, une [action](../logic-apps/logic-apps-overview.md#logic-a
 
 ## <a name="handle-bulk-data"></a>Gérer des données en bloc
 
-Parfois, vous devrez peut-être travailler avec des jeux de résultats tellement important que le connecteur ne retourne pas tous les résultats en même temps, ou que vous souhaitez mieux contrôler la taille et la structure pour vos jeux de résultats. Voici quelques méthodes que vous pouvez gérer ces grands jeux de résultats :
+Parfois, vous manipulez des jeux de résultats tellement volumineux que le connecteur ne peut pas renvoyer tous les résultats en même temps, ou vous souhaitez mieux contrôler la taille et la structure de vos jeux de résultats. Voici quelques façons de gérer ces grands jeux de résultats :
 
-* Pour vous aider à gérer les résultats sous forme de jeux plus petits, allumez *la pagination*. Pour plus d’informations, consultez [obtenir des données en bloc, les enregistrements et les éléments à l’aide de la pagination](../logic-apps/logic-apps-exceed-default-page-size-with-pagination.md).
+* Pour mieux gérer les résultats sous forme de jeux plus petits, activez la *pagination*. Pour plus d’informations, voir [Obtenir des données en bloc, des enregistrements et des éléments à l’aide de la pagination](../logic-apps/logic-apps-exceed-default-page-size-with-pagination.md).
 
-* Créer une procédure stockée qui trie les résultats comme vous le souhaitez.
+* Créez une procédure stockée qui trie les résultats comme vous le souhaitez.
 
-  Durant l’obtention ou insertion de plusieurs lignes, votre application logique peut parcourir ces lignes à l’aide un [ *boucle until* ](../logic-apps/logic-apps-control-flow-loops.md#until-loop) dans ces [limites](../logic-apps/logic-apps-limits-and-config.md). 
-  Toutefois, lorsque votre application logique doit utiliser des jeux d’enregistrements tellement important, par exemple, des milliers ou des millions de lignes, que vous souhaitez réduire les coûts résultant des appels vers la base de données.
+  Lorsque vous procédez à l’extraction ou à l’insertion de plusieurs lignes, votre application logique peut effectuer une itération dans ces lignes en utilisant une [*boucle Until*](../logic-apps/logic-apps-control-flow-loops.md#until-loop) dans ces [limites](../logic-apps/logic-apps-limits-and-config.md). 
+  Toutefois, lorsque votre application logique doit manipuler des jeux d’enregistrements si volumineux (plusieurs milliers ou millions de lignes, par exemple), vous devez réduire les coûts liés aux appels à la base de données.
 
-  Pour organiser les résultats dans comme vous le souhaitez, vous pouvez créer un [ *procédure stockée* ](https://docs.microsoft.com/sql/relational-databases/stored-procedures/stored-procedures-database-engine) qui s’exécute dans votre instance SQL et utilise le **SELECT - clause ORDER BY** instruction. 
+  Pour organiser les résultats à votre convenance, vous pouvez créer une [*procédure stockée*](https://docs.microsoft.com/sql/relational-databases/stored-procedures/stored-procedures-database-engine) qui s’exécute dans votre instance SQL et utilise l’instruction **SELEC  - ORDER BY**. 
   Cette solution vous permet de déterminer la taille et la structure de vos résultats. 
   Votre application logique appelle la procédure stockée à l’aide de l’action **Exécuter la procédure stockée** du connecteur SQL Server.
 

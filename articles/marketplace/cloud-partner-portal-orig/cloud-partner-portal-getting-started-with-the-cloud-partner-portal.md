@@ -1,5 +1,5 @@
 ---
-title: Mise en route | Place de marché Azure
+title: Prise en main | Place de marché Azure
 description: Prise en main du portail Microsoft Cloud Partner.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: pabutler
 ms.openlocfilehash: 9d2c64479f65995c0eca756b86bd0a96a752867d
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64935745"
 ---
 # <a name="getting-started-with-the-cloud-partner-portal"></a>Prise en main du portail Microsoft Cloud Partner
@@ -44,7 +44,7 @@ Dans la suite de la visite guidée, lorsque vous démarrez une nouvelle offre ou
 ![Page de l’offre](./media/cloud-partner-portal-getting-started-with-the-cloud-partner-portal/offer-page.png)
 
 Sur la page Offre, vous pouvez :
-- Ajouter du contenu ou vérifiez le statut de votre offre en basculant entre les deux modes de niveau supérieur : **Éditeur** et **état**.
+- Ajouter du contenu ou vérifiez l’état de votre offre en basculant entre les deux modes de niveau supérieur : **Éditeur** et **État**.
 - Utiliser la **Barre d’action** pour gérer explicitement les modifications de votre offre en enregistrant et en ignorant votre entrée.
 - Naviguer entre les **Formulaires** obligatoires pour chaque offre tandis que vous modifiez les paramètres de votre offre.
 

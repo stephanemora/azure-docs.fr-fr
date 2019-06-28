@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/05/2019
 ms.author: barclayn
 ms.openlocfilehash: f4b2506781df5572ddaff8dda34bf3edab8987be
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65145202"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Meilleures pratiques de sécurité pour les charges de travail IaaS dans Azure
@@ -39,7 +39,7 @@ Les exigences de sécurité dépendent de plusieurs facteurs, notamment du type 
 La première étape dans la protection de vos machines virtuelles consiste à vous assurer que seuls les utilisateurs autorisés peuvent configurer de nouvelles machines virtuelles et y accéder.
 
 > [!NOTE]
-> Pour améliorer la sécurité des machines virtuelles Linux sur Azure, vous pouvez intégrer l’authentification Azure AD. Lorsque vous utilisez [l’authentification Azure AD pour les machines virtuelles Linux](../virtual-machines/linux/login-using-aad.md), vous contrôler et appliquer des stratégies qui autorisent ou refusent l’accès aux machines virtuelles de manière centralisée.
+> Pour améliorer la sécurité des machines virtuelles Linux sur Azure, vous pouvez intégrer l’authentification Azure AD. Lorsque vous utilisez [l’authentification Azure AD pour les machines virtuelles Linux](../virtual-machines/linux/login-using-aad.md), vous contrôlez et appliquez de façon centralisée des stratégies qui autorisent ou refusent l’accès aux machines virtuelles.
 >
 >
 
@@ -107,8 +107,8 @@ Si vous utilisez Windows Update, veillez à ce que la configuration automatique 
 **Meilleure pratique** : redéployer régulièrement les machines virtuelles pour actualiser la version du système d’exploitation.   
 **Détails** : définissez votre machine virtuelle à l’aide d’un [modèle Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) afin de faciliter son redéploiement. L’utilisation d’un modèle vous permet de bénéficier d’une machine virtuelle corrigée et sécurisée lorsque vous en avez besoin.
 
-**Bonne pratique** : Appliquer rapidement des mises à jour de sécurité pour les machines virtuelles.   
-**Détail** : Activer Azure Security Center (niveau gratuit ou niveau Standard) pour [identifier les mises à jour de sécurité manquantes et appliquez-les](../security-center/security-center-apply-system-updates.md).
+**Bonne pratique** : appliquer rapidement les mises à jour de sécurité pour les machines virtuelles.   
+**Détail** : activer Azure Security Center (niveau Gratuit ou Standard) pour [identifier les mises à jour de sécurité manquantes et les appliquer](../security-center/security-center-apply-system-updates.md).
 
 **Bonne pratique** : installer les dernières mises à jour de sécurité.   
 **Détails** : Parmi les premières charges de travail que nos clients déplacent vers Azure figurent les labos et les systèmes accessibles de l’extérieur. Si vos machines virtuelles Azure hébergent des applications ou des services qui doivent être accessibles par Internet, soyez vigilant sur les mises à jour correctives. Installez les correctifs au-delà du système d’exploitation. Des vulnérabilités non corrigées sur des applications partenaires peuvent également entraîner des problèmes pouvant être facilement évités avec une gestion efficace des correctifs.
@@ -136,7 +136,7 @@ Pour surveiller l’état de la sécurité de vos [machines virtuelles Windows](
 
 Security Center peut surveiller activement les menaces qui apparaissent alors sous la forme d’alertes de sécurité. Les menaces corrélées sont regroupées sous la forme d’un incident de sécurité.
 
-Security Center stocke des données dans [Azure Monitor enregistre](../log-analytics/log-analytics-overview.md). Journaux d’Azure Monitor fournit un moteur de langage et d’analytique de requête qui vous donne un aperçu du fonctionnement de vos applications et ressources. Les données sont également collectées à partir d’[Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md), de solutions de gestion et d’agents installés sur des machines virtuelles hébergées dans le cloud ou localement. Cette fonctionnalité partagée vous permet de constituer une image complète de votre environnement.
+Security Center stocke les données dans les [journaux Azure Monitor](../log-analytics/log-analytics-overview.md). Les journaux Azure Monitor fournissent un langage de requête et le moteur analytique vous donne des insights sur le fonctionnement de vos applications et de vos ressources. Les données sont également collectées à partir d’[Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md), de solutions de gestion et d’agents installés sur des machines virtuelles hébergées dans le cloud ou localement. Cette fonctionnalité partagée vous permet de constituer une image complète de votre environnement.
 
 Les organisations qui n’appliquent pas une sécurité renforcée à leurs machines virtuelles ne parviennent pas à détecter les actions des utilisateurs non autorisés visant à contourner les contrôles de sécurité mis en place.
 
@@ -161,10 +161,10 @@ Voici les meilleures pratiques en matière d’utilisation d’Azure Disk Encryp
 **Détails** : Azure Disk Encryption génère et écrit les clés de chiffrement dans votre coffre de clés. La gestion des clés de chiffrement dans votre coffre de clés nécessite l’authentification Azure AD. Créez une application Azure AD à cet effet. Pour l’authentification, vous pouvez utiliser soit l’authentification par clé secrète client, soit [l’authentification Azure AD par certificat client](../active-directory/active-directory-certificate-based-authentication-get-started.md).
 
 **Meilleure pratique** : utiliser une clé de chiffrement à clé pour renforcer la sécurité des clés de chiffrement, et ajouter une clé de chiffrement à clé à votre coffre de clés.   
-**Détail** : Utilisez le [Add-AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/add-azkeyvaultkey) applet de commande pour créer une clé de chiffrement à clé dans le coffre de clés. Vous pouvez également importer une clé de chiffrement à clé à partir de votre module de sécurité matériel local de gestion des clés. Pour plus d’informations, consultez la [documentation relative à Key Vault](../key-vault/key-vault-hsm-protected-keys.md). Quand une clé de chiffrement principale est spécifiée, Azure Disk Encryption utilise cette clé pour wrapper les secrets de chiffrement avant d’écrire dans Key Vault. En conservant une copie de cette clé dans un module de sécurité matériel local de gestion des clés, vous réduisez le risque de suppression accidentelle de clés.
+**Détail** : Utilisez la cmdlet [Add-AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/add-azkeyvaultkey) pour créer une clé de chiffrement à clé dans le coffre de clés. Vous pouvez également importer une clé de chiffrement à clé à partir de votre module de sécurité matériel local de gestion des clés. Pour plus d’informations, consultez la [documentation relative à Key Vault](../key-vault/key-vault-hsm-protected-keys.md). Quand une clé de chiffrement principale est spécifiée, Azure Disk Encryption utilise cette clé pour wrapper les secrets de chiffrement avant d’écrire dans Key Vault. En conservant une copie de cette clé dans un module de sécurité matériel local de gestion des clés, vous réduisez le risque de suppression accidentelle de clés.
 
 **Meilleure pratique** : prendre un [instantané](../virtual-machines/windows/snapshot-copy-managed-disk.md) ou faire une sauvegarde avant de chiffrer les disques. Les sauvegardes offrent une possibilité de récupération en cas de défaillance inattendue au cours du chiffrement.   
-**Détails** : Les machines virtuelles avec des disques managés imposent une sauvegarde avant que le chiffrement soit effectué. Après une sauvegarde est effectuée, vous pouvez utiliser la **Set-AzVMDiskEncryptionExtension** applet de commande pour chiffrer des disques gérés en spécifiant le *- skipVmBackup* paramètre. Pour plus d’informations sur la façon de sauvegarder et de restaurer des machines virtuelles chiffrées, consultez l’article [Sauvegarde Azure](../backup/backup-azure-vms-encryption.md).
+**Détails** : Les machines virtuelles avec des disques managés imposent une sauvegarde avant que le chiffrement soit effectué. Une fois la sauvegarde effectuée, vous pouvez utiliser la cmdlet **Set-AzVMDiskEncryptionExtension** pour chiffrer des disques managés en spécifiant le paramètre *-skipVmBackup*. Pour plus d’informations sur la façon de sauvegarder et de restaurer des machines virtuelles chiffrées, consultez l’article [Sauvegarde Azure](../backup/backup-azure-vms-encryption.md).
 
 **Meilleure pratique** : faire en sorte, pour Azure Disk Encryption, que le coffre de clés se trouve dans la même région que les machines virtuelles pour que les secrets de chiffrement ne franchissent pas les limites régionales.   
 **Détails** : créez et utilisez un coffre de clés situé dans la même région que la machine virtuelle à chiffrer.
@@ -174,17 +174,17 @@ Azure Disk Encryption répond aux besoins métiers suivants :
 - Les machines virtuelles IaaS sont sécurisées au repos via une technologie de chiffrement standard permettant de répondre aux exigences de sécurité et de conformité des organisations.
 - Les machines virtuelles IaaS démarrent par le biais de stratégies et de clés contrôlées par les clients qui peuvent auditer leur utilisation dans le coffre de clés.
 
-## <a name="restrict-direct-internet-connectivity"></a>Limiter la connectivité directe à internet
-Surveiller et limiter la connectivité internet directe de machine virtuelle. Les attaquants analyser de plages IP de cloud public pour les ports de gestion ouverte en permanence et tentent des attaques « faciles » comme les mots de passe communs et des vulnérabilités non corrigées connues. Le tableau suivant répertorie les méthodes conseillées pour vous protéger contre ces attaques :
+## <a name="restrict-direct-internet-connectivity"></a>Limiter la connectivité Internet directe
+Surveillez et limitez la connectivité Internet directe des machines virtuelles. Les attaquants analysent en permanence des plages IP de cloud public pour détecter les ports de gestion ouverts et tentent des attaques « faciles » comme l’identification de mots de passe courants et des vulnérabilités non corrigées connues. Le tableau suivant répertorie les meilleures pratiques contribuant à protéger les utilisateurs contre ces attaques :
 
-**Bonne pratique** : Empêcher l’exposition involontaire pour le routage et la sécurité du réseau.   
-**Détail** : Utilisez RBAC pour garantir que seul le groupe de mise en réseau central possède l’autorisation aux ressources réseau.
+**Bonne pratique** : empêcher une exposition involontaire au routage et à la sécurité du réseau.   
+**Détail** : utiliser RBAC pour garantir que seul le groupe de mise en réseau central possède l’autorisation d’accès aux ressources réseau.
 
-**Bonne pratique** : Identifier et corriger les machines virtuelles exposés qui autorisent l’accès à partir de « toutes » les adresses IP source.   
-**Détail** : Utilisez Azure Security Center. Security Center vous recommande de restreindre l’accès via les points de terminaison accessible sur internet si l’une de vos groupes de sécurité réseau possède une ou plusieurs règles de trafic entrant qui autorisent l’accès à partir de « toutes » les adresses IP source. Security Center vous recommande que vous modifiez ces règles de trafic entrant à [restreindre l’accès](../security-center/security-center-restrict-access-through-internet-facing-endpoints.md) aux adresses IP source qui en ont réellement besoin.
+**Bonne pratique** : identifier les machines virtuelles exposées qui autorisent l’accès à partir de « n’importe quelle » adresse IP source et y remédier.   
+**Détail** : utiliser Azure Security Center. Security Center vous recommande de restreindre l’accès via les points de terminaison accessibles sur Internet si l’un de vos Groupes de sécurité réseau possède une ou plusieurs règles de trafic entrant autorisant l’accès à partir de « n’importe quelle » adresse IP source. Security Center vous recommande de modifier ces règles de trafic entrant afin de [restreindre l’accès](../security-center/security-center-restrict-access-through-internet-facing-endpoints.md) aux adresses IP source qui en ont réellement besoin.
 
-**Bonne pratique** : Limiter les ports de gestion (RDP, SSH).   
-**Détail** : [Machine virtuelle l’accès juste-à-temps (JIT)](../security-center/security-center-just-in-time.md) peut être utilisé pour verrouiller le trafic entrant vers vos machines virtuelles Azure, ce qui réduit l’exposition aux attaques tout en fournissant un accès facile pour vous connecter à des machines virtuelles si nécessaire. Lorsque le JIT est activé, Security Center verrouille le trafic entrant vers vos machines virtuelles Azure en créant une règle de groupe de sécurité réseau. Vous sélectionnez les ports de la machine virtuelle pour lesquels le trafic entrant sera verrouillé. Ces ports sont contrôlées par la solution JIT.
+**Bonne pratique** : restreindre les ports de gestion (RDP, SSH).   
+**Détail** : [L’accès juste-à-temps (JAT) aux machines virtuelles](../security-center/security-center-just-in-time.md) peut être utilisé pour verrouiller le trafic entrant vers vos machines virtuelles Azure, ce qui réduit l’exposition aux attaques et facilite la connexion aux machines virtuelles en cas de besoin. Lorsque l’accès JAT est activé, Security Center verrouille le trafic entrant vers vos machines virtuelles Azure en créant une règle de Groupe de sécurité réseau. Vous sélectionnez les ports de la machine virtuelle pour lesquels le trafic entrant sera verrouillé. Ces ports sont contrôlés par la solution JAT.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Consultez l’article [Bonnes pratiques et tendances Azure relatives à la sécurité](security-best-practices-and-patterns.md) pour découvrir d’autres bonnes pratiques en matière de sécurité à appliquer dans le cadre de la conception, du déploiement et de la gestion de vos solutions cloud avec Azure.

@@ -11,16 +11,16 @@ ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
 ms.openlocfilehash: d04c1e137a190b01554106c041853aa2fd6786d7
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65146910"
 ---
 # <a name="client-side-encryption-with-python-for-microsoft-azure-storage"></a>Chiffrement côté client avec Python pour Microsoft Azure Storage
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 La [bibliothèque cliente de stockage Azure pour Python](https://pypi.python.org/pypi/azure-storage) prend en charge le chiffrement des données au sein des applications clientes, avant le chargement vers Azure Storage, et le déchiffrement des données pendant leur téléchargement vers le client.
 
 > [!NOTE]
@@ -139,7 +139,7 @@ Le programme de résolution de clé doit implémenter au moins une méthode qui,
   * S’il est spécifié, le programme de résolution de clé est appelé pour obtenir la clé. Si le programme de résolution est spécifié, mais ne comporte pas de mappage pour l’identificateur de clé, une erreur est générée.
   * Si le programme de résolution n’est pas spécifié, mais qu’une clé est spécifiée, celle-ci est utilisée si son identificateur correspond à l’identificateur de clé nécessaire. Si l’identificateur ne correspond pas, une erreur est générée.
 
-    Les exemples de chiffrement dans azure.storage.samples illustrent un scénario de bout en bout plus détaillé pour les objets BLOB, files d’attente et tables.
+    Les exemples de chiffrement dans azure.storage.samples présentent un scénario de bout en bout plus détaillé pour les objets blob, les files d’attente et les tables.
       Des exemples d’implémentation de la KEK et du résolveur de clé sont fournis dans les exemples de fichiers en tant que KeyWrapper et KeyResolver respectivement.
 
 ### <a name="requireencryption-mode"></a>Mode RequireEncryption

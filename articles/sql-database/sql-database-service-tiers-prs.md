@@ -13,10 +13,10 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/07/2019
 ms.openlocfilehash: 7f184178343f69f522148777752c51afc5c5dcb6
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65790407"
 ---
 # <a name="azure-sql-database-premium-rs-service-tier-preview-is-being-retired---options-for-migration"></a>Le niveau de service Azure SQL Database Premium RS (préversion) est en cours de retrait – Options de migration
@@ -27,7 +27,7 @@ Voici les destinations de migration et les options tarifaires envisageables pour
 
 - Niveaux de service vCore
 
-  Il s’agit des niveaux de service **Usage général** et **Critique pour l’entreprise** du [Modèle d’achat vCore](sql-database-service-tiers-vcore.md). Ces deux niveaux de service sont en disponibilité générale. Le modèle d’achat vCore offre également la **Hyperscale** niveau de service qui s’adapte à la demande aux besoins de votre charge de travail automatique-mise à l’échelle jusqu'à 100 To par base de données. Le niveau de service Hyperscale assure des performances d’E/S comparables à celles du niveau de service Premium du [modèle d’achat DTU](sql-database-service-tiers-dtu.md) à un prix plus proche du niveau de service Premium RS.
+  Il s’agit des niveaux de service **Usage général** et **Critique pour l’entreprise** du [Modèle d’achat vCore](sql-database-service-tiers-vcore.md). Ces deux niveaux de service sont en disponibilité générale. Le modèle d’achat vCore offre également le niveau de service **Hyperscale** qui s’adapte à la demande aux besoins de la charge de travail avec une mise à l’échelle automatique jusqu’à 100 To par base de données. Le niveau de service Hyperscale assure des performances d’E/S comparables à celles du niveau de service Premium du [modèle d’achat DTU](sql-database-service-tiers-dtu.md) à un prix plus proche du niveau de service Premium RS.
 - Tarifs Dev/Test
 
   Les [tarifs Dev/Test ](https://azure.microsoft.com/pricing/dev-test/) permet d’économiser jusqu’à 55 % par rapport aux tarifs licence incluse avec un abonnement Visual Studio.
@@ -70,10 +70,10 @@ Nous recommandons de migrer les bases de données uniques nécessitant beaucoup 
 
 |**Si vous êtes actuellement sur…**|**Migrez vers le niveau par vCore comparable…**|**Migrez vers le niveau par DTU comparable…**|
 |---|---|---|
-|Premium RS 1| Hyperscale 1 vCore (Gen4) ou entreprise critiques 1 vCore (Gen4)|Premium 1|
-|Premium RS 2| Hyperscale 2 VCORE (Gen4) ou vCores 2 critiques d’entreprise (Gen4|Premium 2|
-|Premium RS 4| Hyperscale 4 vCores (Gen4) ou vCores 4 critiques d’entreprise (Gen4)|Premium 4
-|Premium RS 6| VCORE hyperscale 6 (Gen4) ou vCores 6 critiques d’entreprise (Gen4)|Premium 6|
+|Premium RS 1| Hyperscale 1 vCore (Gen4) ou Critique pour l’entreprise 1 vCore (Gen4)|Premium 1|
+|Premium RS 2| Hyperscale 2 vCores (Gen4) ou Critique pour l’entreprise 2 vCores (Gen4|Premium 2|
+|Premium RS 4| Hyperscale 4 vCores (Gen4) ou Critique pour l’entreprise 4 vCores (Gen4)|Premium 4
+|Premium RS 6| Hyperscale 6 vCores (Gen4) ou Critique pour l’entreprise 6 vCores (Gen4)|Premium 6|
 
 |**Si vous êtes actuellement sur…**|**Migrez vers le niveau par vCore comparable…**|**Migrez vers le niveau par DTU comparable…**|
 |---|---|---|

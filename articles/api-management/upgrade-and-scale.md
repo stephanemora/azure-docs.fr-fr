@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 08/18/2018
 ms.author: apimpm
 ms.openlocfilehash: ed3c5790dcb51d12a38b85aa95e9c9178b6f44cd
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65408857"
 ---
 # <a name="upgrade-and-scale-an-azure-api-management-instance"></a>Mettre à niveau une instance du service Gestion des API Azure et la mettre à l’échelle  
@@ -29,7 +29,7 @@ Le prix de chaque unité et les fonctionnalités disponibles (par exemple, le d�
 >[!NOTE]
 >L’article relatif aux [informations de tarification](https://azure.microsoft.com/pricing/details/api-management/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) indique la valeur de capacité unitaire approximative dans chaque couche. Pour obtenir des chiffres plus précis, vous devez consulter un scénario réaliste pour vos API. Consultez l’article [Capacité d’une instance du service Gestion des API Azure](api-management-capacity.md).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre les étapes décrites dans cet article, vous devez :
 
@@ -54,7 +54,7 @@ Le niveau **Premium** vous permet de distribuer une seule instance du service Ge
 Vous pouvez effectuer la mise à niveau et la rétrogradation vers n’importe quel niveau. Notez que la mise à niveau et le passage à une version antérieure sont susceptibles de supprimer certaines fonctionnalités, par exemple, les réseaux virtuels ou les déploiements sur plusieurs régions lors du passage du niveau Premium au niveau Standard ou au niveau De base.
 
 >[!NOTE]
->Le processus de mise à niveau ou de mise à l’échelle peut durer entre 15 et 45 minutes. Vous soyez averti quand il est terminé.
+>Le processus de mise à niveau ou de mise à l’échelle peut durer entre 15 et 45 minutes. Vous recevez une notification lorsque le processus est terminé.
 
 ## <a name="use-the-azure-portal-to-upgrade-and-scale"></a>Utiliser le portail Azure pour effectuer la mise à niveau et la mise à l’échelle
 

@@ -1,6 +1,6 @@
 ---
-title: Gestion de Windows à distance via le protocole HTTPS pour Azure | Place de marché Azure
-description: Explique comment configurer une machine virtuelle hébergée sur Azure, basé sur Windows afin qu’il peut être géré à distance avec PowerShell.
+title: Windows Remote Management via le protocole HTTPS pour Azure | Place de marché Azure
+description: Explique comment configurer une machine virtuelle Windows hébergée sur Azure, afin qu’elle puisse être gérée à distance avec PowerShell.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: pabutler
 ms.openlocfilehash: fb661a2705d437d1f40ceebcad7e759c2a78540f
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64938222"
 ---
 # <a name="windows-remote-management-over-https"></a>Windows Remote Management via HTTPS

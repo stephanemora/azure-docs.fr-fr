@@ -1,6 +1,6 @@
 ---
 title: Ajout de authentification à votre plateforme Windows universelle (UWP) | Microsoft Docs
-description: 'Découvrez comment utiliser Azure App Service Mobile Apps pour authentifier les utilisateurs de votre application de plateforme universelle Windows (UWP) à l’aide de divers fournisseurs d’identité, notamment : AAD, Google, Facebook, Twitter et Microsoft.'
+description: 'Découvrez comment utiliser Azure App Service Mobile Apps pour authentifier les utilisateurs de votre application UWP (plateforme Windows universelle) à l’aide de divers fournisseurs d’identité, notamment : AAD, Google, Facebook, Twitter et Microsoft.'
 services: app-service\mobile
 documentationcenter: windows
 author: conceptdev
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: panarasi
 ms.openlocfilehash: 7caaa1ca4cdaf7290b7ce05d17c07e565e7b51d1
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62127996"
 ---
 # <a name="add-authentication-to-your-windows-app"></a>Ajout de l'authentification à votre application Windows
@@ -158,9 +158,9 @@ L’exemple précédent montrait une connexion standard, qui nécessite que le c
 Maintenant que vous avez terminé ce didacticiel sur l'authentification de base, vous pouvez passer à l'un des didacticiels suivants :
 
 * [Ajouter des notifications Push à votre application Android](app-service-mobile-windows-store-dotnet-get-started-push.md)  
-   Apprenez à ajouter la prise en charge des notifications Push à votre application et à configurer le serveur principal d’applications mobiles pour utiliser Azure Notification Hubs afin d’envoyer des notifications Push.
+  Apprenez à ajouter la prise en charge des notifications Push à votre application et à configurer le serveur principal d’applications mobiles pour utiliser Azure Notification Hubs afin d’envoyer des notifications Push.
 * [Activer la synchronisation hors connexion pour votre application](app-service-mobile-windows-store-dotnet-get-started-offline-data.md)  
-   Apprenez à ajouter une prise en charge hors connexion à votre application à l’aide d’un serveur principal d’applications mobiles. La synchronisation hors connexion permet aux utilisateurs finaux d’interagir avec une application mobile &mdash;pour afficher, ajouter ou modifier des données&mdash;, même lorsqu’il n’existe aucune connexion réseau.
+  Apprenez à ajouter une prise en charge hors connexion à votre application à l’aide d’un serveur principal d’applications mobiles. La synchronisation hors connexion permet aux utilisateurs finaux d’interagir avec une application mobile &mdash;pour afficher, ajouter ou modifier des données&mdash;, même lorsqu’il n’existe aucune connexion réseau.
 
 <!-- URLs. -->
 [Get started with your mobile app]: app-service-mobile-windows-store-dotnet-get-started.md

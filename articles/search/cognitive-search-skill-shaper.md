@@ -12,40 +12,40 @@ ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
 ms.openlocfilehash: 058b6c979346d9dcce36940432d0e222e919dba9
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65540826"
 ---
 #   <a name="shaper-cognitive-skill"></a>Compétence cognitive Modélisation
 
-Le **modélisateur** compétence consolide plusieurs entrées dans un [type complexe](search-howto-complex-data-types.md) qui peut être référencé plus loin dans le pipeline d’enrichissement. La compétence **Modélisation** vous permet essentiellement de créer une structure, de définir le nom des membres de cette structure et d’assigner des valeurs à chaque membre. Exemples de champs consolidées utiles dans les scénarios de recherche incluent l’association d’un prénom et le nom en une structure unique, la ville et l’état dans une structure unique, ou le nom et date de naissance dans une structure unique pour établir une identité unique.
+La compétence **Modélisation** regroupe plusieurs entrées dans un [type complexe](search-howto-complex-data-types.md) qui peut être référencé plus tard dans le pipeline d’enrichissement. La compétence **Modélisation** vous permet essentiellement de créer une structure, de définir le nom des membres de cette structure et d’assigner des valeurs à chaque membre. Parmi les exemples de champs regroupés utiles dans les scénarios de recherche, citons la combinaison d’un nom et d’un prénom dans une seule structure, d’une ville et d’un état dans une seule structure, ou du nom et d’une date de naissance dans une seule structure pour établir une identité unique.
 
-La version d’API détermine la profondeur de mise en forme vous pouvez obtenir. 
+La version d’API détermine la profondeur de modélisation que vous pouvez obtenir. 
 
-| Version de l'API | Mise en forme des comportements | 
+| Version de l'API | Comportements de modélisation | 
 |-------------|-------------------|
-| Version 2019-05-06-preview de l’API REST (Kit de développement logiciel .NET n’est pas pris en charge) | Objets complexes, plusieurs niveaux, dans un **modélisateur** définition de compétences. |
-| 2019-05-06 ** 2017-11-11-Preview (la disposition générale)| Objets complexes, un niveau de profondeur. Une forme à plusieurs niveaux requiert le chaînage de plusieurs étapes de mise en forme.|
+| Version 2019-05-06-Preview de l’API REST (Kit de développement logiciel (SDK) .NET non pris en charge) | Objets complexes, profondeur à plusieurs niveaux, dans une définition de compétence **Modélisation**. |
+| 2019-05-06** (mise à la disposition générale), 2017-11-11-Preview| Objets complexes, profondeur à un niveau. Une forme à plusieurs niveaux requiert le chaînage de plusieurs étapes du modélisateur.|
 
-Tel que fourni par `api-version=2019-05-06-Preview`, le **modélisateur** compétence illustré dans [scénario 3](#nested-complex-types) ajoute un nouveau facultatif *sourceContext* propriété à l’entrée. Le *source* et *sourceContext* propriétés s’excluent mutuellement. Si l’entrée est dans le contexte de la compétence, utilisez simplement *source*. Si l’entrée est à un *différents* contexte que le contexte de la compétence, utilisez le *sourceContext*. Le *sourceContext* , vous devez définir une entrée imbriquée avec l’élément spécifique qui est traité comme source. 
+Telle que fournie par `api-version=2019-05-06-Preview`, la compétence **Modélisation** illustrée dans le [scénario 3](#nested-complex-types) ajoute une nouvelle propriété facultative *sourceContext* à l’entrée. Les propriétés *source* et *sourceContext* s’excluent mutuellement. Si l’entrée est dans le contexte de la compétence, utilisez simplement *source*. Si l’entrée est dans un contexte *différent* de celui de la compétence, utilisez *sourceContext*. La propriété *sourceContext* implique que vous définissiez une entrée imbriquée avec l’élément spécifique traité comme source. 
 
-Dans la réponse, pour toutes les versions d’API, le nom de sortie est toujours « output ». En interne, le pipeline peut mapper un nom différent, tel que « analyzedText » comme indiqué dans les exemples ci-dessous, mais la **modélisateur** compétence lui-même retourne « output » dans la réponse. Cet aspect peut être important si vous effectuez un débogage de documents enrichis et notez la différence de nommage, ou si vous générez une compétence personnalisée et que vous structurez la réponse vous-même.
+Dans la réponse, pour toutes les versions d’API, le nom de la sortie est toujours « output ». En interne, le pipeline peut mapper un autre nom, comme « analyzedText » comme indiqué dans les exemples ci-dessous, mais la compétence **Modélisation** elle-même retourne « output » dans la réponse. Cet aspect peut être important si vous effectuez un débogage de documents enrichis et notez la différence de nommage, ou si vous générez une compétence personnalisée et que vous structurez la réponse vous-même.
 
 > [!NOTE]
-> Le **modélisateur** compétence n’est pas lié à une API Cognitive Services et vous n’êtes pas facturé pour l’utiliser. Toutefois, vous devez toujours [attacher une ressource Cognitive Services](cognitive-search-attach-cognitive-services.md) pour remplacer l’option de ressource **Gratuit** qui vous limite à un petit nombre d’enrichissements quotidiens par jour.
+> La compétence **Modélisation** n’est pas liée à une API Cognitive Services et son utilisation ne vous est pas facturée. Toutefois, vous devez toujours [attacher une ressource Cognitive Services](cognitive-search-attach-cognitive-services.md) pour remplacer l’option de ressource **Gratuit** qui vous limite à un petit nombre d’enrichissements quotidiens par jour.
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Util.ShaperSkill
 
-## <a name="scenario-1-complex-types"></a>Scénario 1 : les types complexes
+## <a name="scenario-1-complex-types"></a>Scénario 1 : types complexes
 
-Considérez un scénario dans lequel vous souhaitez créer une structure appelée *analyzedText* dotée de deux membres : *text* et *sentiment*. Dans un index Azure Search, un champ de recherche de plusieurs partie est appelé un *type complexe* et il est souvent créé lors de la source de données a une structure complexe correspondante qui mappe à ce dernier.
+Considérez un scénario dans lequel vous souhaitez créer une structure appelée *analyzedText* dotée de deux membres : *text* et *sentiment*. Dans un index Recherche Azure, un champ en plusieurs parties pouvant faire l’objet d’une recherche est appelé un *type complexe* et il est souvent créé lorsque les données sources présentent une structure complexe correspondante qui mappe à ce champ.
 
-Toutefois, une autre approche pour la création de types complexes est via le **modélisateur** compétence. En incluant cette compétence dans les compétences, les opérations en mémoire pendant le traitement de compétences peuvent sortir des formes de données avec des structures imbriquées, qui peuvent alors être mappés à un type complexe dans votre index. 
+Toutefois, une autre approche de la création de types complexes consiste à utiliser la compétence **Modélisation**. Lorsque vous incluez cette compétence dans un ensemble de compétences, les opérations en mémoire pendant le traitement de l’ensemble de compétences peuvent sortir des formes de données avec des structures imbriquées, qui peuvent alors être mappées à un type complexe dans votre index. 
 
-La définition de compétence d’exemple suivante fournit les noms de membre comme entrée. 
+L’exemple de définition de compétence suivant fournit les noms de membre comme entrée. 
 
 
 ```json
@@ -71,9 +71,9 @@ La définition de compétence d’exemple suivante fournit les noms de membre co
 }
 ```
 
-### <a name="sample-index"></a>Index des exemples
+### <a name="sample-index"></a>Exemple d’index
 
-Compétences est appelée par un indexeur, et un indexeur nécessite un index. Une représentation sous forme de champ complexes dans votre index peut se présenter comme dans l’exemple suivant. 
+Un ensemble de compétences est appelé par un indexeur, et un indexeur nécessite un index. Une représentation de champ complexe dans votre index peut se présenter comme dans l’exemple suivant. 
 
 ```json
 
@@ -98,9 +98,9 @@ Compétences est appelée par un indexeur, et un indexeur nécessite un index. U
                 },
 ```
 
-### <a name="skill-input"></a>Entrée de compétence
+### <a name="skill-input"></a>Entrée de la compétence
 
-Un document JSON entrant en fournissant des données exploitables pour ce **modélisateur** compétences pourraient être :
+Un document JSON entrant fournissant des données d’entrée exploitables pour cette compétence **Modélisation** pourrait ressembler à ceci :
 
 ```json
 {
@@ -117,9 +117,9 @@ Un document JSON entrant en fournissant des données exploitables pour ce **mod�
 ```
 
 
-### <a name="skill-output"></a>Sortie de compétence
+### <a name="skill-output"></a>Sortie de la compétence
 
-La compétence **Modélisation** génère un nouvel élément appelé *analyzedText* avec les éléments combinés *text* et *sentiment*. Cette sortie est conforme au schéma d’index. Il est importé et indexé dans un index Azure Search.
+La compétence **Modélisation** génère un nouvel élément appelé *analyzedText* avec les éléments combinés *text* et *sentiment*. Cette sortie est conforme au schéma d’index. Elle est importée et indexée dans un index Recherche Azure.
 
 ```json
 {
@@ -139,11 +139,11 @@ La compétence **Modélisation** génère un nouvel élément appelé *analyzedT
 }
 ```
 
-## <a name="scenario-2-input-consolidation"></a>Scénario 2 : consolidation d’entrée
+## <a name="scenario-2-input-consolidation"></a>Scénario 2 : regroupement des entrées
 
 Dans un autre exemple, imaginez qu’à différents stades du traitement du pipeline, vous avez extrait le titre d’un livre et des titres de chapitre sur des pages différentes du livre. Vous pouvez maintenant créer une structure unique composée de ces différentes entrées.
 
-Le **modélisateur** définition des compétences pour ce scénario peut se présenter comme dans l’exemple suivant :
+La définition de la compétence **Modélisation** pour ce scénario peut se présenter comme dans l’exemple suivant :
 
 ```json
 {
@@ -168,8 +168,8 @@ Le **modélisateur** définition des compétences pour ce scénario peut se pré
 }
 ```
 
-### <a name="skill-output"></a>Sortie de compétence
-Dans ce cas, le **modélisateur** aplatit tous les titres de chapitres pour créer un seul tableau. 
+### <a name="skill-output"></a>Sortie de la compétence
+Dans ce cas, la compétence **Modélisation** aplatit tous les titres de chapitre en un tableau unique. 
 
 ```json
 {
@@ -193,14 +193,14 @@ Dans ce cas, le **modélisateur** aplatit tous les titres de chapitres pour cré
 
 <a name="nested-complex-types"></a>
 
-## <a name="scenario-3-input-consolidation-from-nested-contexts"></a>Scénario 3 : de consolidation d’entrée à partir de contextes imbriquées
+## <a name="scenario-3-input-consolidation-from-nested-contexts"></a>Scénario 3 : regroupement des entrées à partir de contextes imbriqués
 
 > [!NOTE]
-> Imbriqué des structures de prise en charge dans les [API REST version 2019-05-06-Preview](search-api-preview.md) peut être utilisé dans un [store de la base de connaissances](knowledge-store-concept-intro.md) ou dans un index Azure Search.
+> Les structures imbriquées prises en charge dans [la version d’API REST 2019-05-06-Preview](search-api-preview.md) peuvent être utilisées dans une [base de connaissances](knowledge-store-concept-intro.md) ou dans un index Recherche Azure.
 
-Imaginons que vous avez le titre, des chapitres et contenu d’un livre et avez été exécutées entité phrases de reconnaissance et la clé sur le contenu et devez maintenant pour agréger les résultats des compétences différentes dans une seule forme avec le nom de chapitre, les entités et les expressions clés.
+Imaginons la situation suivante : vous avez le titre, les chapitres et le contenu d’un livre et vous avez été exécuté une reconnaissance d’entité, ainsi que des expressions clés sur le contenu. À présent, vous devez agréger les résultats à partir des différentes compétences dans une seule forme avec le nom de chapitre, les entités et les expressions clés.
 
-Le **modélisateur** définition des compétences pour ce scénario peut se présenter comme dans l’exemple suivant :
+La définition de la compétence **Modélisation** pour ce scénario peut se présenter comme dans l’exemple suivant :
 
 ```json
 {
@@ -236,8 +236,8 @@ Le **modélisateur** définition des compétences pour ce scénario peut se pré
 }
 ```
 
-### <a name="skill-output"></a>Sortie de compétence
-Dans ce cas, le **modélisateur** crée un type complexe. Cette structure existe en mémoire. Si vous souhaitez enregistrer dans un magasin de la base de connaissances, vous devez créer une projection dans vos compétences qui définit les caractéristiques de stockage.
+### <a name="skill-output"></a>Sortie de la compétence
+Dans ce cas, le **modélisateur** crée un type complexe. Cette structure existe en mémoire. Si vous souhaitez l’enregistrer dans une base de connaissances, vous devez créer une projection dans votre ensemble de compétences, définissant les caractéristiques de stockage.
 
 ```json
 {
@@ -263,6 +263,6 @@ Dans ce cas, le **modélisateur** crée un type complexe. Cette structure existe
 
 + [Compétences prédéfinies](cognitive-search-predefined-skills.md)
 + [Guide pratique pour définir un ensemble de compétences](cognitive-search-defining-skillset.md)
-+ [Comment utiliser des types complexes](search-howto-complex-data-types.md)
-+ [Vue d’ensemble du magasin de base de connaissances](knowledge-store-concept-intro.md)
-+ [La prise en main avec le magasin de la base de connaissances](knowledge-store-howto.md)
++ [How to use complex types](search-howto-complex-data-types.md) (Comment utiliser les types complexes)
++ [Vue d’ensemble de la base de connaissances](knowledge-store-concept-intro.md)
++ [Prise en main de la Base de connaissances](knowledge-store-howto.md)

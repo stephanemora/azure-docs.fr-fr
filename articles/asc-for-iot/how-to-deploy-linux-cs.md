@@ -1,6 +1,6 @@
 ---
-title: Pour installer et déployer Linux C# agent d’Azure Security Center pour la version préliminaire IoT | Microsoft Docs
-description: Découvrez comment installer le centre de sécurité Azure pour l’agent IoT sur Linux 32 bits et 64 bits.
+title: Guide pour installer et déployer l’agent Linux C# d’Azure Security Center pour IoT (préversion) | Microsoft Docs
+description: Découvrez comment installer l’agent Azure Security Center pour IoT sur Linux 32 bits et 64 bits.
 services: asc-for-iot
 ms.service: ascforiot
 documentationcenter: na
@@ -15,19 +15,19 @@ ms.workload: na
 ms.date: 03/27/2019
 ms.author: mlottner
 ms.openlocfilehash: 5623b9870788edfb3b96ef248154e8b9f60b4593
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65198429"
 ---
-# <a name="deploy-azure-security-center-for-iot-c-based-security-agent-for-linux"></a>Déployer Azure Security Center pour IoT C#-en fonction de l’agent de sécurité pour Linux
+# <a name="deploy-azure-security-center-for-iot-c-based-security-agent-for-linux"></a>Déployer l’agent de sécurité Azure Security Center pour IoT basé sur C# pour Linux
 
 > [!IMPORTANT]
 > Azure Security Center pour IoT est disponible en préversion publique.
 > Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Ce guide explique comment installer et déployer Azure Security Center (ASC) pour IoT C#-en fonction de la sécurité de l’agent sur Linux.
+Ce guide explique comment installer et déployer l’agent de sécurité Azure Security Center (ASC) pour IoT basé sur C# sur Linux.
 
 Dans ce guide, vous apprendrez comment : 
 > [!div class="checklist"]
@@ -36,9 +36,9 @@ Dans ce guide, vous apprendrez comment :
 > * Désinstaller l’agent
 > * Résolution des problèmes 
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
-Pour d’autres plateformes et les versions de l’agent, consultez [choisir l’agent de sécurité adéquat](how-to-deploy-agent.md).
+Pour d’autres plateformes et versions de l’agent, consultez [Choisir l’agent de sécurité adéquat](how-to-deploy-agent.md).
 
 1. Pour déployer l’agent de sécurité, les droits d’administrateur local sont requis sur l’ordinateur sur lequel vous souhaitez effectuer l’installation. 
 

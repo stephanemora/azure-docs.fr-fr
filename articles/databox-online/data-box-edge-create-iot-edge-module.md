@@ -9,13 +9,13 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: alkohli
 ms.openlocfilehash: c2803ba598895834bb197f4a06ff0635354fcaca
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64680890"
 ---
-# <a name="develop-a-c-iot-edge-module-to-move-files-on-data-box-edge"></a>Développer un C# module IoT Edge pour déplacer les fichiers sur les bords de zone de données
+# <a name="develop-a-c-iot-edge-module-to-move-files-on-data-box-edge"></a>Développer un module IoT Edge en C# pour déplacer des fichiers vers Data Box Edge
 
 Cet article vous guide tout au long de la création d’un module IoT Edge pour un déploiement avec votre appareil Data Box Edge. Azure Data Box Edge est une solution de stockage qui vous permet de traiter les données et de les envoyer vers Azure via le réseau.
 
@@ -40,7 +40,7 @@ Votre appareil Data Box Edge peut déployer et exécuter des modules IoT Edge. L
 
 Une fois que le fichier se trouve dans le partage cloud, ce dernier est automatiquement chargé dans votre compte de stockage Azure.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Avant de commencer, assurez-vous que vous disposez  des éléments suivants :
 
@@ -48,7 +48,7 @@ Avant de commencer, assurez-vous que vous disposez  des éléments suivants :
 
     - L’appareil doit également être associé à une ressource IoT Hub.
     - Le rôle de calcul Edge est configuré pour l’appareil.
-    Pour plus d’informations, accédez à [configurer le calcul](data-box-edge-deploy-configure-compute.md#configure-compute) pour votre périmètre de la boîte de données.
+    Pour plus d’informations, accédez à la section [Configurer le calcul](data-box-edge-deploy-configure-compute.md#configure-compute) de votre appareil Data Box Edge.
 
 - Ressources de développement :
 
@@ -123,7 +123,7 @@ Créez un modèle de solution C# que vous pouvez personnaliser avec votre propre
 
 ### <a name="update-the-module-with-custom-code"></a>Mettre à jour le module avec du code personnalisé
 
-1. Dans l’Explorateur de VS Code, ouvrez **modules > FileCopyModule > Program.cs**.
+1. Dans l’Explorateur VS Code, ouvrez **modules > FileCopyModule > Program.cs**.
 2. En haut de l’espace de noms **FileCopyModule**, ajoutez les instructions using suivantes pour les types utilisés ultérieurement. **Microsoft.Azure.Devices.Client.Transport.Mqtt** est un protocole permettant d’envoyer des messages au hub IoT Edge.
 
     ```
@@ -241,7 +241,7 @@ Créez un modèle de solution C# que vous pouvez personnaliser avec votre propre
 
 Dans la section précédente, vous avez créé une solution IoT Edge et ajouté du code à FileCopyModule pour copier des fichiers à partir d’un partage local vers le partage cloud. Vous devez maintenant générer la solution comme image de conteneur et l’envoyer à votre registre de conteneurs.
 
-1. Dans VSCode, accédez à Terminal Server > nouvelle Terminal pour ouvrir un nouveau terminal intégré Visual Studio Code.
+1. Dans VSCode, accédez à Terminal Server > Nouveau terminal pour ouvrir un nouveau terminal intégré Visual Studio Code.
 2. Connectez-vous à Docker en entrant la commande suivante dans le terminal intégré.
 
     `docker login <ACR login server> -u <ACR username>`
@@ -273,4 +273,4 @@ Dans la section précédente, vous avez créé une solution IoT Edge et ajouté 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour déployer et exécuter ce module sur Edge de zone de données, consultez les étapes décrites dans [ajouter un module](data-box-edge-deploy-configure-compute.md#add-a-module).
+Pour déployer et exécuter ce module sur Data Box Edge, consultez les étapes décrites dans la section [Ajouter un module](data-box-edge-deploy-configure-compute.md#add-a-module).

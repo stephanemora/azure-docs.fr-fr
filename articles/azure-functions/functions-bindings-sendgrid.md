@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 11/29/2017
 ms.author: cshoe
 ms.openlocfilehash: 663283c4dff16194dea78afbf5dd393f1fa833b1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61437926"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64511942"
 ---
 # <a name="azure-functions-sendgrid-bindings"></a>Liaisons SendGrid dans Azure Functions
 
@@ -164,7 +164,7 @@ public class Message
 
 ### <a name="java-example"></a>Exemple Java
 
-L’exemple suivant utilise le `@SendGridOutput` annotation à partir de la [Java fonctions de bibliothèque runtime](/java/api/overview/azure/functions/runtime) liaison de sortie pour envoyer un e-mail à l’aide de SendGrid.
+L’exemple suivant utilise l’annotation `@SendGridOutput` de la [bibliothèque du runtime des fonctions Java](/java/api/overview/azure/functions/runtime) pour envoyer un e-mail à l’aide de la liaison de sortie SendGrid.
 
 ```java
 @FunctionName("SendEmail")

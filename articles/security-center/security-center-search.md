@@ -1,6 +1,6 @@
 ---
 title: Recherche Azure Security Center | Microsoft Docs
-description: Découvrez comment Azure Security Center utilise la recherche de journaux Azure Monitor pour récupérer et analyser vos données de sécurité.
+description: Découvrez comment Azure Security Center utilise la recherche de Journaux Azure Monitor pour récupérer et analyser vos données de sécurité.
 services: security-center
 documentationcenter: na
 author: rkarlin
@@ -14,15 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/11/2017
 ms.author: rkarlin
-ms.openlocfilehash: 6cbf3d70bd835ce1b838b19c93507f7d9487a418
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 90dbb33fa516d3a831d4e60969ac6b6c8312d539
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60332601"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64574142"
 ---
 # <a name="azure-security-center-search"></a>Recherche Azure Security Center
-Azure Security Center utilise [Azure Monitor enregistre recherche](../log-analytics/log-analytics-log-searches.md) pour récupérer et analyser vos données de sécurité. Journaux d’analyse Azure inclut un langage de requête pour rapidement récupérer et consolider les données. À partir du centre de sécurité, vous pouvez utiliser la recherche de journaux Azure Monitor pour construire des requêtes et analyser les données collectées.
+
+> [!NOTE]
+> La mise hors service du tableau de bord de recherche du Security Center est prévue pour le 31 juillet 2019. Pour en savoir plus et connaître les alternatives en matière de services, consultez [Retrait des fonctionnalités du Security Center (juillet 2019)](security-center-features-retirement-july2019.md#menu_search).
+
+Azure Security Center utilise la [recherche de Journaux Azure Monitor](../log-analytics/log-analytics-log-searches.md) pour récupérer et analyser vos données de sécurité. La solution Journaux Azure Monitor inclut un langage de requête pour rapidement récupérer et regrouper les données. Dans Security Center, vous pouvez utiliser la recherche de Journaux Azure Monitor pour créer des requêtes et analyser les données collectées.
 
 Recherche est disponible dans le niveau Gratuit et le niveau Standard de Security Center.  Les données disponibles dans vos recherches dans les journaux dépendent du niveau appliqué à votre espace de travail.  Pour plus d’informations, consultez la [page de tarification](../security-center/security-center-pricing.md) de Security Center.
 
@@ -45,19 +49,19 @@ Recherche est disponible dans le niveau Gratuit et le niveau Standard de Securit
 
    SecurityEvent | where EventID == 4625 | summarize count() by TargetAccount
 
-   Le résultat affiche tous les comptes pour lesquels l’ouverture de session a échoué (événement 4625).
+   Le résultat affiche tous les comptes pour lesquels la connexion a échoué (événement 4625).
 
    ![Résultats de la recherche][3]
 
-Consultez [langage de requête Kusto](../log-analytics/log-analytics-search-reference.md) pour plus d’informations sur comment interroger des données dans l’espace de travail sélectionné.
+Consultez [Langage de requête Kusto](../log-analytics/log-analytics-search-reference.md) pour plus d’informations sur la façon d’interroger des données dans l’espace de travail sélectionné.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans cet article, vous avez appris comment accéder à la recherche dans Security Center. Security Center utilise la recherche de journaux Azure Monitor. Pour en savoir plus sur la recherche de journaux Azure Monitor, consultez :
+Dans cet article, vous avez appris comment accéder à la recherche dans Security Center. Security Center utilise la recherche de Journaux Azure Monitor. Pour en savoir plus sur la recherche de Journaux Azure Monitor, consultez :
 
-- [Nouveautés d’Azure Monitor journaux ?](../log-analytics/log-analytics-overview.md) -Présentation de journaux Azure Monitor
-- [Recherches dans les journaux de présentation dans les journaux Azure Monitor](../log-analytics/log-analytics-log-search-new.md) : décrit l’utilisation des recherches dans les journaux dans les journaux Azure Monitor et présente les concepts que vous devraient comprendre avant de créer une recherche de journal
-- [Rechercher des données à l’aide de recherches dans les journaux dans Azure Monitor journaux](../log-analytics/log-analytics-log-searches.md) -didacticiel sur l’utilisation de recherche de journal
-- [Référence de recherche Kusto](../log-analytics/log-analytics-search-reference.md) – décrit le langage de requête dans les journaux Azure Monitor
+- [Présentation de Journaux Azure Monitor](../log-analytics/log-analytics-overview.md) \- Vue d’ensemble de Journaux Azure Monitor
+- [Présentation des recherches de journaux dans Journaux Azure Monitor](../log-analytics/log-analytics-log-search-new.md) - Décrit la façon dont les recherches de journaux sont utilisées dans Journaux Azure Monitor, et définit les concepts que vous devez connaître avant de créer une recherche dans les journaux
+- [Trouver des données avec les recherches de journaux dans Journaux Azure Monitor](../log-analytics/log-analytics-log-searches.md) - Tutoriel sur l’utilisation de la recherche dans les journaux
+- [Informations de référence sur la recherche Kusto](../log-analytics/log-analytics-search-reference.md) - Décrit le langage de requête dans Journaux Azure Monitor
 
 Pour plus d’informations sur Security Center, consultez :
 

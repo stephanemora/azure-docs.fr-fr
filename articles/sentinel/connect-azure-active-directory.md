@@ -1,5 +1,5 @@
 ---
-title: Connecter des données d’Azure AD vers Azure Sentinel Preview | Microsoft Docs
+title: Connecter des données Azure AD à Azure Sentinel en préversion | Microsoft Docs
 description: Découvrez comment connecter des données d’Azure Active Directory à Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -15,39 +15,39 @@ ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
 ms.openlocfilehash: 357435b8a4ac396c1548c89206f269730e871f6b
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65204498"
 ---
-# <a name="connect-data-from-azure-active-directory"></a>Connectez des données à partir d’Azure Active Directory
+# <a name="connect-data-from-azure-active-directory"></a>Connecter des données à partir de Azure Active Directory
 
 > [!IMPORTANT]
 > Azure Sentinel est actuellement disponible en préversion publique.
 > Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Sentinel Azure vous permet de collecter des données à partir de [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) et diffuser en continu dans Azure Sentinel. Vous pouvez choisir dans flux [connectez-vous journaux](../active-directory/reports-monitoring/concept-sign-ins.md) et [journaux d’audit](../active-directory/reports-monitoring/concept-audit-logs.md) .
+Azure Sentinel vous permet de collecter des données à partir d’[Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) et de les diffuser en continu vers Azure Sentinel. Vous pouvez choisir de diffuser [les journaux de connexion](../active-directory/reports-monitoring/concept-sign-ins.md) et les [journaux d’audit](../active-directory/reports-monitoring/concept-audit-logs.md).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
-- Si vous souhaitez exporter les données de connexion à partir d’Active Directory, vous devez disposer d’une licence Azure AD P1 ou P2.
+- Si vous souhaitez exporter des données de connexion à partir d’Active Directory, vous devez disposer d’une licence Azure AD P1 ou P2.
 
-- Utilisateur avec des autorisations administrateur globales admin ou la sécurité sur le client que vous souhaitez diffuser les journaux à partir de.
+- Un utilisateur disposant des autorisations d’administrateur globale ou d’administrateur de la sécurité sur le locataire à partir duquel vous souhaitez diffuser les journaux.
 
 
 ## <a name="connect-to-azure-ad"></a>Se connecter à Azure AD
 
-1. Dans Azure Sentinel, sélectionnez **connecteurs de données** puis cliquez sur le **Azure Active Directory** vignette.
+1. Dans Azure Sentinel, sélectionnez **Connecteurs de données** puis cliquez sur la vignette du **Azure Active Directory**.
 
-2. En regard les journaux que vous souhaitez diffuser en continu dans Azure Sentinel, cliquez sur **Connect**.
+2. À côté des journaux que vous souhaitez diffuser dans Azure Sentinel, cliquez sur **Se connecter**.
 
-6. Pour utiliser le schéma pertinent dans Analytique de journal pour les alertes d’Azure AD, recherchez **SigninLogs** et **AuditLogs**.
+6. Pour utiliser le schéma pertinent dans Log Analytics pour les alertes Azure AD, recherchez **SigninLogs** et **AuditLogs**.
 
 
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans ce document, vous avez appris à connecter Azure AD pour Azure Sentinel. Pour en savoir plus sur Azure Sentinel, voir les articles suivants :
-- Découvrez comment [obtenez une visibilité sur vos données et les menaces potentielles](quickstart-get-visibility.md).
-- Prise en main [détecter des menaces avec Azure Sentinel](tutorial-detect-threats.md).
+Dans ce document, vous avez appris à connecter Azure AD à Azure Sentinel. Pour en savoir plus sur Azure Sentinel, voir les articles suivants :
+- Découvrez comment [avoir une visibilité sur vos données et les menaces potentielles](quickstart-get-visibility.md).
+- Prise en main de la [détection des menaces avec Azure Sentinel](tutorial-detect-threats.md).

@@ -13,19 +13,19 @@ ms.reviewer: jmartens
 ms.date: 05/02/2019
 ms.custom: seodec18
 ms.openlocfilehash: 6206ad1a7356221bf94134e5d293c27d778cc187
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66752873"
 ---
-# <a name="write-and-configure-data--with-the-azure-machine-learning-data-prep-sdk"></a>Écrire et de configurer les données avec le SDK Azure Machine Learning Data Prep
+# <a name="write-and-configure-data--with-the-azure-machine-learning-data-prep-sdk"></a>Écrire et configurer des données avec le kit de développement logiciel (SDK) de préparation des données Azure Machine Learning
 
-Dans cet article, vous découvrez différentes méthodes pour écrire des données à l’aide de la [SDK Python de Azure Machine Learning Data Prep](https://aka.ms/data-prep-sdk) et comment configurer ces données pour l’expérimentation avec le [Azure Machine Learning SDK pour Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).  Les données de sortie peuvent être écrites à tout moment dans un flux de données. Les écritures sont ajoutés comme suit au flux de données qui en résulte et ces étapes s’exécutent chaque fois que le flux de données s’exécute. Les données sont écrites dans plusieurs fichiers de partition pour permettre des écritures parallèles.
+Dans cet article, vous allez découvrir différentes méthodes pour écrire des données à l’aide du [SDK Python de préparation des données Azure Machine Learning](https://aka.ms/data-prep-sdk) et comment configurer ces données pour une expérimentation avec le [kit SDK Azure Machine Learning pour Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).  Les données de sortie peuvent être écrites à tout moment dans un flux de données. Les opérations d’écriture sont ajoutées en tant qu’étapes au flux de données obtenu, et ces étapes sont exécutées chaque fois que le flux de données est exécuté. Les données sont écrites dans plusieurs fichiers de partition pour permettre des écritures parallèles.
 
 > [!Important]
-> Si vous générez une nouvelle solution, essayez le [jeux de données Azure Machine Learning](how-to-explore-prepare-data.md) (version préliminaire) pour transformer vos données, les données d’instantané et de stocker les définitions de jeu de données avec contrôle de version. Jeux de données est la prochaine version de la préparation des données SDK, offre des fonctionnalités étendues pour la gestion des jeux de données dans les solutions d’intelligence artificielle.
-> Si vous utilisez le `azureml-dataprep` package pour créer un flux de données avec vos transformations au lieu d’utiliser le `azureml-datasets` package pour créer un jeu de données, vous ne pourrez pas utiliser des instantanés ou des jeux de données avec version ultérieurement.
+> Si vous générez une nouvelle solution, essayez [Azure Machine Learning Datasets](how-to-explore-prepare-data.md) (préversion) pour transformer vos données, créer des instantanés des données et stocker des définitions de jeux de données avec version. Datasets est la prochaine version du kit de développement logiciel (SDK) de préparation des données, offrant des fonctionnalités étendues pour la gestion des jeux de données dans des solutions d’intelligence artificielle.
+> Si vous utilisez le package `azureml-dataprep` pour créer un dataflow avec vos transformations au lieu d’utiliser le package `azureml-datasets` pour créer un jeu de données, vous ne pourrez pas utiliser des instantanés ou des jeux de données avec version ultérieurement.
 
 Dans la mesure où il n’existe pas de limitation quant au nombre d’étapes d’écriture qu’un pipeline peu contenir, vous pouvez facilement d’écrire des étapes pour obtenir des résultats intermédiaires utilisables pour la résolution des problèmes ou dans d’autres pipelines.
 
@@ -37,7 +37,7 @@ Les formats de fichier suivants sont pris en charge.
 -   Fichiers délimités (CSV, TSV, etc.)
 -   Fichiers Parquet
 
-Utilisez le SDK Python Azure Machine Learning Data Prep, vous pouvez écrire des données à :
+Avec le SDK Python de préparation des données d’Azure Machine Learning, vous pouvez écrire des données sur :
 + un système de fichiers local
 + un stockage Azure Blob
 + Azure Data Lake Storage
@@ -73,7 +73,7 @@ Exemple de sortie :
 
 ### <a name="delimited-file-example"></a>Exemple de fichier délimité
 
-Le code suivant utilise la [ `write_to_csv()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow#write-to-csv-directory-path--datadestination--separator--str--------na--str----na---error--str----error------azureml-dataprep-api-dataflow-dataflow) fonction pour écrire des données dans un fichier délimité.
+Le code suivant utilise la fonction [`write_to_csv()`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow#write-to-csv-directory-path--datadestination--separator--str--------na--str----na---error--str----error------azureml-dataprep-api-dataflow-dataflow) pour écrire des données dans un fichier délimité.
 
 ```python
 # Create a new data flow using `write_to_csv` 
@@ -121,7 +121,7 @@ Le code précédent produit cette sortie :
 
 ### <a name="parquet-file-example"></a>Exemple de fichier Parquet
 
-Semblable à `write_to_csv()`, le [ `write_to_parquet()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow#write-to-parquet-file-path--typing-union--datadestination--nonetype----none--directory-path--typing-union--datadestination--nonetype----none--single-file--bool---false--error--str----error---row-groups--int---0-----azureml-dataprep-api-dataflow-dataflow) fonction retourne un nouveau flux de données avec une écriture étape Parquet qui est exécutée lorsque le flux de données s’exécute.
+Da façon similaire à `write_to_csv()`, la fonction [`write_to_parquet()`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow#write-to-parquet-file-path--typing-union--datadestination--nonetype----none--directory-path--typing-union--datadestination--nonetype----none--single-file--bool---false--error--str----error---row-groups--int---0-----azureml-dataprep-api-dataflow-dataflow) retourne un nouveau flux de données avec une étape d’écriture Parquet qui est exécutée lors de l’exécution du flux de données.
 
 ```python
 write_parquet_t = t.write_to_parquet(directory_path=dprep.LocalFileOutput('./test_parquet_out/'),
@@ -147,11 +147,11 @@ Le code précédent produit cette sortie :
 |3| 10013.0 | 99999.0 | MiscreantData | NON| NON| |   MiscreantData|    MiscreantData|    MiscreantData|
 |4| 10014.0 | 99999.0 | MiscreantData | NON| NON| ENSO|   59783.0|    5350.0| 500.0|
 
-## <a name="configure-data-for-automated-machine-learning-training"></a>Configurer les données d’apprentissage machine automatisée
+## <a name="configure-data-for-automated-machine-learning-training"></a>Configurer des données pour l’entraînement de machine learning automatisé
 
-Passer de votre fichier de données qui vient d’être écrites dans un [ `AutoMLConfig` ](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py#automlconfig) objet en vue de l’apprentissage machine automatisée. 
+Passez votre nouveau fichier de données écrites dans un objet [`AutoMLConfig`](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py#automlconfig) pour préparer l’entraînement de machine learning automatisé. 
 
-L’exemple de code suivant illustre comment convertir votre flux de données à une trame de données Pandas et de diviser par la suite, en apprentissage et test des jeux de données pour l’apprentissage machine automatisée.
+L’exemple de code suivant illustre comment convertir votre flux de données en cadre de données Pandas pour ensuite le diviser en jeux de données d’apprentissage et de test pour l’entraînement de machine learning automatisé.
 
 ```Python
 from azureml.train.automl import AutoMLConfig
@@ -180,7 +180,7 @@ automated_ml_config = AutoMLConfig(task = 'regression',
 
 ```
 
-Si vous n’avez pas besoin des étapes de préparation de données intermédiaire, comme dans l’exemple précédent, vous pouvez passer votre flux de données directement dans `AutoMLConfig`.
+Si vous n’avez pas besoin des étapes de préparation des données intermédiaires, comme dans l’exemple précédent, vous pouvez passer votre flux de données directement dans `AutoMLConfig`.
 
 ```Python
 automated_ml_config = AutoMLConfig(task = 'regression', 
@@ -193,5 +193,5 @@ automated_ml_config = AutoMLConfig(task = 'regression',
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Consultez le kit SDK [vue d’ensemble](https://aka.ms/data-prep-sdk) des modèles de conception et des exemples d’utilisation 
-* Consultez l’apprentissage automatisé [didacticiel](tutorial-auto-train-models.md) pour obtenir un exemple de modèle de régression
+* Consultez la [vue d’ensemble](https://aka.ms/data-prep-sdk) du kit de développement logiciel (SDK) pour obtenir des modèles de conception et des exemples d’utilisation. 
+* Consultez le [tutoriel](tutorial-auto-train-models.md) sur le machine learning automatisé pour visualiser un exemple de modèle de régression.

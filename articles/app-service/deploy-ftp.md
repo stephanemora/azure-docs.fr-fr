@@ -16,10 +16,10 @@ ms.date: 11/30/2018
 ms.author: cephalin;dariac
 ms.custom: seodec18
 ms.openlocfilehash: db8445ec2b3dd8bdefa661d7f186e720c6fada09
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62130107"
 ---
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>Déployer votre application dans Azure App Service avec FTP/S
@@ -45,17 +45,17 @@ Dans le tableau de bord FTP, cliquez sur **Copier** pour copier le point de term
 Il est recommandé d’utiliser les **informations d’identification de l’application** pour le déploiement sur votre application, car elles sont propres à chaque application. Toutefois, si vous cliquez sur **Informations d’identification de l’utilisateur**, vous pouvez définir des informations d’identification au niveau de l’utilisateur, que vous pouvez utiliser pour la connexion FTP/S à toutes les applications App Service de votre abonnement.
 
 > [!NOTE]
-> L’authentification auprès d’un point de terminaison FTP/FTPS utilisant requirers des informations d’identification au niveau de l’utilisateur un nom d’utilisateur au format suivant : 
+> L’authentification auprès d’un point de terminaison FTP/FTPS à l’aide d’informations d’identification de niveau utilisateur nécessite un nom d’utilisateur au format suivant : 
 >
 >`<app-name>\<user-name>`
 >
-> Dans la mesure où les informations d’identification au niveau de l’utilisateur sont liées à l’utilisateur et pas une ressource spécifique, le nom d’utilisateur doit être au format suivant pour diriger l’action de connexion au point de terminaison d’application appropriée.
+> Dans la mesure où les informations d’identification au niveau utilisateur sont liées à l’utilisateur et non à une ressource spécifique, le nom d’utilisateur doit respecter ce format pour que l’action de connexion soit dirigée vers le point de terminaison d’application approprié.
 >
 
 ## <a name="deploy-files-to-azure"></a>Déployer des fichiers sur Azure
 
 1. Dans votre client FTP (par exemple, [Visual Studio](https://www.visualstudio.com/vs/community/), [Cyberduck](https://cyberduck.io/) ou [WinSCP](https://winscp.net/index.php)), utilisez les informations de connexion que vous avez recueillies pour vous connecter à votre application.
-2. Copiez vos fichiers et la structure de répertoire qui leur correspond dans le répertoire [**/site/wwwroot** dans Azure](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure) (ou dans le répertoire **/site/wwwroot/App_Data/Jobs/** pour WebJobs).
+2. Copiez vos fichiers et la structure de répertoire qui leur correspond dans le répertoire [ **/site/wwwroot** dans Azure](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure) (ou dans le répertoire **/site/wwwroot/App_Data/Jobs/** pour WebJobs).
 3. Accédez à l’URL de votre application pour vérifier que l’application s’exécute correctement. 
 
 > [!NOTE] 

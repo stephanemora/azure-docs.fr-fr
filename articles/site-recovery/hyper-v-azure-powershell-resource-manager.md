@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 11/27/2018
 ms.author: sutalasi
 ms.openlocfilehash: 5fbe4fd5f85026cd62f1bd10e36561b312464054
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64690567"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-hyper-v-vms-using-powershell-and-azure-resource-manager"></a>Configurer la récupération d’urgence dans Azure pour les machines virtuelles Hyper-V à l’aide de PowerShell et de Azure Resource Manager
@@ -38,7 +38,7 @@ Vous n’avez pas besoin d’être un expert de PowerShell pour utiliser cet art
 Assurez-vous que les conditions préalables sont remplies :
 
 * Un compte [Microsoft Azure](https://azure.microsoft.com/) . Vous pouvez commencer avec une [version d'évaluation gratuite](https://azure.microsoft.com/pricing/free-trial/). Vous pouvez aussi consulter la [Tarification Azure Site Recovery Manager](https://azure.microsoft.com/pricing/details/site-recovery/).
-* Azure PowerShell. Pour plus d’informations sur cette version et comment l’installer, consultez [installer Azure PowerShell](/powershell/azure/install-az-ps).
+* Azure PowerShell. Pour plus d’informations sur cette version et la méthode d’installation, consultez [Installer Azure PowerShell](/powershell/azure/install-az-ps).
 
 De plus, l’exemple décrit dans cet article présente les conditions préalables suivantes :
 
@@ -47,7 +47,7 @@ De plus, l’exemple décrit dans cet article présente les conditions préalabl
 
 ## <a name="step-1-sign-in-to-your-azure-account"></a>Étape 1 : Connexion à votre compte Azure
 
-1. Ouvrez une console PowerShell et exécutez la commande suivante pour vous connecter à votre compte Azure. L’applet de commande permet d’afficher une page web qui vous demande les informations d’identification de votre compte : **Se connecter-AzAccount**.
+1. Ouvrez une console PowerShell et exécutez la commande suivante pour vous connecter à votre compte Azure. L’applet de commande permet d’afficher une page web qui vous demande les informations d’identification de votre compte : **Connect-AzAccount**.
     - Vous pouvez également inclure les informations d'identification de votre compte en tant que paramètre dans la cmdlet **Connect-AzAccount** à l'aide du paramètre **-Credential**.
     - Si vous êtes partenaire CSP travaillant pour le compte d’un locataire, spécifiez le client en tant que locataire à l’aide de son ID locataire ou de son nom de domaine principal. Par exemple :  **Connect-AzAccount -Tenant "fabrikam.com"**
 2. Associez l’abonnement que vous souhaitez utiliser avec le compte, car un compte peut compter plusieurs abonnements :
@@ -72,12 +72,12 @@ De plus, l’exemple décrit dans cet article présente les conditions préalabl
 
     `New-AzResourceGroup -Name $ResourceGroupName -Location $Geo`
 
-2. Pour obtenir une liste des groupes de ressources dans votre abonnement, exécutez le **Get-AzResourceGroup** applet de commande.
+2. Pour obtenir une liste de groupes de ressources dans votre abonnement, exécutez l’applet de commande **Get-AzResourceGroup**.
 2. Créez un coffre Azure Recovery Services de la manière suivante :
 
         $vault = New-AzRecoveryServicesVault -Name <string> -ResourceGroupName <string> -Location <string>
 
-    Vous pouvez récupérer la liste des coffres existants avec la **Get-AzRecoveryServicesVault** applet de commande.
+    Vous pouvez récupérer la liste des coffres existants avec l’applet de commande **Get-AzRecoveryServicesVault**.
 
 
 ## <a name="step-3-set-the-recovery-services-vault-context"></a>Étape 3 : Définir le contexte du coffre Recovery Services
@@ -107,7 +107,7 @@ Définissez le contexte d’archivage comme suit :
 ## <a name="step-5-install-the-provider-and-agent"></a>Étape 5 : Installer le fournisseur et l’agent
 
 1. Téléchargez le programme d’installation de la dernière version du fournisseur sur le site de [Microsoft](https://aka.ms/downloaddra).
-2. Exécutez le programme d’installation sur l’ordinateur hôte Hyper-V.
+2. Exécutez le programme d’installation sur l’hôte Hyper-V.
 3. À la fin de l’installation, passez à l’étape d’inscription.
 4. Quand vous y êtes invité, renseignez la clé que vous avez téléchargée et terminez l’inscription de l’hôte Hyper-V.
 5. Vérifiez que l’hôte Hyper-V a bien été inscrit sur le site comme suit :

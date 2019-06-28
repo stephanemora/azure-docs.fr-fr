@@ -19,10 +19,10 @@ ms.custom: aaddev
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 593f07b27fec16c3df90a073479effb130bc5721
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65545278"
 ---
 # <a name="single-sign-on-saml-protocol"></a>Protocole SAML d’authentification unique
@@ -47,7 +47,7 @@ xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
 </samlp:AuthnRequest>
 ```
 
-| Paramètre |  | Description  |
+| Paramètre |  | Description |
 | --- | --- | --- |
 | ID | Obligatoire | Azure AD utilise cet attribut pour compléter l’attribut `InResponseTo` de la réponse retournée. L’ID ne doit pas commencer par un nombre ; vous pouvez donc suivre la stratégie courante qui consiste à ajouter une chaîne de type « id » devant la représentation sous forme de chaîne d’un GUID. Par exemple, `id6c1c178c166d486687be4aaf5e482730` est un ID valide. |
 | Version | Obligatoire | Ce paramètre doit être défini sur **2.0**. |
@@ -90,7 +90,7 @@ Si `NameIDPolicy` est fourni, vous pouvez inclure son attribut `Format` facultat
 Azure AD ignore l’attribut `AllowCreate` .
 
 ### <a name="requestauthncontext"></a>RequestAuthnContext
-L’élément `RequestedAuthnContext` spécifie les méthodes d’authentification souhaitées. Il est facultatif dans les éléments `AuthnRequest` envoyés à Azure AD. Azure AD prend en charge `AuthnContextClassRef` valeurs telles que `urn:oasis:names:tc:SAML:2.0:ac:classes:Password`.
+L’élément `RequestedAuthnContext` spécifie les méthodes d’authentification souhaitées. Il est facultatif dans les éléments `AuthnRequest` envoyés à Azure AD. Azure AD prend en charge des valeurs `AuthnContextClassRef`, telles que `urn:oasis:names:tc:SAML:2.0:ac:classes:Password`.
 
 ### <a name="scoping"></a>Scoping
 L’élément `Scoping`, qui comprend une liste de fournisseurs d’identité, est facultatif dans les éléments `AuthnRequest` envoyés à Azure AD.
@@ -100,7 +100,7 @@ S’il est fourni, n’incluez ni l’attribut `ProxyCount` ni l’élément `ID
 ### <a name="signature"></a>Signature
 N’incluez pas d’élément `Signature` dans les éléments `AuthnRequest`, car Azure AD ne prend pas en charge les demandes d’authentification signées.
 
-### <a name="subject"></a>Subject
+### <a name="subject"></a>Objet
 Azure AD ignore l’élément `Subject` des éléments `AuthnRequest`.
 
 ## <a name="response"></a>response
@@ -158,7 +158,7 @@ L’élément `Response` inclut le résultat de la demande d’autorisation. Azu
 
 ### <a name="issuer"></a>Émetteur
 
-Azure AD définit la `Issuer` élément `https://login.microsoftonline.com/<TenantIDGUID>/` où \<TenantIDGUID > est l’ID client du locataire Azure AD.
+Azure AD définit l’élément `Issuer` sur `https://login.microsoftonline.com/<TenantIDGUID>/` où \<TenantIDGUID> correspond à l’ID du locataire Azure AD.
 
 Exemple de réponse comportant l’élément Issuer :
 
@@ -193,7 +193,7 @@ Outre les éléments `ID`, `IssueInstant` et `Version`, Azure Active Directory d
 
 #### <a name="issuer"></a>Émetteur
 
-Il est défini sur `https://sts.windows.net/<TenantIDGUID>/`où \<TenantIDGUID > est l’ID client du locataire Azure AD.
+Cet élément est défini sur `https://sts.windows.net/<TenantIDGUID>/`, où \<TenantIDGUID> correspond à l’ID du locataire Azure AD.
 
 ```
 <Issuer>https://login.microsoftonline.com/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
@@ -211,7 +211,7 @@ Pour générer cette signature numérique, Azure AD utilise la clé de signature
     </ds:Signature>
 ```
 
-#### <a name="subject"></a>Subject
+#### <a name="subject"></a>Objet
 
 Spécifie le principal qui fait l’objet des instructions contenues dans l’assertion. Il contient un élément `NameID` qui représente l’utilisateur authentifié. La valeur `NameID` est un identificateur ciblé qui est dirigé uniquement vers le fournisseur de services visé pour le jeton. Elle est persistante : elle peut être révoquée, mais n’est jamais réaffectée. Elle est également opaque, car elle ne révèle rien sur l’utilisateur et ne peut pas être utilisée comme identificateur pour les requêtes d’attribut.
 

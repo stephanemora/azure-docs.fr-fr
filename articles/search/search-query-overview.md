@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 05/13/2019
 ms.custom: seodec2018
 ms.openlocfilehash: 95f5dde12ad9e34a0a04c988a816538ac30e01e6
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65595981"
 ---
 # <a name="how-to-compose-a-query-in-azure-search"></a>Rédiger une requête dans Recherche Azure
@@ -26,7 +26,7 @@ Une demande de requête permet de spécifier les champs à prendre en compte, la
 
 Le tableau suivant liste les API et les approches basées sur des outils pour envoyer des requêtes.
 
-| Méthodologie | Description  |
+| Méthodologie | Description |
 |-------------|-------------|
 | [Navigateur de recherche (portail)](search-explorer.md) | Fournit une barre de recherche et des options pour les sélections d’index et de version d’API. Les résultats sont retournés sous forme de documents JSON. <br/>[En savoir plus.](search-get-started-portal.md#query-index) | 
 | [Postman ou Fiddler](search-fiddler.md) | Les outils de test web constituent un excellent choix pour formuler des appels REST. L’API REST prend en charge toutes les opérations possibles dans Recherche Azure. Dans cet article, découvrez comment configurer un en-tête et un corps de requête HTTP pour l’envoi de requêtes à Recherche Azure.  |
@@ -51,11 +51,11 @@ Les exemples sont utiles pour présenter de nouveaux concepts. En tant que requ�
 
 + **`queryType`** définit l’analyseur. Dans Recherche Azure, cet analyseur peut être [l’analyseur de requêtes simple par défaut](search-query-simple-examples.md) (optimal pour la recherche en texte intégral), ou [l’analyseur de requêtes complet Lucene](search-query-lucene-examples.md) utilisé pour les constructions de requêtes avancées, telles que les expressions régulières, la recherche de proximité, la recherche approximative et par caractères génériques, et bien d’autres encore.
 
-+ **`search`** fournit le critère de correspondance, généralement le texte, qui est néanmoins souvent accompagné d’opérateurs booléens. Les termes autonomes uniques constituent des requêtes de *terme*. Les requêtes en plusieurs parties entre guillemets sont des requêtes *d’expression clé*. Si la recherche peut être non définie, comme dans **`search=*`**, elle se compose le plus souvent de termes, d’expressions et d’opérateurs, tel qu’illustré dans l’exemple.
++ **`search`** fournit le critère de correspondance, généralement le texte, qui est néanmoins souvent accompagné d’opérateurs booléens. Les termes autonomes uniques constituent des requêtes de *terme*. Les requêtes en plusieurs parties entre guillemets sont des requêtes *d’expression clé*. Si la recherche peut être non définie, comme dans **`search=*`** , elle se compose le plus souvent de termes, d’expressions et d’opérateurs, tel qu’illustré dans l’exemple.
 
 + **`searchFields`** est facultatif et utilisé pour limiter l’application de la requête à des champs spécifiques.
 
-Les réponses sont également mises en forme par les paramètres que vous incluez dans la requête. Dans l’exemple, le jeu de résultats se compose de champs répertoriés dans l’instruction **`select`**. Seules les 10 premières correspondances sont retournées pour cette requête, mais **`count`** vous indique combien de documents correspondent au total. Dans cette requête, les lignes sont triées à l’aide du critère daysOnMarket.
+Les réponses sont également mises en forme par les paramètres que vous incluez dans la requête. Dans l’exemple, le jeu de résultats se compose de champs répertoriés dans l’instruction **`select`** . Seules les 10 premières correspondances sont retournées pour cette requête, mais **`count`** vous indique combien de documents correspondent au total. Dans cette requête, les lignes sont triées à l’aide du critère daysOnMarket.
 
 Dans Recherche Azure, la requête s’exécute toujours sur un seul index qui est authentifié à l’aide d’une clé d’API (api-key) fournie dans la requête. Dans l’API REST, les deux éléments sont fournis dans les en-têtes de la requête.
 
@@ -76,7 +76,7 @@ Les attributs d’index d’un champ définissent les opérations autorisées, p
 La capture d’écran ci-dessus est une liste partielle des attributs d’index pour l’exemple d’index immobilier. Vous pouvez consulter le schéma d’index complet dans le portail. Pour en savoir plus sur les attributs d’index, consultez [Création d’une API REST d’index](https://docs.microsoft.com/rest/api/searchservice/create-index).
 
 > [!Note]
-> Certaines fonctionnalités de requête s’appliquent à l’ensemble de l’index plutôt qu’à des champs spécifiques. Ces fonctionnalités incluent : [les cartes de synonymes](search-synonyms.md), [analyseurs personnalisés](index-add-custom-analyzers.md), [Générateur de suggestions construit (pour la saisie semi-automatique et les requêtes suggérées)](index-add-suggesters.md), [logique de calcul de score pour le classement des résultats](index-add-scoring-profiles.md).
+> Certaines fonctionnalités de requête s’appliquent à l’ensemble de l’index plutôt qu’à des champs spécifiques. Ces fonctionnalités incluent : les [cartes de synonymes](search-synonyms.md), les [analyseurs personnalisés](index-add-custom-analyzers.md), les [constructions de générateur de suggestions (pour les requêtes de saisie semi-automatique et de suggestion automatique)](index-add-suggesters.md) et la [logique de notation pour le classement des résultats](index-add-scoring-profiles.md).
 
 ## <a name="elements-of-a-query-request"></a>Éléments d’une demande de requête
 
@@ -86,8 +86,8 @@ Les éléments obligatoires dans une demande de requête incluent les composants
 
 + Collection des points de terminaison de service et des documents d’index, exprimée sous la forme d’une URL contenant les composants fixes et définis par l’utilisateur : **`https://<your-service-name>.search.windows.net/indexes/<your-index-name>/docs`**
 + **`api-version`** (API REST uniquement) est requis car plusieurs versions de l’API sont disponibles en permanence. 
-+ **`api-key`**, représenté par une clé d’API de requête ou administration, authentifie la requête auprès votre service.
-+ **`queryType`**, simple ou full, qui peut être omis si vous utilisez la syntaxe simple par défaut intégrée.
++ **`api-key`** , représenté par une clé d’API de requête ou administration, authentifie la requête auprès votre service.
++ **`queryType`** , simple ou full, qui peut être omis si vous utilisez la syntaxe simple par défaut intégrée.
 + **`search`** ou **`filter`** fournit les critères de recherche, qui peuvent être non spécifiés si vous souhaitez effectuer une recherche vide. Les deux types de requêtes sont décrits dans le cadre d’un analyseur simple, mais même les requêtes avancées requièrent le paramètre de recherche pour prendre en compte les expressions de requêtes complexes.
 
 Tous les autres paramètres de recherche sont facultatifs. Pour obtenir la liste complète des attributs, consultez la section relative à la [création d’index (REST)](https://docs.microsoft.com/rest/api/searchservice/create-index). Pour en savoir plus sur le rôle des paramètres lors du traitement des requêtes, consultez [Fonctionnement de la recherche en texte intégral dans Recherche Azure](search-lucene-query-architecture.md).
@@ -122,7 +122,7 @@ Recherche Azure prend en charge un large éventail de types de requêtes.
 | Recherche filtrée | [Expression de filtre OData](query-odata-filter-orderby-syntax.md) et analyseur au choix | Les requêtes de filtre évaluent une expression booléenne dans tous les champs *filtrables* d’un index. Contrairement à une recherche, une requête de filtre établit une correspondance avec le contenu exact d’un champ, y compris la casse dans les champs de type chaîne. Une autre différence est que les requêtes de filtre sont exprimées dans la syntaxe OData. <br/>[Exemple d’expression de filtre](search-query-simple-examples.md#example-3-filter-queries) |
 | Recherche basée sur la localisation | Champ de [type Edm.GeographyPoint](https://docs.microsoft.com/rest/api/searchservice/supported-data-types), expression de filtre et analyseur au choix | Les coordonnées stockées dans un champ de type Edm.GeographyPoint sont utilisées pour les recherches de type « rechercher à proximité » ou basées sur une carte. <br/>[Exemple de recherche sur la localisation](search-query-simple-examples.md#example-5-geo-search)|
 | Recherche de plage | expression de filtre et analyseur simple | Dans Recherche Azure, les requêtes de plage sont créées à l’aide du paramètre de filtre. <br/>[Exemple de filtre de plage](search-query-simple-examples.md#example-4-range-filters) | 
-| [Recherche portant sur un champ](query-lucene-syntax.md#bkmk_fields) | Paramètre de recherche et analyseur complet | Crée une expression de requête composite ciblant un champ unique. <br/>[Exemple de recherche portant sur un champ](search-query-lucene-examples.md#example-2-fielded-search) |
+| [Recherche par champ](query-lucene-syntax.md#bkmk_fields) | Paramètre de recherche et analyseur complet | Crée une expression de requête composite ciblant un champ unique. <br/>[Exemple de recherche par champ](search-query-lucene-examples.md#example-2-fielded-search) |
 | [recherche approximative](query-lucene-syntax.md#bkmk_fuzzy) | Paramètre de recherche et analyseur complet | Recherche les termes ayant une construction ou une orthographe similaire. <br/>[Exemple de recherche approximative](search-query-lucene-examples.md#example-3-fuzzy-search) |
 | [recherche de proximité](query-lucene-syntax.md#bkmk_proximity) | Paramètre de recherche et analyseur complet | Recherche les termes proches les uns des autres dans un document. <br/>[Exemple de recherche de proximité](search-query-lucene-examples.md#example-4-proximity-search) |
 | [promotion de termes](query-lucene-syntax.md#bkmk_termboost) | Paramètre de recherche et analyseur complet | Élève le rang d’un document qui contient le terme de promotion, par rapport aux documents qui ne contiennent pas ce terme. <br/>[Exemple de promotion de termes](search-query-lucene-examples.md#example-5-term-boosting) |
@@ -146,21 +146,21 @@ Parfois, la substance et non la structure de résultats est inattendue. Quand le
 
 + Remplacez **`searchMode=any`** (valeur par défaut) par **`searchMode=all`** pour exiger des correspondances sur tous les critères plutôt que sur un seul d’entre eux. Cela s’applique particulièrement quand des opérateurs booléens sont inclus dans la requête.
 
-+ Changez la technique de requête si l’analyse lexicale ou du texte est nécessaire, mais que le type de requête exclut tout traitement linguistique. Dans la recherche en texte intégral, texte ou autocorrects analyse lexicale pour les fautes d’orthographe, des formes singulier-plural et des verbes même irréguliers ou des noms. Pour certaines requêtes telles que la recherche approximative ou par caractères génériques, l’analyse de texte ne fait pas partie du pipeline d’analyse de requête. Dans certains scénarios, des expressions régulières ont été utilisées pour contourner ce problème. 
++ Changez la technique de requête si l’analyse lexicale ou du texte est nécessaire, mais que le type de requête exclut tout traitement linguistique. Dans la recherche en texte intégral, l’analyse lexicale ou du texte corrige automatiquement les fautes d’orthographe, les formes singulier-pluriel des noms, et même les noms ou les verbes irréguliers. Pour certaines requêtes telles que la recherche approximative ou par caractères génériques, l’analyse de texte ne fait pas partie du pipeline d’analyse de requête. Dans certains scénarios, des expressions régulières ont été utilisées pour contourner ce problème. 
 
 ### <a name="paging-results"></a>Résultats de pagination
-Azure Search facilite l’implémentation de la pagination des résultats de recherche. À l’aide des paramètres **`top`** et **`skip`**, vous pouvez facilement émettre des requêtes de recherche pour recevoir le jeu de résultats complet dans des sous-ensembles gérables, ordonnés qui permettent de bonnes pratiques de recherche dans l’interface utilisateur. Lors de la réception de ces sous-ensembles de résultats plus petits, vous pouvez également recevoir le nombre de documents dans l’ensemble total des résultats de la recherche.
+Azure Search facilite l’implémentation de la pagination des résultats de recherche. À l’aide des paramètres **`top`** et **`skip`** , vous pouvez facilement émettre des requêtes de recherche pour recevoir le jeu de résultats complet dans des sous-ensembles gérables, ordonnés qui permettent de bonnes pratiques de recherche dans l’interface utilisateur. Lors de la réception de ces sous-ensembles de résultats plus petits, vous pouvez également recevoir le nombre de documents dans l’ensemble total des résultats de la recherche.
 
 Pour plus d’informations sur la pagination des résultats de recherche, consultez l’article [Navigation dans les résultats de recherche d’Azure Search](search-pagination-page-layout.md).
 
 ### <a name="ordering-results"></a>Classement des résultats
 Lors de la réception des résultats d’une requête de recherche, vous pouvez demander qu’Azure Search produise les résultats classés par valeurs dans un champ spécifique. Par défaut, Azure Search classe les résultats en fonction du rang du résultat de la recherche de chaque document, qui est dérivé de la méthode [TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf).
 
-Si vous souhaitez que Recherche Azure retourne les résultats en les classant avec une valeur autre que le résultat de la recherche, vous pouvez utiliser le paramètre de recherche **`orderby`**. Vous pouvez spécifier la valeur du paramètre **`orderby`** pour inclure les noms de champ et les appels à la fonction [**`geo.distance()`** ](query-odata-filter-orderby-syntax.md) pour les valeurs géospatiales. Chaque expression peut être suivie par `asc` pour indiquer que les résultats sont demandés dans l’ordre croissant, et par **`desc`** pour indiquer que les résultats sont demandés dans l’ordre décroissant. Le classement par défaut est l’ordre croissant.
+Si vous souhaitez que Recherche Azure retourne les résultats en les classant avec une valeur autre que le résultat de la recherche, vous pouvez utiliser le paramètre de recherche **`orderby`** . Vous pouvez spécifier la valeur du paramètre **`orderby`** pour inclure les noms de champ et les appels à la fonction [ **`geo.distance()`** ](query-odata-filter-orderby-syntax.md) pour les valeurs géospatiales. Chaque expression peut être suivie par `asc` pour indiquer que les résultats sont demandés dans l’ordre croissant, et par **`desc`** pour indiquer que les résultats sont demandés dans l’ordre décroissant. Le classement par défaut est l’ordre croissant.
 
 
 ### <a name="hit-highlighting"></a>Mise en surbrillance des correspondances
-Dans Recherche Azure, vous pouvez mettre facilement en évidence la partie exacte des résultats de recherche qui correspondent à la requête de recherche en utilisant les paramètres **`highlight`**, **`highlightPreTag`** et **`highlightPostTag`**. Vous pouvez spécifier les champs *utilisables dans une recherche* dont le texte correspondant à la requête doit être mis en évidence ainsi que les balises de chaîne exactes à ajouter au début et à la fin du texte correspondant retourné par le service Recherche Azure.
+Dans Recherche Azure, vous pouvez mettre facilement en évidence la partie exacte des résultats de recherche qui correspondent à la requête de recherche en utilisant les paramètres **`highlight`** , **`highlightPreTag`** et **`highlightPostTag`** . Vous pouvez spécifier les champs *utilisables dans une recherche* dont le texte correspondant à la requête doit être mis en évidence ainsi que les balises de chaîne exactes à ajouter au début et à la fin du texte correspondant retourné par le service Recherche Azure.
 
 ## <a name="see-also"></a>Voir aussi
 

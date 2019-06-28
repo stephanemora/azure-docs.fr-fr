@@ -10,18 +10,18 @@ ms.date: 05/11/2017
 ms.author: jasontang501
 ms.subservice: common
 ms.openlocfilehash: 9e786aed031d528b8ae574444b71753ac538cf47
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64728303"
 ---
 # <a name="managing-concurrency-in-microsoft-azure-storage"></a>Gestion de l’accès concurrentiel dans Microsoft Azure Storage
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 Dans les applications Internet modernes, les données sont généralement consultées et mises à jour par plusieurs utilisateurs à la fois. Les développeurs d'applications doivent donc bien réfléchir à la manière de proposer une expérience prévisible à leurs utilisateurs finaux, notamment lorsque plusieurs utilisateurs peuvent mettre à jour les mêmes données. Les développeurs prennent généralement en compte trois grandes stratégies d’accès concurrentiel aux données :  
 
 1. Accès concurrentiel optimiste – Une application procédant à une mise à jour vérifie, dans le cadre de la mise à jour, que les données n'ont pas été modifiées depuis la dernière lecture. Par exemple, si deux utilisateurs qui consultent une page wiki procèdent à une mise à jour de la même page, la plateforme wiki doit veiller à ce que la deuxième mise à jour n'écrase pas la première et à ce que les deux utilisateurs sachent si leur mise à jour a fonctionné ou non. Cette stratégie est la plus souvent utilisée dans les applications web.
-2. Accès concurrentiel pessimiste – L'application qui cherche à procéder à une mise à jour verrouille l'objet, ce qui empêche les autres utilisateurs de mettre les données à jour jusqu'à ce qu'elles soient déverrouillées. Par exemple, dans un scénario de réplication maître/subordonné données où seulement le maître procède aux mises à jour le maître généralement contiendra un verrou exclusif pour une période prolongée sur les données afin de garantir qu'aucune autre personne pouvez mettre à jour.
+2. Accès concurrentiel pessimiste – L'application qui cherche à procéder à une mise à jour verrouille l'objet, ce qui empêche les autres utilisateurs de mettre les données à jour jusqu'à ce qu'elles soient déverrouillées. Par exemple, dans un scénario de réplication de données maître/subordonné où seul le maître procède aux mises à jour, le maître verrouille généralement les données de manière exclusive pendant une période de temps prolongée de manière à ce que personne d’autre ne puisse les mettre à jour.
 3. Règle de Thomas (Last writer wins) – Approche qui permet de procéder aux mises à jour sans vérifier si les données ont été ou non mises à jour par une autre application depuis la première lecture des données par l'application. Cette stratégie (ou ce manque de stratégie formelle) est généralement utilisée lorsque les données font l'objet d'une partition telle qu'il est peu probable que plusieurs utilisateurs accèdent aux mêmes données. Elle peut également être utile lors du traitement de flux de données à durée de vie limitée.  
 
 Cet article propose une vue d'ensemble de la manière dont la plateforme Azure Storage simplifie le développement en proposant une prise en charge de premier ordre pour ces trois stratégies d'accès concurrentiel.  
@@ -86,15 +86,15 @@ Le tableau suivant résume les opérations de conteneurs qui acceptent les en-t�
 
 | Opération | Renvoie une valeur ETag de conteneur | Accepte les en-têtes conditionnels |
 |:--- |:--- |:--- |
-| Create Container |Oui |Non  |
-| Get Container Properties |Oui |Non  |
-| Get Container Metadata |Oui |Non  |
-| Set Container Metadata |Oui |Oui |
-| Get Container ACL |Oui |Non  |
-| Set Container ACL |Oui |Oui (*) |
-| Delete Container |Non  |Oui |
-| Lease Container |Oui |Oui |
-| List Blobs |Non  |Non  |
+| Create Container |OUI |Non |
+| Get Container Properties |OUI |Non |
+| Get Container Metadata |OUI |Non |
+| Set Container Metadata |OUI |OUI |
+| Get Container ACL |OUI |Non |
+| Set Container ACL |OUI |Oui (*) |
+| Delete Container |Non |OUI |
+| Lease Container |OUI |OUI |
+| List Blobs |Non |Non |
 
 (*) Les autorisations définies par SetContainerACL sont mises en cache et les mises à jour apportées à ces autorisations sont diffusées dans un délai de 30 secondes, période pendant laquelle la cohérence des mises à jour n’est pas garantie.  
 
@@ -102,22 +102,22 @@ Le tableau suivant résume les opérations d'objets blob qui acceptent les en-t�
 
 | Opération | Renvoie une valeur ETag | Accepte les en-têtes conditionnels |
 |:--- |:--- |:--- |
-| Put Blob |Oui |Oui |
-| Get Blob |Oui |Oui |
-| Get Blob Properties |Oui |Oui |
-| Set Blob Properties |Oui |Oui |
-| Get Blob Metadata |Oui |Oui |
-| Set Blob Metadata |Oui |Oui |
-| Lease Blob (*) |Oui |Oui |
-| Snapshot Blob |Oui |Oui |
-| Copie d'un objet blob |Oui |Oui (pour les objets blob source et de destination) |
-| Abort Copy Blob |Non  |Non  |
-| Delete Blob |Non  |Oui |
-| Put Block |Non  |Non  |
-| Put Block List |Oui |Oui |
-| Get Block List |Oui |Non  |
-| Put Page |Oui |Oui |
-| Get Page Ranges |Oui |Oui |
+| Put Blob |OUI |OUI |
+| Get Blob |OUI |OUI |
+| Get Blob Properties |OUI |OUI |
+| Set Blob Properties |OUI |OUI |
+| Get Blob Metadata |OUI |OUI |
+| Set Blob Metadata |OUI |OUI |
+| Lease Blob (*) |OUI |OUI |
+| Snapshot Blob |OUI |OUI |
+| Copie d'un objet blob |OUI |Oui (pour les objets blob source et de destination) |
+| Abort Copy Blob |Non |Non |
+| Delete Blob |Non |OUI |
+| Put Block |Non |Non |
+| Put Block List |OUI |OUI |
+| Get Block List |OUI |Non |
+| Put Page |OUI |OUI |
+| Get Page Ranges |OUI |OUI |
 
 (*) L'opération Lease Blob n'entraîne pas la modification de la balise ETag d'un objet blob.  
 
@@ -193,7 +193,7 @@ Pour plus d'informations, consultez les pages suivantes :
 
 * [Spécification des en-têtes conditionnels pour les opérations du service BLOB](https://msdn.microsoft.com/library/azure/dd179371.aspx)
 * [Lease Container](https://msdn.microsoft.com/library/azure/jj159103.aspx)
-* [Lease Blob](https://msdn.microsoft.com/library/azure/ee691972.aspx)
+* [Louer à bail un objet blob](https://msdn.microsoft.com/library/azure/ee691972.aspx)
 
 ## <a name="managing-concurrency-in-the-table-service"></a>Gestion de l’accès concurrentiel dans le service de Table
 Le service de Table utilise les vérifications d'accès concurrentiel optimiste comme comportement par défaut lorsque vous travaillez avec des entités, contrairement au service BLOB où vous devez choisir de manière explicite de procéder à des vérifications d'accès concurrentiel optimiste. L'autre différence réside dans le fait que vous pouvez uniquement gérer le comportement d'accès concurrentiel des entités avec le service de Table alors qu'avec le service BLOB, vous pouvez gérer l'accès concurrentiel des conteneurs et des objets blob.  
@@ -237,13 +237,13 @@ Le tableau suivant résume la manière dont les opérations d'entités de table 
 
 | Opération | Renvoie une valeur ETag | Nécessite l'en-tête de demande If-Match |
 |:--- |:--- |:--- |
-| Query Entities |Oui |Non  |
-| Insert Entity |Oui |Non  |
-| Update Entity |Oui |Oui |
-| Merge Entity |Oui |Oui |
-| Delete Entity |Non  |Oui |
-| Insert or Replace Entity |Oui |Non  |
-| Insert or Merge Entity |Oui |Non  |
+| Query Entities |OUI |Non |
+| Insert Entity |OUI |Non |
+| Update Entity |OUI |OUI |
+| Merge Entity |OUI |OUI |
+| Delete Entity |Non |OUI |
+| Insert or Replace Entity |OUI |Non |
+| Insert or Merge Entity |OUI |Non |
 
 Notez que les opérations **Insert or Replace Entity** et **Insert or Merge Entity** ne procèdent *pas* à des vérifications d’accès concurrentiel étant donné qu’elles n’envoient pas de valeur ETag au service de Table.  
 

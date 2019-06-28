@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: victorh
 ms.openlocfilehash: 90d576fd00a39f7e871cbe0922ce131dfbe38ff0
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62122385"
 ---
 # <a name="create-a-custom-probe-for-application-gateway-by-using-the-portal"></a>Créer une sonde personnalisée pour Application Gateway à l’aide du portail
@@ -51,10 +51,10 @@ Les sondes sont configurées via un processus en deux étapes sur le portail. La
 
    |**Paramètre** | **Valeur** | **Détails**|
    |---|---|---|
-   |**Name**|customProbe|Cette valeur est le nom convivial de la sonde à laquelle vous pouvez accéder dans le portail.|
+   |**Nom**|customProbe|Cette valeur est le nom convivial de la sonde à laquelle vous pouvez accéder dans le portail.|
    |**Protocole**|HTTP ou HTTPS | Protocole utilisé par la sonde d’intégrité.|
    |**Hôte**|Par exemple, contoso.com|Cette valeur est le nom d’hôte utilisé pour la sonde. S’applique uniquement lorsque plusieurs sites sont configurés sur Application Gateway, sinon utilisez '127.0.0.1'. Cette valeur est différente du nom d’hôte de la machine virtuelle.|
-   |**Chemin d’accès**|/ ou un autre chemin|Reste de l’URL complète de la sonde personnalisée. Un chemin valide commence par « / ». Pour le chemin d’accès par défaut du protocole http :\//contoso.com utilisez simplement « / » |
+   |**Chemin d’accès**|/ ou un autre chemin|Reste de l’URL complète de la sonde personnalisée. Un chemin valide commence par « / ». Pour le chemin par défaut de http:\//contoso.com, utilisez simplement « / » |
    |**Intervalle (secondes)**|30|Fréquence d’exécution de la sonde pour le contrôle d’intégrité. Il n’est pas recommandé de définir la valeur sur moins de 30 secondes.|
    |**Délai d’expiration (secondes)**|30|Intervalle de temps précédant l’expiration de la sonde. L’intervalle de délai d’attente doit être suffisamment élevé pour qu’un appel HTTP puisse être envoyé afin de garantir que la page d’intégrité backend est disponible.|
    |**Seuil de défaillance sur le plan de l’intégrité**|3|Nombre d’échecs nécessaires pour marquer l’instance comme étant défaillante. Un seuil de 0 signifie qu’en cas d’échec de contrôle d’intégrité, le serveur principal est immédiatement identifié comme défaillant.|

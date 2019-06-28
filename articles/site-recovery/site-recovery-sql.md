@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: sutalasi
 ms.openlocfilehash: 7725563a80182be8f8c02d94ef1e6cfa382c04d3
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64924847"
 ---
 # <a name="set-up-disaster-recovery-for-sql-server"></a>Configurer la récupération après sinistre pour SQL Server
@@ -42,10 +42,10 @@ Site Recovery peut protéger SQL Server comme décrit dans le tableau ci-dessous
 
 **Scénario** | **Vers un site secondaire** | **Vers Azure**
 --- | --- | ---
-**Hyper-V** | Oui | Oui
-**VMware** | Oui | Oui
-**Serveur physique** | Oui | Oui
-**Microsoft Azure** |N/D| Oui
+**Hyper-V** | OUI | OUI
+**VMware** | OUI | OUI
+**Serveur physique** | OUI | OUI
+**Microsoft Azure** |N/D| OUI
 
 ### <a name="supported-sql-server-versions"></a>Versions de SQL Server prises en charge
 Les scénarios de cet article prennent en charge les versions de SQL Server suivantes :
@@ -70,7 +70,7 @@ Azure Site Recovery peut être intégré aux technologies BCDR SQL Server native
 
 Ce tableau récapitule nos recommandations pour intégrer les technologies BCDR de SQL Server à Site Recovery.
 
-| **Version** | **Édition** | **Déploiement** | **Local vers local** | **Local vers Azure** |
+| **Version** | **Édition** | **Déploiement** | **Local à local** | **Local vers Azure** |
 | --- | --- | --- | --- | --- |
 | SQL Server 2016, 2014 ou 2012 |Entreprise |Instance de cluster de basculement |Groupes de disponibilité AlwaysOn |Groupes de disponibilité AlwaysOn |
 || Entreprise |Groupes de disponibilité AlwaysOn pour la haute disponibilité |Groupes de disponibilité AlwaysOn |Groupes de disponibilité AlwaysOn |
@@ -170,7 +170,7 @@ Pour les applications qui utilisent des transactions distribuées, nous vous rec
 
 Dans ce scénario, nous vous recommandons d’utiliser la réplication Site Recovery pour protéger la machine SQL Server. La procédure varie selon que SQL Server est configuré comme une machine virtuelle ou un serveur physique, et que vous souhaitez répliquer sur Azure ou un site local secondaire. En savoir plus sur les [scénarios Site Recovery](site-recovery-overview.md).
 
-## <a name="protect-a-sql-server-cluster-standard-editionsql-server-2008-r2"></a>Protéger un cluster de SQL Server (standard edition/SQL Server 2008 R2)
+## <a name="protect-a-sql-server-cluster-standard-editionsql-server-2008-r2"></a>Protéger un cluster SQL Server (Standard Edition/SQL Server 2008 R2)
 
 Pour un cluster exécutant SQL Server Standard Edition ou SQL Server 2008 R2, nous vous recommandons d’utiliser la réplication Site Recovery pour protéger SQL Server.
 

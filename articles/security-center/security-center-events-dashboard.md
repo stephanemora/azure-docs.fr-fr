@@ -14,25 +14,26 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/05/2017
 ms.author: rkarlin
-ms.openlocfilehash: 01f6da4f5ad6b618c444949fce8d2b7aa3367e17
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bc0fd83bd45e7c5c671b387d124cdddc75244ade
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60705084"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64573513"
 ---
 # <a name="monitoring-and-processing-security-events-in-azure-security-center"></a>Surveillance et traitement des événements de sécurité dans Azure Security Center
 Le tableau de bord Événements fournit une vue d’ensemble sur le nombre d’événements de sécurité collectés au fil du temps et une liste d’événements notables qui peuvent nécessiter votre attention.  
 
 > [!NOTE]
-> Pour utiliser cette fonctionnalité, votre espace de travail doit exécuter Log Analytics version 2 et se trouver dans le niveau Standard de Security Center. Pour plus d’informations sur le niveau Standard, consultez la [page de tarification](security-center-pricing.md) de Security Center.
->
->
+> La mise hors service du tableau de bord des événements de sécurité est prévue pour le 31 juillet 2019. Pour en savoir plus et connaître les alternatives en matière de services, consultez [Retrait des fonctionnalités du Security Center (juillet 2019)](security-center-features-retirement-july2019.md#menu_events).
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="what-is-a-security-event"></a>Qu’est-ce qu’un événement de sécurité ?
 Security Center utilise Microsoft Monitoring Agent pour collecter différents événements et configurations liées à la sécurité à partir de vos machines et stocke ces événements dans vos espaces de travail. Ces données peuvent être : des journaux d’activité de système d’exploitation (journaux d’événements Windows), des processus d’exécution et des événements de solutions de sécurité intégrées à Security Center. Microsoft Monitoring Agent copie également les fichiers de vidage sur incident dans vos espaces de travail.
+
+## <a name="requirements"></a>Configuration requise
+Pour utiliser cette fonctionnalité, votre espace de travail doit exécuter Log Analytics version 2 et se trouver dans le niveau Standard de Security Center. Pour plus d’informations sur le niveau Standard, consultez la [page de tarification](security-center-pricing.md) de Security Center.
 
 ## <a name="events-processed-dashboard"></a>Tableau de bord Événements traités
 Vous accédez au tableau de bord **Événements** à partir du menu principal de Security Center ou du panneau **Vue d’ensemble** de Security Center.  
@@ -72,7 +73,7 @@ Le **tableau de bord Événements** fournit une vue d’ensemble sur le nombre d
    ![Recherche dans les journaux][6]
 
 ## <a name="add-a-notable-event"></a>Ajouter un événement notable
-Security Center fournit des événements notables prêts à l’emploi. Vous pouvez ajouter des événements notables en fonction de votre propre à l’aide de la requête la [langage de requête Kusto](../log-analytics/log-analytics-search-reference.md). Revenons au **tableau de bord Événements** pour ajouter un événement notable.
+Security Center fournit des événements notables prêts à l’emploi. Vous pouvez ajouter des événements notables en fonction de votre propre requête, au moyen du [langage de requête Kusto](../log-analytics/log-analytics-search-reference.md). Revenons au **tableau de bord Événements** pour ajouter un événement notable.
 
 1. Sélectionnez **Add Notable Event** (Ajouter un événement notable).
 
@@ -96,7 +97,7 @@ Si la ligne de l’espace de travail :
 - Est vide, cela signifie que votre espace de travail répond aux exigences. Si vous cliquez sur un espace de travail, vous être redirigé vers le tableau de bord.
 
 > [!NOTE]
-> Dans le **tableau de bord Événements**, la colonne **ÉVÉNEMENTS** indique le nombre d’événements dans chaque espace de travail.  Cette colonne est vide pour certains espaces de travail, car le niveau Gratuit de Security Center est appliqué à cet espace de travail. Dans le niveau gratuit, Security Center collecte les événements, mais les événements ne sont pas enregistrées dans les journaux Azure Monitor et ne sont pas disponibles dans le tableau de bord.
+> Dans le **tableau de bord Événements**, la colonne **ÉVÉNEMENTS** indique le nombre d’événements dans chaque espace de travail.  Cette colonne est vide pour certains espaces de travail, car le niveau Gratuit de Security Center est appliqué à cet espace de travail. Dans le niveau Gratuit, Security Center collecte les événements, mais ceux-ci ne sont pas enregistrés dans Journaux Azure Monitor et ne sont pas disponibles dans le tableau de bord.
 >
 >
 
@@ -121,9 +122,9 @@ Si la ligne de l’espace de travail :
 ## <a name="next-steps"></a>Étapes suivantes
 Dans cet article, vous avez découvert comment utiliser le tableau de bord Événements de Security Center. Pour en savoir plus sur le fonctionnement du tableau de bord et écrire vos propres requêtes d’événements, consultez :
 
-- [Nouveautés d’Azure Monitor journaux ?](../log-analytics/log-analytics-overview.md) -Présentation de journaux Azure Monitor
-- [Recherches dans les journaux de présentation dans Kusto](../log-analytics/log-analytics-log-search-new.md) : décrit l’utilisation des recherches dans les journaux dans les journaux Azure Monitor et présente les concepts que vous devraient comprendre avant de créer une recherche de journal
-- [Référence de recherche Kusto](../log-analytics/log-analytics-search-reference.md) – Découvrez comment écrire vos propres requêtes d’événements à l’aide du langage de requête dans le journal
+- [Présentation de Journaux Azure Monitor](../log-analytics/log-analytics-overview.md) \- Vue d’ensemble de Journaux Azure Monitor
+- [Présentation des recherches de journaux dans Kusto](../log-analytics/log-analytics-log-search-new.md) - Décrit la façon dont les recherches de journaux sont utilisées dans Journaux Azure Monitor, et définit les concepts que vous devez connaître avant de créer une recherche dans les journaux
+- [Informations de référence sur la recherche Kusto](../log-analytics/log-analytics-search-reference.md) - Découvrez comment écrire vos propres requêtes d’événements au moyen du langage de requête dans Kusto.
 
 Pour plus d’informations sur Security Center, consultez :
 

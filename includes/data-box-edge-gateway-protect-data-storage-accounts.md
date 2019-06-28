@@ -5,18 +5,18 @@ ms.topic: include
 ms.date: 04/16/2019
 ms.author: alkohli
 ms.openlocfilehash: 653c175a559f5c0b7dc551b396e91276332df20a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60754246"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "67120503"
 ---
-Votre appareil est associé à un compte de stockage qui est utilisé en tant que destination pour vos données dans Azure. Accès au compte de stockage est contrôlé par l’abonnement et de stockage de 512 bits deux associés à ce compte de stockage de clés d’accès.
+Votre appareil est associé à un compte de stockage qui est utilisé en tant que destination pour vos données dans Azure. L’accès au compte de stockage est contrôlé par l’abonnement et deux clés d’accès au stockage de 512 bits associées à ce compte de stockage.
 
-Une des clés est utilisée pour l’authentification lors de l’appareil de périphérie de zone de données accède au compte de stockage. L’autre clé est gardée en réserve, donc vous pouvez faire pivoter les clés périodiquement.
+L’une des clés est utilisée pour l’authentification lorsque l’appareil Data Box Edge accède au compte de stockage. L’autre clé est gardée en réserve, ce qui permet une rotation régulière des clés.
 
-Pour des raisons de sécurité, nombreux centres de données nécessitent la rotation des clés. Nous vous recommandons de suivre ces méthodes recommandées pour la rotation des clés :
+De nombreux centres de données ont recours à la rotation des clés pour des raisons de sécurité. Nous vous recommandons de suivre ces méthodes recommandées pour la rotation des clés :
 
-- Votre clé de compte de stockage est similaire au mot de passe racine pour votre compte de stockage. Protégez soigneusement votre clé de compte. Ne pas distribuer à d’autres utilisateurs, le mot de passe, dur coder ou enregistrer n’importe où dans le texte brut qui est accessible à d’autres personnes.
-- [Régénérez votre clé de compte](../articles/storage/common/storage-account-manage.md#regenerate-access-keys) via Azure portal si vous pensez qu’il pourrait être compromise.
-- Votre administrateur Azure doit régulièrement modifier ou régénérer la clé primaire ou secondaire à l’aide de la section stockage du portail Azure pour accéder au compte de stockage directement.
+- Votre clé de compte de stockage est similaire au mot de passe racine pour votre compte de stockage. Protégez soigneusement votre clé de compte. Ne communiquez pas le mot de passe à d’autres utilisateurs, ne le codez pas en dur et ne l’enregistrez pas en texte brut, où que ce soit.
+- [Régénérez votre clé de compte](../articles/storage/common/storage-account-manage.md#regenerate-access-keys) via le portail Azure si vous pensez qu’elle a été compromise.
+- Votre administrateur Azure doit changer ou régénérer régulièrement la clé primaire ou secondaire à l’aide de la section Stockage du portail Azure pour accéder directement au compte de stockage.

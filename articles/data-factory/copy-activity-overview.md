@@ -13,17 +13,17 @@ ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: jingwang
 ms.openlocfilehash: 8f5a7d3f6300be100feffd23b98bd7dcd8f48148
-ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65150854"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Activité de copie dans Azure Data Factory
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
-> [!div class="op_single_selector" title1="Sélectionnez la version du service de fabrique de données que vous utilisez :"]
+> [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
 > * [Version 1](v1/data-factory-data-movement-activities.md)
 > * [Version actuelle](copy-activity-overview.md)
 
@@ -54,15 +54,15 @@ Pour copier des données d’une source vers un récepteur, l’activité de cop
 
 Vous pouvez utiliser l’activité de copie pour **copier des fichiers en l'état** entre deux banques de données de fichiers, auquel cas les données sont copiées efficacement sans aucune sérialisation/désérialisation.
 
-L’activité de copie prend également en charge la lecture et l’écriture de fichiers dans des formats spécifiés : **Texte, JSON, Avro, ORC et Parquet**et compresser et décompresser des fichiers avec les codecs suivants : **GZip, Deflate, BZip2 et ZipDeflate**. Pour plus d’informations, consultez [Formats de fichier et de compression pris en charge](supported-file-formats-and-compression-codecs.md).
+L’activité de copie prend également en charge la lecture et l’écriture de fichiers dans des formats spécifiés : **Texte, JSON, Avro, ORC et Parquet** et la compression et la décompression des fichiers avec les codecs suivants : **GZip, Deflate, BZip2 et ZipDeflate**. Pour plus d’informations, consultez [Formats de fichier et de compression pris en charge](supported-file-formats-and-compression-codecs.md).
 
 Par exemple, vous pouvez effectuer les activités de copie suivantes :
 
-* Copier des données sur site SQL Server et écrire dans le stockage Azure Data Lake Gen2 au format Parquet.
+* Copier les données dans le SQL Server local et les écrire dans Azure Data Lake Storage Gen2 au format Parquet.
 * Copier des fichiers au format texte (CSV) provenant d’un système de fichiers local et les écrire dans des objets blob Azure au format Avro.
-* Copier les fichiers du système de fichiers local et décompresser, puis accéder à Azure Data Lake Storage Gen2.
+* Copier les fichiers compressés depuis le système de fichiers local, les décompresser, puis accéder à Azure Data Lake Storage Gen2.
 * Copier des données au format texte compressé GZip (CSV) provenant d’objets blob Azure et les écrire dans une base de données Azure SQL.
-* Et plus souvent avec la sérialisation/désérialisation ou de compression/décompression.
+* Et d’autres nombreux cas impliquant la sérialisation/désérialisation ou la compression/décompression.
 
 ## <a name="supported-regions"></a>Régions prises en charge
 
@@ -130,16 +130,16 @@ Le modèle suivant d’activité de copie contient une liste exhaustive des prop
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type d’une activité de copie doit être définie sur : **Copy** | Oui |
-| inputs | Spécifiez le jeu de données que vous avez créé qui pointe vers les données sources. L’activité de copie ne prend en charge qu’une seule entrée. | Oui |
-| outputs | Spécifiez le jeu de données que vous avez créé qui pointe vers les données du récepteur. L’activité de copie ne prend en charge qu’une seule sortie. | Oui |
-| typeProperties | Groupe de propriétés pour configurer l’activité de copie. | Oui |
-| source | Spécifiez le type de source de la copie et les propriétés correspondantes concernant la façon d’extraire les données.<br/><br/>Découvrez plus de détails dans la section « Propriétés de l’activité de copie » de l’article sur le connecteur répertorié dans [Banques de données et formats pris en charge](#supported-data-stores-and-formats). | Oui |
-| sink | Spécifiez le type de récepteur de copie et les propriétés correspondantes concernant la manière d’écrire les données.<br/><br/>Découvrez plus de détails dans la section « Propriétés de l’activité de copie » de l’article sur le connecteur répertorié dans [Banques de données et formats pris en charge](#supported-data-stores-and-formats). | Oui |
+| Type | La propriété type d’une activité de copie doit être définie sur : **Copy** | OUI |
+| inputs | Spécifiez le jeu de données que vous avez créé qui pointe vers les données sources. L’activité de copie ne prend en charge qu’une seule entrée. | OUI |
+| outputs | Spécifiez le jeu de données que vous avez créé qui pointe vers les données du récepteur. L’activité de copie ne prend en charge qu’une seule sortie. | OUI |
+| typeProperties | Groupe de propriétés pour configurer l’activité de copie. | OUI |
+| source | Spécifiez le type de source de la copie et les propriétés correspondantes concernant la façon d’extraire les données.<br/><br/>Découvrez plus de détails dans la section « Propriétés de l’activité de copie » de l’article sur le connecteur répertorié dans [Banques de données et formats pris en charge](#supported-data-stores-and-formats). | OUI |
+| sink | Spécifiez le type de récepteur de copie et les propriétés correspondantes concernant la manière d’écrire les données.<br/><br/>Découvrez plus de détails dans la section « Propriétés de l’activité de copie » de l’article sur le connecteur répertorié dans [Banques de données et formats pris en charge](#supported-data-stores-and-formats). | OUI |
 | translator | Spécifiez des mappages de colonnes explicites de la source au récepteur. S’applique lorsque le comportement de copie par défaut ne peut pas répondre à vos besoins.<br/><br/>Découvrez plus de détails sur le [Mappage de schéma et de type de données](copy-activity-schema-and-type-mapping.md). | Non |
 | dataIntegrationUnits | Spécifiez la puissance du [runtime d’intégration Azure](concepts-integration-runtime.md) pour dynamiser la copie des données. Anciennement appelé Unités de déplacement de données cloud. <br/><br/>Plus d’informations, consultez [unités d’intégration de données](copy-activity-performance.md#data-integration-units). | Non |
 | parallelCopies | Spécifiez le parallélisme que l’activité de copie doit utiliser lors de la lecture des données de la source et l’écriture des données sur le récepteur.<br/><br/>Découvrez plus de détails sur la [Copie parallèle](copy-activity-performance.md#parallel-copy). | Non |
-| enableStaging<br/>stagingSettings | Choisissez cette option à utiliser stocker les données intermédiaires dans un stockage d’objets blob au lieu de copier des données directement à partir de la source au récepteur.<br/><br/>Découvrez les scénarios et des détails de configuration utiles d’une [Copie intermédiaire](copy-activity-performance.md#staged-copy). | Non |
+| enableStaging<br/>stagingSettings | Choisissez cette option pour placer les données dans un stockage blob intermédiaire au lieu de les copier des données directement de la source au récepteur.<br/><br/>Découvrez les scénarios et des détails de configuration utiles d’une [Copie intermédiaire](copy-activity-performance.md#staged-copy). | Non |
 | enableSkipIncompatibleRow<br/>redirectIncompatibleRowSettings| Choisissez comment gérer les lignes incompatibles lors de la copie de données de la source vers le récepteur.<br/><br/>Découvrez plus de détails sur la [Tolérance de panne](copy-activity-fault-tolerance.md). | Non |
 
 ## <a name="monitoring"></a>Surveillance
@@ -177,13 +177,13 @@ Les détails de l’exécution de l’activité de copie et les caractéristique
 | dataWritten | Taille des données écrites dans le récepteur | Valeur Int64 en **octets** |
 | filesRead | Nombre de fichiers copiés lors de la copie de données à partir du stockage de fichier. | Valeur Int64 (aucune unité) |
 | filesWritten | Nombre de fichiers copiés lors de la copie de données vers le stockage de fichier. | Valeur Int64 (aucune unité) |
-| rowsRead | Nombre de lignes en cours de lecture à partir de la source (non applicable pour une copie binaire). | Valeur Int64 (aucune unité) |
-| rowsCopied | Nombre de lignes copiées au récepteur (non applicable pour une copie binaire). | Valeur Int64 (aucune unité) |
+| rowsRead | Nombre de lignes lues à partir de la source (non applicable pour une copie binaire). | Valeur Int64 (aucune unité) |
+| rowsCopied | Nombre de lignes copiées dans le récepteur (non applicable pour une copie binaire). | Valeur Int64 (aucune unité) |
 | rowsSkipped | Nombre de lignes incompatibles ignorées. Vous pouvez activer la fonctionnalité en définissant « enableSkipIncompatibleRow » sur true. | Valeur Int64 (aucune unité) |
-| throughput | Taux auquel les données sont transférées. | Nombre à virgule flottante exprimé en **Ko/s** |
-| copyDuration | La durée de la copie. | Valeur Int32 en secondes |
+| throughput | Taux de transfert des données. | Nombre à virgule flottante exprimé en **Ko/s** |
+| copyDuration | Durée de la copie. | Valeur Int32 en secondes |
 | sourcePeakConnections | Nombre maximal de connexions simultanées établies au magasin de données source pendant la copie. | Valeur Int32 |
-| sinkPeakConnections| Nombre maximal de connexions simultanées établies dans le magasin de données récepteur pendant la copie.| Valeur Int32 |
+| sinkPeakConnections| Nombre maximal de connexions simultanées établies au magasin de données récepteur pendant la copie.| Valeur Int32 |
 | sqlDwPolyBase | Si PolyBase est utilisé lors de la copie de données dans SQL Data Warehouse. | Boolean |
 | redshiftUnload | Si UNLOAD est utilisé lors de la copie de données à partir de Redshift. | Boolean |
 | hdfsDistcp | Si DistCp est utilisé lors de la copie de données à partir de HDFS. | Boolean |
@@ -257,5 +257,5 @@ Dans la version 1, Azure Data Factory prenait en charge la lecture et l’écrit
 Voir les procédures de démarrage rapide, didacticiels et exemples suivants :
 
 - [Copier des données d’un emplacement vers un autre dans le même Stockage Blob Azure](quickstart-create-data-factory-dot-net.md)
-- [Copier des données de Stockage Blob Azure vers Microsoft Azure SQL Database](tutorial-copy-data-dot-net.md)
+- [Copier des données de Stockage Blob Azure vers Azure SQL Database](tutorial-copy-data-dot-net.md)
 - [Copier des données d’une base de données SQL Server locale vers Azure](tutorial-hybrid-copy-powershell.md)

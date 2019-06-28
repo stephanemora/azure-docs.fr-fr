@@ -1,6 +1,6 @@
 ---
-title: Disponibilité géographique et prise en charge | Azure
-description: Disponibilité géographique dans Azure Marketplace et AppSource
+title: Prise en charge de la disponibilité géographique et des devises | Azure
+description: Disponibilité géographique dans la place de marché Azure et AppSource
 services: Azure, Marketplace, Compute, Storage, Networking
 author: qianw211
 ms.service: marketplace
@@ -8,17 +8,17 @@ ms.topic: article
 ms.date: 02/28/2019
 ms.author: ellacroi
 ms.openlocfilehash: 215a15da2868a4543ba1108899981f40f7bf4e07
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64938251"
 ---
-# <a name="geographic-availability-and-currency-support"></a>Disponibilité géographique et prise en charge de la devise
+# <a name="geographic-availability-and-currency-support"></a>Prise en charge de la disponibilité géographique et des devises
 
-Les offres de la place de marché Azure peuvent être achetés dans des zones 141 géographiques tel que défini par l’adresse de facturation du client, et les transactions peuvent être effectuées dans les 17 devises. Le tableau ci-dessous répertorie chaque pris en charge l’emplacement géographique, son [code ISO 3166 à deux chiffres à alpha](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes)et la devise attribuée.
+Les offres de la place de marché Azure peuvent être achetées dans des 141 zones géographiques, définies par l’adresse de facturation du client, et les transactions peuvent être effectuées dans 17 devises. Le tableau ci-dessous répertorie les emplacements géographiques pris en charge, leur [code alpha ISO 3166 à deux chiffres](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes)et la devise attribuée.
 
-|   Nom de pays/région               |   ISO-2   |   Devise   |
+|   Nom du pays/de la région               |   ISO-2   |   Devise   |
 |-------------------------------------|-----------|--------------|
 | Afghanistan                         | AF        | USD          |
 | Albanie                             | AL        | USD          |
@@ -86,7 +86,7 @@ Les offres de la place de marché Azure peuvent être achetés dans des zones 14
 | Jordanie                              | JO        | USD          |
 | Kazakhstan                          | KZ        | USD          |
 | Kenya                               | KE        | USD          |
-| Corée (Sud)                       | KR        | KRW          |
+| Corée du Sud                       | KR        | KRW          |
 | Koweït                              | KW        | USD          |
 | Kirghizistan                          | KG        | USD          |
 | Lettonie                              | LV        | EUR          |
@@ -163,4 +163,4 @@ Les offres de la place de marché Azure peuvent être achetés dans des zones 14
 | Zimbabwe                            | ZW        | USD          |
 |   |   |   |
 
-\* Pour les clients en Brésil, la place de marché via les fournisseurs de solutions Cloud (CSP) utilise USD.
+\* Pour les clients en Brésil, la place de marché via les fournisseurs de solutions Cloud (CSP) utilise l’USD.

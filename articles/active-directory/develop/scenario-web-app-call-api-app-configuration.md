@@ -1,6 +1,6 @@
 ---
-title: Application Web par appels web API (configuration de code) - plateforme d’identité Microsoft
-description: Découvrez comment créer une application Web par appels web API (configuration de code de l’application)
+title: Application web appelant des API web (configuration du code) - Plateforme d’identité Microsoft
+description: Découvrez comment créer une application web qui appelle des API web (configuration du code de l’application)
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -16,35 +16,35 @@ ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bd7f393f889facf147cf25625d5c3b20f886ddf5
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65784937"
 ---
-# <a name="web-app-that-calls-web-apis---code-configuration"></a>Application Web par appels web API - configuration du code
+# <a name="web-app-that-calls-web-apis---code-configuration"></a>Application Web appelant des API web - Configuration du code
 
-Comme indiqué dans le [scénario se connecte aux utilisateurs des compléments d’application Web](scenario-web-app-sign-user-overview.md), étant donné que la connexion utilisateur est déléguée à l’ID d’ouverture se connecter (OIDC) intergiciel (middleware), vous raccordement à distance dans le processus OIDC. La manière de procéder est différente selon l’infrastructure que vous avez utilisé (ici ASP.NET et ASP.NET Core), mais au final, vous allez vous abonner aux événements OIDC intergiciel (middleware). Le principe est le suivant :
+Comme indiqué dans le [scénario de connexion des utilisateurs par l’application web](scenario-web-app-sign-user-overview.md), étant donné que la connexion de l’utilisateur est déléguée à l’intergiciel Open ID Connect (OIDC), vous devez vous raccorder au processus OIDC. La manière de procéder est différente selon l’infrastructure que vous avez utilisée (ici, ASP.NET et ASP.NET Core). Cependant, en fin de compte, vous vous abonnerez aux événements de l’intergiciel OIDC. Le principe est le suivant :
 
-- Vous allez laisser ASP.NET ou ASP.NET core demander un code d’autorisation. En effectuant cette ASP.NET/ASP.NET core permettra l’utilisateur se connecter et donner son consentement,
-- Vous allez vous abonner à la réception du code d’autorisation par l’application Web.
-- Lorsque le code d’authentification est reçu, vous allez utiliser les bibliothèques MSAL pour échanger le code et les jetons d’accès résultant et le magasin de jetons dans le cache de jeton d’actualisation. À partir de là, le cache peut être utilisé dans d’autres parties de l’application pour acquérir les autres jetons en mode silencieux.
+- Vous laissez à ASP.NET ou ASP.NET Core le soin de demander un code d’autorisation. Ce faisant, ASP.NET/ ASP.NET Core permet à l’utilisateur de se connecter et de donner son consentement,
+- et vous vous abonnez à la réception d’un code d’autorisation par l’application web.
+- Une fois le code d’authentification reçu, vous utilisez les bibliothèques MSAL pour accepter le code et les jetons d’accès qui en résultent, ainsi que pour actualiser le magasin de jetons dans le cache associé. À partir de là, le cache peut être utilisé dans d’autres parties de l’application pour acquérir d’autres jetons en mode silencieux.
 
-## <a name="libraries-supporting-web-app-scenarios"></a>Bibliothèques prenant en charge les scénarios d’application Web
+## <a name="libraries-supporting-web-app-scenarios"></a>Bibliothèques prenant en charge les scénarios d’application web
 
-Les bibliothèques prenant en charge le flux de code d’autorisation pour les applications Web sont :
+Les bibliothèques prenant en charge le flux de code d’autorisation pour les applications web sont les suivantes :
 
-| Bibliothèque MSAL | Description  |
+| Bibliothèque MSAL | Description |
 |--------------|-------------|
-| ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | Plateformes prises en charge sont les plateformes .NET Framework et .NET Core (pas UWP, Xamarin.iOS et Xamarin.Android en tant que ces plateformes sont utilisées pour créer des applications de client public) |
-| ![Python](media/sample-v2-code/logo_python.png) <br/> MSAL.Python | Développement en cours, en version préliminaire publique |
-| ![Java](media/sample-v2-code/logo_java.png) <br/> MSAL.Java | Développement en cours, en version préliminaire publique |
+| ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | Les plateformes prises en charge sont .NET Framework et .NET Core (et non UWP, Xamarin.iOS et Xamarin.Android, car ces plateformes sont utilisées pour créer des applications clientes publiques) |
+| ![Python](media/sample-v2-code/logo_python.png) <br/> MSAL.Python | Développement en cours, en préversion publique |
+| ![Java](media/sample-v2-code/logo_java.png) <br/> MSAL.Java | Développement en cours, en préversion publique |
 
-## <a name="aspnet-core-configuration"></a>Configuration d’ASP.NET Core
+## <a name="aspnet-core-configuration"></a>Configuration de la plateforme ASP.NET Core
 
-Dans ASP.NET Core, les choses se produisent dans le `Startup.cs` fichier. Vous souhaitez vous abonner à la `OnAuthorizationCodeReceived` ouvrir ID événement connect et à partir de cet événement, appelez MSAL. Méthode de NET `AcquireTokenFromAuthorizationCode` qui a pour effet de stockage dans le cache de jeton, le jeton d’accès pour les étendues demandées et un jeton d’actualisation qui sera utilisé pour actualiser le jeton d’accès lorsqu’il est proche d’expiration, ou pour obtenir un jeton pour le compte de l’utilisateur , mais pour une autre ressource.
+Dans ASP.NET Core, le fichier `Startup.cs` connait un certain nombre de modifications. Vous devez vous abonner à l’événement `OnAuthorizationCodeReceived` d’Open ID Connect et, à partir de cet événement, appeler la méthode MSAL.NET appelée `AcquireTokenFromAuthorizationCode`, qui a pour effet de stocker les données dans le cache de jetons, le jeton d’accès pour les portées demandées et un jeton d’actualisation qui permettra d’actualiser le jeton d’accès si sa date d’expiration approche, ou d’obtenir un jeton pour le compte du même utilisateur, mais pour une autre ressource.
 
-Les commentaires dans le code ci-dessous vous aidera à comprendre certains aspects difficiles de tisser MSAL.NET et ASP.NET Core
+Les commentaires du code ci-dessous vous aideront à comprendre certains aspects difficiles liés à l’utilisation de MSAL.NET et ASP.NET Core.
 
 ```CSharp
   services.Configure<OpenIdConnectOptions>(AzureADDefaults.OpenIdScheme, options =>
@@ -88,7 +88,7 @@ Les commentaires dans le code ci-dessous vous aidera à comprendre certains aspe
    };
 ```
 
-Dans ASP.NET Core, la génération de l’application de client confidentiel utilise les informations qui se trouve dans le HttpContext. Cette HttpContext connaît l’URL pour l’application Web et que l’utilisateur connecté (dans un `ClaimsPrincipal`). Il utilise également la configuration d’ASP.NET Core, qui a une section « AzureAD », et qui est lié à la `_applicationOptions` structure de données. Enfin, l’application doit gérer les caches de jeton.
+Dans ASP.NET Core, la génération de l’application cliente confidentielle utilise les informations figurant dans HttpContext. Ce paramètre HttpContext connaît l’URL de l’application web ainsi que l’utilisateur connecté (dans un élément `ClaimsPrincipal`). Par ailleurs, il utilise la configuration ASP.NET Core, qui inclut une section « AzureAD » et est liée à la structure de données `_applicationOptions`. Enfin, l’application doit gérer les caches de jetons.
 
 ```CSharp
 /// <summary>
@@ -128,11 +128,11 @@ private IConfidentialClientApplication BuildConfidentialClientApplication(HttpCo
 }
 ```
 
-`AcquireTokenByAuthorizationCode` vraiment échanger le code d’autorisation demandé par ASP.NET et obtient les jetons qui sont ajoutés au cache de jeton utilisateur MSAL.NET. À partir de là, ils sont ensuite utilisés dans les contrôleurs ASP.NET Core.
+`AcquireTokenByAuthorizationCode` accepte le code d’autorisation demandé par ASP.NET et obtient les jetons qui sont ajoutés au cache de jetons utilisateur MSAL.NET. Ensuite, ils sont utilisés dans les contrôleurs ASP.NET Core.
 
-## <a name="aspnet-configuration"></a>Configuration ASP.NET
+## <a name="aspnet-configuration"></a>Configuration de la plateforme ASP.NET Core
 
-La manière dont ASP.NET gère les choses est similaire, à ceci près que la configuration de OpenIdConnect et l’abonnement à la `OnAuthorizationCodeReceived` événement se produit dans le `App_Start\Startup.Auth.cs` fichier. Vous trouverez des concepts similaires, sauf qu’ici, vous devez spécifier l’URI de redirection dans le fichier de configuration, qui est un peu moins fiable :
+La manière dont ASP.NET gère ses opérations est similaire, à ceci près que la configuration d’OpenIdConnect et l’abonnement à l’événement `OnAuthorizationCodeReceived` se produit dans le fichier `App_Start\Startup.Auth.cs`. Vous trouverez des concepts similaires, sauf qu’ici, vous devez spécifier l’URI de redirection dans le fichier de configuration, qui est un peu moins robuste :
 
 ```CSharp
 private void ConfigureAuth(IAppBuilder app)
@@ -182,18 +182,18 @@ private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotifica
 }
 ```
 
-### <a name="msalnet-token-cache-for-a-aspnet-core-web-app"></a>Cache de jeton de MSAL.NET pour une application Web ASP.NET (cœurs)
+### <a name="msalnet-token-cache-for-a-aspnet-core-web-app"></a>Cache de jetons MSAL.NET pour une application web ASP.NET (Core)
 
-Dans les applications web (ou web API comme une question de faits), l’implémentation de cache de jeton est différente des implémentations de cache de jeton d’applications bureautiques (qui sont souvent [fichier basé](scenario-desktop-acquire-token.md#file-based-token-cache). Il peut utiliser la session ASP.NET/ASP.NET Core, ou un cache Redis, une base de données ou même stockage Blob Azure. Dans le code extrait de code ci-dessus Ceci est l’objet de la `EnablePersistence(HttpContext, clientApp.UserTokenCache, clientApp.AppTokenCache);` appel de méthode qui lie un service de cache. Les détails de ce qui se produit ici dépasse le cadre de ce guide de scénario, mais des liens sont fournis ci-dessous.
+Dans les applications web (et API web, en fait), l’implémentation du cache de jetons diffère d’une implémentation de cache de jetons d’applications de bureau (souvent [basée sur des fichiers](scenario-desktop-acquire-token.md#file-based-token-cache)). Elle peut utiliser la session ASP.NET/ASP.NET Core, ou un cache Redis, une base de données, voire Azure Storage Blob. Dans l’extrait de code ci-dessus, il s’agit de l’objet de l’appel de méthode `EnablePersistence(HttpContext, clientApp.UserTokenCache, clientApp.AppTokenCache);`, qui lie un service de cache. Ce guide basé sur des scénarios n’aborde pas en détail ce qui se produit ici, mais vous trouverez des liens ci-dessous.
 
 > [!IMPORTANT]
-> Un élément très important à observer est que pour les applications web et API web, il doit y avoir un cache de jeton par utilisateur (par compte). Vous devez sérialiser le cache de jetons pour chaque compte.
+> Un point essentiel à retenir est que, pour les applications et API web, il doit y avoir un seul cache de jetons par utilisateur (par compte). Vous devez sérialiser le cache de jetons pour chaque compte.
 
-Exemples montrant comment utiliser les caches de jeton pour les applications Web et API web sont disponibles dans le [didacticiel d’application Web ASP.NET Core](https://github.com/Azure-Samples/ms-identity-aspnetcore-webapp-tutorial) dans la phase [Cache de jeton 2-2](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-2-TokenCache). Pour obtenir des implémentations, examinez le dossier [TokenCacheProviders](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet/tree/master/src/Microsoft.Identity.Client.Extensions.Web/TokenCacheProviders) dans la bibliothèque [microsoft-authentification-extensions-for-dotnet](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet) dans le dossier [ Microsoft.Identity.Client.Extensions.Web](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet/tree/master/src/Microsoft.Identity.Client.Extensions.Web).
+Des exemples d’utilisation de caches de jetons pour des applications et API web sont disponibles dans le [tutoriel sur les applications web ASP.NET Core](https://github.com/Azure-Samples/ms-identity-aspnetcore-webapp-tutorial), à l’étape [2-2 Cache de jetons](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-2-TokenCache). Pour obtenir des implémentations, examinez le dossier [TokenCacheProviders](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet/tree/master/src/Microsoft.Identity.Client.Extensions.Web/TokenCacheProviders) dans la bibliothèque [microsoft-authentification-extensions-for-dotnet](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet) dans le dossier [ Microsoft.Identity.Client.Extensions.Web](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet/tree/master/src/Microsoft.Identity.Client.Extensions.Web).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-À ce stade, lorsque l’utilisateur se connecte un jeton est stocké dans le cache de jetons. Nous allons voir comment il est ensuite utilisé dans d’autres parties de l’application Web.
+À ce stade, lorsque l’utilisateur se connecte, un jeton est stocké dans le cache de jetons. Nous allons voir comment il est ensuite utilisé dans d’autres parties de l’application web.
 
 > [!div class="nextstepaction"]
-> [Connectez-vous à l’application Web](scenario-web-app-call-api-sign-in.md)
+> [Connexion à l’application web](scenario-web-app-call-api-sign-in.md)

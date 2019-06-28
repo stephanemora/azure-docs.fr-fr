@@ -1,6 +1,6 @@
 ---
-title: Configurer des règles de pare-feu d’applications Web personnalisées à l’aide d’Azure PowerShell
-description: Découvrez comment configurer des règles de pare-feu d’applications Web personnalisés à l’aide d’Azure PowerShell
+title: Configurer des règles personnalisées de pare-feu d’applications web à l’aide d’Azure PowerShell
+description: Découvrez comment configurer des règles personnalisées WAF à l’aide d’Azure PowerShell
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
@@ -8,29 +8,29 @@ ms.topic: article
 ms.date: 6/7/2019
 ms.author: victorh
 ms.openlocfilehash: f7215c4f35d36486b8dda483f34bc487cc16fc69
-ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66743059"
 ---
-# <a name="configure-web-application-firewall-with-a-custom-rule-using-azure-powershell"></a>Configurer des pare-feu d’applications Web avec une règle personnalisée à l’aide d’Azure PowerShell
+# <a name="configure-web-application-firewall-with-a-custom-rule-using-azure-powershell"></a>Configurer le pare-feu d’applications web avec une règle personnalisée à l’aide d’Azure PowerShell
 
 <!--- If you make any changes to the PowerShell in this article, also make the change in the corresponding Sample file: azure-docs-powershell-samples/application-gateway/waf-rules/waf-custom-rules.ps1 --->
 
-Règles personnalisées permettent de créer vos propres règles évaluées pour chaque requête qui passe par le biais du pare-feu d’applications Web (WAF). Ces règles contiennent une priorité plus élevée que le reste des règles dans les ensembles de règles managé. Les règles personnalisées ont une action (autoriser ou bloquer), une condition de correspondance et un opérateur pour permettre la personnalisation complète.
+Les règles personnalisées vous permettent de créer vos propres règles évaluées pour chaque requête qui passe par le pare-feu d'applications Web (WAF). Ces règles ont une priorité plus élevée que les autres règles des ensembles de règles gérés. Les règles personnalisées ont une action (autoriser ou bloquer), une condition de correspondance, et un opérateur pour permettre une personnalisation complète.
 
-Cet article crée une Application Gateway WAF qui utilise une règle personnalisée. Les blocs de règle personnalisée du trafic si l’en-tête de demande contient User-Agent *evilbot*.
+Cet article crée un pare-feu d'applications Web (WAF) Application Gateway qui utilise une règle personnalisée. Les règles personnalisées bloquent le trafic si l’en-tête de la requête contient User-Agent *evilbot*.
 
-Pour voir d’autres exemples de règle personnalisée, consultez [créer et utiliser règles de pare-feu d’application web personnalisée](create-custom-waf-rules.md)
+Pour voir d’autres exemples de règle personnalisée, consultez [Créer et utiliser des règles de pare-feu d’applications web personnalisées](create-custom-waf-rules.md)
 
-Si vous souhaitez exécuter Azure PowerShell dans cet article dans un script continu que vous pouvez copier, coller et exécuter, consultez [exemples PowerShell pour Azure Application Gateway](powershell-samples.md).
+Si vous voulez exécuter l’instance Azure PowerShell de cet article dans un script continu que vous pouvez copier, coller et exécuter, consultez [Exemples PowerShell Azure Application Gateway](powershell-samples.md).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 ### <a name="azure-powershell-module"></a>Module Azure PowerShell
 
-Si vous choisissez d’installer et utiliser Azure PowerShell en local, ce script nécessite le module Azure PowerShell version 2.1.0 ou version ultérieure.
+Si vous choisissez d’installer et d’utiliser Azure PowerShell en local, ce script exige le module Azure PowerShell version 2.1.0 ou ultérieure.
 
 1. Pour connaître la version de l’interface, exécutez `Get-Module -ListAvailable Az`. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-az-ps).
 2. Pour créer une connexion avec Azure, exécutez `Connect-AzAccount`.
@@ -73,7 +73,7 @@ $publicip = New-AzPublicIpAddress -ResourceGroupName $rgname -name "AppGwIP" `
   -location $location -AllocationMethod Static -Sku Standard
 ```
 
-### <a name="create-pool-and-frontend-port"></a>Créer le port de pool et le serveur frontal
+### <a name="create-pool-and-frontend-port"></a>Créer un port de pool et de serveur frontal
 
 ```azurepowershell
 $gwSubnet = Get-AzVirtualNetworkSubnetConfig -Name "appgwSubnet" -VirtualNetwork $vnet
@@ -88,7 +88,7 @@ $pool = New-AzApplicationGatewayBackendAddressPool -Name "pool1" `
 $fp01 = New-AzApplicationGatewayFrontendPort -Name "port1" -Port 80
 ```
 
-### <a name="create-a-listener-http-setting-rule-and-autoscale"></a>Créer un écouteur, un paramètre http, une règle et une mise à l’échelle
+### <a name="create-a-listener-http-setting-rule-and-autoscale"></a>Créer un écouteur, un paramètre http, une règle et une mise à l’échelle automatique
 
 ```azurepowershell
 $listener01 = New-AzApplicationGatewayHttpListener -Name "listener1" -Protocol Http `
@@ -134,4 +134,4 @@ $appgw = New-AzApplicationGateway -Name $appgwName -ResourceGroupName $rgname `
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[En savoir plus sur les pare-feu d’applications Web](waf-overview.md)
+[En savoir plus sur le pare-feu d’application Web](waf-overview.md)

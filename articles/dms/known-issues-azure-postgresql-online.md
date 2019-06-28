@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 04/23/2019
-ms.openlocfilehash: 83c5401298d2682328da4e45d150d2d0416601fc
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.openlocfilehash: 2c8a3f36e04fbedfdd127939d55fab376e3e6b30
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/14/2019
 ms.locfileid: "64691952"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-db-for-postgresql"></a>Problèmes connus/limitations de migration dans le cadre des migrations en ligne vers Azure DB pour PostgreSQL
@@ -27,7 +27,7 @@ Les sections suivantes décrivent les problèmes connus et limitations associés
 - Seules les migrations dans la même région sont prises en charge. Par exemple, une migration PostgreSQL 9.5.11 à Azure Database pour PostgreSQL 9.6.7 n’est pas prise en charge.
 
     > [!NOTE]
-    > Pour PostgreSQL version 10, DMS seulement prend en charge la migration de la version 10.3 à base de données Azure pour PostgreSQL. Nous avons l’intention de prendre en charge des versions plus récentes de PostgreSQL très bientôt.
+    > Pour PostgreSQL version 10, DMS prend uniquement en charge la migration de la version 10.3 vers Azure Database pour PostgreSQL. Nous prévoyons très prochainement de prendre en charge des versions plus récentes de PostgreSQL.
 
 - Pour activer la réplication logique dans le fichier **postgresql.config PostgreSQL source**, définissez les paramètres suivants :
     - **wal_level** = logique
@@ -101,7 +101,7 @@ Les colonnes LOB (Large Object) peuvent devenir volumineuses. Pour PostgreSQL, l
     SELECT max(length(cast(body as text))) as body FROM customer_mail
     ```
 
-    **Solution de contournement** : Si vous disposez d’objet métier qui est supérieure à 32 Ko, contactez l’équipe d’ingénierie à [poser de Migrations de base de données Azure](mailto:AskAzureDatabaseMigrations@service.microsoft.com).
+    **Solution de contournement** : si vous disposez d’un objet LOB de plus de 32 Ko, contactez l’équipe d’ingénierie en cliquant ici : [Demander à l’équipe de migration de base de données Azure](mailto:AskAzureDatabaseMigrations@service.microsoft.com).
 
 - **Limitation** : Si la table contient des colonnes LOB et si aucune clé primaire n’est définie pour la table, les données de cette table peuvent ne pas être migrées.
 

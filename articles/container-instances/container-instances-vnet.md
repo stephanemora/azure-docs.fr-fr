@@ -8,15 +8,15 @@ ms.topic: article
 ms.date: 03/26/2019
 ms.author: danlep
 ms.openlocfilehash: 25f9d4e02bcb354acf1c771157622f07c5f4bcc1
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64712806"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Déployer des instance de conteneur dans un réseau virtuel Azure
 
-[Réseau virtuel Azure](../virtual-network/virtual-networks-overview.md) fournit la mise en réseau privé et sécurisé pour votre Azure et les ressources locales. En déployant des groupes de conteneurs dans un réseau virtuel Azure, vos conteneurs peuvent communiquer en toute sécurité avec d’autres ressources dans le réseau virtuel.
+Un [réseau virtuel Azure](../virtual-network/virtual-networks-overview.md) fournit un accès réseau privé et sécurisé à vos ressources Azure et locales. En déployant des groupes de conteneurs dans un réseau virtuel Azure, vos conteneurs peuvent communiquer en toute sécurité avec d’autres ressources dans le réseau virtuel.
 
 Les groupes de conteneurs déployés dans un réseau virtuel Azure autorisent les scénarios suivants :
 
@@ -39,7 +39,7 @@ Certaines limitations s’appliquent lorsque vous déployez des groupes de conte
 
 ## <a name="preview-limitations"></a>Limitations de la version préliminaire
 
-Bien que cette fonctionnalité est disponible en version préliminaire, les limitations suivantes s’appliquent lors du déploiement de groupes de conteneurs à un réseau virtuel. 
+Cette fonctionnalité est en préversion, mais les limitations suivantes s’appliquent lors du déploiement de groupes de conteneurs dans un réseau virtuel. 
 
 [!INCLUDE [container-instances-vnet-limits](../../includes/container-instances-vnet-limits.md)]
 
@@ -47,12 +47,12 @@ Les limites des ressources de conteneur peuvent différer des limites des instan
 
 ### <a name="unsupported-networking-scenarios"></a>Scénarios de mise en réseau non pris en charge 
 
-* **Azure Load Balancer** -placer un équilibreur de charge Azure devant les instances de conteneur dans un groupe de conteneurs en réseau n’est pas pris en charge.
-* **Homologation de réseaux virtuels** -vous ne pouvez pas homologuer un réseau virtuel contenant un sous-réseau délégué sur Azure Container Instances à un autre réseau virtuel
-* **Tables de routage** -itinéraires définis par l’utilisateur ne peut pas être configurés dans un sous-réseau délégué à Azure Container Instances
-* **Groupes de sécurité réseau** -règles de sécurité de trafic sortant dans des groupes de sécurité réseau appliqués à un sous-réseau délégué à Azure Container Instances ne sont pas actuellement appliqués 
-* **Étiquette DNS ou adresse IP publique** -groupes de conteneurs déployés sur un réseau virtuel ne prend actuellement en charge l’exposition conteneurs directement sur internet avec une adresse IP publique ou un nom de domaine complet
-* **Résolution de noms interne** -résolution de noms pour les ressources Azure dans le réseau virtuel via le DNS Azure interne n’est pas pris en charge.
+* **Azure Load Balancer** - Le placement d’un équilibreur de charge Azure devant des instances de conteneurs dans un groupe de conteneurs en réseau n’est pas pris en charge.
+* **Peering de réseaux virtuels** - Vous ne pouvez pas appairer un réseau virtuel contenant un sous-réseau délégué à Azure Container Instances avec un autre réseau virtuel.
+* **Tables de routage** - Vous ne pouvez pas configurer des routes définies par l’utilisateur dans un sous-réseau délégué à Azure Container Instances.
+* **Groupes de sécurité réseau** - Les règles de sécurité de trafic sortant dans les groupes de sécurité réseau appliquées à un sous-réseau délégué à Azure Container Instances ne sont pas appliquées actuellement. 
+* **Étiquette DNS ou adresse IP publique** - Les groupes de conteneurs déployés sur un réseau virtuel ne prennent actuellement pas en charge l’exposition de conteneurs directement sur Internet avec une adresse IP publique ou un nom de domaine complet.
+* **Résolution de noms interne** - La résolution de noms pour les ressources Azure dans le réseau virtuel par le biais du système DNS Azure interne n’est pas prise en charge.
 
 La **suppression de ressources réseau** requiert des [étapes supplémentaires](#delete-network-resources) après le déploiement de groupes de conteneurs dans le réseau virtuel.
 
@@ -117,7 +117,7 @@ Les sections suivantes décrivent comment déployer des groupes de conteneurs da
 
 Tout d’abord, déployez un groupe de conteneurs et spécifiez les paramètres d’un nouveau réseau virtuel et d’un nouveau sous-réseau. Lorsque vous spécifiez ces paramètres, Azure crée le réseau virtuel et le sous-réseau, délègue le sous-réseau à Azure Container instances et crée un profil réseau. Une fois ces ressources créées, votre groupe de conteneurs est déployé dans le sous-réseau.
 
-Exécutez la commande [az container create][az-container-create] qui spécifie les paramètres d’un nouveau réseau virtuel et d’un nouveau sous-réseau. Vous devez fournir le nom d’un groupe de ressources qui a été créé dans une région qui [prend en charge](#preview-limitations) des groupes de conteneurs dans un réseau virtuel. Cette commande déploie le public Microsoft [aci-helloworld] [ aci-helloworld] conteneur qui exécute un petit serveur Web des Node.js desservant une page web statique. Dans la section suivante, vous allez déployer un deuxième groupe de conteneurs dans le même sous-réseau et tester la communication entre les deux instances de conteneur.
+Exécutez la commande [az container create][az-container-create] qui spécifie les paramètres d’un nouveau réseau virtuel et d’un nouveau sous-réseau. Vous devez fournir le nom d’un groupe de ressources qui a été créé dans une région qui [prend en charge](#preview-limitations) des groupes de conteneurs dans un réseau virtuel. Cette commande déploie le conteneur Microsoft [aci-helloworld][aci-helloworld] public qui exécute un petit serveur web Node.js qui gère une page web statique. Dans la section suivante, vous allez déployer un deuxième groupe de conteneurs dans le même sous-réseau et tester la communication entre les deux instances de conteneur.
 
 ```azurecli
 az container create \
@@ -265,7 +265,7 @@ az container delete --resource-group myResourceGroup --name appcontaineryaml -y
 
 La préversion initiale de cette fonctionnalité nécessite plusieurs commandes supplémentaires pour supprimer les ressources réseau que vous avez créées. Si vous avez utilisé les exemples de commande dans les sections précédentes de cet article pour créer votre réseau virtuel et votre sous-réseau, vous pouvez utiliser le script suivant pour supprimer ces ressources réseau.
 
-Avant d’exécuter le script, attribuez à la variable `RES_GROUP` le nom du groupe de ressources contenant le réseau virtuel et le sous-réseau à supprimer. Mettre à jour les noms du réseau virtuel et du sous-réseau si vous n’avez pas utilisé le `aci-vnet` et `aci-subnet` noms proposées précédemment. Le script est mis en forme pour l’interpréteur de commandes Bash. Si vous préférez un autre interpréteur de commandes, PowerShell ou l’invite de commande, vous devrez ajuster les variables et les accesseurs en conséquence.
+Avant d’exécuter le script, attribuez à la variable `RES_GROUP` le nom du groupe de ressources contenant le réseau virtuel et le sous-réseau à supprimer. Mettez à jour les noms du réseau virtuel et du sous-réseau si vous n’avez pas utilisé les noms `aci-vnet` et `aci-subnet` suggérés précédemment. Le script est mis en forme pour l’interpréteur de commandes Bash. Si vous préférez un autre interpréteur de commandes, PowerShell ou l’invite de commande, vous devrez ajuster les variables et les accesseurs en conséquence.
 
 > [!WARNING]
 > Ce script supprime les ressources ! Le réseau virtuel et tous les sous-réseaux qu’il contient sont supprimés. Assurez-vous de n’avoir plus besoin *des* ressources du réseau virtuel, y compris des sous-réseaux qu’il contient, avant d’exécuter ce script. Une fois supprimées, **ces ressources sont irrécupérables**.

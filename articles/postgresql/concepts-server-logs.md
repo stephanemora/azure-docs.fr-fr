@@ -1,19 +1,19 @@
 ---
-title: Journaux du serveur de base de données Azure pour PostgreSQL - serveur unique
-description: Cet article décrit comment Azure Database pour PostgreSQL - monoserveur génère la requête et les journaux des erreurs et la configuration de rétention du journal.
+title: Journaux de serveur dans Azure Database pour PostgreSQL - Serveur unique
+description: Cet article explique comment Azure Database pour PostgreSQL - Serveur unique génère les journaux des requêtes et des erreurs et comment la rétention de journal est configurée.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: 4d1cf2c59e324cedd9b747b1ac65d6edcb9deb45
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65067350"
 ---
-# <a name="server-logs-in-azure-database-for-postgresql---single-server"></a>Journaux du serveur de base de données Azure pour PostgreSQL - serveur unique
+# <a name="server-logs-in-azure-database-for-postgresql---single-server"></a>Journaux de serveur dans Azure Database pour PostgreSQL - Serveur unique
 La base de données Azure pour PostgreSQL génère des journaux d’activité des requêtes et des erreurs. Les journaux d’activité des requêtes et des erreurs peuvent être utilisés pour identifier, résoudre et réparer les erreurs de configuration et les problèmes de performances. (L’accès aux journaux d’activité des transactions n’est pas pris en charge.) 
 
 ## <a name="configure-logging"></a>Configuration de la journalisation 
@@ -28,10 +28,10 @@ Si vous avez activé les journaux d’activité, vous pouvez y accéder à parti
 
 
 ## <a name="diagnostic-logs"></a>Journaux de diagnostic
-Azure Database pour PostgreSQL est intégré aux journaux de diagnostic Azure Monitor. Une fois que vous avez activé les journaux sur votre serveur PostgreSQL, vous pouvez choisir pour qu’elles soient émis vers [Azure Monitor enregistre](../azure-monitor/log-query/log-query-overview.md), Event Hubs ou stockage Azure. Pour en savoir plus sur l’activation des journaux de diagnostic, consultez la section des procédures de la [documentation des journaux de diagnostic](../azure-monitor/platform/diagnostic-logs-overview.md). 
+Azure Database pour PostgreSQL est intégré aux journaux de diagnostic Azure Monitor. Une fois que vous avez activé les journaux sur votre serveur PostgreSQL, vous pouvez choisir qu’ils soient transmis vers des [journaux Azure Monitor](../azure-monitor/log-query/log-query-overview.md), des Event Hubs ou Stockage Azure. Pour en savoir plus sur l’activation des journaux de diagnostic, consultez la section des procédures de la [documentation des journaux de diagnostic](../azure-monitor/platform/diagnostic-logs-overview.md). 
 
 > [!IMPORTANT]
-> Cette fonctionnalité de diagnostique pour les journaux de serveur est uniquement disponible dans l’usage général et à mémoire optimisée [niveaux tarifaires](concepts-pricing-tiers.md).
+> Cette fonctionnalité de diagnostic des journaux de serveur n’est disponible que dans les [niveaux tarifaires](concepts-pricing-tiers.md) Usage général et Mémoire optimisée.
 
 Le tableau suivant décrit ce que contient chaque journal. En fonction du point de terminaison de sortie choisi, les champs et l’ordre dans lequel ils apparaissent peuvent varier. 
 

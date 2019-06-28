@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 06/06/2019
 ms.author: Kumud
 ms.openlocfilehash: ec68038a5b0fe7edca095e0d9b190d5da09c8e82
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66754705"
 ---
 # <a name="metrics-and-health-diagnostics-for-standard-load-balancer"></a>Métriques et diagnostics d’intégrité du Load Balancer Standard
@@ -31,13 +31,13 @@ Cet article propose une présentation rapide de ces fonctionnalités et des mét
 
 ## <a name = "MultiDimensionalMetrics"></a>Métriques multidimensionnelles
 
-Azure Load Balancer offre de nouvelles métriques multidimensionnelles via nouvelles métriques Azure dans le portail Azure, et il permet d’obtenir des informations de diagnostics en temps réel dans votre charge de ressources d’équilibrage. 
+Azure Load Balancer fournit les nouvelles métriques multidimensionnelles via Nouvelles métriques Azure dans le Portail Azure et vous permet d’obtenir des informations de diagnostic en temps réel sur vos ressources d’équilibreur de charge. 
 
 Les différentes configurations de Load Balancer Standard fournissent les métriques suivantes :
 
 | Métrique | Type de ressource | Description | Agrégation recommandée |
 | --- | --- | --- | --- |
-| Disponibilité de chemin d’accès de données (disponibilité VIP)| Équilibreur de charge public | Load Balancer Standard teste en continu le chemin de données d’une région vers le serveur frontal de l’équilibreur de charge, jusqu’à la pile SDN qui prend en charge votre machine virtuelle. Tant que les instances saines restent, la mesure suit le même chemin que le trafic à charge équilibrée de vos applications. Le chemin de données utilisé par vos clients est également validé. La mesure est invisible pour votre application et n’interfère pas avec les autres opérations.| Moyenne |
+| Disponibilité du chemin d’accès aux données (disponibilité VIP)| Équilibreur de charge public | Load Balancer Standard teste en continu le chemin de données d’une région vers le serveur frontal de l’équilibreur de charge, jusqu’à la pile SDN qui prend en charge votre machine virtuelle. Tant que les instances saines restent, la mesure suit le même chemin que le trafic à charge équilibrée de vos applications. Le chemin de données utilisé par vos clients est également validé. La mesure est invisible pour votre application et n’interfère pas avec les autres opérations.| Moyenne |
 | État de la sonde d’intégrité (disponibilité DIP) |  Équilibreur de charge interne et public | Load Balancer Standard utilise un service de détection d’intégrité distribué qui surveille l’intégrité du point de terminaison de votre application en fonction de vos paramètres de configuration. Cette métrique fournit un agrégat ou une vue filtrée par point de terminaison de chaque point de terminaison d’instance dans le pool de l’équilibreur de charge. Vous pouvez observer comment Load Balancer voit l’intégrité de votre application comme indiqué par votre configuration de sonde d’intégrité. |  Moyenne |
 | Paquets SYN (synchroniser) |  Équilibreur de charge public | Load Balancer Standard ne termine pas les connexions Transmission Control Protocol (TCP) et n’interagit pas avec les flux de paquets UDP ou TCP. Les flux et leurs établissements de liaisons sont toujours entre la source et l’instance de machine virtuelle. Pour mieux résoudre les problèmes posés par vos scénarios de protocole TCP, vous pouvez utiliser les compteurs de paquets SYN pour comprendre le nombre de tentatives de connexion TCP effectuées. La métrique indique le nombre de paquets SYN TCP reçus.| Moyenne |
 | Connexions SNAT |  Équilibreur de charge public |Load Balancer Standard indique le nombre de flux sortants usurpés sur le serveur frontal d’adresse IP public. Les ports de traduction d'adresses réseau source (SNAT) constituent une ressource épuisable. Cette métrique peut donner une idée de l’importance du rôle joué par SNAT dans votre application pour les flux sortants. Les compteurs relatifs aux flux SNAT sortants réussis et mis en échec sont indiqués et peuvent être utilisés pour comprendre l’intégrité de vos flux sortants et résoudre les problèmes associés.| Moyenne |
@@ -46,18 +46,18 @@ Les différentes configurations de Load Balancer Standard fournissent les métri
 
 ### <a name="view-your-load-balancer-metrics-in-the-azure-portal"></a>Afficher vos métriques d’équilibreur de charge dans le portail Azure
 
-Le portail Azure expose les mesures d’équilibrage de charge via la page métriques, qui est disponible sur la page de ressources de l’équilibreur de charge pour une ressource particulière et de la page Azure Monitor. 
+Le Portail Azure présente les métriques d’équilibreur de charge via la page Métriques, qui est disponible sur la page de ressource d’équilibreur de charge pour une ressource spécifique, ainsi que sur la page Azure Monitor. 
 
 Pour afficher les métriques de vos ressources de Load Balancer Standard :
-1. Accédez à la page de métriques et effectuez une des opérations suivantes :
+1. Accédez à la page Métriques et effectuez l’une des opérations suivantes :
    * Sur la page de ressource d’équilibreur de charge, sélectionnez le type de métrique dans la liste déroulante.
    * Sur la page Azure Monitor, sélectionnez la ressource d’équilibreur de charge.
 2. Définissez le type d’agrégation appropriée.
 3. Éventuellement, configurez le filtrage et le regroupement requis.
 
-    ![Mesures d’équilibrage de charge Standard](./media/load-balancer-standard-diagnostics/lbmetrics1anew.png)
+    ![Métriques pour Standard Load Balancer](./media/load-balancer-standard-diagnostics/lbmetrics1anew.png)
 
-    *Figure : Métrique de disponibilité de chemin d’accès de données pour l’équilibreur de charge Standard*
+    *Figure : Métrique de disponibilité du chemin d’accès aux données pour Standard Load Balancer*
 
 ### <a name="retrieve-multi-dimensional-metrics-programmatically-via-apis"></a>Récupérer les métriques multidimensionnelles par programme via des API
 
@@ -72,15 +72,15 @@ La métrique de disponibilité d’adresse IP virtuelle décrit l’intégrité 
 - Aller plus loin et savoir si la plateforme sur laquelle votre service est déployé est intègre ou si votre système d’exploitation invité ou instance d’application est intègre.
 - Déterminez si un événement est associé à votre service ou au plan de données sous-jacent. Ne confondez pas cette métrique avec l’état de la sonde d’intégrité (« disponibilité DIP »).
 
-Pour obtenir la disponibilité de chemin d’accès de données pour vos ressources Load Balancer Standard :
+Pour obtenir la disponibilité du chemin d’accès aux données pour vos ressources Load Balancer Standard :
 1. Assurez-vous que la ressource d’équilibreur de charge correcte est sélectionnée. 
-2. Dans le **métrique** liste déroulante, sélectionnez **disponibilité de chemin d’accès de données**. 
+2. Dans la liste déroulante **Métrique**, sélectionnez **Disponibilité du chemin d’accès aux données**. 
 3. Dans la liste déroulante **Agrégation**, sélectionnez **Moy**. 
-4. En outre, ajoutez un filtre sur l’adresse IP de Frontend ou le port frontal comme dimension avec l’adresse IP frontale requis ou le port frontal et puis de les regrouper par la dimension sélectionnée.
+4. De plus, ajoutez un filtre sur l’adresse IP du serveur frontal ou le port frontal comme dimension avec l’adresse IP de serveur frontal ou le port de serveur frontal requis, puis regroupez-les en fonction de la dimension sélectionnée.
 
 ![Détection d’adresse IP virtuelle](./media/load-balancer-standard-diagnostics/LBMetrics-VIPProbing.png)
 
-*Figure : Serveur frontal d’équilibrage de détails de la détection de charge*
+*Figure : Détails de la détection d’adresse IP frontale du Load Balancer*
 
 La métrique est générée par une mesure intrabande active. Un service de détection dans la région provient du trafic pour la mesure. Le service est activé dès que vous créez un déploiement avec un serveur frontal public, et il continue de fonctionner tant que vous ne supprimez pas le serveur frontal. 
 
@@ -93,7 +93,7 @@ La disponibilité d’adresse IP virtuelle échoue pour les raisons suivantes :
 - Il ne reste plus de machines virtuelles intègres du pool principal dans votre déploiement. 
 - Une panne s’est produite au niveau de l’infrastructure.
 
-À des fins de diagnostic, vous pouvez utiliser la [métrique de disponibilité de chemin d’accès de données avec l’état de la sonde d’intégrité](#vipavailabilityandhealthprobes).
+À des fins de diagnostics, vous pouvez utiliser la [métrique de disponibilité du chemin d’accès aux données avec l’état de la sonde d’intégrité](#vipavailabilityandhealthprobes).
 
 Utilisez une agrégation **Moyenne** pour la plupart des scénarios.
 
@@ -101,9 +101,9 @@ Utilisez une agrégation **Moyenne** pour la plupart des scénarios.
 
 La métrique d’état de la sonde d’intégrité indique l’intégrité de votre déploiement d’application tel que vous l’avez configuré lors de la configuration de la sonde d’intégrité de votre équilibreur de charge. L’équilibreur de charge utilise l’état de la sonde d’intégrité pour déterminer où envoyer les nouveaux flux. Les sondes d’intégrité proviennent d’une adresse d’infrastructure Azure et sont visibles dans le système d’exploitation invité de la machine virtuelle.
 
-Pour obtenir l’état de la sonde d’intégrité de vos ressources de l’équilibreur de charge Standard :
-1. Sélectionnez le **sonde l’état d’intégrité** métrique avec **Avg** type d’agrégation. 
-2. Appliquer un filtre sur l’adresse IP de Frontend requise port (ou les deux).
+Pour obtenir l’état de la sonde d’intégrité pour vos ressources Load Balancer Standard :
+1. Sélectionnez la métrique **État de la sonde d’intégrité** avec le type d’agrégation **Moy**. 
+2. Appliquez un filtre sur l’adresse IP frontale ou le port requis (ou les deux).
 
 Les sondes d’intégrité échouent pour les raisons suivantes :
 - Vous configurez une sonde d’intégrité pour un port qui n’écoute pas ou ne répond pas ou qui utilise le mauvais protocole. Si votre service utilise des règles de retour direct du serveur (DSR, ou adresse IP flottante), assurez-vous que le service écoute sur l’adresse IP de la configuration IP de la carte d’interface réseau, et pas seulement sur le bouclage configuré avec l’adresse IP de serveur frontal.
@@ -161,13 +161,13 @@ Vous pouvez utiliser des métriques de sonde d’intégrité pour comprendre com
 
 Vous pouvez aller plus loin et utiliser des métriques de disponibilité d’adresse IP virtuelle pour savoir comment Azure affiche l’intégrité du plan de données sous-jacent responsable de votre déploiement. Lorsque vous combinez les deux métriques, vous pouvez déterminer où l’erreur peut se situer comme illustré dans cet exemple :
 
-![Combinaison des métriques de disponibilité de chemin d’accès de données et de sondage de l’état d’intégrité](./media/load-balancer-standard-diagnostics/lbmetrics-dipnvipavailability-2bnew.png)
+![Combinaison des métriques de disponibilité du chemin d’accès aux données et de l’état de la sonde d’intégrité](./media/load-balancer-standard-diagnostics/lbmetrics-dipnvipavailability-2bnew.png)
 
-*Figure : Combinaison des métriques de disponibilité de chemin d’accès de données et de sondage de l’état d’intégrité*
+*Figure : Combinaison des métriques de disponibilité du chemin d’accès aux données et de l’état de la sonde d’intégrité*
 
 Ce graphique affiche les informations suivantes :
-- L’infrastructure d’hébergement de vos machines virtuelles a été indisponible et à 0 pour cent au début du graphique. Une version ultérieure, l’infrastructure était intègre les machines virtuelles ont été accessibles et plusieurs machines virtuelles a été placé dans le serveur principal. Cette information est indiquée par le trait bleu pour la disponibilité de chemin d’accès de données (disponibilité VIP), qui était ultérieur à 100 pour cent. 
-- L’état de la sonde d’intégrité (disponibilité DIP), indiquée par la trace violet, est à 0 pour cent au début du graphique. La zone d’entouré d’un cercle vert mises en surbrillance où l’état de la sonde d’intégrité (disponibilité DIP) est devenu intègre, et stade auquel le déploiement du client a été en mesure d’accepter de nouveaux flux.
+- L’infrastructure qui héberge vos machines virtuelles n’était pas disponible et à 0 pour cent au début du graphique. Plus tard, l’infrastructure était intègre, les machines virtuelles étaient accessibles et plusieurs machines virtuelles ont été placées dans le serveur principal. Ces informations sont représentées par le trait bleu pour la disponibilité du chemin d’accès aux données (disponibilité VIP), qui est de 100 %. 
+- L’état de la sonde d’intégrité (disponibilité DIP), indiqué par le trait violet, est à 0 % au début du graphique. La zone dans le cercle vert indique où l’état de la sonde d’intégrité (disponibilité DIP) est devenu intègre, et à quel point le déploiement du client a été en mesure d’accepter de nouveaux flux.
 
 Le graphique permet aux clients de dépanner eux-mêmes le déploiement sans devoir deviner ou demander de l’aide sur d’autres problèmes. Le service n’était pas disponible, car les sondes d’intégrité ont échoué en raison d’une configuration incorrecte ou de l’échec d’une application.
 

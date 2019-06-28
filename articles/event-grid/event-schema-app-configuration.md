@@ -1,6 +1,6 @@
 ---
-title: Schéma d’événements Azure Event Grid Configuration de l’application Azure
-description: Décrit les propriétés qui sont fournies pour les événements de Configuration de l’application Azure avec Azure Event Grid
+title: Schéma d’événements pour Azure App Configuration dans Azure Event Grid
+description: Décrit les propriétés fournies pour les événements Azure App Configuration avec Azure Event Grid.
 services: event-grid
 author: jimmyca
 ms.service: event-grid
@@ -8,30 +8,30 @@ ms.topic: reference
 ms.date: 05/30/2019
 ms.author: jimmyca
 ms.openlocfilehash: fe0274f723692eea3cfd25cc0e9e146b35dce2ae
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66735780"
 ---
-# <a name="azure-event-grid-event-schema-for-azure-app-configuration"></a>Schéma d’événement Azure Event Grid pour la Configuration d’application Azure
+# <a name="azure-event-grid-event-schema-for-azure-app-configuration"></a>Schéma des événements Azure Event Grid pour Azure App Configuration
 
-Cet article fournit les propriétés et un schéma pour les événements de Configuration de l’application Azure. Pour une présentation des schémas d’événements, consultez [Schéma d’événements Azure Event Grid](event-schema.md).
+Cet article fournit les propriétés et le schéma des événements Azure App Configuration. Pour une présentation des schémas d’événements, consultez [Schéma d’événements Azure Event Grid](event-schema.md).
 
-Pour obtenir la liste des exemples de scripts et des didacticiels, consultez [source d’événements de Configuration de l’application Azure](event-sources.md#app-configuration).
+Pour obtenir la liste des exemples de scripts et des tutoriels, consultez la section relative à la [source d’événements Azure App Configuration](event-sources.md#app-configuration).
 
 ## <a name="available-event-types"></a>Types d’événement disponibles
 
-Configuration de l’application Azure émet des types d’événements suivants :
+Azure App Configuration propose les types d’événements suivants :
 
 | Type d'événement | Description |
 | ---------- | ----------- |
-| Microsoft.AppConfiguration.KeyValueModified | Déclenché lorsqu’une valeur de clé est créée ou remplacée. |
-| Microsoft.AppConfiguration.KeyValueDeleted | Déclenché lorsqu’une valeur de clé est supprimée. |
+| Microsoft.AppConfiguration.KeyValueModified | Émis lorsqu’une valeur de clé est créée ou remplacée. |
+| Microsoft.AppConfiguration.KeyValueDeleted | Émis lorsqu’une valeur de clé est supprimée. |
 
 ## <a name="example-event"></a>Exemple d’événement
 
-L’exemple suivant montre le schéma d’un événement de modification de clé-valeur : 
+L’exemple suivant montre le schéma d’un événement de valeur de clé modifié : 
 
 ```json
 [{
@@ -50,7 +50,7 @@ L’exemple suivant montre le schéma d’un événement de modification de clé
 }]
 ```
 
-Le schéma pour un événement deleted clé-valeur est similaire : 
+Le schéma d’un événement de valeur de clé supprimé est similaire : 
 
 ```json
 [{
@@ -75,25 +75,25 @@ Un événement contient les données générales suivantes :
 
 | Propriété | Type | Description |
 | -------- | ---- | ----------- |
-| topic | string | Chemin d’accès complet à la source de l’événement. Ce champ n’est pas modifiable. Event Grid fournit cette valeur. |
-| subject | string | Chemin de l’objet de l’événement, défini par le serveur de publication. |
-| eventType | string | Un des types d’événements inscrits pour cette source d’événement. |
-| eventTime | string | L’heure à quelle l’événement est généré selon l’heure UTC du fournisseur. |
-| id | string | Identificateur unique de l’événement. |
-| data | objet | Données d’événement App Configuration. |
-| dataVersion | string | Version du schéma de l’objet de données. Le serveur de publication définit la version du schéma. |
-| metadataVersion | string | Version du schéma des métadonnées d’événement. Event Grid définit le schéma des propriétés de niveau supérieur. Event Grid fournit cette valeur. |
+| rubrique | chaîne | Chemin d’accès complet à la source de l’événement. Ce champ n’est pas modifiable. Event Grid fournit cette valeur. |
+| subject | chaîne | Chemin de l’objet de l’événement, défini par le serveur de publication. |
+| eventType | chaîne | Un des types d’événements inscrits pour cette source d’événement. |
+| eventTime | chaîne | L’heure à quelle l’événement est généré selon l’heure UTC du fournisseur. |
+| id | chaîne | Identificateur unique de l’événement. |
+| données | objet | Données de l’événement App Configuration. |
+| dataVersion | chaîne | Version du schéma de l’objet de données. Le serveur de publication définit la version du schéma. |
+| metadataVersion | chaîne | Version du schéma des métadonnées d’événement. Event Grid définit le schéma des propriétés de niveau supérieur. Event Grid fournit cette valeur. |
 
 L’objet de données comporte les propriétés suivantes :
 
 | Propriété | Type | Description |
 | -------- | ---- | ----------- |
-| key | string | La clé de la valeur de clé qui a été modifiée ou supprimée. |
-| label | string | L’étiquette, le cas échéant, de la valeur de clé qui a été modifiée ou supprimée. |
-| etag | string | Pour `KeyValueModified` l’etag de la nouvelle valeur de clé. Pour `KeyValueDeleted` l’etag de la valeur de clé qui a été supprimée. |
+| key | chaîne | Clé de la valeur de clé qui a été modifiée ou supprimée. |
+| label | chaîne | Clé de la valeur de clé qui a été modifiée ou supprimée. |
+| etag | chaîne | Pour le paramètre `KeyValueModified`, etag de la nouvelle valeur de clé. Pour le paramètre `KeyValueDeleted`, etag de la valeur de clé qui a été supprimée. |
  
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour une présentation d’Azure Event Grid, consultez [Présentation d’Event Grid](overview.md).
 * Pour plus d’informations sur la création d’un abonnement Azure Event Grid, consultez [Schéma d’abonnement à Event Grid](subscription-creation-schema.md).
-* Pour une introduction à l’utilisation des événements de Configuration de l’application Azure, consultez [événements de Configuration de l’application Azure Route - Azure CLI](../azure-app-configuration/howto-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json). 
+* Pour découvrir les événements Azure App Configuration et savoir comment les utiliser, voir [Démarrage rapide : Router des événements Azure App Configuration vers un point de terminaison web avec Azure CLI](../azure-app-configuration/howto-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json). 

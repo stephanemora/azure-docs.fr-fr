@@ -11,10 +11,10 @@ ms.subservice: msi
 manager: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0809423472bde0240145d43f4c28d9594b517928
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65518685"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Services Azure qui prennent en charge les identités managées pour ressources Azure
@@ -32,8 +32,8 @@ Les services Azure prenant en charge les identités managées pour les ressource
 
 | Type d'identité managée | Toutes mises à la disposition générale<br>Régions Azure à l'échelle internationale | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | --- | --- | --- | --- |
-| Attribuée par le système | Disponible | VERSION PRÉLIMINAIRE | VERSION PRÉLIMINAIRE | VERSION PRÉLIMINAIRE | 
-| Attribuée par l'utilisateur | VERSION PRÉLIMINAIRE | VERSION PRÉLIMINAIRE | VERSION PRÉLIMINAIRE | VERSION PRÉLIMINAIRE |
+| Attribuée par le système | Disponible | PRÉVERSION | PRÉVERSION | PRÉVERSION | 
+| Attribuée par l'utilisateur | PRÉVERSION | PRÉVERSION | PRÉVERSION | PRÉVERSION |
 
 Reportez-vous à la liste suivante pour configurer l'identité managée des machines virtuelles Azure (dans les régions où elles sont disponibles) :
 
@@ -47,8 +47,8 @@ Reportez-vous à la liste suivante pour configurer l'identité managée des mach
 
 |Type d'identité managée | Toutes mises à la disposition générale<br>Régions Azure à l'échelle internationale | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | --- | --- | --- | --- |
-| Attribuée par le système | Disponible | VERSION PRÉLIMINAIRE | VERSION PRÉLIMINAIRE | VERSION PRÉLIMINAIRE |
-| Attribuée par l'utilisateur | VERSION PRÉLIMINAIRE | VERSION PRÉLIMINAIRE | VERSION PRÉLIMINAIRE | VERSION PRÉLIMINAIRE |
+| Attribuée par le système | Disponible | PRÉVERSION | PRÉVERSION | PRÉVERSION |
+| Attribuée par l'utilisateur | PRÉVERSION | PRÉVERSION | PRÉVERSION | PRÉVERSION |
 
 Reportez-vous à la liste suivante pour configurer l'identité managée des groupes Azure Virtual Machine Scale Sets (dans les régions où ils sont disponibles) :
 
@@ -63,7 +63,7 @@ Reportez-vous à la liste suivante pour configurer l'identité managée des grou
 | Type d'identité managée | Toutes mises à la disposition générale<br>Régions Azure à l'échelle internationale | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | --- | --- | --- | --- |
 | Attribuée par le système | Disponible | Disponible | Disponible | Disponible |
-| Attribuée par l'utilisateur | VERSION PRÉLIMINAIRE | Indisponible | Indisponible | Indisponible |
+| Attribuée par l'utilisateur | PRÉVERSION | Non disponible | Non disponible | Non disponible |
 
 Reportez-vous à la liste suivante pour configurer l'identité managée d'Azure App Service (dans les régions où il est disponible) :
 
@@ -76,20 +76,20 @@ Reportez-vous à la liste suivante pour configurer l'identité managée d'Azure 
 
 |Type d'identité managée | Toutes mises à la disposition générale<br>Régions Azure à l'échelle internationale | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | --- | --- | --- | --- |
-| Affecté(e) par le système | VERSION PRÉLIMINAIRE | Indisponible | Indisponible | Indisponible |
-| Affecté(e) par l'utilisateur | VERSION PRÉLIMINAIRE | Indisponible | Indisponible | Indisponible |
+| Attribuée par le système | PRÉVERSION | Non disponible | Non disponible | Non disponible |
+| Attribuée par l'utilisateur | PRÉVERSION | Non disponible | Non disponible | Non disponible |
 
-Reportez-vous à la liste suivante pour utiliser une identité gérée avec [Azure plans](../../governance/blueprints/overview.md):
+Reportez-vous à la liste suivante pour utiliser une identité managée avec [Azure Blueprints](../../governance/blueprints/overview.md) :
 
-- [Portail Azure - affectation de plan](../../governance/blueprints/create-blueprint-portal.md#assign-a-blueprint)
-- [API REST - affectation de plan](../../governance/blueprints/create-blueprint-rest-api.md#assign-a-blueprint)
+- [Portail Azure : attribution de blueprint](../../governance/blueprints/create-blueprint-portal.md#assign-a-blueprint)
+- [API REST : attribution de blueprint](../../governance/blueprints/create-blueprint-rest-api.md#assign-a-blueprint)
 
 ### <a name="azure-functions"></a>Azure Functions
 
 Type d'identité managée |Toutes mises à la disposition générale<br>Régions Azure à l'échelle internationale | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | --- | --- | --- | --- |
 | Attribuée par le système | Disponible | Disponible | Disponible | Disponible |
-| Attribuée par l'utilisateur | VERSION PRÉLIMINAIRE | Indisponible | Indisponible | Indisponible |
+| Attribuée par l'utilisateur | PRÉVERSION | Non disponible | Non disponible | Non disponible |
 
 Reportez-vous à la liste suivante pour configurer l'identité managée du service Azure Functions (dans les régions où il est disponible) :
 
@@ -102,8 +102,8 @@ Reportez-vous à la liste suivante pour configurer l'identité managée du servi
 
 Type d'identité managée | Toutes mises à la disposition générale<br>Régions Azure à l'échelle internationale | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | --- | --- | --- | --- |
-| Affecté(e) par le système | VERSION PRÉLIMINAIRE | VERSION PRÉLIMINAIRE | Indisponible | VERSION PRÉLIMINAIRE |
-| Affecté(e) par l'utilisateur | Indisponible | Indisponible | Indisponible | Indisponible |
+| Attribuée par le système | PRÉVERSION | PRÉVERSION | Non disponible | PRÉVERSION |
+| Attribuée par l'utilisateur | Non disponible | Non disponible | Non disponible | Non disponible |
 
 Reportez-vous à la liste suivante pour configurer l'identité managée du service Azure Logic Apps (dans les régions où il est disponible) :
 
@@ -114,8 +114,8 @@ Reportez-vous à la liste suivante pour configurer l'identité managée du servi
 
 Type d'identité managée | Toutes mises à la disposition générale<br>Régions Azure à l'échelle internationale | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | --- | --- | --- | --- |
-| Attribuée par le système | Disponible | Indisponible | Indisponible | Indisponible |
-| Attribuée par l'utilisateur | Indisponible | Indisponible | Indisponible | Indisponible |
+| Attribuée par le système | Disponible | Non disponible | Non disponible | Non disponible |
+| Attribuée par l'utilisateur | Non disponible | Non disponible | Non disponible | Non disponible |
 
 Reportez-vous à la liste suivante pour configurer l'identité managée du service Azure Data Factory V2 (dans les régions où il est disponible) :
 
@@ -128,8 +128,8 @@ Reportez-vous à la liste suivante pour configurer l'identité managée du servi
 
 Type d'identité managée | Toutes mises à la disposition générale<br>Régions Azure à l'échelle internationale | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | --- | --- | --- | --- |
-| Attribuée par le système | Disponible | Disponible | Indisponible | Indisponible |
-| Attribuée par l'utilisateur | Indisponible | Indisponible | Indisponible | Indisponible |
+| Attribuée par le système | Disponible | Disponible | Non disponible | Non disponible |
+| Attribuée par l'utilisateur | Non disponible | Non disponible | Non disponible | Non disponible |
 
 Reportez-vous à la liste suivante pour configurer l'identité managée du service de gestion des API Azure (dans les régions où il est disponible) :
 
@@ -139,8 +139,8 @@ Reportez-vous à la liste suivante pour configurer l'identité managée du servi
 
 Type d'identité managée | Toutes mises à la disposition générale<br>Régions Azure à l'échelle internationale | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | --- | --- | --- | --- |
-| Attribuée par le système | Linux : VERSION PRÉLIMINAIRE<br>Windows : Indisponible | Indisponible | Indisponible | Indisponible |
-| Attribuée par l'utilisateur | Linux : VERSION PRÉLIMINAIRE<br>Windows : Indisponible | Indisponible | Indisponible | Indisponible |
+| Attribuée par le système | Linux : PRÉVERSION<br>Windows : Non disponible | Non disponible | Non disponible | Non disponible |
+| Attribuée par l'utilisateur | Linux : PRÉVERSION<br>Windows : Non disponible | Non disponible | Non disponible | Non disponible |
 
 Reportez-vous à la liste suivante pour configurer l'identité managée du service Azure Container Instances (dans les régions où il est disponible) :
 
@@ -154,11 +154,11 @@ Les services suivants prennent en charge l’authentification Azure AD et ont é
 
 ### <a name="azure-resource-manager"></a>Azure Resource Manager
 
-Reportez-vous à la liste suivante pour configurer l’accès à Azure Resource Manager :
+Reportez-vous à la liste suivante pour configurer l’accès à Azure Resource Manager :
 
-- [Attribuer l’accès via le portail Azure](howto-assign-access-portal.md)
-- [Attribuer l’accès via Powershell](howto-assign-access-powershell.md)
-- [Attribuer l’accès via l’interface CLI Azure](howto-assign-access-CLI.md)
+- [Attribuer l’accès via le Portail Azure](howto-assign-access-portal.md)
+- [Attribuer l’accès via PowerShell](howto-assign-access-powershell.md)
+- [Attribuer l’accès via Azure CLI](howto-assign-access-CLI.md)
 - [Attribuer l’accès via le modèle Azure Resource Manager](../../role-based-access-control/role-assignments-template.md)
 
 | Cloud | ID de ressource | Statut |
@@ -182,9 +182,9 @@ Reportez-vous à la liste suivante pour configurer l’accès à Azure Resource 
 | Cloud | ID de ressource | Statut |
 |--------|------------|--------|
 | Azure Global | `https://datalake.azure.net/` | Disponible |
-| Azure Government |  | Indisponible |
-| Azure Germany |   | Indisponible |
-| Azure China 21Vianet |  | Indisponible |
+| Azure Government |  | Non disponible |
+| Azure Germany |   | Non disponible |
+| Azure China 21Vianet |  | Non disponible |
 
 ### <a name="azure-sql"></a>Azure SQL 
 
@@ -199,21 +199,21 @@ Reportez-vous à la liste suivante pour configurer l’accès à Azure Resource 
 
 | Cloud | ID de ressource | Statut |
 |--------|------------|--------|
-| Azure Global | `https://eventhubs.azure.net` | VERSION PRÉLIMINAIRE |
-| Azure Government |  | Indisponible |
-| Azure Germany |   | Indisponible |
-| Azure China 21Vianet |  | Indisponible |
+| Azure Global | `https://eventhubs.azure.net` | PRÉVERSION |
+| Azure Government |  | Non disponible |
+| Azure Germany |   | Non disponible |
+| Azure China 21Vianet |  | Non disponible |
 
 ### <a name="azure-service-bus"></a>Azure Service Bus
 
 | Cloud | ID de ressource | Statut |
 |--------|------------|--------|
-| Azure Global | `https://servicebus.azure.net`  | VERSION PRÉLIMINAIRE |
-| Azure Government |  | Indisponible |
-| Azure Germany |   | Indisponible |
-| Azure China 21Vianet |  | Indisponible |
+| Azure Global | `https://servicebus.azure.net`  | PRÉVERSION |
+| Azure Government |  | Non disponible |
+| Azure Germany |   | Non disponible |
+| Azure China 21Vianet |  | Non disponible |
 
-### <a name="azure-storage-blobs-and-queues"></a>Files d’attente et objets BLOB azure Storage
+### <a name="azure-storage-blobs-and-queues"></a>Objets blob et files d’attente Stockage Azure
 
 | Cloud | ID de ressource | Statut |
 |--------|------------|--------|

@@ -1,6 +1,6 @@
 ---
-title: Stratégies de la place de marché Azure et les conditions | Azure
-description: Termes et conditions place de marché Microsoft Azure s’appliquent à tous les éditeurs et offres de la place de marché Microsoft Azure.
+title: Stratégies et conditions de la Place de marché Azure | Azure
+description: Les stratégies et conditions de la Place de marché Microsoft Azure s’appliquent à l’ensemble des éditeurs et offres disponibles dans la Place de marché Microsoft Azure.
 services: Azure, Marketplace, AppSource
 author: qianw211
 ms.service: marketplace
@@ -8,33 +8,33 @@ ms.topic: article
 ms.date: 02/25/2019
 ms.author: v-qiwe
 ms.openlocfilehash: c5041e9f7b19508480ff27311ba61d180f4a5a01
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64937628"
 ---
 # <a name="azure-marketplace-policies-and-terms"></a>Stratégies et conditions de la Place de marché Azure
 
 >[!Note]
->« Place de marché » ou « Place de marché Azure » signifie que Microsoft détenu ou exploité plateforme toutefois nommé, par le biais duquel les offres peuvent être présentées à ou acquis par les clients. Sauf indication contraire, la place de marché inclut la place de marché Azure, AppSource et la place de marché du portail Azure.
+>« Place de marché » ou « Place de marché Azure » représente une plateforme détenue ou exploitée par Microsoft, quel qu’en soit le nom, par l’intermédiaire de laquelle des offres peuvent être présentées à des clients ou acquises par eux. Sauf indication contraire, la Place de marché comprend la Place de marché Azure, AppSource et la Place de marché du portail Azure.
 
-Merci pour votre intérêt de la publication d’offres sur la place de marché Azure. Nous nous engageons à assurer un partenariat avec vous pour créer une source riche de solutions de cloud et des offres commerciales, qui raviront les clients du monde entier et vous aider à développer votre activité.
+Nous vous remercions de l’intérêt que vous portez aux offres de publication sur la Place de marché Microsoft Azure. Nous nous engageons à travailler en partenariat avec vous pour créer une riche source de solutions cloud et une gamme d’offres commerciales qui satisferont les clients du monde entier et vous aideront à développer votre activité.
 
-Offres sur la place de marché doivent être conforme à nos politiques et les termes du contrat. Nous mettre à jour ces stratégies et les termes de temps à autre afin de garantir une bonne expérience au client et offrent des partenaires une opportunité réussisse. Si vous avez des commentaires sur nos stratégies ou les termes du contrat, faites-le nous savoir en fonction de commentaires dans le [forum place de marché Azure et AppSource](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/bd-p/2222).
+Les offres sur la Place de marché doivent être conformes à nos stratégies et conditions. Nous mettons à jour ces stratégies et conditions de temps à autre afin de garantir une bonne expérience au client et d’offrir à nos partenaires une opportunité de réussite. Si vous avez des commentaires sur nos stratégies ou nos conditions, faites-le nous savoir en publiant un commentaire dans le [forum sur la Place de marché Azure et AppSource](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/bd-p/2222).
 
-## <a name="policies-and-terms"></a>Stratégies et les termes du contrat
+## <a name="policies-and-terms"></a>Stratégies et les conditions
 
-* [Stratégies de certification place de marché Azure](https://docs.microsoft.com/legal/marketplace/certification-policies)
+* [Stratégies de certification de Place de marché Azure](https://docs.microsoft.com/legal/marketplace/certification-policies)
 
 * [Politiques concernant la participation](https://docs.microsoft.com/legal/marketplace/participation-policy)
 
 * [Stratégies d’évaluation et de révision](https://docs.microsoft.com/legal/marketplace/rating-review-policies)
 
-* [Termes du contrat de la place de marché Azure](https://docs.microsoft.com/legal/marketplace/terms)
+* [Conditions d’utilisation de la Place de marché Azure](https://docs.microsoft.com/legal/marketplace/terms)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Visitez le [guide de publication Azure Marketplace et AppSource](./marketplace-publishers-guide.md) page.
+Veuillez consulter la page [Guide de publication sur la Place de marché Azure et AppSource](./marketplace-publishers-guide.md).
 
 ---

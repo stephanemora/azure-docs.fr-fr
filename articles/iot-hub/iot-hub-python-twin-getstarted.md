@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: kgremban
 ms.openlocfilehash: 3e703c999d57cf62064291cf91059a17a959a2c3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61442625"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64569244"
 ---
 # <a name="get-started-with-device-twins-python"></a>Bien démarrer avec les jumeaux d’appareils (Python)
 
@@ -38,7 +38,7 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 * Un compte Azure actif. (Si vous ne possédez pas de compte, vous pouvez créer un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/) en quelques minutes seulement.)
 
 > [!NOTE]
-> Les packages *pip* pour `azure-iothub-service-client` et `azure-iothub-device-client` sont actuellement disponibles uniquement pour les systèmes d’exploitation Windows. Pour Linux/Mac OS, reportez-vous aux sections spécifiques de Linux et Mac OS sur le [préparer votre environnement de développement pour Python](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md) valider.
+> Les packages *pip* pour `azure-iothub-service-client` et `azure-iothub-device-client` sont actuellement disponibles uniquement pour les systèmes d’exploitation Windows. Pour Linux/Mac OS, reportez-vous aux sections spécifiques de Linux et Mac OS de la publication [Prepare your development environment for Python](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md) (Préparer votre environnement de développement pour Python).
 >
 
 ## <a name="create-an-iot-hub"></a>Créer un hub IoT
@@ -55,7 +55,7 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
 ## <a name="create-the-service-app"></a>Créer l’application de service
 
-Dans cette section, vous créez une application console Python qui ajoute des métadonnées d’emplacement au jumeau d’appareil associé à votre **{Device ID}**. Elle interroge ensuite les jumeaux d’appareils stockés dans le hub IoT en sélectionnant les appareils situés à Redmond, puis ceux qui signalent une connexion mobile.
+Dans cette section, vous créez une application console Python qui ajoute des métadonnées d’emplacement au jumeau d’appareil associé à votre **{ID d’appareil}** . Elle interroge ensuite les jumeaux d’appareils stockés dans le hub IoT en sélectionnant les appareils situés à Redmond, puis ceux qui signalent une connexion mobile.
 
 1. Ouvrez une invite de commandes et installez le **Kit de développement logiciel (SDK) Azure IoT Hub Service pour Python**. Fermez l’invite de commandes après avoir installé le Kit de développement logiciel (SDK).
 
@@ -74,7 +74,7 @@ Dans cette section, vous créez une application console Python qui ajoute des m�
    from iothub_service_client import IoTHubDeviceTwin, IoTHubError
    ```
 
-4. Ajoutez le code suivant, en remplaçant l’espace réservé pour `[IoTHub Connection String]` et `[Device Id]` avec la chaîne de connexion pour le hub IoT et l’ID d’appareil que vous avez créé dans les sections précédentes.
+4. Ajoutez le code suivant, en remplaçant la valeur d’espace réservé pour `[IoTHub Connection String]` et `[Device Id]` par la chaîne de connexion pour le hub IoT et l’ID d’appareil créés dans les sections précédentes.
   
     ```python
     CONNECTION_STRING = "[IoTHub Connection String]"
@@ -151,13 +151,13 @@ Dans cette section, vous créez une application console Python qui ajoute des m�
 
     Vous devriez voir un appareil dans les résultats de la requête demandant tous les appareils situés à **Redmond43**, et aucun pour la requête limitant les résultats aux appareils utilisant un réseau cellulaire.
 
-    ![première requête affichant tous les appareils à Redmond](./media/iot-hub-python-twin-getstarted/1-device-twins-python-service-sample.png)
+    ![Première requête affichant tous les appareils à Redmond](./media/iot-hub-python-twin-getstarted/1-device-twins-python-service-sample.png)
 
 Dans la section suivante, vous allez créer une application d’appareil qui transmet les informations de connectivité et modifie le résultat de la requête de la section précédente.
 
 ## <a name="create-the-device-app"></a>Créer l’application pour appareil
 
-Dans cette section, vous créez une application console Python qui se connecte à votre hub en tant que votre **{Device ID}**, puis met à jour son jumeau d’appareil signalées de propriétés pour contenir les informations qu’il est connecté à l’aide d’un réseau cellulaire.
+Dans cette section, vous allez créer une application console Python qui se connecte à votre hub en tant que votre **{ID d’appareil}** , puis met à jour les propriétés signalées de son jumeau d’appareil afin qu’elles contiennent les informations indiquant qu’il est connecté par le biais d’un réseau cellulaire.
 
 1. Ouvrez une invite de commandes et installez le **Kit de développement logiciel (SDK) Azure IoT Hub Service pour Python**. Fermez l’invite de commandes après avoir installé le Kit de développement logiciel (SDK).
 
@@ -264,7 +264,7 @@ Dans cette section, vous créez une application console Python qui se connecte �
     python AddTagsAndQuery.py
     ```
 
-    Cette fois votre **{Device ID}** doit apparaître dans les deux résultats de la requête.
+    Cette fois, votre **{ID d’appareil}** doit apparaître dans les résultats des deux requêtes.
 
     ![deuxième requête](./media/iot-hub-python-twin-getstarted/3-device-twins-python-service-sample.png)
 
@@ -276,6 +276,6 @@ Utilisez les ressources suivantes :
 
 * Envoyez des données de télémétrie à partir d’appareils en suivant le didacticiel [Bien démarrer avec IoT Hub](quickstart-send-telemetry-python.md).
 
-* Configurer des appareils à l’aide des propriétés souhaitées du jumeau d’appareil la [utilisation des propriétés souhaitées pour configurer des appareils](tutorial-device-twins.md) didacticiel.
+* Pour savoir comment configurer des appareils à l’aide des propriétés de jumeau d’appareil souhaitées, suivez le didacticiel [Utiliser des propriétés souhaitées pour configurer des appareils](tutorial-device-twins.md).
 
-* Contrôler les appareils de manière interactive (par exemple, activer un ventilateur à partir d’une application contrôlée par l’utilisateur), avec la [utiliser des méthodes directes](quickstart-control-device-python.md) didacticiel.
+* Pour savoir comment contrôler les appareils de façon interactive (par exemple pour mettre en marche un ventilateur à partir d’une application contrôlée par l’utilisateur), suivez le didacticiel [Utiliser des méthodes directes](quickstart-control-device-python.md).

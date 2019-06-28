@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: diberry
 ms.openlocfilehash: fdf5508475d868ccb8c271daaac7449d3c940301
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65073151"
 ---
 # <a name="understand-what-good-utterances-are-for-your-luis-app"></a>Comprendre ce que sont les bons énoncés pour votre application LUIS
@@ -76,11 +76,11 @@ Il est préférable de commencer avec quelques énoncés, puis d’[examiner les
 
 ## <a name="utterance-normalization"></a>Normalisation de l’énoncé
 
-Normalisation de l’énoncé est le processus d’ignorer les effets des signes de ponctuation et les signes diacritiques au cours de formation et de prédiction.
+La normalisation de l’énoncé est le processus qui consiste à ignorer les effets de la ponctuation et des signes diacritiques au cours de la formation et de la prédiction.
 
-## <a name="utterance-normalization-for-diacritics-and-punctuation"></a>Normalisation énoncé pour les signes diacritiques et la ponctuation
+## <a name="utterance-normalization-for-diacritics-and-punctuation"></a>Normalisation de l’énoncé pour les signes diacritiques et la ponctuation
 
-Normalisation de l’énoncé est définie lorsque vous créez ou importez l’application, car il s’agit d’un paramètre dans le fichier JSON d’application. Les paramètres de normalisation énoncé sont désactivées par défaut. 
+La normalisation de l’énoncé est définie lorsque vous créez ou importez l’application, car il s’agit d’un paramètre dans le fichier JSON de l’application. Les paramètres de normalisation de l’énoncé sont désactivés par défaut. 
 
 Les signes diacritiques sont des marques ou des signes dans le texte, par exemple : 
 
@@ -88,9 +88,9 @@ Les signes diacritiques sont des marques ou des signes dans le texte, par exempl
 İ ı Ş Ğ ş ğ ö ü
 ```
 
-Si votre application active la normalisation, les scores dans le **Test** volet, les tests par lot et les requêtes de point de terminaison change pour tous les énoncés à l’aide de signes diacritiques ou ponctuation.
+Si votre application active la normalisation, les scores dans le volet **Test**, les tests par lot et les requêtes de point de terminaison changent pour tous les énoncés utilisant des signes diacritiques ou de la ponctuation.
 
-Activer la normalisation énoncé pour les signes diacritiques ou des signes de ponctuation à votre fichier d’application LUIS JSON dans le `settings` paramètre.
+Activez la normalisation de l’énoncé pour les signes diacritiques ou la ponctuation dans votre fichier d’application LUIS JSON avec le paramètre `settings`.
 
 ```JSON
 "settings": [
@@ -99,22 +99,22 @@ Activer la normalisation énoncé pour les signes diacritiques ou des signes de 
 ] 
 ```
 
-Normalisation **ponctuation** signifie qu’avant de former vos modèles et avant votre point de terminaison des requêtes get prédite, ponctuation sera retirée énoncés. 
+La normalisation de la **ponctuation** signifie qu’avant la formation de vos modèles et avant la prédiction de vos requêtes de point de terminaison, la ponctuation est retirée des énoncés. 
 
-Normalisation **les signes diacritiques** remplace les caractères avec les signes diacritiques dans énoncés avec les caractères normaux. Par exemple : `Je parle français` devient `Je parle francais`. 
+La normalisation des **signes diacritiques** remplace les caractères avec des signes diacritiques dans les énoncés par des caractères normaux. Par exemple : `Je parle français` devient `Je parle francais`. 
 
-Normalisation ne signifie pas que vous allez pas voir ponctuation et les signes diacritiques dans votre énoncés d’exemple ou des réponses de prédiction, simplement qu’elles seront ignorées pendant l’apprentissage et de prédiction.
+La normalisation ne signifie pas que la ponctuation et les signes diacritiques ne s’affichent pas dans vos exemples d’énoncés ou de réponses de prédiction, mais ils seront ignorés pendant la formation et la prédiction.
 
 
 ### <a name="punctuation-marks"></a>Signes de ponctuation
 
-Si la ponctuation n’est pas normalisée, LUIS n’ignore pas les marques de ponctuation, par défaut, étant donné que certaines applications clientes peuvent importance sur ces marques. Veillez à ce que vos exemples d’énoncés soient à la fois avec et sans signe de ponctuation afin que les deux styles retournent les mêmes scores relatifs. 
+Si la ponctuation n’est pas normalisée, LUIS n’ignore pas les marques de ponctuation, par défaut, car certaines applications clientes peuvent leur accorder une importance. Veillez à ce que vos exemples d’énoncés soient à la fois avec et sans signe de ponctuation afin que les deux styles retournent les mêmes scores relatifs. 
 
-Si la ponctuation n’a aucune signification spécifique dans votre application cliente, pensez [en ignorant les signes de ponctuation](#utterance-normalization) en normalisant les signes de ponctuation. 
+Si la ponctuation n’a aucune signification spécifique dans votre application cliente, vous pouvez [ignorer les signes de ponctuation](#utterance-normalization) en normalisant la ponctuation. 
 
 ### <a name="ignoring-words-and-punctuation"></a>Ignorer les mots et les signes de ponctuation
 
-Si vous souhaitez ignorer des mots ou des signes de ponctuation dans les modèles, utilisez un [modèle](luis-concept-patterns.md#pattern-syntax) avec la _ignorer_ syntaxe de crochets, `[]`. 
+Si vous souhaitez ignorer des mots ou des signes de ponctuation spécifiques dans des modèles, utilisez un [modèle](luis-concept-patterns.md#pattern-syntax) avec la syntaxe _ignore_ ou des crochets, `[]`. 
 
 ## <a name="training-utterances"></a>Énoncés de formation
 

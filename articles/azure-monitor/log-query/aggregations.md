@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
 ms.openlocfilehash: fd8e886a78d0689ca60d8ea7c4d16639c81d5733
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65602732"
 ---
 # <a name="aggregations-in-azure-monitor-log-queries"></a>Agrégations dans des requêtes Azure Monitor | Microsoft Docs
@@ -32,7 +32,7 @@ Cet article décrit les fonctions d’agrégation dans des requêtes de journaux
 ## <a name="counts"></a>Nombres
 
 ### <a name="count"></a>count
-Comptez le nombre de lignes du jeu de résultats une fois que tous les filtres sont appliqués. L’exemple suivant retourne le nombre total de lignes dans la table _Perf_ au cours des 30 dernières minutes. Le résultat est retourné dans une colonne nommée *count_*, sauf si vous lui attribuez un nom spécifique :
+Comptez le nombre de lignes du jeu de résultats une fois que tous les filtres sont appliqués. L’exemple suivant retourne le nombre total de lignes dans la table _Perf_ au cours des 30 dernières minutes. Le résultat est retourné dans une colonne nommée *count_* , sauf si vous lui attribuez un nom spécifique :
 
 
 ```Kusto
@@ -79,7 +79,7 @@ Heartbeat
 ```
 
 ### <a name="evaluating-subgroups"></a>Évaluation des sous-groupes
-Pour effectuer un compte ou d’autres agrégations de sous-groupes dans vos données, utilisez le mot clé `by`. Par exemple, pour compter le nombre d’ordinateurs Linux distincts qui ont envoyé des pulsations dans chaque pays/région :
+Pour effectuer un compte ou d’autres agrégations de sous-groupes dans vos données, utilisez le mot clé `by`. Par exemple, pour compter le nombre d’ordinateurs Linux distincts qui ont envoyé des pulsations dans chaque pays/région :
 
 ```Kusto
 Heartbeat 
@@ -93,10 +93,10 @@ Heartbeat
 |Canada           | 3                   |
 |Irlande          | 0                   |
 |Royaume-Uni   | 0                   |
-|Pays-Bas      | 2                   |
+|Pays-bas      | 2                   |
 
 
-Pour analyser des sous-groupes encore plus petits de vos données, ajoutez des noms de colonnes supplémentaires à la section `by`. Par exemple, vous souhaiterez peut-être compter les ordinateurs distincts à partir de chaque pays/région par OSType :
+Pour analyser des sous-groupes encore plus petits de vos données, ajoutez des noms de colonnes supplémentaires à la section `by`. Par exemple, vous pouvez peut-être compter le nombre d’ordinateurs distincts de chaque pays/région par OSType :
 
 ```Kusto
 Heartbeat 
@@ -107,7 +107,7 @@ Heartbeat
 ## <a name="percentiles-and-variance"></a>Centiles et variance
 Lors de l’évaluation de valeurs numériques, il est courant d’en calculer la moyenne à l’aide de `summarize avg(expression)`. Les moyennes sont affectées par les valeurs extrêmes qui ne caractérisent que quelques cas. Pour résoudre ce problème, vous pouvez utiliser des fonctions moins sensibles telles que `median` ou `variance`.
 
-### <a name="percentile"></a>Centile
+### <a name="percentile"></a>Percentile
 Pour rechercher la valeur médiane, utilisez la fonction `percentile` avec une valeur pour spécifier le centile :
 
 ```Kusto

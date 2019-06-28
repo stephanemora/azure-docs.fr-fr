@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 06/08/2018
 ms.author: kumud
 ms.openlocfilehash: a560cc526e73f3ce7e851f2a545f9b16fa53b423
-ms.sourcegitcommit: 1d257ad14ab837dd13145a6908bc0ed7af7f50a2
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65501688"
 ---
 # <a name="disaster-recovery-using-azure-dns-and-traffic-manager"></a>Récupération d’urgence à l’aide d’Azure DNS et Traffic Manager
@@ -27,23 +27,23 @@ ms.locfileid: "65501688"
 La récupération d’urgence se concentre sur la récupération des fonctionnalités des applications en cas de perte grave. Pour choisir une solution de récupération d’urgence, les propriétaires de sociétés et de produits technologiques doivent d’abord déterminer le niveau de fonctionnalité requis lors d’un incident (indisponible, partiellement disponible avec fonctionnalités réduites, disponibilité retardée, ou entièrement disponible).
 La plupart des clients d’entreprise choisissent une architecture sur plusieurs régions pour assurer la résilience en cas de basculement au niveau de l’application ou de l’infrastructure. Les clients peuvent choisir différentes approches pour effectuer le basculement en conservant une haute disponibilité via une architecture redondante. Ils disposent notamment des approches suivantes :
 
-- **Actif / passif avec reprise progressive**: Dans cette solution de basculement, les machines virtuelles et autres appareils qui sont en cours d’exécution dans la région de secours ne sont pas actives jusqu'à ce qu’il est nécessaire pour le basculement. Cependant, l’environnement de production est répliqué vers une autre région sous la forme de sauvegardes, d’images de machine virtuelle ou de modèles Resource Manager. Ce mécanisme de basculement est économique mais son exécution complète prend plus de temps.
+- **Mode actif/passif avec reprise progressive** : dans cette solution de basculement, les machines virtuelles et autres appliances exécutées dans la région de secours ne sont pas actives tant que le basculement n’est pas nécessaire. Cependant, l’environnement de production est répliqué vers une autre région sous la forme de sauvegardes, d’images de machine virtuelle ou de modèles Resource Manager. Ce mécanisme de basculement est économique mais son exécution complète prend plus de temps.
  
     ![Mode actif/passif avec reprise progressive](./media/disaster-recovery-dns-traffic-manager/active-passive-with-cold-standby.png)
     
     *Figure - Mode actif/passif avec configuration de récupération d’urgence Reprise progressive*
 
-- **Actif/passif avec pilote light**: Dans cette solution de basculement, l’environnement de secours est configuré avec une configuration minimale. Le programme d’installation n’exécute que les services nécessaires pour prendre en charge un jeu d’applications obligatoire minimal. Dans sa forme native, ce scénario peut uniquement exécuter des fonctionnalités minimales, mais il peut évoluer et générer des services supplémentaires pour prendre en bloc la charge de production si un basculement se produit.
+- **Mode actif/passif avec veilleuse** : dans cette solution de basculement, l’environnement de secours est configuré avec une configuration minimale. Le programme d’installation n’exécute que les services nécessaires pour prendre en charge un jeu d’applications obligatoire minimal. Dans sa forme native, ce scénario peut uniquement exécuter des fonctionnalités minimales, mais il peut évoluer et générer des services supplémentaires pour prendre en bloc la charge de production si un basculement se produit.
     
     ![Mode actif/passif avec veilleuse](./media/disaster-recovery-dns-traffic-manager/active-passive-with-pilot-light.png)
     
-    *Figure : Actif/passif avec la configuration de la récupération d’urgence light de pilote*
+    *Figure : Mode actif/passif avec configuration de récupération d’urgence Veilleuse*
 
-- **Actif/passif avec serveur de secours semi-automatique**: Dans cette solution de basculement, la région de secours est préalablement chauffée et est prête à reprendre la charge de base, mise à l’échelle automatique est activée, et toutes les instances sont en cours d’exécution. Cette solution n’est pas prévue pour assumer la totalité de la charge de production, mais elle est fonctionnelle, et tous les services sont opérationnels. Cette solution est une version augmentée de l’approche avec veilleuse.
+- **Mode actif/passif avec secours semi-automatique** : dans cette solution de basculement, la région de secours est préparée et prête à assumer la charge de base, la mise à l’échelle automatique est activée et toutes les instances sont opérationnelles. Cette solution n’est pas prévue pour assumer la totalité de la charge de production, mais elle est fonctionnelle, et tous les services sont opérationnels. Cette solution est une version augmentée de l’approche avec veilleuse.
     
     ![Mode actif/passif avec secours semi-automatique](./media/disaster-recovery-dns-traffic-manager/active-passive-with-warm-standby.png)
     
-    *Figure : Actif/passif avec la configuration de la récupération d’urgence de secours à chaud*
+    *Figure : Mode actif/passif avec configuration de récupération d’urgence Secours semi-automatique*
     
 Pour plus d’informations sur le basculement et la haute disponibilité, consultez [Récupération d’urgence pour les applications Azure](https://docs.microsoft.com/azure/architecture/resiliency/disaster-recovery-azure-applications).
 
@@ -58,7 +58,7 @@ Cet article concerne seulement les approches via la redirection du trafic résea
 DNS est l’un des mécanismes les plus efficaces pour rediriger le trafic réseau, car il est généralement mondial et externe au centre de données, et ainsi isolé des défaillances au niveau de la région ou de la zone de disponibilité. On peut utiliser un mécanisme de basculement basé sur DNS et, dans Azure, deux services DNS peuvent accomplir la même chose d’une certaine manière : Azure DNS (DNS faisant autorité) et Azure Traffic Manager (routage du trafic intelligent basé sur DNS). 
 
 Il est important de comprendre certains concepts DNS largement utilisés pour parler des solutions décrites dans cet article :
-- **DNS A Record** – les enregistrements sont des pointeurs qui pointent d’un domaine vers une adresse IPv4. 
+- **Enregistrement A DNS** : les enregistrements A sont des pointeurs qui pointent un domaine vers une adresse IPv4. 
 - **Nom CNAME ou canonique** : ce type d’enregistrement est utilisé pour pointer vers un autre enregistrement DNS. CNAME ne répond pas par une adresse IP, mais par le pointeur vers l’enregistrement qui contient l’adresse IP. 
 - **Routage basé sur la pondération** : on peut choisir d’associer un poids à des points de terminaison de service, puis répartir le trafic en fonction des poids attribués. Cette méthode de routage est l’un des quatre mécanismes de routage du trafic disponibles dans Traffic Manager. Pour plus d’informations, consultez la section [Méthode de routage basé sur la pondération](../traffic-manager/traffic-manager-routing-methods.md#weighted).
 - **Routage par priorité** : le routage par priorité est basé sur le contrôle de l’intégrité des points de terminaison. Par défaut, Azure Traffic Manager envoie tout le trafic vers le point de terminaison ayant la priorité la plus élevée et, en cas de défaillance ou d’incident, achemine le trafic vers le point de terminaison secondaire. Pour plus d’informations, consultez la section [Méthode de routage basé sur la priorité](../traffic-manager/traffic-manager-routing-methods.md#priority).
@@ -72,15 +72,15 @@ La solution de basculement manuel Azure DNS pour la récupération d’urgence u
 
 Les hypothèses formulées pour la solution sont :
 - Les points de terminaison principal et secondaire ont des adresses IP statiques qui ne changent pas souvent. Par exemple, l’adresse IP du site principal est 100.168.124.44 et celle du site secondaire 100.168.124.43.
-- Il existe une zone Azure DNS pour le site principal et pour le site secondaire. Par exemple, le point de terminaison pour le site principal est prod.contoso.com et pour le site de sauvegarde dr.contoso.com. Un enregistrement DNS pour l’application principale appelé www\.contoso.com existe également.   
+- Il existe une zone Azure DNS pour le site principal et pour le site secondaire. Par exemple, le point de terminaison pour le site principal est prod.contoso.com et pour le site de sauvegarde dr.contoso.com. Il existe également un enregistrement DNS pour l’application principale appelé \.www.contoso.com.   
 - La durée de vie est égale ou inférieure à la valeur RTO du SLA définie dans l’organisation. Par exemple, si une entreprise définit le RTO de réponse à l’incident de l’application sur 60 minutes, la durée de vie doit être inférieure à 60 minutes, de préférence la plus faible valeur possible. 
   Vous pouvez configurer Azure DNS de la façon suivante pour le basculement manuel :
 - Création d’une zone DNS
 - Création d’enregistrements de zone DNS
 - Mise à jour de l’enregistrement CNAME
 
-### <a name="step-1-create-a-dns"></a>Étape 1 : Créer un serveur DNS
-Créer une zone DNS (par exemple, www\.contoso.com) comme indiqué ci-dessous :
+### <a name="step-1-create-a-dns"></a>Étape 1 : Créer un DNS
+Procédez comme suit pour créer une zone DNS (par exemple, www\.contoso.com) :
 
 ![Création d’une zone DNS dans Azure](./media/disaster-recovery-dns-traffic-manager/create-dns-zone.png)
 
@@ -88,13 +88,13 @@ Créer une zone DNS (par exemple, www\.contoso.com) comme indiqué ci-dessous :
 
 ### <a name="step-2-create-dns-zone-records"></a>Étape 2 : Création d’enregistrements de zone DNS
 
-Dans cette zone, créez trois enregistrements (par exemple, www\.contoso.com, prod.contoso.com et dr.consoto.com) comme indiqué ci-dessous.
+Dans cette zone, créez trois enregistrements (par exemple, www\.contoso.com, prod.contoso.com et dr.consoto.com), comme illustré ci-dessous.
 
 ![Création d’enregistrements de zone DNS](./media/disaster-recovery-dns-traffic-manager/create-dns-zone-records.png)
 
 *Figure - Création d’enregistrements de zone DNS dans Azure*
 
-Dans ce scénario, le site, le www\.contoso.com a une durée de vie de 30 minutes, qui est bien en deçà de la RTO indiquée et pointe vers le prod.contoso.com de site de production. Cette configuration est vraie pour les opérations commerciales normales. La durée de vie de prod.contoso.com et de dr.contoso.com a été définie sur 300 secondes soit 5 minutes. Vous pouvez utiliser un service de surveillance tel qu’Azure Monitor ou Azure App Insights, ou encore une solution de surveillance de partenaire comme Dynatrace. Vous pouvez également utiliser votre propre solution capable de surveiller ou de détecter des défaillances au niveau de l’application ou de l’infrastructure virtuelle.
+Dans ce scénario, le site www\.contoso.com a une durée de vie de 30 minutes, ce qui est bien inférieur au RTO annoncé, et pointe vers le site de production prod.contoso.com. Cette configuration est vraie pour les opérations commerciales normales. La durée de vie de prod.contoso.com et de dr.contoso.com a été définie sur 300 secondes soit 5 minutes. Vous pouvez utiliser un service de surveillance tel qu’Azure Monitor ou Azure App Insights, ou encore une solution de surveillance de partenaire comme Dynatrace. Vous pouvez également utiliser votre propre solution capable de surveiller ou de détecter des défaillances au niveau de l’application ou de l’infrastructure virtuelle.
 
 ### <a name="step-3-update-the-cname-record"></a>Étape 3 : Mettre à jour l’enregistrement CNAME
 
@@ -104,7 +104,7 @@ Une fois la défaillance détectée, modifiez la valeur de l’enregistrement po
 
 *Figure - Mise à jour de l’enregistrement CNAME dans Azure*
 
-Dans les 30 minutes, pendant laquelle la plupart des programmes de résolution actualise le fichier de zone de mise en cache de requête à www\.contoso.com sera redirigé vers dr.contoso.com.
+Dans les 30 minutes, pendant lesquelles la plupart des programmes de résolution vont actualiser le fichier de zone mis en cache, toute requête sur www\.contoso.com sera redirigée vers dr.contoso.com.
 Vous pouvez également exécuter la commande d’interface de ligne de commande Azure suivante pour modifier la valeur CNAME :
  ```azurecli
    az network dns record-set cname set-record \
@@ -142,7 +142,7 @@ Créez un profil Azure Traffic Manager avec le nom contoso123 et sélectionnez l
 
 ![Créer un profil Traffic Manager](./media/disaster-recovery-dns-traffic-manager/create-traffic-manager-profile.png)
 
-*Figure - créer un profil Traffic Manager*
+*Figure : Créer un profil Traffic Manager*
 
 ### <a name="step-2-create-endpoints-within-the-traffic-manager-profile"></a>Étape 2 : Création des points de terminaison dans le profil Traffic Manager
 
@@ -155,7 +155,7 @@ De la même manière, créez le point de terminaison de récupération d’urgen
 
 ### <a name="step-3-set-up-health-check-and-failover-configuration"></a>Étape 3 : Configuration du contrôle d’intégrité et vérification du basculement
 
-Au cours de cette étape, vous définissez la durée de vie du DNS sur 10 secondes, une durée respectée par la plupart des programmes de résolution récursifs sur Internet. Cette configuration signifie qu’aucun programme de résolution DNS ne mettra en cache les informations pendant plus de 10 secondes. Pour les paramètres de surveillance du point de terminaison, le chemin d’accès est défini au / ou à la racine, mais vous pouvez personnaliser les paramètres du point de terminaison pour évaluer un chemin d’accès, par exemple, prod.contoso.com/index. Dans l’exemple ci-dessous, **https** est défini comme protocole de détection. Vous pouvez cependant choisir **http** ou **tcp**. Le choix du protocole dépend de l’application finale. L’intervalle de sondage est défini sur 10 secondes, ce qui permet une détection rapide. La nouvelle tentative est définie sur 3. Par conséquent, Traffic Manager bascule vers le deuxième point de terminaison si trois intervalles consécutifs enregistrent une défaillance. La formule suivante définit la durée totale pour un basculement automatisé : Temps de basculement = TTL + réessayer * approfondissement intervalle et dans ce cas, la valeur est 10 + 3 * 10 = 40 secondes (Max).
+Au cours de cette étape, vous définissez la durée de vie du DNS sur 10 secondes, une durée respectée par la plupart des programmes de résolution récursifs sur Internet. Cette configuration signifie qu’aucun programme de résolution DNS ne mettra en cache les informations pendant plus de 10 secondes. Pour les paramètres de surveillance du point de terminaison, le chemin d’accès est défini au / ou à la racine, mais vous pouvez personnaliser les paramètres du point de terminaison pour évaluer un chemin d’accès, par exemple, prod.contoso.com/index. Dans l’exemple ci-dessous, **https** est défini comme protocole de détection. Vous pouvez cependant choisir **http** ou **tcp**. Le choix du protocole dépend de l’application finale. L’intervalle de sondage est défini sur 10 secondes, ce qui permet une détection rapide. La nouvelle tentative est définie sur 3. Par conséquent, Traffic Manager bascule vers le deuxième point de terminaison si trois intervalles consécutifs enregistrent une défaillance. La formule suivante définit la durée totale d’un basculement automatisé : Durée du basculement = TTL + nouvelle tentative * intervalle de sondage et dans ce cas, la valeur est 10 + 3 * 10 = 40 secondes (maximum).
 Si Nouvelle tentative est défini sur 1 et Durée de vie sur 10 secondes, la durée du basculement sera 10 + 1 * 10 = 20 secondes. Définissez une valeur de Nouvelle tentative supérieure à **1** pour éliminer les risques de défaillances dues à des faux positifs ou à des spots réseau mineurs. 
 
 

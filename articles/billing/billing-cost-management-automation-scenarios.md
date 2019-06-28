@@ -16,10 +16,10 @@ ms.workload: billing
 ms.date: 6/13/2018
 ms.author: erikre
 ms.openlocfilehash: cb7a13d9abcf7c677d51f03df002ea06b543014e
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65232481"
 ---
 # <a name="automation-scenarios-for-billing-and-cost-management"></a>Scénarios d’automatisation de la facturation et de la gestion des coûts
@@ -48,11 +48,11 @@ Vous pouvez utiliser les API de facturation et de gestion des coûts dans plusie
 |:---------------------------:|:-------------------------:|:----------------:|:--------------------:|:----------------:|:------------------:|:---------:|
 | Budgets                     |                           |                  |           X          |                  |                    |     X     |
 | Marketplace Charges                |             X             |         X        |           X          |         X        |          X         |     X     |
-| Grille tarifaire                 |             X             |         X        |           X          |         X        |          X         |           |
+| Price Sheet                 |             X             |         X        |           X          |         X        |          X         |           |
 | Reservation Recommendations |                           |                  |           X          |                  |                    |           |
 | Reservation Details         |                           |                  |           X          |         X        |                    |           |
 | Reservation Summaries       |                           |                  |           X          |         X        |                    |           |
-| Détails d'utilisation               |             X             |         X        |           X          |         X        |          X         |     X     |
+| Usage Details               |             X             |         X        |           X          |         X        |          X         |     X     |
 | Billing Periods             |             X             |         X        |           X          |         X        |                    |           |
 | Factures                    |             X             |         X        |           X          |         X        |                    |           |
 | RateCard                    |             X             |                  |           X          |         X        |          X         |           |
@@ -143,4 +143,4 @@ Ces API fournissent des jeux de données similaires, mais concernent des publics
 
 - Pour comparer votre facture au fichier détaillé de l’utilisation quotidienne et aux rapports de gestion des coûts du portail Azure, consultez [Comprendre votre facture pour Microsoft Azure](billing-understand-your-bill.md).
 
-- Si vous avez des questions ou besoin d’aide, [créer une demande de support](https://go.microsoft.com/fwlink/?linkid=2083458).
+- Si vous avez des questions ou besoin d’aide, [créez une requête de support](https://go.microsoft.com/fwlink/?linkid=2083458).

@@ -1,6 +1,6 @@
 ---
-title: Examiner les cas avec la version préliminaire d’Azure Sentinel | Microsoft Docs
-description: Utilisez ce didacticiel pour apprendre à étudier le cas avec Azure Sentinel.
+title: Examiner les cas avec la préversion d’Azure Sentinel | Microsoft Docs
+description: Utilisez ce didacticiel pour apprendre à étudier les cas avec Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -15,13 +15,13 @@ ms.workload: na
 ms.date: 3/6/2019
 ms.author: rkarlin
 ms.openlocfilehash: d1da180d3b30b57ca2b69985bf3d0261b8d70c39
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65205518"
 ---
-# <a name="tutorial-investigate-cases-with-azure-sentinel-preview"></a>Didacticiel : Examiner les cas avec la version préliminaire d’Azure Sentinel
+# <a name="tutorial-investigate-cases-with-azure-sentinel-preview"></a>Didacticiel : Examiner les cas avec la préversion d’Azure Sentinel
 
 > [!IMPORTANT]
 > Azure Sentinel est actuellement disponible en préversion publique.
@@ -29,7 +29,7 @@ ms.locfileid: "65205518"
 
 Ce didacticiel vous aide à détecter les menaces avec Azure Sentinel.
 
-Après avoir [vos sources de données connectées](quickstart-onboard.md) à Azure Sentinel, vous souhaitez être averti en cas de quelque chose suspectes. Pour vous permettre de procéder, Sentinel Azure vous permet de que créer des avancées règles d’alerte, qui génèrent des cas que vous pouvez affecter et les utiliser pour examiner profondément les anomalies et menaces dans votre environnement. 
+Une fois [connecté à vos sources de données](quickstart-onboard.md) à Azure Sentinel, vous souhaitez être averti en cas d’activité suspecte. Pour vous permettre de l’être, Azure Sentinel vous permet de créer des règles d’alerte avancées, qui génèrent des cas que vous pouvez attribuer et utiliser pour examiner en détail les anomalies et les menaces dans votre environnement. 
 
 > [!div class="checklist"]
 > * Créer des cas
@@ -38,41 +38,41 @@ Après avoir [vos sources de données connectées](quickstart-onboard.md) à Azu
 
 ## <a name="investigate-cases"></a>Enquêter sur des cas
 
-Un cas peut inclure plusieurs alertes. Il est une agrégation de toutes les preuves pertinentes pour une investigation spécifique. Un incident est créé en fonction des alertes que vous avez définies dans le **Analytique** page. Les propriétés relatives aux alertes, telles que le statut et de gravité sont définies au niveau du cas. Une fois que vous informer Azure Sentinel quels types de menaces que vous recherchez et pour obtenir ces informations, vous pouvez surveiller les menaces sont détectées en étudiant les cas. 
+Un cas peut inclure plusieurs alertes. C’est une agrégation de toutes les preuves pertinentes pour une investigation spécifique. Un cas est créé en fonction des alertes que vous avez définies sur la page **Analytics**. Les propriétés relatives aux alertes, telles que l’état et la gravité sont définies au niveau du cas. Après avoir informé Azure Sentinel des types de menaces que vous recherchez et de comment les trouver, vous pouvez surveiller les menaces détectées en étudiant des cas. 
 
-1. Sélectionnez **cas**. Le **cas** page vous permet de savoir combien de cas vous avez, combien sont ouvrir, combien vous avez défini à **en cours d’exécution**, et combien est fermés. Pour chaque cas, vous pouvez voir l’heure et l’état de la casse. Examinez la gravité de décider ce qu’il faut gérer le premier. Dans le **cas** , cliquez sur le **alertes** onglet pour afficher toutes les alertes qui sont associées à un incident. Les entités que vous avez mappés précédemment comme partie de la casse peut être affiché dans le **entités** onglet.  Vous pouvez filtrer les cas en fonction des besoins, par exemple par état ou gravité. Lorsque vous examinez le **cas** onglet, vous verrez les incidents ouverts qui contiennent les alertes déclenchées par les règles de détection définis dans **Analytique**. Dans la partie supérieure, vous verrez vos cas actifs, les nouveaux cas et dans les cas de progression. Vous pouvez également voir une vue d’ensemble de tous les cas votre par gravité.
+1. Sélectionnez **Cas**. La page **cas** vous permet de savoir combien de cas vous avez, combien sont ouverts, combien vous avez défini sur **En cours**, et combien sont fermés. Pour chaque cas, vous pouvez voir l’heure à laquelle il s’est produit et son état. Examinez la gravité de décider ce qui doit être géré en premier. Sur la page **cas**, cliquez sur l’onglet **Alertes** pour afficher toutes les alertes associées à un cas. Les entités que vous avez mappées précédemment comme faisant partie du cas peuvent être affichées dans l’onglet **Entités**.  Vous pouvez filtrer les cas selon les besoins, par état ou par gravité par exemple. Lorsque vous examinez l’onglet **Cas**, vous verrez les cas ouverts qui contiennent des alertes déclenchées par vos règles de détection définies dans **Analytics**. Dans la partie supérieure, vous verrez vos cas actifs, les nouveaux cas et les cas en cours de traitement. Vous pouvez également afficher une vue d’ensemble de tous les cas par ordre de gravité.
 
-   ![Tableau de bord alerte](./media/tutorial-investigate-cases/cases.png)
+   ![Tableau de bord d’alerte](./media/tutorial-investigate-cases/cases.png)
 
-2. Pour commencer une investigation, cliquez sur un cas spécifique. Sur la droite, vous pouvez voir des informations détaillées pour le cas notamment sa gravité, résumée du nombre d’entités impliquées (selon votre mappage). Chaque cas possède un ID unique. La gravité de l’incident est déterminée en fonction de l’alerte plus graves inclus dans le cas.  
+2. Pour commencer une investigation, cliquez sur un cas spécifique. Sur la droite, vous pouvez voir des informations détaillées sur le cas, notamment sa gravité, un résumé du nombre d’entités impliquées (selon votre mappage). Chaque cas possède un ID unique. La gravité du cas est déterminée en fonction de l’alerte plus grave inclus dans le cas.  
 
-1. Pour afficher plus de détails sur les alertes et les entités dans le cas, cliquez sur **afficher les détails complets** dans le cas de page et passez en revue les onglets correspondants qui résument les informations d’incident.  Vue des cas complète regroupe toutes les preuves dans l’alerte, les alertes associées et des entités.
+1. Pour afficher plus de détails sur les alertes et les entités du cas, cliquez sur **Afficher les détails complets** sur la page du cas et passez en revue les onglets correspondants qui résument les informations du cas.  La vue complète du cas regroupe toutes les preuves dans l’alerte, les alertes associées et les entités.
 
-1. Dans le **alertes** onglet, passez en revue l’alerte elle-même - quand elle a été déclenchée et par combien il a dépassé les seuils que vous définissez. Vous pouvez voir toutes les informations pertinentes sur l’alerte : la requête qui a déclenché l’alerte, le nombre de résultats retournés par la requête et la capacité d’exécuter des playbooks sur les alertes. Pour Explorer le bas encore plus loin dans le cas, cliquez sur le nombre d’accès. La requête qui a généré les résultats et les résultats qui a déclenché l’alerte dans Log Analytique s’ouvre.
+1. Dans l’onglet **Alertes**, passez en revue l’alerte elle-même, le moment où elle a été déclenchée, de combien elle a dépassé les seuils que vous avez définis. Vous pouvez voir toutes les informations pertinentes sur l’alerte : la requête ayant déclenché l’alerte, le nombre de résultats retournés par la requête et la capacité d’exécuter des playbooks sur les alertes. Pour aller encore plus en détail dans le cas, cliquez sur le nombre d’accès. Cela ouvre la requête ayant généré les résultats et les résultats ayant déclenché l’alerte dans Log Analytics.
 
-3. Dans le **entités** onglet, vous pouvez voir toutes les entités que vous avez mappé en tant que partie de la définition de règle d’alerte. 
+3. Dans l’onglet **Entités**, vous pouvez voir toutes les entités mappées comme faisant partie de la définition d’une règle d’alerte. 
 
-4. Si vous recherchez activement un cas, il est judicieux de définir l’état du cas **en cours d’exécution** jusqu'à ce que vous le fermiez. Vous pouvez également fermer le cas, où **fermé résolu** est l’état pour les cas qui indiquent qu’un incident a été géré, tandis que **fermé ignorées** est l’état pour les cas qui ne nécessitent pas de gestion. Les explications sont requises expliquant le raisonnement de fermeture d’un cas.
+4. Si vous investiguez activement un cas, il est judicieux de définir l’état du cas sur **En cours** jusqu’à ce que vous ayez fini de le traiter. Vous pouvez également fermer le cas, où **Fermé résolu** est l’état pour les cas indiquant qu’un incident a été traité, tandis que **Fermé ignoré** est l’état destiné aux cas ne nécessitant aucune prise en main. Des explications sont requises lors de la fermeture d’un cas.
 
-5. Cas peuvent être affectés à un utilisateur spécifique. Pour chaque cas, vous pouvez affecter un propriétaire, en définissant le cas **propriétaire** champ. Tous les cas début, en tant que non attribués. Vous pouvez aller dans les cas et filtrer par votre nom pour voir tous les cas que vous possédez. 
+5. Les cas peuvent être assignés à un utilisateur spécifique. Pour chaque cas, vous pouvez affecter un propriétaire, en définissant le champ **Propriétaire** du cas. Tous les cas sont créés en étant pas attribués. Vous pouvez aller dans les cas et faire un filtrage avec votre nom pour voir les cas qui vous sont assignés. 
 
-5. Cliquez sur **examiner** pour afficher le mappage d’investigation et de la portée de la violation avec les étapes de correction. 
+5. Cliquez sur **Examiner** pour afficher le mappage d’investigation et la portée de la violation avec les étapes de correction. 
 
 
 
 ## <a name="respond-to-threats"></a>Répondre aux menaces
 
-Sentinel Azure vous offre deux options principales pour répondre aux menaces à l’aide de règles. Vous pouvez définir un playbook pour exécuter automatiquement lorsqu’une alerte est déclenchée, ou vous pouvez exécuter manuellement un manuel en réponse à une alerte.
+Azure Sentinel vous offre deux options principales pour répondre aux menaces à l’aide de playbooks. Vous pouvez définir un playbook pour qu’ils soit exécuté automatiquement lorsqu’une alerte est déclenchée, ou vous pouvez en exécuter un manuellement en réponse à une alerte.
 
-- Vous pouvez définir un playbook pour exécuter automatiquement lorsqu’une alerte est déclenchée lorsque vous configurez le playbook. 
+- Lors de la configuration d’un playbook, vous pouvez faire qu’il s’exécute automatiquement lorsqu’une alerte est déclenchée. 
 
-- Vous pouvez exécuter manuellement un manuel à partir d’à l’intérieur de l’alerte, en cliquant sur **afficher playbooks** , puis en sélectionnant un playbook à exécuter.
+- Vous pouvez exécuter un playbook manuellement depuis l’intérieur de l’alerte, en cliquant sur **Afficher les playbooks** puis en sélectionnant un playbook à exécuter.
 
 
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans ce didacticiel, vous avez appris comment commencer à examiner les cas à l’aide d’Azure Sentinel. Passez au didacticiel pour [comment répondre aux menaces à l’aide de règles automatisées](tutorial-respond-threats-playbook.md).
+Dans ce didacticiel, vous avez appris à commencer à examiner les cas en utilisant Azure Sentinel. Passez au didacticiel vous apprenant [comment répondre aux menaces à l’aide de playbooks automatisés](tutorial-respond-threats-playbook.md).
 > [!div class="nextstepaction"]
 > [Répondre aux menaces](tutorial-respond-threats-playbook.md) pour automatiser vos réponses aux menaces.
 

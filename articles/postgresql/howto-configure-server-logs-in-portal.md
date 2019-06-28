@@ -1,23 +1,23 @@
 ---
-title: Configurer et consulter les journaux du serveur de base de données Azure pour PostgreSQL - serveur unique dans le portail Azure
-description: Cet article décrit comment configurer et consulter les journaux du serveur de base de données Azure pour PostgreSQL - serveur unique à partir du portail Azure.
+title: Configurer les journaux d’activité de serveur pour Azure Database pour PostgreSQL et y accéder (serveur unique) dans le portail Azure
+description: Cet article décrit comment configurer et consulter les journaux d’activité de serveur dans Azure Database pour PostgreSQL (serveur unique) à partir du portail Azure.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: 13a8c1ee4b7ca114211f93245d74866e5aa5d52c
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65067449"
 ---
-# <a name="configure-and-access-azure-database-for-postgresql---single-server-logs-in-the-azure-portal"></a>Configurer et accéder à Azure Database pour PostgreSQL - journaux de serveur unique dans le portail Azure
+# <a name="configure-and-access-azure-database-for-postgresql---single-server-logs-in-the-azure-portal"></a>Configurer les journaux d’activité Azure Database pour PostgreSQL (serveur unique) et y accéder dans le portail Azure
 
-Vous pouvez configurer, répertorier et télécharger le [Azure Database pour PostgreSQL journaux](concepts-server-logs.md) à partir du portail Azure.
+Vous pouvez configurer, répertorier et télécharger les [journaux d’activité Azure Database pour PostgreSQL](concepts-server-logs.md) à partir du portail Azure.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 Pour parcourir ce guide pratique, vous avez besoin des éléments suivants :
 - [Un serveur Azure Database pour PostgreSQL](quickstart-create-server-database-portal.md)
 

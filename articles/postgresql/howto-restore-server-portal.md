@@ -1,19 +1,19 @@
 ---
-title: Comment restaurer un serveur de base de données Azure pour PostgreSQL - serveur unique
-description: Cet article décrit comment restaurer un serveur de base de données Azure pour PostgreSQL - serveur unique à l’aide du portail Azure.
+title: Comment restaurer un serveur dans Azure Database pour PostgreSQL - Serveur unique
+description: Cet article décrit comment restaurer un serveur Azure Database pour PostgreSQL - Serveur unique avec le Portail Azure.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: 1950b43e0922eebe34463c06db9a5d67dce76f56
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65068875"
 ---
-# <a name="how-to-backup-and-restore-a-server-in-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>Comment sauvegarder et restaurer un serveur de base de données Azure pour PostgreSQL - serveur unique à l’aide du portail Azure
+# <a name="how-to-backup-and-restore-a-server-in-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>Comment sauvegarder et restaurer un serveur Azure Database pour PostgreSQL - Serveur unique avec le Portail Azure
 
 ## <a name="backup-happens-automatically"></a>La sauvegarde s’effectue automatiquement
 Les serveurs Azure Database pour PostgreSQL sont sauvegardés régulièrement pour activer les fonctionnalités de restauration. À l’aide de cette fonctionnalité, vous pouvez restaurer le serveur et toutes ses bases de données à un point dans le temps antérieur, sur un nouveau serveur.

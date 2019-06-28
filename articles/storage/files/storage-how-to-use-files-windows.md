@@ -9,10 +9,10 @@ ms.date: 06/07/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 899bf4bbf201ae785a4f49c7f278de75fb48945e
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64926271"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Utiliser un partage de fichiers Azure avec Windows
@@ -24,15 +24,15 @@ Vous pouvez utiliser des partages de fichiers Azure sur une installation Window
 
 | Version de Windows        | Version SMB | Version montable dans une machine virtuelle Azure | Montable en local |
 |------------------------|-------------|-----------------------|----------------------|
-| Windows Server 2019    | SMB 3.0 | OUI | Oui |
-| Windows 10<sup>1</sup> | SMB 3.0 | OUI | Oui |
-| Canal semestriel Windows Server<sup>2</sup> | SMB 3.0 | OUI | Oui |
-| Windows Server 2016    | SMB 3.0     | OUI                   | Oui                  |
-| Windows 8.1            | SMB 3.0     | OUI                   | Oui                  |
-| Windows Server 2012 R2 | SMB 3.0     | OUI                   | Oui                  |
-| Windows Server 2012    | SMB 3.0     | OUI                   | Oui                  |
-| Windows 7              | SMB 2.1     | Oui                   | Non                    |
-| Windows Server 2008 R2 | SMB 2.1     | Oui                   | Non                    |
+| Windows Server 2019    | SMB 3.0 | OUI | OUI |
+| Windows 10<sup>1</sup> | SMB 3.0 | OUI | OUI |
+| Canal semestriel Windows Server<sup>2</sup> | SMB 3.0 | OUI | OUI |
+| Windows Server 2016    | SMB 3.0     | OUI                   | OUI                  |
+| Windows 8.1            | SMB 3.0     | OUI                   | OUI                  |
+| Windows Server 2012 R2 | SMB 3.0     | OUI                   | OUI                  |
+| Windows Server 2012    | SMB 3.0     | OUI                   | OUI                  |
+| Windows 7              | SMB 2.1     | OUI                   | Non                   |
+| Windows Server 2008 R2 | SMB 2.1     | OUI                   | Non                   |
 
 <sup>1</sup> Windows 10, versions 1507, 1607, 1703, 1709, 1803 et 1809.  
 <sup>2</sup> Windows Server, versions 1709 et 1803.
@@ -43,14 +43,14 @@ Vous pouvez utiliser des partages de fichiers Azure sur une installation Window
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Conditions préalables 
+## <a name="prerequisites"></a>Prérequis 
 * **Nom du compte de stockage** : Pour monter un partage de fichiers Azure, vous avez besoin du nom du compte de stockage.
 
 * **Clé du compte de stockage** : Pour monter un partage de fichiers Azure, vous avez besoin de la clé de stockage primaire (ou secondaire). Actuellement, les clés SAS ne sont pas prises en charge pour le montage.
 
-* **Vérifiez que le port 445 est ouvert** : Le protocole SMB nécessite que le port TCP 445 soit ouvert, les connexions échoueront si ce port est bloqué. Vous pouvez vérifier si votre pare-feu bloque le port 445 avec l’applet de commande `Test-NetConnection`. Vous pouvez en savoir plus sur [différentes manières de solution de contournement bloqué le port 445 ici](https://docs.microsoft.com/azure/storage/files/storage-troubleshoot-windows-file-connection-problems#cause-1-port-445-is-blocked).
+* **Vérifiez que le port 445 est ouvert** : Le protocole SMB nécessite que le port TCP 445 soit ouvert, les connexions échoueront si ce port est bloqué. Vous pouvez vérifier si votre pare-feu bloque le port 445 avec l’applet de commande `Test-NetConnection`. Vous pouvez en apprendre davantage sur les [différentes manières de contourner un port 445 bloqué ici](https://docs.microsoft.com/azure/storage/files/storage-troubleshoot-windows-file-connection-problems#cause-1-port-445-is-blocked).
 
-    La commande PowerShell suivante code suppose que vous avez le module Azure PowerShell installé, consultez [installer Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps) pour plus d’informations. N’oubliez pas de remplacer `<your-storage-account-name>` et `<your-resource-group-name>` avec les noms appropriés de votre compte de stockage.
+    Le code PowerShell suivant suppose que vous avez installé le module Azure PowerShell. Consultez [Installer un module Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps) pour plus d’informations. N’oubliez pas de remplacer `<your-storage-account-name>` et `<your-resource-group-name>` avec les noms appropriés de votre compte de stockage.
 
     ```powershell
     $resourceGroupName = "<your-resource-group-name>"

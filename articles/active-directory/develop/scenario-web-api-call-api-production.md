@@ -1,6 +1,6 @@
 ---
-title: Web API que les appels API web (passer à la production) - plateforme d’identité Microsoft
-description: Découvrez comment créer une web API que les appels en aval web API (passer à la production).
+title: API web appelant des API web (passage en production) - plateforme d’identités Microsoft
+description: Apprenez à générer une API web qui appelle des API web en aval (passage en production).
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -16,22 +16,22 @@ ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7de892a0851e556c5046fe4b3691f39b42a9d237
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65074754"
 ---
-# <a name="web-api-that-calls-web-apis---move-to-production"></a>API Web qui appelle des API - web passer en production
+# <a name="web-api-that-calls-web-apis---move-to-production"></a>API web appelant des API web - passage en production
 
-Une fois que vous avez acquis un jeton pour appeler des API web, vous pouvez déplacer votre application en production.
+Une fois que vous avez acquis un jeton pour appeler des API web, vous pouvez faire passer votre application en production.
 
 [!INCLUDE [Move to production common steps](../../../includes/active-directory-develop-scenarios-production.md)]
 
 ## <a name="learn-more"></a>En savoir plus
 
-Maintenant que vous connaissez les principes fondamentaux de l’appel des API web à partir de vos propres API web, vous souhaitez peut-être ce didacticiel, qui décrit le code qui a utilisé pour créer une API web protégée appelle des API web.
+Maintenant que vous connaissez les principes fondamentaux de l’appel des API web à partir de votre propre API web, vous trouverez peut-être ce didacticiel utile. Il décrit le code utilisé pour créer une API web protégée qui appelle des API web.
 
 | Exemple | Plateforme | Description |
 |--------|----------|-------------|
-| [active-directory-aspnetcore-webapi-tutorial-v2](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/tree/master/2.%20Web%20API%20now%20calls%20Microsoft%20Graph) | 2.2 API Web ASP.NET Core, Desktop (WPF) | API de Web ASP.NET Core 2.2 appeler Microsoft Graph, lui-même appelé à partir d’une application WPF à l’aide de la plateforme Microsoft identity (v2.0) |
+| [active-directory-aspnetcore-webapi-tutorial-v2](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/tree/master/2.%20Web%20API%20now%20calls%20Microsoft%20Graph) | API web ASP.NET Core 2.2, Bureau (WPF) | API web ASP.NET Core 2.2 appelant Microsoft Graph, lui-même appelé à partir d’une application WPF à l’aide de la plateforme d’identités Microsoft (v2.0) |

@@ -11,17 +11,17 @@ ms.custom: vs-azure
 ms.topic: article
 ms.date: 04/25/2019
 ms.openlocfilehash: fb071ac056355a056e5333284808417a258515de
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65467446"
 ---
 # <a name="build-your-first-serverless-app-with-azure-logic-apps-and-azure-functions---visual-studio"></a>Créer votre première application serverless avec Azure Logic Apps et Azure Functions - Visual Studio
 
 Vous pouvez développer et déployer rapidement des applications cloud à l’aide des fonctionnalités et outils serverless dans Azure, comme [Azure Logic Apps](../logic-apps/logic-apps-overview.md) et [Azure Functions](../azure-functions/functions-overview.md). Cet article explique comment démarrer la création d’une application serverless, celle-ci utilise une application logique qui effectue un appel à une fonction Azure, dans Visual Studio. Pour en savoir plus sur les solutions serverless dans Azure, consultez [Azure Serverless avec Functions et Logic Apps](../logic-apps/logic-apps-serverless-overview.md).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour créer une application serverless dans Visual Studio, vous avez besoin des éléments suivants :
 
@@ -82,20 +82,20 @@ Pour commencer, créez un [projet de groupe de ressources Azure](../azure-resour
 
 1. Attribuez un nom et un emplacement au projet, puis choisissez **OK**.
 
-   Visual Studio vous invite à sélectionner un modèle à partir de la liste des modèles. 
-   Cet exemple utilise un modèle de démarrage rapide Azure, vous pouvez ainsi créer une application sans serveur qui inclut une application logique et un appel à une fonction Azure.
+   Visual Studio vous invite à sélectionner un modèle dans la liste de modèles. 
+   Cet exemple utilise un modèle de démarrage rapide Azure vous permettant de créer une application serverless comprenant une application logique et un appel à une fonction Azure.
 
    > [!TIP]
-   > Dans les scénarios où vous ne souhaitez pas predeploy votre solution dans un groupe de ressources Azure, vous pouvez utiliser l’essai à blanc **application logique** modèle qui crée simplement une application logique vide.
+   > Dans les scénarios où vous ne souhaitez pas prédéployer votre solution dans un groupe de ressources Azure, vous pouvez utiliser le modèle vide **Application logique**, qui crée simplement une application logique vide.
 
-1. À partir de la **afficher les modèles de cet emplacement** liste, sélectionnez **Azure Quickstart (github.com/Azure/azure-quickstart-templates)**.
+1. Sous **Afficher les modèles à partir de cet emplacement**, sélectionnez **Démarrage rapide Azure (GitHub/Azure/azure-quickstart-templates)** .
 
-1. Dans la zone de recherche, entrez « application logique » comme filtre. À partir des résultats, sélectionnez ce modèle : **101-logic-app-and-function-app**
+1. Dans la zone de recherche, entrez « logic-app » comme filtre. Dans les résultats, sélectionnez ce modèle : **101-logic-app-and-function-app**
 
    ![Sélection du modèle de démarrage rapide Azure](./media/logic-apps-serverless-get-started-vs/select-template.png)
 
    Visual Studio crée et ouvre une solution pour votre projet de groupe de ressources. 
-   Le modèle de démarrage rapide Azure que vous avez sélectionné crée un modèle de déploiement nommé `azuredeploy.json` à l’intérieur de votre projet de groupe de ressources. Ce modèle de déploiement inclut la définition d’une application logique simple qui se déclenche sur une requête HTTP, appelle une fonction Azure et retourne le résultat sous la forme d’une réponse HTTP.
+   Le modèle de démarrage rapide Azure que vous avez sélectionné crée un modèle de déploiement nommé `azuredeploy.json` dans votre projet de groupe de ressources. Ce modèle de déploiement inclut la définition d’une application logique simple qui se déclenche sur une requête HTTP, appelle une fonction Azure et retourne le résultat sous la forme d’une réponse HTTP.
 
    ![Nouvelle solution serverless](./media/logic-apps-serverless-get-started-vs/create-serverless-solution.png)
 
@@ -105,7 +105,7 @@ Pour commencer, créez un [projet de groupe de ressources Azure](../azure-resour
 
 Avant de pouvoir ouvrir votre application logique avec le concepteur d’application logique dans Visual Studio, vous devez disposer d’un groupe de ressources Azure déjà déployé dans Azure. Le concepteur peut alors créer des connexions aux services et aux ressources dans votre application logique. Pour cette tâche, déployez votre solution depuis Visual Studio sur le portail Azure.
 
-1. Dans l’Explorateur de solutions, dans le menu contextuel du projet de votre ressource, sélectionnez **déployer** > **New**.
+1. Dans l’Explorateur de solutions, à partir du menu contextuel de votre projet de ressources, sélectionnez **Déployer** > **Nouveau**.
 
    ![Création du déploiement pour le groupe de ressources](./media/logic-apps-serverless-get-started-vs/deploy.png)
 
@@ -122,9 +122,9 @@ Avant de pouvoir ouvrir votre application logique avec le concepteur d’applica
 
 ## <a name="edit-logic-app-in-visual-studio"></a>Modifier l’application logique dans Visual Studio
 
-Maintenant que votre solution est déployée sur votre groupe de ressources, ouvrez votre application logique avec le Concepteur d’applications logiques afin que vous pouvez modifier et modifier votre application logique.
+Maintenant que votre solution est déployée dans votre groupe de ressources, ouvrez votre application logique avec le concepteur d’application logique, afin de modifier et de transformer votre application logique.
 
-1. Dans l’Explorateur de solutions, à partir de la `azuredeploy.json` menu contextuel du fichier, sélectionnez **ouvrir avec Concepteur d’application logique**.
+1. Dans l’Explorateur de solutions, à partir du menu contextuel du fichier `azuredeploy.json`, sélectionnez **Ouvrir avec le concepteur d’application logique**.
 
    ![Ouverture de « azuredeploy.json » dans le concepteur d’application logique](./media/logic-apps-serverless-get-started-vs/open-logic-app-designer.png)
 

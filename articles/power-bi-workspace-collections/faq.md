@@ -9,10 +9,10 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/25/2017
 ms.openlocfilehash: e3c28cc28261e65e945887d7ad9bfa5fd3984605
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64701581"
 ---
 # <a name="power-bi-workspace-collections-faq"></a>Questions fréquentes (FAQ) sur les Collections d’espaces de travail Power BI
@@ -30,7 +30,7 @@ Les Collections d’espaces de travail Power BI s’adressent aux développeurs 
 
 ## <a name="how-does-power-bi-workspace-collections-relate-to-the-power-bi-service"></a>Quelle est la relation entre les Collections d’espaces de travail Power BI et le service Power BI ?
 
-Les Collections d’espaces de travail Power BI et le service Power BI sont deux offres distinctes. Les Collections d’espaces de travail Power BI appliquent un modèle de facturation basée sur la consommation réelle et est déployé par le biais du portail Azure. Il est conçu pour permettre aux éditeurs de logiciels indépendants d’incorporer des visualisations de données dans les applications destinées à leurs clients. Le service Power BI, facturé et déployé via le centre d’administration Microsoft 365 et est d’une offre d’usage général BI autonome principalement destinée à une utilisation interne en entreprise. Pour plus d’informations sur le service Power BI, voir [www.powerbi.com](https://powerbi.microsoft.com).
+Les Collections d’espaces de travail Power BI et le service Power BI sont deux offres distinctes. Les Collections d’espaces de travail Power BI appliquent un modèle de facturation basée sur la consommation réelle et est déployé par le biais du portail Azure. Il est conçu pour permettre aux éditeurs de logiciels indépendants d’incorporer des visualisations de données dans les applications destinées à leurs clients. Le service Power BI, facturé et déployé via le centre d’administration Microsoft 365, est une offre BI autonome à usage général, principalement destinée à une utilisation interne en entreprise. Pour plus d’informations sur le service Power BI, voir [www.powerbi.com](https://powerbi.microsoft.com).
 
 ## <a name="how-does-power-bi-workspace-collections-improve-my-app"></a>Comment les Collections d’espaces de travail Power BI améliorent mon application ?
 

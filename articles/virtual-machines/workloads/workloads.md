@@ -12,26 +12,26 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
-ms.date: 02/21/2019
+ms.date: 06/06/2019
 ms.author: cynthn
-ms.openlocfilehash: 98bc10377dff8f06cd02d4a384ca14b364a73e74
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 167370a4eebded3dba898ed47dede7a36900d976
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60713759"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66808221"
 ---
-# <a name="workloads-on-azure-virtual-machines"></a>Charges de travail sur les Machines virtuelles Azure
+# <a name="workloads-on-azure-virtual-machines"></a>Charges de travail sur des machines virtuelles Azure
 
-Machines virtuelles dans Azure peut prendre en charge de nombreuses charges de travail. Chaque charge de travail peut avoir spécialisé des conseils relatifs à la conception optimale pour les déploiements sur des machines virtuelles dans Azure. Voici certains conseils que nous pouvons offrir pour les charges de travail spécialisées.
+Les machines virtuelles dans Azure peuvent prendre en charge de nombreuses charges de travail. Chaque charge de travail peut disposer d’une assistance spécialisée pour la conception optimale des déploiements sur les machines virtuelles dans Azure. Voici certains conseils que nous pouvons offrir concernant les charges de travail spécialisées.
 
-
-- [SAP](./sap/get-started.md) dans Azure peut s’exécuter vos scénarios et SAP charges de travail critiques sur une plateforme évolutive, conforme et éprouvée en entreprise.
-- [Oracle](./oracle/oracle-considerations.md) prend en charge en cours d’exécution Oracle DB 12.1 Standard et entreprise dans Azure sur les images de machines virtuelles basées sur Oracle Linux. 
-- [Réhébergement du macroordinateur](./mainframe-rehosting/overview.md) 
+- Le [Calcul haute performance](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/) dans Azure utilise des machines virtuelles optimisées pour le GPU ou l’UC pour résoudre les problèmes complexes, nécessitant beaucoup de ressources système. 
+- Le [protocole SAP](./sap/get-started.md) dans Azure peut exécuter vos charges de travail et scénarios SAP critiques sur une plateforme évolutive, conforme et qui a fait ses preuves en entreprise.
+- [Oracle](./oracle/oracle-considerations.md) prend en charge l’exécution des éditions Standard et Entreprise d’Oracle DB 12.1 dans Azure sur des images de machine virtuelle basées sur Oracle Linux. 
+- [Réhergement d’ordinateurs mainframe](./mainframe-rehosting/overview.md) 
 
 
 
 **Étapes suivantes**
 
-Familiarisez-vous avec les machines virtuelles Azure avec les guides de démarrage rapide de machine virtuelle Azure pour [Linux](../linux/quick-create-cli-nodejs.md) et [Windows](../windows/quick-create-powershell.md).
+Familiarisez-vous avec les machines virtuelles Azure grâce aux guides de démarrage rapide de machines virtuelles Azure pour [Linux](../linux/quick-create-cli-nodejs.md) et [Windows](../windows/quick-create-powershell.md).

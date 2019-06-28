@@ -1,7 +1,7 @@
 ---
 title: Cibles de calcul
 titleSuffix: Azure Machine Learning service
-description: Une cible de calcul vous permet de pour spécifier la ressource de calcul où vous exécutez votre script de formation ou d’un hôte de votre déploiement de service. Cet emplacement peut être votre ordinateur local ou une ressource de calcul basé sur le cloud.
+description: Une cible de calcul permet de spécifier la ressource de calcul que vous utilisez pour exécuter votre script de formation ou pour héberger votre déploiement de service. Cet emplacement peut être votre machine locale ou une ressource de calcul basée sur le cloud.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,64 +10,64 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 05/30/2019
 ms.openlocfilehash: 42c0f5460a63b781aafdd43410761e2d7b17944d
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66755349"
 ---
-#  <a name="what-is-a-compute-target-in-azure-machine-learning-service"></a>Qu’est une cible de calcul dans le service Azure Machine Learning ? 
+#  <a name="what-is-a-compute-target-in-azure-machine-learning-service"></a>Qu’est-ce qu’une cible de calcul dans Azure Machine Learning service ? 
 
-Une cible de calcul vous permet de pour spécifier la ressource de calcul où vous exécutez votre script de formation ou d’un hôte de votre déploiement de service. Cet emplacement peut être votre ordinateur local ou une ressource de calcul basé sur le cloud.
+Une cible de calcul permet de spécifier la ressource de calcul que vous utilisez pour exécuter votre script de formation ou pour héberger votre déploiement de service. Cet emplacement peut être votre machine locale ou une ressource de calcul basée sur le cloud.
 
-Cibles de calcul facilitent la modification de votre environnement de calcul sans modifier votre code.  Un cycle de vie du développement de modèle typique :
+Les cibles de calcul facilitent la modification de votre environnement de calcul sans modifier votre code.  Cycle de vie de développement de modèle type :
 
-* Démarrez avec dev/expérimentation sur une petite quantité de données. À ce stade, nous recommandons d’utiliser un environnement local. Par exemple, votre ordinateur local ou une machine virtuelle basée cloud.
-* Monter en puissance votre formation sur les jeux de données volumineux, ou distributed apprentissage à l’aide d’une de la [cibles de formation](#train).  
-* Déployer sur le web de plusieurs environnements d’hébergement ou sur des appareils IoT à l’aide d’un de le [cibles de déploiement](#deploy).
+* Commencez par une petite quantité de données. À ce stade, nous recommandons d’utiliser un environnement local. Par exemple, votre ordinateur local ou une machine virtuelle basée cloud.
+* Puis passez à des jeux de données plus volumineux, ou entraînez-vous de manière distribuée à l’aide d’une des [cibles de formation](#train).  
+* Effectuez des déploiements sur plusieurs environnements d’hébergement web ou sur des appareils IoT à l’aide d’une des [cibles de déploiement](#deploy).
 
-Les ressources de calcul que vous utilisez pour vos cibles de calcul sont attachés à un [espace de travail](concept-workspace.md). Ressources autres que l’ordinateur local sont partagés par les utilisateurs de l’espace de travail de calcul.
+Les ressources de calcul utilisées pour vos cibles de calcul sont associées à un [espace de travail](concept-workspace.md). Les cibles de calcul autres que l’ordinateur local sont partagées par les utilisateurs de l’espace de travail.
 
 ## <a name="train"></a> Cibles de formation
 
-Service Azure Machine Learning a prise en charge entre les ressources de calcul différentes.  Vous pouvez également attacher votre propre ressource de calcul, bien que la prise en charge des différents scénarios puisse varier comme indiqué ci-dessous :
+La prise en charge par Azure Machine Learning service varie selon les ressources de calcul.  Vous pouvez également attacher votre propre ressource de calcul, bien que la prise en charge des différents scénarios puisse varier comme indiqué ci-dessous :
 
 [!INCLUDE [aml-compute-target-train](../../../includes/aml-compute-target-train.md)]
 
 
 ## <a name="deploy"></a>Cibles de déploiement
 
-Les ressources de calcul suivantes peuvent être utilisés pour héberger votre déploiement de modèle.
+Les cibles de calcul suivantes peuvent héberger le déploiement de votre modèle.
 
 [!INCLUDE [aml-compute-target-deploy](../../../includes/aml-compute-target-deploy.md)]
 
 
-## <a name="managed-compute"></a>Calcul managé
+## <a name="managed-compute"></a>Capacité de calcul managée
 
-Une ressource de calcul gérée est créée et gérée par service Azure Machine Learning. Ce calcul est optimisée pour les charges de travail machine learning. Azure Machine Learning Compute est le seul calcul gérée depuis le 30 mai 2019. Ressources de calcul gérés supplémentaires peuvent être ajoutés à l’avenir.
+Une ressource de calcul managée est créée et managée par Azure Machine Learning service. Ce calcul est optimisé pour les charges de travail Machine Learning. À l’heure actuelle, la capacité de calcul Azure Machine Learning est la seule ressource de calcul managée à partir du 30 mai 2019. Il se peut que d’autres ressources de calcul managées soient ajoutées à l’avenir.
 
-### <a name="amlcompute"></a> Azure Machine Learning Compute
+### <a name="amlcompute"></a> Capacité de calcul Azure Machine Learning
 
-Vous pouvez utiliser Azure Machine Learning Compute pour l’apprentissage et pour l’inférence de lot (version préliminaire).  Avec cette ressource de calcul, vous avez :
+Vous pouvez utiliser la capacité de calcul Azure Machine Learning pour l’apprentissage et pour l’inférence par lots (préversion).  Grâce à cette ressource de calcul, vous disposez de ce qui suit :
 
-* Cluster unique ou plusieurs node
-* Diminution chaque fois que vous envoyez une exécution 
-* Gestion de cluster automatique et planification des travaux 
+* Cluster unique ou à plusieurs nœuds
+* Mises à l’échelle automatique chaque fois que vous envoyez une exécution 
+* Gestion des clusters et planification automatiques des travaux 
 * Prise en charge des ressources UC et GPU
 
-Vous pouvez créer des instances de calcul d’Azure Machine Learning avec les éléments suivants :
+Vous pouvez créer des instances de capacité de calcul Azure Machine Learning avec :
 
 * Le portail Azure
-* Azure Machine Learning SDK
+* Le Kit de développement logiciel (SDK) Azure Machine Learning
 * L’interface Azure CLI
 
-Toutes les autres ressources de calcul doivent être créés en dehors de l’espace de travail et puis attachées à ce dernier.
+Toutes les autres ressources de calcul doivent être créées hors de l’espace de travail avant d’y être jointes.
 
 ## <a name="unmanaged-compute"></a>Calcul non managé
 
-Une ressource de calcul non managé est *pas* gérés par le service Azure Machine Learning. Vous créez ce type de calcul en dehors d’Azure Machine Learning, puis l’attacher à votre espace de travail. Ressources de calcul non managé peuvent nécessiter des étapes supplémentaires pour vous permet de mettre à jour ou d’améliorer les performances des charges de travail machine learning.
+Une ressource de calcul non managée n’est *pas* managée par Azure Machine Learning service. Vous créez ce type de calcul en dehors d’Azure Machine Learning, puis l’attachez à votre espace de travail. Il se peut que des étapes supplémentaires soient requises pour ces ressources de calcul non managées afin de maintenir ou d’améliorer les performances des charges de travail Machine Learning.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Configurer des cibles de calcul pour l’apprentissage du modèle](how-to-set-up-training-targets.md)
-* [Déployer des modèles avec le service Azure Machine Learning](how-to-deploy-and-where.md)
+* [Configurer des cibles de calcul pour l’entraînement des modèles](how-to-set-up-training-targets.md)
+* [Déployer des modèles avec Azure Machine Learning service](how-to-deploy-and-where.md)

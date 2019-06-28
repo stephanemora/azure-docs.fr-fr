@@ -1,6 +1,6 @@
 ---
-title: Variables d’environnement runtime - Azure Batch de tâches | Microsoft Docs
-description: Référence pour Azure Batch Analytique et des instructions relatives aux tâches runtime environnement variable.
+title: Variables d’environnement runtime des tâches - Azure Batch | Microsoft Docs
+description: Référence et conseils pour les variables d’environnement runtime des tâches pour Azure Batch Analytics.
 services: batch
 author: laurenhughes
 manager: jeconnoc
@@ -13,13 +13,13 @@ ms.workload: big-compute
 ms.date: 04/23/2019
 ms.author: lahugh
 ms.openlocfilehash: c46f75c447becc8b15d4a6b8f979330db7ab95c7
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64575594"
 ---
-# <a name="azure-batch-runtime-environment-variables"></a>Variables d’environnement de runtime de Azure Batch
+# <a name="azure-batch-runtime-environment-variables"></a>Variables d’environnement runtime Azure Batch
 
 Le [service Azure Batch](https://azure.microsoft.com/services/batch/) définit les variables d’environnement suivantes sur les nœuds de calcul. Vous pouvez référencer ces variables d’environnement dans des lignes de commande de tâche, ainsi que dans les programmes et les scripts exécutés par les lignes de commande.
 
@@ -29,7 +29,7 @@ Pour plus d’informations sur l’utilisation de variables d’environnement, v
 
 Ces variables d’environnement sont disponibles uniquement dans le contexte de **l’utilisateur de la tâche**, c’est-à-dire le compte d’utilisateur sur le nœud sous lequel une tâche est exécutée. Vous ne les voyez *pas* si vous vous [connectez à distance](https://azure.microsoft.com/documentation/articles/batch-api-basics/#connecting-to-compute-nodes) à un nœud de calcul via RDP (Remote Desktop Protocol) ou SSH (Secure Shell), et répertoriez les variables d’environnement. Cela est dû au fait que le compte d’utilisateur qui est utilisé pour la connexion à distance n’est pas le même que le compte utilisé par la tâche.
 
-Pour obtenir la valeur actuelle d’une variable d’environnement, lancez `cmd.exe` sur un Windows le nœud de calcul ou `/bin/sh` sur un nœud Linux :
+Pour obtenir la valeur actuelle d’une variable d’environnement, lancez `cmd.exe` sur un nœud de calcul Windows ou `/bin/sh` sur un nœud Linux :
 
 `cmd /c set <ENV_VARIABLE_NAME>`
 

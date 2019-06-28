@@ -15,10 +15,10 @@ ms.workload: infrastructure
 ms.date: 01/04/2018
 ms.author: gsilva
 ms.openlocfilehash: ef6086afa17f1ab864d70678a6da6df2a78e0c16
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65190295"
 ---
 # <a name="create-a-windows-virtual-machine-with-accelerated-networking"></a>Créer une machine virtuelle Windows avec mise en réseau accélérée
@@ -27,7 +27,7 @@ Ce didacticiel explique comment créer une machine virtuelle Windows (VM) avec m
 
 ![Opérateurs de comparaison](./media/create-vm-accelerated-networking/accelerated-networking.png)
 
-Sans mise en réseau accélérée, tout le trafic réseau en direction et en provenance de la machine virtuelle doit transiter par l’hôte et le commutateur virtuel. Le commutateur virtuel fournit au trafic réseau toutes les stratégies, telles que les groupes de sécurité réseau, les listes de contrôle d’accès, l’isolation et d’autres services de réseau virtualisé. Pour en savoir plus sur les commutateurs virtuels, consultez [virtualisation de réseau Hyper-V et commutateur virtuel](https://technet.microsoft.com/library/jj945275.aspx).
+Sans mise en réseau accélérée, tout le trafic réseau en direction et en provenance de la machine virtuelle doit transiter par l’hôte et le commutateur virtuel. Le commutateur virtuel fournit au trafic réseau toutes les stratégies, telles que les groupes de sécurité réseau, les listes de contrôle d’accès, l’isolation et d’autres services de réseau virtualisé. Pour plus d’informations sur les commutateurs virtuels, consultez [Virtualisation de réseau et commutateur virtuel Hyper-V](https://technet.microsoft.com/library/jj945275.aspx).
 
 Dans le cas d’une mise en réseau accélérée, le trafic réseau parvient à la carte réseau de la machine virtuelle avant d’être transféré vers celle-ci. Toutes les stratégies réseau que le commutateur virtuel applique sont déchargées et appliquées dans le matériel. L’application de la stratégie au niveau du matériel permet à la carte réseau de transférer le trafic directement à la machine virtuelle, en ignorant l’hôte et le commutateur virtuel, tout en conservant toutes les stratégies qu’il a appliquées dans l’hôte.
 
@@ -63,17 +63,17 @@ Le déploiement de machines virtuelles (classiques) avec mise en réseau accél�
 
 ## <a name="create-a-windows-vm-with-azure-accelerated-networking"></a>Créer une machine virtuelle Windows avec mise en réseau accélérée Azure
 ## <a name="portal-creation"></a>Création de portail
-Bien que cet article fournit des étapes pour créer une machine virtuelle avec mise en réseau accélérée à l’aide d’Azure Powershell, vous pouvez également [créer une machine virtuelle avec mise en réseau accélérée à l’aide du portail Azure](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Lorsque vous créez une machine virtuelle dans le portail, dans le **créer une machine virtuelle** panneau, choisissez la **mise en réseau** onglet.  Dans cet onglet, il existe une option pour **mise en réseau accélérée**.  Si vous avez choisi un [pris en charge du système d’exploitation](#supported-operating-systems) et [taille de machine virtuelle](#supported-vm-instances), cette option est automatiquement rempli sur « Activé ».  Si ce n’est pas le cas, il sera remplir l’option « Off » pour la mise en réseau accélérée et donner à l’utilisateur une raison pourquoi il n’est pas être activé.   
-* *Remarque :* Seuls les systèmes d’exploitation pris en charge peut être activés via le portail.  Si vous utilisez une image personnalisée, et que votre image prend en charge la mise en réseau accélérée, créez votre machine virtuelle à l’aide de CLI ou Powershell. 
+Bien que cet article fournit des étapes pour créer une machine virtuelle avec mise en réseau accélérée à l’aide d’Azure PowerShell, vous pouvez également [Créer une machine virtuelle avec mise en réseau accélérée via le portail Azure](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Lorsque vous créez une machine virtuelle dans le portail, dans le panneau **Créer une machine virtuelle**, choisissez l’onglet **Mise en réseau**.  Dans cet onglet, il existe une option de **Mise en réseau accélérée**.  Si vous avez choisi un [système d’exploitation pris en charge](#supported-operating-systems) et une [taille de machine virtuelle](#supported-vm-instances), cette option est automatiquement définie sur « Activé ».  Dans le cas contraire, l’option est définie sur « Désactivé » pour la Mise en réseau accélérée et l’utilisateur est informé de la raison pour laquelle elle ne peut pas être activée.   
+* *Remarque :* Seuls les systèmes d’exploitation pris en charge peuvent être activés via le portail.  Si vous utilisez une image personnalisée, et que votre image prend en charge la Mise en réseau accélérée, créez votre machine virtuelle à l’aide de CLI ou Powershell. 
 
-Une fois que la machine virtuelle est créée, vous pouvez confirmer la que mise en réseau accélérée est activée en suivant les instructions fournies dans la fenêtre de confirmation que la mise en réseau accélérée est activée.
+Une fois la machine virtuelle créée, vous pouvez confirmer l’activation de la Mise en réseau accélérée en suivant les instructions de la section Confirmer l’activation de la Mise en réseau accélérée.
 
-## <a name="powershell-creation"></a>Création de PowerShell
+## <a name="powershell-creation"></a>Création PowerShell
 ## <a name="create-a-virtual-network"></a>Créez un réseau virtuel
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Installer [Azure PowerShell](/powershell/azure/install-az-ps) version 1.0.0 ou une version ultérieure. Pour connaître la version actuellement installée, exécutez `Get-Module -ListAvailable Az`. Si vous devez installer ou mettre à niveau, installez la dernière version du module Az à partir de la [PowerShell Gallery](https://www.powershellgallery.com/packages/Az). Dans une session PowerShell, connectez-vous à un compte Azure avec [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount).
+Installez [Azure PowerShell](/powershell/azure/install-az-ps), version 1.0.0 ou ultérieure. Pour connaître la version actuellement installée, exécutez `Get-Module -ListAvailable Az`. Si vous devez installer ou mettre à niveau le module Az, installez la dernière version du module à partir de [PowerShell Gallery](https://www.powershellgallery.com/packages/Az). Dans une session PowerShell, connectez-vous à un compte Azure à l’aide de la commande [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount).
 
 Dans les exemples suivants, remplacez les exemples de noms de paramètre par vos propres valeurs. Les noms de paramètre sont par exemple *myResourceGroup*, *myNic* et *myVM*.
 
@@ -83,7 +83,7 @@ Créez un groupe de ressources avec [New-AzResourceGroup](/powershell/module/az.
 New-AzResourceGroup -Name "myResourceGroup" -Location "centralus"
 ```
 
-Tout d’abord, créez une configuration de sous-réseau [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.Network/New-azVirtualNetworkSubnetConfig). L’exemple suivant permet de créer un sous-réseau nommé *mySubnet* :
+Tout d’abord, créez une configuration de sous-réseau à l’aide de la commande [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.Network/New-azVirtualNetworkSubnetConfig). L’exemple suivant permet de créer un sous-réseau nommé *mySubnet* :
 
 ```powershell
 $subnet = New-AzVirtualNetworkSubnetConfig `
@@ -91,7 +91,7 @@ $subnet = New-AzVirtualNetworkSubnetConfig `
     -AddressPrefix "192.168.1.0/24"
 ```
 
-Créer un réseau virtuel avec [New-AzVirtualNetwork](/powershell/module/az.Network/New-azVirtualNetwork), avec le *mySubnet* sous-réseau.
+Créez un réseau virtuel à l’aide de la commande [New-AzVirtualNetwork](/powershell/module/az.Network/New-azVirtualNetwork), avec le sous-réseau *mySubnet*.
 
 ```powershell
 $vnet = New-AzVirtualNetwork -ResourceGroupName "myResourceGroup" `
@@ -103,7 +103,7 @@ $vnet = New-AzVirtualNetwork -ResourceGroupName "myResourceGroup" `
 
 ## <a name="create-a-network-security-group"></a>Créer un groupe de sécurité réseau
 
-Tout d’abord, créez une règle de groupe de sécurité réseau avec [New-AzNetworkSecurityRuleConfig](/powershell/module/az.Network/New-azNetworkSecurityRuleConfig).
+Créez d’abord un groupe de sécurité réseau avec [New-AzNetworkSecurityRuleGroup](/powershell/module/az.Network/New-azNetworkSecurityRuleConfig).
 
 ```powershell
 $rdp = New-AzNetworkSecurityRuleConfig `
@@ -119,7 +119,7 @@ $rdp = New-AzNetworkSecurityRuleConfig `
     -DestinationPortRange 3389
 ```
 
-Créez un groupe de sécurité réseau avec [New-AzNetworkSecurityGroup](/powershell/module/az.Network/New-azNetworkSecurityGroup) et affecter le *Allow-RDP-All* règle de sécurité. Outre la règle *Allow-RDP-All*, le groupe de sécurité réseau contient plusieurs règles par défaut. Une règle par défaut désactive tous les accès entrant d’Internet, c’est pourquoi la règle *Allow-RDP-All* est affectée au groupe de sécurité réseau, afin que vous puissiez vous connecter à distance à l’ordinateur virtuel une fois celui-ci créé.
+Créez un groupe de sécurité réseau avec [New-AzNetworkSecurityGroup](/powershell/module/az.Network/New-azNetworkSecurityGroup) et attribuez-lui la règle de sécurité *Allow-RDP-All*. Outre la règle *Allow-RDP-All*, le groupe de sécurité réseau contient plusieurs règles par défaut. Une règle par défaut désactive tous les accès entrant d’Internet, c’est pourquoi la règle *Allow-RDP-All* est affectée au groupe de sécurité réseau, afin que vous puissiez vous connecter à distance à l’ordinateur virtuel une fois celui-ci créé.
 
 ```powershell
 $nsg = New-AzNetworkSecurityGroup `
@@ -129,7 +129,7 @@ $nsg = New-AzNetworkSecurityGroup `
     -SecurityRules $rdp
 ```
 
-Associer le groupe de sécurité réseau à le *mySubnet* sous-réseau avec [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.Network/Set-azVirtualNetworkSubnetConfig). La règle du groupe de sécurité réseau est appliquée à toutes les ressources déployées dans le sous-réseau.
+Ajoutez le groupe de sécurité réseau au sous-réseau *mySubnet* à l’aide de la commande [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.Network/Set-azVirtualNetworkSubnetConfig). La règle du groupe de sécurité réseau est appliquée à toutes les ressources déployées dans le sous-réseau.
 
 ```powershell
 Set-AzVirtualNetworkSubnetConfig `
@@ -150,7 +150,7 @@ $publicIp = New-AzPublicIpAddress `
     -AllocationMethod Dynamic
 ```
 
-Créer une interface réseau avec [New-AzNetworkInterface](/powershell/module/az.Network/New-azNetworkInterface) avec accéléré la mise en réseau et affecter l’adresse IP publique à l’interface réseau. L’exemple suivant permet de créer une interface réseau nommée *myNic* dans le sous-réseau *mySubnet* du réseau virtuel *myVnet* et de lui affecter l’adresse IP publique *myPublicIp* :
+Créez une interface réseau à l’aide de la commande [New-AzNetworkInterface](/powershell/module/az.Network/New-azNetworkInterface) avec la mise en réseau accélérée activée et attribuez l’adresse IP publique à l’interface réseau. L’exemple suivant permet de créer une interface réseau nommée *myNic* dans le sous-réseau *mySubnet* du réseau virtuel *myVnet* et de lui affecter l’adresse IP publique *myPublicIp* :
 
 ```powershell
 $nic = New-AzNetworkInterface `
@@ -170,7 +170,7 @@ Définissez les informations d’identification de votre machine virtuelle sur l
 $cred = Get-Credential
 ```
 
-Tout d’abord, définissez votre machine virtuelle avec [New-AzVMConfig](/powershell/module/az.compute/new-azvmconfig). L’exemple suivant crée une machine virtuelle nommée *myVM* d’une taille compatible avec la mise en réseau accélérée (*Standard_DS4_v2*) :
+Commencez par définir votre machine virtuelle avec la commande [New-AzVMConfig](/powershell/module/az.compute/new-azvmconfig). L’exemple suivant crée une machine virtuelle nommée *myVM* d’une taille compatible avec la mise en réseau accélérée (*Standard_DS4_v2*) :
 
 ```powershell
 $vmConfig = New-AzVMConfig -VMName "myVm" -VMSize "Standard_DS4_v2"
@@ -194,13 +194,13 @@ $vmConfig = Set-AzVMSourceImage -VM $vmConfig `
     -Version "latest"
 ```
 
-Attacher l’interface réseau que vous avez créé précédemment avec [Add-AzVMNetworkInterface](/powershell/module/az.compute/add-azvmnetworkinterface):
+Associez les cartes d’interface réseau que vous avez créées précédemment à l’aide de la commande [Add-AzVMNetworkInterface](/powershell/module/az.compute/add-azvmnetworkinterface) :
 
 ```powershell
 $vmConfig = Add-AzVMNetworkInterface -VM $vmConfig -Id $nic.Id
 ```
 
-Enfin, créez votre machine virtuelle avec [New-AzVM](/powershell/module/az.compute/new-azvm):
+Enfin, créez votre machine virtuelle avec la commande [New-AzVM](/powershell/module/az.compute/new-azvm) :
 
 ```powershell
 New-AzVM -VM $vmConfig -ResourceGroupName "myResourceGroup" -Location "centralus"
@@ -247,7 +247,7 @@ $nic.EnableAcceleratedNetworking = $true
 $nic | Set-AzureRMNetworkInterface
 ```
 
-Redémarrez votre machine virtuelle ou, si dans un groupe à haute disponibilité, toutes les machines virtuelles dans le jeu et vérifiez que la mise en réseau accélérée est activée :
+Redémarrez la machine virtuelle ou, dans le cas d’un groupe à haute disponibilité, toutes les machines virtuelles du groupe, puis vérifiez que la mise en réseau accélérée est bien activée :
 
 ```azurepowershell
 Start-AzureRmVM -ResourceGroup "myResourceGroup" `

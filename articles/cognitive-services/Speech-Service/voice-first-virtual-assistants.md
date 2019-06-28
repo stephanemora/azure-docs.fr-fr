@@ -1,7 +1,7 @@
 ---
-title: Personnalisé voix en premier virtuels assistants (version préliminaire) - Services de reconnaissance vocale
+title: Personnaliser l’assistant virtuel « voice-first » (préversion) - Services Speech
 titleSuffix: Azure Cognitive Services
-description: Vue d’ensemble de fonctionnalités, des fonctionnalités et des restrictions pour les assistants personnalisés voix en premier virtuels à l’aide du canal Direct ligne vocale sur le Bot Framework et le Kit de développement logiciel Services Speech (SDK) Cognitive.
+description: Vue d’ensemble des fonctionnalités et des restrictions pour les assistants virtuels « voice-first » personnalisés utilisant le canal Direct Line Speech sur Bot Framework et le SDK Cognitive Services Speech.
 services: cognitive-services
 author: trrwilson
 manager: nitinme
@@ -12,45 +12,45 @@ ms.date: 05/02/2019
 ms.author: travisw
 ms.custom: ''
 ms.openlocfilehash: 1c5712fa8bbdb158992127f8f48d810a0a9b6f79
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65603483"
 ---
-# <a name="about-custom-voice-first-virtual-assistants-preview"></a>Sur les assistants virtuel personnalisé voix en premier aperçu
+# <a name="about-custom-voice-first-virtual-assistants-preview"></a>À propos de la préversion des assistants virtuels « voice-first »
 
-Les assistants virtuels personnalisés qui utilisent Azure Speech Services permettent aux développeurs de créer des interfaces conversationnelles naturelles pour leurs applications et leurs expériences. Le canal Direct Line Speech de Bot Framework améliore ces fonctionnalités en fournissant un point d’entrée orchestré et coordonné à un bot compatible qui permet des interactions vocales entrantes et sortantes avec une faible latence et une grande fiabilité. Ces robots peuvent utiliser la reconnaissance vocale (LUIS de Microsoft) pour l’interaction en langage naturel. Reconnaissance vocale de ligne directe est accessible par les appareils à l’aide du Kit de développement logiciel (SDK) de reconnaissance vocale.
+Les assistants virtuels personnalisés qui utilisent Azure Speech Services permettent aux développeurs de créer des interfaces conversationnelles naturelles pour leurs applications et leurs expériences. Le canal Direct Line Speech de Bot Framework améliore ces fonctionnalités en fournissant un point d’entrée orchestré et coordonné à un bot compatible qui permet des interactions vocales entrantes et sortantes avec une faible latence et une grande fiabilité. Ces bots peuvent utiliser LUIS (Language Understanding) de Microsoft pour une interaction en langage naturel. Les appareils accèdent à Direct Line Speech via le SDK Speech.
 
-   ![Diagramme conceptuel d’un flux de service par ligne directe vocale d’orchestration](media/voice-first-virtual-assistants/overview.png "flux de la chaîne de reconnaissance vocale")
+   ![Diagramme conceptuel du flux de service d’orchestration Direct Line Speech](media/voice-first-virtual-assistants/overview.png "Flux du canal Speech")
 
 
-Vocale de ligne directe et ses fonctionnalités pour les assistants de virtuels orienté voix personnalisées sont un supplément idéale pour le [Solution Assistant virtuel et le modèle d’entreprise](https://docs.microsoft.com/azure/bot-service/bot-builder-enterprise-template-overview). Bien que vocale de ligne directe peut fonctionner avec un robot quelconques compatible, ces ressources fournissent une ligne de base réutilisable pour des expériences de haute qualité conversationnelles, ainsi que des compétences de prise en charge courantes et modèles pour la mise en route rapide.
+Direct Line Speech et ses fonctionnalités pour les assistants virtuels « voice first » personnalisés sont un supplément idéal pour le [modèle Virtual Assistant Solution and Enterprise](https://docs.microsoft.com/azure/bot-service/bot-builder-enterprise-template-overview). Bien que Direct Line Speech puisse fonctionner avec n’importe quel bot compatible, ces ressources fournissent une ligne de base réutilisable pour des expériences conversationnelles de haute qualité, ainsi que des compétences et des modèles sous-jacents communs pour un démarrage rapide.
 
 
 ## <a name="core-features"></a>Fonctionnalités de base
 
 | Catégorie | Caractéristiques |
 |----------|----------|
-|[Mise en éveil personnalisé word](speech-devices-sdk-create-kws.md) | Vous pouvez autoriser les utilisateurs à commencer des conversations avec des robots à l’aide d’un mot clé personnalisé comme « Hey Contoso. » Cette tâche est réalisée par un moteur de word personnalisé de mise en éveil dans le Speech SDK, qui peut être configuré avec un mot de mise en éveil personnalisé [que vous pouvez générer ici](speech-devices-sdk-create-kws.md). Le canal Direct vocale ligne inclut la vérification de mot de mise en éveil du côté service qui améliore la précision de l’activation de word de mise en éveil par rapport à l’appareil uniquement.
-|[Reconnaissance vocale](speech-to-text.md) | Le canal Direct vocale ligne inclut la transcription audio en temps réel dans à l’aide du texte reconnu [parole-texte](speech-to-text.md) à partir des Services de reconnaissance vocale de Azure. Ce texte est disponible pour votre robot et votre application cliente comme il est de transcription.
-|[Conversion de texte par synthèse vocale](text-to-speech.md) | Réponses textuelles à partir de votre robot seront synthétisés à l’aide de [synthèse vocale](text-to-speech.md) à partir des Services de reconnaissance vocale de Azure. Cette synthèse puis sera disponible pour votre application cliente comme un flux audio. Microsoft offre la possibilité de créer votre propre voix TTS neuronal personnalisé et de haute qualité qui offre une voix à votre marque, pour en savoir plus [contactez-nous](mailto:mstts@microsoft.com).
-|[Reconnaissance vocale par ligne directe](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech) | En tant que canal dans le cadre de robot, vocale de ligne directe permet une connexion fluide et homogène entre votre application cliente, un robot compatible et les fonctionnalités des Services de reconnaissance vocale de Azure. Pour plus d’informations sur la configuration de votre robot pour utiliser le canal Direct vocale de ligne, consultez [sa page dans la documentation de Bot Framework](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech).
+|[Mot déclencheur personnalisé](speech-devices-sdk-create-kws.md) | Vous pouvez permettre aux utilisateurs de commencer des conversations avec des bots à l’aide d’un mot clé personnalisé comme « Dis Contoso ». Cette tâche est réalisée avec un moteur de mot déclencheur personnalisé dans le SDK Speech, qui peut être configuré avec un mot déclencheur personnalisé [que vous pouvez générer ici](speech-devices-sdk-create-kws.md). Le canal Direct Line Speech inclut la vérification du mot déclencheur côté service qui améliore la précision de l’activation du mot déclencheur par rapport à l’appareil uniquement.
+|[Reconnaissance vocale](speech-to-text.md) | Le canal Direct Line Speech inclut la transcription en temps réel du son dans du texte reconnu avec la [Reconnaissance vocale](speech-to-text.md) d’Azure Speech Services. Ce texte est disponible pour votre bot et votre application cliente lors de sa transcription.
+|[Synthèse vocale](text-to-speech.md) | Les réponses textuelles de votre bot seront synthétisées à l’aide de la [Synthèse vocale](text-to-speech.md) d’Azure Speech Services. Cette synthèse sera ensuite disponible pour votre application cliente sous forme de flux audio. Microsoft offre la possibilité de créer votre propre voix TTS neuronale personnalisée et de haute qualité qui donne une voix à votre marque, pour en savoir plus [contactez-nous](mailto:mstts@microsoft.com).
+|[Direct Line Speech](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech) | En tant que canal dans Bot Framework, Direct Line Speech permet une connexion fluide et homogène entre votre application cliente, un bot compatible et les fonctionnalités d’Azure Speech Services. Pour plus d’informations sur la configuration de votre bot pour utiliser le canal Direct Line Speech, consultez la [page appropriée dans la documentation Bot Framework](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech).
 
 ## <a name="sample-code"></a>Exemple de code
 
-Exemple de code pour la création d’un assistant virtuel vocal en premier est disponible sur GitHub. Ces exemples couvrent l’application cliente pour se connecter à votre robot dans plusieurs langages de programmation populaires.
+Un exemple de code pour la création d’un assistant virtuel « voice first » est disponible sur GitHub. Ces exemples couvrent l’application cliente pour la connexion à votre bot dans plusieurs langages de programmation populaires.
 
-* [Exemples de l’assistant virtuel vocal en premier (SDK)](https://aka.ms/csspeech/samples)
-* [Démarrage rapide : voix en premier les assistants virtuels (C#)](quickstart-virtual-assistant-csharp-uwp.md)
-* [Démarrage rapide : assistants virtuels voix en premier (Java)](quickstart-virtual-assistant-java-jre.md)
+* [Exemples d’assistant virtuel « voice-first » (SDK)](https://aka.ms/csspeech/samples)
+* [Démarrage rapide : assistants virtuels « voice-first » (C#)](quickstart-virtual-assistant-csharp-uwp.md)
+* [Démarrage rapide : assistants virtuels « voice-first » (Java)](quickstart-virtual-assistant-java-jre.md)
 
 ## <a name="customization"></a>Personnalisation
 
-Voix en premier les assistants virtuels créés à l’aide des Services de reconnaissance vocale Azure peuvent utiliser la gamme complète des options de personnalisation disponibles pour [parole-texte](speech-to-text.md), [synthèse vocale](text-to-speech.md), et [mot clé personnalisée sélection](speech-devices-sdk-create-kws.md).
+Les assistants virtuels « voice-first » créés à l’aide d’Azure Speech Services peuvent utiliser la gamme complète des options de personnalisation disponibles pour la [reconnaissance vocale](speech-to-text.md), la [synthèse vocale](text-to-speech.md) et la [sélection de mot clé personnalisé](speech-devices-sdk-create-kws.md).
 
 > [!NOTE]
-> Options de personnalisation varient selon la langue/région (voir [langues prises en charge](supported-languages.md)).
+> Les options de personnalisation varient selon la langue/région (voir [Langues prises en charge](supported-languages.md)).
 
 ## <a name="reference-docs"></a>Documents de référence
 
@@ -60,6 +60,6 @@ Voix en premier les assistants virtuels créés à l’aide des Services de reco
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Obtenir une clé d’abonnement aux services Speech gratuitement](get-started.md)
-* [Obtenir la Kit de développement logiciel de reconnaissance vocale](speech-sdk.md)
+* [Obtenir le Kit SDK de reconnaissance vocale](speech-sdk.md)
 * [Créer et déployer un bot de base](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
-* [Obtenir la Solution de l’Assistant virtuelle et le modèle d’entreprise](https://github.com/Microsoft/AI)
+* [Obtenir le modèle Virtual Assistant Solution and Enterprise](https://github.com/Microsoft/AI)

@@ -1,7 +1,7 @@
 ---
-title: Dépanner les appareils de Speech SDK - Services de reconnaissance vocale
+title: Dépanner le kit SDK Speech Devices - Services Speech
 titleSuffix: Azure Cognitive Services
-description: Cet article fournit des informations pour vous aider à résoudre les problèmes que vous pouvez rencontrer lorsque vous utilisez le SDK d’appareils de reconnaissance vocale.
+description: Cet article fournit des informations pour vous aider à résoudre des problèmes que vous pourriez rencontrer lors de l’utilisation du kit SDK Speech Devices.
 services: cognitive-services
 author: mswellsi
 manager: nitinme
@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: wellsi
 ms.openlocfilehash: 87fb35f06dcb1d1e3fb8c3ae3be64c7448162f14
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65026155"
 ---
-# <a name="troubleshoot-the-speech-devices-sdk"></a>Dépanner les appareils de Speech SDK
+# <a name="troubleshoot-the-speech-devices-sdk"></a>Résoudre les problèmes liés au SDK des dispositifs vocaux
 
-Cet article fournit des informations pour vous aider à résoudre les problèmes que vous pouvez rencontrer lorsque vous utilisez le SDK d’appareils de reconnaissance vocale.
+Cet article fournit des informations pour vous aider à résoudre des problèmes que vous pourriez rencontrer lors de l’utilisation du kit SDK Speech Devices.
 
 ## <a name="certificate-failures"></a>Erreurs de certificat
 
-Si vous obtenez des erreurs de certificat lorsque vous utilisez les Services de reconnaissance vocale, assurez-vous que votre appareil dispose de la date et l’heure :
+Si vous rencontrez des erreurs de certificat lorsque vous utilisez les services Speech, veillez à ce que la date et l’heure de votre appareil soient correctes :
 
 1. Accédez à **Settings**. Sous **System** (Système), sélectionnez **Date & time** (Date et heure).
 

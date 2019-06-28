@@ -1,5 +1,5 @@
 ---
-title: Récupérer les opérations API | Place de marché Azure
+title: API de récupération d’opérations | Place de marché Azure
 description: Récupère toutes les opérations sur l’offre ou pour obtenir une opération particulière pour la valeur operationId spécifiée.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
@@ -8,10 +8,10 @@ ms.topic: reference
 ms.date: 09/14/2018
 ms.author: pabutler
 ms.openlocfilehash: 1fbcc1d50dbc4488c4123be64e85de612233ccc3
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64935781"
 ---
 <a name="retrieve-operations"></a>Récupérer des opérations
@@ -31,7 +31,7 @@ Récupère toutes les opérations sur l’offre ou pour obtenir une opération p
 <a name="uri-parameters"></a>Paramètres URI
 --------------
 
-|  **Name**          |      **Description**                                                                                           | **Type de données** |
+|  **Nom**          |      **Description**                                                                                           | **Type de données** |
 |  ----------------  |     --------------------------------------------------------------------------------------------------------   |  -----------  |
 |  publisherId       |  Identificateur du serveur de publication, par exemple `Contoso`                                                                   |  Chaîne       |
 |  offerId           |  Identificateur de l’offre                                                                                              |  Chaîne       |
@@ -44,7 +44,7 @@ Récupère toutes les opérations sur l’offre ou pour obtenir une opération p
 <a name="header"></a>En-tête
 ------
 
-|  **Name**          |  **Valeur**           |
+|  **Nom**          |  **Valeur**           |
 |  ---------------   | -------------------- |
 |  Content-Type      | `application/json`   |
 |  Authorization     | `Bearer YOUR_TOKEN`  |
@@ -176,7 +176,7 @@ Récupère toutes les opérations sur l’offre ou pour obtenir une opération p
 
 ### <a name="response-body-properties"></a>Propriétés du corps de réponse
 
-|  **Name**                    |  **Description**                                                                                  |
+|  **Nom**                    |  **Description**                                                                                  |
 |  --------------------        |  ------------------------------------------------------------------------------------------------ |
 |  id                          | GUID qui identifie de façon unique l’opération                                                       |
 |  submissionType              | Identifie le type d’opération signalé pour l’offre, par exemple `Publish/GGoLive`      |

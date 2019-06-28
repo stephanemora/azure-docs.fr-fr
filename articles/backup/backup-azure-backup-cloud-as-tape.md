@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/30/2017
 ms.author: dacurwin
 ms.openlocfilehash: d768f0fae9487a555f6ace12303f8a4bd7cb8bd1
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65146022"
 ---
 # <a name="move-your-long-term-storage-from-tape-to-the-azure-cloud"></a>Déplacement de votre stockage à long terme de la bande vers le cloud Azure
@@ -42,10 +42,10 @@ Le nombre total de « points de rétention » spécifié dans cette stratégie
 ## <a name="example--putting-both-together"></a>Exemple – Combinaison des deux
 ![Exemple d’écran](./media/backup-azure-backup-cloud-as-tape/samplescreen.png)
 
-1. **Stratégie de rétention quotidienne**: Les sauvegardes effectuées quotidiennement sont stockées pendant sept jours.
-2. **Stratégie de rétention hebdomadaire**: Les sauvegardes effectuées tous les jours à minuit et à 18 h 00 samedi sont conservées pendant quatre semaines
-3. **Stratégie de rétention mensuelle**: Sauvegardes effectuées à minuit et à 18 h 00 le dernier samedi de chaque mois sont conservées pendant 12 mois
-4. **Stratégie de rétention annuelle**: Sauvegardes effectuées à minuit le dernier samedi de chaque mois de mars sont conservées pendant 10 ans
+1. **Stratégie de rétention quotidienne** : Les sauvegardes effectuées quotidiennement sont stockées pendant sept jours.
+2. **Stratégie de rétention hebdomadaire** : Les sauvegardes effectuées tous les jours à minuit et à 18 h 00 le samedi sont conservées pendant quatre semaines
+3. **Stratégie de rétention mensuelle** : Les sauvegardes effectuées le dernier samedi de chaque mois à minuit et à 18 h 00 sont conservées pendant 12 mois
+4. **Stratégie de rétention annuelle** : Les sauvegardes effectuées le dernier samedi de chaque mois de mars à minuit sont conservées pendant 10 ans
 
 Le nombre total de « points de rétention » (points à partir duquel un client peut restaurer des données) dans le schéma précédent est calculé comme suit :
 
@@ -57,7 +57,7 @@ Le nombre total de « points de rétention » (points à partir duquel un clie
 Le nombre total de points de récupération est 56.
 
 > [!NOTE]
-> À l’aide de la sauvegarde Azure, vous pouvez créer jusqu'à 9 999 points de récupération par instance protégée. Une instance protégée est un ordinateur, un serveur (physique ou virtuel) ou une charge de travail sauvegardé dans Azure.
+> Grâce à Sauvegarde Azure, vous pouvez créer jusqu’à 9 999 points de récupération par instance protégée. Une instance protégée est un ordinateur, un serveur (physique ou virtuel) ou une charge de travail sauvegardé dans Azure.
 >
 
 ## <a name="advanced-configuration"></a>Configuration avancée

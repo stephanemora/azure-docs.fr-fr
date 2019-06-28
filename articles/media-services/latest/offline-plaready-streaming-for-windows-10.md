@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/01/2019
 ms.author: willzhan
 ms.openlocfilehash: d3ff97dc86ea6932ba51a4a30e53edf1082d5305
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64937485"
 ---
 # <a name="offline-playready-streaming-for-windows-10"></a>Diffusion en continu de PlayReady en mode hors connexion pour Windows 10
@@ -28,13 +28,13 @@ Azure Media Services prend en charge le téléchargement/la lecture hors connexi
 - [Diffusion en continu de FairPlay en mode hors connexion pour iOS](offline-fairplay-for-ios.md)
 - [Diffusion en continu de Widevine en mode hors connexion pour Android](offline-widevine-for-android.md)
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
 Cette section donne des précisions sur la lecture en mode hors connexion, notamment sur les points suivants :
 
-* Dans certains pays/régions, disponibilité Internet et/ou la bande passante est encore limitée. Les utilisateurs peuvent choisir de télécharger d’abord afin de pouvoir regarder le contenu en résolution suffisamment élevée pour une expérience d’affichage satisfaisante. Dans ce cas, le problème ne concerne pas majoritairement la disponibilité du réseau, mais une bande passante réseau limitée. Les fournisseurs OTT/OVP doivent fournir une prise en charge du mode hors connexion.
+* Dans certains pays/certaines régions, la disponibilité Internet et/ou la bande passante sont encore limitées. Les utilisateurs peuvent choisir de télécharger d’abord afin de pouvoir regarder le contenu en résolution suffisamment élevée pour une expérience d’affichage satisfaisante. Dans ce cas, le problème ne concerne pas majoritairement la disponibilité du réseau, mais une bande passante réseau limitée. Les fournisseurs OTT/OVP doivent fournir une prise en charge du mode hors connexion.
 * Comme l’a indiqué Reed Hastings, PDG de Netflix, lors de la réunion des actionnaires Netflix du troisième trimestre 2016, le téléchargement de contenu est une « fonctionnalité très demandée » à laquelle « nous sommes ouverts ».
-* Certains fournisseurs de contenu peuvent interdire la remise de licence DRM au-delà de la frontière d’un pays/région. Si un utilisateur en voyage à l’étranger souhaite regarder du contenu, le téléchargement hors connexion est nécessaire.
+* Certains fournisseurs de contenu peuvent interdire la remise de licence de gestion des droits numériques (DRM) au-delà de la frontière d’un pays/d’une région. Si un utilisateur en voyage à l’étranger souhaite regarder du contenu, le téléchargement hors connexion est nécessaire.
  
 Le défi auquel nous sommes confrontés pour l’implémentation du mode hors connexion est le suivant :
 
@@ -63,7 +63,7 @@ Ressource 1 :
 Ressource 2 :
 
 * URL de téléchargement progressif : [https://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4](https://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4)
-* LA_URL PlayReady (en local) : [https://willzhan12.cloudapp.net/playready/rightsmanager.asmx](https://willzhan12.cloudapp.net/playready/rightsmanager.asmx)
+* PlayReady LA_URL (local) : [https://willzhan12.cloudapp.net/playready/rightsmanager.asmx](https://willzhan12.cloudapp.net/playready/rightsmanager.asmx)
 
 Pour tester la lecture, nous avons utilisé une application Windows universelle sur Windows 10. Dans [Exemples Windows 10 Universel](https://github.com/Microsoft/Windows-universal-samples) se trouve un exemple de lecteur de base appelé [Exemple de diffusion en continu adaptative](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/AdaptiveStreaming). Il suffit d’ajouter le code pour sélectionner la vidéo téléchargée et l’utiliser comme source, à la place d’une source de diffusion en continu adaptative. Les modifications figurent dans le gestionnaire d’événements Click :
 

@@ -11,22 +11,22 @@ ms.date: 05/02/2019
 ms.author: brjohnst
 ms.custom: seodec2018
 ms.openlocfilehash: 5723f1ab7258a9e0d672b5c0fd9fd0b9c4dc8721
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65522919"
 ---
-# <a name="morelikethis-in-azure-search"></a>moreLikeThis dans la recherche Azure
+# <a name="morelikethis-in-azure-search"></a>moreLikeThis dans la Recherche Azure
 
 > [!Note]
-> moreLikeThis est en version préliminaire et les a pas été conçu pour la production. Le [API REST version 2019-05-06-Preview](search-api-preview.md) fournit cette fonctionnalité. Il n’existe aucune prise en charge du SDK .NET pour l’instant.
+> moreLikeThis est en préversion et n’a pas été conçu pour la production. L’[API REST version 2019-05-06-Preview](search-api-preview.md) fournit cette fonctionnalité. Il n’y a pas de prise en charge de .NET SDK pour l’instant.
 
-`moreLikeThis=[key]` est un paramètre de requête dans le [recherche Documents API](https://docs.microsoft.com/rest/api/searchservice/search-documents) qui recherche des documents similaires au document spécifié par la clé de document. Lorsqu’une requête de recherche est formulée avec `moreLikeThis`, une demande est générée en utilisant les termes de recherche extraits du document donné et qui décrivent le mieux ce document. La demande générée est ensuite utilisée pour effectuer la requête de recherche. Par défaut, le contenu de tous les champs de recherche est considérées comme, moins tous les champs restreints que vous avez spécifié à l’aide de le `searchFields` paramètre. Le paramètre `moreLikeThis` ne peut pas être utilisé avec le paramètre de recherche, `search=[string]`.
+`moreLikeThis=[key]` est un paramètre de requête dans [L’API Search Documents](https://docs.microsoft.com/rest/api/searchservice/search-documents) (Recherche de documents) qui recherche des documents similaires au document spécifié par la clé de document. Lorsqu’une requête de recherche est formulée avec `moreLikeThis`, une demande est générée en utilisant les termes de recherche extraits du document donné et qui décrivent le mieux ce document. La demande générée est ensuite utilisée pour effectuer la requête de recherche. Par défaut, le contenu de tous les champs pouvant faire l’objet d’une recherche est pris en compte, à l’exception des champs restreints que vous avez spécifiés à l’aide du paramètre `searchFields`. Le paramètre `moreLikeThis` ne peut pas être utilisé avec le paramètre de recherche, `search=[string]`.
 
-Par défaut, le contenu de tous les champs de recherche de niveau supérieur est considérés comme. Si vous souhaitez spécifier des champs spécifiques à la place, vous pouvez utiliser le `searchFields` paramètre. 
+Par défaut, le contenu de tous les champs de niveau supérieur pouvant faire l’objet d’une recherche est pris en compte. Si vous souhaitez spécifier des champs spécifiques à la place, vous pouvez utiliser le paramètre `searchFields`. 
 
-Vous ne pouvez pas utiliser moreLikeThis sur sous-Champs interrogeables dans un [type complexe](search-howto-complex-data-types.md).
+Vous ne pouvez pas utiliser moreLikeThis sur des sous-champs pouvant faire l’objet d’une recherche dans un [type complexe](search-howto-complex-data-types.md).
 
 ## <a name="examples"></a>Exemples 
 
@@ -50,4 +50,4 @@ POST /indexes/hotels/docs/search?api-version=2019-05-06-Preview
 Vous pouvez utiliser n’importe quel outil de test web pour faire des essais avec cette fonctionnalité.  Nous vous recommandons d’utiliser Postman pour cet exercice.
 
 > [!div class="nextstepaction"]
-> [Explorer les API REST de recherche Azure à l’aide de Postman](search-fiddler.md)
+> [Explorer les API REST de la Recherche Azure avec Postman](search-fiddler.md)

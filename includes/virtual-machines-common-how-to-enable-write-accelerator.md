@@ -9,10 +9,10 @@ ms.date: 05/23/2019
 ms.author: raiye
 ms.custom: include file
 ms.openlocfilehash: 7b9b30f1598f7e50d25b15aaf2fda896ee9e5012
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66248769"
 ---
 # <a name="enable-write-accelerator"></a>Activer l’Accélérateur des écritures
@@ -61,7 +61,7 @@ Les limites d’IOPS s’entendent par machine virtuelle et *non* par disque. To
 
 Les sections ci-après décrivent comment activer l’Accélérateur des écritures sur des disques durs virtuels de stockage Azure Premium.
 
-### <a name="prerequisites"></a>Conditions préalables
+### <a name="prerequisites"></a>Prérequis
 
 Assurez-vous de remplir les prérequis suivants pour pouvoir utiliser l’Accélérateur des écritures :
 

@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: raynew
 ms.openlocfilehash: fe86c758dbf05f91d53cb918b7794c12ab3f39bc
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65518756"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Découvrir et évaluer un environnement VMware de grande taille
@@ -20,7 +20,7 @@ Une limite de 1 500 machines par projet s’applique pour Azure Migrate. Cet art
 > [!NOTE]
 > Une préversion permet de découvrir jusqu’à 10 000 machines virtuelles VMware dans un même projet à l’aide d’une seule appliance. Pour l’essayer, [inscrivez-vous ici](https://aka.ms/migratefuture).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 - **VMware** : les machines virtuelles à migrer doivent être gérées par vCenter Server version 5.5, 6.0, 6.5 ou 6.7. De plus, vous avez besoin d’un hôte ESXi exécutant la version 5.5 ou ultérieure pour déployer la machine virtuelle du collecteur.
 - **Compte vCenter** : vous avez besoin d’un compte en lecture seule pour accéder au serveur vCenter Server. Azure Migrate utilise ce compte pour découvrir les machines virtuelles sur site.
@@ -39,11 +39,11 @@ Azure Migrate doit accéder à des serveurs VMware pour découvrir automatiqueme
 - Détails : L’utilisateur est affecté au niveau du centre de données et a accès à tous les objets dans le centre de données.
 - Pour restreindre l’accès, attribuez le rôle Aucun accès avec l’objet Propager vers l’objet enfant défini sur les objets enfants (hôtes vSphere, banques de données, machines virtuelles et réseaux).
 
-Si vous déployez dans un environnement mutualisé et que vous souhaitez étendue par dossier de machines virtuelles pour un seul client, vous ne pouvez pas sélectionner directement le dossier de la machine virtuelle lors de l’étendue de collection dans Azure Migrate. Voici des instructions sur la découverte d’étendue par le dossier de machines virtuelles :
+Si vous déployez dans un environnement multilocataire et que vous souhaitez ajouter une étendue par dossier de machines virtuelles pour un seul locataire, vous ne pouvez pas directement sélectionner le dossier de la machine virtuelle lors de l’étendue de la collection dans Azure Migrate. Voici des instructions sur la manière d’étendre la détection par dossier de machines virtuelles :
 
-1. Créer un utilisateur par locataire et affecter des autorisations en lecture seule à toutes les machines virtuelles appartenant à un locataire particulier. 
-2. Accorder cet utilisateur l’accès en lecture seule à tous les objets parent où se trouvent les machines virtuelles. Tous les objets parents - host, dossier des ordinateurs hôtes, cluster, dossier de clusters - dans la hiérarchie jusqu'à le centre de données doivent être incluses. Vous n’avez pas besoin propager les autorisations à tous les objets enfants.
-3. Utiliser les informations d’identification pour la découverte en sélectionnant centre de données en tant que *étendue de Collection*. Le RBAC configurer garantit que l’utilisateur vCenter correspondant aura accès aux machines virtuelles uniquement spécifique au client.
+1. Créez un utilisateur par locataire et assignez des autorisations en lecture seule à toutes les machines virtuelles appartenant à un locataire particulier. 
+2. Accordez à cet utilisateur l’accès en lecture seule à tous les objets parents dans lesquels sont hébergées les machines virtuelles. Tous les objets parents (hôte, dossier des hôtes, cluster, dossier des clusters) de la hiérarchie jusqu’au centre de données doivent être inclus. Vous n’avez pas besoin de propager les autorisations à tous les objets enfants.
+3. Utilisez les informations d’identification pour la détection en sélectionnant le centre de données en tant qu’*étendue de collection*. La configuration RBAC garantit que l’utilisateur vCenter correspondant aura accès uniquement aux machines virtuelles spécifiques d’un locataire.
 
 ## <a name="plan-your-migration-projects-and-discoveries"></a>Planifier vos projets de migration et détections
 
@@ -52,13 +52,13 @@ En fonction du nombre de machines virtuelles que vous voulez détecter, vous pou
 En cas de détection unique (maintenant dépréciée), la détection fonctionne selon un modèle sans réponse. Une fois la détection effectuée, vous pouvez utiliser le même collecteur pour recueillir des données d’un autre serveur vCenter Server ou les envoyer à un autre projet de migration.
 
 > [!NOTE]
-> L’appliance de découverte unique est désormais dépréciée, car son utilisation dépend des paramètres de statistiques vCenter Server concernant la disponibilité des points de données de performances, et nécessite la collecte des données de compteurs de performance moyenne, ce qui a comme résultat d’attribuer une taille insuffisante aux machines virtuelles pour la migration vers Azure. Il est recommandé de déplacer vers l’appliance continue de découverte.
+> L’appliance de découverte unique est désormais dépréciée, car son utilisation dépend des paramètres de statistiques vCenter Server concernant la disponibilité des points de données de performances, et nécessite la collecte des données de compteurs de performance moyenne, ce qui a comme résultat d’attribuer une taille insuffisante aux machines virtuelles pour la migration vers Azure. Il est recommandé de migrer vers l’appliance de détection continue.
 
 Planifiez vos découvertes et vos évaluations en fonction des contraintes suivantes :
 
 | **Entité** | **Limite de la machine** |
 | ---------- | ----------------- |
-| PROJET    | 1 500             |
+| Projet    | 1 500             |
 | Découverte  | 1 500             |
 | Évaluation | 1 500             |
 
@@ -88,7 +88,7 @@ Si vous avez plusieurs instances de vCenter Server avec moins de 1 500 machines 
 
 ### <a name="more-than-1500-machines-in-a-single-vcenter-server"></a>Plus de 1 500 machines dans un seul serveur vCenter Server
 
-Si vous avez plus de 1 500 machines virtuelles dans un seul serveur vCenter Server, vous devez fractionner la détection en plusieurs projets de migration. Pour fractionner des découvertes, vous pouvez tirer parti du champ de la portée de l’appliance et spécifier l’hôte, le cluster, le dossier d’hôtes, le dossier des clusters ou centre de données que vous souhaitez découvrir. Par exemple, si vous avez deux dossiers dans le serveur vCenter Server, l’un avec 1000 machines virtuelles (Dossier1) et l’autre avec 800 machines virtuelles (Dossier2), vous pouvez utiliser le champ Étendue pour fractionner les détections entre ces dossiers.
+Si vous avez plus de 1 500 machines virtuelles dans un seul serveur vCenter Server, vous devez fractionner la détection en plusieurs projets de migration. Pour fractionner les détections, vous pouvez utiliser le champ Étendue de l’appliance et spécifier l’hôte, le cluster, le dossier des hôtes, le dossier des clusters ou le centre de données à détecter. Par exemple, si vous avez deux dossiers dans le serveur vCenter Server, l’un avec 1000 machines virtuelles (Dossier1) et l’autre avec 800 machines virtuelles (Dossier2), vous pouvez utiliser le champ Étendue pour fractionner les détections entre ces dossiers.
 
 **Détection continue :** dans ce cas, vous devez créer deux appliances collecteur et, pour le premier collecteur, spécifier l’étendue en tant que Dossier1, puis le connecter au premier projet de migration. Vous pouvez en parallèle commencer la détection du Dossier2 à l’aide de la deuxième appliance collecteur, puis la connecter au deuxième projet de migration.
 
@@ -219,7 +219,7 @@ Importez le fichier téléchargé dans vCenter Server :
 5. Dans Storage (Stockage), spécifiez la destination de stockage pour la machine virtuelle collector.
 6. Dans **Disk Format** (Format de disque), spécifiez le type de disque et la taille.
 7. Dans **Network Mapping** (Mappage réseau), spécifiez le réseau auquel se connectera la machine virtuelle collector. Le réseau nécessite une connexion à Internet pour envoyer des métadonnées vers Azure.
-8. Validez les paramètres, puis sélectionnez **Finish (Terminer)**.
+8. Validez les paramètres, puis sélectionnez **Finish (Terminer)** .
 
 ### <a name="identify-the-id-and-key-for-each-project"></a>Identifier l’ID et la clé de chaque projet
 

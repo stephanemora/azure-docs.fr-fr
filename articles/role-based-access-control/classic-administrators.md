@@ -15,10 +15,10 @@ ms.date: 02/19/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 9c3bd2480853f5c4134cd560c20a6007b044e138
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64924647"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Administrateurs d'abonnement classique Azure
@@ -38,7 +38,7 @@ Cet article décrit comment ajouter ou modifier les rôles Coadministrateur et A
 
     Les coadministrateurs peuvent uniquement être attribués à l’étendue de l’abonnement.
 
-1. Cliquez sur **Contrôle d’accès (IAM)**.
+1. Cliquez sur **Contrôle d’accès (IAM)** .
 
 1. Cliquez sur l’onglet **Administrateurs classiques**.
 
@@ -71,7 +71,7 @@ Notez que les [rôles intégrés pour les ressources Azure](../role-based-access
 
 1. Ouvrez [Abonnements](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) et sélectionnez un abonnement.
 
-1. Cliquez sur **Contrôle d’accès (IAM)**.
+1. Cliquez sur **Contrôle d’accès (IAM)** .
 
 1. Cliquez sur l’onglet **Administrateurs classiques**.
 
@@ -91,7 +91,7 @@ Il existe deux façons de modifier l’Administrateur de service. Vous pouvez mo
 
 ### <a name="azure-portal"></a>Portail Azure
 
-1. Assurez-vous que votre scénario est pris en charge en vérifiant les limites de modification des administrateurs de Service.
+1. Vérifiez que votre scénario est pris en charge en vérifiant les limites de modification des administrateurs de services fédérés.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) en tant qu’administrateur de compte.
 
@@ -109,7 +109,7 @@ Il existe deux façons de modifier l’Administrateur de service. Vous pouvez mo
 
 ### <a name="account-center"></a>Centre des comptes
 
-1. Assurez-vous que votre scénario est pris en charge en vérifiant les limites de modification des administrateurs de Service.
+1. Vérifiez que votre scénario est pris en charge en vérifiant les limites de modification des administrateurs de services fédérés.
 
 1. Connectez-vous au [Centre des comptes](https://account.windowsazure.com/subscriptions) en tant qu’administrateur de compte.
 
@@ -133,8 +133,8 @@ Si vous êtes connecté avec un compte professionnel ou scolaire, vous pouvez aj
 
   | Méthode de connexion | Ajouter l’utilisateur de compte Microsoft en tant qu’administrateur de service ? | Ajouter le compte professionnel ou scolaire de la même organisation comme Administrateur de service ? | Ajouter le compte professionnel ou scolaire de la même organisation comme Administrateur de service ? |
   | --- | --- | --- | --- |
-  |  Compte Microsoft |Oui |Non  |Non  |
-  |  Comptes professionnels ou scolaires |Oui |Oui |Non  |
+  |  Compte Microsoft |OUI |Non |Non |
+  |  Comptes professionnels ou scolaires |OUI |OUI |Non |
 
 ## <a name="view-the-account-administrator"></a>Voir l’administrateur de compte
 
@@ -155,5 +155,5 @@ Pour voir l’Administrateur de compte, procédez comme suit.
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Comprendre les différents rôles dans Azure](../role-based-access-control/rbac-and-directory-admin-roles.md)
-* [Gérer l’accès aux ressources Azure à l’aide du contrôle RBAC et du portail Azure](../role-based-access-control/role-assignments-portal.md)
+* [Gérer l’accès aux ressources Azure à l’aide du contrôle RBAC et du portail Azure](../role-based-access-control/role-assignments-portal.md)
 * [Ajouter ou changer des administrateurs d’abonnements Azure](../billing/billing-add-change-azure-subscription-administrator.md)

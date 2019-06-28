@@ -1,6 +1,6 @@
 ---
-title: Azure HDInsight accélérée des écritures pour Apache HBase
-description: Donne une vue d’ensemble de la fonctionnalité d’Azure HDInsight accélérée écrit, qui utilise des disques gérés premium pour améliorer les performances Apache HBase écrire directement du journal de.
+title: Écritures accélérées pour Apache HBase dans Azure HDInsight
+description: Offre une vue d’ensemble de la fonctionnalité Écritures accélérées dans Azure HDInsight, qui utilise des disques managés Premium pour améliorer les performances du journal WAL (write-ahead log) Apache HBase.
 services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
@@ -8,43 +8,43 @@ ms.author: hrasheed
 ms.topic: conceptual
 ms.date: 4/29/2019
 ms.openlocfilehash: 219899c2e336f544ff6572589cc79f84f555490d
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65233840"
 ---
-# <a name="azure-hdinsight-accelerated-writes-for-apache-hbase"></a>Azure HDInsight accélérée des écritures pour Apache HBase
+# <a name="azure-hdinsight-accelerated-writes-for-apache-hbase"></a>Écritures accélérées pour Apache HBase dans Azure HDInsight
 
-Cet article fournit en arrière-plan sur le **accélérée écrit** fonctionnalité pour Apache HBase dans Azure HDInsight et comment elle peut être utilisée efficacement pour améliorer les performances en écriture. **Accélération des écritures** utilise [disques gérés Azure premium SSD](../../virtual-machines/linux/disks-types.md#premium-ssd) pour améliorer les performances de l’Apache HBase écrire à l’avance journal WAL (Write). Pour en savoir plus sur Apache HBase, consultez [What ' s Apache HBase dans HDInsight](apache-hbase-overview.md).
+Cet article fournit des informations sur la fonctionnalité **Écritures accélérées** pour Apache HBase dans Azure HDInsight et explique comment elle peut être utilisée efficacement pour améliorer les performances en écriture. **Écritures accélérées** utilise les [disques managés SSD Premium Azure](../../virtual-machines/linux/disks-types.md#premium-ssd) pour améliorer les performances du journal WAL (write-ahead log) Apache HBase. Pour en savoir plus sur Apache HBase, consultez [Nouveautés d’Apache HBase dans Azure HDInsight](apache-hbase-overview.md).
 
-## <a name="overview-of-hbase-architecture"></a>Vue d’ensemble de l’architecture de HBase
+## <a name="overview-of-hbase-architecture"></a>Vue d’ensemble de l’architecture HBase
 
-Dans HBase, une **ligne** se compose d’une ou plusieurs **colonnes** et est identifiée par un **clé de ligne**. Plusieurs lignes constituent un **table**. Les colonnes contiennent **cellules**, qui sont des versions horodaté de la valeur dans cette colonne. Les colonnes sont regroupées en **familles de colonnes**, et toutes les colonnes dans une famille de colonnes sont stockées dans le fichier de stockage appelé **HFiles**.
+Dans HBase, une **ligne** se compose d’une ou plusieurs **colonnes** et est identifiée par une **clé de ligne**. Plusieurs lignes constituent une **table**. Les colonnes contiennent des **cellules**, qui sont des versions horodatées de la valeur de cette colonne. Les colonnes sont regroupées en **familles de colonnes**, et toutes les colonnes d’une même famille sont stockées dans des fichiers de stockage appelés **HFiles**.
 
-**Régions** dans HBase sont utilisés pour équilibrer la charge de traitement des données. Tout d’abord, HBase stocke les lignes d’une table dans une seule région. Les lignes sont réparties sur plusieurs régions en tant que la quantité de données dans la table est élevé. **Serveurs de région** peut gérer les demandes pour plusieurs régions.
+Dans HBase, les **régions** servent à équilibrer la charge de traitement des données. HBase commence par stocker les lignes d’une table dans une seule région. Les lignes sont réparties sur plusieurs régions à mesure que le volume de données de la table augmente. Les **serveurs de région** peuvent gérer les demandes de plusieurs régions.
 
-## <a name="write-ahead-log-for-apache-hbase"></a>Write Ahead Log pour Apache HBase
+## <a name="write-ahead-log-for-apache-hbase"></a>Journal WAL (write-ahead log) pour Apache HBase
 
-HBase écrit d’abord mises à jour des données à un type de journal de validation appelé un écrire à l’avance journal WAL (Write). Une fois la mise à jour est stockée dans le journal WAL, il est écrit dans la mémoire **MemStore**. Lorsque les données dans la mémoire atteint sa capacité maximale, il a écrit sur le disque en tant qu’un **HFile**.
+HBase commence par écrire des mises à jour de données sur un type de journal de validation appelé journal WAL (write-ahead log). Une fois la mise à jour stockée dans le journal WAL (write-ahead log), celle-ci est écrite dans **MemStore** en mémoire. Lorsque la capacité maximale des données en mémoire est atteinte, celles-ci sont écrites sur le disque sous forme de fichier **HFile**.
 
-Si un **RegionServer** se bloque ou devient indisponible avant que le MemStore est vidé, le journal écrire à l’avance peut être utilisé pour relire les mises à jour. Sans le journal WAL, si un **RegionServer** tombe en panne avant de vider les mises à jour à un **HFile**, toutes ces mises à jour sont perdues.
+Si un **RegionServer** se bloque ou devient indisponible avant que MemStore ne soit vidé, le journal WAL (write-ahead log) peut être utilisé pour réexécuter les mises à jour. En l’absence de journal WAL (write-ahead log), si un **RegionServer** tombe en panne avant d’avoir vidé les mises à jour vers un fichier **HFile**, toutes ces mises à jour sont perdues.
 
-## <a name="accelerated-writes-feature-in-azure-hdinsight-for-apache-hbase"></a>Fonctionnalité d’écritures accélérée dans HDInsight Azure pour Apache HBase
+## <a name="accelerated-writes-feature-in-azure-hdinsight-for-apache-hbase"></a>Fonctionnalité Écritures accélérées pour Apache HBase dans Azure HDInsight
 
-La fonctionnalité accélérée écrit résout le problème d’écriture-latences supérieures dû écrire à l’avance les journaux qui se trouvent dans le stockage cloud.  La fonctionnalité d’accélération écrit pour HDInsight Apache HBase clusters, attache les disques SSD gérés premium pour chaque RegionServer (nœud worker). Écrire à l’avance les journaux sont ensuite écrites pour le fichier système HDFS (Hadoop) monté sur ces disques gérés premium au lieu de stockage cloud.  Disques gérés Premium utilisent des disques SSD (SSD) et offrent d’excellentes performances d’e/s avec une tolérance de panne.  Contrairement aux disques non gérés, si une unité de stockage tombe en panne, il n’affecte pas les autres unités de stockage dans le même groupe à haute disponibilité.  Par conséquent, des disques gérés fournissent écriture-latence faible et une meilleure résilience pour vos applications. Pour en savoir plus sur les disques gérés par Azure, consultez [Introduction à Azure des disques gérés](../../virtual-machines/windows/managed-disks-overview.md). 
+La fonctionnalité Écritures accélérées résout le problème des latences en écriture plus élevées en raison de l’utilisation des journaux WAL (write-ahead log) stockés dans le cloud.  La fonctionnalité Écritures accélérées pour les clusters HDInsight Apache HBase associe des disques SSD managés Premium à chaque serveur de région (nœud Worker). Les journaux WAL (write-ahead log) sont ensuite écrits sur le système de fichiers DFS hadoop montés sur ces disques SSD managés Premium et non pas dans le stockage cloud.  Les disques managés Premium utilisent des disques SSD et offrent d’excellentes performances d’E/S, ainsi qu’une tolérance de panne.  Contrairement aux disques non managés, si une unité de stockage tombe en panne, elle n’affecte pas les autres unités de stockage du même groupe à haute disponibilité.  Par conséquent, les disques managés offrent une faible latence en écriture et une meilleure résilience pour vos applications. Pour en savoir plus sur les disques managés Azure, consultez [Présentation des disques managés Azure](../../virtual-machines/windows/managed-disks-overview.md). 
 
-## <a name="how-to-enable-accelerated-writes-for-hbase-in-hdinsight"></a>Comment activer l’accélération écrit pour HBase dans HDInsight
+## <a name="how-to-enable-accelerated-writes-for-hbase-in-hdinsight"></a>Comment activer la fonctionnalité Écritures accélérées pour HBase dans HDInsight
 
-Pour créer un nouveau cluster HBase avec la fonctionnalité d’accélération écrit, suivez les étapes de [configurer des clusters dans HDInsight](../hdinsight-hadoop-provision-linux-clusters.md) jusqu'à ce que vous atteigniez **étape 3, le stockage**. Sous **paramètres du Metastore**, cliquez sur la case à cocher en regard **activer accélérée écrit (version préliminaire)**. Ensuite, passez aux étapes restantes pour la création du cluster.
+Pour créer un nouveau cluster HBase avec la fonctionnalité Écritures accélérées, suivez les étapes de [Configurer des clusters dans HDInsight](../hdinsight-hadoop-provision-linux-clusters.md) jusqu’à l’**étape 3 relative au stockage**. Sous **Paramètres de Metastore**, cochez la case en regard de **Activer les écritures accélérées HBase (préversion)** . Puis, passez aux étapes restantes pour la création du cluster.
 
-![Activer l’option écritures accélérée pour HDInsight Apache HBase](./media/apache-hbase-accelerated-writes/accelerated-writes-cluster-creation.png)
+![Activez l’option Écritures accélérées pour HDInsight Apache HBase](./media/apache-hbase-accelerated-writes/accelerated-writes-cluster-creation.png)
 
 ## <a name="other-considerations"></a>Autres points à considérer
 
-Pour conserver la durabilité des données, créer un cluster avec un minimum de trois nœuds de travail. Une fois créé, vous ne pouvez pas descendre en puissance le cluster à moins de trois nœuds de travail.
+Pour préserver la durabilité des données, créez un cluster comportant au moins trois nœuds Worker. Une fois créé, vous ne pourrez plus réduire ne nombre de nœuds Worker du cluster.
 
-Ou de désactiver vos tables HBase avant de supprimer le cluster, afin que vous ne perdez pas les données de journal des écritures à l’avance.
+Videz ou désactivez vos tables HBase avant de supprimer le cluster, afin de ne pas perdre les données du journal WAL (write-ahead log).
 
 ```
 flush 'mytable'
@@ -56,5 +56,5 @@ disable 'mytable'
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Documentation officielle de Apache HBase sur le [fonctionnalité d’écrire les journaux à l’avance](https://hbase.apache.org/book.html#wal)
-* Pour mettre à niveau votre cluster HDInsight Apache HBase pour utiliser l’accélération écrit, consultez [migrer un cluster Apache HBase vers une nouvelle version](apache-hbase-migrate-new-version.md).
+* Documentation officielle relative à Apache HBase sur la [fonctionnalité Journal WAL (write ahead log)](https://hbase.apache.org/book.html#wal)
+* Pour mettre à niveau votre cluster HDInsight Apache HBase de manière à utiliser la fonctionnalité Écritures accélérées, consultez [Effectuer la migration d’un cluster Apache HBase vers une nouvelle version](apache-hbase-migrate-new-version.md).

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: iainfou
 ms.openlocfilehash: f6e370442c9c359a38025762fb90269119ec0ea6
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65074123"
 ---
 # <a name="best-practices-for-basic-scheduler-features-in-azure-kubernetes-service-aks"></a>Bonnes pratiques relatives aux fonctionnalités de base du planificateur dans Azure Kubernetes Service (AKS)
@@ -122,11 +122,11 @@ Pour plus d’informations sur l’utilisation de budgets de perturbation de pod
 
 ## <a name="regularly-check-for-cluster-issues-with-kube-advisor"></a>Rechercher régulièrement les problèmes liés au cluster avec kube-advisor
 
-**Meilleures pratiques** -exécuter régulièrement la dernière version de `kube-advisor` outil open source pour détecter les problèmes dans votre cluster. Si vous appliquez des quotas de ressources sur un cluster AKS existant, exécutez d’abord `kube-advisor` pour rechercher les pods dont les demandes et limites de ressources ne sont pas définies.
+**Meilleure pratique** : exécutez régulièrement la dernière version de l’outil open source `kube-advisor` pour détecter les problèmes dans votre cluster. Si vous appliquez des quotas de ressources sur un cluster AKS existant, exécutez d’abord `kube-advisor` pour rechercher les pods dont les demandes et limites de ressources ne sont pas définies.
 
-Le [kube-conseiller] [ kube-advisor] outil est un projet open source AKS associé qui analyse un cluster Kubernetes et les rapports sur les problèmes qu’il trouve. Une vérification utile consiste à identifier les pods dépourvus de demandes et de limites de ressources.
+L’outil [kube-advisor][kube-advisor] est un projet open source AKS associé qui analyse un cluster Kubernetes et signale les problèmes trouvés. Une vérification utile consiste à identifier les pods dépourvus de demandes et de limites de ressources.
 
-L’outil Conseiller de kube peut signaler sur demande de ressource et les limites manquant dans les applications PodSpecs pour Windows, ainsi que des applications Linux, mais l’outil de kube-conseiller lui-même doit être planifiée sur un bloc de Linux. Vous pouvez planifier un pod pour s’exécuter sur un pool de nœuds avec un système d’exploitation spécifiques à l’aide un [sélecteur de nœud] [ k8s-node-selector] dans la configuration du pod.
+L’outil kube-advisor peut rendre compte des limites et demandes de ressources manquantes dans PodSpecs pour les applications Windows et Linux, mais l’outil kube-advisor proprement dit doit être planifié sur un pod Linux. Vous pouvez planifier un pod pour qu’il s’exécute sur un pool de nœuds avec un système d’exploitation spécifique à l’aide d’un [sélecteur de nœud][k8s-node-selector] dans la configuration du pod.
 
 Dans un cluster AKS qui héberge plusieurs applications et équipes de développement, il peut être difficile de suivre les pods sans ces demandes et limites de ressources. Une bonne pratique consiste à exécuter régulièrement `kube-advisor` sur vos clusters AKS, surtout si vous n’affectez pas de quotas de ressources aux espaces de noms.
 

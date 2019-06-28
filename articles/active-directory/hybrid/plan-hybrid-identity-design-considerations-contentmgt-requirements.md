@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0d970fd133f8c43319e7f1fdb6b3a50c3c05f687
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64918443"
 ---
 # <a name="determine-content-management-requirements-for-your-hybrid-identity-solution"></a>Déterminer les exigences de gestion de contenu pour votre solution d'identité hybride
@@ -28,7 +28,7 @@ La compréhension des exigences de gestion de contenu pour votre entreprise peut
 
 Votre solution d'identité sera exploitée par différents contrôles techniques afin de fournir une gestion de contenu comme indiqué dans la figure ci-dessous :
 
-![Contrôles de sécurité](./media/plan-hybrid-identity-design-considerations/securitycontrols.png)
+![contrôles de sécurité](./media/plan-hybrid-identity-design-considerations/securitycontrols.png)
 
 **Contrôles de sécurité qui exploiteront votre système de gestion d'identité**
 

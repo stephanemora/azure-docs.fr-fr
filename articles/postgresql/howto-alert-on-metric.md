@@ -1,19 +1,19 @@
 ---
-title: Configurer des alertes de métriques pour Azure Database pour PostgreSQL - serveur unique dans le portail Azure
-description: Cet article décrit comment configurer et consulter des alertes métrique pour Azure Database pour PostgreSQL - serveur unique à partir du portail Azure.
+title: Configurer des alertes de métriques pour Azure Database pour PostgreSQL - Serveur unique dans le portail Azure
+description: Cet article décrit comment configurer des alertes de métriques, et y accéder, dans Azure Database pour PostgreSQL - Serveur unique à partir du portail Azure.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: 000dfe2d3e594c71f9c7ebbff7bce7141243668a
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65067284"
 ---
-# <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql---single-server"></a>Utiliser le portail Azure pour configurer des alertes sur les métriques pour Azure Database pour PostgreSQL - serveur unique
+# <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql---single-server"></a>Utiliser le portail Azure pour configurer des alertes de métriques pour Azure Database pour PostgreSQL - Serveur unique
 
 Cet article vous explique comment définir des alertes Azure Database pour PostgreSQL à l’aide du portail Azure. Vous pouvez recevoir une alerte en fonction de métriques de monitoring pour vos services Azure.
 

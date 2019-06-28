@@ -18,13 +18,13 @@ ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d15d76f4c16fa89b41ebfc10c9617c4709203d38
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65544720"
 ---
-# <a name="web-apps"></a>Applications web
+# <a name="web-apps"></a>les applications web
 
 Les applications web sont des applications qui authentifient l’utilisateur d’un navigateur web auprès d’une application web. Dans ce scénario, l’application web dirige le navigateur de l’utilisateur pour connecter ce dernier à Azure AD. Azure AD renvoie une réponse de connexion via le navigateur de l’utilisateur, celle-ci contenant des revendications relatives à l’utilisateur dans un jeton de sécurité. Ce scénario prend en charge la connexion à l’aide des protocoles OpenID Connect, SAML 2.0 et WS-Federation.
 
@@ -45,7 +45,7 @@ Consultez les exemples de code pour les scénarios du type navigateur web vers a
 
 ## <a name="app-registration"></a>Inscription d'application
 
-Pour inscrire une application web, consultez [inscrire une application](quickstart-register-app.md).
+Pour inscrire une application web, consultez [Inscrire une application](quickstart-register-app.md).
 
 * Locataire unique : si vous créez une application uniquement pour votre organisation, vous devez l’inscrire dans l’annuaire de votre entreprise à l’aide du portail Azure.
 * Application mutualisée : si vous créez une application qui peut être utilisée par des utilisateurs externes, vous devez l’inscrire dans le répertoire de votre entreprise, mais également dans celui de chaque organisation qui utilise l’application. Afin de mettre votre application à disposition dans ces annuaires, vous pouvez inclure pour vos clients un processus d’inscription qui leur permet de donner leur consentement à votre application. Quand ils s’inscrivent auprès de votre application, une boîte de dialogue contenant les autorisations requises par l’application s’affiche, et ils ont ensuite la possibilité de donner leur consentement. Selon les autorisations requises, il est possible qu’un administrateur de l’autre organisation doive donner le consentement. Une fois le consentement donné par l’utilisateur ou l’administrateur, l’application est inscrite dans l’annuaire de l’organisation de l’utilisateur ou de l’administrateur.

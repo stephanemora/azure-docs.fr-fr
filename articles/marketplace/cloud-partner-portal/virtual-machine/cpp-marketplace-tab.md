@@ -1,5 +1,5 @@
 ---
-title: Onglet de la place de marché de machine virtuelle dans le portail Cloud Partner pour Azure Marketplace
+title: Onglet Place de marché de machine virtuelle dans le portail Microsoft Cloud Partner pour la Place de marché Azure
 description: Décrit l’onglet Place de marché utilisé pour créer une offre de machine virtuelle de la Place de marché Microsoft Azure.
 services: Azure, Marketplace, Cloud Partner Portal, virtual machine
 author: v-miclar
@@ -8,21 +8,21 @@ ms.topic: article
 ms.date: 04/25/2019
 ms.author: pabutler
 ms.openlocfilehash: d9b259ba93be369658638d034f109a3a6ba4c4a4
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64938187"
 ---
 # <a name="virtual-machine-marketplace-tab"></a>Onglet Place de marché de machine virtuelle
 
-L’onglet **Place de marché** de la page **Nouvelle offre** vous permet de proposer à vos clients potentiels des accords et informations juridiques, commerciaux et marketing, ainsi que de gérer des prospects depuis la Place de marché. Cette forme longue est divisée en quatre sections : **Vue d’ensemble**, **Marketing artefacts**, **gestion des prospects**, et **juridique**.
+L’onglet **Place de marché** de la page **Nouvelle offre** vous permet de proposer à vos clients potentiels des accords et informations juridiques, commerciaux et marketing, ainsi que de gérer des prospects depuis la Place de marché. Ce formulaire long est divisé en quatre sections : **Overview** (Vue d’ensemble), **Marketing Artifacts** (Artefacts marketing), **Lead Management** (Gestion des prospects) et **Legal** (Informations juridiques).
 
 
 ## <a name="overview-section"></a>Section Vue d’ensemble
 Dans cette section, vous entrez les informations générales sur votre offre de la Place de marché Microsoft Azure.  Un astérisque (*) en regard du nom du champ indique que ce champ est obligatoire.
 
-![Section de la vue d’ensemble de l’onglet de la place de marché pour les machines virtuelles](./media/publishvm_008.png)
+![Section Overview (Vue d’ensemble) de l’onglet Place de marché pour les machines virtuelles](./media/publishvm_008.png)
 
 Le tableau suivant décrit l’objectif et le contenu de ces champs. Les champs obligatoires sont indiqués par un astérisque (*).
 
@@ -30,19 +30,19 @@ Le tableau suivant décrit l’objectif et le contenu de ces champs. Les champs 
 |  ---------                |     ---------------                                                          |
 | **Titre\***                 | Titre de l’offre. Il s’agit souvent du nom formel long. Il est affiché de façon visible dans la Place de marché.  Longueur maximale de 50 caractères. |
 | **Résumé\***               | Brève description de la finalité ou de la fonction de la solution.  Longueur maximale de 100 caractères. |
-| **Résumé long\***          | Description de la finalité ou de la fonction de la solution.  Longueur maximale de 256 caractères. |
+| **Long Summary (Résumé long)\***          | Description de la finalité ou de la fonction de la solution.  Longueur maximale de 256 caractères. |
 | **Description\***           | Description de la solution.  Longueur maximale de 3 000 caractères ; prend en charge la mise en forme HTML simple. |
-| **Canal du revendeur CSP de Microsoft\*** | Cloud fournisseurs de solutions partenaires canal opt-in est désormais disponible.  Consultez [les fournisseurs de solutions de Cloud](../../cloud-solution-providers.md) canaux du partenaire pour plus d’informations sur le marketing de votre offre via le CSP de Microsoft. |
-| **Identificateur de marketing\***  | URL unique à associer à cette offre. Elle inclut généralement le nom de votre solution et de votre organisation, avec une longueur maximale de 50 caractères.  Par exemple :  <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleApp`  |
-| **ID d’abonnement en version préliminaire\*** | Ajoutez entre 1 et 100 identificateurs d’abonnement d’utilisateurs de la préversion. Ces abonnements autorisés ont accès à l’offre dès sa publication, avant sa mise en service. |
+| **Réseau de revendeurs fournisseurs de solution cloud (CSP) Microsoft\*** | L’abonnement à un réseau de partenaires fournisseurs de solution cloud est maintenant disponible.  Veuillez consulter [Fournisseurs de solutions cloud](../../cloud-solution-providers.md) pour plus d’informations sur le marketing de votre offre via les réseaux de partenaires fournisseurs de solutions cloud Microsoft. |
+| **Marketing Identifier\*** (Identificateur marketing)  | URL unique à associer à cette offre. Elle inclut généralement le nom de votre solution et de votre organisation, avec une longueur maximale de 50 caractères.  Par exemple : <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleApp`  |
+| **ID d’abonnement à la préversion\*** | Ajoutez entre 1 et 100 identificateurs d’abonnement d’utilisateurs de la préversion. Ces abonnements autorisés ont accès à l’offre dès sa publication, avant sa mise en service. |
 | **Liens utiles**          | Ajoutez des URL vers des pages de documentation, des notes de version, des FAQ, etc. |
-| **Suggéré catégories (5 max.)\*** | Sélection multiple de catégories commerciales et techniques auxquelles l’offre s’associe le mieux.  Cinq catégories maximales autorisées.  |
+| **Catégories suggérées (5 maximum)\*** | Sélection multiple de catégories commerciales et techniques auxquelles l’offre s’associe le mieux.  Cinq catégories maximales autorisées.  |
 |  |  |
 
 
 ## <a name="marketing-artifacts-section"></a>Section Artefacts marketing
 
-Cette deuxième section est divisée en trois sous-sections suivantes : **Logos**, **capture d’écran**, et **vidéos**. Les logos sont les seuls artefacts marketing obligatoires ; néanmoins, nous vous recommandons d’ajouter les autres artefacts pour mieux attirer les clients. 
+Cette deuxième section est divisée en trois sous-sections : **Logos**, **Capture d’écran** et **Vidéos**. Les logos sont les seuls artefacts marketing obligatoires ; néanmoins, nous vous recommandons d’ajouter les autres artefacts pour mieux attirer les clients. 
 
 ![Section Artefacts Marketing de l’onglet Place de marché sur le formulaire Nouvelle offre pour les machines virtuelles](./media/publishvm_009.png)
 
@@ -54,13 +54,13 @@ Le tableau suivant décrit l’objectif et le contenu de ces champs. Les champs 
 | **Petite\***                 | Image bitmap .ico de 40x40 pixels                                                      |
 | **Moyenne\***                | Image bitmap .ico de 90x90 pixels                                                      |
 | **Grande\***                 | Image bitmap .ico de 115x115 pixels                                                   |
-| **Wide\***                  | Image bitmap .ico de 255x115 pixels                                                    |
+| **Large\***                  | Image bitmap .ico de 255x115 pixels                                                    |
 | **Bannière**                  | Image bitmap de 815x290.  Facultatif. En revanche, une fois l’icône de bannière chargée, il n’est plus possible de la supprimer. |
 | *Captures d’écran*  | Facultatif ; cinq captures d’écran maximum par référence SKU. |
-| **Name**                  | Nom ou le titre <!-- TODO - max char length? none specified in UI -->                               |
+| **Nom**                  | Nom ou titre <!-- TODO - max char length? none specified in UI -->                               |
 | **Image**                 | Image de capture d’écran, 533x324 pixels                                         |
 | *Vidéos*  |  |
-| **Name**                  | Nom ou le titre  <!-- TODO - max char length? -->                              |
+| **Nom**                  | Nom ou titre  <!-- TODO - max char length? -->                              |
 | **Lien**                  | URL de la vidéo, hébergée sur YouTube ou Vimeo                                        |
 | **Vidéo miniature**             | Image bitmap de 533x324 pixels                                                               |
 |   |   |
@@ -116,12 +116,12 @@ Après que vous avez publié votre offre, la connexion de prospect est vérifié
 
 ## <a name="legal-section"></a>Section Informations légales
 
-Cette dernière section vous permet de fournir les documents légaux requis requis pour chaque offre.  
+Cette dernière section vous permet de fournir les documents juridiques nécessaires pour chaque offre.  
 
 |  **Champ**                    |     **Description**                                        |
 |  ---------                    |     ---------------                                        |
-| **URL de stratégie de confidentialité\***      | URL de votre politique de confidentialité publiée                          |
-| **Utiliser le contrat Standard ?\***  |   |
+| **URL de la politique de confidentialité\***      | URL de votre politique de confidentialité publiée                          |
+| **Utiliser le contrat standard ?\***  |   |
 | **Conditions d’utilisation\***            | Stratégie sous forme de texte brut ou au format HTML simple                       |
 |  |  |
 

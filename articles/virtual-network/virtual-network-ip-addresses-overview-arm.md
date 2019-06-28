@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 03/05/2019
 ms.author: kumud
 ms.openlocfilehash: 73b185eabc77d293328b1251a4af1aafffc5f319
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65236364"
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Types d’adresses IP et méthodes d’allocation dans Azure
@@ -81,7 +81,7 @@ Les adresses IP publiques de référence SKU standard :
 > La communication entrante avec la ressource de référence SKU standard est possible uniquement si vous créez et associez un [groupe de sécurité réseau](security-overview.md#network-security-groups) et que vous autorisez explicitement le trafic entrant prévu.
 
 > [!NOTE]
-> Seules les adresses IP publiques avec la référence SKU de base sont disponibles lorsque vous utilisez [l’instance de service de métadonnées IMDS](../virtual-machines/windows/instance-metadata-service.md). Référence (SKU) standard n’est pas pris en charge.
+> Seules les adresses IP publiques avec la référence SKU De base sont disponibles lorsque vous utilisez [le service de métadonnées d’instance (IMDS, instance metadata service)](../virtual-machines/windows/instance-metadata-service.md). La référence SKU Standard n’est pas prise en charge.
 
 ### <a name="allocation-method"></a>Méthode d’allocation
 
@@ -111,8 +111,8 @@ Vous pouvez spécifier une étiquette de nom de domaine DNS pour une ressource I
 > Chaque étiquette de nom de domaine créée doit être unique dans son emplacement Azure.  
 >
 
-### <a name="dns-best-practices"></a>Meilleures pratiques DNS
-Si vous avez besoin migrer vers une autre région, vous ne pouvez pas migrer le nom de domaine complet de votre adresse IP publique. Comme meilleure pratique, vous pouvez utiliser le nom de domaine complet pour créer un enregistrement CNAME de domaine personnalisé qui pointe vers l’adresse IP publique dans Azure. Si vous souhaitez déplacer vers une adresse IP publique différente, il nécessitera une mise à jour l’enregistrement CNAME au lieu de devoir mettre à jour manuellement le nom de domaine complet pour la nouvelle adresse. Vous pouvez utiliser [Azure DNS](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address) ou un fournisseur DNS externe pour votre enregistrement DNS. 
+### <a name="dns-best-practices"></a>DNS : meilleures pratiques
+Si vous avez besoin de migrer vers une autre région, vous ne pouvez pas migrer le nom de domaine complet de votre adresse IP publique. La meilleure pratique consiste à utiliser le nom de domaine complet pour créer un enregistrement CNAME de domaine personnalisé qui pointe vers l’adresse IP publique dans Azure. Si vous devez migrer vers une adresse IP publique différente, le processus nécessitera une mise à jour de l’enregistrement CNAME. Vous n’aurez pas à mettre à jour manuellement le nom de domaine complet selon la nouvelle adresse. Vous pouvez utiliser [Azure DNS](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address) ou un fournisseur DNS externe pour votre enregistrement DNS. 
 
 ### <a name="virtual-machines"></a>Machines virtuelles
 
@@ -128,16 +128,16 @@ Une [passerelle VPN Azure](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%
 
 ### <a name="application-gateways"></a>Passerelles d’application
 
-Vous pouvez associer une adresse IP publique à une [Application Gateway](../application-gateway/application-gateway-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json)Azure en l’affectant à la configuration **frontale** de la passerelle. Cette adresse IP publique sert d’adresse IP virtuelle à équilibrage de charge. Vous pouvez uniquement affecter une *dynamique* base adresse IP publique à une configuration frontale de passerelle V1 d’application et uniquement un *statique* adresse référence (SKU) standard pour une configuration frontale V2.
+Vous pouvez associer une adresse IP publique à une [Application Gateway](../application-gateway/application-gateway-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json)Azure en l’affectant à la configuration **frontale** de la passerelle. Cette adresse IP publique sert d’adresse IP virtuelle à équilibrage de charge. Vous pouvez uniquement attribuer une adresse IP publique de base *dynamique* à une configuration front-end V1 de passerelle d’application et uniquement une adresse de référence SKU standard *statique* à une configuration front-end V2.
 
 ### <a name="at-a-glance"></a>Aperçu
 Le tableau ci-dessous présente la propriété spécifique par le biais de laquelle une adresse IP publique peut être associée à une ressource de niveau supérieur, ainsi que les méthodes d’allocation possibles (dynamique ou statique) utilisables.
 
 | Ressources de niveau supérieur | Association d’adresse IP | Dynamique | statique |
 | --- | --- | --- | --- |
-| Machine virtuelle |interface réseau |Oui |Oui |
-| Équilibreur de charge accessible sur Internet |Configuration frontale |Oui |Oui |
-| passerelle VPN |Configuration IP de la passerelle |Oui |Non |
+| Machine virtuelle |interface réseau |OUI |OUI |
+| Équilibreur de charge accessible sur Internet |Configuration frontale |OUI |OUI |
+| passerelle VPN |Configuration IP de la passerelle |OUI |Non |
 | passerelle d’application |Configuration frontale |Oui (V1 uniquement) |Oui (V2 uniquement) |
 
 ## <a name="private-ip-addresses"></a>Adresses IP privées
@@ -183,9 +183,9 @@ Le tableau ci-dessous présente la propriété spécifique par le biais de laque
 
 | Ressources de niveau supérieur | Association d’adresse IP | dynamique | statique |
 | --- | --- | --- | --- |
-| Machine virtuelle |interface réseau |Oui |Oui |
-| Équilibrage de charge |Configuration frontale |Oui |Oui |
-| passerelle d’application |Configuration frontale |Oui |Oui |
+| Machine virtuelle |interface réseau |OUI |OUI |
+| Équilibrage de charge |Configuration frontale |OUI |OUI |
+| passerelle d’application |Configuration frontale |OUI |OUI |
 
 ## <a name="limits"></a>limites
 Les limites imposées pour l’adressage IP sont indiquées dans l’ensemble des [limites pour la mise en réseau](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) dans Azure. Ces limites sont exprimées par région et par abonnement. Vous pouvez [contacter le support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour augmenter les limites par défaut jusqu’aux limites maximum en fonction des besoins de votre entreprise.

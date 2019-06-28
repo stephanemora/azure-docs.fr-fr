@@ -13,26 +13,26 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 12/17/2018
 ms.openlocfilehash: 84efdb0297a2dc69497baee5fb746fb51d02b1b7
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64939513"
 ---
 # <a name="multi-model-capabilities-of-azure-sql-database"></a>Fonctionnalités multimodèles d’Azure SQL Database
 
 Des bases de données multimodèles vous permettent de stocker et d’utiliser des données représentées dans plusieurs formats, telles que des données relationnelles, des graphiques, des documents JSON/XML, des paires clé-valeur, etc.
 
-## <a name="when-to-use-multi-model-capabilities"></a>Quand utiliser les fonctionnalités multimodèles
+## <a name="when-to-use-multi-model-capabilities"></a>Quand utiliser les fonctionnalités multimodèles ?
 
 Azure SQL Database est conçu pour fonctionner avec le modèle relationnel qui offre les meilleures performances dans la plupart des cas pour diverses applications à usage général. Toutefois, Azure SQL Database n’est pas limité aux données relationnelles. Azure SQL Database vous permet d’utiliser divers formats non relationnels étroitement intégrés dans le modèle relationnel.
-Vous devez envisager d’utiliser des fonctionnalités de plusieurs modèles de base de données SQL Azure dans les cas suivants :
-- Vous avez des informations ou des structures qui sont mieux adaptée à pour les modèles de NoSQL et vous ne souhaitez pas utiliser la base de données NoSQL distincte.
-- Une majorité de vos données est appropriée pour le modèle relationnel, et vous avez besoin de modéliser certaines parties de vos données dans le style de NoSQL.
-- Vous souhaitez tirer parti des nombreux langages Transact-SQL pour interroger et analyser relationnelles et données NoSQL et l’intégrer avec un large éventail d’outils et applications qui peuvent utiliser le langage SQL.
-- Vous souhaitez appliquer les fonctionnalités de base de données tel que [technologies in-memory](sql-database-in-memory.md) pour améliorer les performances de votre analyse ou de traitement de votre strucutres de données NoSQL, utilisez [la réplication transactionnelle](sql-database-managed-instance-transactional-replication.md) ou [réplicas lisibles](sql-database-read-scale-out.md) pour créer de copie de vos données sur l’autre emplacement et de décharger certaines charges de travail analytiques à partir de la base de données primaire.
+Envisagez d’utiliser les fonctionnalités multimodèles d’Azure SQL Database dans les cas suivants :
+- Vous disposez d’informations ou de structures qui sont mieux adaptées aux modèles NoSQL et vous ne souhaitez pas utiliser de bases de données NoSQL distinctes.
+- Une majorité de vos données est appropriée pour le modèle relationnel, et vous avez besoin de modéliser certaines parties de vos données dans le style NoSQL.
+- Vous souhaitez tirer parti des nombreux langages Transact-SQL pour interroger et analyser à la fois les données relationnelles et les données NoSQL et les intégrer dans un large éventail d’outils et applications qui utilisent le langage SQL.
+- Vous souhaitez appliquer les fonctionnalités de base de données comme les [technologies en mémoire](sql-database-in-memory.md) pour améliorer les performances de votre analyse ou le traitement de vos structures de données NoSQL : utilisez [la réplication transactionnelle](sql-database-managed-instance-transactional-replication.md) ou les [réplicas lisibles](sql-database-read-scale-out.md) pour créer une copie de vos données sur l’autre emplacement et décharger certaines charges de travail analytiques à partir de la base de données primaire.
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
 SQL Azure offre les fonctionnalités multimodèles suivantes :
 - Les [fonctionnalités de graphe](#graph-features) vous permettent de représenter vos données sous la forme d’un ensemble de nœuds et d’arêtes, ainsi que d’utiliser des requêtes Transact-SQL standard améliorées avec l’opérateur graphique `MATCH` pour interroger les données du graphe.
@@ -90,7 +90,7 @@ Vous pouvez utiliser des modèles de document au lieu de modèles relationnels d
 
 ## <a name="spatial-features"></a>Fonctionnalités spatiales
 
-Données spatiales représentent des informations sur l’emplacement physique et la forme d’objets géométriques. Ces objets peuvent être des emplacements de points ou des objets plus complexes tels que les pays/régions, des routes ou des lacs.
+Données spatiales représentent des informations sur l’emplacement physique et la forme d’objets géométriques. Ces objets peuvent être des emplacements de points ou des objets plus complexes, tels que des pays/régions, des routes ou des lacs.
 
 Azure SQL Database prend en charge deux types de données spatiales : les données de type géométrique et les données de type géographique.
 - Le type géométrique représente des données dans un système de coordonnées euclidien (plat).

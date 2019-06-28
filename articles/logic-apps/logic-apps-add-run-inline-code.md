@@ -1,6 +1,6 @@
 ---
 title: Ajouter et exécuter des extraits de code - Azure Logic Apps
-description: Ajouter et exécuter des extraits de code avec le code inline dans Azure Logic Apps
+description: Ajouter et exécuter des extraits de code avec du code inclus dans Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -10,84 +10,84 @@ ms.reviewer: derek1ee, LADocs
 ms.topic: article
 ms.date: 05/14/2019
 ms.openlocfilehash: 0bfa98396ee3afb80b486a5a17959664dfbe603c
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65602123"
 ---
-# <a name="add-and-run-code-snippets-by-using-inline-code-in-azure-logic-apps"></a>Ajouter et exécuter des extraits de code à l’aide de code inline dans Azure Logic Apps
+# <a name="add-and-run-code-snippets-by-using-inline-code-in-azure-logic-apps"></a>Ajoutez et exécutez des extraits de code en utilisant du code inclus dans Azure Logic Apps
 
-Lorsque vous souhaitez exécuter un morceau de code à l’intérieur de votre application logique, vous pouvez ajouter intégrés **Inline Code** action sous la forme d’une étape dans le flux de travail de votre application logique. Cette action fonctionne mieux lorsque vous souhaitez exécuter du code qui correspond à ce scénario :
+Lorsque vous souhaitez exécuter un extrait de code au sein de votre application logique, vous pouvez ajouter l’action **Code inclus** intégrée sous la forme d’une étape dans le flux de travail de votre application logique. Cette action fonctionne mieux lorsque vous souhaitez exécuter du code qui correspond à ce scénario :
 
-* S’exécute dans JavaScript. Davantage de langues sera bientôt disponible.
-* Fin de son exécution dans les cinq secondes ou moins.
-* Gère les données jusqu'à 50 Mo.
-* Utilise Node.js version 8.11.1. Pour plus d’informations, consultez [les objets prédéfinis Standard](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects). 
+* S’exécute dans JavaScript. D’autres langues seront bientôt disponibles.
+* S’exécute en cinq secondes maximum.
+* Gère les données dont la taille ne dépasse pas 50 Mo.
+* Utilise Node.js version 8.11.1. Pour en savoir plus, voir [Objets globaux standards (par catégorie)](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects). 
 
   > [!NOTE]
-  > La fonction require() n’est pas pris en charge par le **Inline Code** action pour l’exécution de JavaScript.
+  > La fonction require() n’est pas prise en charge par l’action **Code inclus** pour l’exécution de JavaScript.
 
-Cette action s’exécute l’extrait de code et retourne la sortie à partir de cet extrait de code sous la forme d’un jeton nommé **résultat**, que vous pouvez utiliser dans les actions suivantes dans votre application logique. Pour d’autres scénarios où vous souhaitez créer une fonction de votre code, essayez [créant et en appelant une fonction Azure](../logic-apps/logic-apps-azure-functions.md) dans votre application logique.
+Cette action exécute l’extrait de code et renvoie la sortie de cet extrait de code sous la forme d’un jeton nommé **Result**, que vous pouvez utiliser pour les actions suivantes au sein de votre application logique. Pour d’autres scénarios visant à créer une fonction pour votre code, essayez de [créer et d’appeler une fonction Azure](../logic-apps/logic-apps-azure-functions.md) dans votre application logique.
 
-Dans cet article, les déclencheurs d’application logique exemple lorsqu’un nouvel e-mail arrive dans un compte Office 365 Outlook. L’extrait de code extrait et retourne toutes les adresses de messagerie qui s’affichent dans le corps du message.
+Dans cet article, l’exemple d’application logique se déclenche lorsqu’un nouvel e-mail arrive dans un compte Office 365 Outlook. L’extrait de code extrait et renvoie toutes les adresses e-mail qui s’affichent dans le corps du message.
 
-![Vue d’ensemble de l’exemple](./media/logic-apps-add-run-inline-code/inline-code-example-overview.png)
+![Présentation des exemples](./media/logic-apps-add-run-inline-code/inline-code-example-overview.png)
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, [inscrivez-vous pour bénéficier d’un compte Azure gratuit](https://azure.microsoft.com/free/).
 
-* L’application logique dans lequel vous souhaitez ajouter votre extrait de code, y compris un déclencheur. Si vous n’avez pas une application logique, consultez [Guide de démarrage rapide : Créer votre première application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+* Application logique dans laquelle vous souhaitez ajouter votre extrait de code, y compris un déclencheur. Si vous n’avez pas d’application logique, consultez la section [Démarrage rapide : Créer votre première application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-   L’exemple d’application logique dans cette rubrique utilise ce déclencheur Outlook Office 365 : **When a new email arrives** (Quand un nouveau courrier électronique arrive)
+   L’exemple d’application logique de cette rubrique utilise ce déclencheur Outlook Office 365 : **When a new email arrives** (Quand un nouveau courrier électronique arrive)
 
-* Un [compte d’intégration](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) qui est lié à votre application logique
+* [Compte d’intégration](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) lié à votre application logique
 
-## <a name="add-inline-code"></a>Ajoutez du code incorporé
+## <a name="add-inline-code"></a>Ajouter du code inclus
 
-1. Si vous n’avez pas déjà fait, dans le [Azure portal](https://portal.azure.com), ouvrez votre application logique dans le Concepteur d’application logique.
+1. Si ce n’est déjà fait, dans le [Portail Microsoft Azure](https://portal.azure.com), ouvrez votre application logique dans le Concepteur d’application logique.
 
-1. Dans le concepteur, ajoutez le **Inline Code** action à l’emplacement souhaité dans le flux de travail de votre application logique.
+1. Dans le concepteur, ajoutez l’action **Code inclus** à l’emplacement souhaité dans le flux de travail de votre application logique.
 
-   * Pour ajouter l’action à la fin de votre flux de travail, choisissez **nouvelle étape**.
+   * Pour ajouter l’action à la fin de votre flux de travail, choisissez **Nouvelle étape**.
 
-   * Pour ajouter l’action entre des étapes existantes, déplacez votre pointeur de la souris sur la flèche qui connecte ces étapes. Choisissez le signe plus (**+**), puis sélectionnez **ajouter une action**.
+   * Pour ajouter l’action entre des étapes existantes, déplacez votre pointeur de souris sur la flèche qui connecte ces étapes. Cliquez sur le signe plus ( **+** ), puis sélectionnez **Ajouter une action**.
 
-   Cet exemple ajoute le **Inline Code** action sous le déclencheur Office 365 Outlook.
+   Cet exemple ajoute l’action **Code inclus** sous le déclencheur Office 365 Outlook.
 
    ![Ajouter une nouvelle étape](./media/logic-apps-add-run-inline-code/add-new-step.png)
 
-1. Sous **choisir une action**, dans la zone de recherche, entrez « code inline » comme filtre. Dans la liste des actions, sélectionnez cette action : **Exécuter du Code JavaScript**
+1. Sous **Choisir une action**, dans la zone de recherche, entrez « code inclus » à titre de filtre. Dans la liste des actions, sélectionnez cette action : **Exécuter du code JavaScript**
 
-   ![Sélectionnez « Exécuter le Code JavaScript »](./media/logic-apps-add-run-inline-code/select-inline-code-action.png)
+   ![Sélectionnez « Exécuter du code JavaScript »](./media/logic-apps-add-run-inline-code/select-inline-code-action.png)
 
-   L’action s’affiche dans le concepteur et contient un exemple de code par défaut, y compris une instruction return.
+   Cette action s’affiche dans le concepteur. Elle contient un exemple de code par défaut, y compris une instruction return.
 
-   ![Action de inline Code avec l’exemple de code par défaut](./media/logic-apps-add-run-inline-code/inline-code-action-default.png)
+   ![Action Code inclus avec un exemple de code par défaut](./media/logic-apps-add-run-inline-code/inline-code-action-default.png)
 
-1. Dans le **Code** boîte, supprimer l’exemple de code et entrez le code que vous souhaitez exécuter. Écrire du code, vous placeriez à l’intérieur d’une méthode, mais sans définir la signature de méthode. 
+1. Dans la zone **Code**, supprimez l’exemple de code et saisissez le code que vous souhaitez exécuter. Écrivez le code que vous voulez placer à l’intérieur d’une méthode, mais sans définir la signature de méthode. 
 
-   Lorsque vous tapez un mot clé reconnu, la liste de saisie semi-automatique s’affiche afin que vous puissiez sélectionner des mots clés disponibles, par exemple :
+   Lorsque vous tapez un mot clé reconnu, la liste de saisie semi-automatique s’affiche afin que vous puissiez sélectionner des mots clés parmi ceux qui sont disponibles, par exemple :
 
    ![Liste de saisie semi-automatique de mots clés](./media/logic-apps-add-run-inline-code/auto-complete.png)
 
-   Cet extrait de code d’exemple crée d’abord une variable qui stocke un *expression régulière*, qui spécifie un modèle à faire correspondre dans le texte d’entrée. Le code crée ensuite une variable qui stocke les données de corps de courrier électronique à partir du déclencheur.
+   Cet exemple d’extrait de code crée d’abord une variable qui stocke une *expression régulière*, laquelle spécifie un modèle à faire correspondre dans le texte d’entrée. Ce code crée ensuite une variable, qui stocke les données du corps de l’e-mail provenant du déclencheur.
 
    ![Créer des variables](./media/logic-apps-add-run-inline-code/save-email-body-variable.png)
 
-   Pour faciliter les résultats à partir du déclencheur et les actions précédentes référence, la liste de contenu dynamique s’affiche pendant que votre curseur se trouve dans le **Code** boîte. Pour cet exemple, la liste affiche les résultats disponibles à partir du déclencheur, y compris le **corps** jeton, que vous pouvez maintenant sélectionner.
+   Afin de faciliter la référence aux résultats provenant du déclencheur et les actions précédentes, la liste de contenu dynamique s’affiche lorsque le curseur est placé dans la zone **Code**. Pour cet exemple, la liste affiche les résultats disponibles provenant du déclencheur, y compris le jeton **Body**, que vous pouvez maintenant sélectionner.
 
-   Après avoir sélectionné le **corps** jeton, l’action de code inline résout le jeton à un `workflowContext` objet qui fait référence à la messagerie `Body` valeur de propriété :
+   Une fois que vous avez sélectionné le jeton **Body**, l’action de code inclus résout le jeton sur un objet `workflowContext` qui fait référence à la valeur de propriété `Body` de l’e-mail :
 
-   ![Résultat de la sélection](./media/logic-apps-add-run-inline-code/inline-code-example-select-outputs.png)
+   ![Sélection d’un résultat](./media/logic-apps-add-run-inline-code/inline-code-example-select-outputs.png)
 
-   Dans le **Code** boîte, votre extrait de code peut utiliser en lecture seule `workflowContext` de l’objet en tant qu’entrée. Cet objet possède des sous-propriétés qui permettent à votre code d’accéder aux résultats à partir du déclencheur et les actions précédentes dans votre flux de travail.
-   Pour plus d’informations, consultez cette section plus loin dans cette rubrique : [Référencer les résultats de déclencheur et action dans votre code](#workflowcontext).
+   Dans la zone **Code**, votre extrait de code peut utiliser l’objet `workflowContext` en lecture seule. Cet objet possède des sous-propriétés qui permettent à votre code d’accéder aux résultats provenant du déclencheur, ainsi que les actions précédentes, dans votre flux de travail.
+   Pour en savoir plus, consultez la section suivante du présent document : [Faire référence aux résultats des actions et du déclencheur dans votre code](#workflowcontext).
 
    > [!NOTE]
    >
-   > Si votre extrait de code fait référence à des noms d’action qui utilisent l’opérateur point (.), vous devez ajouter ces noms d’action à la [ **Actions** paramètre](#add-parameters). Ces références doivent également mettre entre les noms d’action avec des crochets ([]) et les guillemets, par exemple :
+   > Si votre extrait de code fait référence à des noms d’action qui utilisent l’opérateur point (.), vous devez ajouter ces noms d’actions au paramètre [**Actions**](#add-parameters). Ces références doivent également placer les noms d’action entre des crochets ([]) et des guillemets, par exemple :
    >
    > `// Correct`</br> 
    > `workflowContext.actions["my.action.name"].body`</br>
@@ -95,8 +95,8 @@ Dans cet article, les déclencheurs d’application logique exemple lorsqu’un 
    > `// Incorrect`</br>
    > `workflowContext.actions.my.action.name.body`
 
-   L’action de code inline ne nécessite pas un `return` instruction, mais les résultats à partir d’un `return` instruction sont disponibles pour la référence dans les actions ultérieures via la **résultat** jeton. 
-   Par exemple, l’extrait de code retourne le résultat en appelant le `match()` fonction, qui recherche correspond à dans le corps du message par rapport à l’expression régulière. Le **Compose** action utilise le **résultat** jetons pour référencer les résultats à partir de la ligne action de code et crée un résultat unique.
+   L’action de code inclus ne nécessite aucune instruction `return`, mais les résultats d’une instruction `return` sont disponibles à des fins de référence dans les actions ultérieures, via le jeton **Result**. 
+   Par exemple, l’extrait de code renvoie le résultat en appelant la fonction `match()`, qui recherche des correspondances dans le corps de l’e-mail, en fonction de l’expression régulière. L’action **Composer** utilise le jeton **Result** pour référencer les résultats de l’action Code inclus, puis crée un résultat unique.
 
    ![Application logique terminée](./media/logic-apps-add-run-inline-code/inline-code-complete-example.png)
 
@@ -104,9 +104,9 @@ Dans cet article, les déclencheurs d’application logique exemple lorsqu’un 
 
 <a name="workflowcontext"></a>
 
-### <a name="reference-trigger-and-action-results-in-your-code"></a>Résultats de déclencheur et action de référence dans votre code
+### <a name="reference-trigger-and-action-results-in-your-code"></a>Faire référence aux résultats des actions et du déclencheur dans votre code
 
-Le `workflowContext` objet présente la structure suivante, qui inclut le `actions`, `trigger`, et `workflow` sous-propriétés :
+L’objet `workflowContext` présente la structure suivante, qui inclut les sous-propriétés `actions`, `trigger` et `workflow` :
 
 ```json
 {
@@ -125,16 +125,16 @@ Le `workflowContext` objet présente la structure suivante, qui inclut le `actio
 }
 ```
 
-Cette table contient plus d’informations sur ces sous-propriétés :
+Cette table contient plus d’informations sur ces sous-propriétés :
 
-| Propriété | Type | Description  |
+| Propriété | Type | Description |
 |----------|------|-------|
-| `actions` | Collection d’objets | Objets de résultats à partir d’actions qui s’exécutent avant l’exécution de votre extrait de code. Chaque objet possède un *clé-valeur* paire où la clé est le nom d’une action, et la valeur équivaut à appeler le [actions() fonction](../logic-apps/workflow-definition-language-functions-reference.md#actions) avec `@actions('<action-name>')`. Nom de l’action utilise le même nom d’action qui est utilisé dans la définition de flux de travail sous-jacent, qui remplace les espaces (« ») dans le nom d’action avec des traits de soulignement (_). Cet objet permet d’accéder aux valeurs de propriété d’action de l’instance de workflow en cours exécution. |
-| `trigger` | Object | Objet de résultat à partir du déclencheur et l’équivalent à l’appel le [trigger() fonction](../logic-apps/workflow-definition-language-functions-reference.md#trigger). Cet objet permet d’accéder aux valeurs de propriété de déclencheur de l’instance de workflow en cours exécution. |
-| `workflow` | Object | L’objet de flux de travail et l’équivalent à l’appel le [workflow() fonction](../logic-apps/workflow-definition-language-functions-reference.md#workflow). Cet objet permet d’accéder aux valeurs de propriété de flux de travail, telles que le nom de flux de travail, ID d’exécution et ainsi de suite, à partir de l’instance de workflow en cours exécution. |
+| `actions` | Collection d’objets | Objets de résultats des actions qui s’exécutent avant votre extrait de code. Chaque objet possède une paire *clé-valeur*, dans laquelle la clé correspond au nom d’une action, et la valeur équivaut à appeler la fonction [actions()](../logic-apps/workflow-definition-language-functions-reference.md#actions) avec `@actions('<action-name>')`. Le nom de l’action tire parti du nom d’action utilisé dans la définition de flux de travail sous-jacente, qui remplace les espaces (« ») figurant dans le nom de l’action par des caractères de soulignement (_). Cet objet permet d’accéder aux valeurs de propriétés d’action de l’instance de workflow exécutée. |
+| `trigger` | Object | Objet de résultat du déclencheur et équivalent à l’appel de la fonction [trigger()](../logic-apps/workflow-definition-language-functions-reference.md#trigger). Cet objet permet d’accéder aux valeurs de propriétés du déclencheur de l’instance de workflow exécutée. |
+| `workflow` | Object | Objet de flux de travail et équivalent à l’appel de la fonction [workflow()](../logic-apps/workflow-definition-language-functions-reference.md#workflow). Cet objet permet d’accéder aux valeurs de propriétés du flux de travail (nom du flux de travail, ID d’exécution etc.) à partir de l’instance de flux de travail actuellement exécutée. |
 |||
 
-Dans l’exemple de cette rubrique, le `workflowContext` objet a les propriétés suivantes qui permettre accéder à votre code :
+Dans l’exemple de cette rubrique, l’objet `workflowContext` présente les propriétés suivantes, auxquelles votre code peut accéder :
 
 ```json
 {
@@ -204,65 +204,65 @@ Dans l’exemple de cette rubrique, le `workflowContext` objet a les propriété
 
 <a name="add-parameters"></a>
 
-## <a name="add-parameters"></a>Ajouter des paramètres
+## <a name="add-parameters"></a>Ajout de paramètres
 
-Dans certains cas, vous devrez peut-être explicitement exigent que le **Inline Code** action comprend les résultats à partir du déclencheur ou des actions spécifiques qui fait référence à votre code en tant que dépendances en ajoutant le **déclencheur** ou **Actions** paramètres. Cette option est utile pour les scénarios où les résultats référencés ne sont pas trouvés au moment de l’exécution.
+Dans certains cas, vous devrez peut-être demander explicitement à l’action **Code inclus** d’inclure les résultats du déclencheur ou d’actions spécifiques référencées par votre code en tant que dépendances, en ajoutant les paramètres **Déclencheur** ou **Actions**. Cette option est utile pour les scénarios dans lesquels le système ne trouve pas les résultats référencés au moment de l’exécution.
 
 > [!TIP]
-> Si vous projetez de réutiliser votre code, ajoutez des références aux propriétés à l’aide de la **Code** case pour que votre code inclut les références de jeton résolus, plutôt que d’ajouter le déclencheur ou les actions en tant que dépendances explicites.
+> Si vous projetez de réutiliser votre code, ajoutez des références aux propriétés à l’aide de la zone **Code**, afin que votre code inclue les références des jetons résolus, plutôt que d’ajouter le déclencheur ou les actions en tant que dépendances explicites.
 
-Par exemple, supposons que vous avez le code qui référence le **SelectedOption** résultent de la **envoyer un e-mail d’approbation** action pour le connecteur Office 365 Outlook. Lors de la création, le moteur Logic Apps analyse votre code pour déterminer si vous avez référencé un déclencheur ou action génère et inclut automatiquement de ces résultats. Au moment de l’exécution devez vous obtenez une erreur que le résultat d’action ou déclencheur référencé n’est pas disponible dans le texte spécifié `workflowContext` de l’objet, vous pouvez ajouter ce déclencheur ou l’action comme une dépendance explicite. Dans cet exemple, vous allez ajouter le **Actions** paramètre et spécifier que le **Inline Code** action inclure explicitement le résultat à partir de la **envoyer un e-mail d’approbation** action.
+Par exemple, supposons que vous disposiez du code qui fait référence au résultat **SelectedOption** de l’action **Envoyer un e-mail d’approbation** pour le connecteur Office 365 Outlook. Lors de la création, le moteur Logic Apps analyse votre code pour déterminer si vous avez référencé des résultats d’actions ou de déclencheur et inclut ces résultats automatiquement. Lors de l’exécution, si vous obtenez une erreur indiquant que le résultat d’action ou de déclencheur référencé n’est pas disponible dans l’objet `workflowContext` spécifié, vous pouvez ajouter ce déclencheur ou cette action en tant que dépendance explicite. Dans cet exemple, vous ajoutez le paramètre **Actions** et spécifiez que l’action **Code inclus** doit inclure explicitement le résultat de l’action **Envoyer un e-mail d’approbation**.
 
-Pour ajouter ces paramètres, ouvrez le **ajouter un nouveau paramètre** liste, puis sélectionnez les paramètres que vous souhaitez :
+Pour ajouter ces paramètres, ouvrez la liste **Ajouter un nouveau paramètre**, puis sélectionnez les paramètres de votre choix :
 
-   ![Ajouter des paramètres](./media/logic-apps-add-run-inline-code/inline-code-action-add-parameters.png)
+   ![Ajout de paramètres](./media/logic-apps-add-run-inline-code/inline-code-action-add-parameters.png)
 
-   | Paramètre | Description  |
+   | Paramètre | Description |
    |-----------|-------------|
-   | **Actions** | Inclure les résultats des actions précédentes. Consultez [incluent les résultats d’action](#action-results). |
-   | **Déclencheur** | Inclure les résultats à partir du déclencheur. Consultez [inclure les résultats de déclencheur](#trigger-results). |
+   | **Actions** | Inclusion des résultats des actions précédentes. Voir [Inclure les résultats d’actions](#action-results). |
+   | **Déclencheur** | Inclusion des résultats du déclencheur. Voir [Inclure les résultats du déclencheur](#trigger-results). |
    |||
 
 <a name="trigger-results"></a>
 
-### <a name="include-trigger-results"></a>Inclure les résultats de déclencheur
+### <a name="include-trigger-results"></a>Inclure les résultats du déclencheur
 
-Si vous sélectionnez **déclencheurs**, vous êtes invité pour inclure de déclencheur des résultats.
+Si vous sélectionnez **Déclencheurs**, vous êtes invité à inclure les résultats du déclencheur.
 
-* À partir de la **déclencheur** liste, sélectionnez **Oui**.
+* Dans la liste **Déclencheur**, sélectionnez **Oui**.
 
 <a name="action-results"></a>
 
-### <a name="include-action-results"></a>Inclure les résultats d’action
+### <a name="include-action-results"></a>Inclure les résultats d’actions
 
-Si vous sélectionnez **Actions**, vous êtes invité pour les actions que vous souhaitez ajouter. Toutefois, avant de commencer à ajouter des actions, vous avez besoin de la version du nom d’action qui s’affiche dans la définition de flux de travail de l’application logique sous-jacente.
+Si vous sélectionnez **Actions**, vous êtes invité à indiquer les actions que vous souhaitez ajouter. Toutefois, avant de commencer à ajouter des actions, vous avez besoin de la version du nom d’action qui s’affiche dans la définition de flux de travail sous-jacente de l’application logique.
 
-* Cette fonctionnalité ne prend pas en charge les variables, des boucles et des index de l’itération.
+* Cette fonctionnalité ne prend pas en charge les variables, les boucles et les index d’itération.
 
-* Les noms dans la définition de flux de travail de votre application logique utiliser un trait de soulignement (_), pas un espace.
+* Dans les noms de la définition de flux de travail de votre application logique, vous pouvez utiliser un trait de soulignement (_), et non un espace.
 
-* Pour les noms d’action qui utilisent l’opérateur point (.), incluez ces opérateurs, par exemple :
+* Pour les noms d’action qui utilisent l’opérateur point (.), incluez ces opérateurs, par exemple :
 
   `My.Action.Name`
 
-1. Dans la barre d’outils Concepteur, choisissez **mode Code**et de recherche à l’intérieur de la `actions` attribut pour le nom d’action.
+1. Dans la barre d’outils du concepteur, sélectionnez **Mode Code**, puis recherchez le nom de l’action dans l’attribut `actions`.
 
-   Par exemple, `Send_approval_email_` est le nom JSON pour le **envoyer un e-mail d’approbation** action.
+   Par exemple, `Send_approval_email_` est le nom JSON de l’action **Envoyer un e-mail d’approbation**.
 
-   ![Rechercher le nom de l’action dans JSON](./media/logic-apps-add-run-inline-code/find-action-name-json.png)
+   ![Rechercher le nom d’une action dans JSON](./media/logic-apps-add-run-inline-code/find-action-name-json.png)
 
-1. Pour revenir au mode concepteur, la barre d’outils de la vue de code, choisissez **concepteur**.
+1. Pour revenir au mode Création, dans la barre d’outils du mode Code, choisissez **Concepteur**.
 
-1. Pour ajouter la première action dans le **élément Actions - 1** , entrez le nom JSON de l’action.
+1. Pour ajouter la première action dans la zone **Élément d’action - 1**, saisissez le nom JSON de l’action.
 
-   ![Entrez la première action](./media/logic-apps-add-run-inline-code/add-action-parameter.png)
+   ![Indiquer la première action](./media/logic-apps-add-run-inline-code/add-action-parameter.png)
 
-1. Pour ajouter une autre action, choisissez **ajouter un nouvel élément**.
+1. Pour ajouter une autre action, choisissez **Ajouter un nouvel élément**.
 
-## <a name="reference"></a>Référence
+## <a name="reference"></a>Informations de référence
 
-Pour plus d’informations sur la **exécuter le JavaScript Code** l’action de la structure et syntaxe dans la définition de votre application logique sous-jacente du flux de travail en utilisant le langage de définition de flux de travail, reportez-vous à la section de cette action [section de référence ](../logic-apps/logic-apps-workflow-actions-triggers.md#run-javascript-code).
+Pour en savoir plus sur la structure de l’action **exécuter le JavaScript Code** et sa syntaxe dans la définition de flux de travail sous-jacente de votre application logique, à l’aide du langage de définition du flux de travail, reportez-vous à la [section de référence ](../logic-apps/logic-apps-workflow-actions-triggers.md#run-javascript-code) de cette action.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-En savoir plus sur [connecteurs pour Azure Logic Apps](../connectors/apis-list.md)
+En savoir plus sur [les autres connecteurs pour Azure Logic Apps](../connectors/apis-list.md)

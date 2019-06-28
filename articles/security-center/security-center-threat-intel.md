@@ -14,15 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/3/2018
 ms.author: rkarlin
-ms.openlocfilehash: f1e238890b777e2816648ec407e2581f636d1c12
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 36201bad64e5516375afe1ec9ce141c3fd311d48
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60906061"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64574354"
 ---
 # <a name="security-alerts-map-and-threat-intelligence"></a>Carte des alertes de sécurité et informations sur les menaces
 Cet article vous aide à utiliser la carte des alertes de sécurité et la carte Threat Intelligence basée sur les événements de sécurité d’Azure Security Center pour résoudre les problèmes liés à la sécurité.
+
+> [!NOTE]
+> La mise hors service du bouton carte des *événements* de sécurité est prévue pour le 31 juillet 2019. Pour en savoir plus et connaître les alternatives en matière de services, consultez [Retrait des fonctionnalités du Security Center (juillet 2019)](security-center-features-retirement-july2019.md#menu_securityeventsmap).
+
 
 ## <a name="how-the-security-alerts-map-works"></a>Fonctionnement de la carte des alertes de sécurité
 Security Center vous fournit une carte qui vous aide à identifier les menaces de sécurité qui pèsent sur l’environnement. Par exemple, vous pouvez déterminer si un ordinateur particulier fait partie d’un botnet et connaître l’origine de la menace. Un ordinateur peut devenir un nœud d’un botnet si un attaquant installe de manière illicite un programme malveillant qui interagit secrètement avec les commandes et contrôles qui gèrent le botnet. 
@@ -62,7 +66,7 @@ Pour afficher la carte Threat Intelligence basée sur les événements de sécur
 4. En haut de la carte, sélectionnez **Afficher Threat intelligence classique**. Le tableau de bord **Threat intelligence** s’affiche.
 
    > [!NOTE]
-   > Si la colonne située complètement à droite affiche **PLAN DE MISE À NIVEAU**, cet espace de travail utilise l’abonnement gratuit. Effectuez une mise à niveau vers le niveau Standard pour utiliser cette fonctionnalité. Si la colonne située complètement à droite affiche **mise à jour requise**, mettre à jour [Azure Monitor enregistre](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) pour utiliser cette fonctionnalité. Pour en savoir plus sur le plan de tarification, consultez la tarification dans Azure Security Center.
+   > Si la colonne située complètement à droite affiche **PLAN DE MISE À NIVEAU**, cet espace de travail utilise l’abonnement gratuit. Effectuez une mise à niveau vers le niveau Standard pour utiliser cette fonctionnalité. Si la colonne située complètement à droite affiche **MISE À JOUR NÉCESSAIRE**, mettez à jour [Journaux Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) pour utiliser cette fonctionnalité. Pour en savoir plus sur le plan de tarification, consultez la tarification dans Azure Security Center.
    >
 5. Si vous avez plusieurs espaces de travail à examiner, hiérarchisez l’examen en fonction de la colonne **Adresse IP malveillante**. Elle indique le nombre actuel d’adresses IP malveillantes dans cet espace de travail. Sélectionnez l’espace de travail que vous souhaitez utiliser. Le tableau de bord **Informations sur les menaces** s’affiche.
 

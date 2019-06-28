@@ -10,10 +10,10 @@ ms.date: 07/21/2017
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 7e569fa30727f2df7411eee5fa6d48f9b9454460
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65025335"
 ---
 # <a name="how-to-manage-concurrency-in-azure-search"></a>Gestion de l’accès concurrentiel dans Recherche Azure
@@ -27,7 +27,7 @@ Lors de la gestion de ressources Recherche Azure telles que des index et des sou
 
 L’accès concurrentiel optimiste est implémenté via des contrôles de conditions d’accès dans les appels d’API écrivant dans des index, des indexeurs, des sources de données et des ressources synonymMap.
 
-Toutes les ressources présentent une [ *étiquette d’entité (ETag)*](https://en.wikipedia.org/wiki/HTTP_ETag) qui fournit des informations sur la version de l’objet. En vérifiant d’abord l’ETag, vous pouvez éviter les mises à jour simultanées dans un flux de travail classique (obtention, modification locale, mise à jour) en vous assurant que l’ETag de la ressource correspond à celui de votre copie locale.
+Toutes les ressources présentent une [ *étiquette d’entité (ETag)* ](https://en.wikipedia.org/wiki/HTTP_ETag) qui fournit des informations sur la version de l’objet. En vérifiant d’abord l’ETag, vous pouvez éviter les mises à jour simultanées dans un flux de travail classique (obtention, modification locale, mise à jour) en vous assurant que l’ETag de la ressource correspond à celui de votre copie locale.
 
 + L’API REST utilise un [ETag](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search) sur l’en-tête de demande.
 + Le Kit de développement logiciel (SDK) .NET spécifie l’ETag via un objet accessCondition en définissant l’en-tête [If-Match | If-Match-None](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search) sur la ressource. Tout objet héritant de l’interface [IResourceWithETag](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.iresourcewithetag) (Kit de développement logiciel [SDK] .NET) présente un objet accessCondition.
@@ -170,7 +170,7 @@ Le code suivant illustre les contrôles accessCondition pour les opérations de 
 
 Un modèle de conception pour l’implémentation de l’accès concurrentiel optimiste doit inclure une boucle qui effectue une nouvelle tentative de contrôle de la condition d’accès, un test de la condition d’accès et récupère éventuellement une ressource mise à jour avant d’essayer de réappliquer les modifications.
 
-Cet extrait de code illustre l’ajout d’une ressource synonymMap à un index existant. Ce code est tiré le [synonyme C# exemple pour Azure Search](search-synonyms-tutorial-sdk.md).
+Cet extrait de code illustre l’ajout d’une ressource synonymMap à un index existant. Ce code est tiré de l’[exemple C# des synonymes pour la Recherche Azure](search-synonyms-tutorial-sdk.md).
 
 L’extrait de code obtient l’index « hotel », vérifie la version de l’objet pour une opération de mise à jour, lève une exception si la condition échoue, puis retente l’opération (jusqu’à trois fois), en commençant par extraire l’index du serveur pour obtenir sa dernière version.
 

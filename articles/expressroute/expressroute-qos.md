@@ -9,10 +9,10 @@ ms.date: 04/22/2019
 ms.author: cherylmc
 ms.custom: seodec18
 ms.openlocfilehash: 9bdeb91b145f8c7f31be8c1dcd5c5158d50ff2f6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64712313"
 ---
 # <a name="expressroute-qos-requirements"></a>Configuration requise pour ExpressRoute QoS
@@ -25,9 +25,9 @@ Skype Entreprise a différentes charges de travail nécessitant un traitement Qo
 > 
 > 
 
-Le tableau suivant fournit une liste des marquages DSCP utilisés par Microsoft Teams et Skype pour entreprises. Pour plus d’informations, voir [Gestion de QoS pour Skype Entreprise](https://docs.microsoft.com/SkypeForBusiness/manage/network-management/qos/managing-quality-of-service-QoS) .
+Le tableau suivant fournit la liste des marquages DSCP utilisés par Microsoft Teams et Skype Entreprise. Pour plus d’informations, voir [Gestion de QoS pour Skype Entreprise](https://docs.microsoft.com/SkypeForBusiness/manage/network-management/qos/managing-quality-of-service-QoS) .
 
-| **Classe de trafic** | **Traitement (marquage DSCP)** | **Microsoft Teams et Skype pour les charges de travail métier** |
+| **Classe de trafic** | **Traitement (marquage DSCP)** | **Charges de travail Microsoft Teams et Skype Entreprise** |
 | --- | --- | --- |
 | **Voice** |EF (46) |Skype / Lync voice |
 | **Interactive** |AF41 (34) |Vidéo, VBSS |

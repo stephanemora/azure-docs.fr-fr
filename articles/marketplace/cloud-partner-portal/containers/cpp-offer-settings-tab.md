@@ -1,5 +1,5 @@
 ---
-title: Paramètres pour une image de conteneurs Azure de l’offre | Place de marché Azure
+title: Paramètres de l’offre pour une image de conteneurs Azure | Place de marché Azure
 description: Configurez les paramètres de l’offre pour un conteneur Azure.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: pabutler
 ms.openlocfilehash: b68ace0eb6f048f94f2945b7246cce7f83a8c42c
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64942530"
 ---
 # <a name="container-offer-settings-tab"></a>Onglet des paramètres de l’offre de conteneur

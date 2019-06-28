@@ -1,6 +1,6 @@
 ---
-title: Tous les page serveurs de publication pour Azure Marketplace
-description: Vue d’ensemble de tous les serveurs de publication dans le portail Cloud Partner pour Azure Marketplace.
+title: Page Tous les éditeurs pour la Place de marché Azure
+description: Vue d’ensemble de la page Tous les éditeurs sur le portail Cloud Partner pour la Place de marché Azure.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: pabutler
 ms.openlocfilehash: ab42757d91244c0661a6acd02e4e5ebe891929a0
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64941996"
 ---
 # <a name="all-publishers-page"></a>Page Tous les éditeurs

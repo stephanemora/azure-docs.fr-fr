@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/28/2018
 ms.author: rkarlin
 ms.openlocfilehash: cd91b83bc808d811fc50293fbf1726d609ad5b46
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65234072"
 ---
 # <a name="azure-security-center-data-security"></a>Sécurité des données du Centre de sécurité Azure
@@ -48,11 +48,11 @@ Pour assurer une visibilité sur l’état de la sécurité, identifier les vuln
 
 | Zone géographique de machine virtuelle                              | Zone géographique d’espace de travail |
 |-------------------------------------|---------------|
-| Afrique du Sud des États-Unis, Brésil, | États-Unis |
+| États-Unis, Brésil, Afrique du Sud | États-Unis |
 | Canada                              | Canada        |
 | Europe (à l’exclusion du Royaume-Uni)   | Europe        |
 | Royaume-Uni                      | Royaume-Uni |
-| Asie (à l’exception de l’Inde, Japon, Corée, Chine)   | Asie-Pacifique  |
+| Asie (à l’exception de l’Inde, du Japon, de la Corée, de la Chine)   | Asie-Pacifique  |
 | Corée du Sud                              | Asie-Pacifique  |
 | Inde                               | Inde         |
 | Japon                               | Japon         |
@@ -82,7 +82,7 @@ Si vous utilisez Azure Security Center gratuitement, vous pouvez également dés
 Les clients peuvent consommer des données liées au Centre de sécurité à partir de différents flux de données, comme indiqué ci-dessous :
 
 * **Azure Activity** : toutes les alertes de sécurité, les requêtes approuvées [juste à temps](https://docs.microsoft.com/azure/security-center/security-center-just-in-time) du Centre de sécurité, et toutes les alertes générées par les [contrôles d’application adaptative](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application).
-* **Journaux d’analyse Azure**: toutes les alertes de sécurité.
+* **journaux Azure Monitor** : toutes les alertes de sécurité.
 
 
 > [!NOTE]

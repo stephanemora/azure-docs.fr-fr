@@ -13,17 +13,17 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 03/19/2019
 ms.openlocfilehash: 5681b5aa46acc1192675da0b1cceee596dfa0105
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65799901"
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>Optimisation des performances à l’aide des technologies en mémoire dans SQL Database
 
 Les technologies en mémoire d’Azure SQL Database vous permettent d’améliorer les performances de votre application, et potentiellement de réduire le coût de votre base de données. 
 
-## <a name="when-to-use-in-memory-technologies"></a>Quand utiliser des technologies en mémoire
+## <a name="when-to-use-in-memory-technologies"></a>Quand utiliser les technologies SQL en mémoire
 
 En utilisant les technologies en mémoire dans Azure SQL Database, vous pouvez améliorer les performances avec différentes charges de travail :
 
@@ -33,7 +33,7 @@ En utilisant les technologies en mémoire dans Azure SQL Database, vous pouvez a
 
 Les technologies en mémoire peuvent améliorer les performances de ces charges de travail en conservant dans la mémoire les données à traiter, en utilisant la compilation native des requêtes ou un traitement avancé comme le traitement par lots et des instructions SIMD qui sont disponibles sur le matériel sous-jacent. 
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
 Azure SQL Database comprend les technologies en mémoire suivantes :
 - *[OLTP en mémoire](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization)* augmente le nombre de transactions par seconde et réduit la latence du traitement transactionnel. Les scénarios qui bénéficient de l’OLTP en mémoire sont : le traitement de transactions haut débit, notamment les données commerciales et de jeux, l’ingestion de données d’événements ou d’appareils IoT, la mise en cache, le chargement de données, les tables temporaires et les scénarios de variables de table.
@@ -83,7 +83,7 @@ La technologie OLTP en mémoire fournit des opérations d’accès aux données 
 
 - Le format **rowstore à mémoire optimisée** où chaque ligne est un objet de mémoire distinct. Il s’agit d’un format OLTP en mémoire classique optimisé pour les charges de travail OLTP hautes performances. Il existe deux types de tables à mémoire optimisée qui peuvent être utilisées dans le format rowstore à mémoire optimisée :
   - *Tables durables* (SCHEMA_AND_DATA) où les lignes placées en mémoire sont conservées après le redémarrage du serveur. Ce type de tables se comporte comme une table rowstore traditionnelle avec en plus les avantages des optimisations en mémoire.
-  - *Tables non durables* (SCHEMA_ONLY) où les lignes ne sont pas préservées après le redémarrage. Ce type de table est conçu pour les données temporaires (par exemple, le remplacement de tables temporaires) ou les tables dans lesquelles vous devez rapidement charger des données avant de les déplacer vers une table persistante (les tables de mise en lots).
+  - *Tables non durables* (SCHEMA_ONLY) où les lignes ne sont pas conservées après le redémarrage. Ce type de table est conçu pour les données temporaires (par exemple, le remplacement de tables temporaires) ou les tables dans lesquelles vous devez rapidement charger des données avant de les déplacer vers une table persistante (les tables de mise en lots).
 - Le format **columnstore à mémoire optimisée** où les données sont organisées dans un format de colonne. Cette structure est conçue pour les scénarios HTAP où vous avez besoin d’exécuter des requêtes analytiques sur la même structure de données que celle où votre charge de travail OLTP s’exécute.
 
 > [!Note]

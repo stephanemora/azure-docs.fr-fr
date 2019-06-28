@@ -17,11 +17,11 @@ ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
 ms.openlocfilehash: f2110a749c41f59b11a6d400faa2e42e751305fe
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60251072"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64693811"
 ---
 # <a name="create-a-vm-from-a-specialized-vhd-in-a-storage-account"></a>Création d’une machine virtuelle à partir d’un disque dur virtuel spécialisé dans un compte de stockage
 
@@ -103,7 +103,7 @@ LocalFilePath           DestinationUri
 C:\Users\Public\Doc...  https://mystorageaccount.blob.core.windows.net/mycontainer/myUploadedVHD.vhd
 ```
 
-En fonction de votre connexion réseau et de la taille de votre fichier VHD, l’exécution de cette commande peut prendre un certain temps.
+Selon votre connexion réseau et la taille de votre fichier de disque dur virtuel, l’exécution de cette commande peut prendre un certain temps.
 
 
 ## <a name="option-2-copy-the-vhd-from-an-existing-azure-vm"></a>Option 2 : Copier le disque dur virtuel d’une machine virtuelle Azure existante
@@ -126,7 +126,7 @@ Libérez la machine virtuelle, ce qui libère le disque dur virtuel à copier.
 Stop-AzVM -ResourceGroupName myResourceGroup -Name myVM
 ```
 
-**L’état** de la machine virtuelle dans le Portail Azure passe de **Arrêté** à **Arrêté (libéré)**.
+**L’état** de la machine virtuelle dans le Portail Azure passe de **Arrêté** à **Arrêté (libéré)** .
 
 ### <a name="get-the-storage-account-urls"></a>Récupérer les URL des comptes de stockage
 Vous avez besoin des URL des comptes de stockage source et de destination. Les URL ressemblent à : `https://<storageaccount>.blob.core.windows.net/<containerName>/`. Si vous connaissez déjà le nom du compte de stockage et du conteneur, vous pouvez simplement remplacer les informations entre crochets pour créer votre URL. 
@@ -271,7 +271,7 @@ $vm = Add-AzVMNetworkInterface -VM $vmConfig -Id $nic.Id
     ```powershell
     $osDiskUri = "https://myStorageAccount.blob.core.windows.net/myContainer/myOsDisk.vhd"
     ```
-2. Ajoutez le disque du système d’exploitation. Dans cet exemple, lorsque le disque du système d’exploitation est créé, le terme « osDisk » est ajouté au nom de machine virtuelle pour créer le nom du disque du système d’exploitation. Cet exemple spécifie également que ce disque dur virtuel basé sur Windows doit être attaché à la machine virtuelle en tant que disque de système d’exploitation.
+2. Ajoutez le disque du système d’exploitation. Dans cet exemple, lorsque le disque du système d’exploitation est créé, le terme « osDisk » est ajouté au nom de la machine virtuelle pour créer le nom du disque du système d’exploitation. Cet exemple spécifie également que ce disque dur virtuel basé sur Windows doit être attaché à la machine virtuelle en tant que disque de système d’exploitation.
     
     ```powershell
     $osDiskName = $vmName + "osDisk"

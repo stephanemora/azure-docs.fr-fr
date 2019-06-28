@@ -14,19 +14,19 @@ ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: bwren
 ms.openlocfilehash: b756b9484273c098dbeb6685430f70626b3af787
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65789231"
 ---
 # <a name="sql-to-azure-monitor-log-query-cheat-sheet"></a>Aide-mémoire sur les requêtes de journal SQL vers Azure Monitor 
 
-Le tableau ci-dessous permet aux utilisateurs qui connaissent le langage SQL d’apprendre le langage de requête Kusto pour écrire des requêtes de journal dans Azure Monitor. Jetez un œil à la commande T-SQL pour résoudre des scénarios courants et leur équivalent dans une requête de journal Azure Monitor.
+Le tableau ci-dessous permet aux utilisateurs qui connaissent le langage SQL d’apprendre le langage de requête Kusto pour écrire des requêtes de journal dans Azure Monitor. Examinez la commande T-SQL pour réaliser des scénarios courants, et son équivalent dans une requête de journal Azure Monitor.
 
 ## <a name="sql-to-azure-monitor"></a>SQL vers Azure Monitor
 
-Description                              |Requête SQL                                                                                          |Requête de journal Azure Monitor
+Description                             |Requête SQL                                                                                          |Requête de journal Azure Monitor
 ----------------------------------------|---------------------------------------------------------------------------------------------------|----------------------------------------
 Sélectionner toutes les données d’une table            |`SELECT * FROM dependencies`                                                                       |<code>dependencies</code>
 Sélectionner des colonnes spécifiques d’une table    |`SELECT name, resultCode FROM dependencies`                                                        |<code>dependencies <br>&#124; project name, resultCode</code>
@@ -42,7 +42,7 @@ Trier                                    |`SELECT name, timestamp FROM dependenc
 Différencier                                |`SELECT DISTINCT name, type  FROM dependencies`                                                    |<code>dependencies <br>&#124; summarize by name, type</code>
 Regroupement, agrégation                   |`SELECT name, AVG(duration) FROM dependencies GROUP BY name`                                       |<code>dependencies <br>&#124; summarize avg(duration) by name</code>
 Alias de colonne, étendre                  |`SELECT operation_Name as Name, AVG(duration) as AvgD FROM dependencies GROUP BY name`             |<code>dependencies <br>&#124; summarize AvgD=avg(duration) by operation_Name <br>&#124; project Name=operation_Name, AvgD</code>
-Enregistrements TOP n par mesure                |`SELECT TOP 100 name, COUNT(*) as Count FROM dependencies GROUP BY name ORDER BY Count asc`        |<code>dependencies <br>&#124; summarize Count=count() by name <br>&#124; top 100 by Count asc</code>
+N premiers enregistrements par mesure                |`SELECT TOP 100 name, COUNT(*) as Count FROM dependencies GROUP BY name ORDER BY Count asc`        |<code>dependencies <br>&#124; summarize Count=count() by name <br>&#124; top 100 by Count asc</code>
 Union                                   |`SELECT * FROM dependencies UNION SELECT * FROM exceptions`                                        |<code>union dependencies, exceptions</code>
 Union : avec conditions                  |`SELECT * FROM dependencies WHERE value > 4 UNION SELECT * FROM exceptions WHERE value < 5`                |<code>dependencies <br>&#124; where value > 4 <br>&#124; union (exceptions <br>&#124; where value < 5)</code>
 Join                                    |`SELECT * FROM dependencies JOIN exceptions ON dependencies.operation_Id = exceptions.operation_Id`|<code>dependencies <br>&#124; join (exceptions) on operation_Id == operation_Id</code>
@@ -50,4 +50,4 @@ Join                                    |`SELECT * FROM dependencies JOIN except
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Parcourez les leçons [écriture de requêtes de journal dans Azure Monitor](get-started-queries.md).
+- Suivez les [leçons sur l’écriture des requêtes de journal dans Azure Monitor](get-started-queries.md).

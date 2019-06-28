@@ -12,10 +12,10 @@ ms.workload: na
 ms.date: 04/25/2019
 ms.author: banders
 ms.openlocfilehash: 6d63f9a393dbb40c3b0952eba9ab9449fd7b558d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64702619"
 ---
 # <a name="apis-for-azure-reservation-automation"></a>API dédiées à l’automatisation de la réservation Azure
@@ -30,9 +30,9 @@ Vous pouvez également analyser votre utilisation des ressources grâce aux dét
 
 ## <a name="buy-a-reservation"></a>Acheter une réservation
 
-Vous pouvez acheter des réservations d’Azure et les plans de logiciels par programmation à l’aide des API REST. Pour plus d’informations, consultez [de réservation - achat API](/rest/api/reserved-vm-instances/reservationorder/purchase).
+Vous pouvez acheter des abonnements logiciels et des réservations Azure par programmation à l’aide d’API REST. Pour plus d’informations, consultez [API Ordre de réservation - Achat](/rest/api/reserved-vm-instances/reservationorder/purchase).
 
-Voici un exemple de demande d’achat à l’aide de l’API REST :
+Voici un exemple de demande d’achat effectué à l’aide de l’API REST :
 
 ```
 PUT https://management.azure.com/providers/Microsoft.Capacity/reservationOrders/<GUID>?api-version=2019-04-01
@@ -61,7 +61,7 @@ Corps de la requête :
 }
 ```
 
-Vous pouvez également acheter une réservation dans le portail Azure. Pour plus d’informations, consultez les articles suivants :
+Vous pouvez également acheter une réservation sur le portail Azure. Pour plus d’informations, consultez les articles suivants :
 
 Plans de service :
 - [Machine virtuelle](../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/billing/TOC.json)

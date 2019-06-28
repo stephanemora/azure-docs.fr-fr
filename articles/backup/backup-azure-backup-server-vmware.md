@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: raynew
 ms.openlocfilehash: f034f31f2c8c49bbdfb88e2ba0a009ff5b795fa2
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65789602"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Sauvegarder des machines virtuelles VMware avec le serveur de sauvegarde Azure
@@ -39,7 +39,7 @@ Par défaut, le serveur de sauvegarde Azure communique avec les serveurs VMware 
 
 ### <a name="before-you-start"></a>Avant de commencer
 
-- Si vous ne souhaitez pas utiliser le protocole HTTPS, vous pouvez [désactiver la validation du certificat HTTPS pour tous les serveurs VMware](backup-azure-backup-server-vmware.md#disable-https-certificate-validation).
+- Si vous ne souhaitez pas utiliser le protocole HTTPS, vous pouvez [désactiver la validation de certificat HTTPS pour tous les serveurs VMware](backup-azure-backup-server-vmware.md#disable-https-certificate-validation).
 - En général, vous vous connectez au serveur vCenter/ESXi depuis un navigateur sur le serveur de sauvegarde Azure via le client web vSphere. La première fois, la connexion n’est pas sécurisée et le message suivant s’affiche.
 - Il est important de comprendre comment le serveur de sauvegarde Azure gère les sauvegardes.
     - Dans un premier temps, le serveur de sauvegarde Azure sauvegarde les données dans le stockage sur disque local. Le serveur de sauvegarde Azure utilise un pool de stockage, un ensemble de disques et de volumes sur lequel il stocke les points de récupération de disque pour ses données protégées. Il peut s’agir d’un stockage en attachement direct (DAS), un SAN Fibre Channel, ou un appareil de stockage ou SAN iSCSI. Il est important de s’assurer que vous disposez de suffisamment de stockage pour la sauvegarde locale de vos données de machines virtuelles VMware.
@@ -101,7 +101,7 @@ Pour configurer un canal sécurisé, procédez comme suit :
 
 
 
-### <a name="disable-https-certificate-validation"></a>Désactiver la validation du certificat HTTPS
+### <a name="disable-https-certificate-validation"></a>Désactiver la validation de certificat HTTPS
 
 Si vous avez des limites sécurisées au sein de votre organisation et que vous ne souhaitez pas utiliser le protocole HTTPS entre les serveurs VMware et l’ordinateur du serveur de sauvegarde Azure, désactivez le HTTPS comme suit : u
 1. Copiez et collez le texte suivant dans un fichier .txt.
@@ -171,7 +171,7 @@ VirtualMachine.State.RemoveSnapshot | VirtualMachine.State.RemoveSnapshot
 
     ![Option Utilisateurs et groupes](./media/backup-azure-backup-server-vmware/vmware-userandgroup-panel.png)
 
-    Le **vCenter utilisateurs et groupes** Panneau de configuration s’affichent.
+    Le panneau **Utilisateurs et groupes vCenter** s’affiche.
 
 
 2. Dans le panneau **Utilisateurs et groupes vCenter**, dans l’onglet **Utilisateurs**, cliquez sur l’icône d’ajout d’utilisateurs (symbole +).
@@ -355,15 +355,15 @@ Ajoutez des machines virtuelles VMware pour la sauvegarde. Les groupes de protec
 
 ## <a name="vmware-vsphere-67"></a>VMWare vSphere 6.7
 
-À faire de sauvegarde vSphere 6.7 les éléments suivants :
+Pour sauvegarder vSphere 6.7, procédez comme suit :
 
 - Activer TLS 1.2 sur le serveur DPM
   >[!Note]
-  >6.7 VMWare et versions ultérieures avait activé TLS comme protocole de communication.
+  >Sur VMWare 6.7 et les versions ultérieures, le protocole de communication TLS est activé.
 
-- Définissez les clés de Registre comme suit :  
+- Définissez les clés de Registre comme suit :  
 
-  Éditeur du Registre Windows Version 5.00
+  Éditeur du Registre Windows version 5.00
 
   [HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\\.NETFramework\v2.0.50727] "SystemDefaultTlsVersions"=dword:00000001 "SchUseStrongCrypto"=dword:00000001
 

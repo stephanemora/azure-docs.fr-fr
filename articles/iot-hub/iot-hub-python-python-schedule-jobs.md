@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 02/16/2019
 ms.author: kgremban
 ms.openlocfilehash: c15db0766da3b4c18c306106ffdd5fc75a9143aa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61442776"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64569306"
 ---
 # <a name="schedule-and-broadcast-jobs-python"></a>Planifier et diffuser des travaux (Python)
 
@@ -30,9 +30,9 @@ Sur le plan conceptuel, un travail encapsule l’une de ces actions et suit la p
 
 Pour en savoir plus sur chacune de ces fonctionnalités, consultez les articles suivants :
 
-* Jumeau d’appareil et propriétés : [Bien démarrer avec les jumeaux d’appareil](iot-hub-python-twin-getstarted.md) et [didacticiel : Comment utiliser les propriétés des représentations](tutorial-device-twins.md)
+* Jumeau d’appareil et propriétés : [Prise en main des jumeaux d’appareils](iot-hub-python-twin-getstarted.md) et [Didacticiel : Guide pratique pour utiliser des propriétés de jumeau d’appareil](tutorial-device-twins.md)
 
-* Méthodes directes : [Guide du développeur IoT Hub - méthodes directes](iot-hub-devguide-direct-methods.md) et [didacticiel : méthodes directes](quickstart-control-device-python.md)
+* Méthodes directes : [Guide du développeur IoT Hub - méthodes directes](iot-hub-devguide-direct-methods.md) et [Didacticiel : méthodes directes](quickstart-control-device-python.md)
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -50,7 +50,7 @@ Ce didacticiel vous explique les procédures suivantes :
 
 Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
-* [Python 2.x ou 3.x](https://www.python.org/downloads/). Veillez à utiliser l’installation 32 bits ou 64 bits comme requis par votre programme d’installation. Lorsque vous y êtes invité pendant l’installation, veillez à ajouter Python à votre variable d’environnement propre à la plateforme. Si vous utilisez Python 2.x, vous devrez peut-être [installer ou mettre à niveau *pip*, le système de gestion des packages Python](https://pip.pypa.io/en/stable/installing/).
+* [Python 2.x ou 3.x](https://www.python.org/downloads/). Veillez à utiliser l’installation 32 bits ou 64 bits comme requis par votre programme d’installation. Lorsque vous y êtes invité pendant l’installation, veillez à ajouter Python à votre variable d’environnement propre à la plateforme. Si vous utilisez Python 2.x, vous devrez peut-être [installer ou mettre à niveau *pip*, le système de gestion des packages Python](https://pip.pypa.io/en/stable/installing/).
 
 * Si vous utilisez le système d’exploitation Windows, utilisez le [package redistribuable Visual C++](https://www.microsoft.com/download/confirmation.aspx?id=48145) pour autoriser l’utilisation de DLL natives de Python.
 
@@ -319,12 +319,12 @@ Vous êtes maintenant prêt à exécuter les applications.
 
 3. Vous voyez les réponses de l’appareil à la méthode directe et la mise à jour des jumeaux d’appareils dans la console.
 
-    ![Exemple de IoT Hub Job 1--sortie de l’appareil](./media/iot-hub-python-python-schedule-jobs/sample1-deviceoutput.png)
+    ![Exemple 1 de travail IoT Hub -- Sortie d’appareil](./media/iot-hub-python-python-schedule-jobs/sample1-deviceoutput.png)
 
-    ![Sortie de l’appareil IoT Hub Job exemple 2 :](./media/iot-hub-python-python-schedule-jobs/sample2-deviceoutput.png)
+    ![Exemple 2 de travail IoT Hub -- Sortie d’appareil](./media/iot-hub-python-python-schedule-jobs/sample2-deviceoutput.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce didacticiel, vous avez utilisé un travail pour planifier une méthode directe sur un appareil et la mise à jour des propriétés de représentation de l’appareil.
 
-Pour continuer la mise en route avec IoT Hub et les modèles de gestion de périphérique, comme la mise à jour du microprogramme de distance, consultez [comment effectuer une mise à jour du microprogramme](tutorial-firmware-update.md).
+Pour poursuivre votre découverte d’IoT Hub et des modèles de gestion d’appareils, comme la mise à jour du microprogramme à distance, consultez [Mettre à jour un microprogramme](tutorial-firmware-update.md).

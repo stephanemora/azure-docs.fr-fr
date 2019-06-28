@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/25/2019
 ms.author: jaredro
 ms.custom: include file
-ms.openlocfilehash: 1bcadc18172535649a0ceb482939ca6a75477e25
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.openlocfilehash: ab74c331bdc8b72612aa848688e1de080314337a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66170713"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67133618"
 ---
 ### <a name="what-is-expressroute-direct"></a>Présentation d’ExpressRoute Direct
 
@@ -23,12 +23,11 @@ Avec ExpressRoute Direct, les clients ont la possibilité de se connecter direct
 
 Les clients doivent se faire aider de leurs opérateurs locaux et de leurs fournisseurs de colocalisation pour obtenir une connectivité aux routeurs ExpressRoute dans le but d’utiliser ExpressRoute Direct.
 
-### <a name="what-locations-currently-support-expressroute-direct"></a>Quels emplacements prend actuellement en charge directe de ExpressRoute ? 
+### <a name="what-locations-currently-support-expressroute-direct"></a>Quels emplacements prennent actuellement en charge ExpressRoute Direct ? 
 
 Les ports disponibles sont dynamiques et sont fournis par PowerShell pour afficher la capacité. Les régions, qui *sont susceptibles d’être modifiées selon la disponibilité*, sont les suivantes :
 
 * Amsterdam
-* Canberra
 * Chicago
 * Washington DC
 * Dallas 
@@ -58,6 +57,6 @@ ExpressRoute Direct fournit aux clients des paires de ports directs 100 Gbits/s
 
 Un montant fixe est facturé pour la paire de ports. Les circuits standard sont compris sans frais supplémentaires, tandis que les circuits Premium engendrent un petit supplément. La sortie est facturée pour chaque circuit, en fonction de la zone où se trouve l’emplacement d’appairage.
 
-### <a name="when-does-billing-start-for-the-expressroute-direct-port-pairs"></a>Lorsque vous n’est début de facturation pour les paires de port Direct d’ExpressRoute ?
+### <a name="when-does-billing-start-for-the-expressroute-direct-port-pairs"></a>À quel moment la facturation des paires de ports ExpressRoute Direct commence-t-elle ?
 
 Les paires de ports ExpressRoute Direct sont facturées 45 jours après la création de la ressource ExpressRoute Direct ou lorsqu'un lien, voire les deux sont activés, selon la première de ces éventualités. La période de grâce de 45 jours a été mise en place pour permettre aux clients de terminer le processus d'interconnexion avec le fournisseur de colocalisation.

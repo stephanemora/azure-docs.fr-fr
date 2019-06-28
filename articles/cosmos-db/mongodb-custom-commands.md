@@ -7,32 +7,32 @@ ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: sngun
 ms.openlocfilehash: 94b1048befc8716caf5f7f51adb1f95d047d4077
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64925650"
 ---
-# <a name="use-mongodb-extension-commands-to-manage-data-stored-in-azure-cosmos-dbs-api-for-mongodb"></a>Utiliser des commandes d’extension MongoDB pour gérer les données stockées dans les API d’Azure Cosmos DB pour MongoDB 
+# <a name="use-mongodb-extension-commands-to-manage-data-stored-in-azure-cosmos-dbs-api-for-mongodb"></a>Utiliser les commandes d’extension MongoDB pour gérer les données stockées dans les API d’Azure Cosmos DB pour MongoDB 
 
-Azure Cosmos DB est le service de base de données multi-modèle de Microsoft distribué à l’échelle mondiale. Vous pouvez communiquer avec API d’Azure Cosmos DB pour MongoDB à l’aide de l’open source [pilotes du client MongoDB](https://docs.mongodb.org/ecosystem/drivers). L’API de Azure Cosmos DB pour MongoDB permet d’utiliser les pilotes clients existants en adhérant à la [protocole filaire MongoDB](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol).
+Azure Cosmos DB est le service de base de données multi-modèle de Microsoft distribué à l’échelle mondiale. Vous pouvez communiquer avec l’API Azure Cosmos DB pour MongoDB par le biais de n’importe quel [pilote du client open source MongoDB](https://docs.mongodb.org/ecosystem/drivers). L’API d’Azure Cosmos DB pour MongoDB permet d’utiliser les pilotes clients existants en adhérant au [protocole Wire MongoDB](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol).
 
-En utilisant les API de l’Azure Cosmos DB pour MongoDB, vous pouvez profiter des avantages Cosmos DB, telles que la distribution mondiale, un partitionnement automatique, haute disponibilité, des garanties de latence, automatique, le chiffrement au repos, sauvegardes, et nombreuses tandis que de plus, en conservant vos investissements dans votre application MongoDB.
+En utilisant l’API d’Azure Cosmos DB pour MongoDB, vous pouvez profiter des nombreux avantages de Cosmos DB, comme la distribution mondiale, le partitionnement automatique, la haute disponibilité, les garanties de latence, le chiffrement automatique au repos, les sauvegardes, etc. tout en préservant vos investissements dans votre application MongoDB.
 
-## <a name="mongodb-protocol-support"></a>Prise en charge du protocole MongoDB
+## <a name="mongodb-protocol-support"></a>Prise en charge des protocoles MongoDB
 
-Par défaut, des API de l’Azure Cosmos DB pour MongoDB est compatible avec MongoDB server version 3.2, pour plus d’informations, consultez [pris en charge de la syntaxe et les fonctionnalités](mongodb-feature-support.md). Les fonctionnalités ou les opérateurs de requête ajoutés dans MongoDB version 3.4 sont actuellement disponibles en version préliminaire dans l’API de Azure Cosmos DB pour MongoDB. Les commandes d’extension suivantes prennent en charge les fonctionnalités spécifiques d’Azure Cosmos DB lors de l’exécution des opérations CRUD sur les données stockées dans les API d’Azure Cosmos DB pour MongoDB :
+Par défaut, l’API d’Azure Cosmos DB pour MongoDB est compatible avec la version 3.2 du serveur MongoDB. Pour plus d’informations, consultez les [fonctionnalités et la syntaxe prises en charge](mongodb-feature-support.md). Les opérateurs de requête ou les fonctionnalités ajoutés dans MongoDB version 3.4 sont actuellement disponibles en préversion dans l’API d’Azure Cosmos DB pour MongoDB. Les commandes d’extension suivantes prennent en charge les fonctionnalités spécifiques d’Azure Cosmos DB lors de l’exécution d’opérations CRUD sur les données stockées dans l’API d’Azure Cosmos DB pour MongoDB :
 
-* [Créer la base de données](#create-database)
-* [Mettre à jour de la base de données](#update-database)
-* [Obtenir la base de données](#get-database)
-* [Créer la collection](#create-collection)
-* [Mettre à jour de la collection](#update-collection)
-* [Obtention de la collection](#get-collection)
+* [Créer une base de données](#create-database)
+* [Mettre à jour la base de données](#update-database)
+* [Obtenir une base de données](#get-database)
+* [Créer une collection](#create-collection)
+* [Mettre à jour la collection](#update-collection)
+* [Obtenir une collection](#get-collection)
 
-## <a id="create-database"></a> Créer la base de données
+## <a id="create-database"></a> Créer une base de données
 
-La commande d’extension de base de données create crée une nouvelle base de données MongoDB. Le nom de la base de données est utilisé à partir du contexte de bases de données par rapport à laquelle la commande est exécutée. Le format de la commande CreateDatabase est comme suit :
+La commande d’extension de création de base de données crée une base de données MongoDB. Le nom de la base de données est tiré du contexte de bases de données par rapport auquel la commande est exécutée. Le format de la commande CreateDatabase est le suivant :
 
 ```
 {
@@ -41,40 +41,40 @@ La commande d’extension de base de données create crée une nouvelle base de 
 }
 ```
 
-Le tableau suivant décrit les paramètres au sein de la commande :
+Le tableau suivant décrit les paramètres inclus dans la commande :
 
 |**Champ**|**Type** |**Description** |
 |---------|---------|---------|
-| customAction   |  string  |   Nom de la commande personnalisée, il doit être « CreateDatabase ».      |
+| customAction   |  chaîne  |   Nom de la commande personnalisée, qui doit être "CreateDatabase".      |
 | offerThroughput | int  | Débit approvisionné que vous définissez sur la base de données. Ce paramètre est facultatif. |
 
 ### <a name="output"></a>Sortie
 
-Retourne une réponse de commande personnalisée par défaut. Consultez le [sortie par défaut](#default-output) de commande personnalisée pour les paramètres dans la sortie.
+Retourne une réponse de commande personnalisée par défaut. Consultez la [sortie par défaut](#default-output) de la commande personnalisée pour connaître les paramètres de la sortie.
 
 ### <a name="examples"></a>Exemples
 
 **Créer une base de données**
 
-Pour créer une base de données nommée « test », utilisez la commande suivante :
+Pour créer une base de données nommée « test », utilisez la commande suivante :
 
 ```shell
 use test
 db.runCommand({customAction: "CreateDatabase"});
 ```
 
-**Créer une base de données avec un débit**
+**Créer une base de données avec débit**
 
-Pour créer une base de données nommée « test » et le débit approvisionné de 1000 unités de requête, utilisez la commande suivante :
+Pour créer une base de données nommée « test » avec un débit approvisionné de 1 000 unités de requête, utilisez la commande suivante :
 
 ```shell
 use test
 db.runCommand({customAction: "CreateDatabase", offerThroughput: 1000 });
 ```
 
-## <a id="update-database"></a> Mettre à jour de la base de données
+## <a id="update-database"></a> Mettre à jour la base de données
 
-La commande d’extension de base de données mise à jour met à jour les propriétés associées à la base de données spécifié. Actuellement, vous pouvez mettre à jour uniquement la propriété « offerThroughput ».
+La commande d’extension de mise à jour de base de données met à jour les propriétés associées à la base de données spécifiée. Actuellement, vous pouvez mettre à jour uniquement la propriété « offerThroughput ».
 
 ```
 {
@@ -83,31 +83,31 @@ La commande d’extension de base de données mise à jour met à jour les propr
 }
 ```
 
-Le tableau suivant décrit les paramètres au sein de la commande :
+Le tableau suivant décrit les paramètres inclus dans la commande :
 
 |**Champ**|**Type** |**Description** |
 |---------|---------|---------|
-| customAction    |    string     |   Nom de la commande personnalisée. Doit être « UpdateDatabase ».      |
-|  offerThroughput   |  int       |     Débit approvisionné nouveau que vous souhaitez définir la base de données.    |
+| customAction    |    chaîne     |   Nom de la commande personnalisée. Il doit être "UpdateDatabase".      |
+|  offerThroughput   |  int       |     Nouveau débit approvisionné que vous souhaitez définir sur la base de données.    |
 
 ### <a name="output"></a>Sortie
 
-Retourne une réponse de commande personnalisée par défaut. Consultez le [sortie par défaut](#default-output) de commande personnalisée pour les paramètres dans la sortie.
+Retourne une réponse de commande personnalisée par défaut. Consultez la [sortie par défaut](#default-output) de la commande personnalisée pour connaître les paramètres de la sortie.
 
 ### <a name="examples"></a>Exemples
 
 **Mettre à jour le débit approvisionné associé à une base de données**
 
-Pour mettre à jour le débit approvisionné une base de données avec le nom « test » à 1200 unités de requête, utilisez la commande suivante :
+Pour mettre à jour le débit approvisionné d’une base de données nommée « test » avec 1 200 unités de requête, utilisez la commande suivante :
 
 ```shell
 use test
 db.runCommand({customAction: "UpdateDatabase", offerThroughput: 1200 });
 ```
 
-## <a id="get-database"></a> Obtenir la base de données
+## <a id="get-database"></a> Obtenir une base de données
 
-La commande d’extension de base de données get retourne l’objet de base de données. Le nom de la base de données est utilisé à partir du contexte de base de données par rapport à laquelle la commande est exécutée.
+La commande d’extension d’obtention de base de données retourne l’objet de base de données. Le nom de la base de données est tiré du contexte de base de données par rapport auquel la commande est exécutée.
 
 ```
 {
@@ -115,39 +115,39 @@ La commande d’extension de base de données get retourne l’objet de base de 
 }
 ```
 
-Le tableau suivant décrit les paramètres au sein de la commande :
+Le tableau suivant décrit les paramètres inclus dans la commande :
 
 
 |**Champ**|**Type** |**Description** |
 |---------|---------|---------|
-|  customAction   |   string      |   Nom de la commande personnalisée. Doit être « GetDatabase »|
+|  customAction   |   chaîne      |   Nom de la commande personnalisée. Il doit être "GetDatabase".|
         
 ### <a name="output"></a>Sortie
 
-Si la commande aboutit, la réponse contient un document avec les champs suivants :
+Si la commande réussit, la réponse contient un document avec les champs suivants :
 
 |**Champ**|**Type** |**Description** |
 |---------|---------|---------|
-|  `ok`   |   `int`     |   État de réponse. 1 == réussite. 0 == Échec.      |
+|  `ok`   |   `int`     |   État de la réponse. 1 == réussite. 0 == échec.      |
 | `database`    |    `string`        |   Nom de la base de données.      |
-|   `provisionedThroughput`  |    `int`      |    Débit approvisionné qui est défini sur la base de données. Il s’agit d’un paramètre de réponse facultative.     |
+|   `provisionedThroughput`  |    `int`      |    Débit approvisionné défini sur la base de données. Ce paramètre de réponse est facultatif.     |
 
-Si la commande échoue, une réponse de commande personnalisée par défaut est retournée. Consultez le [sortie par défaut](#default-output) de commande personnalisée pour les paramètres dans la sortie.
+Si la commande échoue, une réponse de commande personnalisée par défaut est retournée. Consultez la [sortie par défaut](#default-output) de la commande personnalisée pour connaître les paramètres de la sortie.
 
 ### <a name="examples"></a>Exemples
 
 **Obtenir la base de données**
 
-Pour obtenir l’objet de base de données pour une base de données nommée « test », utilisez la commande suivante :
+Pour obtenir l’objet de base de données pour une base de données nommée « test », utilisez la commande suivante :
 
 ```shell
 use test
 db.runCommand({customAction: "GetDatabase"});
 ```
 
-## <a id="create-collection"></a> Créer la collection
+## <a id="create-collection"></a> Créer une collection
 
-La commande d’extension de collection create crée une nouvelle collection MongoDB. Le nom de la base de données est utilisé à partir du contexte de bases de données par rapport à laquelle la commande est exécutée. Le format de la commande CreateCollection est comme suit :
+La commande d’extension de création de collection crée une collection MongoDB. Le nom de la base de données est tiré du contexte de bases de données par rapport auquel la commande est exécutée. Le format de la commande CreateCollection est le suivant :
 
 ```
 {
@@ -158,24 +158,24 @@ La commande d’extension de collection create crée une nouvelle collection Mon
 }
 ```
 
-Le tableau suivant décrit les paramètres au sein de la commande :
+Le tableau suivant décrit les paramètres inclus dans la commande :
 
 |**Champ**|**Type** |**Description** |
 |---------|---------|---------|
-| customAction    | string | Nom de la commande personnalisée. Doit être « CreateCollection »     |
-| collection      | string | Nom de la collection                                   |
-| offerThroughput | int    | Débit approvisionné pour définir la base de données. Il est un paramètre facultatif |
-| shardKey        | string | Chemin d’accès des clé de partition pour créer une collection partitionnée. Il est un paramètre facultatif |
+| customAction    | chaîne | Nom de la commande personnalisée. Il doit être "CreateCollection".     |
+| collection      | chaîne | Nom de la collection                                   |
+| offerThroughput | int    | Débit approvisionné à définir sur la base de données. Ce paramètre est facultatif. |
+| shardKey        | chaîne | Chemin d’accès des clés de partition pour créer une collection partitionnée. Ce paramètre est facultatif. |
 
 ### <a name="output"></a>Sortie
 
-Retourne une réponse de commande personnalisée par défaut. Consultez le [sortie par défaut](#default-output) de commande personnalisée pour les paramètres dans la sortie.
+Retourne une réponse de commande personnalisée par défaut. Consultez la [sortie par défaut](#default-output) de la commande personnalisée pour connaître les paramètres de la sortie.
 
 ### <a name="examples"></a>Exemples
 
-**Créer une collection unsharded**
+**Créer une collection non partitionnée**
 
-Pour créer une collection d’unsharded avec le nom « testCollection » et le débit approvisionné de 1000 unités de requête, utilisez la commande suivante : 
+Pour créer une collection non partitionnée nommée « testCollection » avec un débit approvisionné de 1 000 unités de requête, utilisez la commande suivante : 
 
 ```shell
 use test
@@ -184,16 +184,16 @@ db.runCommand({customAction: "CreateCollection", collection: "testCollection", o
 
 **Créer une collection partitionnée**
 
-Pour créer une collection partitionnée avec le nom « testCollection » et le débit approvisionné de 1000 unités de requête, utilisez la commande suivante :
+Pour créer une collection partitionnée nommée « testCollection » avec un débit approvisionné de 1 000 unités de requête, utilisez la commande suivante :
 
 ```shell
 use test
 db.runCommand({customAction: "CreateCollection", collection: "testCollection", offerThroughput: 1000, shardKey: "a.b" });
 ```
 
-## <a id="update-collection"></a> Mettre à jour de la collection
+## <a id="update-collection"></a> Mettre à jour la collection
 
-La commande d’extension de collection update met à jour les propriétés associées à la collection spécifiée.
+La commande d’extension de mise à jour de collection met à jour les propriétés associées à la collection spécifiée.
 
 ```
 {
@@ -203,32 +203,32 @@ La commande d’extension de collection update met à jour les propriétés asso
 }
 ```
 
-Le tableau suivant décrit les paramètres au sein de la commande :
+Le tableau suivant décrit les paramètres inclus dans la commande :
 
 |**Champ**|**Type** |**Description** |
 |---------|---------|---------|
-|  customAction   |   string      |   Nom de la commande personnalisée. Doit être « UpdateCollection ».      |
-|  collection   |   string      |   Nom de la collection.       |
-| offerThroughput   |int|   Débit approvisionné pour définir sur la collection.|
+|  customAction   |   chaîne      |   Nom de la commande personnalisée. Il doit être "UpdateCollection".      |
+|  collection   |   chaîne      |   Nom de la collection.       |
+| offerThroughput   |int|   Débit approvisionné à définir sur la collection.|
 
 ## <a name="output"></a>Sortie
 
-Retourne une réponse de commande personnalisée par défaut. Consultez le [sortie par défaut](#default-output) de commande personnalisée pour les paramètres dans la sortie.
+Retourne une réponse de commande personnalisée par défaut. Consultez la [sortie par défaut](#default-output) de la commande personnalisée pour connaître les paramètres de la sortie.
 
 ### <a name="examples"></a>Exemples
 
 **Mettre à jour le débit approvisionné associé à une collection**
 
-Pour mettre à jour le débit approvisionné d’une collection avec le nom « testCollection » pour les unités de requête 1200, utilisez la commande suivante :
+Pour mettre à jour le débit approvisionné d’une collection nommée « testCollection » avec 1 200 unités de requête, utilisez la commande suivante :
 
 ```shell
 use test
 db.runCommand({customAction: "UpdateCollection", collection: "testCollection", offerThroughput: 1200 });
 ```
 
-## <a id="get-collection"></a> Obtention de la collection
+## <a id="get-collection"></a> Obtenir une collection
 
-La commande personnalisée de collection get retourne l’objet de collection.
+La commande personnalisée d’obtention de collection retourne l’objet de collection.
 
 ```
 {
@@ -237,34 +237,34 @@ La commande personnalisée de collection get retourne l’objet de collection.
 }
 ```
 
-Le tableau suivant décrit les paramètres au sein de la commande :
+Le tableau suivant décrit les paramètres inclus dans la commande :
 
 
 |**Champ**|**Type** |**Description** |
 |---------|---------|---------|
-| customAction    |   string      |   Nom de la commande personnalisée. Doit être « GetCollection ».      |
-| collection    |    string     |    Nom de la collection.     |
+| customAction    |   chaîne      |   Nom de la commande personnalisée. Il doit être "GetCollection".      |
+| collection    |    chaîne     |    Nom de la collection.     |
 
 ### <a name="output"></a>Sortie
 
-Si la commande aboutit, la réponse contient un document avec les champs suivants
+Si la commande réussit, la réponse contient un document avec les champs suivants.
 
 
 |**Champ**|**Type** |**Description** |
 |---------|---------|---------|
-|  `ok`   |    `int`     |   État de réponse. 1 == réussite. 0 == Échec.      |
+|  `ok`   |    `int`     |   État de la réponse. 1 == réussite. 0 == échec.      |
 | `database`    |    `string`     |   Nom de la base de données.      |
 | `collection`    |    `string`     |    Nom de la collection.     |
-|  `shardKeyDefinition`   |   `document`      |  Document de spécification d’index utilisé comme une clé de partition. Il s’agit d’un paramètre de réponse facultative.       |
-|  `provisionedThroughput`   |   `int`      |    Débit approvisionné pour définir sur la collection. Il s’agit d’un paramètre de réponse facultative.     |
+|  `shardKeyDefinition`   |   `document`      |  Document de spécification d’index utilisé comme clé de partition. Ce paramètre de réponse est facultatif.       |
+|  `provisionedThroughput`   |   `int`      |    Débit approvisionné à définir sur la collection. Ce paramètre de réponse est facultatif.     |
 
-Si la commande échoue, une réponse de commande personnalisée par défaut est retournée. Consultez le [sortie par défaut](#default-output) de commande personnalisée pour les paramètres dans la sortie.
+Si la commande échoue, une réponse de commande personnalisée par défaut est retournée. Consultez la [sortie par défaut](#default-output) de la commande personnalisée pour connaître les paramètres de la sortie.
 
 ### <a name="examples"></a>Exemples
 
-**Obtient la collection**
+**Obtenir la collection**
 
-Pour obtenir l’objet de collection pour une collection nommée « testCollection », utilisez la commande suivante :
+Pour obtenir l’objet de collection pour une collection nommée « testCollection », utilisez la commande suivante :
 
 ```shell
 use test
@@ -273,17 +273,17 @@ db.runCommand({customAction: "GetCollection", collection: "testCollection"});
 
 ## <a id="default-output"></a> Sortie par défaut d’une commande personnalisée
 
-Si non spécifié, une réponse personnalisée contient un document avec les champs suivants :
+Si elle n’est pas spécifiée, la réponse personnalisée contient un document avec les champs suivants :
 
 |**Champ**|**Type** |**Description** |
 |---------|---------|---------|
-|  `ok`   |    `int`     |   État de réponse. 1 == réussite. 0 == Échec.      |
-| `code`    |   `int`      |   Uniquement renvoyé lorsque la commande a échoué (autrement dit, OK == 0). Contient le code d’erreur MongoDB. Il s’agit d’un paramètre de réponse facultative.      |
-|  `errMsg`   |  `string`      |    Uniquement renvoyé lorsque la commande a échoué (autrement dit, OK == 0). Contient un message d’erreur convivial. Il s’agit d’un paramètre de réponse facultative.      |
+|  `ok`   |    `int`     |   État de la réponse. 1 == réussite. 0 == échec.      |
+| `code`    |   `int`      |   Retourné uniquement lorsque la commande a échoué (ok == 0). Contient le code d’erreur MongoDB. Ce paramètre de réponse est facultatif.      |
+|  `errMsg`   |  `string`      |    Retourné uniquement lorsque la commande a échoué (ok == 0). Contient un message d’erreur convivial. Ce paramètre de réponse est facultatif.      |
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Vous pouvez ensuite passer pour découvrir les concepts Azure Cosmos DB suivants : 
+Vous pouvez ensuite commencer à apprendre les concepts relatifs à Azure Cosmos DB suivants : 
 
 * [Indexation dans Azure Cosmos DB](../cosmos-db/index-policy.md)
 * [Faire expirer automatiquement des données avec la durée de vie dans Azure Cosmos DB](../cosmos-db/time-to-live.md)

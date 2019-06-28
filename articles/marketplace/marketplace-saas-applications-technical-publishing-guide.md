@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 07/09/2018
 ms.author: keithcharlie
 ms.openlocfilehash: 4501a343b406f07b4775f3ad0e84d71825412a4b
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66752728"
 ---
 # <a name="saas-applications-offer-publishing-guide"></a>Guide de publication de l’offre des applications SaaS
@@ -32,9 +32,9 @@ Des applications SaaS sont disponibles dans les deux vitrines Azure. Le tableau 
 
 | Offre d’applications SaaS | Exigences commerciales | Exigences techniques |  
 | --- | --- | --- |  
-| **Nous contacter** | Oui | Non |  
-| **Power BI / Dynamics** | Oui | Oui (Intégration Azure AD) |  
-| **Applications SaaS**| Oui | Oui (Intégration Azure AD) |     
+| **Nous contacter** | OUI | Non |  
+| **Power BI / Dynamics** | OUI | Oui (Intégration Azure AD) |  
+| **Applications SaaS**| OUI | Oui (Intégration Azure AD) |     
 
 ## <a name="saas-list"></a>Liste de SaaS
 
@@ -138,7 +138,7 @@ Microsoft héberge la transaction commerciale. Microsoft facture votre client po
 | API d’abonnement | Vous exposez un service qui peut interagir avec l’abonnement SaaS pour créer, mettre à jour et supprimer un compte utilisateur et un plan de service. Les modifications critiques de l’API doivent être effectuées dans les 24 heures. Des modifications non critiques de l’API sont publiées régulièrement. |  
 
 >[!Note]
->Cloud fournisseurs de solutions partenaires canal opt-in est désormais disponible.  Consultez [les fournisseurs de solutions de Cloud](./cloud-solution-providers.md) canaux du partenaire pour plus d’informations sur le marketing de votre offre via le CSP de Microsoft.
+>L’abonnement à un réseau de partenaires fournisseurs de solution cloud est maintenant disponible.  Veuillez consulter [Fournisseurs de solutions cloud](./cloud-solution-providers.md) pour plus d’informations sur le marketing de votre offre via les réseaux de partenaires fournisseurs de solutions cloud Microsoft.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Si vous ne l’avez pas déjà fait,

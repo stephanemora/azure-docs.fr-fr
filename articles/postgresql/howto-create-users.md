@@ -1,19 +1,19 @@
 ---
-title: Créer des utilisateurs dans Azure Database pour PostgreSQL - serveur unique
-description: Cet article décrit comment vous pouvez créer des comptes d’utilisateur pour interagir avec une base de données Azure pour PostgreSQL - serveur unique.
+title: Créer des utilisateurs dans Azure Database pour PostgreSQL - Serveur unique
+description: Cet article décrit comment vous pouvez créer des comptes d’utilisateurs pour interagir avec un serveur Azure Database pour PostgreSQL - Serveur unique.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: ce6188732720bc43c5849fa492237c7ab98487c6
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65067495"
 ---
-# <a name="create-users-in-azure-database-for-postgresql---single-server"></a>Créer des utilisateurs dans Azure Database pour PostgreSQL - serveur unique
+# <a name="create-users-in-azure-database-for-postgresql---single-server"></a>Créer des utilisateurs dans Azure Database pour PostgreSQL - Serveur unique
 Cet article décrit comment vous pouvez créer des utilisateurs dans un serveur Azure Database pour PostgreSQL.
 
 ## <a name="the-server-admin-account"></a>Compte d’administrateur de serveur
@@ -64,7 +64,7 @@ Le compte d’utilisateur administrateur de serveur peut être utilisé pour cr�
    GRANT CONNECT ON DATABASE <newdb> TO <db_user>;
    ```
 
-4. À l’aide d’un compte administrateur, vous devrez peut-être accorder des privilèges supplémentaires pour sécuriser les objets dans la base de données. Reportez-vous à la section [Documentation sur PostgreSQL](https://www.postgresql.org/docs/current/static/ddl-priv.html) pour en savoir plus sur les rôles et privilèges de base de données. Par exemple :  
+4. À l’aide d’un compte administrateur, vous devrez peut-être accorder des privilèges supplémentaires pour sécuriser les objets dans la base de données. Reportez-vous à la section [Documentation sur PostgreSQL](https://www.postgresql.org/docs/current/static/ddl-priv.html) pour en savoir plus sur les rôles et privilèges de base de données. Par exemple : 
    ```sql
    GRANT ALL PRIVILEGES ON DATABASE <newdb> TO <db_user>;
    ```

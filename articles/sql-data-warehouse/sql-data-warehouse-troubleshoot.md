@@ -11,10 +11,10 @@ ms.date: 4/26/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.openlocfilehash: 02591185914f3b04a70af3b7c5d607f4a2865806
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65154263"
 ---
 # <a name="troubleshooting-azure-sql-data-warehouse"></a>Résolution des problèmes d’Azure SQL Data Warehouse
@@ -33,7 +33,7 @@ Cet article répertorie les questions de résolution de problèmes courantes.
 | Problème                                                        | Résolution :                                                   |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | Des utilisateurs Azure Active Directory sont manquants dans l’explorateur d’objets Visual Studio           | Il s'agit d'un problème connu.  Comme solution de contournement, vous pouvez afficher les utilisateurs dans [sys.database_principals][sys.database_principals].  Consultez la page [Authentification sur Azure SQL Data Warehouse][Authentication to Azure SQL Data Warehouse] pour en savoir plus sur l’utilisation d’Azure Active Directory avec SQL Data Warehouse. |
-| Manuel de scripts, à l’aide de l’Assistant de script ou qui se connectent via SSMS est lent, ne répond ne pas, ou la production d’erreurs | Vérifiez que les utilisateurs ont été créés dans la base de données master. Dans les options de script, vérifiez aussi que l’édition du moteur est définie en tant que « Édition Microsoft Azure SQL Data Warehouse » et que le type de moteur est « Microsoft Azure SQL Database ». |
+| Les scripts manuels, l’utilisation de l’Assistant Création de scripts ou la connexion via SSMS sont lents, ne répondent pas ou produisent des erreurs | Vérifiez que les utilisateurs ont été créés dans la base de données master. Dans les options de script, vérifiez aussi que l’édition du moteur est définie en tant que « Édition Microsoft Azure SQL Data Warehouse » et que le type de moteur est « Microsoft Azure SQL Database ». |
 | La génération de scripts échoue dans SSMS                             | La génération d’un script pour SQL Data Warehouse échoue si l’option « Générer un script pour les objets dépendants » a la valeur « True ». Pour résoudre ce problème, les utilisateurs doivent accéder manuellement à Outils -> Options -> Explorateur d’objets SQL Server -> Générer un script pour les options dépendants et affecter la valeur false à cette option. |
 
 ## <a name="performance"></a>Performances
@@ -57,9 +57,9 @@ Cet article répertorie les questions de résolution de problèmes courantes.
 ## <a name="polybase"></a>Polybase
 | Problème                                           | Résolution :                                                   |
 | :---------------------------------------------- | :----------------------------------------------------------- |
-| Exportations échouent avec les types TINYINT et DATE             | Pour les formats de fichier Parquet et ORC, les valeurs de type DATE doivent être entre 1970-01-01 00:00:01 heure UTC et 2038-01-19 03:14:07. Les valeurs de type TINYINT doivent comprendre entre 0 et 127.    |
-| Problème avec le type décimal Parquet : écriture de Spark tapez DecimalType(18,4) et l’importation dans une colonne de type double ou réel donne « erreur : java.base/java.lang.Long ne peut pas être casté en java.base/java.lang.Float ». | Vous devez importer bigint et diviser par 10000 ou utilisez le [Databricks] connecteurs SQL DW. |
-| Problème avec Parquet type DATE : écriture à partir de type Spark Date et l’importation dans une colonne de type date ou datetime donne « erreur : java.base/java.lang.Integer ne peut pas être casté en parquet.io.api.Binary ». | Vous devez utiliser un autre type de Spark (int) et la date de calcul ou utiliser le [Databricks] connecteurs SQL DW. |
+| Échec des exportations avec les types TINYINT et DATE             | Pour les formats de fichier Parquet et ORC, les valeurs de type DATE doivent être comprises entre 1970-01-01 00:00:01 UTC et 2038-01-19 03:14:07. Les valeurs de type TINYINT doivent être comprises entre 0 et 127.    |
+| Problème avec le type DECIMAL Parquet : l’écriture à partir du type Spark DecimalType(18,4) et l’importation dans une colonne de type double ou real donne « Error: java.base/java.lang.Long cannot be cast to java.base/java.lang.Float ». | Vous devez importer dans bigint et diviser par 10 000 ou utilisez le connecteur DW SQL [Databricks]. |
+| Problème avec le type DATE Parquet : l’écriture à partir du type Spark Date et l’importation dans une colonne de type date ou datetime donne « Error: java.base/java.lang.Integer cannot be cast to parquet.io.api.Binary ». | Vous devez utiliser un autre type Spark (int) et calculer la date ou utilisez le connecteur DW SQL [Databricks]. |
 
 ## <a name="differences-from-sql-database"></a>Différences par rapport à la base de données SQL
 | Problème                                 | Résolution :                                                   |

@@ -1,5 +1,5 @@
 ---
-title: Tarification des offres de machine virtuelle | Place de marché Azure
+title: Tarification des offres de machine virtuelle| Place de marché Azure
 description: Décrit les trois méthodes disponibles la tarification des offres de machine virtuelle.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
 ms.openlocfilehash: dde3e04dc8f30ea5657139d50dd4456e5dfb57c2
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64935721"
 ---
 <a name="pricing-for-virtual-machine-offers"></a>Tarification des offres de machine virtuelle
@@ -95,7 +95,7 @@ L'éditeur peut également charger sa feuille de calcul de tarification sur un e
 
 Le tableau suivant présente les différentes régions que vous pouvez spécifier pour la tarification de cœur personnalisée, ainsi que les codes devise correspondants.
 
-| **Région** | **Name**             | **Code devise** |
+| **Région** | **Nom**             | **Code devise** |
 |------------|----------------------|-------------------|
 | DZ         | Algérie              | DZD               |
 | AR         | Argentine            | ARS               |

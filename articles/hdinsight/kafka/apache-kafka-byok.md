@@ -1,5 +1,5 @@
 ---
-title: Apportez votre propre clé pour Apache Kafka sur Azure HDInsight
+title: Apporter sa propre clé pour Apache Kafka sur Azure HDInsight
 description: Cet article explique comment utiliser votre propre clé Azure Key Vault pour chiffrer des données stockées dans Apache Kafka sur Azure HDInsight.
 ms.service: hdinsight
 author: hrasheed-msft
@@ -8,13 +8,13 @@ ms.reviewer: hrasheed
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.openlocfilehash: 6108bfd9e39b37507ec7e113bf2c489e890f0ca0
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65233564"
 ---
-# <a name="bring-your-own-key-for-apache-kafka-on-azure-hdinsight"></a>Apportez votre propre clé pour Apache Kafka sur Azure HDInsight
+# <a name="bring-your-own-key-for-apache-kafka-on-azure-hdinsight"></a>Apporter sa propre clé pour Apache Kafka sur Azure HDInsight
 
 Azure HDInsight assure la prise en charge du modèle BYOK (Bring Your Own Key) pour Apache Kafka. Cette fonctionnalité vous permet de posséder et de gérer les clés servant à chiffrer les données au repos.
 
@@ -24,29 +24,29 @@ Le chiffrement BYOK est un processus en une étape géré pendant la création d
 
 Tous les messages adressés au cluster Kafka (y compris les réplicas gérés par Kafka) sont chiffrés avec une clé de chiffrement de données (DEK) symétrique. La clé DEK est protégée avec la clé de chiffrement principale (KEK) de votre coffre de clés. Les processus de chiffrement et de déchiffrement sont entièrement gérés par Azure HDInsight. 
 
-Vous pouvez utiliser le portail Azure ou Azure CLI pour faire alterner les clés du coffre de clés en toute sécurité. Quand une clé alterne, le cluster HDInsight Kafka démarre en quelques minutes en utilisant la nouvelle clé. Activer les fonctionnalités de protection de clé « Suppression réversible » pour vous protéger contre les scénarios de ransomware et la suppression accidentelle. Les coffres de clés sans cette fonctionnalité de protection ne sont pas pris en charge.
+Vous pouvez utiliser le portail Azure ou Azure CLI pour faire alterner les clés du coffre de clés en toute sécurité. Quand une clé alterne, le cluster HDInsight Kafka démarre en quelques minutes en utilisant la nouvelle clé. Activez les fonctionnalités de protection de clés « Suppression réversible » pour vous protéger contre les scénarios de ransomware et de suppression accidentelle. Les coffres de clés dépourvus de cette fonctionnalité de protection ne sont pas pris en charge.
 
 ## <a name="get-started-with-byok"></a>Commencer avec BYOK
-Pour créer un BYOK activé cluster Kafka, nous allons examiner les étapes suivantes :
-1. Créer des identités gérées pour les ressources Azure
-2. Configurer Azure Key Vault et clés
-3. Créer un cluster HDInsight Kafka avec BYOK activé
+Pour créer un cluster Kafka avec BYOK activé, nous procéderons comme suit :
+1. Création d’identités managées pour les ressources Azure
+2. Configuration d’Azure Key Vault et des clés
+3. Création d’un cluster Kafka HDInsight avec BYOK activé
 4. Rotation de la clé de chiffrement
 
-## <a name="create-managed-identities-for-azure-resources"></a>Créer des identités gérées pour les ressources Azure
+## <a name="create-managed-identities-for-azure-resources"></a>Création d’identités managées pour les ressources Azure
 
-   Pour s’authentifier sur Key Vault, créer un utilisateur affecté l’identité gérée à l’aide de la [Azure portal](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md), [Azure PowerShell](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md), [Azure Resource Manager](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-arm.md), ou [ Azure CLI](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md). Pour plus d’informations sur la gestion des identités dans Azure HDInsight, consultez [gérés des identités dans Azure HDInsight](../hdinsight-managed-identities.md). Si Azure Active Directory est obligatoire pour les identités managées et BYOK pour Kafka, le pack Sécurité Entreprise (ESP) n’est en revanche pas exigé. Veillez à enregistrer l’ID de ressource d’identité managée, vous en aurez besoin pour l’ajouter à la stratégie d’accès Key Vault.
+   Pour vous authentifier auprès de Key Vault, créez une identité managée affectée par l’utilisateur via le [Portail Microsoft Azure](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md), [Azure PowerShell](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md), [Azure Resource Manager](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-arm.md) ou [Azure CLI](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md). Pour plus d’informations sur le fonctionnement des identités managées dans Azure HDInsight, consultez [Identités managées dans Azure HDInsight](../hdinsight-managed-identities.md). Si Azure Active Directory est obligatoire pour les identités managées et BYOK pour Kafka, le pack Sécurité Entreprise (ESP) n’est en revanche pas exigé. Veillez à enregistrer l’ID de ressource d’identité managée, vous en aurez besoin pour l’ajouter à la stratégie d’accès Key Vault.
 
    ![Créer une identité managée affectée par l’utilisateur dans le portail Azure](./media/apache-kafka-byok/user-managed-identity-portal.png)
 
-## <a name="setup-the-key-vault-and-keys"></a>Configurer le coffre de clés et clés
+## <a name="setup-the-key-vault-and-keys"></a>Configurer Key Vault et les clés
 
-   HDInsight prend uniquement en charge Azure Key Vault. Si vous disposez de votre propre coffre de clés, vous pouvez importer vos clés dans Azure Key Vault. N’oubliez pas que les clés doivent avoir « Suppression réversible ». La fonctionnalité « Suppression réversible » est disponible via le reste, .NET /C#, PowerShell et Azure CLI des interfaces.
+   HDInsight prend uniquement en charge Azure Key Vault. Si vous disposez de votre propre coffre de clés, vous pouvez importer vos clés dans Azure Key Vault. N’oubliez pas que la fonctionnalité « Suppression réversible » doit être activée pour les clés. La fonctionnalité « Suppression réversible » est disponible via les interfaces REST, .NET/C#, PowerShell et Azure CLI.
 
    1. Pour créer un coffre de clés, suivez le guide de démarrage rapide [Azure Key Vault](../../key-vault/key-vault-overview.md). Pour plus d’informations sur l’importation de clés existantes, consultez [Présentation des clés, des secrets et des certificats](../../key-vault/about-keys-secrets-and-certificates.md).
 
-   2. Activer « soft-delete » sur le coffre de clés à l’aide de la [mise à jour du coffre de clés az](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-update) commande cli.
-        ''' Mise à jour du coffre de clés azure CLI az--nom <Key Vault Name> --enable-soft-delete
+   2. Activez la fonctionnalité « Suppression réversible » sur le coffre de clés à l’aide de la commande CLI [az keyvault update](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-update).
+        ```Azure CLI az keyvault update --name <Key Vault Name> --enable-soft-delete
         ```
 
    3. Create keys

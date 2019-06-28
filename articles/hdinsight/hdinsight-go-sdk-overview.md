@@ -1,6 +1,6 @@
 ---
-title: Azure HDInsight SDK pour Go
-description: Référence pour Azure HDInsight SDK pour Go
+title: Azure HDInsight SDK for Go
+description: Informations de référence sur Azure HDInsight SDK for Go
 author: tylerfox
 ms.service: hdinsight
 ms.topic: conceptual
@@ -8,21 +8,21 @@ ms.date: 05/8/2019
 ms.author: tyfox
 ms.custom: seodec18
 ms.openlocfilehash: 113948d77d87a34822f81f020b03f6628b9c5e84
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65466218"
 ---
-# <a name="hdinsight-sdk-for-go-preview"></a>Kit de développement logiciel HDInsight pour Go (version préliminaire)
+# <a name="hdinsight-sdk-for-go-preview"></a>HDInsight SDK for Go (préversion)
 
-## <a name="overview"></a>Présentation
-Le SDK HDInsight pour Go fournit des classes et des fonctions qui vous permettent de gérer vos clusters HDInsight. Il inclut des opérations permettant de créer, supprimer, mettre à jour, répertorier, mettre à l’échelle, exécuter des actions de script, surveiller, obtenir des propriétés des clusters HDInsight, et bien plus encore.
+## <a name="overview"></a>Vue d'ensemble
+HDInsight SDK for Go fournit des classes et des fonctions qui vous permettent de gérer vos clusters HDInsight. Il inclut des opérations permettant de créer, supprimer, mettre à jour, répertorier, mettre à l’échelle, exécuter des actions de script, surveiller, obtenir des propriétés des clusters HDInsight, et bien plus encore.
 
 > [!NOTE]  
 >Une documentation de référence GoDoc pour ce kit SDK est également [disponible ici](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 * Un compte Azure. Si vous n’en avez pas, inscrivez-vous pour un [essai gratuit](https://azure.microsoft.com/free/).
 * [Go](https://golang.org/dl/).
@@ -70,7 +70,7 @@ az account set -s <name or ID of subscription>
 ```
 
 > [!IMPORTANT]  
-> Si vous n’avez pas déjà inscrit le fournisseur de ressources HDInsight par une autre fonction (par exemple en créant un HDInsight Cluster via le portail Azure), vous devez le faire une fois avant que vous pouvez vous authentifier. Vous pouvez le faire à partir d’[Azure Cloud Shell](https://shell.azure.com/bash) en exécutant la commande suivante :
+> Si vous n’avez pas déjà enregistré le fournisseur de ressources HDInsight avec une autre fonction (par exemple, en créant un cluster HDInsight via le Portail Microsoft Azure), vous devez le faire une fois avant de pouvoir vous authentifier. Vous pouvez le faire à partir d’[Azure Cloud Shell](https://shell.azure.com/bash) en exécutant la commande suivante :
 >```azurecli-interactive
 >az provider register --namespace Microsoft.HDInsight
 >```

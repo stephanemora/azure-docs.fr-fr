@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 05/13/2019
 ms.author: kraigb
 ms.openlocfilehash: 0440e498451ee141fa03851b78418caf911d0e32
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65596745"
 ---
 # <a name="manage-and-configure-projects"></a>Gérer et configurer des projets
@@ -37,7 +37,7 @@ Azure Notebooks démarre la machine virtuelle sous-jacente dès que vous exécut
 
 ## <a name="compute-tier"></a>Niveau de calcul
 
-Par défaut, les projets s’exécutent le **calcul gratuit** niveau, qui est limité à 4 Go de mémoire et 1 Go de données pour éviter les abus. Vous pouvez contourner ces limitations et augmenter la puissance de calcul à l’aide d’une autre machine virtuelle que vous avez configuré dans un abonnement Azure. Pour plus d’informations, consultez [comment utiliser des Machines virtuelles de science des données](use-data-science-virtual-machine.md).
+Par défaut, les projets se trouvent au niveau de **calcul Gratuit**, limité à 4 Go de mémoire et à 1 Go de données pour éviter les abus. Vous pouvez contourner ces limitations et augmenter la puissance de calcul en utilisant une autre machine virtuelle configurée dans un abonnement Azure. Pour plus d’informations, consultez la page [How to use Data Science Virtual Machines](use-data-science-virtual-machine.md) (Comment utiliser les machines virtuelles Science des données).
 
 ## <a name="edit-project-metadata"></a>Modifier les métadonnées de projet
 
@@ -46,7 +46,7 @@ Dans le tableau de bord du projet, sélectionnez **Paramètres du projet**, puis
 | Paramètre | Description |
 | --- | --- |
 | Nom du projet | Nom convivial de votre projet utilisé par Azure Notebooks pour l’affichage. par exemple « Hello World dans Python ». |
-| ID du projet | Identificateur personnalisé qui devient partie intégrante de l’URL que vous utilisez pour partager un projet. Cet ID peut utiliser uniquement des lettres, des chiffres et des traits d’union, est limité à 30 caractères et ne peut pas être un [réservé ID de projet](create-clone-jupyter-notebooks.md#reserved-project-ids). Si vous ne savez pas quoi utiliser, il est d’usage d’employer une version en minuscules du nom de votre projet où les espaces sont transformés en traits d’union, par exemple « mon-projet-notebook » (nom tronqué si nécessaire pour l’adapter à la limite de longueur). |
+| ID du projet | Identificateur personnalisé qui devient partie intégrante de l’URL que vous utilisez pour partager un projet. Cet ID peut utiliser uniquement des lettres, des chiffres et des traits d’union, et est limité à 30 caractères. Il ne peut pas s’agir de l’[ID d’un projet réservé](create-clone-jupyter-notebooks.md#reserved-project-ids). Si vous ne savez pas quoi utiliser, il est d’usage d’employer une version en minuscules du nom de votre projet où les espaces sont transformés en traits d’union, par exemple « mon-projet-notebook » (nom tronqué si nécessaire pour l’adapter à la limite de longueur). |
 | Projet public | Si ce paramètre est défini, permet à toute personne disposant du lien d’accéder au projet. Quand vous créez un projet privé, désactivez cette option. |
 | Hide clones (Masquer les clones) | Si ce paramètre est défini, les autres utilisateurs ne peuvent pas afficher la liste des clones qui ont été créés pour ce projet. Il est utile de masquer les clones pour les projets qui sont partagés avec beaucoup de personnes qui ne font pas partie de la même organisation, comme quand vous utilisez un notebook pour enseigner à une classe. |
 
@@ -84,14 +84,14 @@ Chaque élément dans la liste des fichiers du projet fournit des commandes via 
 | Exécuter | r (ou clic) | Exécute un fichier notebook. D’autres types de fichiers sont ouverts pour être affichés.  |
 | Copier le lien | y | Copie un lien vers le fichier dans le Presse-papiers. |
 | Exécuter dans JupyterLab | j | Exécute un notebook dans JupyterLab, qui est une interface plus orientée développeur que celle fournie normalement par Jupyter. |
-| VERSION PRÉLIMINAIRE | p | Ouvre un aperçu HTML du fichier ; pour les notebooks, l’aperçu est un rendu en lecture seule du notebook. Pour plus d’informations, consultez la section [Aperçu](#preview). |
+| PRÉVERSION | p | Ouvre un aperçu HTML du fichier ; pour les notebooks, l’aperçu est un rendu en lecture seule du notebook. Pour plus d’informations, consultez la section [Aperçu](#preview). |
 | Modifier le fichier | i | Ouvre le fichier pour modification. |
 | Téléchargement | d | Télécharge un fichier zip qui contient le fichier ou le contenu d’un dossier. |
 | Renommer | a | Demande un nouveau nom pour le fichier ou dossier. |
 | Supprimer | x | Demande une confirmation, puis supprime définitivement le fichier du projet. Les suppressions ne peuvent pas être annulées. |
 | Déplacer | m | Déplace un fichier vers un autre dossier dans le même projet. |
 
-#### <a name="preview"></a>VERSION PRÉLIMINAIRE
+#### <a name="preview"></a>PRÉVERSION
 
 Un aperçu d’un fichier ou d’un notebook est une vue en lecture seule du contenu ; l’exécution des cellules de notebook est désactivée. Un aperçu est affiché pour toute personne qui a un lien vers le fichier ou le notebook, mais qui ne s’est pas connectée à Azure Notebooks. Une fois connecté, un utilisateur peut cloner le notebook sur son propre compte ou le télécharger sur son ordinateur local.
 

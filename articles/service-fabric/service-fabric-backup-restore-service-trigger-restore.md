@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 10/30/2018
 ms.author: aagup
 ms.openlocfilehash: e4ada412547360f97e869d3312b65d869fa3df48
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65413733"
 ---
 # <a name="restoring-backup-in-azure-service-fabric"></a>Restauration de la sauvegarde dans Azure Service Fabric
@@ -32,18 +32,18 @@ Par exemple, vous pouvez configurer un service pour qu’il sauvegarde ses donn�
 - **Cas de perte de données** : Suppression accidentelle ou altération du service. Par exemple, un administrateur supprime le service par erreur.
 - **Cas d’altération des données** : Bogues dans le service qui provoquent l’altération des données. Par exemple, l’altération des données peut se produire lorsqu’une mise à niveau de code de service écrit des données erronées dans une collection fiable. Dans ce cas, le code et les données devront peut-être être restaurés à un état antérieur.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 - Pour déclencher une restauration, le _service FAS (Fault Analysis Service)_ doit être activé pour le cluster.
 - Le _service BRS (Backup Restore Service)_ a créé la sauvegarde.
 - La restauration peut être déclenchée sur une partition uniquement.
-- Installer le Module de Microsoft.ServiceFabric.Powershell.Http [Aperçu dans] pour effectuer des appels de configuration.
+- Installer le module Microsoft.ServiceFabric.Powershell.Http [en préversion] pour effectuer des appels de configuration.
 
 ```powershell
     Install-Module -Name Microsoft.ServiceFabric.Powershell.Http -AllowPrerelease
 ```
 
-- Assurez-vous que le Cluster est connecté à l’aide de la `Connect-SFCluster` commande avant d’apporter toute demande de configuration à l’aide du Module de Microsoft.ServiceFabric.Powershell.Http.
+- Assurez-vous que le cluster soit connecté à l’aide de la commande `Connect-SFCluster` avant d’effectuer toute demande de configuration à l’aide du module Microsoft.ServiceFabric.Powershell.Http.
 
 ```powershell
 
@@ -65,14 +65,14 @@ Si un cluster Service Fabric est perdu dans son intégralité, vous pouvez récu
 
 Pour l’exemple suivant, nous allons supposer que le cluster perdu soit le même que celui mentionné dans [Activation de la sauvegarde périodique pour le service avec état fiable et les acteurs fiables (Reliable Actors)](service-fabric-backuprestoreservice-quickstart-azurecluster.md#enabling-periodic-backup-for-reliable-stateful-service-and-reliable-actors). Dans ce cas, `SampleApp` est déployé avec la stratégie de sauvegarde activée, et les sauvegardes sont configurées sur le stockage Azure.
 
-#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell à l’aide du Module de Microsoft.ServiceFabric.Powershell.Http
+#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell avec le module Microsoft.ServiceFabric.Powershell.Http
 
 ```powershell
 Get-SFBackupsFromBackupLocation -Application -ApplicationName 'fabric:/SampleApp' -AzureBlobStore -ConnectionString 'DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net' -ContainerName 'backup-container'
 
 ```
 
-#### <a name="rest-call-using-powershell"></a>Appel REST à l’aide de Powershell
+#### <a name="rest-call-using-powershell"></a>Appel REST avec PowerShell
 
 Exécutez un script PowerShell pour utiliser l’API REST afin de retourner la liste des sauvegardes créées pour toutes les partitions de l’application `SampleApp`. L’API a besoin des informations de stockage de sauvegarde afin de lister les sauvegardes disponibles.
 
@@ -161,11 +161,11 @@ Pour l’API de restauration, vous devez fournir les détails sur _BackupId_ et 
 
 Vous devez également choisir une partition de destination dans le cluster de remplacement, comme indiqué dans le [schéma de partition](service-fabric-concepts-partitioning.md#get-started-with-partitioning). La sauvegarde du cluster de remplacement est restaurée sur la partition spécifiée dans le schéma de partition du cluster d’origine perdu.
 
-Si l’ID de partition du cluster de remplacement est `1c42c47f-439e-4e09-98b9-88b8f60800c6`, vous pouvez le mapper sur l’ID de partition du cluster d’origine `974bd92a-b395-4631-8a7f-53bd4ae9cf22` en comparant la clé haute et la clé basse du _partitionnement par plages de valeurs (UniformInt64Partition)_.
+Si l’ID de partition du cluster de remplacement est `1c42c47f-439e-4e09-98b9-88b8f60800c6`, vous pouvez le mapper sur l’ID de partition du cluster d’origine `974bd92a-b395-4631-8a7f-53bd4ae9cf22` en comparant la clé haute et la clé basse du _partitionnement par plages de valeurs (UniformInt64Partition)_ .
 
 Pour le _partitionnement nommé_, la valeur de nom est comparée pour identifier la partition cible dans l’autre cluster.
 
-#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell à l’aide du Module de Microsoft.ServiceFabric.Powershell.Http
+#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell avec le module Microsoft.ServiceFabric.Powershell.Http
 
 ```powershell
 
@@ -173,7 +173,7 @@ Restore-SFPartition  -PartitionId '1c42c47f-439e-4e09-98b9-88b8f60800c6' -Backup
 
 ```
 
-#### <a name="rest-call-using-powershell"></a>Appel REST à l’aide de Powershell
+#### <a name="rest-call-using-powershell"></a>Appel REST avec PowerShell
 
 Pour demander une restauration avec la partition du cluster de sauvegarde, utilisez l’[API Restore](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-restorepartition) suivante :
 
@@ -226,14 +226,14 @@ FailureError            :
 Pour l’API de restauration, fournissez les détails sur _BackupId_ et _BackupLocation_. La sauvegarde est activée dans le cluster. Par conséquent, le _service BRS (Backup Restore Service)_ de Service Fabric identifie le bon emplacement de stockage à l’aide de la stratégie de sauvegarde associée.
 
 
-#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell à l’aide du Module de Microsoft.ServiceFabric.Powershell.Http
+#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell avec le module Microsoft.ServiceFabric.Powershell.Http
 
 ```powershell
 Restore-SFPartition  -PartitionId '974bd92a-b395-4631-8a7f-53bd4ae9cf22' -BackupId 'b0035075-b327-41a5-a58f-3ea94b68faa4' -BackupLocation 'SampleApp\MyStatefulService\974bd92a-b395-4631-8a7f-53bd4ae9cf22\2018-04-06 21.10.27.zip'
 
 ```
 
-#### <a name="rest-call-using-powershell"></a>Appel REST à l’aide de Powershell
+#### <a name="rest-call-using-powershell"></a>Appel REST avec PowerShell
 
 ```powershell
 $RestorePartitionReference = @{
@@ -253,13 +253,13 @@ Vous pouvez suivre la progression d’une restauration avec TrackRestoreProgress
 
 Une partition d’un service fiable avec état ou Reliable Actor accepte une seule demande de restauration à la fois. Une partition ne peut accepter une autre demande de restauration qu’une fois la demande en cours terminée. Plusieurs demandes de restauration peuvent être déclenchées en même temps sur des partitions différentes.
 
-#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell à l’aide du Module de Microsoft.ServiceFabric.Powershell.Http
+#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell avec le module Microsoft.ServiceFabric.Powershell.Http
 
 ```powershell
     Get-SFPartitionRestoreProgress -PartitionId '974bd92a-b395-4631-8a7f-53bd4ae9cf22'
 ```
 
-#### <a name="rest-call-using-powershell"></a>Appel REST à l’aide de Powershell
+#### <a name="rest-call-using-powershell"></a>Appel REST avec PowerShell
 
 ```powershell
 $url = "https://mysfcluster-backup.southcentralus.cloudapp.azure.com:19080/Partitions/974bd92a-b395-4631-8a7f-53bd4ae9cf22/$/GetRestoreProgress?api-version=6.4"

@@ -1,6 +1,6 @@
 ---
-title: Règles personnalisées des pare-feu d’applications Web (WAF) Azure
-description: Cet article fournit une vue d’ensemble du pare-feu d’applications web (WAF) de règles personnalisées dans Azure Application Gateway.
+title: Règles personnalisées du pare-feu d’applications web (WAF) Azure
+description: Cet article fournit une vue d’ensemble des règles personnalisées du pare-feu d’applications web (WAF) pour la passerelle Azure Application Gateway.
 services: application-gateway
 ms.topic: article
 author: vhorne
@@ -8,36 +8,36 @@ ms.service: application-gateway
 ms.date: 6/5/2019
 ms.author: victorh
 ms.openlocfilehash: d35e1dc96f65e51ab14c4962d1824334cbdb1616
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66752028"
 ---
-# <a name="custom-rules-for-web-application-firewall"></a>Règles personnalisées pour le pare-feu d’Application Web
+# <a name="custom-rules-for-web-application-firewall"></a>Règles personnalisées du pare-feu d’applications web
 
-Le pare-feu d’applications web Azure Application Gateway (WAF) est fourni avec un ensemble de règles préconfigurée, géré par la plateforme qui offre une protection contre de nombreux types d’attaques. Ces attaques incluent cross XSS, injection de code SQL et d’autres. Si vous êtes un administrateur de WAF, vous souhaiterez écrire vos propres règles pour augmenter la règle core définir des règles de (CRS). Vos règles peuvent bloquer ou autoriser le trafic demandé en fonction de critères de correspondance.
+Le pare-feu d’applications web Azure Application Gateway (WAF) est fourni avec un ensemble de règles préconfigurées, géré une plateforme, qui offre une protection contre de nombreux types d’attaques. Ces attaques comprennent l’exécution de scripts de site à site, l’injection de code SQL etc. Si vous êtes un administrateur de pare-feu d’applications web, vous souhaiterez peut-être écrire vos propres règles pour augmenter les règles CRS. Vos règles peuvent bloquer ou autoriser le trafic demandé en fonction de critères de correspondance.
 
-Règles personnalisées permettent de créer vos propres règles sont évaluées pour chaque demande qui passe par le pare-feu WAF. Ces règles contiennent une priorité plus élevée que le reste des règles dans les ensembles de règles managé. Les règles personnalisées contiennent un nom de règle, priorité de la règle et un tableau de conditions de correspondance. Si ces conditions sont remplies, une action est entreprise (pour autoriser ou bloquer).
+Les règles personnalisées vous permettent de créer vos propres règles évaluées pour chaque requête passant par le pare-feu d’applications Web (WAF). Ces règles ont une priorité plus élevée que les autres règles des ensembles de règles gérés. Les règles personnalisées contiennent un nom de règle, une priorité de règle et un tableau des conditions de correspondance. Si ces conditions sont remplies, une action est entreprise (pour autoriser ou bloquer).
 
-Par exemple, vous pouvez bloquer toutes les demandes à partir d’une adresse IP dans la plage 192.168.5.4/24. Dans cette règle, l’opérateur est *IPMatch*, le matchValues est la plage d’adresses IP (192.168.5.4/24) et l’action consiste à bloquer le trafic. Vous définissez également le nom et la priorité de la règle.
+Par exemple, vous pouvez bloquer toutes les demandes à partir d’une adresse IP de la plage 192.168.5.4/24. Dans cette règle, l’opérateur est *IPMatch*, matchValues correspond à la plage d’adresses IP (192.168.5.4/24) et l’action consiste à bloquer le trafic. Vous définissez également le nom et la priorité de la règle.
 
-Règles personnalisées prennent en charge à l’aide de la logique de composition pour rendre des règles plus avancées répondant à que vos besoins de sécurité. Par exemple, (Condition 1 **et** Condition 2) **ou** Condition 3).  Cet exemple signifie que si Condition 1 **et** Condition 2 sont remplies, **ou** si 3 de la Condition est remplie, le pare-feu WAF doit effectuer l’action spécifiée dans la règle personnalisée.
+Les règles personnalisées prennent en charge l’utilisation de la logique de composition pour établir des règles plus avancées répondant à vos besoins de sécurité. Par exemple, (Condition 1 **et** Condition 2) **ou** Condition 3).  Cet exemple signifie que si Condition 1 **et** Condition 2 sont remplies, **ou** si Condition 3 est remplie, le pare-feu d’applications web doit effectuer l’action spécifiée dans la règle personnalisée.
 
-Différentes conditions de correspondance dans la même règle sont compliquent toujours à l’aide de **et**. Par exemple, bloquer le trafic à partir d’une adresse IP spécifique, et seulement s’ils utilisent un certain navigateur.
+Différentes conditions de correspondance au sein de la même règle sont toujours composées à l’aide de **et**. Par exemple, bloquer le trafic à partir d’une adresse IP spécifique, et seulement si un certain navigateur est utilisé.
 
-Si vous souhaitez **ou** deux différentes conditions, les deux conditions doivent être dans des règles différentes. Par exemple, bloquer le trafic à partir d’une adresse ou bloquer le trafic IP spécifique si qu’ils utilisent un navigateur spécifique.
+Si vous souhaitez **ou** deux conditions différentes, les deux conditions doivent se trouver dans des règles différentes. Par exemple, bloquer le trafic à partir d’une adresse IP spécifique, et seulement si un certain navigateur est utilisé.
 
 > [!NOTE]
-> Le nombre maximal de règles personnalisées WAF est 100. Pour plus d’informations sur les limites de la passerelle d’Application, consultez [abonnement Azure et limites de service, quotas et contraintes](../azure-subscription-service-limits.md#application-gateway-limits).
+> Le nombre maximal de règles personnalisées WAF est de 100. Pour en savoir plus sur les limites de la passerelle Application Gateway, consultez [Limites, quotas et contraintes applicables aux services et abonnements Azure](../azure-subscription-service-limits.md#application-gateway-limits).
 
-Les expressions régulières sont également prises en charge dans les règles personnalisées, comme dans les ensembles de règles CRS. Pour obtenir des exemples de ces, consultez les exemples 3 et 5 dans [créer et utiliser règles de pare-feu d’application web personnalisée](create-custom-waf-rules.md).
+Les expressions régulières sont également prises en charge dans les règles personnalisées, comme dans les ensembles de règles CRS. Pour voir d’autres exemples de règle personnalisée, consultez les exemples 3 et 5 de [Créer et utiliser des règles de pare-feu d’applications web personnalisées](create-custom-waf-rules.md)
 
 ## <a name="allowing-vs-blocking"></a>Autoriser et bloquer
 
-Autoriser ou de bloquer le trafic sont simple avec des règles personnalisées. Par exemple, vous pouvez bloquer tout le trafic entrant à partir d’une plage d’adresses IP. Vous pouvez effectuer une autre règle autorise le trafic si la demande provient d’un navigateur spécifique.
+Autoriser et bloquer le trafic est simple avec des règles personnalisées. Par exemple, vous pouvez bloquer tout le trafic entrant à partir d’une plage d’adresses IP. Vous pouvez créer une autre règle autorisant le trafic si la requête provient d’un navigateur spécifique.
 
-Pour permettre à quelque chose, vérifiez que le `-Action` paramètre est défini sur **autoriser**. Pour bloquer quelque chose, vérifiez que le `-Action` paramètre est défini sur **bloc**.
+Pour autoriser quelque chose, vérifiez que le paramètre `-Action` est défini sur **Autoriser**. Pour bloquer quelque chose, vérifiez que le paramètre `-Action` est défini sur **Bloquer**.
 
 ```azurepowershell
 $AllowRule = New-AzApplicationGatewayFirewallCustomRule `
@@ -55,7 +55,7 @@ $BlockRule = New-AzApplicationGatewayFirewallCustomRule `
    -Action Block
 ```
 
-Le précédent `$BlockRule` mappe à la règle personnalisée suivante dans Azure Resource Manager :
+Le `$BlockRule` précédent est mis en correspondance avec la règle personnalisée suivante dans Azure Resource Manager :
 
 ```json
 "customRules": [
@@ -86,46 +86,46 @@ Le précédent `$BlockRule` mappe à la règle personnalisée suivante dans Azur
     ], 
 ```
 
-Cette règle personnalisée contient un nom, priorité, une action et le tableau de correspondance des conditions qui doivent être remplies pour l’action à effectuer sur place. Pour en savoir plus sur ces champs, consultez les descriptions de champ suivantes. Par exemple des règles personnalisées, consultez [créer et utiliser règles de pare-feu d’application web personnalisée](create-custom-waf-rules.md).
+Cette règle personnalisée contient un nom, une priorité, une action et le tableau des conditions de correspondance qui doivent être remplies pour que l’action puisse être effectuée. Pour en savoir plus sur ces champs, consultez les descriptions suivantes. Pour voir des exemples de règles personnalisées, consultez [Créer et utiliser des règles de pare-feu d’applications web personnalisées](create-custom-waf-rules.md).
 
 ## <a name="fields-for-custom-rules"></a>Champs de règles personnalisées
 
-### <a name="name-optional"></a>Nom [facultatif]
+### <a name="name-optional"></a>Name [facultatif]
 
 Il s’agit du nom de la règle. Ce nom apparaît dans les journaux.
 
 ### <a name="priority-required"></a>Priorité [requise]
 
-- Détermine l’ordre dans lequel les règles sont évaluées dans. Faible valeur, plue la version d’évaluation de la règle.
--Doit être unique parmi toutes les règles personnalisées. Une règle avec une priorité 100 est évaluée avant une règle avec une priorité 200.
+- Détermine l’ordre dans lequel les règles sont évaluées. Plus la valeur est faible, plus l’évaluation de la règle est récente.
+\- Doit être unique parmi toutes les règles personnalisées. Une règle dont la priorité est égale à 100 est évaluée avant une règle dont la priorité est 200.
 
-### <a name="rule-type-required"></a>Type de règle [requis]
+### <a name="rule-type-required"></a>Type de règle [obligatoire]
 
-Actuellement, doit être **MatchRule**.
+Actuellement, ce doit être **MatchRule**.
 
-### <a name="match-variable-required"></a>Variable de correspondance [requise]
+### <a name="match-variable-required"></a>Variable de correspondance [obligatoire]
 
-Doit être une des variables :
+Doit être l’une des variables suivantes :
 
-- Remaddr – IP adresse/nom de l’hôte de la connexion de l’ordinateur distant
-- RequestMethod – méthode de requête HTTP (GET, POST, PUT, DELETE et ainsi de suite.)
-- Chaîne de requête – Variable dans l’URI
-- PostArgs : Arguments envoyés dans le corps POST
-- RequestUri : URI de la requête
-- RequestHeaders : en-têtes de la demande
-- RequestBody : le corps de la demande
-- RequestCookies : les Cookies de la demande
+- Remaddr - Adresse IP/nom d’hôte de la connexion de l’ordinateur distant
+- RequestMethod - Méthode de requête HTTP (GET, POST, PUT, DELETE etc.)
+- Chaîne de requête - Variable de l’URI
+- PostArgs - Arguments envoyés dans le corps POST
+- RequestUri - URI de la requête
+- RequestHeaders - En-têtes de la requête
+- RequestBody - Corps de la requête
+- RequestCookies - Cookies de la requête
 
-### <a name="selector-optional"></a>Sélecteur de [facultatif]
+### <a name="selector-optional"></a>Sélecteur [facultatif]
 
-Décrit le champ de la collection matchVariable. Par exemple, si le matchVariable est RequestHeaders, le sélecteur peut être sur le *Agent utilisateur* en-tête.
+Décrit le champ de la collection matchVariable. Par exemple, si matchVariable est RequestHeaders, le sélecteur peut être sur l’en-tête *User-Agent*.
 
-### <a name="operator-required"></a>Opérateur [requis]
+### <a name="operator-required"></a>Opérateur [obligatoire]
 
-Doit être un des opérateurs suivants :
+Il doit s’agir de l’un des opérateurs suivants :
 
-- IPMatch - utilisé uniquement lors de la Variable de correspondance est *remaddr*
-- Est égal à – d’entrée est le même que le MatchValue
+- IPMatch - Utilisé uniquement lorsque matchVariable est *RemoteAddr*
+- Equals - la saisie est identique à MatchValue
 - Contains
 - LessThan
 - GreaterThan
@@ -135,13 +135,13 @@ Doit être un des opérateurs suivants :
 - EndsWith
 - Expression régulière
 
-### <a name="negate-condition-optional"></a>Inverser la condition [facultative]
+### <a name="negate-condition-optional"></a>Negate condition [facultatif]
 
-Inverse la condition actuelle.
+Annule la condition actuelle.
 
-### <a name="transform-optional"></a>Transformation [facultative]
+### <a name="transform-optional"></a>Transform [facultatif]
 
-Une liste de chaînes avec les noms des transformations à faire avant la correspondance est tentée. Ils peuvent être les transformations suivantes :
+Liste de chaînes avec les noms des transformations à effectuer avant la tentative de la mise en correspondance. Il peut s’agir des transformations suivantes :
 
 - Minuscules
 - Trim
@@ -150,16 +150,16 @@ Une liste de chaînes avec les noms des transformations à faire avant la corres
 - RemoveNulls
 - HtmlEntityDecode
 
-### <a name="match-values-required"></a>Correspondent aux valeurs [requis]
+### <a name="match-values-required"></a>Match values [obligatoire]
 
-Liste de valeurs à mettre en correspondance, ce qui peut être considérée comme étant *ou*' ed. Par exemple, il peut être des adresses IP ou autres chaînes. Le format de la valeur dépend de l’opérateur précédente.
+Liste des valeurs selon lesquelles effectuer la mise en correspondance, ce qui peut être considéré comme étant soumis à l’opérateur *OR*. Par exemple, il peut s’agir d’adresses IP ou d’autres chaînes. Le format de la valeur dépend de l’opérateur précédent.
 
-### <a name="action-required"></a>Action [requise]
+### <a name="action-required"></a>Action [obligatoire]
 
-- Autoriser : autorise la transaction, en ignorant toutes les règles. Cela signifie que la demande spécifiée est ajoutée à la liste verte et une fois mis en correspondance, la version d’évaluation supplémentaire s’arrête de demande et est envoyé vers le pool principal. Les règles qui se trouvent sur la liste verte ne sont pas évaluées pour n’importe quel davantage les règles personnalisées ou les règles managés.
-- Bloquer : bloque la transaction selon *SecDefaultAction* (mode de détection et de prévention). Tout comme l’action d’autorisation, une fois la demande est évaluée et ajoutée à la liste rouge, arrêt de l’évaluation et la demande est bloquée. Toute demande après qui répond aux mêmes conditions ne peut pas être évaluée et sera simplement bloqué. 
-- Journal – la règle vous permet d’écrire dans le journal, mais permet le reste des règles à exécuter pour l’évaluation. Les règles suivantes sont évaluées dans l’ordre de priorité, suivis par les règles managés.
+- Autoriser - Autorise la transaction, en ignorant toutes les règles qui en découle. Cela signifie que la requête spécifiée est ajoutée à la liste verte et une fois la mise en correspondance effectuée, la requête interrompt l’évaluation et est renvoyée vers le pool back-end. Les règles qui se trouvent sur la liste verte ne sont pas évaluées selon d’autres règles personnalisées ou managées.
+- Bloquer - Bloque la transaction selon *SecDefaultAction* (mode de détection/prévention). Tout comme l’action d’autorisation, une fois la requête évaluée et ajoutée à la liste rouge, l’évaluation est interrompue et la requête bloquée. Toute requête consécutive qui répond aux mêmes conditions n’est pas évaluée et est simplement bloquée. 
+- Journal - Autorise la règle à écrire dans le journal, mais autorise l’exécution du reste des règles pour évaluation. Les règles personnalisées consécutives sont évaluées par ordre de priorité suivies par les règles managées.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Une fois que vous découvrez des règles personnalisées, [créer vos propres règles personnalisées](create-custom-waf-rules.md).
+Maintenant que vous en savez plus sur les règles personnalisées, [créez vos propres règles personnalisées](create-custom-waf-rules.md).

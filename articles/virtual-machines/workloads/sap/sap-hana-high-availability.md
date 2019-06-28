@@ -14,10 +14,10 @@ ms.workload: infrastructure
 ms.date: 03/15/2019
 ms.author: sedusch
 ms.openlocfilehash: 3d59fc48f1f6f6931ca18e09a420fdbccc7d53dc
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64922286"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-suse-linux-enterprise-server"></a>Haute disponibilité de SAP HANA sur les machines virtuelles Azure sur SUSE Linux Enterprise Server
@@ -26,17 +26,17 @@ ms.locfileid: "64922286"
 [deployment-guide]:deployment-guide.md
 [planning-guide]:planning-guide.md
 
-[2205917]:https://launchpad.support.sap.com/#/notes/2205917
-[1944799]:https://launchpad.support.sap.com/#/notes/1944799
-[1928533]:https://launchpad.support.sap.com/#/notes/1928533
-[2015553]:https://launchpad.support.sap.com/#/notes/2015553
-[2178632]:https://launchpad.support.sap.com/#/notes/2178632
-[2191498]:https://launchpad.support.sap.com/#/notes/2191498
-[2243692]:https://launchpad.support.sap.com/#/notes/2243692
-[1984787]:https://launchpad.support.sap.com/#/notes/1984787
-[1999351]:https://launchpad.support.sap.com/#/notes/1999351
+[2205917]: https://launchpad.support.sap.com/#/notes/2205917
+[1944799]: https://launchpad.support.sap.com/#/notes/1944799
+[1928533]: https://launchpad.support.sap.com/#/notes/1928533
+[2015553]: https://launchpad.support.sap.com/#/notes/2015553
+[2178632]: https://launchpad.support.sap.com/#/notes/2178632
+[2191498]: https://launchpad.support.sap.com/#/notes/2191498
+[2243692]: https://launchpad.support.sap.com/#/notes/2243692
+[1984787]: https://launchpad.support.sap.com/#/notes/1984787
+[1999351]: https://launchpad.support.sap.com/#/notes/1999351
 [2388694]:https://launchpad.support.sap.com/#/notes/2388694
-[401162]:https://launchpad.support.sap.com/#/notes/401162
+[401162]: https://launchpad.support.sap.com/#/notes/401162
 
 [hana-ha-guide-replication]:sap-hana-high-availability.md#14c19f65-b5aa-4856-9594-b81c7e4df73d
 [hana-ha-guide-shared-storage]:sap-hana-high-availability.md#498de331-fa04-490b-997c-b078de457c9d
@@ -78,7 +78,7 @@ Commencez par lire les notes et publications SAP suivantes :
   * Configuration d’une infrastructure à performances optimisées SAP HANA SR (SLES pour les applications SAP 12 SP1). Le guide contient toutes les informations requises pour configurer la réplication système SAP HANA en développement local. Utilisez ce guide comme référence.
   * Configuration d’une infrastructure à coût optimisé SAP HANA SR (SLES pour les applications SAP 12 SP1)
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
 Pour atteindre la haute disponibilité, SAP HANA est installé sur deux machines virtuelles. Les données sont répliquées à l’aide de la réplication de système HANA.
 
@@ -110,10 +110,10 @@ Suivez ces étapes pour déployer le modèle :
     - **Type de système d’exploitation** : Sélectionnez l’une des distributions Linux. Dans cet exemple, sélectionnez **SLES 12**.
     - **Type de base de données** : sélectionnez **HANA**.
     - **Taille du système SAP** : entrez le nombre de SAP que le nouveau système va fournir. Si vous ne savez pas combien de SAP sont exigés par le système, demandez à votre partenaire technologique SAP ou un intégrateur système.
-    - **Disponibilité du système** : Sélectionnez la haute disponibilité **(HA)**.
-    - **Nom d’utilisateur et mot de passe administrateur** : Création d’un utilisateur qui peut être utilisé pour se connecter à l’ordinateur.
+    - **Disponibilité du système** : Sélectionnez la haute disponibilité **(HA)** .
+    - **Nom d’utilisateur et mot de passe administrateur** : Un utilisateur pouvant être utilisé pour se connecter à la machine est créé.
     - **Sous-réseau nouveau ou existant** : Détermine s’il faut créer un réseau virtuel et un sous-réseau, ou utiliser un sous-réseau existant. Si vous disposez déjà d’un réseau virtuel connecté à votre réseau local, sélectionnez **Existant**.
-    - **ID de sous-réseau** : Si vous voulez déployer la machine virtuelle dans un réseau virtuel existant où vous avez défini un sous-réseau auquel la machine virtuelle doit être attribuée, nommez l’ID de ce sous-réseau spécifique. L’ID se présente généralement comme suit : **/subscriptions/\<ID_abonnement/\<resourceGroups/nom_groupe_ressources>/providers/Microsoft.Network/virtualNetworks/\<nom_réseau_virtuel>/subnets/\<nom_sous_réseau>**.
+    - **ID de sous-réseau** : Si vous voulez déployer la machine virtuelle dans un réseau virtuel existant où vous avez défini un sous-réseau auquel la machine virtuelle doit être attribuée, nommez l’ID de ce sous-réseau spécifique. L’ID se présente généralement comme suit : **/subscriptions/\<ID_abonnement/\<resourceGroups/nom_groupe_ressources>/providers/Microsoft.Network/virtualNetworks/\<nom_réseau_virtuel>/subnets/\<nom_sous_réseau>** .
 
 ### <a name="manual-deployment"></a>Déploiement manuel
 
@@ -194,8 +194,8 @@ Suivez ces étapes pour déployer le modèle :
 Pour plus d’informations sur les ports requis pour SAP HANA, consultez le chapitre [Connections to Tenant Databases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) (Connexions aux bases de données locataires) dans le guide [SAP HANA Tenant Databases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) (Bases de données locataires SAP HANA) ou la [Note SAP 2388694][2388694].
 
 > [!IMPORTANT]
-> N’activez pas les horodatages TCP sur des machines virtuelles Azure placé derrière un équilibreur de charge Azure. L’activation TCP horodatages entraîne les sondes d’intégrité à échouer. Définissez le paramètre **net.ipv4.tcp_timestamps** à **0**. Pour plus d’informations, consultez [sondes d’intégrité d’équilibreur de charge](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview).
-> Voir aussi SAP note [2382421](https://launchpad.support.sap.com/#/notes/2382421). 
+> N’activez pas les timestamps TCP sur des machines virtuelles Azure placées derrière Azure Load Balancer. L’activation des timestamps TCP entraîne l’échec des sondes d’intégrité. Définissez le paramètre **net.ipv4.tcp_timestamps** sur **0**. Pour plus d’informations, voir [Sondes d’intégrité Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview).
+> Voir aussi la note SAP [2382421](https://launchpad.support.sap.com/#/notes/2382421). 
 
 ## <a name="create-a-pacemaker-cluster"></a>Créez un cluster Pacemaker
 
@@ -208,7 +208,7 @@ Les étapes de cette section utilisent les préfixes suivants :
 - **[1]**  : l’étape ne s’applique qu’au nœud 1.
 - **[2]**  : l’étape s’applique uniquement au nœud 2 du cluster Pacemaker.
 
-1. **[A]** Configurez la disposition du disque : **Logical Volume Manager (LVM)**.
+1. **[A]** Configurez la disposition du disque : **Logical Volume Manager (LVM)** .
 
    Nous recommandons d’utiliser LVM pour les volumes qui stockent des données et des fichiers journaux. L’exemple suivant part du principe que les machines virtuelles disposent de quatre disques de données joints qui sont utilisés pour créer deux volumes.
 
@@ -364,14 +364,14 @@ Les étapes de cette section utilisent les préfixes suivants :
 
    Si vous utilisez SAP HANA 2.0 ou MDC, créez une base de données locataire pour votre système SAP NetWeaver. Remplacez **NW1** par le SID de votre système SAP.
 
-   Exécutez la commande suivante en tant que < hanasid\>adm :
+   Exécutez la commande qui suit en tant que <hanasid\>adm :
 
    <pre><code>hdbsql -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> -d SYSTEMDB 'CREATE DATABASE <b>NW1</b> SYSTEM USER PASSWORD "<b>passwd</b>"'
    </code></pre>
 
 1. **[1]** Configurez la réplication de système sur le premier nœud :
 
-   Sauvegardez les bases de données en tant que < hanasid\>adm :
+   Sauvegardez les bases de données en tant que <hanasid\>adm :
 
    <pre><code>hdbsql -d SYSTEMDB -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackupSYS</b>')"
    hdbsql -d <b>HN1</b> -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackupHN1</b>')"
@@ -391,7 +391,7 @@ Les étapes de cette section utilisent les préfixes suivants :
 
 1. **[2]** Configurez la réplication de système sur le second nœud :
     
-   Inscrivez le second nœud pour démarrer la réplication de système. Exécutez la commande suivante en tant que < hanasid\>adm :
+   Inscrivez le second nœud pour démarrer la réplication de système. Exécutez la commande suivante en tant que <hanasid\>adm :
 
    <pre><code>sapcontrol -nr <b>03</b> -function StopWait 600 10
    hdbnsutil -sr_register --remoteHost=<b>hn1-db-0</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE2</b> 
@@ -417,7 +417,7 @@ Les étapes de cette section utilisent les préfixes suivants :
 
 1. **[A]** Créez l’entrée keystore.
 
-   Exécutez la commande suivante en tant que racine pour créer une nouvelle entrée de magasin de clés :
+   Exécutez la commande suivante en tant que racine pour créer une nouvelle entrée de magasin de clés :
 
    <pre><code>PATH="$PATH:/usr/sap/<b>HN1</b>/HDB<b>03</b>/exe"
    hdbuserstore SET <b>hdb</b>haloc localhost:3<b>03</b>15 <b>hdb</b>hasync <b>passwd</b>
@@ -425,7 +425,7 @@ Les étapes de cette section utilisent les préfixes suivants :
 
 1. **[1]** Sauvegardez la base de données.
 
-   Sauvegarder les bases de données en tant que racine :
+   Sauvegardez les bases de données en tant que racine :
 
    <pre><code>PATH="$PATH:/usr/sap/<b>HN1</b>/HDB<b>03</b>/exe"
    hdbsql -d SYSTEMDB -u system -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackup</b>')"
@@ -438,7 +438,7 @@ Les étapes de cette section utilisent les préfixes suivants :
 
 1. **[1]** Configurez la réplication de système sur le premier nœud.
 
-   Créer le site principal en tant que < hanasid\>adm :
+   Créez le site principal en tant que <hanasid\>adm :
 
    <pre><code>su - <b>hdb</b>adm
    hdbnsutil -sr_enable –-name=<b>SITE1</b>
@@ -446,7 +446,7 @@ Les étapes de cette section utilisent les préfixes suivants :
 
 1. **[2]** Configurez la réplication de système sur le nœud secondaire.
 
-   Inscrivez le site secondaire en tant que < hanasid\>adm :
+   Inscrivez le site secondaire en tant que <hanasid\>adm :
 
    <pre><code>sapcontrol -nr <b>03</b> -function StopWait 600 10
    hdbnsutil -sr_register --remoteHost=<b>hn1-db-0</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE2</b> 
@@ -709,7 +709,7 @@ REMARQUE :  Les tests suivants doivent être exécutés de façon séquentielle
       rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-0
    </code></pre>
 
-   Exécutez les commandes suivantes en tant que < hanasid\>adm sur le nœud hn1-db-0 :
+   Exécutez les commandes suivantes en tant que <hanasid\>adm sur le nœud hn1-db-0 :
 
    <pre><code>hn1adm@hn1-db-0:/usr/sap/HN1/HDB03> HDB stop
    </code></pre>
@@ -750,7 +750,7 @@ REMARQUE :  Les tests suivants doivent être exécutés de façon séquentielle
       rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-1
    </code></pre>
 
-   Exécutez les commandes suivantes en tant que < hanasid\>adm sur le nœud hn1-db-1 :
+   Exécutez les commandes suivantes en tant que <hanasid\>adm sur le nœud hn1-db-1 :
 
    <pre><code>hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> HDB stop
    </code></pre>
@@ -791,7 +791,7 @@ REMARQUE :  Les tests suivants doivent être exécutés de façon séquentielle
       rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-0
    </code></pre>
 
-   Exécutez les commandes suivantes en tant que < hanasid\>adm sur le nœud hn1-db-0 :
+   Exécutez les commandes suivantes en tant que <hanasid\>adm sur le nœud hn1-db-0 :
 
    <pre><code>hn1adm@hn1-db-0:/usr/sap/HN1/HDB03> HDB kill-9
    </code></pre>
@@ -832,7 +832,7 @@ REMARQUE :  Les tests suivants doivent être exécutés de façon séquentielle
       rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-1
    </code></pre>
 
-   Exécutez les commandes suivantes en tant que < hanasid\>adm sur le nœud hn1-db-1 :
+   Exécutez les commandes suivantes en tant que <hanasid\>adm sur le nœud hn1-db-1 :
 
    <pre><code>hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> HDB kill-9
    </code></pre>
@@ -975,7 +975,7 @@ REMARQUE :  Les tests suivants doivent être exécutés de façon séquentielle
       rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-0
    </code></pre>
 
-   Exécutez les commandes suivantes en tant que < hanasid\>adm sur le nœud hn1-db-1 :
+   Exécutez les commandes suivantes en tant que <hanasid\>adm sur le nœud hn1-db-1 :
 
    <pre><code>hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> HDB stop
    </code></pre>
@@ -1012,7 +1012,7 @@ REMARQUE :  Les tests suivants doivent être exécutés de façon séquentielle
       rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-0
    </code></pre>
 
-   Exécutez les commandes suivantes en tant que < hanasid\>adm sur le nœud hn1-db-1 :
+   Exécutez les commandes suivantes en tant que <hanasid\>adm sur le nœud hn1-db-1 :
 
    <pre><code>hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> HDB kill-9
    </code></pre>

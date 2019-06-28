@@ -10,10 +10,10 @@ ms.author: tamram
 ms.reviewer: wielriac
 ms.subservice: blobs
 ms.openlocfilehash: 88bf81852a4501f4fc5807d865214d57dbc0aab3
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65794492"
 ---
 # <a name="overview-of-azure-page-blobs"></a>Vue d’ensemble des objets blob de pages Azure
@@ -22,7 +22,7 @@ Stockage Azure offre trois types de stockage d’objets blob : Objets blob de b
 
 Les objets blob de pages représentent une collection de pages de 512 octets, qui offrent la possibilité de lire/écrire des plages arbitraires d’octets. Les objets blob de pages sont donc particulièrement adaptés au stockage de structures de données basées sur des index et diverses comme les disques de système d’exploitation et de données pour machines virtuelles et bases de données. Par exemple, Azure SQL DB utilise des objets blob de pages comme stockage permanent sous-jacent pour ses bases de données. Les objets blob de pages sont également souvent utilisés pour les fichiers avec des mises à jour basées sur une plage.  
 
-Les principales fonctionnalités des objets blob de pages Azure résident dans son interface REST, la durabilité du stockage sous-jacent et les fonctionnalités de migration parfaite vers Azure. Ces fonctionnalités sont abordées plus en détail dans la section suivante. De plus, les objets blob de pages Azure sont actuellement pris en charge sur deux types de stockage : Stockage Premium et Standard. Stockage Premium est conçu spécifiquement pour les charges de travail nécessitant des performances élevées et une faible latence, ce qui rend les objets BLOB de pages premium idéaux pour les scénarios de stockage hautes performances. Comptes de stockage standard sont plus économique en termes de charges de travail insensible à la latence.
+Les principales fonctionnalités des objets blob de pages Azure résident dans son interface REST, la durabilité du stockage sous-jacent et les fonctionnalités de migration parfaite vers Azure. Ces fonctionnalités sont abordées plus en détail dans la section suivante. De plus, les objets blob de pages Azure sont actuellement pris en charge sur deux types de stockage : Stockage Premium et Standard. Stockage Premium est plus particulièrement conçu pour les charges de travail nécessitant de hautes performances et une faible latence, ce qui rend les objets blob de pages premium idéaux pour des scénarios de stockage hautes performances. Les comptes de stockage Standard sont plus économiques pour l’exécution de charges de travail insensibles à la latence.
 
 ## <a name="sample-use-cases"></a>Exemples de cas d’utilisation
 
@@ -31,7 +31,7 @@ Les principales fonctionnalités des objets blob de pages Azure résident dans s
 Des services Microsoft internes comme Azure Site Recovery et Azure Backup, ainsi que de nombreux développeurs tiers, ont implémenté des innovations de pointe à l’aide de l’interface REST des objets blob de pages. Voici quelques-uns des scénarios uniques implémentés sur Azure : 
 
 * Gestion des captures instantanées incrémentielle orientée application : Les applications peuvent exploiter les instantanés d’objet blob de pages et les API REST pour enregistrer les points de contrôle d’application sans duplication coûteuse de données. Stockage Azure prend en charge les instantanés locaux pour les objets blob de pages, qui ne nécessitent pas la copie de l’intégralité de l’objet blob. Ces API d’instantané publiques permettent également d’accéder à et de copier des deltas entre deux instantanés.
-* Migration dynamique d’application et vos données à partir de sur site et le cloud : Copier les données sur site et utiliser les API REST pour écrire directement dans un objet blob de pages Azure pendant le local que machine virtuelle continue à s’exécuter. Lorsque la cible est interceptée, vous pouvez basculer rapidement vers la machine virtuelle Azure à l’aide de ces données. De cette façon, vous pouvez migrer vos machines virtuelles et disques virtuels en local vers le cloud avec un temps mort minimal, étant donné que la migration des données se produit en arrière-plan tout en continuant à utiliser la machine virtuelle et le temps d’arrêt nécessaire pour le basculement seront donc courts (en minutes).
+* Migration dynamique d’application et de données locales vers le cloud : Copiez les données locales et utilisez les API REST pour écrire directement dans l’objet blob de pages Azure pendant l’exécution de la machine virtuelle locale. Lorsque la cible est interceptée, vous pouvez basculer rapidement vers la machine virtuelle Azure à l’aide de ces données. De cette façon, vous pouvez migrer vos machines virtuelles et disques virtuels locaux vers le cloud avec un temps d’arrêt minime, car la migration des données se produit en arrière-plan pendant que vous utilisez la machine virtuelle. Le temps d’arrêt nécessaire pour le basculement est donc relativement court (quelques minutes).
 * Accès partagé [basé sur SAS](../common/storage-dotnet-shared-access-signature-part-1.md), qui permet des scénarios tels que plusieurs lecteurs et un auteur unique avec prise en charge du contrôle d’accès concurrentiel.
 
 ## <a name="page-blob-features"></a>Fonctionnalités d’objet blob de pages
@@ -42,11 +42,11 @@ Consultez le document suivant pour commencer à [développer à l’aide d’obj
 
 Le diagramme suivant décrit les relations globales entre le compte, les conteneurs et les objets blob de pages.
 
-![Capture d’écran montrant les relations entre les comptes, les conteneurs et les objets BLOB de pages](./media/storage-blob-pageblob-overview/storage-blob-pageblob-overview-figure1.png)
+![Capture d’écran montrant les relations entre le compte, les conteneurs et les objets blob de pages](./media/storage-blob-pageblob-overview/storage-blob-pageblob-overview-figure1.png)
 
 #### <a name="creating-an-empty-page-blob-of-a-specified-size"></a>Création d’un objet blob de pages vide d’une taille spécifique
 
-Pour créer un objet blob de pages, nous créons tout d’abord un objet **CloudBlobClient**, avec l’URI de base pour accéder au stockage blob de votre compte de stockage (*pbaccount* dans la figure 1), ainsi que l’objet **StorageCredentialsAccountAndKey**, comme dans l’exemple ci-dessous. L’exemple montre ensuite la création d’une référence à un objet **CloudBlobContainer**, puis la création du conteneur (*testvhds*) s’il n’existe pas déjà. Ensuite, à l’aide de l’objet **CloudBlobContainer**, nous pouvons créer une référence à un objet **CloudPageBlob** en spécifiant le nom de l’objet blob de pages (os4.vhd) auquel nous voulons accéder. Pour créer l’objet blob de pages, appelez [CloudPageBlob.Create](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.create), en passant la taille maximale de l’objet blob à créer. *blobSize* doit être un multiple de 512 octets.
+Pour créer un objet blob de pages, nous créons tout d’abord un objet **CloudBlobClient**, avec l’URI de base pour accéder au stockage blob de votre compte de stockage (*pbaccount* dans la figure 1), ainsi que l’objet **StorageCredentialsAccountAndKey**, comme dans l’exemple ci-dessous. L’exemple montre ensuite la création d’une référence à un objet **CloudBlobContainer**, puis la création du conteneur (*testvhds*) s’il n’existe pas déjà. Ensuite, à l’aide de l’objet **CloudBlobContainer**, nous pouvons créer une référence à un objet **CloudPageBlob** en spécifiant le nom de l’objet blob de pages (os4.vhd) auquel nous voulons accéder. Pour créer l’objet blob de pages, appelez [CloudPageBlob.Create](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.create) en indiquant la taille maximale de l’objet blob à créer. *blobSize* doit être un multiple de 512 octets.
 
 ```csharp
 using Microsoft.Azure;
@@ -73,7 +73,7 @@ pageBlob.Create(16 * OneGigabyteAsBytes);
 
 #### <a name="resizing-a-page-blob"></a>Redimensionnement d’un objet blob de pages
 
-Pour redimensionner un objet blob de pages après sa création, utilisez la [redimensionner](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.resize) (méthode). La taille demandée doit être un multiple de 512 octets.
+Pour redimensionner un objet blob de pages après sa création, utilisez la méthode [Redimensionner](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.resize). La taille demandée doit être un multiple de 512 octets.
 
 ```csharp
 pageBlob.Resize(32 * OneGigabyteAsBytes);
@@ -105,7 +105,7 @@ byte[] buffer = new byte[rangeSize];
 pageBlob.DownloadRangeToByteArray(buffer, bufferOffset, pageBlobOffset, rangeSize); 
 ```
 
-La figure suivante illustre une opération de lecture avec un décalage de 256 et une taille de la plage de 4352. Données retournées sont surlignées en orange. Des zéros sont retournés pour les pages NUL.
+La figure suivante montre une opération de lecture avec un décalage de 256 et une taille de plage de 4352. Les données retournées sont mises en surbrillance en orange. Des zéros sont retournés pour les pages NUL.
 
 ![](./media/storage-blob-pageblob-overview/storage-blob-pageblob-overview-figure3.png)
 
@@ -133,7 +133,7 @@ foreach (PageRange range in pageRanges)
 
 L’opération de blob de bail établit et gère un verrou sur un blob pour les opérations d’écriture et de suppression. Cette opération est utile dans les scénarios où un objet blob de pages est accessible à partir de plusieurs clients, pour faire en sorte qu’un seul client à la fois puisse écrire dans l’objet blob. Les disques Azure, par exemple, utilisent ce mécanisme de leasing pour garantir que le disque n’est géré que par une seule machine virtuelle. La durée du verrou peut être de 15 à 60 secondes, ou peut être infinie. Consultez la documentation [ici](/rest/api/storageservices/lease-blob) pour plus de détails.
 
-Outre les riches API REST, objets BLOB de pages fournissent également un accès partagé, durabilité et une sécurité renforcée. Nous aborderons ces avantages plus en détails dans les paragraphes suivants. 
+En plus des API REST riches en fonctionnalités, les objets blob de pages offrent également un accès partagé, une durabilité et une sécurité renforcée. Nous aborderons ces avantages plus en détails dans les paragraphes suivants. 
 
 ### <a name="concurrent-access"></a>Accès simultané
 
@@ -143,7 +143,7 @@ Une autre option consiste à utiliser les objets blob de pages directement via l
 
 ### <a name="durability-and-high-availability"></a>Durabilité et haute disponibilité
 
-Les stockages Standard et Premium constituent un stockage durable où les données d’objet blob de pages sont toujours répliquées pour garantir la durabilité et la haute disponibilité. Pour plus d’informations sur la redondance du Stockage Azure, consultez cette [documentation](../common/storage-redundancy.md). Azure a remis systématiquement la durabilité de classe entreprise pour les disques IaaS et page objets BLOB, avec un leader du secteur de zéro pour cent [taux d’échec inégalé dans](https://en.wikipedia.org/wiki/Annualized_failure_rate).
+Les stockages Standard et Premium constituent un stockage durable où les données d’objet blob de pages sont toujours répliquées pour garantir la durabilité et la haute disponibilité. Pour plus d’informations sur la redondance du Stockage Azure, consultez cette [documentation](../common/storage-redundancy.md). Azure a fourni de façon cohérente une durabilité de classe Entreprise pour les disques IaaS et les objets blob de pages, avec un [taux de défaillance annuel](https://en.wikipedia.org/wiki/Annualized_failure_rate) inégalé dans le secteur de zéro pour cent.
 
 ### <a name="seamless-migration-to-azure"></a>Migration parfaite vers Azure
 

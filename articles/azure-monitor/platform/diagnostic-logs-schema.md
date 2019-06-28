@@ -9,15 +9,15 @@ ms.date: 10/11/2018
 ms.author: robb
 ms.subservice: logs
 ms.openlocfilehash: 21eec5ee2fef185a927f6a416732303765e02b1c
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65789320"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Services, schémas et catégories pris en charge pour les journaux de diagnostic Azure
 
-Les [journaux de diagnostic Azure Monitor](../../azure-monitor/platform/diagnostic-logs-overview.md) sont des journaux générés par les services Azure qui décrivent le fonctionnement de ces services ou ressources. Tous les journaux de diagnostic disponibles via Azure Monitor partagent un schéma commun de niveau supérieur, avec la flexibilité pour chaque service d’émettre des propriétés uniques pour ses propres événements.
+Les [journaux de diagnostic Azure Monitor](../../azure-monitor/platform/diagnostic-logs-overview.md) sont des journaux d’activité générés par les services Azure qui décrivent le fonctionnement de ces services ou ressources. Tous les journaux de diagnostic disponibles via Azure Monitor partagent un schéma commun de niveau supérieur, avec la flexibilité pour chaque service d’émettre des propriétés uniques pour ses propres événements.
 
 Une combinaison du type de ressource (disponible dans la propriété `resourceId`) et du `category` permet d’identifier de manière unique un schéma. Cet article décrit le schéma de niveau supérieur pour les journaux de diagnostic et les liens vers les schémas pour chaque service.
 
@@ -26,7 +26,7 @@ Une combinaison du type de ressource (disponible dans la propriété `resourceId
 | Nom | Obligatoire ou facultatif | Description |
 |---|---|---|
 | time | Obligatoire | Horodatage (heure UTC) de l’événement. |
-| ResourceId | Obligatoire | ID de la ressource qui a émis l’événement. Pour les services abonnés, cet ID prend la forme /tenants/tenant-id/providers/provider-name. |
+| resourceId | Obligatoire | ID de la ressource qui a émis l’événement. Pour les services abonnés, cet ID prend la forme /tenants/tenant-id/providers/provider-name. |
 | tenantId | Obligatoire pour les journaux d’activité de l’abonné | ID d’abonné de l’abonné Active Directory auquel cet événement est lié. Cette propriété est utilisée uniquement pour les journaux d’activité de niveau abonné ; elle n’apparaît pas dans les journaux d’activité de niveau ressource. |
 | operationName | Obligatoire | Nom de l’opération représentée par cet événement. Si l’événement représente une opération RBAC, il s’agit du nom de l’opération RBAC (par ex. Microsoft.Storage/storageAccounts/blobServices/blobs/Read). Généralement modélisée sous la forme d’une opération du Gestionnaire de ressources, même s’il ne s’agit pas d’opérations réelles documentées du Gestionnaire des ressources (`Microsoft.<providerName>/<resourceType>/<subtype>/<Write/Read/Delete/Action>`) |
 | operationVersion | Facultatif | Version d’api associée à l’opération, si operationName a été effectuée à l’aide d’une API (par ex. `http://myservice.windowsazure.net/object?api-version=2016-06-01`). S’il n’existe aucune API qui corresponde à cette opération, la version représente la version de cette opération si les propriétés associées à l’opération viennent à changer. |
@@ -47,7 +47,7 @@ Le schéma des journaux de diagnostic des ressources varie en fonction de la res
 
 | de diffusion en continu | Schéma et documentation |
 | --- | --- |
-| Azure Active Directory | [Vue d’ensemble](../../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md), [schéma des journaux d’Audit](../../active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema.md) et [schéma des connexions](../../active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md) |
+| Azure Active Directory | [Vue d’ensemble](../../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md), [Schéma des journaux d’audit](../../active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema.md) et [Schéma des connexions](../../active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md) |
 | Analysis Services | https://azure.microsoft.com/blog/azure-analysis-services-integration-with-azure-diagnostic-logs/ |
 | Gestion des API | [Journaux de diagnostic Gestion des API](../../api-management/api-management-howto-use-azure-monitor.md#diagnostic-logs) |
 | Passerelles d’application |[Journalisation des diagnostics pour Application Gateway](../../application-gateway/application-gateway-diagnostics.md) |
@@ -74,7 +74,7 @@ Le schéma des journaux de diagnostic des ressources varie en fonction de la res
 | Recovery Services | [Modèle de données pour la sauvegarde Azure](../../backup/backup-azure-reports-data-model.md)|
 | Recherche |[Activation et utilisation de la fonctionnalité Rechercher l’analyse du trafic](../../search/search-traffic-analytics.md) |
 | Service Bus |[Journaux de diagnostic Azure Service Bus](../../service-bus-messaging/service-bus-diagnostic-logs.md) |
-| Base de données SQL | [Journalisation de diagnostic de base de données SQL Azure](../../sql-database/sql-database-metrics-diag-logging.md) |
+| Base de données SQL | [Journalisation de diagnostic Azure SQL Database](../../sql-database/sql-database-metrics-diag-logging.md) |
 | Stream Analytics |[Journaux de diagnostic des travaux](../../stream-analytics/stream-analytics-job-diagnostic-logs.md) |
 | Traffic Manager | [Schéma des journaux de Traffic Manager](../../traffic-manager/traffic-manager-diagnostic-logs.md) |
 | Virtual Network | Schéma non disponible. |
@@ -191,7 +191,7 @@ Le schéma des journaux de diagnostic des ressources varie en fonction de la res
 |Microsoft.Sql/servers/databases|ExecRequests|Requêtes d’exécution|
 |Microsoft.Sql/servers/databases|RequestSteps|Étapes de la requête|
 |Microsoft.Sql/servers/databases|SqlRequests|Requêtes SQL|
-|Microsoft.Sql/servers/databases|Attend|Attend|
+|Microsoft.Sql/servers/databases|Waits|Attend|
 |Microsoft.Sql/managedInstances|ResourceUsageStats|Statistiques d’utilisation des ressources|
 |Microsoft.Sql/managedInstances|SQLSecurityAuditEvents|Événement d’audit de sécurité SQL|
 |Microsoft.Sql/managedInstances/databases|SQLInsights|SQL Insights|
@@ -200,7 +200,7 @@ Le schéma des journaux de diagnostic des ressources varie en fonction de la res
 |Microsoft.Sql/managedInstances/databases|Errors|Errors|
 |Microsoft.StreamAnalytics/streamingjobs|Exécution|Exécution|
 |Microsoft.StreamAnalytics/streamingjobs|Création|Création|
-|microsoft.web/sites|FunctionExecutionLogs|Journaux d’activité d’exécution de la fonction|
+|microsoft.web/sites|FunctionExecutionLogs|Journaux d’exécution de la fonction|
 |microsoft.web/sites/slots|FunctionExecutionLogs|Journaux d’activité d’exécution de la fonction|
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -208,5 +208,5 @@ Le schéma des journaux de diagnostic des ressources varie en fonction de la res
 * [En savoir plus sur les journaux de diagnostic](../../azure-monitor/platform/diagnostic-logs-overview.md)
 * [Diffuser en continu les journaux de diagnostic des ressources vers **Event Hubs**](../../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md)
 * [Modifier les paramètres de diagnostic des ressources via l’API REST Azure Monitor](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings)
-* [Analyser les journaux du stockage Azure avec Log Analytics](../../azure-monitor/platform/collect-azure-metrics-logs.md)
+* [Analyser les journaux d’activité du stockage Azure avec Log Analytics](../../azure-monitor/platform/collect-azure-metrics-logs.md)
 

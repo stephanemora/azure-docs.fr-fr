@@ -17,10 +17,10 @@ ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mikeray
 ms.openlocfilehash: f9e31ac7685d597c741033bc165c6a51280e3d72
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64571734"
 ---
 # <a name="configure-an-always-on-availability-group-on-azure-virtual-machines-in-different-regions"></a>Configurer un groupe de disponibilité AlwaysOn sur des machines virtuelles Azure dans des emplacements différents
@@ -145,7 +145,7 @@ Le réplica dans le centre de données distant fait partie du groupe de disponib
 
 Idéalement, mettez à jour les chaînes de connexion au client pour qu’elles indiquent `MultiSubnetFailover=Yes`. Consultez [Connexion à MultiSubnetFailover](https://msdn.microsoft.com/library/gg471494#Anchor_0).
 
-Si vous ne pouvez pas modifier les chaînes de connexion, vous pouvez configurer la mise en cache de la résolution des noms. Consultez [erreur de délai d’attente et vous ne peut pas se connecter à un écouteur de groupe de disponibilité AlwaysOn de SQL Server 2012 dans un environnement de sous-réseaux multiples](https://support.microsoft.com/help/2792139/time-out-error-and-you-cannot-connect-to-a-sql-server-2012-alwayson-av).
+Si vous ne pouvez pas modifier les chaînes de connexion, vous pouvez configurer la mise en cache de la résolution des noms. Consultez [Erreur de délai d’attente et vous ne pouvez pas vous connecter à un écouteur de groupe de disponibilité AlwaysOn SQL Server 2012 dans un environnement à plusieurs sous-réseaux](https://support.microsoft.com/help/2792139/time-out-error-and-you-cannot-connect-to-a-sql-server-2012-alwayson-av).
 
 ## <a name="fail-over-to-remote-region"></a>Basculer vers la région distante
 
@@ -158,7 +158,7 @@ Pour tester la connectivité de l’écouteur à la région distante, vous pouve
 1. Cliquez sur OK.
 1. Dans l’**Explorateur d’objets**, cliquez sur le groupe de disponibilité puis sur **Afficher le tableau de bord**.
 1. Dans le tableau de bord, vérifiez que le réplica sur le site de récupération d’urgence est synchronisé.
-1. Dans l’**Explorateur d’objets**, cliquez sur le groupe de disponibilité puis sur **Basculer...**. SQL Server Management Studio ouvre un assistant pour effectuer le basculement vers SQL Server.  
+1. Dans l’**Explorateur d’objets**, cliquez sur le groupe de disponibilité puis sur **Basculer...** . SQL Server Management Studio ouvre un assistant pour effectuer le basculement vers SQL Server.  
 1. Cliquez sur **Suivant** et sélectionnez l’instance de SQL Server sur le site de récupération d’urgence. Cliquez à nouveau sur **Suivant** .
 1. Connectez-vous à l’instance de SQL Server sur le site de récupération d’urgence et cliquez sur **Suivant**.
 1. Dans la page **Synthèse**, vérifiez les paramètres et cliquez sur **Terminer**.

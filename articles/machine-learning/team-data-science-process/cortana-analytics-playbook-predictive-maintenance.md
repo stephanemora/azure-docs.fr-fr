@@ -12,10 +12,10 @@ ms.date: 05/11/2018
 ms.author: tdsp
 ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
 ms.openlocfilehash: f0faad91e9e3ff9384dcae57ed27c21fa21946b5
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64573770"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>Guide Azure AI pour les solutions de maintenance prédictive
@@ -92,7 +92,7 @@ Cette section est axée sur une collection de cas d’usage de PdM dans divers s
 |**Finances** |                         |
 |La _défaillance des distributeurs automatiques de billets_ (DAB) est un problème courant dans le secteur bancaire. Ici, le problème consiste à indiquer la probabilité qu’une transaction de retrait de billets à un distributeur soit interrompue en raison d’un bourrage papier ou de la défaillance d’une pièce du distributeur. Sur la base des prédictions de défaillances au cours des transactions, les DAB peuvent faire l’objet d’opérations d’entretien proactives afin de prévenir les défaillances.| Plutôt que de risquer que la machine ne tombe en panne pendant une transaction, il est préférable de la programmer de manière à ce qu’elle se mette hors service en fonction de la prédiction|
 |**Énergie** |                          |
-|_Défaillance d’éoliennes_ : Éoliennes sont la source principale d’énergie dans les pays/régions respectueux de l’environnement et impliquent des coûts d’immobilisation importants. Un composant essentiel des éoliennes est le moteur du générateur. S’il tombe en panne, la turbine sera inefficace. De plus, sa réparation coûte très cher.|Les KPI de prédiction tels que MTTF (temps moyen de fonctionnement avant panne) peuvent aider les fournisseurs d’énergie à empêcher des pannes de turbine et à garantir des temps d’arrêt minimaux. Les probabilités de défaillance informeront les techniciens qu’il faut surveiller les turbines susceptibles de tomber en panne sous peu et permettront de programmer des régimes de maintenance dans le temps. Des modèles prédictifs fournissent des informations sur différents facteurs qui contribuent à la défaillance, ce qui permet aux techniciens de mieux comprendre les causes racines des problèmes.|
+|_Défaillance d’éoliennes_ : les éoliennes sont la principale source d’énergie dans les pays/régions soucieux de l’environnement, mais elles impliquent des coûts d’investissement élevés. Un composant essentiel des éoliennes est le moteur du générateur. S’il tombe en panne, la turbine sera inefficace. De plus, sa réparation coûte très cher.|Les KPI de prédiction tels que MTTF (temps moyen de fonctionnement avant panne) peuvent aider les fournisseurs d’énergie à empêcher des pannes de turbine et à garantir des temps d’arrêt minimaux. Les probabilités de défaillance informeront les techniciens qu’il faut surveiller les turbines susceptibles de tomber en panne sous peu et permettront de programmer des régimes de maintenance dans le temps. Des modèles prédictifs fournissent des informations sur différents facteurs qui contribuent à la défaillance, ce qui permet aux techniciens de mieux comprendre les causes racines des problèmes.|
 |_Défaillances de disjoncteurs_ : l’alimentation en électricité d’habitations et d’entreprises nécessite des lignes électriques constamment opérationnelles afin de garantir la livraison d’énergie. Les disjoncteurs aident à limiter ou à éviter des dommages des lignes électriques dus à des surcharges ou à de mauvaises conditions météorologiques. Ici, le problème de l’entreprise est de prédire les défaillances des disjoncteurs.| Les solutions de PdM aident à réduire les coûts de réparation et à augmenter la durée de vie d’équipements tels que les disjoncteurs. Elles permettent d’améliorer la qualité du réseau électrique en réduisant les défaillances inattendues et les interruptions de service.|
 |**Transport et logistique** |    |
 |_Défaillances de portes d’ascenseurs_ : les grandes sociétés fournissant des ascenseurs proposent une gamme complète de services pour des millions d’ascenseurs en fonctionnement dans le monde. La sécurité des ascenseurs, leur fiabilité et leur temps de fonctionnement sont les principales préoccupations de leurs clients. Ces sociétés surveillent ces attributs, ainsi que différents autres, pour faciliter la gestion de la maintenance préventive et corrective. Dans un ascenseur, le problème le plus souvent rencontré par les clients est le dysfonctionnement des portes. Le problème de l’entreprise est de fournir une application prédictive de base de connaissances qui prédit les causes potentielles des défaillances des portes.| Les ascenseurs représentent des investissements en capital pour une durée potentielle de 20 à 30 ans: Par conséquent, chaque vente potentielle peut être très concurrentielle. Les attentes en matière de service et de support sont donc à l’avenant. La maintenance prédictive peut procurer à ces sociétés un avantage sur leurs concurrents, au-delà des produits et des services proposés.|
@@ -227,7 +227,7 @@ Les spécifications techniques de l’équipement, comme la date de fabrication,
 
 Les efforts de préparation des données présentées jusqu’ici doivent aboutir à une organisation des données comme indiqué ci-dessous. Les données d’apprentissage, de test et de validation doivent avoir ce schéma logique (cet exemple illustre le temps en unités de jours).
 
-| ID d’équipement | Temps | \<Colonnes de fonctionnalités > | Étiquette |
+| ID d’équipement | Temps | \<Colonnes de fonctionnalités> | Étiquette |
 | ---- | ---- | --- | --- |
 | A123 |Jour 1 | . . . | . |
 | A123 |Jour 2 | . . . | . |
@@ -291,11 +291,11 @@ La question ici est : « Quelle est la probabilité de défaillance d’un éq
 
 ![Figure 5 : Étiquettes de prédiction du moment des défaillances pour la classification multiclasse](./media/cortana-analytics-playbook-predictive-maintenance/labelling-for-multiclass-classification-for-failure-time-prediction.png) Figure 5. Étiquetage pour la classification multiclasse en vue de la prédiction de l’heure de la défaillance
 
-La question ici est : « Quelle est la probabilité de défaillance de l’équipement pendant les X prochaines unités de temps en raison de la cause racine/du problème _P<sub>i</sub>_  ? » où _i_ est le nombre de causes racines possibles. Pour répondre à cette question, étiquetez X enregistrements avant la défaillance d’un équipement comme « sur le point de tomber en panne » en raison de la cause racine _P<sub>i</sub>_ (étiquette = _P<sub>i</sub>_). Étiquetez tous les autres enregistrements comme étant « normaux » (étiquette = 0). Dans cette méthode également, les étiquettes sont catégorielles (voir Figure 6).
+La question ici est : « Quelle est la probabilité de défaillance de l’équipement pendant les X prochaines unités de temps en raison de la cause racine/du problème _P<sub>i</sub>_  ? » où _i_ est le nombre de causes racines possibles. Pour répondre à cette question, étiquetez X enregistrements avant la défaillance d’un équipement comme « sur le point de tomber en panne » en raison de la cause racine _P<sub>i</sub>_ (étiquette = _P<sub>i</sub>_ ). Étiquetez tous les autres enregistrements comme étant « normaux » (étiquette = 0). Dans cette méthode également, les étiquettes sont catégorielles (voir Figure 6).
 
 ![Figure 6 : Étiquettes de prédiction de la cause racine pour la classification multiclasse](./media/cortana-analytics-playbook-predictive-maintenance/labelling-for-multiclass-classification-for-root-cause-prediction.png) Figure 6. Étiquetage pour la classification multiclasse, pour la prédiction de la cause racine
 
-Le modèle affecte une probabilité de défaillance en raison de chaque _P<sub>i</sub>_, ainsi que la probabilité qu’il n’y ait pas de défaillance. Ces probabilités peuvent être classées par ordre de grandeur pour permettre la prédiction des problèmes les plus susceptibles de se produire dans le futur.
+Le modèle affecte une probabilité de défaillance en raison de chaque _P<sub>i</sub>_ , ainsi que la probabilité qu’il n’y ait pas de défaillance. Ces probabilités peuvent être classées par ordre de grandeur pour permettre la prédiction des problèmes les plus susceptibles de se produire dans le futur.
 
 La question ici est : « Quelles actions de maintenance recommandez-vous après une défaillance ? » Pour répondre à cette question, l’étiquetage _ne nécessite pas de choisir un horizon futur_, car le modèle ne prédit pas de défaillance dans le futur. Il prédit simplement la cause racine la plus vraisemblable _une fois que la défaillance est déjà survenue_.
 
@@ -318,7 +318,7 @@ Le modèle final peut être généré en formant un algorithme d’apprentissage
 ### <a name="testing-for-model-performance"></a>Test des performances du modèle
 Une fois qu’un modèle est créé, une estimation de ses performances futures sur de nouvelles données est requise. Une bonne estimation est une mesure de la performance des valeurs d’hyperparamètres calculées sur le jeu de validation ou une mesure de la performance moyenne calculée à partir de la validation croisée. Ces estimations sont souvent trop optimistes. L’entreprise peut souvent bénéficier de conseils supplémentaires sur la façon de tester le modèle.
 
-La méthode recommandée pour la PdM consiste à fractionner les exemples en jeux de données d’apprentissage, de validation et de test _temporels_.  Tous les exemples de test doivent être postérieurs à tous les exemples d’apprentissage et de validation. Après le fractionnement, générez le modèle et mesurez ses performances, comme décrit précédemment.
+La méthode recommandée pour la PdM consiste à fractionner les exemples en jeux de données d’apprentissage, de validation et de test _temporels_. Tous les exemples de test doivent être postérieurs à tous les exemples d’apprentissage et de validation. Après le fractionnement, générez le modèle et mesurez ses performances, comme décrit précédemment.
 
 Quand les séries chronologiques sont fixes et faciles à prédire, les deux approches (aléatoire et temporelle) génèrent des estimations similaires des performances futures. Cependant, quand les séries chronologiques ne sont pas fixes et/ou sont difficiles à prédire, l’approche temporelle va générer une estimation plus réaliste des performances futures.
 
@@ -414,8 +414,8 @@ La dernière section de ce guide fournit une liste de modèles de solutions de P
 | 2 | [Échantillon de solution de maintenance prédictive Azure](https://github.com/Azure/AI-PredictiveMaintenance) | Un modèle de solution open source qui illustre la modélisation ML et une infrastructure Azure complète pouvant prendre en charge des scénarios de maintenance prédictive dans le contexte de la surveillance à distance IoT. |
 | 3 | [Apprentissage profond pour la maintenance prédictive](https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance) | Azure Notebook avec une solution de démonstration de l’utilisation des réseaux LSTM (Long Short-Term Memory) (une classe de réseaux de neurones récurrents) pour une maintenance prédictive, avec un [billet de blog sur cet échantillon](https://azure.microsoft.com/blog/deep-learning-for-predictive-maintenance).|
 | 4 | [Guide de modélisation de maintenance prédictive dans R](https://gallery.azure.ai/Notebook/Predictive-Maintenance-Modelling-Guide-R-Notebook-1) | Guide de modélisation de PdM avec scripts dans R.|
-| 5. | [Maintenance prédictive Azure pour l’aérospatiale](https://gallery.azure.ai/Solution/Predictive-Maintenance-for-Aerospace-1) | Un des premiers modèles de solution de PdM basés sur Azure ML v1.0 pour la maintenance des avions. Ce guide résulte de ce projet. |
-| 6. | [Kit d’outils d’IA Azure pour IoT Edge](https://github.com/Azure/ai-toolkit-iot-edge) | IA dans IoT Edge à l’aide de TensorFlow ; le kit d’outils réunit des modèles d’apprentissage profond dans des conteneurs Docker compatibles Edge et les présente sous forme d’API REST.
+| 5\. | [Maintenance prédictive Azure pour l’aérospatiale](https://gallery.azure.ai/Solution/Predictive-Maintenance-for-Aerospace-1) | Un des premiers modèles de solution de PdM basés sur Azure ML v1.0 pour la maintenance des avions. Ce guide résulte de ce projet. |
+| 6\. | [Kit d’outils d’IA Azure pour IoT Edge](https://github.com/Azure/ai-toolkit-iot-edge) | IA dans IoT Edge à l’aide de TensorFlow ; le kit d’outils réunit des modèles d’apprentissage profond dans des conteneurs Docker compatibles Edge et les présente sous forme d’API REST.
 | 7 | [Microsoft Azure IoT – Maintenance prédictive](https://github.com/Azure/azure-iot-predictive-maintenance) | Azure IoT Suite PCS – Solution préconfigurée Modèle de PdM d’avions avec IoT Suite. [Un autre document](https://docs.microsoft.com/azure/iot-suite/iot-suite-predictive-overview) et [une procédure pas à pas](https://docs.microsoft.com/azure/iot-suite/iot-suite-predictive-walkthrough) associés au même projet. |
 | 8 | [Modèle de maintenance prédictive avec les services SQL Server R](https://gallery.azure.ai/Tutorial/Predictive-Maintenance-Template-with-SQL-Server-R-Services-1) | Démonstration du scénario de durée de vie utile résiduelle basée sur les services de R. |
 | 9 | [Guide de modélisation de maintenance prédictive](https://gallery.azure.ai/Collection/Predictive-Maintenance-Modelling-Guide-1) | Caractéristique de jeu de données de maintenance d’avions conçue à l’aide de R avec [expériences](https://gallery.azure.ai/Experiment/Predictive-Maintenance-Modelling-Guide-Experiment-1) et [jeux de données](https://gallery.azure.ai/Experiment/Predictive-Maintenance-Modelling-Guide-Data-Sets-1) et [bloc-notes Azure](https://gallery.azure.ai/Notebook/Predictive-Maintenance-Modelling-Guide-R-Notebook-1) et [expériences](https://gallery.azure.ai/Experiment/Predictive-Maintenance-Step-1-of-3-data-preparation-and-feature-engineering-2)dans AzureML v1.0|
@@ -428,11 +428,11 @@ En plus du contenu et de formations sur les concepts généraux et la mise en pr
 |:-------------------|--------------|
 | [Parcours d’apprentissage pour la maintenance prédictive avec des arborescences et des forêts aléatoires](https://aischool.microsoft.com/learning-paths/1H5vH5wAYcAy88CoQWQcA8) | Public | 
 | [Parcours d’apprentissage pour la maintenance prédictive avec l’apprentissage profond (deep learning)](https://aischool.microsoft.com/learning-paths/FSIXxYkOGcauo0eUO8qAS) | Public |
-| [Développeur d’IA sur Azure](https://azure.microsoft.com/training/learning-paths/azure-ai-developer)  | Public |
-| [Microsoft AI School](https://aischool.microsoft.com/learning-paths)  | Public |
+| [Développeur d’IA sur Azure](https://azure.microsoft.com/training/learning-paths/azure-ai-developer) | Public |
+| [Microsoft AI School](https://aischool.microsoft.com/learning-paths) | Public |
 | [Apprentissage AI Azure à partir de GitHub](https://github.com/Azure/connectthedots/blob/master/readme.md) | Public |
 | [LinkedIn Learning](https://www.linkedin.com/learning) | Public |
-| [Séminaires en ligne Microsoft AI YouTube](https://www.youtube.com/watch?v=NvrH7_KKzoM&t=4s) | Public |
+| [Webinaires Microsoft AI sur YouTube](https://www.youtube.com/watch?v=NvrH7_KKzoM&t=4s) | Public |
 | [Présentation de Microsoft AI](https://channel9.msdn.com/Shows/AI-Show) | Public |
 | [LearnAI@MS](https://learnanalytics.microsoft.com) | Partenaires |
 | [Microsoft Partner Network](https://learningportal.microsoft.com) | Partenaires |

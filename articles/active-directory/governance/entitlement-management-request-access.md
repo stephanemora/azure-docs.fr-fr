@@ -1,6 +1,6 @@
 ---
-title: Demander l’accès à un package d’accès dans la gestion des droits Azure AD (version préliminaire) - Azure Active Directory
-description: Découvrez comment utiliser le portail de mon accès pour demander l’accès à un package d’accès dans la gestion des droits Azure Active Directory (version préliminaire).
+title: Demander l’accès à un package d’accès dans la gestion des droits d’utilisation de Azure Active Directory (préversion) - Azure Active Directory
+description: Découvrez comment utiliser le portail Mon Accès pour demander l’accès à un package d’accès pour la gestion des droits d’utilisation de Azure Active Directory (préversion).
 services: active-directory
 documentationCenter: ''
 author: rolyon
@@ -17,84 +17,84 @@ ms.author: rolyon
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 39a50240b4360c5b4adcd6020c2b80b0f06315f7
-ms.sourcegitcommit: 9ad75f83bbf0fc4623b7995794f33bbf823b31c0
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/26/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64541554"
 ---
-# <a name="request-access-to-an-access-package-in-azure-ad-entitlement-management-preview"></a>Demander l’accès à un package d’accès dans la gestion des droits Azure AD (version préliminaire)
+# <a name="request-access-to-an-access-package-in-azure-ad-entitlement-management-preview"></a>Demander l’accès à un package d’accès dans la gestion des droits d’utilisation de Azure Active Directory (préversion)
 
 > [!IMPORTANT]
-> Gestion des habilitations Azure Active Directory (Azure AD) est actuellement en version préliminaire publique.
+> La gestion des droits d’utilisation Azure Active Directory (Azure AD) est actuellement en préversion publique.
 > Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
 > Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="sign-in-to-the-my-access-portal"></a>Connectez-vous au portail mon accès
+## <a name="sign-in-to-the-my-access-portal"></a>Se connecter au portail Mon Accès
 
-La première étape consiste à se connecter au portail mon accès où vous pouvez demander l’accès à un package d’accès.
+La première étape consiste à se connecter au portail Mon Accès à partir duquel vous pouvez demander l’accès à un package d’accès.
 
-**Rôle :** Demandeur
+**Rôle prérequis :** Demandeur
 
-1. Recherchez un message électronique ou un message à partir du Gestionnaire de projet ou d’entreprise que vous travaillez avec. L’e-mail doit inclure un lien vers le package d’accès que vous devrez accéder à. Le lien commence par :
+1. Recherchez un e-mail ou un message de la part du chef de projet ou du directeur commercial avec lequel vous travaillez. L’e-mail doit inclure un lien vers le package d’accès auquel vous devrez accéder. Le lien commence par :
 
     `https://myaccess.microsoft.com`
 
 1. Ouvrez le lien.
 
-1. Connectez-vous au portail mon accès.
+1. Connectez-vous au portail Mon Accès.
 
-    Veillez à qu'utiliser votre compte professionnel. Si vous le savez pas, vérifiez auprès de votre responsable de projet ou d’entreprise.
+    Assurez-vous de bien utiliser le compte de votre entreprise. Si vous n’en êtes pas sûr, vérifiez auprès de votre chef de projet ou de votre directeur commercial.
 
-## <a name="request-an-access-package"></a>Demander un accès package
+## <a name="request-an-access-package"></a>Demander un package d’accès
 
-Une fois que vous avez trouvé le package de l’accès dans le portail mon accès, vous pouvez soumettre une demande.
+Une fois que vous avez trouvé le package d’accès dans le portail Mon Accès, vous pouvez soumettre une demande.
 
-**Rôle :** Demandeur
+**Rôle prérequis :** Demandeur
 
-1. Cliquez sur la coche pour sélectionner le package de l’accès.
+1. Cochez la case pour sélectionner le package d’accès.
 
-    ![Mon portail d’accès - packages Access](./media/entitlement-management-shared/my-access-access-packages.png)
+    ![Portail Mon Accès - Packages d’accès](./media/entitlement-management-shared/my-access-access-packages.png)
 
-1. Cliquez sur **demander l’accès** pour ouvrir le volet d’accès de requête.
+1. Cliquez sur **Demander l’accès** pour ouvrir le volet Demander l’accès.
 
-1. Si le **justification professionnelle** s’affiche, fournissez une justification pour avoir accès.
+1. Si la case **Justification métier** s’affiche, fournissez une justification pour obtenir l’accès.
 
-1. Si **demande pendant une période spécifique ?** est activé, sélectionnez **Oui** ou **non**.
+1. Si la case **Demander pendant une période spécifique ?** est activée, sélectionnez **Oui** ou **Non**.
 
-1. Si nécessaire, spécifiez la date de début et date de fin.
+1. Si nécessaire, spécifiez la date de début et la date de fin.
 
-    ![Mon portail d’accès - demander l’accès](./media/entitlement-management-shared/my-access-request-access.png)
+    ![Portail Mon Accès - Demander l’accès](./media/entitlement-management-shared/my-access-request-access.png)
 
-1. Lorsque vous avez terminé, cliquez sur **Submit** pour envoyer votre demande.
+1. Lorsque vous avez terminé, cliquez sur **Envoyer** pour envoyer votre demande.
 
-1. Cliquez sur **historique des demandes** pour afficher la liste de vos demandes et l’état.
+1. Cliquez sur **Historique des demandes** pour afficher la liste de vos demandes et leur état.
 
-    Si le package de l’accès nécessite une approbation, la demande est désormais dans un état en attente d’approbation.
+    Si le package d’accès nécessite une approbation, l’état de la demande est désormais en attente d’approbation.
 
 ## <a name="cancel-a-request"></a>Annuler une demande
 
-Si vous envoyez une demande d’accès et de la demande est toujours dans le **en attente d’approbation** d’état, vous pouvez annuler la demande.
+Si vous envoyez une demande d’accès et que l’état de la demande est toujours **En attente d’approbation**, vous pouvez annuler la demande.
 
-**Rôle :** Demandeur
+**Rôle prérequis :** Demandeur
 
-1. Dans le portail mon accès, sur la gauche, cliquez sur **historique des demandes** pour afficher la liste de vos demandes et l’état.
+1. Dans le portail Mon Accès, cliquez sur **Historique des demandes**, sur la gauche, pour afficher la liste de vos demandes et leur état.
 
-1. Cliquez sur le **vue** lien pour la demande que vous souhaitez annuler.
+1. Cliquez sur le lien **Affichage** pour la demande que vous souhaitez annuler.
 
-1. Si la demande est toujours dans le **en attente d’approbation** d’état, vous pouvez cliquer sur **demande d’annulation** pour annuler la demande.
+1. Si l’état de la demande est toujours **En attente d’approbation**, vous pouvez cliquer sur **Annuler la demande** pour annuler la demande.
 
-    ![Mon portail d’accès - demande d’annulation](./media/entitlement-management-request-access/my-access-cancel-request.png)
+    ![Portail Mon Accès - Annuler la demande](./media/entitlement-management-request-access/my-access-cancel-request.png)
 
-1. Cliquez sur **historique des demandes** pour confirmer la demande a été annulée.
+1. Cliquez sur **Historique des demandes** pour confirmer que la demande a bien été annulée.
 
 ## <a name="select-a-policy"></a>Sélectionner une stratégie
 
-Si vous demandent d’accéder à un package d’accès qui a plusieurs stratégies qui s’appliquent, vous devrez peut-être sélectionner une stratégie. Par exemple, un gestionnaire de package d’accès peut configurer un package d’accès avec les deux stratégies pour les deux groupes d’employés internes. La première stratégie peut autoriser l’accès pendant 60 jours et nécessiter une approbation. La deuxième stratégie peut autoriser l’accès à 2 jours et ne nécessitent pas d’approbation. Si vous rencontrez ce scénario, vous devez sélectionner la stratégie que vous souhaitez utiliser.
+Si vous demandez l’accès à un package d’accès qui contient plusieurs stratégies qui s’appliquent, vous devrez peut-être sélectionner une stratégie. Par exemple, un gestionnaire de package d’accès peut configurer un package d’accès avec deux stratégies pour deux groupes d’employés internes. La première stratégie peut autoriser l’accès pendant 60 jours et nécessiter une approbation. La deuxième stratégie peut autoriser l’accès pendant 2 jours et ne nécessiter aucune approbation. Si vous rencontrez ce scénario, vous devez sélectionner la stratégie que vous souhaitez utiliser.
 
-**Rôle :** Demandeur
+**Rôle prérequis :** Demandeur
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Approuver ou refuser les demandes d’accès](entitlement-management-request-approve.md)
-- [Demande de processus et les notifications électroniques](entitlement-management-process.md)
+- [Processus de demande et notifications par e-mail](entitlement-management-process.md)

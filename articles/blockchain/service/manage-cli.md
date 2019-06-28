@@ -1,6 +1,6 @@
 ---
-title: Gérer Azure Blockchain Service à l’aide d’Azure CLI
-description: Comment créer et gérer Azure Blockchain Service avec Azure CLI
+title: Gérer une instance Azure Blockchain Service à l’aide d’Azure CLI
+description: Guide pratique pour créer et gérer une instance Azure Blockchain Service avec Azure CLI
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
@@ -11,23 +11,23 @@ ms.service: azure-blockchain
 ms.reviewer: seal
 manager: femila
 ms.openlocfilehash: d078ca181b2eed4b80d4f12f1c03b42f4e242194
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65154452"
 ---
-# <a name="manage-azure-blockchain-service-with-azure-cli"></a>Gérer Azure Service Blockchain avec Azure CLI
+# <a name="manage-azure-blockchain-service-with-azure-cli"></a>Gérer une instance Azure Blockchain Service avec Azure CLI
 
-Outre le portail Azure, vous pouvez utiliser Azure CLI pour créer et gérer les membres de la fonctionnalité « blockchain » et les nœuds de transaction pour votre Service de Blockchain Azure rapidement.
+En plus du portail Azure, vous pouvez utiliser Azure CLI pour créer et gérer rapidement les membres blockchain et les nœuds de transaction pour votre service Azure Blockchain.
 
-Assurez-vous que vous avez installé la dernière version [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) et d’être connecté à un compte Azure avec `az login`.
+Vérifiez que vous avez installé la dernière version [d’Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) et que vous êtes connecté à un compte Azure avec `az login`.
 
-Dans les exemples suivants, remplacez l’exemple `<parameter names>` avec vos propres valeurs.
+Dans les exemples suivants, remplacez l’exemple `<parameter names>` par vos propres valeurs.
 
-## <a name="create-blockchain-member"></a>Créer des membres de la blockchain
+## <a name="create-blockchain-member"></a>Créer un membre blockchain
 
-Exemple crée un membre de la fonctionnalité « blockchain » dans Azure Blockchain Service qui exécute le protocole de comptabilité de Quorum dans un consortium de nouveau.
+Dans Azure Blockchain Service, l’exemple crée un membre blockchain qui exécute le protocole de registre Quorum dans un nouveau consortium.
 
 ```azurecli
 az resource create --resource-group <myResourceGroup> --name <myMemberName> --resource-type Microsoft.Blockchain/blockchainMembers --is-full-object --properties "{ \"location\": \"<myBlockchainLocation>\", \"properties\": {\"password\": \"<myStrongPassword>\", \"protocol\": \"Quorum\", \"consortium\": \"<myConsortiumName>\", \"consortiumManagementAccountPassword\": \"<myConsortiumManagementAccountPassword>\", \"firewallRules\": [ { \"ruleName\": \"<myRuleName>\", \"startIpAddress\": \"<myStartIpAddress>\", \"endIpAddress\": \"<myEndIpAddress>\" } ] }, \"sku\": { \"name\": \"<skuName>\" } }"
@@ -35,35 +35,35 @@ az resource create --resource-group <myResourceGroup> --name <myMemberName> --re
 
 | Paramètre | Description |
 |---------|-------------|
-| **resource-group** | Nom du groupe de ressources dans lequel les ressources de Service de Blockchain Azure sont créées. |
-| **name** | Un nom unique qui identifie le membre de votre blockchain Azure Blockchain Service. Le nom est utilisé pour l’adresse de point de terminaison public. Par exemple : `myblockchainmember.blockchain.azure.com`. |
-| **location** | Région Azure où le membre blockchain est créé. Par exemple : `eastus`. Choisissez l’emplacement le plus proche de vos utilisateurs ou de vos autres applications Azure. |
-| **mot de passe** | Le mot de passe du compte de membre. Le mot de passe de compte de membre est utilisé pour s’authentifier sur le point de terminaison public du membre blockchain à l’aide de l’authentification de base. Le mot de passe doit répondre aux trois des quatre conditions suivantes : longueur doit être comprise entre 12 et 72 caractères, 1 caractère minuscule, 1 caractère majuscule, 1 chiffre et 1 caractère spécial est sign(#) pas au nombre, pourcentage (%), virgule (,), star(*), guillemet arrière (\`), double-cliquez quote("), quote(') unique, dash(-) et semicolumn(;)|
-| **protocol** | Version préliminaire publique prend en charge le Quorum. |
+| **resource-group** | Nom du groupe de ressources dans lequel les ressources Azure Blockchain Service sont créées. |
+| **name** | Nom unique qui identifie le membre blockchain Azure Blockchain Service. Le nom est utilisé pour l’adresse de point de terminaison public. Par exemple : `myblockchainmember.blockchain.azure.com`. |
+| **location** | Région Azure dans laquelle le membre blockchain est créé. Par exemple : `eastus`. Choisissez l’emplacement le plus proche de vos utilisateurs ou de vos autres applications Azure. |
+| **mot de passe** | Mot de passe du compte du membre. Le mot de passe du compte du membre est utilisé pour s’authentifier auprès du point de terminaison public du membre blockchain à l’aide de l’authentification de base. Le mot de passe doit remplir trois des quatre conditions suivantes : il doit comprendre entre 12 et 72 caractères, 1 caractère minuscule, 1 caractère majuscule, 1 chiffre et 1 caractère spécial qui ne soit pas le signe dièze (#), le symbole de pourcentage (%), une virgule (,), une étoile (*), un guillemet inverse (\`), un guillemet double ("), un guillemet unique ('), un tiret (-) ou un point-virgule (;)|
+| **protocol** | La préversion publique prend en charge Quorum. |
 | **consortium** | Nom du consortium à rejoindre ou créer. |
-| **consortiumManagementAccountPassword** | Le mot de passe d’administration de consortium. Le mot de passe est utilisé pour joindre un consortium. |
-| **ruleName** | Nom de la règle de mise en liste verte une plage d’adresses IP. Paramètre facultatif pour les règles de pare-feu.|
+| **consortiumManagementAccountPassword** | Mot de passe d’administration du consortium. Le mot de passe est utilisé pour rejoindre un consortium. |
+| **ruleName** | Nom de la règle de mise en liste verte d'une plage d'adresses IP. Paramètre facultatif pour les règles de pare-feu.|
 | **startIpAddress** | Début de la plage d’adresses IP pour la mise en liste verte. Paramètre facultatif pour les règles de pare-feu. |
 | **endIpAddress** | Fin de la plage d’adresses IP pour la mise en liste verte. Paramètre facultatif pour les règles de pare-feu. |
-| **skuName** | Type de la couche. Utilisez S0 Standard et B0 pour Basic. |
+| **skuName** | Niveau de service. Utilisez S0 pour Standard et B0 pour De base. |
 
-## <a name="change-blockchain-member-password"></a>Mot de passe de modification blockchain membre
+## <a name="change-blockchain-member-password"></a>Modifier le mot de passe du membre blockchain
 
-Exemple modifie le mot de passe d’un membre de blockchain.
+L’exemple modifie le mot de passe d’un membre blockchain.
 
 ```azurecli
 az resource update --resource-group <myResourceGroup> --name <myMemberName> --resource-type Microsoft.Blockchain/blockchainMembers --set properties.password="<myStrongPassword>" --remove properties.consortiumManagementAccountAddress
 ```
 | Paramètre | Description |
 |---------|-------------|
-| **resource-group** | Nom du groupe de ressources dans lequel les ressources de Service de Blockchain Azure sont créées. |
+| **resource-group** | Nom du groupe de ressources dans lequel les ressources Azure Blockchain Service sont créées. |
 | **name** | Nom qui identifie votre membre Azure Blockchain Service. |
-| **mot de passe** | Le mot de passe du compte de membre. Le mot de passe doit répondre aux trois des quatre conditions suivantes : longueur doit être comprise entre 12 et 72 caractères, 1 caractère minuscule, 1 caractère majuscule, 1 chiffre et 1 caractère spécial est sign(#) pas au nombre, pourcentage (%), virgule (,), star(*), guillemet arrière (\`), double-cliquez quote(") quote(') unique, dash(-) et le point-virgule ( ;). |
+| **mot de passe** | Mot de passe du compte du membre. Le mot de passe doit remplir trois des quatre conditions suivantes : il doit comprendre entre 12 et 72 caractères, 1 caractère minuscule, 1 caractère majuscule, 1 chiffre et 1 caractère spécial qui ne soit pas le signe dièze (#), le symbole de pourcentage (%), une virgule (,), une étoile (*), un guillemet inverse (\`), un guillemet double ("), un guillemet unique ('), un tiret (-) ou un point-virgule (;). |
 
 
-## <a name="create-transaction-node"></a>Créer le nœud de la transaction
+## <a name="create-transaction-node"></a>Créer un nœud de transaction
 
-Créer un nœud de transactions à l’intérieur d’un membre existant de la fonctionnalité « blockchain ». En ajoutant des nœuds de la transaction, vous pouvez augmenter l’isolation de sécurité et répartir la charge. Par exemple, vous pourriez avoir un point de terminaison du nœud de transaction pour différentes applications clientes.
+Créez un nœud de transaction à l'intérieur d'un membre blockchain existant. L’ajout de nœuds de transaction vous permet d’augmenter l’isolation à des fins de sécurité et de répartir la charge. Par exemple, vous pouvez disposer d’un point de terminaison de nœud de transaction pour différentes applications clientes.
 
 ```azurecli
 az resource create --resource-group <myResourceGroup> --name <myMemberName>/transactionNodes/<myTransactionNode> --resource-type Microsoft.Blockchain/blockchainMembers  --is-full-object --properties "{ \"location\": \"<myRegion>\", \"properties\": { \"password\": \"<myStrongPassword>\", \"firewallRules\": [ { \"ruleName\": \"<myRuleName>\", \"startIpAddress\": \"<myStartIpAddress>\", \"endIpAddress\": \"<myEndIpAddress>\" } ] } }"
@@ -71,17 +71,17 @@ az resource create --resource-group <myResourceGroup> --name <myMemberName>/tran
 
 | Paramètre | Description |
 |---------|-------------|
-| **resource-group** | Nom du groupe de ressources dans lequel les ressources de Service de Blockchain Azure sont créées. |
-| **name** | Nom du membre blockchain Azure Blockchain Service qui inclut également le nouveau nom de nœud de transaction. |
-| **location** | Région Azure où le membre blockchain est créé. Par exemple : `eastus`. Choisissez l’emplacement le plus proche de vos utilisateurs ou de vos autres applications Azure. |
-| **mot de passe** | Le mot de passe du nœud de transaction. Le mot de passe doit répondre aux trois des quatre conditions suivantes : longueur doit être comprise entre 12 et 72 caractères, 1 caractère minuscule, 1 caractère majuscule, 1 chiffre et 1 caractère spécial est sign(#) pas au nombre, pourcentage (%), virgule (,), star(*), guillemet arrière (\`), double-cliquez quote(") quote(') unique, dash(-) et le point-virgule ( ;). |
-| **ruleName** | Nom de la règle de mise en liste verte une plage d’adresses IP. Paramètre facultatif pour les règles de pare-feu. |
+| **resource-group** | Nom du groupe de ressources dans lequel les ressources Azure Blockchain Service sont créées. |
+| **name** | Nom du membre Azure Blockchain Service qui inclut également le nom du nouveau nœud de transaction. |
+| **location** | Région Azure dans laquelle le membre blockchain est créé. Par exemple : `eastus`. Choisissez l’emplacement le plus proche de vos utilisateurs ou de vos autres applications Azure. |
+| **mot de passe** | Le mot de passe du nœud de transaction. Le mot de passe doit remplir trois des quatre conditions suivantes : il doit comprendre entre 12 et 72 caractères, 1 caractère minuscule, 1 caractère majuscule, 1 chiffre et 1 caractère spécial qui ne soit pas le signe dièze (#), le symbole de pourcentage (%), une virgule (,), une étoile (*), un guillemet inverse (\`), un guillemet double ("), un guillemet unique ('), un tiret (-) ou un point-virgule (;). |
+| **ruleName** | Nom de la règle de mise en liste verte d'une plage d'adresses IP. Paramètre facultatif pour les règles de pare-feu. |
 | **startIpAddress** | Début de la plage d’adresses IP pour la mise en liste verte. Paramètre facultatif pour les règles de pare-feu. |
 | **endIpAddress** | Fin de la plage d’adresses IP pour la mise en liste verte. Paramètre facultatif pour les règles de pare-feu.|
 
-## <a name="change-transaction-node-password"></a>Mot de passe de modification transaction nœud
+## <a name="change-transaction-node-password"></a>Modifier le mot de passe du nœud de transaction
 
-Exemple modifie un mot de passe de nœud de transaction.
+L’exemple modifie le mot de passe du nœud de transaction.
 
 ```azurecli
 az resource update --resource-group <myResourceGroup> --name <myMemberName>/transactionNodes/<myTransactionNode> --resource-type Microsoft.Blockchain/blockchainMembers  --set properties.password="<myStrongPassword>"
@@ -90,12 +90,12 @@ az resource update --resource-group <myResourceGroup> --name <myMemberName>/tran
 | Paramètre | Description |
 |---------|-------------|
 | **resource-group** | Nom du groupe de ressources dans lequel les ressources Azure Blockchain Service existent. |
-| **name** | Nom du membre blockchain Azure Blockchain Service qui inclut également le nouveau nom de nœud de transaction. |
-| **mot de passe** | Le mot de passe du nœud de transaction. Le mot de passe doit répondre aux trois des quatre conditions suivantes : longueur doit être comprise entre 12 et 72 caractères, 1 caractère minuscule, 1 caractère majuscule, 1 chiffre et 1 caractère spécial est sign(#) pas au nombre, pourcentage (%), virgule (,), star(*), guillemet arrière (\`), double-cliquez quote(") quote(') unique, dash(-) et le point-virgule ( ;). |
+| **name** | Nom du membre Azure Blockchain Service qui inclut également le nom du nouveau nœud de transaction. |
+| **mot de passe** | Le mot de passe du nœud de transaction. Le mot de passe doit remplir trois des quatre conditions suivantes : il doit comprendre entre 12 et 72 caractères, 1 caractère minuscule, 1 caractère majuscule, 1 chiffre et 1 caractère spécial qui ne soit pas le signe dièze (#), le symbole de pourcentage (%), une virgule (,), une étoile (*), un guillemet inverse (\`), un guillemet double ("), un guillemet unique ('), un tiret (-) ou un point-virgule (;). |
 
-## <a name="change-consortium-management-account-password"></a>Modification de mot de passe consortium gestion compte
+## <a name="change-consortium-management-account-password"></a>Modifier le mot de passe du compte de gestion de consortium
 
-Le compte de gestion consortium est utilisé pour la gestion des appartenances consortium. Chaque membre est identifiée uniquement par un compte de gestion du consortium et vous pouvez modifier le mot de passe de ce compte avec la commande suivante.
+Le compte de gestion de consortium est utilisé pour la gestion des appartenances au consortium. Chaque membre est identifié de manière unique par un compte de gestion de consortium, et vous pouvez modifier le mot de passe de ce compte avec la commande suivante.
 
 ```azurecli
 az resource update --resource-group <myResourceGroup> --name <myMemberName> --resource-type Microsoft.Blockchain/blockchainMembers --set properties.consortiumManagementAccountPassword="<myConsortiumManagementAccountPassword>" --remove properties.consortiumManagementAccountAddress
@@ -103,11 +103,11 @@ az resource update --resource-group <myResourceGroup> --name <myMemberName> --re
 
 | Paramètre | Description |
 |---------|-------------|
-| **resource-group** | Nom du groupe de ressources dans lequel les ressources de Service de Blockchain Azure sont créées. |
+| **resource-group** | Nom du groupe de ressources dans lequel les ressources Azure Blockchain Service sont créées. |
 | **name** | Nom qui identifie votre membre Azure Blockchain Service. |
-| **consortiumManagementAccountPassword** | Mot de passe du compte de gestion consortium. Le mot de passe doit répondre aux trois des quatre conditions suivantes : longueur doit être comprise entre 12 et 72 caractères, 1 caractère minuscule, 1 caractère majuscule, 1 chiffre et 1 caractère spécial est sign(#) pas au nombre, pourcentage (%), virgule (,), star(*), guillemet arrière (\`), double-cliquez quote(") quote(') unique, dash(-) et le point-virgule ( ;). |
+| **consortiumManagementAccountPassword** | Le mot de passe du compte de gestion de consortium. Le mot de passe doit remplir trois des quatre conditions suivantes : il doit comprendre entre 12 et 72 caractères, 1 caractère minuscule, 1 caractère majuscule, 1 chiffre et 1 caractère spécial qui ne soit pas le signe dièze (#), le symbole de pourcentage (%), une virgule (,), une étoile (*), un guillemet inverse (\`), un guillemet double ("), un guillemet unique ('), un tiret (-) ou un point-virgule (;). |
   
-## <a name="update-firewall-rules"></a>Mettre à jour des règles de pare-feu
+## <a name="update-firewall-rules"></a>Mettre à jour les règles de pare-feu
 
 ```azurecli
 az resource update --resource-group <myResourceGroup> --name <myMemberName> --resource-type Microsoft.Blockchain/blockchainMembers --set properties.firewallRules="[ { \"ruleName\": \"<myRuleName>\", \"startIpAddress\": \"<myStartIpAddress>\", \"endIpAddress\": \"<myEndIpAddress>\" } ]" --remove properties.consortiumManagementAccountAddress
@@ -116,14 +116,14 @@ az resource update --resource-group <myResourceGroup> --name <myMemberName> --re
 | Paramètre | Description |
 |---------|-------------|
 | **resource-group** | Nom du groupe de ressources dans lequel les ressources Azure Blockchain Service existent. |
-| **name** | Nom du membre de blockchain Azure Blockchain Service. |
-| **ruleName** | Nom de la règle de mise en liste verte une plage d’adresses IP. Paramètre facultatif pour les règles de pare-feu.|
+| **name** | Nom du membre Azure Blockchain Service. |
+| **ruleName** | Nom de la règle de mise en liste verte d'une plage d'adresses IP. Paramètre facultatif pour les règles de pare-feu.|
 | **startIpAddress** | Début de la plage d’adresses IP pour la mise en liste verte. Paramètre facultatif pour les règles de pare-feu.|
 | **endIpAddress** | Fin de la plage d’adresses IP pour la mise en liste verte. Paramètre facultatif pour les règles de pare-feu.|
 
-## <a name="list-api-keys"></a>Clés de l’API de liste
+## <a name="list-api-keys"></a>Répertorier les clés API
 
-Clés de l’API peuvent être utilisées pour l’accès de nœud similaire au nom d’utilisateur et mot de passe. Il existe deux clés d’API pour prendre en charge de la rotation des clés. Utilisez la commande suivante pour répertorier vos clés API.
+Les clés API peuvent être utilisées pour l'accès au nœud comme avec le nom d'utilisateur et le mot de passe. Il existe deux clés API pour prendre en charge la rotation des clés. Utilisez la commande suivante pour répertorier vos clés API.
 
 ```azurecli
 az resource invoke-action --resource-group <myResourceGroup> --name <myMemberName>/transactionNodes/<myTransactionNode> --action "listApiKeys" --resource-type Microsoft.Blockchain/blockchainMembers
@@ -132,9 +132,9 @@ az resource invoke-action --resource-group <myResourceGroup> --name <myMemberNam
 | Paramètre | Description |
 |---------|-------------|
 | **resource-group** | Nom du groupe de ressources dans lequel les ressources Azure Blockchain Service existent. |
-| **name** | Nom du membre blockchain Azure Blockchain Service qui inclut également le nouveau nom de nœud de transaction. |
+| **name** | Nom du membre Azure Blockchain Service qui inclut également le nom du nouveau nœud de transaction. |
 
-## <a name="regenerate-api-keys"></a>Régénère les clés API
+## <a name="regenerate-api-keys"></a>Régénérer les clés API
 
 Utilisez la commande suivante pour régénérer vos clés API.
 
@@ -146,12 +146,12 @@ az resource invoke-action --resource-group <myResourceGroup> --name <myMemberNam
 | Paramètre | Description |
 |---------|-------------|
 | **resource-group** | Nom du groupe de ressources dans lequel les ressources Azure Blockchain Service existent. |
-| **name** | Nom du membre blockchain Azure Blockchain Service qui inclut également le nouveau nom de nœud de transaction. |
-| **keyName** | Remplacez \<keyValue\> avec key1 ou key2. |
+| **name** | Nom du membre Azure Blockchain Service qui inclut également le nom du nouveau nœud de transaction. |
+| **keyName** | Remplacez \<keyValue\> par key1 ou key2. |
 
-## <a name="delete-a-transaction-node"></a>Supprimer un nœud de transactions
+## <a name="delete-a-transaction-node"></a>Supprimer un nœud de transaction
 
-Exemple supprime un nœud de transactions du membre blockchain.
+L’exemple supprime le nœud de transaction d’un membre blockchain.
 
 ```azurecli
 az resource delete --resource-group <myResourceGroup> --name <myMemberName>/transactionNodes/<myTransactionNode> --resource-type Microsoft.Blockchain/blockchainMembers
@@ -160,11 +160,11 @@ az resource delete --resource-group <myResourceGroup> --name <myMemberName>/tran
 | Paramètre | Description |
 |---------|-------------|
 | **resource-group** | Nom du groupe de ressources dans lequel les ressources Azure Blockchain Service existent. |
-| **name** | Nom du membre blockchain Azure Blockchain Service qui inclut également le nouveau nom de nœud de transaction doit être supprimé. |
+| **name** | Nom du membre Azure Blockchain Service qui inclut également le nom du nouveau nœud de transaction à supprimer. |
 
-## <a name="delete-a-blockchain-member"></a>Supprimer un membre de la blockchain
+## <a name="delete-a-blockchain-member"></a>Supprimer un membre blockchain
 
-Exemple supprime un membre de la fonctionnalité « blockchain ».
+L’exemple supprime un membre blockchain.
 
 ```azurecli
 az resource delete --resource-group <myResourceGroup> --name <myMemberName> --resource-type Microsoft.Blockchain/blockchainMembers
@@ -173,11 +173,11 @@ az resource delete --resource-group <myResourceGroup> --name <myMemberName> --re
 | Paramètre | Description |
 |---------|-------------|
 | **resource-group** | Nom du groupe de ressources dans lequel les ressources Azure Blockchain Service existent. |
-| **name** | Nom du membre de blockchain Azure Blockchain Service à supprimer. |
+| **name** | Nom du membre Azure Blockchain Service à supprimer. |
 
 ## <a name="azure-active-directory"></a>Azure Active Directory
 
-### <a name="grant-access-for-azure-ad-user"></a>Octroyer l’accès d’utilisateur Azure AD
+### <a name="grant-access-for-azure-ad-user"></a>Accorder l’accès à un utilisateur Azure AD
 
 ```azurecli
 az role assignment create --role <role> --assignee <assignee> --scope /subscriptions/<subId>/resourceGroups/<groupName>/providers/Microsoft.Blockchain/blockchainMembers/<myMemberName>
@@ -186,12 +186,12 @@ az role assignment create --role <role> --assignee <assignee> --scope /subscript
 | Paramètre | Description |
 |---------|-------------|
 | **role** | Nom du rôle Azure AD. |
-| **assignee** | ID d’utilisateur AD Azure. Par exemple, `user@contoso.com` |
-| **scope** | Portée de l’attribution de rôle. Peut être soit un membre de blockchain de nœud de la transaction. |
+| **assignee** | ID d'utilisateur Azure AD. Par exemple, `user@contoso.com` |
+| **scope** | Étendue de l’attribution de rôle. Peut être un membre blockchain du nœud de la transaction. |
 
 **Exemple :**
 
-Accorder l’accès au nœud pour l’utilisateur Azure AD à la blockchain **membre**:
+Accorder l’accès au nœud pour l’utilisateur Azure AD au **membre** blockchain :
 
 ```azurecli
 az role assignment create \
@@ -202,7 +202,7 @@ az role assignment create \
 
 **Exemple :**
 
-Accorder l’accès au nœud pour l’utilisateur Azure AD à la blockchain **nœud de transactions**:
+Accorder l’accès au nœud pour l’utilisateur Azure AD au **nœud de transaction** blockchain :
 
 ```azurecli
 az role assignment create \
@@ -211,7 +211,7 @@ az role assignment create \
   --scope /subscriptions/mySubscriptionId/resourceGroups/contosoResourceGroup/providers/Microsoft.Blockchain/blockchainMembers/contosoMember1/transactionNodes/contosoTransactionNode1
 ```
 
-### <a name="grant-node-access-for-azure-ad-group-or-application-role"></a>Accorder l’accès au nœud de groupe Azure AD ou application rôle
+### <a name="grant-node-access-for-azure-ad-group-or-application-role"></a>Accorder l’accès au nœud au groupe Azure AD ou au rôle d'application
 
 ```azurecli
 az role assignment create --role <role> --assignee-object-id <assignee_object_id>
@@ -219,12 +219,12 @@ az role assignment create --role <role> --assignee-object-id <assignee_object_id
 | Paramètre | Description |
 |---------|-------------|
 | **role** | Nom du rôle Azure AD. |
-| **assignee-object-id** | ID de groupe Azure AD ou application ID. |
-| **scope** | Portée de l’attribution de rôle. Peut être soit un membre de blockchain de nœud de la transaction. |
+| **assignee-object-id** | ID de groupe ou ID d’application Azure AD. |
+| **scope** | Étendue de l’attribution de rôle. Peut être un membre blockchain du nœud de la transaction. |
 
 **Exemple :**
 
-Accorder l’accès au nœud pour **rôle d’application**
+Accorder l’accès au nœud au **rôle d’application**
 
 ```azurecli
 az role assignment create \
@@ -233,7 +233,7 @@ az role assignment create \
   --scope /subscriptions/mySubscriptionId/resourceGroups/contosoResourceGroup/providers/Microsoft.Blockchain/blockchainMembers/contosoMember1
 ```
 
-### <a name="remove-azure-ad-node-access"></a>Supprimer l’accès de nœud d’Azure AD
+### <a name="remove-azure-ad-node-access"></a>Supprimer l’accès au nœud Azure AD
 
 ```azurecli
 az role assignment delete --role <myRole> --assignee <assignee> --scope /subscriptions/mySubscriptionId/resourceGroups/<myResourceGroup>/providers/Microsoft.Blockchain/blockchainMembers/<myMemberName>/transactionNodes/<myTransactionNode>
@@ -242,10 +242,10 @@ az role assignment delete --role <myRole> --assignee <assignee> --scope /subscri
 | Paramètre | Description |
 |---------|-------------|
 | **role** | Nom du rôle Azure AD. |
-| **assignee** | ID d’utilisateur AD Azure. Par exemple, `user@contoso.com` |
-| **scope** | Portée de l’attribution de rôle. Peut être soit un membre de blockchain de nœud de la transaction. |
+| **assignee** | ID d'utilisateur Azure AD. Par exemple, `user@contoso.com` |
+| **scope** | Étendue de l’attribution de rôle. Peut être un membre blockchain du nœud de la transaction. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Configurer les nœuds de transaction Azure Blockchain Service avec le portail Azure](configure-transaction-nodes.md)
+> [Configurer des nœuds de transaction Azure Blockchain Service avec le portail Azure](configure-transaction-nodes.md)

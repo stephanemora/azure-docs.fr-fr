@@ -1,6 +1,6 @@
 ---
-title: Configurez un partage de profil utilisateur pour un pool d’ordinateur hôte Windows Virtual Desktop Preview - Azure
-description: Comment configurer un conteneur de profil FSLogix pour un pool d’ordinateur hôte Windows Virtual Desktop Preview.
+title: Configurer un partage de profil utilisateur pour un pool hôte Windows Virtual Desktop Preview - Azure
+description: Explique comment configurer un conteneur de profils FSLogix pour un pool hôte Windows Virtual Desktop Preview.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,64 +8,64 @@ ms.topic: how-to
 ms.date: 04/05/2019
 ms.author: helohr
 ms.openlocfilehash: f6516e37107a16d80c4d9eb9514782bdbcc44184
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64925207"
 ---
 # <a name="set-up-a-user-profile-share-for-a-host-pool"></a>Configurer un partage de profil utilisateur pour un pool d’hôtes
 
-Le service de Windows Virtual Desktop Preview offre des conteneurs de profil FSLogix comme solution de profil utilisateur recommandée. Nous ne recommandons pas à l’aide de la solution de disque de profil utilisateur (UPD), qui sera déconseillée dans les futures versions de bureau virtuel Windows.
+Le service Windows Virtual Desktop Preview offre des conteneurs de profils FSLogix comme solution de profil utilisateur recommandée. Nous recommandons de ne pas utiliser la solution Disque de profil utilisateur (UPD), qui sera déconseillée dans les futures versions de Windows Virtual Desktop.
 
-Cette section vous indique comment configurer un partage de conteneur FSLogix profil pour un pool de l’hôte. Pour obtenir une documentation générale concernant FSLogix, consultez le [FSLogix site](https://docs.fslogix.com/).
+Cette section vous indique comment configurer un partage de conteneur de profils FSLogix pour un pool hôte. Pour obtenir une documentation générale concernant FSLogix, consultez le [site FSLogix](https://docs.fslogix.com/).
 
-## <a name="create-a-new-virtual-machine-that-will-act-as-a-file-share"></a>Créer une machine virtuelle qui agira comme un partage de fichiers
+## <a name="create-a-new-virtual-machine-that-will-act-as-a-file-share"></a>Créer une machine virtuelle qui fera office de partage de fichiers
 
-Lorsque vous créez la machine virtuelle, veillez à placer sur un même réseau virtuel que les machines virtuelles du pool hôte ou sur un réseau virtuel qui a une connectivité avec les machines virtuelles du pool hôte. Vous pouvez créer une machine virtuelle de plusieurs façons :
+Lorsque vous créez la machine virtuelle, veillez à la placer sur le même réseau virtuel que les machines virtuelles du pool hôte ou sur un réseau virtuel disposant d’une connectivité avec les machines virtuelles du pool hôte. Vous pouvez créer une machine virtuelle de plusieurs façons :
 
-- [Créer une machine virtuelle à partir d’une image de galerie Azure](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#create-virtual-machine)
+- [Créer une machine virtuelle à partir d’une image Azure Gallery](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#create-virtual-machine)
 - [Créer une machine virtuelle à partir d’une image managée](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-generalized-managed)
 - [Créer une machine virtuelle à partir d’une image non managée](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image)
 
-Après avoir créé la machine virtuelle, joignez-la au domaine en procédant comme suit :
+Après avoir créé la machine virtuelle, joignez-la au domaine en procédant comme suit :
 
-1. [Se connecter à la machine virtuelle](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine) avec les informations d’identification que vous avez fourni lors de la création de la machine virtuelle.
-2. Sur la machine virtuelle, lancez **le panneau de configuration** et sélectionnez **système**.
-3. Sélectionnez **nom de l’ordinateur**, sélectionnez **modifier les paramètres**, puis sélectionnez **modification...**
-4. Sélectionnez **domaine** , puis entrez le domaine Active Directory sur le réseau virtuel.
-5. S’authentifier avec un compte de domaine qui dispose de privilèges pour les machines de jonction de domaine.
+1. [Connectez-vous à la machine virtuelle](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine) avec les informations d’identification que vous avez indiquées lors de la création de la machine virtuelle.
+2. Sur la machine virtuelle, lancez le **Panneau de configuration** et sélectionnez **Système**.
+3. Sélectionnez successivement **Nom de l’ordinateur**, **Modifier les paramètres** et **Modifier...**
+4. Sélectionnez **Domaine**, puis entrez le domaine Active Directory sur le réseau virtuel.
+5. Authentifiez-vous avec un compte de domaine qui dispose de privilèges d’accès sur les machines de jonction de domaine.
 
-## <a name="prepare-the-virtual-machine-to-act-as-a-file-share-for-user-profiles"></a>Préparer la machine virtuelle d’agir comme un partage de fichiers pour les profils utilisateur
+## <a name="prepare-the-virtual-machine-to-act-as-a-file-share-for-user-profiles"></a>Préparer la machine virtuelle pour qu’elle serve de partage de fichiers pour les profils utilisateur
 
-Instructions générales sur la façon de préparer une machine virtuelle d’agir comme un partage de fichiers pour les profils utilisateur sont les suivantes :
+Vous trouverez ci-dessous des instructions générales sur la préparation d’une machine virtuelle pour qu’elle serve de partage de fichiers pour les profils utilisateur :
 
-1. Ajoutez les utilisateurs de Windows Active Directory de bureau virtuel à un [groupe de sécurité Active Directory](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-security-groups). Ce groupe de sécurité sera utilisé pour authentifier les utilisateurs du bureau virtuel Windows à la machine virtuelle de partage de fichiers que vous venez de créer.
-2. [Se connecter à la machine virtuelle de partage de fichiers](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine).
-3. Sur la machine virtuelle de partage de fichiers, créez un dossier sur le **lecteur C** qui sera utilisé en tant que le partage de profil.
-4. Cliquez sur le nouveau dossier, sélectionnez **propriétés**, sélectionnez **partage**, puis sélectionnez **partage avancé...** .
-5. Sélectionnez **partager ce dossier**, sélectionnez **autorisations...** , puis sélectionnez **ajouter...** .
-6. Recherchez le groupe de sécurité auquel vous avez ajouté les utilisateurs du bureau virtuel de Windows, puis vérifiez que ce groupe a **contrôle total**.
-7. Après avoir ajouté le groupe de sécurité, cliquez sur le dossier, sélectionnez **propriétés**, sélectionnez **partage**, puis copiez le **chemin d’accès réseau** à utiliser pour une utilisation ultérieure.
+1. Ajoutez les utilisateurs Active Directory de Windows Virtual Desktop à un [groupe de sécurité Active Directory](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-security-groups). Ce groupe de sécurité sera utilisé pour authentifier les utilisateurs de Windows Virtual Desktop auprès de la machine virtuelle du partage de fichiers que vous venez de créer.
+2. [Connectez-vous à la machine virtuelle du partage de fichiers](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine).
+3. Sur la machine virtuelle du partage de fichiers, créez un dossier sur le **lecteur C** qui sera utilisé comme partage de profil.
+4. Cliquez avec le bouton droit sur le nouveau dossier, puis sélectionnez successivement **Propriétés**, **Partage** et **Partage avancé...**
+5. Sélectionnez successivement **Partager ce dossier**, **Autorisations...**  et **Ajouter...**
+6. Recherchez le groupe de sécurité dans lequel vous avez ajouté les utilisateurs de Windows Virtual Desktop, puis vérifiez que ce groupe dispose de l’accès **Contrôle total**.
+7. Après avoir ajouté le groupe de sécurité, cliquez avec le bouton droit sur le dossier, sélectionnez **Propriétés**, puis **Partage**, puis copiez le **Chemin d’accès réseau** pour une utilisation ultérieure.
 
-Pour plus d’informations sur les autorisations, consultez le [FSLogix documentation](https://docs.fslogix.com/display/20170529/Requirements%2B-%2BProfile%2BContainers).
+Pour plus d’informations sur les autorisations, consultez la [documentation FSLogix](https://docs.fslogix.com/display/20170529/Requirements%2B-%2BProfile%2BContainers).
 
-## <a name="configure-the-fslogix-profile-container"></a>Configurer le conteneur de profil FSLogix
+## <a name="configure-the-fslogix-profile-container"></a>Configurer le conteneur de profils FSLogix
 
-Pour configurer les machines virtuelles avec le logiciel FSLogix, procédez comme suit sur chaque machine inscrite dans le pool de l’hôte :
+Pour configurer les machines virtuelles avec le logiciel FSLogix, procédez comme suit sur chaque machine inscrite dans le pool hôte :
 
-1. [Se connecter à la machine virtuelle](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine) avec les informations d’identification que vous avez fourni lors de la création de la machine virtuelle.
-2. Lancez un navigateur internet et accédez à [ce lien](https://go.microsoft.com/fwlink/?linkid=2084562) pour télécharger l’agent FSLogix. Dans le cadre de la préversion publique de bureau virtuel de Windows, vous obtenez une clé de licence pour activer le logiciel FSLogix. La clé est le fichier LicenseKey.txt inclus dans le fichier .zip de l’agent FSLogix.
-3. Accédez à un \\ \\Win32\\mise en production ou \\ \\X64\\mise en production dans le fichier .zip et exécutez **FSLogixAppsSetup** pour installer l’agent FSLogix.
-4. Accédez à **Program Files** > **FSLogix** > **applications** pour confirmer l’agent est installé.
-5. À partir du menu Démarrer, exécutez **RegEdit** en tant qu’administrateur. Accédez à **ordinateur\\HKEY_LOCAL_MACHINE\\logiciel\\FSLogix**.
-6. Créez une clé nommée **profils**.
-7. Créez les valeurs suivantes pour la clé de profils :
+1. [Connectez-vous à la machine virtuelle](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine) avec les informations d’identification que vous avez indiquées lors de la création de la machine virtuelle.
+2. Lancez un navigateur Internet et accédez à [ce lien](https://go.microsoft.com/fwlink/?linkid=2084562) pour télécharger l’agent FSLogix. Dans le cadre de la préversion publique de Windows Virtual Desktop, vous obtenez une clé de licence pour activer le logiciel FSLogix. La clé est le fichier LicenseKey.txt inclus dans le fichier .zip de l’agent FSLogix.
+3. Accédez à \\\\Win32\\Release ou \\\\X64\\Release dans le fichier .zip et exécutez **FSLogixAppsSetup** pour installer l’agent FSLogix.
+4. Accédez à **Program Files** > **FSLogix** > **Apps** pour vérifier l’agent installé.
+5. Dans le menu Démarrer, exécutez **RegEdit** en tant qu’administrateur. Accédez à **Computer\\HKEY_LOCAL_MACHINE\\software\\FSLogix**.
+6. Créez une clé nommée **Profils**.
+7. Créez les valeurs suivantes pour la clé Profils :
 
-| Nom                | Type               | Valeur des données                        |
+| Nom                | Type               | Données/Valeur                        |
 |---------------------|--------------------|-----------------------------------|
-| activé             | VALEUR DWORD              | 1                                 |
-| VHDLocations        | Valeur de chaînes multiples | « Chemin d’accès réseau pour le partage de fichiers »     |
+| activé             | DWORD              | 1                                 |
+| VHDLocations        | Valeur à chaînes multiples | « Chemin d’accès réseau pour le partage de fichiers »     |
 
 >[!IMPORTANT]
 >Pour contribuer à sécuriser votre environnement Windows Virtual Desktop dans Azure, nous vous recommandons de ne pas ouvrir le port entrant 3389 sur vos machines virtuelles. Windows Virtual Desktop ne nécessite pas l’ouverture du port entrant 3389 pour permettre aux utilisateurs d’accéder aux machines virtuelles du pool hôte. Si vous devez ouvrir le port 3389 pour résoudre des problèmes, nous vous recommandons d’utiliser un [accès à la machine virtuelle juste-à-temps](https://docs.microsoft.com/azure/security-center/security-center-just-in-time).

@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
 ms.openlocfilehash: 752a26b21854ec9030fc1945024ae461445815a9
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65146712"
 ---
 # <a name="ordinal-prebuilt-entity-for-a-luis-app"></a>Entité prédéfinie ordinal pour une application LUIS
@@ -26,7 +26,7 @@ L’entité ordinal est gérée à partir du dépôt GitHub [Recognizers-text](h
 
 ## <a name="resolution-for-prebuilt-ordinal-entity"></a>Résolution pour une entité ordinal prédéfinie
 
-### <a name="api-version-2x"></a>Version de l’API 2.x
+### <a name="api-version-2x"></a>API version 2.x
 
 L’exemple suivant montre la résolution de l’entité **builtin.ordinal**.
 
@@ -61,9 +61,9 @@ L’exemple suivant montre la résolution de l’entité **builtin.ordinal**.
 }
 ```
 
-### <a name="preview-api-version-3x"></a>Version d’évaluation API 3.x
+### <a name="preview-api-version-3x"></a>API 3.x en préversion
 
-Le code JSON suivant est avec la `verbose` paramètre défini sur `false`:
+Le code JSON suivant a le paramètre `verbose` défini sur `false` :
 
 ```json
 {
@@ -88,7 +88,7 @@ Le code JSON suivant est avec la `verbose` paramètre défini sur `false`:
 }
 ```
 
-Le code JSON suivant est avec la `verbose` paramètre défini sur `true`:
+Le code JSON suivant a le paramètre `verbose` défini sur `true` :
 
 ```json
 {
@@ -130,4 +130,4 @@ Le code JSON suivant est avec la `verbose` paramètre défini sur `true`:
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-En savoir plus sur la [pourcentage](luis-reference-prebuilt-percentage.md), [numéro de téléphone](luis-reference-prebuilt-phonenumber.md), et [température](luis-reference-prebuilt-temperature.md) entités. 
+En savoir plus sur les entités [percentage](luis-reference-prebuilt-percentage.md), [phone number](luis-reference-prebuilt-phonenumber.md) et [temperature](luis-reference-prebuilt-temperature.md). 

@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: kgremban
 ms.openlocfilehash: 04fc1da04d9da715acfed8ca9d26e9c325afb403
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61441795"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64569439"
 ---
 # <a name="get-started-with-device-management-python"></a>Prise en main de la gestion d’appareils (Python)
 
@@ -38,9 +38,9 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
 * [Python 2.x ou 3.x](https://www.python.org/downloads/). Veillez à utiliser l’installation 32 bits ou 64 bits comme requis par votre programme d’installation. Lorsque vous y êtes invité pendant l’installation, veillez à ajouter Python à votre variable d’environnement propre à la plateforme. Si vous utilisez Python 2.x, vous devrez peut-être [installer ou mettre à niveau *pip*, le système de gestion des packages Python](https://pip.pypa.io/en/stable/installing/).
 
-* Installer le [azure-iothub-device-client](https://pypi.org/project/azure-iothub-device-client/) du package, à l’aide de la commande       `pip install azure-iothub-device-client`
+* Installez le package [azure-iothub-device-client](https://pypi.org/project/azure-iothub-device-client/) à l’aide de la commande       `pip install azure-iothub-device-client`
 
-* Installer le [azure-iothub-service-client](https://pypi.org/project/azure-iothub-service-client/) du package, à l’aide de la commande       `pip install azure-iothub-service-client`
+* Installez le package [azure-iothub-service-client](https://pypi.org/project/azure-iothub-service-client/) à l’aide de la commande       `pip install azure-iothub-service-client`
 
 * Si vous utilisez le système d’exploitation Windows, utilisez le [package redistribuable Visual C++](https://www.microsoft.com/download/confirmation.aspx?id=48145) pour autoriser l’utilisation de DLL natives de Python.
 

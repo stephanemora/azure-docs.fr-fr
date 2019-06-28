@@ -15,10 +15,10 @@ ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cb48d37e1cf552f9ad375906d8cd05301ac2dd0c
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65407862"
 ---
 # <a name="azure-active-directory-version-2-cmdlets-for-group-management"></a>Cmdlets d’Azure Active Directory version 2 pour la gestion de groupe
@@ -168,7 +168,7 @@ Pour supprimer des groupes de votre répertoire, utilisez l’applet de commande
 
     PS C:\Windows\system32> Remove-AzureADGroup -ObjectId b11ca53e-07cc-455d-9a89-1fe3ab24566b
 
-## <a name="manage-group-membership"></a>Gérer l'appartenance au groupe 
+## <a name="manage-group-membership"></a>Gérer l’appartenance au groupe 
 ### <a name="add-members"></a>Ajouter des membres
 Pour ajouter de nouveaux membres à un groupe, utilisez l’applet de commande Add-AzureADGroupMember. Cette commande ajoute un membre au groupe Administrateurs Intune que nous avons utilisé dans l’exemple précédent :
 
@@ -233,13 +233,13 @@ Pour ajouter des propriétaires à un groupe, utilisez l’applet de commande Ad
 
     PS C:\Windows\system32> Add-AzureADGroupOwner -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df -RefObjectId 72cd4bbd-2594-40a2-935c-016f3cfeeeea
 
-Le paramètre - ObjectId est l’ObjectID du groupe auquel nous souhaitons ajouter un propriétaire, et le paramètre-RefObjectId est l’ObjectID de l’utilisateur ou le service principal, que nous souhaitons ajouter en tant que propriétaire du groupe.
+Le paramètre -ObjectId est l’ObjectID du groupe auquel nous souhaitons ajouter un propriétaire et le paramètre -RefObjectId est l’ObjectID de l’utilisateur ou du principal du service que nous souhaitons ajouter au groupe en tant que propriétaire.
 
 Pour récupérer les propriétaires d’un groupe, utilisez l’applet de commande Get-AzureADGroupOwner :
 
     PS C:\Windows\system32> Get-AzureADGroupOwner -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df
 
-L’applet de commande renvoie la liste des propriétaires (utilisateurs et principaux de service) pour le groupe spécifié :
+L’applet de commande renvoie la liste des propriétaires (utilisateurs et principaux du service) du groupe spécifié :
 
     DeletionTimeStamp ObjectId                             ObjectType
     ----------------- --------                             ----------

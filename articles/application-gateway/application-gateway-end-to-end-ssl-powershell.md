@@ -8,15 +8,15 @@ ms.topic: article
 ms.date: 4/8/2019
 ms.author: victorh
 ms.openlocfilehash: d9851f6b3e32d0c7ab0d7774458ba5bc4d9ba823
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66729675"
 ---
 # <a name="configure-end-to-end-ssl-by-using-application-gateway-with-powershell"></a>Configurer le protocole SSL de bout en bout avec Application Gateway en utilisant PowerShell
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
 Azure Application Gateway prend en charge le chiffrement de bout en bout du trafic. Application Gateway arrête la connexion SSL au niveau de la passerelle d’application. La passerelle applique ensuite les règles d'acheminement au trafic, rechiffre le paquet, puis transfère celui-ci au serveur principal approprié selon les règles d'acheminement définies. Toute réponse du serveur web passe par le même processus vers l’utilisateur final.
 
@@ -44,7 +44,7 @@ Ce scénario va :
 
 Pour configurer un chiffrement SSL de bout en bout avec une passerelle d’application, un certificat est requis pour la passerelle et des certificats sont requis pour les serveurs principaux. Le certificat de passerelle est utilisé pour dériver une clé symétrique conformément aux spécifications du protocole SSL. La clé symétrique est ensuite utilisée pour chiffrer et déchiffrer le trafic envoyé à la passerelle. Le certificat de passerelle doit être partagé au format Personal Information Exchange (PFX). Ce format de fichier permet d’exporter la clé privée requise par la passerelle d’application pour effectuer le chiffrement et le déchiffrement du trafic.
 
-Pour le chiffrement SSL de bout en bout pour le serveur principal doit être explicitement autorisé par la passerelle d’application. Chargez le certificat public des serveurs principaux sur la passerelle d'application. L’ajout du certificat permet à la passerelle d’application de communiquer uniquement avec des instances de serveur principal connues. Il sécurise la communication de bout en bout.
+Pour le chiffrement SSL de bout en bout, le serveur principal doit être expressément approuvé par la passerelle d’application. Chargez le certificat public des serveurs principaux sur la passerelle d'application. L’ajout du certificat permet à la passerelle d’application de communiquer uniquement avec des instances de serveur principal connues. Il sécurise la communication de bout en bout.
 
 Ce processus de configuration est décrit dans les sections suivantes.
 
@@ -233,7 +233,7 @@ $appgw = New-AzApplicationGateway -Name appgateway -SSLCertificates $cert -Resou
 
 ## <a name="apply-a-new-certificate-if-the-back-end-certificate-is-expired"></a>Appliquer un nouveau certificat si le certificat de serveur principal a expiré
 
-Utilisez cette procédure pour appliquer un nouveau certificat si le certificat de serveur principal a expiré.
+Utiliser cette procédure pour appliquer un nouveau certificat si le certificat de serveur principal a expiré
 
 1. Récupérez la passerelle d’application à mettre à jour.
 
@@ -241,19 +241,19 @@ Utilisez cette procédure pour appliquer un nouveau certificat si le certificat 
    $gw = Get-AzApplicationGateway -Name AdatumAppGateway -ResourceGroupName AdatumAppGatewayRG
    ```
    
-2. Ajouter la nouvelle ressource de certificat à partir du fichier .cer, qui contient la clé publique du certificat et peut également être le même certificat ajouté à l’écouteur pour la terminaison SSL au niveau de la passerelle d’application.
+2. Ajouter la nouvelle ressource de certificat à partir du fichier .cer qui contient la clé publique du certificat. Il peut également s’agir du même certificat que celui ajouté à l’écouteur pour la terminaison SSL au niveau de la passerelle d’application.
 
    ```powershell
    Add-AzApplicationGatewayAuthenticationCertificate -ApplicationGateway $gw -Name 'NewCert' -CertificateFile "appgw_NewCert.cer" 
    ```
     
-3. Obtenez le nouvel objet de certificat de l’authentification dans une variable (TypeName : Microsoft.Azure.Commands.Network.Models.PSApplicationGatewayAuthenticationCertificate).
+3. Obtenez le nouvel objet de certificat d’authentification dans une variable (TypeName : Microsoft.Azure.Commands.Network.Models.PSApplicationGatewayAuthenticationCertificate).
 
    ```powershell
    $AuthCert = Get-AzApplicationGatewayAuthenticationCertificate -ApplicationGateway $gw -Name NewCert
    ```
  
- 4. Affecter le nouveau certificat dans le **BackendHttp** paramètre et faire référence à la variable $AuthCert. (Spécifiez le nom du paramètre HTTP que vous souhaitez modifier.)
+ 4. Affecter le nouveau certificat au paramètre **BackendHttp** et faites-y référence avec la variable $AuthCert. Spécifiez le nom du paramètre HTTP que vous souhaitez modifier.
  
    ```powershell
    $out= Set-AzApplicationGatewayBackendHttpSetting -ApplicationGateway $gw -Name "HTTP1" -Port 443 -Protocol "Https" -CookieBasedAffinity Disabled -AuthenticationCertificates $Authcert
@@ -275,19 +275,19 @@ Utilisez cette procédure pour supprimer un certificat expiré inutilisé à par
    $gw = Get-AzApplicationGateway -Name AdatumAppGateway -ResourceGroupName AdatumAppGatewayRG
    ```
    
-2. Liste le nom du certificat d’authentification que vous souhaitez supprimer.
+2. Répertoriez le nom du certificat d’authentification que vous souhaitez supprimer.
 
    ```powershell
    Get-AzApplicationGatewayAuthenticationCertificate -ApplicationGateway $gw | select name
    ```
     
-3. Supprimer le certificat d’authentification à partir d’une passerelle d’application.
+3. Supprimez le certificat d’authentification trouvé d’une passerelle d’application.
 
    ```powershell
    $gw=Remove-AzApplicationGatewayAuthenticationCertificate -ApplicationGateway $gw -Name ExpiredCert
    ```
  
- 4. Valider la modification.
+ 4. Validez la modification.
  
    ```powershell
    Set-AzApplicationGateway -ApplicationGateway $gw

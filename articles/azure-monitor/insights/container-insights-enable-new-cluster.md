@@ -1,6 +1,6 @@
 ---
-title: Surveiller un cluster Azure Kubernetes Service (AKS) | Microsoft Docs
-description: Découvrez comment activer la surveillance pour un cluster Azure Kubernetes Service (AKS) avec Azure Monitor pour l’abonnement de conteneurs.
+title: Surveiller un nouveau cluster Azure Kubernetes Service (AKS) | Microsoft Docs
+description: Découvrez comment activer la surveillance d’un nouveau cluster Azure Kubernetes Service (AKS) avec Azure Monitor pour l’abonnement aux conteneurs.
 services: azure-monitor
 documentationcenter: ''
 author: mgoedtel
@@ -14,17 +14,17 @@ ms.workload: infrastructure-services
 ms.date: 04/25/2019
 ms.author: magoedte
 ms.openlocfilehash: d73ab2d5cca4f20f954a0b0e972111d3f395c3c8
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65077529"
 ---
 # <a name="enable-monitoring-of-a-new-azure-kubernetes-service-aks-cluster"></a>Activer la surveillance d’un nouveau cluster Azure Kubernetes Service (AKS)
 
-Cet article décrit comment configurer Azure Monitor pour les conteneurs pour surveiller le cluster Kubernetes géré hébergé sur [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/) que vous préparez à déployer dans votre abonnement.
+Cet article explique comment configurer Azure Monitor pour les conteneurs afin de surveiller un cluster Kubernetes managé hébergé sur [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/) que vous préparez pour un déploiement dans votre abonnement.
 
-Vous pouvez activer la surveillance d’un cluster AKS à l’aide d’une des méthodes prises en charge :
+Vous pouvez activer la surveillance d’un cluster AKS à l’aide d’une des méthodes prises en charge :
 
 * Azure CLI
 * Terraform
@@ -34,7 +34,7 @@ Vous pouvez activer la surveillance d’un cluster AKS à l’aide d’une des m
 Pour activer la supervision d’un nouveau cluster AKS créé avec Azure CLI, suivez l’étape de l’article de démarrage rapide sous la section [Créer un cluster AKS](../../aks/kubernetes-walkthrough.md#create-aks-cluster).  
 
 >[!NOTE]
->Si vous avez choisi d’utiliser Azure CLI, vous devez d’abord l’installer et l’utiliser localement. Vous devez exécuter Azure CLI version 2.0.59 ou version ultérieure. Pour identifier votre version, exécutez `az --version`. Si vous devez installer ou mettre à niveau Azure CLI, consultez [Installer Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). 
+>Si vous avez choisi d’utiliser Azure CLI, vous devez d’abord l’installer et l’utiliser localement. Vous devez exécuter Azure CLI 2.0.59 ou version ultérieure. Pour identifier votre version, exécutez `az --version`. Si vous devez installer ou mettre à niveau Azure CLI, consultez [Installer Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 >
 
 ## <a name="enable-using-terraform"></a>Activer à l’aide de Terraform

@@ -10,10 +10,10 @@ ms.date: 06/05/2019
 ms.author: v-adgera
 ms.custom: seodec18
 ms.openlocfilehash: 9490772226ecdb90cdd2e0b98fe8336b91db6044
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66754495"
 ---
 # <a name="add-blobs-to-objects-in-azure-digital-twins"></a>Ajouter des objets blob à des objets dans Azure Digital Twins
@@ -112,8 +112,8 @@ Les objets blob retournés individuellement sont conformes au schéma JSON suiva
 | --- | --- | --- |
 | **id** | Chaîne | Identificateur unique de l’objet blob |
 | **name** |Chaîne | Nom convivial pour l’objet blob |
-| **parentId** | String | Entité parente avec laquelle associer l’objet blob (espaces, appareils ou utilisateurs) |
-| **type** | String | Type d’objet blob. Vous ne pouvez pas utiliser *type* et *typeId*  |
+| **parentId** | Chaîne | Entité parente avec laquelle associer l’objet blob (espaces, appareils ou utilisateurs) |
+| **type** | Chaîne | Type d’objet blob. Vous ne pouvez pas utiliser *type* et *typeId*  |
 | **typeId** | Entier | ID de type d’objet blob. Vous ne pouvez pas utiliser *type* et *typeId* |
 | **subtype** | Chaîne | Sous-type d’objet blob. Vous ne pouvez pas utiliser *subtype* et *subtypeId* |
 | **subtypeId** | Entier | ID de sous-type d’objet blob. Vous ne pouvez pas utiliser *subtype* et *subtypeId* |
@@ -183,7 +183,7 @@ var response = await httpClient.PostAsync("spaces/blobs", multipartContent);
 
 Pour finir, les utilisateurs [cURL](https://curl.haxx.se/) peuvent effectuer des requêtes de formulaire multipart de la même manière :
 
-[![Objets BLOB d’appareil](media/how-to-add-blobs/curl.PNG)](media/how-to-add-blobs/curl.PNG#lightbox)
+[![Objets blob d’appareil](media/how-to-add-blobs/curl.PNG)](media/how-to-add-blobs/curl.PNG#lightbox)
 
 ```bash
 curl
@@ -211,7 +211,7 @@ Les sections suivantes décrivent les points de terminaison d’API principaux l
 
 Vous pouvez attacher des objets blob à des appareils. L’illustration suivante montre la documentation de référence Swagger pour vos API de gestion. Elle spécifie les points de terminaison d’API associés à l’appareil pour la consommation d’objets blob et tous les paramètres de chemin obligatoires à leur passer.
 
-[![Objets BLOB d’appareil](media/how-to-add-blobs/blobs-device-api.PNG)](media/how-to-add-blobs/blobs-device-api.PNG#lightbox)
+[![Objets blob d’appareil](media/how-to-add-blobs/blobs-device-api.PNG)](media/how-to-add-blobs/blobs-device-api.PNG#lightbox)
 
 Par exemple, pour mettre à jour ou créer un blob, et l’attacher à un appareil, envoyez une requête HTTP PATCH authentifiée à :
 
@@ -229,7 +229,7 @@ Les requêtes ayant réussi retournent un objet JSON comme [décrit précédemme
 
 Vous pouvez également attacher des objets blob à des espaces. L’image suivante liste tous les points de terminaison d’API d’espace responsables du traitement des objets blob. Elle liste également tous les paramètres de chemin à passer à ces points de terminaison.
 
-[![Objets BLOB d’espace](media/how-to-add-blobs/blobs-space-api.PNG)](media/how-to-add-blobs/blobs-space-api.PNG#lightbox)
+[![Objets blob d’espace](media/how-to-add-blobs/blobs-space-api.PNG)](media/how-to-add-blobs/blobs-space-api.PNG#lightbox)
 
 Par exemple, pour retourner un blob attaché à un espace, envoyez une requête HTTP GET authentifiée à :
 
@@ -249,7 +249,7 @@ Une requête PATCH au même point de terminaison met à jour la description des 
 
 Vous pouvez attacher des objets blob aux modèles utilisateur (par exemple, pour associer une image de profil). L’image suivante montre les points de terminaison pertinents de l’API utilisateur et les paramètres de chemin nécessaires, comme `id` :
 
-[![Objets BLOB d’utilisateur](media/how-to-add-blobs/blobs-users-api.PNG)](media/how-to-add-blobs/blobs-users-api.PNG#lightbox)
+[![Objets blob d’utilisateur](media/how-to-add-blobs/blobs-users-api.PNG)](media/how-to-add-blobs/blobs-users-api.PNG#lightbox)
 
 Par exemple, pour extraire un blob attaché à un utilisateur, envoyez une requête HTTP GET authentifiée avec les données de formulaire nécessaires à :
 

@@ -9,24 +9,24 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 497ffb5acf6262dfb42f490efe68e1ea26c777cb
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64572373"
 ---
 # <a name="find-an-address-using-the-azure-maps-search-service"></a>Rechercher une adresse à l’aide du service Azure Maps Search
 
 Le service Azure Maps Search est un ensemble d’API RESTful destinées aux développeurs souhaitant rechercher des adresses, des lieux, des points d’intérêt, des listes d’entreprises et d’autres informations d’ordre géographique. Le service affecte une combinaison latitude/longitude à une adresse, intersection, caractéristique géographique ou point d’intérêt spécifique. Les valeurs de latitude et de longitude renvoyées par le service peuvent être utilisées comme paramètres dans d’autres services Azure Maps, tels que les itinéraires et les flux de trafic.
 
-Dans cet article, vous apprendrez comment :
+Dans cet article, vous allez apprendre à effectuer les opérations suivantes :
 
-* Recherchez une adresse à l’aide [API Fuzzy Search](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy)
-* Rechercher une adresse, ainsi que des propriétés et des coordonnées
-* Rendre un [recherche d’adresse inverse](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) pour rechercher une adresse postale
-* Recherchez une rue croisée à l’aide [API recherche d’adresse inverse entre rue](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreversecrossstreet)
+* Rechercher une adresse à l’aide de l’[API de recherche approximative](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy)
+* Rechercher une adresse avec des propriétés et des coordonnées
+* Effectuer une [recherche d’adresse inverse](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) pour rechercher une adresse postale
+* Rechercher une intersection à l’aide d’une [API de recherche d’intersection d’adresse inverse](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreversecrossstreet)
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour appeler les API du service Maps, vous avez besoin d’un compte et d’une clé Maps. Pour plus d’informations sur la création d’un compte et la récupération d’une clé, consultez [How to manage your Azure Maps account and keys](how-to-manage-account-keys.md) (Gérer votre compte et vos clés Azure Maps).
 
@@ -68,7 +68,7 @@ La plupart des requêtes de recherche utilisent par défaut le paramétrage `max
 
     La chaîne de requête ambiguë « pizza » a retourné 10 [résultats de point d’intérêt](https://docs.microsoft.com/rest/api/maps/search/getsearchpoi#searchpoiresponse) dans les catégories « pizza » et « restaurant ». Chaque résultat retourne une adresse postale, les valeurs latitude/longitude, un point de vue et les points d’entrée de l’emplacement.
   
-    Les résultats peuvent varier pour cette requête et ne sont pas liés à un emplacement de référence particulier. Vous pouvez utiliser la **countrySet** paramètre pour spécifier uniquement les pays/régions pour lesquelles votre application doit couvrir, comme le comportement par défaut consiste à rechercher le monde entier, potentiellement retournant les résultats inutiles.
+    Les résultats peuvent varier pour cette requête et ne sont pas liés à un emplacement de référence particulier. Vous pouvez utiliser le paramètre **countrySet** pour ne spécifier que les pays/régions que votre application doit couvrir. En effet, le comportement par défaut consiste à effectuer la recherche dans le monde entier, ce qui peut générer des résultats superflus.
 
 5. Ajoutez la paire Clé/Valeur suivante à la section **Params** puis cliquez sur **Envoyer** :
 

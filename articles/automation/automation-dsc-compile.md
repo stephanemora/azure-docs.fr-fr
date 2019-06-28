@@ -10,10 +10,10 @@ ms.date: 09/10/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 847c928681451b4fef93198e2f2272d5bb04b1b8
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64919804"
 ---
 # <a name="compiling-dsc-configurations-in-azure-automation-state-configuration"></a>Compilation de configurations DSC dans Azure Automation State Configuration
@@ -41,7 +41,7 @@ Une fois que vous avez choisi une méthode de compilation, suivez les procédure
 
 ## <a name="compiling-a-dsc-configuration-with-the-azure-portal"></a>Compilation d’une configuration DSC avec le portail Azure
 
-1. Dans votre compte Automation, cliquez sur **Configuration d’état (DSC)**.
+1. Dans votre compte Automation, cliquez sur **Configuration d’état (DSC)** .
 1. Cliquez sur l’onglet **Configurations**, puis cliquez sur le nom de la configuration à compiler.
 1. Cliquez sur **Compiler**.
 1. Si la configuration n’a aucun paramètre, vous devez confirmer si vous souhaitez la compiler. Si la configuration a des paramètres, le panneau **Compiler la configuration** s’ouvre et vous permet de fournir la valeur des paramètres. Pour plus d’informations sur les paramètres, consultez la section [**Paramètres de base**](#basic-parameters) suivante.
@@ -287,11 +287,11 @@ Start-AzureRmAutomationDscCompilationJob -ResourceGroupName 'MyResourceGroup' -A
 
 ## <a name="partial-configuration"></a>Configuration partielle
 
-Configuration de l’état d’Automation Azure prend en charge l’utilisation de [configurations partielles](https://docs.microsoft.com/powershell/dsc/pull-server/partialconfigs).
-Dans ce scénario, DSC est configuré pour gérer plusieurs configurations de manière indépendante, et chaque configuration est retreieved à partir d’Azure Automation.
-Toutefois, qu’une seule configuration peut être affectée à un nœud par compte automation.
-Cela signifie que si vous utilisez deux configurations pour un nœud vous aurez besoin de deux comptes automation.
-Pour plus d’informations sur la façon dont les équipes peuvent travailler ensemble pour gérer les serveurs de façon collaborative à l’aide de la configuration en tant que code consultez [rôle de présentation DSC dans un Pipeline CI/CD](https://docs.microsoft.com/powershell/dsc/overview/authoringadvanced).
+Azure Automation State Configuration prend en charge l’utilisation de [configurations partielles](https://docs.microsoft.com/powershell/dsc/pull-server/partialconfigs).
+Dans ce scénario, DSC est configuré pour gérer plusieurs configurations de manière indépendante, et chaque configuration est récupérée à partir d’Azure Automation.
+Toutefois, on ne peut affecter qu’une seule configuration à un nœud par compte Automation.
+Cela signifie que, si vous utilisez deux configurations pour un nœud, vous aurez besoin de deux comptes Automation.
+Pour plus d’informations sur la façon dont les équipes peuvent travailler ensemble pour gérer les serveurs de façon collaborative à l’aide de la configuration en tant que code, consultez [Rôle de DSC dans un pipeline CI/CD](https://docs.microsoft.com/powershell/dsc/overview/authoringadvanced).
 
 ## <a name="importing-node-configurations"></a>Importation de configurations de nœuds
 
@@ -308,7 +308,7 @@ Pour plus d’informations sur la façon de signer des configurations de nœud, 
 ### <a name="importing-a-node-configuration-in-the-azure-portal"></a>Importation d’une configuration de nœuds dans le portail Azure
 
 1. À partir de votre compte Automation, cliquez sur **State configuration (DSC)** sous **Gestion de la configuration**.
-1. Dans la page **State Configuration (DSC)**, cliquez sur l’onglet **Configurations**, puis sur **+ Ajouter**.
+1. Dans la page **State Configuration (DSC)** , cliquez sur l’onglet **Configurations**, puis sur **+ Ajouter**.
 1. Dans la page **Importer**, cliquez sur l’icône de dossier en regard de la zone de texte **Fichier de configuration de nœuds** pour rechercher un fichier de configuration de nœuds (MOF) sur votre ordinateur local.
 
    ![Rechercher un fichier local](./media/automation-dsc-compile/import-browse.png)

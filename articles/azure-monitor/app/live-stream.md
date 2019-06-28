@@ -14,10 +14,10 @@ ms.date: 04/22/2019
 ms.reviewer: sdash
 ms.author: mbullwin
 ms.openlocfilehash: bc85de0c8ec89ea88d2bae8e3f226da7d3163f53
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64721092"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Flux de métriques temps réel : Surveiller et diagnostiquer avec une latence de 1 seconde
@@ -36,7 +36,7 @@ Avec les flux de métriques temps réel, vous pouvez :
 
 [![Vidéo sur les flux de métriques temps réel](./media/live-stream/youtube.png)](https://www.youtube.com/watch?v=zqfHf1Oi5PY)
 
-Métriques en temps réel sont actuellement pris en charge pour les applications ASP.NET, ASP.NET Core, Azure Functions, Java et Node.js.
+Les métriques temps réel sont actuellement prises en charge pour les applications ASP.NET, ASP.NET Core, Azure Functions, Java et Node.js.
 
 ## <a name="get-started"></a>Prise en main
 
@@ -52,7 +52,7 @@ Métriques en temps réel sont actuellement pris en charge pour les applications
 
 ### <a name="nodejs"></a>Node.js
 
-Pour utiliser les métriques temps réel avec Node.js, vous devez mettre à jour à 1,30 ou version ultérieure du Kit de développement. Par défaut les métriques temps réel est désactivée dans le Kit de développement Node.js. Pour activer les métriques temps réel ajouter `setSendLiveMetrics(true)` à votre [méthodes de configuration](https://github.com/Microsoft/ApplicationInsights-node.js#configuration) comme vous initialisez le Kit de développement.
+Pour utiliser les métriques temps réel avec Node.js, vous devez mettre à jour vers la version 1.30 ou ultérieure du Kit de développement logiciel (SDK). Les métriques temps réel sont désactivées par défaut dans le Kit de développement logiciel (SDK) Node.js. Pour activer les métriques temps réel, ajoutez `setSendLiveMetrics(true)` à vos [méthodes de configuration](https://github.com/Microsoft/ApplicationInsights-node.js#configuration) lorsque vous initialisez le Kit de développement logiciel (SDK).
 
 ### <a name="no-data-check-your-server-firewall"></a>Pas de données ? Vérifier le pare-feu de votre serveur
 

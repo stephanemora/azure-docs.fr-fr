@@ -1,6 +1,6 @@
 ---
 title: Limites d’Azure Blockchain
-description: Vue d’ensemble du service et les limites fonctionnelles dans Azure Blockchain Service
+description: Vue d’ensemble des limites de service et fonctionnelles dans Azure Blockchain Service
 services: azure-blockchain
 keywords: blockchain
 author: PatAltimore
@@ -11,57 +11,57 @@ ms.service: azure-blockchain
 ms.reviewer: janders
 manager: femila
 ms.openlocfilehash: 169ec7a8ef407af3f754046aa8e3b06793a7e962
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65028169"
 ---
-# <a name="limits-in-azure-blockchain-service"></a>Limites dans le Service Azure Blockchain
+# <a name="limits-in-azure-blockchain-service"></a>Limites dans Azure Blockchain Service
 
-Le Service Azure Blockchain a service et les limites fonctionnelles telles que le nombre de nœuds de qu'un membre peut avoir, les restrictions de consortium et les quantités de stockage.
+Azure Blockchain Service présente des limites de service et fonctionnelles telles que le nombre de nœuds qu’un membre peut avoir, des restrictions de consortium et des quantités de stockage.
 
 ## <a name="pricing-tier"></a>Niveau tarifaire
 
-Limites maximales sur les transactions et les nœuds du programme de validation varient selon si vous approvisionnez Azure Blockchain Service au base ou des niveaux de tarification Standard.
+Les limites maximales sur les transactions et les nœuds validateurs varient selon que vous approvisionnez Azure Blockchain Service avec le niveau tarifaire De base ou Standard.
 
-| Niveau tarifaire | Nœuds de transaction max | Maximal de nœuds du programme de validation |
+| Niveau tarifaire | Nombre maximal de nœuds de transaction | Nombre maximal de nœuds validateurs |
 |:---|:---:|:---:|
 | De base | 10 | 1 |
 | standard | 10 | 2 |
 
-Modification du niveau tarifaire entre base et Standard après que la création du membre n’est pas pris en charge.
+La modification du niveau tarifaire entre le niveau De base et le niveau Standard après la création du membre n’est pas prise en charge.
 
 ## <a name="storage-capacity"></a>Capacité de stockage
 
-La quantité maximale de stockage qui peut être utilisé par nœud pour les journaux et les données de comptabilité est 1 téraoctet.
+La quantité de stockage maximale qui peut être utilisée par nœud pour les journaux et données de registre est 1 To.
 
-Diminution de la taille de stockage de comptabilité et de journal n’est pas pris en charge.
+La diminution de la taille de stockage des registres et journaux n’est pas prise en charge.
 
-## <a name="consortium-limits"></a>Limites du consortium
+## <a name="consortium-limits"></a>Limites de consortium
 
-* **Noms de membre et Consortium doivent être uniques** à partir d’autres noms de membre et de consortium dans le Service de Blockchain Azure.
+* **Les noms de membre et de consortium doivent être uniques** et différents des autres noms de membre et de consortium dans Azure Blockchain Service.
 
-* **Les noms de membre et consortium ne peut pas être modifiés**
+* **Les noms de membre et de consortium ne peuvent pas être modifiés**
 
-* **Tous les membres dans un consortium doivent être dans le même niveau tarifaire**
+* **Tous les membres d’un consortium doivent s’inscrire dans le même niveau tarifaire**
 
 * **Tous les membres qui participent à un consortium doivent résider dans la même région**
 
-    Le premier membre créé dans un consortium dicte la région. Membres invités au consortium doivent résider dans la même région que le premier membre. Limitation de tous les membres de la même région permet de garantir le consensus de réseau n’est pas affecté.
+    Le premier membre créé dans un consortium détermine la région. Les membres invités au consortium doivent résider dans la même région que le premier membre. La limitation de tous les membres à la même région permet de garantir que le consensus du réseau n’est pas affecté.
 
 * **Un consortium doit avoir au moins un administrateur**
 
-    Si un consortium n'est qu’un seul administrateur, ils ne peuvent pas se retirer du consortium ou leur membre jusqu'à ce qu’un autre administrateur est ajouté ou promu dans le consortium.
+    Si un consortium n’a qu’un administrateur, celui-ci ne peut pas se retirer du consortium ou supprimer ses membres tant qu’un autre administrateur n’est pas ajouté ou promu dans le consortium.
 
-* **Les membres supprimés du consortium ne peut pas être ajoutés à nouveau**
+* **Les membres supprimés du consortium ne peuvent pas être ajoutés à nouveau**
 
-    Au lieu de cela, ils doivent être réinvités à rejoindre le consortium et créer un nouveau membre. Leurs ressources de membres existants ne sont pas supprimés pour conserver l’historique des transactions.
+    Au lieu de cela, ils doivent être réinvités à rejoindre le consortium et créer un nouveau membre. Leurs ressources de membre existantes ne sont pas supprimées, de sorte que les transactions historiques soient conservées.
 
-* **Tous les membres dans un consortium doivent être à l’aide de la même version de livre**
+* **Tous les membres d’un consortium doivent utiliser la même version de registre**
 
-    Pour plus d’informations sur les correctifs, mises à jour et du grand livre des versions disponibles dans Azure Blockchain Service, consultez [mise à jour corrective, les mises à jour et les versions](ledger-versions.md).
+    Pour plus d’informations sur l’application de correctifs, les mises à jour et les versions de registre disponibles dans Azure Blockchain Service, consultez [Patching, updates, and versions](ledger-versions.md) (Application de correctifs, mises à jour et versions).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Mise à jour corrective, les mises à jour et les versions](ledger-versions.md)
+* [Patching, updates, and versions](ledger-versions.md) (Application de correctifs, mises à jour et versions).

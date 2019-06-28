@@ -10,10 +10,10 @@ manager: cgronlun
 author: HeidiSteen
 ms.custom: seodec2018
 ms.openlocfilehash: f76d944f614f07a4428d4e4100f6a08a375d96dc
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65795797"
 ---
 # <a name="analyzers-for-text-processing-in-azure-search"></a>Analyseurs pour le traitement de texte dans Recherche Azure
@@ -40,7 +40,7 @@ Il est utilisé automatiquement sur chaque champ pouvant faire l’objet d’une
 
 La liste suivante décrit les analyseurs disponibles dans Recherche Azure.
 
-| Catégorie | Description  |
+| Catégorie | Description |
 |----------|-------------|
 | [Analyseur Lucene standard](https://lucene.apache.org/core/4_0_0/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html) | Par défaut. Aucune spécification ou configuration n’est nécessaire. Cet analyseur à usage général est efficace pour la plupart des scénarios et des langues.|
 | Analyseurs prédéfinis | Proposés comme produits finis destinés à être utilisés tels quels. <br/>Il en existe deux types : spécialisé et linguistique. Ils sont dits « prédéfinis », car vous les référencez par leur nom, sans aucune configuration ni personnalisation. <br/><br/>Les [analyseurs spécialisés (non dépendants de la langue)](index-add-custom-analyzers.md#AnalyzerTable) sont employés quand les entrées de texte nécessitent un traitement spécialisé ou minimal. Les analyseurs prédéfinis qui ne dépendent pas de la langue sont les suivants : **Asciifolding**, **Keyword**, **Pattern**, **Simple**, **Stop**, **Whitespace**.<br/><br/>Utilisez les [analyseurs linguistiques](index-add-language-analyzers.md) quand vous avez besoin d’une prise en charge linguistique avancée pour différentes langues. La Recherche Azure prend en charge 35 analyseurs linguistiques Lucene et 50 analyseurs de traitement en langage naturel Microsoft. |
@@ -272,9 +272,9 @@ Les champs qui contiennent des chaînes dans différentes langues peuvent utilis
   }
 ~~~~
 
-## <a name="c-examples"></a>C#exemples
+## <a name="c-examples"></a>Exemples C#
 
-Si vous utilisez les exemples de code .NET SDK, vous pouvez ajouter ces exemples pour utiliser ou configurez des analyseurs.
+Si vous utilisez les exemples de code du SDK .NET, vous pouvez ajouter ces exemples pour utiliser ou configurez des analyseurs.
 
 + [Attribuer un analyseur intégré](#Assign-a-language-analyzer)
 + [Configurer un analyseur](#Define-a-custom-analyzer)
@@ -283,11 +283,11 @@ Si vous utilisez les exemples de code .NET SDK, vous pouvez ajouter ces exemples
 
 ### <a name="assign-a-language-analyzer"></a>Attribuer un analyseur de langage
 
-Tout analyseur qui est utilisé en tant que-est, sans aucune configuration, est spécifiée sur une définition de champ. Il n’existe aucune configuration requise pour la création d’une construction de l’analyseur. 
+Tout analyseur qui est utilisé tel quel, sans configuration, est spécifié sur une définition de champ. Il n’est pas obligatoire de créer une construction de l’analyseur. 
 
-Cet exemple affecte les analyseurs Microsoft English et Français aux champs de description. Il est un extrait de code extraite d’une définition plus grande de l’index des hôtels, création à l’aide de la classe hôtel dans le fichier hotels.cs de la [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) exemple.
+Cet exemple attribue les analyseurs Anglais et Français de Microsoft aux champs de description. C’est un extrait de code issu d’une définition plus grande de l’index des hôtels, créé à l’aide de la classe Hotel dans le fichier hotels.cs de l’exemple [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo).
 
-Appelez [analyseur](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzer?view=azure-dotnet), en spécifiant le [AnalyzerName](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername?view=azure-dotnet) type en fournissant un analyseur de texte pris en charge dans Azure Search.
+Appelez [Analyseur](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzer?view=azure-dotnet), en spécifiant le type [AnalyzerName](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername?view=azure-dotnet) afin de fournir un analyseur de texte pris en charge dans Recherche Azure.
 
 ```csharp
     public partial class Hotel
@@ -311,9 +311,9 @@ Appelez [analyseur](https://docs.microsoft.com/dotnet/api/microsoft.azure.search
 
 ### <a name="define-a-custom-analyzer"></a>Définir un analyseur personnalisé
 
-Lors de la personnalisation ou configuration est requise, vous devez ajouter une construction de l’analyseur à un index. Une fois que vous le définissez, vous pouvez l’ajouter la définition de champ comme illustré dans l’exemple précédent.
+Lorsqu’une personnalisation ou configuration est requise, vous devez ajouter une construction de l’analyseur à un index. Une fois que vous la définissez, vous pouvez l’ajouter à la définition de champ comme illustré dans l’exemple précédent.
 
-Créer un [CustomAnalyzer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.customanalyzer?view=azure-dotnet) objet. Pour plus d’exemples, consultez [CustomAnalyzerTests.cs](https://github.com/Azure/azure-sdk-for-net/blob/master/src/SDKs/Search/DataPlane/Search.Tests/Tests/CustomAnalyzerTests.cs).
+Créez un objet [CustomAnalyzer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.customanalyzer?view=azure-dotnet). Pour plus d’exemples, consultez [CustomAnalyzerTests.cs](https://github.com/Azure/azure-sdk-for-net/blob/master/src/SDKs/Search/DataPlane/Search.Tests/Tests/CustomAnalyzerTests.cs).
 
 ```csharp
 {

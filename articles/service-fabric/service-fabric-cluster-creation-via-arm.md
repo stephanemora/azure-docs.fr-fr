@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 08/16/2018
 ms.author: aljo
 ms.openlocfilehash: 709b59d257dd974e81d8b4058983f6e264ba0708
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64925851"
 ---
 # <a name="create-a-service-fabric-cluster-using-azure-resource-manager"></a>Créer un cluster Service Fabric à l’aide d’Azure Resource Manager 
@@ -37,7 +37,7 @@ Si vous créez un cluster de production pour exécuter des charges de travail de
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Conditions préalables 
+## <a name="prerequisites"></a>Prérequis 
 Dans cet article, utilisez les modules de gestionnaire de ressources Service Fabric Powershell ou Azure CLI pour déployer un cluster :
 
 * [Azure PowerShell 4.1 et versions ultérieures][azure-powershell]
@@ -74,7 +74,7 @@ Le modèle utilisé est disponible dans les [exemples de modèles Azure Service 
 La commande suivante peut créer des clusters Windows ou Linux, vous devez spécifier le système d’exploitation. Les commandes PowerShell/CLI génèrent également le certificat dans *CertificateOutputFolder* spécifié. Vérifiez toutefois que le dossier Certificat est déjà créé. La commande accepte d’autres paramètres comme Référence de la machine virtuelle.
 
 > [!NOTE]
-> La commande PowerShell suivante fonctionne uniquement avec Azure PowerShell `Az` module. Pour vérifier la version actuelle de la version d’Azure Resource Manager PowerShell, exécutez la commande PowerShell « Get-Module Az ». Suivez [ce lien](/powershell/azure/install-Az-ps) pour mettre à niveau votre version de PowerShell Azure Resource Manager. 
+> La commande PowerShell suivante fonctionne uniquement avec le module Azure PowerShell `Az`. Pour vérifier la version actuelle de PowerShell Azure Resource Manager, exécutez la commande PowerShell « Get-Module Az ». Suivez [ce lien](/powershell/azure/install-Az-ps) pour mettre à niveau votre version de PowerShell Azure Resource Manager. 
 >
 >
 

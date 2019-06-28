@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: magoedte
 ms.openlocfilehash: c7c0d2e3fb818f74a65502674188c523d23729e8
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65606746"
 ---
 # <a name="application-insights-connector-management-solution-deprecated"></a>Solution de gestion Application Insights Connector (déconseillée)
@@ -49,14 +49,14 @@ Lorsque vous utilisez la solution, vous pouvez :
 
 Contrairement à la plupart des autres solutions Log Analytics, les données ne sont pas collectées pour Application Insights Connector par des agents. Toutes les données utilisées par la solution proviennent directement d’Azure.
 
-| Source connectée | Pris en charge | Description  |
+| Source connectée | Pris en charge | Description |
 | --- | --- | --- |
 | [Agents Windows](../../azure-monitor/platform/agent-windows.md) | Non | La solution ne collecte aucune information à partir d’agents Windows. |
 | [Agents Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) | Non | La solution ne collecte aucune information à partir d’agents Linux. |
 | [Groupe d’administration SCOM](../../azure-monitor/platform/om-agents.md) | Non | La solution ne collecte aucune information à partir d’agents dans un groupe d’administration SCOM connecté. |
 | [Compte Azure Storage](collect-azure-metrics-logs.md) | Non | La solution ne collecte aucune information à partir de stockage Azure. |
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 - Pour accéder aux informations d’Application Insights Connector, vous devez posséder un abonnement Azure.
 - Vous devez disposer d’au moins une ressource Application Insights configurée.
@@ -142,7 +142,7 @@ Les composants de la perspective sont mis à jour en fonction de la requête de 
 
 Les panneaux Application Insights Connector sont conçus pour vous permettre de passer à l’application Application Insights sélectionnée *lorsque vous utilisez le portail Azure*. Vous pouvez utiliser la solution comme une plateforme de surveillance de haut niveau qui vous permet de dépanner une application. Lorsque vous identifiez un problème potentiel dans l’une de vos applications connectées, vous pouvez soit la rechercher dans Log Analytics, soit accéder directement à l’application Application Insights.
 
-Pour ouvrir l’application, cliquez sur l’ellipse (**...**) qui apparaît à la fin de chaque ligne, puis sélectionnez **Ouvrir dans Application Insights**.
+Pour ouvrir l’application, cliquez sur l’ellipse ( **...** ) qui apparaît à la fin de chaque ligne, puis sélectionnez **Ouvrir dans Application Insights**.
 
 >[!NOTE]
 >L’option **Ouvrir dans Application Insights** n’est pas disponible dans le portail Azure.
@@ -169,7 +169,7 @@ La solution reçoit les types de données de télémétrie suivants à partir de
 
 - Disponibilité
 - Exceptions
-- Requests
+- Demandes
 - Affichages de pages – Pour que votre espace de travail reçoive des affichages de pages, vous devez configurer vos applications pour recueillir ces informations. Pour plus d’informations, voir [PageViews](../../azure-monitor/app/api-custom-events-metrics.md#page-views).
 - Événements personnalisés – Pour que votre espace de travail reçoive des événements personnalisés, vous devez configurer vos applications pour recueillir ces informations. Pour plus d’informations, voir [TrackEvent](../../azure-monitor/app/api-custom-events-metrics.md#trackevent).
 
@@ -192,9 +192,9 @@ Un enregistrement associé au *type* *ApplicationInsights* est créé pour chaqu
 | DeviceType | Appareil client |
 | ScreenResolution |   |
 | Continent | Continent d'où provient la requête |
-| Pays | Pays/région d'où provient la requête |
+| Pays | Pays/région d’où provient la requête |
 | Province | Province, état ou lieu d'où provient la requête |
-| Ville | Ville d'où provient la requête |
+| City | Ville d'où provient la requête |
 | isSynthetic | Indique si la requête a été créée par un utilisateur ou par une méthode automatisée. True = générée par l’utilisateur, ou false = méthode automatisée |
 | SamplingRate | Pourcentage de télémétrie générée par le Kit SDK qui est envoyé vers le portail. Plage 0.0-100.0. |
 | SampledCount | 100/(SamplingRate). Par exemple, 4 =&gt; 25 % |
@@ -207,7 +207,7 @@ Un enregistrement associé au *type* *ApplicationInsights* est créé pour chaqu
 
 ### <a name="availability-specific-fields"></a>Champs spécifiques à la disponibilité
 
-| Propriété | Description  |
+| Propriété | Description |
 | --- | --- |
 | TelemetryType | Disponibilité |
 | AvailabilityTestName | Nom du test web |

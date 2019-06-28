@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 10/30/2018
 ms.author: genli
 ms.openlocfilehash: 3fdb0f566789382a1606b19e4fac179f9ecf40cd
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62122955"
 ---
 # <a name="viewing-and-modifying-hostnames"></a>Affichage et modification des noms d'hôtes
@@ -40,9 +40,9 @@ Une fois que vous avez activé le Bureau à distance (Windows), l’accès dist
 ### <a name="azure-service-management-rest-api"></a>API REST de gestion des services Azure
 À partir d’un client REST. suivez ces instructions :
 
-1. Assurez-vous de disposer d’un certificat client pour vous connecter au portail Azure. Pour obtenir un certificat client, suivez les étapes présentées dans [Comment : Téléchargez et importez paramètres de publication et informations d’abonnement](https://msdn.microsoft.com/library/dn385850.aspx). 
+1. Assurez-vous de disposer d’un certificat client pour vous connecter au portail Azure. Pour obtenir un certificat client, effectuez les étapes décrites dans [Guide pratique pour télécharger et importer les paramètres de publication et les informations d’abonnement](https://msdn.microsoft.com/library/dn385850.aspx). 
 2. Définissez une entrée d’en-tête intitulée x-ms-version , présentant une valeur de 2013-11-01.
-3. Envoyer une demande au format suivant : https :\//management.core.windows.net/\<id-abonnement\>/services/hostedservices/\<nom_service\>? incorporer-detail = true
+3. Envoyez une requête au format suivant : https:\//management.core.windows.net/\<id_abonnement\>/services/hostedservices/\<nom-service\>?embed-detail=true
 4. Recherchez l’élément **HostName** associé à chaque élément **RoleInstance**.
 
 > [!WARNING]

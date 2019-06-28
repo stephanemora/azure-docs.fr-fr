@@ -1,6 +1,6 @@
 ---
-title: Format parquet dans Azure Data Factory | Microsoft Docs
-description: Cette rubrique décrit comment traiter format Parquet dans Azure Data Factory.
+title: Format Parquet dans Azure Data Factory | Microsoft Docs
+description: Cette rubrique décrit comment traiter le format Parquet dans Azure Data Factory.
 author: linda33wj
 manager: craigg
 ms.reviewer: craigg
@@ -10,32 +10,32 @@ ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: jingwang
 ms.openlocfilehash: 360b794f0d8ba9c145a92f015f264eb624fbb0f1
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65144877"
 ---
-# <a name="parquet-format-in-azure-data-factory"></a>Format parquet dans Azure Data Factory
+# <a name="parquet-format-in-azure-data-factory"></a>Format Parquet dans Azure Data Factory
 
-Suivez cet article lorsque vous souhaitez **analyser des fichiers Parquet ou écrire les données dans le format Parquet**. 
+Suivez cet article si vous souhaitez **analyser des fichiers Parquet ou écrire des données au format Parquet**. 
 
-Format parquet est pris en charge pour les connecteurs suivants : [Amazon S3](connector-amazon-simple-storage-service.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [stockage fichier Azure](connector-azure-file-storage.md), [Système de fichiers](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md)et [ SFTP](connector-sftp.md).
+Le format Parquet est pris en charge pour les connecteurs suivants : [Amazon S3](connector-amazon-simple-storage-service.md), [Blob Azure](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Stockage Fichier Azure](connector-azure-file-storage.md), [Système de fichiers](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md) et [SFTP](connector-sftp.md).
 
 ## <a name="dataset-properties"></a>Propriétés du jeu de données
 
-Pour obtenir la liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article [Jeux de données](concepts-datasets-linked-services.md). Cette section fournit une liste des propriétés prises en charge par le jeu de données Parquet.
+Pour obtenir la liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article [Jeux de données](concepts-datasets-linked-services.md). Cette section donne la liste des propriétés prises en charge par le jeu de données Parquet.
 
 | Propriété         | Description                                                  | Obligatoire |
 | ---------------- | ------------------------------------------------------------ | -------- |
-| Type             | La propriété de type du jeu de données doit être définie sur **Parquet**. | Oui      |
-| location         | Paramètres de l’emplacement du ou des fichiers. Chaque connecteur basé sur fichier possède son propre type d’emplacement et prise en charge des propriétés sous `location`. **Consultez les détails dans l’article traitant du connecteur -> section des propriétés de jeu de données**. | Oui      |
-| compressionCodec | Le codec de compression à utiliser lors de l’écriture dans des fichiers Parquet. Lors de la lecture à partir de fichiers Parquet, Data Factory déterminer automatiquement le codec de compression basé sur les métadonnées de fichier.<br>Types pris en charge sont «**none**«, »**gzip**«, »**snappy**» (valeur par défaut), et »**lzo**». Notez actuellement l’activité de copie ne prend pas en charge LZO. | Non        |
+| Type             | La propriété type du jeu de données doit être définie sur **Parquet**. | OUI      |
+| location         | Paramètres d’emplacement du ou des fichiers. Chaque connecteur basé sur un fichier possède ses propres type d’emplacement et propriétés prises en charge sous `location`. **Consultez les détails dans l’article du connecteur -> section des propriétés du jeu de données**. | OUI      |
+| compressionCodec | Codec de compression à utiliser lors de l’écriture dans des fichiers Parquet. Lors de la lecture de fichiers Parquet, Data Factory détermine automatiquement le codec de compression sur la base des métadonnées de fichier.<br>Les types pris en charge sont « **none** », « **gzip** », « **snappy** » (valeur par défaut) et « **lzo** ». Notez que l’activité de copie ne prend actuellement pas en charge LZO. | Non       |
 
 > [!NOTE]
-> Espace blanc dans le nom de colonne n’est pas pris en charge pour les fichiers Parquet.
+> Les espaces blancs dans le nom de colonne ne sont pas pris en charge pour les fichiers Parquet.
 
-Voici un exemple de jeu de données Parquet sur stockage Blob Azure :
+Voici un exemple de jeu de données Parquet sur Stockage Blob Azure :
 
 ```json
 {
@@ -61,35 +61,35 @@ Voici un exemple de jeu de données Parquet sur stockage Blob Azure :
 
 ## <a name="copy-activity-properties"></a>Propriétés de l’activité de copie
 
-Pour obtenir la liste complète des sections et des propriétés disponibles pour la définition des activités, consultez l’article [Pipelines](concepts-pipelines-activities.md). Cette section fournit une liste des propriétés prises en charge par la source de Parquet et le récepteur.
+Pour obtenir la liste complète des sections et des propriétés disponibles pour la définition des activités, consultez l’article [Pipelines](concepts-pipelines-activities.md). Cette section fournit la liste des propriétés prises en charge par Parquet en tant que source et récepteur.
 
 ### <a name="parquet-as-source"></a>Parquet en tant que source
 
-Les propriétés suivantes sont prises en charge dans l’activité de copie ***\*source\**** section.
+Les propriétés prises en charge dans la section ***\*source\**** de l’activité de copie sont les suivantes.
 
 | Propriété      | Description                                                  | Obligatoire |
 | ------------- | ------------------------------------------------------------ | -------- |
-| Type          | La propriété de type de la source d’activité de copie doit être définie sur **ParquetSource**. | Oui      |
-| storeSettings | Un groupe de propriétés sur la façon de lire les données à partir d’un magasin de données. Chaque connecteur basé sur fichier possède ses propres paramètres de lecture pris en charge sous `storeSettings`. **Consultez les détails dans l’article traitant du connecteur -> section de propriétés d’activité copie**. | Non        |
+| Type          | La propriété type de la source de l’activité de copie doit être définie sur **ParquetSource**. | OUI      |
+| storeSettings | Groupe de propriétés sur la méthode de lecture de données d’un magasin de données. Chaque connecteur basé sur un fichier possède ses propres paramètres de lecture pris en charge sous `storeSettings`. **Consultez les détails dans l’article du connecteur -> section des propriétés de l’activité de copie**. | Non       |
 
-### <a name="parquet-as-sink"></a>Parquet comme récepteur
+### <a name="parquet-as-sink"></a>Parquet en tant que récepteur
 
-Les propriétés suivantes sont prises en charge dans l’activité de copie ***\*récepteur\**** section.
+Les propriétés prises en charge dans la section ***\*récepteur\**** de l’activité de copie sont les suivantes.
 
 | Propriété      | Description                                                  | Obligatoire |
 | ------------- | ------------------------------------------------------------ | -------- |
-| Type          | La propriété de type de la source d’activité de copie doit être définie sur **ParquetSink**. | Oui      |
-| storeSettings | Un groupe de propriétés sur la façon d’écrire des données dans un magasin de données. Chaque connecteur basé sur fichier possède ses propres paramètres de prise en charge d’écriture sous `storeSettings`. **Consultez les détails dans l’article traitant du connecteur -> section de propriétés d’activité copie**. | Non        |
+| Type          | La propriété type de la source de l’activité de copie doit être définie sur **ParquetSink**. | OUI      |
+| storeSettings | Groupe de propriétés sur la méthode d’écriture de données dans un magasin de données. Chaque connecteur basé sur un fichier possède ses propres paramètres d’écriture pris en charge sous `storeSettings`. **Consultez les détails dans l’article du connecteur -> section des propriétés de l’activité de copie**. | Non       |
 
-## <a name="mapping-data-flow-properties"></a>Mappage de propriétés de flux de données
+## <a name="mapping-data-flow-properties"></a>Mappage des propriétés de flux de données
 
-Découvrez plus de détails à partir de [transformation source](data-flow-source.md) et [récepteur transformation](data-flow-sink.md) dans le mappage de flux de données.
+Découvrez plus de détails sur la [transformation de la source](data-flow-source.md) et la [transformation du récepteur](data-flow-sink.md) dans Mappage de flux de données.
 
 ## <a name="data-type-support"></a>Prise en charge des types de données
 
-Parquet types de données complexes ne sont actuellement pas pris en charge (par exemple, carte, liste, STRUCT).
+Les types de données complexes Parquet ne sont actuellement pas pris en charge (par ex., MAP, LIST, STRUCT).
 
-## <a name="using-self-hosted-integration-runtime"></a>À l’aide du Runtime d’intégration auto-hébergé
+## <a name="using-self-hosted-integration-runtime"></a>Utilisation du runtime d’intégration auto-hébergé
 
 > [!IMPORTANT]
 > Dans le cas de copies permises par Integration Runtime (auto-hébergé), par exemple, entre des magasins de données locaux et cloud, si vous ne copiez pas les fichiers Parquet **tels quels**, vous devez installer **JRE 8 64 bits (Java Runtime Environment) ou OpenJDK** sur votre machine de runtime d’intégration. Consultez le paragraphe suivant pour plus de détails.
@@ -109,6 +109,6 @@ Exemple : donnez la valeur `-Xms256m -Xmx16g` à la variable `_JAVA_OPTIONS`. L
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Vue d’ensemble des activités de copie](copy-activity-overview.md)
-- [Flux de données de mappage](concepts-data-flow-overview.md)
+- [Mappage de flux de données](concepts-data-flow-overview.md)
 - [Activité de recherche](control-flow-lookup-activity.md)
 - [Activité GetMetadata](control-flow-get-metadata-activity.md)

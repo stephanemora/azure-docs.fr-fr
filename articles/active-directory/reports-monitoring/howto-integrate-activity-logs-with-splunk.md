@@ -1,6 +1,6 @@
 ---
-title: Intégrer des journaux Azure Active Directory avec Splunk à l’aide d’Azure Monitor | Microsoft Docs
-description: Découvrez comment intégrer des journaux Azure Active Directory à SumoLogic à l’aide d’Azure Monitor
+title: Intégrer des journaux d’activité Azure Active Directory à Splunk à l’aide d’Azure Monitor | Microsoft Docs
+description: Découvrez comment intégrer des journaux d’activité Azure Active Directory avec SumoLogic à l’aide d’Azure Monitor
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -18,23 +18,23 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8f30e19a351f7b25f995a85cfd566bcba091ac27
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65597820"
 ---
-# <a name="how-to-integrate-azure-active-directory-logs-with-splunk-using-azure-monitor"></a>Activation Intégrer des journaux Azure Active Directory avec Splunk à l’aide d’Azure Monitor
+# <a name="how-to-integrate-azure-active-directory-logs-with-splunk-using-azure-monitor"></a>Activation Intégrer des journaux d’activité Azure Active Directory à Splunk à l’aide d’Azure Monitor
 
 Cet article explique comment intégrer des journaux d’activité Azure Active Directory (Azure AD) avec Splunk à l’aide d’Azure Monitor. Vous commencez pas router les journaux d’activité vers un hub d’événements Azure, puis vous intégrez le hub d’événements avec Splunk.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour utiliser cette fonctionnalité, vous avez besoin des éléments suivants :
 * Un hub d’événements Azure contenant les journaux d’activité d’Azure AD. Découvrez comment [diffuser en continu vos journaux d’activité sur un hub d’événements](quickstart-azure-monitor-stream-logs-to-event-hub.md). 
 * Le module complémentaire Azure Monitor pour Splunk. [Télécharger et configurer votre instance Splunk](https://github.com/Microsoft/AzureMonitorAddonForSplunk/blob/master/README.md).
 
-## <a name="integrate-azure-active-directory-logs"></a>Intégrer des journaux Azure Active Directory 
+## <a name="integrate-azure-active-directory-logs"></a>Intégrer des journaux d’activité Azure Active Directory 
 
 1. Ouvrez votre instance Splunk, puis sélectionnez **Data Summary** (Synthèse des données).
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.openlocfilehash: 8534f30c17208e77adfa47ea41506a3a61d3548d
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62121321"
 ---
 # <a name="security-frame-communication-security--mitigations"></a>Infrastructure de sécurité : sécurité des communications | mesures d’atténuation 
@@ -26,7 +26,7 @@ ms.locfileid: "62121321"
 | --------------- | ------- |
 | **Azure Event Hub** | <ul><li>[Sécuriser les communications vers Event Hub à l’aide du protocole SSL/TLS](#comm-ssltls)</li></ul> |
 | **Dynamics CRM** | <ul><li>[Vérifier les privilèges de compte de service et vérifier que les services personnalisés ou les pages ASP.NET respectent la sécurité CRM](#priv-aspnet)</li></ul> |
-| **Azure Data Factory** | <ul><li>[Utiliser la passerelle de gestion des données lors de la connexion SQL Server sur site vers Azure Data Factory](#sqlserver-factory)</li></ul> |
+| **Azure Data Factory** | <ul><li>[Utiliser la passerelle de gestion des données lors de la connexion du SQL Server local à Azure Data Factory](#sqlserver-factory)</li></ul> |
 | **Serveur d’identité** | <ul><li>[Garantir que l’intégralité du trafic vers IdentityServer est sur la connexion HTTPS](#identity-https)</li></ul> |
 | **Application Web** | <ul><li>[Vérifier les certificats X.509 utilisés pour authentifier les connexions SSL, TLS et DTLS](#x509-ssltls)</li><li>[Configurer le certificat SSL pour le domaine personnalisé dans Azure App Service](#ssl-appservice)</li><li>[Forcer l’intégralité du trafic vers Azure App Service sur la connexion HTTPS](#appservice-https)</li><li>[Activer le protocole HTTP Strict Transport Security (HSTS)](#http-hsts)</li></ul> |
 | **Base de données** | <ul><li>[Assurer le chiffrement de la connexion SQL Server et la validation des certificats](#sqlserver-validation)</li><li>[Forcer des communications chiffrées vers SQL Server](#encrypted-sqlserver)</li></ul> |
@@ -60,15 +60,15 @@ ms.locfileid: "62121321"
 | **Informations de référence**              | N/A  |
 | **Étapes** | Vérifiez les privilèges de compte de service et vérifiez que les services personnalisés ou les pages ASP.NET respectent la sécurité CRM. |
 
-## <a id="sqlserver-factory"></a>Utiliser la passerelle de gestion des données lors de la connexion SQL Server sur site vers Azure Data Factory
+## <a id="sqlserver-factory"></a>Utiliser la passerelle de gestion des données lors de la connexion du SQL Server local à Azure Data Factory
 
 | Intitulé                   | Détails      |
 | ----------------------- | ------------ |
 | **Composant**               | Azure Data Factory | 
 | **Phase SDL**               | Déploiement |  
 | **Technologies applicables** | Générique |
-| **Attributs**              | Types de services liés - Azure et locales |
-| **Informations de référence**              |[Déplacement de données entre en local et Azure Data Factory](https://azure.microsoft.com/documentation/articles/data-factory-move-data-between-onprem-and-cloud/#create-gateway), [passerelle de gestion des données](https://azure.microsoft.com/documentation/articles/data-factory-data-management-gateway/) |
+| **Attributs**              | Types de services liés - Azure et local |
+| **Informations de référence**              |[Déplacement de données entre des sources locales et Azure Data Factory](https://azure.microsoft.com/documentation/articles/data-factory-move-data-between-onprem-and-cloud/#create-gateway), [Passerelle de gestion de données](https://azure.microsoft.com/documentation/articles/data-factory-data-management-gateway/) |
 | **Étapes** | <p>L’outil de passerelle de gestion des données est requis pour se connecter aux sources de données qui sont protégées derrière un pare-feu ou un réseau d’entreprise.</p><ol><li>Le verrouillage de la machine isole l’outil de passerelle de gestion des données et empêche les programmes ne fonctionnant pas correctement d’endommager la machine hébergeant les sources de données ou d’espionner celle-ci. (Par exemple, les dernières mises à jour doivent être installées, activer le nombre minimal de ports requis, approvisionnement des comptes contrôlés, audit activé, chiffrement activé, etc.).</li><li>La clé de passerelle de données doit pivoter à intervalles réguliers ou chaque fois que le mot de passe du compte de service de passerelle de gestion des données est renouvelé.</li><li>Les transits de données via le service lié doivent être chiffrés.</li></ol> |
 
 ## <a id="identity-https"></a>Garantir que l’intégralité du trafic vers IdentityServer est sur la connexion HTTPS

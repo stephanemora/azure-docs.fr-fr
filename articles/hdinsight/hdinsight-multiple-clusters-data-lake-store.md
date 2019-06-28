@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: hrasheed
 ms.openlocfilehash: b580890b1663aa6ce742443e927e4d760585d4ce
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64700285"
 ---
 # <a name="use-multiple-hdinsight-clusters-with-an-azure-data-lake-storage-account"></a>Utiliser plusieurs clusters HDInsight avec un compte Azure Data Lake Storage
@@ -29,7 +29,7 @@ Cet article fournit des recommandations à l’administrateur Data Lake Storage 
 Le reste de cet article part du principe que vous avez une bonne connaissance des listes ACL de niveau fichier et dossier dans l’application Azure Data Lake Storage, qui sont décrites en détail dans [Contrôle d’accès dans Azure Data Lake Storage](../data-lake-store/data-lake-store-access-control.md).
 
 ## <a name="data-lake-storage-setup-for-multiple-hdinsight-clusters"></a>Configuration de Data Lake Storage pour plusieurs clusters HDInsight
-Prenons une hiérarchie de dossiers de deux niveaux pour expliquer les recommandations pour l’utilisation de plusieurs clusters HDInsight avec un compte Data Lake Storage. Supposez que vous avez un compte Data Lake Storage avec la structure de dossiers **/clusters/finance**. Avec cette structure, tous les clusters requis par le service financier peuvent utiliser /clusters/finance comme emplacement de stockage. À l’avenir, si une autre organisation (par exemple le service marketing) souhaite créer des clusters HDInsight avec le même compte Data Lake Storage, elle pourrait créer /clusters/marketing. Pour l’instant, nous allons simplement utiliser **/clusters/finance**.
+Prenons une hiérarchie de dossiers sur deux niveaux pour expliquer les recommandations quant à l’utilisation de plusieurs clusters HDInsight avec un compte Data Lake Storage. Supposez que vous avez un compte Data Lake Storage avec la structure de dossiers **/clusters/finance**. Avec cette structure, tous les clusters requis par le service financier peuvent utiliser /clusters/finance comme emplacement de stockage. À l’avenir, si une autre organisation (par exemple le service marketing) souhaite créer des clusters HDInsight avec le même compte Data Lake Storage, elle pourrait créer /clusters/marketing. Pour l’instant, nous allons simplement utiliser **/clusters/finance**.
 
 Pour que cette structure de dossiers soit bien utilisée par les clusters HDInsight, l’administrateur Data Lake Storage doit attribuer les autorisations appropriées, comme décrit dans le tableau. Les autorisations indiquées dans le tableau correspondent aux ACL d’accès et non aux ACL par défaut. 
 
@@ -50,10 +50,10 @@ Pour obtenir des instructions sur la création d’une application AAD (qui cré
 
 Quelques points importants à prendre en compte.
 
-- La structure de dossiers sur deux niveaux (**/clusters/finance/**) doit être créée et configurée avec les autorisations appropriées par l’administrateur Data Lake Storage **avant** d’utiliser le compte de stockage pour les clusters. Cette structure n’est pas créée automatiquement lors de la création des clusters.
+- La structure de dossiers sur deux niveaux ( **/clusters/finance/** ) doit être créée et configurée avec les autorisations appropriées par l’administrateur Data Lake Storage **avant** d’utiliser le compte de stockage pour les clusters. Cette structure n’est pas créée automatiquement lors de la création des clusters.
 - L’exemple ci-dessus recommande de définir le groupe propriétaire de **/clusters/finance** en tant que **FINGRP** et d’octroyer à FINGRP l’accès **r-x** à l’intégralité de la hiérarchie des dossiers à partir de la racine. Cela permet de s’assurer que les membres de FINGRP peuvent accéder à la structure de dossiers à partir de la racine.
 - Dans le cas où plusieurs principaux de service AAD peuvent créer des clusters sous **/clusters/finance**, le sticky-bit (lorsque défini sur le dossier **finance**) permet de s’assurer que les dossiers créés par un principal de service ne peuvent pas être supprimés par les autres.
-- Une fois que la structure de dossiers et les autorisations sont en place, le processus de création du cluster HDInsight crée un emplacement de stockage de cluster spécifiques sous **/clusters/finance/**. Par exemple, l’emplacement de stockage d’un cluster nommé fincluster01 pourrait être **/clusters/finance/fincluster01**. La propriété et les autorisations pour les dossiers créés par le cluster HDInsight sont indiquées dans le tableau présenté ici.
+- Une fois que la structure de dossiers et les autorisations sont en place, le processus de création de clusters HDInsight crée un emplacement de stockage spécifique aux clusters sous **/clusters/finance/** . Par exemple, l’emplacement de stockage d’un cluster nommé fincluster01 pourrait être **/clusters/finance/fincluster01**. La propriété et les autorisations pour les dossiers créés par le cluster HDInsight sont indiquées dans le tableau présenté ici.
 
     |Dossier  |Autorisations  |Utilisateur propriétaire  |groupe propriétaire  | Utilisateur nommé | Autorisations de l’utilisateur nommé | Groupe nommé | Autorisations du groupe nommé |
     |---------|---------|---------|---------|---------|---------|---------|---------|
@@ -88,7 +88,7 @@ Ces paramètres sont connus pour affecter un cas d’usage HDInsight particulier
 Comme indiqué dans le YARN JIRA associé précédemment, lors de la localisation des ressources publiques, le localisateur valide le fait que toutes les ressources demandées sont bien publiques en vérifiant leurs autorisations sur le système de fichiers distant. Les éléments LocalResource qui ne correspondent pas à cette condition sont rejetés pour la localisation. La vérification des autorisations inclut l’accès en lecture au fichier pour les « autres ». Ce scénario ne marche pas instantanément lors de l’hébergement des clusters HDInsight sur Azure Data Lake, car Azure Data Lake refuse tout accès aux « autres » au niveau du dossier racine.
 
 #### <a name="workaround"></a>Solution de contournement
-Définissez les autorisations d’exécution en lecture pour les **autres** dans la hiérarchie, par exemple, au niveau **/**, **/clusters** et **/clusters/finance** comme indiqué dans le tableau ci-dessus.
+Définissez les autorisations d’exécution en lecture pour les **autres** dans la hiérarchie, par exemple, au niveau **/** , **/clusters** et **/clusters/finance** comme indiqué dans le tableau ci-dessus.
 
 ## <a name="see-also"></a>Voir aussi
 

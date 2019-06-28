@@ -1,19 +1,19 @@
 ---
-title: Azure PowerShell script - création d’un conteneur d’indexation désactivée dans un compte Azure Cosmos
-description: 'Script Azure PowerShell exemple : création d’un conteneur d’indexation désactivée dans un compte Azure Cosmos'
+title: 'Script Azure PowerShell : création d’une indexation de conteneur désactivée dans un compte Azure Cosmos'
+description: 'Exemple de script Azure PowerShell : création d’une indexation de conteneur désactivée dans un compte Azure Cosmos'
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: samples
 ms.date: 05/06/2019
 ms.author: mjbrown
 ms.openlocfilehash: 4fc75eadd0f3ad87d313d10a9005997d46103666
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65078309"
 ---
-# <a name="create-a-container-indexing-turned-off-in-an-azure-cosmos-account-using-powershell"></a>Créer un conteneur d’indexation désactivée dans un compte Azure Cosmos à l’aide de PowerShell
+# <a name="create-a-container-indexing-turned-off-in-an-azure-cosmos-account-using-powershell"></a>Création d’une indexation de conteneur désactivée dans un compte Azure Cosmos à l’aide de PowerShell
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 

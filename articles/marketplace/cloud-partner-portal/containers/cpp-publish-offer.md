@@ -1,5 +1,5 @@
 ---
-title: Publier l’offre d’image de conteneurs Azure | Place de marché Azure
+title: Publier une offre d’image de conteneurs Azure | Place de marché Azure
 description: Guide pratique pour publier une offre de conteneur Azure.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: pabutler
 ms.openlocfilehash: 9433673e464beb2df74eb4f49851e960d2e7f99c
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64942669"
 ---
 # <a name="publish-container-offer"></a>Publier l’offre de conteneur

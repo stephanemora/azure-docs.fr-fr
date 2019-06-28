@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/26/2019
 ms.author: damaerte
 ms.openlocfilehash: 6b5f0e96b90ee0515c0a86f41c6ee2161d6c54a6
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66752718"
 ---
 # <a name="features--tools-for-azure-cloud-shell"></a>Fonctionnalités et outils pour Azure Cloud Shell
@@ -51,15 +51,15 @@ Toutes les modifications apportées aux ressources Azure, effectuées directemen
 
 ![](media/features-powershell/azure-drive.png)
 
-### <a name="manage-exchange-online"></a>Manage Exchange Online
+### <a name="manage-exchange-online"></a>Gérer Exchange Online
 
-PowerShell dans Cloud Shell contient une build privée du module Exchange Online.  Exécutez `Connect-EXOPSSession` pour obtenir vos applets de commande Exchange.
+PowerShell dans Cloud Shell contient une build privée du module Exchange Online.  Exécutez `Connect-EXOPSSession` pour obtenir vos cmdlets Exchange.
 
 ![](media/features-powershell/exchangeonline.png)
 
  Exécutez `Get-Command -Module tmp_*`
 > [!NOTE]
-> Le nom du module doit commencer par `tmp_`, si vous avez installé des modules avec le même préfixe, leurs applets de commande seront également visibles. 
+> Le nom du module doit commencer par `tmp_`. Si vous avez installé des modules avec le même préfixe, leurs cmdlets seront également visibles. 
 
 ![](media/features-powershell/exchangeonlinecmdlets.png)
 
@@ -82,7 +82,7 @@ Cloud Shell inclut une authentification préconfigurée pour des outils open sou
 
 ## <a name="language-support"></a>Support multilingue
 
-|Langue   |Version   |
+|Langage   |Version   |
 |---|---|
 |.NET Core  |2.0.0       |
 |Go         |1.9        |

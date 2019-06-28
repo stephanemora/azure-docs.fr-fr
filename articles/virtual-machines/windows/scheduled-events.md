@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
 ms.openlocfilehash: e6a376803d8617e01ee279e40a33f6c1c3b748fd
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65508192"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Instance Metadata Service : Événements planifiés pour les machines virtuelles Windows
@@ -45,10 +45,10 @@ De nombreuses applications peuvent bénéficier d’un délai pour se préparer 
 Avec Événements planifiés, votre application peut savoir quand une maintenance aura lieu et déclencher des tâches pour limiter son impact. Les événements planifiés laissent à votre machine virtuelle une période minimale avant l’activité de maintenance. Pour plus d’informations, voir la section Planification d’événements ci-dessous.
 
 Le service Événements planifiés fournit des événements dans les cas d’usage suivants :
-- [Plateforme a lancé une maintenance](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates) (par exemple, machine virtuelle redémarrage, migration dynamique ou mémoire en conservant les mises à jour pour l’hôte)
+- [Maintenance lancée par la plateforme](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates) (par exemple, redémarrage de machine virtuelle, migration dynamique ou mémoire conservant les mises à jour pour l’hôte)
 - Matériel détérioré
 - Maintenance lancée par l’utilisateur (par exemple, un utilisateur redémarre ou redéploie une machine virtuelle)
-- [Éviction de la machine virtuelle basse priorité](https://azure.microsoft.com/blog/low-priority-scale-sets) dans la mise à l’échelle définit
+- [Éviction de machine virtuelle basse priorité](https://azure.microsoft.com/blog/low-priority-scale-sets) dans des groupes identiques
 
 ## <a name="the-basics"></a>Concepts de base  
 
@@ -66,9 +66,9 @@ Les versions du service Événements planifiés sont gérées. Les versions sont
 
 | Version | Type de version | Régions | Notes de publication | 
 | - | - | - | - |
-| 2017-11-01 | Disponibilité générale | Tous | <li> Prise en charge pour une suppression de machine virtuelle basse priorité EventType 'Preempt'<br> | 
+| 2017-11-01 | Disponibilité générale | Tous | <li> Ajout de la prise en charge de l’éviction de machine virtuelle, EventType « Preempt »<br> | 
 | 2017-08-01 | Disponibilité générale | Tous | <li> Suppression du trait de soulignement ajouté au début des noms de ressources pour les machines virtuelles IaaS<br><li>Spécification d’en-tête de métadonnées appliquée à toutes les requêtes | 
-| 2017-03-01 | VERSION PRÉLIMINAIRE | Tous |<li>Version initiale
+| 2017-03-01 | PRÉVERSION | Tous |<li>Version initiale
 
 > [!NOTE] 
 > Les préversions précédentes des événements planifiés prenaient en charge {dernière version} en tant que version de l’api. Ce format n’est plus pris en charge et sera déconseillé à l’avenir.
@@ -85,7 +85,7 @@ Le redémarrage d’une machine virtuelle planifie un événement de type `Reboo
 
 ## <a name="using-the-api"></a>Utilisation de l’API
 
-### <a name="headers"></a>En-têtes
+### <a name="headers"></a>headers
 Quand vous interrogez le service de métadonnées, vous devez fournir l’en-tête `Metadata:true` pour garantir que la demande n’a pas été redirigée involontairement. L’en-tête `Metadata:true` est obligatoire pour toutes les requêtes d’événements planifiés. L’absence d’en-tête dans la requête génère une réponse « Requête incorrecte » du service de métadonnées.
 
 ### <a name="query-for-events"></a>Rechercher des événements
@@ -116,10 +116,10 @@ S'il existe des événements planifiés, la réponse contient un tableau d’év
 DocumentIncarnation est un ETag qui permet d’inspecter facilement la charge utile d’événement pour savoir si elle a changé depuis la dernière requête.
 
 ### <a name="event-properties"></a>Propriétés de l’événement
-|Propriété  |  Description  |
+|Propriété  |  Description |
 | - | - |
 | EventId | GUID pour cet événement. <br><br> Exemple : <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
-| EventType | Impact provoqué par cet événement. <br><br> Valeurs : <br><ul><li> `Freeze`: La Machine virtuelle est planifiée pour mettre en pause pendant quelques secondes. Processeur et la connectivité réseau peut être suspendue, mais n’a aucun impact sur la mémoire ou les fichiers ouverts. <li>`Reboot`: un redémarrage est planifié pour la machine virtuelle (la mémoire non persistante est effacée). <li>`Redeploy`: un déplacement vers un autre nœud est planifié pour la machine virtuelle (le contenu des disques éphémères est perdu). <li>`Preempt`: La Machine virtuelle de faible priorité est en cours de suppression (disques éphémères sont perdues).|
+| Type d’événement | Impact provoqué par cet événement. <br><br> Valeurs : <br><ul><li> `Freeze`: une pause de quelques secondes est planifiée pour la machine virtuelle. L’UC et la connectivité réseau peuvent être suspendus, mais cela n’a aucun impact sur la mémoire ni sur les fichiers ouverts. <li>`Reboot`: un redémarrage est planifié pour la machine virtuelle (la mémoire non persistante est effacée). <li>`Redeploy`: un déplacement vers un autre nœud est planifié pour la machine virtuelle (le contenu des disques éphémères est perdu). <li>`Preempt`: la machine virtuelle basse priorité est supprimée (le contenu des disques éphémères est perdu).|
 | ResourceType | Type de ressource affecté par cet événement. <br><br> Valeurs : <ul><li>`VirtualMachine`|
 | Ressources| Liste des ressources affectées par cet événement. Elle contient à coup sûr des machines d’au plus un [domaine de mise à jour](manage-availability.md), mais elle peut ne pas contenir toutes les machines du domaine utilisateur. <br><br> Exemple : <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
 | Event Status | État de cet événement. <br><br> Valeurs : <ul><li>`Scheduled`: cet événement est planifié pour démarrer après l’heure spécifiée dans la propriété `NotBefore`.<li>`Started`: cet événement a démarré.</ul> Aucun état `Completed` ou similaire n’est jamais fourni, car l’événement n’est plus retourné une fois qu’il est terminé.
@@ -128,12 +128,12 @@ DocumentIncarnation est un ETag qui permet d’inspecter facilement la charge ut
 ### <a name="event-scheduling"></a>Planification d’événement
 Chaque événement est planifié à un minimum de temps dans le futur, en fonction du type d’événement. Cette heure est reflétée dans la propriété `NotBefore` d’un événement. 
 
-|EventType  | Préavis minimal |
+|Type d’événement  | Préavis minimal |
 | - | - |
 | Freeze| 15 minutes |
-| Redémarrer | 15 minutes |
+| Reboot | 15 minutes |
 | Redeploy | 10 minutes |
-| Préempter | 30 secondes |
+| Preempt | 30 secondes |
 
 ### <a name="event-scope"></a>Portée de l’événement     
 Les événements planifiés sont remis à :

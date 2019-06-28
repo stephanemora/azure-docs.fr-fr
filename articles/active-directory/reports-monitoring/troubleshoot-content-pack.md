@@ -13,16 +13,16 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
+ms.date: 06/07/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 78676ac2f2dcff74a27e0260a5d83e924f7c246f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 6ee49ae56122fe596a4490914677d91d2f0348f6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60284955"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66807526"
 ---
 # <a name="troubleshooting-azure-active-directory-activity-logs-content-pack-errors"></a>Résolution des problèmes liés aux erreurs du pack de contenu des journaux d’activité Azure Active Directory 
 
@@ -47,7 +47,7 @@ Cet article traite des causes possibles de ces erreurs et explique comment les c
 | Cause : | Procédure de résolution |
 | ---   | ---        |
 | Les erreurs d’échec d’actualisation peuvent être générées quand les informations d’identification des utilisateurs se connectant au pack de contenu ont été réinitialisées, mais pas mises à jour dans les paramètres de connexion du pack de contenu. | Dans Power BI, recherchez le jeu de données correspondant au tableau de bord Journaux d’activité Azure AD (**journaux d’activité Azure Active Directory**), choisissez Planifier l’actualisation, puis entrez vos informations d’identification Azure AD. |
-| Une actualisation peut échouer à cause de problèmes de données dans le pack de contenu sous-jacent. | [Soumettez un ticket de support](../fundamentals/active-directory-troubleshooting-support-howto.md).|
+| Une actualisation peut échouer en raison de jeux de données volumineux. | Actuellement, le pack de contenu Azure AD avec Power BI peut prendre en charge uniquement les petits jeux de données (de moins de 500 000 lignes) suite à certaines limitations concernant les délais d’expiration dans le service Power BI. Si vous rencontrez des erreurs de limitation, ou si l’actualisation échoue en raison de problèmes de délai d’expiration, cela peut être lié au fait que vous tentez de récupérer un jeu de données volumineux. Réduisez la période dans la requête et réessayez.|
  
  
 ## <a name="failed-to-update-data-source-credentials"></a>Échec de la mise à jour des informations d’identification de la source de données 
@@ -63,7 +63,7 @@ Cet article traite des causes possibles de ces erreurs et explique comment les c
 
 ## <a name="data-import-is-too-slow"></a>L’importation de données est trop lente 
  
-**Circonstances de l’apparition de l’erreur** : Dans Power BI, quand vous avez connecté votre pack de contenu, le processus d’importation de données démarre pour préparer votre tableau de bord pour le journal d’activité Azure AD. Le message suivant s’affiche : **Importation de données...**, mais le processus n’évolue pas.  
+**Circonstances de l’apparition de l’erreur** : Dans Power BI, quand vous avez connecté votre pack de contenu, le processus d’importation de données démarre pour préparer votre tableau de bord pour le journal d’activité Azure AD. Le message suivant s’affiche : **Importation de données...** , mais le processus n’évolue pas.  
 
 | Cause : | Procédure de résolution |
 | ---   | ---        |
@@ -71,6 +71,6 @@ Cet article traite des causes possibles de ces erreurs et explique comment les c
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Installer le pack de contenu Power BI pour les rapports d’Azure AD](quickstart-install-power-bi-content-pack.md).
+* [Installer le pack de contenu Power BI pour les rapports Azure AD](quickstart-install-power-bi-content-pack.md)
 * [Utiliser le pack de contenu Power BI pour les rapports Azure AD pour visualiser vos données](howto-power-bi-content-pack.md)
 * [Obtenir une assistance pour Azure Active Directory](../fundamentals/active-directory-troubleshooting-support-howto.md)

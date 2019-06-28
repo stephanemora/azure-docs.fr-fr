@@ -1,21 +1,21 @@
 ---
-title: Meilleures pratiques de Query Store dans Azure Database pour PostgreSQL - serveur unique
-description: Cet article décrit les meilleures pratiques pour le Store de la requête dans la base de données Azure pour PostgreSQL - serveur unique.
+title: Bonnes pratiques relatives au Magasin des requêtes dans Azure Database pour PostgreSQL - Serveur unique
+description: Cet article décrit les bonnes pratiques relatives au Magasin des requêtes dans Azure Database pour PostgreSQL - Serveur unique.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: 798a7a3edbf11c8421848871d26ba55b5bada0b6
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65067250"
 ---
 # <a name="best-practices-for-query-store"></a>Bonnes pratiques relatives au Magasin des requêtes
 
-**S’applique à :** Azure Database pour PostgreSQL - monoserveur 9.6 et 10
+**S’applique à :** Azure Database pour PostgreSQL - Serveur unique 9.6 et 10
 
 Cet article décrit les bonnes pratiques relatives à l’utilisation du Magasin des requêtes dans Azure Database pour PostgreSQL.
 
@@ -24,7 +24,7 @@ Laissez le Magasin des requêtes capturer les données qui vous intéressent.
 
 |**pg_qs.query_capture_mode** | **Scénario**|
 |---|---|
-|_Tout_  |Analysez attentivement votre charge de travail concernant toutes les requêtes, leur fréquence d’exécution et d’autres statistiques. Identifiez les nouvelles requêtes dans votre charge de travail. Détecter si les requêtes ad hoc sont utilisées pour identifier les opportunités de paramétrage utilisateur ou automatique. _All_ s’accompagne du coût de la consommation accrue des ressources. |
+|_Tout_  |Analysez attentivement votre charge de travail concernant toutes les requêtes, leur fréquence d’exécution et d’autres statistiques. Identifiez les nouvelles requêtes dans votre charge de travail. Détectez si des requêtes ad hoc sont utilisées pour identifier les opportunités de paramétrage défini par l’utilisateur ou automatique. _All_ s’accompagne du coût de la consommation accrue des ressources. |
 |_Top_  |Concentrez votre attention sur les principales requêtes : celles émises par les clients.
 |_Aucun_ |Vous avez déjà capturé un ensemble de requêtes et une fenêtre de temps que vous souhaitez examiner, et vous voulez éliminer les distractions que d’autres requêtes peuvent introduire. _None_ est adapté pour les environnements de test et d’évaluation. _None_ doit être utilisé avec précaution, car vous risquez de laisser passer l’opportunité de suivre et d’optimiser d’importantes nouvelles requêtes. Vous ne pouvez pas récupérer des données sur ces fenêtres de temps. |
 

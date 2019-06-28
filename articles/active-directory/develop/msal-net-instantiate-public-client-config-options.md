@@ -1,6 +1,6 @@
 ---
-title: Instancier une application de client public avec des options (bibliothèque d’authentification Microsoft pour .NET) | Azure
-description: Découvrez comment instancier une application cliente publique avec les options de configuration à l’aide de la bibliothèque d’authentification Microsoft pour .NET (MSAL.NET).
+title: Instancier une application cliente publique avec des options (Microsoft Authentication Library for .NET) | Azure
+description: Découvrez comment instancier une application cliente publique avec des options de configuration à l’aide de Microsoft Authentication Library for .NET (MSAL.NET).
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
@@ -18,25 +18,25 @@ ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 125bbf9aed54fb00f039aeffddd5cc1aad3360a6
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65544397"
 ---
-# <a name="instantiate-a-public-client-application-with-configuration-options-using-msalnet"></a>Instancier une application cliente publique avec les options de configuration à l’aide de MSAL.NET
+# <a name="instantiate-a-public-client-application-with-configuration-options-using-msalnet"></a>Instancier une application cliente publique avec des options de configuration à l’aide de MSAL.NET
 
-Cet article explique comment instancier un [application cliente publique](msal-client-applications.md) à l’aide de Microsoft Authentication Library pour .NET (MSAL.NET).  L’application est instanciée avec les options de configuration définies dans un fichier de paramètres.
+Cet article décrit comment instancier une [application cliente publique](msal-client-applications.md) à l’aide de Microsoft Authentication Library for .NET (MSAL.NET).  L’application est instanciée avec les options de configuration définies dans un fichier de paramètres.
 
-Avant d’initialiser une application, vous devez d’abord [inscrire](quickstart-register-app.md) il afin que votre application peut être intégrée à la plateforme Microsoft identity. Après l’inscription, vous devrez peut-être les informations suivantes (qui se trouve dans le portail Azure) :
+Avant d’initialiser une application, vous devez d’abord l’[inscrire](quickstart-register-app.md) afin que votre application puisse être intégrée à la plate-forme d’identité Microsoft. Après l’inscription, vous aurez peut-être besoin des informations suivantes (que vous trouverez sur le portail Azure) :
 
-- L’ID de client (une chaîne représentant un GUID)
-- L’URL de fournisseur d’identité (l’instance nommée) et l’audience de connexion pour votre application. Ces deux paramètres sont collectivement regroupés sous l’autorité.
-- ID de locataire si vous écrivez une ligne de l’application métier uniquement pour votre organisation (également nommée application à locataire unique).
-- Pour les applications web et parfois pour les applications de client public (en particulier lorsque votre application doit utiliser un répartiteur), vous devez avoir également définir l’URI de redirection où le fournisseur d’identité contactera back votre application avec les jetons de sécurité.
+- L’ID client (une chaîne représentant un GUID)
+- L’URL du fournisseur d’identité (l’instance) et l’audience de connexion pour votre application. Ces deux paramètres représentent l’autorité.
+- L’ID locataire, si vous écrivez une application métier uniquement pour votre organisation (également nommée application à locataire unique).
+- Pour les applications web et parfois pour les applications clientes publiques (en particulier lorsque votre application doit utiliser un répartiteur), vous devez avoir également défini l’URI de redirection auquel le fournisseur d’identité recontactera votre application avec les jetons de sécurité.
 
 
-Une application console .NET Core peut avoir les éléments suivants *appsettings.json* fichier de configuration :
+Une application de console .NET Core peut avoir le fichier de configuration *appsettings.json* suivant :
 
 ```json
 {
@@ -52,7 +52,7 @@ Une application console .NET Core peut avoir les éléments suivants *appsetting
 }
 ```
 
-Le code suivant lit ce fichier à l’aide de l’infrastructure de configuration .NET :
+Le code suivant lit ce fichier à l’aide de l’infrastructure de configuration .NET :
 
 ```csharp
 public class SampleConfiguration
@@ -94,7 +94,7 @@ public class SampleConfiguration
 }
 ```
 
-Le code suivant crée votre application, à l’aide de la configuration du fichier de paramètres :
+Le code suivant crée votre application à l’aide de la configuration du fichier de paramètres :
 
 ```csharp
 SampleConfiguration config = SampleConfiguration.ReadFromJsonFile("appsettings.json");

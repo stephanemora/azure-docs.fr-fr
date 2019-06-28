@@ -1,6 +1,6 @@
 ---
-title: Démon application appeler des API web (vue d’ensemble) - plateforme d’identité Microsoft
-description: Découvrez comment créer une application démon qui appelle des API web
+title: Application démon appelant des API web (préversion) – Plateforme d’identités Microsoft
+description: Découvrez comment générer une application démon appelant des API web
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -17,54 +17,54 @@ ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 578b7cdb38b7df3fab5885d773354a36f76a4cfb
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65075879"
 ---
-# <a name="scenario-daemon-application-that-calls-web-apis"></a>Scénario : Application démon appelle des API web
+# <a name="scenario-daemon-application-that-calls-web-apis"></a>Scénario : Application démon appelant des API web
 
-En savoir plus il que vous suffit de créer une application démon qui appelle l’API web.
+Découvrez tout ce dont vous avez besoin pour créer une application démon appelant des API web.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [Pre-requisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
-Votre application peut acquérir un jeton pour appeler une API web pour le compte lui-même (pas pour le compte d’un utilisateur). Ce scénario est utile pour les applications de démon. Il utilise le standard OAuth 2.0 [informations d’identification client](v2-oauth2-client-creds-grant-flow.md) accorder.
+Votre application peut acquérir un jeton pour appeler une API web pour son propre compte (pas pour le compte d’un utilisateur). Ce scénario est utile pour les applications démon. Il utilise l’octroi [d’informations d’identification client](v2-oauth2-client-creds-grant-flow.md) OAuth 2.0 standard.
 
 ![Applications démon](./media/scenario-daemon-app/daemon-app.svg)
 
-Voici quelques exemples de cas d’utilisation pour les applications de démon :
+Voici quelques exemples de cas d’utilisation d’applications démon :
 
-- Applications Web qui sont utilisés pour configurer ou administrer les utilisateurs ou traiter par lot des processus dans un répertoire
-- Applications de bureau tels que (services windows sur Windows), ou des processus de démons sur Linux qui effectuent le traitement par lots ou un service de système d’exploitation en cours d’exécution en arrière-plan
-- API Web que vous avez besoin de manipuler des répertoires, les utilisateurs non spécifiques
+- Applications web utilisées pour approvisionner ou administrer des utilisateurs, ou effectuer des traitements par lots dans un annuaire.
+- Applications de bureau (par exemple, services Windows sur Windows ou processus de démons sous Linux) qui effectuent des traitements par lots, ou un service de système d’exploitation s’exécutant en arrière-plan.
+- API web que ont besoin de manipuler des annuaires, pas des utilisateurs spécifiques.
 
-Il existe un autre cas courant où les applications non-daemon utilisent les informations d’identification du client : même lorsqu’ils agissent pour le compte d’utilisateurs, dont ils ont besoin d’accéder à une API web ou une ressource avec leur identité pour des raisons techniques. Accéder aux secrets dans le coffre de clés ou une base de données SQL Azure pour un cache est un exemple.
+Il existe un autre cas courant où des applications non-démon utilisent les informations d’identification client. Même quand elles agissent pour le compte d’utilisateurs, pour des raisons techniques, elles ont besoin d’accéder à une API web ou à une ressource avec leur identité. Un exemple est l’accès aux secrets dans Key Vault ou dans une base de données SQL Azure pour un cache.
 
 Applications qui acquièrent un jeton pour leurs propres identités :
 
-- Sont des applications de client confidentiel. Ces applications, étant donné qu’ils accèdent aux ressources indépendamment d’un utilisateur, doivent prouver leur identité. Elles sont également les applications sensibles au lieu de cela, ils doivent être approuvées par les administrateurs de locataire Azure Active Directory (Azure AD).
-- Avez inscrit un secret (application de mot de passe ou certificat) avec Azure AD. Ce secret est passé lors de l’appel à Azure AD pour obtenir un jeton.
+- Applications clientes confidentielles. Ces applications, étant donné qu’elles accèdent à des ressources indépendamment d’un utilisateur, doivent prouver leur identité. Il s’agit également d’applications assez sensibles, qui doivent être approuvées par les administrateurs de locataire Azure Active Directory (Azure AD).
+- Applications qui ont inscrit un secret (mot de passe ou certificat d’application) auprès d’Azure AD. Ce secret est transmis lors de l’appel à Azure AD pour l’obtention d’un jeton.
 
 ## <a name="specifics"></a>Spécificités
 
 > [!IMPORTANT]
 >
-> - Interaction de l’utilisateur n’est pas possible avec une application démon. Une application démon nécessite sa propre identité. Ce type d’application demande un jeton d’accès en utilisant son identité d’application et en fournissant son ID d’application, les informations d’identification (mot de passe ou certificat) et application URI ID d’Azure AD. Après une authentification réussie, le démon reçoit un jeton d’accès (et un jeton d’actualisation) à partir de Microsoft identity plateforme point de terminaison, qui est ensuite utilisé pour appeler l’API web (et est actualisé en fonction des besoins).
-> - Étant donné que l’interaction de l’utilisateur n’est pas possible, consentement incrémentiel ne sera pas possible. Toutes les autorisations d’API requises doivent être configurés lors de l’inscription d’application et le code de l’application se contente de demander les autorisations définies de manière statique. Cela signifie également que les applications de démon ne prennent en charge le consentement incrémentiel.
+> - Aucune interaction d’utilisateur n’est possible avec une application démon. Une application démon nécessite sa propre identité. Ce type d’application demande un jeton d’accès en utilisant son identité d’application, et en présentant à Azure AD son ID d’application, ses informations d’identification (mot de passe ou certificat) et un URI d’ID d’application. Une fois l’authentification réussie, le démon reçoit un jeton d’accès (et un jeton d’actualisation) du point de terminaison de la Plateforme d’identité Microsoft, qui est ensuite utilisé pour appeler l’API web (et actualisé au besoin).
+> - Étant donné que l’interaction d’un utilisateur n’est pas possible, aucun consentement incrémentiel n’est possible. Toutes les autorisations d’API requises doivent être configurées lors de l’inscription de l’application, et le code de celle-ci ne demande que des autorisations définies de manière statique. Cela signifie également que les applications démon ne prennent en charge le consentement incrémentiel.
 
 Pour les développeurs, l’expérience de bout en bout pour ce scénario présente les aspects suivants :
 
-- Applications de démon ne peuvent fonctionner dans les locataires Azure AD. Il n’aurait aucun sens pour créer une application démon qui tente de manipuler des comptes personnels Microsoft. Si vous êtes un développeur d’applications line of business (LOB), vous allez créer votre application démon dans votre client. Si vous êtes un ISV, vous souhaiterez créer une application démon d’architecture mutualisée. Elle devra être consentie par chaque administrateur de locataire.
-- Lors de la [inscription d’Application](./scenario-daemon-app-registration.md), le **URI de réponse** n’est pas nécessaire. Vous devez partager les secrets ou certificats auprès d’Azure AD, et vous devez demander des autorisations d’applications et de donner leur consentement d’administrateur à utiliser ces autorisations d’application.
-- Le [configuration de l’Application](./scenario-daemon-app-configuration.md) doit fournir des informations d’identification de client comme partagée avec Azure AD lors de l’inscription de l’application.
-- Le [étendue](scenario-daemon-acquire-token.md#scopes-to-request) utilisé pour acquérir un jeton avec les informations d’identification client flux doit être une étendue statique.
+- Les applications démon ne peuvent fonctionner que dans des locataires Azure AD. Il n’aurait aucun sens à créer une application démon qui tente de manipuler des comptes personnels Microsoft. Si vous êtes un développeur d’applications métier, vous allez créer votre application démon dans votre locataire. Si vous êtes un éditeur de logiciels indépendant, vous pouvez créer une application démon mutualisée. Elle devra recevoir le consentement de chaque administrateur de locataire.
+- Lors de l’[inscription de l’application](./scenario-daemon-app-registration.md), l’**URI de réponse** n’est pas nécessaire. Vous devez partager les secrets ou certificats avec Azure AD, ainsi que demander des autorisations d’applications et obtenir le consentement d’un administrateur pour utiliser ces autorisations d’application.
+- La [configuration de l’application](./scenario-daemon-app-configuration.md) doit fournir les informations d’identification client qui ont été partagées avec Azure AD lors de l’inscription de l’application.
+- L’[étendue](scenario-daemon-acquire-token.md#scopes-to-request) utilisée pour acquérir un jeton avec le flux d’informations d’identification client doit être une étendue statique.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Application démon - inscription de l’application](./scenario-daemon-app-registration.md)
+> [Application démon – Inscription de l’application](./scenario-daemon-app-registration.md)

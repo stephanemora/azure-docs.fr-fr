@@ -15,13 +15,13 @@ ms.workload: na
 ms.date: 01/09/2018
 ms.author: alkohli;
 ms.openlocfilehash: 77050ad37862394785cf348a242f585cc089ba26
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65606865"
 ---
-# <a name="contact-microsoft-support"></a>Contactez le support technique Microsoft
+# <a name="contact-microsoft-support"></a>Contacter le support Microsoft
 
 StorSimple Device Manager offre la possibilité de **créer une demande de support** à partir du panneau de synthèse du service. Si vous rencontrez des problèmes avec votre solution StorSimple, vous pouvez créer une demande de service pour obtenir un support technique. Lors d’une session en ligne avec votre ingénieur de support, vous devrez également démarrer une session de support sur votre appareil StorSimple. Cet article vous guide tout au long des procédures suivantes :
 
@@ -64,7 +64,7 @@ Selon votre [plan de support](https://azure.microsoft.com/support/plans/), vous 
 4. Dans le panneau **Nouvelle demande de support**, cliquez sur **3 Informations de contact**. Dans le panneau **Informations de contact**, procédez comme suit :
 
    1. Dans la section **Options de contact**, fournissez votre méthode de contact préférée (téléphone ou e-mail) et votre langue. Le temps de réponse est automatiquement sélectionné en fonction de votre plan d’abonnement.
-   2. Dans les informations de Contact, indiquez votre nom de messagerie, contactez facultatif, pays/région. Cochez la case **Enregistrer les modifications de contact pour les futures demandes de support** .
+   2. Dans la section Informations de contact, fournissez votre nom, votre adresse e-mail, un contact secondaire (facultatif) et votre pays/région. Cochez la case **Enregistrer les modifications de contact pour les futures demandes de support** .
    3. Cliquez sur **Créer**.
    
        ![Contacter le support MS avec le nouveau portail](./media/storsimple-8000-contact-microsoft-support/contactsupport5.png)   

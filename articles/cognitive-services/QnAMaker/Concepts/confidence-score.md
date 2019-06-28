@@ -12,10 +12,10 @@ ms.date: 04/05/2019
 ms.author: tulasim
 ms.custom: seodec18
 ms.openlocfilehash: 4fb5d1e20c4c857dedcec2dc4695f82fccd9269d
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65792747"
 ---
 # <a name="confidence-score-of-a-qna-maker-knowledge-base"></a>Score de confiance d’une base de connaissances QnA Maker
@@ -46,13 +46,13 @@ Le tableau suivant indique la confiance généralement associée à un score don
 |0|Aucune correspondance, donc aucune réponse retournée.|« Combien coûte le service ? »|
 
 ## <a name="choose-a-score-threshold"></a>Choisir un seuil de score
-Le tableau ci-dessus présente les scores attendus sur la plupart des bases de connaissances. Cependant, chaque base de connaissances étant différente et comprenant différents types de mots, d’intentions et d’objectifs, nous vous recommandons de tester et choisir le seuil optimal pour vous. Par défaut, le seuil est défini sur 0, afin que toutes les réponses possibles sont retournés. Le seuil recommandé qui doit fonctionner pour la plupart des bases de connaissances, est **50**.
+Le tableau ci-dessus présente les scores attendus sur la plupart des bases de connaissances. Cependant, chaque base de connaissances étant différente et comprenant différents types de mots, d’intentions et d’objectifs, nous vous recommandons de tester et choisir le seuil optimal pour vous. Par défaut, le seuil est défini sur 0, afin que toutes les réponses possibles soient retournées. Le seuil recommandé qui devrait fonctionner pour la plupart des bases de connaissances est **50**.
 
 Lorsque vous choisissez votre seuil, n’oubliez pas l’équilibre entre exactitude et couverture, et ajustez votre seuil à vos besoins.
 
 - Si l’**exactitude** (ou précision) est primordiale pour votre scénario, augmentez votre seuil. Ainsi, chaque fois que vous retournerez une réponse, celle-ci sera beaucoup plus FIABLE et susceptible d’être celle qu’attendent les utilisateurs. Dans ce cas, vous risquez de laisser davantage de questions sans réponse. *Exemple :* si vous fixez le seuil à **70**, vous risquez de passer à côté d’exemples ambigus tels que « qu’est-ce qu’enregistrer et former ? ».
 
-- Si la **couverture** (ou rappel) est primordiale et que vous souhaitez répondre au plus grand nombre possible de questions, même si la réponse n’a qu’une relation très vague ou lointaine avec la question, ABAISSEZ le seuil. Cela signifie qu’il pourrait y avoir davantage de cas où la réponse ne correspond pas à la requête réelle de l’utilisateur, mais fournit des informations vaguement associées à la question. *Par exemple :* si vous effectuez le seuil **30**, vous pouvez donner des réponses pour les requêtes comme « Où puis-je modifier ma base de connaissances ? »
+- Si la **couverture** (ou rappel) est primordiale et que vous souhaitez répondre au plus grand nombre possible de questions, même si la réponse n’a qu’une relation très vague ou lointaine avec la question, ABAISSEZ le seuil. Cela signifie qu’il pourrait y avoir davantage de cas où la réponse ne correspond pas à la requête réelle de l’utilisateur, mais fournit des informations vaguement associées à la question. *Par exemple :* si vous définissez le seuil sur **30**, vous pouvez donner des réponses aux requêtes comme « Où puis-je modifier ma base de connaissances ? »
 
 > [!NOTE]
 > Les nouvelles versions de QnA Maker incluent des améliorations à la logique de notation, et pourraient affecter votre seuil. Chaque fois que vous mettez à jour le service, assurez-vous de tester et d’ajuster le seuil si nécessaire. Vous pouvez vérifier votre version du service QnA [ici](https://www.qnamaker.ai/UserSettings) et voir comment obtenir les dernières mises à jour [ici](../How-To/troubleshooting-runtime.md).
@@ -72,7 +72,7 @@ Si vous avez une base de connaissances dans différentes régions, chacune d’e
 
 
 ## <a name="no-match-found"></a>Aucune correspondance trouvée
-Si aucune bonne correspondance n’est trouvée par la fonction de classement, le score de confiance de 0,0 ou « None » est retourné, et la réponse par défaut est « Aucune bonne correspondance trouvée dans la base de connaissances ». Vous pouvez remplacer cette valeur [réponse par défaut](#change-default-answer) dans le code de robot ou une application appelant le point de terminaison. Vous pouvez également définir la réponse de remplacement dans Azure, et cela modifie la valeur par défaut pour toutes les bases de connaissances déployées dans un service QnA Maker particulier.
+Si aucune bonne correspondance n’est trouvée par la fonction de classement, le score de confiance de 0,0 ou « None » est retourné, et la réponse par défaut est « Aucune bonne correspondance trouvée dans la base de connaissances ». Vous pouvez remplacer cette [réponse par défaut](#change-default-answer) dans le code du bot ou de l’application appelant le point de terminaison. Vous pouvez également définir la réponse de remplacement dans Azure, et cela modifie la valeur par défaut pour toutes les bases de connaissances déployées dans un service QnA Maker particulier.
 
 ## <a name="change-default-answer"></a>Modifier la réponse par défaut
 

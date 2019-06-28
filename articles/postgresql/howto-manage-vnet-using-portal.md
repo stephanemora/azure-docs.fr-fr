@@ -1,19 +1,19 @@
 ---
-title: Créer et gérer des points de terminaison de service réseau virtuel et règles dans Azure Database pour PostgreSQL - serveur unique à l’aide du portail Azure
-description: Créer et gérer des points de terminaison de service réseau virtuel et règles de base de données Azure pour PostgreSQL - serveur unique à l’aide du portail Azure
+title: Création et gestion des points de terminaison de service de réseau virtuel et des règles dans Azure Database pour PostgreSQL - Serveur unique à l’aide du Portail Microsoft Azure
+description: Création et gestion des points de terminaison de service de réseau virtuel et des règles Azure Database pour PostgreSQL - Serveur unique à l’aide du Portail Microsoft Azure
 author: bolzmj
 ms.author: mbolz
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: 9da46ae905457f6f6b1786a2161e224d397d0507
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65073174"
 ---
-# <a name="create-and-manage-vnet-service-endpoints-and-vnet-rules-in-azure-database-for-postgresql---single-server-by-using-the-azure-portal"></a>Créer et gérer des points de terminaison de service réseau virtuel et règles de réseau virtuel dans Azure Database pour PostgreSQL - serveur unique à l’aide du portail Azure
+# <a name="create-and-manage-vnet-service-endpoints-and-vnet-rules-in-azure-database-for-postgresql---single-server-by-using-the-azure-portal"></a>Création et gestion des points de terminaison de service et des règles de réseau virtuel dans Azure Database pour PostgreSQL - Serveur unique à l’aide du Portail Microsoft Azure
 Les règles et points de terminaison de service de réseau virtuel étendent l’espace d’adressage privé d’un réseau virtuel à votre serveur Azure Database pour PostgreSQL. Pour une vue d’ensemble des points de terminaison de service de réseau virtuel Azure Database pour PostgreSQL, y compris les limitations, consultez [Use Virtual Network service endpoints and rules for Azure Database for PostgreSQL](concepts-data-access-and-security-vnet.md) (Utiliser des règles et points de terminaison de service de réseau virtuel pour Azure Database pour PostgreSQL). Les points de terminaison de service de réseau virtuel sont disponibles dans toutes les régions prises en charge pour Azure Database pour PostgreSQL.
 
 > [!NOTE]
@@ -24,10 +24,10 @@ Les règles et points de terminaison de service de réseau virtuel étendent l�
 
 1. Dans la page du serveur PostgreSQL, sous le titre Paramètres, cliquez sur **Sécurité des connexions** afin d’ouvrir le volet correspondant pour Azure Database pour PostgreSQL. 
 
-2. Assurez-vous que l’autoriser l’accès au contrôle des services Azure est définie sur **OFF**.
+2. Vérifiez que le contrôle Autoriser l’accès aux services Azure est défini sur **DÉSACTIVÉ**.
 
 > [!Important]
-> Si vous laissez le contrôle de la valeur ON, votre serveur de base de données Azure PostgreSQL accepte les communications à partir de n’importe quel sous-réseau. En termes de sécurité, le fait de laisser le contrôle ACTIVÉ peut avoir pour effet de multiplier excessivement les accès. La fonctionnalité de point de terminaison de service de réseau virtuel Microsoft Azure, conjointement avec la fonctionnalité de règle de réseau virtuel de base de données Azure pour PostgreSQL, peut ensemble réduire votre surface d’exposition de sécurité.
+> Si vous maintenez le contrôle ACTIVÉ, votre serveur Azure PostgreSQL Database acceptera les communications à partir de n’importe quel sous-réseau. En termes de sécurité, le fait de laisser le contrôle ACTIVÉ peut avoir pour effet de multiplier excessivement les accès. La fonctionnalité de points de terminaison de service de réseau virtuel Microsoft Azure, associée à la fonctionnalité de règle de réseau virtuel d’Azure Database pour PostgreSQL, réduisent votre surface d’exposition de sécurité.
 
 3. Cliquez ensuite sur **+ Ajout d’un réseau virtuel existant**. Si vous ne disposez d’aucun réseau virtuel, vous pouvez en créer un en cliquant sur **+ Créer un nouveau réseau virtuel**. Consultez [Démarrage rapide : Créer un réseau virtuel au moyen du portail Azure](../virtual-network/quick-create-portal.md)
 

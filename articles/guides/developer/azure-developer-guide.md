@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
 ms.openlocfilehash: 99e043adeac9a43432fb1eba85527b561c477354
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64570553"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Guide de prise en main pour les développeurs Azure
@@ -199,7 +199,7 @@ Azure est une plateforme cloud mondiale qui est disponible dans de nombreuses r�
 
 ### <a name="choose-the-best-region-for-your-application-and-data"></a>Choisir la meilleure région pour votre application et vos données
 
-L’un des avantages de l’utilisation d’Azure est de pouvoir déployer des applications dans différents centres de données du monde. La région que vous choisissez peut affecter les performances de votre application. Par exemple, il est préférable de choisir une région proche de la plupart de vos clients afin de réduire la latence des demandes réseau. Vous souhaiterez également sélectionnez votre région pour répondre aux exigences légales de distribution de votre application dans certains pays/régions. Il est toujours recommandé de stocker les données d’application dans le même centre de données ou dans un centre de données aussi proche que possible du centre de données qui héberge votre application.
+L’un des avantages de l’utilisation d’Azure est de pouvoir déployer des applications dans différents centres de données du monde. La région que vous choisissez peut affecter les performances de votre application. Par exemple, il est préférable de choisir une région proche de la plupart de vos clients afin de réduire la latence des demandes réseau. Vous pouvez également sélectionner votre région pour répondre aux exigences légales de distribution de votre application dans certains pays/régions. Il est toujours recommandé de stocker les données d’application dans le même centre de données ou dans un centre de données aussi proche que possible du centre de données qui héberge votre application.
 
 ### <a name="multi-region-apps"></a>Applications multirégions
 
@@ -281,7 +281,7 @@ Azure Resource Explorer est un excellent outil de visualisation des ressources q
 
 Lorsque vous autorisez l’accès à des ressources Azure, il est toujours recommandé de fournir aux utilisateurs les privilèges minimaux nécessaires pour effectuer une tâche donnée.
 
-- **Contrôle d’accès en fonction du rôle (RBAC)** : dans Azure, vous pouvez accorder l’accès aux comptes d’utilisateur (principaux) dans une étendue spécifiée : abonnement, groupe de ressources ou ressources individuelles. RBAC vous permet de déployer un ensemble de ressources dans un groupe de ressources et d’accorder des autorisations à un utilisateur ou un groupe spécifique. Il vous permet également de limiter l’accès aux seules ressources qui appartiennent au groupe de ressources cible. Vous pouvez également accorder l’accès à une ressource unique, telle qu’une machine virtuelle ou un réseau virtuel. Pour accorder l’accès, vous assignez un rôle à l’utilisateur, au groupe ou au principal de service. Il existe de nombreux rôles prédéfinis et vous pouvez également définir vos propres rôles personnalisés. Pour en savoir plus, consultez [Qu’est-ce que le contrôle d’accès en fonction du rôle (RBAC) ?](../../role-based-access-control/overview.md).
+- **Contrôle d’accès en fonction du rôle (RBAC)** : dans Azure, vous pouvez accorder l’accès aux comptes d’utilisateur (principaux) dans une étendue spécifiée : abonnement, groupe de ressources ou ressources individuelles. RBAC vous permet de déployer un ensemble de ressources dans un groupe de ressources et d’accorder des autorisations à un utilisateur ou un groupe spécifique. Il permet également de limiter l’accès aux seules ressources qui appartiennent au groupe de ressources cible. Vous pouvez également accorder l’accès à une ressource unique, telle qu’une machine virtuelle ou un réseau virtuel. Pour accorder l’accès, vous assignez un rôle à l’utilisateur, au groupe ou au principal de service. Il existe de nombreux rôles prédéfinis et vous pouvez également définir vos propres rôles personnalisés. Pour en savoir plus, consultez [Qu’est-ce que le contrôle d’accès en fonction du rôle (RBAC) ?](../../role-based-access-control/overview.md).
 
   > **Quand l’utiliser** : quand vous avez besoin de gérer avec précision l’accès des utilisateurs et des groupes ou que vous devez faire d’un utilisateur le propriétaire d’un abonnement.
   > 

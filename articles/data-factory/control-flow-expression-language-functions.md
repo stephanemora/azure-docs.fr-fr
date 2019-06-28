@@ -13,21 +13,21 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 ms.openlocfilehash: 4c51974498539a0305312d6501bcfa9ebc3b2e88
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64573552"
 ---
 # <a name="expressions-and-functions-in-azure-data-factory"></a>Expressions et fonctions dans Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
 > * [Version 1](v1/data-factory-functions-variables.md)
 > * [Version actuelle](control-flow-expression-language-functions.md)
 
 Cet article fournit des détails sur les expressions et fonctions prises en charge par Azure Data Factory. 
 
-## <a name="introduction"></a>Présentation
-Les valeurs JSON indiquées dans la définition peuvent être littérales. Il peut également s’agir d’expressions évaluées lors de l’exécution du runtime. Par exemple :   
+## <a name="introduction"></a>Introduction
+Les valeurs JSON indiquées dans la définition peuvent être littérales. Il peut également s’agir d’expressions évaluées lors de l’exécution du runtime. Par exemple :  
   
 ```json
 "name": "value"
@@ -66,7 +66,7 @@ Les expressions peuvent apparaître n’importe où dans une valeur de chaîne J
 ### <a name="examples"></a>Exemples
 
 #### <a name="a-dataset-with-a-parameter"></a>Un jeu de données avec un paramètre
-Dans l’exemple suivant, BlobDataset prend un paramètre nommé **path**. Sa valeur est utilisée pour définir une valeur pour le **folderPath** propriété à l’aide de l’expression : `dataset().path`. 
+Dans l’exemple suivant, BlobDataset prend un paramètre nommé **path**. Sa valeur est utilisée pour donner une valeur à la propriété **folderPath** à l’aide de l’expression : `dataset().path`. 
 
 ```json
 {
@@ -194,7 +194,7 @@ Dans l’exemple suivant, le pipeline prend les paramètres **inputPath** et **o
 ## <a name="conversion-functions"></a>Fonctions de conversion  
  Ces fonctions permettent de convertir chacun des types natifs du langage :  
   
--   string  
+-   chaîne  
   
 -   integer  
   
@@ -209,7 +209,7 @@ Dans l’exemple suivant, le pipeline prend les paramètres **inputPath** et **o
 |Nom de la fonction|Description|  
 |-------------------|-----------------|  
 |int|Convertit le paramètre en entier. Par exemple, l’expression suivante retourne 100 en tant que nombre, au lieu d’une chaîne : `int('100')`<br /><br /> **Numéro du paramètre** : 1<br /><br /> **Nom** : Valeur<br /><br /> **Description** : Requis. Valeur qui est convertie en entier.|  
-|string|Convertit le paramètre en chaîne. Par exemple, l’expression suivante retourne `'10'` :  `string(10)`. Vous pouvez également convertir un objet en chaîne, par exemple si le paramètre **foo** est un objet avec une seule propriété `bar : baz`, ce qui suit retourne `{"bar" : "baz"}` `string(pipeline().parameters.foo)`<br /><br /> **Numéro du paramètre** : 1<br /><br /> **Nom** : Valeur<br /><br /> **Description** : Requis. Valeur qui est convertie en chaîne.|  
+|chaîne|Convertit le paramètre en chaîne. Par exemple, l’expression suivante retourne `'10'` :  `string(10)`. Vous pouvez également convertir un objet en chaîne, par exemple si le paramètre **foo** est un objet avec une seule propriété `bar : baz`, ce qui suit retourne `{"bar" : "baz"}` `string(pipeline().parameters.foo)`<br /><br /> **Numéro du paramètre** : 1<br /><br /> **Nom** : Valeur<br /><br /> **Description** : Requis. Valeur qui est convertie en chaîne.|  
 |json|Convertissez le paramètre en valeur de type JSON. C’est l’opposé de string(). Par exemple, l’expression suivante retourne `[1,2,3]` en tant que tableau, plutôt qu’en tant que chaîne :<br /><br /> `json('[1,2,3]')`<br /><br /> Vous pouvez également convertir une chaîne en objet. Par exemple, `json('{"bar" : "baz"}')` retourne :<br /><br /> `{ "bar" : "baz" }`<br /><br /> **Numéro du paramètre** : 1<br /><br /> **Nom** : Chaîne<br /><br /> **Description** : Requis. Chaîne qui est convertie en valeur de type natif.<br /><br /> La fonction json prend en charge également les entrées xml. Par exemple, la valeur du paramètre :<br /><br /> `<?xml version="1.0"?> <root>   <person id='1'>     <name>Alan</name>     <occupation>Engineer</occupation>   </person> </root>`<br /><br /> est convertie dans le code json suivant :<br /><br /> `{ "?xml": { "@version": "1.0" },   "root": {     "person": [     {       "@id": "1",       "name": "Alan",       "occupation": "Engineer"     }   ]   } }`|  
 |float|Convertit l’argument de paramètre en nombre à virgule flottante. Par exemple, l’expression suivante retourne `10.333` : `float('10.333')`<br /><br /> **Numéro du paramètre** : 1<br /><br /> **Nom** : Valeur<br /><br /> **Description** : Requis. Valeur qui est convertie en nombre à virgule flottante.|  
 |bool|Convertit le paramètre en booléen. Par exemple, l’expression suivante retourne `false` : `bool(0)`<br /><br /> **Numéro du paramètre** : 1<br /><br /> **Nom** : Valeur<br /><br /> **Description** : Requis. Valeur qui est convertie en booléen.|  

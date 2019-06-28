@@ -1,6 +1,6 @@
 ---
-title: Configurer et consulter les journaux du serveur pour PostgreSQL - serveur unique à l’aide d’Azure CLI
-description: Cet article décrit comment configurer et consulter les journaux du serveur de base de données Azure pour PostgreSQL - serveur unique à l’aide de la ligne de commande Azure CLI.
+title: Configurer et accéder aux journaux d’activité de serveur pour PostgreSQL - Serveur unique à l’aide de l’interface de ligne de commande Azure
+description: Cet article décrit comment configurer les journaux d’activité du serveur dans Azure Database pour PostgreSQL - Serveur unique à l’aide de la ligne de commande Azure CLI et comment y accéder.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
@@ -8,16 +8,16 @@ ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: 4702db31ffeb15481584b9638f5be1aa640ff39e
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65067207"
 ---
 # <a name="configure-and-access-server-logs-by-using-azure-cli"></a>Configurer et accéder aux journaux d’activité du serveur à l’aide d’Azure CLI
 Vous pouvez télécharger les journaux d’activité des erreurs du serveur PostgreSQL à l’aide de l’interface de ligne de commande (Azure CLI). Toutefois, l’accès aux journaux d’activité des transactions n’est pas pris en charge. 
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 Pour parcourir ce guide pratique, vous avez besoin des éléments suivants :
 - [Un serveur Azure Database pour PostgreSQL](quickstart-create-server-database-azure-cli.md)
 - L’utilitaire en ligne de commande [Azure CLI](/cli/azure/install-azure-cli) ou Azure Cloud Shell dans le navigateur

@@ -1,5 +1,5 @@
 ---
-title: Onglet de la place de marché offre d’application Azure
+title: Offre d’application Azure, onglet Place de marché
 description: Utilisez l’onglet Place de marché pour identifier les ressources marketing pour une offre d’application Azure.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: pabutler
 ms.openlocfilehash: 7ea6e6be0597a114b02fad8c41e37d21ce1f6028
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64942968"
 ---
 # <a name="azure-application-marketplace-tab"></a>Onglet Place de marché - Application Azure
@@ -24,7 +24,7 @@ Le formulaire Vue d’ensemble contient les champs obligatoires et facultatifs i
 
 ![Formulaire Vue d'ensemble](./media/azureapp-marketplace-overview.png)
 
-Le tableau suivant décrit les paramètres à utiliser pour la création d’une vitrine pour l’offre.   Les champs ajoutés par un astérisque sont obligatoires.
+Le tableau suivant décrit les paramètres à utiliser pour la création d’une vitrine pour l’offre.   Les champs accompagnés d’un astérisque sont obligatoires.
 
 |      Champ         |    Description    |
 |  ---------------   |  ---------------  |
@@ -32,10 +32,10 @@ Le tableau suivant décrit les paramètres à utiliser pour la création d’une
 | **Résumé\***      | Court résumé de l’offre. La longueur maximale est de 100 caractères.           |
 | **Résumé long\*** | Résumé plus détaillé de l’offre (il peut être identique au contenu du champ Résumé). La longueur maximale est de 256 caractères.           |
 | **Description\***  | Description de l’offre. La longueur maximale est de 3 000 caractères. Mise en forme HTML simple, comprenant des balises&lt;p&gt;, &lt;em&gt;, &lt;ul&gt;, &lt;li&gt;, &lt;ol&gt; et header.  |
-| **Identificateur de marketing\*** | URL unique à associer à cette offre. Elle inclut généralement le nom de votre solution et de votre organisation, avec une longueur maximale de 50 caractères. Choisissez un identificateur marketing court et convivial pour votre service. Il sera utilisé dans les URL de la Place de marché pour cette offre. Par exemple, si votre ID d’éditeur est « contoso » et votre identificateur marketing est « sampleApp », l’URL de votre offre dans la Place de marché Azure sera https://azuremarketplace.microsoft.com/en-us/marketplace/apps/contoso.sampleApp  
-| **ID d’abonnement en version préliminaire\*** | Ajoutez entre 1 et 100 identificateurs d’abonnement d’utilisateurs de la préversion. Ces abonnements autorisés ont accès à l’offre dès qu’elle est disponible en préversion et après sa publication, avant sa mise en service.          |
-| **Liens utiles**    | Si vous le souhaitez, vous pouvez fournir des liens vers diverses ressources pour les utilisateurs de votre offre, telles que la prise en charge, documentation, forums, etc.  Il est recommandé que vous ajoutez au moins un lien à votre documentation.            |
-| **Suggéré catégories (5 max.)\*** | Sélectionnez une à cinq catégories. Les catégories sélectionnées servent à mapper votre offre aux catégories de produits disponibles sur la Place de marché Microsoft Azure et le portail Azure. Elles sont affichées sur les pages de navigation et la page des détails de votre produit. |
+| **Identificateur marketing\*** | URL unique à associer à cette offre. Elle inclut généralement le nom de votre solution et de votre organisation, avec une longueur maximale de 50 caractères. Choisissez un identificateur marketing court et convivial pour votre service. Il sera utilisé dans les URL de la Place de marché pour cette offre. Par exemple, si votre ID d’éditeur est « contoso » et votre identificateur marketing est « sampleApp », l’URL de votre offre dans la Place de marché Azure sera https://azuremarketplace.microsoft.com/en-us/marketplace/apps/contoso.sampleApp  
+| **ID d’abonnement pour préversion\*** | Ajoutez entre 1 et 100 identificateurs d’abonnement d’utilisateurs de la préversion. Ces abonnements autorisés ont accès à l’offre dès qu’elle est disponible en préversion et après sa publication, avant sa mise en service.          |
+| **Liens utiles**    | Vous pouvez éventuellement fournir des liens vers diverses ressources pour les utilisateurs de votre offre, comme la prise en charge, la documentation, les forums, etc.  Il vous est recommandé d’ajouter au moins un lien vers votre documentation.            |
+| **Catégories suggérées (5 maximum)\*** | Sélectionnez cinq catégories maximum. Les catégories sélectionnées servent à mapper votre offre aux catégories de produits disponibles sur la Place de marché Microsoft Azure et le portail Azure. Elles sont affichées sur les pages de navigation et la page des détails de votre produit. |
 |  |  |
 
 
@@ -49,13 +49,13 @@ Le tableau suivant décrit les artefacts marketing.
 
 |      Champ         |    Description    |
 |  ---------------   |  ---------------  |
-| **Petite\***        | Petit logo : Format PNG 40 x 40 pixels     |
-| **Moyenne\***       | Logo de taille moyenne : pixels de 90 x 90 au format PNG    |
-| **Grande\***        | Grand logo : pixels de 115 x 115 au format PNG   |
-| **Wide\***         | Logo large : pixels de 255 x 115 au format PNG    |
-| **Bannière**           | Bannière facultative : pixels 815 x 290 au format PNG. **Remarque :** Une fois l’icône de bannière chargée, elle ne peut pas être supprimée. |
+| **Petite\***        | Logo de petite taille : Format PNG 40 x 40 pixels     |
+| **Moyenne\***       | Logo de taille moyenne : Format PNG 90 x 90 pixels    |
+| **Grande\***        | Logo de grande taille : Format PNG 115 x 115 pixels   |
+| **Large\***         | Logo large : Format PNG 255 x 115 pixels    |
+| **Bannière**           | Bannière facultative : Format PNG 815 x 290 pixels. **Remarque :** Une fois l’icône de bannière chargée, elle ne peut pas être supprimée. |
 | **Captures d’écran (Max 5)** |        Les captures d’écran sont affichées sur la page de détails de votre produit. Il s’agit d’un excellent moyen de communiquer visuellement sur les actions et le mode de fonctionnement de votre application. Vous pouvez afficher des diagrammes architecturaux ou des illustrations de cas d’usage, par exemple. Les captures d’écran sont facultatives, et limitées à 5 par référence (SKU). Pour ajouter une capture d'écran :<ul><li>Sélectionnez **+ Ajouter une capture d’écran** pour ouvrir la fenêtre Capture d’écran</li><li>**Nom** : entrez un nom ou titre (longueur maximale de 100 caractères).</li><li>**Charger** : chargez l’image. Elle doit être au format PNG, et d’une taille de 533 x 324 pixels.</li></ul>           |
-| **Ajout d’une vidéo**      | Facultatif, les vidéos sont affichés sur votre page de détails du produit. Il s’agit d’un excellent moyen de communiquer visuellement sur les actions et le mode de fonctionnement de votre application. Pour ajouter une vidéo : <ul><li>Sélectionnez **+ Ajouter vidéo** pour ouvrir la fenêtre Vidéo</li><li>**Nom** : entrez un nom ou titre (longueur maximale de 100 caractères).</li><li>**Lien** : entrez l’URL du site qui héberge la vidéo (YouTube ou Vimeo)</li><li>**Miniature** : chargez une miniature. Elle doit être au format PNG, et d’une taille de 533 x 324 pixels.</li></ul>          |
+| **Ajouter une vidéo**      | Les vidéos facultatives sont affichées sur la page de détails de votre produit. Il s’agit d’un excellent moyen de communiquer visuellement sur les actions et le mode de fonctionnement de votre application. Pour ajouter une vidéo : <ul><li>Sélectionnez **+ Ajouter vidéo** pour ouvrir la fenêtre Vidéo</li><li>**Nom** : entrez un nom ou titre (longueur maximale de 100 caractères).</li><li>**Lien** : entrez l’URL du site qui héberge la vidéo (YouTube ou Vimeo)</li><li>**Miniature** : chargez une miniature. Elle doit être au format PNG, et d’une taille de 533 x 324 pixels.</li></ul>          |
 |  |  |
 
 
@@ -125,8 +125,8 @@ Utilisez le formulaire Informations juridiques pour fournir la documentation jur
 
 Fournissez les informations suivantes :
 
-- **URL de stratégie de confidentialité\***  – Entrez un lien vers la politique de confidentialité de votre application.
-- **Conditions d’utilisation\***  – Entrez les conditions d’utilisation pour votre application. Les clients doivent accepter ces conditions avant de pouvoir essayer de votre application.
+- **URL de la politique de confidentialité\*** : entrez un lien vers la politique de confidentialité de votre application.
+- **Conditions d’utilisation\*** : entrez les conditions d’utilisation de votre application. Les clients doivent accepter ces conditions avant de pouvoir essayer de votre application.
 
 ![Formulaire Informations juridiques](./media/azureapp-marketplace-legal.png)
 

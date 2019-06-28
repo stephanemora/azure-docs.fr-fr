@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: glenga
 ms.openlocfilehash: 88e5f1ac7834caa32302a3817e1779d0d733a7b3
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65787544"
 ---
 # <a name="run-your-azure-functions-from-a-package-file"></a>Exécuter des fonctions Azure à partir d’un fichier de package
 
 > [!NOTE]
-> La fonctionnalité décrite dans cet article n’est pas disponible pour les applications de fonction en cours d’exécution sur Linux dans un [plan App Service](functions-scale.md#app-service-plan).
+> La fonctionnalité décrite dans le présent article n’est pas disponible pour les application de fonctions exécutées sur Linux dans un [plan App Service](functions-scale.md#app-service-plan).
 
 Dans Azure, vous pouvez exécuter vos fonctions directement dans un fichier de package de déploiement de votre application de fonction. L’autre option consiste à déployer vos fichiers dans le répertoire `d:\home\site\wwwroot` de votre application de fonction.
 
@@ -42,13 +42,13 @@ Pour plus d’informations, lisez [cette annonce](https://github.com/Azure/app-s
 
 Pour permettre à votre application de fonction de s’exécuter à partir d’un package, il suffit d’ajouter un paramètre `WEBSITE_RUN_FROM_PACKAGE` à vos paramètres d’application de fonction. Le paramètre `WEBSITE_RUN_FROM_PACKAGE` doit avoir l’une des valeurs suivantes :
 
-| Valeur  | Description   |
+| Valeur  | Description  |
 |---------|---------|
-| **`1`**  | Recommandé pour les applications de fonction qui s’exécutent sur Windows. Lancez l’exécution à partir d’un fichier de package dans le dossier `d:\home\data\SitePackages` de votre application de fonction. Si ce n’est pas [déploiement avec zip déployer](#integration-with-zip-deployment), cette option nécessite que le dossier ait également un fichier nommé `packagename.txt`. Ce fichier contient uniquement le nom du fichier de package du dossier, sans espace. |
+| **`1`**  | Recommandé pour les applications de fonction qui s’exécutent sur Windows. Lancez l’exécution à partir d’un fichier de package dans le dossier `d:\home\data\SitePackages` de votre application de fonction. Si vous ne [déployez pas le fichier avec la fonction de déploiement zip](#integration-with-zip-deployment), le dossier doit également contenir un fichier appelé `packagename.txt` pour que cette option puisse être utilisée. Ce fichier contient uniquement le nom du fichier de package du dossier, sans espace. |
 |**`<url>`**  | Emplacement d’un fichier de package que vous souhaitez exécuter. Lorsque vous utilisez le stockage Blob, vous devez utiliser un conteneur privé avec une [signature d’accès partagé (SAP)](../vs-azure-tools-storage-manage-with-storage-explorer.md#attach-a-storage-account-by-using-a-shared-access-signature-sas) pour permettre au runtime Functions d’accéder au package. Vous pouvez utiliser [l’Explorateur Stockage Azure](https://azure.microsoft.com/features/storage-explorer/) pour charger des fichiers de package sur votre compte Stockage Blob.         |
 
 > [!CAUTION]
-> Lorsque vous exécutez une application de fonction sur Windows, l’option d’URL externe génère pire des performances de démarrage à froid. Lorsque vous déployez votre application de fonction pour Windows, vous devez définir `WEBSITE_RUN_FROM_PACKAGE` à `1` et publiez avec déploiement zip.
+> Lorsque vous exécutez une application de fonction sur Windows, l’option d’URL externe génère les performances de démarrage à froid les moins élevées. Lorsque vous déployez votre application de fonction sur Windows, vous devez définir `WEBSITE_RUN_FROM_PACKAGE` sur `1` et effectuer la publication avec le déploiement zip.
 
 L’exemple suivant montre une application de fonction configurée pour s’exécuter à partir d’un fichier zip hébergé dans le stockage Blob Azure :
 
@@ -67,10 +67,10 @@ L’exemple suivant montre une application de fonction configurée pour s’exé
 
 ## <a name="troubleshooting"></a>Résolution de problèmes
 
-- Exécuter à partir d’un Package rend `wwwroot` en lecture seule, vous recevez une erreur lors de l’écriture des fichiers dans ce répertoire.
-- Formats TAR et gzip ne sont pas pris en charge.
-- Cette fonctionnalité ne compose pas avec le cache local.
-- Pour améliorer les performances de démarrage à froid, utilisez l’option de Zip locale (`WEBSITE_RUN_FROM_PACKAGE`= 1).
+- L’option d’exécution à partir d’un package rend `wwwroot` accessible en lecture seule. Donc, vous recevez une erreur lors de l’écriture de fichiers dans ce répertoire.
+- Les formats TAR et GZIP ne sont pas pris en charge.
+- Cette fonctionnalité ne tient pas compte du cache local.
+- Pour améliorer les performances de démarrage à froid, utilisez l’option zip locale (`WEBSITE_RUN_FROM_PACKAGE`= 1).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

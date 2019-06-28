@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 05/15/2019
 ms.author: anzaman
 ms.openlocfilehash: f98cdcab2d108f8dd9d40e3770498ad17b2a8a88
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65799630"
 ---
 # <a name="customize-a-language-model-with-the-video-indexer-website"></a>Personnaliser un modèle de langage avec le site web Video Indexer
@@ -92,7 +92,7 @@ Si vous ajoutez ou supprimez des fichiers du modèle de langage, vous devez l'en
 
 ### <a name="rename-the-language-model"></a>Renommer le modèle de langage
 
-Pour modifier le nom du modèle de langage, cliquez sur **...**, à droite du modèle, puis sélectionnez **Renommer**. 
+Pour modifier le nom du modèle de langage, cliquez sur **...** , à droite du modèle, puis sélectionnez **Renommer**. 
 
 Entrez le nouveau nom, puis appuyez sur Entrée.
 
@@ -118,33 +118,33 @@ Une nouvelle fenêtre apparaît pour vous indiquer que cette suppression est dé
 
 Le modèle de langage est complètement supprimé de votre compte. Toute vidéo qui utilisait le modèle de langage supprimé conservera le même index jusqu'à la réindexation de la vidéo. Si vous réindexez la vidéo, vous pouvez lui assigner un nouveau modèle de langage. Sinon, Video Indexer utilisera son modèle par défaut pour réindexer la vidéo. 
 
-## <a name="customize-language-models-by-correcting-transcripts"></a>Personnaliser des modèles linguistiques en corrigeant les relevés de notes
+## <a name="customize-language-models-by-correcting-transcripts"></a>Personnaliser des modèles de langage en corrigeant les transcriptions
 
-Video Indexer prend en charge la personnalisation automatique du langage des modèles basés sur les utilisateurs de corrections réel apporter aux transcriptions des vidéos.
+Video Indexer prend en charge la personnalisation automatique de modèles de langage en fonction des corrections apportées par les utilisateurs aux transcriptions de leurs vidéos.
 
-1. Pour apporter des corrections à une transcription, ouvrez la vidéo que vous souhaitez modifier à partir de vos vidéos de compte. Sélectionnez le **chronologie** onglet.
+1. Pour apporter des corrections à une transcription, ouvrez la vidéo que vous voulez modifier à partir des vidéos du compte. Sélectionnez l’onglet **Chronologie**.
 
     ![Personnaliser un modèle de langage](./media/customize-language-model/timeline.png)
-1. Cliquez sur l’icône de crayon pour modifier la transcription de votre transcription. 
+1. Cliquez sur l'icône en forme de crayon pour modifier votre transcription. 
 
     ![Personnaliser un modèle de langage](./media/customize-language-model/edits.png)
 
-    Video Indexer capture toutes les lignes qui sont corrigés par vous dans la transcription de votre vidéo et les ajoutant automatiquement à un fichier texte appelé « de modifications de transcription ». Ces modifications sont utilisées pour recalculer le modèle de langage spécifique qui a été utilisé pour indexer cette vidéo. 
+    Video Indexer capture toutes les lignes que vous corrigez dans la transcription de votre vidéo et les ajoute automatiquement à un fichier texte appelé « From transcript edits ». Ces modifications servent à former à nouveau le modèle de langage spécifique utilisé pour indexer cette vidéo. 
     
-    Si vous n’avez pas spécifié un modèle de langage lors de l’indexation de cette vidéo, puis toutes les modifications de cette vidéo seront stockées dans un modèle de langue par défaut appelé adaptations de compte dans la langue détectée de la vidéo. 
+    Si vous n'avez pas spécifié de modèle de langage lors de l'indexation de cette vidéo, toutes les modifications apportées à cette vidéo seront stockées dans un modèle de langage par défaut appelé Account adaptations (Adaptations de compte) dans le langage détecté dans la vidéo. 
     
-    Au cas où plusieurs modifications ont été apportées à la même ligne, uniquement la dernière version de la ligne corrigée sera utilisée pour la mise à jour le modèle de langue.  
+    Si plusieurs modifications ont été apportées à la même ligne, seule la dernière version de la ligne corrigée sera utilisée pour mettre à jour le modèle de langage.  
     
     > [!NOTE]
-    > Seules les corrections textuelles sont utilisées pour la personnalisation. Cela signifie que les corrections qui n’impliquent pas de mots réel (par exemple, les signes de ponctuation ou les espaces) ne sont pas incluses. 
+    > Seules les corrections textuelles sont utilisées pour la personnalisation. Cela signifie que les corrections qui n'impliquent pas de mots réels (par exemple, des signes de ponctuation ou des espaces) ne sont pas incluses. 
     
-1. Transcription de corrections s’affichent apparaissent dans l’onglet de la langue de la page de personnalisation du modèle de contenu.
+1. Vous verrez les corrections de la transcription apparaître dans l'onglet Langage de la page de personnalisation du modèle de contenu.
 
     ![Personnaliser un modèle de langage](./media/customize-language-model/customize.png)
 
-   Pour consulter le fichier « de modifications de transcription » pour chacun de vos modèles de langage, cliquez dessus pour l’ouvrir. 
+   Pour consulter le fichier « From transcript edits » pour chacun de vos modèles de langage, cliquez dessus pour l'ouvrir. 
 
-    ![À partir des modifications de transcription](./media/customize-language-model/from-transcript-edits.png)
+    ![From transcript edits](./media/customize-language-model/from-transcript-edits.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

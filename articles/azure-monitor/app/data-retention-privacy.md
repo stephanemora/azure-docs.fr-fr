@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 05/09/2019
 ms.author: mbullwin
 ms.openlocfilehash: 38723a5dd306c2a4b594d95e5cc660d117966bc4
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65518843"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Collecte, rétention et stockage des données dans Application Insights
@@ -28,7 +28,7 @@ Tout d’abord, la réponse courte :
 * Les modules de télémétrie standard qui s’exécutent « dès le départ » sont peu susceptibles d’envoyer des données sensibles au service. La télémétrie s’attache aux métriques de charge, de performance et d’utilisation, aux rapports d’exception et autres données de diagnostic. Les données d’utilisateur principal visibles dans les rapports de diagnostics sont des URL ; mais votre application ne doit en aucun cas mettre des données sensibles en texte brut dans une URL.
 * Vous pouvez écrire du code qui envoie les données de télémétrie personnalisées supplémentaires, afin de vous aider avec les diagnostics et à surveiller l’utilisation. (Cette extensibilité est une fonctionnalité intéressante de Application Insights.) Il serait possible, par erreur, d’écrire ce code de manière à ce qu’il inclue les données personnelles et d’autres données sensibles. Si votre application fonctionne avec ces données, vous devez vérifier de manière approfondie l’ensemble du code que vous écrivez.
 * Pendant le développement et le test de votre application, il est facile d’examiner ce qui est envoyé par le Kit de développement logiciel (SDK). Les données apparaissent dans les fenêtres de sortie de débogage de l’IDE et du navigateur. 
-* Les données sont stockées sur des serveurs [Microsoft Azure](https://azure.com) aux États-Unis. (Mais votre application peut s’exécuter n’importe où.) Azure dispose de [processus de sécurité renforcés, il est conforme à une large gamme de normes de conformité](https://azure.microsoft.com/support/trust-center/). Seuls vous et votre équipe avez accès à vos données. Le personnel Microsoft peut avoir un accès restreint uniquement dans certaines circonstances définies, avec votre consentement. Il est chiffré en transit et au repos.
+* Les données sont stockées sur des serveurs [Microsoft Azure](https://azure.com) aux États-Unis. (Mais votre application peut s’exécuter n’importe où.) Azure dispose de [processus de sécurité renforcés, il est conforme à une large gamme de normes de conformité](https://azure.microsoft.com/support/trust-center/). Seuls vous et votre équipe avez accès à vos données. Le personnel Microsoft peut avoir un accès restreint uniquement dans certaines circonstances définies, avec votre consentement. Les données sont chiffrées, en transit comme au repos.
 
 Le reste de cet article aborde plus en détail ces réponses. Il est conçu pour être autonome, afin que vous puissiez le montrer à des collègues qui ne font pas partie de votre équipe.
 
@@ -88,9 +88,9 @@ Les points de données brutes (autrement dit, les éléments que vous pouvez int
 Les données agrégées (autrement dit, les nombres, moyennes et autres données statistiques que vous voyez dans Metrics Explorer) sont conservées avec une granularité de 1 minute pendant 90 jours.
 
 > [!NOTE]
-> Rétention de variable pour Application Insights est désormais disponible en version préliminaire. En savoir plus [ici](https://feedback.azure.com/forums/357324-application-insights/suggestions/17454031). 
+> La fonction de rétention de variable pour Application Insights est désormais disponible en préversion. En savoir plus [ici](https://feedback.azure.com/forums/357324-application-insights/suggestions/17454031). 
 
-[Déboguer des captures instantanées](../../azure-monitor/app/snapshot-debugger.md) sont stockés pendant 15 jours. Cette stratégie de rétention est définie application par application. Si vous devez augmenter cette valeur, faites-en la demande en ouvrant une demande de support dans le portail Azure.
+Les [captures instantanées de débogage](../../azure-monitor/app/snapshot-debugger.md) sont stockées pendant quinze jours. Cette stratégie de rétention est définie application par application. Si vous devez augmenter cette valeur, faites-en la demande en ouvrant une demande de support dans le portail Azure.
 
 ## <a name="who-can-access-the-data"></a>Qui peut accéder aux données ?
 Les données sont visibles par vous et, si vous disposez un compte d’organisation, par les membres de votre équipe. 
@@ -121,7 +121,7 @@ Elles peuvent envoyer des données de télémétrie supplémentaires à votre co
 Si vous partagez le code avec d’autres projets, pensez à supprimer votre clé d’instrumentation.
 
 ## <a name="is-the-data-encrypted"></a>Les données sont-elles chiffrées ?
-Toutes les données sont chiffrées au repos et en tant qu’il se déplace entre les données des centres de.
+Toutes les données sont chiffrées, aussi bien au repos que lors de leur déplacement entre les centres de données.
 
 #### <a name="is-the-data-encrypted-in-transit-from-my-application-to-application-insights-servers"></a>Les données sont-elles chiffrées lors de leur passage depuis mon application vers les serveurs Application Insights ?
 Oui, nous utilisons le protocole HTTPS pour envoyer les données au portail à partir de presque tous les Kits de développement logiciel (SDK), y compris les serveurs web, les appareils et les pages web HTTPS. La seule exception concerne les données envoyées à partir des pages web HTTP.
@@ -132,7 +132,7 @@ Oui, certains canaux de télémétrie conservent les données localement si un p
 
 Les canaux de télémétrie qui utilisent le stockage local créent des fichiers temporaires dans les répertoires TEMP ou APPDATA qui sont limités au compte exécutant votre application. Cela se produit lorsqu’un point de terminaison a été temporairement indisponible ou lorsque vous avez atteint la limite de bande passante. Une fois ce problème résolu, le canal de télémétrie reprend l’envoi de toutes les données nouvelles et conservées.
 
-Ces données persistantes ne sont pas chiffrées localement. S’il s’agit d’un problème, passez en revue les données et limiter la collection de données privées. (Pour plus d’informations, consultez [Comment exporter et supprimer des données privées](https://docs.microsoft.com/azure/application-insights/app-insights-customer-data#how-to-export-and-delete-private-data).)
+Ces données persistantes ne sont pas chiffrées en local. Si cela pose problème, passez en revue les données et limitez la collection de données privées. (Pour plus d’informations, consultez [Comment exporter et supprimer des données privées](https://docs.microsoft.com/azure/application-insights/app-insights-customer-data#how-to-export-and-delete-private-data).)
 
 Si un client a besoin configurer ce répertoire avec des exigences de sécurité spécifiques, il peut être configuré conformément au framework. Vérifiez que le processus exécutant votre application a accès en écriture à ce répertoire, mais veillez également à que ce répertoire soit protégé pour éviter la lecture des données de télémétrie par des utilisateurs non autorisés.
 
@@ -240,15 +240,15 @@ Les kits de développement logiciel (SDK) varient en fonction des plateformes et
 
 | Votre action | Classes de données collectées (voir tableau suivant) |
 | --- | --- |
-| [Ajouter le kit de développement logiciel (SDK) Application Insights à un projet web .NET][greenbrown] |ServerContext<br/>Inferred<br/>Perf counters<br/>Requests<br/>**Exceptions**<br/>session<br/>utilisateurs  |
+| [Ajouter le kit de développement logiciel (SDK) Application Insights à un projet web .NET][greenbrown] |ServerContext<br/>Inferred<br/>Perf counters<br/>Demandes<br/>**Exceptions**<br/>session<br/>users |
 | [Installer Status Monitor sur IIS][redfield] |Dépendances<br/>ServerContext<br/>Inferred<br/>Perf counters |
-| [Ajouter le kit de développement logiciel (SDK) Application Insights à une application web Java][java] |ServerContext<br/>Inferred<br/>Requête<br/>session<br/>utilisateurs  |
-| [Ajouter le kit de développement logiciel (SDK) JavaScript à une page web][client] |ClientContext  <br/>Inferred<br/>Page<br/>ClientPerf<br/>Ajax |
+| [Ajouter le kit de développement logiciel (SDK) Application Insights à une application web Java][java] |ServerContext<br/>Inferred<br/>Requête<br/>session<br/>users |
+| [Ajouter le kit de développement logiciel (SDK) JavaScript à une page web][client] |ClientContext <br/>Inferred<br/>Page<br/>ClientPerf<br/>Ajax |
 | [Définir les propriétés par défaut][apiproperties] |**Propriétés** sur tous les événements standard et personnalisés |
 | [Appeler TrackMetric][api] |Valeurs numériques<br/>**Propriétés** |
 | [Appeler Track*][api] |Nom de l'événement<br/>**Propriétés** |
 | [Appeler TrackException][api] |**Exceptions**<br/>Vidage de pile<br/>**Propriétés** |
-| Le Kit SDK ne peut pas collecter les données. Exemple : <br/> - impossible d’accéder aux compteurs de performances<br/> - exception dans l’initialiseur de télémétrie |SDK diagnostics |
+| Le Kit SDK ne peut pas collecter les données. Par exemple : <br/> - impossible d’accéder aux compteurs de performances<br/> - exception dans l’initialiseur de télémétrie |SDK diagnostics |
 
 Pour les [Kits de développement logiciel (SDK) des autres plateformes][platforms], consultez les documents correspondants.
 
@@ -258,7 +258,7 @@ Pour les [Kits de développement logiciel (SDK) des autres plateformes][platform
 | --- | --- |
 | **Propriétés** |**Toutes les données - en fonction de votre code** |
 | DeviceContext |ID, adresse IP, paramètres régionaux, modèle d’appareil, réseau, type de réseau, nom OEM, résolution d’écran, instance de rôle, nom du rôle, type d’appareil |
-| ClientContext  |Système d’exploitation, paramètres régionaux, langue, réseau, résolution de la fenêtre |
+| ClientContext |Système d’exploitation, paramètres régionaux, langue, réseau, résolution de la fenêtre |
 | session |ID de session |
 | ServerContext |Nom de l’ordinateur, paramètres régionaux, système d’exploitation, appareil, session utilisateur, contexte utilisateur, opération |
 | Inferred |Emplacement géographique à partir de l’adresse IP, horodatage, système d’exploitation, navigateur |
@@ -267,7 +267,7 @@ Pour les [Kits de développement logiciel (SDK) des autres plateformes][platform
 | PageViews |URL et nom de la page ou de l’écran |
 | Client perf |URL/nom de la page, temps de chargement du navigateur |
 | Ajax |Appels HTTP de la page web au serveur |
-| Requests |URL, durée, code de réponse |
+| Demandes |URL, durée, code de réponse |
 | Les dépendances |Type (SQL, HTTP, ...), chaîne de connexion ou URI, synchronisation/désynchronisation, durée, réussite, instruction SQL (avec Status Monitor) |
 | **Exceptions** |Type, **message**, piles d’appels, fichier source et numéro ligne, ID du thread |
 | Crashes |ID de processus, ID de processus parent, ID de thread d’incident ; correctif de l’application, ID, version ; type d’exception, adresse, motif ; symboles et enregistrements masqués, adresses binaires de début et de fin, nom et chemin du fichier binaire, type de processeur |

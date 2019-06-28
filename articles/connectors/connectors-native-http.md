@@ -12,10 +12,10 @@ ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
 ms.openlocfilehash: 22b21512c78a06f2639ca9339f3b7a20c7f5bfa3
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64713803"
 ---
 # <a name="call-http-or-https-endpoints-with-azure-logic-apps"></a>Appeler des points de terminaison HTTP ou HTTPS avec Azure Logic Apps
@@ -26,11 +26,11 @@ Vous pouvez utiliser le déclencheur HTTP comme première étape de votre flux d
 
 Vous pouvez utiliser l’action HTTP comme toute autre étape de votre flux de travail pour appeler le point de terminaison quand vous le souhaitez. La réponse du point de terminaison détermine la façon dont s’exécutent les actions restantes de votre flux de travail. 
 
-En fonction des capacités du point de terminaison cible, ce connecteur prend en charge la sécurité TLS (Transport Layer) versions 1.0, 1.1 et 1.2. Logic Apps négocie avec le point de terminaison à l’aide de la version prise en charge la plus élevée possible. Par conséquent, par exemple, si le point de terminaison prend en charge 1.2, le connecteur utilise 1.2 tout d’abord. Sinon, le connecteur utilise la version prise en charge la plus élevée suivante.
+En fonction des capacités du point de terminaison cible, ce connecteur prend en charge les versions versions 1.0, 1.1 et 1.2 du protocole TLS (Transport Layer Security). Logic Apps négocie avec le point de terminaison en utilisant la version prise en charge la plus récente possible. Si, par exemple, le point de terminaison prend en charge la version 1.2, le connecteur commence par utiliser celle-ci. Sinon, le connecteur utilise la version prise en charge juste inférieure.
 
 Si vous débutez avec les applications logiques, consultez [Qu’est-ce qu’Azure Logic Apps ?](../logic-apps/logic-apps-overview.md)
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, [inscrivez-vous pour bénéficier d’un compte Azure gratuit](https://azure.microsoft.com/free/). 
 
@@ -48,7 +48,7 @@ Si vous débutez avec les applications logiques, consultez [Qu’est-ce qu’Azu
 
    ![Sélectionner le déclencheur HTTP](./media/connectors-native-http/select-http-trigger.png)
 
-1. Indiquez les [paramètres et valeurs du déclencheur HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md##http-trigger) à inclure dans l’appel au point de terminaison cible. Configurer la périodicité pour la fréquence à laquelle vous souhaitez que le déclencheur pour vérifier le point de terminaison cible.
+1. Indiquez les [paramètres et valeurs du déclencheur HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md##http-trigger) à inclure dans l’appel au point de terminaison cible. Configurez la fréquence à laquelle le déclencheur doit vérifier le point de terminaison cible.
 
    ![Entrer les paramètres du déclencheur HTTP](./media/connectors-native-http/http-trigger-parameters.png)
 
@@ -71,7 +71,7 @@ Si vous débutez avec les applications logiques, consultez [Qu’est-ce qu’Azu
    ![Sélection de l’action HTTP](./media/connectors-native-http/select-http-action.png)
 
    Pour ajouter une action entre des étapes, placez votre pointeur au-dessus de la flèche qui les sépare. 
-   Cliquez sur le signe plus (**+**) qui s’affiche, puis sélectionnez **Ajouter une action**.
+   Cliquez sur le signe plus ( **+** ) qui s’affiche, puis sélectionnez **Ajouter une action**.
 
 1. Indiquez les [paramètres et valeurs de l’action HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md##http-action) à inclure dans l’appel au point de terminaison cible. 
 
@@ -79,7 +79,7 @@ Si vous débutez avec les applications logiques, consultez [Qu’est-ce qu’Azu
 
 1. Quand vous avez terminé, veillez à enregistrer votre application logique. Dans la barre d’outils du concepteur, choisissez **Enregistrer**. 
 
-## <a name="authentication"></a>Authentification
+## <a name="authentication"></a>Authentication
 
 Pour définir l’authentification, choisissez **Afficher les options avancées** à l’intérieur de l’action ou du déclencheur. Pour plus d’informations sur les types d’authentification disponibles pour les déclencheurs et les actions HTTP, consultez [Informations de référence sur les types d’actions et de déclencheurs](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication).
 

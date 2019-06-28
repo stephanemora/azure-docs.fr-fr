@@ -9,10 +9,10 @@ ms.date: 03/19/2018
 ms.author: robb
 ms.subservice: ''
 ms.openlocfilehash: bbc5aaf02f4ab4388e816faaf8df536770f3302a
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65205630"
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Procédure pas à pas d’utilisation de l’API REST d’Azure Monitor
@@ -98,7 +98,7 @@ Utilisez [l’API REST de définitions de mesures Azure Monitor](https://docs.mi
 
 **Méthode** : GET
 
-**URI de demande**: https :\/\/management.azure.com/subscriptions/*{subscriptionId}*/resourceGroups/*{resourceGroupName}*/providers/*{resourceProviderNamespace}* / *{resourceType}*/*{resourceName}*/providers/microsoft.insights/metricDefinitions?api-version=*{} apiVersion}*
+**URI de demande** : https:\/\/management.azure.com/subscriptions/ *{subscriptionId}* /resourceGroups/ *{resourceGroupName}* /providers/ *{resourceProviderNamespace}* / *{resourceType}* / *{resourceName}* /providers/microsoft.insights/metricDefinitions?api-version= *{apiVersion}*
 
 Par exemple, pour récupérer les définitions des métriques pour un compte Stockage Azure, la demande s’affiche comme suit :
 
@@ -242,7 +242,7 @@ Utilisez le nom « valeur » de la métrique (et non « localizedValue ») pour 
 
 **Méthode** : GET
 
-**URI de demande**: https\://management.azure.com/subscriptions/*{id-abonnement}*/resourceGroups/*{resource-group-name}*/providers/*{} Resource-provider-namespace}*/*{type_ressource}*/*{resource-name}*/providers/microsoft.insights/metrics ? metricnames =*{métrique}*& timespan =*{starttime/endtime}*& $filter =*{filter}*& resultType = métadonnées & api-version = *{apiVersion}*
+**URI de demande** : https\://management.azure.com/subscriptions/ *{subscription-id}* /resourceGroups/ *{resource-group-name}* /providers/ *{resource-provider-namespace}* / *{resource-type}* / *{resource-name}* /providers/microsoft.insights/metrics?metricnames= *{metric}* &timespan= *{starttime/endtime}* &$filter= *{filter}* &resultType=metadata&api-version= *{apiVersion}*
 
 Par exemple, pour récupérer la liste des valeurs de dimension qui ont été émises pour la « dimension du nom de l’API » pour la métrique « Transactions », où la dimension GeoType = « Primary » pendant l’intervalle de temps spécifié, la requête se présente comme suit :
 
@@ -315,7 +315,7 @@ Utilisez la valeur « value » du nom de la métrique (et non « localizedValue 
 
 **Méthode** : GET
 
-**URI de la requête** : https://management.azure.com/subscriptions/*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/*{resource-provider-namespace}*/*{resource-type}*/*{resource-name}*/providers/microsoft.insights/metrics?metricnames=*{metric}*&timespan=*{starttime/endtime}*&$filter=*{filter}*&interval=*{timeGrain}*&aggregation=*{aggreation}*&api-version=*{apiVersion}*
+**URI de la requête** : https://management.azure.com/subscriptions/ *{subscription-id}* /resourceGroups/ *{resource-group-name}* /providers/ *{resource-provider-namespace}* / *{resource-type}* / *{resource-name}* /providers/microsoft.insights/metrics?metricnames= *{metric}* &timespan= *{starttime/endtime}* &$filter= *{filter}* &interval= *{timeGrain}* &aggregation= *{aggreation}* &api-version= *{apiVersion}*
 
 Par exemple, pour récupérer les 3 premières API, dans l’ordre décroissant des valeurs, par le nombre de « Transactions » pendant une plage de 5 minutes, où le GeotType était « Principal », la requête se présente comme suit :
 
@@ -394,7 +394,7 @@ Utilisez [l’API REST de définitions de mesures Azure Monitor](https://msdn.mi
 
 **Méthode** : GET
 
-**URI de demande**: https :\/\/management.azure.com/subscriptions/*{subscriptionId}*/resourceGroups/*{resourceGroupName}*/providers/*{resourceProviderNamespace}* / *{resourceType}*/*{resourceName}*/providers/microsoft.insights/metricDefinitions?api-version=*{} apiVersion}*
+**URI de demande** : https:\/\/management.azure.com/subscriptions/ *{subscriptionId}* /resourceGroups/ *{resourceGroupName}* /providers/ *{resourceProviderNamespace}* / *{resourceType}* / *{resourceName}* /providers/microsoft.insights/metricDefinitions?api-version= *{apiVersion}*
 
 Par exemple, pour récupérer les définitions des métriques pour une application logique Azure, la demande ressemble à ce qui suit :
 
@@ -467,7 +467,7 @@ Une fois les définitions de mesures disponibles connues, il est possible de ré
 
 **Méthode** : GET
 
-**URI de la requête** : https://management.azure.com/subscriptions/*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/*{resource-provider-namespace}*/*{resource-type}*/*{resource-name}*/providers/microsoft.insights/metrics?$filter=*{filter}*&api-version=*{apiVersion}*
+**URI de la requête** : https://management.azure.com/subscriptions/ *{subscription-id}* /resourceGroups/ *{resource-group-name}* /providers/ *{resource-provider-namespace}* / *{resource-type}* / *{resource-name}* /providers/microsoft.insights/metrics?$filter= *{filter}* &api-version= *{apiVersion}*
 
 Par exemple, pour retrouver les points de données de mesure RunsSucceeded pour la plage de temps spécifiée et avec un fragment de temps de 1 heure, la requête est la suivante :
 
@@ -605,13 +605,13 @@ Pour le code précédent, l’ID de ressource à utiliser est le chemin d’acc�
 
 La liste suivante contient des exemples de formats d’ID de ressource pour les différentes ressources Azure :
 
-* **IoT Hub** - /subscriptions/*{id-abonnement}*/resourceGroups/*{nom-groupe-ressources}*/providers/Microsoft.Devices/IotHubs/*{nom-iot-hub}*
-* **Pool SQL élastique** - /subscriptions/*{id-abonnement}*/resourceGroups/*{nom-groupe-ressources}*/providers/Microsoft.Sql/servers/*{bd-pool}*/elasticpools/*{nom-pool-sql}*
-* **SQL Database (v12)** - /subscriptions/*{id-abonnement}*/resourceGroups/*{nom-groupe-ressources}*/providers/Microsoft.Sql/servers/*{nom-serveur}*/databases/*{nom-bd}*
-* **Service Bus** - /subscriptions/*{id-abonnement}*/resourceGroups/*{nom-groupe-ressources}*/providers/Microsoft.ServiceBus/*{espace-noms}*/*{nom-servicebus}*
-* **Groupes de machines virtuelles identiques** - /subscriptions/*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/Microsoft.Compute/virtualMachineScaleSets/*{vm-name}*
-* **Machines virtuelles** - /subscriptions/*{id-abonnement}*/resourceGroups/*{nom-groupe-ressources}*/providers/Microsoft.Compute/virtualMachines/*{nom-machine-virtuelle}*
-* **Event Hubs** - /subscriptions/*{id-abonnement}*/resourceGroups/*{nom-groupe-ressources}*/providers/Microsoft.EventHub/namespaces/*{espace-noms-eventhub}*
+* **IoT Hub** - /subscriptions/ *{id-abonnement}* /resourceGroups/ *{nom-groupe-ressources}* /providers/Microsoft.Devices/IotHubs/ *{nom-iot-hub}*
+* **Pool SQL élastique** - /subscriptions/ *{id-abonnement}* /resourceGroups/ *{nom-groupe-ressources}* /providers/Microsoft.Sql/servers/ *{bd-pool}* /elasticpools/ *{nom-pool-sql}*
+* **SQL Database (v12)** - /subscriptions/ *{id-abonnement}* /resourceGroups/ *{nom-groupe-ressources}* /providers/Microsoft.Sql/servers/ *{nom-serveur}* /databases/ *{nom-bd}*
+* **Service Bus** - /subscriptions/ *{id-abonnement}* /resourceGroups/ *{nom-groupe-ressources}* /providers/Microsoft.ServiceBus/ *{espace-noms}* / *{nom-servicebus}*
+* **Groupes de machines virtuelles identiques** - /subscriptions/ *{subscription-id}* /resourceGroups/ *{resource-group-name}* /providers/Microsoft.Compute/virtualMachineScaleSets/ *{vm-name}*
+* **Machines virtuelles** - /subscriptions/ *{id-abonnement}* /resourceGroups/ *{nom-groupe-ressources}* /providers/Microsoft.Compute/virtualMachines/ *{nom-machine-virtuelle}*
+* **Event Hubs** - /subscriptions/ *{id-abonnement}* /resourceGroups/ *{nom-groupe-ressources}* /providers/Microsoft.EventHub/namespaces/ *{espace-noms-eventhub}*
 
 Il existe des approches alternatives à la récupération de l’ID de ressource, notamment avec l’Explorateur de ressources Azure, l’affichage de la ressource souhaitée dans le portail Azure et via PowerShell ou l’interface CLI Azure.
 
@@ -657,7 +657,7 @@ Version        : 08586982649483762729
 
 ### <a name="azure-cli"></a>Azure CLI
 
-Pour récupérer l’ID de ressource pour un compte de stockage Azure à l’aide de l’interface CLI, exécutez le `az storage account show` de commande, comme indiqué dans l’exemple suivant :
+Pour récupérer l’ID de ressource d’un compte Stockage Azure à l’aide de l’interface CLI Azure, exécutez la commande `az storage account show`, comme indiqué dans l’exemple suivant :
 
 ```
 az storage account show -g azmon-rest-api-walkthrough -n contosotweets2017

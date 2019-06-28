@@ -1,5 +1,5 @@
 ---
-title: Description de la place de marché pour un module Azure IoT Edge | Place de marché Azure
+title: Description de la Place de marché pour un module Azure IoT Edge | Place de marché Azure
 description: Créez la description de la Place de marché pour un module IoT Edge.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: pabutler
 ms.openlocfilehash: aa0c908e18233926965d8dc3cd1b474f876b8dda
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64942434"
 ---
 # <a name="iot-edge-module-marketplace-tab"></a>Onglet Place de marché d’un module IoT Edge
 
-L’onglet **Place de marché** de la page **Nouvelle offre** vous permet de proposer à vos clients potentiels des accords et informations juridiques, commerciaux et marketing, ainsi que de gérer des prospects depuis la Place de marché. Cette forme longue est divisée en quatre sections : **Vue d’ensemble**, **Marketing artefacts**, **gestion des prospects**, et **juridique**.
+L’onglet **Place de marché** de la page **Nouvelle offre** vous permet de proposer à vos clients potentiels des accords et informations juridiques, commerciaux et marketing, ainsi que de gérer des prospects depuis la Place de marché. Ce formulaire long est divisé en quatre sections : **Vue d’ensemble**, **Artefacts marketing**, **Gestion des prospects** et **Informations juridiques**.
 
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
 Dans cette section, vous entrez les informations générales sur votre offre de la Place de marché Microsoft Azure.  Si un astérisque (*) se trouve en regard du nom du champ, cela signifie que ce champ est obligatoire.
 
@@ -32,8 +32,8 @@ Le tableau suivant décrit l’objectif et le contenu de ces champs. Les champs 
 | **Titre\***                 | Titre de l’offre. Il est affiché de façon visible dans la Place de marché.  Longueur maximale de 50 caractères. <!--ADD PICTURE IN ACTION-->|
 | **Résumé\***               | Court résumé de l’offre. Longueur maximale de 100 caractères. <!--ADD PICTURE IN ACTION-->|
 | **Résumé long\***          | Résumé plus détaillé de l’offre (il peut être identique au contenu du champ **Résumé**).  Longueur maximale de 256 caractères. <!--ADD PICTURE IN ACTION-->|
-| **Description\***           | Description de l’offre.  Longueur maximale de 3 000 caractères, prend en charge la mise en forme HTML simple.<br/> Un paragraphe *Conditions matérielles minimales requises* doit être inclus dans la partie inférieure. Par exemple : <br/> <p><u>Configuration matérielle minimale requise :</u> Linux x64 et arm32 système d’exploitation, 1 Go de RAM, 500 Mo de stockage</p>
-| **Identificateur de marketing\***  | URL unique à associer à cette offre. Elle inclut généralement le nom de votre solution et de votre organisation, avec une longueur maximale de 50 caractères.  Par exemple :  <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleIoTEdgeModule`  |
+| **Description\***           | Description de l’offre.  Longueur maximale de 3 000 caractères, prend en charge la mise en forme HTML simple.<br/> Un paragraphe *Conditions matérielles minimales requises* doit être inclus dans la partie inférieure. Par exemple : <br/> <p><u>Conditions matérielles minimales requises :</u> Système d’exploitation Linux x64 ry arm32, 1 Go de RAM, 500 Mo de stockage</p>
+| **Identificateur marketing\***  | URL unique à associer à cette offre. Elle inclut généralement le nom de votre solution et de votre organisation, avec une longueur maximale de 50 caractères.  Par exemple : <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleIoTEdgeModule`  |
 | **ID d’abonnement pour préversion** | Ajoutez entre 1 et 100 identificateurs d’abonnement d’utilisateurs de la préversion. Ces abonnements autorisés ont accès à l’offre dès sa publication, avant sa mise en service. |
 | **Liens utiles**          | Sélection multiple de catégories commerciales et techniques auxquelles l’offre s’associe le mieux.  Un maximum de 10 est autorisé. Veillez à ajouter au moins un lien vers votre documentation et un lien vers les appareils IoT Edge compatibles du [catalogue d’appareils Azure IoT](https://catalog.azureiotsolutions.com/). |
 | **Catégories suggérées\*** | Choisissez cinq catégories maximum. Elles sont affichées sur la page des détails de votre produit. Sur les pages de navigation, tous les modules IoT Edge sont répertoriés dans la catégorie *Internet of Things \> Module IoT Edge*.|
@@ -75,7 +75,7 @@ Le tableau suivant décrit l’objectif et le contenu de ces champs. Les champs 
 
 ## <a name="marketing-artifacts"></a>Artefacts marketing
 
-Cette section contient les sous-sections suivantes : **Logos**, **capture d’écran**, et **vidéos**. 
+Cette section comporte les sous-sections suivantes : **Logos**, **Capture d’écran** et **Vidéos**. 
 
 >[!Note]
 >Les logos sont les seuls artefacts marketing obligatoires ; néanmoins, nous vous recommandons d’ajouter les autres artefacts pour mieux attirer les clients.
@@ -88,13 +88,13 @@ Cette section contient les sous-sections suivantes : **Logos**, **capture d’�
 | **Petite\***                 | Format PNG 40 x 40 pixels                                                     |
 | **Moyenne\***                | Format PNG 90 x 90 pixels                                                     |
 | **Grande\***                 | Format PNG 115 x 115 pixels                                                  |
-| **Wide\***                  | Format PNG 255 x 115 pixels                                                   |
+| **Large\***                  | Format PNG 255 x 115 pixels                                                   |
 | **Bannière**                  | Format PNG 815 x 290 pixels.  Facultatif. En revanche, une fois l’icône de bannière chargée, il n’est plus possible de la supprimer. |
 | *Captures d’écran*  | Les captures d’écran sont affichées sur la page de détails de votre produit. Il s’agit d’un excellent moyen de communiquer visuellement sur les actions et le mode de fonctionnement de votre module IoT Edge. Vous pouvez afficher des diagrammes architecturaux ou des illustrations de cas d’usage, par exemple. Facultatif ; cinq captures d’écran maximum par référence SKU. |
-| **Name**                  | Nom ou titre. Longueur maximale de 100 caractères.                             |
+| **Nom**                  | Nom ou titre. Longueur maximale de 100 caractères.                             |
 | **Image**                 | Image de capture d’écran, format PNG 533 x 324 pixels                               |
 | *Vidéos*  | Les vidéos sont affichées sur la page de détails de votre produit. Il s’agit d’un excellent moyen de communiquer visuellement sur les actions et le mode de fonctionnement de votre module IoT Edge. |
-| **Name**                  | Nom ou titre. Longueur maximale de 100 caractères.                             |
+| **Nom**                  | Nom ou titre. Longueur maximale de 100 caractères.                             |
 | **Lien**                  | URL de la vidéo, hébergée sur YouTube ou Vimeo                                        |
 | **Miniature**             | Format PNG 533 x 324 pixels                                                     |
 |  |  |
@@ -160,13 +160,13 @@ Après avoir publié votre offre, la connexion de prospect est vérifiée et un 
 
 ## <a name="legal"></a>Informations juridiques
 
-Cette section vous permet de fournir les deux documents juridiques qui sont requis pour chaque offre : la politique de confidentialité et les conditions d’utilisation.
+Cette section vous permet de fournir les deux documents juridiques nécessaires pour chaque offre : la politique de confidentialité et les conditions d’utilisation.
 
 |  **Champ**                    |     **Description**                                                          |
 |  ---------                    |     ---------------                                                          |
-| **URL de stratégie de confidentialité\***      | URL de votre politique de confidentialité publiée                                            |
-| **Utiliser Constract Standard\***  | Indique s’il faut ou non utiliser le modèle de contrat Microsoft standard.  Pour plus d’informations, consultez [contrat Standard](https://docs.microsoft.com/azure/marketplace/standard-contract).   |
-| **Conditions d’utilisation\***            | *Conditions d’utilisation* comme inline HTML simple ou un lien vers votre publiées page conditions d’utilisation     |
+| **URL de la politique de confidentialité\***      | URL de votre politique de confidentialité publiée                                            |
+| **Utiliser Contrat Standard\***  | Indique s’il faut ou non utiliser le modèle de contrat Microsoft standard.  Pour plus d’informations, consultez [Contrat Standard](https://docs.microsoft.com/azure/marketplace/standard-contract).   |
+| **Conditions d’utilisation\***            | *Conditions d’utilisation* au format HTML simple inclus ou lien vers la page de vos conditions d’utilisation publiées     |
 |  |  |
 
 

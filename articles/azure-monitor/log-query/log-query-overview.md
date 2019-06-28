@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: bwren
 ms.openlocfilehash: 1cb3946a93cbeff6a9b95e0a21edbf0523b53d5e
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65203614"
 ---
 # <a name="analyze-log-data-in-azure-monitor"></a>Analyser les données de journal dans Azure Monitor
@@ -28,7 +28,7 @@ Pour récupérer des données de journal à partir d'Azure Monitor, vous devez e
 
 ## <a name="where-log-queries-are-used"></a>Lorsque les requêtes dans les journaux sont utilisées
 
-Les différentes façons, que vous allez utiliser des requêtes dans Azure Monitor sont les suivantes :
+Voici plusieurs façons d’utiliser les requêtes dans Azure Monitor :
 
 - **Portail.** Vous pouvez effectuer une analyse interactive des données de journal dans le [portail Azure](portals.md).  Cela vous permet de modifier votre requête et d’analyser les résultats dans divers formats et visualisations.  
 - **Règles d’alerte.** Les [règles d’alerte](../platform/alerts-overview.md) identifient de façon proactive les problèmes à partir des données dans votre espace de travail.  Chaque règle d’alerte est basée sur une recherche dans les journaux qui est exécutée automatiquement à intervalles réguliers.  Les résultats sont inspectés pour déterminer si une alerte doit être créée.
@@ -97,5 +97,5 @@ Bien qu’[Application Insights](../app/app-insights-overview.md) stocke les don
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-- En savoir plus sur l’utilisation de [Analytique de journal pour créer et modifier des recherches de journal](../log-query/portals.md).
+- Apprenez à utiliser [l’analytique des journaux d’activité pour créer et modifier des recherches dans les journaux](../log-query/portals.md).
 - Consultez un [didacticiel sur l’écriture de requêtes](../log-query/get-started-queries.md) à l’aide du nouveau langage de requête.

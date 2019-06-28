@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/11/2018
 ms.openlocfilehash: 524386c046534b0ef0050e15d326118b84822822
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64718046"
 ---
 # <a name="operationalize-a-data-analytics-pipeline"></a>Rendre un pipeline d’analytique de données opérationnel
@@ -175,7 +175,7 @@ Vous pouvez copier le fichier avec SCP dans votre session shell `bash`.
 
 Les exemples de données sont maintenant disponibles. Toutefois, le pipeline a besoin de deux tables Hive pour le traitement, l’une pour les données entrantes (`rawFlights`) et l’autre pour les données résumées (`flights`). Créez ces tables dans Ambari de la façon suivante.
 
-1. Connectez-vous à Ambari en accédant à http :\//headnodehost:8080.
+1. Connectez-vous à Ambari en accédant à http:\//headnodehost:8080.
 2. Dans la liste des services, sélectionnez **Hive**.
 
     ![Sélectionner Hive dans Ambari](./media/hdinsight-operationalize-data-pipeline/hdi-ambari-services-hive.png)

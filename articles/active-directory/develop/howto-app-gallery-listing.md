@@ -19,15 +19,15 @@ ms.reviewer: elisol, bryanla
 ms.custom: aaddev, seoapril2019
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 005e5c92a16760d8eec5dc37526f4b1f2dbd751c
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65540545"
 ---
 # <a name="how-to-list-your-application-in-the-azure-active-directory-application-gallery"></a>Activation Lister votre application dans la galerie d’applications Azure Active Directory
 
-Cet article montre comment répertorier une application dans la galerie d’applications Azure AD, d’implémenter l’authentification unique (SSO) et de gérer la liste.
+Cet article montre comment répertorier une application dans la galerie d’applications Azure AD, implémenter l’authentification unique (SSO) et gérer la liste.
 
 ## <a name="what-is-the-azure-ad-application-gallery"></a>Qu’est-ce que la galerie d’applications Azure AD ?
 
@@ -38,7 +38,7 @@ Cet article montre comment répertorier une application dans la galerie d’appl
 - Les clients mutuels obtiennent un tutoriel de configuration pas à pas.
 - Les clients qui utilisent SCIM peuvent utiliser le provisionnement pour la même application.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 - Pour des applications fédérées (Open ID et SAML/WS-Fed), l’application doit prendre en charge le modèle SaaS pour être répertorié dans la galerie Azure AD. Les applications de galerie d’entreprise doivent prendre en charge plusieurs configurations de client, non un client spécifique.
 
@@ -51,7 +51,7 @@ Cet article montre comment répertorier une application dans la galerie d’appl
 - Pour les demandes d’attribution automatique d’utilisateurs, l’application doit être répertoriée dans la galerie avec une fonctionnalité d’authentification unique activée utilisant SAML 2.0/WS-Fed. Vous pouvez demander l’authentification unique et l’attribution d’utilisateur ensemble sur le portail, si elles ne sont pas répertoriées.
 
 >[!NOTE]
->Nous travaillons avec un nombre élevé de demandes de connecteur SCIM, donc nous avons arrêté de prendre des nouvelles demandes sur notre portail. Merci de patienter vos demandes jusqu'à nouvel ordre. Nous excuser pour ce délai et les désagréments occasionnés.
+>Nous travaillons avec un nombre élevé de requêtes de connecteur SCIM. Nous avons donc arrêté de prendre de nouvelles requêtes sur notre portail. Merci de patienter avant d’effectuer de nouvelles requêtes, et ce, jusqu’à nouvel ordre. Veuillez nous excuser pour ce retard et pour les désagréments occasionnés.
 
 ## <a name="submit-the-request-in-the-portal"></a>Envoyer la demande dans le portail
 
@@ -113,15 +113,15 @@ Pour mettre à jour ou supprimer une application existante dans la galerie d’a
     * Si vous souhaitez supprimer une application existante à partir de la galerie Azure AD, sélectionnez **Supprimer le listing des applications existantes**.
     * En cas de problème d’accès, contactez l’[équipe d’intégration de l’authentification unique Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). 
 
-## <a name="listing-requests-by-customers"></a>Liste de demandes par les clients
+## <a name="listing-requests-by-customers"></a>Demandes de référencement par les clients
 
-Les clients peuvent envoyer la demande de listing d’une application en cliquant sur **application demande par les clients** -> **soumettre une nouvelle demande**.
+Les clients peuvent envoyer la demande de référencement d’une application en cliquant sur **App requests by Customers (Demandes d’application par les clients)**  -> **Submit new request** (Soumettre une nouvelle demande).
 
-![Vignette applications demandées de client](./media/howto-app-gallery-listing/customer-submit-request.png)
+![Vignette des applications demandées par le client](./media/howto-app-gallery-listing/customer-submit-request.png)
 
-Voici que le flux de client demandé applications-
+Voici le flux relatif aux applications demandées par le client.
 
-![Flux d’applications requis par les clients](./media/howto-app-gallery-listing/customer-request.png)
+![Flux relatif aux applications demandées par le client](./media/howto-app-gallery-listing/customer-request.png)
 
 ## <a name="timelines"></a>Chronologies
 

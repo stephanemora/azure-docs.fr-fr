@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2016
 ms.author: kasing
-ms.openlocfilehash: 89739aa51748e7bc69fc42b8b745994bbe50e39d
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
-ms.translationtype: MT
+ms.openlocfilehash: 7e006b8bc05d00de3e5fba20985e30fd5e96c1df
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58309791"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64708676"
 ---
 # <a name="setting-up-winrm-access-for-virtual-machines-in-azure-resource-manager"></a>Configuration de l’accès WinRM pour les machines virtuelles dans Azure Resource Manager
 
@@ -32,7 +32,7 @@ Voici les étapes à suivre pour configurer une machine virtuelle avec une conne
 4. Obtenir l’URL de votre certificat auto-signé dans le coffre de clés
 5. Référencer les URL de vos certificats auto-signés lors de la création d’une machine virtuelle
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="step-1-create-a-key-vault"></a>Étape 1 : Créer un coffre de clés
 Vous pouvez utiliser la commande ci-dessous pour créer le coffre de clés
@@ -83,7 +83,7 @@ Set-AzureKeyVaultSecret -VaultName "<vault name>" -Name "<secret name>" -SecretV
 Le fournisseur de ressources Microsoft.Compute a besoin de l’URL de la clé secrète dans le coffre de clés lors de l’approvisionnement de la machine virtuelle. Ainsi, le fournisseur de ressources Microsoft.Compute peut télécharger la clé secrète et créer le certificat équivalent sur la machine virtuelle.
 
 > [!NOTE]
-> L’URL de la clé secrète doit également inclure la version. Un exemple d’URL se présente comme suit https :\//contosovault.vault.azure.net:443/secrets/contososecret/01h9db0df2cd4300a20ence585a6s7ve
+> L’URL de la clé secrète doit également inclure la version. Un exemple d’URL se présente comme suit https:\//contosovault.vault.azure.net:443/secrets/contososecret/01h9db0df2cd4300a20ence585a6s7ve
 
 #### <a name="templates"></a>Modèles
 Vous pouvez obtenir le lien vers l’URL dans le modèle à l’aide du code ci-dessous

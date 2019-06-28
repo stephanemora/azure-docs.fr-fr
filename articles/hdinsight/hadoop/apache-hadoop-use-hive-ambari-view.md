@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: hrasheed
 ms.openlocfilehash: 55f8f453faf35d52c5c292e6b309194443980466
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64719568"
 ---
 # <a name="use-apache-ambari-hive-view-with-apache-hadoop-in-hdinsight"></a>Utiliser la vue Apache Ambari Hive avec Apache Hadoop dans HDInsight
@@ -21,16 +21,16 @@ ms.locfileid: "64719568"
 
 Découvrez comment exécuter des requêtes Hive avec la vue Apache Ambari Hive. L’affichage Hive vous permet de créer, d’optimiser et d’exécuter des requêtes Hive à partir du navigateur web.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
-* Un cluster Hadoop sur HDInsight. Consultez [prise en main HDInsight sous Linux](./apache-hadoop-linux-tutorial-get-started.md).
+* Un cluster Hadoop sur HDInsight. Consultez [Bien démarrer avec HDInsight sur Linux](./apache-hadoop-linux-tutorial-get-started.md).
 * Un navigateur web
 
 ## <a name="run-a-hive-query"></a>Exécution d'une tâche Hive
 
-1. À partir de la [Azure portal](https://portal.azure.com/), sélectionnez votre cluster.  Consultez [liste et affichage des clusters](../hdinsight-administer-use-portal-linux.md#showClusters) pour obtenir des instructions. Le cluster est ouvert dans un nouveau panneau du portail.
+1. Dans le [portail Azure](https://portal.azure.com/), sélectionnez votre cluster.  Pour obtenir des instructions, consultez la page [Énumération et affichage des clusters](../hdinsight-administer-use-portal-linux.md#showClusters). Le cluster est ouvert dans un nouveau panneau du portail.
 
-2. À partir de **des tableaux de bord de Cluster**, sélectionnez **Ambari views**. Lorsque vous êtes invité à vous authentifier, utilisez le nom de compte et le mot de passe de connexion de cluster (`admin` par défaut) que vous avez fournis lors de la création du cluster.
+2. Dans **Tableaux de bord du cluster**, sélectionnez **Vues Ambari**. Lorsque vous êtes invité à vous authentifier, utilisez le nom de compte et le mot de passe de connexion de cluster (`admin` par défaut) que vous avez fournis lors de la création du cluster.
 
 3. Dans la liste des vues, sélectionnez __Affichage Hive__.
 
@@ -75,17 +75,17 @@ Découvrez comment exécuter des requêtes Hive avec la vue Apache Ambari Hive. 
    > [!IMPORTANT]  
    > Conservez la sélection __Base de données__ par __défaut__. Les exemples de ce document utilisent la base de données par défaut incluse avec HDInsight.
 
-5. Pour démarrer la requête, sélectionnez **Execute** ci-dessous la feuille de calcul. Ce bouton devient orange et le texte affiche **Stop** (Arrêter).
+5. Pour démarrer la requête, sélectionnez **Exécuter** au-dessous de la feuille de calcul. Ce bouton devient orange et le texte affiche **Stop** (Arrêter).
 
 6. Lorsque la requête est terminée, l’onglet **Results** (Résultats) affiche les résultats de l’opération. Le texte suivant est le résultat de la requête :
 
         loglevel       count
         [ERROR]        3
 
-    Vous pouvez utiliser la **journal** onglet pour afficher les informations de journalisation que la tâche créée.
+    Vous pouvez utiliser l’onglet **JOURNAL** pour afficher les informations de journalisation que le travail a créées.
 
    > [!TIP]  
-   > Télécharger ou enregistrer les résultats à partir de la **Actions** boîte de dialogue de la liste déroulante sous la **résultats** onglet.
+   > Téléchargez ou enregistrez les résultats de la boîte de dialogue à liste déroulante **Actions** dans l’onglet **Résultats**.
 
 ### <a name="visual-explain"></a>Visual Explain
 
@@ -95,7 +95,7 @@ La vue **Visual Explain** de la requête peut être utile pour comprendre le dé
 
 ### <a name="tez-ui"></a>Interface utilisateur Tez
 
-Pour afficher l’UI Tez pour la requête, sélectionnez le **Tez UI** onglet situé sous la feuille de calcul.
+Sélectionnez l’onglet **Tez UI** (IU Tez) au-dessous de la feuille de calcul afin d’afficher l’interface utilisateur Tez pour la requête.
 
 > [!IMPORTANT]  
 > Tez n’est pas utilisé pour résoudre toutes les requêtes. Vous pouvez résoudre de nombreuses requêtes sans utiliser Tez. 

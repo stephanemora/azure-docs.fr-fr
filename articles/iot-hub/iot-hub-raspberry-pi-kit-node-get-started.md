@@ -1,6 +1,6 @@
 ---
 title: Raspberry Pi vers cloud (Node.js) – Connecter Raspberry Pi à Azure IoT Hub | Microsoft Docs
-description: Découvrez comment configurer et connecter Raspberry Pi à Azure IoT Hub pour lui permettre d’envoyer des données à la plateforme cloud Azure dans ce didacticiel.
+description: Dans ce tutoriel, découvrez comment configurer et connecter Raspberry Pi à Azure IoT Hub pour lui permettre d’envoyer des données à la plateforme cloud Azure.
 author: wesmc7777
 manager: philmea
 keywords: azure iot raspberry pi, raspberry pi iot hub, raspberry pi envoie des données vers le cloud, raspberry pi vers cloud
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/11/2018
 ms.author: wesmc
 ms.openlocfilehash: 72d7956036404d13849f7c2b08f9df4210f12aa7
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65597275"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-nodejs"></a>Connecter Raspberry Pi à Azure IoT Hub (Node.js)
@@ -123,7 +123,7 @@ Préparez la carte microSD pour l’installation de l’image Raspbian.
 
 1. Connectez Pi au moniteur, au clavier et à la souris.
 
-2. Démarrez Pi et connectez-vous à Raspbian en utilisant `pi` comme nom d’utilisateur et `raspberry` comme mot de passe.
+2. Démarrez Pi puis connectez-vous à Raspbian avec le nom d’utilisateur `pi` et le mot de passe `raspberry`.
 
 3. Cliquez sur l’icône Raspberry > **Préférences** > **Configuration de Raspberry Pi**.
 
@@ -199,7 +199,7 @@ Mettez Pi sous tension à l’aide du câble micro USB et de l’alimentation. U
    node -v
    ```
 
-   Si la version est inférieure à 10.x, ou s’il n’existe aucun Node.js sur votre Pi, installez la dernière version.
+   Si la version est inférieure à 10.x, ou que votre Pi ne comporte aucun Node.js, installez la dernière version.
 
    ```bash
    curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash
@@ -230,7 +230,7 @@ Mettez Pi sous tension à l’aide du câble micro USB et de l’alimentation. U
    nano config.json
    ```
 
-   ![Fichier config](./media/iot-hub-raspberry-pi-kit-node-get-started/6-config-file.png)
+   ![Fichier de configuration](./media/iot-hub-raspberry-pi-kit-node-get-started/6-config-file.png)
 
    Dans ce fichier, deux éléments sont configurables. Le premier est `interval`, qui définit l’intervalle de temps (en millisecondes) entre les messages envoyés dans le cloud. Le deuxième est `simulatedData`, une valeur booléenne qui spécifie si les données de capteur simulé sont utilisées ou non.
 
@@ -255,9 +255,9 @@ Vous devriez voir le résultat suivant, qui affiche les données de capteur et l
 
 ## <a name="read-the-messages-received-by-your-hub"></a>Lire les messages reçus par votre hub
 
-Pour surveiller les messages reçus par votre IoT hub à partir de votre appareil consiste à utiliser l’IoT Azure Tools pour Visual Studio Code. Pour plus d’informations, consultez [utilisation IoT d’Azure Tools pour Visual Studio Code envoyer et recevoir des messages entre votre appareil et IoT Hub](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md).
+Une façon de surveiller les messages reçus par votre hub IoT à partir de votre appareil consiste à utiliser Azure IoT Tools pour Visual Studio Code. Pour en savoir plus, consultez [Utiliser Azure IoT Tools pour Visual Studio Code afin d’envoyer et de recevoir des messages entre votre appareil et un hub IoT](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md).
 
-Pour d’autres méthodes traiter les données envoyées par votre appareil, passez à la section suivante.
+Pour d’autres méthodes de traitement des données envoyées par votre appareil, passez à la section suivante.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -9,10 +9,10 @@ ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: e5acb8e0f8805da7f14bbce58b4bfd2acdc24f23
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66166323"
 ---
 # <a name="secure-your-internet-of-things-iot-deployment"></a>Sécuriser votre déploiement Internet des objets
@@ -21,11 +21,11 @@ Cet article fournit davantage de détails sur la sécurisation de l’infrastruc
 
 La sécurisation du déploiement Azure IoT peut être divisée selon les trois zones de sécurité suivantes :
 
-* **Sécurité des appareils**: Sécurisation de l’appareil IoT au déploiement dans la nature.
+* **Sécurité des appareils** : sécurisation de l’appareil IoT alors que celui-ci est déployé dans la nature.
 
-* **Sécurité de la connexion**: Toutes les données transmises entre l’appareil IoT et IoT Hub est confidentiel et infalsifiables.
+* **Sécurité de la connexion** : s’assurer que toutes les données transmises entre l’appareil IoT et IoT Hub sont confidentielles et protégées contre la falsification.
 
-* **Sécurité du cloud**: En fournissant un moyen pour sécuriser les données pendant qu’il parcourt et est stocké dans le cloud.
+* **Sécurité cloud** : fournir un moyen de sécuriser les données lorsque celles-ci transitent par le cloud ou sont stockées sur celui-ci.
 
 ![Trois zones de sécurité](./media/iot-secure-your-deployment/overview.png)
 
@@ -53,11 +53,11 @@ Chaque IoT Hub dispose d’un [registre d’identité](../articles/iot-hub/iot-
 
 [IoT Hub prend en charge les protocoles tels que MQTT, AMQP et HTTP](../articles//iot-hub/iot-hub-devguide-security.md). Chacun de ces protocoles utilise des jetons de sécurité à partir de l’appareil IoT vers IoT Hub différemment :
 
-* AMQP : Sécurité basée sur des revendications AMQP et SASL PLAIN (`{policyName}@sas.root.{iothubName}` avec des jetons au niveau du hub IoT ; `{deviceId}` avec des jetons à l’échelle appareil).
+* AMQP : sécurité basée sur des revendications AMQP et SASL PLAIN (`{policyName}@sas.root.{iothubName}` avec des jetons au niveau d’IoT Hub ; `{deviceId}` dans le cas de jetons à l’échelle de l’appareil).
 
-* MQTT : Paquet CONNECT utilise `{deviceId}` en tant que le `{ClientId}`, `{IoThubhostname}/{deviceId}` dans le **nom d’utilisateur** champ et un jeton SAS dans le **mot de passe** champ.
+* MQTT : le paquet CONNECT utilise `{deviceId}` en tant que `{ClientId}`, `{IoThubhostname}/{deviceId}` dans le champ **Nom d’utilisateur** et un jeton SAS dans le champ **Mot de passe**.
 
-* HTTP : Jeton valide est dans l’en-tête de demande d’autorisation.
+* HTTP : le jeton valide se trouve dans l’en-tête de la requête d’autorisation.
 
 Vous pouvez utiliser le registre d’identité IoT Hub pour configurer les informations d’identification de sécurité et le contrôle d’accès par appareil. Cependant, si une solution IoT représente déjà un investissement significatif dans un [registre d’identité des appareils personnalisé et/ou un schéma d’authentification](../articles/iot-hub/iot-hub-devguide-security.md#custom-device-and-module-authentication), vous pouvez intégrer cette infrastructure existante à IoT Hub en créant un service de jeton.
 
@@ -101,16 +101,16 @@ Azure IoT Hub et d’autres services pouvant faire partie de la solution autoris
 
 Les données reçues par Azure IoT Hub peuvent être utilisées par une variété de services comme Azure Stream Analytics et le stockage d’objets blob. Ces services permettent un accès en gestion. En savoir plus sur ces services et les options disponibles :
 
-* [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) : Un service de base de données évolutif et entièrement indexé pour données semi-structurées qui gère les métadonnées pour les appareils que vous approvisionnez, comme attributs, la configuration et les propriétés de sécurité. Azure Cosmos DB assure un traitement hautes performances et à débit élevé, ainsi qu’une indexation des données indépendante du schéma. Ce service offre également une interface de requête SQL enrichie.
+* [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) : service de base de données évolutif et entièrement indexé pour données semi-structurées, qui gère les métadonnées (attributs, configuration, propriétés de sécurité, etc.) des appareils que vous provisionnez. Azure Cosmos DB assure un traitement hautes performances et à débit élevé, ainsi qu’une indexation des données indépendante du schéma. Ce service offre également une interface de requête SQL enrichie.
 
-* [Stream Azure Analytique](https://azure.microsoft.com/services/stream-analytics/): Traitement dans le cloud qui vous permet de développer et déployer une solution d’analytique de faible coût pour obtenir des informations en temps réel à partir d’appareils, capteurs, infrastructures et applications de rapidement des flux en temps réel. Les données de ce service entièrement géré peuvent être mises à l’échelle selon n’importe quel volume. Vous continuez à bénéficier d’un débit élevé, d’une faible latence et de la résilience.
+* [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) : traitement des flux en temps réel dans le cloud, permettant de développer et de déployer rapidement une solution d’analyse à faible coût pour obtenir des informations en temps réel de la part des appareils, capteurs, infrastructures et applications. Les données de ce service entièrement géré peuvent être mises à l’échelle selon n’importe quel volume. Vous continuez à bénéficier d’un débit élevé, d’une faible latence et de la résilience.
 
-* [Azure App Services](https://azure.microsoft.com/services/app-service/): Plateforme cloud permettant de créer de puissantes applications web et mobiles qui se connectent aux données de n’importe où ; dans le cloud ou les en local. Créez des applications mobiles attrayantes pour iOS, Android et Windows. Assurez l’intégration avec vos applications SaaS (Software as a Service) et d’entreprise grâce à une connectivité prête à l’emploi à des dizaines d’applications et services basés sur le cloud. Encodez dans votre environnement de développement intégré et votre langage favoris (.NET, Node.js, PHP, Python ou Java) pour créer rapidement des applications web et des API.
+* [Azure App Services](https://azure.microsoft.com/services/app-service/) : plateforme cloud qui permet de créer des applications web et mobiles puissantes qui se connectent aux données n’importe où, que ce soit localement ou dans le cloud. Créez des applications mobiles attrayantes pour iOS, Android et Windows. Assurez l’intégration avec vos applications SaaS (Software as a Service) et d’entreprise grâce à une connectivité prête à l’emploi à des dizaines d’applications et services basés sur le cloud. Encodez dans votre environnement de développement intégré et votre langage favoris (.NET, Node.js, PHP, Python ou Java) pour créer rapidement des applications web et des API.
 
-* [Logic Apps](https://azure.microsoft.com/services/app-service/logic/): La fonctionnalité Logic Apps d’Azure App Service vous aide à intégrer votre solution IoT dans vos systèmes existants de line-of-business et automatisez les processus de flux de travail. Logic Apps permet aux développeurs de concevoir des flux de travail qui démarrent à partir d’un déclencheur et exécutent une série d’étapes — des règles et actions utilisant des connecteurs puissants pour l’intégration à vos processus d’entreprise. Logic Apps offre une connectivité prête à l’emploi vers un vaste écosystème d’applications SaaS, basées sur le cloud et locales.
+* [Logic Apps](https://azure.microsoft.com/services/app-service/logic/) : fonctionnalité Azure App Service qui vous aide à intégrer votre solution IoT dans vos systèmes métier existants et à automatiser les processus de flux de travail. Logic Apps permet aux développeurs de concevoir des flux de travail qui démarrent à partir d’un déclencheur et exécutent une série d’étapes — des règles et actions utilisant des connecteurs puissants pour l’intégration à vos processus d’entreprise. Logic Apps offre une connectivité prête à l’emploi vers un vaste écosystème d’applications SaaS, basées sur le cloud et locales.
 
-* [Stockage d’objets Blob Azure](https://azure.microsoft.com/services/storage/): Stockage cloud fiable et économique pour les données que vos appareils envoient au cloud.
+* [Stockage Blob Azure](https://azure.microsoft.com/services/storage/) : stockage cloud fiable et économique pour les données que vos appareils envoient au cloud.
 
 ## <a name="conclusion"></a>Conclusion
 
-Cet article fournit une vue d’ensemble des détails au niveau de l’implémentation pour concevoir et déployer une infrastructure IoT à l’aide d’Azure IoT. La configuration de chaque composant afin qu’il soit sécurisé est essentielle pour sécuriser l’infrastructure IoT dans son ensemble. Les choix de conception disponibles dans Azure IoT offrent un certain degré de souplesse et de choix. Toutefois, chaque choix peuvent avoir des implications en matière de sécurité. Nous vous recommandons d’évaluer chacun de ces choix à l’aide d’une évaluation des risques et du coût.
+Cet article fournit une vue d’ensemble des détails au niveau de l’implémentation pour concevoir et déployer une infrastructure IoT à l’aide d’Azure IoT. La configuration de chaque composant afin qu’il soit sécurisé est essentielle pour sécuriser l’infrastructure IoT dans son ensemble. Les choix de conception disponibles dans Azure IoT offrent un certain degré de souplesse et de choix. Toutefois, chaque choix peut avoir des implications en matière de sécurité. Nous vous recommandons d’évaluer chacun de ces choix à l’aide d’une évaluation des risques et du coût.

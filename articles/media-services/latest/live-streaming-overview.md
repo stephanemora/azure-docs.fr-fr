@@ -1,5 +1,5 @@
 ---
-title: Vue d’ensemble de la vidéo en flux continu avec Azure Media Services v3 | Microsoft Docs
+title: Vue d’ensemble du streaming en direct avec Azure Media Services v3 | Microsoft Docs
 description: Cet article offre une vue d’ensemble du streaming en direct à l’aide d’Azure Media Services v3.
 services: media-services
 documentationcenter: ''
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 05/11/2019
 ms.author: juliako
 ms.openlocfilehash: fa09185e68c8d3a70562fe50c583ff872bf91e48
-ms.sourcegitcommit: 9e8dfa1169a55c3c8af93a6c5f4e0dace4de48b2
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/13/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65556220"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Streaming en direct avec Azure Media Services v3
@@ -26,36 +26,36 @@ Azure Media Services vous permet de transmettre des événements en direct aupr�
 
 - Une caméra, pour capturer l’événement en direct.<br/>Pour obtenir des idées de configuration, consultez [Simple and portable event video gear setup]( https://link.medium.com/KNTtiN6IeT).
 
-    Si vous n’avez pas accès à un appareil photo, des outils tels que [Telestream Wirecast](https://www.telestream.net/wirecast/overview.htm) peut être utilisé générer un flux en direct à partir d’un fichier vidéo.
+    Si vous n’avez pas accès à une caméra, des outils tels que [Telestream Wirecast](https://www.telestream.net/wirecast/overview.htm) peuvent être utilisés pour générer un flux en direct à partir d’un fichier vidéo.
 - Un encodeur vidéo live, pour convertir les signaux de la caméra (ou d’un autre appareil, comme un ordinateur portable) en flux de contribution qui sera ensuite envoyé à Media Services. Le flux de contribution peut inclure des signaux de publicité, tels que les marqueurs SCTE-35.<br/>Pour obtenir une liste d’encodeurs de streaming live recommandés, consultez [Encodeurs de streaming live](recommended-on-premises-live-encoders.md). Consultez également ce billet de blog : [Live streaming production with OBS](https://link.medium.com/ttuwHpaJeT).
 - Des composants dans Media Services, pour ingérer, prévisualiser, empaqueter, enregistrer, chiffrer et diffuser l’événement en direct auprès de vos clients, ou dans un CDN en vue d’une diffusion ultérieure.
 
-Cet article donne une vue d’ensemble et les conseils de diffusion en continu avec Media Services et des liens vers d’autres articles pertinents.
+Cet article offre une vue d’ensemble et des conseils relatifs au streaming en direct avec Media Services ainsi que des liens vers d’autres articles pertinents.
 
 > [!NOTE]
 > Actuellement, vous ne pouvez pas utiliser le portail Azure pour gérer des ressources v3. Utilisez l’[API REST](https://aka.ms/ams-v3-rest-ref), l’interface [CLI](https://aka.ms/ams-v3-cli-ref) ou l’un des kits [SDK](media-services-apis-overview.md#sdks) pris en charge.
 
 ## <a name="dynamic-packaging"></a>Empaquetage dynamique
 
-Avec Media Services, vous pouvez tirer parti de [empaquetage dynamique](dynamic-packaging-overview.md), qui vous permet de prévisualiser et de diffuser votre flux live dans [formats MPEG DASH, HLS et Smooth Streaming](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming) à partir du flux de contribution qui est envoyé au service. Vos clients peuvent alors lire le flux en direct au moyen de n’importe quel lecteur compatible avec HLS, DASH ou Smooth Streaming. Vous pouvez utiliser le lecteur multimédia [Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/index.html) dans vos applications web ou mobiles afin de transmettre votre flux dans un de ces protocoles.
+Avec Media Services, vous pouvez utiliser [l’empaquetage dynamique](dynamic-packaging-overview.md), qui vous permet de prévisualiser et de diffuser vos streams en direct aux [formats MPEG DASH, HLS et Smooth Streaming](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming) à partir du flux de contribution envoyé au service. Vos clients peuvent alors lire le flux en direct au moyen de n’importe quel lecteur compatible avec HLS, DASH ou Smooth Streaming. Vous pouvez utiliser le lecteur multimédia [Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/index.html) dans vos applications web ou mobiles afin de transmettre votre flux dans un de ces protocoles.
 
 ## <a name="dynamic-encryption"></a>Chiffrement dynamique
 
-Chiffrement dynamique permet de chiffrer dynamiquement votre contenu en direct ou à la demande avec AES-128 ou un des trois systèmes principaux droits numériques management (DRM) : Microsoft PlayReady, Google Widevine et Apple FairPlay. Media Services fournit également un service de distribution de clés AES et licences (PlayReady, Widevine et FairPlay) DRM aux clients autorisés. Pour plus d’informations, consultez [chiffrement dynamique](content-protection-overview.md).
+Le chiffrement dynamique permet de chiffrer dynamiquement votre contenu en direct ou à la demande avec AES-128 ou un des trois systèmes principaux de gestion des droits numériques (DRM) : Microsoft PlayReady, Google Widevine et Apple FairPlay. Media Services fournit également un service de distribution de clés AES et licences (PlayReady, Widevine et FairPlay) DRM aux clients autorisés. Pour plus d’informations, consultez [Empaquetage dynamique](content-protection-overview.md).
 
 ## <a name="dynamic-manifest"></a>Manifeste dynamique
 
-Le filtrage dynamique est utilisé pour contrôler le nombre de pistes, des formats, des débits binaires et des fenêtres de temps de présentation qui sont envoyés aux joueurs. Pour plus d’informations, consultez [filtres et manifestes dynamiques](filters-dynamic-manifest-overview.md).
+Le filtrage dynamique permet de contrôler le nombre de pistes, de formats, de vitesses de transmission et de fenêtres de temps de présentation envoyés aux lecteurs. Pour plus d’informations, consultez [Filtres et manifestes dynamiques](filters-dynamic-manifest-overview.md).
 
 ## <a name="live-event-types"></a>Types d’événements en direct
 
-Un événement en direct peut prendre l’une des deux types : encodage direct et en direct. Pour plus d’informations sur la diffusion en continu dans Media Services v3, consultez [événements Live et les sorties de Live](live-events-outputs-concept.md).
+Un événement en direct peut être de deux types : en transmission en direct ou en encodage en direct. Pour plus d’informations sur le streaming en direct dans Media Services v3, consultez [Événements en direct et sorties en direct](live-events-outputs-concept.md).
 
 ### <a name="pass-through"></a>Requête directe
 
 ![transmission directe](./media/live-streaming/pass-through.svg)
 
-Quand vous utilisez l’**événement en direct** de type pass-through, vous chargez l’encodeur live local de générer un flux vidéo à vitesse de transmission multiple et d’envoyer ce flux comme flux de contribution à l’événement en direct (à l’aide du protocole RTMP ou MP4 fragmenté). L’événement en direct est ensuite transmis dans les flux vidéo entrants sans traitement supplémentaire. Tel un pass-through Live événement est optimisé pour les événements en direct de longs ou la diffusion en continu 24 et 365 linéaire. 
+Quand vous utilisez l’**événement en direct** de type pass-through, vous chargez l’encodeur live local de générer un flux vidéo à vitesse de transmission multiple et d’envoyer ce flux comme flux de contribution à l’événement en direct (à l’aide du protocole RTMP ou MP4 fragmenté). L’événement en direct est ensuite transmis dans les flux vidéo entrants sans traitement supplémentaire. Une transmission LiveEvent est optimisée pour les événements en direct de longue durée ou le streaming en direct linéaire sans interruption (24 heures sur 24, 365 jours par an). 
 
 ### <a name="live-encoding"></a>Encodage en direct  
 
@@ -65,23 +65,23 @@ Quand vous utilisez Live Encoding avec Media Services, vous configurez votre enc
 
 ## <a name="live-streaming-workflow"></a>Workflow de streaming en direct
 
-Pour comprendre le flux de travail de diffusion en continu en direct dans Media Services v3, vous avez au premier examen et comprenez les concepts suivants : 
+Pour comprendre le flux de travail de streaming en direct dans Media Services v3, vous devez commencer par évaluer et comprendre les concepts suivants : 
 
-- [Points de terminaison API de diffusion en continu](streaming-endpoint-concept.md)
-- [Événements et les sorties en direct API Live](live-events-outputs-concept.md)
+- [API de points de terminaison de streaming](streaming-endpoint-concept.md)
+- [API d’événements en direct et de sorties en direct](live-events-outputs-concept.md)
 - [API de localisateurs de streaming](streaming-locators-concept.md)
 
 ### <a name="general-steps"></a>Étapes générales
 
-1. Dans votre compte Media Services, vérifiez que le **le point de terminaison de diffusion en continu** (origine) est en cours d’exécution. 
+1. Dans votre compte Media Services, vérifiez que le **point de terminaison de streaming** (Origin) est en cours d’exécution. 
 2. Créez un [événement en temps réel](live-events-outputs-concept.md). <br/>Lors de la création de l’événement, vous pouvez spécifier qu’il démarre automatiquement. Sinon, lancez-le dès que vous souhaitez commencer le streaming.<br/> Lorsque le démarrage automatique est défini sur true, l’événement en direct démarre juste après sa création. La facturation commence donc dès que son exécution démarre. Vous devez appeler explicitement la commande Stop sur la ressource de l’événement en direct pour arrêter toute facturation supplémentaire. Pour plus d’informations, consultez [États et facturation des événements en direct](live-event-states-billing.md).
-3. Obtenir les URL de réception et configurez votre encodeur local pour utiliser l’URL pour envoyer la flux de contribution.<br/>Voir [Encodeurs live recommandés](recommended-on-premises-live-encoders.md).
+3. Récupérez la ou les URL ingérées et configurez votre encodeur local afin qu’il utilise cette URL pour envoyer le flux de contribution.<br/>Voir [Encodeurs live recommandés](recommended-on-premises-live-encoders.md).
 4. Récupérez l’URL d’aperçu et utilisez-la pour vérifier que l’entrée de l’encodeur est bien reçue.
 5. Créez un objet **Asset**.
 6. Créez un objet **LiveOutput** et utilisez le nom de l’objet Asset que vous venez de créer.<br/>La **sortie en direct** archive le flux dans l’**actif multimédia**.
 7. Créez un **localisateur de streaming**  avec les types intégrés de la **stratégie de streaming**.<br/>Pour chiffrer le contenu, voir [Vue d’ensemble de la protection du contenu](content-protection-overview.md).
 8. Listez les chemins dans le **Localisateur de streaming** pour récupérer les URL à utiliser (elles sont déterministes).
-9. Obtenir le nom d’hôte pour le **le point de terminaison de diffusion en continu** (origine) que vous souhaitez diffuser en continu à partir de.
+9. Récupérez le nom d’hôte du **point de terminaison de streaming** (Origin) à partir duquel vous souhaitez effectuer le streaming.
 10. Combinez l’URL de l’étape 8 avec le nom d’hôte de l’étape 9 pour obtenir l’URL complète.
 11. Si vous ne souhaitez plus afficher votre **événement en direct**, arrêtez le streaming de l’événement et supprimez le **localisateur de streaming**.
 

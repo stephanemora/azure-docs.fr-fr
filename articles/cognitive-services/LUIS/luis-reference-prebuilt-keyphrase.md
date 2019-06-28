@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
 ms.openlocfilehash: 988609f411ad405b0f1dc244b23fb6db446136a2
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65072001"
 ---
 # <a name="keyphrase-prebuilt-entity-for-a-luis-app"></a>Entité prédéfinie keyPhrase pour une application LUIS
@@ -23,7 +23,7 @@ KeyPhrase extrait une variété d’expressions clés d’un énoncé. Il est in
 
 ## <a name="resolution-for-prebuilt-keyphrase-entity"></a>Résolution pour une entité prédéfinie keyPhrase
 
-### <a name="api-version-2x"></a>Version de l’API 2.x
+### <a name="api-version-2x"></a>API version 2.x
 
 L’exemple suivant montre la résolution de l’entité **builtin.keyPhrase**.
 

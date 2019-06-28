@@ -1,6 +1,6 @@
 ---
-title: Application Web qui appelle web API (acquérir un jeton pour l’application) - plateforme d’identité Microsoft
-description: Découvrez comment créer une application Web qui appelle des API (l’acquisition d’un jeton pour l’application) web
+title: Application web qui appelle des API web (acquisition d’un jeton pour l’application) - Plateforme d’identités Microsoft
+description: Découvrez comment générer une application web qui appelle des API web (acquisition d’un jeton pour l’application)
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -16,22 +16,22 @@ ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 653db995000308bb3ef78a9183696cd9d8ed1056
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65074799"
 ---
-# <a name="web-app-that-calls-web-apis---acquire-a-token-for-the-app"></a>Application Web qui appelle des API - web acquérir un jeton pour l’application
+# <a name="web-app-that-calls-web-apis---acquire-a-token-for-the-app"></a>Application web qui appelle des API web - acquisition d’un jeton pour l’application
 
-Maintenant vous avez généré objet d’application client, vous l’utiliserez pour acquérir un jeton que vous utiliserez ensuite pour appeler une API web. Dans ASP.NET ou ASP.NET Core, appeler une web QU'API est ensuite établie dans le contrôleur. Il concerne la :
+Maintenant que vous avez généré l’objet d’application cliente, vous allez l’utiliser pour acquérir un jeton que vous utiliserez ensuite pour appeler des API web. Dans ASP.NET ou ASP.NET Core, l’appel d’une API web s’effectue dans le contrôleur. Voici en quoi cela consiste :
 
-- Obtention d’un jeton pour le web API en utilisant le cache de jetons. Pour ce faire, vous appelez `AcquireTokenSilent`
-- Appeler l’API protégée avec le jeton d’accès
+- Obtenir un jeton pour l’API web en utilisant le cache de jeton. Pour ce faire, vous appelez `AcquireTokenSilent`.
+- Appeler l’API protégée avec le jeton d’accès.
 
 ## <a name="aspnet-core"></a>ASP.NET Core
 
-Les méthodes de contrôleur sont protégés par un `[Authorize]` attribut qui force les utilisateurs soient authentifiés pour utiliser l’application Web. Voici le code qui appelle Microsoft Graph
+Les méthodes de contrôleur sont protégées par un attribut `[Authorize]` qui force les utilisateurs à s’authentifier pour utiliser l’application web. Voici le code qui appelle Microsoft Graph
 
 ```CSharp
 [Authorize]
@@ -69,23 +69,23 @@ public async Task<IActionResult> Profile()
 }
 ```
 
-Si vous souhaitez comprendre en détails le total du code requis pour ce scénario, consultez la phase 2 [2-1-Web application appelle Microsoft Graph](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-1-Call-MSGraph) étape de la [ms-identity-aspnetcore-webapp-tutorial](https://github.com/Azure-Samples/ms-identity-aspnetcore-webapp-tutorial) didacticiel
+Si vous souhaitez comprendre en détail l’ensemble du code requis pour ce scénario, consultez la phase 2 [2-1-Web App Calls Microsoft Graph](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-1-Call-MSGraph) (Application web appelant Microsoft Graph) du didacticiel [ms-identity-aspnetcore-webapp-tutorial](https://github.com/Azure-Samples/ms-identity-aspnetcore-webapp-tutorial).
 
-Il existe des nombreuses complexités supplémentaires telles que :
+De nombreuses complexités viennent s’ajouter, par exemple :
 
-- implémentation d’un cache de jeton pour l’application Web (le didacticiel présente plusieurs implémentations)
-- Suppression du compte à partir du cache lorsque l’utilisateur se connecte à la sortie
-- Appeler plusieurs API, offrant notamment consentement incrémentiel
+- L’implémentation d’un cache de jeton pour l’application web (le didacticiel présente plusieurs implémentations)
+- La suppression du compte du cache lorsque l’utilisateur se déconnecte
+- L’appel de plusieurs API, notamment l’obtention du consentement incrémentiel
 
 ## <a name="aspnet"></a>ASP.NET
 
-Choses sont similaires dans ASP.NET :
+Le processus ASP.NET est similaire :
 
-- Une action de contrôleur protégée par un attribut [Authorize], extrait l’ID client et ID utilisateur de la `ClaimsPrincipal` membre du contrôleur (ASP.NET utilise `HttpContext.User`)
-- à partir de là, il génère un MSAL.NET `IConfidentialClientApplication`
-- Appel de l’informatique le `AcquireTokenSilent` de l’application cliente confidentielle (méthode) 
+- Une action de contrôleur protégée par un attribut [Authorize] extrait l’identifiant de locataire et l’identifiant utilisateur du membre `ClaimsPrincipal` du contrôleur (ASP.NET utilise `HttpContext.User`).
+- Il génère alors un MSAL.NET `IConfidentialClientApplication`.
+- Il appelle la méthode `AcquireTokenSilent` de l’application cliente confidentielle. 
 
-le code est similaire au code affiché pour ASP.NET Core
+Le code est similaire au code présenté pour ASP.NET Core.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

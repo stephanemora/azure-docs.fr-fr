@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 07/13/2018
 ms.author: jomolesk
 ms.openlocfilehash: e3ee5a0aa22d1231dca7d02a77d39e0a2b569314
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66753865"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Blueprint de sécurité et de conformité Azure : Hébergement d’applications web PaaS pour les charges de travail « UK OFFICIAL »
@@ -21,7 +21,7 @@ ms.locfileid: "66753865"
 
 Les blueprints Azure sont constitués de documents de conseils et de modèles d’automatisation qui déploient des architectures cloud pour offrir des solutions à des scénarios ayant des spécifications particulières en matière d’accréditation ou de conformité. Les blueprints Azure sont des collections de conseils et de modèles d’automatisation qui permettent aux clients de Microsoft Azure d’accélérer la mise en œuvre de leurs objectifs métier via une architecture de base, qui peut être étendue pour répondre à toute spécification supplémentaire.
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
 Ce blueprint sur la sécurité et la conformité d’Azure fournit des conseils et des scripts d’automatisation pour mettre en œuvre une architecture d’applications web hébergées sur une [plateforme PaaS (Platform as a Service)](https://azure.microsoft.com/overview/what-is-paas/) Microsoft Azure permettant de gérer des charges de travail classifiées [UK OFFICIAL](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/715778/May-2018_Government-Security-Classifications-2.pdf). Cette classification de sécurité englobe la plupart des informations créées ou traitées par le secteur public. Ceci inclut des opérations et des services métier de routine qui, s’ils étaient perdus, volés ou publiés dans les médias, pourraient pour certains avoir des conséquences néfastes. Le profil typique des menaces pour la classification « OFFICIAL » est très similaires à celui d’une entreprise privée qui fournit des informations et des services ayant une certaine valeur. « UK OFFICIAL » anticipe sur la nécessité de défendre les données ou les services du secteur public du Royaume-Uni contre les menaces ou les compromissions par des attaquants avec des moyens et des ressources limités, comme (mais non limités à) des hactivistes, des groupes de pression pour un problème spécifique, des journalistes d’investigation, des hackers individuels compétents, et la majorité des personnes et des groupes commettant des délits.
 
@@ -95,7 +95,7 @@ Les données en transit provenant de l’extérieur et entre les composants Azur
 
 [Azure Advisor](https://docs.microsoft.com/azure/advisor/advisor-overview) est un conseiller personnalisé basé dans le cloud qui décrit les bonnes pratiques à suivre pour optimiser vos déploiements Azure. Il analyse votre télémétrie de configuration et d’utilisation des ressources, puis recommande des solutions qui peuvent vous aider à améliorer la rentabilité, les performances, la haute disponibilité et la sécurité de vos ressources Azure.
 
-[Microsoft Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware) est une fonctionnalité de protection en temps réel qui permet d’identifier et de supprimer les virus, les logiciels espions et d’autres logiciels malveillants. Cela par défaut est installé sur l’infrastructure de machine virtuelle PaaS sous-jacente et est géré par l’infrastructure Azure en toute transparence au client.
+[Microsoft Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware) est une fonctionnalité de protection en temps réel qui permet d’identifier et de supprimer les virus, les logiciels espions et d’autres logiciels malveillants. Il est installé par défaut sur l’infrastructure de machines virtuelles PaaS sous-jacente et est géré de façon transparente par l’infrastructure Azure vers le client.
 
 ### <a name="paas-services-in-this-blueprint"></a>Services PaaS de ce blueprint
 
@@ -170,9 +170,9 @@ Vous pouvez trouver des informations détaillées sur la sécurisation de Stocka
 
 #### <a name="azure-monitor-logs"></a>Journaux d’activité Azure Monitor
 
-[Journaux d’analyse Azure](https://azure.microsoft.com/services/log-analytics/) est un service dans Azure qui vous permet de collecter et analyser les données générées par les ressources de votre cloud et les environnements locaux.
+[Journaux d'activité Azure Monitor](https://azure.microsoft.com/services/log-analytics/) est un service d’Azure qui vous permet de collecter et d’analyser les données générées par les ressources de votre cloud et de vos environnements locaux.
 
-#### <a name="azure-monitor-logs-in-this-blueprint"></a>Journaux d’analyse Azure dans cette solution blueprint
+#### <a name="azure-monitor-logs-in-this-blueprint"></a>Journaux Azure Monitor dans ce blueprint
 
 - SQL Assessment
 - Diagnostics Key Vault
@@ -195,7 +195,7 @@ Le [Journal d’activité Azure](https://docs.microsoft.com/azure/azure-monitor/
 
 #### <a name="azure-monitor"></a>Azure Monitor
 
-[Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor) active la surveillance globale des services Azure en permettant la collecte de métriques, de journaux d’activité et de journaux de diagnostic. Azure Monitor fournit des métriques de niveau de base d’infrastructure et des journaux d’activité pour la plupart des services Microsoft Azure.
+[Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor) active la supervision globale des services Azure en permettant la collecte de métriques, de journaux d’activité et de journaux de diagnostic. Azure Monitor fournit des métriques de niveau de base d’infrastructure et des journaux d’activité pour la plupart des services Microsoft Azure.
 
 ## <a name="threat-model"></a>Modèle de menace
 

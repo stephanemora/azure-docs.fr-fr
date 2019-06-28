@@ -16,10 +16,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1e56d4d94e38e5095ef2223d0cc2875cbf1dcd46
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64919117"
 ---
 # <a name="troubleshoot-object-synchronization-with-azure-ad-connect-sync"></a>Résoudre les problèmes de synchronisation d’objets avec la synchronisation Azure AD Connect
@@ -37,13 +37,13 @@ Pour exécuter la tâche de résolution des problèmes de l’Assistant, procéd
 4.  Accédez à la page Tâches supplémentaires, sélectionnez Résoudre les problèmes, puis cliquez sur Suivant.
 5.  Dans la page de résolution des problèmes, cliquez sur Lancer pour ouvrir le menu de dépannage de PowerShell.
 6.  Dans le menu principal, sélectionnez Troubleshoot Object Synchronization (Résoudre les problèmes de synchronisation d’objets).
-![Résoudre les problèmes de synchronisation des objets](media/tshoot-connect-objectsync/objsynch11.png)
+![Résoudre les problèmes de synchronisation d’objets](media/tshoot-connect-objectsync/objsynch11.png)
 
 ### <a name="troubleshooting-input-parameters"></a>Paramètres d’entrée de la tâche de résolution des problèmes
 La tâche de résolution des problèmes requiert les paramètres d’entrée suivants :
 1.  **Nom unique de l’objet** : nom unique de l’objet auquel doit s’appliquer la résolution des problèmes.
 2.  **Nom du Connecteur AD** : nom de la forêt AD où réside l’objet ci-dessus.
-3.  Informations d’identification de Azure AD locataire administrateur général ![informations d’identification d’administrateur général](media/tshoot-connect-objectsync/objsynch1.png)
+3.  Informations d’identification d’administrateur général pour le locataire Azure AD ![informations d’identification d’administrateur général](media/tshoot-connect-objectsync/objsynch1.png)
 
 ### <a name="understand-the-results-of-the-troubleshooting-task"></a>Comprendre les résultats de la tâche de résolution des problèmes
 La tâche de résolution des problèmes effectue les vérifications suivantes :
@@ -60,7 +60,7 @@ Le reste de cette section décrit les résultats spécifiques qui sont renvoyés
 ### <a name="upn-suffix-is-not-verified-with-azure-ad-tenant"></a>Suffixe UPN NON vérifié auprès du locataire Azure AD
 Lorsque le suffixe d’UPN/ID de connexion alternatif n’est pas vérifié auprès du locataire Azure AD, Azure Active Directory remplace les suffixes UPN par le nom de domaine par défaut « onmicrosoft.com ».
 
-![Azure AD remplace UPN](media/tshoot-connect-objectsync/objsynch2.png)
+![Azure AD remplace UPN](media/tshoot-connect-objectsync/objsynch2.png)
 
 ### <a name="changing-upn-suffix-from-one-federated-domain-to-another-federated-domain"></a>Remplacement du suffixe UPN d’un domaine fédéré par celui d’un autre domaine fédéré
 Azure Active Directory n’autorise pas la synchronisation d’un remplacement de suffixe d’UPN/ID de connexion alternatif d’un domaine fédéré par celui d’un autre domaine fédéré. Ceci s’applique aux domaines qui sont vérifiés auprès du locataire Azure AD et qui présentent le type d’authentification Fédéré.
@@ -80,7 +80,7 @@ L’objet n’entre pas dans le champ d’application de la synchronisation, car
 
 ### <a name="domain-is-configured-to-sync-but-is-missing-run-profilesrun-steps"></a>Domaine configuré pour la synchronisation, mais dépourvu de profils d’exécution/étapes d’exécution
 L’objet n’entre pas dans le champ d’application de la synchronisation, car le domaine ne présente pas de profils d’exécution/étapes d’exécution. Dans l’exemple ci-après, la synchronisation ne s’applique pas à l’objet, car le domaine auquel appartient ce dernier est dépourvu d’étapes d’exécution pour le profil d’exécution d’importation intégrale.
-![profils d’exécution manquantes](media/tshoot-connect-objectsync/objsynch6.png)
+![profils d’exécution manquants](media/tshoot-connect-objectsync/objsynch6.png)
 
 ## <a name="object-is-filtered-due-to-ou-filtering"></a>Objet exclu en raison d’un filtrage d’unité d’organisation
 L’objet n’entre pas dans le champ d’application de la synchronisation à cause de la configuration du filtrage d’unité d’organisation. Dans l’exemple ci-après, l’objet appartient à OU=NoSync,DC=bvtadwbackdc,DC=com.  Cette unité d’organisation n’entre pas dans le champ d’application de la synchronisation.</br>

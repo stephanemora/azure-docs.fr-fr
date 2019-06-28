@@ -11,14 +11,14 @@ ms.date: 04/17/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 419c533aabd67637efa64777387c491dd890596e
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65024634"
 ---
 # <a name="service-limits-in-azure-search"></a>Limites de service d’Azure Search
-Limites maximales de stockage, les charges de travail et les quantités d’index, de documents et autres objets varient selon que vous [recherche Azure](search-create-service-portal.md) à **gratuit**, **base**,  **Standard**, ou **stockage optimisé** niveaux tarifaires.
+Les limites maximales du stockage, des charges de travail et des quantités d’index, de documents et autres objets varient selon que vous [approvisionnez le service Recherche Azure](search-create-service-portal.md) avec les niveaux tarifaires **Gratuit**, **De base**, **Standard** ou **Stockage optimisé**.
 
 + **Gratuit** est un service partagé multi-locataire qui est fourni avec votre abonnement Azure.
 
@@ -26,10 +26,10 @@ Limites maximales de stockage, les charges de travail et les quantités d’inde
 
 + Le niveau **Standard** est exécuté sur des ordinateurs dédiés, avec une capacité de stockage et de traitement beaucoup plus grande, et ce, à chaque niveau. Le niveau Standard se décompose en quatre catégories : S1, S2, S3 et S3 HD.
 
-+ **Stockage optimisé** s’exécute sur des ordinateurs dédiés avec plus de stockage total, de la bande passante de stockage et de mémoire que **Standard**. Stockage optimisé est disponible en deux niveaux : L1 et L2
++ **Stockage optimisé** s’exécute sur des ordinateurs dédiés avec plus de stockage total, de bande passante de stockage et de mémoire que **Standard**. Stockage optimisé est disponible en deux niveaux : L1 et L2
 
 > [!NOTE]
-> Les niveaux de service de stockage optimisé sont actuellement disponibles en version préliminaire au tarif réduit à des fins de test et d’expérimentation dans le but de recueillir des commentaires. Le prix final sera annoncé ultérieurement lorsque ces niveaux sont généralement disponibles. Nous vous déconseillons l’utilisation de ces niveaux pour les applications de production.
+> Les niveaux de service Stockage optimisé sont actuellement disponibles sous la forme d’une préversion à tarif réduit à des fins de test et d’expérimentation, dans le but de recueillir des commentaires. La tarification finale sera annoncée ultérieurement, une fois ces niveaux généralement disponibles. Nous déconseillons l’utilisation de ces niveaux pour des applications de production.
 
   La catégorie S3 HD (S3 High Density) est conçue pour des charges de travail spécifiques : [une architecture multilocataire](search-modeling-multitenant-saas-applications.md) et de grandes quantités de petits index (un million de documents par index, trois mille index par service). Elle ne fournit pas la [fonctionnalité d’indexeur](search-indexer-overview.md). Dans S3 HD, l’ingestion des données doit tirer parti de l’approche push en appelant des API pour envoyer (push) les données de la source vers l’index. 
 
@@ -50,15 +50,15 @@ Limites maximales de stockage, les charges de travail et les quantités d’inde
 | Ressource | Gratuit | De base&nbsp;<sup>1</sup>  | S1 | S2 | S3 | S3&nbsp;HD | L1 | L2 |
 | -------- | ---- | ------------------- | --- | --- | --- | --- | --- | --- |
 | Nombre maximal d’index |3 |5 ou 15 |50 |200 |200 |1 000 par partition ou 3 000 par service |10 |10 |
-| Nombre maximal de champs par index simple |1 000 |100 |1 000 |1 000 |1 000 |1 000 |1 000 |1 000 |
-| Champs de collection complexe maximale par index |40 |40 |40 |40 |40 |40 |40 |40 |
+| Nombre maximal de champs simples par index |1 000 |100 |1 000 |1 000 |1 000 |1 000 |1 000 |1 000 |
+| Nombre maximal de champs de collection complexe par index |40 |40 |40 |40 |40 |40 |40 |40 |
 | Nombre maximal d’éléments dans toutes les collections complexes par document |3000 |3000 |3000 |3000 |3000 |3000 |3000 |3000 |
-| Nombre maximal de champs complexes |10 |10 |10 |10 |10 |10 |10 |10 |
+| Profondeur maximale des champs complexes |10 |10 |10 |10 |10 |10 |10 |10 |
 | Nombre maximal de [générateurs de suggestions](https://docs.microsoft.com/rest/api/searchservice/suggesters) par index |1 |1 |1 |1 |1 |1 |1 |1 |
 | Nombre maximal de [profils de score](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) par index |100 |100 |100 |100 |100 |100 |100 |100 |
 | Nombre maximal de fonctions par profil |8 |8 |8 |8 |8 |8 |8 |8 |
 
-<sup>1</sup> services de base créés avant décembre 2017 présentent des limites inférieures (5 au lieu de 15) sur les index. Le niveau De base est la seule référence soumise à une limite inférieure de 100 champs par index.
+<sup>1</sup> Les services de base créés avant décembre 2017 présentent des limites inférieures (5 au lieu de 15) sur les index. Le niveau De base est la seule référence soumise à une limite inférieure de 100 champs par index.
 
 <a name="document-limits"></a>
 
@@ -102,10 +102,10 @@ Pour réduire la taille du document, pensez à exclure de la requête les donné
 
 ## <a name="indexer-limits"></a>Limites de l’indexeur
 
-Heures d’exécution maximales existent pour fournir le solde et la stabilité au service dans son ensemble, mais les jeux de données volumineux peut prendre indexation plus de temps que la valeur maximale permet. Si un travail d’indexation ne peut pas être terminé dans le délai maximal autorisé, essayez de l’exécuter selon une planification. Le planificateur effectue le suivi de l’état de l’indexation. Si une tâche d’indexation planifiée est interrompue pour une raison quelconque, à la prochaine exécution planifiée, l’indexeur peut repartir de là où il s’était arrêté.
+Les durées d’exécution maximales existent pour fournir équilibre et stabilité au service dans son ensemble, mais l’indexation des jeux de données volumineux peut prendre plus de temps que la valeur maximale ne le permet. Si un travail d’indexation ne peut pas être terminé dans le délai maximal autorisé, essayez de l’exécuter selon une planification. Le planificateur effectue le suivi de l’état de l’indexation. Si une tâche d’indexation planifiée est interrompue pour une raison quelconque, à la prochaine exécution planifiée, l’indexeur peut repartir de là où il s’était arrêté.
 
 
-| Resource | Gratuit&nbsp;<sup>1</sup> | De base&nbsp;<sup>2</sup>| S1 | S2 | S3 | S3&nbsp;HD&nbsp;<sup>3</sup>|L1 |L2 |
+| Ressource | Gratuit&nbsp;<sup>1</sup> | De base&nbsp;<sup>2</sup>| S1 | S2 | S3 | S3&nbsp;HD&nbsp;<sup>3</sup>|L1 |L2 |
 | -------- | ----------------- | ----------------- | --- | --- | --- | --- | --- | --- |
 | Nombre maximal d’indexeurs |3 |5 ou 15|50 |200 |200 |N/A |10 |10 |
 | Nombre maximal de sources de données |3 |5 ou 15 |50 |200 |200 |N/A |10 |10 |
@@ -115,11 +115,11 @@ Heures d’exécution maximales existent pour fournir le solde et la stabilité 
 | Durée maximale d’exécution <sup>5</sup> | 1-3 minutes |24 heures |24 heures |24 heures |24 heures |N/A  |24 heures |24 heures |
 | Valeur maximale pour l’exécution de recherches cognitives ou de l’indexation d’objets blob avec analyse d’images <sup>5</sup> | 3-10 minutes |2 heures |2 heures |2 heures |2 heures |N/A  |2 heures |2 heures |
 | Indexeur d’objets blob : taille maximale des objets blob, en Mo |16 |16 |128 |256 |256 |N/A  |256 |256 |
-| Indexeur d’objets blob : nombre maximal de caractères du contenu extrait d’un objet blob |32 000 |64 000 |4&nbsp;million |4&nbsp;million |4&nbsp;million |N/A |4&nbsp;million |4&nbsp;million |
+| Indexeur d’objets blob : nombre maximal de caractères du contenu extrait d’un objet blob |32 000 |64 000 |4&nbsp;millions |4&nbsp;millions |4&nbsp;millions |N/A |4&nbsp;millions |4&nbsp;millions |
 
-<sup>1</sup> Les services du niveau Gratuit bénéficient d’une durée d’exécution maximale de l’indexeur de 3 minutes pour les sources d’objets blob, et de 1 minute pour toutes les autres sources de données. Pour l’intelligence artificielle qui appelle la méthode dans Cognitive Services d’indexation, les services gratuits sont limités à 20 transactions gratuites par jour, où une transaction est définie comme un document qui réussit à travers le pipeline d’enrichissement.
+<sup>1</sup> Les services du niveau Gratuit bénéficient d’une durée d’exécution maximale de l’indexeur de 3 minutes pour les sources d’objets blob, et de 1 minute pour toutes les autres sources de données. Pour l’indexation de l’intelligence artificielle qui appelle la méthode dans Cognitive Services, les services gratuits sont limités à 20 transactions gratuites par jour, une transaction étant définie comme un document qui traverse le pipeline d’enrichissement.
 
-<sup>2</sup> services de base créés avant décembre 2017 présentent des limites inférieures (5 au lieu de 15) sur les indexeurs, sources de données et des compétences.
+<sup>2</sup> Les services de base créés avant décembre 2017 présentent des limites inférieures (5 au lieu de 15) sur les index, les sources de données et les ensembles de compétences.
 
 <sup>3</sup> Les services S3 HD ne comprennent pas de prise en charge de l’indexeur.
 
@@ -133,13 +133,13 @@ Les estimations du nombre de requêtes par seconde doivent être développées i
 
 Les estimations sont plus prévisibles si elles sont calculées sur des services qui s’exécutent sur des ressources dédiées (niveaux De base et Standard). Vous pouvez mieux estimer les requêtes par seconde, car vous contrôlez davantage de paramètres. Pour obtenir de l’aide sur la manière d’aborder les estimations, consultez [Performances et optimisation de Recherche Azure](search-performance-optimization.md).
 
-Pour les niveaux de stockage optimisé, attendez-vous à une plus faible débit des requêtes et une latence plus élevée que les niveaux Standard.  La méthodologie pour estimer les performances de requête que vous risquez de rencontrer est le même que les niveaux Standard.
+Pour les niveaux Stockage optimisé, attendez-vous à un plus faible débit des requêtes et à une latence plus élevée que les niveaux Standard.  La méthodologie pour estimer les performances des requêtes est la même que pour les niveaux Standard.
 
 ## <a name="data-limits-cognitive-search"></a>Limites de données (recherche cognitive)
 
 Un [pipeline de recherche cognitive](cognitive-search-concept-intro.md) qui effectue des appels à une ressource Analyse de texte pour la [reconnaissance d’entité](cognitive-search-skill-entity-recognition.md), l’[extraction d’expressions clés](cognitive-search-skill-keyphrases.md), l’[analyse des sentiments](cognitive-search-skill-sentiment.md) et la [détection de la langue](cognitive-search-skill-language-detection.md) est soumis à des limites de données. La taille maximale d’un enregistrement est de 50 000 caractères selon `String.Length`. Si vous avez besoin de découper vos données avant de les envoyer à l’Analyseur des sentiments, utilisez la [compétence Fractionnement du texte](cognitive-search-skill-textsplit.md).
 
-## <a name="api-request-limits"></a>Limites de demande d’API
+## <a name="api-request-limits"></a>Limites de requête d’API
 * 16 Mo maximum par requête <sup>1</sup>
 * La longueur maximale d’une URL est de 8 Ko
 * 1 000 documents maximum par lot de charges, de fusions ou de suppressions d’index
@@ -152,8 +152,8 @@ Un [pipeline de recherche cognitive](cognitive-search-concept-intro.md) qui effe
 * 1 000 documents maximum retournés par page de résultats de recherche
 * 100 suggestions maximum retournées par requête d’API de suggestion
 
-## <a name="api-key-limits"></a>Limites de la clé API
-Clés API sont utilisées pour l’authentification de service. Il existe deux types de clé API. Les clés d’administration sont spécifiées dans l’en-tête de la demande et accordent un accès complet en lecture et en écriture au service. Les clés de requête sont en lecture seule, spécifiées dans l’URL et généralement distribuées aux applications clientes.
+## <a name="api-key-limits"></a>Limites de clés API
+Les clés API sont utilisées pour l’authentification de service. Il existe deux types de clé API. Les clés d’administration sont spécifiées dans l’en-tête de la demande et accordent un accès complet en lecture et en écriture au service. Les clés de requête sont en lecture seule, spécifiées dans l’URL et généralement distribuées aux applications clientes.
 
 * 2 clés administrateur maximum par service
 * 50 clés de requête maximum par service

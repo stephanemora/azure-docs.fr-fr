@@ -1,6 +1,6 @@
 ---
-title: Cesser d’utiliser l’extension de machine virtuelle identité gérée et commencer à utiliser le point de terminaison de Service de métadonnées Instance Azure
-description: Procédure pas à obtenir des instructions détaillées à l’aide de l’extension de machine virtuelle, démarrez à l’aide de Azure Instance Metadata Service (IMDS) pour l’authentification.
+title: Cesser d’utiliser l’extension de machine virtuelle pour les identités managées et commencer à utiliser le point de terminaison Azure Instance Metadata Service
+description: Instructions pas à pas pour cesser d’utiliser l’extension de machine virtuelle et commencer à utiliser Azure Instance Metadata Service (IMDS) pour l’authentification.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -15,34 +15,34 @@ ms.workload: identity
 ms.date: 02/25/2018
 ms.author: markvi
 ms.openlocfilehash: 6ee8891eae108256875660cc3f2256b65703a1aa
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65406787"
 ---
-# <a name="how-to-stop-using-the-virtual-machine-managed-identities-extension-and-start-using-the-azure-instance-metadata-service"></a>Procédure d’arrêt à l’aide de la machine virtuelle managed extension des identités et commencer à utiliser le Service de métadonnées Instance Azure
+# <a name="how-to-stop-using-the-virtual-machine-managed-identities-extension-and-start-using-the-azure-instance-metadata-service"></a>Comment cesser d’utiliser l’extension de machine virtuelle pour les identités managées et commencer à utiliser Azure Instance Metadata Service
 
-## <a name="virtual-machine-extension-for-managed-identities"></a>Extension de machine virtuelle pour les entités gérées
+## <a name="virtual-machine-extension-for-managed-identities"></a>Extension de machine virtuelle pour les identités managées
 
-L’extension de machine virtuelle pour les entités gérées est utilisée pour demander des jetons pour une identité gérée au sein de la machine virtuelle. Le flux de travail se compose des étapes suivantes :
+L’extension de machine virtuelle pour les entités managées est utilisée pour demander des jetons pour une identité managée au sein de la machine virtuelle. Le flux de travail se déroule comme suit :
 
-1. Tout d’abord, la charge de travail au sein de la ressource appelle le point de terminaison local `http://localhost/oauth2/token` pour demander un jeton d’accès.
-2. L’extension de machine virtuelle utilise ensuite les informations d’identification pour l’identité gérée, pour demander un jeton d’accès d’Azure AD... 
-3. Le jeton d’accès est retourné à l’appelant et peut être utilisé pour s’authentifier auprès des services qui prennent en charge d’Azure AD authentication, comme Azure Key Vault ou de stockage Azure.
+1. Tout d’abord, la charge de travail dans la ressource appelle le point de terminaison local `http://localhost/oauth2/token` pour demander un jeton d’accès.
+2. L’extension de machine virtuelle utilise ensuite les informations d’identification pour l’identité managée, pour demander un jeton d’accès auprès d’Azure AD. 
+3. Le jeton d’accès est retourné à l’appelant et peut être utilisé pour l’authentification aux services qui prennent en charge l’authentification Azure AD, comme Azure Key Vault ou Stockage Azure.
 
-Dû à plusieurs limitations décrites dans la section suivante, l’extension de machine virtuelle identité gérée a été déconseillée en faveur de l’aide du point de terminaison équivalent dans Azure Instance Metadata Service (IMDS)
+De par certaines limitations décrites dans la section suivante, l’extension de machine virtuelle pour les identités managées est désormais déconseillée. Il est plutôt recommandé d’utiliser le point de terminaison équivalent dans Azure Instance Metadata Service (IMDS).
 
-### <a name="provision-the-extension"></a>Configurer l’extension 
+### <a name="provision-the-extension"></a>Approvisionner l’extension 
 
-Lorsque vous configurez un ordinateur virtuel ou les machines virtuelles identiques pour avoir une identité gérée, vous pouvez éventuellement choisir d’approvisionner des identités gérées pour l’extension de machine virtuelle de ressources Azure à l’aide du `-Type` paramètre sur le [ Set-AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension) applet de commande. Vous pouvez passer soit `ManagedIdentityExtensionForWindows` ou `ManagedIdentityExtensionForLinux`, selon le type de machine virtuelle et nommez-le en utilisant le `-Name` paramètre. Le paramètre `-Settings` spécifie le port utilisé par le point de terminaison de jeton OAuth pour l’acquisition de jeton :
+Lorsque vous configurez une machine virtuelle ou un groupe de machines virtuelles identiques pour disposer d’une identité managée, vous pouvez éventuellement choisir d’approvisionner les identités managées pour l’extension de machine virtuelle pour ressources Azure en utilisant le paramètre `-Type` dans la cmdlet [Set-AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension). Vous pouvez passer `ManagedIdentityExtensionForWindows` ou `ManagedIdentityExtensionForLinux` selon le type de machine virtuelle et lui affecter un nom en utilisant le paramètre `-Name`. Le paramètre `-Settings` spécifie le port utilisé par le point de terminaison de jeton OAuth pour l’acquisition de jeton :
 
 ```powershell
    $settings = @{ "port" = 50342 }
    Set-AzVMExtension -ResourceGroupName myResourceGroup -Location WestUS -VMName myVM -Name "ManagedIdentityExtensionForWindows" -Type "ManagedIdentityExtensionForWindows" -Publisher "Microsoft.ManagedIdentity" -TypeHandlerVersion "1.0" -Settings $settings 
 ```
 
-Vous pouvez également utiliser le modèle de déploiement Azure Resource Manager pour configurer l’extension de machine virtuelle, en ajoutant le code JSON suivant à la `resources` section au modèle (utilisez `ManagedIdentityExtensionForLinux` pour les éléments nom et le type de la version de Linux).
+Vous pouvez également utiliser le modèle de déploiement Azure Resource Manager pour approvisionner l’extension de machine virtuelle, en ajoutant le code JSON suivant à la section `resources` du modèle (utilisez `ManagedIdentityExtensionForLinux` pour les éléments de nom et de type pour la version Linux).
 
     ```json
     {
@@ -66,14 +66,14 @@ Vous pouvez également utiliser le modèle de déploiement Azure Resource Manage
     ```
     
     
-Si vous travaillez avec des machines virtuelles identiques, vous pouvez également configurer des identités gérées pour les ressources Azure machine virtuelle identique à l’aide de l’extension la [Add-AzVmssExtension](/powershell/module/az.compute/add-azvmssextension) applet de commande. Vous pouvez passer soit `ManagedIdentityExtensionForWindows` ou `ManagedIdentityExtensionForLinux`, selon le type de mise à l’échelle de machine virtuelle définie et nommez-le en utilisant le `-Name` paramètre. Le paramètre `-Settings` spécifie le port utilisé par le point de terminaison de jeton OAuth pour l’acquisition de jeton :
+Si vous utilisez des groupes de machines virtuelles identiques, vous pouvez également approvisionner les identités managées pour l’extension de groupe de machines virtuelles identiques pour ressources Azure en utilisant la cmdlet [Add-AzVmssExtension](/powershell/module/az.compute/add-azvmssextension). Vous pouvez passer `ManagedIdentityExtensionForWindows` ou `ManagedIdentityExtensionForLinux` selon le type de groupe de machines virtuelles identiques et lui affecter un nom en utilisant le paramètre `-Name`. Le paramètre `-Settings` spécifie le port utilisé par le point de terminaison de jeton OAuth pour l’acquisition de jeton :
 
    ```powershell
    $setting = @{ "port" = 50342 }
    $vmss = Get-AzVmss
    Add-AzVmssExtension -VirtualMachineScaleSet $vmss -Name "ManagedIdentityExtensionForWindows" -Type "ManagedIdentityExtensionForWindows" -Publisher "Microsoft.ManagedIdentity" -TypeHandlerVersion "1.0" -Setting $settings 
    ```
-Pour approvisionner des machines virtuelles identiques, définissez l’extension avec le modèle de déploiement Azure Resource Manager, ajoutez le code JSON suivant à la `extensionpProfile` section au modèle (utilisez `ManagedIdentityExtensionForLinux` pour les éléments nom et le type de la version de Linux).
+Pour approvisionner l’extension de groupe de machines virtuelles identiques avec le modèle de déploiement Azure Resource Manager, ajoutez le code JSON suivant à la section `extensionpProfile` du modèle (utilisez `ManagedIdentityExtensionForLinux` pour les éléments de nom et de type pour la version Linux).
 
     ```json
     "extensionProfile": {
@@ -93,10 +93,10 @@ Pour approvisionner des machines virtuelles identiques, définissez l’extensio
             }
     ```
 
-Approvisionnement de l’extension de machine virtuelle peut échouer en raison d’échecs de recherche DNS. Si cela se produit, redémarrez la machine virtuelle, puis réessayez. 
+L’approvisionnement de l’extension de machine virtuelle peut échouer en raison d’échecs de recherche DNS. Si cela se produit, redémarrez la machine virtuelle, puis réessayez. 
 
 ### <a name="remove-the-extension"></a>Supprimer l’extension 
-Pour supprimer l’extension, utilisez `-n ManagedIdentityExtensionForWindows` ou `-n ManagedIdentityExtensionForLinux` basculer (selon le type de machine virtuelle) avec [delete de az vm extension](https://docs.microsoft.com/cli/azure/vm/), ou [delete de az vmss extension](https://docs.microsoft.com/cli/azure/vmss) de machines virtuelles identiques définit à l’aide d’Azure CLI, ou `Remove-AzVMExtension` pour Powershell :
+Pour supprimer l’extension, utilisez le commutateur `-n ManagedIdentityExtensionForWindows` ou `-n ManagedIdentityExtensionForLinux` (selon le type de machine virtuelle) avec [az vm extension delete](https://docs.microsoft.com/cli/azure/vm/) ou [az vmss extension delete](https://docs.microsoft.com/cli/azure/vmss) pour les groupes de machines virtuelles identiques à l’aide d’Azure CLI ou `Remove-AzVMExtension` pour Powershell :
 
 ```azurecli-interactive
 az vm identity --resource-group myResourceGroup --vm-name myVm -n ManagedIdentityExtensionForWindows
@@ -112,7 +112,7 @@ Remove-AzVMExtension -ResourceGroupName myResourceGroup -Name "ManagedIdentityEx
 
 ### <a name="acquire-a-token-using-the-virtual-machine-extension"></a>Acquérir un jeton à l’aide de l’extension de machine virtuelle
 
-Voici un exemple de demande à l’aide des identités gérées pour les ressources Azure VM Extension Endpoint :
+Voici un exemple de requête utilisant les identités managées pour le point de terminaison d’extension de machine virtuelle pour ressources Azure :
 
 ```
 GET http://localhost:50342/oauth2/token?resource=https%3A%2F%2Fmanagement.azure.com%2F HTTP/1.1
@@ -156,7 +156,7 @@ Content-Type: application/json
 | `token_type` | Le type de jeton, qui est un jeton d’accès « du porteur », ce qui signifie que la ressource peut donner l’accès au porteur de ce jeton. |
 
 
-### <a name="troubleshoot-the-virtual-machine-extension"></a>Résoudre les problèmes de l’extension de machine virtuelle 
+### <a name="troubleshoot-the-virtual-machine-extension"></a>Détecter un problème lié à l’extension de machine virtuelle 
 
 #### <a name="restart-the-virtual-machine-extension-after-a-failure"></a>Redémarrez l’extension de machine virtuelle après un échec
 
@@ -166,50 +166,50 @@ Sur Windows et certaines versions de Linux, si l’extension s’arrête, la cmd
 Set-AzVMExtension -Name <extension name>  -Type <extension Type>  -Location <location> -Publisher Microsoft.ManagedIdentity -VMName <vm name> -ResourceGroupName <resource group name> -ForceRerun <Any string different from any last value used>
 ```
 
-Où : 
-- Nom de l’extension type et pour Windows est : `ManagedIdentityExtensionForWindows`
-- Nom de l’extension et type pour Linux est : `ManagedIdentityExtensionForLinux`
+Où : 
+- Type et nom de l’extension pour Windows : `ManagedIdentityExtensionForWindows`
+- Type et nom de l’extension pour Linux : `ManagedIdentityExtensionForLinux`
 
 #### <a name="automation-script-fails-when-attempting-schema-export-for-managed-identities-for-azure-resources-extension"></a>Le « Script d’automatisation » échoue lors de la tentative d’exportation de schéma pour l’extension des entités managées pour ressources Azure
 
-Lorsque des identités gérées pour les ressources Azure est activé sur une machine virtuelle, l’erreur suivante s’affiche lorsque vous tentez d’utiliser la fonctionnalité « Script d’automatisation » pour la machine virtuelle ou son groupe de ressources :
+Lorsque des identités managées pour ressources Azure sont activées sur une machine virtuelle, l’erreur suivante s’affiche en cas de tentative d’utilisation de la fonctionnalité « Script d’automatisation » pour la machine virtuelle ou son groupe de ressources :
 
 ![Erreur d’exportation de script d’automatisation d’identités managées pour ressources Azure](./media/howto-migrate-vm-extension/automation-script-export-error.png)
 
-Actuellement, les identités gérées pour l’extension de machine virtuelle de ressources Azure ne prend pas en charge la possibilité d’exporter son schéma à un modèle de groupe de ressources. Par conséquent, le modèle généré n’affiche pas les paramètres de configuration permettant d’activer des identités managées pour ressources Azure sur la ressource. Ces sections peuvent être ajoutées manuellement en suivant les exemples de [configurer managed identités pour les ressources Azure sur une machine virtuelle Azure à l’aide de des modèles](qs-configure-template-windows-vm.md).
+Actuellement, les identités managées pour l’extension de machine virtuelle pour ressources Azure ne prennent pas en charge la possibilité d’exporter leur schéma vers un modèle de groupe de ressources. Par conséquent, le modèle généré n’affiche pas les paramètres de configuration permettant d’activer des identités managées pour ressources Azure sur la ressource. Ces sections peuvent être ajoutées manuellement en suivant les exemples fournis dans [Configurer des identités managées pour ressources Azure sur une machine virtuelle Azure en utilisant un modèle](qs-configure-template-windows-vm.md).
 
-Lorsque la fonctionnalité d’exportation de schéma est disponible pour les identités gérées pour l’extension de machine virtuelle de ressources Azure (planifié pour l’abandon de janvier 2019), il sera répertorié dans [groupes de ressources exportation qui contiennent des extensions de machine virtuelle ](../../virtual-machines/extensions/export-templates.md#supported-virtual-machine-extensions).
+Lorsque la fonctionnalité d’exportation de schéma sera disponible pour les identités managées pour l’extension de machine virtuelle pour ressources Azure (dont l’abandon est prévu en janvier 2019), elle sera répertoriée dans [Exportation de groupes de ressources contenant des extensions de machine virtuelle](../../virtual-machines/extensions/export-templates.md#supported-virtual-machine-extensions).
 
 ## <a name="limitations-of-the-virtual-machine-extension"></a>Limitations de l’extension de machine virtuelle 
 
-Il existe plusieurs limitations principales à l’aide de l’extension de machine virtuelle. 
+L’utilisation de l’extension de machine virtuelle est soumise à plusieurs limitations majeures. 
 
- * La limitation plus important est le fait que les informations d’identification utilisées pour demander des jetons sont stockées sur l’ordinateur virtuel. Un attaquant qui a été atteinte à la machine virtuelle peut exfiltrer les informations d’identification. 
- * En outre, l’extension de machine virtuelle est toujours pris en charge par plusieurs distributions Linux, avec un coût pour le modifier, générer et tester l’extension sur chacun de ces distributions de développement énorme. Actuellement, seuls les distributions Linux suivantes sont prises en charge : 
+ * La limitation la plus importante est le fait que les informations d’identification utilisées pour demander des jetons sont stockées sur la machine virtuelle. Un attaquant qui parvient à accéder à la machine virtuelle peut exfiltrer les informations d’identification. 
+ * En outre, l’extension de machine virtuelle n’est pas encore prise en charge par plusieurs distributions Linux, et le coût de développement lié à la modification, à la génération et au test de l’extension sur chacune de ces distributions est colossal. Actuellement, seules les distributions Linux suivantes sont prises en charge : 
     * CoreOS Stable
     * CentOS 7.1 
     * Red Hat 7.2 
     * Ubuntu 15.04 
     * Ubuntu 16.04
- * Il existe un impact sur les performances pour le déploiement de machines virtuelles avec des identités gérées, comme l’extension de machine virtuelle doit également être configuré. 
- * Enfin, l’extension de machine virtuelle peut prendre uniquement en charge l’avoir 32 affectée à l’utilisateur des identités gérées par machine virtuelle. 
+ * Le déploiement de machines virtuelles avec des identités managées a un impact sur les performances dans la mesure où l’extension de machine virtuelle doit également être approvisionnée. 
+ * Enfin, l’extension de machine virtuelle peut prendre en charge uniquement 32 identités managées affectées par l’utilisateur par machine virtuelle. 
 
 ## <a name="azure-instance-metadata-service"></a>Service de métadonnées d’instance Azure
 
-Le [Azure Instance Metadata Service (IMDS)](/azure/virtual-machines/windows/instance-metadata-service) est un point de terminaison REST qui fournit des informations sur les instances de machine virtuelle qui peuvent être utilisées pour gérer et configurer vos machines virtuelles en cours d’exécution. Le point de terminaison est disponible sur une adresse IP non routable bien connue (`169.254.169.254`) qui est accessible uniquement à partir de la machine virtuelle.
+[Azure Instance Metadata Service (IMDS)](/azure/virtual-machines/windows/instance-metadata-service) est un point de terminaison REST qui fournit des informations sur les instances de machine virtuelle en cours d’exécution qui peuvent être utilisées pour gérer et configurer vos machines virtuelles. Le point de terminaison est disponible à une adresse IP non routable bien connue (`169.254.169.254`) accessible uniquement à partir de la machine virtuelle.
 
-Il existe plusieurs avantages à l’utilisation d’Azure IMDS pour demander des jetons. 
+L’utilisation d’Azure IMDS pour demander des jetons offre plusieurs avantages. 
 
-1. Le service est externe à la machine virtuelle, par conséquent, les informations d’identification utilisées par des identités gérées ne sont plus présentes sur la machine virtuelle. Au lieu de cela, elles sont hébergées et sécurisés sur l’ordinateur hôte de la machine virtuelle Azure.   
-2. Tous les systèmes d’exploitation Windows et Linux pris en charge sur Azure IaaS peuvent utiliser des identités gérées.
-3. Déploiement est plus rapide et plus facile, étant donné que l’extension de machine virtuelle n’a plus besoin être mis en service.
-4. Avec le IMDS point de terminaison jusqu'à 1 000 identités gérées affectée à l’utilisateur peut être affectée à une seule machine virtuelle.
-5. Il n’existe pas de changement significatif pour les demandes à l’aide de IMDS par opposition à ceux qui utilisent l’extension de machine virtuelle, par conséquent il est relativement simple à un port sur les déploiements existants qui utilisent actuellement l’extension de machine virtuelle.
+1. Le service est externe à la machine virtuelle. Par conséquent, les informations d’identification utilisées par les identités managées ne sont plus présentes sur la machine virtuelle. Au lieu de cela, elles sont hébergées et sécurisées sur l’ordinateur hôte de la machine virtuelle Azure.   
+2. Tous les systèmes d’exploitation Windows et Linux pris en charge sur Azure IaaS peuvent utiliser des identités managées.
+3. Le déploiement est plus rapide et plus facile, étant donné qu’il n’est plus nécessaire d’approvisionner l’extension de machine virtuelle.
+4. Avec le point de terminaison IMDS, il est possible d’attribuer jusqu’à 1 000 identités managées affectées par l’utilisateur à une seule machine virtuelle.
+5. Il n’existe pas de différence significative entre les requêtes utilisant IMDS et celles utilisant l’extension de machine virtuelle. Par conséquent il est relativement simple de procéder au portage des déploiements existants qui utilisent l’extension de machine virtuelle.
 
-Pour ces raisons, le service Azure IMDS sera la façon de facto pour demander des jetons, une fois que l’extension de machine virtuelle est déconseillée. 
+Pour ces raisons, le service Azure IMDS représentera sera la méthode de facto pour demander des jetons lorsque l’extension de machine virtuelle sera déconseillée. 
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Comment utiliser des identités gérées pour les ressources Azure sur une machine virtuelle Azure pour acquérir un jeton d’accès](how-to-use-vm-token.md)
-* [Service de métadonnées Instance Azure](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service)
+* [Guide pratique de l’utilisation d’identités managées pour ressources Azure sur une machine virtuelle Azure afin d’acquérir un jeton d’accès](how-to-use-vm-token.md)
+* [Azure Instance Metadata Service](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service)

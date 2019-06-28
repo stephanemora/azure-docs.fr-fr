@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
 ms.openlocfilehash: 5a7c16e6ac565d1660fee02cb7df178344b195e7
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62122921"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-webjob-projects"></a>Prise en main du stockage d’objets blob Azure et des services connectés Visual Studio (projets WebJob)
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 Cet article fournit des exemples de code C# qui montrent comment déclencher un processus quand un objet blob Azure est créé ou mis à jour. Les exemples de code utilisent le [Kit de développement logiciel (SDK) WebJobs](https://github.com/Azure/azure-webjobs-sdk/wiki) version 1.x. Quand vous ajoutez un compte de stockage à un projet de tâche web à l'aide de la boîte de dialogue **Ajouter des services connectés** de Visual Studio, le package NuGet d'Azure Storage approprié est installé, les références .NET appropriées sont ajoutées au projet et les chaînes de connexion pour le compte de stockage sont mises à jour dans le fichier App.config.
 
 ## <a name="how-to-trigger-a-function-when-a-blob-is-created-or-updated"></a>Comment utiliser le stockage d’objets blob Azure avec le Kit de développement logiciel (SDK) WebJobs
@@ -144,7 +144,7 @@ Vous pouvez configurer le nombre maximal de tentatives. Le paramètre **MaxDeque
 
 Le message en file d’attente associé aux objets blob incohérents correspond à un objet JSON, qui contient les propriétés suivantes :
 
-* FunctionId (au format *{nom_tâche_web}*. Fonctions. *{Nom_fonction}*, par exemple : WebJob1.Functions.CopyBlob)
+* FunctionId (au format *{nom_tâche_web}* .Functions. *{nom_fonction}* , par exemple : WebJob1.Functions.CopyBlob)
 * BlobType (« BlockBlob » ou « PageBlob »)
 * ContainerName
 * BlobName
@@ -193,7 +193,7 @@ Le Kit de développement logiciel (SDK) WebJobs s'assure qu'aucune fonction **Bl
 
 Les reçus d’objets blob sont stockés dans un conteneur appelé *azure-webjobs-hosts* associé au compte de stockage Microsoft Azure indiqué par la chaîne de connexion AzureWebJobsStorage. Un reçu d’objet blob contient les informations suivantes :
 
-* La fonction qui a été appelée pour l’objet blob («*{nom_tâche_web}*. Fonctions. *{Nom_fonction}*», par exemple : "WebJob1.Functions.CopyBlob")
+* Fonction appelée pour l’objet blob (" *{nom_tâche_web}* .Functions. *{nom_fonction}* ", par exemple : "WebJob1.Functions.CopyBlob")
 * Nom du conteneur
 * Type d’objet blob (« BlockBlob » ou « PageBlob »)
 * Nom de l’objet blob

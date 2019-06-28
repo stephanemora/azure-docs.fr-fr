@@ -1,6 +1,6 @@
 ---
-title: Entrez les détails de la vitrine de consulting offre | Place de marché Azure
-description: Définir les détails de la vitrine dans une offre de service de conseil Azure ou Dynamics 365 dans le portail Cloud Partner.
+title: Entrer les détails d’une vitrine pour une offre de conseil | Place de marché Azure
+description: Définissez des détails d’une vitrine dans une offre de service de conseil Azure ou Dynamics 365 dans le Portail Cloud Partner.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: qianw211
 ms.service: marketplace
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: pabutler
 ms.openlocfilehash: 1b028fe016d6ae3df8c1dfce548fc0c11479d5a6
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64942708"
 ---
 # <a name="storefront-details-tab"></a>Onglet des informations sur les vitrines
@@ -30,7 +30,7 @@ Cet article explique comment entrer les détails de votre vitrine. L’onglet **
 
 La section **Offer Details** (Détails de l’offre) contient les zones suivantes :
 
--   **Résumé de l’offre\***
+-   **Offer summary\*** (Résumé de l’offre)
 -   **Description de l’offre\***
 
 
@@ -163,7 +163,7 @@ Les cinq types d’offres suivants sont inclus :
 Sélectionnez le pays et région où cette offre de services de conseil est disponible. Il est impossible de publier une offre unique dans plusieurs pays ou régions. Une nouvelle offre doit être créée pour chaque pays ou région.
 
 >[!Note]
->Les services de conseil AppSource sont disponibles aux États-Unis, au Royaume-Uni et au Canada. Vous pouvez soumettre une offre pour un pays/région qui n’est pas encore en direct, et il est passé en revue et préparé pour la mise en ligne. Un nombre minimal d’offres prêts à l’emploi en direct est nécessaires pour ouvrir un nouveau pays/région, les offres pour les pays/régions qui ne sont pas actives sont encouragées.
+>Les services de conseil AppSource sont disponibles aux États-Unis, au Royaume-Uni et au Canada. Vous pouvez soumettre une offre pour un pays/une région qui n’est pas encore desservi. Elle sera passée en revue et préparée pour la mise en service. Un nombre minimal d’offres prêtes à l’emploi est nécessaire pour desservir un nouveau pays/une nouvelle région. Nous vous encourageons donc à soumettre des offres pour les pays/régions qui ne sont pas encore desservis.
 
 **Secteurs d’activité**
 

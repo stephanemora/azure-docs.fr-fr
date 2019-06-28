@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/26/2018
 ms.author: genli
-ms.openlocfilehash: b7ac96d3588923727a71cf6152ba36481ef44545
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: 00393395745ca96ae14269ae80e4f3d25673fbfa
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59526654"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64723008"
 ---
 # <a name="network-virtual-appliance-issues-in-azure"></a>Problèmes d’appliance virtuelle réseau dans Azure
 
@@ -42,7 +42,7 @@ Un support technique pour appliances virtuelles réseau tierces et leur intégra
 - Itinéraires définis par l’utilisateur sur des sous-réseaux de réseau virtuel qui dirigent le trafic à partir de l’appliance virtuelle réseau
 - Tables et règles de routage au sein de l’appliance virtuelle réseau (par exemple, de NIC1 à NIC2)
 - Suivi sur les NIC d’appliance virtuelle réseau pour vérifier la réception et l’envoi de trafic réseau
-- Lorsque vous utilisez une référence (SKU) Standard et les adresses IP publiques, il doit y avoir un groupe de sécurité réseau créé et une règle explicite pour autoriser le trafic soit acheminé vers l’appliance virtuelle réseau.
+- Lorsque vous utilisez une référence SKU Standard et des adresses IP publiques, vous devez disposer d’un groupe de sécurité réseau et d’une règle explicite pour autoriser le routage du trafic vers l’appliance virtuelle réseau.
 
 ## <a name="basic-troubleshooting-steps"></a>Étapes de dépannage de base
 
@@ -74,9 +74,16 @@ Utiliser PowerShell
 3. Vérifiez la propriété **EnableIPForwarding**.
 4. Si le transfert IP n’est pas activé, exécutez les commandes suivantes pour l’activer :
 
-   $nic2 = Get-AzNetworkInterface - ResourceGroupName <ResourceGroupName> -nom <NicName> $nic2. EnableIPForwarding = 1 exécuter Set-AzNetworkInterface - NetworkInterface $nic2 : $nic2 #and check pour une sortie attendue : EnableIPForwarding : True NetworkSecurityGroup : null
+   ```powershell
+   $nic2 = Get-AzNetworkInterface -ResourceGroupName <ResourceGroupName> -Name <NicName>
+   $nic2.EnableIPForwarding = 1
+   Set-AzNetworkInterface -NetworkInterface $nic2
+   Execute: $nic2 #and check for an expected output:
+   EnableIPForwarding   : True
+   NetworkSecurityGroup : null
+   ```
 
-**Recherchez les NSG lorsque vous utilisez l’adresse IP de Pubilc référence (SKU) Standard** lorsque vous utilisez une référence (SKU) Standard et les adresses IP publiques, il doit y avoir un groupe de sécurité réseau créé et une règle explicite pour autoriser le trafic vers l’appliance virtuelle réseau.
+**Vérifiez l’existence d’un groupe de sécurité réseau quand vous utilisez des adresses IP publiques et une référence SKU Standard** Quand vous utilisez une référence SKU Standard et des adresses IP publiques, il doit y avoir un groupe de sécurité réseau créé et une règle explicite pour autoriser le trafic vers l’appliance virtuelle réseau.
 
 **Vérifier si le trafic peut être routé vers l’appliance virtuelle réseau**
 
@@ -107,7 +114,7 @@ Utiliser PowerShell
 
 ### <a name="validate-vm-cpu"></a>Valider le processeur de machine virtuelle
 
-Si l’utilisation du processeur est proche de 100 pour cent, vous pouvez rencontrer des problèmes qui affectent les chutes de paquet réseau. Votre machine virtuelle indique l’utilisation moyenne du processeur pendant intervalle de temps spécifique dans le portail Azure. Lors d’un pic d’utilisation du processeur, examinez sur la machine virtuelle invitée le processus à l’origine de l’utilisation élevée du processeur, et atténuez celle-ci autant que possible. Il se peut que vous deviez également redimensionner la machine virtuelle en définissant une taille de référence (SKU) supérieure ou, pour un groupe de machines virtuelles identiques, augmenter le nombre d’instances ou définir une mise à l’échelle automatique en fonction de l’utilisation du processeur. Pour chacun de ces problèmes, [contactez le fournisseur de l’appliance virtuelle réseau](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines) en fonction des besoins.
+Si l’utilisation du processeur approche 100 pour cent, vous risquez de rencontrer des problèmes affectant les rejets de paquet réseau. Votre machine virtuelle indique l’utilisation moyenne du processeur pendant intervalle de temps spécifique dans le portail Azure. Lors d’un pic d’utilisation du processeur, examinez sur la machine virtuelle invitée le processus à l’origine de l’utilisation élevée du processeur, et atténuez celle-ci autant que possible. Il se peut que vous deviez également redimensionner la machine virtuelle en définissant une taille de référence (SKU) supérieure ou, pour un groupe de machines virtuelles identiques, augmenter le nombre d’instances ou définir une mise à l’échelle automatique en fonction de l’utilisation du processeur. Pour chacun de ces problèmes, [contactez le fournisseur de l’appliance virtuelle réseau](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines) en fonction des besoins.
 
 ### <a name="validate-vm-network-statistics"></a>Valider les statistiques du réseau de machines virtuelles
 
@@ -122,7 +129,7 @@ Capturez une trace réseau simultanée sur la machine virtuelle source, l’appl
 
    **Pour Windows**
 
-   Démarrer la trace netsh capture = \server_ip.etl scenario d’Oui = netconnection
+   netsh trace start capture=yes tracefile=c:\server_IP.etl scenario=netconnection
 
    **Pour Linux**
 

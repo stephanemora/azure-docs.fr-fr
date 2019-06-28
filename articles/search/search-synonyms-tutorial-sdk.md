@@ -1,6 +1,6 @@
 ---
-title: Synonymes C# exemple - recherche Azure
-description: Dans ce C# exemple, découvrez comment ajouter la fonctionnalité de synonymes à un index dans recherche Azure. Une carte de synonymes est une liste de termes équivalents. Les champs avec prise en charge des synonymes étendent les requêtes afin d'inclure le terme fourni par l’utilisateur et tous les synonymes associés.
+title: Exemple C# pour les synonymes - Recherche Azure
+description: Avec cet exemple C#, découvrez comment ajouter la fonctionnalité des synonymes à un index dans Recherche Azure. Une carte de synonymes est une liste de termes équivalents. Les champs avec prise en charge des synonymes étendent les requêtes afin d'inclure le terme fourni par l’utilisateur et tous les synonymes associés.
 manager: cgronlun
 author: HeidiSteen
 services: search
@@ -10,30 +10,30 @@ ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 5b81e4b9a8773cc8e4cc76582ccf2df88565d3d8
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65025166"
 ---
 # <a name="example-add-synonyms-for-azure-search-in-c"></a>Exemple : Ajouter des synonymes pour le service Recherche Azure en C#
 
 Les synonymes développent une requête en faisant correspondre les termes considérés comme sémantiquement équivalents à l’expression entrée. Par exemple, vous souhaiterez peut-être que le terme « voiture » vous permette de trouver des documents contenant les mots « automobile » ou « véhicule ». 
 
-Dans la Recherche Azure, les synonymes sont définis dans une *carte de synonymes*, via des *règles de mappage* qui associent des termes équivalents. Cet exemple couvre les étapes essentielles pour l’ajout et l’utilisation de synonymes avec un index existant. Vous allez apprendre à effectuer les actions suivantes :
+Dans la Recherche Azure, les synonymes sont définis dans une *carte de synonymes*, via des *règles de mappage* qui associent des termes équivalents. Cet exemple décrit les étapes essentielles pour l’ajout et l’utilisation de synonymes avec un index existant. Vous allez apprendre à effectuer les actions suivantes :
 
 > [!div class="checklist"]
-> * Créer une carte de synonyme, en utilisant le [SynonymMap](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.synonymmap?view=azure-dotnet) classe. 
-> * Définir le [SynonymMaps](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field.synonymmaps?view=azure-dotnet) propriété sur les champs qui doit de prendre en charge d’extension de requête par le biais de synonymes.
+> * Créer une carte de synonymes en utilisant la classe [SynonymMap](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.synonymmap?view=azure-dotnet). 
+> * Définir la propriété [SynonymMaps](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field.synonymmaps?view=azure-dotnet) sur des champs qui doivent prendre en charge l’extension de requête par le biais de synonymes.
 
-Vous pouvez interroger un champ de synonyme comme vous le feriez normalement. Il n’existe aucune syntaxe de requête supplémentaires requis pour accéder aux synonymes.
+Vous pouvez interroger un champ acceptant les synonymes comme vous le faites habituellement. Aucune syntaxe de requête supplémentaire n’est requise pour accéder aux synonymes.
 
 Vous pouvez créer plusieurs cartes de synonymes, les valider en tant que ressources du service disponible pour tout index, et ensuite référencer ceux que vous souhaitez utiliser au niveau du champ. Au moment de la requête, outre la recherche dans un index, la Recherche Azure effectue une recherche dans une carte de synonymes, si une carte est spécifiée dans les champs utilisés dans la requête.
 
 > [!NOTE]
-> Les synonymes peuvent être créées par programmation, mais pas dans le portail. Si la prise en charge des synonymes par le portail Azure peut vous être utile, donnez-nous votre avis sur [UserVoice](https://feedback.azure.com/forums/263029-azure-search)
+> Les synonymes peuvent être créés par programmation, mais pas dans le portail. Si la prise en charge des synonymes par le portail Azure peut vous être utile, donnez-nous votre avis sur [UserVoice](https://feedback.azure.com/forums/263029-azure-search)
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 La configuration requise du didacticiel est la suivante :
 
@@ -42,9 +42,9 @@ La configuration requise du didacticiel est la suivante :
 * [Bibliothèque .NET Microsoft.Azure.Search](https://aka.ms/search-sdk)
 * [Comment utiliser Azure Search à partir d'une application .NET](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk)
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
-Les requêtes avant et après présentent la valeur des synonymes. Dans cet exemple, utilisons un exemple d’application qui exécute des requêtes et retourne des résultats sur un index des exemples. L’exemple d’application crée un petit index nommé « hotels » comprenant deux documents. L’application exécute des requêtes de recherche à l’aide de termes et d’expressions qui n’apparaissent pas dans l’index, active la fonctionnalité de synonymes, puis lance les mêmes recherches une nouvelle fois. Le code ci-dessous montre le flux global.
+Les requêtes avant et après présentent la valeur des synonymes. Dans cet exemple, vous utilisez un exemple d’application qui exécute des requêtes et retourne des résultats sur un index d’exemples. L’exemple d’application crée un petit index nommé « hotels » comprenant deux documents. L’application exécute des requêtes de recherche à l’aide de termes et d’expressions qui n’apparaissent pas dans l’index, active la fonctionnalité de synonymes, puis lance les mêmes recherches une nouvelle fois. Le code ci-dessous montre le flux global.
 
 ```csharp
   static void Main(string[] args)
@@ -163,18 +163,18 @@ Name: Roach Motel       Category: Budget        Tags: [motel, budget]
 ~~~
 La première requête trouve le document à partir de la règle `five star=>luxury`. La deuxième requête étend la recherche à l’aide de `internet,wifi` et la troisième avec à la fois `hotel, motel` et `economy,inexpensive=>budget` pour trouver les documents en correspondance.
 
-L’ajout de synonymes modifie complètement l’expérience de recherche. Dans cet exemple, les requêtes d’origine n’a pas retourné des résultats significatifs même si les documents dans notre index étaient pertinents. En activant les synonymes, nous pouvons développer un index pour inclure les termes communément utilisés, sans modification de données sous-jacentes dans l’index.
+L’ajout de synonymes modifie complètement l’expérience de recherche. Dans cet exemple, les requêtes d’origine n’ont pas pu retourner de résultats significatifs même si les documents dans notre index étaient pertinents. En activant les synonymes, nous pouvons développer un index pour inclure les termes communément utilisés, sans modification de données sous-jacentes dans l’index.
 
 ## <a name="sample-application-source-code"></a>Code source de l'exemple d'application
 Vous trouverez le code source complet de l’exemple d’application utilisé dans cette procédure sur [GitHub](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToSynonyms).
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Le moyen le plus rapide pour nettoyer une fois un exemple en supprimant le groupe de ressources contenant le service de recherche Azure. Vous pouvez maintenant supprimer le groupe de ressources pour supprimer définitivement tout ce qu’il contient. Sur le portail, le nom du groupe de ressources figure dans la page Vue d’ensemble du service Recherche Azure.
+Le moyen le plus rapide de procéder à un nettoyage après un exemple consiste à supprimer le groupe de ressources contenant le service Recherche Azure. Vous pouvez maintenant supprimer le groupe de ressources pour supprimer définitivement tout ce qu’il contient. Sur le portail, le nom du groupe de ressources figure dans la page Vue d’ensemble du service Recherche Azure.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Cet exemple a montré la fonctionnalité de synonymes dans C# code pour créer et publier des règles de mappage, puis appelez la carte de synonymes pour une requête. Vous trouverez des informations supplémentaires dans la documentation de référence du [Kit de développement logiciel (SDK) .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search) et de [l’API REST](https://docs.microsoft.com/rest/api/searchservice/).
+Cet exemple a présenté la fonctionnalité de synonymes en code C# pour créer et publier des règles de mappage, puis appeler la carte de synonymes pour une requête. Vous trouverez des informations supplémentaires dans la documentation de référence du [Kit de développement logiciel (SDK) .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search) et de [l’API REST](https://docs.microsoft.com/rest/api/searchservice/).
 
 > [!div class="nextstepaction"]
 > [Utilisation des synonymes dans le service Recherche Azure](search-synonyms.md)

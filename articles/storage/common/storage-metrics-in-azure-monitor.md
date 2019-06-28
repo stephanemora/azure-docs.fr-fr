@@ -10,10 +10,10 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.openlocfilehash: 8b091ecce98a626f18fe6547445d898b6710e1a5
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65510543"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Mesures de stockage Azure dans Azure Monitor
@@ -24,7 +24,7 @@ Azure Monitor fournit des interfaces utilisateur unifiées pour la surveillance 
 
 ## <a name="access-metrics"></a>Accéder aux mesures
 
-Azure Monitor propose plusieurs méthodes d’accès aux mesures. Vous pouvez y accéder depuis le [Azure portal](https://portal.azure.com), l’API Azure Monitor (REST et .NET) et les solutions d’analyse comme Event Hubs. Pour plus d’informations, voir [Mesures Azure Monitor](../../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+Azure Monitor propose plusieurs méthodes d’accès aux mesures. Vous pouvez y accéder à partir du [Portail Azure](https://portal.azure.com), des API d’Azure Monitor (REST et .NET) et des solutions d’analyse comme Event Hubs. Pour plus d’informations, voir [Mesures Azure Monitor](../../monitoring-and-diagnostics/monitoring-overview-metrics.md).
 
 Les mesures sont activées par défaut et vous pouvez accéder aux 93 derniers jours de données. Si vous souhaitez conserver des données sur une période plus longue, vous pouvez archiver les données de mesures dans un compte de stockage Azure. Celui-ci est configuré dans les [paramètres de diagnostic](../../azure-monitor/platform/diagnostic-logs-overview.md) dans Azure Monitor.
 
@@ -135,13 +135,13 @@ La réponse suivante contient des valeurs de mesures au format JSON :
 
 ```
 
-### <a name="access-metrics-with-the-net-sdk"></a>Accès aux mesures avec le SDK .NET
+### <a name="access-metrics-with-the-net-sdk"></a>Accéder aux mesures avec le kit de développement logiciel (SDK) .NET
 
-Azure Monitor fournit [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/) pour lire les définitions de mesures et des valeurs. L’[exemple de code](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/) montre comment utiliser le kit de développement logiciel (SDK) avec des paramètres différents. Vous devez utiliser `0.18.0-preview` ou version ultérieure pour les mesures de stockage. ID de ressource est utilisé dans le Kit de développement .NET. Pour plus d’informations, consultez Compréhension de l’ID de ressource pour des services dans Storage.
+Azure Monitor fournit des [kits de développement logiciel (SDK) .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/) pour lire des définitions et valeurs de mesures. L’[exemple de code](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/) montre comment utiliser le kit de développement logiciel (SDK) avec des paramètres différents. Vous devez utiliser `0.18.0-preview` ou version ultérieure pour les mesures de stockage. L’ID de ressource est utilisé dans le kit de développement logiciel (SDK) .NET. Pour plus d’informations, consultez Compréhension de l’ID de ressource pour des services dans Storage.
 
-L’exemple suivant montre comment utiliser les SDK Azure Monitor .NET pour lire les métriques de stockage.
+L’exemple suivant montre comment utiliser le kit de développement logiciel (SDK) Azure Monitor .NET pour lire les mesures de stockage.
 
-#### <a name="list-account-level-metric-definition-with-the-net-sdk"></a>Répertorier les définitions de métrique de niveau de compte avec le SDK .NET
+#### <a name="list-account-level-metric-definition-with-the-net-sdk"></a>Répertorier les définitions de mesures au niveau du compte avec le kit de développement logiciel (SDK) .NET
 
 L’exemple suivant montre comment répertorier les définition de mesures au niveau du compte :
 
@@ -178,7 +178,7 @@ L’exemple suivant montre comment répertorier les définition de mesures au ni
 
 Si vous souhaitez répertorier les définitions de mesures d’objet blob, table, fichier ou file d’attente, vous devez spécifier des ID de ressources différents pour chaque service avec l’API.
 
-#### <a name="read-metric-values-with-the-net-sdk"></a>Lire les valeurs de mesure avec le SDK .NET
+#### <a name="read-metric-values-with-the-net-sdk"></a>Lire les valeurs de mesure avec le kit de développement logiciel .NET
 
 L’exemple suivant montre comment lire des données `UsedCapacity` au niveau du compte :
 
@@ -228,7 +228,7 @@ L’exemple suivant montre comment lire des données `UsedCapacity` au niveau du
 
 Dans l’exemple ci-dessus, si vous souhaitez lire des valeurs de mesures d’objet blob, table, fichier ou file d’attente, vous devez spécifier des ID de ressources différents pour chaque service avec l’API.
 
-#### <a name="read-multi-dimensional-metric-values-with-the-net-sdk"></a>Lire les valeurs de métriques multidimensionnelles avec le SDK .NET
+#### <a name="read-multi-dimensional-metric-values-with-the-net-sdk"></a>Lire les valeurs de mesures multidimensionnelles avec le kit de développement logiciel (SDK) .NET
 
 Pour les mesures multidimensionnelles, vous devez définir le filtre des métadonnées si vous souhaitez lire les données métriques sur la valeur de dimension spécifique.
 
@@ -303,15 +303,15 @@ Le format pour spécifier l’ID de ressource d’un compte de stockage est le s
 
 Le format pour spécifier l’ID de ressource de chacun des services de stockage est le suivant.
 
-* ID de ressource de service BLOB
+* ID de ressource de service Blob
 ```
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/blobServices/default
 ```
-* ID de ressource de service de table
+* ID de ressource de service de Table
 ```
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/tableServices/default
 ```
-* ID de ressource de service de file d’attente
+* ID de ressource de service de File d’attente
 ```
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/queueServices/default
 ```
@@ -335,22 +335,22 @@ Stockage Azure fournit les mesures de capacité suivantes dans Azure Monitor.
 
 ### <a name="account-level"></a>Niveau du compte
 
-| Nom de métrique | Description  |
+| Nom de métrique | Description |
 | ------------------- | ----------------- |
 | UsedCapacity | Quantité de stockage utilisée par le compte de stockage. Pour les comptes de stockage standard, il s’agit de la somme de la capacité utilisée par les objets blob, tables, fichiers et files d’attente. Pour les comptes de stockage Premium et les comptes de stockage Blob, elle équivaut à BlobCapacity. <br/><br/> Unité : Octets <br/> Type d’agrégation : Moyenne <br/> Exemple de valeur : 1 024 |
 
 ### <a name="blob-storage"></a>Stockage d'objets blob
 
-| Nom de métrique | Description  |
+| Nom de métrique | Description |
 | ------------------- | ----------------- |
-| BlobCapacity | Total de stockage d’objets blob utilisé dans le compte de stockage. <br/><br/> Unité : Octets <br/> Type d’agrégation : Moyenne <br/> Exemple de valeur : 1 024 <br/> Dimensions : **BlobType**, et **BlobTier** ([définition](#metrics-dimensions)) |
-| BlobCount    | Nombre d’objets blob stockés dans le compte de stockage. <br/><br/> Unité : Nombre <br/> Type d’agrégation : Moyenne <br/> Exemple de valeur : 1 024 <br/> Dimensions : **BlobType**, et **BlobTier** ([définition](#metrics-dimensions)) |
+| BlobCapacity | Total de stockage d’objets blob utilisé dans le compte de stockage. <br/><br/> Unité : Octets <br/> Type d’agrégation : Moyenne <br/> Exemple de valeur : 1 024 <br/> Dimensions : **BlobType** et **BlobTier** ([définition](#metrics-dimensions)) |
+| BlobCount    | Nombre d’objets blob stockés dans le compte de stockage. <br/><br/> Unité : Nombre <br/> Type d’agrégation : Moyenne <br/> Exemple de valeur : 1 024 <br/> Dimensions : **BlobType** et **BlobTier** ([définition](#metrics-dimensions)) |
 | ContainerCount    | Nombre de conteneurs dans le compte de stockage. <br/><br/> Unité : Nombre <br/> Type d’agrégation : Moyenne <br/> Exemple de valeur : 1 024 |
 | IndexCapacity     | Espace utilisé par l'index hiérarchique d'ADLS Gen2 <br/><br/> Unité : Octets <br/> Type d’agrégation : Moyenne <br/> Exemple de valeur : 1 024 |
 
 ### <a name="table-storage"></a>Stockage de tables
 
-| Nom de métrique | Description  |
+| Nom de métrique | Description |
 | ------------------- | ----------------- |
 | TableCapacity | Quantité de stockage de tables utilisée par le compte de stockage. <br/><br/> Unité : Octets <br/> Type d’agrégation : Moyenne <br/> Exemple de valeur : 1 024 |
 | TableCount   | Nombre de tables dans le compte de stockage. <br/><br/> Unité : Nombre <br/> Type d’agrégation : Moyenne <br/> Exemple de valeur : 1 024 |
@@ -358,7 +358,7 @@ Stockage Azure fournit les mesures de capacité suivantes dans Azure Monitor.
 
 ### <a name="queue-storage"></a>Stockage de files d'attente
 
-| Nom de métrique | Description  |
+| Nom de métrique | Description |
 | ------------------- | ----------------- |
 | QueueCapacity | Quantité de stockage de files d’attente utilisée par le compte de stockage. <br/><br/> Unité : Octets <br/> Type d’agrégation : Moyenne <br/> Exemple de valeur : 1 024 |
 | QueueCount   | Nombre de files d’attente dans le compte de stockage. <br/><br/> Unité : Nombre <br/> Type d’agrégation : Moyenne <br/> Exemple de valeur : 1 024 |
@@ -366,7 +366,7 @@ Stockage Azure fournit les mesures de capacité suivantes dans Azure Monitor.
 
 ### <a name="file-storage"></a>Stockage Fichier
 
-| Nom de métrique | Description  |
+| Nom de métrique | Description |
 | ------------------- | ----------------- |
 | FileCapacity | Quantité de stockage de fichiers utilisée par le compte de stockage. <br/><br/> Unité : Octets <br/> Type d’agrégation : Moyenne <br/> Exemple de valeur : 1 024 |
 | FileCount   | Nombre de fichiers dans le compte de stockage. <br/><br/> Unité : Nombre <br/> Type d’agrégation : Moyenne <br/> Exemple de valeur : 1 024 |
@@ -378,7 +378,7 @@ Des métriques de transaction sont émises lors de chacune des requêtes adress�
 
 Stockage Azure fournit les mesures de transaction suivantes dans Azure Monitor.
 
-| Nom de métrique | Description  |
+| Nom de métrique | Description |
 | ------------------- | ----------------- |
 | Transactions | Nombre de requêtes envoyées à un service de stockage ou à l’opération API spécifiée. Ce nombre inclut les requêtes réussies et celles ayant échoué, ainsi que les requêtes qui ont généré des erreurs. <br/><br/> Unité : Nombre <br/> Type d’agrégation : Total <br/> Dimensions applicables : ResponseType, GeoType, ApiName et Authentication ([Définition](#metrics-dimensions))<br/> Exemple de valeur : 1 024 |
 | Entrée | Quantité de données d’entrée. Ce nombre inclut les entrées d’un client externe dans Stockage Microsoft Azure ainsi que les entrées dans Azure. <br/><br/> Unité : Octets <br/> Type d’agrégation : Total <br/> Dimensions applicables : GeoType, ApiName et Authentication ([Définition](#metrics-dimensions)) <br/> Exemple de valeur : 1 024 |
@@ -391,14 +391,14 @@ Stockage Azure fournit les mesures de transaction suivantes dans Azure Monitor.
 
 Stockage Azure prend en charge les dimensions suivantes pour les mesures dans Azure Monitor.
 
-| Nom de dimension | Description  |
+| Nom de la dimension | Description |
 | ------------------- | ----------------- |
 | **BlobType** | Type d’objet blob pour les mesures d’objet Blob uniquement. Les valeurs prises en charge sont **BlockBlob**, **PageBlob**, et **Azure Data Lake Storage**. Append Blob est inclus dans BlockBlob. |
-| **BlobTier** | Stockage Azure offre des niveaux d’accès différents, ce qui vous permet de stocker des données d’objet blob de la manière la plus rentable. En savoir plus dans [niveau du stockage Azure blob](../blobs/storage-blob-storage-tiers.md). Les valeurs prises en charge sont les suivantes : <br/> <li>**Hot**: Niveau chaud</li> <li>**Froid**: Niveau froid</li> <li>**Archivage** : Niveau d’archive</li> <li>**Premium**: Niveau Premium pour les objets BLOB</li> <li>**P4/P6/P10/P15/P20/P30/P40/P50/P60**: Types de niveau de l’objet blob de pages premium</li> <li>**Standard** : Type de niveau de l’objet Blob de pages standard</li> <li>**Untiered**: Type de couche pour le compte de stockage à usage général v1</li> |
-| **GeoType** | Transaction du cluster principal ou secondaire. Les valeurs disponibles incluent **principal** et **secondaire**. S’applique au stockage Géo-redondant avec accès en lecture (RA-GRS) lors de la lecture d’objets à partir du locataire secondaire. |
-| **ResponseType** | Type de réponse de transaction. Les valeurs disponibles incluent : <br/><br/> <li>**ServerOtherError**: toutes les autres erreurs côté serveur sauf celles décrites </li> <li>**ServerBusyError**: requête authentifiée qui a renvoyé un code d’état HTTP 503. </li> <li>**ServerTimeoutError**: requête authentifiée et arrivée à expiration, qui a renvoyé un code d’état HTTP 500. Le délai d’expiration s’est produit en raison d’une erreur serveur. </li> <li>**AuthorizationError**: requête authentifiée qui a échoué en raison d’un accès aux données non autorisé ou d’un échec d’autorisation. </li> <li>**NetworkError**: requête authentifiée qui a échoué en raison d’erreurs réseau. Se produit généralement lorsqu’un client ferme une connexion avant la fin du délai d’expiration. </li> <li>**ClientThrottlingError**: erreur de limitation côté client. </li> <li>**ClientTimeoutError**: requête authentifiée et arrivée à expiration, qui a renvoyé un code d’état HTTP 500. Si le délai d’expiration réseau du client ou le délai d’expiration de la requête est défini sur une valeur inférieure à ce qui est attendu par le service de stockage, il s’agit d’un délai d’expiration attendu. Sinon, il est signalé comme une erreur ServerTimeoutError. </li> <li>**ClientOtherError**: toutes les autres erreurs côté client sauf celles décrites. </li> <li>**Réussite** : Requête réussie</li> <li> **SuccessWithThrottling**: Demande réussie lorsqu’un client SMB obtient limité au cours de la première tentative, mais réussit après plusieurs tentatives.</li> |
-| **ApiName** | Nom de l’opération. Exemple : <br/> <li>**CreateContainer**</li> <li>**DeleteBlob**</li> <li>**GetBlob**</li> Pour tous les noms d’opérations, voir [document](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages). |
-| **Authentification** | Type d’authentification utilisé dans les transactions. Les valeurs disponibles incluent : <br/> <li>**AccountKey**: la transaction est authentifiée avec la clé du compte de stockage.</li> <li>**SAS**: la transaction est authentifiée avec des signatures d’accès partagé.</li> <li>**OAuth**: la transaction est authentifiée avec des jetons d’accès OAuth.</li> <li>**Anonyme**: la transaction est demandée anonymement. Elle n’inclut pas les demandes préalables.</li> <li>**AnonymousPreflight**: la transaction est une requête préalable.</li> |
+| **BlobTier** | Le service de stockage Azure propose différents niveaux d’accès qui vous permettent de stocker vos objets blob de la manière la plus économique. Pour en savoir plus, consultez [Niveau du stockage Azure d’objets blob](../blobs/storage-blob-storage-tiers.md). Les valeurs prises en charge incluent : <br/> <li>**Hot** : Niveau de stockage chaud</li> <li>**Cool** : Niveau de stockage froid</li> <li>**Archivage** : Niveau de stockage archive</li> <li>**Premium** : Niveau Premium pour les objets blob de blocs</li> <li>**P4/P6/P10/P15/P20/P30/P40/P50/P60** : Types de niveau pour les objets blob de pages premium</li> <li>**Standard** : Type de niveau pour les objets blob de pages standard</li> <li>**Untiered** : Type de niveau pour un compte de stockage à usage général v1</li> |
+| **GeoType** | Transaction du cluster principal ou secondaire. Les valeurs disponibles incluent **Principal** et **Secondaire**. S’applique au stockage Géo-redondant avec accès en lecture (RA-GRS) lors de la lecture d’objets à partir du locataire secondaire. |
+| **ResponseType** | Type de réponse de transaction. Les valeurs disponibles incluent : <br/><br/> <li>**ServerOtherError**: toutes les autres erreurs côté serveur sauf celles décrites </li> <li>**ServerBusyError**: requête authentifiée qui a renvoyé un code d’état HTTP 503. </li> <li>**ServerTimeoutError**: requête authentifiée et arrivée à expiration, qui a renvoyé un code d’état HTTP 500. Le délai d’expiration s’est produit en raison d’une erreur serveur. </li> <li>**AuthorizationError**: requête authentifiée qui a échoué en raison d’un accès aux données non autorisé ou d’un échec d’autorisation. </li> <li>**NetworkError**: requête authentifiée qui a échoué en raison d’erreurs réseau. Se produit généralement lorsqu’un client ferme une connexion avant la fin du délai d’expiration. </li> <li>**ClientThrottlingError**: erreur de limitation côté client. </li> <li>**ClientTimeoutError**: requête authentifiée et arrivée à expiration, qui a renvoyé un code d’état HTTP 500. Si le délai d’expiration réseau du client ou le délai d’expiration de la requête est défini sur une valeur inférieure à ce qui est attendu par le service de stockage, il s’agit d’un délai d’expiration attendu. Sinon, il est signalé comme une erreur ServerTimeoutError. </li> <li>**ClientOtherError**: toutes les autres erreurs côté client sauf celles décrites. </li> <li>**Réussite** : requête réussie</li> <li> **SuccessWithThrottling** : Demande réussie lorsqu’un client SMB est ralenti lors des premières tentatives, mais qu’il réussit lors des suivantes.</li> |
+| **ApiName** | Nom de l’opération. Par exemple : <br/> <li>**CreateContainer**</li> <li>**DeleteBlob**</li> <li>**GetBlob**</li> Pour tous les noms d’opérations, voir [document](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages). |
+| **Authentification** | Type d’authentification utilisé dans les transactions. Les valeurs disponibles incluent : <br/> <li>**AccountKey** : la transaction est authentifiée avec la clé du compte de stockage.</li> <li>**SAS** : la transaction est authentifiée avec des signatures d’accès partagé.</li> <li>**OAuth** : la transaction est authentifiée avec des jetons d’accès OAuth.</li> <li>**Anonymous** : la transaction est demandée anonymement. Elle n’inclut pas les demandes préalables.</li> <li>**AnonymousPreflight** : la transaction est une requête préalable.</li> |
 
 Pour les mesures prenant en charge des dimensions, vous devez spécifier la valeur de la dimension pour afficher les valeurs de mesures correspondantes. Par exemple, si vous examinez la valeur **Transactions** pour des réponses réussies, vous devez filtrer la dimension **ResponseType** avec **Success**. Si vous examinez la valeur **BlobCount** pour BlockBlob, vous devez filtrer la dimension **BlobType** avec **BlockBlob**.
 

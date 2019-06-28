@@ -11,10 +11,10 @@ ms.date: 05/16/2019
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: 2929c033b4744ea89f8e3d711a5e2e0df6301c14
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66730006"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Bien démarrer avec les stratégies personnalisées dans Azure Active Directory B2C
@@ -23,15 +23,15 @@ ms.locfileid: "66730006"
 
 Les [stratégies personnalisées](active-directory-b2c-overview-custom.md) sont des fichiers de configuration qui définissent le comportement de votre locataire Azure Active Directory (Azure AD) B2C. Dans cet article, vous allez créer une stratégie personnalisée qui prend en charge l’inscription ou la connexion de comptes locaux à l’aide d’une adresse e-mail et d’un mot de passe. Vous préparerez également votre environnement pour l’ajout de fournisseurs d’identité.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 - Si vous n’en avez pas, vous devez [créer un locataire Azure AD B2C](tutorial-create-tenant.md) qui est lié à votre abonnement Azure.
-- [Inscrire votre application](tutorial-register-applications.md) dans le client que vous avez créé afin qu’il puisse communiquer avec Azure AD B2C.
+- [Inscrivez votre application](tutorial-register-applications.md) dans le locataire que vous avez créé afin qu’il puisse communiquer avec Azure AD B2C.
 
 ## <a name="add-signing-and-encryption-keys"></a>Ajouter des clés de signature et de chiffrement
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/) en tant qu’administrateur général de votre locataire Azure AD B2C.
-2. Vérifiez que vous utilisez le répertoire qui contient votre locataire Azure AD B2C. Cliquez sur le **filtre Directory et abonnement** dans le menu supérieur et sélectionnez le répertoire qui contient votre client. 
+2. Veillez à bien utiliser le répertoire qui contient votre locataire Azure AD B2C. Cliquez sur le **filtre Répertoire et abonnement** dans le menu supérieur et sélectionnez le répertoire qui contient votre locataire. 
 3. Choisissez **Tous les services** dans le coin supérieur gauche du Portail Azure, recherchez et sélectionnez **Azure Active Directory B2C**.
 4. Dans la page de vue d’ensemble, sélectionnez **Infrastructure d’expérience d’identité**.
 
@@ -60,7 +60,7 @@ Si vous disposez déjà d’un [secret pour l’application Facebook](active-dir
 1. Sélectionnez **Clés de stratégie**, puis **Ajouter**.
 2. Pour **Options**, choisissez `Manual`.
 3. Pour **Nom**, entrez `FacebookSecret`. Il est possible que le préfixe `B2C_1A_` soit ajouté automatiquement.
-4. Dans **Secret**, entrez votre secret Facebook à partir de developers.facebook.com ou entrez `0` comme espace réservé. Cette valeur est la clé secrète, pas l’ID d’application.
+4. Dans **Secret**, entrez votre secret Facebook à partir de developers.facebook.com ou entrez `0` comme espace réservé. Cette valeur correspond au secret, pas à l’ID d’application.
 5. Pour **Utilisation de la clé**, sélectionnez **Signature**.
 6. Cliquez sur **Créer**.
 
@@ -70,8 +70,8 @@ Azure AD B2C exige que vous inscriviez deux applications utilisées pour inscrir
 
 ### <a name="register-the-identityexperienceframework-application"></a>Inscrire l’application IdentityExperienceFramework
 
-1. Choisissez **tous les services** dans l’angle supérieur gauche du portail Azure, recherchez et sélectionnez **Azure Active Directory**.
-2. Dans le menu, sélectionnez **inscriptions d’application (hérité)** .
+1. Choisissez **Tous les services** dans le coin supérieur gauche du Portail Azure, recherchez et sélectionnez **Azure Active Directory**.
+2. Dans le menu, sélectionnez **Inscriptions d’applications (héritées)** .
 3. Sélectionnez **Nouvelle inscription d’application**.
 4. Pour **Nom**, entrez `IdentityExperienceFramework`.
 5. Pour **Type d’application**, choisissez **Application/API web**.
@@ -80,13 +80,13 @@ Azure AD B2C exige que vous inscriviez deux applications utilisées pour inscrir
 
 ### <a name="register-the-proxyidentityexperienceframework-application"></a>Inscrire l’application ProxyIdentityExperienceFramework
 
-1. Dans **inscriptions d’application (hérité)** , sélectionnez **nouvelle inscription d’application**.
+1. Dans **Inscriptions d’applications (héritées)** , sélectionnez **Nouvelle inscription d’application**.
 2. Pour **Nom**, entrez `ProxyIdentityExperienceFramework`.
 3. Pour **Type d’application**, choisissez **Native**.
 4. Pour **URI de redirection**, entrez `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`, où `your-tenant-name` est votre locataire Azure AD B2C.
 5. Cliquez sur **Créer**. Après sa création, copiez l’ID d’application et enregistrez-le pour une utilisation ultérieure.
 6. Dans la page Paramètres, sélectionnez **Autorisations requises**, puis **Ajouter**.
-7. Choisissez **sélectionner une API**, recherchez et sélectionnez **IdentityExperienceFramework**, puis cliquez sur **sélectionnez**.
+7. Choisissez **Sélectionner une API**, recherchez et sélectionnez **IdentityExperienceFramework**, puis cliquez sur **Sélectionner**.
 9. Cochez la case en regard d’**Accéder à IdentityExperienceFramework**, cliquez sur **Sélectionner**, puis sur **Terminé**.
 10. Sélectionnez **Accorder des autorisations** puis confirmez en sélectionnant **Oui**.
 
@@ -132,7 +132,7 @@ Ajoutez les ID d’applications au fichier d’extensions *TrustFrameworkExtensi
 ## <a name="test-the-custom-policy"></a>Tester la stratégie personnalisée
 
 1. Dans la page Stratégies personnalisées, sélectionnez **B2C_1A_signup_signin**.
-2. Pour **sélectionnez application** dans la page Vue d’ensemble de la stratégie personnalisée, sélectionnez l’application web nommée *application Web 1* que vous avez inscrite précédemment. Assurez-vous que le **URL de réponse** est `https://jwt.ms`.
+2. Pour **sélectionner une application** dans la page de présentation de la stratégie personnalisée, sélectionnez l’application web nommée *webapp1* que vous avez inscrite précédemment. Assurez-vous que l’**URL de réponse** soit `https://jwt.ms`.
 3. Sélectionnez **Exécuter maintenant**.
 4. Vous devriez pouvoir vous inscrire à l’aide d’une adresse de messagerie.
 5. Connectez-vous avec le même compte pour vérifier que votre configuration est correcte.

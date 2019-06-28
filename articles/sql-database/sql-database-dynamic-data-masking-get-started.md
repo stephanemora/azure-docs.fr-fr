@@ -12,12 +12,12 @@ ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
 ms.date: 03/04/2019
-ms.openlocfilehash: 2be1f7bb6417834196da03b7cba22387744f8c19
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1db1535779d180994c9ce4350d11f4c696da9e3e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61075546"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64721522"
 ---
 # <a name="sql-database-dynamic-data-masking"></a>Masquage de données dynamiques dans une base de données SQL
 
@@ -43,7 +43,7 @@ Le masquage des données dynamiques peut être configuré par les rôles d’adm
 
 | Fonction de masquage | Logique de masquage |
 | --- | --- |
-| **Par défaut** |**Masquage complet en fonction des types de données des champs désignés**<br/><br/>• Utilisez XXXX ou moins de X si la taille du champ est inférieure à 4 caractères pour les types de données String (nchar, ntext, nvarchar).<br/>• Utilisez la valeur zéro pour les types de données numériques (bigint, bit, decimal, int, money, numeric, smallint, smallmoney, tinyint, float, real).<br/>• Utilisez 01-01-1900 pour les types de données date/heure (date, datetime2, datetime, datetimeoffset, smalldatetime, time).<br/>• Pour la variante SQL, la valeur par défaut du type actuel est utilisé.<br/>• Pour XML, le document <masked/> est utilisé.<br/>• Utilisez une valeur vide pour les types de données spéciaux (table timestamp, hierarchyid, GUID, binary, image, varbinary spatial). |
+| **Par défaut** |**Masquage complet en fonction des types de données des champs désignés**<br/><br/>• Utilisez XXXX ou moins de X si la taille du champ est inférieure à 4 caractères pour les types de données String (nchar, ntext, nvarchar).<br/>• Utilisez la valeur zéro pour les types de données numériques (bigint, bit, decimal, int, money, numeric, smallint, smallmoney, tinyint, float, real).<br/>• Utilisez 01-01-1900 pour les types de données date/heure (date, datetime2, datetime, datetimeoffset, smalldatetime, time).<br/>• Pour la variante SQL, la valeur par défaut du type actuel est utilisé.<br/>• Pour XML, le document \<masked/> est utilisé.<br/>• Utilisez une valeur vide pour les types de données spéciaux (table timestamp, hierarchyid, GUID, binary, image, varbinary spatial). |
 | **Carte de crédit** |**Méthode de masquage qui affiche les quatre derniers chiffres des champs de masquage désignés** et ajoute une chaîne constante comme préfixe sous la forme d’une carte de crédit.<br/><br/>XXXX-XXXX-XXXX-1234 |
 | **E-mail** |**Méthode de masquage qui affiche la première lettre et remplace le domaine par XXX.com** avec en préfixe une chaîne constante sous la forme d’une adresse de messagerie.<br/><br/>aXX@XXXX.com |
 | **Nombre aléatoire** |**Méthode de masquage qui génère un nombre aléatoire** selon les limites sélectionnées et les types de données réels. Si les limites désignées sont égales, la fonction de masquage est un nombre constant.<br/><br/>![Volet de navigation](./media/sql-database-dynamic-data-masking-get-started/1_DDM_Random_number.png) |
@@ -55,7 +55,7 @@ Le masquage des données dynamiques peut être configuré par les rôles d’adm
 
 Le moteur de recommandations DDM signale certains champs de votre base de données en tant que champs potentiellement sensibles, qui peuvent être de bons candidats au masquage. Dans le volet Masquage des données dynamiques du portail, vous verrez les colonnes recommandées pour votre base de données. Il vous suffit de cliquer sur **Ajouter un masque** pour une ou plusieurs colonnes, puis de cliquer sur **Enregistrer** pour appliquer un masque à ces champs.
 
-## <a name="set-up-dynamic-data-masking-for-your-database-using-powershell-cmdlets"></a>Configuration des données dynamiques pour votre base de données à l’aide des applets de commande PowerShell de masquage
+## <a name="set-up-dynamic-data-masking-for-your-database-using-powershell-cmdlets"></a>Configurer le masquage des données dynamiques pour votre base de données à l’aide des cmdlets PowerShell
 
 Consultez [Applets de commande Azure SQL Database](https://docs.microsoft.com/powershell/module/az.sql).
 

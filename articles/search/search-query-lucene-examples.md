@@ -11,17 +11,17 @@ ms.date: 05/13/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 467c323a0b669e70e12f801fd8fdd6df119e793d
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65595901"
 ---
-# <a name="query-examples-using-full-lucene-search-syntax-advanced-queries-in-azure-search"></a>Exemples de requêtes à l’aide de la syntaxe de recherche « complet » Lucene (des requêtes avancées dans Azure Search)
+# <a name="query-examples-using-full-lucene-search-syntax-advanced-queries-in-azure-search"></a>Exemples de requêtes utilisant une syntaxe de recherche Lucene « complète » (requêtes avancées dans Recherche Azure)
 
 Lors de la construction de requêtes pour Recherche Azure, vous pouvez remplacer l’[analyseur de requêtes simple](query-simple-syntax.md) par défaut par l’[analyseur de requêtes Lucene dans Recherche Azure](query-lucene-syntax.md), plus vaste, afin de formuler des définitions de requêtes spécialisées et avancées. 
 
-L’analyseur Lucene prend en charge les constructions de requêtes complexes, telles que les requêtes sur des champs, probable et recherche par caractères génériques préfixe, recherche de proximité, promotion de termes et recherche d’expression régulière. Cette fonctionnalité plus puissante nécessite des capacités de traitement supplémentaires et peut donc entraîner des temps d’exécution un peu plus longs. Dans cet article, vous pouvez parcourir des exemples décrivant les opérations de requête disponibles lors de l’utilisation de la syntaxe complète.
+L’analyseur Lucene prend en charge des constructions de requêtes complexes, telles que des requêtes portant sur des champs, la recherche approximative et par caractères génériques, la recherche de proximité, la promotion de termes et la recherche d’expression régulière. Cette fonctionnalité plus puissante nécessite des capacités de traitement supplémentaires et peut donc entraîner des temps d’exécution un peu plus longs. Dans cet article, vous pouvez parcourir des exemples décrivant les opérations de requête disponibles lors de l’utilisation de la syntaxe complète.
 
 > [!Note]
 > Une grande partie des constructions de requêtes spécialisées activées par le biais de la syntaxe de requête Lucene complète ne sont pas soumises à une [analyse du texte](search-lucene-query-architecture.md#stage-2-lexical-analysis), ce qui peut être surprenant si vous prévoyez une recherche de radical ou une lemmatisation. L’analyse lexicale est effectuée uniquement sur des termes complets (requête sur un terme ou une expression). Les types de requête avec des termes incomplets (requête de préfixe, de caractère générique, d’expression régulière, partielle) sont ajoutés directement à l’arborescence de requête, en ignorant la phase d’analyse. La seule transformation effectuée sur les termes de requête incomplets est l’utilisation de minuscules. 
@@ -39,7 +39,7 @@ En revanche, vous avez besoin de Postman ou d’un outil équivalent pour émett
 
 2. Ajoutez un **api-key** et affectez-lui cette chaîne : `252044BE3886FE4A8E3BAA4F595114BB`. Il s’agit d’une clé de requête pour le service de recherche de bac à sable qui héberge l’index NYC Jobs.
 
-Une fois que vous avez spécifié l’en-tête de requête, vous pouvez le réutiliser pour toutes les requêtes dans cet article, en remplaçant uniquement la chaîne **search=**. 
+Une fois que vous avez spécifié l’en-tête de requête, vous pouvez le réutiliser pour toutes les requêtes dans cet article, en remplaçant uniquement la chaîne **search=** . 
 
   ![En-tête de demande Postman](media/search-query-lucene-examples/postman-header.png)
 
@@ -59,15 +59,15 @@ L’URL est composée des éléments suivants :
 
 ## <a name="send-your-first-query"></a>Envoyer votre première requête
 
-En guise d’étape de vérification, collez la requête suivante dans GET et cliquez sur **Envoyer**. Les résultats sont retournés sous forme de documents JSON détaillés. Documents entiers sont retournés, ce qui vous permet de voir tous les champs et toutes les valeurs.
+En guise d’étape de vérification, collez la requête suivante dans GET et cliquez sur **Envoyer**. Les résultats sont retournés sous forme de documents JSON détaillés. Des documents entiers sont retournés, ce qui vous permet de voir tous les champs et toutes les valeurs.
 
-Collez cette URL dans un client REST comme une étape de validation et afficher la structure du document.
+Collez cette URL dans un client REST comme étape de validation et pour afficher la structure du document.
 
   ```http
   https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&search=*
   ```
 
-La chaîne de requête **`search=*`**, est une recherche non spécifiée équivalente à une recherche nulle ou vide. Il est à la recherche la plus simple, que vous pouvez effectuer.
+La chaîne de requête **`search=*`** , est une recherche non spécifiée équivalente à une recherche nulle ou vide. C’est la recherche la plus simple disponible.
 
 Si vous le souhaitez, vous pouvez ajouter **`$count=true`** à l’URL pour retourner le nombre de documents correspondant aux critères de recherche. Une chaîne de recherche vide correspond à tous les documents figurant dans l’index (environ 2800 dans le cas de NYC Jobs).
 
@@ -81,11 +81,11 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
 
 Tous les exemples de cet article spécifient le paramètre de requête **queryType=full**, ce qui indique la syntaxe complète est traitée par l’analyseur de requêtes Lucene. 
 
-## <a name="example-1-query-scoped-to-a-list-of-fields"></a>Exemple 1 : Requête dont la portée à une liste de champs
+## <a name="example-1-query-scoped-to-a-list-of-fields"></a>Exemple 1 : Requête portée sur une liste de champs
 
-Ce premier exemple n’est pas spécifique au Lucene, mais nous conduire avec lui à introduire le premier concept fondamental de requête : champ étendue. Cet exemple définit la portée l’intégralité de la requête et la réponse à seulement quelques champs spécifiques. Lors de l’utilisation de l’outil Postman ou Explorateur de recherche, il est important de connaître la structure d’une réponse JSON accessible en lecture. 
+Ce premier exemple n’est pas propre à Lucene, mais nous permet d’introduire le premier concept de requête fondamental : l’étendue d’un champ. Cet exemple limite l’exécution de la requête et la réponse à quelques champs spécifiques. Lors de l’utilisation de l’outil Postman ou Explorateur de recherche, il est important de connaître la structure d’une réponse JSON accessible en lecture. 
 
-Par souci de concision, la requête cible uniquement le champ *business_title* et spécifie que seuls les titres de fonctions sont retournés. Le **searchFields** paramètre restreint l’exécution des requêtes simplement le champ business_title, et **sélectionnez** spécifie les champs qui sont inclus dans la réponse.
+Par souci de concision, la requête cible uniquement le champ *business_title* et spécifie que seuls les titres de fonctions sont retournés. Le paramètre **searchFields** restreint l’exécution de la requête au champ business_title, et le paramètre **select** spécifie les champs inclus dans la réponse.
 
 ### <a name="partial-query-string"></a>Chaîne de requête partielle
 
@@ -93,16 +93,16 @@ Par souci de concision, la requête cible uniquement le champ *business_title* e
 &search=*&searchFields=business_title&$select=business_title
 ```
 
-Voici la même requête avec plusieurs champs dans une liste délimitée par des virgules.
+Voici la même requête avec plusieurs champs dans une liste de valeurs séparées par des virgules.
 
 ```http
 search=*&searchFields=business_title, posting_type&$select=business_title, posting_type
 ```
 
-Les espaces après les virgules sont facultatives.
+Les espaces après les virgules sont facultatifs.
 
 > [!Tip]
-> Lorsque vous utilisez l’API REST à partir de votre code d’application, n’oubliez pas de coder par URL des paramètres tels que `$select` et `searchFields`.
+> Lorsque vous utilisez l'API REST à partir du code de votre application, n'oubliez pas les paramètres d'encodage d'URL comme `$select` et `searchFields`.
 
 ### <a name="full-url"></a>URL complète
 
@@ -114,11 +114,11 @@ La réponse pour cette requête doit ressembler à la capture d’écran suivant
 
   ![Exemple de réponse Postman](media/search-query-lucene-examples/postman-sample-results.png)
 
-Vous avez peut-être remarqué le score de recherche dans la réponse. Des scores uniformes de 1 sont obtenus en l’absence de classement, soit parce que la recherche n’était pas une recherche en texte intégral, soit parce qu’aucun critère n’a été appliqué. Pour la recherche de valeur Null sans aucun critère, les lignes sont renvoyées dans un ordre arbitraire. Lorsque vous incluez des critères de recherche réelle, vous verrez recherche scores deviennent des valeurs significatives.
+Vous avez peut-être remarqué le score de recherche dans la réponse. Des scores uniformes de 1 sont obtenus en l’absence de classement, soit parce que la recherche n’était pas une recherche en texte intégral, soit parce qu’aucun critère n’a été appliqué. Pour la recherche de valeur Null sans aucun critère, les lignes sont renvoyées dans un ordre arbitraire. Si vous incluez des critères de recherche réels, vous constaterez que les scores de recherche deviendront des valeurs significatives.
 
-## <a name="example-2-fielded-search"></a>Exemple 2 : Recherche portant sur un champ
+## <a name="example-2-fielded-search"></a>Exemple 2 : Recherche par champ
 
-Syntaxe Lucene complète prend en charge les expressions de recherche individuelles d’étendue à un champ spécifique. Cet exemple recherche les titres de fonctions avec le senior terme mais pas « junior ».
+La syntaxe Lucene complète permet de restreindre des expressions de recherche individuelles à un champ spécifique. Cet exemple recherche les titres de fonctions contenant le terme « senior » mais pas « junior ».
 
 ### <a name="partial-query-string"></a>Chaîne de requête partielle
 
@@ -140,18 +140,18 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
 
   ![Exemple de réponse Postman](media/search-query-lucene-examples/intrafieldfilter.png)
 
-Vous pouvez définir une opération de recherche portant sur un champ avec le **fieldName:searchExpression** syntaxe, où l’expression de recherche peut être un mot ou une expression ou une expression plus complexe entre parenthèses, éventuellement avec des opérateurs booléens. Voici quelques exemples :
+Vous pouvez définir une opération de recherche par champ avec la syntaxe **fieldName:searchExpression**, où l'expression de recherche peut être un mot ou une phrase, ou une expression plus complexe entre parenthèses, éventuellement avec des opérateurs booléens. Voici quelques exemples :
 
 - `business_title:(senior NOT junior)`
 - `state:("New York" OR "New Jersey")`
 - `business_title:(senior NOT junior) AND posting_type:external`
 
-Veillez à placer les chaînes entre guillemets si vous souhaitez que les deux chaînes soient évaluées comme une seule entité, comme la recherche dans ce cas de deux emplacements distincts dans le `state` champ. Vérifiez également que l’opérateur est en majuscules, comme c’est le cas ici avec NOT et AND.
+Veillez à placer les chaînes entre guillemets si vous souhaitez que les deux chaînes soient évaluées comme une seule entité, comme ici où deux emplacements distincts sont recherchés dans le champ `state`. Vérifiez également que l’opérateur est en majuscules, comme c’est le cas ici avec NOT et AND.
 
-Le champ spécifié dans **fieldName:searchExpression** doit être un champ de recherche. Pour plus d’informations sur l’utilisation des attributs d’index dans les définitions de champs, consultez [Créer un index (API REST du service Azure Search)](https://docs.microsoft.com/rest/api/searchservice/create-index) .
+Le champ spécifié dans **fieldName:searchExpression** doit être un champ pouvant faire l’objet d’une recherche. Pour plus d’informations sur l’utilisation des attributs d’index dans les définitions de champs, consultez [Créer un index (API REST du service Azure Search)](https://docs.microsoft.com/rest/api/searchservice/create-index) .
 
 > [!NOTE]
-> Dans l’exemple ci-dessus, nous avons ne pas besoin d’utiliser le `searchFields` paramètre étant donné que chaque partie de la requête a un nom de champ spécifié explicitement. Toutefois, vous pouvez toujours utiliser le `searchFields` paramètre si vous souhaitez exécuter une requête dans laquelle certaines parties sont limités à un champ spécifique, le reste peut s’appliquer à plusieurs champs. Par exemple, la requête `search=business_title:(senior NOT junior) AND external&searchFields=posting_type` correspondrait à `senior NOT junior` uniquement à la `business_title` champ, alors qu’elle correspondrait « external » avec le `posting_type` champ. Le nom de champ fourni dans **fieldName:searchExpression** a toujours priorité sur les `searchFields` paramètre, qui est la raison pour laquelle il est dans cet exemple, nous n’avez pas besoin d’inclure `business_title` dans le `searchFields` paramètre.
+> Dans l’exemple ci-dessus, nous n’avons pas eu besoin d’utiliser le paramètre `searchFields` car chaque partie de la requête comporte un nom de champ explicitement spécifié. Cependant, vous pouvez toujours utiliser le paramètre `searchFields` si vous voulez exécuter une requête où certaines parties sont limitées à un champ spécifique, et le reste peut s’appliquer à plusieurs champs. Par exemple, la requête `search=business_title:(senior NOT junior) AND external&searchFields=posting_type` ne correspondrait à `senior NOT junior` qu'au niveau du champ `business_title`, alors qu'elle correspondrait au champ « externe » avec le champ `posting_type`. Le nom du champ fourni dans **fieldName:searchExpression** a toujours priorité sur le paramètre `searchFields`, c'est pourquoi dans cet exemple, nous n'avons pas besoin d'inclure `business_title` dans le paramètre `searchFields`.
 
 ## <a name="example-3-fuzzy-search"></a>Exemple 3 : Recherche partielle
 
@@ -163,7 +163,7 @@ La syntaxe Lucene complète prend également en charge la recherche approximativ
 searchFields=business_title&$select=business_title&search=business_title:asosiate~
 ```
 
-Expressions ne sont pas pris en charge directement, mais vous pouvez spécifier une correspondance approximative sur les composants d’une expression.
+Les phrases ne sont pas prises en charge directement, mais vous pouvez spécifier une correspondance partielle pour différents éléments d’une phrase.
 
 ```http
 searchFields=business_title&$select=business_title&search=business_title:asosiate~ AND comm~ 
@@ -248,7 +248,7 @@ searchFields=business_title&$select=business_title&search=business_title:/(Sen|J
 
 ### <a name="full-url"></a>URL complète
 
-Dans cette requête, rechercher des tâches avec le terme Senior ou « junior » : `search=business_title:/(Sen|Jun)ior/`.
+Dans cette requête, recherchez les postes à pourvoir contenant le terme « Senior » ou « Junior » : `search=business_title:/(Sen|Jun)ior/`.
 
 ```GET
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:/(Sen|Jun)ior/

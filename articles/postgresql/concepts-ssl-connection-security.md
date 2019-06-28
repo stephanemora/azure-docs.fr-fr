@@ -1,19 +1,19 @@
 ---
-title: Configurer la connectivité SSL dans Azure Database pour PostgreSQL - serveur unique
-description: Instructions et informations de configuration de la base de données Azure pour PostgreSQL - serveur unique et les applications associées afin d’utiliser correctement les connexions SSL.
+title: Configurer la connectivité SSL dans Azure Database pour PostgreSQL - Serveur unique
+description: Instructions et informations de configuration pour Azure Database pour PostgreSQL (serveur unique) et applications associées afin d’utiliser correctement les connexions SSL.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: 56611267872ca79d7d2fe3a08c9b9f49a9b1840b
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65067409"
 ---
-# <a name="configure-ssl-connectivity-in-azure-database-for-postgresql---single-server"></a>Configurer la connectivité SSL dans Azure Database pour PostgreSQL - serveur unique
+# <a name="configure-ssl-connectivity-in-azure-database-for-postgresql---single-server"></a>Configurer la connectivité SSL dans Azure Database pour PostgreSQL - Serveur unique
 La base de données Azure pour PostgreSQL préfère connecter vos applications clientes au service PostgreSQL via SSL (Secure Sockets Layer). L’application de connexions SSL entre votre serveur de base de données et vos applications clientes vous protège contre les « attaques de l’intercepteur » en chiffrant le flux de données entre le serveur et votre application.
 
 Par défaut, le service de base de données PostgreSQL est configuré de façon à exiger une connexion SSL. Vous avez la possibilité de désactiver le recours obligatoire au protocole SSL pour la connexion à votre service de base de données si votre application cliente ne prend pas en charge la connectivité SSL. 
@@ -50,8 +50,8 @@ Dans certains cas, les applications nécessitent un fichier de certificat local 
 ### <a name="download-the-certificate-file-from-the-certificate-authority-ca"></a>Télécharger le fichier de certificat émis par l’autorité de certification (AC) 
 Le certificat nécessaire pour communiquer via SSL avec votre serveur de base de données Azure pour PostgreSQL se trouve [ici](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt). Téléchargez le fichier de certificat en local.
 
-### <a name="install-a-cert-decoder-on-your-machine"></a>Installez un décodeur de certificat sur votre ordinateur 
-Vous pouvez utiliser [OpenSSL](https://github.com/openssl/openssl) pour décoder le fichier de certificat nécessaire pour votre application pour se connecter en toute sécurité à votre serveur de base de données. Pour savoir comment installer OpenSSL, consultez le [instructions d’installation OpenSSL](https://github.com/openssl/openssl/blob/master/INSTALL). 
+### <a name="install-a-cert-decoder-on-your-machine"></a>Installer un décodeur de certificat sur votre ordinateur 
+Vous pouvez utiliser [OpenSSL](https://github.com/openssl/openssl) pour décoder le fichier de certificat requis afin que votre application se connecte en toute sécurité à votre serveur de base de données. Pour savoir comment installer OpenSSL, consultez les [instructions d’installation OpenSSL](https://github.com/openssl/openssl/blob/master/INSTALL). 
 
 
 ### <a name="decode-your-certificate-file"></a>Décoder le fichier de certificat
@@ -64,7 +64,7 @@ openssl x509 -inform DER -in BaltimoreCyberTrustRoot.crt -text -out root.crt
 ### <a name="connecting-to-azure-database-for-postgresql-with-ssl-certificate-authentication"></a>Se connecter à la base de données Azure pour PostgreSQL avec authentification par certificat SSL
 Maintenant que vous avez correctement décodé votre certificat, vous pouvez vous connecter à votre serveur de base de données en toute sécurité via SSL. Pour qu’il puisse être vérifié, le certificat de serveur doit être placé dans le fichier ~/.postgresql/root.crt qui se trouve dans le répertoire de base de l’utilisateur. (Sous Microsoft Windows, le fichier se nomme %APPDATA%\postgresql\root.crt.). 
 
-#### <a name="connect-using-psql"></a>Se connecter à l’aide de psql
+#### <a name="connect-using-psql"></a>Connexion via psql
 L’exemple suivant montre comment se connecter à votre serveur PostgreSQL à l’aide de l’utilitaire de ligne de commande psql. Utilisez le fichier créé `root.crt` et l’option `sslmode=verify-ca` ou `sslmode=verify-full`.
 
 À l’aide de l’interface de ligne de commande PostgreSQL, exécutez la commande suivante :

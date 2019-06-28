@@ -1,5 +1,5 @@
 ---
-title: Personnaliser les règles de pare-feu d’applications web dans Azure Application Gateway - portail Azure
+title: Personnaliser les règles de pare-feu d’applications web dans Azure Application Gateway - Portail Azure
 description: Cet article fournit des informations sur la personnalisation des règles de pare-feu d’applications web dans Application Gateway avec le portail Azure.
 services: application-gateway
 author: vhorne
@@ -7,10 +7,10 @@ ms.service: application-gateway
 ms.date: 2/22/2019
 ms.author: victorh
 ms.openlocfilehash: f7ffb8d6adfd4afc75618834a3fe82cf9a3d0c9f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64720385"
 ---
 # <a name="customize-web-application-firewall-rules-through-the-azure-portal"></a>Personnaliser les règles de pare-feu d’applications web via le portail Azure
@@ -33,16 +33,16 @@ Le pare-feu d’applications web (WAF) Azure Application Gateway fournit une pro
 
 ## <a name="search-for-rules-to-disable"></a>Rechercher des règles à désactiver
 
-Le **paramètres de pare-feu d’application Web** page offre la possibilité de filtrer les règles via une recherche de texte. Le résultat affiche uniquement les groupes de règles et les règles contenant le texte que vous avez recherché.
+La page **Paramètres de pare-feu d’applications web** permet de filtrer les règles à l’aide d’une recherche de texte. Le résultat affiche uniquement les groupes de règles et les règles contenant le texte que vous avez recherché.
 
 ![Rechercher des règles][2]
 
 ## <a name="disable-rule-groups-and-rules"></a>Désactiver les règles et les groupes de règles
 
 > [!IMPORTANT]
-> Soyez prudent lors de la désactivation des groupes de règles ou des règles. Cela peut vous exposer à des risques de sécurité accrus.
+> Soyez prudent lors de la désactivation des groupes de règles ou des règles. Cela peut aggraver les risques pour la sécurité.
 
-Lorsque vous désactivez des règles, vous pouvez désactiver un groupe de règles entier ou des règles spécifiques sous un ou plusieurs groupes de règles. 
+Lorsque vous désactivez des règles, vous pouvez désactiver un groupe de règles entier, ou des règles spécifiques sous un ou plusieurs groupes de règles. 
 
 **Pour désactiver des groupes de règles ou des règles spécifiques**
 
@@ -54,18 +54,18 @@ Lorsque vous désactivez des règles, vous pouvez désactiver un groupe de règl
 
 ## <a name="mandatory-rules"></a>Règles obligatoires
 
-La liste suivante contient des conditions qui entraînent le WAF bloquer la demande en mode de prévention. En Mode de détection, auquel ils sont connectés en tant qu’exceptions.
+La liste suivante contient les conditions qui provoquent le blocage de la requête par le pare-feu d’applications web (WAF) en mode Prévention. En mode Détection, elles sont enregistrées en tant qu’exceptions.
 
-Il ne peut pas être configurées ou désactivés :
+Elles ne peuvent pas être configurées ni désactivées :
 
-* Échec d’analyser le corps de la requête entraîne la demande est bloquée, à moins que l’inspection du corps est mis sous tension (XML, JSON, les données de formulaire)
-* Longueur de données de corps (avec aucun fichier) de la demande est supérieure à la limite configurée
-* Demande de corps (y compris les fichiers) est supérieure à la limite
-* Une erreur interne s’est produite dans le moteur de WAF
+* L’échec d’analyse du corps de la requête entraîne le blocage de cette dernière, sauf si l’inspection du corps est désactivée (XML, JSON, données de formulaire)
+* La longueur des données du corps de la requête (sans fichiers) est supérieure à la limite configurée
+* Le corps de la requête (avec fichiers) est supérieur à la limite
+* Une erreur interne s’est produite dans le moteur WAF
 
-CRS 3.x spécifiques :
+Propre à CRS 3.x :
 
-* Trafic entrant de seuil du score dépassé d’anomalie
+* Le score des anomalies entrantes a dépassé le seuil
 
 ## <a name="next-steps"></a>Étapes suivantes
 

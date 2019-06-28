@@ -1,5 +1,5 @@
 ---
-title: Exemples de requêtes à l’aide de la syntaxe de recherche « simple » - recherche Azure
+title: Exemples de requêtes utilisant la syntaxe de recherche « simple » - Recherche Azure
 description: Exemples de requêtes simples pour la recherche en texte intégral, la recherche filtrée, la recherche géographique, la recherche à facettes et autres chaînes de requête utilisées pour interroger un index Recherche Azure.
 author: HeidiSteen
 manager: cgronlun
@@ -11,13 +11,13 @@ ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 0c47212e51725e7d4a173c441709dca739d4e357
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65024535"
 ---
-# <a name="query-examples-using-the-simple-search-syntax-in-azure-search"></a>Exemples de requêtes à l’aide de la syntaxe de recherche « simple » dans la recherche Azure
+# <a name="query-examples-using-the-simple-search-syntax-in-azure-search"></a>Exemples de requêtes utilisant la syntaxe de recherche « simple » dans Recherche Azure
 
 La [syntaxe de requête simple](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) appelle l’analyseur de requêtes par défaut pour l’exécution de requêtes de recherche en texte intégral par rapport à un index Recherche Azure. L’analyseur de requêtes simples est rapide et gère des scénarios courants dans Recherche Azure, notamment la recherche en texte intégral, la recherche filtrée et à facettes, ainsi que la recherche géographique. Dans cet article, vous allez découvrir des exemples illustrant les opérations de requête disponibles lors de l’utilisation de la syntaxe simple.
 
@@ -35,7 +35,7 @@ En revanche, vous avez besoin de Postman ou d’un outil équivalent pour émett
 
 2. Ajoutez un **api-key** et affectez-lui cette chaîne : `252044BE3886FE4A8E3BAA4F595114BB`. Il s’agit d’une clé de requête pour le service de recherche de bac à sable qui héberge l’index NYC Jobs.
 
-Une fois que vous avez spécifié l’en-tête de requête, vous pouvez le réutiliser pour toutes les requêtes dans cet article, en remplaçant uniquement la chaîne **search=**. 
+Une fois que vous avez spécifié l’en-tête de requête, vous pouvez le réutiliser pour toutes les requêtes dans cet article, en remplaçant uniquement la chaîne **search=** . 
 
   ![En-tête de demande Postman](media/search-query-lucene-examples/postman-header.png)
 
@@ -55,15 +55,15 @@ L’URL est composée des éléments suivants :
 
 ## <a name="send-your-first-query"></a>Envoyer votre première requête
 
-En guise d’étape de vérification, collez la requête suivante dans GET et cliquez sur **Envoyer**. Les résultats sont retournés sous forme de documents JSON détaillés. Documents entiers sont retournés, ce qui vous permet de voir tous les champs et toutes les valeurs.
+En guise d’étape de vérification, collez la requête suivante dans GET et cliquez sur **Envoyer**. Les résultats sont retournés sous forme de documents JSON détaillés. Des documents entiers sont retournés, ce qui vous permet de voir tous les champs et toutes les valeurs.
 
-Collez cette URL dans un client REST comme une étape de validation et afficher la structure du document.
+Collez cette URL dans un client REST comme étape de validation et pour afficher la structure du document.
 
   ```http
   https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&search=*
   ```
 
-La chaîne de requête **`search=*`**, est une recherche non spécifiée équivalente à une recherche nulle ou vide. Elle n’est pas particulièrement utile, mais c’est la recherche la plus simple que vous puissiez effectuer.
+La chaîne de requête **`search=*`** , est une recherche non spécifiée équivalente à une recherche nulle ou vide. Elle n’est pas particulièrement utile, mais c’est la recherche la plus simple que vous puissiez effectuer.
 
 Si vous le souhaitez, vous pouvez ajouter **`$count=true`** à l’URL pour retourner le nombre de documents correspondant aux critères de recherche. Une chaîne de recherche vide correspond à tous les documents figurant dans l’index (environ 2800 dans le cas de NYC Jobs).
 
@@ -83,7 +83,7 @@ Par souci de concision, la requête cible uniquement le champ *business_title* e
 searchFields=business_title&$select=business_title&search=*
 ```
 
-Voici la même requête avec plusieurs champs dans une liste délimitée par des virgules.
+Voici la même requête avec plusieurs champs dans une liste de valeurs séparées par des virgules.
 
 ```http
 search=*&searchFields=business_title, posting_type&$select=business_title, posting_type
@@ -211,7 +211,7 @@ POST /indexes/nycjobs/docs/search?api-version=2019-05-06
       "count": "true"
     }
 ```
-Pour des résultats plus lisibles, les résultats de la recherche sont tronqués pour inclure un ID de tâche, poste et l’emplacement de travail. Les coordonnées de départ ont été obtenues à partir d’un document aléatoire dans l’index (dans le cas présent, pour le lieu de travail Staten Island).
+Pour améliorer la lisibilité des résultats de la recherche, ces derniers sont tronqués afin d’inclure un ID de travail, un poste et le lieu de travail. Les coordonnées de départ ont été obtenues à partir d’un document aléatoire dans l’index (dans le cas présent, pour le lieu de travail Staten Island).
 
 Vous pouvez également tester cette recherche dans Postman à l’aide de GET :
 

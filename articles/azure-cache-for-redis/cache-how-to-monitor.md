@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: yegu
 ms.openlocfilehash: 2cfd5a99144af1120afbf06fe6222228a9332bb6
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65787422"
 ---
 # <a name="how-to-monitor-azure-cache-for-redis"></a>Surveillance du cache Azure pour Redis
@@ -75,7 +75,7 @@ Pour configurer un compte de stockage pour vos mesures de cache :
 ![Diagnostics Redis](./media/cache-how-to-monitor/redis-cache-diagnostics.png)
 
 >[!NOTE]
->En plus d’archiver vos mesures de cache vers le stockage, vous pouvez également [transmettre en continu à un concentrateur d’événements ou les envoyer vers les journaux Azure Monitor](../azure-monitor/platform/rest-api-walkthrough.md#retrieve-metric-values).
+>En plus d’archiver vos mesures de cache vers le stockage, vous pouvez également [les diffuser vers un Hub d’événements ou les envoyer vers les journaux d’activité Azure Monitor](../azure-monitor/platform/rest-api-walkthrough.md#retrieve-metric-values).
 >
 >
 
@@ -105,7 +105,7 @@ Chaque mesure inclut deux versions. Une première mesure évalue les performance
 | Cache d’écriture |Quantité de données écrites dans le cache en mégaoctets par seconde (Mo/s) au cours de l’intervalle de création des rapports. Cette valeur est dérivée des cartes réseau qui prennent en charge la machine virtuelle qui héberge le cache. Elle n’est pas spécifique de Redis. Cette valeur correspond à la bande passante réseau des données envoyées au cache depuis le client. |
 | Clients connectés |Nombre de connexions client au cache au cours de l’intervalle de création des rapports spécifié. Cette valeur correspond à la commande Redis INFO `connected_clients` . Une fois la [limite de connexions](cache-configure.md#default-redis-server-configuration) atteinte, les tentatives de connexion ultérieures au cache échouent. Notez que, même s’il n’y a aucune application cliente active, il peut rester quelques instances de clients connectés en raison de connexions et processus internes. |
 | UC |Utilisation du processeur du serveur de cache Azure pour Redis (sous forme de pourcentage) au cours de l’intervalle spécifié pour la création des rapports. Cette valeur correspond au compteur de performances `\Processor(_Total)\% Processor Time` du système d’exploitation. |
-| Errors | Défaillances et problèmes de performances spécifiques que le cache pourrait rencontrer pendant un intervalle de rapport spécifié. Cette mesure a huit dimensions représentant différents types d’erreurs, mais d’autres pourraient y être ajoutées à l’avenir. Les types d’erreurs actuellement représentés sont les suivants : <br/><ul><li>**Basculement** – lorsqu’un cache bascule (subordonné est promu à master)</li><li>**Crash** : quand le cache se bloque de façon inattendue sur l’un des nœuds</li><li>**Dataloss** : quand une perte de données se produit sur le cache</li><li>**UnresponsiveClients** : quand les clients ne lisent pas les données du serveur assez rapidement</li><li>**AOF** : quand il y a un problème lié à la persistance d’AOF</li><li>**RDB** : quand il y a un problème lié à la persistance de RDB</li><li>**Import** : quand il y a un problème lié à l’importation RDB</li><li>**Export** : quand il y a un problème lié à l’exportation RDB</li></ul> |
+| Errors | Défaillances et problèmes de performances spécifiques que le cache pourrait rencontrer pendant un intervalle de rapport spécifié. Cette mesure a huit dimensions représentant différents types d’erreurs, mais d’autres pourraient y être ajoutées à l’avenir. Les types d’erreurs actuellement représentés sont les suivants : <br/><ul><li>**Failover** : quand un cache bascule (subordonné promu en maître)</li><li>**Crash** : quand le cache se bloque de façon inattendue sur l’un des nœuds</li><li>**Dataloss** : quand une perte de données se produit sur le cache</li><li>**UnresponsiveClients** : quand les clients ne lisent pas les données du serveur assez rapidement</li><li>**AOF** : quand il y a un problème lié à la persistance d’AOF</li><li>**RDB** : quand il y a un problème lié à la persistance de RDB</li><li>**Import** : quand il y a un problème lié à l’importation RDB</li><li>**Export** : quand il y a un problème lié à l’exportation RDB</li></ul> |
 | Clés exclues |Nombre d’éléments supprimés du cache au cours de l’intervalle de création des rapports, en raison de la limite `maxmemory` . Cette valeur correspond à la commande Redis INFO `evicted_keys` . |
 | Clés expirées |Nombre d’éléments expirés dans le cache au cours de l’intervalle de création des rapports spécifié. Cette valeur correspond à la commande Redis INFO `expired_keys` .|
 | Gets |Nombre d’opérations get dans le cache au cours de l’intervalle de création des rapports spécifié. Cette valeur est la somme des valeurs suivantes obtenues de toutes les commandes Redis INFO : `cmdstat_get`, `cmdstat_hget`, `cmdstat_hgetall`, `cmdstat_hmget`, `cmdstat_mget`, `cmdstat_getbit` et `cmdstat_getrange`. Elle est équivalente à la somme du nombre de présences et d’absences au cours de l’intervalle de création du rapport. |

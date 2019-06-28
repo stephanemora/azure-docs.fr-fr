@@ -1,5 +1,5 @@
 ---
-title: Supprimer des offres place de marché | Place de marché Azure
+title: Supprimer des offres sur une place de marché | Place de marché Azure
 description: Supprimer des offres des places de marché Microsoft Azure et AppSource à l’aide du Portail Cloud Partner
 services: Azure, AppSource, Marketplace, Cloud Partner Portal,
 author: v-miclar
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: pabutler
 ms.openlocfilehash: 542bc611ac8820385c3f749aa151afc1dcdf6db5
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64942140"
 ---
 # <a name="delete-azure-marketplace-and-appsource-offers-or-skus"></a>Supprimer des références SKU ou des offres de la Place de marché Microsoft Azure et d’AppSource
@@ -21,7 +21,7 @@ Pour diverses raisons, vous pouvez décider de retirer votre offre de sa place d
 - La *suppression de l’offre* permet de faire en sorte que les nouveaux clients ne puissent plus acheter ou déployer votre offre, mais elle n’a aucun impact sur les clients existants, que vous devez prendre en charge en fonction de votre contrat de licence et de la législation applicable. 
 - L’*arrêt de l’offre* est le processus d’arrêt de l’accord de service et/ou de licence entre vos clients actuels et vous. 
 
-Des conseils et des stratégies relatives à le pour offre de suppression et arrêt sont régies par [contrat d’éditeur place de marché Microsoft](https://go.microsoft.com/fwlink/?LinkID=699560) et [politiques](https://azure.microsoft.com/support/legal/marketplace/participation-policies/) (section [offre suspension et retrait](https://docs.microsoft.com/legal/marketplace/participation-policy#offering-suspension-and-removal)). 
+L’aide et les stratégies relatives à l’arrêt et à la suppression des offres sont régies par le [Contrat d’éditeur de la Place de marché Microsoft](https://go.microsoft.com/fwlink/?LinkID=699560) et les [Stratégies de participation](https://azure.microsoft.com/support/legal/marketplace/participation-policies/) (section [Suspension et retrait des offres](https://docs.microsoft.com/legal/marketplace/participation-policy#offering-suspension-and-removal)). 
 
 Cet article traite des différents scénarios de suppression pris en charge et des étapes à suivre correspondantes.  
 

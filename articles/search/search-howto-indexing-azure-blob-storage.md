@@ -11,10 +11,10 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
 ms.openlocfilehash: 832be20f78d1e88a3bb6d1c25c7aaf5d7354e857
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66753980"
 ---
 # <a name="indexing-documents-in-azure-blob-storage-with-azure-search"></a>Indexation de documents dans Azure Blob Storage avec Azure Search
@@ -68,7 +68,7 @@ Pour plus d’informations sur l’API Créer une source de données, consultez 
 
 Vous pouvez fournir les informations d’identification du conteneur d’objets blob de l’une des manières suivantes :
 
-- **Chaîne de connexion au compte de stockage avec accès complet** : `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>` Vous pouvez obtenir la chaîne de connexion à partir du portail Azure en accédant au panneau du compte de stockage > Paramètres > clés (pour les comptes de stockage classique) ou Paramètres > clés d’accès (pour les comptes de stockage Azure Resource Manager).
+- **Chaîne de connexion au compte de stockage avec accès complet** : `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>` Vous pouvez obtenir la chaîne de connexion sur le portail Azure en sélectionnant le panneau du compte de stockage > Paramètres > Clés (pour les comptes de stockage Classic) ou en sélectionnant Paramètres > Clés d’accès (pour les comptes de stockage ARM).
 - Chaîne de connexion de la **signature d’accès partagé (SAP) au compte de stockage** : `BlobEndpoint=https://<your account>.blob.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=b&sp=rl` La SAP doit avoir les autorisations de liste et de lecture sur les conteneurs et les objets (blob en l’occurrence).
 -  **Signature d’accès partagé du conteneur** : `ContainerSharedAccessUri=https://<your storage account>.blob.core.windows.net/<container name>?sv=2016-05-31&sr=c&sig=<the signature>&se=<the validity end time>&sp=rl` La SAP doit avoir les autorisations de liste et lecture sur le conteneur.
 
@@ -116,14 +116,14 @@ Cet indexeur s’exécutera toutes les deux heures (intervalle de planification 
 
 Pour plus d’informations sur l’API Créer un indexeur, consultez [Créer un indexeur](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
 
-Pour plus d’informations sur la définition des planifications de l’indexeur, consultez [comment planifier des indexeurs pour Azure Search](search-howto-schedule-indexers.md).
+Pour plus d’informations sur la définition des planifications de l’indexeur, consultez [Comment planifier des indexeurs pour Recherche Azure](search-howto-schedule-indexers.md).
 
 ## <a name="how-azure-search-indexes-blobs"></a>Comment Azure Search indexe les objets blob
 
 En fonction de sa [configuration](#PartsOfBlobToIndex), l’indexeur d’objets blob peut indexer uniquement les métadonnées de stockage (une fonctionnalité utile lorsque vous ne vous préoccupez que des métadonnées et n’avez pas besoin d’indexer le contenu des objets blob), le stockage et le contenu des métadonnées, ou les métadonnées et le contenu textuel. Par défaut, l’indexeur extrait les métadonnées et le contenu.
 
 > [!NOTE]
-> Par défaut, les objets blob avec contenu structuré tels que JSON ou CSV sont indexés en tant que bloc de texte unique. Si vous souhaitez indexer des objets BLOB JSON et CSV de façon structurée, consultez [d’objets BLOB JSON de l’indexation](search-howto-index-json-blobs.md) et [d’objets BLOB CSV indexation](search-howto-index-csv-blobs.md) pour plus d’informations.
+> Par défaut, les objets blob avec contenu structuré tels que JSON ou CSV sont indexés en tant que bloc de texte unique. Si vous souhaitez indexer des objets blob JSON et CSV de manière structurée, consultez [Indexation d’objets blob JSON](search-howto-index-json-blobs.md) et [Indexation d’objets blob CSV](search-howto-index-csv-blobs.md) pour en savoir plus.
 >
 > Un document composé ou incorporé (tel qu’une archive ZIP ou un document Word avec e-mail Outlook incorporé intégrant des pièces jointes) est également indexé en tant que document unique.
 
@@ -141,7 +141,7 @@ En fonction de sa [configuration](#PartsOfBlobToIndex), l’indexeur d’objets 
   * **metadata\_storage\_last\_modified** (Edm.DateTimeOffset) : horodateur de la dernière modification de l’objet blob. La Recherche Azure utilise cet horodateur pour identifier les objets blob modifiés afin d’éviter une réindexation complète après l’indexation initiale.
   * **metadata\_storage\_size** (Edm.Int64) : taille de l’objet blob en octets.
   * **metadata\_storage\_content\_md5** (Edm.String) : code de hachage MD5 du contenu de l’objet blob s’il est disponible.
-  * **métadonnées\_stockage\_sas\_jeton** (Edm.String) : un jeton SAP temporaire qui peut être utilisé par [compétences personnalisées](cognitive-search-custom-skill-interface.md) pour accéder à l’objet blob. Ce jeton ne doit pas être stocké pour une utilisation ultérieure comme il peut expirer.
+  * **metadata\_storage\_sas\_token** (Edm.String) : jeton SAS temporaire qui peut être utilisé par des [compétences personnalisées](cognitive-search-custom-skill-interface.md) pour accéder à l’objet blob. Ce jeton ne doit pas être stocké pour une utilisation ultérieure dans la mesure où il peut expirer.
 
 * Les propriétés de métadonnées propres à chaque format de document sont extraites dans les champs répertoriés [ici](#ContentSpecificMetadata).
 
@@ -276,7 +276,7 @@ Recherche Azure limite la taille des objets blob indexés. Ces limites sont docu
 
     "parameters" : { "configuration" : { "indexStorageMetadataOnlyForOversizedDocuments" : true } }
 
-Vous pouvez également poursuivre l’indexation si des erreurs se produisent à tout moment du traitement, que ce soit durant l’analyse d’objets blob ou l’ajout de documents à un index. Pour ignorer un nombre spécifique d’erreurs, définissez les paramètres de configuration `maxFailedItems` et `maxFailedItemsPerBatch` sur les valeurs souhaitées. Exemple :
+Vous pouvez également poursuivre l’indexation si des erreurs se produisent à tout moment du traitement, que ce soit durant l’analyse d’objets blob ou l’ajout de documents à un index. Pour ignorer un nombre spécifique d’erreurs, définissez les paramètres de configuration `maxFailedItems` et `maxFailedItemsPerBatch` sur les valeurs souhaitées. Par exemple :
 
     {
       ... other parts of indexer definition
@@ -337,7 +337,7 @@ L’indexation d’objets blob peut être un processus long. Dans le cas où vou
 
 Vous pourriez souhaiter « rassembler » des documents provenant de plusieurs sources dans votre index. Par exemple, vous pourriez souhaiter fusionner des textes de blobs avec d’autres métadonnées stockées dans la base de données Cosmos. Vous pouvez même utiliser le push de l’indexation des API ainsi que plusieurs indexeurs pour générer des documents de recherche à partir de plusieurs parties. 
 
-Pour ce faire, tous les indexeurs et les autres composants doivent s’accorder sur la clé de document. Pour une procédure détaillée, consultez l’article externe : [Combiner des documents avec d’autres données dans Azure Search](https://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html).
+Pour ce faire, tous les indexeurs et les autres composants doivent s’accorder sur la clé de document. Pour une procédure détaillée, consultez l’article externe : [Combine documents with other data in Azure Search](https://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html) (Associer des documents à d’autres données dans Recherche Azure).
 
 <a name="IndexingPlainText"></a>
 ## <a name="indexing-plain-text"></a>Indexation en texte brut 

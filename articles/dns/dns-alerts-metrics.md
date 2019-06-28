@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 04/17/2018
 ms.author: victorh
 ms.openlocfilehash: a9d8bc172eb5f5e0e119a0bde56fb167f7a0c2b2
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64699149"
 ---
 # <a name="azure-dns-metrics-and-alerts"></a>Métriques et alertes Azure DNS
@@ -26,7 +26,7 @@ Azure DNS est un service d’hébergement pour les domaines DNS qui offre une r�
 
 ## <a name="azure-dns-metrics"></a>Métriques Azure DNS
 
-Azure DNS fournit des métriques aux clients pour leur permettre d’analyser des aspects spécifiques de leurs zones DNS hébergées dans le service. De plus, avec les métriques Azure DNS, vous pouvez configurer et recevoir des alertes en fonction des conditions qui vous intéressent. Les métriques sont fournies via le [service Azure Monitor](../azure-monitor/index.yml). Azure DNS fournit les métriques suivantes via Azure Monitor pour vos zones DNS :
+Azure DNS fournit des métriques aux clients pour qu’ils puissent surveiller certains aspects de leurs zones DNS hébergées dans le service. De plus, avec les métriques Azure DNS, vous pouvez configurer et recevoir des alertes en fonction des conditions qui vous intéressent. Les métriques sont fournies via le [service Azure Monitor](../azure-monitor/index.yml). Azure DNS fournit les métriques suivantes via Azure Monitor pour vos zones DNS :
 
 -   QueryVolume
 -   RecordSetCount
@@ -36,7 +36,7 @@ Vous pouvez également voir la [définition de ces métriques](../azure-monitor/
 >[!NOTE]
 > À ce stade, ces métriques sont uniquement disponibles pour les zones DNS publiques hébergées dans Azure DNS. Si vous disposez de zones privées hébergées dans Azure DNS, ces métriques ne fourniront pas de données les concernant. De plus, les métriques et les alertes sont uniquement prises en charge dans le cloud public Azure. La prise en charge dans les clouds souverains est prévue. 
 
-L’élément plus granulaire que vous pouvez voir des métriques pour est une zone DNS. Vous ne pouvez pas actuellement voir les métriques pour les enregistrements de ressource individuelle dans une zone.
+L’élément plus granulaire pour lequel vous pouvez voir des métriques est une zone DNS. Actuellement, vous ne pouvez pas voir les métriques des enregistrements de ressource individuels dans une zone.
 
 ### <a name="query-volume"></a>Volume de requêtes
 

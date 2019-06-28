@@ -14,16 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/20/2019
 ms.author: rkarlin
-ms.openlocfilehash: c0c37724e61490c8c33b5e2d37879549bbc6d7ce
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d9dc9f3a4ab964b66e3a2cb03f4aad442c5665e9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60705436"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64573604"
 ---
 # <a name="customize-os-security-configurations-in-azure-security-center-preview"></a>Personnaliser les configurations de la sécurité du système d’exploitation dans Azure Security Center (version préliminaire)
 
 Cette procédure pas à pas vous explique comment personnaliser les évaluations de configuration de la sécurité du système d’exploitation dans Azure Security Center.
+
+> [!NOTE]
+> La possibilité de personnaliser les configurations de la sécurité du système d’exploitation sera retirée le 31 juillet 2019. Pour en savoir plus et connaître les alternatives en matière de services, consultez [Retrait des fonctionnalités du Security Center (juillet 2019)](security-center-features-retirement-july2019.md#menu_securityconfigurations).
 
 ## <a name="what-are-os-security-configurations"></a>Quelles sont les configurations de sécurité du système d’exploitation ?
 
@@ -112,7 +115,7 @@ Chaque catégorie possède son propre ensemble d’attributs. Vous pouvez modifi
 
     - Liste des groupes d’utilisateurs autorisés, par exemple : *Administrators* (Administrateurs), *Backup Operators* (Opérateurs de sauvegarde)
 
--   **state** : chaîne qui peut contenir l’option *Disabled* ou *Enabled* (« Désactivé » ou « Activé ») Pour cette version, la chaîne respecte la casse.
+-   **state** : chaîne qui peut contenir l’option *Disabled* ou *Enabled* (« Désactivé » ou « Activé ») Dans cette version, la chaîne respecte la casse.
 
 Ce sont les seuls champs configurables. Si vous ne respectez pas le format ou la taille de fichier, vous ne pourrez pas enregistrer la modification. Un message d’erreur indique que vous devez pour charger un fichier de configuration JSON valide.
 
@@ -275,13 +278,13 @@ Le tableau suivant répertorie l’ensemble des erreurs potentielles :
 
 | **Error**                                | **Description**                                                                                                                              |
 |------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
-| BaselineConfigurationSchemaVersionError  | La propriété *schemaVersion* est vide ou non valide. Elle doit avoir la valeur *{0}*.                                                         |
+| BaselineConfigurationSchemaVersionError  | La propriété *schemaVersion* est vide ou non valide. Elle doit avoir la valeur *{0}* .                                                         |
 | BaselineInvalidStringError               | La propriété *{0}* ne peut pas contenir *\\n*.                                                                                                         |
 | BaselineNullRuleError                    | La liste de règles de configuration de base contient une règle dont la valeur est *null*.                                                                         |
 | BaselineRuleCceIdNotUniqueError          | Le CCE-ID *{0}* n’est pas unique.                                                                                                                  |
 | BaselineRuleEmptyProperty                | La propriété *{0}* est manquante ou non valide.                                                                                                       |
 | BaselineRuleIdNotInDefault               | La règle a comme propriété de source *Microsoft*, mais est introuvable dans l’ensemble de règles Microsoft par défaut.                                                   |
-| BaselineRuleIdNotUniqueError             | L’ID de règle n’est pas unique.                                                                                                                       |
+| BaselineRuleIdNotUniqueError             | L’identificateur de règle n’est pas unique.                                                                                                                       |
 | BaselineRuleInvalidGuid                  | La propriété *{0}* n’est pas valide. La valeur n’est pas un GUID valide.                                                                             |
 | BaselineRuleInvalidHive                  | L’instance Hive doit avoir la valeur LocalMachine.                                                                                                                   |
 | BaselineRuleNameNotUniqueError           | Le nom de règle n’est pas unique.                                                                                                                 |
@@ -290,19 +293,19 @@ Le tableau suivant répertorie l’ensemble des erreurs potentielles :
 | BaselineRuleNotInPlace                   | La règle correspond à une règle par défaut possédant le type {0} et figure dans la liste {1}.                                                                       |
 | BaselineRulePropertyTooLong              | La propriété *{0}* est trop longue. Longueur maximale autorisée : {1}.                                                                                        |
 | BaselineRuleRegTypeInvalidError          | La valeur attendue *{0}* ne correspond pas au type de valeur de registre défini.                                                              |
-| BaselineRulesetAdded                     | L’ensemble de règles correspondant à l’ID *{0}* est introuvable dans la configuration par défaut. Il n’est pas possible d’ajouter un ensemble de règles.                                               |
+| BaselineRulesetAdded                     | L’ensemble de règles correspondant à l’identificateur *{0}* est introuvable dans la configuration par défaut. Il n’est pas possible d’ajouter un ensemble de règles.                                               |
 | BaselineRulesetIdMustBeUnique            | L’ensemble de règles de base spécifié *{0}* doit être unique.                                                                                           |
-| BaselineRulesetNotFound                  | L’ensemble de règles correspondant à l’ID *{0}* et au nom *{1}* est introuvable dans la configuration spécifiée. Il n’est pas possible de supprimer un ensemble de règles.                                |
-| BaselineRuleSourceNotMatch               | Une règle correspondant à l’ID *{0}* est déjà définie.                                                                                                       |
-| BaselineRuleTypeDoesntMatch              | Le type de règle par défaut est *{0}*.                                                                                                              |
-| BaselineRuleTypeDoesntMatchError         | Le type réel de la règle est *{0}*, alors que la propriété *ruleType* est *{1}*.                                                                          |
+| BaselineRulesetNotFound                  | L’ensemble de règles correspondant à l’identificateur *{0}* et au nom *{1}* est introuvable dans la configuration spécifiée. Il n’est pas possible de supprimer un ensemble de règles.                                |
+| BaselineRuleSourceNotMatch               | Une règle correspondant à l’identificateur *{0}* est déjà définie.                                                                                                       |
+| BaselineRuleTypeDoesntMatch              | Le type de règle par défaut est *{0}* .                                                                                                              |
+| BaselineRuleTypeDoesntMatchError         | Le type réel de la règle est *{0}* , alors que la propriété *ruleType* est *{1}* .                                                                          |
 | BaselineRuleUnpermittedChangesError      | Seules les propriétés *expectedValue* et *state* sont modifiables.                                                                       |
 | BaselineTooManyRules                     | Le nombre maximal de règles personnalisées autorisées est de {0} règles. La configuration donnée comporte {1} règles, {2} règles par défaut et {3} règles personnalisées. |
 | ErrorNoConfigurationStatus               | Aucun état de configuration n’a été trouvé. État de configuration souhaité : *Default* (« Par défaut ») ou *Custom* (« Personnalisé »).                                    |
 | ErrorNonEmptyRulesetOnDefault            | L’état de la configuration a la valeur par défaut. La liste *BaselineRulesets* doit comporter la valeur Null ou être vide.                                                          |
 | ErrorNullRulesetsPropertyOnCustom        | L’état de configuration indiqué est *Custom* (« personnalisé »), alors que la propriété *baselineRulesets* comporte la valeur Null ou est vide.                                             |
 | ErrorParsingBaselineConfig               | La configuration spécifiée n’est pas valide. Au moins une des valeurs définies comporter la valeur Null ou a un type non valide.                                  |
-| ErrorParsingIsDefaultProperty            | La valeur *configurationStatus* spécifiée, *{0}*, n’est pas valide. Elle ne peut être que *Default* (« par défaut ») ou *Custom* (« personnalisé »).                                         |
+| ErrorParsingIsDefaultProperty            | La valeur *configurationStatus* spécifiée, *{0}* , n’est pas valide. Elle ne peut être que *Default* (« par défaut ») ou *Custom* (« personnalisé »).                                         |
 | InCompatibleViewVersion                  | La version de l’affichage *{0}* n’est *pas* prise en charge sur ce type d’espace de travail.                                                                                   |
 | InvalidBaselineConfigurationGeneralError | La configuration de base spécifiée comporte une ou plusieurs erreurs de validation de type.                                                          |
 | ViewConversionError                      | La vue est une version antérieure à celle prise en charge par l’espace de travail. La conversion de l’affichage a échoué : {0}.                                                                 |

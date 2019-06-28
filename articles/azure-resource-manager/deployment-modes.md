@@ -12,10 +12,10 @@ ms.workload: na
 ms.date: 05/14/2019
 ms.author: tomfitz
 ms.openlocfilehash: b4d3a9c5e985949d813b638806f60bc86f5a163a
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65789269"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Modes de déploiement Azure Resource Manager
@@ -28,18 +28,18 @@ Pour les deux modes, Resource Manager essaie de créer toutes les ressources sp�
 
 En mode complet, le Gestionnaire des ressources **supprime** les ressources qui existent dans le groupe de ressources, mais qui ne sont pas spécifiées dans le modèle. Les ressources qui sont spécifiées dans le modèle, mais qui ne sont pas déployées du fait qu’une [condition](resource-group-authoring-templates.md#condition) a la valeur false, ne sont pas supprimées.
 
-Il existe des différences des suppressions de mode complet la gestion des types de ressources. Les ressources parentes sont automatiquement supprimées lorsqu'elles ne figurent pas dans un modèle déployé en mode complet. Certaines ressources enfants ne sont pas automatiquement supprimées lorsqu'elles ne figurent pas dans le modèle. Toutefois, ces ressources enfants sont supprimés si la ressource parente est supprimée. 
+Il existe des différences dans la manière dont les types de ressources traitent les suppressions en mode complet. Les ressources parentes sont automatiquement supprimées lorsqu'elles ne figurent pas dans un modèle déployé en mode complet. Certaines ressources enfants ne sont pas automatiquement supprimées lorsqu'elles ne figurent pas dans le modèle. Toutefois, ces ressources enfants sont supprimées si la ressource parent est supprimée. 
 
-Par exemple, si votre groupe de ressources contient une zone DNS (type de ressource Microsoft.Network/dnsZones) et un enregistrement CNAME (type de ressource Microsoft.Network/dnsZones/CNAME), la zone DNS est la ressource parente de l'enregistrement CNAME. Si vous procédez à un déploiement en mode complet et que vous n'incluez pas la zone DNS dans votre modèle, la zone DNS et l'enregistrement CNAME sont tous deux supprimés. Si vous incluez la zone DNS dans votre modèle, mais n’incluez pas l’enregistrement CNAME, l’enregistrement CNAME n’est pas supprimé. 
+Par exemple, si votre groupe de ressources contient une zone DNS (type de ressource Microsoft.Network/dnsZones) et un enregistrement CNAME (type de ressource Microsoft.Network/dnsZones/CNAME), la zone DNS est la ressource parente de l'enregistrement CNAME. Si vous procédez à un déploiement en mode complet et que vous n'incluez pas la zone DNS dans votre modèle, la zone DNS et l'enregistrement CNAME sont tous deux supprimés. Si vous incluez la zone DNS dans votre modèle mais pas l’enregistrement CNAME, ce dernier n’est pas supprimé. 
 
 Pour plus d'informations sur la façon dont les types de ressources gèrent la suppression, consultez [Suppression de ressources Azure pour les déploiements en mode complet](complete-mode-deletion.md).
 
-Si le groupe de ressources est [verrouillé](resource-group-lock-resources.md), mode complet ne supprime pas les ressources.
+Si le groupe de ressources est [verrouillé](resource-group-lock-resources.md), le mode complet ne supprime pas les ressources.
 
 > [!NOTE]
 > Seuls les modèles de niveau racine prennent en charge le mode de déploiement complet. Pour les [modèles liés ou imbriqués](resource-group-linked-templates.md), vous pouvez utiliser le mode incrémentiel. 
 >
-> [Déploiements de niveau d’abonnement](deploy-to-subscription.md) ne prennent pas en charge le mode complet.
+> Les [déploiements de niveau abonnement](deploy-to-subscription.md) ne prennent pas en charge le mode complet.
 >
 > Actuellement, le portail ne prend en charge le mode complet.
 >
@@ -48,7 +48,7 @@ Si le groupe de ressources est [verrouillé](resource-group-lock-resources.md), 
 
 En mode incrémentiel, le Gestionnaire des ressources **conserve telles quelles** les ressources qui existent dans le groupe de ressources, mais qui ne sont pas spécifiées dans le modèle.
 
-Toutefois, lors du redéploiement d’une ressource existante en mode incrémentiel, le résultat est une autre. Spécifiez toutes les propriétés pour la ressource, et pas seulement ceux que vous mettez à jour. Un malentendu courant est de considérer les propriétés qui ne sont pas spécifiées sont reste inchangé. Si vous omettez de spécifier certaines propriétés, Resource Manager interprète la mise à jour comme un remplacement de ces valeurs.
+Toutefois, lors du redéploiement d’une ressource existante en mode incrémentiel, le résultat est différent. Spécifiez toutes les propriétés pour la ressource et pas seulement celles que vous mettez à jour. On pense souvent à tort que les propriétés qui ne sont pas spécifiées restent inchangées. Si vous omettez de spécifier certaines propriétés, Resource Manager interprète la mise à jour comme un remplacement de ces valeurs.
 
 ## <a name="example-result"></a>Résultat de l’exemple
 

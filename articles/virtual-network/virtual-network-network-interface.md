@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: kumud
 ms.openlocfilehash: f25840c21ec64ca8d8e9e17eb39637cff7524c76
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66755248"
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>Créer, modifier ou supprimer une interface réseau
@@ -81,9 +81,9 @@ Vous pouvez afficher et modifier la plupart des paramètres d’une interface r�
 1. Dans la zone qui contient le texte *Rechercher des ressources* en haut du portail Azure, saisissez *interfaces réseau*. Lorsque la mention **interfaces réseau** apparaît dans les résultats de recherche, sélectionnez-la.
 2. Sélectionnez l’interface réseau que vous souhaitez consulter ou modifiez les paramètres dans la liste.
 3. Les éléments suivants sont répertoriés pour l’interface réseau sélectionnée :
-   - **Vue d’ensemble :** fournit des informations sur l’interface réseau, comme les adresses IP assignées, le réseau virtuel/sous-réseau auquel l’interface réseau est assignée, et la machine virtuelle à laquelle l’interface réseau est attachée (le cas échéant). L’illustration suivante montre les paramètres de vue d’ensemble d’une interface réseau nommée **mywebserver256** : ![Présentation de l’interface réseau](./media/virtual-network-network-interface/nic-overview.png)
+   - **Vue d’ensemble :** fournit des informations sur l’interface réseau, comme les adresses IP assignées, le réseau virtuel/sous-réseau auquel l’interface réseau est assignée, et la machine virtuelle à laquelle l’interface réseau est attachée (le cas échéant). L’illustration suivante montre les paramètres de vue d’ensemble d’une interface réseau nommée **mywebserver256** : ![Vue d’ensemble de l’interface réseau](./media/virtual-network-network-interface/nic-overview.png)
 
-     Vous pouvez déplacer une interface réseau vers un autre groupe de ressources ou d’un abonnement en sélectionnant (**modifier**) à côté du **groupe de ressources** ou **nom de l’abonnement**. Si vous déplacez l’interface réseau, vous devez également déplacer toutes les ressources liées à cette interface réseau. Par exemple, si l’interface réseau est attachée à une machine virtuelle, vous devez également déplacer la machine virtuelle et les autres ressources relatives à la machine virtuelle. Pour déplacer une interface réseau, consultez l’article [Déplacer des ressources vers un nouveau groupe de ressources ou un nouvel abonnement](../azure-resource-manager/resource-group-move-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json#use-portal). Cet article répertorie les conditions préalables et explique comment déplacer des ressources à l’aide du portail Azure, de PowerShell ou d’Azure CLI.
+     Vous pouvez déplacer une interface réseau vers un autre groupe de ressources ou abonnement en cliquant sur (**changer**) en regard du **Groupe de ressources** ou du **Nom d’abonnement**. Si vous déplacez l’interface réseau, vous devez également déplacer toutes les ressources liées à cette interface réseau. Par exemple, si l’interface réseau est attachée à une machine virtuelle, vous devez également déplacer la machine virtuelle et les autres ressources relatives à la machine virtuelle. Pour déplacer une interface réseau, consultez l’article [Déplacer des ressources vers un nouveau groupe de ressources ou un nouvel abonnement](../azure-resource-manager/resource-group-move-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json#use-portal). Cet article répertorie les conditions préalables et explique comment déplacer des ressources à l’aide du portail Azure, de PowerShell ou d’Azure CLI.
    - **Configurations IP :** les adresses IPv4 et IPv6 publiques et privées, assignées à des configurations IP, sont listées ici. Si une adresse IPv6 est assignée à une configuration IP, l’adresse n’est pas affichée. Pour en savoir plus sur les configurations IP et pour apprendre à ajouter et supprimer des adresses IP, consultez l’article [Configurer des adresses IP pour une interface réseau Azure](virtual-network-network-interface-addresses.md). Le transfert IP et l’affectation de sous-réseau sont également configurés dans cette section. Pour en savoir plus sur ces paramètres, lisez les sections [Activer et désactiver le transfert IP](#enable-or-disable-ip-forwarding) et [Modifier l’affectation de sous-réseau](#change-subnet-assignment) de cet article.
    - **Serveurs DNS :** vous pouvez spécifier à quel serveur DNS une interface réseau est assignée par le biais des serveurs DHCP Azure. L’interface réseau peut hériter du paramètre provenant du réseau virtuel auquel l’interface réseau est assignée, ou présenter un paramètre personnalisé pour remplacer le paramètre du réseau virtuel auquel elle est assignée. Pour modifier le contenu affiché, consultez la section [Modifier les serveurs DNS](#change-dns-servers).
    - **Groupe de sécurité réseau :** indique le groupe de sécurité réseau (éventuel) associé à l’interface réseau. Un groupe de sécurité réseau contient des règles entrantes et sortantes pour filtrer le trafic réseau transitant par l’interface réseau. Si un groupe de sécurité réseau est associé à l’interface réseau, le nom du groupe de sécurité réseau associé s’affiche. Pour modifier ce qui est affiché, consultez [Associer ou dissocier un groupe de sécurité réseau](#associate-or-dissociate-a-network-security-group).
@@ -99,7 +99,7 @@ Si une adresse IPv6 est assignée à une interface réseau, la sortie PowerShell
 |Outil|Commande|
 |---|---|
 |Interface de ligne de commande|[az network nic list](/cli/azure/network/nic) pour afficher les interfaces réseau dans l’abonnement ; [az network nic show](/cli/azure/network/nic) pour afficher les paramètres d’une interface réseau|
-|PowerShell|[Get-AzNetworkInterface](/powershell/module/az.network/get-aznetworkinterface) pour afficher les interfaces réseau dans les paramètres d’abonnement ou une vue pour une interface réseau|
+|PowerShell|[Get-AzNetworkInterface](/powershell/module/az.network/get-aznetworkinterface) pour afficher les interfaces réseau dans l’abonnement ou afficher les paramètres d’une interface réseau|
 
 ## <a name="change-dns-servers"></a>Modifier les serveurs DNS
 
@@ -112,7 +112,7 @@ Le serveur DHCP Azure assigne le serveur DNS à l’interface réseau au sein du
    - **Hériter de VNet** : choisissez cette option afin d’hériter le paramètre de serveur DNS défini pour le réseau virtuel auquel l’interface réseau est assignée. Au niveau du réseau virtuel, soit un serveur DNS personnalisé, soit le serveur DNS fourni par Azure est défini. Le serveur DNS fourni par Azure peut résoudre les noms d’hôtes pour les ressources assignées au même réseau virtuel. Le nom de domaine complet doit être utilisé pour résoudre les ressources assignées à différents réseaux virtuels.
    - **Personnalisé** : vous pouvez configurer votre propre serveur DNS pour résoudre les noms sur plusieurs réseaux virtuels. Entrez l’adresse IP du serveur que vous souhaitez utiliser comme serveur DNS. L’adresse de serveur DNS que vous spécifiez est assignée uniquement à cette interface réseau et remplace tout paramètre DNS du réseau virtuel auquel l’interface réseau est assignée.
      >[!Note]
-     >Si la machine virtuelle utilise une carte réseau qui fait partie d’un groupe à haute disponibilité, tous les serveurs DNS sont spécifiés pour chacune des machines virtuelles à partir de toutes les cartes réseau qui font partie du groupe à haute disponibilité seront héritées.
+     >Si la machine virtuelle utilise une carte réseau faisant partie d’un groupe à haute disponibilité, tous les serveurs DNS spécifiés pour chacune des machines virtuelles à partir de toutes les cartes réseau appartenant au groupe à haute disponibilité seront hérités.
 5. Sélectionnez **Enregistrer**.
 
 **Commandes**

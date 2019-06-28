@@ -12,17 +12,17 @@ ms.topic: reference
 ms.date: 12/12/2017
 ms.author: glenga
 ms.openlocfilehash: 44a9368f82e95641d3df893ba0958c6bf8cf696f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64724964"
 ---
 # <a name="azure-functions-c-script-csx-developer-reference"></a>Informations de référence pour les développeurs de scripts C# (.csx) Azure Functions
 
 <!-- When updating this article, make corresponding changes to any duplicate content in functions-dotnet-class-library.md -->
 
-Cet article est une introduction au développement d’Azure Functions à l’aide de scripts C# (*.csx*).
+Cet article est une introduction au développement d’Azure Functions à l’aide de scripts C# ( *.csx*).
 
 Azure Functions prend en charge le langage de programmation C#, mais également le langage de script C#. Pour plus d’informations sur l’[utilisation de C# dans un projet de bibliothèque de classes Visual Studio](functions-develop-vs.md), consultez les [informations de référence pour les développeurs C#](functions-dotnet-class-library.md).
 
@@ -376,7 +376,7 @@ Pour plus d’informations sur le téléchargement de fichiers vers votre conten
 Le répertoire qui contient le fichier de script de la fonction est automatiquement surveillé pour détecter les modifications apportées aux assemblys. Pour surveiller les modifications des assemblys dans d’autres répertoires, ajoutez-les à la liste `watchDirectories` dans [host.json](functions-host-json.md).
 
 ## <a name="using-nuget-packages"></a>Utiliser des packages NuGet
-Pour utiliser des packages NuGet dans un 2.x C# fonctionner, chargez un *function.proj* fichier au dossier de la fonction dans le système de fichiers de l’application de fonction. Voici un exemple de fichier *function.proj* qui ajoute une référence à *Microsoft.ProjectOxford.Face* version *1.1.0* :
+Pour utiliser des packages NuGet dans une fonction C# 2.0, chargez un fichier *function.proj* dans le dossier de la fonction du système de fichiers de l’application de fonction. Voici un exemple de fichier *function.proj* qui ajoute une référence à *Microsoft.ProjectOxford.Face* version *1.1.0* :
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
@@ -393,9 +393,9 @@ Pour utiliser des packages NuGet dans un 2.x C# fonctionner, chargez un *functio
 Pour utiliser un flux NuGet personnalisé, spécifiez-le dans un fichier *Nuget.Config* à la racine de l’application de fonction. Pour plus d’informations, consultez la page [Configurer le comportement de NuGet](/nuget/consume-packages/configuring-nuget-behavior). 
 
 > [!NOTE]
-> Dans la version 1.x C# les fonctions, les packages NuGet sont référencées avec un *project.json* de fichiers au lieu d’un *function.proj* fichier.
+> Dans les fonctions C# 1.0, les packages NuGet sont référencés avec un fichier *project.json* au lieu d’un fichier *function.proj*.
 
-Pour les fonctions 1.x, utilisez un *project.json* de fichiers à la place. Voici un exemple *project.json* fichier : 
+Pour les fonctions 1.x, utilisez un fichier *project.json* à la place. Voici un exemple de fichier *project.json* : 
 
 ```json
 {
@@ -409,11 +409,11 @@ Pour les fonctions 1.x, utilisez un *project.json* de fichiers à la place. Voic
 }
 ```
 
-### <a name="using-a-functionproj-file"></a>À l’aide d’un fichier function.proj
+### <a name="using-a-functionproj-file"></a>Utilisation d’un fichier function.proj
 
 1. Ouvrez la fonction sur le Portail Azure. L’onglet journaux d’activité affiche la sortie d’installation du package.
-2. Pour charger un *function.proj* de fichiers, utilisez une des méthodes décrites dans le [comment mettre à jour les fichiers function app](functions-reference.md#fileupdate) dans la rubrique de référence du développeur Azure Functions.
-3. Après le *function.proj* fichier est chargé, une sortie similaire à l’exemple suivant dans votre fonction de diffusion en continu le journal :
+2. Pour charger un fichier *function.json*, utilisez l’une des méthodes décrites dans la section[ Guide pratique pour mettre à jour les fichiers d’application de fonction](functions-reference.md#fileupdate) de la rubrique Informations de référence pour les développeurs sur Azure Functions.
+3. Une fois le fichier *function.proj* chargé, une sortie semblable à l’exemple ci-après s’affiche dans le journal de diffusion en continu de votre fonction :
 
 ```
 2018-12-14T22:00:48.658 [Information] Restoring packages.
@@ -488,7 +488,7 @@ public static async Task Run(string input, Binder binder)
 
 ### <a name="multiple-attribute-example"></a>Exemple d’attributs multiples
 
-L’exemple précédent obtient le paramètre d’application pour la chaîne de connexion du compte de stockage principal de l’application de fonction (à savoir `AzureWebJobsStorage`). Vous pouvez spécifier un paramètre d’application personnalisé à utiliser pour le compte de stockage en ajoutant l’attribut [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) et en transmettant le tableau d’attributs dans `BindAsync<T>()`. Utilisez un paramètre `Binder`, et non `IBinder`.  Par exemple : 
+L’exemple précédent obtient le paramètre d’application pour la chaîne de connexion du compte de stockage principal de l’application de fonction (à savoir `AzureWebJobsStorage`). Vous pouvez spécifier un paramètre d’application personnalisé à utiliser pour le compte de stockage en ajoutant l’attribut [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) et en transmettant le tableau d’attributs dans `BindAsync<T>()`. Utilisez un paramètre `Binder`, et non `IBinder`.  Par exemple :
 
 ```cs
 using Microsoft.Azure.WebJobs;

@@ -9,10 +9,10 @@ ms.date: 2/7/2019
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 7cbb934b87440d23e65fce53d7da40c5ffbd3150
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65597075"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planification d’un déploiement de synchronisation de fichiers Azure
@@ -73,7 +73,7 @@ Cette section traite de la configuration requise et de l’interopérabilité de
 Avant de déployer l’agent Azure File Sync, vous devez évaluer s’il est compatible avec votre système à l’aide de l’outil d’évaluation Azure File Sync. Cet outil est une applet de commande Azure PowerShell qui recherche les problèmes potentiels liés à votre système de fichiers et à votre jeu de données, comme des caractères non pris en charge ou une version de système d’exploitation non prise en charge. Notez que ses vérifications couvrent la plupart des fonctionnalités mentionnées ci-dessous, mais pas toutes. Nous vous conseillons de lire attentivement le reste de cette section pour garantir le bon déroulement de votre déploiement. 
 
 #### <a name="download-instructions"></a>Instructions de téléchargement
-1. Vérifier que la dernière version de PackageManagement et de PowerShellGet sont est installée (cela vous permet d’installer les modules de préversion)
+1. Vérifier que la dernière version de PackageManagement et de PowerShellGet sont installées (cela vous permet d’installer les modules de préversion)
     
     ```powershell
         Install-Module -Name PackageManagement -Repository PSGallery -Force
@@ -188,13 +188,13 @@ Azure File Sync prend en charge l’interopérabilité avec les espaces de noms 
 
 Pour qu’Azure File Sync et DFS-R fonctionnent côte à côte :
 
-1. La hiérarchisation cloud d’Azure File Sync doit être désactivée sur les volumes avec des dossiers répliqué DFS-R.
+1. La hiérarchisation cloud d’Azure File Sync doit être désactivée sur les volumes avec des dossiers répliqués DFS-R.
 2. Les points de terminaison de serveur ne doivent pas être configurés sur des dossiers de réplication DFS-R en lecture seule.
 
 Pour plus d’informations, consultez [Vue d’ensemble de la réplication DFS](https://technet.microsoft.com/library/jj127250).
 
 ### <a name="sysprep"></a>Sysprep
-L’utilisation de sysprep sur un serveur sur lequel l’agent Azure File Sync est installé n’est pas prise en charge et peut produire des résultats inattendus. L’installation de l’agent et l’inscription du serveur doivent être effectués après avoir déployé l’image du serveur et terminé la mini-configuration de sysprep.
+L’utilisation de sysprep sur un serveur sur lequel l’agent Azure File Sync est installé n’est pas prise en charge et peut produire des résultats inattendus. L’installation de l’agent et l’inscription du serveur doivent être effectuées après avoir déployé l’image du serveur et terminé la mini-configuration de sysprep.
 
 ### <a name="windows-search"></a>Recherche Windows
 Si la hiérarchisation cloud est activée sur un point de terminaison de serveur, les fichiers qui sont hiérarchisés sont ignorés et ne sont pas indexés par Windows Search. Les fichiers non hiérarchisés sont indexés correctement.
@@ -230,7 +230,7 @@ En règle générale, Azure File Sync prend en charge l’interopérabilité ave
 ### <a name="other-hierarchical-storage-management-hsm-solutions"></a>Autres solutions de gestion hiérarchique du stockage (HSM)
 Aucune autre solution HSM ne doit être utilisée avec Azure File Sync.
 
-## <a name="region-availability"></a>Disponibilité dans la région
+## <a name="region-availability"></a>Disponibilité des régions
 Azure File Sync est disponible uniquement dans les régions suivantes :
 
 | Région | Emplacement du centre de données |
@@ -253,13 +253,13 @@ Azure File Sync est disponible uniquement dans les régions suivantes :
 | Europe Nord | Irlande |
 | USA Centre Sud | Texas |
 | Inde Sud | Chennai |
-| Asie du Sud-Est | Singapour |
+| Asie Sud-Est | Singapour |
 | Sud du Royaume-Uni | Londres |
 | Ouest du Royaume-Uni | Cardiff |
-| Gouvernement des États-Unis-Arizona (version préliminaire) | Arizona |
-| US Gov Texas (version préliminaire) | Texas |
-| Des États-Unis-Virginie (version préliminaire) | Virginie |
-| Europe Ouest | Pays-Bas |
+| US Gov Arizona (péversion) | Arizona |
+| US Gov Texas (préversion) | Texas |
+| US Gov Virginie (préversion) | Virginie |
+| Europe Ouest | Pays-bas |
 | USA Centre-Ouest | Wyoming |
 | USA Ouest | Californie |
 | USA Ouest 2 | Washington |
@@ -267,7 +267,7 @@ Azure File Sync est disponible uniquement dans les régions suivantes :
 Azure File Sync prend en charge la synchronisation uniquement avec un partage de fichiers Azure qui est situé dans la même région que le service de synchronisation de stockage.
 
 > [!Note]  
-> Azure File Sync est actuellement uniquement disponible en version préliminaire privée pour les régions gouvernement. Consultez notre [notes de publication](https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#agent-version-5020) pour obtenir des instructions sur l’inscription dans le programme d’évaluation.
+> Azure File Sync est actuellement uniquement disponible en préversion privée pour les régions du gouvernement. Consultez nos [notes de publication](https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#agent-version-5020) pour obtenir des instructions sur l’inscription au programme de préversion.
 
 ### <a name="azure-disaster-recovery"></a>Reprise d’activité après sinistre Azure
 Pour une protection contre la perte d’une région Azure, Azure File Sync s’intègre à l’option de [redondance du stockage géoredondant](../common/storage-redundancy-grs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) (GRS). Le stockage GRS fonctionne en utilisant la réplication de blocs asynchrone entre le stockage dans la région primaire, avec laquelle vous interagissez normalement, et le stockage dans la région secondaire associée. En cas de sinistre entraînant la mise hors connexion temporaire ou définitive d'une région Azure, Microsoft bascule le stockage vers la région associée. 
@@ -286,7 +286,7 @@ Pour prendre en charge l’intégration du basculement entre le stockage géored
 | Est du Canada         | Centre du Canada     |
 | Inde Centre       | Inde Sud        |
 | USA Centre          | USA Est 2          |
-| Asie Est           | Asie du Sud-Est     |
+| Asie Est           | Asie Sud-Est     |
 | USA Est             | USA Ouest            |
 | USA Est 2           | USA Centre         |
 | Japon Est          | Japon Ouest         |
@@ -297,7 +297,7 @@ Pour prendre en charge l’intégration du basculement entre le stockage géored
 | USA Centre Nord    | USA Centre Sud   |
 | USA Centre Sud    | USA Centre Nord   |
 | Inde Sud         | Inde Centre      |
-| Asie du Sud-Est      | Asie Est          |
+| Asie Sud-Est      | Asie Est          |
 | Sud du Royaume-Uni            | Ouest du Royaume-Uni            |
 | Ouest du Royaume-Uni             | Sud du Royaume-Uni           |
 | Gouvernement des États-Unis – Arizona      | Gouvernement des États-Unis – Texas       |

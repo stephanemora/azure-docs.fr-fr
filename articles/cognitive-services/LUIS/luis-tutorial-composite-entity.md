@@ -1,5 +1,5 @@
 ---
-title: Didacticiel de l’entité composite
+title: Tutoriel sur l’entité composite
 titleSuffix: Azure Cognitive Services
 description: Ajoutez une entité composite pour regrouper les données extraites de différents types dans une seule entité contenante. Grâce au regroupement des données, l’application cliente peut extraire facilement les données associées dans différents types de données.
 services: cognitive-services
@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 02/19/2019
 ms.author: diberry
 ms.openlocfilehash: a5cedec4937da276a4848498ad29a723f6e41ba3
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65073706"
 ---
 # <a name="tutorial-group-and-extract-related-data"></a>Didacticiel : Regrouper et extraire les données associées
@@ -48,7 +48,7 @@ Elle est adaptée à ce type de données, car les données :
 
 2. Importez le code JSON dans une nouvelle application.
 
-3. À partir de la section **Manage (Gérer)**, sous l’onglet **Versions**, clonez la version et nommez-la `composite`. Le clonage est un excellent moyen de manipuler diverses fonctionnalités de LUIS sans affecter la version d’origine. Étant donné que le nom de la version est utilisé dans le cadre de la route d’URL, il ne peut pas contenir de caractères qui ne sont pas valides dans une URL.
+3. À partir de la section **Manage (Gérer)** , sous l’onglet **Versions**, clonez la version et nommez-la `composite`. Le clonage est un excellent moyen de manipuler diverses fonctionnalités de LUIS sans affecter la version d’origine. Étant donné que le nom de la version est utilisé dans le cadre de la route d’URL, il ne peut pas contenir de caractères qui ne sont pas valides dans une URL.
 
 ## <a name="composite-entity"></a>Entité composite
 
@@ -85,17 +85,17 @@ LUIS fournit plusieurs entités prédéfinies pour l’extraction de données co
 
 1. Sélectionnez **TransferEmployeeToDepartment** dans la liste des intentions.
 
-1. Dans l’énoncé `place John Jackson in engineering`, sélectionnez l’entité personName, `John Jackson`, puis sélectionnez **encapsuler dans une entité composite** dans la liste de menu contextuel pour l’énoncé suivant. 
+1. Dans l’énoncé `place John Jackson in engineering`, sélectionnez l’entité personName, `John Jackson`, puis **Inclure dans un wrapper d’entité composite** dans la liste de menu contextuel pour l’énoncé suivant. 
 
-    ![Capture d’écran de sélection de type wrap composite dans la liste déroulante de boîte de dialogue](./media/luis-tutorial-composite-entity/hr-create-composite-entity-1.png)
+    ![Capture d'écran de la sélection de l’encapsulage d’entité composite dans la boîte de dialogue déroulante](./media/luis-tutorial-composite-entity/hr-create-composite-entity-1.png)
 
 1. Puis sélectionnez immédiatement la dernière entité, `engineering`, dans l’énoncé. Une barre verte sous les termes sélectionnés indique une entité composite. Dans le menu contextuel, entrez le nom composite `TransferEmployeeInfo`, puis appuyez sur Entrée. 
 
-    ![Capture d’écran de saisie du nom composite dans la liste déroulante de boîte de dialogue](./media/luis-tutorial-composite-entity/hr-create-composite-entity-2.png)
+    ![Capture d'écran de la sélection du nom de l’entité composite dans la boîte de dialogue déroulante](./media/luis-tutorial-composite-entity/hr-create-composite-entity-2.png)
 
 1. Dans **What type of entity do you want to create?** (Quel type d’entité souhaitez-vous créer ?), tous les champs obligatoires sont dans la liste : `personName` et `Department`. Sélectionnez **Terminé**. Notez que l’entité prédéfinie, personName, a été ajoutée à l’entité composite. Si vous pouvez avoir une entité prédéfinie apparaissant entre les jetons de début et de fin d’une entité composite, celle-ci doit contenir ces entités prédéfinies. Si les entités prédéfinies ne sont pas incluses, l’entité composite n’est pas correctement prédite mais chaque élément individuel l’est.
 
-    ![Capture d’écran de saisie du nom composite dans la liste déroulante de boîte de dialogue](./media/luis-tutorial-composite-entity/hr-create-composite-entity-3.png)
+    ![Capture d'écran de la sélection du nom de l’entité composite dans la boîte de dialogue déroulante](./media/luis-tutorial-composite-entity/hr-create-composite-entity-3.png)
 
 ## <a name="label-example-utterances-with-composite-entity"></a>Énoncés d’exemples d’étiquettes avec une entité composite
 

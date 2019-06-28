@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/22/2019
 ms.author: cawa
 ms.openlocfilehash: 4ee91a91a20cbffebf7453ba573266962aa35806
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64924738"
 ---
 # <a name="get-started-with-storage-explorer"></a>Prise en main de l’Explorateur Stockage
@@ -55,7 +55,7 @@ L’Explorateur Stockage Azure est pris en charge sur les distributions suivante
 
 L’Explorateur Stockage Azure peut fonctionner d’autres distributions, mais seules celles répertoriés ci-dessus sont officiellement prises en charge.
 
-Pour plus d’aide sur l’installation de l’Explorateur de stockage sur Linux, consultez le [Guide de dépannage](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting#linux-dependencies).
+Pour plus d’aide sur l’installation de l’Explorateur Stockage sur Linux, consultez le [Guide de dépannage](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting#linux-dependencies).
 
 Les [Notes de publication](https://go.microsoft.com/fwlink/?LinkId=838275&clcid=0x409) de l’Explorateur Stockage Azure contiennent des étapes propres à certaines distributions.
 
@@ -93,7 +93,7 @@ De plus, vous pouvez utiliser des comptes de stockage Azure à l’échelle inte
 
 2. Le volet gauche affiche tous les comptes Azure auxquels vous vous êtes connecté. Pour vous connecter à un autre compte, sélectionnez **Ajouter un compte**
 
-3. Si vous souhaitez vous connecter à un cloud national ou une pile Azure Stack, cliquez sur la liste déroulante **Environnement Azure** pour sélectionner le cloud Azure à utiliser. Lorsque vous avez choisi votre environnement, cliquez sur le bouton **Se connecter...**. Si vous vous connectez à Azure Stack, consultez [Connecter l’Explorateur Stockage à un abonnement Azure Stack](/azure-stack/user/azure-stack-storage-connect-se) pour plus d’informations.
+3. Si vous souhaitez vous connecter à un cloud national ou une pile Azure Stack, cliquez sur la liste déroulante **Environnement Azure** pour sélectionner le cloud Azure à utiliser. Lorsque vous avez choisi votre environnement, cliquez sur le bouton **Se connecter...** . Si vous vous connectez à Azure Stack, consultez [Connecter l’Explorateur Stockage à un abonnement Azure Stack](/azure-stack/user/azure-stack-storage-connect-se) pour plus d’informations.
 
     ![Option de connexion][2]
 
@@ -109,9 +109,9 @@ De plus, vous pouvez utiliser des comptes de stockage Azure à l’échelle inte
 
 Avec l’Explorateur Stockage, vous pouvez travailler sur le stockage local à l’aide d’un émulateur. Cette approche vous permet de simuler l’utilisation du Stockage Azure sans nécessairement disposer d’un compte de stockage déployé sur Azure.
 
-Depuis la version 1.1.0, Explorateur de stockage prend en charge à l’aide d’un émulateur de stockage local sur toutes les plateformes. L’Explorateur Stockage peut se connecter à n’importe quel service émulé écoutant ses points de terminaison de stockage local par défaut.
+Depuis la version 1.1.0, l’Explorateur Stockage prend en charge l’utilisation d’un émulateur de stockage local sur toutes les plateformes. L’Explorateur Stockage peut se connecter à n’importe quel service émulé écoutant ses points de terminaison de stockage local par défaut.
 
-Le [émulateur de stockage Azure](storage/common/storage-use-emulator.md) actuellement s’exécute uniquement sous Windows. Pour ceux qui envisagent un émulateur de stockage pour Linux, il est possible d’utiliser l’émulateur de stockage open source [Azurite](https://github.com/azure/azurite), géré par la communauté.
+Actuellement, l’[émulateur de stockage Azure](storage/common/storage-use-emulator.md) s’exécute uniquement sous Windows. Pour ceux qui envisagent un émulateur de stockage pour Linux, il est possible d’utiliser l’émulateur de stockage open source [Azurite](https://github.com/azure/azurite), géré par la communauté.
 
 > [!NOTE]
 > La prise en charge des fonctionnalités et des services de stockage peut varier sensiblement d’un émulateur à l’autre. Vérifiez que votre émulateur prend en charge les services et fonctionnalités que vous envisagez d’utiliser.
@@ -214,7 +214,7 @@ Pour illustrer ce scénario, supposons que l’utilisateur A est l’administra
 
 ### <a name="generate-a-sas-query-string-for-the-account-you-want-to-share"></a>Générer une chaîne de requête SAP pour le compte à partager
 
-1. Dans l’Explorateur Stockage, cliquez avec le bouton droit sur le compte de stockage que vous souhaitez partager, puis sélectionnez **Obtenir une signature d’accès partagé...**.
+1. Dans l’Explorateur Stockage, cliquez avec le bouton droit sur le compte de stockage que vous souhaitez partager, puis sélectionnez **Obtenir une signature d’accès partagé...** .
 
     ![Option de menu contextuel Obtenir une signature d’accès partagé][14]
 
@@ -234,7 +234,7 @@ Pour illustrer ce scénario, supposons que l’utilisateur A est l’administra
 
     ![Boîte de dialogue Connexion au stockage Azure][16]
 
-3. Choisissez **Utiliser une chaîne de connexion** et collez votre chaîne de connexion dans le champ **Chaîne de connexion :**. Cliquez sur le bouton **Suivant**.
+3. Choisissez **Utiliser une chaîne de connexion** et collez votre chaîne de connexion dans le champ **Chaîne de connexion :** . Cliquez sur le bouton **Suivant**.
 
     ![Boîte de dialogue Connexion au stockage Azure][17]
 
@@ -266,7 +266,7 @@ Dans ce contexte, un service peut être un conteneur d’objets blob, une file d
 
     ![Boîte de dialogue Connexion au stockage Azure][16]
 
-3. Choisissez **Utiliser un URI SAP** et collez votre URI dans le champ **URI :**. Cliquez sur le bouton **Suivant**.
+3. Choisissez **Utiliser un URI SAP** et collez votre URI dans le champ **URI :** . Cliquez sur le bouton **Suivant**.
 
     ![Boîte de dialogue Connexion au stockage Azure][19]
 

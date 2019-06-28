@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: magoedte
 ms.openlocfilehash: 87fdb565f47e7d88342c82bd5940c1ddb9c137e6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64712127"
 ---
 # <a name="managing-azure-key-vault-using-azure-automation"></a>Gestion d'Azure Key Vault avec Azure Automation
@@ -30,7 +30,7 @@ Réduisez les coûts opérationnels et libérez du temps pour que votre équipe 
 
 ## <a name="how-can-azure-automation-help-manage-azure-key-vault"></a>Comment Azure Automation peut-il aider à gérer Azure Key Vault ?
 
-Key Vault peut être géré dans Azure Automation à l’aide des [applets de commande AzureRM Key Vault](https://www.powershellgallery.com/packages/AzureRM.KeyVault/1.1.4) et des [applets de commande Azure Classic Key Vault](https://docs.microsoft.com/powershell/module/servicemanagement/azure). Le module Azure pour la gestion de Classic Key Vault est disponible automatiquement dans Azure Automation. Vous pouvez importer le [module AzureRM-KeyVault](https://www.powershellgallery.com/packages/AzureRM.KeyVault/1.1.4) dans Azure Automation pour pouvoir effectuer la plupart de vos tâches de gestion Key Vault dans le service. Pour en savoir plus sur la façon d’importer votre module dans Azure Automation, consultez [gérer les modules dans Azure Automation](../automation/shared-resources/modules.md) , vous pouvez également associer ces applets de commande dans Azure Automation avec les applets de commande pour les autres services Azure, pour automatiser des tâches complexes entre Services Azure et des systèmes tiers 3e.
+Key Vault peut être géré dans Azure Automation à l’aide des [applets de commande AzureRM Key Vault](https://www.powershellgallery.com/packages/AzureRM.KeyVault/1.1.4) et des [applets de commande Azure Classic Key Vault](https://docs.microsoft.com/powershell/module/servicemanagement/azure). Le module Azure pour la gestion de Classic Key Vault est disponible automatiquement dans Azure Automation. Vous pouvez importer le [module AzureRM-KeyVault](https://www.powershellgallery.com/packages/AzureRM.KeyVault/1.1.4) dans Azure Automation pour pouvoir effectuer la plupart de vos tâches de gestion Key Vault dans le service. Pour en savoir plus sur l’importation de votre module dans Azure Automation, consultez [Gérer des modules dans Azure Automation](../automation/shared-resources/modules.md) Vous pouvez également associer ces applets de commande à des applets de commande d’autres services Azure, afin d’automatiser des tâches complexes entre des services Azure et des systèmes tiers.
 
 Les applets de commande Azure Key Vault vous permettent d’effectuer, entre autres, ces tâches : 
 

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: pabutler
 ms.openlocfilehash: 2719b6b47225576f2eadeb5e5b40b3aa7b39444d
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64943091"
 ---
 <a name="seller-insights-faq"></a>FAQ sur Seller Insights
@@ -29,25 +29,25 @@ Les définitions des valeurs métriques du fichier de transactions se trouvent d
 <a name="see-customer-details-of-transactions-for-which-ive-been-paid"></a>Consultation des détails des transactions des clients pour lesquelles j’ai été payé
 -------------------------------------------------------------
 
-Après avoir téléchargé vos transactions à partir du module Payout (Revenu), recherchez la colonne intitulée **Payout Status** (État de paiement), puis appliquez le filtre pour afficher uniquement la valeur « Paid Out » (Versé). Les colonnes suivantes seront affiche alors avec les détails du client : **Nom de la société**, **E-mail client**, **pays client**, **l’état du client**, et **Code Postal du client**.
+Après avoir téléchargé vos transactions à partir du module Payout (Revenu), recherchez la colonne intitulée **Payout Status** (État de paiement), puis appliquez le filtre pour afficher uniquement la valeur « Paid Out » (Versé). Les colonnes suivantes affichent les détails du client : **Nom de l’entreprise**, **Adresse e-mail du client**, **Pays du client**, **État du client**, et **Code postal du client**.
 
 
 <a name="calculate-my-open-accounts-receivable"></a>Calcul de mes comptes clients ouverts
 -------------------------------------
 
-Après avoir téléchargé vos transactions à partir du module Payout (Revenu), recherchez la colonne intitulée **Payout Status** (État de paiement), puis appliquez le filtre pour afficher uniquement les valeurs « Upcoming Payout » (Paiement à venir) et « Not Ready for Payout » (Pas prêt pour le paiement). Additionnez ensuite le contenu de la colonne intitulée **Montant du paiement (DE)**.
+Après avoir téléchargé vos transactions à partir du module Payout (Revenu), recherchez la colonne intitulée **Payout Status** (État de paiement), puis appliquez le filtre pour afficher uniquement les valeurs « Upcoming Payout » (Paiement à venir) et « Not Ready for Payout » (Pas prêt pour le paiement). Additionnez ensuite le contenu de la colonne intitulée **Montant du paiement (DE)** .
 
 
 <a name="calculate-revenue-by-customer-usage-period"></a>Calcul du revenu par période d’utilisation de client
 ------------------------------------------
 
-Après avoir téléchargé vos transactions à partir du module de paiement, localisez la colonne intitulée **état de la Transaction**et filtrer la valeur « Payant ».   Pour chaque transaction dans la liste, la colonne intitulée **paiement quantité (PC)** représente le montant qui vous ont été payé.  Pour estimer la période d’utilisation associée à la transaction, utilisez la colonne **Date de facturation**, qui est une approximation du dernier jour de l’utilisation de la période à laquelle s’applique la transaction.
+Après avoir téléchargé vos transactions à partir du module Payout (Revenu), recherchez la colonne intitulée  **Transaction Status** (État de transaction), puis appliquez le filtre pour afficher uniquement la valeur « Paid » (Payé).   Pour chaque transaction répertoriée, la colonne intitulée  **Montant du paiement (DE)**   représente le montant qui vous a été payé.  Pour estimer la période d’utilisation associée à la transaction, utilisez la colonne  **Date de facturation**, qui est une approximation du dernier jour d’utilisation de la période à laquelle s’applique la transaction.
 
 
 <a name="calculate-your-bad-debt"></a>Calcul de votre créance irrécouvrable
 ---------------------
 
-Après avoir téléchargé vos transactions à partir du module Payout (Revenu), recherchez la colonne intitulée **Final Collection Status** (État final de la collecte), puis appliquez le filtre pour afficher uniquement la valeur « Write Off » (Annuler). Additionnez ensuite le contenu de la colonne intitulée **Montant du paiement (DE)**.
+Après avoir téléchargé vos transactions à partir du module Payout (Revenu), recherchez la colonne intitulée **Final Collection Status** (État final de la collecte), puis appliquez le filtre pour afficher uniquement la valeur « Write Off » (Annuler). Additionnez ensuite le contenu de la colonne intitulée **Montant du paiement (DE)** .
 
 
 <a name="view-payout-or-customer-contact-information"></a>Affichage des coordonnées des clients ou des informations relatives aux revenus

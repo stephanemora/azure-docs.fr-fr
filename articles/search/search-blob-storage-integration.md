@@ -10,10 +10,10 @@ manager: cgronlun
 ms.author: magottei
 ms.custom: seodec2018
 ms.openlocfilehash: b6bb70e4c56adb162006d2597d301c73b12d2a8a
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65540885"
 ---
 # <a name="searching-blob-storage-with-azure-search"></a>Recherche dans le Stockage Blob avec la Recherche Azure
@@ -38,7 +38,7 @@ Un scénario courant qui facilite le tri dans les objets blob comportant tout ty
 ## <a name="image-search"></a>Recherche d’images
 La recherche de texte intégral de Recherche Azure, la navigation à facettes et les capacités de tri peuvent désormais être appliquées aux métadonnées des images stockées dans les objets blob.
 
-Recherche COGNITIVE inclut des compétences de traitement d’image comme [reconnaissance optique de caractères (OCR)](cognitive-search-skill-ocr.md) et d’identification de [fonctionnalités visual](cognitive-search-skill-image-analysis.md) qui permettent d’indexer le contenu visuel identifiée dans chaque image.
+La recherche cognitive inclut des compétences pour le traitement d’image comme la [reconnaissance optique des caractères (OCR)](cognitive-search-skill-ocr.md) et d’identification des [composants visuels](cognitive-search-skill-image-analysis.md) qui permettent d’indexer le contenu visuel identifié dans chaque image.
 
 ## <a name="index-and-search-through-json-blobs"></a>Indexation et recherche à l’aide des objets blob JSON
 Recherche Azure peut être configuré pour extraire le contenu structuré des objets blob qui contiennent des objets JSON. Recherche Azure peut lire les objets blob JSON et analyser le contenu structuré dans les champs adaptés du document Recherche Azure. Recherche Azure peut également extraire les objets blob contenant des objets JSON et mapper chaque élément avec un document Recherche Azure différent.

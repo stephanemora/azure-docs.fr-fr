@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: pabutler
 ms.openlocfilehash: 6fdab26bb5a4da5402a3a0a895a7c8835ef22c2f
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64935796"
 ---
 # <a name="configure-lead-management-for-dynamics-crm-online"></a>Configurez la gestion des prospects pour Dynamics CRM Online.
 
 Cet article explique comment configurer Dynamics CRM Online pour traiter les prospects commerciaux.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Avant de poursuivre cet article, vérifiez que vous disposer des autorisations utilisateur suivantes :
 - Vous devez être administrateur sur votre instance Dynamics CRM Online pour installer une solution.
@@ -79,27 +79,27 @@ Pour configurer Azure Active Directory pour Dynamics CRM, procédez comme suit.
     
     ![Utilisateurs de l’application](./media/cloud-partner-portal-lead-management-instructions-dynamics/applicationuserfirst.PNG)
 
-15. Sélectionnez **Nouveau** pour créer un utilisateur. Sélectionnez le **utilisateur : UTILISATEUR de l’APPLICATION** liste déroulante.
+15. Sélectionnez **Nouveau** pour créer un utilisateur. Sélectionnez la liste déroulante **UTILISATEUR : UTILISATEURS DE L’APPLICATION**.
     
     ![Ajouter un nouvel utilisateur de l’application](./media/cloud-partner-portal-lead-management-instructions-dynamics/applicationuser.PNG)
 
 16. Dans **Nouvel utilisateur**, indiquez le nom et l’adresse e-mail que vous souhaitez utiliser avec cette connexion. Dans **ID d’application**, collez l’application que vous avez créée dans le portail Azure.
 
-     ![Configurer le nouvel utilisateur](./media/cloud-partner-portal-lead-management-instructions-dynamics/leadgencreateuser.PNG)
+     ![Configurer un nouvel utilisateur](./media/cloud-partner-portal-lead-management-instructions-dynamics/leadgencreateuser.PNG)
 
 17. Accédez à « Paramètres de sécurité » dans cet article pour terminer la configuration de la connexion pour cet utilisateur.
 
 ### <a name="office-365"></a>Office 365
 
-Si vous ne souhaitez pas utiliser Azure Active Directory, vous pouvez inscrire un nouvel utilisateur sur le *centre d’administration Microsoft 365*. Vous devrez mettre à jour votre nom d’utilisateur/mot de passe tous les 90 jours pour continuer à obtenir des prospects.
+Si vous ne souhaitez pas utiliser Azure Active Directory, vous pouvez inscrire un nouvel utilisateur dans le *centre d’administration Microsoft 365*. Vous devrez mettre à jour votre nom d’utilisateur/mot de passe tous les 90 jours pour continuer à obtenir des prospects.
 
 Pour configurer Azure Active Office 365 pour Dynamics CRM, procédez comme suit.
 
-1. Se connecter à la [centre d’administration Microsoft 365](https://admin.microsoft.com).
+1. Connectez-vous au [centre d’administration Microsoft 365](https://admin.microsoft.com).
 
-2. Sélectionnez le **administrateur** vignette.
+2. Sélectionnez la vignette **Administrateur**.
 
-    ![Administration d’Office Online](./media/cloud-partner-portal-lead-management-instructions-dynamics/crmonline3.png)
+    ![Administrateur Office Online](./media/cloud-partner-portal-lead-management-instructions-dynamics/crmonline3.png)
 
 3. Sélectionnez **Ajouter un utilisateur**.
 
@@ -111,7 +111,7 @@ Pour configurer Azure Active Office 365 pour Dynamics CRM, procédez comme suit
     -   Sélectionnez « Utilisateur (pas d’accès administrateur) » en tant que rôle de l’utilisateur.
     -   Sélectionnez la licence comme indiqué dans la capture d’écran suivante. Vous êtes facturé pour la licence sélectionnée. La solution fonctionnera également avec licence Dynamics CRM Online De base.
     
-    ![Configurer des licences et les autorisations utilisateur](./media/cloud-partner-portal-lead-management-instructions-dynamics/crmonline5.png)
+    ![Configurer les autorisations utilisateur et la licence](./media/cloud-partner-portal-lead-management-instructions-dynamics/crmonline5.png)
 
 ## <a name="security-settings"></a>Paramètres de sécurité
 
@@ -124,14 +124,14 @@ L’étape finale consiste à permettre à l’utilisateur que vous avez créé 
 
 3.  Sélectionnez l’utilisateur que vous avez créé dans **Autorisations utilisateur**, puis sélectionnez **Gérer les rôles d’utilisateurs**. Sélectionnez **Rédacteur de prospects de la Place de marché Microsoft** pour attribuer le rôle.
 
-    ![Attribuer le rôle d’utilisateur](./media/cloud-partner-portal-lead-management-instructions-dynamics/crmonline7.png)\
+    ![Affecter un rôle utilisateur](./media/cloud-partner-portal-lead-management-instructions-dynamics/crmonline7.png)\
 
     >[!NOTE]
     >Ce rôle est créé par la solution que vous avez importée, et dispose uniquement des autorisations d’écrire les prospects et de suivre la version de la solution pour garantir la compatibilité.
 
 4.  Dans sécurité, sélectionnez **Rôles de sécurité** et trouvez le rôle Rédacteur de prospects de la Place de marché Microsoft.
     
-    ![Configurer le rédacteur en chef sécurité](./media/cloud-partner-portal-lead-management-instructions-dynamics/crmonline10.jpg)\
+    ![Configurer le rédacteur de prospects de sécurité](./media/cloud-partner-portal-lead-management-instructions-dynamics/crmonline10.jpg)\
 
 5. Sélectionnez l’onglet **Enregistrements principaux**. Activez les autorisations Créer/Lire/Écrire pour l’interface utilisateur de l’entité utilisateur.
 
@@ -139,7 +139,7 @@ L’étape finale consiste à permettre à l’utilisateur que vous avez créé 
 
 ## <a name="wrap-up"></a>Conclusion
 
-Terminez la configuration de Dynamics CRM pour la gestion des prospects en ajoutant les informations de compte générées sur le Portail Microsoft Cloud Partner. Par exemple : 
+Terminez la configuration de Dynamics CRM pour la gestion des prospects en ajoutant les informations de compte générées sur le Portail Microsoft Cloud Partner. Par exemple :
 
--   **Azure Active Directory** - **Id d’Application** (exemple : *23456052-aaaa-bbbb-8662-1234df56788f*), **Id de répertoire** (exemple : *12345678-8af1-4asf-1234-12234d01db47*), et **clé d’Application** (exemple : *1234ABCDEDFRZ/G/FdY0aUABCEDcqhbLn/ST122345nBc=*).
--   **Office 365** - **Url** (exemple : *https://contoso.crm4.dynamics.com*), **nom d’utilisateur** (exemple : *contoso\@ Contoso.onmicrosoft.com*), et **mot de passe** (exemple : *P\@ssw0rd*).
+-   **Azure Active Directory** - **ID d’application** (exemple : *23456052-aaaa-bbbb-8662-1234df56788f*), **ID de répertoire** (exemple : *12345678-8af1-4asf-1234-12234d01db47*), et **clé d’application** (exemple : *1234ABCDEDFRZ/G/FdY0aUABCEDcqhbLn/ST122345nBc=* ).
+-   **Office 365** - **Url** (exemple : *https://contoso.crm4.dynamics.com* ), **nom d’utilisateur** (exemple : *contoso\@ contoso.onmicrosoft.com*), et **mot de passe** (exemple : *P\@ ssw0rd*).

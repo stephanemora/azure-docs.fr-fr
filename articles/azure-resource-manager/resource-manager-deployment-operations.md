@@ -1,5 +1,5 @@
 ---
-title: L’historique de déploiement avec Azure Resource Manager | Microsoft Docs
+title: Historique de déploiement avec Azure Resource Manager | Microsoft Docs
 description: Décrit comment afficher les opérations de déploiement d’Azure Resource Manager avec le portail, PowerShell, la CLI Azure et l’API REST.
 tags: top-support-issue
 author: tfitzmac
@@ -8,57 +8,57 @@ ms.topic: conceptual
 ms.date: 05/13/2019
 ms.author: tomfitz
 ms.openlocfilehash: 58d22e3fcae5c30e5d7dcc39b317afeef4a693ee
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65606054"
 ---
-# <a name="view-deployment-history-with-azure-resource-manager"></a>Afficher l’historique de déploiement avec Azure Resource Manager
+# <a name="view-deployment-history-with-azure-resource-manager"></a>Afficher l’historique des déploiements avec Azure Resource Manager
 
-Azure Resource Manager vous permet de visualiser votre historique de déploiement et d’examiner des opérations spécifiques dans les derniers déploiements. Vous pouvez voir les ressources qui ont été déployées et obtenir des informations relatives aux erreurs.
+Azure Resource Manager vous permet d’afficher l’historique des déploiements et d’examiner des opérations spécifiques liées aux derniers déploiements. Vous pouvez voir les ressources qui ont été déployées et obtenir des informations relatives aux erreurs.
 
 Pour obtenir de l’aide afin de résoudre des erreurs de déploiement spécifiques, consultez [Résoudre les erreurs courantes lors du déploiement de ressources sur Azure avec Azure Resource Manager](resource-manager-common-deployment-errors.md).
 
 ## <a name="portal"></a>Portail
 
-Pour obtenir des informations sur un déploiement à partir de l’historique de déploiement.
+Pour obtenir des informations sur un déploiement à partir de l’historique des déploiements.
 
 1. Sélectionnez le groupe de ressources que vous souhaitez examiner.
 
-1. Sélectionnez le lien situé sous **déploiements**.
+1. Sélectionnez le lien sous **Déploiements**.
 
-   ![Sélectionnez l’historique de déploiement](./media/resource-manager-deployment-operations/select-deployment-history.png)
+   ![Sélectionner l’historique des déploiements](./media/resource-manager-deployment-operations/select-deployment-history.png)
 
-1. Sélectionnez un des déploiements à partir de l’historique de déploiement.
+1. Sélectionnez un des déploiements dans l’historique des déploiements.
 
-   ![Sélectionnez le déploiement](./media/resource-manager-deployment-operations/select-details.png)
+   ![Sélectionner un déploiement](./media/resource-manager-deployment-operations/select-details.png)
 
-1. Un résumé du déploiement s’affiche, notamment une liste de ressources qui ont été déployées.
+1. Un résumé du déploiement s’affiche. Il inclut notamment une liste des ressources qui ont été déployées.
 
     ![Résumé du déploiement](./media/resource-manager-deployment-operations/view-deployment-summary.png)
 
-1. Pour afficher le modèle utilisé pour le déploiement, sélectionnez **modèle**. Vous pouvez télécharger le modèle pour la réutiliser.
+1. Pour afficher le modèle utilisé pour le déploiement, sélectionnez **Modèle**. Vous pouvez télécharger le modèle pour le réutiliser.
 
     ![Afficher le modèle](./media/resource-manager-deployment-operations/show-template-from-history.png)
 
-1. Si votre déploiement a échoué, vous voyez le message d’erreur. Sélectionnez le message d’erreur pour plus d’informations.
+1. Si votre déploiement a échoué, un message d’erreur s’affiche. Sélectionnez le message d’erreur pour obtenir plus d’informations.
 
-    ![afficher l’échec du déploiement](./media/resource-manager-deployment-operations/show-error.png)
+    ![Afficher le déploiement ayant échoué](./media/resource-manager-deployment-operations/show-error.png)
 
 1. Le message d’erreur détaillé s’affiche.
 
-    ![Afficher les détails de l'erreur](./media/resource-manager-deployment-operations/show-details.png)
+    ![Afficher les détails de l’erreur](./media/resource-manager-deployment-operations/show-details.png)
 
-1. L’ID de corrélation est utilisé pour effectuer le suivi des événements connexes et peut être utile lorsque vous travaillez avec le support technique pour résoudre les problèmes d’un déploiement.
+1. L’ID de corrélation est utilisé pour effectuer le suivi des événements connexes et peut être utile lorsque vous travaillez avec le support technique pour résoudre un problème de déploiement.
 
     ![Obtenir l’ID de corrélation](./media/resource-manager-deployment-operations/get-correlation-id.png)
 
-1. Pour en savoir plus sur l’étape qui a échoué, sélectionnez **détails de l’opération**.
+1. Pour en savoir plus sur l’étape qui a échoué, sélectionnez **Détails de l’opération**.
 
-    ![Sélectionnez les opérations de déploiement](./media/resource-manager-deployment-operations/select-deployment-operations.png)
+    ![Sélectionner les opérations de déploiement](./media/resource-manager-deployment-operations/select-deployment-operations.png)
 
-1. Vous consultez les détails pour cette étape du déploiement.
+1. Vous voyez les détails de cette étape du déploiement.
 
     ![Afficher les détails de l’opération](./media/resource-manager-deployment-operations/show-operation-details.png)
 
@@ -78,7 +78,7 @@ Sinon, vous pouvez filtrer les résultats en les restreignant aux déploiements 
 Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup | Where-Object ProvisioningState -eq Failed
 ```
 
-L’ID de corrélation est utilisé pour effectuer le suivi des événements connexes et peut être utile lorsque vous travaillez avec le support technique pour résoudre les problèmes d’un déploiement. Pour obtenir l’ID de corrélation, utilisez :
+L’ID de corrélation est utilisé pour effectuer le suivi des événements connexes et peut être utile lorsque vous travaillez avec le support technique pour résoudre un problème de déploiement. Pour obtenir l’ID de corrélation, utilisez :
 
 ```azurepowershell-interactive
 (Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -DeploymentName azuredeploy).CorrelationId
@@ -124,7 +124,7 @@ targetResource        : @{id=/subscriptions/{guid}/resourceGroups/ExampleGroup/p
                        resourceType=Microsoft.Network/publicIPAddresses; resourceName=myPublicIP}
 ```
 
-Notez le serviceRequestId et le trackingId de l’opération. L’élément serviceRequestId peut être utile lorsque vous travaillez avec le support technique pour résoudre un problème de déploiement. Vous utiliserez le trackingId à l’étape suivante pour vous concentrer sur une opération particulière.
+Notez le serviceRequestId et le trackingId de l’opération. L’élément serviceRequestId peut être utile lorsque vous travaillez avec le support technique pour résoudre un problème de déploiement. Vous utiliserez le trackingId à l’étape suivante afin de vous concentrer sur une opération en particulier.
 
 Pour obtenir le message d’état d’une opération ayant échoué, utilisez la commande suivante :
 
@@ -140,7 +140,7 @@ code           message                                                          
 DnsRecordInUse DNS record dns.westus.cloudapp.azure.com is already used by another public IP. {}
 ```
 
-Chaque opération de déploiement dans Azure inclut le contenu de la demande et de la réponse. Au cours du déploiement, vous pouvez utiliser **DeploymentDebugLogLevel** paramètre pour spécifier que la demande et/ou la réponse est enregistré.
+Chaque opération de déploiement dans Azure inclut le contenu de la demande et de la réponse. Au cours du déploiement, vous pouvez utiliser le paramètre **DeploymentDebugLogLevel** pour spécifier que la requête et/ou la réponse doivent être journalisées.
 
 Vous obtenez ces informations à partir du journal et les enregistrez localement en utilisant les commandes PowerShell suivantes :
 
@@ -152,13 +152,13 @@ Vous obtenez ces informations à partir du journal et les enregistrez localement
 
 ## <a name="azure-cli"></a>Azure CLI
 
-Pour obtenir l’état global d’un déploiement, utilisez le **show de déploiement de groupe azure** commande.
+Pour récupérer l’état global d’un déploiement, utilisez la commande **azure group deployment show**.
 
 ```azurecli-interactive
 az group deployment show -g ExampleGroup -n ExampleDeployment
 ```
   
-L’ID de corrélation est utilisé pour effectuer le suivi des événements connexes et peut être utile lorsque vous travaillez avec le support technique pour résoudre les problèmes d’un déploiement.
+L’ID de corrélation est utilisé pour effectuer le suivi des événements connexes et peut être utile lorsque vous travaillez avec le support technique pour résoudre un problème de déploiement.
 
 ```azurecli-interactive
 az group deployment show -g ExampleGroup -n ExampleDeployment --query properties.correlationId
@@ -172,7 +172,7 @@ az group deployment operation list -g ExampleGroup -n ExampleDeployment
 
 ## <a name="rest"></a>REST
 
-Pour obtenir des informations sur le déploiement, utilisez le [obtenir des informations sur le déploiement d’un modèle](https://docs.microsoft.com/rest/api/resources/deployments) opération.
+Pour récupérer des informations sur un déploiement, utilisez l’opération [Obtenir des informations sur le déploiement d’un modèle](https://docs.microsoft.com/rest/api/resources/deployments) .
 
 ```
 GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}?api-version={api-version}
@@ -195,7 +195,7 @@ Dans la réponse, repérez en particulier les éléments **provisioningState**, 
 }
 ```
 
-Pour obtenir des informations sur les déploiements, utilisez [répertorier toutes les opérations de déploiement de modèle](https://docs.microsoft.com/rest/api/resources/deployments). 
+Pour obtenir des informations sur les déploiements, consultez [Répertorier toutes les opérations de déploiement de modèle](https://docs.microsoft.com/rest/api/resources/deployments). 
 
 ```
 GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}/operations?$skiptoken={skiptoken}&api-version={api-version}

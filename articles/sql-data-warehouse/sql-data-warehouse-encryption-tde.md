@@ -11,10 +11,10 @@ ms.date: 04/30/2019
 ms.author: kavithaj
 ms.reviewer: rortloff
 ms.openlocfilehash: e756049110f7d4a81950abf6ebbe73edb3e3ca0a
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65143162"
 ---
 # <a name="get-started-with-transparent-data-encryption-tde-in-sql-data-warehouse"></a>Mise en route avec le chiffrement transparent des données (TDE) dans SQL Data Warehouse
@@ -26,7 +26,7 @@ ms.locfileid: "65143162"
 > 
 > 
 
-## <a name="required-permissions"></a>Autorisations nécessaires
+## <a name="required-permissions"></a>Autorisations requises
 Pour activer le chiffrement transparent des données (TDE), vous devez être un administrateur ou un membre du rôle dbmanager.
 
 ## <a name="enabling-encryption"></a>Activation du chiffrement

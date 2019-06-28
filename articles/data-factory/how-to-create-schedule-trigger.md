@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: shlo
 ms.openlocfilehash: 09f80f69857ae17a0136229fe9bf13d4f63e7096
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65151084"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>Créer un déclencheur qui exécute un pipeline selon une planification
@@ -44,7 +44,7 @@ Vous pouvez créer un **déclencheur de planification** afin de planifier l’ex
 3. Dans la page **Nouveau déclencheur**, procédez comme suit : 
 
     1. Vérifiez que **Planifier** est sélectionné pour **Type**. 
-    2. Spécifiez la date/heure de début du déclencheur pour **Date de début (UTC)**. Par défaut, elle est définie sur la date/heure actuelle. 
+    2. Spécifiez la date/heure de début du déclencheur pour **Date de début (UTC)** . Par défaut, elle est définie sur la date/heure actuelle. 
     3. Spécifiez la **Périodicité** du déclencheur. Sélectionnez une des valeurs dans la liste déroulante (toutes les minutes, horaire, quotidienne, hebdomadaire et mensuelle). Entrez le multiplicateur dans la zone de texte. Par exemple, si vous souhaitez exécuter le déclencheur toutes les 15 minutes, vous sélectionnez **Toutes les minutes**, puis entrez **15** dans la zone de texte. 
     4. Si vous ne voulez pas spécifier une date/heure de fin dans le champ **Fin**, sélectionnez **No End** (Pas de fin). Pour spécifier une date/heure de fin, sélectionnez **On Date** (À la date) et spécifiez la date/heure de fin, puis cliquez sur **Appliquer**. Un coût est associé à chaque exécution du pipeline. Si vous effectuez un test, vous souhaiterez peut-être vous assurer que le pipeline n’est déclenché que deux fois. Toutefois, vérifiez que la durée est suffisante entre l’heure de publication et l’heure de fin pour permettre l’exécution du pipeline. Le déclencheur ne s’applique que lorsque vous avez publié la solution dans Data Factory, et non lorsque vous enregistrez le déclencheur dans l’interface utilisateur.
 
@@ -111,31 +111,31 @@ Cette section montre comment utiliser Azure PowerShell pour créer, démarrer et
     - Le déclencheur est associé au pipeline **Adfv2QuickStartPipeline**. Pour associer plusieurs pipelines à un déclencheur, ajoutez d’autres sections **pipelineReference**.
     - Le pipeline du guide de démarrage rapide prend deux valeurs de **paramètres** : **inputPath** et **outputPath**. Par conséquent, les valeurs de ces paramètres sont transmises à partir du déclencheur.
 
-2. Créer un déclencheur à l’aide de la **Set-AzDataFactoryV2Trigger** applet de commande :
+2. Créez un déclencheur avec l’applet de commande **Set-AzDataFactoryV2Trigger** :
 
     ```powershell
     Set-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger" -DefinitionFile "C:\ADFv2QuickStartPSH\MyTrigger.json"
     ```
 
-3. Vérifiez que l’état du déclencheur est **arrêté** à l’aide de la **Get-AzDataFactoryV2Trigger** applet de commande :
+3. Vérifiez que l’état du déclencheur est **Stopped** avec l’applet de commande **Get-AzDataFactoryV2Trigger** :
 
     ```powershell
     Get-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-4. Démarrez le déclencheur à l’aide de la **Start-AzDataFactoryV2Trigger** applet de commande :
+4. Démarrez le déclencheur avec la cmdlet **Start-AzDataFactoryV2Trigger** :
 
     ```powershell
     Start-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-5. Vérifiez que l’état du déclencheur est **démarré** à l’aide de la **Get-AzDataFactoryV2Trigger** applet de commande :
+5. Vérifiez que l’état du déclencheur est **Started** avec l’applet de commande **Get-AzDataFactoryV2Trigger** :
 
     ```powershell
     Get-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-6.  Get, le déclencheur s’exécute dans Azure PowerShell à l’aide de la **Get-AzDataFactoryV2TriggerRun** applet de commande. Pour obtenir les d’informations relatives aux exécutions du déclencheur, exécutez la commande suivante régulièrement. Mettez à jour les valeurs **TriggerRunStartedAfter** et **TriggerRunStartedBefore** pour qu’elles correspondent aux valeurs spécifiées dans la définition du déclencheur :
+6.  Récupérez les exécutions du déclencheur dans Azure PowerShell avec l’applet de commande **Get-AzDataFactoryV2TriggerRun**. Pour obtenir les d’informations relatives aux exécutions du déclencheur, exécutez la commande suivante régulièrement. Mettez à jour les valeurs **TriggerRunStartedAfter** et **TriggerRunStartedBefore** pour qu’elles correspondent aux valeurs spécifiées dans la définition du déclencheur :
 
     ```powershell
     Get-AzDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -TriggerName "MyTrigger" -TriggerRunStartedAfter "2017-12-08T00:00:00" -TriggerRunStartedBefore "2017-12-08T01:00:00"
@@ -327,11 +327,11 @@ Le tableau suivant présente une vue d’ensemble globale des principaux éléme
 
 | Propriété JSON | Type | Obligatoire | Valeur par défaut | Valeurs valides | Exemples |
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| **startTime** | Chaîne | Oui | Aucun | Dates-Heures ISO-8601 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
-| **recurrence** | Object | Oui | Aucun | Objet de périodicité | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
-| **interval** | Number | Non  | 1 | 1 à 1 000 | `"interval":10` |
-| **endTime** | Chaîne | Oui | Aucun | Une valeur date-heure représentant une heure dans le futur. | `"endTime" : "2013-02-09T09:30:00-08:00"` |
-| **schedule** | Object | Non  | Aucun | Objet de planification | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
+| **startTime** | Chaîne | OUI | Aucun | Dates-Heures ISO-8601 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
+| **recurrence** | Object | OUI | Aucun | Objet de périodicité | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
+| **interval** | Number | Non | 1 | 1 à 1 000 | `"interval":10` |
+| **endTime** | Chaîne | OUI | Aucun | Une valeur date-heure représentant une heure dans le futur. | `"endTime" : "2013-02-09T09:30:00-08:00"` |
+| **schedule** | Object | Non | Aucun | Objet de planification | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
 
 ### <a name="starttime-property"></a>propriété startTime
 Le tableau suivant vous montre comment la propriété **startTime** contrôle une exécution du déclencheur :
@@ -361,8 +361,8 @@ Le tableau suivant décrit les éléments **schedule** en détail :
 
 | Élément JSON | Description | Valeurs valides |
 |:--- |:--- |:--- |
-| **minutes** | Minutes d’exécution du déclencheur dans l’heure. | <ul><li>Entier </li><li>Tableau d’entiers</li></ul>
-| **hours** | Heures d’exécution du déclencheur dans la journée. | <ul><li>Entier </li><li>Tableau d’entiers</li></ul> |
+| **minutes** | Minutes d’exécution du déclencheur dans l’heure. | <ul><li>Entier</li><li>Tableau d’entiers</li></ul>
+| **hours** | Heures d’exécution du déclencheur dans la journée. | <ul><li>Entier</li><li>Tableau d’entiers</li></ul> |
 | **weekDays** | Jours d’exécution du déclencheur dans la semaine. La valeur ne peut être spécifiée qu’avec une fréquence hebdomadaire uniquement. | <ul><li>Lundi, mardi, mercredi, jeudi, vendredi, samedi, dimanche</li><li>Tableau des valeurs de jour (la taille maximale du tableau est de 7)</li><li>Les valeurs de jour ne respectent pas la casse</li></ul> |
 | **monthlyOccurrences** | Jours d’exécution du déclencheur dans le mois. La valeur ne peut être spécifiée qu’avec une fréquence mensuelle uniquement. | <ul><li>Tableau d’objets **monthlyOccurrence** : `{ "day": day,  "occurrence": occurrence }`.</li><li>L’attribut **day** est le jour de la semaine durant lequel le déclencheur s’exécute. Par exemple, une propriété **monthlyOccurrences** avec une valeur **day** de `{Sunday}` signifie tous les dimanches du mois. L’attribut **day** est requis.</li><li>L’attribut **occurrence** est l’occurrence du **jour** spécifié au cours du mois. Par exemple, une propriété **monthlyOccurrences** avec les valeurs **day** et **occurrence** de `{Sunday, -1}` signifie le dernier dimanche du mois. L’attribut **occurrence** est facultatif.</li></ul> |
 | **monthDays** | Jours d’exécution du déclencheur dans le mois. La valeur ne peut être spécifiée qu’avec une fréquence mensuelle uniquement. | <ul><li>Toute valeur <= -1 et >= -31</li><li>Toute valeur >= 1 et <= 31</li><li>Tableau de valeurs</li></ul> |

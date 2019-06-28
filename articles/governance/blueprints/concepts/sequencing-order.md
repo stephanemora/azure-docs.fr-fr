@@ -1,6 +1,6 @@
 ---
 title: Comprendre l’ordre de la séquence de déploiement
-description: En savoir plus sur le cycle de vie qui traverse par une définition de plan et les détails sur chaque étape.
+description: Découvrez le cycle de vie que traverse une définition de blueprint, ainsi que les détails de chaque phase.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/25/2019
@@ -9,15 +9,15 @@ ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
 ms.openlocfilehash: b05a7ce260e8cc1da4ac8a0c186694ae097a3b1e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64721291"
 ---
 # <a name="understand-the-deployment-sequence-in-azure-blueprints"></a>Comprendre la séquence de déploiement dans les blueprints Azure
 
-Azure utilise plans un **ordre de classement** pour déterminer l’ordre de la création de ressources lors du traitement de l’affectation d’une définition de plan. Cet article explique les concepts suivants :
+Azure Blueprints utilise un **ordre de séquencement** pour déterminer l’ordre de création des ressources pendant le traitement de l’affectation d’une définition de blueprint. Cet article explique les concepts suivants :
 
 - Ordre de séquencement par défaut qui est utilisé
 - Procédure de personnalisation de cet ordre
@@ -29,7 +29,7 @@ Les exemples JSON contiennent des variables que vous devez remplacer par vos pro
 
 ## <a name="default-sequencing-order"></a>Ordre de séquencement par défaut
 
-Si la définition de plan ne contient aucune directive pour la commande déployer les artefacts ou la directive est null, l’ordre suivant est utilisé :
+Si la définition de blueprint ne contient aucune directive pour l’ordre de déploiement des artefacts ou si la directive a la valeur null, l’ordre utilisé est le suivant :
 
 - Artefacts d’**attribution de rôle** au niveau de l’abonnement triés par nom d’artefact
 - Artefacts d’**attribution de stratégie** au niveau de l’abonnement triés par nom d’artefact
@@ -43,17 +43,17 @@ Dans chaque artefact de **groupe de ressources**, l’ordre de séquence suivant
 - Artefacts de **modèle Azure Resource Manager** enfant de groupe de ressources triés par nom d’artefact
 
 > [!NOTE]
-> Utilisation de [artifacts()](../reference/blueprint-functions.md#artifacts) crée une dépendance implicite sur l’artefact fait référence.
+> L’utilisation de [artifacts()](../reference/blueprint-functions.md#artifacts) crée une dépendance implicite sur l’artefact référencé.
 
 ## <a name="customizing-the-sequencing-order"></a>Personnalisation de l’ordre de séquencement
 
-Lorsque vous composez des définitions de plan de grande taille, il peut être nécessaire pour les ressources doit être créé dans un ordre spécifique. Le modèle d’utilisation plus courant de ce scénario est lorsqu’une définition de plan comprend plusieurs modèles Azure Resource Manager. À cet effet, les blueprints permettent de définir l’ordre de séquencement.
+Au moment de composer des définitions de blueprints de grande taille, il peut être nécessaire de créer des ressources dans un ordre spécifique. Ce cas de figure se présente plus particulièrement quand une définition de blueprint inclut plusieurs modèles Azure Resource Manager. À cet effet, les blueprints permettent de définir l’ordre de séquencement.
 
-Le classement est effectué en définissant une propriété `dependsOn` dans le JSON. La définition de plan, pour les groupes de ressources et les objets de l’artefact en charge cette propriété. `dependsOn` est un tableau de chaînes de noms d’artefacts que l’artefact en question doit créer au préalable.
+Le classement est effectué en définissant une propriété `dependsOn` dans le JSON. La définition de blueprint, pour les groupes de ressources, et les objets artefact prennent en charge cette propriété. `dependsOn` est un tableau de chaînes de noms d’artefacts que l’artefact en question doit créer au préalable.
 
-### <a name="example---ordered-resource-group"></a>Exemple - commandé le groupe de ressources
+### <a name="example---ordered-resource-group"></a>Exemple - Groupe de ressources classé
 
-Cet exemple de définition de plan a un groupe de ressources qui a défini un ordre de classement personnalisé en déclarant une valeur pour `dependsOn`, ainsi que d’un groupe de ressources standard. Dans ce cas, l’artefact nommé **assignPolicyTags** est traité avant le groupe de ressources **ordered-rg**.
+Cet exemple de définition de blueprint présente un groupe de ressources pour lequel un ordre de séquencement personnalisé a été défini en déclarant une valeur pour `dependsOn`, ainsi qu’un groupe de ressources standard. Dans ce cas, l’artefact nommé **assignPolicyTags** est traité avant le groupe de ressources **ordered-rg**.
 **standard-rg** est traité selon l’ordre de séquencement par défaut.
 
 ```json
@@ -104,9 +104,9 @@ Cet exemple est un artefact de stratégie qui dépend d’un modèle Azure Resou
 }
 ```
 
-### <a name="example---subscription-level-template-artifact-depending-on-a-resource-group"></a>Exemple - artefact de modèle de niveau d’abonnement en fonction d’un groupe de ressources
+### <a name="example---subscription-level-template-artifact-depending-on-a-resource-group"></a>Exemple - Artefact de modèle de niveau d’abonnement dépendant d’un groupe de ressources
 
-Cet exemple concerne un modèle Resource Manager déployé au niveau de l’abonnement à dépendre d’un groupe de ressources. Classement par défaut, les artefacts de niveau d’abonnement seront créées, avant les groupes de ressources et les artefacts enfant dans ces groupes de ressources. Le groupe de ressources est défini dans la définition de plan comme suit :
+Cet exemple concerne un modèle Resource Manager déployé au niveau de l’abonnement pour dépendre d’un groupe de ressources. Dans le classement par défaut, les artefacts de niveau d’abonnement seront créés avant les groupes de ressources et les artefacts enfants dans ces groupes de ressources. Le groupe de ressources est défini dans la définition de blueprint comme suit :
 
 ```json
 "resourceGroups": {
@@ -118,7 +118,7 @@ Cet exemple concerne un modèle Resource Manager déployé au niveau de l’abon
 }
 ```
 
-L’artefact de modèle de niveau d’abonnement en fonction de la **wait-pour-me** groupe de ressources est défini comme suit :
+L’artefact de modèle de niveau d’abonnement dépendant du groupe de ressources **wait-for-me** est défini comme suit :
 
 ```json
 {

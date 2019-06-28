@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
-ms.openlocfilehash: bf6eca33eb1448eb84065fb7fe184d01e77feb61
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c83eb1f6525c54bc44386f84498789b50bf19043
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60387268"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64721137"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Extensions et fonctionnalités de machine virtuelle pour Linux
 
@@ -38,7 +38,7 @@ Plusieurs extensions de machine virtuelle Azure sont disponibles, chacune impliq
 
 En plus des extensions propres à des processus, une extension de script personnalisé est disponible pour les machines virtuelles Windows et Linux. L’extension de script personnalisé pour Linux permet d’exécuter n’importe quel script Bash sur une machine virtuelle. Les scripts personnalisés s’avèrent utile pour concevoir des déploiements Azure qui nécessitent une configuration plus avancée que celle fournie par les outils Azure natifs. Pour plus d’informations sur l’extension de script personnalisé pour les machines virtuelles Linux, consultez [cet article](custom-script-linux.md).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 La gestion de l’extension sur la machine virtuelle nécessite l’installation préalable de l’agent Linux Azure. Certaines extensions spécifiques présentent des prérequis, tels que l’accès à des ressources ou dépendances.
 
@@ -57,7 +57,7 @@ Des versions minimales de l’agent sont disponibles afin d’offrir la meilleur
 L’agent Linux s’exécute sur plusieurs systèmes d’exploitation ; toutefois, l’infrastructure des extensions présente certaines limites relatives aux systèmes d’exploitation pris en charge par les extensions. Pour plus d’informations, consultez [cet article](https://support.microsoft.com/en-us/help/4078134/azure-extension-supported-operating-systems
 ).
 
-Certaines extensions ne sont pas prises en charge sur tous les systèmes d’exploitation et peuvent générer le *Code d’erreur 51, « Système d’exploitation non pris en charge »*. Pour plus d’informations sur la capacité de prise en charge, consultez la documentation de l’extension concernée.
+Certaines extensions ne sont pas prises en charge sur tous les systèmes d’exploitation et peuvent générer le *Code d’erreur 51, « Système d’exploitation non pris en charge »* . Pour plus d’informations sur la capacité de prise en charge, consultez la documentation de l’extension concernée.
 
 #### <a name="network-access"></a>Accès réseau
 
@@ -337,7 +337,7 @@ La procédure de résolution des problèmes ci-après s’applique à toutes les
 
 1. Pour consulter le journal de l’agent Linux, examinez l’activité au moment où votre extension a été provisionnée dans */var/log/waagent.log*
 
-2. Pour plus de détails, vérifiez les journaux d’activité d’extension proprement dits, à l’emplacement */var/log/azure/<extensionName>*
+2. Pour plus de détails, vérifiez les journaux d’activité d’extension proprement dits, à l’emplacement */var/log/azure/\<nom_extension>*
 
 3. Consultez les sections de résolution des problèmes dans la documentation de l’extension concernée pour vous renseigner sur les codes d’erreur, les problèmes connus, etc.
 

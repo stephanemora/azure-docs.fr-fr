@@ -1,6 +1,6 @@
 ---
-title: Modèle de coût pour les fichiers de NetApp Azure | Microsoft Docs
-description: Décrit le modèle de coût pour les fichiers de NetApp Azure pour la gestion des dépenses du service.
+title: Modèle de coût pour Azure NetApp Files | Microsoft Docs
+description: Décrit le modèle de coût d’Azure NetApp Files pour faciliter la gestion des dépenses liées à ce service.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -15,80 +15,80 @@ ms.topic: conceptual
 ms.date: 05/01/2019
 ms.author: b-juche
 ms.openlocfilehash: b06e3366224b90899dd3f9f9439edf897de82794
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65524219"
 ---
 # <a name="cost-model-for-azure-netapp-files"></a>Modèle de coût pour Azure NetApp Files 
 
-Présentation du modèle de coût pour les fichiers de NetApp Azure vous permet de gérer vos dépenses à partir du service.
+Une bonne compréhension du modèle de coût d’Azure NetApp Files vous aidera à gérer vos dépenses liées à ce service.
 
 ## <a name="calculation-of-capacity-consumption"></a>Calcul de la consommation de capacité
 
-Les fichiers NetApp Azure est facturé sur la capacité de stockage configurée.  Capacité allouée est allouée en créant des pools de capacité.  Pools de capacité sont facturés en fonction $/ approvisionné-Go/mois incréments horaires. La taille minimale d’un pool de capacité unique est de 4 TIO et pools de capacité peuvent être développées par la suite en incréments de 1 TIO. Les volumes sont créés dans des pools de capacité.  Chaque volume est affecté à un quota qui décrémente à partir de la capacité d’allocation de pools. Le quota qui peut être affecté à des volumes plages à partir d’un minimum de 100 Go à un maximum de TIO 92.  
+Azure NetApp Files est facturé en fonction de la capacité de stockage approvisionnée.  La capacité approvisionnée est allouée par la création de pools de capacité.  Les pools de capacité sont facturés en €/Gio approvisionnés/mois par incréments horaires. La taille minimale d’un pool de capacité est de 4 Tio, et les pools de capacité peuvent ensuite être étendus par incréments de 1 Tio. Des volumes sont créés dans les pools de capacité.  Chaque volume reçoit un quota qui se décrémente de la capacité approvisionnée pour les pools. Le quota pouvant être attribué aux volumes est compris entre 100 Gio et 92 Tio.  
 
-Pour un volume actif, la consommation de capacité dans le quota est basée sur la capacité (réelle) logique.
+Dans le cas d’un volume actif, la consommation de capacité par rapport au quota repose sur la capacité (effective) logique.
 
-Si la consommation de la capacité réelle d’un volume dépasse son quota de stockage, le volume peut continuer à augmenter. Écritures sont toujours autorisées tant que la taille du volume réel est inférieur à la limite du système (100 To).  
+Si la consommation de capacité réelle d’un volume dépasse son quota de stockage, le volume peut continuer à augmenter. Les écritures restent autorisées tant que la taille réelle du volume est inférieure à la limite système (100 Tio).  
 
-La capacité totale utilisée dans un pool de capacité par rapport à son montant approvisionné est la somme des supérieure du quota attribué ou réel la consommation de tous les volumes au sein du pool : 
+La capacité totale utilisée dans un pool de capacité par rapport à la capacité approvisionnée pour ce pool correspond soit à la somme du quota attribué, soit à la somme de la consommation réelle (selon la plus grande de ces valeurs) de tous les volumes au sein du pool : 
 
    ![Calcul de la capacité totale utilisée](../media/azure-netapp-files/azure-netapp-files-total-used-capacity.png)
 
 Le diagramme ci-dessous illustre ces concepts.  
-* Nous avons un pool de capacité avec 4 TIO capacité déployée.  Le pool contient trois volumes.  
-    * Volume 1 est affectée à un quota de 2 TIO et a 800 Go de consommation.  
-    * Volume 2 est affecté à un quota de 1 TIO et a 100 Go de consommation.  
-    * Volume 3 est affecté à un quota de 500 Go, mais a 800 Go de consommation (dépassement).  
-* Le pool de capacité est limitée pour 4 To de capacité (le montant configuré).  
-    3.8 TIO de capacité est consommée (2 TIO et 1 TIO de quota de Volumes 1 et 2 et 800 Go de consommation réelle pour le Volume 3). Et 200 Go de capacité restante.
+* Nous disposons d’un pool de capacité avec 4 Tio de capacité approvisionnée.  Ce pool comporte trois volumes.  
+    * Le volume 1 a reçu un quota de 2 Tio et présente une consommation de 800 Gio.  
+    * Le volume 2 a reçu un quota de 1 Tio et présente une consommation de 100 Gio.  
+    * Le volume 3 a reçu un quota de 500 Gio et présente une consommation de 800 Gio (dépassement).  
+* Le pool de capacité est limité à 4 Tio de capacité (quantité approvisionnée).  
+    3,8 Tio de capacité sont consommés (2 Tio et 1 Tio de quota pour les volumes 1 et 2, et 800 Gio de consommation réelle pour le volume 3). Il reste donc 200 Gio de capacité.
 
    ![Pool de capacité avec trois volumes](../media/azure-netapp-files/azure-netapp-files-capacity-pool-with-three-vols.png)
 
 ## <a name="overage-in-capacity-consumption"></a>Dépassement de la consommation de capacité  
 
-Lorsque le total utilisé la capacité d’un pool dépasse sa capacité déployée, écritures de données sont toujours autorisés.  Après la période de grâce (une heure), si la capacité utilisée du pool dépasse encore sa capacité déployée, puis la taille du pool est incrémentée automatiquement par incréments de 1 TIO jusqu'à ce que la capacité configurée est supérieure à la capacité totale utilisée.  Par exemple, dans l’illustration ci-dessus, si le Volume 3 continue de croître et de la consommation réelle atteint 1,2 To, puis après la période de grâce, le pool sera automatiquement être redimensionné à 5 To.  Le résultat est que la capacité du pool approvisionné (5 To) dépasse la capacité utilisée (TIO 4.2).  
+Lorsque la capacité totale utilisée d’un pool dépasse la capacité approvisionnée pour ce pool, les écritures de données restent autorisées.  Après la période de grâce (d’une heure), si la capacité utilisée du pool dépasse encore la capacité approvisionnée pour ce pool, la taille du pool est automatiquement augmentée par incréments de 1 Tio jusqu’à ce que la capacité approvisionnée soit supérieure à la capacité totale utilisée.  Par exemple, dans l’illustration ci-dessus, si le volume 3 continue de croître et que la consommation réelle atteint 1,2 Tio, après la période de grâce, le pool est automatiquement redimensionné à 5 Tio.  La capacité approvisionnée pour le pool (5 Tio) dépasse donc la capacité utilisée (4,2 Tio).  
 
-## <a name="manual-changes-of-the-pool-size"></a>Modifications manuelles de la taille du pool  
+## <a name="manual-changes-of-the-pool-size"></a>Modifications manuelles de la taille d’un pool  
 
-Vous pouvez augmenter ou diminuer la taille du pool manuellement. Toutefois, les contraintes suivantes s’appliquent :
+Vous pouvez augmenter ou diminuer manuellement la taille d’un pool. Toutefois, les contraintes suivantes s’appliquent :
 * Limites minimales et maximales du service  
-    Consultez l’article sur [limites de ressources](azure-netapp-files-resource-limits.md).
-* Un incrément de 1 TIO après l’achat minimum de 4 TIO initiale
-* Un incrément de facturation minimale d’une heure
-* La taille du pool approvisionné ne peut pas être réduite à moins que le total de capacité utilisée dans le pool.
+    Consultez l’article relatif aux [limites de ressources](azure-netapp-files-resource-limits.md).
+* Incrément de 1 Tio après l’achat initial de 4 Tio minimum
+* Incrément de facturation d’une heure minimum
+* Impossibilité d’abaisser la taille de pool approvisionnée à une valeur inférieure à la capacité totale utilisée dans le pool
 
-## <a name="behavior-of-maximum-size-pool-overage"></a>Comportement de dépassement de-taille maximale du pool   
+## <a name="behavior-of-maximum-size-pool-overage"></a>Comportement en cas de dépassement de la taille maximale d’un pool   
 
-La taille maximale d’un pool de capacité que vous pouvez créer ou redimensionner sur est 500 TIO.  Lorsque le total de capacité utilisée dans un pool de capacité dépasse 500 TIO, les situations suivantes seront produit :
-* Écritures de données sont toujours autorisées (si le volume est inférieur au maximum de système de 100 To).
-* Après la période de grâce d’une heure, le pool doit être automatiquement redimensionné par incréments de 1 TIO, jusqu'à ce que la capacité du pool approvisionné dépasse la capacité totale utilisée.
-* Supplémentaires configurés et facturés de capacité du pool supérieure à 500 TIO ne peut pas être utilisée pour affecter de quota de volume. Il ne peut pas également être utilisé pour développer les limites de qualité de service de performances.  
-    Consultez [les niveaux de service](azure-netapp-files-service-levels.md) sur les limites de performances et dimensionnement de la qualité de service.
+La taille maximale d’un pool de capacité que vous créez ou redimensionnez est de 500 Tio.  Lorsque la capacité totale utilisée dans un pool de capacité dépasse 500 Tio, les situations suivantes se produisent :
+* Les écritures de données restent autorisées (tant que le volume est inférieur à la limite système maximale de 100 Tio).
+* Après la période de grâce d’une heure, le pool est automatiquement redimensionné par incréments de 1 Tio, jusqu’à ce que la capacité approvisionnée pour le pool dépasse la capacité totale utilisée.
+* La capacité supplémentaire approvisionnée et facturée pour le pool supérieure à 500 Tio ne peut pas être utilisée pour attribuer un quota de volume. Elle n’est pas non plus utilisable pour l’extension des limites de qualité de service du niveau de performance.  
+    Pour plus d’informations sur les limites du niveau de performance et le dimensionnement de la qualité de service, consultez l’article [Niveaux de service](azure-netapp-files-service-levels.md).
 
-Le diagramme ci-dessous illustre ces concepts :
-* Nous avons un pool de capacité avec un niveau de stockage Premium et une capacité de 500 TIO. Le pool contient neuf volumes.
-    * Volumes 1 à 8 sont affectés à un quota de 60 TIO chacune.  La capacité totale utilisée est to 480.  
-        Chaque volume a une limite de qualité de service de 3,75 Gio/s de débit (TIO 60 * 64 Mio/s).  
-    * Volume 9 est assigné un quota de 20 To.  
-        Volume 9 a une limite de qualité de service de 1,25 Gio/s de débit (TIO 60 * 64 Mio/s).
-* Volume 9 est un scénario de dépassement. Elle possède 25 TIO de la consommation réelle.  
-    * Après la période de grâce d’une heure, le pool de capacité doit être redimensionné sur TIO 505.  
-        Autrement dit, nombre total de capacité utilisées = 8 * 60-quota TIO pour les Volumes 1 à 8 et 25 TIO de la consommation réelle pour Volume 9.
-    * La capacité facturée est to 505.
-    * Impossible d’augmenter le quota de volume pour le Volume 9 (car le quota total attribué pour le pool ne doit pas dépasse 500 TIO).
-    * Débit de qualité de service supplémentaire ne peut pas être assigné (étant donné que la qualité de service total pour le pool est toujours basée sur 500 TIO).
+Le diagramme ci-dessous illustre ces concepts :
+* Nous disposons d’un pool de capacité avec un niveau de stockage Premium et une capacité de 500 Tio. Ce pool comporte neuf volumes.
+    * Les volumes 1 à 8 ont reçu un quota de 60 Tio chacun.  La capacité totale utilisée est de 480 Tio.  
+        Chaque volume présente une limite de qualité de service de 3,75 Gio/s de débit (60 Tio * 64 Mio/s).  
+    * Le volume 9 a reçu un quota de 20 Tio.  
+        Le volume 9 présente une limite de qualité de service de débit de 1,25 Gio/s de débit (60 Tio * 64 Mio/s).
+* Le volume 9 correspond à un scénario de dépassement. Sa consommation réelle est de 25 Tio.  
+    * Après la période de grâce d’une heure, le pool de capacité doit être redimensionné à 505 Tio.  
+        Autrement dit, la capacité totale utilisée est de 8 * le quota de 60 Tio pour les volumes 1 à 8, et 25 Tio de consommation réelle pour le volume 9.
+    * La capacité facturée est de 505 Tio.
+    * Le quota du volume 9 ne peut être augmenté (car le quota total attribué pour le pool ne peut pas dépasser 500 Tio).
+    * Aucun débit de qualité de service supplémentaire ne peut être attribué (car la qualité de service totale pour le pool reste basée sur 500 Tio).
 
-   ![Pool de capacité avec neuf des volumes](../media/azure-netapp-files/azure-netapp-files-capacity-pool-with-nine-vols.png)
+   ![Pool de capacité avec neuf volumes](../media/azure-netapp-files/azure-netapp-files-capacity-pool-with-nine-vols.png)
 
-## <a name="capacity-consumption-of-snapshots"></a>Consommation de la capacité de captures instantanées 
+## <a name="capacity-consumption-of-snapshots"></a>Consommation de capacité des captures instantanées 
 
-La consommation de capacité de captures instantanées de fichiers NetApp de Azure est facturée par rapport au quota du volume parent.  Par conséquent, il partage le même taux de facturation en tant que le pool de capacité à laquelle appartient le volume.  Toutefois, contrairement au volume actif, la consommation de la capture instantanée est mesurée en fonction de la capacité incrémentielle utilisée.  Les instantanés de fichiers de NetApp Azure sont différentielles par nature. Selon le taux de modification des données, les instantanés consomment souvent beaucoup moins puissant que la capacité logique du volume actif. Par exemple, supposons que vous disposez d’un instantané d’un volume de 500 Gio qui contient uniquement les 10 Go de données différentielles. La capacité est facturée par rapport au quota de volume pour cet instantané serait de 10 Gio, pas de 500 Go. 
+La consommation de capacité des captures instantanées dans Azure NetApp Files est facturée au niveau du quota du volume parent.  Par conséquent, elle applique le même taux de facturation que le pool de capacité auquel appartient le volume.  Toutefois, contrairement au volume actif, la consommation des captures instantanées est mesurée sur la base de la capacité incrémentielle consommée.  Les captures instantanées Azure NetApp Files sont différentielles par nature. Selon le taux de modification des données, les captures instantanées consomment souvent une capacité sensiblement inférieure à la capacité logique du volume actif. Par exemple, supposons que vous disposiez d’une capture instantanée d’un volume de 500 Gio contenant uniquement 10 Gio de données différentielles. Dans ce cas, la capacité facturée au niveau du quota de volume pour cette capture instantanée serait de 10 Gio, et non de 500 Gio. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Azure Files NetApp page de tarification](https://azure.microsoft.com/pricing/details/storage/netapp/)
+* [Tarification Azure NetApp Files](https://azure.microsoft.com/pricing/details/storage/netapp/)
 * [Niveaux de service pour Azure NetApp Files](azure-netapp-files-service-levels.md)
 * [Limites des ressources pour Azure NetApp Files](azure-netapp-files-resource-limits.md)

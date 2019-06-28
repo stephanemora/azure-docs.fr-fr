@@ -16,10 +16,10 @@ ms.date: 12/18/2018
 ms.author: lahugh
 ms.custom: seodec18
 ms.openlocfilehash: 1fbe5b0a49960248133c35fb4a0401a31b95fb35
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64700934"
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Développer des solutions de calcul parallèles à grande échelle avec Batch
@@ -132,7 +132,7 @@ Lorsque vous créez un pool Batch, vous pouvez spécifier la configuration de m
 
 - La **configuration de machines virtuelles** indique que le pool est composé de machines virtuelles Azure. Ces machines virtuelles peuvent être créées à partir d’images Linux ou Windows. 
 
-    Lorsque vous créez un pool basé sur la configuration de machine virtuelle, vous devez spécifier la taille des nœuds, mais aussi la source et les images utilisées pour les créer, la **référence d’image de machine virtuelle** et la **référence SKU de l’agent du nœud** à installer sur les nœuds. Pour plus d’informations sur la spécification des propriétés de pool, voir [Configurer des nœuds de calcul Linux dans des pools Azure Batch](batch-linux-nodes.md). Vous pouvez éventuellement attacher un ou plusieurs disques de données vides au pool de machines virtuelles créé à partir d’images de la Place de Marché, ou inclure des disques de données dans des images personnalisées utilisées pour créer les machines virtuelles. Lorsque vous incluez des disques de données, vous devez monter et formater les disques à partir d’une machine virtuelle pour les utiliser.
+    Lorsque vous créez un pool basé sur la configuration de machine virtuelle, vous devez spécifier la taille des nœuds, mais aussi la source et les images utilisées pour les créer, la **référence d’image de machine virtuelle** et la **référence SKU de l’agent du nœud** à installer sur les nœuds. Pour plus d’informations sur la spécification des propriétés de pool, voir [Configurer des nœuds de calcul Linux dans des pools Azure Batch](batch-linux-nodes.md). Vous pouvez éventuellement attacher un ou plusieurs disques de données vides au pool de machines virtuelles créé à partir d’images de la Place de Marché, ou inclure des disques de données dans des images personnalisées utilisées pour créer les machines virtuelles. Quand vous incluez des disques de données, vous devez monter et formater les disques à partir d’une machine virtuelle pour les utiliser.
 
 - La **configuration de Cloud Services** indique que le pool est composé de nœuds Microsoft Azure Cloud Services. Ce dernier fournit *uniquement* des nœuds de calcul Windows.
 
@@ -471,7 +471,7 @@ Les échecs de tâche peuvent être classés suivant les catégories suivantes 
 ### <a name="accounting-for-task-failures-or-interruptions"></a>Prise en compte des échecs ou des interruptions de tâche
 Les tâches peuvent parfois échouer ou être interrompues. L’application de la tâche elle-même peut échouer, le nœud sur lequel elle s’exécute peut être redémarré, voire supprimé du pool pendant le redimensionnement de ce dernier si la stratégie de désallocation du pool définie prévoit la suppression immédiate des nœuds, sans attendre la fin des tâches. Dans tous les cas, la tâche peut être automatiquement remise en file d’attente par Batch pour être exécutée sur un autre nœud.
 
-Il est également possible qu’un problème intermittent provoquer une tâche à cesser de répondre ou est trop longue à exécuter. Vous pouvez définir l’intervalle d’exécution maximal d’une tâche. Si l’intervalle d’exécution maximal est dépassé, le service Batch interrompt l’application de la tâche.
+Un problème intermittent peut également provoquer la non-réponse soudaine d’une tâche ou ralentir son exécution. Vous pouvez définir l’intervalle d’exécution maximal d’une tâche. Si l’intervalle d’exécution maximal est dépassé, le service Batch interrompt l’application de la tâche.
 
 ### <a name="connecting-to-compute-nodes"></a>Se connecter aux nœuds de calcul
 Vous pouvez effectuer des actions supplémentaires de débogage et de résolution des problèmes en vous connectant à un nœud de calcul à distance. Vous pouvez utiliser le portail Azure pour télécharger un fichier RDP pour les nœuds Windows et obtenir des informations de connexion SSH pour les nœuds Linux. Vous pouvez également effectuer cette opération à l’aide des API Batch, par exemple [.NET Batch][net_rdpfile] ou [Python Batch](batch-linux-nodes.md#connect-to-linux-nodes-using-ssh).

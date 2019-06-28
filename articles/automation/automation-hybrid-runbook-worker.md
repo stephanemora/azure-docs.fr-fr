@@ -10,10 +10,10 @@ ms.date: 04/05/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 785cf5159615b4a81740e853f2b513f0e6d74aec
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65198466"
 ---
 # <a name="automate-resources-in-your-datacenter-or-cloud-by-using-hybrid-runbook-worker"></a>Automatiser les ressources de votre centre de données ou de votre cloud à l’aide d’un Runbook Worker hybride
@@ -97,11 +97,11 @@ Pour supprimer un groupe, vous devez tout d’abord supprimer les Runbooks Worke
 
 ### <a name="hybrid-worker-role"></a>Worker hybride
 
-Pour le Runbook Worker hybride pour se connecter à inscrire auprès d’Azure Automation, il doit avoir accès pour le numéro de port et les URL qui sont décrites dans cette section. Cet accès est en haut pour la [ports et URL requis pour Microsoft Monitoring Agent](../azure-monitor/platform/agent-windows.md) pour se connecter aux journaux d’Azure Monitor.
+Pour que le Runbook Worker hybride se connecte à Azure Automation et y soit inscrit, il doit avoir accès au numéro de port et aux URL décrits dans cette section. Cet accès se situe au-dessus des [ports et URL nécessaires pour que Microsoft Monitoring Agent](../azure-monitor/platform/agent-windows.md) puisse se connecter aux journaux Azure Automation.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-Si vous utilisez un serveur proxy pour la communication entre l’agent et le service Azure Automation, assurez-vous que les ressources appropriées sont accessibles. Le délai d’expiration pour les demandes de workers hybrides et les services d’automatisation est de 30 secondes. La demande échoue après 3 tentatives. Si vous utilisez un pare-feu pour restreindre l’accès à Internet, vous devez configurer votre pare-feu pour autoriser l’accès. Si vous utilisez la passerelle Log Analytics en tant que proxy, vérifiez qu’elle est configurée pour les workers hybrides. Pour obtenir des instructions à ce sujet, consultez [Configuration de la passerelle Log Analytics pour les Workers hybrides Automation](https://docs.microsoft.com/azure/log-analytics/log-analytics-oms-gateway).
+Si vous utilisez un serveur proxy pour la communication entre l’agent et le service Azure Automation, assurez-vous que les ressources appropriées sont accessibles. Le délai d’expiration pour les demandes du Runbook Worker hybride et des services Automation est de 30 secondes. La demande échoue après 3 tentatives. Si vous utilisez un pare-feu pour restreindre l’accès à Internet, vous devez configurer votre pare-feu pour autoriser l’accès. Si vous utilisez la passerelle Log Analytics en tant que proxy, vérifiez qu’elle est configurée pour les workers hybrides. Pour obtenir des instructions à ce sujet, consultez [Configuration de la passerelle Log Analytics pour les Workers hybrides Automation](https://docs.microsoft.com/azure/log-analytics/log-analytics-oms-gateway).
 
 Les port et URL suivants sont requis pour que le rôle Runbook Worker hybride communique avec Automation :
 

@@ -15,15 +15,15 @@ ms.topic: article
 ms.author: jowargo
 ms.date: 04/08/2019
 ms.openlocfilehash: 5a70eec15003a1f75a80740f269f6df3523012a8
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64685390"
 ---
 # <a name="registration-management"></a>Gestion des inscriptions
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
 Cette rubrique explique comment inscrire des appareils auprès des hubs de notification en vue de recevoir des notifications Push. Elle donne une description générale des inscriptions, puis présente les deux principaux modes d’inscription des appareils : l’inscription de l’appareil directement auprès du hub de notification et l’inscription via un serveur principal d’application.
 
@@ -45,7 +45,7 @@ Une installation est une inscription améliorée qui inclut un conteneur de prop
 Voici certains avantages essentiels que présente l’utilisation d’installations :
 
 - La création ou la mise à jour d’une installation est entièrement idempotente. Vous pouvez donc la retenter sans vous soucier des inscriptions en double.
-- Le modèle d’installation prend en charge un format de balise spéciale (`$InstallationId:{INSTALLATION_ID}`) qui permet l’envoi d’une notification directement à un périphérique spécifique. Par exemple, si le code de l’application définit un ID d’installation de `joe93developer` pour cet appareil particulier, un développeur peut cibler ce périphérique lors de l’envoi d’une notification à le `$InstallationId:{joe93developer}` balise. Cela vous permet de cibler un appareil spécifique sans avoir à effectuer aucun codage supplémentaire.
+- Le modèle d’installation prend en charge un format de balise spécial (`$InstallationId:{INSTALLATION_ID}`) qui permet l’envoi d’une notification directement à un appareil spécifique. Par exemple, si le code de l’application définit l’ID d’installation `joe93developer` pour cet appareil particulier, un développeur peut cibler cet appareil lors de l’envoi d’une notification à la balise `$InstallationId:{joe93developer}`. Ceci vous permet de cibler un appareil spécifique sans avoir à effectuer aucun codage supplémentaire.
 - L’utilisation d’installations vous permet également d’effectuer des mises à jour partielles d’inscriptions. La mise à jour partielle d’une installation est demandée avec une méthode PATCH utilisant la [norme JSON-Patch](https://tools.ietf.org/html/rfc6902). Cette opération est utile lorsque vous voulez mettre à jour des balises sur l’inscription. Il n’est pas nécessaire de retirer la totalité de l’inscription et de renvoyer à nouveau toutes les balises précédentes.
 
 Une installation peut contenir les propriétés suivantes. Pour obtenir la liste complète des propriétés d’installation, consultez [Créer ou remplacer une installation avec l’API REST](https://docs.microsoft.com/rest/api/notificationhubs/create-overwrite-installation) ou [Propriétés d’installation](https://docs.microsoft.com/dotnet/api/microsoft.azure.notificationhubs.installation).
@@ -314,7 +314,7 @@ public async Task<HttpResponseMessage> Put(DeviceInstallation deviceUpdate)
 
 ### <a name="example-code-to-register-with-a-notification-hub-from-a-device-using-a-registration-id"></a>Exemple de code permettant de s’inscrire auprès d’un hub de notification à partir d’un appareil à l’aide d’un ID d’inscription
 
-À partir de votre serveur principal d’application, vous pouvez effectuer les opérations CRUD de base sur les inscriptions. Par exemple : 
+À partir de votre serveur principal d’application, vous pouvez effectuer les opérations CRUD de base sur les inscriptions. Par exemple :
 
 ```
 var hub = NotificationHubClient.CreateClientFromConnectionString("{connectionString}", "hubName");

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
 ms.openlocfilehash: 831f6b4bdc99e63859b390f8a9bb88d74301284e
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62128098"
 ---
 # <a name="how-to-use-the-mobile-apps-nodejs-sdk"></a>Utiliser le Kit de développement logiciel (SDK) Node.js pour Mobile Apps
@@ -135,7 +135,7 @@ Visual Studio 2015 requiert une extension pour développer les applications No
 
     Enregistrez le fichier .
 
-1. Exécutez l’application localement (l’API est disponible sur `http://localhost:3000`) ou le publier sur Azure.
+1. Exécutez l’application localement (l’API est disponible sur `http://localhost:3000`) ou publiez-la sur Azure.
 
 ### <a name="create-node-backend-portal"></a>Créer un serveur principal Node.js à l’aide du portail Azure
 
@@ -144,7 +144,7 @@ Vous pouvez créer un serveur principal Mobile Apps dans le [portail Azure]. Vou
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service-classic](../../includes/app-service-mobile-dotnet-backend-create-new-service-classic.md)]
 
 Dans le volet **Prise en main**, sous **Create a table API** (Créer une API de table), sélectionnez **Node.js** en tant que langue de serveur principal.
-Cochez la case **Je reconnais que cette opération va remplacer tout le contenu du site.**, puis sélectionnez sur **Créer une table TodoItem**.
+Cochez la case **Je reconnais que cette opération va remplacer tout le contenu du site.** , puis sélectionnez sur **Créer une table TodoItem**.
 
 ### <a name="download-quickstart"></a>Télécharger le projet de code de démarrage rapide du serveur principal Node.js à l’aide de Git
 
@@ -302,7 +302,7 @@ Le Kit de développement logiciel (SDK) Node.js pour Mobile Apps utilise le [pac
 
    h. Sélectionnez **SQL Server Services** dans le menu de l’arborescence.
 
-   i. Cliquez avec le bouton droit sur **SQL Server (SQLEXPRESS)**, puis sélectionnez **Redémarrer**.
+   i. Cliquez avec le bouton droit sur **SQL Server (SQLEXPRESS)** , puis sélectionnez **Redémarrer**.
 
    j. Fermez le Gestionnaire de configuration de SQL Server 2014.
 
@@ -372,7 +372,7 @@ La plupart des paramètres du fichier azureMobile.js ont un paramètre équivale
 
 | Paramètre d’application | Paramètre azureMobile.js | Description | Valeurs valides |
 |:--- |:--- |:--- |:--- |
-| **MS_MobileAppName** |Nom |Le nom de l’application |string |
+| **MS_MobileAppName** |Nom |Le nom de l’application |chaîne |
 | **MS_MobileLoggingLevel** |logging.level |Niveau minimal de journal pour les messages à consigner |error, warning, info, verbose, debug, silly |
 | **MS_DebugMode** |debug |Active ou désactive le mode de débogage |true, false |
 | **MS_TableSchema** |data.schema |Nom de schéma par défaut pour les tables SQL |string (valeur par défaut : dbo) |
@@ -404,7 +404,7 @@ L’utilisation d’Azure SQL Database en tant que datastore est identique pour 
 1. Dans la zone **Groupe de ressources** , entrez le même nom que votre application.
 1. Le plan App Service par défaut est sélectionné. Si vous souhaitez modifier votre plan App Service :
 
-   a. Sélectionnez **Plan App Service** > **+Créer**.
+   a. Sélectionnez **Plan App Service** >  **+Créer**.
 
    b. Indiquez le nom du nouveau plan App Service et sélectionnez un emplacement approprié.
 
@@ -422,7 +422,7 @@ Vous pouvez choisir de connecter une base de données SQL existante à votre ser
 > [!NOTE]
 > Si vous avez déjà une base de données dans le même emplacement que le serveur principal Mobile Apps, vous pouvez sélectionner **Utiliser une base de données existante**, puis cette base de données. Nous vous déconseillons d’utiliser une base de données dans un autre emplacement en raison de latences plus importantes.
 
-1. Dans le nouveau serveur principal Mobile Apps, sélectionnez **Paramètres** > **Application mobile** > **Données** > **+Ajouter**.
+1. Dans le nouveau serveur principal Mobile Apps, sélectionnez **Paramètres** > **Application mobile** > **Données** >  **+Ajouter**.
 1. Dans le volet **Ajouter une connexion de données**, sélectionnez **Base de données SQL - Configurer les paramètres requis** > **Créer une base de données**. Entrez le nom de la nouvelle base de données dans le champ **Nom**.
 1. Sélectionnez **Serveur**. Dans le volet **Nouveau serveur**, entrez un nom de serveur unique dans le champ **Nom du serveur**, et indiquez un nom de connexion d’administration serveur et un mot de passe appropriés. Vérifiez que l’option **Autoriser les services Azure à accéder au serveur** est sélectionnée. Sélectionnez **OK**.
 
@@ -924,7 +924,7 @@ Les commandes suivantes sont disponibles dans la barre de commandes d’une tabl
 * **Gérer le schéma** : Ajoutez ou supprimez des colonnes ou modifiez l’index de la table.
 * **Effacer la table** : Tronquez une table existante en supprimant toutes les lignes de données tout en conservant le schéma à l’identique.
 * **Supprimer les lignes** : Supprimez des lignes de données spécifiques.
-* **Afficher les journaux de diffusion en continu** : Connectez-vous au service de journaux de diffusion en continu de votre site.
+* **Afficher les journaux d’activité de diffusion en continu** : Connectez-vous au service de journaux de diffusion en continu de votre site.
 
 ### <a name="work-easy-apis"></a>Utiliser l’outil API faciles dans le portail Azure
 

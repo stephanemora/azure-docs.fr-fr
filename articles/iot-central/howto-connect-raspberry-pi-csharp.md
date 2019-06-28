@@ -1,6 +1,6 @@
 ---
 title: Connecter un appareil Raspberry Pi à votre application Azure IoT Central (C#) | Microsoft Docs
-description: En tant que périphérique développeur, comment connecter un Raspberry Pi à votre application Azure IoT Central en utilisant C#.
+description: Découvrez en tant que développeur d’appareils comment connecter un appareil Raspberry Pi à votre application Azure IoT Central en utilisant C#.
 author: viv-liu
 ms.author: viviali
 ms.date: 04/15/2019
@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: peterpr
 ms.openlocfilehash: 3e77494eacaf16ac23a531cb7a16fe8bf6117006
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64714420"
 ---
 # <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-c"></a>Connecter un appareil Raspberry Pi à votre application Azure IoT Central (C#)
@@ -26,7 +26,7 @@ Cet article vous explique comment, en tant que développeur d’appareils, conne
 Pour suivre les étapes décrites dans cet article, vous devez disposer de ce qui suit :
 
 * Une application Azure IoT Central créée à partir du modèle d’application **Exemples de Devkits**. Pour plus d’informations, consultez [Créer une application](quick-deploy-iot-central.md).
-* Un appareil Raspberry Pi exécutant le système d’exploitation Raspbian. Le Raspberry Pi doit être en mesure de se connecter à internet. Pour plus d’informations, consultez [configurer votre appareil Raspberry Pi](https://projects.raspberrypi.org/en/projects/raspberry-pi-setting-up/3).
+* Un appareil Raspberry Pi exécutant le système d’exploitation Raspbian. L’appareil Raspberry Pi doit être en mesure de se connecter à Internet. Pour plus d’informations, consultez [Configurer votre appareil Raspberry Pi](https://projects.raspberrypi.org/en/projects/raspberry-pi-setting-up/3).
 
 ## <a name="sample-devkits-application"></a>**Exemple d’application Devkits**
 
@@ -48,11 +48,11 @@ Une application créée à partir du modèle d’application **Exemples de Devki
   - Propriété d’appareil avec numéro gravé
   - Propriété d’emplacement cloud
 
-Pour plus d’informations de la configuration du modèle d’appareil, consultez le [détails du modèle Raspberry Pi appareil](#raspberry-pi-device-template-details).
+Pour plus d’informations sur la configuration du modèle d’appareil, consultez [Détails de modèle d’appareil Raspberry Pi](#raspberry-pi-device-template-details).
 
 ## <a name="add-a-real-device"></a>Ajouter un appareil réel
 
-Dans votre application Azure IoT Central, ajoutez un appareil réel à partir de la **Raspberry Pi** modèle de périphérique. Prenez note de l’appareil détails de connexion (**ID de portée**, **ID d’appareil**, et **clé primaire**). Pour plus d’informations, consultez [Ajouter un appareil réel à votre application Azure IoT Central](tutorial-add-device.md).
+Dans votre application Azure IoT Central, ajoutez un appareil réel à partir du modèle d’appareil **Raspberry Pi**. Notez les détails de connexion de l’appareil : **ID de portée**, **ID d’appareil** et **Clé primaire**. Pour plus d’informations, consultez [Ajouter un appareil réel à votre application Azure IoT Central](tutorial-add-device.md).
 
 ### <a name="create-your-net-application"></a>Créer votre application .NET
 
@@ -269,9 +269,9 @@ Pour effectuer les étapes suivantes, vous pouvez utiliser Visual Studio Code. P
 
 ## <a name="run-your-net-application"></a>Exécuter votre application .NET
 
-Ajoutez la chaîne de connexion spécifique à votre appareil au code pour que l’appareil puisse s’authentifier auprès d’Azure IoT Central. Suivez ces instructions pour [générer la chaîne de connexion d’appareil](howto-generate-connection-string.md) à l’aide de la **ID de portée**, **ID d’appareil**, et **clé primaire** apportées un Notez de précédemment.
+Ajoutez la chaîne de connexion spécifique à votre appareil au code pour que l’appareil puisse s’authentifier auprès d’Azure IoT Central. Suivez ces instructions pour [générer la chaîne de connexion d’appareil](howto-generate-connection-string.md) à l’aide des paramètres **ID de portée**, **ID d’appareil** et **Clé primaire** que vous avez notés précédemment.
 
-1. Remplacez `{your device connection string}` dans le **Program.cs** fichier avec la chaîne de connexion que vous avez généré.
+1. Remplacez `{your device connection string}` dans le fichier **Program.cs** par la chaîne de connexion que vous avez générée.
 
 1. Exécutez la commande suivante dans votre environnement de ligne de commande :
 
@@ -315,7 +315,7 @@ Ajoutez la chaîne de connexion spécifique à votre appareil au code pour que l
 
      ![L’appareil Raspberry Pi reçoit la modification du paramètre](./media/howto-connect-raspberry-pi-csharp/device_switch.png)
 
-## <a name="raspberry-pi-device-template-details"></a>Détails du modèle Raspberry Pi appareil
+## <a name="raspberry-pi-device-template-details"></a>Détails de modèle d’appareil Raspberry Pi
 
 Une application créée à partir du modèle d’application **Exemples de Devkits** présente un modèle d’appareil **Raspberry Pi** avec les caractéristiques suivantes :
 
@@ -357,8 +357,8 @@ Paramètres de bascule
 | Type            | Nom complet | Nom du champ | Type de données |
 | --------------- | ------------ | ---------- | --------- |
 | Propriété d’appareil | Numéro gravé   | dieNumber  | number    |
-| Text            | Lieu     | location   | N/A       |
+| Texte            | Lieu     | location   | N/A       |
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Maintenant que vous avez appris à connecter un Raspberry Pi à votre application Azure IoT Central, l’étape suivante suggérée consiste à apprendre comment [définir un modèle d’appareil personnalisé](howto-set-up-template.md) pour votre propre appareil IoT.
+Maintenant que vous avez découvert comment connecter un appareil Raspberry Pi à votre application Azure IoT Central, l’étape suivante suggérée est de découvrir comment [définir un modèle d’appareil personnalisé](howto-set-up-template.md) pour votre propre appareil IoT.

@@ -9,10 +9,10 @@ ms.date: 02/25/2019
 ms.author: ganesr
 ms.custom: seodec18
 ms.openlocfilehash: e5d94fad5ddcfd0b34e36cb96727cff48b62ea0b
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66730225"
 ---
 # <a name="configure-route-filters-for-microsoft-peering-powershell"></a>Configurer des filtres de routage pour l’homologation Microsoft : PowerShell
@@ -120,7 +120,7 @@ Un filtre de routage ne peut avoir qu’une seule règle, et cette règle doit �
 
 ### <a name="1-create-a-route-filter"></a>1. Créer un filtre de routage
 
-Commencez par créer le filtre de routage. La commande 'New-AzRouteFilter' crée uniquement une ressource de filtre de routage. Après avoir créé la ressource, vous devez créer une règle et la joindre à l’objet de filtre de routage. Utilisez la commande suivante pour créer une ressource de filtre de routage :
+Commencez par créer le filtre de routage. La commande « New-AzRouteFilter » crée uniquement une ressource de filtre de routage. Après avoir créé la ressource, vous devez créer une règle et la joindre à l’objet de filtre de routage. Utilisez la commande suivante pour créer une ressource de filtre de routage :
 
 ```azurepowershell-interactive
 New-AzRouteFilter -Name "MyRouteFilter" -ResourceGroupName "MyResourceGroup" -Location "West US"

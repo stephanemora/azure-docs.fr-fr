@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/11/2019
 ms.author: asrastog
 ms.openlocfilehash: f4baab6e0909144efc613572207e7f24c4b4fe1f
-ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66743269"
 ---
 # <a name="order-device-connection-events-from-azure-iot-hub-using-azure-cosmos-db"></a>Commander des événements de connexion d’appareils depuis Azure IoT Hub à l’aide d’Azure Cosmos DB
@@ -20,7 +20,7 @@ Azure Event Grid vous permet de créer des applications basées sur des événem
 
 Le numéro de séquence est la représentation d’un nombre hexadécimal sous la forme d’une chaîne. Vous pouvez utiliser la comparaison de chaînes pour identifier le plus grand nombre. Si vous convertissez la chaîne en hexadécimal, vous obtenez un nombre de 256 bits. Le numéro de séquence est strictement croissante, et le dernier événement aura un nombre plus élevé que les autres événements. Cela est utile en cas de connexion et de déconnexion fréquentes d’appareils, et si vous souhaitez vous assurer que seul le dernier événement est utilisé pour déclencher une action en aval, étant donné que Azure Event Grid ne prend pas en charge la commande d’événements.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 * Un compte Azure actif. Si vous n’en avez pas, vous pouvez créer un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -38,7 +38,7 @@ Tout d’abord, créez une procédure stockée et configurez-la pour exécuter u
 
    ![Créer une procédure stockée](./media/iot-hub-how-to-order-connection-state-events/create-stored-procedure.png)
 
-2. Entrez **LatestDeviceConnectionState** pour l’ID de la procédure stockée et collez le texte suivant dans le **corps de la procédure stockée**. Notez que ce code doit remplacer tout code existant dans le corps de la procédure stockée. Ce code tient à jour une ligne par ID d’appareil et enregistre le dernier état de connexion de cet ID d’appareil en identifiant le numéro de séquence le plus élevé.
+2. Entrez **LatestDeviceConnectionState** comme ID de procédure stockée et collez le texte suivant dans le **corps de la procédure stockée**. Notez que ce code doit remplacer tout code existant dans le corps de la procédure stockée. Ce code tient à jour une ligne par ID d’appareil et enregistre le dernier état de connexion de cet ID d’appareil en identifiant le numéro de séquence le plus élevé.
 
     ```javascript
     // SAMPLE STORED PROCEDURE
@@ -137,7 +137,7 @@ Tout d’abord, créez une application logique et ajoutez un déclencheur Event 
 
 ### <a name="create-a-logic-app-resource"></a>Créer une ressource d’application logique
 
-1. Dans le [Azure portal](https://portal.azure.com), sélectionnez **+ créer une ressource**, sélectionnez **intégration** , puis **application logique**.
+1. Dans le [portail Azure](https://portal.azure.com), sélectionnez **+Créer une ressource**, **Intégration**, puis **Application logique**.
 
    ![Créer une application logique](./media/iot-hub-how-to-order-connection-state-events/select-logic-app.png)
 
@@ -150,15 +150,15 @@ Tout d’abord, créez une application logique et ajoutez un déclencheur Event 
    Vous venez de créer une ressource Azure pour votre application logique. Une fois qu’Azure a déployé votre application logique, le Concepteur d’applications logiques vous propose des modèles courants pour faciliter vos premiers pas.
 
    > [!NOTE]
-   > Pour rechercher et ouvrir votre application logique, sélectionnez **groupes de ressources** et sélectionnez le groupe de ressources que vous utilisez pour cette procédure. Puis sélectionnez votre nouvelle application logique. Cette opération ouvre le Concepteur d’application logique.
+   > Pour rechercher et ouvrir votre application logique, sélectionnez **Groupes de ressources** et sélectionnez le groupe de ressources que vous utilisez pour cette procédure. Sélectionnez ensuite votre nouvelle application logique. Cela permet d’ouvrir Concepteur d’applications logiques.
 
-4. Dans le Concepteur d’application logique, défilez vers la droite jusqu'à ce que vous voyiez déclencheurs courants. Sous **modèles**, choisissez **application logique vide** qui vous pouvez de générer votre application logique à partir de zéro.
+4. Dans le Concepteur d’applications logiques, défilez vers la droite jusqu’à voir les déclencheurs courants. Sous **Modèles**, choisissez **Application logique vide**, afin de développer votre application logique à partir de zéro.
 
 ### <a name="select-a-trigger"></a>Sélectionner un déclencheur
 
 Un déclencheur désigne un événement spécifique qui démarre votre application logique. Pour ce didacticiel, le déclencheur qui lance le flux de travail reçoit une demande via HTTP.
 
-1. Dans les connecteurs et les déclencheurs la barre de recherche, tapez **HTTP** et appuyez sur ENTRÉE.
+1. Dans la barre de recherche des connecteurs et des déclencheurs, tapez **HTTP** et appuyez sur Entrée.
 
 2. Sélectionnez **Requête - Lors de la réception d’une requête HTTP** comme déclencheur.
 
@@ -192,7 +192,7 @@ Un déclencheur désigne un événement spécifique qui démarre votre applicati
    }]
    ```
 
-   ![Exemple de charge utile JSON de collage](./media/iot-hub-how-to-order-connection-state-events/paste-sample-payload.png)
+   ![Coller l’exemple de charge utile JSON](./media/iot-hub-how-to-order-connection-state-events/paste-sample-payload.png)
 
 5. Vous pouvez recevoir une notification contextuelle indiquant **N’oubliez pas d’inclure un en-tête Content-Type défini sur application/JSON dans votre demande**. Vous pouvez ignorer cette suggestion et passer à la section suivante.
 
@@ -200,41 +200,41 @@ Un déclencheur désigne un événement spécifique qui démarre votre applicati
 
 Dans votre workflow d’application logique, les conditions contribuent à exécuter des actions spécifiques après avoir passé la condition en question. Une fois que la condition est remplie, une action souhaitée peut être définie. Pour ce didacticiel, la condition est de vérifier si l’eventType est appareil connecté ou appareil déconnecté. L’action sera l’exécution de la procédure stockée dans votre base de données.
 
-1. Sélectionnez **+ nouvelle étape** puis **intégrés**, puis recherchez et sélectionnez **Condition**. Cliquez sur dans **choisir une valeur** et une fenêtre contextuelle montrant le contenu dynamique, les champs qui peuvent être sélectionnés. Renseignez les champs comme indiqué ci-dessous pour exécuter cette méthode uniquement pour les événements d’appareil connecté et déconnecté de l’appareil :
+1. Sélectionnez **+ Nouvelle étape**, **Intégré**, puis recherchez et sélectionnez **Condition**. Cliquez sur **Choisir une valeur** et une fenêtre contextuelle montrant le contenu dynamique (les champs qui peuvent être sélectionnés) s’affiche. Renseignez les champs comme indiqué ci-dessous pour l’exécuter uniquement pour les événements de connexion et de déconnexion d’appareils :
 
-   * Choisissez une valeur : **eventType** --Sélectionnez cette option à partir des champs dans le contenu dynamique qui s’affichent lorsque vous cliquez sur ce champ.
-   * Modification » est égale à » pour **se termine par**.
-   * Choisissez une valeur : **nected**.
+   * Choisissez une valeur : **eventType** -- Sélectionnez cette option à partir des champs dans le contenu dynamique qui s’affichent lorsque vous cliquez sur ce champ.
+   * Remplacez « est égal à » par **se termine par**.
+   * Choisissez une valeur : **nected**.
 
      ![Remplir une condition](./media/iot-hub-how-to-order-connection-state-events/condition-detail.png)
 
-2. Dans le **Si true** boîte de dialogue, cliquez sur **ajouter une action**.
+2. Dans la boîte de dialogue **si True**, cliquez sur **Ajouter une action**.
   
    ![Ajouter une action si True](./media/iot-hub-how-to-order-connection-state-events/action-if-true.png)
 
-3. Recherchez Cosmos DB et sélectionnez **Azure Cosmos DB - exécuter la procédure stockée**
+3. Recherchez Cosmos DB et sélectionnez **Azure Cosmos DB - Exécuter la procédure stockée**
 
    ![Rechercher CosmosDB](./media/iot-hub-how-to-order-connection-state-events/cosmosDB-search.png)
 
-4. Renseignez **cosmosdb-connexion** pour le **nom de la connexion** et sélectionnez l’entrée dans la table, puis sélectionnez **créer**. Vous voyez la **exécuter la procédure stockée** Panneau de configuration. Entrez les valeurs pour les champs :
+4. Entrez **cosmosdb-connection** pour le **Nom de la connexion** et sélectionnez l’entrée dans la table, puis sélectionnez **Créer**. Le panneau **Exécuter la procédure stockée** s’affiche. Entrez les valeurs pour les champs :
 
-   **ID de base de données**: ToDoList
+   **ID de base de données** : ToDoList
 
-   **ID de collection**: Éléments
+   **ID de la collection** : Éléments
 
-   **ID de la procédure stockée**: LatestDeviceConnectionState
+   **ID de la procédure stockée** : LatestDeviceConnectionState
 
-5. Sélectionnez **ajouter un nouveau paramètre**. Dans la liste déroulante qui s’affiche, cochez les cases en regard **clé de Partition** et **paramètres pour la procédure stockée**, puis cliquez sur n’importe où sur l’écran ; il ajoute un champ de valeur de clé de partition et un champ pour paramètres de la procédure stockée.
+5. Sélectionnez **Ajouter un nouveau paramètre**. Dans la liste déroulante qui s’affiche, cochez les cases en regard de **Clé de partition** et **Paramètres pour la procédure stockée**, puis cliquez sur n’importe où dans l’écran ; cela ajoute un champ pour la valeur de la clé de partition et un champ pour les paramètres de la procédure stockée.
 
    ![remplir une action d’application logique](./media/iot-hub-how-to-order-connection-state-events/logicapp-stored-procedure.png)
 
-6. Maintenant il est recommandé d’entrer la valeur de clé de partition et les paramètres comme indiqué ci-dessous. Veillez à placer dans les crochets et les guillemets doubles comme indiqué. Vous devrez sur **ajouter du contenu dynamique** pour obtenir les valeurs valides que vous pouvez utiliser ici.
+6. Maintenant, entrez la valeur et les paramètres de clé de partition comme indiqué ci-dessous. Veillez à entrer les crochets et les guillemets doubles comme indiqué. Vous devrez peut-être cliquer sur **Ajouter du contenu dynamique** pour obtenir les valeurs valides à utiliser ici.
 
    ![remplir une action d’application logique](./media/iot-hub-how-to-order-connection-state-events/logicapp-stored-procedure-2.png)
 
-7. En haut du volet intitulée **pour chaque**, sous **sélectionner une sortie des étapes précédentes**, vérifier qu’elle **corps** est sélectionné.
+7. En haut du volet où l’énoncé **Pour chaque** s’affiche, sous **Sélectionner une sortie des étapes précédentes**, vérifiez que **Corps** est sélectionné.
 
-   ![remplir l’application logique pour chaque](./media/iot-hub-how-to-order-connection-state-events/logicapp-foreach-body.png)
+   ![remplir for-each d’application logique](./media/iot-hub-how-to-order-connection-state-events/logicapp-foreach-body.png)
 
 8. Enregistrez votre application logique.
 
@@ -260,19 +260,19 @@ Dans cette section, vous configurez votre hub IoT pour publier des événements 
 
    ![Ouvrir les détails Event Grid](./media/iot-hub-how-to-order-connection-state-events/event-grid.png)
 
-3. Sélectionnez **+ abonnement aux événements**.
+3. Sélectionnez **+ Abonnement aux événements**.
 
    ![Créer un abonnement aux événements](./media/iot-hub-how-to-order-connection-state-events/event-subscription.png)
 
-4. Renseignez **détails de l’abonnement événement**: fournissez un nom descriptif et sélectionnez **Schéma Event Grid**.
+4. Renseignez **Détails de l’abonnement aux événements** : fournissez un nom descriptif et sélectionnez **Schéma Event Grid**.
 
-5. Renseignez le **Types d’événements** champs. Dans la liste déroulante, sélectionnez uniquement **appareil connecté** et **périphérique déconnecté** à partir du menu. Cliquez sur n’importe où sur l’écran pour fermer la liste et enregistrer vos sélections.
+5. Renseignez les champs **Types d’événements**. Dans la liste déroulante, sélectionnez uniquement **Appareil connecté** et **Appareil déconnecté** dans le menu. Cliquez n’importe où dans l’écran pour fermer la liste et enregistrer vos sélections.
 
    ![Définir les types d’événements à rechercher](./media/iot-hub-how-to-order-connection-state-events/set-event-types.png)
 
-6. Pour **détails du point de terminaison**, sélectionnez le Type de point de terminaison **Webhook** et cliquez sur le point de terminaison sélectionnez et collez l’URL que vous avez copiée à partir de votre application logique et confirmer la sélection.
+6. Pour **Détails du point de terminaison**, sélectionnez **Webhook** comme type de point de terminaison puis cliquez sur le point de terminaison sélectionné et collez l’URL copiée à partir de votre application logique et confirmez la sélection.
 
-   ![sélectionner une url de point de terminaison](./media/iot-hub-how-to-order-connection-state-events/endpoint-select.png)
+   ![Sélectionner l’URL du point de terminaison](./media/iot-hub-how-to-order-connection-state-events/endpoint-select.png)
 
 7. Le formulaire doit maintenant ressembler à l’exemple suivant :
 
@@ -288,7 +288,7 @@ Maintenant que votre abonnement aux événements est configuré, nous allons le 
 
 1. À partir de votre hub IoT, sélectionnez **Appareils IoT**.
 
-2. Sélectionnez **+ ajouter** en haut du volet.
+2. Sélectionnez **+Ajouter** en haut du volet.
 
 3. Pour **ID d’appareil**, entrez `Demo-Device-1`.
 
@@ -296,11 +296,11 @@ Maintenant que votre abonnement aux événements est configuré, nous allons le 
 
 5. Vous pouvez ajouter plusieurs appareils avec différents ID d’appareil.
 
-   ![Appareils ajoutés à un hub](./media/iot-hub-how-to-order-connection-state-events/AddIoTDevice.png)
+   ![Appareils ajoutés au hub](./media/iot-hub-how-to-order-connection-state-events/AddIoTDevice.png)
 
-6. Recliquez sur l’appareil ; maintenant les touches et les chaînes de connexion seront renseignés. Copiez la **Chaîne de connexion - clé primaire** pour l’utiliser ultérieurement.
+6. Recliquez sur l’appareil ; maintenant les chaînes de connexion et les clés sont renseignées. Copiez la **Chaîne de connexion - clé primaire** pour l’utiliser ultérieurement.
 
-   ![ConnectionString pour appareil](./media/iot-hub-how-to-order-connection-state-events/DeviceConnString.png)
+   ![ConnectionString pour l’appareil](./media/iot-hub-how-to-order-connection-state-events/DeviceConnString.png)
 
 ### <a name="start-raspberry-pi-simulator"></a>Démarrer le simulateur Raspberry Pi
 
@@ -312,13 +312,13 @@ Nous allons utiliser le simulateur web Raspberry Pi pour simuler la connexion de
 
 Cela déclenchera un événement d’appareil connecté.
 
-1. Dans la zone de codage, remplacez l’espace réservé à la ligne 15 par votre chaîne de connexion d’appareil Azure IoT Hub que vous avez enregistré à la fin de la section précédente.
+1. Dans la zone de codage, remplacez l’espace réservé à la ligne 15 par votre chaîne de connexion d’appareil Azure IoT Hub que vous avez enregistrée à la fin de la section précédente.
 
-   ![Collez dans la chaîne de connexion d’appareil](./media/iot-hub-how-to-order-connection-state-events/raspconnstring.png)
+   ![Coller la chaîne de connexion de l’appareil](./media/iot-hub-how-to-order-connection-state-events/raspconnstring.png)
 
-2. Exécutez l’application en sélectionnant **exécuter**.
+2. Exécutez l’application en sélectionnant **Exécuter**.
 
-Vous consultez quelque chose de similaire à la sortie suivante qui affiche les données de capteur et les messages qui sont envoyés à votre IoT hub.
+Vous devriez voir quelque chose de similaire au résultat suivant, qui affiche les données de capteur et les messages envoyés à votre IoT Hub.
 
    ![Exécution de l'application](./media/iot-hub-how-to-order-connection-state-events/raspmsg.png)
 
@@ -338,7 +338,7 @@ Au lieu d’utiliser le [portail Azure](https://portal.azure.com), vous pouvez e
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Ce didacticiel utilise des ressources qui peuvent entraîner des frais sur votre abonnement Azure. Lorsque vous avez terminé le tester le didacticiel et vos résultats, désactiver ou supprimer des ressources que vous ne souhaitez pas conserver.
+Ce didacticiel utilise des ressources qui peuvent entraîner des frais sur votre abonnement Azure. Quand vous avez terminé de tester le tutoriel et vos résultats, désactivez ou supprimez les ressources que vous ne souhaitez pas conserver.
 
 Pour ne pas perdre le travail effectué sur votre application logique, désactivez-la au lieu de la supprimer.
 

@@ -1,5 +1,5 @@
 ---
-title: Compétences conditionnel recherche cognitive (recherche Azure) | Microsoft Docs
+title: Compétence de recherche cognitive conditionnelle (Recherche Azure) | Microsoft Docs
 description: La compétence conditionnelle permet le filtrage, la création de valeurs par défaut et la fusion de valeurs.
 services: search
 manager: pablocas
@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.date: 05/01/2019
 ms.author: luisca
 ms.openlocfilehash: 149b701d4a1700787656448e2bdd0d92d2a93844
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65791515"
 ---
-#   <a name="conditional-skill"></a>Compétences conditionnel
+#   <a name="conditional-skill"></a>Compétence conditionnelle
 
-Le *compétence conditionnel* permet des scénarios de recherche Azure qui nécessitent une opération booléenne pour déterminer les données à affecter à une sortie. Ces scénarios incluent le filtrage, affectez une valeur par défaut et fusion de données selon une condition.
+La *compétence conditionnelle* permet des scénarios de Recherche Azure qui nécessitent une opération booléenne pour déterminer les données à affecter à une sortie. Ces scénarios incluent le filtrage, l’attribution d’une valeur par défaut et la fusion de données selon une condition.
 
-Le pseudo-code suivant illustre ce que réalise la compétence conditionnelle :
+Le pseudo-code suivant illustre ce que réalise la compétence conditionnelle :
 
 ```
 if (condition) 
@@ -31,19 +31,19 @@ else
 ```
 
 > [!NOTE]
-> Cette compétence n’est pas liée à une API Azure Cognitive Services, et vous n’êtes pas facturé pour son utilisation. Toutefois, vous devez quand même [attacher une ressource Cognitive Services](cognitive-search-attach-cognitive-services.md) pour remplacer l’option de ressource « Gratuit » qui vous limite à un petit nombre d’enrichissement par jour.
+> Cette compétence n’est pas liée à une API Azure Cognitive Services et son utilisation ne vous est pas facturée. Toutefois, vous devez toujours [joindre une ressource Cognitive Services](cognitive-search-attach-cognitive-services.md) pour remplacer l’option de ressource « Gratuit » qui vous limite à un petit nombre d’enrichissements quotidiens.
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Util.ConditionalSkill
 
 
-## <a name="evaluated-fields"></a>Champs évaluées
+## <a name="evaluated-fields"></a>Champs évalués
 
-Cette opération est spéciale, car ses entrées sont des champs évaluées.
+Cette compétence est spéciale, car ses entrées sont des champs évalués.
 
-Les éléments suivants sont des valeurs valides d’une expression :
+Les éléments suivants sont des valeurs valides d’une expression :
 
--   Chemins d’accès de l’annotation (chemins d’accès dans les expressions doivent être délimitées par « $("and") »)
+-   Chemins d’accès d’annotation (les chemins d’accès dans les expressions doivent être délimités par "$(" et ")").
  <br/>
     Exemples :
     ```
@@ -51,7 +51,7 @@ Les éléments suivants sont des valeurs valides d’une expression :
         "= $(/document/content)"
     ```
 
--  Littéraux (chaînes, des chiffres, la valeur true, false, null) <br/>
+-  Littéraux (chaînes, nombres, true, false, null) <br/>
     Exemples :
     ```
        "= 'this is a string'"   // string (note the single quotation marks)
@@ -60,14 +60,14 @@ Les éléments suivants sont des valeurs valides d’une expression :
        "= null"                 // null value
     ```
 
--  Expressions qui utilisent des opérateurs de comparaison (==, ! =, > =, >, < =, <) <br/>
+-  Expressions qui utilisent des opérateurs de comparaison (==, !=, >=, >, <=, <) <br/>
     Exemples :
     ```
         "= $(/document/language) == 'en'"
         "= $(/document/sentiment) >= 0.5"
     ```
 
--   Expressions qui utilisent des opérateurs booléens (& &, ||, !, ^) <br/>
+-   Expressions qui utilisent des opérateurs booléens (&&, ||, !, ^) <br/>
     Exemples :
     ```
         "= $(/document/language) == 'en' && $(/document/sentiment) > 0.5"
@@ -82,25 +82,25 @@ Les éléments suivants sont des valeurs valides d’une expression :
         "= $(/document/lengthInMeters) / 0.3049" // division
     ```
 
-Étant donné que la compétence conditionnelle prend en charge la version d’évaluation, vous pouvez l’utiliser dans les scénarios de transformation de mineur. Par exemple, consultez [définition des compétences 4](#transformation-example).
+Étant donné que la compétence conditionnelle prend en charge l’évaluation, vous pouvez l’utiliser dans les scénarios de transformation mineure. Pour obtenir un exemple, consultez la section [Définition de compétence 4](#transformation-example).
 
 ## <a name="skill-inputs"></a>Entrées de la compétence
 Les entrées respectent la casse.
 
-| Entrée   | Description  |
+| Entrée   | Description |
 |-------------|-------------|
-| condition   | Cette entrée est un [évaluée champ](#evaluated-fields) qui représente la condition à évaluer. Cette condition doit correspondre à une valeur booléenne (*true* ou *false*).   <br/>  Exemples : <br/> « = true » <br/> "= $(/document/language) =='fr'" <br/> "= $(/document/pages/\*/language) == $(/document/expectedLanguage)" <br/> |
-| whenTrue    | Cette entrée est un [évaluée champ](#evaluated-fields) qui représente la valeur à retourner si la condition est évaluée sur *true*. Les chaînes constantes doivent être retournées dans les guillemets simples ('et'). <br/>Exemples de valeurs : <br/> "= 'contract'"<br/>"= $(/document/contractType)" <br/> « = $(/documents/entités/\*) » <br/> |
-| whenFalse   | Cette entrée est un [évaluée champ](#evaluated-fields) qui représente la valeur à retourner si la condition est évaluée sur *false*. <br/>Exemples de valeurs : <br/> "= 'contract'"<br/>"= $(/document/contractType)" <br/> « = $(/documents/entités/\*) » <br/>
+| condition   | Cette entrée est un [champ évalué](#evaluated-fields) qui représente la condition à évaluer. Cette condition doit être évaluée selon une valeur booléenne (*true* ou *false*).   <br/>  Exemples : <br/> "= true" <br/> "= $(/document/language) =='fr'" <br/> "= $(/document/pages/\*/language) == $(/document/expectedLanguage)" <br/> |
+| whenTrue    | Cette entrée est un [champ évalué](#evaluated-fields) qui représente la valeur à renvoyer si la condition est évaluée sur *true*. Les chaînes constantes doivent être renvoyées entre guillemets simples (' et '). <br/>Exemples de valeurs : <br/> "= 'contract'"<br/>"= $(/document/contractType)" <br/> "= $(/document/entities/\*)" <br/> |
+| whenFalse   | Cette entrée est un [champ évalué](#evaluated-fields) qui représente la valeur à renvoyer si la condition est évaluée sur *false*. <br/>Exemples de valeurs : <br/> "= 'contract'"<br/>"= $(/document/contractType)" <br/> "= $(/document/entities/\*)" <br/>
 
 ## <a name="skill-outputs"></a>Sorties de la compétence
-Il existe une seule sortie appelée simplement « sortie ». Elle retourne la valeur *whenFalse* si la condition est false ou *whenTrue* si la condition est vraie.
+Il existe une seule sortie appelée simplement "output." Elle renvoie la valeur *whenFalse* si la condition est false ou *whenTrue* si la condition est true.
 
 ## <a name="examples"></a>Exemples
 
-### <a name="sample-skill-definition-1-filter-documents-to-return-only-french-documents"></a>Exemple de définition de compétence 1 : Filtrer les documents pour retourner uniquement les documents Français
+### <a name="sample-skill-definition-1-filter-documents-to-return-only-french-documents"></a>Exemple de définition de compétence 1 : Filtrer des documents pour renvoyer uniquement les documents français
 
-La sortie suivante retourne un tableau de phrases (« / documents/frenchSentences ») si la langue du document est le Français. Si la langue n’est pas le Français, la valeur est définie sur *null*.
+La sortie suivante renvoie un tableau de phrases ("/document/frenchSentences") si la langue du document est le français. Si la langue n’est pas le français, la valeur est définie sur *null*.
 
 ```json
 {
@@ -114,12 +114,12 @@ La sortie suivante retourne un tableau de phrases (« / documents/frenchSentenc
     "outputs": [ { "name": "output", "targetName": "frenchSentences" } ]
 }
 ```
-Si « / documents/frenchSentences » est utilisé comme le *contexte* d’une autre compétence, cette compétence s’exécute uniquement si « / documents/frenchSentences » n’est pas définie sur *null*.
+Si "/document/frenchSentences" est utilisé comme *contexte* d’une autre compétence, cette compétence s’exécute uniquement si "/document/frenchSentences" n’est pas défini sur *null*.
 
 
-### <a name="sample-skill-definition-2-set-a-default-value-for-a-value-that-doesnt-exist"></a>Exemple de définition de compétence 2 : Définir une valeur par défaut pour une valeur qui n’existe pas
+### <a name="sample-skill-definition-2-set-a-default-value-for-a-value-that-doesnt-exist"></a>Exemple de définition de compétence 2 : Définir une valeur par défaut pour une valeur qui n’existe pas
 
-La sortie suivante crée une annotation (« / documents/languageWithDefault ») qui est définie sur le langage du document ou à « es » si la langue n’est pas définie.
+La sortie suivante crée une annotation ("/document/languageWithDefault") qui est définie sur la langue du document ou sur "es" si la langue n’est pas définie.
 
 ```json
 {
@@ -134,9 +134,9 @@ La sortie suivante crée une annotation (« / documents/languageWithDefault »
 }
 ```
 
-### <a name="sample-skill-definition-3-merge-values-from-two-fields-into-one"></a>Exemple de définition de compétence 3 : Fusionner des valeurs à partir de deux champs dans un seul
+### <a name="sample-skill-definition-3-merge-values-from-two-fields-into-one"></a>Exemple de définition de compétence 3 : Fusionner les valeurs de deux champs dans un même champ
 
-Dans cet exemple, des phrases ont un *frenchSentiment* propriété. Chaque fois que le *frenchSentiment* propriété est null, nous souhaitons utiliser la *englishSentiment* valeur. Nous attribuons la sortie à un membre qui est appelé *sentiment* (« / documenter/sentiment / * / sentiment »).
+Dans cet exemple, certaines phrases ont une propriété *frenchSentiment*. Chaque fois que la propriété *frenchSentiment* est null, nous souhaitons utiliser la valeur *englishSentiment*. Nous attribuons la sortie à un membre qui est appelé *sentiment* ("/document/sentiment/*/sentiment").
 
 ```json
 {
@@ -151,12 +151,12 @@ Dans cet exemple, des phrases ont un *frenchSentiment* propriété. Chaque fois 
 }
 ```
 
-## <a name="transformation-example"></a>Exemple de transformation
-### <a name="sample-skill-definition-4-data-transformation-on-a-single-field"></a>Exemple de définition de compétence 4 : Transformation des données sur un seul champ
+## <a name="transformation-example"></a>Exemples de transformation
+### <a name="sample-skill-definition-4-data-transformation-on-a-single-field"></a>Exemple de définition de compétence 4 : Transformation des données sur un seul champ
 
-Dans cet exemple, nous recevons un *sentiment* qui est comprise entre 0 et 1. Nous voulons pas transformer pour qu’il soit comprise entre -1 et 1. Nous pouvons utiliser la compétence conditionnelle pour effectuer cette transformation mineure.
+Dans cet exemple, nous recevons un *sentiment* compris entre 0 et 1. Nous voulons le transformer pour qu’il soit compris entre -1 et 1. Nous pouvons utiliser la compétence conditionnelle pour effectuer cette transformation mineure.
 
-Dans cet exemple, nous n’utilisons pas l’aspect conditionnelle de la compétence, car la condition est toujours *true*.
+Dans cet exemple, nous n’utilisons pas l’aspect conditionnel de la compétence, car la condition est toujours *true*.
 
 ```json
 {
@@ -172,7 +172,7 @@ Dans cet exemple, nous n’utilisons pas l’aspect conditionnelle de la compét
 ```
 
 ## <a name="special-considerations"></a>Considérations spéciales
-Certains paramètres sont évalués, donc vous devez faire attention à suivre le modèle documenté. Expressions doivent commencer par un signe égal. Un chemin d’accès doit être délimité par des « $("and") ». Veillez à placer les chaînes entre guillemets simples. Qui vous aide à l’évaluateur de faire la distinction entre des chaînes et des chemins d’accès réels et des opérateurs. En outre, assurez-vous d’ajouter un espace blanc autour des opérateurs (par exemple, un « * » dans un chemin d’accès signifie que quelque chose de différent multiply).
+Certains paramètres sont évalués. Vous devez donc suivre le modèle documenté avec une attention particulière. Les expressions doivent commencer par un signe égal. Un chemin d’accès doit être délimité par "$(" et ")". Veillez à placer les chaînes entre guillemets simples. Ceci aide l’évaluateur à faire la distinction entre les chaînes et les opérateurs et chemins d’accès réels. En outre, assurez-vous d’ajouter un espace blanc autour des opérateurs (par exemple, un "*" dans un chemin d’accès signifie autre chose qu’une multiplication).
 
 
 ## <a name="next-steps"></a>Étapes suivantes

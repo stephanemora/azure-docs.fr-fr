@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
 ms.openlocfilehash: 04163d1fa2a46a2de877702d479f439a5e8711d7
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65603130"
 ---
 # <a name="azure-customer-data-protection"></a>Protection des données client Azure   
@@ -48,8 +48,8 @@ Azure fournit aux clients une sécurité renforcée des données, à la fois par
 
 **Redondance des données** : Microsoft contribue à assurer la protection des données en cas de cyberattaque ou de dommages physiques sur un centre de données. Les clients peuvent choisir :
 
-- Stockage de pays/de région pour des raisons de conformité ou la latence.
-- Stockage hors-de-pays/hors de région pour la récupération d’urgence ou de sécurité.
+- Un stockage dans leur pays/région pour des raisons de conformité ou de latence.
+- Un stockage hors de leur pays/région pour des raisons de sécurité ou de reprise d’activité après sinistre.
 
 Les données peuvent être répliquées au sein d’une zone géographique sélectionnée pour la redondance, mais ne sont pas transmises en dehors. Les clients ont plusieurs options pour la réplication des données, notamment le nombre de copies et le nombre d’emplacements des centres de données de réplication.
 

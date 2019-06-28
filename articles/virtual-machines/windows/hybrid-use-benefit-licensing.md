@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 4/22/2018
 ms.author: xujing-ms
-ms.openlocfilehash: 64e9350606748116d2eef247790e88ed0d576c3f
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
-ms.translationtype: MT
+ms.openlocfilehash: 64eb89612765f9a47d0eaac2b9cbceb6341c4155
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57570366"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64681284"
 ---
 # <a name="azure-hybrid-benefit-for-windows-server"></a>Azure Hybrid Benefit pour Windows Server
 Pour les clients avec Software Assurance, Azure Hybrid Benefit pour Windows Server permet d’utiliser les licences Windows Server locales et d’exécuter des machines virtuelles Windows sur Azure à moindre coût. Vous pouvez utiliser Azure Hybrid Benefit pour Windows Server pour déployer de nouvelles machines virtuelles avec le système d’exploitation Windows. Cet article récapitule les étapes du déploiement de nouvelles machines virtuelles avec Azure Hybrid Benefit pour Windows Server. Il explique également comment mettre à jour des machines virtuelles existantes en cours d’exécution. Pour plus d’informations sur les licences et les réductions de coût relatives à Azure Hybrid Benefit pour Windows Server, consultez la [page de gestion des licences Azure Hybrid Benefit pour Windows Server](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
@@ -33,10 +33,10 @@ Pour les clients avec Software Assurance, Azure Hybrid Benefit pour Windows Serv
 >
 
 > [!NOTE]
-> Pour les machines virtuelles classiques, seul déploiement nouvelle machine virtuelle à partir d’images personnalisées du site est pris en charge. Pour tirer parti des fonctionnalités prises en charge dans cet article, vous devez d’abord migrer des machines virtuelles classiques vers le modèle Resource Manager.
+> Pour les machines virtuelles classiques, seul le déploiement d’une nouvelle machine virtuelle à partir des images personnalisées locales est pris en charge. Pour tirer parti des fonctionnalités prises en charge dans cet article, vous devez d’abord migrer des machines virtuelles classiques vers le modèle Resource Manager.
 >
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="ways-to-use-azure-hybrid-benefit-for-windows-server"></a>Façons d’utiliser Azure Hybrid Benefit pour Windows Server
 Il existe plusieurs façons d’utiliser des machines virtuelles Windows avec Azure Hybrid Benefit :
@@ -171,7 +171,7 @@ az vm list --query "[?licenseType=='Windows_Server']" -o table
 ```
 
 ## <a name="deploy-a-virtual-machine-scale-set-with-azure-hybrid-benefit-for-windows-server"></a>Déployer un groupe de machines virtuelles identiques avec Azure Hybrid Benefit pour Windows Server
-Au sein des modèles Resource Manager de votre groupe de machines virtuelles identiques, vous devez spécifier un paramètre supplémentaire `licenseType` dans votre propriété VirtualMachineProfile. Vous pouvez le faire lors de la création ou mise à jour pour votre groupe identique via le modèle ARM, PowerShell, Azure CLI ou REST.
+Au sein des modèles Resource Manager de votre groupe de machines virtuelles identiques, vous devez spécifier un paramètre supplémentaire `licenseType` dans votre propriété VirtualMachineProfile. Vous pouvez le faire durant la création ou la mise à jour de votre groupe identique avec un modèle ARM, PowerShell, Azure CLI ou REST.
 
 L’exemple qui suit utilise un modèle ARM avec une image Windows Server 2016 Datacenter :
 ```json

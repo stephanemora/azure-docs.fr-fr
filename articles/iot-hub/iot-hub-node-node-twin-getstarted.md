@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 08/25/2017
 ms.author: elioda
 ms.openlocfilehash: 20b804f3d15543d0cf415d00dc81a6f55a348260
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65597419"
 ---
 # <a name="get-started-with-device-twins-node"></a>Prise en main des représentations d’appareils (Node)
@@ -31,7 +31,7 @@ ms.locfileid: "65597419"
 
 Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
-* Version de Node.js 10.0.x ou version ultérieure.
+* Node.j version 10.0.x ou ultérieure.
 
 * Un compte Azure actif. (Si vous ne possédez pas de compte, vous pouvez créer un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/) en quelques minutes seulement.)
 
@@ -136,7 +136,7 @@ Dans cette section, vous créez une application console Node.js qui ajoute des m
 
    Vous devriez voir un appareil dans les résultats de la requête demandant tous les appareils situés à **Redmond43**, et aucun pour la requête limitant les résultats aux appareils utilisant un réseau cellulaire.
    
-    ![Voir l’un appareil dans les résultats de requête](media/iot-hub-node-node-twin-getstarted/service1.png)
+    ![Affiche un appareil spécifique dans les résultats d’un requête](media/iot-hub-node-node-twin-getstarted/service1.png)
 
 Dans la section suivante, vous allez créer une application d’appareil qui transmet les informations de connectivité et modifie le résultat de la requête de la section précédente.
 
@@ -216,7 +216,7 @@ Dans cette section, vous allez créer une application console Node.js qui se con
 
     Cette fois, **myDeviceId** doit apparaître dans les résultats des deux requêtes.
 
-    ![Afficher myDeviceId dans les deux résultats de la requête](media/iot-hub-node-node-twin-getstarted/service2.png)
+    ![Afficher myDeviceId dans les résultats des deux requêtes](media/iot-hub-node-node-twin-getstarted/service2.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -224,8 +224,8 @@ Dans ce didacticiel, vous avez configuré un nouveau hub IoT dans le portail Azu
 
 Utilisez les ressources suivantes :
 
-* Envoyer la télémétrie des appareils avec le [bien démarrer avec IoT Hub](quickstart-send-telemetry-node.md) (didacticiel),
+* Envoyez les données de télémétrie à partir d’appareils en suivant le didacticiel [Bien démarrer avec IoT Hub](quickstart-send-telemetry-node.md).
 
 * Pour savoir comment configurer des appareils à l’aide des propriétés de jumeau d’appareil souhaitées, suivez le tutoriel [Utiliser des propriétés souhaitées pour configurer des appareils](tutorial-device-twins.md).
 
-* Contrôler les appareils de manière interactive (par exemple, activer un ventilateur à partir d’une application contrôlée par l’utilisateur), avec la [utiliser des méthodes directes](quickstart-control-device-node.md) didacticiel.
+* Pour savoir comment contrôler les appareils de façon interactive (par exemple pour mettre en marche un ventilateur à partir d’une application contrôlée par l’utilisateur), suivez le didacticiel [Utiliser des méthodes directes](quickstart-control-device-node.md).

@@ -1,19 +1,19 @@
 ---
-title: Déployer et configurer le pare-feu d’Azure à l’aide d’Azure PowerShell
-description: Dans cet article, vous allez apprendre à déployer et configurer le pare-feu d’Azure à l’aide d’Azure PowerShell.
+title: Déployer et configurer un pare-feu Azure à l’aide de Azure PowerShell
+description: Dans cet article, vous découvrez comment déployer et configurer un pare-feu Azure avec Azure PowerShell.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.date: 4/10/2019
 ms.author: victorh
 ms.openlocfilehash: 7c30e0aa0ae9735f5d08e1a2c4d6e6d36d778e27
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65410243"
 ---
-# <a name="deploy-and-configure-azure-firewall-using-azure-powershell"></a>Déployer et configurer le pare-feu d’Azure à l’aide d’Azure PowerShell
+# <a name="deploy-and-configure-azure-firewall-using-azure-powershell"></a>Déployer et configurer un pare-feu Azure à l’aide de Azure PowerShell
 
 Le contrôle de l’accès réseau sortant est une partie importante d’un plan de sécurité réseau global. Par exemple, vous pouvez souhaiter limiter l’accès aux sites web. Vous pouvez aussi vouloir limiter l’accès à certaines adresses IP et à certains ports sortants.
 
@@ -24,7 +24,7 @@ Vous pouvez contrôler l’accès réseau sortant à partir d’un sous-réseau 
 
 Le trafic réseau est soumis aux règles de pare-feu configurées lorsque vous routez votre trafic réseau vers le pare-feu en tant que sous-réseau de passerelle par défaut.
 
-Pour cet article, vous créez un réseau virtuel unique simplifié avec trois sous-réseaux pour faciliter leur déploiement. Pour les déploiements de production, un [modèle Hub and Spoke](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke), dans lequel le pare-feu est dans son propre réseau virtuel, est recommandé. Les serveurs de la charge de travail se trouvent dans des réseaux virtuels appairés dans la même région avec un ou plusieurs sous-réseaux.
+Pour cet article, vous devez créer un seul réseau virtuel simplifié avec trois sous-réseaux pour un déploiement facile. Pour les déploiements de production, un [modèle Hub and Spoke](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke), dans lequel le pare-feu est dans son propre réseau virtuel, est recommandé. Les serveurs de la charge de travail se trouvent dans des réseaux virtuels appairés dans la même région avec un ou plusieurs sous-réseaux.
 
 * **AzureFirewallSubnet** : le pare-feu est dans ce sous-réseau.
 * **Workload-SN** : le serveur de la charge de travail est dans ce sous-réseau. Le trafic réseau de ce sous-réseau traverse le pare-feu.
@@ -42,13 +42,13 @@ Dans cet article, vous apprendrez comment :
 > * Configurer une règle de réseau pour autoriser l’accès aux serveurs DNS externes
 > * Tester le pare-feu
 
-Si vous préférez, vous pouvez effectuer cette procédure à l’aide de la [Azure portal](tutorial-firewall-deploy-portal.md).
+Si vous préférez, vous pouvez suivre cette procédure en utilisant le [portail Azure](tutorial-firewall-deploy-portal.md).
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
-Cette procédure requiert que vous exécutez PowerShell localement. Les modules Azure PowerShell doivent être installés. Exécutez `Get-Module -ListAvailable Az` pour trouver la version. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps). Après avoir vérifié la version PowerShell, exécutez `Connect-AzAccount` pour créer une connexion avec Azure.
+Pour cette procédure, vous devez exécuter PowerShell localement. Les modules Azure PowerShell doivent être installés. Exécutez `Get-Module -ListAvailable Az` pour trouver la version. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps). Après avoir vérifié la version PowerShell, exécutez `Connect-AzAccount` pour créer une connexion avec Azure.
 
 ## <a name="set-up-the-network"></a>Configurer le réseau
 
@@ -56,7 +56,7 @@ Tout d’abord, créez un groupe de ressources qui contiendra les ressources né
 
 ### <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
-Le groupe de ressources contient toutes les ressources pour le déploiement.
+Le groupe de ressources contient toutes les ressources utilisées dans ce déploiement.
 
 ```azurepowershell
 New-AzResourceGroup -Name Test-FW-RG -Location "East US"
@@ -75,7 +75,7 @@ $Jumpsub = New-AzVirtualNetworkSubnetConfig -Name Jump-SN -AddressPrefix 10.0.3.
 > [!NOTE]
 > La taille minimale du sous-réseau AzureFirewallSubnet est /26.
 
-Maintenant, créez le réseau virtuel :
+Créez maintenant le réseau virtuel :
 
 ```azurepowershell
 $testVnet = New-AzVirtualNetwork -Name Test-FW-VN -ResourceGroupName Test-FW-RG `
@@ -87,7 +87,7 @@ $testVnet = New-AzVirtualNetwork -Name Test-FW-VN -ResourceGroupName Test-FW-RG 
 Maintenant créez les machines virtuelles de rebond et de charge de travail, et placez-les dans les sous-réseaux appropriés.
 Lorsque vous y êtes invité, saisissez le nom d’utilisateur et le mot de passe pour la machine virtuelle.
 
-Créez la machine virtuelle Jump-Srv.
+Créez la machine virtuelle Srv-Jump.
 
 ```azurepowershell
 New-AzVm `
@@ -100,7 +100,7 @@ New-AzVm `
     -Size "Standard_DS2"
 ```
 
-Créer une machine virtuelle de la charge de travail avec aucune adresse IP publique.
+Créez une machine virtuelle de charge de travail sans adresse IP publique.
 Lorsque vous y êtes invité, saisissez le nom d’utilisateur et le mot de passe pour la machine virtuelle.
 
 ```azurepowershell
@@ -120,7 +120,7 @@ New-AzVM -ResourceGroupName Test-FW-RG -Location "East US" -VM $VirtualMachine -
 
 ## <a name="deploy-the-firewall"></a>Déployer le pare-feu
 
-Déployer maintenant le pare-feu dans le réseau virtuel.
+Déployez maintenant le pare-feu dans le réseau virtuel.
 
 ```azurepowershell
 # Get a Public IP for the firewall
@@ -139,7 +139,7 @@ Notez l’adresse IP privée. Vous l’utiliserez plus tard lors de la création
 
 ## <a name="create-a-default-route"></a>Créer un itinéraire par défaut
 
-Créer une table, avec la propagation des itinéraires BGP désactivée
+Créer une table, avec la propagation d’itinéraires BGP désactivée
 
 ```azurepowershell
 $routeTableDG = New-AzRouteTable `
@@ -168,7 +168,7 @@ Set-AzVirtualNetworkSubnetConfig `
 
 ## <a name="configure-an-application-rule"></a>Configurer une règle d’application
 
-La règle d’application autorise un accès sortant www.Google.com.
+La règle d’application autorise un accès sortant vers www.google.com.
 
 ```azurepowershell
 $AppRule1 = New-AzFirewallApplicationRule -Name Allow-Google -SourceAddress 10.0.2.0/24 `
@@ -202,7 +202,7 @@ Set-AzFirewall -AzureFirewall $Azfw
 
 ### <a name="change-the-primary-and-secondary-dns-address-for-the-srv-work-network-interface"></a>Modifier les adresses DNS principales et secondaires de l’interface réseau **Srv-Work**
 
-À des fins de test dans cette procédure, configurez les adresses du serveur principales et secondaires DNS. Ceci n’est pas obligatoire pour le pare-feu Azure.
+À des fins de test dans cette procédure, configurez les adresses DNS principales et secondaires du serveur. Ceci n’est pas obligatoire pour le pare-feu Azure.
 
 ```azurepowershell
 $NIC.DnsSettings.DnsServers.Add("209.244.0.3")
@@ -214,22 +214,22 @@ $NIC | Set-AzNetworkInterface
 
 Testez maintenant le pare-feu pour vérifier qu’il fonctionne comme prévu.
 
-1. Notez l’adresse IP privée pour le **Srv chômées** machine virtuelle :
+1. Notez l’adresse IP privée de la machine virtuelle **Srv-Work** :
 
    ```
    $NIC.IpConfigurations.PrivateIpAddress
    ```
 
-1. Connectez un bureau à distance à la machine virtuelle **Srv-Jump**, puis connectez-vous. À partir de là, ouvrez une connexion Bureau à distance à la **Srv chômées** privé adresse IP et vous connecter.
+1. Connectez un bureau à distance à la machine virtuelle **Srv-Jump**, puis connectez-vous. De là, ouvrez une connexion Bureau à distance à l’adresse IP privée **Srv-Work** et connectez-vous.
 
-3. Sur **SRV chômées**, ouvrez une fenêtre PowerShell et exécutez les commandes suivantes :
+3. Sur **SRV-Work**, ouvrez une fenêtre PowerShell et exécutez la commande suivante :
 
    ```
    nslookup www.google.com
    nslookup www.microsoft.com
    ```
 
-   Les deux commandes doivent retourner des réponses, montrant l’obtiennent de vos requêtes DNS via le pare-feu.
+   Les deux commandes doivent retourner des réponses, montrant que vos requêtes DNS passent au travers du pare-feu.
 
 1. Exécutez les commandes suivantes :
 
@@ -250,7 +250,7 @@ Maintenant que vous avez vérifié que les règles de pare-feu fonctionnent :
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Vous pouvez conserver vos ressources de pare-feu pour le didacticiel suivant, ou si vous n’avez plus besoin, supprimez le **Test-FW-RG** groupe de ressources pour supprimer toutes les ressources liées de pare-feu :
+Vous pouvez garder vos ressources de pare-feu pour le prochain didacticiel, ou, si vous n’en avez plus besoin, vous pouvez supprimer le groupe de ressources **Test-FW-RG** pour supprimer toutes les ressources associées au pare-feu :
 
 ```azurepowershell
 Remove-AzResourceGroup -Name Test-FW-RG

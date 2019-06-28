@@ -13,10 +13,10 @@ ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
 ms.openlocfilehash: 6d9b68bda2a6cff533286d9ee944abf1c92cc2bf
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65523240"
 ---
 # <a name="ocr-cognitive-skill"></a>Compétence cognitive OCR
@@ -45,22 +45,22 @@ La compétence **OCR** extrait le texte de fichiers d’image. Les formats de fi
 
 Les paramètres respectent la casse.
 
-| Nom du paramètre     | Description  |
+| Nom du paramètre     | Description |
 |--------------------|-------------|
 | detectOrientation | Active la détection automatique de l’orientation de l’image. <br/> Valeurs valides : true, false.|
 |defaultLanguageCode | <p>  Code de langue du texte d’entrée. Les langages pris en charge incluent : <br/> zh-Hans (chinois simplifié) <br/> zh-Hant (chinois traditionnel) <br/>cs (tchèque) <br/>da (danois) <br/>nl (néerlandais) <br/>en (anglais) <br/>fi (finnois)  <br/>fr (français) <br/>  de (allemand) <br/>el (grec) <br/> hu (hongrois) <br/> it (italien) <br/>  ja (japonais) <br/> ko (coréen) <br/> nb (norvégien) <br/>   pl (polonais) <br/> pt (portugais) <br/>  ru (russe) <br/>  es (espagnol) <br/>  sv (suédois) <br/>  tr (turc) <br/> ar (arabe) <br/> ro (roumain) <br/> sr-Cyrl (serbe cyrillique) <br/> sr-Latn (serbe latin) <br/>  sk (slovaque) <br/>  unk (inconnu) <br/><br/> Si le code langue n’est pas spécifié ou est Null, la langue est définie automatiquement sur l’anglais. Si la langue est explicitement définie sur « unk », la langue sera détectée automatiquement. </p> |
 | textExtractionAlgorithm | « printed » (imprimé) ou « handwritten » (manuscrit). L’algorithme OCR de reconnaissance de texte « handwritten » est actuellement en préversion et n’est pris en charge qu’en anglais. |
-|lineEnding | La valeur à utiliser entre chaque a détecté la ligne. Valeurs possibles : 'Space','CarriageReturn','LineFeed'.  La valeur par défaut est « Espace » |
+|lineEnding | La valeur à utiliser entre chaque ligne détectée. Valeurs possibles : 'Space','CarriageReturn','LineFeed'.  La valeur par défaut est 'Space' |
 
 ## <a name="skill-inputs"></a>Entrées de la compétence
 
-| Entrez un nom      | Description                                           |
+| Nom d’entrée      | Description                                          |
 |---------------|------------------------------------------------------|
 | image         | Type complexe. Ne fonctionne actuellement qu'avec le champ « /documents/normalized_images », généré par l'indexeur d'objets Blob Azure lorsque ```imageAction``` est défini sur une valeur supérieure à ```none```. Pour plus d’informations, consultez [l’exemple](#sample-output).|
 
 
 ## <a name="skill-outputs"></a>Sorties de la compétence
-| Nom de sortie     | Description                    |
+| Nom de sortie     | Description                   |
 |---------------|-------------------------------|
 | text          | Texte brut extrait de l’image.   |
 | layoutText    | Type complexe qui décrit le texte extrait ainsi que l’emplacement où le texte a été trouvé.|

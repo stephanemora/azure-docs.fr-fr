@@ -11,10 +11,10 @@ ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.topic: article
 ms.date: 03/15/2018
 ms.openlocfilehash: 5dd9d8eac7d65815d7c98a28b0d5af55f19cec47
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65464433"
 ---
 # <a name="create-streaming-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>Créer un tableau de bord des insights client en streaming avec Azure Logic Apps et Azure Functions
@@ -52,7 +52,7 @@ Pour détecter le sentiment derrière un texte, vous pouvez utiliser [Azure Cogn
 
 2. Recherchez le connecteur **Analyse de texte**.
 
-3. Sélectionnez l’action **Detect Sentiment (Détecter le sentiment)**.
+3. Sélectionnez l’action **Detect Sentiment (Détecter le sentiment)** .
 
 4. Si vous y êtes invité, fournissez une clé Cognitive Services valide pour le service d’analyse de texte.
 
@@ -100,7 +100,7 @@ Pour afficher des historiques d’exécution précédentes dans Visual Studio ou
 * Ouvrez Visual Studio Cloud Explorer. Recherchez votre application logique, ouvrez le menu contextuel de l’application. Sélectionnez **Ouvrir l’historique des exécutions**.
 
   > [!NOTE]
-  > Pour Visual Studio 2019, Cloud Explorer peut ouvrir le Concepteur d’application logique dans le portail Azure, mais ne peut pas encore ouvrir le Concepteur d’application logique intégré ou l’historique des exécutions.
+  > Pour Visual Studio 2019, Cloud Explorer peut ouvrir le Concepteur d’application logique dans le portail Azure, mais ne peut pas encore ouvrir le Concepteur d’application logique intégré ou exécuter l’historique.
 
 * Dans le Portail Azure, recherchez votre application logique. Dans le menu de votre application logique, sélectionnez **Vue d’ensemble**. 
 

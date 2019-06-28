@@ -5,38 +5,38 @@ ms.topic: include
 ms.date: 04/28/2019
 ms.author: ramamill
 ms.openlocfilehash: 00b0c1b1a40ad16db177916c57dba6e9d5a187a7
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66170020"
 ---
-Suivez les étapes pour votre scénario spécifique.
+Suivez les étapes pour votre situation spécifique.
 
-### <a name="unregister-a-connected-process-server"></a>Annuler l’inscription d’un serveur de processus connectés
+### <a name="unregister-a-connected-process-server"></a>Annuler l’inscription d’un serveur de traitement connecté
 
-1. Établir une connexion à distance au serveur de traitement en tant qu’administrateur.
-2. Dans le **le panneau de configuration**, ouvrez **programmes > désinstaller un programme**.
-3. Désinstallez le programme **serveur cible de Microsoft Azure Site Recovery Mobility principale duService/**.
-4. Désinstallez le programme **serveur de Configuration/traitement Microsoft Azure Site Recovery**.
-5. Une fois les programmes dans les étapes 3 et 4 sont désinstallées, désinstaller **dépendances du serveur Configuration/traitement Microsoft Azure Site Recovery**.
+1. Établissez une connexion à distance avec le serveur de traitement en tant qu’Administrateur.
+2. Dans le **Panneau de configuration**, ouvrez **Programmes > Désinstaller un programme**.
+3. Désinstallez le programme **Service Mobilité/Serveur cible maître Microsoft Azure Site Recovery**.
+4. Désinstallez le programme **Serveur de configuration/traitement Microsoft Azure Site Recovery**.
+5. Une fois les programmes des étapes 3 et 4 désinstallés, vous pouvez désinstaller **Dépendances du serveur de configuration/traitement Microsoft Azure Site Recovery**.
 
-### <a name="unregister-a-disconnected-process-server"></a>Annuler l’inscription d’un serveur de processus déconnecté
+### <a name="unregister-a-disconnected-process-server"></a>Annuler l’inscription d’un serveur de traitement déconnecté
 
-N’utilisez ces étapes s’il n’existe aucun moyen de réactiver l’ordinateur sur lequel est installé le serveur de processus.
+N’utilisez ces étapes que s’il n’existe aucun autre moyen de réactiver l’ordinateur sur lequel est installé le serveur de traitement.
 
-1. Se connecter le serveur de configuration en tant qu’administrateur.
-2. Ouvrez une invite de commandes d’administration et accédez à `%ProgramData%\ASR\home\svsystems\bin`.
-3. Exécutez cette commande pour obtenir une liste d’un ou plusieurs serveurs de processus.
+1. Connectez-vous au serveur de configuration en tant qu’administrateur.
+2. Ouvrez une invite de commande d’administration et accédez à `%ProgramData%\ASR\home\svsystems\bin`.
+3. Exécutez cette commande pour obtenir une liste d’un ou plusieurs serveurs de traitement.
 
     ```
     perl Unregister-ASRComponent.pl -IPAddress <IP_of_Process_Server> -Component PS
     ```
-    - S. Non : le numéro de série de processus serveur.
-    - Adresse IP/nom : L’adresse IP et le nom de l’ordinateur exécutant le serveur de processus.
-    - Vérification des pulsations : Dernière pulsation à partir de la machine serveur de processus.
+    - S. Numéro : le numéro de série du serveur de traitement.
+    - Adresse IP/Nom : L’adresse IP et le nom de la machine exécutant le serveur de traitement.
+    - Pulsation : Dernière pulsation de la machine du serveur de traitement.
     ![Unregister-cmd](media/site-recovery-vmware-unregister-process-server/Unregister-cmd.PNG)
 
-4. Spécifiez le numéro de série du serveur de processus que vous souhaitez annuler l’inscription.
-5. Annuler l’enregistrement d’un serveur de processus supprimer tous les détails du système et affiche le message : **Correctement désinscrit nom-serveur > (server-IP-address)**
+4. Spécifiez le numéro de série du serveur de traitement dont vous souhaitez annuler l’inscription.
+5. L’annulation de l’enregistrement d’un serveur de traitement supprime tous les détails du système et affiche le message : **Désinscription de nom-serveur réussie> (adresse-IP-serveur)**
 

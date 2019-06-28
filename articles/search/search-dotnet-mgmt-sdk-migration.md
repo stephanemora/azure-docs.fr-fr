@@ -10,16 +10,16 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.openlocfilehash: 62c2ed555fcac56677f4950c10d38ded8fb0649d
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65025187"
 ---
-# <a name="upgrading-to-the-azure-search-net-management-sdk-version"></a>La mise à niveau vers la version du SDK de gestion .NET Azure Search 
+# <a name="upgrading-to-the-azure-search-net-management-sdk-version"></a>Mise à niveau vers la version 2 du Kit de développement logiciel (SDK) .NET Management de Recherche Azure 
 
 > [!Important]
-> Ce contenu est en cours de construction. La version 3.0 du SDK .NET Azure Search Management est disponible sur NuGet. Nous travaillons sur la mise à jour de ce guide de migration pour expliquer comment mettre à niveau vers la nouvelle version. 
+> Ce contenu est en cours de construction. La version 3.0 du Kit de développement logiciel (SDK) .NET Management de Recherche Azure est disponible sur NuGet. Nous travaillons sur la mise à jour de ce guide de migration. Celle-ci expliquera comment effectuer la mise à niveau vers la nouvelle version. 
 >
 
 Si vous utilisez la version 1.0.2 ou une version antérieure du [Kit de développement logiciel (SDK) .NET Management Recherche Azure](https://aka.ms/search-mgmt-sdk), cet article vous aidera à mettre à niveau votre application pour utiliser la version 2.

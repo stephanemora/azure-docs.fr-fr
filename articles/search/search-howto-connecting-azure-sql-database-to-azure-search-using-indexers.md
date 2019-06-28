@@ -11,10 +11,10 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
 ms.openlocfilehash: 59a45791676f62f42763e0e834d327b0c0c4106d
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66755102"
 ---
 # <a name="connect-to-and-index-azure-sql-database-content-using-azure-search-indexers"></a>Se connecter à Azure SQL Database et indexer le contenu à l’aide d’indexeurs Recherche Azure
@@ -158,7 +158,7 @@ Vous pouvez également configurer l'indexeur pour qu’il s’exécute à interv
 
 Le paramètre **interval** est obligatoire. Il correspond à la durée entre le début de deux exécutions consécutives de l’indexeur. L'intervalle minimal autorisé est de 5 minutes, l'intervalle maximal autorisé est d'une journée. Il doit être formaté en tant que valeur « dayTimeDuration » XSD (un sous-ensemble limité d'une valeur de [durée ISO 8601](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) ). Le modèle est le suivant : `P(nD)(T(nH)(nM))`. Exemples : `PT15M` toutes les 15 minutes, `PT2H` toutes les deux heures.
 
-Pour plus d’informations sur la définition des planifications de l’indexeur, consultez [comment planifier des indexeurs pour Azure Search](search-howto-schedule-indexers.md).
+Pour plus d’informations sur la définition des planifications de l’indexeur, consultez [Comment planifier des indexeurs pour Azure Search](search-howto-schedule-indexers.md).
 
 <a name="CaptureChangedRows"></a>
 
@@ -289,7 +289,7 @@ L’indexeur SQL expose plusieurs paramètres de configuration :
 
 | Paramètre | Type de données | Objectif | Valeur par défaut |
 | --- | --- | --- | --- |
-| queryTimeout |string |Définit le délai d’expiration de l’exécution de la requête SQL |5 minutes ("00:05:00") |
+| queryTimeout |chaîne |Définit le délai d’expiration de l’exécution de la requête SQL |5 minutes ("00:05:00") |
 | disableOrderByHighWaterMarkColumn |bool |Indique que la requête SQL utilisée par la stratégie de limite supérieure doit omettre la clause ORDER BY. Consultez [Stratégie de limite supérieure](#HighWaterMarkPolicy) |false |
 
 Ces paramètres sont utilisés dans l’objet `parameters.configuration`, dans la définition de l’indexeur. Par exemple, pour fixer un délai d’expiration de la requête de 10 minutes, créez ou mettez à jour l’indexeur avec la configuration suivante :

@@ -1,7 +1,7 @@
 ---
 title: Extraction de données
 titleSuffix: Language Understanding - Azure Cognitive Services
-description: Extraire des données de texte énoncé avec les intentions et entités. Découvrez le type de données peut être extraites à partir de LUIS (Language Understanding).
+description: Extraire des données d’un texte d’énoncé avec des intentions et des entités. Découvrez quel type de données il est possible d’extraire à partir de Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -12,13 +12,13 @@ ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: diberry
 ms.openlocfilehash: 15d6b0d28f926bdb39b35b763b89422cddcccc84
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65150698"
 ---
-# <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>Extraire des données de texte énoncé avec les intentions et entités
+# <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>Extraire des données d’un texte d’énoncé avec des intentions et des entités
 LUIS donne la possibilité d’obtenir des informations à partir des énoncés d’un utilisateur en langage naturel. Les informations sont extraites de façon à pouvoir être utilisées par un programme, une application ou un chatbot de manière exploitable. Dans les sections suivantes, découvrez quelles sont les données retournées à partir des intentions et des entités avec des exemples de JSON.
 
 Les données les plus difficiles à extraire sont les données issues du Machine Learning, car il n’y a pas de correspondance de texte exacte. L’extraction de données à partir [d’entités](luis-concept-entity-types.md) issues du Machine Learning doit faire partie du [cycle de création](luis-concept-app-iteration.md) jusqu’à ce que vous ayez la certitude de recevoir les données attendues.
@@ -408,17 +408,17 @@ Les entités [PersonName](luis-reference-prebuilt-person.md) et [GeographyV2](lu
 
 ### <a name="names-of-people"></a>Noms de personnes
 
-Les noms de personnes peuvent avoir un format légèrement en fonction de la langue et de la culture. Utiliser soit un **[personName](luis-reference-prebuilt-person.md)** entité ou un **[entité simple](luis-concept-entity-types.md#simple-entity)** avec [rôles](luis-concept-roles.md) de première et nom de famille. 
+Les noms de personnes peuvent avoir un format légèrement en fonction de la langue et de la culture. Utilisez une entité **[personName](luis-reference-prebuilt-person.md)** prédéfinie ou une **[entité simple](luis-concept-entity-types.md#simple-entity)** avec les [rôles](luis-concept-roles.md) du prénom et du nom. 
 
-Si vous utilisez l’entité simple, veillez à donner des exemples qui utilisent le nom et prénom dans différentes parties de l’énoncé dans énoncés de longueurs différentes et énoncés entre tous les intentions, y compris l’aucun intentionnelle. [Vérifiez](luis-how-to-review-endoint-utt.md) régulièrement les énoncés du point de terminaison pour étiqueter les noms qui n’ont pas été prédits correctement.
+Si vous utilisez l’entité simple, veillez à donner des exemples qui utilisent le prénom et le nom à différents endroits de l’énoncé, dans des énoncés de longueurs différentes et pour toutes les intentions, y compris l’intention None. [Vérifiez](luis-how-to-review-endoint-utt.md) régulièrement les énoncés du point de terminaison pour étiqueter les noms qui n’ont pas été prédits correctement.
 
 ### <a name="names-of-places"></a>Noms de lieux
 
-Noms d’emplacement sont définies et connus tels que des villes, comtés, États, provinces et pays/régions. Utiliser l’entité prédéfinie **[geographyV2](luis-reference-prebuilt-geographyv2.md)** pour extraire des informations d’emplacement.
+Les noms d’endroits sont définis et connus : villes, départements, États, provinces et pays/régions. Utilisez l’entité prédéfinie **[geographyV2](luis-reference-prebuilt-geographyv2.md)** pour extraire des informations de localisation.
 
 ### <a name="new-and-emerging-names"></a>Nouveaux noms
 
-Certaines applications doivent être capables de rechercher les nouveaux noms, comme les produits ou les entreprises. Ces types de noms sont le type plus difficile d’extraction de données. Commencer avec un **[entité simple](luis-concept-entity-types.md#simple-entity)** et ajoutez un [liste d’expressions](luis-concept-feature.md). [Vérifiez](luis-how-to-review-endoint-utt.md) régulièrement les énoncés du point de terminaison pour étiqueter les noms qui n’ont pas été prédits correctement.
+Certaines applications doivent être capables de rechercher les nouveaux noms, comme les produits ou les entreprises. Ces types de noms sont les plus difficiles à extraire. Commencez par une **[entité simple](luis-concept-entity-types.md#simple-entity)** et ajoutez une [liste d’expressions](luis-concept-feature.md). [Vérifiez](luis-how-to-review-endoint-utt.md) régulièrement les énoncés du point de terminaison pour étiqueter les noms qui n’ont pas été prédits correctement.
 
 ## <a name="pattern-roles-data"></a>Données de rôles de modèle
 Les rôles sont des différences d’entités contextuelles.

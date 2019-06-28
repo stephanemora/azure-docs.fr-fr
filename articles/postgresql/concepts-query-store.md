@@ -1,21 +1,21 @@
 ---
-title: Store de requête dans une base de données Azure pour PostgreSQL - serveur unique
-description: Cet article décrit la fonctionnalité de requête Store dans Azure Database pour PostgreSQL - serveur unique.
+title: Magasin des requêtes dans Azure Database pour PostgreSQL - Serveur unique
+description: Cet article décrit la fonctionnalité Magasin des requêtes dans Azure Database pour PostgreSQL - Serveur unique.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: b622de3e21d26676bb11d81a6facf8fea18cabc1
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65067196"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>Superviser les performances avec le Magasin des requêtes
 
-**S’applique à :** Azure Database pour PostgreSQL - monoserveur 9.6 et 10
+**S’applique à :** Azure Database pour PostgreSQL - Serveur unique versions 9.6 et 10
 
 La fonctionnalité Magasin des requêtes dans Azure Database pour PostgreSQL fournit un moyen de suivre les performances des requêtes dans le temps. Le Magasin des requêtes simplifie la résolution des problèmes de performances en vous aidant à identifier rapidement les requête dont l’exécution est la plus longue et qui consomment le plus de ressources. Le Magasin des requêtes capture automatiquement un historique des requêtes et des statistiques d’exécution, et les conserve pour que vous les passiez en revue. Il sépare les données par fenêtres de temps afin que vous puissiez voir les modèles d’utilisation des bases de données. Les données de tous les utilisateurs, des bases de données et des requêtes sont stockées dans une base de données nommée **azure_sys** dans l’instance Azure Database pour PostgreSQL.
 
@@ -29,14 +29,14 @@ Le Magasin des requêtes étant une fonctionnalité avec option d’adhésion, e
 1. Connectez-vous au portail Azure, puis sélectionnez votre serveur Azure Database pour PostgreSQL.
 2. Sélectionnez **Paramètres du serveur** dans la section **Paramètres** du menu.
 3. Recherchez le paramètre `pg_qs.query_capture_mode`.
-4. Définissez la valeur sur `TOP` et **enregistrer**.
+4. Définissez la valeur sur `TOP` et cliquez sur **Enregistrer**.
 
-Pour activer les statistiques d’attente dans votre requête de Store : 
+Pour activer les statistiques d’attente dans votre magasin des requêtes, procédez comme suit : 
 1. Recherchez le paramètre `pgms_wait_sampling.query_capture_mode`.
-1. Définissez la valeur sur `ALL` et **enregistrer**.
+1. Définissez la valeur sur `ALL` et cliquez sur **Enregistrer**.
 
 
-Vous pouvez également définir ces paramètres à l’aide de l’interface CLI.
+Vous pouvez également définir ces paramètres à l’aide de l’interface Azure CLI.
 ```azurecli-interactive
 az postgres server configuration set --name pg_qs.query_capture_mode --resource-group myresourcegroup --server mydemoserver --value TOP
 az postgres server configuration set --name pgms_wait_sampling.query_capture_mode --resource-group myresourcegroup --server mydemoserver --value ALL
@@ -112,7 +112,7 @@ Les requêtes sont normalisées en examinant leur structure après la suppressio
 ### <a name="querystoreqsview"></a>query_store.qs_view
 Cette vue retourne toutes les données du Magasin des requêtes. Il existe une ligne pour chaque ID de base de données distinct, ID d’utilisateur et ID de requête. 
 
-|**Name**   |**Type** | **Informations de référence**  | **Description**|
+|**Nom**   |**Type** | **Informations de référence**  | **Description**|
 |---|---|---|---|
 |runtime_stats_entry_id |bigint | | ID de la table runtime_stats_entries|
 |user_id    |oid    |pg_authid.oid  |OID de l’utilisateur qui a exécuté l’instruction|
@@ -145,7 +145,7 @@ Cette vue retourne toutes les données du Magasin des requêtes. Il existe une l
 ### <a name="querystorequerytextsview"></a>query_store.query_texts_view
 Cette vue retourne les données du texte des requêtes du Magasin des requêtes. Il existe une ligne pour chaque valeur query_text distincte.
 
-|**Name**|  **Type**|   **Description**|
+|**Nom**|  **Type**|   **Description**|
 |---|---|---|
 |query_text_id  |bigint     |ID de la table query_texts|
 |query_sql_text |Varchar(10000)     |Texte d’une instruction représentative. Différentes requêtes ayant la même structure sont regroupées en clusters ; ce texte est le texte de la première des requêtes du cluster.|
@@ -153,14 +153,14 @@ Cette vue retourne les données du texte des requêtes du Magasin des requêtes.
 ### <a name="querystorepgmswaitsamplingview"></a>query_store.pgms_wait_sampling_view
 Cette vue retourne les données des événements d’attente du Magasin des requêtes. Il existe une ligne pour chaque ID de base de données, ID d’utilisateur, ID de requête et événement distinct.
 
-|**Name**|  **Type**|   **Informations de référence**| **Description**|
+|**Nom**|  **Type**|   **Informations de référence**| **Description**|
 |---|---|---|---|
 |user_id    |oid    |pg_authid.oid  |OID de l’utilisateur qui a exécuté l’instruction|
 |db_id  |oid    |pg_database.oid    |OID de la base de données dans laquelle l’instruction a été exécutée|
 |query_id   |bigint     ||Code de hachage interne, calculé à partir de l’arborescence d’analyse de l’instruction|
 |event_type |text       ||Type d’événement pour lequel le backend est en attente|
 |événement  |text       ||Nom de l’événement d’attente si le backend est actuellement en attente|
-|calls  |Entier         ||Nombre du même événement capturé|
+|calls  |Entier        ||Nombre du même événement capturé|
 
 
 ### <a name="functions"></a>Fonctions

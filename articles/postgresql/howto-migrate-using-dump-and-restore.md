@@ -1,22 +1,22 @@
 ---
-title: Comment vider et restaurer dans la base de données Azure pour PostgreSQL - serveur unique
-description: Décrit comment extraire une base de données PostgreSQL dans un fichier de vidage et restaurer à partir d’un fichier créé par pg_dump dans Azure Database pour PostgreSQL - serveur unique.
+title: Vidage sur incident et restauration dans Azure Database pour PostgreSQL (serveur unique)
+description: Explique comment extraire une base de données PostgreSQL dans un fichier de sauvegarde et comment restaurer des données à partir d’un fichier créé par la commande pg_dump dans Azure Database pour PostgreSQL (serveur unique).
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: aa9485ec8fcabdc0276e0598bd3e19f04d70dfa1
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65066993"
 ---
 # <a name="migrate-your-postgresql-database-using-dump-and-restore"></a>Migration de votre base de données PostgreSQL par vidage et restauration
 Vous pouvez utiliser la commande [pg_dump](https://www.postgresql.org/docs/9.3/static/app-pgdump.html) pour extraire une base de données PostgreSQL vers un fichier de vidage, et la commande [pg_restore](https://www.postgresql.org/docs/9.3/static/app-pgrestore.html) pour restaurer la base de données PostgreSQL à partir d’un fichier d’archive créé par pg_dump.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 Pour parcourir ce guide pratique, vous avez besoin des éléments suivants :
 - Un [serveur Azure Database pour PostgreSQL](quickstart-create-server-database-portal.md) avec des règles de pare-feu autorisant l’accès et la base de données sous-jacente.
 - Utilitaires de ligne de commande [pg_dump](https://www.postgresql.org/docs/9.6/static/app-pgdump.html) et [pg_restore](https://www.postgresql.org/docs/9.6/static/app-pgrestore.html) installés
@@ -61,7 +61,7 @@ Une façon de migrer votre base de données PostgreSQL existante vers le service
 >
 
 ### <a name="for-the-backup"></a>Pour la sauvegarde
-- Effectuez la sauvegarde avec le commutateur -Fc pour pouvoir effectuer la restauration en parallèle afin de l’accélérer. Par exemple : 
+- Effectuez la sauvegarde avec le commutateur -Fc pour pouvoir effectuer la restauration en parallèle afin de l’accélérer. Par exemple :
 
     ```
     pg_dump -h MySourceServerName -U MySourceUserName -Fc -d MySourceDatabaseName > Z:\Data\Backups\MyDatabaseBackup.dump
@@ -72,7 +72,7 @@ Une façon de migrer votre base de données PostgreSQL existante vers le service
 
 - Cela doit être déjà fait par défaut, mais ouvrez le fichier de vidage pour vérifier que les instructions de création d’index figurent après l’insertion des données. Si tel n’est pas le cas, placez les instructions de création d’index après que les données ont été insérées.
 
-- Restaurez avec les commutateurs -Fc et -j *#* pour mettre en parallèle la restauration. *#* est le nombre de cœurs présents sur le serveur cible. Vous pouvez également essayer avec *#* défini sur le double du nombre de cœurs du serveur cible pour voir l’impact. Par exemple : 
+- Restaurez avec les commutateurs -Fc et -j *#* pour mettre en parallèle la restauration. *#* est le nombre de cœurs présents sur le serveur cible. Vous pouvez également essayer avec *#* défini sur le double du nombre de cœurs du serveur cible pour voir l’impact. Par exemple :
 
     ```
     pg_restore -h MyTargetServer.postgres.database.azure.com -U MyAzurePostgreSQLUserName -Fc -j 4 -d MyTargetDatabase Z:\Data\Backups\MyDatabaseBackup.dump

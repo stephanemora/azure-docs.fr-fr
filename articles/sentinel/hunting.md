@@ -1,6 +1,6 @@
 ---
-title: Fonctionnalités de chasse Sentinel version préliminaire d’Azure | Microsoft Docs
-description: Cet article décrit comment utiliser les fonctionnalités de recherche Azure Sentinel.
+title: Fonctionnalités de repérage dans Azure Sentinel en préversion | Microsoft Docs
+description: Cet article décrit comment utiliser les fonctionnalités de repérage Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -16,65 +16,65 @@ ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
 ms.openlocfilehash: 754722508de248294667ee9e923e8faf3ad67f61
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65236283"
 ---
-# <a name="hunt-for-threats-with-in-azure-sentinel-preview"></a>Recherche les menaces avec Sentinel version préliminaire d’Azure
+# <a name="hunt-for-threats-with-in-azure-sentinel-preview"></a>Repérer les menaces à l’aide d’Azure Sentinel en préversion
 
 > [!IMPORTANT]
 > Azure Sentinel est actuellement disponible en préversion publique.
 > Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Si vous êtes un investigateur qui souhaite être proactive sur les menaces de sécurité, Azure Sentinel recherchez des outils de recherche et de requête puissant chasse à recherche les menaces de sécurité de vos sources de données de votre organisation. Générerez vos systèmes et les appliances de sécurité très volumineuse de données qui peuvent être difficiles à analyser et filtrer des événements significatifs. Pour aider à sécurité analystes recherchez proactive nouvelles anomalies qui n’ont pas été détectés par vos applications de sécurité Azure Sentinel « requêtes de recherche intégrée explique comment poser les bonnes questions pour rechercher les problèmes dans les données que vous avez déjà sur votre réseau. 
+Si vous êtes chargé d’examiner les menaces pour la sécurité, les puissants outils de repérage et de requête offerts par Azure Sentinel vous aideront à détecter ces menaces de manière proactive dans l’ensemble des sources de données de votre organisation. Toutefois, vos systèmes et appliances de sécurité génèrent des montagnes de données qui peuvent se révéler difficiles à analyser et à convertir en événements significatifs. Afin de faciliter la tâche des analystes de la sécurité dans la recherche proactive des nouvelles anomalies non détectées par vos applications de sécurité, les requêtes de repérage intégrées d’Azure Sentinel vous aident à poser les bonnes questions pour identifier les problèmes au niveau des données déjà présents dans le réseau. 
 
-Par exemple, une seule requête intégrée fournit des données sur les processus plus rares qui s’exécutent sur votre infrastructure : vous ne voudriez une alerte concernant chaque fois qu’elles sont exécutées, elles peuvent être entièrement inoffensive, mais vous souhaiterez peut-être jeter un œil de la requête à l’occasion pour voir si th la règle attendue 's quelque chose d’inhabituel. 
+Par exemple, l’une des requêtes intégrées fournit des données sur les processus qui s’exécutent le moins souvent sur votre infrastructure. Vous ne souhaitez pas recevoir une alerte chaque fois que ces processus s’exécutent, car ils peuvent se révéler totalement inoffensifs, mais vous pouvez examiner cette requête de temps à autre pour vérifier qu’il ne se produit rien d’inhabituel. 
 
 
 
-Avec chasse Sentinel Azure, vous pouvez tirer parti des fonctionnalités suivantes :
+La fonctionnalité de repérage d’Azure Sentinel vous offre les avantages suivants :
 
-- Requêtes intégrées : Pour vous aider à démarrer, une page de démarrage fournit des exemples de requête préchargées conçus pour vous aider à démarrent et vous familiariser avec les tables et le langage de requête. Ces requêtes de recherche intégrées sont développées par les chercheurs de sécurité Microsoft de façon continue, ajout de nouvelles requêtes, et de requêtes ajustement existantes pour vous fournir un point d’entrée pour rechercher les nouvelles détections et déterminer où commencer la recherche pour le débuts de nouvelles attaques. 
+- Requêtes intégrées : une page de démarrage fournit des exemples de requêtes préchargés conçus pour vous aider à démarrer et à vous familiariser avec les tables et le langage de requête. Ces requêtes de repérage intégrées sont élaborées en continu par les chercheurs Microsoft en matière de sécurité, qui ajoutent de nouvelles requêtes et affinent les requêtes existantes, de manière à vous offrir un point d’entrée pour la recherche de nouvelles détections et le repérage de l’origine des nouvelles attaques. 
 
-- Puissant langage de requête avec IntelliSense : Reposant sur un langage de requête qui vous donne la flexibilité que nécessaire pour prendre la chasse au niveau supérieur.
+- Langage de requête performant avec IntelliSense : repose sur un langage de requête suffisamment flexible pour garantir des fonctionnalités de repérage de niveau supérieur.
 
-- Créez vos propres signets : Pendant le processus de recherche, vous êtes susceptible de rencontrer correspondances ou les conclusions, les tableaux de bord ou les activités inhabituelles ou suspectes de rechercher. Afin de marquer ces éléments, donc vous pouvez y revenir à l’avenir, utilisez la fonctionnalité de signet. Signets vous permettent d’enregistrer des éléments pour une utilisation ultérieure, pour être utilisé pour créer un cas de l’investigation. Pour plus d’informations sur les signets, consultez utiliser [signets chasse].
+- Création de vos propres signets : lors du processus de repérage, vous pouvez rencontrer des correspondances, conclusions, tableaux de bord ou activités qui vous semblent inhabituels ou suspects. Pour marquer ces éléments afin d’y réaccéder plus facilement par la suite, utilisez la fonctionnalité de création de signets. Les signets vous permettent d’enregistrer des éléments en vue de leur intégration ultérieure dans un dossier d’examen. Pour plus d’informations sur les signets, consultez l’article [Use bookmarks to hunt] (Utiliser des signets pour le repérage).
 
-- Utiliser des blocs-notes pour automatiser un examen : Blocs-notes sont comme des playbooks pas à pas que vous pouvez générer pour les différentes étapes d’une enquête et de recherche.  Blocs-notes encapsulent toutes les étapes de chasse dans un manuel réutilisable qui peuvent être partagées avec d’autres personnes de votre organisation. 
-- Interroger les données stockées : Les données sont accessibles dans les tables pour vous permettent d’interroger. Par exemple, vous pouvez interroger la création du processus, les événements DNS et les nombreux autres types d’événements.
+- Automatisation de l’examen à l’aide de notebooks : les notebooks sont semblables à des playbooks pas à pas que vous pouvez générer pour suivre les différentes étapes d’une procédure d’examen et de repérage.  Les notebooks encapsulent toutes les étapes de repérage dans un playbook réutilisable qui peut être partagé avec d’autres personnes de votre organisation. 
+- Interrogation des données stockées : les données sont accessibles dans des tables sur lesquelles vous pouvez exécuter des requêtes. Par exemple, vous pouvez interroger les événements de création de processus, les événements DNS (Domain Name Service), ainsi que de nombreux autres types d’événements.
 
-- Liens vers la Communauté : Exploiter la puissance de la Communauté supérieure pour rechercher d’autres requêtes et sources de données.
+- Liens vers la communauté : tirez parti de la puissance de l’ensemble de la communauté pour rechercher d’autres requêtes et sources de données.
  
-## <a name="get-started-hunting"></a>Prise en main de chasse
+## <a name="get-started-hunting"></a>Démarrer le repérage
 
-1. Dans le portail Azure Sentinel, cliquez sur **chasse**.
-  ![Sentinel Azure commence la chasse](media/tutorial-hunting/hunting-start.png)
+1. Dans le Portail Azure Sentinel, cliquez sur **Repérage**.
+  ![Début du repérage par Azure Sentinel](media/tutorial-hunting/hunting-start.png)
 
-2. Lorsque vous ouvrez le **chasse** page, toutes les requêtes de recherche sont affichés dans une seule table. Le tableau répertorie toutes les requêtes écrites par l’équipe Microsoft des analystes de sécurité, ainsi que n’importe quelle requête supplémentaire, vous avez créé ou modifié. Chaque requête fournit une description de ce que cela Mac pour, et quel type de données qu’elle s’exécute sur. Ces modèles sont regroupés par leurs tactiques différents : les icônes sur la droite classer le type de menace, telles que l’accès initial, la persistance et exfiltration. Vous pouvez filtrer ces modèles de requête de recherche à l’aide de l’un des champs. Vous pouvez enregistrer n’importe quelle requête à vos favoris. En enregistrant une requête à vos favoris, la requête est automatiquement exécutée chaque fois que le **chasse** page est accessible. Vous pouvez créer votre propre requête de recherche ou un clone et personnaliser un modèle de requête de recherche existant. 
+2. Lorsque vous ouvrez la page **Repérage**, toutes les requêtes de repérage s’affichent dans une même table. Cette table répertorie toutes les requêtes rédigées par l’équipe d’analystes de la sécurité Microsoft, ainsi que toutes les autres requêtes que vous pouvez avoir créées ou modifiées. Chaque requête décrit l’objet du repérage, ainsi que le type de données sur lequel ce processus s’exécute. Ces modèles sont regroupés par tactique : les icônes situées sur la droite classent le type de menace (par exemple, accès initial, persistance et exfiltration). Vous pouvez filtrer ces modèles de requête de repérage à l’aide des champs de votre choix. Vous pouvez enregistrer n’importe quelle requête dans vos favoris. Lorsque vous effectuez cette opération, la requête s’exécute automatiquement à chaque ouverture de la page **Repérage**. Vous pouvez créer votre propre requête de repérage ou cloner et personnaliser un modèle de requête de repérage existant. 
  
-2. Cliquez sur **exécuter la requête** dans la chasse la page de détails de la requête pour exécuter une requête sans quitter la page de chasse.  Le nombre de correspondances est affiché dans la table. Passez en revue la liste des requêtes de recherche et de leur correspondance. Découvrez quelle étape la correspondance est associée à la chaîne de destruction.
+2. Cliquez sur **Exécuter la requête** à partir de la page de détails d’une requête de repérage pour exécuter une requête sans quitter la page de repérage.  Le nombre de correspondances s’affiche dans la table. Passez en revue la liste des requêtes de repérage et leurs correspondances. Consultez l’étape de la chaîne de destruction à laquelle est associée la correspondance.
 
-3. Procéder à une vérification rapide de la requête sous-jacente dans le volet de détails de requête ou cliquez sur **afficher le résultat de la requête** pour ouvrir la requête dans le journal Analytique. En bas, passez en revue les résultats de la requête.
+3. Examinez rapidement la requête sous-jacente dans le volet de détails de requête ou cliquez sur **Afficher le résultat de la requête** pour ouvrir la requête dans Log Analytics. Dans la zone inférieure, passez en revue les correspondances de la requête.
 
-4.  Cliquez sur la ligne, puis sélectionnez **ajouter signet** pour ajouter les lignes à examiner - vous pouvez le faire pour tout élément qui semble suspect. 
+4.  Pour marquer toutes les lignes suspectes qui doivent être examinées, cliquez sur chaque ligne et sélectionnez **Ajouter un signet**. 
 
-5. Ensuite, revenez à la main **chasse** page et cliquez sur le **signets** onglet pour afficher toutes les activités suspectes. 
+5. Ensuite, réaccédez à la page **Repérage** principale et cliquez sur l’onglet **Signets** pour visualiser toutes les activités suspectes. 
 
-6. Sélectionnez un signet, puis cliquez **examiner** pour ouvrir l’expérience d’investigation. Vous pouvez filtrer les signets. Par exemple, si vous recherchez des informations sur une campagne, vous pouvez créer une balise pour la campagne et puis filtrez tous les signets en fonction de la campagne.
+6. Sélectionnez un signet, puis cliquez sur **Examiner** pour démarrer l’expérience d’examen. Vous pouvez filtrer les signets. Par exemple, si vous examinez une campagne, vous pouvez créer une balise pour cette dernière, puis filtrer tous les signets en fonction de cette campagne.
 
-1. Une fois que vous avez découvert la requête chasse fournit des informations de valeur élevée dans les attaques possibles, vous pouvez également créer une détection personnalisée règles en fonction de votre requête et communiquez ces connaissances sous forme d’alertes à votre répondeurs aux incidents de sécurité.
+1. Une fois que vous avez découvert la requête de repérage qui fournit de précieux insights sur les attaques possibles, vous pouvez également créer des règles de détection personnalisées basées sur cette requête et communiquer ces insights sous forme d’alertes aux gestionnaires des incidents de sécurité.
 
  
 
-## <a name="query-language"></a>Langage de la requête 
+## <a name="query-language"></a>Langage de requête 
 
-Chasse dans Azure Sentinel est basé sur le langage de requête Azure Log Analytique. Pour plus d’informations sur le langage de requête et les opérateurs pris en charge, consultez [référence de langage de requête](https://docs.loganalytics.io/docs/Language-Reference/).
+La fonctionnalité de repérage d’Azure Sentinel repose sur le langage de requête Azure Log Analytics. Pour plus d’informations sur le langage de requête et sur les opérateurs pris en charge, consultez l’article [Référence sur le langage de requête](https://docs.loganalytics.io/docs/Language-Reference/).
 
-## <a name="public-hunting-query-github-repository"></a>Référentiel GitHub de requête publique chasse
+## <a name="public-hunting-query-github-repository"></a>Référentiel public GitHub de requêtes de repérage
 
-Découvrez le [référentiel de requêtes de chasse](https://github.com/Azure/Orion). Collaborer et utiliser les exemples de requêtes partagées par nos clients.
+Consultez le [référentiel de requêtes de repérage](https://github.com/Azure/Orion). Complétez et utilisez les exemples de requêtes partagés par nos clients.
 
  
 
@@ -82,69 +82,69 @@ Découvrez le [référentiel de requêtes de chasse](https://github.com/Azure/Or
 
 Une requête classique commence par un nom de table suivi d’une série d’opérateurs séparés par \|.
 
-Dans l’exemple ci-dessus, commencez par la table nom SecurityEvent et ajoutez les éléments redirigés en fonction des besoins.
+Dans l’exemple ci-dessus, démarrez par le nom de table SecurityEvent et ajoutez les éléments enchaînés à l’aide d’une barre verticale selon vos besoins.
 
-1. Définir un filtre de temps pour consulter uniquement les enregistrements des sept jours précédents.
+1. Définissez un filtre de temps pour consulter uniquement les enregistrements des sept jours qui précèdent.
 
-2. Ajouter un filtre dans la requête pour afficher uniquement les ID d’événement 4688.
+2. Ajoutez un filtre à la requête pour qu’elle présente uniquement l’ID d’événement 4688.
 
-3. Ajouter un filtre dans la requête sur la ligne de commande qui contiendra uniquement les instances de cscript.exe.
+3. Ajoutez un filtre à la requête sur l’élément CommandLine pour qu’il contienne uniquement les instances de cscript.exe.
 
-4. Projet uniquement les colonnes que vous souhaitez Explorer et limitez les résultats à 1000, puis cliquez sur **exécuter la requête**.
-5. Cliquez sur le triangle vert et exécutez la requête. Vous pouvez tester la requête et exécutez-le pour rechercher un comportement anormal.
+4. Projetez uniquement les colonnes que vous souhaitez explorer et limitez les résultats à 1 000, puis cliquez sur **Exécuter la requête**.
+5. Cliquez sur le triangle vert et exécutez la requête. Vous pouvez tester la requête et l’exécuter pour rechercher un comportement anormal.
 
 ## <a name="useful-operators"></a>Opérateurs utiles
 
-Le langage de requête est puissant et comporte de nombreux opérateurs disponibles, certains opérateurs utiles sont répertoriées ici :
+Le langage de requête est très puissant grâce à ses nombreux opérateurs. Voici une liste de certains opérateurs particulièrement utiles :
 
-**où** -une table pour le sous-ensemble de lignes qui satisfont un prédicat de filtre.
+**where** : filtre une table en fonction du sous-ensemble de lignes correspondant à un prédicat.
 
-**résumer** -créer une table qui agrège le contenu de la table d’entrée.
+**summarize** : génère une table qui agrège le contenu de la table d’entrée.
 
-**jointure** -fusionner les lignes des deux tables pour former une nouvelle table en mettant en correspondance les valeurs des colonnes de chaque table spécifiés.
+**join** : fusionne les lignes de deux tables pour former une nouvelle table en mettant en correspondance les valeurs des colonnes spécifiées de chaque table.
 
-**nombre** -retourner le nombre d’enregistrements dans le jeu d’enregistrements d’entrée.
+**count** : renvoie le nombre d’enregistrements indiqué dans le jeu d’enregistrements d’entrée.
 
-**haut** -enregistrements de retourner le N premiers triés selon les colonnes spécifiées.
+**top** : renvoie les N premiers enregistrements triés d’après les colonnes spécifiées.
 
-**limite** -retourner le nombre spécifié de lignes au maximum.
+**limit** : renvoie au maximum le nombre de lignes spécifié.
 
-**projet** - sélectionner les colonnes à inclure, renommer ou supprimer et insérer de nouvelles colonnes calculées.
+**project** : sélectionne les colonnes à inclure, renommer ou supprimer, puis insère les nouvelles colonnes calculées.
 
-**étendre** - créer des colonnes calculées et les ajouter au jeu de résultats.
+**extend** : crée des colonnes calculées et les ajoute au jeu de résultats.
 
-**makeset** -retourner un tableau (JSON) dynamique de l’ensemble de valeurs distinctes qui accepte Expr dans le groupe
+**makeset** : renvoie un tableau (JSON) dynamique de l’ensemble de valeurs distinctes prises par Expr dans le groupe.
 
-**rechercher** -rechercher les lignes qui correspondent à un prédicat sur un ensemble de tables.
+**find** : recherche les lignes qui correspondent à un prédicat dans un ensemble de tables.
 
 ## <a name="save-a-query"></a>Enregistrement d’une requête
 
-Vous pouvez créer ou modifier une requête et enregistrez-le en tant que votre propre requête ou le partager avec les utilisateurs figurant dans le même client.
+Vous pouvez créer ou modifier une requête et l’enregistrer comme votre propre requête ou la partager avec des utilisateurs situés dans le même locataire.
 
    ![Enregistrer la requête](./media/tutorial-hunting/save-query.png)
 
-Créer une nouvelle requête de recherche :
+Créez une requête de repérage :
 
-1. Cliquez sur **nouvelle requête** et sélectionnez **enregistrer**.
-2. Renseignez tous les champs vides et sélectionnez **enregistrer**.
+1. Cliquez sur **Nouvelle requête**, puis sélectionnez **Enregistrer**.
+2. Renseignez tous les champs vides, puis sélectionnez **Enregistrer**.
 
    ![Nouvelle requête](./media/tutorial-hunting/new-query.png)
 
-Cloner et modifier une requête de recherche existante :
+Clonez et modifiez une requête de repérage existante :
 
-1. Sélectionnez la requête de recherche dans la table que vous souhaitez modifier.
-2. Sélectionnez les points de suspension (...) dans la ligne de la requête que vous souhaitez modifier, puis sélectionnez **cloner la requête**.
+1. Dans la table, sélectionnez la requête à modifier.
+2. Sélectionnez les points de suspension (...) sur la ligne de la requête que vous souhaitez modifier, puis sélectionnez **Cloner la requête**.
 
-   ![Cloner la requête](./media/tutorial-hunting/clone-query.png)
+   ![Clonage d’une requête](./media/tutorial-hunting/clone-query.png)
  
 
-3. Modifier la requête et sélectionnez **créer**.
+3. Modifiez la requête, puis sélectionnez **Créer**.
 
-   ![requête personnalisée](./media/tutorial-hunting/custom-query.png)
+   ![Requête personnalisée](./media/tutorial-hunting/custom-query.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans cet article, vous avez appris comment exécuter une investigation de chasse avec Azure Sentinel. Pour en savoir plus sur Azure Sentinel, voir les articles suivants :
+Dans cet article, vous avez appris à effectuer un examen de repérage à l’aide d’Azure Sentinel. Pour en savoir plus sur Azure Sentinel, voir les articles suivants :
 
 
-- [Utiliser des blocs-notes pour lancer des campagnes de chasse automatisés](notebooks.md)
-- [Utiliser des signets pour enregistrer des informations intéressantes lors de la recherche](bookmarks.md)
+- [Use notebooks to run automated hunting campaigns](notebooks.md) (Utiliser des notebooks pour exécuter des campagnes de repérage automatisées)
+- [Use bookmarks to save interesting information while hunting](bookmarks.md) (Utiliser des signets pour enregistrer des informations intéressantes lors du repérage)

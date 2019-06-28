@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: pabutler
 ms.openlocfilehash: c3e483a33d986eff767b3529e30208319ad90b23
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64935000"
 ---
 <a name="get-customer-leads"></a>Obtenir des prospects
@@ -65,7 +65,7 @@ Chaque prospect que vous recevez pendant le processus d’acquisition de clients
 
 Le format d’une source de prospect est **Source**-**Action** |  **Offre**
 
-**Sources** « AzureMarketplace », « AzurePortal », « Test drive » et « AppSource (SPZA) »
+**Sources** « AzureMarketplace », « AzurePortal », « TestDrive » et « AppSource (SPZA) »
 
 **Actions** :
 - « INS » : installation. Cette action figure sur la Place de marché Azure ou dans AppSource lorsqu’un client achète votre produit.
@@ -76,18 +76,18 @@ Le format d’une source de prospect est **Source**-**Action** |  **Offre**
 
 **Offres**
 
-Les exemples suivants montrent des identificateurs uniques qui sont affectés à un serveur de publication et une offre spécifique : checkpoint.check-point-r77-10sg-byol, bitnami.openedxcypress et 56-91e6-3ed0b622145a docusign.3701c77e-1cfa - 4c.
+Les exemples suivants présentent des identificateurs uniques qui sont affectés à un éditeur et à une offre spécifique : checkpoint.check-point-r77-10sg-byol, bitnami.openedxcypress et docusign.3701c77e-1cfa-4c56-91e6-3ed0b622145a.
 
 
 ### <a name="customer-info"></a>Informations client
 
 Les champs indiqués dans l’exemple suivant indiquent les informations client qui sont contenues dans un prospect.
-- Prénom : John
+- FirstName : John
 - LastName : Smith
 - Adresse e-mail : jsmith\@microsoft.com
-- Téléphone : 123-456-7890
+- Téléphone : 1234567890
 - Pays : FR
-- Entreprise : Microsoft
+- Société : Microsoft
 - Titre : CTO
 
 >[!Note]

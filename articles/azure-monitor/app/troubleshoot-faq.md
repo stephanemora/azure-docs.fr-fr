@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 12/17/2018
 ms.author: mbullwin
 ms.openlocfilehash: ab1327b42a76a6e76183d84cb1750cce8b85228f
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65604282"
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights : Forum Aux Questions (FAQ)
@@ -132,7 +132,7 @@ Oui, dans le serveur, vous pouvez écrire :
 
 En savoir plus pour [ASP.NET](api-filtering-sampling.md) ou [Java](java-filter-telemetry.md).
 
-## <a name="how-are-city-countryregion-and-other-geo-location-data-calculated"></a>Comment sont calculées une ville, pays/région et autres données d’emplacement géographique ?
+## <a name="how-are-city-countryregion-and-other-geo-location-data-calculated"></a>Comment sont calculées les données relative à la ville, au pays/à la région et aux autres emplacements géographiques ?
 
 Nous recherchons l’adresse IP (IPv4 ou IPv6) du client web à l’aide de [GeoLite2](https://dev.maxmind.com/geoip/geoip2/geolite2/).
 
@@ -153,7 +153,7 @@ Cela est possible si votre code envoie ce type de données. Cela peut également
 
 **Tous** les octets de l’adresse web du client ont toujours la valeur 0 lors de la recherche des attributs d’emplacement géographique.
 
-## <a name="my-instrumentation-key-is-visible-in-my-web-page-source"></a>Ma clé d’Instrumentation est visible dans ma source de la page web. 
+## <a name="my-instrumentation-key-is-visible-in-my-web-page-source"></a>La clé d’instrumentation est visible dans la source de ma page web. 
 
 * Il s’agit d’une pratique courante dans les solutions de surveillance.
 * Il ne peut pas être utilisé pour dérober vos données.
@@ -162,7 +162,7 @@ Cela est possible si votre code envoie ce type de données. Cela peut également
 
 Vous pouvez :
 
-* Utilisez les deux clés d’Instrumentation distincts (ressources Application Insights distinctes), pour les données client et serveur. Ou
+* Utiliser deux clés d’instrumentation distinctes (ressources Application Insights distinctes) pour les données client et serveur. Ou
 * Écrire un proxy qui s’exécute sur votre serveur et que le client web utilise pour envoyer des données.
 
 ## <a name="post"></a>Comment consulter les données POST dans la fonction Recherche de diagnostic ?
@@ -288,12 +288,12 @@ Votre passerelle doit acheminer le trafic vers l’adresse de base de notre poin
 
 _Remarque : ApplicationIdProvider est disponible à partir de la version 2.6.0_
 
-### <a name="proxy-passthrough"></a>Relais de proxy
+### <a name="proxy-passthrough"></a>Pass-through du proxy
 
-Relais proxy peut être obtenue en configurant un niveau de l’ordinateur ou le niveau de l’application proxy.
-Pour plus d’informations, consultez l’article de dotnet sur [DefaultProxy](https://docs.microsoft.com/dotnet/framework/configure-apps/file-schema/network/defaultproxy-element-network-settings).
+Vous pouvez obtenir le pass-through du proxy en configurant un proxy au niveau de l’ordinateur ou de l’application.
+Pour en savoir plus, consultez l’article de dotnet sur [DefaultProxy](https://docs.microsoft.com/dotnet/framework/configure-apps/file-schema/network/defaultproxy-element-network-settings).
  
- Exemple Web.config :
+ Exemple de fichier Web.config :
  ```xml
 <system.net>
     <defaultProxy>

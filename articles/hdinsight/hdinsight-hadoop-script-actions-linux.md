@@ -1,6 +1,6 @@
 ---
 title: Développer des actions de script pour personnaliser des clusters Azure HDInsight
-description: Découvrez comment utiliser des scripts Bash pour personnaliser des clusters HDInsight. Actions de script permettent d’exécuter des scripts pendant ou après la création du cluster pour modifier les paramètres de configuration de cluster ou installer des logiciels supplémentaires.
+description: Découvrez comment utiliser des scripts Bash pour personnaliser des clusters HDInsight. Les actions de script vous permettent d’exécuter des scripts pendant ou après la création du cluster pour modifier ses paramètres de configuration ou pour installer des logiciels supplémentaires.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.openlocfilehash: 66132a2a6a7b5b89bca0767efe7c194ca3dec051
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64687447"
 ---
 # <a name="script-action-development-with-hdinsight"></a>Développement d’actions de script avec HDInsight
@@ -73,7 +73,7 @@ elif [[ $OS_VERSION == 16* ]]; then
 fi
 ```
 
-### <a name="bps10"></a> Cibler la version de système d’exploitation
+### <a name="bps10"></a> Cibler la version du système d’exploitation
 
 HDInsight sous Linux est basé sur la distribution Ubuntu Linux. Les différentes versions de HDInsight s’appuient sur des versions différentes d’Ubuntu, ce qui peut avoir une incidence sur le comportement de votre script. Par exemple, HDInsight 3.4 et les versions antérieures sont basées sur des versions Ubuntu qui utilisent Upstart. Les versions 3.5 et supérieures sont basées sur Ubuntu 16.04, qui utilise Systemd. Systemd et Upstart reposent sur différentes commandes, donc votre script doit être écrit pour travailler avec les deux.
 
@@ -146,7 +146,7 @@ Les clusters HDInsight basés sur Linux proposent deux nœuds principaux actifs 
 
 Les composants que vous installez sur le cluster peuvent être configurés par défaut pour utiliser le stockage HDFS (Apache Hadoop Distributed File System). HDInsight utilise Stockage Azure ou Data Lake Storage comme stockage par défaut. Chacun d’eux fournit un système de fichiers compatible HDFS qui rend persistantes les données même en cas de suppression du cluster. Vous devrez peut-être configurer les composants que vous installez pour utiliser WASB ou ADL au lieu de HDFS.
 
-Pour la plupart des opérations, il est inutile de spécifier le système de fichiers. Par exemple, le texte suivant copie le fichier hadoop-common.jar du système de fichiers local vers le stockage de cluster :
+Pour la plupart des opérations, il est inutile de spécifier le système de fichiers. Par exemple, ce qui suit copie le fichier hadoop-common.jar du système de fichiers local vers le stockage du cluster :
 
 ```bash
 hdfs dfs -put /usr/hdp/current/hadoop-client/hadoop-common.jar /example/jars/
@@ -161,13 +161,13 @@ HDInsight journalise la sortie de script qui est écrite dans STDOUT et STDERR. 
 > [!NOTE]  
 > Apache Ambari n’est disponible que si le cluster a été créé avec succès. Si vous utilisez une action de script lors de la création du cluster et que la création échoue, consultez la section de dépannage de [Personnalisation de clusters HDInsight à l’aide d’une action de script](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting) pour découvrir d’autres façons d’accéder aux informations de journalisation.
 
-La plupart des utilitaires et des packages d’installation ont déjà écrit des informations dans STDOUT et STDERR. Toutefois, vous pouvez ajouter un enregistrement supplémentaire. Pour envoyer du texte à STDOUT, utilisez `echo`. Par exemple : 
+La plupart des utilitaires et des packages d’installation ont déjà écrit des informations dans STDOUT et STDERR. Toutefois, vous pouvez ajouter un enregistrement supplémentaire. Pour envoyer du texte à STDOUT, utilisez `echo`. Par exemple :
 
 ```bash
 echo "Getting ready to install Foo"
 ```
 
-Par défaut, `echo` envoie la chaîne vers STDOUT. Pour la diriger vers STDERR, ajoutez `>&2` avant `echo`. Par exemple : 
+Par défaut, `echo` envoie la chaîne vers STDOUT. Pour la diriger vers STDERR, ajoutez `>&2` avant `echo`. Par exemple :
 
 ```bash
 >&2 echo "An error occurred installing Foo"

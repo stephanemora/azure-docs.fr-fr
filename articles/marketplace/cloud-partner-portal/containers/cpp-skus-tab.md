@@ -1,5 +1,5 @@
 ---
-title: Références (SKU) pour une image de conteneurs Azure | Place de marché Azure
+title: Références SKU pour une image de conteneur Azure | Place de marché Azure
 description: Configurez des références SKU pour un conteneur Azure.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: pabutler
 ms.openlocfilehash: 6953329bfabe99fc4bb28f2494cb412ba9cbbba0
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64942893"
 ---
 # <a name="container-skus-tab"></a>Onglet Références SKU de conteneur
@@ -45,14 +45,14 @@ Les métadonnées du conteneur contiennent les informations de référence du r�
 
 ![Métadonnées de conteneur](./media/containers-image-repository.png)
     
-Le **détails du dépôt Image** dans l’écran précédent capture contient les champs suivants.  Les champs obligatoires sont indiqués par un astérisque (*).
+Les **Détails du référentiel d’image** de la capture d’écran précédente contiennent les champs suivants.  Les champs obligatoires sont indiqués par un astérisque (*).
 
--   **ID d’abonnement\***  -ID d’abonnement Azure où se trouve l’ACR.
--   **Nom de groupe de ressources\***  -le nom du groupe de ressources de l’ACR.
--   **Nom de Registre\***  -nom de l’ACR.
--   **Nom du référentiel\***  -le nom du référentiel. Une fois le nom défini, sa valeur n’est plus modifiable. Utilisez un nom unique pour éviter tout conflit avec les autres offres de votre compte.
--   **Nom d’utilisateur\***  -le nom d’utilisateur (nom d’utilisateur administrateur) associé à l’image ACR.
--   **Mot de passe\***  -mot de passe associé à l’image ACR.
+-   **ID d’abonnement\*** : ID d’abonnement Azure dans lequel se trouve le registre ACR.
+-   **Nom du groupe de ressources\*** : nom du groupe de ressources du registre ACR.
+-   **Nom du registre\*** : nom du registre ACR.
+-   **Nom du référentiel\*** : nom du référentiel. Une fois le nom défini, sa valeur n’est plus modifiable. Utilisez un nom unique pour éviter tout conflit avec les autres offres de votre compte.
+-   **Nom d’utilisateur\*** : nom d’utilisateur (administrateur) associé à l’image du registre ACR.
+-   **Mot de passe\*** : mot de passe associé à l’image du registre ACR.
 
     >[!NOTE]
     >Le nom d’utilisateur et le mot de passe sont requis pour s’assurer que les partenaires ont accès au registre ACR décrit dans le processus de publication.

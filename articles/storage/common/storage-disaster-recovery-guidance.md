@@ -10,10 +10,10 @@ ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
 ms.openlocfilehash: f9d68af12f6b2e98c77d0bd1b65a82c69588f203
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65147612"
 ---
 # <a name="disaster-recovery-and-storage-account-failover-preview-in-azure-storage"></a>Reprise d’activité après sinistre et basculement de compte de stockage (préversion) dans Stockage Azure
@@ -168,7 +168,7 @@ Les fonctionnalités et services suivants ne sont pas pris en charge pour le bas
 - Les comptes de stockage utilisant l’espace de noms hiérarchique Azure Data Lake Storage Gen2 ne peuvent pas être basculés.
 - Un compte de stockage contenant des objets blob archivés ne peut pas être basculé. Conservez les objets blob archivés dans un compte de stockage distinct que vous ne prévoyez pas de basculer.
 - Un compte de stockage contenant des objets blob de blocs premium ne peut pas être basculé. Les comptes de stockage qui prennent en charge les objets blob de blocs premium ne prennent pas en charge la géoredondance.
-- Une fois le basculement terminé les fonctionnalités suivantes ne fonctionnera plus si activé à l’origine : [Abonnements aux événements](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-overview), [des stratégies de cycle de vie](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts), [journalisation du stockage Analytique](https://docs.microsoft.com/rest/api/storageservices/about-storage-analytics-logging).
+- Une fois le basculement terminé, les fonctionnalités suivantes cessent de fonctionner si elles étaient activées : [abonnements aux événements](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-overview), [stratégies de cycle de vie](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts), [journalisation Storage Analytics ](https://docs.microsoft.com/rest/api/storageservices/about-storage-analytics-logging).
 
 ## <a name="copying-data-as-an-alternative-to-failover"></a>Copie de données comme alternative au basculement
 

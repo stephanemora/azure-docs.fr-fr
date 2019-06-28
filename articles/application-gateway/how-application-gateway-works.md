@@ -1,6 +1,6 @@
 ---
-title: Fonctionne d’une passerelle d’application
-description: Cet article fournit des informations sur le fonctionne d’une passerelle d’application
+title: Fonctionnement d’une passerelle d’application
+description: Cet article fournit des informations sur le fonctionnement d’une passerelle d’application.
 services: application-gateway
 author: abshamsft
 ms.service: application-gateway
@@ -8,63 +8,63 @@ ms.topic: article
 ms.date: 02/20/2019
 ms.author: absha
 ms.openlocfilehash: a16421182f533f5aa2ad4bcc2e58e910cc7e8ca6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64702406"
 ---
-# <a name="how-an-application-gateway-works"></a>Fonctionne d’une passerelle d’application
+# <a name="how-an-application-gateway-works"></a>Fonctionnement d’une passerelle d’application
 
-Cet article explique comment une passerelle d’application accepte les demandes entrantes et les dirige vers le serveur principal.
+Cet article explique comment une passerelle d’application accepte les requêtes entrantes, et comment elle les route vers le back-end.
 
-![Comment une passerelle d’application accepte une demande](./media/how-application-gateway-works/how-application-gateway-works.png)
+![Comment une passerelle d’application accepte une requête](./media/how-application-gateway-works/how-application-gateway-works.png)
 
-## <a name="how-an-application-gateway-accepts-a-request"></a>Comment une passerelle d’application accepte une demande
+## <a name="how-an-application-gateway-accepts-a-request"></a>Comment une passerelle d’application accepte une requête
 
-1. Avant un client envoie une demande à une passerelle d’application, il résout le nom de domaine de la passerelle d’application à l’aide d’un serveur de système DNS (Domain Name). Azure contrôle l’entrée DNS, car toutes les passerelles d’application sont dans le domaine azure.com.
+1. Avant qu’un client envoie une requête à une passerelle d’application, il résout le nom de domaine de la passerelle d’application à l’aide d’un serveur DNS (Domain Name System). Azure contrôle l’entrée DNS, car toutes les passerelles d’application sont dans le domaine azure.com.
 
-2. Le DNS Azure renvoie l’adresse IP au client, qui est l’adresse IP de serveur frontal de la passerelle d’application.
+2. Le DNS Azure retourne l’adresse IP au client. Il s’agit de l’adresse IP front-end de la passerelle d’application.
 
-3. La passerelle d’application accepte le trafic entrant sur un ou plusieurs écouteurs. Un écouteur est une entité logique qui vérifie les demandes de connexion. Il est configuré avec une adresse IP frontale, le protocole et le numéro de port pour les connexions à partir de clients à la passerelle d’application.
+3. La passerelle d’application accepte le trafic entrant sur un ou plusieurs écouteurs. Un écouteur est une entité logique qui vérifie les requêtes de connexion. Il est configuré avec un numéro de port, un protocole et une adresse IP front-end pour les connexions des clients à la passerelle d’application.
 
-4. Si un pare-feu d’applications web (WAF) est en cours d’utilisation, la passerelle d’application vérifie les en-têtes de demande et le corps, le cas échéant, par rapport aux règles de pare-feu d’applications Web. Cette action détermine si la demande est une demande valide ou une menace de sécurité. Si la demande est valide, il est routé vers le serveur principal. Si la demande n’est pas valide, il est bloqué comme une menace de sécurité.
+4. Si un WAF (pare-feu d’applications web) est utilisé, la passerelle d’application vérifie les en-têtes de requête et le corps, le cas échéant, par rapport aux règles WAF. Cette action détermine si la requête est valide ou si elle représente une menace pour la sécurité. Si la requête est valide, elle est routée vers le back-end. Si la requête est non valide, elle est bloquée en tant que menace pour la sécurité.
 
-Azure Application Gateway peut être utilisé sous la forme d’un équilibreur de charge interne d’application ou un équilibreur de charge d’application accessible sur internet. Une passerelle d’application orienté internet utilise des adresses IP publiques. Le nom DNS d’une passerelle d’application accessible sur internet est pouvant être résolu publiquement à son adresse IP publique. Par conséquent, les passerelles d’application accessible sur internet peuvent acheminer les demandes de client à internet.
+Azure Application Gateway peut être utilisé en tant qu’équilibreur de charge d’application interne ou en tant qu’équilibreur de charge d’application accessible sur Internet. Une passerelle d’application accessible sur Internet utilise des adresses IP publiques. Le nom DNS d’une passerelle d’application accessible sur Internet peut être résolu publiquement en son adresse IP publique. Ainsi, les passerelles d’application accessibles sur Internet peuvent router les requêtes des clients vers Internet.
 
-Passerelles d’application interne utilisent uniquement des adresses IP privées. Le nom DNS d’une passerelle d’application interne est pouvant être résolu publiquement à son adresse IP privée. Par conséquent, les équilibreurs de charge internes peuvent uniquement acheminer les demandes provenant de clients avec accès à un réseau virtuel pour la passerelle d’application.
+Les passerelles d’application internes utilisent uniquement des adresses IP privées. Le nom DNS d’une passerelle d’application interne peut être résolu publiquement en son adresse IP privée. Les équilibreurs de charge internes peuvent donc router uniquement les requêtes des clients ayant accès à un réseau virtuel pour la passerelle d’application.
 
-Les passerelles accessibles sur internet et interne à l’application acheminer les demandes vers les serveurs principaux à l’aide d’adresses IP privées. Serveurs principaux n’avez pas besoin des adresses IP publiques pour recevoir des demandes à partir d’une commande interne ou une passerelle d’application accessible sur internet.
+Les passerelles d’application internes ou accessibles sur Internet routent les requêtes vers les serveurs back-end à l’aide d’adresses IP privées. Les serveurs back-end n’ont pas besoin d’adresses IP publiques pour recevoir les requêtes d’une passerelle d’application interne ou accessible sur Internet.
 
-## <a name="how-an-application-gateway-routes-a-request"></a>Comment une passerelle d’application achemine une requête
+## <a name="how-an-application-gateway-routes-a-request"></a>Comment une passerelle d’application route une requête
 
-Si une demande est valide, ou un pare-feu WAF n’est pas en cours d’utilisation, la passerelle d’application évalue la règle de routage de demande qui est associé à l’écouteur. Cette action détermine quel pool back-end pour acheminer la demande.
+Si une requête est valide ou si un WAF n’est pas utilisé, la passerelle d’application évalue la règle de routage de requête associée à l’écouteur. Cette action permet de déterminer le pool de back-ends vers lequel router la requête.
 
-Les règles sont traitées dans l’ordre que qui sont répertoriées dans le portail. Selon la règle de routage de demande, la passerelle d’application détermine s’il faut Router toutes les demandes d’un pool principal spécifique, sur l’écouteur itinéraire demande aux pools principaux différents selon le chemin d’URL, ou rediriger les demandes vers un autre port ou externes site.
+Les règles sont traitées dans l’ordre où elles sont listées dans le portail. Selon la règle de routage de requête, la passerelle d’application détermine si toutes les requêtes de l’écouteur doivent être routées vers un pool de back-ends spécifique, si elles doivent être routées vers des pools de back-ends distincts en fonction du chemin de l’URL, ou si elles doivent être redirigées vers un autre port ou un site externe.
 
-Lorsque la passerelle d’application sélectionne le pool principal, il envoie la demande à un des serveurs principaux intègres dans le pool (y.y.y.y). L’intégrité du serveur est déterminée par une sonde d’intégrité. Si le pool principal contient plusieurs serveurs, la passerelle d’application utilise un algorithme de tourniquet (round-robin) pour acheminer les demandes entre les serveurs sains. Cette charge équilibre les demandes sur les serveurs.
+Quand la passerelle d’application sélectionne le pool de back-ends, elle envoie la requête à l’un des back-ends sains du pool (y.y.y.y). L’intégrité du serveur est déterminée par une sonde. Si le pool de back-ends contient plusieurs serveurs, la passerelle d’application utilise un algorithme de tourniquet (round robin) pour router les requêtes entre les serveurs sains. Cela permet d’équilibrer la charge des requêtes sur les serveurs.
 
-Une fois que la passerelle d’application détermine le serveur principal, il s’ouvre une nouvelle session TCP avec le serveur principal en fonction des paramètres de HTTP. Paramètres HTTP spécifient le protocole, port et autres paramètres liés au routage sont requises pour établir une nouvelle session avec le serveur principal.
+Une fois que la passerelle d’application a sélectionné le back-end, elle ouvre une nouvelle session TCP auprès du back-end en fonction des paramètres HTTP. Les paramètres HTTP spécifient le protocole, le port et les autres paramètres de routage nécessaires à l’établissement d’une nouvelle session auprès du back-end.
 
-Le port et le protocole utilisé dans les paramètres HTTP déterminent si le trafic entre les serveurs de passerelle et le serveur principal d’application est chiffré (par conséquent, pour accomplir SSL de bout en bout) ou qu’il n’est pas chiffré.
+Le port et le protocole utilisés dans les paramètres HTTP permettent de déterminer si le trafic entre la passerelle d’application et les back-ends est chiffré (chiffrement SSL de bout en bout) ou non chiffré.
 
-Lorsqu’une passerelle d’application envoie la demande d’origine vers le serveur principal, il respecte des configurations personnalisées effectuées dans les paramètres HTTP liés à remplacer le nom d’hôte, le chemin d’accès et le protocole. Cette action conserve l’affinité de session basée sur les cookies, la sélection de drainage, nom d’hôte de connexion à partir du serveur principal et ainsi de suite.
+Quand une passerelle d’application envoie la requête d’origine au back-end, elle respecte la configuration personnalisée définie dans les paramètres HTTP associés au remplacement du nom d’hôte, du chemin et du protocole. Cette action permet de conserver l’affinité de session basée sur les cookies, le drainage de connexion, la sélection du nom d’hôte à partir du back-end, etc.
 
-Une passerelle d’application interne utilise uniquement les adresses IP privées. Le nom DNS d’une passerelle d’application interne ne peut être résolu à son adresse IP privée. Par conséquent, les équilibreurs de charge internes peuvent uniquement acheminer les demandes provenant de clients avec accès au réseau virtuel pour la passerelle d’application.
+Une passerelle d’application interne utilise uniquement des adresses IP privées. Le nom DNS d’une passerelle d’application interne peut être résolu en son adresse IP privée. Les équilibreurs de charge internes peuvent donc router uniquement les requêtes des clients ayant accès au réseau virtuel pour la passerelle d’application.
 
  >[!NOTE]
- >Les deux passerelles d’application internet-internes et acheminement les demandes vers les serveurs principaux à l’aide des adresses IP privées. Cette action se produit lorsque votre ressource de pool principal contient une adresse IP privée, configuration de VM NIC ou une adresse peut être résolue en interne. Si le pool principal :
-> - **Est un point de terminaison public**, la passerelle d’application utilise son adresse IP publique de serveur frontal d’atteindre le serveur. S’il n’est pas une adresse IP publique de serveur frontal, un est affecté pour la connectivité externe sortante.
-> - **Contient un nom de domaine complet peut être résolu en interne ou une adresse IP privée**, la passerelle d’application achemine la demande vers le serveur principal à l’aide de ses adresses IP privées d’instance.
-> - **Contient un point de terminaison externe ou un nom de domaine complet peut être résolu en externe**, la passerelle d’application achemine la demande vers le serveur principal à l’aide de son adresse IP publique de serveur frontal. La résolution DNS est basée sur une zone DNS privée ou d’un serveur DNS personnalisé, si configuré, ou il utilise la valeur par défaut fournie par Azure DNS. S’il n’est pas une adresse IP publique de serveur frontal, un est affecté pour la connectivité externe sortante.
+ >Les passerelles d’application internes ou accessibles sur Internet routent les requêtes vers les back-ends à l’aide d’adresses IP privées. Cette action se produit quand votre ressource de pool de back-ends contient une adresse IP privée, une configuration de carte d’interface réseau de machine virtuelle ou une adresse pouvant être résolue de façon interne. Si le pool de back-ends :
+> - **Est un point de terminaison public**, la passerelle d’application utilise son adresse IP publique front-end pour joindre le serveur. En l’absence d’adresse IP publique front-end, une adresse est affectée pour la connectivité externe sortante.
+> - **Contient un FQDN pouvant être résolu de façon interne ou une adresse IP privée**, la passerelle d’application route la requête vers le back-end à l’aide de ses adresses IP privées d’instance.
+> - **Contient un point de terminaison externe ou un FQDN pouvant être résolu de manière externe**, la passerelle d’application route la requête vers le back-end à l’aide de son adresse IP publique front-end. La résolution DNS est basée sur une zone DNS privée ou un serveur DNS personnalisé, si ce type de configuration existe, ou utilise le DNS par défaut fourni par Azure. En l’absence d’adresse IP publique front-end, une adresse est affectée pour la connectivité externe sortante.
 
-### <a name="modifications-to-the-request"></a>Modifications apportées à la demande
+### <a name="modifications-to-the-request"></a>Modifications apportées à la requête
 
-Une passerelle d’application insère quatre en-têtes supplémentaires à toutes les demandes avant qu’il transfère les demandes au serveur principal. Ces en-têtes sont x-forwarded-for, x-forwarded-proto, x-forwarded-port et x-original-host. Le format d’en-tête x-forwarded-for est une liste séparée par des virgules des IP : port.
+Une passerelle d’application insère quatre en-têtes supplémentaires dans toutes les requêtes avant de les transférer au back-end. Il s’agit d’en-têtes x-forwarded-for, x-forwarded-proto, x-forwarded-port et x-original-host. Le format d’en-tête x-forwarded-for est une liste d’éléments IP:Port séparés par des virgules.
 
-Les valeurs valides pour x-forwarded-proto sont HTTP ou HTTPS. X-forwarded-port Spécifie le port où la demande atteint la passerelle d’application. En-tête X-original-hôte contient l’en-tête d’hôte d’origine avec lequel la demande est parvenue. Cet en-tête est utile dans l’intégration de site Web Azure, où l’en-tête d’hôte entrant est modifié avant que le trafic est acheminé vers le serveur principal. Si l’affinité de session est activée en tant qu’option, puis il ajoute un cookie d’affinité géré par passerelle.
+Les valeurs valides pour x-forwarded-proto sont HTTP ou HTTPS. X-forwarded-port spécifie le port où la requête a pu joindre la passerelle d’application. L’en-tête X-original-host contient l’en-tête d’origine de l’hôte avec lequel la requête est arrivée. Cet en-tête est utile dans l’intégration de sites web Azure, où l’en-tête de l’hôte entrant est modifié avant que le trafic ne soit routé vers le back-end. Si l’option d’affinité de session est activée, un cookie d’affinité géré par la passerelle est ajouté.
 
-Vous pouvez configurer la passerelle d’application afin de modifier les en-têtes à l’aide de [en-têtes HTTP réécrire](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers) ou pour modifier le chemin d’accès URI à l’aide d’un paramètre de chemin d’accès-override. Toutefois, ne soient configurés pour ce faire, toutes les demandes entrantes sont traitées sur le serveur principal.
+Vous pouvez configurer la passerelle d’application pour qu’elle modifie les en-têtes par la [réécriture des en-têtes HTTP](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers) ou pour qu’elle modifie le chemin de l’URI à l’aide d’un paramètre de substitution de chemin. Toutefois, à moins que la passerelle d’application ne soit configurée dans ce but, toutes les requêtes entrantes sont proxysées vers le back-end.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

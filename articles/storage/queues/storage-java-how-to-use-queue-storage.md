@@ -1,5 +1,5 @@
 ---
-title: Comment utiliser le stockage de file d’attente à partir de Java - stockage Azure
+title: Utilisation du stockage de files d’attente à partir de Java - Stockage Azure
 description: Découvrez comment utiliser le service de File d'attente Azure pour créer et supprimer des files d'attente, ainsi que pour insérer, récupérer et supprimer des messages. Les exemples sont écrits en Java.
 services: storage
 author: mhopkins-msft
@@ -11,10 +11,10 @@ ms.author: mhopkins
 ms.reviewer: cbrooks
 ms.subservice: queues
 ms.openlocfilehash: 3cbd1445640f37cbc63d74d1366c390c774aecd5
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65151110"
 ---
 # <a name="how-to-use-queue-storage-from-java"></a>Utilisation du stockage de files d'attente à partir de Java
@@ -22,7 +22,7 @@ ms.locfileid: "65151110"
 
 [!INCLUDE [storage-check-out-samples-java](../../../includes/storage-check-out-samples-java.md)]
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 Ce guide décrit le déroulement de scénarios courants dans le cadre de l'utilisation du service de stockage des files d'attente Azure. Les exemples sont écrits en Java et utilisent le [Kit de développement logiciel (SDK) Stockage Azure pour Java][Azure Storage SDK for Java]. Les scénarios traités incluent **l’insertion**, la **lecture furtive**, la **récupération** et la **suppression** des messages de file d’attente, ainsi que la **création** et **suppression** des files d’attente. Pour plus d’informations sur les files d’attente, consultez la section [Étapes suivantes](#next-steps).
 
 Remarque : un Kit de développement logiciel (SDK) est disponible pour les développeurs qui utilisent Azure Storage sur des appareils Android. Pour plus d’informations, consultez la page [Kit de développement logiciel (SDK) Stockage Azure pour Android][Azure Storage SDK for Android].
@@ -336,7 +336,7 @@ catch (Exception e)
 ```
 
 ## <a name="how-to-list-the-queues"></a>Activation Répertorier les files d’attente
-Pour obtenir la liste des files d’attente en cours, appelez la méthode **CloudQueueClient.listQueues()**, qui renvoie une collection d’objets **CloudQueue**.
+Pour obtenir la liste des files d’attente en cours, appelez la méthode **CloudQueueClient.listQueues()** , qui renvoie une collection d’objets **CloudQueue**.
 
 ```java
 try

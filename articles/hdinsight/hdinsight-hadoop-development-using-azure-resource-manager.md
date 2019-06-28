@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: hrasheed
 ms.openlocfilehash: 36b43ce6636bf918e1e8c42af4c2746865f5ccd1
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65523350"
 ---
 # <a name="migrating-to-azure-resource-manager-based-development-tools-for-hdinsight-clusters"></a>Migration vers les outils de développement Azure Resource Manager pour les clusters HDInsight
@@ -83,7 +83,7 @@ Pour plus d’informations sur d’autres méthodes d’exécution interactive d
 ## <a name="migrating-azure-powershell-to-azure-resource-manager"></a>Migration d’Azure PowerShell vers Azure Resource Manager
 Les informations générales concernant Azure PowerShell en mode Azure Resource Manager sont disponibles dans la page [Utilisation d’Azure PowerShell avec Azure Resource Manager](../powershell-azure-resource-manager.md).
 
-Les applets de commande Azure PowerShell Resource Manager peuvent être installées côte à côte avec les applets de commande ASM. Les applets de commande des deux modes se distinguent par leurs noms.  Le mode Resource Manager a *AzHDInsight* dans les noms d’applet de commande *AzureHDInsight* en mode ASM.  Par exemple, *New-AzHDInsightCluster* Visual Studio. *New-AzureHDInsightCluster*. Toutefois, certains paramètres et commutateurs peuvent avoir de nouveaux noms, et de nombreux nouveaux paramètres sont disponibles lorsque vous utilisez Resource Manager.  Par exemple, plusieurs applets de commande exigent un nouveau commutateur appelé *-ResourceGroupName*. 
+Les applets de commande Azure PowerShell Resource Manager peuvent être installées côte à côte avec les applets de commande ASM. Les applets de commande des deux modes se distinguent par leurs noms.  Le mode Resource Manager comprend *AzHDInsight* dans les noms d’applets de commande, au lieu de *AzureHDInsight* en mode ASM.  Par exemple, *New-AzHDInsightCluster* et *New-AzureHDInsightCluster*. Toutefois, certains paramètres et commutateurs peuvent avoir de nouveaux noms, et de nombreux nouveaux paramètres sont disponibles lorsque vous utilisez Resource Manager.  Par exemple, plusieurs applets de commande exigent un nouveau commutateur appelé *-ResourceGroupName*. 
 
 Avant de pouvoir utiliser les applets de commande HDInsight, vous devez vous connecter à votre compte Azure et créer un nouveau groupe de ressources :
 
@@ -125,7 +125,7 @@ Le tableau suivant liste les applets de commande ASM et leurs noms en mode Resou
 | Start-AzureHDInsightJob |[Start-AzHDInsightJob](https://docs.microsoft.com/powershell/module/az.hdinsight/start-azhdinsightjob) |
 | Stop-AzureHDInsightJob |[Stop-AzHDInsightJob](https://docs.microsoft.com/powershell/module/az.hdinsight/stop-azhdinsightjob) |
 | Use-AzureHDInsightCluster |[Use-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/use-azhdinsightcluster) |
-| Wait-AzureHDInsightJob |[Wait-AzHDInsightJob](https://docs.microsoft.com/powershell/module/az.hdinsight/wait-azhdinsightjob) |
+| Wait-AzureHDInsightJob |[Start-AzHDInsightJob](https://docs.microsoft.com/powershell/module/az.hdinsight/wait-azhdinsightjob) |
 
 ### <a name="new-cmdlets"></a>Nouvelles applets de commande
 Les nouvelles applets de commande suivantes sont uniquement disponibles en mode Resource Manager. 

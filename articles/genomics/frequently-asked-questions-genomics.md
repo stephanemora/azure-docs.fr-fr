@@ -1,5 +1,5 @@
 ---
-title: 'Microsoft Genomics : Questions courantes - Forum aux questions | Microsoft Docs'
+title: 'Microsoft Genomics : Questions courantes - FAQ | Microsoft Docs'
 titleSuffix: Azure
 description: Réponses apportées aux questions fréquemment posées par les clients de Microsoft Genomics.
 services: genomics
@@ -10,25 +10,25 @@ ms.service: genomics
 ms.topic: article
 ms.date: 12/07/2017
 ms.openlocfilehash: 2bcbf9d145d9b8b5a3c42893235906d24516405c
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65792631"
 ---
-# <a name="microsoft-genomics-common-questions"></a>Microsoft Genomics : Questions courantes
+# <a name="microsoft-genomics-common-questions"></a>Microsoft Genomics : Questions courantes
 
 Cet article répertorie les principales questions relatives à Microsoft Genomics. Pour plus d’informations sur le service Microsoft Genomics, voir [Qu’est-ce que Microsoft Genomics ?](overview-what-is-genomics.md). Pour plus d’informations sur la résolution des problèmes, consultez notre [Guide de résolution des problèmes](troubleshooting-guide-genomics.md). 
 
 ## <a name="what-is-the-microsoft-genomics-service-gatk-4-promotion"></a>Qu'est-ce que la promotion GATK4 du service Microsoft Genomics ?
-Jusqu’au 30 juin 2019, le service Microsoft Genomics offre 20 WGS s’exécute avec GATK4 sans rien débourser. Pour bénéficier de cette offre, inscrivez-vous [ici](https://aka.ms/msgatk4). 
+Jusqu’au 30 juin 2019, le service Microsoft Genomics propose gratuitement 20 exécutions WGS avec GATK4. Pour bénéficier de cette offre, inscrivez-vous [ici](https://aka.ms/msgatk4). 
 
 ### <a name="what-are-the-common-issues-i-might-encounter-while-running-the-microsoft-genomics-service-gatk4-promotion"></a>Quels sont les problèmes que je suis susceptible de rencontrer lors de l'exécution de la promotion GATK4 du service Microsoft Genomics ?
 Voici la liste des principales erreurs que vous pouvez rencontrer et leur résolution recommandée :
 
 | **Message**                                                                                                                                                                                    | **Cause**                                                                                                    | **Résolution :**                                                                                                                                                                                                       |
 |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `gatk4-promo` n'est pas activée pour votre compte. Pour plus d’informations, consultez https://docs.microsoft.com/azure/genomics/frequently-asked-questions-genomics                               | Vous essayez d'exécuter des flux de travail GATK4 avec le service Microsoft Genomics sans être activé.       | Rendez-vous [ici](https://aka.ms/msgatk4) pour activer votre compte. Notez que la version d’évaluation expire le 30 juin 2019. Passé cette date, vous ne pourrez plus activer les exécutions promotionnelles sur votre compte. |
+| `gatk4-promo` n'est pas activée pour votre compte. Pour plus d’informations, consultez https://docs.microsoft.com/azure/genomics/frequently-asked-questions-genomics                               | Vous essayez d'exécuter des flux de travail GATK4 avec le service Microsoft Genomics sans être activé.       | Rendez-vous [ici](https://aka.ms/msgatk4) pour activer votre compte. Notez que l’essai gratuit prend fin le 30 juin 2019. Passé cette date, vous ne pourrez plus activer les exécutions promotionnelles sur votre compte. |
 | Merci d'avoir essayé `gatk4-promo`. Votre période d'essai est terminée. Pour plus d'informations, https://docs.microsoft.com/azure/genomics/frequently-asked-questions-genomics                  | L'essai gratuit de GATK4 a expiré à la fin de l'année civile, et vous essayez d'appeler `gatk4-promo` process_name.  | Remplacez le paramètre process_name par `gatk4`, au lieu de `gatk4-promo`. Ceci est la version officielle de GATK4. Si vous utilisez ce paramètre, votre flux de travail sera facturé.                                         |
 | Merci d'avoir essayé `gatk4-promo`. Vous avez utilisé toutes les exécutions allouées. Pour plus d’informations, consultez https://docs.microsoft.com/azure/genomics/frequently-asked-questions-genomics | Vous avez soumis avec succès vos 20 exécutions promotionnelles pour GATK4.                               | Soumettez les éventuelles nouvelles exécutions de GATK4 avec l'argument process_name défini sur `gatk4` au lieu de `gatk4-promo`. Si vous utilisez ce paramètre, votre flux de travail sera facturé.                                                          |        
 
@@ -74,7 +74,7 @@ Votre clé de compte de stockage sert à créer des jetons d’accès à court t
 
 Voici les références prises en charge :
 
- |Référence              | Valeur de `-pa/--process-args` |
+ |Informations de référence              | Valeur de `-pa/--process-args` |
  |:-------------         |:-------------                 |
  |b37                    | `R=b37m1`                     |
  |hg38                   | `R=hg38m1`                    |      
@@ -91,13 +91,13 @@ msgen comprend les fichiers de configuration dont le format est le suivant :
 
   |Argument de ligne de commande            | Ligne du fichier de configuration |
   |:-------------                   |:-------------                 |
-  |`-u/--api-url-base https://url`  | *api_url_base:https://url*    |
+  |`-u/--api-url-base https://url`  | *api_url_base: https://url*    |
   |`-k/--access-key KEY`            | *access_key:KEY*              |      
   |`-pa/--process-args R=B37m1`     | *process_args:R-b37m1*        |  
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Utilisez les ressources suivantes pour prendre en main Microsoft Genomics :
-- Commencez par exécuter votre premier workflow via le service Microsoft Genomics. [Exécuter un workflow via le service Microsoft Genomics](quickstart-run-genomics-workflow-portal.md)
+- Commencez par exécuter votre premier workflow via le service Microsoft Genomics. [Exécuter un workflow par le biais du service Microsoft Genomics](quickstart-run-genomics-workflow-portal.md)
 - Envoyer vos propres données pour traitement par le service Microsoft Genomics : [FASTQ couplé](quickstart-input-pair-FASTQ.md) | [BAM](quickstart-input-BAM.md) | [Plusieurs FASTQ ou BAM](quickstart-input-multiple.md) 
 

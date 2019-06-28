@@ -1,5 +1,5 @@
 ---
-title: Publier une offre | Place de marché Azure
+title: Publier une offre | Place de marché Microsoft Azure
 description: API permettant de publier l’offre spécifiée.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
@@ -8,10 +8,10 @@ ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pabutler
 ms.openlocfilehash: 117a4e5e238e754524ff813ce25ebc1105e2153c
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64934974"
 ---
 <a name="publish-an-offer"></a>Publication d’une offre
@@ -24,7 +24,7 @@ Démarre le processus de publication pour l’offre spécifiée. Cet appel est u
 <a name="uri-parameters"></a>Paramètres URI
 --------------
 
-|  **Name**      |    **Description**                               |  **Type de données** |
+|  **Nom**      |    **Description**                               |  **Type de données** |
 |  ------------- |  ------------------------------------            |   -----------  |
 |  publisherId   | Identificateur du serveur de publication, par exemple `contoso`      |   Chaîne       |
 |  offerId       | Identificateur de l’offre                                 |   Chaîne       |
@@ -35,7 +35,7 @@ Démarre le processus de publication pour l’offre spécifiée. Cet appel est u
 <a name="header"></a>En-tête
 ------
 
-|  **Name**        |    **Valeur**          |
+|  **Nom**        |    **Valeur**          |
 |  --------        |    ---------          |
 |  Content-Type    | `application/json`    |
 |  Authorization   |  `Bearer YOUR_TOKEN`  |
@@ -58,7 +58,7 @@ Démarre le processus de publication pour l’offre spécifiée. Cet appel est u
 
 ### <a name="request-body-properties"></a>Propriétés du corps de la requête
 
-|  **Name**               |   **Description**                                                                                 |
+|  **Nom**               |   **Description**                                                                                 |
 |  ---------------------  | ------------------------------------------------------------------------------------------------- |
 |  e-mails de notification    | Liste d’adresses e-mail séparées par des virgules pour informer de la progression de l’opération de publication. |
 |  |  |
@@ -71,7 +71,7 @@ Démarre le processus de publication pour l’offre spécifiée. Cet appel est u
 
 ### <a name="response-header"></a>En-tête de réponse
 
-|  **Name**             |    **Valeur**                                                                 |
+|  **Nom**             |    **Valeur**                                                                 |
 |  -------------------- | ---------------------------------------------------------------------------- |
 | Operation-Location    | URL qui peut être interrogée pour déterminer l’état actuel de l’opération.    |
 |  |  |

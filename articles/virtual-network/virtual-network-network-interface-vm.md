@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 12/15/2017
 ms.author: kumud
 ms.openlocfilehash: 23e46290af6bdb4c217d8fa0cd836673652fc81d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64701370"
 ---
 # <a name="add-network-interfaces-to-or-remove-network-interfaces-from-virtual-machines"></a>Ajouter ou supprimer des interfaces réseau pour des machines virtuelles
@@ -56,7 +56,7 @@ Avant de créer la machine virtuelle, créez une interface réseau en utilisant 
 
 1. Connectez-vous au portail Azure.
 2. Dans la zone de recherche en haut du portail, tapez le nom de la machine virtuelle à laquelle vous voulez ajouter l’interface réseau, ou accédez à la machine virtuelle en cliquant sur **Tous les services**, puis **Machines virtuelles**. Une fois que vous avez trouvé la machine virtuelle, sélectionnez-la. La machine virtuelle doit prendre en charge le nombre d’interfaces réseau que vous souhaitez ajouter. Pour savoir combien d’interfaces réseau chaque taille de machine virtuelle peut prendre en charge, consultez [Tailles des machines virtuelles Linux dans Azure](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [Tailles des machines virtuelles Windows dans Azure](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).  
-3. Cliquez sur **Vue d’ensemble**, sous **PARAMÈTRES**. Sélectionnez **Arrêter** et attendez que la zone **État** de la machine virtuelle passe à **Arrêté (désalloué)**.
+3. Cliquez sur **Vue d’ensemble**, sous **PARAMÈTRES**. Sélectionnez **Arrêter** et attendez que la zone **État** de la machine virtuelle passe à **Arrêté (désalloué)** .
 4. Sous **PARAMÈTRES**, sélectionnez **Mise en réseau**.
 5. Sélectionnez **Attacher l’interface réseau**. Dans la liste des interfaces réseau qui ne sont actuellement pas attachées à une autre machine virtuelle, sélectionnez celle que vous voulez attacher.
 
@@ -73,7 +73,7 @@ Avant de créer la machine virtuelle, créez une interface réseau en utilisant 
 |Outil|Commande|
 |---|---|
 |Interface de ligne de commande|[az vm nic add](/cli/azure/vm/nic?toc=%2fazure%2fvirtual-network%2ftoc.json) (référence) ou [procédure détaillée](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-a-nic-to-a-vm)|
-|PowerShell|[Ajouter-AzVMNetworkInterface](/powershell/module/az.compute/add-azvmnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json) (référence) ou [procédure détaillée](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-a-nic-to-an-existing-vm)|
+|PowerShell|[Add-AzVMNetworkInterface](/powershell/module/az.compute/add-azvmnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json) (référence) ou [procédure détaillée](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-a-nic-to-an-existing-vm)|
 
 ## <a name="view-network-interfaces-for-a-vm"></a>Afficher les interfaces réseau d’une machine virtuelle
 
@@ -95,7 +95,7 @@ Vous pouvez afficher les interfaces réseau actuellement attachées à une machi
 
 1. Connectez-vous au portail Azure.
 2. Dans la zone de recherche en haut du portail, recherchez le nom de la machine virtuelle de laquelle vous voulez supprimer (détacher) l’interface réseau, ou accédez à la machine virtuelle en sélectionnant **Tous les services**, puis **Machines virtuelles**. Une fois que vous avez trouvé la machine virtuelle, sélectionnez-la.
-3. Cliquez sur **Vue d’ensemble**, sous **PARAMÈTRES**, puis sur **Arrêter**. Attendez que la zone **État** de la machine virtuelle passe à **Arrêté (désalloué)**.
+3. Cliquez sur **Vue d’ensemble**, sous **PARAMÈTRES**, puis sur **Arrêter**. Attendez que la zone **État** de la machine virtuelle passe à **Arrêté (désalloué)** .
 4. Sous **PARAMÈTRES**, sélectionnez **Mise en réseau**.
 5. Sélectionnez **Détacher l’interface réseau**. Dans la liste des interfaces réseau actuellement attachées à la machine virtuelle, sélectionnez l’interface réseau que vous voulez détacher.
 

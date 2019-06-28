@@ -9,22 +9,22 @@ ms.topic: conceptual
 ms.date: 04/29/2018
 ms.author: asgang
 ms.openlocfilehash: 86bd41d518006b0601a5c9d18e5429f76d5a4fc5
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64926655"
 ---
-# <a name="replicate-azure-vms-to-another-azure-region"></a>Répliquer des machines virtuelles Azure vers une autre région Azure
+# <a name="replicate-azure-vms-to-another-azure-region"></a>Répliquer des machines virtuelles Azure dans une autre région Azure
 
 
 Cet article décrit comment activer la réplication de machines virtuelles de Azure, d’une région Azure à l’autre.
 
 ## <a name="before-you-start"></a>Avant de commencer
 
-Cet article part du principe que vous avez préparé pour le déploiement de Site Recovery, comme décrit dans la [didacticiel de récupération d’urgence Azure vers Azure](azure-to-azure-tutorial-enable-replication.md).
+Cet article part du principe que vous avez préparé le déploiement Site Recovery, comme décrit dans le [tutoriel sur la reprise d’activité Azure vers Azure](azure-to-azure-tutorial-enable-replication.md).
 
-Conditions préalables doivent être en place et vous devez avoir créé un coffre Recovery Services.
+Les prérequis doivent être en place et vous devez avoir créé un coffre Recovery Services.
 
 
 ## <a name="enable-replication"></a>Activer la réplication
@@ -34,9 +34,9 @@ Activez la réplication. Cette procédure suppose que la région principale Azur
 1. Dans le coffre, cliquez sur **+ Répliquer**.
 2. Notez les champs suivants :
    - **Source** : point d’origine des machines virtuelles, qui dans ce cas est **Azure**.
-   - **Emplacement source** : La région Azure où vous souhaitez protéger vos machines virtuelles. Dans notre exemple, l’emplacement source est « Asie Est »
+   - **Emplacement source** : région Azure où vous souhaitez protéger vos machines virtuelles. Dans notre exemple, l’emplacement source est « Asie Est »
    - **Modèle de déploiement** : modèle de déploiement Azure des machines sources.
-   - **Abonnement source** : L’abonnement auquel appartiennent vos machines virtuelles sources. Il peut s’agir de n’importe quel abonnement au sein du même locataire Azure Active Directory où se trouve votre coffre Recovery services.
+   - **Abonnement source** : abonnement auquel appartiennent vos machines virtuelles sources. Il peut s’agir de n’importe quel abonnement au sein du même locataire Azure Active Directory où se trouve votre coffre Recovery services.
    - **Groupe de ressources** : groupe de ressources auquel appartiennent vos machines virtuelles sources. Toutes les machines virtuelles du groupe de ressources sélectionné sont répertoriées pour la protection à l’étape suivante.
 
      ![Activer la réplication](./media/site-recovery-replicate-azure-to-azure/enabledrwizard1.png)
@@ -49,15 +49,15 @@ Activez la réplication. Cette procédure suppose que la région principale Azur
    - **Emplacement cible** : Emplacement où vos données de machines virtuelles sources sont répliquées. En fonction de l’emplacement des machines virtuelles sélectionné, Site Recovery vous fournit la liste des régions cibles appropriées. Nous vous recommandons de conserver le même emplacement cible que l’emplacement du coffre Recovery Services.
    - **Abonnement cible** : abonnement cible utilisé pour la reprise d’activité. Par défaut, l’abonnement cible sera identique à l’abonnement source.
    - **Groupe de ressources cible** : groupe de ressources auquel appartiennent toutes vos machines virtuelles répliquées.
-       - Par défaut, Site Recovery crée un nouveau groupe de ressources dans la région cible avec un suffixe « asr » dans le nom.
-       - Si le groupe de ressources déjà créé par Site Recovery existe, il est réutilisé.
-       - Vous pouvez personnaliser les paramètres de groupe de ressources.
-       - L’emplacement du groupe de ressources cible peut être n’importe quelle région Azure, à l’exception de la région dans laquelle les machines virtuelles sources sont hébergés.
-   - **Réseau virtuel cible** : Par défaut, Site Recovery crée un nouveau réseau virtuel dans la région cible avec un suffixe « asr » dans le nom. Il est mappé à votre réseau source et utilisé pour toute protection ultérieure. [En savoir plus](site-recovery-network-mapping-azure-to-azure.md) sur le mappage réseau.
-   - **Les comptes de stockage (machine virtuelle source n’utilise pas les disques gérés) cibles**: par défaut, Site Recovery crée un compte de stockage cible avec la même configuration que celle du compte de stockage de machines virtuelles source. Si le compte de stockage existe déjà, il est réutilisé.
-   - **Disques managés de réplica (machine virtuelle source utilise des disques gérés)**: Site Recovery crée des nouveaux disques managés de réplica dans la région cible pour mettre en miroir de disques gérés de la source de la machine virtuelle avec le même type de stockage (Standard ou premium) que celui de la source de machine virtuelle de disque managé.
+       - Par défaut, Site Recovery crée un groupe de ressources dans la région cible dont le nom porte un suffixe « asr ».
+       - Si le groupe de ressources créé par Site Recovery existe déjà, il est réutilisé.
+       - Vous pouvez personnaliser les paramètres du groupe de ressources.
+       - L’emplacement du groupe de ressources cible peut être n’importe quelle région Azure à l’exception de la région dans laquelle les machines virtuelles sources sont hébergées.
+   - **Réseau virtuel cible** : Par défaut, Site Recovery crée un réseau virtuel dans la région cible dont le nom porte un suffixe « asr ». Il est mappé à votre réseau source et utilisé pour toute protection ultérieure. [En savoir plus](site-recovery-network-mapping-azure-to-azure.md) sur le mappage réseau.
+   - **Comptes de stockage cibles (la machine virtuelle source n’utilise pas de disques managés)**  : par défaut, Site Recovery crée un compte de stockage cible avec la même configuration que celle du compte de stockage de machines virtuelles source. Si le compte de stockage existe déjà, il est réutilisé.
+   - **Disques managés de réplica (la machine virtuelle source utilise des disques managés)**  : Site Recovery crée des disques managés de réplica dans la région cible pour refléter les disques managés de la machine virtuelle source du même type de stockage (Standard ou Premium).
    - **Comptes de stockage de cache** : Site Recovery a besoin d’un compte de stockage supplémentaire appelé « stockage de cache » dans la région source. Toutes les modifications effectuées sur les machines virtuelles sources sont suivies et envoyées au compte de stockage de cache avant leur réplication vers l’emplacement cible.
-   - **Groupes à haute disponibilité cibles** : Par défaut, Site Recovery crée un groupe à haute disponibilité dans la région cible avec le suffixe « asr » dans le nom, pour les machines virtuelles qui font partie d’une haute disponibilité dans la région source. Si la disponibilité haute créé par Site Recovery existe déjà, il est réutilisé.
+   - **Groupes à haute disponibilité cibles** : par défaut, Site Recovery crée un groupe à haute disponibilité dans la région cible dont le nom porte un suffixe « asr », pour les machines virtuelles qui font partie d’un groupe à haute disponibilité dans la région source. Si le groupe à haute disponibilité créé par Site Recovery existe déjà, il est réutilisé.
    - **Zones de disponibilité cibles** : par défaut, Site Recovery affecte à la région cible le même nombre de zones que la région source, si la région cible prend en charge les zones de disponibilité.
 
      Si la région cible ne prend pas en charge les zones de disponibilité, les machines virtuelles cibles sont configurées comme des instances uniques par défaut. Si nécessaire, vous pouvez configurer ces machines virtuelles comme faisant partie de groupes à haute disponibilité dans la région cible, en cliquant sur « Personnaliser ».
@@ -70,25 +70,25 @@ Activez la réplication. Cette procédure suppose que la région principale Azur
 
      ![Activer la réplication](./media/site-recovery-replicate-azure-to-azure/enabledrwizard3.PNG)
 
-### <a name="enable-replication-for-added-disks"></a>Activer la réplication des disques ajoutés
+### <a name="enable-replication-for-added-disks"></a>Activer la réplication pour des disques ajoutés
 
-Si vous ajoutez des disques à une machine virtuelle Azure pour lesquels la réplication est activée, les événements suivants se produisent :
--   Intégrité de la réplication pour la machine virtuelle affiche un avertissement et une note informe vous indiquant qu’un ou plusieurs disques sont disponibles pour la protection.
+Si vous ajoutez des disques à une machine virtuelle Azure pour laquelle la réplication est activée, voici ce qui se produit :
+-   L’intégrité de la réplication pour la machine virtuelle affiche un avertissement et une note vous informe qu’un ou plusieurs disques sont disponibles pour la protection.
 -   Si vous activez la protection pour les disques ajoutés, l’avertissement disparaît après la réplication initiale du disque.
--   Si vous choisissez de ne pas activer la réplication pour le disque, vous pouvez sélectionner pour ignorer l’avertissement.
+-   Si vous choisissez de ne pas activer la réplication pour le disque, vous pouvez choisir d’ignorer l’avertissement.
 
     
     ![Nouveau disque ajouté](./media/azure-to-azure-how-to-enable-replication/newdisk.png)
 
-Pour activer la réplication pour un disque ajouté, procédez comme suit :
+Pour activer la réplication pour un disque ajouté, effectuez les étapes suivantes :
 
-1.  Dans le coffre > **éléments répliqués**, cliquez sur la machine virtuelle à laquelle vous avez ajouté le disque.
-2.  Cliquez sur **disques**, puis sélectionnez le disque de données pour lequel vous souhaitez activer la réplication (ces disques ont un **non protégés** état).
-3.  Dans **détails du disque**, cliquez sur **activer la réplication**.
+1.  Dans le coffre > **Éléments répliqués**, cliquez sur la machine virtuelle à laquelle vous avez ajouté le disque.
+2.  Cliquez sur **Disques**, puis sélectionnez le disque de données pour lequel vous voulez activer la réplication (ces disques présente un état **Non protégé**).
+3.  Dans **Détails du disque**, cliquez sur **Activer la réplication**.
 
-    ![Activer la réplication de disque ajouté](./media/azure-to-azure-how-to-enable-replication/enabled-added.png)
+    ![Activer la réplication pour un disque ajouté](./media/azure-to-azure-how-to-enable-replication/enabled-added.png)
 
-Après l’exécution de tâche Activer la réplication et la réplication initiale terminée, l’avertissement d’intégrité de réplication pour le problème de disque est supprimé.
+Une fois que le travail d’activation de la réplication s’exécute et que la réplication initiale est terminée, le problème d’avertissement sur l’intégrité de la réplication pour le disque a disparu.
 
 
   
@@ -106,14 +106,14 @@ Vous pouvez modifier les paramètres de cible par défaut utilisés par Site Rec
 
         ![Activer la réplication](./media/site-recovery-replicate-azure-to-azure/customize.PNG)
 3. Cliquez sur **Personnaliser :** pour modifier les paramètres de réplication.
-4. Dans **cohérence Multimachine virtuelle**, sélectionnez les machines virtuelles que vous souhaitez répliquer ensemble.
+4. Dans **Cohérence multimachine virtuelle**, sélectionnez les machines virtuelles à répliquer ensemble.
     - Toutes les machines d’un groupe de réplication ont des points de récupération cohérents après incident et avec les applications lorsqu’elles basculent.
-    - L’activation de la cohérence multimachine virtuelle peut affecter les performances de la charge de travail (comme c’est beaucoup de ressources processeur). Elle doit être activée uniquement si les machines exécutent la même charge de travail, et vous avez besoin de cohérence sur plusieurs ordinateurs.
-    - Par exemple, si une application a 2 machines virtuelles de SQL Server et deux serveurs web, vous devez ajouter uniquement les machines virtuelles SQL Server à un groupe de réplication.
-    - Vous pouvez choisir d’avoir un maximum de 16 machines virtuelles dans un groupe de réplication.
+    - L’activation de la cohérence multimachine virtuelle peut affecter les performances de la charge de travail (car elle utilise intensivement le processeur). Il convient de l’activer uniquement si les machines exécutent la même charge de travail et si vous avez besoin de cohérence sur plusieurs machines virtuelles.
+    - Par exemple, si une application a 2 machines virtuelles SQL Server et deux serveurs web, alors vous devez ajouter uniquement les machines virtuelles SQL Server à un groupe de réplication.
+    - Vous pouvez choisir d’avoir un maximum de 16 machines virtuelles dans un groupe de réplication.
     - Si vous activez la cohérence multimachine virtuelle, les machines du groupe de réplication communiquent entre elles sur le port 20004.
-    - Vérifiez qu’il n’existe aucun dispositif de pare-feu bloque la communication interne entre les machines virtuelles sur le port 20004.
-    - Si vous souhaitez que les machines virtuelles Linux fassent partie d’un groupe de réplication, assurez-vous que le trafic sortant sur le port 20004 est ouvert manuellement en fonction des conseils pour la version de Linux spécifique.
+    - Vérifiez qu’aucun dispositif de pare-feu ne bloque la communication interne entre les machines virtuelles sur le port 20004.
+    - Si vous voulez que les machines virtuelles Linux fassent partie d’un groupe de réplication, vérifiez que le trafic sortant sur le port 20004 est ouvert manuellement conformément aux instructions de la version Linux spécifique.
 ![Activer la réplication](./media/site-recovery-replicate-azure-to-azure/multivmsettings.PNG)
     
 5. Cliquez sur **Créer une ressource cible** > **Activer la réplication**.

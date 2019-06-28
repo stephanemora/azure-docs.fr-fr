@@ -1,6 +1,6 @@
 ---
-title: Questions courantes sur la récupération d’urgence d’Azure vers Azure avec Azure Site Recovery
-description: Cet article répond aux questions courantes sur la récupération d’urgence de machines virtuelles Azure vers une autre région Azure à l’aide d’Azure Site Recovery
+title: Questions courantes sur la récupération d’urgence d’Azure sur Azure avec Azure Site Recovery
+description: Cet article répond aux questions courantes concernant la récupération d'urgence de machines virtuelles Azure dans une autre région Azure avec Azure Site Recovery
 author: asgang
 manager: rochakm
 ms.service: site-recovery
@@ -8,15 +8,15 @@ ms.date: 04/29/2019
 ms.topic: conceptual
 ms.author: asgan
 ms.openlocfilehash: 271e3c31c3e08d170add84ca4995f4876d4d3a33
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66753778"
 ---
 # <a name="common-questions-azure-to-azure-disaster-recovery"></a>Questions courantes : Récupération d'urgence d'Azure vers Azure
 
-Cet article fournit des réponses aux questions courantes sur la récupération d’urgence de machines virtuelles Azure vers une autre région Azure à l’aide de [Site Recovery](site-recovery-overview.md). 
+Cet article fournit des réponses aux questions courantes concernant la reprise d’activité après sinistre de machines virtuelles Azure dans une autre région Azure avec [Site Recovery](site-recovery-overview.md). 
 
 
 ## <a name="general"></a>Généralités
@@ -28,15 +28,15 @@ Chaque instance protégée avec Azure Site Recovery est gratuite pendant les 31�
 ### <a name="during-the-first-31-days-will-i-incur-any-other-azure-charges"></a>Pendant les 31 premiers jours, d'autres frais Azure sont-ils facturés ?
 Oui, bien qu'Azure Site Recovery soit gratuit pendant les 31 premiers jours d'une instance protégée, des frais peuvent s'appliquer pour Stockage Azure, les transactions de stockage et le transfert de données. Des frais de calcul Azure peuvent également être facturés pour une machine virtuelle récupérée. Consultez les informations complètes sur la tarification [ici](https://azure.microsoft.com/pricing/details/site-recovery)
 
-### <a name="where-can-i-find-best-practices-for-azure-vm-disaster-recovery"></a>Où puis-je trouver les meilleures pratiques pour la récupération d’urgence de machines virtuelles Azure ? 
+### <a name="where-can-i-find-best-practices-for-azure-vm-disaster-recovery"></a>Où puis-je trouver les meilleures pratiques relatives à la récupération d'urgence d’une machine virtuelle Azure ? 
 1. [Comprendre l’architecture Azure vers Azure](azure-to-azure-architecture.md)
 2. [Examiner les configurations prises en charge et non prises en charge](azure-to-azure-support-matrix.md)
 3. [Configurer la récupération d’urgence pour les machines virtuelles Azure](azure-to-azure-how-to-enable-replication.md)
 4. [Exécuter un test de basculement](azure-to-azure-tutorial-dr-drill.md)
 5. [Effectuer une restauration automatique et un basculement vers la région primaire](azure-to-azure-tutorial-failover-failback.md)
 
-### <a name="how-is-capacity-guaranteed-in-the-target-region"></a>Comment la capacité est garantie dans la région cible ?
-L’équipe de Site Recovery fonctionne avec l’équipe de gestion de capacité Azure pour planifier la capacité suffisante d’infrastructure, et pour faire en sorte que les machines virtuelles protégées par Site Recovery pour correctement sera région cible déployée lorsque le basculement est déclenché.
+### <a name="how-is-capacity-guaranteed-in-the-target-region"></a>Comment la capacité est-elle garantie dans la région cible ?
+L'équipe Site Recovery travaille avec l'équipe de gestion de la capacité Azure pour planifier une capacité d'infrastructure suffisante et pour s'assurer que les machines virtuelles protégées par Site Recovery seront déployées avec succès dans la région cible lorsque le basculement sera lancé.
 
 ## <a name="replication"></a>Réplication
 
@@ -52,16 +52,16 @@ Oui, vous pouvez [répliquer des machines virtuelles épinglées à une zone](ht
 
 ### <a name="can-i-exclude-disks"></a>Puis-je exclure des disques ?
 
-Oui, vous pouvez exclure des disques au moment de la protection à l’aide de PowerShell. Pour plus d’informations, consultez [article](azure-to-azure-exclude-disks.md)
+Oui, vous pouvez exclure des disques au moment de la protection à l’aide de PowerShell. Pour plus d’informations, consultez cet [article](azure-to-azure-exclude-disks.md)
 
-### <a name="can-i-add-new-disks-to-replicated-vms-and-enable-replication-for-them"></a>Puis-je ajouter des disques aux machines virtuelles répliquées et activer la réplication pour eux ?
+### <a name="can-i-add-new-disks-to-replicated-vms-and-enable-replication-for-them"></a>Puis-je ajouter de nouveaux disques à des machines virtuelles répliquées et activer la réplication pour ces disques ?
 
-Oui, cela est pris en charge pour les machines virtuelles Azure avec des disques gérés. Lorsque vous ajoutez un nouveau disque à une machine virtuelle Azure prenant en charge pour la réplication, intégrité de la réplication pour la machine virtuelle affiche un avertissement, avec une remarque qui spécifie qu’un ou plusieurs disques sur la machine virtuelle sont disponibles pour la protection. Vous pouvez activer la réplication pour les disques ajoutés.
+Oui, cette opération est prise en charge pour les machines virtuelles Azure avec disques managés. Lorsque vous ajoutez un nouveau disque à une machine virtuelle Azure configurée pour la réplication, l’intégrité de la réplication pour la machine virtuelle affiche un avertissement, avec une remarque qui spécifie qu’un ou plusieurs disques sur la machine virtuelle sont disponibles pour la protection. Vous pouvez activer la réplication pour les disques ajoutés.
 - Si vous activez la protection pour les disques ajoutés, l’avertissement disparaît après la réplication initiale.
-- Si vous choisissez de ne pas activer la réplication pour le disque, vous pouvez sélectionner pour ignorer l’avertissement.
-- Lorsque vous basculez une machine virtuelle à laquelle vous ajoutez un disque et activez la réplication, les points de la réplication affichera les disques qui sont disponibles pour la récupération. Par exemple, si une machine virtuelle comporte un seul disque et que vous en ajoutez un nouveau, les points de réplication créés avant l’ajout du disque montrent que le point de réplication se compose de « 1 de 2 disques ».
+- Si vous choisissez de ne pas activer la réplication du disque, vous pouvez masquer l'avertissement.
+- Lorsque vous basculez une machine virtuelle à laquelle vous ajoutez un disque, puis activez la réplication pour cette machine virtuelle, les points de réplication afficheront les disques disponibles pour la récupération. Par exemple, si une machine virtuelle comporte un seul disque et que vous en ajoutez un nouveau, les points de réplication créés avant l’ajout du disque montrent que le point de réplication se compose de « 1 de 2 disques ».
 
-Site Recovery ne prend pas en charge le « à chaud supprimer » d’un disque à partir d’une machine virtuelle répliquée. Si vous supprimez un disque de machine virtuelle, vous devez désactiver puis réactiver la réplication pour la machine virtuelle.
+Site Recovery ne prend pas en charge le « retrait à chaud » d’un disque d’une machine virtuelle répliquée. Si vous retirez un disque d’une machine virtuelle, vous devez désactiver puis réactiver la réplication pour la machine virtuelle.
 
 
 ### <a name="how-often-can-i-replicate-to-azure"></a>À quelle fréquence puis-je répliquer vers Azure ?
@@ -79,7 +79,7 @@ Non. Site Recovery ne nécessite pas de connexion Internet mais un accès aux UR
 
 ### <a name="can-i-replicate-the-application-having-separate-resource-group-for-separate-tiers"></a>Puis-je répliquer l’application avec un groupe de ressources distinct pour des niveaux distincts ?
 Oui, vous pouvez répliquer l’application et conserver la configuration de récupération d’urgence dans un groupe de ressources distinct.
-Par exemple, si vous disposez d’une application avec chaque niveau application, base de données et web dans un groupe de ressources distinct, vous devez cliquer sur l'[Assistant Réplication](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-enable-replication#enable-replication) trois fois pour protéger tous les niveaux. Site Recovery ne répliquera pas ces trois niveaux dans trois différents groupes de ressources.
+Par exemple, si vous disposez d’une application avec chaque niveau application, base de données et web dans un groupe de ressources distinct, vous devez cliquer sur l'[Assistant Réplication](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-enable-replication#enable-replication) trois fois pour protéger tous les niveaux. Site Recovery répliquera ces trois niveaux dans trois groupes de ressources différents.
 
 ## <a name="replication-policy"></a>Stratégie de réplication
 
@@ -107,7 +107,7 @@ En raison de leur contenu supplémentaire, les instantanés de cohérence d’ap
 Les points de récupération cohérents au niveau de l'application capturant toutes les données en mémoire et en cours de traitement, ils requièrent une infrastructure telle que VSS sur Windows pour suspendre l’application. Si cela se répète fréquemment, les performances peuvent être affectées en cas de charge de travail déjà très importante. Il est généralement recommandé de ne pas utiliser de faible fréquence pour les points de récupération cohérents au niveau de l'application correspondant aux charges de travail non liées à des bases de données, et même pour une charge de travail de base de données, une heure suffit.
 
 ### <a name="what-is-the-minimum-frequency-of-application-consistent-recovery-point-generation"></a>Quelle est la fréquence minimale de génération de points de récupération cohérents en cas d’incident sur les applications ?
-Site Recovery peut crée un point de récupération cohérent d’application avec une fréquence minimale en 1 heure.
+Site Recovery peut créer un point de récupération cohérent d’application avec une fréquence minimale d’une heure.
 
 ### <a name="how-are-recovery-points-generated-and-saved"></a>Comment les points de récupération sont-ils générés et enregistrés ?
 Pour comprendre comment Site Recovery génère des points de récupération, prenons l’exemple de la stratégie de réplication qui a une fenêtre de rétention de point de récupération de 24 heures et une fréquence de capture instantanée de cohérence au niveau application de 1 heure.
@@ -157,8 +157,8 @@ Comme il s’agit d’une opération gourmande en ressources, l’activation de 
 
 ## <a name="failover"></a>Basculement
 
-### <a name="how-is-capacity-assured-in-target-region-for-azure-vms"></a>La capacité est assurée dans la région cible pour les machines virtuelles Azure ?
-L’équipe de Site Recovery fonctionne avec l’équipe de gestion de capacité Azure pour planifier la capacité d’infrastructure suffisante, pour faire en sorte que les machines virtuelles activées pour la récupération d’urgence doit être déployé avec succès dans la région cible lorsque le basculement est déclenché.
+### <a name="how-is-capacity-assured-in-target-region-for-azure-vms"></a>Comment est assurée la capacité dans la région cible pour les machines virtuelles Azure ?
+L'équipe Site Recovery travaille avec l'équipe de gestion de la capacité Azure pour planifier une capacité d'infrastructure suffisante et pour s'assurer que les machines virtuelles configurées pour la récupération d'urgence seront déployées avec succès dans la région cible lorsque le basculement sera lancé.
 
 ### <a name="is-failover-automatic"></a>Le basculement est-il automatique ?
 
@@ -166,19 +166,19 @@ Le basculement n’est pas automatique. Vous lancez les basculements d’un seul
 
 ### <a name="can-i-retain-a-public-ip-address-after-failover"></a>Puis-je conserver l’adresse IP publique après basculement ?
 
-L’adresse IP publique de l’application de production ne peuvent pas être conservée après le basculement.
+L’adresse IP publique de l’application de production ne peut pas être conservée après le basculement.
 - Les charges de travail montées dans le cadre du processus de basculement doivent être affectées à une ressource d’adresse IP publique Azure disponible dans la région cible.
-- Vous pouvez effectuer cette opération manuellement ou automatiser avec un plan de récupération.
-- Découvrez comment [configurer des adresses IP publiques après le basculement](concepts-public-ip-address-with-site-recovery.md#public-ip-address-assignment-using-recovery-plan).  
+- Vous pouvez effectuer cette opération manuellement ou l’automatiser via un plan de récupération.
+- Découvrez comment [configurer des adresses IP publiques après un basculement](concepts-public-ip-address-with-site-recovery.md#public-ip-address-assignment-using-recovery-plan).  
 
 ### <a name="can-i-retain-a-private-ip-address-during-failover"></a>Puis-je conserver l’adresse IP privée pendant le basculement ?
-Oui, vous pouvez conserver une adresse IP privée. Par défaut, quand vous activez la reprise d’activité pour les machines virtuelles Azure, Site Recovery crée des ressources cibles en fonction des paramètres de ressources sources. -Pour les machines virtuelles Azure configurées avec des adresses IP statiques, Site Recovery tente d’approvisionner la même adresse IP pour la machine virtuelle cible, si elle n’est pas en cours d’utilisation.
-En savoir plus sur [en conservant les adresses IP pendant le basculement](site-recovery-retain-ip-azure-vm-failover.md).
+Oui, vous pouvez conserver l’adresse IP privée. Par défaut, quand vous activez la reprise d’activité pour les machines virtuelles Azure, Site Recovery crée des ressources cibles en fonction des paramètres de ressources sources. - Pour les machines virtuelles Azure configurées avec des adresses IP statiques, Site Recovery tente de provisionner la même adresse IP pour la machine virtuelle cible, si elle n’est pas en cours d’utilisation.
+En savoir plus sur la [conservation des adresses IP après le basculement](site-recovery-retain-ip-azure-vm-failover.md).
 
-### <a name="after-failover-why-is-the-server-assigned-a-new-ip-address"></a>Après le basculement, pourquoi le serveur reçoit une nouvelle adresse IP ?
+### <a name="after-failover-why-is-the-server-assigned-a-new-ip-address"></a>Après le basculement, pourquoi le serveur reçoit-il une nouvelle adresse IP ?
 
 Site Recovery tente de fournir l’adresse IP au moment du basculement. Si une autre machine virtuelle prend cette adresse, Site Recovery définit l’adresse IP suivante disponible comme cible.
-En savoir plus sur [configuration de mappage réseau et l’adressage IP pour les réseaux virtuels](azure-to-azure-network-mapping.md#set-up-ip-addressing-for-target-vms).
+En savoir plus sur la [configuration du mappage réseau et l’adressage IP pour les réseaux virtuels](azure-to-azure-network-mapping.md#set-up-ip-addressing-for-target-vms).
 
 ### <a name="what-are-latest-lowest-rpo-recovery-points"></a>Que sont les points de récupération **Dernier (objectif de point de récupération le plus faible)**  ?
 L’option **Dernier (objectif de point de récupération le plus faible)** permet de traiter d’abord toutes les données qui ont été envoyées au service Site Recovery afin de créer un point de récupération pour chaque machine virtuelle avant de basculer les machines virtuelles vers celui-ci. Elle fournit l’objectif de point de récupération (RPO) le plus faible, car la machine virtuelle créée après le basculement comporte toutes les données répliquées vers Site Recovery au moment où le basculement a été déclenché.
@@ -189,10 +189,10 @@ Oui. Site Recovery traite toutes les données en attente avant le basculement. P
 ### <a name="what-does-the-latest-processed-option-in-recovery-points-mean"></a>Que signifie l’option **Dernier point traité** dans les points de récupération ?
 L’option **Dernier point traité** bascule toutes les machines virtuelles du plan vers le dernier point de récupération traité par Site Recovery. Pour voir le dernier point de récupération d’une machine virtuelle spécifique, cochez **Derniers points de récupération** dans les paramètres de la machine virtuelle. Cette option fournit un objectif de délai de récupération faible, car aucun temps n’est consacré à traiter les données non traitées.
 
-### <a name="what-happens-if-my-primary-region-experiences-an-unexpected-outage"></a>Que se passe-t-il si ma région principale connaît une panne inattendue ?
+### <a name="what-happens-if-my-primary-region-experiences-an-unexpected-outage"></a>Que se passe-t-il si ma région primaire subit une panne inattendue ?
 Vous pouvez déclencher un basculement après la panne. Site Recovery n’a pas besoin de connectivité de la région primaire pour opérer le basculement.
 
-### <a name="what-is-a-rto-of-a-vm-failover-"></a>Qu’est un délai de récupération d’un basculement de machine virtuelle ?
+### <a name="what-is-a-rto-of-a-vm-failover-"></a>Quel est le délai de récupération d’un basculement de machine virtuelle ?
 Le contrat de niveau de service de délai de récupération de Site Recovery est de [2 heures](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/). Toutefois, la plupart du temps, Site Recovery peut effectuer le basculement des machines virtuelles en quelques minutes. Vous pouvez calculer le délai de récupération en accédant aux tâches de basculement, où est affichée la durée nécessaire pour faire apparaître la machine virtuelle. Pour le délai de récupération du plan de récupération, consultez la section ci-dessous.
 
 ## <a name="recovery-plans"></a>Plans de récupération
@@ -228,25 +228,25 @@ Non. Non, lorsque vous [basculez](https://docs.microsoft.com/azure/site-recovery
 Cela dépend de la situation. Par exemple, si la machine virtuelle de la région source existe, seuls les différences entre le disque source et le disque cible sont synchronisées. Site Recovery calcule les différentiels en comparant les disques, puis transfère les données. Ce processus prend généralement plusieurs heures. Pour plus d’informations sur ce qui se passe lors de la reprotection, consultez [Reprotection de machines virtuelles Azure basculées vers la région primaire]( https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-reprotect#what-happens-during-reprotection).
 
 ### <a name="how-much-time-does-it-take-to-fail-back"></a>Combien de temps prend la restauration automatique ?
-Après la reprotection, la quantité de temps pour la restauration automatique est généralement semblable à l’heure à laquelle a été nécessaire pour le basculement de la région primaire vers une région secondaire.
+Après la reprotection, la durée de la restauration automatique est généralement similaire à la durée nécessaire au basculement de la région primaire vers une région secondaire.
 
-## <a name="capacity"></a>capacité
+## <a name="capacity"></a>Capacité
 
-### <a name="how-is-capacity-assured-in-target-region-for-azure-vms"></a>La capacité est assurée dans la région cible pour les machines virtuelles Azure ?
-L’équipe de Site Recovery fonctionne avec l’équipe de gestion de capacité Azure pour planifier la capacité d’infrastructure suffisante, pour faire en sorte que les machines virtuelles activées pour la récupération d’urgence sera correctement déployé dans la région cible lorsque le basculement est déclenché.
+### <a name="how-is-capacity-assured-in-target-region-for-azure-vms"></a>Comment est assurée la capacité dans la région cible pour les machines virtuelles Azure ?
+L'équipe Site Recovery travaille avec l'équipe de gestion de la capacité Azure pour planifier une capacité d'infrastructure suffisante et pour s'assurer que les machines virtuelles configurées pour la récupération d'urgence seront déployées avec succès dans la région cible lorsque le basculement sera lancé.
 
 ### <a name="does-site-recovery-work-with-reserved-instances"></a>Site Recovery fonctionne-t-il avec les instances réservées ?
-Oui, vous pouvez acheter [réserver les instances](https://azure.microsoft.com/pricing/reserved-vm-instances/) dans la région de récupération d’urgence et la récupération de Site des opérations de basculement seront les utilisent. </br> Aucune configuration supplémentaire n’est nécessaire.
+Oui, vous pouvez acheter des [instances réservées](https://azure.microsoft.com/pricing/reserved-vm-instances/) dans la région de la récupération d'urgence, et les opérations de basculement Site Recovery les utiliseront. </br> Aucune configuration supplémentaire n’est nécessaire.
 
 
 ## <a name="security"></a>Sécurité
 
 ### <a name="is-replication-data-sent-to-the-site-recovery-service"></a>Les données de réplication sont-elles envoyées vers le service Site Recovery ?
-Non, Site Recovery n’intercepte pas les données répliquées et n’a pas d’informations sur ce qui s’exécute sur vos machines virtuelles. Seules les métadonnées nécessaires pour coordonner la réplication et le basculement sont envoyées au service Site Recovery.  
+Non, Site Recovery n’intercepte pas les données répliquées et n’a pas d’informations sur les éléments exécutés sur vos machines virtuelles. Seules les métadonnées nécessaires pour coordonner la réplication et le basculement sont envoyées au service Site Recovery.  
 Le logiciel Site Recovery est certifié conforme aux normes ISO 27001:2013, 27018, HIPAA et DPA. Il fait actuellement l’objet d’une évaluation de conformité aux exigences SOC2 et JAB FedRAMP.
 
 ### <a name="does-site-recovery-encrypt-replication"></a>Site Recovery chiffre-t-il la réplication ?
-Oui, les deux de chiffrement en transit et [chiffrement au repos dans Azure](https://docs.microsoft.com/azure/storage/storage-service-encryption) sont pris en charge.
+Oui, le chiffrement en transit et le [chiffrement au repos dans Azure](https://docs.microsoft.com/azure/storage/storage-service-encryption) sont tous deux pris en charge.
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Examiner](azure-to-azure-support-matrix.md) les conditions de prise en charge.

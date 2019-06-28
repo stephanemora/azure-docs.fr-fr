@@ -1,5 +1,5 @@
 ---
-title: Résoudre les problèmes d’un travail défaillant ou lent sur un cluster HDInsight - Azure HDInsight
+title: Détecter un problème de travail lent ou défaillant sur un cluster HDInsight - Azure HDInsight
 description: Diagnostiquer et résoudre les problèmes d’un cluster HDInsight défaillant ou lent.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,24 +9,24 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.openlocfilehash: 0f405f542a8408c290704f1707ca10a24b08f861
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65203626"
 ---
-# <a name="troubleshoot-a-slow-or-failing-job-on-a-hdinsight-cluster"></a>Résoudre les problèmes d’un travail défaillant ou lent sur un cluster HDInsight
+# <a name="troubleshoot-a-slow-or-failing-job-on-a-hdinsight-cluster"></a>Détecter un problème de travail lent ou défaillant sur un cluster HDInsight
 
-Si une application de traitement des données sur un cluster HDInsight est qu’elle s’exécute lentement ou échouent avec un code d’erreur, vous avez plusieurs options de dépannage. Si l’exécution de vos travaux prend plus de temps que prévu ou si vous constatez généralement des temps de réponse assez longs, il est possible que ces problèmes soient imputables à des défaillances en amont à de votre cluster (par exemple, les services sur lesquels s’exécute le cluster). Mais une mise à l’échelle insuffisante est la cause la plus courante de ces ralentissements. Lorsque vous créez un nouveau cluster HDInsight, sélectionnez l’option appropriée [tailles de machine virtuelle](hdinsight-component-versioning.md#default-node-configuration-and-virtual-machine-sizes-for-clusters).
+En cas de ralentissement ou d’échec d’une application traitant des données sur un cluster HDInsight avec un code d’erreur, vous disposez de plusieurs options de résolution des problèmes. Si l’exécution de vos travaux prend plus de temps que prévu ou si vous constatez généralement des temps de réponse assez longs, il est possible que ces problèmes soient imputables à des défaillances en amont à de votre cluster (par exemple, les services sur lesquels s’exécute le cluster). Mais une mise à l’échelle insuffisante est la cause la plus courante de ces ralentissements. Lorsque vous créez un cluster HDInsight, sélectionnez les [tailles de machine virtuelle](hdinsight-component-versioning.md#default-node-configuration-and-virtual-machine-sizes-for-clusters) appropriées.
 
 Pour diagnostiquer un cluster lent ou défaillant, essayez de recueillir des informations sur tous les aspects de l’environnement, notamment les services Azure associés, la configuration du cluster ou encore les informations relatives à l’exécution du travail. Pour diagnostiquer les problèmes, le mieux est d’essayer de reproduire l’état d’erreur sur un autre cluster.
 
-* Étape 1 : Collecter des données sur le problème.
-* Étape 2 : Valider l’environnement de cluster HDInsight.
-* Étape 3 : Afficher l’intégrité de votre cluster.
-* Étape 4 : Passez en revue les versions et la pile de l’environnement.
-* Étape 5 : Examinez les fichiers journaux de cluster.
-* Étape 6 : Vérifiez les paramètres de configuration.
+* Étape 1 : Recueillir des données sur le problème.
+* Étape 2 : Valider l’environnement du cluster HDInsight.
+* Étape 3 : Contrôler l’état d’intégrité de votre cluster.
+* Étape 4 : Examiner la pile et les versions de l’environnement.
+* Étape 5 : Examiner les fichiers journaux du cluster.
+* Étape 6 : Vérifier les paramètres de configuration.
 * Étape 7 : Reproduire la défaillance sur un autre cluster.
 
 ## <a name="step-1-gather-data-about-the-issue"></a>Étape 1 : Recueillir des données sur le problème
@@ -56,7 +56,7 @@ Le portail Azure peut fournir les informations suivantes :
 
 ![Informations relatives au portail Azure HDInsight](./media/hdinsight-troubleshoot-failed-cluster/portal.png)
 
-Vous pouvez également utiliser [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest):
+Vous pouvez également utiliser [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) :
 
 ```azurecli
 az hdinsight list --resource-group <ResourceGroup>
@@ -71,10 +71,10 @@ Chaque cluster HDInsight s’appuie sur divers services Azure ainsi que sur des 
 
 ### <a name="service-details"></a>Détails du service
 
-* Vérifiez les versions de bibliothèque open source.
-* Recherchez [des interruptions de Service Azure](https://azure.microsoft.com/status/).  
-* Recherchez les limites d’utilisation du Service Azure. 
-* Vérifiez la configuration de sous-réseau de réseau virtuel Azure.  
+* Vérifiez les versions de bibliothèques open source.
+* Recherchez les [interruptions de service Azure](https://azure.microsoft.com/status/).  
+* Recherchez les limites d’utilisation des services Azure. 
+* Vérifiez la configuration de sous-réseau du réseau virtuel Microsoft Azure.  
 
 ### <a name="view-cluster-configuration-settings-with-the-ambari-ui"></a>Vérifier les paramètres de configuration du cluster avec l’interface utilisateur Ambari
 
@@ -137,7 +137,7 @@ Une passerelle HDInsight renvoie `502 BadGateway` lorsque les réponses dépasse
 
 Dans ce cas, consultez les journaux d’activité suivants dans le répertoire `/var/log/webhcat` :
 
-* **webhcat.log** est le journal log4j sur lequel le serveur écrit des fichiers journaux
+* **webhcat.log** est le journal d’activité log4j sur lequel le serveur écrit des fichiers journaux
 * **webhcat-console.log** est le stdout du serveur au démarrage
 * **webhcat-console-error.log** est le stderr du processus serveur
 
@@ -262,7 +262,7 @@ Pour aider à diagnostiquer l’origine d’une erreur de cluster, démarrez un 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Gérer des clusters HDInsight à l’aide de l’interface utilisateur web d’Apache Ambari](hdinsight-hadoop-manage-ambari.md)
-* [Analyse des journaux HDInsight](hdinsight-debug-jobs.md)
-* [Connexion de l’application accès Apache Hadoop YARN dans HDInsight basé sur Linux](hdinsight-hadoop-access-yarn-app-logs-linux.md)
+* [Analyse des journaux d’activité HDInsight](hdinsight-debug-jobs.md)
+* [Accéder à la connexion des applications Apache Hadoop YARN dans la version Linux de HDInsight](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 * [Activer les dumps de tas pour les services Apache Hadoop sur HDInsight sur Linux](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
 * [Problèmes connus du cluster Apache Spark sur Azure HDInsight](hdinsight-apache-spark-known-issues.md)

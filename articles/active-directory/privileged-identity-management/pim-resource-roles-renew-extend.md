@@ -1,5 +1,5 @@
 ---
-title: Étendre ou renouveler des attributions de rôles de ressources Azure dans PIM - Azure Active Directory | Microsoft Docs
+title: Étendre ou renouveler des affectations de rôles de ressources Azure dans PIM - Azure Active Directory | Microsoft Docs
 description: Découvrez comment étendre ou renouveler des affectations de rôles de ressources Azure dans Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -17,15 +17,15 @@ ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a064fc67bf94ba6aa443e429fe83179d84cada84
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65602675"
 ---
 # <a name="extend-or-renew-azure-resource-role-assignments-in-pim"></a>Étendre ou renouveler des affectations de rôles de ressources Azure dans PIM
 
-Azure Active Directory (Azure AD) Privileged Identity Management (PIM) propose de nouveaux contrôles pour gérer le cycle de vie accès et d’attribution pour les ressources Azure. Les administrateurs peuvent attribuer une appartenance à l’aide de propriétés de date et d’heure de début et de fin. À l’approche de la fin de l’attribution, PIM envoie des notifications par e-mail aux utilisateurs ou aux groupes concernés, ainsi qu’aux administrateurs de la ressource pour garantir le maintien de l’accès approprié. Les attributions peuvent être renouvelées et rester visibles à l’état expiré pendant 30 jours, même si l’accès n’est pas étendu.
+Azure Active Directory (Azure AD) Privileged Identity Management (PIM) propose de nouveaux contrôles permettant de gérer le cycle de vie d’accès et d’attribution des ressources Azure. Les administrateurs peuvent attribuer une appartenance à l’aide de propriétés de date et d’heure de début et de fin. À l’approche de la fin de l’attribution, PIM envoie des notifications par e-mail aux utilisateurs ou aux groupes concernés, ainsi qu’aux administrateurs de la ressource pour garantir le maintien de l’accès approprié. Les attributions peuvent être renouvelées et rester visibles à l’état expiré pendant 30 jours, même si l’accès n’est pas étendu.
 
 ## <a name="who-can-extend-and-renew"></a>Qui peut étendre et renouveler ?
 
@@ -41,7 +41,7 @@ Les administrateurs reçoivent des notifications lorsqu’un membre d’un rôle
 
 Les étapes suivantes décrivent la procédure de demande, de résolution et d’administration de l’extension ou du renouvellement d’une attribution de rôle. 
 
-### <a name="member-extend"></a>Étendre le membre
+### <a name="member-extend"></a>Extension de membre
 
 Les membres d’une attribution de rôle arrivant à expiration peuvent l’étendre directement sur l’onglet **Éligible** ou **Actif** de la page **Mes rôles** d’une ressource et sur la page **Mes rôles** de niveau supérieur du portail PIM. Les membres peuvent demander l’extension de rôles éligibles et actifs (attribués) qui expirent au cours des 14 prochains jours.
 
@@ -49,7 +49,7 @@ Les membres d’une attribution de rôle arrivant à expiration peuvent l’éte
 
 Lorsque la date/heure de fin de l’attribution se situe 14 jours plus tard ou moins, le bouton **Étendre** devient un lien actif dans l’interface utilisateur. Dans l’exemple ci-dessous, supposons que la date actuelle est le 27 mars.
 
-![Étendre le bouton](media/pim-resource-roles-renew-extend/aadpim-rbac-extend-within-14.png)
+![Bouton Étendre](media/pim-resource-roles-renew-extend/aadpim-rbac-extend-within-14.png)
 
 Pour demander une extension de cette attribution de rôle, sélectionnez **Étendre** afin d’ouvrir le formulaire de demande.
 
@@ -64,7 +64,7 @@ Pour consulter les informations relatives à l’attribution d’origine, dével
 
 Quelques instants après, les administrateurs de ressources reçoivent une notification par e-mail leur demandant d’examiner la demande d’extension. Si une demande d’extension a déjà été envoyée, une notification toast expliquant l’erreur s’affiche en haut du Portail Azure.
 
-![Explication de l’erreur de notification](media/pim-resource-roles-renew-extend/aadpim-rbac-extend-failed-existing-request.png)
+![Notification pour expliquer l’erreur](media/pim-resource-roles-renew-extend/aadpim-rbac-extend-failed-existing-request.png)
 
 Accédez à l’onglet **Demandes en attente** dans le menu de gauche pour connaître l’état de votre demande ou l’annuler.
 
@@ -80,11 +80,11 @@ Pour approuver ou refuser les demandes, les administrateurs peuvent suivre le li
 
 Lorsqu’un administrateur sélectionne **Approuver** ou **Refuser**, les détails de la demande s’affichent, ainsi qu’un champ permettant de donner une justification pour les journaux d’audit.
 
-![Approuver la demande d’attribution de rôle](media/pim-resource-roles-renew-extend/aadpim-rbac-extend-admin-approve-blade.png)
+![Approuver une requête d’attribution de rôle](media/pim-resource-roles-renew-extend/aadpim-rbac-extend-admin-approve-blade.png)
 
 Lorsqu’ils approuvent une demande d’extension d’attribution de rôle, les administrateurs de ressources peuvent choisir de nouvelles dates de début et de fin et un nouveau type d’attribution. Une modification du type d’attribution peut être nécessaire s’ils souhaitent accorder un accès limité afin d’effectuer une tâche spécifique (un jour, par exemple). Dans cet exemple, l’administrateur peut modifier l’attribution de **Éligible** à **Actif**, ce qui signifie qu’il peut donner l’accès au demandeur sans l’obliger à s’activer.
 
-### <a name="admin-extend"></a>Étendre administrateur
+### <a name="admin-extend"></a>Extension d’administrateur
 
 Si un membre de rôle oublie ou n’est pas en mesure de demander une extension d’appartenance à un rôle, un administrateur peut étendre une attribution en son nom. Les extensions administratives d’appartenance à un rôle ne nécessitent pas d’approbation, mais des notifications sont envoyées à tous les autres administrateurs une fois le rôle étendu.
 
@@ -96,11 +96,11 @@ Pour étendre une appartenance à un rôle, accédez à la vue du rôle de resso
 
 Bien que semblable d’un point de vue conceptuel au processus de demande d’extension, le processus de renouvellement d’une attribution de rôle arrivée à expiration est différent. Les étapes suivantes permettent aux membres et aux administrateurs de renouveler si nécessaire l’accès à des rôles ayant expiré.
 
-### <a name="member-renew"></a>Renouveler le membre
+### <a name="member-renew"></a>Renouvellement de membre
 
 Les membres qui n’ont plus accès aux ressources peuvent accéder jusqu’à 30 jours d’historique d’attributions arrivées à expiration. Pour cela, ils accèdent à **Mes rôles** dans le volet de gauche, puis sélectionnent l’onglet **Rôles arrivés à expiration** dans la section Rôles des ressources Azure.
 
-![Onglet rôles expirés](media/pim-resource-roles-renew-extend/aadpim-rbac-renew-from-myroles.png)
+![Onglet Rôles arrivés à expiration](media/pim-resource-roles-renew-extend/aadpim-rbac-renew-from-myroles.png)
 
 La liste des rôles affiche par défaut les **Rôles éligibles**. Utilisez le menu déroulant pour basculer entre les rôles attribués éligibles et actifs.
 
@@ -122,13 +122,13 @@ Lorsqu’un administrateur sélectionne **Approuver** ou **Refuser**, les détai
 
 Lorsqu’ils approuvent une demande de renouvellement d’attribution de rôle, les administrateurs de ressources doivent entrer de nouvelles dates de début et de fin et un nouveau type d’attribution. 
 
-### <a name="admin-renew"></a>Renouveler administrateur
+### <a name="admin-renew"></a>Renouvellement d’administrateur
 
 Les administrateurs de ressources peuvent renouveler les attributions de rôles ayant expiré dans l’onglet **Membres** du menu de navigation de gauche d’une ressource, ou dans l’onglet **Expiré** des rôles d’une ressource.
 
 Pour voir la liste de toutes les attributions de rôles ayant expiré, sélectionnez **Rôles ayant expiré** sur l’écran **Membres**.
 
-![Rôles expirés](media/pim-resource-roles-renew-extend/aadpim-rbac-renew-from-member-blade.png)
+![Rôles ayant expiré](media/pim-resource-roles-renew-extend/aadpim-rbac-renew-from-member-blade.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 11/27/2018
 ms.author: rajanaki
 ms.openlocfilehash: eabb7d194a3ef65282befab1ae59e85ba56f2f5b
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65472161"
 ---
 # <a name="reprotect-failed-over-azure-vms-to-the-primary-region"></a>Reprotéger les machines virtuelles Azure basculées vers la région principale
@@ -23,7 +23,7 @@ Lorsque vous [basculez](site-recovery-failover.md) des machines virtuelles Azure
 - Reprotégez les machines virtuelles dans la région secondaire, afin qu’elles commencent à se répliquer dans la région principale.
 - Après l’exécution de la reprotection et de la réplication des machines virtuelles, vous pouvez les basculer de la région secondaire vers la région principale.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 1. Le basculement de machine virtuelle de la région principale vers la région secondaire doit être validé.
 2. Le site cible principal doit être disponible et vous devez être en mesure d’accéder aux ressources ou de créer des ressources dans cette région.
 
@@ -68,7 +68,7 @@ Lorsque vous déclenchez un travail de reprotection et que la cible de que machi
 1. La machine virtuelle côté cible est désactivée si elle est en cours d’exécution.
 2. Si la machine virtuelle utilise des disques managés, une copie des disques d’origine est créée avec le suffixe '-ASRReplica'. Les disques d’origine sont supprimés. Les copies '-ASRReplica' sont utilisées pour la réplication.
 3. Si la machine virtuelle utilise des disques non managés, les disques de données de la machine virtuelle cible sont détachés et utilisés pour la réplication. Une copie du disque du système d’exploitation est créée et attachée à la machine virtuelle. Le disque d’origine du système d’exploitation est détaché et utilisé pour la réplication.
-4. Seules les modifications entre le disque source et le disque cible sont synchronisées. Les sauvegardes différentielles sont calculées en comparant deux disques, puis transférées. Pour rechercher la vérification de la durée estimée ci-dessous.
+4. Seules les modifications entre le disque source et le disque cible sont synchronisées. Les sauvegardes différentielles sont calculées en comparant deux disques, puis transférées. Ci-dessous, vous trouverez la durée estimée.
 5. Une fois la synchronisation terminée, la réplication delta commence à créer un point de récupération conformément à la stratégie de réplication.
 
 Lorsque vous déclenchez un travail de reprotection et que la machine virtuelle cible et les disques n’existent pas, les événements suivants se produisent :
@@ -79,15 +79,15 @@ Lorsque vous déclenchez un travail de reprotection et que la machine virtuelle 
 
 #### <a name="estimated-time--to-do-the-reprotection"></a>Durée estimée pour effectuer la reprotection 
 
-Dans la plupart des cas, Azure Site Recovery ne réplique la totalité des données vers la région source. Voici les conditions qui détermine la quantité de données est répliquée :
+En général, Azure Site Recovery ne réplique pas la totalité des données vers la région source. Voici les conditions qui déterminent la quantité de données répliquées :
 
-1.  Si la source de données de la machine virtuelle est supprimé, endommagé ou inaccessible pour une raison quelconque comme groupe de ressources modifier/supprimer puis lors du runtime d’intégration complète de la reprotection se produira car il n’existe aucune donnée disponible sur la région source à utiliser.
-2.  Si la source de données de la machine virtuelle est accessible uniquement les sauvegardes différentielles sont calculées en comparant deux disques et puis transférées. Consultez le tableau ci-dessous pour obtenir la durée estimée 
+1.  Si la source de données de la machine virtuelle est supprimée, endommagée ou inaccessible pour une raison quelconque (modification/suppression du groupe de ressources par exemple), alors, pendant la reprotection, la fin du runtime d’intégration aura lieu puisqu’il n’existera aucune donnée disponible sur la région source à utiliser.
+2.  Si les données de la machine virtuelle source sont disponibles, alors seules les sauvegardes différentielles sont calculées en comparant deux disques, puis transférées. Consultez le tableau ci-dessous pour obtenir la durée estimée 
 
-|** Situation de l’exemple ** | ** Temps nécessaire à la Reprotection ** |
+|**Situation de l’exemple ** | **Durée de la reprotection  ** |
 |--- | --- |
-|Région source a 1 machine virtuelle avec 1 To de disque standard<br/>-Seules les données de 127 Go sont utilisées et le reste du disque est vide<br/>-Type de disque est standard avec un débit 60 Mio/S<br/>-Aucune modification de données après le basculement| Durée approximative 45 minutes – 1,5 heures<br/> -Lors de la reprotection, Site Recovery remplira la somme de contrôle de données entière qui prendront 127 Go / 45 Mo environ 45 minutes<br/>-Certains surcharge de temps est nécessaire pour la récupération de Site automatiquement mise à l’échelle qui est de 20 à 30 minutes<br/>-Aucun frais de sortie |
-|Région source a 1 machine virtuelle avec 1 To de disque standard<br/>-Seules les données de 127 Go sont utilisées et le reste du disque est vide<br/>-Type de disque est standard avec un débit 60 Mio/S<br/>-Les modifications de données 45 Go après le basculement| Durée approximative heures 1 – 2 heures<br/>-Lors de la reprotection, Site Recovery remplira la somme de contrôle de données entière qui prendront 127 Go / 45 Mo environ 45 minutes<br/>-Temps de transfert de pour appliquer les modifications de 45 Go est de 45 Go / 45 Mbits/s ~ 17 minutes<br/>-Frais de sortie serait uniquement pour les données de 45 Go pas pour la somme de contrôle|
+|La région source a une machine virtuelle avec un disque standard d’1 To<br/>- Seulement 127 Go de données sont utilisés ; le reste du disque est vide<br/>- Le disque est de type standard, avec un débit de 60 Mio/S<br/>- Aucune modification des données n’est effectuée après le basculement| Durée approximative de 45 minutes à 1,5 heure<br/> - Lors de la reprotection, Site Recovery remplira la somme de contrôle de données entières, ce qui utilisera 127 Go/45 Mo et prendra environ 45 minutes<br/>- Une surcharge de temps de 20 à 30 minutes est nécessaire pour que Site Recovery procède à la mise à l’échelle automatique<br/>- Aucun frais de sortie |
+|La région source a une machine virtuelle avec un disque standard d’1 To<br/>- Seulement 127 Go de données sont utilisés ; le reste du disque est vide<br/>- Le disque est de type standard, avec un débit de 60 Mio/S<br/>- Modification de 45 Go de données après le basculement| Durée approximative 1 à 2 heures<br/>- Lors de la reprotection, Site Recovery remplira la somme de contrôle de données entières, ce qui utilisera 127 Go/45 Mo et prendra environ 45 minutes<br/>- Temps de transfert pour appliquer les modifications aux 45 Go de données : 45 Go/45 Mbit/s et environ 17 minutes<br/>- Les frais de sortie sont appliqués uniquement aux 45 Go de données, et non pas à la somme de contrôle|
  
 
 

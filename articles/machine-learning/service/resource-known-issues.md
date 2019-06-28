@@ -12,32 +12,32 @@ ms.topic: conceptual
 ms.date: 04/30/2019
 ms.custom: seodec18
 ms.openlocfilehash: 80bb7af0f7ed20336ab08d4f3ca9639057b9c67f
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65149769"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>Problèmes connus et dépannage du service Azure Machine Learning
 
 Cet article vous permet de rechercher et de corriger les erreurs ou les défaillances rencontrées lors de l’utilisation du service Azure Machine Learning.
 
-## <a name="visual-interface-issues"></a>Problèmes de l’interface visuelle
+## <a name="visual-interface-issues"></a>Problèmes concernant l’interface visuelle
 
-Interface visuelle pour les problèmes de service d’apprentissage.
+Interface visuelle pour les problèmes de service d’apprentissage automatique.
 
-### <a name="long-compute-preparation-time"></a>Calcul de longue durée de préparation
+### <a name="long-compute-preparation-time"></a>Calcul de préparation de longue durée
 
-Créer nouveau calcul ou évoquer laissant calcul prend du temps, peut-être quelques minutes ou plus longtemps. L’équipe travaille pour l’optimisation.
+La création d’un calcul ou l’évocation à la fin d’un calcul prend du temps, quelques minutes ou plus. L’équipe travaille sur l’optimisation.
 
 
-### <a name="cannot-run-an-experiment-only-contains-dataset"></a>Ne peut pas exécuter une expérience contient uniquement jeu de données 
+### <a name="cannot-run-an-experiment-only-contains-dataset"></a>Impossible d’exécuter une expérience contenant uniquement des jeux de données 
 
-Vous souhaiterez peut-être exécuter une expérience contient uniquement le jeu de données pour visualiser le jeu de données. Toutefois, il n’a pas autorisé à exécuter une expérience contient uniquement des dataset dès aujourd'hui. Nous résolvons activement ce problème.
+Vous souhaiterez peut-être exécuter une expérience contenant uniquement des jeux de données pour visualiser le jeu de données. Toutefois, il n’est pas autorisé à exécuter une expérience contenant uniquement des jeux de données aujourd’hui. Nous nous efforçons activement de résoudre ce problème.
  
-Avant le correctif, vous pouvez connecter le jeu de données à n’importe quel module de transformation de données (sélectionner des colonnes dans le jeu de données, modifier les métadonnées, etc. des données de fractionnement) et exécutez l’expérience. Vous pouvez ensuite visualiser le jeu de données. 
+Avant le correctif, vous pouviez connecter le jeu de données à n’importe quel module de transformation de données (sélectionner des colonnes dans le jeu de données, modifier les métadonnées, fractionner des données, etc.) et exécuter l’expérience. Vous pouvez ensuite visualiser le jeu de données. 
 
-Ci-dessous image montre comment : ![visulize-data](./media/resource-known-issues/aml-visualize-data.png)
+L’image ci-dessous affiche comment : ![visulize-data](./media/resource-known-issues/aml-visualize-data.png)
 
 ## <a name="sdk-installation-issues"></a>Problèmes d’installation de Kit de développement logiciel (SDK)
 
@@ -67,11 +67,11 @@ Vous ne serez pas en mesure de déployer des modèles sur des FPGA tant que vous
 
 ## <a name="automated-machine-learning"></a>Machine learning automatisé
 
-Apprentissage automatisé de flux de tenseur ne gère pas actuellement les version de flux de tenseur 1.13. Installation de cette version entraînerait des dépendances de package cesser de fonctionner. Nous nous efforçons de résoudre ce problème dans une version ultérieure. 
+Le machine learning automatisé des flux de tenseur ne prend actuellement pas en charge la version 1.13 des flux de tenseur. Si vous installez cette version, les dépendances de package cesseront de fonctionner. Nous nous efforçons de résoudre ce problème dans une version ultérieure. 
 
 ### <a name="experiment-charts"></a>Graphiques d’expérience
 
-Graphiques de classification binaire (rappel de précision, ROC, obtenir la courbe, etc.) indiqués dans les itérations d’expériences ML automatisées ne sont pas correctement rendu dans l’interface utilisateur depuis le 12/4. Les tracés de graphique sont actuellement affichant les résultats inverse, où les modèles plus performantes sont affichés avec les résultats de moindre. Une résolution est étudié.
+Les graphiques de classification binaire (rappel de précision, ROC, obtenir la courbe, etc.) indiqués dans les itérations d’expériences ML automatisées ne sont pas correctement rendus dans l’interface utilisateur depuis le 12/04. Les tracés de graphique affichent actuellement les résultats inverses, ainsi les modèles plus performants sont affichés avec les résultats les plus bas. Une résolution est en cours d’investigation.
 
 ## <a name="databricks"></a>Databricks
 
@@ -79,42 +79,42 @@ Problèmes Databricks et Azure Machine Learning
 
 ### <a name="failure-when-installing-packages"></a>Échec lors de l’installation des packages
 
-Installation d’Azure Machine Learning SDK échoue sur Azure Databricks lorsque plusieurs packages sont installés. Certains packages, comme `psutil`, peuvent provoquer des conflits. Pour éviter les erreurs d’installation, installez les packages en gelant la version de la bibliothèque. Ce problème est lié à Databricks et pas pour le SDK du service Azure Machine Learning. Vous pouvez rencontrer ce problème avec d’autres bibliothèques, trop. Exemple :
+L’installation du Kit de développement logiciel (SDK) Azure Machine Learning échoue sur Azure Databricks lorsque plusieurs packages sont installés. Certains packages, comme `psutil`, peuvent provoquer des conflits. Pour éviter les erreurs d’installation, installez les packages en bloquant la version des bibliothèques. Ce problème est lié à Azure Databricks et non au Kit de développement logiciel (SDK) Azure Machine Learning service. Vous pouvez également rencontrer ce problème avec d’autres bibliothèques. Exemple :
 
 ```python
 psutil cryptography==1.5 pyopenssl==16.0.0 ipython==2.2.0
 ```
 
-Vous pouvez également utiliser des scripts init si vous conservez face à des problèmes d’installation avec les bibliothèques Python. Cette approche n’est pas officiellement pris en charge. Pour plus d’informations, consultez [scripts init à portée d’un Cluster](https://docs.azuredatabricks.net/user-guide/clusters/init-scripts.html#cluster-scoped-init-scripts).
+Vous pouvez également utiliser des scripts init si les problèmes d’installation persistent avec les bibliothèques Python. Cette approche n’est pas officiellement prise en charge. Pour plus d’informations, consultez [Scripts init à étendue au réseau en cluster](https://docs.azuredatabricks.net/user-guide/clusters/init-scripts.html#cluster-scoped-init-scripts).
 
-### <a name="cancel-an-automated-machine-learning-run"></a>Annuler une série d’apprentissage automatique
+### <a name="cancel-an-automated-machine-learning-run"></a>Annuler l’exécution d’un machine learning automatisé
 
-Lorsque vous utilisez automatisée des fonctionnalités machine learning sur Azure Databricks, pour annuler une exécution et démarrez une nouvelle expérience à exécuter, redémarrez votre cluster Azure Databricks.
+Si vous utilisez les fonctionnalités de machine learning automatisé sur Azure Databricks et souhaitez annuler une exécution pour en démarrer une nouvelle à des fins d’expérimentation, redémarrez votre cluster Azure Databricks.
 
-### <a name="10-iterations-for-automated-machine-learning"></a>> 10 itérations pour l’apprentissage automatique
+### <a name="10-iterations-for-automated-machine-learning"></a>>10 itérations d’apprentissage automatique automatisé
 
-Dans automatisé machine learning de paramètres, si vous avez plus de 10 itérations, définissez `show_output` à `False` lorsque vous envoyez l’exécution.
+Dans les paramètres de machine learning automatisé, si vous avez plus de 10 itérations, définissez `show_output` sur `False` lorsque vous soumettez l’exécution.
 
-### <a name="widget-for-the-azure-machine-learning-sdkautomated-machine-learning"></a>Widget pour l’apprentissage automatique/des SDK Azure Machine Learning
+### <a name="widget-for-the-azure-machine-learning-sdkautomated-machine-learning"></a>Widget pour le Kit de développement logiciel (SDK) Azure Machine Learning/apprentissage automatique automatisé
 
-Le widget de kit de développement logiciel Azure Machine Learning n’est pas pris en charge dans une instance Databricks notebook, car les ordinateurs portables ne peut pas analyser les widgets HTML. Vous pouvez afficher le widget dans le portail à l’aide de ce code Python dans la cellule du bloc-notes Azure Databricks :
+Le widget du Kit de développement logiciel (SDK) Azure Machine Learning n’est pas pris en charge dans un notebook Azure Databricks, car les notebooks ne peuvent pas analyser les widgets HTML. Vous pouvez afficher le widget dans le portail à l’aide de ce code Python dans la cellule du notebook Azure Databricks :
 
 ```
 displayHTML("<a href={} target='_blank'>Azure Portal: {}</a>".format(local_run.get_portal_url(), local_run.id))
 ```
 
-### <a name="import-error-no-module-named-pandascoreindexes"></a>Erreur d’importation : Aucun module nommé « pandas.core.indexes »
+### <a name="import-error-no-module-named-pandascoreindexes"></a>Erreur d’importation : Aucun module nommé « pandas.core.indexes »
 
-Si vous voyez cette erreur lorsque vous utilisez automatisée apprentissage :
+Si cette erreur s’affiche lorsque vous utilisez le machine learning automatisé :
 
-1. Exécutez cette commande pour installer deux packages dans votre cluster Azure Databricks : 
+1. Exécutez cette commande pour installer deux packages dans votre cluster Azure Databricks : 
 
    ```
    scikit-learn==0.19.1
    pandas==0.22.0
    ```
 
-1. Déconnectez, puis reconnectez le cluster à votre ordinateur portable. 
+1. Détachez, puis réattachez le cluster à votre notebook. 
 
 Si ces étapes ne résolvent pas le problème, essayez de redémarrer le cluster.
 
@@ -124,7 +124,7 @@ Si vous accédez directement à votre espace de travail à partir d’un lien de
 
 ## <a name="diagnostic-logs"></a>Journaux de diagnostic
 
-Parfois, fournir des informations de diagnostic quand vous demandez de l’aide peut se révéler utile. Pour afficher certains journaux, visitez [Azure portal](https://portal.azure.com) et accédez à votre espace de travail, puis sélectionnez **espace de travail > expérience > Exécuter > journaux**.
+Parfois, fournir des informations de diagnostic quand vous demandez de l’aide peut se révéler utile. Pour afficher certains journaux d’activité, visitez le [Portail Microsoft Azure](https://portal.azure.com) et accédez à votre espace de travail, puis sélectionnez **Espace de travail > Expérience > Exécuter > Journaux d’activité**.
 
 ## <a name="resource-quotas"></a>Quotas de ressources
 

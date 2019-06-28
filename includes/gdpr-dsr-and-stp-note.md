@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/24/2018
 ms.author: lizross
 ms.custom: include file
-ms.openlocfilehash: 20eb51aea676db0feaf21c2c7889f6cf93206709
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.openlocfilehash: f2927bb10c282218e378f0f12a22cb1bfcdc9154
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66113373"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67112992"
 ---
->[!Note] 
->Si vous souhaitez afficher ou supprimer des données personnelles, consultez l’article [Requêtes DSR (droits de la personne concernée) Azure pour le RGPD](https://docs.microsoft.com/microsoft-365/compliance/gdpr-dsr-azure). Si vous recherchez des informations générales sur le RGPD, consultez la [section RGPD du portail Approbation de services](https://servicetrust.microsoft.com/ViewPage/GDPRGetStarted).
+>[!NOTE] 
+>Pour plus d’informations sur l’affichage ou la suppression des données personnelles, consultez [Requêtes DSR (droits de la personne concernée) Azure pour le RGPD](https://docs.microsoft.com/microsoft-365/compliance/gdpr-dsr-azure). Pour plus d’informations sur le RGPD, consultez la [section RGPD du portail Service Trust](https://servicetrust.microsoft.com/ViewPage/GDPRGetStarted).

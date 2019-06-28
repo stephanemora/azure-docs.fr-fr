@@ -1,6 +1,6 @@
 ---
-title: Instancier une application de client confidentiel avec options (bibliothèque d’authentification Microsoft pour .NET) | Azure
-description: Découvrez comment instancier une application cliente confidentielle avec les options de configuration à l’aide de la bibliothèque d’authentification Microsoft pour .NET (MSAL.NET).
+title: Instancier une application cliente confidentielle avec des options (Microsoft Authentication Library pour .NET) | Azure
+description: Découvrez comment instancier une application cliente confidentielle avec des options de configuration à l’aide de Microsoft Authentication Library pour .NET (MSAL.NET).
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
@@ -18,28 +18,28 @@ ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6f935b1b2815501710444e3f921a157ba02e3215
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65544081"
 ---
-# <a name="instantiate-a-confidential-client-application-with-configuration-options-using-msalnet"></a>Instancier une application cliente confidentielle avec les options de configuration à l’aide de MSAL.NET
+# <a name="instantiate-a-confidential-client-application-with-configuration-options-using-msalnet"></a>Instancier une application cliente confidentielle avec des options de configuration à l’aide de MSAL.NET
 
-Cet article explique comment instancier un [application cliente confidentielle](msal-client-applications.md) à l’aide de Microsoft Authentication Library pour .NET (MSAL.NET).  L’application est instanciée avec les options de configuration définies dans un fichier de paramètres.
+Cet article décrit comment instancier une [application cliente confidentielle](msal-client-applications.md) à l’aide de Microsoft Authentication Library pour .NET (MSAL.NET).  L’application est instanciée avec les options de configuration définies dans un fichier de paramètres.
 
-Avant d’initialiser une application, vous devez d’abord [inscrire](quickstart-register-app.md) il afin que votre application peut être intégrée à la plateforme Microsoft identity. Après l’inscription, vous devrez peut-être les informations suivantes (qui se trouve dans le portail Azure) :
+Avant d’initialiser une application, vous devez d’abord [l’inscrire](quickstart-register-app.md) afin que votre application puisse être intégrée à la plateforme d’identités Microsoft. Après l’inscription, vous aurez peut-être besoin des informations suivantes (que vous trouverez sur le Portail Azure) :
 
-- L’ID de client (une chaîne représentant un GUID)
-- L’URL de fournisseur d’identité (l’instance nommée) et l’audience de connexion pour votre application. Ces deux paramètres sont collectivement regroupés sous l’autorité.
-- ID de locataire si vous écrivez une ligne de l’application métier uniquement pour votre organisation (également nommée application à locataire unique).
-- Le secret d’application (chaîne secrète client) ou le certificat (de type X509Certificate2) s’il s’agit d’une application client confidentiel.
-- Pour les applications web et parfois pour les applications de client public (en particulier lorsque votre application doit utiliser un répartiteur), vous devez avoir également définir l’URI de redirection où le fournisseur d’identité contactera back votre application avec les jetons de sécurité.
+- L’ID client (une chaîne représentant un GUID)
+- L’URL du fournisseur d’identité (l’instance) et l’audience de connexion pour votre application. Ces deux paramètres représentent collectivement l’autorité.
+- L’ID locataire si vous écrivez une application métier uniquement pour votre organisation (également nommée application à locataire unique).
+- Le secret d’application (chaîne secrète client) ou le certificat (de type X509Certificate2) s’il s’agit d’une application cliente confidentielle.
+- Pour les applications web et parfois pour les applications clientes publiques (en particulier lorsque votre application doit utiliser un répartiteur), vous devez également avoir défini l’URI de redirection auquel le fournisseur d’identité recontactera votre application avec les jetons de sécurité.
 
-## <a name="configure-the-application-from-the-config-file"></a>Configurer l’application à partir du fichier de configuration
-Le nom des propriétés des options de MSAL.NET correspond au nom des propriétés de la `AzureADOptions` dans ASP.NET Core, par conséquent, vous n’avez pas besoin d’écrire de code de collage.
+## <a name="configure-the-application-from-the-config-file"></a>Configurer l’application à partir du fichier config
+Le nom des propriétés des options dans MSAL.NET correspond au nom des propriétés des `AzureADOptions` dans ASP.NET Core. Par conséquent, vous n’avez pas besoin d’écrire de code de collage.
 
-Configuration d’une application ASP.NET Core est décrite dans une *appsettings.json* fichier :
+Une configuration d’application ASP.NET Core est décrite dans un fichier *appsettings.json* :
 
 ```json
 {
@@ -62,9 +62,9 @@ Configuration d’une application ASP.NET Core est décrite dans une *appsetting
 }
 ```
 
-À compter de MSAL.NET v3.x, vous pouvez configurer votre application cliente confidentielle à partir du fichier de configuration. Les classes liées à la configuration de l’application se trouvent dans le `Microsoft.Identity.Client.AppConfig` espace de noms.
+À partir de MSAL.NET v3.x, vous pouvez configurer votre application cliente confidentielle à partir du fichier config. Les classes liées à la configuration de l’application se trouvent dans l’espace de noms `Microsoft.Identity.Client.AppConfig`.
 
-Dans la classe où vous souhaitez configurer et instancier votre application, vous devez déclarer un `ConfidentialClientApplicationOptions` objet.  Lier la configuration lue dans la source (y compris le fichier appconfig.json) à l’instance des options d’application :
+Dans la classe où vous souhaitez configurer et instancier votre application, vous devez déclarer un objet `ConfidentialClientApplicationOptions`.  Liez la configuration lue à partir de source (y compris le fichier appconfig.json) à l’instance des options d’application :
 
 ```csharp
 using Microsoft.Identity.Client.AppConfig;
@@ -74,7 +74,7 @@ _applicationOptions = new ConfidentialClientApplicationOptions();
 configuration.Bind("AzureAD", _applicationOptions);
 ```
 
-Ainsi, le contenu de la section « AzureAD » de la *appsettings.json* fichier à lier aux propriétés correspondantes de la `ConfidentialClientApplicationOptions` objet.  Ensuite, générez un `ConfidentialClientApplication` objet :
+Ceci permet de lier le contenu de la section « AzureAD » du fichier *appsettings.json* aux propriétés correspondantes de l’objet `ConfidentialClientApplicationOptions`.  Ensuite, générez un objet `ConfidentialClientApplication` :
 
 ```csharp
 IConfidentialClientApplication app;
@@ -83,7 +83,7 @@ app = ConfidentialClientApplicationBuilder.CreateWithApplicationOptions(_applica
 ```
 
 ## <a name="add-runtime-configuration"></a>Ajouter la configuration du runtime
-Dans une application cliente confidentielle, vous disposez généralement d’un cache par utilisateur. Par conséquent, vous devrez obtenir le cache associé à l’utilisateur et d’informer le Générateur d’applications que vous souhaitez l’utiliser. Dans la même façon, vous pouvez avoir un URI de redirection calculée de façon dynamique. Dans ce cas, le code est la suivante :
+Dans une application cliente confidentielle, vous disposez généralement d’un cache par utilisateur. Par conséquent, vous devrez obtenir le cache associé à l’utilisateur et informer le générateur d’applications que vous souhaitez l’utiliser. Dans la même façon, vous pouvez avoir un URI de redirection calculé de façon dynamique. Dans ce cas, utilisez le code suivant :
 
 ```csharp
 IConfidentialClientApplication app;

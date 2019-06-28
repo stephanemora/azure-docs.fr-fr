@@ -14,65 +14,65 @@ ms.custom: vs-azure
 ms.workload: azure-vs
 ms.date: 02/18/2019
 ms.author: glenga;david.ebbo;suwatch;pbatum;naren.soni
-ms.openlocfilehash: b8cc628ef7db198c5068bb3917cf41113ba1687a
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
-ms.translationtype: MT
+ms.openlocfilehash: 9f4d3ff6fa02369c0e4a01949cc686b842a63a12
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66417090"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66808465"
 ---
 # <a name="develop-and-deploy-webjobs-using-visual-studio---azure-app-service"></a>Développer et déployer des tâches web à l’aide de Visual Studio - Azure App Service
 
-Cet article explique comment utiliser Visual Studio pour déployer un projet d’Application Console à une application web dans [App Service](overview.md) comme un [une tâche Web Azure](https://go.microsoft.com/fwlink/?LinkId=390226). Pour plus d’informations sur le déploiement de tâches web à l’aide du [portail Azure](https://portal.azure.com), consultez la section [Exécuter des tâches en arrière-plan avec les tâches web](webjobs-create.md).
+Cet article explique comme utiliser Visual Studio pour déployer un projet d’application console sur une application web dans [App Service](overview.md) en tant que [tâche web Azure](https://go.microsoft.com/fwlink/?LinkId=390226). Pour plus d’informations sur le déploiement de tâches web à l’aide du [portail Azure](https://portal.azure.com), consultez la section [Exécuter des tâches en arrière-plan avec les tâches web](webjobs-create.md).
 
-Vous pouvez publier plusieurs WebJobs pour une application web unique. Assurez-vous que chaque tâche Web dans une application web a un nom unique.
+Vous pouvez publier plusieurs tâches web pour une même application web. Vérifiez que chaque tâche web d’une application web a un nom unique.
 
-Version 3.x de le [Azure WebJobs SDK](webjobs-sdk-how-to.md) vous permet de développer des tâches Web qui s’exécutent en tant que les applications .NET Core ou .NET Framework applications, tout en prend en charge la version 2.x du .NET Framework. La façon de déployer un projet de tâches est différente pour les projets .NET Core par rapport à celles de .NET Framework.
+La version 3.x du [SDK Azure WebJobs](webjobs-sdk-how-to.md) vous permet de développer des tâches web qui s'exécutent en tant qu'applications .NET Core ou .NET Framework, tandis que la version 2.x ne prend en charge que le .NET Framework. La façon dont vous déployez un projet de tâches web est différente pour les projets .NET Core et .NET Framework.
 
-## <a name="webjobs-as-net-core-console-apps"></a>Tâches Web en tant qu’applications de console .NET Core
+## <a name="webjobs-as-net-core-console-apps"></a>Tâches web en tant qu’applications de console .NET Core
 
-Lorsque vous utilisez la version 3.x des tâches Web, vous pouvez créer et publier des tâches Web en tant qu’applications de console .NET Core. Pour obtenir des instructions pas à pas créer et publier une application de console .NET Core sur Azure en tant qu’une tâche Web, consultez [bien démarrer avec le SDK Azure WebJobs pour le traitement d’arrière-plan pilotée par événements](webjobs-sdk-get-started.md).
+Lorsque vous utilisez la version 3.x des tâches web, vous pouvez créer et publier des tâches web en tant qu'applications de console .NET Core. Pour obtenir des instructions étape par étape afin de créer et de publier une application de console .NET Core pour Azure en tant que tâche web, voir [Prise en main du Kit de développement logiciel (SDK) Azure WebJobs pour le traitement en arrière-plan basé sur les événements](webjobs-sdk-get-started.md).
 
 > [!NOTE]
-> .NET core WebJobs ne peut pas être lié avec des projets web. Si vous avez besoin déployer votre tâche Web avec une application web, vous devez [créer votre tâche Web comme une application de console .NET Framework](#webjobs-as-net-framework-console-apps).  
+> Les tâches web .NET Core ne peuvent pas être liées à des projets web. Si vous avez besoin déployer votre tâche web avec une application web, vous devez [créer votre tâche web en tant qu’application de console .NET Framework](#webjobs-as-net-framework-console-apps).  
 
-### <a name="deploy-to-azure-app-service"></a>Déployer sur Azure App Service
+### <a name="deploy-to-azure-app-service"></a>Déployer dans Azure App Service
 
-Publication d’une tâche Web de .NET Core sur App Service à partir de Visual Studio utilise les mêmes outils que la publication d’une application ASP.NET Core.
+La publication d’une tâche web .NET Core sur App Service à partir de Visual Studio utilise les mêmes outils que la publication d’une application ASP.NET Core.
 
 [!INCLUDE [webjobs-publish-net-core](../../includes/webjobs-publish-net-core.md)] 
 
 ### <a name="webjob-types"></a>Types de tâches web
 
-Par défaut, une tâche Web publiés à partir d’un projet de console s’exécute uniquement lorsque le déclenchement de .NET Core ou à la demande. Vous pouvez également mettre à jour le projet à [exécuter selon une planification](#scheduled-execution) ou exécuter en continu.
+Par défaut, une tâche web publiée à partir d’un projet de console s’exécute uniquement lorsqu’elle est déclenchée ou à la demande. Vous pouvez également mettre à jour le projet afin de l’[exécuter selon une planification](#scheduled-execution) ou en continu.
 
 [!INCLUDE [webjobs-alwayson-note](../../includes/webjobs-always-on-note.md)]
 
 #### <a name="scheduled-execution"></a>Exécution planifiée
 
-Lorsque vous publiez une application de console .NET Core sur Azure, un nouveau *settings.job* fichier est ajouté au projet. Utilisez ce fichier pour définir une planification de l’exécution de votre tâche Web. Pour plus d’informations, consultez [planification d’une tâche Web déclenchée](#scheduling-a-triggered-webjob).
+Lorsque vous publiez une application de console .NET Core sur Azure, un nouveau fichier *settings.job* est ajouté au projet. Utilisez ce fichier pour définir une planification de l’exécution de votre tâche web. Pour plus d’informations, consultez [Planification d’une tâche web déclenchée](#scheduling-a-triggered-webjob).
 
 #### <a name="continuous-execution"></a>Exécution en continu
 
-Vous pouvez utiliser Visual Studio pour modifier la tâche Web s’exécute en permanence lorsque Always On est activée dans Azure.
+Vous pouvez utiliser Visual Studio pour modifier la tâche web afin qu’elle s’exécute en continu lorsque l’option Always On est activée dans Azure.
 
-1. Si vous n’avez pas déjà fait, [publier le projet sur Azure](#deploy-to-azure-app-service).
+1. Si ce n’est déjà fait, [publiez le projet sur Azure](#deploy-to-azure-app-service).
 
 1. Dans **l’Explorateur de solutions**, cliquez avec le bouton droit sur le projet, puis sélectionnez **Publier**.
 
-1. Dans le **publier** , choisir **paramètres**. 
+1. Dans l’onglet **Publier**, choisissez **Paramètres**. 
 
-1. Dans le **paramètres de profil** boîte de dialogue, choisissez **continu** pour **Type de tâche Web**, puis choisissez **enregistrer**.
+1. Dans la boîte de dialogue **Paramètres du profil**, choisissez **Continue** pour **Type de tâche web**, puis choisissez **Enregistrer**.
 
-    ![Boîte de dialogue Paramètres de publication pour une tâche Web](./media/webjobs-dotnet-deploy-vs/publish-settings.png)
+    ![Boîte de dialogue Paramètres de publication pour une tâche web](./media/webjobs-dotnet-deploy-vs/publish-settings.png)
 
-1. Sélectionnez **publier** à republier la tâche Web avec les paramètres mis à jour.
+1. Sélectionnez **Publier** pour republier la tâche web avec les paramètres mis à jour.
 
-## <a name="webjobs-as-net-framework-console-apps"></a>Tâches Web en tant qu’applications de console .NET Framework  
+## <a name="webjobs-as-net-framework-console-apps"></a>Tâches web en tant qu’applications de console .NET Framework  
 
-Lorsque Visual Studio déploie un projet prenant en charge les tâches Web de Application Console .NET Framework, il effectue deux tâches :
+Lorsque Visual Studio déploie un projet d'application de console .NET Framework compatible avec des tâches web, il exécute deux tâches :
 
-* Copie des fichiers exécutables dans le dossier approprié dans l’application web (*App_Data/tâches/continuous* pour les tâches Web continues et *App_Data/tâches/triggered* pour les tâches Web planifiées ou à la demande).
+* Il copie des fichiers exécutables dans le dossier approprié de l’application web (*App_Data/jobs/continuous* pour les tâches web continues, et *App_Data/jobs/triggered* pour les tâches web planifiées ou à la demande).
 * Il configure des [tâches Azure Scheduler](https://docs.microsoft.com/azure/scheduler/) pour WebJobs dont l’exécution est prévue à des heures précises. (inutile pour les tâches web continues).
 
 Un projet compatible avec les tâches web se voit ajouter les éléments suivants :
@@ -88,11 +88,11 @@ Vous pouvez déployer un projet sous forme de tâche web ou le lier à un projet
 
 ![Diagram showing WebJob project linking to web project](./media/webjobs-dotnet-deploy-vs/link.png)
 
-### <a name="prerequisites"></a>Conditions préalables
+### <a name="prerequisites"></a>Prérequis
 
 Si vous utilisez Visual Studio 2015, installez le [Kit de développement logiciel (SDK) Azure .NET (Visual Studio 2015)](https://azure.microsoft.com/downloads/).
 
-Si vous utilisez Visual Studio 2019, installez le [charge de travail de développement Azure](https://docs.microsoft.com/visualstudio/install/install-visual-studio#step-4---select-workloads).
+Si vous utilisez Visual Studio 2019, installez la [charge de travail de développement Azure](https://docs.microsoft.com/visualstudio/install/install-visual-studio#step-4---choose-workloads).
 
 ### <a id="convert"></a> Activer le déploiement de tâches web pour un projet d’application de console
 
@@ -212,9 +212,9 @@ Pour déployer un projet WebJobs seul, cliquez avec le bouton droit sur le proje
 
 Pour une tâche web indépendante, l'Assistant **Publier le site Web** utilisé pour les projets web s'affiche, mais avec moins de paramètres modifiables.
 
-## <a name="scheduling-a-triggered-webjob"></a>Planification d’une tâche Web déclenchée
+## <a name="scheduling-a-triggered-webjob"></a>Planification d’une tâche web déclenchée
 
-WebJobs utilise un *settings.job* fichier afin de déterminer quand une tâche Web est exécutée. Utilisez ce fichier pour définir une planification de l’exécution de votre tâche Web. L’exemple suivant exécute toutes les heures entre 9 h et 17 h :
+Un projet WebJobs utilise un fichier *settings.job* pour déterminer quand une tâche web est exécutée. Utilisez ce fichier pour définir une planification de l’exécution de votre tâche web. L’exemple suivant s’exécute toutes les heures entre 9 h et 17 h :
 
 ```json
 {
@@ -222,26 +222,26 @@ WebJobs utilise un *settings.job* fichier afin de déterminer quand une tâche W
 }
 ```
 
-Ce fichier doit se trouver à la racine du dossier tâches Web, le long de côté un script de votre tâche Web, tel que `wwwroot\app_data\jobs\triggered\{job name}` ou `wwwroot\app_data\jobs\continuous\{job name}`. Quand vous déployez une tâche web à partir de Visual Studio, marquez les propriétés du fichier `settings.job` comme **Copier si plus récent**. 
+Ce fichier doit se trouver à la racine du dossier des tâches web, tout comme le script de votre tâche web, par exemple `wwwroot\app_data\jobs\triggered\{job name}` ou `wwwroot\app_data\jobs\continuous\{job name}`. Quand vous déployez une tâche web à partir de Visual Studio, marquez les propriétés du fichier `settings.job` comme **Copier si plus récent**. 
 
-Lorsque vous [créer une tâche Web à partir du portail Azure](webjobs-create.md), le fichier settings.job est créé pour vous.
+Lorsque vous [créez une tâche web à partir du portail Azure](webjobs-create.md), le fichier settings.job est créé pour vous.
 
 [!INCLUDE [webjobs-alwayson-note](../../includes/webjobs-always-on-note.md)]
 
 ### <a name="cron-expressions"></a>Expressions CRON
 
-WebJobs utilise les mêmes expressions CRON pour la planification en tant que le déclencheur de minuteur dans Azure Functions. Pour en savoir plus sur le support CRON, consultez le [article de référence de déclencheur de minuteur](../azure-functions/functions-bindings-timer.md#cron-expressions).
+Un projet WebJobs utilise les mêmes expressions CRON pour la planification que le déclencheur de minuteur dans Azure Functions. Pour en savoir plus sur la prise en charge de CRON, consultez l’[article de référence du déclencheur de minuteur](../azure-functions/functions-bindings-timer.md#cron-expressions).
 
-### <a name="settingjob-reference"></a>référence de Setting.job
+### <a name="settingjob-reference"></a>Référence de setting.job
 
-Les paramètres suivants sont pris en charge par les tâches Web :
+Les paramètres suivants sont pris en charge par les tâches web :
 
 | **Paramètre** | **Type**  | **Description** |
 | ----------- | --------- | --------------- |
-| `is_in_place` | Tous | Autorise la tâche à exécuter en place sans tout d’abord copiées dans un dossier temporaire. Pour plus d’informations, consultez [répertoire de travail de WebJobs](https://github.com/projectkudu/kudu/wiki/WebJobs#webjob-working-directory). |
-| `is_singleton` | Continue | Exécutez uniquement les tâches Web sur une seule instance lorsqu’il est étendu. Pour plus d’informations, consultez [définir une tâche en continu en tant que singleton](https://github.com/projectkudu/kudu/wiki/WebJobs-API#set-a-continuous-job-as-singleton). |
-| `schedule` | Déclenchée | Exécuter la tâche Web selon une planification en fonction de CRON. Pour plus d’informations, consultez le [article de référence de déclencheur de minuteur](../azure-functions/functions-bindings-timer.md#cron-expressions). |
-| `stopping_wait_time`| Tous | Permet de contrôler le comportement d’arrêt. Pour plus d’informations, consultez [arrêt progressif](https://github.com/projectkudu/kudu/wiki/WebJobs#graceful-shutdown). |
+| `is_in_place` | Tous | Autorise la tâche à s’exécuter sur place sans être d’abord copiée vers un dossier temporaire. Pour plus d’informations, consultez [Répertoire de travail des tâches web](https://github.com/projectkudu/kudu/wiki/WebJobs#webjob-working-directory). |
+| `is_singleton` | Continue | Exécutez uniquement les tâches web sur une seule instance lors d’une montée en charge. Pour plus d’informations, consultez [Set a continuous job as singleton](https://github.com/projectkudu/kudu/wiki/WebJobs-API#set-a-continuous-job-as-singleton) (Définir une tâche continue comme singleton). |
+| `schedule` | Déclenchée | Exécutez la tâche web selon une planification basée sur CRON. Pour en savoir plus, consultez l’[article de référence du déclencheur de minuteur](../azure-functions/functions-bindings-timer.md#cron-expressions). |
+| `stopping_wait_time`| Tous | Permet de contrôler le comportement d’arrêt. Pour plus d’informations, consultez [Arrêt approprié](https://github.com/projectkudu/kudu/wiki/WebJobs#graceful-shutdown). |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

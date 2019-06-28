@@ -19,10 +19,10 @@ ms.custom: aaddev
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 06fd36935c1f43cc14697748666eccd9e6d31168
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65545962"
 ---
 # <a name="single-sign-out-saml-protocol"></a>Protocole SAML de déconnexion unique
@@ -72,7 +72,7 @@ Azure AD envoie une `LogoutResponse` en réponse à un élément `LogoutRequest`
 Azure AD définit les valeurs `ID`, `Version` et `IssueInstant` dans l’élément `LogoutResponse`. Il définit également l’élément `InResponseTo` sur la valeur de l’attribut `ID` de l’élément `LogoutRequest` qui a obtenu la réponse.
 
 ### <a name="issuer"></a>Émetteur
-Azure AD définit cette valeur sur `https://login.microsoftonline.com/<TenantIdGUID>/` où \<TenantIdGUID > est l’ID client du locataire Azure AD.
+Azure AD définit cette valeur sur `https://login.microsoftonline.com/<TenantIdGUID>/`, où \<TenantIdGUID> correspond à l’ID du locataire Azure AD.
 
 Pour évaluer la valeur de l’élément `Issuer` , utilisez la valeur de **l’URI ID d’application** spécifiée lors de l’inscription de l’application.
 

@@ -14,21 +14,21 @@ ms.topic: conceptual
 ms.date: 05/09/2019
 ms.author: bwren
 ms.openlocfilehash: 105454205c0fe3a0020693a1289a65cecd2bf57b
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65519019"
 ---
 # <a name="get-started-with-azure-monitor-log-queries"></a>Bien démarrer avec les requêtes de journal Azure Monitor
 
 
 > [!NOTE]
-> Vous devez effectuer [prise en main Azure Monitor Log Analytique](get-started-portal.md) avant la fin de ce didacticiel.
+> Vous devez terminer [Bien démarrer avec l’analytique des journaux d’activité Azure Monitor](get-started-portal.md) avant de suivre ce tutoriel.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-Dans ce didacticiel, vous allez apprendre à écrire des requêtes de journal Azure Monitor. Au terme du tutoriel, vous saurez :
+Dans ce tutoriel, vous allez apprendre à écrire des requêtes de journal Azure Monitor. Au terme du tutoriel, vous saurez :
 
 - Comprendre la structure des requêtes
 - Trier les résultats d’une requête
@@ -108,7 +108,7 @@ SecurityEvent
 
 Quand vous écrivez des conditions de filtre, vous pouvez utiliser les expressions suivantes :
 
-| Expression | Description  | Exemples |
+| Expression | Description | Exemples |
 |:---|:---|:---|
 | == | Vérifier l’égalité<br>(avec respect de la casse) | `Level == 8` |
 | =~ | Vérifier l’égalité<br>(sans respect de la casse) | `EventSourceName =~ "microsoft-windows-security-auditing"` |
@@ -138,7 +138,7 @@ SecurityEvent
 ### <a name="time-picker"></a>Sélecteur d’heure
 Le sélecteur d’heure se trouve près du bouton Exécuter et indique que notre recherche ne porte que sur les enregistrements générés au cours des dernières 24 heures. Il s’agit de l’intervalle de temps par défaut appliqué à toutes les requêtes. Pour obtenir uniquement les enregistrements générés au cours de la dernière heure, sélectionnez _Dernière heure_ et réexécutez la requête.
 
-![Sélecteur d'heure](media/get-started-queries/timepicker.png)
+![Sélecteur d’heure](media/get-started-queries/timepicker.png)
 
 
 ### <a name="time-filter-in-query"></a>Filtre de temps dans la requête
@@ -179,7 +179,7 @@ SecurityEvent
 | project Computer, TimeGenerated, EventDetails=Activity, EventCode=substring(Activity, 0, 4)
 ```
 
-**extend** conserve toutes les colonnes d’origine dans le jeu de résultats et en définit de nouvelles. La requête suivante utilise **étendre** pour ajouter le *EventCode* colonne. Notez que cette colonne peuvent ne pas affiche à la fin des résultats de la table auquel cas vous devrez développer les détails d’un enregistrement pour l’afficher.
+**extend** conserve toutes les colonnes d’origine dans le jeu de résultats et en définit de nouvelles. La requête suivante utilise **extend** pour ajouter la colonne *EventCode*. Notez que cette colonne peut ne pas s’afficher à la fin des résultats de la table, auquel cas vous devrez développer les détails d’un enregistrement pour l’afficher.
 
 ```Kusto
 SecurityEvent
@@ -224,7 +224,7 @@ Perf
 ### <a name="summarize-by-a-time-column"></a>Résumer en fonction d’une colonne d’heure
 Le regroupement des résultats peut également reposer sur une colonne de temps ou une autre valeur continue. Cependant, une simple agrégation `by TimeGenerated` créerait des groupes pour chaque milliseconde de la plage de temps, car ce sont des valeurs uniques. 
 
-Pour créer des groupes basés sur des valeurs continues, il convient de diviser la plage en unités gérables à l’aide de **bin**. La requête suivante analyse les enregistrements *Perf* qui mesurent la mémoire disponible (*Available MBytes*) sur un ordinateur spécifique. Il calcule la valeur moyenne de chaque période de 1 heure sur les 7 derniers jours :
+Pour créer des groupes basés sur des valeurs continues, il convient de diviser la plage en unités gérables à l’aide de **bin**. La requête suivante analyse les enregistrements *Perf* qui mesurent la mémoire disponible (*Available MBytes*) sur un ordinateur spécifique. Elle calcule la valeur moyenne pour chaque période de 1 heure, au cours des 7 derniers jours :
 
 ```Kusto
 Perf 

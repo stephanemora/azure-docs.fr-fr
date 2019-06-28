@@ -5,40 +5,40 @@ ms.topic: include
 ms.date: 03/06/2019
 ms.author: alkohli
 ms.openlocfilehash: 348f7bdd333da4f4a6cb41a438b7aee08d6a6bbb
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66161217"
 ---
-Selon le système d’exploitation du client, les procédures permettant de se connecter à distance à l’appareil sont différents.
+Selon le système d’exploitation du client, les procédures permettant de se connecter à distance à l’appareil sont différentes.
 
-### <a name="remotely-connect-from-a-windows-client"></a>Se connecter à distance à partir d’un client Windows
+### <a name="remotely-connect-from-a-windows-client"></a>Connexion à distance depuis un client Windows
 
-Avant de commencer, assurez-vous que votre client Windows est en cours d’exécution Windows PowerShell 5.0 ou version ultérieure.
+Avant de commencer, assurez-vous que votre client Windows exécute Windows PowerShell 5.0 ou une version ultérieure.
 
-Suivez ces étapes pour vous connecter à distance à partir d’un client Windows.
+Suivez cette procédure pour effectuer une connexion distante depuis un client Windows.
 
-1. Exécutez une session Windows PowerShell en tant qu’administrateur.
-2. Assurez-vous que le service Windows Remote Management est en cours d’exécution sur votre client.  À l’invite de commandes, tapez :
+1. Démarrez une session Windows PowerShell en tant qu’administrateur.
+2. Assurez-vous que le service Windows Remote Management est en cours d’exécution sur votre client. À l’invite de commandes, tapez :
 
     `winrm quickconfig`
 
-3. Attribuer une variable à l’adresse IP du périphérique.
+3. Attribuez une variable à l’adresse IP de l’appareil.
 
-    $ip = « < device_ip > »
+    $ip = "<ip_appareil>"
 
-    Remplacez `<device_ip>` avec l’adresse IP de votre appareil.
+    Remplacez `<device_ip>` par l’adresse IP de votre appareil.
 
-4. Pour ajouter l’adresse IP de votre appareil à la liste des hôtes approuvés du client, tapez la commande suivante :
+4. Tapez la commande suivante pour ajouter l’adresse IP de l’appareil à la liste des hôtes approuvés du client :
 
     `Set-Item WSMan:\localhost\Client\TrustedHosts $ip -Concatenate -Force`
 
-5. Démarrez une session Windows PowerShell sur l’appareil :
+5. Démarrez une session Windows PowerShell sur l’appareil :
 
     `Enter-PSSession -ComputerName $ip -Credential $ip\EdgeUser -ConfigurationName Minishell`
 
-6. Fournir le mot de passe lorsque vous y êtes invité. Utilisez le même mot de passe qui est utilisé pour se connecter à l’interface utilisateur web locale. Le mot de passe du interface utilisateur web locale par défaut est *Password1*. Lorsque vous êtes connecté à l’appareil à l’aide de PowerShell à distance, vous consultez l’exemple de sortie suivant :  
+6. Indiquez le mot de passe lorsque vous y êtes invité. Utilisez le mot de passe vous permettant de vous connecter à l’interface utilisateur web locale. Le mot de passe par défaut de cette interface est *Password1*. Lorsque vous êtes connecté à l’appareil à l’aide de PowerShell à distance, vous pouvez voir l’exemple de sortie suivant :  
 
     ```
     Windows PowerShell
@@ -54,27 +54,27 @@ Suivez ces étapes pour vous connecter à distance à partir d’un client Windo
     [10.100.10.10]: PS>
     ```
 
-### <a name="remotely-connect-from-a-linux-client"></a>Se connecter à distance à partir d’un client Linux
+### <a name="remotely-connect-from-a-linux-client"></a>Connexion à distance depuis un client Linux
 
-Sur le client Linux que vous utiliserez pour vous connecter :
+Sur le client Linux que vous utiliserez pour vous connecter :
 
-- [Installer la plus récente de PowerShell Core pour Linux](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-linux?view=powershell-6) à partir de GitHub pour obtenir la fonctionnalité d’accès distant SSH. 
-- [Installer uniquement le `gss-ntlmssp` package à partir du module NTLM](https://github.com/Microsoft/omi/blob/master/Unix/doc/setup-ntlm-omi.md). Pour les clients d’Ubuntu, utilisez la commande suivante :
+- [Installez la plus récente de PowerShell Core pour Linux](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-linux?view=powershell-6), à partir de GitHub, afin d’obtenir la fonctionnalité d’accès distant SSH. 
+- [Installez uniquement le package `gss-ntlmssp` à partir du module NTLM](https://github.com/Microsoft/omi/blob/master/Unix/doc/setup-ntlm-omi.md). Pour les clients Ubuntu, exécutez la commande ci-dessous :
     - `sudo apt-get install gss-ntlmssp`
 
-Pour plus d’informations, accédez à [communication à distance PowerShell via SSH](https://docs.microsoft.com/powershell/scripting/learn/remoting/ssh-remoting-in-powershell-core?view=powershell-6).
+Pour plus d’informations, voir [Accès distant à PowerShell via SSH](https://docs.microsoft.com/powershell/scripting/learn/remoting/ssh-remoting-in-powershell-core?view=powershell-6).
 
-Suivez ces étapes pour vous connecter à distance à partir d’un client NFS.
+Suivez cette procédure pour effectuer une connexion distante depuis un client NFS.
 
-1. Pour ouvrir la session PowerShell, tapez :
+1. Pour ouvrir la session PowerShell, saisissez :
 
     `sudo pwsh`
  
-2. Pour vous connecter à l’aide du client distant, tapez :
+2. Pour vous connecter à l’aide du client distant, saisissez :
 
     `Enter-PSSession -ComputerName $ip -Authentication Negotiate -ConfigurationName Minishell -Credential ~\EdgeUser`
 
-    Lorsque vous y êtes invité, fournissez le mot de passe utilisé pour se connecter à votre appareil.
+    Lorsque vous y êtes invité, indiquez le mot de passe utilisé pour la connexion à votre appareil.
  
 > [!NOTE]
 > Cette procédure ne fonctionne pas sur Mac OS.

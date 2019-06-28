@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: hrasheed
 ms.openlocfilehash: ca69424ecbddc068fdaf8bb5839a647701ee27fe
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64686591"
 ---
 # <a name="machine-learning-on-hdinsight"></a>Machine Learning sur HDInsight
@@ -62,6 +62,6 @@ Dans le cadre de son travail sur l’apprentissage profond, Microsoft a dévelop
 
 ### <a name="deep-learning-resources"></a>Ressources d’apprentissage profond
 
-* [Utilisez Microsoft Cognitive Toolkit modèle avec un cluster Azure HDInsight Spark d’apprentissage profond](spark/apache-spark-microsoft-cognitive-toolkit.md)
+* [Utiliser le modèle de formation approfondie Microsoft Cognitive Toolkit avec un cluster Azure HDInsight Spark](spark/apache-spark-microsoft-cognitive-toolkit.md)
 * [Utiliser Caffe sur Azure HDInsight Spark pour une formation approfondie échelonnée](spark/apache-spark-deep-learning-caffe.md)
-* [Infrastructures d’apprentissage profond et l’intelligence artificielle sur la Machine virtuelle de science des données (DSVM)](../machine-learning/data-science-virtual-machine/dsvm-deep-learning-ai-frameworks.md)
+* [Infrastructures de Deep Learning et AI sur la Data Science Virtual Machine (DSVM)](../machine-learning/data-science-virtual-machine/dsvm-deep-learning-ai-frameworks.md)

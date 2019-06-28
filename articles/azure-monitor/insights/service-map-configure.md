@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2019
 ms.author: magoedte
 ms.openlocfilehash: a50f080ee4d72ad098ca87f5b3a62b42f8cd5907
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65142746"
 ---
 # <a name="configure-service-map-in-azure"></a>Configurer Service Map dans Azure
@@ -63,7 +63,7 @@ La section suivante répertorie les systèmes d’exploitation pris en charge pa
 
 ## <a name="supported-linux-operating-systems"></a>Systèmes d’exploitation Linux pris en charge
 
-La section suivante répertorie les systèmes d’exploitation pris en charge pour l’agent de dépendances sous Linux.  
+La section suivante répertorie les systèmes d’exploitation pris en charge par l’agent de dépendances sur Linux.  
 
 - Seules les versions du noyau SMP Linux et par défaut sont prises en charge.
 - Les versions non standard du noyau, par exemple PAE et Xen, ne sont prises en charge par aucune distribution Linux. Par exemple, un système avec la chaîne de version « 2.6.16.21-0.8-xen » n’est pas pris en charge.
@@ -126,10 +126,10 @@ Service Map obtient ses données à partir de l’agent de dépendances Microsof
 
 | Source connectée | Prise en charge | Description |
 |:--|:--|:--|
-| Agents Windows | Oui | Service Map analyse et collecte des données à partir des ordinateurs Windows. <br><br>Outre [l’agent Log Analytics pour Windows](../../azure-monitor/platform/log-analytics-agent.md), les agents Windows nécessitent l’agent de dépendances Microsoft. Pour obtenir la liste complète des versions des systèmes d’exploitation, consultez la page Systèmes d’exploitation pris en charge. |
-| Agents Linux | Oui | Service Map analyse et collecte des données à partir des ordinateurs Linux. <br><br>Outre [l’agent Log Analytics pour Linux](../../azure-monitor/platform/log-analytics-agent.md), les agents Linux nécessitent l’agent de dépendances Microsoft. Pour obtenir la liste complète des versions des systèmes d’exploitation, consultez la page Systèmes d’exploitation pris en charge. |
-| Groupe d’administration Microsoft System Center Operations Manager | Oui | Service Map analyse et collecte des données provenant des agents Windows et Linux dans un [groupe d’administration System Center Operations Manager](../../azure-monitor/platform/om-agents.md) connecté. <br><br>Une connexion directe entre l’ordinateur agent System Center Operations Manager et Log Analytics est requise. |
-| Compte Azure Storage | Non  | Service Map collecte des données provenant des ordinateurs agents. Aucune donnée n’est donc recueillie à partir du Stockage Azure. |
+| Agents Windows | OUI | Service Map analyse et collecte des données à partir des ordinateurs Windows. <br><br>Outre [l’agent Log Analytics pour Windows](../../azure-monitor/platform/log-analytics-agent.md), les agents Windows nécessitent l’agent de dépendances Microsoft. Pour obtenir la liste complète des versions des systèmes d’exploitation, consultez la page Systèmes d’exploitation pris en charge. |
+| Agents Linux | OUI | Service Map analyse et collecte des données à partir des ordinateurs Linux. <br><br>Outre [l’agent Log Analytics pour Linux](../../azure-monitor/platform/log-analytics-agent.md), les agents Linux nécessitent l’agent de dépendances Microsoft. Pour obtenir la liste complète des versions des systèmes d’exploitation, consultez la page Systèmes d’exploitation pris en charge. |
+| Groupe d’administration Microsoft System Center Operations Manager | OUI | Service Map analyse et collecte des données provenant des agents Windows et Linux dans un [groupe d’administration System Center Operations Manager](../../azure-monitor/platform/om-agents.md) connecté. <br><br>Une connexion directe entre l’ordinateur agent System Center Operations Manager et Log Analytics est requise. |
+| Compte Azure Storage | Non | Service Map collecte des données provenant des ordinateurs agents. Aucune donnée n’est donc recueillie à partir du Stockage Azure. |
 
 Sous Windows, Microsoft Monitoring Agent (MMA) est utilisé à la fois par System Center Operations Manager et par Log Analytics pour collecter et envoyer des données de contrôle. (Cet agent est nommé agent System Center Operations Manager, agent Log Analytics, MMA ou Agent direct, en fonction du contexte.) System Center Operations Manager et Log Analytics fournissent différentes versions prêtes à l’emploi de MMA. Les deux versions peuvent envoyer leurs rapports à System Center Operations Manager, à Log Analytics ou aux deux.  
 

@@ -1,6 +1,6 @@
 ---
 title: En savoir plus sur les modèles de groupes de machines virtuelles identiques | Microsoft Docs
-description: Apprenez à créer un modèle de groupe identique de base pour les machines virtuelles identiques
+description: Découvrez comment créer un modèle de groupe de machines virtuelles identiques de base
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: mayanknayar
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 04/26/2019
 ms.author: manayar
 ms.openlocfilehash: 8b6a6b78dc74572b22d397b5536efa1394401bbc
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64868925"
 ---
 # <a name="learn-about-virtual-machine-scale-set-templates"></a>En savoir plus sur les modèles de groupes de machines virtuelles identiques
@@ -131,7 +131,7 @@ Le groupe identique doit connaître la taille de machine virtuelle à créer (le
 ```
 
 ### <a name="choose-type-of-updates"></a>Choisir le type de mises à jour
-Le jeu de mise à l’échelle doit également savoir comment gérer les mises à jour sur l’ensemble du jeu de mise à l’échelle. Actuellement, il existe trois options, `Manual`, `Rolling` et `Automatic`. Pour plus d’informations sur les différences entre les deux, consultez la documentation sur la [Mise à niveau d’un jeu de mise à l’échelle](./virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model).
+Le jeu de mise à l’échelle doit également savoir comment gérer les mises à jour sur l’ensemble du jeu de mise à l’échelle. Il existe actuellement trois options : `Manual`, `Rolling` et `Automatic`. Pour plus d’informations sur les différences entre les deux, consultez la documentation sur la [Mise à niveau d’un jeu de mise à l’échelle](./virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model).
 
 ```json
        "properties": {

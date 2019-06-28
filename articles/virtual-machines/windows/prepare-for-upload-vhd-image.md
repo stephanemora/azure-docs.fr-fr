@@ -16,15 +16,15 @@ ms.topic: troubleshooting
 ms.date: 05/11/2019
 ms.author: genli
 ms.openlocfilehash: 5ae0e7855db6bec9f48d2b9511f0d0626d883111
-ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/13/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65561350"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Préparer un disque dur virtuel Windows à charger sur Azure
 
-Avant de télécharger un Windows virtual machines virtuelles en local vers Microsoft Azure, vous devez préparer le disque dur virtuel (VHD ou VHDX). Azure prend en charge la génération 1 et machines virtuelles de génération 2 dans un format de fichier de disque dur virtuel et avec une taille fixe disque. La taille maximale autorisée pour le disque dur virtuel s’élève à 1 023 Go. Vous pouvez convertir une machine virtuelle génération 1, du système de fichiers VHDX vers un disque VHD, et d’un disque à expansion dynamique à un disque de taille fixe. En revanche, vous ne pouvez pas modifier la génération d’une machine virtuelle. Pour plus d’informations, consultez [dois-je créer une génération 1 ou 2 machines virtuelles dans Hyper-V](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v) et [machines virtuelles de génération 2 sur Azure](generation-2.md).
+Avant de charger une machine virtuelle Windows locale sur Microsoft Azure, vous devez préparer le disque dur virtuel (VHD ou VHDX). Azure prend en charge les machines virtuelles des générations 1 et 2 au format de fichier VHD avec un disque de taille fixe. La taille maximale autorisée pour le disque dur virtuel s’élève à 1 023 Go. Vous pouvez convertir une machine virtuelle génération 1, du système de fichiers VHDX vers un disque VHD, et d’un disque à expansion dynamique à un disque de taille fixe. En revanche, vous ne pouvez pas modifier la génération d’une machine virtuelle. Pour plus d’informations, consultez la page [Dois-je créer une machine virtuelle de génération 1 ou 2 dans Hyper-V ?](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v) et [Machines virtuelles de génération 2 sur Azure](generation-2.md).
 
 Pour plus d’informations sur la stratégie de prise en charge des machines virtuelles Azure, consultez la page [Prise en charge des logiciels serveur Microsoft pour les machines virtuelles Microsoft Azure](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines).
 
@@ -137,7 +137,7 @@ Set-Service -Name RemoteRegistry -StartupType Automatic
 Assurez-vous que les paramètres suivants sont configurés correctement pour la connexion Bureau à distance :
 
 >[!Note] 
->Pendant ces étapes, vous pourriez recevoir un message d’erreur lors de l’exécution de la commande **Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services -name &lt;nom de l’objet&gt; -value &lt;valeur&gt;**. Ce message d’erreur peut être ignoré en toute sécurité. Il indique simplement que le domaine n’envoie pas cette configuration via un objet de stratégie de groupe.
+>Pendant ces étapes, vous pourriez recevoir un message d’erreur lors de l’exécution de la commande **Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services -name &lt;nom de l’objet&gt; -value &lt;valeur&gt;** . Ce message d’erreur peut être ignoré en toute sécurité. Il indique simplement que le domaine n’envoie pas cette configuration via un objet de stratégie de groupe.
 >
 >
 
@@ -339,7 +339,7 @@ Assurez-vous que les paramètres suivants sont configurés correctement pour la 
 ### <a name="install-windows-updates"></a>Installer les mises à jour Windows
 Pour une configuration idéale, **le niveau de correctif logiciel le plus récent doit être installé sur la machine**. Si ce n’est pas possible, vérifiez que les mises à jour suivantes sont installées :
 
-| Composant               | Binary         | Windows 7 SP1, Windows Server 2008 R2 SP1 | Windows 8, Windows Server 2012               | Windows 8.1, Windows Server 2012 R2 | Windows 10 Version 1607 Windows Server 2016 Version 1607 | Windows 10 version 1703    | Windows 10 1709, Windows Server 2016 version 1709 | Windows 10 1803 Windows Server 2016 Version 1803 |
+| Composant               | Binary         | Windows 7 SP1, Windows Server 2008 R2 SP1 | Windows 8, Windows Server 2012               | Windows 8.1, Windows Server 2012 R2 | Windows 10 version 2016, Windows Server 1607 version 1607 | Windows 10 version 1703    | Windows 10 1709, Windows Server 2016 version 1709 | Windows 10 1803, Windows Server 2016 version 1803 |
 |-------------------------|----------------|-------------------------------------------|---------------------------------------------|------------------------------------|---------------------------------------------------------|----------------------------|-------------------------------------------------|-------------------------------------------------|
 | Stockage                 | disk.sys       | 6.1.7601.23403 - KB3125574                | 6.2.9200.17638 / 6.2.9200.21757 - KB3137061 | 6.3.9600.18203 - KB3137061         | -                                                       | -                          | -                                               | -                                               |
 |                         | storport.sys   | 6.1.7601.23403 - KB3125574                | 6.2.9200.17188 / 6.2.9200.21306 - KB3018489 | 6.3.9600.18573 - KB4022726         | 10.0.14393.1358 - KB4022715                             | 10.0.15063.332             | -                                               | -                                               |
@@ -363,7 +363,7 @@ Pour une configuration idéale, **le niveau de correctif logiciel le plus récen
 |                         | tcpip.sys      | 6.1.7601.23761 - KB4022722                | 6.2.9200.22070 - KB4022724                  | 6.3.9600.18478 - KB4022726         | 10.0.14393.1358 - KB4022715                             | 10.0.15063.447             | -                                               | -                                               |
 |                         | http.sys       | 6.1.7601.23403 - KB3125574                | 6.2.9200.17285 - KB3042553                  | 6.3.9600.18574 - KB4022726         | 10.0.14393.251 - KB4022715                              | 10.0.15063.483             | -                                               | -                                               |
 |                         | vmswitch.sys   | 6.1.7601.23727 - KB4022719                | 6.2.9200.22117 - KB4022724                  | 6.3.9600.18654 - KB4022726         | 10.0.14393.1358 - KB4022715                             | 10.0.15063.138             | -                                               | -                                               |
-| Cœur                    | ntoskrnl.exe   | 6.1.7601.23807 - KB4022719                | 6.2.9200.22170 - KB4022718                  | 6.3.9600.18696 - KB4022726         | 10.0.14393.1358 - KB4022715                             | 10.0.15063.483             | -                                               | -                                               |
+| Principal                    | ntoskrnl.exe   | 6.1.7601.23807 - KB4022719                | 6.2.9200.22170 - KB4022718                  | 6.3.9600.18696 - KB4022726         | 10.0.14393.1358 - KB4022715                             | 10.0.15063.483             | -                                               | -                                               |
 | Services Bureau à distance | rdpcorets.dll  | 6.2.9200.21506 - KB4022719                | 6.2.9200.22104 - KB4022724                  | 6.3.9600.18619 - KB4022726         | 10.0.14393.1198 - KB4022715                             | 10.0.15063.0               | -                                               | -                                               |
 |                         | termsrv.dll    | 6.1.7601.23403 - KB3125574                | 6.2.9200.17048 - KB2973501                  | 6.3.9600.17415 - KB3000850         | 10.0.14393.0 - KB4022715                                | 10.0.15063.0               | -                                               | -                                               |
 |                         | termdd.sys     | 6.1.7601.23403 - KB3125574                | -                                           | -                                  | -                                                       | -                          | -                                               | -                                               |
@@ -416,7 +416,7 @@ Tous les rôles ou toutes les applications installés sur un ordinateur Windows 
 ## <a name="complete-recommended-configurations"></a>Remplir les configurations recommandées
 Les paramètres suivants n’affectent pas le chargement du disque dur virtuel. Toutefois, nous vous recommandons vivement de les configurer.
 
-* Installez [l’agent de machine virtuelle Azure](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Vous pouvez ensuite activer les extensions de machine virtuelle. Les extensions de machine virtuelle mettent en œuvre la plupart des fonctionnalités stratégiques que vous pourriez vouloir utiliser avec vos machines virtuelles, telles que la réinitialisation des mots de passe, la configuration de RDP, etc. Pour plus d’informations, consultez [vue d’ensemble de l’Agent de Machine virtuelle](../extensions/agent-windows.md).
+* Installez [l’agent de machine virtuelle Azure](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Vous pouvez ensuite activer les extensions de machine virtuelle. Les extensions de machine virtuelle mettent en œuvre la plupart des fonctionnalités stratégiques que vous pourriez vouloir utiliser avec vos machines virtuelles, telles que la réinitialisation des mots de passe, la configuration de RDP, etc. Pour plus d’informations, consultez l’article [Vue d’ensemble de l’agent de machine virtuelle Azure](../extensions/agent-windows.md).
 * Une fois la machine virtuelle créée dans Azure, nous vous recommandons de placer le fichier d’échange sur le volume de « disque temporaire » pour améliorer les performances. Pour ce faire :
 
    ```PowerShell

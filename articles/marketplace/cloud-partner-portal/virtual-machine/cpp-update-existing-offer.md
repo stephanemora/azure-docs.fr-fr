@@ -1,5 +1,5 @@
 ---
-title: Mise à jour une offre de machine virtuelle existante dans Azure Marketplace
+title: Mettre à jour une offre de machine virtuelle existante dans la Place de marché Azure
 description: Explique comment mettre à jour une offre de machine virtuelle existante dans Place de marché Azure.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 08/27/2018
 ms.author: Ankit.Sud
 ms.openlocfilehash: 4a75d706d55512201786b2b74376047ff75380a7
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64938116"
 ---
 # <a name="update-an-existing-vm-offer-on-azure-marketplace"></a>Mettre à jour une offre de machine virtuelle existante dans Place de marché Azure
@@ -29,7 +29,7 @@ Plusieurs raisons peuvent motiver la mise à jour d’une offre :
 Le portail contient les fonctions **Comparer** et **Historique** qui vous aident à apporter ces modifications.  
 
 >[!Note]
->Cloud fournisseurs de solutions partenaires canal opt-in est désormais disponible.  Consultez [les fournisseurs de solutions de Cloud](../../cloud-solution-providers.md) canaux du partenaire pour plus d’informations sur le marketing de votre offre via le CSP de Microsoft.
+>L’abonnement à un réseau de partenaires fournisseurs de solution cloud est maintenant disponible.  Consultez [Fournisseurs de solutions cloud](../../cloud-solution-providers.md) pour plus d’informations sur le marketing de votre offre via les réseaux de partenaires fournisseurs de solutions cloud Microsoft.
 
 ## <a name="unpermitted-changes-to-vm-offer-or-sku"></a>Modifications non autorisées apportées à l’offre ou à la référence SKU de machine virtuelle
 

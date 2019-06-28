@@ -1,6 +1,6 @@
 ---
-title: Exporter et importer en bloc, les inscriptions Azure Notification Hubs | Microsoft Docs
-description: Découvrez comment utiliser la prise en charge de Notification Hubs en bloc pour effectuer un grand nombre d’opérations sur un concentrateur de notification, ou pour exporter toutes les inscriptions.
+title: Exporter et importer en bloc des inscriptions Azure Notification Hubs | Microsoft Docs
+description: Découvrez comment utiliser la fonctionnalité en bloc de Notification Hubs pour effectuer un grand nombre d’opérations à la fois sur un hub de notifications ou pour exporter l’ensemble des inscriptions.
 services: notification-hubs
 author: jwargo
 manager: patniko
@@ -13,31 +13,31 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: jowargo
 ms.openlocfilehash: d7e38e8eca58c06fc6896887522b320a797fc42e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64575304"
 ---
-# <a name="export-and-import-azure-notification-hubs-registrations-in-bulk"></a>Exporter et importer des inscriptions Azure Notification Hubs en bloc
-Il existe des scénarios dans lesquels il est nécessaire pour créer ou modifier un grand nombre d’inscriptions dans un concentrateur de notification. Certains de ces scénarios sont mises à jour de balise calculs par lots, ou la migration d’une implémentation push existante pour utiliser Notification Hubs.
+# <a name="export-and-import-azure-notification-hubs-registrations-in-bulk"></a>Exporter et importer en bloc des inscriptions Azure Notification Hubs
+Certains scénarios nécessitent de créer ou modifier un grand nombre d’inscriptions dans un hub de notifications. Les mises à jour des étiquettes après des calculs par lots ou la migration d’une implémentation push existante pour utiliser Notification Hubs en sont deux exemples.
 
-Cet article explique comment exécuter un grand nombre d’opérations sur un concentrateur de notification, ou pour exporter toutes les inscriptions en bloc.
+Cet article explique comment effectuer un grand nombre d’opérations sur un hub de notifications ou exporter l’ensemble des inscriptions, en bloc.
 
-## <a name="high-level-flow"></a>Flux de haut niveau
-Prise en charge de traitement par lots est conçu pour prendre en charge des travaux longs impliquant des millions d’inscriptions. Pour obtenir cette mise à l’échelle, prise en charge batch utilise le stockage Azure pour stocker la sortie et les détails de la tâche. Pour les opérations de mise à jour en bloc, l’utilisateur est requis pour créer un fichier dans un conteneur d’objets blob, dont le contenu est la liste des opérations de mise à jour de l’inscription. Lors du démarrage de la tâche, l’utilisateur fournit une URL vers l’objet blob d’entrée, ainsi qu’une URL dans un répertoire de sortie (également dans un conteneur d’objets blob). Une fois que le travail a démarré, l’utilisateur peut vérifier l’état en interrogeant un emplacement de l’URL fourni au démarrage de la tâche. Un travail spécifique peut uniquement effectuer des opérations d’un type spécifique (crée, met à jour ou suppressions). Les opérations d’exportation sont exécutées de façon analogue.
+## <a name="high-level-flow"></a>Flux général
+La prise en charge du traitement par lots vise à permettre l’exécution de travaux durables impliquant des millions d’inscriptions. Pour répondre à cette charge de travail, la prise en charge du traitement par lots utilise le stockage Azure pour stocker la sortie et les détails des tâches. Pour les opérations de mise à jour en bloc, l’utilisateur doit créer un fichier dans un conteneur d’objets blob, dans lequel sont listées les opérations de mise à jour des inscriptions. Quand il démarre le travail, l’utilisateur fournit une URL vers l’objet blob d’entrée ainsi qu’une URL vers un répertoire de sortie (également dans un conteneur d’objets blob). Une fois que le travail a démarré, l’utilisateur peut vérifier l’état en interrogeant l’emplacement de l’URL indiqué au démarrage du travail. Un travail donné peut uniquement effectuer des opérations d’un type spécifique (création, mise à jour ou suppression). Les opérations d’exportation sont effectuées de façon analogue.
 
 ## <a name="import"></a>Importer
 
 ### <a name="set-up"></a>Installation
-Cette section suppose que les entités suivantes :
+Cette section suppose la présence des entités suivantes :
 
-- Un hub de notifications configuré.
-- Un conteneur d’objets blob stockage Azure.
-- Fait référence à la [package NuGet Azure Storage](https://www.nuget.org/packages/windowsazure.storage/) et [package NuGet de Hubs de Notification](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
+- Un hub de notifications provisionné.
+- Un conteneur d’objets blob de stockage Azure.
+- Des références au [package NuGet Azure Storage](https://www.nuget.org/packages/windowsazure.storage/) et au [package NuGet Notification Hubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
-### <a name="create-input-file-and-store-it-in-a-blob"></a>Créer le fichier d’entrée et le stocker dans un objet blob
-Un fichier d’entrée contient une liste des inscriptions sérialisées en XML, une par ligne. À l’aide du Kit de développement, l’exemple de code suivant montre comment sérialiser les inscriptions et les télécharger vers le conteneur d’objets blob.
+### <a name="create-input-file-and-store-it-in-a-blob"></a>Créer un fichier d’entrée et le stocker dans un objet blob
+Un fichier d’entrée contient une liste d’inscriptions sérialisées en XML, à raison d’une par ligne. En utilisant le SDK Azure, l’exemple de code suivant montre comment sérialiser les inscriptions et les charger dans le conteneur d’objets blob.
 
 ```csharp
 private static void SerializeToBlob(CloudBlobContainer container, RegistrationDescription[] descriptions)
@@ -57,10 +57,10 @@ private static void SerializeToBlob(CloudBlobContainer container, RegistrationDe
 ```
 
 > [!IMPORTANT]
-> Le code précédent sérialise les inscriptions dans la mémoire, puis charge la totalité du flux dans un objet blob. Si vous avez chargé un fichier de plus de quelques mégaoctets, consultez l’aide d’objets blob Azure sur la façon d’effectuer ces étapes. par exemple, [objets BLOB de blocs](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs).
+> Le code ci-dessus sérialise les inscriptions en mémoire, puis charge le flux entier dans un objet blob. Si vous avez chargé un fichier plus gros que quelques mégaoctets, consultez l’aide sur les objets blob Azure pour savoir comment effectuer ces étapes, par exemple, les [objets blob de blocs](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs).
 
 ### <a name="create-url-tokens"></a>Créer des jetons d’URL
-Une fois votre fichier d’entrée est chargé, générer l’URL à fournir à votre hub de notification pour le fichier d’entrée et le répertoire de sortie. Vous pouvez utiliser deux conteneurs d’objets blob différents pour l’entrée et de sortie.
+Après avoir chargé votre fichier d’entrée, générez les URL du fichier d’entrée et du répertoire de sortie à fournir à votre hub de notifications. Vous pouvez utiliser deux conteneurs d’objets blob différents pour l’entrée et la sortie.
 
 ```csharp
 static Uri GetOutputDirectoryUrl(CloudBlobContainer container)
@@ -88,7 +88,7 @@ static Uri GetInputFileUrl(CloudBlobContainer container, string filePath)
 ```
 
 ### <a name="submit-the-job"></a>Envoi du travail
-Avec les deux URL d’entrée et de sortie, vous pouvez maintenant démarrer le traitement par lots.
+Quand vous avez les deux URL d’entrée et de sortie, vous êtes prêt à démarrer le traitement du travail par lots.
 
 ```csharp
 NotificationHubClient client = NotificationHubClient.CreateClientFromConnectionString(CONNECTION_STRING, HUB_NAME);
@@ -113,23 +113,23 @@ while (i > 0 && job.Status != NotificationHubJobStatus.Completed)
 }
 ```
 
-En plus de l’URL d’entrée et de sortie, cet exemple crée un `NotificationHubJob` objet qui contient un `JobType` objet, ce qui peut être un des types suivants :
+En plus des URL d’entrée et de sortie, cet exemple crée un objet `NotificationHubJob` qui contient un objet `JobType` d’un des types suivants :
 
 - `ImportCreateRegistrations`
 - `ImportUpdateRegistrations`
 - `ImportDeleteRegistrations`
 
-Une fois l’appel terminé, le travail est poursuivi par le concentrateur de notification, et vous pouvez vérifier son statut avec l’appel à [GetNotificationHubJobAsync](/dotnet/api/microsoft.azure.notificationhubs.notificationhubclient.getnotificationhubjobasync?view=azure-dotnet).
+Une fois l’appel terminé, le travail est poursuivi par le hub de notifications. Vous pouvez vérifier l’état du travail en appelant [GetNotificationHubJobAsync](/dotnet/api/microsoft.azure.notificationhubs.notificationhubclient.getnotificationhubjobasync?view=azure-dotnet).
 
-À l’issue de la tâche, vous pouvez inspecter les résultats en examinant les fichiers suivants dans votre répertoire de sortie :
+À l’issue du travail, vous pouvez examiner les résultats dans les fichiers suivants situés dans votre répertoire de sortie :
 
 - `/<hub>/<jobid>/Failed.txt`
 - `/<hub>/<jobid>/Output.txt`
 
-Ces fichiers contiennent la liste des opérations réussies et échouées à partir de votre lot. Le format de fichier est `.cvs`, dans lequel chaque ligne a le numéro de ligne du fichier d’entrée d’origine et la sortie de l’opération (généralement la description de l’enregistrement créé ou mis à jour).
+Ces fichiers contiennent la liste des opérations traitées par lots qui ont réussi ou échoué. Le fichier est au format `.cvs` : chaque ligne a le numéro de ligne du fichier d’entrée d’origine et contient la sortie de l’opération (généralement la description de l’inscription créée ou mise à jour).
 
 ### <a name="full-sample-code"></a>Exemple de code complet
-L’exemple de code suivant importe les inscriptions vers un hub de notification.
+L’exemple de code suivant importe des inscriptions vers un hub de notifications.
 
 ```csharp
 using Microsoft.Azure.NotificationHubs;
@@ -260,13 +260,13 @@ namespace ConsoleApplication1
 ```
 
 ## <a name="export"></a>Exportation
-L’exportation des inscriptions est similaire à l’importation, avec les différences suivantes :
+L’exportation des inscriptions est similaire à leur importation, avec toutefois les différences suivantes :
 
-- Vous devez uniquement l’URL de sortie.
-- Vous créez un NotificationHubJob de type ExportRegistrations.
+- Vous avez uniquement besoin de l’URL de sortie.
+- Vous créez un travail NotificationHubJob de type ExportRegistrations.
 
 ### <a name="sample-code-snippet"></a>Exemple d’extrait de code
-Voici un exemple d’extrait de code pour l’exportation des inscriptions en Java :
+Voici un exemple d’extrait de code qui exporte des inscriptions en Java :
 
 ```java
 // submit an export job
@@ -286,8 +286,8 @@ while(true){
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour en savoir plus sur les inscriptions, consultez les articles suivants :
+Pour plus d’informations sur les inscriptions, consultez les articles suivants :
 
 - [Gestion des inscriptions](notification-hubs-push-notification-registration-management.md)
 - [Balises pour les inscriptions](notification-hubs-tags-segment-push-message.md)
-- [Inscriptions de modèle](notification-hubs-templates-cross-platform-push-messages.md)
+- [Inscriptions de modèles](notification-hubs-templates-cross-platform-push-messages.md)

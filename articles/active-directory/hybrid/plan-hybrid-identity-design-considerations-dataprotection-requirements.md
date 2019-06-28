@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 056d0caf2bfc6e99d5d659a2561bc41844feb79a
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64918793"
 ---
 # <a name="plan-for-enhancing-data-security-through-a-strong-identity-solution"></a>Planifier l'amélioration de la sécurité des données grâce à une solution d'identité solide
@@ -44,7 +44,7 @@ Lorsque vous planifiez votre solution d'identité hybride, vous devez comprendre
 Toutefois, certains aspects de la sécurité devraient être examinés et validés, indépendamment du secteur.
 
 ## <a name="data-protection-paths"></a>Chemins de protection des données
-![Chemins de protection des données](./media/plan-hybrid-identity-design-considerations/data-protection-paths.png)
+![chemins de protection des données](./media/plan-hybrid-identity-design-considerations/data-protection-paths.png)
 
 **Chemins de protection des données**
 

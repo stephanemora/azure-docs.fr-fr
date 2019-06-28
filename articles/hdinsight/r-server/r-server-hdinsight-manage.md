@@ -9,17 +9,17 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.openlocfilehash: 607f85c10183366e88d597d84090f49fc30aff48
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64687979"
 ---
 # <a name="manage-ml-services-cluster-on-azure-hdinsight"></a>Gérer un cluster ML Services dans Azure HDInsight
 
-Dans cet article, vous allez apprendre à gérer un cluster de Services ML existant sur HDInsight Azure pour effectuer des tâches telles que l’ajout de plusieurs utilisateurs simultanés, connexion à distance à un cluster de Services ML, modification de contexte de calcul.
+Dans cet article, vous découvrez comment gérer un cluster ML Services existant sur Azure HDInsight pour effectuer certaines tâches comme ajouter plusieurs utilisateurs simultanés, se connecter à distance à un cluster ML Services, changer le contexte de calcul, etc.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 * **Un cluster ML Services sur HDInsight** : pour obtenir des instructions, consultez [Bien démarrer avec ML Services sur les clusters HDInsight](r-server-get-started.md).
 
@@ -79,7 +79,7 @@ Notez également que les utilisateurs récemment ajoutés ne possèdent pas les 
 
 ## <a name="connect-remotely-to-microsoft-ml-services"></a>Se connecter à distance à Microsoft ML Services
 
-Vous pouvez configurer l’accès au contexte de calcul HDInsight Spark à partir d’une instance distante de ML Client s’exécutant sur votre bureau. Pour ce faire, vous devez spécifier les options hdfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches et sshProfileScript quand vous définissez le contexte de calcul RxSpark sur votre ordinateur de bureau. Par exemple : 
+Vous pouvez configurer l’accès au contexte de calcul HDInsight Spark à partir d’une instance distante de ML Client s’exécutant sur votre bureau. Pour ce faire, vous devez spécifier les options hdfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches et sshProfileScript quand vous définissez le contexte de calcul RxSpark sur votre ordinateur de bureau. Par exemple :
 
     myNameNode <- "default"
     myPort <- 0

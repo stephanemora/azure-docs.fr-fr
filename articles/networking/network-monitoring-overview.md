@@ -1,5 +1,5 @@
 ---
-title: À propos de la surveillance réseau dans Azure Monitor enregistre | Microsoft Docs
+title: À propos de l’analyse du réseau dans les journaux Azure Monitor | Microsoft Docs
 description: Vue d’ensemble des solutions d’analyse du réseau, dont NPM, pour gérer les réseaux dans des environnements cloud, locaux et hybrides.
 services: monitoring-and-diagnostics
 documentationcenter: na
@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ajaycode
 ms.openlocfilehash: b112771e8c0f08e6b9a02c2fc5b7e1887b3f2588
-ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65620421"
 ---
 # <a name="network-monitoring-solutions"></a>Solutions d’analyse du réseau 
@@ -51,9 +51,9 @@ L’analyseur de performances fait partie de NPM et se charge de la surveillance
 
 Pour plus d’informations, consultez les articles suivants :
 
-* [Configurer une Solution Network Performance Monitor dans les journaux Azure Monitor](../azure-monitor/insights/network-performance-monitor.md) 
+* [Solution Network Performance Monitor dans les journaux Azure Monitor](../azure-monitor/insights/network-performance-monitor.md) 
 * [Cas d’utilisation](https://blogs.technet.microsoft.com/msoms/2016/08/30/monitor-on-premises-cloud-iaas-and-hybrid-networks-using-oms-network-performance-monitor/)
-* Mises à jour de produit :
+* Mises à jour produit :
   * [Février 2017](https://blogs.technet.microsoft.com/msoms/2017/02/27/oms-network-performance-monitor-is-now-generally-available/)
   * [Août 2017](https://blogs.technet.microsoft.com/msoms/2017/08/14/improvements-to-oms-network-performance-monitor/)
 

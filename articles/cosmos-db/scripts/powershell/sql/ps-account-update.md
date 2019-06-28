@@ -1,16 +1,16 @@
 ---
-title: Script Azure PowerShell - mise à jour un compte Azure Cosmos
-description: Exemple de script Azure PowerShell - mise à jour un compte Azure Cosmos avec régions ajoutés
+title: Script Azure PowerShell - Mettre à jour un compte Azure Cosmos
+description: Exemple de script Azure PowerShell - Mettre à jour un compte Azure Cosmos avec les régions ajoutées
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: samples
 ms.date: 05/06/2019
 ms.author: mjbrown
 ms.openlocfilehash: 4a695fd569459e6372465273675620cd40d7e6a7
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65078279"
 ---
 # <a name="update-an-azure-cosmos-account-and-add-a-region-using-powershell"></a>Mettre à jour un compte Azure Cosmos et ajouter une région à l’aide de PowerShell

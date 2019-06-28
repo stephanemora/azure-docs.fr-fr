@@ -1,6 +1,6 @@
 ---
-title: Démon application appeler des API web (appeler des API web) - plateforme d’identité Microsoft
-description: Découvrez comment créer une application démon par appels web API (appeler des API web)
+title: Application démon conçue pour appeler des API web (appel des API web) - Plateforme d’identités Microsoft
+description: Apprendre à générer une application démon qui appelle des API web (appel des API web)
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -17,17 +17,17 @@ ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: aff375f996126d9e8b64361fc0e5673c25d30c19
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65076269"
 ---
-# <a name="daemon-app-that-calls-web-apis---call-a-web-api-from-the-app"></a>Application démon qu’appelle des API - web appeler une API web à partir de l’application
+# <a name="daemon-app-that-calls-web-apis---call-a-web-api-from-the-app"></a>Application démon appelant des API web - appeler une API web à partir de l’application
 
-Une application démon peut appeler une API web à partir d’une application de démon de .NET ou appeler plusieurs pré-approuvée des API web.
+Une application démon peut appeler une API web à partir d’une application démon .NET ou appeler plusieurs API web pré-approuvées.
 
-## <a name="calling-a-web-api-from-a-net-daemon-application"></a>Appeler une API web à partir d’une application de démon de .NET
+## <a name="calling-a-web-api-from-a-net-daemon-application"></a>Appeler une API web à partir d’une application démon .NET
 
 [!INCLUDE [Call web API in .NET](../../../includes/active-directory-develop-scenarios-call-apis-dotnet.md)]
 
@@ -35,9 +35,9 @@ Une application démon peut appeler une API web à partir d’une application de
 More includes will come later for Python and Java
 -->
 
-## <a name="calling-several-apis"></a>Appeler plusieurs API
+## <a name="calling-several-apis"></a>Appels de plusieurs API
 
-Pour les applications de démon, les API web que vous appelez doivent être préalablement approuvées. Il n’est pas un consentement incrémentiel avec les applications de démon (il n’existe aucune interaction utilisateur). L’administrateur client doit consentement préalable de l’application et toutes les autorisations d’API. Si vous souhaitez appeler plusieurs API, vous aurez besoin acquérir un jeton pour chaque ressource, chaque appel de temps `AcquireTokenForClient`. MSAL utilisera le cache de jetons d’application afin d’éviter les appels de service inutiles.
+Pour les applications de démon, les API web que vous appelez doivent être pré-approuvées. Il n’y aura pas de consentement incrémentiel avec des applications démons (il n’y a aucune interaction utilisateur). L’administrateur locataire doit approuver l’application et toutes les autorisations d’API au préalable. Si vous souhaitez appeler plusieurs API, vous aurez besoin d’acquérir un jeton pour chaque ressource, en appelant `AcquireTokenForClient` à chaque fois. MSAL utilisera le cache de jetons d’application afin d’éviter les appels de service inutiles.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -17,10 +17,10 @@ ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4f829b8e8a4bc08b43d3c30a6333771ccd4e26e8
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65783611"
 ---
 # <a name="no-working-connector-group-found-for-an-application-proxy-application"></a>Aucun groupe de connecteurs en fonctionnement n’est disponible pour une application de proxy d’application
@@ -32,7 +32,7 @@ Si le groupe de connecteurs ne contient aucun connecteur en fonctionnement pour 
 
 -   Si le groupe ne contient aucun connecteur, vous pouvez :
 
-    -   Télécharger un nouveau connecteur sur la droite sur le serveur de site et l’affecter à ce groupe
+    -   Télécharger un nouveau connecteur sur le serveur local approprié et l’affecter à ce groupe
 
     -   Déplacer un connecteur actif dans le groupe
 

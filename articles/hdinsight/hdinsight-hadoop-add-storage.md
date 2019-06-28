@@ -8,27 +8,27 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: hrasheed
 ms.openlocfilehash: 6b9577bcf8b527abb0cb7b8720ed83ec8321655b
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64724466"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>Ajouter des comptes de stockage supplémentaires à HDInsight
 
-Découvrez comment utiliser les actions de script pour ajouter du stockage Azure supplémentaire *comptes* à HDInsight. Les étapes décrites dans ce document ajoutent un stockage *compte* à un cluster HDInsight basé sur Linux existant. Cet article s’applique au stockage *comptes* (pas par défaut cluster compte de stockage) et le stockage pas supplémentaire comme [Gen1 de stockage Azure Data Lake](hdinsight-hadoop-use-data-lake-store.md) et [Azure Data Lake Storage Gen2 ](hdinsight-hadoop-use-data-lake-storage-gen2.md).
+Découvrez comment utiliser des actions de script pour ajouter des *comptes* de stockage Azure supplémentaires à HDInsight. Les étapes décrites dans ce document permettent d’ajouter un *compte* de stockage à un cluster HDInsight existant basé sur Linux. Cet article s’applique au *comptes* de stockage (différents des comptes de stockage en cluster par défaut) et au stockage de base comme [Azure Data Lake Storage Gen1](hdinsight-hadoop-use-data-lake-store.md) et [Azure Data Lake Storage Gen2](hdinsight-hadoop-use-data-lake-storage-gen2.md).
 
 > [!IMPORTANT]  
 > Ce document porte sur l’ajout de stockage supplémentaire à un cluster après que celui-ci a été créé. Pour plus d’informations sur l’ajout de comptes de stockage lors de la création du cluster, consultez [Configurer des clusters dans HDInsight avec Apache Hadoop, Apache Spark, Apache Kafka, etc](hdinsight-hadoop-provision-linux-clusters.md).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
-* Un cluster Hadoop sur HDInsight. Consultez [prise en main HDInsight sous Linux](./hadoop/apache-hadoop-linux-tutorial-get-started.md).
-* Nom de compte de stockage et la clé. Consultez [gérer les paramètres de compte de stockage dans le portail Azure](../storage/common/storage-account-manage.md).
-* [Nom du cluster correctement casse](hdinsight-hadoop-manage-ambari-rest-api.md#identify-correctly-cased-cluster-name).
-* Si vous utilisez PowerShell, vous aurez besoin du module AZ.  Consultez [vue d’ensemble d’Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
-* Si vous n’avez pas installé l’interface CLI, consultez [les Interface de ligne de commande (CLI) Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
-* Si vous utilisez l’interpréteur de commandes ou d’une invite de commandes windows, vous devez également **jq**, un processeur JSON en ligne de commande.  Voir [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/). Pour bash sur Ubuntu sur Windows 10, consultez [sous-système Windows pour Linux Installation Guide pour Windows 10](https://docs.microsoft.com/windows/wsl/install-win10).
+* Un cluster Hadoop sur HDInsight. Consultez [Bien démarrer avec HDInsight sur Linux](./hadoop/apache-hadoop-linux-tutorial-get-started.md).
+* Nom et clé du compte de stockage. Consultez [Gérer les paramètres de compte de stockage dans le portail Azure](../storage/common/storage-account-manage.md).
+* [Utilisez la bonne casse pour le nom du cluster](hdinsight-hadoop-manage-ambari-rest-api.md#identify-correctly-cased-cluster-name).
+* Si vous utilisez PowerShell, vous avez besoin du module AZ.  Consultez [Vue d’ensemble d’Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
+* Si vous n’avez pas installé Azure CLI, consultez [Interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
+* Si vous utilisez une invite de commandes Bash ou Windows, vous aurez également besoin de **jq**, un processeur JSON en ligne de commande.  Voir [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/). Pour bash sur Ubuntu sur Windows 10, consultez [Sous-système Windows pour Linux - Guide d’installation pour Windows 10](https://docs.microsoft.com/windows/wsl/install-win10).
 
 ## <a name="how-it-works"></a>Fonctionnement
 
@@ -63,11 +63,11 @@ __Conditions requises__ :  Le script doit être appliqué sur les __nœuds prin
 
 ## <a name="to-use-the-script"></a>Pour utiliser le script
 
-Ce script peut être utilisé à partir d’Azure PowerShell, Azure CLI ou le portail Azure.
+Ce script peut être utilisé avec Azure PowerShell, Azure CLI ou le portail Azure.
 
 ### <a name="powershell"></a>PowerShell
 
-À l’aide de [AzHDInsightScriptAction soumettre](https://docs.microsoft.com/powershell/module/az.hdinsight/submit-azhdinsightscriptaction). Remplacez `CLUSTERNAME`, `ACCOUNTNAME`, et `ACCOUNTKEY` avec les valeurs appropriées.
+En utilisant [Submit-AzHDInsightScriptAction](https://docs.microsoft.com/powershell/module/az.hdinsight/submit-azhdinsightscriptaction). Remplacez `CLUSTERNAME`, `ACCOUNTNAME`, et `ACCOUNTKEY` par les valeurs appropriées.
 
 ```powershell
 # Update these parameters
@@ -88,7 +88,7 @@ Submit-AzHDInsightScriptAction `
 
 ### <a name="azure-cli"></a>Azure CLI
 
-À l’aide de [az-action de script hdinsight exécuter](https://docs.microsoft.com/cli/azure/hdinsight/script-action?view=azure-cli-latest#az-hdinsight-script-action-execute).  Remplacez `CLUSTERNAME`, `RESOURCEGROUP`, `ACCOUNTNAME`, et `ACCOUNTKEY` avec les valeurs appropriées.
+En utilisant [Submit-AzHDInsightScriptAction](https://docs.microsoft.com/cli/azure/hdinsight/script-action?view=azure-cli-latest#az-hdinsight-script-action-execute).  Remplacez `CLUSTERNAME`, `RESOURCEGROUP`, `ACCOUNTNAME`, et `ACCOUNTKEY` par les valeurs appropriées.
 
 ```cli
 az hdinsight script-action execute ^
@@ -102,13 +102,13 @@ az hdinsight script-action execute ^
 
 ### <a name="azure-portal"></a>Portail Azure
 
-Consultez [appliquer une action de script sur un cluster en cours d’exécution](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster).
+Consultez [Appliquer une action de script sur un cluster en cours d’exécution](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster).
 
 ## <a name="known-issues"></a>Problèmes connus
 
 ### <a name="storage-firewall"></a>Pare-feu de stockage
 
-Si vous choisissez votre compte de stockage avec le **les pare-feux et réseaux virtuels** restrictions sur **réseaux sélectionnés**, veillez à activer l’exception **autoriser fiables Microsoft Services...**  afin que HDInsight puisse accéder à votre compte de stockage.
+Si vous choisissez de sécuriser votre compte de stockage à l’aide des restrictions de **pare-feu et réseaux virtuels** sur des **réseaux sélectionnés**, veillez à activer l’exception **Autoriser les services approuvés de Microsoft...** afin que HDInsight puisse accéder à votre compte de stockage.
 
 ### <a name="storage-accounts-not-displayed-in-azure-portal-or-tools"></a>Comptes de stockage non affichés dans le portail ou les outils Azure
 
@@ -120,7 +120,7 @@ Pour afficher les informations des comptes de stockage ajoutés au cluster à l�
 
 ### <a name="powershell"></a>PowerShell
 
-Remplacez `CLUSTERNAME` avec le nom du cluster correctement la casse. Tout d’abord identifier la version de configuration de service en cours d’utilisation en entrant la commande suivante :
+Remplacez `CLUSTERNAME` par le nom du cluster, avec la bonne casse. Tout d’abord, identifiez la version de configuration du service en cours d’utilisation en entrant la commande suivante :
 
 ```powershell
 # getting service_config_version
@@ -132,7 +132,7 @@ $respObj = ConvertFrom-Json $resp.Content
 $respObj.Clusters.desired_service_config_versions.HDFS.service_config_version
 ```
 
-Remplacez `ACCOUNTNAME` avec les noms réels. Puis remplacez `4` avec la version de configuration du service et entrez la commande. Lorsque vous y êtes invité, entrez le mot de passe de connexion de cluster.
+Remplacez `ACCOUNTNAME` par le nom réel. Puis, remplacez `4` par la version de configuration du service réelle et entrez la commande. Lorsque vous y êtes invité, entrez le mot de passe de connexion au cluster.
 
 ```powershell
 # Update values
@@ -147,7 +147,7 @@ $respObj.items.configurations.properties."fs.azure.account.key.$accountName.blob
 ```
 
 ### <a name="bash"></a>bash
-Remplacez `myCluster` avec le nom du cluster correctement la casse.
+Remplacez `myCluster` par le nom du cluster avec la bonne casse.
 
 ```bash
 export CLUSTERNAME='myCluster'
@@ -156,7 +156,7 @@ curl --silent -u admin -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/cluste
 | jq ".Clusters.desired_service_config_versions.HDFS[].service_config_version" 
 ```
 
-Remplacez `myAccount` par le nom de compte de stockage réelle. Puis remplacez `4` avec la version de configuration du service et entrez la commande :
+Remplacez `myAccount` par le nom réel du compte de stockage. Puis, remplacez `4` par la version de configuration du service réelle et entrez la commande :
 
 ```bash
 export ACCOUNTNAME='"fs.azure.account.key.myAccount.blob.core.windows.net"'
@@ -168,14 +168,14 @@ curl --silent -u admin -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/cluste
 
 ### <a name="cmd"></a>cmd
 
-Remplacez `CLUSTERNAME` avec le nom du cluster correctement la casse dans les deux scripts. Tout d’abord identifier la version de configuration de service en cours d’utilisation en entrant la commande suivante :
+Remplacez `CLUSTERNAME` par le nom du cluster avec la bonne casse, dans les deux scripts. Tout d’abord, identifiez la version de configuration du service en cours d’utilisation en entrant la commande suivante :
 
 ```cmd
 curl --silent -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME?fields=Clusters/desired_service_config_versions/HDFS" | ^
 jq-win64 ".Clusters.desired_service_config_versions.HDFS[].service_config_version" 
 ```
 
-Remplacez `ACCOUNTNAME` par le nom de compte de stockage réelle. Puis remplacez `4` avec la version de configuration du service et entrez la commande :
+Remplacez `ACCOUNTNAME` par le nom réel du compte de stockage. Puis, remplacez `4` par la version de configuration du service réelle et entrez la commande :
 
 ```cmd
 curl --silent -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=4" | ^
@@ -203,7 +203,7 @@ Pour contourner ce problème, vous devez supprimer l’entrée existante pour le
 
 2. Dans la liste des services située à gauche de la page, sélectionnez __HDFS__. Ensuite, sélectionnez l’onglet __Configurations__ au centre de la page.
 
-3. Dans la __Filtrer...__, entrez une valeur de __fs.azure.account__. Des entrées sont renvoyées pour tous les comptes de stockage supplémentaires qui ont été ajoutés au cluster. Il existe deux types d’entrées : __keyprovider__ et __key__. Les deux contiennent le nom du compte de stockage dans le nom de la clé.
+3. Dans la __Filtrer...__ , entrez une valeur de __fs.azure.account__. Des entrées sont renvoyées pour tous les comptes de stockage supplémentaires qui ont été ajoutés au cluster. Il existe deux types d’entrées : __keyprovider__ et __key__. Les deux contiennent le nom du compte de stockage dans le nom de la clé.
 
     Voici des exemples d’entrées pour un compte de stockage nommé __mystorage__ :
 

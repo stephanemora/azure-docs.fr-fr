@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 04/15/2019
 ms.openlocfilehash: b78671cc61a4fe755b908ed9f71052cbd0a70b38
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/13/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65550507"
 ---
 # <a name="limitations-in-azure-database-for-mariadb"></a>Limitations dans Azure Database for MariaDB
@@ -44,14 +44,14 @@ Lorsque la limite du nombre de connexions est dépassée, vous pouvez recevoir l
 - [InnoDB](https://mariadb.com/kb/en/library/xtradb-and-innodb/)
 - [MEMORY](https://mariadb.com/kb/en/library/memory-storage-engine/)
 
-### <a name="unsupported"></a>Non prise en charge
+### <a name="unsupported"></a>Non pris en charge
 - [MyISAM](https://mariadb.com/kb/en/library/myisam-storage-engine/)
 - [BLACKHOLE](https://mariadb.com/kb/en/library/blackhole/)
 - [ARCHIVE](https://mariadb.com/kb/en/library/archive/)
 
 ## <a name="privilege-support"></a>Prise en charge des privilèges
 
-### <a name="unsupported"></a>Non prise en charge
+### <a name="unsupported"></a>Non pris en charge
 - Rôle d’administrateur de base de données : plusieurs paramètres de serveur peuvent dégrader de façon inattendue les performances du serveur ou nier les propriétés ACID du système de gestion de base de données. Par conséquent, pour préserver l’intégrité du service et le contrat SLA au niveau du produit, ce service n’expose pas le rôle d’administrateur de bases de données. Le compte d’utilisateur par défaut, qui est créé en même temps qu’une instance de base de données, permet à l’utilisateur d’exécuter la plupart des instructions DDL et DML dans l’instance de base de données gérée.
 - Privilège de superutilisateur : de la même façon, les [privilèges de superutilisateur](https://mariadb.com/kb/en/library/grant/#global-privileges) sont eux aussi limités.
 - DEFINER : requiert des privilèges de superutilisateur pour créer et est limité. Si vous importez des données à l'aide d'une sauvegarde, supprimez les commandes `CREATE DEFINER` manuellement ou à l'aide de la commande `--skip-definer` lors de l'exécution de mysqldump.
@@ -61,7 +61,7 @@ Lorsque la limite du nombre de connexions est dépassée, vous pouvez recevoir l
 ### <a name="supported"></a>Pris en charge
 - `LOAD DATA INFILE` est prise en charge, mais le paramètre `[LOCAL]` doit être spécifié et dirigé vers un chemin d'accès UNC (stockage Azure monté via SMB).
 
-### <a name="unsupported"></a>Non prise en charge
+### <a name="unsupported"></a>Non pris en charge
 - `SELECT ... INTO OUTFILE`
 
 ## <a name="functional-limitations"></a>Limitations fonctionnelles
@@ -84,7 +84,7 @@ Lorsque la limite du nombre de connexions est dépassée, vous pouvez recevoir l
 - Les points de terminaison de service de réseau virtuel sont uniquement pris en charge pour les serveurs Usage général et Mémoire optimisée.
 
 ### <a name="storage-size"></a>Taille de stockage
-- Reportez-vous à [niveaux tarifaires](concepts-pricing-tiers.md) pour les limites de taille de stockage par niveau de tarification.
+- Veuillez vous reporter aux [niveaux tarifaires](concepts-pricing-tiers.md) pour les limites de taille de stockage par niveau tarifaire.
 
 ## <a name="current-known-issues"></a>Problèmes connus
 - L’instance de serveur MariaDB affiche la version de serveur incorrecte une fois la connexion établie. Pour obtenir la version de moteur correcte de l’instance de serveur, utilisez la commande `select version();`.

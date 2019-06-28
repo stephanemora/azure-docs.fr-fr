@@ -12,17 +12,17 @@ ms.topic: article
 ms.date: 05/08/2019
 ms.author: juliako
 ms.openlocfilehash: 01b386c820a09af0e616698aabc58a886c30bb09
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/13/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65550924"
 ---
 # <a name="transforms-and-jobs"></a>Transformations et travaux
 
-Cette rubrique donne des détails sur [transforme](https://docs.microsoft.com/rest/api/media/transforms) et [travaux](https://docs.microsoft.com/rest/api/media/jobs) et explique la relation entre ces entités. 
+Cette rubrique fournit des informations détaillées sur les [transformations](https://docs.microsoft.com/rest/api/media/transforms) et les [travaux](https://docs.microsoft.com/rest/api/media/jobs) et explique la relation entre ces entités. 
 
-## <a name="overview"></a>Présentation 
+## <a name="overview"></a>Vue d'ensemble 
 
 ### <a name="transformsjobs-workflow"></a>Flux de travail de transformations/travaux
 
@@ -53,23 +53,23 @@ Une **transformation** vous permet de créer la recette une seule fois (Étape 1
 
 ## <a name="transforms"></a>Transformations
 
-Utilisez des **transformations** pour configurer des tâches courantes de codage ou d'analyse des vidéos. Chaque **transformation** décrit une recette, ou un flux de travail de tâches pour le traitement de vos fichiers vidéo ou audio. Une transformation unique peut appliquer plusieurs règles. Par exemple, une transformation peut spécifier que chaque vidéo est encodée dans un fichier MP4 à une vitesse de transmission donnée, et qu’une image miniature est générée à partir de la première image de la vidéo. Vous devez ajouter une entrée TransformOutput pour chaque règle que vous souhaitez inclure dans votre transformation. Présélections vous permet d’indiquer la transformation comment les fichiers multimédias d’entrée doivent être traitées.
+Utilisez des **transformations** pour configurer des tâches courantes de codage ou d'analyse des vidéos. Chaque **transformation** décrit une recette, ou un flux de travail de tâches pour le traitement de vos fichiers vidéo ou audio. Une transformation unique peut appliquer plusieurs règles. Par exemple, une transformation peut spécifier que chaque vidéo est encodée dans un fichier MP4 à une vitesse de transmission donnée, et qu’une image miniature est générée à partir de la première image de la vidéo. Vous devez ajouter une entrée TransformOutput pour chaque règle que vous souhaitez inclure dans votre transformation. Vous utilisez des présélections pour indiquer à la transformation comment les fichiers multimédias d’entrée doivent être traités.
 
-### <a name="viewing-schema"></a>Schéma de l’affichage
+### <a name="viewing-schema"></a>Consultation du schéma
 
-Dans Media Services v3, Présélections sont des entités fortement typées dans l’API elle-même. Vous trouverez la définition de « schema » pour ces objets dans [Open API Specification (ou Swagger)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01). Vous pouvez également afficher les définitions prédéfinies (comme **StandardEncoderPreset**) dans le [API REST](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset), [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.standardencoderpreset?view=azure-dotnet) (ou autres documents de référence SDK Media Services v3).
+Dans Media Services v3, les présélections sont des entités fortement typées dans l’API elle-même. Vous trouverez la définition « schema » (schéma) pour ces objets dans [Open API Specification (ou Swagger)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01). Vous pouvez également consulter les définitions prédéfinies (comme **StandardEncoderPreset**) dans [l’API REST](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset), [le Kit de développement logiciel (SDK) .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.standardencoderpreset?view=azure-dotnet) (ou d’autres documents de référence sur le Kit de développement logiciel (SDK) Media Services v3).
 
 ### <a name="creating-transforms"></a>Création de transformations
 
-Vous pouvez créer des transformations à l’aide de REST, CLI, ou utiliser un des kits de développement logiciel publiés. L’API Azure Media Services v3 est pilotée par Azure Resource Manager. Vous pouvez donc utiliser des modèles Resource Manager pour créer et déployer des transformations dans votre compte Media Services. Le contrôle d’accès en fonction du rôle peut être utilisé pour bloquer l’accès aux transformations.
+Vous pouvez créer des transformations à l’aide de REST ou de l’interface CLI, ou utiliser l’un des Kits de développement logiciel (SDK) publiés. L’API Azure Media Services v3 est pilotée par Azure Resource Manager. Vous pouvez donc utiliser des modèles Resource Manager pour créer et déployer des transformations dans votre compte Media Services. Le contrôle d’accès en fonction du rôle peut être utilisé pour bloquer l’accès aux transformations.
 
-### <a name="updating-transforms"></a>La mise à jour des transformations
+### <a name="updating-transforms"></a>Mise à jour de transformations
 
-Si vous avez besoin mettre à jour votre [transformer](https://docs.microsoft.com/rest/api/media/transforms), utilisez le **mettre à jour** opération. Il est prévu pour apporter des modifications à la description ou les priorités de le TransformOutputs sous-jacent. Il est recommandé que ces mises à jour soient effectuées lorsque tous les travaux en cours sont terminés. Si vous envisagez de réécrire la recette, vous devez créer une nouvelle transformation.
+Si vous avez besoin mettre à jour votre [transformation](https://docs.microsoft.com/rest/api/media/transforms), utilisez l’opération de **mise à jour**. Elle est destinée à modifier la description ou les priorités des TransformOutputs sous-jacents. Il est recommandé que ces mises à jour soient effectuées lorsque tous les travaux en cours sont terminés. Si vous souhaitez réécrire la recette, vous devez créer une nouvelle transformation.
 
-### <a name="transform-object-diagram"></a>Transformer le diagramme de l’objet
+### <a name="transform-object-diagram"></a>Schéma de l’objet de transformation
 
-Le diagramme suivant montre le **transformer** objet et les objets référencés, y compris les relations de dérivation. Les flèches grises montrent un type que les références de projet et les flèches vertes indiquent des relations de dérivation de classe.<br/>Cliquez sur l’image pour l’afficher en plein écran.  
+Le schéma suivant illustre l’objet de **transformation** et les objets qu’il référence avec les relations de dérivation. Les flèches grises montrent un type référencé par le travail, et les flèches vertes indiquent les relations de dérivation de classe.<br/>Cliquez sur l’image pour l’afficher en plein écran.  
 
 <a href="./media/api-diagrams/transform-large.png" target="_blank"><img src="./media/api-diagrams/transform-small.png"></a> 
 
@@ -79,23 +79,23 @@ Un **travail** est la requête réelle envoyée à Azure Media Services pour app
 
 ### <a name="job-input-from-https"></a>Entrée de travail à partir de HTTPS
 
-Utilisez [travail entrée à partir de HTTPS](job-input-from-http-how-to.md) si votre contenu est déjà accessible via une URL et vous n’avez pas besoin de stocker le fichier source dans Azure (par exemple, importer à partir de S3). Cette méthode convient également si vous avez du contenu dans le stockage Blob Azure mais que vous n’avez pas besoin du fichier à être dans un élément multimédia. Actuellement, cette méthode prend uniquement en charge un seul fichier pour l’entrée.
+Utilisez une [entrée de travail à partir de HTTPS](job-input-from-http-how-to.md) si votre contenu est déjà accessible via une URL et que vous n’avez pas besoin de stocker le fichier source dans Azure (par exemple, une importation à partir de S3). Cette méthode est également applicable si le contenu est dans le Stockage Blob Azure mais que le fichier ne doit pas nécessairement être dans un élément multimédia. Actuellement, cette méthode ne prend en charge qu’un fichier pour l’entrée.
 
 ### <a name="asset-as-job-input"></a>Élément multimédia en tant qu’entrée de travail
 
-Utilisez [actif en tant qu’entrée de travail](job-input-from-local-file-how-to.md) si le contenu d’entrée est déjà dans un élément multimédia ou le contenu est stocké dans le fichier local. Il est également une bonne option si vous projetez de publier la ressource d’entrée pour la diffusion en continu ou télécharger (supposons que vous souhaitez publier les fichiers mp4 pour le téléchargement, mais que vous voulez également effectuer la reconnaissance vocale à la détection de visage ou de texte). Cette méthode prend en charge les ressources de plusieurs fichiers (par exemple, MBR jeux encodés localement de diffusion en continu).
+Utilisez un [élément multimédia en tant qu’entrée de travail](job-input-from-local-file-how-to.md) si le contenu d’entrée est déjà dans un élément multimédia ou si le contenu est stocké dans le fichier local. Il s’agit également d’une bonne option si vous projetez de publier l’élément multimédia d’entrée pour la diffusion en continu ou le téléchargement (supposons que vous souhaitiez publier le fichier mp4 pour téléchargement, mais que vous souhaitiez également utiliser la reconnaissance vocale à la détection des visages). Cette méthode prend en charge les éléments multimédias multifichiers (par exemple, les ensembles de contenus pour diffusion en continu MBR encodés localement).
 
-### <a name="checking-job-progress"></a>Vérification de la progression du travail
+### <a name="checking-job-progress"></a>Vérification de la progression des travaux
 
 La progression et l’état des travaux peuvent être obtenus en surveillant les événements avec Event Grid. Pour plus d’informations, consultez la section relative à la [surveillance des événements à l’aide d’Event Grid](job-state-events-cli-how-to.md).
 
-### <a name="updating-jobs"></a>La mise à jour des travaux
+### <a name="updating-jobs"></a>Mise à jour des travaux
 
 L’opération de mise à jour de l’entité [Job](https://docs.microsoft.com/rest/api/media/jobs) (Travail) permet de modifier les propriétés *description*, et *priority* une fois le travail soumis. Une modification de la propriété *priority* ne s’applique que si le travail est toujours dans un état de file d’attente. Si le traitement du travail a commencé, ou est terminé, la modification de la priorité n’a aucun effet.
 
-### <a name="job-object-diagram"></a>Diagramme d’objet de travail
+### <a name="job-object-diagram"></a>Schéma de l’objet de travail
 
-Le diagramme suivant montre le **travail** objet et les objets référencés, y compris les relations de dérivation.<br/>Cliquez sur l’image pour l’afficher en plein écran.  
+Le schéma suivant illustre l’objet de **travail** et les objets qu’il référence avec les relations de dérivation.<br/>Cliquez sur l’image pour l’afficher en plein écran.  
 
 <a href="./media/api-diagrams/job-large.png" target="_blank"><img src="./media/api-diagrams/job-small.png"></a> 
 
@@ -112,12 +112,12 @@ Découvrez l’article [Communauté Azure Media Services](media-services-communi
 ## <a name="see-also"></a>Voir aussi
 
 * [Codes d’erreur](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode)
-* [Pagination de filtrage, classement, des entités Media Services](entities-overview.md)
+* [Filtrage, classement et pagination d’entités Media Services](entities-overview.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Passez en revue avant de commencer à développer, [développement avec Media Services v3 API](media-services-apis-overview.md) (inclut des informations sur l’accès aux API, les conventions d’affectation de noms, etc.).
-- Consultez ces didacticiels :
+- Avant de commencer le développement, consultez [Développement avec les API Media Services v3](media-services-apis-overview.md) (informations sur l’accès aux API, les conventions d’affectation de noms, etc.)
+- Consultez les didacticiels suivants :
 
     - [Tutoriel : Charger, encoder et diffuser en streaming des vidéos à l’aide de .NET](stream-files-tutorial-with-api.md)
     - [Tutoriel : Analyser des vidéos avec Media Services v3 à l’aide de .NET](analyze-videos-tutorial-with-api.md)

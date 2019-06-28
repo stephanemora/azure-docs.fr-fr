@@ -1,6 +1,6 @@
 ---
-title: Comptes de travail d’entreprise et les partenaires
-description: Comment vérifier si votre entreprise possède un compte professionnel configuré avec Microsoft, créez un nouveau compte de travail ou configurer plusieurs comptes de travail à utiliser avec les partenaires.
+title: Comptes professionnels d’entreprise et Espace partenaires
+description: Comment vérifier si votre entreprise possède un compte professionnel configuré avec Microsoft, créer un nouveau compte professionnel ou configurer plusieurs comptes professionnels à utiliser avec l’Espace partenaires.
 author: mattwojo
 manager: evansma
 ms.author: parthp
@@ -8,50 +8,50 @@ ms.service: marketplace
 ms.topic: how-to
 ms.date: 05/30/2019
 ms.openlocfilehash: df8ab370e8874e07f8985ecfb3a772848a2e2b21
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65806280"
 ---
-# <a name="company-work-accounts-and-partner-center"></a>Comptes de travail d’entreprise et les partenaires
+# <a name="company-work-accounts-and-partner-center"></a>Comptes professionnels d’entreprise et Espace partenaires
 
-Partenaires utilise des comptes professionnels de l’entreprise, également connu sous les locataires Azure Active Directory (AD), pour gérer l’accès de compte pour plusieurs utilisateurs, les autorisations de contrôle, les groupes hôtes et les applications et conserver les données de profil. En liant le domaine de compte de messagerie de travail de votre société à votre compte espace partenaires, employés de votre entreprise peuvent se connecter aux partenaires pour gérer des offres de la place de marché à l’aide de leurs propres noms d’utilisateur du compte de travail et les mots de passe.
+L’Espace partenaires utilise des comptes professionnels d’entreprise, également connus sous le nom de locataires Azure Active Directory (AD), pour gérer l’accès au compte pour plusieurs utilisateurs, les autorisations de contrôle, les groupes hôtes et les applications, et gérer les données de profil. En liant le domaine de compte de messagerie professionnelle de votre entreprise à votre compte d’Espace partenaires, les employés de votre entreprise peuvent se connecter à l’Espace partenaires pour gérer des offres de place de marché à l’aide de leurs propres noms d’utilisateur et mots de passe de comptes professionnels.
 
-## <a name="check-whether-your-company-already-has-a-work-account"></a>Vérifiez si votre entreprise possède déjà un compte professionnel
+## <a name="check-whether-your-company-already-has-a-work-account"></a>Vérifier si votre entreprise possède déjà un compte professionnel
 
-Si votre entreprise s’est abonné à un service de cloud Microsoft comme Azure, Microsoft Intune ou Office 365, vous disposez déjà d’un travail compte domaine de messagerie (également appelé un locataire Azure Active Directory) qui peut être utilisé avec les partenaires.
+Si votre entreprise s’est abonnée à un service de cloud Microsoft comme Azure, Microsoft Intune ou Office 365, vous disposez déjà d’un domaine de compte de messagerie (également appelé locataire Azure Active Directory) qui peut être utilisé avec l’Espace partenaires.
 
-Suivez ces étapes pour vérifier :
-1. Connectez-vous au portail d’administration Azure à https://portal.azure.com.
-2. Sélectionnez **Azure Active Directory** dans le menu de navigation de gauche, puis sélectionnez **noms de domaine personnalisés**.
-3. Si vous avez déjà un compte professionnel, votre nom de domaine s’afficheront.
+Pour vérifier, procédez comme suit :
+1. Connectez-vous au portail d’administration Azure sur https://portal.azure.com.
+2. Sélectionnez **Azure Active Directory** dans le menu de navigation de gauche, puis sélectionnez **Noms de domaine personnalisés**.
+3. Si vous avez déjà un compte professionnel, votre nom de domaine s’affichera.
 
-Si votre entreprise n’a pas encore un compte professionnel, un sera créé pendant le processus d’inscription de partenaires pour vous.
+Si votre entreprise n’a pas encore de compte professionnel, il en sera créé un pendant le processus d’inscription à l’Espace partenaires.
 
-## <a name="set-up-multiple-work-accounts"></a>Configurer plusieurs comptes de travail
+## <a name="set-up-multiple-work-accounts"></a>Configurer plusieurs comptes professionnels
 
-Avant de décider d’utiliser un compte de travail existant, déterminer combien d’utilisateurs dans le compte de travail aurez besoin accéder aux partenaires. Si vous avez des utilisateurs dans le compte de travail qui ne doivent accéder aux partenaires, vous souhaiterez envisager de créer plusieurs comptes de travail, afin qu’uniquement aux utilisateurs qui devront accéder partenaires sont représentés sur un compte particulier.
+Avant de décider d’utiliser un compte professionnel existant, déterminez combien d’utilisateurs dans le compte professionnel auront besoin d’accéder à l’Espace partenaires. Si vous avez des utilisateurs dans le compte professionnel qui n’auront pas besoin d’accéder à l’Espace partenaires, vous souhaiterez peut-être envisager de créer plusieurs comptes professionnels, afin que seuls les utilisateurs qui ont besoin d’accéder à l’Espace partenaires soient représentés sur un compte particulier.
 
-## <a name="create-a-new-work-account"></a>Créer un compte professionnel.
+## <a name="create-a-new-work-account"></a>Créer un nouveau compte professionnel
 
-Pour créer un nouveau compte de travail pour votre entreprise, suivez les étapes ci-dessous. Vous devrez peut-être demander une assistance à partir de toute personne qui dispose des autorisations administratives sur le compte Microsoft Azure de votre société.
+Pour créer un nouveau compte professionnel pour votre entreprise, suivez les étapes ci-dessous. Vous devrez peut-être demander de l’aide à quelqu’un disposant d’autorisations d’administration sur le compte Microsoft Azure de votre entreprise.
 
 1. Connectez-vous au [portail Microsoft Azure](https://portal.azure.com).
-2. Dans le menu de navigation de gauche, sélectionnez le **Azure Active Directory** -> **utilisateurs**.
-3. Sélectionnez **nouvel utilisateur** et créer un nouveau compte de travail Azure en entrant une nom et adresse e-mail. Vérifiez que le **rôle d’annuaire** a la valeur **utilisateur** et sélectionnez le **afficher le mot de passe** case à cocher en bas pour afficher et prenez note du mot de passe généré automatiquement.
-4. Sélectionnez **créer** pour enregistrer le nouvel utilisateur.
+2. Dans la barre de navigation de gauche, sélectionnez **Azure Active Directory** -> **Utilisateurs**.
+3. Sélectionnez **Nouvel utilisateur** et créez un nouveau compte professionnel Azure en entrant une nom et adresse e-mail. Vérifiez que le **Rôle d’annuaire** est défini sur **Utilisateur** et activez la case à cocher **Afficher le mot de passe** en bas pour afficher et prendre note du mot de passe généré automatiquement.
+4. Sélectionnez **Créer** pour enregistrer le nouvel utilisateur.
 
-L’adresse de messagerie du compte d’utilisateur doit être un nom de domaine vérifié dans votre répertoire. Vous pouvez répertorier tous les domaines vérifiés dans votre répertoire en sélectionnant **Azure Active Directory** -> **noms de domaine personnalisés** dans le menu de navigation de gauche.
+L’adresse e-mail du compte d’utilisateur doit être un nom de domaine vérifié dans votre répertoire. Vous pouvez répertorier tous les domaines vérifiés dans votre répertoire en sélectionnant **Azure Active Directory** -> **Noms de domaine personnalisés** dans le menu de navigation de gauche.
 
-Pour en savoir plus sur l’ajout de domaines personnalisés dans Azure Active Directory, consultez [ajouter ou associer un domaine dans Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-add-domain).
+Pour en savoir plus sur l’ajout de domaines personnalisés dans Azure Active Directory, consultez [Ajouter ou associer un domaine dans Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-add-domain).
 
-## <a name="troubleshoot-work-email-sign-in"></a>Résoudre les problèmes travail e-mail connectez-vous
+## <a name="troubleshoot-work-email-sign-in"></a>Résoudre les problèmes de connexion à la messagerie professionnelle
 
-Si vous ne parvenez pas à vous connecter à votre compte professionnel (également appelé votre client Azure AD), voir le scénario sur le diagramme ci-dessous qui correspond le mieux correspond à votre situation et suivez les étapes recommandées.
+Si vous ne parvenez pas à vous connecter à votre compte professionnel (également appelé locataire Azure AD), identifiez sur le diagramme ci-dessous le scénario qui correspond le mieux à votre situation et suivez les étapes recommandées.
 
-![Diagramme pour la résolution des problèmes de connexion du travail compte](./media/onboarding-aad-flow.png)
+![Diagramme pour la résolution des problèmes de connexion à un compte professionnel](./media/onboarding-aad-flow.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Gérer votre compte de la place de marché Commercial dans Partner Center](./manage-account.md) 
+- [Gérer votre compte Place de marché commerciale dans l’Espace partenaires](./manage-account.md) 

@@ -1,5 +1,5 @@
 ---
-title: Modifier le mot de passe de compte de connecteur Azure AD | Microsoft Docs
+title: Changer le mot de passe du compte de connecteur Azure AD | Microsoft Docs
 description: Cette rubrique explique comment restaurer le compte de connecteur Azure AD.
 services: active-directory
 documentationcenter: ''
@@ -17,14 +17,14 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d68c190b51b9bbb5faf21e8ea75b07d1a82005e5
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64571405"
 ---
-# <a name="change-the-azure-ad-connector-account-password"></a>Modifier le mot de passe de compte de connecteur Azure AD
-Le compte de connecteur Azure AD est censé pour être service gratuit. Si vous devez réinitialiser les informations d’identification, cette rubrique vous concerne. Par exemple, si un administrateur général a par erreur réinitialiser le mot de passe sur le compte à l’aide de PowerShell.
+# <a name="change-the-azure-ad-connector-account-password"></a>Changer le mot de passe du compte de connecteur Azure AD
+Le compte de connecteur Azure AD est censé être proposé en libre-service. Si vous devez réinitialiser les informations d’identification, cette rubrique vous concerne. Par exemple, un administrateur général peut avoir réinitialisé par erreur le mot de passe du compte à l’aide de PowerShell.
 
 ## <a name="reset-the-credentials"></a>Réinitialisation des informations d'identification
 Si le compte de connecteur Azure AD ne peut pas contacter Azure AD en raison de problèmes d’authentification, le mot de passe peut être réinitialisé.
@@ -37,7 +37,7 @@ Si le compte de connecteur Azure AD ne peut pas contacter Azure AD en raison de 
 Cette applet de commande réinitialise le mot de passe du compte de service et l’actualise dans Azure AD et dans le moteur de synchronisation.
 
 ## <a name="known-issues-these-steps-can-solve"></a>Problèmes connus pouvant être résolus par les procédures indiquées ci-après
-Cette section est une liste d’erreurs signalées par les clients qui ont été résolus par un informations d’identification réinitialiser sur le compte de connecteur Azure AD.
+Cette section est une liste d’erreurs signalées par les clients qui ont été résolues par une réinitialisation des informations d’identification sur le compte de connecteur Azure AD.
 
 - - -
 Événement 6900  

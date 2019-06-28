@@ -17,10 +17,10 @@ ms.date: 04/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 93fae0babdee5eac87d50679fdd5b2b938c4df2e
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65236902"
 ---
 # <a name="sap-workload-on-azure-planning-and-deployment-checklist"></a>Check-list relative à la planification et au déploiement de la charge de travail SAP sur Azure 
@@ -39,7 +39,7 @@ Au cours de cette phase, une migration de la charge de travail SAP vers le cloud
     2. Créez et travaillez dans une matrice d’attribution des responsabilités (RACI) qui définit les responsabilités et les attributions des différentes parties impliquées. Démarrez au plus haut niveau et évoluez vers des niveaux de plus en plus granulaires pour la planification et les premiers déploiements
     2. Une architecture de solution de haut niveau.
     3. La décision relative aux régions Azure dans lesquelles le déploiement doit avoir lieu. Pour obtenir la liste des régions Azure, voir [Régions Azure](https://azure.microsoft.com/global-infrastructure/regions/). Pour connaître les services disponibles dans chacune des régions Azure, consultez l'article [Produits disponibles par région](https://azure.microsoft.com/global-infrastructure/services/).
-    4. Mise en réseau de l’architecture pour se connecter en local dans Azure. Familiarisez-vous avec le [blueprint Centre de données virtuel pour Azure](https://docs.microsoft.com/azure/architecture/vdc/).
+    4. L’architecture de mise en réseau pour la connexion à Azure à partir d’une instance locale. Familiarisez-vous avec le [blueprint Centre de données virtuel pour Azure](https://docs.microsoft.com/azure/architecture/vdc/).
     5. Les principes de sécurité pour l'exécution des données à impact commercial élevé dans Azure. Commencez par lire la [Documentation relative à la sécurité Azure](https://docs.microsoft.com/azure/security/).
 2.  Document de conception technique – qui contient ce qui suit :
     1.  Un schéma de la solution. 
@@ -87,7 +87,7 @@ Au cours de cette phase, une migration de la charge de travail SAP vers le cloud
  
 La phase pilote peut se dérouler avant la planification et la préparation du projet, ou parallèlement à celles-ci. Cette phase peut également être utilisée pour tester les approches et la conception proposées lors de la phase de planification et de préparation. La phase pilote peut se traduire par une véritable preuve de concepts. Il est recommandé de configurer et de valider une solution complète de haute disponibilité/récupération d'urgence ainsi qu'une conception de sécurité lors d'un déploiement pilote. Pour certains clients, des tests d'extensibilité peuvent également être réalisés au cours de cette phase. D'autres clients ont recours au déploiement de systèmes « bac à sable » SAP pour la phase pilote. Nous supposons donc que vous avez identifié un système que vous souhaitez migrer vers Azure afin d'exécuter un projet pilote.
 
-1. Optimisez le transfert de données vers Azure. Dépendent largement du transfert de cas client via [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) du système local a été le plus rapide si le Circuit Express avait suffisamment de bande passante. Pour d'autres clients, il s'est avéré plus rapide de passer par Internet.
+1. Optimisez le transfert de données vers Azure. Pour certains clients, le transfert via [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) depuis un emplacement local s’est révélé plus rapide, à condition qu’Express Circuit dispose de suffisamment de bande passante. Pour d'autres clients, il s'est avéré plus rapide de passer par Internet.
 2. Dans le cas d'une migration de plateforme hétérogène SAP, cela implique l'exportation et l'importation des données de la base de données, un test et l'optimisation des phases d'exportation et d'importation. Pour les migrations de grande envergure avec SQL Server comme plateforme de destination, des recommandations sont disponibles [ici](https://techcommunity.microsoft.com/t5/Running-SAP-Applications-on-the/SAP-OS-DB-Migration-to-SQL-Server-8211-FAQ-v6-2-April-2017/ba-p/368070). Vous pouvez adopter l'approche Moniteur de migration/SWPM si vous n'avez pas besoin d'une mise à niveau combinée de versions ou un processus [SAP DMO](https://blogs.sap.com/2013/11/29/database-migration-option-dmo-of-sum-introduction/) si vous combinez la migration avec une mise à niveau de versions SAP et effectuez certaines combinaisons de plateformes SGBD sources et cibles, comme indiqué dans [Outil Database Migration Option (DMO) de SUM 2.0 SP03](https://launchpad.support.sap.com/#/notes/2631152), par exemple. 
    1.  Exporter vers la source, Exporter le fichier chargé vers Azure et Performances d'importation.  Optimisez le chevauchement entre l'exportation et l'importation.
    2.  Évaluez le volume de base de données entre la plateforme cible et la plateforme de destination afin de refléter le dimensionnement de l'infrastructure.    
@@ -100,9 +100,9 @@ La phase pilote peut se dérouler avant la planification et la préparation du p
           1.  [Tailles des machines virtuelles Windows dans Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json). Il est important de tenir compte du **débit maximum du disque non mis en cache**  pour le dimensionnement.
           2.  [Tailles des machines virtuelles Linux dans Azure](https://docs.microsoft.com/azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json). Il est important de tenir compte du **débit maximum du disque non mis en cache** pour le dimensionnement.
    2. Stockage
-      1.  Utilisez [stockage SSD Standard Azure](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#standard-ssd) comme minimale pour les machines virtuelles représentant des couches d’application SAP et pour le déploiement de SGBD sensible non-performances
-      2.  Nous recommandons ne pas d’utiliser [des disques HDD Standard Azure](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#standard-hdd) en général
-      2.  Utilisez [Azure Premium Storage](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#premium-ssd) pour toutes les machines virtuelles SGBD qui sont à distance sensibles aux performances
+      1.  Utilisez au minimum le [stockage Disque SSD Standard Azure](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#standard-ssd) pour les machines virtuelles représentant des couches d’application SAP et pour un déploiement de SGBD non sensible aux performances
+      2.  Nous vous recommandons ne pas utiliser de [disques HDD Standard Azure](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#standard-hdd) de façon général
+      2.  Utilisez le [stockage Premium Azure](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#premium-ssd) pour toutes les machines virtuelles SGBD qui sont sensibles aux performances à distance
       2.  Utilisez des [disques managés Azure](https://azure.microsoft.com/services/managed-disks/).
       3.  Utilisez l'Accélérateur d'écriture Azure pour les lecteurs de journaux SGBD avec M-Series. Tenez compte des limites et de l'utilisation de l'Accélérateur d'écriture décrites dans [Accélérateur d'écriture](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator).
       4.  Pour les différents types de SGBD, consultez la [documentation générique relative au SGBD lié à SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general) et les documentations spécifiques aux SGBD auxquelles le document générique vous renvoie.
@@ -126,7 +126,7 @@ La phase pilote peut se dérouler avant la planification et la préparation du p
               4.  Oracle Linux 7.5. Pour le noyau RHCKL, la version 3.10.0-862.13.1.el7 est requise. Pour le noyau Oracle UEK, la version 5 doit être utilisée.
           4.   Testez et évaluez la latence du réseau entre la machine virtuelle de la couche Application SAP et celle de la couche SGBD, conformément aux notes de support SAP [n° 500235](https://launchpad.support.sap.com/#/notes/500235) et [n° 1100926](https://launchpad.support.sap.com/#/notes/1100926/E). Évaluez les résultats par rapport aux indications de latence du réseau de la note de support SAP [n° 1100926](https://launchpad.support.sap.com/#/notes/1100926/E). La latence du réseau doit être modérée ou bonne. Des exceptions s'appliquent au trafic entre les machines virtuelles et les grandes instances HANA, comme indiqué dans la documentation disponible [ici](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-network-architecture#networking-architecture-for-hana-large-instance).
           5.   Assurez-vous que les déploiements ILB sont configurés pour utiliser le retour direct du serveur. Ce paramètre réduira la latence lorsque des ILB Azure sont utilisés pour les configurations à haute disponibilité sur la couche SGBD.
-          6.   Si vous utilisez l’équilibrage de charge Azure conjointement avec vérification de systèmes d’exploitation invité Linux que Linux réseau paramètre **net.ipv4.tcp_timestamps** a la valeur **0**. Sur les recommandations dans les versions antérieures de SAP Notez [#2382421](https://launchpad.support.sap.com/#/notes/2382421). La note SAP est pendant ce temps mis à jour pour refléter le fait que le paramètre doit être défini sur 0 pour fonctionner conjointement avec les équilibreurs de charge Azure.
+          6.   Si vous utilisez l’équilibrage de charge Azure conjointement avec des systèmes d’exploitation invité Linux, vérifiez que le paramètre réseau Linux **net.ipv4.tcp_timestamps** a la valeur **0**. Sur les recommandations dans les versions antérieures de la note SAP [#2382421](https://launchpad.support.sap.com/#/notes/2382421). Pendant ce temps, la note SAP est mise à jour pour refléter le fait que le paramètre doit être défini sur 0 pour fonctionner avec les équilibreurs de charge Azure.
    4. Déploiements de haute disponibilité et de récupération d'urgence. 
       1. Si vous déployez la couche Application SAP sans définir de zone de disponibilité Azure spécifique, assurez-vous que toutes les machines virtuelles qui exécutent une instance de dialogue SAP ou des instances intergiciel d'un système SAP unique sont déployées dans un [groupe à haute disponibilité](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability). 
          1.   Si vous n'avez pas besoin de la haute disponibilité pour les services SAP Central Services et le SGBD, ces machines virtuelles peuvent être déployées dans le même groupe à haute disponibilité que la couche Application SAP.
@@ -160,7 +160,7 @@ La phase pilote peut se dérouler avant la planification et la préparation du p
 6. Tests de performances
    1.  Dans SAP, sur la base du suivi et des mesures SAP, comparez les 10 principaux rapports en ligne avec l'implémentation actuelle, le cas échéant. 
    2.  Dans SAP, sur la base du suivi et des mesures SAP, comparez les 10 principaux programmes de traitement par lots avec l'implémentation actuelle, le cas échéant. 
-   3.  Dans SAP, sur la base du suivi et des mesures SAP, comparez les transferts de données réalisés via des interfaces vers le système SAP. Vous concentrer sur les interfaces où vous savez que le transfert va maintenant entre les différents emplacements, tels que le passage du système local vers Azure 
+   3.  Dans SAP, sur la base du suivi et des mesures SAP, comparez les transferts de données réalisés via des interfaces vers le système SAP. Concentrez-vous sur les interfaces pour lesquelles vous savez que le transfert s’effectue désormais entre différents emplacements, par exemple d’un site local vers Azure 
 
 
 ## <a name="non-production-phase"></a>Phase hors production 

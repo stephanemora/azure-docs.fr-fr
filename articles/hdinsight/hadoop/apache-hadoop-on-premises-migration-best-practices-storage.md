@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
 ms.openlocfilehash: c62a5384edf66fd9309bc7afcb50ada48e3fca7d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64691518"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---storage-best-practices"></a>Migrer des clusters Apache Hadoop locaux vers Azure HDInsight - bonnes pratiques concernant le stockage
@@ -90,7 +90,7 @@ Pour plus d’informations, consultez les articles suivants :
 
 ### <a name="azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2
 
-Azure Data Lake Storage Gen2 est la toute dernière stockage offre. Elle unifie les capacités de base de la première génération d’Azure Data Lake Storage avec un point de terminaison de système de fichiers compatible Hadoop, directement intégré dans Stockage Blob Azure. Cette amélioration combine les avantages de la mise à l’échelle et du coût de stockage des objets, avec la fiabilité et les performances généralement associées seulement à des systèmes de fichiers locaux.
+Azure Data Lake Storage Gen2 est la l’offre de stockage la plus récente. Elle unifie les capacités de base de la première génération d’Azure Data Lake Storage avec un point de terminaison de système de fichiers compatible Hadoop, directement intégré dans Stockage Blob Azure. Cette amélioration combine les avantages de la mise à l’échelle et du coût de stockage des objets, avec la fiabilité et les performances généralement associées seulement à des systèmes de fichiers locaux.
 
 ADLS Gen 2 est basé sur  [Stockage Blob Azure](../../storage/blobs/storage-blobs-introduction.md) et vous permet d’interagir avec les données selon les deux paradigmes du système de fichiers et du stockage d’objets. Les fonctionnalités  [d’Azure Data Lake Storage Gen1](../../data-lake-store/index.md), comme la sémantique des systèmes de fichiers, la sécurité au niveau des fichiers et la mise à l’échelle, sont combinées à celles du  [Stockage Blob Azure](../../storage/blobs/storage-blobs-introduction.md), comme le stockage hiérarchisé économique, la haute disponibilité/reprise d’activité après sinistre et l’écosystème étendu de SDK/d’outils. Dans Data Lake Storage Gen2, toutes les qualités du stockage d’objets sont conservées, avec en plus les avantages d’une interface de système de fichiers optimisée pour les charges de travail analytiques.
 

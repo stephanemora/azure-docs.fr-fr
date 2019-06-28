@@ -1,5 +1,5 @@
 ---
-title: Advanced Threat Protection - Azure Database pour PostgreSQL - monoserveur
+title: Advanced Threat Protection - Azure Database pour PostgreSQL - Serveur unique
 description: La protection contre les menaces détecte les activités de base de données anormales qui indiquent la présence potentielle de menaces de sécurité pour la base de données.
 author: bolzmj
 ms.author: mbolz
@@ -7,13 +7,13 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: a69a8b651188b9566fdbec4bc6de09a8fec164c7
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65067464"
 ---
-# <a name="advanced-threat-protection-for-azure-database-for-postgresql---single-server"></a>Protection avancée contre les menaces pour Azure Database pour PostgreSQL - serveur unique
+# <a name="advanced-threat-protection-for-azure-database-for-postgresql---single-server"></a>Advanced Threat Protection pour Azure Database pour PostgreSQL - Serveur unique
 
 La protection avancée contre les menaces d’Azure Database pour PostgreSQL détecte des activités anormales indiquant des tentatives d’accès ou d’exploitation inhabituelles et potentiellement dangereuses de vos bases de données.
 

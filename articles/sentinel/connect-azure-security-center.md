@@ -1,5 +1,5 @@
 ---
-title: Connexion de données Azure Security Center à Sentinel version préliminaire d’Azure | Microsoft Docs
+title: Connexion des données Azure Security Center à Azure Sentinel (préversion) | Microsoft Docs
 description: Découvrez comment connecter des données Azure Security Center à Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -15,13 +15,13 @@ ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
 ms.openlocfilehash: 7f2f85f8b68efadf1dc0a35d1a8e6bda2655f53b
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65207301"
 ---
-# <a name="connect-data-from-azure-security-center"></a>Connectez des données à partir d’Azure Security Center
+# <a name="connect-data-from-azure-security-center"></a>Connecter des données à partir d’Azure Security Center
 
 > [!IMPORTANT]
 > Azure Sentinel est actuellement disponible en préversion publique.
@@ -29,27 +29,27 @@ ms.locfileid: "65207301"
 
 
 
-Sentinel Azure vous permet de connecter des alertes à partir de [Azure Security Center](../security-center/security-center-intro.md) et les diffuser vers Azure Sentinel. 
+Azure Sentinel vous permet de connecter des alertes à partir d’[Azure Security Center](../security-center/security-center-intro.md) et de les diffuser vers Azure Sentinel. 
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
-- Si vous souhaitez exporter les alertes à partir d’Azure Security Center, vous devez être un contributeur sur l’abonnement dont vous diffusez les journaux.
+- Si vous souhaitez exporter des alertes à partir d’Azure Security Center, vous devez être un contributeur sur l’abonnement dont vous diffusez les journaux.
 
-- Vous devez avoir le [niveau Standard d’Azure Security Center](../security-center/security-center-pricing.md) en cours d’exécution sur l’abonnement. Si ce n’est pas le cas, [mettre à niveau votre abonnement à la norme](https://azure.microsoft.com/pricing/details/security-center/).
+- Vous devez avoir le [niveau Standard d’Azure Security Center](../security-center/security-center-pricing.md) en cours d’exécution sur l’abonnement. Si ce n’est pas le cas, [mettez à niveau votre abonnement au niveau Standard](https://azure.microsoft.com/pricing/details/security-center/).
 
-- Vous devez vous connecter avec un utilisateur disposant de l’administrateur général ou autorisations d’administrateur de sécurité sur chaque abonnement que vous souhaitez vous connecter.
+- Vous devez vous connecter avec un utilisateur disposant des autorisations d’administrateur général ou d’administrateur de sécurité sur chaque abonnement auquel vous souhaitez vous connecter.
 
 
 ## <a name="connect-to-azure-security-center"></a>Se connecter à Azure Security Center
 
-1. Dans Azure Sentinel, sélectionnez **connecteurs de données** puis cliquez sur le **Azure Security Center** vignette.
-1. Dans la droite, cliquez sur **Connect** en regard de chaque abonnement dont vous souhaitez diffuser en continu dans Azure Sentinel les alertes. Veillez à mettre à niveau de chaque abonnement au niveau de l’Azure Security Center Standard pour les alertes de flux de données pour Azure Sentinel.
+1. Dans Azure Sentinel, sélectionnez **Connecteurs de données** puis cliquez sur la vignette du **Azure Security Center**.
+1. Dans la droite, cliquez sur **Se connecter** à côté de chaque abonnement dont vous souhaitez diffuser les alertes dans Azure Sentinel. Veillez à mettre à niveau chaque abonnement au niveau Standard d’Azure Security Center pour diffuser les alertes vers Azure Sentinel.
 
 3. Cliquez sur **Connecter**.
 
-4. Pour utiliser le schéma pertinent dans Analytique de journal pour les alertes Azure Security Center, recherchez **SecurityEvent**.
+4. Pour utiliser le schéma pertinent dans Log Analytics pour les alertes Azure Security Center, recherchez **SecurityEvent**.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans ce document, vous avez appris à connecter Azure Security Center pour Azure Sentinel. Pour en savoir plus sur Azure Sentinel, voir les articles suivants :
-- Découvrez comment [obtenez une visibilité sur vos données et les menaces potentielles](quickstart-get-visibility.md).
-- Prise en main [détecter des menaces avec Azure Sentinel](tutorial-detect-threats.md).
+Dans ce document, vous avez appris à connecter Azure Security Center à Azure Sentinel. Pour en savoir plus sur Azure Sentinel, voir les articles suivants :
+- Découvrez comment [avoir une visibilité sur vos données et les menaces potentielles](quickstart-get-visibility.md).
+- Prise en main de la [détection des menaces avec Azure Sentinel](tutorial-detect-threats.md).

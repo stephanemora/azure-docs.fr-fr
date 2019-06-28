@@ -1,6 +1,6 @@
 ---
 title: Installer et utiliser Giraph sur Azure HDInsight
-description: Découvrez comment installer Giraph sur des clusters HDInsight à l’aide des actions de script. Vous pouvez utiliser Giraph pour effectuer le traitement dans Apache Hadoop dans le cloud Azure des graphiques.
+description: Découvrez comment installer Giraph sur des clusters HDInsight à l’aide d’actions de script. Vous pouvez utiliser Giraph pour traiter des graphiques dans Apache Hadoop dans le cloud Azure.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.openlocfilehash: aa13d8dfc65f020f3f27183423913933cd0b9404
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64697599"
 ---
 # <a name="install-apache-giraph-on-hdinsight-hadoop-clusters-and-use-giraph-to-process-large-scale-graphs"></a>Installation d’Apache Giraph sur les clusters Hadoop HDInsight et utilisation de Giraph pour traiter des graphiques à grande échelle
@@ -89,7 +89,7 @@ Une fois le cluster créé, appliquez la procédure ci-après pour exécuter l�
     ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-    Pour en savoir plus, voir [Utilisation de SSH avec HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+    Pour plus d’informations, consultez [Utiliser SSH avec HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 2. Utilisez la commande suivante pour créer un fichier nommé **tiny_graph.txt** :
 
@@ -143,7 +143,7 @@ Une fois le cluster créé, appliquez la procédure ci-après pour exécuter l�
 
     Pour plus d’informations sur ces éléments et d’autres paramètres utilisés avec des exemples Giraph, consultez la section [Démarrage rapide de Giraph](https://giraph.apache.org/quick_start.html).
 
-6. Une fois la tâche terminée, les résultats sont stockés dans le **/example/out/shortestpaths** directory. Les noms de fichiers de sortie commencent par **part-m-** et se terminent par un nombre indiquant s’il s’agit du premier fichier, du deuxième fichier, etc. Pour afficher la sortie, utilisez la commande suivante :
+6. Une fois la tâche terminée, les résultats sont stockés dans le répertoire **/example/out/shortestpaths**. Les noms de fichiers de sortie commencent par **part-m-** et se terminent par un nombre indiquant s’il s’agit du premier fichier, du deuxième fichier, etc. Pour afficher la sortie, utilisez la commande suivante :
 
     ```bash
     hdfs dfs -text /example/output/shortestpaths/*

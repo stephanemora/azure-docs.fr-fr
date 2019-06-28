@@ -9,10 +9,10 @@ ms.date: 05/07/2019
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: 97a3ac275613b644dfd90144039e4f3127186997
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65603108"
 ---
 # <a name="what-is-azure-importexport-service"></a>Qu’est-ce que le service Azure Import/Export ?
@@ -74,9 +74,9 @@ Globalement, un travail d’importation comprend les opérations suivantes :
 8. Les disques sont expédiés à l’aide de votre compte de transporteur à l’adresse de retour indiquée dans le travail d’importation.
 
 > [!NOTE]
-> Pour les envois sur locales (dans le centre de données pays/région), veuillez partager un compte de transporteur domestiques 
+> Pour les expéditions à l’échelle nationale (dans le pays/la région du centre de données), veuillez partager un compte de transporteur domestique 
 >
-> Des livraisons à l’étranger (à l’extérieur du centre de données pays/région), veuillez partager un compte de transporteur international
+> Pour les expéditions à l’étranger (en dehors du pays/de la région du centre de données), veuillez partager un compte de transporteur international
 
  ![Figure 1 : flux d’importation de travail](./media/storage-import-export-service/importjob.png)
 
@@ -104,27 +104,27 @@ Globalement, un travail d’exportation comprend les opérations suivantes :
 10. Les disques sont expédiés à l’aide de votre compte de transporteur à l’adresse de retour indiquée dans le travail d’importation.
 
 > [!NOTE]
-> Pour les envois sur locales (dans le centre de données pays/région), veuillez partager un compte de transporteur domestiques 
+> Pour les expéditions à l’échelle nationale (dans le pays/la région du centre de données), veuillez partager un compte de transporteur domestique 
 >
-> Des livraisons à l’étranger (à l’extérieur du centre de données pays/région), veuillez partager un compte de transporteur international
+> Pour les expéditions à l’étranger (en dehors du pays/de la région du centre de données), veuillez partager un compte de transporteur international
   
  ![Figure 2 : flux d’exportation de travail](./media/storage-import-export-service/exportjob.png)
 
 Pour obtenir des instructions pas à pas sur l’exportation de données, consultez[Exporter des données à partir d’objets blob Azure](storage-import-export-data-from-blobs.md).
 
-## <a name="region-availability"></a>Disponibilité dans la région 
+## <a name="region-availability"></a>Disponibilité des régions 
 
 Le service Azure Import/Export prend en charge la copie des données vers et depuis tous les comptes de stockage Azure. Vous pouvez expédier des lecteurs de disque aux emplacements suivants. Si votre compte de stockage se trouve dans un emplacement Azure qui n’est pas spécifié ici, un emplacement d’expédition de remplacement est proposé lorsque vous créez le travail.
 
 ### <a name="supported-shipping-locations"></a>Emplacements d’expédition pris en charge :
 
 
-|Pays ou région  |Pays ou région  |Pays ou région  |Pays ou région  |
+|Pays/région  |Pays/région  |Pays/région  |Pays/région  |
 |---------|---------|---------|---------|
 |USA Est    | Europe Nord        | Inde Centre        |US Gov Iowa         |
 |USA Ouest     |Europe Ouest         | Inde Sud        | Est des États-Unis – US DoD        |
 |USA Est 2    | Asie Est        |  Inde Ouest        | Centre des États-Unis – US DoD        |
-|USA Ouest 2     | Asie du Sud-Est        | Centre du Canada        | Chine orientale         |
+|USA Ouest 2     | Asie Sud-Est        | Centre du Canada        | Chine orientale         |
 |USA Centre     | Australie Est        | Est du Canada        | Chine du Nord        |
 |USA Centre Nord     |  Australie Sud-Est       | Brésil Sud        | Sud du Royaume-Uni        |
 |USA Centre Sud     | Japon Ouest        |Centre de la Corée         | Centre de l’Allemagne        |
@@ -160,7 +160,7 @@ Lorsque vous envoyez des disques à Azure, vous payez le coût d’expédition a
 
 **Frais de transaction**
 
-[Frais de transaction de stockage standard](https://azure.microsoft.com/pricing/details/storage/) appliquer pendant l’importation ainsi que l’exportation de données. Frais de sortie standard sont également applicables, ainsi que des frais de transaction de stockage lorsque les données sont exportées depuis le stockage Azure. Pour plus d’informations sur les frais de sortie, consultez [tarification de transfert de données.](https://azure.microsoft.com/pricing/details/data-transfers/).
+[Les frais de transaction de stockage standard](https://azure.microsoft.com/pricing/details/storage/) s’appliquent pour l’importation et l’exportation des données. Des frais de sortie standard sont également applicables avec les frais de transaction de stockage lorsque les données sont exportées depuis le stockage Azure. Pour plus d’informations sur les frais de sortie, consultez [Tarification du transfert de données](https://azure.microsoft.com/pricing/details/data-transfers/).
 
 
 

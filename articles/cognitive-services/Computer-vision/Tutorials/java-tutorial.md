@@ -12,13 +12,13 @@ ms.author: kefre
 ms.custom: seodec18
 ms.date: 04/30/2019
 ms.openlocfilehash: a22308e0c7ff924205f715692d011a4572b2bdb8
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65232633"
 ---
-# <a name="use-computer-vision-features-with-the-rest-api-and-java"></a>Utiliser les fonctionnalités de vision par ordinateur avec l’API REST et le Java
+# <a name="use-computer-vision-features-with-the-rest-api-and-java"></a>Utiliser les fonctionnalités Vision par ordinateur avec l’API REST et Java
 
 Ce tutoriel montre les fonctionnalités de l’API REST Vision par ordinateur dans Azure Cognitive Services.
 
@@ -34,9 +34,9 @@ Ce tutoriel montre comment utiliser Vision par ordinateur pour :
 > * Lire du texte imprimé dans une image
 > * Lire du texte manuscrit dans une image
 
-L’application de formulaire Java « Swing » a déjà été écrit, mais n’a aucune fonctionnalité. Dans ce tutoriel, vous ajoutez le code spécifique à l’API REST Vision par ordinateur pour compléter la fonctionnalité de l’application.
+L’application de formulaire Java Swing a déjà été écrite, mais elle n’a pas de fonctionnalités. Dans ce tutoriel, vous ajoutez le code spécifique à l’API REST Vision par ordinateur pour compléter la fonctionnalité de l’application.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 ### <a name="platform-requirements"></a>Plateforme requise
 
@@ -44,9 +44,9 @@ Ce tutoriel a été développé à l’aide de l’IDE NetBeans, plus précisém
 
 ### <a name="subscribe-to-computer-vision-api-and-get-a-subscription-key"></a>S’abonner à l’API Vision par ordinateur et obtenir une clé d’abonnement
 
-Avant de créer l’exemple, vous devez vous abonner à des API de vision par ordinateur qui fait partie d’Azure Cognitive Services. Pour plus d’informations sur l’abonnement et la gestion des clés, consultez [Abonnements](https://azure.microsoft.com/try/cognitive-services/). Les clés primaire et secondaire peuvent toutes deux être utilisées dans ce tutoriel.
+Avant de créer l’exemple, vous devez vous abonner à l’API Vision par ordinateur qui fait partie d’Azure Cognitive Services. Pour plus d’informations sur l’abonnement et la gestion des clés, consultez [Abonnements](https://azure.microsoft.com/try/cognitive-services/). Les clés primaire et secondaire peuvent toutes deux être utilisées dans ce tutoriel.
 
-## <a name="acquire-incomplete-tutorial-project"></a>Acquérir le projet du didacticiel incomplète
+## <a name="acquire-incomplete-tutorial-project"></a>Acquérir le projet du tutoriel incomplet
 
 ### <a name="download-the-project"></a>Téléchargez le projet
 
@@ -63,8 +63,8 @@ Importez le fichier **cognitive-services-java-computer-vision-tutorial-master.zi
 1. Dans NetBeans, cliquez sur **File** > **Import Project** > **From ZIP...** (Fichier/Importer des projets/À partir d’un ZIP...). La boîte de dialogue **Import Project(s) from ZIP** (Importer des projets à partir de ZIP) s’affiche.
 1. Dans le champ **ZIP File:** (Fichier ZIP), cliquez sur le bouton **Browse** (Parcourir) pour rechercher le fichier **cognitive-services-java-computer-vision-tutorial-master.zip**, puis cliquez sur **Open** (Ouvrir).
 1. Cliquez sur **Import** (Importer) dans la boîte de dialogue **Import Project(s) from ZIP**.
-1. Dans le panneau **Projects** (Projets), développez **ComputerVision** > **Source Packages** > **&lt;default package&gt;** (ComputerVision/Packages sources/package par défaut). 
-   Certaines versions de NetBeans affichent **src** à la place de **Source Packages** > **&lt;default package&gt;**. Dans ce cas, développez **src**.
+1. Dans le panneau **Projects** (Projets), développez **ComputerVision** > **Source Packages** >  **&lt;default package&gt;** (ComputerVision/Packages sources/package par défaut). 
+   Certaines versions de NetBeans affichent **src** à la place de **Source Packages** >  **&lt;default package&gt;** . Dans ce cas, développez **src**.
 1. Double-cliquez sur **MainFrame.java** pour charger le fichier dans l’éditeur NetBeans. L’onglet **Design** (Conception) du fichier **MainFrame.java** s’affiche.
 1. Cliquez sur l’onglet **Source** pour afficher le code source Java.
 
@@ -78,7 +78,7 @@ Importez le fichier **cognitive-services-java-computer-vision-tutorial-master.zi
 
 1. Quittez l’application du tutoriel.
 
-## <a name="add-tutorial-code-to-the-project"></a>Ajoutez le code du didacticiel au projet
+## <a name="add-tutorial-code-to-the-project"></a>Ajouter le code du tutoriel au projet
 
 L’application Java Swing est configurée avec six onglets. Chaque onglet illustre une fonctionnalité différente de Vision par ordinateur (analyse, OCR, etc.). Les six sections du didacticiel n’ont pas de dépendances entre elles. Vous pouvez donc ajouter une section, la totalité des six sections ou n’importe quel sous-ensemble. Vous pouvez ajouter les sections dans n’importe quel ordre.
 
@@ -88,7 +88,7 @@ La fonctionnalité Analyser de Vision par ordinateur scanne une image pour déte
 
 Pour compléter la fonctionnalité Analyser de l’application du tutoriel, effectuez les étapes suivantes :
 
-#### <a name="add-the-event-handler-code-for-the-analyze-button"></a>Ajoutez le code de gestionnaire d’événements pour le bouton analyze
+#### <a name="add-the-event-handler-code-for-the-analyze-button"></a>Ajouter le code du gestionnaire d’événements pour le bouton d’analyse
 
 La méthode du gestionnaire d’événements **analyzeImageButtonActionPerformed** efface le formulaire, affiche l’image spécifiée dans l’URL, puis appelle la méthode **AnalyzeImage** pour analyser l’image. Quand **AnalyzeImage** retourne le résultat, la méthode affiche la réponse JSON mise en forme dans la zone de texte **Response** (Réponse), extrait la première légende de **JSONObject**, et affiche la légende et son niveau de confiance.
 
@@ -202,7 +202,7 @@ Copiez et collez la méthode **AnalyzeImage** juste en dessous de la méthode **
     }
  ```
 
-#### <a name="run-the-analyze-function"></a>Exécuter la fonction analyser
+#### <a name="run-the-analyze-function"></a>Exécuter la fonction Analyze (Analyser)
 
 Appuyez sur **F6** pour exécuter l’application. Placez votre clé d’abonnement dans le champ **Clé d’abonnement** et vérifiez que vous utilisez la région correcte dans **Subscription Region** (Région d’abonnement). Entrez une URL vers une image à analyser, puis cliquez sur le bouton **Analyze Image** (Analyser l’image) pour analyser une image et voir le résultat.
 
@@ -326,7 +326,7 @@ Copiez et collez la méthode **LandmarkImage** juste en dessous de la méthode *
     }
 ```
 
-#### <a name="run-the-landmark-function"></a>Exécuter la fonction d’éléments géographiques
+#### <a name="run-the-landmark-function"></a>Exécuter la fonction Landmark (Élément géographique)
 
 Appuyez sur **F6** pour exécuter l’application. Placez votre clé d’abonnement dans le champ **Clé d’abonnement** et vérifiez que vous utilisez la région correcte dans **Subscription Region** (Région d’abonnement). Cliquez sur l’onglet **Landmark** (Élément géographique), entrez une URL vers une image d’élément géographique, puis cliquez sur le bouton **Analyze Image** (Analyser l’image) pour analyser une image et voir le résultat.
 
@@ -336,7 +336,7 @@ La fonctionnalité Célébrités de Vision par ordinateur analyse une image pour
 
 Pour compléter la fonctionnalité Célébrités de l’application du tutoriel, effectuez les étapes suivantes :
 
-#### <a name="add-the-event-handler-code-for-the-celebrities-button"></a>Ajoutez le code de gestionnaire d’événements pour le bouton de célébrités
+#### <a name="add-the-event-handler-code-for-the-celebrities-button"></a>Ajouter le code du gestionnaire d’événements pour le bouton des célébrités
 
 La méthode du gestionnaire d’événements **celebritiesImageButtonActionPerformed** efface le formulaire, affiche l’image spécifiée dans l’URL, puis appelle la méthode **CelebritiesImage** pour analyser l’image. Quand **CelebritiesImage** retourne le résultat, la méthode affiche la réponse JSON mise en forme dans la zone de texte **Response** (Réponse), extrait le nom de la première célébrité de **JSONObject**, et affiche la célébrité et son niveau de confiance dans la fenêtre.
 
@@ -450,7 +450,7 @@ Copiez et collez la méthode **CelebritiesImage** juste en dessous de la méthod
     }
 ```
 
-#### <a name="run-the-celebrities-function"></a>Exécuter la fonction de célébrités
+#### <a name="run-the-celebrities-function"></a>Exécuter la fonction Celebrities (Célébrités)
 
 Appuyez sur **F6** pour exécuter l’application. Placez votre clé d’abonnement dans le champ **Clé d’abonnement** et vérifiez que vous utilisez la région correcte dans **Subscription Region** (Région d’abonnement). Cliquez sur l’onglet **Celebrities** (Célébrités), entrez une URL vers une image de célébrité, puis cliquez sur le bouton **Analyze Image** (Analyser l’image) pour analyser une image et voir le résultat.
 
@@ -460,7 +460,7 @@ La fonctionnalité Miniature de Vision par ordinateur génère une miniature à 
 
 Pour compléter la fonctionnalité Miniature de l’application du tutoriel, effectuez les étapes suivantes :
 
-#### <a name="add-the-event-handler-code-for-the-thumbnail-button"></a>Ajoutez le code de gestionnaire d’événements pour le bouton de miniature
+#### <a name="add-the-event-handler-code-for-the-thumbnail-button"></a>Ajouter le code du gestionnaire d’événements pour le bouton de miniature
 
 La méthode du gestionnaire d’événements **thumbnailImageButtonActionPerformed** efface le formulaire, affiche l’image spécifiée dans l’URL, puis appelle la méthode **getThumbnailImage** pour créer la miniature. Quand **getThumbnailImage** retourne le résultat, la méthode affiche la miniature générée.
 
@@ -573,7 +573,7 @@ Copiez et collez la méthode **getThumbnailImage** suivante juste en dessous de 
     }
 ```
 
-#### <a name="run-the-thumbnail-function"></a>Exécuter la fonction miniature
+#### <a name="run-the-thumbnail-function"></a>Exécuter la fonction Thumbnail (Miniature)
 
 Appuyez sur **F6** pour exécuter l’application. Placez votre clé d’abonnement dans le champ **Clé d’abonnement** et vérifiez que vous utilisez la région correcte dans **Subscription Region** (Région d’abonnement). Cliquez sur l’onglet **Thumbnail** (Miniature), entrez une URL vers une image, puis cliquez sur le bouton **Generate Thumbnail** (Générer la miniature) pour analyser une image et voir le résultat.
 
@@ -583,7 +583,7 @@ La fonctionnalité Reconnaissance optique des caractères (OCR) de Vision par or
 
 Pour compléter la fonctionnalité OCR de l’application du tutoriel, effectuez les étapes suivantes :
 
-#### <a name="add-the-event-handler-code-for-the-ocr-button"></a>Ajoutez le code de gestionnaire d’événements pour le bouton de la reconnaissance optique de caractères
+#### <a name="add-the-event-handler-code-for-the-ocr-button"></a>Ajouter le code du gestionnaire d’événements pour le bouton OCR
 
 La méthode du gestionnaire d’événements **ocrImageButtonActionPerformed** efface le formulaire, affiche l’image spécifiée dans l’URL, puis appelle la méthode **OcrImage** pour analyser l’image. Quand **OcrImage** retourne le résultat, la méthode affiche le texte détecté au format JSON dans la zone de texte **Response** (Réponse).
 
@@ -684,7 +684,7 @@ Copiez et collez la méthode **OcrImage** suivante juste en dessous de la métho
     }
 ```
 
-#### <a name="run-the-ocr-function"></a>Exécuter la fonction de la reconnaissance optique de caractères
+#### <a name="run-the-ocr-function"></a>Exécuter la fonction OCR
 
 Appuyez sur **F6** pour exécuter l’application. Placez votre clé d’abonnement dans le champ **Clé d’abonnement** et vérifiez que vous utilisez la région correcte dans **Subscription Region** (Région d’abonnement). Cliquez sur l’onglet **OCR**, entrez une URL vers une image de texte imprimé, puis cliquez sur le bouton **Read Image** (Lire l’image) pour analyser une image et voir le résultat.
 
@@ -694,7 +694,7 @@ La fonctionnalité Reconnaissance de l’écriture manuscrite de Vision par ordi
 
 Pour compléter la fonctionnalité Reconnaissance de l’écriture manuscrite de l’application du tutoriel, effectuez les étapes suivantes :
 
-#### <a name="add-the-event-handler-code-for-the-handwriting-button"></a>Ajoutez le code de gestionnaire d’événements pour le bouton de l’écriture manuscrite
+#### <a name="add-the-event-handler-code-for-the-handwriting-button"></a>Ajouter le code du gestionnaire d’événements pour le bouton d’écriture manuscrite
 
 La méthode du gestionnaire d’événements **handwritingImageButtonActionPerformed** efface le formulaire, affiche l’image spécifiée dans l’URL, puis appelle la méthode **HandwritingImage** pour analyser l’image. Quand **HandwritingImage** retourne le résultat, la méthode affiche le texte détecté au format JSON dans la zone de texte **Response** (Réponse).
 
@@ -842,12 +842,12 @@ Copiez et collez la méthode **HandwritingImage** suivante juste en dessous de l
     }
 ```
 
-#### <a name="run-the-handwriting-function"></a>Exécuter la fonction de l’écriture manuscrite
+#### <a name="run-the-handwriting-function"></a>Exécuter la fonction Handwriting (Écriture manuscrite)
 
 Pour exécuter l’application, appuyez sur **F6**. Placez votre clé d’abonnement dans le champ **Clé d’abonnement** et vérifiez que vous utilisez la région correcte dans **Subscription Region** (Région d’abonnement). Cliquez sur l’onglet **Read Handwritten Text** (Lire du texte manuscrit), entrez une URL vers une image de texte manuscrit, puis cliquez sur le bouton **Read Image** (Lire l’image) pour analyser une image et voir le résultat.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce guide, vous avez utilisé l’API REST de vision par ordinateur avec Java pour tester la plupart des fonctionnalités d’analyse d’image disponibles. Ensuite, consultez la documentation de référence pour en savoir que plus sur les API impliqués.
+Dans ce guide, vous avez utilisé l’API REST Vision par ordinateur avec Java pour tester la plupart des fonctionnalités d’analyse d’image disponibles. Consultez la documentation de référence pour en savoir que plus sur les API impliquées.
 
-- [REST API vision par ordinateur](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa)
+- [API REST Vision par ordinateur](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa)

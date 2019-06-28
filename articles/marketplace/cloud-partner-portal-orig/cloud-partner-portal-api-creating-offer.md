@@ -8,10 +8,10 @@ ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pabutler
 ms.openlocfilehash: 55f6aa60c836d55333e1c5b02a44114b91df822d
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64935518"
 ---
 <a name="create-or-modify-an-offer"></a>Créer ou modifier une offre
@@ -25,7 +25,7 @@ Cet appel met à jour une offre spécifique dans l’espace de noms du serveur d
 <a name="uri-parameters"></a>Paramètres URI
 --------------
 
-|  **Name**         |  **Description**                      |  **Type de données**  |
+|  **Nom**         |  **Description**                      |  **Type de données**  |
 |  --------         |  ----------------                     |  -------------  |
 | publisherId       |  Identificateur du serveur de publication, par exemple `contoso` |   Chaîne |
 | offerId           |  Identificateur de l’offre                     |   Chaîne        |
@@ -35,7 +35,7 @@ Cet appel met à jour une offre spécifique dans l’espace de noms du serveur d
 <a name="header"></a>En-tête
 ------
 
-|  **Name**        |  **Valeur**               |
+|  **Nom**        |  **Valeur**               |
 |  ---------       |  ----------              | 
 | Content-Type     | `application/json`       |
 | Authorization    | `Bearer YOUR_TOKEN`      |

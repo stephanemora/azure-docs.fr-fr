@@ -9,10 +9,10 @@ ms.date: 05/06/2019
 ms.author: crdun
 ms.custom: include file
 ms.openlocfilehash: be8384225d213cd83cbbac8bdfb92ec1e823c38b
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66235965"
 ---
 1. Connectez-vous au [Portail Azure].
@@ -21,11 +21,11 @@ ms.locfileid: "66235965"
 
 3. Dans la zone de recherche, entrez **Mobile Apps**.
 
-4. Dans la liste des résultats, sélectionnez **application Mobile**, puis sélectionnez **créer**.
+4. Dans la liste des résultats, sélectionnez **Application mobile**, puis **Créer**.
 
 5. Choisissez un **Nom de l’application** unique. Celui-ci fera également partie du nom de domaine de votre App Service.
 
-6. Sélectionnez le **abonnement** pour cette application mobile.
+6. Sélectionnez l’**abonnement** pour cette application mobile.
 
 7. Dans **Groupe de ressources**, sélectionnez un groupe de ressources existant _ou_ créez-en un (en utilisant le même nom que votre application).
 

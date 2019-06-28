@@ -15,38 +15,38 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.author: jegeib
 ms.openlocfilehash: 6ad6eca20827e1683237b2c668eba71acedfaade
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64917618"
 ---
-# <a name="threat-modeling-tool-update-release-71604081---492019"></a>Mise à jour d’outil de modélisation de contre les menaces 7.1.60408.1 - 4/9/2019
+# <a name="threat-modeling-tool-update-release-71604081---492019"></a>Mise à jour de Threat Modeling Tool version 7.1.60408.1 - 09/04/2019
 
-Version 7.1.60408.1 de Microsoft Threat Modeling outil (TMT) a été publiée sur 2019 9 avril et contient les modifications suivantes :
+La version 7.1.60408.1 de Microsoft Threat Modeling Tool (TMT) a été publiée le 9 avril 2019 et contient les modifications suivantes :
 
-- Nouveau gabarits pour Azure Key Vault et Azure Traffic Manager
-- Numéro de version TMT est à présent affiché sur l’écran d’accueil
-- Liens de support ont été mis à jour.
+- Nouveaux gabarits pour Azure Key Vault et Azure Traffic Manager
+- Le numéro de version TMT est maintenant affiché sur l’écran d’accueil
+- Les liens de support ont été mis à jour
 - Résolution des bogues
 
 ## <a name="feature-changes"></a>Évolution des fonctionnalités
 
-### <a name="new-stencils-for-azure-key-vault-and-azure-traffic-manager"></a>Nouveau gabarits pour Azure Key Vault et Azure Traffic Manager
+### <a name="new-stencils-for-azure-key-vault-and-azure-traffic-manager"></a>Nouveaux gabarits pour Azure Key Vault et Azure Traffic Manager
 
-![Stencil de coffre de clés Azure](./media/azure-security-threat-modeling-tool-releases-71604081/tmt_keyvault_trafficmanager.PNG)
+![Gabarit Azure Key Vault](./media/azure-security-threat-modeling-tool-releases-71604081/tmt_keyvault_trafficmanager.PNG)
 
-Nouveau gabarits et les menaces pour Azure Key Vault et Azure Traffic Manager ont été ajoutés à l’ensemble de gabarit Azure. Lors de l’ouverture des modèles basés sur le jeu de gabarit Azure, les utilisateurs seront invités à mettre à jour le modèle associé au modèle. La mise à jour un modèle basé sur l’ensemble de gabarit Azure peut également être lancé manuellement à l’aide de la commande « Appliquer le modèle » dans le menu « Fichier » et réappliquer le dernier fichier Services.tb7 de Cloud Azure.
+De nouveaux gabarits et de nouvelles menaces pour Azure Key Vault et Azure Traffic Manager ont été ajoutés à l’ensemble de gabarits Azure. Lors de l’ouverture de modèles basés sur l’ensemble de gabarits Azure, les utilisateurs seront invités à mettre à jour le gabarit associé au modèle. La mise à jour d’un modèle basé sur l’ensemble de gabarits Azure peut également être initiée manuellement à l’aide de la commande « Appliquer le modèle » dans le menu « Fichier » et en appliquant à nouveau le dernier fichier Services.tb7 d’Azure Cloud.
 
-### <a name="tmt-version-number-is-now-shown-on-the-home-screen"></a>Numéro de version TMT est à présent affiché sur l’écran d’accueil
+### <a name="tmt-version-number-is-now-shown-on-the-home-screen"></a>Le numéro de version TMT est maintenant affiché sur l’écran d’accueil
 
-La version du client de l’outil de modélisation des menaces est à présent affichée sur l’écran d’accueil de l’application pour les options d’ergonomie.
+La version du client de Threat Modeling Tool est maintenant affichée sur l’écran d’accueil de l’application pour faciliter l’accès.
 
-![Stencil de coffre de clés Azure](./media/azure-security-threat-modeling-tool-releases-71604081/tmt_version.PNG)
+![Gabarit Azure Key Vault](./media/azure-security-threat-modeling-tool-releases-71604081/tmt_version.PNG)
 
-### <a name="support-links-have-been-updated"></a>Liens de support ont été mis à jour.
+### <a name="support-links-have-been-updated"></a>Les liens de support ont été mis à jour
 
-Tous les liens de support dans l’outil ont été mis à jour pour diriger les utilisateurs à [ tmtextsupport@microsoft.com ](mailto:tmtextsupport@microsoft.com) au lieu d’un forum MSDN.
+Tous les liens de support dans l’outil ont été mis à jour pour diriger les utilisateurs vers [tmtextsupport@microsoft.com](mailto:tmtextsupport@microsoft.com) au lieu d’un forum MSDN.
 
 ## <a name="system-requirements"></a>Conditions requises pour le système
 

@@ -1,6 +1,6 @@
 ---
-title: Clouds privés dans la VMware Solution par CloudSimple - Azure
-description: Découvrez les concepts et les clouds privés CloudSimple.
+title: Clouds privés dans la solution VMware de CloudSimple - Azure
+description: Découvrez les clouds privés et concepts CloudSimple.
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 04/10/2019
@@ -9,124 +9,124 @@ ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: dc07b4eea553e6cb3d9b522826e860ddbfbc1513
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/26/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64577044"
 ---
-# <a name="cloudsimple-private-cloud-overview"></a>Vue d’ensemble du cloud privé CloudSimple
+# <a name="cloudsimple-private-cloud-overview"></a>Vue d’ensemble des clouds privés CloudSimple
 
-CloudSimple transforme et étend les charges de travail VMware à des clouds publics en quelques minutes. À l’aide du service CloudSimple, vous pouvez déployer VMware en mode natif sur l’infrastructure Azure de métal nu. Votre déploiement se trouve sur les emplacements Azure et s’intègre entièrement avec le reste du cloud Azure.
+CloudSimple transforme et étend les charges de travail VMware aux clouds publics en quelques minutes. Le service CloudSimple vous permet de déployer VMware en mode natif sur une infrastructure nue Azure. Votre déploiement réside aux emplacements Azure et s’intègre complètement au reste du cloud Azure.
 
-* La solution CloudSimple fournit la continuité opérationnelle complète VMware. Cette solution vous offre les avantages de cloud public de :
+* La solution CloudSimple assure une continuité opérationnelle VMware complète. Cette solution vous offre les avantages du cloud :
   * Élasticité
   * Innovation
-  * Rendement
-* Avec CloudSimple, vous bénéficiez d’un modèle de consommation cloud permettant de réduire votre coût total de possession. Il offre également la demande approvisionnement, payer en tant que les extensions et optimisation de la capacité.
-* CloudSimple est entièrement compatible avec :
+  * Efficacité
+* Avec CloudSimple, vous bénéficiez d’un modèle de consommation cloud qui réduit votre coût total de possession. Cette solution offre également des fonctionnalités d’approvisionnement à la demande, de paiement en fonction de votre croissance et d’optimisation de la capacité.
+* CloudSimple est totalement compatible avec les éléments suivants :
   * Outils existants
   * Compétences
   * Processus
-* Cette compatibilité permet à vos équipes gérer des charges de travail sur le cloud Azure, sans interrompre vos stratégies :
+* Cette compatibilité permet à vos équipes de gérer les charges de travail sur le cloud Azure, sans interrompre vos stratégies :
   * Réseau
   * Sécurité  
   * Protection des données  
   * Audit
-* CloudSimple gère l’infrastructure et tous les services réseau et de gestion nécessaires. Le service CloudSimple permet à vous concentrer sur votre équipe :
-  * Valeur commerciale
-  * Approvisionnement d’application
+* CloudSimple gère l’infrastructure, ainsi que tous les services de mise en réseau et de gestion nécessaires. Le service CloudSimple permet à vos équipes de se concentrer sur les aspects suivants :
+  * Valeur métier
+  * Approvisionnement d’applications
   * Continuité de l’activité
   * Support
   * Application de stratégies
 
-## <a name="private-cloud-environment-overview"></a>Vue d’ensemble des environnement de cloud privé
+## <a name="private-cloud-environment-overview"></a>Vue d’ensemble d’un environnement de cloud privé
 
-Un cloud privé est une pile VMware isolée, tels que ces environnements :
+Un cloud privé est une pile VMware isolée, telle que les environnements suivants :
 
 * Hôtes ESXi
 * vCenter
 * vSAN
 * NSX
 
-Clouds privés sont gérés par un serveur vCenter dans son propre domaine de gestion.
+Les clouds privés sont gérés par un serveur vCenter dans son propre domaine de gestion.
 
-La pile s’exécute sur :
+La pile s’exécute sur les éléments suivants :
 
 * Nœuds dédiés
-* Nœuds de matériel nu isolé
+* Nœuds matériels nus isolés
 
-Les utilisateurs consomment la pile via les outils natifs de VMware, y compris :
+Les utilisateurs consomment la pile par le biais des outils VMware natifs, tels que :
 
 * vCenter
 * NSX Manager
 
-Vous pouvez déployer des nœuds dédiés dans des emplacements Azure. Puis vous pouvez les gérer avec Azure et CloudSimple. Un cloud privé se compose d’un ou plusieurs clusters vSphere, et chaque cluster contient 3 et 16 nœuds.
+Vous pouvez déployer des nœuds dédiés aux emplacements Azure. Vous pouvez ensuite les gérer avec Azure et CloudSimple. Un cloud privé se compose d’un ou de plusieurs clusters vSphere, qui contiennent chacun entre 3 et 16 nœuds.
 
-Vous pouvez créer un cloud privé à l’aide d’acheté des nœuds :
+Vous pouvez créer un cloud privé à l’aide de nœuds achetés :
 
-* Nœuds de paiement à l’utilisation
-* Nœuds réservés et dédiés
+* Nœuds avec paiement à l’utilisation
+* Nœuds dédiés réservés
 
-Vous pouvez vous connecter au cloud privé à votre environnement local et le réseau Azure utilise les connexions suivantes :
+Vous pouvez connecter le cloud privé à votre environnement local, et le réseau Azure utilise les connexions suivantes :
 
 * Sécuriser
-* Privé VPN
+* VPN privé
 * Azure ExpressRoute
 
-L’environnement de cloud privé est conçu pour éviter d’avoir un point de défaillance unique :
+L’environnement de cloud privé est conçu pour éliminer tout risque de point de défaillance unique :
 
-* ESXi clusters sont configurés avec une haute disponibilité de vSphere et sont dimensionnés pour avoir au moins un nœud de secours pour assurer la résilience.
-* vSAN fournit le stockage principal redondant. vSan nécessite au moins trois nœuds pour fournir une protection contre une défaillance unique. Vous pouvez configurer le réseau vSAN pour fournir une résilience accrue pour les clusters de grande taille.
-* Vous pouvez configurer vCenter PSC, NSX Manager machines virtuelles et avec la stratégie de stockage RAID 10 pour protéger contre les défaillances de stockage. Ensuite, qu’elles sont protégées par vSphere HA contre les défaillances de nœud et le réseau.
+* Les clusters ESXi sont configurés avec la haute disponibilité vSphere et sont dimensionnés de manière à disposer d’au moins un nœud de réserve à des fins de résilience.
+* vSAN fournit le stockage principal redondant. vSAN nécessite au moins trois nœuds afin d’offrir une protection contre une défaillance unique. Vous pouvez configurer vSAN pour qu’il fournisse une résilience accrue pour les clusters de grande taille.
+* Vous pouvez configurer les machines virtuelles vCenter, PSC et NSX Manager avec la stratégie de stockage RAID 10 pour les protéger contre les défaillances de stockage. Ces machines sont également protégées par vSphere HA contre les défaillances de nœud et de réseau.
 
 ## <a name="scenarios-for-deploying-a-private-cloud"></a>Scénarios de déploiement d’un cloud privé
 
-* **Mise hors service du centre de données ou la migration**
+* **Mise hors service ou migration des centres de données**
 
-  * Obtenez une capacité supplémentaire lorsque vous atteignez les limites de votre centre de données ou actualisez le matériel.
-  * Ajouter la capacité nécessaire dans le cloud et d’éliminer les soucis liés à la gestion des actualisations de matériel.
-  * Réduire les risques et le coût des migrations de cloud, par rapport à des conversions du temps ou de reconcevoir l’architecture.
-  * Utiliser des outils familiers de VMware et les compétences pour accélérer les migrations de cloud. Dans le cloud, utilisez les services Azure à moderniser vos applications à votre rythme.
+  * Bénéficiez d’une capacité supplémentaire lorsque vous atteignez les limites de votre centre de données existant ou actualisez le matériel.
+  * Ajoutez la capacité requise dans le cloud et éliminez les problèmes liés à la gestion des actualisations du matériel.
+  * Réduisez les risques et les coûts des migrations vers le cloud, comparativement aux longues tâches de conversion ou de remaniement de l’architecture.
+  * Appuyez-vous sur les compétences et outils VMware familiers pour accélérer les migrations vers le cloud. Dans le cloud, modernisez vos applications à votre rythme à l’aide des services Azure.
 
-* **Développez à la demande**
+* **Extension à la demande**
 
-  * Développez pour le cloud pour répondre aux besoins imprévues, telles que les nouveaux environnements de développement ou les pics saisonniers capacité.
-  * Créer une nouvelle capacité à la demande et conservez-la tant que vous en avez besoin.
-  * Réduisez votre investissement initial, accélèrent la vitesse de l’approvisionnement et réduire la complexité avec la même architecture et des stratégies sur en local et le cloud.
+  * Étendez-vous au cloud pour faire face aux imprévus, tels que les nouveaux environnements de développement ou les pics de capacité saisonniers.
+  * Créez de la capacité à la demande et ne la conservez que le temps nécessaire.
+  * Réduisez votre investissement initial, accélérez la vitesse d’approvisionnement et réduisez la complexité en utilisant la même architecture et les mêmes stratégies en local que dans le cloud.
 
-* **Récupération d’urgence et les bureaux virtuels dans le cloud Azure**
+* **Récupération d’urgence et bureaux virtuels dans le cloud Azure**
 
-  * Établir l’accès à distance aux données, des applications et des postes de travail dans le cloud Azure. Les connexions à bande passante élevée, vous charger / télécharger des données rapides à récupérer après des incidents. Donnez des réseaux à latence faible rapide de réponse fois les utilisateurs s’attendent à partir d’une application de bureau.
+  * Établissez un accès à distance aux données, aux applications et aux postes de travail dans le cloud Azure. Grâce aux connexions à large bande passante, vous chargez/téléchargez rapidement des données pour accélérer la récupération en cas d’incident. Les réseaux à faible latence offrent la rapidité de réponse que les utilisateurs attendent d’une application de bureau.
 
-  * Répliquer toutes vos stratégies et mise en réseau dans le cloud à l’aide de la CloudSimple portail et les outils VMware. Cette réplication permet de réduire les efforts et le risque de créer et gérer des implémentations de récupération d’urgence et l’infrastructure VDI.
+  * Répliquez toutes vos stratégies et mises en réseau dans le cloud à l’aide du portail CloudSimple et des outils VMware familiers. Cette réplication réduit les efforts et les risques liés à la création et à la gestion des implémentations de récupération d’urgence et d’infrastructure VDI (Virtual Desktop Infrastructure).
 
-* **Bases de données et des applications hautes performances**
+* **Applications et bases de donnés hautes performances**
 
-  * Exécutez vos charges de travail les plus exigeantes, avec l’architecture de hyperconvergé fournie par CloudSimple.
-  * Exécutez Oracle, Microsoft SQL server, systèmes d’intergiciel (middleware) et les bases de données NoSQL hautes performances.
+  * Exécutez vos charges de travail les plus exigeantes avec l’architecture hyperconvergée fournie par CloudSimple.
+  * Exécutez Oracle, Microsoft SQL Server, les systèmes intergiciels et les bases de données NoSQL hautes performances.
 
-  * Découvrez le cloud en tant que votre propre centre de données avec des connexions de réseau à haut débit 25 Gbits/s. Connexions à haut débit vous permet d’exécuter des applications hybrides qui couvrent en local, VMware sur Azure, activer et privés charges de travail Azure, sans compromettre les performances.
+  * Testez le cloud comme s’il s’agissait de votre propre centre de données avec des connexions réseau à haut débit de 25 Gbits/s. Les connexions à haut débit vous permettent d’exécuter des applications hybrides qui couvrent les charges de travail locales, les charges de travail VMware sur Azure et les charges de travail privées Azure, sans compromettre les performances.
 
-* **True hybride**
+* **Expérience véritablement hybride**
 
-  * Unifier DevOps sur VMware et des services Azure.
-  * Optimiser l’administration de VMware pour les solutions qui peuvent être appliquées sur toutes vos charges de travail et des services Azure.
-  * Accéder aux services de cloud public sans avoir à développer votre centre de données ou réorganisez vos applications.
-  * Centraliser les identités, les stratégies de contrôle d’accès, journalisation et de surveillance pour les applications de VMware sur Azure.
+  * Unifiez les opérations DevOps dans l’ensemble des services VMware et Azure.
+  * Optimisez l’administration VMware des solutions et services Azure qui sont applicables à toutes vos charges de travail.
+  * Accédez aux services cloud publics sans avoir à étendre votre centre de données ni à remanier l’architecture de vos applications.
+  * Centralisez les identités, les stratégies de contrôle d’accès, la journalisation et la surveillance des applications VMware sur Azure.
 
 ## <a name="limits"></a>limites
 
-Tableau ci-dessous indique les limites de nœud sur les ressources d’un cloud privé.
+Le tableau ci-après indique les limites de nœud sur les ressources d’un cloud privé.
 
 | Ressource | Limite |
 |----------|-------|
-| Nombre minimal de nœuds pour créer un cloud privé | 3 |
+| Nombre minimal de nœuds pour la création d’un cloud privé | 3 |
 | Nombre maximal de nœuds dans un cluster sur un cloud privé | 16 |
 | Nombre maximal de nœuds dans un cloud privé | 64 |
 | Nombre minimal de nœuds sur un nouveau cluster | 3 |
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Découvrez comment [créer un cloud privé](https://docs.azure.cloudsimple.com/create-private-cloud/)
-* Découvrez comment [configurer un environnement de cloud privé](quickstart-create-private-cloud.md)
+* Découvrez comment [créer un cloud privé](https://docs.azure.cloudsimple.com/create-private-cloud/).
+* Apprenez à [configurer un environnement de cloud privé](quickstart-create-private-cloud.md).
