@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/31/2017
 ms.author: banders
 ms.openlocfilehash: 77c1a85136b2117af7396b8eec2d8b92b335d61d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60369961"
 ---
 # <a name="understand-terms-on-your-microsoft-azure-invoice"></a>Comprendre les termes figurant sur votre facture Microsoft Azure
@@ -99,7 +99,7 @@ Le tableau suivant décrit les en-têtes de colonne Frais d’utilisation indiqu
 
 | Terme |Description |
 | --- | --- |
-| Name |Identifie le service de niveau supérieur pour l’utilisation |
+| Nom |Identifie le service de niveau supérieur pour l’utilisation |
 | Type |Définit le type de service Azure pouvant affecter le tarif |
 | Ressource |Identifie l’unité de mesure du compteur consommé |
 | Région |Identifie l’emplacement du centre de données pour certains services dont le prix est basé sur cet emplacement |
@@ -116,4 +116,4 @@ Si vous voulez plus de détails sur des frais indiqués sur votre facture, consu
 
 ## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Contactez-nous.
 
-Si vous avez des questions ou besoin d’aide, [créer une demande de support](https://go.microsoft.com/fwlink/?linkid=2083458).
+Si vous avez des questions ou besoin d’aide, [créez une demande de support](https://go.microsoft.com/fwlink/?linkid=2083458).

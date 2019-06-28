@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 06/04/2018
 ms.author: kumud
 ms.openlocfilehash: b3225d8d2f9eb7ccd0f4087d93cd9c1d940783d9
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64714680"
 ---
 # <a name="diagnostic-logging-for-a-network-security-group"></a>Journalisation des diagnostics pour un groupe de sécurité réseau
@@ -57,11 +57,11 @@ Vous pouvez utiliser le [portail Azure](#azure-portal), [PowerShell](#powershell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Vous pouvez exécuter les commandes qui suivent dans [Azure Cloud Shell](https://shell.azure.com/powershell), ou en exécutant PowerShell à partir de votre ordinateur. Azure Cloud Shell est un interpréteur de commandes interactif gratuit. Il contient des outils Azure courants préinstallés et configurés pour être utilisés avec votre compte. Si vous exécutez PowerShell à partir de votre ordinateur, vous devez le module Azure PowerShell, version 1.0.0 ou une version ultérieure. Exécutez `Get-Module -ListAvailable Az` sur votre ordinateur pour trouver la version installée. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-az-ps). Si vous exécutez PowerShell en local, vous devez également exécuter `Connect-AzAccount` se connecter à Azure avec un compte qui possède le [autorisations nécessaires](virtual-network-network-interface.md#permissions).
+Vous pouvez exécuter les commandes qui suivent dans [Azure Cloud Shell](https://shell.azure.com/powershell), ou en exécutant PowerShell à partir de votre ordinateur. Azure Cloud Shell est un interpréteur de commandes interactif gratuit. Il contient des outils Azure courants préinstallés et configurés pour être utilisés avec votre compte. Si vous exécutez PowerShell sur votre ordinateur, vous devez utiliser le module Azure PowerShell version 1.0.0 ou ultérieure. Exécutez `Get-Module -ListAvailable Az` sur votre ordinateur pour trouver la version installée. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-az-ps). Si vous exécutez PowerShell localement, vous devez aussi exécuter `Connect-AzAccount` pour vous connecter à Azure avec un compte disposant des [autorisations nécessaires](virtual-network-network-interface.md#permissions).
 
-Pour activer la journalisation des diagnostics, vous avez besoin de l’Id d’un groupe de sécurité réseau existant. Si vous n’avez pas un NSG existant, vous pouvez en créer un avec [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup).
+Pour activer la journalisation des diagnostics, vous avez besoin de l’Id d’un groupe de sécurité réseau existant. Si vous ne disposez pas de groupe de sécurité réseau, vous pouvez en créer un avec [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup).
 
-Récupérer le groupe de sécurité réseau que vous souhaitez activer la journalisation des diagnostics pour avec [Get-AzNetworkSecurityGroup](/powershell/module/az.network/get-aznetworksecuritygroup). Par exemple, pour récupérer un groupe de sécurité réseau nommé *myNsg*, qui existe dans un groupe de ressources appelé *myResourceGroup*, entrez la commande suivante :
+Récupérez le groupe de sécurité réseau pour lequel vous souhaitez activer la journalisation des diagnostics avec [Get-AzNetworkSecurityGroup](/powershell/module/az.network/get-aznetworksecuritygroup). Par exemple, pour récupérer un groupe de sécurité réseau nommé *myNsg*, qui existe dans un groupe de ressources appelé *myResourceGroup*, entrez la commande suivante :
 
 ```azurepowershell-interactive
 $Nsg=Get-AzNetworkSecurityGroup `
@@ -69,7 +69,7 @@ $Nsg=Get-AzNetworkSecurityGroup `
   -ResourceGroupName myResourceGroup
 ```
 
-Vous pouvez écrire des journaux de diagnostic sur trois types de destinations. Pour plus d’informations, consultez [Destinations de journaux](#log-destinations). Dans cet article, les journaux d’activité sont envoyés à la destination *Log Analytics*, à titre d’exemple. Récupérer un espace de travail Analytique de journal avec [Get-AzOperationalInsightsWorkspace](/powershell/module/az.operationalinsights/get-azoperationalinsightsworkspace). Par exemple, pour récupérer un espace de travail existant nommé *myWorkspace*, dans un groupe de ressources appelé *myWorkspaces*, entrez la commande suivante :
+Vous pouvez écrire des journaux de diagnostic sur trois types de destinations. Pour plus d’informations, consultez [Destinations de journaux](#log-destinations). Dans cet article, les journaux d’activité sont envoyés à la destination *Log Analytics*, à titre d’exemple. Récupérez un espace de travail Log Analytics avec [Get-AzOperationalInsightsWorkspace](/powershell/module/az.operationalinsights/get-azoperationalinsightsworkspace). Par exemple, pour récupérer un espace de travail existant nommé *myWorkspace*, dans un groupe de ressources appelé *myWorkspaces*, entrez la commande suivante :
 
 ```azurepowershell-interactive
 $Oms=Get-AzOperationalInsightsWorkspace `
@@ -77,9 +77,9 @@ $Oms=Get-AzOperationalInsightsWorkspace `
   -Name myWorkspace
 ```
 
-Si vous n’avez pas un espace de travail existant, vous pouvez en créer un avec [New-AzOperationalInsightsWorkspace](/powershell/module/az.operationalinsights/new-azoperationalinsightsworkspace).
+Si vous n’avez pas d’espace de travail, vous pouvez en créer un avec [New-AzOperationalInsightsWorkspace](/powershell/module/az.operationalinsights/new-azoperationalinsightsworkspace).
 
-Il existe deux catégories de journalisation pour lesquelles vous pouvez activer les journaux d’activité. Pour plus d’informations, consultez [Catégories de journal](#log-categories). Activer la journalisation des diagnostics pour le groupe de sécurité réseau avec [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting). L’exemple suivant enregistre à la fois les données des catégories d’événements et de compteurs dans l’espace de travail d’un groupe de sécurité réseau, à l’aide des ID du groupe de sécurité réseau et de l’espace de travail récupérés précédemment :
+Il existe deux catégories de journalisation pour lesquelles vous pouvez activer les journaux d’activité. Pour plus d’informations, consultez [Catégories de journal](#log-categories). Activez la journalisation des diagnostics pour le groupe de sécurité réseau avec [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting). L’exemple suivant enregistre à la fois les données des catégories d’événements et de compteurs dans l’espace de travail d’un groupe de sécurité réseau, à l’aide des ID du groupe de sécurité réseau et de l’espace de travail récupérés précédemment :
 
 ```azurepowershell-interactive
 Set-AzDiagnosticSetting `
@@ -132,7 +132,7 @@ Consultez et analysez les journaux d’activité. Pour plus d’informations, vo
 Les données de diagnostic peuvent être :
 - [Écrites dans un compte de stockage Azure](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json), pour l’audit ou l’inspection manuelle. Vous pouvez spécifier la durée de rétention (en jours) à l’aide des paramètres de diagnostic des ressources.
 - [Diffusées vers un hub d’événements](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) pour qu’un service tiers ou une solution d’analyse personnalisée (p. ex. PowerBI) les ingère.
-- [Écrit dans les journaux Azure Monitor](../azure-monitor/platform/collect-azure-metrics-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-diagnostics-direct-to-log-analytics).
+- [Écrit dans les journaux d’activité Azure Monitor](../azure-monitor/platform/collect-azure-metrics-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-diagnostics-direct-to-log-analytics).
 
 ## <a name="log-categories"></a>Catégories de journal
 
@@ -199,7 +199,7 @@ Le journal du compteur de règles contient des informations sur chacune des règ
 ## <a name="view-and-analyze-logs"></a>Afficher et analyser les journaux d’activité
 
 Pour savoir comment voir les données des journaux de diagnostic, consultez [Vue d’ensemble des journaux de diagnostic Azure](../azure-monitor/platform/diagnostic-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Si vous envoyez des données de diagnostic à :
-- **Journaux Azure Monitor** : vous pouvez utiliser la solution d’[analytique de groupe de sécurité réseau](../azure-monitor/insights/azure-networking-analytics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-network-security-group-analytics-solution-in-azure-monitor
+- **Journaux d’activité Azure Monitor** : vous pouvez utiliser la solution d’[analytique de groupe de sécurité réseau](../azure-monitor/insights/azure-networking-analytics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-network-security-group-analytics-solution-in-azure-monitor
 ) pour obtenir des insights plus poussés. La solution offre des visualisations pour les règles NSG qui autorisent ou refusent le trafic, par adresse MAC, de l’interface réseau sur une machine virtuelle.
 - **Compte Stockage Azure** : les données sont écrites dans un fichier PT1H.json. Vous pouvez trouver le :
   - Journal des événements dans le chemin suivant : `insights-logs-networksecuritygroupevent/resourceId=/SUBSCRIPTIONS/[ID]/RESOURCEGROUPS/[RESOURCE-GROUP-NAME-FOR-NSG]/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/[NSG NAME]/y=[YEAR]/m=[MONTH/d=[DAY]/h=[HOUR]/m=[MINUTE]`

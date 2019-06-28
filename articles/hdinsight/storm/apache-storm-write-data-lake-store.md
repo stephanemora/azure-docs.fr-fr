@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.openlocfilehash: 4ba0c861674eb2308cf1f96c33d0792f3e1a0f94
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64683676"
 ---
 # <a name="write-to-apache-hadoop-hdfs-from-apache-storm-on-hdinsight"></a>Écrire dans Apache Hadoop HDFS à partir d’Apache Storm sur HDInsight
@@ -145,7 +145,7 @@ Pour plus d’informations sur l’utilisation de ce script avec votre cluster, 
 
 ## <a name="build-and-package-the-topology"></a>Génération et empaquetage de la topologie
 
-1. Télécharger l’exemple de projet à partir de [ https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store ](https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store) à votre environnement de développement.
+1. Téléchargez l’exemple de projet à partir de [https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store](https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store) dans votre environnement de développement.
 
 2. À partir d’une invite de commandes, d’un terminal ou d’une session shell, modifiez les répertoires à la racine du projet téléchargé. Pour générer et empaqueter la topologie, utilisez la commande suivante :
    

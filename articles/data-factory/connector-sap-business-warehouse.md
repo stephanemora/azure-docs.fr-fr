@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.date: 08/07/2018
 ms.author: jingwang
 ms.openlocfilehash: 9a0abcd70b4aeb2369604bafa924136122206e0a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60309111"
 ---
 # <a name="copy-data-from-sap-business-warehouse-using-azure-data-factory"></a>Copier des données de SAP Business Warehouse à l’aide d’Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
 > * [Version 1](v1/data-factory-sap-business-warehouse-connector.md)
 > * [Version actuelle](connector-sap-business-warehouse.md)
 
@@ -60,13 +60,13 @@ Les propriétés prises en charge pour le service lié SAP Business Warehouse so
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type doit être définie sur : **SapBw** | Oui |
-| server | Nom du serveur sur lequel réside l’instance SAP BW. | Oui |
-| systemNumber | Numéro de système du système SAP BW.<br/>Valeur autorisée : nombre décimal à deux chiffres représenté sous forme de chaîne. | Oui |
-| clientId | ID client du client dans le système SAP W.<br/>Valeur autorisée : nombre décimal à trois chiffres représenté sous forme de chaîne. | Oui |
-| userName | Nom de l’utilisateur ayant accès au serveur SAP. | Oui |
+| type | La propriété type doit être définie sur : **SapBw** | OUI |
+| serveur | Nom du serveur sur lequel réside l’instance SAP BW. | OUI |
+| systemNumber | Numéro de système du système SAP BW.<br/>Valeur autorisée : nombre décimal à deux chiffres représenté sous forme de chaîne. | OUI |
+| clientId | ID client du client dans le système SAP W.<br/>Valeur autorisée : nombre décimal à trois chiffres représenté sous forme de chaîne. | OUI |
+| userName | Nom de l’utilisateur ayant accès au serveur SAP. | OUI |
 | password | Mot de passe pour l’utilisateur. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | OUI |
-| connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Un Runtime d’intégration autohébergé est nécessaire comme indiqué dans [Prérequis](#prerequisites). |Oui |
+| connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Un Runtime d’intégration autohébergé est nécessaire comme indiqué dans [Prérequis](#prerequisites). |OUI |
 
 **Exemple :**
 
@@ -125,8 +125,8 @@ Pour copier des données de SAP BW, définissez **RelationalSource** comme type 
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type de la source d’activité de copie doit être définie sur : **RelationalSource** | Oui |
-| query | Spécifie la requête MDX pour lire les données de l’instance SAP BW. | Oui |
+| Type | La propriété type de la source d’activité de copie doit être définie sur : **RelationalSource** | OUI |
+| query | Spécifie la requête MDX pour lire les données de l’instance SAP BW. | OUI |
 
 **Exemple :**
 
@@ -184,7 +184,7 @@ Lors de la copie de données de SAP BW, les mappages suivants sont utilisés ent
 | RAW | Byte[] |
 | RAWSTRING | Byte[] |
 | STRING | String |
-| UNIT | String |
+| UNITÉ | String |
 | DATS | String |
 | NUMC | String |
 | TIMS | String |

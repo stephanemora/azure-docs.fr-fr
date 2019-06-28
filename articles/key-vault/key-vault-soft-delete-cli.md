@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: mbaldwin
 ms.openlocfilehash: aa9b89b9afec069e97236b7652e0f1d37644f5cf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60640478"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-cli"></a>Guide pratique pour utiliser la suppression réversible Key Vault avec l’interface CLI
@@ -21,7 +21,7 @@ La fonctionnalité de suppression réversible d’Azure Key Vault permet de réc
 - Prise en charge de la suppression récupérable d’un coffre de clés
 - Prise en charge de la suppression récupérable d’objets de coffre de clés (clés, secrets et certificats)
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 - Azure CLI - Si vous ne l’avez pas encore installé pour votre environnement, consultez [Gérer Key Vault à l’aide de l’interface de ligne de commande Azure](key-vault-manage-with-cli2.md).
 
@@ -64,7 +64,7 @@ az keyvault create --name ContosoVault --resource-group ContosoRG --enable-soft-
 
 ### <a name="verify-soft-delete-enablement"></a>Vérifier l’activation de la suppression réversible
 
-Pour vérifier que la suppression réversible est activée pour un coffre de clés, exécutez la commande *show* et recherchez l’attribut « Soft Delete Enabled ? »  :
+Pour vérifier que la suppression réversible est activée pour un coffre de clés, exécutez la commande *show* et recherchez l’attribut « Soft Delete Enabled ? » :
 
 ```azurecli
 az keyvault show --name ContosoVault
@@ -94,7 +94,7 @@ Vous pouvez afficher les coffres de clé associés à votre abonnement qui sont 
 ```azurecli
 az keyvault list-deleted
 ```
-- *ID* peut être utilisé pour identifier la ressource lors de la récupération ou de purge. 
+- *ID* permet d’identifier la ressource lors de la récupération ou du vidage. 
 - *ID de ressource* est l’ID de ressource d’origine de ce coffre. Ce coffre de clés étant maintenant à l’état supprimé, il n’existe aucune ressource avec cet ID de ressource. 
 - *Date de vidage planifiée* indique quand le coffre sera supprimé définitivement si aucune action n’est effectuée. La période de rétention par défaut, utilisée pour calculer la *Date de vidage planifiée*, est de 90 jours.
 
@@ -195,7 +195,7 @@ Comme les clés, les secrets sont gérés avec leurs propres commandes :
 > [!IMPORTANT]
 > Le vidage d'un coffre de clés ou d'un des objets qui y est contenu entraîne sa suppression définitive, ce qui signifie que vous ne pourrez pas le récupérer !
 
-La fonction de purge est utilisée pour supprimer définitivement un objet key vault ou un coffre de clés entier, ce qui a été précédemment supprimé. Comme démontré à la section précédente, les objets stockés dans un coffre de clés et pour lesquels la fonction de suppression réversible est activée peuvent passer par différents états :
+La fonction de vidage permet de supprimer définitivement un objet d’un coffre de clés ou un coffre de clés tout entier précédemment supprimé de façon réversible. Comme démontré à la section précédente, les objets stockés dans un coffre de clés et pour lesquels la fonction de suppression réversible est activée peuvent passer par différents états :
 
 - **Actif** : avant la suppression.
 - **Supprimé de manière réversible** : après la suppression ; l'objet peut être répertorié et rétabli à l'état Actif.
@@ -223,19 +223,19 @@ L’énumération des objets du coffre de clés supprimés indique également qu
 >[!IMPORTANT]
 >Un objet de coffre dont le vidage est déclenché par son champ *Date de vidage planifiée* est supprimé définitivement. Il n’est pas récupérable !
 
-## <a name="enabling-purge-protection"></a>Activation de la Protection de Purge
+## <a name="enabling-purge-protection"></a>Activation de la protection contre le vidage
 
-Lors de la protection contre le vidage est activé, un coffre ou un objet de supprimé état ne peut pas être purgé jusqu'à expiration de la période de rétention de 90 jours de. Ce type de coffre ou d’objet peut toujours être récupéré. Cette fonctionnalité offre la meilleure garantie un coffre ou un objet ne peut jamais être définitivement supprimés jusqu'à ce que la rétention période écoulée.
+Quand la protection contre le vidage est activée, un coffre ou un objet dans un état Supprimé ne peut pas être supprimé définitivement tant que la période de conservation de 90 jours ne s’est pas écoulée. Ce type de coffre ou d’objet peut toujours être récupéré. Cette fonctionnalité donne l’assurance qu’un coffre ou un objet ne peut jamais être supprimé définitivement tant que la période de conservation ne s’est pas écoulée.
 
-Vous pouvez activer la protection de purge uniquement si la suppression réversible est également activée. 
+Vous pouvez activer la protection contre le vidage seulement si la suppression réversible est également activée. 
 
-Pour activer les deux suppression réversible et purge de protection lors de la création d’un coffre, utilisez le [créer az keyvault](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create) commande :
+Pour activer à la fois la suppression réversible et la protection contre le vidage lors de la création d’un coffre, utilisez la commande [az keyvault create](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create) :
 
 ```
 az keyvault create --name ContosoVault --resource-group ContosoRG --location westus --enable-soft-delete true --enable-purge-protection true
 ```
 
-Pour ajouter une protection de purge à un coffre existant (qui a déjà la suppression réversible est activée), utilisez le [mise à jour du coffre de clés az](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-update) commande :
+Pour ajouter la protection contre le vidage à un coffre existant (où la suppression réversible est déjà activée), utilisez la commande [az keyvault update](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-update) :
 
 ```
 az keyvault update --name ContosoVault --resource-group ContosoRG --enable-purge-protection true

@@ -1,6 +1,6 @@
 ---
-title: Découverte de données de base de données SQL et SQL Data Warehouse et classification des Azure | Microsoft Docs
-description: Azure SQL Database et les données de découverte et classification
+title: Découverte et classification des données pour Azure SQL Database et SQL Data Warehouse | Microsoft Docs
+description: Découverte et classification des données Azure SQL Database
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -13,13 +13,13 @@ ms.reviewer: vanto
 manager: craigg
 ms.date: 03/22/2019
 ms.openlocfilehash: e451b7837a1cff4bbeaecd1573dc860524caf4d3
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65142653"
 ---
-# <a name="azure-sql-database-and-sql-data-warehouse-data-discovery--classification"></a>Découverte de données de base de données SQL et SQL Data Warehouse et classification des Azure
+# <a name="azure-sql-database-and-sql-data-warehouse-data-discovery--classification"></a>Découverte et classification des données pour Azure SQL Database et SQL Data Warehouse
 
 Découverte et classification des données (actuellement en préversion) offre des fonctionnalités avancées intégrées à Azure SQL Database pour la **découverte**, la **classification**, l'**étiquetage** & et la **protection** des données sensibles dans vos bases de données.
 La découverte et la classification de vos données les plus sensibles (professionnelles/financières, soins de santé, informations d’identification personnelle, etc.) peuvent jouer un rôle essentiel dans la protection des informations de l’organisation. Elles peuvent servir d’infrastructure pour :
@@ -28,10 +28,10 @@ La découverte et la classification de vos données les plus sensibles (professi
 - Divers scénarios de sécurité, comme la surveillance (audit) et la génération d’alertes en cas d’accès anormaux aux données sensibles.
 - Contrôler l’accès et renforcer la sécurité des bases de données contenant des données sensibles.
 
-Données découverte et classification fait partie de la [sécurité avancée des données](sql-database-advanced-data-security.md) (ADS) offre, qui est un package unifié incluant des fonctionnalités de sécurité avancées SQL. L'accès au composant Découverte et classification des données ainsi que sa gestion se font via le portail SQL ADS central.
+Découverte et classification des données fait partie de l'offre [Advanced Data Security](sql-database-advanced-data-security.md) (ADS) qui est un package unifié de fonctionnalités de sécurité SQL avancées. L'accès au composant Découverte et classification des données ainsi que sa gestion se font via le portail SQL ADS central.
 
 > [!NOTE]
-> Ce document est lié à la base de données SQL Azure et Azure SQL Data Warehouse. Par souci de simplicité, la base de données SQL est utilisée pour faire référence à SQL Database et SQL Data Warehouse. Pour SQL Server (en local), consultez [découverte de données SQL et la Classification](https://go.microsoft.com/fwlink/?linkid=866999).
+> Ce document a trait à Azure SQL Database et Azure SQL Data Warehouse. Par souci de simplicité, la base de données SQL est utilisée pour faire référence à SQL Database et SQL Data Warehouse. Pour SQL Server (local), consultez [Découverte et classification de données SQL](https://go.microsoft.com/fwlink/?linkid=866999).
 
 ## <a id="subheading-1"></a>Présentation de Découverte et classification des données
 
@@ -77,7 +77,7 @@ Une fois que la stratégie au niveau du locataire a été définie, vous pouvez 
 
 1. Accédez au [portail Azure](https://portal.azure.com).
 
-2. Accédez à **Advanced Data Security** sous l’en-tête Sécurité du volet Azure SQL Database. Cliquez pour activer Advanced Data Security, puis cliquez sur la carte **Découverte et classification des données (préversion)**.
+2. Accédez à **Advanced Data Security** sous l’en-tête Sécurité du volet Azure SQL Database. Cliquez pour activer Advanced Data Security, puis cliquez sur la carte **Découverte et classification des données (préversion)** .
 
    ![Analyser une base de données](./media/sql-data-discovery-and-classification/data_classification.png)
 
@@ -144,20 +144,20 @@ Vous pouvez également utiliser des API REST pour gérer par programme les class
 - [Supprimer](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/delete) : supprime l’étiquette de sensibilité d’une colonne donnée
 - [Obtenir](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/get) : obtient l’étiquette de sensibilité d’une colonne donnée
 - [Liste actuelle par base de données](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listcurrentbydatabase) : affiche les étiquettes de sensibilité actuelles d’une base de données spécifiée
-- [Liste recommandée par la base de données](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listrecommendedbydatabase) -Obtient les étiquettes de sensibilité recommandés d’une base de données
+- [Liste recommandée par base de données](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listrecommendedbydatabase) : affiche les étiquettes de sensibilité recommandées d’une base de données spécifiée
 
-## <a name="manage-data-discovery-and-classification-using-azure-powershell"></a>Gérer la découverte de données et de classification à l’aide d’Azure PowerShell
+## <a name="manage-data-discovery-and-classification-using-azure-powershell"></a>Gérer la détection et la classification des données à l’aide d’Azure PowerShell
 
-Vous pouvez utiliser PowerShell pour obtenir toutes les colonnes recommandées dans une base de données SQL Azure et une instance gérée.
+Vous pouvez utiliser PowerShell pour regrouper toutes les colonnes recommandées dans une base de données SQL Azure et une instance gérée.
 
-### <a name="powershell-cmdlets-for-azure-sql-database"></a>PowerShell Cmdlets pour Azure SQL database
+### <a name="powershell-cmdlets-for-azure-sql-database"></a>Cmdlets PowerShell pour Azure SQL Database
 
 - [Get-AzSqlDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabasesensitivityclassification)
 - [Set-AzSqlDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabasesensitivityclassification)
 - [Remove-AzSqlDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqldatabasesensitivityclassification)
 - [Get-AzSqlDatabaseSensitivityRecommendation](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabasesensitivityrecommendation)
 
-### <a name="powershell-cmdlets-for-managed-instance"></a>PowerShell Cmdlets pour l’instance managée
+### <a name="powershell-cmdlets-for-managed-instance"></a>Cmdlets PowerShell pour instance gérée
 
 - [Get-AzSqlInstanceDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstancedatabasesensitivityclassification)
 - [Set-AzSqlInstanceDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstancedatabasesensitivityclassification)
@@ -166,11 +166,11 @@ Vous pouvez utiliser PowerShell pour obtenir toutes les colonnes recommandées d
 
 ## <a name="permissions"></a>Autorisations
 
-Les rôles intégrés suivants peuvent lire la classification des données d’une base de données SQL Azure : `Owner`, `Reader`, `Contributor`, `SQL Security Manager` et `User Access Administrator`.
+Les rôles intégrés suivants peuvent lire la classification des données d’une base de données Azure SQL : `Owner`, `Reader`, `Contributor`, `SQL Security Manager` et `User Access Administrator`.
 
-Les rôles intégrés suivants peuvent modifier la classification des données d’une base de données SQL Azure : `Owner`, `Contributor`, `SQL Security Manager`.
+Les rôles intégrés suivants peuvent modifier la classification des données d’une base de données Azure SQL : `Owner`, `Contributor`, `SQL Security Manager`.
 
-En savoir plus sur [RBAC pour les ressources Azure](https://docs.microsoft.com/azure/role-based-access-control/overview)
+En savoir plus sur le [contrôle d’accès en fonction du rôle pour les ressources Azure](https://docs.microsoft.com/azure/role-based-access-control/overview)
 
 ## <a id="subheading-5"></a>Étapes suivantes
 

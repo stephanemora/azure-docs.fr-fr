@@ -15,10 +15,10 @@ ms.date: 07/06/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 501c5ffa86f2360e44c187e087f7285bbf4084fd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60477706"
 ---
 # <a name="supported-scenarios-for-hana-large-instances"></a>Scénario pris en charge pour des grandes instances HANA
@@ -40,7 +40,7 @@ Découvrons les termes et définitions utilisés dans ce document.
 - Multi SID : Système doté de plusieurs instances configurées. Également appelé environnement MCOS.
 
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 Les grandes instances HANA prennent en charge un large éventail d’architectures pour répondre aux besoins de votre entreprise. La liste suivante présente les scénarios ainsi que les détails de leur configuration. 
 
 La conception de l’architecture dérivée s’appuie exclusivement sur la perspective de l’infrastructure, et vous devez consulter SAP ou vos partenaires d’implémentation pour le déploiement HANA. Si vos scénarios ne sont pas répertoriés, contactez l’équipe des comptes Microsoft pour examiner l’architecture et trouver une solution qui vous convienne.
@@ -101,7 +101,7 @@ Une configuration à deux adresses IP ne convient pas aux déploiements de répl
 Le stockage est préconfiguré en fonction de la topologie demandée. Les tailles de volume et le point de montage varient en fonction du nombre de serveurs, des références SKU et de la topologie configurée. Pour plus d’informations, étudiez les scénarios dont vous avez besoin (plus loin dans ce document). Si un stockage supplémentaire est nécessaire, vous pouvez l’acheter par incrément d’un To.
 
 >[!NOTE]
->Point demontage/usr/sap/\<SID > est un lien symbolique vers le point de montage/hana/shared.
+>Le point de montage /usr/sap/\<SI> est un lien symbolique vers le point de montage/hana/shared.
 
 
 ## <a name="supported-scenarios"></a>Scénarios pris en charge

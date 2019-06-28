@@ -1,6 +1,6 @@
 ---
 title: Configurer la gestion des prospects pour Salesforce | Place de marché Azure
-description: Configurer la gestion des prospects sur Salesforce pour les clients de la place de marché Azure.
+description: Configurer la gestion des prospects sur Salesforce pour les clients Place de marché Azure.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
 ms.service: marketplace
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: pabutler
 ms.openlocfilehash: 0be5cd84e9ed8314584b5cea064b5c0241db1ab5
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64935091"
 ---
 # <a name="configure-lead-management-for-salesforce"></a>Configurer la gestion des prospects pour Salesforce
@@ -31,4 +31,4 @@ Cet article explique comment configurer votre système Salesforce de manière à
 5. Dans **Créer un formulaire Web-to-Lead**, sélectionnez **Générer** ![Génération Salesforce](./media/cloud-partner-portal-lead-management-instructions-salesforce/salesforce4.png)
 
 6. Copiez l'OID de l’exemple et enregistrez-le. Vous collerez l'OID dans le champ **Identificateur d'objet** du portail Cloud Partner.
-![Get Salesforce OID](./media/cloud-partner-portal-lead-management-instructions-salesforce/salesforce5.png)
+![Salesforce - Obtention d’OID](./media/cloud-partner-portal-lead-management-instructions-salesforce/salesforce5.png)

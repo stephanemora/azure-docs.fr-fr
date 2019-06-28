@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: hrasheed
 ms.openlocfilehash: 85eaa81a0cfd7ccfe8ad3ae818f89966280d279e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64730366"
 ---
 # <a name="create-apache-hbase-clusters-on-hdinsight-in-azure-virtual-network"></a>Créer des clusters Apache HBase sur HDInsight dans un réseau virtuel Azure
@@ -24,7 +24,7 @@ Avec l’intégration du réseau virtuel, les clusters Apache HBase peuvent êtr
 * Amélioration des performances en évitant à votre trafic de transiter par plusieurs passerelles et équilibrages de charge.
 * Capacité de traitement des informations critiques de façon plus sécurisée sans exposer de points de terminaison publics.
 
-### <a name="prerequisites"></a>Conditions préalables
+### <a name="prerequisites"></a>Prérequis
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
 * **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
@@ -34,7 +34,7 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 Dans cette section, vous allez créer un cluster Apache HBase basé sur Linux avec un compte de stockage Azure dépendant dans un réseau virtuel Azure à l’aide d’un [modèle Azure Resource Manager](../../azure-resource-manager/resource-group-template-deploy.md). Pour d'autres méthodes de création de cluster et comprendre les paramètres, consultez [Création de clusters HDInsight](../hdinsight-hadoop-provision-linux-clusters.md). Pour plus d’informations sur l’utilisation d’un modèle pour créer des clusters Apache Hadoop dans HDInsight, consultez [Création de clusters Apache Hadoop dans HDInsight à l’aide de modèles Azure Resource Manager](../hdinsight-hadoop-create-linux-clusters-arm-templates.md)
 
 > [!NOTE]  
-> Certaines propriétés sont codées en dur dans le modèle. Par exemple : 
+> Certaines propriétés sont codées en dur dans le modèle. Par exemple :
 >
 > * **Emplacement** : USA Est 2
 > * **Version de cluster** : 3.6
@@ -49,7 +49,7 @@ Dans cette section, vous allez créer un cluster Apache HBase basé sur Linux av
 >
 >
 
-1. Cliquez sur l’image suivante pour ouvrir le modèle dans le portail Azure. Le modèle se trouve dans [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-linux-vnet/).
+1. Cliquez sur l’image suivante pour ouvrir le modèle dans le portail Azure. Ce modèle se trouve dans les [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-linux-vnet/).
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-linux-vnet%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-provision-vnet/deploy-to-azure.png" alt="Deploy to Azure"></a>
 2. Dans le panneau **Déploiement personnalisé**, entrez les propriétés suivantes :
@@ -93,7 +93,7 @@ Pour commencer à utiliser votre nouveau cluster HBase, vous pouvez utiliser les
         curl -u <username>:<password> -k https://<clustername>.azurehdinsight.net/ambari/api/v1/clusters/<clustername>.azurehdinsight.net/services/hbase/components/hbrest
      ```
 
-     Dans les données JavaScript Object Notation (JSON) renvoyées, recherchez l’entrée « host_name ». Elle contient le nom de domaine complet des nœuds du cluster. Par exemple : 
+     Dans les données JavaScript Object Notation (JSON) renvoyées, recherchez l’entrée « host_name ». Elle contient le nom de domaine complet des nœuds du cluster. Par exemple :
 
          ...
          "host_name": "wordkernode0.<clustername>.b1.cloudapp.net
@@ -222,7 +222,7 @@ Pour commencer à utiliser votre nouveau cluster HBase, vous pouvez utiliser les
 
 Pour vérifier que la machine virtuelle peut communiquer avec le cluster HBase, utilisez la commande `ping headnode0.<dns suffix>` à partir de la machine virtuelle. Par exemple, ping headnode0.mon_cluster.b1.cloudapp.net.
 
-Pour utiliser ces informations dans une application Java, vous pouvez suivre la procédure décrite dans la rubrique [Utilisation d’Apache Maven pour créer des applications Java utilisant Apache HBase avec HDInsight (Hadoop)](./apache-hbase-build-java-maven-linux.md) pour créer une application. Pour que l’application soit connectée à un serveur HBase distant, modifiez le fichier **hbase-site.xml** dans cet exemple afin d’utiliser le nom de domaine complet pour Zookeeper. Par exemple : 
+Pour utiliser ces informations dans une application Java, vous pouvez suivre la procédure décrite dans la rubrique [Utilisation d’Apache Maven pour créer des applications Java utilisant Apache HBase avec HDInsight (Hadoop)](./apache-hbase-build-java-maven-linux.md) pour créer une application. Pour que l’application soit connectée à un serveur HBase distant, modifiez le fichier **hbase-site.xml** dans cet exemple afin d’utiliser le nom de domaine complet pour Zookeeper. Par exemple :
 
     <property>
         <name>hbase.zookeeper.quorum</name>

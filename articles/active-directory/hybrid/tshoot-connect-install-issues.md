@@ -16,10 +16,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e077127681f8bd7b650ab22f2d036efd7f9733ee
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60454789"
 ---
 # <a name="troubleshoot-azure-ad-connect-install-issues"></a>Résolution de problèmes : Problèmes d’installation Azure AD Connect
@@ -41,11 +41,11 @@ Toutefois, si vous ne réunissez pas les critères d’installation rapide et de
 
 ### <a name="common-issues"></a>**Problèmes courants**
 
-* [Problèmes de connectivité avec Active Directory local](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-adconnectivitytools).
+* [Problèmes de connectivité avec Azure Active Directory local](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-adconnectivitytools).
 
 * [Problèmes de connectivité avec Azure Active Directory en ligne](https://docs.microsoft.com/azure/active-directory/hybrid/tshoot-connect-connectivity).
 
-* [Problèmes d’autorisation avec Active Directory local](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-configure-ad-ds-connector-account).
+* [Problèmes d’autorisation avec Azure Active Directory local](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-configure-ad-ds-connector-account).
 
 ## <a name="recommended-documents"></a>**Documents recommandés**
 * [Conditions préalables pour Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-prerequisites)

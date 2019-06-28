@@ -18,10 +18,10 @@ ms.date: 03/13/2018
 ms.author: kumud
 ms.custom: ''
 ms.openlocfilehash: ff5897766bb56b76a34940ecd786773fd844a336
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64683119"
 ---
 # <a name="route-network-traffic-with-a-route-table-using-the-azure-cli"></a>Acheminer le trafic réseau avec une table de routage à l’aide de l’interface de ligne de commande Azure
@@ -208,7 +208,7 @@ Veuillez noter **publicIpAddress**. Cette adresse sera utilisée pour accéder �
 
 ## <a name="route-traffic-through-an-nva"></a>Router le trafic via une NVA
 
-Utilisez la commande suivante pour créer une session SSH avec la machine virtuelle *myVmPrivate*. Remplacez  *\<publicIpAddress >* avec l’adresse IP publique de votre machine virtuelle. Dans l’exemple ci-dessus, l’adresse IP est *13.90.242.231*.
+Utilisez la commande suivante pour créer une session SSH avec la machine virtuelle *myVmPrivate*. Remplacez *\<publicIpAddress>* par l’adresse IP publique de votre machine virtuelle. Dans l’exemple ci-dessus, l’adresse IP est *13.90.242.231*.
 
 ```bash 
 ssh azureuser@<publicIpAddress>

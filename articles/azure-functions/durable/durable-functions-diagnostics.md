@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
 ms.openlocfilehash: 167f697d4928d88114a30739a1d39a576c87ac84
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62126651"
 ---
 # <a name="diagnostics-in-durable-functions-in-azure"></a>Diagnostics de Durable Functions dans Azure
@@ -327,7 +327,7 @@ Azure Functions prend directement en charge un code de fonction de débogage, et
 
 Par défaut, Durable Functions stocke l’état dans Stockage Azure. Cela signifie que vous pouvez examiner l’état de vos orchestrations à l’aide d’outils tels que l’[Explorateur Stockage Azure Microsoft](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
 
-![Capture d’écran de l’Explorateur de stockage Azure](./media/durable-functions-diagnostics/storage-explorer.png)
+![Capture d'écran de l'Explorateur Stockage Azure](./media/durable-functions-diagnostics/storage-explorer.png)
 
 Cet outil est utile pour le débogage car il vous permet de visualiser exactement l’état d’une orchestration. Vous pouvez également examiner les messages de files d’attente pour identifier les tâches en attente (ou bloquées dans certains cas).
 

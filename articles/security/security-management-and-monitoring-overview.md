@@ -1,5 +1,5 @@
 ---
-title: Gestion et la surveillance des fonctionnalités de sécurité - Microsoft Azure | Microsoft Docs
+title: Gestion et supervision des fonctionnalités de sécurité – Microsoft Azure | Microsoft Docs
 description: Cet article présente les fonctionnalités et services de sécurité Azure qui facilitent la gestion et la surveillance des services cloud et des machines virtuelles Azure.
 services: security
 documentationcenter: na
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/28/2019
 ms.author: terrylan
 ms.openlocfilehash: 9f741f578ea44e27814ddfcde2fadc44a0e90536
-ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64872066"
 ---
 # <a name="azure-security-management-and-monitoring-overview"></a>Présentation de la surveillance et de la gestion de la sécurité Azure
@@ -124,7 +124,7 @@ En fournissant des notifications et des mises à jour recommandées, Identity Pr
 En savoir plus :
 
 * [Azure Active Directory Identity Protection](../active-directory/active-directory-identityprotection.md)
-* [Channel 9 : Azure AD and Identity Show: Identity Protection Preview](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
+* [Channel 9: Azure AD and Identity Show: Identity Protection Preview](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
 
 ## <a name="security-center"></a>Security Center
 

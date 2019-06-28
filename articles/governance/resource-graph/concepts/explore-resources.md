@@ -9,10 +9,10 @@ ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
 ms.openlocfilehash: 0b4a75558f5e82b707ae5d012acef4d2c5c4b7a0
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64723813"
 ---
 # <a name="explore-your-azure-resources-with-resource-graph"></a>Explorer vos ressources Azure avec Resource Graph
@@ -110,7 +110,7 @@ Les résultats JSON sont structurés de façon similaire à l’exemple suivant�
 ]
 ```
 
-Les propriétés dites-nous en plus d’informations sur la ressource de machine virtuelle elle-même, allant de la référence (SKU) du système d’exploitation, disques, balises, et le groupe de ressources et l’abonnement qu’il est membre.
+Les propriétés nous en disent plus sur la ressource de machine virtuelle elle-même, que ce soit la référence (SKU), le système d’exploitation, les disques, les étiquettes ou le groupe de ressources et l’abonnement dont elle fait partie.
 
 ### <a name="virtual-machines-by-location"></a>Machines virtuelles par emplacement
 
@@ -179,7 +179,7 @@ where type =~ 'Microsoft.Compute/virtualmachines' and properties.hardwareProfile
 ```
 
 > [!NOTE]
-> Une autre façon d’obtenir la référence (SKU) consiste à utiliser la propriété **aliases** **Microsoft.Compute/virtualMachines/sku.name**. Consultez le [afficher les alias](../samples/starter.md#show-aliases) et [afficher les valeurs de l’alias distinctes](../samples/starter.md#distinct-alias-values) exemples.
+> Une autre façon d’obtenir la référence (SKU) consiste à utiliser la propriété **aliases** **Microsoft.Compute/virtualMachines/sku.name**. Voir les exemples [Afficher des alias](../samples/starter.md#show-aliases) et [Afficher des valeurs distinctes pour un alias](../samples/starter.md#distinct-alias-values).
 
 ```azurecli-interactive
 az graph query -q "where type =~ 'Microsoft.Compute/virtualmachines' and properties.hardwareProfile.vmSize == 'Standard_B2s' | extend disk = properties.storageProfile.osDisk.managedDisk | where disk.storageAccountType == 'Premium_LRS' | project disk.id"

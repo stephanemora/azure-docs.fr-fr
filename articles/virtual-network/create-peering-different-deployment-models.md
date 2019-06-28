@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 11/15/2018
 ms.author: kumud;anavin
 ms.openlocfilehash: 56474ee56051c3b0b7482e81b0174b7945537654
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64694708"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-same-subscription"></a>Créer une homologation de réseaux virtuels Azure - Modèles de déploiement différents, même abonnement
@@ -144,7 +144,7 @@ Effectuez les étapes suivantes à l’aide de l’interface Azure Classic CLI e
 
 ## <a name="powershell"></a>Créer une homologation - PowerShell
 
-1. Installez la dernière version de la commande PowerShell [Azure](https://www.powershellgallery.com/packages/Azure) et [Az](https://www.powershellgallery.com/packages/Az/) modules. Si vous débutez dans l’utilisation d’Azure PowerShell, voir [Vue d’ensemble d’Azure PowerShell](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json).
+1. Installez la dernière version des modules PowerShell [Azure](https://www.powershellgallery.com/packages/Azure) et [Az](https://www.powershellgallery.com/packages/Az/). Si vous débutez dans l’utilisation d’Azure PowerShell, voir [Vue d’ensemble d’Azure PowerShell](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json).
 2. Démarrez une session PowerShell.
 3. Dans PowerShell, connectez-vous à Azure en entrant la commande `Add-AzureAccount`. Le compte auquel vous vous connectez doit avoir les autorisations nécessaires pour créer une homologation de réseaux virtuels. Pour obtenir une liste d’autorisations, consultez [Autorisations d’homologation de réseau virtuel](virtual-network-manage-peering.md#requirements-and-constraints).
 4. Pour créer un réseau virtuel (classique) avec PowerShell, vous devez créer un fichier de configuration réseau ou en modifier un existant. Pour découvrir [comment exporter, mettre à jour et importer des fichiers de configuration réseau, consultez cet article](virtual-networks-using-network-configuration-file.md). Le fichier doit inclure l’élément **VirtualNetworkSite** suivant pour le réseau virtuel utilisé dans ce didacticiel :
@@ -213,7 +213,7 @@ Lorsque vous aurez terminé ce didacticiel, vous souhaiterez peut-être supprime
 
 1. Dans le champ de recherche du portail, entrez **myResourceGroup**. Dans les résultats de la recherche, cliquez sur **myResourceGroup**.
 2. Dans le panneau **myResourceGroup**, cliquez sur l’icône **Supprimer**.
-3. Pour confirmer la suppression, dans le champ **TAPEZ LE NOM DU GROUPE DE RESSOURCES :**, entrez **myResourceGroup**, puis cliquez sur **Supprimer**.
+3. Pour confirmer la suppression, dans le champ **TAPEZ LE NOM DU GROUPE DE RESSOURCES :** , entrez **myResourceGroup**, puis cliquez sur **Supprimer**.
 
 ### <a name="delete-cli"></a>Interface CLI Azure
 

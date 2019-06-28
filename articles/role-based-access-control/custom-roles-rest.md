@@ -16,10 +16,10 @@ ms.date: 04/18/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 4024f6fdb40c752ef61f348d15f681e81d81c08c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60596691"
 ---
 # <a name="create-custom-roles-for-azure-resources-using-the-rest-api"></a>Créer des rôles personnalisés pour les ressources Azure à l'aide de l'API REST
@@ -28,7 +28,7 @@ Si les [rôles intégrés prévus pour les ressources Azure](built-in-roles.md) 
 
 ## <a name="list-custom-roles"></a>Répertorier les rôles personnalisés
 
-Pour répertorier tous les rôles personnalisés dans un répertoire, utilisez la [définitions de rôles - liste](/rest/api/authorization/roledefinitions/list) API REST.
+Pour répertorier tous les rôles personnalisés dans un répertoire, utilisez l’API REST [Définitions de rôles - Liste](/rest/api/authorization/roledefinitions/list).
 
 1. Commencez par la requête suivante :
 
@@ -36,15 +36,15 @@ Pour répertorier tous les rôles personnalisés dans un répertoire, utilisez l
     GET https://management.azure.com/providers/Microsoft.Authorization/roleDefinitions?api-version=2015-07-01&$filter={filter}
     ```
 
-1. Remplacez *{filter}* avec le type de rôle.
+1. Remplacez *{filter}* par le type de rôle.
 
     | Filtrer | Description |
     | --- | --- |
-    | `$filter=type%20eq%20'CustomRole'` | Filtrer en fonction du type CustomRole |
+    | `$filter=type%20eq%20'CustomRole'` | Filtre basé sur le type CustomRole |
 
-## <a name="list-custom-roles-at-a-scope"></a>Liste des rôles personnalisés dans une étendue
+## <a name="list-custom-roles-at-a-scope"></a>Répertorier les rôles personnalisés dans une étendue
 
-Pour répertorier les rôles personnalisés dans une étendue, utilisez le [définitions de rôles - liste](/rest/api/authorization/roledefinitions/list) API REST.
+Pour répertorier les rôles personnalisés dans une étendue, utilisez l’API REST [Définitions de rôles - Liste](/rest/api/authorization/roledefinitions/list).
 
 1. Commencez par la requête suivante :
 
@@ -60,15 +60,15 @@ Pour répertorier les rôles personnalisés dans une étendue, utilisez le [déf
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Groupe de ressources |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Ressource |
 
-1. Remplacez *{filter}* avec le type de rôle.
+1. Remplacez *{filter}* par le type de rôle.
 
     | Filtrer | Description |
     | --- | --- |
-    | `$filter=type%20eq%20'CustomRole'` | Filtrer en fonction du type CustomRole |
+    | `$filter=type%20eq%20'CustomRole'` | Filtre basé sur le type CustomRole |
 
-## <a name="list-a-custom-role-definition-by-name"></a>Une définition de rôle personnalisé de la liste par nom
+## <a name="list-a-custom-role-definition-by-name"></a>Lister une définition de rôle personnalisé par nom
 
-Pour obtenir des informations sur un rôle personnalisé par son nom d’affichage, utilisez le [obtenir des définitions de rôles -](/rest/api/authorization/roledefinitions/get) API REST.
+Pour obtenir des informations sur le rôle personnalisé en fonction de son nom d’affichage, utilisez l’API REST [Définitions de rôles – Obtenir](/rest/api/authorization/roledefinitions/get).
 
 1. Commencez par la requête suivante :
 
@@ -84,15 +84,15 @@ Pour obtenir des informations sur un rôle personnalisé par son nom d’afficha
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Groupe de ressources |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Ressource |
 
-1. Remplacez *{filter}* avec le nom d’affichage pour le rôle.
+1. Remplacez *{filter}* par le nom d’affichage du rôle.
 
     | Filtrer | Description |
     | --- | --- |
     | `$filter=roleName%20eq%20'{roleDisplayName}'` | Utilisez la forme codée de l’URL du nom d’affichage exact du rôle. Par exemple, `$filter=roleName%20eq%20'Virtual%20Machine%20Contributor'`. |
 
-## <a name="list-a-custom-role-definition-by-id"></a>Liste d’une définition de rôle personnalisé par ID
+## <a name="list-a-custom-role-definition-by-id"></a>Lister une définition de rôle personnalisé par ID
 
-Pour obtenir des informations sur un rôle personnalisé par son identificateur unique, utilisez le [obtenir des définitions de rôles -](/rest/api/authorization/roledefinitions/get) API REST.
+Pour obtenir des informations sur un rôle personnalisé en fonction de son identificateur unique, utilisez l’API REST [Définitions de rôles – Obtenir](/rest/api/authorization/roledefinitions/get).
 
 1. Utilisez l’API REST [Définitions de rôles – Lister](/rest/api/authorization/roledefinitions/list) pour obtenir l’identificateur GUID du rôle.
 
@@ -114,7 +114,7 @@ Pour obtenir des informations sur un rôle personnalisé par son identificateur 
 
 ## <a name="create-a-custom-role"></a>Créer un rôle personnalisé
 
-Pour créer un rôle personnalisé, utilisez l’API REST [Définitions de rôles – Créer ou mettre à jour](/rest/api/authorization/roledefinitions/createorupdate). Pour appeler cette API, vous devez être connecté avec un utilisateur se voit attribuer un rôle qui a le `Microsoft.Authorization/roleDefinitions/write` autorisation sur toutes les `assignableScopes`. Des rôles intégrés, uniquement [propriétaire](built-in-roles.md#owner) et [administrateur des accès utilisateur](built-in-roles.md#user-access-administrator) inclure cette autorisation.
+Pour créer un rôle personnalisé, utilisez l’API REST [Définitions de rôles – Créer ou mettre à jour](/rest/api/authorization/roledefinitions/createorupdate). Pour appeler cette API, vous devez être connecté avec un rôle utilisateur qui dispose de l’autorisation `Microsoft.Authorization/roleDefinitions/write` sur tous les `assignableScopes`. Parmi les rôles prédéfinis, seuls les rôles [Propriétaire](built-in-roles.md#owner) et [Administrateur de l’accès utilisateur](built-in-roles.md#user-access-administrator) disposent de cette autorisation.
 
 1. Consultez la liste des [opérations de fournisseur de ressources](resource-provider-operations.md) disponibles pour créer les autorisations de votre rôle personnalisé.
 
@@ -205,9 +205,9 @@ Pour créer un rôle personnalisé, utilisez l’API REST [Définitions de rôle
 
 ## <a name="update-a-custom-role"></a>Mettre à jour un rôle personnalisé
 
-Pour mettre à jour un rôle personnalisé, utilisez l’API REST [Définitions de rôles – Créer ou mettre à jour](/rest/api/authorization/roledefinitions/createorupdate). Pour appeler cette API, vous devez être connecté avec un utilisateur se voit attribuer un rôle qui a le `Microsoft.Authorization/roleDefinitions/write` autorisation sur toutes les `assignableScopes`. Des rôles intégrés, uniquement [propriétaire](built-in-roles.md#owner) et [administrateur des accès utilisateur](built-in-roles.md#user-access-administrator) inclure cette autorisation.
+Pour mettre à jour un rôle personnalisé, utilisez l’API REST [Définitions de rôles – Créer ou mettre à jour](/rest/api/authorization/roledefinitions/createorupdate). Pour appeler cette API, vous devez être connecté avec un rôle utilisateur qui dispose de l’autorisation `Microsoft.Authorization/roleDefinitions/write` sur tous les `assignableScopes`. Parmi les rôles prédéfinis, seuls les rôles [Propriétaire](built-in-roles.md#owner) et [Administrateur de l’accès utilisateur](built-in-roles.md#user-access-administrator) disposent de cette autorisation.
 
-1. Utilisez l’API REST [Définitions de rôles – Lister](/rest/api/authorization/roledefinitions/list) ou [Définitions de rôles – Obtenir](/rest/api/authorization/roledefinitions/get) pour obtenir des informations sur le rôle personnalisé. Pour plus d’informations, consultez l’ancien [liste des rôles personnalisés](#list-custom-roles) section.
+1. Utilisez l’API REST [Définitions de rôles – Lister](/rest/api/authorization/roledefinitions/list) ou [Définitions de rôles – Obtenir](/rest/api/authorization/roledefinitions/get) pour obtenir des informations sur le rôle personnalisé. Pour plus d’informations, consultez la section précédente [Lister les rôles personnalisés](#list-custom-roles).
 
 1. Commencez par la requête suivante :
 
@@ -289,9 +289,9 @@ Pour mettre à jour un rôle personnalisé, utilisez l’API REST [Définitions 
 
 ## <a name="delete-a-custom-role"></a>Supprimer un rôle personnalisé
 
-Pour supprimer un rôle personnalisé, utilisez l’API REST [Définitions de rôles – Supprimer](/rest/api/authorization/roledefinitions/delete). Pour appeler cette API, vous devez être connecté avec un utilisateur se voit attribuer un rôle qui a le `Microsoft.Authorization/roleDefinitions/delete` autorisation sur toutes les `assignableScopes`. Des rôles intégrés, uniquement [propriétaire](built-in-roles.md#owner) et [administrateur des accès utilisateur](built-in-roles.md#user-access-administrator) inclure cette autorisation.
+Pour supprimer un rôle personnalisé, utilisez l’API REST [Définitions de rôles – Supprimer](/rest/api/authorization/roledefinitions/delete). Pour appeler cette API, vous devez être connecté avec un rôle utilisateur qui dispose de l’autorisation `Microsoft.Authorization/roleDefinitions/delete` sur tous les `assignableScopes`. Parmi les rôles prédéfinis, seuls les rôles [Propriétaire](built-in-roles.md#owner) et [Administrateur de l’accès utilisateur](built-in-roles.md#user-access-administrator) disposent de cette autorisation.
 
-1. Utilisez l’API REST [Définitions de rôles – Lister](/rest/api/authorization/roledefinitions/list) ou [Définitions de rôles – Obtenir](/rest/api/authorization/roledefinitions/get) pour obtenir l’identificateur GUID du rôle personnalisé. Pour plus d’informations, consultez l’ancien [liste des rôles personnalisés](#list-custom-roles) section.
+1. Utilisez l’API REST [Définitions de rôles – Lister](/rest/api/authorization/roledefinitions/list) ou [Définitions de rôles – Obtenir](/rest/api/authorization/roledefinitions/get) pour obtenir l’identificateur GUID du rôle personnalisé. Pour plus d’informations, consultez la section précédente [Lister les rôles personnalisés](#list-custom-roles).
 
 1. Commencez par la requête suivante :
 

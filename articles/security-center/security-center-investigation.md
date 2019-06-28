@@ -14,15 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2018
 ms.author: rkarlin
-ms.openlocfilehash: 6ba21c6eacd5b72d13706c08f0cc9883ccc91388
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 55def52d248babd439227cdcd4170c0a3ca91bb1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60704761"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64569827"
 ---
 # <a name="investigate-incidents-and-alerts-in-azure-security-center-preview"></a>Examiner les incidents et les alertes dans Azure Security Center (version préliminaire)
 Ce document vous aide à utiliser la fonctionnalité d’examen dans Azure Security Center pour examiner les incidents et alertes liés à la sécurité.
+
+> [!NOTE]
+> L’expérience d’investigation sur les alertes et les incidents sera supprimée le 31 juillet 2019. Pour en savoir plus et connaître les alternatives, voir [Retrait des fonctionnalités du Security Center (juillet 2019).](security-center-features-retirement-july2019.md#menu_investigate)
 
 ## <a name="what-is-investigation-in-security-center"></a>Qu’est-ce que la fonctionnalité d’examen dans Security Center ?
 La fonctionnalité d’examen dans Security Center vous permet de trier, comprendre l’étendue et repérer la cause racine d’un potentiel [incident lié à la sécurité](https://docs.microsoft.com/azure/security-center/security-center-incident).
@@ -32,7 +35,7 @@ Le but est de facilité le processus d’examen en liant toutes les entités ([a
 
 > [!NOTE]
 > * Les [Alertes personnalisées](security-center-custom-alert.md) ne sont pas prises en charge dans les fonctionnalités d’investigation de Security Center.
-> * Enquête est uniquement pris en charge pour les alertes basées sur les données collectées à partir de serveurs de Windows.
+> * L’investigation est uniquement prise en charge pour les alertes basées sur des données recueillies auprès de serveurs Windows.
 
 
 ## <a name="how-investigation-works"></a>Comment fonctionne un examen ?
@@ -96,7 +99,7 @@ Les éléments suivants sont présentés, quelle que soit la durée définie :
 
 ## <a name="how-to-perform-an-investigation"></a>Comment effectuer un examen ?
 
-Vous pouvez démarrer un examen depuis un incident de sécurité, ou une alerte. L’option choisie varie selon vos besoins. La procédure suivante permet de démarrer une enquête à partir d’une alerte :
+Vous pouvez démarrer un examen depuis un incident de sécurité, ou une alerte. L’option choisie varie selon vos besoins. La procédure suivante explique comment démarrer un examen à partir d’une alerte :
 
 1.  Ouvrez le tableau de bord **Security Center**.
 2.  Cliquez sur **Alertes de sécurité** puis sélectionnez l’incident que vous souhaitez examiner.

@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
 ms.openlocfilehash: 85296b4549d7c9499b8d0b815ddf1cd2e85e2b1b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60337423"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problèmes de configuration et de gestion pour Azure Cloud Services : Forum Aux Questions (FAQ)
@@ -109,7 +109,7 @@ Vous pouvez automatiser cette tâche à l’aide d’un script de démarrage (ba
 
 ### <a name="what-is-the-purpose-of-the-microsoft-azure-service-management-for-machinekey-certificate"></a>Qu’est l’objectif du certificat « Microsoft Azure Service Management pour MachineKey » ?
 
-Ce certificat est utilisé pour chiffrer les clés de machine sur les rôles web Azure. Pour plus d’informations, consultez [cet avis](https://docs.microsoft.com/security-updates/securityadvisories/2018/4092731).
+Ce certificat est utilisé pour chiffrer les clés de machine sur les rôles web Azure. Pour plus d’informations, consultez [ces conseils](https://docs.microsoft.com/security-updates/securityadvisories/2018/4092731).
 
 Pour plus d’informations, consultez les articles suivants :
 - [Comment configurer et exécuter des tâches de démarrage pour un service cloud](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks)
@@ -138,12 +138,12 @@ Vous avez épuisé le quota de stockage local réservé à l’écriture dans le
 
 Pour plus d’informations, consultez les documents suivants :
 * [Stocker et afficher des données de diagnostic dans le stockage Azure](cloud-services-dotnet-diagnostics-storage.md)
-* [Le service Journaux IIS cesse d’écrire dans le service cloud](https://blogs.msdn.microsoft.com/cie/2013/12/21/iis-logs-stops-writing-in-cloud-service/)
+* [Le service Journaux d’activité IIS cesse d’écrire dans le service cloud](https://blogs.msdn.microsoft.com/cie/2013/12/21/iis-logs-stops-writing-in-cloud-service/)
 
 ### <a name="how-do-i-enable-wad-logging-for-cloud-services"></a>Comment activer la journalisation des diagnostics Microsoft Azure pour les Services cloud ?
 Vous pouvez activer la journalisation Diagnostics Azure pour Windows (WAD) par le biais des options suivantes :
 1. [Activer à partir de Visual Studio](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
-2. [Activer via le code .NET](https://docs.microsoft.com/azure/cloud-services/cloud-services-dotnet-diagnostics)
+2. [Activer par le biais du code .NET](https://docs.microsoft.com/azure/cloud-services/cloud-services-dotnet-diagnostics)
 3. [Activer par le biais de PowerShell](https://docs.microsoft.com/azure/cloud-services/cloud-services-diagnostics-powershell)
 
 Pour obtenir les paramètres actuels des diagnostics Microsoft Azure de votre service cloud, vous pouvez utiliser la cmd ps [Get-AzureServiceDiagnosticsExtensions](https://docs.microsoft.com/azure/cloud-services/cloud-services-diagnostics-powershell#get-current-diagnostics-extension-configuration) ou les voir dans le portail en accédant au panneau « Services cloud --> Extensions ».

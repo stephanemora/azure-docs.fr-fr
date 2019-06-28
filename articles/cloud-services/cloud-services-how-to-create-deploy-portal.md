@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 05/18/2017
 ms.author: jeconnoc
 ms.openlocfilehash: a6cf2276da463f71f008c4bfb6eee4c232b18308
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61433756"
 ---
 # <a name="how-to-create-and-deploy-a-cloud-service"></a>Création et déploiement d’un service cloud
-Le portail Azure propose deux méthodes pour créer et déployer un service cloud : *Création rapide* et *création personnalisée*.
+Le portail Azure vous permet de créer et de déployer un service cloud de deux manières : *Création rapide* et *Création personnalisée*.
 
 Cet article explique comment utiliser la méthode Quick Create pour créer un service cloud et comment utiliser ensuite **Upload** pour télécharger et déployer un package de service cloud dans Azure. Si vous utilisez cette méthode, le portail Azure met à votre disposition tous les liens nécessaires pour remplir les conditions requises au fur et à mesure. Si vous êtes prêt à déployer votre service cloud lorsque vous le créez, vous pouvez effectuer ces deux opérations en même temps à l'aide de Création personnalisée.
 
@@ -35,11 +35,11 @@ Cet article explique comment utiliser la méthode Quick Create pour créer un se
 Trois composants sont nécessaires pour déployer une application en tant que service cloud dans Azure :
 
 * **Définition de service**  
-   Le fichier de définition de service cloud (.csdef) définit le modèle de service, notamment le nombre de rôles.
+  Le fichier de définition de service cloud (.csdef) définit le modèle de service, notamment le nombre de rôles.
 * **Configuration de service**  
-   Le fichier de configuration de service cloud (.cscfg) contient les paramètres de configuration du service cloud et des différents rôles, notamment le nombre d’instances de rôle.
+  Le fichier de configuration de service cloud (.cscfg) contient les paramètres de configuration du service cloud et des différents rôles, notamment le nombre d’instances de rôle.
 * **Package de service**  
-   Le package de service (.cspkg) contient le code d’application, les configurations et le fichier de définition de service.
+  Le package de service (.cspkg) contient le code d’application, les configurations et le fichier de définition de service.
 
 Pour plus d’informations sur ces composants et sur la création d’un package, cliquez [ici](cloud-services-model-and-package.md).
 

@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/18/2018
 ms.author: aljo
 ms.openlocfilehash: 37d9c17ff10922aa524fa2fe3eb8abff92c83052
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60394023"
 ---
 # <a name="create-your-first-java-service-fabric-reliable-actors-application-on-linux"></a>Création de votre première application Java Service Fabric Reliable Actors
@@ -30,7 +30,7 @@ ms.locfileid: "60394023"
 
 Ce guide de démarrage rapide vous aide à créer votre première application Azure Service Fabric Java dans un environnement de développement Linux en quelques minutes.  Lorsque vous aurez terminé, vous disposerez d’une simple application de service unique Java exécutée sur le cluster de développement local.  
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 Avant de commencer, installez le Kit de développement logiciel (SDK), l’interface de ligne de commande Service Fabric, Yeoman, configurez l’environnement de développement Java, puis configurez un cluster de développement dans votre [environnement de développement Linux](service-fabric-get-started-linux.md). Si vous utilisez Mac OS X, vous pouvez [configurer un environnement de développement sur Mac à l’aide de Docker](service-fabric-get-started-mac.md).
 
 Installez aussi l’[interface de ligne de commande (CLI) de Service Fabric](service-fabric-cli.md).
@@ -185,7 +185,7 @@ public static void main(String[] args) throws Exception {
 }
 ```
 
-## <a name="build-the-application"></a>Création de l'application
+## <a name="build-the-application"></a>Créer l’application
 Les modèles Yeoman Service Fabric incluent un script de build pour [Gradle](https://gradle.org/), que vous pouvez utiliser pour générer l’application à partir du terminal.
 Les dépendances Java Service Fabric ont été extraites de Maven. Pour générer et travailler sur les applications Java Service Fabric, assurez-vous d’avoir installé JDK et Gradle. S’ils ne sont pas installés, consultez [Prise en main de Service Fabric avec Linux](service-fabric-get-started-linux.md#set-up-java-development) pour obtenir des instructions sur l’installation de JDK et Gradle.
 
@@ -243,7 +243,7 @@ Les acteurs ne font rien seuls, ils ont besoin d’un autre service ou client po
     watch -n 1 ./testclient.sh
     ```
 
-2. Dans Service Fabric Explorer, recherchez le nœud qui héberge le réplica principal pour le service d’acteur. Dans la capture d’écran ci-dessous, il s’agit du nœud 3. Le réplica principal de service gère les opérations de lecture et d’écriture.  Modifications de l’état de service sont ensuite répliquées sur les réplicas secondaires, en cours d’exécution sur les nœuds 0 et 1 dans la capture d’écran ci-dessous.
+2. Dans Service Fabric Explorer, recherchez le nœud qui héberge le réplica principal pour le service d’acteur. Dans la capture d’écran ci-dessous, il s’agit du nœud 3. Le réplica principal de service gère les opérations de lecture et d’écriture.  Les modifications d'état de service sont ensuite propagées aux réplicas secondaires, en cours d'exécution sur les nœuds 0 et 1 dans la capture d'écran ci-dessous.
 
     ![Recherche du réplica principal dans Service Fabric Explorer][sfx-primary]
 

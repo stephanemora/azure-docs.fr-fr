@@ -9,17 +9,17 @@ ms.topic: article
 ms.date: 04/15/2019
 ms.author: lahugh
 ms.openlocfilehash: 886dea0e53519870aaa27dea721a9eb78515cf86
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64706331"
 ---
 # <a name="use-a-custom-image-to-create-a-pool-of-virtual-machines"></a>Utiliser une image personnalisée pour créer un pool de machines virtuelles 
 
 Quand vous créez un pool Azure Batch à l’aide de Configuration de la machine virtuelle, vous spécifiez une image de machine virtuelle qui fournit le système d’exploitation pour chaque nœud de calcul dans le pool. Vous pouvez créer un pool de machines virtuelles avec une image Place de Marché Azure prise en charge ou avec une image personnalisée (image de machine virtuelle que vous avez créée et configurée vous-même). L’image personnalisée doit être une ressource *d’image managée* dans le même abonnement et la même région Azure que le compte Batch.
 
-## <a name="benefits-of-custom-images"></a>Avantages d’images personnalisées
+## <a name="benefits-of-custom-images"></a>Avantages des images personnalisées
 
 Quand vous fournissez une image personnalisée, vous contrôlez la configuration du système d’exploitation et le type de système d’exploitation et de disques de données à utiliser. Votre image personnalisée peut inclure des applications et des données de référence qui deviennent disponibles sur tous les nœuds du pool Batch dès qu’ils sont approvisionnés.
 
@@ -34,14 +34,14 @@ Le recours à une image personnalisée configurée pour votre scénario peut off
 - **Choix des types de disques.** Vous pouvez utiliser du stockage premium pour le disque du système d’exploitation et le disque de données.
 - **Croissance des pools vers une grande taille.** Lorsque vous utilisez une image personnalisée managée pour créer un pool, celui-ci peut croître sans avoir à effectuer des copies des disques durs virtuels d’objets blob d’image.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 - **Une ressource d’image managée**. Pour créer un pool de machines virtuelles à l’aide d’une image personnalisée, vous devez avoir ou créer une ressource d’image managée dans le même abonnement et la même région Azure que le compte Batch. L’image doit être créée à partir d’instantanés du disque de système d’exploitation de la machine virtuelle et, éventuellement, ses disques de données associés. Pour plus d’informations et connaître les étapes de préparation d’une image managée, consultez la section suivante.
   - Utilisez une image personnalisée unique pour chaque pool que vous créez.
   - Pour créer un pool avec l’image à l’aide des API Batch, spécifiez **l’ID de ressource** de l’image, qui est au format `/subscriptions/xxxx-xxxxxx-xxxxx-xxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.Compute/images/myImage`. Pour utiliser le portail, utilisez le **nom** de l’image.  
   - La ressource d’image managée doit exister pour faire monter la durée de vie du pool en puissance. Elle peut être supprimée une fois que le pool est supprimé.
 
-- **Authentification Azure Active Directory (AAD)**. L’API du client Batch doit utiliser l’authentification AAD. La prise en charge d’Azure Batch pour AAD est documentée dans [Authentifier les solutions de service Batch avec Active Directory](batch-aad-auth.md).
+- **Authentification Azure Active Directory (AAD)** . L’API du client Batch doit utiliser l’authentification AAD. La prise en charge d’Azure Batch pour AAD est documentée dans [Authentifier les solutions de service Batch avec Active Directory](batch-aad-auth.md).
 
 ## <a name="prepare-a-custom-image"></a>Préparer une image personnalisée
 
@@ -49,7 +49,7 @@ Dans Azure, vous pouvez préparer une image managée à partir de captures insta
 
 ### <a name="prepare-a-vm"></a>Préparer une machine virtuelle
 
-Si vous créez une nouvelle machine virtuelle pour l’image, utilisez une image de place de marché Azure premier tiers pris en charge par lot en tant que l’image de base pour votre image managée. Images internes peuvent uniquement être utilisés comme une image de base. Pour obtenir une liste complète des références d’image de place de marché Azure pris en charge par Azure Batch, consultez le [agent de nœud liste Références (SKU)](/rest/api/batchservice/account/listnodeagentskus) opération.
+Si vous créez une machine virtuelle pour l'image, utilisez une image propriétaire de la Place de Marché Azure prise en charge par Batch comme image de base pour votre image managée. Seules les images propriétaires peuvent être utilisées comme image de base. Pour obtenir la liste complète des références d'image de la Place de marché Azure prises en charge par Azure Batch, consultez l'opération [Lister les références SKU d'agent de nœud](/rest/api/batchservice/account/listnodeagentskus).
 
 > [!NOTE]
 > Vous ne pouvez pas, comme image de base, utiliser une image de fournisseurs tiers qui comporte des conditions de licence et d’achat supplémentaires. Pour plus d’informations sur ces images de la Place de marché, consultez les recommandations émises pour les machines virtuelles [Linux](../virtual-machines/linux/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms
@@ -59,7 +59,7 @@ Si vous créez une nouvelle machine virtuelle pour l’image, utilisez une image
 
 * Assurez-vous que la machine virtuelle est créée avec un disque managé. Il s’agit du paramètre de stockage par défaut quand vous créez une machine virtuelle.
 * N’installez pas d’extensions Azure, comme l’extension de script personnalisé, sur la machine virtuelle. Si l’image contient une extension préinstallée, Azure peut rencontrer des problèmes lors du déploiement du pool Batch.
-* À l’aide de disques de données associés, vous devez monter et formater les disques à partir d’une machine virtuelle pour les utiliser.
+* Lorsque vous utilisez des disques de données attachés, vous devez monter et formater les disques à partir d'une machine virtuelle pour les utiliser.
 * Vérifiez que l’image du système d’exploitation de base que vous fournissez utilise le lecteur temporaire par défaut. L’agent de nœud Batch s’attend actuellement à ce que le lecteur temporaire par défaut soit utilisé.
 * Une fois que la machine virtuelle s’exécute, connectez-la via le protocole RDP (pour Windows) ou SSH (pour Linux). Le cas échéant, installez les logiciels nécessaires ou copiez les données souhaitées.  
 
@@ -78,9 +78,9 @@ Une fois que vous avez enregistré votre image personnalisée et que vous connai
 > [!NOTE]
 > Si vous créez le pool à l’aide des API Batch, vérifiez que l’identité que vous utilisez pour l’authentification AAD dispose des autorisations d’accès à la ressource d’image. Consultez [Authentifier des solutions de service Batch avec Active Directory](batch-aad-auth.md).
 >
-> La ressource pour l’image managée doit exister pour la durée de vie du pool. Si la ressource sous-jacente est supprimée, le pool ne peut pas être mis à l’échelle. 
+> La ressource destinée à l'image managée doit exister pendant toute la durée de vie du pool. Si la ressource sous-jacente est supprimée, le pool ne peut pas être mis à l'échelle. 
 
-1. Accédez à votre compte Batch dans le portail Azure. Ce compte doit relever du même abonnement et de la même région que le groupe de ressources contenant l’image personnalisée. 
+1. Accédez à votre compte  Batch dans le portail Azure. Ce compte doit relever du même abonnement et de la même région que le groupe de ressources contenant l’image personnalisée. 
 2. Dans la fenêtre **Paramètres** située à gauche, sélectionnez l’élément de menu **Pools**.
 3. Dans la fenêtre **Pools**, sélectionnez la commande **Ajouter**.
 4. Dans la fenêtre **Ajouter un pool**, sélectionnez **Image personnalisée (Linux/Windows)** dans la liste déroulante **Type d’image**. Dans la liste déroulante **Image de machine virtuelle personnalisée**, sélectionnez le nom de l’image (forme abrégée de l’ID de ressource).
@@ -111,15 +111,15 @@ Notez également les éléments suivants :
 
   Si vous prévoyez un pool avec plus de 300 nœuds de calcul, vous devrez peut-être redimensionner le pool plusieurs fois afin d’atteindre la taille cible.
 
-## <a name="considerations-for-using-packer"></a>Considérations sur l’utilisation de Packer
+## <a name="considerations-for-using-packer"></a>Considérations relatives à l'utilisation de Packer
 
-Création d’une ressource d’image managée directement avec Packer n’est possible avec les comptes d’utilisateur abonnement en mode Batch. Pour les comptes de service en mode Batch, vous devez créer un disque dur virtuel tout d’abord, puis importez le disque dur virtuel à une ressource d’image managée. Selon votre mode d’allocation de pool (abonnement de l’utilisateur ou service Batch), vos étapes de création d’une ressource d’image managée varie.
+Pour créer directement une ressource d'image managée à l'aide de Packer, vous devez impérativement utiliser un compte Batch en mode Abonnement utilisateur. Avec un compte en mode Service Batch, vous devez d'abord créer un disque dur virtuel, puis l'importer dans une ressource d'image managée. En fonction du mode d'allocation de pool (Abonnement utilisateur ou Service Batch), la procédure de création d'une ressource d'image managée varie.
 
-Assurez-vous que la ressource utilisée pour créer l’image managée existe pour les durées de vie de n’importe quel pool faisant référence à l’image personnalisée. Si vous pouvez entraîne des échecs d’allocation de pool et/ou redimensionner les échecs. 
+Veillez à ce que la ressource utilisée pour créer l'image managée existe pendant toute la durée de vie du pool qui référence l'image personnalisée, faute de quoi des échecs d'allocation de pool et/ou des échecs de redimensionnement peuvent survenir. 
 
-Si l’image ou la ressource sous-jacente est supprimée, vous pouvez obtenir une erreur similaire à : `There was an error encountered while performing the last resize on the pool. Please try resizing the pool again. Code: AllocationFailed`. Si cela se produit, vérifiez que la ressource sous-jacente n’a pas été supprimée.
+Si l'image ou la ressource sous-jacente est supprimée, une erreur semblable à la suivante peut apparaître : `There was an error encountered while performing the last resize on the pool. Please try resizing the pool again. Code: AllocationFailed`. Dans ce cas, assurez-vous que la ressource sous-jacente n'a pas été supprimée.
 
-Pour plus d’informations sur l’utilisation de Packer pour créer une machine virtuelle, consultez [créer une image Linux avec Packer](../virtual-machines/linux/build-image-with-packer.md) ou [créer une image Windows avec Packer](../virtual-machines/windows/build-image-with-packer.md).
+Pour plus d'informations sur l'utilisation de Packer pour créer une machine virtuelle, consultez [Créer une image Linux avec Packer](../virtual-machines/linux/build-image-with-packer.md) ou [Créer une image Windows avec Packer](../virtual-machines/windows/build-image-with-packer.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

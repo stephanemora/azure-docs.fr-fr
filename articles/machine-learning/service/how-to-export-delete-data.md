@@ -12,10 +12,10 @@ ms.author: pahusban
 ms.date: 05/02/2019
 ms.custom: seodec18
 ms.openlocfilehash: 3b55282adf56bedb0724eca578b8eaea00c26074
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65023971"
 ---
 # <a name="export-or-delete-your-machine-learning-service-workspace-data"></a>Exporter ou supprimer vos données d’espace de travail Machine Learning 
@@ -232,9 +232,9 @@ Vous pouvez obtenir des sources de données avec :
 
     https://{location}.aether.ms/api/v1.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/DataSources/{id}
 
-## <a name="delete-visual-interface-assets"></a>Supprimer les ressources de l’interface visuelle
+## <a name="delete-visual-interface-assets"></a>Supprimer des ressources de l'interface visuelle
 
-Dans l’interface visuelle où vous avez créé votre expérience, supprimez les ressources individuelles :
+Dans l'interface visuelle où vous avez créé votre expérimentation, supprimez des ressources individuelles :
 
 1. Sur la gauche, sélectionnez le type de ressource que vous souhaitez supprimer.
 
@@ -242,18 +242,18 @@ Dans l’interface visuelle où vous avez créé votre expérience, supprimez le
 
 1. Dans la liste, sélectionnez les ressources à supprimer.
 
-1. En bas, sélectionnez **supprimer**.
+1. En bas, sélectionnez **Supprimer**.
 
-## <a name="export-visual-interface-data"></a>Exporter des données de l’interface visuelle
+## <a name="export-visual-interface-data"></a>Exporter des données de l'interface visuelle
 
-Dans l’interface visuelle où vous avez créé votre expérience, exporter des données que vous avez ajouté :
+Dans l'interface visuelle où vous avez créé votre expérimentation, exportez les données que vous avez ajoutées :
 
-1. Sur la gauche, sélectionnez **données**.
+1. Sur la gauche, sélectionnez **Données**.
 
-1. En haut, sélectionnez **mes jeux de données** ou **exemples** pour localiser les données que vous voulez exporter.
+1. En haut, sélectionnez **Mes jeux de données** ou **Exemples** pour localiser les données que vous souhaitez exporter.
 
     ![Télécharger des données](media/how-to-export-delete-data.md/download-data.png)
 
-1. Dans la liste, sélectionnez les jeux de données individuels à exporter.
+1. Dans la liste, sélectionnez les jeux de données à exporter.
 
-1. En bas, sélectionnez **télécharger**.
+1. En bas, sélectionnez **Télécharger**.

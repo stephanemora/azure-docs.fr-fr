@@ -13,10 +13,10 @@ ms.date: 02/19/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c6053313c6971f1bcf66bc447b4f4f5fe5817666
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60475534"
 ---
 # <a name="manage-your-organizations-from-the-my-profile-preview-portal"></a>Gérer vos organisations à partir du portail Mon profil (préversion)
@@ -57,4 +57,4 @@ Vous pouvez quitter toute organisation qui n’est pas votre organisation d’or
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Après l’affichage de votre organisation, vous pouvez sélectionner pour afficher ou gérer votre [des informations de sécurité](user-help-security-info-overview.md)et connectées [appareils](myprofile-portal-devices-page.md), ou une vue comment votre organisation [utilise vos données](myprofile-portal-privacy-page.md).
+- Après avoir consulté vos organisations, vous pouvez choisir d'afficher ou de gérer vos [informations de sécurité](user-help-security-info-overview.md) ou vos [appareils](myprofile-portal-devices-page.md) connectés, ou d'afficher la façon dont votre organisation [utilise vos données](myprofile-portal-privacy-page.md).

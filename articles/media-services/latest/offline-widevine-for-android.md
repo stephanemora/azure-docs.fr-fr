@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 01/08/2019
 ms.author: willzhan
 ms.openlocfilehash: 5102720242edd3ffc0a377bbddf0f7f3ade68b63
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64937217"
 ---
 # <a name="offline-widevine-streaming-for-android"></a>Widevine hors connexion pour Android
 
 Outre la protection de contenu pour la diffusion en continu en ligne, les services d’abonnement et de location du contenu multimédia offrent un contenu téléchargeable qui fonctionne lorsque vous n’êtes pas connecté à internet. Vous devrez peut-être télécharger le contenu sur votre téléphone ou tablette pour une lecture en mode avion, lorsque vous êtes en vol et déconnecté du réseau. Scénarios supplémentaires, dans lesquels vous pouvez souhaiter télécharger du contenu :
 
-- Certains fournisseurs de contenu peuvent interdire la remise de licence DRM au-delà de la frontière d’un pays/région. Si un utilisateur souhaite regarder du contenu en voyage à l’étranger, le téléchargement hors connexion est nécessaire.
-- Dans certains pays/régions, la disponibilité Internet et/ou la bande passante est limitée. Les utilisateurs peuvent choisir de télécharger du contenu afin de pouvoir le regarder en résolution suffisamment élevée pour une expérience d’affichage satisfaisante.
+- Certains fournisseurs de contenu peuvent interdire la remise de licence de gestion des droits numériques (DRM) au-delà de la frontière d’un pays/d’une région. Si un utilisateur souhaite regarder du contenu en voyage à l’étranger, le téléchargement hors connexion est nécessaire.
+- Dans certains pays/certaines régions, la disponibilité Internet ou la bande passante sont limitées. Les utilisateurs peuvent choisir de télécharger du contenu afin de pouvoir le regarder en résolution suffisamment élevée pour une expérience d’affichage satisfaisante.
 
 Cet article explique comment mettre en œuvre la lecture en mode hors connexion pour le contenu DASH protégé par Widevine sur les appareils Android. La gestion des droits numériques (DRM) hors connexion vous permet de fournir des modèles d’abonnement, de location et d’achat pour votre contenu, permettant aux clients de vos services d’emporter facilement du contenu avec eux lorsqu’ils sont déconnectés d’internet.
 
@@ -39,7 +39,7 @@ Pour créer les applications du lecteur Android, nous soulignons trois options 
 
 L’article répond également à certaines questions fréquentes sur la diffusion en continu du contenu protégé de Widevine.
 
-## <a name="prerequisites"></a>Conditions préalables 
+## <a name="prerequisites"></a>Prérequis 
 
 Avant de mettre en œuvre la DRM hors connexion pour Widevine sur des appareils Android, vous devez, tout d’abord :
 
@@ -144,7 +144,7 @@ Si vous mettez à niveau votre navigateur Chrome mobile sur la v62 (ou version u
 
 L’application PWA open source ci-dessus a été créée dans Node.js. Si vous souhaitez héberger votre propre version sur un serveur Ubuntu, tenez compte des problèmes fréquemment rencontrés suivants qui peuvent empêcher la lecture :
 
-1. Problème CORS : l’échantillon vidéo de l’exemple d’application est hébergé dans https://storage.googleapis.com/biograf-video-files/videos/. Google a défini CORS pour tous les exemples de test hébergés dans le compartiment de stockage Cloud de Google. Ils sont pris en charge avec les en-têtes CORS, en spécifiant explicitement l’entrée CORS : https://biograf-155113.appspot.com (domaine dans lequel Google héberge ses exemples) empêchant l’accès par d’autres sites. Si vous essayez, vous verrez l’erreur HTTP suivante : Impossible de charger https://storage.googleapis.com/biograf-video-files/videos/poly-sizzle-2015/mp4/dash.mpd: Aucun en-tête « Access-Control-Allow-Origin » n’est présent sur la ressource demandée. Origine « https :\//13.85.80.81:8080' n’est donc pas autorisé à accéder. Si une réponse opaque répond à vos besoins, définissez le mode de la requête sur « no-cors » pour extraire la ressource avec CORS désactivé.
+1. Problème CORS : l’échantillon vidéo de l’exemple d’application est hébergé dans https://storage.googleapis.com/biograf-video-files/videos/. Google a défini CORS pour tous les exemples de test hébergés dans le compartiment de stockage Cloud de Google. Ils sont pris en charge avec les en-têtes CORS, en spécifiant explicitement l’entrée CORS : https://biograf-155113.appspot.com (domaine dans lequel Google héberge ses exemples) empêchant l’accès par d’autres sites. Si vous essayez, vous verrez l’erreur HTTP suivante : Impossible de charger https://storage.googleapis.com/biograf-video-files/videos/poly-sizzle-2015/mp4/dash.mpd: Aucun en-tête « Access-Control-Allow-Origin » n’est présent sur la ressource demandée. L’accès à l’adresse ’https:\//13.85.80.81:8080’ d’origine n’est donc pas autorisé. Si une réponse opaque répond à vos besoins, définissez le mode de la requête sur « no-cors » pour extraire la ressource avec CORS désactivé.
 2. Problème de certificat : À partir de Chrome v58, EME pour Widevine nécessite HTTPS. Par conséquent, vous devez héberger l’exemple d’application via le protocole HTTPS avec un certificat X509. Les certificats de test habituels ne fonctionnent pas en raison des exigences suivantes : Vous devez obtenir un certificat répondant aux exigences minimales suivantes :
     - Chrome et Firefox exige que le paramètre Nom alternatif de l’objet SAN existe dans le certificat
     - Le certificat doit avoir une certification approuvée et un certificat auto-signé de développement ne fonctionne pas

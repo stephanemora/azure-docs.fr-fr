@@ -19,15 +19,15 @@ ms.reviewer: sahandle
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3357cfd5e845346534f263c768b5cf6b6a38ea4e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60296202"
 ---
 # <a name="get-started-with-azure-active-directory-identity-protection-and-microsoft-graph"></a>Prise en main d’Azure Active Directory Identity Protection et de Microsoft Graph
 
-Microsoft Graph est le point de terminaison d’API unifiée de Microsoft et accueille également les API [d’Azure Active Directory Identity Protection](../active-directory-identityprotection.md). Il existe trois API qui exposent des informations sur les connexions et les utilisateurs à risque. La première API, **identityRiskEvents**, vous permet d’interroger Microsoft Graph pour obtenir une liste [d’événements à risque](../reports-monitoring/concept-risk-events.md) et des informations associées. La deuxième API, **riskyUsers**, vous permet d’interroger Microsoft Graph pour obtenir des informations sur les utilisateurs que le service Identity Protection a détecté comme étant à risque. La troisième API, **signIn**, vous permet d’interroger Microsoft Graph pour obtenir des informations sur des connexions Azure AD avec des propriétés spécifiques relatives au risque en termes de niveau, de détails et d’état. Cet article vous permet de vous familiariser avec la connexion à Microsoft Graph et l’interrogation de ces API. Pour obtenir des informations détaillées ainsi qu’un accès à l’Explorateur Graph, consultez le [site de Microsoft Graph](https://graph.microsoft.io/) ou la documentation de référence propre à ces API :
+Microsoft Graph est le point de terminaison d’API unifiée de Microsoft et accueille également les API [d’Azure Active Directory Identity Protection](../active-directory-identityprotection.md). Il existe trois API qui exposent des informations sur les connexions et les utilisateurs à risque. La première API, **identityRiskEvents**, vous permet d’interroger Microsoft Graph pour obtenir une liste [d’événements à risque](../reports-monitoring/concept-risk-events.md) et des informations associées. La deuxième API, **riskyUsers**, vous permet d’interroger Microsoft Graph pour obtenir des informations sur les utilisateurs que le service Identity Protection a détecté comme étant à risque. La troisième API, **signIn**, vous permet d’interroger Microsoft Graph pour obtenir des informations sur des connexions Azure AD avec des propriétés spécifiques relatives au risque en termes de niveau, de détails et d’état. Cet article vous permet de vous familiariser avec la connexion à Microsoft Graph et l'interrogation de ces API. Pour obtenir des informations détaillées ainsi qu’un accès à l’Explorateur Graph, consultez le [site de Microsoft Graph](https://graph.microsoft.io/) ou la documentation de référence propre à ces API :
 
 * [API identityRiskEvents](https://docs.microsoft.com/graph/api/resources/identityriskevent?view=graph-rest-beta)
 * [API riskyUsers](https://docs.microsoft.com/graph/api/resources/riskyuser?view=graph-rest-beta)

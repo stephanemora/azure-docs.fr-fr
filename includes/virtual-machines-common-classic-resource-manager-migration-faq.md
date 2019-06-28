@@ -54,7 +54,7 @@ Pendant la migration, les ressources Classic sont converties en ressources Resou
 <a name="vault">Lorsque</a> vous faites évoluer une machine virtuelle du mode Classic vers le mode Resource Manager, les sauvegardes effectuées avant cette migration ne sont pas transférées vers la nouvelle machine virtuelle Resource Manager. Toutefois, si vous souhaitez conserver vos sauvegardes des machines virtuelles Classic, procédez comme suit avant la migration. 
 
 1. Dans le coffre Recovery Services, accédez à l’onglet **Éléments protégés**, puis sélectionnez la machine virtuelle. 
-2. Cliquez sur Arrêter la protection. Laissez l’option *Supprimer les données de sauvegarde associées***non cochée**.
+2. Cliquez sur Arrêter la protection. Laissez l’option *Supprimer les données de sauvegarde associées* **non cochée**.
 
 > [!NOTE]
 > Les frais de sauvegarde vous seront facturés tant que vous conserverez les données. Les copies de sauvegarde seront supprimées en fonction de la durée de rétention définie. Toutefois, la dernière copie de sauvegarde est systématiquement conservée jusqu’à ce que vous supprimiez explicitement les données de sauvegarde. Il est recommandé de vérifier la durée de rétention de la machine virtuelle et de déclencher l’option « Supprimer les données de sauvegarde » sur l’élément protégé dans le coffre à l’issue de la durée de rétention. 

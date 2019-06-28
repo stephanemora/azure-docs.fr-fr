@@ -14,14 +14,14 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: a7789f9a3f3da46305a9d8cd7cda24019658f2ad
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60567263"
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-using-azure-data-factory"></a>Copier des données vers et depuis Azure SQL Database en utilisant Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
 > * [Version 1](data-factory-azure-sql-connector.md)
 > * [Version 2 (version actuelle)](../connector-azure-sql-database.md)
 
@@ -65,8 +65,8 @@ Un service lié Azure SQL lie une base de données Azure SQL à votre fabrique d
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
-| type |La propriété type doit être définie sur : **AzureSqlDatabase** |Oui |
-| connectionString |Spécifier les informations requises pour la connexion à l’instance Azure SQL Database pour la propriété connectionString. Seule l’authentification de base est prise en charge. |Oui |
+| type |La propriété type doit être définie sur : **AzureSqlDatabase** |OUI |
+| connectionString |Spécifier les informations requises pour la connexion à l’instance Azure SQL Database pour la propriété connectionString. Seule l’authentification de base est prise en charge. |OUI |
 
 > [!IMPORTANT]
 > Configurez le [pare-feu Azure SQL Database](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) et le serveur de base de données pour [autoriser les services Azure à accéder au serveur](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). En outre, si vous copiez des données vers Azure SQL Database à partir d’un emplacement situé en dehors d’Azure, y compris à partir de sources de données locales avec la passerelle de la fabrique de données, configurez la plage d’adresses IP appropriée pour l’ordinateur qui envoie des données à Azure SQL Database.
@@ -80,7 +80,7 @@ La section typeProperties est différente pour chaque type de jeu de données et
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
-| TableName |Nom de la table ou de la vue dans l’instance Azure SQL Database à laquelle le service lié fait référence. |Oui |
+| tableName |Nom de la table ou de la vue dans l’instance Azure SQL Database à laquelle le service lié fait référence. |OUI |
 
 ## <a name="copy-activity-properties"></a>Propriétés de l’activité de copie
 Pour obtenir la liste complète des sections et des propriétés disponibles pour la définition des activités, consultez l’article [Création de pipelines](data-factory-create-pipelines.md). Les propriétés comme le nom, la description, les tables d’entrée et de sortie et la stratégie sont disponibles pour tous les types d’activités.
@@ -97,9 +97,9 @@ Dans le cas d’une activité de copie, quand la source est de type **SqlSource*
 
 | Propriété | Description | Valeurs autorisées | Obligatoire |
 | --- | --- | --- | --- |
-| sqlReaderQuery |Utilise la requête personnalisée pour lire des données. |Chaîne de requête SQL. Exemple : `select * from MyTable`. |Non  |
-| sqlReaderStoredProcedureName |Nom de la procédure stockée qui lit les données de la table source. |Nom de la procédure stockée. La dernière instruction SQL doit être une instruction SELECT dans la procédure stockée. |Non  |
-| storedProcedureParameters |Paramètres de la procédure stockée. |Paires nom/valeur. Les noms et la casse des paramètres doivent correspondre aux noms et à la casse des paramètres de la procédure stockée. |Non  |
+| sqlReaderQuery |Utilise la requête personnalisée pour lire des données. |Chaîne de requête SQL. Exemple : `select * from MyTable`. |Non |
+| sqlReaderStoredProcedureName |Nom de la procédure stockée qui lit les données de la table source. |Nom de la procédure stockée. La dernière instruction SQL doit être une instruction SELECT dans la procédure stockée. |Non |
+| storedProcedureParameters |Paramètres de la procédure stockée. |Paires nom/valeur. Les noms et la casse des paramètres doivent correspondre aux noms et à la casse des paramètres de la procédure stockée. |Non |
 
 Si **sqlReaderQuery** est spécifié pour SqlSource, l'activité de copie exécute cette requête sur la source Azure SQL Database pour obtenir les données. Vous pouvez également spécifier une procédure stockée en indiquant **sqlReaderStoredProcedureName** et **storedProcedureParameters** (si la procédure stockée accepte des paramètres).
 
@@ -147,13 +147,13 @@ GO
 
 | Propriété | Description | Valeurs autorisées | Obligatoire |
 | --- | --- | --- | --- |
-| writeBatchTimeout |Temps d’attente pour que l’opération d’insertion de lot soit terminée avant d’expirer. |intervalle de temps<br/><br/> Exemple : “00:30:00” (30 minutes). |Non  |
+| writeBatchTimeout |Temps d’attente pour que l’opération d’insertion de lot soit terminée avant d’expirer. |intervalle de temps<br/><br/> Exemple : “00:30:00” (30 minutes). |Non |
 | writeBatchSize |Insère des données dans la table SQL lorsque la taille du tampon atteint writeBatchSize |Nombre entier (nombre de lignes) |Non (valeur par défaut : 10000) |
-| sqlWriterCleanupScript |Spécifiez une requête pour exécuter l’activité de copie afin que les données d’un segment spécifique soient nettoyées. Pour en savoir plus, voir [Copie renouvelée](#repeatable-copy). |Une instruction de requête. |Non  |
-| sliceIdentifierColumnName |Spécifiez le nom de la colonne que l’activité de copie doit remplir avec l’identificateur de segment généré automatiquement, qui est utilisé pour nettoyer les données d’un segment spécifique lors de la ré-exécution. Pour en savoir plus, voir [Copie renouvelée](#repeatable-copy). |Nom d’une colonne avec le type de données binary(32). |Non  |
-| sqlWriterStoredProcedureName |Nom de la procédure stockée qui définit comment appliquer les données sources dans la table cible, par exemple pour effectuer des upserts ou des transformations à l’aide de votre propre logique métier. <br/><br/>Notez que cette procédure stockée sera **appelée par lot**. Si vous souhaitez effectuer une opération qui ne s’exécute qu’une seule fois et n’a rien à faire avec les données sources, par exemple supprimer/tronquer, utilisez la propriété `sqlWriterCleanupScript`. |Nom de la procédure stockée. |Non  |
-| storedProcedureParameters |Paramètres de la procédure stockée. |Paires nom/valeur. Les noms et la casse des paramètres doivent correspondre aux noms et à la casse des paramètres de la procédure stockée. |Non  |
-| sqlWriterTableType |Spécifiez le nom du type de table à utiliser dans la procédure stockée. L’activité de copie place les données déplacées disponibles dans une table temporaire avec ce type de table. Le code de procédure stockée peut ensuite fusionner les données copiées avec les données existantes. |Nom de type de table. |Non  |
+| sqlWriterCleanupScript |Spécifiez une requête pour exécuter l’activité de copie afin que les données d’un segment spécifique soient nettoyées. Pour en savoir plus, voir [Copie renouvelée](#repeatable-copy). |Une instruction de requête. |Non |
+| sliceIdentifierColumnName |Spécifiez le nom de la colonne que l’activité de copie doit remplir avec l’identificateur de segment généré automatiquement, qui est utilisé pour nettoyer les données d’un segment spécifique lors de la ré-exécution. Pour en savoir plus, voir [Copie renouvelée](#repeatable-copy). |Nom d’une colonne avec le type de données binary(32). |Non |
+| sqlWriterStoredProcedureName |Nom de la procédure stockée qui définit comment appliquer les données sources dans la table cible, par exemple pour effectuer des upserts ou des transformations à l’aide de votre propre logique métier. <br/><br/>Notez que cette procédure stockée sera **appelée par lot**. Si vous souhaitez effectuer une opération qui ne s’exécute qu’une seule fois et n’a rien à faire avec les données sources, par exemple supprimer/tronquer, utilisez la propriété `sqlWriterCleanupScript`. |Nom de la procédure stockée. |Non |
+| storedProcedureParameters |Paramètres de la procédure stockée. |Paires nom/valeur. Les noms et la casse des paramètres doivent correspondre aux noms et à la casse des paramètres de la procédure stockée. |Non |
+| sqlWriterTableType |Spécifiez le nom du type de table à utiliser dans la procédure stockée. L’activité de copie place les données déplacées disponibles dans une table temporaire avec ce type de table. Le code de procédure stockée peut ensuite fusionner les données copiées avec les données existantes. |Nom de type de table. |Non |
 
 #### <a name="sqlsink-example"></a>Exemple SqlSink
 
@@ -186,7 +186,7 @@ L’exemple définit les entités de fabrique de données suivantes :
 
 L’exemple copie toutes les heures les données temporelles (horaire, journalière, etc.) d’une table d’une base de données Azure SQL vers un objet blob. Les propriétés JSON utilisées dans ces exemples sont décrites dans les sections suivant les exemples.
 
-**Service lié pour Azure SQL Database :**
+**Service lié Azure SQL Database :**
 
 ```JSON
 {

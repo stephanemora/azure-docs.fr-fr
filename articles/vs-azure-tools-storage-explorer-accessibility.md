@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/20/2018
 ms.author: marayerm
 ms.openlocfilehash: aa42d6b898a3cc474575f6c8dae65ff420fc8e30
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60457248"
 ---
 # <a name="storage-explorer-accessibility"></a>Accessibilité de l’Explorateur Stockage Azure
@@ -27,11 +27,11 @@ ms.locfileid: "60457248"
 
 L’explorateur de stockage prend en charge l’utilisation d’un lecteur d’écran sur Windows et Mac. Les lecteurs d’écran suivants sont recommandés pour chaque plateforme :
 
-Plateforme | Lecteur d’écran
+Plateforme | Lecteur d'écran
 ---------|--------------
 Windows  | NVDA
 Mac      | Voice Over
-Linux    | (les lecteurs d’écran ne sont pas pris en charge sur Linux)
+Linux    | (les lecteurs d'écran ne sont pas pris en charge sous Linux)
 
 Si vous rencontrez un problème d’accessibilité lors de l’utilisation de l’Explorateur de stockage, veuillez [ouvrir un problème sur GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
 
@@ -45,7 +45,7 @@ Le paramètre du zoom augmente la taille de la plupart des éléments de l’int
 
 ## <a name="high-contrast-themes"></a>Thèmes à contraste élevé
 
-L’explorateur de stockage possède deux thèmes à contraste élevé, **Contraste élevé (clair)** et **Contraste élevé (sombre)**. Vous pouvez modifier votre thème en sélectionnant dans l’aide > menu de thèmes.
+L’explorateur de stockage possède deux thèmes à contraste élevé, **Contraste élevé (clair)** et **Contraste élevé (sombre)** . Vous pouvez changer votre thème en le sélectionnant dans le menu Aide > Thèmes.
 
 ![Sous-menu Thèmes][1]
 
@@ -91,7 +91,7 @@ Retour    | **Alt + Flèche gauche**
 Transférer | **Alt + Flèche droite**
 Haut      | **Alt + Flèche haut**
 
-### <a name="editor-commands"></a>Commandes de l’éditeur
+### <a name="editor-commands"></a>Commandes de l'éditeur
 
 Commande | Raccourci clavier
 --------|------------------
@@ -105,7 +105,7 @@ Actualiser  | **Ctrl + R**
 Commande                | Raccourci clavier
 -----------------------|------------------
 Activer/désactiver des outils de développement | **F12**
-Recharger                 | **CTRL + ALT + R**
+Recharger                 | **Alt + Ctrl + R**
 
 [0]: ./media/vs-azure-tools-storage-explorer-accessibility/Zoom.png
 [1]: ./media/vs-azure-tools-storage-explorer-accessibility/HighContrast.png

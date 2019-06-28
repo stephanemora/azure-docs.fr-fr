@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/23/2017
 ms.author: rezas
 ms.openlocfilehash: 5e755a528d91d6321f431f256eafdcb01e67d601
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60399017"
 ---
 # <a name="use-ip-filters"></a>Utiliser des filtres IP
@@ -123,7 +123,7 @@ Notez que `<ipFilterIndexToRemove>` doit correspondre à l'ordre des filtres IP
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Les filtres IP de votre concentrateur IoT peuvent être récupérées et définies via [Azure PowerShell](/powershell/azure/overview). 
+Les filtres IP de votre hub IoT peuvent être récupérés et définis via [Azure PowerShell](/powershell/azure/overview). 
 
 ```powershell
 # Get your IoT Hub resource using its name and its resource group name

@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 07/13/2018
 ms.author: kumud
 ms.openlocfilehash: 3267d79387586f5ca8475d7ac0ed0f86d3f64f0d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60595042"
 ---
 # <a name="outbound-connections-classic"></a>Connexions sortantes (Classic)
@@ -39,7 +39,7 @@ Azure propose trois méthodes différentes pour réaliser des déploiements Clas
 
 | Scénario | Méthode | Protocoles IP | Description | Rôle de travail web | IaaS | 
 | --- | --- | --- | --- | --- | --- |
-| [1. Machine virtuelle avec adresse IP publique de niveau d’instance](#ilpip) | Traduction d’adresses réseau sources, masquage de port non utilisé | TCP, UDP, ICMP, ESP | Azure utilise l’adresse IP publique affectée à la machine virtuelle. L’instance a tous les ports éphémères disponibles. | Non  | OUI |
+| [1. Machine virtuelle avec adresse IP publique de niveau d’instance](#ilpip) | Traduction d’adresses réseau sources, masquage de port non utilisé | TCP, UDP, ICMP, ESP | Azure utilise l’adresse IP publique affectée à la machine virtuelle. L’instance a tous les ports éphémères disponibles. | Non | OUI |
 | [2. Point de terminaison à charge équilibrée](#publiclbendpoint) | Traduction d’adresses réseau sources avec masquage de port (traduction d’adresse de port) sur le point de terminaison public | TCP, UDP | Azure partage le point de terminaison de l’adresse IP publique avec plusieurs points de terminaison privés. Azure utilise des ports éphémères du point de terminaison public pour la traduction d’adresse de port. | OUI | OUI |
 | [3. Machine virtuelle autonome](#defaultsnat) | Traduction d’adresses réseau sources avec masquage de port (traduction d’adresse de port) | TCP, UDP | Azure désigne automatiquement une adresse IP publique pour la traduction d’adresses réseau sources, partage cette adresse IP publique avec tout le déploiement et utilise des ports éphémères de l’adresse IP du point de terminaison public pour la traduction d’adresse de port. Il s’agit d’un scénario de secours pour les scénarios précédents. Nous vous le déconseillons si vous avez besoin de visibilité et de contrôle. | OUI | OUI |
 

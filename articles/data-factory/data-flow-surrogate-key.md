@@ -1,6 +1,6 @@
 ---
-title: Transformation de clé de substitution de Data Flow de mappage pour Azure Data Factory
-description: Comment utiliser mappage de flux de substitut clé Transformation du Azure Data Factory des données pour générer des valeurs de clés séquentielles
+title: Transformation de clé de substitution du mappage de flux de données Azure Data Factory
+description: Comment utiliser une transformation de clé de substitution du mappage de flux de données Azure Data Factory pour générer des valeurs de clés séquentielles
 author: kromerm
 ms.author: makromer
 ms.reviewer: douglasl
@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.openlocfilehash: eaa1c577f7e208400d3430222b006e0dbbd7956a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61350430"
 ---
-# <a name="mapping-data-flow-surrogate-key-transformation"></a>Transformation clés de substitution de flux de données de mappage
+# <a name="mapping-data-flow-surrogate-key-transformation"></a>Transformation de clé de substitution du mappage de flux de données
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
@@ -26,30 +26,30 @@ Utilisez la transformation de clé de substitution pour ajouter une valeur de cl
 
 « Valeur de début » est le point de début de la valeur incrémentielle.
 
-## <a name="increment-keys-from-existing-sources"></a>Clés d’incrément de sources existantes
+## <a name="increment-keys-from-existing-sources"></a>Incrémenter les clés de sources existantes
 
-Si vous souhaitez démarrer votre séquence à partir d’une valeur qui existe dans une Source, vous pouvez utiliser une transformation de colonne dérivée qui suit immédiatement la transformation de votre clé de substitution et additionner les deux valeurs :
+Si vous souhaitez démarrer votre séquence à partir d’une valeur existant dans une source, vous pouvez utiliser une transformation de colonne dérivée qui suit immédiatement votre transformation de clé de substitution et additionner les deux valeurs :
 
-![SK ajouter Max](media/data-flow/sk006.png "substitut clé Transformation ajouter Max")
+![Ajout max de clé de substitution](media/data-flow/sk006.png "Ajout maximum de transformation de clé de substitution")
 
-Pour amorcer la valeur de clé avec la valeur maximale précédente, il existe deux techniques que vous pouvez utiliser :
+Pour amorcer la valeur de clé avec la valeur maximale précédente, il existe deux techniques :
 
 ### <a name="database-sources"></a>Sources de base de données
 
-Utilisez l’option « Requête » pour sélectionner les MAX() à partir de votre source à l’aide de la transformation Source :
+Utilisez l’option « Requête » pour sélectionner la valeur MAX() dans votre source en utilisant la transformation de source :
 
-![Requête de clé de substitution](media/data-flow/sk002.png "requête de Transformation de la clé de substitution")
+![Requête de clé de substitution](media/data-flow/sk002.png "Requête de transformation de clé de substitution")
 
 ### <a name="file-sources"></a>Sources de fichiers
 
-Si votre valeur maximale précédente est dans un fichier, vous pouvez utiliser votre transformation Source ainsi que d’une transformation d’agrégation et utiliser la fonction d’expression MAX() pour obtenir la valeur maximale précédente :
+Si votre valeur maximale précédente figure dans un fichier, vous pouvez utiliser votre transformation Source ainsi qu’une transformation Agrégation, et utiliser la fonction d’expression MAX() pour obtenir la valeur maximale précédente :
 
-![Fichier de clé de substitution](media/data-flow/sk008.png "fichier de clé de substitution")
+![Fichier de clé de substitution](media/data-flow/sk008.png "Fichier de clé de substitution")
 
-Dans les deux cas, vous devez joindre vos nouvelles données entrantes avec votre source qui contient la valeur maximale précédente :
+Dans les deux cas, vous devez joindre vos nouvelles données entrantes avec votre source contenant la valeur maximale précédente :
 
-![Jointure de clé de substitution](media/data-flow/sk004.png "jointure de clé de substitution")
+![Jointure de clé de substitution](media/data-flow/sk004.png "Jointure de clé de substitution")
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Ces exemples utilisent la [joindre](data-flow-join.md) et [colonne dérivée](data-flow-derived-column.md) transformations.
+Ces exemples utilisent les transformations [Joindre](data-flow-join.md) et [Colonne dérivée](data-flow-derived-column.md).

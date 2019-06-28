@@ -15,10 +15,10 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: cb414abcbbf2db7b7cd6a3d724e50010beeef647
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60318354"
 ---
 # <a name="how-to-use-perfinsights"></a>Utilisation de PerfInsights
@@ -105,37 +105,37 @@ Les informations portant sur la configuration de la machine virtuelle Windows, d
 |Données collectées                              |  |  | Scénarios de performances |  |  | |
 |----------------------------------|----------------------------|------------------------------------|--------------------------|--------------------------------|----------------------|----------------------|
 |                               | Analyse rapide des performances | Benchmarking | Analyse des performances | Analyse de fichiers Azure | Analyse avancée des performances |
-| Informations tirées des journaux d’événements       | Oui                        | OUI                                | OUI                      | OUI                  | Oui                  |
-| Informations système                | Oui                        | OUI                                | OUI                      | OUI                  | Oui                  |
-| Mappage de volume                        | Oui                        | OUI                                | OUI                      | OUI                  | Oui                  |
-| Mappage de disque                          | Oui                        | OUI                                | OUI                      | OUI                  | Oui                  |
-| Tâches en cours d’exécution                     | Oui                        | OUI                                | OUI                      | OUI                  | Oui                  |
-| Compteurs de fiabilité de stockage      | Oui                        | OUI                                | OUI                      | OUI                  | Oui                  |
-| Informations sur le stockage               | Oui                        | OUI                                | OUI                      | OUI                  | Oui                  |
-| Sortie Fsutil                     | Oui                        | OUI                                | OUI                      | OUI                  | Oui                  |
-| Informations du pilote de filtre                | Oui                        | OUI                                | OUI                      | OUI                  | Oui                  |
-| Sortie Netstat                    | Oui                        | OUI                                | OUI                      | OUI                  | Oui                  |
-| Configuration réseau             | Oui                        | OUI                                | OUI                      | OUI                  | Oui                  |
-| Configuration du pare-feu            | Oui                        | OUI                                | OUI                      | OUI                  | Oui                  |
-| Configuration de SQL Server          | Oui                        | OUI                                | OUI                      | OUI                  | Oui                  |
-| Suivis des diagnostics de performances *  | Oui                        | OUI                                | OUI                      | OUI                  | Oui                  |
-| Suivi du compteur de performances **      |                            |                                    | Oui                      |                      | Oui                  |
-| Suivi du compteur SMB **              |                            |                                    |                          | Oui                  |                      |
-| Suivi du compteur SQL Server **       |                            |                                    | Oui                      |                      | Oui                  |
-| Suivi XPerf                       |                            |                                    |                          |                      | Oui                  |
-| Suivi StorPort                    |                            |                                    |                          |                      | Oui                  |
-| Suivi réseau                     |                            |                                    |                          | Oui                  | Oui                  |
-| Suivi d’évaluation Diskspd ***       |                            | Oui                                |                          |                      |                      |
+| Informations tirées des journaux d’événements       | OUI                        | OUI                                | OUI                      | OUI                  | OUI                  |
+| Informations système                | OUI                        | OUI                                | OUI                      | OUI                  | OUI                  |
+| Mappage de volume                        | OUI                        | OUI                                | OUI                      | OUI                  | OUI                  |
+| Mappage de disque                          | OUI                        | OUI                                | OUI                      | OUI                  | OUI                  |
+| Tâches en cours d’exécution                     | OUI                        | OUI                                | OUI                      | OUI                  | OUI                  |
+| Compteurs de fiabilité de stockage      | OUI                        | OUI                                | OUI                      | OUI                  | OUI                  |
+| Informations sur le stockage               | OUI                        | OUI                                | OUI                      | OUI                  | OUI                  |
+| Sortie Fsutil                     | OUI                        | OUI                                | OUI                      | OUI                  | OUI                  |
+| Informations du pilote de filtre                | OUI                        | OUI                                | OUI                      | OUI                  | OUI                  |
+| Sortie Netstat                    | OUI                        | OUI                                | OUI                      | OUI                  | OUI                  |
+| Configuration réseau             | OUI                        | OUI                                | OUI                      | OUI                  | OUI                  |
+| Configuration du pare-feu            | OUI                        | OUI                                | OUI                      | OUI                  | OUI                  |
+| Configuration de SQL Server          | OUI                        | OUI                                | OUI                      | OUI                  | OUI                  |
+| Suivis des diagnostics de performances *  | OUI                        | OUI                                | OUI                      | OUI                  | OUI                  |
+| Suivi du compteur de performances **      |                            |                                    | OUI                      |                      | OUI                  |
+| Suivi du compteur SMB **              |                            |                                    |                          | OUI                  |                      |
+| Suivi du compteur SQL Server **       |                            |                                    | OUI                      |                      | OUI                  |
+| Suivi XPerf                       |                            |                                    |                          |                      | OUI                  |
+| Suivi StorPort                    |                            |                                    |                          |                      | OUI                  |
+| Suivi réseau                     |                            |                                    |                          | OUI                  | OUI                  |
+| Suivi d’évaluation Diskspd ***       |                            | OUI                                |                          |                      |                      |
 |       |                            |                         |                                                   |                      |                      |
 
 ### <a name="performance-diagnostics-trace-"></a>Suivi des diagnostics de performances (*)
 
 Exécute un moteur basé sur des règles en arrière-plan afin de collecter des données et diagnostiquer les problèmes de performances en cours. Les règles actuellement prises en charge sont les suivantes :
 
-- Règle HighCpuUsage : Détecte les périodes d’utilisation élevée du processeur et montre les principaux utilisateurs de l’utilisation du processeur pendant ces périodes.
-- Règle HighDiskUsage : Détecte les périodes d’utilisation élevée de disque sur les disques physiques et montre les principaux disque utilisateurs pendant ces périodes.
-- Règle de HighResolutionDiskMetric : Affiche des mesures de latence d’e/s, le débit et e/s par 50 millisecondes pour chaque disque physique. Cela permet d’identifier rapidement les périodes de limitation de disque.
-- Règle de HighMemoryUsage : Détecte les périodes d’utilisation élevée de la mémoire et montre des utilisateurs les plus de mémoire pendant ces périodes.
+- Règle HighCpuUsage : détecte les périodes d’utilisation élevée du processeur et montre les principaux utilisateurs du processeur pendant ces périodes.
+- Règle HighDiskUsage : détecte les périodes d’utilisation élevée de disque sur les disques physiques et montre les principaux utilisateurs de disque pendant ces périodes.
+- Règle HighResolutionDiskMetric : montre les mesures d’E/S par seconde, de débit et de latence d’E/S par intervalles de 50 millisecondes pour chaque disque physique. Cela permet d’identifier rapidement les périodes de limitation de disque.
+- Règle HighMemoryUsage : détecte les périodes d’utilisation élevée de la mémoire et montre les principaux utilisateurs de la mémoire pendant ces périodes.
 
 > [!NOTE] 
 > Actuellement, les versions Windows incluant .NET Framework 4.5 ou versions ultérieures sont prises en charge.
@@ -167,7 +167,7 @@ Tests de charge de travail d’E/S Diskspd (disque de système d’exploitation 
 
 -  Cet outil doit être exécuté sur la machine virtuelle qui présente le problème de performances. 
 
--  Les systèmes d’exploitation pris en charge sont les suivants : Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 et Windows Server 2016 ; Windows 8.1 et Windows 10.
+-  Les systèmes d’exploitation pris en charge sont les suivants : Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 et Windows Server 2016 ; Windows 8.1 et Windows 10.
 
 #### <a name="possible-problems-when-you-run-the-tool-on-production-vms"></a>Problèmes possibles lorsque vous exécutez l’outil sur des machines virtuelles de production
 

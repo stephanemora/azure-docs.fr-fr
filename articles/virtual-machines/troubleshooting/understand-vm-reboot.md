@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 70a6845349b90cf614a84e13680ebb6fc6b3e2a9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60443753"
 ---
 # <a name="understand-a-system-reboot-for-azure-vm"></a>Comprendre un redémarrage du système pour Azure
@@ -102,7 +102,7 @@ Toutes les machines virtuelles sont automatiquement déplacées vers un autre se
 
 Il est rare que l’équipe d’exploitation Azure ait besoin d’effectuer des activités de maintenance pour garantir l’intégrité globale de la plateforme Azure. Ce comportement peut affecter la disponibilité de la machine virtuelle et aboutit généralement à la même action de récupération automatique que celle décrite précédemment.  
 
-Maintenance non planifiée sont les suivantes :
+La maintenance non planifiée comprend les actions suivantes :
 
 - Défragmentation urgente de nœud
 - Mises à jour du commutateur réseau urgente

@@ -16,13 +16,13 @@ ms.topic: article
 ms.date: 08/23/2018
 ms.author: genli
 ms.openlocfilehash: 2a46879a6882e6d45e4a7ccce59e4a02feea9005
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61432957"
 ---
-# <a name="connectivity-and-networking-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Connectivité et les problèmes de mise en réseau pour Azure Cloud Services : Forum Aux Questions (FAQ)
+# <a name="connectivity-and-networking-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problèmes de connectivité et de mise en réseau pour Azure Cloud Services : Forum Aux Questions (FAQ)
 
 Cet article comprend des questions fréquemment posées sur les problèmes de connectivité et de mise en réseau pour [Azure Cloud Services](https://azure.microsoft.com/services/cloud-services). Pour plus d’informations sur la taille, voir la [page sur la taille de machine virtuelle des Services Cloud](cloud-services-sizes-specs.md).
 
@@ -65,7 +65,7 @@ L’algorithme de distribution utilisé est un hachage 5-tuple (adresse IP sourc
 
 ## <a name="how-can-i-redirect-incoming-traffic-to-the-default-url-of-my-cloud-service-to-a-custom-url"></a>Comment rediriger le trafic arrivant sur l’URL par défaut de mon service cloud vers une URL personnalisée ?
 
-Le module de réécriture d’URL d’IIS permet de rediriger le trafic arrivant sur l’URL par défaut du service cloud (par exemple, \*. cloudapp.net) vers un nom ou une URL personnalisés. Étant donné que le module de réécriture d’URL est activé par défaut sur les rôles web et ses règles sont configurées dans le fichier web.config de l’application, il est toujours disponible sur la machine virtuelle, quel que soit les redémarrages/réinitialisations. Pour plus d’informations, consultez :
+Le module de réécriture d’URL d’IIS permet de rediriger le trafic arrivant sur l’URL par défaut du service cloud (par exemple, \*. cloudapp.net) vers un nom ou une URL personnalisés. Étant donné que le module de réécriture d’URL est activé par défaut sur les rôles web et que ses règles sont configurées dans le fichier web.config de l’application, il est toujours disponible sur la machine virtuelle, quel que soit le nombre de redémarrages ou de réinitialisations. Pour plus d’informations, voir :
 
 - [Créer des règles de réécriture pour le module de réécriture d’URL](https://docs.microsoft.com/iis/extensions/url-rewrite-module/creating-rewrite-rules-for-the-url-rewrite-module)
 - [Supprimer un lien par défaut](https://stackoverflow.com/questions/32286487/azure-website-how-to-remove-default-link?answertab=votes#tab-top)
@@ -104,7 +104,7 @@ Pour vous assurer que l’adresse IP publique de votre service cloud (également
 - [Réserver l’adresse IP d’un service cloud existant](../virtual-network/virtual-networks-reserved-public-ip.md#reserve-the-ip-address-of-an-existing-cloud-service)
 - [Associer une adresse IP réservée à un service cloud à l’aide d’un fichier de configuration de service](../virtual-network/virtual-networks-reserved-public-ip.md#associate-a-reserved-ip-to-a-cloud-service-by-using-a-service-configuration-file)
 
-Si vous avez plusieurs instances pour vos rôles, l’association RIP à votre service cloud ne devrait pas causer aucun temps d’arrêt. Vous pouvez également la liste verte la plage IP de votre centre de données Azure. Vous pouvez trouver toutes les plages IP Azure à le [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=41653).
+Tant que vous avez plus d’une instance pour vos rôles, l’association d’une adresse IP réservée à votre service cloud ne devrait pas occasionner de temps d’arrêt. Vous pouvez également mettre en liste verte la plage d’adresses IP de votre centre de données Azure. Vous pouvez trouver toutes les plages d’adresses IP Azure dans le [Centre de téléchargement Microsoft](https://www.microsoft.com/en-us/download/details.aspx?id=41653).
 
 Ce fichier contient les plages d’adresses IP (dont les plages de calcul, SQL et de stockage) utilisées dans les centres de données Azure. Un fichier mis à jour est publié chaque semaine, qui reflète les plages actuellement déployées et toutes les modifications à venir des plages d’adresses IP. Les nouvelles plages figurant dans le fichier ne sont pas utilisées dans les centres de données avant une semaine minimum. Téléchargez le nouveau fichier xml chaque semaine, et apportez les modifications nécessaires sur votre site pour identifier correctement les services qui s’exécutent dans Azure. Les utilisateurs d’ExpressRoute remarqueront peut-être que ce fichier est utilisé pour mettre à jour la publication de protocole de passerelle frontière de l’espace Azure la première semaine de chaque mois.
 

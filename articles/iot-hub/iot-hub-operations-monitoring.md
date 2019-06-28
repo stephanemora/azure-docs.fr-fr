@@ -1,5 +1,5 @@
 ---
-title: Opérations Azure IoT Hub analyse (obsolète) | Microsoft Docs
+title: Surveillance des opérations Azure IoT Hub (déconseillé) | Microsoft Docs
 description: Découvrez comment utiliser la surveillance des opérations Azure IoT Hub pour surveiller l’état des opérations sur votre hub IoT en temps réel.
 author: nberdy
 manager: briz
@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: nberdy
 ms.openlocfilehash: 84f28a1cb411e7df156fc08fa683efe7f83eda64
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60345718"
 ---
-# <a name="iot-hub-operations-monitoring-deprecated"></a>Opérations IoT Hub surveillance (déconseillée)
+# <a name="iot-hub-operations-monitoring-deprecated"></a>Surveillance des opérations IoT Hub (déconseillé)
 
 La surveillance des opérations IoT Hub vous permet de surveiller l’état des opérations sur votre hub IoT en temps réel. IoT Hub effectue le suivi des événements entre différentes catégories d’opérations. Vous pouvez opter pour l’envoi des événements d’une ou plusieurs catégories à un point de terminaison de votre IoT Hub en vue de leur traitement. Vous pouvez surveiller les données des erreurs ou configurer un traitement plus complexe basé sur des modèles de données.
 
 >[!NOTE]
->IoT Hub **surveillance des opérations est déconseillées et a été supprimées d’IoT Hub sur le 10 mars 2019**. Pour la surveillance des opérations et l’intégrité d’IoT Hub, consultez [surveiller l’intégrité d’Azure IoT Hub et diagnostiquer rapidement les problèmes](iot-hub-monitor-resource-health.md). Pour plus d’informations sur la chronologie de dépréciation, consultez l’article [Surveiller vos solutions Azure IoT avec Azure Monitor et Azure Resource Health](https://azure.microsoft.com/blog/monitor-your-azure-iot-solutions-with-azure-monitor-and-azure-resource-health).
+>La **surveillance des opérations d’IoT Hub est déconseillée et a été supprimée d’IoT Hub le 10 mars 2019**. Pour plus d’informations sur la surveillance des opérations et de l’intégrité d’IoT Hub, voir [Surveiller l’intégrité d’Azure IoT Hub et diagnostiquer rapidement les problèmes](iot-hub-monitor-resource-health.md). Pour plus d’informations sur la chronologie de dépréciation, consultez l’article [Surveiller vos solutions Azure IoT avec Azure Monitor et Azure Resource Health](https://azure.microsoft.com/blog/monitor-your-azure-iot-solutions-with-azure-monitor-and-azure-resource-health).
 
 IoT Hub surveille six catégories d’événements :
 
@@ -36,7 +36,7 @@ IoT Hub surveille six catégories d’événements :
 
 ## <a name="how-to-enable-operations-monitoring"></a>Comment activer la surveillance des opérations
 
-1. Créez un hub IoT. Vous trouverez des instructions sur la façon de créer un IoT hub dans le [prise en main](quickstart-send-telemetry-dotnet.md) guide.
+1. Créez un hub IoT. Pour savoir comment créer un hub IoT, voir le guide [Prise en main](quickstart-send-telemetry-dotnet.md).
 
 2. Ouvrez le panneau de votre hub IoT. De là, cliquez sur **Surveillance des opérations**.
 

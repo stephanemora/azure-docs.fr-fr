@@ -1,5 +1,5 @@
 ---
-title: Obtenir l’URI de signature d’accès partagé pour votre image de machine virtuelle Azure Microsoft | Place de marché Azure
+title: Obtenir l’URI de signature d’accès partagé pour votre image de machine virtuelle Microsoft Azure | Place de marché Azure
 description: Explique comment obtenir l’URI de la signature d’accès partagé de vos images de machine virtuelle.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: pbutlerm
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 10/19/2018
 ms.author: pabutler
 ms.openlocfilehash: 4da82b2f6aaa3fc664d2e91b80722329533b0cd0
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64938662"
 ---
 # <a name="get-shared-access-signature-uri-for-your-vm-image"></a>Obtenir l’URI de la signature d’accès partagé pour vos images de machine virtuelle

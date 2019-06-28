@@ -13,13 +13,13 @@ ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 03/26/2019
 ms.openlocfilehash: ca53f4bfa80d6fdead24dc7d562c2240bb3fa86d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60387427"
 ---
-# <a name="creating-and-using-active-geo-replication"></a>Création et utilisation de géo-réplication active
+# <a name="creating-and-using-active-geo-replication"></a>Création et utilisation de la géoréplication active
 
 La géoréplication active est une fonctionnalité Azure SQL Database qui vous permet de créer des bases de données secondaires lisibles à partir de bases de données individuelles sur un serveur SQL Database dans le même centre de données (région) ou dans un centre de données distinct.
 
@@ -78,7 +78,7 @@ Pour assurer vraiment la continuité des activités, l’ajout d’une redondanc
 > [!NOTE]
 > La relecture du journal est différée sur la base de données secondaire s’il existe des mises à jour de schéma sur le Principal. Cette dernière nécessite un verrouillage de schéma sur la base de données secondaire.
 > [!IMPORTANT]
-> Vous pouvez utiliser la géo-réplication pour créer une base de données secondaire dans la même région que le réplica principal. Vous pouvez utiliser cette base de données secondaire pour les charges de travail de l’équilibrage de charge en lecture seule dans la même région. Toutefois, une base de données secondaire dans la même région ne fournit pas de résilience aux défaillances supplémentaires et par conséquent n’est pas une cible de basculement approprié pour la récupération d’urgence. Il ne garantira également pas d’isolation de zone avaialability. Utiliser critique pour l’entreprise ou niveau de service Premium avec [configuration de zone redondante](sql-database-high-availability.md#zone-redundant-configuration) à isoler la zone avaialability.   
+> Vous pouvez utiliser la géoréplication pour créer une base de données secondaire dans la même région que la base de données primaire. Vous pouvez utiliser cette base de données secondaire pour équilibrer les charges de travail en lecture seule dans la même région. Toutefois, une base de données secondaire dans la même région n'offre pas davantage de résilience aux défaillances et ne constitue donc pas une cible de basculement adapté à des fins de récupération d’urgence. De même, elle ne garantit en rien l'isolation de la zone de disponibilité. Utilisez le niveau de service Critique pour l’entreprise ou Premium avec une [configuration de zone redondante](sql-database-high-availability.md#zone-redundant-configuration) pour isoler la zone de disponibilité.   
 >
 
 - **Basculement planifié**
@@ -110,7 +110,7 @@ Pour assurer vraiment la continuité des activités, l’ajout d’une redondanc
 
 - **Synchronisation des informations d’identification et des règles de pare-feu**
 
-Nous vous recommandons d’utiliser [règles de pare-feu IP de niveau de base de données](sql-database-firewall-configure.md) pour bases de données géo-répliqué afin de ces règles peuvent être répliquées avec la base de données pour vous assurer toutes les bases de données secondaires ont les mêmes règles de pare-feu IP en tant que le réplica principal. Cette approche évite aux clients de devoir configurer et tenir à jour manuellement les règles de pare-feu sur les serveurs hébergeant les bases de données primaire et secondaires. De même, le recours à des [utilisateurs de base de données contenus](sql-database-manage-logins.md) pour l’accès aux données garantit que les bases de données primaires et secondaires ont toujours les mêmes informations d’identification d’utilisateur afin qu’un basculement n’entraîne aucune interruption due à une discordance d’ID de connexion et de mots de passe. Avec l’ajout [d’Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md), les clients peuvent gérer l’accès utilisateur aux bases de données primaires et secondaires. Cela élimine également la nécessité de gérer les informations d’identification dans l’ensemble des bases de données.
+Nous recommandons d’utiliser des [règles de pare-feu IP au niveau de la base de données](sql-database-firewall-configure.md) pour les bases de données géorépliquées, de façon à ce que ces règles puissent être répliquées avec la base de données, garantissant ainsi que toutes les bases de données secondaires ont les mêmes règles de pare-feu IP que la base de données primaire. Cette approche évite aux clients de devoir configurer et tenir à jour manuellement les règles de pare-feu sur les serveurs hébergeant les bases de données primaire et secondaires. De même, le recours à des [utilisateurs de base de données contenus](sql-database-manage-logins.md) pour l’accès aux données garantit que les bases de données primaires et secondaires ont toujours les mêmes informations d’identification d’utilisateur afin qu’un basculement n’entraîne aucune interruption due à une discordance d’ID de connexion et de mots de passe. Avec l’ajout [d’Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md), les clients peuvent gérer l’accès utilisateur aux bases de données primaires et secondaires. Cela élimine également la nécessité de gérer les informations d’identification dans l’ensemble des bases de données.
 
 ## <a name="upgrading-or-downgrading-a-primary-database"></a>Mise à niveau ou rétrogradation d’une base de données primaire
 
@@ -120,7 +120,7 @@ Vous pouvez augmenter ou diminuer la taille de calcul d’une base de données p
 > Si vous avez créé une base de données secondaire dans le cadre de la configuration des groupes de basculement, il n’est pas conseillé de passer la base de données secondaire à un niveau de service inférieur. En effet, votre couche Données pourrait manquer de capacité pour traiter votre charge de travail normale après l’activation du basculement.
 
 > [!IMPORTANT]
-> La base de données primaire dans un groupe de basculement ne peut pas mettre à l’échelle vers un niveau supérieur, sauf si la base de données secondaire est tout d’abord à l’échelle sur le niveau supérieur. Si vous essayez de mettre à l’échelle de la base de données primaire avant de la base de données secondaire est à l’échelle, vous pouvez recevoir l’erreur suivante :
+> Pour permettre la mise à l'échelle vers le niveau supérieur d'une base de données primaire dans un groupe de basculement, la base de données secondaire doit avoir été préalablement mise à l'échelle vers le niveau supérieur. Si vous tentez de mettre à l’échelle la base de données primaire préalablement à la base de données secondaire, l'erreur suivante peut s'afficher :
 >
 > `Error message: The source database 'Primaryserver.DBName' cannot have higher edition than the target database 'Secondaryserver.DBName'. Upgrade the edition on the target before upgrading the source.`
 >
@@ -132,14 +132,14 @@ En raison de la latence élevée des réseaux étendus, la copie continue utilis
 > [!NOTE]
 > **sp_wait_for_database_copy_sync** empêche la perte de données après un basculement, mais il ne garantit pas la synchronisation complète pour l’accès en lecture. Le délai causé par un appel de procédure **sp_wait_for_database_copy_sync** peut être significatif et dépend de la taille du journal des transactions au moment de l’appel.
 
-## <a name="monitoring-geo-replication-lag"></a>Analyse du décalage de géo-réplication
+## <a name="monitoring-geo-replication-lag"></a>Surveiller le décalage de la géoréplication
 
-Pour surveiller le décalage en ce qui concerne le RPO, utilisez *replication_lag_sec* colonne de [sys.dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) sur la base de données primaire. Il indique le décalage en secondes entre les transactions validées sur le serveur principal et rendues persistantes sur le serveur secondaire. Par exemple, Si la valeur du décalage est 1 seconde, cela signifie que si le réplica principal est affecté par une panne à ce stade et le basculement est lancé, 1 seconde des plus récente transtions ne seront pas enregistrée. 
+Pour surveiller le décalage par rapport au RPO, utilisez la colonne *replication_lag_sec* de [sys.dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) sur la base de données primaire. Elle affiche le décalage en secondes entre les transactions validées sur la base de données primaire et les transactions persistantes sur la base de données secondaire. Par exemple, une valeur de décalage d'une seconde indique qu'en cas d'interruption de la base de données primaire, à ce moment précis, et de basculement, les transactions les plus récentes ne seront pas sauvegardées à hauteur d'une seconde. 
 
-Pour mesurer le décalage par rapport à la base de données primaire, les modifications qui ont été appliqués sur la base de données secondaire, c'est-à-dire disponible pour lire à partir de la base de données secondaire, comparer *last_commit* temps sur la base de données secondaire avec la même valeur sur le serveur principal base de données.
+Pour mesurer le décalage ayant trait aux modifications de la base de données primaire appliquées à la base de données secondaire, c'est-à-dire pour lire à partir de la base de données secondaire, comparez la valeur *last_commit* sur la base de données secondaire avec la même valeur sur la base de données primaire.
 
 > [!NOTE]
-> Parfois *replication_lag_sec* sur la base de données primaire a une valeur NULL, ce qui signifie que le réplica principal n’actuellement sait pas quelle distance est de la base de données secondaire.   Cela se produit généralement après le processus de redémarrage et doit être une condition temporaire. Envisagez d’alerte de l’application si le *replication_lag_sec* retourne NULL pour une période prolongée. Cela signifie que la base de données secondaire ne peut pas communiquer avec le serveur principal en raison d’un problème de connectivité permanent. Il existe également des conditions qui peuvent provoquer la différence entre *last_commit* temps sur le serveur secondaire et sur la base de données primaire de devenir volumineux. Par exemple, Si une validation est effectuée sur le serveur principal après une longue période d’aucune modification, la différence passera jusqu'à une valeur élevée avant de revenir rapidement à 0. Considérez-la comme une condition d’erreur lors de la différence entre ces deux valeurs reste volumineuse pendant une longue période.
+> Sur la base de données primaire, *replication_lag_sec* peut présenter une valeur NULL, ce qui signifie que la base de données primaire ne connaît pas précisément l'état de la base de données secondaire.   Cela se produit généralement après le redémarrage du processus et relève d'une situation temporaire. Envisagez d’alerter l’application si *replication_lag_sec* présente une valeur NULL pendant une période prolongée. En effet, la base de données secondaire peut ne pas être en mesure de communiquer avec la base de données primaire en raison d'un échec de connectivité permanent. D'autres cas de figure peuvent aussi être à l'origine d'une importante différence de valeur *last_commit* entre les bases de données primaire et secondaire. Par exemple, si une validation intervient sur la base de données primaire après une longue période sans modifications, la différence augmente considérablement avant de redevenir rapidement nulle. Envisagez un état d'erreur lorsque la différence entre ces deux valeurs demeure importante pendant une période prolongée.
 
 
 ## <a name="programmatically-managing-active-geo-replication"></a>Gestion de la géo-réplication active par programmation
@@ -166,7 +166,7 @@ Comme indiqué plus haut, la géoréplication active peut aussi être gérée pa
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Le module PowerShell Azure Resource Manager est toujours pris en charge par Azure SQL Database, mais tous les développements futurs sont pour le module Az.Sql. Pour ces applets de commande, consultez [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Les arguments pour les commandes dans le module Az et dans les modules AzureRm sont sensiblement identiques.
+> Le module PowerShell Azure Resource Manager est toujours pris en charge par Azure SQL Database, mais tous les développements futurs sont destinés au module Az.Sql. Pour ces cmdlets, consultez [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Les arguments des commandes dans le module Az et dans les modules AzureRm sont sensiblement identiques.
 
 | Applet de commande | Description |
 | --- | --- |
@@ -197,7 +197,7 @@ Comme indiqué plus haut, la géoréplication active peut aussi être gérée pa
 
 - Pour obtenir des exemples de scripts, consultez :
   - [Configurer et basculer une base de données unique à l’aide de la géoréplication active](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
-  - [Configurer et basculer une base de données regroupée à l’aide de la géoréplication active](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md)
+  - [Configurer et basculer une base de données mise en pool à l’aide de la géoréplication active](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md)
 - SQL Database prend également en charge les groupes de basculement automatique. Pour plus d’informations, voir la section sur l’utilisation des [Groupes de basculement automatique](sql-database-auto-failover-group.md).
 - Pour une vue d’ensemble de la continuité des activités et des scénarios, consultez [Vue d’ensemble de la continuité des activités](sql-database-business-continuity.md)
 - Pour en savoir plus sur les sauvegardes automatisées d’une base de données Azure SQL, consultez [Sauvegardes automatisées d’une base de données SQL](sql-database-automated-backups.md).

@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
 ms.openlocfilehash: 9fd9eaf1e62d063026e0e656346baaaade87064f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60410118"
 ---
 # <a name="avere-cluster-dns-configuration"></a>Configuration d’un DNS pour le cluster Avere
@@ -41,7 +41,7 @@ Pour obtenir des performances optimales, configurez votre serveur DNS afin qu’
 
 Le diagramme présente un vserver de cluster à gauche, et des adresses IP au centre et à droite. Configurez chaque point d’accès client avec des enregistrements A et des pointeurs comme illustré ci-dessous.
 
-![Diagramme de AVERE cluster tourniquet (round-robin) DNS](media/avere-vfxt-rrdns-diagram.png) 
+![Diagramme d’un DNS en tourniquet (round-robin) pour le cluster Avere](media/avere-vfxt-rrdns-diagram.png) 
 <!--- separate text description file provided  [diagram text description](avere-vfxt-rrdns-alt-text.md) -->
 
 Chaque adresse IP accessible par un client doit avoir un nom unique, qui est utilisé en interne par le cluster. (Dans ce diagramme, les adresses IP clientes sont nommées vs1-client-IP-* pour plus de clarté, mais dans un environnement de production, vous devrez sans doute utiliser des noms plus courts, comme client*.)

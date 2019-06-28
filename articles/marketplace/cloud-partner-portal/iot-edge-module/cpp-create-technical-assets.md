@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: pabutler
 ms.openlocfilehash: 9f40e2272388e6f467b8c3d0b01a6639bf652e80
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64942369"
 ---
 # <a name="prepare-your-iot-edge-module-technical-assets"></a>Préparer vos ressources techniques de module IoT Edge
@@ -122,7 +122,7 @@ Le Kit de développement logiciel (SDK) de module IoT est nécessaire pour obten
 ## <a name="recertification-process"></a>Processus de renouvellement de certification
 
 <!-- Add legal time windows-->
-Partenaires seront informés chaque fois qu’une modification avec rupture qui affecte leurs modules, tels que :
+Les partenaires reçoivent une notification à chaque changement cassant qui affecte leurs modules, tel que :
 
 - Matrice de prise en charge du système d’exploitation/arch de niveau 1 prise en charge par IoT Edge
 - Kit de développement logiciel (SDK) de module IoT

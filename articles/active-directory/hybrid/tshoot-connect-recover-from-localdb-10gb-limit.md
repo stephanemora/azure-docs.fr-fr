@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4d420c64c5834f7d3cb11d2f5f59e3ed85a54891
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60386922"
 ---
 # <a name="azure-ad-connect-how-to-recover-from-localdb-10-gb-limit"></a>Azure AD Connect : Comment récupérer depuis la limite de 10 Go de base de données locale
@@ -85,9 +85,9 @@ Par défaut, Azure AD Connect conserve jusqu’à sept jours les données d’hi
 
 2. Accédez à l’onglet **Opérations**.
 
-3. Sous **Actions**, sélectionnez **Clear Runs... (Effacer les exécutions)**.
+3. Sous **Actions**, sélectionnez **Clear Runs... (Effacer les exécutions)** .
 
-4. Vous pouvez choisir **effacer toutes les exécutions** ou **Clear s’exécute avant... \<date >** option. Il est recommandé de commencer par désactiver les données d’historique d’exécution présentes depuis plus de deux jours. Si vous continuez à rencontrer le problème de taille de base de données, choisissez l’option **Clear all runs (Effacer toutes les exécutions)**.
+4. Vous pouvez sélectionner l’option **Effacer toutes les exécutions** ou **Effacer les exécutions avant... \<date>** . Il est recommandé de commencer par désactiver les données d’historique d’exécution présentes depuis plus de deux jours. Si vous continuez à rencontrer le problème de taille de base de données, choisissez l’option **Clear all runs (Effacer toutes les exécutions)** .
 
 ### <a name="shorten-retention-period-for-run-history-data"></a>Réduire la période de rétention des données d’historique d’exécution
 Cette étape consiste à réduire la probabilité de rencontrer le problème de limite de 10 Go après plusieurs cycles de synchronisation.

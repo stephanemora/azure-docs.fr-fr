@@ -9,15 +9,15 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.openlocfilehash: 1928185521419006a487a933e2ecba79894a09d3
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64686784"
 ---
 # <a name="localization-support-in-azure-maps"></a>Prise en charge de la localisation dans Azure Maps
 
-Azure Maps prend en charge divers langages et les vues basées sur le pays/région. Cet article fournit les langues prises en charge et les vues de guider votre implémentation d’Azure Maps.
+Azure Maps prend en charge différentes langues et différents affichages basés sur le pays ou la région. Cet article présente les langues et affichages pris en charge pour vous aider à implémenter Azure Maps.
 
 
 ## <a name="azure-maps-supported-languages"></a>Langues prises en charge dans Azure Maps
@@ -83,28 +83,28 @@ Les services Azure Maps ont été localisés en différentes langues. Le tableau
 | vi-VN      | Vietnamien             |       |    ✓   |         |                   |                |     ✓     |
 
 
-## <a name="azure-maps-supported-views"></a>Azure Maps pris en charge les vues
+## <a name="azure-maps-supported-views"></a>Affichages pris en charge dans Azure Maps
 
-Azure paramètre mappe une vue (également appelée « paramètre de région utilisateur ») est un Code de pays ISO 3166 2 lettres qui affichera les cartes correctes pour ce pays/région en spécifiant le jeu de géopolitique litige bordures et les étiquettes sont affichées sur la carte.  Par défaut le paramètre View est définie **« Unified »**.  Pays/régions qui ne sont pas dans la liste d’affichage par défaut à la vue « Unified ». Il vous incombe de déterminer l’emplacement de vos utilisateurs et définissez le paramètre de mode correctement pour cet emplacement. Le paramètre View dans Azure mappe doit être utilisé conformément à la législation applicable, y compris celles relative au mappage du pays où les cartes, des images et autre contenu tiers et les données que vous êtes autorisé à accéder via Azure Maps est mis à disposition.
+Le paramètre Affichage d'Azure Maps (ou « paramètre régional de l'utilisateur ») est un code de pays ISO-3166 à deux lettres qui affiche les cartes correspondant à ce pays ou à cette région, en spécifiant l'ensemble de frontières géopolitiquement contestées et d'étiquettes affichées sur la carte.  Par défaut le paramètre Affichage est défini sur **« Unifié »** .  Les pays/régions qui ne figurent pas dans la liste des affichages sont placés par défaut dans l'affichage « Unifié ». Il vous incombe de déterminer l'emplacement de vos utilisateurs, puis de définir correctement le paramètre Affichage correspondant à cet emplacement. Le paramètre Affichage d'Azure Maps doit être utilisé dans le respect des lois en vigueur, y compris celles relatives à la cartographie du pays où les cartes, images et autres données et contenus tiers auxquels vous êtes autorisé à accéder via Azure Maps sont mis à disposition.
 
-Le tableau suivant fournit des vues prises en charge.
+Le tableau suivant présente les affichages pris en charge.
 
 | Affichage         | Description                            |  Cartes | Recherche | Contrôle de carte JS |
 |--------------|----------------------------------------|:-----:|:------:|:--------------:|
-| AE           | Émirats arabes unis (vue arabe)    |   ✓   |        |     ✓          |
-| AR           | Argentine (Argentine vue)           |   ✓   |    ✓   |     ✓          |
-| BH           | Bahreïn (vue arabe)                 |   ✓   |        |     ✓          |
-| IN           | Inde (vue indien)                    |   ✓   |   ✓     |     ✓          |
-| IQ           | Irak (vue arabe)                    |   ✓   |        |     ✓          |
-| JO           | Jordanie (vue arabe)                  |   ✓   |        |     ✓          |
-| KW           | Koweït (vue arabe)                  |   ✓   |        |     ✓          |
-| LB           | Liban (vue arabe)                 |   ✓   |        |     ✓          |
-| MA           | Maroc (vue marocain)                |   ✓   |   ✓     |     ✓          |
-| OM           | Oman (vue arabe)                    |   ✓   |        |     ✓          |
-| PK           | Pakistan (vue pakistanais)              |   ✓   |    ✓    |     ✓          |
-| PS           | Autorité palestinienne (vue arabe)    |   ✓   |        |     ✓          |
-| QA           | Qatar (vue arabe)                   |   ✓   |        |     ✓          |
-| SA           | Arabie Saoudite (vue arabe)            |   ✓   |        |     ✓          |
-| SY           | Syrie (vue arabe)                   |   ✓   |        |     ✓          |
-| YE           | Yémen (vue arabe)                   |   ✓   |        |     ✓          |
-| Unifiée      | Vue unifiée (autres)                  |   ✓   |   ✓     |     ✓          |
+| AE           | Émirats Arabes Unis (affichage arabe)    |   ✓   |        |     ✓          |
+| AR           | Argentine (affichage argentin)           |   ✓   |    ✓   |     ✓          |
+| BH           | Bahreïn (affichage arabe)                 |   ✓   |        |     ✓          |
+| IN           | Inde (affichage indien)                    |   ✓   |   ✓     |     ✓          |
+| IQ           | Irak (affichage arabe)                    |   ✓   |        |     ✓          |
+| JO           | Jordanie (affichage arabe)                  |   ✓   |        |     ✓          |
+| KW           | Koweït (affichage arabe)                  |   ✓   |        |     ✓          |
+| LB           | Liban (affichage arabe)                 |   ✓   |        |     ✓          |
+| MA           | Maroc (affichage marocain)                |   ✓   |   ✓     |     ✓          |
+| OM           | Oman (affichage arabe)                    |   ✓   |        |     ✓          |
+| PK           | Pakistan (affichage pakistanais)              |   ✓   |    ✓    |     ✓          |
+| PS           | Autorité palestinienne (affichage arabe)    |   ✓   |        |     ✓          |
+| QA           | Qatar (affichage arabe)                   |   ✓   |        |     ✓          |
+| SA           | Arabie Saoudite (affichage arabe)            |   ✓   |        |     ✓          |
+| SY           | Syrie (affichage arabe)                   |   ✓   |        |     ✓          |
+| YE           | Yémen (affichage arabe)                   |   ✓   |        |     ✓          |
+| Unifié      | Affichage unifié (Autres)                  |   ✓   |   ✓     |     ✓          |

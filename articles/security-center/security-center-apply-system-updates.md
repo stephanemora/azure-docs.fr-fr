@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
 ms.openlocfilehash: ebd9939128d1f2b870541e82710792d13b69728e
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62095441"
 ---
 # <a name="apply-system-updates-in-azure-security-center"></a>Appliquer les mises à jour système dans Azure Security Center
@@ -63,13 +63,13 @@ Dans cet exemple, nous utilisons **Calcul**.
 
    ![Mise à jour de sécurité manquante][3]
 
-4. Sélectionnez l’icône **Recherche** dans le ruban supérieur.  Une requête de recherche de journaux Azure Monitor filtrée sur les ordinateurs de la mise à jour manquante s’ouvre.
+4. Sélectionnez l’icône **Recherche** dans le ruban supérieur.  Une requête de recherche dans les journaux d'activité Azure Monitor filtrée sur les ordinateurs n’ayant pas la mise à jour installée s’ouvre.
 
-   ![Recherche de journaux de Azure Monitor][4]
+   ![Recherche Journaux d’activité Azure Monitor][4]
 
 5. Sélectionnez un ordinateur dans la liste pour plus d’informations. Un autre résultat de recherche s’ouvre avec les informations filtrées uniquement pour cet ordinateur.
 
-    ![Recherche de journaux de Azure Monitor][5]
+    ![Recherche Journaux d’activité Azure Monitor][5]
 
 ## <a name="reboot-after-system-updates"></a>Redémarrer après l’application des mises à jour système
 1. Retournons au panneau **Recommandations** . Une fois que vous avez appliqué les mises à jour système, une nouvelle entrée est générée, appelée **Redémarrer après l’application des mises à jour système**. Cette entrée vous permet de savoir que vous devez redémarrer la machine virtuelle pour terminer le processus d’application des mises à jour système.

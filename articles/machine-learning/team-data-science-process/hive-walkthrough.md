@@ -12,10 +12,10 @@ ms.date: 11/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: d26bc6044ca106b0f081cee5a39405b4b78ce7ac
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60303905"
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>Team Data Science Process en action : Utilisation des clusters Azure HDInsight Hadoop
@@ -88,11 +88,11 @@ Pour copier le jeu de données [NYC Taxi Trips](https://www.andresmh.com/nyctaxi
 
 Nous décrivons ici comment utiliser AzCopy pour transférer les fichiers contenant des données. Pour télécharger et installer AzCopy, suivez les instructions dans [Prise en main de l’utilitaire de ligne de commande AzCopy](../../storage/common/storage-use-azcopy.md).
 
-1. À partir d’une fenêtre d’invite de commandes, exécutez les commandes AzCopy suivantes, en remplaçant  *\<path_to_data_folder >* avec la destination souhaitée :
+1. Dans une fenêtre d’invite de commandes, exécutez les commandes AzCopy suivantes en remplaçant *\<<path_to_data_folder>* par la destination souhaitée :
 
         "C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:https://nyctaxitrips.blob.core.windows.net/data /Dest:<path_to_data_folder> /S
 
-1. Une fois la copie terminée, vous verrez un total de 24 fichiers compressés dans le dossier de données choisi. Décompressez les fichiers téléchargés dans le même répertoire sur votre ordinateur local. Prenez note du dossier où résident les fichiers décompressés. Ce dossier est désigné comme le *\<chemin d’accès\_à\_unzipped_data\_fichiers\>* dans ce qui suit.
+1. Une fois la copie terminée, vous verrez un total de 24 fichiers compressés dans le dossier de données choisi. Décompressez les fichiers téléchargés dans le même répertoire sur votre ordinateur local. Prenez note du dossier où résident les fichiers décompressés. Ce dossier est désigné comme *\<path\_to\_unzipped_data\_files\>* ci-après.
 
 ## <a name="upload"></a>Charger les données dans le conteneur par défaut du cluster Hadoop HDInsight
 > [!NOTE]
@@ -102,10 +102,10 @@ Nous décrivons ici comment utiliser AzCopy pour transférer les fichiers conten
 
 Dans les commandes AzCopy suivantes, remplacez les paramètres suivants par les valeurs réelles que vous avez spécifiées lors de la création du cluster Hadoop et lors de la décompression des fichiers de données.
 
-* ***\<path_to_data_folder >*** le répertoire (avec le chemin d’accès) sur votre ordinateur qui contient les fichiers de données décompressés.  
-* ***\<nom de compte de stockage du cluster Hadoop >*** le compte de stockage associé à votre cluster HDInsight.
-* ***\<conteneur par défaut du cluster Hadoop >*** le conteneur par défaut utilisé par votre cluster. Notez que le nom du conteneur par défaut est généralement le même nom que celui du cluster. Par exemple, si le cluster est appelé « abc123.azurehdinsight.net », le conteneur par défaut est abc123.
-* ***\<clé de compte de stockage >*** la clé du compte de stockage utilisé par votre cluster.
+* ***\<path_to_data_folder>*** Répertoire (avec le chemin) sur votre machine qui contient les fichiers de données décompressés.  
+* ***\<&#60;storage account name of Hadoop cluster>*** Compte de stockage associé à votre cluster HDInsight.
+* ***\<default container of Hadoop cluster>*** Conteneur par défaut utilisé par votre cluster. Notez que le nom du conteneur par défaut est généralement le même nom que celui du cluster. Par exemple, si le cluster est appelé « abc123.azurehdinsight.net », le conteneur par défaut est abc123.
+* ***\<storage account key>*** Clé du compte de stockage utilisé par votre cluster.
 
 À partir d’une invite de commandes ou d’une fenêtre Windows PowerShell, exécutez les deux commandes AzCopy suivantes.
 

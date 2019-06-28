@@ -1,5 +1,5 @@
 ---
-title: 'Créer une passerelle VPN basée sur l’itinéraire : Portail Azure | Microsoft Docs'
+title: 'Créer une passerelle VPN basée sur itinéraires : Portail Azure | Microsoft Docs'
 description: Créer une passerelle VPN basée sur des itinéraires à l’aide du portail Azure
 services: vpn-gateway
 author: cherylmc
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 10/18/2018
 ms.author: cherylmc
 ms.openlocfilehash: ddc42023bae3403e7778327a40316462c85222c0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60390022"
 ---
 # <a name="create-a-route-based-vpn-gateway-using-the-azure-portal"></a>Créer une passerelle VPN basée sur des itinéraires à l’aide du portail Azure
@@ -29,7 +29,7 @@ Les étapes fournies dans cet article permettent de créer un réseau virtuel, u
 
    - **Nom** : TestVNet1
    - **Espace d’adressage** : 10.1.0.0/16
-   - **Abonnement**: Vérifiez que l’abonnement répertorié est celui que vous souhaitez utiliser. Vous pouvez modifier des abonnements à l’aide de la liste déroulante.
+   - **Abonnement**: vérifiez que l’abonnement indiqué est celui que vous souhaitez utiliser. Vous pouvez modifier des abonnements à l’aide de la liste déroulante.
    - **Groupe de ressources** : TestRG1
    - **Emplacement** : USA Est
    - **Sous-réseau** : Serveur frontal
@@ -65,7 +65,7 @@ Le sous-réseau de passerelle contient les adresses IP réservées utilisées pa
    - **Type de VPN** : basé sur la route
    - **SKU** : VpnGw1
    - **Emplacement** : USA Est
-   - **Réseau virtuel** : Cliquez sur **réseau virtuel/choisir un réseau virtuel** pour ouvrir le **choisir un réseau virtuel** page. Sélectionnez **VNet1**.
+   - **Réseau virtuel** : cliquez sur **Réseau virtuel/Choisir un réseau virtuel** pour ouvrir la page **Choisir un réseau virtuel**. Sélectionnez **VNet1**.
    - **Adresse IP publique** : Ce paramètre spécifie l’objet d’adresse IP publique associé à la passerelle VPN. L’adresse IP publique est attribuée dynamiquement à cet objet pendant la création de la passerelle VPN. Actuellement, la passerelle VPN prend uniquement en charge l’allocation d’adresses IP publiques *dynamiques*. Toutefois, cela ne signifie pas que l’adresse IP change après son affectation à votre passerelle VPN. L’adresse IP publique change uniquement lorsque la passerelle est supprimée, puis recréée. Elle n’est pas modifiée lors du redimensionnement, de la réinitialisation ou des autres opérations de maintenance/mise à niveau internes de votre passerelle VPN.
 
      - Laissez l’option **Créer** sélectionnée.

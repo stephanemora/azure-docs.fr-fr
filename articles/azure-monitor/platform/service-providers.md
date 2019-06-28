@@ -1,6 +1,6 @@
 ---
 title: Azure Monitor pour les fournisseurs de services | Microsoft Docs
-description: Azure Monitor peut aider les fournisseurs de services gérés (MSP), grandes entreprises, éditeurs de logiciels indépendants (ISV) et les fournisseurs d’hébergement service gérant et surveiller les serveurs dans l’infrastructure de cloud ou de local du client.
+description: Azure Monitor permet aux fournisseurs de services gérés (MSP), aux grandes entreprises, aux éditeurs de logiciels indépendants (ISV) et aux fournisseurs de service d’hébergement de gérer et de surveiller les serveurs situés dans l’infrastructure locale ou cloud d’un client.
 services: log-analytics
 documentationcenter: ''
 author: MeirMen
@@ -14,18 +14,18 @@ ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: meirm
 ms.openlocfilehash: 97d8d6fac93ebabac8fb319ce2f1ab8719f5f86b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60452651"
 ---
 # <a name="azure-monitor-for-service-providers"></a>Azure Monitor pour les fournisseurs de services
-Espaces de travail log Analytique dans Azure Monitor peuvent aider les fournisseurs de services gérés (MSP), grandes entreprises, éditeurs de logiciels indépendants (ISV) et fournisseurs d’hébergement service gérer et surveiller les serveurs dans l’infrastructure de cloud ou de local du client. 
+Les espaces de travail Log Analytics dans Azure Monitor permettent aux fournisseurs de services managés (MSP), aux grandes entreprises, aux éditeurs de logiciels indépendants (ISV) et aux fournisseurs de service d’hébergement de gérer et de surveiller les serveurs situés dans l’infrastructure locale ou cloud d’un client. 
 
 Les grandes entreprises et les fournisseurs de services présentent de nombreux points communs, en particulier si les ressources informatiques de plusieurs divisions sont gérées par une équipe informatique centralisée. Le terme *fournisseur de services* est utilisé dans ce document par souci de simplicité, mais sachez que les entreprises et d’autres clients bénéficient de la même fonctionnalité.
 
-Pour les partenaires et fournisseurs de services qui font partie de la [fournisseur de solutions Cloud (CSP)](https://partner.microsoft.com/Solutions/cloud-reseller-overview) programme, Analytique de journal dans Azure Monitor est un des services Azure offerts dans [abonnements Azure CSP](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview). 
+Pour les partenaires et fournisseurs de services qui font partie du programme [Fournisseur de solutions cloud (CSP)](https://partner.microsoft.com/Solutions/cloud-reseller-overview), Log Analytics dans Azure Monitor est l’un des services Azure disponibles dans les [abonnements Azure CSP](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview). 
 
 ## <a name="architectures-for-service-providers"></a>Architecture des fournisseurs de services
 
@@ -62,7 +62,7 @@ Les désavantages de cette architecture sont les suivants :
 * Cette architecture est applicable uniquement pour les données de machines virtuelles basées sur agent. Elle ne prend pas en compte les sources de données PaaS, SaaS et Azure Fabric.
 * Il peut être difficile de distinguer les données des différents clients lorsqu’elles sont fusionnées dans un même espace de travail. La seule bonne méthode consiste à utiliser le nom de domaine complet (FQDN) de l’ordinateur ou l’ID de l’abonnement Azure. 
 * Toutes les données de tous les clients sont stockées dans la même région avec une seule facture, et les mêmes paramètres de rétention et de configuration.
-* Les services Azure Fabric et PaaS, par exemple Azure Diagnostics et les journaux d’activité d’audit Azure, nécessitent que l’espace de travail se trouve dans le même locataire que la ressource. Ils ne peuvent donc pas envoyer les journaux d’activité vers l’espace de travail central.
+* Les services Azure Fabric et PaaS, par exemple Diagnostics Azure et les journaux d’audit Azure, nécessitent que l’espace de travail se trouve dans le même locataire que la ressource. Ils ne peuvent donc pas envoyer les journaux vers l’espace de travail central.
 * Tous les agents de machine virtuelle de l’ensemble des clients sont authentifiés auprès de l’espace de travail central à l’aide du même ID et de la même clé d’espace de travail. Il n’existe aucune méthode permettant de bloquer les journaux d’activité d’un client sans interrompre les autres clients.
 
 
@@ -74,7 +74,7 @@ Il existe deux options pour implémenter des journaux dans un emplacement centra
 
 1. Espace de travail central : le fournisseur de services peut créer un espace de travail dans son locataire et utiliser un script qui utilise [l’API de requête](https://dev.loganalytics.io/) avec [l’API de collecte de données](../../azure-monitor/platform/data-collector-api.md) pour importer les données des différents espaces de travail dans l’emplacement central. Une autre option (autre que le script) consiste à utiliser une [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview).
 
-2. Power BI comme emplacement central : Power BI peut agir comme le centre névralgique quand les différents espaces de travail exporte des données à l’aide de l’intégration entre l’espace de travail Analytique de journal et [Power BI](../../azure-monitor/platform/powerbi.md). 
+2. Power BI comme emplacement central : Power BI peut servir d’emplacement central quand les différents espaces de travail exportent des données vers lui en utilisant l’intégration entre l’espace de travail Log Analytics et [Power BI](../../azure-monitor/platform/powerbi.md). 
 
 
 ## <a name="next-steps"></a>Étapes suivantes

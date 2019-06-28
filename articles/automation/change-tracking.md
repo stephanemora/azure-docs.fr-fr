@@ -11,10 +11,10 @@ ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 4f917c45030ad70a2ab76fed877bd822d1902f82
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64927281"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Suivre les modifications apportées à votre environnement grâce à la solution Suivi des modifications
@@ -24,7 +24,7 @@ Cet article vous aide à utiliser la solution Change Tracking pour identifier fa
 Les modifications apportées aux logiciels installés, aux services Windows, aux fichiers et au Registre Windows ainsi qu’aux démons Linux sur les serveurs supervisés sont envoyées au service cloud Azure Monitor pour traitement. La logique est appliquée aux données reçues et le service cloud enregistre les données. En utilisant les informations du tableau de bord de suivi des modifications, vous pouvez facilement voir les modifications apportées à votre infrastructure de serveur.
 
 > [!NOTE]
-> Azure Automation suivi effectue le suivi des modifications dans les machines virtuelles. Pour effectuer le suivi des modifications apportées aux propriétés de Azure Resource Manager, consultez Azure ressource Graph [l’historique des modifications](../governance/resource-graph/how-to/get-resource-changes.md).
+> Azure Automation Change Tracking suit les modifications apportées aux machines virtuelles. Pour suivre les modifications de propriété Azure Resource Manager, consultez [Historique des modifications](../governance/resource-graph/how-to/get-resource-changes.md) d'Azure Resource Graph.
 
 ## <a name="supported-windows-operating-systems"></a>Systèmes d’exploitation Windows pris en charge
 
@@ -158,7 +158,7 @@ Autres limitations :
 La solution Change Tracking connaît les problèmes suivants :
 
 * Les mises à jour de correctif logiciel ne sont pas collectées sur les machines Windows 2016 Core RS3.
-* Démons Linux peut indiquer un état modifié même si aucune modification n’est survenu. Cela est dû à la façon dont le `SvcRunLevels` champ est capturé.
+* Les démons Linux peuvent indiquer un état modifié, même si aucune modification n’est intervenue. Cela est dû à la façon dont le champ `SvcRunLevels` est capturé.
 
 ## <a name="change-tracking-data-collection-details"></a>Détails de la collecte de données de suivi des modifications
 
@@ -249,13 +249,13 @@ Les adresses suivantes sont exigées particulièrement pour Change Tracking. La 
 |*.ods.opinsights.azure.com     |*.ods.opinsights.azure.us         |
 |*.oms.opinsights.azure.com     | *.oms.opinsights.azure.us        |
 |*.blob.core.windows.net|*.blob.core.usgovcloudapi.net|
-|* .azure-automation.net|*.azure-automation.us|
+|\* .azure-automation.net|*.azure-automation.us|
 
 ## <a name="use-change-tracking"></a>Utilisation du suivi des modifications
 
 Une fois que la solution est activée, vous pouvez afficher le résumé des modifications de vos ordinateurs surveillés en sélectionnant **Change Tracking** sous **GESTION DE LA CONFIGURATION** dans votre compte Automation.
 
-Vous pouvez afficher les modifications apportées à vos ordinateurs, puis explorer les détails de chaque événement. Des listes déroulante sont disponibles en haut du graphique pour les informations en fonction du type de modification et des intervalles de temps. Vous pouvez également cliquer et faire glisser le curseur sur le graphique pour sélectionner un intervalle de temps personnalisé. **Modifier le Type** aura l’une des valeurs suivantes **événements**, **démons**, **fichiers**, **Registre**,  **Logiciel**, **Windows Services**. Catégorie affiche le type de modification et peut être **Added**, **Modified**, ou **supprimé**.
+Vous pouvez afficher les modifications apportées à vos ordinateurs, puis explorer les détails de chaque événement. Des listes déroulante sont disponibles en haut du graphique pour les informations en fonction du type de modification et des intervalles de temps. Vous pouvez également cliquer et faire glisser le curseur sur le graphique pour sélectionner un intervalle de temps personnalisé. **Type de modification** peut présenter l'une des valeurs suivantes : **Événements**, **Démons**, **Fichiers**, **Registre**, **Logiciels**, **Services Windows**. La catégorie affiche le type de modification parmi les suivant : **Ajouté**, **Modifié** ou **Supprimé**.
 
 ![image du tableau de bord de suivi des modifications](./media/change-tracking/change-tracking-dash01.png)
 
@@ -265,7 +265,7 @@ Cliquer sur une modification ou un événement permet de faire apparaître des i
 
 ## <a name="search-logs"></a>Rechercher des journaux d’activité
 
-En plus des détails fournis dans le portail, des recherches peuvent être effectuées dans les journaux d’activité. Avec le **Change Tracking** page, cliquez sur **Analytique de journal**, cette opération ouvre le **journaux** page.
+En plus des détails fournis dans le portail, des recherches peuvent être effectuées dans les journaux d’activité. Avec la page **Change Tracking** ouverte, cliquez sur **Log Analytics** pour ouvrir la page **Journaux**.
 
 ### <a name="sample-queries"></a>Exemples de requêtes
 
@@ -318,4 +318,4 @@ Consultez le didacticiel sur Change Tracking pour en savoir plus sur l’utilisa
 > [!div class="nextstepaction"]
 > [Dépanner les modifications apportées à votre environnement](automation-tutorial-troubleshoot-changes.md)
 
-* Utilisez [recherches de journal dans les journaux Azure Monitor](../log-analytics/log-analytics-log-searches.md) pour afficher les données de suivi détaillé.
+* Effectuez des [recherches dans les journaux Azure Monitor](../log-analytics/log-analytics-log-searches.md) pour afficher les données détaillées du suivi des modifications.

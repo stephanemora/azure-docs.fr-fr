@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
 ms.openlocfilehash: a9ada25641e2a56beb9083b145a507c8fd41a46f
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64935100"
 ---
 # <a name="how-to-create-dynamics-365-for-operations-offer-via-cloud-partner-portal"></a>Comment créer une offre Dynamics 365 for Operations via le portail Cloud Partner
@@ -45,7 +45,7 @@ Le formulaire Paramètres de l’offre est un formulaire de base. Les différent
 
 Il s’agit d’un identificateur unique pour l’offre au sein d’un profil d’éditeur. Cet ID sera visible dans les URL de produit. Il ne peut comprendre que des caractères alphanumériques en minuscules ou des tirets (-). Il ne peut pas se terminer par un tiret et ne peut pas comprendre plus de 50 caractères. Ce champ est verrouillé une fois l’offre publiée.
 
-par exemple, si un serveur de publication de contoso de serveur de publication crée une offre avec ID de l’offre *exemple-Dynamics 365 pour les opérations*, il s’affichera dans AppSource en tant que `https://appsource.microsoft.com/marketplace/apps/**contoso**.*sample-dynamics365 for operations*?tab=Overview\`.
+Par exemple, si un éditeur contoso publie une offre avec l’ID *sample-dynamics365 for operations*, celle-ci apparaît dans AppSource sous la forme `https://appsource.microsoft.com/marketplace/apps/**contoso**.*sample-dynamics365 for operations*?tab=Overview\`.
 
 ### <a name="publisher-id"></a>ID de l’éditeur
 
@@ -132,7 +132,7 @@ L’URL de support ne sera présentée qu’à vos utilisateurs sur le portail.
 
 ### <a name="leads-management"></a>Gestion des prospects
 
-Sélectionnez un système CRM dans lequel vos prospects seront stockés. Sélectionnez \"Table Azure\" ici si vous avez un des systèmes CRM suivants : Salesforce, Marketo, Microsoft Dynamics CRM. Le système CRM que vous sélectionnez ici est celui dans lequel nous écrirons les détails des utilisateurs finaux qui essaient votre application sur AppSource (prospects). Cliquez ci-dessous sur l’URL correspondant au système CRM que vous sélectionnez pour savoir comment compléter le jeu de champs suivant.
+Sélectionnez un système CRM dans lequel vos prospects seront stockés. Sélectionnez \"Table Azure\" ici si vous disposez de l’un des systèmes CRM suivants : Salesforce, Marketo, Microsoft Dynamics CRM. Le système CRM que vous sélectionnez ici est celui dans lequel nous écrirons les détails des utilisateurs finaux qui essaient votre application sur AppSource (prospects). Cliquez ci-dessous sur l’URL correspondant au système CRM que vous sélectionnez pour savoir comment compléter le jeu de champs suivant.
 
 ![Détails de la gestion des prospects](./media/publish_d365_new_offer/leads.png)
 

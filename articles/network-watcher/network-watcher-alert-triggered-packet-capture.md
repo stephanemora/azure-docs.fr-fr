@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
 ms.openlocfilehash: 37e42b05046be27254d2ceb15a59fbdb931ae161
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64711915"
 ---
 # <a name="use-packet-capture-for-proactive-network-monitoring-with-alerts-and-azure-functions"></a>Utiliser une capture de paquets pour effectuer une surveillance proactive du réseau avec des alertes et Azure Functions
@@ -36,7 +36,7 @@ En utilisant Network Watcher, les alertes et les fonctions dans l’écosystème
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 * La version la plus récente [d’Azure PowerShell](/powershell/azure/install-Az-ps).
 * Une instance existante de Network Watcher. Si vous n’en avez pas, [créez une instance de Network Watcher](network-watcher-create.md).
@@ -84,7 +84,7 @@ La première étape consiste à créer une fonction Azure pour traiter l’alert
     |**Lieu**|USA Centre| La région dans laquelle créer l’application de fonction.|
     |**Compte de stockage**|{généré automatiquement}| Le compte de stockage dont Azure Functions a besoin pour le stockage général.|
 
-3. Dans le panneau **Function App PacketCaptureExample**, sélectionnez **Fonctions** > **Fonction personnalisée** >**+**.
+3. Dans le panneau **Function App PacketCaptureExample**, sélectionnez **Fonctions** > **Fonction personnalisée** > **+** .
 
 4. Sélectionnez **HttpTrigger-Powershell**, puis entrez les informations restantes. Enfin, pour créer la fonction, sélectionnez **Créer**.
 
@@ -137,9 +137,9 @@ Pour utiliser les cmdlets PowerShell de Network Watcher, chargez le module Power
 
     * Az.Resources
 
-1. Cliquez sur le **Az.Network** sous-dossier, puis sélectionnez **charger des fichiers**. 
+1. Cliquez avec le bouton droit sur le sous-dossier **Az.Network**, puis sélectionnez **Charger des fichiers**. 
 
-6. Accédez à vos modules Azure. Local **Az.Network** dossier, sélectionnez tous les fichiers dans le dossier. Sélectionnez ensuite **OK**. 
+6. Accédez à vos modules Azure. Dans le dossier **Az.Network** local, sélectionnez tous les fichiers. Sélectionnez ensuite **OK**. 
 
 7. Répétez ces étapes pour **Az.Accounts** et **Az.Resources**.
 
@@ -149,7 +149,7 @@ Pour utiliser les cmdlets PowerShell de Network Watcher, chargez le module Power
 
     ![Fichiers PowerShell][functions7]
 
-### <a name="authentication"></a>Authentification
+### <a name="authentication"></a>Authentication
 
 Pour utiliser les applets de commande PowerShell, vous devez vous authentifier. Vous configurez l’authentification dans l’application de fonction. Pour ce faire, vous devez configurer les variables d’environnement et charger un fichier de clé chiffré dans l’application de fonction.
 
@@ -208,7 +208,7 @@ L’ID client est l’ID d’application d’une application dans Azure Active D
    > [!NOTE]
    > Le mot de passe que vous utilisez lors de la création de l’application doit être le même que celui créé précédemment lors de l’enregistrement du fichier de clé.
 
-1. Dans le portail Azure, sélectionnez **Abonnements**. Sélectionnez l’abonnement à utiliser, puis sélectionnez **Contrôle d’accès (IAM)**.
+1. Dans le portail Azure, sélectionnez **Abonnements**. Sélectionnez l’abonnement à utiliser, puis sélectionnez **Contrôle d’accès (IAM)** .
 
     ![IAM de fonctions][functions9]
 
@@ -346,7 +346,7 @@ Accédez à une machine virtuelle existante, puis ajoutez une règle d’alerte.
 
   |**Paramètre** | **Valeur** | **Détails** |
   |---|---|---|
-  |**Name**|TCP_Segments_Sent_Exceeded|Nom de la règle d’alerte.|
+  |**Nom**|TCP_Segments_Sent_Exceeded|Nom de la règle d’alerte.|
   |**Description**|Les segments TCP envoyés ont dépassé le seuil|Description de la règle d’alerte.|
   |**Mesure**|Segments TCP envoyés| Mesure à utiliser pour déclencher l’alerte. |
   |**Condition**|Supérieur à| Condition à utiliser lors de l’évaluation de la mesure.|

@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 10/19/2018
 ms.author: kumud
 ms.openlocfilehash: 52fafa7e9dd46b6c78af3776797bae48b22ea8df
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64698443"
 ---
 # <a name="load-balancer-outbound-rules"></a>Règles de trafic sortant dans Load Balancer
@@ -84,7 +84,7 @@ Utilisez le paramètre suivant pour allouer 10 000 ports SNAT par machine virtue
 
           "allocatedOutboundPorts": 10000
 
-Chaque adresse IP publique de tous les serveurs frontaux d’une règle de trafic sortant fournit jusqu’à 51 200 ports éphémères en tant que ports SNAT.  Load Balancer alloue des ports SNAT par multiples de huit. Si vous indiquez une valeur non divisible par huit, l’opération de configuration est rejetée.  Si vous essayez d’allouer plus de ports SNAT qu’il n’y a de ports disponibles par rapport au nombre d’adresses IP publiques, l’opération de configuration est rejetée.  Par exemple, si vous allouez des ports 10 000 par machine virtuelle et de 7 machines virtuelles dans un backend pool doivent partager une seule adresse IP publique, la configuration est rejeté (7 x 10 000 ports 51 200 > SNAT ports SNAT).  Dans ce scénario, vous devrez donc ajouter des adresses IP publiques supplémentaires sur le frontend de la règle de trafic sortant.
+Chaque adresse IP publique de tous les serveurs frontaux d’une règle de trafic sortant fournit jusqu’à 51 200 ports éphémères en tant que ports SNAT.  Load Balancer alloue des ports SNAT par multiples de huit. Si vous indiquez une valeur non divisible par huit, l’opération de configuration est rejetée.  Si vous essayez d’allouer plus de ports SNAT qu’il n’y a de ports disponibles par rapport au nombre d’adresses IP publiques, l’opération de configuration est rejetée.  Par exemple, si vous allouez 10 000 ports par machine virtuelle et que sept machines virtuelles d'un pool principal partagent la même adresse IP publique, la configuration est rejetée (7 x 10 000 ports SNAT > 51 200 ports SNAT).  Dans ce scénario, vous devrez donc ajouter des adresses IP publiques supplémentaires sur le frontend de la règle de trafic sortant.
 
 Vous pouvez revenir à une [allocation de ports SNAT automatique en fonction de la taille du pool backend](load-balancer-outbound-connections.md#preallocatedports) en spécifiant 0 comme nombre de ports.
 

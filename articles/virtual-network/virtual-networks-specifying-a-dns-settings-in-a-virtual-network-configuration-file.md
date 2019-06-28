@@ -16,14 +16,14 @@ ms.workload: infrastructure-services
 ms.date: 02/23/2016
 ms.author: genli
 ms.openlocfilehash: 36f7ed9b02b66718327c1a05a6cf29eedf39e7a5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60232854"
 ---
 # <a name="specifying-dns-settings-in-a-virtual-network-configuration-file"></a>Définition des paramètres DNS dans un fichier de configuration de réseau virtuel
-Un fichier de configuration réseau comporte deux éléments que vous pouvez utiliser pour spécifier les paramètres du système DNS (Domain Name) : **DnsServers** et **DnsServerRef**. Vous pouvez ajouter une liste de serveurs DNS en définissant leur adresse IP et leur nom de référence sur l’élément **DnsServers** . Ensuite, utilisez un élément **DnsServerRef** afin de spécifier les entrées du serveur DNS de l’élément DnsServers qui sont utilisées pour différents sites au sein de votre réseau virtuel.
+Un fichier de configuration réseau contient deux éléments dont vous pouvez vous servir pour définir les paramètres DNS (Domain Name System) : **DnsServers** et **DnsServerRef**. Vous pouvez ajouter une liste de serveurs DNS en définissant leur adresse IP et leur nom de référence sur l’élément **DnsServers** . Ensuite, utilisez un élément **DnsServerRef** afin de spécifier les entrées du serveur DNS de l’élément DnsServers qui sont utilisées pour différents sites au sein de votre réseau virtuel.
 
 [!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
 

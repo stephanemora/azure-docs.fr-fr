@@ -2,17 +2,16 @@
 title: 'Concepts : Accès et identité dans Azure Kubernetes Service (AKS)'
 description: Découvrez l’accès et l’identité dans Azure Kubernetes Service (AKS), entre autres l’intégration d’Azure Active Directory, le contrôle d’accès en fonction du rôle (RBAC) Kubernetes ainsi que les rôles et les liaisons.
 services: container-service
-author: rockboyfor
+author: iainfoulds
 ms.service: container-service
 ms.topic: conceptual
-origin.date: 02/28/2019
-ms.date: 04/08/2019
-ms.author: v-yeche
+ms.date: 02/28/2019
+ms.author: iainfou
 ms.openlocfilehash: 3432ba671431c25b7cd9ee58decc638861e884c3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60467042"
 ---
 # <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>Options d’accès et d’identité pour Azure Kubernetes Service (AKS)
@@ -31,7 +30,7 @@ Cet article présente les principaux concepts vous permettant de vous authentifi
 
 Un des principaux types d’utilisateur dans Kubernetes est le *compte de service*. Un compte de service existe dans l’API Kubernetes et est géré par cette API. Les informations d’identification des comptes de service sont stockées en tant que secrets Kubernetes, ce qui leur permet d’être utilisées par les pods autorisés à communiquer avec le serveur d’API. La plupart des requêtes d’API fournissent un jeton d’authentification pour un compte de service ou un compte d’utilisateur normal.
 
-Ces comptes d’utilisateur autorisent un accès plus classique pour les développeurs et les administrateurs humains, ils se ne limitent pas seulement aux services et aux processus. Kubernetes lui-même ne fournit pas une solution de gestion des identités où les comptes d’utilisateur standard et les mots de passe sont stockés. Par contre, il est possible d’intégrer des solutions d’identité externes à Kubernetes. Pour les clusters AKS, cette solution d’identité intégrée est Azure Active Directory.
+Ces comptes d’utilisateur autorisent un accès plus classique pour les développeurs et les administrateurs humains, ils se ne limitent pas seulement aux services et aux processus. Kubernetes ne fournit pas de solution de gestion des identités dans laquelle les comptes et les mots de passe d'utilisateurs standard sont stockés. Par contre, il est possible d’intégrer des solutions d’identité externes à Kubernetes. Pour les clusters AKS, cette solution d’identité intégrée est Azure Active Directory.
 
 Pour plus d’informations sur les options d’identité dans Kubernetes, consultez [Authentification Kubernetes][kubernetes-authentication].
 
@@ -76,7 +75,7 @@ Un ClusterRoleBinding fonctionne de la même façon pour lier des rôles aux uti
 
 Pour vous familiariser avec RBAC Azure AD et Kubernetes, consultez [Intégrer Azure Active Directory à AKS][aks-aad].
 
-Pour les recommandations associées, consultez [meilleures pratiques pour l’authentification et autorisation dans AKS][operator-best-practices-identity].
+Pour plus d'informations sur les bonnes pratiques, consultez [Bonnes pratiques relatives à l'authentification et à l'autorisation dans AKS][operator-best-practices-identity].
 
 Pour plus d’informations sur les concepts fondamentaux de Kubernetes et d’AKS, consultez les articles suivants :
 
@@ -93,9 +92,9 @@ Pour plus d’informations sur les concepts fondamentaux de Kubernetes et d’AK
 
 <!-- LINKS - Internal -->
 [openid-connect]: ../active-directory/develop/v1-protocols-openid-connect-code.md
-[az-aks-get-credentials]: https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
+[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [azure-rbac]: ../role-based-access-control/overview.md
-[aks-aad]: aad-integration.md
+[aks-aad]: azure-ad-integration-cli.md
 [aks-concepts-clusters-workloads]: concepts-clusters-workloads.md
 [aks-concepts-security]: concepts-security.md
 [aks-concepts-scale]: concepts-scale.md

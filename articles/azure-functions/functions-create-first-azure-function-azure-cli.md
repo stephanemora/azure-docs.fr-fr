@@ -12,12 +12,12 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: jeconnoc
-ms.openlocfilehash: 7ff57519cfbb99fa705aff6c970951730c501f3e
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 7be055588b58d20464639169ac8012c378900ff1
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52846451"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64866602"
 ---
 # <a name="create-your-first-function-from-the-command-line"></a>Créer votre première fonction à partir de la ligne de commande
 
@@ -29,7 +29,7 @@ Vous pouvez suivre les étapes ci-dessous en utilisant un ordinateur Mac, Windo
 
 Avant d’exécuter cet exemple, vous devez disposer des éléments suivants :
 
-+ Installez [Azure Core Tools version 2.x](functions-run-local.md#v2).
++ [Azure Functions Core Tools](./functions-run-local.md#v2) version 2.6.666 ou ultérieure.
 
 + Installez [Azure CLI]( /cli/azure/install-azure-cli). Cet article nécessite la version 2.0 ou ultérieure d’Azure CLI. Exécutez `az --version` pour trouver la version qui est à votre disposition. Vous pouvez également utiliser [Azure Cloud Shell](https://shell.azure.com/bash).
 
@@ -65,9 +65,11 @@ Utilisez la commande suivante pour accéder au nouveau dossier du projet `MyFunc
 cd MyFunctionProj
 ```
 
-[!INCLUDE [functions-create-function-core-tools](../../includes/functions-create-function-core-tools.md)]
+## <a name="reference-bindings"></a>Liaisons de référence
 
-[!INCLUDE [functions-update-function-code](../../includes/functions-update-function-code.md)]
+[!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
+
+[!INCLUDE [functions-create-function-core-tools](../../includes/functions-create-function-core-tools.md)]
 
 [!INCLUDE [functions-run-function-test-local](../../includes/functions-run-function-test-local.md)]
 
@@ -79,11 +81,11 @@ cd MyFunctionProj
 
 Vous devez disposer d’une Function App pour héberger l’exécution de vos fonctions. La Function App fournit un environnement d’exécution sans serveur de votre code de fonction. Elle vous permet de regrouper les fonctions en une unité logique pour faciliter la gestion, le déploiement et le partage des ressources. Créez une Function App à l’aide de la commande [az functionapp create](/cli/azure/functionapp#az-functionapp-create). 
 
-Dans la commande suivante, indiquez un nom d’application de fonction unique là où se trouve l’espace réservé `<app_name>`, et le nom du compte de stockage pour `<storage_name>`. La valeur `<app_name>` est utilisée en tant que domaine DNS par défaut pour la Function App. Pour cette raison, ce nom doit être unique sur l’ensemble des applications dans Azure. Vous devez également définir le runtime `<language>` pour votre application de fonction à partir de `dotnet` (C#) ou `node` (JavaScript).
+Dans la commande suivante, indiquez un nom d’application de fonction unique là où se trouve l’espace réservé `<APP_NAME>`, et le nom du compte de stockage pour `<STORAGE_NAME>`. La valeur `<APP_NAME>` est utilisée en tant que domaine DNS par défaut pour la Function App. Pour cette raison, ce nom doit être unique sur l’ensemble des applications dans Azure. Vous devez également définir le runtime `<language>` pour votre application de fonction à partir de `dotnet` (C#) ou `node` (JavaScript).
 
 ```azurecli-interactive
 az functionapp create --resource-group myResourceGroup --consumption-plan-location westeurope \
---name <app_name> --storage-account  <storage_name> --runtime <language> 
+--name <APP_NAME> --storage-account  <STORAGE_NAME> --runtime <language>
 ```
 
 La définition du paramètre _consumption-plan-location_ signifie que l’application de fonction est hébergée dans un plan d’hébergement Consommation. Dans ce plan serverless, les ressources sont ajoutées dynamiquement selon vos fonctions, et vous ne payez que lors de l’exécution des fonctions. Pour plus d’informations, consultez [Choisir le plan d’hébergement approprié](functions-scale.md).

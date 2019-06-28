@@ -15,22 +15,22 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 51fffbd170daecfec6fcea95caa0526e6d881407
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64724123"
 ---
 # <a name="media-services-development-with-net"></a>Développement Media Services avec .NET 
 
 > [!NOTE]
-> Aucune nouvelle fonctionnalité ni fonction n’est ajoutée à Media Services v2. <br/>Découvrez la dernière version, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consultez également [conseils de migration de v2 vers v3](../latest/migrate-from-v2-to-v3.md)
+> Aucune nouvelle fonctionnalité ni fonction n’est ajoutée à Media Services v2. <br/>Découvrez la dernière version, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consultez aussi [Conseils de migration de v2 vers v3](../latest/migrate-from-v2-to-v3.md).
 
 Cet article explique comment commencer à développer des applications Media Services à l’aide de .NET.
 
 La bibliothèque du **Kit de développement logiciel (SDK) Azure Media Services pour .NET** permet de programmer pour Media Services à l'aide de .NET. Pour que le développement avec .NET soit encore plus simple, la bibliothèque des **extensions du Kit de développement logiciel (SDK) Azure Media Services pour .NET** est fournie. Cette bibliothèque contient un ensemble de méthodes d’extension et de fonctions d’assistance qui simplifient votre code .NET. Les deux bibliothèques sont disponibles par le biais de **NuGet** et de **GitHub**.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 * Un compte Media Services dans un abonnement Azure nouveau ou existant. Consultez l’article [Création d’un compte Media Services](media-services-portal-create-account.md).
 * Systèmes d'exploitation : Windows 10, Windows 7, Windows 2008 R2 ou Windows 8.
 * .NET Framework 4.5 ou ultérieur.

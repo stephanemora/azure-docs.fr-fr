@@ -1,5 +1,5 @@
 ---
-title: Fonctionnalités de sécurité utilisées avec les machines virtuelles Azure - sécurité Azure | Microsoft Docs
+title: Fonctionnalités de sécurité utilisées avec les machines virtuelles Azure - Sécurité Azure | Microsoft Docs
 description: Cet article fournit une vue d’ensemble des principales fonctionnalités de sécurité Azure pouvant être utilisées avec Azure Virtual Machines.
 services: security
 documentationcenter: na
@@ -15,14 +15,14 @@ ms.workload: na
 ms.date: 04/28/2019
 ms.author: terrylan
 ms.openlocfilehash: 3467050214cba6ce5723c2747d2c13e40e86609b
-ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64872030"
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Vue d’ensemble de la sécurité des machines virtuelles Azure
-Cet article fournit une vue d’ensemble des principales fonctionnalités de sécurité Azure qui peuvent être utilisées avec des machines virtuelles.
+Cet article fournit une vue d’ensemble des principales fonctionnalités de sécurité Azure pouvant être utilisées avec les machines virtuelles.
 
 Vous pouvez utiliser des machines virtuelles Azure pour déployer un large éventail de solutions informatiques et ce, en toute flexibilité. Le service prend en charge Microsoft Windows, Linux, Microsoft SQL Server, Oracle, IBM, SAP et Azure BizTalk Services. Vous pouvez ainsi déployer n’importe quelle charge de travail et n’importe quel langage sur quasiment n’importe quel système d’exploitation.
 

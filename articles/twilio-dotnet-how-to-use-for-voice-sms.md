@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/24/2015
 ms.author: MicrosoftHelp@twilio.com
 ms.openlocfilehash: 3b8b21de9664a969e8b1ce5699034aa9ab41d0f1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60329483"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-from-azure"></a>Utilisation de Twilio pour les fonctionnalités vocales et de SMS depuis Azure
@@ -30,7 +30,7 @@ Twilio alimente le futur des communications professionnelles, en permettant aux 
 **Twilio Voice** permet à vos applications de passer et de recevoir des appels téléphoniques. **Twilio SMS** permet à vos applications d'envoyer et de recevoir des SMS. **Twilio Client** permet de passer des appels VoIP à partir d'un téléphone, d'une tablette ou d'un navigateur et prend en charge WebRTC.
 
 ## <a id="Pricing"></a>Tarification de Twilio et offres spéciales
-Les clients Azure reçoivent une [offre spéciale](https://www.twilio.com/azure)de 10 $ en crédit Twilio lorsqu'ils mettent à niveau leur compte Twilio. Ce crédit peut servir à l'achat d'une prestation Twilio (un crédit de 10 $ correspond à l'envoi de 1 000 SMS ou à la réception de 1 000 minutes vocales maximum, en fonction de l'emplacement de votre numéro de téléphone, du message ou de la destination de l'appel). Profitez de ce crédit Twilio et démarrez [twilio.com/azure](https://twilio.com/azure).
+Les clients Azure reçoivent une [offre spéciale](https://www.twilio.com/azure)de 10 $ en crédit Twilio lorsqu'ils mettent à niveau leur compte Twilio. Ce crédit peut servir à l'achat d'une prestation Twilio (un crédit de 10 $ correspond à l'envoi de 1 000 SMS ou à la réception de 1 000 minutes vocales maximum, en fonction de l'emplacement de votre numéro de téléphone, du message ou de la destination de l'appel). Profitez de ce crédit Twilio et démarrez en consultant la page [twilio.com/azure](https://twilio.com/azure).
 
 Twilio est un service de paiement à l'utilisation. Il n’y a pas de frais d’entrée et vous pouvez fermer votre compte quand vous le souhaitez. Pour plus d'informations, consultez la page [Tarification de Twilio](https://www.twilio.com/voice/pricing).
 
@@ -176,7 +176,7 @@ catch (TwilioException ex)
 Quand votre application démarre un appel vers l’API Twilio, par exemple via la méthode **CallResource.create**, Twilio envoie votre demande à une URL qui est censée renvoyer une réponse TwiML. L’exemple dans [Comment passer un appel sortant](#howto_make_call) utilise l’URL fournie par Twilio [https://twimlets.com/message][twimlet_message_url] pour retourner la réponse.
 
 > [!NOTE]
-> TwiML est conçu pour être utilisé par des services Web, vous pouvez donc afficher TwiML dans votre navigateur. Par exemple, cliquez sur [https://twimlets.com/message][twimlet_message_url] pour voir un élément `<Response>` vide ; ou cliquez sur [https://twimlets.com/message?Message%5B0%5D=Hello%20World](https://twimlets.com/message?Message%5B0%5D=Hello%20World) pour voir un élément `<Response>` contenant un élément &lt;Say&gt;.
+> TwiML est conçu pour être utilisé par des services Web, vous pouvez donc afficher TwiML dans votre navigateur. Par exemple, cliquez sur [https://twimlets.com/message][twimlet_message_url] pour voir un élément `<Response>` vide ; ou cliquez sur [https://twimlets.com/message?Message%5B0%5D=Hello%20World](https://twimlets.com/message?Message%5B0%5D=Hello%20World) pour voir un élément `<Response>` contenant un élément &lt; Say&gt;.
 >
 
 Au lieu de compter sur l'URL Twilio, vous pouvez créer votre propre site d'URL qui renvoie des réponses HTTP. Vous pouvez créer le site dans tout langage qui renvoie des réponses HTTP. Cette rubrique part du principe que vous hébergerez l'URL à partir d'un gestionnaire générique ASP.NET.

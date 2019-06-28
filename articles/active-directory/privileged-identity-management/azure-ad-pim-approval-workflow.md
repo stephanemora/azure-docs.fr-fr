@@ -1,6 +1,6 @@
 ---
-title: Approuver ou refuser les demandes pour les rôles d’Azure AD dans PIM - Azure Active Directory | Microsoft Docs
-description: Découvrez comment approuver ou refuser les demandes pour les rôles d’Azure AD dans Azure AD Privileged Identity Management (PIM).
+title: Approuver ou rejeter des demandes de rôles Azure AD dans PIM – Azure Active Directory | Microsoft Docs
+description: Découvrez comment approuver ou rejeter des demandes de rôles Azure AD dans Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -17,21 +17,21 @@ ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 47e9033b33c70a72a1685696f75a442e88eed033
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60289722"
 ---
-# <a name="approve-or-deny-requests-for-azure-ad-roles-in-pim"></a>Approuver ou refuser les demandes pour les rôles d’Azure AD dans PIM
+# <a name="approve-or-deny-requests-for-azure-ad-roles-in-pim"></a>Approuver ou rejeter des demandes de rôles Azure AD dans PIM
 
-Avec Azure Active Directory (Azure AD) Privileged Identity Management (PIM), vous pouvez configurer des rôles pour exiger une approbation pour l’activation et choisir un ou plusieurs utilisateurs ou groupes comme approbateurs délégués. Les approbateurs délégués ont 24 heures pour approuver les demandes. Si une demande n’est pas approuvée sous 24 heures, l’utilisateur éligible doit soumettre une nouvelle demande. Le délai d'approbation de 24 heures n’est pas configurable.
+Avec Azure Active Directory (Azure AD) Privileged Identity Management (PIM), vous pouvez configurer des rôles afin d’exiger une approbation pour les activations. Vous pouvez également choisir un ou plusieurs utilisateurs ou groupes en tant qu’approbateurs délégués. Les approbateurs délégués ont 24 heures pour approuver les demandes. Si une demande n’est pas approuvée sous 24 heures, l’utilisateur éligible doit soumettre une nouvelle demande. Le délai d'approbation de 24 heures n’est pas configurable.
 
-Suivez les étapes décrites dans cet article pour approuver ou refuser les demandes pour les rôles d’Azure AD.
+Suivez les étapes décrites dans cet article pour approuver ou refuser des demandes de rôles requête HTTP.
 
 ## <a name="view-pending-requests"></a>Afficher les demandes en attente
 
-En tant qu’un approbateur délégué, vous recevrez une notification par e-mail quand une demande de rôle Azure AD est en attente d’approbation. Vous pouvez afficher les demandes en attente dans PIM.
+En tant qu’approbateur délégué, vous recevez une notification par e-mail quand une demande de rôle Azure AD est en attente d’approbation. Vous pouvez afficher les demandes en attente dans PIM.
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
 
@@ -41,7 +41,7 @@ En tant qu’un approbateur délégué, vous recevrez une notification par e-mai
 
 1. Cliquez sur **Approuver les demandes**.
 
-    ![Rôles PIM Azure AD - rôles](./media/azure-ad-pim-approval-workflow/pim-directory-roles-approve-requests.png)
+    ![Rôles PIM – Rôles](./media/azure-ad-pim-approval-workflow/pim-directory-roles-approve-requests.png)
 
     La liste des demandes en attente de votre approbation s’affiche.
 

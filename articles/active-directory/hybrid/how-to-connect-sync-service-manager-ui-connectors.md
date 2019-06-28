@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ae932191c7b76590ea217386dfd729add5566f87
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60384107"
 ---
 # <a name="using-connectors-with-the-azure-ad-connect-sync-service-manager"></a>Utilisation de connecteurs avec Azure AD Connect Sync Service Manager
@@ -67,7 +67,7 @@ L’action de recherche dans l’espace connecteur permet de rechercher des obje
 
 Commencez par sélectionner une **portée**. Vous pouvez rechercher des données (nom unique relatif, nom de domaine, ancre, sous-arborescence) ou l’état de l’objet (toutes les autres options).  
 ![Sync Service Manager](./media/how-to-connect-sync-service-manager-ui-connectors/cssearchscope.png)  
- Par exemple, si vous effectuez une recherche dans la sous-arborescence, vous obtenez tous les objets d’une unité d’organisation.  
+Par exemple, si vous effectuez une recherche dans la sous-arborescence, vous obtenez tous les objets d’une unité d’organisation.  
 ![Sync Service Manager](./media/how-to-connect-sync-service-manager-ui-connectors/cssearchsubtree.png)  
 À partir de cette grille, vous pouvez sélectionner un objet, sélectionner des **propriétés** et [les suivre](tshoot-connect-object-not-syncing.md) par le biais du métaverse, de l’espace connecteur source vers l’espace connecteur cible.
 
@@ -86,7 +86,7 @@ Pour résoudre ce problème, mettez à jour le compte d’utilisateur AD DS en 
 3. Sélectionnez le connecteur Active Directory configuré pour utiliser le compte AD DS.
 4. Sous Actions, sélectionnez **Propriétés**.
 5. Dans la boîte de dialogue contextuelle, sélectionnez Se connecter à la forêt Active Directory :
-6. Le nom de la forêt indique le correspondantes Active Directory local.
+6. Le nom de la forêt indique l’AD local correspondant.
 7. Le nom d’utilisateur indique le compte AD DS utilisé pour la synchronisation.
 8. Entrez le nouveau mot de passe du compte AD DS dans la zone de texte Mot de passe ![Utilitaire de clé de chiffrement Azure AD Connect Sync](./media/how-to-connect-sync-service-manager-ui-connectors/key6.png)
 9. Cliquez sur OK pour enregistrer le nouveau mot de passe et redémarrez le service de synchronisation pour supprimer l’ancien mot de passe du cache mémoire.

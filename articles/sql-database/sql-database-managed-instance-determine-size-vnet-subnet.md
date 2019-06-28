@@ -6,18 +6,17 @@ ms.service: sql-database
 ms.subservice: managed-instance
 ms.custom: ''
 ms.devlang: ''
-ms.topic: howto
-author: WenJason
-ms.author: v-jay
-ms.reviewer: bonova, carlrab
-manager: digimobile
-origin.date: 12/12/2018
-ms.date: 03/11/2019
+ms.topic: conceptual
+author: srdan-bozovic-msft
+ms.author: srbozovi
+ms.reviewer: sstein, bonova, carlrab
+manager: craigg
+ms.date: 02/22/2019
 ms.openlocfilehash: 2a10876bc3c9558de29caf9fee2ae0b06ee87f28
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60405339"
 ---
 # <a name="determine-vnet-subnet-size-for-azure-sql-database-managed-instance"></a>Déterminer la taille du sous-réseau d’un réseau virtuel pour Azure SQL Database Managed Instance
@@ -28,10 +27,10 @@ Le nombre d’instances managées pouvant être déployées dans le sous-réseau
 
 Quand vous créez une option Managed Instance, Azure alloue plusieurs machines virtuelles en fonction du niveau sélectionné pendant l’approvisionnement. Étant donné que ces machines virtuelles sont associées à votre sous-réseau, elles nécessitent des adresses IP. Pour garantir la haute disponibilité pendant les opérations normales et la maintenance du service, Azure peut allouer des machines virtuelles supplémentaires. Par conséquent, le nombre d’adresses IP nécessaires dans un sous-réseau est supérieur au nombre d’options Managed Instance dans ce sous-réseau.
 
-Par défaut, une option Managed Instance a besoin d’un minimum de 16 adresses IP dans un sous-réseau et peut en utiliser jusqu’à 256. Par conséquent, vous pouvez utiliser des masques de sous-réseau entre la taille/28 et /24 lors de la définition de plages IP de votre sous-réseau. Un bit du masque de réseau de/28 (14 hôtes par réseau) est une bonne taille pour un usage général unique ou un déploiement critique pour l’entreprise. Un bit du masque de/27 (30 hôtes par réseau) est idéal pour une plusieurs déploiements de Managed Instance dans le même réseau virtuel. Paramètres de bit de masque de /26 (62 hôtes) et /24 (254 hôtes) permet davantage montée en puissance parallèle le réseau virtuel pour prendre en charge supplémentaire des Instances gérées.
+Par défaut, une option Managed Instance a besoin d’un minimum de 16 adresses IP dans un sous-réseau et peut en utiliser jusqu’à 256. Ainsi, vous pouvez utiliser un masque de sous-réseau entre /28 et /24 lors de la définition de vos plages d’adresses IP de sous-réseau. Un bit de masque de réseau de /28 (14 hôtes par réseau) convient à un usage général ou à un déploiement critique pour l'entreprise. Un bit de masque de /27 (30 hôtes par réseau) est idéal pour plusieurs déploiements de Managed Instance au sein du même réseau virtuel. Les paramètres de bit de masque de /26 (62 hôtes) et /24 (254 hôtes) permettent une meilleure mise à l'échelle du réseau virtuel afin de prendre en charge plus de déploiements de Managed Instance.
 
 > [!IMPORTANT]
-> Une taille de sous-réseau avec 16 adresses IP est le minimum absolu avec risque limité pour l’autres Managed Instance montée. Le choix d'un sous-réseau avec le préfixe /27 ou un préfixe inférieur est fortement recommandé.
+> La taille d'un sous-réseau avec 16 adresses IP correspond au minimum absolu avec un potentiel limité pour la montée en puissance ultérieure de Managed Instance. Le choix d'un sous-réseau avec le préfixe /27 ou un préfixe inférieur est fortement recommandé.
 
 ## <a name="determine-subnet-size"></a>Déterminer la taille du sous-réseau
 

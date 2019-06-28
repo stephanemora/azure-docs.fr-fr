@@ -15,10 +15,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d47072713c57576abe780134792c3a5cbc27127c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60438281"
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Trouver les rapports d’activité sur le Portail Azure
@@ -33,7 +33,7 @@ Le rapport de journaux d’audit regroupe plusieurs rapports en lien avec les ac
 2. Sélectionnez votre annuaire en haut à droite de l'écran, puis sélectionnez le panneau **Azure Active Directory** à partir du volet de navigation de gauche.
 3. Sélectionnez **Journaux d’audit** dans la section **Activité** du panneau Azure Active Directory. 
 
-    ![Journaux d’audit](./media/howto-find-activity-reports/482.png "Journaux d’Audit")
+    ![Journaux d’audit](./media/howto-find-activity-reports/482.png "Journaux d’activité d’Audit")
 
 Le rapport de journaux d’audit regroupe les rapports suivants :
 
@@ -48,9 +48,9 @@ Le rapport de journaux d’audit regroupe les rapports suivants :
 
 ### <a name="filtering-on-audit-logs"></a>Filtrage sur les journaux d’audit
 
-Vous pouvez utiliser le filtrage avancé dans le rapport d’audit pour accéder à une catégorie spécifique de données d’audit, en spécifiant dans le **catégorie** filtre. Par exemple, pour afficher toutes les activités liées aux utilisateurs, sélectionnez le **usermanagement** catégorie. 
+Vous pouvez appliquer le filtrage avancé au rapport d’audit pour accéder à une catégorie spécifique de données d’audit, en spécifiant celle-ci dans le filtre **Catégorie**. Par exemple, pour afficher toutes les activités liées aux utilisateurs, sélectionnez la catégorie **UserManagement**. 
 
-Catégories sont les suivantes :
+Les catégories sont les suivantes :
 
 - Tous
 - AdministrativeUnit
@@ -69,19 +69,19 @@ Catégories sont les suivantes :
 - RoleManagement
 - UserManagement
 
-Vous pouvez également filtrer sur un service spécifique à l’aide de la **Service** filtre de liste déroulante. Par exemple, pour obtenir tous les événements d’audit liés à la gestion de mot de passe libre-service, sélectionnez le **gestion de mot de passe libre-service** filtre.
+Vous pouvez également filtrer sur un service spécifique à l’aide du filtre de liste déroulante **Service**. Par exemple, pour obtenir tous les événements d’audit liés à la gestion de mot de passe en libre-service, sélectionnez le filtre **gestion de mot de passe libre-service**.
 
-Les services incluent :
+Les services sont les suivants :
 
 - Tous
 - Révisions d’accès
 - Approvisionnement des comptes 
-- Application SSO
+- Authentification unique d’application
 - Méthodes d’authentification
 - B2C
 - Accès conditionnel
 - Annuaire principal
-- Gestion des droits d'utilisation
+- Gestion des droits d’utilisation
 - Identity Protection
 - Utilisateurs invités
 - PIM
@@ -153,7 +153,7 @@ J’ai téléchargé les journaux d’activité (d’audit ou de connexion) et t
  
 #### <a name="cause"></a>Cause :
 
-Lorsque vous téléchargez des journaux d’activité dans le portail Azure, nous limitons l’échelle à des 250000 enregistrements, triés selon le plus récent en premier. 
+Lorsque vous téléchargez des journaux d’activité à partir du portail Azure, nous limitons l’échelle à 250 000 enregistrements, classés du plus récent au moins récent. 
 
 #### <a name="resolution"></a>Résolution :
 

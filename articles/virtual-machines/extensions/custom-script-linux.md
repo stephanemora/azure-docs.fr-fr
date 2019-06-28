@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/25/2018
 ms.author: roiyz
-ms.openlocfilehash: 19637a1fe49550d0ed7aea7e3a596f1f77f5984b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b9bc3ef0cf5dd54802d32058afb904800c364c19
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60869875"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64725235"
 ---
 # <a name="use-the-azure-custom-script-extension-version-2-with-linux-virtual-machines"></a>Utiliser l’extension de script personnalisé Azure version 2 avec des machines virtuelles Linux
 L’extension de script personnalisé version 2 télécharge et exécute des scripts sur des machines virtuelles Azure. Elle est utile pour la configuration de post-déploiement, l’installation de logiciels ou toute autre tâche de configuration/gestion. Il est possible de télécharger des scripts à partir du Stockage Azure ou de tout autre emplacement Internet accessible, ou de les fournir au runtime de l’extension. 
@@ -110,16 +110,16 @@ Ces éléments doivent être traités comme des données sensibles et spécifié
 | Nom | Valeur/Exemple | Type de données | 
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
-| publisher | Microsoft.Compute.Extensions | string |
-| type | CustomScript | string |
+| publisher | Microsoft.Compute.Extensions | chaîne |
+| type | CustomScript | chaîne |
 | typeHandlerVersion | 2.0 | int |
 | fileUris (p. ex.) | https://github.com/MyProject/Archive/MyPythonScript.py | array |
-| commandToExecute (p. ex.) | python MyPythonScript.py <my-param1> | string |
-| script | IyEvYmluL3NoCmVjaG8gIlVwZGF0aW5nIHBhY2thZ2VzIC4uLiIKYXB0IHVwZGF0ZQphcHQgdXBncmFkZSAteQo= | string |
+| commandToExecute (p. ex.) | python MyPythonScript.py \<my-param1> | chaîne |
+| script | IyEvYmluL3NoCmVjaG8gIlVwZGF0aW5nIHBhY2thZ2VzIC4uLiIKYXB0IHVwZGF0ZQphcHQgdXBncmFkZSAteQo= | chaîne |
 | skipDos2Unix (p. ex.) | false | booléenne |
 | timestamp (p. ex.) | 123456789 | Entier 32 bits |
-| storageAccountName (p. ex.) | examplestorageacct | string |
-| storageAccountKey (p. ex.) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | string |
+| storageAccountName (p. ex.) | examplestorageacct | chaîne |
+| storageAccountKey (p. ex.) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | chaîne |
 
 ### <a name="property-value-details"></a>Détails des valeurs de propriété
 * `skipDos2Unix` : (facultatif, booléen) ignore la conversion dos2unix d’un script ou des URL de fichier basé sur un script.
@@ -364,7 +364,7 @@ L’extension de script Azure génère un journal qui se trouve à cet emplaceme
 /var/log/azure/custom-script/handler.log
 ```
 
-Vous devez rechercher une exécution individuelle, il doit ressembler à :
+Vous devez rechercher l’exécution individuelle, qui doit se présenter ainsi :
 ```text
 time=2018-04-26T17:47:23Z version=v2.0.6/git@1008306-clean operation=enable seq=0 event=start
 time=2018-04-26T17:47:23Z version=v2.0.6/git@1008306-clean operation=enable seq=0 event=pre-check

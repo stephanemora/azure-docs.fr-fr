@@ -1,5 +1,5 @@
 ---
-title: Principales différences pour Azure SQL Database Machine Learning Services (version préliminaire)
+title: Principales différences de Machine Learning Services dans Azure SQL Database (préversion)
 description: Cette rubrique décrit les principales différences entre Azure SQL Database Machine Learning Services (avec R) et SQL Server Machine Learning Services.
 services: sql-database
 ms.service: sql-database
@@ -12,15 +12,15 @@ ms.reviewer: carlrab
 manager: cgronlun
 ms.date: 03/01/2019
 ms.openlocfilehash: 92785015a1ce122b8301b56fa62d122c8d95180c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64725056"
 ---
-# <a name="key-differences-between-machine-learning-services-in-azure-sql-database-preview-and-sql-server"></a>Principales différences entre les Services Machine Learning dans Azure SQL Database (version préliminaire) et SQL Server
+# <a name="key-differences-between-machine-learning-services-in-azure-sql-database-preview-and-sql-server"></a>Principales différences entre Machine Learning Services dans Azure SQL Database (préversion) et Machine Learning Services dans SQL Server
 
-La fonctionnalité de base de données de SQL Azure Machine Learning Services (avec R) (version préliminaire) est similaire à [SQL Server Machine Learning Services](https://docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning). Voici quelques différences clés.
+La fonctionnalité de Machine Learning Services (avec R) dans Azure SQL Database (préversion) est similaire à la fonctionnalité [Machine Learning Services dans SQL Server](https://docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning). Voici cependant quelques différences importantes.
 
 > [!IMPORTANT]
 > Machine Learning Services dans Azure SQL Database est actuellement en préversion publique.
@@ -40,27 +40,27 @@ SQL Server prend en charge R et Python grâce à [Extensibility Framework](https
 L’installation et la gestion des packages R fonctionnent différemment pour SQL Database et pour SQL Server :
 
 - Les packages R s’installent avec [sqlmlutils](https://github.com/Microsoft/sqlmlutils) ou [CREATE EXTERNAL LIBRARY](https://docs.microsoft.com/sql/t-sql/statements/create-external-library-transact-sql).
-- Les packages ne peuvent pas effectuer d’appels réseau sortants. Cette limitation est similaire à la [par défaut des règles de pare-feu pour Machine Learning Services](https://docs.microsoft.com//sql/advanced-analytics/security/firewall-configuration) dans SQL Server, mais ne peut pas être modifiée dans la base de données SQL.
+- Les packages ne peuvent pas effectuer d’appels réseau sortants. Cette limitation est similaire aux [règles de pare-feu par défaut de Machine Learning Services](https://docs.microsoft.com//sql/advanced-analytics/security/firewall-configuration) dans SQL Server, mais elle n’est pas modifiable dans SQL Database.
 - Les packages qui dépendent de runtimes externes (comme Java) ou dont l’installation ou l’utilisation impliquent un accès à des API de système d’exploitation ne sont pas pris en charge.
 
 ## <a name="resource-governance"></a>Gouvernance des ressources
 
 Il n’est pas possible de limiter les ressources R avec [Resource Governor](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor) et les listes de ressources externes.
 
-Pendant la préversion publique, les ressources R sont définies sur un maximum de 20 % des ressources de base de données SQL et varient dans le niveau de service que vous choisissez. Pour plus d’informations, voir [Modèles d’achat Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers).
+Pendant la préversion publique, les ressources R englobent au maximum 20 % des ressources SQL Database, et le pourcentage précis dépend du niveau de service choisi. Pour plus d’informations, voir [Modèles d’achat Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers).
 
 ### <a name="insufficient-memory-error"></a>Erreur de mémoire insuffisante
 
-Si la mémoire est insuffisante pour R, vous obtiendrez un message d’erreur. Messages d’erreur courants sont :
+Si la mémoire est insuffisante pour R, un message d’erreur s’affiche. Les messages d’erreur courants sont les suivants :
 
-- Impossible de communiquer avec le runtime de script « R » pour l’id de demande : ***. Vérifiez la configuration requise du runtime « R »
-- Erreur de script « R » s’est produite pendant l’exécution de « sp_execute_external_script » avec HRESULT 0 x 80004004. ... une erreur de script externe s’est produite : «.. n’a pas pu allouer la mémoire (0 Mo) dans la fonction C 'R_AllocStringBuffer' »
-- Une erreur de script externe s’est produite : Erreur : Impossible d’allouer le vecteur de taille.
+- Impossible de communiquer avec le runtime pour le script « R » et l’ID de demande *******. Vérifiez les exigences du runtime « R »
+- Une erreur de script « R » s’est produite lors de l’exécution de « sp_execute_external_script » avec HRESULT 0x80004004. ...Une erreur de script externe s’est produite : « Impossible d’allouer de la mémoire (0 Mb) dans la fonction C 'R_AllocStringBuffer' »
+- Une erreur de script externe s’est produite : Erreur : impossible d’allouer un vecteur de taille.
 
-Utilisation dépend de la quantité de mémoire est utilisée dans vos scripts R et le nombre de requêtes parallèles en cours d’exécution. Si vous recevez les erreurs ci-dessus, vous pouvez faire évoluer votre base de données à un niveau de service supérieur pour résoudre ce problème.
+L’utilisation de la mémoire dépend de la quantité de mémoire utilisée dans vos scripts R et du nombre de requêtes parallèles en cours d’exécution. Si les messages d’erreur ci-dessus s’affichent, vous pouvez augmenter l’échelle votre base de données pour l’adapter à un niveau de service supérieur afin de résoudre ce problème.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Consultez la vue d’ensemble, [base de données de SQL Azure Machine Learning Services avec R (version préliminaire)](sql-database-machine-learning-services-overview.md).
-- Pour savoir comment utiliser R pour interroger Azure SQL Database Machine Learning Services (version préliminaire), consultez le [guide de démarrage rapide](sql-database-connect-query-r.md).
-- Pour commencer avec des scripts R simples, consultez [créer et exécuter des scripts R simples dans la base de données de SQL Azure Machine Learning Services (version préliminaire)](sql-database-quickstart-r-create-script.md).
+- Lisez la vue d’ensemble de [Machine Learning Services avec R dans Azure SQL Database (préversion)](sql-database-machine-learning-services-overview.md).
+- Pour savoir comment utiliser R pour interroger Machine Learning Services dans Azure SQL Database (version préliminaire), voir le [Guide de démarrage rapide](sql-database-connect-query-r.md).
+- Pour commencer avec des scripts R simples, voir [Créer et exécuter des scripts R simples dans Azure SQL Database Machine Learning Services (préversion)](sql-database-quickstart-r-create-script.md).

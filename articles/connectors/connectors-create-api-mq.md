@@ -11,10 +11,10 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
 ms.openlocfilehash: 9e6ae5cb0afd75a1e87fe4d4d0cf307abab5a02a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60688738"
 ---
 # <a name="connect-to-an-ibm-mq-server-from-logic-apps-using-the-mq-connector"></a>Se connecter à un serveur IBM MQ à partir d’applications logiques à l’aide du connecteur MQ
@@ -29,12 +29,12 @@ Le connecteur MQ inclut les actions suivantes. Il n’y a aucun déclencheur.
 - Recevoir un lot de messages et supprimer les messages du serveur IBM MQ
 - Envoyer un message unique au serveur IBM MQ
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 * Si vous utilisez un serveur MQ local, [installez la passerelle de données locale](../logic-apps/logic-apps-gateway-install.md) sur un serveur au sein de votre réseau. Si le serveur MQ est disponible publiquement ou dans Azure, la passerelle de données n’est pas utilisée ou nécessaire.
 
     > [!NOTE]
-    > Le serveur où est installée la passerelle de données locale doit avoir également .NET Framework 4.6 installé pour le connecteur MQ fonctionne.
+    > Pour que le connecteur MQ fonctionne, .NET Framework 4.6 doit également être installé sur le serveur sur lequel la passerelle de données locale est installée.
 
 * Créez la ressource Azure pour la passerelle de données locale : [configurer la connexion de passerelle de données](../logic-apps/logic-apps-gateway-connection.md).
 

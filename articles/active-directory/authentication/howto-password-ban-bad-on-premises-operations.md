@@ -1,6 +1,6 @@
 ---
-title: Opérations de Protection de mot de passe AD Azure et de création de rapports - Azure Active Directory
-description: Opérations de post-déploiement de Protection de mot de passe AD Azure et création de rapports
+title: Opérations de protection par mot de passe AD Azure et création de rapports – Azure Active Directory
+description: Opérations et rapports post-déploiement de protection par mot de passe Azure AD
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ca85007bb016cc98d1be61ce08865945e699ad4a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60358178"
 ---
 # <a name="azure-ad-password-protection-operational-procedures"></a>Protection par mot de passe Azure AD - Procédures opérationnelles
@@ -28,7 +28,7 @@ Suivez les instructions dans l’article [Configurer la liste des mots de passe 
 
 ## <a name="enable-password-protection"></a>Activer la Protection par mot de passe
 
-1. Se connecter à la [Azure portal](https://portal.azure.com) et accédez à **Azure Active Directory**, **méthodes d’authentification**, puis **Protection de mot de passe**.
+1. Connectez-vous au [Portail Azure](https://portal.azure.com) et accédez à **Azure Active Directory**, **Méthodes d’authentification**, puis **Protection par mot de passe**.
 1. Définissez **Activer la Protection par mot de passe sur Windows Server Active Directory** sur**Oui**
 1. Comme mentionné dans le [Guide de déploiement](howto-password-ban-bad-on-premises-deploy.md#deployment-strategy), il est recommandé de régler de base le **Mode** sur **Audit**
    * Une fois que vous êtes familiarisé avec la fonctionnalité, vous pouvez basculer le **Mode** sur **Appliqué**

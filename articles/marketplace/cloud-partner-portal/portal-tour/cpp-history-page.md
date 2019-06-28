@@ -1,6 +1,6 @@
 ---
-title: Page de l’historique d’audit pour Azure Marketplace
-description: Vue d’ensemble de la page de l’historique d’Audit dans le portail Cloud Partner pour Azure Marketplace.
+title: Page Historique d'audit pour la Place de marché Azure
+description: Vue d'ensemble de la page Historique d'audit sur le Portail Cloud Partner pour la Place de marché Azure.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: pabutler
 ms.openlocfilehash: a579008aa0954507a130bef65dc60254f9e12c03
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64943483"
 ---
 # <a name="audit-history-page"></a>Page Historique d’audit

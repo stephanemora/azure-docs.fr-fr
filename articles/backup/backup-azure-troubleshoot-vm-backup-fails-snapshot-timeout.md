@@ -10,10 +10,10 @@ ms.topic: troubleshooting
 ms.date: 12/03/2018
 ms.author: genli
 ms.openlocfilehash: 826a38dd80db7cd0e6e500949d2c259c3808c0a9
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64914948"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Résoudre les problèmes d’une Sauvegarde Azure : Problèmes d’agent ou d’extension
@@ -30,9 +30,9 @@ Cet article indique les étapes à suivre pour résoudre les erreurs de la Sauve
 **Message d’erreur** : L’agent de machine virtuelle ne peut pas communiquer avec la sauvegarde Microsoft Azure<br>
 
 Dès que vous avez enregistré et planifié une machine virtuelle dans le service de sauvegarde, ce dernier lance la tâche en communiquant avec l’agent de la machine virtuelle pour prendre un instantané à la date et l’heure. Il est possible que l’une des conditions suivantes empêche le déclenchement de l’instantané. Lorsque un instantané n’est pas déclenché, la sauvegarde risque d’échouer. Suivez les étapes de dépannage ci-dessous dans l’ordre indiqué, puis réessayez l’opération :<br>
-**Cause 1 : [L’agent est installé dans la machine virtuelle, mais ne répond pas (machines virtuelles Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**    
+**Cause 1 : [L’agent est installé dans la machine virtuelle, mais ne répond pas (machines virtuelles Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**     
 **Cause 2 : [L’agent installé dans la machine virtuelle est obsolète (machines virtuelles Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
-**Cause 3 : [Impossible de récupérer l’état de l’instantané ou de capturer un instantané](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**    
+**Cause 3 : [Impossible de récupérer l’état de l’instantané ou de capturer un instantané](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**     
 **Cause 4 : [L’extension de sauvegarde ne peut être ni mise à jour ni chargée](#the-backup-extension-fails-to-update-or-load)**  
 **Cause 5 : [La machine virtuelle n’a pas accès à Internet](#the-vm-has-no-internet-access)**
 
@@ -51,7 +51,7 @@ Après avoir enregistré et planifié une machine virtuelle pour le service Azur
 **Code d’erreur** : UserErrorRpCollectionLimitReached <br>
 **Message d’erreur** : La limite maximale de la collection de points de restauration est atteinte. <br>
 * Ce problème peut se produire si un verrou dans le groupe de ressources des points de récupération empêche le nettoyage automatique du point de récupération.
-* Ce problème peut également se produire si plusieurs sauvegardes sont déclenchées tous les jours. Actuellement, nous recommandons une seule sauvegarde par jour comme les points de restauration instantanée sont conservés pendant les jours 1 à 5 conformément à la rétention des captures instantanées configuré et seuls 18 RPs instantanée peut être associé à une machine virtuelle à un moment donné. <br>
+* Ce problème peut également se produire si plusieurs sauvegardes sont déclenchées tous les jours. Actuellement, nous recommandons une seule sauvegarde par jour, car les points de restauration instantanés sont conservés pendant 1 à 5 jours conformément à la rétention d'instantanés configurée, et seuls 18 points de restauration instantanés peuvent être associés à une machine virtuelle à un moment donné. <br>
 
 Action recommandée :<br>
 Pour résoudre ce problème, supprimez le verrou du groupe de ressources de la machine virtuelle et recommencez l’opération pour déclencher le nettoyage.
@@ -66,7 +66,7 @@ Pour résoudre ce problème, supprimez le verrou du groupe de ressources de la m
 **Code d’erreur** : UserErrorKeyvaultPermissionsNotConfigured <br>
 **Message d’erreur** : Sauvegarde Azure ne dispose pas des autorisations d’accès suffisantes au coffre de clés pour la sauvegarde de machines virtuelles chiffrées. <br>
 
-Pour que l’opération de sauvegarde puisse réussir sur des machines virtuelles chiffrées, elle doit avoir les autorisations d’accès au coffre de clés. Cela est possible à l’aide de la [Azure portal](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption) ou via [PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#enable-protection).
+Pour que l’opération de sauvegarde puisse réussir sur des machines virtuelles chiffrées, elle doit avoir les autorisations d’accès au coffre de clés. Cela est possible par l’intermédiaire du [portail Azure](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption) ou de [PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#enable-protection).
 
 ## <a name="ExtensionSnapshotFailedNoNetwork-snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine"></a>ExtensionSnapshotFailedNoNetwork : L’opération de capture instantanée a échoué, car la machine virtuelle ne présente aucune connectivité réseau
 
@@ -102,12 +102,12 @@ Après avoir enregistré et planifié une machine virtuelle pour le service Azur
 **Cause 5 : Le service de sauvegarde n’est pas autorisé à supprimer les anciens points de restauration en raison du verrouillage d’un groupe de ressources** <br>
 **Cause 6 : [La machine virtuelle n’a pas accès à Internet](#the-vm-has-no-internet-access)**
 
-## <a name="usererrorunsupporteddisksize---currently-azure-backup-does-not-support-disk-sizes-greater-than-4095gb"></a>UserErrorUnsupportedDiskSize - sauvegarde actuellement Azure ne prend pas en charge les tailles de disque supérieures à 4 095 Go
+## <a name="usererrorunsupporteddisksize---currently-azure-backup-does-not-support-disk-sizes-greater-than-4095gb"></a>UserErrorUnsupportedDiskSize : Actuellement, Sauvegarde Azure ne prend pas en charge les tailles de disque supérieures à 4 095 Go
 
 **Code d’erreur** : UserErrorUnsupportedDiskSize <br>
-**Message d’erreur** : Actuellement Azure Backup ne prend pas en charge les tailles de disque supérieures à 4 095 Go <br>
+**Message d’erreur** : Actuellement, Sauvegarde Azure ne prend pas en charge les tailles de disque supérieures à 4 095 Go <br>
 
-Votre opération de sauvegarde peut échouer lors de la sauvegarde de machine virtuelle avec disque de taille supérieure à 4 095 go. Prise en charge des disques de grande taille sera bientôt disponible.  
+Votre opération de sauvegarde peut échouer lors de la sauvegarde d'une machine virtuelle dont la taille de disque est supérieure à 4 095 Go. La prise en charge de disques volumineux sera bientôt disponible.  
 
 ## <a name="usererrorbackupoperationinprogress---unable-to-initiate-backup-as-another-backup-operation-is-currently-in-progress"></a>UserErrorBackupOperationInProgress - Impossible de lancer la sauvegarde, car une autre opération de sauvegarde est en cours d’exécution
 
@@ -193,7 +193,7 @@ Voici les causes possibles de l’échec de la tâche de capture instantanée :
 | Cause : | Solution |
 | --- | --- |
 | L’état de la machine virtuelle est rapporté de manière incorrecte, car la machine virtuelle est arrêtée dans le protocole RDP (Remote Desktop Protocol). | Si vous avez arrêté la machine virtuelle dans le protocole RDP, retournez sur le portail pour vérifier que son état est correct. Si ce n’est pas le cas, arrêtez la machine virtuelle dans le portail à l’aide de l’option **Arrêter** dans le tableau de bord de la machine virtuelle. |
-| La machine virtuelle ne parvient pas à récupérer l’adresse d’hôte/de structure à partir du protocole DHCP. | Le protocole DHCP doit être activé dans l’invité pour que la sauvegarde de la machine virtuelle IaaS fonctionne. Si la machine virtuelle ne parvient pas à récupérer l’adresse d’hôte/de structure à partir de la réponse 245 DHCP, elle ne peut ni télécharger, ni exécuter des extensions. Si vous avez besoin d’une adresse IP privée statique, vous devez le configurer via le **Azure portal** ou **PowerShell** et assurez-vous que l’option DHCP à l’intérieur de la machine virtuelle est activée. [En savoir plus](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface) sur la configuration d’une adresse IP statique avec PowerShell.
+| La machine virtuelle ne parvient pas à récupérer l’adresse d’hôte/de structure à partir du protocole DHCP. | Le protocole DHCP doit être activé dans l’invité pour que la sauvegarde de la machine virtuelle IaaS fonctionne. Si la machine virtuelle ne parvient pas à récupérer l’adresse d’hôte/de structure à partir de la réponse 245 DHCP, elle ne peut ni télécharger, ni exécuter des extensions. Si vous avez besoin d’une adresse IP privée statique, vous devez la configurer via le **portail Azure** ou **PowerShell** et vérifier que l’option DHCP dans la machine virtuelle est activée. [Apprenez-en davantage](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface) sur la configuration d’une adresse IP statique avec PowerShell.
 
 ### <a name="the-backup-extension-fails-to-update-or-load"></a>L’extension de sauvegarde ne peut être ni mise à jour ni chargée
 Si les extensions ne sont pas chargées, la sauvegarde échoue, car il n’est pas possible de capturer un instantané.
@@ -224,14 +224,14 @@ Cette procédure réinstalle l’extension lors de la sauvegarde suivante.
 
 ### <a name="clean_up_restore_point_collection"></a> Nettoyer la collection de points de restauration
 Après avoir supprimé le verrou, vous devez nettoyer les points de restauration. Pour nettoyer les points de restauration, suivez l’une des méthodes suivantes :<br>
-* [Restauration de nettoyage collection de points en exécutant la sauvegarde ad hoc](#clean-up-restore-point-collection-by-running-ad-hoc-backup)<br>
+* [Nettoyer la collection de points de restauration en exécutant une sauvegarde ad hoc](#clean-up-restore-point-collection-by-running-ad-hoc-backup)<br>
 * [Nettoyer la collection de points de restauration sur le portail Azure](#clean-up-restore-point-collection-from-azure-portal)<br>
 
-#### <a name="clean-up-restore-point-collection-by-running-ad-hoc-backup"></a>Restauration de nettoyage collection de points en exécutant la sauvegarde ad hoc
-Après avoir supprimé le verrou, déclencher une sauvegarde de hoc/manuelles ad. Ce faisant, les points de restauration sont automatiquement nettoyés. Attendre cette opération ad hoc/manuelles échouer la première fois. Toutefois, elle garantit le nettoyage automatique au lieu de la suppression manuelle des points de restauration. La sauvegarde ultérieure planifiée doit réussir après le nettoyage.
+#### <a name="clean-up-restore-point-collection-by-running-ad-hoc-backup"></a>Nettoyer la collection de points de restauration en exécutant une sauvegarde ad hoc
+Après avoir supprimé le verrou, déclenchez une sauvegarde ad hoc/manuelle. Ce faisant, les points de restauration sont automatiquement nettoyés. Attendez-vous à ce que cette opération ad hoc/manuelle échoue la première fois. Toutefois, elle garantit le nettoyage automatique à la place de la suppression manuelle des points de restauration. La sauvegarde ultérieure planifiée doit réussir après le nettoyage.
 
 > [!NOTE]
-> Le nettoyage automatique aura lieu après les heures de déclenchement de la sauvegarde de hoc/manuelles ad. Si votre sauvegarde planifiée échoue à nouveau, essayez de supprimer manuellement la collection de points de restauration à l’aide de la procédure indiquée [ici](#clean-up-restore-point-collection-from-azure-portal).
+> Le nettoyage automatique a lieu quelques heures après le déclenchement de la sauvegarde ad hoc/manuelle. Si votre sauvegarde planifiée échoue à nouveau, essayez de supprimer manuellement la collection de points de restauration à l’aide de la procédure indiquée [ici](#clean-up-restore-point-collection-from-azure-portal).
 
 #### <a name="clean-up-restore-point-collection-from-azure-portal"></a>Nettoyer la collection de points de restauration sur le portail Azure <br>
 

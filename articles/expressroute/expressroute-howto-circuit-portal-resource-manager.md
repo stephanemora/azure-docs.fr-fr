@@ -9,10 +9,10 @@ ms.date: 10/20/2018
 ms.author: cherylmc;ganesr
 ms.custom: seodec18
 ms.openlocfilehash: 16f3ad1aa037dca2e7b8c3e68ae952c27b952711
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60366482"
 ---
 # <a name="create-and-modify-an-expressroute-circuit"></a>Création et modification d’un circuit ExpressRoute
@@ -56,7 +56,7 @@ Dans un navigateur, accédez au [portail Azure](https://portal.azure.com) et con
    * **Limitation des données** détermine le type de facturation. Vous pouvez spécifier **Limité** pour un forfait de données limité, et **Illimité** pour un forfait de données illimité. Notez que vous pouvez modifier le type de facturation de **Limité** à **Illimité**.
 
      > [!IMPORTANT]
-     > Vous ne pouvez pas modifier le type de **illimité** à **limitées**.
+     > En revanche, vous ne pouvez pas modifier le type de **Illimité** à **Limité**.
 
    * L’**Emplacement d’homologation** est l’emplacement physique où vous vous homologuez auprès de Microsoft.
 

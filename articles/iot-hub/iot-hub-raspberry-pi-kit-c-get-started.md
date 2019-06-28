@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 02/14/2019
 ms.author: wesmc
 ms.openlocfilehash: 6a895d7978f1af3914bbb9dee3594dbfffd9f317
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61442410"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64569837"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-c"></a>Connecter Raspberry Pi à Azure IoT Hub (C)
 
@@ -93,7 +93,7 @@ Les éléments suivants sont facultatifs :
 
 ## <a name="set-up-raspberry-pi"></a>Installer Raspberry Pi
 
-Configurez maintenant le Raspberry Pi.
+Configurez maintenant l’appareil Raspberry Pi.
 
 ### <a name="install-the-raspbian-operating-system-for-pi"></a>Installation du système d’exploitation Raspbian pour Pi
 
@@ -121,7 +121,7 @@ Préparez la carte microSD pour l’installation de l’image Raspbian.
 
 ### <a name="enable-ssh-and-spi"></a>Activer SSH et SPI
 
-1. Connecter Pi au moniteur, clavier et souris et démarrez Pi puis connectez-vous à Raspbian en utilisant `pi` comme nom d’utilisateur et `raspberry` comme mot de passe.
+1. Connectez Pi au moniteur, au clavier et à la souris, démarrez Pi, puis connectez-vous à Raspbian en utilisant `pi` comme nom d’utilisateur et `raspberry` comme mot de passe.
  
 2. Cliquez sur l’icône Raspberry > **Préférences** > **Configuration de Raspberry Pi**.
 
@@ -170,7 +170,7 @@ Mettez Pi sous tension à l’aide du câble micro USB et de l’alimentation. U
 
 ## <a name="run-a-sample-application-on-pi"></a>Exécuter un exemple d’application sur Pi
 
-### <a name="sign-into-your-raspberry-pi"></a>Connectez-vous à votre Raspberry Pi
+### <a name="sign-into-your-raspberry-pi"></a>Vous connecter à votre Raspberry Pi
 
 1. Utilisez l’un des clients SSH suivants à partir de votre ordinateur hôte pour vous connecter à votre Raspberry Pi.
    
@@ -234,9 +234,9 @@ Vous devriez voir le résultat suivant, qui affiche les données de capteur et l
 
 ## <a name="read-the-messages-received-by-your-hub"></a>Lire les messages reçus par votre hub
 
-Pour surveiller les messages reçus par votre IoT hub à partir de votre appareil consiste à utiliser l’IoT Azure Tools pour Visual Studio Code. Pour plus d’informations, consultez [utilisation IoT d’Azure Tools pour Visual Studio Code envoyer et recevoir des messages entre votre appareil et IoT Hub](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md).
+Une façon de surveiller les messages reçus par votre IoT hub à partir de votre appareil consiste à utiliser Azure IoT Tools pour Visual Studio Code. Pour en savoir plus, consultez [Utiliser Azure IoT Tools pour Visual Studio Code afin d’envoyer et de recevoir des messages entre votre appareil et un IoT Hub](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md).
 
-Pour d’autres méthodes traiter les données envoyées par votre appareil, passez à la section suivante.
+Pour d’autres méthodes de traitement des données envoyées par votre appareil, passez à la section suivante.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

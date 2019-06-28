@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: cenkdin;juliako
 ms.openlocfilehash: 8baff356e1a4916bcc21b28f422a6e98342c0d34
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64869440"
 ---
 # <a name="how-to-perform-live-streaming-with-on-premises-encoders-using-net"></a>Streaming en direct avec des encodeurs locaux avec .NET
@@ -29,11 +29,11 @@ ms.locfileid: "64869440"
 > 
 
 > [!NOTE]
-> Aucune nouvelle fonctionnalité ni fonction n’est ajoutée à Media Services v2. <br/>Découvrez la dernière version, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consultez également [conseils de migration de v2 vers v3](../latest/migrate-from-v2-to-v3.md)
+> Aucune nouvelle fonctionnalité ni fonction n’est ajoutée à Media Services v2. <br/>Découvrez la dernière version, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consultez aussi [Conseils de migration de v2 vers v3](../latest/migrate-from-v2-to-v3.md).
 
 Ce didacticiel vous guide tout au long des étapes d’utilisation du Kit de développement logiciel (SDK) .NET Azure Media Services afin de créer un **canal** configuré pour une livraison directe. 
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 Les éléments suivants sont requis pour suivre le didacticiel :
 
 * Un compte Azure.

@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: v-sharos
 ms.openlocfilehash: e84bc790ac577796e91be010deecc8c5cea1b010
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60303100"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64699714"
 ---
 # <a name="use-storsimple-snapshot-manager-to-create-and-manage-volume-groups"></a>Utiliser le Gestionnaire d’instantanés StorSimple pour créer et gérer des groupes de volumes
 ## <a name="overview"></a>Vue d'ensemble
@@ -33,7 +33,7 @@ Les groupes de volumes sont des pools de volumes associés utilisés pour vérif
 
 ![Nœud de groupes de volumes](./media/storsimple-snapshot-manager-manage-volume-groups/HCS_SSM_Volume_groups.png)
 
-**Figure 1 : Nœud groupes de volumes StorSimple Snapshot Manager** 
+**Figure 1 : Nœud Groupes de volumes du Gestionnaire d’instantanés StorSimple** 
 
 Ce didacticiel vous explique comment utiliser le Gestionnaire d’instantanés StorSimple pour :
 
@@ -50,7 +50,7 @@ Si vous cliquez sur le nœud **Groupes de volumes**, le volet **Résultats** ind
 
 | Colonne de résultats | Description |
 |:--- |:--- |
-| Name |La colonne **Nom** comporte le nom du groupe de volumes. |
+| Nom |La colonne **Nom** comporte le nom du groupe de volumes. |
 | Application |La colonne **Applications** indique le nombre d’enregistreurs VSS actuellement installés et exécutés sur l’hôte Windows. |
 | Volumes sélectionnés |La colonne **Volumes sélectionnés** indique le nombre de volumes du groupe de volumes. Une valeur nulle (0) indique qu’aucune application n’est associée aux volumes du groupe de volumes. |
 | Volumes importés |La colonne **Volumes importés** représente le nombre de volumes importés. Lorsqu’elle est définie sur **Vrai**, cette colonne indique qu’un groupe de volumes a été importé du portail Azure, et n’a pas été créé dans le Gestionnaire d’instantanés StorSimple. |

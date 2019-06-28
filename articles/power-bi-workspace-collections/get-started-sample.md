@@ -9,10 +9,10 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/25/2017
 ms.openlocfilehash: 6cf78bf9c83df0a1255c14499bbd2036a2be5ed6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64714511"
 ---
 # <a name="get-started-with-power-bi-workspace-collections-sample"></a>Exemple de prise en main des collections d’espaces de travail Power BI
@@ -26,7 +26,7 @@ Avant de poursuivre, vous souhaitez enregistrer les ressources suivantes. Elles 
 
 * [Exemple d’application web d’espace de travail](https://go.microsoft.com/fwlink/?LinkId=761493)
 * [Informations de référence sur les API des collections d’espaces de travail Power BI](https://msdn.microsoft.com/library/azure/mt711507.aspx)
-* [Power BI .NET SDK](https://go.microsoft.com/fwlink/?LinkId=746472) (disponible via NuGet)
+* [Kit de développement logiciel (SDK) .NET Power BI](https://go.microsoft.com/fwlink/?LinkId=746472) (disponible par le biais de NuGet)
 * [Exemple de rapport JavaScript intégré](https://microsoft.github.io/PowerBI-JavaScript/demo)
 
 > [!NOTE]

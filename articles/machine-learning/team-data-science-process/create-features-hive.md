@@ -12,10 +12,10 @@ ms.date: 11/21/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: a491f923d7755513d84adfe765d595a3a7a80715
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60399338"
 ---
 # <a name="create-features-for-data-in-a-hadoop-cluster-using-hive-queries"></a>Création de fonctionnalités pour les données dans un cluster Hadoop à l’aide de requêtes Hive
@@ -27,7 +27,7 @@ Des exemples de requêtes propres aux scénarios mettant en œuvre le jeu de don
 
 Cette tâche est une étape du [processus TDSP (Team Data Science Process)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 Cet article suppose que vous avez :
 
 * Créé un compte de stockage Azure. Pour des instructions, voir [Créer un compte Stockage Azure](../../storage/common/storage-quickstart-create-account.md).
@@ -89,14 +89,14 @@ Hive est livré avec un ensemble de FDU pour traiter des champs d’horodatage. 
         select day(<datetime field>), month(<datetime field>)
         from <databasename>.<tablename>;
 
-Cette requête Hive suppose que le  *\<champ datetime >* est au format de date/heure par défaut.
+Cette requête Hive suppose que le *\<datetime field>* est au format d’horodatage par défaut.
 
 Si un champ d’horodatage n’est pas au format par défaut, il faut d’abord le convertir en horodatage Unix puis en chaîne d’horodatage au format par défaut. Une fois l’horodatage au format par défaut, les utilisateurs peuvent appliquer les FDU d’horodatage intégrées pour extraire des fonctionnalités.
 
         select from_unixtime(unix_timestamp(<datetime field>,'<pattern of the datetime field>'))
         from <databasename>.<tablename>;
 
-Dans cette requête, si le  *\<champ datetime >* suit le modèle *26/03/2015 12:04:39*, le  *\<modèle du champ dateheure >'* doit être `'MM/dd/yyyy HH:mm:ss'`. Pour le tester, les utilisateurs peuvent exécuter :
+Dans cette requête, si le *\<datetime field>* suit le modèle *03/26/2015 12:04:39*, le *\<modèle du champ DateHeure>’* doit être `'MM/dd/yyyy HH:mm:ss'`. Pour le tester, les utilisateurs peuvent exécuter :
 
         select from_unixtime(unix_timestamp('05/15/2015 09:32:10','MM/dd/yyyy HH:mm:ss'))
         from hivesampletable limit 1;
@@ -139,7 +139,7 @@ La liste complète des FDU Hive intégrées est disponible dans la section **Fon
 ## <a name="tuning"></a> Rubriques avancées : Ajuster les paramètres Hive pour accélérer le traitement des requêtes
 Les paramètres par défaut du cluster Hive peuvent ne pas convenir aux requêtes Hive et aux données qu’elles traitent. Cette section présente certains paramètres que les utilisateurs peuvent ajuster pour accélérer le traitement des requêtes Hive. Les requêtes d’ajustement des paramètres doivent précéder les requêtes de traitement des données.
 
-1. **Espace de tas Java** : les requêtes impliquant la jointure de jeux de données volumineux ou le traitement d’enregistrements longs peuvent générer une erreur de type **espace du tas insuffisant**. Cette erreur peut être évitée en définissant les paramètres *mapreduce.map.java.opts* et *mapreduce.task.io.sort.mb* sur les valeurs souhaitées. Voici un exemple : 
+1. **Espace de tas Java** : les requêtes impliquant la jointure de jeux de données volumineux ou le traitement d’enregistrements longs peuvent générer une erreur de type **espace du tas insuffisant**. Cette erreur peut être évitée en définissant les paramètres *mapreduce.map.java.opts* et *mapreduce.task.io.sort.mb* sur les valeurs souhaitées. Voici un exemple :
    
         set mapreduce.map.java.opts=-Xmx4096m;
         set mapreduce.task.io.sort.mb=-Xmx1024m;

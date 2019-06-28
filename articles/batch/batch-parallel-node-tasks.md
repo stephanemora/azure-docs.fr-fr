@@ -16,11 +16,11 @@ ms.date: 04/17/2019
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 79b45bd423ed6715cdb7cc7c0e079c150eefede5
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63763702"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64717938"
 ---
 # <a name="run-tasks-concurrently-to-maximize-usage-of-batch-compute-nodes"></a>Exécuter des tâches simultanément pour optimiser l’utilisation des nœuds de calcul Batch 
 
@@ -41,7 +41,7 @@ Au lieu d’utiliser les nœuds Standard\_D1 avec 1 cœur de processeur, vous po
 ## <a name="enable-parallel-task-execution"></a>Activer l’exécution des tâches parallèles
 Vous configurez les nœuds de calcul pour l’exécution des tâches parallèles au niveau du pool. Avec la bibliothèque Batch .NET, définissez la propriété [CloudPool.MaxTasksPerComputeNode][maxtasks_net] lorsque vous créez un pool. Si vous utilisez l’API REST Batch, définissez l’élément [maxTasksPerNode][rest_addpool] dans le corps de la requête lors de la création du pool.
 
-Azure Batch vous permet de définir les tâches par nœud jusqu'à (4 x) le nombre de nœuds de base. Par exemple, si le pool est configuré avec des nœuds de grande taille (quatre cœurs), alors la valeur `maxTasksPerNode` peut être définie sur 16. Toutefois, quel que soit le nombre de cœurs du nœud a, vous ne pouvez avoir plus de 256 tâches par nœud. Pour plus d’informations sur le nombre de cœurs pour chacune des tailles de nœud, consultez [Tailles de services Cloud](../cloud-services/cloud-services-sizes-specs.md). Pour plus d’informations sur les limites du service, consultez [Quotas et les limites pour le service Azure Batch](batch-quota-limit.md).
+Azure Batch vous permet de définir le nombre de tâches par nœud : jusqu'à quatre fois le nombre de nœuds. Par exemple, si le pool est configuré avec des nœuds de grande taille (quatre cœurs), alors la valeur `maxTasksPerNode` peut être définie sur 16. Cependant, quel que soit le nombre de cœurs du nœud, vous ne pouvez pas dépasser les 256 tâches par nœud. Pour plus d’informations sur le nombre de cœurs pour chacune des tailles de nœud, consultez [Tailles de services Cloud](../cloud-services/cloud-services-sizes-specs.md). Pour plus d’informations sur les limites du service, consultez [Quotas et les limites pour le service Azure Batch](batch-quota-limit.md).
 
 > [!TIP]
 > Veillez à prendre en compte la valeur `maxTasksPerNode` lors de la construction d’une [formule de mise à l’échelle automatique][enable_autoscaling] pour votre pool. Par exemple, une formule qui évalue `$RunningTasks` pourrait être considérablement affectée par une augmentation des tâches par nœud. Consultez [Mettre automatiquement à l’échelle les nœuds de calcul dans un pool Azure Batch](batch-automatic-scaling.md) pour plus d’informations.

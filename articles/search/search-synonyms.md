@@ -11,10 +11,10 @@ manager: jlembicz
 ms.author: brjohnst
 ms.custom: seodec2018
 ms.openlocfilehash: 567124f50745080da12178a458957a0f6c8266b5
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65024315"
 ---
 # <a name="synonyms-in-azure-search"></a>Synonymes dans Recherche Azure
@@ -25,9 +25,9 @@ Dans Azure Search, l’expansion des synonymes est effectuée au moment de la re
 
 ## <a name="create-synonyms"></a>Créer des synonymes
 
-Il n’existe aucune prise en charge de portail pour la création de synonymes, mais vous pouvez utiliser l’API REST ou le Kit de développement .NET. Pour vous familiariser avec REST, nous vous recommandons de [à l’aide de Postman](search-fiddler.md) et de formulation des demandes à l’aide de cette API : [Créer des cartes de synonymes](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map). Pour C# les développeurs, vous pouvez commencer avec [ajouter des synonymes dans recherche Azure à l’aide de C# ](search-synonyms-tutorial-sdk.md).
+Le portail ne prend pas en charge la création de synonymes, mais vous pouvez utiliser l’API REST ou le kit SDK .NET. Pour prendre en main REST, nous vous recommandons d'[utiliser Postman](search-fiddler.md) et la formulation de requêtes à l'aide de cette API : [Créer des cartes de synonymes](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map). Pour les développeurs C#, vous pouvez commencer avec [Ajouter des synonymes dans Recherche Azure à l’aide de C#](search-synonyms-tutorial-sdk.md).
 
-Si vous le souhaitez, si vous utilisez [clés gérée par le client](search-security-manage-encryption-keys.md) pour côté service chiffrement au repos, vous pouvez appliquer cette protection pour le contenu de votre carte de synonymes.
+En outre, si vous utilisez des [clés gérée par le client](search-security-manage-encryption-keys.md) pour le chiffrement au repos côté service, vous pouvez appliquer cette protection au contenu de votre carte de synonymes.
 
 ## <a name="use-synonyms"></a>Utiliser des synonymes
 
@@ -76,14 +76,14 @@ Vous pouvez également utiliser une requête PUT en spécifiant le nom de la car
 
 ##### <a name="apache-solr-synonym-format"></a>Format de synonymes Apache Solr
 
-Le format Solr prend en charge les cartes de synonymes équivalentes et explicites. Règles de mappage est conforme à la spécification de filtre de synonyme d’open source d’Apache Solr, décrite dans ce document : [SynonymFilter](https://cwiki.apache.org/confluence/display/solr/Filter+Descriptions#FilterDescriptions-SynonymFilter). Voici un exemple de règle pour des synonymes équivalents.
+Le format Solr prend en charge les cartes de synonymes équivalentes et explicites. Les règles de mappage respectent la spécification de filtre de synonyme open source d’Apache Solr, décrite dans ce document : [SynonymFilter](https://cwiki.apache.org/confluence/display/solr/Filter+Descriptions#FilterDescriptions-SynonymFilter). Voici un exemple de règle pour des synonymes équivalents.
 ```
 USA, United States, United States of America
 ```
 
 Avec la règle ci-dessus, une requête de recherche « USA » s’étendra à « USA » OR « United States » OR « United States of America ».
 
-Un mappage explicite est indiqué par une flèche « => ». Si spécifié, une séquence de termes d’une requête de recherche qui correspond à la partie gauche de « = > » sera remplacée par les alternatives sur le côté droit. Étant donné la règle ci-dessous, les requêtes de recherche « Washington », « Wash. » ou « WA » seront réécrites « WA ». Le mappage explicite s’applique dans le sens spécifié uniquement et ne réécrit pas la requête « WA » en « Washington » dans ce cas.
+Un mappage explicite est indiqué par une flèche « => ». Lorsqu’elle spécifiée, une séquence de termes d’une requête de recherche qui correspond à la partie gauche de « => » est remplacée par les alternatives sur la partie droite. Étant donné la règle ci-dessous, les requêtes de recherche « Washington », « Wash. » ou « WA » seront réécrites « WA ». Le mappage explicite s’applique dans le sens spécifié uniquement et ne réécrit pas la requête « WA » en « Washington » dans ce cas.
 ```
 Washington, Wash., WA => WA
 ```

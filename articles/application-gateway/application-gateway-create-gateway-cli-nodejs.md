@@ -1,5 +1,5 @@
 ---
-title: Créer une passerelle d’Application Azure - classic CLI Azure
+title: Créer une passerelle Azure Application Gateway - Interface de ligne de commande Azure classique
 description: Découvrez comment créer une passerelle Application Gateway à l’aide de l’interface de ligne de commande Azure classique dans Resource Manager
 services: application-gateway
 author: vhorne
@@ -8,19 +8,19 @@ ms.topic: conceptual
 ms.date: 4/15/2019
 ms.author: victorh
 ms.openlocfilehash: 7107f45253c4f13b3378489726bf5034e104fa30
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62095980"
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-cli"></a>Créer une passerelle Application Gateway à l’aide de l’interface de ligne de commande Azure
 
-La passerelle Azure Application Gateway est un équilibreur de charge de couche 7. Elle assure l’exécution des requêtes HTTP de basculement et de routage des performances entre serveurs locaux ou dans le cloud. Passerelle d’application présente les fonctionnalités de livraison d’applications suivantes : Équilibrage de charge HTTP, affinité de session basée sur les cookies et déchargement de Secure Sockets Layer (SSL), sondes d’intégrité personnalisées et prise en charge de plusieurs sites.
+La passerelle Azure Application Gateway est un équilibreur de charge de couche 7. Elle assure l’exécution des requêtes HTTP de basculement et de routage des performances entre serveurs locaux ou dans le cloud. Une passerelle Application Gateway offre les fonctionnalités de livraison d’applications suivantes : équilibrage de charge HTTP, affinité de session basée sur les cookies et déchargement SSL (Secure Sockets Layer), sondes d’intégrité personnalisées et prise en charge de plusieurs sites.
 
 ## <a name="prerequisite-install-the-azure-cli"></a>Configuration requise : Installer l’interface de ligne de commande Microsoft Azure
 
-Pour effectuer les étapes décrites dans cet article, vous devez [installer l’interface CLI](../xplat-cli-install.md) et vous devrez [connectez-vous à Azure](/cli/azure/authenticate-azure-cli). 
+Pour exécuter la procédure indiquée dans cet article, vous devez [installer l’interface de ligne de commande Azure](../xplat-cli-install.md) et [vous connecter dans Azure](/cli/azure/authenticate-azure-cli). 
 
 > [!NOTE]
 > Si vous n’avez pas de compte Azure, vous devez vous en procurer un. Inscrivez-vous à un [essai gratuit ici](../active-directory/fundamentals/sign-up-organization.md).
@@ -44,13 +44,13 @@ La passerelle Application Gateway Azure requiert son propre sous-réseau. Lorsqu
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 
-Ouvrez le **invite de commandes Microsoft Azure**et s’y connecter.
+Ouvrez l’**Invite de commandes Microsoft Azure**et connectez-vous.
 
 ```azurecli-interactive
 az login
 ```
 
-Une fois que vous avez tapé l’exemple précédent, un code est fourni. Accédez à https://aka.ms/devicelogin dans un navigateur pour continuer la connexion sur le processus.
+Une fois que vous avez tapé l’exemple précédent, un code est fourni. Accédez à https://aka.ms/devicelogin dans un navigateur pour poursuivre le processus de connexion.
 
 ![Invite de commande affichant le code de l’appareil][1]
 
@@ -104,7 +104,7 @@ azure network vnet subnet create \
 
 ## <a name="create-the-application-gateway"></a>Créer la passerelle Application Gateway
 
-Une fois le réseau virtuel et le sous-réseau créés, les conditions préalables pour la passerelle Application Gateway sont remplies. En outre un certificat .pfx exporté précédemment et le mot de passe pour le certificat sont requises pour l’étape suivante : Les adresses IP principales sont les adresses IP de votre serveur principal. Ces valeurs peuvent être des adresses IP privées dans le réseau virtuel, des adresses IP publiques ou des noms de domaine complets pour vos serveurs backend.
+Une fois le réseau virtuel et le sous-réseau créés, les conditions préalables pour la passerelle Application Gateway sont remplies. En outre, un certificat .pfx précédemment exporté et le mot de passe du certificat sont requis pour l’étape suivante : Les adresses IP principales sont les adresses IP de votre serveur principal. Ces valeurs peuvent être des adresses IP privées dans le réseau virtuel, des adresses IP publiques ou des noms de domaine complets pour vos serveurs backend.
 
 ```azurecli-interactive
 azure network application-gateway create \

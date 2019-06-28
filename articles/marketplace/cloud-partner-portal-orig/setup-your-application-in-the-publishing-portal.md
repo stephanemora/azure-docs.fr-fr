@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
 ms.openlocfilehash: 6da80bd3b5fe487a44400f4f3c21e8fa49da75d4
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64943551"
 ---
 # <a name="setup-your-application-in-the-publishing-portal"></a>Configurer votre application dans le portail de publication
@@ -47,7 +47,7 @@ Le formulaire Paramètres de l’offre est un formulaire de base. Les différent
 
 Il s’agit d’un identificateur unique pour l’offre au sein d’un profil d’éditeur. Cet ID sera visible dans les URL de produit. Il ne peut comprendre que des caractères alphanumériques en minuscules ou des tirets (-). Il ne peut pas se terminer par un tiret et ne peut pas comprendre plus de 50 caractères. Ce champ est verrouillé une fois l’offre publiée.
 
-par exemple, si un serveur de publication **« contoso »** les serveurs de publication crée une offre par ID d’offre **« exemple WebApp »**, il s’affichera dans AppSource en tant que « https :\//appsource.microsoft.com/marketplace/apps/contoso.sample-WebApp?tab=Overview »
+Par exemple, si l’éditeur **« contoso »** crée une offre dont l’ID est **« sample-WebApp »** , celle-ci se présente dans AppSource comme suit « https:\//appsource.microsoft.com/marketplace/apps/contoso.sample-WebApp?tab=Overview »
 
 ### <a name="publisher-id"></a>ID de l’éditeur
 
@@ -82,7 +82,7 @@ Voici une explication de ces champs :
 
 ### <a name="crm-package-availability"></a>Disponibilité du package CRM
 
-Dans cette section, sélectionnez les régions de CRM dans lesquelles votre package sera disponible. Pour plus d’informations sur le CRM régions qui servent pays/régions, consultez le lien : [https://o365datacentermap.azurewebsites.net/](https://o365datacentermap.azurewebsites.net/)
+Dans cette section, sélectionnez les régions de CRM dans lesquelles votre package sera disponible. Pour plus d’informations sur quelles régions de CRM desservent quels pays/régions, consultez le lien : [https://o365datacentermap.azurewebsites.net/](https://o365datacentermap.azurewebsites.net/)
 
 Remarque : Le déploiement de « Sovereign and US Gov Cloud » en Allemagne REQUIERT UNE AUTORISATION SPÉCIALE ET UNE VALIDATION LORS DE LA CERTIFICATION
 
@@ -100,7 +100,7 @@ Description qui figurera sur la page des détails de votre application. Le maxim
 
 Sélectionnez le secteur d’activité auquel s’adresse essentiellement votre application. Si votre application est apparentée à plusieurs secteurs d’activité, vous pouvez laisser ce champ vide.
 
-### <a name="categories"></a>Categories
+### <a name="categories"></a>Catégories
 
 Sélectionnez les catégories qui se rapportent à votre application. Sélectionnez un maximum de 3.
 

@@ -13,10 +13,10 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/20/2018
 ms.openlocfilehash: 4e2808378834a0270586ce674e1043ca443320c5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60331194"
 ---
 # <a name="troubleshoot-issues-with-sql-data-sync"></a>Résoudre les problèmes liés à SQL Data Sync
@@ -40,7 +40,7 @@ Pour obtenir une vue d’ensemble de SQL Data Sync, consultez [Synchroniser des 
 
 - [Je constate une dégradation significative des performances](#sync-perf)
 
-- [Je vois ce message : « Impossible d’insérer la valeur NULL dans la colonne \<colonne >. Cette colonne n’accepte pas les valeurs NULL. » Que signifie cette erreur et comment puis-je la corriger ?](#sync-nulls)
+- [Je vois ce message : « Impossible d'insérer la valeur NULL dans la colonne \<column>. Cette colonne n’accepte pas les valeurs NULL. » Que signifie cette erreur et comment puis-je la corriger ?](#sync-nulls)
 
 - [Comment Data Sync traite-t-il les références circulaires ? Autrement dit, lorsque les mêmes données sont synchronisées dans plusieurs groupes de synchronisation et changent constamment en conséquence.](#sync-circ)
 
@@ -105,7 +105,7 @@ Les performances se dégradent considérablement, jusqu’à ce que vous ne soye
 
 - **Résolution**. Le meilleur correctif est la prévention. Vérifiez l’absence de références circulaires dans vos groupes de synchronisation. Lorsqu’une ligne est synchronisée par un groupe de synchronisation, elle ne peut pas l’être par un autre groupe de synchronisation.
 
-### <a name="sync-nulls"></a> Je vois ce message : « Impossible d’insérer la valeur NULL dans la colonne \<colonne >. Cette colonne n’accepte pas les valeurs NULL. » Que signifie cette erreur et comment puis-je la corriger ? 
+### <a name="sync-nulls"></a> Je vois ce message : « Impossible d'insérer la valeur NULL dans la colonne \<column>. Cette colonne n’accepte pas les valeurs NULL. » Que signifie cette erreur et comment puis-je la corriger ? 
 Ce message d’erreur indique que l’un des deux problèmes suivants est survenu :
 -  Une table ne possède pas de clé primaire. Pour résoudre ce problème, ajoutez une clé primaire à toutes les tables que vous synchronisez.
 -  Votre instruction CREATE INDEX contient une clause WHERE. Data Sync ne traite pas cette condition. Pour résoudre ce problème, supprimez la clause WHERE ou apportez manuellement les modifications à toutes les bases de données. 
@@ -246,8 +246,8 @@ Pour plus d’informations sur SQL Data Sync, consultez :
 -   Configurer Data Sync
     - Sur le portail - [Tutoriel : Configurer SQL Data Sync pour synchroniser les données entre Azure SQL Database et SQL Server en local](sql-database-get-started-sql-data-sync.md)
     - Avec PowerShell
-        -  [Utilisez PowerShell pour la synchronisation entre plusieurs bases de données SQL Azure](scripts/sql-database-sync-data-between-sql-databases.md)
-        -  [Utiliser PowerShell pour la synchronisation entre une base de données SQL Azure et une base de données locale SQL Server](scripts/sql-database-sync-data-between-azure-onprem.md)
+        -  [Utilisez PowerShell pour la synchronisation entre plusieurs bases de données Azure SQL](scripts/sql-database-sync-data-between-sql-databases.md)
+        -  [Utiliser PowerShell pour la synchronisation entre une base de données Azure SQL et une base de données locale SQL Server](scripts/sql-database-sync-data-between-azure-onprem.md)
 -   Agent de synchronisation des données - [Agent de synchronisation des données pour Azure SQL Data Sync](sql-database-data-sync-agent.md)
 -   Bonnes pratiques - [Bonnes pratiques pour Azure SQL Data Sync](sql-database-best-practices-data-sync.md)
 -   Supervision – [Superviser SQL Data Sync avec les journaux d’activité Azure Monitor](sql-database-sync-monitor-oms.md)

@@ -9,13 +9,13 @@ ms.date: 12/12/2018
 ms.author: jaredro
 ms.custom: seodec18
 ms.openlocfilehash: 89ada41c5f3c9cf1ca7a2ac707363f57080c361d
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64869980"
 ---
-# <a name="configure-expressroute-global-reach-by-using-the-azure-cli"></a>Configurer ExpressRoute de portée mondiale à l’aide de l’interface CLI Azure
+# <a name="configure-expressroute-global-reach-by-using-the-azure-cli"></a>Configurer ExpressRoute Global Reach à l’aide d’Azure CLI
 
 Cet article vous aide à configurer Azure ExpressRoute Global Reach à l’aide d’Azure CLI. Pour plus d’informations, consultez [ExpressRoute Global Reach](expressroute-global-reach.md).
  
@@ -48,13 +48,13 @@ az account set --subscription <your subscription ID>
 
 ### <a name="identify-your-expressroute-circuits-for-configuration"></a>Identifiez les circuits ExpressRoute à configurer
 
-Vous pouvez activer ExpressRoute de portée mondiale entre les deux circuits ExpressRoute, tant qu’ils sont trouvent dans des pays/régions pris en charge et ont été créés à différents emplacements d’homologation. Si votre abonnement comprend les deux circuits, vous pouvez choisir celui de votre choix pour exécuter la configuration comme cela est expliqué dans cet article. Si les deux circuits se trouvent dans des abonnements Azure différents, vous devez avoir l’autorisation d’un abonnement Azure et transférer sa clé d’autorisation quand vous exécutez la commande de configuration dans l’autre abonnement Azure.
+Vous pouvez activer ExpressRoute Global Reach entre deux circuits ExpressRoute, à condition qu’ils se situent dans les pays/régions pris en charge et qu’ils aient été créés dans des emplacements de peering différents. Si votre abonnement comprend les deux circuits, vous pouvez choisir celui de votre choix pour exécuter la configuration comme cela est expliqué dans cet article. Si les deux circuits se trouvent dans des abonnements Azure différents, vous devez avoir l’autorisation d’un abonnement Azure et transférer sa clé d’autorisation quand vous exécutez la commande de configuration dans l’autre abonnement Azure.
 
 ## <a name="enable-connectivity-between-your-on-premises-networks"></a>Autoriser la connexion entre vos réseaux locaux
 
 Quand vous exécutez la commande pour activer la connectivité, tenez compte des exigences suivantes relatives aux valeurs de paramètre :
 
-* *peer-circuit* doit correspondre à l'ID de ressource complet. Par exemple : 
+* *peer-circuit* doit correspondre à l'ID de ressource complet. Par exemple :
 
   > /subscriptions/{your_subscription_id}/resourceGroups/{your_resource_group}/providers/Microsoft.Network/expressRouteCircuits/{your_circuit_name}
 

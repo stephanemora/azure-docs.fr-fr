@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2200a9c75b371ed72ffefe6900367e698101e0fe
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60437094"
 ---
 # <a name="i-cant-find-all-the-data-in-the-azure-active-directory-activity-logs-i-downloaded"></a>Je ne parviens pas à trouver toutes les donnée dans les journaux d’activité Azure Active Directory que j’ai téléchargés
@@ -34,7 +34,7 @@ J’ai téléchargé les journaux d’activité (d’audit ou de connexion) et t
  
 ## <a name="cause"></a>Cause :
 
-Lorsque vous téléchargez des journaux d’activité dans le portail Azure, nous limitons l’échelle à 250 000 enregistrements, triés par le plus récent en premier. 
+Lorsque vous téléchargez des journaux d'activité sur le portail Azure, nous limitons l'échelle à 250 000 enregistrements, classés dans l'ordre du plus récent au moins récent. 
 
 ## <a name="resolution"></a>Résolution :
 

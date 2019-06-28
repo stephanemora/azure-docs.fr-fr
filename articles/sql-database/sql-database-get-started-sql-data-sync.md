@@ -13,10 +13,10 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/14/2019
 ms.openlocfilehash: 82b85ffd685df52e702db15e5a5b57a53a3b4f64
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60342173"
 ---
 # <a name="tutorial-set-up-sql-data-sync-between-azure-sql-database-and-sql-server-on-premises"></a>Didacticiel : configurer SQL Data Sync entre Azure SQL Database et SQL Server en local
@@ -82,7 +82,7 @@ Dans la section **Base de données membre**, ajoutez éventuellement une base de
   | **Nom du membre de synchronisation** | Entrez le nom du nouveau membre de synchronisation. Ce nom est différent de celui de la base de données. |
   | **Abonnement** | Sélectionnez l’abonnement Azure associé en vue de la facturation. |
   | **Azure SQL Server** | Sélectionnez le serveur SQL Database existant. |
-  | **Base de données SQL Azure** | Sélectionnez la base de données SQL existante. |
+  | **Azure SQL Database** | Sélectionnez la base de données SQL existante. |
   | **Sens de la synchronisation** | Sélectionnez **Synchronisation bidirectionnelle**, **Vers le hub** ou **À partir du hub**. |
   | **Nom d’utilisateur** et **Mot de passe** | Entrez les informations d’identification existantes du serveur SQL Database qui héberge la base de données membre. N’entrez pas de *nouvelles* informations d’identification dans cette section. |
 
@@ -118,9 +118,9 @@ Dans la section **Base de données membre**, ajoutez éventuellement un serveur 
 
    ![Application de l’agent de synchronisation du client](media/sql-database-get-started-sql-data-sync/datasync-preview-clientagent.png)
 
-    1. Dans l’application de l’agent de synchronisation, sélectionnez **Submit Agent Key (Envoyer la clé de l’agent)**. La boîte de dialogue **Sync Metadata Database Configuration (Configuration de la base des métadonnées de synchronisation)** s’ouvre.
+    1. Dans l’application de l’agent de synchronisation, sélectionnez **Submit Agent Key (Envoyer la clé de l’agent)** . La boîte de dialogue **Sync Metadata Database Configuration (Configuration de la base des métadonnées de synchronisation)** s’ouvre.
 
-    1. Dans la boîte de dialogue **Sync Metadata Database Configuration (Configuration de la base des métadonnées de synchronisation)**, collez la clé de l’agent copiée à partir du portail Azure. Indiquez également les informations d’identification du serveur Azure SQL Database qui héberge la base de données des métadonnées. (Si vous avez créé une base de données de métadonnées, celle-ci réside sur le même serveur que la base de données Hub.) Sélectionnez **OK** et attendez la fin de la configuration.
+    1. Dans la boîte de dialogue **Sync Metadata Database Configuration (Configuration de la base des métadonnées de synchronisation)** , collez la clé de l’agent copiée à partir du portail Azure. Indiquez également les informations d’identification du serveur Azure SQL Database qui héberge la base de données des métadonnées. (Si vous avez créé une base de données de métadonnées, celle-ci réside sur le même serveur que la base de données Hub.) Sélectionnez **OK** et attendez la fin de la configuration.
 
         ![Entrer la clé de l’agent et les informations d’identification du serveur](media/sql-database-get-started-sql-data-sync/datasync-preview-agent-enterkey.png)
 
@@ -232,7 +232,7 @@ Pour plus d’informations sur SQL Data Sync, consultez :
 
 - [Data Sync Agent pour Azure SQL Data Sync](sql-database-data-sync-agent.md)
 - [Bonnes pratiques](sql-database-best-practices-data-sync.md) et [Comment résoudre les problèmes liés à Azure SQL Data Sync](sql-database-troubleshoot-data-sync.md)
-- [Surveiller SQL Data Sync avec les journaux Azure Monitor](sql-database-sync-monitor-oms.md)
+- [Superviser SQL Data Sync avec des journaux Azure Monitor](sql-database-sync-monitor-oms.md)
 - [Mettre à jour le schéma de synchronisation avec Transact-SQL](sql-database-update-sync-schema.md) ou [PowerShell](scripts/sql-database-sync-update-schema.md)
 
 Pour plus d’informations sur SQL Database, consultez :

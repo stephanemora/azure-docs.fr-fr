@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
 ms.openlocfilehash: bf5721e206316a4ce576253743e9ac65de47094a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60591749"
 ---
 # <a name="configure-multiple-vips-for-a-cloud-service"></a>Configuration de plusieurs adresses IP virtuelles pour un service cloud
@@ -172,7 +172,7 @@ Set-AzureLoadBalancedEndpoint -ServiceName myService -LBSetName myLBSet -Virtual
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Journaux d’analyse Azure pour équilibrer la charge Azure](load-balancer-monitor-log.md)
+[Journaux d'activité Azure Monitor pour Azure Load Balancer](load-balancer-monitor-log.md)
 
 [Présentation de l’équilibrage de charge accessible sur Internet](load-balancer-internet-overview.md)
 

@@ -10,17 +10,17 @@ ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 83ca0c11ab0065929d939b7345cbd15869740bb3
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65024354"
 ---
-# <a name="data-import-overview---azure-search"></a>Importation de données, vue d’ensemble - recherche Azure
+# <a name="data-import-overview---azure-search"></a>Vue d’ensemble de l’importation des données - Recherche Azure
 
 Dans Recherche Azure, les requêtes s’exécutent sur le contenu chargé et enregistré dans un [index de recherche](search-what-is-an-index.md). Cet article examine les deux méthodes de base pour remplir un index : *envoyer* les données dans l’index par programme ou pointer un [indexeur Recherche Azure](search-indexer-overview.md) à une source de données prise en charge pour *extraire* les données.
 
-Avec les deux approches, l’objectif est de *charger des données* à partir de la source de données externe dans un index de recherche Azure. Recherche Azure vous permet de créer un index vide, mais jusqu'à ce que vous transmettre ou extrayez des données, il n’est pas utilisable dans une requête.
+Ces deux approches ont pour objectif de *charger des données* entre une source de données externe et un index Recherche Azure. Recherche Azure vous permet de créer un index vide, mais ce dernier ne pourra être interrogé qu'après envoi (push) ou extraction de données.
 
 ## <a name="pushing-data-to-an-index"></a>Envoyer des données à un index
 Le modèle d’émission, utilisé pour envoyer vos données Recherche Azure par programme, est l’approche la plus flexible. Tout d’abord, il n’y a pas de restrictions sur le type de source de données. Tout jeu de données composé de documents JSON peut être appliqué à un index Recherche Azure, en supposant que chaque document dans le jeu de données possède des champs mappant des champs définis dans votre schéma d’index. En second lieu, il n’y a aucune restriction sur la fréquence d’exécution. Vous pouvez transmettre des modifications à un index aussi souvent que vous le souhaitez. Pour les applications ayant des exigences à très faible latence (par exemple, si vous devez synchroniser les opérations de recherche avec les bases de données d’inventaire dynamiques), le modèle d’émission est la seule option.
@@ -36,28 +36,28 @@ Vous pouvez utiliser les API suivantes pour charger un ou plusieurs documents da
 
 Il n’existe actuellement aucune prise en charge de l’outil de diffusion de données via le portail.
 
-Pour une introduction à chaque méthode, consultez [Guide de démarrage rapide : Créer un index Azure Search à l’aide de PowerShell et l’API REST](search-create-index-rest-api.md) ou [Guide de démarrage rapide : Créer un index Azure Search dans C# ](search-import-data-dotnet.md).
+Pour une présentation de chaque méthode, consultez [Guide de démarrage rapide : Créer un index Recherche Azure à l’aide de PowerShell et l’API REST](search-create-index-rest-api.md) ou [Guide de démarrage rapide : Créer un index Recherche Azure en C#](search-import-data-dotnet.md).
 
 <a name="indexing-actions"></a>
 
-### <a name="indexing-actions-upload-merge-mergeorupload-delete"></a>Indexing actions: upload, merge, mergeOrUpload, delete
+### <a name="indexing-actions-upload-merge-mergeorupload-delete"></a>Actions d’indexation : upload, merge, mergeOrUpload, supprimer
 
-Vous pouvez contrôler le type d’action d’indexation sur une base par document, en spécifiant si le document doit être chargé dans complètes, fusionné avec le contenu de document existant ou supprimé.
+Vous pouvez contrôler le type d’action d’indexation par document, en spécifiant si le document doit être chargé en intégralité, fusionné avec du contenu de document existant ou supprimé.
 
-Dans l’API REST, émettre des demandes de requête HTTP POST avec des corps de demande JSON à l’URL de point de terminaison de votre index Azure Search. Chaque objet JSON dans le tableau « value » contient les clés du document et spécifie une action d’indexation ajoute des mises à jour, ou supprime le contenu du document. Pour obtenir un exemple de code, consultez [charger des documents](search-create-index-rest-api.md#load-documents).
+Dans l’API REST, émettez des requêtes HTTP POST avec un corps de requête JSON à l’URL de point de terminaison de votre index Recherche Azure. Chaque objet JSON du tableau « valeur » contient les clés du document et spécifie une action d’indexation pour ajouter, mettre à jour ou supprimer du contenu. Pour un exemple de code, consultez [Charger des documents](search-create-index-rest-api.md#load-documents).
 
-Dans le SDK .NET, empaqueter vos données dans un `IndexBatch` objet. Un `IndexBatch` encapsule une collection de `IndexAction` objets, chacun d'entre eux contenant un document et une propriété qui indique à Azure Search les actions à effectuer sur ce document. Pour obtenir un exemple de code, consultez [IndexBatch construire](search-import-data-dotnet.md#construct-indexbatch).
+Dans le kit de développement logiciel (SDK) .NET, empaquetez vos données dans un objet `IndexBatch`. Un `IndexBatch` encapsule une collection d’objets `IndexAction`, chacun d’entre eux contenant un document et une propriété qui indique à Recherche Azure les actions à effectuer sur ce document. Pour un exemple de code, consultez [Construire IndexBatch](search-import-data-dotnet.md#construct-indexbatch).
 
 
 | @search.action | Description | Champs requis pour chaque document | Notes |
 | -------------- | ----------- | ---------------------------------- | ----- |
 | `upload` |Une action `upload` est similaire à celle d’un « upsert », où le document est inséré s’il est nouveau et mis à jour/remplacé s’il existe déjà. |une clé, ainsi que tout autre champ que vous souhaitez définir |Lors de la mise à jour ou du remplacement d’un document existant, un champ qui n’est pas spécifié dans la requête sera défini sur la valeur `null`, y compris lorsque le champ a été précédemment défini sur une valeur non null. |
-| `merge` |Met à jour un document existant avec les champs spécifiés. Si le document n’existe pas dans l’index, la fusion échoue. |une clé, ainsi que tout autre champ que vous souhaitez définir |N'importe quel champ que vous spécifiez dans une fusion remplace le champ existant dans le document. Dans le SDK .NET, cela inclut les champs de type `DataType.Collection(DataType.String)`. Dans l’API REST, cela inclut les champs de type `Collection(Edm.String)`. Par exemple, si le document contient un champ `tags` avec la valeur `["budget"]` et que vous exécutez une fusion avec la valeur `["economy", "pool"]` pour le champ `tags`, la valeur finale du champ `tags` sera `["economy", "pool"]`, et non `["budget", "economy", "pool"]`. |
+| `merge` |Met à jour un document existant avec les champs spécifiés. Si le document n’existe pas dans l’index, la fusion échoue. |une clé, ainsi que tout autre champ que vous souhaitez définir |N'importe quel champ que vous spécifiez dans une fusion remplace le champ existant dans le document. Dans le kit de développement logiciel (SDK), cela inclut les champs de type `DataType.Collection(DataType.String)`. Dans l'API REST, cela inclut les champs de type `Collection(Edm.String)`. Par exemple, si le document contient un champ `tags` avec la valeur `["budget"]` et que vous exécutez une fusion avec la valeur `["economy", "pool"]` pour le champ `tags`, la valeur finale du champ `tags` sera `["economy", "pool"]`, et non `["budget", "economy", "pool"]`. |
 | `mergeOrUpload` |Cette action est similaire à celle d’une action `merge` s’il existe déjà dans l’index un document comportant la clé spécifiée. Dans le cas contraire, elle exécutera une action `upload` avec un nouveau document. |une clé, ainsi que tout autre champ que vous souhaitez définir |- |
 | `delete` |Cette action supprime de l’index le document spécifié. |clé uniquement |Tous les champs que vous spécifiez en dehors du champ de clé sont ignorés. Si vous souhaitez supprimer un champ individuel dans un document, utilisez plutôt `merge` et définissez simplement le champ de manière explicite sur la valeur null. |
 
 ## <a name="decide-which-indexing-action-to-use"></a>Déterminer l’action d’indexation à utiliser
-Pour importer des données à l’aide du Kit de développement logiciel .NET, (téléchargement, fusion, delete et mergeOrUpload). Selon le type d’action que vous allez choisir, seuls certains champs doivent être inclus dans chaque document :
+Pour importer des données à l’aide du kit de développement logiciel (SDK) .NET, (upload, merge, delete et mergeOrUpload). Selon le type d’action que vous allez choisir, seuls certains champs doivent être inclus dans chaque document :
 
 
 ### <a name="formulate-your-query"></a>Formuler votre requête
@@ -76,7 +76,7 @@ Le modèle d’extraction analyse une source de données prise en charge et char
 + [Stockage Blob](search-howto-indexing-azure-blob-storage.md)
 + [Stockage Table](search-howto-indexing-azure-tables.md)
 + [Azure Cosmos DB](https://aka.ms/documentdb-search-indexer)
-+ [Base de données SQL Azure et SQL Server sur les machines virtuelles Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
++ [Base de données Azure SQL et SQL Server sur les machines virtuelles Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 
 Les indexeurs connectent un index à une source de données (généralement une table, une vue ou une structure équivalente) et mappent les champs source aux champs équivalents de l’index. Pendant l’exécution, l’ensemble de lignes est automatiquement transformé en JSON et chargé dans l’index spécifié. Tous les indexeurs prennent en charge la planification de sorte que vous puissiez spécifier la fréquence à laquelle les données sont à actualiser. La plupart des indexeurs fournissent le suivi des modifications si la source de données le prend en charge. En suivant les modifications et les suppressions effectuées dans les documents existants, et en reconnaissant les nouveaux documents, les indexeurs suppriment la nécessité de gérer activement les données de votre index. 
 

@@ -1,6 +1,6 @@
 ---
 title: Vue d’ensemble de la communauté Azure Media Services | Microsoft Docs
-description: Cette page de la Communauté Azure Media Services décrit différentes façons, vous pouvez poser des questions, commentaires et obtenir des mises à jour sur Media Services.
+description: Cette page de la communauté Azure Media Services présente différentes façons de poser des questions, de formuler des commentaires et d’obtenir des mises à jour sur Media Services.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -14,15 +14,15 @@ ms.topic: article
 ms.date: 04/19/2019
 ms.author: juliako
 ms.openlocfilehash: 6a3c02c1f14c37317a03cb6ebe63bcddc92f3253
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64710162"
 ---
 # <a name="azure-media-services-community"></a>Communauté Azure Media Services  
 
-Cette page de la Communauté Azure Media Services décrit différentes façons, vous pouvez poser des questions, commentaires et obtenir des mises à jour sur Media Services.
+Cette page de la communauté Azure Media Services présente différentes façons de poser des questions, de formuler des commentaires et d’obtenir des mises à jour sur Media Services.
 
 ## <a name="provide-feedback-and-make-suggestions"></a>Faire des commentaires et des suggestions
 
@@ -32,7 +32,7 @@ Cette page de la Communauté Azure Media Services décrit différentes façons, 
 
 ### <a name="twitter"></a>Twitter
 
-Vous pouvez utiliser la [ @MSFTAzureMedia ](https://twitter.com/MSFTAzureMedia) pseudo twitter à nous contacter ou suivre les mises à jour sur Twitter. Utilisez le [ @AzureSupport ](https://twitter.com/azuresupport) pseudo twitter pour demander la prise en charge sur Twitter.  
+Vous pouvez utiliser le pseudo Twitter [@MSFTAzureMedia](https://twitter.com/MSFTAzureMedia) pour nous contacter ou suivre les mises à jour sur Twitter. Utilisez le pseudo Twitter [@AzureSupport](https://twitter.com/azuresupport) pour demander de l’aide sur Twitter.  
 
 ### <a name="online-forums"></a>Forums en ligne
 
@@ -48,7 +48,7 @@ L’équipe analyse également les questions étiquetées « azure media service
 
 ## <a name="contact-the-team"></a>Contactez l’équipe
 
-Azure Media Services est prise en charge principal e-mail : **amshelp\@microsoft.com**.
+L’adresse e-mail de support principale d’Azure Media Services est la suivante : **amshelp\@microsoft.com**.
 
 Le tableau suivant répertorie les adresses de messagerie des sous-équipes chargées des fonctionnalités :
 
@@ -61,4 +61,4 @@ Le tableau suivant répertorie les adresses de messagerie des sous-équipes char
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Vue d’ensemble de Azure Media Services](media-services-overview.md)
+[Vue d’ensemble d’Azure Media Services](media-services-overview.md)

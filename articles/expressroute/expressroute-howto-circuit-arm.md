@@ -9,10 +9,10 @@ ms.date: 02/20/2019
 ms.author: ganesr;cherylmc
 ms.custom: seodec18
 ms.openlocfilehash: 7594261fc8af4e7b392e2f229b28cfee36a52115
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60366315"
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-powershell"></a>Créer et modifier un circuit ExpressRoute à l’aide de PowerShell
@@ -44,7 +44,7 @@ Avant de commencer la configuration, examinez les [conditions préalables](expre
 ### <a name="2-get-the-list-of-supported-providers-locations-and-bandwidths"></a>2. Récupérer la liste des fournisseurs, des emplacements et des bandes passantes pris en charge
 Avant de créer un circuit ExpressRoute, vous avez besoin d’une liste des fournisseurs de services, des emplacements et des options de bande passante pris en charge.
 
-L’applet de commande PowerShell **Get-AzExpressRouteServiceProvider** retourne cette information, vous allez utiliser dans les étapes ultérieures :
+L’applet de commande PowerShell **Get-AzExpressRouteServiceProvider** retourne ces informations que vous utilisez dans les étapes ultérieures :
 
 ```azurepowershell-interactive
 Get-AzExpressRouteServiceProvider
@@ -89,7 +89,7 @@ get-help New-AzExpressRouteCircuit -detailed
 
 
 ### <a name="4-list-all-expressroute-circuits"></a>4. Répertorier tous les circuits ExpressRoute
-Pour obtenir une liste de tous les circuits ExpressRoute que vous avez créé, exécutez le **Get-AzExpressRouteCircuit** commande :
+Pour obtenir la liste de tous les circuits ExpressRoute que vous avez créés, exécutez la commande **Get-AzExpressRouteCircuit** :
 
 ```azurepowershell-interactive
 Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
@@ -215,7 +215,7 @@ Pour obtenir des instructions pas à pas, consultez l’article [Configuration d
 Maintenant, vous devez lier un réseau virtuel à votre circuit ExpressRoute. Utilisez l’article [Liaison de réseaux virtuels à des circuits ExpressRoute](expressroute-howto-linkvnet-arm.md) quand vous travaillez avec le modèle de déploiement Resource Manager.
 
 ## <a name="getting-the-status-of-an-expressroute-circuit"></a>Récupération de l’état d’un circuit ExpressRoute
-Vous pouvez récupérer ces informations à tout moment à l’aide de la **Get-AzExpressRouteCircuit** applet de commande. Un appel effectué sans paramètre répertorie tous les circuits.
+Vous pouvez récupérer ces informations à tout moment à l’aide de l’applet de commande **Get-AzExpressRouteCircuit**. Un appel effectué sans paramètre répertorie tous les circuits.
 
 ```azurepowershell-interactive
 Get-AzExpressRouteCircuit

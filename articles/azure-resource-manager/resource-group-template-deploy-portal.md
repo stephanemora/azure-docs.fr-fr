@@ -12,15 +12,15 @@ ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: tomfitz
 ms.openlocfilehash: 7b28129a3afe9f78d0ef749fa0c7759082c5f758
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60520586"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-portal"></a>Déployer des ressources à l’aide de modèles Resource Manager et du Portail Azure
 
-Cet article montre comment utiliser le [Portail Azure](https://portal.azure.com) avec [Azure Resource Manager](resource-group-overview.md) pour déployer vos ressources Azure. Pour en savoir plus sur la gestion de vos ressources, consultez [gérer les ressources Azure à l’aide du portail Azure](manage-resources-portal.md).
+Cet article montre comment utiliser le [Portail Azure](https://portal.azure.com) avec [Azure Resource Manager](resource-group-overview.md) pour déployer vos ressources Azure. Pour en savoir plus sur la gestion de vos ressources, consultez [Gérer des ressources avec le portail Azure](manage-resources-portal.md).
 
 ## <a name="create-resource-group"></a>Créer un groupe de ressources
 
@@ -137,5 +137,5 @@ Le portail vous permet d’enregistrer un modèle dans votre compte Azure et de 
 
 - Pour visualiser les journaux d’audit, voir [Opérations d’audit avec Resource Manager](./resource-group-audit.md).
 - Pour résoudre les erreurs de déploiement, consultez [Voir les opérations de déploiement](./resource-manager-deployment-operations.md).
-- Pour exporter un modèle à partir d’un déploiement ou d’un groupe de ressources, consultez [modèles exporter de Azure Resource Manager](./manage-resource-groups-portal.md#export-resource-groups-to-templates).
+- Pour exporter un modèle à partir d’un déploiement ou d’un groupe de ressources, consultez [Exporter des modèles Azure Resource Manager](./manage-resource-groups-portal.md#export-resource-groups-to-templates).
 - Pour déployer votre service sur plusieurs régions de façon sécurisée, consultez [Azure Deployment Manager](./deployment-manager-overview.md).

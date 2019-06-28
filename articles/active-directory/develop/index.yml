@@ -1,6 +1,13 @@
 ### YamlMime:Landing
 title: Plateforme d’identités Microsoft (anciennement Azure Active Directory pour développeurs)
 summary: "La plateforme d’identités Microsoft est une évolution de la plateforme de développement Azure Active Directory (Azure AD). Elle permet aux développeurs de générer des applications qui connectent toutes les identités Microsoft et obtiennent des jetons pour appeler des API Microsoft comme Microsoft Graph ou des API que des développeurs ont créées. C’est une plateforme complète qui se compose des éléments suivants\_: OAuth\_2.0 et service d’authentification conforme aux normes OpenID Connect, bibliothèques open source, inscription et configuration d’applications, solide documentation conceptuelle de référence, exemples de démarrage rapide, exemples de code, tutoriels et guides pratiques."
+metadata:
+  ms.topic: landing-page
+  ms.date: 06/22/2019
+  author: CelesteDG
+  ms.service: active-directory
+  ms.subservice: develop
+  ms.workload: identity
 landingContent:
   - title: À propos de la plateforme d’identités Microsoft
     linkLists:

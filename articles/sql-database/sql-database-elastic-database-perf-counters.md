@@ -1,5 +1,5 @@
 ---
-title: Créer des compteurs de performances pour suivre les performances du Gestionnaire des cartes de partitions
+title: Créer des compteurs de performances pour suivre les performances du gestionnaire de cartes de partitions
 description: Classe ShardMapManager et compteurs de performances pour le routage dépendant des données
 services: sql-database
 ms.service: sql-database
@@ -13,22 +13,22 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 02/07/2019
 ms.openlocfilehash: 5c6c923c86ea0c5968079188c87ec3988ec30142
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61475692"
 ---
-# <a name="create-performance-counters-to-track-performance-of-shard-map-manager"></a>Créer des compteurs de performances pour suivre les performances du Gestionnaire des cartes de partitions
+# <a name="create-performance-counters-to-track-performance-of-shard-map-manager"></a>Créer des compteurs de performances pour suivre les performances du gestionnaire de cartes de partitions
 
-Compteurs de performances sont utilisés pour suivre les performances de [routage dépendant des données](sql-database-elastic-scale-data-dependent-routing.md) operations. Ces compteurs sont accessibles dans l’Analyseur de performances, sous la catégorie « Base de données élastique : Gestion des partitions ».
+Les compteurs de performances sont utilisés pour suivre les performances des opérations de [routage dépendant des données](sql-database-elastic-scale-data-dependent-routing.md). Ces compteurs sont accessibles dans l’Analyseur de performances, sous la catégorie « Base de données élastique : Gestion des partitions ».
 
 Vous pouvez recueillir les performances d’un [gestionnaire de cartes de partitions](sql-database-elastic-scale-shard-map-management.md), en particulier lorsque vous utilisez un [routage dépendant des données](sql-database-elastic-scale-data-dependent-routing.md). Les compteurs sont créés à l’aide des méthodes de la classe Microsoft.Azure.SqlDatabase.ElasticScale.Client.  
 
 
 **Pour vous procurer la version la plus récente :** accédez à [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/). Vous pouvez également consulter l’article [Mettre à niveau une application pour utiliser la dernière version de la bibliothèque cliente de bases de données élastiques](sql-database-elastic-scale-upgrade-client-library.md).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 * Pour créer la catégorie et les compteurs de performances, l’utilisateur doit être membre du groupe **Administrateurs** local groupe sur l’ordinateur qui héberge l’application.  
 * Pour créer une instance de compteur de performances et mettre à jour les compteurs, l’utilisateur doit être membre du groupe **Administrateurs** ou du groupe **Utilisateurs de l’Analyseur de performances**.
@@ -66,7 +66,7 @@ Les compteurs de performance seront mis à jour par toutes les opérations du ca
 * Il est recommandé de créer la catégorie et les compteurs de performances une fois seulement avant la création de l’objet ShardMapManager. Chaque exécution de la commande CreatePerformanceCategoryAndCounters() efface les compteurs précédents (perte de données signalée par toutes les instances) et en crée de nouveaux.  
 * Des instances de compteurs de performances sont créées pour chaque processus. Toute panne de l’application ou suppression d’une carte de partitions dans le cache entraîne la suppression des instances de compteurs de performances.  
 
-### <a name="see-also"></a>Vous pouvez également consulter l’article 
+### <a name="see-also"></a>Vous pouvez également consulter l’article
 
 [Vue d’ensemble des fonctionnalités de base de données élastique](sql-database-elastic-scale-introduction.md)  
 

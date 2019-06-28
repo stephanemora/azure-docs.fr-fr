@@ -11,15 +11,15 @@ ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 225ac86efba8a32b085a5fb7fc41bed48c499eab
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65022181"
 ---
 # <a name="documentation-resources-for-cognitive-search-workloads"></a>Ressources de documentation sur les charges de travail de recherche cognitive
 
-Recherche COGNITIVE, désormais en disponibilité générale, est une nouvelle couche enrichissement dans Azure Search d’indexation qui recherche des informations latentes de non-texte sources et du texte indifférencié, transformant en contenu de recherche de texte intégral dans recherche Azure.
+La recherche cognitive, désormais généralement disponible, représente une nouvelle couche d'enrichissement pour l'indexation de la Recherche Azure qui trouve des informations latentes dans des sources non textuelles et du texte indifférencié, et les transforme en contenu avec possibilité de recherche en texte intégral dans la Recherche Azure.
 
 Les articles suivants constituent la documentation complète de la recherche cognitive.
 
@@ -38,7 +38,7 @@ Les articles suivants constituent la documentation complète de la recherche cog
 + [Guide pratique pour définir une interface de compétences personnalisées](cognitive-search-custom-skill-interface.md)
 + [Conseils de dépannage](cognitive-search-concept-troubleshooting.md)
 
-## <a name="reference"></a>Référence
+## <a name="reference"></a>Informations de référence
 
 + [Compétences prédéfinies](cognitive-search-predefined-skills.md)
   + [Microsoft.Skills.Text.KeyPhraseSkill](cognitive-search-skill-keyphrases.md)
@@ -52,8 +52,8 @@ Les articles suivants constituent la documentation complète de la recherche cog
   + [Microsoft.Skills.Util.ShaperSkill](cognitive-search-skill-shaper.md)
 
 + [API REST](https://docs.microsoft.com/rest/api/searchservice/)
-  + [Créer des compétences (api-version = 2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
-  + [Création d’indexeur (api-version = 2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
+  + [Créer un ensemble de compétences (api-version=2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
+  + [Créer un indexeur (api-version=2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
 
 ## <a name="see-also"></a>Voir aussi
 

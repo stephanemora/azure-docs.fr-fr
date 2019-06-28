@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 9/7/2018
 ms.author: saurse
 ms.openlocfilehash: d58b51f06c21c787e4aa720c803ab6533544d55c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60238621"
 ---
 # <a name="restore-files-to-windows-by-using-the-azure-resource-manager-deployment-model"></a>Restaurer les fichiers dans Windows à l’aide du modèle de déploiement Resource Manager
@@ -44,18 +44,18 @@ Si vous avez supprimé accidentellement un fichier et que vous voulez le restaur
 
     ![Capture de Sauvegarde, avec « Récupérer des données » mis en surbrillance](./media/backup-azure-restore-windows-server/recover.png)
 
-3. Dans la page **Prise en main**, pour restaurer les données sur le même serveur ou ordinateur, sélectionnez **Ce serveur (`<server name>`)** > **Suivant**.
+3. Dans la page **Prise en main**, pour restaurer les données sur le même serveur ou ordinateur, sélectionnez **Ce serveur (`<server name>`)**  > **Suivant**.
 
     ![Capture d’écran de la page Mise en route de l’Assistant Récupérer des données](./media/backup-azure-restore-windows-server/samemachine_gettingstarted_instantrestore.png)
 
-4. Sur le **sélectionner le Mode de récupération** page, choisissez **fichiers et dossiers individuels** > **suivant**.
+4. Dans la page **Sélectionnez le mode de récupération**, choisissez **Fichiers et dossiers individuels** > **Suivant**.
 
     ![Capture d’écran de la page Mode de récupération de l’Assistant Récupérer des données](./media/backup-azure-restore-windows-server/samemachine_selectrecoverymode_instantrestore.png)
    > [!IMPORTANT]
    > L’option de restauration de fichiers et dossiers individuels requiert .NET Framework version 4.5.2 ou ultérieure. Si vous ne voyez pas l’option **Individual Files and Folders** (Fichiers et dossiers individuels), vous devez mettre à niveau .NET Framework vers la version 4.5.2 ou une version ultérieure, puis réessayer.
 
    > [!TIP]
-   > L’option **Individual Files and Folders** (Fichiers et dossiers individuels) autorise un accès rapide aux données de point de récupération. Elle convient pour la récupération de fichiers individuels, avec des tailles ne totalisant pas plus de 80 Go, et offre des vitesses de transfert ou de copie pouvant atteindre 6 Mo/s lors de la récupération. L’option **Volume** récupère toutes les données sauvegardées dans un volume spécifié. Cette option offre des vitesses de transfert supérieures (jusqu’à 60 Mo/s), ce qui est idéal pour la récupération de données de grande taille ou de volumes entiers.
+   > L’option **Individual Files and Folders** (Fichiers et dossiers individuels) autorise un accès rapide aux données de point de récupération. Elle convient pour la récupération de fichiers individuels, avec des tailles ne totalisant pas plus de 80 Go, et offre des vitesses de transfert ou de copie pouvant atteindre 6 Mbits/s lors de la récupération. L’option **Volume** récupère toutes les données sauvegardées dans un volume spécifié. Cette option offre des vitesses de transfert supérieures (jusqu’à 60 Mbits/s), ce qui est idéal pour la récupération de données de grande taille ou de volumes entiers.
 
 5. Dans la page **Sélectionner le volume et la date**, sélectionnez le volume qui contient les fichiers et dossiers à restaurer.
 

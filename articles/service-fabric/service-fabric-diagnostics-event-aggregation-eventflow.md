@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 2/25/2019
 ms.author: srrengar
 ms.openlocfilehash: bdc6c9476529b986f425d56544fd4b1afd8a864e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60393218"
 ---
 # <a name="event-aggregation-and-collection-using-eventflow"></a>Agrégation et collection d’événements avec EventFlow
@@ -34,7 +34,7 @@ Les fichiers binaires EventFlow sont disponibles sous la forme d’un ensemble d
 Une liste de différents packages s’affiche, étiquetés avec « Entrées » et « Sorties ». EventFlow prend en charge différents fournisseurs de journalisation et analyseurs. Le service qui héberge EventFlow doit inclure les packages appropriés en fonction de la source et de la destination des journaux d’activité d’application. Outre le package ServiceFabric principal, au moins un package Entrée et un package Sortie doivent également être configurés. Par exemple, vous pouvez ajouter les packages suivants pour envoyer des événements EventSource à Application Insights :
 
 * `Microsoft.Diagnostics.EventFlow.Inputs.EventSource` (pour capturer les données à partir de la classe EventSource du service et d’EventSources standard tels que *Microsoft-ServiceFabric-Services* et *Microsoft-ServiceFabric-Actors*)
-* `Microsoft.Diagnostics.EventFlow.Outputs.ApplicationInsights` (nous allons envoyer les journaux à une ressource Azure Application Insights)
+* `Microsoft.Diagnostics.EventFlow.Outputs.ApplicationInsights` (nous allons envoyer les journaux d’activité à une ressource Azure Application Insights)
 * `Microsoft.Diagnostics.EventFlow.ServiceFabric` (permet d’initialiser le pipeline EventFlow à partir de la configuration du service Service Fabric et signale tout problème lié à l’envoi des données de diagnostic sous forme de rapports d’intégrité Service Fabric)
 
 >[!NOTE]
@@ -157,5 +157,5 @@ Démarrez votre service et observez la fenêtre de sortie Débogage de Visual St
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Analyse et visualisation d’événements avec Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
-* [Analyse des événements et visualisation avec les journaux d’Azure Monitor](service-fabric-diagnostics-event-analysis-oms.md)
+* [Analyse et visualisation d’événements avec les journaux d’activité Azure Monitor](service-fabric-diagnostics-event-analysis-oms.md)
 * [Documentation relative à EventFlow](https://github.com/Azure/diagnostics-eventflow)

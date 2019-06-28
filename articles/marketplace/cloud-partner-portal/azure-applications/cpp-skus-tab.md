@@ -1,5 +1,5 @@
 ---
-title: Configurer des références (SKU) pour une offre d’application Azure | Place de marché Azure
+title: Configurer des références SKU pour une offre d’application Azure | Place de marché Azure
 description: Comment configurer les références SKU pour une application managée Azure et un modèle de solution Azure.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: pabutler
 ms.openlocfilehash: ef4ea2419c64d0376023ea5d291460df48a51c63
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64943445"
 ---
 # <a name="azure-application-skus-tab"></a>Onglet Références de l’application Azure
@@ -37,20 +37,20 @@ Pour créer une référence SKU, suivez les étapes ci-dessous :
 
 ### <a name="sku-details-for-a-solution-template"></a>Détails de la référence SKU pour un modèle de solution
 
-La capture d’écran suivante montre l’écran Détails de la référence (SKU) pour un modèle de Solution.
+La capture d’écran suivante montre le formulaire comportant les détails de la référence SKU pour un modèle de solution.
 
 ![Détails de la référence SKU pour un modèle de solution](./media/azureapp-sku-details-solutiontemplate.png)
 
-Entrez les valeurs suivantes de la référence (SKU).  Les champs ajoutés par un astérisque sont obligatoires.
+Fournissez les valeurs de référence SKU suivantes.  Les champs marqués d’un astérisque sont obligatoires.
 
 |    Champ         |       Description                                                            |
 |  ---------       |     ---------------                                                          |
-|  **Titre\***     | Un titre pour la référence (SKU). Ce titre s’affiche dans la galerie pour cet élément.   |
-| **Résumé\***    | Une brève description de résumé de la référence SKU. (La longueur maximale est de 100 caractères.)  |
-| **Description\*** | Une description détaillée de la référence (SKU). Base du code HTML est pris en charge.                 | 
-| **Type de référence (SKU)\***   | Type de solution d’application Windows Azure, sélectionnez ***modèle de Solution** pour ce scénario. |
-| **Disponibilité du cloud\*** | L’emplacement de la référence SKU. La valeur par défaut est **Public Azure**.  <b/>   **Azure public** -application peut être déployée pour les clients dans toutes les régions Azure publiques qui dispose de l’intégration de la place de marché.  <b/>   **Le Cloud Azure Government** -application sera déployée dans le Cloud Azure Government. Avant de publier sur [Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-manage-marketplace-partners), Microsoft vous recommande d’éditeurs de tester et valider leur solution fonctionne comme prévu dans cet environnement. Pour effectuer une copie intermédiaire et tester, demandez un [compte d’essai](https://azure.microsoft.com/offers/ms-azr-usgov-0044p/).  |
-| **S’agit-il d’une référence (SKU) privé ?\*** | Sélectionnez **Oui** si cette référence (SKU) est uniquement disponible pour un groupe de clients sélectionné. |
+|  **Titre\***     | Titre de la référence SKU. Ce titre s’affiche dans la galerie pour cet élément.   |
+| **Résumé\***    | Courte description de la référence SKU. (La longueur maximale est de 100 caractères.)  |
+| **Description\*** | Description détaillée de la référence SKU. Le code HTML de base est pris en charge.                 | 
+| **Type de référence SKU\***   | Type de solution d’application Azure. Sélectionnez ***Modèle de Solution** pour ce scénario. |
+| **Disponibilité dans le cloud\*** | Emplacement de la référence SKU. La valeur par défaut est **Public Azure**.  <b/>   **Public Azure** : l’application pourra être déployée vers des clients dans toutes les régions Azure publiques intégrées à la Place de marché.  <b/>   **Cloud Azure Government** : l’application sera déployée dans le cloud Azure Government. Avant de publier sur [Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-manage-marketplace-partners), Microsoft recommande aux éditeurs de tester et valider le fait que leur solution fonctionne comme prévu dans cet environnement. Pour effectuer une copie intermédiaire et tester, demandez un [compte d’essai](https://azure.microsoft.com/offers/ms-azr-usgov-0044p/).  |
+| **S’agit-il d’une référence SKU privée ?\*** | Sélectionnez **Oui** si cette référence SKU est accessible uniquement à un groupe choisi de clients. |
 |   |   |
 
   > [!NOTE] 
@@ -63,19 +63,19 @@ La capture d’écran suivante montre le formulaire comportant les détails de l
 
    ![Formulaire comportant les détails de la référence SKU pour une application managée](./media/azureapp-sku-details-managedapplication.png)
 
-Configurez les paramètres suivants de la référence (SKU). Les champs ajoutés par un astérisque sont obligatoires.
+Configurez les paramètres de référence SKU suivants. Les champs marqués d’un astérisque sont obligatoires.
 
 |    Champ         |       Description                                                            |
 |  ---------       |     ---------------                                                          |
-|  **Titre\***     | Un titre pour la référence (SKU). Ce titre s’affiche dans la galerie pour cet élément.   |
-| **Résumé\***    | Une brève description de résumé de la référence SKU. (La longueur maximale est de 100 caractères.)  |
-| **Description\*** | Une description détaillée de la référence (SKU). Base du code HTML est pris en charge.                 | 
-| **Type de référence (SKU)\***   | Type de solution d’application Windows Azure, sélectionnez ***Application gérée** pour ce scénario. 
-| **Disponibilité du cloud\*** | L’emplacement de la référence SKU. La valeur par défaut est **Public Azure**.  <b/>   **Azure public** -application peut être déployée pour les clients dans toutes les régions Azure publiques qui dispose de l’intégration de la place de marché.  <b/>   **Le Cloud Azure Government** -application sera déployée dans le Cloud Azure Government. Avant de publier sur [Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-manage-marketplace-partners), Microsoft vous recommande d’éditeurs de tester et valider leur solution fonctionne comme prévu dans cet environnement. Pour effectuer une copie intermédiaire et tester, demandez un [compte d’essai](https://azure.microsoft.com/offers/ms-azr-usgov-0044p/).   Microsoft Azure Government est un cloud communautaire pour le secteur public, accessible à des clients d’administrations fédérales, étatiques, locales ou tribales des États-Unis, ainsi qu’à des partenaires éligibles pour servir ces entités. |
-| **S’agit-il d’une référence (SKU) privé ?\*** | Sélectionnez **Oui** si cette référence (SKU) est uniquement disponible pour un groupe de clients sélectionné. |
-| **Disponibilité par pays/région\*** | Utilisez **sélectionner régions** pour afficher la liste des pays/régions sont disponibles. Sélectionnez chaque pays/région, puis cliquez sur **OK** pour enregistrer votre sélection.  <b/>   ![Liste de disponibilité de pays et région](./media/azure-app-select-country-region.png)  |
-| **Ancienne tarification\*** | Le prix de la référence (SKU), en USD par mois. Les prix sont définis dans la devise locale à l’aide du taux de change actuel au moment de la configuration. Vous pouvez les valider étant donné que vous êtes au final propriétaire de ces paramètres. Pour définir ou afficher individuellement le prix pour chaque pays/région, exportez la feuille de calcul de tarification, puis importez-la avec une tarification personnalisée.  Vous devez enregistrer vos modifications de tarification pour activer l’exportation/importation de données de tarification.  |
-| **Tarification de la devise simplifiée\*** | Le prix de la référence (SKU), en USD par mois. Il doit être identique à l’ancienne tarification. Pour plus d’informations, consultez [Tarification simplifiée des devises](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-update-existing-offer). |
+|  **Titre\***     | Titre de la référence SKU. Ce titre s’affiche dans la galerie pour cet élément.   |
+| **Résumé\***    | Courte description de la référence SKU. (La longueur maximale est de 100 caractères.)  |
+| **Description\*** | Description détaillée de la référence SKU. Le code HTML de base est pris en charge.                 | 
+| **Type de référence SKU\***   | Type de solution d’application Azure. Sélectionnez ***Application managée** pour ce scénario. 
+| **Disponibilité dans le cloud\*** | Emplacement de la référence SKU. La valeur par défaut est **Public Azure**.  <b/>   **Public Azure** : l’application pourra être déployée vers des clients dans toutes les régions Azure publiques intégrées à la Place de marché.  <b/>   **Cloud Azure Government** : l’application sera déployée dans le cloud Azure Government. Avant de publier sur [Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-manage-marketplace-partners), Microsoft recommande aux éditeurs de tester et valider le fait que leur solution fonctionne comme prévu dans cet environnement. Pour effectuer une copie intermédiaire et tester, demandez un [compte d’essai](https://azure.microsoft.com/offers/ms-azr-usgov-0044p/).   Microsoft Azure Government est un cloud communautaire pour le secteur public, accessible à des clients d’administrations fédérales, étatiques, locales ou tribales des États-Unis, ainsi qu’à des partenaires éligibles pour servir ces entités. |
+| **S’agit-il d’une référence SKU privée ?\*** | Sélectionnez **Oui** si cette référence SKU est accessible uniquement à un groupe choisi de clients. |
+| **Disponibilité par pays/région\*** | Utilisez **Sélectionner des régions** pour afficher la liste des pays/régions disponibles. Sélectionnez chaque pays/région, puis cliquez sur **OK** pour enregistrer votre sélection.  <b/>   ![Liste des disponibilités par pays et région](./media/azure-app-select-country-region.png)  |
+| **Ancienne tarification\*** | Prix de la référence (SKU), en USD par mois. Les prix sont définis dans la devise locale à l’aide du taux de change actuel au moment de la configuration. Vous pouvez les valider étant donné que vous êtes au final propriétaire de ces paramètres. Pour définir ou afficher individuellement le prix pour chaque pays/région, exportez la feuille de calcul de tarification, puis importez-la avec une tarification personnalisée.  Vous devez enregistrer les modifications de votre tarification pour autoriser l’export/import des données de tarification.  |
+| **Tarifs simplifiés en devises\*** | Prix de la référence (SKU), en USD par mois. Il doit être identique à l’ancienne tarification. Pour plus d’informations, consultez [Tarification simplifiée des devises](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-update-existing-offer). |
 |  |  |
 
 
@@ -83,10 +83,10 @@ Configurez les paramètres suivants de la référence (SKU). Les champs ajoutés
 
    ![Détails du package pour un modèle de solution](./media/azureapp-sku-pkgdetails-solutiontemplate.png)
 
-Fournissez les informations suivantes **détails du Package** valeurs.  Les champs ajoutés par un astérisque sont obligatoires.
+Fournissez les valeurs de **Détails du package** suivantes.  Les champs marqués d’un astérisque sont obligatoires.
 
-- **Version\***  -la version du package que vous allez charger. Les balises de version doivent être au format X.Y.Z, où X, Y et Z sont des entiers.
-- **Le fichier de package (.zip)\***  -ce package contient les fichiers suivants, enregistrés dans un fichier .zip.
+- **Version\***  : version du package que vous allez charger. Les balises de version doivent être au format X.Y.Z, où X, Y et Z sont des entiers.
+- **Fichier de package (.zip)\*** : ce package contient les fichiers suivants, compressés dans un fichier .zip.
   - MainTemplate.json : fichier de modèle de déploiement utilisé pour déployer la solution/l’application et créer les ressources définies par la solution. Pour plus d’informations, consultez [Comment créer des fichiers de modèle de déploiement](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template).
   - createUIDefinition.json : ce fichier est utilisé par le portail Microsoft Azure pour générer l’interface utilisateur pour l’approvisionnement de cette solution/application. Pour plus d’informations, consultez [Créer une interface utilisateur de portail Azure pour votre application managée](https://docs.microsoft.com/azure/azure-resource-manager/managed-application-createuidefinition-overview).
 
@@ -98,10 +98,10 @@ Fournissez les informations suivantes **détails du Package** valeurs.  Les cham
 
    ![Détails du package pour une application managée](./media/azureapp-sku-pkgdetails-managedapplication.png)
 
-Fournissez les informations de Package suivants.  Les champs ajoutés par un astérisque sont obligatoires.
+Fournissez les détails du package suivants.  Les champs marqués d’un astérisque sont obligatoires.
 
-- **Version\***  -la version du package que vous allez charger. Les balises de version doivent être au format X.Y.Z, où X, Y et Z sont des entiers.
-- **Le fichier de package (.zip)\***  -ce package contient les fichiers suivants, enregistrés dans un fichier .zip.
+- **Version\***  : version du package que vous allez charger. Les balises de version doivent être au format X.Y.Z, où X, Y et Z sont des entiers.
+- **Fichier de package (.zip)\*** : ce package contient les fichiers suivants, compressés dans un fichier .zip.
   - applianceMainTemplate.json : fichier de modèle de déploiement utilisé pour déployer la solution/l’application et créer les ressources qui sont définies. Pour plus d’informations, consultez [Démarrage rapide : Créer et déployer des modèles Azure Resource Manager à l’aide du portail Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal). 
   - applianceCreateUIDefinition.json : ce fichier est utilisé par le portail Azure pour générer l’interface utilisateur pour l’approvisionnement de cette solution/application. Pour plus d’informations, consultez [Créer une interface utilisateur de portail Azure pour votre application managée](https://docs.microsoft.com/azure/azure-resource-manager/managed-application-createuidefinition-overview).
   - mainTemplate.json : le fichier de modèle qui contient uniquement la ressource Microsoft.Solution/appliances. Pour plus d’informations, consultez [Comprendre la structure et la syntaxe des modèles Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates). <br>
@@ -113,8 +113,8 @@ Notez les propriétés de clé suivantes de cette ressource :
   >[!IMPORTANT] 
   >Ce package doit contenir tous les modèles ou scripts imbriqués nécessaires à l’approvisionnement de cette application. Les fichiers suivants doivent être dans le dossier racine :  MainTemplate.json, applianceMainTemplate.json et applianceCreateUIDefinition.json.
 
-- **Id de locataire\***  -id de locataire Azure Active Directory de votre organisation.
-- **Activer l’accès JIT ? \***  – Sélectionnez **Oui** pour activer juste-à-temps des accès de gestion pour les déploiements de client à l’aide de cette offre.
+- **ID de locataire\*** : ID de locataire Azure Active Directory de votre organisation.
+- **Activer l’accès JIT ?\***  : sélectionnez **Oui** pour activer l’accès à l’administration juste-à-temps pour les déploiements de clients utilisant cette offre.
 
   >[!NOTE] 
   >Si vous activez le juste-à-temps, vous devez mettre à jour le fichier CreateUiDefinition.json pour prendre en charge l’accès JIT.
@@ -124,7 +124,7 @@ Pour une application managée, vous devez configurer l’autorisation et les par
 
 #### <a name="authorization"></a>Authorization
 
-Ajoutez l’identificateur Azure Active Directory de l’utilisateur, du groupe ou de l’application à laquelle vous souhaitez accorder l’autorisation pour le groupe de ressources managées. L’autorisation accordée est indiquée par l’ID de définition de rôle. Il peut être un propriétaire, contributeur ou un rôle personnalisé.
+Ajoutez l’identificateur Azure Active Directory de l’utilisateur, du groupe ou de l’application à laquelle vous souhaitez accorder l’autorisation pour le groupe de ressources managées. L’autorisation accordée est indiquée par l’ID de définition de rôle. Il peut s’agir d’un propriétaire, d’un contributeur ou de tout rôle personnalisé.
 
 
 #### <a name="policy-settings"></a>Paramètres de stratégie
@@ -155,4 +155,4 @@ Ajoutez les stratégies auxquelles l’application managée est conforme. Pour e
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Vous allez davantage décrire votre offre et fournir des ressources marketing dans le [onglet de la place de marché](./cpp-marketplace-tab.md). 
+Vous allez décrire plus précisément votre offre et fournir des ressources marketing sous l’[onglet Place de marché](./cpp-marketplace-tab.md). 

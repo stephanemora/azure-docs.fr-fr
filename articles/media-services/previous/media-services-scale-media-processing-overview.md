@@ -14,16 +14,16 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 25b2eb05a612b18eab1fbf790b119edbe9c4d8d2
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64707397"
 ---
 # <a name="scaling-media-processing-overview"></a>Vue d’ensemble de la mise à l’échelle du traitement multimédia 
 Cette page fournit une vue d’ensemble de la procédure de mise à l’échelle du traitement multimédia et de ses avantages. 
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 Un compte Media Services est associé à un Type d'unité réservé qui détermine la vitesse à laquelle vos tâches de traitement multimédia sont traitées. Vous pouvez choisir entre les types d’unités réservées suivantes : **S1**, **S2** ou **S3**. Par exemple, un même travail d’encodage s’exécute plus rapidement quand vous utilisez le type d’unité réservée **S2** que le type **S1**. Pour plus d’informations, consultez [Types d’unités réservées](https://azure.microsoft.com/blog/high-speed-encoding-with-azure-media-services/).
 
 En plus de spécifier le type d’unité réservée, vous pouvez spécifier d’approvisionner votre compte avec des unités réservées. Le nombre d’unités réservées approvisionnées détermine le nombre de tâches multimédias qui peuvent être traitées simultanément dans un compte donné. Si, par exemple, votre compte a cinq unités réservées, les cinq tâches multimédias sont exécutées simultanément tant qu’il y a des tâches à traiter. Les autres tâches restent dans la file d'attente et sont sélectionnées séquentiellement pour le traitement quand l'exécution d'une tâche se termine. Si aucune unité réservée n'est approvisionnée pour un compte donné, les tâches sont sélectionnées séquentiellement. Dans ce cas, le temps d'attente entre l'achèvement d'une tâche et le démarrage de la suivante dépend de la disponibilité des ressources dans le système.
@@ -33,9 +33,9 @@ Le tableau suivant vous aide à choisir entre les différentes vitesses d’enco
 
 |Type de RU|Scénario|Exemple de résultats pour la [vidéo 1080p de 7 min](https://nimbuspmteam.blob.core.windows.net/asset-46f1f723-5d76-477e-a153-3fd0f9f90f73/SeattlePikePlaceMarket_7min.ts?sv=2015-07-08&sr=c&si=013ab6a6-5ebf-431e-8243-9983a6b5b01c&sig=YCgEB8DxYKK%2B8W9LnBykzm1ZRUTwQAAH9QFUGw%2BIWuc%3D&se=2118-09-21T19%3A28%3A57Z)|
 |---|---|---|
-| **S1**|Encodage à débit binaire unique. <br/>Fichiers avec une résolution SD ou inférieure, insensibles à l’heure, à moindre coût.|Encodage à débit binaire unique SD résolution de fichier MP4 à l’aide de « H264 unique à débit binaire SD 16 x 9 » prend environ sept minutes.|
-| **S2**|Encodage à débit binaire unique et à débit binaire multiple.<br/>Utilisation normale de l’encodage SD et HD.|Encodage avec « H264 multidébit 720p » la présélection prend environ 6 minutes.<br/><br/>Encodage avec « H264 multidébit 720p » la présélection prend environ 12 minutes.|
-| **S3**|Encodage à débit binaire unique et à débit binaire multiple.<br/>Vidéos avec une résolution HD complète et 4K. Encodage sensible à l’heure, plus rapide.|Encodage avec « H264 multidébit 1 080 p » la présélection prend environ 3 minutes.<br/><br/>Encodage avec « H264 Multiple Bitrate 1080p » la présélection prend environ 8 minutes.|
+| **S1**|Encodage à débit binaire unique. <br/>Fichiers avec une résolution SD ou inférieure, insensibles à l’heure, à moindre coût.|Avec l'option « H264 – Vitesse de transmission unique – 16 x 9 SD », l'encodage à débit unique sous la forme d'un fichier MP4 de résolution SD prend environ 7 minutes.|
+| **S2**|Encodage à débit binaire unique et à débit binaire multiple.<br/>Utilisation normale de l’encodage SD et HD.|L'encodage avec la présélection « H264 – Vitesse de transmission unique – 720 pixels » prend environ 6 minutes.<br/><br/>L'encodage avec la présélection « H264 – Vitesse de transmission multiple – 720 pixels » prend environ 12 minutes.|
+| **S3**|Encodage à débit binaire unique et à débit binaire multiple.<br/>Vidéos avec une résolution HD complète et 4K. Encodage sensible à l’heure, plus rapide.|L'encodage avec la présélection « H264 – Vitesse de transmission unique – 1080 pixels » prend environ 3 minutes.<br/><br/>L'encodage avec la présélection « H264 – Vitesse de transmission multiple – 1 080 pixels » prend environ 8 minutes.|
 
 ## <a name="considerations"></a>Considérations
 > [!IMPORTANT]
@@ -48,7 +48,7 @@ Le tableau suivant vous aide à choisir entre les différentes vitesses d’enco
 
 ## <a name="billing"></a>Facturation
 
-Vous êtes facturé en nombre de minutes pendant que les unités réservées multimédia sont configurées dans votre compte. Cela se produit indépendamment de si il existe des travaux en cours d’exécution dans votre compte. Pour plus d’informations, consultez la section FAQ de la page [Tarification Media Services](https://azure.microsoft.com/pricing/details/media-services/).   
+Vous êtes facturé en fonction du nombre de minutes pendant lesquelles les unités réservées Multimédia sont approvisionnées dans votre compte. Ceci est indépendant d'éventuels travaux en cours d'exécution dans votre compte. Pour plus d’informations, consultez la section FAQ de la page [Tarification Media Services](https://azure.microsoft.com/pricing/details/media-services/).   
 
 ## <a name="quotas-and-limitations"></a>Quotas et limitations
 Pour plus d’informations sur les quotas et les limitations et pour savoir comment ouvrir un ticket de support, consultez la rubrique [Quotas et limitations](media-services-quotas-and-limitations.md).

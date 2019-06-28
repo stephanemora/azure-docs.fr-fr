@@ -1,5 +1,5 @@
 ---
-title: Consentement - Azure Active Directory et partage des données de connexions de comptes LinkedIn | Microsoft Docs
+title: Consentement et partage de données connexions de compte LinkedIn – Azure Active Directory | Microsoft Docs
 description: Explique comment l'intégration LinkedIn partage les données par le biais des applications Microsoft dans Azure Active Directory
 services: active-directory
 author: curtand
@@ -14,15 +14,15 @@ ms.reviewer: beengen
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4e6e24f4e726e25ae65ecceaeb161f8e16d61721
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60469633"
 ---
-# <a name="linkedin-account-connections-data-sharing-and-consent"></a>Partage de données de connexions compte LinkedIn et consentement
+# <a name="linkedin-account-connections-data-sharing-and-consent"></a>Consentement et partage de données connexions de compte LinkedIn
 
-Vous pouvez autoriser les utilisateurs de votre organisation Active Directory (Azure AD) à donner son consentement pour se connecter à leur travail de Microsoft compte ou scolaire avec leur compte LinkedIn. Une fois un utilisateur connecte à leurs comptes, les informations et les points importants à partir de LinkedIn sont disponibles dans certaines applications et services Microsoft. Les utilisateurs peuvent également s’attendre à une amélioration et un enrichissement de leur expérience de réseau sur LinkedIn avec les informations issues de Microsoft.
+Vous pouvez permettre à des utilisateurs au sein de votre organisation Azure Active Directory (Azure AD) de consentir à la connexion à leur compte professionnel ou scolaire Microsoft avec leur compte LinkedIn. Quand un utilisateur se connecte à son compte, des informations et points saillants de LinkedIn sont disponibles dans certains services et applications Microsoft. Les utilisateurs peuvent également s’attendre à une amélioration et un enrichissement de leur expérience de réseau sur LinkedIn avec les informations issues de Microsoft.
 
 Pour afficher des informations LinkedIn dans les applications et services Microsoft, les utilisateurs doivent donner leur consentement afin de se connecter à leurs propres comptes Microsoft et LinkedIn. Les utilisateurs sont invités à se connecter à leur compte la première fois qu’ils cliquent pour afficher les informations LinkedIn d’une personne sur une carte de visite Outlook, OneDrive ou SharePoint Online. Les connexions de compte LinkedIn ne sont pas entièrement activées pour vos utilisateurs jusqu’à ce qu’ils aient donné leur consentement pour l’expérience et la connexion à leur compte.
 
@@ -32,13 +32,13 @@ Pour afficher des informations LinkedIn dans les applications et services Micros
 
 L’accès aux informations LinkedIn dans les applications et services Microsoft facilite la connexion, l’implication et l’instauration de relations professionnelles de vos utilisateurs avec des collègues, clients et partenaires au sein et en dehors de votre organisation. Les nouveaux utilisateurs peuvent être opérationnels plus rapidement en se connectant avec des collègues, en ayant plus d’informations à leur sujet et en accédant facilement à plus de données. Voici un exemple d’affichage d’informations LinkedIn sur la carte de visite dans les applications Microsoft :
 
-![Activation de l’intégration LinkedIn dans votre organisation](./media/linkedin-user-consent/display-example.png)
+![Activation de l’intégration de LinkedIn dans votre organisation](./media/linkedin-user-consent/display-example.png)
 
 ## <a name="enable-and-announce-linkedin-integration"></a>Activer et annoncer l’intégration LinkedIn
 
 Vous devez être administrateur Azure Active Directory pour gérer le paramètre de votre organisation. Vous pouvez l’activer pour tous les utilisateurs ou pour un ensemble spécifique d’utilisateurs.
 
-1. Pour activer ou désactiver l’intégration, suivez les étapes de [donner son consentement pour l’intégration LinkedIn pour votre organisation Azure AD](linkedin-integration.md).
+1. Pour activer ou désactiver l’intégration, procédez de la manière décrite dans [Consentir à l’intégration de LinkedIn pour votre organisation Azure AD](linkedin-integration.md).
 2. Lorsque vous annoncez l’intégration LinkedIn dans votre organisation, orientez vos utilisateurs vers la FAQ sur les [informations LinkedIn dans les applications et services Microsoft](https://support.office.com/article/about-linkedin-information-and-features-in-microsoft-apps-and-services-dc81cc70-4d64-4755-9f1c-b9536e34d381). L’article fournit des informations sur l’emplacement des informations LinkedIn, le mode de connexion des comptes, etc.
 
 ## <a name="user-consent-for-data-access-in-microsoft-and-linkedin"></a>Consentement de l’utilisateur pour accéder aux données dans Microsoft et LinkedIn
@@ -76,7 +76,7 @@ Lorsque vous connectez vos comptes Microsoft et LinkedIn, vous autorisez Microso
 
 Les données accessibles à partir de Microsoft ne sont pas stockées définitivement avec LinkedIn, à l’exception des Contacts. Les Contacts Microsoft sont stockés sur LinkedIn jusqu’à ce que les utilisateurs les suppriment. En savoir plus sur la [suppression des contacts importés à partir de LinkedIn](https://www.linkedin.com/help/linkedin/answer/43377).
 
-Pour plus d’informations sur l’utilisation des données personnelles de LinkedIn, consultez la [politique de confidentialité LinkedIn](https://www.linkedin.com/legal/privacy-policy). Pour les services LinkedIn, transfert de données et stockage, les données peuvent circuler à partir de l’Union européenne vers les États-Unis et inversement, et votre vie privée est protégée, comme décrit dans [les transferts de données de l’Union européenne](https://www.linkedin.com/help/linkedin/answer/62533).
+Pour plus d’informations sur l’utilisation des données personnelles de LinkedIn, consultez la [politique de confidentialité LinkedIn](https://www.linkedin.com/legal/privacy-policy). Pour les services LinkedIn, le transfert de données et le stockage, les données peuvent circuler de l’Union européenne vers les États-Unis et inversement, et votre vie privée est protégée conformément aux [directives européennes régissant les transferts des données](https://www.linkedin.com/help/linkedin/answer/62533).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

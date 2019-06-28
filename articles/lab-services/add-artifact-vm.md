@@ -1,6 +1,6 @@
 ---
 title: Ajouter un artefact à une machine virtuelle dans Azure DevTest Labs | Microsoft Docs
-description: Découvrez comment ajouter un artefact à une machine virtuelle dans un laboratoire dans Azure DevTest Labs
+description: Apprenez à ajouter un artefact à une machine virtuelle dans un labo d'Azure DevTest Labs
 services: devtest-lab,virtual-machines
 documentationcenter: na
 author: spelluru
@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
 ms.openlocfilehash: 19a7d6052091f8889a88c61793186b7bf7d9d869
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60304273"
 ---
 # <a name="add-an-artifact-to-a-vm"></a>Ajouter un artefact à une machine virtuelle
-Lorsque vous créez une machine virtuelle, vous pouvez ajouter des artefacts existants à ce dernier. Ces artefacts peuvent correspondre à partir du [référentiel DevTest Labs Git public](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts) ou à partir de votre propre référentiel Git. Cet article vous montre comment ajouter des artefacts dans le portail Azure et à l’aide d’Azure PowerShell. 
+Lors de la création d'une machine virtuelle, vous pouvez y ajouter des artefacts existants. Ces artefacts peuvent provenir du [référentiel Git public de DevTest Labs](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts) ou de votre propre référentiel Git. Cet article explique comment ajouter des artefacts sur le portail Azure et à l'aide d'Azure PowerShell. 
 
 Les *artefacts* Azure DevTest Labs vous permettent de spécifier les *actions* qui sont effectuées lorsque la machine virtuelle est approvisionnée (exécution de scripts Windows PowerShell, exécution de commandes Bash, installation de logiciel, etc.). Les *paramètres* des artefacts vous permettent de personnaliser l'artefact pour votre scénario spécifique.
 
-Pour en savoir plus sur la façon de créer des artefacts personnalisés, consultez l’article : [Créer des artefacts personnalisés](devtest-lab-artifact-author.md).
+Pour en savoir plus sur la création d'artefacts personnalisés, consultez l'article suivant : [Créer des artefacts personnalisés](devtest-lab-artifact-author.md).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -65,7 +65,7 @@ Les étapes suivantes montrent comment afficher ou modifier les paramètres d’
 1. Cliquez sur **OK** pour fermer le volet **Artefacts sélectionnés**.
 
 ## <a name="use-powershell"></a>Utiliser PowerShell
-Le script suivant s’applique à l’artefact spécifié à la machine virtuelle spécifiée. Le [Invoke-AzResourceAction](/powershell/module/az.resources/invoke-azresourceaction) commande est celui qui effectue l’opération.  
+Le script suivant applique l'artefact spécifié à la machine virtuelle spécifiée. La commande [Invoquer-AzResourceAction](/powershell/module/az.resources/invoke-azresourceaction) exécute l'opération.  
 
 ```powershell
 #Requires -Module Az.Resources
@@ -164,9 +164,9 @@ if ($virtualMachine -ne $null) {
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-Sur les artefacts, consultez les articles suivants :
+Pour plus d'informations sur les artefacts, consultez les articles suivants :
 
-- [Spécifier des artefacts obligatoires pour votre laboratoire](devtest-lab-mandatory-artifacts.md)
+- [Spécifier des artefacts obligatoires pour votre labo](devtest-lab-mandatory-artifacts.md)
 - [Créer des artefacts personnalisés](devtest-lab-artifact-author.md)
-- [Ajouter un référentiel d’artefacts à un laboratoire](devtest-lab-artifact-author.md)
+- [Ajouter un référentiel d'artefacts à un labo](devtest-lab-artifact-author.md)
 - [Diagnostiquer les échecs d’artefact](devtest-lab-troubleshoot-artifact-failure.md)

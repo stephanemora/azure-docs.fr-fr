@@ -1,5 +1,5 @@
 ---
-title: 'Authentification de service à service : Python avec Azure Data Lake Storage Gen1 à l’aide d’Azure Active Directory | Microsoft Docs'
+title: 'Authentification de service à service : Python avec Azure Data Lake Storage Gen1 utilisant Azure Active Directory | Microsoft Docs'
 description: Découvrez comment procéder à une authentification de service à service auprès d’Azure Data Lake Storage Gen1 en utilisant Azure Active Directory et Python
 services: data-lake-store
 documentationcenter: ''
@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 84b7fac10374c1c8f23d17ad775d522b4cb261e8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60195723"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-python"></a>Authentification de service à service auprès d’Azure Data Lake Storage Gen1 à l’aide de Python

@@ -1,5 +1,5 @@
 ---
-title: Mise à niveau de code vers la dernière plateforme | Place de marché Azure
+title: Mise à niveau du code vers la dernière plateforme | Place de marché Azure
 description: Cette rubrique explique comment mettre à niveau votre version de la plateforme Microsoft Dynamics 365 pour les opérations vers la dernière version
 services: Azure, Marketplace, Cloud Partner Portal,
 author: pbutlerm
@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
 ms.openlocfilehash: aedc2c7474de0fe068a329eb2205e9bb08e62c3a
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64935285"
 ---
 # <a name="upgrading-code-to-the-latest-platform"></a>Mise à niveau du code vers la dernière plateforme
 
 Cet article explique comment mettre à niveau votre version de la plateforme Microsoft Dynamics 365 pour les opérations vers la dernière version.
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
 La plateforme Microsoft Dynamics 365 pour les opérations est constituée des composants suivants :
 
@@ -29,6 +29,6 @@ Les binaires de la plateforme Dynamics 365 pour les opérations, comme le serveu
 2. Application Foundation
 3. Test Essentials
 
-**Important !** Pour déplacer vers la dernière de Dynamics 365 pour la plateforme d’opérations, votre Dynamics 365 pour l’implémentation des opérations ne peut pas avoir toutes les personnalisations (couche) d’un des packages AOT qui appartiennent à la plateforme. Cette restriction a été introduite dans la mise à jour de plateforme n°3, afin que des mises à jour continues transparentes puissent être effectuées sur la plateforme. Si la version de votre plateforme est antérieure à la mise à jour n°3, consultez la section de mise à niveau vers la mise à jour de plateforme n°3 à partir d’une version antérieure, à la fin de cet article.
+**Important** : pour déplacer vers la dernière plateforme Dynamics 365 pour les opérations, votre implémentation de Dynamics 365 pour les opérations ne peut pas avoir toutes les personnalisations (overlayering) d’un des packages AOT appartenant à la plateforme. Cette restriction a été introduite dans la mise à jour de plateforme n°3, afin que des mises à jour continues transparentes puissent être effectuées sur la plateforme. Si la version de votre plateforme est antérieure à la mise à jour n°3, consultez la section de mise à niveau vers la mise à jour de plateforme n°3 à partir d’une version antérieure, à la fin de cet article.
 
 Pour plus d’informations sur la mise à niveau du code, consultez [cet article](https://docs.microsoft.com/dynamics365/operations/dev-itpro/migration-upgrade/upgrade-latest-platform-update).

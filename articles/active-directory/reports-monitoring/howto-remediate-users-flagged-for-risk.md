@@ -16,10 +16,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7209f468f493e226fae22ccd260e8ceb2e570494
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60286672"
 ---
 # <a name="remediate-users-flagged-for-risk-in-the-azure-active-directory-portal"></a>Résoudre des utilisateurs avec indicateur de risque dans le portail Azure Active Directory
@@ -46,7 +46,7 @@ Pour plus d’informations, consultez [Rapport de sécurité des utilisateurs as
 
 Vous pouvez également utiliser vos informations d’identification Office 365 pour accéder au **centre d’administration Azure**. Lorsque votre accès à Azure AD est activé, vous êtes redirigé vers le portail Azure AD. Au niveau d’inscription de base, la quantité d’informations fournies dans les rapports est limitée. Des analyses et données supplémentaires sont disponibles pour les abonnés Azure Premium.
 
-Pour accéder à la **utilisateurs avec indicateur de risque** rapports dans le centre d’administration Microsoft 365 :
+Pour accéder aux rapports sur les **utilisateurs avec indicateur de risque** dans le centre d’administration Microsoft 365 :
 
 1.  À gauche du menu de navigation, sélectionnez **Centres d’administration**. 
 2.  Sélectionnez ensuite **Azure AD**.

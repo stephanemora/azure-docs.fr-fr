@@ -11,10 +11,10 @@ ms.topic: article
 ms.assetid: 3656acfb-eefd-4e75-b5d2-73da56c424c9
 ms.date: 10/15/2017
 ms.openlocfilehash: 134a8f9625b45a8196ebd47f10286093f6ba0d46
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61459625"
 ---
 # <a name="create-logic-app-workflows-from-prebuilt-templates"></a>Créer des workflows d’application logique à partir de modèles prédéfinis
@@ -48,11 +48,11 @@ Si vous n’avez pas d’abonnement Azure, [créez un compte Azure gratuit](http
 
    | Paramètre | Valeur | Description | 
    | ------- | ----- | ----------- | 
-   | **Name** | *nom-de-votre-application-logique* | Donnez un nom unique à l’application logique. | 
+   | **Nom** | *nom-de-votre-application-logique* | Donnez un nom unique à l’application logique. | 
    | **Abonnement** | *nom-de-votre-abonnement-Azure* | Sélectionnez l’abonnement Azure que vous souhaitez utiliser. | 
    | **Groupe de ressources** | *nom-de-votre-groupe-de-ressources-Azure* | Créez ou sélectionnez un [groupe de ressources Azure](../azure-resource-manager/resource-group-overview.md) pour cette application logique et pour organiser toutes les ressources associées à celle-ci. | 
    | **Lieu** | *région-de-votre-centre-de-données-Azure* | Sélectionnez la région du centre de données où déployer votre application logique, par exemple USA Ouest. | 
-   | **Log Analytics** | **Désactivé** (par défaut) ou **Activé** | Activer [journalisation des diagnostics](../logic-apps/logic-apps-monitor-your-logic-apps.md#turn-on-diagnostics-logging-for-your-logic-app) pour votre application logique via [Azure Monitor enregistre](../log-analytics/log-analytics-overview.md). Pour cela, vous devez déjà disposer d’un espace de travail Log Analytics. | 
+   | **Log Analytics** | **Désactivé** (par défaut) ou **Activé** | Activez la [journalisation des diagnostics](../logic-apps/logic-apps-monitor-your-logic-apps.md#turn-on-diagnostics-logging-for-your-logic-app) pour votre application logique via [Journaux Azure Monitor](../log-analytics/log-analytics-overview.md). Pour cela, vous devez déjà disposer d’un espace de travail Log Analytics. | 
    |||| 
 
 4. Lorsque vous êtes prêt, sélectionnez **Épingler au tableau de bord**. De cette façon, votre application logique apparaît automatiquement sur votre tableau de bord Azure et s’ouvre après le déploiement. Cliquez sur **Créer**.
@@ -63,7 +63,7 @@ Si vous n’avez pas d’abonnement Azure, [créez un compte Azure gratuit](http
    Une fois qu’Azure a déployé votre application logique, le Concepteur Logic Apps s’ouvre et affiche une page contenant une vidéo de présentation. 
    Sous la vidéo, vous pouvez trouver des modèles courants d’applications logiques. 
 
-5. Faites défiler au-delà de la vidéo de présentation et les déclencheurs courants jusqu’à **Modèles**. Choisissez un modèle prédéfini. Par exemple : 
+5. Faites défiler au-delà de la vidéo de présentation et les déclencheurs courants jusqu’à **Modèles**. Choisissez un modèle prédéfini. Par exemple :
 
    ![Choisir un modèle d’application logique](./media/logic-apps-create-logic-apps-from-templates/choose-logic-app-template.png)
 
@@ -71,7 +71,7 @@ Si vous n’avez pas d’abonnement Azure, [créez un compte Azure gratuit](http
    > Pour créer votre application logique à partir de rien, choisissez **Application logique vide**.
 
    Lorsque vous sélectionnez un modèle prédéfini, vous pouvez voir des informations supplémentaires sur ce modèle. 
-   Par exemple : 
+   Par exemple :
 
    ![Choisir un modèle prédéfini](./media/logic-apps-create-logic-apps-from-templates/logic-app-choose-prebuilt-template.png)
 
@@ -85,7 +85,7 @@ Si vous n’avez pas d’abonnement Azure, [créez un compte Azure gratuit](http
 
    * Si vous avez déjà configuré ces connexions, choisissez **Continuer**.
 
-   Par exemple : 
+   Par exemple :
 
    ![Créer des connexions](./media/logic-apps-create-logic-apps-from-templates/logic-app-create-connection.png)
 
@@ -103,16 +103,16 @@ Si vous n’avez pas d’abonnement Azure, [créez un compte Azure gratuit](http
 
 1. Dans le [portail Azure](https://portal.azure.com "portail Azure"), recherchez et ouvrez votre application logique dans le Concepteur d’application logique.
 
-2. Dans la barre d’outils du concepteur, choisissez **Modèles**. Cette action ayant pour effet de supprimer toutes les modifications non enregistrées, un message d’avertissement s’affiche pour vous permettre confirmer votre volonté de continuer. Pour confirmer, choisissez **OK**. Par exemple : 
+2. Dans la barre d’outils du concepteur, choisissez **Modèles**. Cette action ayant pour effet de supprimer toutes les modifications non enregistrées, un message d’avertissement s’affiche pour vous permettre confirmer votre volonté de continuer. Pour confirmer, choisissez **OK**. Par exemple :
 
    ![Choisissez « Modèles »](./media/logic-apps-create-logic-apps-from-templates/logic-app-update-existing-with-template.png)
 
-3. Faites défiler au-delà de la vidéo de présentation et les déclencheurs courants jusqu’à **Modèles**. Choisissez un modèle prédéfini. Par exemple : 
+3. Faites défiler au-delà de la vidéo de présentation et les déclencheurs courants jusqu’à **Modèles**. Choisissez un modèle prédéfini. Par exemple :
 
    ![Choisir un modèle d’application logique](./media/logic-apps-create-logic-apps-from-templates/choose-logic-app-template.png)
 
    Lorsque vous sélectionnez un modèle prédéfini, vous pouvez voir des informations supplémentaires sur ce modèle. 
-   Par exemple : 
+   Par exemple :
 
    ![Choisir un modèle prédéfini](./media/logic-apps-create-logic-apps-from-templates/logic-app-choose-prebuilt-template.png)
 

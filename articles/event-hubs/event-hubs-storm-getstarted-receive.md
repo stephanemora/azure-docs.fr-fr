@@ -16,10 +16,10 @@ ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
 ms.openlocfilehash: 75a96127c48186befc48b2240f78e49cd5914239
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60343413"
 ---
 # <a name="receive-events-from-event-hubs-using-apache-storm"></a>Recevoir des événements d’Event Hubs avec Apache Storm
@@ -28,8 +28,8 @@ ms.locfileid: "60343413"
 
 Pour plus d’informations sur les modèles de réception Event Hubs, consultez la page [Vue d’ensemble d’Event Hubs][Event Hubs overview].
 
-## <a name="prerequisites"></a>Conditions préalables
-Avant de commencer avec le démarrage rapide, **créer un espace de noms Event Hubs et un concentrateur d’événements**. Utilisez le [Azure portal](https://portal.azure.com) pour créer un espace de noms de type Event Hubs et obtenir les informations d’identification de gestion que votre application a besoin pour communiquer avec le hub d’événements. Pour créer un espace de noms et un hub d’événements, suivez la procédure décrite dans [cet article](event-hubs-create.md). 
+## <a name="prerequisites"></a>Prérequis
+Avant de commencer avec le démarrage rapide, **créez un espace de noms Event Hubs et un Event Hub**. Utilisez le [portail Azure](https://portal.azure.com) pour créer un espace de noms de type Event Hubs et obtenez les informations de gestion nécessaires à votre application pour communiquer avec le hub d’événements. Pour créer un espace de noms et un hub d’événements, suivez la procédure décrite dans [cet article](event-hubs-create.md). 
 
 ## <a name="create-project-and-add-code"></a>Créer le projet et ajouter du code
 

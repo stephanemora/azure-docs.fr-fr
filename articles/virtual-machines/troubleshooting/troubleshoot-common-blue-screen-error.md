@@ -14,10 +14,10 @@ ms.workload: infrastructure
 ms.date: 09/28/2018
 ms.author: genli
 ms.openlocfilehash: 26306489b11e24ab50f0ae893f11137d279c6127
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64719808"
 ---
 # <a name="windows-shows-blue-screen-error-when-booting-an-azure-vm"></a>Windows affiche une erreur dans un écran bleu lors du démarrage d’une machine virtuelle Azure
@@ -56,7 +56,7 @@ Pour résoudre ce problème, vous devez d’abord collecter le fichier d’image
 ### <a name="locate-dump-file-and-submit-a-support-ticket"></a>Rechercher le fichier d’image et envoyer un ticket de support
 
 1. Sur la machine virtuelle de récupération, accédez au dossier Windows dans le disque du système d’exploitation attaché. Si la lettre de lecteur qui est affectée au disque du système d’exploitation attaché est F, vous devez accéder à F:\Windows.
-2. Recherchez le fichier memory.dmp, puis [soumettre un ticket de support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) avec le fichier de vidage. 
+2. Recherchez le fichier memory.dmp, puis [envoyez un ticket de support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) avec le fichier d’image. 
 
 Si le fichier d’image est introuvable, passez à l’étape suivante pour activer le journal de vidage et la console série.
 

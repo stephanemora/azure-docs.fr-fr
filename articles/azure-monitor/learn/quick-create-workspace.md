@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: magoedte
 ms.openlocfilehash: a68e40b7b1caf184fabb5df62d8b461fa2fa11e2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60539239"
 ---
 # <a name="create-a-log-analytics-workspace-in-the-azure-portal"></a>Créer un espace de travail Log Analytics dans le portail Azure
@@ -49,7 +49,7 @@ Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.az
    * Attribuez un nom au nouvel **Espace de travail Log Analytics** comme *DefaultLAWorkspace*. 
    * Dans la liste déroulante **Abonnement**, sélectionnez un abonnement à lier si la valeur par défaut sélectionnée n’est pas appropriée.
    * Pour **Groupe de ressources**, choisissez d’utiliser un groupe de ressources déjà configuré ou créez-en un.  
-   * Sélectionnez un **Emplacement** disponible.  Pour plus d’informations, consultez qui [Analytique de journal est disponible dans des régions](https://azure.microsoft.com/regions/services/) et recherchez Azure Monitor à partir de la **rechercher un produit** champ.  
+   * Sélectionnez un **Emplacement** disponible.  Pour plus d’informations, consultez les [régions dans lesquelles Log Analytics est disponible](https://azure.microsoft.com/regions/services/) et recherchez Azure Monitor à partir du champ **Rechercher un produit**.  
    * Si vous créez un espace de travail dans un nouvel abonnement créé après le 2 avril 2018, il utilisera automatiquement le plan tarifaire *Par Go* et l’option pour sélectionner un niveau de tarification ne sera pas disponible.  Si vous créez un espace de travail pour un abonnement existant créé avant le 2 avril, ou pour un abonnement lié à une inscription à un Contrat Entreprise existante, sélectionnez le niveau tarifaire de votre choix.  Pour plus d’informations sur les différents niveaux proposés, consultez le [détail des tarifs de Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).
 
         ![Créer le panneau de ressources Log Analytics](media/quick-create-workspace/create-loganalytics-workspace-02.png)  
@@ -61,7 +61,7 @@ Pendant que les informations sont vérifiées et l’espace de travail créé, v
 ## <a name="next-steps"></a>Étapes suivantes
 Disposant à présent d’un espace de travail, vous pouvez configurer la collecte des données de télémétrie de surveillance, exécuter des recherches dans les journaux pour analyser ces données et ajouter une solution de gestion pour fournir des données et insights analytiques supplémentaires. 
 
-* Pour activer la collecte de données à partir de ressources Azure avec Azure Diagnostics ou le stockage Azure, consultez [Collecte des journaux d’activité et des métriques des services Azure à utiliser dans Log Analytics](../platform/collect-azure-metrics-logs.md).  
+* Pour activer la collecte de données à partir de ressources Azure avec Diagnostics Azure ou le stockage Azure, consultez [Collecte des journaux et des métriques des services Azure à utiliser dans Log Analytics](../platform/collect-azure-metrics-logs.md).  
 * Ajoutez [System Center Operations Manager comme source de données](../platform/om-agents.md) pour collecter des données à partir des agents rattachés à votre groupe d’administration Operations Manager et les stocker dans votre espace de travail Log Analytics. 
 * Connectez [Configuration Manager](../platform/collect-sccm.md) pour importer des ordinateurs qui sont membres de collections dans la hiérarchie.  
 * Examinez les [solutions de surveillance](../insights/solutions.md) disponibles et la façon d’ajouter ou de supprimer une solution dans votre espace de travail.

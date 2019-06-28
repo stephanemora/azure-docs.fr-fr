@@ -1,6 +1,6 @@
 ---
 title: Fonctionnalités de style de carte dans Azure Maps | Microsoft Docs
-description: En savoir plus sur Azure Maps style liés des fonctionnalités du SDK Android.
+description: Apprenez-en davantage sur les fonctionnalités liées au style dans Android SDK Azure Maps.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 04/26/2019
@@ -9,25 +9,25 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 3c8c5d4bae16d8e15c8f2c5b1cc8e00eb14e4ce3
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64870971"
 ---
-# <a name="set-map-style-using-azure-maps-android-sdk"></a>Définir le style de carte à l’aide du Kit de développement logiciel Android d’Azure Maps
+# <a name="set-map-style-using-azure-maps-android-sdk"></a>Définir le style de carte à l’aide d'Android SDK Azure Maps
 
-Cet article vous montre deux façons de définir des styles de carte à l’aide d’Azure Maps Android SDK. Azure Maps a le choix de six styles différents mappages. Pour plus d’informations sur les styles de carte pris en charge, consultez [pris en charge des styles de carte dans Azure Maps](./supported-map-styles.md).
+Cet article vous présente deux façons de définir des styles de carte à l’aide d’Android SDK Azure Maps. Azure Maps offre le choix entre six styles de carte. Pour plus d’informations sur les styles de carte pris en charge, consultez [Styles de carte pris en charge dans Azure Maps](./supported-map-styles.md).
 
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
-Pour terminer le processus dans cet article, vous devez installer [Azure Maps du Kit Android SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) charger une carte.
+Pour terminer le processus de cet article, vous devez installer [Android SDK Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) pour charger une carte.
 
 
 ## <a name="set-map-style-in-the-layout"></a>Définir le style de carte dans la disposition
 
-Vous pouvez définir un style de carte dans le fichier de disposition pour votre classe d’activité. Modifier **res > Disposition > activity_main.xml**, afin qu’il ressemble à celle présentée ci-dessous :
+Vous pouvez définir un style de carte dans le fichier de disposition de votre classe d’activité. Modifiez l'élément **res > layout > activity_main.xml** de sorte qu'il se présente comme suit :
 
 ```XML
 <?xml version="1.0" encoding="utf-8"?>
@@ -51,7 +51,7 @@ Vous pouvez définir un style de carte dans le fichier de disposition pour votre
 </FrameLayout>
 ```
 
-Le `mapcontrol_style` attribut ci-dessus définit le style de carte **grayscale_dark**. 
+L'attribut `mapcontrol_style` ci-dessus définit le style de carte sur **grayscale_dark**. 
 
 <center>
 
@@ -59,7 +59,7 @@ Le `mapcontrol_style` attribut ci-dessus définit le style de carte **grayscale_
 
 ## <a name="set-map-style-in-the-activity-class"></a>Définir le style de carte dans la classe d’activité
 
-Style de carte peut être définie dans la classe d’activité. Copier l’extrait de code suivant dans le **onCreate()** méthode de votre `MainActivity.java` classe. Ceci définit le style de carte **satellite_road_labels**.
+Le style de carte peut être défini dans la classe d’activité. Copiez l’extrait de code suivant dans la méthode **onCreate()** de votre classe `MainActivity.java`. Cela définit le style de carte sur **satellite_road_labels**.
 
 ```Java
     mapControl.onReady(map -> {

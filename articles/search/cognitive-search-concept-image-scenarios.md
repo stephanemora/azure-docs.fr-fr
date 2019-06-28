@@ -12,10 +12,10 @@ ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
 ms.openlocfilehash: ca9b3607041f75b1c866aa2813308312ad5d1017
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65023752"
 ---
 #  <a name="how-to-process-and-extract-information-from-images-in-cognitive-search-scenarios"></a>Comment traiter et extraire des informations d’images dans des scénarios de recherche cognitive
@@ -34,7 +34,7 @@ Vous ne pouvez pas désactiver la normalisation d’image. Les compétences qui 
 
 | Paramètre de configuration | Description |
 |--------------------|-------------|
-| imageAction   | Défini sur « none » si aucune action ne doit être effectuée quand des images incorporées ou des fichiers image sont rencontrés. <br/>Défini sur « generateNormalizedImages » pour générer un tableau d’images normalisées dans le cadre du décodage de document.<br/>Défini sur « generateNormalizedImages » pour générer un tableau d’images normalisées où, pour les PDF de votre source de données, chaque page s’affiche en tant qu’image de sortie unique.  La fonctionnalité est la même que « generateNormalizedImages » pour les types de fichiers autres que PDF.<br/>Pour toute option autre que « none », les images seront exposées dans le champ *normalized_images*. <br/>La valeur par défaut est « none ». Cette configuration est pertinente uniquement pour des sources de données d’objet blob quand le paramètre « dataToExtract » est défini sur « contentAndMetadata ». <br/>Un maximum de 1000 images est extraits à partir d’un document donné. S’il existe plus de 1000 images dans un document, les 1 000 premières seront extraites et un avertissement est généré. |
+| imageAction   | Défini sur « none » si aucune action ne doit être effectuée quand des images incorporées ou des fichiers image sont rencontrés. <br/>Défini sur « generateNormalizedImages » pour générer un tableau d’images normalisées dans le cadre du décodage de document.<br/>Défini sur « generateNormalizedImages » pour générer un tableau d’images normalisées où, pour les PDF de votre source de données, chaque page s’affiche en tant qu’image de sortie unique.  La fonctionnalité est la même que « generateNormalizedImages » pour les types de fichiers autres que PDF.<br/>Pour toute option autre que « none », les images seront exposées dans le champ *normalized_images*. <br/>La valeur par défaut est « none ». Cette configuration est pertinente uniquement pour des sources de données d’objet blob quand le paramètre « dataToExtract » est défini sur « contentAndMetadata ». <br/>Au maximum, 1 000 images seront extraites d'un document donné. Si un document contient plus de 1 000 images, les 1 000 premières seront extraites et un avertissement sera généré. |
 |  normalizedImageMaxWidth | Largeur maximale (en pixels) des images normalisées générées. La valeur par défaut est 2000.|
 |  normalizedImageMaxHeight | Hauteur maximale (en pixels) des images normalisées générées. La valeur par défaut est 2000.|
 

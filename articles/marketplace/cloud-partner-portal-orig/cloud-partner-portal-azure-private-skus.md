@@ -1,5 +1,5 @@
 ---
-title: Références (SKU) privés et les plans | Place de marché Azure
+title: Références SKU et plans privés | Place de marché Azure
 description: Comment utiliser des références SKU privées pour gérer la disponibilité des offres.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
 ms.openlocfilehash: 6efdb1c28777d9230727066fdba03d2850be62b0
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64935918"
 ---
 <a name="private-skus-and-plans"></a>Références SKU et plans privés
