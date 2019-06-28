@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
 ms.openlocfilehash: 3a0ae782d3fe97752ca8b9e786c3c2672f554277
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64936019"
 ---
 # <a name="visualize-network-traffic-patterns-to-and-from-your-vms-using-open-source-tools"></a>Visualiser les modèles de trafic réseau depuis et vers les machines virtuelles à l’aide d’outils open source
@@ -76,7 +76,7 @@ CapAnalysis propose différentes options pour visualiser la capture de paquets. 
 
 1. Carte des zones géographiques
 
-    Ce volet vous fournit une vue cartographique de votre trafic réseau, avec des couleurs correspondant au volume de trafic à partir de chaque pays/région. Vous pouvez sélectionner les pays/régions en surbrillance pour afficher les statistiques de flux supplémentaires, telles que la proportion de données envoyées et reçues à partir d’adresses IP dans ce pays/région.
+    Ce volet vous fournit une vue cartographique de votre trafic réseau, avec des couleurs correspondant au volume de trafic de chaque pays/région. Vous pouvez sélectionner les pays/régions en surbrillance pour afficher des statistiques de flux supplémentaires, telles que la proportion de données envoyées et reçues à partir des adresses IP dans ce pays ou cette région.
 
     ![carte des zones géographiques][8]
 

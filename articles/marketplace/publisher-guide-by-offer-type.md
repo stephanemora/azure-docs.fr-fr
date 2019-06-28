@@ -1,5 +1,5 @@
 ---
-title: Déterminer votre publication Option dans la place de marché Azure | Place de marché Azure
+title: Déterminer votre option de publication sur la Place de marché Azure | Place de marché Azure
 description: Cet article décrit les critères d’éligibilité et les exigences de publication pour les partenaires qui essaient de comprendre comment publier des applications dans la Place de marché Azure.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: qianw211
@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 11/13/2018
 ms.author: qianw211
 ms.openlocfilehash: e7867d5ea95cd3142a6f617a5554858b7a72cbc9
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64937666"
 ---
 # <a name="publishing-guide-by-offer-type"></a>Guide de publication par Type d’offre

@@ -17,18 +17,18 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 309adfbebd4f4b615ac1f4061823ca01f3d3ee15
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65139287"
 ---
 # <a name="azure-ad-connect-sync-scheduler"></a>Synchronisation d’Azure AD Connect : Scheduler
-Cette rubrique décrit le Planificateur intégré dans Azure AD Connect sync (moteur de synchronisation).
+Cette rubrique décrit le planificateur intégré dans Azure AD Connect Sync (moteur de synchronisation).
 
 Cette fonctionnalité a été introduite avec la version 1.1.105.0 (publiée en février 2016).
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 La synchronisation Azure AD Connect synchronise les modifications dans votre répertoire local à l’aide d’un planificateur. Il existe deux processus de planificateur, l’un pour la synchronisation de mot de passe et l’autre pour la synchronisation d’attribut/d’objet, ainsi que des tâches de maintenance. Cette rubrique couvre ce dernier.
 
 Dans les versions antérieures, le planificateur utilisé pour les objets et attributs était externe au moteur de synchronisation. Il utilisait le Planificateur de tâches Windows ou un service Windows distinct pour déclencher le processus de synchronisation. Le planificateur de la version 1.1 est intégré au moteur de synchronisation et permet de personnaliser certains aspects. La nouvelle valeur de la fréquence de synchronisation par défaut est de 30 minutes.
@@ -72,7 +72,7 @@ La configuration du planificateur est stockée dans Azure AD. Si vous avez un se
 
 ### <a name="customizedsynccycleinterval"></a>CustomizedSyncCycleInterval
 Syntaxe : `Set-ADSyncScheduler -CustomizedSyncCycleInterval d.HH:mm:ss`  
- d - jours, HH - heures, mm - minutes, ss - secondes
+d - jours, HH - heures, mm - minutes, ss - secondes
 
 Exemple : `Set-ADSyncScheduler -CustomizedSyncCycleInterval 03:00:00`  
 Modifie le planificateur pour qu’il s’exécute toutes les 3 heures.
@@ -93,7 +93,7 @@ Une fois vos modifications apportées, n’oubliez pas d’activer de nouveau le
 Par défaut, le planificateur s’exécute toutes les 30 minutes. Dans certains cas, vous souhaiterez peut-être exécuter un cycle de synchronisation entre les cycles planifiés ou vous devrez exécuter un autre type de synchronisation.
 
 ### <a name="delta-sync-cycle"></a>Cycle de synchronisation delta
- Un cycle de synchronisation delta comprend les étapes suivantes :
+Un cycle de synchronisation delta comprend les étapes suivantes :
 
 
 - Importation delta sur tous les connecteurs
@@ -109,24 +109,24 @@ Un cycle de synchronisation complète comprend les étapes suivantes :
 
 Cela peut indiquer une modification urgente à synchroniser immédiatement, nécessitant l’exécution manuelle d’un cycle. 
 
-Si vous avez besoin d’exécuter manuellement un cycle de synchronisation, puis à partir de PowerShell exécuter `Start-ADSyncSyncCycle -PolicyType Delta`.
+Si nécessaire, vous pouvez exécuter manuellement un cycle de synchronisation en exécutant `Start-ADSyncSyncCycle -PolicyType Delta` à partir de PowerShell.
 
 Pour initier un cycle de synchronisation complète, exécutez `Start-ADSyncSyncCycle -PolicyType Initial` à partir d’une invite PowerShell.   
 
-Exécute un cycle de synchronisation complète peut être très long, lisez la section suivante pour découvrir comment optimiser ce processus.
+L'exécution d'un cycle de synchronisation complète peut prendre beaucoup de temps. Reportez-vous à la section suivante pour savoir comment optimiser ce processus.
 
-### <a name="sync-steps-required-for-different-configuration-changes"></a>Les étapes requises pour les modifications de configuration différents de synchronisation
-Modifications de configuration différents nécessitent des étapes de synchronisation différents permettant de vérifier que les modifications sont correctement appliquées à tous les objets.
+### <a name="sync-steps-required-for-different-configuration-changes"></a>Étapes de synchronisation requises en fonction des modifications apportées à la configuration
+Selon les modifications apportées à la configuration, différentes étapes de synchronisation sont nécessaires pour veiller à ce que les modifications soient correctement appliquées à tous les objets.
 
-- Ajouté plusieurs objets ou attributs sera importé à partir d’un répertoire source (par ajout/en modifiant les règles de synchronisation)
+- Ajout de plusieurs objets ou attributs à importer à partir d'un répertoire source (en ajoutant/modifiant des règles de synchronisation)
     - Une importation complète est requise sur le connecteur pour ce répertoire source
 - Modifications apportées aux règles de synchronisation
     - Une synchronisation complète est requise sur le connecteur pour les règles de synchronisation modifiées
 - Le [filtrage](how-to-connect-sync-configure-filtering.md) étant modifié, un nombre différent d’objets doit être inclus
-    - Une importation complète est requis sur le connecteur pour chaque connecteur Active Directory, sauf si vous utilisez filtrage basé sur un attribut basé sur des attributs qui sont déjà importés dans le moteur de synchronisation
+    - Une importation complète est requise sur le connecteur pour chaque connecteur AD, SAUF si vous utilisez un filtrage basé sur les attributs déjà importés dans le moteur de synchronisation
 
-### <a name="customizing-a-sync-cycle-run-the-right-mix-of-delta-and-full-sync-steps"></a>Personnalisation d’un cycle de synchronisation exécuter la bonne combinaison entre les étapes de synchronisation Delta et complet
-Pour éviter d’exécuter un cycle de synchronisation complète, vous pouvez marquer des connecteurs spécifiques pour exécuter une étape complète à l’aide des applets de commande suivantes.
+### <a name="customizing-a-sync-cycle-run-the-right-mix-of-delta-and-full-sync-steps"></a>La personnalisation d'un cycle de synchronisation exécute la bonne combinaison d'étapes de synchronisation delta et de synchronisation complète
+Pour éviter d'exécuter un cycle de synchronisation complète, vous pouvez indiquer à certains connecteurs d'exécuter une étape Complète à l'aide des cmdlets suivantes.
 
 `Set-ADSyncSchedulerConnectorOverride -Connector <ConnectorGuid> -FullImportRequired $true`
 
@@ -134,13 +134,13 @@ Pour éviter d’exécuter un cycle de synchronisation complète, vous pouvez ma
 
 `Get-ADSyncSchedulerConnectorOverride -Connector <ConnectorGuid>` 
 
-Exemple :  Si vous avez modifié les règles de synchronisation pour le connecteur « Forêt AD A » qui ne nécessitent pas tous les nouveaux attributs à être importé, vous exécuteriez ce qui suit les applets de commande pour exécuter une synchronisation delta cycle qui également avez fait une synchronisation complète l’étape pour ce connecteur.
+Exemple :  Si vous avez apporté des modifications aux règles de synchronisation du connecteur « Forêt AD A » et qu'il n'est pas nécessaire d'importer de nouveaux attributs, utilisez les cmdlets suivantes pour exécuter un cycle de synchronisation delta ayant également suivi une étape Synchronisation complète pour ce connecteur.
 
 `Set-ADSyncSchedulerConnectorOverride -ConnectorName “AD Forest A” -FullSyncRequired $true`
 
 `Start-ADSyncSyncCycle -PolicyType Delta`
 
-Exemple :  Si vous avez modifié les règles de synchronisation pour le connecteur « Forêt AD A » afin qu’elles nécessitent désormais un nouvel attribut à être importé, vous exécuteriez les applets de commande suivantes pour exécuter un cycle de synchronisation delta qui a également une importation complète, l’étape de synchronisation complète pour ce connecteur.
+Exemple :  Si vous avez apporté des modifications aux règles de synchronisation du connecteur « Forêt AD A » et qu'il est désormais nécessaire d'importer un nouvel attribut, utilisez les cmdlets suivantes pour exécuter un cycle de synchronisation delta ayant également suivi une étape Importation complète, Synchronisation complète pour ce connecteur.
 
 `Set-ADSyncSchedulerConnectorOverride -ConnectorName “AD Forest A” -FullImportRequired $true`
 
@@ -199,7 +199,7 @@ Get-ADSyncConnectorRunStatus
 ```
 
 ![État d’exécution du connecteur](./media/how-to-connect-sync-feature-scheduler/getconnectorrunstatus.png)  
- Dans l'illustration ci-dessus, la première ligne est dans un état où le moteur de synchronisation est inactif. La deuxième ligne lorsque le Connecteur Azure AD est en cours d'exécution.
+Dans l'illustration ci-dessus, la première ligne est dans un état où le moteur de synchronisation est inactif. La deuxième ligne lorsque le Connecteur Azure AD est en cours d'exécution.
 
 ## <a name="scheduler-and-installation-wizard"></a>Planificateur et Assistant d’installation
 Si vous démarrez l’Assistant d’installation, le planificateur est temporairement interrompu. Ce comportement repose sur l’hypothèse que vous apportez des modifications de configuration et le fait que ces paramètres ne peuvent pas être appliqués si le moteur de synchronisation s’exécute activement. Pour cette raison, ne laissez pas l’Assistant d’installation ouvert, car il empêche le moteur de synchronisation d’effectuer toutes les actions de synchronisation.

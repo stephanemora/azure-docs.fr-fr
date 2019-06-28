@@ -1,5 +1,5 @@
 ---
-title: Modèle de Solution d’Applications Azure offrent le Guide de publication | Place de marché Azure
+title: Guide de publication d’offres de modèle de solution d’applications Azure | Place de marché Azure
 description: Cet article décrit les conditions requises pour publier un modèle de solution sur la Place de marché Azure.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: ellacroi
@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 11/15/2018
 ms.author: ellacroi
 ms.openlocfilehash: c2393b6ea9f1a2c2b35be63272743e081f4ae240
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64937744"
 ---
 # <a name="azure-applications-solution-template-offer-publishing-guide"></a>Applications Azure : Guide de publication d’offres de modèle de solution

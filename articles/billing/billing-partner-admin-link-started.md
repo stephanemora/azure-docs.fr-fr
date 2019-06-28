@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.openlocfilehash: 6bf61e2afd96e3923938ac4f815d34ae08f7c618
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64694221"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Lier un ID partenaire à vos comptes Azure
@@ -139,22 +139,22 @@ Le lien entre l’ID partenaire et le compte est établi pour chaque locataire c
 Le lien est associé au niveau du compte d'utilisateur. Vous seul pouvez modifier ou supprimer le lien vers l’ID partenaire. Le client et les autres partenaires ne peuvent pas modifier le lien vers l’ID partenaire.
 
 
-**Les ID MPN dois-je utiliser si ma société possède plusieurs ?**
+**Quel ID MPN utiliser si ma société en possède plusieurs ?**
 
-Vous pouvez utiliser n’importe quel ID MPN valide à l’exception organization(v-org) virtuel ID MPN. La plupart des partenaires choisissent d’utiliser l’ID MPN pour la zone géographique dans lequel est basé le client ou les services sont remis.
+Vous pouvez utiliser n’importe quel ID MPN valide à l’exception d’un ID MPN d’organisation virtuelle (v-org). La plupart des partenaires choisissent d’utiliser l’ID MPN de la zone géographique dans laquelle le client est basé ou les services remis.
 
-**Où puis-je trouver influencé chiffre d’affaires reporting pour l’ID de partenaire lié ?**
+**Où trouver un rapport sur le chiffre d’affaires influencé pour l’ID de partenaire lié ?**
 
-Vous pouvez trouver des rapports de ventes influencé chez [tableau de bord Insights Mes](https://partner.microsoft.com/membership/reports/myinsights). Vous devez sélectionner le lien d’administrateur partenaire en tant que le type d’association de partenaire.
+Vous pouvez trouver un rapport sur le chiffre d’affaires influencé dans le [tableau de bord Insights Mes insights](https://partner.microsoft.com/membership/reports/myinsights). Vous devez sélectionner le lien d’administrateur partenaire en tant que le type d’association partenaire.
 
 **Pourquoi ne puis-je pas voir mon client dans les rapports ?**
 
-Vous ne voyez pas le client dans les rapports en raison des raisons suivantes
+Vous ne voyez pas le client dans les rapports pour les raisons suivantes
 
-1. Le compte d’utilisateur lié n’a pas [accès en fonction de rôle](https://docs.microsoft.com/azure/role-based-access-control/overview) sur n’importe quel abonnement Azure du client ou de la ressource.
+1. Le compte d’utilisateur lié n’a pas d’[accès en fonction du rôle](https://docs.microsoft.com/azure/role-based-access-control/overview) à un abonnement ou à une ressource Azure du client.
 
-2. L’abonnement Azure où l’utilisateur a [accès en fonction de rôle](https://docs.microsoft.com/azure/role-based-access-control/overview) toute utilisation n’a pas accès.
+2. L’abonnement Azure auquel l’utilisateur a [accès en fonction du rôle](https://docs.microsoft.com/azure/role-based-access-control/overview) n’est d’aucune utilité.
 
-**Fournit un lien partenaire QU'ID fonctionne avec Azure Stack ?**
+**L’option Lier un ID partenaire fonctionne-t-elle avec Azure Stack ?**
 
 Oui, vous pouvez lier votre ID partenaire pour Azure Stack.

@@ -20,10 +20,10 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: deea16b8670623acd2ae92ba62f579f5474d12ec
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65790895"
 ---
 # <a name="add-language-analyzers-to-an-azure-search-index"></a>Ajouter des analyseurs linguistiques à un index de Recherche Azure
@@ -59,11 +59,11 @@ Pour plus d’informations sur les propriétés d’index, voir [Créer un index
 ## <a name="language-analyzer-list"></a>Liste d’analyseurs linguistiques 
  Voici la liste des langues prises en charge avec les noms d’analyseur Lucene et Microsoft.  
 
-|Langue|Nom de l’analyseur Microsoft|Nom de l’analyseur Lucene|  
+|Langage|Nom de l’analyseur Microsoft|Nom de l’analyseur Lucene|  
 |--------------|-----------------------------|--------------------------|  
 |Arabe|ar.microsoft|ar.lucene|  
 |Arménien||hy.lucene|  
-|Bengali|bn.microsoft||  
+|Bangla|bn.microsoft||  
 |Basque||eu.lucene|  
 |Bulgare|bg.microsoft|bg.lucene|  
 |Catalan|ca.microsoft|ca.lucene|  

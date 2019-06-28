@@ -14,44 +14,44 @@ ms.topic: article
 ms.date: 04/21/2019
 ms.author: juliako
 ms.openlocfilehash: c957a98cdb6c195f7ed9b41dabc66a32714f57e7
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65142522"
 ---
 # <a name="tutorial-use-aes-128-dynamic-encryption-and-the-key-delivery-service"></a>Didacticiel : Utiliser le chiffrement dynamique AES-128 et le service de distribution des clés
 
-Vous pouvez utiliser Media Services pour transmettre du contenu HTTP Live Streaming (HLS), MPEG-DASH et Smooth Streaming chiffré avec AES à l’aide de clés de chiffrement 128 bits. Media Services assure également le service de distribution des clés qui fournit des clés de chiffrement aux utilisateurs autorisés. Si vous souhaitez que Media Services chiffrer dynamiquement votre vidéo, vous associez la clé de chiffrement de localisateur de diffusion en continu et également configurer la stratégie de clé de contenu. Lorsqu’un flux est demandé par un lecteur, Media Services utilise la clé spécifiée pour chiffrer dynamiquement votre contenu avec AES-128. Pour déchiffrer le flux de données, le lecteur demande la clé au service de remise de clé. Pour déterminer si l’utilisateur est autorisé à obtenir la clé, le service évalue la stratégie de clé de contenu que vous avez spécifiée pour la clé.
+Vous pouvez utiliser Media Services pour transmettre du contenu HTTP Live Streaming (HLS), MPEG-DASH et Smooth Streaming chiffré avec AES à l’aide de clés de chiffrement 128 bits. Media Services assure également le service de distribution des clés qui fournit des clés de chiffrement aux utilisateurs autorisés. Si vous souhaitez que Media Services chiffre dynamiquement votre vidéo, associez une clé de chiffrement au localisateur de streaming et configurez la stratégie de clé de contenu. Lorsqu’un lecteur demande un flux de données, Media Services utilise la clé spécifiée pour chiffrer dynamiquement votre contenu avec AES-128. Pour déchiffrer le flux de données, le lecteur demande la clé au service de remise de clé. Pour déterminer si l’utilisateur est autorisé à obtenir la clé, le service évalue la stratégie de clé de contenu que vous avez spécifiée pour la clé.
 
-Vous pouvez chiffrer chaque ressource avec plusieurs types de chiffrement (AES-128, PlayReady, Widevine, FairPlay). Consultez les [protocoles de diffusion en continu et les types de chiffrement](content-protection-overview.md#streaming-protocols-and-encryption-types) pour identifier la meilleure combinaison. En outre, consultez [comment protéger par DRM](protect-with-drm.md).
+Vous pouvez chiffrer chaque ressource avec plusieurs types de chiffrement (AES-128, PlayReady, Widevine, FairPlay). Consultez les [protocoles de diffusion en continu et les types de chiffrement](content-protection-overview.md#streaming-protocols-and-encryption-types) pour identifier la meilleure combinaison. Consultez aussi [Protéger avec DRM](protect-with-drm.md).
 
-La sortie de l’exemple de cet article inclut une URL pour Azure Media Player, URL du manifeste et le jeton AES nécessaires pour lire le contenu. L’exemple définit l’expiration du jeton JWT à sur 1 heure. Vous pouvez ouvrir un navigateur et coller l’URL obtenue pour lancer la page de démonstration du lecteur multimédia Azure avec l’URL et le jeton déjà renseignés pour vous au format suivant : ```https://ampdemo.azureedge.net/?url= {dash Manifest URL} &aes=true&aestoken=Bearer%3D{ JWT Token here}```.
+La sortie de l’exemple de cet article inclut une URL menant au lecteur multimédia Azure, l'URL du manifeste et le jeton AES nécessaires pour lire le contenu. L’exemple définit l’expiration du jeton JWT à sur 1 heure. Vous pouvez ouvrir un navigateur et coller l’URL obtenue pour lancer la page de démonstration du lecteur multimédia Azure avec l’URL et le jeton déjà renseignés pour vous au format suivant : ```https://ampdemo.azureedge.net/?url= {dash Manifest URL} &aes=true&aestoken=Bearer%3D{ JWT Token here}```.
 
 Ce didacticiel vous explique les procédures suivantes :    
 
 > [!div class="checklist"]
-> * Téléchargez le [EncryptWithAES](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES) exemple décrit dans l’article
+> * Télécharger l'exemple [EncryptWithAES](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES) décrit dans l’article
 > * Commencer à utiliser les API Media Services avec le Kit de développement logiciel (SDK) .NET
 > * Créer une ressource de sortie
-> * Créer une transformation de l’encodage
+> * Créer un encodage de transformation
 > * Soumettre un travail
 > * Attendre la fin du travail
 > * Créer une stratégie de clé de contenu
 > * Configurer la stratégie pour utiliser la restriction par jeton JWT 
 > * Créer un localisateur de streaming
-> * Configurer le localisateur de diffusion en continu pour chiffrer la vidéo avec AES (ClearKey)
+> * Configurer le localisateur de streaming pour chiffrer la vidéo avec AES (ClearKey)
 > * Obtenir un test de jeton
-> * Générer une URL de diffusion en continu
+> * Créer une URL de diffusion en continu
 > * Supprimer des ressources
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Les éléments suivants sont requis pour suivre le didacticiel.
 
-* Examinez le [vue d’ensemble de la protection de contenu](content-protection-overview.md) article
+* Consultez l’article [Présentation de la protection du contenu](content-protection-overview.md).
 * Installer Visual Studio Code ou Visual Studio
 * [Créer un compte Media Services](create-account-cli-quickstart.md)
 * Obtenir les informations d’identification nécessaires pour utiliser les API Media Services en respectant l’[accès aux API](access-api-cli-how-to.md)
@@ -107,7 +107,7 @@ Le **travail** passe généralement par les états suivants : **Planifié**, **
 
 ## <a name="create-a-content-key-policy"></a>Créer une stratégie de clé de contenu
 
-Une clé de contenu fournit un accès sécurisé à vos éléments multimédias. Vous devez créer un **stratégie de la clé de contenu** qui configure le mode de remise de la clé de contenu pour les clients. Associé à la clé de contenu **localisateur de diffusion en continu**. Media Services assure également le service de distribution des clés qui fournit des clés de chiffrement aux utilisateurs autorisés. 
+Une clé de contenu fournit un accès sécurisé à vos éléments multimédias. Vous devez créer une **stratégie de clé de contenu** qui configure le mode de remise de la clé de contenu pour les clients finaux. La clé de contenu est associée au **localisateur de streaming**. Media Services assure également le service de distribution des clés qui fournit des clés de chiffrement aux utilisateurs autorisés. 
 
 Lorsqu’un lecteur demande un flux de données, Media Services utilise la clé spécifiée pour chiffrer dynamiquement votre contenu (dans ce cas, à l’aide du chiffrement AES). Pour déchiffrer le flux de données, le lecteur demande la clé au service de remise de clé. Pour déterminer si l’utilisateur est autorisé à obtenir la clé, le service évalue la stratégie de clé de contenu que vous avez spécifiée pour la clé.
 
@@ -120,12 +120,12 @@ Une fois l’encodage terminé, et la stratégie de clé de contenu configurée,
 1. Créer un [localisateur de streaming](https://docs.microsoft.com/rest/api/media/streaminglocators)
 2. Générez les URL de streaming que les clients peuvent utiliser. 
 
-Le processus de création du **localisateur de diffusion en continu** est appelée publication. Par défaut, le **localisateur de streaming** est valide immédiatement après avoir effectué les appels d’API et dure jusqu’à ce qu’il soit supprimé, sauf si vous configurez les durées de début et de fin optionnelles. 
+Le processus de création du **localisateur de streaming** est appelé publication. Par défaut, le **localisateur de streaming** est valide immédiatement après avoir effectué les appels d’API et dure jusqu’à ce qu’il soit supprimé, sauf si vous configurez les durées de début et de fin optionnelles. 
 
 Lors de la création d’un [localisateur de streaming](https://docs.microsoft.com/rest/api/media/streaminglocators), vous devez spécifier la valeur **StreamingPolicyName** souhaitée. Dans ce tutoriel, nous utilisons un des éléments PredefinedStreamingPolicies, ce qui indique à Azure Media Services comment publier le contenu en vue de la diffusion en continu. Dans cet exemple, le chiffrement AES Envelope est appliqué (également appelé chiffrement ClearKey, car la clé est envoyée au client de la lecture via HTTPS et pas une licence DRM).
 
 > [!IMPORTANT]
-> Lorsque vous utilisez une stratégie [StreamingPolicy](https://docs.microsoft.com/rest/api/media/streamingpolicies) personnalisée, vous devez concevoir un ensemble limité de ces stratégies pour votre compte Media Services et les réutiliser pour vos éléments StreamingLocators chaque fois que les mêmes protocoles et options de chiffrement sont nécessaires. Votre compte Media Services a un quota en matière de nombre d’entrées de stratégie StreamingPolicy. Vous ne devez pas créer un nouveau StreamingPolicy pour chaque localisateur de diffusion en continu.
+> Lorsque vous utilisez une stratégie [StreamingPolicy](https://docs.microsoft.com/rest/api/media/streamingpolicies) personnalisée, vous devez concevoir un ensemble limité de ces stratégies pour votre compte Media Services et les réutiliser pour vos éléments StreamingLocators chaque fois que les mêmes protocoles et options de chiffrement sont nécessaires. Votre compte Media Services a un quota en matière de nombre d’entrées de stratégie StreamingPolicy. Vous ne devez pas créer de stratégie StreamingPolicy pour chaque localisateur de streaming.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithAES/Program.cs#CreateStreamingLocator)]
 
@@ -133,19 +133,19 @@ Lors de la création d’un [localisateur de streaming](https://docs.microsoft.c
         
 Dans ce didacticiel, nous spécifions que la stratégie de clé de contenu a une restriction au niveau du jeton. La stratégie de restriction à jeton doit être accompagnée d’un jeton émis par un service d’émission de jeton de sécurité (STS). Media Services prend en charge les jetons aux formats [JSON Web Token](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3) (JWT), et c’est ce qui est configuré dans cet exemple.
 
-Le ContentKeyIdentifierClaim est utilisé dans le **stratégie de la clé de contenu**, ce qui signifie que le jeton présenté au service de remise de clé doit contenir l’identificateur de la clé de contenu. Dans l’exemple, nous n’avez pas spécifié un contenu clé lors de la création du localisateur de diffusion en continu, le système a créé un de manière aléatoire pour nous. Afin de générer le jeton de test, nous devons obtenir l’élément ContentKeyId à placer dans la revendication ContentKeyIdentifierClaim.
+L’élément ContentKeyIdentifierClaim est utilisé dans la **Stratégie de clé de contenu**, ce qui signifie que le jeton présenté au service de remise de clé doit contenir l’identificateur de la clé de contenu. Dans l’exemple, nous ne spécifions pas de clé de contenu lors de la création du localisateur de streaming. Le système en crée une de manière aléatoire pour nous. Afin de générer le jeton de test, nous devons obtenir l’élément ContentKeyId à placer dans la revendication ContentKeyIdentifierClaim.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithAES/Program.cs#GetToken)]
 
 ## <a name="build-a-dash-streaming-url"></a>Générer une URL de diffusion en continu DASH
 
-Maintenant que le [localisateur de diffusion en continu](https://docs.microsoft.com/rest/api/media/streaminglocators) a été créé, vous pouvez obtenir les URL de diffusion en continu. Pour générer une URL, vous devez concaténer la [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints) nom d’hôte et le **localisateur de diffusion en continu** chemin d’accès. Dans cet exemple, le **point de terminaison de streaming** *par défaut* est utilisé. Quand vous créez pour la première fois un compte Media Services, ce **point de terminaison de streaming** *par défaut* est dans l’état Arrêté. Vous devez donc appeler **Start**.
+Maintenant que le [localisateur de streaming](https://docs.microsoft.com/rest/api/media/streaminglocators) a été créé, vous pouvez obtenir les URL de diffusion en continu. Pour générer une URL, vous devez concaténer le nom d’hôte [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints) et le chemin d’accès du **localisateur de streaming**. Dans cet exemple, le **point de terminaison de streaming** *par défaut* est utilisé. Quand vous créez pour la première fois un compte Media Services, ce **point de terminaison de streaming** *par défaut* est dans l’état Arrêté. Vous devez donc appeler **Start**.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithAES/Program.cs#GetMPEGStreamingUrl)]
 
 ## <a name="clean-up-resources-in-your-media-services-account"></a>Supprimer les ressources de votre compte Media Services
 
-En règle générale, vous devez nettoyer tout sauf les objets que vous envisagez de réutiliser (en règle générale, vous prévoyez de réutiliser les transformations, et vous persistera localisateurs de diffusion en continu, etc.). Si vous souhaitez que votre compte soit propre après avoir effectué vos expériences, vous devez supprimer les ressources que vous n’envisagez pas de réutiliser.  Par exemple, le code suivant supprime les travaux.
+En général, vous devez nettoyer tous les éléments à l’exception des objets que vous envisagez de réutiliser (normalement, vous réutilisez les transformations et conservez les localisateurs de streaming, etc.). Si vous souhaitez que votre compte soit propre après avoir effectué vos expériences, vous devez supprimer les ressources que vous n’envisagez pas de réutiliser.  Par exemple, le code suivant supprime les travaux.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithAES/Program.cs#CleanUp)]
 
@@ -159,7 +159,7 @@ Exécutez la commande CLI suivante :
 az group delete --name amsResourceGroup
 ```
 
-## <a name="ask-questions-give-feedback-get-updates"></a>Posez des questions, commentaires, obtenir des mises à jour
+## <a name="ask-questions-give-feedback-get-updates"></a>Poser des questions, envoyer des commentaires, obtenir des mises à jour
 
 Découvrez l’article [Communauté Azure Media Services](media-services-community.md) pour découvrir les différentes façons dont vous pouvez poser des questions, faire des commentaires et obtenir des mises à jour sur Media Services.
 

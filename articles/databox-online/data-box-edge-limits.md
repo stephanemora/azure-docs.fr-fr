@@ -1,6 +1,6 @@
 ---
 title: Limites d’Azure Data Box Edge | Microsoft Docs
-description: Décrit les limites du système et les tailles recommandées pour la bordure de zone de données Azure.
+description: Décrit les limites système et les tailles recommandées pour Azure Data Box Edge.
 services: databox
 author: alkohli
 ms.service: databox
@@ -9,13 +9,13 @@ ms.topic: article
 ms.date: 03/22/2019
 ms.author: alkohli
 ms.openlocfilehash: b454b563cdb870ca8f07a45b796dc6b1e272502d
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64924600"
 ---
-# <a name="azure-data-box-edge-limits"></a>Limites de bord de zone de données Azure
+# <a name="azure-data-box-edge-limits"></a>Limites d'Azure Data Box Edge
 
 Tenez compte de ces limites quand vous déployez et utilisez votre solution Microsoft Azure Data Box Edge.
 

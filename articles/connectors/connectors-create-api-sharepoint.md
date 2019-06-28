@@ -12,10 +12,10 @@ ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
 ms.openlocfilehash: e636b2bb08477e6c56c6ae41f08983fc5bfa2a9b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60450741"
 ---
 # <a name="monitor-and-manage-sharepoint-resources-with-azure-logic-apps"></a>Superviser et gérer les ressources SharePoint avec Azure Logic Apps
@@ -37,7 +37,7 @@ Avec Azure Logic Apps et le connecteur SharePoint, vous pouvez créer des tâche
 Vous pouvez utiliser des déclencheurs qui obtiennent des réponses de SharePoint et mettent la sortie à la disposition d’autres actions. Vous pouvez utiliser des actions dans vos applications logiques pour effectuer des tâches dans SharePoint. Vous pouvez également faire en sorte que des actions utilisent la sortie d’actions SharePoint. Par exemple, si vous récupérez régulièrement des fichiers de SharePoint, vous pouvez envoyer des messages à votre équipe à l’aide du connecteur Slack.
 Si vous débutez avec les applications logiques, consultez [Qu’est-ce qu’Azure Logic Apps ?](../logic-apps/logic-apps-overview.md)
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscrivez-vous pour bénéficier d’un compte Azure gratuit</a>. 
 
@@ -70,9 +70,9 @@ Si vous débutez avec les applications logiques, consultez [Qu’est-ce qu’Azu
    Sous la liste des actions, sélectionnez l’action souhaitée.
 
    Pour ajouter une action entre des étapes, placez votre pointeur au-dessus de la flèche qui les sépare. 
-   Cliquez sur le signe plus (**+**) qui s’affiche, puis sélectionnez **Ajouter une action**.
+   Cliquez sur le signe plus ( **+** ) qui s’affiche, puis sélectionnez **Ajouter une action**.
 
-1. Quand vous êtes invité à vous connecter, fournissez les informations de connexion nécessaires. Si vous utilisez SharePoint Server, veillez à sélectionner **se connecter via la passerelle de données locale**. Lorsque vous êtes prêt, choisissez **Créer**.
+1. Quand vous êtes invité à vous connecter, fournissez les informations de connexion nécessaires. Si vous utilisez SharePoint Server, veillez à sélectionner **Se connecter via une passerelle de données locale**. Lorsque vous êtes prêt, choisissez **Créer**.
 
 1. Fournissez les informations nécessaires pour le déclencheur ou l’action sélectionnés et continuez à générer le flux de travail de votre application logique.
 

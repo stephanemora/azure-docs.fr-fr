@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 05/09/2018
 ms.author: kumud
 ms.openlocfilehash: a67f1cca54c89ead9ae7fc46ef0c9fc8c5217c74
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64682056"
 ---
 # <a name="view-the-topology-of-an-azure-virtual-network"></a>Afficher la topologie d’un réseau virtuel Azure
@@ -87,17 +87,17 @@ Le compte que vous utilisez doit disposer des [autorisations](required-rbac-perm
 
 Vous pouvez exécuter les commandes dans les étapes qui suivent :
 - Dans Azure Cloud Shell, en sélectionnant **Essayer** en haut à droite d’une commande. Azure Cloud Shell est un interpréteur de commandes interactif gratuit dans lequel les outils Azure communs ont été préinstallés et configurés pour pouvoir être utilisés avec votre compte.
-- En exécutant PowerShell à partir de votre ordinateur. Si vous exécutez PowerShell à partir de votre ordinateur, cet article nécessite Azure PowerShell `Az` module. Exécutez `Get-Module -ListAvailable Az` pour rechercher la version installée. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-Az-ps). Si vous exécutez PowerShell en local, vous devez également lancer `Connect-AzAccount` pour créer une connexion avec Azure.
+- En exécutant PowerShell à partir de votre ordinateur. Si vous exécutez PowerShell depuis votre ordinateur, cet article nécessite le module Azure PowerShell `Az`. Exécutez `Get-Module -ListAvailable Az` pour rechercher la version installée. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-Az-ps). Si vous exécutez PowerShell en local, vous devez également lancer `Connect-AzAccount` pour créer une connexion avec Azure.
 
 Le compte que vous utilisez doit disposer des [autorisations](required-rbac-permissions.md) nécessaires.
 
-1. Si vous avez déjà un observateur réseau dans la même région que le réseau virtuel pour lequel vous souhaitez créer une topologie, passez à l’étape 3. Créer un groupe de ressources pour qu’il contienne un network watcher avec [New-AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup). L’exemple suivant permet de créer le groupe de ressources dans la région *eastus* :
+1. Si vous avez déjà un observateur réseau dans la même région que le réseau virtuel pour lequel vous souhaitez créer une topologie, passez à l’étape 3. Créez un groupe de ressources qui contiendra un observateur réseau avec la commande [New-AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup). L’exemple suivant permet de créer le groupe de ressources dans la région *eastus* :
 
     ```azurepowershell-interactive
     New-AzResourceGroup -Name NetworkWatcherRG -Location EastUS
     ```
 
-2. Créer un network watcher avec [New-AzNetworkWatcher](/powershell/module/az.network/new-aznetworkwatcher). L’exemple suivant permet de créer un observateur réseau dans la région eastus :
+2. Créez un observateur réseau avec [New-AzNetworkWatcher](/powershell/module/az.network/new-aznetworkwatcher). L’exemple suivant permet de créer un observateur réseau dans la région eastus :
 
     ```azurepowershell-interactive
     New-AzNetworkWatcher `
@@ -105,7 +105,7 @@ Le compte que vous utilisez doit disposer des [autorisations](required-rbac-perm
       -ResourceGroupName NetworkWatcherRG
     ```
 
-3. Récupérer une instance de Network Watcher avec [Get-AzNetworkWatcher](/powershell/module/az.network/get-aznetworkwatcher). L’exemple suivant permet de récupérer un observateur réseau dans la région USA Est :
+3. Récupérez une instance de Network Watcher avec [Get-AzNetworkWatcher](/powershell/module/az.network/get-aznetworkwatcher). L’exemple suivant permet de récupérer un observateur réseau dans la région USA Est :
 
     ```azurepowershell-interactive
     $nw = Get-AzResource `
@@ -115,7 +115,7 @@ Le compte que vous utilisez doit disposer des [autorisations](required-rbac-perm
       -ResourceGroupName $nw.ResourceGroupName
     ```
 
-4. Récupérer une topologie avec [Get-AzNetworkWatcherTopology](/powershell/module/az.network/get-aznetworkwatchertopology). L’exemple suivant permet de récupérer la topologie d’un réseau virtuel dans le groupe de ressources *MyResourceGroup* :
+4. Récupérez une topologie avec [Get-AzNetworkWatcherTopology](/powershell/module/az.network/get-aznetworkwatchertopology). L’exemple suivant permet de récupérer la topologie d’un réseau virtuel dans le groupe de ressources *MyResourceGroup* :
 
     ```azurepowershell-interactive
     Get-AzNetworkWatcherTopology `

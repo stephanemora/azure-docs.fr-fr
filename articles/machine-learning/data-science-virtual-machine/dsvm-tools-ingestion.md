@@ -17,15 +17,15 @@ ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
 ms.openlocfilehash: 92ff5d21fc30d8fcafe97a2b452ff157a2cd5f86
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60502218"
 ---
 # <a name="data-science-virtual-machine-data-ingestion-tools"></a>Outils d’ingestion de données de la machine virtuelle DSVM
 
-L’une des premières étapes techniques dans un projet de science de données ou d’intelligence artificielle consiste à identifier les jeux de données à utiliser, puis à les importer dans votre environnement analytique. La Machine virtuelle de science des données (DSVM) fournit des outils et bibliothèques pour afficher des données provenant de différentes sources dans un stockage des données analytiques localement sur la machine virtuelle DSVM ou dans une plateforme de données ou dans le cloud en local. 
+L’une des premières étapes techniques dans un projet de science de données ou d’intelligence artificielle consiste à identifier les jeux de données à utiliser, puis à les importer dans votre environnement analytique. La machine virtuelle DSVM (Data Science Virtual Machine) fournit des outils et des bibliothèques pour importer des données de différentes sources dans un stockage de données analytiques sur la machine DSVM ou dans une plateforme de données sur le cloud ou localement. 
 
 Voici quelques outils de déplacement de données que nous vous avons fournis sur la machine virtuelle DSVM. 
 

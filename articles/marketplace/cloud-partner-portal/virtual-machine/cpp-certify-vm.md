@@ -1,5 +1,5 @@
 ---
-title: Certifier votre image de machine virtuelle pour Azure Marketplace
+title: Certifier votre image de machine virtuelle pour Place de marché Microsoft Azure
 description: Cet article explique comment tester et soumettre une image de machine virtuelle pour la certification Place de marché Microsoft Azure.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: pbutlerm
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 09/26/2018
 ms.author: pabutler
 ms.openlocfilehash: 0dbf1abbb91f9e5c3bd2d042c57f87591d52c9cd
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64938493"
 ---
 # <a name="certify-your-vm-image"></a>Certifier votre image de machine virtuelle

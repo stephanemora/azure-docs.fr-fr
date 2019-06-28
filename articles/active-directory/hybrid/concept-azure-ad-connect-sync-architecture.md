@@ -1,5 +1,5 @@
 ---
-title: 'Synchronisation d’Azure AD Connect : Présentation de l’architecture - Azure'
+title: 'Synchronisation d’Azure AD Connect : Comprendre l’architecture - Azure'
 description: Cette rubrique décrit l’architecture de Microsoft Azure AD Connect Sync et explique les termes utilisés.
 services: active-directory
 documentationcenter: ''
@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fac0f9143918d3f273812e53abfb88d6a56f7a71
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65138600"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-architecture"></a>Synchronisation d’Azure AD Connect : Présentation de l’architecture
@@ -91,7 +91,7 @@ Un objet intermédiaire représente une instance des types d’objet désignés 
 
 Les objets intermédiaires importés présentent toujours une valeur pour l’attribut d’ancre. Les objets intermédiaires récemment configurés par le moteur de synchronisation et en cours de création dans la source de données connectée ne présentent aucune valeur pour l’attribut d’ancre.
 
-Les objets intermédiaires comportent aussi des valeurs actuelles pour les attributs d’entreprise ainsi que des informations opérationnelles nécessaires au moteur pour exécuter le processus de synchronisation. Les informations opérationnelles comprennent des indicateurs qui désignent le type des mises à jour préparées sur l’objet intermédiaire. Si un objet intermédiaire a reçu de nouvelles informations d’identité, qui proviennent de la source de données connectée et qui n’ont pas encore été traitées, l’objet est marqué d’un indicateur « **Importation en attente**». Si un objet intermédiaire contient de nouvelles informations d’identité qui n’ont pas encore été exportées vers la source de données connectée, l’objet est marqué d’un indicateur « **En attente d’exportation »**.
+Les objets intermédiaires comportent aussi des valeurs actuelles pour les attributs d’entreprise ainsi que des informations opérationnelles nécessaires au moteur pour exécuter le processus de synchronisation. Les informations opérationnelles comprennent des indicateurs qui désignent le type des mises à jour préparées sur l’objet intermédiaire. Si un objet intermédiaire a reçu de nouvelles informations d’identité, qui proviennent de la source de données connectée et qui n’ont pas encore été traitées, l’objet est marqué d’un indicateur « **Importation en attente**». Si un objet intermédiaire contient de nouvelles informations d’identité qui n’ont pas encore été exportées vers la source de données connectée, l’objet est marqué d’un indicateur « **En attente d’exportation »** .
 
 Un objet intermédiaire peut être un objet d’importation ou d’exportation. Le moteur de synchronisation crée un objet d’importation à l’aide des informations relatives aux objets envoyées par la source de données connectée. Lorsque le moteur de synchronisation reçoit des informations sur l’existence d’un nouvel objet qui correspond à l’un des types d’objet sélectionnés dans le connecteur, il crée un objet d’importation dans l’espace connecteur en tant que représentation de l’objet dans la source de données connectée.
 

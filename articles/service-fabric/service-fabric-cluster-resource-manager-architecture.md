@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: bfbdb05e8d2764d2b878e22d236cae30519da176
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62113969"
 ---
 # <a name="cluster-resource-manager-architecture-overview"></a>Vue d’ensemble de l’architecture Cluster Resource Manager
@@ -52,7 +52,7 @@ Examinons le schéma suivant :
 
 <center>
 
-![Architecture Resource Balancer][Image1]
+![Architecture de l'équilibreur de ressources][Image1]
 </center>
 
 Pendant l’exécution, de nombreux changements peuvent se produire. Par exemple, supposons que la quantité de ressources que consomment certains services change, que certains services échouent et que certains nœuds se joignent au cluster ou le quittent. Toutes les modifications sur les nœuds sont agrégées et régulièrement envoyées au service Cluster Resource Manager (1,2) où elles sont agrégées à nouveau, analysées et stockées. À une fréquence de quelques secondes, ce service examine les changements et détermine si des actions sont nécessaires (3). Par exemple, il peut remarquer que des nœuds vides ont été ajoutés au cluster, et décider par conséquent de déplacer certains services vers ces nœuds. Cluster Resource Manager peut également remarquer qu’un nœud particulier est surchargé ou que certains services ont échoué ou ont été supprimés, en libérant des ressources ailleurs.
@@ -61,7 +61,7 @@ Examinons le schéma suivant pour voir ce qui se passe ensuite. Supposons que Cl
 
 <center>
 
-![Architecture Resource Balancer][Image2]
+![Architecture de l'équilibreur de ressources][Image2]
 </center>
 
 ## <a name="next-steps"></a>Étapes suivantes

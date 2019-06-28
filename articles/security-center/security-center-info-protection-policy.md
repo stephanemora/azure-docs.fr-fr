@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/29/2019
 ms.author: rkarlin
 ms.openlocfilehash: e2bcd92ffc8799b2edf04251b6ce160e96c7609c
-ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64875605"
 ---
 # <a name="customize-the-sql-information-protection-policy-in-azure-security-center-preview"></a>Personnaliser la stratégie de protection des informations SQL dans Azure Security Center (préversion)
@@ -30,7 +30,7 @@ La protection des informations est une fonctionnalité de sécurité avancée po
 - Divers scénarios de sécurité, comme la surveillance (audit) et la génération d’alertes en cas d’accès anormaux aux données sensibles
 - Contrôler l’accès et renforcer la sécurité des bases des magasins de données contenant des données sensibles
  
-La [protection des informations SQL](../sql-database/sql-database-data-discovery-and-classification.md) implémente ce paradigme pour vos magasins de données SQL, actuellement pris en charge pour la base de données SQL Azure. La protection des informations SQL détecte et classe automatiquement les données potentiellement sensibles, fournit un mécanisme permettant d’étiqueter de manière permanente les données sensibles avec des attributs de classification, et elle fournit un tableau de bord détaillé montrant l’état de classification de la base de données. En outre, il calcule la sensibilité du jeu de résultats des requêtes SQL, pour permettre un audit explicite des requêtes extrayant des données sensibles, et protéger les données. Pour plus d’informations sur la protection des informations SQL, consultez [Découverte et classification des données de base de données Azure SQL](../sql-database/sql-database-data-discovery-and-classification.md).
+La [protection des informations SQL](../sql-database/sql-database-data-discovery-and-classification.md) implémente ce paradigme pour vos magasins de données SQL, actuellement pris en charge pour Azure SQL Database. La protection des informations SQL détecte et classe automatiquement les données potentiellement sensibles, fournit un mécanisme permettant d’étiqueter de manière permanente les données sensibles avec des attributs de classification, et elle fournit un tableau de bord détaillé montrant l’état de classification de la base de données. En outre, il calcule la sensibilité du jeu de résultats des requêtes SQL, pour permettre un audit explicite des requêtes extrayant des données sensibles, et protéger les données. Pour plus d’informations sur la protection des informations SQL, consultez [Découverte et classification des données de base de données Azure SQL](../sql-database/sql-database-data-discovery-and-classification.md).
  
 Le mécanisme de classification est basé sur deux constructions principales qui composent la taxonomie de classification : les **étiquettes** et les **types d’informations**.
 - **Étiquettes** : principaux attributs de classification, utilisés pour définir le niveau de confidentialité des données stockées dans la colonne. 
@@ -41,11 +41,11 @@ La protection des informations est fournie avec un ensemble intégré d’étiqu
 ## <a name="customize-the-information-protection-policy"></a>Personnaliser la politique de protection des informations
 Pour personnaliser la stratégie de protection des informations pour votre locataire Azure, vous devez disposer [des privilèges d’administrateur sur le groupe d’administration racine du locataire](security-center-management-groups.md). 
  
-1. Dans le Security Center sous menu principal, **ressources sécurité hygiène** accédez à **stockage et données** , puis cliquez sur le **SQL Information Protection** bouton.
+1. Dans le menu principal de Security Center, sous **RESSOURCES SÉCURITÉ HYGIÈNE**, accédez à **Données et stockage**, puis cliquez sur le bouton **Protection des informations SQL**.
 
    ![Configurer la politique de protection des informations](./media/security-center-info-protection-policy/security-policy.png) 
  
-2. Dans le **SQL Information Protection** page, vous pouvez afficher votre jeu actuel d’étiquettes. Il s’agit des principaux attributs de classification utilisés pour classer le niveau de sensibilité de vos données. À ce stade, vous pouvez configurer les **étiquettes de protection des informations** et les **types d’informations** du locataire. 
+2. Sur la page **Protection des informations SQL**, vous pouvez afficher votre jeu d’étiquettes actuel. Il s’agit des principaux attributs de classification utilisés pour classer le niveau de sensibilité de vos données. À ce stade, vous pouvez configurer les **étiquettes de protection des informations** et les **types d’informations** du locataire. 
  
 ### <a name="customizing-labels"></a>Personnalisation des étiquettes
  

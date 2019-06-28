@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: v-erkell
 ms.openlocfilehash: 352833b12c00abbefcf7016d27dfb580ee25e450
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60409239"
 ---
 # <a name="prepare-to-create-the-avere-vfxt"></a>Se préparer à la création du système Avere vFXT
@@ -30,16 +30,16 @@ Pour créer un abonnement Azure dans le portail Azure :
 
 ## <a name="configure-subscription-owner-permissions"></a>Configurer des autorisations de propriétaire d’abonnement
 
-Un utilisateur disposant d’autorisations de propriétaire pour l’abonnement doit créer le cluster vFXT. Autorisations de propriétaire d’abonnement sont nécessaires pour accepter les termes du service logiciel et effectuer d’autres actions. 
+Un utilisateur disposant d’autorisations de propriétaire pour l’abonnement doit créer le cluster vFXT. Des autorisations de propriétaire d’abonnement sont nécessaires pour accepter les conditions d’utilisation du logiciel et effectuer d’autres actions. 
 
-Il existe certains scénarios de solution de contournement qui permettent un propriétaire non créer un vFTX Avere pour un cluster Azure. Ces scénarios impliquent la restriction de ressources et l’affectation des rôles supplémentaires au créateur. Dans ces deux cas, le propriétaire d’un abonnement doit également [accepter les termes du contrat de logiciel vFXT Avere](#accept-software-terms) avance. 
+Il existe certains scénarios de contournement qui permettent à un non-propriétaire de créer un Avere vFTX pour un cluster Azure. Ces scénarios impliquent la restriction de ressources et l’affectation de rôles supplémentaires au créateur. Dans ces deux cas, un propriétaire d’abonnement doit également [accepter les conditions d’utilisation du logiciel Avere vFXT](#accept-software-terms) à l’avance. 
 
-| Scénario | Restrictions | Rôles d’accès requis pour créer le cluster vFXT Avere | 
+| Scénario | Restrictions | Rôles d’accès requis pour créer le cluster Avere vFXT | 
 |----------|--------|-------|
-| Administrateur de groupe de ressources | Le réseau virtuel, le contrôleur de cluster et les nœuds de cluster doivent être créées dans le groupe de ressources | [Administrateur des accès utilisateur](../role-based-access-control/built-in-roles.md#user-access-administrator) et [contributeur](../role-based-access-control/built-in-roles.md#contributor) rôles, les deux étendus au groupe de ressources cible | 
-| Réseau virtuel externe | Le contrôleur de cluster et les nœuds de cluster sont créés dans le groupe de ressources, mais un réseau virtuel existant dans un autre groupe de ressources est utilisé. | (1) [administrateur des accès utilisateur](../role-based-access-control/built-in-roles.md#user-access-administrator) et [contributeur](../role-based-access-control/built-in-roles.md#contributor) rôles étendues pour le groupe de ressources vFXT ; et (2) [collaborateur de Machine virtuelle](../role-based-access-control/built-in-roles.md#virtual-machine-contributor), [l’accès utilisateur Administrateur](../role-based-access-control/built-in-roles.md#user-access-administrator), et [Avere contributeur](../role-based-access-control/built-in-roles.md#avere-contributor) rôles étendus au groupe de ressources de réseau virtuel. |
+| Administrateur de groupe de ressources | Le réseau virtuel, le contrôleur de cluster et les nœuds de cluster doivent être créés dans le groupe de ressources | Les rôles [administrateur de l’accès utilisateur](../role-based-access-control/built-in-roles.md#user-access-administrator) et [contributeur](../role-based-access-control/built-in-roles.md#contributor), étendus au groupe de ressources cible | 
+| Réseau virtuel externe | Le contrôleur de cluster et les nœuds de cluster sont créés dans le groupe de ressources, mais un réseau virtuel existant dans un autre groupe de ressources est utilisé | (1) Rôles [administrateur de l’accès utilisateur](../role-based-access-control/built-in-roles.md#user-access-administrator) et [contributeur](../role-based-access-control/built-in-roles.md#contributor) étendus au groupe de ressources vFXT ; et (2) rôles [contributeur de machines virtuelles](../role-based-access-control/built-in-roles.md#virtual-machine-contributor), [administrateur de l’accès utilisateur](../role-based-access-control/built-in-roles.md#user-access-administrator) et [contributeur Avere](../role-based-access-control/built-in-roles.md#avere-contributor) étendus au groupe de ressources de réseau virtuel. |
  
-Une alternative consiste à créer un rôle de contrôle (RBAC) d’accès en fonction du rôle personnalisé avance et affecter des privilèges à l’utilisateur, comme expliqué dans [cet article](avere-vfxt-non-owner.md). Cette méthode permet à ces utilisateurs de bénéficier d'autorisations importantes. 
+Une alternative consiste à créer un contrôle d’accès en fonction du rôle (RBAC) à l’avance, et à affecter des privilèges à l’utilisateur, comme expliqué dans [cet article](avere-vfxt-non-owner.md). Cette méthode permet à ces utilisateurs de bénéficier d'autorisations importantes. 
 
 ## <a name="quota-for-the-vfxt-cluster"></a>Quota pour le cluster vFXT
 
@@ -79,15 +79,15 @@ Pour accepter les conditions du logiciel à l’avance :
 
 ## <a name="create-a-storage-service-endpoint-in-your-virtual-network-if-needed"></a>Créer un point de terminaison de service de stockage dans votre réseau virtuel (si nécessaire)
 
-Un [point de terminaison de service](../virtual-network/virtual-network-service-endpoints-overview.md) conserve le trafic d’objets Blob Azure en local au lieu de le routage en dehors du réseau virtuel. Il est recommandé de n’importe quel vFXT Avere pour un cluster Azure qui utilise des objets Blob Azure pour le stockage de données back-end. 
+Ce [point de terminaison de service](../virtual-network/virtual-network-service-endpoints-overview.md) conserve le trafic d’objets blob Azure au niveau local au lieu de l’acheminer vers l’extérieur du réseau virtuel. Il est recommandé que tout cluster Avere vFXT pour Azure utilise le Stockage Blob Azure pour le stockage de données principal. 
 
-Si vous êtes en fournissant un réseau virtuel existant et la création d’un conteneur d’objets Blob Azure pour votre stockage back-end dans le cadre de la création du cluster, vous devez disposer d’un point de terminaison de service dans le réseau virtuel pour le stockage de Microsoft. Ce point de terminaison doit exister avant de créer le cluster, ou la création échoue. 
+Si vous fournissez un réseau virtuel et créez un conteneur blob Azure pour votre stockage principal dans le cadre de la création du cluster, vous devez disposer d’un point de terminaison de service dans le réseau virtuel pour le stockage Microsoft. Ce point de terminaison doit exister avant la création du cluster, sans quoi la création échoue. 
 
-Un point de terminaison de service de stockage est recommandée pour n’importe quel vFXT Avere pour un cluster Azure qui utilise le stockage Blob Azure, même si vous ajoutez le stockage ultérieurement. 
+Un point de terminaison de service de stockage est recommandé pour tout Avere vFXT pour un cluster Azure utilisant le Stockage Blob Azure, même si vous ajoutez le stockage ultérieurement. 
 
 > [!TIP] 
-> * Ignorez cette étape si vous créez un nouveau réseau virtuel dans le cadre de la création du cluster. 
-> * Cette étape est facultative si vous ne créez pas de stockage d’objets Blob lors de la création du cluster. Dans ce cas, vous pouvez créer le point de terminaison de service ultérieurement si vous décidez d’utiliser des objets Blob Azure.
+> * Ignorez cette étape si vous créez un réseau virtuel dans le cadre de la création du cluster. 
+> * Cette étape est facultative si vous ne créez pas de stockage Blob lors de la création du cluster. Dans ce cas, vous pouvez créer le point de terminaison de service ultérieurement si vous décidez d’utiliser un Stockage Blob Azure.
 
 Créer le point de terminaison de service de stockage à partir du portail Azure. 
 
@@ -95,7 +95,7 @@ Créer le point de terminaison de service de stockage à partir du portail Azure
 1. Sélectionnez le réseau virtuel pour votre cluster. 
 1. Cliquez sur **Points de terminaison de service** à gauche.
 1. Cliquez sur **Ajouter** dans la partie supérieure.
-1. Laissez le service en tant que ``Microsoft.Storage`` et choisissez le sous-réseau du cluster.
+1. Conservez le service ``Microsoft.Storage`` et choisissez le sous-réseau du cluster.
 1. Dans la partie inférieure, cliquez sur **Ajouter**.
 
    ![Capture d’écran du portail Azure montrant les étapes de création du point de terminaison de service](media/avere-vfxt-service-endpoint.png)

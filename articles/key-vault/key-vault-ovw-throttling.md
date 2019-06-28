@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 05/10/2018
 ms.author: mbaldwin
 ms.openlocfilehash: 06b96ac6ea0202b74638b9331d754c0e0cc28ad0
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64695246"
 ---
 # <a name="azure-key-vault-throttling-guidance"></a>Aide sur la limitation de requêtes Azure Key Vault
@@ -31,7 +31,7 @@ Si vous avez un scénario valide justifiant une limitation supérieure, contacte
 
 ## <a name="how-to-throttle-your-app-in-response-to-service-limits"></a>Guide pratique pour limiter une application en réponse à des limites de service
 
-Les éléments suivants sont **meilleures pratiques** vous devez implémenter lorsque votre service est limité :
+Les **bonnes pratiques** suivantes doivent être implémentées lorsque votre service est limité :
 - Réduisez le nombre d’opérations par requête.
 - Réduisez la fréquence des requêtes.
 - Évitez les nouvelles tentatives immédiates. 
@@ -112,7 +112,7 @@ Le code qui implémente un backoff exponentiel est montré ci-dessous.
 ```
 
 
-À l’aide de ce code dans un client C\# application est simple. L’exemple suivant montre comment procéder en utilisant la classe HttpClient.
+L'utilisation de ce code dans une application cliente C\# est simple. L’exemple suivant montre comment procéder en utilisant la classe HttpClient.
 
 ```csharp
 public async Task<Cart> GetCartItems(int page)

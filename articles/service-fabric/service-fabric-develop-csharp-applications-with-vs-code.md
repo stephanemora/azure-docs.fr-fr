@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/29/2018
 ms.author: pepogors
 ms.openlocfilehash: 680c141e32333c4747ee69919229bd9381f536a4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60393745"
 ---
 # <a name="develop-c-service-fabric-applications-with-visual-studio-code"></a>Développer des applications Service Fabric en C# avec Visual Studio Code
@@ -27,7 +27,7 @@ ms.locfileid: "60393745"
 
 Cet article vous montre comment générer, déployer et déboguer une application Service Fabric en .NET Core à l’aide de Visual Studio Code.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Cet article suppose que vous avez déjà installé VS Code, l’extension Service Fabric Reliable Services pour VS Code et toutes les dépendances requises pour votre environnement de développement. Pour plus d’informations, consultez [Bien démarrer](./service-fabric-get-started-vs-code.md#prerequisites).
 
@@ -57,7 +57,7 @@ L’application doit maintenant apparaître dans votre espace de travail VS Code
 
 ![Application Counter Service dans l’espace de travail](./media/service-fabric-develop-csharp-applications-with-vs-code/counter-service-application-in-workspace.png)
 
-## <a name="build-the-application"></a>Création de l'application
+## <a name="build-the-application"></a>Créer l’application
 1. Appuyez sur (Ctrl+Maj+p) pour ouvrir la **Palette de commandes** dans VS Code.
 2. Recherchez puis sélectionnez la commande **Service Fabric : Générer une application**. La sortie de la génération est envoyée au terminal intégré.
 
@@ -66,15 +66,15 @@ L’application doit maintenant apparaître dans votre espace de travail VS Code
 ## <a name="deploy-the-application-to-the-local-cluster"></a>Déployer l’application sur le cluster local
 Une fois que vous avez généré l’application, vous pouvez la déployer sur le cluster local. 
 
-1. Dans la **Palette de commandes**, sélectionnez la commande **Service Fabric : Déployer l’application (Localhost)**. La sortie du processus d’installation est envoyée au terminal intégré.
+1. Dans la **Palette de commandes**, sélectionnez la commande **Service Fabric : Déployer l’application (Localhost)** . La sortie du processus d’installation est envoyée au terminal intégré.
 
    ![Commande Déployer une application dans VS Code](./media/service-fabric-develop-csharp-applications-with-vs-code/sf-deploy-application.png)
 
-4. Lorsque le déploiement est terminé, lancez un navigateur et ouvrez Service Fabric Explorer : http :\//localhost:19080 / Explorer. Vous devez voir que l’application est en cours d’exécution. Cette opération pouvant prendre un certain temps, soyez patient. 
+4. Quand le déploiement est terminé, lancez un navigateur et ouvrez Service Fabric Explorer : http:\//localhost:19080/Explorer. Vous devez voir que l’application est en cours d’exécution. Cette opération pouvant prendre un certain temps, soyez patient. 
 
    ![Application Counter Service dans Service Fabric Explorer](./media/service-fabric-develop-csharp-applications-with-vs-code/sfx-verify-deploy.png)
 
-4. Une fois que vous avez vérifié l’application est en cours d’exécution, lancez un navigateur et ouvrez cette page : http :\//localhost:31002. Il s’agit du frontend web de l’application. Actualisez la page pour afficher la valeur actuelle du compteur quand elle est incrémentée.
+4. Une fois que vous avez vérifié que l’application est en cours d’exécution, lancez un navigateur et ouvrez cette page : http:\//localhost:31002. Il s’agit du frontend web de l’application. Actualisez la page pour afficher la valeur actuelle du compteur quand elle est incrémentée.
 
    ![Application Counter Service dans le navigateur](./media/service-fabric-develop-csharp-applications-with-vs-code/counter-service-running.png)
 
@@ -91,7 +91,7 @@ Pour définir un point d’arrêt et déboguer, effectuez les étapes suivantes 
 
    ![Icône de débogage dans l’espace de travail VS Code](./media/service-fabric-develop-csharp-applications-with-vs-code/debug-start.png)
 
-3. Ouvrez Service Fabric Explorer dans un navigateur : http :\//localhost:19080 / Explorer. Cliquez sur **Applications**, puis descendez dans la hiérarchie pour déterminer le nœud principal sur lequel CounterService est exécuté. Dans l’image sous le nœud principal pour CounterService se trouve le nœud 0.
+3. Ouvrez Service Fabric Explorer dans un navigateur : http:\//localhost:19080/Explorer. Cliquez sur **Applications**, puis descendez dans la hiérarchie pour déterminer le nœud principal sur lequel CounterService est exécuté. Dans l’image sous le nœud principal pour CounterService se trouve le nœud 0.
 
    ![Nœud principal pour CounterService](./media/service-fabric-develop-csharp-applications-with-vs-code/counter-service-primary-node.png)
 

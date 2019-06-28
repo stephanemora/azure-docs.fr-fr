@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 02/22/2019
 ms.author: alkohli
 ms.openlocfilehash: 067bb6b806ddd9b83d4ea755876a980ca45d76e9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60387466"
 ---
 # <a name="azure-data-box-disk-system-requirements"></a>Configuration système requise pour Azure Data Box Disk
@@ -70,7 +70,7 @@ Voici une liste des types de stockage pris en charge pour le disque Data Box.
 
 ## <a name="supported-storage-types-for-upload"></a>Types de stockage pris en charge pour le chargement
 
-Voici une liste des types de stockage pris en charge pour téléchargé vers Azure à l’aide de disque Data Box.
+Voici la liste des types de stockages pris en charge pour téléchargement sur Azure à l’aide de Data Box Disk.
 
 | **Format de fichier** | **Remarques** |
 | --- | --- |

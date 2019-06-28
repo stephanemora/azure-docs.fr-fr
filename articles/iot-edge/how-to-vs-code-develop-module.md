@@ -10,17 +10,17 @@ ms.date: 02/20/2019
 ms.topic: article
 ms.service: iot-edge
 ms.openlocfilehash: 9a7d83070caad86d7d66b62a9592dbb1e0017f97
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62125914"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-modules-for-azure-iot-edge"></a>Utiliser Visual Studio Code afin de développer et déboguer des modules pour Azure IoT Edge
 
 Vous pouvez transformer votre logique métier en modules pour Azure IoT Edge. Cet article explique comment utiliser Visual Studio Code comme outil principal pour développer et déboguer des modules.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Vous pouvez utiliser un ordinateur ou une machine virtuelle Windows, macOS ou Linux comme machine de développement. Vous pouvez utiliser un autre appareil physique comme appareil IoT Edge.
 
@@ -89,7 +89,7 @@ Les étapes suivantes expliquent comment créer un module IoT Edge dans votre la
 
 1. Entrez un nom pour votre module. Choisissez un nom qui est unique dans le registre de conteneurs.
 
-1. Indiquez le nom du référentiel d’images du module. Par défaut, Visual Studio Code nomme le module **localhost:5000/<nom de votre module\>**. Remplacez-le par vos propres informations de registre. Si vous utilisez un registre Docker local à des fins de test, **localhost** convient. Si vous utilisez Azure Container Registry, utilisez le serveur de connexion à partir des paramètres de votre registre. Le serveur de connexion se présente comme suit : ***\<nom du registre\>*.azurecr.io**. Remplacez uniquement la partie **localhost:5000** de la chaîne afin d'obtenir le résultat final suivant : **\<* nom du registre*\>.azurecr.io/*\<nom de votre module\>***.
+1. Indiquez le nom du référentiel d’images du module. Par défaut, Visual Studio Code nomme le module **localhost:5000/<nom de votre module\>** . Remplacez-le par vos propres informations de registre. Si vous utilisez un registre Docker local à des fins de test, **localhost** convient. Si vous utilisez Azure Container Registry, utilisez le serveur de connexion à partir des paramètres de votre registre. Le serveur de connexion se présente comme suit : * **\<nom du registre\>*.azurecr.io**. Remplacez uniquement la partie **localhost:5000** de la chaîne afin d'obtenir le résultat final suivant : * *\<* nom du registre *\>.azurecr.io/* \<nom de votre module\>***.
 
    ![Fourniture du référentiel d’images Docker](./media/how-to-develop-csharp-module/repository.png)
 
@@ -116,7 +116,7 @@ Pour ajouter des modules supplémentaires à votre solution, exécutez la comman
 
 Le code du module par défaut fourni avec la solution se trouve à l'emplacement suivant :
 
-- Azure Function (C#) : **modules > *&lt;nom de votre module&gt;* > *&lt;nom de votre module&gt;*.cs**
+- Azure Function (C#) : **modules > *&lt;nom de votre module&gt;*  >  *&lt;nom de votre module&gt;* .cs**
 - C# : **modules > *&lt;nom de votre module&gt;* > Program.cs**
 - Python : **modules > *&lt;nom de votre module&gt;* > main.py**
 - Node.js : **modules > *&lt;nom de votre module&gt;* > app.js**
@@ -154,7 +154,7 @@ Pour configurer et démarrer le simulateur, exécutez la commande **Azure IoT Ed
 
 1. Préparez votre environnement pour le débogage conformément aux exigences de votre langage de développement, définissez un point d'arrêt dans votre module et sélectionnez la configuration de débogage à utiliser :
    - **C#**
-     - Dans le terminal intégré Visual Studio Code, remplacez le répertoire par le ***&lt;le nom de votre module&gt;*** dossier, puis exécutez la commande suivante pour générer l’application .NET Core.
+     - Dans le terminal intégré de Visual Studio Code, remplacez le répertoire par le dossier ***&lt;nom de votre module&gt;***, puis exécutez la commande suivante pour générer l’application .NET Core.
 
        ```cmd
        dotnet build
@@ -162,10 +162,10 @@ Pour configurer et démarrer le simulateur, exécutez la commande **Azure IoT Ed
 
      - Ouvrez le fichier `Program.cs` et ajoutez un point d'arrêt.
 
-     - Accédez à l'affichage Débogage de Visual Studio Code en sélectionnant **Affichage > Déboguer**. Sélectionnez la configuration de débogage ***&lt;Débogage local de &gt;* nom de votre module (.NET Core)** dans la liste déroulante.
+     - Accédez à l'affichage Débogage de Visual Studio Code en sélectionnant **Affichage > Déboguer**. Sélectionnez la configuration de débogage ** *&lt;Débogage local de &gt;* nom de votre module (.NET Core)** dans la liste déroulante.
 
         > [!NOTE]
-        > Si .NET Core `TargetFramework` n’est pas cohérente avec votre chemin d’accès de programme dans `launch.json`, vous devez mettre à jour manuellement le chemin d’accès de programme dans `launch.json` pour faire correspondre le `TargetFramework` dans votre fichier .csproj afin que Visual Studio Code peut le lancement avec succès programme.
+        > Si votre `TargetFramework` .NET Core ne correspond pas au chemin de votre programme dans `launch.json`, vous devrez le mettre à jour manuellement dans `launch.json` pour qu’il corresponde au `TargetFramework` de votre fichier .csproj afin que Visual Studio Code puisse lancer ce programme.
 
    - **Node.JS**
      - Dans le terminal intégré de Visual Studio Code, remplacez le répertoire par le dossier ***&lt;nom de votre module&gt;***, puis exécutez la commande suivante pour installer les packages Node.
@@ -176,11 +176,11 @@ Pour configurer et démarrer le simulateur, exécutez la commande **Azure IoT Ed
 
      - Ouvrez le fichier `app.js` et ajoutez un point d'arrêt.
 
-     - Accédez à l'affichage Débogage de Visual Studio Code en sélectionnant **Affichage > Déboguer**. Sélectionnez la configuration de débogage ***&lt;Débogage local de &gt;* nom de votre module (Node.js)** dans la liste déroulante.
+     - Accédez à l'affichage Débogage de Visual Studio Code en sélectionnant **Affichage > Déboguer**. Sélectionnez la configuration de débogage ** *&lt;Débogage local de &gt;* nom de votre module (Node.js)** dans la liste déroulante.
    - **Java**
      - Ouvrez le fichier `App.java` et ajoutez un point d'arrêt.
 
-     - Accédez à l'affichage Débogage de Visual Studio Code en sélectionnant **Affichage > Déboguer**. Sélectionnez la configuration de débogage ***&lt;Débogage local de &gt;* nom de votre module (Java)** dans la liste déroulante.
+     - Accédez à l'affichage Débogage de Visual Studio Code en sélectionnant **Affichage > Déboguer**. Sélectionnez la configuration de débogage ** *&lt;Débogage local de &gt;* nom de votre module (Java)** dans la liste déroulante.
 
 1. Cliquez sur **Démarrer le débogage** ou appuyez sur **F5** pour démarrer la session de débogage.
 
@@ -228,7 +228,7 @@ Sur votre ordinateur de développement, plutôt que d'installer le démon de sé
 
    ![Surveiller des variables](media/how-to-develop-csharp-module/view-log.png)
 
-1. Accédez à l'affichage Débogage de Visual Studio Code, puis sélectionnez le fichier de configuration du débogage de votre module. Le nom de l'option de débogage doit être semblable à ***&lt;Débogage distant de &gt;* nom de votre module**
+1. Accédez à l'affichage Débogage de Visual Studio Code, puis sélectionnez le fichier de configuration du débogage de votre module. Le nom de l'option de débogage doit être semblable à ** *&lt;Débogage distant de &gt;* nom de votre module**
 
 1. Sélectionnez **Démarrer le débogage** ou appuyez sur **F5**. Sélectionnez le processus à attacher.
 
@@ -316,13 +316,13 @@ Vous pouvez ignorer cette section si vos modules sont exécutés sur la même ma
 
   - Vérifiez que le module à déboguer sur la machine est en cours d’exécution, qu’il est prêt pour la jonction des débogueurs et que le port 9229 est accessible de l’extérieur. Pour cela, ouvrez `http://<target-machine-IP>:9229/json` sur la machine du débogueur. Cette URL doit afficher des informations sur le module Node.js à déboguer.
   
-  - Sur la machine de développement, ouvrez Visual Studio Code, puis modifiez `launch.json` de sorte que la valeur d’adresse du profil ***&lt;nom de votre module&gt;* Remote Debug (Node.js)** (ou du profil ***&lt;nom de votre module&gt;* Remote Debug (Node.js dans Windows Container)** si le module est exécuté en tant que conteneur Windows) corresponde à l’adresse IP de la machine déboguée.
+  - Sur la machine de développement, ouvrez Visual Studio Code, puis modifiez `launch.json` de sorte que la valeur d’adresse du profil ** *&lt;nom de votre module&gt;* Remote Debug (Node.js)** (ou du profil ** *&lt;nom de votre module&gt;* Remote Debug (Node.js dans Windows Container)** si le module est exécuté en tant que conteneur Windows) corresponde à l’adresse IP de la machine déboguée.
 
 - **Java**
 
   - Créez un tunnel SSH vers la machine à déboguer en exécutant `ssh -f <username>@<target-machine> -L 5005:127.0.0.1:5005 -N`.
   
-  - Sur votre machine de développement, ouvrez Visual Studio Code, puis modifiez le profil ***&lt;nom de votre module&gt;* Remote Debug (Java)** dans `launch.json` de manière à pouvoir effectuer la jonction à la machine cible. Pour plus d’informations sur la modification de `launch.json` et sur le débogage Java avec Visual Studio Code, consultez la section sur la [configuration du débogueur](https://code.visualstudio.com/docs/java/java-debugging#_configuration).
+  - Sur votre machine de développement, ouvrez Visual Studio Code, puis modifiez le profil ** *&lt;nom de votre module&gt;* Remote Debug (Java)** dans `launch.json` de manière à pouvoir effectuer la jonction à la machine cible. Pour plus d’informations sur la modification de `launch.json` et sur le débogage Java avec Visual Studio Code, consultez la section sur la [configuration du débogueur](https://code.visualstudio.com/docs/java/java-debugging#_configuration).
 
 - **Python**
 
@@ -330,11 +330,11 @@ Vous pouvez ignorer cette section si vos modules sont exécutés sur la même ma
 
   - Dans le code `ptvsd.enable_attach(('0.0.0.0', 5678))` que vous avez inséré précédemment dans `main.py`, remplacez **0.0.0.0** par l’adresse IP de la machine à déboguer. Générez, envoyez (push) et déployez à nouveau votre module IoT Edge.
 
-  - Sur votre machine de développement, ouvrez Visual Studio Code, puis modifiez `launch.json` de sorte que la valeur `host` du profil ***&lt;nom de votre module&gt;* Remote Debug (Python)** utilise l’adresse IP de la machine cible au lieu de `localhost`.
+  - Sur votre machine de développement, ouvrez Visual Studio Code, puis modifiez `launch.json` de sorte que la valeur `host` du profil ** *&lt;nom de votre module&gt;* Remote Debug (Python)** utilise l’adresse IP de la machine cible au lieu de `localhost`.
 
 ### <a name="debug-your-module"></a>Déboguer votre module
 
-1. Dans l'affichage Débogage de Visual Studio Code, sélectionnez le fichier de configuration du débogage de votre module. Le nom de l'option de débogage doit être semblable à ***&lt;Débogage distant de &gt;* nom de votre module**
+1. Dans l'affichage Débogage de Visual Studio Code, sélectionnez le fichier de configuration du débogage de votre module. Le nom de l'option de débogage doit être semblable à ** *&lt;Débogage distant de &gt;* nom de votre module**
 
 1. Ouvrez le fichier du module correspondant à votre langage de développement et ajoutez un point d'arrêt :
 

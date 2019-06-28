@@ -67,19 +67,15 @@
         - name: Gérer les ressources de cloud privé
           items:
             - name: Créer un cloud privé
-              href: 'https://docs.azure.cloudsimple.com/create-private-cloud/'
+              href: create-private-cloud.md
             - name: Gérer vos clouds privés
-              href: 'https://docs.azure.cloudsimple.com/manage-private-cloud/'
+              href: manage-private-cloud.md
             - name: Développer un cloud privé
-              href: 'https://docs.azure.cloudsimple.com/expand-private-cloud/'
-            - name: Réduire un cloud privé
-              href: 'https://docs.azure.cloudsimple.com/shrink-private-cloud/'
-            - name: Afficher la liste des racks de cloud privé
-              href: 'https://docs.azure.cloudsimple.com/view-cloud-racks/'
+              href: expand-private-cloud.md
             - name: Mapper votre abonnement Azure
-              href: 'https://docs.azure.cloudsimple.com/azure-subscription-mapping/'
+              href: azure-subscription-mapping.md
             - name: Élever les privilèges
-              href: 'https://docs.azure.cloudsimple.com/escalate-private-cloud-privileges/'
+              href: escalate-private-cloud-privileges.md
         - name: Superviser l’activité CloudSimple
           href: 'https://docs.azure.cloudsimple.com/activity/'
         - name: Configurer le réseau de cloud privé

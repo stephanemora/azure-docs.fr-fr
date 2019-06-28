@@ -1,7 +1,7 @@
 ---
-title: 'Normaliser les données : Référence de module'
+title: 'Normaliser des données : Informations de référence sur les modules'
 titleSuffix: Azure Machine Learning service
-description: Découvrez comment utiliser le module normaliser les données dans le service Azure Machine Learning pour transformer un jeu de données via *normalisation*...
+description: Apprenez à utiliser le module Normaliser des données d'Azure Machine Learning Service afin de transformer un jeu de données par le biais de la *normalisation*.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,103 +11,103 @@ ms.author: zhanxia
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
 ms.openlocfilehash: 95069bafa94770511c7ee40e82068960298fd6c5
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65029444"
 ---
-# <a name="normalize-data-module"></a>Normaliser le module de données
+# <a name="normalize-data-module"></a>Module Normaliser des données
 
-Cet article décrit un module de l’interface visuelle (version préliminaire) pour le service Azure Machine Learning.
+Cet article décrit un module de l'interface visuelle (préversion) d'Azure Machine Learning Service.
 
-Utilisez ce module pour transformer un jeu de données via *normalisation*.
+Utilisez ce module pour transformer un jeu de données par le biais de la *normalisation*.
 
-La normalisation est une technique souvent appliquée dans le cadre de la préparation des données pour l’apprentissage. L’objectif de la normalisation consiste à modifier les valeurs des colonnes numériques dans le jeu de données à utiliser une échelle commune, sans distorsion des différences dans les plages de valeurs ou de perte d’informations. Normalisation est également requise pour certains algorithmes modéliser les données correctement.
+La normalisation est une technique souvent appliquée dans le cadre de la préparation des données pour le Machine Learning. L'objectif de la normalisation est de modifier les valeurs des colonnes numériques du jeu de données pour utiliser une échelle commune, sans que les différences de plages de valeurs ne soient faussées et sans perte d'informations. Certains algorithmes ont également besoin d'une normalisation pour modéliser correctement les données.
 
-Par exemple, supposons que votre jeu de données d’entrée contienne une colonne avec les valeurs comprises entre 0 et 1 et une autre colonne avec des valeurs comprises entre 10 000 à 100 000. Le grand écart en le *mise à l’échelle* des nombres peut entraîner des problèmes lorsque vous essayez de combiner les valeurs en tant que fonctionnalités pendant la modélisation.
+Par exemple, supposons que votre jeu de données d'entrée contienne une colonne avec des valeurs allant de 0 à 1 et une autre colonne avec des valeurs allant de 10 000 à 100 000. La grande différence d'*échelle* des nombres peut poser problème lorsque vous essayez de combiner les valeurs sous forme de fonctions lors de la modélisation.
 
-*Normalisation* permet d’éviter ces problèmes en créant de nouvelles valeurs qui gèrent la distribution générale et les rapports dans les données sources, tout en conservant des valeurs au sein d’une mise à l’échelle appliquée à toutes les colonnes numériques utilisés dans le modèle.
+La *normalisation* permet d'échapper à ce type de problème en créant de nouvelles valeurs qui conservent la même distribution générale et les mêmes ratios que les données sources tout en appliquant la même échelle aux valeurs des différentes colonnes numériques utilisées dans le modèle.
 
-Ce module offre plusieurs options pour la transformation des données numériques :
+Ce module offre plusieurs options pour transformer des données numériques :
 
-- Vous pouvez modifier toutes les valeurs à 0-1 mise à l’échelle, ou transformer les valeurs en représentant les comme centile indique plutôt que des valeurs absolues.
-- Vous pouvez appliquer la normalisation à une seule colonne ou à plusieurs colonnes dans le même jeu de données.
-- Si vous devez répéter l’expérience, ou appliquer les mêmes étapes de normalisation à d’autres données, vous pouvez enregistrer les étapes comme une transformation de normalisation et s’appliquent aux autres jeux de données qui ont le même schéma.
+- Vous pouvez modifier toutes les valeurs pour appliquer une échelle de 0 à 1, ou les transformer en les représentant sous forme de rangs centiles plutôt que sous forme de valeurs absolues.
+- Vous pouvez appliquer la normalisation à une ou plusieurs colonnes d'un jeu de données.
+- Si vous devez réitérer l'expérience ou appliquer les mêmes étapes de normalisation à d'autres données, vous pouvez enregistrer ces étapes sous forme de transformation de normalisation et appliquer celle-ci à d'autres jeux de données dotés du même schéma.
 
 > [!WARNING]
-> Certains algorithmes nécessitent que les données soient normalisées avant l’apprentissage d’un modèle. D’autres algorithmes effectuent leur propre mise à l’échelle des données ou la normalisation. Par conséquent, lorsque vous choisissez un algorithme à utiliser dans la création d’un modèle prédictif d’apprentissage, veillez à consulter les données requises de l’algorithme avant d’appliquer la normalisation pour les données d’apprentissage.
+> Avant de former un modèle, certains algorithmes exigent une normalisation des données. D'autres effectuent leur propre mise à l'échelle ou normalisation des données. Par conséquent, lorsque vous choisissez un algorithme de Machine Learning pour un modèle prédictif, examinez bien ses exigences en termes de données avant d'appliquer la normalisation aux données d'apprentissage.
 
-##  <a name="configure-normalize-data"></a>Configurer normaliser les données
+##  <a name="configure-normalize-data"></a>Configurer le module Normaliser des données
 
-Vous pouvez appliquer qu’une seule méthode de normalisation à l’aide de ce module. Par conséquent, la même méthode de normalisation est appliquée à toutes les colonnes que vous sélectionnez. Pour utiliser les méthodes de normalisation différente, utilisez une deuxième instance de **normaliser les données**.
+Ce module ne vous permet d'appliquer qu'une seule méthode de normalisation à la fois. Par conséquent, la même méthode de normalisation est appliquée à toutes les colonnes que vous sélectionnez. Pour utiliser différentes méthodes de normalisation, utilisez une deuxième instance du module **Normaliser des données**.
 
-1. Ajouter le **normaliser les données** module à votre expérience. Vous pouvez rechercher le module dans Azure Machine Learning, sous **Transformation des données**, dans le **Scale and Reduce** catégorie.
+1. Ajoutez le module **Normaliser des données** à votre expérience. Vous le trouverez dans Azure Machine Learning, sous **Transformation de données**, dans la catégorie **Mise à l'échelle et réduction**.
 
-2. Connectez un jeu de données qui contient au moins une colonne de tous les nombres.
+2. Connectez un jeu de données contenant au moins une colonne de tous les nombres.
 
-3. Utilisez le sélecteur de colonne pour choisir les colonnes numériques à normaliser. Si vous ne choisissez pas des colonnes individuelles, par défaut **tous les** des colonnes de type numérique de l’entrée sont inclus, et le même processus de normalisation est appliqué à toutes les colonnes sélectionnées. 
+3. Utilisez le sélecteur de colonne pour choisir les colonnes numériques à normaliser. Si vous ne choisissez pas de colonnes individuelles, **toutes** les colonnes de type numérique de l'entrée sont incluses par défaut, et le même processus de normalisation s'applique à toutes les colonnes sélectionnées. 
 
-    Cela peut entraîner des résultats inattendus si vous incluez des colonnes numériques qui ne doit pas être normalisés ! Vérifiez toujours les colonnes avec soin.
+    Des résultats étranges peuvent être obtenus si vous incluez des colonnes numériques qui ne devraient pas être normalisées ! Vérifiez toujours les colonnes avec soin.
 
-    Si aucune des colonnes numériques ne sont détectées, vérifiez les métadonnées de colonne pour vérifier que le type de données de la colonne est un type numérique pris en charge.
+    Si aucune colonne numérique n'est détectée, vérifiez les métadonnées de la colonne pour vous assurer que le type de données de celle-ci est un type numérique pris en charge.
 
     > [!TIP]
-    > Pour vous assurer que les colonnes d’un type spécifique sont fournies en tant qu’entrée, essayez d’utiliser le [Select Columns in Dataset](./select-columns-in-dataset.md) module avant **normaliser les données**.
+    > Pour vous assurer que les colonnes d'un type spécifique sont fournies comme entrée, essayez d'utiliser le module [Sélectionner des colonnes dans un jeu de données](./select-columns-in-dataset.md) avant le module **Normaliser des données**.
 
-4. **Utilisez 0 pour les colonnes constante lorsqu’elle est activée**:  Sélectionnez cette option lors de toute colonne numérique contient une valeur unique qui ne changent pas. Cela garantit que ces colonnes ne sont pas utilisées dans les opérations de normalisation.
+4. **Utiliser 0 pour les colonnes constantes quand activé** :  sélectionnez cette option lorsqu'une colonne numérique contient une seule valeur immuable. Cette colonne ne sera ainsi pas utilisée lors des opérations de normalisation.
 
-5. À partir de la **méthode de Transformation** liste déroulante, sélectionnez une seule fonction mathématique à appliquer à toutes les colonnes sélectionnées. 
+5. Dans la liste déroulante **Méthode de transformation**, choisissez la fonction mathématique à appliquer à toutes les colonnes sélectionnées. 
   
-    - **Zscore**: Convertit toutes les valeurs en un z-score.
+    - **Zscore** : convertit toutes les valeurs en Z-score.
     
-      Les valeurs dans la colonne sont transformées à l’aide de la formule suivante :  
+      Les valeurs de la colonne sont transformées à l'aide de la formule suivante :  
   
-      ![normalisation à l’aide de z&#45;scores](media/module/aml-normalization-z-score.png)
+      ![normalisation à l'aide de z-scores](media/module/aml-normalization-z-score.png)
   
-      L’écart moyen et standard sont calculés séparément pour chaque colonne. Écart est utilisé.
+      La moyenne et l'écart type sont calculés séparément pour chaque colonne. L'écart type de population est utilisé.
   
-    - **MinMax**: La normalisation min-max remet linéairement à l’échelle toutes les caractéristiques de l’intervalle [0,1].
+    - **MinMax** : le normalisateur Min-Max redimensionne linéairement chaque fonction à l'intervalle [0,1].
     
-      La remise à l’intervalle [0,1] est effectuée en décalant les valeurs de chaque fonctionnalité afin que la valeur minimale est 0 et en divisant par la nouvelle valeur maximale (qui est la différence entre les valeurs maximales et minimales d’origine).
+      Le redimensionnement à l'intervalle [0,1] s'effectue en décalant les valeurs de chaque fonction afin que la valeur minimale soit 0, puis en divisant par la nouvelle valeur maximale (qui correspond à la différence entre les valeurs maximale et minimale d'origine).
       
-      Les valeurs dans la colonne sont transformées à l’aide de la formule suivante :  
+      Les valeurs de la colonne sont transformées à l'aide de la formule suivante :  
   
-      ![normalisation à l’aide de la min&#45;max fonction](media/module/aml-normalization-minmax.png "AML_normalization-minmax")  
+      ![normalisation à l'aide de la fonction MinMax](media/module/aml-normalization-minmax.png "AML_normalization-minmax")  
   
-    - **Logistique**: Les valeurs dans la colonne sont transformées à l’aide de la formule suivante :
+    - **Logistic** : les valeurs de la colonne sont transformées à l'aide de la formule suivante :
 
-      ![formule pour normalisation par fonction logistique](media/module/aml-normalization-logistic.png "AML_normalization-logistique")  
+      ![formule de normalisation par fonction logistique](media/module/aml-normalization-logistic.png "AML_normalization-logistic")  
   
-    - **LogNormal**: Cette option convertit toutes les valeurs en une échelle lognormale.
+    - **LogNormal** : cette option convertit toutes les valeurs à une échelle log-normale.
   
-      Les valeurs dans la colonne sont transformées à l’aide de la formule suivante :
+      Les valeurs de la colonne sont transformées à l'aide de la formule suivante :
   
-      ![formule journal&#45;distribution normale](media/module/aml-normalization-lognormal.png "suivant une loi lognormale AML_normalization")
+      ![formule de distribution log-normale](media/module/aml-normalization-lognormal.png "AML_normalization-lognormal")
     
-      Ici μg et σ sont les paramètres de la distribution, calculés de façon empirique à partir des données en tant qu’estimations de vraisemblance maximale, pour chaque colonne séparément.  
+      Ici, μ et σ correspondent aux paramètres de la distribution, calculés empiriquement à partir des données sous forme d'estimations de la probabilité maximale, pour chaque colonne séparément.  
   
-    - **TanH**: Toutes les valeurs sont converties en une tangente hyperbolique.
+    - **TanH** : toutes les valeurs sont converties en tangente hyperbolique.
     
-      Les valeurs dans la colonne sont transformées à l’aide de la formule suivante :
+      Les valeurs de la colonne sont transformées à l'aide de la formule suivante :
     
-      ![normalisation à l’aide de la fonction tanh](media/module/aml-normalization-tanh.png "AML_normalization-tanh")
+      ![normalisation à l'aide de la fonction tanh](media/module/aml-normalization-tanh.png "AML_normalization-tanh")
 
-6. Exécutez l’expérience, ou double-cliquez sur le **normaliser les données** module et sélectionnez **exécuter les éléments sélectionnés**. 
+6. Exécutez l'expérience, ou double-cliquez sur le module **Normaliser des données** et sélectionnez **Exécuter la sélection**. 
 
 ## <a name="results"></a>Résultats
 
-Le **normaliser les données** module génère deux sorties :
+Le module **Normaliser des données** génère deux sorties :
 
-- Pour afficher les valeurs transformées, cliquez sur le module, sélectionnez **transformé dataset**, puis cliquez sur **visualiser**.
+- Pour afficher les valeurs transformées, cliquez avec le bouton droit sur le module, sélectionnez **Jeu de données transformé**, puis cliquez sur **Visualiser**.
 
-    Par défaut, les valeurs sont transformés en place. Si vous souhaitez comparer les valeurs transformées avec les valeurs d’origine, utilisez le [Add Columns](./add-columns.md) module recombiner les jeux de données et d’afficher les colonnes côte à côte.
+    Par défaut, les valeurs sont transformées sur place. Si vous souhaitez comparer les valeurs transformées avec les valeurs d'origine, utilisez le module [Ajouter des colonnes](./add-columns.md) pour recombiner les jeux de données et afficher les colonnes côte à côte.
 
-- Pour enregistrer la transformation afin que vous pouvez appliquer la même méthode de normalisation à un autre jeu de données similaire, cliquez sur le module, sélectionnez **fonction de Transformation**, puis cliquez sur **enregistrer en tant que transformation**.
+- Pour enregistrer la transformation afin de pouvoir appliquer la même méthode de normalisation à un autre jeu de données similaire, cliquez avec le bouton droit sur le module, sélectionnez **Fonction de transformation**, puis cliquez sur **Enregistrer en tant que transformation**.
 
-    Vous pouvez ensuite charger les transformations enregistrées à partir de la **transforme** groupe du volet de navigation gauche et l’appliquer à un jeu de données avec le même schéma à l’aide de [. / Apply Transformation](apply-transformation.md).  
+    Vous pouvez ensuite charger les transformations enregistrées à partir du groupe **Transformations** du volet de navigation de gauche et les appliquer à un jeu de données doté du même schéma à l'aide de [./Appliquer une transformation](apply-transformation.md).  
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez le [ensemble de modules disponibles](module-reference.md) au service Azure Machine Learning. 
+Consultez les [modules disponibles](module-reference.md) pour Azure Machine Learning service. 

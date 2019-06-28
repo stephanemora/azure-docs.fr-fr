@@ -1,5 +1,5 @@
 ---
-title: Gérer Azure et offre de la place de marché AppSource | Place de marché Azure
+title: Gérer les offres sur les places de marché Azure et AppSource | Place de marché Azure
 description: Gestion des offres sur les places de marché Azure et AppSource
 services: Azure, AppSource, Marketplace, Cloud Partner Portal,
 author: v-miclar
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: pabutler
 ms.openlocfilehash: 8a03ce94971d704aa38c1be5d7cfbb3c24bd2f82
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64943361"
 ---
 # <a name="manage-azure-and-appsource-marketplace-offers"></a>Gérer les offres sur les places de marché Azure et AppSource

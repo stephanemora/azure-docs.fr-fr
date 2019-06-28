@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: shlo
 ms.openlocfilehash: 8f1320db0af85f6c83a9daf8e17a691336c9b251
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60335474"
 ---
 # <a name="update-azure-machine-learning-models-by-using-update-resource-activity"></a>Mettre à jour des modèles Azure Machine Learning à l’aide de l’activité des ressources de mise à jour
@@ -59,19 +59,19 @@ L’extrait de code JSON suivant définit une activité d’exécution par lot A
 
 | Propriété                      | Description                              | Obligatoire |
 | :---------------------------- | :--------------------------------------- | :------- |
-| Nom                          | Nom de l’activité dans le pipeline     | Oui      |
-| description                   | Texte décrivant l’activité.  | Non        |
-| Type                          | Pour l’activité des ressources de mise à jour Azure Machine Learning, le type d’activité est **AzureMLUpdateResource**. | Oui      |
-| linkedServiceName             | Service lié Azure Machine Learning qui contient la propriété updateResourceEndpoint. | Oui      |
-| trainedModelName              | Nom du module de modèle formé dans l’expérience du service web à mettre à jour. | Oui      |
-| trainedModelLinkedServiceName | Nom du service lié de stockage Azure contenant le fichier ilearner chargé par l’opération de mise à jour. | Oui      |
-| trainedModelFilePath          | Chemin relatif du fichier dans trainedModelLinkedService pour représenter le fichier ilearner chargé par l’opération de mise à jour. | Oui      |
+| Nom                          | Nom de l’activité dans le pipeline     | OUI      |
+| description                   | Texte décrivant l’activité.  | Non       |
+| Type                          | Pour l’activité des ressources de mise à jour Azure Machine Learning, le type d’activité est **AzureMLUpdateResource**. | OUI      |
+| linkedServiceName             | Service lié Azure Machine Learning qui contient la propriété updateResourceEndpoint. | OUI      |
+| trainedModelName              | Nom du module de modèle formé dans l’expérience du service web à mettre à jour. | OUI      |
+| trainedModelLinkedServiceName | Nom du service lié de stockage Azure contenant le fichier ilearner chargé par l’opération de mise à jour. | OUI      |
+| trainedModelFilePath          | Chemin relatif du fichier dans trainedModelLinkedService pour représenter le fichier ilearner chargé par l’opération de mise à jour. | OUI      |
 
 ## <a name="end-to-end-workflow"></a>Workflow de bout en bout
 
 L’ensemble du processus de mise en place de la reformation d’un modèle et de la mise à jour des services web prédictifs implique les étapes suivantes :
 
-- Appelez le **service web de formation** à l’aide de l’**activité d’exécution par lot**. Un appel de service web de formation est identique à un appel de service web prédictif décrit dans [Créer des pipelines prédictifs avec Azure Machine Learning et l’activité d’exécution par lot Data Factory](transform-data-using-machine-learning.md). La sortie de la formation du Service Web est un fichier iLearner que vous pouvez utiliser pour mettre à jour le Service Web prédictif.
+- Appelez le **service web de formation** à l’aide de l’**activité d’exécution par lot**. Un appel de service web de formation est identique à un appel de service web prédictif décrit dans [Créer des pipelines prédictifs avec Azure Machine Learning et l’activité d’exécution par lot Data Factory](transform-data-using-machine-learning.md). La sortie du service web de formation est un fichier iLearner que vous pouvez utiliser pour mettre à jour le service web prédictif.
 - Appelez le **point de terminaison des ressources de mise à jour** du **service web prédictif** à l’aide de l’**activité des ressources de mise à jour** pour mettre à jour le service web avec le modèle qui vient d’être formé.
 
 ## <a name="azure-machine-learning-linked-service"></a>Service lié Microsoft Azure Machine Learning

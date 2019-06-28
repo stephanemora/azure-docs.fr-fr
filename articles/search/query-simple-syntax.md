@@ -20,10 +20,10 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 75e2d7c493b535c984b0ef61dd9a9fae53aee80a
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65024200"
 ---
 # <a name="simple-query-syntax-in-azure-search"></a>Syntaxe des requêtes simples dans Recherche Azure
@@ -44,9 +44,9 @@ Aussi simple que cela puisse paraître, un aspect de l’exécution des requête
 
 En règle générale, vous voyez plus probablement ces comportements dans les modèles d’interaction utilisateur pour les applications qui recherchent de contenu, où les utilisateurs sont plus susceptibles d’inclure un opérateur dans une requête, contrairement aux sites de e-commerce qui ont des structures de navigation plus intégrées. Pour plus d’informations, consultez [Opérateur NOT](#not-operator). 
 
-## <a name="boolean-operators-and-or-not"></a>Opérateurs booléens (AND, OR, NOT) 
+## <a name="boolean-operators-and-or-not"></a>Opérateurs logiques (AND, OR, NOT) 
 
-Vous pouvez incorporer des opérateurs dans une chaîne de requête pour générer un ensemble de critères par rapport à laquelle sont trouvent les documents correspondants. 
+Vous pouvez incorporer des opérateurs dans une chaîne de requête pour créer un ensemble substantiel de critères pour lesquels des documents correspondants sont trouvés. 
 
 ### <a name="and-operator-"></a>Opérateur AND `+`
 
@@ -71,11 +71,11 @@ L’opérateur de suffixe est un astérisque `*`. Par exemple, `lux*` recherche 
 
 ## <a name="phrase-search-operator"></a>Opérateur de recherche d’expression
 
-L’opérateur d’expression insère une expression entre guillemets `" "`. Par exemple, si `Roach Motel` (sans guillemets) recherche les documents contenant `Roach` et/ou `Motel` n’importe où dans n’importe quel ordre, `"Roach Motel"` (avec des guillemets) établit une correspondance seulement avec les documents qui contiennent cette expression entière, avec les mots dans cet ordre (l’analyse de texte s’applique néanmoins toujours).
+L’opérateur d’expression place une expression entre guillemets `" "`. Par exemple, si `Roach Motel` (sans guillemets) recherche les documents contenant `Roach` et/ou `Motel` n’importe où dans n’importe quel ordre, `"Roach Motel"` (avec des guillemets) établit une correspondance seulement avec les documents qui contiennent cette expression entière, avec les mots dans cet ordre (l’analyse de texte s’applique néanmoins toujours).
 
 ## <a name="precedence-operator"></a>Opérateur de priorité
 
-L’opérateur de priorité englobe la chaîne entre parenthèses `( )`. Par exemple, `motel+(wifi | luxury)` recherche les documents contenant le terme motel et soit `wifi` ou `luxury` (ou les deux).  
+L’opérateur de priorité place la chaîne entre parenthèses `( )`. Par exemple, `motel+(wifi | luxury)` recherche les documents contenant le terme « motel », et `wifi` ou `luxury` (ou les deux).  
 
 ## <a name="escaping-search-operators"></a>Échappement des opérateurs de recherche  
 

@@ -1,6 +1,6 @@
 ---
-title: Appel d’application démon web API (l’acquisition des jetons pour l’application) - plateforme d’identité Microsoft
-description: Découvrez comment créer une application démon par appels web API (l’acquisition de jetons)
+title: Application démon conçue pour appeler des API web (acquisition de jetons pour l'application) - Plateforme d'identités Microsoft
+description: Apprenez à générer une application démon qui appelle des API web (acquisition de jetons)
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -17,19 +17,19 @@ ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: aa4f5dc7a5aceaf81f71eacd36d131471a57e5c0
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65075369"
 ---
-# <a name="daemon-app-that-calls-web-apis---acquire-a-token"></a>Application démon qui appelle des API - web acquérir un jeton
+# <a name="daemon-app-that-calls-web-apis---acquire-a-token"></a>Application démon conçue pour appeler des API web - acquisition d'un jeton
 
-Une fois que l’application de client confidentiel est construite, vous pouvez acquérir un jeton pour l’application en appelant ``AcquireTokenForClient``, en passant l’étendue et forcer ou pas une actualisation du jeton.
+Une fois l'application cliente confidentielle générée, vous pouvez acquérir un jeton pour celle-ci en appelant ``AcquireTokenForClient``, en transmettant l'étendue, et en forçant ou non une actualisation du jeton.
 
-## <a name="scopes-to-request"></a>Demander des étendues
+## <a name="scopes-to-request"></a>Étendues à demander
 
-L’étendue à la demande pour un flux d’informations d’identification de client est le nom de la ressource suivie `/.default`. Cette notation indique à Azure AD à utiliser le **les autorisations de niveau application** déclaré statiquement lors de l’inscription de l’application. En outre, comme vu précédemment, ces autorisations d’API doivent être accordées par un administrateur client
+L'étendue à demander pour un flux d'informations d'identification client est le nom de la ressource suivi de `/.default`. Cette notation indique à Azure AD d'utiliser les **autorisations de niveau application** déclarées de manière statique lors de l'inscription de l'application. En outre, comme indiqué précédemment, ces autorisations d'API doivent être accordées par un administrateur client.
 
 ### <a name="net"></a>.NET
 
@@ -40,7 +40,7 @@ var scopes = new [] {  ResourceId+"/.default"};
 
 ### <a name="python"></a>Python
 
-Dans la bibliothèque MSAL. Python, le fichier de configuration ressemblerait à l’extrait de code suivant :
+Dans MSAL.Python, le fichier de configuration serait semblable à l'extrait de code suivant :
 
 ```Python
 {
@@ -59,15 +59,15 @@ public final static String KEYVAULT_DEFAULT_SCOPE = "https://vault.azure.net/.de
 
 ### <a name="all"></a>Tous
 
-La portée utilisée pour les informations d’identification du client doit toujours être resourceId + « / .default »
+L'étendue utilisée pour les informations d'identification client doit toujours être resourceId+"/.default".
 
-### <a name="case-of-v10-resources"></a>Cas de ressources de la version 1.0
+### <a name="case-of-v10-resources"></a>Cas des ressources v1.0
 
 > [!IMPORTANT]
-> Pour la bibliothèque MSAL (point de terminaison v2.0) demandant un jeton d’accès pour une ressource acceptant un jeton d’accès v1.0, Azure AD analyse l’audience souhaitée à partir de la portée demandée en prenant toutes les modifications avant la dernière barre oblique et en l’utilisant comme l’identificateur de ressource.
-> Par conséquent, if, telles que SQL Azure (**https://database.windows.net**) la ressource attend un public se terminant par une barre oblique (pour SQL Azure : `https://database.windows.net/`), vous aurez besoin demander une étendue de `https://database.windows.net//.default` (Notez la double barre oblique). Voir aussi MSAL.NET problème [#747](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747): Barre oblique de fin d’url de ressource est omise, ce qui a provoqué d’échec d’authentification sql.
+> Concernant le point de terminaison MSAL (v2.0) qui demande un jeton d'accès pour une ressource acceptant un jeton d'accès v1.0, Azure AD analyse l'audience souhaitée d'après l'étendue demandée en prenant tout ce qui précède la dernière barre oblique et en l'utilisant comme identificateur de la ressource.
+> Par conséquent, si, comme Azure SQL ( **https://database.windows.net** ), la ressource attend une audience se terminant par une barre oblique (pour Azure SQL : `https://database.windows.net/` ), vous devez demander une étendue de `https://database.windows.net//.default` (notez la double barre oblique). Voir aussi le problème MSAL.NET [#747](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747) : la barre oblique de fin a été omise dans l'URL de la ressource, ce qui a entraîné un échec d'authentification sql.
 
-## <a name="acquiretokenforclient-api"></a>AcquireTokenForClient API
+## <a name="acquiretokenforclient-api"></a>API AcquireTokenForClient
 
 ### <a name="net"></a>.NET
 
@@ -98,9 +98,9 @@ catch (MsalServiceException ex) when (ex.Message.Contains("AADSTS70011"))
 }
 ```
 
-#### <a name="application-token-cache"></a>Cache de jeton d’application
+#### <a name="application-token-cache"></a>Cache de jetons d'application
 
-Dans MSAL.NET, `AcquireTokenForClient` utilise le **cache de jeton d’application** (toutes les autres méthodes AcquireTokenXX permet d’utiliser le cache de jetons d’utilisateur) n’appelez pas `AcquireTokenSilent` avant d’appeler `AcquireTokenForClient` comme `AcquireTokenSilent` utilise le **utilisateur** cache des jetons. `AcquireTokenForClient` vérifie la **application** jeton cache lui-même et met à jour.
+Dans MSAL.NET, `AcquireTokenForClient` utilise le **cache de jetons d'application** (toutes les autres méthodes AcquireTokenXX utilisent le cache de jetons d'utilisateur). N'appelez pas `AcquireTokenSilent` avant d'appeler `AcquireTokenForClient` car `AcquireTokenSilent` utilise le cache de jetons d'**utilisateur**. `AcquireTokenForClient` vérifie le cache de jetons d'**application** et le met à jour.
 
 ### <a name="python"></a>Python
 
@@ -128,9 +128,9 @@ CompletableFuture<AuthenticationResult> future = cca.acquireToken(parameters);
 AuthenticationResult result = future.get();
 ```
 
-### <a name="protocol"></a>Protocol
+### <a name="protocol"></a>Protocole
 
-Si vous n’avez pas encore d’une bibliothèque pour le langage de votre choix, vous souhaiterez peut-être utiliser le protocole directement :
+Si vous n'avez pas encore de bibliothèque pour la langue de votre choix, vous pouvez directement utiliser le protocole :
 
 #### <a name="first-case-access-token-request-with-a-shared-secret"></a>Premier cas : Requête de jeton d’accès avec un secret partagé
 
@@ -161,18 +161,18 @@ scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
 
 ### <a name="learn-more-about-the-protocol"></a>En savoir plus sur le protocole
 
-Pour plus d’informations, consultez la documentation du protocole : [Flux d’informations d’identification Azure Active Directory v2.0 et le client OAuth 2.0](v2-oauth2-client-creds-grant-flow.md).
+Pour plus d'informations, consultez la documentation du protocole : [Azure Active Directory v2.0 et le flux d'informations d'identification du client OAuth 2.0](v2-oauth2-client-creds-grant-flow.md).
 
 ## <a name="troubleshooting"></a>Résolution de problèmes
 
-### <a name="did-you-use-the-resourcedefault-scope"></a>Vous avez peut-être utilisé l’étendue de la ressource/.default ?
+### <a name="did-you-use-the-resourcedefault-scope"></a>Avez-vous utilisé l'étendue resource/.default ?
 
-Si vous obtenez un message d’erreur indiquant que vous avez utilisé une portée non valide, vous n’avez pas probablement utiliser le `resource/.default` étendue.
+Si vous recevez un message d'erreur indiquant que vous avez utilisé une étendue non valide, cela signifie probablement que vous n'avez pas utilisé l'étendue `resource/.default`.
 
-### <a name="did-you-forget-to-provide-admin-consent-daemon-apps-need-it"></a>Vous avez oublié de fournir le consentement de l’administrateur ? Applications de démon en avez besoin !
+### <a name="did-you-forget-to-provide-admin-consent-daemon-apps-need-it"></a>Avez-vous oublié de fournir le consentement administrateur ? Les applications démon en ont besoin !
 
-Si vous obtenez une erreur lors de l’appel de l’API **privilèges insuffisants pour terminer l’opération**, l’administrateur du client doit accorder des autorisations à l’application. Consultez l’étape 6 d’inscrire l’application cliente ci-dessus.
-Vous verrez généralement et erreur telles que la description d’erreur suivant :
+Si vous rencontrez l'erreur **Privilèges insuffisants pour effectuer l'opération** lors de l'appel de l'API, l'administrateur client doit accorder des autorisations à l'application. Consultez l'étape 6 de la section Inscrire l'application cliente ci-dessus.
+Vous rencontrerez généralement une erreur semblable à la description d'erreur suivante :
 
 ```JSon
 Failed to call the web API: Forbidden

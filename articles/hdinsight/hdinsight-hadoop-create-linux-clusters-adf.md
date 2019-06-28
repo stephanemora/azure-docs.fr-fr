@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/18/2019
 ms.openlocfilehash: 37c9a11b806ff49fce27120d03f67182037dc693
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64726869"
 ---
 # <a name="tutorial-create-on-demand-apache-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Didacticiel : Créer des clusters Apache Hadoop à la demande dans HDInsight avec Azure Data Factory
@@ -33,15 +33,15 @@ Ce tutoriel décrit les tâches suivantes :
 
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
-* La commande PowerShell [Az Module](https://docs.microsoft.com/powershell/azure/overview) installé.
+* Le [module Az](https://docs.microsoft.com/powershell/azure/overview) PowerShell installé.
 
 * Un principal de service Azure Active Directory. Une fois que vous avez créé le principal de service, n’oubliez pas de récupérer **l’ID d’application** et la **clé d’authentification** en suivant les instructions dans l’article dont le lien est indiqué ci-après. Vous aurez besoin de ces valeurs plus loin dans ce didacticiel. En outre, vérifiez que ce principal de service est membre du rôle *Contributeur* de l’abonnement ou du groupe de ressources dans lequel le cluster est créé. Pour savoir comment récupérer les valeurs requises et attribuer les rôles adéquats, consultez [Créer un principal de service Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md).
 
 ## <a name="create-preliminary-azure-objects"></a>Créer des objets Azure préliminaires
 
-Dans cette section, vous créez différents objets qui seront utilisés pour le cluster HDInsight que vous créez à la demande. Le compte de stockage créée contiendra l’exemple [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) script (`hivescript.hql`) qui vous permet de simuler un échantillon [Apache Hive](https://hive.apache.org/) travail qui s’exécute sur le cluster.
+Dans cette section, vous allez créer différents objets qui seront utilisés pour le cluster HDInsight que vous créez à la demande. Le compte de stockage créé contiendra également l’exemple de script [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) (`hivescript.hql`) qui permet de simuler un exemple de tâche [Apache Hive](https://hive.apache.org/) qui s’exécute sur le cluster.
 
 Cette section utilise un script Azure PowerShell pour créer le compte de stockage et y copier les fichiers requis. L’exemple de script Azure PowerShell de cette section exécute les tâches suivantes :
 
@@ -52,7 +52,7 @@ Cette section utilise un script Azure PowerShell pour créer le compte de stocka
 5. Copie l’exemple de script HiveQL (**hivescript.hql**) dans le conteneur d’objets blob. Le script est disponible à l’adresse [https://hditutorialdata.blob.core.windows.net/adfv2hiveactivity/hivescripts/hivescript.hql](https://hditutorialdata.blob.core.windows.net/adfhiveactivity/script/partitionweblogs.hql). L’exemple de script est déjà disponible dans un autre conteneur d’objets blob public. Le script PowerShell ci-dessous crée une copie de ces fichiers dans le compte de stockage Azure qu’il crée.
 
 > [!WARNING]  
-> Type de compte de stockage `BlobStorage` ne peut pas être utilisé pour les clusters HDInsight.
+> Le genre de compte de stockage `BlobStorage` ne peut pas être utilisé pour des clusters HDInsight.
 
 **Pour créer un compte de stockage et copier les fichiers à l’aide d’Azure PowerShell :**
 
@@ -181,11 +181,11 @@ Dans cet article, vous configurez l’activité Hive pour créer un cluster HDIn
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
 
-2. Dans le menu de gauche, accédez à **+ créer une ressource** > **Analytique** > **Data Factory**.
+2. À partir du menu de gauche, accédez à **+ Créer une ressource** > **Analytique** > **Data Factory**.
 
     ![Azure Data Factory sur le portail](./media/hdinsight-hadoop-create-linux-clusters-adf/data-factory-azure-portal.png "Azure Data Factory sur le portail")
 
-3. Entrez ou sélectionnez les valeurs suivantes pour le **nouvelle fabrique de données** vignette :
+3. Entrez ou sélectionnez les valeurs suivantes pour la vignette **Nouvelle fabrique de données** :
 
     |Propriété  |Valeur  |
     |---------|---------|
@@ -199,7 +199,7 @@ Dans cet article, vous configurez l’activité Hive pour créer un cluster HDIn
 
 4. Sélectionnez **Créer**. La création d’une fabrique de données peut prendre de 2 à 4 minutes.
 
-5. Une fois la fabrique de données est créée, vous recevrez un **déploiement réussi** notification avec un **accéder à la ressource** bouton.  Sélectionnez **Accéder à la ressource** pour ouvrir la vue par défaut de Data Factory.
+5. Une fois la fabrique de données créée, vous recevez une notification **Déploiement réussi** contenant un bouton **Accéder à la ressource**.  Sélectionnez **Accéder à la ressource** pour ouvrir la vue par défaut de Data Factory.
 
 6. Sélectionnez **Créer & surveiller** pour lancer le portail de création et de surveillance Azure Data Factory.
 
@@ -214,7 +214,7 @@ Dans cette section, vous créez deux services liés au sein de votre fabrique de
 
 ### <a name="create-an-azure-storage-linked-service"></a>Créer un service lié Stockage Azure
 
-1. Dans le volet gauche de la **prise en main** page, sélectionnez le **auteur** icône.
+1. Dans le volet gauche de la page **Prise en main**, sélectionnez l’icône **Créer**.
 
     ![Créer un service lié Azure Data Factory](./media/hdinsight-hadoop-create-linux-clusters-adf/data-factory-edit-tab.png "Créer un service lié Azure Data Factory")
 
@@ -226,13 +226,13 @@ Dans cette section, vous créez deux services liés au sein de votre fabrique de
 
     ![Créer un service lié Stockage Azure pour Data Factory](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-storage-linked-service.png "Créer un service lié Stockage Azure pour Data Factory")
 
-4. Entrez les valeurs suivantes pour le service lié de stockage :
+4. Fournissez les valeurs suivantes pour le service lié de stockage :
 
     |Propriété |Valeur |
     |---|---|
     |Nom |Entrez `HDIStorageLinkedService`.|
-    |Abonnement Azure |Dans la liste déroulante, sélectionnez votre abonnement.|
-    |Nom du compte de stockage |Sélectionnez le compte de stockage Azure que vous avez créé dans le cadre du script PowerShell.|
+    |Abonnement Azure |Sélectionnez votre abonnement dans la liste déroulante.|
+    |Nom du compte de stockage |Sélectionnez le compte de stockage Azure que vous avez créé avec le script PowerShell.|
 
     Sélectionnez ensuite **Terminer**.
 
@@ -242,31 +242,31 @@ Dans cette section, vous créez deux services liés au sein de votre fabrique de
 
 1. Cliquez de nouveau sur le bouton **+ Nouveau** pour créer un nouveau service lié.
 
-2. Dans le **nouveau Service lié** fenêtre, sélectionnez le **calcul** onglet.
+2. Dans la fenêtre **Nouveau Service lié**, sélectionnez l’onglet **Calcul**.
 
-3. Sélectionnez **Azure HDInsight**, puis sélectionnez **continuer**.
+3. Sélectionnez **Azure HDInsight**, puis **Continuer**.
 
     ![Créer un service lié HDInsight pour Azure Data Factory](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-linked-service.png "Créer un service lié HDInsight pour Azure Data Factory")
 
-4. Dans le **nouveau Service lié** fenêtre, entrez les valeurs suivantes et conservez les autres comme valeur par défaut :
+4. Dans la fenêtre **Nouveau service lié**, entrez les valeurs suivantes et conservez les autres valeurs par défaut :
 
     | Propriété | Valeur |
     | --- | --- |
     | Nom | Entrez `HDinisghtLinkedService`.|
-    | Type | Sélectionnez **à la demande HDInsight**. |
+    | Type | Sélectionnez **HDInsight à la demande**. |
     | Service lié Stockage Azure | Sélectionnez `HDIStorageLinkedService`. |
     | Type de cluster | Sélectionnez **hadoop**. |
     | Durée de vie | Indiquez la durée pendant laquelle le cluster HDInsight doit être disponible avant d’être automatiquement supprimé.|
-    | ID de principal de service | Fournissez l’ID d’application du principal du service Azure Active Directory que vous avez créé dans le cadre des conditions préalables. |
-    | Clé de principal de service | Fournir la clé d’authentification pour le principal de service Azure Active Directory. |
-    | Préfixe du nom du cluster | Fournir une valeur qui sera préfixée à tous les types de cluster qui sont créés par la fabrique de données. |
-    |Abonnement |Dans la liste déroulante, sélectionnez votre abonnement.|
-    | Sélection du groupe de ressources | Sélectionnez le groupe de ressources que vous avez créé dans le cadre du script PowerShell que vous avez utilisé précédemment.|
+    | ID de principal de service | Indiquez l’ID d’application du principal de service Azure Active Directory que vous avez créé en lien avec les conditions préalables. |
+    | Clé de principal de service | Indiquez la clé d’authentification pour le principal de service Azure Active Directory. |
+    | Préfixe du nom du cluster | Indiquez une valeur qui fera office de préfixe pour tous les types de clusters créés par la fabrique de données. |
+    |Abonnement |Sélectionnez votre abonnement dans la liste déroulante.|
+    | Sélection du groupe de ressources | Sélectionnez le groupe de ressources que vous avez créé en lien avec le script PowerShell utilisé précédemment.|
     |Sélectionner la région | Sélectionnez une région dans la liste déroulante.|
-    | Type de système d’exploitation/nom d’utilisateur SSH de Cluster | Entrez un nom d’utilisateur SSH, couramment `sshuser`. |
-    | Type de système d’exploitation/mot de passe SSH de Cluster | Indiquez un mot de passe pour l’utilisateur SSH. |
-    | Type de système d’exploitation/nom d’utilisateur de Cluster | Entrez un nom d’utilisateur de cluster, généralement `admin`. |
-    | Type de système d’exploitation/mot de passe utilisateur de Cluster | Fournir un mot de passe pour l’utilisateur du cluster. |
+    | Nom d’utilisateur SSH du cluster/type de système d’exploitation | Entrez un nom d’utilisateur SSH, généralement `sshuser`. |
+    | Mot de passe du cluster/type de système d’exploitation | Indiquez un mot de passe pour l’utilisateur SSH. |
+    | Nom d’utilisateur du cluster/type de système d’exploitation | Entrez un nom d’utilisateur du cluster, généralement `admin`. |
+    | Mot de passe d’utilisateur du cluster/type de système d’exploitation | Fournissez un mot de passe pour l’utilisateur du cluster. |
 
     Sélectionnez ensuite **Terminer**.
 
@@ -282,19 +282,19 @@ Dans cette section, vous créez deux services liés au sein de votre fabrique de
 
     ![Ajouter des activités à un pipeline Data Factory](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-add-hive-pipeline.png "Ajouter des activités à un pipeline Data Factory")
 
-3. Assurez-vous que vous disposez de l’activité Hive sélectionnée, sélectionnez le **Cluster HDI** onglet et à partir de la **Service lié HDInsight** la liste déroulante, sélectionnez le texte lié service que vous avez créé précédemment,  **HDinightLinkedService**, pour HDInsight.
+3. Vérifiez que l’activité Hive est sélectionnée, sélectionnez l’onglet **Cluster HDI** puis, dans la liste déroulante **Service lié HDInsight**, sélectionnez le service lié que vous avez créé précédemment, **HDinightLinkedService**, pour HDInsight.
 
     ![Indiquer les détails du cluster HDInsight pour le pipeline](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-hive-activity-select-hdinsight-linked-service.png "Indiquer les détails du cluster HDInsight pour le pipeline")
 
 4. Sélectionnez l’onglet **Script**, puis effectuez les étapes suivantes :
 
-    1. Pour **Service lié de Script**, sélectionnez **HDIStorageLinkedService** dans la liste déroulante. Cette valeur est le service lié de stockage que vous avez préalablement créé.
+    1. Pour **Service lié au script**, sélectionnez **HDIStorageLinkedService** dans la liste déroulante. Cette valeur est le service lié de stockage que vous avez préalablement créé.
 
     1. Pour **Chemin d’accès du fichier**, sélectionnez **Parcourir le stockage** et accédez à l’emplacement de l’exemple de script Hive. Si vous avez exécuté le script PowerShell précédemment, cet emplacement doit être `adfgetstarted/hivescripts/hivescript.hql`.
 
         ![Fournir les détails du script Hive pour le pipeline](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-provide-script-path.png "Fournir les détails du script Hive pour le pipeline")
 
-    1. Sous **Avancé** > **Paramètres**, sélectionnez **Remplir automatiquement à partir du script**. Cette option recherche tous les paramètres dans le script Hive qui requièrent des valeurs à l’exécution. Le script que vous utilisez (**hivescript.hql**) a un paramètre **Output**. Fournir le **valeur** au format `wasb://adfgetstarted@<StorageAccount>.blob.core.windows.net/outputfolder/` pour pointer vers un dossier existant sur votre stockage Azure. Le chemin respecte la casse. Il s’agit du chemin où sera stockée la sortie du script.
+    1. Sous **Avancé** > **Paramètres**, sélectionnez **Remplir automatiquement à partir du script**. Cette option recherche tous les paramètres dans le script Hive qui requièrent des valeurs à l’exécution. Le script que vous utilisez (**hivescript.hql**) a un paramètre **Output**. Indiquez la **valeur** au format `wasb://adfgetstarted@<StorageAccount>.blob.core.windows.net/outputfolder/` pour pointer vers un dossier existant sur votre Stockage Azure. Le chemin respecte la casse. Il s’agit du chemin où sera stockée la sortie du script.
     
         ![Fournir des paramètres pour le script Hive](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-provide-script-parameters.png "Fournir des paramètres pour le script Hive")
 
@@ -308,7 +308,7 @@ Dans cette section, vous créez deux services liés au sein de votre fabrique de
 
 ## <a name="trigger-a-pipeline"></a>Déclencher un pipeline
 
-1. Dans la barre d’outils sur l’aire du concepteur, sélectionnez **ajouter un déclencheur** > **déclencher maintenant**.
+1. Dans la barre d’outils sur l’aire du concepteur, sélectionnez **Ajouter un déclencheur** > **Déclencher maintenant**.
 
     ![Déclencher le pipeline Azure Data Factory](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-trigger-pipeline.png "Déclencher le pipeline Azure Data Factory")
 
@@ -332,7 +332,7 @@ Dans cette section, vous créez deux services liés au sein de votre fabrique de
 
     - Vous voyez un emplacement **adfgerstarted/outputfolder** qui contient la sortie du script Hive qui a été exécuté dans le cadre du pipeline.
 
-    - Vous voyez un conteneur **adfhdidatafactory-\<nom_service_lié>-\<horodatage>**. Ce conteneur est l’emplacement de stockage par défaut du cluster HDInsight qui a été créé dans le cadre de l’exécution du pipeline.
+    - Vous voyez un conteneur **adfhdidatafactory-\<nom_service_lié>-\<horodatage>** . Ce conteneur est l’emplacement de stockage par défaut du cluster HDInsight qui a été créé dans le cadre de l’exécution du pipeline.
 
     - Vous voyez un conteneur **adfjobs** qui contient les journaux d’activité des tâches Azure Data Factory.  
 
@@ -340,7 +340,7 @@ Dans cette section, vous créez deux services liés au sein de votre fabrique de
 
 ## <a name="clean-up-the-tutorial"></a>Nettoyage du didacticiel
 
-Avec la création du cluster HDInsight à la demande, vous n’avez pas besoin de supprimer explicitement le cluster HDInsight. Le cluster est supprimé en fonction de la configuration que vous avez fournie durant la création du pipeline. Toutefois, la suppression du cluster n’entraîne pas celle des comptes de stockage associés à celui-ci. Ce comportement par défaut permet de préserver vos données. Toutefois, si vous ne souhaitez pas conserver les données, vous pouvez supprimer le compte de stockage que vous avez créé.
+Avec la création de cluster HDInsight à la demande, vous n’avez pas besoin de supprimer explicitement le cluster HDInsight. Le cluster est supprimé en fonction de la configuration que vous avez fournie durant la création du pipeline. Toutefois, la suppression du cluster n’entraîne pas celle des comptes de stockage associés à celui-ci. Ce comportement par défaut permet de préserver vos données. Toutefois, si vous ne souhaitez pas conserver les données, vous pouvez supprimer le compte de stockage que vous avez créé.
 
 Vous pouvez également supprimer le groupe de ressources entier que vous avez créé pour ce tutoriel. Cette opération supprime le compte de stockage et la fabrique de données Azure Data Factory que vous avez créés.
 

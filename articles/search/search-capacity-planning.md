@@ -1,5 +1,5 @@
 ---
-title: Partitions de la mise à l’échelle et de réplicas pour interroger et indexer - recherche de Azure
+title: Mettre à l’échelle les partitions et réplicas pour les requêtes et l’indexation – Recherche Azure
 description: Ajustez les ressources informatiques des partitions et des réplicas dans Recherche Azure, où chaque ressource est facturée en unités de recherche facturables.
 author: HeidiSteen
 manager: cgronlun
@@ -10,16 +10,16 @@ ms.date: 03/22/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 6879dd975f97ba2746165e87a135e5d90e8b229f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60308726"
 ---
-# <a name="scale-partitions-and-replicas-for-query-and-indexing-workloads-in-azure-search"></a>Mettre à l’échelle des partitions et réplicas pour interroger et indexer les charges de travail dans Azure Search
+# <a name="scale-partitions-and-replicas-for-query-and-indexing-workloads-in-azure-search"></a>Mettre à l’échelle les partitions et réplicas pour les charges de travail de requête et d’indexation dans Recherche Azure
 Une fois que vous avez [choisi un niveau tarifaire](search-sku-tier.md) et [approvisionné un service de recherche](search-create-service-portal.md), l’étape suivante, facultative, consiste à augmenter le nombre de réplicas ou de partitions utilisés par votre service. Chaque niveau propose un nombre fixe d’unités de facturation. Cet article explique comment allouer ces unités pour obtenir une configuration optimale par rapport à vos exigences pour l’exécution des requêtes, l’indexation et le stockage.
 
-Configuration de la ressource est disponible lorsque vous configurez un service à la [niveau de base](https://aka.ms/azuresearchbasic) ou l’un de le [niveaux Standard ou stockage optimisé](search-limits-quotas-capacity.md). Pour les services à ces niveaux, la capacité est achetée par incréments *d’unités de recherche* (SU) où chaque partition et chaque réplica est considéré comme une SU. 
+La configuration des ressources est disponible lorsque vous configurez un service au [niveau De base](https://aka.ms/azuresearchbasic) ou à l’un des [niveaux Standard ou Stockage optimisé](search-limits-quotas-capacity.md). Pour les services à ces niveaux, la capacité est achetée par incréments *d’unités de recherche* (SU) où chaque partition et chaque réplica est considéré comme une SU. 
 
 La facture est proportionnelle au nombre de SU : moins elles sont nombreuses, plus la facture diminue. La facturation reste en vigueur tant que le service est configuré. Si vous n’utilisez pas temporairement un service, la seule manière d’éviter la facturation consiste à supprimer ce service, puis à le recréer lorsque vous en avez besoin.
 
@@ -27,7 +27,7 @@ La facture est proportionnelle au nombre de SU : moins elles sont nombreuses, pl
 > La suppression d’un service a pour effet de supprimer toutes les données qui s’y trouvent. Il n’existe aucune fonctionnalité dans Azure Search permettant de sauvegarder et restaurer les données de recherche persistantes. Pour redéployer un index existant sur un nouveau service, vous devez exécuter le programme initialement utilisé pour le créer et le charger. 
 
 ## <a name="terminology-replicas-and-partitions"></a>Terminologie : réplicas et partitions
-Réplicas et les partitions sont les principales ressources qui soutiennent un service de recherche.
+Les réplicas et partitions sont les principales ressources qui sous-tendent un service de recherche.
 
 | Ressource | Définition |
 |----------|------------|
@@ -39,35 +39,35 @@ Réplicas et les partitions sont les principales ressources qui soutiennent un s
 >
 
 
-## <a name="how-to-allocate-replicas-and-partitions"></a>Comment allouer des réplicas et des partitions
+## <a name="how-to-allocate-replicas-and-partitions"></a>Comment allouer des réplicas et partitions
 Dans Azure Search, un service se voit initialement allouer un niveau minimal de ressources consistant en une partition et un réplica. Pour les niveaux qui le prennent en charge, vous pouvez ajuster progressivement les ressources de calcul en augmentant les partitions si vous avez besoin de plus de stockage et d’E/S ou de réplicas pour des volumes de requêtes plus importants ou des performances améliorées. Un seul service doit avoir suffisamment de ressources pour gérer toutes les charges de travail (indexation et requêtes). Vous ne pouvez pas subdiviser les charges de travail entre plusieurs services.
 
-Pour augmenter ou modifier l’allocation des réplicas et des partitions, nous vous recommandons l’aide du portail Azure. Le portail applique des limites sur les combinaisons autorisées inférieures aux limites maximales. Si vous avez besoin d’une approche d’approvisionnement basée sur le code ou script, le [Azure PowerShell](search-manage-powershell.md) ou [API REST de gestion](https://docs.microsoft.com/rest/api/searchmanagement/services) sont des solutions alternatives.
+Pour augmenter ou modifier l’allocation des réplicas et des partitions, nous vous recommandons l’aide du portail Azure. Le portail applique des limites aux combinaisons autorisées inférieures aux limites maximales. Si vous avez besoin d’une approche de l’approvisionnement basée sur un script ou un code, [Azure PowerShell](search-manage-powershell.md) ou l’[API REST de gestion](https://docs.microsoft.com/rest/api/searchmanagement/services) constituent des solutions alternatives.
 
 En règle générale, les applications de recherche ont besoin de plus de réplicas que de partitions, en particulier lorsque les opérations de service favorisent les charges de travail de requête. La section [Haute disponibilité](#HA) explique pourquoi.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/), puis sélectionnez le service de recherche.
-2. Dans **paramètres**, ouvrez le **mise à l’échelle** page pour modifier les réplicas et des partitions. 
+2. Dans **Paramètres**, ouvrez la page **Mise à l’échelle** pour modifier les réplicas et partitions. 
 
-   La capture d’écran suivante montre un service standard configuré avec un seul réplica et partition. La formule en bas indique combien d’unités de recherche sont utilisés (1). Si le prix unitaire était de 100 $ (pas un prix réel), le coût mensuel de l’exécution de ce service serait 100 $ en moyenne.
+   La capture d’écran suivante montre un service standard approvisionné avec un réplica et une partition. La formule en bas indique combien d’unités de recherche sont utilisées (1). Si le prix unitaire était de 100 (prix fictif), le coût mensuel de l’exécution de ce service serait de 100 en moyenne.
 
-   ![Affichage des valeurs actuelles dans la page mise à l’échelle](media/search-capacity-planning/1-initial-values.png "affichage des valeurs actuelles dans la page mise à l’échelle")
+   ![Mettre à l’échelle une page affichant les valeurs actuelles](media/search-capacity-planning/1-initial-values.png "Mettre à l’échelle une page affichant les valeurs actuelles")
 
-3. Utilisez le curseur pour augmenter ou diminuer le nombre de partitions. La formule en bas indique combien d’unités de recherche sont utilisées.
+3. Utilisez le curseur pour augmenter ou diminuer le nombre de partitions. La formule en bas indique combien d’unités de recherche utilisées.
 
-   Cet exemple double la capacité, avec deux réplicas et chacune des partitions. Notez que le nombre d’unités de recherche ; Il est désormais quatre, car la formule de facturation correspond aux réplicas multipliés par les partitions (2 x 2). Doubler la capacité double plus le coût d’exécution du service. Si le coût unitaire de recherche était de 100 $, la nouvelle facture mensuelle devrait désormais être 400 dollars.
+   Cet exemple double la capacité, avec deux réplicas et partitions. Notez le nombre d’unités de recherche. Il est désormais de quatre, car la formule de facturation multiplie le nombre de réplicas par le nombre de partitions (2 x 2). Le doublement de la capacité fait plus que doubler le coût de l’exécution du service. Si le coût d’une unité de recherche était de 100, la nouvelle facture mensuelle serait désormais de 400.
 
-   Actuel par coût unitaire de chaque couche, visitez le [page de tarification](https://azure.microsoft.com/pricing/details/search/).
+   Pour le coût unitaire de chaque niveau, visitez la [page Tarification](https://azure.microsoft.com/pricing/details/search/).
 
-   ![Ajouter des réplicas et des partitions](media/search-capacity-planning/2-add-2-each.png "ajouter des réplicas et des partitions")
+   ![Ajouter des réplicas et partitions](media/search-capacity-planning/2-add-2-each.png "Ajouter des réplicas et partitions")
 
-3. Cliquez sur **enregistrer** pour confirmer les modifications.
+3. Cliquez sur **Enregistrer** pour confirmer les modifications.
 
-   ![Confirmer les modifications apportées à la mise à l’échelle et la facturation](media/search-capacity-planning/3-save-confirm.png "confirmer les modifications apportées à la mise à l’échelle et la facturation")
+   ![Confirmer les modifications pour la mise à l’échelle et la facturation](media/search-capacity-planning/3-save-confirm.png "Confirmer les modifications pour la mise à l’échelle et la facturation")
 
-   Modifications apportées à la capacité de prendront plusieurs heures. Vous ne pouvez pas annuler une fois que le processus a démarré et il est sans surveillance en temps réel pour les ajustements de réplica et partition. Toutefois, le message suivant reste visible lors de l’exécution de modifications.
+   La prise d’effet des changements de capacité peut nécessiter quelques heures. Une fois que le processus a démarré, vous ne pouvez pas l’annuler, et il n’y a pas de supervision en temps réel des ajustements de réplicas et de partitions. Toutefois, le message suivant reste visible pendant que les changements prennent effet.
 
-   ![Message d’état dans le portail](media/search-capacity-planning/4-updating.png "message d’état dans le portail")
+   ![Message d’état dans le portail](media/search-capacity-planning/4-updating.png "Message d’état dans le portail")
 
 
 > [!NOTE]
@@ -81,17 +81,17 @@ En règle générale, les applications de recherche ont besoin de plus de répli
 
 Un service basique peut avoir exactement une partition et jusqu’à trois réplicas, pour une limite maximale de trois unités de recherche. Les seules ressources ajustables sont les réplicas. Vous devez disposer d’au moins 2 réplicas pour la haute disponibilité sur des requêtes.
 
-Les services de recherche tous les Standard et stockage optimisé peuvent supposer que les combinaisons suivantes de réplicas et de partitions soumises à la limite de 36-SU. 
+Tous les services de recherche standard et à stockage optimisé peuvent supposer les combinaisons suivantes de réplicas et de partitions, soumises à la limite de 36 unités de stockage. 
 
 |   | **1 partition** | **2 partitions** | **3 partitions** | **4 partitions** | **6 partitions** | **12 partitions** |
 | --- | --- | --- | --- | --- | --- | --- |
 | **1 réplica** |1 unité de recherche |2 unités de recherche |3 unités de recherche |4 unités de recherche |6 unités de recherche |12 unités de recherche |
 | **2 réplicas** |2 unités de recherche |4 unités de recherche |6 unités de recherche |8 unités de recherche |12 unités de recherche |24 unités de recherche |
 | **3 réplicas** |3 unités de recherche |6 unités de recherche |9 unités de recherche |12 unités de recherche |18 unités de recherche |36 unités de recherche |
-| **4 réplicas** |4 unités de recherche |8 unités de recherche |12 unités de recherche |16 unités de recherche |24 unités de recherche |S.O. |
-| **5 réplicas** |5 unités de recherche |10 unités de recherche |15 unités de recherche |20 unités de recherche |30 unités de recherche |S.O. |
-| **6 réplicas** |6 unités de recherche |12 unités de recherche |18 unités de recherche |24 unités de recherche |36 unités de recherche |S.O. |
-| **12 réplicas** |12 unités de recherche |24 unités de recherche |36 unités de recherche |S.O. |N/A |S.O. |
+| **4 réplicas** |4 unités de recherche |8 unités de recherche |12 unités de recherche |16 unités de recherche |24 unités de recherche |N/A |
+| **5 réplicas** |5 unités de recherche |10 unités de recherche |15 unités de recherche |20 unités de recherche |30 unités de recherche |N/A |
+| **6 réplicas** |6 unités de recherche |12 unités de recherche |18 unités de recherche |24 unités de recherche |36 unités de recherche |N/A |
+| **12 réplicas** |12 unités de recherche |24 unités de recherche |36 unités de recherche |N/A |N/A |N/A |
 
 Les unités de recherche, leur tarification et leur capacité sont détaillées sur le site web Azure. Pour plus d'informations, consultez la rubrique [Tarification](https://azure.microsoft.com/pricing/details/search/).
 
@@ -112,7 +112,7 @@ Recommandations générales pour la haute disponibilité :
 
 Les contrats de niveau de service (SLA) pour la Recherche Azure sont ciblés au moment des opérations de requête et des mises à jour d’index qui se composent d’ajout, de mise à jour ou de suppression de documents.
 
-Le niveau De base est plafonné à une partition et trois réplicas. Si vous souhaitez pouvoir répondre immédiatement aux fluctuations de la demande sur le plan de l’indexation et du débit des requêtes, songez à passer à l’un des niveaux Standard.  Si vous trouvez que vos besoins de stockage augmente beaucoup plus rapidement que le débit de votre requête, envisagez l’une des niveaux de stockage optimisé.
+Le niveau De base est plafonné à une partition et trois réplicas. Si vous souhaitez pouvoir répondre immédiatement aux fluctuations de la demande sur le plan de l’indexation et du débit des requêtes, songez à passer à l’un des niveaux Standard.  Si vous trouvez que vos besoins de stockage augmentent beaucoup plus rapidement que votre débit de requête, envisagez l’un des niveaux de stockage optimisé.
 
 ### <a name="index-availability-during-a-rebuild"></a>Disponibilité des index lors d’une reconstruction
 
@@ -141,4 +141,4 @@ Plus les index sont grands, plus ils sont longs à interroger. Par conséquent, 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Choisir un niveau de tarification pour Azure Search](search-sku-tier.md)
+[Choisir un niveau tarifaire pour Recherche Azure](search-sku-tier.md)
