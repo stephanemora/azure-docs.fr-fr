@@ -75,7 +75,7 @@ L’opération POST contient le schéma et la charge utile JSON ci-après pour t
 | context |O | |Contexte de l’alerte. |
 | timestamp |O | |Heure à laquelle l’alerte a été déclenchée. |
 | id |O | |Chaque règle d’alerte possède un ID unique. |
-| Nom |O | |Nom de l’alerte. |
+| name |O | |Nom de l’alerte. |
 | description |O | |Description de l’alerte. |
 | conditionType |O |Metric, Event |Deux types d’alertes sont pris en charge : métrique et événement. Les alertes de métrique sont basées sur une condition de métrique. Les alertes d’événement sont basées sur un événement dans le journal d’activité. Utilisez cette valeur pour vérifier si l’alerte est basée sur une métrique ou sur un événement. |
 | condition |O | |Champs à vérifier en fonction de la valeur **conditionType**. |
@@ -87,7 +87,7 @@ L’opération POST contient le schéma et la charge utile JSON ci-après pour t
 | timeAggregation |Pour les alertes de métrique |Average, Last, Maximum, Minimum, None, Total |Détermine la façon dont les données collectées doivent être combinées au fil du temps. La valeur par défaut est Average. Consultez les [valeurs autorisées](https://msdn.microsoft.com/library/microsoft.azure.insights.models.aggregationtype.aspx). |
 | operator |Pour les alertes de métrique | |Opérateur utilisé pour la comparaison des données de métrique actuelles au seuil défini. |
 | subscriptionId |O | |L’ID d’abonnement Azure. |
-| nom_groupe_ressources |O | |Nom du groupe de ressources de la ressource affectée. |
+| resourceGroupName |O | |Nom du groupe de ressources de la ressource affectée. |
 | resourceName |O | |ID de la ressource affectée. |
 | resourceType |O | |Type de la ressource affectée. |
 | resourceId |O | |ID de la ressource affectée. |
