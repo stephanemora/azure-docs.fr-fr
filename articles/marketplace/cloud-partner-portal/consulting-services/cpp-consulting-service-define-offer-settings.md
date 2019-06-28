@@ -1,6 +1,6 @@
 ---
-title: Définir les paramètres de l’offre pour une offre de service de Conseil | Place de marché Azure
-description: Définir les paramètres de l’offre dans une offre de service de conseil Azure ou Dynamics 365 dans le portail Cloud Partner pour Azure Marketplace.
+title: Définir les paramètres d’une offre de services de conseil | Place de marché Azure
+description: Définissez les paramètres d’une offre de services de conseil Azure ou Dynamics 365 sur le portail Cloud Partner pour la Place de marché Azure.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: qianw211
 ms.service: marketplace
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: pabutler
 ms.openlocfilehash: 601ad62bddd1373742b0cab5a388a55cfd52f4bc
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64942785"
 ---
 # <a name="offer-settings-tab"></a>Onglet des paramètres de l’offre
@@ -21,7 +21,7 @@ Dans l’écran **Nouvelle offre**, la première étape consiste à créer l’i
 ![Créer une offre de service de conseil : onglet Paramètres de l’offre](media/consultingoffer-settings-tab.png)
 
 
-### <a name="offer-id"></a>ID d’offre *
+### <a name="offer-id"></a>ID de l’offre*
 
 Cet identificateur est un nom unique que vous créez lorsque vous soumettez l’offre pour la première fois. Il doit contenir uniquement des caractères alphanumériques en minuscules, des tirets ou des traits de soulignement. L’**ID de l’offre** étant présent dans l’URL, il affecte les résultats des moteurs de recherche. *yourcompanyname_exampleservice* est un exemple.
 
@@ -31,7 +31,7 @@ Comme indiqué dans l’exemple, l’**ID de l’offre** est ajouté à votre ID
 >Une fois une offre en ligne, son identificateur ne peut plus être mis à jour.
 
 
-### <a name="publisher-id"></a>Publisher ID *
+### <a name="publisher-id"></a>ID de l’éditeur*
 
 Cet identificateur est associé à votre compte. Une fois que vous êtes connecté avec votre compte professionnel, votre **ID d’éditeur** s’affiche dans le menu déroulant.
 

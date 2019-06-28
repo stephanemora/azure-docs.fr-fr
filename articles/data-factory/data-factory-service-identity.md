@@ -1,6 +1,6 @@
 ---
-title: Identité gérée pour Data Factory | Microsoft Docs
-description: En savoir plus sur l’identité gérée pour Azure Data Factory.
+title: Identité managée pour Data Factory | Microsoft Docs
+description: En savoir plus sur l’identité managée pour Azure Data Factory.
 services: data-factory
 author: linda33wj
 manager: craigg
@@ -12,51 +12,51 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: jingwang
 ms.openlocfilehash: 3c1bb38eb12ce77d172257706cd458cebda4bd8c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66153421"
 ---
 # <a name="managed-identity-for-data-factory"></a>Identité managée pour Data Factory
 
-Cet article vous aide à comprendre ce qui est l’identité gérée pour Data Factory (anciennement connu en tant que Managed Service Identity/MSI) et son fonctionnement.
+Cet article vous permet de mieux comprendre ce qu’est l’identité managée pour Data Factory (anciennement Managed Service Identity) et comment elle fonctionne.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
-Lorsque vous créez une fabrique de données, une identité gérée peut être créée en même temps que la création de fabrique. L’identité gérée est une application managée inscrite à Azure Active Directory et représentant la fabrique de données spécifique.
+Lors de la création d’une fabrique de données, une identité managée est créée en même temps que la fabrique. L’identité managée est une application managée qui est inscrite auprès d’Azure Active Directory et qui représente la fabrique de données en question.
 
-Une identité gérée pour Data Factory avantages pour les fonctionnalités suivantes :
+L’identité managée pour Data Factory bénéficie des fonctionnalités suivantes :
 
-- [Store d’informations d’identification dans Azure Key Vault](store-credentials-in-key-vault.md), auquel cas l’identité gérée de fabrique de données est utilisée pour l’authentification Azure Key Vault.
+- [Stocker des informations d’identification dans Azure Key Vault](store-credentials-in-key-vault.md), pour laquelle l’identité managée de fabrique de données est utilisée pour l’authentification auprès d’Azure Key Vault.
 - Connecteurs, notamment [Stockage Blob Azure](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure SQL Database](connector-azure-sql-database.md) et [Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md).
 - [Activité web](control-flow-web-activity.md).
 
-## <a name="generate-managed-identity"></a>Générer l’identité gérée
+## <a name="generate-managed-identity"></a>Générer une identité managée
 
-Une identité gérée pour Data Factory est générée comme suit :
+L’identité managée pour Data Factory est générée de la façon suivante :
 
-- Lors de la création de fabrique de données grâce au **portail Azure ou PowerShell**managé identité est toujours créée automatiquement.
-- Lors de la création de fabrique de données à l’aide **SDK**managé identité sera créée uniquement si vous spécifiez « Identity = new FactoryIdentity() » dans l’objet de fabrique pour la création. Consultez l’exemple dans [Démarrage rapide .NET - Créer une fabrique de données](quickstart-create-data-factory-dot-net.md#create-a-data-factory).
-- Lors de la création de fabrique de données grâce au **API REST**managé identité sera créée uniquement si vous spécifiez la section « identity » dans le corps de la demande. Consultez l’exemple dans [Démarrage rapide REST - Créer une fabrique de données](quickstart-create-data-factory-rest-api.md#create-a-data-factory).
+- Lors de la création d’une fabrique de données via le **Portail Azure ou PowerShell**, l’identité managée est toujours créée automatiquement.
+- Lors de la création d’une fabrique de données grâce au **kit de développement logiciel (SDK)** , l’identité managée n’est créée que si vous spécifiez « Identity = new FactoryIdentity() » durant la création de l’objet usine. Consultez l’exemple dans [Démarrage rapide .NET - Créer une fabrique de données](quickstart-create-data-factory-dot-net.md#create-a-data-factory).
+- Lors de la création d’une fabrique de données grâce à l’**API REST**, l’identité managée n’est créée que si vous le spécifiez la section « identity » dans le corps de la requête. Consultez l’exemple dans [Démarrage rapide REST - Créer une fabrique de données](quickstart-create-data-factory-rest-api.md#create-a-data-factory).
 
-Si vous trouvez votre fabrique de données n’a pas une identité gérée associée suivant [récupérer l’identité gérée](#retrieve-managed-identity) obtenir des instructions, vous pouvez générer explicitement une en mettant à jour la fabrique de données avec l’initiateur d’identité par programmation :
+Si vous constatez que votre fabrique de données n’est pas associée à une identité managée après l’instruction [retrieve managed identity](#retrieve-managed-identity), vous pouvez en générer une explicitement par programmation, en mettant à jour la fabrique de données avec l’initiateur d’identité :
 
-- [Générer une identité gérée à l’aide de PowerShell](#generate-managed-identity-using-powershell)
-- [Générer une identité gérée à l’aide de l’API REST](#generate-managed-identity-using-rest-api)
-- [Générer une identité gérée à l’aide d’un modèle Azure Resource Manager](#generate-managed-identity-using-an-azure-resource-manager-template)
-- [Générer une identité gérée à l’aide du Kit de développement logiciel](#generate-managed-identity-using-sdk)
+- [Générer l’identité managée à l’aide de PowerShell](#generate-managed-identity-using-powershell)
+- [Générer l’identité managée à l’aide de REST API](#generate-managed-identity-using-rest-api)
+- [Générer l’identité managée avec un modèle Azure Resource Manager](#generate-managed-identity-using-an-azure-resource-manager-template)
+- [Générer l’identité managée à l’aide du SDK](#generate-managed-identity-using-sdk)
 
 >[!NOTE]
->- Identité gérée ne peut pas être modifiée. La mise à jour une fabrique de données qui dispose déjà d’une identité gérée n’a aucun effet, l’identité gérée reste inchangée.
->- Si vous mettez à jour une fabrique de données qui dispose déjà d’une identité gérée sans spécifier de paramètre « identity » dans l’objet de fabrique ou sans spécifier la section « identity » dans le corps de la demande REST, vous obtiendrez une erreur.
->- Lorsque vous supprimez une fabrique de données, l’identité gérée associée sera également supprimée.
+>- L’identité managée ne peut pas être modifiée. La mise à jour d’une fabrique de données pour laquelle vous disposez déjà d’une identité managée n’a aucun effet ; l’identité managée reste inchangée.
+>- Si vous mettez à jour une fabrique de données qui dispose déjà d’une identité managée, sans spécifier le paramètre « identity » dans l’objet fabrique, ou sans spécifier la section « identity » dans le corps de la requête REST, vous recevez un message d’erreur.
+>- Lorsque vous supprimez une fabrique de données, l’identité managée associée est également supprimée.
 
-### <a name="generate-managed-identity-using-powershell"></a>Générer une identité gérée à l’aide de PowerShell
+### <a name="generate-managed-identity-using-powershell"></a>Générer l’identité managée à l’aide de PowerShell
 
-Appelez **Set-AzDataFactoryV2** commande là encore, vous voyez les champs « Identity » qui vient d’être généré :
+Appelez la commande **Set-AzDataFactoryV2** à nouveau, vous verrez alors les champs « identity » qui viennent d’être générés :
 
 ```powershell
 PS C:\WINDOWS\system32> Set-AzDataFactoryV2 -ResourceGroupName <resourceGroupName> -Name <dataFactoryName> -Location <region>
@@ -70,7 +70,7 @@ Identity          : Microsoft.Azure.Management.DataFactory.Models.FactoryIdentit
 ProvisioningState : Succeeded
 ```
 
-### <a name="generate-managed-identity-using-rest-api"></a>Générer une identité gérée à l’aide de l’API REST
+### <a name="generate-managed-identity-using-rest-api"></a>Générer l’identité managée à l’aide de REST API
 
 Appelez ensuite l’API avec la section« identity » dans le corps de la requête :
 
@@ -91,7 +91,7 @@ PATCH https://management.azure.com/subscriptions/<subsID>/resourceGroups/<resour
 }
 ```
 
-**Réponse**: identité gérée est créée automatiquement et la section « identity » est remplie en conséquence.
+**Réponse** : l’identité managée est créée automatiquement, et la section « identity » est remplie en conséquence.
 
 ```json
 {
@@ -114,7 +114,7 @@ PATCH https://management.azure.com/subscriptions/<subsID>/resourceGroups/<resour
 }
 ```
 
-### <a name="generate-managed-identity-using-an-azure-resource-manager-template"></a>Générer une identité gérée à l’aide d’un modèle Azure Resource Manager
+### <a name="generate-managed-identity-using-an-azure-resource-manager-template"></a>Générer l’identité managée avec un modèle Azure Resource Manager
 
 **Modèle** : add "identity": { "type": "SystemAssigned" }.
 
@@ -134,7 +134,7 @@ PATCH https://management.azure.com/subscriptions/<subsID>/resourceGroups/<resour
 }
 ```
 
-### <a name="generate-managed-identity-using-sdk"></a>Générer une identité gérée à l’aide du Kit de développement logiciel
+### <a name="generate-managed-identity-using-sdk"></a>Générer l’identité managée à l’aide du SDK
 
 Appelez la fabrique de données pour créer ou mettre à jour la fonction avec Identity=new FactoryIdentity(). Exemple de code utilisant NET :
 
@@ -147,26 +147,26 @@ Factory dataFactory = new Factory
 client.Factories.CreateOrUpdate(resourceGroup, dataFactoryName, dataFactory);
 ```
 
-## <a name="retrieve-managed-identity"></a>Récupérer l’identité gérée
+## <a name="retrieve-managed-identity"></a>Récupérer une identité managée
 
-Vous pouvez récupérer l’identité gérée à partir du portail Azure ou par programmation. Les sections suivantes vous montrent quelques exemples.
+Vous pouvez récupérer l’identité managée à partir du portail Azure ou par programmation. Les sections suivantes vous montrent quelques exemples.
 
 >[!TIP]
-> Si vous ne voyez pas l’identité gérée, [générer l’identité gérée](#generate-managed-identity) en mettant à jour de votre fabrique.
+> Si vous ne voyez pas l’identité managée, [générez l’identité managée](#generate-managed-identity) en mettant à jour votre fabrique.
 
-### <a name="retrieve-managed-identity-using-azure-portal"></a>Récupérer l’identité gérée à l’aide du portail Azure
+### <a name="retrieve-managed-identity-using-azure-portal"></a>Récupérer l’identité managée à l’aide du portail Azure
 
-Vous pouvez trouver les informations d’identité gérée à partir du portail Azure -> votre fabrique de données -> Propriétés :
+Les informations sur l’identité managée se trouvent sur le portail Azure sous : votre fabrique de données -> Propriétés :
 
-- ID objet de l'identité managée
-- Locataire de l'identité managée
-- **ID d’Application identité géré** > Copiez cette valeur
+- ID d’objet de l’identité managée
+- Locataire de l’identité managée
+- **ID d’application de l’identité managée** : copiez cette valeur
 
-![Récupérer l’identité gérée](media/data-factory-service-identity/retrieve-service-identity-portal.png)
+![Récupérer une identité managée](media/data-factory-service-identity/retrieve-service-identity-portal.png)
 
-### <a name="retrieve-managed-identity-using-powershell"></a>Récupérer l’identité gérée à l’aide de PowerShell
+### <a name="retrieve-managed-identity-using-powershell"></a>Récupérer l’identité managée à l’aide de PowerShell
 
-L’identité gérée ID principal et l’ID de client s’affichera lorsque vous recevez une fabrique de données spécifique, comme suit :
+L’ID principal et l’ID locataire de l’identité managée seront retournés quand vous aurez obtenu une fabrique de données spécifique comme suit :
 
 ```powershell
 PS C:\WINDOWS\system32> (Get-AzDataFactoryV2 -ResourceGroupName <resourceGroupName> -Name <dataFactoryName>).Identity
@@ -189,9 +189,9 @@ Type                  : ServicePrincipal
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-Consultez les rubriques suivantes qui expliquent quand et comment utiliser data factory gérés d’identité :
+Consultez les rubriques suivantes qui expliquent quand et comment utiliser l’identité managée de fabrique de données :
 
 - [Stocker des informations d’identification dans Azure Key Vault](store-credentials-in-key-vault.md)
 - [Copier des données vers ou depuis Azure Data Lake Storage Gen1 à l’aide d’Azure Data Factory](connector-azure-data-lake-store.md)
 
-Consultez [identités gérées pour la vue d’ensemble de ressources Azure](/azure/active-directory/managed-identities-azure-resources/overview) pour plus d’informations sur les identités pour les ressources Azure, identité gérée de la fabrique de données est basé. 
+Pour plus d’informations sur les identités managées des ressources Azure, sur lesquelles l’identité managée de fabrique de données est basée, consultez [Que sont les identités managées pour les ressources Azure ?](/azure/active-directory/managed-identities-azure-resources/overview). 

@@ -9,10 +9,10 @@ ms.date: 04/23/2019
 ms.author: tamram
 ms.subservice: blobs
 ms.openlocfilehash: 8c23e429966cf9a1e93ac46ea3ecd11744761872
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65148615"
 ---
 # <a name="soft-delete-for-azure-storage-blobs"></a>Suppression réversible pour objets blob de Stockage Azure
@@ -278,8 +278,8 @@ blockBlob.StartCopy(copySource);
 S’il existe une possibilité de modification ou de suppression accidentelles de vos données par une application ou un autre utilisateur du compte de stockage, nous vous recommandons d’activer la suppression réversible. Cette fonctionnalité qui s’inscrit dans le cadre d’une stratégie de protection des données peut vous aider à prévenir toute perte malencontreuse de données.
 
 ## <a name="faq"></a>Forum Aux Questions
-**Existe-t-il des considérations spéciales pour l’utilisation de la suppression réversible ?**  
-L’activation de suppression réversible pour les données fréquemment remplacées peut entraîner des frais de capacité de stockage accrue et une latence plus élevée lors de l’énumération des objets BLOB. Vous pouvez atténuer ce risque en stockant les données fréquemment remplacées dans un compte de stockage distinct avec suppression réversible désactivée. 
+**Existe-t-il des considérations spéciales pour l’utilisation de la suppression réversible ?**  
+L’activation de la suppression réversible pour les données fréquemment remplacées peut entraîner une augmentation des frais en termes de capacité de stockage, ainsi qu’une latence plus élevée lors de la classification des objets blob. Vous pouvez atténuer ces comportements en stockant les données fréquemment remplacées dans un compte de stockage distinct avec la suppression réversible désactivée. 
 
 **Pour quels types de stockages puis-je utiliser la suppression réversible ?**  
 Actuellement, la suppression réversible est disponible uniquement pour le stockage d’objets blob.

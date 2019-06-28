@@ -10,10 +10,10 @@ ms.date: 10/10/2016
 ms.author: osamam
 ms.custom: seodec18
 ms.openlocfilehash: 2b2b678cad50e45660fb763c2a1f9194500edf8d
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66730203"
 ---
 # <a name="asymmetric-routing-with-multiple-network-paths"></a>Routage asymétrique avec chemins d’accès réseau multiples
@@ -50,7 +50,7 @@ Pour comprendre l’impact de ces deux modifications sur un réseau, étudions q
 
 Ensuite, vous activez ExpressRoute et utilisez des services proposés par Microsoft via ExpressRoute. Tous les autres services Microsoft sont utilisés sur Internet. Vous déployez un pare-feu distinct sur votre périphérie connectée à ExpressRoute. Microsoft annonce des préfixes plus spécifiques à votre réseau via ExpressRoute pour des services spécifiques. Votre infrastructure de routage choisit ExpressRoute comme chemin d’accès par défaut pour ces préfixes. Si vous ne publiez pas vos adresses IP publiques sur Microsoft via ExpressRoute, Microsoft communique vos adresses IP publiques via Internet. Le trafic sortant de votre réseau vers Microsoft utilise ExpressRoute, tandis que le trafic entrant depuis Microsoft utilise Internet. Lorsque le pare-feu à la périphérie voit un paquet de réponse pour un flux introuvable dans la table des états, il interrompt le trafic entrant.
 
-Si vous choisissez de publier le même pool de translation (NAT) d’adresse réseau pour ExpressRoute et Internet, vous verrez des problèmes similaires avec les clients dans votre réseau sur des adresses IP privées. Les requêtes de services tels que Windows Update passe par Internet car les adresses IP pour ces services ne sont pas publiées via ExpressRoute. Le trafic entrant revient toutefois via ExpressRoute. Si Microsoft reçoit une adresse IP avec le même masque de sous-réseau à partir d’Internet et d’ExpressRoute, ExpressRoute est favorisé par rapport à Internet. Si un pare-feu ou un autre appareil avec état à la périphérie du réseau exposé à ExpressRoute ne dispose d’aucune information préalable sur le flux, il interrompt les paquets appartenant à ce flux.
+Si vous choisissez d’utiliser le même pool NAT (traduction d’adresse réseau) pour ExpressRoute et Internet, vous verrez des problèmes similaires avec les clients sur les adresses IP privées dans votre réseau. Les requêtes de services tels que Windows Update passe par Internet car les adresses IP pour ces services ne sont pas publiées via ExpressRoute. Le trafic entrant revient toutefois via ExpressRoute. Si Microsoft reçoit une adresse IP avec le même masque de sous-réseau à partir d’Internet et d’ExpressRoute, ExpressRoute est favorisé par rapport à Internet. Si un pare-feu ou un autre appareil avec état à la périphérie du réseau exposé à ExpressRoute ne dispose d’aucune information préalable sur le flux, il interrompt les paquets appartenant à ce flux.
 
 ## <a name="asymmetric-routing-solutions"></a>Solutions de routage asymétrique
 Vous disposez de deux options principales pour résoudre le problème de routage asymétrique. L’une est le routage et l’autre est l’utilisation de la NAT basée sur la source (SNAT).

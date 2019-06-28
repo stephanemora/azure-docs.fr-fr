@@ -13,10 +13,10 @@ ms.reviewer: jrasnik
 manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: ce559e50d5a34ebad9113f0e21dcb732adc40dd2
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65233794"
 ---
 # <a name="event-file-target-code-for-extended-events-in-sql-database"></a>Code cible du fichier d’événements pour les événements étendus dans SQL Database
@@ -35,11 +35,11 @@ Cette rubrique présente un exemple de code en deux phases :
   * Pour affecter le conteneur Azure Storage à une cible du fichier d’événements.
   * Pour créer et démarrer la session d’événement, etc.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Le module PowerShell Azure Resource Manager est toujours pris en charge par Azure SQL Database, mais tous les développements futurs sont pour le module Az.Sql. Pour ces applets de commande, consultez [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Les arguments pour les commandes dans le module Az et dans les modules AzureRm sont sensiblement identiques.
+> Le module PowerShell Azure Resource Manager est toujours pris en charge par Azure SQL Database, mais tous les développements futurs sont destinés au module Az.Sql. Pour ces cmdlets, consultez [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Les arguments des commandes dans le module Az et dans les modules AzureRm sont sensiblement identiques.
 
 * Un compte et un abonnement Azure. Vous pouvez vous inscrire à un [essai gratuit](https://azure.microsoft.com/pricing/free-trial/).
 * Une base de données dans laquelle vous pouvez créer une table.
@@ -52,7 +52,7 @@ Cette rubrique présente un exemple de code en deux phases :
   * [En utilisant un lien direct vers le téléchargement.](https://go.microsoft.com/fwlink/?linkid=616025)
 * Les [modules Azure PowerShell](https://go.microsoft.com/?linkid=9811175) doivent être installés.
   
-  * Les modules fournissent des commandes telles que - **New-AzStorageAccount**.
+  * Ces modules fournissent des commandes, telles que **New-AzStorageAccount**.
 
 ## <a name="phase-1-powershell-code-for-azure-storage-container"></a>Phase 1 : code PowerShell pour conteneur Stockage Azure
 
@@ -62,7 +62,7 @@ Le script commence par des commandes à supprimer s’il a déjà été exécut�
 
 1. Collez le script PowerShell dans un éditeur de texte simple, tel que Notepad.exe, puis enregistrez-le dans un fichier avec l’extension **.ps1**.
 2. Démarrez PowerShell ISE en tant qu’administrateur.
-3. À l’invite, tapez <br/>`Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser`<br/> et appuyez sur Entrée.
+3. À l’invite, tapez<br/>`Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser`<br/>et appuyez sur Entrée.
 4. Dans PowerShell ISE, ouvrez votre fichier **.ps1** . Exécutez le script.
 5. Tout d’abord, le script ouvre une nouvelle fenêtre pour vous permettre de vous connecter à Azure.
    
@@ -72,7 +72,7 @@ Le script commence par des commandes à supprimer s’il a déjà été exécut�
 
 ### <a name="powershell-code"></a>Code PowerShell
 
-Ce script PowerShell suppose que vous avez déjà installé le module Az. Pour plus d’informations, consultez [installer le module Azure PowerShell](/powershell/azure/install-Az-ps).
+Ce script PowerShell part du principe que vous avez déjà installé le module Az. Pour plus d’informations, consultez [Installer le module Azure PowerShell](/powershell/azure/install-Az-ps).
 
 ```powershell
 ## TODO: Before running, find all 'TODO' and make each edit!!
@@ -464,9 +464,9 @@ GO
 
 ## <a name="output"></a>Sortie
 
-Quand le script Transact-SQL a fini de s’exécuter, cliquez sur une cellule sous l’en-tête de colonne **event_data_XML**. Un  **\<événement >** élément s’affiche, avec une instruction UPDATE.
+Quand le script Transact-SQL a fini de s’exécuter, cliquez sur une cellule sous l’en-tête de colonne **event_data_XML**. Un élément **event>\<** s’affiche, avec une instruction UPDATE.
 
-Voici un  **\<événement >** élément qui a été généré pendant le test :
+Voici un élément **event>\<** généré pendant le test :
 
 
 ```xml

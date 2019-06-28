@@ -9,10 +9,10 @@ ms.date: 04/23/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: c034ed7164e67183b9a848d5210dcaf377476c6a
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65518158"
 ---
 # <a name="automation-with-service-principals"></a>Automatisation à l’aide de principaux de service
@@ -21,7 +21,7 @@ Les principaux de service sont des ressources d’application Azure Active Direc
 
 Dans Analysis Services, les principaux de service sont utilisés avec Azure Automation, avec le mode sans assistance de PowerShell, avec des applications clientes personnalisées et avec des applications web, dans le but d’automatiser les tâches courantes. Par exemple, le provisionnement des serveurs, le déploiement des modèles, l’actualisation des données, la mise à l’échelle et les opérations de suspension/reprise peuvent être automatisés à l’aide de principaux de service. Les autorisations sont attribuées aux principaux de service via l’appartenance au rôle, comme les comptes UPN standard d’Azure AD.
 
-Analysis Services prend également en charge les opérations effectuées par des identités gérées à l’aide de principaux du service. Pour plus d’informations, consultez [gérés d’identités pour les ressources Azure](../active-directory/managed-identities-azure-resources/overview.md) et [Azure services que l’authentification de la prise en charge Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-analysis-services).
+Analysis Services prend également en charge les opérations effectuées par des identités gérées à l’aide de principaux du service. Pour en savoir plus, consultez [Identités managées pour ressources Azure](../active-directory/managed-identities-azure-resources/overview.md) et [Services Azure prenant en charge l’authentification Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-analysis-services).
 
 ## <a name="create-service-principals"></a>Créer des principaux de service
  
@@ -49,11 +49,11 @@ Vous pouvez utiliser l’ID d’application et le mot de passe ou le certificat 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-#### <a name="a-nameazmodule-using-azanalysisservices-module"></a><a name="azmodule" />À l’aide du module de Az.AnalysisServices
+#### <a name="a-nameazmodule-using-azanalysisservices-module"></a><a name="azmodule" />Via le module Az.AnalysisServices
 
-Lorsque vous utilisez un principal de service pour les opérations de gestion de ressources avec le [Az.AnalysisServices](/powershell/module/az.analysisservices) module, utilisez `Connect-AzAccount` applet de commande. 
+Si vous utilisez un principal de service pour les opérations de gestion des ressources avec le module [Az.AnalysisServices](/powershell/module/az.analysisservices), utilisez la cmdlet `Connect-AzAccount`. 
 
-Dans l’exemple suivant, les valeurs appID et un mot de passe sont utilisés pour effectuer des opérations de plan de contrôle de la synchronisation des réplicas en lecture seule et mettre à l’échelle verticale ou horizontale :
+Dans l’exemple suivant, la valeur appID et un mot de passe sont utilisés pour effectuer des opérations de plan de contrôle pour la synchronisation des réplicas en lecture seule et des opérations scale up/out :
 
 ```powershell
 Param (
@@ -74,7 +74,7 @@ Sync-AzAnalysisServicesInstance -Instance "asazure://westus.asazure.windows.net/
 Set-AzAnalysisServicesServer -Name "testsvr" -ResourceGroupName "testRG" -Sku "S1" -ReadonlyReplicaCount 2 -DefaultConnectionMode Readonly
 ```
 
-#### <a name="using-sqlserver-module"></a>À l’aide du module SQLServer
+#### <a name="using-sqlserver-module"></a>Via le module SQLServer
 
 Dans l’exemple suivant, un ID d’application et un mot de passe sont utilisés pour effectuer une opération d’actualisation d’une base de données model :
 

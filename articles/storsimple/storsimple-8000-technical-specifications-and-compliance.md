@@ -15,15 +15,15 @@ ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
 ms.openlocfilehash: 33becd46747f957cce67fb7b2ace170a9aa402ff
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65606925"
 ---
 # <a name="technical-specifications-and-compliance-for-the-storsimple-device"></a>Caractéristiques techniques et conformité de l’appareil StorSimple
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
 Les composants matériels de l’appareil Microsoft Azure StorSimple sont conformes aux caractéristiques techniques et normes réglementaires présentées dans cet article. Les caractéristiques techniques décrivent les modules d’alimentation et de refroidissement (PCM), les lecteurs de disque, la capacité de stockage et les boîtiers. Les informations de conformité couvrent les éléments tels que les normes internationales, la sécurité et les émissions et le câblage.
 
@@ -37,14 +37,14 @@ Le boîtier EBOD utilise un PCM de 580 W et le boîtier principal un PCM de 764
 | --- | --- | --- |
 | Puissance de sortie maximale |580 W |764 W |
 | Fréquence |50/60 Hz |50/60 Hz |
-| Sélection de la plage de tension |Plage automatique : 90 – 264 V AC, 47/63 Hz |Plage automatique : 90 – 264 V AC, 47/63 Hz |
+| Sélection de la plage de tension |Détermination automatique : 90 - 264 V CA, 47/63 Hz |Détermination automatique : 90 - 264 V CA, 47/63 Hz |
 | Courant d’appel maximal |20 A |20 A |
 | Correction du facteur de puissance |> 95 % de la tension d’entrée nominale |> 95 % de la tension d’entrée nominale |
 | Harmonique |Conforme à la norme EN61000-3-2 |Conforme à la norme EN61000-3-2 |
 | Sortie |Tension en mode veille 5 V \@ 2,0 A |Tension en mode veille 5 V \@ 2,7 A |
 | +5V \@ 42 A |+5V \@ 40 A | |
 | +12V \@ 38 A |+12V \@ 38 A | |
-| Enfichable à chaud |Oui |Oui |
+| Enfichable à chaud |OUI |OUI |
 | Commutateurs et voyants LED |Interrupteur marche/arrêt et quatre voyants LED d’état |Interrupteur marche/arrêt et six voyants LED d’état |
 | Refroidissement du boîtier |Ventilateurs axiaux avec vitesse variable réglable |Ventilateurs axiaux avec vitesse variable réglable |
 
@@ -72,7 +72,7 @@ Les appareils StorSimple disposent d’une combinaison de disques durs et de dis
 | Modèle d’appareil/capacité | 8100 | 8600 |
 | --- | --- | --- |
 | Nombre de disques durs |8 |19 |
-| Nombre de disques SSD |4 |5. |
+| Nombre de disques SSD |4 |5\. |
 | Capacité de disque dur unique |4 To |4 To |
 | Capacité de disque SSD unique |400 Go |800 Go |
 | Capacité de rechange |4 To |4 To |
@@ -149,8 +149,8 @@ L’appareil Microsoft Azure StorSimple est conforme aux normes internationales 
 
 L’appareil Microsoft Azure StorSimple est conforme aux normes de sécurité suivantes :
 
-* Homologation produit : UL, cUL, CE
-* Conformité de sécurité : UL 60950, CEI 60950, EN 60950
+* Homologation du type de produit du système : UL, cUL, CE
+* Conformité aux normes de sécurité : UL 60950, CEI 60950, EN 60950
 
 ## <a name="emc-compliance"></a>Conformité électromagnétique
 
@@ -160,8 +160,8 @@ L’appareil Microsoft Azure StorSimple est conforme aux niveaux de sécurité s
 
 L’appareil est conforme aux normes CEM pour les niveaux d’émissions par conduction et par rayonnement.
 
-* Niveaux des émissions d’exécution : CFR 47 partie 15 b classe A EN55022 Classe A CISPR classe A
-* Rayonnées niveaux des émissions : CFR 47 partie 15 b classe A EN55022 Classe A CISPR classe A
+* Niveaux de limitation des émissions par conduction : CFR 47 partie 15B classe A, EN55022 classe A, CISPR classe A
+* Niveaux de limitation des émissions rayonnées : CFR 47 partie 15B classe A, EN55022 classe A, CISPR classe A
 
 ### <a name="harmonics-and-flicker"></a>Harmonique et papillotement
 
@@ -173,7 +173,7 @@ L’appareil est conforme à la norme EN55024.
 
 ## <a name="ac-power-cord-compliance"></a>Conformité du cordon d’alimentation secteur
 
-Le plug- and -le cordon d’alimentation doivent respecter les normes appropriées pour le pays/la région dans laquelle l’appareil est utilisé, et ils doivent avoir les autorisations de sécurité qui sont acceptables dans ce pays/région. Les tableaux suivants répertorient les normes applicables aux États-Unis et en Europe.
+L’ensemble fiche-cordon d’alimentation doit être conforme aux normes applicables dans le pays/la région où l’appareil est utilisé et bénéficier d’homologations de sécurité acceptables dans ce pays/cette région. Les tableaux suivants répertorient les normes applicables aux États-Unis et en Europe.
 
 ### <a name="ac-power-cords---usa-must-be-nrtl-listed"></a>Cordons d’alimentation secteur - États-Unis (doivent être répertoriés par un laboratoire d’essai reconnu nationalement)
 
@@ -188,7 +188,7 @@ Le plug- and -le cordon d’alimentation doivent respecter les normes approprié
 | Composant | Caractéristique |
 | --- | --- |
 | Type de cordon |Harmonisé, H05-VVF-3G1.0 |
-| Socket |CEI 320 C-13, 250 V, 10 A |
+| Prise |CEI 320 C-13, 250 V, 10 A |
 
 ## <a name="supported-network-cables"></a>Câbles réseau pris en charge
 

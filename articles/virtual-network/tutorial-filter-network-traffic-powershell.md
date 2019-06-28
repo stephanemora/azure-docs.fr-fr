@@ -18,10 +18,10 @@ ms.date: 03/30/2018
 ms.author: kumud
 ms.custom: mvc
 ms.openlocfilehash: 08031bc2ac29ea77374e21c4ce6f7bcf6151bcad
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66730031"
 ---
 # <a name="filter-network-traffic-with-a-network-security-group-using-powershell"></a>Filtrer le trafic réseau avec un groupe de sécurité réseau à l’aide de PowerShell
@@ -47,7 +47,7 @@ Un groupe de sécurité réseau contient des règles de sécurité. Les règles 
 
 ### <a name="create-application-security-groups"></a>Créer des groupes de sécurité d’application
 
-Tout d’abord créer un groupe de ressources pour toutes les ressources créées dans cet article avec [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). L’exemple suivant crée un groupe de ressources dans l’emplacement *eastus* :
+Tout d’abord, créez un groupe de ressources pour toutes les ressources créées dans cet article avec [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). L’exemple suivant crée un groupe de ressources dans l’emplacement *eastus* :
 
 ```azurepowershell-interactive
 New-AzResourceGroup -ResourceGroupName myResourceGroup -Location EastUS
@@ -123,7 +123,7 @@ $virtualNetwork = New-AzVirtualNetwork `
   -AddressPrefix 10.0.0.0/16
 ```
 
-Créer une configuration de sous-réseau [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig), puis écrire la configuration de sous-réseau dans le réseau virtuel avec [Set-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork). L’exemple suivant ajoute un sous-réseau nommé *mySubnet* au réseau virtuel et l’associe au groupe de sécurité réseau *myNsg* :
+Créez une configuration de sous-réseau avec [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig), puis écrivez la configuration du sous-réseau dans le réseau virtuel avec [Set-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork). L’exemple suivant ajoute un sous-réseau nommé *mySubnet* au réseau virtuel et l’associe au groupe de sécurité réseau *myNsg* :
 
 ```azurepowershell-interactive
 Add-AzVirtualNetworkSubnetConfig `
@@ -136,7 +136,7 @@ $virtualNetwork | Set-AzVirtualNetwork
 
 ## <a name="create-virtual-machines"></a>Créer des machines virtuelles
 
-Avant de créer les machines virtuelles, récupérer l’objet de réseau virtuel avec le sous-réseau avec [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork):
+Avant de créer les machines virtuelles, récupérez l’objet de réseau virtuel avec le sous-réseau à l’aide de la commande [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) :
 
 ```powershell-interactive
 $virtualNetwork = Get-AzVirtualNetwork `
@@ -144,7 +144,7 @@ $virtualNetwork = Get-AzVirtualNetwork `
  -Resourcegroupname myResourceGroup
 ```
 
-Créer une adresse IP publique pour chaque machine virtuelle avec [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress):
+Créez une adresse IP publique pour chaque machine virtuelle avec [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) :
 
 ```powershell-interactive
 $publicIpWeb = New-AzPublicIpAddress `
@@ -160,7 +160,7 @@ $publicIpMgmt = New-AzPublicIpAddress `
   -Name myVmMgmt
 ```
 
-Créez deux interfaces réseau avec [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface)et affecter une adresse IP publique à l’interface réseau. L’exemple suivant crée une interface réseau, lui associe l’adresse IP publique *myVmWeb* et la rend membre du groupe de sécurité d’application *myAsgWebServers* :
+Créez deux interfaces réseau avec [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface)et attribuez une adresse IP publique à l’interface réseau. L’exemple suivant crée une interface réseau, lui associe l’adresse IP publique *myVmWeb* et la rend membre du groupe de sécurité d’application *myAsgWebServers* :
 
 ```powershell-interactive
 $webNic = New-AzNetworkInterface `
@@ -186,7 +186,7 @@ $mgmtNic = New-AzNetworkInterface `
 
 Créez deux machines virtuelles dans le réseau virtuel pour pouvoir valider le filtrage du trafic à une étape ultérieure.
 
-Créer une configuration de machine virtuelle avec [New-AzVMConfig](/powershell/module/az.compute/new-azvmconfig), puis créez la machine virtuelle avec [New-AzVM](/powershell/module/az.compute/new-azvm). L’exemple suivant crée une machine virtuelle qui servira de serveur web. L’option `-AsJob` crée la machine virtuelle en arrière-plan. Vous pouvez donc passer à l’étape suivante :
+Créez une configuration de machine virtuelle avec [New-AzVMConfig](/powershell/module/az.compute/new-azvmconfig), puis créez la machine virtuelle avec [New-AzVM](/powershell/module/az.compute/new-azvm). L’exemple suivant crée une machine virtuelle qui servira de serveur web. L’option `-AsJob` crée la machine virtuelle en arrière-plan. Vous pouvez donc passer à l’étape suivante :
 
 ```azurepowershell-interactive
 # Create user object
@@ -277,7 +277,7 @@ Utilisez la commande suivante pour installer Microsoft IIS sur la machine virtue
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
 ```
 
-Une fois l’installation d’IIS terminée, déconnectez-vous de la machine virtuelle *myVmWeb*, ce qui vous laisse dans la connexion Bureau à distance de la machine virtuelle *myVmMgmt*. Pour afficher l’écran d’accueil IIS, ouvrez un navigateur internet et accédez à http :\//myVmWeb.
+Une fois l’installation d’IIS terminée, déconnectez-vous de la machine virtuelle *myVmWeb*, ce qui vous laisse dans la connexion Bureau à distance de la machine virtuelle *myVmMgmt*. Pour afficher l’écran d’accueil d’IIS, ouvrez un navigateur web et accédez à http:\//myVmWeb.
 
 Déconnectez-vous de la machine virtuelle *myVmMgmt*.
 

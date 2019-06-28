@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/08/2019
 ms.author: sujayt
 ms.openlocfilehash: 3c87e159022b6dcf13daf2a2659c88c0529a8f48
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65796424"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Résoudre les problèmes de réplication de machine virtuelle Azure vers Azure
@@ -175,7 +175,7 @@ Pour que la réplication Site Recovery fonctionne, une connectivité sortante ve
       - Si de nouvelles adresses sont ajoutées ultérieurement à Azure Active Directory (AAD), vous devez créer de nouvelles règles de groupe de sécurité réseau.
 
 > [!NOTE]
-> Si les ordinateurs virtuels se trouvent derrière **Standard** équilibreur de charge interne, il n’aurait pas accès à ex : adresses IP Office 365 Login.micorsoftonline.com par défaut. Modifiez à **base** interne type d’équilibrage de charge ou de créer des accès envoyée comme indiqué dans le [article](https://aka.ms/lboutboundrulescli).
+> Si les machines virtuelles se trouvent derrière un équilibreur de charge interne **Standard**, elles ne peuvent pas accéder aux IP O365, par exemple. login.micorsoftonline.com par défaut. Changez-le en un type d’équilibreur de charge **De base** ou créez un accès hors limite comme mentionné dans cet [article](https://aka.ms/lboutboundrulescli).
 
 ### <a name="issue-3-site-recovery-configuration-failed-151197"></a>Problème 3 : Échec de la configuration de Site Recovery (151197)
 - **Cause possible** </br>
@@ -185,7 +185,7 @@ Pour que la réplication Site Recovery fonctionne, une connectivité sortante ve
   - Azure Site Recovery exigeait l’accès aux [plages d’adresses IP Site Recovery](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges) selon la région. Assurez-vous que les plages d’adresses IP requises sont accessibles à partir de la machine virtuelle.
 
 
-### <a name="issue-4-a2a-replication-failed-when-the-network-traffic-goes-through-on-premises-proxy-server-151072"></a>Problème 4 : Échec de la réplication A2A lorsque le trafic réseau est envoyé via le serveur de proxy en local (151072)
+### <a name="issue-4-a2a-replication-failed-when-the-network-traffic-goes-through-on-premises-proxy-server-151072"></a>Problème 4 : Échec de la réplication interapplication lorsque le trafic réseau transite par un serveur proxy local (151072)
 - **Cause possible** </br>
   - Les paramètres de proxy personnalisés sont incorrects, et l’agent du service Mobilité ASR n’a pas détecté automatiquement les paramètres de proxy à partir d’Internet Explorer.
 
@@ -221,21 +221,21 @@ Vérifiez que les disques de données ont été initialisés, puis réessayez l�
 
 Si le problème persiste, contactez le support technique.
 
-## <a name="one-or-more-disks-are-available-for-protectionerror-code-153039"></a>Un ou plusieurs disques sont disponibles pour la protection (code d’erreur 153039)
+## <a name="one-or-more-disks-are-available-for-protectionerror-code-153039"></a>Un ou plusieurs disques sont disponibles pour protection (code d'erreur 153039)
 - **Cause possible** </br>
-  - Si un ou plusieurs disques ont été récemment ajoutés à la machine virtuelle après la protection. 
-  - Si un ou plusieurs disques ont été initialisés ultérieurement après la protection de la machine virtuelle.
+  - si un ou plusieurs disques ont récemment été ajoutés à la machine après la protection. 
+  - si un ou plusieurs disques ont été initialisés plus tard après la protection de la machine virtuelle.
 
 ### <a name="fix-the-problem"></a>Résoudre le problème
-Vous pouvez choisir protéger les disques ou ignorer l’avertissement pour que l’état de réplication de la machine virtuelle à nouveau intègre.</br>
-1. Pour protéger l’ou les disques. Accédez à éléments répliqués > machine virtuelle > disques > cliquez sur le disque non protégé > activer la réplication.
+Vous pouvez choisir de protéger les disques ou d’ignorer l’avertissement pour rendre à la machine virtuelle un statut de réplication sain.</br>
+1. Pour protéger le(s) disque(s). Accédez à Éléments répliqués > Machine virtuelle > Disques > cliquez sur le disque non protégé > Activer la réplication.
  ![add_disks](./media/azure-to-azure-troubleshoot-errors/add-disk.png)
-2. Pour ignorer l’avertissement. Accédez à éléments répliqués > machine virtuelle > cliquez sur l’alerte dismiss sous la section vue d’ensemble.
+2. Pour ignorer l’avertissement. Accédez à Éléments répliqués > Machine virtuelle > Cliquez sur Ignorer l’alerte dans la section Vue d’ensemble.
 ![dismiss_warning](./media/azure-to-azure-troubleshoot-errors/dismiss-warning.png)
-## <a name="unable-to-see-the-azure-vm-or-resource-group--for-selection-in-enable-replication"></a>Impossible de voir la machine virtuelle Azure ou groupe de ressources pour la sélection dans « activer la réplication »
+## <a name="unable-to-see-the-azure-vm-or-resource-group--for-selection-in-enable-replication"></a>Impossible de sélectionner la machine virtuelle ou le groupe de ressources Azure dans « Activer la réplication »
 
  **Cause 1 :  le groupe de ressources et la machine virtuelle source se trouvent à un emplacement différent** <br>
-Azure Site Recovery actuellement des obligations qui émettent des groupe de ressources de la région et les machines virtuelles doivent être dans le même emplacement. Si tel n’est pas le cas, vous ne pouvez pas trouver la machine virtuelle pendant la durée de la protection. Pour résoudre ce problème, vous pouvez activer la réplication à partir de la machine virtuelle au lieu du coffre Recovery services. Accédez à Sourece VM > Propriétés > activer la réplication et récupération d’urgence.
+Azure Site Recovery exige actuellement que le groupe de ressources et les machines virtuelles de la région source se trouvent dans le même emplacement. Si tel n’est pas le cas, vous ne pouvez pas trouver la machine virtuelle pendant la durée de la protection. Comme solution de contournement, vous pouvez Activer la réplication depuis la machine virtuelle à la place du coffre Recovery Services. Accédez à Machine virtuelle source > Propriétés > Récupération d'urgence et Activer la réplication.
 
 **Cause 2 : le groupe de ressources ne fait pas partie de l’abonnement sélectionné** <br>
 Il se peut que vous ne puissiez pas trouver le groupe de ressources au moment de la protection s’il ne fait pas partie de l’abonnement donné. Assurez-vous que le groupe de ressources appartient à l’abonnement en cours d’utilisation.
@@ -311,7 +311,7 @@ Vous pouvez ouvrir la console « Services » et vérifier que « Application sys
 ## <a name="enable-protection-failed-as-device-name-mentioned-in-the-grub-configuration-instead-of-uuid-error-code-151126"></a>L'activation de la protection a échoué car le nom de l'appareil mentionné dans la configuration GRUB n'est pas l'UUID (code d'erreur 151126)
 
 **Cause possible :** </br>
-Les fichiers de configuration GRUB (« /boot/grub/menu.lst », « /boot/grub/grub.cfg », « /boot/grub2/grub.cfg » ou « /etc/default/grub ») peuvent contenir la valeur des paramètres **root** et **resume** en tant que noms d'appareils en lieu et place de l'UUID. Site Recovery impose l'approche UUID car le nom de l'appareil peut changer lors du redémarrage de la machine virtuelle. Et si la machine virtuelle n'apparaît pas sous le même nom lors du basculement, des problèmes peuvent survenir. Exemple : </br>
+Les fichiers de configuration GRUB (« /boot/grub/menu.lst », « /boot/grub/grub.cfg », « /boot/grub2/grub.cfg » ou « /etc/default/grub ») peuvent contenir la valeur des paramètres **root** et **resume** en tant que noms d'appareils en lieu et place de l'UUID. Site Recovery impose l'approche UUID car le nom de l'appareil peut changer lors du redémarrage de la machine virtuelle. Et si la machine virtuelle n'apparaît pas sous le même nom lors du basculement, des problèmes peuvent survenir. Par exemple : </br>
 
 
 - La ligne suivante provient du fichier GRUB **/boot/grub2/grub.cfg**. <br>
@@ -327,7 +327,7 @@ Si vous observez la chaîne en gras ci-dessus, cela signifie que GRUB contient l
 Le nom de chaque appareil doit être remplacé par l'UUID correspondante.<br>
 
 
-1. Rechercher l’UUID de l’appareil en exécutant la commande « blkid \<nom de l’appareil > ». Exemple :<br>
+1. Recherchez l'UUID de l'appareil en exécutant la commande « blkid \<device name> ». Par exemple :<br>
    ```
    blkid /dev/sda1
    ```<br>

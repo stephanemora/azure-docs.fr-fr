@@ -1,6 +1,6 @@
 ---
 title: Stratégies de support pour Azure Kubernetes Service (AKS)
-description: En savoir plus sur les stratégies de prise en charge Azure Kubernetes Service (AKS), une responsabilité partagée et les fonctionnalités en version préliminaire (ou alpha ou beta).
+description: Découvrez les stratégies de support Azure Kubernetes Service (AKS), la responsabilité partagée et les fonctionnalités disponibles en préversion (ou alpha ou bêta).
 services: container-service
 author: jnoller
 ms.service: container-service
@@ -8,157 +8,157 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: jenoller
 ms.openlocfilehash: 0d2c080be727d2ae13d6d9e5274f17cadffbe640
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65786456"
 ---
-# <a name="support-policies-for-azure-kubernetes-service"></a>Stratégies de prise en charge pour Azure Kubernetes Service
+# <a name="support-policies-for-azure-kubernetes-service"></a>Stratégies de support pour Azure Kubernetes Service
 
-Cet article fournit des détails sur les stratégies de support technique et des limitations pour Azure Kubernetes Service (AKS). L’article détaille également la gestion des nœuds de travail, composants de plan de contrôle géré, des composants tiers open source et gestion de sécurité ou correctifs.
+Cet article fournit des informations sur les stratégies de support technique et les limitations pour Azure Kubernetes Service (AKS). Il détaille également la gestion des nœuds Worker, les composants de plan de contrôle géré, les composants open source tiers et la gestion de la sécurité ou des correctifs.
 
-## <a name="service-updates-and-releases"></a>Versions et mises à jour de service
+## <a name="service-updates-and-releases"></a>Versions et mises à jour du service
 
-* Pour plus d’informations de version, consultez [AKS notes de publication](https://github.com/Azure/AKS/releases).
-* Pour plus d’informations sur les fonctionnalités en version préliminaire, consultez [AKS afficher un aperçu des fonctionnalités et des projets connexes](https://github.com/Azure/AKS/blob/master/previews.md).
+* Pour des informations sur les versions, consultez les [notes de publication relatives à AKS](https://github.com/Azure/AKS/releases).
+* Pour des informations sur les fonctionnalités en préversion, consultez [AKS Preview Features and Related Projects](https://github.com/Azure/AKS/blob/master/previews.md) (Fonctionnalités d’évaluation AKS et projets associés).
 
-## <a name="managed-features-in-aks"></a>Gérés des fonctionnalités dans ACS
+## <a name="managed-features-in-aks"></a>Fonctionnalités gérées dans AKS
 
-Infrastructure de base comme un service (IaaS) cloud des composants, tels que compute ou des composants réseau, donner aux utilisateurs l’accès aux contrôles de bas niveau et des options de personnalisation. En revanche, AKS fournit un déploiement clé en main de Kubernetes qui fournit aux clients l’ensemble commun de configurations et les capacités que dont ils ont besoin. Les clients d’ACS ont limité personnalisation, de déploiement et d’autres options. Ces clients ne doivent s’inquiéter ou gérer des clusters Kubernetes directement.
+Les composants cloud infrastructure as a service (IaaS) de base, tels que les composants réseau ou de calcul, permettent aux utilisateurs d’accéder à des contrôles de niveau inférieur et à des options de personnalisation. En revanche, AKS fournit un déploiement clé en main de Kubernetes qui offre aux clients l’ensemble courant de configurations et fonctionnalités dont ils ont besoin. Les clients AKS bénéficient de fonctions de personnalisation et de déploiement limitées, ainsi que d’autres options. Ces clients n’ont pas à se soucier des clusters Kubernetes, ni à les gérer directement.
 
-Avec AKS, le client obtient une solution entièrement gérée *plan de contrôle*. Le plan de contrôle contient tous les composants et services que le client a besoin pour faire fonctionner et fournir des clusters Kubernetes aux utilisateurs finaux. Tous les composants Kubernetes sont conservées et gérés par Microsoft.
+Avec AKS, le client dispose d’un *plan de contrôle* entièrement géré. Le plan de contrôle contient tous les composants et services dont le client a besoin pour faire fonctionner et proposer des clusters Kubernetes aux utilisateurs finaux. Tous les composants Kubernetes sont conservés et gérés par Microsoft.
 
-Microsoft gère et surveille les composants suivants via le panneau de contrôle :
+Microsoft gère et surveille les composants suivants via le panneau de contrôle :
 
-* Serveurs Kubelet ou API Kubernetes
-* ETCD ou un magasin clé-valeur compatible, en fournissant une qualité de Service (QoS), d’évolutivité et de runtime
+* Kubelet ou serveurs d’API Kubernetes
+* Etcd ou un stockage clé-valeur compatible assurant la Qualité de service (QoS), l’extensibilité et le runtime
 * Services DNS (par exemple, kube-dns ou CoreDNS)
-* Proxy de Kubernetes ou de mise en réseau
+* Proxy Kubernetes ou réseau
 
-ACS n’est pas une solution de cluster entièrement géré. Certains composants, tels que des nœuds de travail ont *la responsabilité partagée*, où les utilisateurs doivent vous aider à gérer le cluster AKS. L’entrée d’utilisateur est nécessaire, par exemple, pour appliquer un correctif de sécurité du système d’exploitation (se) de nœud worker.
+AKS n’est pas une solution de cluster entièrement gérée. Certains composants, tels que des nœuds Worker ont *la responsabilité partagée*, où les utilisateurs doivent participer à la gestion du cluster AKS. L’entrée utilisateur est nécessaire, par exemple, pour appliquer un correctif de sécurité du système d’exploitation de nœud Worker.
 
-Les services sont *gérés* en ce sens que Microsoft et l’équipe AKS déploie, fonctionne et est responsables de la disponibilité du service et de fonctionnalités. Les clients ne peuvent pas modifier ces composants managés. Microsoft limite personnalisation afin de garantir une expérience utilisateur cohérente et évolutive. Pour une solution entièrement personnalisable, consultez [AKS moteur](https://github.com/Azure/aks-engine).
+Les services sont *gérés* de façon que Microsoft et l’équipe AKS déploient, gèrent et soient responsables de l’opérationnalité et de la disponibilité du service. Les clients ne peuvent pas modifier ces composants gérés. Microsoft limite la personnalisation, afin de garantir une expérience utilisateur cohérente et évolutive. Pour une solution entièrement personnalisable, consultez [AKS Engine](https://github.com/Azure/aks-engine) (Moteur AKS).
 
 > [!NOTE]
-> Nœuds de travail ACS apparaissent dans le portail Azure en tant que ressources Azure IaaS standard. Mais ces machines virtuelles sont déployées dans un groupe de ressources Azure personnalisée (préfixe MC\\*). Il est possible de modifier des nœuds de travail AKS. Par exemple, vous pouvez utiliser Secure Shell (SSH) pour modifier les nœuds de travail AKS la façon de vous faire basculer les machines virtuelles normales (Toutefois, vous ne pouvez pas modifier l’image du système d’exploitation de base, et les modifications ne peuvent pas persister d’une mise à jour ou redémarrer), et vous pouvez attacher des autres ressources Azure à AKS nœuds de travail. Mais lorsque vous apportez des modifications *gestion hors bande et personnalisation,* le cluster AKS peut devenir difficile. Évitez de modifier des nœuds de travail, sauf si le Support Microsoft vous indique comment apporter des modifications.
+> Les nœuds Worker AKS sont affichés dans le portail Azure en tant que ressources Azure IaaS standard. Toutefois, ces machines virtuelles sont déployées dans un groupe de ressources Azure personnalisé (portant le préfixe MC\\*). Il est possible de modifier des nœuds Worker AKS. Par exemple, vous pouvez utiliser Secure Shell (SSH) pour modifier les nœuds Worker AKS de la même façon que si vous apportiez des modifications à des machines virtuelles normales (néanmoins, vous ne pouvez pas changer l’image de système d’exploitation de base, et les modifications peuvent ne pas être conservées suite à une mise à jour ou un redémarrage). En outre, vous pouvez associer d’autres ressources Azure aux nœuds Worker AKS. Toutefois, lorsque vous apportez des modifications de *personnalisation et de gestion en dehors du réseau*, le cluster AKS peut ne plus être supporté. Évitez de modifier des nœuds Worker, sauf si le Support Microsoft vous demande d’apporter ces modifications.
 
 ## <a name="shared-responsibility"></a>Responsabilité partagée
 
-Lors de la création d’un cluster, le client définit les nœuds de travail de Kubernetes AKS crée. Charges de travail client sont exécutées sur ces nœuds. Les clients possèdent et peuvent afficher ou modifier les nœuds de travail.
+Lors de la création d’un cluster, le client définit les nœuds Worker Kubernets générés par AKS. Les charges de travail du client sont exécutées sur ces nœuds. Les clients possèdent et peuvent afficher ou modifier les nœuds Worker.
 
-Étant donné que les nœuds de cluster de client d’exécuter du code privé et stockent des données sensibles, le Support Microsoft peut y accéder de manière limitée uniquement. Support Microsoft ne peut pas se connecter, exécuter des commandes dans ou afficher les journaux pour ces nœuds sans autorisation expresse de client ou de l’assistance.
+Étant donné que les nœuds de cluster du client exécutent du code privé et stockent des données sensibles, le Support Microsoft peut y accéder de manière limitée uniquement. Le Support Microsoft ne peut pas se connecter, exécuter des commandes ou afficher les journaux de ces nœuds sans autorisation expresse du client ou de l’assistance.
 
-Étant donné que les nœuds de travail sont sensibles, Microsoft prend la prudence pour limiter leur gestion en arrière-plan. Dans de nombreux cas, votre charge de travail continue de s’exécuter même si les Kubernetes maître nœuds, etcd et autres échouer les composants gérés par Microsoft. Nœuds de travail négligemment modifié peuvent entraîner des pertes de données et charges de travail et peuvent rendre difficile le cluster.
+Étant donné que les nœuds Worker sont fragiles, Microsoft fait preuve de toute la prudence nécessaire pour limiter sa gestion en arrière-plan. Dans de nombreux cas, votre charge de travail continue de s’exécuter même si les nœuds master Kubernetes, etcd et d’autres composants gérés par Microsoft échouent. Apporter des modifications aux nœuds Worker sans faire preuve de prudence peut conduire à la perte de données et de charges de travail et ne plus garantir le support du cluster.
 
-## <a name="aks-support-coverage"></a>AKS prend en charge de la couverture
+## <a name="aks-support-coverage"></a>Couverture du support AKS
 
-Microsoft fournit un support technique pour les éléments suivants :
+Microsoft fournit un support technique pour les éléments suivants :
 
-* Connectivité à tous les composants de Kubernetes qui fournit le service Kubernetes et qui prend en charge, tels que le serveur d’API.
-* Gestion, disponibilité, QoS et les opérations de Kubernetes contrôlent des services de plan (nœuds maîtres de Kubernetes, un serveur API, etcd et kube-dns, par exemple).
-* ETCD. Prise en charge inclut des sauvegardes automatisées, transparents de toutes les données etcd toutes les 30 minutes pour la restauration d’état cluster et de planification d’urgence. Ces sauvegardes ne sont pas directement disponibles aux clients ou utilisateurs. Elles garantissent la cohérence et la fiabilité des données.
-* Les points d’intégration dans le pilote du fournisseur de cloud Azure pour Kubernetes. Ceux-ci incluent des intégrations à d’autres services Azure tels que les équilibreurs de charge, les volumes persistants ou mise en réseau (Kubernetes et Azure CNI).
-* Questions ou des problèmes sur la personnalisation du contrôle du plan de composants tels que le serveur d’API Kubernetes, etcd et kube-dns.
-* Remarque concernant la mise en réseau, tels que Azure CNI, kubenet, ou autres accès réseau et les fonctionnalités de problèmes. Problèmes peut inclure DNS résolution, perte de paquets, routage et ainsi de suite. Microsoft prend en charge différents scénarios de mise en réseau :
-  * Kubenet (basic) et avancées de mise en réseau (Azure CNI) au sein du cluster et composants associés
+* Connectivité à tous les composants Kubernetes que le service Kubernetes fournit et prend en charge, tel que le serveur d’API.
+* Gestion, durée de fonctionnement, QoS et opérations des services de plan de contrôle Kubernetes (nœuds master Kubernetes, serveur d’API, etcd et kube-dns, par exemple).
+* Etcd. Le support inclut des sauvegardes automatisées et transparentes de l’ensemble des données etcd toutes les 30 minutes pour la planification de la récupération d’urgence et la restauration de l’état du cluster. Ces sauvegardes ne sont pas directement disponibles pour les clients ou utilisateurs. Elles garantissent la cohérence et la fiabilité des données.
+* Points d’intégration dans le pilote du fournisseur cloud Azure pour Kubernetes. Ceux-ci incluent des intégrations à d’autres services Azure tels que les équilibreurs de charge, les volumes persistants ou la mise en réseau (Kubernetes et Azure CNI).
+* Questions ou problèmes relatifs à la personnalisation des composants du plan de contrôle tels que le serveur d’API Kubernetes, etcd et kube-dns.
+* Problèmes relatifs au réseau, tels qu’Azure CNI, que kubenet, ou d’autres problématiques en lien avec des fonctionnalités ou l’accès réseau. Les problèmes peuvent inclure la résolution DNS, la perte de paquets, le routage, etc. Microsoft prend en charge différents scénarios de mise en réseau :
+  * Mise en réseau Kubenet (basique) et avancée (Azure CNI) au sein du cluster et des composants associés
   * Connectivité à d’autres services et applications Azure
-  * Les contrôleurs d’entrée et les configurations d’équilibrage entrée ou la charge
-  * Performances du réseau et la latence
+  * Contrôleurs d’entrée et configurations d’équilibreur de charge ou d’entrée
+  * Performances et latence réseau
 
-Microsoft ne fournit pas un support technique pour les éléments suivants :
+Microsoft ne fournit pas de support technique pour les éléments suivants :
 
-* Questions sur l’utilisation de Kubernetes. Par exemple, le Support Microsoft ne fournit pas des conseils sur la façon de créer les contrôleurs d’entrée personnalisé, utilisez des charges de travail ou appliquer des packages de logiciels tiers ou open source ou d’outils.
+* Questions sur l’utilisation de Kubernetes. Par exemple, le Support Microsoft ne fournit pas de conseils sur la façon dont les contrôleurs d’entrée doivent être créés, sur l’utilisation des charges de travail d’application ou sur l’application d’outils ou de packages logiciels open source ou tiers.
   > [!NOTE]
-  > Support Microsoft peut vous conseiller sur la fonctionnalité de cluster AKS, personnalisation et paramétrage (par exemple, les problèmes d’opérations de Kubernetes et les procédures).
-* Projets open source tiers qui ne sont pas fournis dans le cadre de la Kubernetes contrôlent le plan ou déploiement avec les clusters AKS. Ces projets peuvent inclure Istio, Helm, Envoy ou autres utilisateurs.
+  > Le Support Microsoft peut vous conseiller sur la fonctionnalité de cluster AKS, la personnalisation et le paramétrage (par exemple, les procédures et problèmes relatifs aux opérations Kubernetes).
+* Les projets open source tiers qui ne sont pas fournis dans le cadre du plan de contrôle Kubernetes ou déployés avec des clusters AKS. Ces projets peuvent inclure Istio, Helm, Envoy, etc.
   > [!NOTE]
-  > Microsoft peut fournir prise en charge du meilleur effort pour les projets open source tiers tels que Helm et Kured. Où l’outil open source tiers s’intègre avec le fournisseur de cloud Kubernetes Azure ou d’autres bogues spécifiques AKS, Microsoft prend en charge des exemples et des applications à partir de la documentation de Microsoft.
-* Logiciels de source fermé par des tiers. Ce logiciel peut inclure des outils d’analyse sécurité et mise en réseau des périphériques ou des logiciels.
-* Problèmes multicloud ou multi-fournisseur aboutissants de build. Par exemple, Microsoft ne prend en charge les problèmes liés à l’exécution d’une solution de fournisseur de cloud multipublic fédéré.
-* Réseau de personnalisations autres que ceux répertoriés dans le [documentation AKS](https://docs.microsoft.com/azure/aks/).
+  > Microsoft fera de son mieux pour assurer le support des projets open source tiers tels que Helm et Kured. Quand l’outil open source tiers est associé au fournisseur cloud Azure Kubernetes ou à d’autres bogues spécifiques à AKS, Microsoft fournit des exemples et applications issus de sa documentation.
+* Logiciels fermés tiers. Ces logiciels peuvent inclure des outils d’analyse de sécurité et des logiciels ou appareils réseau.
+* Problèmes de solutions multifournisseur ou multicloud. Par exemple, Microsoft n’assure pas le support des problèmes liés à l’exécution d’une solution de fournisseur cloud multipublic fédérée.
+* Personnalisations réseau autres que celles répertoriées dans la [documentation AKS](https://docs.microsoft.com/azure/aks/).
   > [!NOTE]
-  > Microsoft ne prend pas en charge les problèmes et les bogues liés aux groupes de sécurité réseau (NSG). Par exemple, Support Microsoft peut répondre aux questions sur une défaillance du groupe de sécurité réseau pour mettre à jour ou un groupe de sécurité réseau ou charge équilibrage un comportement inattendu.
+  > Microsoft n’assure pas le support des problèmes et bogues liés aux groupes de sécurité réseau. Par exemple, le Support Microsoft peut répondre à des questions sur un échec de mise à jour d’un groupe de sécurité réseau ou un comportement d’équilibreur de charge ou de groupe de sécurité réseau inattendu.
 
-## <a name="aks-support-coverage-for-worker-nodes"></a>AKS prend en charge de couverture pour les nœuds de travail
+## <a name="aks-support-coverage-for-worker-nodes"></a>Couverture du support AKS pour les nœuds Worker
 
-### <a name="microsoft-responsibilities-for-aks-worker-nodes"></a>Responsabilités de Microsoft pour les nœuds de travail ACS
+### <a name="microsoft-responsibilities-for-aks-worker-nodes"></a>Responsabilités de Microsoft pour les nœuds Worker AKS
 
-Microsoft et les clients partagent la responsabilité de nœuds de travail Kubernetes où :
+Microsoft et les clients partagent la responsabilité relative aux nœuds Worker Kubernetes quand :
 
-* L’image du système d’exploitation de base a requis des ajouts (par exemple, la surveillance et mise en réseau des agents).
-* Les nœuds de travail reçoivent automatiquement des correctifs de système d’exploitation.
-* Problèmes avec le Kubernetes contrôlent le plan de composants qui s’exécutent sur les nœuds de travail sont résolus automatiquement. Composants sont les suivants :
-  * Kube-proxy
-  * tunnels de réseau qui fournissent des chemins de communication vers le Kubernetes maître des composants
-  * kubelet
-  * Démon docker ou Moby
+* L’image du système d’exploitation de base a requis des ajouts (par exemple, des agents réseau et de surveillance).
+* Les nœuds Worker reçoivent automatiquement des correctifs de système d’exploitation.
+* Des problèmes en lien avec les composants du plan de contrôle Kubernetes qui s’exécutent sur les nœuds Worker sont automatiquement corrigés. Les composants incluent :
+  * Proxy Kube
+  * Tunnels de mise en réseau qui fournissent des chemins d’accès de communication vers les composants master Kubernetes
+  * Kubelet
+  * Démon Docker ou Moby
 
 > [!NOTE]
-> Sur un nœud worker, si un composant de plan de contrôle n’est pas opérationnel, l’équipe AKS devrez peut-être redémarrer le nœud de travail dans son ensemble. En raison de leur accès restreint aux charges de travail actif du client et les données, l’équipe AKS redémarre un nœud de travail uniquement si le client fait remonter le problème. Dans la mesure du possible, l’équipe AKS fonctionne pour éviter un redémarrage obligatoire d’affecter l’application.
+> Sur un nœud Worker, si un composant de plan de contrôle n’est pas opérationnel, l’équipe AKS devra peut-être redémarrer l’intégralité du nœud Worker. En raison de son accès restreint aux données et charges de travail actives du client, l’équipe AKS redémarre un nœud Worker uniquement si le client fait remonter le problème. Dans la mesure du possible, l’équipe AKS travaille de façon à éviter tout redémarrage obligatoire pouvant affecter l’application.
 
-### <a name="customer-responsibilities-for-aks-worker-nodes"></a>Responsabilités du client pour les nœuds de travail ACS
+### <a name="customer-responsibilities-for-aks-worker-nodes"></a>Responsabilités du client pour les nœuds Worker AKS
 
-Microsoft ne redémarre pas automatiquement les nœuds de travail pour appliquer des correctifs de système d’exploitation. Même si les correctifs du système d’exploitation sont transmises aux nœuds de travail, le *client* est responsable de la redémarrer les nœuds de travail pour appliquer les modifications. Bibliothèques partagées, démons tels que lecteur SSD hybride (SSHD) et autres composants au niveau du système ou du système d’exploitation sont corrigées automatiquement.
+Microsoft ne redémarre pas automatiquement les nœuds Worker pour appliquer des correctifs de système d’exploitation. Même si les correctifs de système d’exploitation sont transmises aux nœuds Worker, le *client* est responsable du reémarrage des nœuds Worker pour appliquer les modifications. Bibliothèques partagées, démons tels que des disques hybrides SSD (SSHD) et d’autres composants au niveau du système ou du système d’exploitation sont corrigés automatiquement.
 
-Les clients sont responsables de l’exécution de mises à niveau Kubernetes. Ils peuvent exécuter des mises à niveau par le biais du Panneau de commande Azure ou Azure CLI. Cela s’applique des mises à jour qui contiennent la sécurité ou des améliorations de fonctionnalités pour Kubernetes.
-
-> [!NOTE]
-> Étant donné que AKS est un *service géré*, ses objectifs finaux comprennent la suppression de responsabilité pour les correctifs, mises à jour et collecte pour améliorer la gestion de service complète et plus sans intervention des journaux. L’augmentation de capacité du service pour la gestion de bout en bout, les versions futures peuvent omettre certaines fonctions (par exemple, le redémarrage de nœud et la mise à jour corrective automatique).
-
-### <a name="security-issues-and-patching"></a>Problèmes de sécurité et de mise à jour corrective
-
-Si une faille de sécurité se trouve dans un ou plusieurs composants de AKS, l’équipe AKS corrigera tous les clusters affectés pour atténuer le problème. Vous pouvez également l’équipe offrira aux utilisateurs des conseils de mise à niveau.
-
-Pour les nœuds de travail qu’un affecte de faille de sécurité, si un correctif sans interruption de service est disponible, l’équipe AKS appliquer ce correctif et avertir les utilisateurs de la modification.
-
-Lorsqu’un correctif de sécurité nécessite un redémarrage du nœud worker, Microsoft informe les clients de cette exigence. Il incombe au client pour le redémarrage ou la mise à jour pour obtenir le correctif logiciel de cluster. Si les utilisateurs ne s’appliquent pas les correctifs en fonction des conseils AKS, leur cluster continue à être vulnérables au problème de sécurité.
-
-### <a name="node-maintenance-and-access"></a>Accès et la maintenance de nœud
-
-Nœuds de travail sont une responsabilité partagée et sont détenus par les clients. Pour cette raison, les clients ont la possibilité de se connecter à leurs nœuds worker et apportez des modifications potentiellement dangereuses telles que les mises à jour du noyau et l’installation ou la suppression des packages.
-
-Si les clients apporter des modifications destructrices ou provoquent contrôle les composants plan mis hors connexion ou se glisse, AKS détecte cet échec et restaurer automatiquement le nœud worker à l’état de travail précédent.
-
-Bien que les clients peuvent se connecter à et modifier des nœuds de travail, cette opération est déconseillée, car les modifications peuvent rendre un cluster réintègre.
-
-## <a name="network-ports-access-and-nsgs"></a>Ports réseau, les accès et les groupes de sécurité réseau
-
-En tant que service géré, AKS a des exigences spécifiques sur la mise en réseau et de connectivité. Ces exigences sont moins souples que la configuration requise pour les composants d’IaaS normales. Dans ACS, opérations telles que la personnalisation des règles de groupe de sécurité réseau bloque un port spécifique (par exemple, à l’aide de règles de pare-feu qui bloquent le port sortant 443), et les URL de mise en liste verte peuvent rendre votre cluster réintègre.
+Les clients sont responsables de l’exécution des mises à niveau Kubernetes. Ils peuvent exécuter des mises à niveau via le Panneau de configuration Azure ou Azure CLI. Cela s’applique pour les mises à jour qui contiennent des améliorations en matière de sécurité ou de fonctionnalités pour Kubernetes.
 
 > [!NOTE]
-> Actuellement, AKS ne vous permet de verrouiller complètement de sortie à partir de votre cluster (par exemple, domaine explicite ou mise en liste verte de port). La liste des URL et les ports est susceptible de changer sans avertissement. Vous pouvez obtenir la liste mise à jour en créant un ticket de Support Azure. La liste est uniquement pour les clients qui sont prêts à accepter que leur disponibilité du cluster peut avoir une incidence *à tout moment.*
+> Étant donné qu’AKS est un *service géré*, ses objectifs finaux comprennent la suppression de responsabilité pour les correctifs, les mises à jour et la collecte des journaux afin d’étoffer la gestion du service et de proposer une solution automatique. À mesure de l’augmentation de la capacité du service pour la gestion de bout en bout, les versions futures peuvent omettre certaines fonctions (par exemple, le redémarrage de nœud et l’application de correctifs automatique).
 
-## <a name="unsupported-alpha-and-beta-kubernetes-features"></a>Non pris en charge les fonctionnalités de Kubernetes alpha et bêta
+### <a name="security-issues-and-patching"></a>Problèmes de sécurité et application de correctifs
 
-AKS prend en charge uniquement les fonctionnalités stables au sein du projet Kubernetes en amont. Sauf mention contraire, AKS ne prennent en charge les fonctionnalités alpha et bêta sont disponibles dans le projet de Kubernetes en amont.
+Si une faille de sécurité se trouve dans un ou plusieurs composants d’AKS, l’équipe AKS appliquera des correctifs à tous les clusters affectés pour atténuer le problème. L’équipe peut également donner des conseils en matière de mise à niveau aux utilisateurs.
 
-Dans les deux scénarios, alpha ou beta fonctionnalités peuvent être déployées avant qu’ils sont généralement disponibles :
+Pour les nœuds Worker affectés par une faille de sécurité, si un correctif sans interruption de service est disponible, l’équipe AKS l’appliquera et informera les utilisateurs de la modification.
 
-* Les clients sont remplies avec le produit AKS, prise en charge ou équipes d’ingénierie et ont été demandés pour essayer ces nouvelles fonctionnalités.
-* Ces fonctionnalités ont été [activé par un indicateur de fonctionnalité](https://github.com/Azure/AKS/blob/master/previews.md). Les clients doivent explicitement choisir d’utiliser ces fonctionnalités.
+Lorsqu’un correctif de sécurité nécessite un redémarrage du nœud Worker, Microsoft informe les clients de cette situation. Il incombe au client de redémarrer ou d’effectuer la mise à jour pour obtenir le correctif du cluster. Si les utilisateurs n’appliquent pas les correctifs conformément aux instructions AKS, leur cluster continuera d’être vulnérable au problème de sécurité.
 
-## <a name="preview-features-or-feature-flags"></a>Fonctionnalités en version préliminaire ou indicateurs de fonctionnalités
+### <a name="node-maintenance-and-access"></a>Accès et maintenance des nœuds
 
-Pour les fonctionnalités et fonctions qui requièrent des tests étendus et des commentaires des utilisateurs, Microsoft publie de nouvelles fonctionnalités en version préliminaire ou fonctionnalités derrière un indicateur de fonctionnalité. Considérez ces fonctionnalités en tant que fonctionnalités de la version préliminaire ou bêta.
+Les nœuds Worker font l’objet d’une responsabilité partagée et sont détenus par les clients. C’est pour cette raison que les clients ont la possibilité de se connecter à leurs nœuds Worker et d’y apporter des modifications potentiellement dangereuses, telles que des mises à jour du noyau et l’installation ou la suppression de packages.
 
-Fonctionnalités en version préliminaire ou fonctionnalités de l’indicateur de fonctionnalité ne sont pas censées pour la production. Modifications apportées en continu dans les API et de comportement, de correctifs de bogues et d’autres modifications peuvent entraîner des temps d’arrêt et de clusters instables.
+Si les clients apportent des modifications nuisibles ou provoquent la panne ou la mise hors connexion des composants du plan de contrôle, AKS détectera ce problème et restaurera automatiquement le nœud Worker à son état de fonctionnement précédent.
 
-Fonctionnalités en version préliminaire publique sont chute sous « meilleur effort » la prise en charge ces fonctionnalités sont en version préliminaire et pas conçu pour la production, et sont pris en charge par les équipes de support technique ACS pendant les heures ouvrables uniquement. Pour plus d’informations, consultez :
+Même si les clients peuvent se connecter aux nœuds Worker et les modifier, ces opérations sont déconseillées, car ces modifications peuvent affecter le support du cluster.
+
+## <a name="network-ports-access-and-nsgs"></a>Ports réseau, accès et groupes de sécurité réseau
+
+En tant que service géré, AKS a des exigences spécifiques en termes de mise en réseau et de connectivité. Ces exigences sont moins souples que celles des composants IaaS standard. Dans AKS, les opérations telles que la personnalisation de règles de groupe de sécurité réseau, le blocage d’un port spécifique (par exemple, à l’aide de règles de pare-feu qui bloquent le port sortant 443) et la mise sur liste verte d’URL peuvent affecter le support de votre cluster.
+
+> [!NOTE]
+> Actuellement, AKS ne vous permet pas de verrouiller complètement les sorties de votre cluster (par exemple, domaine explicite ou mise sur liste verte de ports). La liste des URL et des ports est susceptible d’être modifiée sans que vous en soyez informé. Vous pouvez obtenir la liste mise à jour en créant un ticket de Support Azure. La liste est uniquement destinée aux clients qui sont prêts à accepter que la disponibilité de leur cluster peut être affectée *à tout moment.*
+
+## <a name="unsupported-alpha-and-beta-kubernetes-features"></a>Fonctionnalités Kubernetes alpha et bêta non supportées
+
+AKS supporte uniquement les fonctionnalités stables au sein du projet Kubernetes en amont. Sauf mention contraire, AKS ne supporte pas les fonctionnalités alpha et bêta qui sont disponibles dans le projet Kubernetes en amont.
+
+Dans ces deux scénarios, les fonctionnalités alpha ou bêta peuvent être déployées avant qu’elles ne soient mises à la disposition générale :
+
+* Les clients ont rencontré les équipes d’ingénierie, de support ou produit AKS et ont demandé à essayer ces nouvelles fonctionnalités.
+* Ces fonctionnalités ont été [activées par un indicateur de fonctionnalité](https://github.com/Azure/AKS/blob/master/previews.md). Les clients doivent explicitement choisir d’utiliser ces fonctionnalités.
+
+## <a name="preview-features-or-feature-flags"></a>Fonctionnalités d’évaluation ou indicateurs de fonctionnalités
+
+Pour les fonctionnalités et fonctions qui requièrent des tests étendus et des commentaires des utilisateurs, Microsoft publie de nouvelles fonctionnalités d’évaluation ou des fonctionnalités appartenant à un indicateur de fonctionnalité. Considérez ces fonctionnalités comme des fonctionnalités bêta ou en version préliminaire.
+
+Les fonctionnalités d’évaluation ou fonctionnalités avec indicateur de fonctionnalité ne sont pas destinées aux environnements de production. Les modifications continues apportées aux API et aux comportements, corrections de bogues et autres types de modifications peuvent entraîner des temps d’arrêt et un manque de stabilité des clusters.
+
+Les fonctionnalités en préversion publique font l’objet d’un support relatif, puisque ces fonctionnalités ne sont pas destinées à la production et sont supportées par les équipe du support technique AKS pendant les heures de bureau uniquement. Pour toute information supplémentaire, consultez les documents suivants :
 
 * [FAQ du support Azure](https://azure.microsoft.com/support/faq/)
 
 > [!NOTE]
-> Fonctionnalités en version préliminaire en vigueur au Azure *abonnement* niveau. N’installez pas les fonctionnalités en version préliminaire sur un abonnement de production. Sur un abonnement de production, les fonctionnalités en version préliminaire peuvent modifier le comportement par défaut de l’API et affectent les opérations normales.
+> Les fonctionnalités d’évaluation s’appliquent au niveau de *l’abonnement* Azure uniquement. N’installez pas les fonctionnalités d’évaluation sur un abonnement de production. Sur un abonnement de production, les fonctionnalités d’évaluation peuvent modifier le comportement par défaut de l’API et affecter les opérations normales.
 
-## <a name="upstream-bugs-and-issues"></a>Problèmes et les bogues en amont
+## <a name="upstream-bugs-and-issues"></a>Problèmes et bogues en amont
 
-Étant donné la vitesse de développement dans le projet de Kubernetes en amont, bogues invariablement surviennent. Certains de ces bogues ne peut pas être corrigée ou contourné au sein du système AKS. Au lieu de cela, des correctifs de bogues nécessitent des correctifs volumineux aux projets en amont (par exemple, Kubernetes, les systèmes d’exploitation nœud ou de travail et les noyaux). Pour les composants appartenant à Microsoft (par exemple, le fournisseur de cloud Azure), AKS et le personnel Azure est validé pour la résolution des problèmes en amont dans la Communauté.
+Étant donné la vitesse de développement dans le projet Kubernetes en amont, des bogues surviennent invariablement. Certains de ces bogues ne peuvent pas être corrigés ni contournés au sein du système AKS. Au lieu de cela, des corrections de bogues exigent des correctifs plus importants pour les projets en amont (comme Kubernetes, systèmes d’exploitation Worker ou de nœud et noyaux). Pour les composants appartenant à Microsoft (par exemple, le fournisseur cloud Azure), AKS et le personnel Azure s’engagent à corriger les problèmes en amont dans la communauté.
 
-Lorsqu’un problème de support technique est la cause racine par un ou plusieurs bogues en amont, AKS prise en charge et l’ingénierie, les équipes vont :
+Lorsqu’un problème de support technique est la cause racine d’un ou de plusieurs bogues en amont, les équipes d’ingénierie et de support AKS procèdent comme suit :
 
-* Identifiez et lier les bogues en amont avec les détails de prise en charge afin d’expliquer pourquoi ce problème affecte votre cluster ou la charge de travail. Les clients reçoivent des liens vers les dépôts requis afin de pouvoir regarder les problèmes et voir quand une nouvelle version fournira des correctifs.
-* Fournir le potentiel des solutions de contournement ou des atténuations. Si le problème peut être atténué, un [problème connu](https://github.com/Azure/AKS/issues?q=is%3Aissue+is%3Aopen+label%3Aknown-issue) sont créés dans le référentiel AKS. Le dépôt de problème connu, et explique :
-  * Le problème, notamment des liens vers des bogues en amont.
-  * La solution de contournement et plus d’informations sur une mise à niveau ou d’une autre persistance de la solution.
-  * Approximatif chronologies pour l’inclusion du problème, selon la cadence de publication en amont.
+* Ils identifient et associent les bogues en amont aux détails de support afin d’expliquer pourquoi ce problème affecte votre cluster ou charge de travail. Les clients reçoivent des liens vers les référentiels nécessaires afin de pouvoir étudier les problèmes et voir quand une nouvelle version fournira des correctifs.
+* Ils proposent des atténuations ou solutions alternatives éventuelles. Si le problème peut être atténué, un [problème connu](https://github.com/Azure/AKS/issues?q=is%3Aissue+is%3Aopen+label%3Aknown-issue) est consigné dans le référentiel AKS. La consignation du problème connu décrit :
+  * Le problème, avec des liens vers des bogues en amont.
+  * La solution alternative et des informations sur une mise à jour ou une autre persistance de la solution.
+  * Des chronologies approximatives pour l’inclusion du problème, en fonction de la cadence des versions en amont.

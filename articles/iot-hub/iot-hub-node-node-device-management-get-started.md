@@ -9,10 +9,10 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/25/2017
 ms.openlocfilehash: 9bc34110b85119c7b8b303774b585d03ce9d3a0f
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65596641"
 ---
 # <a name="get-started-with-device-management-node"></a>Prise en main de la gestion d’appareils (Node)
@@ -21,7 +21,7 @@ ms.locfileid: "65596641"
 
 Ce didacticiel vous explique les procédures suivantes :
 
-* Utilisez le [Azure portal](https://portal.azure.com) pour créer un IoT Hub et une identité d’appareil dans votre IoT hub.
+* Utiliser le [portail Azure](https://portal.azure.com) pour créer un IoT Hub et une identité d’appareil dans celui-ci.
 
 * Créer une application d’appareil simulé disposant d’une méthode directe permettant le redémarrage de cet appareil. Les méthodes directes sont appelées à partir du cloud.
 
@@ -35,7 +35,7 @@ Ce didacticiel vous explique les procédures suivantes :
 
 Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
-* Version de Node.js 10.0.x ou version ultérieure. [Préparer votre environnement de développement](https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md) explique comment installer Node.js pour ce didacticiel sur Windows ou Linux.
+* Node.js version 10.0.x ou ultérieure. L’article [Préparer votre environnement de développement](https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md) décrit l’installation de Node.js pour ce didacticiel sur Windows ou sur Linux.
 
 * Un compte Azure actif. (Si vous ne possédez pas de compte, vous pouvez créer un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/) en quelques minutes seulement.)
 
@@ -51,7 +51,7 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
 ## <a name="create-a-simulated-device-app"></a>Création d’une application de périphérique simulé
 
-Dans cette section, vous allez effectuer les étapes suivantes :
+Dans cette section, vous allez effectuer les tâches suivantes :
 
 * Créer une application console Node.js qui répond à une méthode directe appelée par le cloud
 

@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 05/15/2019
 ms.author: juliako
 ms.openlocfilehash: 24a723bd32cb40807da1757b3fffb925d4ba1fef
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65799177"
 ---
 # <a name="view-and-edit-video-indexer-insights"></a>Afficher et modifier les insights Video Indexer
@@ -37,7 +37,7 @@ Cette rubrique vous montre comment afficher et modifier les insights Video Index
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Utilisez les informations détaillées de vos vidéos](use-editor-create-project.md)
+[Use the Video Indexer editor to create projects](use-editor-create-project.md) (Utiliser l’éditeur Video Indexer pour créer des projets)
 
 ## <a name="see-also"></a>Voir aussi
 

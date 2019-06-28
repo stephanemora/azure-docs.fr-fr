@@ -15,16 +15,16 @@ ms.workload: tbd
 ms.date: 01/23/2019
 ms.author: aschhab
 ms.openlocfilehash: dbbc43bc7a2f42f8a72ce12d84da1ae406a588d2
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65799348"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Files d’attente Azure et files d’attente Service Bus : comparaison et différences
 Cet article analyse les différences et les similitudes entre les deux types de files d'attente proposés par Microsoft Azure : Files d’attente de stockage et files d’attente Service Bus. À l'aide de ces informations, vous pouvez comparer les technologies respectives et être en mesure de prendre une décision éclairée concernant la solution adaptée à vos besoins.
 
-## <a name="introduction"></a>Présentation
+## <a name="introduction"></a>Introduction
 Azure prend en charge deux types de mécanismes de file d’attente : **Files d'attente de stockage** et **files d'attente Service Bus**.
 
 Les **files d’attente de stockage**, qui font partie de l’infrastructure de [stockage Azure](https://azure.microsoft.com/services/storage/), incluent une simple interface GET/PUT/PEEK basée sur REST, qui fournit une messagerie fiable et persistante au sein des services et entre ces derniers.
@@ -84,7 +84,7 @@ Cette section compare certaines des fonctionnalités de base fournies par les fi
 * Le modèle Premier entré, premier sorti garanti dans les files d'attente Service Bus requiert l'utilisation de sessions de messagerie. Dans le cas où l’application se bloque lors du traitement d’un message reçu en mode **Aperçu et verrouillage**, la prochaine fois qu’un destinataire de file d’attente acceptera une session de messagerie, celle-ci démarrera avec le message ayant échoué après que sa durée de vie ait expiré.
 * Les files d’attente de stockage sont conçues pour prendre en charge des scénarios de mise en file d’attente standard, tels que le découplage de composants d’application pour augmenter l’évolutivité et la tolérance aux pannes, le nivellement de charge et la création des workflows de processus.
 * Les files d’attente Service Bus prennent en charge la garantie de livraison *Au moins une fois*. 
-* Incohérences en ce qui concerne la gestion des messages dans le contexte de sessions Service Bus peuvent être évitées à l’aide de l’état de session pour stocker l’état de l’application par rapport à la progression de séquence de message de la session de gestion et à l’aide de transactions autour règlement reçu des messages et la mise à jour de l’état de session. Ce type de fonctionnalité de cohérence porte parfois *exactement-une fois le traitement* dans les produits d’autres fournisseurs, mais la transaction échecs évidemment provoquera des messages à être remis une nouvelle fois et par conséquent, le terme n’est pas tout à fait suffisant.
+* Des incohérences relatives à la gestion de message dans le contexte de sessions Service Bus peuvent être évitées via l’utilisation d’état de session pour stocker l’état de l’application relatif à la progression de la gestion de la séquence de message de la session, et via l’utilisation de transactions pour l’installation de messages et la mise à jour de l’état de session. Ce type de fonctionnalité de cohérence est parfois appelé *Exactly-Once Processing* chez les produits d’autres vendeurs, mais les échecs de transaction entraîneront évidemment une nouvelle livraison des messages, ce qui rend caduque cette appelation.
 * Les files d’attente de stockage fournissent un modèle de programmation uniforme et cohérent entre les files d’attente, les tables et les objets blob, pour les développeurs et les équipes d’exploitation.
 * Les files d'attente Service Bus prennent en charge les transactions locales dans le contexte d'une file d'attente unique.
 * Le mode **Réception et suppression** pris en charge par Service Bus offre la possibilité de réduire le nombre d’opérations de messagerie (et le coût associé) en échange d’une garantie de livraison réduite.

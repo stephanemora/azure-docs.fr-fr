@@ -1,6 +1,6 @@
 ---
 title: Comprendre le langage de requête
-description: Décrit les opérateurs Kusto disponibles et les fonctions utilisables avec le graphique des ressources Azure.
+description: Décrit les opérateurs et les fonctions Kusto disponibles et utilisables avec Azure Resource Graph.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 04/22/2019
@@ -9,10 +9,10 @@ ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
 ms.openlocfilehash: dcb21a6aedf16b034fad4f0822e22758dda03c33
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65800507"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Présentation du langage de requête Azure Resource Graph
@@ -53,33 +53,33 @@ Voici la liste des fonctions prises en charge dans Resource Graph :
 - [tostring()](/azure/kusto/query/tostringfunction)
 - [zip()](/azure/kusto/query/zipfunction)
 
-## <a name="escape-characters"></a>Caractères d’échappement
+## <a name="escape-characters"></a>Caractères d'échappement
 
-Certains noms de propriétés, telles que celles qui incluent un `.` ou `$`, doit être encapsulé ou séquence d’échappement de la requête ou la propriété nom est interprété de manière incorrecte et ne fournit pas les résultats attendus.
+Certains noms propres, tels que ceux qui incluent un `.` ou `$`, doivent être inclus dans un wrapper ou échappés dans la requête, sinon le nom de la propriété est interprété de façon incorrecte et les résultats attendus ne sont pas obtenus.
 
-- `.` -Inclure le nom de propriété en tant que tel : `['propertyname.withaperiod']`
+- `.`- Encapsulez le nom de la propriété de cette façon : `['propertyname.withaperiod']`
   
-  Exemple de requête qui encapsule la propriété _odata.type_:
+  Exemple de requête qui encapsule la propriété _odata.type_ :
 
   ```kusto
   where type=~'Microsoft.Insights/alertRules' | project name, properties.condition.['odata.type']
   ```
 
-- `$` -Échapper le caractère du nom de propriété. Le caractère d’échappement utilisé dépend de l’interpréteur de commandes de que graphique de la ressource est exécuté à partir.
+- `$` - Échappez le caractère dans le nom de la propriété. Le caractère d’échappement utilisé dépend de l’interpréteur de commandes Resource Graph sur lequel il est exécuté.
 
   - **bash** - `\`
 
-    Exemple de requête qui échappe à la propriété  _\$type_ dans bash :
+    Exemple de requête qui échappe la propriété _\$type_ dans bash :
 
     ```kusto
     where type=~'Microsoft.Insights/alertRules' | project name, properties.condition.\$type
     ```
 
-  - **cmd** -ne pas échapper le `$` caractère.
+  - **cmd** - ne pas échapper le caractère `$`.
 
   - **PowerShell** - ``` ` ```
 
-    Exemple de requête qui échappe à la propriété  _\$type_ dans PowerShell :
+    Exemple de requête qui échappe la propriété _\$type_ dans PowerShell :
 
     ```kusto
     where type=~'Microsoft.Insights/alertRules' | project name, properties.condition.`$type

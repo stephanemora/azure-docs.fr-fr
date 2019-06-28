@@ -1,5 +1,5 @@
 ---
-title: Introduire de lancement de l’intégration d’intégrité pour le Gestionnaire de déploiement Azure
+title: Introduire le lancement de l’intégration de l’intégrité dans Azure Deployment Manager
 description: Explique comment déployer un service sur plusieurs régions avec Azure Deployment Manager. Montre des pratiques de déploiement sécurisé consistant à vérifier la stabilité d’un déploiement avant sa propagation à toutes les régions.
 services: azure-resource-manager
 documentationcenter: na
@@ -12,42 +12,42 @@ ms.workload: na
 ms.date: 05/08/19
 ms.author: jgao
 ms.openlocfilehash: 41b16498fb79166b2c77c77a517ee5c443ebec75
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65796250"
 ---
-# <a name="introduce-health-integration-rollout-to-azure-deployment-manager-public-preview"></a>Introduire de lancement de l’intégration d’intégrité Azure Deployment Manager (version préliminaire publique)
+# <a name="introduce-health-integration-rollout-to-azure-deployment-manager-public-preview"></a>Introduire le lancement de l’intégration de l’intégrité dans Azure Deployment Manager (préversion publique)
 
-[Azure Deployment Manager](./deployment-manager-overview.md) vous permet d’effectuer les lancements intermédiaires de ressources Azure Resource Manager. Les ressources sont déployées région par région de manière ordonnée. La vérification d’intégrité intégrés de Azure Deployment Manager peut surveiller déploiements et automatiquement déploiements problématique stop, afin que vous puissiez dépanner et réduire l’échelle de l’impact. Cette fonctionnalité peut réduire l’indisponibilité du service a provoqué par des régressions dans les mises à jour.
+[Azure Deployment Manager](./deployment-manager-overview.md) vous permet d’effectuer les lancements intermédiaires des ressources Azure Resource Manager. Les ressources sont déployées région par région de manière ordonnée. La vérification d’intégrité intégrée d’Azure Deployment Manager peut surveiller les lancements et interrompre automatiquement ceux qui posent problème, de sorte que vous puissiez les résoudre et ainsi limiter leur impact. Cette fonctionnalité peut limiter l’indisponibilité du service provoquée par des régressions dans les mises à jour.
 
-## <a name="health-monitoring-providers"></a>Fournisseurs de contrôle d’intégrité
+## <a name="health-monitoring-providers"></a>Fournisseurs de surveillance de l’intégrité
 
-Afin de faciliter l’intégration de l’intégrité que possible, Microsoft a travaillé avec certains de l’intégrité de service supérieur surveillance entreprises pour vous fournir une solution simple de copier/coller à intégrer des contrôles d’intégrité à vos déploiements. Si vous n’utilisez pas déjà un analyseur d’intégrité, il s’agit des solutions intéressantes pour commencer :
+Pour faciliter l’intégration de l’intégrité, Microsoft collabore avec certaines des principales sociétés de supervision de l’intégrité de service pour vous fournir une solution copier/coller simple vous permettant d’intégrer des contrôles d’intégrité à vos déploiements. Si vous n’utilisez pas déjà un analyseur d’intégrité, ces solutions sont excellentes pour démarrer :
 
-| ![déploiement d’Azure manager d’intégrité analyse fournisseur datadog](./media/deployment-manager-health-check/azure-deployment-manager-health-monitor-provider-datadog.svg) | ![déploiement d’Azure manager d’intégrité analyse fournisseur site24x7](./media/deployment-manager-health-check/azure-deployment-manager-health-monitor-provider-site24x7.svg) | ![déploiement d’Azure manager d’intégrité analyse fournisseur wavefront](./media/deployment-manager-health-check/azure-deployment-manager-health-monitor-provider-wavefront.svg) |
+| ![datadog fournisseur analyseur d’intégrité azure deployment manager](./media/deployment-manager-health-check/azure-deployment-manager-health-monitor-provider-datadog.svg) | ![fournisseur analyseur d’intégrité azure deployment manager site24x7](./media/deployment-manager-health-check/azure-deployment-manager-health-monitor-provider-site24x7.svg) | ![wavefront fournisseur analyseur d’intégrité azure deployment manager](./media/deployment-manager-health-check/azure-deployment-manager-health-monitor-provider-wavefront.svg) |
 |-----|------|------|
-|Datadog, le début de la surveillance et plateforme d’analytique pour les environnements de cloud modernes. Consultez [comment Datadog s’intègre avec Azure Deployment Manager](https://www.datadoghq.com/azure-deployment-manager/).|Site24x7, solution de surveillance des services du cloud privé et public de tout-en-un. Consultez [comment Site24x7 s’intègre avec Azure Deployment Manager](https://www.site24x7.com/azure/adm.html).| Wavefront, la plateforme de surveillance et d’analytique pour les environnements d’application cloud multiples. Consultez [comment Wavefront s’intègre avec Azure Deployment Manager](https://go.wavefront.com/wavefront-adm/).|
+|DataDog, plateforme leader de surveillance et d’analytique pour des environnements de cloud modernes. Découvrez [comment Datadog s’intègre avec Azure Deployment Manager](https://www.datadoghq.com/azure-deployment-manager/).|Site24x7, solution tout-en-un pour la surveillance des services du cloud privé et public. Découvrez [comment Site24x7 s’intègre avec Azure Deployment Manager](https://www.site24x7.com/azure/adm.html).| Wavefront, la plateforme de surveillance et d’analytique pour les environnements d’application multi-cloud. Découvrez [comment Wavefront s’intègre avec Azure Deployment Manager](https://go.wavefront.com/wavefront-adm/).|
 
-## <a name="how-service-health-is-determined"></a>Détermination de l’intégrité du service
+## <a name="how-service-health-is-determined"></a>Évaluation de l’intégrité du service
 
-[Fournisseurs de contrôle d’intégrité](#health-monitoring-providers) offrent plusieurs mécanismes pour la surveillance des services et vous alerter de tout problème d’intégrité de service. [Azure Monitor](../azure-monitor/overview.md) est un exemple d’une telle offre. Azure Monitor peut être utilisé pour créer des alertes lorsque certains seuils sont dépassés. Par exemple, votre mémoire et l’utilisation du processeur grimper au-delà des niveaux attendus lorsque vous déployez une nouvelle mise à jour à votre service. Lors de la notification, vous pouvez effectuer les actions correctives.
+[Les fournisseurs de surveillance de l’intégrité](#health-monitoring-providers) offre plusieurs moyens pour surveiller des services et vous alerter en cas de problèmes d’intégrité. [Azure Monitor](../azure-monitor/overview.md) en fait partie. Azure Monitor peut être utilisé pour créer des alertes lorsque certains seuils sont dépassés. Par exemple, l’utilisation de votre mémoire et de votre processeur monte en flèche et dépasse les niveaux prévus lors du déploiement d’une nouvelle mise à jour sur votre service. Lorsque vous êtes notifié, vous pouvez entreprendre les actions correctives.
 
-Ces fournisseurs de contrôle d’intégrité offrent généralement les API REST afin que l’état des analyses de votre service peut être examiné par programmation. Les API REST peut revenir soit avec un signal intègres/défectueux simple (déterminé par le code de réponse HTTP), et/ou avec des informations détaillées sur les signaux qu’il reçoit.
+Ces fournisseurs d’analyse d’intégrité offrent en général des API REST afin que le statut des analyseurs de vos services puissent être examinés par programmation. Les API REST peuvent revenir avec un simple signal sain/non sain (déterminé par le code de réponse HTTP) et/ou avec des informations détaillées sur les signaux reçus.
 
-La nouvelle *healthCheck* étape dans le Gestionnaire de déploiement Azure vous permet de déclarer les codes HTTP qui indiquent un service sain, ou pour obtenir des résultats plus complexes sur REST, vous pouvez même spécifier des expressions régulières qui, si elles correspondent, indiquent un état de fonctionnement normal réponse.
+La nouvelle étape *healthCheck* dans Azure Deployment Manager vous permet de déclarer des codes HTTP qui indiquent un service sain ou, pour des résultats REST plus complexes, vous pouvez même spécifier des expressions régulières qui, si correspondance il y a, indiquent une réponse « sain ».
 
-Le flux pour obtenir le programme d’installation avec les contrôles d’intégrité Azure Deployment Manager :
+Le flux de la configuration des vérifications de l’intégrité avec Azure Deployment Manager :
 
-1. Créez vos moniteurs d’intégrité via un fournisseur de services de santé de votre choix.
-1. Créer une ou plusieurs étapes healthCheck dans le cadre de votre déploiement Azure Deployment Manager. Remplissez les étapes healthCheck avec les informations suivantes :
+1. Créez vos analyseurs d’intégrité via un fournisseur d’analyse d’intégrité de votre choix.
+1. Créez une ou plusieurs étapes healthCheck dans le cadre de votre lancement d’Azure Deployment Manager. Remplissez les étapes healthCheck avec les informations suivantes :
 
-    1. L’URI de l’API REST pour l’intégrité de votre contrôle (tel que défini par votre fournisseur de services de santé).
-    1. Informations d’authentification. Actuellement uniquement l’authentification de style de clé API est prise en charge.
-    1. [Codes d’état HTTP](https://www.wikipedia.org/wiki/List_of_HTTP_status_codes) ou des expressions régulières qui définissent une réponse correcte. Notez que vous pouvez fournir des expressions régulières, qui doivent tous les correspondance pour la réponse pour être considéré comme sain, ou peut fournir des expressions dont les doivent correspondre pour que la réponse être considéré comme sain. Les deux méthodes sont prises en charge.
+    1. L’URI de l’API REST de vos analyseurs d’intégrité (comme définis par votre fournisseur).
+    1. Informations d’authentification. Actuellement, seule l’authentification par clé API est prise en charge.
+    1. Les [codes de statut HTTP](https://www.wikipedia.org/wiki/List_of_HTTP_status_codes) ou les expressions régulières qui définissent une réponse « sain ». Remarque : vous pouvez fournir des expressions régulières qui doivent TOUTES correspondre afin que la réponse soit considérée comme « sain », ou vous pouvez fournir des expressions dans lesquelles N’IMPORTE LAQUELLE doit correspondre pour que la réponse soit considérée comme « sain ». Les deux méthodes sont prises en charge.
 
-    Le code Json suivant est un exemple :
+    Vous trouverez ci-dessous un exemple de Json :
 
     ```json
     {
@@ -96,7 +96,7 @@ Le flux pour obtenir le programme d’installation avec les contrôles d’inté
     },
     ```
 
-1. Appeler la procédure healthCheck au moment opportun dans votre déploiement Azure Deployment Manager. Dans l’exemple suivant, une étape de vérification d’intégrité est appelée dans **postDeploymentSteps** de **stepGroup2**.
+1. Appelez les étapes healthCheck au moment adéquat dans votre lancement d’Azure Deployment Manager. Dans l’exemple suivant, une étape de vérification d’intégrité est appelée dans **postDeploymentSteps** de **stepGroup2**.
 
     ```json
     "stepGroups": [
@@ -134,33 +134,33 @@ Le flux pour obtenir le programme d’installation avec les contrôles d’inté
     ]
     ```
 
-Pour étudier un exemple, consultez [didacticiel : Utilisation de contrôle d’intégrité dans le Gestionnaire de déploiement Azure](./deployment-manager-health-check.md).
+Pour parcourir un exemple, consultez [Tutoriel : Utiliser le contrôle d’intégrité dans Azure Deployment Manager](./deployment-manager-health-check.md).
 
-## <a name="phases-of-a-health-check"></a>Phases d’un contrôle d’intégrité
+## <a name="phases-of-a-health-check"></a>Phases d’une vérification d’intégrité
 
-À ce stade Azure Deployment Manager sait comment interroger l’intégrité de votre service et à ce que phases dans votre lancement à le faire. Toutefois, le Gestionnaire de déploiement Azure ainsi que des configuration approfondie de la synchronisation de ces vérifications. Une étape healthCheck est exécutée en 3 phases séquentiels, qui ont une durée configurable : 
+À ce stade, Azure Deployment Manager sait comment interroger l’intégrité de votre service et lors de quelles phases de votre lancement le faire. Toutefois, Azure Deployment Manager permet aussi des configurations poussées de la période de ces vérifications. Une étape healthCheck est exécutée en 3 phases séquentielles, avec des durées configurables : 
 
-1. Attendre
+1. Wait
 
-    1. Une fois une opération de déploiement est terminée, peuvent être le redémarrage de machines virtuelles, reconfiguration basé sur les nouvelles données, ou encore en cours de démarrage pour la première fois. Il prend également le temps aux services pour commencer à émettre des signaux d’intégrité doivent être regroupés par l’intégrité de fournisseur de surveillance en quelque chose d’utile. Pendant ce processus tumultueuse, il ne peut pas être judicieux pour vérifier l’intégrité du service dans la mesure où la mise à jour n’a pas encore atteint un état stable. En effet, le service peut être modifiée à plusieurs reprises entre les États corrects et incorrects comme régler les ressources. 
-    1. Pendant la phase d’attente, l’intégrité du service n’est pas surveillé. Cela est utilisé pour autoriser les ressources déployées le temps d’intégrer l’avant de commencer le processus de vérification d’intégrité. 
+    1. Après la fin d’une opération de déploiement, les machines virtuelles peut redémarrer, se reconfigurer en fonction des nouvelles données ou même démarrer pour la première fois. Cela prend du temps avant que les services ne commencent à envoyer des signaux d’intégrité afin qu’ils soient regroupés par le fournisseur d’analyse d’intégrité en quelque chose d’utile. Pendant ce processus houleux, il n’est pas très utile de vérifier l’intégrité du service, car la mise à jour n’a pas encore de statut stable. En effet, le service peut passer d’un état sain à non sain le temps que les ressources s’installent. 
+    1. Pendant la phase d’attente, l’intégrité du service n’est pas surveillé. Cela permet aux ressources d’avoir le temps de s’installer avant le début du processus de vérification de l’intégrité. 
 1. Elastic
 
-    1. Dans la mesure où il est impossible de savoir dans combien de cas toutes les ressources prendra de gâteaux avant qu’ils deviennent stables, permet à la phase élastique pour une période flexible entre lorsque les ressources sont potentiellement instables et s’ils sont requis pour maintenir un équilibre sain état.
-    1. Au commencement de la phase élastique, Azure Deployment Manager commence à rechercher le point de terminaison REST fourni pour l’intégrité du service régulièrement. L’intervalle d’interrogation est configurable. 
-    1. Si le moniteur d’intégrité est renvoyée avec les signaux indiquant que le service n’est pas intègre, ces signaux est ignorées, la phase élastique continue et continue de l’interrogation. 
-    1. Dès que le moniteur d’intégrité est renvoyée avec les signaux indiquant que le service est intègre, la phase élastique se termine et la phase HealthyState commence. 
-    1. Par conséquent, la durée spécifiée pour la phase élastique est la quantité maximale de temps qui peut être passé d’interrogation pour l’intégrité du service avant qu’une réponse correcte est considéré comme obligatoire. 
+    1. Comme il est impossible de savoir dans tous les cas le temps que mettront les ressources à s’installer avant d’être stables, la phase Elastic offre une période flexible entre le moment où les ressources sont potentiellement instables et le moment où elles doivent maintenant un état stable et sain.
+    1. Lorsque la phase Elastic débute, Azure Deployment Manager commence à interroger périodiquement l’intégrité du service via le point de terminaison REST fourni. L’intervalle d’interrogation est configurable. 
+    1. Si l’analyseur d’intégrité revient avec des signaux indiquant que le service n’est pas sain, ces signaux sont ignorés, la phase Elastic se poursuit et l’interrogation continue. 
+    1. Dès que l’analyseur d’intégrité revient avec des signaux indiquant que le service est sain, la phase Elastic prend fin et la phase HealthyState débute. 
+    1. Ainsi, la durée spécifiée pour la phase Elastic représente la durée maximale qui peut être passée à interroger l’intégrité du service avant qu’une réponse « sain » soit considérée obligatoire. 
 1. HealthyState
 
-    1. Pendant la phase HealthyState, l’intégrité du service est interrogé en permanence à la même fréquence que la phase élastique. 
-    1. Le service est prévu pour maintenir les signaux sains à partir du fournisseur de contrôle d’intégrité pendant toute la durée spécifiée. 
-    1. Si à tout moment qu'une réponse défectueuse est détectée, Azure Deployment Manager arrête le déploiement entier et retourner la réponse REST portant les signaux de service défectueux.
-    1. Une fois que la durée de HealthyState s’est terminée, le healthCheck est terminée, et déploiement se poursuit à l’étape suivante.
+    1. Pendant la phase HealthyState, l’intégrité du service est interrogé en permanence à la même fréquence que la phase Elastique. 
+    1. Le service maintient des signaux sains depuis le fournisseur d’analyse d’intégrité pour toute la durée spécifiée. 
+    1. Si, à tout moment, une réponse « non sain » est détectée, Azure Deployment Manager interrompt l’ensemble du lancement et retourne la réponse REST contenant les signaux du service non sain.
+    1. Une fois que la période HealthyState terminée, la phase healthCheck est terminée, et le déploiement passe à l’étape suivante.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans cet article, vous avez appris à apprendre à intégrer la surveillance de l’intégrité dans le Gestionnaire de déploiement Azure. Passez à l’article suivant pour apprendre à déployer avec Deployment Manager.
+Dans cet article, vous avez appris à intégrer la supervision de l’intégrité à Azure Deployment Manager. Passez à l’article suivant pour apprendre à déployer avec Deployment Manager.
 
 > [!div class="nextstepaction"]
-> [Didacticiel : intégrer le contrôle d’intégrité dans le Gestionnaire de déploiement Azure](./deployment-manager-tutorial-health-check.md)
+> [Tutoriel : intégrer la supervision de l’intégrité à Azure Deployment Manager](./deployment-manager-tutorial-health-check.md)

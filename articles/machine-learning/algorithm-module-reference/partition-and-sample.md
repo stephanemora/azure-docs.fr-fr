@@ -1,7 +1,7 @@
 ---
-title: 'Partition and Sample : Référence de module'
+title: 'Partition et échantillon : Référence sur le module'
 titleSuffix: Azure Machine Learning service
-description: Découvrez comment utiliser le module Partition and Sample dans le service Azure Machine Learning pour effectuer un échantillonnage sur un jeu de données ou pour créer des partitions à partir de votre jeu de données.
+description: Découvrez comment utiliser le module Partition et échantillon dans Azure Machine Learning service pour effectuer un échantillonnage sur un jeu de données ou créer des partitions à partir de votre jeu de données.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,161 +11,161 @@ ms.author: zhanxia
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
 ms.openlocfilehash: 72f9e11e3582d804eecc7479ea079276564bd12f
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65029279"
 ---
-# <a name="partition-and-sample-module"></a>Module partition and Sample
+# <a name="partition-and-sample-module"></a>Module Partition et échantillon
 
-Cet article décrit un module de l’interface visuelle (version préliminaire) pour le service Azure Machine Learning.
+Cet article décrit un module de l’interface visuelle (préversion) pour Azure Machine Learning service.
 
 Utilisez ce module pour effectuer un échantillonnage sur un jeu de données ou pour créer des partitions à partir de votre jeu de données.
 
-L’échantillonnage est un outil important dans l’apprentissage automatique, car il permet de réduire la taille d’un jeu de données tout en conservant le même rapport des valeurs. Ce module prend en charge plusieurs tâches associées qui sont importantes dans machine learning : 
+L’échantillonnage est un outil important dans l’apprentissage automatique, car il permet de réduire la taille d’un jeu de données tout en conservant le même rapport de valeurs. Ce module prend en charge plusieurs tâches associées qui sont importantes dans l’apprentissage automatique : 
 
 - Diviser vos données en plusieurs sous-sections de la même taille. 
 
-    Vous pouvez utiliser les partitions pour la validation croisée, ou d’affecter des cas à des groupes aléatoires.
+    Vous pouvez utiliser les partitions pour la validation croisée ou pour attribuer des cas à des groupes aléatoires.
 
-- La séparation des données dans des groupes et ensuite utiliser des données à partir d’un groupe spécifique. 
+- Séparer des données dans des groupes et ensuite utiliser des données à partir d’un groupe spécifique. 
 
-    Après avoir affecté aléatoirement les cas à différents groupes, vous devrez peut-être modifier les fonctionnalités qui sont associées à qu’un seul groupe.
+    Après avoir attribué des cas de façon aléatoire à différents groupes, vous devez peut-être modifier les fonctionnalités qui sont associées à un seul groupe.
 
-- Échantillonnage. 
+- Échantillonner. 
 
-    Vous pouvez extraire un pourcentage des données, appliquer un échantillonnage aléatoire ou choisir une colonne à utiliser pour l’équilibrage du jeu de données et effectuer un échantillonnage stratifié sur ses valeurs.
+    Vous pouvez extraire un pourcentage de données, appliquer un échantillonnage aléatoire ou choisir une colonne à utiliser pour l’équilibrage du jeu de données et effectuer un échantillonnage stratifié sur ses valeurs.
 
-- Création d’un plus petit jeu de données pour le test. 
+- Créer un plus petit jeu de données à des fins de test. 
 
-    Si vous avez une grande quantité de données, vous souhaiterez utiliser uniquement la première *n* lignes lors de la configuration de l’expérience, puis cliquez sur à l’aide du jeu de données complet lorsque vous créez votre modèle. Vous pouvez également utiliser l’échantillonnage pour créer des s plus petit jeu de données pour une utilisation dans le développement.
+    Si vous avez une grande quantité de données, vous souhaiterez peut-être utiliser uniquement les premières *n* lignes lors de la configuration de l’expérience, puis utiliser le jeu de données complet lors de la création de votre modèle. Vous pouvez également utiliser l’échantillonnage pour créer un jeu de données plus petit pour une utilisation en développement.
 
-## <a name="configure-partition-and-sample"></a>Configurer la Partition and Sample
+## <a name="configure-partition-and-sample"></a>Configurer le module Partition et échantillon
 
-Ce module prend en charge plusieurs méthodes permettant de diviser vos données en partitions, ou pour l’échantillonnage. Choisissez la méthode tout d’abord, puis définir des options supplémentaires requis par la méthode.
+Ce module prend en charge plusieurs méthodes permettant de diviser vos données en partitions ou destinées à l’échantillonnage. Commencez par choisir la méthode, puis définissez les options supplémentaires requises par la méthode.
 
 - Nœud principal
 - échantillonnage
-- Affecter à des plis
-- Choisir le repli
+- Attribuer à des plis
+- Choisir le pli
 
-### <a name="get-top-n-rows-from-a-dataset"></a>Obtenir les N premières lignes d’un dataset
+### <a name="get-top-n-rows-from-a-dataset"></a>Récupérer les N PREMIÈRES lignes d’un jeu de données
 
-Utilisez ce mode pour obtenir uniquement la première *n* lignes. Cette option est utile si vous souhaitez tester une expérience sur un petit nombre de lignes et que vous n’avez pas besoin de données à être à charge équilibrée ou échantillonnées en aucune façon.
+Utilisez ce mode pour récupérer uniquement les *n* premières lignes. Cette option est utile si vous souhaitez tester une expérience sur un petit nombre de lignes et si vous n’avez pas besoin que les données soient équilibrées ou échantillonnées.
 
-1. Ajouter le **Partition and Sample** module à votre expérience dans l’interface et connectez le jeu de données.  
+1. Ajoutez le module **Partition et échantillon** à votre expérience dans l’interface et connectez le jeu de données.  
 
-2. **Mode de partitionnement ou exemple**: Définissez cette option sur **Head**.
+2. **Partition or sample mode** (Mode de partitionnement ou d’échantillonnage) : définissez cette option sur **Principal**.
 
-3. **Nombre de lignes à sélectionner**: Tapez le nombre de lignes à retourner.
+3. **Number of rows to select** (Nombre de lignes à sélectionner) : indiquez le nombre de lignes à renvoyer.
 
-    Le nombre de lignes que vous spécifiez doit être un entier non négatif. Si le nombre de lignes sélectionnées est supérieur au nombre de lignes dans le jeu de données, le jeu de données entière est retournée.
+    Le nombre de lignes que vous spécifiez doit être un entier non négatif. Si le nombre de lignes sélectionnées est supérieur au nombre de lignes du jeu de données, l’intégralité du jeu de données est renvoyée.
 
 4. Exécutez l’expérience.
 
-Le module génère un jeu de données unique contenant uniquement le nombre spécifié de lignes. Les lignes sont toujours lus à partir du haut du jeu de données.
+Le module génère un jeu de données unique contenant uniquement le nombre de lignes spécifié. Les lignes sont toujours lues à partir du haut du jeu de données.
 
-### <a name="create-a-sample-of-data"></a>Créer un échantillon de données
+### <a name="create-a-sample-of-data"></a>Créer un exemple de données
 
-Cette option prend en charge un échantillonnage aléatoire simple ou l’échantillonnage aléatoire stratifié. Cela est utile si vous souhaitez créer un jeu de données plus petit échantillon représentatif de test.
+Cette option prend en charge l’échantillonnage aléatoire simple ou l’échantillonnage aléatoire stratifié. Elle est utile si vous souhaitez créer un jeu de données d’échantillon représentatif plus petit à des fins de test.
 
-1. Ajouter le **Partition and Sample** module à votre expérience, connectez le jeu de données.
+1. Ajoutez le module **Partition et échantillon** à votre expérience et connectez le jeu de données.
 
-2. **Mode de partitionnement ou exemple**: Affectez la valeur **échantillonnage**.
+2. **Partition or sample mode** (Mode de partitionnement ou d’échantillonnage) : définissez cette option sur **Échantillonnage**.
 
-3. **Taux d’échantillonnage**: Tapez une valeur comprise entre 0 et 1. Cette valeur spécifie le pourcentage de lignes du jeu de données source qui doivent être inclus dans le jeu de données de sortie.
+3. **Rate of sampling** (Taux d’échantillonnage) : indiquez une valeur comprise entre 0 et 1. Cette valeur spécifie le pourcentage de lignes du jeu de données source qui doivent être incluses dans le jeu de données de sortie.
 
-    Par exemple, si vous ne souhaitez que la moitié du jeu de données d’origine, tapez `0.5` pour indiquer que le taux d’échantillonnage doit être de 50 %.
+    Par exemple, si vous ne souhaitez que la moitié du jeu de données d’origine, saisissez `0.5` pour indiquer que le taux d’échantillonnage doit être de 50 %.
 
     Les lignes du jeu de données d’entrée sont mélangées et placées sélectivement dans le jeu de données de sortie, en fonction du rapport spécifié.
 
-4. **Valeur initiale aléatoire pour l’échantillonnage**: Si vous le souhaitez, tapez un entier à utiliser comme une valeur de départ.
+4. **Random seed for sampling** (Valeur de départ aléatoire pour l’échantillonnage) : Si vous le souhaitez, indiquez un entier à utiliser comme valeur de départ.
 
-    Cette option est importante si vous souhaitez que les lignes à diviser la même façon à chaque fois. La valeur par défaut est 0, ce qui signifie qu’une valeur de départ initiale est générée en fonction de l’horloge système. Cela peut entraîner des résultats légèrement différents chaque fois que vous exécutez l’expérience.
+    Cette option est importante si vous souhaitez que les lignes soient divisées de la même façon à chaque fois. La valeur par défaut est 0, ce qui signifie qu’une valeur de départ est générée en fonction de l’horloge système. Cela peut entraîner des résultats légèrement différents chaque fois que vous exécutez l’expérience.
 
-5. **Fractionnement stratifié pour l’échantillonnage**: Sélectionnez cette option s’il est important que les lignes du jeu de données doivent être divisées uniformément par une colonne clé avant d’échantillonnage.
+5. **Stratified split for sampling** (Fractionnement stratifié pour l’échantillonnage) : Sélectionnez cette option s’il est important que les lignes du jeu de données soient divisées uniformément par colonne clé avant l’échantillonnage.
 
-    Pour **colonne clé de Stratification pour l’échantillonnage**, sélectionnez un seul *colonne de couches* à utiliser lors de la division du jeu de données. Les lignes dans le jeu de données sont divisées comme suit :
+    Pour **Stratification key column for sampling** (Colonne clé de stratification pour l’échantillonnage), sélectionnez une seule *colonne de strate* à utiliser lors de la division du jeu de données. Les lignes dans le jeu de données sont divisées comme suit :
 
-    1. Toutes les lignes d’entrée sont regroupées (stratifiées) par les valeurs dans la colonne de couches spécifiée.
+    1. Toutes les lignes d’entrée sont regroupées (stratifiées) par les valeurs dans la colonne de strate spécifiée.
 
     2. Les lignes sont mélangées au sein de chaque groupe.
 
-    3. Chaque groupe est ajouté sélectivement au jeu de données de sortie à respecter le rapport spécifié.
+    3. Chaque groupe est ajouté sélectivement au jeu de données de sortie pour respecter le rapport spécifié.
 
 
 6. Exécutez l’expérience.
 
-    Avec cette option, le module génère un jeu de données unique contenant un échantillon représentatif des données. La partie restante, échantillonnée du jeu de données n’est pas sortie. 
+    Avec cette option, le module génère un jeu de données unique contenant un échantillon représentatif des données. La partie restante, c’est-à-dire la partie non échantillonnée du jeu de données, n’est pas générée. 
 
 ## <a name="split-data-into-partitions"></a>Fractionner les données en partitions
 
-Utilisez cette option lorsque vous souhaitez diviser le jeu de données en sous-ensembles de données. Cette option est également utile lorsque vous souhaitez créer un nombre de plis pour la validation croisée ou de fractionner les lignes en plusieurs groupes.
+Utilisez cette option lorsque vous souhaitez diviser le jeu de données en sous-ensembles de données. Cette option est également utile lorsque vous souhaitez créer un nombre de plis personnalisé pour la validation croisée, ou pour fractionner des lignes en plusieurs groupes.
 
-1. Ajouter le **Partition and Sample** module à votre expérience, connectez le jeu de données.
+1. Ajoutez le module **Partition et échantillon** à votre expérience et connectez le jeu de données.
 
-2. Pour **Partition ou mode échantillon**, sélectionnez **affecter à des plis**.
+2. Pour **Partition or sample mode** (Mode de partitionnement ou d’échantillonnage), sélectionnez **Assign to Folds** (Attribuer à des plis).
 
-3. **Utiliser le remplacement dans le partitionnement**: Sélectionnez cette option si vous souhaitez que la ligne échantillonnée est replacé dans le pool de lignes pour une réutilisation potentielle. Par conséquent, la même ligne peut être attribuée à plusieurs plis.
+3. **Use replacement in the partitioning** (Utiliser le remplacement dans le partitionnement) : Sélectionnez cette option si vous souhaitez que la ligne échantillonnée soit replacée dans le pool de lignes pour une réutilisation potentielle. Par conséquent, la même ligne peut être attribuée à plusieurs plis.
 
-    Si vous n’utilisez pas de remplacement (l’option par défaut), la ligne échantillonnée n'est pas remise dans le pool de lignes pour une réutilisation potentielle. Par conséquent, chaque ligne peut être affecté à uniquement un pli.
+    Si vous n’utilisez pas le remplacement (l’option par défaut), la ligne échantillonnée n’est pas replacée dans le pool de lignes pour une réutilisation potentielle. Par conséquent, chaque ligne peut être uniquement attribuée à un pli.
 
-4. **Fractionnement aléatoire**:  Sélectionnez cette option si vous souhaitez que les lignes d’être affectés de façon aléatoire à des plis.
+4. **Randomized split** (Fractionnement aléatoire) :  sélectionnez cette option si vous souhaitez que des lignes soient attribuées de façon aléatoire à des plis.
 
-    Si vous ne sélectionnez pas cette option, les lignes sont affectées à des plis en utilisant la méthode tourniquet (round-robin).
+    Si vous ne sélectionnez pas cette option, les lignes sont attribuées à des plis en utilisant la méthode tourniquet (round-robin).
 
-5. **Valeur de départ aléatoire**: Si vous le souhaitez, tapez un entier à utiliser comme la valeur de départ. Cette option est importante si vous souhaitez que les lignes à diviser la même façon à chaque fois. Sinon, la valeur par défaut 0 signifie qu’aléatoire départ sera utilisé.
+5. **Valeur de départ aléatoire** : si vous le souhaitez, indiquez un entier à utiliser comme valeur de départ. Cette option est importante si vous souhaitez que les lignes soient divisées de la même façon à chaque fois. Sinon, la valeur par défaut 0 signifie qu’une valeur de départ aléatoire sera utilisée.
 
-6. **Spécifiez la méthode du partitionneur**: Indiquer comment les données à être réparties entre chaque partition, à l’aide de ces options :
+6. **Specify the partitioner method** (Spécifier la méthode du partitionneur) : indiquez comment répartir les données chaque partition à l’aide des options ci-après :
 
-    - **Partitionner uniformément**: Utilisez cette option pour placer un nombre égal de lignes dans chaque partition. Pour spécifier le nombre de partitions de sortie, tapez un nombre entier dans le **spécifier le nombre de plis pour le fractionnement uniforme** zone de texte.
+    - **Partition evenly** (Répartir uniformément) : utilisez cette option pour placer un nombre égal de lignes dans chaque partition. Pour spécifier le nombre de partitions de sortie, tapez un nombre entier dans la zone de texte **Specify number of folds to split evenly into** (Spécifier le nombre de plis pour un fractionnement uniforme).
 
-    - **Partition dans des proportions personnalisées**: Utilisez cette option pour spécifier la taille de chaque partition comme une liste séparée par des virgules.
+    - **Partition with customized proportions** (Répartir avec des proportions personnalisées) : utilisez cette option pour spécifier la taille de chaque partition sous la forme d’une liste séparée par des virgules.
 
-        Par exemple, si vous souhaitez créer trois partitions, avec la première partition contenant 50 % des données et deux partitions restantes chacun 25 % des données, cliquez sur le **liste des proportions séparées par des virgules** zone de texte, et tapez ces numéros : `.5, .25, .25`
+        Par exemple, si vous souhaitez créer trois partitions, avec la première partition contenant 50 % des données et les deux partitions restantes contenant chacune 25 % des données, cliquez sur la zone de texte **List of proportions separated by comma** (Liste des proportions séparées par des virgules) et tapez ces nombres : `.5, .25, .25`
 
-        La somme de toutes les tailles de partition doit ajouter jusqu'à 1 exactement.
+        La somme de toutes les tailles de partition doit être de 1.
 
-        - Si vous entrez des nombres s’ajoutent en **inférieur à 1**, une partition supplémentaire est créée pour contenir les lignes restantes. Par exemple, si vous tapez la partition de valeurs.2 et.3, un tiers est créée qui contient les 50 pour cent de toutes les lignes restantes.
+        - Si vous entrez des nombres dont le total est**inférieur à 1**, une partition supplémentaire est créée pour héberger les lignes restantes. Par exemple, si vous tapez les valeurs .2 et .3, une troisième partition est créée pour héberger les 50 % restants de toutes les lignes.
 
-        - Si vous entrez des nombres s’ajoutent en **plus de 1**, une erreur est générée lorsque vous exécutez l’expérience.
+        - Si vous entrez des nombres dont le total est**supérieur à 1**, une erreur est générée lorsque vous exécutez l’expérience.
 
-7. **Fractionnement stratifié**: Sélectionnez cette option si vous souhaitez que les lignes doivent être stratifiées lors du fractionnement, puis choisissez le _colonne de couches_.
+7. **Stratified split** (Fractionnement stratifié) : sélectionnez cette option si vous souhaitez que les lignes soient stratifiées lors du fractionnement, puis choisissez la _colonne de strate_.
 
 8. Exécutez l’expérience.
 
-    Avec cette option, le module génère plusieurs jeux de données, partitionnées à l’aide des règles que vous avez spécifié.
+    Avec cette option, le module génère plusieurs jeux de données, partitionnés suivant les règles que vous avez spécifiées.
 
 ### <a name="use-data-from-a-predefined-partition"></a>Utiliser les données d’une partition prédéfinie  
 
-Cette option est utilisée lorsque vous avez divisé un jeu de données en plusieurs partitions et que vous voulez charger chaque partition à son tour pour traitement ou d’une analyse plus approfondie.
+Cette option est utilisée lorsque vous avez divisé un jeu de données en plusieurs partitions et que vous voulez charger chaque partition tour à tour pour traitement ou analyse plus approfondi.
 
-1. Ajouter le **Partition and Sample** module à l’expérience.
+1. Ajoutez le module **Partition et échantillon** à l’expérience.
 
-2. Se connecter à la sortie d’une instance précédente de **Partition and Sample**. Cette instance doit avoir utilisé le **affecter à des plis** option pour générer un certain nombre de partitions.
+2. Connectez-la à la sortie d’une instance précédente du module **Partition et échantillon**. Cette instance doit avoir utilisé l’option **Assign to Folds** (Attribuer à des plis) pour générer un certain nombre de partitions.
 
-3. **Mode de partitionnement ou exemple**: Sélectionnez **choisir le repli**.
+3. **Partition or sample mode** (Mode de partitionnement ou d’échantillonnage) : Sélectionnez **Pick Fold** (Choisir le pli).
 
-4. **Spécifier le pli à échantillonner à partir de**: Sélectionnez une partition à utiliser en tapant son index. Index de partition est en base 1. Par exemple, si vous avez divisé le jeu de données en trois parties, les partitions aurait l’index 1, 2 et 3.
+4. **Specify which fold to be sampled from** (Spécifier le pli à partir duquel échantillonner) : sélectionnez une partition à utiliser en saisissant son index. Les index de partition sont basés sur 1. Par exemple, si vous avez divisé le jeu de données en trois parties, les partitions auraient les index 1, 2 et 3.
 
-    Si vous tapez une valeur d’index non valide, une erreur au moment du design est déclenchée : « Erreur 0018 : Jeu de données contient des données non valides. »
+    Si vous saisissez une valeur d’index non valide, une erreur au moment de la conception est déclenchée : « Error 0018: Dataset contains invalid data » (Erreur 0018 : le jeu de données contient des données non valides).
 
-    En plus de regroupement du jeu de données en plis, vous pouvez séparer le jeu de données en deux groupes : un pli cible et tout le reste. Pour ce faire, tapez l’index d’un pli unique, puis sélectionnez l’option, **sélectionner le complément du pli sélectionné**, afin d’obtenir uniquement les données du pli spécifié.
+    En plus de regrouper le jeu de données en plis, vous pouvez séparer le jeu de données en deux groupes : un pli cible et tout le reste. Pour ce faire, saisissez l’index d’un pli unique, puis sélectionnez l’option, **Pick complement of the selected fold** (Choisir le complément du pli sélectionné), afin d’obtenir toutes les données, à l’exception de celles spécifiées dans le pli.
 
-5. Si vous travaillez avec plusieurs partitions, vous devez ajouter des instances supplémentaires de la **Partition and Sample** module pour gérer chaque partition.
+5. Si vous travaillez avec plusieurs partitions, vous devez ajouter des instances supplémentaires du module **Partition et échantillon** pour gérer chaque partition.
 
-    Par exemple, supposons que patients précédemment partitionnés en quatre REPLIS à l’aide d’âge. Pour travailler avec chaque repli individuel, vous avez besoin de quatre copies de la **Partition and Sample** module, et dans chaque cas, vous sélectionnez un pli différents, comme indiqué ci-dessous. Il n’est pas correct à utiliser le **affecter à des plis** directement la sortie.  
+    Par exemple, supposons que nous avons précédemment partitionné des patients dans quatre plis en fonction de leur âge. Pour travailler avec chaque pli, vous avez besoin de quatre copies du module **Partition et échantillon**, et dans chacun, vous sélectionnez un pli différent, comme indiqué ci-dessous. Il n’est pas correct d’utiliser directement la sortie **Assign to Folds** (Attribuer à des plis).  
 
     [![Partition et échantillon](./media/partition-and-sample/partition-and-sample.png)](./media/partition-and-sample/partition-and-sample-lg.png#lightbox)
 
 5. Exécutez l’expérience.
 
-    Avec cette option, le module génère un jeu de données unique contenant uniquement les lignes affectées à ce pli.
+    Avec cette option, le module génère un jeu de données unique contenant seulement les lignes attribuées à ce pli.
 
 > [!NOTE]
->  Vous ne pouvez pas afficher les désignations de pli directement ; ils sont présents uniquement dans les métadonnées.
+>  Vous ne pouvez pas afficher les désignations de pli directement ; elles sont uniquement présentes dans les métadonnées.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez le [ensemble de modules disponibles](module-reference.md) au service Azure Machine Learning. 
+Consultez [l’ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning service. 

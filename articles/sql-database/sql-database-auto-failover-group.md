@@ -13,15 +13,15 @@ ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 05/06/2019
 ms.openlocfilehash: e999e4d96dcb5a1042806c0905ce331dc0a4dc0b
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65522854"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Utiliser les groupes de basculement automatique pour permettre le basculement transparent et coordonné de plusieurs bases de données
 
-Groupes de basculement automatique est une fonctionnalité de base de données SQL qui vous permet de gérer la réplication et le basculement d’un groupe de bases de données sur un serveur de base de données SQL ou de toutes les bases de données dans une instance gérée vers une autre région. Cette fonction utilise la même technologie sous-jacente que la [géoréplication active](sql-database-active-geo-replication.md). Vous pouvez déclencher le basculement manuellement ou vous pouvez le déléguer au service SQL Database via une stratégie définie par l’utilisateur. Cette dernière option vous permet de récupérer automatiquement plusieurs bases de données associées dans une région secondaire après une défaillance grave ou un autre événement non planifié qui entraîne une perte totale ou partielle de la disponibilité du service SQL Database dans la région primaire. En outre, vous pouvez utiliser les bases de données secondaires accessibles en lecture pour décharger les charges de travail de requêtes en lecture seule. Comme les groupes de basculement automatique impliquent de nombreuses bases de données, celles-ci doivent être configurées sur le serveur primaire. Les serveurs primaire et secondaire pour les bases de données dans le groupe de basculement doivent faire partie du même abonnement. Les groupes de basculement automatique prennent en charge la réplication de toutes les bases de données du groupe vers un seul serveur secondaire situé dans une autre région,
+Les groupes de basculement automatique sont une fonctionnalité de SQL Database qui vous permet de gérer la réplication et le basculement d’un groupe de bases de données sur un serveur SQL Database ou de toutes les bases de données d’une instance gérée vers une autre région. Cette fonction utilise la même technologie sous-jacente que la [géoréplication active](sql-database-active-geo-replication.md). Vous pouvez déclencher le basculement manuellement ou vous pouvez le déléguer au service SQL Database via une stratégie définie par l’utilisateur. Cette dernière option vous permet de récupérer automatiquement plusieurs bases de données associées dans une région secondaire après une défaillance grave ou un autre événement non planifié qui entraîne une perte totale ou partielle de la disponibilité du service SQL Database dans la région primaire. En outre, vous pouvez utiliser les bases de données secondaires accessibles en lecture pour décharger les charges de travail de requêtes en lecture seule. Comme les groupes de basculement automatique impliquent de nombreuses bases de données, celles-ci doivent être configurées sur le serveur primaire. Les serveurs primaire et secondaire pour les bases de données dans le groupe de basculement doivent faire partie du même abonnement. Les groupes de basculement automatique prennent en charge la réplication de toutes les bases de données du groupe vers un seul serveur secondaire situé dans une autre région,
 
 > [!NOTE]
 > Si vous utilisez des bases de données uniques ou mises en pool sur un serveur SQL Database et souhaitez que plusieurs bases de données secondaires se trouvent dans des régions identiques ou différentes, utilisez la [géoréplication active](sql-database-active-geo-replication.md).
@@ -40,9 +40,9 @@ Pour assurer vraiment la continuité des activités, l’ajout d’une redondanc
 
 ## <a name="auto-failover-group-terminology-and-capabilities"></a>Terminologie et fonctionnalités relatives aux groupes de basculement automatique
 
-- **Groupe de basculement (brouillard)**
+- **Groupe de basculement (FOG)**
 
-  Un groupe de basculement est un groupe de bases de données gérées par un même serveur SQL Database ou dans une même instance gérée, et qui peut basculer entièrement vers une autre région lorsqu’une partie ou la totalité des bases de données primaires devient indisponible en raison d’une panne dans la région primaire. Lors de la création des instances gérées, un groupe de basculement contient toutes les bases de données utilisateur dans l’instance et par conséquent qu’un seul groupe de basculement peut être configuré sur une instance.
+  Un groupe de basculement est un groupe de bases de données gérées par un même serveur SQL Database ou dans une même instance gérée, et qui peut basculer entièrement vers une autre région lorsqu’une partie ou la totalité des bases de données primaires devient indisponible en raison d’une panne dans la région primaire. Lorsqu’il est créé dans le cadre d’instances gérées, un groupe de basculement contient toutes les bases de données utilisateur de l’instance. Ainsi, il n’est possible de configurer qu’un seul groupe de basculement par instance.
 
 - **Serveurs SQL Database**
 
@@ -50,18 +50,18 @@ Pour assurer vraiment la continuité des activités, l’ajout d’une redondanc
 
 - **Primaire**
 
-  Le serveur de base de données SQL ou une instance managée qui héberge les bases de données primaires dans le groupe de basculement.
+  Serveur SQL Database ou instance gérée qui héberge les bases de données primaires dans le groupe de basculement.
 
 - **Secondaire**
 
-  Le serveur de base de données SQL ou une instance managée qui héberge les bases de données secondaire dans le groupe de basculement. Le serveur logique secondaire ne peut pas être situé dans la même région que le serveur logique primaire.
+  Serveur SQL Database ou instance gérée qui héberge les bases de données secondaires dans le groupe de basculement. Le serveur logique secondaire ne peut pas être situé dans la même région que le serveur logique primaire.
 
 - **Ajouter des bases de données uniques au groupe de basculement**
 
   Vous pouvez placer plusieurs bases de données uniques sur le même serveur SQL Database dans le même groupe de basculement. Si vous ajoutez une base de données unique au groupe de basculement, une base de données secondaire de la même édition et de la même taille de calcul est automatiquement créée sur le serveur secondaire  que vous avez spécifié à la création du groupe de basculement. Si vous ajoutez une base de données qui présente déjà une base de données secondaire dans le serveur secondaire, ce lien de géoréplication est hérité par le groupe. Lors de l’ajout d’une base de données qui présente déjà une base de données secondaire sur un serveur qui ne fait pas partie du groupe de basculement, une nouvelle base de données secondaire est créée sur le serveur secondaire.
   
   > [!IMPORTANT]
-  > Dans une instance gérée, toutes les bases de données utilisateur sont répliqués. Vous ne pouvez pas choisir un sous-ensemble de bases de données utilisateur pour la réplication dans le groupe de basculement.
+  > Dans une instance gérée, toutes les bases de données utilisateur sont répliquées. Vous ne pouvez pas choisir un sous-ensemble de bases de données utilisateur pour la réplication dans le groupe de basculement.
 
 - **Ajouter des bases de données d’un pool élastique au groupe de basculement**
 
@@ -69,18 +69,18 @@ Pour assurer vraiment la continuité des activités, l’ajout d’une redondanc
   
 - **Zone DNS**
 
-  ID unique qui est généré automatiquement lorsqu’une nouvelle instance est créée. Un certificat (SAN) de plusieurs domaines pour cette instance est configuré pour authentifier les connexions client à n’importe quelle instance dans la même zone DNS. Les deux instances gérées dans le même groupe de basculement doivent partager la zone DNS. 
+  ID unique qui est généré automatiquement lorsqu’une instance est créée. Un certificat multidomaine (SAN) est approvisionné pour cette instance afin d’authentifier les connexions clientes effectuées auprès de toutes les instances présentes dans la même zone DNS. Les deux instances gérées d’un même groupe de basculement doivent partager la zone DNS. 
   
   > [!NOTE]
-  > ID de zone DNS n’est pas requis pour les groupes de basculement créés pour les serveurs de base de données SQL.
+  > Il n’est pas nécessaire de disposer d’un ID de zone DNS pour les groupes de basculement créés sur des serveurs SQL Database.
 
 - **Écouteur en lecture-écriture du groupe de basculement**
 
-  Un enregistrement DNS CNAME formé qui pointe vers l’URL du serveur primaire actuel. Il permet aux applications SQL en lecture-écriture de se reconnecter en toute transparence à la base de données primaire lorsqu’elle est modifiée après le basculement. Lorsque le groupe de basculement est créé sur un serveur de base de données SQL, l’enregistrement DNS CNAME pour l’URL de l’écouteur est formé en tant que `<fog-name>.database.windows.net`. Lorsque le groupe de basculement est créé sur une instance gérée, l’enregistrement DNS CNAME pour l’URL de l’écouteur est formé en tant que `<fog-name>.zone_id.database.windows.net`.
+  Un enregistrement DNS CNAME formé qui pointe vers l’URL du serveur primaire actuel. Il permet aux applications SQL en lecture-écriture de se reconnecter en toute transparence à la base de données primaire lorsqu’elle est modifiée après le basculement. Lorsque le groupe de basculement est créé sur un serveur SQL Database, l’enregistrement DNS CNAME pour l’URL de l’écouteur est formé comme suit : `<fog-name>.database.windows.net`. Lorsque le groupe de basculement est créé sur une instance gérée, l’enregistrement DNS CNAME pour l’URL de l’écouteur est formé comme suit : `<fog-name>.zone_id.database.windows.net`.
 
 - **Écouteur en lecture seule du groupe de basculement**
 
-  Enregistrement DNS CNAME formé pour l’écouteur en lecture seule pointant vers l’URL du serveur secondaire. Il permet aux applications SQL en lecture seule de se connecter en toute transparence à la base de données secondaire à l’aide des règles d’équilibrage de charge spécifiées. Lorsque le groupe de basculement est créé sur un serveur de base de données SQL, l’enregistrement DNS CNAME pour l’URL de l’écouteur est formé en tant que `<fog-name>.secondary.database.windows.net`. Lorsque le groupe de basculement est créé sur une instance gérée, l’enregistrement DNS CNAME pour l’URL de l’écouteur est formé en tant que `<fog-name>.zone_id.secondary.database.windows.net`.
+  Enregistrement DNS CNAME formé pour l’écouteur en lecture seule pointant vers l’URL du serveur secondaire. Il permet aux applications SQL en lecture seule de se connecter en toute transparence à la base de données secondaire à l’aide des règles d’équilibrage de charge spécifiées. Lorsque le groupe de basculement est créé sur un serveur SQL Database, l’enregistrement DNS CNAME pour l’URL de l’écouteur est formé comme suit : `<fog-name>.secondary.database.windows.net`. Lorsque le groupe de basculement est créé sur une instance gérée, l’enregistrement DNS CNAME pour l’URL de l’écouteur est formé comme suit : `<fog-name>.zone_id.secondary.database.windows.net`.
 
 - **Stratégie de basculement automatique**
 
@@ -88,7 +88,7 @@ Pour assurer vraiment la continuité des activités, l’ajout d’une redondanc
 
 - **Stratégie de basculement en lecture seule**
 
-  Par défaut, le basculement de l’écouteur en lecture seule est désactivé. Il garantit que les performances du serveur principal ne sont pas affectées lorsque le serveur secondaire est hors connexion. Toutefois, cela signifie également que les sessions en lecture seule ne seront pas en mesure de se connecter tant que le serveur secondaire n’aura pas été récupérée. Si vous ne pouvez pas tolérer des temps d’arrêt pour les sessions en lecture seule et si vous acceptez d’utiliser temporairement le serveur principal pour le trafic en lecture seule et en lecture-écriture au prix d’une dégradation potentielle des performances du serveur principal, vous pouvez activer le basculement pour l’écouteur en lecture seule. Dans ce cas, le trafic en lecture seule sera automatiquement redirigé vers le réplica principal si le réplica secondaire n’est pas disponible.
+  Par défaut, le basculement de l’écouteur en lecture seule est désactivé. Il garantit que les performances du serveur principal ne sont pas affectées lorsque le serveur secondaire est hors connexion. Toutefois, cela signifie également que les sessions en lecture seule ne seront pas en mesure de se connecter tant que le serveur secondaire n’aura pas été récupérée. Si vous ne pouvez pas tolérer des temps d’arrêt pour les sessions en lecture seule et si vous acceptez d’utiliser temporairement le serveur principal pour le trafic en lecture seule et en lecture-écriture au prix d’une dégradation potentielle des performances du serveur principal, vous pouvez activer le basculement pour l’écouteur en lecture seule. Dans ce cas, le trafic en lecture seule est automatiquement redirigé vers le serveur principal si le serveur secondaire est indisponible.
 
 - **Basculement planifié**
 
@@ -100,7 +100,7 @@ Pour assurer vraiment la continuité des activités, l’ajout d’une redondanc
 
 - **Basculement non planifié**
 
-   Un basculement non planifié ou forcé fait immédiatement basculer la base de données secondaire vers le rôle primaire sans synchronisation avec la base de données primaire. Cette opération entraîne une perte de données. Le basculement non planifié est utilisé comme méthode de récupération pendant les pannes, lorsque la base de données primaire n’est pas accessible. Lorsque le serveur principal d’origine se reconnecte, il automatiquement se reconnecter sans synchronisation et devenir une nouvelle base de données secondaire.
+   Un basculement non planifié ou forcé fait immédiatement basculer la base de données secondaire vers le rôle primaire sans synchronisation avec la base de données primaire. Cette opération entraîne une perte de données. Le basculement non planifié est utilisé comme méthode de récupération pendant les pannes, lorsque la base de données primaire n’est pas accessible. Lorsque la base de données primaire d’origine est de nouveau en ligne, elle se reconnecte sans synchronisation et devient une nouvelle base de données secondaire.
 
 - **Basculement manuel**
 
@@ -118,16 +118,16 @@ Pour assurer vraiment la continuité des activités, l’ajout d’une redondanc
   > Managed Instance ne prend pas en charge les groupes de basculement multiples.
   
 ## <a name="permissions"></a>Autorisations
-Autorisations pour un groupe de basculement sont gérées via [contrôle d’accès en fonction du rôle (RBAC)](../role-based-access-control/overview.md). Le [contributeur de SQL Server](../role-based-access-control/built-in-roles.md#sql-server-contributor) rôle dispose des autorisations nécessaires pour gérer des groupes de basculement. 
+Les autorisations pour un groupe de basculement sont gérées via un [contrôle d’accès en fonction du rôle (RBAC)](../role-based-access-control/overview.md). Le rôle [Contributeur SQL Server](../role-based-access-control/built-in-roles.md#sql-server-contributor) dispose des autorisations nécessaires pour gérer des groupes de basculement. 
 
 ### <a name="create-failover-group"></a>Créer un groupe de basculement
-Pour créer un groupe de basculement, vous avez besoin d’un accès en écriture RBAC pour les serveurs primaires et secondaires et toutes les bases de données dans le groupe de basculement. Pour une instance gérée, vous avez besoin d’accès en écriture RBAC dans les deux instance gérée principaux et secondaire, mais les autorisations sur les bases de données individuelles ne sont pas pertinentes dans la mesure où les bases de données instance gérée individuelle ne peut pas être ajoutés ou supprimés à partir d’un groupe de basculement. 
+Pour créer un groupe de basculement, vous devez disposer d’un accès en écriture RBAC aux serveurs principal et secondaire ainsi qu’à toutes les bases de données du groupe de basculement. Pour une instance gérée, vous devez disposer d’un accès en écriture RBAC aux instances gérées principale et secondaire. Toutefois, les autorisations sur les bases de données individuelles ne sont pas pertinentes dans la mesure où les bases de données d’instance gérée individuelles ne peuvent pas être ajoutées ou supprimées d’un groupe de basculement. 
 
 ### <a name="update-a-failover-group"></a>Mettre à jour un groupe de basculement
-Pour mettre à jour un groupe de basculement, vous devez RBAC accès en écriture pour le groupe de basculement et toutes les bases de données sur le serveur principal actuel ou une instance gérée.  
+Pour mettre à jour un groupe de basculement, vous devez disposer d’un accès en écriture RBAC au groupe de basculement et à toutes les bases de données du serveur principal ou de l’instance gérée actuels.  
 
-### <a name="failover-a-failover-group"></a>Basculer un groupe de basculement
-Pour basculer un groupe de basculement, vous devez RBAC accès en écriture au groupe de basculement sur le nouveau serveur principal ou managed instance. 
+### <a name="failover-a-failover-group"></a>Faire basculer un groupe de basculement
+Pour faire basculer un groupe de basculement, vous devez disposer d’un accès en écriture RBAC au groupe de basculement sur le nouveau serveur principal ou la nouvelle instance gérée. 
 
 ## <a name="best-practices-of-using-failover-groups-with-single-databases-and-elastic-pools"></a>Meilleures pratiques relatives à l’utilisation des groupes de basculement avec des bases de données uniques et des pools élastiques
 
@@ -163,7 +163,7 @@ Quand vous concevez un service en pensant à la continuité d’activité, suive
   > [!IMPORTANT]
   > Les pools élastiques disposant de 800 DTU au maximum et de plus de 250 bases de données utilisant la géoréplication peuvent rencontrer des problèmes, notamment des basculements planifiés plus longs et une dégradation des performances.  Ces problèmes sont davantage susceptibles de se produire pour les charges de travail intensives en écriture, quand les points de terminaison de géoréplication sont géographiquement très éloignés, ou quand plusieurs points de terminaison secondaires sont utilisés pour chaque base de données.  Les symptômes de ces problèmes sont signalés quand le décalage de la géoréplication augmente au fil du temps.  Ce décalage peut être surveillé avec [sys.dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database).  Si ces problèmes se produisent, l’atténuation des risques inclut l’augmentation du nombre de DTU du pool ou la réduction du nombre de bases de données géorépliquées dans ce même pool.
 
-## <a name="best-practices-of-using-failover-groups-with-managed-instances"></a>Meilleures pratiques d’utilisation de groupes de basculement avec des instances gérées
+## <a name="best-practices-of-using-failover-groups-with-managed-instances"></a>Meilleures pratiques relatives à l’utilisation de groupes de basculement avec les instances managées
 
 Le groupe de basculement automatique doit être configuré sur l’instance primaire, qu’il connectera à l’instance secondaire dans une autre région Azure.  Toutes les bases de données de l’instance seront répliquées sur l’instance secondaire. Le diagramme suivant illustre la configuration standard d’une application cloud géoredondante avec une instance managée et un groupe de basculement automatique.
 
@@ -172,13 +172,13 @@ Le groupe de basculement automatique doit être configuré sur l’instance prim
 > [!IMPORTANT]
 > Groupes de basculement automatique pour Managed Instance est en préversion publique.
 
-Si votre application utilise une instance gérée comme couche de données, suivez ces recommandations générales lors de la conception pour la continuité d’activité :
+Si votre application utilise une instance gérée comme couche Données, suivez ces recommandations générales lors de la conception des éléments en rapport avec la continuité d’activité :
 
 - **Créer l’instance secondaire dans la même zone DNS que l’instance principale**
 
-  Pour garantir une connectivité ininterrompue à l’instance principale après le basculement automatique, les instances principale et secondaire doivent se trouver dans la même zone DNS. Il garantit que le même certificat (SAN) à domaines multiples peut être utilisé pour authentifier les connexions client à une des deux instances dans le groupe de basculement. Lorsque votre application est prête pour le déploiement en production, créez une instance secondaire dans une autre région et assurez-vous qu’elle partage la même zone DNS que l’instance principale. Vous pouvez le faire en spécifiant un `DNS Zone Partner` paramètre facultatif à l’aide du portail Azure, PowerShell ou l’API REST. 
+  Pour garantir une connectivité ininterrompue à l’instance principale après le basculement automatique, les instances principale et secondaire doivent se trouver dans la même zone DNS. Cela garantit que le même certificat multidomaine (SAN) peut être utilisé pour authentifier les connexions clientes avec les deux instances du groupe de basculement. Lorsque votre application est prête pour le déploiement en production, créez une instance secondaire dans une autre région et assurez-vous qu’elle partage la même zone DNS que l’instance principale. Pour cela, vous pouvez spécifier un paramètre `DNS Zone Partner` facultatif à l’aide du portail Azure, de PowerShell ou de l’API REST. 
 
-  Pour plus d’informations sur la création de l’instance secondaire dans la même zone DNS en tant que l’instance principale, consultez [la gestion des groupes de basculement avec des instances (version préliminaire) gérées](#powershell-managing-failover-groups-with-managed-instances-preview).
+  Pour plus d’informations sur la création de l’instance secondaire dans la même zone DNS que l’instance principale, consultez [Gestion des groupes de basculement avec des instances gérées (préversion)](#powershell-managing-failover-groups-with-managed-instances-preview).
 
 - **Activer le trafic de réplication entre deux instances**
 
@@ -193,7 +193,7 @@ Si votre application utilise une instance gérée comme couche de données, suiv
 
 - **Utiliser un écouteur en lecture-écriture pour la charge de travail OLTP**
 
-  Quand vous effectuez des opérations OLTP, utilisez `<fog-name>.zone_id.database.windows.net`, car l’URL du serveur et les connexions sont automatiquement dirigées vers le serveur principal. L’URL ne change pas après le basculement. Le basculement implique la mise à jour de l’enregistrement DNS de façon à ce que les connexions clients soient redirigées vers le nouveau serveur primaire seulement après l’actualisation du cache DNS. Étant donné que l’instance secondaire partage la zone DNS avec le serveur principal, l’application cliente sera en mesure de se reconnecter à l’aide du même certificat SAN.
+  Quand vous effectuez des opérations OLTP, utilisez `<fog-name>.zone_id.database.windows.net`, car l’URL du serveur et les connexions sont automatiquement dirigées vers le serveur principal. L’URL ne change pas après le basculement. Le basculement implique la mise à jour de l’enregistrement DNS de façon à ce que les connexions clients soient redirigées vers le nouveau serveur primaire seulement après l’actualisation du cache DNS. Étant donné que l’instance secondaire partage la même zone DNS que l’instance principale, l’application cliente peut se reconnecter à l’aide du même certificat SAN.
 
 - **Se connecter directement à l’instance géorépliquée secondaire pour les requêtes en lecture seule**
 
@@ -202,7 +202,7 @@ Si votre application utilise une instance gérée comme couche de données, suiv
   > [!NOTE]
   > Dans certains niveaux de service, Azure SQL Database prend en charge l’utilisation de [réplicas en lecture seule](sql-database-read-scale-out.md) pour équilibrer les charges de travail de requêtes en lecture seule en utilisant la capacité d’un réplica en lecture seule et le paramètre `ApplicationIntent=ReadOnly` dans la chaîne de connexion. Lorsque vous avez configuré une instance géorépliquée secondaire, vous pouvez utiliser cette fonction pour vous connecter à un réplica en lecture seule à l’emplacement primaire ou à l’emplacement géorépliqué.
   > - Pour vous connecter à un réplica en lecture seule à l’emplacement primaire, utilisez `<fog-name>.zone_id.database.windows.net`.
-  > - Pour vous connecter à un réplica en lecture seule dans l’emplacement secondaire, utilisez `<fog-name>.secondary.zone_id.database.windows.net`.
+  > - Pour vous connecter à un réplica en lecture seule à l’emplacement secondaire, utilisez `<fog-name>.secondary.zone_id.database.windows.net`.
 
 - **Se préparer à une dégradation des performances**
 
@@ -212,14 +212,14 @@ Si votre application utilise une instance gérée comme couche de données, suiv
 
   Si une panne est détectée, SQL déclenche automatiquement le basculement en lecture-écriture dans le cas où il n’y a à notre connaissance pas de perte de données. Sinon, SQL patiente pendant le temps que vous avez défini via `GracePeriodWithDataLossHours`. Si vous avez spécifié `GracePeriodWithDataLossHours`, attendez-vous à une perte de données. En général, en cas de panne, Azure favorise la disponibilité. Si vous ne pouvez pas vous permettre de perdre des données, veillez à définir dans la commande GracePeriodWithDataLossHours un nombre suffisamment grand, par exemple, 24 heures.
 
-  La mise à jour DNS de l’écouteur en lecture-écriture se produit immédiatement après que le basculement est initié. Cette opération n’entraîne aucune perte de données. Toutefois, le processus de basculement des rôles des bases de données peut prendre jusqu’à 5 minutes dans des conditions normales. En attendant, certaines bases de données de la nouvelle instance principale resteront en lecture seule. Si le basculement est initialisé à l’aide de PowerShell, l’intégralité de l’opération est synchrone. Si elle est lancée à l’aide du portail Azure, l’interface utilisateur indique l’état d’achèvement. S’il est démarré à l’aide de l’API REST, utilisez le mécanisme d’interrogation standard d’Azure Resource Manager pour en surveiller la progression.
+  La mise à jour DNS de l’écouteur en lecture-écriture se produit immédiatement après que le basculement est initié. Cette opération n’entraîne aucune perte de données. Toutefois, le processus de basculement des rôles des bases de données peut prendre jusqu’à 5 minutes dans des conditions normales. En attendant, certaines bases de données de la nouvelle instance principale resteront en lecture seule. Si le basculement est initié à l’aide de PowerShell, l’intégralité de l’opération est effectuée de manière synchrone. S’il est initié à l’aide du portail Azure, l’interface utilisateur indiquera la progression. S’il est démarré à l’aide de l’API REST, utilisez le mécanisme d’interrogation standard d’Azure Resource Manager pour en surveiller la progression.
 
   > [!IMPORTANT]
   > Utilisez le basculement de groupe manuel pour redéplacer les bases de données primaires à leur emplacement d’origine. Lorsque la panne ayant provoqué le basculement est résolue, vous pouvez déplacer vos bases de données primaires vers leur emplacement d’origine. Pour ce faire, vous devez effectuer le basculement manuel du groupe.
 
 ## <a name="failover-groups-and-network-security"></a>Groupes de basculement et sécurité réseau
 
-Pour certaines applications, les règles de sécurité nécessitent que l’accès réseau à la couche Données soit limité à un ou plusieurs composants comme une machine virtuelle, un service web, etc. Cette exigence présente quelques défis pour la conception de la continuité d’activité et l’utilisation des groupes de basculement. Envisagez les options suivantes lors de l’implémentation d’un accès restreint.
+Pour certaines applications, les règles de sécurité nécessitent que l’accès réseau à la couche Données soit limité à un ou plusieurs composants comme une machine virtuelle, un service web, etc. Cette exigence présente quelques défis pour la conception de la continuité d’activité et l’utilisation des groupes de basculement. Tenez compte des options suivantes lors de l’implémentation d’un accès restreint.
 
 ### <a name="using-failover-groups-and-virtual-network-rules"></a>Utilisation de groupes de basculement et de règles de réseau virtuel
 
@@ -251,27 +251,27 @@ La configuration ci-dessus garantit que le basculement automatique ne bloque pas
 > [!IMPORTANT]
 > Pour garantir la continuité d’activité en cas de pannes régionales, vous devez vérifier la redondance géographique pour les composants frontend et les bases de données.
 
-## <a name="enabling-geo-replication-between-managed-instances-and-their-vnets"></a>L’activation de géo-réplication entre les instances gérées et leurs réseaux virtuels
+## <a name="enabling-geo-replication-between-managed-instances-and-their-vnets"></a>Activation de la géoréplication entre les instances gérées et leurs réseaux virtuels
 
-Lorsque vous configurez un groupe de basculement entre les instances gérées principaux et secondaires dans deux régions différentes, chaque instance est isolée à l’aide d’un réseau virtuel indépendant. Pour autoriser le trafic de réplication entre ces réseaux virtuels, vérifiez que ces conditions préalables sont remplies :
+Lorsque vous configurez des groupes de basculement entre des instances gérées principale et secondaire dans deux régions différentes, chaque instance est isolée à l’aide d’un réseau virtuel indépendant. Pour autoriser le trafic de réplication entre ces réseaux virtuels, vérifiez que les conditions préalables suivantes sont satisfaites :
 
 1. Les deux instances gérées doivent se trouver dans différentes régions Azure.
 2. Votre instance secondaire doit être vide (aucune base de données utilisateur).
-3. Les instances gérées principaux et secondaires doivent se trouver dans le même groupe de ressources.
-4. Les réseaux virtuels que les instances gérées font partie de la nécessité d’être connecté via un [passerelle VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md). L’homologation Global VNet Peering n’est pas prise en charge.
-5. L’instance gérée deux réseaux virtuels ne peuvent pas avoir des adresses IP qui se chevauchent.
-6. Vous devez configurer votre réseau Security Groups (NSG) telles que les ports 5022 et la plage 11000 ~ 12000 ouverts entrantes et sortantes pour les connexions à partir de l’autre gérés par sous-réseau instanciée. Il s’agit d’autoriser le trafic de réplication entre les instances
+3. Les instances gérées principale et secondaire doivent se trouver dans le même groupe de ressources.
+4. Les réseaux virtuels dont les instances gérées font partie doivent être connectés via une [passerelle VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md). L’homologation Global VNet Peering n’est pas prise en charge.
+5. Les adresses IP des deux réseaux virtuels des instances gérées ne peuvent pas se chevaucher.
+6. Vous devez configurer vos groupes de sécurité réseau (NSG) de telle sorte que les ports 5022 et 11000 à 12000 soient ouverts en entrée et en sortie pour les connexions provenant du sous-réseau de l’autre instance gérée. Il s’agit d’autoriser le trafic de réplication entre les instances
 
    > [!IMPORTANT]
    > La configuration incorrecte des règles de groupes de sécurité réseau bloque les opérations de copie sur les bases de données.
 
-7. L’instance secondaire est configuré avec l’ID de zone DNS correct. Zone DNS est une propriété d’une instance managée et son ID est inclus dans l’adresse de nom d’hôte. L’ID de zone est généré sous forme de chaîne aléatoire lors de la première instance gérée est créée dans chaque réseau virtuel et le même ID est attribué à toutes les autres instances dans le même sous-réseau. Une fois attribué, la zone DNS ne peut pas être modifiée. Les instances gérées inclus dans le même groupe de basculement doivent partager la zone DNS. Pour cela, en passant l’ID de zone de l’instance principale en tant que la valeur du paramètre de DnsZonePartner lors de la création de l’instance secondaire. 
+7. L’instance secondaire est configurée avec l’ID de zone DNS approprié. La zone DNS est une propriété d’une instance gérée et son ID est inclus dans l’adresse du nom d’hôte. L’ID de zone est généré sous forme de chaîne aléatoire lors de la création de la première instance gérée de chaque réseau virtuel. De plus, le même ID est attribué à toutes les autres instances dans le même sous-réseau. Une fois attribué, la zone DNS ne peut pas être modifiée. Les instances gérées d’un même groupe de basculement doivent partager la zone DNS. Pour cela, vous devez transmettre l’ID de zone de l’instance principale en tant que valeur du paramètre DnsZonePartner lors de la création de l’instance secondaire. 
 
 ## <a name="upgrading-or-downgrading-a-primary-database"></a>Mise à niveau ou rétrogradation d’une base de données primaire
 
-Vous pouvez augmenter ou diminuer la taille de calcul d’une base de données primaire (au sein du même niveau de service, mais pas entre les niveaux Usage général et Critique pour l’entreprise) sans déconnecter les bases de données secondaires. Lors de la mise à niveau, nous recommandons que vous mettre à niveau toutes les bases de données secondaire tout d’abord, puis mettre à niveau le serveur principal. Lors de la rétrogradation, inversez l’ordre : rétrogradez le réplica principal tout d’abord et puis passer toutes les bases de données secondaire. Lorsque vous passez la base de données à un niveau de service supérieur ou inférieur, cette recommandation est appliquée.
+Vous pouvez augmenter ou diminuer la taille de calcul d’une base de données primaire (au sein du même niveau de service, mais pas entre les niveaux Usage général et Critique pour l’entreprise) sans déconnecter les bases de données secondaires. Lors d’une mise à niveau, nous vous recommandons de mettre à niveau toutes les bases de données secondaires dans un premier temps, avant de mettre à niveau la base de données primaire. Lors du passage à une version antérieure, inversez l’ordre : faites tout d’abord passer la base de données primaire à une version antérieure, puis toutes les bases de données secondaires dans un second temps. Lorsque vous passez la base de données à un niveau de service supérieur ou inférieur, cette recommandation est appliquée.
 
-Cette séquence est recommandée spécifiquement pour éviter ce problème dans lequel la base de données secondaire à une référence SKU inférieure est surchargé et doit être redéfinie lors d’un processus de mise à niveau ou à une version antérieure. Vous pouvez également éviter le problème en rendant le réplica principal en lecture seule, au détriment ayant un impact sur toutes les charges de travail en lecture-écriture sur le serveur principal. 
+Cette séquence est recommandée dans le but spécifique d’éviter le problème de surcharge des bases de données secondaires avec une référence SKU inférieure. Celles-ci doivent alors être alimentées à nouveau lors de la mise à niveau ou du passage à une version antérieure. Vous pouvez également éviter le problème en attribuant un accès en lecture seule à la base de données primaire, ce qui peut cependant nuire à toutes les charges de travail en lecture-écriture qui y sont associées. 
 
 > [!NOTE]
 > Si vous avez créé une base de données secondaire dans le cadre de la configuration des groupes de basculement, il n’est pas conseillé de passer la base de données secondaire à un niveau de service inférieur. En effet, votre couche Données pourrait manquer de capacité pour traiter votre charge de travail normale après l’activation du basculement.
@@ -309,7 +309,7 @@ Comme indiqué plus haut, les groupes de basculement automatique et la géo-rép
 
 ### <a name="powershell-managing-failover-groups-with-managed-instances-preview"></a>PowerShell : Gérer des groupes de basculement avec des instances managées (préversion)
 
-#### <a name="install-the-newest-pre-release-version-of-powershell"></a>Installer la dernière version de la version préliminaire de PowerShell
+#### <a name="install-the-newest-pre-release-version-of-powershell"></a>Installer la préversion la plus récente de PowerShell
 
 1. Mettez à jour le module PowerShellGet vers la version 1.6.5 (ou la préversion la plus récente). Consultez le [site de la préversion de PowerShell](https://www.powershellgallery.com/packages/AzureRM.Sql/4.11.6-preview).
 
@@ -326,7 +326,7 @@ Comme indiqué plus haut, les groupes de basculement automatique et la géo-rép
       import-module azurerm.sql
    ```
 
-#### <a name="powershell-commandlets-to-create-an-instance-failover-group"></a>Applets de commande PowerShell pour créer un groupe d’instances de basculement
+#### <a name="powershell-commandlets-to-create-an-instance-failover-group"></a>Cmdlets PowerShell permettant de créer un groupe de basculement d’instances
 
 | API | Description |
 | --- | --- |
@@ -364,7 +364,7 @@ Comme indiqué plus haut, les groupes de basculement automatique et la géo-rép
 
 - Pour obtenir des exemples de scripts, consultez :
   - [Configurer et basculer une base de données unique à l’aide de la géoréplication active](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
-  - [Configurer et basculer une base de données regroupée à l’aide de la géoréplication active](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md)
+  - [Configurer et basculer une base de données mise en pool à l’aide de la géoréplication active](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md)
   - [Configurer et basculer un groupe de basculement pour une base de données unique](scripts/sql-database-setup-geodr-failover-database-failover-group-powershell.md)
 - Pour une vue d’ensemble de la continuité des activités et des scénarios, consultez [Vue d’ensemble de la continuité des activités](sql-database-business-continuity.md)
 - Pour en savoir plus sur les sauvegardes automatisées d’une base de données Azure SQL, consultez [Sauvegardes automatisées d’une base de données SQL](sql-database-automated-backups.md).

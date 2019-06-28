@@ -1,5 +1,5 @@
 ---
-title: Stratégies - Azure Active Directory de réinitialisation de mot de passe Azure AD libre-service
+title: Stratégies de réinitialisation de mot de passe libre-service Azure AD - Azure Active Directory
 description: Configurez les options de stratégie de réinitialisation de mot de passe en libre-service Azure AD
 services: active-directory
 ms.service: active-directory
@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f32952dff8f09db5b790818a5f98c527a04c2ef5
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65823407"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Stratégies et restrictions de mot de passe dans Azure Active Directory
@@ -51,7 +51,7 @@ La stratégie à deux verrous nécessite deux éléments de données d’authent
   * Administrateur Dynamics 365
   * Administrateur de services Power BI
   * Administrateur d’authentification
-  * Administrateur de l’authentification privilégié
+  * Administrateur d’authentification privilégié
 
 * Si 30 jours se sont écoulés dans un abonnement d’essai ; ou
 * Un domaine personnel est présent, par exemple, contoso.com ; ou
@@ -77,13 +77,13 @@ Chaque compte d’utilisateur devant se connecter à Azure AD doit être doté 
 
 ## <a name="password-policies-that-only-apply-to-cloud-user-accounts"></a>Stratégies de mot de passe s’appliquant uniquement aux comptes d'utilisateur dans le cloud
 
-Le tableau suivant décrit les paramètres de stratégie de mot de passe appliquées aux comptes d’utilisateur qui sont créés et gérés dans Azure AD :
+Le tableau suivant décrit les paramètres de stratégie de mot de passe appliqués aux comptes d'utilisateurs créés et gérés dans Azure AD :
 
 | Propriété | Configuration requise |
 | --- | --- |
 | Caractères autorisés |<ul><li>A – Z</li><li>a - z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / \` ~ " ( ) ;</li> <li>espace vide</li></ul> |
-| Caractères non autorisés |<ul><li>Caractères Unicode.</li><li> Ne peut pas contenir de point «. » précédant immédiatement le «\@ \" symbole ».</li></ul> |
-| Restrictions de mot de passe |<ul><li>Au moins 8 caractères et un maximum de 256 caractères.</li><li>trois des quatre éléments suivants sont requis :<ul><li>Caractères minuscules.</li><li>Caractères majuscules.</li><li>Nombres (0-9).</li><li>Symboles (voir les restrictions de mot de passe précédentes).</li></ul></li></ul> |
+| Caractères non autorisés |<ul><li>Caractères Unicode.</li><li> Ne peut pas contenir un point « . » précédant immédiatement le symbole « \@\" ».</li></ul> |
+| Restrictions de mot de passe |<ul><li>8 caractères minimum et 256 caractères maximum.</li><li>trois des quatre éléments suivants sont requis :<ul><li>Caractères minuscules.</li><li>Caractères majuscules.</li><li>Nombres (0-9).</li><li>Symboles (voir les restrictions de mot de passe précédentes).</li></ul></li></ul> |
 | Délai d'expiration du mot de passe |<ul><li>Valeur par défaut : **90** jours.</li><li>La valeur peut être configurée à l’aide de l’applet de commande `Set-MsolPasswordPolicy` à partir du module Azure Active Directory pour Windows PowerShell.</li></ul> |
 | Notification d'expiration du mot de passe |<ul><li>Valeur par défaut : **14** jours (avant l’expiration du mot de passe).</li><li>La valeur peut être configurée à l’aide de l’applet de commande `Set-MsolPasswordPolicy`.</li></ul> |
 | Expiration du mot de passe |<ul><li>Valeur par défaut : **false** jours (indique que l’expiration du mot de passe est activée).</li><li>La valeur peut être configurée pour des comptes d’utilisateur individuels à l’aide de l’applet de commande `Set-MsolUser`.</li></ul> |
@@ -93,7 +93,7 @@ Le tableau suivant décrit les paramètres de stratégie de mot de passe appliqu
 
 ## <a name="set-password-expiration-policies-in-azure-ad"></a>Définir des stratégies d’expiration de mot de passe dans Azure AD
 
-Un administrateur général ou un administrateur de l’utilisateur pour un service cloud Microsoft peut utiliser le Module Microsoft Azure AD pour Windows PowerShell pour définir des mots de passe utilisateur ne pas le point d’expirer. Vous pouvez également utiliser des applets de commande Windows PowerShell pour supprimer la configuration de non-expiration ou pour voir quels mots de passe utilisateur sont définis pour ne jamais expirer. 
+Un administrateur global ou un administrateur d’utilisateurs d’un service cloud Microsoft peut utiliser le module Microsoft Azure AD pour Windows PowerShell afin de définir des mots de passe utilisateur qui n’expirent pas. Vous pouvez également utiliser des applets de commande Windows PowerShell pour supprimer la configuration de non-expiration ou pour voir quels mots de passe utilisateur sont définis pour ne jamais expirer. 
 
 Ces conseils s’appliquent à d’autres fournisseurs, tels que Intune et Office 365, qui s’appuient également sur Azure AD pour les services d’identité et d’annuaire. L’expiration du mot de passe est la seule partie de la stratégie qui peut être modifiée.
 
@@ -106,16 +106,16 @@ Pour commencer, vous devez [télécharger et installer le module Azure AD Powe
 
 ### <a name="check-the-expiration-policy-for-a-password"></a>Vérifier la stratégie d’expiration d’un mot de passe
 
-1. Se connecter à Windows PowerShell à l’aide de votre administrateur de l’utilisateur ou les informations d’identification d’administrateur d’entreprise.
+1. Connectez-vous à Windows PowerShell à l’aide de vos informations d’identification d’administrateur d’entreprise ou d’administrateur d’utilisateurs.
 1. Exécutez l’une des commandes suivantes :
 
-   * Pour voir si un seul mot de passe est défini pour ne jamais expirer, exécutez l’applet de commande suivante à l’aide de l’UPN (par exemple, *aprilr\@contoso.onmicrosoft.com*) ou l’ID d’utilisateur de l’utilisateur à vérifier :
+   * Pour voir si le mot de passe d’un utilisateur donné est défini pour ne jamais expirer, exécutez la cmdlet suivante en utilisant l’UPN (par exemple, *aprilr\@contoso.onmicrosoft.com*) ou l’identifiant utilisateur de l’utilisateur à vérifier :
 
    ```powershell
    Get-AzureADUser -ObjectId <user ID> | Select-Object @{N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}}
    ```
 
-   * Pour voir les **mot de passe n’expire jamais** pour tous les utilisateurs, exécutez l’applet de commande suivante :
+   * Pour afficher le paramètre **Le mot de passe n’expire jamais** pour tous les utilisateurs, exécutez la cmdlet suivante :
 
    ```powershell
    Get-AzureADUser -All $true | Select-Object UserPrincipalName, @{N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}}
@@ -123,16 +123,16 @@ Pour commencer, vous devez [télécharger et installer le module Azure AD Powe
 
 ### <a name="set-a-password-to-expire"></a>Définir un mot de passe pour qu’il expire
 
-1. Se connecter à Windows PowerShell à l’aide de votre administrateur de l’utilisateur ou les informations d’identification d’administrateur d’entreprise.
+1. Connectez-vous à Windows PowerShell à l’aide de vos informations d’identification d’administrateur d’entreprise ou d’administrateur d’utilisateurs.
 1. Exécutez l’une des commandes suivantes :
 
-   * Pour définir le mot de passe d’un utilisateur afin que le mot de passe expire, exécutez l’applet de commande suivante à l’aide de l’UPN ou l’ID d’utilisateur de l’utilisateur :
+   * Pour définir le mot de passe d’un utilisateur afin qu’il expire, exécutez la cmdlet suivante en utilisant l’UPN ou l’identifiant utilisateur de l’utilisateur :
 
    ```powershell
    Set-AzureADUser -ObjectId <user ID> -PasswordPolicies None
    ```
 
-   * Pour définir les mots de passe de tous les utilisateurs de l’organisation afin qu’ils expirent, utilisez l’applet de commande suivante :
+   * Pour définir les mots de passe de tous les utilisateurs de l’organisation afin qu’ils expirent, utilisez la cmdlet suivante :
 
    ```powershell
    Get-AzureADUser -All $true | Set-AzureADUser -PasswordPolicies None
@@ -140,16 +140,16 @@ Pour commencer, vous devez [télécharger et installer le module Azure AD Powe
 
 ### <a name="set-a-password-to-never-expire"></a>Définir un mot de passe pour qu’il n’expire jamais
 
-1. Se connecter à Windows PowerShell à l’aide de votre administrateur de l’utilisateur ou les informations d’identification d’administrateur d’entreprise.
+1. Connectez-vous à Windows PowerShell à l’aide de vos informations d’identification d’administrateur d’entreprise ou d’administrateur d’utilisateurs.
 1. Exécutez l’une des commandes suivantes :
 
-   * Pour définir le mot de passe d’un utilisateur pour ne jamais expirer, exécutez l’applet de commande suivante à l’aide de l’UPN ou l’ID d’utilisateur de l’utilisateur :
+   * Pour définir le mot de passe d’un utilisateur afin qu’il n’expire jamais, exécutez la cmdlet suivante en utilisant l’UPN ou l’identifiant utilisateur de l’utilisateur :
 
    ```powershell
    Set-AzureADUser -ObjectId <user ID> -PasswordPolicies DisablePasswordExpiration
    ```
 
-   * Pour définir les mots de passe de tous les utilisateurs dans une organisation pour ne jamais expirer, exécutez l’applet de commande suivante :
+   * Pour définir les mots de passe de tous les utilisateurs de l’organisation afin qu’ils n’expirent jamais, utilisez la cmdlet suivante :
 
    ```powershell
    Get-AzureADUser -All $true | Set-AzureADUser -PasswordPolicies DisablePasswordExpiration

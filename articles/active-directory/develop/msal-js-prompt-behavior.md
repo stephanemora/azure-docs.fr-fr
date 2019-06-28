@@ -1,6 +1,6 @@
 ---
-title: Invite de comportement dans des requêtes interactives (bibliothèque d’authentification Microsoft pour JavaScript) | Azure
-description: En savoir plus sur la personnalisation du comportement de l’invite dans les appels interactifs à l’aide de la bibliothèque d’authentification Microsoft pour JavaScript (MSAL.js).
+title: Comportement d’invite dans des requêtes interactives (Microsoft Authentification Library pour JavaScript) | Azure
+description: En savoir plus sur la personnalisation des comportements d’invite dans des appels interactifs à l’aide de Microsoft Authentification Library pour JavaScript (MSAL.js).
 services: active-directory
 documentationcenter: dev-center-name
 author: navyasric
@@ -18,19 +18,19 @@ ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: dd0d736345f312f1a1d6f8f029b41429a3e5f0a7
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65544268"
 ---
-# <a name="prompt-behavior-in-msaljs-interactive-requests"></a>Comportement de l’invite dans des requêtes interactives MSAL.js
+# <a name="prompt-behavior-in-msaljs-interactive-requests"></a>Comportement d’invite dans des requêtes interactives MSAL.js
 
-Lorsqu’un utilisateur a établi un Azure active session Active Directory avec plusieurs comptes d’utilisateur, la page de connexion Azure AD par défaut invite l’utilisateur à sélectionner un compte avant de commencer à se connecter. Utilisateurs ne verront une sélection de compte expérience s’il existe uniquement une session authentifiée auprès d’Azure AD.
+Lorsqu’un utilisateur a établi une session Azure AD active avec plusieurs comptes d’utilisateurs, la page de connexion Azure AD invite par défaut l’utilisateur à sélectionner un compte avant de procéder à l’identification. Les utilisateurs n’ont pas la possibilité de sélectionner de comptes s’il n’y a qu’une seule session authentifiée avec Azure AD.
 
-La bibliothèque MSAL.js (à partir de v0.2.4) n’envoie pas un paramètre de demande pendant les requêtes interactives (`loginRedirect`, `loginPopup`, `acquireTokenRedirect` et `acquireTokenPopup`) et ainsi ne pas appliquer de tout comportement de l’invite. Pour les demandes de jeton en mode silencieux à l’aide de la `acquireTokenSilent` méthode, MSAL.js transmet un paramètre de demande la valeur `none`.
+La bibliothèque MSAL.js (à partir de la version v0.2.4) n’envoie pas de paramètre d’invite pendant les requêtes interactives (`loginRedirect`, `loginPopup`, `acquireTokenRedirect` et `acquireTokenPopup`) et n’applique donc aucun comportement d’invite. Pour les requêtes de jeton silencieux via la méthode `acquireTokenSilent`, MSAL.js envoie un paramètre d’invite défini sur `none`.
 
-Selon votre scénario d’application, vous pouvez contrôler le comportement de l’invite pour les demandes interactives en définissant le paramètre d’invite dans les paramètres de requête passés aux méthodes. Par exemple, si vous souhaitez appeler l’expérience de sélection de compte :
+En fonction de votre scénario d’application, vous pouvez contrôler le comportement d’invite pour les requêtes interactives en définissant le paramètre d’invite dans les paramètres des requêtes envoyé aux méthodes. Par exemple, si vous souhaitez appeler la sélection de compte :
 
 ```javascript
 var request = {
@@ -42,16 +42,16 @@ userAgentApplication.loginRedirect(request);
 ```
 
 
-Les valeurs d’invites suivantes peuvent être transmis lors de l’authentification auprès d’Azure AD :
+Les valeurs d’invites suivantes peuvent être transmises lors de l’authentification auprès d’Azure AD :
 
-**connectez-vous :** Cette valeur force l’utilisateur à entrer les informations d’identification sur la demande d’authentification.
+**login :** Cette valeur force l’utilisateur à entrer les informations d’identification lors de la demande d’authentification.
 
-**select_account:** Cette valeur fournira l’utilisateur une expérience de sélection de compte répertoriant tous les comptes dans la session.
+**select_account :** Cette valeur fournira à l’utilisateur la sélection de compte répertoriant tous les comptes dans la session.
 
-**consentement :** Cette valeur appelle la boîte de dialogue de consentement OAuth qui permet aux utilisateurs d’accorder des autorisations à l’application.
+**consent :** Cette valeur appelle la boîte de dialogue de consentement OAuth qui permet aux utilisateurs d’accorder des autorisations à l’application.
 
-**None :** Cette valeur garantit que l’utilisateur ne voit pas aucune invite interactive. Il est recommandé de ne pas passer cette valeur à des méthodes interactives dans MSAL.js comme il peut avoir des comportements inattendus. Au lieu de cela, utilisez le `acquireTokenSilent` pour obtenir des appels en mode silencieux.
+**none :** Cette valeur garantit que l’utilisateur ne voit pas aucune invite interactive. Il est recommandé de ne pas passer cette valeur à des méthodes interactives dans MSAL.js. Des comportements inattendus peuvent se produire. Au lieu de cela, utilisez la méthode `acquireTokenSilent` pour obtenir des appels silencieux.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-En savoir plus sur la `prompt` paramètre dans le [octroi implicite OAuth 2.0](v2-oauth2-implicit-grant-flow.md) protocole utilise la bibliothèque MSAL.js.
+En savoir plus sur le paramètre `prompt` dans le protocole d’[octroi implicite OAuth 2.0](v2-oauth2-implicit-grant-flow.md) qu’utilise la bibliothèque MSAL.js.

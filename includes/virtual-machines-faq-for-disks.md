@@ -9,10 +9,10 @@ ms.date: 05/13/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: b993b34f81298b40c8849084380b2d1770708351
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66482276"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Forum aux questions sur les disques de machines virtuelles et les disques Premium gérés et non gérés Azure IaaS
@@ -21,7 +21,7 @@ Dans cet article, nous allons répondre à certaines questions fréquentes sur A
 
 ## <a name="managed-disks"></a>Disques managés
 
-**Qu’est-ce qu’Azure Managed Disks ?**
+**Qu’est-ce qu’Azure Disques managés ?**
 
 La fonctionnalité Disques managés est une fonctionnalité qui simplifie la gestion des disques associés aux machines virtuelles Azure IaaS en prenant en charge pour vous la gestion des comptes de stockage. Pour plus d’informations, consultez la section [Vue d’ensemble de la fonctionnalité Disques managés](../articles/virtual-machines/windows/managed-disks-overview.md).
 
@@ -29,7 +29,7 @@ La fonctionnalité Disques managés est une fonctionnalité qui simplifie la ges
 
 Un disque géré standard créé à partir d’un disque dur virtuel de 80 Go est considéré comme un disque standard de la taille directement supérieure. Dans notre cas, il s’agit du disque S10. Vous êtes facturé en fonction de la tarification de disque S10. Pour plus d’informations, consultez la [page relative aux prix appliqués](https://azure.microsoft.com/pricing/details/storage).
 
-**Des frais de transaction s’appliquent-ils aux disques gérés Standard ?**
+**Des frais de transaction s’appliquent-ils aux disques managés Standard ?**
 
 Oui. Vous êtes facturé pour chaque transaction. Pour plus d’informations, consultez la [page relative aux prix appliqués](https://azure.microsoft.com/pricing/details/storage).
 
@@ -37,11 +37,11 @@ Oui. Vous êtes facturé pour chaque transaction. Pour plus d’informations, co
 
 Vous êtes facturé en fonction de la capacité configurée du disque. Pour plus d’informations, consultez la [page relative aux prix appliqués](https://azure.microsoft.com/pricing/details/storage).
 
-**En quoi la tarification appliquée aux disques gérés Premium est-elle différente de celle associée aux disques non gérés ?**
+**En quoi la tarification appliquée aux disques managés Premium est-elle différente de celle associée aux disques non managés ?**
 
 La tarification de ces 2 types de disques est identique.
 
-**Puis-je modifier le type de compte de stockage (Standard/Premium) de mes disques gérés ?**
+**Puis-je modifier le type de compte de stockage (Standard/Premium) de mes disques managés ?**
 
 Oui. Vous pouvez modifier le type de compte de stockage de vos disques managés en utilisant le portail Azure, PowerShell ou l’interface Azure CLI.
 
@@ -53,7 +53,7 @@ Oui.
 
 Non.
 
-**Existe-t-il des restrictions de mise à l’échelle pour les clients utilisant des disques gérés ?**
+**Existe-t-il des restrictions de mise à l’échelle pour les clients utilisant des disques managés ?**
 
 La fonctionnalité Disques managés élimine les restrictions associées aux comptes de stockage. Toutefois, la limite maximale est de 50 000 disques managés par région et par type de disque pour un abonnement.
 
@@ -65,7 +65,7 @@ Non. La fonctionnalité actuelle de capture instantanée crée une copie complè
 
 Non. Les machines virtuelles d’un groupe à haute disponibilité doivent utiliser exclusivement des disques managés ou non managés. Lorsque vous créez un groupe à haute disponibilité, vous pouvez définir le type de disques à utiliser.
 
-**Les disques gérés sont-ils l’option par défaut dans le portail Azure ?**
+**La fonctionnalité Disques managés est-elle l’option par défaut dans le portail Azure ?**
 
 Oui.
 
@@ -73,7 +73,7 @@ Oui.
 
 Oui. Vous pouvez tout à fait créer un disque vide. Un disque géré peut être créé indépendamment d’une machine virtuelle, par exemple, sans le joindre à une machine virtuelle.
 
-**Par défaut, combien de domaines d’erreurs sont pris en charge pour les groupes à haute disponibilité utilisant Managed Disks ?**
+**Par défaut, combien de domaines d’erreurs sont pris en charge pour les groupes à haute disponibilité utilisant la fonctionnalité Disques managés ?**
 
 En fonction de la région où se trouve le groupe à haute disponibilité qui utilise la fonctionnalité Disques managés, le nombre de domaines d’erreurs pris en charge peut être de 2 ou 3.
 
@@ -81,7 +81,7 @@ En fonction de la région où se trouve le groupe à haute disponibilité qui ut
 
 Vous configurez un compte de stockage privé pour les diagnostics de machine virtuelle.
 
-**Quel type de prise en charge du contrôle d’accès en fonction du rôle est disponible pour Managed Disks ?**
+**Quel type de prise en charge du contrôle d’accès en fonction du rôle est disponible pour la fonctionnalité Disques managés ?**
 
 La fonctionnalité Disques managés prend en charge trois rôles principaux par défaut :
 
@@ -105,15 +105,15 @@ Oui, les disques managés et non managés sont pris en charge. Nous vous recomma
 
 Non.
 
-**Si je créer un disque de 128 Go et augmente la taille à 130 gibioctets (Gio), sera être facturé pour la taille du disque suivante (256 Gio) ?**
+**Si je crée un disque de 128 Gio et que j’augmente la taille à 130 Gio, suis-je facturé en fonction de la taille de disque supérieure (256 Gio) ?**
 
 Oui.
 
-**Puis-je créer des disques gérés disposant du stockage localement redondant, géoredondant ou redondant interzone ?**
+**Puis-je créer des disques managés disposant du stockage localement redondant, géoredondant ou redondant interzone ?**
 
 Actuellement, Azure Disques managés prend uniquement en charge les disques managés disposant du stockage localement redondant.
 
-**Puis-je réduire la taille de mes disques gérés ?**
+**Puis-je réduire la taille de mes disques managés ?**
 
 Non. Cette fonctionnalité n’est pas prise en charge pour l’instant.
 
@@ -125,8 +125,8 @@ Non. Cela n’est pas possible actuellement car un bail est présent pour empêc
 
 Non. Vous ne pouvez pas mettre à jour la propriété de nom d’ordinateur. La nouvelle machine virtuelle a hérité cette particularité de la machine virtuelle parente qui a été utilisée pour créer le disque de système d’exploitation. 
 
-**Où trouver des exemples de modèles Azure Resource Manager pour créer des machines virtuelles avec des disques gérés ?**
-* [Liste de modèles utilisant des disques gérés](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md)
+**Où trouver des exemples de modèles Azure Resource Manager pour créer des machines virtuelles avec des disques managés ?**
+* [Liste de modèles utilisant la fonctionnalité Disques managés](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md)
 * https://github.com/chagarw/MDPP
 
 **Lorsque vous créez un disque à partir d’un objet blob, existe-t-il une relation continue avec cet objet blob source ?**
@@ -141,9 +141,9 @@ Vous ne pouvez pas renommer les disques managés. Par contre, vous pouvez renomm
 
 Le partitionnement GPT peut être utilisé uniquement sur les disques de données, pas sur les disques de système d’exploitation. Les disques de système d’exploitation doivent utiliser le style de partition MBR.
 
-**Quels types de disque prend en charge les captures instantanées ?**
+**Quels types de disque prennent en charge les captures instantanées ?**
 
-Disque SSD Premium, disque SSD standard et le disque dur standard prennent en charge des captures instantanées. Pour ces types de trois disque, les instantanés sont pris en charge pour toutes les tailles de disque (y compris les disques jusqu'à 32 To de taille). Ultra SSDs ne gèrent pas les captures instantanées.
+Les disques SSD Premium, SSD Standard et HDD Standard prennent en charge les captures instantanées. Pour ces trois types de disques, les captures instantanées sont prises en charge pour toutes les tailles (dont les disques allant jusqu’à 32 To). Les disques SSD Ultra ne prennent pas en charge les captures instantanées.
 
 ## <a name="standard-ssd-disks"></a>Disques SSD Standard
 
@@ -157,7 +157,7 @@ Toutes les régions Azure prennent actuellement en charge les disques SSD Standa
 Oui, le service Sauvegarde Azure est à présent disponible.
 
 **Comment faire pour créer des disques SSD Standard ?**
-Vous pouvez créer des disques SSD Standard à l’aide de modèles Azure Resource Manager, le Kit de développement logiciel, PowerShell ou CLI. Les paramètres suivants sont nécessaires dans le modèle Resource Manager pour créer des disques SSD Standard :
+Vous pouvez créer des disques SSD Standard en utilisant des modèles Azure Resource Manager, le kit SDK, PowerShell ou CLI. Les paramètres suivants sont nécessaires dans le modèle Resource Manager pour créer des disques SSD Standard :
 
 * *apiVersion* pour Microsoft.Compute doit être défini sur `2018-04-01` (ou version ultérieure)
 * Pour *managedDisk.storageAccountType*, indiquez `StandardSSD_LRS`.
@@ -183,7 +183,7 @@ Oui, vous pouvez. Reportez-vous à [Convertir le stockage de disques managés Az
 -AccountType StandardSSD_LRS
 
 **Quel est l’avantage d’utiliser des disques SSD Standard au lieu des disques HDD ?**
-Les disques SSD standard offrent une meilleure latence, cohérence, disponibilité et fiabilité par rapport à des disques HDD. Pour cette raison, les charges de travail des applications s’exécutent beaucoup plus facilement sur les disques SSD Standard. Notez que les disques SSD Premium constituent la solution recommandée pour la plupart des charges de travail de production gourmandes en E/S.
+Les disques SSD standard offrent une meilleure latence, cohérence, disponibilité et fiabilité par rapport aux disques HDD. Pour cette raison, les charges de travail des applications s’exécutent beaucoup plus facilement sur les disques SSD Standard. Notez que les disques SSD Premium constituent la solution recommandée pour la plupart des charges de travail de production gourmandes en E/S.
 
 **Puis-je utiliser des disques SSD Standard en tant que disques non managés ?**
 Non, les disques SSD Standard sont disponibles seulement comme disques managés.
@@ -193,11 +193,11 @@ Non, les disques SSD standard n’ont pas de SLA de machine virtuelle à instanc
 
 ## <a name="migrate-to-managed-disks"></a>Migrer vers la fonctionnalité Disques managés
 
-**La migration a-t-elle un impact sur les performances des disques managés ?**
+**La migration a-t-elle un impact sur les performances de la fonctionnalité Disques managés ?**
 
-La migration implique le déplacement du disque d’un emplacement de stockage à un autre. Cela est orchestrée par la copie de sauvegarde de données, ce qui peuvent prendre plusieurs heures, généralement inférieure à 24 heures selon la quantité de données des disques. Pendant ce temps, votre application peut afficher une latence de lecture supérieure à la normale car certaines lectures sont redirigées vers l’emplacement d’origine et prennent donc plus de temps. Il n’y a aucun impact sur la latence d’écriture pendant cette période.  
+La migration implique le déplacement du disque d’un emplacement de stockage à un autre. Cette opération est effectuée via une copie en arrière-plan des données, qui peut prendre plusieurs heures (généralement moins de 24 heures), selon la quantité de données stockées sur les disques. Pendant ce temps, votre application peut afficher une latence de lecture supérieure à la normale car certaines lectures sont redirigées vers l’emplacement d’origine et prennent donc plus de temps. Il n’y a aucun impact sur la latence d’écriture pendant cette période.  
 
-**Quelles sont les modifications nécessaires dans une configuration de service Sauvegarde Azure préexistante avant/après la migration vers Managed Disks ?**
+**Quelles sont les modifications nécessaires dans une configuration de service Sauvegarde Azure préexistante avant/après la migration vers la fonctionnalité Disques managés ?**
 
 Aucune modification n’est nécessaire.
 
@@ -205,11 +205,11 @@ Aucune modification n’est nécessaire.
 
 Oui, les sauvegardes fonctionnent de manière transparente.
 
-**Quelles sont les modifications nécessaires dans une configuration Azure Disk Encryption préexistante avant/après la migration vers Managed Disks ?**
+**Quelles sont les modifications nécessaires dans une configuration Azure Disk Encryption préexistante avant/après la migration vers la fonctionnalité Disques managés ?**
 
 Aucune modification n’est nécessaire.
 
-**Migration automatisée d’une échelle de machine virtuelle existante est définie à partir de disques non gérés vers des disques gérés pris en charge ?**
+**La migration automatisée d’un groupe de machines virtuelles identiques existant à partir de disques non managés vers la fonctionnalité Disques managés est-elle prise en charge ?**
 
 Non. Vous pouvez créer un groupe de machines virtuelles identiques à l’aide de l’image de votre ancien groupe de machines virtuelles identiques avec des disques non managés.
 
@@ -217,17 +217,17 @@ Non. Vous pouvez créer un groupe de machines virtuelles identiques à l’aide 
 
 Non. Vous pouvez exporter un instantané d’objet blob de pages en tant qu’objet blob de pages, puis créer un disque managé à partir de l’objet blob de pages exporté.
 
-**Puis-je basculer mes machines locales protégées par Azure Site Recovery vers une machine virtuelle avec Managed Disks ?**
+**Puis-je basculer mes machines locales protégées par Azure Site Recovery vers une machine virtuelle avec la fonctionnalité Disques managés ?**
 
 Oui, vous pouvez choisir de basculer vers une machine virtuelle avec la fonctionnalité Disques managés.
 
 **La migration impacte-t-elle les machines virtuelles Azure protégées par Azure Site Recovery par le biais de la réplication Azure vers Azure ?**
 
-Oui. Actuellement, Azure Site Recovery Azure pour la protection Azure pour les machines virtuelles avec Managed Disks est disponible en tant qu’un service de disponibilité générale.
+Oui. La protection Azure Site Recovery vers Azure pour machines virtuelles avec la fonctionnalité Disques managés est disponible en tant que service GA.
 
 **Puis-je convertir des machines virtuelles avec des disques non managés résidant sur des comptes de stockage qui sont ou ont été chiffrés sur des disques managés ?**
 
-Oui
+OUI
 
 ## <a name="managed-disks-and-storage-service-encryption"></a>Disques managés et Storage Service Encryption
 
@@ -239,7 +239,7 @@ Oui.
 
 Microsoft gère les clés de chiffrement.
 
-**Puis-je désactiver Storage Service Encryption pour mes disques gérés ?**
+**Puis-je désactiver Storage Service Encryption pour mes disques managés ?**
 
 Non.
 
@@ -255,16 +255,16 @@ Vous pouvez déterminer l’heure de création d’un disque géré depuis le po
 
 À compter du 10 juin 2017, les nouvelles données écrites sur des disques managés existants sont chiffrées automatiquement. Nous avons également l’intention de chiffrer les données existantes, et le chiffrement aura lieu de manière asynchrone en arrière-plan. Si vous devez chiffrer des données existantes maintenant, créez une copie de votre disque. Les nouveaux disques seront chiffrés.
 
-* [Copier les disques gérés à l’aide de l’interface Azure CLI](../articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-copy-managed-disks-to-same-or-different-subscription.md?toc=%2fcli%2fmodule%2ftoc.json)
-* [Copier les disques gérés à l’aide de PowerShell](../articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md?toc=%2fcli%2fmodule%2ftoc.json)
+* [Copier les disques managés à l’aide de l’interface Azure CLI](../articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-copy-managed-disks-to-same-or-different-subscription.md?toc=%2fcli%2fmodule%2ftoc.json)
+* [Copier les disques managés à l’aide de PowerShell](../articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md?toc=%2fcli%2fmodule%2ftoc.json)
 
 **Les instantanés et les images gérés sont-ils chiffrés ?**
 
 Oui. Tous les instantanés et les images gérés créés après le 9 juin 2017 sont automatiquement chiffrés. 
 
-**Puis-je convertir des machines virtuelles avec des disques non gérés situés sur des comptes de stockage qui sont ou ont été chiffrés sur des disques gérés ?**
+**Puis-je convertir des machines virtuelles avec des disques non managés situés sur des comptes de stockage qui sont ou ont été chiffrés sur des disques managés ?**
 
-Oui
+OUI
 
 **Un disque dur virtuel exporté à partir d’un disque géré ou un instantané seront-ils également chiffrés ?**
 
@@ -292,7 +292,7 @@ Il existe un coût fixe pour chaque taille de disque. Il s’ajoute aux limites 
 
 Les limites combinées pour le cache et le disque SSD local d’une machine de la série DS sont de 4 000 E/S par cœur et de 33 Mio par seconde par cœur. La série GS offre 5 000 E/S par seconde par cœur et 50 Mio par seconde par cœur.
 
-**Le disque local SSD est-il pris en charge pour les machines virtuelles Managed Disks ?**
+**Le disque local SSD est-il pris en charge pour les machines virtuelles de la fonctionnalité Disques managés ?**
 
 Le disque local SSD est un stockage temporaire inclus avec une machine virtuelle de la fonctionnalité Disques managés. Ce stockage temporaire n’occasionne aucun frais supplémentaire. Nous vous déconseillons d’utiliser ce disque SSD local pour stocker les données de vos applications, car il n’est pas rendu persistant dans le stockage d’objets Blob Azure.
 
@@ -304,7 +304,7 @@ Il n’existe aucun inconvénient à l’utilisation de TRIM sur des disques Azu
 
 **Quelle est la plus grande taille de disque managé prise en charge pour les disques de système d’exploitation et de données ?**
 
-Le type de partition pris en charge par Azure pour un disque de système d’exploitation est l’enregistrement de démarrage principal (MBR). Le format MBR prend en charge un disque dont la taille peut atteindre 2 Tio. La plus grande taille prise en charge par Azure pour un disque de système d’exploitation est de 2 Tio. Azure prend en charge jusqu'à 32 To de disques de données gérés dans Azure global, 4 TIO dans les clouds souverains Azure.
+Le type de partition pris en charge par Azure pour un disque de système d’exploitation est l’enregistrement de démarrage principal (MBR). Le format MBR prend en charge un disque dont la taille peut atteindre 2 Tio. La plus grande taille prise en charge par Azure pour un disque de système d’exploitation est de 2 Tio. Azure prend en charge des disques de données managées allant jusqu’à 32 Tio dans Azure global, et 4 Tio dans des clouds souverains Azure.
 
 **Quelle est la plus grande taille de disque non managé prise en charge pour les disques de système d’exploitation et de données ?**
 
@@ -337,29 +337,29 @@ Les disques Premium de petite taille de moins de 64 Gio continuent à être fac
 
 Vous pouvez prendre un instantané de vos disques de petite taille et ensuite créer un disque pour changer automatiquement le niveau de tarification vers P4 ou P6 selon la taille fournie.
 
-**Possible de redimensionner des disques gérés existants à partir de tailles de moins de 4 tebibytes (TIO) pour les nouvelles tailles de disque nouvellement introduites jusqu'à 32 To ?**
+**Est-il possible de redimensionner des disques managés existants à partir de tailles de moins de 4 Tio pour les nouvelles tailles de disque jusqu’à 32 Tio ?**
 
 Oui.
 
-**Quelles sont les plus grandes tailles de disque pris en charge par le service sauvegarde Azure et Azure Site Recovery ?**
+**Quelles sont les plus grandes tailles de disque prise en charge par Sauvegarde Azure et Azure Site Recovery ?**
 
-La plus grande taille de disque prise en charge par Sauvegarde Azure et Azure Site Recovery est de 4 Tio. Prise en charge pour les disques plus volumineux jusqu'à 32 To n’est pas encore disponible.
+La plus grande taille de disque prise en charge par Sauvegarde Azure et Azure Site Recovery est de 4 Tio. La prise en charge de disques plus grands (jusqu’à 32 Tio) n’est pas encore disponible.
 
-**Quels sont la machine virtuelle recommandée tailles pour les tailles de disque plus volumineux (> 4 TIO) pour disque SSD Standard et des disques HDD Standard d’atteindre optimisée disque IOPS et bande passante ?**
+**Quels sont les tailles de machines virtuelles recommandées pour les disques de grande taille (> 4 Tio) pour les disques SSD Standard et HDD Standard afin de bénéficier d’IOPS et d’une bande passante optimisées ?**
 
-Pour atteindre le débit de disque du disque SSD Standard et disques durs Standard de disques de grande taille (> 4 TIO) au-delà de 500 e/s et 60 Mio/s, nous vous recommandons de déployer une nouvelle machine virtuelle à partir d’une des tailles de machine virtuelle suivantes pour optimiser les performances : Série B, séries DSv2, Dsv3-séries, ESv3, série Fs, série Fsv2, série M, série GS, série NCv2, NCv3, série Ls machines virtuelles ou. Attachement de disques volumineux à des machines virtuelles ou des machines virtuelles qui n’utilisent pas les tailles recommandées ci-dessus existant constatez une baisse des performances.
+Pour atteindre un débit de disques SSD standard et de disques durs HDD standard de grande capacité (> 4 To) supérieur à 500 IOPS et 60 Mio/s, nous vous recommandons de déployer une des tailles de machine virtuelle suivantes pour optimiser vos performances : machines virtuelles des séries B, DSv2, Dsv3, ESv3, Fs, Fsv2, M, GS, NCv2, NCv3 ou Ls. L’attachement de disques plus grands à des machines virtuelles existantes ou des machines virtuelles qui n’utilisent pas les tailles recommandées peut entraîner une baisse de performances.
 
-**Comment puis-je mettre à niveau mes disques (> 4 TIO) qui ont été déployé pendant la préversion de tailles de disque plus volumineuse afin d’obtenir les IOPS et la bande passante plus élevée à la disponibilité générale ?**
+**Comment mettre à niveau mes disques (> 4 Tio) déployés lors de la préversion de disques plus grands afin d’obtenir une taux d’E/S et une bande passante supérieurs sur GA ?**
 
-Vous pouvez arrêter et démarrer la machine virtuelle que le disque est attaché à ou, détachez et rattachez votre disque. Les objectifs de performance de taille supérieure de disque ont été augmentées pour les disques SSD premium et standards SSDs à la disposition générale.
+Vous pouvez arrêter et démarrer la machine virtuelle à laquelle le disque est attaché ou détacher et rattacher votre disque. Les objectifs en matière de performances de disques plus grands ont été augmentés pour les disques SSD Premium et Standard sur GA.
 
-**Quelles régions sont de 8 To, TIO 16 et 32 TIO pris en charge dans les tailles de disque géré ?**
+**Dans quelles régions les tailles de disques managés de 8 Tio, 16 Tio et 32 Tio sont-elles prises en charge ?**
 
-Du 8 TiB TIO 16, 32 TIO disque références SKU et est prises en charge dans toutes les régions sous 21Vianet globale de Azure, Microsoft Azure Government et Azure en Chine.
+Les disques 8 Tio, 16 Tio et 32 Tio sont prises en charge dans toutes les régions sous Azure global, Microsoft Azure Government et Azure China 21Vianet.
 
-**Nous prennent en charge l’activation de la mise en cache de l’hôte sur toutes les tailles de disque ?**
+**Prenez-vous en charge l’activation de la mise en cache de l’hôte sur toutes les tailles de disque ?**
 
-Nous prenons en charge la mise en cache d’hôte de ReadOnly et en lecture/écriture sur les tailles de disque inférieure à 4 To. Pour les tailles de disque supérieures à 4 Tio, nous ne prenons en charge que la mise en cache définie sur None (Aucun). Nous vous recommandons de tirer parti de la mise en cache pour les plus petites tailles de disque, où vous pouvez vous attendre à observer une amélioration des performances avec les données mises en cache dans la machine virtuelle.
+Nous prenons en charge la mise en cache d’hôte en lecture seule et en lecture/écriture sur les tailles de disque inférieures à 4 Tio. Pour les tailles de disque supérieures à 4 Tio, nous ne prenons en charge que la mise en cache définie sur None (Aucun). Nous vous recommandons de tirer parti de la mise en cache pour les plus petites tailles de disque, où vous pouvez vous attendre à observer une amélioration des performances avec les données mises en cache dans la machine virtuelle.
 
 ## <a name="what-if-my-question-isnt-answered-here"></a>Que dois-je faire si je n’ai pas trouvé de réponse à ma question ici ?
 

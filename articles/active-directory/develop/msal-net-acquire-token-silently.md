@@ -1,6 +1,6 @@
 ---
-title: Acquérir un jeton en mode silencieux (bibliothèque d’authentification Microsoft pour .NET) | Azure
-description: Découvrez comment acquérir un jeton d’accès à l’aide de la bibliothèque d’authentification Microsoft pour .NET (MSAL.NET) en mode silencieux (cache de jetons).
+title: Acquérir un jeton en mode silencieux (Microsoft Authentication Library pour .NET) | Azure
+description: Découvrez comment acquérir un jeton d’accès en mode silencieux (à partir du cache de jeton) à l’aide de la bibliothèque d’authentification Microsoft pour .NET (MSAL.NET).
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
@@ -18,19 +18,19 @@ ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6331407067a39550d866d7c293a92fac9184b54e
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65544232"
 ---
 # <a name="get-a-token-from-the-token-cache-using-msalnet"></a>Obtenir un jeton à partir du cache de jeton à l’aide de MSAL.NET
 
-Lorsque vous achetez un jeton d’accès à l’aide de Microsoft Authentication Library pour .NET (MSAL.NET), le jeton est mis en cache. Lorsque l’application a besoin d’un jeton, elle doit tout d’abord appeler la `AcquireTokenSilent` méthode pour vérifier si un jeton acceptable est dans le cache. Dans de nombreux cas, il est possible d’acquérir un autre jeton avec des étendues basées sur un jeton dans le cache. Il est également possible d’actualiser un jeton lorsque l’échéance arrive à expiration (comme le cache de jetons contient également un jeton d’actualisation).
+Lorsque vous acquérez un jeton d’accès à l’aide de la bibliothèque d’authentification Microsoft pour .NET (MSAL.NET), le jeton est mis en cache. Lorsque l’application a besoin d’un jeton, elle doit tout d’abord appeler la méthode `AcquireTokenSilent` pour vérifier si un jeton acceptable est dans le cache. Dans de nombreux cas, il est possible d’acquérir un autre jeton avec d’autres étendues basées sur un jeton dans le cache. Il est aussi possible d’actualiser un jeton quand il arrive à expiration (étant donné que le cache de jetons contient également un jeton d’actualisation).
 
-Le modèle recommandé consiste à appeler le `AcquireTokenSilent` méthode première.  Si `AcquireTokenSilent` échoue, puis acquérir un jeton à l’aide d’autres méthodes.
+Le modèle recommandé consiste à commencer par appeler la méthode `AcquireTokenSilent`.  Si `AcquireTokenSilent` échoue, utilisez d’autres méthodes pour acquérir un jeton.
 
-Dans l’exemple suivant, l’application essaie d’abord d’acquérir un jeton à partir du cache de jeton.  Si un `MsalUiRequiredException` exception est levée, l’application acquiert un jeton de manière interactive. 
+Dans l’exemple suivant, l’application essaie d’abord d’acquérir un jeton à partir du cache de jeton.  Si une exception `MsalUiRequiredException` est générée, l’application acquiert un jeton de manière interactive. 
 
 ```csharp
 AuthenticationResult result = null;

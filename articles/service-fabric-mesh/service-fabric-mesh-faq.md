@@ -10,10 +10,10 @@ ms.topic: troubleshooting
 ms.service: service-fabric-mesh
 manager: jeanpaul.connock
 ms.openlocfilehash: 950f9ac89b9d3224db29b32fe2d1e403ccc98116
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65143291"
 ---
 # <a name="commonly-asked-service-fabric-mesh-questions"></a>Questions fréquemment posées sur Service Fabric mesh
@@ -28,7 +28,7 @@ Posez des questions, obtenez des réponses d’ingénieurs Microsoft, et signale
 
 ### <a name="what-is-the-cost-of-participating-in-the-preview"></a>Quel est le coût de participation à la préversion ?
 
-Il n’existe actuellement aucun frais pour le déploiement d’applications ou les conteneurs à l’aperçu de la maille. Regardez les mises à jour en mai pour l’activation pour la facturation. Toutefois, nous vous encourageons à supprimer les ressources que vous déployez et pas de les laissez en cours d’exécution, sauf si vous êtes activement les tester.
+Le déploiement d’applications ou de conteneurs sur la préversion de Mesh n’occasionne actuellement pas de frais. Veuillez consulter les mises à jour de mai pour activer la facturation. En revanche, nous vous invitons à supprimer les ressources que vous déployez et à ne pas les laisser s’exécuter, sauf si vous les testez de façon active.
 
 ### <a name="is-there-a-quota-limit-of-the-number-of-cores-and-ram"></a>Y a-t-il une limite de quota concernant le nombre de cœurs et la RAM ?
 
@@ -49,7 +49,7 @@ Actuellement, nous avons réduit la durée de vie des applications à deux jours
 
 Si ce phénomène se produit, vous pouvez vérifier que le système est à l’origine de l’interruption en exécutant la commande Azure CLI `az mesh app show`. Cette commande doit renvoyer le résultat `"status": "Failed", "statusDetails": "Stopped resource due to max lifetime policies for an application during preview. Delete the resource to continue."` 
 
-Par exemple :  
+Par exemple : 
 
 ```cli
 ~$ az mesh app show --resource-group myResourceGroup --name helloWorldApp
@@ -79,7 +79,7 @@ Pour supprimer le groupe de ressources, utilisez la commande `az group delete <n
 
 ## <a name="deployments"></a>Déploiements
 
-### <a name="what-container-images-are-supported"></a>Les images de conteneur sont pris en charge ?
+### <a name="what-container-images-are-supported"></a>Quelles sont les images conteneur prises en charge ?
 
 Si vous réalisez votre développement sur un ordinateur doté de Windows Fall Creators Update (version 1709), vous pouvez uniquement utiliser des images de la version 1709 de Windows.
 
@@ -96,11 +96,11 @@ Lors du déploiement des services, vous pouvez utiliser les images de système d
     - Aucune limitation connue
 
 > [!NOTE]
-> Outils de maillage de Visual Studio ne prend pas en charge déploiement dans Windows Server 2019 et 1809 conteneurs.
+> Les outils Visual Studio pour Mesh ne prennent pas encore en charge le déploiement dans les conteneurs Windows Server 2019 et 1809.
 
-### <a name="what-types-of-applications-can-i-deploy"></a>Les types d’applications puis-je déployer ? 
+### <a name="what-types-of-applications-can-i-deploy"></a>Quels types d’applications puis-je déployer ? 
 
-Vous pouvez déployer tout ce qui s’exécute dans des conteneurs qui tiennent les restrictions placées sur une ressource d’application (voir ci-dessus pour plus d’informations sur les quotas). Si nous détectons que vous utilisez un maillage pour l’exécution de charges de travail non conformes ou utilisation abusive du système (par exemple, d’exploration de données), puis nous nous réservons le droit d’interrompre vos déploiements et la liste de blocage de votre abonnement s’exécute sur le service. Veuillez contacter contactez-nous si vous avez des questions sur l’exécution d’une charge de travail spécifique. 
+Vous pouvez déployer toutes les applications qui s’exécutent dans des conteneurs qui respectent les restrictions placées sur une ressource d’application (voir ci-dessus pour plus d’informations sur les quotas). Si nous détectons que vous utilisez Mesh pour l’exécution de charges de travail illégales ou que vous utilisez de façon abusive le système (par exemple, exploration de données), nous nous réservons le droit d’interrompre vos déploiements et d’empêcher votre abonnement de s’exécuter sur le service. Veuillez nous contacter si vous avez des questions sur l’exécution d’une charge de travail spécifique. 
 
 ## <a name="developer-experience-issues"></a>Problèmes relatifs à l’expérience de développement
 
@@ -110,7 +110,7 @@ Les requêtes DNS sortantes d’un conteneur vers le service DNS Service Fabric 
 
 - Utilisez Windows Fall Creators Update (version 1709) ou une version ultérieure en tant qu’image de conteneur de base.
 - Si l’utilisation du nom du service seul ne fonctionne pas, essayez avec le nom qualifié complet : ServiceName.ApplicationName.
-- Dans le fichier Docker pour votre service, ajoutez `EXPOSE <port>`, où « port » correspond au port d’exposition de votre service. Par exemple : 
+- Dans le fichier Docker pour votre service, ajoutez `EXPOSE <port>`, où « port » correspond au port d’exposition de votre service. Par exemple :
 
 ```Dockerfile
 EXPOSE 80
@@ -144,9 +144,9 @@ Il est impossible de déployer plusieurs applications sur un cluster à un nœud
 - Utilisez un cluster à cinq nœuds lors du déploiement de plusieurs applications sur un cluster local.
 - Supprimez les applications qui ne sont pas actuellement en test.
 
-### <a name="vs-tooling-has-limited-support-for-windows-containers"></a>Outils VS a limité la prise en charge pour les conteneurs Windows
+### <a name="vs-tooling-has-limited-support-for-windows-containers"></a>Les outils VS ont une prise en charge limitée pour les conteneurs Windows
 
-Les outils de Visual Studio prend uniquement en charge le déploiement de conteneurs de Windows avec une version de système d’exploitation de base de Windows Server 1709 et 1803 dès aujourd'hui. 
+Les outils Visual Studio prennent uniquement en charge le déploiement de conteneurs Windows avec une version de système d’exploitation de base de Windows Server 1709 et 1803 aujourd’hui. 
 
 ## <a name="feature-gaps-and-other-known-issues"></a>Lacunes relatives aux fonctionnalités et autres problèmes connus
 

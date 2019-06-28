@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: yegu
 ms.openlocfilehash: 6960c21091e0bc01c198e713c0c276984566ac41
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65786077"
 ---
 # <a name="introduction-to-the-azure-cache-for-redis-premium-tier"></a>Introduction au niveau Premium du Cache Azure pour Redis
@@ -27,9 +27,9 @@ Le Cache Azure pour Redis est un cache distribué et géré qui vous permet de d
 Le nouveau niveau Premium est un niveau professionnel qui inclut toutes les fonctionnalités de niveau Standard, auxquelles s’ajoutent entre-autre une amélioration des performances, un accroissement des charges de travail, une récupération d’urgence plus réactive, un service d’importation/exportation, et une sécurité renforcée. Poursuivez la lecture pour en savoir plus sur les fonctionnalités supplémentaires du niveau de cache Premium.
 
 ## <a name="better-performance-compared-to-standard-or-basic-tier"></a>Amélioration des performances par rapport au niveau Standard ou De base
-**Amélioration des performances par rapport au niveau Standard ou De base.**  Les caches au niveau Premium sont déployés sur du matériel qui dispose de processeurs plus rapides et offrent de meilleures performances par rapport au niveau De base ou Standard. Les caches de niveau Premium ont un débit supérieur et des latences moindres. 
+**Amélioration des performances par rapport au niveau Standard ou De base.** Les caches au niveau Premium sont déployés sur du matériel qui dispose de processeurs plus rapides et offrent de meilleures performances par rapport au niveau De base ou Standard. Les caches de niveau Premium ont un débit supérieur et des latences moindres. 
 
-**Pour un cache de même dimension, le débit du niveau Premium est plus élevé que celui du niveau Standard.**  Par exemple, le débit d’un cache de 53 Go P4 (Premium) est de 250 000 demandes par seconde par rapport à 150 000 demandes par seconde pour le débit C6 (Standard).
+**Pour un cache de même dimension, le débit du niveau Premium est plus élevé que celui du niveau Standard.** Par exemple, le débit d’un cache de 53 Go P4 (Premium) est de 250 000 demandes par seconde par rapport à 150 000 demandes par seconde pour le débit C6 (Standard).
 
 Pour plus d’informations sur la taille, le débit et la bande passante des caches Premium, consultez le [Forum aux questions sur le Cache Azure pour Redis](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use)
 
@@ -50,7 +50,7 @@ Les caches créés avec les niveau De base ou Standard sont accessibles sur Inte
 
 Pour plus d’informations, consultez [Comment configurer la prise en charge des réseaux virtuels pour un Cache Azure pour Redis Premium](cache-how-to-premium-vnet.md).
 
-## <a name="importexport"></a>Importer/Exporter
+## <a name="importexport"></a>Importation/Exportation
 L’Importation/Exportation est une opération de gestion de données de Cache Azure pour Redis qui vous permet d’importer ou d’exporter des données depuis ou vers le Cache Azure pour Redis, en important ou en exportant une capture instantanée de base de données du Cache Azure pour Redis (RDB) depuis un cache Premium vers un objet blob de page dans un compte Azure Storage. Cela vous permet de migrer entre différentes instances de cache Azure pour Redis ou de remplir le cache de données avant utilisation.
 
 L’importation peut servir à récupérer les fichiers RDB compatibles Redis depuis n’importe quel serveur Redis en cours d’exécution sur n’importe quel environnement ou cloud, y compris si Redis est exécuté sur Linux, Windows ou n’importe quel fournisseur de cloud tel qu’Amazon Web Services. Importer des données est un moyen simple de créer un cache pré-rempli de données. Pendant le processus d’importation, le Cache Azure pour Redis charge les fichiers RDB d’Azure Storage dans la mémoire, puis insère les clés dans le cache.
@@ -59,13 +59,13 @@ L’exportation vous permet d’exporter les données stockées dans le Cache Az
 
 Pour plus d’informations, consultez [How to import data into and export data from Azure Cache for Redis](cache-how-to-import-export-data.md)(Comment importer et exporter des données vers ou depuis le Cache Azure pour Redis).
 
-## <a name="reboot"></a>Redémarrer
+## <a name="reboot"></a>Reboot
 Le niveau premium vous permet de redémarrer un ou plusieurs nœuds de votre cache à la demande. Cela vous permet de tester la résilience de votre application en cas d’échec. Vous pouvez redémarrer les nœuds suivants.
 
 * Nœud master de votre cache
 * Nœud secondaire de votre cache
 * Les nœuds principaux et secondaires de votre cache
-* Lorsque vous utilisez un cache premium avec clustering, vous pouvez redémarrer le serveur principal, secondaire ou les deux nœuds pour les différentes partitions dans le cache
+* Lorsque vous utilisez un cache premium avec clustering, vous pouvez redémarrer le nœud principal, le nœud secondaire ou les deux pour les différentes partitions dans le cache
 
 Pour plus d’informations, consultez [Redémarrage](cache-administration.md#reboot) et le [Forum aux questions sur le redémarrage](cache-administration.md#reboot-faq).
 

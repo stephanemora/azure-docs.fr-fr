@@ -14,10 +14,10 @@ ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8b770ee476fc5c1c334f53904539cc34cf962c62
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65546200"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Activation Personnaliser des revendications émises dans des jetons pour une application spécifique dans un locataire (préversion)
@@ -288,15 +288,15 @@ L’élément ID identifie la propriété définie sur la source qui fournit la 
 |-----|-----|-----|
 | Utilisateur | surname | Nom de famille |
 | Utilisateur | givenname | Prénom |
-| Utilisateur | displayname | Nom complet |
+| Utilisateur | displayname | Nom d’affichage |
 | Utilisateur | objectid | ObjectID |
 | Utilisateur | mail | Adresse de messagerie |
-| Utilisateur | userPrincipalName | Nom principal de l'utilisateur |
+| Utilisateur | userPrincipalName | Nom d’utilisateur principal |
 | Utilisateur | department|department|
-| Utilisateur | onpremisessamaccountname | Nom du compte SAM local |
+| Utilisateur | onpremisessamaccountname | Nom de compte SAM local |
 | Utilisateur | netbiosname| Nom NetBios |
 | Utilisateur | dnsdomainname | Nom du domaine DNS |
-| Utilisateur | onpremisesecurityidentifier | Identificateur de sécurité locale |
+| Utilisateur | onpremisesecurityidentifier | Identificateur de sécurité local |
 | Utilisateur | companyname| Nom de l’organisation |
 | Utilisateur | streetaddress | Adresse postale |
 | Utilisateur | postalcode | Code postal |
@@ -327,7 +327,7 @@ L’élément ID identifie la propriété définie sur la source qui fournit la 
 | Utilisateur | facsimiletelephonenumber | Numéro de télécopie |
 | application, ressource, audience | displayname | Nom d’affichage |
 | application, ressource, audience | objected | ObjectID |
-| application, ressource, audience | balises | Balise de principal du service |
+| application, ressource, audience | tags | Balise de principal du service |
 | Company | tenantcountry | Pays du locataire |
 
 **TransformationID :** L’élément TransformationID doit être fourni uniquement si l’élément Source est défini sur « transformation ».
@@ -387,7 +387,7 @@ Selon la méthode choisie, un ensemble d’entrées et sorties est attendu. Déf
 |Source|ID|Description|
 |-----|-----|-----|
 | Utilisateur | mail|Adresse de messagerie|
-| Utilisateur | userPrincipalName|Nom principal de l'utilisateur|
+| Utilisateur | userPrincipalName|Nom d’utilisateur principal|
 | Utilisateur | onpremisessamaccountname|Nom de compte Sam local|
 | Utilisateur | employeeid|ID d’employé|
 | Utilisateur | extensionattribute1 | Attribut d’extension 1 |
@@ -415,7 +415,7 @@ Selon la méthode choisie, un ensemble d’entrées et sorties est attendu. Déf
 
 ### <a name="custom-signing-key"></a>Clé de signature personnalisée
 
-Une clé de signature personnalisée doit être affectée à l’objet de principal du service pour qu’une stratégie de mappage de revendications entre en vigueur. Cela garantit la reconnaissance que les jetons ont été modifiés par le créateur de la stratégie de mappage de revendications et protège les applications contre les stratégies de mappage de revendications créées par des personnes malveillantes.  Les applications qui ont activé de mappage doit vérifier un URI spécial pour leur en ajoutant des clés de signature de jeton de revendications `appid={client_id}` à leurs [demandes de métadonnées OpenID Connect](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document).  
+Une clé de signature personnalisée doit être affectée à l’objet de principal du service pour qu’une stratégie de mappage de revendications entre en vigueur. Cela garantit la reconnaissance que les jetons ont été modifiés par le créateur de la stratégie de mappage de revendications et protège les applications contre les stratégies de mappage de revendications créées par des personnes malveillantes.  Les applications pour lesquelles le mappage de revendications est activé doivent vérifier un URI spécial pour leurs clés de signature de jeton en ajoutant `appid={client_id}` à leurs [demandes de métadonnées OpenID Connect](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document).  
 
 ### <a name="cross-tenant-scenarios"></a>Scénarios inter-locataires
 
@@ -429,7 +429,7 @@ Des stratégies de mappage de revendications peuvent être attribuées uniquemen
 
 Dans Azure AD, de nombreux scénarios sont possibles où vous pouvez personnaliser des revendications émises dans des jetons pour des principaux du service spécifiques. Cette section décrit quelques scénarios courants qui peuvent vous aider à comprendre comment utiliser le type de stratégie de mappage de revendications.
 
-#### <a name="prerequisites"></a>Conditions préalables
+#### <a name="prerequisites"></a>Prérequis
 
 Dans les exemples suivants, vous créez, mettez à jour, liez et supprimez des stratégies pour les principaux du service. Si vous débutez avec Azure AD, nous vous recommandons de vous [documenter sur l’obtention d’un locataire Azure Active Directory](quickstart-create-new-tenant.md) avant de continuer avec ces exemples.
 
@@ -447,7 +447,7 @@ Pour commencer, suivez les étapes ci-dessous :
    Get-AzureADPolicy
    ```
 
-#### <a name="example-create-and-assign-a-policy-to-omit-the-basic-claims-from-tokens-issued-to-a-service-principal"></a>Exemple : Créer et attribuer une stratégie pour omettre les revendications de base à partir des jetons émis pour un service principal
+#### <a name="example-create-and-assign-a-policy-to-omit-the-basic-claims-from-tokens-issued-to-a-service-principal"></a>Exemple : Créer et attribuer une stratégie pour omettre les revendications de base des jetons émis pour un principal du service
 
 Dans cet exemple, vous créez une stratégie qui supprime l’ensemble de revendications de base des jetons émis pour des principaux du service liés.
 
@@ -520,4 +520,4 @@ Dans cet exemple, vous créez une stratégie qui émet une revendication personn
 
 ## <a name="see-also"></a>Voir aussi
 
-Pour savoir comment personnaliser les revendications émises dans le jeton SAML via le portail Azure, consultez [Comment : Personnaliser des revendications émises dans le jeton SAML pour les applications d’entreprise](active-directory-saml-claims-customization.md)
+Pour savoir comment personnaliser les revendications émises dans le jeton SAML via le portail Azure, consultez [How to: Customize claims issued in the SAML token for enterprise applications](active-directory-saml-claims-customization.md) (Comment : Personnaliser des revendications émises dans le jeton SAML pour les applications d’entreprise)

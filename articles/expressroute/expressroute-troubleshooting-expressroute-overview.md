@@ -9,16 +9,16 @@ ms.date: 09/26/2017
 ms.author: rambala
 ms.custom: seodec18
 ms.openlocfilehash: 888f4dedf2fda0f54297d42a5f813abf73ded748
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66117872"
 ---
 # <a name="verifying-expressroute-connectivity"></a>Vérification de la connectivité ExpressRoute
 Cet article vous permet de vérifier et de résoudre les problèmes de connectivité ExpressRoute. ExpressRoute, qui étend un réseau local dans le cloud Microsoft par le biais d’une connexion privée qui est facilitée par un fournisseur de connectivité, implique les trois zones de réseau distinctes suivantes :
 
--   Réseau client
+-   Réseau de client
 -   Réseau de fournisseur
 -   Centre de données Microsoft
 
@@ -31,7 +31,7 @@ L’objectif de ce document est d’aider l’utilisateur à identifier où (ou 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 Le diagramme suivant illustre la connectivité logique d’un réseau de client vers un réseau Microsoft à l’aide d’ExpressRoute.
 [![1]][1]
 
@@ -74,7 +74,7 @@ Quel que soit le modèle de connectivité, un circuit ExpressRoute doit être cr
 >
 
 ### <a name="verification-via-the-azure-portal"></a>Vérification par le biais du portail Azure
-Dans le portail Azure, l’état d’un circuit ExpressRoute peut être vérifié en sélectionnant ![2][2] dans la barre de menu de gauche, puis en sélectionnant le circuit ExpressRoute. Sélectionner un circuit ExpressRoute répertorié sous « Toutes les ressources » ouvre le panneau de circuit ExpressRoute. Dans le ![3][3] section du panneau, le ExpressRoute essentials sont répertoriés comme indiqué dans la capture d’écran suivante :
+Dans le portail Azure, l’état d’un circuit ExpressRoute peut être vérifié en sélectionnant ![2][2] dans la barre de menu de gauche, puis en sélectionnant le circuit ExpressRoute. Sélectionner un circuit ExpressRoute répertorié sous « Toutes les ressources » ouvre le panneau de circuit ExpressRoute. Dans la section ![3][3] du panneau, les informations essentielles d’ExpressRoute sont indiquées comme illustré dans la capture d’écran suivante :
 
 ![4][4]    
 
@@ -93,7 +93,7 @@ Pour répertorier tous les circuits ExpressRoute dans un groupe de ressources, u
     Get-AzExpressRouteCircuit -ResourceGroupName "Test-ER-RG"
 
 >[!TIP]
->Vous pouvez obtenir le nom de votre groupe de ressources par le biais d’Azure. Consultez la section précédente de ce document et notez que le nom de groupe de ressources est répertorié dans la capture d’écran de l’exemple.
+>Vous pouvez obtenir le nom de votre groupe de ressources par le biais d’Azure. Consultez la section précédente de ce document et notez que le nom de groupe de ressources est répertorié dans l’exemple de capture d’écran.
 >
 >
 
@@ -174,7 +174,7 @@ Une fois que le fournisseur de services a terminé l'approvisionnement du circui
 >
 >
 
-Dans le portail Azure, l’état d’un circuit ExpressRoute peut être vérifié en sélectionnant ![2][2] dans la barre de menu de gauche, puis en sélectionnant le circuit ExpressRoute. Sélectionner un circuit ExpressRoute répertorié sous « Toutes les ressources » permet d'ouvrir le panneau de circuit ExpressRoute. Dans le ![3][3] section du panneau, le ExpressRoute essentials sont indiquées comme illustré dans la capture d’écran suivante :
+Dans le portail Azure, l’état d’un circuit ExpressRoute peut être vérifié en sélectionnant ![2][2] dans la barre de menu de gauche, puis en sélectionnant le circuit ExpressRoute. Sélectionner un circuit ExpressRoute répertorié sous « Toutes les ressources » permet d'ouvrir le panneau de circuit ExpressRoute. Dans la section ![3][3] du panneau, les informations essentielles d’ExpressRoute sont indiquées comme illustré dans la capture d’écran suivante :
 
 ![5][5]
 

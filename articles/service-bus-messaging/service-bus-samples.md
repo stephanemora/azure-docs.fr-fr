@@ -15,18 +15,18 @@ ms.workload: na
 ms.date: 03/13/2019
 ms.author: aschhab
 ms.openlocfilehash: a5ca41f1d9b1fb5b2dd8b9066af85543f1fddd23
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65786761"
 ---
 # <a name="service-bus-messaging-samples"></a>Exemples de messagerie Service Bus
-Les exemples de messagerie Service Bus illustrent des fonctionnalités clés de la [messagerie Service Bus](https://azure.microsoft.com/services/service-bus/). Actuellement, vous pouvez trouver les exemples dans les emplacements suivants :
+Les exemples de messagerie Service Bus illustrent des fonctionnalités clés de la [messagerie Service Bus](https://azure.microsoft.com/services/service-bus/). Actuellement, vous trouverez les exemples aux emplacements suivants :
 
-| Langage de programmation | Emplacement du SDK ou des exemples |
+| Langage de programmation | Kit de développement logiciel (SDK) ou emplacement des exemples |
 | -------------------- | ----------------------- |
-| .NET, Java et la gestion | https://github.com/Azure/azure-service-bus/ |
+| .NET, Java et gestion | https://github.com/Azure/azure-service-bus/ |
 | Node.js | https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/servicebus/service-bus/samples |
 | Python | https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/servicebus/azure-servicebus |
 

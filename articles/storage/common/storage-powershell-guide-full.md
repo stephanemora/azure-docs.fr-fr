@@ -9,10 +9,10 @@ ms.date: 08/16/2018
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: 082033cebc68fc97f7cff9ce80eb02acbbf5f4b0
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65145892"
 ---
 # <a name="using-azure-powershell-with-azure-storage"></a>Utilisation d'Azure PowerShell avec Azure Storage
@@ -199,7 +199,7 @@ Vous pouvez configurer la surveillance en utilisant le [portail Azure](https://p
 > Vous pouvez activer l’analyse par minute à l’aide de PowerShell. Cette fonctionnalité n’est pas disponible dans le portail.
 >
 
-* Pour savoir comment activer et afficher les données de métriques de stockage à l’aide de PowerShell, consultez [métriques de stockage analytique](storage-analytics-metrics.md).
+* Pour savoir comment activer et afficher les données de mesure de stockage à l’aide de PowerShell, consultez la page [Storage analytics metrics](storage-analytics-metrics.md) (Métriques d’analyse de stockage).
 
 * Pour savoir comment activer et récupérer des données de journalisation du stockage à l’aide de PowerShell, consultez [Comment activer Storage Logging avec PowerShell](/rest/api/storageservices/Enabling-Storage-Logging-and-Accessing-Log-Data) et [Recherche des données de journal Storage Logging](/rest/api/storageservices/Enabling-Storage-Logging-and-Accessing-Log-Data).
 
@@ -223,7 +223,7 @@ L’API Table Azure Cosmos DB fournit des fonctionnalités premium pour le stock
 La plupart des gens utilisent le cloud public Azure pour leur déploiement Azure global. Pour des raisons de souveraineté, entre autres, il existe également des déploiements indépendants de Microsoft Azure. Ces déploiements indépendants sont appelés « environnements ». Voici les environnements disponibles :
 
 * [Azure Government Cloud](https://azure.microsoft.com/features/gov/)
-* [Azure China 21Vianet Cloud est géré par 21Vianet en Chine](http://www.windowsazure.cn/)
+* [Cloud Azure China 21Vianet géré par 21Vianet en Chine](http://www.windowsazure.cn/)
 * [Cloud Azure allemand](../../germany/germany-welcome.md)
 
 Pour découvrir comment accéder à ces clouds et à leur stockage avec PowerShell, consultez [Gestion du stockage dans les clouds indépendants d’Azure avec PowerShell](storage-powershell-independent-clouds.md).

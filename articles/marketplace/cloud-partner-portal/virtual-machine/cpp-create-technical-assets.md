@@ -1,5 +1,5 @@
 ---
-title: Créer des ressources techniques pour une offre de machine virtuelle pour Azure Marketplace
+title: Créer des ressources techniques pour une offre de machine virtuelle de la Place de marché Microsoft Azure
 description: Explique comment créer les ressources techniques d’une offre de machine virtuelle dans la Place de marché Microsoft Azure.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: pbutlerm
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 08/20/2018
 ms.author: pabutler
 ms.openlocfilehash: 6113c10cd152a22bd31e7212d86925b0c2107e58
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64938410"
 ---
 # <a name="create-technical-assets-for-a-virtual-machine-offer"></a>Créer des ressources techniques pour une offre de machine virtuelle
@@ -28,7 +28,7 @@ Vous devez configurer le système d’exploitation de la machine virtuelle, la t
 > Quel que soit le système d’exploitation que vous utilisez, ajoutez uniquement le nombre minimal de disques de données requis par la référence SKU. Les clients ne suppriment pas les disques qui font partie d’une image lors du déploiement, mais peuvent toujours ajouter des disques pendant ou après le déploiement. 
 
 > [!IMPORTANT]
-> *Ne modifiez pas le nombre de disques dans une nouvelle version de l’image.*  Si vous devez reconfigurer les disques de données dans l’image, définissez une nouvelle référence SKU. La publication d’une nouvelle version de l’image avec un nombre de disques différent peut potentiellement arrêter le nouveau déploiement basé sur la nouvelle version de l’image en cas de mise à l’échelle automatique, de déploiements automatiques de solutions via des modèles Azure Resource Manager et autres scénarios.
+> *Ne modifiez pas le nombre de disques dans une nouvelle version de l’image.* Si vous devez reconfigurer les disques de données dans l’image, définissez une nouvelle référence SKU. La publication d’une nouvelle version de l’image avec un nombre de disques différent peut potentiellement arrêter le nouveau déploiement basé sur la nouvelle version de l’image en cas de mise à l’échelle automatique, de déploiements automatiques de solutions via des modèles Azure Resource Manager et autres scénarios.
 
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 

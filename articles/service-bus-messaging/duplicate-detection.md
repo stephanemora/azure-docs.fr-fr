@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
 ms.openlocfilehash: d9f814a49924ca95078f3b3decca4f3922c74c2b
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65413655"
 ---
 # <a name="duplicate-detection"></a>Détection des doublons
@@ -37,9 +37,9 @@ Pour un processus métier dans lequel plusieurs messages sont envoyés durant le
 *MessageId* peut aussi être un GUID, mais associer l’identificateur au processus métier offre l’avantage de fournir une répétabilité prévisible, ce qui permet de tirer pleinement parti de la fonctionnalité de détection des doublons.
 
 > [!NOTE]
-> Si la détection des doublons est activée et la clé de partition ou des ID de session ne sont pas définies, l’ID de message est utilisé comme clé de partition. Si l’ID de message n’est pas également défini, les bibliothèques .NET et AMQP génèrent automatiquement un ID de message pour le message. Pour plus d’informations, consultez [utilisation de clés de partition](service-bus-partitioning.md#use-of-partition-keys).
+> Si la déduction dupliquée est activée et que la clé de partition ou l’ID de session n’est pas définie, l’ID du message est utilisé comme clé de partition. Si l’ID du message n’est pas défini, les bibliothèques .NET et AMQP génèrent automatiquement un ID de message pour le message. Pour plus d’informations, consultez l’article [Utiliser des clés de partition](service-bus-partitioning.md#use-of-partition-keys).
 
-## <a name="enable-duplicate-detection"></a>Activer la détection dupliquée
+## <a name="enable-duplicate-detection"></a>Activer la détection des doublons
 
 Dans le portail, activez la fonctionnalité au moment de la création de l’entité en cochant la case **Activer la détection dupliquée**, qui est désélectionnée par défaut. Utilisez le même paramètre pour les rubriques que vous créez.
 

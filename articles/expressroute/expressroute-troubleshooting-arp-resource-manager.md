@@ -9,10 +9,10 @@ ms.date: 01/30/2017
 ms.author: ganesr
 ms.custom: seodec18
 ms.openlocfilehash: 76e242adb07f4e6176bbdc6c03c75950e3732c2b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66151580"
 ---
 # <a name="getting-arp-tables-in-the-resource-manager-deployment-model"></a>Obtention de tables ARP dans le modèle de déploiement Resource Manager
@@ -61,7 +61,7 @@ Assurez-vous que vous disposez des éléments suivants avant de poursuivre
 * Vous devez disposer du dernier module PowerShell pour Azure (version 1.50 ou plus récente).
 
 > [!NOTE]
-> Si la couche 3 est fournie par le fournisseur de services et les tables ARP sont vides dans la portail/de sortie ci-dessous, actualiser la configuration de Circuit à l’aide du bouton Actualiser sur le portail. Cette opération appliquera la configuration de routage appropriée à votre circuit. 
+> Si la couche 3 est fournie par le fournisseur de services et que les tables ARP sont vides dans le portail/la sortie ci-dessous, actualisez la configuration du circuit à l’aide du bouton Actualiser du portail. Cette opération appliquera la configuration de routage appropriée à votre circuit. 
 >
 >
 
@@ -148,7 +148,7 @@ La table ARP d’une homologation peut servir à valider la connectivité et la 
           0 Microsoft         65.0.0.2   aaaa.bbbb.cccc
 
 ### <a name="arp-table-when-on-premises--connectivity-provider-side-has-problems"></a>Table ARP en cas de problèmes côté fournisseur de connectivité/local
-S’il existe des problèmes avec le site ou fournisseur de connectivité que vous pouvez voir qu’une seule entrée apparaîtra dans la table ARP ou l’adresse MAC de sur site sera incomplète. Cette commande affiche le mappage entre l’adresse MAC et l’adresse IP utilisée côté Microsoft. 
+Si vous rencontrez des problèmes liés au site ou au fournisseur de connectivité, vous pouvez constater qu’une seule entrée apparaîtra dans la table ARP ou que l’adresse MAC locale sera incomplète. Cette commande affiche le mappage entre l’adresse MAC et l’adresse IP utilisée côté Microsoft. 
   
        Age InterfaceProperty IpAddress  MacAddress    
        --- ----------------- ---------  ----------    

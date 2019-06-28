@@ -1,5 +1,5 @@
 ---
-title: Ressources utiles lorsque vous travaillez avec la version préliminaire d’Azure Sentinel | Microsoft Docs
+title: Ressources utiles lorsque vous travaillez avec la préversion d’Azure Sentinel | Microsoft Docs
 description: Ce document vous fournit une liste des ressources utiles lorsque vous travaillez avec Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -15,13 +15,13 @@ ms.workload: na
 ms.date: 3/20/2019
 ms.author: rkarlin
 ms.openlocfilehash: 52b9d64ebd4ab90d97a417f9296c424b9412aae9
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65209673"
 ---
-# <a name="useful-resources-for-working-with-azure-sentinel-preview"></a>Ressources utiles pour travailler avec la version préliminaire d’Azure Sentinel
+# <a name="useful-resources-for-working-with-azure-sentinel-preview"></a>Ressources utiles lorsque vous travaillez avec la préversion d’Azure Sentinel
 
 > [!IMPORTANT]
 > Azure Sentinel est actuellement disponible en préversion publique.
@@ -29,19 +29,19 @@ ms.locfileid: "65209673"
 
 Cet article répertorie les ressources qui peuvent vous aider à obtenir plus d’informations sur l’utilisation d’Azure Sentinel.
 
-Connecteurs Azure Logic Apps : <https://docs.microsoft.com/connectors/>
+Connecteurs Azure Logic Apps : <https://docs.microsoft.com/connectors/>
 
 ## <a name="vendor-documentation"></a>Documentation du fournisseur
 
 
-| **Fournisseur**  | **Cas d’usage dans Sentinel Azure** | **Lien**|
+| **Fournisseur**  | **Cas d’usage dans Azure Sentinel** | **Lien**|
 |----|----|----|
-| GitHub| Utilisé pour accéder à la page de la Communauté| <https://github.com/Azure/Azure-Sentinel> |
-| PaloAlto| Configurer le format CEF| <https://www.paloaltonetworks.com/documentation/misc/cef.html>|
-| PluralSight | Cours de langage de requête Kusto| [https://www.pluralsight.com/courses/kusto-query-language-kql-from-scratch](https://www.pluralsight.com/courses/kusto-query-language-kql-from-scratch)|
+| GitHub| Utilisé pour accéder à la page de la communauté| <https://github.com/Azure/Azure-Sentinel> |
+| PaloAlto| Configurer CEF| <https://www.paloaltonetworks.com/documentation/misc/cef.html>|
+| PluralSight | Cours sur le langage de requête Kusto| [https://www.pluralsight.com/courses/kusto-query-language-kql-from-scratch](https://www.pluralsight.com/courses/kusto-query-language-kql-from-scratch)|
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans ce document, vous avez obtenu une liste de ressources qui sont utiles lorsque vous travaillez avec Azure Sentinel. Pour en savoir plus sur Azure Sentinel, consultez les rubriques suivantes :
+Dans ce document, vous avez obtenu une liste des ressources qui sont utiles lorsque vous travaillez avec Azure Sentinel. Pour en savoir plus sur Azure Sentinel, consultez les documents suivants :
 
 * [Blog sur la sécurité Azure](https://blogs.msdn.com/b/azuresecurity/). accédez à des billets de blog sur la sécurité et la conformité Azure.

@@ -7,24 +7,24 @@ ms.service: PostgreSQL
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.openlocfilehash: 73c23c471cb12ca3a3a7df4380779b464b8d86d4
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66735735"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-postgresql"></a>Architecture de connectivité dans Azure Database pour PostgreSQL
-Cet article explique la base de données Azure pour PostgreSQL architecture de connectivité, ainsi que la manière dont le trafic est dirigé vers votre base de données Azure pour l’instance de base de données PostgreSQL à partir de clients au sein et en dehors d’Azure.
+Cet article présente l’architecture de connectivité d’Azure Database pour PostgreSQL, ainsi que la façon dont le trafic est redirigé vers votre instance de base de données Azure Database pour PostgreSQL à partir de clients au sein d’Azure et en dehors.
 
 ## <a name="connectivity-architecture"></a>Architecture de connectivité
-Connexion à votre base de données Azure pour PostgreSQL est établie via une passerelle qui est responsable de routage des connexions entrantes à l’emplacement physique de votre serveur dans nos clusters. Le diagramme suivant illustre le flux de trafic.
+La connexion à votre instance Azure Database pour PostgreSQL est établie via une passerelle qui est responsable du routage des connexions entrantes vers l’emplacement physique de votre serveur dans nos clusters. Le schéma suivant illustre le flux de trafic.
 
 ![Vue d’ensemble de l’architecture de connectivité](./media/concepts-connectivity-architecture/connectivity-architecture-overview-proxy.png)
 
-Comme client de se connecter à la base de données, ils obtiennent une chaîne de connexion qui se connecte à la passerelle. Cette passerelle a une adresse IP publique qui écoute le port 5432. À l’intérieur de la base de données clusterz trafic est transféré à la base de données Azure approprié pour PostgreSQL. Par conséquent, pour vous connecter à votre serveur, comme à partir de réseaux d’entreprise, il est nécessaire ouvrir le pare-feu du côté client pour autoriser le trafic sortant être en mesure d’atteindre nos passerelles. Vous trouverez ci-dessous une liste complète des adresses IP utilisées par nos passerelles par région.
+Quand le client se connecte à la base de données, il obtient une chaîne de connexion qui se connecte à la passerelle. Cette passerelle a une adresse IP publique qui écoute le port 5432. À l’intérieur du cluster de bases de données, le trafic est transféré vers l’instance Azure Database pour PostgreSQL appropriée. Par conséquent, pour vous connecter à votre serveur, notamment à partir de réseaux d’entreprise, il est nécessaire d’ouvrir le pare-feu côté client pour autoriser le trafic sortant à atteindre nos passerelles. Vous trouverez ci-dessous une liste complète des adresses IP utilisées par nos passerelles en fonction de la région.
 
-## <a name="azure-database-for-postgresql-gateway-ip-addresses"></a>Base de données Azure pour les adresses IP de passerelle PostgreSQL
-Le tableau suivant répertorie les adresses IP au principal et secondaire de la base de données Azure pour la passerelle PostgreSQL pour toutes les régions de données. L’adresse IP principale est l’adresse IP actuelle de la passerelle et la deuxième adresse IP est une adresse IP de basculement en cas de défaillance du principal. Comme mentionné, les clients doivent autoriser le trafic sortants vers les adresses IP. La deuxième adresse IP n’écoute pas sur tous les services jusqu'à ce qu’il est activé par base de données Azure pour PostgreSQL à accepter les connexions.
+## <a name="azure-database-for-postgresql-gateway-ip-addresses"></a>Adresses IP de passerelle Azure Database pour PostgreSQL
+Le tableau suivant répertorie les adresses IP principales et secondaires de la passerelle Azure Database pour PostgreSQL pour toutes les régions de données. L’adresse IP principale est l’adresse IP actuelle de la passerelle et l’adresse IP secondaire est une adresse IP de basculement en cas de défaillance de la première. Comme mentionné, les clients doivent autoriser le trafic sortant vers les deux adresses IP. La deuxième adresse IP n’écoute pas les services tant qu’elle n’est pas activée par Azure Database pour PostgreSQL de manière à accepter les connexions.
 
 | **Nom de la région** | **Adresse IP principale** | **Adresse IP secondaire** |
 |:----------------|:-------------|:------------------------|

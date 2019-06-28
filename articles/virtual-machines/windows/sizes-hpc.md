@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 10/12/2018
 ms.author: jonbeck;amverma
 ms.openlocfilehash: ad490084b34a8bf6e89c7feb14d5cd2e70a8138f
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66755324"
 ---
 # <a name="high-performance-compute-vm-sizes"></a>Tailles de machines virtuelles de calcul haute performance
@@ -35,17 +35,17 @@ ms.locfileid: "66755324"
 
 * **MPI** : Microsoft MPI (MS-MPI) 2012 R2 ou version ultérieure, bibliothèque Intel MPI 5.x
 
-  Sur SR-IOV des machines virtuelles est activées, les implémentations MPI prises en charge utilisent l’interface Microsoft Network Direct (ND) pour communiquer entre les instances. SR-IOV activés tailles de machine virtuelle (chaud et HC-series) sur Azure autorisant presque n’importe quelle version de MPI pour être utilisé avec Mellanox OFED. 
+  Sur les machines virtuelles non compatibles SR-IOV, les implémentations MPI prises en charge utilisent l’interface Microsoft Network Direct (ND) pour la communication entre les instances. Les tailles des VM compatibles SR-IOV (séries HB et HC) sur Azure autorisent presque n’importe quelle version de MPI pour une utilisation avec Mellanox OFED. 
 
-* **Extension VM de InfiniBandDriverWindows** - sur les machines virtuelles prenant en charge RDMA, ajoutez l’extension InfiniBandDriverWindows pour activer InfiniBand. Cette extension de machine virtuelle Windows installe des pilotes Windows Network Direct (sur des machines virtuelles de SR-IOV) ou les pilotes Mellanox OFED (sur des machines virtuelles de SR-IOV) pour la connectivité RDMA.
-Dans certains déploiements des instances A8 et A9, l’extension HpcVmDrivers est ajoutée automatiquement. Notez que l’extension HpcVmDrivers VM est déconseillée ; Il ne sera pas mis à jour. Pour ajouter l’extension de machine virtuelle sur une machine virtuelle, vous pouvez utiliser les cmdlets [Azure PowerShell](/powershell/azure/overview). 
+* **Extension de machine virtuelle InfiniBandDriverWindows** : sur les machines virtuelles compatibles RDMA, ajoutez l’extension InfiniBandDriverWindows pour activer InfiniBand. Cette extension de machine virtuelle Windows installe des pilotes Windows Network Direct (sur des machines virtuelles non compatibles SR-IOV) ou des pilotes Mellanox OFED (sur des machines virtuelles compatibles SR-IOV) pour la connectivité RDMA.
+Dans certains déploiements des instances A8 et A9, l’extension HpcVmDrivers est ajoutée automatiquement. Notez que l’extension de machine virtuelle HpcVmDrivers est déconseillée ; elle ne sera pas mise à jour. Pour ajouter l’extension de machine virtuelle sur une machine virtuelle, vous pouvez utiliser les cmdlets [Azure PowerShell](/powershell/azure/overview). 
 
-  La commande suivante installe la dernière extension InfiniBandDriverWindows version 1.0 sur une machine virtuelle existante prenant en charge RDMA nommée *myVM* déployé dans le groupe de ressources nommé *myResourceGroup* dans le  *Ouest des États-Unis* région :
+  La commande suivante installe la dernière version 1.0 de l’extension InfiniBandDriverWindows sur une machine virtuelle existante prenant en charge RDMA et nommée *myVM* déployée dans le groupe de ressources nommé *myResourceGroup* dans la région *USA Ouest* :
 
   ```powershell
   Set-AzVMExtension -ResourceGroupName "myResourceGroup" -Location "westus" -VMName "myVM" -ExtensionName "InfiniBandDriverWindows" -Publisher "Microsoft.HpcCompute" -Type "InfiniBandDriverWindows" -TypeHandlerVersion "1.0"
   ```
-  Vous pouvez également les extensions de machine virtuelle peuvent être incluses dans les modèles Azure Resource Manager pour faciliter le déploiement, avec l’élément JSON suivant :
+  Les extensions de machine virtuelle peuvent également être incluses dans les modèles Azure Resource Manager pour faciliter le déploiement, avec l’élément JSON suivant :
   ```json
   "properties":{
   "publisher": "Microsoft.HpcCompute",
@@ -65,7 +65,7 @@ Azure fournit plusieurs options pour créer des clusters de machines virtuelles 
 
 * **Machines virtuelles** : Déployez les machines virtuelles HPC compatibles RDMA dans le même groupe à haute disponibilité (quand vous utilisez le modèle de déploiement Azure Resource Manager). Si vous utilisez le modèle de déploiement classique, déployez les machines virtuelles dans le même service cloud. 
 
-* **Machines virtuelles identiques** : dans une échelle de machine virtuelle définie, assurez-vous de limiter le déploiement à un seul groupe de placement. Par exemple, dans un modèle Resource Manager, définissez la propriété `singlePlacementGroup` avec la valeur `true`. 
+* **Groupes de machines virtuelles identiques** : dans un groupe de machines virtuelles identiques, veillez à limiter le déploiement à un seul groupe de placements. Par exemple, dans un modèle Resource Manager, définissez la propriété `singlePlacementGroup` avec la valeur `true`. 
 
 * **Azure CycleCloud** : Créez un cluster HPC dans [Azure CycleCloud](/azure/cyclecloud/) pour exécuter des travaux MPI sur des nœuds Windows.
 

@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: isacabe
 ms.openlocfilehash: 3551d088c1d02715bf9ace09d7eb0048bc10111e
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65473475"
 ---
 # <a name="connect-an-iot-devkit-device-to-the-remote-monitoring-solution-accelerator"></a>Connecter un appareil IoT DevKit à l’accélérateur de solution de supervision à distance
@@ -79,7 +79,7 @@ Pour vérifier que l’exemple d’application que vous avez chargé sur l’app
 
 Lorsque l’exemple d’application s’exécute, l’appareil DevKit envoie par Wi-Fi les données de télémétrie de ses capteurs à votre accélérateur de solution. Pour afficher les données de télémétrie :
 
-1. Accédez à votre tableau de bord de solution, puis cliquez sur **Device Explorer**.
+1. Accédez au tableau de bord de votre solution, puis cliquez sur **Explorateur d’appareils**.
 
 1. Cliquez sur le nom de votre appareil DevKit. Sous l’onglet de droite, les données de télémétrie de l’appareil DevKit s’affichent en temps réel :
 
@@ -87,7 +87,7 @@ Lorsque l’exemple d’application s’exécute, l’appareil DevKit envoie par
 
 ### <a name="control-the-devkit-device"></a>Contrôler l’appareil DevKit
 
-L’accélérateur de solution de supervision à distance permet de contrôler l’appareil à distance. L’exemple de code implémente trois méthodes que vous pouvez le voir dans le **méthode** section lorsque vous sélectionnez l’appareil sur le **Device Explorer** page :
+L’accélérateur de solution de supervision à distance permet de contrôler l’appareil à distance. L’exemple de code implémente trois méthodes, que vous pouvez consulter dans la section **Méthode** si vous sélectionnez l’appareil sur la page **Explorateur d’appareils** :
 
 ![Méthodes IoT DevKit](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/azure-iot-suite-methods.png)
 

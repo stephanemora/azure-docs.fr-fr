@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 136b9141ccccfedf8d37fa0832b0673495d82417
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66160016"
 ---
 # <a name="how-to-connect-and-sign-on-to-an-azure-virtual-machine-running-windows"></a>Connexion à une machine virtuelle Azure exécutant Windows
@@ -58,7 +58,7 @@ Pour vous connecter à une machine virtuelle Windows à partir d’un Mac, vous 
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Si vous utilisez PowerShell et avez installé le module Aure PowerShell vous pouvez également vous connecter à l’aide de la `Get-AzRemoteDesktopFile` applet de commande, comme indiqué ci-dessous.
+Si vous utilisez PowerShell et si vous avez installé le module Azure PowerShell, vous pouvez également vous connecter à l’aide de la cmdlet `Get-AzRemoteDesktopFile`, comme indiqué ci-dessous.
 
 Cet exemple lance immédiatement la connexion RDP : vous êtes alors redirigé par le biais d’invites semblables à celles présentées ci-dessus.
 

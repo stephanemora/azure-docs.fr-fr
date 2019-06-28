@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: pabutler
 ms.openlocfilehash: a22a2ebe870280ddcdf18c037141b92894742400
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64935021"
 ---
 <a name="how-to-fill-out-the-storefront-details-form"></a>Guide pratique pour remplir le formulaire Détails de la vitrine
@@ -35,7 +35,7 @@ Cette description apparaît sur AppSource, juste en dessous de votre **Résumé 
 
 Sélectionnez le secteur d’activité auquel s’adresse essentiellement votre application. Si votre application vise plusieurs secteurs d’activité, vous pouvez laisser ce champ vide.
 
-### <a name="categories"></a>Categories
+### <a name="categories"></a>Catégories
 
 Sélectionnez les catégories qui se rapportent à votre application. Sélectionnez au moins une catégorie et trois au maximum. Choisissez-les avec soin, car les clients sur AppSource peuvent effectuer des recherches en fonction des catégories.
 
@@ -50,9 +50,9 @@ Vous devez proposer un lien d’aide actif qui oriente les clients vers une aide
 
 ### <a name="supported-countriesregions"></a>Pays/régions pris en charge
 
-Ce champ détermine les pays/régions dans lesquels votre offre pourra être essayée. Vous pouvez uniquement choisir des pays/régions où Microsoft Dynamics 365 Business Central est déjà disponible ou disponible en version préliminaire. Pour obtenir la liste, consultez [traductions prises en charge et pays/régions](https://docs.microsoft.com/dynamics-nav/compliance/apptest-countries-and-translations).
+Ce champ détermine les pays/régions dans lesquels votre offre pourra être essayée. Vous pouvez choisir uniquement des pays/régions où Microsoft Dynamics 365 Business Central est déjà disponible ou en préversion. Pour obtenir la liste actuelle, consultez [Countries/Regions and Translations Supported](https://docs.microsoft.com/dynamics-nav/compliance/apptest-countries-and-translations) (Pays/régions et traductions pris en charge).
 
-![Sélectionnez le pays/régions et les traductions pris en charge](./media/d365-financials/image008.png)
+![Sélectionner des pays/régions et des traductions pris en charge](./media/d365-financials/image008.png)
 
 
 ### <a name="supported-languages"></a>Langues prises en charge
@@ -112,7 +112,7 @@ Vous devez prévoir une page de support spécifique qui propose aux clients diff
 
 ### <a name="lead-destination"></a>Destination du prospect
 
-Sélectionnez un système CRM dans lequel vos prospects seront stockés. Sélectionnez \"Table Azure\" ici si vous avez un des systèmes CRM suivants : Salesforce, Marketo, Microsoft Dynamics CRM. Le système CRM que vous sélectionnez ici est celui dans lequel nous écrirons les détails des utilisateurs finaux qui essaient votre application sur AppSource (prospects). Cliquez ci-dessous sur l’URL correspondant au système CRM que vous sélectionnez pour savoir comment compléter le jeu de champs suivant.
+Sélectionnez un système CRM dans lequel vos prospects seront stockés. Sélectionnez \"Table Azure\" ici si vous disposez de l’un des systèmes CRM suivants : Salesforce, Marketo, Microsoft Dynamics CRM. Le système CRM que vous sélectionnez ici est celui dans lequel nous écrirons les détails des utilisateurs finaux qui essaient votre application sur AppSource (prospects). Cliquez ci-dessous sur l’URL correspondant au système CRM que vous sélectionnez pour savoir comment compléter le jeu de champs suivant.
 
 -   [Table Azure](./cloud-partner-portal-lead-management-instructions-azure-table.md)
 -   [Marketo](./cloud-partner-portal-lead-management-instructions-marketo.md)

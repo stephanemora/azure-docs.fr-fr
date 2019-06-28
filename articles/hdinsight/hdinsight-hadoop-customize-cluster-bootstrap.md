@@ -1,6 +1,6 @@
 ---
-title: Personnaliser les configurations de cluster Azure HDInsight à l’aide de bootstrap
-description: Découvrez comment personnaliser par programmation à l’aide de .net, PowerShell et Resource Manager de la configuration du cluster HDInsight modèles.
+title: Personnaliser les configurations de cluster Azure HDInsight à l’aide de Bootstrap
+description: Découvrez comment personnaliser la configuration du cluster HDInsight par programmation à l’aide de .Net, PowerShell et des modèles Resource Manager.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,23 +9,23 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/19/2019
 ms.openlocfilehash: 7f9100686eaab8c4c75e3d862026b18b6c46ed09
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65203704"
 ---
 # <a name="customize-hdinsight-clusters-using-bootstrap"></a>Personnalisation de clusters HDInsight à l’aide de Bootstrap
 
-Scripts de démarrage permettent d’installer et configurer des composants dans Azure HDInsight par programme. 
+Les scripts Bootstrap permettent d’installer et de configurer des composants dans Azure HDInsight par programmation. 
 
-Il existe trois approches pour définir les paramètres de fichier de configuration que votre cluster HDInsight est créé :
+Il existe trois approches pour définir les paramètres de fichier config à mesure que votre cluster HDInsight est créé :
 
 * Utilisation d'Azure PowerShell
 * Utilisation du Kit de développement logiciel (SDK) .NET
 * Utilisation d’un modèle Azure Resource Manager
 
-Par exemple, à l’aide de ces méthodes de programmation, vous pouvez configurer options dans ces fichiers :
+Par exemple, à l’aide de ces méthodes de programmation, vous pouvez configurer des options dans ces fichiers :
 
 * clusterIdentity.xml
 * core-site.xml
@@ -44,18 +44,18 @@ Par exemple, à l’aide de ces méthodes de programmation, vous pouvez configur
 * yarn-site.xml
 * Server.Properties (configuration de répartiteurs kafka)
 
-Pour plus d’informations sur l’installation des composants supplémentaires sur HDInsight cluster pendant le processus de création, consultez [HDInsight de personnaliser des clusters à l’aide de l’Action de Script (Linux)](hdinsight-hadoop-customize-cluster-linux.md).
+Pour plus d’informations sur l’installation de composants supplémentaires sur un cluster HDInsight pendant le processus de création, consultez [Personnaliser des clusters Azure HDInsight à l’aide des actions de script](hdinsight-hadoop-customize-cluster-linux.md).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
-* Si vous utilisez PowerShell, vous devez le [Az Module](https://docs.microsoft.com/powershell/azure/overview).
+* Si vous utilisez PowerShell, vous avez besoin du [module Az](https://docs.microsoft.com/powershell/azure/overview).
 
 ## <a name="use-azure-powershell"></a>Utilisation d'Azure PowerShell
 
 Le code PowerShell suivant permet de personnaliser une configuration [Apache Hive](https://hive.apache.org/) :
 
 > [!IMPORTANT]  
-> Le paramètre `Spark2Defaults` peut doivent être utilisées avec [Add-AzHDInsightConfigValue](https://docs.microsoft.com/powershell/module/az.hdinsight/add-azhdinsightconfigvalue). Vous pouvez passer des valeurs vides pour le paramètre, comme indiqué dans l’exemple de code ci-dessous.
+> Le paramètre `Spark2Defaults` peut être utilisé avec [Add-AzHDInsightConfigValue](https://docs.microsoft.com/powershell/module/az.hdinsight/add-azhdinsightconfigvalue). Vous pouvez transmettre les valeurs vides pour le paramètre, comme indiqué dans l’exemple de code ci-dessous.
 
 
 ```powershell
@@ -148,13 +148,13 @@ Vous pouvez utiliser Bootstrap dans un modèle Resource Manager :
 
 ## <a name="appendix-powershell-sample"></a>Annexe : Exemple de code PowerShell
 
-Ce script PowerShell crée un cluster HDInsight et personnalise un paramètre Hive. Veillez à entrer des valeurs pour `$nameToken`, `$httpPassword`, et `$sshPassword`.
+Ce script PowerShell permet de créer un cluster HDInsight et de personnaliser un paramètre Hive. Veillez à entrer des valeurs pour `$nameToken`, `$httpPassword` et `$sshPassword`.
 
 > [!IMPORTANT]  
-> Les valeurs de `DefaultStorageAccount`, et `DefaultStorageContainer` ne sont pas retournés à partir de [Get-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/get-azhdinsightcluster) lorsque [transfert sécurisé](../storage/common/storage-require-secure-transfer.md) est activé sur le compte de stockage.
+> Les valeurs de `DefaultStorageAccount` et `DefaultStorageContainer` ne sont pas renvoyées à partir de [Get-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/get-azhdinsightcluster) lorsque l’option de [transfert sécurisé](../storage/common/storage-require-secure-transfer.md) est activée sur le compte de stockage.
 
 > [!WARNING]  
-> Type de compte de stockage `BlobStorage` ne peut pas être utilisé pour les clusters HDInsight.
+> Le type de compte de stockage `BlobStorage` ne peut pas être utilisé pour les clusters HDInsight.
 
 
 ```powershell

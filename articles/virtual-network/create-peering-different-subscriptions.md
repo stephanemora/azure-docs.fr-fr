@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 04/09/2019
 ms.author: anavin
 ms.openlocfilehash: cf414cf08771090990775d124e27222e51f786e2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66122016"
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions"></a>Créer une homologation de réseaux virtuels - Resource Manager - Abonnements différents
@@ -41,7 +41,7 @@ Vous pouvez utiliser le [portail Azure](#portal), [l’interface de ligne de com
 
 Si les réseaux virtuels que vous voulez appairer se trouvent dans les abonnements qui sont associés à différents locataires Azure Active Directory, suivez les étapes décrites dans la section CLI et PowerShell de cet article. Le portail n’offre pas de prise en charge pour appairer des réseaux virtuels appartenant à des abonnements à partir de différents locataires Active Directory. 
 
-Notez que Cloud Shell a les limitations lors du basculement des abonnements et vos clients en raison de laquelle l’homologation ou Global VNet Peering entre réseaux virtuels appartenant aux abonnements dans différents locataires Azure Active Directory ne fonctionnera pas. Utilisez PowerShell ou CLI.
+Remarque : Cloud Shell dispose de limitations quant au changement d’abonnements et d’abonnés à cause desquelles VNet Peering ou Global VNet Peering entre les réseaux virtuels appartenant aux abonnements dans différents abonnés Azure Active Directory ne fonctionnent pas. Veuillez utiliser PowerShell ou CLI.
 
 Les étapes suivantes utilisent des comptes différents pour chaque abonnement. Si vous utilisez un compte qui a des autorisations pour les deux abonnements, vous pouvez utiliser le même compte pour toutes les étapes, ignorer les étapes de déconnexion du portail et ignorer les étapes d’affectation d’autorisations d’accès aux réseaux virtuels à un autre utilisateur.
 
@@ -56,12 +56,12 @@ Les étapes suivantes utilisent des comptes différents pour chaque abonnement. 
     - **Groupe de ressources** : sélectionnez **Créer** et entrez *myResourceGroupA*.
     - **Emplacement** : *USA Est*
 4. Dans le champ **Rechercher des ressources** située en haut du portail, tapez *myVnetA*. Quand **myVnetA** apparaît dans les résultats de la recherche, sélectionnez cette entrée. 
-5. Dans la liste verticale d’options située à gauche, sélectionnez **Contrôle d’accès (IAM)**.
-6. Sous **myVnetA - Contrôle d’accès (IAM)**, sélectionnez **+ Ajouter une attribution de rôle**.
+5. Dans la liste verticale d’options située à gauche, sélectionnez **Contrôle d’accès (IAM)** .
+6. Sous **myVnetA - Contrôle d’accès (IAM)** , sélectionnez **+ Ajouter une attribution de rôle**.
 7. Dans la zone **Rôle**, sélectionnez **Contributeur de réseaux**.
 8. Dans la zone **Sélectionner**, sélectionnez *UserB* ou tapez l’adresse e-mail de UserB pour rechercher cet utilisateur.
 9. Sélectionnez **Enregistrer**.
-10. Sous **myVnetA - Contrôle d’accès (IAM)**, sélectionnez **Propriétés** dans la liste verticale d’options située à gauche. Copiez l’**ID de ressource**, qui vous servira lors d’une étape ultérieure. L’ID de ressource est similaire à l’exemple suivant : `/subscriptions/<Subscription Id>/resourceGroups/myResourceGroupA/providers/Microsoft.Network/virtualNetworks/myVnetA`.
+10. Sous **myVnetA - Contrôle d’accès (IAM)** , sélectionnez **Propriétés** dans la liste verticale d’options située à gauche. Copiez l’**ID de ressource**, qui vous servira lors d’une étape ultérieure. L’ID de la ressource ressemble à celui de l’exemple qui suit : `/subscriptions/<Subscription Id>/resourceGroups/myResourceGroupA/providers/Microsoft.Network/virtualNetworks/myVnetA`.
 11. Déconnectez-vous du portail en tant que UserA, puis connectez-vous en tant que UserB.
 12. Effectuez les étapes 2 et 3, en entrant ou en sélectionnant les valeurs suivantes à l’étape 3 :
 
@@ -74,8 +74,8 @@ Les étapes suivantes utilisent des comptes différents pour chaque abonnement. 
     - **Emplacement** : *USA Est*
 
 13. Dans le champ **Rechercher des ressources** située en haut du portail, tapez *myVnetB*. Quand **myVnetB** apparaît dans les résultats de recherche, sélectionnez cette entrée.
-14. Sous **myVnetB**, sélectionnez **Propriétés** dans la liste verticale d’options située à gauche. Copiez l’**ID de ressource**, qui vous servira lors d’une étape ultérieure. L’ID de ressource est similaire à l’exemple suivant : `/subscriptions/<Subscription ID>/resourceGroups/myResourceGroupB/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB`.
-15. Sous **myVnetB**, sélectionnez **Contrôle d’accès (IAM)**, puis suivez les étapes 5 à 10 pour myVnetB, en entrant **UserA** à l’étape 8.
+14. Sous **myVnetB**, sélectionnez **Propriétés** dans la liste verticale d’options située à gauche. Copiez l’**ID de ressource**, qui vous servira lors d’une étape ultérieure. L’ID de la ressource ressemble à celui de l’exemple qui suit : `/subscriptions/<Subscription ID>/resourceGroups/myResourceGroupB/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB`.
+15. Sous **myVnetB**, sélectionnez **Contrôle d’accès (IAM)** , puis suivez les étapes 5 à 10 pour myVnetB, en entrant **UserA** à l’étape 8.
 16. Déconnectez-vous du portail en tant que UserB, puis connectez-vous en tant que UserA.
 17. Dans le champ **Rechercher des ressources** située en haut du portail, tapez *myVnetA*. Quand **myVnetA** apparaît dans les résultats de la recherche, sélectionnez cette entrée.
 18. Sélectionnez **myVnetA**.
@@ -186,7 +186,7 @@ Si les réseaux virtuels se trouvent dans des abonnements différents et que les
  - Ajoutez l’utilisateur à partir de chaque locataire Active Directory en tant [qu’utilisateur invité](../active-directory/b2b/add-users-administrator.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-guest-users-to-the-directory) dans le locataire Azure Active Directory opposé.
  - Chaque utilisateur doit accepter l’invitation d’utilisateur invité du locataire Active Directory opposé.
 
-1. Vérifiez que vous disposez d’Azure PowerShell version 1.0.0 ou une version ultérieure. Vous pouvez le faire en exécutant la `Get-Module -Name Az` nous recommandons d’installer la dernière version de la commande PowerShell [module de Az](/powershell/azure/install-az-ps). Si vous débutez dans l’utilisation d’Azure PowerShell, voir [Vue d’ensemble d’Azure PowerShell](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json). 
+1. Vérifiez que vous disposez de la version 1.0.0 ou d’une version ultérieure d’Azure PowerShell. Pour ce faire, exécutez la commande `Get-Module -Name Az`. Nous vous recommandons d’installer la dernière version du module [Az](/powershell/azure/install-az-ps) PowerShell. Si vous débutez dans l’utilisation d’Azure PowerShell, voir [Vue d’ensemble d’Azure PowerShell](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json). 
 2. Démarrez une session PowerShell.
 3. Dans PowerShell, connectez-vous à Azure en tant que UserA en entrant la commande `Connect-AzAccount`. Le compte auquel vous vous connectez doit avoir les autorisations nécessaires pour créer une homologation de réseaux virtuels. Pour obtenir une liste d’autorisations, consultez [Autorisations d’homologation de réseau virtuel](virtual-network-manage-peering.md#permissions).
 4. Créez un groupe de ressources et le réseau virtuel A. Copiez le script suivant dans un éditeur de texte sur votre PC. Remplacez `<SubscriptionA-Id>` par l’ID de l’abonnement A. Si vous ne connaissez pas votre ID d’abonnement, entrez la commande `Get-AzSubscription` pour l’afficher. La valeur de **id** dans la sortie retournée est votre ID d’abonnement. Pour exécuter le script, copiez le script modifié, collez-le dans PowerShell, puis appuyez sur `Enter`.

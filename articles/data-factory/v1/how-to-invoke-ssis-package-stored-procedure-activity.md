@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: jingwang
 ms.openlocfilehash: d61874a57801a6c02af885cab6a97ed38da1deb1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66156646"
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Appeler un package SSIS à l’aide de l’activité de procédure stockée dans Azure Data Factory
@@ -26,7 +26,7 @@ Cet article décrit comment appeler un package SSIS à partir d’un pipeline Az
 > [!NOTE]
 > Cet article s’applique à la version 1 de Data Factory. Si vous utilisez la version actuelle du service Data Factory, consultez [Appeler les packages SSIS à l’aide d’une activité de procédure stockée](../how-to-invoke-ssis-package-stored-procedure-activity.md).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 ### <a name="azure-sql-database"></a>Azure SQL Database 
 La procédure pas à pas dans cet article utilise une base de données Azure SQL qui héberge le catalogue SSIS. Vous pouvez également utiliser Azure SQL Database Managed Instance.
@@ -194,7 +194,7 @@ La procédure suivante décrit les étapes permettant de créer une fabrique de 
     $DataFactoryName = "ADFTutorialFactory";
     ```
 
-5. Pour créer la fabrique de données, exécutez la commande suivante **New-AzDataFactory** applet de commande, à l’aide de la propriété Location et ResourceGroupName à partir de la variable $ResGrp : 
+5. Pour créer la fabrique de données, exécutez la cmdlet suivante **New-AzDataFactory**, à l’aide des propriétés Location et ResourceGroupName à partir de la variable $ResGrp : 
     
     ```powershell       
     $df = New-AzDataFactory -ResourceGroupName $ResourceGroupName -Name $dataFactoryName -Location "East US"
@@ -254,7 +254,7 @@ Ce jeu de données de sortie est un jeu de données factice qui détermine la pr
         }
     }
     ```
-2. Exécutez le **New-AzDataFactoryDataset** applet de commande pour créer un jeu de données. 
+2. Exécutez la cmdlet **New-AzDataFactoryDataset** pour créer un jeu de données. 
 
     ```powershell
     New-AzDataFactoryDataset $df -File ".\OutputDataset.json"
@@ -296,7 +296,7 @@ Lors de cette étape, vous allez créer un pipeline avec une activité de procé
     }    
     ```
 
-2. Pour créer le pipeline : **RunSSISPackagePipeline**, exécutez le **New-AzDataFactoryPipeline** applet de commande.
+2. Pour créer le pipeline : **RunSSISPackagePipeline**, exécutez la cmdlet **New-AzDataFactoryPipeline**.
 
     ```powershell
     $DFPipeLine = New-AzDataFactoryPipeline -DataFactoryName $DataFactory.DataFactoryName -ResourceGroupName $ResGrp.ResourceGroupName -Name "RunSSISPackagePipeline" -DefinitionFile ".\RunSSISPackagePipeline.json"
@@ -304,7 +304,7 @@ Lors de cette étape, vous allez créer un pipeline avec une activité de procé
 
 ### <a name="monitor-the-pipeline-run"></a>Surveiller l’exécution du pipeline.
 
-1. Exécutez **Get-AzDataFactorySlice** pour obtenir des détails sur toutes les tranches de la sortie dataset **, qui est la table de sortie du pipeline.
+1. Exécutez **Get-AzDataFactorySlice** pour obtenir des détails sur toutes les tranches du jeu de données de sortie**, qui est la table de sortie du pipeline.
 
     ```powershell
     Get-AzDataFactorySlice $df -DatasetName sprocsampleout -StartDateTime 2017-10-01T00:00:00Z

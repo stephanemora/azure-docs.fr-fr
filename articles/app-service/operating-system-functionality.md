@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: e5ab6651503766844b2aeef1849bffff9cf4d7bb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: f8087afc541dba41d23eacd2dd0f50e8f0180af1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60835497"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66808395"
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Fonctionnalités de système d’exploitation sur Azure App Service
 Cet article décrit les fonctionnalités de système d’exploitation communes de base accessibles à toutes les applications Windows exécutées sur [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). Ces fonctionnalités englobent notamment l’accès aux fichiers, l’accès réseau et l’accès au registre, ainsi que les journaux d’activité et événements de diagnostic. 
@@ -61,11 +61,11 @@ App Service est un service qui s’exécute essentiellement au sommet de l’inf
 - Un lecteur d’application contenant les fichiers cspkg du package Azure exclusivement utilisés par App Service (et non accessibles aux clients)
 - Un lecteur « utilisateur » (lecteur C:\) dont la taille dépend de celle de la machine virtuelle 
 
-Il est important de surveiller l’utilisation du disque à mesure du développement de votre application. Si le quota du disque est atteint, le fonctionnement de votre application peut s’en trouver modifié. Par exemple :  
+Il est important de surveiller l’utilisation du disque à mesure du développement de votre application. Si le quota du disque est atteint, le fonctionnement de votre application peut s’en trouver modifié. Par exemple : 
 
 - L’application peut lever une erreur indiquant que l’espace est insuffisant sur le disque.
 - Vous pouvez voir des erreurs de disque quand vous accédez à la console Kudu.
-- Le déploiement à partir de VSTS ou de Visual Studio peut échouer avec `ERROR_NOT_ENOUGH_DISK_SPACE: Web deployment task failed. (Web Deploy detected insufficient space on disk)`.
+- Le déploiement à partir d’Azure DevOps ou de Visual Studio peut échouer avec `ERROR_NOT_ENOUGH_DISK_SPACE: Web deployment task failed. (Web Deploy detected insufficient space on disk)`.
 - Votre application peut subir un ralentissement des performances.
 
 <a id="NetworkDrives"></a>

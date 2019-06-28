@@ -16,10 +16,10 @@ ms.date: 03/01/2019
 ms.author: genli
 ms.custom: seodec18
 ms.openlocfilehash: c0584a69349c2785b5b6bce1d17c023c95b36151
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66136173"
 ---
 # <a name="troubleshoot-domain-and-ssl-certificate-problems-in-azure-app-service"></a>Résoudre les problèmes de domaines et de certificats SSL dans Azure App Service
@@ -91,7 +91,7 @@ Ce problème peut se produire pour l’une des raisons suivantes :
 - L’abonnement a atteint le nombre maximal d’achats autorisés pour un abonnement.
 
     **Solution**: les certificats App Service présentent une limite de 10 achats de certificats pour les types d’abonnement Contrat Entreprise et Paiement à l’utilisation. Pour les autres types d’abonnement, la limite est fixée à 3. Pour augmenter la limite, contactez le [support Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
-- Le certificat App Service a été marqué comme une fraude. Vous recevez le message d’erreur suivant : « Votre certificat a été signalé comme étant une fraude potentielle. La demande est en cours de révision. Si le certificat n’est pas utilisable dans les 24 heures, contactez le Support Azure. »
+- Le certificat App Service a été marqué comme une fraude. Vous recevez le message d’erreur suivant : « Votre certificat a été signalé comme étant une fraude potentielle. La demande est en cours de révision. Si le certificat devient inutilisable sous 24 heures, contactez le support Azure. »
 
     **Solution**: si le certificat est marqué comme Fraude et que le problème n’a pas été résolu après 24 heures, effectuez les étapes suivantes :
 
@@ -99,7 +99,7 @@ Ce problème peut se produire pour l’une des raisons suivantes :
     2. Accédez à **App Service Certificates**, puis sélectionnez le certificat.
     3. Sélectionnez **Configuration du certificat** > **Étape 2 : Vérifier** > **Vérification du domaine**. Cette étape envoie une notification par e-mail au fournisseur de certificats Azure pour résoudre le problème.
 
-## <a name="custom-domain-problems"></a>Problèmes de domaine personnalisé
+## <a name="custom-domain-problems"></a>Problèmes liés aux domaines personnalisés
 
 ### <a name="a-custom-domain-returns-a-404-error"></a>Un domaine personnalisé retourne une erreur 404 
 
@@ -119,7 +119,7 @@ Un enregistrement CNAME ou A est manquant dans le domaine personnalisé que vous
 
 - Si vous avez ajouté un enregistrement A, vérifiez qu’un enregistrement TXT a également été ajouté. Pour plus d’informations, consultez [Créer un enregistrement A](./app-service-web-tutorial-custom-domain.md#create-the-a-record).
 - Si vous n’avez pas à utiliser le domaine racine de votre application, nous vous recommandons d’utiliser un enregistrement CNAME au lieu d’un enregistrement A.
-- N’utilisez pas à la fois un enregistrement CNAME et un enregistrement A pour un même domaine. Ce problème peut provoquer un conflit et empêcher que le domaine en cours de résolution. 
+- N’utilisez pas à la fois un enregistrement CNAME et un enregistrement A pour un même domaine. Ce problème peut provoquer un conflit et empêcher la résolution du domaine. 
 
 **Cause 2** 
 
@@ -138,7 +138,7 @@ Vous n’arrivez pas à ajouter un nouveau nom d’hôte à une application pour
 #### <a name="solution"></a>Solution
 
 - Vérifiez auprès de l’administrateur de l’abonnement que vous disposez des autorisations permettant d’ajouter un nom d’hôte à l’application.
-- Si vous avez besoin de plusieurs sous-domaines, nous vous recommandons de modifier l’hébergement de domaine à Azure Service DNS (Domain Name). Azure DNS vous permet d’ajouter 500 noms d’hôte à votre application. Pour plus d’informations, consultez le blog [Mapping a custom subdomain to an Azure Website](https://blogs.msdn.microsoft.com/waws/2014/10/01/mapping-a-custom-subdomain-to-an-azure-website/).
+- Si vous avez besoin d’autres sous-domaines, nous vous recommandons de modifier l’hébergement de domaine pour le définir sur Azure Domain Name Service (DNS). Azure DNS vous permet d’ajouter 500 noms d’hôte à votre application. Pour plus d’informations, consultez le blog [Mapping a custom subdomain to an Azure Website](https://blogs.msdn.microsoft.com/waws/2014/10/01/mapping-a-custom-subdomain-to-an-azure-website/).
 
 ### <a name="dns-cant-be-resolved"></a>Résolution du DNS impossible
 
@@ -168,7 +168,7 @@ Votre domaine n’est plus visible dans le portail Azure.
 Le propriétaire du domaine l’a peut-être supprimé accidentellement.
 
 #### <a name="solution"></a>Solution
-Si votre domaine a été supprimé il y a moins de sept jours, le processus de suppression n’a pas encore démarré pour celui-ci. Dans ce cas, vous pouvez racheter le même domaine sur le portail Azure, sous le même abonnement (tapez le nom de domaine exact dans la zone de recherche). Ce domaine ne vous sera pas refacturé. Si le domaine a été supprimé il y a plus de sept jours, contactez [prise en charge Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour vous aider à la restauration du domaine.
+Si votre domaine a été supprimé il y a moins de sept jours, le processus de suppression n’a pas encore démarré pour celui-ci. Dans ce cas, vous pouvez racheter le même domaine sur le portail Azure, sous le même abonnement (tapez le nom de domaine exact dans la zone de recherche). Ce domaine ne vous sera pas refacturé. Si le domaine a été supprimé il y a plus de sept jours, contactez le [support Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour procéder à sa restauration.
 
 ## <a name="domain-problems"></a>Problèmes liés aux domaines
 
@@ -275,57 +275,57 @@ Ce problème se produit pour l’une des raisons suivantes :
 
 ## <a name="faq"></a>Forum Aux Questions
 
-**Je dois configurer mon domaine personnalisé pour mon site Web une fois l’acheter ?**
+**Dois-je configurer mon domaine personnalisé pour mon site web après l’avoir acheté ?**
 
-Lorsque vous achetez un domaine à partir du portail Azure, l’application de Service de l’application est automatiquement configurée pour utiliser ce domaine personnalisé. Vous n’êtes pas obligé d’effectuer des étapes supplémentaires. Pour plus d’informations, regardez [aide libre-service d’Azure App Service : Ajouter un nom de domaine personnalisé](https://channel9.msdn.com/blogs/Azure-App-Service-Self-Help/Add-a-Custom-Domain-Name) sur Channel 9.
+Lorsque vous achetez un domaine depuis le portail Azure, l’application App Service est automatiquement configurée pour utiliser ce domaine personnalisé. Vous n’avez à effectuer aucune action supplémentaire. Pour en savoir plus,regardez [Aide autonome relative à Azure App Service : Ajouter un nom de domaine personnalisé](https://channel9.msdn.com/blogs/Azure-App-Service-Self-Help/Add-a-Custom-Domain-Name) sur Channel9.
 
-**Puis-je utiliser un domaine acheté dans le portail Azure pour pointer vers une machine virtuelle Azure à la place ?**
+**Puis-je utiliser un domaine acheté dans le portail Azure pour pointer vers une machine virtuelle Azure à la place ?**
 
-Oui, vous pouvez pointer le domaine à une machine virtuelle. Pour plus d’informations, consultez [Use Azure DNS to provide custom domain settings for an Azure service](../dns/dns-custom-domain.md) (Utiliser DNS Azure pour fournir des paramètres de domaine personnalisé pour un service Azure).
+Oui, vous pouvez pointer le domaine vers une machine virtuelle. Pour plus d’informations, consultez [Use Azure DNS to provide custom domain settings for an Azure service](../dns/dns-custom-domain.md) (Utiliser DNS Azure pour fournir des paramètres de domaine personnalisé pour un service Azure).
 
-**Mon domaine est hébergé par GoDaddy ou Azure DNS ?**
+**Mon domaine est-il hébergé par GoDaddy ou Azure DNS ?**
 
-Domaines App Service utilisent GoDaddy pour l’inscription de domaine et Azure DNS pour héberger les domaines. 
+Les domaines App Service utilisent GoDaddy pour l’inscription du domaine, et Azure DNS pour l’hébergement. 
 
-**J’ai le renouvellement automatique est activée, mais toujours reçu une notification de renouvellement de mon domaine par courrier électronique. Que dois-je faire ?**
+**Le renouvellement automatique est activé mais je reçois quand même une notification de renouvellement de mon domaine par e-mail. Que dois-je faire ?**
 
-Si vous avez le renouvellement automatique est activé, il est inutile à intervenir. L’e-mail de notification est fournie pour indiquer que le domaine est le point d’expirer et renouveler manuellement le renouvellement automatique n’est pas activé.
+Si le renouvellement automatique est activé, vous n’avez aucune action supplémentaire à effectuer. La notification par e-mail est envoyée pour vous informer que l’expiration du domaine approche et pour le renouveler manuellement si le renouvellement automatique est désactivé.
 
-**Suis-je facturé pour Azure DNS qui héberge mon domaine ?**
+**Suis-je facturé pour l’hébergement de mon domaine par Azure DNS ?**
 
-Le coût initial d’achat de domaine s’applique à l’inscription de domaine uniquement. Outre le coût de l’inscription, il existe acquitter des frais pour Azure DNS en fonction de votre utilisation. Pour plus d’informations, consultez [tarification Azure DNS](https://azure.microsoft.com/pricing/details/dns/) pour plus d’informations.
+Le coût initial de l’achat du domaine concerne l’inscription du domaine uniquement. En plus du coût d’inscription, il y a des frais pour Azure DNS en fonction de votre utilisation. Pour plus d’informations, consultez la [tarification d’Azure DNS](https://azure.microsoft.com/pricing/details/dns/).
 
-**J’ai acheté mon domaine précédemment à partir du portail Azure et que vous souhaitez déplacer à partir de GoDaddy d’hébergement à l’hébergement Azure DNS. Comment puis-je faire cela ?**
+**J’ai acheté un domaine il y a peu depuis le portail Azure et je souhaite passer d’un hébergement par GoDaddy à un hébergement par Azure DNS. Comment procéder ?**
 
-Il n’est pas obligatoire pour migrer vers Azure DNS d’hébergement. Si vous ne souhaitez pas migrer vers Azure DNS, l’expérience de gestion de domaine dans le portail Azure sur fournit des informations sur les étapes nécessaires pour passer à Azure DNS. Si le domaine a été acheté auprès d’App Service, migration à partir de GoDaddy d’hébergement à Azure DNS est une procédure relativement transparente.
+Vous n’êtes pas obligé de migrer vers Azure DNS. Si vous ne souhaitez pas migrer vers Azure DNS, l’expérience de gestion de domaine dans le portail Azure offre des informations sur les étapes à suivre pour passer à Azure DNS. Si le domaine a été acheté via App Service, la migration de l’hébergement GoDaddy à Azure DNS est relativement fluide.
 
-**Je souhaite acheter mon domaine à partir du domaine App Service, mais puis-je héberger mon domaine sur GoDaddy au lieu d’Azure DNS ?**
+**J’aimerais acheter mon domaine depuis App Service Domain. Puis-je l’héberger sur GoDaddy au lieu d’Azure DNS ?**
 
-À compter du 24 juillet 2017, les domaines App Service achetés dans le portail sont hébergés sur Azure DNS. Si vous préférez utiliser un autre fournisseur d’hébergement, vous devez accéder à son site Web pour obtenir un solution d’hébergement de domaine.
+À compter du 24 juillet 2017, les domaines App Service achetés dans le portail sont hébergés sur Azure DNS. Si vous préférez utiliser un fournisseur d’hébergement différent, vous devez vous rendre sur leur site web et obtenir une solution d’hébergement de domaine.
 
-**Dois-je payer pour la protection des données personnelles de mon domaine ?**
+**Dois-je payer pour la protection des données personnelles de mon domaine ?**
 
-Lorsque vous achetez un domaine via le portail Azure, vous pouvez choisir d’ajouter confidentialité sans coût supplémentaire. Il s’agit d’un des avantages de l’achat de votre domaine via Azure App Service.
+Lorsque vous achetez un domaine via le portail Azure, vous pouvez choisir d’ajouter la confidentialité sans frais supplémentaire. Il s’agit d’un des avantages à acheter votre domaine via Azure App Service.
 
-**Si vous décidez de ne plus mon domaine, puis-je obtenir mon retour ?**
+**Si je décide que je ne veux plus mon domaine, puis me faire rembourser ?**
 
-Lorsque vous achetez un domaine, vous n’êtes pas facturé pour une période de cinq jours, pendant cette période, vous pouvez décider que vous ne souhaitez pas que le domaine. Si vous décidez que vous ne souhaitez pas le domaine dans ce délai de cinq jours, vous n’êtes pas facturé. (les domaines .fr constituent une exception à cela. Si vous achetez un domaine .fr, vous êtes facturé immédiatement et vous ne peut pas être remboursés.)
+Lorsque vous achetez un domaine, vous profitez de cinq jours sans être facturé. Pendant cette période, vous pouvez décider que vous ne voulez plus le domaine. Si vous décidez que vous ne voulez plus le domaine pendant cette période de cinq jours, vous ne serez pas facturé. (les domaines .uk constituent une exception. Si vous achetez un domaine .uk, vous êtes facturé immédiatement et ne pouvez pas être remboursé.)
 
-**Puis-je utiliser le domaine dans une autre application Azure App Service dans mon abonnement ?**
+**Puis-je utiliser le domaine dans une autre application App Service dans mon abonnement ?**
 
-Oui. Lorsque vous accédez à la panneau domaines personnalisés et SSL dans le portail Azure, vous consultez les domaines que vous avez achetées. Vous pouvez configurer votre application pour utiliser un de ces domaines.
+Oui. Lorsque vous accédez au panneau Domaines personnalisés et SSL dans le portail Azure, vous pouvez voir les domaines que vous avez achetés. Vous pouvez configurer votre application pour qu’elle utilise un de ces domaines.
 
-**Puis-je transférer un domaine d’un abonnement vers un autre abonnement ?**
+**Puis-je transférer un domaine depuis un abonnement vers un autre abonnement ?**
 
-Vous pouvez déplacer un domaine vers un autre groupe ressources/abonnement à l’aide du [AzResource de déplacement](https://docs.microsoft.com/powershell/module/az.Resources/Move-azResource) applet de commande PowerShell.
+Vous pouvez déplacer un domaine vers un autre abonnement/groupe de ressources à l’aide la cmdlet PowerShell [Move-AzResource](https://docs.microsoft.com/powershell/module/az.Resources/Move-azResource).
 
-**Comment puis-je gérer mon domaine personnalisé si je n’ai pas actuellement une application Azure App Service ?**
+**Comment puis-je gérer mon domaine personnalisé si je ne dispose actuellement pas d’une application Azure App Service ?**
 
-Vous pouvez gérer votre domaine même si vous n’avez pas une application Web App Service. Domaine peut être utilisé pour les services Azure tels que machine virtuelle, etc. de stockage. Si vous avez l’intention d’utiliser le domaine pour App Service Web Apps, vous devez inclure une application Web qui n’est pas sur le plan App Service gratuits afin de lier le domaine à votre application web.
+Vous pouvez gérer votre domaine même si vous n’avez pas d’application web App Service. Le domaine peut être utilisé pour des services Azure tels qu’une machine virtuelle, Stockage Azure, etc. Si vous comptez utiliser le domaine pour les applications web App Service, vous devez inclure une application web qui n’est pas comprise dans le plan App Service gratuit afin de lier le domaine à votre application web.
 
-**Puis-je déplacer une application web avec un domaine personnalisé vers un autre abonnement ou à partir de l’environnement App Service v1 vers V2 ?**
+**Puis-je déplacer une application web avec un domaine personnalisé vers un autre abonnement ou depuis un environnement App Service v1 vers v2 ?**
 
-Oui, vous pouvez déplacer votre application web entre des abonnements. Suivez les instructions de [comment déplacer des ressources dans Azure](../azure-resource-manager/resource-group-move-resources.md). Il existe quelques limitations lors du déplacement de l’application web. Pour plus d’informations, consultez [Limitations de déplacement des ressources d’App Service](../azure-resource-manager/resource-group-move-resources.md#app-service-limitations
+Oui, vous pouvez déplacer votre application web sur plusieurs abonnements. Suivez les instructions dans [Déplacer des ressources dans Azure](../azure-resource-manager/resource-group-move-resources.md). Il existe quelques limites au déplacement d’une application web. Pour plus d’informations, consultez [Limites de déplacement des ressources App Service](../azure-resource-manager/resource-group-move-resources.md#app-service-limitations
 ).
 
-Après le déplacement de l’application web, les liaisons de nom d’hôte des domaines au sein des définition des domaines personnalisés doivent rester les mêmes. Aucune étape supplémentaire est nécessaire pour configurer les liaisons de nom d’hôte.
+Après avoir déplacé l’application web, les liaisons de nom d’hôte des domaines dans les paramètres des domaines personnalisés doivent demeurer identiques. Aucune action supplémentaire n’est nécessaire pour configurer les liaisons de nom d’hôte.

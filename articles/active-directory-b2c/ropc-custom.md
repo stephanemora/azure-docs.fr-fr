@@ -11,10 +11,10 @@ ms.date: 12/06/2018
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: 7a802354f20998c87ac8c2ef1f2c1dbdf47f6930
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66733642"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-active-directory-b2c-using-a-custom-policy"></a>Configurer le flux des informations d’identification par mot de passe de propriétaire de ressource dans Azure Active Directory B2C en utilisant un stratégie personnalisée
@@ -35,7 +35,7 @@ Les flux suivants ne sont pas pris en charge :
 - **Application monopage** : application frontale principalement écrite en JavaScript. Souvent, l’application est écrite en utilisant une infrastructure comme AngularJS, Ember.js ou Durandal.js.
 - **Flux client confidentiel** : l’ID du client d’application est validé, mais le secret d’application ne l’est pas.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Suivez les étapes de l’article [Prise en main des stratégies personnalisées dans Azure Active Directory B2C](active-directory-b2c-get-started-custom.md).
 
@@ -140,7 +140,7 @@ Suivez les étapes de l’article [Prise en main des stratégies personnalisées
     </TechnicalProfile>
     ```
 
-    Remplacez le **DefaultValue** de **client_id** avec l’ID d’Application de l’application ProxyIdentityExperienceFramework que vous avez créé dans le didacticiel. Puis remplacez **DefaultValue** de **resource_id** avec l’ID d’Application de l’application IdentityExperienceFramework que vous avez également créé dans le didacticiel.  
+    Remplacez la **DefaultValue** de **client_id** par l’ID d’application de l’application ProxyIdentityExperienceFramework que vous avez créée dans le didacticiel préalable. Remplacez ensuite la **DefaultValue** de **resource_id** par l’ID d’application de l’application IdentityExperienceFramework que vous avez également créée dans le didacticiel préalable.  
 
 5. Ajoutez les éléments **ClaimsProvider** suivants avec leurs profils techniques à l’élément **ClaimsProviders** :
 

@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/2/2019
 ms.author: alkohli
 ms.openlocfilehash: f9d01b56da2650be395878ce07e4aae73495061f
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64939636"
 ---
 # <a name="troubleshoot-issues-in-azure-data-box-disk"></a>Résoudre les problèmes rencontrés dans Azure Data Box Disk
@@ -73,13 +73,13 @@ Les journaux d’activité sont conservés pendant 90 jours. Vous pouvez interr
 | Impossible de déverrouiller ou de vérifier des volumes. Contactez le Support Microsoft.  <br><br>L’outil ne parvient pas à déverrouiller ni à vérifier les lecteurs verrouillés. | L’outil n’a pas pu déverrouiller l’un des lecteurs verrouillés avec la clé d’accès fournie. Contactez le Support Microsoft pour les étapes suivantes.                                                |
 | Les volumes suivants sont déverrouillés et vérifiés. <br>Lettre de lecteur du volume : E:<br>Impossible de déverrouiller les volumes avec les clés d’accès suivantes : werwerqomnf, qwerwerqwdfda <br><br>L’outil déverrouille certains lecteurs et répertorie les lettres de lecteur ayant réussi ou échoué.| Réussite partielle. Impossible de déverrouiller certains lecteurs avec la clé d’accès fournie. Contactez le Support Microsoft pour les étapes suivantes. |
 | Les volumes verrouillés sont introuvables. Vérifiez que le disque envoyé par Microsoft est connecté correctement et qu’il se trouve à l’état verrouillé.          | L’outil ne parvient pas à trouver de lecteurs verrouillés. Soit les lecteurs sont déjà déverrouillés, soit ils ne sont pas détectés. Assurez-vous que les lecteurs sont connectés et verrouillés.                                                           |
-| Erreur irrécupérable : Paramètre non valide<br>Nom de paramètre : invalid_arg<br>UTILISATION :<br>DataBoxDiskUnlock /PassKeys:<liste_clés_accès_séparées_par_points_virgules><br><br>Exemple : DataBoxDiskUnlock /PassKeys:passkey1;passkey2;passkey3<br>Exemple : DataBoxDiskUnlock /SystemCheck<br>Exemple : DataBoxDiskUnlock /Help<br><br>/PassKeys :       Permet d’obtenir cette clé d’accès à partir de la commande Azure Data Box Disk. La clé d’accès déverrouille vos disques.<br>/Help :           Cette option fournit une aide sur l’utilisation et les exemples de cmdlet.<br>/SystemCheck :    Cette option vérifie si votre système répond à la configuration requise pour l’exécution de l’outil.<br><br>Appuyez sur une touche pour quitter. | Paramètre non valide entré. Les seuls paramètres autorisés sont /SystemCheck, /PassKey et /Help.                                                                            |
+| Erreur irrécupérable : Paramètre non valide<br>Nom de paramètre : invalid_arg<br>UTILISATION :<br>DataBoxDiskUnlock /PassKeys:<liste_clés_accès_séparées_par_points_virgules><br><br>Exemple : DataBoxDiskUnlock /PassKeys:passkey1;passkey2;passkey3<br>Exemple : DataBoxDiskUnlock /SystemCheck<br>Exemple : DataBoxDiskUnlock /Help<br><br>/PassKeys :       Permet d’obtenir cette clé d’accès à partir de la commande Azure Data Box Disk. La clé d’accès déverrouille vos disques.<br>/Help :           Cette option fournit une aide sur l’utilisation et les exemples de cmdlet.<br>/SystemCheck :    Cette option vérifie si votre système répond à la configuration requise pour l’exécution de l’outil.<br><br>Appuyez sur une touche pour quitter. | Paramètre non valide entré. Les seuls paramètres autorisés sont les suivants : /SystemCheck, /PassKey et /Help.                                                                            |
 
 ## <a name="data-box-disk-split-copy-tool-errors"></a>Erreurs de l’outil de copie Data Box Disk Split
 
 |Messages d’erreur/avertissements  |Recommandations |
 |---------|---------|
-|[Info] Récupération de mot de passe BitLocker du volume : m <br>[Erreur] Exception interceptée lors de la récupération de clé BitLocker pour volume m:<br> La séquence ne contient aucun élément.|Cette erreur se produit lorsque la destination Data Box Disk est hors ligne. <br> Utilisez l’outil `diskmgmt.msc` sur les disques en ligne.|
+|[Info] Récupération du mot de passe BitLocker du volume : m <br>[Erreur] Exception détectée lors de la récupération de la clé BitLocker du volume m :<br> La séquence ne contient aucun élément.|Cette erreur se produit lorsque la destination Data Box Disk est hors ligne. <br> Utilisez l’outil `diskmgmt.msc` sur les disques en ligne.|
 |[Erreur] Exception levée : Échec de l'opération WMI :<br> Method=UnlockWithNumericalPassword, ReturnValue=2150694965, <br>Win32Message=Le format du mot de passe de récupération fourni est invalide. <br>Les mots de passe de récupération BitLocker sont composés de 48 chiffres. <br>Vérifiez le format du mot de passe de récupération, puis essayez à nouveau.|Utilisez l’outil de déverrouillage de Data Box Disk Unlock pour déverrouiller les disques en premier lieu, puis essayez à nouveau la commande. Pour plus d’informations, consultez <li> [Déverrouillez Data Box Disk pour les clients Windows](data-box-disk-deploy-set-up.md#unlock-disks-on-windows-client). </li><li> [Déverrouillez Data Box Disk pour les clients Linux](data-box-disk-deploy-set-up.md#unlock-disks-on-linux-client). </li>|
 |[Erreur] Exception levée : Un fichier DriveManifest.xml se trouve sur le lecteur cible. <br> Cela signifie que le lecteur cible peut avoir été préparé avec un fichier journal différent. <br>Pour ajouter de nouvelles données sur le même lecteur, utilisez le fichier journal précédent. Pour supprimer les données existantes et réutiliser le lecteur cible pour un nouveau travail d’importation, supprimez le fichier DriveManifest.xml sur le lecteur. Exécutez à nouveau cette commande avec un nouveau fichier journal.| Cette erreur se produit lorsque vous essayez d’utiliser le même jeu de lecteurs pour plusieurs sessions d’importation. <br> Utilisez un jeu de lecteurs uniquement pour une seule session de fractionnement et de copie.|
 |[Erreur] Exception levée : CopySessionId importdata-sept-test-1 fait référence à une session de copie précédente et ne peut pas être réutilisé pour une nouvelle session de copie.|Cette erreur est signalée lorsque vous essayez de nommer un nouveau travail avec le même nom que celui d’un travail précédent terminé avec succès.<br> Attribuez un nom unique à votre nouveau travail.|
@@ -104,37 +104,37 @@ Bien que le remontage ait réussi, les données ne seront pas conservées.
 
 **Résolution :**
 
-Procédez comme suit sur votre système Linux :
+Sur votre système Linux, procédez comme suit :
 
-1. Installer le `ntfsprogs` package pour l’utilitaire ntfsfix.
-2. Démontez les points de montage fournies pour le lecteur par l’outil de déverrouillage. Le nombre de points de montage varie pour les lecteurs.
+1. Installez le package `ntfsprogs` pour l’utilitaire ntfsfix.
+2. Démontez les points de montage fournis pour le lecteur avec l’outil de déverrouillage. Le nombre de points de montage varie en fonction des lecteurs.
 
     ```
     unmount /mnt/DataBoxDisk/mountVol1
     ```
 
-3. Exécutez `ntfsfix` sur le chemin d’accès correspondante. Le nombre en surbrillance doit être identique à étape 2.
+3. Exécutez `ntfsfix` sur le chemin d’accès correspondant. Le nombre en surbrillance doit être identique à celui de l’étape 2.
 
     ```
     ntfsfix /mnt/DataBoxDisk/bitlockerVol1/dislocker-file
     ```
 
-4. Exécutez la commande suivante pour supprimer les métadonnées de mise en veille prolongée qui peuvent provoquer le problème de montage.
+4. Exécutez la commande suivante pour supprimer les métadonnées de mise en veille prolongée qui peuvent entraîner un problème de montage.
 
     ```
     ntfs-3g -o remove_hiberfile /mnt/DataBoxDisk/bitlockerVol1/dislocker-file /mnt/DataBoxDisk/mountVol1
     ```
 
-5. Effectuer un nettoyage démonter.
+5. Procédez à un démontage consciencieux.
 
     ```
     ./DataBoxDiskUnlock_x86_64 /unmount
     ```
 
-6. Effectuez un nettoyage unlock et monter.
-7. Tester le point de montage en écrivant un fichier.
+6. Procédez à un montage et déverrouillage consciencieux.
+7. Testez le point de montage en écrivant un fichier.
 8. Démontez et remontez pour valider la persistance du fichier.
-9. Continuer avec la copie des données.
+9. Continuez avec la copie des données.
  
 ### <a name="issue-error-with-data-not-persisting-after-copy"></a>Problème : Erreur avec des données non persistantes après copie
  

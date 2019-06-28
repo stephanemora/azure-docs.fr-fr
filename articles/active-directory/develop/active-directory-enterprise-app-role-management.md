@@ -17,17 +17,17 @@ ms.author: jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 15165bce70a9bc2fbf3eb840ca8bce4fd5073280
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65544640"
 ---
 # <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>Activation Configurer les revendications de rôle émises dans le jeton SAML pour les applications d'entreprise
 
 Grâce à Azure Active Directory (Azure AD), vous pouvez personnaliser le type de revendications de rôle que vous recevez après avoir autorisé une application.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 - Un abonnement Azure AD avec l’installation des répertoires.
 - Un abonnement pour lequel l’authentification unique (SSO) est activée. Vous devez configurer l’authentification unique avec votre application.
@@ -154,18 +154,18 @@ Si votre application s’attend à voir passer dans une réponse SAML des rôles
 
 9. Dans la section **Revendications des utilisateurs** de la boîte de dialogue **Attributs utilisateur**, effectuez les étapes suivantes pour ajouter le jeton SAML comme indiqué dans le tableau ci-dessous :
 
-    | Nom d'attribut | Valeur de l’attribut |
+    | Nom de l’attribut | Valeur de l’attribut |
     | -------------- | ----------------|
     | Nom de rôle  | user.assignedroles |
 
     >[!NOTE]
-    >Si la valeur de revendication de rôle est null, puis Azure AD enverra pas cette valeur dans le jeton, et c’est par défaut en fonction de la conception.
+    >Si la valeur de revendication de rôle est null, Azure AD n’enverra pas cette valeur dans le jeton ; il s’agit du comportement par défaut normal.
 
-    a. Cliquez sur **modifier** icône pour ouvrir **attributs utilisateur & revendications** boîte de dialogue.
+    a. Cliquez sur l’icône **Modifier** pour ouvrir la boîte de dialogue **Attributs et revendications de l’utilisateur**.
 
       ![Bouton « Ajouter un attribut »](./media/active-directory-enterprise-app-role-management/editattribute.png)
 
-    b. Dans le **les revendications d’utilisateur de gestion** boîte de dialogue, ajoutez l’attribut de jeton SAML en cliquant sur **ajouter une nouvelle revendication**.
+    b. Dans la boîte de dialogue **Gérer les revendications des utilisateurs**, ajoutez l’attribut de jeton SAML en cliquant sur **Ajouter une nouvelle revendication**.
 
       ![Bouton « Ajouter un attribut »](./media/active-directory-enterprise-app-role-management/tutorial_attribute_04.png)
 

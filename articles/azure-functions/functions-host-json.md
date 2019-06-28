@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: glenga
 ms.openlocfilehash: ddd3b0889eedd55f809dbb57b2ef41a2ae3f9c94
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65521393"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x"></a>Informations de référence sur le fichier host.json pour Azure Functions 2.x  
 
-> [!div class="op_single_selector" title1="Select the version of the Azure Functions runtime you are using: "]
+> [!div class="op_single_selector" title1="Sélectionnez la version du runtime Azure Functions que vous utilisez : "]
 > * [Version 1](functions-host-json-v1.md)
 > * [Version 2](functions-host-json.md)
 
@@ -114,10 +114,10 @@ Contrôle la [fonctionnalité d’échantillonnage dans Application Insights](.
 > [!NOTE]
 > L’échantillonnage de journal peut faire que certaines exécutions n’apparaissent pas dans le panneau de surveillance Application Insights.
 
-|Propriété  |Default | Description  |
+|Propriété  |Default | Description |
 |---------|---------|---------| 
 |isEnabled|true|Active ou désactive l’échantillonnage.| 
-|maxTelemetryItemsPerSecond|5.|Seuil à partir duquel l’échantillonnage débute.| 
+|maxTelemetryItemsPerSecond|5\.|Seuil à partir duquel l’échantillonnage débute.| 
 
 ## <a name="cosmosdb"></a>cosmosDb
 
@@ -173,10 +173,10 @@ Paramètres de configuration de l’[analyse d’intégrité d’hôtes](https:/
 
 |Propriété  |Default | Description |
 |---------|---------|---------| 
-|enabled|true|Indique si la fonctionnalité est activée. | 
+|Activé|true|Indique si la fonctionnalité est activée. | 
 |healthCheckInterval|10 secondes|L’intervalle de temps entre les contrôles d’intégrité périodiques en arrière-plan. | 
 |healthCheckWindow|2 minutes|Une fenêtre de temps coulissante utilisée conjointement au paramètre `healthCheckThreshold`.| 
-|healthCheckThreshold|6.|Nombre maximal de fois où le contrôle d’intégrité peut échouer avant le lancement d’un recyclage de l’hôte.| 
+|healthCheckThreshold|6\.|Nombre maximal de fois où le contrôle d’intégrité peut échouer avant le lancement d’un recyclage de l’hôte.| 
 |counterThreshold|0.80|Le seuil auquel un compteur de performance est considéré comme non intègre.| 
 
 ## <a name="http"></a>http
@@ -205,7 +205,7 @@ Contrôle les comportements de journalisation de l’application de fonction, y 
 }
 ```
 
-|Propriété  |Default | Description  |
+|Propriété  |Default | Description |
 |---------|---------|---------|
 |fileLoggingMode|debugOnly|Définit le niveau de journalisation de fichiers activé.  Options : `never`, `always`, `debugOnly`. |
 |logLevel|n/a|Objet qui définit le filtrage par catégorie du journal pour les fonctions de l’application. La version 2.x suit la disposition d’ASP.NET Core pour le filtrage de catégorie de journal. Cela vous permet de filtrer la journalisation pour des fonctions spécifiques. Pour plus d’informations, consultez [Filtrage de journal](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering) dans la documentation ASP.NET Core. |
@@ -228,7 +228,7 @@ Ce paramètre est un enfant de la [journalisation](#logging). Il contrôle la jo
 }
 ```
 
-|Propriété  |Default | Description  |
+|Propriété  |Default | Description |
 |---------|---------|---------| 
 |isEnabled|false|Active ou désactive la journalisation de la console.| 
 
@@ -284,7 +284,7 @@ Ensemble de [répertoires de code partagé](functions-reference-csharp.md#watche
 
 ## <a name="manageddependency"></a>managedDependency
 
-Dépendance managé est une fonctionnalité d’aperçu qui est actuellement uniquement pris en charge avec PowerShell en fonction des fonctions. Il active des dépendances à être gérées automatiquement par le service. Lorsque la propriété enabled est définie sur true, le [requirements.psd1](functions-reference-powershell.md#dependency-management) fichier sera traité. Dépendances seront mises à jour lorsque toutes les versions mineures sont libérées.
+La dépendance managée est une fonctionnalité d’évaluation qui est actuellement prise en charge uniquement par les fonctions basées sur PowerShell. Elle permet au service de gérer automatiquement les dépendances. Lorsque la propriété activée est définie sur true, le fichier [requirements.psd1](functions-reference-powershell.md#dependency-management) est traité. Les dépendances sont mises à jour lorsque des versions mineures sont publiées.
 
 ```json
 {

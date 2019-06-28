@@ -18,10 +18,10 @@ ms.date: 02/03/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 3772dbdc8582eea1b2eac368784878a8a36d34ad
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62125308"
 ---
 # <a name="sap-workload-configurations-with-azure-availability-zones"></a>Configurations de la charge de travail SAP avec des zones de disponibilité Azure
@@ -93,7 +93,7 @@ Pour prendre ces décisions, tenez également compte des recommandations de SAP 
 > Il est probable que les mesures décrites précédemment fournissent des résultats différents dans chaque région Azure qui prend en charge les [zones de disponibilité](https://docs.microsoft.com/azure/availability-zones/az-overview). Même si vos besoins en latence réseau ne changent pas, il peut être nécessaire d’adopter différentes stratégies de déploiement dans les différentes régions Azure, car la latence réseau entre les zones peut varier. Dans certaines régions Azure, la latence réseau entre les trois différentes zones peut varier considérablement. Dans d’autres régions, la latence réseau entre les trois différentes zones peut être plus uniforme. L’idée qu’il existe toujours une latence réseau comprise entre 1 et 2 millisecondes est fausse. La latence réseau entre les zones de disponibilité dans les régions Azure ne peut pas être généralisée.
 
 ## <a name="activeactive-deployment"></a>Déploiement actif/actif
-Cette architecture de déploiement est appelée actif/actif, car vous déployez vos serveurs d’applications SAP actives entre les deux ou trois zones. L’instance SAP Central Services qui utilise la réplication de la mise en file d’attente sera déployé entre deux zones. Ceci vaut également pour la couche SGBD, qui sera déployée sur les mêmes zones que SAP Central Service.
+Cette architecture de déploiement est appelée active/active, car vous déployez vos serveurs d’applications SAP actifs sur deux ou trois zones. L’instance SAP Central Services qui utilise la réplication de la mise en file d’attente sera déployé entre deux zones. Ceci vaut également pour la couche SGBD, qui sera déployée sur les mêmes zones que SAP Central Service.
 
 Quand vous envisagez cette configuration, vous devez rechercher les deux zones de disponibilité dans votre région qui offrent une latence réseau interzone acceptable pour votre charge de travail et pour la réplication synchrone de votre SGBD. Vous devez également vous assurer que le delta entre la latence réseau au sein des zones que vous avez sélectionnées et la latence réseau interzone n’est pas trop important. En effet, vous ne voulez pas de grandes variations dans les durées d’exécution de vos processus métier ou programmes de traitement par lots, selon qu’un travail s’exécute dans la zone avec le serveur SGBD ou entre les zones. Certaines variations sont acceptables, mais pas des différences importantes.
 

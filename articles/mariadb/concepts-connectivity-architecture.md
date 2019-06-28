@@ -1,32 +1,32 @@
 ---
-title: Architecture de connectivité dans Azure Database pour MariaDB
-description: Décrit l’architecture de connectivité pour votre serveur Azure Database pour MariaDB.
+title: Architecture de connectivité dans Azure Database for MariaDB
+description: Décrit l’architecture de connectivité pour votre serveur Azure Database for MariaDB.
 author: kummanish
 ms.author: manishku
 ms.service: mariaDB
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.openlocfilehash: 126e7ce4d9784a2f6a59f39562dff9a0b9d60ea0
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66735390"
 ---
-# <a name="connectivity-architecture-in-azure-database-for-mariadb"></a>Architecture de connectivité dans Azure Database pour MariaDB
-Cet article explique la base de données Azure pour l’architecture de connectivité de MariaDB, ainsi que la manière dont le trafic est dirigé vers votre serveur Azure Database pour MariaDB instance à partir de clients au sein et en dehors d’Azure.
+# <a name="connectivity-architecture-in-azure-database-for-mariadb"></a>Architecture de connectivité dans Azure Database for MariaDB
+Cet article présente l’architecture de connectivité Azure Database for MariaDB, ainsi que la façon dont le trafic est orienté vers votre instance Azure Database for MariaDB des clients dans Azure et en dehors.
 
 ## <a name="connectivity-architecture"></a>Architecture de connectivité
 
-Connexion à votre base de données Azure pour MariaDB est établie via une passerelle qui est responsable de routage des connexions entrantes à l’emplacement physique de votre serveur dans nos clusters. Le diagramme suivant illustre le flux de trafic.
+La connexion à votre instance Azure Database for MariaDB est établie via une passerelle qui est responsable du routage des connexions entrantes vers l’emplacement physique de votre serveur dans nos clusters. Le schéma suivant illustre le flux de trafic.
 
 ![Vue d’ensemble de l’architecture de connectivité](./media/concepts-connectivity-architecture/connectivity-architecture-overview-proxy.png)
 
-Comme client de se connecter à la base de données, ils obtiennent une chaîne de connexion qui se connecte à la passerelle. Cette passerelle a une adresse IP publique qui écoute le port 3306. À l’intérieur du cluster de base de données, le trafic est transféré à la base de données Azure approprié pour MariaDB. Par conséquent, pour vous connecter à votre serveur, comme à partir de réseaux d’entreprise, il est nécessaire ouvrir le pare-feu du côté client pour autoriser le trafic sortant être en mesure d’atteindre nos passerelles. Vous trouverez ci-dessous une liste complète des adresses IP utilisées par nos passerelles par région.
+Quand le client se connecte à la base de données, il obtient une chaîne de connexion qui se connecte à la passerelle. Cette passerelle a une adresse IP publique qui écoute le port 3306. À l’intérieur du cluster de bases de données, le trafic est transféré vers l’instance Azure Database for MariaDB appropriée. Par conséquent, pour vous connecter à votre serveur, comme à partir de réseaux d’entreprise, il est nécessaire d’ouvrir le pare-feu côté client pour autoriser le trafic sortant à atteindre nos passerelles. Vous trouverez ci-dessous une liste complète des adresses IP utilisées par nos passerelles par région.
 
-## <a name="azure-database-for-mariadb-gateway-ip-addresses"></a>Base de données Azure pour les adresses IP de passerelle MariaDB
+## <a name="azure-database-for-mariadb-gateway-ip-addresses"></a>Adresses IP de passerelle Azure Database for MariaDB
 
-Le tableau suivant répertorie les adresses IP au principal et secondaire de la base de données Azure pour la passerelle MariaDB pour toutes les régions de données. L’adresse IP principale est l’adresse IP actuelle de la passerelle et la deuxième adresse IP est une adresse IP de basculement en cas de défaillance du principal. Comme mentionné, les clients doivent autoriser le trafic sortants vers les adresses IP. La deuxième adresse IP n’écoute pas sur tous les services jusqu'à ce qu’il est activé par Azure Database pour MariaDB accepter les connexions.
+Le tableau suivant répertorie les adresses IP principales et secondaires de la passerelle Azure Database for MariaDB pour toutes les régions de données. L’adresse IP principale est l’adresse IP actuelle de la passerelle et la deuxième adresse IP est une adresse IP de basculement en cas de défaillance de la première. Comme mentionné, les clients doivent autoriser le trafic sortant vers les adresses IP. La deuxième adresse IP n’écoute pas les services tant qu’elle n’est pas activée par Azure Database for MariaDB de manière à accepter les connexions.
 
 | **Nom de la région** | **Adresse IP principale** | **Adresse IP secondaire** |
 |:----------------|:-------------|:------------------------|
@@ -69,4 +69,4 @@ Le tableau suivant répertorie les adresses IP au principal et secondaire de la 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Créer et gérer des règles de pare-feu Azure Database for MariaDB à l’aide du portail Azure](./howto-manage-firewall-portal.md)
-* [Créer et gérer la base de données Azure pour les règles de pare-feu MariaDB avec Azure CLI](./howto-manage-firewall-cli.md)
+* [Create and manage Azure Database for MariaDB firewall rules using Azure CLI](./howto-manage-firewall-cli.md) (Créer et gérer des règles de pare-feu Azure Database for MariaDB à l’aide de l’interface de ligne de commande Azure)

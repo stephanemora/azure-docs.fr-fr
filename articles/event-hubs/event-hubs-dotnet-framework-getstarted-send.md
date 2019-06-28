@@ -1,6 +1,6 @@
 ---
-title: Envoyer et recevoir des événements à l’aide de .NET Framework - Azure Event Hubs | Microsoft Docs
-description: Cet article fournit une procédure pas à pas pour la création d’une application .NET Framework qui envoie des événements vers Azure Event Hubs.
+title: Envoyer et recevoir des événements avec .NET Framework - Azure Event Hubs | Microsoft Docs
+description: Cet article décrit la procédure de création d’une application .NET Framework qui envoie des événements à Azure Event Hubs.
 services: event-hubs
 documentationcenter: ''
 author: ShubhaVijayasarathy
@@ -16,25 +16,25 @@ ms.custom: seodec18
 ms.date: 04/15/2019
 ms.author: shvija
 ms.openlocfilehash: 96ce71a7b3076adec169f103060a167b61c42d5c
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65603512"
 ---
-# <a name="send-events-to-or-receive-events-from-azure-event-hubs-using-net-framework"></a>Envoyer des événements à ou recevoir des événements d’Azure Event Hubs à l’aide de .NET Framework
+# <a name="send-events-to-or-receive-events-from-azure-event-hubs-using-net-framework"></a>Envoyer vers ou recevoir des événements d’Azure Event Hubs avec .NET Framework
 Azure Event Hubs est une plateforme de diffusion de données volumineuses et un service d’ingestion d’événements, capable de recevoir et de traiter des millions d’événements par seconde. Les concentrateurs d’événements peuvent traiter et stocker des événements, des données ou la télémétrie produits par des logiciels et appareils distribués. Les données envoyées à un concentrateur d’événements peuvent être transformées et stockées à l’aide d’adaptateurs de traitement par lot/stockage ou d’un fournisseur d’analyse en temps réel. Pour une présentation détaillée d’Event Hubs, consultez [Vue d’ensemble d’Event Hubs](event-hubs-about.md) et [Fonctionnalités d’Event Hubs](event-hubs-features.md).
 
-Ce didacticiel montre comment créer des applications de console .NET Framework dans C# pour envoyer des événements à ou de recevoir des événements à partir d’un eventhub. 
+Ce tutoriel montre comment créer des applications de la console .NET Framework dans C# pour envoyer des événements à partir d’un Event Hub ou lui en envoyer. 
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 Pour effectuer ce didacticiel, vous avez besoin de ce qui suit :
 
 - [Microsoft Visual Studio 2019](https://visualstudio.com).
-- **Créer un espace de noms Event Hubs et un concentrateur d’événements**. La première étape consiste à utiliser le [portail Azure](https://portal.azure.com) pour créer un espace de noms de type Event Hubs et obtenir les informations de gestion nécessaires à votre application pour communiquer avec le concentrateur d’événements. Pour créer un espace de noms et un hub d’événements, suivez la procédure décrite dans [cet article](event-hubs-create.md). Ensuite, obtenez le **chaîne de connexion pour l’espace de noms event hub** en suivant les instructions de l’article : [Obtenir la chaîne de connexion](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). Vous utiliserez la chaîne de connexion plus loin dans ce tutoriel.
+- **Créez un espace de noms Event Hubs et un Event Hub**. La première étape consiste à utiliser le [portail Azure](https://portal.azure.com) pour créer un espace de noms de type Event Hubs et obtenir les informations de gestion nécessaires à votre application pour communiquer avec le concentrateur d’événements. Pour créer un espace de noms et un hub d’événements, suivez la procédure décrite dans [cet article](event-hubs-create.md). Ensuite, obtenez la **chaîne de connexion de l’espace de noms Event Hub** en suivant les instructions à partir de l’article : [Obtenir la chaîne de connexion](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). Vous utiliserez la chaîne de connexion plus loin dans ce tutoriel.
 
 ## <a name="send-events"></a>Envoyer des événements 
-Cette section vous montre comment créer une application de console .NET Framework pour envoyer des événements à un concentrateur d’événements. 
+Cette section vous montre comment créer une application console .NET Framework pour envoyer des événements à un Event Hub. 
 
 ### <a name="create-a-console-application"></a>Création d’une application console
 
@@ -44,7 +44,7 @@ Dans Visual Studio, créez un projet d'application de bureau Visual C# à l'aide
 
 ### <a name="add-the-event-hubs-nuget-package"></a>Ajout du package NuGet Event Hubs
 
-1. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le projet **Expéditeur**, puis cliquez sur **Gérer les packages NuGet pour la solution...**. 
+1. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le projet **Expéditeur**, puis cliquez sur **Gérer les packages NuGet pour la solution...** . 
 2. Cliquez sur l’onglet **Parcourir**, puis recherchez `WindowsAzure.ServiceBus`. Cliquez sur **Installer**et acceptez les conditions d’utilisation. 
    
     ![Installer le package NuGet Service Bus](./media/event-hubs-dotnet-framework-getstarted-send/create-sender-csharp2.png)
@@ -103,7 +103,7 @@ Dans Visual Studio, créez un projet d'application de bureau Visual C# à l'aide
 5. Exécutez le programme et assurez-vous qu’il n’y a aucune erreur.
   
 ## <a name="receive-events"></a>Recevoir des événements
-Dans cette section, vous écrivez une application console .NET Framework qui reçoit des messages à partir d’un hub d’événements à l’aide du [Event Processor Host](event-hubs-event-processor-host.md). [L’hôte du processeur d’événements](event-hubs-event-processor-host.md) est une classe .NET qui simplifie la réception d’événements provenant de concentrateurs d’événements grâce à la gestion des points de contrôle permanents et des réceptions en parallèle de ces concentrateurs d’événements. L’hôte du processeur d’événements vous permet de répartir des événements sur plusieurs récepteurs, même quand ils sont hébergés dans des nœuds différents. 
+Dans cette section, vous codez une application console .NET Framework qui reçoit des messages d’un Event Hub à l’aide de [l’hôte du processeur d’événements](event-hubs-event-processor-host.md). [L’hôte du processeur d’événements](event-hubs-event-processor-host.md) est une classe .NET qui simplifie la réception d’événements provenant de concentrateurs d’événements grâce à la gestion des points de contrôle permanents et des réceptions en parallèle de ces concentrateurs d’événements. L’hôte du processeur d’événements vous permet de répartir des événements sur plusieurs récepteurs, même quand ils sont hébergés dans des nœuds différents. 
 
 [!INCLUDE [event-hubs-create-storage](../../includes/event-hubs-create-storage.md)]
 
@@ -115,7 +115,7 @@ Dans Visual Studio, créez un projet d'application de bureau Visual C# à l'aide
 
 ### <a name="add-the-event-hubs-nuget-package"></a>Ajout du package NuGet Event Hubs
 
-1. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le projet **Récepteur**, puis cliquez sur **Gérer les packages NuGet pour la solution...**.
+1. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le projet **Récepteur**, puis cliquez sur **Gérer les packages NuGet pour la solution...** .
 2. Cliquez sur l’onglet **Parcourir**, puis recherchez `Microsoft Azure Service Bus Event Hub - EventProcessorHost`. Cliquez sur **Installer**et acceptez les conditions d’utilisation.
    
     ![Recherchez le package Event Processor Host NuGet](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-eph-csharp1.png)
@@ -218,7 +218,7 @@ Dans Visual Studio, créez un projet d'application de bureau Visual C# à l'aide
 Consultez les articles suivants : 
 
 - [EventProcessorHost](event-hubs-event-processor-host.md)
-- [Fonctionnalités et la terminologie dans Azure Event Hubs](event-hubs-features.md).
+- [Fonctionnalités et terminologie dans Azure Event Hubs](event-hubs-features.md).
 - [FAQ sur les hubs d’événements](event-hubs-faq.md)
 
 

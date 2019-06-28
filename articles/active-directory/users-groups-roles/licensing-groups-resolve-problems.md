@@ -1,5 +1,5 @@
 ---
-title: Résolution des problèmes d’attribution de licences pour un groupe - Azure Active Directory | Microsoft Docs
+title: Résolution des problèmes d’affectation de licence pour un groupe - Azure Active Directory | Microsoft Docs
 description: Identification et résolution des problèmes d’affectation de licences avec la licence basée sur le groupe Azure Active Directory
 services: active-directory
 keywords: Gestion des licences Azure AD
@@ -16,10 +16,10 @@ ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3dbfbd76d235cedd297a5ad54b51bc4ebb550bb1
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65466285"
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Identification et résolution des problèmes d’affectation de licences pour un groupe dans Azure Active Directory
@@ -35,24 +35,24 @@ Lorsque vous utilisez une licence basée sur le groupe, les mêmes erreurs peuve
 
 1. Pour rechercher des données utilisateur à l’état d’erreur dans un groupe spécifique, ouvrez le volet du groupe. Sous **Licences**, une notification s’affiche si des données utilisateur se trouvent à l’état d’erreur.
 
-   ![Message de notifications de groupe et d’erreur](./media/licensing-groups-resolve-problems/group-error-notification.png)
+   ![Message de notifications d’erreur et de groupe](./media/licensing-groups-resolve-problems/group-error-notification.png)
 
 2. Sélectionnez la notification pour ouvrir la liste de tous les utilisateurs concernés. Vous pouvez sélectionner chaque utilisateur individuellement pour afficher plus de détails.
 
-   ![liste des utilisateurs dans le groupe de licences en état d’erreur](./media/licensing-groups-resolve-problems/list-of-users-with-errors.png)
+   ![liste des utilisateurs en état d’erreur de licences de groupe](./media/licensing-groups-resolve-problems/list-of-users-with-errors.png)
 
 3. Pour rechercher tous les groupes contenant au moins une erreur, dans le panneau **Azure Active Directory**, sélectionnez **Licences**, puis **Vue d’ensemble**. Une fenêtre d’informations s’affiche lorsque des groupes nécessitent votre attention.
 
-   ![Vue d’ensemble et des informations sur les groupes dans l’état d’erreur](./media/licensing-groups-resolve-problems/group-errors-widget.png)
+   ![Vue d’ensemble et informations sur les groupes en état d’erreur](./media/licensing-groups-resolve-problems/group-errors-widget.png)
 
 4. Cliquez sur la zone pour afficher la liste de tous les groupes contenant des erreurs. Vous pouvez sélectionner chaque groupe pour afficher des détails supplémentaires.
 
-   ![Vue d’ensemble et liste des groupes avec des erreurs](./media/licensing-groups-resolve-problems/list-of-groups-with-errors.png)
+   ![Vue d’ensemble et liste des groupes contenant des erreurs](./media/licensing-groups-resolve-problems/list-of-groups-with-errors.png)
 
 
 Les sections suivantes décrivent chaque problème potentiel et la manière de le résoudre.
 
-## <a name="not-enough-licenses"></a>Licences en nombre insuffisant
+## <a name="not-enough-licenses"></a>Nombre insuffisant de licences
 
 **Problème :** Le nombre de licences disponibles est insuffisant pour un des produits spécifiés dans le groupe. Vous devez acheter des licences produit supplémentaires ou libérer des licences inutilisées par d’autres utilisateurs ou d’autres groupes.
 
@@ -111,11 +111,11 @@ Si vous utilisez Exchange Online, certains comptes d’utilisateur de votre loca
 
 Une fois les problèmes d’adresse de proxy résolus pour les utilisateurs concernés, veillez à forcer le traitement des licences sur le groupe, pour vous assurer que les licences peuvent désormais être appliquées.
 
-## <a name="azure-ad-mail-and-proxyaddresses-attribute-change"></a>Modification de l’attribut Azure AD Mail et ProxyAddresses
+## <a name="azure-ad-mail-and-proxyaddresses-attribute-change"></a>Modification d’attribut Azure AD Mail et ProxyAddresses
 
-**Problème :** Lors de la mise à jour d’attribution de licence sur un utilisateur ou un groupe, vous pouvez voir que l’attribut Azure AD Mail et ProxyAddresses de certains utilisateurs sont modifiées.
+**Problème :** Lors de la mise à jour de l’attribution de licence sur un utilisateur ou un groupe, vous pouvez voir que les attributs Azure AD Mail et ProxyAddresses de certains utilisateurs sont modifiés.
 
-Mise à jour d’attribution de licence sur un calcul à déclencher d’adresses du proxy les causes utilisateur, ce qui peut modifier les attributs de l’utilisateur. Pour comprendre la raison exacte de la modification et de résoudre le problème, consultez cet article sur [comment l’attribut proxyAddresses est rempli dans Azure AD](https://support.microsoft.com/help/3190357/how-the-proxyaddresses-attribute-is-populated-in-azure-ad).
+La mise à jour d’attribution de licence sur un utilisateur entraîne le déclenchement du calcul de l’adresse proxy, ce qui peut modifier les attributs de l’utilisateur. Pour comprendre la raison exacte de la modification et résoudre le problème, consultez cet article [Comment l’attribut proxyAddresses est renseigné dans Azure AD](https://support.microsoft.com/help/3190357/how-the-proxyaddresses-attribute-is-populated-in-azure-ad).
 
 ## <a name="what-happens-when-theres-more-than-one-product-license-on-a-group"></a>Que se passe-t-il lorsqu’un groupe est concerné par plusieurs licences produit ?
 

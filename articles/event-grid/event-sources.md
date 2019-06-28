@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: spelluru
 ms.openlocfilehash: 3611072759c62f42294730405f1dc402c496acce
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66735007"
 ---
 # <a name="event-sources-in-azure-event-grid"></a>Sources d’événements dans Azure Event Grid
@@ -74,7 +74,7 @@ Pour obtenir des exemples d’Event Hubs utilisé comme gestionnaire, consultez 
 
 ## <a name="iot-hub"></a>IoT Hub
 
-S’abonner à des événements IoT Hub pour répondre à l’appareil créé, supprimé, connectées déconnecté et les événements de télémétrie.
+Abonnez-vous aux événements IoT Hub pour répondre aux événements de création, de suppression, de connexion et de déconnexion et de télémétrie d’appareil.
 
 |Intitulé  |Description  |
 |---------|---------|
@@ -142,13 +142,13 @@ Abonnez-vous aux événements Azure Maps pour répondre aux événements de limi
 | [Schéma d’événement](event-schema-azure-maps.md) | Affiche les champs dans les événements Azure Maps. |
 
 ## <a name="app-configuration"></a>Configuration d’application
-S’abonner aux événements de Configuration de l’application Azure pour répondre aux événements de modification de clé-valeur.
+Abonnez-vous aux événements Azure App Configuration pour répondre aux événements de modification clé-valeur.
 
 |Intitulé | Description |
 |---------|---------|
-| [Réagir aux événements de Configuration de l’application Azure à l’aide d’Event Grid](../azure-app-configuration/concept-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Vue d’ensemble de l’intégration de la Configuration de l’application Azure avec Event Grid. |
-| [Démarrage rapide : acheminer des événements de Configuration de l’application Azure vers un point de terminaison web personnalisé avec Azure CLI](../azure-app-configuration/howto-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Montre comment utiliser Azure CLI pour envoyer des événements de Configuration de l’application Azure à un WebHook. |
-| [Schéma d’événement](event-schema-app-configuration.md) | Affiche les champs dans les événements de Configuration de l’application Azure. |
+| [Réagir aux événements Azure App Configuration à l’aide d’Event Grid](../azure-app-configuration/concept-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Vue d’ensemble de l’intégration d’Azure App Configuration avec Event Grid. |
+| [Démarrage rapide : router des événements Azure App Configuration vers un point de terminaison web avec Azure CLI](../azure-app-configuration/howto-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Montre comment utiliser Azure CLI pour envoyer des événements Azure App Configuration à un webhook. |
+| [Schéma d’événement](event-schema-app-configuration.md) | Montre les champs dans les événements Azure App Configuration. |
 
 
 ## <a name="next-steps"></a>Étapes suivantes

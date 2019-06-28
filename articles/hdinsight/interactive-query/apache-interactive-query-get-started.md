@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.openlocfilehash: db36bbf6e20f9fab2f9a99f59be7a088e8f208e1
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65800920"
 ---
 # <a name="use-interactive-query-with-hdinsight"></a>Utiliser Interactive Query avec HDInsight
@@ -41,7 +41,7 @@ Pour exécuter des requêtes Hive, vous disposez des options suivantes :
 
 * Utiliser Visual Studio Code
 
-    Consultez [utiliser Visual Studio Code pour Apache Hive, LLAP ou pySpark](../hdinsight-for-vscode.md).
+    Consultez [Utiliser Visual Studio Code pour Apache Hive, LLAP ou pySpark](../hdinsight-for-vscode.md).
 * Exécutez Apache Hive à l’aide de la vue Ambari Apache Hive.
   
     Consultez [Utiliser la vue Apache Hive avec Apache Hadoop dans Azure HDInsight](../hadoop/apache-hadoop-use-hive-ambari-view.md).
@@ -57,7 +57,7 @@ Pour exécuter des requêtes Hive, vous disposez des options suivantes :
 
 Pour rechercher la chaîne de connexion Java Database Connectivity (JDBC) :
 
-1. Se connecter à Apache Ambari à l’aide de l’URL suivante : `https://<cluster name>.AzureHDInsight.net`.
+1. Connectez-vous à Apache Ambari à l’aide de l’URL suivante : `https://<cluster name>.AzureHDInsight.net`.
 2. Dans le menu de gauche, sélectionnez **Hive**.
 3. Pour copier l’URL, sélectionnez l’icône du Presse-papiers :
    

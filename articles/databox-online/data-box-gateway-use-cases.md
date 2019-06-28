@@ -1,6 +1,6 @@
 ---
-title: Cas d’usage de passerelle de zone de données Microsoft Azure | Microsoft Docs
-description: Décrit les cas d’usage pour la passerelle de zone de données Azure, une solution de stockage d’appliance virtuelle qui vous permet de transférer des données vers Azure
+title: Cas d’utilisation pour Microsoft Azure Data Box Gateway | Microsoft Docs
+description: Décrit les cas d’utilisation pour Azure Data Box Gateway, solution de stockage d’appliance virtuelle qui vous permet de transférer des données vers Azure.
 services: databox
 author: alkohli
 ms.service: databox
@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/02/2019
 ms.author: alkohli
 ms.openlocfilehash: e9092fb91ad98e6147647717e11d1a64bcff580e
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66754182"
 ---
 # <a name="use-cases-for-azure-data-box-gateway"></a>Cas d’utilisation pour Azure Data Box Gateway
@@ -59,7 +59,7 @@ Pour plus d’informations, découvrez en détail comment [gérer le cycle de vi
 
 ## <a name="initial-bulk-transfer-followed-by-incremental-transfer"></a>Transfert en bloc initial suivi de transfert incrémentiel
 
-Utilisez Data Box avec Data Box Gateway quand vous souhaitez effectuer un chargement en bloc d’une grande quantité de données, suivi de transferts incrémentiels. Utilisez Data Box pour le transfert en bloc dans un mode hors connexion (amorçage initiale) et Data Box Gateway pour les transferts incrémentiels (flux en cours) par le biais du réseau.
+Utilisez Data Box avec Data Box Gateway quand vous souhaitez effectuer un chargement en bloc d’une grande quantité de données, suivi de transferts incrémentiels. Utilisez Data Box pour le transfert en bloc dans un mode hors connexion (amorçage initial) et Data Box Gateway pour les transferts incrémentiels (flux en cours) par le biais du réseau.
 
 ### <a name="seed-the-data-with-data-box"></a>Amorcer les données avec Data Box
 

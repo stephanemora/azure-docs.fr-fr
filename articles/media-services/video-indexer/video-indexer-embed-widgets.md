@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 06/05/2019
 ms.author: juliako
 ms.openlocfilehash: 6b5422e2eb67eb309c086c023df9f733940e5e44
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66735070"
 ---
 # <a name="embed-video-indexer-widgets-into-your-applications"></a>Incorporer des widgets Video Indexer dans vos applications
@@ -31,7 +31,7 @@ Un widget **Insight cognitifs** inclut tous les insights visuels extraits à par
 
 |Nom|Définition|Description|
 |---|---|---|
-|widgets|Chaînes séparées par des virgules|Vous permet de contrôler les insights dont vous voulez faire le rendu. <br/>Exemple : `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search` affichera uniquement les insights d’IU des marques (brands) et des personnes (people)<br/>Options disponibles : personnes (people), mots clés (keywords), annotations, marques (brands), sentiments, transcription (transcript), recherche (search).<br/>non pris en charge via l’URL dans la version=2<br/><br/>**Remarque :** Le paramètre d’URL de widgets n’est pas pris en charge dans la version 2. |
+|widgets|Chaînes séparées par des virgules|Vous permet de contrôler les insights dont vous voulez faire le rendu. <br/>Exemple : `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search` affichera uniquement les insights d’IU des marques (brands) et des personnes (people)<br/>Options disponibles : personnes (people), mots clés (keywords), annotations, marques (brands), sentiments, transcription (transcript), recherche (search).<br/>non pris en charge via l’URL dans la version=2<br/><br/>**Remarque :** Le paramètre d’URL des widgets n’est pas pris en charge dans la version 2. |
 
 ### <a name="player-widget"></a>Widget Lecteur
 
@@ -42,9 +42,9 @@ Un widget **Lecteur** vous permet de diffuser la vidéo en continu à l’aide d
 |t|Secondes depuis le début|Fait démarrer le lecteur à partir d’un instant donné.<br/>Exemple : t=60|
 |captions|Code de langue|Extrait les sous-titres dans la langue spécifiée pendant le chargement du widget pour les rendre disponibles dans le menu des sous-titres.<br/>Exemple : captions=en-US|
 |showCaptions|Une valeur booléenne|Permet de charger le lecteur avec les sous-titres déjà activés.<br/>Exemple : showCaptions=true|
-|type||Active une apparence du lecteur audio (la partie vidéo est supprimée).<br/>Exemple : type=audio|
+|Type||Active une apparence du lecteur audio (la partie vidéo est supprimée).<br/>Exemple : type=audio|
 |autoplay|Une valeur booléenne|Indique si le lecteur doit commencer la lecture de la vidéo après le chargement (la valeur par défaut est true).<br/>Exemple : autoplay=false|
-|langage|Code de langue|Détermine la langue du lecteur (la valeur par défaut est en-US)<br/>Exemple : language=de-DE|
+|Langage|Code de langue|Détermine la langue du lecteur (la valeur par défaut est en-US)<br/>Exemple : language=de-DE|
 
 ## <a name="embedding-public-content"></a>Incorporation de contenu public
 
@@ -63,7 +63,7 @@ Un widget **Lecteur** vous permet de diffuser la vidéo en continu à l’aide d
     ![Widget](./media/video-indexer-embed-widgets/video-indexer-widget02.png)
 
 > [!NOTE]
-> Si vous rencontrez des problèmes avec le partage de votre URL de vidéo, essayez d’ajouter le paramètre 'location' pour le lien. Le paramètre doit être défini sur le [régions Azure dans lequel se trouve Video Indexer](regions.md). Par exemple : `https://www.videoindexer.ai/accounts/00000000-0000-0000-0000-000000000000/videos/b2b2c74b8e/?location=trial`.
+> Si vous rencontrez des difficultés à partager vos URL vidéos, essayez d’ajouter le paramètre « location » au lien. Ce paramètre doit être défini sur les [régions Azure dans lesquelles Video Indexer est présent](regions.md). Par exemple : `https://www.videoindexer.ai/accounts/00000000-0000-0000-0000-000000000000/videos/b2b2c74b8e/?location=trial`.
 
 ## <a name="embedding-private-content"></a>Incorporation de contenu privé
 
@@ -176,7 +176,7 @@ Si vous utilisez votre propre lecteur, vous devez vous-même prendre en charge l
         </video>    
 
 2. Incorporez le widget Insight cognitifs.
-3. Implémenter une communication pour votre lecteur en écoutant l’événement « message ». Exemple :
+3. Implémenter une communication pour votre lecteur en écoutant l’événement « message ». Par exemple :
 
         <script>
     
@@ -237,7 +237,7 @@ Notez que cette option n’est utile que les cas où vous avez besoin d’ouvrir
 
 Si vous incorporez le lecteur Video Indexer, vous pouvez choisir la taille du lecteur en spécifiant la taille de l’iframe.
 
-Exemple :
+Par exemple :
 
 `<iframe width="640" height="360" src="https://www.videoindexer.ai/embed/player/<accountId>/<videoId>/" frameborder="0" allowfullscreen />`
 
@@ -258,4 +258,4 @@ Lecture d’automatique : par défaut, le lecteur démarrera la lecture de la vi
 
 Pour plus d’informations sur la façon d’afficher et de modifier les insights de Video Indexer, consultez [cet](video-indexer-view-edit.md) article.
 
-Découvrez également [Video indexer CodePen](https://codepen.io/videoindexer/pen/eGxebZ).
+Consultez également la section [Codepen de Video Indexer](https://codepen.io/videoindexer/pen/eGxebZ).

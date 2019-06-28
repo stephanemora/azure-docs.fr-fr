@@ -1,7 +1,7 @@
 ---
-title: 'Affecter des données au Cluster : Référence de module'
+title: 'Attribuer des données à des clusters : Informations de référence sur les modules'
 titleSuffix: Azure Machine Learning service
-description: Découvrez comment utiliser les données à affecter au module de Cluster dans le service Azure Machine Learning à noter le modèle de clustering.
+description: Découvrez comment utiliser le module Attribuer des données à des clusters dans le service Azure Machine Learning pour évaluer les modèles de clustering.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,43 +11,43 @@ ms.author: zhanxia
 ms.date: 05/06/2019
 ROBOTS: NOINDEX
 ms.openlocfilehash: 1c2d2a02ecfb617551dd9174b87f363d57b151a8
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65467198"
 ---
-# <a name="module-assign-data-to-clusters"></a>Module : Affecter des données aux Clusters
+# <a name="module-assign-data-to-clusters"></a>Module : Attribuer des données à des clusters
 
-Cet article décrit comment utiliser le *affecter les données aux Clusters* module dans l’interface visuelle Azure Machine Learning. Le module génère des prédictions via un modèle de clustering qui a été formé avec le *clustering K-means* algorithme.
+Cet article décrit comment utiliser le module *Attribuer des données à des clusters* dans l’interface visuelle Azure Machine Learning. Le module génère des prédictions via un modèle de clustering qui a été formé avec l’algorithme de *clustering k-moyennes*.
 
-Les données à affecter au module de Clusters retourne un jeu de données qui contient les affectations probables pour chaque nouveau point de données. 
+Le module Attribuer des données à des clusters retourne un jeu de données contenant les attributions probables de chaque nouveau point de données. 
 
 
-## <a name="how-to-use-assign-data-to-clusters"></a>L’utilisation d’affecter les données aux Clusters
+## <a name="how-to-use-assign-data-to-clusters"></a>Comment utiliser le module Attribuer des données à des clusters
   
-1. Dans l’interface visuelle de Azure Machine Learning, recherchez un modèle de clustering formé précédemment. Vous pouvez créer et former un modèle de clustering à l’aide d’une des méthodes suivantes :  
+1. Dans l’interface visuelle d’Azure Machine Learning, recherchez un modèle de clustering formé précédemment. Vous pouvez créer et former un modèle de clustering à l’aide d’une des méthodes suivantes :  
   
-    - Configurer l’algorithme de clustering K-means à l’aide de la [Clustering K-Means](k-means-clustering.md) module et former le modèle à l’aide d’un jeu de données et le module former le modèle de Clustering (cet article).  
+    - Configurer l’algorithme de clustering K-moyennes à l’aide du module [Clustering k-moyennes](k-means-clustering.md) et former le modèle à l’aide d’un jeu de données et du module Former le modèle de clustering (cet article).  
   
-    - Vous pouvez également ajouter un modèle de clustering formé existant à partir de la **modèles enregistrés** groupe dans votre espace de travail.
+    - Vous pouvez également ajouter un modèle de clustering formé existant à partir du groupe **Modèles enregistrés** dans votre espace de travail.
 
-2. Attacher le modèle formé pour le port d’entrée gauche **affecter les données aux Clusters**.  
+2. Attacher le modèle formé au port d’entrée gauche du module **Attribuer des données à des clusters**.  
 
-3. Attacher un nouveau jeu de données en tant qu’entrée. 
+3. Attachez un nouveau jeu de données en tant qu’entrée. 
 
-   Dans ce jeu de données, les étiquettes sont facultatives. En règle générale, le clustering est une méthode d’apprentissage non supervisé. Vous êtes censé pas connaître les catégories à l’avance. Toutefois, les colonnes d’entrée doivent être le même que les colonnes qui ont été utilisées pour l’apprentissage que du modèle de clustering, ou une erreur se produit.
+   Dans ce jeu de données, les étiquettes sont facultatives. En règle générale, le clustering est une méthode d’apprentissage non supervisée. Vous n’êtes pas censé connaître les catégories en avance. Toutefois, les colonnes d’entrée doivent être identiques aux colonnes utilisées lors de la formation du modèle de clustering. Dans le cas contraire, une erreur se produit.
 
     > [!TIP]
-    > Pour réduire le nombre de colonnes qui sont écrites dans l’interface à partir des prédictions de cluster, utilisez [sélectionner des colonnes dans le jeu de données](select-columns-in-dataset.md), puis sélectionnez un sous-ensemble de colonnes. 
+    > Pour réduire le nombre de colonnes rédigées dans l’interface à partir des prédictions de cluster, utilisez [Sélectionner les colonnes dans le jeu de données](select-columns-in-dataset.md), puis sélectionnez un sous-ensemble de colonnes. 
     
-4. Laissez le **recherchez Append ou décochez pour résultat uniquement** case cochée si vous souhaitez que les résultats contiennent le dataset d’entrée complet, y compris une colonne qui affiche les résultats (affectations de cluster).
+4. Cochez la case **Cocher pour ajouter ou Décocher pour résultats uniquement** si vous voulez que les résultats comprennent le jeu de données d’entrée entier, y compris une colonne qui affiche les résultats (attributions de cluster).
   
-    Si vous désactivez cette case à cocher, seuls les résultats sont retournés. Cette option peut être utile lorsque vous créez des prédictions dans le cadre d’un service web.
+    Si vous décochez cette case, seuls les résultats sont retournés. Cette option peut être utile lorsque vous créez des prédictions dans le cadre d’un service web.
   
 5.  Exécutez l’expérience.  
   
 ### <a name="results"></a>Résultats
 
-+  Pour afficher les valeurs dans le jeu de données, cliquez sur le module, sélectionnez **entraîner des jeux de données**, puis sélectionnez **visualiser**.
++  Pour afficher les valeurs dans le jeu de données, cliquez sur le module avec le bouton droit de la souris, sélectionnez **Result datasets** (Jeux de données de résultats), puis sélectionnez **Visualiser**.
 

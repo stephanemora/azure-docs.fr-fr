@@ -9,13 +9,13 @@ ms.topic: article
 ms.date: 05/08/2019
 ms.author: alkohli
 ms.openlocfilehash: e8932097bcdef782b1a551d386c2872e02d8abfd
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65442386"
 ---
-# <a name="azure-data-box-gateway-system-requirements"></a>Configuration requise à la passerelle de données Azure
+# <a name="azure-data-box-gateway-system-requirements"></a>Configuration système Azure Data Box Gateway
 
 Cet article décrit la configuration système importante pour votre solution Microsoft Azure Data Box Gateway et pour les clients se connectant à Azure Data Box Gateway. Nous vous recommandons de lire attentivement les informations suivantes avant de déployer votre solution Data Box Gateway, puis d’y revenir si nécessaire pendant le déploiement et les opérations suivantes.
 
@@ -29,7 +29,7 @@ La configuration système requise pour l’appareil virtuel Data Box Gateway inc
 
 Le système hôte sous-jacent pour le Data Box Gateway est en mesure de dédier les ressources suivantes pour approvisionner votre appareil virtuel :
 
-| Spécifications                                          | Description               |
+| Spécifications                                          | Description              |
 |---------------------------------------------------------|--------------------------|
 | Processeurs virtuels (cœurs)   | 4 minimum |
 | Mémoire  | 8 Go minimum|

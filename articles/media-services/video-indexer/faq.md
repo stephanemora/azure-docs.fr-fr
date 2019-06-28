@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 05/15/2019
 ms.author: juliako
 ms.openlocfilehash: f20d718d0b1d3bbdf117e502a380897c79a7905f
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65799496"
 ---
 # <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
@@ -159,7 +159,7 @@ Les jetons d’accès expirent toutes les heures. Vous devez donc générer un n
 
 Video Indexer utilise un modèle tarifaire simple de paiement à l’utilisation, basé sur la durée de l’entrée de contenu que vous indexez. Des frais supplémentaires peuvent s’appliquer pour le codage, le streaming, le stockage, l’utilisation du réseau et les unités réservées Multimédia. Pour plus d’informations, consultez la page des [tarifs](https://azure.microsoft.com/pricing/details/cognitive-services/video-indexer/).
 
-### <a name="when-am-i-billed-for-using-video-indexer"></a>Lorsque de facturation pour l’utilisation de Video Indexer ?
+### <a name="when-am-i-billed-for-using-video-indexer"></a>Quand suis-je facturé pour l’utilisation de Video Indexer ?
 
 Lors de l’envoi d’une vidéo à indexer, l’utilisateur définit l’indexation comme étant une analyse vidéo, une analyse audio ou les deux. Cela détermine quelles références (SKU) seront ensuite facturées. Si une erreur de niveau critique se produit pendant le traitement, un code d’erreur est retourné en réponse. Dans ce cas, aucune facturation n’a lieu.  Une erreur critique peut être causée par un bogue dans notre code ou une défaillance critique dans une dépendance interne du service. Lorsque des erreurs non critiques, telles que l’identification erronée ou l’extraction d’insights, surviennent, une réponse est retournée. Dans tous les cas où une réponse valide (sans code d’erreur) est retournée, la facturation a lieu.
  
@@ -169,4 +169,4 @@ Oui. Video Indexer propose un essai gratuit qui offre des fonctionnalités compl
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Vue d’ensemble](video-indexer-overview.md)
+[Vue d'ensemble](video-indexer-overview.md)

@@ -9,10 +9,10 @@ ms.date: 12/19/2018
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 1f9c30f1c914f6c8d42967e014d967ba0d5b85cc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66142296"
 ---
 # <a name="manage-azure-analysis-services-with-powershell"></a>Gérer Azure Analysis Services avec PowerShell
@@ -27,13 +27,13 @@ Les tâches de gestion de serveur telles que la création ou la suppression d’
 
 La plupart des tâches PowerShell nécessitent que vous disposiez de privilèges d’administrateur sur le serveur Analysis Services que vous gérez. Les tâches PowerShell planifiées s’exécutent sans assistance. Le compte ou le principal de service exécutant le planificateur doit disposer de privilèges d’administrateur sur le serveur Analysis Services. 
 
-Pour les opérations de serveur à l’aide des applets de commande Azure PowerShell, votre compte ou le compte exécutant scheduler doit également appartenir au rôle de propriétaire de la ressource dans [contrôle d’accès en fonction du rôle (RBAC)](../role-based-access-control/overview.md). 
+Pour les opérations de serveur utilisant des cmdlets Azure PowerShell, votre compte ou le compte exécutant Scheduler doivent également appartenir au rôle Propriétaire associé à la ressource dans le [contrôle d’accès en fonction du rôle (RBAC) d’Azure](../role-based-access-control/overview.md). 
 
 ## <a name="resource-management-operations"></a>Opérations de gestion des ressources 
 
 Module - [Az.AnalysisServices](/powershell/module/az.analysisservices)
 
-|Applet de commande|Description | 
+|Applet de commande|Description| 
 |------------|-----------------| 
 |[Get-AzAnalysisServicesServer](/powershell/module/az.analysisservices/get-azanalysisservicesserver)|Obtient les détails d’une instance de serveur.|  
 |[New-AzAnalysisServicesServer](/powershell/module/az.analysisservices/new-azanalysisservicesserver)|Crée une instance de serveur.|   
@@ -49,12 +49,12 @@ Module - [Az.AnalysisServices](/powershell/module/az.analysisservices)
 
 Module - [Azure.AnalysisServices](https://www.powershellgallery.com/packages/Azure.AnalysisServices)
 
-|Applet de commande|Description | 
+|Applet de commande|Description| 
 |------------|-----------------| 
 |[Add-AzAnalysisServicesAccount](/powershell/module/az.analysisservices/add-AzAnalysisServicesaccount)|Ajoute un compte authentifié à utiliser pour les demandes d’applet de commande du serveur Azure Analysis Services.| 
-|[Export-AzAnalysisServicesInstance](/powershell/module/az.analysisservices/export-AzAnalysisServicesinstancelog)|Exporte un journal à partir d’une instance de serveur Analysis Services dans actuellement connecté dans un environnement tel que spécifié dans la commande de Add-AzAnalysisServicesAccount|  
-|[Restart-AzAnalysisServicesInstance](/powershell/module/az.analysisservices/restart-AzAnalysisServicesinstance)|Redémarre une instance de serveur Analysis Services dans l’environnement actuellement connecté ; spécifié dans la commande de Add-AzAnalysisServicesAccount.|  
-|[Sync-AzAnalysisServicesInstance](/powershell/module/az.analysisservices/restart-AzAnalysisServicesinstance)|Synchronise une base de données spécifiée sur l’instance spécifiée de serveur Analysis Services pour toutes les instances de montée en puissance de requête dans actuellement connecté dans un environnement tel que spécifié dans la commande de Add-AzAnalysisServicesAccount|  
+|[Export-AzAnalysisServicesInstance](/powershell/module/az.analysisservices/export-AzAnalysisServicesinstancelog)|Exporte un journal à partir d’une instance du serveur Analysis Services dans l’environnement actuellement connecté, spécifié dans la commande Add-AzAnalysisServicesAccount|  
+|[Restart-AzAnalysisServicesInstance](/powershell/module/az.analysisservices/restart-AzAnalysisServicesinstance)|Redémarre une instance du serveur Analysis Services dans l’environnement actuellement connecté ; spécifié dans la commande Add-AzAnalysisServicesAccount.|  
+|[Sync-AzAnalysisServicesInstance](/powershell/module/az.analysisservices/restart-AzAnalysisServicesinstance)|Synchronise une base de données spécifiée sur l’instance donnée du serveur Analysis Services avec toutes les instances de scale-out de requête au sein de l’environnement actuellement connecté comme spécifié dans la commande Add-AzAnalysisServicesAccount|  
 
 ## <a name="database-operations"></a>Opérations de base de données
 
@@ -63,7 +63,7 @@ Les opérations de bases de données Azure Analysis Services utilisent le même 
 Le module SqlServer fournit des applets de commande de gestion de base de données spécifiques à chaque tâche, ainsi que l’applet de commande Invoke-ASCmd à usage général, qui accepte un script ou une requête utilisant le langage de script de modèle tabulaire (TMSL). Les applets de commande suivantes du module SqlServer sont prises en charge par Azure Analysis Services.
 
   
-|Applet de commande|Description |
+|Applet de commande|Description|
 |------------|-----------------| 
 |[Add-RoleMember](https://docs.microsoft.com/powershell/module/sqlserver/Add-RoleMember)|Ajoute un membre à un rôle de base de données.| 
 |[Backup-ASDatabase](https://docs.microsoft.com/powershell/module/sqlserver/backup-asdatabase)|Sauvegarde une base de données Analysis Services.|  
